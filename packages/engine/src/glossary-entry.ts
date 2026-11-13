@@ -36,14 +36,14 @@ const RULES = `GLOSSARY RULES. Below are a Vietnamese glossary ENTRY about a fis
 3. A word is used against a TERM's definition: tannins that lower pH a little do not soften water (hardness is GH and KH), and so on.
 4. The remark that sources or shops disagree appears more than once. It should be said once, with what the keeper can do about it.
 5. A kind in KINDS that the FACTS describe is missing; a kind is without the English name the FACTS give it; an English name is given that the FACTS don't give.
-6. An animal or plant in PAGES is called by a name that line doesn't list.
+6. An animal or plant in PAGES is called by a name its line doesn't list. One with no line in PAGES is called by anything but its scientific name or its English name as the FACTS write them: a Vietnamese name for it is invented.
 Reply {"notes": [...]}, empty if the entry keeps every rule.`
 const RULES_SCHEMA = { type: 'object', required: ['notes'], properties: { notes: { type: 'array', items: { type: 'string' } } } }
 
 /**
  * The site's pages for the animals and plants a text names: a page one of whose names of two words or more (its own, its
  * scientific name, its other names, English ones among them) the text writes whole, a plural too ("bristlenose plecos"),
- * and the two fullest pages of a genus the text names alone ("Otocinclus and…"): not inside a scientific name ("Otocinclus
+ * and up to eight pages of a genus the text names alone ("Otocinclus and…"): not inside a scientific name ("Otocinclus
  * vittatus" is that fish), and not first in a sentence, where an English word is capitalised too ("Spider wood…"). Each
  * line is the page's name, then other names it goes by: the writer writes one of them, and the site links it.
  */
@@ -68,7 +68,7 @@ export async function pageNames(root: string, text: string): Promise<string[]> {
   const alone = new Set([...text.matchAll(/(^|[^.!?\s]\s+|[,;:(]\s*)([A-Z][a-z]{4,})\b(\s+[a-z]+)?/g)].filter(m => !scientific.has(`${m[2]}${m[3] ?? ''}`.toLowerCase()) && m[1] !== '').map(m => m[2]!))
   const byGenus = new Map<string, typeof pages>()
   for (const p of pages) { const g = p.scientific?.split(' ')[0]; if (g && alone.has(g)) byGenus.set(g, [...(byGenus.get(g) ?? []), p]) }
-  for (const ps of byGenus.values()) for (const p of ps.sort((a, b) => b.size - a.size).slice(0, 2)) out.add(p.line)
+  for (const ps of byGenus.values()) for (const p of ps.sort((a, b) => b.size - a.size).slice(0, 8)) out.add(p.line)
   return [...out].slice(0, 30)
 }
 
@@ -158,7 +158,11 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   }
   const now = o.now?.()
   await logReviews(root, 'glossary', { id: `glossary/${id}`, lang: 'vi' }, tries, passes(review) ? review : undefined, now ? { now } : {})
-  if (!passes(review)) return { id, skipped: review.broken ? `breaks the rules: ${review.broken}` : `under the bar: ${review.score}`, notes: review.notes }
+  if (!passes(review)) {
+    // Kept for a reader to judge (the chief of staff, 14 Nov 2026): the draft that came closest, and why it wasn't saved.
+    await writeFile(join(root, 'engine-state/glossary', `${id}.draft.json`), `${JSON.stringify({ score: review.score, broken: review.broken, notes: review.notes, entry: w }, null, 2)}\n`)
+    return { id, skipped: review.broken ? `breaks the rules: ${review.broken}` : `under the bar: ${review.score}`, notes: review.notes, draft: `engine-state/glossary/${id}.draft.json` }
+  }
 
   const taken = new Set(others.flatMap(x => [x.name, ...x.altNames]).map(n => n.toLowerCase()))
   // Written whole in one fact, as its own word: "gỗ lũ" is not in "gỗ lũa".
