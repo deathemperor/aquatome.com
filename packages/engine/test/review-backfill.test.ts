@@ -130,6 +130,22 @@ test('a species translation is reviewed again per source under the bar, against 
   expect(Object.keys(await readReviews(root, 'localize'))).toEqual(['id/species/x'])
 })
 
+test('a source whose text has left the page isn\'t listed: nothing to check it against, and no failure every run', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'rb-'))
+  const sec = (key: string, source: string) => ({ key, source, sourceUrl: 'u', html: `<p>${key} from ${source}</p>` })
+  await put(root, 'content/sources.json', { seriouslyfish: { permission: { scope: ['translation'] } }, glaser: { permission: { scope: ['translation'] } } })
+  // Its Glaser part is gone from the page, its score still on record under the bar.
+  await put(root, 'content/species/x/entity.json', { id: 'x', sections: [sec('diet', 'seriouslyfish')] })
+  await put(root, 'content/species/x/vi.json', { slug: 'x', name: 'X', sections: { 'diet:seriouslyfish': '<p>ăn gì</p>' }, quality: { score: 0.6, indexable: false, bySource: { seriouslyfish: 0.6, glaser: 0.7 } } })
+  const prompts: string[] = []
+  const llm: Llm = async <T,>(a: { prompt: string }) => { prompts.push(a.prompt); return { score: 0.8, notes: [] } as T }
+  const r = await reviewBackfill({ root, llm, now: () => new Date('2026-11-13T10:00:00Z') }, { kinds: ['translation'], limit: 5 })
+  expect(r.checked).toEqual(['translation vi/species/x#seriouslyfish: 0.80 (was 0.60), 0 notes'])
+  expect(r.failed).toEqual([])
+  expect(r.left).toEqual({ translation: 0 })
+  expect(prompts).toHaveLength(1)
+})
+
 test('a guide AquaTome wrote is checked again as it is, against the facts its writer had, and the check\'s score is the page\'s', async () => {
   const root = await mkdtemp(join(tmpdir(), 'rb-'))
   const g = 'aquatome-thoi-vay'

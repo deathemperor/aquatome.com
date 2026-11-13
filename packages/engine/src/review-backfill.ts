@@ -5,7 +5,7 @@ import { OTHER_LANGS } from '@aq/schema/langs'
 import { LlmError, type Llm } from './claude'
 import { placeLine, review as reviewLocalized, reviewPlaces, translatableIn, type TargetLang } from './localize'
 import { reviewTranslation, steadyRead } from './quality'
-import { applySourceRechecks, sourceTextHash } from './recheck-score'
+import { applySourceRechecks, sourcePairs, sourceTextHash } from './recheck-score'
 import { itemReviews, logReviews, readReviews, reviewKey, type PageRef, type ReviewKind } from './review-log'
 import { setHold } from './video-hold'
 import { byRank } from './video-order'
@@ -61,8 +61,13 @@ async function jobs(root: string, kind: BackfillKind, all = false): Promise<Job[
     }
   } else if (kind === 'translation') {
     for (const dir of ['species', 'plants']) for (const id of await list(join(content, dir))) {
-      const q = (await json<Translation>(join(content, dir, id, 'vi.json')))?.quality
-      for (const [part, score] of Object.entries(q?.bySource ?? {})) if (under({ score })) out.push({ page: { id: `${dir}/${id}`, lang: 'vi', part }, score })
+      const t = await json<Translation>(join(content, dir, id, 'vi.json'))
+      const low = Object.entries(t?.quality?.bySource ?? {}).filter(([, score]) => under({ score }))
+      if (!low.length) continue
+      // A source whose text has left the page has nothing to check against: it isn't listed. On 13 Nov 2026 one such
+      // (a fish's Glaser part) was tried and failed "no text to check" every run (the chief of staff: drop it).
+      const sections = (await json<{ sections: Section[] }>(join(content, dir, id, 'entity.json')))?.sections ?? []
+      for (const [part, score] of low) if (sourcePairs(sections, t?.sections ?? {}, part).length) out.push({ page: { id: `${dir}/${id}`, lang: 'vi', part }, score })
     }
   } else {
     const dirs = kind === 'places' ? ['places'] : ['species', 'plants']
