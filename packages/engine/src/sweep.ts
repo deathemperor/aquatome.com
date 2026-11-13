@@ -654,11 +654,15 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     }
     const own = (x: (typeof plan)[number]) => (x.data.photos ?? []).filter(p => !p.generated)
     const emptying = plan.filter(x => x.file.endsWith('entity.json') && own(x).length && own(x).every(p => x.off.has(p.url)))
-    // The pages the check's last run held (photo-check.ts writes them), and this run's own past the cap.
-    const byCheck = new Set((JSON.parse(await readFile(join(root, 'engine-state', '_photo-held.json'), 'utf8').catch(() => '[]')) as string[]).map(ref => ref.split('/')[1]!))
+    // The pages the check's last run held (photo-check.ts writes them, page → true), and this run's own past the cap. A
+    // held file the sweep can't read holds every page: nothing comes off until a run of the check writes it again.
+    const heldRaw = await readFile(join(root, 'engine-state', '_photo-held.json'), 'utf8').then(s => JSON.parse(s) as unknown, (e: NodeJS.ErrnoException) => (e.code === 'ENOENT' ? {} : undefined)).catch(() => undefined)
+    const readable = !!heldRaw && typeof heldRaw === 'object' && !Array.isArray(heldRaw) && Object.values(heldRaw).every(v => v === true)
+    const byCheck = new Set(readable ? Object.keys(heldRaw as object).map(ref => ref.split('/')[1]!) : plan.map(x => x.id))
     const overCap = new Set(emptying.length > EMPTY_CAP ? emptying.map(x => x.id) : [])
     const held = new Set([...byCheck, ...overCap])
-    for (const id of [...new Set(plan.map(x => x.id))].filter(id => held.has(id))) report.refusedHeld.push(`${kindOf.get(id)}/${id} (${byCheck.has(id) ? 'held by the photo check' : `more than ${EMPTY_CAP} pages left with no photo`})`)
+    const heldWhy = (id: string) => (!readable ? 'engine-state/_photo-held.json unreadable: nothing taken off' : byCheck.has(id) ? 'held by the photo check' : `more than ${EMPTY_CAP} pages left with no photo`)
+    for (const id of [...new Set(plan.map(x => x.id))].filter(id => held.has(id))) report.refusedHeld.push(`${kindOf.get(id)}/${id} (${heldWhy(id)})`)
     for (const x of plan) {
       if (held.has(x.id)) continue
       x.data.photos = x.data.photos!.filter(p => p.generated || !x.off.has(p.url))

@@ -1,5 +1,6 @@
 import { compactVerdict, photoHints, photoReason, deadNote, peopleNote, photoFailure, photoModelStop, type PhotoHints } from './photo-observations'
 import { writePhotoState } from './photo-state'
+import { writeImageCache } from './image-cache-write'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -565,6 +566,17 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const held = new Set([...heldPages, ...heldPages.map(f => join(content, 'gallery', `${f.split('/').at(-2)}.json`))])
   const pageOf = (file: string) => file.slice(content.length + 1).split('/').slice(0, 2).join('/')
   for (const file of heldPages) report.heads.held.push(`${pageOf(file)}: ${(await ownPhotos(file))[0]!.url}`)
+  // The pages held go to engine-state/_photo-held.json (page → true, a map as the engine's other records, so its merge
+  // driver keeps it whole) for the sweep, which keeps a refused photo off between two runs and leaves these as the check
+  // left them (sweep.ts). The check's hold counts more than the sweep's rule can see (a person, a dead fish or a logo, the
+  // first check's verdicts), so the sweep reads it rather than counting again. Before this run writes anything, the hold
+  // it found and its own together; at the end, its own alone: a run cut short leaves held every page either holds.
+  const heldFile = join(root, 'engine-state/_photo-held.json')
+  const writeHeld = (v: Record<string, true>) => writeImageCache(heldFile, `${JSON.stringify(Object.fromEntries(Object.entries(v).sort()), null, 2)}\n`)
+  const heldNow = Object.fromEntries(heldPages.map(f => [pageOf(f), true as const]))
+  const heldBefore = await readJson<unknown>(heldFile).catch(() => undefined)
+  const heldKeys = heldBefore && typeof heldBefore === 'object' && !Array.isArray(heldBefore) ? Object.keys(heldBefore) : []
+  await writeHeld({ ...Object.fromEntries(heldKeys.map(k => [k, true as const])), ...heldNow })
   // Not onto the never-again list either, or a later run would take them off through that, unseen.
   for (const file of held) for (const p of await ownPhotos(file)) {
     if (!(p.url in added)) continue
@@ -638,10 +650,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const now = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
   for (const [u, why] of Object.entries(added)) if (!(u in now)) { now[u] = why; report.rejected++ }
   await writePhotoState(rejectedFile, now)
-  // The pages this run held, for the sweep: it keeps a refused photo off between two runs, and leaves these as the check
-  // left them (sweep.ts). The check's hold counts more than the sweep's rule can see (a person, a dead fish or a logo,
-  // the first check's verdicts), so the sweep reads it rather than counting again.
-  await writeFile(join(root, 'engine-state/_photo-held.json'), `${JSON.stringify(heldPages.map(pageOf).sort(), null, 2)}\n`)
+  // This run's hold alone, once its pages, verdicts and never-again list are written (above).
+  await writeHeld(heldNow)
   const left = new Map<string, number>()
   for (const s of all) left.set(s.id, 0)
   for (const f of [...new Set(shown.filter(x => !x.guide).map(x => x.file))]) {

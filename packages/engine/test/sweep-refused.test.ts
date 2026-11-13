@@ -1,8 +1,10 @@
-import { copyFile, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { copyFile, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { checkPagePhotos } from '../src/photo-check'
+// @ts-expect-error plain .mjs git merge driver
+import { mergeMaps } from '../../../scripts/merge-json-map.mjs'
 import { sweep } from '../src/sweep'
 
 // A photo the check refused, put back between two checks by a source read or the monthly backfill, stays off: on the
@@ -135,13 +137,13 @@ test('the pages a run of the check held stay as it left them, though the sweep a
   const root = await store({ pages, albums: { 'fish-0': [photo('only-0')] }, subjects: { ...subjects, [`only-${n}`]: { [`fish-${n}`]: { ...verdict('yes'), typical: true, person: true } } } })
   const check = await checkPagePhotos(root, { get: async () => { throw new Error('no photo is fetched') }, look: async () => { throw new Error('no photo is judged') } }, { limit: 10 })
   expect(check.heads.held).toHaveLength(n + 1)
-  expect(JSON.parse(await readFile(join(root, 'engine-state/_photo-held.json'), 'utf8'))).toHaveLength(n + 1)
+  expect(Object.keys(JSON.parse(await readFile(join(root, 'engine-state/_photo-held.json'), 'utf8')))).toHaveLength(n + 1)
   const r = await sweep(root)
   for (let i = 0; i < n; i++) expect(await photosOf(root, `species/fish-${i}/entity.json`)).toEqual([`only-${i}`])
   expect(await photosOf(root, 'gallery/fish-0.json')).toEqual(['only-0'])
   expect(r.refusedHeld).toContain('species/fish-0 (held by the photo check)')
   // Released (the check's run with nothing held), the sweep keeps the refused photos off.
-  await writeFile(join(root, 'engine-state/_photo-held.json'), '[]\n')
+  await writeFile(join(root, 'engine-state/_photo-held.json'), '{}\n')
   await sweep(root)
   expect(await photosOf(root, 'species/fish-0/entity.json')).toEqual([])
 })
@@ -160,4 +162,43 @@ test("a guide's verdict, the first check's verdict and a generated photo don't t
   expect(await photosOf(root, 'species/fish-g/entity.json')).toEqual(['g', 'by-guide', 'by-legacy', 'drawn'])
   expect(await photosOf(root, 'species/fish-h/entity.json')).toEqual(['h'])
   expect(await photosOf(root, 'gallery/ludwigia-brevipes.json')).toEqual(['ludwigia-album'])
+})
+
+/** Ten pages whose only photo another page's verdict refuses, and an eleventh whose only photo has a person in it. */
+async function elevenHeld() {
+  const n = 10
+  const pages = Object.fromEntries(Array.from({ length: n + 1 }, (_, i) => [`fish-${i}`, [photo(`only-${i}`)]]))
+  const subjects = Object.fromEntries(Array.from({ length: n }, (_, i) => [`only-${i}`, { [`fish-${i}`]: verdict('other') }]))
+  return store({ pages, subjects: { ...subjects, [`only-${n}`]: { [`fish-${n}`]: { ...verdict('yes'), typical: true, person: true } } } })
+}
+const noModel = { get: async () => { throw new Error('no photo is fetched') }, look: async () => { throw new Error('no photo is judged') } }
+
+test('a check cut short after it saved its verdicts leaves its pages held: the hold is written before anything else', async () => {
+  const root = await elevenHeld()
+  // The never-again list is written after the verdicts: a write that fails there stops the run at that point.
+  await mkdir(join(root, 'engine-state/_photo-rejected.json'))
+  await expect(checkPagePhotos(root, noModel, { limit: 10 })).rejects.toThrow()
+  expect(Object.keys(JSON.parse(await readFile(join(root, 'engine-state/_photo-held.json'), 'utf8')))).toHaveLength(11)
+  await rm(join(root, 'engine-state/_photo-rejected.json'), { recursive: true })
+  await sweep(root)
+  expect(await photosOf(root, 'species/fish-0/entity.json')).toEqual(['only-0'])
+})
+
+test('two holds merged by the engine records\' merge driver keep both; a held file the sweep cannot read holds every page', async () => {
+  const root = await elevenHeld()
+  const merged = mergeMaps({}, { 'species/fish-0': true }, { 'species/fish-1': true })
+  await writeFile(join(root, 'engine-state/_photo-held.json'), `${JSON.stringify(merged, null, 2)}\n`)
+  const r = await sweep(root)
+  expect(await photosOf(root, 'species/fish-0/entity.json')).toEqual(['only-0'])
+  expect(await photosOf(root, 'species/fish-1/entity.json')).toEqual(['only-1'])
+  expect(await photosOf(root, 'species/fish-2/entity.json')).toEqual([])
+  expect(r.refusedHeld.sort()).toEqual(['species/fish-0 (held by the photo check)', 'species/fish-1 (held by the photo check)'])
+  for (const bad of ['["species/fish-3"]', '{"0": "species/fish-3"}', '{"species/fish-3": tr']) {
+    const again = await elevenHeld()
+    await writeFile(join(again, 'engine-state/_photo-held.json'), bad)
+    const out = await sweep(again)
+    expect(await photosOf(again, 'species/fish-3/entity.json')).toEqual(['only-3'])
+    expect(out.refused).toEqual([])
+    expect(out.refusedHeld[0]).toMatch(/unreadable: nothing taken off/)
+  }
 })
