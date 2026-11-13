@@ -836,8 +836,8 @@ export const gluedSyllables = (text: string) => [...new Set((text.normalize('NFC
 export { SWAPPED, type SwappedName } from './names'
 const word = (w: string) => `(?<!\\p{L})${w}(?!\\p{L})`
 const TAG = /<[^>]+>/g
-// Not after a genus cut to its letter ("P. luminatus").
-const SENTENCE_END = /(?<=[.!?])(?<!(?:^|[\s(])[A-Z]\.)\s+|\n/
+// Not after a genus cut to its letter ("P. luminatus"); after a capital that ends a sentence ("vitamin A. Ngoài ra"), yes.
+const SENTENCE_END = /(?<=[.!?])(?!(?<=(?:^|[\s(])[A-Z]\.)\s+[a-z])\s+|\n/
 const SWAPS = SWAPPED.map(r => {
   const fish = `(?:${r.fish.join('|')})`
   // Tags may stand in the way: the sweep reads this in HTML, the rule in plain text.

@@ -693,6 +693,8 @@ test.each([
   'Cá cầu vồng đỏ (G. pseudoincisus) sống ở sông Tami.',
   'G. pseudoincisus (cá cầu vồng đỏ) sống ở sông Tami.',
   'Cá cầu vồng neon đỏ mắt xanh (P. gertrudae) có đốm.',
+  // A capital that ends a sentence is no shortened genus: the next sentence's fish is its own (Astra's third read).
+  'Pseudomugil cần vitamin A. Ngoài ra, cá cầu vồng cần bể dài.',
   'Bèo tây (Eichhornia crassipes) to hơn nhiều.',
   'Cá táo đỏ và cá cầu vồng táo đỏ là một.',
   'Người ta còn gọi nó là cá cầu vồng  đỏ cá hồi hay cá cầu vồng New Guinea.',

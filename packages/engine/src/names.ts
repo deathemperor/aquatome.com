@@ -94,12 +94,13 @@ export const droppedName = (r: FishName, n: string) => [...(r.drop ?? []), ...(r
 export const oldNames = (r: FishName) => [...new Set([r.was, ...(r.drop ?? [])])].filter(n => n !== r.name && !(r.elsewhere ?? []).includes(n))
 /**
  * Its own page's words with a name that is another animal's written as `own`: "Rận nước (Asellus aquaticus)" and "Rận
- * nước Asellus aquaticus" as the scientific name, "còn gọi là rận nước" gone, any other "rận nước" as "Asellus".
+ * nước Asellus aquaticus" as the scientific name, ", còn gọi là rận nước," gone with both its commas, any other "rận nước"
+ * as "Asellus".
  */
 export const ownWords = (r: FishName, text: string) => (r.elsewhere ?? []).reduce((s, n) => {
   const w = `(?<!\\p{L})${n.replace(/ /g, '\\s+')}(?!\\p{L})`
   return s.replace(new RegExp(`${w}\\s*(?:\\(\\s*${r.sci}\\s*\\)|${r.sci})`, 'giu'), r.sci)
-    .replace(new RegExp(`,\\s*còn gọi là\\s+${w}`, 'giu'), '')
+    .replace(new RegExp(`,\\s*còn gọi là\\s+${w}(\\s*\\([^()]*\\))?,?`, 'giu'), '$1')
     .replace(new RegExp(w, 'giu'), r.own ?? r.sci)
 }, text.normalize('NFC'))
 

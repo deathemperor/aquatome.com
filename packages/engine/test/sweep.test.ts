@@ -953,7 +953,7 @@ test('a name that is another animal\'s leaves the page, its other names, its for
   expect([louse.name, louse.slug, louse.nameFixed, louse.altNames]).toEqual(['Asellus aquaticus', 'asellus-aquaticus', true, ['Water louse']])
   expect(louse.redirectFrom).toEqual([{ slug: 'ran-nuoc', name: '' }])
   expect(louse.sections).toEqual({
-    'quickFacts:aquariumbreeder': '<p>Asellus aquaticus (tên tiếng Anh: Water louse), là một loài giáp xác nhỏ.</p>',
+    'quickFacts:aquariumbreeder': '<p>Asellus aquaticus (tên tiếng Anh: Water louse) là một loài giáp xác nhỏ.</p>',
     'behaviour:aquariumbreeder': '<p>Asellus bò chậm. Vì ăn mùn bã, Asellus dọn bể.</p>',
     'references:aquariumbreeder': '<p>Rận nước</p>',
   })
