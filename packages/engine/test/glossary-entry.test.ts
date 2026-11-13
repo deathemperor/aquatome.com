@@ -59,7 +59,8 @@ test('a term\'s fuller entry: cited facts only, checked and rewritten once on no
   // kind under those names (the owner, 13 Nov: driftwood "with all kinds and names named per language").
   expect(researched).toContain('the name Vietnamese shops write for it and its English name')
   expect(researched).toContain('never on marketplaces (Shopee, Lazada, Tiki) or social networks')
-  expect(prompts[0]).toContain('<strong>tên các cửa hàng Việt Nam ghi</strong> và tên tiếng Anh')
+  expect(prompts[0]).toContain('<strong>tên các tiệm Việt Nam ghi</strong>')
+  expect(prompts[0]).toContain('Trước hết là các loại bán ở Việt Nam')
   expect(prompts[0]).toContain('Soak new driftwood for one to two weeks')
   expect(prompts[0]).toContain('tanin: Tanin: Chất từ lá và gỗ')
   expect(prompts[0]).not.toContain('lua: Lũa:')
@@ -140,9 +141,16 @@ test('the owner\'s asks reach research and writer, our pages\' names reach the w
   const research: Llm = async ({ prompt }) => { researched = prompt; return shrimp as never }
   const r = await makeGlossaryEntry(root, { research, llm: llm([['"cồn công nghiệp" advised on one shop\'s word'], []]) }, 'lua', { kind: 'aquascaping' })
   expect(researched).toContain('Cover each of these kinds by name')
-  expect(researched).toContain('lũa sa tùng, which shops also sell as lũa kim sa tùng')
+  expect(researched).toContain('Kinds sold in Vietnam. For each, everything a source says')
+  expect(researched).toContain('lũa sa tùng, also sold as lũa kim sa tùng')
+  expect(researched).toContain('Names a keeper meets on foreign listings')
+  expect(researched).toContain('by its scientific name too')
+  expect(researched).toContain('https://aquariumscience.org/index.php/14-10-wood')
   expect(researched).toContain('https://thuysinhtim.vn/lua-sa-tung-1kg')
-  expect(writes[0]).toContain('--- LOẠI CẦN CÓ ---\nlũa sa tùng')
+  // The kinds sold here first, then the foreign names.
+  expect(writes[0]).toContain('--- LOẠI BÁN Ở VIỆT NAM ---\nlũa đỗ quyên')
+  expect(writes[0]).toContain('--- TÊN NƯỚC NGOÀI ---\nmopani')
+  expect(writes[0]!.indexOf('LOẠI BÁN Ở VIỆT NAM ---')).toBeLessThan(writes[0]!.indexOf('TÊN NƯỚC NGOÀI ---'))
   expect(writes[0]).toContain('lũa sa tùng là gì')
   expect(writes[0]).toContain('Tép Amano | Caridina multidentata | Amano shrimp')
   // The broken rule goes to the rewrite, which keeps every rule: saved.
@@ -187,4 +195,28 @@ test('our pages for the animals and plants a text names: whole names, plurals, a
     // two fullest left out (14 Nov 2026).
     'Cá oto Affinis | Otocinclus affinis',
   ])
+})
+
+// Lũa's second research (14 Nov 2026, 02:04) replaced its first, and the kinds sold here went with it: new research now
+// adds to what was kept, a fact both give once, unless told to start over.
+test('new research adds to what was kept, a fact both give once; --fresh starts over', async () => {
+  const root = await site()
+  const more: TopicFacts = {
+    found: true,
+    species: ['Ancistrus'],
+    facts: [
+      { section: 'what', fact: 'Driftwood releases tannins that lower pH slightly and tint the water brown', source: 1 },
+      { section: 'other', fact: 'Lũa linh sam sinks almost at once', source: 0 },
+    ],
+    sources: [{ url: 'https://becanhatdinh.com/san-pham/lua-linh-sam/', title: 'Lũa linh sam', kind: 'shop' }, facts.sources[0]!],
+  }
+  const llm: Llm = async ({ prompt }) => (prompt.startsWith('GLOSSARY RULES') ? { notes: [] } : prompt.startsWith('Below are FACTS') ? { score: 0.97, notes: [] } : written) as never
+  await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'lua', { kind: 'aquascaping' })
+  await makeGlossaryEntry(root, { research: async () => more as never, llm }, 'lua', { kind: 'aquascaping' })
+  const kept = JSON.parse(await readFile(join(root, 'engine-state/glossary/lua.json'), 'utf8')) as TopicFacts
+  expect(kept.sources.map(x => x.url)).toEqual([...facts.sources.map(x => x.url), 'https://becanhatdinh.com/san-pham/lua-linh-sam/'])
+  expect(kept.facts).toEqual([...facts.facts, { section: 'other', fact: 'Lũa linh sam sinks almost at once', source: 3 }])
+  expect(kept.species).toEqual(['Ancistrus'])
+  await makeGlossaryEntry(root, { research: async () => more as never, llm }, 'lua', { kind: 'aquascaping', fresh: true })
+  expect(JSON.parse(await readFile(join(root, 'engine-state/glossary/lua.json'), 'utf8'))).toEqual(more)
 })
