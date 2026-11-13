@@ -59,3 +59,19 @@ test('the page and the app say the same, and a missing reason is an empty cell',
   expect(t).toMatchObject({ columns: ['Reported', 'Question', 'Answer', 'Reason'], rows: [[{}, { text: 'q' }, { text: 'answer to q' }, { text: '' }]] })
   expect(chatReportsPage({ total: 0, rows: [] }, NOW)).toContain('No reports yet.')
 })
+
+test('the handbook\'s disagreements are their own list, each place its page and its passage, drawn as text, on the page and in the app', async () => {
+  const clash = { at: '2026-11-09T10:00:00Z', lang: 'vi' as const, places: [{ path: '/vi/ca/a/', passage: '<b>nước cứng</b> là đủ' }, { path: '/vi/huong-dan/b/', passage: 'bắt buộc phải có nước mềm' }] as [{ path: string; passage: string }, { path: string; passage: string }] }
+  const html = chatReportsPage({ total: 0, rows: [], clashes: [clash] }, NOW)
+  expect(html).toContain('Where the handbook disagrees with itself')
+  expect(html).toContain('no reader\'s words and no account')
+  expect(html).toContain('/vi/huong-dan/b/')
+  expect(html).toContain('&lt;b&gt;nước cứng')
+  expect(html).not.toContain('<b>nước cứng')
+  expect(chatReportsPage({ total: 0, rows: [], clashes: [] }, NOW)).toContain('None filed yet.')
+  const s = chatReportsSection({ total: 0, rows: [], clashes: [clash] }, NOW)
+  expect(s.blocks.filter(b => b.kind === 'table')).toHaveLength(2)
+  const r2 = memoryR2()
+  await r2.bucket.put('handbook-clash/x.json', JSON.stringify(clash))
+  expect((await recentReports(r2.bucket)).clashes).toEqual([clash])
+})

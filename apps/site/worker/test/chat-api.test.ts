@@ -7,6 +7,8 @@ import { assetSource, callClaude, chat, chatWorstCost, type ChatDeps, type ChatE
 import { chatPast } from '../chat/past'
 import { OPENING_SYSTEM } from '../chat/agent'
 import { OFF_TOPIC } from '../chat/answer'
+import { handbookOf, sectionsOf } from '../chat/handbook'
+import { textOf } from '../chat/tools'
 import { chatAccount, conversationKey } from '../chat/store'
 import type { ChatRunRecord } from '../chat/transcript'
 import { clientFor, priceOf } from '../fishid/claude'
@@ -335,6 +337,39 @@ test('each question\'s transcript is kept under its account and conversation: wh
   const [, ...seconds] = runs()
   expect(seconds.map(k => record(k)).map(r => [r.n, r.outcome, r.answer?.text ?? null]).sort()).toEqual([[2, 'failed', null], [2, 'ok', 'Cá neon xanh sống theo đàn.']])
   expect(seconds.every(k => k.includes('/002-'))).toBe(true)
+})
+
+test('the owner\'s answer files the two places it names, the handbook\'s words and nothing of the reader; on open chat, nothing; the reader never gets them', async () => {
+  const PATH = '/vi/ca/ca-neon-xanh/'
+  const setup = async (CHAT: string) => {
+    const { e, db, store } = env({ CHAT })
+    const me = await signIn(db)
+    e.OWNER_ACCOUNTS = me.id
+    return { e, me, store }
+  }
+  const owner = await setup('owner')
+  const hb = (await handbookOf(assetSource(owner.e, 'https://aquatome.com'), 'vi'))!
+  const [one, two] = sectionsOf((await hb.page(PATH))!).flatMap(s => textOf(s.blocks).split('\n')).filter(t => t.length > 20 && !t.startsWith('['))
+  const clash = { a: { path: PATH, passage: one! }, b: { path: PATH, passage: two! } }
+  const made = { a: { path: PATH, passage: 'Bạn đọc này nuôi cá trong bể sáu mươi lít ở nhà.' }, b: clash.b }
+  const QUESTION = 'Câu hỏi riêng của bạn đọc về bể cá?'
+  const c = claude([() => reads(PATH), () => answers({ clashes: [clash, made] })])
+  const r = await run(ask(bearer(owner.me.token), { question: QUESTION }), owner.e, deps(c.fetch))
+  expect(r.body).toMatchObject({ n: 1 })
+  expect(JSON.stringify(r.body)).not.toContain(one!)
+  expect(JSON.stringify(r.body)).not.toContain('clashes')
+  const filed = [...owner.store.m.keys()].filter(k => k.startsWith('handbook-clash/'))
+  expect(filed).toHaveLength(1)
+  const kept = owner.store.read<Record<string, unknown>>(filed[0]!)!
+  const body = JSON.stringify(kept)
+  expect(kept).toMatchObject({ lang: 'vi', places: [{ path: PATH }, { path: PATH }] })
+  expect(Object.keys(kept).sort()).toEqual(['at', 'lang', 'places'])
+  expect(body).not.toContain(QUESTION)
+  expect(body).not.toContain(owner.me.id)
+  const open = await setup('1')
+  const o = claude([() => reads(PATH), () => answers({ clashes: [clash] })])
+  await run(ask(bearer(open.me.token), { question: QUESTION }), open.e, deps(o.fetch))
+  expect([...open.store.m.keys()].filter(k => k.startsWith('handbook-clash/'))).toEqual([])
 })
 
 test('sections are searched for on the first question alone, on the owner\'s account alone, and the transcript says which went', async () => {
