@@ -224,6 +224,13 @@
           "min": 24,
           "max": 28
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -272,10 +279,22 @@
       "html": "<p>The fire eel, Mastacembelus erythrotaenia, is a spiny eel recorded from Laos, Vietnam, Cambodia, Thailand, Malaysia and Indonesia. It usually inhabits sluggish lowland waters including floodplains and slow-moving rivers, and is also a food fish in its native countries. In the aquarium it hides away during the day and often buries itself, so it needs a sand substrate, plenty of cover and a close-fitting hood.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/mastacembelus_erythrotaenia_en/",
+      "html": "<ul><li>Origin: Indonesia</li><li>Largest known specimen: about 1 m long</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/mastacembelus-erythrotaenia",
       "html": "<p>Recorded from Laos, Vietnam, Cambodia, Thailand, Malaysia and Indonesia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/mastacembelus_erythrotaenia_en/",
+      "html": "<p>These spiny eels come from Indonesia.</p>"
     },
     {
       "key": "habitat",
@@ -302,16 +321,34 @@
       "html": "<ul><li>Temperature: 24–28 °C (75–82 °F)</li><li>pH: 6.0–7.0</li><li>Hardness: 5–12 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/mastacembelus_erythrotaenia_en/",
+      "html": "<p>Regarding water conditions these spiny eels are not very demanding. The water temperature should be between 24-28°C.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/mastacembelus-erythrotaenia",
       "html": "<p>Wild fish are omnivorous and consume a variety of smaller fish, aquatic invertebrates, plant matter and detritus. Prefers meaty foods such as prawn, krill, and lancefish. Live and frozen foods can also be fed, however these foods alone are unlikely to be enough to sustain larger fish. Some specimens will also accept vegetable matter, although this is fairly rare.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/mastacembelus_erythrotaenia_en/",
+      "html": "<p>Such large fish are fed best with frozen food like smelt and shrimps. They also like earthworms very much.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/mastacembelus-erythrotaenia",
       "html": "<p>Generally peaceful community fish, although care should be taken to ensure tankmates are too large to be considered prey as this species does eat live fish in the wild. It is recommended to only keep one fire eel per tank as they may be aggressive to conspecifics. This can sometimes be avoided by keeping the fish in groups of five or more individuals.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/mastacembelus_erythrotaenia_en/",
+      "html": "<p>Spiny eels are very calm aquarium inhabitants. They also become very tame. One can train them easily, for example on sounds like a whistle. Once they are trained the large fish come along and pick up food from the tip of a forceps. One can feed them also with bare fingers, but the spiny eels are not always very unerring. Plants and other tankmates are generally not harmed. However, small fish are taken as food.</p>"
     },
     {
       "key": "dimorphism",
@@ -330,6 +367,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/mastacembelus-erythrotaenia",
       "html": "<p>A member of the spiny eel family, which range across tropical Asia and Africa, Mastacembelus erythrotaenia is one of the more common species available to the hobby, along with the peacock eel (Macrognathus siamensis) and the tyre-track eel (Mastacembelus favus). These species are all from Asia but there are some members of the family from Africa that are occasionally seen for sale. The majority of these species are from the Afromastacembelus genus, with the most common representative being the Tanganyikan spiny eel (Afromastacembelus tanganicae).</p><p>The family is named 'spiny eels' due to the presence of spines running along the back of the fish. These are harmless to humans.</p><p>The fire eel is also a food fish in its native countries.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/mastacembelus_erythrotaenia_en/",
+      "html": "<p>Mastacembelus is said to be derived from ancient Greek and should mean \"the one that throws oneself biting\". erythrotaenia is ancient Greek and means \"with red bands\". It is one of the largest spiny eels, a real personality for owners of large tanks.</p>"
     }
   ],
   "photos": [
@@ -338,18 +381,43 @@
       "thumb": "https://media.aquatome.com/commons/66c8bc640e4b6617-480.webp",
       "width": 1200,
       "height": 900,
-      "licence": "CC BY 4.0",
-      "author": "Jesaya Li",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fire_eel_in_the_corner_of_aquarium_01.jpg",
-      "caption": "Cá chạch lửa sọc đỏ cam bên đá cuội trong bể",
       "large": {
         "url": "https://media.aquatome.com/commons/66c8bc640e4b6617-large.webp",
         "width": 1600,
         "height": 1200
-      }
+      },
+      "licence": "CC BY 4.0",
+      "author": "Jesaya Li",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fire_eel_in_the_corner_of_aquarium_01.jpg",
+      "caption": "Cá chạch lửa sọc đỏ cam bên đá cuội trong bể"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "3ZUkgTa6DQ8",
+      "title": "Fire Eel Care Guide: Everything You Need to Know About Mastacembelus erythrotaenia",
+      "durationSec": 333,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "e03d8BFxJA4",
+      "title": "15 Year Old Fire Eel 🔥 3ft Long Monster Fish!",
+      "durationSec": 12,
+      "lang": "en-CA"
+    },
+    {
+      "youtubeId": "sVjuKuEkL88",
+      "title": "[HD] Hand Feeding another Fire Eel - Mastacembelus erythrotaenia -",
+      "durationSec": 59,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "GYNLaOTQBqM",
+      "title": "Fire Eel Care Guide | Mastacembelus Erythrotaenia",
+      "durationSec": 720,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -379,5 +447,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-13"
 }

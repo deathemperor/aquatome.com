@@ -1,0 +1,126 @@
+{
+  "id": "acrochordonichthys-falcifer",
+  "scientificName": "Acrochordonichthys falcifer",
+  "order": "Siluriformes",
+  "family": "Akysidae",
+  "genus": "Acrochordonichthys",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "malaysia",
+    "kinabatangan"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 18,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 5.8,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 9.2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1363",
+      "html": "<p>Type locality: Sungai Segama, Sabah, Borneo, Malaysia. Size: 92 mm SL (9.2 cm). Described by Ng &amp; Ng, 2001.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1363",
+      "html": "<p>Asia: known only from the Kinatabangan and Segama river drainages, and possibly from the Kayan River drainage in northeastern Borneo, Malaysia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1363",
+      "html": "<p>Inhabits clear, swiftly flowing forested streams with sandy or rocky bottoms. It hides under submerged logs or rocks with some leaf litter in the swifter parts of the stream. The fish appears to move about after dark, as it is often found wedged under cover during the day.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1363",
+      "html": "<ul><li>pH: 5.8–7.2</li><li>Temperature: 18–25°C</li><li>Requires fairly well-oxygenated water and a strong current is preferred.</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1363",
+      "html": "<p>Driftwood and rocks seem to be their favourite cover, so provide plenty of these.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1363",
+      "html": "<p>Ambush predator. Easily adapts to a diet of frozen food and pellets in the aquarium. May eat small bottom dwellers.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1363",
+      "html": "<p>Can be kept with anything other than small bottom dwellers.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1363",
+      "html": "<p>Difficult to sex. Males have a more slender genital papilla immediately in front of the anus. Females tend to be larger and fuller-bodied.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1363",
+      "html": "<p>Not reported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1363",
+      "html": "<p>Journal of Fish Biology v. 58 (no. 2), pp 408, Figs. 5a, 6g, 16</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng",
+        "lọc thác"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "quạt làm mát bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

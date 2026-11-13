@@ -1,7 +1,7 @@
 ---
 url: https://bwaquatics.com/products/imbellis-txayj
 title: Betta Imbellis Royal Blue | Rare Bettas – BWAquatics
-fetchedAt: 2026-11-13T17:05:28.791Z
+fetchedAt: 2026-11-13T20:49:48.422Z
 hash: d903f8b75a5b4ff2938a74f3ec1f9813386987594f0370efcb102c9213d7503c
 ---
 

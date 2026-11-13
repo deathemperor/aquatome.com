@@ -15,10 +15,6 @@
   "dataCard": {
     "sizeCm": [
       {
-        "source": "glaser",
-        "value": 15
-      },
-      {
         "source": "scotcat",
         "value": 12
       }
@@ -46,8 +42,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/finally_available_again_after_many_years_l354_en/",
-      "html": "<p>Spectracanthicus zuanoni was scientifically described in early 2014. It attains a maximum length of about 15 cm.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/spectracanthicus_oligancistrus_zuanoni_l_354_en/",
+      "html": "<p>The fish belongs to the same species as L 20, but with clearly larger white marks, so that the pattern resembles a black net on a bright background. The large reddish eyes form a beautiful contrast.</p><p>A characteristic of the former Oligancistrus species is the large dorsal fin, so the name Sailfin loricariids suggested by Seidel is very fitting for this group.</p>"
     },
     {
       "key": "quickFacts",
@@ -58,8 +54,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/finally_available_again_after_many_years_l354_en/",
-      "html": "<p>L354 comes from the Rio Iriri, an affluent of the Rio Xingu.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/spectracanthicus_oligancistrus_zuanoni_l_354_en/",
+      "html": "<p>Spectracanthicus zuanoni L 354 originates from the Rio Xingu and the Rio Iriri in Brazil. It was scientifically described only in 2014.</p>"
     },
     {
       "key": "distribution",
@@ -80,22 +76,28 @@
       "html": "<p>Should be no problem in the aquarium, but needs a strong current and oxygen-rich water because of the high temperatures this genus enjoys.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/spectracanthicus_oligancistrus_zuanoni_l_354_en/",
+      "html": "<p>Since Spectracanthicus species are found in shallow water zones with fast flowing water, they place high demands on water quality. Like many other loricariids from this region, they should be kept at higher temperatures.</p>"
+    },
+    {
       "key": "diet",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/spectracanthicus_zuanoni.htm",
       "html": "<p>Spectracanthicus zuanoni is a nocturnal species that feeds on algae and other food items from periphyton by grazing over the rock bottom (according to Zuanon (1999) and Rapp Py-Daniel &amp; Zuanon (2005)). Omnivore. Offer a varied diet with both vegetable foods and other foods such as tablets and frozen food.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/spectracanthicus_oligancistrus_zuanoni_l_354_en/",
+      "html": "<p>Attention should be paid to their nutrition. Food that is too rich and high in protein can lead to liver damage in the long term.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/spectracanthicus_zuanoni.htm",
       "html": "<p>Males have a longer and broader head and a larger growth of odontodes behind the gill covers and on the pectoral fin spines.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/finally_available_again_after_many_years_l354_en/",
-      "html": "<p>The scientists declare this species conspecific with L20 from the Rio Xingu. However, L20 has much smaller spots. In the same scientific paper the genus Oligancistrus was declared a synonym of Spectracanthicus.</p>"
     },
     {
       "key": "notes",
@@ -194,5 +196,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-13"
 }

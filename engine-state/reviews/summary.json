@@ -303,6 +303,18 @@
       "kept": true
     }
   ],
+  "vi/species/acrochordonichthys-falcifer": [
+    {
+      "at": "2026-11-13T23:08:29Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/species/acrochordonichthys-gyrinus": [
     {
       "at": "2026-11-09T02:11:35Z",
@@ -987,6 +999,34 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/species/ammoglanis-multidentatus": [
+    {
+      "at": "2026-11-13T23:09:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0,
+      "notes": [
+        "The mistake \"Đừng cho ăn đơn điệu một loại ... nên cho ăn đa dạng theo hướng đó\" gives captive feeding advice. The page only lists the wild diet (động vật thân mềm, giáp xác, mùn bã thực vật). It never says what to feed in a tank or that a single food is a mistake, so this advice is invented.",
+        "\"hợp với người thích cá lạ và chịu tự tìm hiểu thêm\" says who the species suits. The page doesn't state or imply this."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T23:09:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0,
+      "notes": [
+        "\"Đừng nuôi chung với cá to hay cá hung hăng ... nên chọn bạn cùng bể nhỏ và hiền\" is tank-mate advice the page never gives. The page only says that in the wild the species lives alongside Aspidoras psammatides and Geophagus diamantinensis. Geophagus is a larger cichlid, so the page does not support avoiding big fish.",
+        "\"Đừng dùng nền trơn hay toàn cây rậm ... nên lót cát và đá\" and \"nên dựng bể theo hướng đó\" turn a description of the wild habitat into aquarium setup advice. The page gives no such advice."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/species/amphilius-atesuensis": [
@@ -1764,6 +1804,18 @@
       "kept": true
     }
   ],
+  "vi/species/apistogramma-hoignei": [
+    {
+      "at": "2026-11-13T08:18:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/species/apistogramma-hongsloi": [
     {
       "at": "2026-11-09T02:13:22Z",
@@ -1831,6 +1883,31 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/species/apistogramma-nijsseni": [
+    {
+      "at": "2026-11-13T08:19:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T08:19:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0,
+      "notes": [
+        "\"Hợp với người đã nuôi cá vài năm\": the page never says the species suits keepers with years of experience. The \"vài năm\" figure and the experience requirement are invented. The card only gives difficulty 4/8 (medium).",
+        "\"khó nhất là giữ nước ổn định đúng ngưỡng\": the page never names stable water at exact thresholds as the hardest part. It only advises against large water changes and gives parameter ranges. This is a weaker issue than the first."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/species/apistogramma-norberti": [
@@ -2100,6 +2177,18 @@
       "kept": true
     }
   ],
+  "vi/species/astacopsis-gouldi": [
+    {
+      "at": "2026-11-13T23:08:45Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/species/asterophysus-batrachus": [
     {
       "at": "2026-11-09T02:14:08Z",
@@ -2199,6 +2288,16 @@
     }
   ],
   "vi/species/astyanax-leopoldi": [
+    {
+      "at": "2026-11-13T23:10:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    },
     {
       "at": "2026-11-08T20:03:32Z",
       "model": "sonnet",
@@ -2704,6 +2803,32 @@
       "kept": true
     }
   ],
+  "vi/species/bagre-marinus": [
+    {
+      "at": "2026-11-13T23:10:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0,
+      "notes": [
+        "\"Cá ăn được nhiều loại thức ăn\" states as fact something the page hedges. The page says \"chắc là nó ăn được nhiều loại thức ăn\" (probably), inferred from its wild diet, so the hedge became a certainty."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T23:10:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0,
+      "notes": [
+        "\"Loài này hợp với người đã có kinh nghiệm nuôi bể nước mặn\": the page and card give no difficulty rating and don't say the species needs an experienced keeper. This suitability claim is not supported."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/bagrichthys-hypselopterus": [
     {
       "at": "2026-11-09T02:14:54Z",
@@ -3058,6 +3183,18 @@
     {
       "at": "2026-11-06T14:00:21Z",
       "model": "sonnet",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/barilius-infrafasciatus": [
+    {
+      "at": "2026-11-13T08:19:18Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
       "score": 1,
       "notes": [],
       "attempt": "first",
@@ -3872,6 +4009,28 @@
   ],
   "vi/species/betta-hendra": [
     {
+      "at": "2026-11-13T23:11:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T23:11:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0,
+      "notes": [
+        "\"vì cá lớn hoặc hiếu động sẽ bắt nạt và giành hết thức ăn\": the page hedges this with \"nhiều khả năng sẽ bắt nạt\" (likely to bully). The summary states it as a certainty."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
       "at": "2026-11-09T02:17:01Z",
       "model": "sonnet",
       "score": 1,
@@ -4262,6 +4421,16 @@
   ],
   "vi/species/betta-persephone": [
     {
+      "at": "2026-11-13T23:10:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": false
+    },
+    {
       "at": "2026-11-09T02:19:29Z",
       "model": "sonnet",
       "score": 1,
@@ -4532,6 +4701,30 @@
       "kept": true
     }
   ],
+  "vi/species/betta-smaragdina": [
+    {
+      "at": "2026-11-13T07:25:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-13T07:25:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0,
+      "notes": [
+        "\"hợp người đã nuôi cá mê cung\": the page never says the species suits people who already keep labyrinth fish. It gives no experience requirement, and the card difficulty of 4/8 is only medium. This is an invented suitability claim."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/betta-spilotogena": [
     {
       "at": "2026-11-09T17:04:52Z",
@@ -4604,6 +4797,16 @@
     }
   ],
   "vi/species/betta-uberis": [
+    {
+      "at": "2026-11-13T23:10:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    },
     {
       "at": "2026-11-09T17:04:41Z",
       "model": "sonnet",
@@ -5886,6 +6089,16 @@
   ],
   "vi/species/chaca-chaca": [
     {
+      "at": "2026-11-13T23:11:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    },
+    {
       "at": "2026-11-09T17:06:27Z",
       "model": "sonnet",
       "score": 1,
@@ -5958,6 +6171,18 @@
     {
       "at": "2026-11-09T06:44:38Z",
       "model": "sonnet",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/chaetostoma-lineopunctatum": [
+    {
+      "at": "2026-11-13T23:11:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
       "score": 1,
       "notes": [],
       "attempt": "first",
@@ -6361,6 +6586,18 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/species/charax-condei": [
+    {
+      "at": "2026-11-13T23:12:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/species/chela-cachius": [
@@ -6807,6 +7044,18 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/species/clarias-anfractus": [
+    {
+      "at": "2026-11-13T23:11:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/species/clarias-angolensis": [
@@ -8641,6 +8890,18 @@
       "kept": true
     }
   ],
+  "vi/species/costasiella-kuroshimae": [
+    {
+      "at": "2026-11-13T23:09:03Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/species/craterocephalus-stercusmuscarum": [
     {
       "at": "2026-11-08T09:17:56Z",
@@ -9659,6 +9920,18 @@
       "kept": true
     }
   ],
+  "vi/species/danio-choprae": [
+    {
+      "at": "2026-11-13T23:11:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/species/danio-dangila": [
     {
       "at": "2026-11-08T09:18:50Z",
@@ -9920,6 +10193,16 @@
     }
   ],
   "vi/species/dario-dario": [
+    {
+      "at": "2026-11-13T23:07:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    },
     {
       "at": "2026-11-08T02:14:42Z",
       "model": "sonnet",
@@ -11006,6 +11289,18 @@
     {
       "at": "2026-11-10T16:59:22Z",
       "model": "sonnet",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/duncanopsammia-axifuga": [
+    {
+      "at": "2026-11-13T07:22:54Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
       "score": 1,
       "notes": [],
       "attempt": "first",
@@ -12716,6 +13011,16 @@
   ],
   "vi/species/geophagus-altifrons": [
     {
+      "at": "2026-11-13T23:11:32Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    },
+    {
       "at": "2026-11-11T04:57:09Z",
       "model": "sonnet",
       "score": 1,
@@ -13064,6 +13369,55 @@
       "score": 0,
       "notes": [
         "\"hợp với người đã quen giữ bể nước chảy mạnh\": the page only says the fish suits a strong-current, oxygen-rich tank. It never says the keeper must already be experienced, and the card gives no difficulty, so this requirement is invented."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/glyptothorax-hainanensis": [
+    {
+      "at": "2026-11-13T23:08:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/glyptothorax-major": [
+    {
+      "at": "2026-11-13T23:08:59Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/glyptothorax-pallozonus": [
+    {
+      "at": "2026-11-13T23:08:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T23:08:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0,
+      "notes": [
+        "\"hợp người đã có kinh nghiệm\": the page and card never say the fish suits experienced keepers and give no difficulty rating, so this is an invented suitability claim.",
+        "\"cá chỉ ăn thức ăn tươi sống hoặc đông lạnh\": \"chỉ ăn\" (only eats) turns the page's hedge into a certainty. The page says only that the fish eats live or frozen food and \"có vẻ\" (seems) not to accept prepared food."
       ],
       "attempt": "first",
       "kept": false
@@ -13661,6 +14015,30 @@
       "notes": [
         "\"hợp với người đã có kinh nghiệm\": the page never says the fish suits experienced keepers. The card rates it medium (4/8), and the page only says it needs a very large tank.",
         "\"chỉ ghép với cá đủ lớn\": the page gives no tank-mate advice. It says only that the fish is a predator of crustaceans and smaller fish, so this fix is invented."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/hemibagrus-furcatus": [
+    {
+      "at": "2026-11-13T23:11:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T23:11:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0,
+      "notes": [
+        "\"hợp với người đã có kinh nghiệm nuôi cá da trơn ăn thịt\": the page and card don't say the species needs an experienced keeper. The card gives no difficulty, and the page calls it easy to feed (\"Cá dễ ăn\"). This suitability claim is invented."
       ],
       "attempt": "first",
       "kept": false
@@ -15261,6 +15639,35 @@
       "score": 0,
       "notes": [
         "\"bể nền cát, có rễ, lũa và lá khô là hợp nhất\": the page only says the fish \"có lẽ trông đẹp nhất\" (probably looks best) in a sand tank with roots and driftwood. Dried leaves are said to make the tank look more natural and give hiding places. The hedge \"có lẽ\" is dropped, and \"looks best\" becomes \"suits best\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/hyphessobrycon-loweae": [
+    {
+      "at": "2026-11-13T23:09:53Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0,
+      "notes": [
+        "\"Hồ sơ chưa có ... thông số nước chuẩn của trang\": the page does give water conditions (about 10 dGH, pH 7, about 24°C). The summary leaves them out and says they are missing, which misleads readers.",
+        "\"nên đó là điểm khó nhất\": the page never says missing data is the hardest part of keeping this fish. Missing profile data is not a care difficulty, so the summary does not name a real hardest point from the page."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T23:09:53Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0,
+      "notes": [
+        "\"ban đầu cá được bán dưới dạng Hyphessobrycon cf. loweae\": the page says the fish was first offered as the \"Kitty\" tetra, described as a new Hemigrammus species. The name Hyphessobrycon loweae came later, from a magazine. The summary gets the original sale name wrong.",
+        "\"màu vàng đến vàng cam đỏ\" is given as the fish's colour. The page says this only about the fins (tail, dorsal, pelvic and anal), not the whole body.",
+        "\"Hợp với người thích tetra nhỏ\" is not backed by the page. The page says nothing about who the species suits."
       ],
       "attempt": "first",
       "kept": false
@@ -17207,6 +17614,18 @@
       "kept": false
     }
   ],
+  "vi/species/leiocassis-micropogon": [
+    {
+      "at": "2026-11-13T23:10:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/species/lepidiolamprologus-attenuatus": [
     {
       "at": "2026-11-10T22:58:00Z",
@@ -18078,6 +18497,18 @@
       "kept": true
     }
   ],
+  "vi/species/macrognathus-taeniagaster": [
+    {
+      "at": "2026-11-13T23:09:53Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/species/macropodus-erythropterus": [
     {
       "at": "2026-11-11T04:54:07Z",
@@ -18340,6 +18771,28 @@
     }
   ],
   "vi/species/mastacembelus-erythrotaenia": [
+    {
+      "at": "2026-11-13T23:07:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T23:07:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0,
+      "notes": [
+        "\"120 × 60 × 60 cm\": the card gives no minimum tank"
+      ],
+      "attempt": "first",
+      "kept": false
+    },
     {
       "at": "2026-11-08T02:24:25Z",
       "model": "sonnet",
@@ -20066,6 +20519,30 @@
       "kept": true
     }
   ],
+  "vi/species/nanobagrus-stellatus": [
+    {
+      "at": "2026-11-13T23:10:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T23:10:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0,
+      "notes": [
+        "\"cá sống ở suối nhỏ chảy qua rừng, nước chảy vừa\": the page says this about the genus Nanobagrus, and says its species \"thường\" (usually) live there. It does not say this about N. stellatus itself. The summary turns a hedged genus-level statement into a certain fact about this species."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/nanochromis-nudiceps": [
     {
       "at": "2026-11-09T02:03:17Z",
@@ -21187,6 +21664,18 @@
       "kept": true
     }
   ],
+  "vi/species/nothobranchius-ruudwildekampi": [
+    {
+      "at": "2026-11-13T23:11:23Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/species/notopterus-notopterus": [
     {
       "at": "2026-11-09T10:59:45Z",
@@ -21473,6 +21962,16 @@
   ],
   "vi/species/opsarius-pulchellus": [
     {
+      "at": "2026-11-13T23:07:50Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    },
+    {
       "at": "2026-11-08T02:25:21Z",
       "model": "sonnet",
       "score": 1,
@@ -21727,6 +22226,16 @@
     }
   ],
   "vi/species/osphronemus-exodon": [
+    {
+      "at": "2026-11-13T23:10:28Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    },
     {
       "at": "2026-11-09T16:59:55Z",
       "model": "sonnet",
@@ -22087,6 +22596,30 @@
       "kept": false
     }
   ],
+  "vi/species/pangasius-conchophilus": [
+    {
+      "at": "2026-11-13T23:10:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T23:10:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0,
+      "notes": [
+        "\"Chỉ cho ăn một kiểu thức ăn thì lệch khẩu phần ... nên cho ăn đa dạng theo hướng đó\": the page only describes what the fish eats (shrimp, insects, plants, snails and mussels). It gives no feeding advice for aquariums and doesn't say a single food type is a mistake, so this mistake and its fix are invented."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/pangasius-larnaudii": [
     {
       "at": "2026-11-13T19:24:41Z",
@@ -22097,6 +22630,30 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/species/pangasius-macronema": [
+    {
+      "at": "2026-11-13T23:08:16Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T23:08:16Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0,
+      "notes": [
+        "Third mistake: \"Đừng chỉ cho ăn một kiểu thức ăn\" is advice the page does not give. The page only lists what the fish eats (snails, mussels, chironomid larvae). It says nothing about varying food or about feeding a single type being a mistake."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/species/pangasius-nasutus": [
@@ -23104,6 +23661,46 @@
       "kept": false
     }
   ],
+  "vi/species/pelteobagrus-intermedius": [
+    {
+      "at": "2026-11-13T23:08:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0,
+      "notes": [
+        "\"Đừng tính chuyện cho đẻ\": the page only says no documentation of breeding exists. It never advises against trying to breed the species, so this mistake and its fix are advice the page doesn't give."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T23:08:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0,
+      "notes": [
+        "\"nên hợp với người đã quen nuôi cá da trơn\": the page says nothing about who the species suits or about keepers' experience; this is invented advice.",
+        "\"nuôi để ngắm và theo dõi thôi\": advice the page does not give (keeping it only for viewing/observing).",
+        "\"cần tìm hiểu kỹ môi trường nước trước khi nuôi\" and \"cần tìm thêm trước khi setup\": the page gives no such advice; it is invented, though minor."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/pelvicachromis-kribensis": [
+    {
+      "at": "2026-11-13T07:08:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/species/pelvicachromis-signatus": [
     {
       "at": "2026-11-11T05:03:55Z",
@@ -23563,6 +24160,18 @@
       "kept": true
     }
   ],
+  "vi/species/phalacronotus-parvanalis": [
+    {
+      "at": "2026-11-13T23:09:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/species/phallichthys-tico": [
     {
       "at": "2026-11-09T11:05:29Z",
@@ -23667,6 +24276,30 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/species/phyllonemus-typus": [
+    {
+      "at": "2026-11-13T23:11:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T23:11:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0,
+      "notes": [
+        "Third mistake: \"Lo vì ban ngày cá ít hoạt động rồi bỏ đói hoặc bật đèn sáng liên tục\". The page never mentions owners worrying, starving the fish or leaving the light on all the time. The mistake is invented. The page only says the fish are nocturnal and rest in dark spots or caves while the light is on."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/species/physopyxis-lyra": [
@@ -24365,6 +24998,32 @@
       "kept": true
     }
   ],
+  "vi/species/priapella-olmecae": [
+    {
+      "at": "2026-11-13T23:08:58Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T23:08:58Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0,
+      "notes": [
+        "\"điểm khó nhất là giữ nước sạch, có dòng và đúng độ cứng\": the page never says clean water or a current is needed in the home tank. It only says wild fish live in fairly strong flow. The page also says keeping these fish is \"không khó chút nào\", so naming a hardest point is an unsupported claim.",
+        "\"nên cho ăn vừa phải và để ý thức ăn rơi xuống đáy\": the page gives no feeding-amount or uneaten-food advice. It only says the fish never feed at the bottom, so this fix is invented.",
+        "\"Trông cá xuống đáy nhặt thức ăn thừa\": the page never says anything about relying on fish to clean up leftover food, so this mistake is not grounded in the page."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/pristolepis-marginata": [
     {
       "at": "2026-11-11T05:06:25Z",
@@ -24671,6 +25330,33 @@
       "kept": false
     }
   ],
+  "vi/species/pseudecheneis-sulcata": [
+    {
+      "at": "2026-11-13T23:12:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T23:12:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0,
+      "notes": [
+        "\"Điểm khó nhất là cần dòng chảy mạnh\" and \"cần dựng dòng chảy mạnh\": the page only says the species lives in fast-flowing hill streams. It gives no aquarium requirement for strong current, so a habitat description is turned into a care certainty.",
+        "\"Đừng nuôi trong bể nước tĩnh hoặc dòng yếu\": this is tank-care advice the page doesn't give. The page has no tank, flow or filtration guidance.",
+        "\"Đừng trải nền cát mịn hoặc để đáy trống ... hãy bố trí đúng kiểu đó\": the page only says the fish prefer gravel and cobble stretches in the wild. It gives no substrate or aquascaping advice and says nothing about fine sand or a bare bottom.",
+        "\"nên hợp với người muốn dựng bể mô phỏng dòng suối\": the page never says who the species suits or recommends a stream-style tank. This is an invented suitability claim."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/pseudobagrus-trilineatus": [
     {
       "at": "2026-11-11T05:07:02Z",
@@ -24808,6 +25494,18 @@
     {
       "at": "2026-11-08T14:40:43Z",
       "model": "sonnet",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/pseudolais-micronemus": [
+    {
+      "at": "2026-11-13T23:08:06Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
       "score": 1,
       "notes": [],
       "attempt": "first",
@@ -25638,6 +26336,18 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/species/pyrrhulina-brevis": [
+    {
+      "at": "2026-11-13T23:10:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/species/pyrrhulina-lugubris": [
@@ -26515,8 +27225,43 @@
   ],
   "vi/species/sahyadria-denisonii": [
     {
+      "at": "2026-11-13T23:08:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T23:08:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0,
+      "notes": [
+        "\"Cá hiền, hợp bể cộng đồng\": the page says it suits community tanks only \"mà các loài nuôi chung đã được tìm hiểu kỹ\" (when the tank mates have been well researched). The summary drops that condition and states it flatly. The page also says D. chalakkudiensis, which is sold mixed in with this species, is more aggressive.",
+        "\"hợp với người đã nuôi cá vài bể\": the page never says the species needs prior experience or several earlier tanks. It says \"không khó nuôi nếu bể được chăm chu đáo\" (not hard to keep if the tank is well cared for), and the card difficulty is 4/8. The experience requirement is invented."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
       "at": "2026-11-11T04:53:35Z",
       "model": "sonnet",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/salminus-brasiliensis": [
+    {
+      "at": "2026-11-13T23:11:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
       "score": 1,
       "notes": [],
       "attempt": "first",
@@ -27547,6 +28292,16 @@
   ],
   "vi/species/silurus-glanis": [
     {
+      "at": "2026-11-13T23:10:34Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    },
+    {
       "at": "2026-11-10T17:03:52Z",
       "model": "sonnet",
       "score": 1,
@@ -27715,6 +28470,16 @@
   ],
   "vi/species/sphaerichthys-selatanensis": [
     {
+      "at": "2026-11-13T23:12:04Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    },
+    {
       "at": "2026-11-13T19:35:17Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -27746,6 +28511,31 @@
       "score": 0,
       "notes": [
         "\"hợp với người đã quen nuôi cá nóc\": the page never says the species suits experienced puffer keepers. The card gives no difficulty and the page gives no experience requirement, so this suitability claim is invented."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/spinibarbus-denticulatus": [
+    {
+      "at": "2026-11-13T23:08:32Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T23:08:32Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0,
+      "notes": [
+        "\"10-12 cm\" is not the card's adult size (40 cm)",
+        "\"10-12 cm\" is not the card's adult size (40 cm)"
       ],
       "attempt": "first",
       "kept": false
@@ -27812,6 +28602,35 @@
       "notes": [
         "\"Hợp với người muốn nuôi cá ăn đáy\": the page never says this fish is a bottom feeder or lives or feeds at the bottom. It only lists small invertebrates as its diet.",
         "\"hãy cho ăn ... ở nơi cá dễ tìm\": the page gives no advice about where to place food. This is an invented feeding tip."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/sternarchorhynchus-goeldii": [
+    {
+      "at": "2026-11-13T08:08:20Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0,
+      "notes": [
+        "\"hợp với người đã có kinh nghiệm nuôi cá lạ\": the page never says the species needs an experienced keeper, so this suitability claim is invented.",
+        "\"cá hay gây sự với nhau\" is named as the hardest point. The page says \"hơi hay gây sự\" and that the fish don't hurt each other, so the hedge becomes a stronger claim and the point isn't really a difficulty.",
+        "\"lứa cá về thường bị ghi là S. mormyrus\": the page describes one batch that was labelled this way when it first arrived. It doesn't say this happens usually.",
+        "\"Đừng coi cá đánh nhau là cá sắp chết ... nên cứ quan sát trước khi can thiệp\": the page says nothing about people mistaking fighting for dying, and it gives no advice on when to intervene. Both the mistake and the fix are invented."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T08:08:20Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0,
+      "notes": [
+        "\"50 cm\" is not the card's adult size (30 cm)"
       ],
       "attempt": "first",
       "kept": false
@@ -27954,6 +28773,30 @@
       "kept": true
     }
   ],
+  "vi/species/striuntius-lineatus": [
+    {
+      "at": "2026-11-13T08:08:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T08:08:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0,
+      "notes": [
+        "\"Để bể trống, sáng chói thì cá khó chịu\": the page never says a bare or brightly lit tank stresses the fish. It only says the species does well in a densely planted or forest-stream tank with soft substrate and dim light. The stress claim is not on the page."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/strophidon-sathete": [
     {
       "at": "2026-11-10T22:52:42Z",
@@ -27973,6 +28816,18 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/species/sturisomatichthys-aureum": [
+    {
+      "at": "2026-11-13T08:08:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/species/sturisomatichthys-leightoni": [
@@ -28079,6 +28934,18 @@
       "kept": false
     }
   ],
+  "vi/species/syncrossus-berdmorei": [
+    {
+      "at": "2026-11-13T08:08:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/species/syncrossus-helodes": [
     {
       "at": "2026-11-10T16:55:13Z",
@@ -28129,6 +28996,18 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/species/synodontis-bastiani": [
+    {
+      "at": "2026-11-13T08:09:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/species/synodontis-batensoda": [
@@ -28184,6 +29063,18 @@
       "kept": true
     }
   ],
+  "vi/species/synodontis-decorus": [
+    {
+      "at": "2026-11-13T08:09:34Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/species/synodontis-dhonti": [
     {
       "at": "2026-11-10T16:58:19Z",
@@ -28213,6 +29104,18 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/species/synodontis-flavitaeniatus": [
+    {
+      "at": "2026-11-13T08:10:05Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/species/synodontis-granulosus": [
@@ -28255,6 +29158,68 @@
       "notes": [
         "\"Đừng dùng tay không nắm cá\" is advice the page doesn't give. The page only describes one way to hold the fish by hand so the spine can't stab, and says nothing against handling it bare-handed.",
         "The fix \"đặt cá trong lòng bàn tay...\" is itself a bare-hand hold. That contradicts the mistake as worded (\"tay không\") and so misstates the page's advice."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/synodontis-lucipinnis": [
+    {
+      "at": "2026-11-13T08:10:07Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/synodontis-multimaculatus": [
+    {
+      "at": "2026-11-13T23:09:39Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T23:09:39Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0,
+      "notes": [
+        "\"hợp với người đã quen xử lý cá nheo có gai cứng\": the page never says who the species suits or that it needs an experienced keeper. It only gives a handling method. The suitability claim is invented.",
+        "\"Cầm cá tay không và để gai đâm vào tay\": the page's own handling method uses the hand, with the spine gripped between two fingers. It does not say that holding by hand is the mistake, so the framing as a bare-hand mistake isn't supported."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/synodontis-multipunctatus": [
+    {
+      "at": "2026-11-13T08:11:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T08:11:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0,
+      "notes": [
+        "\"Khó nhất là cho đẻ\": the page says breeding in the tank is fairly easy (\"Trong bể, bạn có thể làm được chuyện này tương đối dễ\" and \"khá hay đẻ trong bể\"). Calling it the hardest part contradicts the page.",
+        "\"phải có bể riêng và cichlid ấp trứng làm vật chủ\": the page says the fish have spawned in tanks without a host, though rarely (\"Cũng đã có ghi nhận cá đẻ trong bể mà không cần loài vật chủ\"). A host is not an absolute requirement, so the hedge became a certainty."
       ],
       "attempt": "first",
       "kept": false
@@ -28398,6 +29363,33 @@
       "kept": true
     }
   ],
+  "vi/species/synodontis-robertsi": [
+    {
+      "at": "2026-11-13T08:12:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0,
+      "notes": [
+        "\"điểm khó nhất là phải tự tìm thêm thông tin đó trước khi mua\": the page never names missing water or tank data as a difficulty, and it gives no advice to research before buying. The summary made this hardest point up instead of taking one from the page, such as the long lifespan."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T08:12:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0,
+      "notes": [
+        "Mistake 2: \"nên bố trí hang hốc cho cá yên tâm\" and \"Đừng bỏ qua chỗ trốn trong bể\" give tank-setup advice the page never gives. The page only says that acclimated fish come out of their hiding places by day. It does not say to provide caves, and it does not say fish need them to feel secure.",
+        "Mistake 2: \"ban ngày con mới về bể hay ẩn nấp\" is a stretch. The page only says that acclimated fish also come out by day, especially at feeding. It does not say that new fish tend to hide."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/synodontis-schall": [
     {
       "at": "2026-11-10T17:00:13Z",
@@ -28493,6 +29485,30 @@
       "kept": true
     }
   ],
+  "vi/species/tachysurus-argentivittatus": [
+    {
+      "at": "2026-11-13T23:10:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T23:10:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0,
+      "notes": [
+        "\"chỉ hợp với người chơi cá da trơn có kinh nghiệm\": the page says nothing about keeper experience or who the species suits. It only says that little is known and that no breeding has been reported. The suitability claim is invented."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/tachysurus-fulvidraco": [
     {
       "at": "2026-11-09T02:10:13Z",
@@ -28543,6 +29559,18 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/species/tachysurus-trilineatus": [
+    {
+      "at": "2026-11-13T08:11:19Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/species/taeniacara-candidi": [
@@ -28670,6 +29698,31 @@
       "kept": false
     }
   ],
+  "vi/species/tatia-gyrina": [
+    {
+      "at": "2026-11-13T08:12:51Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T08:12:51Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0,
+      "notes": [
+        "\"Giữ nước kiềm hoặc nóng hơn mức cá quen thì cá khó chịu\": the page and card give only the ranges 21–24 °C and pH 5,5–6,5. They say nothing about alkaline or warm water stressing the fish, so this consequence is invented.",
+        "\"hợp người thích cá đáy\": the page never says the species is a bottom-dweller. It says only that the fish likes driftwood with crevices and hollows."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/tatia-intermedia": [
     {
       "at": "2026-11-11T04:56:25Z",
@@ -28693,6 +29746,30 @@
       "score": 0,
       "notes": [
         "The summary says fish sold in Indonesia as \"T. galaxias\" \"thực ra là T. intermedia\". The page only says \"Mọi đặc điểm đều chỉ về T. intermedia\", which points to T. intermedia without confirming it. Only the claim that it is not T. galaxias is stated as certain. The summary turns this hedge into a certainty."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/tatia-neivai": [
+    {
+      "at": "2026-11-13T08:12:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T08:12:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0,
+      "notes": [
+        "\"pH 6,5–7,0\" is not the card's pH (6,5–7,5)"
       ],
       "attempt": "first",
       "kept": false
@@ -28724,6 +29801,32 @@
       "notes": [
         "\"nên khó kiếm hơn là khó nuôi\": the page and card give no difficulty, so this implies the species is easy to keep, which is unsupported.",
         "\"ai nuôi cần chú ý tầng đáy của bể\": this is care advice the page doesn't give. The page only says the fish lives near the bottom."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/teleogramma-depressa": [
+    {
+      "at": "2026-11-13T23:09:34Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T23:09:34Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0,
+      "notes": [
+        "\"Đừng ghép chung với cá nhút nhát trong bể chật\": the page never mentions shy tank mates or crowded tanks. It only says the fish chases others away from its spot.",
+        "\"nên để bể đủ rộng và có nhiều chỗ ẩn\": the page doesn't give this as a fix for chasing or for keeping tank mates. The 160 L minimum and the hiding spots are given for other reasons.",
+        "\"nên khó ghép chung nếu bể chật\": the page doesn't say tank mates are hard to keep in a crowded tank. This is an inference added beyond the page."
       ],
       "attempt": "first",
       "kept": false
@@ -28807,6 +29910,33 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/species/tetraodon-lineatus": [
+    {
+      "at": "2026-11-13T08:14:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0,
+      "notes": [
+        "\"răng mọc liên tục và dài quá sẽ làm cá khó ăn\": the page only says overgrown teeth \"gây khó khăn cho cá\" (cause the fish difficulty). It never says the fish has trouble eating, so this adds a specific consequence."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T08:14:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0,
+      "notes": [
+        "\"cá cắn đứt thịt cá khác và cả người\": the page says a bite from the fish makes a person bleed (\"bị cá nóc Nile cắn là chảy máu\"). Only the tank mates have flesh bitten off (\"cắn đứt từng mảng thịt của cá khác\"). Tearing off human flesh overstates the page.",
+        "\"vì tưởng cá nóc cần nước lợ\": the page never mentions brackish water or says anyone believes puffers need it. It only says to add no salt because this is a freshwater puffer. The stated reason for the mistake is invented."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/species/tetraodon-mbu": [
@@ -28911,6 +30041,18 @@
       "kept": true
     }
   ],
+  "vi/species/thoracocharax-stellatus": [
+    {
+      "at": "2026-11-13T08:13:39Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/species/thorichthys-meeki": [
     {
       "at": "2026-11-08T02:17:32Z",
@@ -28973,6 +30115,32 @@
       "notes": [
         "\"8-10 cm\" is neither the card's adult size (40 cm) nor its minimum tank (none)",
         "\"8-10 cm\" is neither the card's adult size (40 cm) nor its minimum tank (none)"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/tometes-makue": [
+    {
+      "at": "2026-11-13T08:14:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T08:14:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0,
+      "notes": [
+        "\"nên chỉ hợp người đã quen nuôi cá cỡ lớn như Myleus\": the page calls the fish \"khỏe và dễ nuôi\", familiar to Myleus keepers. It never says it suits only experienced keepers of large fish, so this contradicts the page and invents a restriction.",
+        "\"nên theo dõi sát khi ghép chung\": the page gives no advice about tank mates or close monitoring.",
+        "\"hãy kiểm tra tên Tometes makue trước khi mua\": the page gives no purchasing advice. It only describes past misidentifications, so this fix is invented."
       ],
       "attempt": "first",
       "kept": false
@@ -29101,6 +30269,43 @@
       "kept": false
     }
   ],
+  "vi/species/trichogaster-chuna": [
+    {
+      "at": "2026-11-13T08:14:08Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/trichogaster-labiosa": [
+    {
+      "at": "2026-11-13T08:15:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T08:15:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0,
+      "notes": [
+        "\"Để dòng chảy từ lọc mạnh thì cá bơi chậm sẽ bị stress\": the page only says to reduce flow as much as possible. It never says strong flow stresses the fish, so this consequence is invented.",
+        "\"Bể phải trồng dày cây và dòng chảy yếu, nếu không cá khó sống khỏe\": the page links \"khó sống khỏe\" only to a lack of hiding places. The page says \"giảm được bao nhiêu càng tốt\" for flow, not that weak flow is a must. The summary turns that hedge into a firm requirement."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/trichogaster-lalius": [
     {
       "at": "2026-11-08T02:14:06Z",
@@ -29155,6 +30360,54 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/species/trichomycterus-alternatus": [
+    {
+      "at": "2026-11-13T08:14:47Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/trichomycterus-auroguttatus": [
+    {
+      "at": "2026-11-13T08:15:28Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T08:15:28Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0,
+      "notes": [
+        "Second mistake: \"Chỉ cho ăn một kiểu thức ăn, nên xen kẽ thức ăn viên, đông lạnh và tươi sống như hồ sơ ghi\". The page only says the fish accepts pellets, frozen and live food. It never calls feeding one food type a mistake, and it never advises alternating foods. The fix is invented advice presented as coming from the page."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/trichomycterus-immaculatus": [
+    {
+      "at": "2026-11-13T08:15:16Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/species/trichomycterus-itatiayae": [
@@ -29344,6 +30597,31 @@
       "kept": false
     }
   ],
+  "vi/species/trigonopoma-pauciperforatum": [
+    {
+      "at": "2026-11-13T08:15:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T08:15:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0,
+      "notes": [
+        "\"Để đèn sáng gắt thì cá không lên màu đẹp\": the page doesn't link bright light to poor colour. It says only that the fish \"có vẻ sống tốt nhất dưới ánh sáng khá yếu\". It ties good colour to a densely planted tank with a dark substrate. The summary invents the cause and turns a hedge (\"có vẻ\") into a certainty.",
+        "\"bể ánh sáng yếu, nhiều chỗ khuất bóng để cá lên màu đẹp\": the page gives colour as the reason for dense planting and a dark substrate. It doesn't say weak light or shady hiding places make the fish colour up. The page presents the hiding places as a way to make the tank look natural, and the weak light as the fish's apparent preference."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/trigonostigma-espei": [
     {
       "at": "2026-11-08T02:28:25Z",
@@ -29403,6 +30681,42 @@
       "kept": false
     }
   ],
+  "vi/species/triops-cancriformis": [
+    {
+      "at": "2026-11-13T08:15:51Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/triportheus-angulatus": [
+    {
+      "at": "2026-11-13T08:15:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/trochilocharax-ornatus": [
+    {
+      "at": "2026-11-13T08:16:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/species/tropheops-tropheops": [
     {
       "at": "2026-11-10T16:59:11Z",
@@ -29433,6 +30747,31 @@
       "kept": true
     }
   ],
+  "vi/species/tropheus-duboisi": [
+    {
+      "at": "2026-11-13T08:16:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T08:16:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0,
+      "notes": [
+        "\"150 x 45 x 45 cm\" is not the card's minimum tank (120 cm)",
+        "\"150 x 45 x 45 cm\" is not the card's minimum tank (120 cm)"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/tropheus-moorii": [
     {
       "at": "2026-11-10T17:05:20Z",
@@ -29453,10 +30792,34 @@
       "kept": false
     }
   ],
+  "vi/species/tucanoichthys-tucano": [
+    {
+      "at": "2026-11-13T08:16:28Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/species/tylochromis-lateralis": [
     {
       "at": "2026-11-09T17:01:11Z",
       "model": "sonnet",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/tympanopleura-atronasus": [
+    {
+      "at": "2026-11-13T08:16:34Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
       "score": 1,
       "notes": [],
       "attempt": "first",
@@ -29483,6 +30846,18 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/species/uaru-amphiacanthoides": [
+    {
+      "at": "2026-11-13T08:16:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/species/uaru-fernandezyepezi": [
@@ -29520,6 +30895,32 @@
       "score": 0,
       "notes": [
         "\"10–15 cm\" is neither the card's adult size (12,5 cm) nor its minimum tank (120 cm)"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/vandellia-sanguinea": [
+    {
+      "at": "2026-11-13T08:17:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T08:17:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0,
+      "notes": [
+        "\"hồ sơ ghi chúng cần cá lớn hơn để hút máu\": the page hedges this with \"Các tài liệu dường như đều cho thấy\" (the sources seem to show it). The summary drops the hedge and states it as certain.",
+        "\"chỉ hợp người đã có kinh nghiệm\": the page only says the species is not easy to keep. It never says it suits experienced keepers.",
+        "\"cá bị stress\": the page only says the species fears light. It says nothing about stress."
       ],
       "attempt": "first",
       "kept": false
@@ -29581,6 +30982,32 @@
       "score": 0,
       "notes": [
         "\"hợp với người đã có kinh nghiệm nuôi cichlid cỡ lớn\": the page never says the species needs an experienced keeper. This who-it-suits claim is invented. The card only gives difficulty 4/8 (medium)."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/vieja-maculicauda": [
+    {
+      "at": "2026-11-13T08:18:08Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T08:18:08Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0,
+      "notes": [
+        "\"nên cho rau, trái cây\": the page advises vegetables (\"Nên cho ăn thêm rau\") and protein. Fruit appears only as part of the wild diet, so advising it for the tank is not on the page.",
+        "\"thả cây nổi che bớt đèn\" is given as a firm fix. The page hedges it: \"có thể là ý hay\" (may be a good idea).",
+        "\"ít chỗ ẩn thì cá khó sống khỏe\": the page ties better health only to weak light (\"sống khỏe hơn dưới ánh sáng yếu\"). Hiding places are advised to mimic the natural habitat, and the page does not say that having few of them harms the fish's health."
       ],
       "attempt": "first",
       "kept": false
@@ -29666,6 +31093,18 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/species/wallago-maculatus": [
+    {
+      "at": "2026-11-13T23:08:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/species/xenentodon-cancila": [
@@ -29840,6 +31279,30 @@
       "kept": true
     }
   ],
+  "vi/species/xiphophorus-kallmani": [
+    {
+      "at": "2026-11-13T08:18:02Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T08:18:02Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0,
+      "notes": [
+        "\"nên cần bể đủ rộng cho cỡ này\": the page says nothing about tank size or space needs. It only gives the 12 cm length, so this tank claim is not stated or clearly implied."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/xiphophorus-maculatus": [
     {
       "at": "2026-11-08T02:12:16Z",
@@ -29981,6 +31444,18 @@
       "kept": false
     }
   ],
+  "vi/species/yaoshania-pachychilus": [
+    {
+      "at": "2026-11-13T08:17:35Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/species/yasuhikotakia-caudipunctata": [
     {
       "at": "2026-11-09T11:10:00Z",
@@ -30040,6 +31515,30 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/species/yunnanilus-brevis": [
+    {
+      "at": "2026-11-13T08:18:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T08:18:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0,
+      "notes": [
+        "\"hợp với người đã có kinh nghiệm cơ bản\": the page never says the species needs prior experience. The card rates difficulty 2/8, which is easy, so this suitability claim is unsupported and clashes with the easy band."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/species/yunnanilus-cruciatus": [
@@ -30120,725 +31619,6 @@
       "notes": [
         "\"15–20 cm\" is not the card's adult size (140 cm)",
         "\"15–20 cm\" is not the card's adult size (140 cm)"
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/species/apistogramma-hoignei": [
-    {
-      "at": "2026-11-13T08:18:52Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "first",
-      "kept": true
-    }
-  ],
-  "vi/species/apistogramma-nijsseni": [
-    {
-      "at": "2026-11-13T08:19:30Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T08:19:30Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0,
-      "notes": [
-        "\"Hợp với người đã nuôi cá vài năm\": the page never says the species suits keepers with years of experience. The \"vài năm\" figure and the experience requirement are invented. The card only gives difficulty 4/8 (medium).",
-        "\"khó nhất là giữ nước ổn định đúng ngưỡng\": the page never names stable water at exact thresholds as the hardest part. It only advises against large water changes and gives parameter ranges. This is a weaker issue than the first."
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/species/barilius-infrafasciatus": [
-    {
-      "at": "2026-11-13T08:19:18Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "first",
-      "kept": true
-    }
-  ],
-  "vi/species/betta-smaragdina": [
-    {
-      "at": "2026-11-13T07:25:09Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-13T07:25:09Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0,
-      "notes": [
-        "\"hợp người đã nuôi cá mê cung\": the page never says the species suits people who already keep labyrinth fish. It gives no experience requirement, and the card difficulty of 4/8 is only medium. This is an invented suitability claim."
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/species/duncanopsammia-axifuga": [
-    {
-      "at": "2026-11-13T07:22:54Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "first",
-      "kept": true
-    }
-  ],
-  "vi/species/pelvicachromis-kribensis": [
-    {
-      "at": "2026-11-13T07:08:40Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "first",
-      "kept": true
-    }
-  ],
-  "vi/species/sternarchorhynchus-goeldii": [
-    {
-      "at": "2026-11-13T08:08:20Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0,
-      "notes": [
-        "\"hợp với người đã có kinh nghiệm nuôi cá lạ\": the page never says the species needs an experienced keeper, so this suitability claim is invented.",
-        "\"cá hay gây sự với nhau\" is named as the hardest point. The page says \"hơi hay gây sự\" and that the fish don't hurt each other, so the hedge becomes a stronger claim and the point isn't really a difficulty.",
-        "\"lứa cá về thường bị ghi là S. mormyrus\": the page describes one batch that was labelled this way when it first arrived. It doesn't say this happens usually.",
-        "\"Đừng coi cá đánh nhau là cá sắp chết ... nên cứ quan sát trước khi can thiệp\": the page says nothing about people mistaking fighting for dying, and it gives no advice on when to intervene. Both the mistake and the fix are invented."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T08:08:20Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0,
-      "notes": [
-        "\"50 cm\" is not the card's adult size (30 cm)"
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/species/striuntius-lineatus": [
-    {
-      "at": "2026-11-13T08:08:49Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T08:08:49Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0,
-      "notes": [
-        "\"Để bể trống, sáng chói thì cá khó chịu\": the page never says a bare or brightly lit tank stresses the fish. It only says the species does well in a densely planted or forest-stream tank with soft substrate and dim light. The stress claim is not on the page."
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/species/sturisomatichthys-aureum": [
-    {
-      "at": "2026-11-13T08:08:38Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "first",
-      "kept": true
-    }
-  ],
-  "vi/species/syncrossus-berdmorei": [
-    {
-      "at": "2026-11-13T08:08:55Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "first",
-      "kept": true
-    }
-  ],
-  "vi/species/synodontis-bastiani": [
-    {
-      "at": "2026-11-13T08:09:31Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "first",
-      "kept": true
-    }
-  ],
-  "vi/species/synodontis-decorus": [
-    {
-      "at": "2026-11-13T08:09:34Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "first",
-      "kept": true
-    }
-  ],
-  "vi/species/synodontis-flavitaeniatus": [
-    {
-      "at": "2026-11-13T08:10:05Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "first",
-      "kept": true
-    }
-  ],
-  "vi/species/synodontis-lucipinnis": [
-    {
-      "at": "2026-11-13T08:10:07Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "first",
-      "kept": true
-    }
-  ],
-  "vi/species/synodontis-multipunctatus": [
-    {
-      "at": "2026-11-13T08:11:48Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T08:11:48Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0,
-      "notes": [
-        "\"Khó nhất là cho đẻ\": the page says breeding in the tank is fairly easy (\"Trong bể, bạn có thể làm được chuyện này tương đối dễ\" and \"khá hay đẻ trong bể\"). Calling it the hardest part contradicts the page.",
-        "\"phải có bể riêng và cichlid ấp trứng làm vật chủ\": the page says the fish have spawned in tanks without a host, though rarely (\"Cũng đã có ghi nhận cá đẻ trong bể mà không cần loài vật chủ\"). A host is not an absolute requirement, so the hedge became a certainty."
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/species/synodontis-robertsi": [
-    {
-      "at": "2026-11-13T08:12:13Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0,
-      "notes": [
-        "\"điểm khó nhất là phải tự tìm thêm thông tin đó trước khi mua\": the page never names missing water or tank data as a difficulty, and it gives no advice to research before buying. The summary made this hardest point up instead of taking one from the page, such as the long lifespan."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T08:12:13Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0,
-      "notes": [
-        "Mistake 2: \"nên bố trí hang hốc cho cá yên tâm\" and \"Đừng bỏ qua chỗ trốn trong bể\" give tank-setup advice the page never gives. The page only says that acclimated fish come out of their hiding places by day. It does not say to provide caves, and it does not say fish need them to feel secure.",
-        "Mistake 2: \"ban ngày con mới về bể hay ẩn nấp\" is a stretch. The page only says that acclimated fish also come out by day, especially at feeding. It does not say that new fish tend to hide."
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/species/tachysurus-trilineatus": [
-    {
-      "at": "2026-11-13T08:11:19Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "first",
-      "kept": true
-    }
-  ],
-  "vi/species/tatia-gyrina": [
-    {
-      "at": "2026-11-13T08:12:51Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T08:12:51Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0,
-      "notes": [
-        "\"Giữ nước kiềm hoặc nóng hơn mức cá quen thì cá khó chịu\": the page and card give only the ranges 21–24 °C and pH 5,5–6,5. They say nothing about alkaline or warm water stressing the fish, so this consequence is invented.",
-        "\"hợp người thích cá đáy\": the page never says the species is a bottom-dweller. It says only that the fish likes driftwood with crevices and hollows."
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/species/tatia-neivai": [
-    {
-      "at": "2026-11-13T08:12:44Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T08:12:44Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0,
-      "notes": [
-        "\"pH 6,5–7,0\" is not the card's pH (6,5–7,5)"
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/species/tetraodon-lineatus": [
-    {
-      "at": "2026-11-13T08:14:13Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0,
-      "notes": [
-        "\"răng mọc liên tục và dài quá sẽ làm cá khó ăn\": the page only says overgrown teeth \"gây khó khăn cho cá\" (cause the fish difficulty). It never says the fish has trouble eating, so this adds a specific consequence."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T08:14:13Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0,
-      "notes": [
-        "\"cá cắn đứt thịt cá khác và cả người\": the page says a bite from the fish makes a person bleed (\"bị cá nóc Nile cắn là chảy máu\"). Only the tank mates have flesh bitten off (\"cắn đứt từng mảng thịt của cá khác\"). Tearing off human flesh overstates the page.",
-        "\"vì tưởng cá nóc cần nước lợ\": the page never mentions brackish water or says anyone believes puffers need it. It only says to add no salt because this is a freshwater puffer. The stated reason for the mistake is invented."
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/species/thoracocharax-stellatus": [
-    {
-      "at": "2026-11-13T08:13:39Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "first",
-      "kept": true
-    }
-  ],
-  "vi/species/tometes-makue": [
-    {
-      "at": "2026-11-13T08:14:43Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T08:14:43Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0,
-      "notes": [
-        "\"nên chỉ hợp người đã quen nuôi cá cỡ lớn như Myleus\": the page calls the fish \"khỏe và dễ nuôi\", familiar to Myleus keepers. It never says it suits only experienced keepers of large fish, so this contradicts the page and invents a restriction.",
-        "\"nên theo dõi sát khi ghép chung\": the page gives no advice about tank mates or close monitoring.",
-        "\"hãy kiểm tra tên Tometes makue trước khi mua\": the page gives no purchasing advice. It only describes past misidentifications, so this fix is invented."
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/species/trichogaster-chuna": [
-    {
-      "at": "2026-11-13T08:14:08Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "first",
-      "kept": true
-    }
-  ],
-  "vi/species/trichogaster-labiosa": [
-    {
-      "at": "2026-11-13T08:15:15Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T08:15:15Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0,
-      "notes": [
-        "\"Để dòng chảy từ lọc mạnh thì cá bơi chậm sẽ bị stress\": the page only says to reduce flow as much as possible. It never says strong flow stresses the fish, so this consequence is invented.",
-        "\"Bể phải trồng dày cây và dòng chảy yếu, nếu không cá khó sống khỏe\": the page links \"khó sống khỏe\" only to a lack of hiding places. The page says \"giảm được bao nhiêu càng tốt\" for flow, not that weak flow is a must. The summary turns that hedge into a firm requirement."
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/species/trichomycterus-alternatus": [
-    {
-      "at": "2026-11-13T08:14:47Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "first",
-      "kept": true
-    }
-  ],
-  "vi/species/trichomycterus-auroguttatus": [
-    {
-      "at": "2026-11-13T08:15:28Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T08:15:28Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0,
-      "notes": [
-        "Second mistake: \"Chỉ cho ăn một kiểu thức ăn, nên xen kẽ thức ăn viên, đông lạnh và tươi sống như hồ sơ ghi\". The page only says the fish accepts pellets, frozen and live food. It never calls feeding one food type a mistake, and it never advises alternating foods. The fix is invented advice presented as coming from the page."
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/species/trichomycterus-immaculatus": [
-    {
-      "at": "2026-11-13T08:15:16Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "first",
-      "kept": true
-    }
-  ],
-  "vi/species/trigonopoma-pauciperforatum": [
-    {
-      "at": "2026-11-13T08:15:57Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T08:15:57Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0,
-      "notes": [
-        "\"Để đèn sáng gắt thì cá không lên màu đẹp\": the page doesn't link bright light to poor colour. It says only that the fish \"có vẻ sống tốt nhất dưới ánh sáng khá yếu\". It ties good colour to a densely planted tank with a dark substrate. The summary invents the cause and turns a hedge (\"có vẻ\") into a certainty.",
-        "\"bể ánh sáng yếu, nhiều chỗ khuất bóng để cá lên màu đẹp\": the page gives colour as the reason for dense planting and a dark substrate. It doesn't say weak light or shady hiding places make the fish colour up. The page presents the hiding places as a way to make the tank look natural, and the weak light as the fish's apparent preference."
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/species/triops-cancriformis": [
-    {
-      "at": "2026-11-13T08:15:51Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "first",
-      "kept": true
-    }
-  ],
-  "vi/species/triportheus-angulatus": [
-    {
-      "at": "2026-11-13T08:15:46Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "first",
-      "kept": true
-    }
-  ],
-  "vi/species/trochilocharax-ornatus": [
-    {
-      "at": "2026-11-13T08:16:00Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "first",
-      "kept": true
-    }
-  ],
-  "vi/species/tropheus-duboisi": [
-    {
-      "at": "2026-11-13T08:16:43Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T08:16:43Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0,
-      "notes": [
-        "\"150 x 45 x 45 cm\" is not the card's minimum tank (120 cm)",
-        "\"150 x 45 x 45 cm\" is not the card's minimum tank (120 cm)"
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/species/tucanoichthys-tucano": [
-    {
-      "at": "2026-11-13T08:16:28Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "first",
-      "kept": true
-    }
-  ],
-  "vi/species/tympanopleura-atronasus": [
-    {
-      "at": "2026-11-13T08:16:34Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "first",
-      "kept": true
-    }
-  ],
-  "vi/species/uaru-amphiacanthoides": [
-    {
-      "at": "2026-11-13T08:16:37Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "first",
-      "kept": true
-    }
-  ],
-  "vi/species/vandellia-sanguinea": [
-    {
-      "at": "2026-11-13T08:17:52Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T08:17:52Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0,
-      "notes": [
-        "\"hồ sơ ghi chúng cần cá lớn hơn để hút máu\": the page hedges this with \"Các tài liệu dường như đều cho thấy\" (the sources seem to show it). The summary drops the hedge and states it as certain.",
-        "\"chỉ hợp người đã có kinh nghiệm\": the page only says the species is not easy to keep. It never says it suits experienced keepers.",
-        "\"cá bị stress\": the page only says the species fears light. It says nothing about stress."
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/species/vieja-maculicauda": [
-    {
-      "at": "2026-11-13T08:18:08Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T08:18:08Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0,
-      "notes": [
-        "\"nên cho rau, trái cây\": the page advises vegetables (\"Nên cho ăn thêm rau\") and protein. Fruit appears only as part of the wild diet, so advising it for the tank is not on the page.",
-        "\"thả cây nổi che bớt đèn\" is given as a firm fix. The page hedges it: \"có thể là ý hay\" (may be a good idea).",
-        "\"ít chỗ ẩn thì cá khó sống khỏe\": the page ties better health only to weak light (\"sống khỏe hơn dưới ánh sáng yếu\"). Hiding places are advised to mimic the natural habitat, and the page does not say that having few of them harms the fish's health."
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/species/xiphophorus-kallmani": [
-    {
-      "at": "2026-11-13T08:18:02Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T08:18:02Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0,
-      "notes": [
-        "\"nên cần bể đủ rộng cho cỡ này\": the page says nothing about tank size or space needs. It only gives the 12 cm length, so this tank claim is not stated or clearly implied."
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/species/yaoshania-pachychilus": [
-    {
-      "at": "2026-11-13T08:17:35Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "first",
-      "kept": true
-    }
-  ],
-  "vi/species/yunnanilus-brevis": [
-    {
-      "at": "2026-11-13T08:18:57Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 1,
-      "notes": [],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T08:18:57Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0,
-      "notes": [
-        "\"hợp với người đã có kinh nghiệm cơ bản\": the page never says the species needs prior experience. The card rates difficulty 2/8, which is easy, so this suitability claim is unsupported and clashes with the easy band."
       ],
       "attempt": "first",
       "kept": false

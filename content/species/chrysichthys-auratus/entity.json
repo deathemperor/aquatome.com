@@ -14,7 +14,14 @@
     "egypt",
     "nile",
     "kenya",
-    "lake-turkana"
+    "lake-turkana",
+    "niger",
+    "volta",
+    "senegal",
+    "chad",
+    "lake-chad",
+    "liberia",
+    "angola"
   ],
   "dataCard": {
     "tempC": [
@@ -24,12 +31,32 @@
           "min": 26,
           "max": 31
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 35
+      },
+      {
+        "source": "scotcat",
+        "value": 35
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
       }
     ]
   },
@@ -47,10 +74,22 @@
       "html": "<p>West Africa: from Mauritania to Ghana, except in coastal basins from Gambia to Liberia, where it is replaced by C. maurus. Also reported from Nigeria and Cameroon. Questionably reported from the Nile River and Lake Turkana.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/chrysichthys_auratus.htm",
+      "html": "<p>Africa: Nile, Niger, Volta and Senegal rivers, Lake Chad basin, and coastal rivers of western Africa, from Liberia to Angola.</p><p>There are three population groups of this species in the Nile drainage, the Chad drainage and West Africa from Cabinda. The West African population tends to have long extensions to the dorsal fin. The Nile population has a shorter extension.</p>"
+    },
+    {
       "key": "habitat",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1355",
       "html": "<p>Occurs in lakes.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/chrysichthys_auratus.htm",
+      "html": "<p>Found in lakes and coastal rivers and usually occurs over soft, slightly muddy substrates or substrates with heavy layers of leafy detritus in deep, relatively quiet waters. As the specific name suggests, it has a golden colouration.</p>"
     },
     {
       "key": "diet",
@@ -59,16 +98,40 @@
       "html": "<p>Feeds on mollusks and small crustaceans (Branchiopods, Copepods, Ostracoda) which it digs from the substrate. It also feeds on fish and insects.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/chrysichthys_auratus.htm",
+      "html": "<p>Feeds on molluscs and small crustaceans (branchiopods, copepods, ostracods), which it digs from the substrate. Also feeds on fish and insects. Will eat most aquarium fare.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/chrysichthys_auratus.htm",
+      "html": "<p>As with most of this genus it cannot be trusted with smaller tank mates. It would do better with larger African tetras or cichlids. Give it a choice of hiding places to make it feel more comfortable, as it can be nocturnal.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1355",
       "html": "<p>Unreported.</p><p>There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/chrysichthys_auratus.htm",
+      "html": "<p>Etymology: the specific name auratus is Latin for gilded, referring to the golden-yellow head (at least on the specimens that Geoffroy Saint-Hilaire examined).</p><p>Apart from C. ornatus, this genus can be difficult to identify to species unless the catchment location is known.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1355",
       "html": "<p>Poissons du Nil v. 1 (part 1), pp [322], Pl. 14 (figs. 3-4).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/chrysichthys_auratus.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2011. FishBase. World Wide Web electronic publication. www.fishbase.org. Seegers, L. 2008 The catfishes of Africa. A handbook for identification and maintenance. Aqualog Verlag A.C.S. GmbH, Germany. 604 p. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -104,6 +167,16 @@
       "sourceUrl": "https://www.scotcat.com/claroteidae/chrysichthys_auratus.htm",
       "caption": "Chrysichthys auratus",
       "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/b49aaa6b04e4d72f.webp",
+      "thumb": "https://media.aquatome.com/commons/b49aaa6b04e4d72f-480.webp",
+      "width": 960,
+      "height": 1021,
+      "licence": "CC BY 4.0",
+      "author": "Natural History Museum",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chrysichthys_auratus_(Geoffroy_Saint-Hilaire,_1809)_1055370127.jpg",
+      "caption": "Chrysichthys auratus (Geoffroy Saint-Hilaire, 1809) 1055370127"
     }
   ],
   "videos": [
@@ -132,6 +205,27 @@
       "lang": "en"
     }
   ],
-  "productSlots": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 200 lít",
+        "bể cá lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá da trơn",
+        "thức ăn viên chìm"
+      ]
+    }
+  ],
   "updatedAt": "2026-11-13"
 }

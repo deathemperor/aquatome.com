@@ -260,6 +260,22 @@
       "kept": true
     }
   ],
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-unknown": [
+    {
+      "at": "2026-11-13T23:16:53Z",
+      "model": "opus",
+      "ran": "claude-opus-5-5",
+      "cli": "2.1.323",
+      "score": 0.85,
+      "notes": [
+        "\"Diorama\" is capitalized in the middle of a Vietnamese phrase; \"bể diorama\" would read more naturally.",
+        "The title leaves out details that set this page apart, such as \"CIPs 2017\", the setup taking only a few hours, or the Brazilian layout style. Other Ferreira diorama pages might also fit \"đá nhô cao cùng bụi cây nhiều màu\".",
+        "\"bụi cây nhiều màu\" is a bit vague. The text says \"bụi cây cắt cắm\", so \"bụi cây cắt cắm nhiều màu\" would be more exact."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/aquariumbreeder-brackish-water-plants": [
     {
       "at": "2026-11-09T17:18:26Z",

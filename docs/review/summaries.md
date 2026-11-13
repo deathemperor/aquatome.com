@@ -47,6 +47,17 @@ Hợp với người đã có bể chín, nước sạch, giàu oxy và nuôi đ
 - Mua một cặp hoặc bộ ba thì con thống trị dễ ép các con còn lại bỏ ăn; nuôi nhóm ít nhất 5 hoặc 6 con, tốt nhất 10 con trở lên.
 - Để nắp hở hoặc để khe hẹp trong bể thì cá nhảy ra hoặc bị kẹt; đậy nắp thật kín và trám các khe, lỗ nhỏ bằng silicone dùng cho bể cá.
 
+## Cá Ammoglanis multidentatus (Ammoglanis multidentatus)
+id: `ammoglanis-multidentatus`
+
+Loài cá tí hon, trưởng thành 2 cm, hợp với người thích cá lạ và chịu tự tìm hiểu thêm. Hồ sơ chưa có số liệu về bể tối thiểu, nhiệt độ hay pH. Ngoài tự nhiên chúng sống ở một con sông nước đen, đáy có cát và đá. Khó nhất là thiếu thông tin: chưa có báo cáo nào về chuyện đẻ.
+
+- Đừng cho ăn đơn điệu một loại, vì ngoài tự nhiên chúng ăn động vật thân mềm, giáp xác, các sinh vật khác sống dưới nước và mùn bã thực vật; nên cho ăn đa dạng theo hướng đó.
+
+Kiểm tra:
+- The mistake "Đừng cho ăn đơn điệu một loại ... nên cho ăn đa dạng theo hướng đó" gives captive feeding advice. The page only lists the wild diet (động vật thân mềm, giáp xác, mùn bã thực vật). It never says what to feed in a tank or that a single food is a mistake, so this advice is invented.
+- "hợp với người thích cá lạ và chịu tự tìm hiểu thêm" says who the species suits. The page doesn't state or imply this.
+
 ## Cá rô đồng (Anabas testudineus)
 id: `anabas-testudineus`
 
@@ -290,6 +301,18 @@ Cá badis Myanmar (Badis ruber) dài 5 cm, độ khó 6/8 (khó), hợp người
 - Cho ăn trùng huyết hoặc trùng chỉ thường xuyên dễ làm cá béo phì và mắc bệnh; nên bỏ hai loại này, thay bằng Artemia hay Daphnia.
 - Thả nhiều đực vào bể nhỏ thì chúng đánh nhau; bể nhỏ chỉ nên nuôi một cặp hoặc một đực với vài cái.
 - Nuôi chung với loài Badis khác sẽ bị lai; chỉ nuôi một loài Badis trong bể, và chọn bạn cùng bể hiền, bơi chậm như Trigonostigma hay Rasbora cỡ nhỏ.
+
+## Cá da trơn gafftopsail (Bagre marinus)
+id: `bagre-marinus`
+
+Loài này hợp với người có chỗ cho một con cá dài tới 69 cm trong bể nước mặn nền cát, có đá sống cho cá trốn, pH 8–8,4. Cá ưa nước lạnh đến mát nên chỉ ghép với cá biển cùng ưa nước lạnh đến mát và đủ lớn để không bị nuốt. Cá ăn được nhiều loại thức ăn, nhưng chưa ai cho đẻ được trong bể.
+
+- Thả chung với cá nhỏ: cá nuốt được thì nó nuốt, nên chỉ ghép với cá đủ lớn.
+- Ghép với cá biển ưa nước ấm: loài này ưa nước lạnh đến mát, nên chọn bạn cùng ưa nước lạnh đến mát.
+- Thấy cá vào sông, cửa sông ngoài tự nhiên rồi nuôi bể nước ngọt: đây là cá biển thật sự, nên nuôi bể nước mặn pH 8–8,4.
+
+Kiểm tra:
+- "Cá ăn được nhiều loại thức ăn" states as fact something the page hedges. The page says "chắc là nó ăn được nhiều loại thức ăn" (probably), inferred from its wild diet, so the hedge became a certainty.
 
 ## Cá Bagrichthys hypselopterus (Bagrichthys hypselopterus)
 id: `bagrichthys-hypselopterus`
@@ -842,24 +865,6 @@ Kiểm tra:
 - Mistake 2 "Bày bể trơn hoặc nền mịn ... nên lót sỏi và đá": the page gives no aquarium or substrate advice. It only describes the wild habitat at one collection site. Turning that into a mistake and a fix is advice the page doesn't give.
 - "nên dữ liệu nuôi còn ít": the page says nothing about how much husbandry data exists. It only says the species is recorded from one site and that Garra taxonomy is confused.
 
-## Cá bác sĩ (Garra rufa)
-id: `garra-rufa`
-
-Cá bác sĩ (Garra rufa) hợp với người có bể dài từ 120 cm, thích bày bể kiểu dòng suối và có sẵn nước mát 16–20 °C. Cá lớn tới 12 cm, sống ở pH 6–8, độ cứng 1–15 dGH, độ khó 5/8 (mức vừa). Phần khó nhất là giữ nước thật sạch, giàu oxy, dòng chảy mạnh và bể đã chín, còn cá thì hay nhảy và bò lên cả mặt kính.
-
-- Thả cá vào bể mới set: hãy chờ hệ vi sinh ổn định và có màng sinh học trên bề mặt rồi mới thả.
-- Để nắp bể hở: đậy thật khít vì cá hay nhảy và bò lên được cả mặt kính.
-- Nghĩ cá chỉ ăn rêu: ngoài rêu, cho thêm trùng huyết, Artemia hoặc tôm cắt nhỏ, kèm thức ăn chìm có Spirulina.
-
-## Cá hải hồ brachybranchus (Geophagus brachybranchus)
-id: `geophagus-brachybranchus`
-
-Loài này hợp với người đã có bể lớn, chịu đầu tư lọc và nuôi theo nhóm. Cá lớn tới 20 cm nên cần bể dài tối thiểu 180 cm, đáy cát mềm, nước ấm 26–30 °C, pH 5–7, độ cứng 1–10 dGH. Độ khó 5/8, khó nhất là giữ nước sạch và ổn định, vì cá rất nhạy với nước xuống cấp và thông số dao động.
-
-- Lót sỏi hay đá cuội nhỏ làm nền: cá khó ăn, dễ hại mang và có thể nuốt sỏi, nên dùng cát mềm cho cá sục bới.
-- Thả cá vào bể chưa chín: chạy bể cho hệ vi sinh ổn định trước, dùng lọc dư công suất và thay 50–70% nước mỗi tuần để tránh bệnh lỗ đầu hay còi cọc.
-- Nuôi lẻ vài con: cá sống bầy và có thứ bậc, ít con thì con yếu bị bắt nạt, nên mua ít nhất một nhóm 5-8 con.
-
 ## Cá cầu vồng Glossolepis dorityi (Glossolepis dorityi)
 id: `glossolepis-dorityi`
 
@@ -963,6 +968,16 @@ Cá tetra Buenos Aires (Hyphessobrycon anisitsi) hợp với người đã có b
 - Ghép chung với cá nhát, bơi chậm hoặc vây dài như nhiều loài cá đẻ con, cichlid, cá mê cung; nên chọn cá khỏe, cỡ tương đương như các loài characid bơi vùng nước thoáng.
 - Để cá lâu ngày ở nhiệt độ sát ngưỡng trên của khoảng 16–28 °C; nên giữ thấp hơn mức đó.
 
+## Cá Hyphessobrycon loweae (Hyphessobrycon loweae)
+id: `hyphessobrycon-loweae`
+
+Cá nhỏ, trưởng thành 4,2 cm, xuất xứ Brazil (bắt ở Mato Grosso). Cá đực có vây bụng dài, vây lưng xòe rộng, vây hậu môn to và cong; các vây đuôi, lưng, bụng và hậu môn trong, màu từ vàng nhạt đến vàng cam đỏ đậm. Hồ sơ chưa có bể tối thiểu, độ khó và thông số nước chuẩn của trang, nên đó là điểm khó nhất. Tên loài cũng chưa chắc, vì ban đầu cá được bán là tetra "Kitty", mô tả là một loài Hemigrammus mới, rồi sau đó mới được gọi là Hyphessobrycon loweae.
+
+
+Kiểm tra:
+- "Hồ sơ chưa có ... thông số nước chuẩn của trang": the page does give water conditions (about 10 dGH, pH 7, about 24°C). The summary leaves them out and says they are missing, which misleads readers.
+- "nên đó là điểm khó nhất": the page never says missing data is the hardest part of keeping this fish. Missing profile data is not a care difficulty, so the summary does not name a real hardest point from the page.
+
 ## Cá gai giáp (Indostomus paradoxus)
 id: `indostomus-paradoxus`
 
@@ -1024,15 +1039,6 @@ Cá Laetacara dorsigera là cichlid lùn gốc Paraguay, trưởng thành dài 8
 
 Kiểm tra:
 - "cá trên thị trường là cá bắt ngoài tự nhiên nên cần cân nhắc kỹ trước khi mua": the page only says the fish on the market are wild-caught. It gives no advice to think carefully before buying and does not present wild-caught as a drawback. This advice is invented.
-
-## Cá rivulus tecminae (Laimosemion tecminae)
-id: `laimosemion-tecminae`
-
-Hồ sơ chưa có thông số nuôi nào (nhiệt độ, pH, kích thước, bể tối thiểu, độ khó), nên chưa đủ cơ sở để nói loài này hợp với ai. Chỉ biết loài này sống ở lưu vực sông Orinoco, lần đầu được nhập về và những con đang bán có nguồn gốc từ Venezuela. Về tên gọi, có người vẫn gọi là Rivulus, có người theo cách phân loại mới là Laimosemion, và cách tách giống này chưa được đa số giới khoa học đồng tình.
-
-
-Kiểm tra:
-- "cách tách giống này chưa được đa số giới khoa học đồng tình": the page says the split "không phải lúc nào cũng được đa số giới khoa học đồng tình" (not always accepted by most scientists). The summary turns that hedge into a flat statement that most scientists haven't accepted it.
 
 ## Cá Neolamprologus kungweensis (Lamprologus kungweensis)
 id: `lamprologus-kungweensis`
@@ -1112,18 +1118,6 @@ Cá chạch nhỏ, lớn tới 5 cm. Hồ sơ nói hợp người mới tập nu
 - Thả vào bể chưa chạy xong chu trình nitơ; nên đợi bể ổn định vi sinh rồi mới thả.
 - Nuôi lẻ một con; nên nuôi theo đàn từ 4 con trở lên cho cá khỏe.
 - Để bể nước tĩnh, ít oxy; nên lắp một hoặc hai lọc ngoài công suất mạnh để tăng oxy và tạo dòng chảy.
-
-## Cá Leporinus sọc hổ (Leporinus fasciatus tigrinus)
-id: `leporinus-fasciatus-tigrinus`
-
-Leporinus sọc hổ hợp với người nuôi lâu năm, chịu chơi loài có sọc lạ mắt và chấp nhận hồ sơ còn nhiều chỗ chưa chắc. Hồ sơ không có số liệu chuẩn về bể hay nước, nên chưa thể nói bể bao nhiêu lít hay nhiệt độ, pH nào. Điểm khó nhất là thiếu thông tin: loài này có thể chưa được mô tả, và tính tình mới chỉ thấy khá hiền.
-
-- Đừng mặc định cá sẽ hiền mãi: Leporinus đôi khi gây gổ với đồng loại, nên theo dõi kỹ khi nuôi chung.
-- Đừng chỉ cho ăn đồ động vật: hồ sơ cho rằng loài này rất có thể ăn chủ yếu là thực vật, nên ưu tiên thức ăn thực vật.
-
-Kiểm tra:
-- "hợp với người nuôi lâu năm": the page and the empty card give no difficulty rating or experience level, so this is advice the page doesn't give.
-- "nên theo dõi kỹ khi nuôi chung": the page doesn't give this advice. It only says Leporinus sometimes bicker with their own kind and that these fish have so far been fairly mild.
 
 ## Cá limia lưng gù (Limia nigrofasciata)
 id: `limia-nigrofasciata`
@@ -1415,6 +1409,17 @@ Cá sặc cam thảo Linke (Parosphromenus linkei) chỉ hợp với người đ
 - Cho ăn thức ăn mảnh, viên hoặc khô; hãy chuẩn bị Artemia mới nở, Moina, daphnia nhỏ, giun Grindal hay giun vi mô, vì hầu hết cá bắt ngoài tự nhiên từ chối thức ăn khô.
 - Thay nước nhiều, không đều hoặc hạ pH nhanh; hãy thay ít và đều, dùng nước thay có nhiệt độ, pH và TDS gần giống nước trong bể.
 
+## Cá nheo Tachysurus intermedius (Pelteobagrus intermedius)
+id: `pelteobagrus-intermedius`
+
+Cá nheo Tachysurus intermedius trưởng thành khoảng 13,5 cm, sống được cả nước ngọt lẫn nước lợ. Hồ sơ không ghi nhiệt độ, pH hay bể tối thiểu. Điểm khó nhất là thiếu dữ liệu: chưa có tài liệu nào ghi lại cách loài này sinh sản.
+
+- Đừng mặc định loài này chỉ sống nước ngọt, vì hồ sơ ghi sống được cả nước ngọt lẫn nước lợ.
+- Đừng tính chuyện cho đẻ, vì chưa có tài liệu nào ghi lại cách loài này sinh sản.
+
+Kiểm tra:
+- "Đừng tính chuyện cho đẻ": the page only says no documentation of breeding exists. It never advises against trying to breed the species, so this mistake and its fix are advice the page doesn't give.
+
 ## Cá barb Pethia canius (Pethia canius)
 id: `pethia-canius`
 
@@ -1581,13 +1586,16 @@ Hợp người đã quen giữ nước mềm, axit và muốn nuôi một đàn 
 Kiểm tra:
 - "tính dữ với đồng loại": the page hedges this as hearsay ("Nghe nói đây là một trong những loài dữ với đồng loại hơn cả trong giống"). The summary states it as a certain trait and drops the hedge.
 
-## Cá pyrrhulina brevis (Pyrrhulina brevis)
-id: `pyrrhulina-brevis`
+## Cá lau kiếng Pterygoplichthys zuliaensis (Pterygoplichthys zuliaensis)
+id: `pterygoplichthys-zuliaensis`
 
-Cá pyrrhulina brevis (Pyrrhulina brevis) dài 8 cm, ăn được mọi loại thức ăn cá thông dụng và không kén chất lượng nước. Nuôi được ở 22–30 °C, hiền và không phá cây. Điểm cần để ý là mùa sinh sản: cá đực giữ lãnh thổ nhỏ và bảo vệ ổ trứng rất hăng.
+Cá lau kiếng Pterygoplichthys zuliaensis hợp với người muốn một con cá ăn tạp, ăn rêu giỏi (nhất là lúc còn nhỏ), thả chung được với gần như mọi loài cá hiền cỡ trung. Hồ sơ không có số liệu về nhiệt độ, pH, độ cứng, kích thước hay bể tối thiểu, nên cần tìm thêm trước khi chọn bể. Điểm khó nhất là nhận đúng loài, vì dễ nhầm với Hypostomus cỡ lớn, và hồ sơ chưa ghi nhận việc sinh sản.
 
-- Đừng nghĩ cá hiền suốt năm; mùa đẻ cá đực giữ lãnh thổ nhỏ và canh ổ trứng rất hăng, nên theo dõi cá đực trong giai đoạn này.
-- Đừng coi cá là tetra thông thường; tập tính của chúng giống cichlid hơn các loài characin khác, nên quan sát cá đực giữ vùng trong mùa đẻ.
+- Nhầm với Hypostomus cỡ lớn khi mua; nên đếm tia vây lưng, từ 10 tia trở lên (thường hơn 10) mới là Pterygoplichthys.
+- Thả chung với cá dữ hoặc cá quá nhỏ; nên chọn các loài cá hiền cỡ trung.
+
+Kiểm tra:
+- Mistake 2: "Thả chung với cá dữ hoặc cá quá nhỏ" – the page only says it can be kept with almost any gentle medium-sized fish. It never says very small fish are a problem or that they are unsuitable, so this is an invented caution. (Avoiding aggressive fish is only the opposite of the page's advice, but the "cá quá nhỏ" part is not.)
 
 ## Cá rasbora đuôi kéo lớn (Rasbora caudimaculata)
 id: `rasbora-caudimaculata`

@@ -22,6 +22,34 @@
       {
         "source": "planetcatfish",
         "value": 26
+      },
+      {
+        "source": "scotcat",
+        "value": 34.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "scotcat",
+        "value": 150
       }
     ]
   },
@@ -33,10 +61,40 @@
       "html": "<ul><li>Scientific name: Hypostomus uruguayensis Reis, Weber &amp; Malabarba, 1990</li><li>IUCN Red List: Least Concern (last assessed 2020)</li><li>Breeding: unreported</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_uruguayensis.htm",
+      "html": "<ul><li>Etymology: from Uruguay.</li></ul><p>The Hypostomus genus has 7 soft rays in the dorsal fin, whereas the similar-looking Pterygoplichthys species have 10 soft dorsal fin rays.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1338",
       "html": "<p>South America: Uruguay River basin. Also recorded in the La Plata basin: Uruguay, Paraná (including Middle Paraná and Bermejo), Paraguay (including Pilcomayo, Upper Pilcomayo, and Upper Paraguay with the Cuiabá and Manso rivers). Type locality: Rio Uruguay at \"Rancho da Amizade,\" São Borja, Rio Grande do Sul, Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_uruguayensis.htm",
+      "html": "<p>South America: Uruguay River basin (Argentina, Bolivia, Brazil and Uruguay). Type locality: Rio Uruguay at \"Rancho da Amizade\", São Borja, Rio Grande do Sul, Brazil.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_uruguayensis.htm",
+      "html": "<p>Will need a good sized aquarium of 5 ft (150 cm) or over due to their final adult size.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_uruguayensis.htm",
+      "html": "<p>As this genus in the main are messy eaters, good water quality and filtration would need to be adhered to.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_uruguayensis.htm",
+      "html": "<p>Will eat all manner of foods in the aquarium: vegetable, tablet and pellet foods and a good quality flake food.</p>"
     },
     {
       "key": "reproduction",
@@ -51,14 +109,59 @@
       "html": "<p>Etymology: Greek hypo = under + Greek stoma = mouth. The species name refers to the river in which the type specimen was collected.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_uruguayensis.htm",
+      "html": "<p>IUCN Red List: despite the little information available on this species, it has a wide range and no apparent threats. Therefore, it is assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1338",
       "html": "<p>Revue Suisse de Zoologie v. 97 (no. 3), pp 760, Figs. 1, 29-31.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_uruguayensis.htm",
+      "html": "<p>Eschmeyer, W.N. (ed.), 1998. Catalog of fishes. Special Publication, California Academy of Sciences, San Francisco. 3 vols. 2905 p.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2023. FishBase. World Wide Web electronic publication. www.fishbase.org, version.</p><p>Loureiro M, González-Bergonzoni I, Teixeira de Mello F. 2023. Freshwater Fishes of Uruguay. Second edition. Vertebrate Zoology Laboratory, Faculty of Sciences, University of the Republic.</p><p>Salvador, G.N. 2023. Hypostomus uruguayensis. The IUCN Red List of Threatened Species 2023.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/272a4581e87c4430.webp",
+      "thumb": "https://media.aquatome.com/scotcat/272a4581e87c4430-480.webp",
+      "width": 500,
+      "height": 255,
+      "licence": "dùng với sự cho phép",
+      "author": "Freshwater Fish from Uruguay 2nd. edition / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_uruguayensis.htm",
+      "caption": "Hypostomus uruguayensis",
+      "source": "scotcat"
+    }
+  ],
   "videos": [],
-  "productSlots": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy lọc ngoài cho bể 150cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá lau kiếng",
+        "rong biển sấy cho cá dọn bể"
+      ]
+    }
+  ],
   "updatedAt": "2026-11-13"
 }

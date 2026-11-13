@@ -1,7 +1,7 @@
 ---
 url: https://bwaquatics.com/products/betta-channoides-f1
 title: Betta Channoides - Samarinda F1 | Wild Type Bettas – BWAquatics
-fetchedAt: 2026-11-13T17:11:42.621Z
+fetchedAt: 2026-11-13T20:55:16.396Z
 hash: f85bc8a4eff06af752f12d5d830829f554a5a3e8dfe3dfc0fa233b1755a6729d
 ---
 

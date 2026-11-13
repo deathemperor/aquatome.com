@@ -1,7 +1,7 @@
 ---
 url: https://bwaquatics.com/products/mahachaiensis
 title: Betta mahachaiensis (Betta mahachai) Wild Type | Rare Bettas – BWAquatics
-fetchedAt: 2026-11-13T16:58:56.692Z
+fetchedAt: 2026-11-13T20:43:41.702Z
 hash: c716622b736c54ce75e337605068709ebba23fa3163bd48d87a2be8fb8dd776e
 ---
 
