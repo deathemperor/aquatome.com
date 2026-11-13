@@ -1,3 +1,4 @@
+import { piece } from './pieces'
 import { execFile } from 'node:child_process'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
@@ -176,7 +177,7 @@ export async function screenWatermarks(root: string, cacheFile: string, rejected
       for (const url of s) { const f = join(dir, `s${i}-${ok.length}`); if (await fetchTo(url, f)) ok.push({ url, b: await readFile(f) }) }
       if (!ok.length) return
       try {
-        const v = await judgeSheet(ok.map(x => ({ b: x.b, ocr: cache[x.url]!.ocr })), join(dir, `sheet-${i}.jpg`), d.look)
+        const v = await piece(`sheet-${i}`, () => judgeSheet(ok.map(x => ({ b: x.b, ocr: cache[x.url]!.ocr })), join(dir, `sheet-${i}.jpg`), d.look))
         v.forEach((r, j) => { if (r) { cache[ok[j]!.url] = { ...cache[ok[j]!.url]!, ...r }; report.judged++ } })
       } catch (err) {
         if (err instanceof LlmError) report.stopped ||= photoModelStop(err)

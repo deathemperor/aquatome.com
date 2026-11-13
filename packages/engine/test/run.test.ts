@@ -1,3 +1,4 @@
+import { denied } from './piece-admission'
 import { readFileSync } from 'node:fs'
 import { copyFile, mkdir, mkdtemp, readdir, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
@@ -608,4 +609,16 @@ test("a run's read of a page: photos taken off the site before don't hold its fo
   const entity = JSON.parse(await readFile(join(root, 'content/species/paracheirodon-axelrodi/entity.json'), 'utf8'))
   expect(entity.photos.map((p: { url: string }) => p.url)).toEqual(order.slice(4, 8))
   expect(calls.images).toBe(4)
+})
+
+test('last item cost refuses admission without calls or content writes', async () => {
+  const root = await fresh()
+  const { d, calls } = deps(root, { urls: ['paracheirodon-axelrodi'] })
+  await denied('run', root, async () => {
+    const r = await runEngine(d, { sources: ['seriouslyfish'], limit: 1 })
+    expect(r.stopped).toContain('not started')
+    expect(r.errors).toEqual([])
+    expect(r.perSource.seriouslyfish?.errors).toBe(0)
+    expect(calls.llm).toBe(0)
+  })
 })
