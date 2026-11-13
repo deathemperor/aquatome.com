@@ -50,7 +50,7 @@ test('all-off whole step publishes only individually approved crop, records cred
  expect(report).toMatchObject({off:false,published:1,repaired:1,generated:0,upscaled:0,failed:[]});expect(f.forbidden).not.toHaveBeenCalled();expect(f.store).toHaveBeenCalledTimes(2)
  const entity=JSON.parse(await readFile(f.file,'utf8')),gallery=JSON.parse(await readFile(join(f.root,'content/gallery/alpha.json'),'utf8'))
  expect(entity.photos).toEqual([f.p]);expect(gallery.photos).toEqual([f.p]);expect(entity.photos[0].headFit).toBeUndefined();expect(await readFile(join(f.dir,'original'))).toEqual(before)
- const c=await loadAll({root:join(f.root,'content'),lang:'vi',publicBuild:true});expect(c.species.find(s=>s.id==='alpha')!.photos[0]).toEqual(f.p)
+ const c=await loadAll({root:join(f.root,'content'),lang:'vi',publicBuild:true,wholeBoxes:false});expect(c.species.find(s=>s.id==='alpha')!.photos[0]).toEqual(f.p)
  const check=await checkPagePhotos(f.root,{get:f.forbidden,look:f.forbidden},{limit:1,only:'alpha'});expect(check.judged).toBe(0);expect(f.forbidden).not.toHaveBeenCalled()
  f.store.mockClear();expect((await imageSteps(f.root,async()=>f.d)).off).toBe(true);expect(f.store).not.toHaveBeenCalled()
  // Later ordinary removal is not resurrected by the approval publisher.
@@ -325,7 +325,7 @@ test('an individually approved open-licence crop publishes without a source gran
  expect(r).toMatchObject({published:1,repaired:1,generated:0,upscaled:0,failed:[],waiting:[]})
  expect(f.store).toHaveBeenCalledTimes(2);expect(f.forbidden).not.toHaveBeenCalled()
  expect(await readFile(join(f.dir,'original'))).toEqual(before)
- const c=await loadAll({root:join(f.root,'content'),lang:'vi',publicBuild:true})
+ const c=await loadAll({root:join(f.root,'content'),lang:'vi',publicBuild:true,wholeBoxes:false})
  expect(c.species.find(s=>s.id==='alpha')!.photos[0]).toEqual(f.p)
  expect(f.p.licence).toBe('CC BY-SA 2.5')
  expect(licenceUrl(f.p.licence)).toBe('https://creativecommons.org/licenses/by-sa/2.5/')

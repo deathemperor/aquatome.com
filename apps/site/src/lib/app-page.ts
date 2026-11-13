@@ -1,6 +1,6 @@
-import { boxFractions, photoFitsCard, resolveDataCard, type Content, type GlossaryEntity, type GuideEntity, type Localized, type Photo, type PlantEntity, type Range, type Series, type SourceId, type SourceInfo, type SpeciesEntity } from '@aq/schema'
+import { resolveDataCard, type Content, type GlossaryEntity, type GuideEntity, type Localized, type Photo, type PlantEntity, type Range, type Series, type SourceId, type SourceInfo, type SpeciesEntity } from '@aq/schema'
 import { PAGE_VERSION, pageShard, shardCount, type Block, type Image, type Inline, type PageDoc, type PageShard } from '@aq/schema/app-page'
-import { appBreeds, appEquipment, appGlossary, appGuides, appIndex, appPlants, appSeries, appSpecies, type AppIndex } from './app-index'
+import { appBreeds, appEquipment, appGlossary, appGuides, appIndex, appPlants, appSeries, appSpecies, headPhoto, photoBox, type AppIndex } from './app-index'
 import { breedParts } from './breed-page'
 import { BREED_KIND, type Breed } from './breeds'
 import { photoCredit } from './cite'
@@ -18,6 +18,7 @@ import { guideParts } from './guide-page'
 import { cleanPhoto } from './home'
 import { appLinks, appPath, isVietnamese, served, translator, type Lang, type T } from './i18n'
 import { smallSrc } from './img'
+import { guideImage } from './mentions'
 import { htmlBlocks } from './page-blocks'
 import { plantParts } from './plant-page'
 import type { RangeParts } from './range'
@@ -26,7 +27,7 @@ import { QUESTION_LABELS } from './sections'
 import { seriesParts } from './series-page'
 import { speciesParts } from './species-page'
 import { commentsKey, photosKey } from './talk'
-import { clock, guideChapters, watchUrl } from './video'
+import { clock, guideChapters, seriesGuides, watchUrl } from './video'
 
 /**
  * The app's copy of each content page (packages/schema/src/app-page.ts): the page's own pieces, as the site's template
@@ -46,12 +47,13 @@ const image = (lang: Lang, p: Photo | null | undefined, alt?: string, small = fa
     ? { src: small ? smallSrc(p) : p.url, w: Math.round(p.width), h: Math.round(p.height), ...(alt ? { alt } : {}), credit: photoCredit(lang, p) }
     : undefined
 /**
- * The current app crops its detail banner and has no headFit consumer. Keep unsafe cropped leads out of its data. The
- * lead carries where the fish is (`box`) where the loader gave the photo one, which only its switch does.
+ * A page's head, the photo its card in the app index shows (headPhoto, the guide's and the series' card photo), with where
+ * the fish is (`box`, photoBox): the whole area where the cards' frames refuse the photo, so a reader that knows the box
+ * shows it whole by the frames rule, never nothing (the Design Lead, 13 Nov).
  */
-const headImage = (lang:Lang,p:Photo|undefined,alt:string) => {
-  const img = p && p.headFit!=='contain' && photoFitsCard(p) ? image(lang,p,alt) : undefined
-  const box = img && boxFractions(p!)
+const headImage = (lang: Lang, p: Photo | null | undefined, alt?: string) => {
+  const img = image(lang, p, alt)
+  const box = img && photoBox(p!)
   return img && box ? { ...img, box } : img
 }
 /** A link to a page as this language's page has it: to its own page, none (the text alone) when it has none. */
@@ -190,7 +192,7 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
   const { num } = fmt(lang)
   const at = (viPath: string) => appPath(lang, viPath)
   const p = await speciesParts(lang, c, s)
-  const lead = headImage(lang, s.photos[0], `${s.t.name}, ${s.scientificName}`)
+  const lead = headImage(lang, headPhoto(s.photos), `${s.t.name}, ${s.scientificName}`)
   const sources = [...new Set(s.sections.map(x => c.sources[x.source]?.name ?? x.source))].join(', ')
   const { blocks: text } = sectionBlocks(lang, c, { sections: p.text.sections, t: p.text.t, self: `species:${s.id}`, selfNames: [s.scientificName, s.t.name, ...s.t.altNames], figures: p.figures.map(photo => ({ photo })), card: s.dataCard, range: { id: s.id, name: s.t.name, range: s.range }, refs: s.refs })
   // "Nuôi chung" (Companions.astro): the fish to keep with it and away from it; with neither, the tool's link alone.
@@ -256,7 +258,7 @@ export function breedDoc(lang: Lang, c: Content, b: Breed, listed: Set<string>):
   const t = translator(lang)
   const at = (viPath: string) => appPath(lang, viPath)
   const p = breedParts(lang, c, b)
-  const lead = headImage(lang, b.photos[0], b.t.name)
+  const lead = headImage(lang, headPhoto(b.photos), b.t.name)
   const kind = t(BREED_KIND[b.kind])
   const parents: Block[] = p.parents.length ? [{
     t: 'p', c: [`${t('Lai từ:')} `, ...p.parents.flatMap((x, i): Inline[] => [
@@ -302,7 +304,7 @@ export function breedDoc(lang: Lang, c: Content, b: Breed, listed: Set<string>):
 export function plantDoc(lang: Lang, c: Content, p: Localized<PlantEntity>, listed: Set<string>): PageDoc {
   const t = translator(lang)
   const parts = plantParts(lang, c, p)
-  const lead = headImage(lang, p.photos[0], `${p.t.name}, ${p.scientificName}`)
+  const lead = headImage(lang, headPhoto(p.photos), `${p.t.name}, ${p.scientificName}`)
   const { blocks: text } = sectionBlocks(lang, c, { sections: p.sections, t: p.t, self: `plant:${p.id}`, selfNames: [p.scientificName, p.t.name, ...p.t.altNames], figures: parts.figures.map(photo => ({ photo })), co2: p.co2, refs: p.refs })
   return {
     v: PAGE_VERSION,
@@ -366,12 +368,15 @@ export function videoDoc(lang: Lang, c: Content, s: Series): PageDoc {
   const t = translator(lang)
   const at = (viPath: string) => appPath(lang, viPath)
   const p = seriesParts(lang, c, s)
+  // Its head is its card's photo in the app index: its first guide's (app-index.ts).
+  const first = seriesGuides(c, s)[0], lead = first && headImage(lang, guideImage(c, first), s.vi.name)
   return {
     v: PAGE_VERSION,
     kind: 'video',
     path: at(`/vi/video/${s.vi.slug}/`),
     title: s.vi.name,
     credit: p.line,
+    ...(lead ? { lead } : {}),
     blocks: [
       ...(s.vi.intro ? [{ t: 'p' as const, c: [s.vi.intro] }] : []),
       {
@@ -394,7 +399,7 @@ export function equipmentDoc(lang: Lang, c: Content, u: CategoryUse, listed: Set
   const t = translator(lang)
   const at = (viPath: string) => appPath(lang, viPath)
   const p = equipmentParts(lang, c, u)
-  const lead = image(lang, p.g?.hero, p.label)
+  const lead = headImage(lang, p.g?.hero, p.label)
   const prose = (html: string) => proseBlocks(lang, html).blocks
   const card = (path: string, name: string, photo: Photo | null, sub?: string) => {
     const img = image(lang, photo, undefined, true)
@@ -478,7 +483,9 @@ export function guideDoc(lang: Lang, c: Content, g: Localized<GuideEntity>, list
     const paths = viPaths.map(at).filter(x => listed.has(x))
     return paths.length ? [{ t: 'pages' as const, title, paths }] : []
   }
-  const lead = v ? undefined : image(lang, p.lead)
+  const lead = v ? undefined : headImage(lang, p.lead)
+  // A video guide's head before it plays: its card's photo (app-index.ts), with its box where it has one.
+  const poster = v ? headImage(lang, guideImage(c, g), g.t.name) : undefined
   return {
     v: PAGE_VERSION,
     kind: 'guide',
@@ -492,12 +499,14 @@ export function guideDoc(lang: Lang, c: Content, g: Localized<GuideEntity>, list
         youtubeId: v.youtubeId, title: v.title, channel: v.channel, durationSec: v.durationSec,
         ...(v.transcribed ? {} : { subtitles: t('Phụ đề tiếng Việt') }),
         ...(guideChapters(v, g.t.chapters).length > 1 ? { chapters: guideChapters(v, g.t.chapters).map(ch => ({ at: ch.start, title: ch.title })) } : {}),
+        ...(poster ? { poster } : {}),
       },
     } : {}),
     talk: { comments: commentsKey(lang, `guide:${g.id}`) },
     blocks: [
       ...(g.t.summary?.length ? [{ t: 'summary' as const, title: t('Tóm tắt nhanh'), items: g.t.summary }] : []),
-      ...blocks,
+      // The poster's picture once a page: a section's still it shows isn't shown again further down (the Design Lead, 13 Nov).
+      ...(poster ? blocks.filter(b => !(b.t === 'figure' && b.img.src === poster.src)) : blocks),
       ...(g.t.faq?.length ? [{ t: 'faq' as const, title: t('Câu hỏi thường gặp'), items: g.t.faq.map(f => ({ q: f.q, a: f.a })) }] : []),
       ...(v || p.refs?.length ? [{ t: 'refs' as const, title: t('Nguồn tham khảo'), id: 'nguon', items: [
         ...(v ? [{ title: `${t('Video gốc:')} ${v.title}${t(', kênh')} ${v.channel} · ${clock(v.durationSec)}`, url: watchUrl(v.youtubeId) }] : []),

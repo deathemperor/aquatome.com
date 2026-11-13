@@ -21,7 +21,8 @@ async function fixture(photos: Photo[], gallery: Photo[] = []) {
   await writeFile(join(root, 'image-approvals.json'), JSON.stringify({ calibrationHash: hash, photos: Object.fromEntries(photos.filter(p => p.generated).map(p => [p.url, { page: 'species/alpha', recordHash: createHash('sha256').update(JSON.stringify([entity.scientificName, entity.sections])).digest('hex'), check: p.generated!.check }])) }))
   return root
 }
-const load = (root: string, on = false) => loadAll({ root, lang: 'vi', publicBuild: true, imageSwitches: { ...IMAGE_SWITCHES, publishGenerated: on } })
+// These cases are about which photos publish; the loader's whole-area box for an unboxed fish photo is subject-frame.test.ts's.
+const load = (root: string, on = false) => loadAll({ root, lang: 'vi', publicBuild: true, wholeBoxes: false, imageSwitches: { ...IMAGE_SWITCHES, publishGenerated: on } })
 
 test('generated pictures stay off in review, and require their own positive reference-based approval', async () => {
   const root = await fixture([ai, real])
@@ -77,7 +78,7 @@ test('a whole-subject crop leads fitted, remains in its album and prevents an AI
  const pair:[string,string]=[hash,'b'.repeat(64)],crop={originalWidth:800,originalHeight:600,window:{x0:0,y0:0,x1:800,y1:520},subject:{x0:30,y0:180,x1:760,y1:420},margin:15}
  const p:Photo={...real,source:'glaser',width:800,height:520,altered:[{method:'mark-crop',date:'2026-11-11',permissionDate:'2026-11-10',originalHash:hash,crop,excludedMarks:[{x0:20,y0:550,x1:780,y1:590}],retainedChanged:0,checks:{species:pair,ownership:pair}}]}
  const root=await fixture([ai,p]),file=join(root,'sources.json'),sources=JSON.parse(await readFile(file,'utf8'));sources.glaser={name:'Fixture source',homepage:'https://example.org/',publish:true,permission:{date:'2026-11-10',file:'owner word',scope:['photos'],markRemoval:{allowed:true,date:'2026-11-10'}}};await writeFile(file,JSON.stringify(sources))
- const c=await loadAll({root,lang:'vi',publicBuild:true,imageSwitches:{...IMAGE_SWITCHES,publishGenerated:true,publishAltered:true,removeMarks:true}})
+ const c=await loadAll({root,lang:'vi',publicBuild:true,wholeBoxes:false,imageSwitches:{...IMAGE_SWITCHES,publishGenerated:true,publishAltered:true,removeMarks:true}})
  expect(c.species[0]!.photos).toEqual([{...p,headFit:'contain'}]);expect(c.galleries.alpha?.map(p=>p.url)).toEqual([p.url,ai.url])
 })
 
@@ -86,7 +87,7 @@ const wholeCrop = ():Photo => ({...real,url:'https://media.aquatome.com/cropped.
 async function cropFixture(photos:Photo[],gallery:Photo[]=[]){
  const root=await fixture(photos,gallery),file=join(root,'sources.json'),sources=JSON.parse(await readFile(file,'utf8'))
  sources.glaser={name:'Fixture source',homepage:'https://example.org/',publish:true,permission:{date:'2026-11-10',file:'fixture permission',scope:['photos'],markRemoval:{allowed:true,date:'2026-11-10'}}};await writeFile(file,JSON.stringify(sources))
- return {root,opts:{root,lang:'vi' as const,publicBuild:true,imageSwitches:{...IMAGE_SWITCHES,removeMarks:true,publishAltered:true}}}
+ return {root,opts:{root,lang:'vi' as const,publicBuild:true,wholeBoxes:false,imageSwitches:{...IMAGE_SWITCHES,removeMarks:true,publishAltered:true}}}
 }
 test('a safely framed real head wins before and after a whole-photo crop arrives',async()=>{
  const crop=wholeCrop(),f=await cropFixture([crop],[real])
