@@ -170,7 +170,9 @@ const DEALER_VI = re([
  * một lô cá hoang dã… công ty nhập lô cá này").
  */
 const HISTORY_VI = /(?<!\d)(?:1[89]|20)\d\d(?!\d)|mẫu chuẩn|mẫu định danh|holotype|type series/iu
-const CUT = /(?<=[.!?])\s+|\n/
+// A sentence ends at its stop, an ellipsis among them, and any closing quote or bracket after it (Astra's read: "Cá cần
+// nước mềm… Lô này chỉ có 7 con." was one sentence, so the fact went with the notice).
+const CUT = /(?<=[.!?…]["'”’»)]*)\s+|\n/
 const history = (text: string, at: number) => HISTORY_VI.test([...text.slice(0, at).split(CUT).slice(-2), text.slice(at).split(CUT)[0]].join(' '))
 /**
  * A bare "lô này" in a sentence about plants is a keeper's own plants, not a dealer's batch: a video's "Cây ở lô này nằm

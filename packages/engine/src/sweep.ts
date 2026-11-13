@@ -822,12 +822,15 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
         return en ? [{ ...x, html: en }] : []
       })
       // A shop's part that is wholly its notice of a current batch or stock in Vietnamese (fit.ts dealerNotice): off the
-      // page, in every language, when its heading has another source's text; else listed for the chief of staff and left.
+      // page, in every language, when its heading has another source's text that isn't such a notice too; else listed for
+      // the chief of staff and left (Astra's read: two shops' notices under one heading each took the other for the text
+      // that stays, and both went).
       const vi = langs.find(l => l.f.endsWith('/vi.json'))?.t
+      const notices = new Set(sections.filter(x => isShop(x.source) && x.key !== 'references' && !!vi?.sections[`${x.key}:${x.source}`] && dealerNotice(vi.sections[`${x.key}:${x.source}`]!)))
       sections = sections.filter(x => {
         const k = `${x.key}:${x.source}`
-        if (!isShop(x.source) || x.key === 'references' || !vi?.sections[k] || !dealerNotice(vi.sections[k]!)) return true
-        if (!sections.some(o => o !== x && o.key === x.key && o.html.trim())) { report.dealerOnly.push(`${kind}/${id}: ${k}`); return true }
+        if (!notices.has(x)) return true
+        if (!sections.some(o => !notices.has(o) && o.key === x.key && o.html.trim())) { report.dealerOnly.push(`${kind}/${id}: ${k}`); return true }
         report.dealer.push(`${kind}/${id}: ${k}`)
         for (const l of langs) delete l.t.sections[k]
         return false

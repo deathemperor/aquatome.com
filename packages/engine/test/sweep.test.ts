@@ -440,6 +440,9 @@ test('a shop\'s part that is wholly its notice of a batch or stock comes off whe
     { key: 'distribution', source: 'glaser', sourceUrl: 'https://glaser/x', html: '<p>Currently fully grown, wild collected fish from Venezuela are on offer.</p>' },
     { key: 'beforeYouBuy', source: 'glaser', sourceUrl: 'https://glaser/x', html: '<p>Beautiful wild-caught fish from Brazil have recently been imported.</p>' },
     { key: 'notes', source: 'glaser', sourceUrl: 'https://glaser/x', html: '<p>A peaceful catfish. Some were recently imported from Peru.</p>' },
+    // Two shops' notices alone under one heading: neither is the text that stays (Astra's read).
+    { key: 'diet', source: 'glaser', sourceUrl: 'https://glaser/x', html: '<p>This batch has only 7 fish.</p>' },
+    { key: 'diet', source: 'bwaquatics', sourceUrl: 'https://bw/x', html: '<p>This batch has only 8 fish.</p>' },
   )
   await writeFile(file('entity.json'), JSON.stringify(e, null, 1))
   const vi = JSON.parse(await readFile(file('vi.json'), 'utf8'))
@@ -447,21 +450,23 @@ test('a shop\'s part that is wholly its notice of a batch or stock comes off whe
     'distribution:glaser': '<p>Hiện ngoài tiệm có bán cá bắt ngoài tự nhiên ở Venezuela, con nào cũng đã lớn hẳn.</p>',
     'beforeYouBuy:glaser': '<p>Gần đây có một đợt cá bắt tự nhiên từ Brazil rất đẹp vừa được nhập về.</p>',
     'notes:glaser': '<p>Cá chuột hiền. Gần đây có một đợt nhập từ Peru về.</p>',
+    'diet:glaser': '<p>Lô này chỉ có 7 con.</p>',
+    'diet:bwaquatics': '<p>Lô này chỉ có 8 con.</p>',
   })
   await writeFile(file('vi.json'), JSON.stringify(vi, null, 1))
   await writeFile(file('th.json'), JSON.stringify({ ...vi, sections: { 'distribution:glaser': '<p>มีขาย</p>', 'notes:glaser': '<p>ปลาสงบ</p>' } }, null, 2))
 
   const r = await sweep(root)
   expect(r.dealer).toEqual(['species/corydoras-adolfoi: distribution:glaser'])
-  expect(r.dealerOnly).toEqual(['species/corydoras-adolfoi: beforeYouBuy:glaser'])
+  expect(r.dealerOnly).toEqual(['species/corydoras-adolfoi: beforeYouBuy:glaser', 'species/corydoras-adolfoi: diet:glaser', 'species/corydoras-adolfoi: diet:bwaquatics'])
   const keys = (x: { sections: { key: string; source: string }[] }) => x.sections.map(s => `${s.key}:${s.source}`)
-  expect(keys(JSON.parse(await readFile(file('entity.json'), 'utf8')))).toEqual(['distribution:seriouslyfish', 'habitat:seriouslyfish', 'beforeYouBuy:glaser', 'notes:glaser'])
-  expect(Object.keys(JSON.parse(await readFile(file('vi.json'), 'utf8')).sections).filter(k => k.endsWith(':glaser')).sort()).toEqual(['beforeYouBuy:glaser', 'notes:glaser'])
+  expect(keys(JSON.parse(await readFile(file('entity.json'), 'utf8')))).toEqual(['distribution:seriouslyfish', 'habitat:seriouslyfish', 'beforeYouBuy:glaser', 'notes:glaser', 'diet:glaser', 'diet:bwaquatics'])
+  expect(Object.keys(JSON.parse(await readFile(file('vi.json'), 'utf8')).sections).filter(k => k.endsWith(':glaser')).sort()).toEqual(['beforeYouBuy:glaser', 'diet:glaser', 'notes:glaser'])
   expect(JSON.parse(await readFile(file('th.json'), 'utf8')).sections).toEqual({ 'notes:glaser': '<p>ปลาสงบ</p>' })
   // Again: nothing to change, and the one left is listed each run.
   const again = await sweep(root)
   expect(again.files).toEqual([])
-  expect(again.dealerOnly).toEqual(['species/corydoras-adolfoi: beforeYouBuy:glaser'])
+  expect(again.dealerOnly).toEqual(['species/corydoras-adolfoi: beforeYouBuy:glaser', 'species/corydoras-adolfoi: diet:glaser', 'species/corydoras-adolfoi: diet:bwaquatics'])
 })
 
 const WEEKLY = "claude failed (1): You've hit your weekly limit · resets Nov 14 at 8am (Asia/Saigon)"
