@@ -51,9 +51,12 @@ final class PageShotsFlowTests: XCTestCase {
     app.openTab("Đèn")
     let entry = app.descendants(matching: .any)["weekaqua"]
     XCTAssertTrue(entry.waitForExistence(timeout: 5), "no Week Aqua row on the lights tab")
+    // In moments: from the top of Đèn it once froze the app (13 Nov), and a tap waits for the app to settle first.
+    let start = Date()
     entry.tap()
     let scan = app.buttons["wa-scan"]
     XCTAssertTrue(scan.waitForExistence(timeout: 5), "the Week Aqua screen didn't open")
+    XCTAssertLessThan(Date().timeIntervalSince(start), 8, "the Week Aqua screen was slow to open")
     scan.tap()
     let lights = app.buttons.matching(identifier: "wa-light")
     XCTAssertTrue(lights.element(boundBy: 2).waitForExistence(timeout: 5), "the three 5746 lights weren't found")

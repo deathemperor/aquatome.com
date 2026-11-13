@@ -965,9 +965,20 @@ final class LightFlowTests: XCTestCase {
 
   /// The Week Aqua screen, its lights found (`-fake-weekaqua`).
   private func findWeekAqua(_ app: XCUIApplication) {
-    tap(app, "weekaqua")
+    openWeekAqua(app, scrolledTo(app, "weekaqua"))
     tap(app, "wa-scan")
     XCTAssertTrue(app.buttons.matching(identifier: "wa-light").element(boundBy: 2).waitForExistence(timeout: 5), "the three 5746 lights weren't found")
+  }
+
+  /// Opens the Week Aqua screen from its row on Đèn, in moments: from the top of Đèn it once froze the app before the
+  /// screen opened (13 Nov), and a tap waits for the app to settle before any timeout starts.
+  private func openWeekAqua(_ app: XCUIApplication, _ row: XCUIElement, file: StaticString = #filePath, line: UInt = #line) {
+    XCTAssertTrue(row.isHittable, "the Week Aqua row isn't reachable", file: file, line: line)
+    let start = Date()
+    row.tap()
+    XCTAssertTrue(app.buttons["wa-scan"].waitForExistence(timeout: 5), "the Week Aqua screen didn't open", file: file, line: line)
+    let took = Date().timeIntervalSince(start)
+    XCTAssertLessThan(took, 8, "the Week Aqua screen took \(Int(took)) s to open", file: file, line: line)
   }
 
   /// The three 5746 lights chosen and connected as one group.

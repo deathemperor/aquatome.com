@@ -17,8 +17,15 @@ final class WeekAquaModel {
     var isError = false
   }
 
+  /// The screens pushed on Đèn's stack: none, or the Week Aqua screen. Pushed by value, as the app's other screens are:
+  /// with `navigationDestination(isPresented:)`, opening it from the top of Đèn froze the app (13 Nov).
+  enum Screen: Hashable { case weekAqua }
+  var path: [Screen] = []
   /// The screen is open (a Week Aqua light on a tank opens it).
-  var isOpen = false
+  var isOpen: Bool {
+    get { !path.isEmpty }
+    set { path = newValue ? [.weekAqua] : [] }
+  }
   private(set) var found: [FoundLight] = []
   private(set) var isScanning = false
   /// The lights chosen to connect together, in the order they were chosen.

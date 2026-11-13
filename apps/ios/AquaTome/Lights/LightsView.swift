@@ -15,7 +15,7 @@ struct LightsView: View {
     // colour instead, where the site's sits on a wide screen.
     let pinned = !size.isAccessibilitySize
     @Bindable var weekAqua = lights.weekAqua
-    NavigationStack {
+    NavigationStack(path: $weekAqua.path) {
       ScrollView {
         VStack(alignment: .leading, spacing: 24) {
           // Week Aqua lights on the first screen too: under the Chihiros card, and first once one is kept on a tank
@@ -42,7 +42,7 @@ struct LightsView: View {
       .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
       .navigationTitle("Đèn")
       .profileButton()
-      .navigationDestination(isPresented: $weekAqua.isOpen) { WeekAquaView() }
+      .navigationDestination(for: WeekAquaModel.Screen.self) { _ in WeekAquaView() }
       // What just happened, and writing what is set, stay in view wherever the screen is scrolled (the site's write bar
       // is fixed to the bottom on a phone too).
       .safeAreaInset(edge: .bottom) { VStack(spacing: 0) { NoticeBar(); if pinned { WriteBar(pinned: true) } } }
