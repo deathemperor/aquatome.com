@@ -37,7 +37,35 @@ export const sideways = (page: Page) => page.evaluate(() => {
   return `${document.documentElement.scrollWidth}px > ${w}px: ${wide ? `<${wide.tagName.toLowerCase()} class="${wide.className}">` : '?'}`
 })
 
-/** Every picture on the page as one that didn't load: its alt text in its place, as when the media host refuses it or is down. */
+/**
+ * A fish page's photo column on a computer (pages/ca/[slug].astro), scrolled through the range where it's pinned beside
+ * the facts: the furthest any of it (its box, the photo, a thumbnail its list doesn't clip) is drawn outside the page's
+ * top (`.top`), and where; null when it stays inside, or the page has no such column (a phone shows it in the page's flow).
+ */
+export const columnSpill = (page: Page) => page.evaluate(async () => {
+  const top = document.querySelector<HTMLElement>('.top:has(> .side)'), side = top?.querySelector<HTMLElement>(':scope > .side')
+  if (!top || !side || getComputedStyle(side).display === 'contents') return null
+  const list = side.querySelector('ul'), frame = () => new Promise(done => requestAnimationFrame(done))
+  const drawn = () => {
+    const clip = list && getComputedStyle(list).overflowY !== 'visible' ? list.getBoundingClientRect() : undefined
+    const thumbs = [...side.querySelectorAll('li')].map(li => li.getBoundingClientRect()).filter(r => r.height && (!clip || r.top < clip.bottom))
+      .map(r => ({ top: r.top, bottom: clip ? Math.min(r.bottom, clip.bottom) : r.bottom }))
+    return [side.getBoundingClientRect(), ...[...side.querySelectorAll('.gallery')].map(g => g.getBoundingClientRect()), ...thumbs]
+  }
+  let worst = 0, at = 0
+  const end = top.getBoundingClientRect().bottom + scrollY
+  for (let y = 0; y <= end; y += Math.round(innerHeight / 4)) {
+    scrollTo({ top: y, behavior: 'instant' })
+    await frame()
+    const t = top.getBoundingClientRect(), parts = drawn()
+    const out = Math.max(...parts.map(r => r.bottom - t.bottom), ...parts.map(r => t.top - r.top))
+    if (out > worst) { worst = out; at = scrollY }
+  }
+  scrollTo({ top: 0, behavior: 'instant' })
+  return worst > 1 ? `${Math.round(worst)} px outside the page's top, scrolled to ${Math.round(at)} px` : null
+})
+
+/** Every picture on the page as one that didn't load:its alt text in its place, as when the media host refuses it or is down. */
 export async function photosMissing(page: Page) {
   await page.evaluate(() => {
     document.querySelectorAll('picture source').forEach(s => s.remove())
