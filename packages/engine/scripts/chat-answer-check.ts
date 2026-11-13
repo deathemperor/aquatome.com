@@ -63,6 +63,11 @@ const HANDED = /(?:hỏi|nhờ|liên hệ|kiểm tra thêm với|tham khảo)[^.
 const VET = /bác sĩ|thú y/iu
 const STEP = /kiểm tra|thay|tách|đo |cách ly|giảm|tăng|dùng|tắm|ngừng|xử lý/iu
 const sentences = (t: string) => t.split(/(?<=[.!?])\s+|\n+/u).map(s => s.trim()).filter(Boolean)
+/** The clause that sends the fish to a vet: what the vet does there ("nhờ bác sĩ thú y kiểm tra") is no step of the keeper's. */
+const VET_CLAUSE = /[^,;]*?(?:bác sĩ|thú y)[^,;.!?]*/giu
+/** The method for soft water gives how much of each to mix and what to test, not only the water's name. */
+const MIX = /\d+\s*(?:phần|%)|tỉ lệ|\d+\s*[:/]\s*\d+/iu
+const TEST = /đo\s+(?:lại\s+)?(?:GH|KH|độ cứng|pH)|bộ (?:test|thử)|que thử/iu
 const reads = (h: { role: string; content: unknown }[]) => h.flatMap(m => (Array.isArray(m.content) ? m.content : []) as { type: string; name?: string; input?: { path?: string } }[]).filter(b => b.type === 'tool_use' && b.name === 'read_page').map(b => b.input?.path)
 
 const asked = (h: { role: string; content: unknown }[]) => h.flatMap(m => (Array.isArray(m.content) ? m.content : []) as { type: string; name?: string; input?: unknown }[]).filter(b => b.type === 'tool_use').map(b => `${b.name} ${JSON.stringify(b.input)}`)
@@ -81,7 +86,17 @@ async function ask(question: string, before: Earlier[]) {
 }
 
 let filed = 0
-const handedOn = (text: string) => sentences(text).filter(s => HANDED.test(s) || (VET.test(s) && !STEP.test(s)))
+const handedOn = (text: string) => sentences(text).filter(s => HANDED.test(s) || (VET.test(s) && !STEP.test(s.replace(VET_CLAUSE, ' '))))
+const methodGaps = (text: string) => !/\bRO\b|nước mưa/iu.test(text) ? ['gives no way to make soft water']
+  : [...(MIX.test(text) ? [] : ['gives no amounts to mix']), ...(TEST.test(text) ? [] : ['says nothing to test'])]
+// The rules' own cases, checked before any model call: each misread the review found (13 Nov) stays caught.
+for (const [s, on] of [
+  ['Nếu cá không đỡ, nhờ bác sĩ thú y kiểm tra.', true],
+  ['Tách cá sang bể cách ly và tắm muối 1 g/l, nếu nặng hơn có thể hỏi thêm bác sĩ thú y.', false],
+  ['Hỏi người bán cá xem họ cho ăn gì.', true],
+] as const) if (handedOn(s).length > 0 !== on) throw new Error(`the hand-on rule misreads: "${s}"`)
+if (methodGaps('Cá cần pH 4,8 đến 6,2 và GH 0 đến 5. Dùng nước RO.').length !== 2) throw new Error('the method rule passes an answer with no amounts and no test')
+if (methodGaps('Pha 1 phần nước máy với 2 phần nước RO, rồi đo GH bằng bộ test.').length) throw new Error('the method rule fails a whole method')
 
 async function checkWater(): Promise<string[]> {
   const run = await ask(WATER, earlier)
@@ -91,7 +106,7 @@ async function checkWater(): Promise<string[]> {
   if (TALK.test(text)) bad.push(`talks about the pages disagreeing: "${text.match(TALK)![0]}"`)
   if (!/4[,.]8/u.test(text) || !/6[,.]2/u.test(text)) bad.push('leaves out the card\'s pH')
   if (!/0\s*(?:-|–|đến|tới)\s*5/u.test(text)) bad.push('leaves out the card\'s hardness')
-  if (!/\bRO\b|nước mưa/iu.test(text)) bad.push('gives no way to make soft water')
+  bad.push(...methodGaps(text))
   if (!reads(run.history).includes(GUIDE)) bad.push(`did not read the guide (it asked: ${asked(run.history).join('; ')})`)
   if (ABOVE.test(text)) bad.push(`points at an earlier answer: "${text.match(ABOVE)![0]}"`)
   if (handedOn(text).length) bad.push(`hands the question on: "${handedOn(text)[0]}"`)
