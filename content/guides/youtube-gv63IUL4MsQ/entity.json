@@ -1,15 +1,16 @@
 {
   "id": "youtube-gv63IUL4MsQ",
-  "kind": "care",
+  "kind": "setup",
   "source": "youtube",
   "sourceUrl": "https://www.youtube.com/watch?v=gv63IUL4MsQ",
   "html": "",
   "photos": [],
   "mentions": [
     "vallisneria",
+    "neocaridina-davidi",
     "paracheirodon-axelrodi",
     "corydoras-sterbai",
-    "neocaridina-davidi"
+    "hyphessobrycon-columbianus"
   ],
   "updatedAt": "2026-11-13",
   "video": {
@@ -34,17 +35,17 @@
       "Vallisneria sp.",
       "Micranthemus tweediei",
       "Crinum sp.",
-      "Lemna sp.",
-      "Hyphessobrycon sp.",
+      "Neocaridina davidi",
       "Paracheirodon axelrodi",
       "Corydoras sterbai",
-      "Neocaridina davidi"
+      "Lemna sp.",
+      "Hyphessobrycon columbianus"
     ],
     "gear": [
       {
         "category": "phan-nen",
         "type": "cat",
-        "t": 397
+        "t": 404
       },
       {
         "category": "den",
@@ -54,105 +55,16 @@
       {
         "category": "loc",
         "type": "thung",
-        "t": 689
-      }
-    ],
-    "figures": [
-      {
-        "heading": "Vì sao cá đĩa khỏe mà vẫn hoảng",
-        "moments": [
-          {
-            "t": 20,
-            "url": "https://media.aquatome.com/video/gv63IUL4MsQ/at20-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đàn cá đĩa bơi giữa bể trồng cây xanh um, nhìn khá cảnh giác.",
-            "sharpness": 400.3
-          },
-          {
-            "t": 30,
-            "url": "https://media.aquatome.com/video/gv63IUL4MsQ/at30-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cá đĩa cam và cá đĩa xanh bơi gần lũa trong bể thủy sinh.",
-            "sharpness": 714.1
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/gv63IUL4MsQ/p0-k4NTQyNDMpLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/gv63IUL4MsQ/p0-k4NTQyNDMpLmpwZw-480.webp",
-          "width": 960,
-          "height": 694,
-          "licence": "CC0",
-          "author": "Bernard Spragg. NZ from Christchurch, New Zealand",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Discus_fish._(10739854243).jpg",
-          "caption": "Cá đĩa đỏ khỏe mạnh bơi trong bể có cây thủy sinh làm chỗ nép."
-        }
+        "t": 719
       },
       {
-        "heading": "Vì sao không nên chờ đến lúc cá bệnh",
-        "moments": [
-          {
-            "t": 40,
-            "url": "https://media.aquatome.com/video/gv63IUL4MsQ/at40-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cá dĩa cam đỏ khỏe đẹp bơi cạnh lũa và cây thủy sinh.",
-            "sharpness": 269.1
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/gv63IUL4MsQ/p1-hc2NpYXR1cy5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/gv63IUL4MsQ/p1-hc2NpYXR1cy5qcGc-480.webp",
-          "width": 960,
-          "height": 627,
-          "licence": "CC BY 2.0",
-          "author": "Brian Gratwicke",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Orange_Discus_fish_Symphysodon_aequifasciatus.jpg",
-          "caption": "Cá dĩa vàng cam khỏe mạnh, màu lên đẹp, bơi thoải mái trong bể."
-        }
+        "category": "thuc-an",
+        "t": 1565
       },
       {
-        "heading": "Trồng cây không cần lớp phân nền dày",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/gv63IUL4MsQ/p4-ha3Zhcml1bS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/gv63IUL4MsQ/p4-ha3Zhcml1bS5qcGc-480.webp",
-          "width": 960,
-          "height": 737,
-          "licence": "Public domain",
-          "author": "User Aleš Tošovský",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amaterske_akvarium.jpg",
-          "caption": "Bể thủy sinh lớp sỏi mỏng với hẹ nước xanh tốt vươn lên mặt nước."
-        }
-      },
-      {
-        "heading": "Chạy bể mới mà không mất vi sinh",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/gv63IUL4MsQ/p5-JfRmlsdGVyLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/gv63IUL4MsQ/p5-JfRmlsdGVyLmpwZw-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Fish Tank Society",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
-          "caption": "Lọc thùng đặt trong tủ bể, có ống dẫn nước và xô bên cạnh."
-        }
-      },
-      {
-        "heading": "Cho ăn và tẩy giun sau khi chuyển",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/gv63IUL4MsQ/p7-JvZGlfKDEpLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/gv63IUL4MsQ/p7-JvZGlfKDEpLmpwZw-480.webp",
-          "width": 960,
-          "height": 724,
-          "licence": "CC BY-SA 3.0",
-          "author": "CHUCAO",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cardinal_Paracheirodon_axelrodi_(1).jpg",
-          "caption": "Cá neon đỏ khỏe mạnh, thân đầy đặn, màu sắc rực rỡ trong bể trồng cây."
-        }
+        "category": "be-ca",
+        "type": "lon",
+        "t": 1170
       }
     ]
   }

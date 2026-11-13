@@ -76,14 +76,6 @@
         "heading": "Vì sao nên trồng dương xỉ trước",
         "moments": [
           {
-            "t": 250,
-            "url": "https://media.aquatome.com/video/PnLf3RxViMg/at250-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cầm cây dương xỉ đã gỡ bông khoáng quanh rễ.",
-            "sharpness": 731.5
-          },
-          {
             "t": 280,
             "url": "https://media.aquatome.com/video/PnLf3RxViMg/at280.webp",
             "width": 159,
@@ -111,14 +103,6 @@
             "width": 159,
             "height": 90,
             "caption": "Những cốc cây thủy sinh in vitro xếp trên khay, sẵn sàng xử lý."
-          },
-          {
-            "t": 350,
-            "url": "https://media.aquatome.com/video/PnLf3RxViMg/at350-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay lấy cây ra khỏi cốc, bên cạnh là ca nước để rửa.",
-            "sharpness": 1656.8
           }
         ]
       },
@@ -138,7 +122,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nhiều nhúm tiền cảnh nhỏ đã được trồng rải trên lớp cát.",
-            "sharpness": 1436
+            "sharpness": 1436,
+            "person": false
           }
         ]
       },
@@ -151,7 +136,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai khóm Blyxa japonica xanh tươi trồng lệch tâm ở tiền cảnh bể.",
-            "sharpness": 2028.6
+            "sharpness": 2028.6,
+            "person": false
           },
           {
             "t": 540,
@@ -210,7 +196,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể đã đầy nước, lũa và cây thủy sinh nằm yên trên lớp nền.",
-            "sharpness": 1329.8
+            "sharpness": 1329.8,
+            "person": false
           },
           {
             "t": 970,

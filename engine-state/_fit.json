@@ -117306,25 +117306,26 @@
     "products": []
   },
   "vi/species/sahyadria-denisonii": {
-    "at": "2026-11-11",
-    "hash": "15a22109c475aad7",
+    "at": "2026-11-13",
+    "hash": "4f9c14e6f3c6c6a1",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "source",
-        "part": "P12",
-        "quote": "Đây là lần đầu S. denisonii được nhập về từ một vùng bắt mới ở Ấn Độ.",
-        "why": "This is the source shop's own news that a new import of this fish arrived.",
-        "by": "model"
+        "check": "words",
+        "part": "P1",
+        "quote": "Cá barb ngư lôi vạch đỏ (Dawkinsia denisonii)",
+        "why": "Calque of the English 'red-line torpedo barb'; Vietnamese keepers use the local name.",
+        "by": "model",
+        "fix": "cá hồng mi Ấn Độ"
       },
       {
         "check": "words",
-        "part": "P1",
-        "quote": "Cá barb ngư lôi vạch đỏ",
-        "why": "This is a word-for-word translation of the English 'torpedo barb'; keepers in Vietnam call this fish cá hỏa tiễn or cá hồng mi Ấn Độ.",
+        "part": "P21",
+        "quote": "Cá hỏa tiễn vạch đỏ (Sahyadria denisonii",
+        "why": "Translated English trade name, not what keepers in Vietnam call this fish.",
         "by": "model",
-        "fix": "cá hỏa tiễn vạch đỏ"
+        "fix": "cá hồng mi Ấn Độ"
       }
     ],
     "products": []
