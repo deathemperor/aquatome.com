@@ -217,9 +217,10 @@ async function covers(o: { redo?: boolean; limit?: number }) {
     get: async u => { const res = await fetch(u); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
     look: (file, prompt) => claudeVision<{ candidates: string[]; cover: string }>({ system: 'You write short Vietnamese labels for video thumbnails. Reply only with JSON.', prompt, schema: COVER_SCHEMA, file, model: process.env.COVER_MODEL ?? 'opus' }),
   }, o)
-  console.log(`covers: ${cv.done.length} done, ${cv.failed.length} failed`)
+  console.log(`covers: ${cv.done.length} done, ${cv.failed.length} failed${cv.stopped ? ` (stopped: ${cv.stopped})` : ''}`)
   for (const d of cv.done) console.log(`cover: ${d}`)
   for (const f of cv.failed) console.log(`cover failed: ${f}`)
+  return cv
 }
 
 if (cmd === 'photo-privacy') {
@@ -855,8 +856,8 @@ if (cmd === 'photo-privacy') {
   for (const w of r.written) console.log(`written: ${w}`)
   for (const s of r.skipped) console.log(`skipped: ${s}`)
   for (const e of r.errors) console.log(`error: ${e}`)
-  if (!videoBudgetStopped(r)) {
-    await covers({})
+  // Covers, then pictures, only while the day's line covers them: a stop in either ends the step's model work.
+  if (!videoBudgetStopped(r) && !(await covers({})).stopped) {
     // Pictures per section: video stills (picked on storyboard tiles, then the video's own frames) + an open-licence Commons photo, picked by Claude, no faces.
     const get = async (u: string) => { const res = await fetch(u); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) }
     const im = await videoImages(join(ROOT, 'content'), {
