@@ -57,7 +57,7 @@ export type TopicFacts = {
   species: string[]
   sources: { url: string; title: string; kind: SourceKind }[]
 }
-const FACTS_SCHEMA = {
+export const FACTS_SCHEMA = {
   type: 'object', required: ['found', 'facts', 'species', 'sources'],
   properties: {
     found: { type: 'boolean' },
@@ -69,7 +69,7 @@ const FACTS_SCHEMA = {
 
 export type TopicAsk = { topic: string; kind: GuideEntity['kind'] }
 
-const researchPrompt = (a: TopicAsk) => `Research this freshwater fishkeeping topic for a Vietnamese aquarium handbook: "${a.topic}" (kind: ${a.kind}). Use WebSearch and WebFetch. Search in English and in Vietnamese.
+export const researchPrompt = (a: TopicAsk) => `Research this freshwater fishkeeping topic for a Vietnamese aquarium handbook: "${a.topic}" (kind: ${a.kind}). Use WebSearch and WebFetch. Search in English and in Vietnamese.
 
 Prefer aquatic vets, universities and extension services (for example UF/IFAS, Merck Veterinary Manual), makers' own documentation, and long-time hobbyist articles; forums only for what keepers report. Collect facts, each with the index of its source in sources[] and one section:
 - what (what it is, why it matters), signs (how it looks, how to tell it from look-alikes), causes, firstAid (what to do at once), treatment (methods with exact doses, temperatures and durations as sources give them, and what fish, shrimp, snails or plants cannot take them), steps (for a how-to: the steps in order), prevention, mistakes (common errors), vietnam (anything specific to Vietnam: tropical climate and hot season, tap water, power cuts, products or names used there), myths (claims sources say are wrong, with who says so), other.
@@ -178,7 +178,7 @@ const WRITE_SCHEMA = {
     faq: { type: 'array', items: { type: 'object', required: ['q', 'a'], properties: { q: { type: 'string' }, a: { type: 'string' } } } },
   },
 }
-type Written = { name: string; summary: string[]; body: string; faq: { q: string; a: string }[] }
+export type Written = { name: string; summary: string[]; body: string; faq: { q: string; a: string }[] }
 /** What a reader of a guide sees of it: its title, summary, body and questions. */
 /**
  * A copy's text as it will be saved: its name, summary and answers unescaped, its body sanitized. The seasons check reads
@@ -205,7 +205,7 @@ type Grounded = { score: number; notes: string[]; reads?: number[] }
  * A guide in `lang` (the language's English name) checked against the facts its writer had. A first read near the bar is
  * read twice more, and the guide gets the median read (steadyRead).
  */
-async function checkGuide(llm: Llm, lang: string, forWriter: object, x: Written): Promise<Grounded> {
+export async function checkGuide(llm: Llm, lang: string, forWriter: object, x: Written): Promise<Grounded> {
   return steadyRead(async (): Promise<Grounded> => {
     const r = await llm<Grounded>({ system: 'You check a guide against its facts. Reply only with JSON.', prompt: `${GROUNDED.replace('Vietnamese GUIDE', `${lang} GUIDE`)}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nGUIDE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
     return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: r.notes ?? [] }
@@ -217,7 +217,7 @@ async function checkGuide(llm: Llm, lang: string, forWriter: object, x: Written)
  * (a fact citing a page listed twice cites its first listing); a fact whose source was dropped goes with it, and the rest
  * are renumbered.
  */
-function viFacts(researched: TopicFacts) {
+export function viFacts(researched: TopicFacts) {
   const urls = [...new Set(researched.sources.map(s => s.url).filter(u => /^https?:\/\/\S+$/i.test(u)))]
   const at = (i: number) => urls.indexOf(researched.sources[i]?.url ?? '')
   const facts = researched.facts.filter(f => at(f.source) >= 0 && usableFact(researched, f)).map(f => ({ section: f.section, fact: f.fact, source: at(f.source) }))

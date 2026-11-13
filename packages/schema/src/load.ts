@@ -363,7 +363,8 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   return {
     lang, species, plants, guides, changelog, equipment, series, galleries, products, breeds, cards,
     ...(screen ? { photoWaits } : {}),
-    glossary: await loadKind(root, 'glossary', GlossarySchema, lang),
+    // A term's photos follow the same rules as a page's (publish gates, the watermark screen).
+    glossary: (await loadKind(root, 'glossary', GlossarySchema, lang)).map(g => (g.photos ? { ...g, photos: cleanPhotos(g.photos, g.id) } : g)),
     // Another language's species pages are still being made: it has the places one of its fish comes from, so no origin
     // page is empty and no link points at one it lacks. Vietnamese has every place.
     places: allPlaces.filter(p => lang === 'vi' || species.some(s => s.places.includes(p.id))),
