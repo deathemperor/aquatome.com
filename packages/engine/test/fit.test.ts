@@ -485,6 +485,8 @@ test('a dealer\'s own current batch or stock is the source check\'s; trade histo
     // Astra's read: a brood just in, and a wild batch just in.
     'Nhiều loài Parotocinclus họ hàng gần khá khó nuôi, nhưng lứa cá mới nhập này lại khá khỏe.',
     'Trong đợt cá hoang dã mới nhập gần đây có một con đực màu đỏ.',
+    // A bare "lô này" after a sentence cut short by a genus's initial.
+    'Congo có ba loài cá phổi: Protopterus aethiopicus, P. annectens và P. dolloi. Lô này có ít nhất hai loài là P. aethiopicus và P. dolloi.',
   ]
   const history = [
     'Cũng có con có thêm những đốm trắng nhỏ. Hai dạng màu này có thể lẫn chung trong cùng một lô nhập.',
@@ -509,8 +511,9 @@ test('a dealer\'s own current batch or stock is the source check\'s; trade histo
     'Tháng 4/2002, nhà cung cấp nhận một lô Tetraodon mbu từ Cộng hòa Congo. Cá trong lô này to hơn mọi lô họ từng nhận trước đó.',
     'Bộ mẫu chuẩn dùng để mô tả loài lấy từ một lô cá hoang dã nhập từ Peru về Đức. Sau đó, công ty nhập lô cá này ra thông báo rằng cá được bắt ở Saramirisa.',
     'Hiện nay lại có ý kiến cho rằng đây là một loài riêng.',
-    // A grower's lot of plants, with no fish or stock beside it (Astra's read).
+    // A keeper's own plants (Astra's read), and a shop putting a new brood in with the old.
     'Cây ở lô này nằm ngoài nước khá lâu và được cất trong tủ lạnh trước khi trồng.',
+    'Đến đó, nhân viên tiệm lại thả lứa mới về chung với đàn cũ chưa bán hết.',
   ]
   const dealer = (text: string) => fitRules(page(`<p>${text}</p>`, { kind: 'species' })).filter(f => f.check === 'source' && f.why.startsWith('a dealer'))
   for (const t of news) expect(dealer(t).length, t).toBeGreaterThan(0)
@@ -521,6 +524,8 @@ test('a dealer\'s own current batch or stock is the source check\'s; trade histo
   for (const t of ['<p>Loài này rất gần với B. brigittae. Còn ở đợt cá mới nhập về thì có vẻ cả đực lẫn cái đều mang màu của B. merah.</p>', `<p>${history[8]}</p>`, '<p>Cá chuột hiền.</p>', '']) expect(dealerNotice(t), t).toBe(false)
   // Its quote is the words that say it, so the rewrite takes only the sentence they're in.
   expect(dealer(news[6]!).map(f => f.quote)).toEqual(['đã có hàng trở lại'])
+  // The keeper's plants under a heading that says they came in weak, as the video's guide has them.
+  expect(fitRules(page('<h3>Cây về yếu thì chuyện gì đã xảy ra</h3><p>Cây ở lô này nằm ngoài nước khá lâu và được cất trong tủ lạnh trước khi trồng.</p>', { kind: 'species' })).filter(f => f.why.startsWith('a dealer'))).toEqual([])
   // Only Vietnamese, for now.
   expect(fitRules(page('<p>Bây giờ dạng thuần đã có hàng trở lại.</p>', { lang: 'id', path: '/id/panduan/g/' })).filter(f => f.why.startsWith('a dealer'))).toEqual([])
 })

@@ -155,8 +155,8 @@ const DEALER_VI = re([
   // "đợt này", which is as often a round of treatment or a migration.
   `(?<!(?:những|các|hai|ba|mấy|vài|lô) )${WORD('lô(?: cá(?: hoang dã)?| hàng| nhập)? (?:này|lần này|(?:mới|vừa) (?:nhập|về)(?: về)?)')}`,
   WORD('đợt (?:cá(?: hoang dã)?|hàng|nhập)(?: về)? (?:này|lần này|(?:mới|vừa) (?:nhập|về)(?: về)?)|đợt (?:này|lần này) về|(?:mới|vừa) về (?:trong )?(?:đợt|lô) này'),
-  // A brood just in: "lứa cá mới nhập này lại khá khỏe" (Astra's read).
-  WORD('lứa(?: cá(?: hoang dã)?)? (?:mới|vừa) (?:nhập|về)(?: về)?'),
+  // This brood just in: "lứa cá mới nhập này lại khá khỏe" (Astra's read); not a shop's "thả lứa mới về chung với đàn cũ".
+  WORD('lứa(?: cá(?: hoang dã)?)? (?:mới|vừa) (?:nhập|về)(?: về)? (?:này|lần này)'),
   '(?<![\\p{L}\\p{N}])trong lô(?=[,:])',
   WORD('(?:(?<!ngày )nay|hiện nay|hiện|bây giờ|giờ đây)(?: thì)? (?:đã |đang |cũng )?(?:được )?(?:nhập về|có hàng)'),
   WORD('(?:đã |lại )?có hàng (?:trở )?lại'),
@@ -173,12 +173,12 @@ const HISTORY_VI = /(?<!\d)(?:1[89]|20)\d\d(?!\d)|mẫu chuẩn|mẫu định da
 const CUT = /(?<=[.!?])\s+|\n/
 const history = (text: string, at: number) => HISTORY_VI.test([...text.slice(0, at).split(CUT).slice(-2), text.slice(at).split(CUT)[0]].join(' '))
 /**
- * A bare "lô này" is a batch of fish only beside one, in its sentence or the one before: a plot's or a grower's lot isn't
- * ("Cây ở lô này nằm ngoài nước khá lâu và được cất trong tủ lạnh trước khi trồng", Astra's read).
+ * A bare "lô này" in a sentence about plants is a keeper's own plants, not a dealer's batch: a video's "Cây ở lô này nằm
+ * ngoài nước khá lâu và được cất trong tủ lạnh trước khi trồng" (Astra's read).
  */
 const BARE_LOT = /^lô (?:lần )?này$/iu
-const FISH_LOT = /(?<![\p{L}\p{N}])(?:cá|con|hàng|nhập|về)(?![\p{L}\p{N}])/iu
-const notice = (text: string, m: RegExpMatchArray) => !history(text, m.index!) && (!BARE_LOT.test(m[0]) || FISH_LOT.test([...text.slice(0, m.index).split(CUT).slice(-2), text.slice(m.index).split(CUT)[0]].join(' ')))
+const PLANTS = /(?<![\p{L}\p{N}])(?:cây|bó)(?![\p{L}\p{N}])/iu
+const notice = (text: string, m: RegExpMatchArray) => !history(text, m.index!) && !(BARE_LOT.test(m[0]) && PLANTS.test(text.slice(0, m.index).split(CUT).at(-1)! + text.slice(m.index).split(CUT)[0]))
 
 /**
  * Whether a Vietnamese part is wholly a dealer's notice: every sentence of it names the dealer's own current batch or
