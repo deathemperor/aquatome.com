@@ -1302,6 +1302,32 @@
   ],
   "vi/guides/youtube-1F7-mRplxeo": [
     {
+      "at": "2026-11-13T01:41:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "\"Vì làm dài ngắn tùy ý nên bạn có thể dùng nó cho hầu hết các bể cỡ vừa phải trở lên\": the video says it suits almost any reasonably sized aquarium. Reword to \"hầu như bể cỡ vừa phải nào cũng dùng được\" and drop \"trở lên\" and the \"hầu hết\" claim.",
+        "\"Nhiều người ngại thùng ống đầy nước và đá treo trên thành kính\": the video only says you may have concerns about weight. Reword to \"Bạn có thể lo thùng treo trên thành bể quá nặng\" and drop \"nhiều người\".",
+        "\"Lỗi hay gặp nhất ở bước này là lỡ tay dán luôn nắp ren... nên hãy đánh dấu nắp đó trước khi pha keo\": invented common mistake and tip. Remove the paragraph.",
+        "\"Keo PVC khô rất nhanh, dán sai góc thì gần như phải cắt bỏ làm lại\": invented. Remove, and keep only the advice to dry-fit first to check the angles.",
+        "\"Ống to thì dòng chảy ít bị cản, lọc chạy êm hơn và máy bơm không phải gồng\": the video says only that 1-inch fittings restrict flow less. Remove \"chạy êm hơn\" and \"máy bơm không phải gồng\".",
+        "\"nhờ vậy đá ít bị bít và vi sinh sống ổn định hơn\" and \"Bông chặn cặn bẩn trước khi nước đi qua lớp đá\": this cause is invented. The video only says to put sponge or floss at the entrance for mechanical filtration. Remove it.",
+        "\"Dù vậy, bạn vẫn nên làm thùng vừa với cỡ bể và kiểm tra giá treo chắc chắn trước khi đổ nước\" (also in the FAQ): invented advice. Remove it from both places.",
+        "Cleaning steps: \"giặt\", \"kiểm tra gioăng\" and \"nhanh hơn nhiều so với tháo một lọc thùng đứng dưới tủ\" are not in the video. It says only to disconnect the pump and twist off the cap to replace the mechanical media. Remove these extras.",
+        "\"Lọc thùng mua sẵn khá đắt\", \"ngoài cửa hàng điện nước\" and \"làm trong một buổi là xong\": invented claims. Remove them.",
+        "\"Lắp đầu xuyên vách vào hai nắp và kiểm tra cho kín\", \"Đo chiều dài thành bể để chọn chiều dài ống\" and \"cắm ống mềm từ máy bơm\": steps the video doesn't give. Remove them."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    {
       "at": "2026-11-08T19:27:50Z",
       "model": "sonnet",
       "score": 0.5,
@@ -3536,6 +3562,32 @@
   ],
   "vi/guides/youtube-60GLR9gl-X0": [
     {
+      "at": "2026-11-13T01:41:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "\"Nhiều người lót một tấm xốp dưới đáy để bù cho mặt tủ không đều.\" The video never says many people do this. Remove the sentence, or say only that styrofoam is one way to even out a stand and the builder chose not to use it.",
+        "\"và phần lớn vật liệu gần như không có nước chạy qua\" (in the filter-chamber section and again in the FAQ answer) is stronger than the video. The video only says channeling occurs because water takes the path of least resistance. Remove the \"phần lớn vật liệu gần như không có nước\" part.",
+        "\"Đây là chuyện hay gặp.\" The video doesn't say an unfinished cycle is common. Remove the sentence.",
+        "\"Nuôi trước vật liệu giúp rút ngắn thời gian, nhưng không có nghĩa là cắm điện xong là thả cá được ngay.\" The video doesn't claim pre-seeding shortens the cycle. It only says the filter was still not cycled despite the jump-start. Remove this generalisation.",
+        "\"đo nước để chắc chu trình đã xong rồi mới thả cá\" (in the closing list) and \"đo nước cho đến khi ổn\" (in the FAQ) add a water-testing step the video doesn't give. Remove them. Keep only: continue the cycle with pure ammonia until the filter is ready for fish.",
+        "\"thả vào lọc của một bể đang chạy ổn\" The video says the media sat in mesh bags in the main sump for a few weeks. \"Đang chạy ổn\" is invented. Change it to say the media was put in a sump.",
+        "\"nên bạn có thể điều chỉnh tùy loại cá và cách set bể\" (in the FAQ about turnover rate) is advice the video doesn't give. Remove it.",
+        "\"Chưa chắc.\" and \"Bạn cứ châm amoniac nuôi tiếp\" (in the FAQ on stocking right away) turn one person's situation into a general rule. Hedge it as what this builder did, or reword it as a plain description of this case.",
+        "\"Có điều phần lắp ráp cuối mới quyết định bể chạy ổn hay không\" (in the intro) is the writer's own claim, not in the video. Remove or soften it.",
+        "\"Nước chảy qua ngăn này mà không đi qua UV và sưởi thì nhiều khả năng rất ít.\" This reads like a translation of the speaker's \"I would suspect\". Rephrase naturally, e.g. \"nhiều khả năng gần như toàn bộ nước đều đi qua cả UV lẫn sưởi\", keeping the hedge."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    {
       "at": "2026-11-08T19:28:29Z",
       "model": "sonnet",
       "score": 0.5,
@@ -3912,6 +3964,32 @@
     }
   ],
   "vi/guides/youtube-7DFk4bnIxEg": [
+    {
+      "at": "2026-11-13T01:41:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "\"Nhiều người không muốn khoan bể, không có dụng cụ để khoan\": the speaker says only \"some people\" don't want to or can't drill. Change to \"có người không muốn khoan bể, hoặc không có dụng cụ để khoan\".",
+        "\"Cách thường gặp là khoan đáy hoặc khoan thành bể, hoặc mua ống tràn treo thành bể\": the video never says drilling the bottom or side is the usual way. Remove or hedge this claim.",
+        "\"Cách bố trí chi tiết từng khớp nối thì nên làm đúng theo hình mẫu, vì chỉ cần lệch thiết kế là ống có thể không chạy như mô tả\": this warning is not in the video. Remove it.",
+        "\"đừng cắt bớt cho gọn\" and \"phần ống đứng không phải chi tiết thừa\": this advice is invented. Remove it. Keep only that the taller standpipe is what makes it an overflow.",
+        "\"thử tắt bơm để xem nước dừng đúng ở vòng ống bên trong, rồi bật lại xem ống có tự chạy tiếp không\": this test step is not in the video. Remove it from the \"Bắt đầu từ đâu\" steps.",
+        "\"bạn nên ra cửa hàng điện nước gần nhà hỏi giá ống và khớp nối cụ thể\": this advice is not in the video. Remove it and keep only that the prices are a rough estimate.",
+        "\"Dễ làm: chỉ cần ống, các khớp nối và một van một chiều\": the video only says it is very easy to make and doesn't list the parts this way. Cut it to \"dễ làm\".",
+        "Pipe sizes are inconsistent. The summary and FAQ say \"phi 27\" and \"phi 34\", but the table says \"2 cm\" and \"2,5 cm\". The video gives 3/4 inch and 1 inch. Use one consistent way of stating the sizes, for example 3/4 inch (≈ phi 27) and 1 inch (≈ phi 34), in the table as well.",
+        "\"Ở Mỹ ống PVC rẻ hơn\": the speaker only says PVC is cheaper in some areas of the US. Change to \"ở một số vùng của Mỹ\".",
+        "\"Có ba điểm cần nắm\" and \"Mép trên của nó quyết định mực nước trong bể\": the video does not break the overflow into these labelled parts. It only says the water level is set at the top inner loop. Reword so the parts are not presented as the video's own structure."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.55,
+        0.6,
+        0.5
+      ]
+    },
     {
       "at": "2026-11-08T19:28:31Z",
       "model": "sonnet",
@@ -4846,6 +4924,32 @@
     }
   ],
   "vi/guides/youtube-8j3tBq_SQs0": [
+    {
+      "at": "2026-11-13T01:41:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "Section \"Bắt đầu từ đâu\" (draw a diagram, plan the cuts on paper before buying, check squareness after every step, wait until fully dry before setting the tank and adding water): none of these steps are in the video. Remove the whole section.",
+        "FAQ \"Ván ép dày bao nhiêu thì đủ đóng chân bể khoảng 170 lít?\" claims 19 mm is enough and that \"Kết cấu khung quan trọng hơn chuyện ván thật dày\". The video gives neither claim. Remove this FAQ.",
+        "\"Toàn bộ khung khoảng 100 USD tiền ván\": the video gives about 100 USD as the budget, not as the plywood cost or the total cost. Rewrite it as a budget of about 100 USD, with glue, screws and stain already on hand.",
+        "\"Thiết kế đơn giản đến đâu mà khung lệch thì bể đặt lên vẫn không phẳng\": this consequence is invented. The video only says that making everything square is the most important thing. Remove the consequence.",
+        "\"Làm vậy tốn công nhưng đáng, vì ván ép ngấm nước là phồng và yếu đi\": the video does not say this. Remove it. The reason for sealing is only that water may drip or condense on the wood.",
+        "\"Bể cá thế nào cũng có lúc nhỏ nước xuống\": the video says only that water might drip and condensation might form at some point. Hedge it with \"có thể\" instead of stating it as certain.",
+        "\"Thường phải bốn lớp mới lên màu đậm\": the video says four coats were needed to match the colour of the furniture already in the room, not to get a darker colour. Correct it, and say it was this one person's result.",
+        "\"Giữ thiết kế càng đơn giản càng dễ làm đúng\": this is an invented claim. The video only says it kept the design as simple as possible. Rephrase it as one way to go, or remove it.",
+        "\"Nên chọn ván loại hai mặt đã hoàn thiện\" is presented as general advice. The video only says it used shop-grade plywood, finished on both sides, so little prep was needed. Hedge it as one person's choice (\"một cách là…\").",
+        "\"Dòng chảy cho cả bể dài 1,8 m thường phải bổ sung thêm khi set bể\": \"thường\" makes this a general rule. The video only says circulation will be added when the tank is set up. Remove \"thường\" and the generalisation."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
     {
       "at": "2026-11-08T19:28:38Z",
       "model": "sonnet",
@@ -6830,6 +6934,32 @@
   ],
   "vi/guides/youtube-CMyGtuekZb4": [
     {
+      "at": "2026-11-13T01:41:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "\"Vì vậy nên làm phẳng cạnh dù tấm do nơi bán cắt sẵn. ... Đó cũng là lý do nên chọn chỗ cắt acrylic có tay nghề tốt.\" and the FAQ \"Vẫn nên làm\": the video only says a good cut (EM Plastics) leaves minimal prep, a few scrapes. Remove the advice to choose a skilled cutter and say pre-cut edges need only a few scrapes.",
+        "\"cách nhanh và rẻ nhất\": superlative not in the video. Change to say the scraper is the creator's favorite method and is cheap (a few dollars, about 5-10), hedged as one person's preference.",
+        "\"Dụng cụ đơn giản nhất là dao cạo acrylic\" (bullet list): stated as the best/simplest tool. Hedge it as one person's preferred method (\"một cách là\").",
+        "\"Máy phay (router): ... cần chọn mũi phay phù hợp\": the video only says a router will be covered later and gives no detail. Remove the 'choose suitable bit' advice or just say a router is another option without detail.",
+        "\"Tấm dày hơn 6 mm ... Tấm dày hơn thì bạn cần dụng cụ khác\" (FAQ): the video does not say what to use for thicker sheets. Remove the 'need another tool' claim and only say this scraper's notched side works up to 6 mm.",
+        "\"Nếu thấy cạnh bị lõm ... nhiều khả năng bạn đã ấn quá mạnh\" and \"Đoạn đã cạo thì các vết này mất đi\"/\"Làm sao biết đã cạo đạt\" section: the invented check/diagnosis is not in the video. Remove the diagnostic claim of cause or hedge it.",
+        "\"Gợi ý thêm: nếu có miếng acrylic thừa, bạn có thể cạo thử trên đó\": practice-on-scrap tip is not in the video. Remove it.",
+        "\"Kiểm tra độ dày tấm\", \"đánh dấu những cạnh sẽ dán với nhau\", \"Xem kỹ cạnh các tấm\" in 'Bắt đầu từ đâu': steps invented, not in the video. Remove them.",
+        "\"Bể vẫn dùng được nhưng nhìn rất xấu\" and \"Keo dán acrylic chỉ hàn tốt ở những chỗ hai mặt nhựa áp sát\", \"gờ và rãnh\": the video only says bubbles appear and look ugly; usability and glue-chemistry explanation are invented. Remove. Also the video says only the notched side is for rounding corners, and the straight side use was not stated for 'mặt cạnh'; keep to what is said.",
+        "\"Tấm cao thì bạn có thể tự giữ ... thường vậy là đủ\" and \"Cạo vài tấm là quen tay\": loosely rephrased; also the wording is note-like/awkward (\"nhưng là bước quan trọng nhất\", \"cắt tấm xong mới đi được nửa đường\"). Remove the 'halfway' claim and rephrase naturally, hedging that it takes practice."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.5,
+        0.5,
+        0.4
+      ]
+    },
+    {
       "at": "2026-11-08T19:29:01Z",
       "model": "sonnet",
       "score": 0.5,
@@ -8314,6 +8444,32 @@
   ],
   "vi/guides/youtube-EXF0vtu0bqI": [
     {
+      "at": "2026-11-13T01:50:04Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "\"Nhiều người mua về thả thẳng xuống bể rồi thấy cây rữa lá, rữa thân, mua bao nhiêu hỏng bấy nhiêu\": the video only says the creator was asked a lot about plants rotting; it does not say many people drop them straight in. Remove the generalisation, e.g. say 'có bạn hạ thủy xong thấy cây rữa'.",
+        "\"Nhiều người mua cây về là tỉa lá, cắt rễ ngay cho gọn\": the video doesn't say many people do this; it just advises not pruning at first. Remove it and state only the advice (wait for two water leaves before trimming).",
+        "\"Ráy (Anubias) bán ngoài tiệm phần lớn là ráy cạn. Đây là cây trồng trên cạn, lá đã quen với không khí\": not in the video; remove this invented claim about what shops sell and about the leaves being used to air.",
+        "\"Cây yếu, bị sốc môi trường hoặc bị nấm, khuẩn tấn công thì bắt đầu rữa. Cả năm yếu tố bên dưới đều xoay quanh một chuyện\": the video doesn't give this cause/summary for all five factors (and only mentions fungus/bacteria for tissue-culture plants, and lists 4 factors plus conditions). Remove or hedge it.",
+        "\"Có năm yếu tố quyết định phần lớn chuyện cây sống hay chết\": the video says the factors affect the success rate; it does not say they decide most of the outcome. Soften to 'có năm yếu tố tác động đến tỉ lệ thành công'.",
+        "\"Người làm lâu năm thường có những điểm sau\" and \"Biết cách đóng gói, gửi cây đi xa\": the video says sellers/distributors who understand plants, not that long-time sellers 'usually' have these; remove the generalisation and keep it hedged to the seller who understands plants.",
+        "\"quan trọng là chọn nơi hiểu cây chứ đừng chỉ nhìn giá\": the advice about not looking only at price is not in the video; remove it.",
+        "\"Nếu mới hạ thủy lần đầu và muốn ít thất bại, bạn có thể cân nhắc tránh hai nhóm này lúc đầu\": the video does not advise avoiding these groups (it says accept the risk, and encourages trying); remove it.",
+        "\"Thả cây xuống nước, giữ nguyên lá cạn và rễ trong vài tuần đầu\" and \"Để nguyên lá cạn\": 'vài tuần đầu' is invented; the video only says wait until two water leaves appear. Also the video says 'tỉa lá', and the 'rễ' detail is a guess. Remove 'vài tuần'.",
+        "FAQ \"Đừng cắt hết một lần\" and \"hỏi rõ cây là cấy mô hay cây trồng thường\" / \"Bể còn mới thì đợi thêm\" / \"cây bị tỉa quá sớm\" as cause: these tips and causes are not stated in the video; remove them. Also the line that tissue-culture plants are fine to try ('Vẫn được... chuẩn bị tinh thần') is not given and should be dropped or hedged."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    {
       "at": "2026-11-08T21:25:26Z",
       "model": "sonnet",
       "score": 0.5,
@@ -8353,6 +8509,32 @@
     }
   ],
   "vi/guides/youtube-EaIrRD_QJuo": [
+    {
+      "at": "2026-11-13T01:50:03Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "\"Mạch keo giữa các tấm kính dày khoảng 2,5 đến 3 mm\" (also in the summary, table and FAQ): the transcript says \"2,5 đến 3 ly\" for the glue length, which is unclear; it never says mạch keo thickness. Hedge or drop it rather than stating it as a firm spec.",
+        "\"Keo mới đi xong thì phải chờ khô hẳn rồi mới vệ sinh... Muốn giấu keo gọn, bề mặt cần được làm ướt khi miết keo\": the wetting tip is a garbled caption and is stated as firm advice. Drop or hedge it. Also drop the numbered step list \"Dán dải bo... Bơm keo... Để keo khô\", which presents an invented procedure.",
+        "\"Một cạnh của dải kính được mài nhẵn. Chủ bể thò tay xuống vệ sinh hay vớt cá sẽ không bị cạnh kính cứa vào tay\" and the table's \"mài một cạnh\": the transcript only says the kính phần 2 (bo) is vi tính một mặt, so customers don't get scraped. Remove the 'cạnh mài' claim of one edge and 'vệ sinh', or hedge it.",
+        "\"Với bể thấp và nhỏ, người làm thường chỉ cần ngó qua là thấy\": states a habit as what people usually do; hedge it, e.g. \"bể thấp thì có thể ngó qua\".",
+        "\"Keo silicon khi đã lưu hóa thì cứng chắc, nên phần chân bể vững hơn hẳn. Đây là chỗ tốn công nhưng đáng làm với bể lớn\": the 'vững hơn hẳn' and 'đáng làm với bể lớn' advice goes beyond the transcript. Tone it down to what the transcript says: the glue is very hard once cured.",
+        "\"Nước chảy qua các ngăn vật liệu lọc rồi xuống phần lọc vách. Lọc vách ở bể này chủ yếu lo phần lọc\": the flow description is garbled in the captions and is stated as firm fact. Hedge it or keep only what is clear.",
+        "\"Bể dài gần 3 m thì dòng nước yếu như vậy khó đẩy nước đi hết chiều dài bể\" and \"nhiều khả năng là bơm thổi\": the explanation is invented, and so is the pump guess. Remove the reasoning and keep only that the flow is weak so extra equipment is needed.",
+        "The paragraph \"Koi là cá to, ăn nhiều và thải nhiều. Bể có dòng chảy tốt thì chất bẩn dễ được cuốn về lọc...\" is general knowledge the video doesn't give. Remove it.",
+        "\"Nếu bạn tự vẽ thiết kế mà người làm bể đã lên tiếng... nên bàn lại cho kỹ trước khi cắt kính\" and \"Lọc tràn có thoát nước kịp hay không thì phải thử thực tế mới biết\": invented advice. Remove both. Also \"chờ đủ 7 ngày vẫn là cách an toàn hơn\" and \"nên cần đủ người khiêng\" go beyond the video; drop or hedge them.",
+        "\"Bể cá Koi thường to và chứa rất nhiều nước, nên phần kính và keo phải làm chắc hơn hẳn bể thủy sinh thông thường\" and \"Thợ không thích cách làm này... rất khó xử lý bảo hành\": the comparison to planted tanks is invented, and the warranty claim is exaggerated (the video only says he worries about a fish dying and the warranty). Remove or soften."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.5,
+        0.5,
+        0.45
+      ]
+    },
     {
       "at": "2026-11-08T19:29:32Z",
       "model": "sonnet",
@@ -10510,6 +10692,29 @@
   ],
   "vi/guides/youtube-J7X8RsrXLWk": [
     {
+      "at": "2026-11-13T01:50:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "\"người mới hay gặp hai lỗi: buộc lỏng quá nên cây tuột khỏi đá, hoặc siết chặt quá làm cây hỏng\": the video never says beginners commonly make these mistakes, and it never mentions a loose tie. Remove the claim about common beginner errors and the loose-tie error.",
+        "\"Ráy (Anubias) là loại cây hay được buộc lên đá hoặc lũa thay vì trồng xuống nền\": this is general knowledge that the video doesn't give. Remove it, or just say that this is how to tie anubias to rock or wood.",
+        "\"Đừng cắt ngắn quá vì sẽ không đủ để quấn và thắt lại, cũng đừng cắt dài quá cho rối\": the video only says to cut a decent length, not too long and not too short, and gives no reasons. Remove both invented reasons.",
+        "\"Cách kiểm tra đơn giản là buộc xong thì lay nhẹ cây. Cây không trượt khỏi đá, dây không siết lên cây là được.\": the video gives no shake test or check. Remove this paragraph.",
+        "\"Cầm cây ráy ướm lên vài hòn đá hoặc khúc lũa bạn đang có, chọn hòn vừa cây nhất\": the video says only that the plant must fit the rock or wood, and \"nhất\" is a superlative it doesn't use. Change it to \"hòn vừa với cây\" or remove it.",
+        "\"Nếu chưa quen tay, hãy buộc thử một lần với chỉ may để nắm thứ tự nút đầu, quấn dây, nút chốt rồi mới làm lần thật\": the video gives no practice-run advice. Remove it, and drop the whole \"Bắt đầu từ đâu\" section as padding that repeats earlier steps.",
+        "\"Mục đích của bước này là để cây nằm vững hơn, không lắc lư khi thả vào nước\": the video says wrapping makes the plant more stable and doesn't mention swaying in the water. Cut the part about \"không lắc lư khi thả vào nước\"."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.5,
+        0.55,
+        0.5
+      ]
+    },
+    {
       "at": "2026-11-08T21:26:02Z",
       "model": "sonnet",
       "score": 0.5,
@@ -10549,6 +10754,32 @@
     }
   ],
   "vi/guides/youtube-JDp04T7W_QA": [
+    {
+      "at": "2026-11-13T01:50:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "\"nên dân chơi nước mặn hay dùng bộ châm nước tự động\": this turns the video's \"largely popular in the saltwater hobby\" into a habit of many keepers. Reword it as \"ATO khá phổ biến trong chơi bể nước mặn\", without \"dân chơi ... hay dùng\".",
+        "\"Mấy thứ này nhà nào cũng có sẵn\": the video only says chances are you already have them or will gather them over time. Change it to \"có thể bạn đã có sẵn\".",
+        "\"Nếu chưa có chai rỗng thì uống hết vài chai nước là đủ dùng\": the video doesn't say this. Remove it.",
+        "\"Nước dùng để châm nên là nước đã khử clo, giống nước bạn vẫn dùng khi thay nước\": this is standard advice the video doesn't give. Remove it.",
+        "\"Đây cũng là nguyên lý của loại máng nước úp ngược chai cho gà, cho chim uống\": this example is not in the video (it refers to a bridge video). Remove it.",
+        "\"Với bể có lọc tràn, nhiều khả năng bạn sẽ đặt chai ở một khoang mặt nước tĩnh, nhưng cần xem kỹ khoang đó có thật sự ít xao động không\": the video doesn't give this advice. Remove it and keep only \"hợp với bể có lọc tràn hoặc bể thủy sinh\".",
+        "\"lọc, sưởi và các thiết bị khác trong bể chạy đúng\": the video says only \"proper equipment function\". Remove the named \"lọc, sưởi\" and say \"thiết bị trong bể\".",
+        "\"ATO bán sẵn thường dùng công tắc phao\": the video says \"a combination of switches\" and never mentions a float. Change it to \"công tắc\".",
+        "\"ATO thật dùng công tắc và máy bơm, chạy được lâu dài\": the video doesn't say a real ATO runs long-term. Remove \"chạy được lâu dài\".",
+        "\"Giữ chai không xoay\" and \"Quấn một sợi dây thun quanh thân chai, phía trên giá đỡ... Dây thun tựa lên mép giá\": the video says the band goes around the bottom of the bottle and stops it moving. The extra mechanics (rotation, band position, how to shift it toward the cap or the bottom) are invented. Simplify to the video's wording."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.55,
+        0.5,
+        0.5
+      ]
+    },
     {
       "at": "2026-11-08T21:26:09Z",
       "model": "sonnet",
@@ -14560,6 +14791,32 @@
     }
   ],
   "vi/guides/youtube-QipFElNY7QE": [
+    {
+      "at": "2026-11-13T02:00:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "\"Nhiều người muốn tự đóng một bể mặt cong (bow front), một hộp tràn (overflow) liền khối hay một bể nano...\": the video only says viewers asked about bow fronts and lists these as possible uses. Rewrite as \"Uốn mica có thể dùng để...\" and drop the \"many people\" claim; also \"Cái khó nhất\" is not stated, remove it.",
+        "\"Dân chơi cá không có lò công nghiệp\": generalises to all hobbyists. Rephrase as \"Nếu không có thiết bị công nghiệp thì kích thước tấm bị giới hạn bởi lòng lò\".",
+        "\"Những việc cần mica dày khoảng 12 mm trở lên thường là tấm rất lớn, đằng nào cũng không vừa lò\" (also in the FAQ): the video only says half-inch or thicker usually means something too big for the oven. Hedge it (\"có thể\") and remove the \"đằng nào cũng\" certainty and \"bể lớn\" in the FAQ.",
+        "\"Cách dùng khuôn gỗ là cách khôn ngoan và chính xác nhất\" and \"Cách chắc nhất là dùng khuôn gỗ\": superlatives stated as firm fact and as the speaker's opinion. Hedge them (\"theo cách nhiều thợ...\" is not allowed), e.g. \"một cách chính xác là dùng khuôn gỗ\".",
+        "\"Đèn khò và máy thổi nhiệt chỉ làm nóng một vệt nhỏ nên không hợp với việc này\" and the FAQ on the heat gun: the video only says heating doesn't work that well for molding; the reason (heating only a narrow strip) is invented. Remove the reason.",
+        "\"Khi đủ nóng, tấm mica sẽ mềm oặt như miếng da\": the \"như miếng da\" comparison is invented; the video only says it gets flimsy. Remove the simile.",
+        "\"Mica mềm ra rất dễ dính vào bề mặt khác, còn với giấy bạc thì nó dính ít hơn nhiều\": the video says it sticks to tinfoil less (\"not as bad\"), found by the speaker and others; \"rất dễ\" and \"ít hơn nhiều\" overstate it. Soften. The summary also says foil means mica \"không dính vào khay\", which is too absolute.",
+        "\"Đeo găng tay... Gỡ tấm mica khỏi giấy bạc rồi đặt nhanh lên khuôn\", \"Giữ nguyên tay cho tới khi mica bắt đầu cứng lại\", and \"Đặt tấm mica lên khay rồi cho vào lò\": steps that are not in the video (peeling the foil, placing it quickly, holding until it hardens). Remove or reduce them to what the video says: keep pressing and folding until it takes the shape.",
+        "The whole \"Những lỗi hay gặp\" section and \"Bắt đầu từ đâu\" section: mistakes such as \"Để lò quá 220°C vì nghĩ nóng hơn sẽ nhanh hơn\", \"mica nguội và cứng lại trước khi kịp tạo hình\", \"khó dán keo kín nước\", and tips like measuring the oven, practising on a scrap piece, building a wooden mold, and preparing cold water are not given in the video. Delete both sections.",
+        "\"người nhà thấy bạn cho nhựa vào lò thì nhiều khả năng sẽ phản đối, nên nói trước với họ một tiếng\": the video jokes that wives will look at you strangely and says to show them the video. Rephrase as a light hedge or remove. Also \"Nướng mica ở nhiệt độ này\" and \"Với mặt trước bể cần khớp với đáy và nắp\" add unstated detail (fitting with the base and lid); remove it."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
     {
       "at": "2026-11-08T21:27:55Z",
       "model": "sonnet",
@@ -20967,6 +21224,32 @@
   ],
   "vi/guides/youtube-buMZbrbhJVs": [
     {
+      "at": "2026-11-13T01:41:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "\"Nhiều người muốn đổi nền sỏi sang cát cho bể trông tự nhiên hơn, hoặc để nuôi cá đáy\": the speaker only says he and some keepers want to switch from gravel to sand, and never mentions bottom dwellers as the reason. Remove the 'many people' claim and the bottom-dweller motive, or hedge it as \"có thể muốn đổi\".",
+        "\"Dân chơi cá dùng nó ngày càng nhiều vì mấy lý do\": the video says it is becoming more popular, but this wording is a stronger generalisation. Rephrase it as \"cát này đang được dùng ngày càng phổ biến\" and keep the reasons as the speaker's own.",
+        "\"an toàn cho hầu hết cá, kể cả cá đuối\" (bullet list and FAQ): the speaker says it is safe for almost any fish he has tried it with, including stingrays. Hedge it as \"an toàn với hầu hết loài cá mà người làm video từng thử\" without naming him, e.g. \"theo kinh nghiệm thì an toàn với hầu hết cá đã thử\".",
+        "\"Một nguồn nước, tốt nhất là vòi nước ngoài sân vì rửa cát rất bẩn\": 'tốt nhất' is a superlative the video does not give. The video only says you should be outside, and says the sand is not very dirty. Change to \"nên rửa ngoài trời\" and remove the 'rất bẩn' reason.",
+        "\"Vì vậy nó dùng được cho hầu hết các bể\": invented conclusion, as the video never says this. Remove the sentence.",
+        "\"Hạt cát tròn, không sắc cạnh, dùng được với hầu hết cá kể cả cá đuối\" (FAQ): same overgeneralisation as the bullet. Hedge it to what the speaker tried, or remove 'hầu hết' and say \"hạt không sắc cạnh nên không làm đau cá\".",
+        "\"rẻ hơn hẳn cát thủy sinh đóng gói\": the video never compares the price with aquarium sand. Remove this comparison.",
+        "\"Bể có sump thì nhớ mực nước trong sump cũng dâng theo, nên rút bớt nước ở đó luôn\": this is the speaker's own aside, garbled in the captions, and the advice to draw down the sump is not clearly given. Remove or soften it.",
+        "\"Nước thường trong lại trong vòng một hai ngày, có khi chỉ sau vài giờ\" and \"Để lọc chạy\": the 'có khi chỉ sau vài giờ' and the running-filter step are not in the video, which says it clears within a day or two, probably by evening. Remove both additions.",
+        "\"Cát nặng, đổ nhiều quá thì không khuấy lên được, bụi ở dưới đáy xô vẫn nằm nguyên\" and \"Cách này tốn công hơn đổ thẳng nhưng đáng làm... cá cũng ít hoảng hơn hẳn\": these are extra reasoning and claims. The video says only that small batches can be stirred and that this method is less stressful for the fish. Trim to those points, drop 'tốn công' and 'hẳn'. Also drop \"Tìm mua... kiểm tra hạt không…"
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    {
       "at": "2026-11-08T19:28:43Z",
       "model": "sonnet",
       "score": 0.5,
@@ -21494,6 +21777,32 @@
   ],
   "vi/guides/youtube-dEiOXBOzlgU": [
     {
+      "at": "2026-11-13T01:41:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "\"Bạn xếp thử các thanh lũa bên ngoài bể trước, đồng thời ngâm thử để biết thanh nào bị nổi mà xử lý\": the video does not give this test-soaking step; remove it.",
+        "\"Khi đặt lũa vào bể, bạn chừa sẵn nhiều hốc ... và vài hốc trên phần cành để sau này trồng dứa Nam Mỹ\": the video does not say this; remove the 'leave hollows on the branches' advice.",
+        "\"Trước khi trồng cây, bạn lắp bơm nhỏ, ống dẫn và ổ hẹn giờ rồi cho chạy thử xem nước chảy tới đâu\": the test-run step is not in the video; remove it. The whole 'Bắt đầu từ đâu' section is invented advice, so drop it or keep only what the video says.",
+        "\"Ghép thường dễ chỉnh dáng hơn một khúc nguyên khối, vì bạn xoay, đổi chỗ từng thanh\": this is one person's preference stated as a general fact; hedge it as 'có thể' / the creator's liking and remove the 'xoay, đổi chỗ' reasoning, which the video does not give.",
+        "\"Lũa nào cũng nên được xử lý trước khi dùng. Ngâm nước và phơi nắng là một cách hay làm\": 'Lũa nào cũng' is stronger than the video, and the video does not say soaking or sun-drying is common practice; soften it and drop 'hay làm'.",
+        "\"Ngâm lũa đến khi nó ngấm nước và tự chìm rồi mới dựng bể. Nếu đã dựng xong mà lũa vẫn nhấp nhổm\": the video only says to soak beforehand or wedge stones in after arranging; remove the 'until it sinks by itself' detail and the 'nhấp nhổm' scenario.",
+        "\"Cây không khí không cần nhiều nước. Dù vậy cứ 1 đến 2 ngày bạn vẫn nên phun cho nó một lần\" and the FAQ \"nhất là khi ống dẫn nước không chạy tới chỗ nó\": the video says this misting is what the creator does for the upper plants, not a rule; hedge it, and remove 'nhất là chỗ có cây không khí' and the 'nhất là khi ống dẫn nước không chạy tới' addition. Also the FAQ line 'Cây không khí cần ít nước …",
+        "\"Cây bám rễ vào lớp rêu ẩm đó mà lên\" and \"Rêu ngấm nước từ đường bơm lên và cây sẽ bám rễ vào lớp rêu\": the video only says moss holds moisture so the plant grows well; the rooting claim and the moss soaking up water from the pump line are not in it, so remove them.",
+        "\"Đá vụn rải quanh chân lũa che đi đường tiếp giáp giữa lũa và cát\" and \"Cách này kéo luôn bụi cát ra ngoài\": the video says only that stones at the base make the layout look more natural and that the in/out water flow cleans the sand; remove the 'hides the joint' explanation and the 'dust out' mechanism.",
+        "\"Keo dán thủy sinh bán ở các shop đồ thủy sinh là dùng được\" and \"Cứ dán từng đoạn như vậy cho tới khi ra được dáng rễ\": the video only mentions a glue sold at aquascaping shops without naming a type; remove 'keo dán thủy sinh' as a specific product claim and the 'dán từng đoạn' step. Also the 'Rêu' table row 'Điểm vào các khe' is not in the video; keep only moss for covering pipes and placing in…"
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.55,
+        0.5,
+        0.5
+      ]
+    },
+    {
       "at": "2026-11-08T19:29:22Z",
       "model": "sonnet",
       "score": 0.55,
@@ -21689,6 +21998,32 @@
     }
   ],
   "vi/guides/youtube-dYLZ-BlcsK8": [
+    {
+      "at": "2026-11-13T01:41:59Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "\"Mỗi khoảng 190 lít nước cần chừng 4 lít mút\" (appears in the summary, the sizing section and the FAQ): the video gives 4 litres per 50 gallons. Under the table, 50 gallons is named 200 litres, so change 190 to 200 everywhere.",
+        "\"Mút loại 30 PPI là mức vừa phải\" / \"mức cân bằng tốt\" / \"Mút 30 PPI là mức hợp lý\": the creator only says that he personally found 30 PPI best. Hedge it, e.g. \"một người chơi thấy mút 30 PPI dùng tốt nhất cho kiểu lọc này\", instead of stating it as a firm fact.",
+        "\"ít được nhắc tới trong giới chơi cá, dù nó là một trong những kiểu lọc đơn giản nhất\": this is the creator's opinion stated as fact, and the ranking \"một trong những … đơn giản nhất\" is not in the video. Hedge it (\"có thể chưa được chú ý đúng mức\") and drop the ranking.",
+        "\"rẻ, dễ làm, gần như không hỏng\": the video never says the filter rarely breaks. Remove \"gần như không hỏng\". The claim that it is cheap is only loosely supported, so keep the claim to the video's simplicity and ease of use.",
+        "\"Ở bể đẻ, cá con không bị hút vào lọc. Ở bể cách ly, lọc rẻ, dễ tháo và dễ làm lại.\": these reasons are not in the video. Remove both sentences and say only that the filter is generally used in breeding, hospital and fish-room tanks.",
+        "\"cá không chạm vào được mà nước vẫn chảy qua đều\" and \"để bể gọn và cá an toàn\": the video only says heaters and other equipment can be hidden behind the sponge. Remove these invented benefits.",
+        "Table row \"Máy bơm đẩy … lắp nhanh\", \"dòng nhẹ\" for airlift, and \"bể cá con\": the video says none of these. The video only says a powerhead gives more flow and the air pump suits a fish room or a tank without a powerhead. Remove the invented entries.",
+        "\"muốn chạy hàng loạt lọc từ một máy sủi\" and \"một máy sủi chạy được nhiều bể\": the video does not say one air pump runs many filters. It only says the air-pump method suits a fish room running many of these filters. Reword to that.",
+        "\"mà làm vậy thì ít ai muốn\": the creator calls adding several sponges \"doubtful\", which is his own view. Hedge it (\"theo cảm nhận riêng thì khó\") and drop the generalisation about \"ít ai\".",
+        "\"Mút quá thô thì ít diện tích cho vi sinh bám\" and \"Viên gạch làm đế cho ống đứng vững\": these explanations are not given in the video. Remove them."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.55,
+        0.5,
+        0.5
+      ]
+    },
     {
       "at": "2026-11-08T19:29:29Z",
       "model": "sonnet",
@@ -21916,6 +22251,32 @@
     }
   ],
   "vi/guides/youtube-eAYYKYfvtX0": [
+    {
+      "at": "2026-11-13T01:50:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "\"Đèn chuyên dụng cho bể cá thường không rẻ.\" The video never says this. Remove the sentence, or open with the video's point that shop lights are a cheap, easy way to light a tank.",
+        "\"Bạn không phải tự đấu dây, cũng không cần biết gì về điện\" and \"ráp sẵn từ nhà máy\": the video only says very little skill is needed, the kit is almost plug and play, and you still assemble a few parts. Soften to \"gần như không cần tay nghề\" and drop \"từ nhà máy\" and \"không cần biết gì về điện\".",
+        "\"Điều đáng để ý nhất là nhiệt độ màu\": this ranks colour temperature above everything else, and the video doesn't. Change it to one person's choice, such as \"có thể chọn bóng 6500K\".",
+        "\"vài loại cây ít đòi hỏi ánh sáng\" in the bulb section and in the FAQ, plus \"Bể cần ánh sáng mạnh thì không nên chỉ dựa vào đây\": the video only says 6500K bulbs would let him grow plants if he wanted. It gives no \"low-light plants\" and no warning about strong-light tanks. Remove both claims and say only that the bulbs could also grow plants.",
+        "\"Nếu chỉnh không được thì treo bằng xích cho chắc\", the same fallback in the \"Bắt đầu từ đâu\" step, and the FAQ answer \"Nếu không chỉnh được thì treo máng lên bằng xích\": the video doesn't give chain-hanging as a fix for bulbs touching the cover. It offers the chain only as a way to hang the light from the ceiling. Remove this fallback from all three places.",
+        "\"Nhiều bộ có kèm xích\": the video only says his own kit came with hanging chain. Change it to \"có bộ kèm xích\" or \"bộ của mình có kèm xích\".",
+        "\"Kiểm tra nắp bể… thì làm nắp trước\": this is a step the video doesn't give. The video only says the tank must be fully covered with glass or acrylic. Remove it or reword it as that requirement.",
+        "\"hơi nước đọng lại hay nước bắn vào bóng\": the video mentions only condensation getting into the bulb. Remove \"nước bắn\". The video also doesn't say that the cover keeps steam off the \"máng\", only off the bulb.",
+        "\"T5 rất khó tìm\" in the FAQ: the video says T5 is typically hard to find, and the speaker doubts T5 shop lights exist. Remove \"rất\" and hedge it as \"thường khó tìm\".",
+        "\"Bể mở nắp thì không nên dùng cách này\": this is a conclusion the video doesn't state. Remove it, and keep the requirement for a glass or acrylic cover."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.55,
+        0.5,
+        0.6
+      ]
+    },
     {
       "at": "2026-11-08T19:29:44Z",
       "model": "sonnet",
@@ -23752,6 +24113,32 @@
   ],
   "vi/guides/youtube-hRNBUbqzzuw": [
     {
+      "at": "2026-11-13T01:50:05Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "\"Mút thô lâu tắc hơn mút mịn nhiều lần\" / \"Một tấm mút mịn có thể tắc sau khoảng một tháng thì mút thô có thể chạy chín tháng\": the video gives one example (a month vs nine months), not a general multiple. Hedge it as an example (\"có thể\") and drop \"nhiều lần\".",
+        "\"Lọc treo thành bể ... rẻ, dễ lắp, nhưng phần lớn hàng bán sẵn đi kèm lõi lọc dùng một lần. ... mỗi lần thay là vứt luôn một phần vi sinh\": the video doesn't say this about most filters or about losing bacteria on replacement. Remove the 'most' claim and the bacteria-loss claim (also in the mistakes list and the FAQ).",
+        "\"Cách xử lý đơn giản nhất\": a superlative the video doesn't give; change to \"một cách là\".",
+        "\"Cách này gần như không bao giờ tắc tới mức tràn\": the creator says he would personally fill the whole basket with coarse foam; the guide states it as a firm fact. Hedge it as his personal choice (\"nếu thích thì\") and remove \"gần như không bao giờ\", since the video says even coarse foam clogs if neglected too long.",
+        "\"Mút đầu hút chặn được rác và cá nhỏ, tép nhỏ khỏi bị hút vào\": the video never mentions protecting fish or shrimp from the intake. Remove it.",
+        "\"một lọc treo cho bể khoảng 280 lít\": the video says 75 gallon for the Walmart filter, which the table names as 300 litres, not 280. Change to 300 lít.",
+        "\"Với bể trồng cây thì than hoạt tính thường không cần\" and the FAQ \"Có nên giữ than hoạt tính trong lõi lọc không?\": the video only says he can drop a bit of carbon because he probably has a planted tank. Soften to a personal choice and remove the generalisation \"thường không cần\" and the \"hợp lý hơn\" advice.",
+        "\"Chà vò mút quá mạnh mỗi lần vệ sinh làm mút nhanh hỏng và mất vi sinh\" and \"Nhồi đầy mút mà không chừa đường tràn\" in the mistakes section: the video doesn't list these as common mistakes, and the bacteria-loss claim is invented. Remove the section or cut it to what the video says.",
+        "\"Thực tế với loại này, phần lớn trường hợp chỉ cần giữ tấm nhựa vi sinh và thêm một tấm mút thô là đủ\": this is the creator's personal preference. Write it as \"nếu thích thì\" and remove \"phần lớn trường hợp\".",
+        "Awkward Vietnamese: \"Độ lọc treo dùng lõi lọc ... Đây là loại cần độ nhất\", \"Mút cắt bằng kéo thường được\", \"Nếu muốn lọc cơ học kỹ hơn\". Rewrite more naturally. Also \"Nhiều lọc treo có ống hút gắn sẵn lưới chặn kiểu riêng\" is a generalisation the video doesn't make, so hedge it. The FAQ \"Bỏ lõi lọc đi thì có mất vi sinh không?\" and its answer about bacteria recolonising the foam are invented, so…"
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.5,
+        0.5,
+        0.55
+      ]
+    },
+    {
       "at": "2026-11-08T21:25:35Z",
       "model": "sonnet",
       "score": 0.5,
@@ -25273,6 +25660,32 @@
   ],
   "vi/guides/youtube-kFOeiak-Q0k": [
     {
+      "at": "2026-11-13T01:50:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "\"Nhiều người cạo kính hàng tuần, thấy đốm nào là chùi đốm đó.\" is one person's habit (the creator's own) written as what many people do. Rewrite as a first-person-free hedge, e.g. \"Có thể bạn quen cạo kính hàng tuần...\", or remove it.",
+        "\"Tốt nhất là rửa khi dòng chảy yếu rõ...\" is a superlative/best-way claim the video doesn't make. Hedge it: \"Một cách là rửa khi dòng chảy yếu rõ...\".",
+        "\"Với nhiều bể, rửa khoảng 3 tháng một lần là vừa.\" and the FAQ \"Nhiều bể rửa khoảng 3 tháng một lần là ổn\" turn the creator's own experience (\"for me, about every 3 months usually works well\") into what many tanks do. Change to a hedge such as \"có thể rửa khoảng 3 tháng một lần nếu thấy hợp\".",
+        "\"Hai dấu hiệu sau gần như chắc chắn là trong lọc đã tích nhiều chất bẩn.\" The video says these are \"sure signs\" for debris, but the guide's phrasing \"gần như chắc chắn\" is fine; the issue is \"Dòng chảy yếu đi rõ rệt do bông lọc bị nghẹt\", which is fine too. Do not change. (Remove this note.)",
+        "\"Cá lớn hoặc nền sỏi ... Có thể cần hút nền thường xuyên hơn\" and the table row \"Phân nền, cá nhỏ, nhiều cây\": \"nhiều cây\" is not in the video. Remove \"nhiều cây\".",
+        "\"Ghi lại lưu lượng lọc lúc vừa rửa xong.\" is a step the video doesn't give. Remove it.",
+        "\"Bỏ lịch tỉa cây và hút nền cố định.\" and \"Bỏ chai nước lau kính ra xa bể\" are firm directives beyond the video. Hedge them (\"nếu thích thì...\") or remove.",
+        "\"Điều cần tránh nhất là một lần 'cắt trụi' cả bể.\" is a superlative the video doesn't state (it says it's important for the creator to avoid it). Hedge: \"Nên tránh cắt trụi cả bể một lần\".",
+        "\"ngâm vật liệu trong nước máy chưa khử clo\" adds \"chưa khử clo\" detail; the video says \"untreated tap water\". Acceptable, but \"Lượng dinh dưỡng... giờ không còn ai ăn\" and \"Lượng phân dư ra khó tính lại\" are loosely worded; fix to say the plants' nutrient uptake dropped so fertilizer dosing is hard to adjust.",
+        "\"Rửa lọc thùng hàng tháng... lỡ quên thì lại cứ canh cánh\" and the intro \"Mình làm vì đến lịch\" are first-person phrasing mimicking the creator; rewrite in neutral wording (e.g. \"Nhiều việc... làm theo lịch chứ không phải vì bể cần\")."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    {
       "at": "2026-11-08T21:26:32Z",
       "model": "sonnet",
       "score": 0.5,
@@ -25881,6 +26294,32 @@
     }
   ],
   "vi/guides/youtube-laTDG4Bc19U": [
+    {
+      "at": "2026-11-13T01:50:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "\"việc bảo dưỡng hằng ngày\" (intro): the video only says maintenance is simple and mostly changing the pre-filter, never daily. Change to \"việc bảo dưỡng\" or \"bảo dưỡng đơn giản\".",
+        "\"Lớp nước đọng nhiều hay ít do cỡ lỗ so với lưu lượng nước đổ xuống quyết định.\": a cause the video doesn't give. Remove the sentence.",
+        "\"Lỗ đã khoan to thì không thu nhỏ lại được, nên đi từ nhỏ lên là cách an toàn.\": invented reasoning. Remove it and keep only the hedged tip that one can start with small holes and go from there.",
+        "\"Chạy thử với lưu lượng thật rồi quan sát mặt tấm.\" and the matching list item \"chạy thử, nới dần đến khi mọi lỗ đều nhỏ nước\": a step the video doesn't give. Cut or hedge it to \"có thể bắt đầu bằng lỗ nhỏ rồi tính tiếp\".",
+        "\"Chỗ vách ngăn là chi tiết quan trọng khi tự làm. Vách phải chặn kín phía trên để nước không đi tắt.\": a DIY instruction and emphasis the video doesn't give. The video only says water can't flow over the barrier and has to go under it. Remove, and also remove the checklist item \"Kiểm tra vách ngăn ở đáy…\".",
+        "\"vì nước rơi lên vật liệu chứ không rơi thẳng xuống đáy\": invented explanation. The video only says the bio balls stop the noise. Remove the \"vì…\" clause.",
+        "\"Nếu lọc vừa lắp xong mà nghe ồn, bạn chưa cần lo ngay. Cứ cho vật liệu vào đầy tháp rồi hẵng đánh giá.\" and the checklist item \"Cho vật liệu vào đầy tháp trước khi đánh giá độ ồn\": advice the video doesn't give. Remove both.",
+        "\"Nhiều khả năng đó chính là miếng mút mà nước bắt buộc phải đi qua ở đáy lọc.\": the writer's guess presented as the video's content. Remove the sentence.",
+        "\"Đặt phần lọc thô ở chỗ dễ rút ra, vì đây là thứ bạn sẽ thay thường xuyên nhất.\": invented advice plus a superlative the video doesn't give. Remove the item.",
+        "\"Nhìn bên ngoài thì nó chỉ là một cái hộp nhiều ngăn. Nhưng muốn tự làm hay lắp cho đúng thì bạn cần hiểu nước đi đường nào và mỗi ngăn làm gì.\": filler and claims that go beyond the video. Cut or rewrite as a plain description."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.5,
+        0.55,
+        0.6
+      ]
+    },
     {
       "at": "2026-11-08T21:26:36Z",
       "model": "sonnet",
@@ -26961,6 +27400,32 @@
   ],
   "vi/guides/youtube-nvA3c_8w77I": [
     {
+      "at": "2026-11-13T02:00:16Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "\"bể lớn 1.400 lít\": the video's 375-gallon tank is not in the table, so convert it and round to whole litres, about 1.419 lít. Do not use 1.400.",
+        "\"Đây là loại gỗ xẻ tiêu chuẩn ở Mỹ, tiết diện thực tế khoảng 4 x 9 cm\": the video gives no real 2x4 dimensions. Remove this sentence.",
+        "\"không khó như nhiều người nghĩ\": the video only says it is easier than it might sound. Reword to something like \"dễ hơn nghe có vẻ\" and drop \"nhiều người nghĩ\".",
+        "\"Kiểm tra góc vuông trước khi siết chặt\": the video gives no squareness check. Remove this step.",
+        "\"nhớ tính thêm độ dày ván vào kích thước tổng\": the video gives no such tip. Remove this sentence.",
+        "\"Không có con số chuẩn cho chiều cao. Bạn nên chọn theo chỗ đứng hay ngồi ngắm bể, và theo việc với tay xuống đáy bể...\": invented advice. The video only says the creator chose 29 inches to match his desk. Remove it.",
+        "\"ốc vít chỉ còn giữ cho cột không xê dịch\" and \"thớ gỗ đứng trực tiếp đỡ bể\": invented explanation. Remove both.",
+        "\"vì phải chờ từng lớp khô\": the video gives no reason why staining takes about four days. Remove the reason.",
+        "\"Khung thì rẻ, còn ván ép và phụ kiện cửa mới là phần đội giá\": the video does not give the plywood cost. Say only that the hinges and handle cost about the same as the frame. Also remove \"Nhìn như vậy gọn và liền khối hơn hẳn\" and \"Bể gia đình thông thường khó mà vượt ngưỡng này\", which are not in the video.",
+        "\"Phần khung chịu lực chỉ gồm vài thanh gỗ và một hộp ốc vít\" and \"gánh được sức nặng lớn hơn nhiều so với một bể cá gia đình\": the video says neither. Remove or reword to what it says: the uprights alone take about 2.900 kg."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.55,
+        0.5,
+        0.5
+      ]
+    },
+    {
       "at": "2026-11-08T21:27:12Z",
       "model": "sonnet",
       "score": 0.55,
@@ -27520,6 +27985,32 @@
     }
   ],
   "vi/guides/youtube-p-SK90oRxeM": [
+    {
+      "at": "2026-11-13T02:00:06Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "\"Nhiều người thích đặt đứng hơn.\": the speaker only says he personally prefers upright; rewrite as one person's choice, e.g. \"Đặt đứng cũng được, và nếu thích thì có thể chọn cách này vì...\", not \"nhiều người\".",
+        "FAQ \"Nhiều người thích đặt đứng vì dòng nước ra làm xáo động mặt nước.\": same problem, one person's preference stated as many people's; hedge it as \"Nếu muốn mặt nước xáo động thì có thể đặt đứng\".",
+        "\"Đổi lại, bạn phải lo máy bơm, đường ống, và tiền mua cũng không rẻ.\" and \"Lọc thùng ... có ngăn chứa vật liệu lọc lớn, nước đi qua lần lượt từng lớp\": the video does not say this; remove or limit to what the video says (canister filters need a larger pump and hoses and cost more).",
+        "\"Ưu điểm lớn nhất của kiểu lọc này là rẻ và gọn\": superlative \"lớn nhất\" is not in the video, which also never says \"gọn\"; remove \"lớn nhất\" and the \"gọn\" claim, keep the benefits as no larger pump, no hoses, cheaper.",
+        "\"mút là lựa chọn dễ làm nhất\" and \"loại nào cũng được\": the video says it's up to you and the speaker used a sponge; remove \"dễ làm nhất\" and say \"tùy bạn, ví dụ mút\".",
+        "\"Không nên dùng ống nhỏ hơn 5 cm\" and \"Ống nhỏ nhất nên dùng là loại 5 cm\": the video says the smallest he would use is 2 inch, i.e. his own choice; hedge as \"người làm video thường dùng nhỏ nhất là khoảng 5 cm\" without naming them, e.g. \"ống nhỏ nhất nên cân nhắc là khoảng 5 cm\" (one person's choice).",
+        "\"Mút giữ lại cặn bẩn... nơi vi sinh có lợi bám vào và xử lý chất thải trong nước\" and \"cá dễ thở hơn\": the video only says mechanical and biological filtration and gas exchange; remove the added explanations about debris, beneficial bacteria processing waste and fish breathing.",
+        "\"giặt càng đều càng tốt. Phần lớn trường hợp mỗi tuần một lần là hợp lý nhất\" and FAQ \"càng đều càng tốt, mỗi tuần một lần là hợp lý\": the video says as often as you need or can, generally every week would be best; remove \"Phần lớn trường hợp\" and \"hợp lý nhất\" and hedge, e.g. \"có thể giặt khoảng mỗi tuần một lần\".",
+        "\"Mua máy bơm trước, sau đó chọn ống và nắp theo đầu hút của máy bơm\" and \"Gộp việc giặt mút vào buổi thay nước hằng tuần\": the order of buying and weekly water changes are not in the video; remove this advice or the made-up purchase order and weekly water change.",
+        "\"điều mà lọc mua sẵn khó đáp ứng\" and \"Kiểu lọc này thường chỉ đủ sức cho bể...\": the first is an unsupported claim about store-bought filters, so remove it; the second makes the limit sound like pump strength, so say it is generally limited to tanks of about 400 L (100 gallons) or less."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.5,
+        0.4,
+        0.5
+      ]
+    },
     {
       "at": "2026-11-08T21:27:24Z",
       "model": "sonnet",
@@ -28224,6 +28715,32 @@
     }
   ],
   "vi/guides/youtube-qcPe_f-GETA": [
+    {
+      "at": "2026-11-13T02:00:08Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.4,
+      "notes": [
+        "\"Nhiều người chơi tự làm sump để chọn cách chia ngăn và vật liệu lọc theo ý mình\": the video never says many keepers build their own sumps or why; remove this sentence.",
+        "\"Bơm dùng loại 5.700 lít/giờ ở cột áp bằng 0 (khoảng 5.700 lít/giờ)\" and \"tức khoảng 5.700 lít/giờ\": the pump is 1500 US gallons/hour, which is about 5.680 l/h, so it is not a rounded 'conversion' to restate; remove the redundant parenthetical and 'tức khoảng' phrase, say the pump is about 5.700 lít/giờ once. Also the FAQ 'Bơm 5.700 lít/giờ là khoảng bao nhiêu lít?' is circular; remove it.",
+        "\"có thể nhiều hơn vài trăm gallon\": English unit left in place and inconsistent; change to 'có thể cao hơn vài trăm gallon (khoảng 1.000 lít/giờ)' in metric, or simply 'cao hơn một chút'.",
+        "\"Lỗ khoan thêm thì dễ, còn lỗ đã khoan rồi thì không lấp lại được. Vì thế bắt đầu ít rồi tăng dần là cách an toàn.\": advice and reasoning the video does not give; remove. Also \"Không có con số chuẩn cho số lỗ\" is not in the video; remove.",
+        "\"Nếu sump của bạn cũng bị nước dồn về một góc khay, hãy thử cách này trước khi nghĩ tới chuyện làm lại khay.\": invented advice; remove.",
+        "\"Túi lọc có nhiều cỡ khác nhau. Nếu định dùng túi lọc thì bạn nên có sẵn túi để ướm trước khi chốt vị trí vách.\": invented tip not in the video; remove.",
+        "\"Nghe ồn lúc chạy thử chưa có vật liệu thì chưa nên vội kết luận là thiết kế sai.\": advice not in the video; remove.",
+        "\"Nhiều khả năng tiếng ồn sẽ hết\" (appears several times): the creator says the noise 'will be gone' firmly, but the guide's added claim that noise is from water falling directly on the surface is fine; however the 'Sump là một bể phụ đặt dưới bể chính. Nước từ bể chính chảy xuống sump...' explanation of how a sump works goes beyond the video; shorten to a brief definition or remove the flow descr…",
+        "\"Khoan khay nhỏ giọt một lượt vừa phải\" and step list in \"Bắt đầu từ đâu\": presents the creator's one-off build sequence as a recommended procedure (e.g. 'Kiểm tra ngăn túi lọc có đủ rộng chưa', 'Chạy thử bằng nước trước'); hedge it as 'một cách là' or remove, as the video gives no such steps.",
+        "\"rồi mưa xuống lớp bóng lọc (bio ball) bên dưới\" and \"Nước rơi thẳng xuống mặt nước\": the video says rain falls onto the water, not onto bio balls placed below; correct to water raining down onto the water below, and do not describe the bio balls as lying under the drip plate."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.5,
+        0.4,
+        0.4
+      ]
+    },
     {
       "at": "2026-11-08T21:27:55Z",
       "model": "sonnet",
