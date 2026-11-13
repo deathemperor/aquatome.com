@@ -954,26 +954,35 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
     var missed: [String] = []
     for id in ["v2-photos-row", "v2-jumps"] {
-      for pace in SwipePace.allCases {
-        follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
-        let shown = app.descendants(matching: .any)["v2-species"]
-        XCTAssertTrue(shown.waitForExistence(timeout: 8), "the fish's page didn't open")
-        let row = app.descendants(matching: .any)[id].firstMatch
-        repeatUntil(row.exists && row.isHittable && row.frame.midY < app.frame.height * 0.8, times: 8) { app.swipeUp() }
-        XCTAssertTrue(row.isHittable, "no \(id) on the fish's page")
-        edgeSwipe(app, pace, at: row.frame.midY / app.frame.height)
-        if !shown.waitForNonExistence(timeout: 5) {
-          missed.append("\(id) \(pace)")
-          app.leavePage()
-          _ = shown.waitForNonExistence(timeout: 5)
+      // At rest, and already scrolled left: the edge's 20 points aren't the row's either way (`EdgeTouch`).
+      for scrolledLeft in [false, true] {
+        for pace in SwipePace.allCases {
+          follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+          let shown = app.descendants(matching: .any)["v2-species"]
+          XCTAssertTrue(shown.waitForExistence(timeout: 8), "the fish's page didn't open")
+          let row = app.descendants(matching: .any)[id].firstMatch
+          repeatUntil(row.exists && row.isHittable && row.frame.midY < app.frame.height * 0.8, times: 8) { app.swipeUp() }
+          XCTAssertTrue(row.isHittable, "no \(id) on the fish's page")
+          if scrolledLeft {
+            let o = app.coordinate(withNormalizedOffset: .zero), y = row.frame.midY, x = app.frame.width * 0.7
+            o.withOffset(CGVector(dx: x, dy: y)).press(forDuration: 0, thenDragTo: o.withOffset(CGVector(dx: x - 160, dy: y)), withVelocity: XCUIGestureVelocity(400), thenHoldForDuration: 0)
+            Thread.sleep(forTimeInterval: 1)
+          }
+          edgeSwipe(app, pace, at: row.frame.midY / app.frame.height)
+          if !shown.waitForNonExistence(timeout: 5) {
+            missed.append("\(id)\(scrolledLeft ? " scrolled left" : "") \(pace)")
+            app.leavePage()
+            _ = shown.waitForNonExistence(timeout: 5)
+          }
         }
       }
     }
     XCTAssertEqual(missed, [], "edge swipes over a row that didn't go back, of 1 each")
   }
 
-  /// A guard, never broken: a swipe that starts on what scrolls sideways is its own, as in the App Store: the row scrolls
-  /// both ways, and the page stays.
+  /// A guard, never broken: a swipe that starts on what scrolls sideways is its own, as in the App Store, from anywhere past
+  /// the screen edge's 20 points (`EdgeTouch`): the row scrolls both ways and to its last item, and the page stays; a swipe
+  /// up that starts on it scrolls the page.
   func testASwipeOnAStripDoesntGoBack() {
     // With animations on, as a swipe back needs.
     let app = launch("-v2", "YES", "-long-part")
@@ -993,15 +1002,33 @@ final class V2FlowTests: XCTestCase {
       repeatUntil(strip.exists && strip.isHittable && strip.frame.midY < app.frame.height * 0.75, times: 8) { app.swipeUp() }
       XCTAssertTrue(strip.isHittable, "no \(id) on the fish's page")
       let first = strip.buttons.firstMatch, y = strip.frame.midY
-      for (from, name) in [(app.frame.width * 0.6, "its middle"), (44, "a thumb's width in")] {
+      let middle = app.frame.width * 0.6
+      for (from, name) in [(middle, "its middle"), (44, "a thumb's width in"), (24, "just past the edge's 20 points")] {
         let start = first.frame.minX
         pan(from, y, -160)
         XCTAssertLessThan(first.frame.minX, start - 40, "\(id) didn't scroll left from \(name)")
         let left = first.frame.minX
-        pan(from == 44 ? 44 : app.frame.width * 0.3, y, 160)
+        pan(from == middle ? app.frame.width * 0.3 : from, y, 160)
         XCTAssertGreaterThan(first.frame.minX, left + 40, "\(id) didn't scroll back right from \(name)")
         XCTAssertTrue(shown.exists, "a swipe on \(id) from \(name) went back")
       }
+      // Its items are buttons in the accessibility tree, and the row scrolls to its last one: what VoiceOver reads, and
+      // its three-finger scroll. (The photos are a lazy row: its last item is in the tree once scrolled near.)
+      var end = ""
+      for _ in 0..<10 {
+        strip.swipeLeft()
+        let label = strip.buttons.allElementsBoundByIndex.last?.label ?? ""
+        if label == end { break }
+        end = label
+      }
+      XCTAssertTrue(strip.buttons.allElementsBoundByIndex.last?.isHittable == true, "\(id)'s last item never came into view")
+      XCTAssertTrue(shown.exists, "scrolling \(id) to its end went back")
+      // Up, from the row: the page scrolls.
+      let top = strip.frame.minY, o = app.coordinate(withNormalizedOffset: .zero), x = app.frame.width * 0.5
+      o.withOffset(CGVector(dx: x, dy: y)).press(forDuration: 0, thenDragTo: o.withOffset(CGVector(dx: x, dy: y - 200)), withVelocity: XCUIGestureVelocity(500), thenHoldForDuration: 0)
+      Thread.sleep(forTimeInterval: 1)
+      XCTAssertLessThan(strip.frame.minY, top - 100, "a swipe up that started on \(id) didn't scroll the page")
+      XCTAssertTrue(shown.exists, "a swipe up on \(id) went back")
     }
   }
 

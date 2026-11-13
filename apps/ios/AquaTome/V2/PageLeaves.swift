@@ -1,5 +1,6 @@
 import SwiftUI
 import UIKit
+import UIKit.UIGestureRecognizerSubclass
 
 /// When a page starts to leave its stack (iOS's back button or its swipe back) and when it's in front again (a swipe let go
 /// of). No gesture of its own, and nothing set on iOS's: turning off iOS 26's swipe from the middle here broke its swipe
@@ -25,11 +26,15 @@ struct PageLeaves: UIViewControllerRepresentable {
   }
 }
 
-/// Behind a row that scrolls sideways on a pushed page: the row's own scroll waits for iOS's swipe back from the left
-/// edge to fail first. That swipe starts only at the screen's very edge, so the row scrolls as before from anywhere
-/// else, and a swipe from the edge over it goes back: without it, a finger that moves at once from the edge over the
-/// photos or the chips scrolled the row, 0 of 6 back (27.2, 12 Nov). Nothing set on iOS's swipe; no gesture of its own.
+/// Behind a row that scrolls sideways on a page: a touch that begins within 20 points of the screen's left edge isn't
+/// the row's, so iOS's swipe back takes it there as everywhere else on the page; from anywhere else the row scrolls as
+/// before, with no wait (`EdgeTouch` decides at touch-down). Without it, the photos or the chips took a swipe from the
+/// edge, 0 of 6 back (27.2, 12 Nov); a row waiting for iOS's swipes instead lost its rightward scroll to them (13 Nov).
+/// Nothing set on iOS's swipes.
 struct YieldsToEdgeSwipe: UIViewRepresentable {
+  /// Off: rows as iOS has them, taking a swipe that starts over them at the very edge (the fallback the chief of staff
+  /// kept one switch away, 13 Nov).
+  static let on = true
   func makeUIView(context: Context) -> Finder { Finder() }
   func updateUIView(_ view: Finder, context: Context) {}
 
@@ -43,20 +48,38 @@ struct YieldsToEdgeSwipe: UIViewRepresentable {
     override func didMoveToWindow() {
       super.didMoveToWindow()
       guard window != nil else { return }
-      // Once the row's scroll view and the page's controller are in place.
+      // Once the row's scroll view is in place.
       DispatchQueue.main.async { [weak self] in self?.yield() }
     }
 
     private func yield() {
+      guard YieldsToEdgeSwipe.on else { return }
       var up = superview
       while let view = up, !(view is UIScrollView) { up = view.superview }
-      var next: UIResponder? = self
-      while let r = next, (r as? UIViewController)?.navigationController == nil { next = r.next }
-      guard let scroll = up as? UIScrollView, let edge = (next as? UIViewController)?.navigationController?.interactivePopGestureRecognizer
-      else { return }
+      guard let scroll = up as? UIScrollView, !(scroll.gestureRecognizers ?? []).contains(where: { $0 is EdgeTouch }) else { return }
+      let edge = EdgeTouch(target: nil, action: nil)
+      scroll.addGestureRecognizer(edge)
       scroll.panGestureRecognizer.require(toFail: edge)
     }
   }
+}
+
+/// On a row's scroll view: taken at touch-down when the touch begins within 20 points of the screen's left edge, so the
+/// row's scroll, which waits for it to fail, doesn't start; let go at once otherwise. It prevents nothing else, iOS's
+/// swipes included, and keeps no touch from the views under it.
+final class EdgeTouch: UIGestureRecognizer {
+  override init(target: Any?, action: Selector?) {
+    super.init(target: target, action: action)
+    cancelsTouchesInView = false
+    delaysTouchesEnded = false
+  }
+
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent) {
+    guard let touch = touches.first, let window = view?.window else { state = .failed; return }
+    state = touch.location(in: window).x <= 20 ? .recognized : .failed
+  }
+
+  override func canPrevent(_ preventedGestureRecognizer: UIGestureRecognizer) -> Bool { false }
 }
 
 extension View {
