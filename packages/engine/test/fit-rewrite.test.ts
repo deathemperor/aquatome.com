@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
 import { CHECKLIST, fitKey, fitText, type FitFinding, type FitState } from '../src/fit'
-import { breedFigures, keepsFigures, unitsLeft, withoutConcentrations } from '../src/breed-units'
+import { breedFigures, figuresSaid, keepsFigures, unitsLeft, withoutConcentrations } from '../src/breed-units'
 import { convertible, fitRewrite, mendable, rewriteDue } from '../src/fit-rewrite'
 import { loadPages, type Page } from '../src/pages'
 
@@ -333,6 +333,30 @@ test('a breed page\'s figures are held to their places, a treatment\'s rate is a
     expect(breedFigures('38 lít', inch, block)).toEqual([])
     expect(unitsLeft('38 lít', inch, block, block)).toBe('a figure per a length code doesn\'t work from (only per inch or per cm)')
   }
+})
+
+// Astra's fifth read, 2026-11-13: each of these saved a wrong figure or refused a right one.
+test('a substance named beside a treatment is no reading, a tank set on something is no allowance, and one of two like figures may be mended alone', () => {
+  // A treatment with the substance it treats: its figure is a dose, whatever the words.
+  for (const dose of ['Khử nitrit bằng muối 1 g/l.', 'Xử lý nitrit: muối 1 g/l.', 'Khử nitrit bằng muối với liều 1 g/l.']) expect(withoutConcentrations(dose)).toBe(dose)
+  expect(unitsLeft('38 lít', '10 US gal (38 L).', withoutConcentrations('Chuẩn bị 38 lít nước.\nKhử nitrit bằng muối 1 g/l.'))).toBe('a dose is given beside it, whose water stays exact')
+  // Readings written as keepers write them.
+  for (const reading of ['Giữ ôxy hòa tan trên 5 mg/l.', 'Ammonia dưới 0,5 mg/l.', 'NH₃ dưới 0,02 mg/l.', 'Nitrat: < 20 mg/l.']) expect(withoutConcentrations(reading)).not.toMatch(/\d/)
+  // Where a tank stands is no allowance per inch or per a length.
+  const facts = '10 US gal (38 L). 35 US gal (132 L).'
+  expect(breedFigures('38 lít', facts, 'Bể 38 lít đặt trên 2,5 cm xốp lót.').map(f => [f.to, f.is])).toEqual([['40 lít', '40']])
+  expect(breedFigures('132 lít', facts, 'Bể 132 lít đặt trên 5 cm xốp lót.').map(f => [f.to, f.is])).toEqual([['130 lít', '130']])
+  expect(unitsLeft('132 lít', facts, 'Bể 132 lít đặt trên 5 cm xốp lót.', 'Bể 132 lít đặt trên 5 cm xốp lót.')).toBeUndefined()
+  // One of two "132 lít" in a paragraph mended in its place; the other stays.
+  const two = 'Bể chính 132 lít. Thùng dự phòng 132 lít.'
+  const first = breedFigures('132 lít', facts, two).slice(0, 1).map(f => ({ ...f, block: 0 }))
+  expect(first.map(f => [f.to, f.n])).toEqual([['130 lít', 0]])
+  expect(keepsFigures(two, 'Bể chính 130 lít. Thùng dự phòng 132 lít.', ['132 lít'], first)).toBeUndefined()
+  expect(keepsFigures(two, 'Bể chính 132 lít. Thùng dự phòng 130 lít.', ['132 lít'], first)).toBeDefined()
+  // A range per inch is told once, as a range.
+  const range = breedFigures('38–76 lít cho mỗi 2,5 cm', 'Allow 10 to 20 US gal (38–76 L) per inch.', 'Khoảng 38–76 lít cho mỗi 2,5 cm chiều dài cá.')
+  expect(range.map(f => f.is)).toEqual(['15/cm', '30/cm'])
+  expect(figuresSaid(range)).toBe('"38–76 lít cho mỗi 2,5 cm" → "15–30 lít cho mỗi cm" (10 US gallons to 20 US gallons per inch)')
 })
 
 test('a breed page\'s units are mended, in an FAQ answer too, after the part\'s other mend in the same try, with each figure as the rule names it', async () => {
