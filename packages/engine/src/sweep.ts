@@ -12,6 +12,7 @@ import { pickStands, readPersonYes } from './person-yes'
 import { EMPTY_CAP, refusedOn, type PhotoVerdict } from './photo-check'
 import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, fixTranslation, isAdPoster, notAlive, isMap, unwellOff, NAMED_KINDS, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields } from './pages'
+import { foldPages } from './page-folds'
 import { sweepPlaceNames } from './place-names'
 import { sfDifficulty } from './process'
 import { retitleGuide, sourceTitle, titleClashes, titleKey } from './guide-titles'
@@ -84,6 +85,8 @@ import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
  *   the cycle's log and the owner's daily report, so a person sees one the day it appears (the chief of staff, 2026-11-12)
  * - a fish's summary (content/summaries): the words Vietnamese readers write another way written their way (sanitize.ts
  *   viWording), as the page's own text has them (fixTranslation)
+ * - a species page filed under the wrong animal (page-folds.ts FOLDS): its sources' text, photos and figures joined to
+ *   its fish's page and its address forwarding there, or the page moved to its fish's name, once
  * - a fish's old name, on a Vietnamese page, its summary or a buying guide: its name now, when the sentence says which fish
  *   it is (content-rules.ts renameSwapped). A rename can't stop a publish that way, and what it leaves the tests list.
  * - a species', plant's or breed's Vietnamese name as hobbyists write it (alt-names.ts tidyName): a place keeps its capital
@@ -147,6 +150,8 @@ export type SweepReport = {
   unmatched: string[]
   /** Guide photos whose label names no heading of the guide, so the site shows them at its end: `guides/id: "label"`. */
   unplaced: string[]
+  /** Species pages filed under the wrong animal, joined to their fish's page or moved to it (page-folds.ts): `from → into`. */
+  folds: string[]
   stopped: string
 }
 
@@ -276,10 +281,13 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   const cap = o.photoCap ?? PHOTO_CAP
   if (!Number.isInteger(cap) || cap < 0) throw new Error(`sweep: the photo cap is a whole number, 0 or more, not ${cap}`)
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], unwell: [], heads: [], noAnimal: [], refused: [], refusedHeld: [], refusedPicked: [], videos: [], card: [], summaries: [], tanks: [], shop: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], unwell: [], heads: [], noAnimal: [], refused: [], refusedHeld: [], refusedPicked: [], videos: [], card: [], summaries: [], tanks: [], shop: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
+  // A species page filed under the wrong animal, joined to its fish's or moved to it (page-folds.ts): first, so the
+  // school size and the text read the page as it is now (Astra, 2026-11-13).
+  for (const f of report.folds = await foldPages(root)) changed(`species/${f.split(' → ')[1]}`)
   // A fish card's school size: Seriously Fish's, never below what another source on the page says (traits.ts), here so
   // every part of the cycle has it before its tests, whatever changed a page's sections.
   for (const id of report.schools = await schoolFromSeriouslyFish(content)) changed(`traits/${id}.json`)

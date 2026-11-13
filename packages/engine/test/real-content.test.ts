@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync } from 'node:fs'
+import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -6,6 +6,8 @@ import { expect, test } from 'vitest'
 import { loadAll, mayPublish, resolveDataCard, type Translation } from '@aq/schema'
 import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
 import { englishOf } from '../src/english'
+import { altKey, NOT_ITS } from '../src/alt-names'
+import { MISMATCHED } from '../src/gbif'
 import { productOf } from '../src/fit'
 import { loadPages } from '../src/pages'
 import { ENGLISH_PLACE_WORD } from '../src/place-names'
@@ -402,8 +404,8 @@ test('the tap-water fixes hold: Seachem Prime named at its dose, our note on wat
 // GBIF's fuzzy matches made a catfish page a tube worm's (Brochis arcuata → Ditrupa arietina, Sabellida), and its exact
 // Mollienisia, a moth's genus, gave a molly page a moth's family (Noctuidae). The engine now takes a match only of an animal
 // the page's group can be (gbif.ts pageTaxon). This holds each fish or shrimp page's order to its group; "other" and
-// "snails", too many orders to name, are held by that class check alone. The two above, and a spiny eel filed with the
-// loaches, wait for their own fix.
+// "snails", too many orders to name, are held by that class check alone. The two above are folded (page-folds.ts); a
+// spiny eel filed with the loaches waits for its own fix.
 const GROUP_ORDERS: Record<string, string[]> = {
   catfish: ['Siluriformes'],
   tetras: ['Characiformes'], characins: ['Characiformes'], characoids: ['Characiformes'],
@@ -419,5 +421,43 @@ test('every species page\'s order fits its group', () => {
     const e = JSON.parse(readFileSync(join(root, id, 'entity.json'), 'utf8')) as { group: string; order: string }
     return GROUP_ORDERS[e.group] !== undefined && !GROUP_ORDERS[e.group]!.includes(e.order)
   })
-  expect(off.sort()).toEqual(['ditrupa-arietina', 'macrognathus-siamensis', 'mollienisia'])
+  expect(off.sort()).toEqual(['macrognathus-siamensis'])
+})
+
+// The chief of staff, 2026-11-13: the skunk cory's text under a tube worm's name ends as one page with its fish's, the
+// worm's address forwarding there with the worm's name in neither its note nor search; Spruce Pets' molly article, about
+// several species, gives "Cá molly" nothing but its forwarded address; the torrent catfish is under its own name. And the
+// engine's record of GBIF's answers keeps none a person found wrong (gbif.ts MISMATCHED).
+test('the pages filed under another animal are each their fish\'s, and GBIF\'s wrong answers are gone from the record', () => {
+  const content = fileURLToPath(new URL('../../../content', import.meta.url))
+  const page = (id: string) => ({ e: JSON.parse(readFileSync(join(content, 'species', id, 'entity.json'), 'utf8')), vi: JSON.parse(readFileSync(join(content, 'species', id, 'vi.json'), 'utf8')) as Translation })
+  for (const id of ['ditrupa-arietina', 'mollienisia', 'liobagrus-chenghaiensis']) expect(existsSync(join(content, 'species', id)), id).toBe(false)
+  const skunk = page('corydoras-arcuatus')
+  expect(skunk.e.sections.map((x: { source: string }) => x.source)).toEqual(expect.arrayContaining(['seriouslyfish', 'planetcatfish']))
+  expect(skunk.e.lNumber).toBe('C020')
+  expect(skunk.vi.redirectFrom).toEqual(expect.arrayContaining([{ slug: 'ca-ditrupa-arietina', name: '' }]))
+  expect(JSON.stringify(skunk)).not.toMatch(/ditrupa arietina|Cá Ditrupa/i)
+  const molly = page('poecilia-sphenops')
+  expect(molly.vi.redirectFrom).toEqual(expect.arrayContaining([{ slug: 'ca-molly-bryophila', name: 'Các loài cá molly' }]))
+  expect(molly.e.sections.some((x: { sourceUrl: string }) => x.sourceUrl.includes('the-mollie'))).toBe(false)
+  expect([page('liobagrus-chengduensis').e.scientificName, page('liobagrus-chengduensis').vi.slug]).toEqual(['Liobagrus chengduensis', 'ca-tre-suoi-thanh-do'])
+  const record = JSON.parse(readFileSync(fileURLToPath(new URL('../../../engine-state/_gbif-names.json', import.meta.url)), 'utf8')) as Record<string, unknown>
+  expect(Object.keys(MISMATCHED).filter(k => k in record)).toEqual([])
+})
+
+// Names a person found are another fish's (alt-names.ts NOT_ITS: Boraras merah's "Chili rasbora", and the chief of staff's
+// ten of 2026-11-13) are on none of those pages, in any language: the sweep's cleaner takes them off each cycle.
+test('no page keeps another fish\'s name a person found on it', () => {
+  const root = fileURLToPath(new URL('../../../content/species', import.meta.url))
+  const left: string[] = []
+  for (const id of readdirSync(root)) {
+    const e = JSON.parse(readFileSync(join(root, id, 'entity.json'), 'utf8')) as { scientificName: string }
+    const off = NOT_ITS[e.scientificName]
+    if (!off) continue
+    for (const f of readdirSync(join(root, id)).filter(f => f !== 'entity.json' && f.endsWith('.json'))) {
+      const t = JSON.parse(readFileSync(join(root, id, f), 'utf8')) as Translation
+      for (const n of t.altNames ?? []) if (off.some(x => altKey(x.name) === altKey(n))) left.push(`${id}/${f}: ${n}`)
+    }
+  }
+  expect(left).toEqual([])
 })
