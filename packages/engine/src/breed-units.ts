@@ -64,11 +64,12 @@ const flat = (s: string) => s.replace(/\s+/g, ' ').trim()
 const norm = (s: string) => flat(s.normalize('NFC')).toLowerCase()
 /**
  * A length after a volume in its clause that none of the above reads ("38 lít nước đã khử clo mỗi 2,5 cm", "cho 2,5 cm",
- * "mỗi 2,5 cm mực nước"): what it is per can't be told, so it is for a person, never a tank (Astra, 2026-11-13). A tank
- * set on something ("đặt trên 2,5 cm xốp") is a tank.
+ * "mỗi 2,5 cm mực nước", "cho mỗi khoảng 2,5 cm", "cho mỗi con cá dài 2,5 cm"): what it is per can't be told, so it is for
+ * a person, never a tank (Astra, 2026-11-13). A tank set on something ("đặt trên 2,5 cm xốp", "đặt trên tấm xốp dày 2,5
+ * cm") is a tank.
  */
-const LENGTH_NEAR = /^[^.;:!?\n]{0,40}?(?:mỗi|từng|cho|trên|\/)\s*(?:\d[\d.,]*\s*)?(?:cm|mm|inch)(?![\p{L}])/iu
-const STANDS_ON = /^[^.;:!?\n]{0,40}?(?:đặt|kê|để)\s+trên\s+\d[\d.,]*\s*(?:cm|mm|inch)(?![\p{L}])/iu
+const LENGTH_NEAR = /^[^.;:!?\n]{0,40}?(?:mỗi|từng|cho|trên|\/)(?:\s+\p{L}+){0,4}?\s*(?:\d[\d.,]*\s*)?(?:cm|mm|inch)(?![\p{L}])/iu
+const STANDS_ON = /^[^.;:!?\n]{0,40}?(?:đặt|kê|để)\s+trên(?:\s+\p{L}+){0,4}?\s+\d[\d.,]*\s*(?:cm|mm|inch)(?![\p{L}])/iu
 /** What a volume is given per, by the words after it. */
 const perOf = (after: string) => (PER_INCH.test(after) ? '/2.5cm' : PER_CM.test(after) ? '/cm' : PER_LENGTH.test(after) ? '/length'
   : LENGTH_NEAR.test(after) && !STANDS_ON.test(after) ? '/length' : '')
@@ -84,7 +85,11 @@ const READS_AS = String.raw`(?:\s*[:=<>≤≥~]\s*|\s+(?:hòa\s+tan|trong\s+(?:n
  * The substance, then only the words a reading is said with ("hòa tan", "dưới", "giữ ở mức", ":"): a substance with
  * anything else before the figure ("khử nitrit bằng muối 1 g/l") is a treatment, and its figure a dose (Astra, 2026-11-13).
  */
-const READING = String.raw`(?<![\p{L}])(?<!(?:liều|thêm|bổ\s+sung|châm|dùng|pha|bơm|phân|dung\s+dịch|thuốc)(?![\p{L}])[^.;:!?\n]{0,25})(?:[oô]xy(?!\s+già)|o[2₂]|amoni(?:ac|a)?|ammonia|nitrit|nitrat|nh[34₃₄][⁺+]?|no[23₂₃][⁻-]?|phốt\s*phát|phosphat|po[4₄][³]?[⁻-]?|co2|co₂)(?![\p{L}])${READS_AS}`
+const SUBSTANCE = String.raw`(?:[oô]xy|o[2₂]|amoni(?:ac|a)?|ammonia|nitrit|nitrat|nh[34₃₄][⁺+]?|no[23₂₃][⁻-]?|phốt\s*phát|phosphat|po[4₄][³]?[⁻-]?|co2|co₂)`
+/** A dose's words: "phân" only as a fertiliser or before the substance, never waste ("phân hủy", "phân cá"). */
+const DOSE_WORD = String.raw`(?:liều|thêm|bổ\s+sung|châm|dùng|pha|bơm|dung\s+dịch|thuốc|bón|phân(?=\s+(?:bón|nước|nền|lỏng|vi\s+lượng|đa\s+lượng|kali|đạm|lân|npk|${SUBSTANCE})(?![\p{L}])))(?![\p{L}])`
+/** The substance after a dose's words in its sentence, a label's colon between them too ("Liều dùng: ammonia 2 mg/l"). */
+const READING = String.raw`(?<![\p{L}])(?<!${DOSE_WORD}[^.;!?\n]{0,25})(?:[oô]xy(?!\s+già)|o[2₂]|amoni(?:ac|a)?|ammonia|nitrit|nitrat|nh[34₃₄][⁺+]?|no[23₂₃][⁻-]?|phốt\s*phát|phosphat|po[4₄][³]?[⁻-]?|co2|co₂)(?![\p{L}])${READS_AS}`
 const CONCENTRATION = new RegExp(String.raw`(${READING})(?<![\d.,])\d[\d.,–-]*\s*(?:mg|g|gam|gram|ml|cc|ppm)\s*(?:\/|mỗi|trên)\s*(?:1\s*)?(?:l|lít)(?![\p{L}])`, 'giu')
 export const withoutConcentrations = (text: string) => text.replace(CONCENTRATION, '$1 ')
 
@@ -163,12 +168,20 @@ const quantities = (text: string) => [...text.matchAll(VOLUME)].flatMap(m => {
   const per = perOf(text.slice(m.index + m[0].length))
   return [m[1]!, ...(m[2] ? [m[2]] : [])].map(s => `${vi(s)}${per}`)
 })
-/** The words before a text's nth litre figure in its clause, figures aside: what the figure is of ("bể chính"). */
+const CLAUSE_END = /[.;:!?,\n]/
+const bare = (s: string) => s.replace(/[\d.,–-]+/g, ' ').replace(/\s+/g, ' ').trim()
+/**
+ * The words around a text's nth litre figure in its clause, figures aside: what the figure is of ("bể chính … cho thùng").
+ * Before it, the label before a colon when the figure comes straight after one ("Bể chính: 132 lít").
+ */
 const leadOf = (text: string, n: number) => {
   let k = 0
   for (const m of text.matchAll(VOLUME)) {
     const ends = m[2] ? 2 : 1
-    if (n < k + ends) return (text.slice(0, m.index).split(/[.;:!?,]/).at(-1) ?? '').replace(/[\d.,–-]+/g, ' ').replace(/\s+/g, ' ').trim()
+    if (n < k + ends) {
+      const before = text.slice(0, m.index).split(CLAUSE_END).map(bare).findLast(c => /\p{L}/u.test(c)) ?? ''
+      return `${before} | ${bare(text.slice(m.index + m[0].length).split(CLAUSE_END)[0] ?? '')}`
+    }
     k += ends
   }
   return undefined
