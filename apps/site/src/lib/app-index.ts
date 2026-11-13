@@ -347,12 +347,12 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
     for (const b of appBreeds(lang, c)) refs.set(`breeds/${b.id}`, at(`/vi/ca/${b.t.slug}/`))
     for (const g of appGuides(lang, c)) refs.set(`guides/${g.id}`, at(`/vi/huong-dan/${g.t.slug}/`))
     for (const p of appPlants(lang, c)) refs.set(`plants/${p.id}`, at(`/vi/cay/${p.t.slug}/`))
-    // Where the fish is in each photo the calendar can name by address (a fish's, a breed's, a guide's): the photo's own address first, then
+    // Where the fish is in each photo the calendar can name by address (a fish's, a breed's, a plant's, a guide's): the photo's own address first, then
     // its copies only resized (its small copy, a large copy of the same shape). An address two photos' copies claim with
     // different boxes gets none.
     const own = new Map<string, Box>(), copies = new Map<string, Box | null>()
     const copy = (u: string, box: Box) => copies.set(u, copies.has(u) && JSON.stringify(copies.get(u)) !== JSON.stringify(box) ? null : box)
-    for (const p of [...c.species.flatMap(s => s.photos), ...c.breeds.flatMap(b => b.photos), ...Object.values(c.galleries).flat(), ...c.guides.flatMap(g => [...g.photos, ...(g.video?.figures ?? []).flatMap(f => f.photo ?? [])])]) {
+    for (const p of [...c.species.flatMap(s => s.photos), ...c.breeds.flatMap(b => b.photos), ...c.plants.flatMap(p => p.photos), ...Object.values(c.galleries).flat(), ...c.guides.flatMap(g => [...g.photos, ...(g.video?.figures ?? []).flatMap(f => f.photo ?? [])])]) {
       const box = photoBox(p)
       if (!box) continue
       own.set(p.url, box)

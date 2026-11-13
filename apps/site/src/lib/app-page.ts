@@ -485,7 +485,8 @@ export function guideDoc(lang: Lang, c: Content, g: Localized<GuideEntity>, list
     talk: { comments: commentsKey(lang, `guide:${g.id}`) },
     blocks: [
       ...(g.t.summary?.length ? [{ t: 'summary' as const, title: t('Tóm tắt nhanh'), items: g.t.summary }] : []),
-      ...blocks,
+      // The poster's picture once a page: a section's still it shows isn't shown again further down (the Design Lead, 13 Nov).
+      ...(poster ? blocks.filter(b => !(b.t === 'figure' && b.img.src === poster.src)) : blocks),
       ...(g.t.faq?.length ? [{ t: 'faq' as const, title: t('Câu hỏi thường gặp'), items: g.t.faq.map(f => ({ q: f.q, a: f.a })) }] : []),
       ...(v || p.refs?.length ? [{ t: 'refs' as const, title: t('Nguồn tham khảo'), id: 'nguon', items: [
         ...(v ? [{ title: `${t('Video gốc:')} ${v.title}${t(', kênh')} ${v.channel} · ${clock(v.durationSec)}`, url: watchUrl(v.youtubeId) }] : []),

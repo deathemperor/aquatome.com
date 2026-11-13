@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { LANGS, type Content, type Photo } from '@aq/schema'
+import { CurationSchema, LANGS, type Content, type Photo } from '@aq/schema'
 import { PageDoc } from '@aq/schema/app-page'
 import { appIndex, photoBox } from '../src/lib/app-index'
 import { appPages, fishDoc, guideDoc } from '../src/lib/app-page'
@@ -70,6 +70,8 @@ test("a video guide's poster is its card's photo, at full size, with its box whe
     if (!card) { expect(doc.video?.poster, g.id).toBeUndefined(); continue }
     expect(doc.video?.poster, g.id).toMatchObject({ src: card.url, w: Math.round(card.width), h: Math.round(card.height), credit: { text: expect.any(String) } })
     expect(doc.video?.poster?.box, g.id).toEqual(photoBox(card))
+    // Shown once a page: the body doesn't show the poster's picture again.
+    expect(doc.blocks.some(b => b.t === 'figure' && b.img.src === doc.video?.poster?.src), g.id).toBe(false)
     expect(PageDoc.safeParse(doc).success).toBe(true)
   }
 }, 120_000)
@@ -89,6 +91,20 @@ test("an article whose card picture is a section's picture leads with it, on the
   expect(parts.prose).not.toContain(section.url)
   const doc = guideDoc('vi', c, g, new Set(appIndex('vi', c).items.map(i => i.path)))
   expect(doc.lead?.src).toBe(section.url)
+}, 120_000)
+
+// A day's guide picture can be a plant's photo a guide borrows: it carries that photo's box, as the guide's card does.
+test("a day's guide picture that is a plant's photo carries its box, as the guide's card does", async () => {
+  const was = await getContent('vi')
+  // A plant photo taller than wide, with its whole area, as the loader gives it.
+  const plant = { url: 'https://media.aquatome.com/commons/tall-plant.webp', thumb: 'https://media.aquatome.com/commons/tall-plant-480.webp', width: 600, height: 900, author: 'a', licence: 'cc-by-4.0', sourceUrl: 'https://example.org', source: 'commons', subject: { x0: 0, y0: 0, x1: 600, y1: 900 } } as Photo
+  const first = was.plants[0]!, vi = { ...was, plants: was.plants.map(p => (p === first ? { ...p, photos: [plant, ...p.photos] } : p)) }
+  expect(photoBox(plant)).toEqual(WHOLE)
+  const guide = vi.guides.find(g => !g.video)!
+  const calendar = CurationSchema.parse({ version: 1, weeks: [], days: [{ date: '2026-11-12', guide: `guides/${guide.id}`, guideImg: plant.url }] })
+  const day = appIndex('vi', vi, new Map(), vi.species, { calendar, today: '2026-11-12' }).home.days?.[0]
+  expect(day?.guideImg).toBe(plant.url)
+  expect(day?.guideImgBox).toEqual(photoBox(plant))
 }, 120_000)
 
 test('a fish with no photo has neither a card photo nor a head', async () => {
