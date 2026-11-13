@@ -3,7 +3,7 @@ import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import { ArchiveRefused } from '../src/archive'
 import { htmlToOutline } from '../src/outline'
-import { linkedPhotos, pickSourcePhotos, storeSourcePhotos } from '../src/source-photos'
+import { heldBack, linkedPhotos, pickSourcePhotos, storeSourcePhotos } from '../src/source-photos'
 
 const jpeg = (width = 800, height = 600) => sharp({ create: { width, height, channels: 3, background: 'gray' } }).jpeg().toBuffer()
 
@@ -427,4 +427,37 @@ test('a photo whose credit its source refuses is never fetched or stored, howeve
   const out = await storeSourcePhotos('seriouslyfish', 'Seriously Fish', SF, picked, { bytes: async u => (fetched.push(u), jpeg()), media, refusedCredits: ['example picture agency'] }, [])
   expect(fetched).toEqual(['https://x.test/b.jpg'])
   expect(out.map(p => p.caption)).toEqual(['Adult female.'])
+})
+
+// The chief of staff, 2026-11-13: no new photo credited to a business, an organisation or a person with an organisation
+// until the source's permission record lists that kind, and a picture agency never. A person, a one-word handle and the
+// source's own name are taken. A photo passed over holds none of the page's four places and is never fetched.
+test("a photo credited to a kind its source's permission doesn't cover holds no place and isn't fetched; a person, a handle and the source itself are", async () => {
+  const fig = (n: number, credit: string) => ({ src: `https://x.test/f${n}.jpg`, alt: `Example fish, view ${n}.`, width: 800, height: 600, credit })
+  const images = [fig(1, 'Example Aquatics'), fig(2, 'Imaginary Person/Example Fish Society'), fig(3, 'example-fish.org'), fig(4, 'Imaginary Person/Example Picture Agency'), fig(5, 'Imaginary Person'), fig(6, 'Imaginaryhandle'), fig(7, 'Aquarium Glaser'), fig(8, 'Another Person')]
+  const fetched: string[] = []
+  const media = { urlFor: (key: string) => `https://media.test/${key}`, put: async (key: string) => ({ url: `https://media.test/${key}`, width: 800, height: 600 }) }
+  const deps = { bytes: async (u: string) => (fetched.push(u), jpeg()), media, refusedCredits: ['Example Picture Agency'] }
+  const pick = (d: typeof deps & { coveredCredits?: ('organisation' | 'business' | 'person-with-organisation')[] }) =>
+    pickSourcePhotos(images, 'https://x.test/p', ['Example fish'], 4, 'subject', undefined, heldBack('glaser', 'Aquarium Glaser', d))
+  expect(pick(deps).map(p => p.credit)).toEqual(['Imaginary Person', 'Imaginaryhandle', 'Aquarium Glaser', 'Another Person'])
+  const out = await storeSourcePhotos('glaser', 'Aquarium Glaser', 'https://x.test/p', pick(deps), deps, [], 4)
+  expect(out).toHaveLength(4)
+  expect(fetched).toEqual([5, 6, 7, 8].map(n => `https://x.test/f${n}.jpg`))
+  // Given straight to the store, a photo held back is still neither fetched nor stored.
+  fetched.length = 0
+  expect(await storeSourcePhotos('glaser', 'Aquarium Glaser', 'https://x.test/p', images.slice(0, 4), deps, [], 4)).toEqual([])
+  expect(fetched).toEqual([])
+  // A record that lists those kinds takes them; a picture agency, even as an affiliation, stays out.
+  const covered = pick({ ...deps, coveredCredits: ['business', 'organisation', 'person-with-organisation'] })
+  expect(covered.map(p => p.credit)).toEqual(['Example Aquatics', 'Imaginary Person/Example Fish Society', 'example-fish.org', 'Imaginary Person'])
+})
+
+// The chief of staff, 2026-11-13: ScotCat's © line, read from the photo page the read fetches anyway, goes through the
+// same credit check as a printed credit line.
+test("a photo page's © naming a business isn't taken; a person's is", () => {
+  const img = (n: number, author: string) => ({ src: `https://x.test/p${n}.jpg`, alt: 'Example fish', displayWidth: 640, displayHeight: 480, page: `https://x.test/p${n}.htm`, author })
+  const media = { urlFor: (key: string) => `https://media.test/${key}` }
+  const picked = pickSourcePhotos([img(1, 'Example Aquatics'), img(2, 'Imaginary Person')], 'https://x.test/fish.htm', ['Example fish'], 4, 'subject', 500, heldBack('scotcat', 'ScotCat', { media }))
+  expect(picked.map(p => p.author)).toEqual(['Imaginary Person'])
 })

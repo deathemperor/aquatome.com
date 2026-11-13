@@ -591,3 +591,21 @@ test("a run's read of a page doesn't take a photo whose credit the source's perm
   for (const p of entity.photos) expect(gone).not.toContain(p.url)
   expect(calls.images).toBe(picks.filter(p => p.credit !== refused).length)
 })
+
+// The run's own read of a source page (run.ts apply) picks as the backfill does: photos on the never-again list
+// (engine-state/_photo-rejected.json) take none of the page's four places, so the next four are tried.
+test("a run's read of a page: photos taken off the site before don't hold its four places", async () => {
+  const { createHash } = await import('node:crypto')
+  const { htmlToOutline } = await import('../src/outline')
+  const { pickSourcePhotos } = await import('../src/source-photos')
+  const url = `${SF}paracheirodon-axelrodi`
+  const order = pickSourcePhotos(htmlToOutline(fx('pages/seriouslyfish-cardinal.html'), 'main').images, url, ['Paracheirodon axelrodi'], Infinity).map(p => `https://media.test/seriouslyfish/${createHash('sha256').update(p.src).digest('hex').slice(0, 16)}.webp`)
+  const root = await fresh()
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await writeFile(join(root, 'engine-state/_photo-rejected.json'), JSON.stringify(Object.fromEntries(order.slice(0, 4).map(u => [u, 'watermark: withheld']))))
+  const { d, calls } = deps(root, { urls: ['paracheirodon-axelrodi'] })
+  await runEngine(d, { sources: ['seriouslyfish'] })
+  const entity = JSON.parse(await readFile(join(root, 'content/species/paracheirodon-axelrodi/entity.json'), 'utf8'))
+  expect(entity.photos.map((p: { url: string }) => p.url)).toEqual(order.slice(4, 8))
+  expect(calls.images).toBe(4)
+})
