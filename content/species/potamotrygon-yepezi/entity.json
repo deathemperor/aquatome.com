@@ -10,6 +10,88 @@
     "venezuela",
     "lake-maracaibo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Lake Maracaibo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Waters surrounding and feeding Lake Maracaibo, Venezuela.",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Lake Maracaibo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2419350,
+      "total": 38,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "VE",
+          35
+        ],
+        [
+          "CO",
+          2
+        ],
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          9.84375,
+          23,
+          23
+        ],
+        [
+          -71.71875,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          9.84375,
+          11,
+          11
+        ],
+        [
+          -63.28125,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          0,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

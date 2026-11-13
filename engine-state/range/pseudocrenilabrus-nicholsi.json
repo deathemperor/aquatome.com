@@ -1,0 +1,48 @@
+{
+  "id": "pseudocrenilabrus-nicholsi",
+  "native": {
+    "input": "7c5e5ae2f23dbf14",
+    "at": "2026-11-13T05:31:31.275Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Pseudocrenilabrus nicholsi is a small mouth-brooding cichlid from the Democratic Republic of Congo, found in ponds, creeks and drainage ditches.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudocrenilabrus nicholsi",
+    "status": "ACCEPTED",
+    "taxonKey": 2370385,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        19
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ]
+    ],
+    "native": [
+      "CD"
+    ],
+    "requests": 12,
+    "at": "2026-11-13T05:31:31.275Z"
+  }
+}

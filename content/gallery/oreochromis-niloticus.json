@@ -11,7 +11,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/116088353",
       "caption": "Đàn cá rô phi bơi dưới nước trong suốt ngoài tự nhiên",
       "best": true,
-      "kind": "group"
+      "kind": "group",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/116088353-large.webp",
+        "width": 1203,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/135041281.webp",
@@ -47,7 +52,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/216249228",
       "caption": "Cá rô phi vằn nhìn nghiêng trong bể kính có nền lưới ô",
       "best": true,
-      "kind": "other"
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/216249228-large.webp",
+        "width": 1798,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/15755923.webp",

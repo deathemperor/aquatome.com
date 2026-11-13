@@ -154,6 +154,21 @@ export function calendar(root, now) {
   return { weeks, days }
 }
 
+/**
+ * Fish and breed pages whose head has no animal in it and no "yes" from the photo check, as the engine's sweep lists them
+ * (engine-state/_photo-no-animal-heads.json): how many, and the newest first by the day each first led, each by its
+ * Vietnamese name. Undefined without the file.
+ */
+export function noAnimal(root) {
+  let heads
+  try { heads = JSON.parse(readFileSync(join(root, 'engine-state/_photo-no-animal-heads.json'), 'utf8')) } catch { return undefined }
+  const name = ref => {
+    try { return clip(JSON.parse(readFileSync(join(root, 'content', ref, 'vi.json'), 'utf8')).name ?? ref) } catch { return clip(ref) }
+  }
+  const items = Object.entries(heads).sort(([a, x], [b, y]) => String(y.since).localeCompare(String(x.since)) || a.localeCompare(b))
+  return { total: items.length, items: items.slice(0, MAX_LIST).map(([page, x]) => ({ page: clip(page), name: name(page), since: String(x.since) })) }
+}
+
 /** A list of up to five pages of 100, `one` giving each page. */
 function allPages(one, path) {
   const all = []
@@ -271,7 +286,8 @@ if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
     process.exit(0)
   }
   const cal = calendar(fileURLToPath(new URL('..', import.meta.url)), now)
-  const payload = { ...summarise(raw, { now, runId, runUrl: `${server}/${repo}/actions/runs/${runId}` }), ...(cal ? { calendar: cal } : {}) }
+  const heads = noAnimal(fileURLToPath(new URL('..', import.meta.url)))
+  const payload = { ...summarise(raw, { now, runId, runUrl: `${server}/${repo}/actions/runs/${runId}` }), ...(cal ? { calendar: cal } : {}), ...(heads ? { noAnimal: heads } : {}) }
   if (dry) console.log(JSON.stringify(payload, null, 2))
   else if (!(await post(payload, { token }))) process.exit(1)
 }
