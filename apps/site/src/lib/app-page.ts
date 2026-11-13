@@ -379,7 +379,7 @@ export function equipmentDoc(lang: Lang, c: Content, u: CategoryUse, listed: Set
   const t = translator(lang)
   const at = (viPath: string) => appPath(lang, viPath)
   const p = equipmentParts(lang, c, u)
-  const lead = image(lang, p.g?.hero, p.label)
+  const lead = headImage(lang, p.g?.hero, p.label)
   const prose = (html: string) => proseBlocks(lang, html).blocks
   const card = (path: string, name: string, photo: Photo | null, sub?: string) => {
     const img = image(lang, photo, undefined, true)

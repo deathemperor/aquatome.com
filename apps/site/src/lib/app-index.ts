@@ -214,6 +214,11 @@ const WHOLE: Box = { x: 0, y: 0, w: 1, h: 1 }
  * so no frame cuts it. None where the loader gives none (a plant's square or wide photo): it fills.
  */
 export const photoBox = (p: Photo): Box | undefined => (p.headFit === 'contain' || !photoFitsCard(p) ? WHOLE : boxFractions(p))
+/**
+ * A card's copy of a photo: its small copy where that is the photo only resized (resizeOf), else the photo itself, so the
+ * card and the page's head show one framing and the photo's box holds for both.
+ */
+export const cardSrc = (p: Photo): string => { const small = smallSrc(p); return resizeOf(p, small) ? small : p.url }
 
 /**
  * `traits`: behaviour by species id (lib/traits.ts), as the tank-mates tool reads it. `everySpecies`: the species of
@@ -222,9 +227,9 @@ export const photoBox = (p: Photo): Box | undefined => (p.headFit === 'contain' 
 export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = new Map(), everySpecies: Content['species'] = c.species, cur?: { calendar: Curation; today: string }): AppIndex {
   const t = translator(lang)
   const at = (viPath: string) => appPath(lang, viPath)
-  /** A card photo's box: only where `img` is a resize of the photo itself, which the box's fractions hold for. */
-  const boxOf = (p: Photo | undefined) => (p && resizeOf(p, smallSrc(p)) ? photoBox(p) : undefined)
-  const img = (photos: Photo[]) => { const p = pagePhoto(photos); return p ? smallSrc(p) : undefined }
+  /** A card photo's box: `img` is the photo or a copy only resized (cardSrc), which the box's fractions hold for. */
+  const boxOf = (p: Photo | undefined) => (p ? photoBox(p) : undefined)
+  const img = (photos: Photo[]) => { const p = pagePhoto(photos); return p ? cardSrc(p) : undefined }
   const imgBox = (photos: Photo[]) => boxOf(pagePhoto(photos))
   const aka = (names: string[]) => (names.length ? names : undefined)
   const items: AppItem[] = []
@@ -298,7 +303,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
       const ph = guideImage(c, g)
       const path = at(`/vi/huong-dan/${g.t.slug}/`)
       guideAt.set(g.id, path)
-      items.push(clean({ kind: 'guide', name: g.t.name, aka: aka(g.t.altNames), path, img: ph && smallSrc(ph), imgBox: boxOf(ph), section: g.kind, about: about.length ? about : undefined, video: g.video?.durationSec }))
+      items.push(clean({ kind: 'guide', name: g.t.name, aka: aka(g.t.altNames), path, img: ph && cardSrc(ph), imgBox: boxOf(ph), section: g.kind, about: about.length ? about : undefined, video: g.video?.durationSec }))
     }
     home.guides = leadGuides(c).map(g => at(`/vi/huong-dan/${g.t.slug}/`))
   }
@@ -309,12 +314,12 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   // A series as its page lists it; the same series the app gets pages of.
   for (const { s, guides } of appSeries(lang, c)) {
     const ph = guideImage(c, guides[0]!)
-    items.push(clean({ kind: 'video', name: s.vi.name, sub: s.channel, path: at(`/vi/video/${s.vi.slug}/`), img: ph && smallSrc(ph), imgBox: boxOf(ph), parts: guides.length }))
+    items.push(clean({ kind: 'video', name: s.vi.name, sub: s.channel, path: at(`/vi/video/${s.vi.slug}/`), img: ph && cardSrc(ph), imgBox: boxOf(ph), parts: guides.length }))
   }
   // An equipment category as its page names it; the same categories the app gets pages of.
   for (const u of appEquipment(lang, c)) {
     const g = c.equipment.find(e => e.category === u.category)
-    items.push(clean({ kind: 'equipment', name: g?.name ?? t(categoryLabel(u.category)), path: at(`/vi/thiet-bi/${u.category}/`), img: g && smallSrc(g.hero) }))
+    items.push(clean({ kind: 'equipment', name: g?.name ?? t(categoryLabel(u.category)), path: at(`/vi/thiet-bi/${u.category}/`), img: g && cardSrc(g.hero), imgBox: boxOf(g?.hero) }))
   }
   for (const [vi, name, own, short] of TOOLS) {
     if (served(lang, vi)) items.push(clean({ kind: 'tool', name: t(name), path: at(vi), words: own.map(w => t(w)), short: short && t(short) }))

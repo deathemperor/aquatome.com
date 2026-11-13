@@ -76,8 +76,11 @@ test('a boxed fish photo carries its box on its page top, tile, group tile, day 
   const ix = appIndex('vi', boxed, new Map(), boxed.species, { calendar, today })
   // Adding boxes adds only boxes.
   expect(strip(ix)).toEqual(strip(appIndex('vi', plain, new Map(), plain.species, { calendar, today })))
-  // The tiles of a, b and c carry their lead photo's box; d's small copy is another picture: none; no other fish has one.
-  expect(ix.items.filter(i => i.kind === 'fish' && i.imgBox && !whole(i.imgBox)).map(i => i.id).sort()).toEqual([A!.id, B!.id, C!.id].sort())
+  // The tiles of a, b and c carry their lead photo's box. d's small copy is another framing, so its tile takes the photo
+  // itself, with its box, as its page's head does (app-index.ts cardSrc). No other fish has one.
+  const D = of(boxed, d!.id)
+  expect(ix.items.filter(i => i.kind === 'fish' && i.imgBox && !whole(i.imgBox)).map(i => i.id).sort()).toEqual([A!.id, B!.id, C!.id, D.id].sort())
+  expect(ix.items.find(i => i.id === D.id)).toMatchObject({ img: D.photos[0]!.url, imgBox: boxFractions(D.photos[0]!) })
   for (const s of [A, B, C]) {
     const i = ix.items.find(x => x.id === s!.id)!
     expect(i.imgBox, s!.id).toEqual(boxFractions(s!.photos.find(p => smallSrc(p) === i.img)!))

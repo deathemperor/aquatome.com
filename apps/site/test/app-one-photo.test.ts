@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest'
 import { CurationSchema, LANGS, type Content, type Photo } from '@aq/schema'
 import { PageDoc } from '@aq/schema/app-page'
-import { appIndex, photoBox } from '../src/lib/app-index'
+import { appIndex, cardSrc, photoBox } from '../src/lib/app-index'
 import { appPages, fishDoc, guideDoc } from '../src/lib/app-page'
 import { getContent } from '../src/lib/content'
 import { guideParts } from '../src/lib/guide-page'
@@ -107,6 +107,18 @@ test("a day's guide picture that is a plant's photo carries its box, as the guid
   expect(day?.guideImgBox).toEqual(photoBox(plant))
 }, 120_000)
 
+// An equipment page's card and head are its hero, by the same box rule (the reviewer, 13 Nov: both left the box out).
+test("an equipment page's hero the cards refuse: its card and its head both carry its whole area", async () => {
+  const was = await getContent('vi')
+  const e = was.equipment.find(x => x.hero)!
+  const hero = { ...e.hero, headFit: 'contain' as const }
+  const c = { ...was, equipment: was.equipment.map(x => (x === e ? { ...x, hero } : x)) }
+  const docs = await appPages('vi', c), item = appIndex('vi', c).items.find(i => i.kind === 'equipment' && i.path.includes(`/${e.category}/`))!
+  const doc = docs.equipment.find(d => d.path === item.path)!
+  expect([item.img, item.imgBox]).toEqual([cardSrc(hero), WHOLE])
+  expect([doc.lead?.src, doc.lead?.box]).toEqual([hero.url, WHOLE])
+}, 120_000)
+
 test('a fish with no photo has neither a card photo nor a head', async () => {
   const { doc, item } = await withPhotos([])
   expect([doc.lead, item.img, item.imgBox]).toEqual([undefined, undefined, undefined])
@@ -146,8 +158,8 @@ test("every card in the app index shows its page's head, the same photo with the
       // A page with no real photo may lead with its generated picture, labelled; no card shows one.
       expect(!!head && !p?.generated, `${lang} ${i.kind} ${i.path}: card ${i.img ?? 'none'}, head ${head?.src ?? 'none'}`).toBe(!!i.img)
       if (!head || !i.img) continue
-      expect(smallSrc(p!), `${lang} ${i.kind} ${i.path}`).toBe(i.img)
-      if (i.imgBox) expect(head.box, `${lang} ${i.path}`).toEqual(i.imgBox)
+      expect(cardSrc(p!), `${lang} ${i.kind} ${i.path}`).toBe(i.img)
+      expect(head.box, `${lang} ${i.path}`).toEqual(i.imgBox)
       pictured.set(i.kind, (pictured.get(i.kind) ?? 0) + 1)
     }
     for (const d of docs.fish) if (d.lead) expect(d.lead.box, `${lang} ${d.path}`).toBeDefined()
