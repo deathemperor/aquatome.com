@@ -71,18 +71,23 @@ const isLength = (note: string) => /^(The entry is|An item is) \d+ words/.test(n
 export type Draft = { score: number; broken: number; notes: string[]; entry: Entry }
 
 /**
- * Why a kept draft may not be accepted as the entry on a reader's word: a fact score under the bar, or a note other than
- * a thing said twice (rule 4), an item's order (rule 7), a term's own note beside one of those (12) or the length. A
- * contradiction, a name, a chemical, a brand, a remark on safety: never (the chief of staff, 14 Nov 2026, accepting
- * Lũa's sixth with its repetition, order and length notes). Empty when it may be.
+ * What each house rule's break does (the chief of staff, 14 Nov 2026: "which notes stop a save (facts, names,
+ * contradictions) and which are advice (repetition, order, a length within about 15 percent)"). A stop keeps the entry
+ * from the reader until a rewrite clears it; advice goes to the rewrite and never stops a save. Chemicals, terms used
+ * against their definitions, brands, safety, comparisons the facts don't make and "rêu" for algae stop, as facts do.
+ */
+export const RULE_SIDE: Record<number, 'stop' | 'advice'> = { 1: 'stop', 2: 'stop', 3: 'stop', 4: 'advice', 5: 'stop', 6: 'stop', 7: 'advice', 8: 'stop', 9: 'stop', 10: 'stop', 11: 'stop', 12: 'advice' }
+/** A rules note stops a save when a rule it names stops, or when it names none. */
+export const stops = (note: string) => { const r = ruleNumbers(note); return !r.length || r.some(x => RULE_SIDE[x] !== 'advice') }
+
+/**
+ * Why a kept draft may not be accepted as the entry on a reader's word: a fact score under the bar, or a rules note that
+ * stops (RULE_SIDE). Its length never refuses it: a reader's word is what a draft past the length needs (the chief of
+ * staff, 14 Nov 2026, accepting Lũa's sixth with its repetition, order and length notes). Empty when it may be.
  */
 export function refusals(d: Draft): string[] {
   const out = d.score < QUALITY_THRESHOLD ? [`its fact score ${d.score} is under the bar, ${QUALITY_THRESHOLD}`] : []
-  for (const n of d.notes.slice(d.notes.length - d.broken)) {
-    if (isLength(n)) continue
-    const r = ruleNumbers(n)
-    if (!r.length || !r.every(x => [4, 7, 12].includes(x)) || r.every(x => x === 12)) out.push(`a note that is not repetition, order or length: ${n.slice(0, 160)}`)
-  }
+  for (const n of d.notes.slice(d.notes.length - d.broken)) if (!isLength(n) && stops(n)) out.push(`a note that stops a save: ${n.slice(0, 160)}`)
   return out
 }
 
@@ -98,12 +103,13 @@ export const LEGACY_DRAFTS: Record<string, string> = { lua: '809b5af3033a45a64c9
 const words = (html: string) => unescapePlain(html.replace(/<[^>]+>/g, ' ')).split(/\s+/).filter(Boolean).length
 
 /**
- * Where an entry runs past its length, as notes that block the save like a broken rule (the chief of staff, 14 Nov 2026:
- * Lũa's fifth ran to 2,917 words, twice the first's 1,527, and the length bred contradictions). A term that comes in
- * kinds (three items or more that open with a name) holds to about 1,500 words and about 60 a kind, its depth left to
- * the kinds' own pages; any other to about 300. Saved up to 1,800 and 450 words, and 90 an item.
+ * Where an entry runs past its length (the chief of staff, 14 Nov 2026: Lũa's fifth ran to 2,917 words, twice the first's
+ * 1,527, and the length bred contradictions). A term that comes in kinds (three items or more that open with a name) holds
+ * to about 1,500 words and about 60 a kind, its depth left to the kinds' own pages; any other to about 300. Past that, and
+ * an item past 90 words, a note for the rewrite; `stop`: a term with kinds more than 15 percent past (the chief of staff's
+ * line). A term without kinds stops on no length until two ordinary entries show what theirs run to.
  */
-export function lengthNotes(body: string): string[] {
+export function lengthNotes(body: string): { notes: string[]; stop: boolean } {
   // Each item's own words: a list inside an item is its own items, not the outer one's.
   const items: string[] = []
   const open: string[] = []
@@ -113,14 +119,14 @@ export function lengthNotes(body: string): string[] {
     else if (open.length) open[open.length - 1] += t
   }
   const kinds = items.filter(li => /^<li\b[^>]*>\s*<strong\b/i.test(li)).length >= 3
-  const [cap, most] = kinds ? [1500, 1800] : [300, 450]
+  const cap = kinds ? 1500 : 300
   const n = words(body)
-  const out = n > most ? [`The entry is ${n} words: hold it to about ${cap}${kinds ? ', about 60 a kind' : ''}, and leave what is left out to the pages that use the term.`] : []
+  const out = n > cap ? [`The entry is ${n} words: hold it to about ${cap}${kinds ? ', about 60 a kind' : ''}, and leave what is left out to the pages that use the term.`] : []
   for (const li of items) {
     const m = words(li)
     if (m > 90) out.push(`An item is ${m} words, at most about 60: "${unescapePlain(li.replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim().slice(0, 50)}…". Keep what it is, how it looks, whether it sinks and colours the water and what it is for.`)
   }
-  return out
+  return { notes: out, stop: kinds && n > cap * 1.15 }
 }
 
 /**
@@ -293,14 +299,21 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   const check = async (e: Entry) => {
     const [g, r] = await Promise.all([checkGuide(d.llm, 'Vietnamese', forWriter, asGuide(e)), rules(e)])
     const long = lengthNotes(e.body)
-    return { score: g.score, notes: [...g.notes, ...r, ...long], broken: r.length + long.length }
+    // The fact check's reads are logged with its score: one text read 0.95 and then 0.72 an hour apart (Lũa's seventh).
+    return { score: g.score, ...(g.reads ? { reads: g.reads } : {}), notes: [...g.notes, ...r, ...long.notes], broken: r.length + long.notes.length, stops: r.filter(stops).length + (long.stop ? 1 : 0) }
   }
-  type Checked = { score: number; notes: string[]; broken: number }
-  const passes = (r: Checked) => r.score >= QUALITY_THRESHOLD && !r.broken
-  const factNotes = (r: Checked) => r.notes.length - r.broken
-  // Saved beats unsaved; then fewer notes with none more on the facts (the chief of staff, 14 Nov 2026), then, but for a
-  // revision of a kept draft, the better grounded.
-  const better = (r: Checked, b: Checked) => (passes(r) !== passes(b) ? passes(r) : factNotes(r) <= factNotes(b) && (r.notes.length < b.notes.length || (!draft && r.notes.length === b.notes.length && r.score > b.score)))
+  type Checked = { score: number; reads?: number[]; notes: string[]; broken: number; stops?: number }
+  const stopping = (r: Checked) => r.stops ?? r.broken
+  const passes = (r: Checked) => r.score >= QUALITY_THRESHOLD && !stopping(r)
+  // Saved beats unsaved; then fewer notes that stop, a fact score at the bar, fewer notes of advice; then, but for a
+  // revision of a kept draft, the better grounded. Fact notes aren't counted: the check caps them at ten and they
+  // include remarks that a line is supported (Lũa's eighth).
+  const rank = (r: Checked) => [passes(r) ? 0 : 1, stopping(r), r.score >= QUALITY_THRESHOLD ? 0 : 1, r.broken - stopping(r)]
+  const better = (r: Checked, b: Checked) => {
+    const [x, y] = [rank(r), rank(b)]
+    const i = x.findIndex((v, j) => v !== y[j])
+    return i >= 0 ? x[i]! < y[i]! : !draft && r.score > b.score
+  }
   const now = o.now?.()
   const page = { id: `glossary/${id}`, lang: 'vi' }
   let w: Entry
@@ -334,7 +347,7 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     await logReviews(root, 'glossary', page, tries, passes(review) ? review : undefined, { ...(now ? { now } : {}), ...(draft ? { rewrite: true } : {}), ...(keep ? { draft: { of: review, sha: sha(keep) } } : still ? { draft: { of: from, sha: sha(draftText!) } } : {}) })
     if (!passes(review)) {
       if (keep) await writeFile(draftFile, keep)
-      return { id, skipped: review.broken ? `breaks the rules: ${review.broken}` : `under the bar: ${review.score}`, notes: review.notes, draft: `engine-state/glossary/${id}.draft.json`, ...(draft ? { revised: review !== from } : {}) }
+      return { id, skipped: stopping(review) ? `breaks the rules: ${stopping(review)}` : `under the bar: ${review.score}`, notes: review.notes, draft: `engine-state/glossary/${id}.draft.json`, ...(draft ? { revised: review !== from } : {}) }
     }
   }
 
