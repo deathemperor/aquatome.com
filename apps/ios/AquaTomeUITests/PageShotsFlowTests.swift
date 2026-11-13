@@ -36,8 +36,11 @@ final class PageShotsFlowTests: XCTestCase {
     XCTAssertTrue(app.descendants(matching: .any)["weekaqua"].waitForExistence(timeout: 5), "no Week Aqua row on the lights tab")
     capture(app, "lights-light", dark: false, from: 0.6, x: 0.97)
   }
-  func testTheWeekAquaScreen() {
-    let app = launch(dark: false, size: nil, ["-fake-weekaqua"])
+  func testTheWeekAquaScreen() { shootWeekAqua("weekaqua-light") }
+  func testTheWeekAquaScreenInTheDark() { shootWeekAqua("weekaqua-dark", dark: true) }
+  /// The Week Aqua screen with the simulator's group connected (`-fake-weekaqua`), top to bottom.
+  private func shootWeekAqua(_ name: String, dark: Bool = false) {
+    let app = launch(dark: dark, size: nil, ["-fake-weekaqua"])
     app.openTab("Đèn")
     let entry = app.descendants(matching: .any)["weekaqua"]
     XCTAssertTrue(entry.waitForExistence(timeout: 5), "no Week Aqua row on the lights tab")
@@ -53,7 +56,7 @@ final class PageShotsFlowTests: XCTestCase {
     app.buttons["wa-connect"].tap()
     XCTAssertTrue(app.staticTexts["wa-title"].waitForExistence(timeout: 10), "the group didn't connect")
     for _ in 0..<4 { app.swipeDown() }
-    capture(app, "weekaqua-light", dark: false, from: 0.6, x: 0.97)
+    capture(app, name, dark: dark, from: 0.6, x: 0.97)
   }
 
   func testTheAppIcons() { shootIcons("icons-light") }
