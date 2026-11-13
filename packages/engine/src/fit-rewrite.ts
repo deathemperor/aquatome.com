@@ -5,16 +5,17 @@ import { LlmError, type Llm } from './claude'
 import { FIT_TITLE, fitDue, fitFindings, fitKey, fitText, type FitCheck, type FitFinding, type FitState } from './fit'
 import { rewriteForReader } from './for-reader'
 import { METRIC_KINDS } from './metric'
+import { mendPart } from './mend'
 import { fixedParts, loadPages, type Page } from './pages'
-import { fieldOf as partOf, norm, rewritePart, type ReaderFinding } from './reader'
+import { fieldOf as partOf, norm, type ReaderFinding } from './reader'
 import { metricFigures, TANK_RULE, US_UNITS } from './round'
 
 /**
  * The collection rewrite: Vietnamese pages the reader-fit read (fit.ts) found wrong for their reader, written again.
  * - A guide by its own writer, from its source's facts and the market table (for-reader.ts), which every check holds.
- * - A fish, plant or breed page part by part: each part a finding quotes goes to the reader step's rewriter with the
- *   findings as notes (reader.ts rewritePart; a section with its English against that English), kept only when its
- *   reviewer passes it. Units too, where the part's English gives the figure in US units ("a pair per 5 gallons (about
+ * - A fish, plant or breed page part by part: in each part a finding quotes, only the sentences it quotes are written
+ *   again, with the findings as notes, and the rest put back word for word; kept only when its reviewer passes the
+ *   change and nothing is left out that no finding asks to go (mend.ts). Units too, where the part's English gives the figure in US units ("a pair per 5 gallons (about
  *   19 litres)"): the code rounds a converted figure as it is written (round.ts), but not every one, and a page already
  *   written keeps it; written again, it's converted as the writer's rules say, which its reviewer holds. A part with
  *   another finding here is mended for that alone, so a rounding its reviewer fails can't lose that mend.
@@ -41,8 +42,17 @@ export function convertible(quote: string, en: string): boolean {
   return !metricFigures(quote, 'vi').some(n => given.has(n))
 }
 export type Rewritten = Record<string, { at: string; hash: string }>
-/** Each page tried, by the hash of the text it read, and how often on any of its texts (none: once, before the count). */
-export type Tried = Record<string, { at: string; hash: string; n?: number }>
+/**
+ * Each page tried, by the hash of the text it read, and how often on any of its texts (none: once, before the count);
+ * `rule`, the way its parts were mended (none: MEND_RULE 1).
+ */
+export type Tried = Record<string, { at: string; hash: string; n?: number; rule?: number }>
+/**
+ * How a fish, plant or breed page's parts are mended. 2: only the sentences a finding quotes (mend.ts, 13 Nov 2026). A
+ * page tried under an earlier rule is tried once more on the same text, within MAX_TRIES: the front list's first run
+ * left 13 parts unkept under rule 1, and the chief of staff clears the list to see what rule 2 keeps of them.
+ */
+export const MEND_RULE = 2
 /**
  * A page is tried at most this often, on any of its texts, unless named: a part its reviewers pass that the next read
  * still faults would make the page due again on its new text, a cycle at a time, with only the step's ceiling to stop it.
@@ -88,6 +98,9 @@ const asNote = (f: FitFinding): ReaderFinding => ({
   ...(f.fix ? { fix: f.fix } : {}),
 })
 
+/** A finding as the writer's note on the sentences it quotes. */
+const noteOf = (f: FitFinding) => { const n = asNote(f); return `${n.problem}${n.fix ? ` Nên viết: "${n.fix}"` : ''}` }
+
 export type RewriteReport = { rewritten: string[]; notKept: string[]; skipped: string[]; failed: string[]; stopped: string }
 
 /**
@@ -103,15 +116,17 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
   const done: Page[] = []
   const at = d.now().toISOString()
   const triesOf = (k: string) => (tried[k] ? tried[k].n ?? 1 : 0)
-  const due = pages.filter(p => rewriteDue(p, state) && tried[fitKey(p)]?.hash !== fitText(p).hash)
+  // Tried on this text, and (but a guide, which is written whole) by the way parts are mended now.
+  const triedOn = (p: Page) => tried[fitKey(p)]?.hash === fitText(p).hash && (p.kind === 'guides' || (tried[fitKey(p)]?.rule ?? 1) >= MEND_RULE)
+  const due = pages.filter(p => rewriteDue(p, state) && !triedOn(p))
   // Tried MAX_TRIES times and due again: listed for a person to name (`--only`), never tried here.
   const capped = o.retry ? [] : due.filter(p => triesOf(fitKey(p)) >= MAX_TRIES).map(fitKey)
   if (capped.length) report.skipped.push(`${capped.length} page${capped.length > 1 ? 's' : ''} tried ${MAX_TRIES} times and due again, for a person to name: ${capped.slice(0, 10).join(', ')}${capped.length > 10 ? ', …' : ''}`)
-  for (const p of pages.filter(p => rewriteDue(p, state) && (o.retry || (tried[fitKey(p)]?.hash !== fitText(p).hash && triesOf(fitKey(p)) < MAX_TRIES))).slice(0, o.limit)) {
+  for (const p of pages.filter(p => rewriteDue(p, state) && (o.retry || (!triedOn(p) && triesOf(fitKey(p)) < MAX_TRIES))).slice(0, o.limit)) {
     const key = fitKey(p)
     const before = tried[key]
     // A page a person names doesn't use up one of its own tries.
-    tried[key] = { at, hash: fitText(p).hash, n: triesOf(key) + (o.retry ? 0 : 1) }
+    tried[key] = { at, hash: fitText(p).hash, n: triesOf(key) + (o.retry ? 0 : 1), rule: MEND_RULE }
     let changed = 0
     try {
       if (p.kind === 'guides') {
@@ -128,10 +143,10 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
         const html = partOf(t, field)
         if (!html || (field === 'body' && t.bodyFixed) || fixed.has(field)) { report.skipped.push(`${key} ${field}: ${html ? 'a person fixed its text' : 'not in the file'}`); continue }
         const source = field.startsWith('sections.') ? field.split(':')[1] : p.origin?.source
-        const r = await rewritePart(d.llm, html, fs.map(asNote), { en: p.en?.[field], source: source && names[source]?.name })
-        if (!r) { report.skipped.push(`${key} ${field}: its quotes aren't in one block`); continue }
-        // Kept at the bar, and saying nothing more surely than before (hedges.ts).
-        if (r.score < QUALITY_THRESHOLD || r.lost.length) { report.notKept.push(`${key} ${field} (${r.score.toFixed(2)}: ${r.notes.slice(0, 2).join('; ')})`); continue }
+        const r = await mendPart(d.llm, html, fs.map(f => ({ check: f.check, quote: f.quote ?? '', note: noteOf(f) })), { en: p.en?.[field], source: source && names[source]?.name, model: 'opus' })
+        if (typeof r === 'string') { report.skipped.push(`${key} ${field}: ${r}`); continue }
+        // Kept at the bar, leaving out only what a finding asks to go, and saying nothing more surely than before (hedges.ts).
+        if (r.score < QUALITY_THRESHOLD || r.lost.length || r.unasked.length) { report.notKept.push(`${key} ${field} (${r.score.toFixed(2)}: ${r.notes.slice(0, 2).join('; ')})`); continue }
         if (r.html === html) { report.skipped.push(`${key} ${field}: the rewrite changed nothing`); continue }
         if (field === 'body') t.body = r.html
         else if (field === 'definition') t.definition = r.html
