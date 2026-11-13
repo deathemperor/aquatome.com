@@ -1122,9 +1122,9 @@ final class LightFlowTests: XCTestCase {
       // band each time (the quick actions: 20 drags, up and down, then a tap where they happened to be). Not built yet
       // (off the screen): down the screen first, then back up.
       if let f {
-        drag(app, by: max(-third, min(third, ((top + bottom) / 2 - f.midY) / carry)))
+        drag(app, by: max(-third, min(third, ((top + bottom) / 2 - f.midY) / carry)), above: bottom / window.height)
       } else {
-        drag(app, by: downs < 8 ? -third : third)
+        drag(app, by: downs < 8 ? -third : third, above: bottom / window.height)
         downs += 1
       }
     }
@@ -1132,9 +1132,10 @@ final class LightFlowTests: XCTestCase {
   }
 
   /// A drag of `dy` points (up when negative) at the screen's right edge, clear of sliders and handles, held before it
-  /// lets go so the content settles where the next read finds it.
-  private func drag(_ app: XCUIApplication, by dy: CGFloat) {
-    let a = app.coordinate(withNormalizedOffset: CGVector(dx: 0.97, dy: dy < 0 ? 0.65 : 0.3))
+  /// lets go so the content settles where the next read finds it. An upward drag starts above `above` (a fraction of the
+  /// window): at the largest text the notice bar reaches above 0.65, and a drag begun on it moves nothing.
+  private func drag(_ app: XCUIApplication, by dy: CGFloat, above: CGFloat) {
+    let a = app.coordinate(withNormalizedOffset: CGVector(dx: 0.97, dy: dy < 0 ? min(0.65, above) : 0.3))
     a.press(forDuration: 0.05, thenDragTo: a.withOffset(CGVector(dx: 0, dy: dy)), withVelocity: .default, thenHoldForDuration: 0.2)
   }
 
