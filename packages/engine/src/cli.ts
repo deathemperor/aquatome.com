@@ -26,6 +26,7 @@ import { auditPictures } from './audit'
 import { metricPages } from './metric'
 import { checkPages, fixStored, rulesReport } from './content-rules'
 import { loadPages } from './pages'
+import { copiesToRedo, type Redone } from './seasons'
 import { FIT_KINDS, fitDue, fitKey, fitReport, runFit, type FitState } from './fit'
 import { gate, writeFitSummary } from './gate'
 import { restingFetch } from './wikimedia-rest'
@@ -1142,6 +1143,21 @@ if (cmd === 'photo-privacy') {
   const researched = (await readdir(join(ROOT, 'engine-state/topics')).catch(() => [] as string[])).map(f => f.replace(/\.json$/, '')).sort()
   const ids = values.only?.split(',').map(s => s.trim()).filter(Boolean) ?? researched
   let made = 0
+  // First the copies to write again (seasons.ts copiesToRedo): one naming a season its readers don't have, or read as
+  // advice for a reader elsewhere, each at most twice, its tries kept in engine-state/_guide-copy-redo.json.
+  const redoFile = join(ROOT, 'engine-state/_guide-copy-redo.json')
+  const redone = JSON.parse(await readFile(redoFile, 'utf8').catch(() => '{}')) as Redone
+  const fit = JSON.parse(await readFile(join(ROOT, 'engine-state/_fit.json'), 'utf8').catch(() => '{}')) as FitState
+  const again = values.only ? [] : copiesToRedo(await loadPages(join(ROOT, 'content'), [lang]), lang, fit, redone).filter(id => researched.includes(id))
+  for (const id of again) {
+    if (made >= Number(values.limit ?? 20)) break
+    const r = await localizeTopic(ROOT, claudeCli, id, lang, { redo: true }).catch(e => ({ id, failed: (e as Error).message.slice(0, 200) }))
+    console.log(JSON.stringify({ ...r, again: true }))
+    if ('failed' in r) continue
+    made++
+    redone[`${lang}/${id}`] = { at: new Date().toISOString(), n: (redone[`${lang}/${id}`]?.n ?? 0) + 1 }
+    await writeFile(redoFile, `${JSON.stringify(Object.fromEntries(Object.entries(redone).sort(([x], [y]) => x.localeCompare(y))), null, 1)}\n`)
+  }
   for (const id of ids) {
     if (made >= Number(values.limit ?? 20)) break
     const r = await localizeTopic(ROOT, claudeCli, id, lang, { redo: values.redo }).catch(e => ({ id, failed: (e as Error).message.slice(0, 200) }))

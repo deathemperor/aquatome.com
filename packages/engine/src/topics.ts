@@ -12,6 +12,7 @@ import { lethalFigures, NAMES_TREATMENT } from './fit'
 import { steadyRead } from './quality'
 import { VI_STYLE as STYLE } from './phrases'
 import { TANK_RULE, withTanks } from './round'
+import { foreignSeasons, readerCountries, readerSeasons } from './seasons'
 
 /**
  * What a source is: the research tags each one, and the writers and the checker get each fact's source with its kind, so a
@@ -177,6 +178,8 @@ const WRITE_SCHEMA = {
   },
 }
 type Written = { name: string; summary: string[]; body: string; faq: { q: string; a: string }[] }
+/** What a reader of a guide sees of it: its title, summary, body and questions. */
+const textOf = (w: Written) => [w.name, ...(w.summary ?? []), w.body, ...(w.faq ?? []).flatMap(f => [f.q, f.a])].join('\n')
 const INTL_SCHEMA = { ...WRITE_SCHEMA, required: [...WRITE_SCHEMA.required, 'slug'], properties: { ...WRITE_SCHEMA.properties, slug: { type: 'string' } } }
 
 const GROUNDED = `Below are FACTS gathered about a fishkeeping topic and a Vietnamese GUIDE written from them. Score 0–1 how well the GUIDE sticks to the FACTS: 1.0 = every claim, dose, number, product and recommendation is supported by the facts; 0.75 = small unsupported generalities; below 0.75 = an invented dose, number, medicine, cause or claim, or a fact turned around. A fact's figure converted to metric (°F → °C, inches → cm, gallons → litres, sensibly rounded; ${TANK_RULE.en}) is that fact's figure.
@@ -366,7 +369,7 @@ export async function localizeTopic(root: string, llm: Llm, id: string, lang: Ta
   if (!facts.length) return { id, skipped: 'no facts' }
   const forWriter = { topic: vi.name, kind: entity.kind, sources, facts }
   const T = TARGETS[lang]
-  const prompt = (notes?: string[]) => `${INTL.replaceAll('{{LANG}}', T.lang).replaceAll('{{COUNTRY}}', T.country).replace('{{STYLE}}', T.style)}${notes?.length ? `\n\nThe previous version went beyond the facts. Fix these, writing only what the facts say:\n${notes.map(n => `- ${n}`).join('\n')}` : ''}\n\n--- FACTS (topic given in Vietnamese) ---\n${JSON.stringify(forWriter, null, 1)}`
+  const prompt = (notes?: string[]) => `${INTL.replaceAll('{{LANG}}', T.lang).replaceAll('{{COUNTRY}}', T.country).replace('{{READERS}}', readerCountries(lang)).replace('{{SEASONS}}', readerSeasons(lang)).replace('{{STYLE}}', T.style)}${notes?.length ? `\n\nThe previous version went beyond the facts. Fix these, writing only what the facts say:\n${notes.map(n => `- ${n}`).join('\n')}` : ''}\n\n--- FACTS (topic given in Vietnamese) ---\n${JSON.stringify(forWriter, null, 1)}`
   const write = (notes?: string[]) => llm<Written & { slug: string }>({ system: `You write ${T.lang} aquarium guides from facts. Reply only with JSON.`, model: o.model ?? 'opus', schema: INTL_SCHEMA, prompt: prompt(notes) })
   const check = (x: Written) => checkGuide(llm, T.lang, forWriter, x)
   // A redo starts from what the last review of the guide on the site found.
@@ -379,6 +382,19 @@ export async function localizeTopic(root: string, llm: Llm, id: string, lang: Ta
     const r = await check(again)
     tries.push(r)
     if (r.score > review.score) { w = again; review = r }
+  }
+  // A season none of its readers' countries has (seasons.ts), written once more with the condition in its place; a copy
+  // that still names one isn't saved (the chief of staff, 13 Nov 2026: eight guides' copies told readers in Indonesia,
+  // Thailand and Malaysia about a summer, a winter or koi fed by spring and autumn).
+  const named = foreignSeasons(textOf(w), lang)
+  if (named.length) {
+    const fixed = await write([`It names a season readers in ${readerCountries(lang)} don't have: ${named.map(s => `"${s}"`).join(', ')}. Give the condition the facts tie to it instead, and name no season.`, ...review.notes])
+    const r = await check(fixed)
+    tries.push(r)
+    const left = foreignSeasons(textOf(fixed), lang)
+    if (left.length) return { id, skipped: `names a season its readers don't have: ${left.join(', ')}` }
+    w = fixed
+    review = r
   }
   const taken = new Set<string>()
   for (const g of await readdir(join(root, 'content/guides')).catch(() => [] as string[])) {
