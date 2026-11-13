@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { makeGlossaryEntry, offLimits, sfGlossaryUrl } from '../src/glossary-entry'
+import { makeGlossaryEntry, offLimits, pageNames, sfGlossaryUrl } from '../src/glossary-entry'
 import type { TopicFacts } from '../src/topics'
 
 // The owner, 10 Nov 2026, of the Lũa term: "lũa sa tùng là gì, I had very hard time to get to know them". The fuller
@@ -154,4 +154,25 @@ test('the owner\'s asks reach research and writer, our pages\' names reach the w
   const r2 = await makeGlossaryEntry(again, { research: async () => facts as never, llm: llm([['a rule'], ['another rule']]) }, 'lua', { kind: 'aquascaping' })
   expect(r2).toMatchObject({ id: 'lua', skipped: 'breaks the rules: 1', notes: ['a rule'] })
   expect(await readFile(join(again, 'content/glossary/lua/vi.json'), 'utf8')).toBe(before)
+})
+
+// Our pages for the animals and plants the facts name: by a whole name, a plural too, or a genus named alone; never by a
+// common word two names share ("white", "small"), which the first try at this listed forty fish for.
+test('our pages for the animals and plants a text names: whole names, plurals, a genus alone, no common words', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'aq-page-names-'))
+  const page = async (id: string, scientificName: string, name: string, altNames: string[], size = 0) => {
+    await mkdir(join(root, 'content/species', id), { recursive: true })
+    await writeFile(join(root, 'content/species', id, 'entity.json'), JSON.stringify({ id, scientificName }))
+    await writeFile(join(root, 'content/species', id, 'vi.json'), JSON.stringify({ name, altNames, pad: 'x'.repeat(size) }))
+  }
+  await page('ancistrus-cirrhosus', 'Ancistrus cirrhosus', 'Cá lau kiếng bristlenose', ['Bristlenose pleco'])
+  await page('otocinclus-vittatus', 'Otocinclus vittatus', 'Cá otocinclus thường', ['Cá otto'], 900)
+  await page('otocinclus-cocama', 'Otocinclus cocama', 'Cá otocinclus vằn', ['Zebra Oto'], 500)
+  await page('otocinclus-affinis', 'Otocinclus affinis', 'Cá oto Affinis', [], 10)
+  await page('tanichthys-albonubes', 'Tanichthys albonubes', 'Cá kim tơ', ['White cloud mountain minnow'])
+  expect(await pageNames(root, 'Otocinclus and bristlenose plecos eat the white film on small new wood.')).toEqual([
+    'Cá lau kiếng bristlenose | Ancistrus cirrhosus | Bristlenose pleco',
+    'Cá otocinclus thường | Otocinclus vittatus | Cá otto',
+    'Cá otocinclus vằn | Otocinclus cocama | Zebra Oto',
+  ])
 })

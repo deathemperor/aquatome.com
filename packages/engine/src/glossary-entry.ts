@@ -55,7 +55,7 @@ export async function pageNames(root: string, text: string): Promise<string[]> {
   const byGenus = new Map<string, { line: string; size: number }[]>()
   for (const kind of ['species', 'plants']) {
     const base = join(root, 'content', kind)
-    for (const x of await readdir(base).catch(() => [] as string[])) {
+    for (const x of (await readdir(base).catch(() => [] as string[])).sort()) {
       const v = await readFile(join(base, x, 'vi.json'), 'utf8').then(JSON.parse).catch(() => null) as { name: string; altNames?: string[] } | null
       const e = await readFile(join(base, x, 'entity.json'), 'utf8').then(JSON.parse).catch(() => null) as { scientificName?: string } | null
       if (!v?.name) continue
