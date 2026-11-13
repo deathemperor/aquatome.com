@@ -170,7 +170,10 @@ test('our pages for the animals and plants a text names: whole names, plurals, a
   await page('otocinclus-cocama', 'Otocinclus cocama', 'Cá otocinclus vằn', ['Zebra Oto'], 500)
   await page('otocinclus-affinis', 'Otocinclus affinis', 'Cá oto Affinis', [], 10)
   await page('tanichthys-albonubes', 'Tanichthys albonubes', 'Cá kim tơ', ['White cloud mountain minnow'])
-  expect(await pageNames(root, 'Otocinclus and bristlenose plecos eat the white film on small new wood.')).toEqual([
+  // A genus inside a scientific name is that fish alone; one first in a sentence may be an English word.
+  await page('spider-alba', 'Spider alba', 'Cá nhện trắng', [])
+  expect(await pageNames(root, 'Otocinclus vittatus grazes. Spider wood sinks slowly.')).toEqual(['Cá otocinclus thường | Otocinclus vittatus | Cá otto'])
+  expect(await pageNames(root, 'Wood helps: Otocinclus and bristlenose plecos eat the white film on small new wood.')).toEqual([
     'Cá lau kiếng bristlenose | Ancistrus cirrhosus | Bristlenose pleco',
     'Cá otocinclus thường | Otocinclus vittatus | Cá otto',
     'Cá otocinclus vằn | Otocinclus cocama | Zebra Oto',

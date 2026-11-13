@@ -43,16 +43,16 @@ const RULES_SCHEMA = { type: 'object', required: ['notes'], properties: { notes:
 /**
  * The site's pages for the animals and plants a text names: a page one of whose names of two words or more (its own, its
  * scientific name, its other names, English ones among them) the text writes whole, a plural too ("bristlenose plecos"),
- * and the two fullest pages of a genus the text names alone ("Otocinclus"). Each line is the page's name, then other names
- * it goes by: the writer writes one of them, and the site links it.
+ * and the two fullest pages of a genus the text names alone ("Otocinclus and…"): not inside a scientific name ("Otocinclus
+ * vittatus" is that fish), and not first in a sentence, where an English word is capitalised too ("Spider wood…"). Each
+ * line is the page's name, then other names it goes by: the writer writes one of them, and the site links it.
  */
 export async function pageNames(root: string, text: string): Promise<string[]> {
   const lower = text.toLowerCase()
-  const genera = new Set(text.match(/\b[A-Z][a-z]{4,}\b/g) ?? [])
   const escape = (n: string) => n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
   const named = (n: string) => n.trim().includes(' ') && lower.includes(n.toLowerCase()) && new RegExp(`(?<![\\p{L}\\p{N}])${escape(n.trim())}(?:e?s)?(?![\\p{L}\\p{N}])`, 'iu').test(text)
   const out = new Set<string>()
-  const byGenus = new Map<string, { line: string; size: number }[]>()
+  const pages: { names: string[]; scientific?: string; line: string; size: number }[] = []
   for (const kind of ['species', 'plants']) {
     const base = join(root, 'content', kind)
     for (const x of (await readdir(base).catch(() => [] as string[])).sort()) {
@@ -60,12 +60,14 @@ export async function pageNames(root: string, text: string): Promise<string[]> {
       const e = await readFile(join(base, x, 'entity.json'), 'utf8').then(JSON.parse).catch(() => null) as { scientificName?: string } | null
       if (!v?.name) continue
       const names = [v.name, ...(e?.scientificName ? [e.scientificName] : []), ...(v.altNames ?? [])]
-      const line = names.slice(0, 6).join(' | ')
-      if (names.some(named)) out.add(line)
-      const genus = e?.scientificName?.split(' ')[0]
-      if (genus && genera.has(genus)) byGenus.set(genus, [...(byGenus.get(genus) ?? []), { line, size: JSON.stringify(v).length }])
+      pages.push({ names, ...(e?.scientificName ? { scientific: e.scientificName } : {}), line: names.slice(0, 6).join(' | '), size: JSON.stringify(v).length })
     }
   }
+  for (const p of pages) if (p.names.some(named)) out.add(p.line)
+  const scientific = new Set(pages.flatMap(p => (p.scientific ? [p.scientific.toLowerCase()] : [])))
+  const alone = new Set([...text.matchAll(/(^|[^.!?\s]\s+|[,;:(]\s*)([A-Z][a-z]{4,})\b(\s+[a-z]+)?/g)].filter(m => !scientific.has(`${m[2]}${m[3] ?? ''}`.toLowerCase()) && m[1] !== '').map(m => m[2]!))
+  const byGenus = new Map<string, typeof pages>()
+  for (const p of pages) { const g = p.scientific?.split(' ')[0]; if (g && alone.has(g)) byGenus.set(g, [...(byGenus.get(g) ?? []), p]) }
   for (const ps of byGenus.values()) for (const p of ps.sort((a, b) => b.size - a.size).slice(0, 2)) out.add(p.line)
   return [...out].slice(0, 30)
 }
