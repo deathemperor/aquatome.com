@@ -900,6 +900,7 @@
     "matchType": "EXACT"
   },
   "Amano khi": null,
+  "Amano kho": null,
   "Amano quanh": null,
   "Amano shrimp": null,
   "Amano thay": null,
@@ -9894,6 +9895,15 @@
   "Dwarf mexican": null,
   "Dyed varieties": null,
   "Easy aquatic": null,
+  "Echinodorus amazonicus": {
+    "canonicalName": "Aquarius grisebachii",
+    "phylum": "Tracheophyta",
+    "class": "Liliopsida",
+    "order": "Alismatales",
+    "family": "Alismataceae",
+    "genus": "Aquarius",
+    "matchType": "EXACT"
+  },
   "Echinodorus argentinensis": {
     "canonicalName": "Aquarius grandiflorus",
     "order": "Alismatales",
@@ -17715,6 +17725,14 @@
     "matchType": "EXACT"
   },
   "Moenkhausia has": null,
+  "Moenkhausia hasemani": {
+    "canonicalName": "Moenkhausia hasemani",
+    "phylum": "Chordata",
+    "order": "Characiformes",
+    "family": "Characidae",
+    "genus": "Moenkhausia",
+    "matchType": "EXACT"
+  },
   "Moenkhausia intermedia": {
     "canonicalName": "Moenkhausia intermedia",
     "order": "Characiformes",
@@ -21826,6 +21844,7 @@
     "genus": "Pethia",
     "matchType": "EXACT"
   },
+  "Pethia titteya": null,
   "Petitella bleheri": {
     "canonicalName": "Hemigrammus bleheri",
     "order": "Characiformes",

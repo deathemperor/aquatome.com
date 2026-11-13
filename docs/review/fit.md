@@ -5,7 +5,7 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 4100 | 3515 | 1576 | 74 | 48 | 210 | 41 | 1084 | 385 | 2606 | 478 | 9 | 15 | 0 | 3 | 4 | 3 | 0 |
+| Vietnamese | 4115 | 3530 | 1590 | 74 | 48 | 211 | 41 | 1098 | 389 | 2618 | 485 | 9 | 15 | 0 | 3 | 4 | 3 | 0 |
 | Indonesian | 1373 | 1203 | 351 | 21 | 7 | 3 | 5 | 175 | 28 | 53 | 175 | 0 | 1 | 0 | 3 | 2 | 0 | 0 |
 | Thai | 1348 | 1149 | 314 | 17 | 4 | 4 | 4 | 151 | 34 | 75 | 151 | 0 | 1 | 0 | 1 | 2 | 0 | 0 |
 | Malay | 238 | 193 | 62 | 6 | 1 | 0 | 0 | 29 | 11 | 15 | 24 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
@@ -75,9 +75,9 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - repashy: 48
 - panacur: 33
 - ada: 23
-- keo 502: 21
+- keo 502: 23
+- tropica: 18
 - fluval stratum: 17
-- tropica: 17
 - ada amazonia: 16
 - ada amazonia aqua soil: 14
 - hikari first bites: 14
@@ -90,17 +90,17 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - seachem fluorite: 11
 - ge silicone 1: 10
 - twinstar: 10
+- 1-2-grow: 9
 - aquaclear: 9
 - carib sea eco-complete: 9
+- dennerle: 9
 - weld-on 4: 9
-- 1-2-grow: 8
-- dennerle: 8
 - fluval: 8
+- fluval fx6: 8
 - jbl: 8
 - tropica aquarium soil: 8
 - tropica specialised nutrition: 8
 - easy shrimp and snail shells: 7
-- fluval fx6: 7
 - krylon fusion: 7
 - repashy soilent green: 7
 - seachem flourite: 7
