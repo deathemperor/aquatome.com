@@ -393,10 +393,10 @@
     {
      "id": "de-nuoi-cho-nguoi-moi",
      "title": {
-      "vi": "Dễ nuôi cho người mới",
-      "id": "Mudah dipelihara, cocok untuk pemula",
+      "vi": "Cá dễ nuôi cho người mới",
+      "id": "Ikan mudah dipelihara untuk pemula",
       "th": "ปลาเลี้ยงง่ายสำหรับมือใหม่",
-      "ms": "Mudah dijaga, sesuai untuk pemula"
+      "ms": "Ikan mudah dijaga untuk pemula"
      },
      "pages": [
       "species/corydoras-paleatus",
@@ -516,10 +516,10 @@
    "from": "2026-12-21",
    "to": "2026-12-27",
    "theme": {
-    "vi": "Giữa mùa lạnh: cá chịu lạnh, giữ ấm cho bể",
-    "id": "Musim hujan: menjaga suhu air tetap stabil",
-    "th": "หน้าหนาว: ดูแลอุณหภูมิน้ำในตู้",
-    "ms": "Musim tengkujuh: menjaga suhu air stabil"
+    "vi": "Mùa lạnh: cá chịu lạnh, giữ ấm cho bể",
+    "id": "Musim hujan: ikan tahan dingin dan yang perlu pemanas",
+    "th": "หน้าหนาว: ปลาทนเย็นกับปลาที่ต้องใช้ฮีตเตอร์",
+    "ms": "Musim tengkujuh: ikan tahan sejuk dan yang perlukan pemanas"
    },
    "tags": [
     "cold",
@@ -565,7 +565,7 @@
      "id": "chiu-nuoc-lanh",
      "title": {
       "vi": "Cá chịu được nước lạnh",
-      "id": "Ikan yang tahan air sejuk",
+      "id": "Ikan yang tahan air dingin",
       "th": "ปลาที่ทนน้ำเย็นได้",
       "ms": "Ikan yang tahan air sejuk"
      },
@@ -583,7 +583,7 @@
      "id": "can-suoi",
      "title": {
       "vi": "Cá cần sưởi khi trời lạnh",
-      "id": "Ikan yang perlu pemanas saat cuaca dingin",
+      "id": "Ikan yang perlu pemanas saat musim hujan",
       "th": "ปลาที่ต้องใช้ฮีตเตอร์ช่วงอากาศเย็น",
       "ms": "Ikan yang perlukan pemanas ketika cuaca sejuk"
      },
@@ -898,10 +898,10 @@
     {
      "id": "doi-don-be",
      "title": {
-      "vi": "Đội dọn bể: cá ăn rêu, tép, ốc",
-      "id": "Tim pembersih: pemakan lumut, udang, siput",
-      "th": "ทีมทำความสะอาดตู้: ปลากินตะไคร่ กุ้ง หอย",
-      "ms": "Pasukan pembersih: pemakan lumut, udang, siput"
+      "vi": "Cá, tép, ốc ăn rêu",
+      "id": "Ikan, udang, dan siput pemakan alga",
+      "th": "ปลากินตะไคร่ กุ้ง และหอย",
+      "ms": "Ikan, udang dan siput pemakan alga"
      },
      "pages": [
       "species/macrotocinclus-affinis",
@@ -917,7 +917,7 @@
     {
      "id": "tri-reu-tao",
      "title": {
-      "vi": "Xử lý rêu tảo trước Tết",
+      "vi": "Xử lý rêu hại trước Tết",
       "id": "Mengatasi alga sebelum Imlek",
       "th": "จัดการตะไคร่ก่อนตรุษจีน",
       "ms": "Atasi alga sebelum Tahun Baru Cina"
@@ -940,7 +940,7 @@
    "theme": {
     "vi": "Cá đỏ, cá vàng đón Tết",
     "id": "Ikan merah dan emas menyambut Imlek",
-    "th": "ปลาสีแดงสีทองรับตรุษจีน",
+    "th": "ปลาสีแดงและสีทองรับตรุษจีน",
     "ms": "Ikan merah dan emas sempena Tahun Baru Cina"
    },
    "tags": [],
@@ -1022,7 +1022,7 @@
    "theme": {
     "vi": "Cá đỏ, cá vàng đón Tết",
     "id": "Ikan merah dan emas menyambut Imlek",
-    "th": "ปลาสีแดงสีทองรับตรุษจีน",
+    "th": "ปลาสีแดงและสีทองรับตรุษจีน",
     "ms": "Ikan merah dan emas sempena Tahun Baru Cina"
    },
    "tags": [],
@@ -1070,7 +1070,7 @@
      "title": {
       "vi": "Cá đỏ cỡ lớn: la hán, hồng két, huyết long",
       "id": "Ikan merah besar: louhan, blood parrot, arwana super red",
-      "th": "ปลาสีแดงตัวใหญ่: หมอสี นกแก้ว และมังกรแดง",
+      "th": "ปลาสีแดงตัวใหญ่: หลอฮั่น ปลาหมอนกแก้ว และมังกรแดง",
       "ms": "Ikan merah besar: louhan, blood parrot, arowana super red"
      },
      "pages": [
