@@ -5,12 +5,12 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 4115 | 3535 | 1586 | 74 | 48 | 211 | 41 | 1098 | 384 | 2622 | 487 | 9 | 15 | 0 | 3 | 4 | 3 | 0 |
-| Indonesian | 1373 | 1203 | 350 | 21 | 7 | 3 | 5 | 175 | 28 | 54 | 174 | 0 | 1 | 0 | 3 | 2 | 0 | 0 |
+| Vietnamese | 4195 | 3601 | 1618 | 74 | 48 | 213 | 43 | 1128 | 392 | 2629 | 489 | 9 | 15 | 0 | 3 | 4 | 3 | 0 |
+| Indonesian | 1373 | 1203 | 350 | 21 | 7 | 3 | 5 | 175 | 29 | 54 | 174 | 0 | 1 | 0 | 3 | 2 | 0 | 0 |
 | Thai | 1348 | 1156 | 317 | 17 | 4 | 4 | 4 | 152 | 34 | 77 | 153 | 0 | 1 | 0 | 1 | 2 | 0 | 0 |
 | Malay | 238 | 193 | 62 | 6 | 1 | 0 | 0 | 29 | 11 | 15 | 24 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
-Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 9 of 139, Indonesian 2 of 55, Thai 2 of 54, Malay 1 of 17.
+Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 9 of 141, Indonesian 2 of 55, Thai 2 of 54, Malay 1 of 17.
 
 ## Doses on more than one page
 
@@ -74,11 +74,11 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 
 - repashy: 48
 - panacur: 33
-- keo 502: 24
-- ada: 23
+- keo 502: 27
+- ada: 24
 - tropica: 18
+- ada amazonia: 17
 - fluval stratum: 17
-- ada amazonia: 16
 - ada amazonia aqua soil: 14
 - hikari first bites: 14
 - hikari shrimp cuisine: 13
@@ -88,25 +88,25 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - aquario neo soil: 11
 - eheim: 11
 - seachem fluorite: 11
+- dennerle: 10
 - ge silicone 1: 10
 - twinstar: 10
 - 1-2-grow: 9
 - aquaclear: 9
 - carib sea eco-complete: 9
-- dennerle: 9
+- fluval fx6: 9
 - weld-on 4: 9
 - fluval: 8
-- fluval fx6: 8
 - jbl: 8
 - tropica aquarium soil: 8
 - tropica specialised nutrition: 8
+- caribsea eco-complete: 7
 - easy shrimp and snail shells: 7
 - krylon fusion: 7
 - repashy soilent green: 7
 - seachem flourite: 7
 - seachem flourite dark: 7
 - tetramin: 7
-- caribsea eco-complete: 6
 - chihiros a2: 6
 - chihiros wrgb ii slim: 6
 - eco-complete: 6
