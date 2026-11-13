@@ -489,6 +489,9 @@ The layers above still check the result.
   - It covers every call the engine makes to Claude (`claude.ts`), whatever started it: a call with no log named is
     written to the hand runs' log and counted from there. Not covered: picture generation, which goes to Codex on
     its own sign-in and quota (`codex-images.ts`).
+  - A measurement yields to the engine: the chat's board spends only what leaves every other step its whole line and
+    some room for the gate (`leftYielding`), so the backstop never stops a step on its account (the chief of staff,
+    13 Nov 2026).
   - The AI page review on pull requests, the nightly AI review and the auto-fix call Claude on the same accounts by
     another road, and each has a line on GitHub's side (`page-review`, `nightly-review`, `autofix`). A call writes a
     cost line: the time, the step, the account's hash, the model, dollars and tokens, and nothing of a page, a prompt
