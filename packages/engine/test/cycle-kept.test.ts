@@ -267,8 +267,10 @@ test('a migration that fails publishes nothing, and the work is kept for the nex
   migrating(c, true)
   c.sh(work)
   c.elsewhere('engine-state/_photo-watermarks.json', 'legacy')
-  const log = c.cycle(ending)
+  const log = c.cycle(`${ending.replace('echo "NOT PUBLISHED"', 'echo "NOT PUBLISHED, reported as: $FAILED"')}`)
   expect(log).toContain('LOG photo records: the migration failed, so nothing is published')
+  // The run's failure is reported with that line (engine-cycle.sh finish), never as plain failed tests.
+  expect(log).toMatch(/NOT PUBLISHED, reported as: photo records not migrated: this run's work is kept on kept\/photos\//)
   expect(log).toContain('LOG photo records not migrated: not tested, not published')
   expect(log).toMatch(/LOG photo records not migrated: this run's work is kept on kept\/photos\/\d{8}T\d{6} for the next run/)
   expect(c.sh('cat "$HOME/order"')).not.toContain('tests')
@@ -277,7 +279,10 @@ test('a migration that fails publishes nothing, and the work is kept for the nex
   expect(kept).toMatch(/^kept\/photos\//)
   // The next run: still failing, it stays kept; once the migration works, it goes out migrated.
   c.sh('git fetch -q origin && git reset -q --hard origin/main')
-  expect(c.cycle(`${privacy}; publish_kept photos`)).toContain(`LOG ${kept} isn't published yet (its photo records couldn't be migrated): it stays kept`)
+  const again = c.cycle(`${privacy}; publish_kept photos; echo "FAULT=$FAULT"`)
+  expect(again).toContain(`LOG ${kept} isn't published yet (its photo records couldn't be migrated): it stays kept`)
+  // The run goes on to its own work, and reports this when it ends.
+  expect(again).toContain(`FAULT=${kept} isn't published: its photo records couldn't be migrated, and it stays kept`)
   expect(c.branches()).toEqual([kept])
   migrating(c)
   expect(c.cycle(`${privacy}; publish_kept photos; [ -z "$MIGRATE_FAILED" ] && echo cleared`)).toMatch(/LOG published kept\/photos\/[\s\S]*cleared/)
@@ -285,3 +290,23 @@ test('a migration that fails publishes nothing, and the work is kept for the nex
   expect(c.onMain('engine-state/_photo-watermarks.json')).toBe('migrated')
   expect(c.branches()).toEqual([])
 }, 60_000)
+
+// engine-cycle.sh's finish, on its own: a fault the run went on past fails the run when it ends, and on the Mac goes to
+// GitHub as a failed run's line does (engine-mac.yml), which the daily report lists.
+test('a run that kept work back for its photo records ends failed, and says why on GitHub', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'aq-finish-'))
+  writeFileSync(join(dir, 'gh'), `#!/bin/sh\necho "$*" >> '${dir}/gh.log'\n`)
+  chmodSync(join(dir, 'gh'), 0o755)
+  const finish = /^finish\(\) \{[\s\S]*?^\}$/m.exec(script('engine-cycle.sh'))![0]
+  const run = (body: string, extra: Record<string, string> = {}) => spawnSync('bash', ['-c', `
+    set -euo pipefail; PART=pages; PIDFILE='${dir}/pid'; LAST=; FAILED=; log() { LAST="$*"; }; clock() { echo "1 0"; }
+    ${finish}
+    trap finish EXIT
+    ${body}`], { encoding: 'utf8', env: { ...process.env, PATH: `${dir}:${process.env.PATH}`, GITHUB_ACTIONS: '', ...extra } })
+  expect(run('true').status).toBe(0)
+  expect(run('FAULT="kept/pages/x isn\'t published: its photo records couldn\'t be migrated, and it stays kept"').status).toBe(1)
+  expect(readFileSync(join(dir, 'gh.log'), 'utf8')).toBe("workflow run engine-mac.yml -R deathemperor/aquatome.com -f part=pages -f why=exit 1: kept/pages/x isn't published: its photo records couldn't be migrated, and it stays kept\n")
+  // On GitHub, the run itself fails.
+  expect(run('FAULT=x', { GITHUB_ACTIONS: 'true' }).status).toBe(1)
+  expect(readFileSync(join(dir, 'gh.log'), 'utf8').split('\n').filter(Boolean)).toHaveLength(1)
+})

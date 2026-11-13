@@ -165,7 +165,9 @@ keep_unpublished() {
   if [ -n "${TIMED_OUT:-}" ]; then
     keep_branch "kept/$1/$when" && log "tests ran out of time: this run's work is kept on kept/$1/$when for the next run"
   elif [ -n "${MIGRATE_FAILED:-}" ]; then
-    keep_branch "kept/$1/$when" && log "photo records not migrated: this run's work is kept on kept/$1/$when for the next run"
+    # The line the run's failure is reported with (engine-cycle.sh finish), as its callers then stop the run.
+    FAILED="photo records not migrated: this run's work is kept on kept/$1/$when for the next run"
+    keep_branch "kept/$1/$when" && log "$FAILED"
   else
     # Off main at once: a next run that couldn't fetch would carry on from this commit, and could publish it.
     keep_branch "held/$1/$when" && git reset -q --hard origin/main && log "checks failed twice: this run's work is on held/$1/$when, not published"
@@ -229,6 +231,9 @@ publish_kept() {
       fi
     else
       log "$branch isn't published yet ($KEPT_WHY): it stays kept for the next run"
+      # Kept work held back by its records goes on to the next run, never silently: the run reports it when it ends, as
+      # a failed run is reported (FAULT, engine-cycle.sh finish; the chief of staff, 13 Nov).
+      [ -z "${MIGRATE_FAILED:-}" ] || FAULT="$branch isn't published: its photo records couldn't be migrated, and it stays kept"
     fi
     net git fetch -q origin || true
     git reset -q --hard origin/main

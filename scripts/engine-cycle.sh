@@ -81,10 +81,14 @@ trap 'FAILED="$BASH_COMMAND"' ERR
 finish() {
   local status=$? now
   rm -f "$PIDFILE"
+  # A fault the run went on past (FAULT, cycle-checks.sh: kept work its photo records held back) fails the run when it
+  # ends, so it's reported as any failed run is: engine-mac.yml on the Mac, the run itself on GitHub.
+  [ "$status" != 0 ] || [ -z "${FAULT:-}" ] || { status=1; FAILED="$FAULT"; }
   [ "$status" = 0 ] || [ -n "${GITHUB_ACTIONS:-}" ] || gh workflow run engine-mac.yml -R deathemperor/aquatome.com -f part="$PART" -f why="exit $status: ${FAILED:-$LAST}" || true
   # A night the lid was shut shows in the cycle's last line (12 to 13 Nov 2026: asleep from 22:36, waking 45 s every 15 min).
   read -r _ now < <(clock)
   [ $((now - ${AQ_ASLEEP0:-$now})) -lt 60 ] || log "the Mac slept $(((now - AQ_ASLEEP0) / 60)) min during this cycle"
+  exit "$status"
 }
 trap finish EXIT
 
