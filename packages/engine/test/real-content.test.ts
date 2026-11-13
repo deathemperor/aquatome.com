@@ -6,6 +6,7 @@ import { expect, test } from 'vitest'
 import { loadAll, mayPublish, resolveDataCard, type Translation } from '@aq/schema'
 import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
 import { englishOf } from '../src/english'
+import { altKey, NOT_ITS } from '../src/alt-names'
 import { MISMATCHED } from '../src/gbif'
 import { productOf } from '../src/fit'
 import { loadPages } from '../src/pages'
@@ -442,4 +443,21 @@ test('the pages filed under another animal are each their fish\'s, and GBIF\'s w
   expect([page('liobagrus-chengduensis').e.scientificName, page('liobagrus-chengduensis').vi.slug]).toEqual(['Liobagrus chengduensis', 'ca-tre-suoi-thanh-do'])
   const record = JSON.parse(readFileSync(fileURLToPath(new URL('../../../engine-state/_gbif-names.json', import.meta.url)), 'utf8')) as Record<string, unknown>
   expect(Object.keys(MISMATCHED).filter(k => k in record)).toEqual([])
+})
+
+// Names a person found are another fish's (alt-names.ts NOT_ITS: Boraras merah's "Chili rasbora", and the chief of staff's
+// ten of 2026-11-13) are on none of those pages, in any language: the sweep's cleaner takes them off each cycle.
+test('no page keeps another fish\'s name a person found on it', () => {
+  const root = fileURLToPath(new URL('../../../content/species', import.meta.url))
+  const left: string[] = []
+  for (const id of readdirSync(root)) {
+    const e = JSON.parse(readFileSync(join(root, id, 'entity.json'), 'utf8')) as { scientificName: string }
+    const off = NOT_ITS[e.scientificName]
+    if (!off) continue
+    for (const f of readdirSync(join(root, id)).filter(f => f !== 'entity.json' && f.endsWith('.json'))) {
+      const t = JSON.parse(readFileSync(join(root, id, f), 'utf8')) as Translation
+      for (const n of t.altNames ?? []) if (off.some(x => altKey(x.name) === altKey(n))) left.push(`${id}/${f}: ${n}`)
+    }
+  }
+  expect(left).toEqual([])
 })

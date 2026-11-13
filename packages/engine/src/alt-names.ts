@@ -93,12 +93,29 @@ function better(a: string, b: string) {
 
 /**
  * Names a person found are another fish's, by the scientific name of the page that had them: kept off it in every
- * language, however a later read brings them back. `of`: the page whose name it is.
+ * language (the name with or without "Cá", "Ikan", "ปลา"), however a later read brings them back. `of`: the page whose
+ * name it is, or the fish's when the site has no page. A name the trade shares between look-alikes (the rummy-noses)
+ * isn't here: their pages tell them apart instead.
  */
+const of = (page: string, ...names: string[]) => names.map(name => ({ name, of: page }))
 export const NOT_ITS: Readonly<Record<string, readonly { name: string; of: string }[]>> = {
   // 2026-11-13: the model that read BWAquatics and Glaser on 29 Oct gave the phoenix rasbora the chili rasbora's name;
   // neither source says it.
-  'Boraras merah': [{ name: 'Chili rasbora', of: 'boraras-brigittae' }],
+  'Boraras merah': of('boraras-brigittae', 'Chili rasbora'),
+  // The chief of staff's ten of 2026-11-13, the most-kept fish first: each name is the other page's.
+  'Devario aequipinnatus': of('danio-rerio', 'Cá danio sọc'),
+  'Poecilia latipinna': of('poecilia-sphenops', 'Cá molly'),
+  'Glossolepis incisus': of('melanotaenia-affinis', 'Cá cầu vồng New Guinea', 'New Guinea rainbowfish', 'New Guinea rainbow'),
+  'Alestopetersius hilgendorfi': of('phenacogrammus-interruptus', 'Cá tetra Congo', 'Congo tetra'),
+  'Phenacogrammus aurantiacus': of('phenacogrammus-interruptus', 'Cá tetra Congo', 'Congo tetra'),
+  // "Cá hề" alone is the marine clownfish to readers here (Amphiprion; Vietnamese Wikipedia).
+  'Chitala ornata': of('the marine clownfish (Amphiprion)', 'Cá hề'),
+  'Chromobotia macracanthus': of('the marine clownfish (Amphiprion)', 'Cá hề'),
+  // The trade sells C. trilineatus as julii: each page keeps its own names.
+  'Corydoras julii': of('corydoras-trilineatus', 'Cá chuột ba sọc', 'Three-lined cory'),
+  'Corydoras trilineatus': of('corydoras-julii', 'Cá chuột julii', 'Julii cory', 'Julii corydoras'),
+  'Ambastaia sidthimunki': of('corydoras-pygmaeus', 'Cá chuột lùn'),
+  'Trichopsis pumila': of('trichogaster-lalius', 'Cá sặc lùn'),
 }
 
 /**

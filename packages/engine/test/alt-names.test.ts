@@ -280,3 +280,26 @@ test('a name a person found is another fish\'s leaves that page in every form an
   expect(merah.off).toEqual([{ name: 'Chili rasbora', why: 'species', of: 'boraras-brigittae' }, { name: 'Cá chili rasbora', why: 'species', of: 'boraras-brigittae' }])
   expect(cleanAltNames({ name: 'Cá rasbora muỗi', sci: 'Boraras brigittae', altNames: ['Chili rasbora'] }).altNames).toEqual(['Chili rasbora'])
 })
+
+// The chief of staff's ten of 2026-11-13: each page's other name that is another page's own, as their pages had them.
+test.each([
+  ['Chromobotia macracanthus', 'Cá heo hề', ['Cá chuột vằn', 'Cá chuột Mỹ', 'Cá hề'], ['Cá chuột vằn', 'Cá chuột Mỹ']],
+  ['Chitala ornata', 'Cá thát lát cườm', ['Cá hề', 'Clown knifefish'], ['Clown knifefish']],
+  ['Corydoras julii', 'Cá chuột julii', ['Cá chuột báo', 'Cá chuột ba sọc', 'Julii Cory', 'Leopard Cory', 'Three-lined Cory'], ['Cá chuột báo', 'Julii Cory', 'Leopard Cory']],
+  ['Corydoras trilineatus', 'Cá chuột ba sọc', ['Three-line corydoras', 'Julii corydoras', 'Cá chuột julii', 'Three-lined Cory', 'Julii Cory'], ['Three-line corydoras', 'Three-lined Cory']],
+  ['Ambastaia sidthimunki', 'Cá heo lùn', ['Cá chuột lùn', 'Cá chuột chipmunk'], ['Cá chuột chipmunk']],
+  ['Trichopsis pumila', 'Cá thanh ngọc lùn', ['Cá sặc lùn', 'Pygmy gourami'], ['Pygmy gourami']],
+  ['Devario aequipinnatus', 'Cá danio khổng lồ', ['Cá danio sọc', 'Giant danio'], ['Giant danio']],
+  ['Poecilia latipinna', 'Cá molly buồm', ['Cá molly', 'Sailfin molly'], ['Sailfin molly']],
+  ['Poecilia latipinna', 'Molly layar', ['Ikan Molly', 'Sailfin molly'], ['Sailfin molly']],
+  ['Glossolepis incisus', 'Cá cầu vồng đỏ', ['Cá cầu vồng New Guinea', 'New Guinea Rainbowfish', 'Red rainbowfish'], ['Red rainbowfish']],
+  ['Alestopetersius hilgendorfi', 'Cá tetra Congo đỏ', ['Cá tetra Congo', 'Congo tetra', 'Red Congo tetra'], ['Red Congo tetra']],
+  ['Phenacogrammus aurantiacus', 'Cá tetra Congo cam', ['Cá tetra Congo', 'Congo tetra'], []],
+])('%s loses the names that are another page\'s', (sci, name, altNames, kept) => {
+  expect(cleanAltNames({ name, sci, altNames }).altNames).toEqual(kept)
+})
+test('the pages whose own names those are keep them', () => {
+  expect(cleanAltNames({ name: 'Cá ngựa vằn', sci: 'Danio rerio', altNames: ['Cá danio sọc'] }).altNames).toEqual(['Cá danio sọc'])
+  expect(cleanAltNames({ name: 'Cá chuột julii', sci: 'Corydoras julii', altNames: ['Julii corydoras'] }).altNames).toEqual(['Julii corydoras'])
+  expect(cleanAltNames({ name: 'Cá chuột ba sọc', sci: 'Corydoras trilineatus', altNames: ['Three-lined Cory'] }).altNames).toEqual(['Three-lined Cory'])
+})
