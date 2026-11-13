@@ -2,7 +2,7 @@ import { cp, mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { afterEach, expect, test } from 'vitest'
-import { nameStep } from '../src/ceiling'
+import { nameStep, type Ceilings } from '../src/ceiling'
 import { draftSummaries } from '../src/summaries'
 import { rewriteExisting } from '../src/vi-backfill'
 
@@ -38,4 +38,19 @@ for (const step of ['summaries', 'rewrite-vi']) test(`${step}: admission stops b
   expect(calls).toBe(0)
   expect(await Promise.all(files.map(f => readFile(join(content, f), 'utf8')))).toEqual(before)
   if (step === 'rewrite-vi') expect(JSON.parse(await readFile(state, 'utf8'))).toEqual({})
+})
+
+test('every ceiling step has an item admission decision', async () => {
+  const { WRAPPED, ONE_CALL } = await import('../src/pieces')
+  const ceilings = JSON.parse(await readFile(new URL('../src/ceilings.json', import.meta.url), 'utf8')) as Ceilings
+  const steps = [...new Set<string>(ceilings.tables.flatMap(table => (['mac', 'github'] as const).flatMap(machine => Object.keys(table[machine].steps))))].sort()
+  expect(steps.filter(step => !WRAPPED[step] && !ONE_CALL[step])).toEqual([])
+  for (const [step, file] of Object.entries(WRAPPED)) {
+    expect(await readFile(new URL(`../src/${file}`, import.meta.url), 'utf8'), step).toContain('piece(')
+  }
+  expect(Object.keys(WRAPPED).filter(step => step in ONE_CALL)).toEqual([])
+  for (const reason of Object.values(ONE_CALL)) {
+    expect(reason.trim()).not.toBe('')
+    expect(reason).not.toContain('\n')
+  }
 })

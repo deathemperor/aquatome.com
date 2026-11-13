@@ -1,3 +1,4 @@
+import { piece } from './pieces'
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { QUALITY_THRESHOLD, type GuideEntity, type Section, type Translation } from '@aq/schema'
@@ -112,7 +113,7 @@ export async function reviewBackfill(d: BackfillDeps, o: { kinds?: readonly Back
           try {
             const lines = await Promise.all(ids.map(id => placeLine(join(content, 'places'), id)))
             const named = new Map(await Promise.all(ids.map(async id => [id, (await json<Translation>(join(content, 'places', id, `${lang}.json`)))?.name ?? ''] as [string, string])))
-            const r = await steadyRead(() => reviewPlaces(d.llm, lang, lines, named), o.band ?? 0)
+            const r = await piece(`places/${lang}/${ids.join(',')}`, () => steadyRead(() => reviewPlaces(d.llm, lang, lines, named), o.band ?? 0))
             calls++
             for (const [k, j] of batch.entries()) {
               const it = itemReviews([r], r, lines.map(l => [l.id, l.line.replace(/^### [^:]*: /, ''), named.get(l.id) ?? '']), k)
@@ -143,39 +144,41 @@ export async function reviewBackfill(d: BackfillDeps, o: { kinds?: readonly Back
       if (o.fromLastRead && !given) { report.failed.push(`${reviewKey(j.page)}: no single second read to start from`); return }
       const steady = <T extends { score: number; notes: string[] }>(read: () => Promise<T>) => steadyRead(read, o.band ?? 0, given as T | undefined)
       try {
-        let r
-        let textHash: string | undefined
-        if (kind === 'topic') r = await recheckTopic(d.root, d.llm, id, j.page.lang as 'vi' | TargetLang)
-        else if (kind === 'video-guide') {
-          const e = await json<GuideEntity>(join(at, 'entity.json'))
-          const vi = await json<Translation>(join(at, 'vi.json'))
-          if (!e?.video || !vi || !d.yt) { report.failed.push(`${j.page.id}: ${!d.yt ? 'no YouTube access' : 'no video'}`); return }
-          if (done) await (d.sleep ?? (ms => new Promise(res => setTimeout(res, ms))))(VIDEO_GAP_MS)
-          const lang = e.video.lang ?? 'en'
-          const transcript = (e.video.transcribed ? null : await d.yt.transcript(e.video.youtubeId, lang)) ?? (await d.yt.transcribe?.(e.video.youtubeId, lang)) ?? null
-          if (!transcript) { report.failed.push(`${j.page.id}: no transcript`); return }
-          const { title, channel } = e.video
-          r = await steady(() => reviewDraft(d.llm, transcript, { viTitle: vi.name, summary: vi.summary ?? [], body: vi.body ?? '', faq: vi.faq ?? [] }, { title, channel, lang }))
-        } else {
-          const e = await json<{ sections: Section[] }>(join(at, 'entity.json'))
-          const t = await json<Translation>(join(at, `${j.page.lang}.json`))
-          // The parts its reviewer read: one source's pairs, chosen as the listing and the page's score choose them
-          // (recheck-score.ts sourcePairs), or every translatable one. Chosen otherwise, a passing check hashed text the
-          // score's update didn't, and never reached the page (Astra's read).
-          const pairs = kind === 'translation' ? sourcePairs(e?.sections ?? [], t?.sections ?? {}, j.page.part ?? '') : []
-          const parts = kind === 'translation' ? pairs : (e?.sections ?? []).filter(s => s.html.trim() && translatable(s.source)).map(s => ({ id: `${s.key}:${s.source}`, en: s.html }))
-          if (!parts.length || !t) { report.failed.push(`${reviewKey(j.page)}: no text to check`); return }
-          if (kind === 'translation') textHash = sourceTextHash(pairs)
-          r = kind === 'translation'
-            ? await steady(() => reviewTranslation(d.llm, pairs.map(p => ({ en: p.en, vi: p.vi }))))
-            : await steady(() => reviewLocalized(d.llm, j.page.lang as TargetLang, parts, new Map(Object.entries(t.sections))))
-        }
-        calls++
-        done++
-        await logReviews(d.root, kind, j.page, [r], r, { ...recheck(), ...(textHash ? { textHash } : {}) })
-        // A video guide held out of the chat (video-hold.ts) that passes goes back in; under the bar, it waits for its redo.
-        const back = kind === 'video-guide' && r.score >= QUALITY_THRESHOLD && await setHold(content, id, false)
-        report.checked.push(`${kind} ${reviewKey(j.page)}: ${r.score.toFixed(2)} (was ${j.score.toFixed(2)}), ${r.notes.length} notes${back ? ', back in the chat' : ''}`)
+        await piece(reviewKey(j.page), async () => {
+          let r
+          let textHash: string | undefined
+          if (kind === 'topic') r = await recheckTopic(d.root, d.llm, id, j.page.lang as 'vi' | TargetLang)
+          else if (kind === 'video-guide') {
+            const e = await json<GuideEntity>(join(at, 'entity.json'))
+            const vi = await json<Translation>(join(at, 'vi.json'))
+            if (!e?.video || !vi || !d.yt) { report.failed.push(`${j.page.id}: ${!d.yt ? 'no YouTube access' : 'no video'}`); return }
+            if (done) await (d.sleep ?? (ms => new Promise(res => setTimeout(res, ms))))(VIDEO_GAP_MS)
+            const lang = e.video.lang ?? 'en'
+            const transcript = (e.video.transcribed ? null : await d.yt.transcript(e.video.youtubeId, lang)) ?? (await d.yt.transcribe?.(e.video.youtubeId, lang)) ?? null
+            if (!transcript) { report.failed.push(`${j.page.id}: no transcript`); return }
+            const { title, channel } = e.video
+            r = await steady(() => reviewDraft(d.llm, transcript, { viTitle: vi.name, summary: vi.summary ?? [], body: vi.body ?? '', faq: vi.faq ?? [] }, { title, channel, lang }))
+          } else {
+            const e = await json<{ sections: Section[] }>(join(at, 'entity.json'))
+            const t = await json<Translation>(join(at, `${j.page.lang}.json`))
+            // The parts its reviewer read: one source's pairs, chosen as the listing and the page's score choose them
+            // (recheck-score.ts sourcePairs), or every translatable one. Chosen otherwise, a passing check hashed text the
+            // score's update didn't, and never reached the page (Astra's read).
+            const pairs = kind === 'translation' ? sourcePairs(e?.sections ?? [], t?.sections ?? {}, j.page.part ?? '') : []
+            const parts = kind === 'translation' ? pairs : (e?.sections ?? []).filter(s => s.html.trim() && translatable(s.source)).map(s => ({ id: `${s.key}:${s.source}`, en: s.html }))
+            if (!parts.length || !t) { report.failed.push(`${reviewKey(j.page)}: no text to check`); return }
+            if (kind === 'translation') textHash = sourceTextHash(pairs)
+            r = kind === 'translation'
+              ? await steady(() => reviewTranslation(d.llm, pairs.map(p => ({ en: p.en, vi: p.vi }))))
+              : await steady(() => reviewLocalized(d.llm, j.page.lang as TargetLang, parts, new Map(Object.entries(t.sections))))
+          }
+          calls++
+          done++
+          await logReviews(d.root, kind, j.page, [r], r, { ...recheck(), ...(textHash ? { textHash } : {}) })
+          // A video guide held out of the chat (video-hold.ts) that passes goes back in; under the bar, it waits for its redo.
+          const back = kind === 'video-guide' && r.score >= QUALITY_THRESHOLD && await setHold(content, id, false)
+          report.checked.push(`${kind} ${reviewKey(j.page)}: ${r.score.toFixed(2)} (was ${j.score.toFixed(2)}), ${r.notes.length} notes${back ? ', back in the chat' : ''}`)
+        })
       } catch (e) {
         if (e instanceof LlmError) { report.stopped ||= `${reviewKey(j.page)}: ${e.message}`; return }
         if (throttled(e)) { report.stopped ||= `YouTube is throttling (${j.page.id})`; return }

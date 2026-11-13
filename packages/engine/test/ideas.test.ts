@@ -134,7 +134,7 @@ test('writing: the most asked idea first, its shops\' posts as leads that say ne
   expect(JSON.parse(await readFile(join(root, 'engine-state/_ideas.json'), 'utf8')).ideas).toHaveLength(3)
 })
 
-test('a guide is started only when what\'s left of the day\'s line covers a typical one: in the cloud, $3 a day from 13 Nov', async () => {
+test('a guide is started only when what\'s left of the day\'s line covers its last one too: in the cloud, $3 a day from 13 Nov', async () => {
   // The chief of staff, 2026-11-12: on 12 Nov the step spent its $1 line on 7 of a guide's 9 calls and wrote nothing.
   // A guide costs $1.28 to $1.37; the cloud's line is $3 (two guides). The Mac's stays $0: the step runs in the cloud.
   const root = await site({})
@@ -149,10 +149,10 @@ test('a guide is started only when what\'s left of the day\'s line covers a typi
   process.env.ENGINE_COST_LOG = log
   nameStep('write-ideas')
   try {
-    // $1.80 spent today: $1.20 left, under a guide.
-    await writeFile(log, [piece('2026-11-10T09:00:00Z', 1.28), piece('2026-11-11T09:00:00Z', 1.3), piece('2026-11-11T10:00:00Z', 1.37), JSON.stringify({ at: '2026-11-13T04:00:00Z', step: 'write-ideas', usd: 1.8 })].join('\n') + '\n')
+    // $1.65 spent today: $1.35 left covers the $1.30 middle, but not the $1.37 last guide.
+    await writeFile(log, [piece('2026-11-10T09:00:00Z', 1.28), piece('2026-11-11T09:00:00Z', 1.3), piece('2026-11-11T10:00:00Z', 1.37), JSON.stringify({ at: '2026-11-13T04:00:00Z', step: 'write-ideas', usd: 1.65 })].join('\n') + '\n')
     const r = await writeIdeas(root, { research, llm: research, now: () => new Date('2026-11-13T05:00:00Z') }, { perDay: 2 })
-    expect(r.stopped).toContain('not started: $1.20 left, a piece costs about $1.30')
+    expect(r.stopped).toContain('not started: $1.35 left, a piece costs about $1.37')
     expect(asked).toEqual([])
     expect((await readIdeas(root)).ideas[0]).not.toHaveProperty('skipped')
     // $1 spent today: $2 left, and it starts.

@@ -16,6 +16,8 @@ import { LlmError } from './claude'
  */
 export const PIECES_READ = 10
 
+export class PieceAdmissionError extends LlmError {}
+
 type PieceLine = { at: string; step: string; piece: string; pieceUsd: number; finished: boolean }
 
 function lines(log: string): unknown[] {
@@ -82,7 +84,7 @@ export async function piece<T>(name: string, fn: () => Promise<T>, o: { now?: ()
   if (left == null) return fn()
   const typical = typicalPiece(step, log), last = lastPiece(step, log)
   const need = typical == null || last == null ? undefined : Math.max(typical, last)
-  if (left <= 0 || (need != null && left < need)) throw new LlmError(`claude failed: the engine's daily limit reached for ${step}: ${name} not started: ${money(left)} left${need != null ? `, a piece costs about ${money(need)}` : ''}`)
+  if (left <= 0 || (need != null && left < need)) throw new PieceAdmissionError(`claude failed: the engine's daily limit reached for ${step}: ${name} not started: ${money(left)} left${need != null ? `, a piece costs about ${money(need)}` : ''}`)
   const id = `${name} ${now.toISOString()}`
   let finished = false
   try {
@@ -97,4 +99,25 @@ export async function piece<T>(name: string, fn: () => Promise<T>, o: { now?: ()
       // The piece's own calls are logged (claude.ts); only its sum is lost.
     }
   }
+}
+
+/** CLI steps whose multi-call items record their complete cost. Both backfill commands share the worker. */
+export const WRAPPED: Record<string, string> = {
+  'write-ideas': 'ideas.ts', summaries: 'summaries.ts', 'rewrite-vi': 'vi-backfill.ts', 'fit-rewrite': 'fit-rewrite.ts',
+  localize: 'localize.ts', 'localize-guides': 'topics.ts', reader: 'reader.ts', run: 'run.ts', videos: 'youtube.ts',
+  gallery: 'gallery.ts', 'review-backfill': 'review-backfill.ts', 'review-backfill-97': 'review-backfill.ts',
+}
+export const ONE_CALL: Record<string, string> = {
+  autofix: 'GitHub workflow outside the engine; scripts/claude-spend.mjs accounts for it.',
+  'nightly-review': 'GitHub workflow outside the engine; scripts/claude-spend.mjs accounts for it.',
+  'page-review': 'GitHub workflow outside the engine; scripts/claude-spend.mjs accounts for it.',
+  gate: 'No daily line (null).', moderate: 'No daily line (null).',
+  'card-crops': 'Reserved ceiling; no engine CLI handler in this checkout.',
+  'chat-board': 'Ceiling set ahead of its step; no engine CLI handler yet. When one lands, it goes on WRAPPED or here with its reason.',
+  'glossary-entry': 'Ceiling set ahead of its step; no engine CLI handler yet. When one lands, it goes on WRAPPED or here with its reason.',
+  'check-photos': 'One vision call per contact sheet in photo-check.ts.',
+  'guide-photos': 'One vision call per contact sheet in guide-photos.ts.',
+  watermarks: 'One vision call per contact sheet in watermarks.ts; OCR is local.',
+  traits: 'One extraction call per species in traits.ts.',
+  range: 'One native-range extraction call per species in range.ts; records use GBIF.',
 }

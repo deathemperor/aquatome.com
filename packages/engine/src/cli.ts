@@ -60,7 +60,7 @@ import { ARCHIVE_AFTER_BLOCKS, runEngine } from './run'
 import { cardGaps } from './card-fill'
 import { depthReport, popularityOrder, thinSpecies, type DepthReport } from './depth'
 import { SOURCES } from './sources'
-import { loadState, setSourceBlock, sourceBlockedSince } from './state'
+import { errorKind, loadState, setSourceBlock, sourceBlockedSince } from './state'
 import { collect } from './facebook/collect'
 import { chromeFb } from './facebook/chrome'
 import { FB } from './facebook/config'
@@ -250,6 +250,7 @@ if (cmd === 'photo-privacy') {
       await writeFile(join(ROOT, 'engine-state/last-run.json'), `${JSON.stringify({ startedAt, finishedAt: new Date().toISOString(), ...report }, null, 2)}\n`)
     }
     console.table(report.perSource)
+    if (report.stopped) console.log(`stopped: ${report.stopped}`)
     if (report.needsHuman.length) console.log(`needs-human: ${report.needsHuman.join(', ')} — pass the browser check in the engine Chrome profile, then: pnpm engine run --sources <id> --retry-blocked`)
     if (report.movedToArchive.length) console.log(`moved to the Internet Archive: ${report.movedToArchive.join(', ')} (browser checks on ${ARCHIVE_AFTER_BLOCKS} runs within a week)`)
     for (const e of report.errors) console.log(`error: ${e}`)
@@ -849,11 +850,11 @@ if (cmd === 'photo-privacy') {
       ...(since ? { rechecked: since, rank: await guideRank(ROOT, popularityOrder(await popularFirst(ROOT))), parallel: Number(values.parallel ?? 1) } : {}),
     },
   )
-  console.log(`videos: ${r.written.length} written, ${r.skipped.length} skipped, ${r.errors.length} errors${r.stoppedEarly ? ' (stopped early)' : ''}`)
+  console.log(`videos: ${r.written.length} written, ${r.skipped.length} skipped, ${r.errors.length} errors${r.stoppedEarly ? ` (stopped: ${r.stopped ?? 'early'})` : ''}`)
   for (const w of r.written) console.log(`written: ${w}`)
   for (const s of r.skipped) console.log(`skipped: ${s}`)
   for (const e of r.errors) console.log(`error: ${e}`)
-  await covers({})
+  if (!r.stopped) await covers({})
   // Pictures per section: video stills (picked on storyboard tiles, then the video's own frames) + an open-licence Commons photo, picked by Claude, no faces.
   const get = async (u: string) => { const res = await fetch(u); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) }
   const im = await videoImages(join(ROOT, 'content'), {
@@ -1156,7 +1157,8 @@ if (cmd === 'photo-privacy') {
   let made = first.made
   for (const id of ids) {
     if (first.stopped || made >= limit) break
-    const r = await localizeTopic(ROOT, claudeCli, id, lang, { redo: values.redo }).catch(e => ({ id, failed: (e as Error).message.slice(0, 200) }))
+    const r = await localizeTopic(ROOT, claudeCli, id, lang, { redo: values.redo }).catch(e => (e instanceof LlmError && errorKind(e.message) === 'usage' ? { id, stopped: e.message } : { id, failed: (e as Error).message.slice(0, 200) }))
+    if ('stopped' in r) { console.log(JSON.stringify(r)); break }
     if (!('skipped' in r)) made++
     console.log(JSON.stringify(r))
   }
