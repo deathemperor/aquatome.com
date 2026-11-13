@@ -1739,6 +1739,28 @@
         }
       }
     },
+    "Bật Bluetooth để gửi lệnh tới đèn.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nyalakan Bluetooth untuk mengirim perintah ke lampu."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hidupkan Bluetooth untuk menghantar arahan ke lampu."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิดบลูทูธเพื่อส่งคำสั่งไปยังไฟ"
+          }
+        }
+      }
+    },
     "Bật Bluetooth, đứng gần đèn.": {
       "localizations": {
         "id": {
@@ -2571,6 +2593,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "CO2"
+          }
+        }
+      }
+    },
+    "Cam": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oranye"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oren"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ส้ม"
           }
         }
       }
@@ -6953,6 +6997,28 @@
         }
       }
     },
+    "Hồng tím": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Magenta"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Magenta"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ม่วงแดง"
+          }
+        }
+      }
+    },
     "Hiền": {
       "localizations": {
         "id": {
@@ -7961,6 +8027,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ส่งคำสั่งไปยังโคมไฟไม่ได้ ขยับเข้าใกล้โคมไฟแล้วลองอีกครั้ง"
+          }
+        }
+      }
+    },
+    "Không gửi được lệnh tới đèn. Thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perintah tidak terkirim ke lampu. Coba lagi."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Arahan tidak dapat dihantar ke lampu. Cuba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ส่งคำสั่งไปยังไฟไม่สำเร็จ ลองอีกครั้ง"
           }
         }
       }
@@ -13509,6 +13597,28 @@
         }
       }
     },
+    "Vàng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kuning"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kuning"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เหลือง"
+          }
+        }
+      }
+    },
     "Video": {
       "localizations": {
         "id": {
@@ -13857,6 +13967,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "เขียว"
+          }
+        }
+      }
+    },
+    "Xanh lơ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sian"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sian"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ฟ้าอมเขียว"
           }
         }
       }
@@ -15203,6 +15335,28 @@
         }
       }
     },
+    "Đứng gần đèn và giữ ứng dụng mở khi bấm. Đèn không báo lại trạng thái. Hẹn giờ của đèn vẫn đặt trong ứng dụng Fish lamp.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Berdirilah di dekat lampu dan biarkan aplikasi terbuka saat menekan. Lampu tidak melaporkan statusnya. Pengatur waktu lampu tetap diatur di aplikasi Fish lamp."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Berdiri dekat lampu dan biarkan aplikasi terbuka semasa menekan. Lampu tidak melaporkan keadaannya. Pemasa lampu masih ditetapkan dalam aplikasi Fish lamp."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยืนใกล้ไฟและเปิดแอปไว้ขณะกด ไฟไม่รายงานสถานะกลับมา ตั้งเวลาของไฟยังตั้งในแอป Fish lamp"
+          }
+        }
+      }
+    },
     "Áp máy sát kính sạch cho bớt lóa và vết bẩn.": {
       "localizations": {
         "id": {
@@ -15331,6 +15485,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "กำลังส่งคำสั่ง…"
+          }
+        }
+      }
+    },
+    "Đang gửi “%@”…": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mengirim “%@”…"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menghantar “%@”…"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กำลังส่ง “%@”…"
           }
         }
       }
@@ -15947,6 +16123,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ส่งรายงานแล้ว ขอบคุณ"
+          }
+        }
+      }
+    },
+    "Đã gửi “%@” lúc %@.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "“%1$@” terkirim pukul %2$@."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "“%1$@” dihantar pada %2$@."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ส่ง “%1$@” แล้วเมื่อ %2$@"
           }
         }
       }
@@ -16805,6 +17003,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ยังไม่รองรับโคมไฟ %@"
+          }
+        }
+      }
+    },
+    "Đèn Love Ecology": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟ Love Ecology"
           }
         }
       }

@@ -31,15 +31,18 @@ const net = (h: string, env: NodeJS.ProcessEnv, call: string) => {
   return { out: r.stdout.trim().split('\n'), seconds: (Date.now() - t) / 1000 }
 }
 
+// A stop is said up to 4 s past its limit: the supervisor reads the clock each second, and on this Mac at a load of 60
+// its perl and the clock's run slow (a 1 s limit was said at 4 s on 13 Nov, and the engine's own cycles run these tests
+// here).
 test('a call to GitHub with no answer is stopped at its limit and says so; one that answers keeps its status and output', () => {
   const { h, env } = home()
   const hung = net(h, { ...env, GIT_NET_SECONDS: '2' }, 'sleep 30')
-  expect(hung.out).toEqual([expect.stringMatching(/^LOG sleep 30: no answer from GitHub in [2-4] s, stopped$/), 'status 124'])
+  expect(hung.out).toEqual([expect.stringMatching(/^LOG sleep 30: no answer from GitHub in [2-6] s, stopped$/), 'status 124'])
   expect(hung.seconds).toBeLessThan(10)
   expect(net(h, env, `sh -c 'echo fetched; exit 3'`).out).toEqual(['fetched', 'status 3'])
   // Astra's read, 13 Nov: a stop that leaned on a file in the temp folder never came when the folder was missing.
   const noTemp = net(h, { ...env, GIT_NET_SECONDS: '1', TMPDIR: '/dev/null/aq-net' }, 'sleep 30')
-  expect(noTemp.out).toEqual([expect.stringMatching(/^LOG sleep 30: no answer from GitHub in [1-3] s, stopped$/), 'status 124'])
+  expect(noTemp.out).toEqual([expect.stringMatching(/^LOG sleep 30: no answer from GitHub in [1-5] s, stopped$/), 'status 124'])
   expect(noTemp.seconds).toBeLessThan(10)
   const quick = net(h, env, 'true')
   expect(quick.out).toEqual(['status 0'])
@@ -65,6 +68,38 @@ test('a call that answers goes on under set -e however slow the clock; one that 
   const polite = net(h, { ...env, GIT_NET_SECONDS: '1' }, `sh -c 'trap "exit 0" TERM; (trap "" TERM; exec sleep 31) & echo $! > c; while :; do sleep 1; done'`)
   expect(polite.out).toEqual([expect.stringMatching(/: no answer from GitHub in \d+ s, stopped$/), 'status 124'])
   expect(() => process.kill(Number(readFileSync(join(h, 'c'), 'utf8')), 0)).toThrow()
+})
+
+// Astra's read of 68c49744f: the watchdog looked for the call's process group alone, and a call slow to make its group
+// (perl slow to start on a busy Mac) had none at the first look a tenth of a second in: the watchdog ended there, and the
+// call ran on with no limit.
+test('a call slow to make its process group is still watched, and stopped at its limit', () => {
+  const { h, env, exe } = home()
+  mkdirSync(join(h, 'perl5'))
+  writeFileSync(join(h, 'perl5', 'Slow.pm'), 'package Slow; sleep 1; 1;\n')
+  const slow = { ...env, GIT_NET_SECONDS: '2', PERL5LIB: join(h, 'perl5'), PERL5OPT: '-MSlow', AQ_CLOCK: exe('clock', 'echo "$(date +%s) 0"') }
+  const r = net(h, slow, 'sleep 30')
+  expect(r.out).toEqual([expect.stringMatching(/^LOG sleep 30: no answer from GitHub in [2-6] s, stopped$/), 'status 124'])
+  expect(r.seconds).toBeLessThan(10)
+})
+
+// Astra's read of 0420cf4df: until the call's group was made, the watchdog found the call through `ps`, and a `ps` that
+// failed ended the watchdog and left the call with no limit. The group is made before the call starts now, by a keeper the
+// supervisor holds unreaped until its last signal, and nothing reads `ps`.
+test('a call whose perl is slow to start is stopped at its limit when ps fails', () => {
+  const { h, env, exe } = home()
+  mkdirSync(join(h, 'perl5'))
+  writeFileSync(join(h, 'perl5', 'Slow.pm'), 'package Slow; sleep 2; 1;\n')
+  exe('ps', 'exit 1')
+  const slow = { ...env, GIT_NET_SECONDS: '1', PERL5LIB: join(h, 'perl5'), PERL5OPT: '-MSlow', AQ_CLOCK: exe('clock', 'echo "$(date +%s) 0"') }
+  const r = net(h, slow, 'sleep 30')
+  expect(r.out).toEqual([expect.stringMatching(/^LOG sleep 30: no answer from GitHub in [1-6] s, stopped$/), 'status 124'])
+  expect(r.seconds).toBeLessThan(10)
+})
+
+test('a call that exits 124 itself, inside its limit, keeps its status and isn\'t said to be stopped', () => {
+  const { h, env } = home()
+  expect(net(h, env, `sh -c 'exit 124'`).out).toEqual(['status 124'])
 })
 
 test('every call the cycle makes to GitHub has the limit', () => {

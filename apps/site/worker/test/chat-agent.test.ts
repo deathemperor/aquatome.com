@@ -23,7 +23,7 @@ const hb = async (): Promise<Handbook> => (await handbookOf(source, 'vi'))!
 const { misfits } = contract('chat.openapi.json')
 const block = { $ref: '#/components/schemas/Block' }
 const pick = (p: Partial<Choice>): Choice => ({ t: 'species', ids: [], path: null, heading: null, tool: null, fish: [], tank: null, tankId: null, ...p })
-const answer = (blocks: Choice[], o: Partial<Answer> = {}): Answer => ({ offTopic: false, text: 'x', covered: true, blocks, suggestions: [], ...o })
+const answer = (blocks: Choice[], o: Partial<Answer> = {}): Answer => ({ offTopic: false, text: 'x', covered: true, blocks, suggestions: [], clashes: [], ...o })
 const run = async (name: string, input: Record<string, unknown>, h?: Handbook) => {
   const tool = chatTools({ handbook: h ?? (await hb()), tanks: async () => [] }).find(t => t.name === name)!
   return { step: tool.step?.(input), out: await tool.run(input, { photosLeft: 0 }) }
@@ -102,6 +102,24 @@ test('a glossary term named inside a longer search is found after every other ma
   expect(search(items, 'nước vàng', 'glossary')).toEqual([])
   // A Thai name has no spaces, so "current" in an electrical query isn't the start of the term for water current.
   expect(search([...items, term('กระแสน้ำ')], 'ค่ากระแสไฟฟ้า', 'glossary')).toEqual([])
+})
+
+test('the prompt answers about the fish: the card wins, no talk of pages disagreeing, the method read and given, no care question handed on, no pointing at earlier answers', () => {
+  expect(SYSTEM).toContain('is the answer over any passage')
+  expect(SYSTEM).toContain('Never say that the pages or their sources disagree')
+  expect(SYSTEM).toContain('Put the two places in clashes')
+  expect(SYSTEM).toContain('read the guide that gives it as well as the fish\'s page')
+  expect(SYSTEM).toContain('Search for that guide (kind guide) in your first call')
+  expect(SYSTEM).toContain('a longer search finds nothing')
+  expect(SYSTEM).toContain('as a fact about the fish, without "the handbook says"')
+  expect(SYSTEM).toContain('empty of numbers isn\'t')
+  expect(SYSTEM).toContain('the share of tap water is the target GH divided by the tap\'s')
+  expect(SYSTEM).toContain('A care question is yours to answer')
+  expect(SYSTEM).toContain('names the next step the keeper takes')
+  expect(SYSTEM).toContain('A vet may be named beside that step, never in place of it')
+  expect(SYSTEM).toContain('say plainly you don\'t have it, and say what to ask for or look for')
+  expect(SYSTEM).toContain('Never point at your earlier answers')
+  expect(ANSWER_SCHEMA.required).toContain('clashes')
 })
 
 test('read_tanks reads the reader\'s tanks with their ids, says when there are none, and is an error when they can\'t be read', async () => {
@@ -794,7 +812,7 @@ test('an off-topic question gets the Worker\'s own line in the reader\'s languag
       model: 'claude-opus-5-5', lang, question: 'Tối qua Real Madrid đá thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [],
       onText: p => said.push(p),
     })
-    expect(out.answer).toEqual({ offTopic: true, text: OFF_TOPIC[lang], covered: true, blocks: [], suggestions: [] })
+    expect(out.answer).toEqual({ offTopic: true, text: OFF_TOPIC[lang], covered: true, blocks: [], suggestions: [], clashes: [] })
     expect(out.blocks).toEqual([])
   }
   expect(said.join('')).toBe('')

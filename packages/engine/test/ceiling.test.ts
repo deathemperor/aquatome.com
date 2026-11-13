@@ -2,7 +2,7 @@ import { chmod, mkdir, mkdtemp, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { CEILINGS, ceilingMessage, costLog, handLog, machine, nameStep, spentToday, stepName, tableInForce, type CeilingTable, type Ceilings, type Place } from '../src/ceiling'
+import { CEILINGS, ceilingMessage, costLog, handLog, leftYielding, machine, nameStep, spentToday, stepName, tableInForce, type CeilingTable, type Ceilings, type Place } from '../src/ceiling'
 import { LlmError } from '../src/claude'
 import { accountsOut } from '../src/gate'
 import { errorKind } from '../src/state'
@@ -98,6 +98,22 @@ test('the backstop: once everything logged that day reaches it, every step with 
   for (const step of ['run', 'localize', 'traits']) expect(msg(step)).toBe('claude failed: the engine\'s daily limit reached for every step ($40.00 of $40 today)')
   expect(msg('gate')).toBeUndefined()
   expect(msg('moderate')).toBeUndefined()
+})
+
+test('a step that yields spends only what leaves every other named step its whole line, and room for the gate and moderation', async () => {
+  const table = one(place({ run: 50, videos: 20, board: 30 }, { backstop: 100 }))
+  const at = (lines: unknown[]) => logs({ 'aquatome-cost-a.jsonl': lines }).then(d => join(d, 'aquatome-cost-a.jsonl'))
+  const left = async (lines: unknown[], c = table) => leftYielding('board', await at(lines), 5, c, NOW, 'mac')
+  // Nothing spent: run and videos keep $70, the gate $5, so $25 of the board's $30.
+  expect(await left([])).toBe(25)
+  // What the others spend comes out of their own lines, not the board's room; what the gate spent counts.
+  expect(await left([{ at: TODAY, step: 'run', usd: 30 }, { at: TODAY, step: 'gate', usd: 4 }, { at: TODAY, step: 'board', usd: 10 }])).toBe(11)
+  // A step past its line holds no more room than none, and the board's own line still binds.
+  expect(await left([{ at: TODAY, step: 'run', usd: 60 }], one(place({ run: 50, videos: 20, board: 30 }, { backstop: 200 })))).toBe(30)
+  // Never below nothing.
+  expect(await left([{ at: TODAY, step: 'videos', usd: 15 }, { at: TODAY, step: 'gate', usd: 40 }])).toBe(0)
+  // The gate has no ceiling to yield from.
+  expect(leftYielding('gate', await at([]), 5, table, NOW, 'mac')).toBeNull()
 })
 
 test('a day whose spend can\'t be counted stops every step with a ceiling until it ends, whatever table is in force; the gate and moderation go on', async () => {
@@ -223,10 +239,14 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
   const sum = (p: Place) => Object.values(p.steps).reduce<number>((n, x) => n + (x ?? 0), 0)
   // The ceilings follow the sign-ins that are back (the owner and the chief of staff, 11 Nov 2026): the third on
   // 12 Nov 13:00, the first on 13 Nov 08:00, the second on 14 Nov 08:00. `steps` is every named ceiling added up.
+  // The troubleshooting board: $40 on the Mac on 14 Nov and $60 on 15 Nov, then the small line (the chief of staff, 13 Nov
+  // 2026), inside the backstop that was already there.
   const periods = [
-    { from: '2026-11-12T13:00:00+07:00', to: '2026-11-13T07:59:00+07:00', steps: 142, backstop: 150, small: 1, run: 30, localize: 25, second: 12, fit: 5, vi: 3, crops: 1 },
-    { from: '2026-11-13T08:00:00+07:00', to: '2026-11-14T07:59:00+07:00', steps: 278, backstop: 300, small: 2, run: 70, localize: 50, second: 18, fit: 10, vi: 12, crops: 4 },
-    { from: '2026-11-14T08:00:00+07:00', to: '2026-12-31T00:00:00+07:00', steps: 386, backstop: 450, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1 },
+    { from: '2026-11-12T13:00:00+07:00', to: '2026-11-13T07:59:00+07:00', steps: 142, backstop: 150, small: 1, run: 30, localize: 25, second: 12, fit: 5, vi: 3, crops: 1, board: 1 },
+    { from: '2026-11-13T08:00:00+07:00', to: '2026-11-14T07:59:00+07:00', steps: 278, backstop: 300, small: 2, run: 70, localize: 50, second: 18, fit: 10, vi: 12, crops: 4, board: 2 },
+    { from: '2026-11-14T08:00:00+07:00', to: '2026-11-14T23:59:00+07:00', steps: 436, backstop: 450, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 40, glossary: 10 },
+    { from: '2026-11-15T00:00:00+07:00', to: '2026-11-15T23:59:00+07:00', steps: 456, backstop: 450, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 60, glossary: 10 },
+    { from: '2026-11-16T00:00:00+07:00', to: '2026-12-31T00:00:00+07:00', steps: 406, backstop: 450, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 20 },
   ]
   for (const p of periods) for (const when of [p.from, p.to]) {
     const t = tableInForce(CEILINGS.tables, new Date(when))!
@@ -246,6 +266,11 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
     expect(cap(when, 'mac', 'review-backfill-97')).toBe(10)
     // The card crops: $4 for their first day, 13 Nov, then $1.
     expect(cap(when, 'mac', 'card-crops')).toBe(p.crops)
+    expect(cap(when, 'mac', 'chat-board')).toBe(p.board)
+    expect(cap(when, 'github', 'chat-board')).toBe(p.small)
+    // The glossary's fuller entries, run by hand on the Mac: $10 on 14 and 15 Nov (Lũa first), $20 from 16 Nov for the
+    // next four (the chief of staff, 13 Nov 2026).
+    expect(cap(when, 'mac', 'glossary-entry')).toBe(p.glossary ?? p.small)
     // The ideas step: on 12 Nov its $1 line stopped it part way through its first guide, which costs about $1.30 (9
     // calls), and it wrote nothing. Now a guide starts only when its line covers one (pieces.ts), and the line is $3, two
     // guides, in the cloud, where the step runs; the Mac's is $0 (the chief of staff, 12 Nov 2026).

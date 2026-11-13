@@ -3,6 +3,7 @@ import { beforeAll, expect, test } from 'vitest'
 import { loadAll, type Content } from '@aq/schema'
 import { GALLERY_MIN } from '../src/lib/gallery'
 import { renamedPages } from '../src/lib/renamed'
+import { slow } from '@aq/schema/test-time'
 
 type Pages = Parameters<typeof renamedPages>[0]
 
@@ -10,7 +11,7 @@ const CONTENT = fileURLToPath(new URL('../../../content', import.meta.url))
 
 // Read once: every page of the real content, which takes a minute on a busy machine.
 let c: Content
-beforeAll(async () => { c = await loadAll({ root: CONTENT, lang: 'vi', publicBuild: false }) }, 300_000)
+beforeAll(async () => { c = await loadAll({ root: CONTENT, lang: 'vi', publicBuild: false }) }, slow(300_000))
 
 // The owner's naming of the two discus species (2026-11-07), in the real content as /redirects.json is built from it.
 // Symphysodon aequifasciatus, the discus shops sell, took the plain name and address from Symphysodon discus.

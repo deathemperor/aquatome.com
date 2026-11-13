@@ -27,7 +27,8 @@ export async function steadyRead<T extends { score: number }>(read: () => Promis
 const TEMPLATE = withTanks(readFileSync(new URL('./prompts/review.md', import.meta.url), 'utf8'))
 const SCHEMA = { type: 'object', properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } }, required: ['score', 'notes'] }
 /** `hedges`: the reviewer also pairs each hedged sentence with its new one (hedges.ts), and `lost` has those said more surely. */
-type Opts = { hedges?: boolean }
+/** `figures`: what the editor was told to do to a page's figures, so the reviewer holds it right (fit-rewrite.ts, a breed page's units). */
+type Opts = { hedges?: boolean; figures?: string }
 export type Review = { score: number; notes: string[]; lost: HedgePair[] }
 const ask = (o: Opts, from: string, to: string) => (o.hedges
   ? { more: `\n\n${hedgesAsk(from, to)}`, schema: { ...SCHEMA, properties: { ...SCHEMA.properties, hedges: HEDGES_SCHEMA }, required: [...SCHEMA.required, 'hedges'] } }
@@ -51,7 +52,7 @@ notes: up to 10 short, concrete problems (in English), quoting the phrase. Empty
 export async function reviewRewrite(llm: Llm, parts: { before: string; after: string }[], o: Opts = {}): Promise<Review> {
   const body = parts.map((p, i) => `### ${i + 1}\nBEFORE:\n${p.before}\nAFTER:\n${p.after}`).join('\n\n')
   const { more, schema } = ask(o, 'BEFORE', 'AFTER')
-  const r = await llm<{ score: number; notes: string[]; hedges?: HedgePair[] }>({ system: 'You are a strict Vietnamese editor checking a rewrite. Reply only with JSON.', prompt: `${SAME}${more}\n\n${body.slice(0, 80_000)}`, schema })
+  const r = await llm<{ score: number; notes: string[]; hedges?: HedgePair[] }>({ system: 'You are a strict Vietnamese editor checking a rewrite. Reply only with JSON.', prompt: `${SAME}${o.figures ? `\n${o.figures}` : ''}${more}\n\n${body.slice(0, 80_000)}`, schema })
   const lost = hedgesLost(r.hedges ?? [], parts.map(p => p.before).join('\n'), parts.map(p => p.after).join('\n'))
   return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: (r.notes ?? []).slice(0, 10), lost }
 }

@@ -9,6 +9,7 @@ import { healthyKeys, isApiError, loadKeys, rotate, type Attempt, type KeyEntry 
 import { ledgerClient, usdCap, type Stopped } from '../fishid/ledger'
 import { relayFetch } from '../fishid/relay'
 import { turnsOf } from '../fishid/transcript'
+import { fileClashes } from './clash-store'
 import { handoverFor } from './handover'
 import { sectionSearch } from './section-search'
 import { answerQuestion, CHAT_LIMITS, MAX_TOKENS, OPENING_TOKENS, type ChatRun, type Earlier, type Start } from './agent'
@@ -437,6 +438,8 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
         ...(onOpening ? { opening: true, onOpening } : {}),
       })
       trail = out
+      // Handbook text only, on the owner's account only (clashes.ts). Never in the reader's way.
+      if (env.CHAT === 'owner' && out.answer?.clashes.length) wait(fileClashes(env.UPLOADS, hb, out.answer.clashes, q.lang, now).catch(e => console.error('chat clashes:', e)))
       if (out.dropped.length) console.log(JSON.stringify({ chat: 'dropped', dropped: out.dropped }))
       // No key answered a call: resting or unavailable (ours), or our request refused (failed: a 400 that isn't the
       // key's; out of credit also comes as a 400, and the key's fault goes to the next key). The run out of time:
