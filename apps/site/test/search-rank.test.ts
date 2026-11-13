@@ -21,6 +21,18 @@ test('accents, đ, a leading "cá" and a name in brackets are matched as readers
   expect(urls(namedFirst('Betta', ds))[0]).toBe('betta')
 })
 
+// The chief of staff, 2026-11-13: renamed for the owner, each lands on its own page; the apple snails' "ốc táo" and the
+// water hyacinth's "bèo tây" find no fish or frogbit first.
+test('the names keepers use come first, and words another page shares only in part move nothing', () => {
+  const ds = [doc('oc-mystery', 'Ốc mystery', 'Pomacea diffusa, Ốc táo gai, Mystery snail'), doc('ca-tao-do', 'Cá táo đỏ', 'Glossolepis incisus, Red rainbowfish, Cá cầu vồng đỏ, Cá cầu vồng táo đỏ'), doc('beo-nhat', 'Bèo Nhật', 'Limnobium laevigatum, Amazon frogbit')]
+  expect(urls(namedFirst('táo đỏ', ds))[0]).toBe('ca-tao-do')
+  expect(urls(namedFirst('cá cầu vồng táo đỏ', ds))[0]).toBe('ca-tao-do')
+  expect(urls(namedFirst('cầu vồng đỏ', ds))[0]).toBe('ca-tao-do')
+  expect(urls(namedFirst('bèo nhật', ds))[0]).toBe('beo-nhat')
+  expect(urls(namedFirst('ốc táo', ds))).toEqual(urls(ds))
+  expect(urls(namedFirst('bèo tây', ds))).toEqual(urls(ds))
+})
+
 test("a page's old name, kept as another name too, is one alias", () => {
   const t = { name: 'Cá đĩa', altNames: ['Discus', 'Cá đĩa nâu'], redirectFrom: [{ slug: 'ca-dia-nau', name: 'Cá đĩa nâu' }] }
   expect(searchAliases(t, 'Symphysodon aequifasciatus')).toBe('Symphysodon aequifasciatus, Discus, Cá đĩa nâu, ca dia, ca dia nau')

@@ -73,11 +73,14 @@ test('the report counts each phrase\'s pages and times instead of listing every 
 
 test('every Vietnamese writer\'s style guide names each fish as the owner settled, and the name it no longer has', () => {
   for (const r of SWAPPED) {
-    const line = VI_STYLE.split('\n').find(l => l.startsWith(`- ${r.fish.join(', ')}:`))
+    // As a writer reads them: the patterns for abbreviated names ("P. luminatus") are the rule's alone.
+    const line = VI_STYLE.split('\n').find(l => l.startsWith(`- ${r.fish.filter(f => !/[\\[(?|]/.test(f)).join(', ')}:`))
     expect(line, r.fish[0]).toBeDefined()
     for (const now of r.now.split(', ')) expect(line).toContain(`"${now}"`)
     expect(line).toContain(`không gọi là "${r.was}"`)
   }
   // The guide writer reads the same style guide.
   expect(VI_STYLE).toContain('"cá chì", không gọi là "cá bút chì" ("cá bút chì" là Crossocheilus')
+  // A name that is another animal's is kept off the page's fish, and said to be the other's.
+  expect(VI_STYLE).toContain('- Asellus aquaticus: "Asellus aquaticus", không gọi là "Rận nước" (tên của loài khác).')
 })
