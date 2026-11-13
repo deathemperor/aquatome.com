@@ -63,20 +63,29 @@ test("a chip's picture keeps its fish in a 3:2 crop, by a box the engine found; 
   expect([am!.img, am!.imgBox]).toEqual([undefined, undefined])
 })
 
-// Astra's read of 14 Nov: the pick took each member's head alone, so a head that didn't qualify hid the photo after it,
-// and a narrow head beat a wide second photo.
-test("a chip's picture may be any of a member's photos: a head that doesn't qualify gives way to the next, and a wide one comes first", async () => {
+// Astra's read of 14 Nov: the pick took each member's head alone, so a head that didn't qualify hid the photo after it.
+// Heads still come first, wider ones before narrower: a page's head is the photo the engine ranked best.
+test("a chip's picture is a member's head where one qualifies, wider first, else another of a member's photos", async () => {
   const fits = (name: string, w: number) => photo(name, w, w * 2 / 3, { subject: { x0: w * 0.3, y0: w * 0.2, x1: w * 0.7, y1: w * 0.45 } })
   const madeUp = photo('made-up', 960, 640, { subject: { x0: 0, y0: 0, x1: 960, y1: 640 } }), second = fits('second', 960)
-  const narrow = fits('narrow', 480), wide = fits('wide', 960)
-  const photos: Record<string, Photo[]> = { 'symphysodon-aequifasciatus': [madeUp, second], 'pterophyllum-scalare': [narrow, wide] }
+  const narrowHead = fits('narrow-head', 480), wideOther = fits('wide-other', 960), wideHead = fits('wide-head', 960)
+  const photos: Record<string, Photo[]> = {
+    'symphysodon-aequifasciatus': [madeUp, second],
+    'pterophyllum-scalare': [narrowHead, wideOther],
+    'apistogramma-cacatuoides': [wideHead],
+  }
   const edit = (c: Content): Content => ({ ...c, species: c.species.map(s => ({ ...s, photos: photos[s.id] ?? [] })), breeds: c.breeds.map(b => ({ ...b, photos: [] })) })
-  const [dia, tien] = await row('vi', [
+  const [dia, tien, am] = await row('vi', [
     { id: 'dia', names: { vi: 'Dĩa' }, match: { genus: ['Symphysodon'] } },
     { id: 'ong-tien', names: { vi: 'Ông tiên' }, match: { genus: ['Pterophyllum'] } },
+    { id: 'cichlid-chau-my', names: { vi: 'Cichlid châu Mỹ' }, match: { group: ['cichlids'], places: AMERICAS } },
   ], edit)
+  // Dĩa's head has only the loader's made-up box: its second photo serves.
   expect(dia!.img).toBe(cardSrc(second))
-  expect(tien!.img).toBe(cardSrc(wide))
+  // A narrow head still beats a wide photo that isn't one.
+  expect(tien!.img).toBe(cardSrc(narrowHead))
+  // The wider chip, with the others' photos taken: a head first (the cockatoo cichlid's), before the angelfish's other photo.
+  expect(am!.img).toBe(cardSrc(wideHead))
 })
 
 // The chips as the curation file holds them, in every language's index on the fixture: whole and consistent.

@@ -1,4 +1,4 @@
-import { boxFractions, FIRST_GUIDES, FIRST_PLANTS, frameOf, photoFitsCard, POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, unmarked, type BreedEntity, type Chip, type Content, type Curation, type Loop, type Photo, type PlantEntity, type Range, type SpeciesEntity, type Traits } from '@aq/schema'
+import { boxFractions, cleanPhoto, FIRST_GUIDES, FIRST_PLANTS, frameOf, photoFitsCard, POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, unmarked, type BreedEntity, type Chip, type Content, type Curation, type Loop, type Photo, type PlantEntity, type Range, type SpeciesEntity, type Traits } from '@aq/schema'
 import type { Box, KindShards, PageDoc } from '@aq/schema/app-page'
 import type { SpeciesIndexItem } from '../scripts/filter'
 import { breedFigures, speciesOf, type BreedFigures } from './breeds'
@@ -281,10 +281,13 @@ export function chipsFor(lang: Lang, c: Content, everySpecies: Content['species'
   for (const x of [...held].sort((a, b) => a.members.length - b.members.length)) {
     const cover = x.chip.cover ?? [], at = (id: string) => (cover.includes(id) ? cover.indexOf(id) : cover.length)
     const ranked = [...x.members].sort((a, b) => at(a.id) - at(b.id) || Math.min(b.photos.length, 3) - Math.min(a.photos.length, 3) || a.t.name.localeCompare(b.t.name, lang))
-    // Every real photo of each member, in its page's order, not only the one its card leads with: a head that doesn't
-    // qualify leaves the member's next photo in the running.
-    const photos = ranked.flatMap(m => m.photos.filter(p => !p.generated && unmarked(p) && !refusedByCards(p) && foundBox(p) && frameOf(p.width / p.height, boxFractions(p), CHIP_RATIO).fit === 'cover'))
-    const p = [...photos.filter(p => p.width >= 640), ...photos].find(p => !used.has(p.url))
+    // The members' heads first, the photo each card leads with and the engine ranked best; then their other photos, so a
+    // head that doesn't qualify leaves the member's next photo in the running. 640 px wide or more first, within each.
+    const fits = (p: Photo) => !p.generated && unmarked(p) && !refusedByCards(p) && foundBox(p) && frameOf(p.width / p.height, boxFractions(p), CHIP_RATIO).fit === 'cover'
+    const heads = ranked.flatMap(m => { const h = cleanPhoto(m.photos); return h && fits(h) ? [h] : [] }), head = new Set(heads)
+    const others = ranked.flatMap(m => m.photos.filter(p => !head.has(p) && fits(p)))
+    const wide = (ps: Photo[]) => [...ps.filter(p => p.width >= 640), ...ps]
+    const p = [...wide(heads), ...wide(others)].find(p => !used.has(p.url))
     if (p) { used.add(p.url); pic.set(x.chip.id, p) }
   }
   return held.map((x, i) => {
