@@ -30,14 +30,14 @@ struct LightsView: View {
             AboutText()
           }
           .font(.footnote).foregroundStyle(.secondary).padding(.horizontal, 4)
-          // Week Aqua lights after all of the Chihiros screen, which the tab is named for: last for VoiceOver too.
+          // Week Aqua lights after all of the Chihiros screen: last for VoiceOver too.
           WeekAquaEntry().modifier(Panel())
         }
         .padding()
       }
       .background(Color(.systemGroupedBackground))
       .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
-      .navigationTitle("Đèn Chihiros")
+      .navigationTitle("Đèn")
       .profileButton()
       .navigationDestination(isPresented: $weekAqua.isOpen) { WeekAquaView() }
       // What just happened, and writing what is set, stay in view wherever the screen is scrolled (the site's write bar

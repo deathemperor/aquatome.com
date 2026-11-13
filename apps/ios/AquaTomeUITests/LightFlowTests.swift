@@ -949,9 +949,13 @@ final class LightFlowTests: XCTestCase {
     app.openAccount()
     app.signInWithStandInApple()
     app.openTab("Đèn")
+    // The line is there before the first send, so sending doesn't push the cards below down.
+    expect(app, "lamp-status", contains: "Chưa gửi lệnh nào")
     tap(app, "lamp-off")
     expect(app, "lamp-sent", contains: "off")
     expect(app, "lamp-status", contains: "Đã gửi “Tắt”")
+    // The time as the schedule writes it, 24-hour whatever the phone's setting.
+    XCTAssertNotNil(element(app, "lamp-status").label.range(of: #"lúc \d{2}:\d{2}\.$"#, options: .regularExpression), element(app, "lamp-status").label)
     tap(app, "lamp-blue")
     expect(app, "lamp-sent", contains: "off blue")
     expect(app, "lamp-status", contains: "Đã gửi “Xanh dương”")

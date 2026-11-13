@@ -3147,6 +3147,28 @@
         }
       }
     },
+    "Chưa gửi lệnh nào": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum ada perintah yang dikirim"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum ada arahan dihantar"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังไม่ได้ส่งคำสั่ง"
+          }
+        }
+      }
+    },
     "Chưa gửi lệnh: %@": {
       "localizations": {
         "id": {
@@ -18081,28 +18103,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "ไฟ Love Ecology"
-          }
-        }
-      }
-    },
-    "Đèn Chihiros": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lampu Chihiros"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lampu Chihiros"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "โคมไฟ Chihiros"
           }
         }
       }
