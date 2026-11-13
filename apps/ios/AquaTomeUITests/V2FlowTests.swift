@@ -1024,12 +1024,14 @@ final class V2FlowTests: XCTestCase {
       }
       XCTAssertTrue(strip.buttons.allElementsBoundByIndex.last?.isHittable == true, "\(id)'s last item never came into view")
       XCTAssertTrue(shown.exists, "scrolling \(id) to its end went back")
-      // Up, from the row: the page scrolls.
+      // Up, from the row: the page scrolls. Held at the end, so it doesn't glide on past the next row; then back down.
       let top = strip.frame.minY, o = app.coordinate(withNormalizedOffset: .zero), x = app.frame.width * 0.5
-      o.withOffset(CGVector(dx: x, dy: y)).press(forDuration: 0, thenDragTo: o.withOffset(CGVector(dx: x, dy: y - 200)), withVelocity: XCUIGestureVelocity(500), thenHoldForDuration: 0)
+      o.withOffset(CGVector(dx: x, dy: y)).press(forDuration: 0, thenDragTo: o.withOffset(CGVector(dx: x, dy: y - 200)), withVelocity: XCUIGestureVelocity(500), thenHoldForDuration: 0.5)
       Thread.sleep(forTimeInterval: 1)
       XCTAssertLessThan(strip.frame.minY, top - 100, "a swipe up that started on \(id) didn't scroll the page")
       XCTAssertTrue(shown.exists, "a swipe up on \(id) went back")
+      o.withOffset(CGVector(dx: x, dy: y - 200)).press(forDuration: 0, thenDragTo: o.withOffset(CGVector(dx: x, dy: y)), withVelocity: XCUIGestureVelocity(500), thenHoldForDuration: 0.5)
+      Thread.sleep(forTimeInterval: 1)
     }
   }
 
@@ -1047,7 +1049,8 @@ final class V2FlowTests: XCTestCase {
       .press(forDuration: 0, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.3, dy: 0.25)), withVelocity: .default, thenHoldForDuration: 0)
     XCTAssertFalse(shown.waitForNonExistence(timeout: 2), "a drag up the page from its edge went back")
     XCTAssertLessThan(lead.frame.minY, top - 100, "a drag up the page from its edge didn't scroll it")
-    edgeSwipe(app, fast: false, at: 0.5)
+    // Off a sideways row: in this build a row takes a swipe from the very edge (`offRows`).
+    edgeSwipe(app, fast: false, at: offRows(app, 0.5))
     XCTAssertTrue(shown.waitForNonExistence(timeout: 5), "the edge swipe didn't go back")
   }
 
