@@ -329,6 +329,9 @@ test('an accepted draft is saved as the step kept it, logged with who accepted i
   await writeFile(draftPath(root), kept.replace('"broken": 3', '"broken": 2'))
   expect(await makeGlossaryEntry(root, { research: none, llm: none }, 'lua', { kind: 'aquascaping', accept: 'the chief of staff' })).toEqual({ id: 'lua', refused: ['the kept draft is not as the step kept it'] })
   expect(await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8')).toBe(before)
+  // A later draft kept, the earlier one put back byte for byte is still one the step kept.
+  await keptDraft(root, { ...sixth.entry, body: '<p>Bản sau.</p>' }, sixth.notes.slice(0, 1), sixth.notes.slice(1, 4))
+  expect(await readFile(draftPath(root), 'utf8')).not.toBe(kept)
   // Accepted as kept: saved, with no model call, the draft gone.
   await writeFile(draftPath(root), kept)
   const r = await makeGlossaryEntry(root, { research: none, llm: none }, 'lua', { kind: 'aquascaping', accept: 'the chief of staff', now: () => new Date('2026-11-14T00:00:00Z') })

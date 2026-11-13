@@ -222,15 +222,16 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   const factsFile = join(root, 'engine-state/glossary', `${id}.json`)
   const saved = await read<TopicFacts>(factsFile).catch(() => null)
   const draftFile = join(root, 'engine-state/glossary', `${id}.draft.json`)
-  // A kept draft, revised or accepted, goes with the research it was written from, and only as the step kept it: the file
-  // the SHA-256 the review log has for it (Codex's read, 14 Nov 2026), or one kept before the log had them, by its own.
+  // A kept draft, revised or accepted, goes with the research it was written from, and only as the step kept it: a file
+  // whose SHA-256 the review log has for a draft of this term (Codex's read, 14 Nov 2026), or one kept before the log had
+  // them, by its own. An earlier kept draft counts, put back byte for byte (the chief of staff's fallback to Lũa's sixth).
   const draftText = o.fromDraft || o.accept ? await readFile(draftFile, 'utf8').catch(() => null) : null
   const draft = draftText === null ? null : JSON.parse(draftText) as Draft
   if ((o.fromDraft || o.accept) && (!draft || !saved)) return { id, refused: [`no kept draft${saved ? '' : ' or research'} to ${o.accept ? 'accept' : 'revise'}`] }
   if (draft) {
     const traces = (await readReviews(root, 'glossary'))[`vi/glossary/${id}`] ?? []
-    const recorded = traces.find(t => t.draft)?.draft ?? LEGACY_DRAFTS[id]
-    if (recorded !== sha(draftText!)) return { id, refused: ['the kept draft is not as the step kept it'] }
+    const ours = new Set([...traces.flatMap(t => (t.draft ? [t.draft] : [])), ...(LEGACY_DRAFTS[id] ? [LEGACY_DRAFTS[id]] : [])])
+    if (!ours.has(sha(draftText!))) return { id, refused: ['the kept draft is not as the step kept it'] }
   }
   if (o.accept && refusals(draft!).length) return { id, refused: refusals(draft!) }
   const kept = o.reuse || draft ? saved : null
