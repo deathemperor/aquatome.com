@@ -33,6 +33,11 @@ then validates the actual recheck set and the privacy guard; a failure restores
 its original input bytes. No content, photo, original, approval fingerprint or
 source permission is rewritten. History is untouched.
 
+`pnpm engine photo-privacy --write` uses the repository root, regardless of the
+package working directory. It prints one controlled summary line and exits
+nonzero on validation failure after restoring the input. The publication hook must call it
+after merging current main and kept work, before verification, commit and push.
+
 The checked report records counts and fingerprints for each affected state file
 and the generated review. The baseline is the commit named in the report; every
 decision difference and waiting difference must be zero. A second run is

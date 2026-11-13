@@ -121,6 +121,18 @@ export async function migratePhotoPrivacy(root:string,write=false) {
  }
  return {version:'photo-observations-v1',written:write,files:changes,recheckCount:beforeRechecks.length,decisionDifferences:0,waitingDifferences:0,modelCalls:0,nativeImageAttempts:0}
 }
+/** Publication's model-free boundary; never print upstream diagnostics or observed wording. */
+export async function runPhotoPrivacyCommand(root:string,write:boolean,print:(line:string)=>void=console.log):Promise<number> {
+ try {
+  const report=await migratePhotoPrivacy(root,write)
+  const records=report.files.reduce((n,f)=>n+f.recordsChanged,0)
+  print(`photo-privacy: ${write?'migrated':'dry run'}, ${records} records changed, decisions 0, waiting 0, rechecks ${report.recheckCount}`)
+  return 0
+ } catch {
+  print('photo-privacy: migration failed; input restored; not publishable')
+  return 1
+ }
+}
 if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)){
  const {values}=parseArgs({options:{root:{type:'string'},write:{type:'boolean',default:false},report:{type:'string'}}})
  const report=await migratePhotoPrivacy(resolve(values.root??process.cwd()),values.write)

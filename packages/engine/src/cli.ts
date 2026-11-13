@@ -107,6 +107,7 @@ import { DEAD_SCREEN_SCHEMA, screenDead } from './dead-screen'
 import { GUIDE_PHOTO_SCHEMA, screenGuidePhotos, type GuidePhotoDeps } from './guide-photos'
 import { screenWatermarks, visionText, WATERMARK_SCHEMA } from './watermarks'
 import { imageSteps } from './image-steps'
+import { runPhotoPrivacyCommand } from './photo-privacy'
 import { calibrateGenerated, calibrateMarks, type CalibrationCase } from './image-calibration'
 import { codexImageJson, codexNativeImage, imageCache, readImageQuota } from './codex-images'
 import { NO_TRACE_SCHEMA, NO_TRACE_MODEL } from './image-transforms'
@@ -157,7 +158,7 @@ const readersWanted = (() => {
 /** No people or marks: the model guide-photos and video-stills ask. */
 const guidePhotoLook: GuidePhotoDeps['look'] = (file, prompt) => claudeVision({ system: 'You look at pictures for an aquarium handbook. Reply only with JSON.', prompt, schema: GUIDE_PHOTO_SCHEMA, file, model: process.env.GUIDE_PHOTOS_MODEL ?? 'opus' })
 
-const { positionals, values } = parseArgs({ allowPositionals: true, options: { manifest: { type: 'string' }, heads: { type: 'boolean' }, 'back-check': { type: 'boolean' }, sources: { type: 'string' }, phrases: { type: 'boolean' }, calendar: { type: 'boolean' }, except: { type: 'string' }, limit: { type: 'string' }, fill: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' }, popular: { type: 'boolean' }, titles: { type: 'string' }, 'photo-cap': { type: 'string' }, records: { type: 'string' }, 'no-new-pages': { type: 'boolean' }, video: { type: 'string' }, 'reviewed-before': { type: 'string' }, 'rechecked-since': { type: 'string' }, class: { type: 'string' }, clear: { type: 'boolean' }, days: { type: 'string' }, check: { type: 'boolean' }, gsc: { type: 'string' }, from: { type: 'string' }, mends: { type: 'string' }, first: { type: 'string' }, front: { type: 'boolean' }, record: { type: 'boolean' } } })
+const { positionals, values } = parseArgs({ allowPositionals: true, options: { write: { type: 'boolean' }, manifest: { type: 'string' }, heads: { type: 'boolean' }, 'back-check': { type: 'boolean' }, sources: { type: 'string' }, phrases: { type: 'boolean' }, calendar: { type: 'boolean' }, except: { type: 'string' }, limit: { type: 'string' }, fill: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' }, popular: { type: 'boolean' }, titles: { type: 'string' }, 'photo-cap': { type: 'string' }, records: { type: 'string' }, 'no-new-pages': { type: 'boolean' }, video: { type: 'string' }, 'reviewed-before': { type: 'string' }, 'rechecked-since': { type: 'string' }, class: { type: 'string' }, clear: { type: 'boolean' }, days: { type: 'string' }, check: { type: 'boolean' }, gsc: { type: 'string' }, from: { type: 'string' }, mends: { type: 'string' }, first: { type: 'string' }, front: { type: 'boolean' }, record: { type: 'boolean' } } })
 
 /**
  * Openverse's API (anonymous: 20 requests a minute, 200 a day). A registered Openverse app raises that: its client id and
@@ -219,7 +220,9 @@ async function covers(o: { redo?: boolean; limit?: number }) {
   for (const f of cv.failed) console.log(`cover failed: ${f}`)
 }
 
-if (cmd === 'run' || cmd === 'card-fill') {
+if (cmd === 'photo-privacy') {
+  process.exitCode = await runPhotoPrivacyCommand(ROOT, values.write === true)
+} else if (cmd === 'run' || cmd === 'card-fill') {
   const list = (v?: string) => v?.split(',').map(s => s.trim()) as SourceId[] | undefined
   const except = list(values.except)
   const bad = [...list(values.sources) ?? [], ...except ?? []].filter(s => !(SOURCE_IDS as readonly string[]).includes(s))

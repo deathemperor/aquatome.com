@@ -7,7 +7,7 @@ import sharp from 'sharp'
 import { awaitsScreen, ocrHit } from '@aq/schema'
 import { summarizeOcr, compactScreen, compactVerdict, photoReason, observationHash } from '../src/photo-observations'
 import { writePhotoState } from '../src/photo-state'
-import { migratePhotoPrivacy, assertPhotoPrivacy, photoPrivacyViolations, compactPhotoReview, reviewPrivacyViolations } from '../src/photo-privacy'
+import { migratePhotoPrivacy, assertPhotoPrivacy, photoPrivacyViolations, compactPhotoReview, reviewPrivacyViolations, runPhotoPrivacyCommand } from '../src/photo-privacy'
 import { screenWatermarks } from '../src/watermarks'
 import { screenGuidePhotos } from '../src/guide-photos'
 import { checkPagePhotos, recheckCandidates } from '../src/photo-check'
@@ -116,4 +116,31 @@ test('the whole-state guard rejects free still diagnostics even when a writer by
  await expect(assertPhotoPrivacy(r)).resolves.toBeUndefined()
  const output=await load(r,file);expect(output.guide.timed).toBe(true);expect(output.guide.kept[2]).toBe('rejected');expect(output.guide).not.toHaveProperty('otherProse')
  expect(photoPrivacyViolations('_video-stills.json',{guide:{at:'2026-11-12',otherProse:trip}}).length).toBeGreaterThan(0)
+})
+
+
+test('publication migration uses the repository root and one safe line, and a failed validation restores input',async()=>{
+ const cli=await readFile(fileURLToPath(new URL('../src/cli.ts',import.meta.url)),'utf8')
+ expect(cli).toContain("const ROOT = fileURLToPath(new URL('../../..', import.meta.url))")
+ expect(cli).toContain("cmd === 'photo-privacy'")
+ expect(cli).toContain('await runPhotoPrivacyCommand(ROOT, values.write === true)')
+ expect(cli).toContain("write: { type: 'boolean' }")
+ const r=await root(),file='engine-state/_photo-watermarks.json',lines:string[]=[]
+ await put(r,file,{photo:{ocr:[],watermark:false,what:trip}})
+ const before=await readFile(join(r,file),'utf8')
+ expect(await runPhotoPrivacyCommand(r,false,line=>lines.push(line))).toBe(0)
+ expect(await readFile(join(r,file),'utf8')).toBe(before)
+ expect(await runPhotoPrivacyCommand(r,true,line=>lines.push(line))).toBe(0)
+ await assertPhotoPrivacy(r)
+ expect(lines.at(-1)).toMatch(/^photo-privacy: migrated, 1 records changed, decisions 0, waiting 0, rechecks /)
+ expect(await runPhotoPrivacyCommand(r,true,line=>lines.push(line))).toBe(0)
+ expect(lines.at(-1)).toMatch(/migrated, 0 records changed/)
+ await put(r,file,{photo:{ocr:[],watermark:false,what:trip}})
+ await put(r,'engine-state/unexpected.json',{photo:{ocr:[],what:trip}})
+ const rejected=await readFile(join(r,file),'utf8')
+ expect(await runPhotoPrivacyCommand(r,true,line=>lines.push(line))).toBe(1)
+ expect(await readFile(join(r,file),'utf8')).toBe(rejected)
+ expect(lines.at(-1)).toBe('photo-privacy: migration failed; input restored; not publishable')
+ expect(lines).toHaveLength(4)
+ expect(lines.join('\n')).not.toContain(trip)
 })
