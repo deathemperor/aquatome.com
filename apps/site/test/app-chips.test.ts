@@ -63,6 +63,22 @@ test("a chip's picture keeps its fish in a 3:2 crop, by a box the engine found; 
   expect([am!.img, am!.imgBox]).toEqual([undefined, undefined])
 })
 
+// Astra's read of 14 Nov: the pick took each member's head alone, so a head that didn't qualify hid the photo after it,
+// and a narrow head beat a wide second photo.
+test("a chip's picture may be any of a member's photos: a head that doesn't qualify gives way to the next, and a wide one comes first", async () => {
+  const fits = (name: string, w: number) => photo(name, w, w * 2 / 3, { subject: { x0: w * 0.3, y0: w * 0.2, x1: w * 0.7, y1: w * 0.45 } })
+  const madeUp = photo('made-up', 960, 640, { subject: { x0: 0, y0: 0, x1: 960, y1: 640 } }), second = fits('second', 960)
+  const narrow = fits('narrow', 480), wide = fits('wide', 960)
+  const photos: Record<string, Photo[]> = { 'symphysodon-aequifasciatus': [madeUp, second], 'pterophyllum-scalare': [narrow, wide] }
+  const edit = (c: Content): Content => ({ ...c, species: c.species.map(s => ({ ...s, photos: photos[s.id] ?? [] })), breeds: c.breeds.map(b => ({ ...b, photos: [] })) })
+  const [dia, tien] = await row('vi', [
+    { id: 'dia', names: { vi: 'Dĩa' }, match: { genus: ['Symphysodon'] } },
+    { id: 'ong-tien', names: { vi: 'Ông tiên' }, match: { genus: ['Pterophyllum'] } },
+  ], edit)
+  expect(dia!.img).toBe(cardSrc(second))
+  expect(tien!.img).toBe(cardSrc(wide))
+})
+
 // The chips as the curation file holds them, in every language's index on the fixture: whole and consistent.
 test("every language's index carries the file's chips whole: its fish are its items, its count theirs, its order 1 to n", async () => {
   const file = CurationSchema.parse(JSON.parse(readFileSync(new URL('../../../content/curation.json', import.meta.url), 'utf8')))
