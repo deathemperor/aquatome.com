@@ -134,7 +134,7 @@ test('a head a person picked that the check calls "none" stays first on its page
   expect(await photosOf(r, 'picked')).toEqual(['fish-far', 'fish-near'])
   expect(await photosOf(r, 'other')).toEqual(['fish'])
   expect(Object.keys(await json(r, 'engine-state/_photo-rejected.json'))).toEqual([url('river')])
-  expect(out.picked).toEqual([`species/picked: ${url('fish-far')} (the check says not a photo of it: a river, no fish in it; a head a person picked, so it stays)`])
+  expect(out.picked).toEqual([`species/picked: ${url('fish-far')} (the check says not a photo of it; a head a person picked, so it stays)`])
   expect(out.heads.moved).toEqual([`species/other: ${url('river')} -> ${url('fish')}`])
 })
 

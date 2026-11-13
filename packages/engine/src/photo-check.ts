@@ -510,7 +510,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   for (const [ref, u] of Object.entries(headPicks)) {
     const page = ref.split('/')[1]!
     const v = shown.some(x => x.page === page && x.url === u && !x.guide) ? verdict(u, page) : undefined
-    if (v?.ok === 'none' && pickStands(ref, u, cache, yes)) report.picked.push(`${ref}: ${u} (the check says not a photo of it: ${v.note}; a head a person picked, so it stays)`)
+    if (v?.ok === 'none' && pickStands(ref, u, cache, yes)) report.picked.push(`${ref}: ${u} (the check says not a photo of it; a head a person picked, so it stays)`)
   }
   const label = (id: string) => { const s = byId.get(id)!; return s.kind === 'breeds' ? (s.names[0] ?? id) : s.sci }
   const added: Record<string, string> = {}
