@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { makeGlossaryEntry, sfGlossaryUrl } from '../src/glossary-entry'
+import { makeGlossaryEntry, offLimits, sfGlossaryUrl } from '../src/glossary-entry'
 import type { TopicFacts } from '../src/topics'
 
 // The owner, 10 Nov 2026, of the Lũa term: "lũa sa tùng là gì, I had very hard time to get to know them". The fuller
@@ -92,4 +92,29 @@ test('a rewrite keeps the photos put on the term', async () => {
   const llm: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.97, notes: [] } : written) as never
   await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'lua', { kind: 'aquascaping' })
   expect(JSON.parse(await readFile(join(root, 'content/glossary/lua/entity.json'), 'utf8')).photos).toEqual([photo])
+})
+
+// A shop's listing on a marketplace, or a post on a social network, found by research through search: never a source, and
+// nothing it alone says reaches the writer (the owner's rule; the Site Lead, 13 Nov 2026).
+test('a marketplace\'s or a social network\'s page is never a source, nor are the facts that cite it', async () => {
+  expect(['https://shopee.vn/lua-sa-tung-i.1.2', 'https://www.lazada.vn/x', 'https://m.facebook.com/groups/x', 'https://www.tiktok.com/@x/video/1', 'https://youtube.com/shorts/x'].map(offLimits)).toEqual([true, true, true, true, true])
+  expect(['https://zenaquarius.com/lua-kim-sa-tung', 'https://www.youtube.com/watch?v=x', sfGlossaryUrl('bogwood')].map(offLimits)).toEqual([false, false, false])
+  const root = await site()
+  const shops: TopicFacts = {
+    ...facts,
+    facts: [...facts.facts, { section: 'other', fact: 'Shops sell "lũa kim sa tùng" by the kilogram', source: 3 }, { section: 'other', fact: 'Keepers call it "lũa sa tùng rừng"', source: 4 }],
+    sources: [...facts.sources, { url: 'https://shopee.vn/lua-sa-tung-i.1.2', title: 'Lũa sa tùng', kind: 'shop' }, { url: 'https://www.facebook.com/groups/thuysinh/posts/1', title: 'Hội thủy sinh', kind: 'forum' }],
+  }
+  let wrote = ''
+  const llm: Llm = async ({ prompt }) => {
+    if (prompt.startsWith('Below are FACTS')) return { score: 0.97, notes: [] } as never
+    wrote = prompt
+    return written as never
+  }
+  const r = await makeGlossaryEntry(root, { research: async () => shops as never, llm }, 'lua', { kind: 'aquascaping' })
+  expect(r).toMatchObject({ refs: 3 })
+  expect(wrote).not.toContain('kilogram')
+  expect(wrote).not.toContain('sa tùng rừng')
+  const e = JSON.parse(await readFile(join(root, 'content/glossary/lua/entity.json'), 'utf8'))
+  expect(e.refs.map((x: { url: string }) => x.url)).toEqual(facts.sources.map(x => x.url))
 })

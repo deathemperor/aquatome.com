@@ -4,6 +4,7 @@ import { join } from 'node:path'
 import { GlossarySchema, metricPage, QUALITY_THRESHOLD, TranslationSchema, type GlossaryEntity, type GuideEntity, type Translation } from '@aq/schema'
 import type { Llm } from './claude'
 import { VI_STYLE as STYLE } from './phrases'
+import { isMarketplace } from './marketplaces'
 import { logReviews } from './review-log'
 import { withTanks } from './round'
 import { sanitizeHtml, unescapePlain } from './sanitize'
@@ -18,6 +19,19 @@ type Entry = { definition: string; altNames: string[]; body: string; related: st
 
 /** Seriously Fish's glossary entry for a term, by its address there: a named source (their permission is on record). */
 export const sfGlossaryUrl = (slug: string) => `https://www.seriouslyfish.com/glossary/${slug}`
+
+const SOCIAL = ['facebook.com', 'fb.com', 'fb.me', 'instagram.com', 'tiktok.com']
+/**
+ * A page that is never a source: a marketplace's (reached only through its affiliate API) or a social network's. Research
+ * can cite one it found through search without fetching it (the Site Lead, 13 Nov 2026), likeliest for the kinds shops
+ * sell.
+ */
+export function offLimits(url: string): boolean {
+  if (isMarketplace(url)) return true
+  const u = new URL(url)
+  const h = u.hostname.toLowerCase()
+  return SOCIAL.some(d => h === d || h.endsWith(`.${d}`)) || (/(^|\.)youtube\.com$/.test(h) && u.pathname.startsWith('/shorts'))
+}
 
 /**
  * A glossary term's fuller Vietnamese entry, written by AquaTome from web research as its own guides are (topics.ts): the
@@ -44,7 +58,8 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   const researched = kept ?? await d.research<TopicFacts>({ system: 'You research fishkeeping topics carefully and cite every fact. Reply only with JSON.', prompt: researchPrompt({ topic, kind: o.kind }) + lead, schema: FACTS_SCHEMA, model: o.researchModel ?? 'opus' })
   if (!kept) { await mkdir(join(root, 'engine-state/glossary'), { recursive: true }); await writeFile(factsFile, `${JSON.stringify(researched, null, 2)}\n`) }
   if (!researched.found) return { id, skipped: 'nothing reliable found' }
-  const { facts, refs, sources } = viFacts(researched)
+  // Such a page goes, with the facts that cite it, before the writer sees them: no address, no source (viFacts).
+  const { facts, refs, sources } = viFacts({ ...researched, sources: researched.sources.map(x => (offLimits(x.url) ? { ...x, url: '' } : x)) })
   if (!facts.length) return { id, skipped: 'no cited facts' }
 
   // The other terms: what `related` may name, and the names an added other name may not take.
