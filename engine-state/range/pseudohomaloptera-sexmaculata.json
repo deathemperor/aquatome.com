@@ -1,0 +1,79 @@
+{
+  "id": "pseudohomaloptera-sexmaculata",
+  "native": {
+    "input": "0f9ae03d312114dc",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Ping River, a major tributary of the Chao Phraya system, flows through Chiang Mai and the species is known only from the Chao Phraya and Mae Klong watersheds, both located entirely within central and western Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "The Ping River, a major tributary of the Chao Phraya system, flows through Chiang Mai and the species is known only from the Chao Phraya and Mae Klong watersheds, both located entirely within central and western Thailand.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Mae Klong",
+        "source": "seriouslyfish",
+        "quote": "The Ping River, a major tributary of the Chao Phraya system, flows through Chiang Mai and the species is known only from the Chao Phraya and Mae Klong watersheds, both located entirely within central and western Thailand.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudohomaloptera sexmaculata",
+    "status": "ACCEPTED",
+    "taxonKey": 9580574,
+    "datasets": [
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}

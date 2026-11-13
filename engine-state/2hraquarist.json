@@ -478,11 +478,184 @@
     "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/aquascaping-ideas/george-farmer-1": {
-    "entityIds": [],
-    "updatedAt": "2026-11-10T20:11:43.978Z",
-    "status": "error",
-    "attempts": 0,
-    "error": "no archived copy (HTTP 429)"
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-george-farmer-1"
+    ],
+    "updatedAt": "2026-11-13T16:36:25.525Z",
+    "hash": "344624d959281429fe888bd43f2957c22c8aba2adab511cb44c5af0d9fdeb6eb",
+    "processedHash": "344624d959281429fe888bd43f2957c22c8aba2adab511cb44c5af0d9fdeb6eb",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/george-farmer-2": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-george-farmer-2"
+    ],
+    "updatedAt": "2026-11-13T16:37:42.820Z",
+    "hash": "5538504737586ebd3a4017019fa51d0b00ccdea825948fbc214b54d2e60caba8",
+    "processedHash": "5538504737586ebd3a4017019fa51d0b00ccdea825948fbc214b54d2e60caba8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/haiqal-rosli": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-haiqal-rosli"
+    ],
+    "updatedAt": "2026-11-13T16:38:56.683Z",
+    "hash": "10a880e1c3f403ad35408a12997d051bcafeaef0ba971062ef01cfcf108227d3",
+    "processedHash": "10a880e1c3f403ad35408a12997d051bcafeaef0ba971062ef01cfcf108227d3",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/herry-rasio-4": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-herry-rasio-4"
+    ],
+    "updatedAt": "2026-11-13T16:39:49.233Z",
+    "hash": "94eb091f1803fae4f939d6215807efa16cce376a299c3fcd742e0b76485e1100",
+    "processedHash": "94eb091f1803fae4f939d6215807efa16cce376a299c3fcd742e0b76485e1100",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/herry-rasio-5": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-herry-rasio-5"
+    ],
+    "updatedAt": "2026-11-13T16:40:52.460Z",
+    "hash": "74c6d9bc10a9981bd40bad5c798036c954302edfd6a9e540f5cb6179907985a2",
+    "processedHash": "74c6d9bc10a9981bd40bad5c798036c954302edfd6a9e540f5cb6179907985a2",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/herry-rasio-7": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-herry-rasio-7"
+    ],
+    "updatedAt": "2026-11-13T16:41:57.045Z",
+    "hash": "56b949348f003560495e8ff0c11902ae0ad1b0a0a04c5a7a9e237578927c15a0",
+    "processedHash": "56b949348f003560495e8ff0c11902ae0ad1b0a0a04c5a7a9e237578927c15a0",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/hiep-hong": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-hiep-hong"
+    ],
+    "updatedAt": "2026-11-13T16:42:45.237Z",
+    "hash": "f51f5b71e4fb65ad0635487ab39a4ed2831de28fddc444d11c0c082863738360",
+    "processedHash": "f51f5b71e4fb65ad0635487ab39a4ed2831de28fddc444d11c0c082863738360",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/hiep-hong-1": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-hiep-hong-1"
+    ],
+    "updatedAt": "2026-11-13T16:43:57.315Z",
+    "hash": "6d83d094d1fb3492552b7a95ee57e372df68dd2b9b18dc5533fb88ff8740da20",
+    "processedHash": "6d83d094d1fb3492552b7a95ee57e372df68dd2b9b18dc5533fb88ff8740da20",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/hiep-hong-natural-biotope": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-hiep-hong-natural-biotope"
+    ],
+    "updatedAt": "2026-11-13T16:44:49.760Z",
+    "hash": "78098e611bd422ece41df154a8ac50bb37ca597963764aabbc955096955fa653",
+    "processedHash": "78098e611bd422ece41df154a8ac50bb37ca597963764aabbc955096955fa653",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/indra-bob-wijaya-1": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-indra-bob-wijaya-1"
+    ],
+    "updatedAt": "2026-11-13T16:45:50.377Z",
+    "hash": "4fc9f8651b1537eb80e24278ca0f81cc1721393af5d41d1fec95e35b6c76beb3",
+    "processedHash": "4fc9f8651b1537eb80e24278ca0f81cc1721393af5d41d1fec95e35b6c76beb3",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/jeff-miotke": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-jeff-miotke"
+    ],
+    "updatedAt": "2026-11-13T16:46:47.750Z",
+    "hash": "147856603369bff755a98897c97ab2d17bb1a3c30eae1b0daa9c61d3db4abb43",
+    "processedHash": "147856603369bff755a98897c97ab2d17bb1a3c30eae1b0daa9c61d3db4abb43",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/jeff-miotke-1": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-jeff-miotke-1"
+    ],
+    "updatedAt": "2026-11-13T16:47:41.076Z",
+    "hash": "57156bfc9effa804539c8a50dc40caf8e69e5886d2a2b9139cade5d5fb5f5359",
+    "processedHash": "57156bfc9effa804539c8a50dc40caf8e69e5886d2a2b9139cade5d5fb5f5359",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/jeff-miotke-2": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-jeff-miotke-2"
+    ],
+    "updatedAt": "2026-11-13T16:48:21.973Z",
+    "hash": "3deb8193658f1e641b5eae7576be01753b7cbdf92790ecf49ac4fdecb2516b4c",
+    "processedHash": "3deb8193658f1e641b5eae7576be01753b7cbdf92790ecf49ac4fdecb2516b4c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/joe-harvey": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-joe-harvey"
+    ],
+    "updatedAt": "2026-11-13T16:48:57.984Z",
+    "hash": "6ef05d506db748b7d062ddbac55241defd1a7722e285f40e1c5a69e58d7a179b",
+    "processedHash": "6ef05d506db748b7d062ddbac55241defd1a7722e285f40e1c5a69e58d7a179b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/joe-harvey-1": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-joe-harvey-1"
+    ],
+    "updatedAt": "2026-11-13T16:49:58.904Z",
+    "hash": "7cac70551c5013bc76cf44248e349be3483b2d7d1e85a00d7ff2119e0d1a02d8",
+    "processedHash": "7cac70551c5013bc76cf44248e349be3483b2d7d1e85a00d7ff2119e0d1a02d8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/joe-harvey-8": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-joe-harvey-8"
+    ],
+    "updatedAt": "2026-11-13T16:50:50.242Z",
+    "hash": "8204dccb53a3293da70d9ccd3b3f8cef8650097e2c2c66b9ad8e7d2525bc2471",
+    "processedHash": "8204dccb53a3293da70d9ccd3b3f8cef8650097e2c2c66b9ad8e7d2525bc2471",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/josh-sim": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-josh-sim"
+    ],
+    "updatedAt": "2026-11-13T16:51:26.839Z",
+    "hash": "cd080b7fc12f7619860e86b04175bf40fa3578d2627c60eabf3c6af11c322dcb",
+    "processedHash": "cd080b7fc12f7619860e86b04175bf40fa3578d2627c60eabf3c6af11c322dcb",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/josh-sim-1": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-josh-sim-1"
+    ],
+    "updatedAt": "2026-11-13T16:52:34.271Z",
+    "hash": "c715e310e448c283efcd263b7d1e6dc976d9235e370596b457c1d6c7c6f05897",
+    "processedHash": "c715e310e448c283efcd263b7d1e6dc976d9235e370596b457c1d6c7c6f05897",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-limnophila-aromatica": {
     "entityIds": [

@@ -855,7 +855,12 @@
       "author": "Tino Strauss",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Piaractus_sp,_Zoo_Leipzig_01.jpg",
       "caption": "Piaractus sp., Zoo Leipzig",
-      "thumb": "https://media.aquatome.com/commons/392d55390a2f5a70-480.webp"
+      "thumb": "https://media.aquatome.com/commons/392d55390a2f5a70-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/392d55390a2f5a70-large.webp",
+        "width": 1805,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/a79e9968958de0a1.webp",
@@ -866,26 +871,6 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Schwarzer_Pacu_Piaractus_Tierpark_Hellabrunn-1.jpg",
       "caption": "Schwarzer Pacu (Colossoma macropomum), Tierpark Hellabrunn, München",
       "thumb": "https://media.aquatome.com/commons/a79e9968958de0a1-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/88fd48d6f28f99d9.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY-SA 2.0",
-      "author": "daryl_mitchell",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pacu_2_-_24322711986.jpg",
-      "caption": "Pacu 2 - 24322711986",
-      "thumb": "https://media.aquatome.com/commons/88fd48d6f28f99d9-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/9af1ebede428db05.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY-SA 2.0",
-      "author": "daryl_mitchell",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pacu_1.jpg",
-      "caption": "Pacu 1",
-      "thumb": "https://media.aquatome.com/commons/9af1ebede428db05-480.webp"
     }
   ],
   "videos": [],

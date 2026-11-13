@@ -10,6 +10,77 @@
     "brazil",
     "rio-canoas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "UY"
+      ],
+      "regions": [
+        "Rio Canoas",
+        "Rio Caveiras",
+        "La Plata"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: creek tributary of Rio Caveiras at Painel, about 27°55'S, 50°05'W, Lajes, Santa Catarina, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Caveiras"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "La Plata, Uruguay, Upper Uruguay, Canoas.",
+          "countries": [
+            "UY"
+          ],
+          "regions": [
+            "La Plata"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: rio Canoas and its tributaries in Santa Catarina, Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Canoas"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340201,
+      "total": 11,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "BR",
+          11
+        ]
+      ],
+      "cells": [
+        [
+          -52.03125,
+          -26.71875,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -28.125,
+          9,
+          9
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

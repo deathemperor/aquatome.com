@@ -1,0 +1,28 @@
+{
+  "slug": "ca-lau-kieng-spectracanthicus-murinus",
+  "name": "Cá lau kiếng Spectracanthicus murinus",
+  "altNames": [],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Spectracanthicus murinus Nijssen &amp; Isbrücker, 1987</li><li>Nơi lấy mẫu chuẩn: Poça de Pedra, sông Tapajós, miền đông bang Pará, Brazil.</li><li>Sách Đỏ IUCN: Ít quan tâm (đánh giá gần nhất năm 2018).</li></ul>",
+    "distribution:planetcatfish": "<p>Nam Mỹ: lưu vực Amazon, hạ lưu Amazon, sông Tapajós.</p>",
+    "habitat:planetcatfish": "<p>Nơi sống có ảnh chụp: Itaituba, trung lưu sông Tapajós.</p>",
+    "waterConditions:planetcatfish": "<ul><li>pH: 5,5 - 7,5</li><li>Nhiệt độ: 26,0-30,0°C</li></ul>",
+    "reproduction:planetcatfish": "<p>Đến nay mới có đúng một báo cáo về chuyện loài này sinh sản.</p>",
+    "notes:planetcatfish": "<p>Ở Spectracanthicus, màng vây lưng kéo dài chạm tới gai vây mỡ. Trong các loài cá lau kiếng, chỉ một số loài Baryancistrus, Parancistrus và một loài Hemiancistrus chưa được mô tả cũng có đặc điểm này. Muốn tách Spectracanthicus khỏi Baryancistrus và loài Hemiancistrus đó thì đếm răng: chi này có dưới 25 răng, hai nhóm kia có trên 25. Còn so với Parancistrus, Spectracanthicus có khe mang hẹp.</p><p>Nguồn gốc tên gọi. Tên chi: ghép từ tiếng Latin spectrum (hình dáng, bóng ma) và tiếng Hy Lạp akantha (gai).</p>",
+    "references:planetcatfish": "<p>Revue française d'Aquariologie Herpétologie v. 13 (no. 4) [for 1986], pp 94, Figs. 1-3.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.8
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-14"
+  }
+}

@@ -96,6 +96,8 @@ jobs:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # The owner's other Claude accounts, one token a line: the next when one is out (claude-accounts.ts).
           CLAUDE_CODE_OAUTH_TOKENS: ${{ secrets.CLAUDE_CODE_OAUTH_TOKENS }}
+          # Where the cloud starts in that list (claude-accounts.ts startAt): unset, the first.
+          CLAUDE_FIRST_ACCOUNT: ${{ vars.CLAUDE_FIRST_ACCOUNT }}
           # A line a call, and no call once this run has spent what was left (claude-accounts.ts).
           CLAUDE_COST_STEP: nightly-review
           CLAUDE_COST_LOG: ${{ runner.temp }}/aquatome-cost-nightly-review.jsonl

@@ -7,12 +7,34 @@
   "File:Wallago attu (1).jpg",
   "File:Wallago attu (Boal).jpg",
   "File:Wallago attu 71095517.jpg",
-  "File:Wallago attu (Helicopter Catfish).jpg"
+  "File:Wallago attu (Helicopter Catfish).jpg",
+  "inat:47844454",
+  "inat:47846477",
+  "inat:71095517",
+  "inat:108146590",
+  "inat:252656334",
+  "inat:252656356",
+  "inat:252656376",
+  "inat:575489224",
+  "inat:575489285",
+  "inat:575489336",
+  "inat:658950962",
+  "inat:676677866"
  ],
  "hashes": {
-  "https://media.aquatome.com/scotcat/a7a8dfd41b852806.webp": "4f4fcfa7870f8d81",
-  "https://media.aquatome.com/scotcat/f700ed32c6225146.webp": "7b3b6969d1771c7e",
   "https://media.aquatome.com/scotcat/5f4817f381769bcb.webp": "5cf0e164c18f962d"
  },
- "commons": "2026-11-10"
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 115010,
+  "pass": "done",
+  "after": {
+   "research": 370410904,
+   "agree": 298635725
+  }
+ },
+ "gbif": {
+  "key": 2337824,
+  "next": null
+ }
 }

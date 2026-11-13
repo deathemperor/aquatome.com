@@ -30,7 +30,11 @@ export function ownsMark(photo: Photo, source: SourceInfo, mark: MarkEvidence): 
     if(evidence.lettering!==true||typeof evidence.matchesSource!=='boolean'||typeof evidence.matchesRecordedAuthor!=='boolean')return false
     if(mark.owner==='source')return evidence.basis==='source-logo'&&evidence.matchesSource
     if(mark.owner!=='photographer'||photo.source==='planetcatfish')return false
-    if(photo.source==='seriouslyfish'||photo.source==='scotcat')return evidence.basis==='contributor-signature'&&!!signatureCredit(mark)
+    if(photo.source==='seriouslyfish'||photo.source==='scotcat'){
+      const identity=(s:string)=>s.normalize('NFKD').toLowerCase().replace(/[^\p{L}\p{N}]/gu,'')
+      const sourceIdentity=identity(source.name),recordedAuthor=sourceIdentity?identity(photo.author).split(sourceIdentity).join(''):''
+      return !!signatureCredit(mark)&&(evidence.basis==='contributor-signature'||evidence.basis==='recorded-author'&&evidence.matchesRecordedAuthor&&!!recordedAuthor)
+    }
     return evidence.basis==='recorded-author'&&evidence.matchesRecordedAuthor&&!!photo.author.replace(source.name,'').trim()
   }
   if (mark.owner === 'source') return [key(source.name), ...allowedHosts.slice(0, 1).map(key)].some(n => n.length >= 4 && text.includes(n))

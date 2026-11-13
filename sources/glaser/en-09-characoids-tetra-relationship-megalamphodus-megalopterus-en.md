@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/megalamphodus_megalopterus_en/
 title: Megalamphodus megalopterus - Aquarium Glaser GmbH
-fetchedAt: 2026-11-11T09:49:16.629Z
+fetchedAt: 2026-11-13T05:38:24.371Z
 hash: bedb3054739c8aad2cd55dd8e67e267e44e17f6f376051431bd4f8415fd22ffa
 ---
 

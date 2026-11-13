@@ -71,54 +71,54 @@
   "dataCard": {
     "tempC": [
       {
-        "source": "bwaquatics",
-        "value": {
-          "min": 24,
-          "max": 30
-        }
-      },
-      {
         "source": "seriouslyfish",
         "value": {
           "min": 22,
           "max": 28
         }
-      }
-    ],
-    "ph": [
+      },
       {
         "source": "bwaquatics",
         "value": {
-          "min": 6,
-          "max": 7.5
+          "min": 24,
+          "max": 29
         }
-      },
+      }
+    ],
+    "ph": [
       {
         "source": "seriouslyfish",
         "value": {
           "min": 7,
           "max": 8.5
         }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ],
     "sizeCm": [
       {
-        "source": "bwaquatics",
-        "value": 5.8
+        "source": "seriouslyfish",
+        "value": 6
       },
       {
-        "source": "seriouslyfish",
+        "source": "bwaquatics",
         "value": 6
       }
     ],
     "difficulty": [
       {
-        "source": "bwaquatics",
-        "value": 2
-      },
-      {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "bwaquatics",
+        "value": 2
       }
     ],
     "gh": [
@@ -142,7 +142,7 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/mahachaiensis",
-      "html": "<ul><li>Member of the Betta splendens complex, discovered in 2012 in Samut Sakhon Province, Thailand.</li><li>Maximum size: 2.3 inches (about 5.8 cm).</li><li>Temperament: males are very aggressive.</li><li>Diet: carnivorous.</li><li>Breeding: bubblenester.</li></ul>"
+      "html": "<p>Betta mahachaiensis is a member of the Betta splendens complex, described in 2012 from Samut Sakhon province in Thailand. IUCN Red List: Critically Endangered (according to Thailand Red Data: Vertebrates, Office of Natural Resources and Environmental Policy and Planning, 2017). The \"Wild Type\" is the natural green form of the species. It is known for its highly iridescent tail and the two bars on its cheek plates, and it is the only betta known to live in both fresh and brackish water. It is hardy and easy to keep, which makes it a great choice for beginners.</p>"
     },
     {
       "key": "quickFacts",
@@ -154,7 +154,7 @@
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/mahachaiensis",
-      "html": "<p>Betta mahachaiensis is a relatively new species of betta discovered in 2012 in Samut Sakhon Province of Thailand. It is native to brackish coastal waters of Thailand's Samut Sakhon and Samut Songkhram provinces, particularly around Mahachai.</p>"
+      "html": "<p>Native to the coast of the Gulf of Thailand around Samut Sakhon.</p>"
     },
     {
       "key": "distribution",
@@ -166,7 +166,7 @@
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/mahachaiensis",
-      "html": "<p>Inhabits mangrove swamps, tidal pools, and canals with nipa palms and dense vegetation. Tolerates slightly brackish, warm (24-30°C), and acidic to neutral (pH 6-7.5) water, relying on its labyrinth organ for breathing in low-oxygen environments.</p>"
+      "html": "<p>Lives in stagnant swamps, pools and ponds, often around nipa palms, in fresh to brackish water (1 to 10 ppt salinity) with a pH of about 6.9 to 7.8. Uses its labyrinth organ to breathe air.</p>"
     },
     {
       "key": "habitat",
@@ -190,7 +190,7 @@
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/mahachaiensis",
-      "html": "<ul><li>TDS: 60-200 (kept in soft water with low TDS, but they are more tolerant of water conditions).</li><li>Can be found in brackish water.</li><li>pH: 6.0</li><li>Temperature: 75-85°F (about 24-29°C); much better coloration at warmer temperatures above 78°F (about 26°C).</li></ul>"
+      "html": "<ul><li>pH: 6.0 to 7.5</li><li>Temperature: 24 to 29°C (much better coloration above 26°C)</li><li>TDS: 60 to 200 (kept in soft, low-TDS water, but it tolerates a wider range)</li></ul><p>Mahachais can live in brackish water, but they are not kept in brackish conditions here.</p>"
     },
     {
       "key": "waterConditions",
@@ -214,7 +214,7 @@
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/mahachaiensis",
-      "html": "<p>Males are very aggressive and should be kept alone or in tanks with non-male betta mates. Can be kept in a planted community tank of multiple females if there is adequate space.</p>"
+      "html": "<p>Males are VERY aggressive and should be kept alone or with non-male betta tankmates. Multiple females can be kept together in a planted community tank if there is enough space.</p>"
     },
     {
       "key": "behaviour",
@@ -226,7 +226,7 @@
       "key": "dimorphism",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/mahachaiensis",
-      "html": "<p>Males: dark brown to black body with iridescent green or blue scales forming a metallic sheen, vibrant red accents on caudal, anal and pelvic fins, intense coloration during display; operculum with iridescent green or blue scales and two parallel red vertical bars. Females are duller, brownish with muted red or green hints and less iridescence, with fainter opercular markings.</p>"
+      "html": "<p>Males are the most intense in colour, especially when displaying. Females are duller and brownish.</p>"
     },
     {
       "key": "dimorphism",
@@ -238,7 +238,7 @@
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/mahachaiensis",
-      "html": "<p>Bubblenester.</p>"
+      "html": "<p>Bubblenester. The male builds a bubble nest under a floating leaf or plants and places the eggs in it after spawning. Remove the female once spawning is done. Eggs hatch in 24 to 48 hours, and the fry are free-swimming about 3 days later. Start them on infusoria, then move to baby brine shrimp. Keep the surface calm so the nest stays intact.</p>"
     },
     {
       "key": "reproduction",
@@ -253,6 +253,12 @@
       "html": "<p>B. mahachaiensis has been considered a hybrid in the past, but molecular and morphological analyses have confirmed it to represent a distinct species. The specific name is derived from the coastal subdistrict of the same name in Samut Sakhon province, just south of Bangkok, where it was first discovered.</p><p>It can be distinguished from congeners by the following combination of characters: base body colour brown to black with iridescent green to bluish-green pigmentation; presence of two parallel iridescent green to bluish-green vertical bars on opercle; brown-to-black opercular membrane without red streaks or patches; dorsal, caudal, and anal-fin rays brown to black contrasting with iridescent green or bluish-green interradial membranes; dorsal fin with transverse black bars in proximal two-thirds or more; absence of dark transverse bars on caudal-fin but presence of small black rounded marks flanking the internal rays on interradial membranes; pelvic fin brown to black with iridescent green/bluish-green anterior margin and white tip; head length 24.9–31.2% SL; postdorsal length 17.1–25.2% SL; length of dorsal fin base 12.2–19.3% SL; pelvic fin length 21.2–49.6%; pectoral fin length 15.4–21.3% SL; orbit diameter 22.8–29.7% SL.</p><p>It's included in the Betta splendens complex of closely-related species within the genus, of which members share the following set of characters: head length short 22-31 % SL; often a brightly-coloured body; iris of the eye with iridescent green or blue patches; body elongate or slender; opercles parallel when head viewed dorsally; caudal-fin rays red or brown and contrasting with the iridescent interradial membranes; unpaired fins without an iridescent margin; opercle with red or blue vertical bars in males; dorsal-fin rays 0-II, 7-9; anal-fin rays II-V, 21-26.</p><p>Within the group it can be told apart from described members by the following combination of characters: presence of vertical, parallel blue bars on opercle; 1st pelvic-fin ray blue in colour; caudal-fin green without red, crescent-shaped distal band; body relatively slender.</p><p>The genus Betta is the most speciose within the family Osphronemidae with almost 70 recognised members and looks set to grow further with new ones continuing to be described on a regular basis since the turn of the century.</p><p>Member species have successfully adapted to inhabit a variety of ecological niches from stagnant ditches to flowing hill streams including some extreme environments such as highly acidic peat swamp forests.</p><p>The referral of members to a number of groups containing closely-related species is now generally accepted but largely based on morphological/behavioural characters. Molecular phylogenetic work is thus required and would undoubtedly prove useful in more precisely determining relationships between these fishes.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth. So-called due to its maze-like structure this organ allows the fish to breathe atmospheric air to a certain extent.</p><p>Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly-vascularised, folded flaps of skin which function as a large respiratory surface. Its structure varies in complexity between species, tending to be better-developed in those inhabiting harsher environments.</p>"
     },
     {
+      "key": "notes",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/mahachaiensis",
+      "html": "<p>Body: slender and elongated, typical of the Betta splendens complex, slightly compressed, reaching about 5 to 6 cm. Caudal fin: short and rounded, with heavy iridescence extending into the tail. Scaling: iridescent green-blue scales line up in rows, forming horizontal stripes along a brown-black body. Coloration: brown-black base with iridescent green to blue-green scales. Operculum: two parallel iridescent green to blue-green vertical bars on a black opercular membrane with no red; this is the main trait that separates mahachai from other splendens-complex species.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-mahachaiensis",
@@ -265,18 +271,57 @@
       "thumb": "https://media.aquatome.com/commons/78302919749a9d91-480.webp",
       "width": 960,
       "height": 787,
-      "licence": "CC BY-SA 4.0",
-      "author": "StarboundBettas",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Betta_mahachaiensis_Spadetail.jpg",
-      "caption": "Mahachai Kampffisch in der Zuchtform Spadetail",
       "large": {
         "url": "https://media.aquatome.com/commons/78302919749a9d91-large.webp",
         "width": 1463,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "StarboundBettas",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Betta_mahachaiensis_Spadetail.jpg",
+      "caption": "Mahachai Kampffisch in der Zuchtform Spadetail"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/c512f4b1ddb74dde.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/c512f4b1ddb74dde-480.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/mahachaiensis",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/42858a152e8ce84c.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/42858a152e8ce84c-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/mahachaiensis",
+      "source": "bwaquatics"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "ApScJnlG9w0",
+      "title": "Betta mahachaiensis female in 45L natural aquarium🌿🍂",
+      "durationSec": 9,
+      "lang": "it"
+    },
+    {
+      "youtubeId": "GAmZkX4Q2PQ",
+      "title": "A true show grade green mahachaiensis male, built like art and moving like power. #betta #wildbetta",
+      "durationSec": 11,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "vmHGgisjyVg",
+      "title": "Natural aquarium for betta mahachaiensis 😍🍂🌿 #aquarium #tank #exoticaquariumfish #fish #bettafish",
+      "durationSec": 10,
+      "lang": "it"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -306,5 +351,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-13"
 }

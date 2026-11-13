@@ -1,0 +1,43 @@
+{
+  "id": "phenacogrammus-aurantiacus",
+  "native": {
+    "input": "cf389c7677bd1532",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CG"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Phenacogrammus aurantiacus",
+    "status": "ACCEPTED",
+    "taxonKey": 2356215,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        68
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "b8ed9b7c-5b73-4e6d-a6e1-b0911a09f947",
+        1
+      ],
+      [
+        "cca0058d-d593-4c7e-844c-dcc0b8feae86",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

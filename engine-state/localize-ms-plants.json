@@ -606,5 +606,211 @@
       "Section 10: \"Jenis alga lain boleh mengatasi Red algae\" is fine, but \"Sebaik sahaja ia stabil dalam tangki\" should read \"sebaik sahaja ia sebati/mantap\"; minor.",
       "Section 7: \"Aquarium berlampu malap\" for \"low-light\" is fine, but \"CO2 ... tahap tinggi sangat berbahaya\" is OK; no change."
     ]
+  },
+  "cardamine-lyrata": {
+    "at": "2026-11-12",
+    "from": "2026-10-30",
+    "name": "Cardamine lyrata",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 3: \"musim panas\" is non-standard for Malaysia (no summer); use e.g. \"pada musim panas (di kawasan beriklim sederhana)\" or rephrase as \"semasa cuaca panas\".",
+      "Item 3: \"tumbuhan akuarium yang biasa dikenali\" is awkward for \"familiar aquarium plant\"; use \"tumbuhan akuarium yang popular/lazim digunakan\".",
+      "Item 2: \"batangnya memanjang dengan daun yang jarang\" is a wordy rendering of \"leggy\"; use \"batang menjadi kurus dan panjang (leggy)\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "3fc7341254d1",
+      "maintenance:tropica": "952a804a3ecd",
+      "notes:tropica": "97dd7f0d3f6c"
+    }
+  },
+  "ceratophyllum-demersum": {
+    "at": "2026-11-12",
+    "from": "2026-11-09",
+    "name": "Hornwort",
+    "confidence": "high",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "a48f285c68d0",
+      "quickFacts:aquariumcoop": "80122459c043",
+      "beforeYouBuy:aquatome": "7710d868a536",
+      "distribution:aquariumcoop": "82c4325510a5",
+      "distribution:aquatome": "f66b1cc75a70",
+      "maintenance:aquariumcoop": "937ae8fafd03",
+      "maintenance:aquatome": "580107f491b5",
+      "waterConditions:aquatome": "6b37e0505175",
+      "behaviour:aquariumcoop": "c9efacc463c7",
+      "reproduction:aquariumcoop": "2b84acb04f4d",
+      "notes:tropica": "d1be9a60d3a2",
+      "notes:aquariumcoop": "d3f61e600264"
+    }
+  },
+  "ceratopteris-thalictroides": {
+    "at": "2026-11-12",
+    "from": "2026-11-09",
+    "name": "Water Sprite",
+    "confidence": "high",
+    "score": 0.88,
+    "notes": [
+      "Item 4: \"sangat menghias\" is awkward; use \"sangat menarik sebagai hiasan\" or \"sangat dekoratif\".",
+      "Item 2: \"daun darat\" is slightly literal; \"daun emersed\" or \"daun darat (emersed)\" would be clearer to hobbyists."
+    ],
+    "parts": {
+      "quickFacts:tropica": "f489002efa37",
+      "maintenance:aquatome": "11b63104daa9",
+      "maintenance:tropica": "8e549720f0e5",
+      "notes:tropica": "1b56a594359a"
+    }
+  },
+  "crinum-calamistratum": {
+    "at": "2026-11-12",
+    "from": "2026-11-07",
+    "name": "Crinum calamistratum",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 2: the source text is Vietnamese, not English. The Malay follows it faithfully, but the source should be checked.",
+      "Item 3: \"memerlukan kurang cahaya\" is slightly awkward. \"memerlukan cahaya yang lebih sedikit\" or \"keperluan cahayanya lebih rendah\" reads more naturally."
+    ],
+    "parts": {
+      "quickFacts:tropica": "274e52fe7977",
+      "maintenance:aquatome": "a3554148c926",
+      "notes:tropica": "7ad93da15bc2"
+    }
+  },
+  "crinum-thaianum": {
+    "at": "2026-11-13",
+    "from": "2026-10-30",
+    "name": "Crinum thaianum",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "\"bebawang (bulb)\": acceptable, but \"ubi/umbi\" is the more common botanical term for bulb in Malay; consider \"umbi (bulb)\".",
+      "\"menghantar tangkai bunga\": literal; more natural is \"mengeluarkan tangkai bunga\".",
+      "\"tersendiri\" for \"distinctive\": better \"unik\" or \"istimewa\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "977b46fd4c80",
+      "maintenance:tropica": "043830765aca",
+      "notes:tropica": "f406d736c303"
+    }
+  },
+  "cryptocoryne-albida": {
+    "at": "2026-11-13",
+    "from": "2026-10-30",
+    "name": "Cryptocoryne albida 'Brown'",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Minor: \"tangki\" is acceptable but \"akuarium\" is more consistent with item 2 (\"dalam akuarium\")."
+    ],
+    "parts": {
+      "quickFacts:tropica": "78acbbfae78a",
+      "notes:tropica": "bcd9ba76befe"
+    }
+  },
+  "cryptocoryne-beckettii": {
+    "at": "2026-11-13",
+    "from": "2026-10-30",
+    "name": "Cryptocoryne beckettii 'Petchii'",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "\"Daunnya cantik, panjangnya 10-15 cm\": the English says the leaf margins are fluted and the leaves are 10-15 cm long. Rephrase to make clear it is the leaf margins that are slightly fluted, e.g. \"daun sepanjang 10-15 cm dengan tepi daun yang cantik dan sedikit beralun\".",
+      "\"Daunnya bertukar menjadi warna coklat zaitun gelap\": slightly awkward. Use \"Daun menjadi coklat zaitun gelap dengan bahagian bawah berwarna ungu\".",
+      "\"Ketinggian\" for plant height is acceptable, but \"Tinggi\" is more natural in a hobby spec list."
+    ],
+    "parts": {
+      "quickFacts:tropica": "ccedb6e3e24b",
+      "notes:tropica": "e629fca60fb6"
+    }
+  },
+  "cryptocoryne-crispatula": {
+    "at": "2026-11-13",
+    "from": "2026-10-30",
+    "name": "Cryptocoryne crispatula",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 3: \"sebelum mula tumbuh dengan betul-betul aktif\" is awkward; use \"sebelum pertumbuhan benar-benar bermula\" or \"tumbuh dengan aktif\".",
+      "Item 3: \"tangki\" is acceptable, but \"akuarium\" is more common among Malaysian hobbyists; consider it.",
+      "Item 3: \"supaya daunnya boleh terapung\" adds a purpose clause; the original says \"from where\", so use \"di mana daunnya boleh terapung\" or similar.",
+      "Item 3: \"cerewet\" is slightly colloquial for \"demanding\"; \"tidak terlalu menuntut\" or \"mudah dijaga\" is neutral."
+    ],
+    "parts": {
+      "quickFacts:tropica": "583842b77a37",
+      "distribution:tropica": "3d416a233130",
+      "maintenance:tropica": "3ea35aa382ff",
+      "notes:tropica": "89c371283731"
+    }
+  },
+  "cryptocoryne-nurii": {
+    "at": "2026-11-13",
+    "from": "2026-10-30",
+    "name": "Cryptocoryne nurii 'Rose Maiden'",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"tangki\" is acceptable, but \"akuarium\" is the more common term for the tank in Malaysian hobby usage.",
+      "\"anak pokok selalunya muncul\" adds the idea of plantlets; the English only says runners show up far from the mother plant. Rephrase as \"stolon ... selalunya muncul agak jauh dari pokok induk\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "f0911c9de39e",
+      "notes:tropica": "92142cf5d3bb"
+    }
+  },
+  "cryptocoryne-parva": {
+    "at": "2026-11-13",
+    "from": "2026-10-30",
+    "name": "Cryptocoryne parva",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 10: \"dilindungi oleh tumbuhan lain\" for \"overshadowed\" reads as 'protected'. Use \"dinaungi\" or \"ditutupi\" instead.",
+      "Item 8 and item 6: \"kurang berkemungkinan tumbuh dengan baik\" and \"kurang berkemungkinan menyebabkan\" are stiff calques. Use \"kurang sesuai\" or \"sukar tumbuh dengan baik\", and \"lebih jarang menyebabkan\".",
+      "Item 11: \"Sepasu pokok berharga beberapa ringgit\" turns \"a few dollars\" into ringgit. This is acceptable localisation, but check that the price range is still plausible."
+    ],
+    "parts": {
+      "quickFacts:tropica": "8e7bf24fa8c7",
+      "quickFacts:aquariumbreeder": "b1d610270ff5",
+      "distribution:aquariumbreeder": "9583d378ebcb",
+      "aquariumSize:aquariumbreeder": "8f544eb8b235",
+      "maintenance:tropica": "bb48b0dbeefe",
+      "maintenance:aquariumbreeder": "ae096e4baa7f",
+      "waterConditions:aquariumbreeder": "98b0296b8a62",
+      "equipment:aquariumbreeder": "fb9b18a4c19c",
+      "behaviour:aquariumbreeder": "5d9bedcff3e3",
+      "notes:tropica": "7aefd8401209",
+      "notes:aquariumbreeder": "7bf8baeef89f"
+    }
+  },
+  "cryptocoryne-spiralis": {
+    "at": "2026-11-13",
+    "from": "2026-10-30",
+    "name": "Cryptocoryne spiralis 'Red'",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "6484e9600ff0",
+      "maintenance:tropica": "10d55b6d3914",
+      "notes:tropica": "9e3bddf6bfbf"
+    }
+  },
+  "cryptocoryne-undulata": {
+    "at": "2026-11-13",
+    "from": "2026-10-30",
+    "name": "Cryptocoryne undulata 'Broad Leaves'",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "'Ia juga membesar lebih besar' is redundant; use 'Ia juga tumbuh lebih besar' or 'Saiznya juga lebih besar'.",
+      "'the single rosette becomes 10-20 cm wide' became 'setiap roset boleh mencapai lebar 10–20 cm'. 'single' is changed to 'setiap' (each), and 'boleh' (can) is added. Use 'roset tunggal ... mencapai lebar 10–20 cm'."
+    ],
+    "parts": {
+      "quickFacts:tropica": "379f74c2c226",
+      "notes:tropica": "1eaca456496b"
+    }
   }
 }

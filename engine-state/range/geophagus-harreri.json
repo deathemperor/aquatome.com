@@ -1,0 +1,123 @@
+{
+  "id": "geophagus-harreri",
+  "native": {
+    "input": "abc51cb39d126219",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The parents originate from Suriname (the Tapanahoni river).",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species also occurs in other rivers of Suriname, for example the Maroni river.",
+        "words": "Suriname",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Tapanahoni",
+        "source": "glaser",
+        "quote": "The parents originate from Suriname (the Tapanahoni river).",
+        "country": "SR",
+        "ok": true
+      },
+      {
+        "name": "Maroni",
+        "source": "glaser",
+        "quote": "The species also occurs in other rivers of Suriname, for example the Maroni river.",
+        "country": "SR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Geophagus harreri",
+    "status": "ACCEPTED",
+    "taxonKey": 5208428,
+    "datasets": [
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        58
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        45
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        16
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        11
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        11
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        9
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        8
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "5818223b-9b8e-432c-9fca-cb4c43387e6a",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "SR"
+    ],
+    "requests": 11,
+    "at": "2026-11-12T13:29:05.219Z"
+  }
+}

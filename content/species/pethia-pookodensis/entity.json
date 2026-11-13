@@ -10,6 +10,59 @@
     "india",
     "kerala"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Pookode Lake",
+        "Kabani"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from Pookode Lake in Wayanad district, Kerala state, southern India and possibly endemic there although some unconfirmed records exist from within the surrounding Wayanad Wildlife Sanctuary.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Pookode Lake"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Pookode is a small freshwater lake surrounded by forest with a surface area of around 2 km² and is the source of the Panamaram River, a tributary within the much larger Kabani system.",
+          "countries": [],
+          "regions": [
+            "Kabani"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7986634,
+      "total": 2,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "IN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          75.9375,
+          11.25,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

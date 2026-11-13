@@ -1,0 +1,151 @@
+{
+  "id": "otocinclus-flexilis",
+  "scientificName": "Otocinclus flexilis",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Otocinclus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-jacui",
+    "uruguay",
+    "la-plata",
+    "paraguay",
+    "argentina",
+    "parana"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 2,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 5.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1350",
+      "html": "<ul><li>Scientific name: Otocinclus flexilis Cope, 1894</li><li>Common name: Peppered Oto</li><li>Synonyms: Macrotocinclus flexilis, Otocinclus fimbriatus</li><li>IUCN Red List: Least Concern (last assessed 2018)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1350",
+      "html": "<p>South America: La Plata basin, including Uruguay, Paraná (Middle and Lower Paraná) and Paraguay. Type locality: Rio Jacuhy [Jacuí], Rio Grande do Sul, Brazil.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1350",
+      "html": "<ul><li>Temperature: 20–25°C</li><li>pH: 6.5–7.8</li><li>Hardness: 2–25 dGH</li></ul>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1350",
+      "html": "<p>Females are larger and broader, especially when viewed from above.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1350",
+      "html": "<p>There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1350",
+      "html": "<p>Proceedings of the American Philosophical Society v. 33, pp 97, Pl. 8 [7] (figs. 13, 13a-b).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/75b95917d6c143d0.webp",
+      "width": 960,
+      "height": 3610,
+      "licence": "CC BY 4.0",
+      "author": "Fabiano Corrêa, Edson Fontes de Oliveira, Thiago Tuchtenhagen, Juvêncio Pouey, and Sérgio Piedras",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Species_of_fishes_from_the_Chasqueiro_Stream_(Mirim_Lagoon_system).jpg",
+      "caption": "Images of 83 species of fish collected from the Mirim Lagoon system in South America. --- Clupeiformes Clupeidae 1 - Platanichthys platana (Regan, 1917) Characiformes Acestrorhynchidae 2 - Acestrorhyn",
+      "thumb": "https://media.aquatome.com/commons/75b95917d6c143d0-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "yiv7xCw06EM",
+      "title": "Otocinclus flexilis （オトシンクルス・フレキシリス）",
+      "durationSec": 59,
+      "lang": "ja"
+    },
+    {
+      "youtubeId": "_p-MCMmysO8",
+      "title": "Otocinclus flexilis 花椒小精靈",
+      "durationSec": 31,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Q9FZDhF5FxQ",
+      "title": "Otocinclus flexilis",
+      "durationSec": 88,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "PehtRp5PRyA",
+      "title": "Hisonotus thayeri　（ヒソノートゥス・セイヤリー）とOtocinclus flexilis （オトシンクルス・フレキシリス）",
+      "durationSec": 27,
+      "lang": "ja"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá otocinclus",
+        "rong tảo cho cá oto"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bể cá thủy sinh nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

@@ -16,6 +16,205 @@
     "suriname",
     "trinidad-and-tobago"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "BR",
+        "GY",
+        "GF",
+        "SR",
+        "TT"
+      ],
+      "regions": [],
+      "sources": [
+        "planetcatfish",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Central and South America: Venezuela to northern Brazil (including the lower portions of coastal rivers).",
+          "countries": [
+            "VE",
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Found in Venezuela Caribbean waters, Guyana waters, coastal rivers of the Guianas, Amapá State waters and Pará State waters.",
+          "countries": [
+            "GY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "French Guiana, Guyana, Suriname, Venezuela, Brazil, Trinidad and Tobago.",
+          "countries": [
+            "GF",
+            "SR",
+            "TT"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340512,
+      "total": 97,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "GF",
+          69
+        ],
+        [
+          "BR",
+          20
+        ],
+        [
+          "GY",
+          3
+        ],
+        [
+          "SR",
+          3
+        ],
+        [
+          "FI",
+          1
+        ],
+        [
+          "VE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -61.875,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -54.84375,
+          5.625,
+          15,
+          15
+        ],
+        [
+          -53.4375,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          -53.4375,
+          4.21875,
+          44,
+          44
+        ],
+        [
+          -52.03125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -52.03125,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          23.90625,
+          60.46875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -210,17 +409,6 @@
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/dd86b5e18f4aaad0.webp",
-      "thumb": "https://media.aquatome.com/scotcat/dd86b5e18f4aaad0-480.webp",
-      "width": 500,
-      "height": 333,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/aspredinidae/platystacus_cotylephorus.htm",
-      "caption": "Platystacus cotylephorus - dorsal view",
-      "source": "scotcat"
-    },
     {
       "url": "https://media.aquatome.com/commons/084583952c57c175.webp",
       "thumb": "https://media.aquatome.com/commons/084583952c57c175-480.webp",

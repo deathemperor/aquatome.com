@@ -1,3 +1,5 @@
+import { videoBudgetStopped } from '../src/youtube'
+import { denied } from './piece-admission'
 import { existsSync } from 'node:fs'
 import { mkdir, mkdtemp, readdir, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
@@ -571,4 +573,24 @@ test('chapters: only when the description lists at least three, from 0:00, in or
   expect(chaptersFrom('0:00 a\n2:00 b')).toEqual([])
   expect(chaptersFrom('Intro text\n0:00 - Start\n1:02:03 End part\n59:00 back')).toEqual([])
   expect(chaptersFrom('0:00 - Start\n10:00 | Middle\n1:02:03 End')).toEqual([{ start: 0, title: 'Start' }, { start: 600, title: 'Middle' }, { start: 3723, title: 'End' }])
+})
+
+test('last item cost refuses admission without calls or content writes', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-admission-'))
+  const { d, calls } = deps(root)
+  await denied('videos', root, async () => {
+    const r = await videoGuides(d, { playlists: [], singles: ['a1'] })
+    expect(r.stoppedEarly).toBe(true)
+    expect(r.written).toEqual([])
+    expect(r.errors).toEqual([])
+    expect(r.stopped).toContain('not started')
+    expect(calls.prompts).toEqual([])
+  })
+})
+
+test('videos follow-up pictures stop on admission or usage, but can follow the writing limit', () => {
+  const r = { written: [], skipped: [], errors: [], stoppedEarly: true }
+  expect(videoBudgetStopped(r)).toBe(false)
+  expect(videoBudgetStopped({ ...r, stopped: 'not started' })).toBe(true)
+  expect(videoBudgetStopped({ ...r, errors: ["claude failed: the engine's daily limit reached for videos"] })).toBe(true)
 })

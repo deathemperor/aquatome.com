@@ -1,0 +1,72 @@
+{
+  "id": "potamotrygon-henlei",
+  "native": {
+    "input": "b25c5e0e35e64126",
+    "at": "2026-11-13T05:31:31.275Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Probably endemic to the Rio Tocantins basin, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Tocantins",
+        "source": "seriouslyfish",
+        "quote": "Probably endemic to the Rio Tocantins basin, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Tocantins",
+        "source": "glaser",
+        "quote": "Potamotrygon henlei was described from the Rio Tocantins.",
+        "ok": true
+      },
+      {
+        "name": "Rio Tapajós",
+        "source": "glaser",
+        "quote": "The small spotted variety discussed here comes from the Rio Tapajós, near the city of Itaituba.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Potamotrygon henlei",
+    "status": "ACCEPTED",
+    "taxonKey": 2419331,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        9
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        6
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        4
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T05:31:31.275Z"
+  }
+}

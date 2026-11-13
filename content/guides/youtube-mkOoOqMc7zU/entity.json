@@ -54,7 +54,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Con ếch ngoi lên sát mặt nước trong bể, có lá cây phía sau.",
-            "sharpness": 456.3
+            "sharpness": 456.3,
+            "person": false
           }
         ],
         "photo": {
@@ -70,16 +71,7 @@
       },
       {
         "heading": "Chọn kích thước và kiểu mở bể",
-        "moments": [
-          {
-            "t": 0,
-            "url": "https://media.aquatome.com/video/mkOoOqMc7zU/at0-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Con ếch bò to đang được cầm trên tay, gần như quá khổ cho bể cũ.",
-            "sharpness": 1352.2
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/mkOoOqMc7zU/p1-JzdXNfMnp6LmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/mkOoOqMc7zU/p1-JzdXNfMnp6LmpwZw-480.webp",

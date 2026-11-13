@@ -11,7 +11,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/748819447",
       "caption": "Cá đực vàng cam trên nền đá",
       "best": true,
-      "kind": "male"
+      "kind": "male",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/748819447-large.webp",
+        "width": 1472,
+        "height": 1104
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/1ab6cab2c60600a5.webp",
@@ -23,7 +28,12 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudomugil_gertrudae_ARUII_Maennchen.jpg",
       "caption": "Nhóm cá đực vây đốm đẹp trong bể thủy sinh",
       "best": true,
-      "kind": "group"
+      "kind": "group",
+      "large": {
+        "url": "https://media.aquatome.com/commons/1ab6cab2c60600a5-large.webp",
+        "width": 1000,
+        "height": 563
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/7d9fae1ead0c1889.webp",
@@ -35,7 +45,12 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Getrudae_Rainbowfish.jpg",
       "caption": "Cá có đốm bơi trên thảm cỏ thủy sinh",
       "best": true,
-      "kind": "other"
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/commons/7d9fae1ead0c1889-large.webp",
+        "width": 2160,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/691921393.webp",
@@ -47,7 +62,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/691921393",
       "caption": "Cá đực màu vàng cam trong bể kính",
       "best": false,
-      "kind": "male"
+      "kind": "male",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/691921393-large.webp",
+        "width": 1200,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/691924598.webp",

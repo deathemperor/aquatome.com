@@ -9,6 +9,26 @@
     "asia",
     "india"
   ],
+  "range": {
+    "records": {
+      "taxonKey": 2358534,
+      "total": 1,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "IN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          87.1875,
+          26.71875,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

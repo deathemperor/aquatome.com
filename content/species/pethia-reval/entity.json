@@ -10,6 +10,64 @@
     "sri-lanka",
     "kelani"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LK"
+      ],
+      "regions": [
+        "Kelani",
+        "Maha Oya"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to western Sri Lanka where it's known from the Kelani and Maha Oya river systems plus smaller drainages which lie between them such as the Attanagalu and Kalu rivers.",
+          "countries": [
+            "LK"
+          ],
+          "regions": [
+            "Kelani",
+            "Maha Oya"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8203702,
+      "total": 33,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "LK",
+          33
+        ]
+      ],
+      "cells": [
+        [
+          78.75,
+          7.03125,
+          14,
+          14
+        ],
+        [
+          80.15625,
+          5.625,
+          13,
+          13
+        ],
+        [
+          80.15625,
+          7.03125,
+          6,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

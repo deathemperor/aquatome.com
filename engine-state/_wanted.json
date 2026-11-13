@@ -30,6 +30,17 @@
       "guides/youtube-0i9qSwTrXIc",
       "guides/youtube-6MVlcgTchtE"
     ],
+    "mentions": 27
+  },
+  "lemna-minor": {
+    "name": "Lemna minor",
+    "mentionedIn": [
+      "guides/youtube-34R1VF2bzmg",
+      "guides/youtube-4a87l1r7_Yg",
+      "guides/youtube-CuZeMDsjK70",
+      "guides/youtube-JQiui3Wmurs",
+      "guides/youtube-MrmmzZYYBTU"
+    ],
     "mentions": 25
   },
   "barbodes-xouthos": {
@@ -40,17 +51,6 @@
       "species/dawkinsia-exclamatio",
       "species/dawkinsia-filamentosa",
       "species/dawkinsia-rohani"
-    ],
-    "mentions": 22
-  },
-  "lemna-minor": {
-    "name": "Lemna minor",
-    "mentionedIn": [
-      "guides/youtube-34R1VF2bzmg",
-      "guides/youtube-4a87l1r7_Yg",
-      "guides/youtube-CuZeMDsjK70",
-      "guides/youtube-JQiui3Wmurs",
-      "guides/youtube-MrmmzZYYBTU"
     ],
     "mentions": 22
   },
@@ -143,6 +143,28 @@
     ],
     "mentions": 15
   },
+  "pistia-stratiotes": {
+    "name": "Pistia stratiotes",
+    "mentionedIn": [
+      "guides/youtube-0EqLihKj8os",
+      "guides/youtube-34R1VF2bzmg",
+      "guides/youtube-8qCMy4BnnDI",
+      "guides/youtube-GIeCugnkfCQ",
+      "guides/youtube-KmxHHPPTIgk"
+    ],
+    "mentions": 13
+  },
+  "physella-acuta": {
+    "name": "Physella acuta",
+    "mentionedIn": [
+      "guides/youtube-0EqLihKj8os",
+      "guides/youtube-34R1VF2bzmg",
+      "guides/youtube-LorZ64vB4ss",
+      "guides/youtube-NnedKiWs71U",
+      "guides/youtube-P7GTfHdl5E8"
+    ],
+    "mentions": 17
+  },
   "gastromyzon-embalohensis": {
     "name": "Gastromyzon embalohensis",
     "mentionedIn": [
@@ -154,16 +176,16 @@
     ],
     "mentions": 13
   },
-  "physella-acuta": {
-    "name": "Physella acuta",
+  "didiplis-diandra": {
+    "name": "Didiplis diandra",
     "mentionedIn": [
-      "guides/youtube-34R1VF2bzmg",
-      "guides/youtube-LorZ64vB4ss",
-      "guides/youtube-NnedKiWs71U",
-      "guides/youtube-P7GTfHdl5E8",
-      "guides/youtube-SvweeFIvybY"
+      "guides/aquariumbreeder-50-underwater-red-plants-for-your-tank",
+      "guides/youtube-1fhLlhENc0s",
+      "guides/youtube-BTGMS7pm6zo",
+      "guides/youtube-LTq4EuuY_iA",
+      "guides/youtube-MCII9KCy60M"
     ],
-    "mentions": 15
+    "mentions": 12
   },
   "geophagus-gottwaldi": {
     "name": "Geophagus gottwaldi",
@@ -198,14 +220,14 @@
     ],
     "mentions": 12
   },
-  "didiplis-diandra": {
-    "name": "Didiplis diandra",
+  "barbonymus-schwanenfeldii": {
+    "name": "Barbonymus schwanenfeldii",
     "mentionedIn": [
-      "guides/aquariumbreeder-50-underwater-red-plants-for-your-tank",
-      "guides/youtube-1fhLlhENc0s",
-      "guides/youtube-BTGMS7pm6zo",
-      "guides/youtube-MCII9KCy60M",
-      "guides/youtube-Nbl2XlDFhY4"
+      "guides/sprucepets-barb-species-1380768",
+      "guides/sprucepets-lifespans-of-aquarium-fish-1378340",
+      "guides/youtube-2htJPBhx7Cs",
+      "guides/youtube-LTq4EuuY_iA",
+      "guides/youtube-mGmIvhtIM9k"
     ],
     "mentions": 11
   },
@@ -220,6 +242,17 @@
     ],
     "mentions": 11
   },
+  "melanoides-tuberculata": {
+    "name": "Melanoides tuberculata",
+    "mentionedIn": [
+      "guides/youtube--XN4FMqNwPQ",
+      "guides/youtube-3jqe5KGD9lI",
+      "guides/youtube-6MVlcgTchtE",
+      "guides/youtube-HK0vWQGwNOE",
+      "guides/youtube-JmUTEUoY6Jg"
+    ],
+    "mentions": 11
+  },
   "syngonium-podophyllum": {
     "name": "Syngonium podophyllum",
     "mentionedIn": [
@@ -230,17 +263,6 @@
       "guides/youtube-Pc-uoB80jyk"
     ],
     "mentions": 11
-  },
-  "melanoides-tuberculata": {
-    "name": "Melanoides tuberculata",
-    "mentionedIn": [
-      "guides/youtube--XN4FMqNwPQ",
-      "guides/youtube-3jqe5KGD9lI",
-      "guides/youtube-6MVlcgTchtE",
-      "guides/youtube-HK0vWQGwNOE",
-      "guides/youtube-JmUTEUoY6Jg"
-    ],
-    "mentions": 10
   },
   "vesicularia-dubyana": {
     "name": "Vesicularia dubyana",
@@ -286,16 +308,16 @@
     ],
     "mentions": 13
   },
-  "barbonymus-schwanenfeldii": {
-    "name": "Barbonymus schwanenfeldii",
+  "pontederia-crassipes": {
+    "name": "Pontederia crassipes",
     "mentionedIn": [
-      "guides/sprucepets-barb-species-1380768",
-      "guides/sprucepets-lifespans-of-aquarium-fish-1378340",
-      "guides/youtube-mGmIvhtIM9k",
-      "species/anematichthys-repasson",
-      "species/rasbora-caudimaculata"
+      "guides/youtube-0EqLihKj8os",
+      "guides/youtube-7gf1xIZTJRg",
+      "guides/youtube-8SCxf-L1Nww",
+      "guides/youtube-8qCMy4BnnDI",
+      "guides/youtube-Asi_tzpiHxM"
     ],
-    "mentions": 9
+    "mentions": 12
   },
   "raiamas-guttatus": {
     "name": "Raiamas guttatus",
@@ -352,16 +374,16 @@
     ],
     "mentions": 9
   },
-  "pontederia-crassipes": {
-    "name": "Pontederia crassipes",
+  "hypostomus-plecostomus": {
+    "name": "Hypostomus plecostomus",
     "mentionedIn": [
-      "guides/youtube-7gf1xIZTJRg",
-      "guides/youtube-8SCxf-L1Nww",
-      "guides/youtube-8qCMy4BnnDI",
-      "guides/youtube-Asi_tzpiHxM",
-      "guides/youtube-HUa1u8usS5w"
+      "guides/aquariumcoop-blogs-aquarium-pleco-care-guide",
+      "guides/aquariumcoop-blogs-aquarium-top-5-popular-catfish",
+      "guides/sprucepets-aquarium-catfish-breeds-5115234",
+      "guides/sprucepets-large-fish-for-freshwater-aquariums-7570272",
+      "guides/sprucepets-lifespans-of-aquarium-fish-1378340"
     ],
-    "mentions": 11
+    "mentions": 8
   },
   "paracrossochilus-vittatus": {
     "name": "Paracrossochilus vittatus",
@@ -407,25 +429,14 @@
     ],
     "mentions": 8
   },
-  "hypostomus-plecostomus": {
-    "name": "Hypostomus plecostomus",
+  "hygrophila-ringens": {
+    "name": "Hygrophila ringens",
     "mentionedIn": [
-      "guides/aquariumcoop-blogs-aquarium-pleco-care-guide",
-      "guides/aquariumcoop-blogs-aquarium-top-5-popular-catfish",
-      "guides/sprucepets-aquarium-catfish-breeds-5115234",
-      "guides/sprucepets-large-fish-for-freshwater-aquariums-7570272",
-      "guides/sprucepets-lifespans-of-aquarium-fish-1378340"
-    ],
-    "mentions": 7
-  },
-  "pistia-stratiotes": {
-    "name": "Pistia stratiotes",
-    "mentionedIn": [
-      "guides/youtube-34R1VF2bzmg",
-      "guides/youtube-8qCMy4BnnDI",
-      "guides/youtube-GIeCugnkfCQ",
-      "guides/youtube-SEnv3QWLIMw",
-      "guides/youtube-b0pr4vEjJ_k"
+      "guides/aquariumbreeder-50-underwater-red-plants-for-your-tank",
+      "guides/youtube--LWDlOsd634",
+      "guides/youtube-2OLhjT-24lU",
+      "guides/youtube-GDaWgKk-hDo",
+      "guides/youtube-Z5YNg3LzZpk"
     ],
     "mentions": 7
   },
@@ -472,17 +483,6 @@
       "species/schistura-geisleri"
     ],
     "mentions": 7
-  },
-  "hygrophila-ringens": {
-    "name": "Hygrophila ringens",
-    "mentionedIn": [
-      "guides/aquariumbreeder-50-underwater-red-plants-for-your-tank",
-      "guides/youtube--LWDlOsd634",
-      "guides/youtube-GDaWgKk-hDo",
-      "guides/youtube-Z5YNg3LzZpk",
-      "guides/youtube-hMKRY7EkfIk"
-    ],
-    "mentions": 6
   },
   "cambarellus-texanus": {
     "name": "Cambarellus texanus",
@@ -983,6 +983,16 @@
     ],
     "mentions": 4
   },
+  "planorbarius-corneus": {
+    "name": "Planorbarius corneus",
+    "mentionedIn": [
+      "guides/youtube-Zl5gW-39XRE",
+      "guides/youtube-gB277jXfVTM",
+      "species/marisa-cornuarietis",
+      "species/planorbella-duryi"
+    ],
+    "mentions": 4
+  },
   "pangio-pangia": {
     "name": "Pangio pangia",
     "mentionedIn": [
@@ -1304,9 +1314,10 @@
       "guides/aquariumcoop-blogs-aquarium-cherry-shrimp-tankmates",
       "species/corydoras-habrosus",
       "species/satanoperca-daemon",
+      "guides/youtube-rWtfUks1ecs",
       "species/nannostomus-unifasciatus"
     ],
-    "mentions": 4
+    "mentions": 5
   },
   "aeromonas-hydrophila": {
     "name": "Aeromonas hydrophila",
@@ -1407,6 +1418,15 @@
     ],
     "mentions": 3
   },
+  "lomariopsis-lineata": {
+    "name": "Lomariopsis lineata",
+    "mentionedIn": [
+      "guides/youtube-AAjZ3Ldk4go",
+      "guides/youtube-LmUGilbUlzY",
+      "guides/youtube-Ojpc5djfQ9U"
+    ],
+    "mentions": 3
+  },
   "vallisneria-nana": {
     "name": "Vallisneria nana",
     "mentionedIn": [
@@ -1449,15 +1469,6 @@
       "guides/youtube-Xb3Trilltik",
       "guides/youtube-iFtbrCxfsi8",
       "guides/youtube-uzhJRcM1tx4"
-    ],
-    "mentions": 3
-  },
-  "planorbarius-corneus": {
-    "name": "Planorbarius corneus",
-    "mentionedIn": [
-      "guides/youtube-gB277jXfVTM",
-      "species/marisa-cornuarietis",
-      "species/planorbella-duryi"
     ],
     "mentions": 3
   },
@@ -1915,6 +1926,14 @@
     ],
     "mentions": 2
   },
+  "trachemys-scripta": {
+    "name": "Trachemys scripta",
+    "mentionedIn": [
+      "guides/aquariumbreeder-paludarium-animals",
+      "guides/youtube-LTq4EuuY_iA"
+    ],
+    "mentions": 2
+  },
   "turbatrix-aceti": {
     "name": "Turbatrix aceti",
     "mentionedIn": [
@@ -2078,14 +2097,6 @@
     ],
     "mentions": 2
   },
-  "lomariopsis-lineata": {
-    "name": "Lomariopsis lineata",
-    "mentionedIn": [
-      "guides/youtube-AAjZ3Ldk4go",
-      "guides/youtube-Ojpc5djfQ9U"
-    ],
-    "mentions": 2
-  },
   "aquarius-uruguayensis": {
     "name": "Aquarius uruguayensis",
     "mentionedIn": [
@@ -2131,6 +2142,14 @@
     "mentionedIn": [
       "guides/youtube-LRTzeSTeN-8",
       "guides/youtube-TfHU7I5OGbY"
+    ],
+    "mentions": 2
+  },
+  "sternotherus-odoratus": {
+    "name": "Sternotherus odoratus",
+    "mentionedIn": [
+      "guides/youtube-LTq4EuuY_iA",
+      "guides/youtube-cfBKt5dc_IQ"
     ],
     "mentions": 2
   },
@@ -3216,13 +3235,6 @@
     ],
     "mentions": 1
   },
-  "duncanopsammia-axifuga": {
-    "name": "Duncanopsammia axifuga",
-    "mentionedIn": [
-      "guides/aquariumbreeder-best-corals-for-a-nano-reef-tank"
-    ],
-    "mentions": 1
-  },
   "caulastraea-furcata": {
     "name": "Caulastraea furcata",
     "mentionedIn": [
@@ -3302,13 +3314,6 @@
   },
   "bombina-bombina": {
     "name": "Bombina bombina",
-    "mentionedIn": [
-      "guides/aquariumbreeder-paludarium-animals"
-    ],
-    "mentions": 1
-  },
-  "trachemys-scripta": {
-    "name": "Trachemys scripta",
     "mentionedIn": [
       "guides/aquariumbreeder-paludarium-animals"
     ],
@@ -4063,6 +4068,13 @@
     ],
     "mentions": 1
   },
+  "aquarius-grisebachii": {
+    "name": "Aquarius grisebachii",
+    "mentionedIn": [
+      "guides/youtube-2htJPBhx7Cs"
+    ],
+    "mentions": 1
+  },
   "tarebia-granifera": {
     "name": "Tarebia granifera",
     "mentionedIn": [
@@ -4239,6 +4251,13 @@
     ],
     "mentions": 1
   },
+  "cyprinus-carpio": {
+    "name": "Cyprinus carpio",
+    "mentionedIn": [
+      "guides/youtube-LTq4EuuY_iA"
+    ],
+    "mentions": 1
+  },
   "hypoestes-phyllostachya": {
     "name": "Hypoestes phyllostachya",
     "mentionedIn": [
@@ -4306,6 +4325,13 @@
     "name": "Cipangopaludina japonica",
     "mentionedIn": [
       "guides/youtube-SEnv3QWLIMw"
+    ],
+    "mentions": 1
+  },
+  "moenkhausia-hasemani": {
+    "name": "Moenkhausia hasemani",
+    "mentionedIn": [
+      "guides/youtube-SlmXdV5n3Hw"
     ],
     "mentions": 1
   },
@@ -4414,6 +4440,13 @@
     ],
     "mentions": 1
   },
+  "cryptocoryne-pontederiifolia": {
+    "name": "Cryptocoryne pontederiifolia",
+    "mentionedIn": [
+      "guides/youtube-Zl5gW-39XRE"
+    ],
+    "mentions": 1
+  },
   "porcellio-scaber": {
     "name": "Porcellio scaber",
     "mentionedIn": [
@@ -4425,13 +4458,6 @@
     "name": "Claudius angustatus",
     "mentionedIn": [
       "guides/youtube-ahKKqSGy0Mw"
-    ],
-    "mentions": 1
-  },
-  "sternotherus-odoratus": {
-    "name": "Sternotherus odoratus",
-    "mentionedIn": [
-      "guides/youtube-cfBKt5dc_IQ"
     ],
     "mentions": 1
   },
@@ -5165,14 +5191,6 @@
       "species/barilius-vagra"
     ],
     "mentions": 1
-  },
-  "oligancistrus-punctatissimus": {
-    "name": "Oligancistrus punctatissimus",
-    "mentionedIn": [
-      "species/baryancistrus-xanthellus",
-      "species/spectracanthicus-zuanoni"
-    ],
-    "mentions": 2
   },
   "paretroplus-menarambo": {
     "name": "Paretroplus menarambo",
@@ -6185,6 +6203,27 @@
     ],
     "mentions": 1
   },
+  "gnathophyllum-elegans": {
+    "name": "Gnathophyllum elegans",
+    "mentionedIn": [
+      "species/gnathophyllum-americanum"
+    ],
+    "mentions": 1
+  },
+  "echinometra-lucunter": {
+    "name": "Echinometra lucunter",
+    "mentionedIn": [
+      "species/gnathophyllum-americanum"
+    ],
+    "mentions": 1
+  },
+  "hymenocera-picta": {
+    "name": "Hymenocera picta",
+    "mentionedIn": [
+      "species/gnathophyllum-americanum"
+    ],
+    "mentions": 1
+  },
   "lagenandra-ovata": {
     "name": "Lagenandra ovata",
     "mentionedIn": [
@@ -6425,13 +6464,6 @@
   },
   "brycon-insignis": {
     "name": "Brycon insignis",
-    "mentionedIn": [
-      "species/hyphessobrycon-flammeus"
-    ],
-    "mentions": 1
-  },
-  "pogonopoma-parahybae": {
-    "name": "Pogonopoma parahybae",
     "mentionedIn": [
       "species/hyphessobrycon-flammeus"
     ],
@@ -6742,6 +6774,13 @@
     "name": "Leporinus falcipinnis",
     "mentionedIn": [
       "species/leporinus-fasciatus"
+    ],
+    "mentions": 1
+  },
+  "leporinus-tigrinus": {
+    "name": "Leporinus tigrinus",
+    "mentionedIn": [
+      "species/leporinus-fasciatus-tigrinus"
     ],
     "mentions": 1
   },
@@ -7095,13 +7134,6 @@
     ],
     "mentions": 1
   },
-  "pelvicachromis-kribensis": {
-    "name": "Pelvicachromis kribensis",
-    "mentionedIn": [
-      "species/pelvicachromis-taeniatus"
-    ],
-    "mentions": 1
-  },
   "lebrunia-neglecta": {
     "name": "Lebrunia neglecta",
     "mentionedIn": [
@@ -7183,6 +7215,13 @@
     "name": "Platydoras brachylecis",
     "mentionedIn": [
       "species/platydoras-armatulus"
+    ],
+    "mentions": 1
+  },
+  "plotosus-lineatus": {
+    "name": "Plotosus lineatus",
+    "mentionedIn": [
+      "species/plotosus-canius"
     ],
     "mentions": 1
   },
@@ -7878,11 +7917,6 @@
       "species/zoogoneticus-tequila"
     ],
     "mentions": 1
-  },
-  "cyprinus-carpio": {
-    "name": "Cyprinus carpio",
-    "mentionedIn": [],
-    "mentions": 0
   },
   "sturisomatichthys-panamense": {
     "name": "Sturisomatichthys panamense",

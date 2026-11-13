@@ -1,3 +1,6 @@
+import { piece } from './pieces'
+import { compactVerdict, photoReason, photoFailure, photoModelStop, type PhotoHints } from './photo-observations'
+import { writePhotoState } from './photo-state'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join, relative } from 'node:path'
@@ -38,7 +41,7 @@ import { stripPhotos } from './watermarks'
  * a re-read brings it back). The owner's report (2026-11-10): arowanas and a corydoras on the platy guide. A photo judged
  * before this was asked is asked again, once, keeping its verdict. A still isn't asked: it's the guide's own video.
  */
-export type GuidePhotoVerdict = { person: boolean; mark: boolean; brand: boolean; note: string; other?: Record<string, boolean> }
+export type GuidePhotoVerdict = { person: boolean; mark: boolean; brand: boolean; note: string; noteHash?:string; hints?:PhotoHints; other?: Record<string, boolean> }
 export type GuidePhotoDeps = {
   get: (url: string) => Promise<Uint8Array>
   look: (sheet: string, prompt: string) => Promise<{ photos: ({ n: number; other?: boolean } & Omit<GuidePhotoVerdict, 'other'>)[] }>
@@ -97,7 +100,7 @@ async function pool<T>(items: T[], n: number, f: (x: T) => Promise<void>) {
 /** Why a photo leaves a guide, or undefined; `brandKept`: an equipment guide's (the brand is the product's) or a video still. */
 export function guidePhotoOff(v: GuidePhotoVerdict | undefined, brandKept: boolean): string | undefined {
   if (!v) return undefined
-  return v.person ? `people: ${v.note}` : v.mark ? `watermark: ${v.note}` : v.brand && !brandKept ? `logo: ${v.note}` : undefined
+  return v.person ? `people: ${photoReason(v)}` : v.mark ? `watermark: ${photoReason(v)}` : v.brand && !brandKept ? `logo: ${photoReason(v)}` : undefined
 }
 
 /** The model's verdict on each image (at most PER_SHEET), in order; one it didn't answer is undefined. `subjects`: each image's guide's subject, if it's to be asked about. */
@@ -109,7 +112,7 @@ export async function judgeGuidePhotos(images: Buffer[], sheet: string, look: Gu
   for (const p of (await look(sheet, prompt)).photos ?? []) {
     if (!(p.n - 1 in out) || typeof p.person !== 'boolean' || typeof p.mark !== 'boolean' || typeof p.brand !== 'boolean') continue
     const about = subjects[p.n - 1]
-    out[p.n - 1] = { person: p.person, mark: p.mark, brand: p.brand, note: String(p.note ?? '').slice(0, 120), ...(about ? { other: { [about.subject]: p.other === true } } : {}) }
+    out[p.n - 1] = compactVerdict({ person: p.person, mark: p.mark, brand: p.brand, note: String(p.note ?? '').slice(0, 120), ...(about ? { other: { [about.subject]: p.other === true } } : {}) })
   }
   return out
 }
@@ -118,7 +121,8 @@ export async function judgeGuidePhotos(images: Buffer[], sheet: string, look: Gu
 export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { limit: number; parallel?: number; only?: string[] }) {
   const content = join(root, 'content')
   const state = (f: string) => join(root, 'engine-state', f)
-  const cache = (await readJson<Record<string, GuidePhotoVerdict>>(state('_photo-guides.json'))) ?? {}
+  const oldCache = (await readJson<Record<string, GuidePhotoVerdict>>(state('_photo-guides.json'))) ?? {}
+  const cache = Object.fromEntries(Object.entries(oldCache).map(([u,v])=>[u,compactVerdict(v)]))
   const rejected = (await readJson<Record<string, string>>(state('_photo-rejected.json'))) ?? {}
   const done = (await readJson<StillsState>(state('_video-stills.json'))) ?? {}
   const report = { sheets: 0, judged: 0, cleared: 0, off: [] as string[], removed: [] as string[], kept: [] as string[], failed: [] as string[], left: 0, waiting: 0, stopped: '', subject: [] as string[] }
@@ -180,22 +184,22 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
           const b = Buffer.from(await d.get(x.url))
           await sharp(b).metadata() // not an image (an error page served as 200): left out, so the rest of the sheet is judged
           ok.push({ url: x.url, b, about: ask(x) })
-        } catch (err) { report.failed.push(`${x.url}: ${(err as Error).message.slice(0, 120)}`) }
+        } catch (err) { report.failed.push(`${x.url}: ${photoFailure(err)}`) }
       }
       if (!ok.length) return
       try {
-        const verdicts = await judgeGuidePhotos(ok.map(x => x.b), join(dir, `sheet-${i}.jpg`), d.look, ok.map(x => x.about))
+        const verdicts = await piece(`sheet-${i}`, () => judgeGuidePhotos(ok.map(x => x.b), join(dir, `sheet-${i}.jpg`), d.look, ok.map(x => x.about)))
         report.sheets++
         verdicts.forEach((v, j) => {
           if (!v) return
           const url = ok[j]!.url, before = cache[url]
           // Asked again for its subject, a photo keeps the verdict that was acted on; the note says what a true found.
-          cache[url] = before ? { ...before, other: { ...before.other, ...v.other }, ...(Object.values(v.other ?? {}).some(Boolean) ? { note: v.note } : {}) } : v
+          cache[url] = compactVerdict(before ? { ...before, other: { ...before.other, ...v.other }, ...(Object.values(v.other ?? {}).some(Boolean) ? { note: v.note, noteHash:v.noteHash, hints:v.hints } : {}) } : v)
           report.judged++
         })
       } catch (err) {
-        if (err instanceof LlmError) report.stopped ||= err.message
-        else report.failed.push(`sheet ${i}: ${(err as Error).message.slice(0, 120)}`)
+        if (err instanceof LlmError) report.stopped ||= photoModelStop(err)
+        else report.failed.push(`sheet ${i}: ${photoFailure(err)}`)
       }
     })
   } finally {
@@ -233,7 +237,7 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     report.removed.push(...removed.map(u => `${relative(root, file)}: ${u}`))
     await writeFile(file, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
   }
-  await writeFile(state('_photo-guides.json'), `${JSON.stringify(Object.fromEntries(Object.entries(cache).sort()), null, 2)}\n`)
-  await writeFile(state('_photo-rejected.json'), `${JSON.stringify(now, null, 2)}\n`)
+  await writePhotoState(state('_photo-guides.json'), Object.fromEntries(Object.entries(cache).sort()))
+  await writePhotoState(state('_photo-rejected.json'), now)
   return report
 }

@@ -1,0 +1,106 @@
+{
+  "id": "hypostomus-roseopunctatus",
+  "scientificName": "Hypostomus roseopunctatus",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hypostomus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "argentina",
+    "rio-parana",
+    "uruguay",
+    "brazil",
+    "rio-pelotas"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 23
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1337",
+      "html": "<ul><li>Scientific name: Hypostomus roseopunctatus Reis, Weber &amp; Malabarba, 1990</li><li>Common name: Rose-spotted Pleco</li><li>IUCN Red List: Least Concern (last assessed 2020)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1337",
+      "html": "<p>South America: La Plata system: Uruguay basin. Recorded from the Uruguay, Miriñay and Upper Uruguay (Pelotas) areas. Type locality: Rio Pelotas at road from Esmeralda to Anita Garibaldi, Rio Grande do Sul, Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1337",
+      "html": "<p>Photographed habitat: Rio Parana, Corrientes State, Argentina.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1337",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1337",
+      "html": "<p>Etymology: Greek, hypo = under + Greek, stoma = mouth. The specific epithet refers to its rose-coloured (roseus = rose-coloured, red) spots (punctatus = small spots). Other common name: Rosenplettet Sugemalle (Denmark).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1337",
+      "html": "<p>Revue Suisse de Zoologie v. 97 (no. 3), pp 756, Figs. 2, 25-28.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "HyVxpwYIwxs",
+      "title": "Hypostomus Roseopunctatus",
+      "durationSec": 168,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "yPxhWMGL1_g",
+      "title": "💯❤️ Fish of the Week: Meet the Spotted Showstopper—Rose-Spotted Pleco (Hypostomus roseopunctatus)",
+      "durationSec": 78,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "pSxybp8Fh9I",
+      "title": "Plecostomus roseopunctatus Esteban Jara  acuarista",
+      "durationSec": 11,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá 150cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "viên rau củ chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

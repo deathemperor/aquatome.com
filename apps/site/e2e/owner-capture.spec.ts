@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url'
 import { expect, test } from './fixtures'
 import type { BrowserContext, Page } from '@playwright/test'
 
-// The owner's picture in iPhone WebKit (the `iphone` project, E2E_IPHONE=1): most of its faults are WebKit's. A drawn picture has to show what's on the screen or say it doesn't, because the owner reports what they see, and
+// The owner's picture in iPhone WebKit (the `iphone` project, E2E_WEBKIT=1): most of its faults are WebKit's. A drawn picture has to show what's on the screen or say it doesn't, because the owner reports what they see, and
 // a false blank sends someone after a bug that isn't there. Sends are stand-ins, read where the page makes them.
 const flag = (context: BrowserContext, baseURL: string) => context.addCookies([{ name: 'aq_owner', value: '1', url: baseURL }])
 

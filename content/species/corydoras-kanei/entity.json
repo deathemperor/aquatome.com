@@ -9,7 +9,8 @@
   "places": [
     "south-america",
     "brazil",
-    "rio-negro"
+    "rio-negro",
+    "tapajos"
   ],
   "range": {
     "native": {
@@ -107,6 +108,10 @@
       {
         "source": "seriouslyfish",
         "value": 5
+      },
+      {
+        "source": "glaser",
+        "value": 5
       }
     ],
     "tankCm": [
@@ -130,10 +135,22 @@
       "html": "<p>Hoplisoma kanei, long known as Corydoras kanei, is an armoured catfish that appears to be native to the rio Negro basin in Brazil, possibly only the rio Branco drainage. Before description it was assigned the 'C' numbers C026 and C046. It is most easily confused with H. atropersonatum and sometimes traded as that species, but has dark markings in the anal and caudal fins, more numerous and smaller dark spots on the body, and a darker base colouration.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_cf_kanei_c142_en/",
+      "html": "<p>C142 is a very beautiful, peaceful and comparatively small species of Corydoras: it becomes around 5 cm long.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-kanei",
       "html": "<p>This species' distribution is unclear, but it appears to be native to the rio Negro basin, and is possibly restricted to the affluent rio Branco drainage.</p><p>Type locality is 'Aquarium specimen, said to be from Brazil, Roraima State near Boa Vista, possibly from the Rio Branco'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_cf_kanei_c142_en/",
+      "html": "<p>It is said that C142 originates from the Rio Tapajos in Brazil.</p>"
     },
     {
       "key": "aquariumSize",
@@ -166,6 +183,12 @@
       "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 4-6 individuals.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_cf_kanei_c142_en/",
+      "html": "<p>The bright golden spots on the neck and the operculum are typical colour marks for schooling fish, because they can be seen very well under water and make it easy to stay in contact with conspecifics.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-kanei",
@@ -184,6 +207,12 @@
       "html": "<p>Prior to description Hoplisoma kanei was assigned the 'C' numbers C026 and C046.</p><p>Among congeners it is most easily confused with, and sometimes traded as, H. atropersonatum, but can be identified by presence (vs. absence in H. atropersonatum) of dark markings in the anal and caudal fins, presence of numerous, smaller (vs. fewer, larger) dark spots on the body, and an overall darker (vs. paler) base colouration.</p><p>Until 2024 this species was placed in Corydoras, then among the largest catfish genera with over 150 valid species. Dias et al. (2024) divided it into five genera and moved this species to Hoplisoma.</p><p>It is included in the family Callichthyidae, of which members are often referred to collectively as 'armoured' or 'mailed' catfishes due to the presence of bony plates in place of scales on the body.</p><p>Their taxonomy can be confusing, and numerous undescribed species are also thought to exist. Fish of unconfirmed identification entering the aquarium hobby are therefore typically assigned a 'C' or 'CW' number for purposes of reference and organisation.</p><p>They are facultative air breathers and possess a modified, highly vascularised intestine which has evolved to facilitate uptake of atmospheric oxygen and aid survival in oxygen-deprived environments. In the aquarium you'll occasionally see them rising to the surface to take in gulps of air.</p><p>The stiffened pectoral-fin spines are capable of piercing human skin and a 'sting' can be very painful indeed, so care should be exercised when handling them.</p><p>It is thought that secretions from the axillary glands at the base of each spine may even be mildly toxic or venomous.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_cf_kanei_c142_en/",
+      "html": "<p>Corydoras kanei is quite similar to C142, but C142 is distinguished from it by the bright golden spots on the neck and the operculum.</p><p>Suggestion of a common name: Golden neck cory.</p><p>Lexicon: Corydoras comes from ancient Greek and means \"with helmet and spear\". This refers to the strong armor and fin spines. kanei is a dedication name for Kane Grant, the son of the first describer.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-kanei",
@@ -196,15 +225,15 @@
       "thumb": "https://media.aquatome.com/commons/c697e80216b71e00-480.webp",
       "width": 1200,
       "height": 800,
-      "licence": "CC BY-SA 4.0",
-      "author": "Haplochromis",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_kanei_1.JPG",
-      "caption": "Cá chuột Kanei kiếm ăn trên nền sỏi, nền đá phía sau",
       "large": {
         "url": "https://media.aquatome.com/commons/c697e80216b71e00-large.webp",
         "width": 1467,
         "height": 978
-      }
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "Haplochromis",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_kanei_1.JPG",
+      "caption": "Cá chuột Kanei kiếm ăn trên nền sỏi, nền đá phía sau"
     }
   ],
   "videos": [
@@ -262,5 +291,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-13"
 }

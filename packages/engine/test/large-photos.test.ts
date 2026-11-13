@@ -125,3 +125,15 @@ test('a head whose source holds nothing larger is remembered and not fetched aga
   expect(await largePhotos(root, ['betta-splendens'], d, { headsOnly: true })).toMatchObject({ added: 0, smaller: 1 })
   expect(fetched).toBe(1)
 })
+
+test("a head the check can't tell gets its large copy once a person's yes stands for the check's (the spotted snakehead)", async () => {
+  const root = await store()
+  const head = (await photosOf(root, 'content/species/betta-splendens/entity.json'))[0]!.url
+  const subjects = JSON.parse(await readFile(join(root, 'engine-state/_photo-subjects.json'), 'utf8'))
+  subjects[head] = { 'betta-splendens': { ok: 'unsure', typical: true, note: 'could be B. splendens or B. imbellis' } }
+  await writeFile(join(root, 'engine-state/_photo-subjects.json'), JSON.stringify(subjects))
+  expect(await headsUnderBar(root)).toEqual([])
+  const yes = { proposer: 'Photo Sourcing', approvers: ['Curation', 'the chief of staff'], on: '2026-11-19', lookAlike: 'Betta imbellis', mark: 'the red ventral fins' }
+  await writeFile(join(root, 'engine-state/_photo-person-yes.json'), JSON.stringify({ [head]: { 'betta-splendens': yes } }))
+  expect(await headsUnderBar(root)).toEqual(['betta-splendens'])
+})

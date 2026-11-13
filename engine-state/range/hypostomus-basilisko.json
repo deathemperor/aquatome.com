@@ -1,8 +1,8 @@
 {
   "id": "hypostomus-basilisko",
   "native": {
-    "input": "8f11b3ff785b6b27",
-    "at": "2026-11-11T08:59:40.517Z",
+    "input": "4338c83d30cc5895",
+    "at": "2026-11-12T13:29:05.219Z",
     "claims": [
       {
         "code": "BR",
@@ -19,6 +19,14 @@
         "quote": "It occurs in the Rio Paraguay, both in Brazil and Paraguay.",
         "words": "Paraguay",
         "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Bodoquena Plateau in Mato Grosso do Sul, Brazil.",
+        "words": "Brazil",
+        "ok": true
       }
     ],
     "regions": [
@@ -26,6 +34,19 @@
         "name": "Rio Paraguay",
         "source": "glaser",
         "quote": "It occurs in the Rio Paraguay, both in Brazil and Paraguay.",
+        "ok": true
+      },
+      {
+        "name": "Rio Salobra",
+        "source": "scotcat",
+        "quote": "South America: Rio Salobra basin, Rio Paraguay basin.",
+        "ok": true
+      },
+      {
+        "name": "Bodoquena Plateau",
+        "source": "scotcat",
+        "quote": "Bodoquena Plateau in Mato Grosso do Sul, Brazil.",
+        "country": "BR",
         "ok": true
       }
     ],

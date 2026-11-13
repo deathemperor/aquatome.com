@@ -60,9 +60,9 @@ const one = (e: ChatEnv, token: string, id: string) => call(e, token, 'get', `/a
 const hide = (e: ChatEnv, token: string, id: string) => call(e, token, 'post', `/api/chat/conversations/${id}/hide`, PATHS.hide)
 const report = (e: ChatEnv, token: string, id: string, body: unknown) => call(e, token, 'post', `/api/chat/conversations/${id}/report`, PATHS.report, body)
 
-type Seed = { id: string; question: string; from?: string; about?: unknown; identified?: unknown; started: string; last: string; n: number; continues?: string }
+type Seed = { id: string; question: string; from?: string; about?: unknown; tank?: string; identified?: unknown; started: string; last: string; n: number; continues?: string }
 async function row(db: D1Database, account: string, c: Seed, hidden = 0) {
-  const start = { ...(c.from ? { from: c.from } : {}), ...(c.from === 'species' ? { about: (c.about as { id: string }).id } : {}), ...(c.identified ? { identified: c.identified } : {}), lang: 'vi' }
+  const start = { ...(c.from ? { from: c.from } : {}), ...(c.from === 'species' ? { about: (c.about as { id: string }).id } : {}), ...(c.tank ? { tank: c.tank } : {}), ...(c.identified ? { identified: c.identified } : {}), lang: 'vi' }
   await db.prepare('INSERT INTO chat_conversations (account, id, title, start, first_at, last_at, questions, continues, hidden) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)')
     .bind(account, c.id, c.question, JSON.stringify(start), c.started, c.last, c.n, c.continues ?? null, hidden).run()
 }
@@ -114,6 +114,16 @@ test('one conversation answers as the app\'s recording does; a turn from before 
   await row(db, me.account, { id: old, question: 'Cũ', started: '2026-11-07T10:00:00Z', last: '2026-11-07T10:00:00Z', n: 1 })
   store.m.set(conversationKey(me.account, old), JSON.stringify({ created: Date.parse('2026-11-07T10:00:00Z'), turns: [{ n: 1, question: 'Cũ', text: 'Đáp', blocks: [], at: Date.parse('2026-11-07T10:00:00Z') }] }))
   expect((await one(e, me.token, old)).body.turns[0].turn).toMatchObject({ n: 1, text: 'Đáp', suggestions: [], covered: true, conversation: old })
+})
+
+test('a conversation started from a saved tank is listed and read with where it started and which tank', async () => {
+  const { e, db, store } = env()
+  const me = await signIn(db)
+  const id = crypto.randomUUID(), at = '2026-11-13T10:00:00Z'
+  await row(db, me.account, { id, question: 'Bể này ổn không?', from: 'tank', tank: 't1', started: at, last: at, n: 1 })
+  store.m.set(conversationKey(me.account, id), JSON.stringify({ created: Date.parse(at), turns: [{ n: 1, question: 'Bể này ổn không?', text: 'Đáp', blocks: [], at: Date.parse(at) }] }))
+  expect((await list(e, me.token)).body.rows[0].conversations[0]).toMatchObject({ id, from: 'tank', tank: 't1' })
+  expect((await one(e, me.token, id)).body).toMatchObject({ id, from: 'tank', tank: 't1' })
 })
 
 test('another account\'s conversation, or an unknown one, is 404; the list and every call stay behind the chat\'s gate', async () => {

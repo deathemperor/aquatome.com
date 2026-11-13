@@ -107,6 +107,7 @@ LIGHTS_ON_TANKS = ['LightFlowTests/' + t for t in (
     'testALightOnATankOpensTheConnectedLightAsItIs',
     'testASavedLightIsListedAfterARelaunchAndConnectsWithWhatWasWritten')] + LIGHT_OUTLET
 CONNECT_SENT = 'TelemetryFlowTests/testConnectingTheLightIsSentWithoutTheLightsNameOrTheAccount'
+LOVE_ECOLOGY = 'LightFlowTests/testTheOwnersLoveEcologyLightTakesOffThenAColour'
 # The tanks tab: a tank's own flows, its plugs section and its hint that opens the Tài khoản sheet (where the account and
 # the posters blocked are, not here), a page's links and the handbook's tools that open it, and the lights kept on a tank.
 TANKS_TAB = ['TanksFlowTests', 'TankLifeFlowTests', 'TankCheckFlowTests', 'AccountFlowTests', 'PlugFlowTests',
@@ -249,9 +250,8 @@ REACH = {
     KIT + 'Sources/Chihiros/': ['LightFlowTests', CONNECT_SENT],
     # A Mac command line, not in the app: the kit's step in job `perf` builds it (job `kit`, nightly).
     KIT + 'Sources/light-harness/': NONE,
-    # Not in the app yet: the kit's tests (job `perf`; `kit` nightly) test it. The light's flows, once the Đèn tab
-    # sends its commands.
-    KIT + 'Sources/FishLamp/': NONE,
+    # The owner's Love Ecology light's card on the Đèn tab plays its recordings back.
+    KIT + 'Sources/FishLamp/': [LOVE_ECOLOGY],
     KIT + 'Tests/': NONE, 'protocols/': NONE,
     # The owner's dashboard's flows read it: the stand-in server serves its replies, and the owner's row counts its to-dos.
     'protocols/owner-dashboard-vectors.json': ['OwnerFlowTests', 'AccountFlowTests/testTheOwnersRowCountsTheOverviewsToDos']
@@ -308,11 +308,12 @@ def check(runs, left, reached):
     for paths in (['protocols/tanks-vectors.json', 'apps/ios/perf-budgets.json', APP + 'InfoPlist.xcstrings',
                    KIT + 'Tests/TanksTests/StoreTests.swift', 'apps/ios/scripts/testflight-notes.py',
                    'apps/ios/scripts/check-strings.py', 'apps/ios/scripts/check-perf.py',
-                   KIT + 'Sources/light-harness/main.swift', KIT + 'Sources/FishLamp/love-ecology.json',
+                   KIT + 'Sources/light-harness/main.swift',
                    'apps/ios/README.md'],
                   ['apps/ios/store/listing.json', 'apps/ios/scripts/asc-listing.mjs', 'apps/ios/scripts/store-shots.py'],
                   ['apps/ios/scripts/a-new-script.sh', 'apps/ios/design/at-1024.png']):
         assert runs(paths) == [] and left(paths) == '', paths
+    assert reached([KIT + 'Sources/FishLamp/love-ecology.json']) == {LOVE_ECOLOGY}
     # What it leaves to main: the classes of the flows it reaches that it doesn't run.
     assert left([APP + 'Handbook/HomeList.swift']) == ' '.join(sorted(set(HANDBOOK_FLOWS + ['TankVolumeFlowTests', 'ViAtRootFlowTests'])))
     assert left([APP + 'Lights/Radio.swift']) == 'LightFlowTests TelemetryFlowTests'

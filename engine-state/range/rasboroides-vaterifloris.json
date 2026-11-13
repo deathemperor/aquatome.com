@@ -1,0 +1,61 @@
+{
+  "id": "rasboroides-vaterifloris",
+  "native": {
+    "input": "fea14f89ab4650eb",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The fire rasbora, Rasboroides vaterifloris, is a small cyprinid endemic to the Kalu, Bentota, Gin and Nilwala river basins of southwestern Sri Lanka.",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to southwestern Sri Lanka where it is restricted to the Kalu, Bentota, Gin, and Nilwala river basins in the southwestern 'wet zone' of the island, with type locality given as 'Kaluganga River, near Illukvattai ferry on Ratnapura to Gilimalé road, Sabaragamuwa Province'.",
+        "words": "Sri Lanka",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kalu",
+        "source": "seriouslyfish",
+        "quote": "The fire rasbora, Rasboroides vaterifloris, is a small cyprinid endemic to the Kalu, Bentota, Gin and Nilwala river basins of southwestern Sri Lanka.",
+        "country": "LK",
+        "ok": true
+      },
+      {
+        "name": "Bentota",
+        "source": "seriouslyfish",
+        "quote": "The fire rasbora, Rasboroides vaterifloris, is a small cyprinid endemic to the Kalu, Bentota, Gin and Nilwala river basins of southwestern Sri Lanka.",
+        "country": "LK",
+        "ok": true
+      },
+      {
+        "name": "Gin",
+        "source": "seriouslyfish",
+        "quote": "The fire rasbora, Rasboroides vaterifloris, is a small cyprinid endemic to the Kalu, Bentota, Gin and Nilwala river basins of southwestern Sri Lanka.",
+        "country": "LK",
+        "ok": true
+      },
+      {
+        "name": "Nilwala",
+        "source": "seriouslyfish",
+        "quote": "The fire rasbora, Rasboroides vaterifloris, is a small cyprinid endemic to the Kalu, Bentota, Gin and Nilwala river basins of southwestern Sri Lanka.",
+        "country": "LK",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  }
+}

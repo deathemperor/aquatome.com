@@ -16,6 +16,61 @@
     "vietnam",
     "dong-nai"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "LA",
+        "KH",
+        "VN"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya",
+        "Mae Klong",
+        "Tonlé Sap",
+        "Dong Nai",
+        "Duc My"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Occurs in the great Mekong, Chao Phraya and Mae Klong river basins and is therefore widespread in Thailand as well as ranging into Laos, Cambodia and Vietnam.",
+          "countries": [
+            "TH",
+            "LA",
+            "KH",
+            "VN"
+          ],
+          "regions": [
+            "Mekong",
+            "Chao Phraya",
+            "Mae Klong"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Laos it has been recorded from the Xe Bang Fai and Nam Theun river basins while in Cambodia it is known from the Tonlé Sap river and lake.",
+          "countries": [],
+          "regions": [
+            "Tonlé Sap"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The only confirmed occurences from Vietnam we have are from the Duc My river in the centre of the country and Dong Nai drainage in the south.",
+          "countries": [],
+          "regions": [
+            "Dong Nai",
+            "Duc My"
+          ]
+        }
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

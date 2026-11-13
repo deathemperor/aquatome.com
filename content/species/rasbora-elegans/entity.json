@@ -13,6 +13,55 @@
     "indonesia",
     "kalimantan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "SG"
+      ],
+      "regions": [
+        "Borneo",
+        "Sumatra",
+        "Kapuas",
+        "Marah River",
+        "Nias"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to Peninsular Malaysia, Singapore and the Greater Sunda Islands of Borneo and Sumatra.",
+          "countries": [
+            "MY",
+            "SG"
+          ],
+          "regions": [
+            "Borneo",
+            "Sumatra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "On Borneo there are occurrences from the Marah River basin, East Kalimantan (Kalimantan Timur) and parts of the lower Kapuas River basin in West Kalimantan (Kalimantan Barat).",
+          "countries": [],
+          "regions": [
+            "Kapuas",
+            "Marah River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The only record found from Sumatra is from the small island of Nias off the northwestern coast although presumably it also occurs on the main island.",
+          "countries": [],
+          "regions": [
+            "Nias"
+          ]
+        }
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

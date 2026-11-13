@@ -1,0 +1,114 @@
+{
+  "id": "rhaphiodon-vulpinus",
+  "native": {
+    "input": "bc5693b828e1008c",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given simply as 'Brazilian rivers', but this species is currently understood to be distributed in the Amazon basin from the Río Ucayali system in Peru, eastward as far as the rio Xingu in Brazil, plus the rio Tocantins and Rio Capim basins.",
+        "words": "Brazilian",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given simply as 'Brazilian rivers', but this species is currently understood to be distributed in the Amazon basin from the Río Ucayali system in Peru, eastward as far as the rio Xingu in Brazil, plus the rio Tocantins and Rio Capim basins.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's also known from the Río Orinoco basin in Venezuela, Rupununi drainage in the upper Essequibo River system in Guyana, and the Rio Paraná/Paraguay and Río Uruguay basins in Paraguay and Uruguay with the Río de la Plata in Argentina representing its southern limit.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's also known from the Río Orinoco basin in Venezuela, Rupununi drainage in the upper Essequibo River system in Guyana, and the Rio Paraná/Paraguay and Río Uruguay basins in Paraguay and Uruguay with the Río de la Plata in Argentina representing its southern limit.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's also known from the Río Orinoco basin in Venezuela, Rupununi drainage in the upper Essequibo River system in Guyana, and the Rio Paraná/Paraguay and Río Uruguay basins in Paraguay and Uruguay with the Río de la Plata in Argentina representing its southern limit.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "UY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's also known from the Río Orinoco basin in Venezuela, Rupununi drainage in the upper Essequibo River system in Guyana, and the Rio Paraná/Paraguay and Río Uruguay basins in Paraguay and Uruguay with the Río de la Plata in Argentina representing its southern limit.",
+        "words": "Uruguay",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's also known from the Río Orinoco basin in Venezuela, Rupununi drainage in the upper Essequibo River system in Guyana, and the Rio Paraná/Paraguay and Río Uruguay basins in Paraguay and Uruguay with the Río de la Plata in Argentina representing its southern limit.",
+        "words": "Argentina",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given simply as 'Brazilian rivers', but this species is currently understood to be distributed in the Amazon basin from the Río Ucayali system in Peru, eastward as far as the rio Xingu in Brazil, plus the rio Tocantins and Rio Capim basins.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "It's also known from the Río Orinoco basin in Venezuela, Rupununi drainage in the upper Essequibo River system in Guyana, and the Rio Paraná/Paraguay and Río Uruguay basins in Paraguay and Uruguay with the Río de la Plata in Argentina representing its southern limit.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Essequibo",
+        "source": "seriouslyfish",
+        "quote": "It's also known from the Río Orinoco basin in Venezuela, Rupununi drainage in the upper Essequibo River system in Guyana, and the Rio Paraná/Paraguay and Río Uruguay basins in Paraguay and Uruguay with the Río de la Plata in Argentina representing its southern limit.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Paraná",
+        "source": "seriouslyfish",
+        "quote": "It's also known from the Río Orinoco basin in Venezuela, Rupununi drainage in the upper Essequibo River system in Guyana, and the Rio Paraná/Paraguay and Río Uruguay basins in Paraguay and Uruguay with the Río de la Plata in Argentina representing its southern limit.",
+        "ok": true
+      },
+      {
+        "name": "Río Uruguay",
+        "source": "seriouslyfish",
+        "quote": "It's also known from the Río Orinoco basin in Venezuela, Rupununi drainage in the upper Essequibo River system in Guyana, and the Rio Paraná/Paraguay and Río Uruguay basins in Paraguay and Uruguay with the Río de la Plata in Argentina representing its southern limit.",
+        "ok": true
+      },
+      {
+        "name": "Río de la Plata",
+        "source": "seriouslyfish",
+        "quote": "It's also known from the Río Orinoco basin in Venezuela, Rupununi drainage in the upper Essequibo River system in Guyana, and the Rio Paraná/Paraguay and Río Uruguay basins in Paraguay and Uruguay with the Río de la Plata in Argentina representing its southern limit.",
+        "country": "AR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "EC"
+      ],
+      "sourcesOnly": []
+    }
+  }
+}

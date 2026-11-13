@@ -4,6 +4,7 @@ import { setPriority, tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
+import { slow } from '@aq/schema/test-time'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 const SIM_RUN = join(ROOT, 'apps/ios/scripts/sim-run.py')
@@ -30,7 +31,7 @@ test('a simulator run waits for the one before it, across checkouts', async () =
   writeFileSync(`${dir}/release`, '')
   expect(await secondEnd).toBe(0)
   expect(await firstEnd).toBe(0)
-}, 30_000)
+}, slow(30_000))
 
 test("a job's stop reaches the command, and the turn passes on", async () => {
   const dir = home()
@@ -41,7 +42,7 @@ test("a job's stop reaches the command, and the turn passes on", async () => {
   expect(await new Promise(r => run.on('close', r))).toBe(7)
   expect(existsSync(`${dir}/stopped`)).toBe(true)
   expect(spawnSync(SIM_RUN, ['true'], { env }).status).toBe(0)
-}, 30_000)
+}, slow(30_000))
 
 // The photos cycle of 2026-11-08, under load: the stop came while Popen was still returning, before this script knew its
 // command, so it ended alone (143) and left the command running with no parent. Here the stop comes at that moment on
@@ -66,14 +67,14 @@ sim_run.subprocess.Popen = starting
 sys.argv = ["sim-run.py", "sh", "-c", ${JSON.stringify(`trap 'touch ${dir}/stopped; exit 7' TERM; touch ${dir}/up; while :; do sleep 0.05; done`)}]
 sim_run.main()
 `
-  const r = spawnSync('python3', ['-I', '-c', harness], { env: { ...process.env, HOME: dir }, encoding: 'utf8', timeout: 20_000 })
+  const r = spawnSync('python3', ['-I', '-c', harness], { env: { ...process.env, HOME: dir }, encoding: 'utf8', timeout: slow(20_000) })
   const left = Number(readFileSync(`${dir}/pid`, 'utf8'))
   const running = spawnSync('kill', ['-0', String(left)]).status === 0
   if (running) spawnSync('kill', ['-9', String(left)])
   expect(running).toBe(false)
   expect(r.status, r.stderr).toBe(7)
   expect(existsSync(`${dir}/stopped`)).toBe(true)
-}, 30_000)
+}, slow(30_000))
 
 // A stand-in for macOS's sysctl: a 16-core Mac, and the cores it leaves to work, one reading a call, the last one kept.
 const hot = (masks: number[]) => {
@@ -112,7 +113,42 @@ test("this Mac's runner's simulator run waits while cores are taken away, and a 
   const s = stuck.run({ GITHUB_ACTIONS: 'true', RUNNER_ENVIRONMENT: 'self-hosted', SIM_RUN_COOL_MINUTES: '0.0001' })
   expect(s.status).toBe(0)
   expect(s.stdout).toContain('went on after')
-}, 30_000)
+}, slow(30_000))
+
+// 2026-11-12: a lead's simulator run lowered the photos cycle's stand-in 0.2 s after it started, and the cycle didn't
+// publish. A real run (no SIM_RUN_QUIET_ROOT) lowers a simulator's daemons wherever its runtime is mounted, and leaves the
+// system temp folder alone, under any of its names: tests make their stand-ins there, and no simulator runs from it. A
+// test's run lowers its own stand-ins only.
+test("a real run leaves the tests' stand-ins in the system temp folder alone; a test's run lowers only its own", () => {
+  const sim = 'Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/PrivateFrameworks/'
+  const media = `${sim}MediaAnalysis.framework/mediaanalysisd`
+  const photo = `${sim}PhotoAnalysis.framework/Support/photoanalysisd`
+  const lowered = (paths: string[], env: Record<string, string> = {}) => {
+    const r = spawnSync('python3', ['-I', '-c', 'import runpy, sys; m = runpy.run_path(sys.argv[1]); print(" ".join(str(m["lowered"](a)).lower() for a in sys.argv[2:]))', SIM_RUN, ...paths], {
+      encoding: 'utf8', env: { PATH: process.env.PATH, TMPDIR: process.env.TMPDIR ?? '', ...env },
+    })
+    expect(r.stderr).toBe('')
+    return r.stdout.trim().split(' ').map(w => w === 'true')
+  }
+  const real = [
+    `/Library/Developer/CoreSimulator/Volumes/iOS_23F77/${media}`,
+    `/private/var/run/com.apple.security.cryptexd/mnt/com.apple.iPhoneOS.SimulatorRuntime-v24.2.8117.0.ygaeG3/${photo}`,
+    `/Users/someone/Library/Developer/CoreSimulator/Volumes/iOS_23F77/${media} --flag`,
+  ]
+  const stand = 'CoreSimulator/Volumes/iOS/RuntimeRoot/System/Library/PrivateFrameworks/MediaAnalysis.framework/mediaanalysisd'
+  const tests = [
+    join(tmpdir(), 'aq-load-x', stand),
+    `/private/var/folders/5z/abc/T/aq-load-y/${stand}`,
+    `/var/folders/5z/abc/T/aq-load-y/${stand}`,
+    `/tmp/aq/${stand}`,
+    `/private/tmp/aq/${stand}`,
+  ]
+  const mac = ['/System/Library/PrivateFrameworks/PhotoAnalysis.framework/Versions/A/Support/photoanalysisd']
+  // A real run: every simulator's daemon, none of the tests' stand-ins, never the Mac's own.
+  expect(lowered([...real, ...tests, ...mac])).toEqual([true, true, true, false, false, false, false, false, false])
+  // A test's run: its own stand-ins only, not another test's or a real simulator's.
+  expect(lowered([...real, ...tests, ...mac], { SIM_RUN_QUIET_ROOT: join(tmpdir(), 'aq-load-x') })).toEqual([false, false, false, true, false, false, false, false, false])
+})
 
 // 2026-11-12: a lead's simulator run lowered the photos cycle's stand-in 0.2 s after it started, and the cycle didn't
 // publish. A real run (no SIM_RUN_QUIET_ROOT) lowers a simulator's daemons wherever its runtime is mounted, and leaves the
@@ -183,7 +219,7 @@ test.skipIf(process.platform !== 'darwin')("while a run has its turn, its simula
       mac.kill()
     }
   })
-}, 30_000)
+}, slow(30_000))
 
 // The stand-in above is named as a simulator's daemon, so a live simulator run's scan lowers it as well (2026-11-12).
 test("a stand-in someone else's scan lowered before it was read is started afresh, three times at most", async () => {
@@ -227,7 +263,7 @@ test.skipIf(process.platform !== 'darwin')("a real stand-in lowered before it wa
   } finally {
     for (const c of kids) c.kill()
   }
-}, 30_000)
+}, slow(30_000))
 
 // The two files start sim-run.py, whose scan sees every analysis daemon. Dropping either file's import, or the
 // turn itself, lets those scans overlap again. The check uses its own file: the suite's turn is the one
@@ -266,7 +302,7 @@ test("the runner's second ask ends the command, so nothing is left running when 
   await wait(100)
   run.kill('SIGTERM')
   expect(await new Promise(r => run.on('close', r))).toBe(137)
-}, 30_000)
+}, slow(30_000))
 
 test('at most two copies of a simulator', () => {
   const dir = home()
@@ -428,7 +464,7 @@ test("the chief of staff keeps the next turn for a run, which goes ahead of the 
   expect(q.order()).toEqual(['photo-grid', 'other'])
   expect(existsSync(`${q.dir}/.cache/aquatome/sim.next`)).toBe(false) // taken, so the turn after is anyone's
   expect(await q.firstEnd).toBe(0)
-}, 30_000)
+}, slow(30_000))
 
 test('a turn kept for a run that has not queued yet waits for it, and a pid names one too', async () => {
   const q = keptQueue()
@@ -454,7 +490,7 @@ test('a turn kept for a run that has not queued yet waits for it, and a pid name
   await new Promise(res => b.on('close', res))
   await a
   expect(r.order()).toEqual(['b', 'a'])
-}, 30_000)
+}, slow(30_000))
 
 test("only the chief of staff's thread keeps a turn, and a kept turn lapses with its minutes or its run", async () => {
   const q = keptQueue()
@@ -484,7 +520,7 @@ test("only the chief of staff's thread keeps a turn, and a kept turn lapses with
   expect(existsSync(`${q.dir}/.cache/aquatome/sim.next`)).toBe(true) // the word's, from before
   expect(readFileSync(`${q.dir}/.cache/aquatome/checks.next`, 'utf8')).toContain(String(sleeper.pid))
   sleeper.kill()
-}, 30_000)
+}, slow(30_000))
 
 // Durable caches can put test homes under /Users. They must never acquire the real Mac's queue.
 test.skipIf(!hasLockf)('a nested test home never links into the shared Mac queue', () => {
@@ -541,7 +577,7 @@ test.skipIf(!hasLockf)("in the checks queue too, the run the turn is kept for go
   await new Promise(res => named.on('close', res))
   await b
   expect(t.order()).toEqual(['named', 'b'])
-}, 30_000)
+}, slow(30_000))
 
 test("a session other than the chief of staff's can't keep a turn, whatever its command says its thread is", () => {
   const dir = home()

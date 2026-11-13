@@ -12,6 +12,68 @@
     "tocantins",
     "rio-tocantins"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Tocantins",
+        "Amazon",
+        "Rio Itacaiunas"
+      ],
+      "sources": [
+        "planetcatfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Serra dos Carajás, bedrock at rio Itacaiunas, Serra dos Carajás, Pará, Brazil",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Itacaiunas"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Brazil: Rio Tocantins (Amazon, Lower Amazon, Tocantins, Itacaiúnas).",
+          "countries": [],
+          "regions": [
+            "Rio Tocantins",
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8504004,
+      "total": 3,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "BR",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -50.625,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -15.46875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -111,28 +173,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/scotcat/3ffb6745deb92ce7.webp",
-      "thumb": "https://media.aquatome.com/scotcat/3ffb6745deb92ce7-480.webp",
-      "width": 500,
-      "height": 333,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudacanthicus_pitanga.htm",
-      "caption": "Pseudacanthicus pitanga",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/a0a7f2a2826edc3e.webp",
-      "thumb": "https://media.aquatome.com/scotcat/a0a7f2a2826edc3e-480.webp",
-      "width": 500,
-      "height": 333,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudacanthicus_pitanga.htm",
-      "caption": "Pseudacanthicus pitanga",
-      "source": "scotcat"
-    },
-    {
       "url": "https://media.aquatome.com/commons/58928b10c4d02efd.webp",
       "thumb": "https://media.aquatome.com/commons/58928b10c4d02efd-480.webp",
       "width": 960,
@@ -141,17 +181,6 @@
       "author": "B. Phalan",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudacanthicus_pitanga.jpg",
       "caption": "Pseudacanthicus pitanga"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/0c9920da1b20923e.webp",
-      "thumb": "https://media.aquatome.com/scotcat/0c9920da1b20923e-480.webp",
-      "width": 500,
-      "height": 254,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudacanthicus_pitanga.htm",
-      "caption": "Pseudacanthicus pitanga",
-      "source": "scotcat"
     }
   ],
   "videos": [

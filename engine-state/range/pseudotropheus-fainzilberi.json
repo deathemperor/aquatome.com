@@ -1,0 +1,76 @@
+{
+  "id": "pseudotropheus-fainzilberi",
+  "native": {
+    "input": "2e725a408b260778",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It occurs along a stretch of the north-western coast from Chirwa Island to Usisya, and also on the Tanzanian and Mozambican shores.",
+        "words": "Tanzanian",
+        "ok": true
+      },
+      {
+        "code": "MZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It occurs along a stretch of the north-western coast from Chirwa Island to Usisya, and also on the Tanzanian and Mozambican shores.",
+        "words": "Mozambican",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Malawi",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Malawi.",
+        "ok": true
+      },
+      {
+        "name": "Chirwa Island",
+        "source": "seriouslyfish",
+        "quote": "It occurs along a stretch of the north-western coast from Chirwa Island to Usisya, and also on the Tanzanian and Mozambican shores.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MW"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudotropheus fainzilberi",
+    "status": "ACCEPTED",
+    "taxonKey": 2373068,
+    "datasets": [
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        14
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        13
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        10
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "TZ",
+      "MZ"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}

@@ -36,9 +36,12 @@ export type AppItem = {
   short?: string
   /** The page in this language: "/id/ikan/<slug>/". */
   path: string
-  /** A small photo (about 480 px wide). */
+  /** A small photo (about 480 px wide): the same photo its page leads with (pagePhoto). */
   img?: string
-  /** Where the fish is in `img` (a fish's or a breed's), once the site's switch for it is on: protocols/photo-crop-vectors.json. */
+  /**
+   * Where the fish is in `img`, wherever the photo has a box (a fish's, a breed's, a plant's taller than wide, and a guide's
+   * or a series' card when its photo is one of a fish), once the site's switch for it is on: protocols/photo-crop-vectors.json.
+   */
   imgBox?: Box
   /** A fish's short silent loop, real footage of it (content/curation.json `loops`): for cards and its page. */
   loop?: Loop
@@ -193,15 +196,59 @@ export type AppPlace = {
 export const appEquipment = (lang: Lang, c: Content) => (served(lang, '/vi/thiet-bi/x/') ? categoriesIn(lang, c) : [])
 
 /**
+ * A photo the cards' frames refuse: a dealer's shot cropped too near the fish (photoFitsCard), or one the site leads
+ * whole (headFit 'contain'). No frame may fill with it.
+ */
+export const refusedByCards = (p: Photo): boolean => p.headFit === 'contain' || !photoFitsCard(p)
+/**
+ * The switch for a fish's, a breed's or a plant's page photo the cards refuse. On, its card and its head are that photo
+ * with its whole area as the box (photoBox), which the v2 Lab's build draws whole. Off, they have no photo, as before 14
+ * Nov: today's build ignores the box and would crop it, for 41 fish in Vietnamese on 13 Nov (Esomus caudiocellatus losing
+ * about half its length on a card). Turned on, in a one-line change, the day the Lab's build that reads the box is on
+ * TestFlight (the chief of staff, 13 Nov). An object, so a test holds both ways.
+ */
+export const APP_WHOLE_PHOTOS = { on: false }
+const realPhoto = (photos: Photo[]) => photos.find(p => !p.generated)
+/**
+ * The one photo a page's card and its head both show, for a fish, a breed or a plant: the page's first photo that isn't
+ * generated (the Design Lead's line, accepted by the chief of staff, 13 Nov: a card and the page it opens show one photo).
+ * Where the fish is in it (photoBox) decides fill or whole by the frames rule (protocols/photo-crop-vectors.json). One the
+ * cards refuse only while APP_WHOLE_PHOTOS is on.
+ */
+export const pagePhoto = (photos: Photo[]): Photo | undefined => {
+  const p = realPhoto(photos)
+  return p && (APP_WHOLE_PHOTOS.on || !refusedByCards(p)) ? p : undefined
+}
+/**
+ * A page's head: its card's photo (pagePhoto), or, where the page has no real photo, its first generated picture, which
+ * the page labels and no card shows (pictures.ts cleanPhoto: generation ships on the page and in its album only).
+ */
+export const headPhoto = (photos: Photo[]): Photo | undefined => (realPhoto(photos) ? pagePhoto(photos) : photos[0])
+/** The photo's whole area: in any frame of another shape the frames rule then shows it whole. */
+const WHOLE: Box = { x: 0, y: 0, w: 1, h: 1 }
+/**
+ * Where the fish is in a photo, as the app's frames read it: the loader's box, or the whole area where the cards' frames
+ * refuse the photo (refusedByCards), so no frame cuts it. None where the loader gives none (a plant's square or wide
+ * photo): it fills.
+ */
+export const photoBox = (p: Photo): Box | undefined => (refusedByCards(p) ? WHOLE : boxFractions(p))
+/**
+ * A card's copy of a photo: its small copy where that is the photo only resized (resizeOf), else the photo itself, so the
+ * card and the page's head show one framing and the photo's box holds for both.
+ */
+export const cardSrc = (p: Photo): string => { const small = smallSrc(p); return resizeOf(p, small) ? small : p.url }
+
+/**
  * `traits`: behaviour by species id (lib/traits.ts), as the tank-mates tool reads it. `everySpecies`: the species of
  * every language (the Vietnamese content's), so a breed gets its species' group even where that species has no page.
  */
 export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = new Map(), everySpecies: Content['species'] = c.species, cur?: { calendar: Curation; today: string }): AppIndex {
   const t = translator(lang)
   const at = (viPath: string) => appPath(lang, viPath)
-  const leadOf = (photos: Photo[]) => photos.find(p => !p.generated && p.headFit !== 'contain' && photoFitsCard(p))
-  const img = (photos: Photo[]) => { const p = leadOf(photos); return p ? smallSrc(p) : undefined }
-  const imgBox = (photos: Photo[]) => { const p = leadOf(photos); return p && resizeOf(p, smallSrc(p)) ? boxFractions(p) : undefined }
+  /** A card photo's box: `img` is the photo or a copy only resized (cardSrc), which the box's fractions hold for. */
+  const boxOf = (p: Photo | undefined) => (p ? photoBox(p) : undefined)
+  const img = (photos: Photo[]) => { const p = pagePhoto(photos); return p ? cardSrc(p) : undefined }
+  const imgBox = (photos: Photo[]) => boxOf(pagePhoto(photos))
   const aka = (names: string[]) => (names.length ? names : undefined)
   const items: AppItem[] = []
   const home: AppHome = { groups: [], fish: [], plants: [], guides: [] }
@@ -252,7 +299,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
       }))
     }
     home.groups = groupTiles(lang, c).map(g => {
-      const box = g.photo && resizeOf(g.photo, smallSrc(g.photo)) ? boxFractions(g.photo) : undefined
+      const box = g.photo && resizeOf(g.photo, smallSrc(g.photo)) ? photoBox(g.photo) : undefined
       return g.photo ? { id: g.group, img: smallSrc(g.photo), ...(box ? { imgBox: box } : {}) } : { id: g.group }
     })
     home.fish = featuredSpecies(lang, c, 30).map(s => at(`/vi/ca/${s.t.slug}/`))
@@ -260,7 +307,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   if (served(lang, '/vi/cay/x/')) {
     for (const p of appPlants(lang, c)) {
       const plant = { difficulty: p.difficulty, light: p.light, co2: p.co2, growth: p.growth, placement: p.placement }
-      items.push(clean({ kind: 'plant', id: p.id, name: p.t.name, sub: p.scientificName, aka: aka([...(p.synonyms ?? []), ...p.t.altNames]), path: at(`/vi/cay/${p.t.slug}/`), img: img(p.photos), plant }))
+      items.push(clean({ kind: 'plant', id: p.id, name: p.t.name, sub: p.scientificName, aka: aka([...(p.synonyms ?? []), ...p.t.altNames]), path: at(`/vi/cay/${p.t.slug}/`), img: img(p.photos), imgBox: imgBox(p.photos), plant }))
     }
     home.plants = easyPlants(c, c.plants.length).map(p => at(`/vi/cay/${p.t.slug}/`))
   }
@@ -274,7 +321,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
       const ph = guideImage(c, g)
       const path = at(`/vi/huong-dan/${g.t.slug}/`)
       guideAt.set(g.id, path)
-      items.push(clean({ kind: 'guide', name: g.t.name, aka: aka(g.t.altNames), path, img: ph && smallSrc(ph), section: g.kind, about: about.length ? about : undefined, video: g.video?.durationSec }))
+      items.push(clean({ kind: 'guide', name: g.t.name, aka: aka(g.t.altNames), path, img: ph && cardSrc(ph), imgBox: boxOf(ph), section: g.kind, about: about.length ? about : undefined, video: g.video?.durationSec }))
     }
     home.guides = leadGuides(c).map(g => at(`/vi/huong-dan/${g.t.slug}/`))
   }
@@ -285,12 +332,12 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   // A series as its page lists it; the same series the app gets pages of.
   for (const { s, guides } of appSeries(lang, c)) {
     const ph = guideImage(c, guides[0]!)
-    items.push(clean({ kind: 'video', name: s.vi.name, sub: s.channel, path: at(`/vi/video/${s.vi.slug}/`), img: ph && smallSrc(ph), parts: guides.length }))
+    items.push(clean({ kind: 'video', name: s.vi.name, sub: s.channel, path: at(`/vi/video/${s.vi.slug}/`), img: ph && cardSrc(ph), imgBox: boxOf(ph), parts: guides.length }))
   }
   // An equipment category as its page names it; the same categories the app gets pages of.
   for (const u of appEquipment(lang, c)) {
     const g = c.equipment.find(e => e.category === u.category)
-    items.push(clean({ kind: 'equipment', name: g?.name ?? t(categoryLabel(u.category)), path: at(`/vi/thiet-bi/${u.category}/`), img: g && smallSrc(g.hero) }))
+    items.push(clean({ kind: 'equipment', name: g?.name ?? t(categoryLabel(u.category)), path: at(`/vi/thiet-bi/${u.category}/`), img: g && cardSrc(g.hero), imgBox: boxOf(g?.hero) }))
   }
   for (const [vi, name, own, short] of TOOLS) {
     if (served(lang, vi)) items.push(clean({ kind: 'tool', name: t(name), path: at(vi), words: own.map(w => t(w)), short: short && t(short) }))
@@ -323,13 +370,13 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
     for (const b of appBreeds(lang, c)) refs.set(`breeds/${b.id}`, at(`/vi/ca/${b.t.slug}/`))
     for (const g of appGuides(lang, c)) refs.set(`guides/${g.id}`, at(`/vi/huong-dan/${g.t.slug}/`))
     for (const p of appPlants(lang, c)) refs.set(`plants/${p.id}`, at(`/vi/cay/${p.t.slug}/`))
-    // Where the fish is in each fish and breed photo the calendar can name by address: the photo's own address first, then
+    // Where the fish is in each photo the calendar can name by address (a fish's, a breed's, a plant's, a guide's): the photo's own address first, then
     // its copies only resized (its small copy, a large copy of the same shape). An address two photos' copies claim with
     // different boxes gets none.
     const own = new Map<string, Box>(), copies = new Map<string, Box | null>()
     const copy = (u: string, box: Box) => copies.set(u, copies.has(u) && JSON.stringify(copies.get(u)) !== JSON.stringify(box) ? null : box)
-    for (const p of [...c.species.flatMap(s => s.photos), ...c.breeds.flatMap(b => b.photos), ...Object.values(c.galleries).flat()]) {
-      const box = boxFractions(p)
+    for (const p of [...c.species.flatMap(s => s.photos), ...c.breeds.flatMap(b => b.photos), ...c.plants.flatMap(p => p.photos), ...Object.values(c.galleries).flat(), ...c.guides.flatMap(g => [...g.photos, ...(g.video?.figures ?? []).flatMap(f => f.photo ?? [])])]) {
+      const box = photoBox(p)
       if (!box) continue
       own.set(p.url, box)
       for (const u of new Set([p.thumb, smallSrc(p)])) if (u && u !== p.url && resizeOf(p, u)) copy(u, box)

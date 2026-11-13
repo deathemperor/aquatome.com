@@ -12,6 +12,122 @@
     "malaysia",
     "sarawak"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "MY"
+      ],
+      "regions": [
+        "Borneo",
+        "Kapuas",
+        "Mempawah",
+        "Kahayan",
+        "Kalimantan"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Puntigrus anchisporus is a small cyprinid endemic to Borneo, recorded from Kalimantan in Indonesia and much of Sarawak in Malaysia.",
+          "countries": [
+            "ID",
+            "MY"
+          ],
+          "regions": [
+            "Borneo",
+            "Kalimantan"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Kapuas River, Borneo, Indonesia'.",
+          "countries": [],
+          "regions": [
+            "Kapuas"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Borneo, with Indonesian records from the Kapuas and Mempawah rivers in Kalimantan Barat (West Kalimantan) province, Maruwei, Pembuang, Teweh, and Kahayan watersheds in Kalimantan Tengah (Central Kalimantan), plus the Negara and Jorong drainages in Kalimantan Selatan (South Kalimantan).",
+          "countries": [],
+          "regions": [
+            "Mempawah",
+            "Kahayan"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7919067,
+      "total": 13,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "ID",
+          13
+        ]
+      ],
+      "cells": [
+        [
+          108.28125,
+          0,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          0,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          1,
+          1
+        ],
+        [
+          112.5,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          112.5,
+          0,
+          2,
+          2
+        ],
+        [
+          113.90625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          115.3125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          -1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

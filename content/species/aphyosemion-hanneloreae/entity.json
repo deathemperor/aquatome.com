@@ -78,7 +78,71 @@
       "html": "<p>Aphyosemion: from the Greek aphúe, meaning 'a small fish', and semeion, meaning 'banner, flag', in reference to the \"ornamented, often lyre-shaped\" caudal fin in male individuals of genus members.</p><p>hanneloreae: named for second author Eduard Pürzl's wife, Hannelore Pürzl.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/e2240009c92198227fd2edda5dfadbc3.webp",
+      "thumb": "https://media.aquatome.com/processed/e2240009c92198227fd2edda5dfadbc3-480.webp",
+      "width": 709,
+      "height": 486,
+      "licence": "dùng với sự cho phép",
+      "author": "Hristo Hristov / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-hanneloreae",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261113-aphyosemion-hanneloreae-recovery-1",
+        "pixelHash": "a9b5fc551db165e3d3ee0fb01c7e28f039ce22064e20e7da0d4ac24107e576ca"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-13T07:40:34.792Z",
+          "originalHash": "bd2fde32644847161fe7fe041370f99c41ccc20c137b7ebaf10546a3650fa8b0",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 709,
+            "originalHeight": 527,
+            "window": {
+              "x0": 0,
+              "y0": 41,
+              "x1": 709,
+              "y1": 527
+            },
+            "subject": {
+              "x0": 75,
+              "y0": 167,
+              "x1": 647,
+              "y1": 384
+            },
+            "margin": 14
+          },
+          "excludedMarks": [
+            {
+              "x0": 10,
+              "y0": 6,
+              "x1": 192,
+              "y1": 35
+            }
+          ],
+          "checks": {
+            "species": [
+              "1331d9a79450930a1d18d986648dc1e9e07e3970a620106fd2df51d87cf7f249",
+              "a6eb7db3b4c7d3262598571edc3a326d859cbb3d5069f472804cdbf95f97c832"
+            ],
+            "ownership": [
+              "21cf31d8c8823a276e81766bf8083677ba7cac786c849a4cb9e437627b9a639c",
+              "11c334dcaed68e70a83521c431a5037bde95e9a378ebe1198ff7d7eeb6fd360e"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/6ecb0cfbb33b8665.webp",
+        "width": 709,
+        "height": 527
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

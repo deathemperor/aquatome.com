@@ -9,7 +9,7 @@ import GuideLinks from '../../components/GuideLinks.astro'
 import VideoGuideGrid from '../../components/VideoGuideGrid.astro'
 import ProductSlots from '../../components/ProductSlots.astro'
 import Comments from '../../components/Comments.astro'
-import { plantTitle } from '../../lib/meta'
+import { plantTitle, withSci } from '../../lib/meta'
 import { getContent } from '../../lib/content'
 import { searchAliases } from '../../lib/search'
 import { PLANT_LABELS } from '../../lib/format'
@@ -40,7 +40,7 @@ import RedirectNote from '../../components/RedirectNote.astro'
 import BackToTop from '../../components/BackToTop.astro'
 const alternates = await alternatesOf('plants', p.id)
 ---
-<Base title={plantTitle(lang, p.t.name, p.scientificName)} description={`${p.t.name} (${p.scientificName}): ${facts.map(([k, v]) => `${k.toLowerCase()} ${v.toLowerCase()}`).join(', ')}. ${t('Cách trồng và chăm sóc.')}`} image={p.photos[0]?.url} noindex={!p.t.quality.indexable} alternates={alternates} credits={creditsFor([...figures, ...strip].map(x => x ?? undefined))}>
+<Base title={plantTitle(lang, p.t.name, p.scientificName)} description={`${withSci(p.t.name, p.scientificName)}: ${facts.map(([k, v]) => `${k.toLowerCase()} ${v.toLowerCase()}`).join(', ')}. ${t('Cách trồng và chăm sóc.')}`} image={p.photos[0]?.url} noindex={!p.t.quality.indexable} alternates={alternates} credits={creditsFor([...figures, ...strip].map(x => x ?? undefined))}>
   <Nav slot="header" />
   <nav class="wrap crumb" aria-label={t('Đường dẫn')}><a href="/vi/cay/">{t('Cây thủy sinh')}</a></nav>
   <header class="wrap top">

@@ -1,0 +1,135 @@
+{
+  "id": "rasbora-borapetensis",
+  "native": {
+    "input": "cc942cfd57b7bd5d",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The red-tailed rasbora, Rasbora borapetensis, is a small cyprinid from the Mekong and Chao Phraya drainages and the Mae Klong in western Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs in the great Mekong and Chao Phraya river drainages as well as the Mae Klong in western Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It thus has an enormous natural range and has also been recorded from Cambodia, Laos, Vietnam, Peninsular Malaysia and China.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It thus has an enormous natural range and has also been recorded from Cambodia, Laos, Vietnam, Peninsular Malaysia and China.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It thus has an enormous natural range and has also been recorded from Cambodia, Laos, Vietnam, Peninsular Malaysia and China.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It thus has an enormous natural range and has also been recorded from Cambodia, Laos, Vietnam, Peninsular Malaysia and China.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It thus has an enormous natural range and has also been recorded from Cambodia, Laos, Vietnam, Peninsular Malaysia and China.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "PH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Its distribution extends further into the Philippines and Sunda Islands including parts of Malaysia, Indonesia, Brunei Darussalam and Singapore (introduced and non-native to the latter).",
+        "words": "Philippines",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Its distribution extends further into the Philippines and Sunda Islands including parts of Malaysia, Indonesia, Brunei Darussalam and Singapore (introduced and non-native to the latter).",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "BN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Its distribution extends further into the Philippines and Sunda Islands including parts of Malaysia, Indonesia, Brunei Darussalam and Singapore (introduced and non-native to the latter).",
+        "words": "Brunei Darussalam",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Its distribution extends further into the Philippines and Sunda Islands including parts of Malaysia, Indonesia, Brunei Darussalam and Singapore (introduced and non-native to the latter).",
+        "words": "Singapore",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Occurs in the great Mekong and Chao Phraya river drainages as well as the Mae Klong in western Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Occurs in the great Mekong and Chao Phraya river drainages as well as the Mae Klong in western Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Mae Klong",
+        "source": "seriouslyfish",
+        "quote": "Occurs in the great Mekong and Chao Phraya river drainages as well as the Mae Klong in western Thailand.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Sunda Islands",
+        "source": "seriouslyfish",
+        "quote": "Its distribution extends further into the Philippines and Sunda Islands including parts of Malaysia, Indonesia, Brunei Darussalam and Singapore (introduced and non-native to the latter).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": [
+        "CN",
+        "PH",
+        "ID",
+        "BN"
+      ]
+    }
+  }
+}

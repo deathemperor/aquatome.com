@@ -11,6 +11,87 @@
     "rio-paraguay",
     "brazil"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "PY"
+      ],
+      "regions": [
+        "Rio Paraguay",
+        "Rio Salobra",
+        "Bodoquena Plateau"
+      ],
+      "sources": [
+        "scotcat",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It occurs in the Rio Paraguay, both in Brazil and Paraguay.",
+          "countries": [
+            "BR",
+            "PY"
+          ],
+          "regions": [
+            "Rio Paraguay"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Rio Salobra basin, Rio Paraguay basin.",
+          "countries": [],
+          "regions": [
+            "Rio Salobra"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Bodoquena Plateau in Mato Grosso do Sul, Brazil.",
+          "countries": [],
+          "regions": [
+            "Bodoquena Plateau"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9458802,
+      "total": 50,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "BR",
+          49
+        ],
+        [
+          "PY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -57.65625,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -22.5,
+          4,
+          4
+        ],
+        [
+          -57.65625,
+          -21.09375,
+          45,
+          45
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -93,52 +174,7 @@
       "html": "<p>Froese, R. and D. Pauly. Editors. 2014. FishBase. World Wide Web electronic publication. www.fishbase.org, (11/2014). Petersen P. amazonas.dk/ Tencatt, L.F.C., C.H. Zawadzki and O. Froehlich, 2014. Two new species of the Hypostomus cochliodon group (Siluriformes: Loricariidae) from the rio Paraguay basin, with a redescription of Hypostomus cochliodon Kner, 1854. Neotrop. Ichthyol. 12(3):585-602.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/4f1d236064e77bfd.webp",
-      "thumb": "https://media.aquatome.com/scotcat/4f1d236064e77bfd-480.webp",
-      "width": 500,
-      "height": 321,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_basilisko.htm",
-      "caption": "Hypostomus basilisko",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/f0b38e42230af35a.webp",
-      "thumb": "https://media.aquatome.com/scotcat/f0b38e42230af35a-480.webp",
-      "width": 500,
-      "height": 328,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_basilisko.htm",
-      "caption": "Hypostomus basilisko",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/057ff78886c759c3.webp",
-      "thumb": "https://media.aquatome.com/scotcat/057ff78886c759c3-480.webp",
-      "width": 500,
-      "height": 334,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_basilisko.htm",
-      "caption": "Hypostomus basilisko: mouth view",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/1e0fa0e2ad0b15c8.webp",
-      "thumb": "https://media.aquatome.com/scotcat/1e0fa0e2ad0b15c8-480.webp",
-      "width": 500,
-      "height": 324,
-      "licence": "dùng với sự cho phép",
-      "author": "Peter Petersen / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_basilisko.htm",
-      "caption": "Hypostomus basilisko",
-      "source": "scotcat"
-    }
-  ],
+  "photos": [],
   "videos": [
     {
       "youtubeId": "F3IhRPjT1NI",
@@ -188,67 +224,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-11",
-  "range": {
-    "native": {
-      "countries": [
-        "BR",
-        "PY"
-      ],
-      "regions": [
-        "Rio Paraguay"
-      ],
-      "sources": [
-        "glaser"
-      ],
-      "quotes": [
-        {
-          "source": "glaser",
-          "quote": "It occurs in the Rio Paraguay, both in Brazil and Paraguay.",
-          "countries": [
-            "BR",
-            "PY"
-          ],
-          "regions": [
-            "Rio Paraguay"
-          ]
-        }
-      ]
-    },
-    "records": {
-      "taxonKey": 9458802,
-      "total": 50,
-      "fetched": "2026-11-11",
-      "countries": [
-        [
-          "BR",
-          49
-        ],
-        [
-          "PY",
-          1
-        ]
-      ],
-      "cells": [
-        [
-          -57.65625,
-          -25.3125,
-          1,
-          1
-        ],
-        [
-          -57.65625,
-          -22.5,
-          4,
-          4
-        ],
-        [
-          -57.65625,
-          -21.09375,
-          45,
-          45
-        ]
-      ]
-    }
-  }
+  "updatedAt": "2026-11-11"
 }

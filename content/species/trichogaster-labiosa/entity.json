@@ -7,7 +7,9 @@
   "group": "labyrinth",
   "places": [
     "asia",
-    "myanmar"
+    "myanmar",
+    "inle-lake",
+    "lake-inle"
   ],
   "dataCard": {
     "tempC": [
@@ -41,6 +43,10 @@
       {
         "source": "seriouslyfish",
         "value": 10
+      },
+      {
+        "source": "glaser",
+        "value": 8
       }
     ],
     "tankCm": [
@@ -64,10 +70,22 @@
       "html": "<p>The thick-lipped gourami, Trichogaster labiosa, is a labyrinth fish known only from southern Myanmar, found in shady, weedy rivers and ponds. Easy to keep and peaceful, it is one of the best gouramis for a community tank. A gold or 'sunset' strain has been selectively bred for the trade. It should not be kept with the banded gourami because the two can hybridise freely.</p><ul><li>Max size: 100 mm SL (3.9 in)</li><li>Aquarium size: 74 × 30 cm (29 × 12 in)</li><li>Temperature: 22–27°C (72–81°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 5–15 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/colisa_cf_labiosa_inle_en/",
+      "html": "<p>These gouramis belong to a scientifically still undescribed species, which is close to C. labiosa. The maximum length of the species is around 8 cm.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trichogaster-labiosa",
       "html": "<p>Known only from Southern Myanmar.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/colisa_cf_labiosa_inle_en/",
+      "html": "<p>The parents of these fish were collected during a private collecting trip in Burma, in Lake Inle.</p>"
     },
     {
       "key": "habitat",
@@ -125,7 +143,38 @@
     }
   ],
   "photos": [],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "WIqKPCM-OGQ",
+      "title": "Thick-Lipped Gourami Explained | Care, Behaviour & Why They’re Mislabelled as Honey Gourami",
+      "durationSec": 625,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "wm_iwe05Beo",
+      "title": "Thick Lipped Gourami - Colisa labiosa",
+      "durationSec": 61,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "L4UNJ7-OpkA",
+      "title": "Thick lipped gourami 9/20/2020 (Trichogaster labiosa) free to use footage",
+      "durationSec": 19,
+      "lang": "zxx"
+    },
+    {
+      "youtubeId": "qZ_tfSffuiE",
+      "title": "Trichogaster labiosa",
+      "durationSec": 40,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "57ZyfyD33BQ",
+      "title": "Gouramis: Sunset Gourami (Trichogaster labiosa)",
+      "durationSec": 28,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -154,5 +203,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-13"
 }

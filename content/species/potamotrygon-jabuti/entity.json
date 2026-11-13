@@ -10,6 +10,74 @@
     "brazil",
     "tapajos"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Tapajos"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "So far it has only been collected from the Rio Tapajos, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Tapajos"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9751920,
+      "total": 62,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "BR",
+          62
+        ]
+      ],
+      "cells": [
+        [
+          -57.65625,
+          -9.84375,
+          14,
+          14
+        ],
+        [
+          -57.65625,
+          -5.625,
+          15,
+          15
+        ],
+        [
+          -56.25,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -8.4375,
+          30,
+          30
+        ],
+        [
+          -56.25,
+          -5.625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
