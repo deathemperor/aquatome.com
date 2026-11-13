@@ -253,6 +253,22 @@ test('a directed rewrite changes only the sentence its finding quotes: every oth
   expect(after).toContain('Đèn nên để khá dịu.')
 })
 
+test('a changed sentence is written in metric, and nothing else on the page is touched', async () => {
+  const root = await content()
+  const { p, file, beech } = await tetra(root)
+  // Another part the reading didn't fault, with a size in inches beside its centimetres (Astra's read).
+  const vi = JSON.parse(await readFile(file, 'utf8'))
+  const other = Object.keys(vi.sections).find(k => k !== 'habitat:seriouslyfish' && !k.startsWith('references'))!
+  vi.sections[other] = '<p>Kích thước trưởng thành: 6 inch/15 cm.</p>'
+  await writeFile(file, JSON.stringify(vi, null, 2))
+  const llm = fakeLlm(vi => vi.replace('bạn có thể dùng cành dẻ gai (beech) thông thường', 'bạn có thể dùng cành cây gỗ cứng dài 12 inch thông thường'), 0.9)
+  const r = await fitRewrite(root, [p], reading(p, beech), { llm: llm.llm, now: () => new Date('2026-11-13T09:00:00Z') }, { limit: 5 })
+  expect(r.rewritten).toHaveLength(1)
+  const saved = JSON.parse(await readFile(file, 'utf8'))
+  expect(saved.sections[other]).toBe('<p>Kích thước trưởng thành: 6 inch/15 cm.</p>')
+  expect(said(saved.sections['habitat:seriouslyfish'])[5]).not.toMatch(/inch/)
+})
+
 test('a sentence beside the changed one changes too only when the writer says why; one further off never does', async () => {
   const root = await content()
   const { p, file, beech } = await tetra(root)

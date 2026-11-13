@@ -1,6 +1,6 @@
 import { readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { metricPage, QUALITY_THRESHOLD } from '@aq/schema'
+import { QUALITY_THRESHOLD } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import { FIT_TITLE, fitDue, fitFindings, fitKey, fitText, type FitCheck, type FitFinding, type FitState } from './fit'
 import { rewriteForReader } from './for-reader'
@@ -143,7 +143,7 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
         const html = partOf(t, field)
         if (!html || (field === 'body' && t.bodyFixed) || fixed.has(field)) { report.skipped.push(`${key} ${field}: ${html ? 'a person fixed its text' : 'not in the file'}`); continue }
         const source = field.startsWith('sections.') ? field.split(':')[1] : p.origin?.source
-        const r = await mendPart(d.llm, html, fs.map(f => ({ check: f.check, quote: f.quote ?? '', note: noteOf(f) })), { en: p.en?.[field], source: source && names[source]?.name, model: 'opus' })
+        const r = await mendPart(d.llm, html, fs.map(f => ({ check: f.check, quote: f.quote ?? '', note: noteOf(f) })), { en: p.en?.[field], source: source && names[source]?.name, model: 'opus', metric: METRIC_KINDS.includes(p.kind) })
         if (typeof r === 'string') { report.skipped.push(`${key} ${field}: ${r}`); continue }
         // Kept at the bar, leaving out only what a finding asks to go, and saying nothing more surely than before (hedges.ts).
         if (r.score < QUALITY_THRESHOLD || r.lost.length || r.unasked.length) { report.notKept.push(`${key} ${field} (${r.score.toFixed(2)}: ${r.notes.slice(0, 2).join('; ')})`); continue }
@@ -151,9 +151,9 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
         if (field === 'body') t.body = r.html
         else if (field === 'definition') t.definition = r.html
         else t.sections![field.replace(/^sections\./, '')] = r.html
-        // Each part as it's kept, so a later part's failure loses none. Fish, plant and breed pages are written in metric
-        // only, as by every other writer (metric.ts).
-        await writeFile(file, `${JSON.stringify(METRIC_KINDS.includes(p.kind) ? metricPage(t, 'vi') : t, null, 2)}\n`)
+        // Each part as it's kept, so a later part's failure loses none. The sentences that changed are in metric already
+        // (mendPart); nothing else on the page is touched (Astra's read: converting the page changed parts no one read).
+        await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)
         changed++
         report.rewritten.push(`${key} ${field} (${r.score.toFixed(2)})`)
       }

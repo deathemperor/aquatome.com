@@ -92,3 +92,20 @@ test('a part that would lose every sentence isn\'t mended here: the dealer check
   const llm = (async () => ({ sentences: [{ n: 1, vi: '' }] })) as unknown as Llm
   expect(await mendPart(llm, html, [{ check: 'source', quote: 'Hiện có cá phượng hoàng', note: 'n' }])).toMatch(/every sentence would go/)
 })
+
+// Astra's read of the first draft: what a writer drops beyond what its finding asks for fails, whatever the reviewer says.
+test('a word a changed sentence loses that no finding quotes or asks to go fails, though the reviewer lists nothing', async () => {
+  const silent = (sentences: { n: number; vi: string }[]) => (async ({ schema }: { schema: { required: string[] } }) => (schema.required.includes('sentences') ? { sentences } : { score: 1, notes: [], dropped: [], hedges: [] })) as Llm
+  // A price finding, and the whole sentence gone with the warning in it.
+  const price = await mendPart(silent([{ n: 1, vi: '' }]), '<p>Cây giá dưới 10 đô la và độc với tép. Cây mọc nhanh.</p>', [{ check: 'price', quote: 'giá dưới 10 đô la', note: 'Bỏ giá nước ngoài.' }])
+  if (typeof price === 'string') throw new Error(price)
+  expect(price.unasked.join(' ')).toMatch(/độc.*tép/)
+  // A unit converted, and the warning gone with it.
+  const units = await mendPart(silent([{ n: 1, vi: 'Cá dài 5 cm.' }]), '<p>Cá dài 2 inch và độc với tép. Cá sống theo đàn.</p>', [{ check: 'units', quote: '2 inch', note: 'Đổi sang cm.' }])
+  if (typeof units === 'string') throw new Error(units)
+  expect(units.unasked).toEqual(['Left out of sentence 1, and no finding asks for it to go: "độc tép"'])
+  // The same conversion that keeps the warning passes: the quote's words may go, and "và", "với" only join.
+  const kept = await mendPart(silent([{ n: 1, vi: 'Cá dài 5 cm, độc với tép.' }]), '<p>Cá dài 2 inch và độc với tép. Cá sống theo đàn.</p>', [{ check: 'units', quote: '2 inch', note: 'Đổi sang cm.' }])
+  if (typeof kept === 'string') throw new Error(kept)
+  expect(kept.unasked).toEqual([])
+})
