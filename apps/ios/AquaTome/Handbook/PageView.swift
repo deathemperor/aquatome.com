@@ -96,8 +96,9 @@ struct PageView: View {
       .toolbarBackground(lighter ? .hidden : .automatic, for: .navigationBar)
       .toolbarColorScheme(lighter ? (scrolled ? scheme : .dark) : nil, for: .navigationBar)
       .overlay(alignment: .top) { if lighter { shade } }
-      // None for the lighter top: iOS's title would stand in its bar at rest. Its own says the name once scrolled.
-      .navigationTitle(lighter ? "" : item.name)
+      // The bar's middle is the page's own item (the name once scrolled, or none), so iOS's title never shows; it names the
+      // page in the back button's list.
+      .navigationTitle(item.name)
       .navigationBarTitleDisplayMode(.inline)
       // A Hôm nay post's ✕ (v2), after the page's buttons: a toolbar applied inside theirs comes after them. On the lighter
       // top, on its dark disc over the photo, as a fish post's.
@@ -195,8 +196,14 @@ struct PageView: View {
           .environment(\.dynamicTypeSize, size)
       }
       .v2Glass(false)
-    } else {
-      ToolbarItem(placement: .principal) {
+    }
+    // The bar's middle: for a reader, the name once it has gone under the bar; with the owner's navigator, which names the
+    // part being read, nothing. Always an item of the page's own, so iOS's title never stands there.
+    ToolbarItem(placement: .principal) {
+      if trying?.long == true {
+        // No room taken from Mục lục: wider, iOS folds the bar's items into a "⋯" of its own.
+        Color.clear.frame(width: 0, height: 0).accessibilityHidden(true)
+      } else {
         Text(item.name).font(.headline).lineLimit(1)
           .opacity(nameInView ? 0 : 1)
           .animation(.easeOut(duration: 0.2), value: nameInView)
@@ -271,6 +278,20 @@ struct PageView: View {
     if item.kind == .fish, let card = item.card, card.any { return FactsCard(facts: card, inPage: inPage) }
     if item.kind == .plant, let plant = item.plant, plant.any { return FactsCard(facts: .init(), plant: plant, inPage: inPage) }
     return nil
+  }
+}
+
+private extension View {
+  /// A toolbar's items only when `on`, after the view's other toolbars' items; on iOS 26 a fixed space first, so the bar's
+  /// glass doesn't draw them in one capsule with the others (as a fish post's ✕, `Species.swift`).
+  @ViewBuilder func toolbar<C: ToolbarContent>(when on: Bool, @ToolbarContentBuilder _ content: () -> C) -> some View {
+    if !on {
+      self
+    } else if #available(iOS 26, *) {
+      toolbar { ToolbarSpacer(.fixed, placement: .topBarTrailing); content() }
+    } else {
+      toolbar(content: content)
+    }
   }
 }
 

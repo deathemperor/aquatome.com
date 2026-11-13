@@ -105,7 +105,8 @@ final class GuideTopFlowTests: XCTestCase {
     XCTAssertTrue(app.navigationBars.staticTexts["Nuôi cá neon trong bể nhỏ"].exists, "no name in the bar once scrolled")
   }
 
-  /// From Hôm nay, the owner: the guide's card opens the same top, the back button with Mục lục beside it.
+  /// From Hôm nay, the owner: the guide's card opens the same top, the back button with Mục lục beside it, the ⋯ and the
+  /// post's ✕.
   func testFromHomNayTheOwnersGuideHasBackAndMucLuc() {
     let app = owner("-long-guide", "-plan", "-today", "2026-11-14")
     let card = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "Nuôi cá neon trong bể nhỏ")).firstMatch
@@ -118,6 +119,10 @@ final class GuideTopFlowTests: XCTestCase {
     XCTAssertTrue(bar.buttons.element(boundBy: 0).exists, "no back button")
     XCTAssertLessThan(title.frame.minX - bar.buttons.element(boundBy: 0).frame.maxX, 24, "Mục lục isn't beside the back button")
     XCTAssertTrue(bar.buttons["page-more"].exists, "no ⋯")
+    // Until the post opens pushed with iOS's back drawn as ✕ (the v2 Lab, 16 Nov): its ✕ after the ⋯.
+    let close = bar.buttons["v2-close-post"]
+    XCTAssertTrue(close.exists, "no ✕ on Hôm nay's post")
+    XCTAssertGreaterThan(close.frame.minX, bar.buttons["page-more"].frame.minX, "the ✕ before the ⋯")
   }
 
   /// iOS's edge swipe goes back from a guide at rest, over its photo, and scrolled; slow and quick.
