@@ -52,6 +52,8 @@ const { positionals, values: args } = parseArgs({
     site: { type: 'string', default: 'https://aquatome.com' },
     keys: { type: 'string', default: join(homedir(), '.config/aquatome/anthropic-keys') },
     out: { type: 'string' },
+    // The cards under our answer count too. The owner's build shows text and suggestions only until the cards (#766) ship.
+    cards: { type: 'boolean', default: false },
   },
 })
 
@@ -233,8 +235,8 @@ async function judge() {
     await writeFile(file, JSON.stringify(v))
     return v
   }
-  // Each side as the reader sees it: ours with its cards and suggestions, without the site's name.
-  const seen = (t: Turn) => unbrand(t.blocks ? seenOurs(t.text ?? '', t.blocks as never, t.suggestions ?? []) : t.text ?? '')
+  // Each side as the reader sees it on the phone, without the site's name: ours with its suggestions, and its cards with --cards.
+  const seen = (t: Turn) => unbrand(t.blocks ? seenOurs(t.text ?? '', args.cards ? (t.blocks as never) : [], t.suggestions ?? []) : t.text ?? '')
   const ids = [...ours.keys()].filter(id => ours.get(id)?.text && other.get(id)?.text && posts.has(ours.get(id)!.post))
   let n = 0
   const rows = await pool(ids.map(id => async () => {
@@ -244,7 +246,7 @@ async function judge() {
     if (++n % 25 === 0) console.log(`${n}/${ids.length}`)
     return { id, post: a.post, topic: a.topic, form: a.form, dev: dev(a.post), ...outcome({ first, second }) }
   }), Number(args.concurrency))
-  const out = join(args.dir!, `judge-${args.ours}-vs-${args.plain}.json`)
+  const out = join(args.dir!, `judge-${args.ours}-vs-${args.plain}${args.cards ? '-cards' : ''}.json`)
   await writeFile(out, JSON.stringify(rows, null, 1))
   console.log(`${rows.length} judged, ${ids.length < ours.size ? `${ours.size - ids.length} left out (no answer on a side)` : 'none left out'}: ${out}`)
 }
