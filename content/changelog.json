@@ -2,6 +2,13 @@
   {
     "date": "2026-11-13",
     "kind": "species",
+    "id": "corydoras-trilineatus",
+    "source": "aquatome",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-13",
+    "kind": "species",
     "id": "leporellus-vittatus",
     "source": "glaser",
     "action": "updated"
@@ -3489,13 +3496,6 @@
     "date": "2026-11-10",
     "kind": "guide",
     "id": "youtube-Ct6YVxp_mFc",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-10",
-    "kind": "guide",
-    "id": "youtube-V61XUFz8e5c",
     "source": "youtube",
     "action": "new"
   }

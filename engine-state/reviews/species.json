@@ -284,6 +284,41 @@
       "kept": false
     }
   ],
+  "vi/species/corydoras-trilineatus#dgzW8B32GO0": [
+    {
+      "at": "2026-11-13T20:42:32Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.68,
+      "notes": [
+        "[diet] \"thức ăn viên... viên chìm loại tốt\" and fresh/frozen foods repeat the page's diet section (viên chìm, thức ăn sống và đông lạnh, trùng huyết). Only the 1–2×/week frequency, \"không bắt buộc\" and the bloodworm digestion warning are new.",
+        "[behaviour] \"Cá khỏe, dễ nuôi\" is already on the page (\"hiền và khỏe\", good for beginners). Only \"hơi nhát\" is new.",
+        "[behaviour] \"Ngoài các loài đã kể\" refers to the page's tank-mate list. The rasbora and small barb are already covered by the page's \"cá họ chép\". Only the angelfish and labeo warning are new.",
+        "[notes] \"hay bị nhầm với cá chuột julii thật\" partly repeats the page's quickFacts, which says the two species are hard to tell apart and that most \"julii\" sold are this species. The head-spot detail is new.",
+        "[notes] \"Vây đuôi có mấy hàng đốm đen\": the video only says a series of black spots on the caudal fin, with no mention of rows.",
+        "[notes] \"cá dữ muốn đớp một con cá chuột cũng không dễ\" is a loose paraphrase of \"difficult prey for predators\", and the page already covers the sharp pectoral spines. Overlap is minor."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-13T20:42:32Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.8,
+      "notes": [
+        "\"cá chì\" is a poor rendering of \"pecilobricones\" (pencilfish). It reads as a mistranslation and may point to the wrong fish.",
+        "[diet] \"như trùng huyết, bo bo hay trùn chỉ\" mostly repeats the page, which already lists live and frozen foods such as bo bo, Artemia and bloodworm as supplements. Only the frequency (once or twice a week) and the \"not required\" point are new.",
+        "[behaviour] \"Nuôi càng đông thì cá càng yên tâm\" partly overlaps the page's group-keeping text (\"có đồng loại bên cạnh chúng mạnh dạn và hoạt bát hơn\").",
+        "[notes] \"nên cá săn mồi khó nuốt nó\" is stiff and slightly unnatural. The video says the spines make the fish difficult prey, and \"nó\" is vague.",
+        "[habitat] \"có tính axit, từ mềm tới hơi cứng\" is fine. The video also gives \"slightly acidic to neutral\" water only for spawning, and NEW keeps the two separate, so this is acceptable."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/species/crossocheilus-reticulatus#9wkUPrMzqfo": [
     {
       "at": "2026-11-10T14:42:33Z",

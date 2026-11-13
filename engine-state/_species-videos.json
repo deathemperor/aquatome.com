@@ -1476,10 +1476,12 @@
     "reason": "two species"
   },
   "DE7xIeC_ONI": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "title": "Endler's Livebearer (TIGER ENDLERS, K Class)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "dG7Ic2CvpoI": {
     "at": "2026-11-07",
@@ -1490,10 +1492,14 @@
     "reason": "magazine exploration"
   },
   "dgzW8B32GO0": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "title": "Leopard Corydoras/Three stripe Corydoras - Corydoras trilineatus  Freshwater Aquarium Catfish",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Corydoras trilineatus",
+    "page": "species/corydoras-trilineatus",
+    "done": "added",
+    "score": 0.8
   },
   "dKEVHp8t6_w": {
     "at": "2026-11-07",
@@ -1512,10 +1518,12 @@
     "reason": "Light review"
   },
   "DkucrWx_JJM": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "title": "Why Myanmar Holds So Many NEW Fish Species! + ROSY Loach AKA 'MANGO' Loach, Care Guide DEEP DIVE!",
     "channel": "FISHTORY",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "DS6Kjc37myo": {
     "at": "2026-11-07",

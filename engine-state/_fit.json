@@ -102834,23 +102834,23 @@
     "products": []
   },
   "vi/species/corydoras-trilineatus": {
-    "at": "2026-11-08",
-    "hash": "e9346d2fb5313096",
+    "at": "2026-11-13",
+    "hash": "66079fd819e20ae3",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
-        "part": "P10",
+        "part": "P14",
         "quote": "Mùa mưa ở đó rơi vào cùng thời điểm với mùa đông ở Anh.",
-        "why": "Breeding timing is pegged to UK seasons as if they were the reader's own.",
+        "why": "Times breeding by the British seasons, written for a reader in the UK.",
         "by": "model"
       },
       {
         "check": "elsewhere",
-        "part": "P5",
+        "part": "P6",
         "quote": "bạn có thể dùng gỗ dẻ gai (beech) thông thường",
-        "why": "Presents European beech wood as an ordinary, readily found substitute, which it is not in Vietnam.",
+        "why": "Beech wood and oak leaves as everyday materials assume a European home; in Vietnam keepers use lá bàng.",
         "by": "model"
       }
     ],

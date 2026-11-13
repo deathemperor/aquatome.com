@@ -91582,5 +91582,103 @@
         "people": false
       }
     }
+  },
+  "https://media.aquatome.com/commons/024576971c29c22f.webp": {
+    "hydrocynus-goliath": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "3087bbc6eeeb2a86876b2c6d8d77302307de47090b554efdfae4858f97f6fcd1",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/33824c1343a12c51.webp": {
+    "hydrocynus-goliath": {
+      "ok": "yes",
+      "typical": true,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "a798bd7a49179c1c60113fcf87b8110cc96858b9453b7152f9b15a8a2eb31326",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/3c9874624693119e.webp": {
+    "hydrocynus-goliath": {
+      "ok": "yes",
+      "typical": true,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "655dfa07e39fb803ef5f7c6c05c3cfbc96d4aaab94e902818b7c52b11581ec07",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/564fa8c8595a35ce.webp": {
+    "hydrocynus-goliath": {
+      "ok": "yes",
+      "typical": true,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "4e2701e1164233d1ba62bc9b5336b9a3af028365d12079966035d1a2cb5f6feb",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/a36ac12d5d8fb116.webp": {
+    "hydrocynus-goliath": {
+      "ok": "yes",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "e9dbe32d8b4f64d0bb58169e3b79f8f6250b6c73953bad71024c9557bbccfda0",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/b49aaa6b04e4d72f.webp": {
+    "chrysichthys-auratus": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": true,
+      "note": "subject dead; logo",
+      "noteHash": "1090eec536fcf378f22eef74c5974f233d8f0222887ee2d9bdb3ace51bf4e99e",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/dbdedf2cff683034.webp": {
+    "hydrocynus-goliath": {
+      "ok": "yes",
+      "typical": true,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "4df338c85b504b61afece48180a62e4b6c58ec37c9f7aaca6c3bc1f31d3b8480",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
   }
 }
