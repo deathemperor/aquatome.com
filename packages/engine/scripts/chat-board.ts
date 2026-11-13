@@ -120,9 +120,8 @@ async function answer() {
     given.set(g.id, g.calls.flatMap(c => c.asked).map(a => JSON.parse(a.slice('read_page '.length))))
   const { keys } = await loadKeys(await readFile(args.keys!, 'utf8'))
   const store = memoryHealth()
-  // As the Worker sends: a key that fails is rotated past, the run's later calls stay on the key that answered.
+  // As the Worker sends: every call goes through the keys in turn, a key that fails rotated past.
   const sender = (healthy: unknown[]) => {
-    let client: any
     const once = async (c: any, b: any, timeoutMs: number, o: any) => {
       const stop = new AbortController(), t0 = Date.now()
       let timer = setTimeout(() => stop.abort(), timeoutMs), began = false
@@ -142,12 +141,9 @@ async function answer() {
       } finally { clearTimeout(timer) }
     }
     return async (b: any, o: any) => {
-      if (o.call > 1 && client) return once(client, b, o.timeoutMs, o)
       const r = await rotate(healthy, store, async (k: any, left: number) => {
         const c = await clientFor(k)
-        const m = await once(c, b, Math.min(left, o.timeoutMs), o)
-        if (o.call !== 0) client = c
-        return m
+        return once(c, b, Math.min(left, o.timeoutMs), o)
       }, { budgetMs: o.timeoutMs })
       if (!r.ok) throw new Error(`no key answered: ${r.reason}`)
       return r.value
@@ -163,7 +159,8 @@ async function answer() {
     try {
       const run = await answerQuestion({
         send: sender(await healthyKeys(keys, store, Date.now())), model: args.model, lang: 'vi', question: asked(p, f), earlier: [], start: {}, handbook: hb, tanks: async () => tanks,
-        ...(found && tanks.length ? { handover: () => handoverFor({ question: asked(p, f), start: {}, tanks, hb, lang: 'vi', search: async () => found }) } : {}),
+        // As the Worker: the handover is asked whenever there's a tank (handoverFor decides), its search what --given found.
+        ...(tanks.length ? { handover: () => handoverFor({ question: asked(p, f), start: {}, tanks, hb, lang: 'vi', search: async () => found ?? [] }) } : {}),
         onText: () => undefined,
       })
       const toolUses = run.history.flatMap((m: any) => (Array.isArray(m.content) ? m.content : []).filter((b: any) => b.type === 'tool_use').map((b: any) => `${b.name} ${JSON.stringify(b.input)}`))
@@ -192,6 +189,8 @@ async function plain() {
     send = async q => {
       const m: any = await client.messages.create({ model: args.model!, max_tokens: 8192, messages: [{ role: 'user', content: q }], output_config: { effort: 'medium' } } as any, { timeout: 120_000 })
       const u = m.usage
+      // A cut-off answer is a failure, asked again on the next run, never judged as whole.
+      if (m.stop_reason !== 'end_turn') throw new Error(`stopped: ${m.stop_reason}`)
       return { text: m.content.filter((b: any) => b.type === 'text').map((b: any) => b.text).join(''), usd: costOf(args.model!, { input: u.input_tokens, output: u.output_tokens, cacheRead: 0, cacheWrite: 0 }) }
     }
   }
@@ -276,7 +275,7 @@ async function report() {
   const FORM_NAMES: Record<Form, string> = { post: 'Whole post, no saved tank', posttank: 'Whole post, tank saved', tank: 'Short question, tank saved' }
   for (const pair of args.pairs.split(',')) {
     const [a, b] = pair.split(':')
-    const rows = JSON.parse(await readFile(join(args.dir!, `judge-${a}-vs-${b}.json`), 'utf8')) as Row[]
+    const rows = JSON.parse(await readFile(join(args.dir!, `judge-${a}-vs-${b}${args.cards ? '-cards' : ''}.json`), 'utf8')) as Row[]
     lines.push(`\n### ${a} against ${b}\n`, '| | Posts | Ours better | Theirs better | Tie | Score | Mistakes an answer | Mistakes, ours less theirs (90% range) |', '|---|---|---|---|---|---|---|---|')
     const line = (name: string, rs: Row[]) => {
       if (!rs.length) return
