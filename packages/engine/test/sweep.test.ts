@@ -430,6 +430,48 @@ test('a shop\'s own talk and a page about one variety leave a species page, in e
   expect((await sweep(root)).files).toEqual([])
 })
 
+// The chief of staff, 13 Nov 2026: a shop's part that is wholly its notice of a current batch or stock comes off when its
+// heading has another source's text, and is listed when it's that heading's only text (fit.ts dealerNotice).
+test('a shop\'s part that is wholly its notice of a batch or stock comes off when its heading has another source; alone, it\'s listed and stays', async () => {
+  const root = await store()
+  const file = (f: string) => join(root, 'content/species/corydoras-adolfoi', f)
+  const e = JSON.parse(await readFile(file('entity.json'), 'utf8'))
+  e.sections.push(
+    { key: 'distribution', source: 'glaser', sourceUrl: 'https://glaser/x', html: '<p>Currently fully grown, wild collected fish from Venezuela are on offer.</p>' },
+    { key: 'beforeYouBuy', source: 'glaser', sourceUrl: 'https://glaser/x', html: '<p>Beautiful wild-caught fish from Brazil have recently been imported.</p>' },
+    { key: 'notes', source: 'glaser', sourceUrl: 'https://glaser/x', html: '<p>A peaceful catfish. Some were recently imported from Peru.</p>' },
+    // Two shops' notices alone under one heading: neither is the text that stays (Astra's read).
+    { key: 'diet', source: 'glaser', sourceUrl: 'https://glaser/x', html: '<p>This batch has only 7 fish.</p>' },
+    { key: 'diet', source: 'bwaquatics', sourceUrl: 'https://bw/x', html: '<p>This batch has only 8 fish.</p>' },
+    // A notice with a fact after a comma, beside another source's text: it stays, its fact with it (Astra's read).
+    { key: 'habitat', source: 'glaser', sourceUrl: 'https://glaser/x', html: '<p>This batch has only 7 fish, the species needs soft water.</p>' },
+  )
+  await writeFile(file('entity.json'), JSON.stringify(e, null, 1))
+  const vi = JSON.parse(await readFile(file('vi.json'), 'utf8'))
+  Object.assign(vi.sections, {
+    'distribution:glaser': '<p>Hiện ngoài tiệm có bán cá bắt ngoài tự nhiên ở Venezuela.</p>',
+    'beforeYouBuy:glaser': '<p>Gần đây có một đợt cá bắt tự nhiên từ Brazil rất đẹp vừa được nhập về.</p>',
+    'notes:glaser': '<p>Cá chuột hiền. Gần đây có một đợt nhập từ Peru về.</p>',
+    'diet:glaser': '<p>Lô này chỉ có 7 con.</p>',
+    'diet:bwaquatics': '<p>Lô này chỉ có 8 con.</p>',
+    'habitat:glaser': '<p>Lô này chỉ có 7 con, loài này cần nước mềm.</p>',
+  })
+  await writeFile(file('vi.json'), JSON.stringify(vi, null, 1))
+  await writeFile(file('th.json'), JSON.stringify({ ...vi, sections: { 'distribution:glaser': '<p>มีขาย</p>', 'notes:glaser': '<p>ปลาสงบ</p>' } }, null, 2))
+
+  const r = await sweep(root)
+  expect(r.dealer).toEqual(['species/corydoras-adolfoi: distribution:glaser'])
+  expect(r.dealerOnly).toEqual(['species/corydoras-adolfoi: beforeYouBuy:glaser', 'species/corydoras-adolfoi: diet:glaser', 'species/corydoras-adolfoi: diet:bwaquatics'])
+  const keys = (x: { sections: { key: string; source: string }[] }) => x.sections.map(s => `${s.key}:${s.source}`)
+  expect(keys(JSON.parse(await readFile(file('entity.json'), 'utf8')))).toEqual(['distribution:seriouslyfish', 'habitat:seriouslyfish', 'beforeYouBuy:glaser', 'notes:glaser', 'diet:glaser', 'diet:bwaquatics', 'habitat:glaser'])
+  expect(Object.keys(JSON.parse(await readFile(file('vi.json'), 'utf8')).sections).filter(k => k.endsWith(':glaser')).sort()).toEqual(['beforeYouBuy:glaser', 'diet:glaser', 'habitat:glaser', 'notes:glaser'])
+  expect(JSON.parse(await readFile(file('th.json'), 'utf8')).sections).toEqual({ 'notes:glaser': '<p>ปลาสงบ</p>' })
+  // Again: nothing to change, and the one left is listed each run.
+  const again = await sweep(root)
+  expect(again.files).toEqual([])
+  expect(again.dealerOnly).toEqual(['species/corydoras-adolfoi: beforeYouBuy:glaser', 'species/corydoras-adolfoi: diet:glaser', 'species/corydoras-adolfoi: diet:bwaquatics'])
+})
+
 const WEEKLY = "claude failed (1): You've hit your weekly limit · resets Nov 14 at 8am (Asia/Saigon)"
 // The guide body the sweep already leaves in place, so a counted title is the only thing that would change the file.
 const CLEAN = '<h3>Đèn</h3><p><strong>Sai lầm 1:</strong> đèn mạnh.</p><p><strong>Sai lầm 2:</strong> bật lâu.</p><h3>CO2</h3><p><strong>Sai lầm 3:</strong> thiếu CO2.</p><h3>Phân nền</h3><h3>Kết luận</h3><p>Kiên nhẫn là chính, thay nước đều đặn mỗi tuần và theo dõi cây.</p>'

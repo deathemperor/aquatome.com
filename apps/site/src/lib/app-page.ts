@@ -345,9 +345,13 @@ export function glossaryDoc(lang: Lang, c: Content, g: Localized<GlossaryEntity>
       ...(p.otherNames.length ? [{ t: 'p' as const, c: [t('Tên khác: {names}', { names: p.otherNames.join(', ') })] }] : []),
       { t: 'p', c: g.latin ? [`${t('Tiếng Anh:')} ${g.en}, `, { text: g.latin, i: true }] : [`${t('Tiếng Anh:')} ${g.en}`] },
       ...(p.definition ? proseBlocks(lang, `<p>${p.definition}</p>`).blocks : []),
+      ...(p.photo && image(lang, p.photo, p.photo.caption) ? [{ t: 'figure' as const, img: image(lang, p.photo, p.photo.caption)!, ...(p.photo.caption ? { caption: [p.photo.caption] } : {}) }] : []),
+      ...(p.body ? proseBlocks(lang, p.body).blocks : []),
+      ...pagesBlock(lang, listed, t('Xem thêm'), p.related.map(r => `/vi/thuat-ngu/${r.t.slug}/`), p.related.length),
       ...(used.length ? [{ t: 'h' as const, text: t('Dùng trong {n} trang', { n: num(p.total) }) }, ...used] : []),
       // The rest are reached by the page's search link, which the web page shows: the app offers to open it there.
       ...(used.length && p.more ? [{ t: 'web' as const }] : []),
+      ...(p.refs.length ? [{ t: 'refs' as const, title: t('Nguồn tham khảo'), id: 'nguon', items: p.refs.map(r => ({ title: r.title, url: r.url })) }] : []),
     ],
   }
 }
