@@ -439,6 +439,8 @@ test('each glossary term\'s copy reads as its built page; one in Indonesian has 
       t: 'pages', title: txt(h3), paths: (h3.nextElementSibling?.querySelectorAll('a') ?? []).map(a => appHref(a.getAttribute('href')!)).filter(x => listed.has(x)),
     }))
     expect(all(d, 'pages'), d.path).toEqual(kinds.filter(k => k.paths.length))
+    // The page's search for the rest of a long list: the app offers to open the page on the web.
+    expect(all(d, 'web').length, d.path).toBe(dom.querySelector('.used .more a') ? 1 : 0)
   }
   const ph = glossaryDoc('vi', c, c.glossary.find(x => x.id === 'ph')!, listed)
   expect(ph).toMatchObject({ kind: 'glossary', path: '/vi/thuat-ngu/ph/', title: 'pH' })

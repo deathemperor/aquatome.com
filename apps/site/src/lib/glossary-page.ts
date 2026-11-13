@@ -99,5 +99,7 @@ export function glossaryParts(lang: Lang, c: Content, g: Localized<GlossaryEntit
   const rank = new Map(uses.guides.map(x => [x.id, [count(x.t.name) ? 1 : 0, count(plainText(index.get(x.id)?.html ?? ''))] as const]))
   const guides = [...uses.guides].sort((a, b) => rank.get(b.id)![0] - rank.get(a.id)![0] || rank.get(b.id)![1] - rank.get(a.id)![1] || b.updatedAt.localeCompare(a.updatedAt))
   const { fish, plants } = uses
-  return { otherNames, definition, guides, fish, plants, total: guides.length + fish.length + plants.length }
+  // More of a kind than its list shows: the page searches for the rest.
+  const more = guides.length > USED_IN_SHOWN.guides || fish.length > USED_IN_SHOWN.fish || plants.length > USED_IN_SHOWN.plants
+  return { otherNames, definition, guides, fish, plants, total: guides.length + fish.length + plants.length, more }
 }

@@ -38,7 +38,7 @@ const used = [
           <ul>{u.links.map(l => <li><a href={l.href}>{l.name}</a></li>)}</ul>
         </>
       ))}
-      {used.some(u => u.all > u.links.length) && <p class="more"><a href={`/vi/tim-kiem/?q=${encodeURIComponent(g.t.name)}`}>{t('Tìm mọi trang nhắc đến {name} →', { name: g.t.name })}</a></p>}
+      {p.more && <p class="more"><a href={`/vi/tim-kiem/?q=${encodeURIComponent(g.t.name)}`}>{t('Tìm mọi trang nhắc đến {name} →', { name: g.t.name })}</a></p>}
     </section>
   )}
   <GlossaryTip />

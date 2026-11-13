@@ -346,6 +346,8 @@ export function glossaryDoc(lang: Lang, c: Content, g: Localized<GlossaryEntity>
       { t: 'p', c: g.latin ? [`${t('Tiếng Anh:')} ${g.en}, `, { text: g.latin, i: true }] : [`${t('Tiếng Anh:')} ${g.en}`] },
       ...(p.definition ? proseBlocks(lang, `<p>${p.definition}</p>`).blocks : []),
       ...(used.length ? [{ t: 'h' as const, text: t('Dùng trong {n} trang', { n: num(p.total) }) }, ...used] : []),
+      // The rest are reached by the page's search link, which the web page shows: the app offers to open it there.
+      ...(used.length && p.more ? [{ t: 'web' as const }] : []),
     ],
   }
 }
