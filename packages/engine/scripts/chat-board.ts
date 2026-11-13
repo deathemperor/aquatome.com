@@ -25,6 +25,7 @@
  * merges only on what it does there.
  */
 import { createHash } from 'node:crypto'
+import { existsSync } from 'node:fs'
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { homedir } from 'node:os'
 import { join } from 'node:path'
@@ -59,7 +60,7 @@ const { positionals, values: args } = parseArgs({
 
 type Post = { id: string; topic: string; post: string; short: string; tank: PostTank }
 type Form = 'post' | 'posttank' | 'tank'
-type Turn = { id: string; post: string; topic: string; form: Form; text?: string; blocks?: unknown[]; suggestions?: string[]; stopped?: string; calls?: number; asked?: string[]; ms: number; usd: number; failed?: string }
+type Turn = { id: string; post: string; topic: string; form: Form; text?: string; blocks?: unknown[]; suggestions?: string[]; stopped?: string; calls?: number; asked?: string[]; timing?: { call: number; at: number; ms: number; out?: number; tools?: number; failed?: boolean }[]; ms: number; usd: number; failed?: string }
 const SUBJECTS = ['dying', 'sick', 'algae', 'cycling', 'stocking'] as const
 const FORMS = args.forms!.split(',') as Form[]
 const hash = (...xs: unknown[]) => createHash('sha256').update(JSON.stringify(xs)).digest('hex').slice(0, 16)
@@ -110,7 +111,8 @@ async function answer() {
   const W = args.chat
   const { answerQuestion } = await import(`${W}/apps/site/worker/chat/agent.ts`)
   const { handbookOf } = await import(`${W}/apps/site/worker/chat/handbook.ts`)
-  const { handoverFor } = await import(`${W}/apps/site/worker/chat/handover.ts`)
+  // A checkout from before the handover (8 Nov) had none, as its Worker didn't: its questions go without.
+  const handoverFor = existsSync(`${W}/apps/site/worker/chat/handover.ts`) ? (await import(`${W}/apps/site/worker/chat/handover.ts`)).handoverFor : undefined
   const { clientFor, costOf } = await import(`${W}/apps/site/worker/fishid/claude.ts`)
   const { healthyKeys, loadKeys, memoryHealth, rotate } = await import(`${W}/apps/site/worker/fishid/keys.ts`)
   const get = async (path: string) => { const r = await fetch(new URL(path, args.site)); return r.ok ? r.json() : null }
@@ -121,7 +123,8 @@ async function answer() {
   const { keys } = await loadKeys(await readFile(args.keys!, 'utf8'))
   const store = memoryHealth()
   // As the Worker sends: every call goes through the keys in turn, a key that fails rotated past.
-  const sender = (healthy: unknown[]) => {
+  // Each call's start, length and output, so the time rule can be set from the calls' own times.
+  const sender = (healthy: unknown[], log: { call: number; at: number; ms: number; out?: number; tools?: number; failed?: boolean }[] = [], t0 = Date.now()) => {
     const once = async (c: any, b: any, timeoutMs: number, o: any) => {
       const stop = new AbortController(), t0 = Date.now()
       let timer = setTimeout(() => stop.abort(), timeoutMs), began = false
@@ -141,11 +144,13 @@ async function answer() {
       } finally { clearTimeout(timer) }
     }
     return async (b: any, o: any) => {
+      const at = Date.now()
       const r = await rotate(healthy, store, async (k: any, left: number) => {
         const c = await clientFor(k)
         return once(c, b, Math.min(left, o.timeoutMs), o)
       }, { budgetMs: o.timeoutMs })
-      if (!r.ok) throw new Error(`no key answered: ${r.reason}`)
+      if (!r.ok) { log.push({ call: o.call, at: at - t0, ms: Date.now() - at, failed: true }); throw new Error(`no key answered: ${r.reason}`) }
+      log.push({ call: o.call, at: at - t0, ms: Date.now() - at, out: r.value.usage?.output_tokens, tools: r.value.content.filter((x: any) => x.type === 'tool_use').length })
       return r.value
     }
   }
@@ -154,17 +159,18 @@ async function answer() {
   let n = 0
   await pool(jobs.map(({ p, f, id }) => async () => {
     const began = Date.now()
+    const timing: any[] = []
     const tanks = f === 'post' ? [] : [savedTank(p.tank)]
     const found = given.get(`${p.id}-${f === 'tank' ? 'tank' : 'post'}`)
     try {
       const run = await answerQuestion({
-        send: sender(await healthyKeys(keys, store, Date.now())), model: args.model, lang: 'vi', question: asked(p, f), earlier: [], start: {}, handbook: hb, tanks: async () => tanks,
+        send: sender(await healthyKeys(keys, store, Date.now()), timing, began), model: args.model, lang: 'vi', question: asked(p, f), earlier: [], start: {}, handbook: hb, tanks: async () => tanks,
         // As the Worker: the handover is asked whenever there's a tank (handoverFor decides), its search what --given found.
-        ...(tanks.length ? { handover: () => handoverFor({ question: asked(p, f), start: {}, tanks, hb, lang: 'vi', search: async () => found ?? [] }) } : {}),
+        ...(tanks.length && handoverFor ? { handover: () => handoverFor({ question: asked(p, f), start: {}, tanks, hb, lang: 'vi', search: async () => found ?? [] }) } : {}),
         onText: () => undefined,
       })
       const toolUses = run.history.flatMap((m: any) => (Array.isArray(m.content) ? m.content : []).filter((b: any) => b.type === 'tool_use').map((b: any) => `${b.name} ${JSON.stringify(b.input)}`))
-      done.set(id, { id, post: p.id, topic: p.topic, form: f, text: run.answer?.text, blocks: run.blocks, suggestions: run.answer?.suggestions, stopped: run.stopped, calls: run.calls, asked: toolUses, ms: Date.now() - began, usd: costOf(args.model, run.spent), ...(run.answer ? {} : { failed: String(run.error?.message ?? run.stopped).slice(0, 160) }) })
+      done.set(id, { id, post: p.id, topic: p.topic, form: f, text: run.answer?.text, blocks: run.blocks, suggestions: run.answer?.suggestions, stopped: run.stopped, calls: run.calls, asked: toolUses, timing, ms: Date.now() - began, usd: costOf(args.model, run.spent), ...(run.answer ? {} : { failed: String(run.error?.message ?? run.stopped).slice(0, 160) }) })
     } catch (e: any) {
       done.set(id, { id, post: p.id, topic: p.topic, form: f, ms: Date.now() - began, usd: 0, failed: String(e?.message ?? e).slice(0, 160) })
     }
