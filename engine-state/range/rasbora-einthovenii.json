@@ -1,0 +1,82 @@
+{
+  "id": "rasbora-einthovenii",
+  "native": {
+    "input": "2e745e3a71dab02d",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to southern Thailand, Peninsular Malaysia, Singapore and the Greater Sunda islands of Borneo and Sumatra.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to southern Thailand, Peninsular Malaysia, Singapore and the Greater Sunda islands of Borneo and Sumatra.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to southern Thailand, Peninsular Malaysia, Singapore and the Greater Sunda islands of Borneo and Sumatra.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "On the Indonesian island of Sumatra localities include Harau Valley in West Sumatra province, Bagan Siapiapi in Riau province and various members of the Riau Islands province including Bintan, Pulau Sugi and Natuna Besar (Bunguran Island).",
+        "words": "Indonesian",
+        "ok": true
+      },
+      {
+        "code": "BN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It appears to be restricted to the north and west of Borneo with numerous records existing from the Malaysian states of Sarawak and Sabah, Brunei Darussalam and the Indonesian province of West Kalimantan.",
+        "words": "Brunei Darussalam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Native to southern Thailand, Peninsular Malaysia, Singapore and the Greater Sunda islands of Borneo and Sumatra.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Native to southern Thailand, Peninsular Malaysia, Singapore and the Greater Sunda islands of Borneo and Sumatra.",
+        "ok": true
+      },
+      {
+        "name": "Labuan Island",
+        "source": "seriouslyfish",
+        "quote": "It is also found on Labuan Island off the coast of Sabah.",
+        "ok": true
+      },
+      {
+        "name": "Bintan",
+        "source": "seriouslyfish",
+        "quote": "On the Indonesian island of Sumatra localities include Harau Valley in West Sumatra province, Bagan Siapiapi in Riau province and various members of the Riau Islands province including Bintan, Pulau Sugi and Natuna Besar (Bunguran Island).",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  }
+}

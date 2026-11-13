@@ -17,6 +17,64 @@
     "belait",
     "singapore"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "TH",
+        "SG",
+        "ID",
+        "BN"
+      ],
+      "regions": [
+        "Borneo",
+        "Sumatra",
+        "Kolok River",
+        "Baram River",
+        "Moesi River",
+        "Bangka Island"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "It was previously thought restricted to Peninsular Malaysia and the Greater Sunda Islands of Borneo and Sumatra but in 2006 was also collected from a tributary of the Kolok River in Narathiwat Province, southern Thailand.",
+          "countries": [
+            "MY",
+            "TH"
+          ],
+          "regions": [
+            "Borneo",
+            "Sumatra",
+            "Kolok River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Unfortunately it is now considered extirpated from the island of Singapore where it was once native.",
+          "countries": [
+            "SG"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It has been recorded from various parts of Peninsular Malaysia including peat swamps in northern Selangor state, streams just outside Kuantan city in Pahang state and various localities in Johor state; on Sumatra (Indonesia) collections have occured at Taloek in Riau province, the Moesi River close to the city of Palembang in South Sumatra province and Bangka Island just off the southeastern coast; in Malaysian Borneo there exist numerous occurences from Sarawak state most notably from the Baram River; in Brunei Darussalam it can be found inhabiting tributaries of the Belait and Ingei Rivers, Belait District; in Kalimantan (the Indonesian part of the island) localities in the province of Central Kalimantan (Kalimatan Tengah) include the blackwater Sabangau River close to the city of Palangkaraya, a tidal tributary of the Mentaya River and the Ramban River near Sampit; it has also been recorded from a few locations within Western Kalimatan (Kalimantan Barat) province but its range appears not to extend into the far north and east of the island.",
+          "countries": [
+            "ID",
+            "BN"
+          ],
+          "regions": [
+            "Baram River",
+            "Moesi River",
+            "Bangka Island"
+          ]
+        }
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -10,6 +10,31 @@
     "australia",
     "queensland"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "AU"
+      ],
+      "regions": [
+        "Fraser Island"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Australia: from Fraser Island (southern Queensland) southward to Evans Head (northern New South Wales).",
+          "countries": [
+            "AU"
+          ],
+          "regions": [
+            "Fraser Island"
+          ]
+        }
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,0 +1,87 @@
+{
+  "id": "rasbora-tornieri",
+  "native": {
+    "input": "223ba0ef4ec2bb9e",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Central Sumatra, Indonesia', with additional records existing from Cambodia (Mekong drainage), Peninsular Malaysia (Perak River), Sumatra (from the Siak River, Riau province to the Musi River, South Sumatra (Sumatera Selatan) province) and Borneo (south and westwards from the Belait river basin in Brunei Darussalam to the Sambas drainage in West Kalimantan (Kalimantan Barat) province, Indonesia and probably in Sarawak, Malaysia).",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Central Sumatra, Indonesia', with additional records existing from Cambodia (Mekong drainage), Peninsular Malaysia (Perak River), Sumatra (from the Siak River, Riau province to the Musi River, South Sumatra (Sumatera Selatan) province) and Borneo (south and westwards from the Belait river basin in Brunei Darussalam to the Sambas drainage in West Kalimantan (Kalimantan Barat) province, Indonesia and probably in Sarawak, Malaysia).",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Central Sumatra, Indonesia', with additional records existing from Cambodia (Mekong drainage), Peninsular Malaysia (Perak River), Sumatra (from the Siak River, Riau province to the Musi River, South Sumatra (Sumatera Selatan) province) and Borneo (south and westwards from the Belait river basin in Brunei Darussalam to the Sambas drainage in West Kalimantan (Kalimantan Barat) province, Indonesia and probably in Sarawak, Malaysia).",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "BN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Central Sumatra, Indonesia', with additional records existing from Cambodia (Mekong drainage), Peninsular Malaysia (Perak River), Sumatra (from the Siak River, Riau province to the Musi River, South Sumatra (Sumatera Selatan) province) and Borneo (south and westwards from the Belait river basin in Brunei Darussalam to the Sambas drainage in West Kalimantan (Kalimantan Barat) province, Indonesia and probably in Sarawak, Malaysia).",
+        "words": "Brunei Darussalam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Central Sumatra, Indonesia', with additional records existing from Cambodia (Mekong drainage), Peninsular Malaysia (Perak River), Sumatra (from the Siak River, Riau province to the Musi River, South Sumatra (Sumatera Selatan) province) and Borneo (south and westwards from the Belait river basin in Brunei Darussalam to the Sambas drainage in West Kalimantan (Kalimantan Barat) province, Indonesia and probably in Sarawak, Malaysia).",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Central Sumatra, Indonesia', with additional records existing from Cambodia (Mekong drainage), Peninsular Malaysia (Perak River), Sumatra (from the Siak River, Riau province to the Musi River, South Sumatra (Sumatera Selatan) province) and Borneo (south and westwards from the Belait river basin in Brunei Darussalam to the Sambas drainage in West Kalimantan (Kalimantan Barat) province, Indonesia and probably in Sarawak, Malaysia).",
+        "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Central Sumatra, Indonesia', with additional records existing from Cambodia (Mekong drainage), Peninsular Malaysia (Perak River), Sumatra (from the Siak River, Riau province to the Musi River, South Sumatra (Sumatera Selatan) province) and Borneo (south and westwards from the Belait river basin in Brunei Darussalam to the Sambas drainage in West Kalimantan (Kalimantan Barat) province, Indonesia and probably in Sarawak, Malaysia).",
+        "country": "KH",
+        "ok": true
+      },
+      {
+        "name": "Perak River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Central Sumatra, Indonesia', with additional records existing from Cambodia (Mekong drainage), Peninsular Malaysia (Perak River), Sumatra (from the Siak River, Riau province to the Musi River, South Sumatra (Sumatera Selatan) province) and Borneo (south and westwards from the Belait river basin in Brunei Darussalam to the Sambas drainage in West Kalimantan (Kalimantan Barat) province, Indonesia and probably in Sarawak, Malaysia).",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Musi",
+        "source": "seriouslyfish",
+        "quote": "In the Musi river, Sumatra, R. tornieri occurs sympatrically with the similar-looking congener R. dusonensis (see 'Notes').",
+        "ok": true
+      },
+      {
+        "name": "Siak River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Central Sumatra, Indonesia', with additional records existing from Cambodia (Mekong drainage), Peninsular Malaysia (Perak River), Sumatra (from the Siak River, Riau province to the Musi River, South Sumatra (Sumatera Selatan) province) and Borneo (south and westwards from the Belait river basin in Brunei Darussalam to the Sambas drainage in West Kalimantan (Kalimantan Barat) province, Indonesia and probably in Sarawak, Malaysia).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  }
+}

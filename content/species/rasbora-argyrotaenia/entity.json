@@ -16,6 +16,59 @@
     "palawan",
     "brunei"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "SG",
+        "MY",
+        "PH",
+        "ID",
+        "BN"
+      ],
+      "regions": [
+        "Sumatra",
+        "Borneo",
+        "Java",
+        "Palawan"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Peninsular Malaysia and Singapore, the Philippines (Palawan group of islands), and the islands of Sumatra, Borneo and Java.",
+          "countries": [
+            "SG",
+            "MY",
+            "PH"
+          ],
+          "regions": [
+            "Sumatra",
+            "Borneo",
+            "Java",
+            "Palawan"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type localities are given as Banyumas, Gombong, Purworejo and Surabaya, all on Java, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "A study in Brunei Darussalam reported that it's mainly found swimming just below the surface in slower-moving sections and pools of forest streams containing clear water.",
+          "countries": [
+            "BN"
+          ],
+          "regions": []
+        }
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -12,6 +12,51 @@
     "thailand",
     "cambodia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "TH",
+        "KH"
+      ],
+      "regions": [
+        "Mekong",
+        "Tonlé Sap"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The natural distribution of the species is the lower Mekong basin of Laos, Thailand and Cambodia.",
+          "countries": [
+            "LA",
+            "TH",
+            "KH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the Lower Mekong River basin in Laos, Thailand and Cambodia.",
+          "countries": [],
+          "regions": [
+            "Mekong"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "A major population in Cambodia can be found in the great lake of Tonlé Sap and surrounding swamps.",
+          "countries": [],
+          "regions": [
+            "Tonlé Sap"
+          ]
+        }
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

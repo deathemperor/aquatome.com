@@ -11,6 +11,47 @@
     "huacamayo",
     "ucayali"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Amazon",
+        "Río Huacamayo",
+        "Rio Ucayali",
+        "Rio Yuruá",
+        "Rio Chio"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Upper Amazon River basin. Type locality: Río Huacamayo, about 9°S, 75°29'W, about 8 kilometres northeast of Aguaytia village, Coronel Portillo Province, Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Amazon",
+            "Río Huacamayo"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Peru: Rio Chio, Rio Yuruá, Rio Ucayali.",
+          "countries": [],
+          "regions": [
+            "Rio Ucayali",
+            "Rio Yuruá",
+            "Rio Chio"
+          ]
+        }
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -22,6 +22,61 @@
     "venezuela",
     "orinoco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "PE",
+        "VE",
+        "GY",
+        "PY",
+        "UY",
+        "AR"
+      ],
+      "regions": [
+        "Amazon",
+        "Orinoco",
+        "Essequibo",
+        "Paraná",
+        "Río Uruguay",
+        "Río de la Plata"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is given simply as 'Brazilian rivers', but this species is currently understood to be distributed in the Amazon basin from the Río Ucayali system in Peru, eastward as far as the rio Xingu in Brazil, plus the rio Tocantins and Rio Capim basins.",
+          "countries": [
+            "BR",
+            "PE"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's also known from the Río Orinoco basin in Venezuela, Rupununi drainage in the upper Essequibo River system in Guyana, and the Rio Paraná/Paraguay and Río Uruguay basins in Paraguay and Uruguay with the Río de la Plata in Argentina representing its southern limit.",
+          "countries": [
+            "VE",
+            "GY",
+            "PY",
+            "UY",
+            "AR"
+          ],
+          "regions": [
+            "Orinoco",
+            "Essequibo",
+            "Paraná",
+            "Río Uruguay",
+            "Río de la Plata"
+          ]
+        }
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

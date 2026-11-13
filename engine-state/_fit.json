@@ -12460,8 +12460,8 @@
   "products": []
  },
  "id/species/corydoras-imitator": {
-  "at": "2026-11-11",
-  "hash": "a2aa9eae8d855e38",
+  "at": "2026-11-13",
+  "hash": "b2456ed835577172",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -13741,6 +13741,62 @@
   ],
   "products": []
  },
+ "id/species/ctenopoma-muriei": {
+  "at": "2026-11-13",
+  "hash": "03eeea694565f736",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/ctenopoma-weeksii": {
+  "at": "2026-11-13",
+  "hash": "016c5228695adaa2",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/ctenops-nobilis": {
+  "at": "2026-11-13",
+  "hash": "1309ad1af268f20c",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P6",
+    "quote": "Di banyak negara atau rumah yang terinsulasi baik, pemanas buatan tidak diperlukan",
+    "why": "Assumes a cool climate and insulated houses; in Indonesia room temperature is usually above this fish's 15–25 °C range, so cooling is the issue, not heating.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "id/species/cualac-tessellatus": {
+  "at": "2026-11-13",
+  "hash": "0b5d8ca51ead8ff4",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P10",
+    "quote": "idealnya ikan ini dibiarkan memijah secara musiman pada musim semi dan akhir musim panas",
+    "why": "Spring and summer seasons don't exist in tropical Indonesia, so this schedule is written for a temperate-climate keeper.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "id/species/cyathopharynx-furcifer": {
+  "at": "2026-11-13",
+  "hash": "ee38921a8768b47c",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "id/species/cyclocheilichthys-apogon": {
   "at": "2026-11-08",
   "hash": "6901c524953af4d8",
@@ -13833,6 +13889,14 @@
   ],
   "products": []
  },
+ "id/species/cyclocheilichthys-lagleri": {
+  "at": "2026-11-13",
+  "hash": "a7ecf80e943b076d",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "id/species/cyclocheilos-enoplos": {
   "at": "2026-11-08",
   "hash": "fda77975e9b0bb47",
@@ -13841,11 +13905,131 @@
   "findings": [],
   "products": []
  },
+ "id/species/cynodon-gibbus": {
+  "at": "2026-11-13",
+  "hash": "0c39eeb4331bf2fb",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/cynops-cyanurus": {
+  "at": "2026-11-13",
+  "hash": "3c216a916b6a5c89",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Menurut pemasoknya, newt ini dikoleksi dari Provinsi Hubei, Tiongkok.",
+    "why": "Refers to the source importer's own supplier and stock batch, which the reader does not know.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "id/species/cynops-orientalis": {
+  "at": "2026-11-13",
+  "hash": "cc0f071f4900bfcf",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/cynotilapia-afra": {
+  "at": "2026-11-13",
+  "hash": "775414c603243208",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/cynotilapia-pulpican": {
+  "at": "2026-11-13",
+  "hash": "82e8daca3000b59c",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "id/species/cyphotilapia-frontosa": {
   "at": "2026-11-08",
   "hash": "86ad673a6d281a60",
   "model": "opus",
   "checklist": 2,
+  "findings": [],
+  "products": []
+ },
+ "id/species/cyphotilapia-gibberosa": {
+  "at": "2026-11-13",
+  "hash": "296e543007e54beb",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/cyprichromis-leptosoma": {
+  "at": "2026-11-13",
+  "hash": "efca70b3376b0b40",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/cyprichromis-microlepidotus": {
+  "at": "2026-11-13",
+  "hash": "5a66e8399fa7c07c",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/cyprinion-semiplotum": {
+  "at": "2026-11-13",
+  "hash": "3c38ed7589d5dc21",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/cyprinodon-alvarezi": {
+  "at": "2026-11-13",
+  "hash": "670b0efecbce072f",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/cyprinodon-brontotheroides": {
+  "at": "2026-11-13",
+  "hash": "ff83f0c889618558",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/cyprinodon-desquamator": {
+  "at": "2026-11-13",
+  "hash": "ecc77c54302d9f91",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/cyprinodon-julimes": {
+  "at": "2026-11-13",
+  "hash": "ec7d0cbf4f07efe9",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/cyprinodon-pachycephalus": {
+  "at": "2026-11-13",
+  "hash": "07d96c8ca61e3329",
+  "model": "opus",
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -33804,8 +33988,8 @@
   "products": []
  },
  "th/species/corydoras-imitator": {
-  "at": "2026-11-11",
-  "hash": "3865cce3d4a7d088",
+  "at": "2026-11-13",
+  "hash": "f3f538a63f60935d",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -34933,6 +35117,14 @@
   "findings": [],
   "products": []
  },
+ "th/species/ctenochromis-polli": {
+  "at": "2026-11-13",
+  "hash": "43e6919d7bade0dc",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "th/species/ctenolucius-hujeta": {
   "at": "2026-11-08",
   "hash": "5b3cf2dae6ebbb5b",
@@ -34948,6 +35140,72 @@
     "fix": "ปลาหนัง (แคทฟิช)"
    }
   ],
+  "products": []
+ },
+ "th/species/ctenopharyngodon-idella": {
+  "at": "2026-11-13",
+  "hash": "59d9195008ae4cba",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/ctenopoma-acutirostre": {
+  "at": "2026-11-13",
+  "hash": "a400ceba60a80c7d",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P10",
+    "quote": "ในล็อตนำเข้าล่าสุดจากสาธารณรัฐประชาธิปไตยคองโก มีลีโอพาร์ดบุชฟิชที่จับจากธรรมชาติมาด้วยจำนวนหนึ่ง",
+    "why": "This is the source supplier's own stock news about a recent import, which the reader knows nothing about.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "th/species/ctenopoma-kingsleyae": {
+  "at": "2026-11-13",
+  "hash": "c40e2e96d6d5f775",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "P12",
+    "quote": "ปลาแมวซิโนดอนติส (Synodontis)",
+    "why": "\"ปลาแมว\" is a word-for-word calque of \"catfish\"; in Thai it names a different fish, and keepers just say Synodontis.",
+    "by": "model",
+    "fix": "ซิโนดอนติส / แคทฟิชซิโนดอนติส"
+   }
+  ],
+  "products": []
+ },
+ "th/species/ctenopoma-muriei": {
+  "at": "2026-11-13",
+  "hash": "6a6f3f9d69e5bf33",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "P9",
+    "quote": "ปลาแมวขนาดเล็กวงศ์ Mochokidae อย่าง Synodontis nigriventris",
+    "why": "\"ปลาแมว\" is a literal calque of \"catfish\"; in Thai it names a different (anchovy-like) fish, and keepers say แคทฟิช.",
+    "by": "model",
+    "fix": "ปลาแคทฟิช"
+   }
+  ],
+  "products": []
+ },
+ "th/species/ctenopoma-weeksii": {
+  "at": "2026-11-13",
+  "hash": "0dc6a204cc577b26",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "th/species/cyclocheilichthys-apogon": {
@@ -63826,8 +64084,8 @@
   "products": []
  },
  "vi/guides/youtube-aN80dX_RktA": {
-  "at": "2026-11-09",
-  "hash": "3c94bdc249fa37a6",
+  "at": "2026-11-13",
+  "hash": "07e42b26a3fe3b4d",
   "model": "opus",
   "checklist": 3,
   "findings": [
@@ -63849,7 +64107,7 @@
     "check": "price",
     "part": "P1",
     "quote": "Cá khá đắt, ở Mỹ khoảng 10–15 USD một con",
-    "why": "US price in dollars for blue eye rainbowfish.",
+    "why": "US price in dollars for spotted blue eye.",
     "by": "model"
    },
    {
@@ -63870,7 +64128,7 @@
     "check": "units",
     "part": "P1",
     "quote": "bể khoảng 115 lít thả 20–30 con là thành một đàn lớn",
-    "why": "115 litres is a converted 30-gallon tank, not a size used in Vietnam.",
+    "why": "115 litres is a converted 30-gallon tank, not a size keepers in Vietnam use.",
     "by": "model"
    }
   ],
@@ -99504,25 +99762,18 @@
   "products": []
  },
  "vi/species/corydoras-imitator": {
-  "at": "2026-11-08",
-  "hash": "75238548aa59a95d",
+  "at": "2026-11-13",
+  "hash": "5bae05ecc3ca3ad3",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
-    "check": "source",
-    "part": "P12",
-    "quote": "Nhìn kỹ lô cá nhập về, bạn sẽ thấy khó tìm được hai con giống hệt nhau.",
-    "why": "Speaks of the importer's own shipment as if the reader had it in hand.",
-    "by": "model"
-   },
-   {
     "check": "words",
-    "part": "P11",
+    "part": "P10",
     "quote": "giun vi sinh (microworm)",
-    "why": "Dictionary rendering; Vietnamese keepers call microworms 'trùn vi sinh'.",
+    "why": "Literal rendering of 'microworm'; Vietnamese keepers call it vi trùn.",
     "by": "model",
-    "fix": "trùn vi sinh"
+    "fix": "vi trùn"
    }
   ],
   "products": []

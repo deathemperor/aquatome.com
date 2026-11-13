@@ -12,6 +12,47 @@
     "kalimantan",
     "brunei"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "ID",
+        "BN"
+      ],
+      "regions": [
+        "Borneo",
+        "Sumatra",
+        "Malinau River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Apparent occurences from Southern Thailand and the Lower Mekong basin in Cambodia are likely to be incorrect and it is probably restricted to Peninsular Malaysia and the Greater Sunda Islands of Borneo and Sumatra.",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Borneo",
+            "Sumatra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "A study into the fish species inhabiting the Middle Malinau River in the Indonesian province of Kalimatan Timur, Borneo (East Kalimantan) revealed that its range appears to extend throughout much of the island as it is also well documented from the Malaysian state of Sarawak and Brunei Darussalam in the west.",
+          "countries": [
+            "ID",
+            "BN"
+          ],
+          "regions": [
+            "Malinau River"
+          ]
+        }
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
