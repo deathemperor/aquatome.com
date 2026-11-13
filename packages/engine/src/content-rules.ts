@@ -905,14 +905,20 @@ const RENAMES = FISH_NAMES.flatMap(r => oldNames(r).map(was => {
 }))
 /** An English name's last word, which no scientific name ends in: "Red rainbowfish", "Congo tetra". */
 const ENGLISH = /(?:fish|tetra|barb|danio|rasbora|molly|platy|guppy|cory|pleco|loach|gourami|cichlid|eyes?|killi|goby|shrimp|snail|crab|rainbow)$/
-/** The scientific names in a stretch of text: a capitalised word and a lowercase one, not an English name. */
-const binomials = (s: string) => [...s.matchAll(/(?<![\p{L}])([A-Z][a-z]+)\s+([a-z]+)(?![\p{L}])/gu)].filter(m => !ENGLISH.test(m[2]!)).map(m => `${m[1]} ${m[2]}`)
-/** One species whichever ending its second word takes: "Glossolepis incisa" is G. incisus. */
-const stem = (sci: string) => sci.toLowerCase().replace(/(?:us|a|um)$/, '')
-const sameSpecies = (a: string, b: string) => stem(a) === stem(b)
+/**
+ * The scientific names in a stretch of text: a capitalised word, or its first letter and a full stop ("G. incisus"), and a
+ * lowercase one, not an English name.
+ */
+const binomials = (s: string) => [...s.matchAll(/(?<![\p{L}])(?:([A-Z][a-z]+)\s+|([A-Z]\.)\s*)([a-z]+)(?![\p{L}])/gu)].filter(m => !ENGLISH.test(m[3]!)).map(m => `${m[1] ?? m[2]} ${m[3]}`)
+/** One species whichever ending its second word takes ("Glossolepis incisa" is G. incisus), its genus whole or as "G.". */
+const stem = (w: string) => w.toLowerCase().replace(/(?:us|a|um)$/, '')
+const sameSpecies = (a: string, sci: string) => {
+  const [g = '', e = ''] = a.split(' '), [G = '', E = ''] = sci.split(' ')
+  return (g === G || (g.endsWith('.') && G.startsWith(g.slice(0, -1)))) && stem(e) === stem(E)
+}
 /** In brackets right after the old name, or right before it with a bracket or a dash between. */
 const BRACKET_AFTER = /^\s*\(([^()]{0,80})\)/
-const BINOMIAL_BEFORE = /([A-Z][a-z]+\s+[a-z]+)\s*[(),:–-]\s*\(?\s*$/
+const BINOMIAL_BEFORE = /((?:[A-Z][a-z]+\s+|[A-Z]\.\s*)[a-z]+)\s*[(),:–-]\s*\(?\s*$/
 const renamesIn = (r: (typeof RENAMES)[number], text: string) => [...text.matchAll(r.old)].filter(m => {
   const end = m.index! + m[0].length
   if (r.longer?.test(text.slice(end))) return false

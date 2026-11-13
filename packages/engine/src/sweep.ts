@@ -7,7 +7,7 @@ import { loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataC
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
-import { droppedName, FISH_NAMES, KIND_PASSAGES, type FishName, type KindPassage } from './names'
+import { droppedName, FISH_NAMES, KIND_PASSAGES, ownWords, type FishName, type KindPassage } from './names'
 import { withLNumber } from './l-numbers'
 import { pickStands, readPersonYes } from './person-yes'
 import { EMPTY_CAP, refusedOn, type PhotoVerdict } from './photo-check'
@@ -276,26 +276,30 @@ export async function nameFish(content: string, rows: readonly FishName[] = FISH
 
 /**
  * A renamed fish's old name (names.ts FISH_NAMES) in the photos' captions, written as its name, and each caption's
- * translations kept under its new words (content/captions/<lang>.json is keyed by the Vietnamese). The galleries changed.
+ * translations kept under its new words (content/captions/<lang>.json is keyed by the Vietnamese). A row's own photos, in
+ * its gallery and on its page, say what its own page calls it (names.ts ownWords). The files changed.
  */
-export async function renameCaptions(content: string): Promise<string[]> {
+export async function renameCaptions(content: string, rows: readonly FishName[] = FISH_NAMES): Promise<string[]> {
   const changed: string[] = []
   const rekey = new Map<string, string>()
-  const dir = join(content, 'gallery')
-  for (const f of (await readdir(dir).catch(() => [] as string[])).filter(x => x.endsWith('.json'))) {
-    const raw = await readFile(join(dir, f), 'utf8')
+  const own = rows.filter(r => r.own).flatMap(r => [[`gallery/${r.id}.json`, r], [`${r.kind ?? 'species'}/${r.id}/entity.json`, r]] as const)
+  const files = [...(await readdir(join(content, 'gallery')).catch(() => [] as string[])).filter(x => x.endsWith('.json')).map(f => `gallery/${f}`), ...own.map(([f]) => f).filter(f => !f.startsWith('gallery/'))]
+  for (const f of files) {
+    const raw = await readFile(join(content, f), 'utf8').catch(() => null)
+    if (!raw) continue
     const g = JSON.parse(raw) as { photos?: { caption?: string }[] }
+    const r = own.find(([o]) => o === f)?.[1]
     let any = false
     const photos = (g.photos ?? []).map(p => {
-      const to = p.caption && renameFishNames(p.caption)
+      const to = p.caption && (r ? ownWords(r, renameFishNames(p.caption)) : renameFishNames(p.caption))
       if (!p.caption || to === p.caption) return p
       any = true
       rekey.set(p.caption, to!)
       return { ...p, caption: to }
     })
     if (!any) continue
-    await write(join(dir, f), raw, { ...g, photos })
-    changed.push(`gallery/${f}`)
+    await write(join(content, f), raw, { ...g, photos })
+    changed.push(f)
   }
   if (!rekey.size) return changed
   for (const f of (await readdir(join(content, 'captions')).catch(() => [] as string[])).filter(x => x.endsWith('.json'))) {
@@ -310,23 +314,37 @@ export async function renameCaptions(content: string): Promise<string[]> {
   return changed
 }
 
+/** A page's Vietnamese text a reader reads, each string through `fn`, never its names, address or sources: whether it changed. */
+async function rewriteText(file: string, fn: (s: string) => string, fields = ['title', 'body', 'sections', 'faq', 'summary', 'intro']): Promise<boolean> {
+  const raw = await readFile(file, 'utf8').catch(() => null)
+  if (!raw) return false
+  const t = JSON.parse(raw) as Record<string, unknown>
+  const fix = (v: unknown): unknown => (typeof v === 'string' ? fn(v.normalize('NFC'))
+    : Array.isArray(v) ? v.map(fix) : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, k.startsWith('references') ? x : fix(x)])) : v)
+  const next = { ...t, ...Object.fromEntries(fields.flatMap(k => (k in t ? [[k, fix(t[k])]] : []))) }
+  if (JSON.stringify(next) === JSON.stringify(t)) return false
+  await write(file, raw, next)
+  return true
+}
+
 /** The passages a person found that a rule can't tell (names.ts KIND_PASSAGES), written as they should be on their page: the pages changed. */
 export async function kindPassages(content: string, rows: readonly KindPassage[] = KIND_PASSAGES): Promise<string[]> {
-  const changed = new Set<string>()
+  const changed: string[] = []
   for (const page of new Set(rows.map(r => r.page))) {
-    const file = join(content, page, 'vi.json')
-    const raw = await readFile(file, 'utf8').catch(() => null)
-    if (!raw) continue
-    const t = JSON.parse(raw) as Stored & Record<string, unknown>
-    const fix = (v: unknown): unknown => (typeof v === 'string' ? rows.filter(r => r.page === page).reduce((s, r) => s.replaceAll(r.was, r.now), v.normalize('NFC'))
-      : Array.isArray(v) ? v.map(fix) : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, k.startsWith('references') ? x : fix(x)])) : v)
-    // What a reader reads; never its names or its address.
-    const next = { ...t, ...Object.fromEntries(['title', 'body', 'sections', 'faq', 'summary', 'intro'].flatMap(k => (k in t ? [[k, fix(t[k])]] : []))) }
-    if (JSON.stringify(next) === JSON.stringify(t)) continue
-    await write(file, raw, next)
-    changed.add(page)
+    if (await rewriteText(join(content, page, 'vi.json'), v => rows.filter(r => r.page === page).reduce((s, r) => s.replaceAll(r.was, r.now), v))) changed.push(page)
   }
-  return [...changed]
+  return changed
+}
+
+/** A row's own page and its summary in its own words (names.ts ownWords), where they wrote a name that is another's: the files changed. */
+export async function ownPages(content: string, rows: readonly FishName[] = FISH_NAMES): Promise<string[]> {
+  const changed: string[] = []
+  for (const r of rows.filter(x => x.own)) {
+    const page = `${r.kind ?? 'species'}/${r.id}/vi.json`
+    if (await rewriteText(join(content, page), s => ownWords(r, s))) changed.push(page)
+    if (await rewriteText(join(content, 'summaries', `${r.id}.json`), s => ownWords(r, s), ['summary', 'mistakes'])) changed.push(`summaries/${r.id}.json`)
+  }
+  return changed
 }
 
 /**
@@ -397,6 +415,10 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   for (const page of await kindPassages(content)) {
     changed(`${page}/vi.json`)
     ;(report.text['kind-passage'] ??= []).push(`${page}/vi`)
+  }
+  for (const f of await ownPages(content)) {
+    changed(f)
+    ;(report.text['own-words'] ??= []).push(f.replace(/\.json$/, ''))
   }
   for (const f of await renameCaptions(content)) {
     changed(f)

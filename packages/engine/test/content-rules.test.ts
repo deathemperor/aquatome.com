@@ -668,12 +668,15 @@ test.each([
 // translating an English one, are its name now wherever written, unless another species stands beside them.
 test.each([
   ['Cá cầu vồng đỏ (Red rainbowfish, Glossolepis incisus): 5 năm', 'Cá táo đỏ (Red rainbowfish, Glossolepis incisus): 5 năm'],
-  ['<h3>10. Cá cầu vồng đỏ Irian</h3><p>Cá cầu vồng đỏ, hay cá cầu vồng đỏ Irian, sống ở hồ Sentani.</p>', '<h3>10. Cá táo đỏ Irian</h3><p>Cá táo đỏ, hay cá táo đỏ Irian, sống ở hồ Sentani.</p>'],
+  // Its other names that begin with the old one stay whole (Astra's second read: "Cá táo đỏ Irian" was made up).
+  ['<h3>10. Cá cầu vồng đỏ Irian</h3><p>Cá cầu vồng đỏ, hay cá cầu vồng đỏ Irian, sống ở hồ Sentani.</p>', '<h3>10. Cá cầu vồng đỏ Irian</h3><p>Cá táo đỏ, hay cá cầu vồng đỏ Irian, sống ở hồ Sentani.</p>'],
   ['Cho con cá cầu vồng đỏ ăn trùng huyết.', 'Cho con cá táo đỏ ăn trùng huyết.'],
   ['Bèo tây Nam Mỹ (Limnobium laevigatum) nổi trên mặt nước.', 'Bèo Nhật (Limnobium laevigatum) nổi trên mặt nước.'],
   ['Thả vài cây bèo nhím Nam Mỹ cho cá trốn.', 'Thả vài cây bèo Nhật cho cá trốn.'],
   // The same species under its other ending.
   ['Cá cầu vồng đỏ (Glossolepis incisa) sống ở hồ Sentani.', 'Cá táo đỏ (Glossolepis incisa) sống ở hồ Sentani.'],
+  // Its scientific name shortened.
+  ['Cá cầu vồng đỏ (G. incisus) sống ở hồ Sentani.', 'Cá táo đỏ (G. incisus) sống ở hồ Sentani.'],
   // A longer name the row lists stays as written beside it (the sweep's "cá táo đỏ cá hồi", 13 Nov).
   ['Cá cầu vồng đỏ, còn gọi là cá cầu vồng đỏ cá hồi hay cá cầu vồng New Guinea.', 'Cá táo đỏ, còn gọi là cá cầu vồng đỏ cá hồi hay cá cầu vồng New Guinea.'],
 ])('a named fish or plant takes its name wherever written: %s', (before, after) => {
@@ -686,6 +689,10 @@ test.each([
 test.each([
   // Another species beside the same words, and the water hyacinth's own "bèo tây".
   'Cá cầu vồng đỏ (Glossolepis pseudoincisus) sống ở sông Tami.',
+  // The same with the other's scientific name shortened, after the words or before them (Astra's second read).
+  'Cá cầu vồng đỏ (G. pseudoincisus) sống ở sông Tami.',
+  'G. pseudoincisus (cá cầu vồng đỏ) sống ở sông Tami.',
+  'Cá cầu vồng neon đỏ mắt xanh (P. gertrudae) có đốm.',
   'Bèo tây (Eichhornia crassipes) to hơn nhiều.',
   'Cá táo đỏ và cá cầu vồng táo đỏ là một.',
   'Người ta còn gọi nó là cá cầu vồng  đỏ cá hồi hay cá cầu vồng New Guinea.',

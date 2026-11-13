@@ -647,6 +647,19 @@ test('a passage a person found is written as they said, on its page only, once',
   expect(await kindPassages(c, rows)).toEqual([])
 })
 
+// Astra's second read: the 20-gallon guide's three blue-eyes, the first still "cầu vồng neon đỏ"; the others stay as they are.
+test('the 20-gallon guide\'s red neon blue-eye is called by its name, in its sentence', async () => {
+  const root = await store()
+  const c = join(root, 'content')
+  const page = 'guides/aquariumcoop-blogs-aquarium-5-best-fish-tank-ideas-for-a-20-gallon-aquarium'
+  await mkdir(join(c, page), { recursive: true })
+  const said = (first: string) => `<p>Một số loài được chuộng nhất là ${first} (P. luminatus), mắt xanh đuôi chẻ hay furcata (P. furcatus), mắt xanh đốm (P. gertrudae), cầu vồng Celebes (Marosatherina ladigesi) và cầu vồng vây sợi (Iriatherina werneri).</p>`
+  await writeFile(join(c, page, 'vi.json'), JSON.stringify(vi('5 ý tưởng bể 75 lít', {}, { body: said('cầu vồng neon đỏ') }), null, 2))
+  expect(await kindPassages(c)).toEqual([page])
+  expect((await json(root, `content/${page}/vi.json`)).body).toBe(said('mắt xanh neon đỏ'))
+  expect(await kindPassages(c)).toEqual([])
+})
+
 test('a card\'s Seriously Fish difficulty read before the engine read its word is corrected from the stored page, and its summary written again', async () => {
   const root = await store()
   await sweep(root)
@@ -917,19 +930,37 @@ test('a fish and a plant named by the names in use: new address, old one forward
   expect((await json(root, 'content/species/glossolepis-incisus/vi.json')).altNames).toEqual(['Red rainbowfish', 'Cá cầu vồng đỏ', 'Cá cầu vồng táo đỏ'])
 })
 
-// Curation, 2026-11-13: "bo bo (rận nước)", the daphnia, linked to the water louse named "Rận nước".
-test('a name that is another animal\'s leaves the page, its other names and its forward, and stays in the text', async () => {
+// Curation, 2026-11-13: "bo bo (rận nước)", the daphnia, linked to the water louse named "Rận nước". Astra's second read:
+// its own page's text and photos still said "rận nước", so a search for it found the louse.
+test('a name that is another animal\'s leaves the page, its other names, its forward and its own words, and stays in other pages\' text', async () => {
   const root = await store()
   const c = join(root, 'content')
   const put = async (path: string, data: unknown) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, 2)}\n`) }
-  await put('species/asellus-aquaticus/entity.json', species('asellus-aquaticus', 'Asellus aquaticus'))
-  await put('species/asellus-aquaticus/vi.json', { ...vi('Rận nước', {}), slug: 'ran-nuoc', altNames: ['Rận nước ngọt', 'Water louse'] })
+  const two = 'Hai con rận nước trên rêu'
+  await put('species/asellus-aquaticus/entity.json', species('asellus-aquaticus', 'Asellus aquaticus', { photos: [photo('https://media.aquatome.com/commons/a.webp', two)] }))
+  await put('species/asellus-aquaticus/vi.json', { ...vi('Rận nước', {
+    'quickFacts:aquariumbreeder': '<p>Asellus aquaticus, còn gọi là rận nước (tên tiếng Anh: Water louse), là một loài giáp xác nhỏ.</p>',
+    'behaviour:aquariumbreeder': '<p>Rận nước bò chậm. Vì ăn mùn bã, rận nước dọn bể.</p>',
+    'references:aquariumbreeder': '<p>Rận nước</p>',
+  }), slug: 'ran-nuoc', altNames: ['Rận nước ngọt', 'Water louse'] })
+  await put('gallery/asellus-aquaticus.json', { id: 'asellus-aquaticus', photos: [photo('https://media.aquatome.com/inat/a.webp', 'Rận nước Asellus aquaticus trên đá cuội'), photo('https://media.aquatome.com/commons/a.webp', two)], seen: 2, updatedAt: '2026-10-01' })
+  await put('captions/id.json', { [two]: 'Dua kutu air di atas lumut', 'Rận nước Asellus aquaticus trên đá cuội': 'Asellus aquaticus di atas kerikil' })
+  await put('summaries/asellus-aquaticus.json', { id: 'asellus-aquaticus', summary: 'Rận nước (Asellus aquaticus) hợp với người muốn một đội dọn mùn bã.', mistakes: ['Rận nước đẻ nhanh hơn tép.'], speciesUpdatedAt: '2026-10-01', generatedAt: '2026-10-02', review: 'approved' })
   await put('species/poecilia-reticulata/entity.json', species('poecilia-reticulata', 'Poecilia reticulata'))
   await put('species/poecilia-reticulata/vi.json', vi('Cá bảy màu', { 'feeding:seriouslyfish': '<p>Cho cá bột ăn bo bo (rận nước) mỗi ngày.</p>' }))
   await sweep(root)
   const louse = await json(root, 'content/species/asellus-aquaticus/vi.json')
   expect([louse.name, louse.slug, louse.nameFixed, louse.altNames]).toEqual(['Asellus aquaticus', 'asellus-aquaticus', true, ['Water louse']])
   expect(louse.redirectFrom).toEqual([{ slug: 'ran-nuoc', name: '' }])
+  expect(louse.sections).toEqual({
+    'quickFacts:aquariumbreeder': '<p>Asellus aquaticus (tên tiếng Anh: Water louse), là một loài giáp xác nhỏ.</p>',
+    'behaviour:aquariumbreeder': '<p>Asellus bò chậm. Vì ăn mùn bã, Asellus dọn bể.</p>',
+    'references:aquariumbreeder': '<p>Rận nước</p>',
+  })
+  expect((await json(root, 'content/gallery/asellus-aquaticus.json')).photos.map((p: { caption: string }) => p.caption)).toEqual(['Asellus aquaticus trên đá cuội', 'Hai con Asellus trên rêu'])
+  expect((await json(root, 'content/species/asellus-aquaticus/entity.json')).photos[0].caption).toBe('Hai con Asellus trên rêu')
+  expect(await json(root, 'content/captions/id.json')).toEqual({ 'Hai con Asellus trên rêu': 'Dua kutu air di atas lumut', 'Asellus aquaticus trên đá cuội': 'Asellus aquaticus di atas kerikil' })
+  expect(await json(root, 'content/summaries/asellus-aquaticus.json')).toMatchObject({ summary: 'Asellus aquaticus hợp với người muốn một đội dọn mùn bã.', mistakes: ['Asellus đẻ nhanh hơn tép.'], review: 'approved' })
   expect((await json(root, 'content/species/poecilia-reticulata/vi.json')).sections['feeding:seriouslyfish']).toBe('<p>Cho cá bột ăn bo bo (rận nước) mỗi ngày.</p>')
   expect((await sweep(root)).files).toEqual([])
 })
