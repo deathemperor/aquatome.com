@@ -38,6 +38,36 @@ export const PHOTO_CHECK_SCHEMA = {
 }
 /** Verdicts that take a photo off its page. */
 export const OFF = new Set<PhotoVerdict['ok']>(['other', 'none', 'dead', 'no'])
+/** A page's own verdict refuses a photo there: anything in OFF, but a head a person picked that the check calls "none" stays
+ * (the chief of staff, 2026-11-12). The check takes such a photo off (`off` below); the sweep keeps it off (`refusedOn`). */
+export const refuses = (v: PhotoVerdict | undefined, pickedHere: boolean): boolean => !!v && OFF.has(v.ok) && !(v.ok === 'none' && pickedHere)
+/** A verdict that sees a fish or a plant in the photo: it keeps a photo another page calls "none" off the rule below. */
+const SEES = new Set<PhotoVerdict['ok']>(['yes', 'unsure', 'other', 'dead'])
+/**
+ * Why a cycle keeps a photo off a fish's, a breed's or a plant's page or album, between two runs of the check (the sweep,
+ * in every part: a source read or a monthly backfill puts back what a source still shows; the chief of staff, 2026-11-13):
+ * - "refused here": that page's own verdict refuses it (`refuses`), as the check takes it off. Another fish's photo stays
+ *   on the pages that haven't refused it;
+ * - "nothing of a fish" / "nothing of a plant": a fish's or a breed's page calls it "none" (nothing of the subject in it),
+ *   so it shows nothing on any fish's or breed's page, and a plant page's "none" the same for plant pages, unless a page of
+ *   that kind sees something in it ("yes", "unsure", "other", "dead"). A page that hasn't judged it doesn't count. A head
+ *   a person picked is out of this rule on every page (`pickedUrls`), and guides keep the photo: a guide may show a habitat.
+ * Page verdicts only: no guide's verdict and no older one-photo verdict.
+ */
+export function refusedOn(cache: Record<string, Record<string, PhotoVerdict>>, kindOf: (id: string) => string | undefined, picked: (id: string, url: string) => boolean, pickedUrls: Set<string>) {
+  const group = (id: string) => { const k = kindOf(id); return k === 'plants' ? 'plants' : k === 'species' || k === 'breeds' ? 'fish' : undefined }
+  return (id: string, url: string): 'refused here' | 'nothing of a fish' | 'nothing of a plant' | undefined => {
+    const g = group(id)
+    if (!g) return undefined
+    const by = cache[url] ?? {}
+    const v = by[id]
+    if (v && !v.guide && refuses(v, picked(id, url))) return 'refused here'
+    if (pickedUrls.has(url)) return undefined
+    const same = Object.entries(by).filter(([p, x]) => !x.guide && group(p) === g).map(([, x]) => x.ok)
+    if (same.includes('none') && !same.some(ok => SEES.has(ok))) return g === 'fish' ? 'nothing of a fish' : 'nothing of a plant'
+    return undefined
+  }
+}
 /**
  * Whether the check could not tell that a photo shows this page's subject ("unsure"). Such a photo keeps showing (the
  * owner, 2026-11-11), behind the others: it never leads a page that has a photo the check passed, and in an album it
@@ -504,8 +534,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const v = verdict(x.url, x.page, !x.guide)
     // A head a person picked that the check calls "none" stays on its page and off the never-again list: two people read
     // it as the fish plainly seen, and the check's question is what gets fixed (the chief of staff, 2026-11-12).
-    if (v?.ok === 'none' && !x.guide && picked(x.page, x.url)) return false
-    return !!v && (x.guide ? v.ok === 'other' : OFF.has(v.ok))
+    return x.guide ? v?.ok === 'other' : refuses(v, picked(x.page, x.url))
   }
   for (const [ref, u] of Object.entries(headPicks)) {
     const page = ref.split('/')[1]!
