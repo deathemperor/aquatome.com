@@ -9,6 +9,8 @@ import { photoReason, observationHash, PHOTO_MARK_KINDS, PHOTO_POSITIONS } from 
 import { writeImageCache } from './image-cache-write'
 import { recheckCandidates } from './photo-check'
 
+/** Only migration-owned validation errors may reach the unattended log. */
+class PhotoPrivacyValidationError extends Error {}
 const same=isDeepStrictEqual
 const mapValues=(v:Record<string,any>,f:(v:any)=>unknown)=>Object.fromEntries(Object.entries(v).map(([k,x])=>[k,f(x)]))
 const verdict=(v:Record<string,any>)=>Object.fromEntries(Object.entries(v).filter(([k])=>!['note','noteHash','hints'].includes(k)))
@@ -76,8 +78,8 @@ export function compactPhotoReview(text:string,subjects:Record<string,Record<str
  return text.split('\n').map(l=>{
   if(!l.startsWith('| ')||!l.includes('[photo]('))return l.replace('| What the model saw |','| Recorded outcome |').replace('| What it shows |','| Recorded outcome |')
   const m=/^\| ((?:species|plants|breeds)\/([a-z0-9-]+)(?: \(a guide photo\))?) \| \[photo\]\((.+)\) \| .* \|$/.exec(l)
-  if(!m)throw new Error('photo review row format unavailable')
-  const v=subjects[m[3]!]?.[m[2]!];if(!v)throw new Error('photo review verdict unavailable')
+  if(!m)throw new PhotoPrivacyValidationError('photo review row format unavailable')
+  const v=subjects[m[3]!]?.[m[2]!];if(!v)throw new PhotoPrivacyValidationError('photo review verdict unavailable')
   return `| ${m[1]} | [photo](${m[3]}) | ${photoReason(v)} |`
  }).join('\n').replace('names what the photo shows instead','records a different subject')
 }
@@ -86,10 +88,10 @@ export async function assertPhotoPrivacy(root:string):Promise<void> {
  const state=join(root,'engine-state')
  for(const f of (await readdir(state,{recursive:true})).filter(f=>f.endsWith('.json'))){
   const data=JSON.parse(await readFile(join(state,f),'utf8')),bad=photoPrivacyViolations(f,data)
-  if(bad.length)throw new Error(`photo privacy: ${f} has ${bad.length} unsafe observation fields`)
+  if(bad.length)throw new PhotoPrivacyValidationError(`photo privacy: ${f} has ${bad.length} unsafe observation fields`)
  }
  const doc=await readFile(join(root,'docs/review/photo-subjects.md'),'utf8').catch(e=>{if(e.code==='ENOENT')return '';throw e})
- if(reviewPrivacyViolations(doc))throw new Error('photo privacy: generated review contains free observations')
+ if(reviewPrivacyViolations(doc))throw new PhotoPrivacyValidationError('photo privacy: generated review contains free observations')
 }
 
 export async function migratePhotoPrivacy(root:string,write=false) {
@@ -100,7 +102,7 @@ export async function migratePhotoPrivacy(root:string,write=false) {
   const raw=JSON.parse(before),next=compactPhotoState(name,raw) as Record<string,any>,oldDecision=decisions(name,raw) as Record<string,unknown>,newDecision=decisions(name,next) as Record<string,unknown>
   const differences=Object.keys(raw).filter(k=>!same(oldDecision[k],newDecision[k])).length
   const waiting=name==='_photo-watermarks.json'?Object.keys(raw).filter(u=>awaitsScreen(u,raw[u])!==awaitsScreen(u,next[u])).length:0
-  if(differences||waiting)throw new Error(`photo privacy migration changes decisions in ${name}`)
+  if(differences||waiting)throw new PhotoPrivacyValidationError(`photo privacy migration changes decisions in ${name}`)
   const after=JSON.stringify(next,null,2)+'\n',recordsChanged=Object.keys(raw).filter(k=>!same(raw[k],next[k])).length
   changes.push({file:'engine-state/'+name,beforeHash:observationHash(before),afterHash:observationHash(after),recordsChanged,records:Object.keys(raw).length,decisionDifferences:differences,waitingDifferences:waiting})
   if(before!==after)pending.push({file,before,after})
@@ -115,11 +117,24 @@ export async function migratePhotoPrivacy(root:string,write=false) {
  if(write){
   try{
    for(const p of pending)await writeImageCache(p.file,p.after)
-   const afterRechecks=[...(await recheckCandidates(root)).keys()].sort();if(!same(beforeRechecks,afterRechecks))throw new Error('photo privacy migration changes the recheck set')
+   const afterRechecks=[...(await recheckCandidates(root)).keys()].sort();if(!same(beforeRechecks,afterRechecks))throw new PhotoPrivacyValidationError('photo privacy migration changes the recheck set')
    await assertPhotoPrivacy(root)
   }catch(e){for(const p of pending)await writeImageCache(p.file,p.before);throw e}
  }
  return {version:'photo-observations-v1',written:write,files:changes,recheckCount:beforeRechecks.length,decisionDifferences:0,waitingDifferences:0,modelCalls:0,nativeImageAttempts:0}
+}
+/** Publication's model-free boundary; never print upstream diagnostics or observed wording. */
+export async function runPhotoPrivacyCommand(root:string,write:boolean,print:(line:string)=>void=console.log):Promise<number> {
+ try {
+  const report=await migratePhotoPrivacy(root,write)
+  const records=report.files.reduce((n,f)=>n+f.recordsChanged,0)
+  print(`photo-privacy: ${write?'migrated':'dry run'}, ${records} records changed, decisions 0, waiting 0, rechecks ${report.recheckCount}`)
+  return 0
+ } catch (error) {
+  const reason=error instanceof PhotoPrivacyValidationError&&!/[\r\n]/.test(error.message)?error.message:'other error'
+  print(`photo-privacy: migration failed: ${reason}; input restored; not publishable`)
+  return 1
+ }
 }
 if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)){
  const {values}=parseArgs({options:{root:{type:'string'},write:{type:'boolean',default:false},report:{type:'string'}}})
