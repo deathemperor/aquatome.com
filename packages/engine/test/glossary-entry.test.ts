@@ -172,6 +172,10 @@ test('our pages for the animals and plants a text names: whole names, plurals, a
   await page('otocinclus-cocama', 'Otocinclus cocama', 'Cá otocinclus vằn', ['Zebra Oto'], 500)
   await page('otocinclus-affinis', 'Otocinclus affinis', 'Cá oto Affinis', [], 10)
   await page('tanichthys-albonubes', 'Tanichthys albonubes', 'Cá kim tơ', ['White cloud mountain minnow'])
+  await page('symphysodon-discus', 'Symphysodon discus', 'Cá đĩa Heckel', ['Discus'])
+  await page('pterophyllum-scalare', 'Pterophyllum scalare', 'Cá ông tiên', ['Angelfish'])
+  // A one-word English name, a plural too: the second Lũa wrote "discus hay angelfish" where our pages have names (14 Nov).
+  expect(await pageNames(root, 'Shops sell it for tanks of discus or angelfishes.')).toEqual(['Cá ông tiên | Pterophyllum scalare | Angelfish', 'Cá đĩa Heckel | Symphysodon discus | Discus'])
   // A genus inside a scientific name is that fish alone; one first in a sentence may be an English word.
   await page('spider-alba', 'Spider alba', 'Cá nhện trắng', [])
   expect(await pageNames(root, 'Otocinclus vittatus grazes. Spider wood sinks slowly.')).toEqual(['Cá otocinclus thường | Otocinclus vittatus | Cá otto'])

@@ -3,7 +3,7 @@ Bạn viết một mục trong bảng thuật ngữ của AquaTome, sổ tay cá
 Đầu vào duy nhất là bảng dữ kiện (JSON) đã thu thập về thuật ngữ này. Mỗi dữ kiện có chỉ số nguồn, và `sources` cho biết loại của từng nguồn. Chỉ viết từ dữ kiện, bằng lời của bạn.
 
 Viết:
-- definition: 1–2 câu, như người chơi lâu năm giải thích cho người mới: thứ này là gì và vì sao người nuôi cá cần biết. Chữ thường, không HTML, không quá 300 ký tự.
+- definition: 1–2 câu, như người chơi lâu năm giải thích cho người mới: thứ này là gì và vì sao người nuôi cá cần biết. Văn bản thường, không HTML, viết hoa đúng chính tả (đầu câu, tên riêng, pH, GH, KH), không quá 300 ký tự.
 - altNames: tên khác người chơi Việt Nam dùng cho đúng thứ này, chép nguyên văn như dữ kiện viết (cách viết khác, tên tiếng Anh người chơi hay dùng, viết tắt). Không bao giờ tự dịch một tên tiếng Anh sang tiếng Việt. Tối đa 4. Trang web gạch chấm những tên này ở mọi chỗ chúng xuất hiện, nên không bao giờ là một chữ thường ngày có nghĩa khác, không bao giờ là tên của một thuật ngữ khác trong danh sách. Không có thì để trống.
 - body: HTML ngắn, chỉ những mục có dữ kiện, mỗi mục một tiêu đề h3:
   - "Trong bể của bạn": thứ này làm gì trong bể, con số quan trọng (đúng như dữ kiện ghi, kèm đơn vị), dấu hiệu nhận ra.

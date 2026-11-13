@@ -43,7 +43,7 @@ const RULES_SCHEMA = { type: 'object', required: ['notes'], properties: { notes:
 /**
  * The site's pages for the animals and plants a text names: a page one of whose names of two words or more (its own, its
  * scientific name, its other names, English ones among them) the text writes whole, a plural too ("bristlenose plecos"),
- * and up to eight pages of a genus the text names alone ("Otocinclus and…"): not inside a scientific name ("Otocinclus
+ * a page's one-word English name the text writes ("discus", "angelfish"), and up to eight pages of a genus the text names alone ("Otocinclus and…"): not inside a scientific name ("Otocinclus
  * vittatus" is that fish), and not first in a sentence, where an English word is capitalised too ("Spider wood…"). Each
  * line is the page's name, then other names it goes by: the writer writes one of them, and the site links it.
  */
@@ -64,12 +64,17 @@ export async function pageNames(root: string, text: string): Promise<string[]> {
     }
   }
   for (const p of pages) if (p.names.some(named)) out.add(p.line)
+  // A one-word English name ("Discus" on two pages, "Angelfish" on one): the fullest eight pages that carry it.
+  const oneWord = (n: string) => /^[A-Za-z]{5,}$/.test(n.trim()) && new RegExp(`(?<![\\p{L}\\p{N}])${n.trim()}(?:e?s)?(?![\\p{L}\\p{N}])`, 'iu').test(text)
+  const byWord = new Map<string, typeof pages>()
+  for (const p of pages) for (const n of p.names.slice(1).filter(oneWord)) byWord.set(n.trim().toLowerCase(), [...(byWord.get(n.trim().toLowerCase()) ?? []), p])
+  for (const ps of byWord.values()) for (const p of ps.sort((a, b) => b.size - a.size).slice(0, 8)) out.add(p.line)
   const scientific = new Set(pages.flatMap(p => (p.scientific ? [p.scientific.toLowerCase()] : [])))
   const alone = new Set([...text.matchAll(/(^|[^.!?\s]\s+|[,;:(]\s*)([A-Z][a-z]{4,})\b(\s+[a-z]+)?/g)].filter(m => !scientific.has(`${m[2]}${m[3] ?? ''}`.toLowerCase()) && m[1] !== '').map(m => m[2]!))
   const byGenus = new Map<string, typeof pages>()
   for (const p of pages) { const g = p.scientific?.split(' ')[0]; if (g && alone.has(g)) byGenus.set(g, [...(byGenus.get(g) ?? []), p]) }
   for (const ps of byGenus.values()) for (const p of ps.sort((a, b) => b.size - a.size).slice(0, 8)) out.add(p.line)
-  return [...out].slice(0, 30)
+  return [...out].slice(0, 40)
 }
 
 /** Seriously Fish's glossary entry for a term, by its address there: a named source (their permission is on record). */
