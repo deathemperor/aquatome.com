@@ -31,13 +31,13 @@ push() {
   local main
   for _ in 1 2 3; do
     main=$(git rev-parse '@{u}' 2>/dev/null || true)
-    if ! git pull -q --rebase; then
+    if ! net git pull -q --rebase; then
       local clash; clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
       log "another part changed the same files: $clash"
       git rebase --abort 2>/dev/null || true
       # Its clashing lines give way to this part's (photo verdicts are re-applied every cycle); then checked again
       # (verify_cycle: the tests).
-      if git pull -q --rebase -X theirs; then
+      if net git pull -q --rebase -X theirs; then
         replan_merged "$clash"
         sweep_merged
         verify_cycle || { keep_unpublished "$PART"; log "build/tests failed after that merge, not publishing"; return 1; }
@@ -47,7 +47,7 @@ push() {
     elif ! swept_pull "$main"; then
       verify_cycle || { keep_unpublished "$PART"; log "build/tests failed after the sweep on main's changes, not publishing"; return 1; }
     fi
-    git push -q && return 0
+    net git push -q && return 0
     sleep 30
   done
   log "push failed three times"; return 1
@@ -58,14 +58,37 @@ push() {
 # Its process must still be a cycle script: the file outlives a restart, and its number can go to another process.
 PIDFILE="$(git rev-parse --absolute-git-dir)/aquatome-engine.pid"
 # Not this run's own number: from_main starts it again as the same process.
-if [ -f "$PIDFILE" ] && [ "$(cat "$PIDFILE")" != $$ ] && ps -p "$(cat "$PIDFILE")" -o command= 2>/dev/null | grep -q 'cycle\.sh'; then log "previous cycle (pid $(cat "$PIDFILE")) still running"; exit 0; fi
+# How long ago the part's cycle last wrote a line of its own to its log (not these notices). Hours means it's hung, not
+# working: on 12 Nov 2026 a fetch begun as the Mac fell asleep never ended.
+quiet_for() {
+  local line at
+  line=$(grep -E '^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z ' "$HOME/Library/Logs/aquatome-engine-$PART.log" 2>/dev/null | grep -v -E '^[^ ]+ (stuck:|previous cycle)' | tail -1)
+  [ -n "$line" ] || return 0
+  at=$(date -j -u -f %Y-%m-%dT%H:%M:%SZ "${line%% *}" +%s 2>/dev/null || date -u -d "${line%% *}" +%s 2>/dev/null) || return 0
+  echo $(( $(date +%s) - at ))
+}
+if [ -f "$PIDFILE" ] && [ "$(cat "$PIDFILE")" != $$ ] && ps -p "$(cat "$PIDFILE")" -o command= 2>/dev/null | grep -q 'cycle\.sh'; then
+  quiet=$(quiet_for)
+  if [ "${quiet:-0}" -ge 7200 ]; then log "previous cycle (pid $(cat "$PIDFILE")) still running, its last line $((quiet / 3600)) h $((quiet % 3600 / 60)) min ago: likely hung, and nothing here stops it"
+  else log "previous cycle (pid $(cat "$PIDFILE")) still running"; fi
+  exit 0
+fi
 echo $$ > "$PIDFILE"
+# How long the Mac had slept when the cycle began, kept across from_main's start again.
+[ -n "${AQ_ASLEEP0:-}" ] || { read -r _ AQ_ASLEEP0 < <(clock); export AQ_ASLEEP0; }
 # On the Mac, a failed cycle is reported on GitHub: engine-mac.yml fails, naming the step or the log line it stopped at.
 trap 'FAILED="$BASH_COMMAND"' ERR
 finish() {
-  local status=$?
+  local status=$? now
   rm -f "$PIDFILE"
+  # A fault the run went on past (FAULT, cycle-checks.sh: kept work its photo records held back) fails the run when it
+  # ends, so it's reported as any failed run is: engine-mac.yml on the Mac, the run itself on GitHub.
+  [ "$status" != 0 ] || [ -z "${FAULT:-}" ] || { status=1; FAILED="$FAULT"; }
   [ "$status" = 0 ] || [ -n "${GITHUB_ACTIONS:-}" ] || gh workflow run engine-mac.yml -R deathemperor/aquatome.com -f part="$PART" -f why="exit $status: ${FAILED:-$LAST}" || true
+  # A night the lid was shut shows in the cycle's last line (12 to 13 Nov 2026: asleep from 22:36, waking 45 s every 15 min).
+  read -r _ now < <(clock)
+  [ $((now - ${AQ_ASLEEP0:-$now})) -lt 60 ] || log "the Mac slept $(((now - AQ_ASLEEP0) / 60)) min during this cycle"
+  exit "$status"
 }
 trap finish EXIT
 
@@ -94,7 +117,7 @@ if [ -n "${GITHUB_ACTIONS:-}" ] || [[ "$REPO" == "$HOME/.local/share/aquatome/"*
 else
   # Any other checkout: nothing in it is dropped.
   if [ -n "$(git status --porcelain -- content sources)" ]; then log "uncommitted content in this checkout: commit or drop it first"; exit 1; fi
-  git checkout -q main && git pull -q --ff-only
+  git checkout -q main && net git pull -q --ff-only
 fi
 cool
 # content/changelog.json gets entries from here and from the Mac's video job (video-cycle.sh): merge, don't conflict.

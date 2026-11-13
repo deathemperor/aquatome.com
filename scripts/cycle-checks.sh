@@ -13,6 +13,54 @@
 # A simulator run takes its turn in its own queue instead (apps/ios/scripts/sim-run.py). A build that only compiles
 # (xcodebuild build, a site build) has no timeouts and doesn't need either: in the queue, it only holds up the tests
 # behind it. The engine takes it only for its tests too (verify_cycle).
+
+# The wall clock and the seconds the Mac has slept since it started, "1794527337 31355": the clock that counts sleep less
+# the one that doesn't, 0 where they can't be told apart (GitHub's runners, which don't sleep). AQ_CLOCK stands in for it
+# in tests.
+clock() {
+  if [ -n "${AQ_CLOCK:-}" ]; then "$AQ_CLOCK"; return; fi
+  perl -MTime::HiRes -e 'my $s = eval { Time::HiRes::clock_gettime(Time::HiRes::CLOCK_MONOTONIC()) - Time::HiRes::clock_gettime(Time::HiRes::CLOCK_UPTIME_RAW()) }; printf "%d %d\n", time, $s // 0'
+}
+# `net git <fetch|pull|push> …`: a call to GitHub given GIT_NET_SECONDS (600) at most. On 12 Nov 2026 the Mac's 23:10
+# photos cycle began its opening fetch as the Mac fell asleep with its lid shut; the connection died on GitHub's side, ours
+# never learned, and launchd starts no run of a part while the last one lives, so no photos run started behind it. Past
+# the limit the call is stopped, the log says so (and how long the Mac slept in it), and it fails as a refused fetch or
+# push does: the opening fetch ends the cycle, which frees the next run (finish reports it to GitHub, engine-mac.yml).
+net() {
+  local limit="${GIT_NET_SECONDS:-600}" job dog status=0 stopped=0 t0 z0 t1 z1 slept why
+  read -r t0 z0 < <(clock)
+  # In a process group of its own, so the stop reaches what it started too (git pull's fetch, ssh, a merge driver).
+  perl -e 'setpgrp(0, 0); exec { $ARGV[0] } @ARGV or die "$ARGV[0]: $!\n"' "$@" &
+  job=$!
+  # By the clock, not by how many sleeps it took (a Mac asleep or busy stretches them), and with none of the caller's
+  # output, so a sleep it leaves behind holds no pipe open. It ends by itself once nothing of the call is left, so it's
+  # never stopped from here (a stop that fails would end the cycle under set -e). At the limit it sends TERM to the group
+  # and KILL to what's left 10 s on, so a call that exits 0 on TERM is still stopped, children and all, and ends with 124,
+  # which is how the caller learns of the stop. Without set -e, so nothing in it can end it before the stop: a marker
+  # file it once wrote, in a temp folder that was missing, did (Astra's read, 13 Nov).
+  # It looks every tenth of a second, so a call that answers waits no longer than that for it, and reads the clock every
+  # second: looking each second added a second to every call, and a cycle makes dozens.
+  ( set +e
+    n=0
+    while sleep 0.1; do
+      kill -0 -- -"$job" 2>/dev/null || exit 0
+      n=$((n + 1)); [ $((n % 10)) -eq 0 ] || continue
+      read -r t1 _ < <(clock) || t1=$(date +%s)
+      [ $((${t1:-0} - t0)) -lt "$limit" ] || break
+    done
+    kill -TERM -- -"$job" 2>/dev/null || exit 0
+    for _ in 1 2 3 4 5 6 7 8 9 10; do sleep 1; kill -0 -- -"$job" 2>/dev/null || exit 124; done
+    kill -KILL -- -"$job" 2>/dev/null
+    exit 124 ) </dev/null >/dev/null 2>&1 &
+  dog=$!
+  wait "$job" 2>/dev/null || status=$?
+  wait "$dog" 2>/dev/null || stopped=$?
+  [ "$stopped" -eq 124 ] || return "$status"
+  read -r t1 z1 < <(clock)
+  slept=$((z1 - z0)); why="$*: no answer from GitHub in $((t1 - t0)) s, stopped"
+  [ "$slept" -lt 60 ] || why="$why; the Mac slept $((slept / 60)) min of that, and a connection doesn't outlive a sleep"
+  log "$why"; return 124
+}
 calm() { [ -z "${GITHUB_ACTIONS:-}" ] || return 0; local cores; cores=$(sysctl -n hw.ncpu); for _ in $(seq 90); do [ "$(sysctl -n vm.loadavg | awk '{print int($3)}')" -lt $((cores * 4)) ] && return; sleep 30; done; log "load still high after 45 min: checking anyway"; }
 # Engine work waits for cooler hours: under heat macOS takes cores away from work, and on 2026-11-08 it ran work on 6-8 of
 # its 16 while every lead's work slowed, a 0.4 s job taking up to 54 s. A run waits while any core is taken away, up to 2 h,
@@ -69,6 +117,7 @@ verify() {
   local step from first name names
   : >"$TEST_LOG"
   TIMED_OUT=
+  if [ -n "${MIGRATE_FAILED:-}" ]; then log "photo records not migrated: not tested, not published"; return 1; fi
   calm
   for step in "$@"; do
     from=$(wc -c <"$TEST_LOG")
@@ -115,6 +164,10 @@ keep_unpublished() {
   when=$(date -u +%Y%m%dT%H%M%S)
   if [ -n "${TIMED_OUT:-}" ]; then
     keep_branch "kept/$1/$when" && log "tests ran out of time: this run's work is kept on kept/$1/$when for the next run"
+  elif [ -n "${MIGRATE_FAILED:-}" ]; then
+    # The line the run's failure is reported with (engine-cycle.sh finish), as its callers then stop the run.
+    FAILED="photo records not migrated: this run's work is kept on kept/$1/$when for the next run"
+    keep_branch "kept/$1/$when" && log "$FAILED"
   else
     # Off main at once: a next run that couldn't fetch would carry on from this commit, and could publish it.
     keep_branch "held/$1/$when" && git reset -q --hard origin/main && log "checks failed twice: this run's work is on held/$1/$when, not published"
@@ -126,20 +179,20 @@ keep_unpublished() {
 keep_branch() {
   git branch -q -f "$1" HEAD || return 1
   engine_cloud || return 0
-  git push -q origin "refs/heads/$1:refs/heads/$1" || { log "$1 couldn't be pushed to GitHub: this run's work is lost with the runner"; return 1; }
+  net git push -q origin "refs/heads/$1:refs/heads/$1" || { log "$1 couldn't be pushed to GitHub: this run's work is lost with the runner"; return 1; }
 }
 # Branch $1 deleted, and in the cloud GitHub's of that exact name.
 drop_branch() {
   git branch -q -D "$1" || return 1
   engine_cloud || return 0
-  git push -q origin --delete "refs/heads/$1"
+  net git push -q origin --delete "refs/heads/$1"
 }
 # `move_branch <from> <to>`, once its work failed its tests (push_kept): on the Mac the branch renamed. In the cloud, <to>
 # is the work as it was last checked, on the main it failed on, so its one more try waits for a main newer than that
 # (retry_held); and GitHub's <to> made and <from> deleted in one push, both or neither, so no branch is ever in two places.
 move_branch() {
   if ! engine_cloud; then git branch -q -M "$1" "$2"; return; fi
-  git push -q --atomic origin "HEAD:refs/heads/$2" ":refs/heads/$1" || return 1
+  net git push -q --atomic origin "HEAD:refs/heads/$2" ":refs/heads/$1" || return 1
   git branch -q -f "$2" HEAD && git branch -q -D "$1"
 }
 HELD_DAYS=14
@@ -161,11 +214,11 @@ publish_kept() {
   local branch
   engine_clone || engine_cloud || return 0
   if engine_cloud; then
-    git fetch -q origin "+refs/heads/kept/$1/*:refs/heads/kept/$1/*" "+refs/heads/held/$1/*:refs/heads/held/$1/*" || log "the kept work on GitHub couldn't be fetched: left for the next run"
+    net git fetch -q origin "+refs/heads/kept/$1/*:refs/heads/kept/$1/*" "+refs/heads/held/$1/*:refs/heads/held/$1/*" || log "the kept work on GitHub couldn't be fetched: left for the next run"
   fi
   drop_old_held "$1"
   for branch in $(git for-each-ref --sort=refname --format='%(refname:short)' "refs/heads/kept/$1/"); do
-    log "publishing $branch, kept when its tests ran out of time"
+    log "publishing $branch, kept by an earlier run"
     git reset -q --hard "$branch"
     if push_kept "$branch"; then
       git branch -q -D "$branch"
@@ -178,11 +231,29 @@ publish_kept() {
       fi
     else
       log "$branch isn't published yet ($KEPT_WHY): it stays kept for the next run"
+      # Kept work held back by its records goes on to the next run, never silently: the run reports it when it ends, as
+      # a failed run is reported (FAULT, engine-cycle.sh finish; the chief of staff, 13 Nov).
+      [ -z "${MIGRATE_FAILED:-}" ] || FAULT="${FAULT:+$FAULT; }$branch isn't published: its photo records couldn't be migrated, and it stays kept"
     fi
-    git fetch -q origin || true
+    net git fetch -q origin || true
     git reset -q --hard origin/main
   done
   if engine_cloud; then retry_held "$1"; fi
+  # Kept work's failed migration is that work's: the run's own goes on to its own (video-cycle.sh tests with no merge).
+  MIGRATE_FAILED=
+}
+# A video job's EXIT trap, last: a fault the job went on past (FAULT: kept work its photo records held back) fails the
+# job and is reported on GitHub as a part's failed cycle is (engine-mac.yml), as engine-cycle.sh's finish does for the
+# parts. Without it a video job that kept work back exited 0 and said nothing (Astra's read, 13 Nov). A job that failed
+# already keeps its own status. `fault_exit <status> <job>`.
+fault_exit() {
+  local status=$1
+  if [ -n "${FAULT:-}" ]; then
+    log "$FAULT"
+    [ "$status" != 0 ] || status=1
+    [ -n "${GITHUB_ACTIONS:-}" ] || gh workflow run engine-mac.yml -R deathemperor/aquatome.com -f part="$2" -f why="exit $status: $FAULT" || true
+  fi
+  exit "$status"
 }
 # In the cloud, each held branch of <job> not yet tried again, once main's code (anything but the engine's output and the
 # docs) has changed since the main it was checked on: published as kept work is, or, failing its tests for real again,
@@ -207,7 +278,7 @@ retry_held() {
     else
       log "$branch isn't published yet ($KEPT_WHY): it stays held for the next run's try"
     fi
-    git fetch -q origin || true
+    net git fetch -q origin || true
     git reset -q --hard origin/main
   done
 }
@@ -218,13 +289,14 @@ retry_held() {
 # again from a branch left behind.
 push_kept() {
   local check=1 clash main
-  KEPT_FAILED= KEPT_WHY=
+  # Each branch's own: an earlier branch's failed migration says nothing of this one (Astra's read, 13 Nov).
+  KEPT_FAILED= KEPT_WHY= MIGRATE_FAILED=
   for _ in 1 2 3; do
     main=$(git rev-parse origin/main 2>/dev/null || true)
-    if ! git pull -q --rebase origin main; then
+    if ! net git pull -q --rebase origin main; then
       clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
       git rebase --abort 2>/dev/null || true
-      git pull -q --rebase -X theirs origin main || { git rebase --abort 2>/dev/null || true; KEPT_WHY="a clash with main"; return 1; }
+      net git pull -q --rebase -X theirs origin main || { git rebase --abort 2>/dev/null || true; KEPT_WHY="a clash with main"; return 1; }
       replan_merged "$clash"
       check=1
     fi
@@ -233,15 +305,17 @@ push_kept() {
     if [ -n "$check" ]; then
       sweep_merged
       if ! verify 'pnpm test'; then
-        if [ -n "$TIMED_OUT" ]; then KEPT_WHY="tests out of time again"; else KEPT_FAILED=1; fi
+        if [ -n "$TIMED_OUT" ]; then KEPT_WHY="tests out of time again"
+        elif [ -n "${MIGRATE_FAILED:-}" ]; then KEPT_WHY="its photo records couldn't be migrated"
+        else KEPT_FAILED=1; fi
         return 1
       fi
       check=
     fi
     if engine_cloud && [ -n "${1:-}" ]; then
-      git push -q --atomic origin HEAD:main ":refs/heads/$1" && return 0
+      net git push -q --atomic origin HEAD:main ":refs/heads/$1" && return 0
     else
-      git push -q origin HEAD:main && return 0
+      net git push -q origin HEAD:main && return 0
     fi
     sleep "${PUSH_PAUSE:-30}"
   done
@@ -262,7 +336,14 @@ verify_cycle() { verify 'pnpm test'; }
 # Main's changes and this run's meet only at a merge: a card from main and a summary from this run can then disagree, which
 # the sweep fixes and the tests fail on (the sf and pages runs of 2026-11-07 didn't publish over 30 such pages). So it runs
 # again before those tests.
+# Photo records in the format before 13 Nov 2026, which kept lettering read off a photo, fail the privacy test
+# (photo-privacy.ts). A run on older code writes them, and they come in at a merge: on 13 Nov two engine pushes made on
+# older code turned main red. So they're rewritten here first, with no model and no decision changed, before the sweep and
+# the tests see them. A migration that fails publishes nothing, and the work is kept for the next run, which migrates and
+# tests it again, never held for it (MIGRATE_FAILED; the Image Lead and the chief of staff, 13 Nov).
 sweep_merged() {
+  MIGRATE_FAILED=
+  pnpm engine photo-privacy --write || { MIGRATE_FAILED=1; log "photo records: the migration failed, so nothing is published"; }
   pnpm engine sweep || log "sweep: failed"
   git add content sources engine-state docs/review
   git diff --cached --quiet || git commit -q -m "content: sweep on main as it is now"
@@ -276,7 +357,7 @@ swept_pull() {
   [ "$(git rev-parse '@{u}' 2>/dev/null)" = "$1" ] && return 0
   local head; head=$(git rev-parse HEAD)
   sweep_merged
-  [ "$(git rev-parse HEAD)" = "$head" ]
+  [ -z "${MIGRATE_FAILED:-}" ] && [ "$(git rev-parse HEAD)" = "$head" ]
 }
 # The calendar (content/curation.json) is one plan, not lines to blend. After a clash with a change on main, push()'s
 # line-by-line merge kept some of each plan's days, and named one guide on two days running (the photos part of
@@ -290,7 +371,7 @@ replan_merged() {
   git diff --cached --quiet || git commit -q -m "content: the calendar planned again on main's"
 }
 catch_up() {
-  git pull -q --rebase && return 0
+  net git pull -q --rebase && return 0
   git rebase --abort 2>/dev/null || true
   log "main changed this cycle's files meanwhile: checking as it started, push() settles the clash"
 }
@@ -321,9 +402,10 @@ gate_or_keep() {
   return 1
 }
 
-# `from_main "$@"`.
+# `from_main "$@"`. A fetch that fails ends the run, its last line saying why: until 13 Nov 2026 the run went on from the
+# clone's old checkout, its old code included (an && list that fails doesn't stop a script under set -e).
 from_main() {
-  git fetch -q origin && git checkout -q main && git reset -q --hard origin/main
+  net git fetch -q origin && git checkout -q main && git reset -q --hard origin/main || exit
   [ "${AQ_SCRIPT_HEAD:-}" != "$(git rev-parse HEAD)" ] || return 0
   AQ_SCRIPT_HEAD="$(git rev-parse HEAD)"; export AQ_SCRIPT_HEAD
   exec bash "$0" "$@"

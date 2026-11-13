@@ -12,6 +12,8 @@ set -euo pipefail
 export PATH="${PATH:+$PATH:}$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"
 log() { echo "$(date -u +%FT%TZ) $*"; }
 REPO=deathemperor/aquatome.com
+# A Mac part's cycle hung for hours, said in its log and on GitHub (engine-stuck.sh); first, as a gh error below ends this.
+bash "$(dirname "$0")/engine-stuck.sh"
 # A gh error stops the script here (set -e): with no pace to go by, nothing starts.
 every="$(gh variable list -R "$REPO" --json name,value -q '.[] | select(.name == "ENGINE_EVERY_MINUTES") | .value')"
 [ -n "$every" ] || every="$(sed -nE 's/.*\$\{EVERY:-([0-9]+)\}.*/\1/p' "$(dirname "$0")/../.github/workflows/engine.yml" | head -1)"

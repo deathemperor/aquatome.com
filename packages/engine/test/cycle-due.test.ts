@@ -24,7 +24,8 @@ case "$1 $2" in
 esac
 `)
   chmodSync(join(dir, 'gh'), 0o755)
-  const r = spawnSync('bash', [SCRIPT], { env: { ...process.env, PATH: `${dir}:${process.env.PATH}` }, encoding: 'utf8' })
+  // A home of its own: the starter's check for a hung cycle (engine-stuck.sh) reads the Mac's engine clones under it.
+  const r = spawnSync('bash', [SCRIPT], { env: { ...process.env, HOME: dir, PATH: `${dir}:${process.env.PATH}` }, encoding: 'utf8' })
   return { started: existsSync(join(dir, 'started')), out: r.stdout, status: r.status }
 }
 /** Each call runs the script once, most of a second on a loaded machine: room for a slow one. */
