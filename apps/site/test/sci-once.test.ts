@@ -64,7 +64,9 @@ test('the page check finds a scientific name printed under a name that says it, 
   const once = checkPage('/ca/ca-neon-vua/', html(
     '<div class="id"><h1>Cá neon vua</h1><p class="sci binomial">Paracheirodon axelrodi</p></div>'
     + '<img src="/a.webp" width="4" height="3" alt="Cá neon vua, Paracheirodon axelrodi">'
-    + '<article class="sc"><a><h3>Cá lóc Channa andrao</h3></a></article>',
+    + '<article class="sc"><a><h3>Cá lóc Channa andrao</h3></a></article>'
+    // A card's template keeps its .sci for the cards made from it, and shows nothing.
+    + '<template><article class="sc"><a><h3>Cá lóc Channa andrao</h3><p class="sci">Channa andrao</p></a></article></template>',
     ld('Cá neon vua', 'Paracheirodon axelrodi')), facts)
   expect(once.filter(p => p.check === 'name-twice')).toEqual([])
 })

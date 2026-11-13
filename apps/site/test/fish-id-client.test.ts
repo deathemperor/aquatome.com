@@ -1,6 +1,6 @@
 import { expect, test, vi as vitest } from 'vitest'
 import { translator } from '../src/lib/i18n'
-import { errorText, genusHtml, guessHtml, hasGuesses, own, sure, verdictLine, type Answer, type Result } from '../src/scripts/fish-id-client'
+import { errorText, genusHtml, guessHtml, hasGuesses, own, sciAfter, sure, verdictLine, type Answer, type Result } from '../src/scripts/fish-id-client'
 import { guessEntry } from '../src/scripts/life-photo'
 
 // The fish-ID tool's client, shared by its page and the "Bể của tôi" editor (src/scripts/fish-id-client.ts). Its modules
@@ -69,4 +69,19 @@ test('a guess without a page fills in the "Thêm …" form: fish unless the phot
   expect(guessEntry(guess({ commonName: '', scientificName: ' Bucephalandra sp. ' }), 'plant')).toEqual({ kind: 'plant', name: 'Bucephalandra sp.', sci: 'Bucephalandra sp.' })
   const long = guessEntry(guess({ commonName: 'a'.repeat(100), scientificName: 'b'.repeat(130) }), 'fish')
   expect([long.name.length, long.sci.length]).toEqual([80, 120])
+})
+
+// The chief of staff, 13 November: printed together, a name and its scientific name say it once (lib/sci.ts). Here, a
+// guess's line under its name, and the genus's other pages after theirs.
+test("a photo's guess and its genus's other pages say the scientific name once", () => {
+  const guessOf = (r: Partial<Result>) => guess({ scientificName: 'Channa andrao', ...r })
+  // The handbook's name holds it (as a link), or there's no other name than it: no line, or the variety alone.
+  expect(guessHtml(vi, guessOf({}), '<a href="/ca/ca-loc-channa-andrao/">Cá lóc Channa andrao</a>', '')).not.toContain('class="sci"')
+  expect(guessHtml(vi, guessOf({}), 'Channa andrao', '')).not.toContain('class="sci"')
+  expect(guessHtml(vi, guessOf({ variety: 'Blue' }), 'Cá lóc Channa andrao', '')).toContain('<p class="sci">Blue</p>')
+  // A name that doesn't say it keeps it, and the variety after it.
+  expect(guessHtml(vi, guessOf({ variety: 'Blue' }), 'Cá lóc', '')).toContain('<p class="sci"><i>Channa andrao</i> · Blue</p>')
+  expect(sciAfter({ id: 'a', name: 'Cá lóc Channa andrao', sci: 'Channa andrao' })).toBe('')
+  expect(sciAfter({ id: 'b', name: 'Cá lóc vảy rồng', sci: 'Channa asiatica' }, ' class="sci"')).toBe(' <i class="sci">Channa asiatica</i>')
+  expect(sciAfter({ id: 'c', name: 'Cá lóc' })).toBe('')
 })

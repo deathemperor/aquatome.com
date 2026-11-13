@@ -1,6 +1,6 @@
 import { escapeHtml } from './comments'
 import { ct } from './ct'
-import { genusHtml, guessHtml, hasGuesses, own, photoId, verdictLine, type Answer, type Linked, type Result } from './fish-id-client'
+import { genusHtml, guessHtml, sciAfter, hasGuesses, own, photoId, verdictLine, type Answer, type Linked, type Result } from './fish-id-client'
 
 /**
  * "Bể của tôi": a photo names a fish or plant for the tank's form (life-edit.ts), through the fish-ID tool
@@ -40,7 +40,7 @@ export function initPhoto(panel: HTMLElement, o: {
     const act = `<p class="act"><button type="button" class="quiet" data-ev="tank" data-guess="${i}"${there ? ' disabled' : ''} aria-label="${escapeHtml(there ? ct('Đã có: {name}', { name: label }) : ct('Thêm vào bể: {name}', { name: label }))}">${escapeHtml(there ? ct('Đã có') : ct('Thêm vào bể'))}</button></p>`
     const genus = genusHtml(ct, r, (l, j) => {
       const on = o.has(pageOf(l))
-      return `<button type="button" class="sib" data-ev="tank" data-sib="${i}:${j}"${on ? ' disabled' : ''} aria-label="${escapeHtml(on ? ct('Đã có: {name}', { name: l.name }) : ct('Thêm vào bể: {name}', { name: l.name }))}"><span class="nm">${escapeHtml(l.name)}${l.sci ? ` <i>${escapeHtml(l.sci)}</i>` : ''}</span><span class="tag" aria-hidden="true">${escapeHtml(on ? ct('Đã có') : ct('Thêm'))}</span></button>`
+      return `<button type="button" class="sib" data-ev="tank" data-sib="${i}:${j}"${on ? ' disabled' : ''} aria-label="${escapeHtml(on ? ct('Đã có: {name}', { name: l.name }) : ct('Thêm vào bể: {name}', { name: l.name }))}"><span class="nm">${escapeHtml(l.name)}${sciAfter(l)}</span><span class="tag" aria-hidden="true">${escapeHtml(on ? ct('Đã có') : ct('Thêm'))}</span></button>`
     })
     // The name as text, not a link: the form isn't saved yet.
     return guessHtml(ct, r, escapeHtml(label), `${species}${none}${act}${genus}`)

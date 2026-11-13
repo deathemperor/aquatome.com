@@ -105,7 +105,9 @@ export function checkPage(path: string, html: string, facts: Facts): Problem[] {
   }
   // On any page (a fish's or plant's own, a list's cards, a guide's): a scientific name printed under a name that says it
   // already ("Cá lóc Channa andrao" over "Channa andrao"). The chief of staff, 13 November: 820 Vietnamese names hold theirs.
-  for (const el of root.querySelectorAll('.sci')) {
+  // Not in a <template>: a card's template keeps its .sci for the cards made from it (SpeciesCard's `template`), and
+  // shows nothing.
+  for (const el of root.querySelectorAll('.sci').filter(e => !e.closest('template'))) {
     let named = el.previousElementSibling
     while (named && !/^H[1-6]$/.test(named.tagName)) named = named.previousElementSibling
     const sci = text(el)
