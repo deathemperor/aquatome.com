@@ -110,8 +110,11 @@ export function checkPage(path: string, html: string, facts: Facts): Problem[] {
   for (const el of root.querySelectorAll('.sci').filter(e => !e.closest('template'))) {
     let named = el.previousElementSibling
     while (named && !/^H[1-6]$/.test(named.tagName)) named = named.previousElementSibling
-    const sci = text(el)
-    if (named && sci && saysSci(text(named), sci)) out.push({ check: 'name-twice', detail: `"${text(named)}" over "${sci}"` })
+    // Or a link that holds both, the name as its text and the scientific name in brackets (a hybrid's parents).
+    const link = !named && el.parentNode?.tagName === 'A' ? el.parentNode : undefined
+    const name = named ? text(named) : link ? text(link).replace(text(el), '').trim() : ''
+    const sci = text(el).replace(/^\((.*)\)$/, '$1')
+    if (name && sci && saysSci(name, sci)) out.push({ check: 'name-twice', detail: `"${name}" over "${sci}"` })
   }
 
   // The same picture twice, whatever its file. A picture hidden from screen readers is a backdrop (a whole tile's blurred

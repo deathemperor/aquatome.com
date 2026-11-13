@@ -2,6 +2,7 @@ import { expect, test, vi as vitest } from 'vitest'
 import { translator } from '../src/lib/i18n'
 import { errorText, genusHtml, guessHtml, hasGuesses, own, sciAfter, sure, verdictLine, type Answer, type Result } from '../src/scripts/fish-id-client'
 import { guessEntry } from '../src/scripts/life-photo'
+import { unlistedName } from '../src/scripts/life-edit'
 
 // The fish-ID tool's client, shared by its page and the "Bể của tôi" editor (src/scripts/fish-id-client.ts). Its modules
 // read the page's translations as they load (reader-photos.ts): here, a page with none.
@@ -84,4 +85,14 @@ test("a photo's guess and its genus's other pages say the scientific name once",
   expect(sciAfter({ id: 'a', name: 'Cá lóc Channa andrao', sci: 'Channa andrao' })).toBe('')
   expect(sciAfter({ id: 'b', name: 'Cá lóc vảy rồng', sci: 'Channa asiatica' }, ' class="sci"')).toBe(' <i class="sci">Channa asiatica</i>')
   expect(sciAfter({ id: 'c', name: 'Cá lóc' })).toBe('')
+})
+
+// Added to My tanks, a guess with no common name is named by its scientific name (life-photo.ts guessEntry): its row
+// says it once.
+test("an entry with no page names its scientific name beside its name only when the name doesn't say it", () => {
+  const e = guessEntry({ commonName: '', scientificName: 'Channa andrao' }, 'fish')
+  expect(unlistedName(e)).not.toContain('class="sci"')
+  expect(unlistedName({ name: 'Cá lóc Channa andrao', sci: 'Channa andrao' })).not.toContain('class="sci"')
+  expect(unlistedName({ name: 'Cá lóc', sci: 'Channa andrao' })).toContain('<i class="sci">Channa andrao</i>')
+  expect(unlistedName({ name: 'Cá lóc' })).not.toContain('class="sci"')
 })

@@ -260,7 +260,7 @@ export function breedDoc(lang: Lang, c: Content, b: Breed, listed: Set<string>):
   const parents: Block[] = p.parents.length ? [{
     t: 'p', c: [`${t('Lai từ:')} `, ...p.parents.flatMap((x, i): Inline[] => [
       ...(i > 0 ? [', '] : []),
-      x.path ? { text: `${x.name} (${x.sci})`, href: at(x.path) } : x.name,
+      x.path ? { text: x.sci ? `${x.name} (${x.sci})` : x.name, href: at(x.path) } : x.name,
       ...(x.certain ? [] : [` ${t('(chưa chắc chắn)')}`]),
     ])],
   }] : []

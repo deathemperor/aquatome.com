@@ -3,6 +3,9 @@ import { checkPage, loadFacts } from '../scripts/page-check'
 import { LANGS } from '../src/lib/i18n'
 import { plantTitle, speciesDescription, speciesTitle } from '../src/lib/meta'
 import { nameAndSci, sciBeside } from '../src/lib/sci'
+import { breedParents } from '../src/lib/breed-page'
+import type { Breed } from '../src/lib/breeds'
+import type { Content } from '@aq/schema'
 
 // The chief of staff, 13 November: aquatome.com's title for the South American frogbit read "Cách trồng bèo tây Nam Mỹ
 // (Limnobium laevigatum) (Limnobium laevigatum)", its name saying its scientific name already. 1,337 fish and plant
@@ -66,7 +69,23 @@ test('the page check finds a scientific name printed under a name that says it, 
     + '<img src="/a.webp" width="4" height="3" alt="Cá neon vua, Paracheirodon axelrodi">'
     + '<article class="sc"><a><h3>Cá lóc Channa andrao</h3></a></article>'
     // A card's template keeps its .sci for the cards made from it, and shows nothing.
-    + '<template><article class="sc"><a><h3>Cá lóc Channa andrao</h3><p class="sci">Channa andrao</p></a></article></template>',
+    + '<template><article class="sc"><a><h3>Cá lóc Channa andrao</h3><p class="sci">Channa andrao</p></a></article></template>'
+    + '<p class="parents">Lai từ: <a href="/ca/ca-loc/">Cá lóc <span class="sci">(Channa andrao)</span></a></p>',
     ld('Cá neon vua', 'Paracheirodon axelrodi')), facts)
   expect(once.filter(p => p.check === 'name-twice')).toEqual([])
+  // A hybrid's parent, linked with its scientific name in brackets after a name that says it.
+  const parent = checkPage('/ca/ca-neon-vua/', html('<p class="parents">Lai từ: <a href="/ca/ca-loc-channa-andrao/">Cá lóc Channa andrao <span class="sci">(Channa andrao)</span></a></p>'), facts)
+  expect(parent.filter(p => p.check === 'name-twice').map(p => p.detail)).toEqual(['"Cá lóc Channa andrao" over "Channa andrao"'])
+})
+
+test("a hybrid's parents give the scientific name beside a name only when the name doesn't say it", () => {
+  const species = [
+    { id: 'channa-andrao', scientificName: 'Channa andrao', t: { name: 'Cá lóc Channa andrao', slug: 'ca-loc-channa-andrao' } },
+    { id: 'channa-asiatica', scientificName: 'Channa asiatica', t: { name: 'Cá lóc vảy rồng', slug: 'ca-loc-vay-rong' } },
+  ] as unknown as Content['species']
+  const b = { t: {}, parents: [{ species: 'channa-andrao', name: 'Channa andrao', certain: true }, { species: 'channa-asiatica', name: 'Channa asiatica', certain: true }] } as unknown as Breed
+  expect(breedParents('vi', { species }, b)).toEqual([
+    { name: 'Cá lóc Channa andrao', sci: undefined, path: '/vi/ca/ca-loc-channa-andrao/', certain: true },
+    { name: 'Cá lóc vảy rồng', sci: 'Channa asiatica', path: '/vi/ca/ca-loc-vay-rong/', certain: true },
+  ])
 })
