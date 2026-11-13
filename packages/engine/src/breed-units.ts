@@ -63,16 +63,25 @@ const PER_LENGTH = per(String.raw`\d[\d.,]*\s*(?:cm|mm|inch)`)
 const flat = (s: string) => s.replace(/\s+/g, ' ').trim()
 const norm = (s: string) => flat(s.normalize('NFC')).toLowerCase()
 /**
- * A length after a volume in its clause that none of the above reads ("38 lít nước đã khử clo mỗi 2,5 cm", "cho 2,5 cm",
- * "mỗi 2,5 cm mực nước", "cho mỗi khoảng 2,5 cm", "cho mỗi con cá dài 2,5 cm"): what it is per can't be told, so it is for
- * a person, never a tank (Astra, 2026-11-13). A tank set on something ("đặt trên 2,5 cm xốp", "đặt trên tấm xốp dày 2,5
- * cm") is a tank.
+ * Any length after a volume in its clause (up to ", " or another figure) that none of the above reads ("38 lít nước đã khử clo mỗi 2,5 cm", "cho 2,5 cm",
+ * "mỗi 2,5 cm mực nước", "cho mỗi khoảng 2,5 cm", "ứng với 2,5 cm", "mỗi 5–7,5 cm"): what it is per can't be told, so
+ * it is for a person, never a tank (Astra, 2026-11-13). A tank set on something ("đặt trên tấm xốp dày 2,5 cm") is a
+ * tank, and so is one given with its own size ("dài 60 cm", "60 × 30 × 30 cm") when no fish is named between.
  */
-const LENGTH_NEAR = /^[^.;:!?\n]{0,40}?(?:mỗi|từng|cho|trên|\/)(?:\s+\p{L}+){0,4}?\s*(?:\d[\d.,]*\s*)?(?:cm|mm|inch)(?![\p{L}])/iu
+const LENGTH_NEAR = /^((?:(?!,\s)[^.;:!?\n\d]){0,60}?)\d[\d.,]*(?:\s*(?:[–-]|đến)\s*\d[\d.,]*)?\s*(?:cm|mm|inch)(?![\p{L}])/iu
 const STANDS_ON = /^[^.;:!?\n]{0,40}?(?:đặt|kê|để)\s+trên(?:\s+\p{L}+){0,4}?\s+\d[\d.,]*\s*(?:cm|mm|inch)(?![\p{L}])/iu
+/** The tank's own size after its volume ("dài 60 cm", "60 × 30 × 30 cm", "kính dày 5 mm"), with no fish between. */
+const OWN_SIZE = /(?:dài|rộng|cao|sâu|dày|kích\s+thước|[×x*])\s*\(?\s*$/iu
+const FISH = /(?<![\p{L}])(?:cá|con)(?![\p{L}])/iu
 /** What a volume is given per, by the words after it. */
-const perOf = (after: string) => (PER_INCH.test(after) ? '/2.5cm' : PER_CM.test(after) ? '/cm' : PER_LENGTH.test(after) ? '/length'
-  : LENGTH_NEAR.test(after) && !STANDS_ON.test(after) ? '/length' : '')
+const perOf = (after: string) => {
+  if (PER_INCH.test(after)) return '/2.5cm'
+  if (PER_CM.test(after)) return '/cm'
+  if (PER_LENGTH.test(after)) return '/length'
+  const near = LENGTH_NEAR.exec(after)
+  if (!near || STANDS_ON.test(after)) return ''
+  return OWN_SIZE.test(near[1]!) && !FISH.test(near[1]!) ? '' : '/length'
+}
 
 /**
  * A reading of the water, so much in each litre ("oxy hòa tan 2,5 mg/l", "nitrat dưới 20 mg/l"): how the water is, not an
@@ -86,10 +95,13 @@ const READS_AS = String.raw`(?:\s*[:=<>≤≥~]\s*|\s+(?:hòa\s+tan|trong\s+(?:n
  * anything else before the figure ("khử nitrit bằng muối 1 g/l") is a treatment, and its figure a dose (Astra, 2026-11-13).
  */
 const SUBSTANCE = String.raw`(?:[oô]xy|o[2₂]|amoni(?:ac|a)?|ammonia|nitrit|nitrat|nh[34₃₄][⁺+]?|no[23₂₃][⁻-]?|phốt\s*phát|phosphat|po[4₄][³]?[⁻-]?|co2|co₂)`
-/** A dose's words: "phân" only as a fertiliser or before the substance, never waste ("phân hủy", "phân cá"). */
-const DOSE_WORD = String.raw`(?:liều|thêm|bổ\s+sung|châm|dùng|pha|bơm|dung\s+dịch|thuốc|bón|phân(?=\s+(?:bón|nước|nền|lỏng|vi\s+lượng|đa\s+lượng|kali|đạm|lân|npk|${SUBSTANCE})(?![\p{L}])))(?![\p{L}])`
-/** The substance after a dose's words in its sentence, a label's colon between them too ("Liều dùng: ammonia 2 mg/l"). */
-const READING = String.raw`(?<![\p{L}])(?<!${DOSE_WORD}[^.;!?\n]{0,25})(?:[oô]xy(?!\s+già)|o[2₂]|amoni(?:ac|a)?|ammonia|nitrit|nitrat|nh[34₃₄][⁺+]?|no[23₂₃][⁻-]?|phốt\s*phát|phosphat|po[4₄][³]?[⁻-]?|co2|co₂)(?![\p{L}])${READS_AS}`
+/**
+ * A dose's words: "cho" only straight before the substance ("Cho ammonia 2 mg/l", "cho thêm CO2"), never "cho koi: oxy";
+ * "phân" only as a fertiliser or before the substance, never waste ("phân hủy", "phân cá").
+ */
+const DOSE_WORD = String.raw`(?:liều|thêm|cho(?=\s+(?:(?:thêm|vào)\s+(?:bể\s+|nước\s+)?)?${SUBSTANCE}(?![\p{L}]))|bổ\s+sung|châm|dùng|pha|bơm|dung\s+dịch|thuốc|bón|phân(?=\s+(?:bón|nước|nền|lỏng|vi\s+lượng|đa\s+lượng|kali|đạm|lân|npk|${SUBSTANCE})(?![\p{L}])))(?![\p{L}])`
+/** The substance after a dose's words anywhere before it in its sentence, a label's colon between too ("Liều dùng: ammonia 2 mg/l"). */
+const READING = String.raw`(?<![\p{L}])(?<!${DOSE_WORD}[^.;!?\n]*)(?:[oô]xy(?!\s+già)|o[2₂]|amoni(?:ac|a)?|ammonia|nitrit|nitrat|nh[34₃₄][⁺+]?|no[23₂₃][⁻-]?|phốt\s*phát|phosphat|po[4₄][³]?[⁻-]?|co2|co₂)(?![\p{L}])${READS_AS}`
 const CONCENTRATION = new RegExp(String.raw`(${READING})(?<![\d.,])\d[\d.,–-]*\s*(?:mg|g|gam|gram|ml|cc|ppm)\s*(?:\/|mỗi|trên)\s*(?:1\s*)?(?:l|lít)(?![\p{L}])`, 'giu')
 export const withoutConcentrations = (text: string) => text.replace(CONCENTRATION, '$1 ')
 
@@ -168,8 +180,11 @@ const quantities = (text: string) => [...text.matchAll(VOLUME)].flatMap(m => {
   const per = perOf(text.slice(m.index + m[0].length))
   return [m[1]!, ...(m[2] ? [m[2]] : [])].map(s => `${vi(s)}${per}`)
 })
-const CLAUSE_END = /[.;:!?,\n]/
-const bare = (s: string) => s.replace(/[\d.,–-]+/g, ' ').replace(/\s+/g, ' ').trim()
+/** A clause's end: not a decimal or thousands mark ("2,5 cm", "1.100 lít"). */
+const CLAUSE_END = /[;:!?\n]|[.,](?!\d)/
+const FIGURES = new RegExp(String.raw`${VOLUME.source}|(?<![\d.,])(?:\d[\d.,]*(?:\s*(?:[–-]|đến)\s*\d[\d.,]*)?\s*)?(?:cm|mm|inch)(?![\p{L}])`, 'giu')
+/** A clause with its litre and length figures set aside (they are what a mend changes) and its other numbers kept ("Bể 1"). */
+const bare = (s: string) => s.replace(FIGURES, ' ').replace(/[,;:()]/g, ' ').replace(/\s+/g, ' ').trim()
 /**
  * The words around a text's nth litre figure in its clause, figures aside: what the figure is of ("bể chính … cho thùng").
  * Before it, the label before a colon when the figure comes straight after one ("Bể chính: 132 lít").
@@ -225,7 +240,12 @@ export function keepsFigures(before: string, after: string, quotes: string[], fi
   // each mended figure after the same words as before ("bể chính"), so the spare's can't be mended in its place by
   // trading the sentences round (Astra, 2026-11-13). Otherwise the quote must be gone.
   const times = (text: string, q: string) => text.split(q).length - 1
-  const inPlace = (j: number) => figures.filter(f => f.block === j).every(f => leadOf(now[j]!, f.n!) === leadOf(was[j]!, f.n!))
+  const astray = (j: number) => figures.filter(f => f.block === j && leadOf(now[j]!, f.n!) !== leadOf(was[j]!, f.n!))
+  const inPlace = (j: number) => !astray(j).length
+  // Two tanks or more in a paragraph: each mended figure after its own words, or two different tanks could trade their
+  // mends ("Bể chính: 132 lít. Thùng dự phòng: 190 lít.", Astra, 2026-11-13). Alone in its paragraph, it can't trade.
+  const strays = was.flatMap((b, j) => (quantities(b).length > 1 ? astray(j) : []))
+  if (strays.length) return `a mended figure isn't after its own words: ${strays.map(f => f.to).join(', ')}`
   const left = quotes.filter(q => {
     const i = q ? was.findIndex(b => b.includes(norm(q))) : -1
     return i >= 0 && (inPlace(i) ? times(now[i]!, norm(q)) >= times(was[i]!, norm(q)) : times(now[i]!, norm(q)) > 0)

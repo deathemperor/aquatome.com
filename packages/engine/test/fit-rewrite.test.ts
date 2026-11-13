@@ -378,7 +378,7 @@ test('a dose said before its substance stays a dose, a length no allowance is go
   const facts = '35 US gal (132 L).'
   const two = 'Bể chính 132 lít. Thùng dự phòng 132 lít.'
   const first = breedFigures('132 lít', facts, two).slice(0, 1).map(f => ({ ...f, block: 0 }))
-  expect(keepsFigures(two, 'Thùng dự phòng 130 lít. Bể chính 132 lít.', ['132 lít'], first)).toBe('the figure it mends is still there: 132 lít')
+  expect(keepsFigures(two, 'Thùng dự phòng 130 lít. Bể chính 132 lít.', ['132 lít'], first)).toBe('a mended figure isn\'t after its own words: 130 lít')
   expect(keepsFigures(two, 'Bể chính 130 lít. Thùng dự phòng 132 lít.', ['132 lít'], first)).toBeUndefined()
   // A range per inch in two paragraphs: each told once, as its own range.
   const both = [0, 1].flatMap(i => breedFigures('38–76 lít mỗi inch', 'Allow 10 to 20 US gal (38–76 L) per inch.', `${i ? 'Cá lớn' : 'Cá nhỏ'}: 38–76 lít mỗi inch cá.`).map(f => ({ ...f, block: i })))
@@ -403,13 +403,47 @@ test('an allowance with words before its length goes to a person, a dose after a
   // Each tank after its label: trading them round mends the spare's, not kept.
   const two = 'Bể chính: 132 lít. Thùng dự phòng: 132 lít.'
   const first = breedFigures('132 lít', '35 US gal (132 L).', two).slice(0, 1).map(f => ({ ...f, block: 0 }))
-  expect(keepsFigures(two, 'Thùng dự phòng: 130 lít. Bể chính: 132 lít.', ['132 lít'], first)).toBe('the figure it mends is still there: 132 lít')
+  expect(keepsFigures(two, 'Thùng dự phòng: 130 lít. Bể chính: 132 lít.', ['132 lít'], first)).toBe('a mended figure isn\'t after its own words: 130 lít')
   expect(keepsFigures(two, 'Bể chính: 130 lít. Thùng dự phòng: 132 lít.', ['132 lít'], first)).toBeUndefined()
   // Each tank before its words too.
   const after = '132 lít cho bể chính. 132 lít cho thùng dự phòng.'
   const one = breedFigures('132 lít', '35 US gal (132 L).', after).slice(0, 1).map(f => ({ ...f, block: 0 }))
-  expect(keepsFigures(after, '130 lít cho thùng dự phòng. 132 lít cho bể chính.', ['132 lít'], one)).toBe('the figure it mends is still there: 132 lít')
+  expect(keepsFigures(after, '130 lít cho thùng dự phòng. 132 lít cho bể chính.', ['132 lít'], one)).toBe('a mended figure isn\'t after its own words: 130 lít')
   expect(keepsFigures(after, '130 lít cho bể chính. 132 lít cho thùng dự phòng.', ['132 lít'], one)).toBeUndefined()
+})
+
+test('two tanks in a paragraph keep their own words, numbered ones too; any dose word earlier in the sentence holds; a length after a volume no allowance reads goes to a person', () => {
+  // Two different tanks traded round, each with the other's mend: not kept.
+  const facts = '35 US gal (132 L). 50 US gal (190 L).'
+  const two = 'Bể chính: 132 lít. Thùng dự phòng: 190 lít.'
+  const both = breedFigures('132 lít', facts, two).concat(breedFigures('190 lít', facts, two)).map(f => ({ ...f, block: 0 }))
+  expect(both.map(f => f.to)).toEqual(['130 lít', '200 lít'])
+  expect(keepsFigures(two, 'Thùng dự phòng: 130 lít. Bể chính: 200 lít.', ['132 lít', '190 lít'], both)).toBe('a mended figure isn\'t after its own words: 130 lít, 200 lít')
+  expect(keepsFigures(two, 'Bể chính: 130 lít. Thùng dự phòng: 200 lít.', ['132 lít', '190 lít'], both)).toBeUndefined()
+  // Tanks told apart by their numbers.
+  const numbered = 'Bể 1: 132 lít. Bể 2: 132 lít.'
+  const first = breedFigures('132 lít', '35 US gal (132 L).', numbered).slice(0, 1).map(f => ({ ...f, block: 0 }))
+  expect(keepsFigures(numbered, 'Bể 2: 130 lít. Bể 1: 132 lít.', ['132 lít'], first)).toBe('a mended figure isn\'t after its own words: 130 lít')
+  expect(keepsFigures(numbered, 'Bể 1: 130 lít. Bể 2: 132 lít.', ['132 lít'], first)).toBeUndefined()
+  // A per-inch allowance mended to per cm, beside another figure: still after its own words.
+  const inch = 'Allow about 10 US gal (38 L) per inch of adult length. 35 US gal (132 L).'
+  const allowance = 'Bể chính 132 lít, cần 38 lít cho mỗi 2,5 cm chiều dài cá.'
+  const perCm = breedFigures('38 lít', inch, allowance).map(f => ({ ...f, block: 0 }))
+  expect(perCm.map(f => f.to)).toEqual(['15 lít cho mỗi cm'])
+  expect(keepsFigures(allowance, 'Bể chính 132 lít, cần 15 lít cho mỗi cm chiều dài cá.', ['38 lít cho mỗi 2,5 cm'], perCm)).toBeUndefined()
+  // "Cho" a substance is a dose, and so is a dose word anywhere before it in the sentence.
+  for (const dose of ['Cho ammonia 2 mg/l để chạy chu trình không cá.', 'Bổ sung vào bể đang chạy chu trình ammonia 2 mg/l.']) {
+    expect(withoutConcentrations(dose), dose).toBe(dose)
+    expect(unitsLeft('38 lít', '10 US gal (38 L).', withoutConcentrations(`Chuẩn bị 38 lít nước.\nKhử clo và giữ nhiệt độ ổn định.\n${dose}`)), dose).toBe('a dose is given beside it, whose water stays exact')
+  }
+  // "Cho" a fish, before a reading, is no dose: butterfly koi's "con số chung cho koi: oxy hòa tan tối thiểu khoảng 2,5 mg/L".
+  expect(withoutConcentrations('Một nguồn đưa ra con số chung cho koi: oxy hòa tan tối thiểu khoảng 2,5 mg/L, cho ăn khoảng 5% trọng lượng cơ thể.')).not.toMatch(/2,5/)
+  // A length after the volume that no allowance reads, a range too: for a person. The tank's own size stays a tank's.
+  for (const block of ['Cần 38 lít nước ứng với 2,5 cm chiều dài cá.', 'Cần 38 lít cho mỗi 5–7,5 cm chiều dài cá.']) {
+    expect(breedFigures('38 lít', '10 US gal (38 L).', block), block).toEqual([])
+    expect(unitsLeft('38 lít', '10 US gal (38 L).', block, block), block).toBe('a figure per a length code doesn\'t work from (only per inch or per cm)')
+  }
+  for (const block of ['Bể 38 lít dài 60 cm.', 'Bể 38 lít (60 × 30 × 30 cm).', 'Bể 38 lít, kính dày 5 mm.']) expect(breedFigures('38 lít', '10 US gal (38 L).', block).map(f => f.to), block).toEqual(['40 lít'])
 })
 
 test('a breed page\'s units are mended, in an FAQ answer too, after the part\'s other mend in the same try, with each figure as the rule names it', async () => {
