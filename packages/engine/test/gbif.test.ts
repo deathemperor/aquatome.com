@@ -99,8 +99,9 @@ test('a page\'s species: an exact match on its name or a synonym first, a fuzzy 
   const { pageTaxon } = await import('../src/gbif')
   const fish = (name: string, matchType: string, order: string) => ({ canonicalName: name, rank: 'SPECIES', status: 'ACCEPTED', matchType, phylum: 'Chordata', class: null, order })
   const answers: Record<string, unknown> = {
-    // "Brochis arcuata" matched a tube worm's synonym, and the engine made a catfish page Ditrupa arietina.
-    'Brochis arcuata': { canonicalName: 'Ditrupa arcuata', species: 'Ditrupa arietina', rank: 'SPECIES', status: 'SYNONYM', matchType: 'FUZZY', phylum: 'Annelida', class: 'Polychaeta', order: 'Sabellida', family: 'Serpulidae', genus: 'Ditrupa' },
+    // "Brochis arcuata" matched a tube worm's synonym, and the engine made a catfish page Ditrupa arietina. Asked the right
+    // way now (MISMATCHED), so another spelling stands in: one no person has listed still meets the group check.
+    'Brochis arcuatum': { canonicalName: 'Ditrupa arcuata', species: 'Ditrupa arietina', rank: 'SPECIES', status: 'SYNONYM', matchType: 'FUZZY', phylum: 'Annelida', class: 'Polychaeta', order: 'Sabellida', family: 'Serpulidae', genus: 'Ditrupa' },
     'Tetra ornate': { canonicalName: 'Teira ornata', rank: 'SPECIES', status: 'ACCEPTED', matchType: 'FUZZY', phylum: 'Chordata', class: 'Squamata' },
     // A molly page named for the genus Mollienisia: GBIF's exact Mollienisia is a moth's.
     'Mollienisia': { canonicalName: 'Mollienisia', rank: 'GENUS', status: 'ACCEPTED', matchType: 'EXACT', phylum: 'Arthropoda', class: 'Insecta', order: 'Lepidoptera', family: 'Noctuidae' },
@@ -116,10 +117,10 @@ test('a page\'s species: an exact match on its name or a synonym first, a fuzzy 
   const match = (n: string) => gbifMatch(n, async (u: string) => answers[decodeURIComponent(u.split('name=')[1]!)] ?? fx('none'), cache)
   const name = async (names: string[], group: string | undefined) => (await pageTaxon(names, group, match))?.canonicalName ?? null
   // The worm, the lizard and the moth are refused; a page's other name that matches exactly is taken.
-  expect(await name(['Brochis arcuata'], 'catfish')).toBeNull()
-  expect(await name(['Brochis arcuata'], 'other')).toBeNull()
-  expect(await name(['Brochis arcuata'], undefined)).toBeNull()
-  expect(await name(['Brochis arcuata', 'Corydoras arcuatus'], 'catfish')).toBe('Corydoras arcuatus')
+  expect(await name(['Brochis arcuatum'], 'catfish')).toBeNull()
+  expect(await name(['Brochis arcuatum'], 'other')).toBeNull()
+  expect(await name(['Brochis arcuatum'], undefined)).toBeNull()
+  expect(await name(['Brochis arcuatum', 'Corydoras arcuatus'], 'catfish')).toBe('Corydoras arcuatus')
   expect(await name(['Tetra ornate'], 'tetras')).toBeNull()
   expect(await name(['Mollienisia'], 'livebearers')).toBeNull()
   // A misspelt fish, with no class from GBIF, is still its fish; an exact one too.
@@ -132,4 +133,40 @@ test('a page\'s species: an exact match on its name or a synonym first, a fuzzy 
   expect(await name(['Neocaridina davidii'], 'tetras')).toBeNull()
   expect(await name(['Mespilia globulus'], 'other')).toBe('Mespilia globulus')
   expect(await name(['Barbronia weberi'], 'other')).toBe('Barbronia weberi')
+})
+
+// 2026-11-13: of the 234 names GBIF's backbone matched fuzzily, three gave another animal (the chief of staff's count).
+// Each is asked the right way, whatever the engine's record of GBIF's answers says; the backbone's answers as it gave them.
+test('a name a person found GBIF files under another animal is asked the right way, and its page is its own fish', async () => {
+  const { pageTaxon } = await import('../src/gbif')
+  const fish = (name: string, order: string, family: string) => ({ canonicalName: name, species: name, rank: 'SPECIES', status: 'ACCEPTED', matchType: 'EXACT', phylum: 'Chordata', class: null, order, family })
+  const backbone: Record<string, unknown> = {
+    'Corydoras arcuatus': fish('Corydoras arcuatus', 'Siluriformes', 'Callichthyidae'),
+    'Hyphessobrycon rosaceus': fish('Hyphessobrycon rosaceus', 'Characiformes', 'Characidae'),
+    'Liobagrus chengduensis': { ...fish('Liobagrus chenghaiensis', 'Siluriformes', 'Amblycipitidae'), matchType: 'FUZZY' },
+  }
+  const checklists = [1, 2].map(key => ({ key, canonicalName: 'Liobagrus chengduensis', rank: 'SPECIES', taxonomicStatus: 'ACCEPTED', order: 'Siluriformes', family: 'Amblycipitidae', genus: 'Liobagrus' }))
+  const asked: string[] = []
+  const http = async (u: string) => {
+    asked.push(u)
+    return u.includes('/species/search') ? { results: checklists } : backbone[decodeURIComponent(u.split('name=')[1]!)] ?? { matchType: 'NONE' }
+  }
+  // The engine's record still holds the wrong answers it got before.
+  const cache: Record<string, Taxon | null> = {
+    'Brochis arcuata': { canonicalName: 'Ditrupa arietina', order: 'Sabellida', family: 'Serpulidae', matchType: 'FUZZY' },
+    'Liobagrus chengduensis': { canonicalName: 'Liobagrus chenghaiensis', order: 'Siluriformes', family: 'Amblycipitidae', matchType: 'FUZZY' },
+    'Megalamphodus rosaceus': { canonicalName: 'Hyphessobrycon roseus', order: 'Characiformes', family: 'Characidae', matchType: 'FUZZY' },
+  }
+  const match = (n: string) => gbifMatch(n, http, cache)
+  const page = async (names: string[], group: string) => (await pageTaxon(names, group, match))?.canonicalName ?? null
+  expect(await page(['Brochis arcuata'], 'catfish')).toBe('Corydoras arcuatus')
+  expect(await page(['Brochis arcuatus'], 'catfish')).toBe('Corydoras arcuatus')
+  expect(await page(['Megalamphodus rosaceus'], 'tetras')).toBe('Hyphessobrycon rosaceus')
+  // Not in the backbone: the checklists GBIF indexes, exactly this name.
+  expect(await match('Liobagrus chengduensis')).toMatchObject({ canonicalName: 'Liobagrus chengduensis', family: 'Amblycipitidae', matchType: 'SEARCH' })
+  expect(await page(['Liobagrus chengduensis'], 'catfish')).toBe('Liobagrus chengduensis')
+  expect(asked.some(u => u.includes('/species/search'))).toBe(true)
+  // The wrong answers are never read, and none is written under the wrong name.
+  expect(cache['Brochis arcuata']?.canonicalName).toBe('Ditrupa arietina')
+  expect(cache['Corydoras arcuatus']?.canonicalName).toBe('Corydoras arcuatus')
 })

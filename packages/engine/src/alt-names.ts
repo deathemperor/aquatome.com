@@ -92,8 +92,19 @@ function better(a: string, b: string) {
 }
 
 /**
+ * Names a person found are another fish's, by the scientific name of the page that had them: kept off it in every
+ * language, however a later read brings them back. `of`: the page whose name it is.
+ */
+export const NOT_ITS: Readonly<Record<string, readonly { name: string; of: string }[]>> = {
+  // 2026-11-13: the model that read BWAquatics and Glaser on 29 Oct gave the phoenix rasbora the chili rasbora's name;
+  // neither source says it.
+  'Boraras merah': [{ name: 'Chili rasbora', of: 'boraras-brigittae' }],
+}
+
+/**
  * A species page's other names in one language, cleaned: each name off it with why. Keeps the names' order (one name
  * written several ways stands where its first form stood, in its best-written form).
+ * - a name a person found is another fish's (NOT_ITS): that fish's page has it.
  * - a name that is a breed page's name ("Bubble Eye Goldfish" for the Bubble eye goldfish page, "Cá GloFish"): that page
  *   is found by it. Only a breed's own name, never its other names: a name both list is the species' and leaves the
  *   breed (cleanBreedAltNames). A breed whose name is the species' own (the koi and Cyprinus rubrofuscus, "Cá koi") takes none.
@@ -125,6 +136,8 @@ export function cleanAltNames(page: { name: string; sci: string; altNames: strin
     if (!key) continue
     const breed = breedOf.get(key)
     if (breed) { off.push({ name: raw, why: 'breed', of: breed }); continue }
+    const other = NOT_ITS[page.sci]?.find(x => altKey(x.name) === key)
+    if (other) { off.push({ name: raw, why: 'species', of: other.of }); continue }
     kept.push(name)
   }
   // The species' own names, colours left out: what a form's name must come down to ("Cá betta", "Betta", "Betta splendens"),

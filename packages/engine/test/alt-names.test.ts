@@ -272,3 +272,11 @@ test('a name the page has with a note in brackets keeps the note; the same name 
   // "X (Y)" of two names the page has is still one name too many, and a name with no note beside it stays.
   expect(cleanAltNames(betta(['Cá xiêm', 'Cá chọi', 'Cá xiêm (cá chọi)'])).altNames).toEqual(['Cá xiêm', 'Cá chọi'])
 })
+
+// 2026-11-13: Boraras merah's page had "Chili rasbora", B. brigittae's name, which neither of its sources gives.
+test('a name a person found is another fish\'s leaves that page in every form and stays on its own fish\'s', () => {
+  const merah = cleanAltNames({ name: 'Cá rasbora merah', sci: 'Boraras merah', altNames: ['Chili rasbora', 'Cá rasbora phượng hoàng', 'Cá chili rasbora', 'Phoenix rasbora'] })
+  expect(merah.altNames).toEqual(['Cá rasbora phượng hoàng', 'Phoenix rasbora'])
+  expect(merah.off).toEqual([{ name: 'Chili rasbora', why: 'species', of: 'boraras-brigittae' }, { name: 'Cá chili rasbora', why: 'species', of: 'boraras-brigittae' }])
+  expect(cleanAltNames({ name: 'Cá rasbora muỗi', sci: 'Boraras brigittae', altNames: ['Chili rasbora'] }).altNames).toEqual(['Chili rasbora'])
+})

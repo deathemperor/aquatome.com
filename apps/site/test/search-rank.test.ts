@@ -26,6 +26,12 @@ test("a page's old name, kept as another name too, is one alias", () => {
   expect(searchAliases(t, 'Symphysodon aequifasciatus')).toBe('Symphysodon aequifasciatus, Discus, Cá đĩa nâu, ca dia, ca dia nau')
 })
 
+// 2026-11-13: the skunk cory's page forwards the address it had under a tube worm's name, and search never finds it by the worm.
+test('an old address forwarded with no name adds no alias', () => {
+  const t = { name: 'Cá chuột skunk', altNames: ['Skunk Cory'], redirectFrom: [{ slug: 'ca-ditrupa-arietina', name: '' }] }
+  expect(searchAliases(t, 'Corydoras arcuatus')).toBe('Corydoras arcuatus, Skunk Cory')
+})
+
 test('no page with that name, or a blank query: Pagefind\'s order unchanged', () => {
   const ds = [doc('a', 'Tép blue dream'), doc('b', 'Tép quạt')]
   expect(urls(namedFirst('tép', ds))).toEqual(['a', 'b'])

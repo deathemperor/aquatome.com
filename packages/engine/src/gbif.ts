@@ -4,8 +4,28 @@ import type { Candidate } from './gallery'
 export type Taxon = { canonicalName: string; phylum?: string; class?: string; order?: string; family?: string; genus?: string; matchType: string }
 type Match = { canonicalName?: string; species?: string; rank?: string; status?: string; matchType: string; phylum?: string; class?: string; order?: string; family?: string; genus?: string }
 
+/**
+ * Names GBIF's backbone matches, fuzzily, to another animal, each checked by a person against the pages that use them
+ * (2026-11-13): the name the backbone is asked instead, or null where it lacks the species and the checklists GBIF indexes
+ * are read (gbifSearchTaxon). The group check (pageTaxon) refuses a worm for a catfish; a fish matched to another fish
+ * only a person sees. Kept out of _gbif-names.json, which the sweep clears of them (page-folds.ts).
+ */
+export const MISMATCHED: Readonly<Record<string, string | null>> = {
+  // The skunk cory, moved to Brochis in 2024: the backbone's nearest "Brochis arcuata" is a tube worm's synonym.
+  'Brochis arcuata': 'Corydoras arcuatus',
+  'Brochis arcuatus': 'Corydoras arcuatus',
+  // A torrent catfish from the Minjiang the backbone lacks: it took another species, L. chenghaiensis.
+  'Liobagrus chengduensis': null,
+  // The rosy tetra: the backbone took Megalamphodus roseus, another tetra (Hyphessobrycon roseus).
+  'Megalamphodus rosaceus': 'Hyphessobrycon rosaceus',
+}
+
 /** GBIF backbone match; null when GBIF can't resolve the name to a species-level taxon. Synonyms resolve to the accepted species. */
 export async function gbifMatch(name: string, http: (url: string) => Promise<unknown>, cache: Record<string, Taxon | null>): Promise<Taxon | null> {
+  if (name in MISMATCHED) {
+    const instead = MISMATCHED[name]
+    return instead ? gbifMatch(instead, http, cache) : gbifSearchTaxon(name, http)
+  }
   if (name in cache) return cache[name] ?? null
   const m = (await http(`https://api.gbif.org/v1/species/match?name=${encodeURIComponent(name)}`)) as Match
   const ok = m.matchType !== 'NONE' && m.matchType !== 'HIGHERRANK' && m.canonicalName
@@ -39,8 +59,9 @@ export async function pageTaxon(names: string[], group: string | undefined, matc
   const fuzzy: Taxon[] = []
   for (const name of names) {
     const t = await match(name)
-    if (t?.matchType === 'EXACT' && !wrong(t)) return t
-    if (t?.matchType !== 'EXACT' && t) fuzzy.push(t)
+    // An exact name in GBIF's checklists (MISMATCHED) is as good as the backbone's.
+    if ((t?.matchType === 'EXACT' || t?.matchType === 'SEARCH') && !wrong(t)) return t
+    if (t && t.matchType !== 'EXACT' && t.matchType !== 'SEARCH') fuzzy.push(t)
   }
   return fuzzy.find(fits) ?? null
 }
