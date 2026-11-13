@@ -75,8 +75,12 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   if (review.score < QUALITY_THRESHOLD) return { id, skipped: `under the bar: ${review.score}`, notes: review.notes }
 
   const taken = new Set(others.flatMap(x => [x.name, ...x.altNames]).map(n => n.toLowerCase()))
-  const said = facts.map(f => f.fact.toLowerCase()).join('\n')
-  const linkable = (n: string) => (/\s/.test(n) || /[A-Z].*[A-Z0-9]|\d/.test(n)) && !taken.has(n.toLowerCase()) && said.includes(n.toLowerCase())
+  // Written whole in one fact, as its own word: "gỗ lũ" is not in "gỗ lũa".
+  const quoted = (n: string) => {
+    const re = new RegExp(`(?<![\\p{L}\\p{N}])${n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}\\p{N}])`, 'iu')
+    return facts.some(f => re.test(f.fact))
+  }
+  const linkable = (n: string) => (/\s/.test(n) || /[A-Z].*[A-Z0-9]|\d/.test(n)) && !taken.has(n.toLowerCase()) && quoted(n)
   const own = new Set([vi.name.toLowerCase()])
   const altNames = [...vi.altNames, ...w.altNames.map(n => unescapePlain(n).trim()).filter(linkable)].filter(n => n && !own.has(n.toLowerCase()) && own.add(n.toLowerCase()))
   const ids = new Set(others.map(x => x.id))

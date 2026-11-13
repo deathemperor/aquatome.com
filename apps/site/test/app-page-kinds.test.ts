@@ -429,12 +429,14 @@ test('each glossary term\'s copy reads as its built page; one in Indonesian has 
     expect(d.title).toBe(txt(dom.querySelector('h1')))
     // Its other names, its English name, its definition (with the page's links), in the page's order.
     expect(all(d, 'p').map(b => text(b.c))).toEqual([...['.aka', '.en', '.def'].flatMap(sel => (dom.querySelector(sel) ? [txt(dom.querySelector(sel))] : [])), ...dom.querySelectorAll('.body > p').map(txt)])
-    const def = dom.querySelector('.def')
     expect(all(d, 'p').flatMap(b => b.c.flatMap(r => (typeof r === 'string' || !r.href ? [] : [r.href]))), d.path).toEqual(
-      (def?.querySelectorAll('a') ?? []).map(a => appHref(a.getAttribute('href')!)),
+      dom.querySelectorAll('.def a, .body > p a').map(a => appHref(a.getAttribute('href')!)),
     )
-    // The pages that use it: the heading with the count, then each kind's first pages, those the app index lists.
-    expect(one(d, 'h')?.text).toBe(dom.querySelector('.used h2') ? txt(dom.querySelector('.used h2')) : undefined)
+    // Its photo, then the fuller entry's headings, then the pages that use it: the heading with the count, then each
+    // kind's first pages, those the app index lists. Last, its sources.
+    expect(all(d, 'figure').length, d.path).toBe(dom.querySelectorAll('main figure').length)
+    expect(all(d, 'h').map(b => b.text), d.path).toEqual(dom.querySelectorAll('.body > h2, .used h2').map(txt))
+    expect(one(d, 'refs')?.items.map(r => r.url) ?? [], d.path).toEqual(dom.querySelectorAll('.refs a').map(a => a.getAttribute('href')))
     const kinds = dom.querySelectorAll('.used h3').map(h3 => ({
       t: 'pages', title: txt(h3), paths: (h3.nextElementSibling?.querySelectorAll('a') ?? []).map(a => appHref(a.getAttribute('href')!)).filter(x => listed.has(x)),
     }))

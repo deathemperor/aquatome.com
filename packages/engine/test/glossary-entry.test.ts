@@ -37,7 +37,7 @@ async function site() {
   return r
 }
 
-const written = { definition: 'Gỗ đã ngâm lâu trong nước, dùng trang trí bể.', altNames: ['gỗ lũa', 'Lũa', 'nước trà', 'driftwood', 'cây lũa', 'gỗ trôi dạt'], body: '<h3>Nên làm gì</h3><p>Ngâm lũa mới 1–2 tuần.</p><script>x</script>', related: ['tanin', 'ph', 'lua', 'nope'] }
+const written = { definition: 'Gỗ đã ngâm lâu trong nước, dùng trang trí bể.', altNames: ['gỗ lũa', 'Lũa', 'nước trà', 'driftwood', 'cây lũa', 'gỗ trôi dạt', 'gỗ lũ'], body: '<h3>Nên làm gì</h3><p>Ngâm lũa mới 1–2 tuần.</p><script>x</script>', related: ['tanin', 'ph', 'lua', 'nope'] }
 
 test('a term\'s fuller entry: cited facts only, checked and rewritten once on notes; names the site can link, related terms, sources', async () => {
   const root = await site()
@@ -67,8 +67,8 @@ test('a term\'s fuller entry: cited facts only, checked and rewritten once on no
   const e = JSON.parse(await readFile(join(root, 'content/glossary/lua/entity.json'), 'utf8'))
   expect(e).toEqual({ id: 'lua', en: 'Driftwood', refs: facts.sources.map(({ url, title }) => ({ url, title })), related: ['tanin', 'ph'] })
   const vi = JSON.parse(await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8'))
-  // Its own name, another term's name, a single everyday word and a name no source wrote (a translation) are not other
-  // names; several words a source wrote are.
+  // Its own name, another term's name, a single everyday word, a name no source wrote (a translation) and a part of a
+  // word a source wrote ("gỗ lũ" of "gỗ lũa") are not other names; several words a source wrote, whole, are.
   expect(vi.altNames).toEqual(['lũa gỗ', 'gỗ lũa', 'cây lũa'])
   expect(vi).toMatchObject({ slug: 'lua', name: 'Lũa', definition: written.definition, body: '<h3>Nên làm gì</h3><p>Ngâm lũa mới 1–2 tuần.</p>', quality: { score: 0.96, indexable: true } })
   // The research is kept for a rewrite without searching again.
