@@ -114,19 +114,19 @@ checks() { if [ -n "${GITHUB_ACTIONS:-}" ]; then bash -c "$1"; else turn bash -c
 # its own. If it fails again: TIMED_OUT when tests ran out of time on that run, and the run's work is kept
 # (keep_unpublished).
 # Each test's time limits, times AQ_TEST_TIME_SCALE (the vitest configs and @aq/schema/test-time read it): 1 on a Mac at
-# full strength, HOT_TIME_SCALE while heat has taken cores away and on a check's second try. Waiting for cool hours (cool)
-# and calm (calm, settled) wasn't enough on 2026-11-13: with cores cut to 8, three cycles in a day lost their checks to the
-# clock, tests with a 30 s limit running 100–180 s (the sf cycle's at 15:43, its slowest 182 s), hooks past their 120 s and
-# 300 s (the photos run that started 11:10, still unpublished at 16:28). Not a hung test: those ran to the end. A
-# limit 6 times as long holds those; a test that really hangs still fails, later.
-# The second try also starts SECOND_TRY_WORKERS of vitest's workers at a time, not one a core: vitest gives a worker 60 s
-# to start, a limit of its own that nothing raises, and that photos run's second try (16:25) lost 25 of the schema's 28
-# test files to workers that hadn't started in time.
+# full strength, HOT_TIME_SCALE while heat has taken cores away and on a check's second try on the Mac. Waiting for cool
+# hours (cool) and calm (calm, settled) wasn't enough on 2026-11-13: with cores cut to 8, three cycles in a day lost
+# their checks to the clock, tests with a 30 s limit running 100–180 s (the sf cycle's at 15:43, its slowest 182 s),
+# hooks past their 120 s and 300 s (the photos run that started 11:10, still unpublished at 16:28). Not a hung test:
+# those ran to the end. A limit 6 times as long holds those; a test that really hangs still fails, later.
+# The second try also starts SECOND_TRY_WORKERS of vitest's workers at a time, not one a core: vitest gives a worker
+# 60 s to start, a limit of its own that nothing raises, and that photos run's second try (16:25) lost 25 of the
+# schema's 28 test files to workers that hadn't started in time.
 HOT_TIME_SCALE=6
 SECOND_TRY_WORKERS=2
 time_scale() { [ "$(cores_taken)" -gt 0 ] && echo "$HOT_TIME_SCALE" || echo 1; }
 verify() {
-  local step from first name names
+  local step from first name names workers
   : >"$TEST_LOG"
   TIMED_OUT=
   if [ -n "${MIGRATE_FAILED:-}" ]; then log "photo records not migrated: not tested, not published"; return 1; fi
@@ -142,8 +142,10 @@ verify() {
     settled
     calm
     from=$(wc -c <"$TEST_LOG")
-    AQ_TEST_TIME_SCALE=$HOT_TIME_SCALE
-    if VITEST_MAX_WORKERS=$SECOND_TRY_WORKERS checks "export pnpm_config_workspace_concurrency=1; $step" >>"$TEST_LOG" 2>&1; then
+    # On the Mac only: GitHub's runner is a machine of its own, with no heat, and its second try keeps the first's.
+    workers=
+    [ -n "${GITHUB_ACTIONS:-}" ] || { AQ_TEST_TIME_SCALE=$HOT_TIME_SCALE; workers=$SECOND_TRY_WORKERS; }
+    if VITEST_MAX_WORKERS=$workers checks "export pnpm_config_workspace_concurrency=1; $step" >>"$TEST_LOG" 2>&1; then
       names=$(failed_tests "$first")
       [ -n "$names" ] || log "flaky: $step failed once and passed the second time, no test named"
       while IFS= read -r name; do [ -z "$name" ] || log "flaky: $name"; done <<<"$names"

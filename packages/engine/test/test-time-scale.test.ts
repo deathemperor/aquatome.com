@@ -9,7 +9,7 @@ const CHECKS = join(fileURLToPath(new URL('../../..', import.meta.url)), 'script
 
 // verify with `checks`, `calm` and the cores heat has taken stood in for (as in cycle-kept.test.ts): each run records the
 // time scale its tests got and the vitest workers it was allowed, and passes when the next of `runs` is "ok".
-function scales(taken: number, runs: string[]) {
+function scales(taken: number, runs: string[], github = false) {
   const dir = mkdtempSync(join(tmpdir(), 'aq-time-scale-'))
   const r = spawnSync('bash', ['-c', `
     set -euo pipefail
@@ -17,7 +17,7 @@ function scales(taken: number, runs: string[]) {
     cores_taken() { echo ${taken}; }
     n=0; runs=(${runs.map(r => `'${r}'`).join(' ')})
     checks() { local r="\${runs[$n]}"; n=$((n + 1)); echo "scale=\${AQ_TEST_TIME_SCALE:-unset}" >&3; bash -c 'echo "workers=\${VITEST_MAX_WORKERS:-unset}"' >&3; echo "$r"; [ "$r" = ok ]; }
-    verify 'pnpm test' 3>&1 || true; echo "TIMED_OUT=$TIMED_OUT"`], { encoding: 'utf8' })
+    verify 'pnpm test' 3>&1 || true; echo "TIMED_OUT=$TIMED_OUT"`], { encoding: 'utf8', env: { ...process.env, GITHUB_ACTIONS: github ? 'true' : '' } })
   const lines = r.stdout.trim().split('\n')
   return { scales: lines.filter(l => /^scale=|^LOG cores/.test(l)), workers: lines.filter(l => l.startsWith('workers=')), timedOut: lines.includes('TIMED_OUT=1') }
 }
@@ -30,8 +30,12 @@ test("tests get their usual limits on a Mac at full strength, 6 times those whil
   expect(scales(4, ['ok']).scales).toEqual(['LOG cores taken away by heat: tests get 6 times their time', 'scale=6'])
 })
 
-test("a check's second try gives its tests 6 times their limits, cool Mac or not", () => {
+test("a check's second try on the Mac gives its tests 6 times their limits, cool Mac or not; GitHub's keeps its own", () => {
   expect(scales(0, ['Error: Test timed out in 30000ms.', 'ok']).scales).toEqual(['scale=1', 'scale=6'])
+  // engine.yml runs the same gate on a runner of its own, with no heat.
+  const github = scales(0, ['Error: Test timed out in 30000ms.', 'ok'], true)
+  expect(github.scales).toEqual(['scale=1', 'scale=1'])
+  expect(github.workers).toEqual(['workers=unset', 'workers=unset'])
 })
 
 // That photos run's second try (16:25) ran no test at all: vitest gives a worker 60 s to start, a limit no setting raises,
