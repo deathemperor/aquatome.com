@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs'
 import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -171,6 +172,11 @@ test('a copy naming a season its readers don\'t have is written once more with t
   // A season written with an entity in it is read as the reader reads it.
   expect(await localizeTopic(root, writer(['<p>Saat musim&#32;panas.</p>']), r0.id, 'id', { redo: true })).toMatchObject({ skipped: 'names a season its readers don\'t have: musim panas' })
   expect(await readFile(file, 'utf8')).toBe(before)
+  // And as it would be saved (Astra's read): escaped twice, or split into blocks the sanitizer joins.
+  expect(await localizeTopic(root, writer(['<p>Saat musim&amp;#32;panas.</p>']), r0.id, 'id', { redo: true })).toMatchObject({ skipped: 'names a season its readers don\'t have: musim panas' })
+  expect(await readFile(file, 'utf8')).toBe(before)
+  expect(await localizeTopic(root, writer(['<div>ฤดู</div><div>ใบไม้ผลิ</div>']), r0.id, 'th')).toMatchObject({ skipped: 'names a season its readers don\'t have: ฤดูใบไม้ผลิ' })
+  expect(existsSync(join(root, 'content/guides', r0.id, 'th.json'))).toBe(false)
 })
 
 test('a farm\'s or forum\'s figure is a dose when it names a treatment, or is a measure, a level not the water\'s own or a rate; another page of the same forum is no second source', () => {

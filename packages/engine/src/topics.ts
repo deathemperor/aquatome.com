@@ -179,7 +179,15 @@ const WRITE_SCHEMA = {
 }
 type Written = { name: string; summary: string[]; body: string; faq: { q: string; a: string }[] }
 /** What a reader of a guide sees of it: its title, summary, body and questions. */
-const textOf = (w: Written) => [w.name, ...(w.summary ?? []), w.body, ...(w.faq ?? []).flatMap(f => [f.q, f.a])].join('\n')
+/**
+ * A copy's text as it will be saved: its name, summary and answers unescaped, its body sanitized. The seasons check reads
+ * this, not what the writer sent (Astra's read: "<div>ฤดู</div><div>ใบไม้ผลิ</div>" passed and was saved as "ฤดูใบไม้ผลิ",
+ * and "musim&amp;#32;panas" passed and was saved as "musim panas").
+ */
+const savedText = (w: Written) => {
+  const p = plainParts(w.summary ?? [], w.faq ?? [])
+  return [unescapePlain(w.name), ...p.summary, sanitizeHtml(w.body), ...p.faq.flatMap(f => [f.q, f.a])].join('\n')
+}
 const INTL_SCHEMA = { ...WRITE_SCHEMA, required: [...WRITE_SCHEMA.required, 'slug'], properties: { ...WRITE_SCHEMA.properties, slug: { type: 'string' } } }
 
 const GROUNDED = `Below are FACTS gathered about a fishkeeping topic and a Vietnamese GUIDE written from them. Score 0–1 how well the GUIDE sticks to the FACTS: 1.0 = every claim, dose, number, product and recommendation is supported by the facts; 0.75 = small unsupported generalities; below 0.75 = an invented dose, number, medicine, cause or claim, or a fact turned around. A fact's figure converted to metric (°F → °C, inches → cm, gallons → litres, sensibly rounded; ${TANK_RULE.en}) is that fact's figure.
@@ -386,12 +394,12 @@ export async function localizeTopic(root: string, llm: Llm, id: string, lang: Ta
   // A season none of its readers' countries has (seasons.ts), written once more with the condition in its place; a copy
   // that still names one isn't saved (the chief of staff, 13 Nov 2026: eight guides' copies told readers in Indonesia,
   // Thailand and Malaysia about a summer, a winter or koi fed by spring and autumn).
-  const named = foreignSeasons(textOf(w), lang)
+  const named = foreignSeasons(savedText(w), lang)
   if (named.length) {
     const fixed = await write([`It names a season readers in ${readerCountries(lang)} don't have: ${named.map(s => `"${s}"`).join(', ')}. Give the condition the facts tie to it instead, and name no season.`, ...review.notes])
     const r = await check(fixed)
     tries.push(r)
-    const left = foreignSeasons(textOf(fixed), lang)
+    const left = foreignSeasons(savedText(fixed), lang)
     // Not saved, and every try's review logged, none of them kept (Astra's read).
     if (left.length) { await logReviews(root, 'topic', { id: `guides/${id}`, lang }, tries, undefined); return { id, skipped: `names a season its readers don't have: ${left.join(', ')}` } }
     w = fixed
