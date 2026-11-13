@@ -64,10 +64,10 @@ async function jobs(root: string, kind: BackfillKind, all = false): Promise<Job[
       const t = await json<Translation>(join(content, dir, id, 'vi.json'))
       const low = Object.entries(t?.quality?.bySource ?? {}).filter(([, score]) => under({ score }))
       if (!low.length) continue
-      // A source whose text has left the page has nothing to check against: it isn't listed. On 13 Nov 2026 one such
+      // A source whose text has left the page, or whose Vietnamese is empty, has nothing to check: it isn't listed. On 13 Nov 2026 one such
       // (a fish's Glaser part) was tried and failed "no text to check" every run (the chief of staff: drop it).
       const sections = (await json<{ sections: Section[] }>(join(content, dir, id, 'entity.json')))?.sections ?? []
-      for (const [part, score] of low) if (sourcePairs(sections, t?.sections ?? {}, part).length) out.push({ page: { id: `${dir}/${id}`, lang: 'vi', part }, score })
+      for (const [part, score] of low) if (sourcePairs(sections, t?.sections ?? {}, part).some(x => x.vi.trim())) out.push({ page: { id: `${dir}/${id}`, lang: 'vi', part }, score })
     }
   } else {
     const dirs = kind === 'places' ? ['places'] : ['species', 'plants']
