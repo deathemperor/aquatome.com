@@ -763,6 +763,26 @@
     "places": [
      "africa"
     ]
+   },
+   "guides": {
+    "add": [
+     "aquariumcoop-blogs-aquarium-how-to-set-up-an-easy-planted-tank-for-african-cichlids",
+     "aquariumcoop-blogs-aquarium-plants-for-african-cichlids",
+     "aquariumcoop-blogs-aquarium-shell-dwellers",
+     "loachesonline-articles-why-loaches-should-not-be-kept-with-malawi-cichlids",
+     "youtube-Gco4K1OuLaE",
+     "youtube-hQgZb6U3iPw",
+     "youtube-jFFbDTBUgIk",
+     "youtube-lnOoJm-b5vs",
+     "youtube-ohUzvlrSQDs",
+     "youtube-py-6gyQwVWU",
+     "youtube-wOFTF6CYtFc",
+     "youtube-yfiUqZ8IZU4"
+    ],
+    "off": [
+     "seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy",
+     "youtube-rXQS95MHmTk"
+    ]
    }
   },
   {
@@ -779,6 +799,12 @@
      "central-america",
      "north-america"
     ]
+   },
+   "guides": {
+    "add": [
+     "glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-thorichthys-week-at-aquarium-glaser-en",
+     "seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy"
+    ]
    }
   },
   {
@@ -791,6 +817,11 @@
    "match": {
     "family": [
      "Loricariidae"
+    ]
+   },
+   "guides": {
+    "add": [
+     "glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-peckoltia-sp-alto-nhamunda-en-2"
     ]
    }
   },
@@ -818,6 +849,11 @@
      "urocaridella-antonbruunii",
      "macrobrachium-brasiliense",
      "macrobrachium-dayanum"
+    ]
+   },
+   "guides": {
+    "off": [
+     "aquariumbreeder-seed-shrimp-profile-ostracods-in-shrimp-and-fish-tank"
     ]
    }
   },
@@ -983,6 +1019,11 @@
     "family": [
      "Callichthyidae"
     ]
+   },
+   "guides": {
+    "off": [
+     "glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-peckoltia-sp-alto-nhamunda-en-2"
+    ]
    }
   },
   {
@@ -1018,6 +1059,17 @@
    "match": {
     "group": [
      "snails"
+    ]
+   },
+   "guides": {
+    "off": [
+     "aquariumcoop-blogs-aquarium-shell-dwellers",
+     "youtube-Gco4K1OuLaE",
+     "youtube-hQgZb6U3iPw",
+     "youtube-jFFbDTBUgIk",
+     "youtube-py-6gyQwVWU",
+     "youtube-yfiUqZ8IZU4",
+     "youtube-9NhMq1H-aoo"
     ]
    }
   }

@@ -132,6 +132,12 @@ export const ChipSchema = z.object({
   }).refine(({ except: _, ...m }) => Object.values(m).some(v => v?.length), 'a chip holds some fish'),
   /** Members whose photo is tried first for its picture, in order. */
   cover: z.array(z.string()).optional(),
+  /**
+   * Guides by id, set by hand against the title rule (chipGuides): `add`, one about the group whose title misses its
+   * names (Ali's are titled "cichlid châu Phi"); `off`, one whose title holds a name and isn't about it ("cá ốc", the
+   * shell dwellers, under Ốc).
+   */
+  guides: z.object({ add: z.array(z.string()).optional(), off: z.array(z.string()).optional() }).optional(),
 })
 
 export const CurationSchema = z.object({
