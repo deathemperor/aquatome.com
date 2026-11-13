@@ -122,6 +122,22 @@ test('the prompt answers about the fish: the card wins, no talk of pages disagre
   expect(ANSWER_SCHEMA.required).toContain('clashes')
 })
 
+test('a problem\'s steps each carry a figure, with no cap of five, and the answer asks last for the readings that would decide the cause', () => {
+  expect(SYSTEM).not.toContain('at most five')
+  expect(SYSTEM).toContain('as many as the problem needs')
+  expect(SYSTEM).toContain('each one action for their tank with its figure')
+  expect(SYSTEM).toContain('ask for the one to three readings that decide it')
+  expect(SYSTEM).toContain('Ask only for what would change your answer, never for what they told you')
+  // The forced last call writes most answers (the board, 13 Nov 2026: 184 of 225), so it says the same.
+  expect(LAST_WORD).toContain('each with its figure')
+  expect(LAST_WORD).toContain('the readings that would decide the cause')
+  expect(ANSWER_SCHEMA.properties.text.description).toContain('each with its figure')
+  expect(ANSWER_SCHEMA.properties.text.description).toContain('and last the readings that would decide the cause when the reader hasn\'t given them')
+  // A safe reading is none on the kit: "under 0.25 mg/l" mixes total ammonia with the free ammonia that harms fish (the review, 13 Nov).
+  expect(SYSTEM).toContain('amoniac và nitrit về 0 trên bộ test')
+  expect(SYSTEM).not.toContain('0,25 mg/l')
+})
+
 test('read_tanks reads the reader\'s tanks with their ids, says when there are none, and is an error when they can\'t be read', async () => {
   const h = await hb()
   const tank: Tank = { id: 't1', name: 'Bể 60', dims: { l: 60, w: 30, h: 36 }, species: [{ id: 'paracheirodon-innesi', count: 10 }], unlisted: [{ name: 'Cá lạ', kind: 'fish', count: 2 }, { name: 'Rong lạ', kind: 'plant' }] }

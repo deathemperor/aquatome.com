@@ -33,7 +33,7 @@ export const ANSWER_SCHEMA = {
   required: ['offTopic', 'text', 'covered', 'blocks', 'suggestions', 'clashes'],
   properties: {
     offTopic: { type: 'boolean', description: 'true when the question isn\'t about keeping fish, shrimp, snails or plants, their tanks, ponds, water or gear: then the text is one short line and nothing else.' },
-    text: { type: 'string', description: 'In the reader\'s language, plain text, no markdown. A problem: the likely cause in a sentence or two, the steps in order one per line ("1. "), then what to watch. A quick question: two or three sentences, with the figures and the method when it asks for them. Never refer to the blocks or to earlier answers. Figures from a page read first, common hobby figures from your own knowledge, never a dose no page gives.' },
+    text: { type: 'string', description: 'In the reader\'s language, plain text, no markdown. A problem: the likely cause in a sentence or two, the steps in order one per line, each with its figure ("1. "), then what to watch, and last the readings that would decide the cause when the reader hasn\'t given them. A quick question: two or three sentences, with the figures and the method when it asks for them. Never refer to the blocks or to earlier answers. Figures from a page read first, common hobby figures from your own knowledge, never a dose no page gives.' },
     covered: { type: 'boolean', description: 'false when the handbook doesn\'t answer the question: say so in the text, and show the nearest page.' },
     blocks: {
       type: 'array',
