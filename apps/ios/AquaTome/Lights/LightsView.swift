@@ -18,8 +18,13 @@ struct LightsView: View {
     NavigationStack {
       ScrollView {
         VStack(alignment: .leading, spacing: 24) {
+          // Week Aqua lights on the first screen too: under the Chihiros card, and first once one is kept on a tank
+          // (it is from its first connection), for someone with only Week Aqua lights.
+          let weekAquaFirst = weekAqua.isConnected || !weekAqua.savedGroups.isEmpty
+          if weekAquaFirst { WeekAquaEntry().modifier(Panel()) }
           LoveEcologyCard()
           LightCard()
+          if !weekAquaFirst { WeekAquaEntry().modifier(Panel()) }
           ScheduleSection()
           ColourSection().modifier(Panel())
           if !pinned { WriteBar(pinned: false) }
@@ -30,8 +35,6 @@ struct LightsView: View {
             AboutText()
           }
           .font(.footnote).foregroundStyle(.secondary).padding(.horizontal, 4)
-          // Week Aqua lights after all of the Chihiros screen: last for VoiceOver too.
-          WeekAquaEntry().modifier(Panel())
         }
         .padding()
       }
@@ -54,6 +57,17 @@ struct LightsView: View {
       }
       #endif
     }
+  }
+}
+
+/// Words on a prominent button's mint. iOS draws them white, about 1.6:1 on the dark look's mint: there they take the dark
+/// ink the fish page's "Hỏi về …" button has (AskEntry). A disabled button keeps iOS's own grey words.
+struct InkOnMint: ViewModifier {
+  @Environment(\.colorScheme) private var scheme
+  @Environment(\.isEnabled) private var enabled
+
+  func body(content: Content) -> some View {
+    if scheme == .dark, enabled { content.foregroundStyle(Color(red: 0, green: 0x24 / 255, blue: 0x1B / 255)) } else { content }
   }
 }
 
@@ -497,7 +511,7 @@ private struct WriteBar: View {
         Button {
           if lights.writeNeedsConfirming { confirming = true } else { Task { await lights.writeSchedule() } }
         } label: {
-          words
+          words.modifier(InkOnMint())
         }
         .buttonStyle(.borderedProminent)
         .controlSize(.large)

@@ -57,9 +57,9 @@ SHOTS = {
                 'testTheTabBarOverPhotosInTheDark'],
     'fish-id': ['testFishId', 'testFishIdInTheDark'],
     'icons': ['testTheAppIcons', 'testTheAppIconsInTheDark'],
-    # The light's card warning of its outlet's timer; the tab top to bottom, its Week Aqua row last; the Week Aqua screen.
-    'light': ['testALightsCardWarningOfItsOutletsTimer', 'testTheLightsTab', 'testTheWeekAquaScreen',
-              'testTheWeekAquaScreenInTheDark'],
+    # The light's card warning of its outlet's timer; the tab top to bottom and the Week Aqua screen, in v2, light and dark.
+    'light': ['testALightsCardWarningOfItsOutletsTimer', 'testTheLightsTab', 'testTheLightsTabInTheDark',
+              'testTheWeekAquaScreen', 'testTheWeekAquaScreenInTheDark'],
     'tanks': ['testTheTanksList'],
     # The Tài khoản sheet signed out and signed in as the owner (whose row is on it).
     'account': ['testSigningIn', 'testSigningInInTheDark', 'testSigningInInTheLargestText', 'testTheAccountSignedIn',

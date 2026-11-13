@@ -14,7 +14,8 @@ import XCTest
 /// and Comments (each light, dark and at the largest text), and the daily report's settings; the tab bar over what scrolls
 /// under it, a fish's long text and Tìm's photos, light and dark, on the site's own pages; and v2's Hôm nay, its fish of the
 /// day's page and Khám phá, light, dark and at the largest text, and in Malay. The lights tab top to
-/// bottom (its Week Aqua row last), and the Week Aqua screen with the simulator's group connected (`-fake-weekaqua`).
+/// bottom (its Week Aqua row on the first screen) and the Week Aqua screen with the simulator's group connected
+/// (`-fake-weekaqua`), in v2, light and dark.
 /// Each checks only that its screen opened:
 /// what it shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
@@ -30,22 +31,26 @@ final class PageShotsFlowTests: XCTestCase {
   func testASearchInTheDark() { shootSearch("search-dark", dark: true) }
   func testASearchInTheLargestText() { shootSearch("search-largest-light", size: largest) }
   func testASearchInTheLargestTextInTheDark() { shootSearch("search-largest-dark", dark: true, size: largest) }
-  func testTheLightsTab() {
-    let app = launch(dark: false, size: nil)
+  // The lights in v2, the look the owner's app opens in.
+  func testTheLightsTab() { shootLights("lights-light") }
+  func testTheLightsTabInTheDark() { shootLights("lights-dark", dark: true) }
+  private func shootLights(_ name: String, dark: Bool = false) {
+    let app = launch(dark: dark, size: nil, look: .v2)
     app.openTab("Đèn")
-    XCTAssertTrue(app.descendants(matching: .any)["weekaqua"].waitForExistence(timeout: 5), "no Week Aqua row on the lights tab")
-    capture(app, "lights-light", dark: false, from: 0.6, x: 0.97)
+    XCTAssertTrue(app.navigationBars["Đèn"].waitForExistence(timeout: 5), "the lights tab isn't titled Đèn")
+    let entry = app.descendants(matching: .any)["weekaqua"]
+    XCTAssertTrue(entry.waitForExistence(timeout: 5), "no Week Aqua row on the lights tab")
+    XCTAssertTrue(entry.isHittable, "the Week Aqua row isn't on the first screen")
+    capture(app, name, dark: dark, from: 0.6, x: 0.97)
   }
   func testTheWeekAquaScreen() { shootWeekAqua("weekaqua-light") }
   func testTheWeekAquaScreenInTheDark() { shootWeekAqua("weekaqua-dark", dark: true) }
-  /// The Week Aqua screen with the simulator's group connected (`-fake-weekaqua`), top to bottom.
+  /// The Week Aqua screen with the simulator's group connected (`-fake-weekaqua`), top to bottom, in v2.
   private func shootWeekAqua(_ name: String, dark: Bool = false) {
-    let app = launch(dark: dark, size: nil, ["-fake-weekaqua"])
+    let app = launch(dark: dark, size: nil, ["-fake-weekaqua"], look: .v2)
     app.openTab("Đèn")
     let entry = app.descendants(matching: .any)["weekaqua"]
     XCTAssertTrue(entry.waitForExistence(timeout: 5), "no Week Aqua row on the lights tab")
-    // The row is last, above the write bar once the tab is scrolled to its end.
-    for _ in 0..<8 { app.swipeUp() }
     entry.tap()
     let scan = app.buttons["wa-scan"]
     XCTAssertTrue(scan.waitForExistence(timeout: 5), "the Week Aqua screen didn't open")
@@ -490,13 +495,13 @@ final class PageShotsFlowTests: XCTestCase {
     add(a)
   }
 
-  private func launch(dark: Bool, size: String? = nil, _ more: [String] = []) -> XCUIApplication {
+  private func launch(dark: Bool, size: String? = nil, _ more: [String] = [], look: Look = .old) -> XCUIApplication {
     let app = XCUIApplication()
     // Dark by the app's own switch: the runner's appearance setting (XCUIDevice) left the shots light.
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures"]
       + (dark ? ["-dark"] : [])
       + (size.map { ["-UIPreferredContentSizeCategoryName", $0] } ?? []) + more
-    app.launchForFlow(.old)
+    app.launchForFlow(look)
     return app
   }
 

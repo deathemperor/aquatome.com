@@ -166,7 +166,7 @@ private struct Finding: View {
     ForEach(wa.found) { l in FoundRow(light: l) }
     if !wa.found.isEmpty {
       Button { Task { await wa.connectChosen() } } label: {
-        Text("Kết nối \(wa.chosen.count) đèn").frame(maxWidth: .infinity)
+        Text("Kết nối \(wa.chosen.count) đèn").frame(maxWidth: .infinity).modifier(InkOnMint())
       }
       .buttonStyle(.borderedProminent)
       .controlSize(.large)
@@ -378,6 +378,7 @@ private struct WeekAquaBar: View {
           if wa.isConnected { Text("Ghi màu và hẹn giờ vào \(wa.group.count) đèn") } else { Text("Kết nối đèn để ghi") }
         }
         .frame(maxWidth: .infinity)
+        .modifier(InkOnMint())
       }
       .buttonStyle(.borderedProminent)
       .controlSize(.large)
