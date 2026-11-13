@@ -150,7 +150,8 @@ const notesOf = (fs: ReaderFinding[]) => fs.map(f => `${f.problem}${f.quote ? ` 
  * quote, checked against the old wording. Returns the part's new HTML and the review's score; undefined when the quotes
  * can't be placed.
  */
-export async function rewritePart(llm: Llm, html: string, fs: ReaderFinding[], o: { en?: string; source?: string }): Promise<{ html: string; score: number; notes: string[]; lost: HedgePair[] } | undefined> {
+/** `figures`: what its reviewer is told about the figures the notes change, for text with no English (fit-rewrite.ts). */
+export async function rewritePart(llm: Llm, html: string, fs: ReaderFinding[], o: { en?: string; source?: string; figures?: string }): Promise<{ html: string; score: number; notes: string[]; lost: HedgePair[] } | undefined> {
   const opts = { ...VI_WRITE, notes: notesOf(fs), ...(o.source ? { source: o.source } : {}) }
   // A sentence said more surely than what it was written from (hedges.ts) is in `lost`, and the part isn't kept.
   const out = (next: string, r: Review) => ({ html: next, score: r.score, notes: [...r.lost.map(h => `Said more surely than before: "${h.to}" (was: "${h.from}")`), ...r.notes], lost: r.lost })
@@ -164,7 +165,7 @@ export async function rewritePart(llm: Llm, html: string, fs: ReaderFinding[], o
   if (!at.length || at.includes(-1)) return undefined
   const parts = at.map(i => ({ id: `b${i}`, vi: els[i]!.toString() }))
   const next = await rewriteVi(llm, parts, opts)
-  const r = await reviewRewrite(llm, parts.map(x => ({ before: x.vi, after: next.get(x.id)! })), { hedges: true })
+  const r = await reviewRewrite(llm, parts.map(x => ({ before: x.vi, after: next.get(x.id)! })), { hedges: true, ...(o.figures ? { figures: o.figures } : {}) })
   for (const i of at) els[i]!.replaceWith(next.get(`b${i}`)!)
   return out(root.toString(), r)
 }
