@@ -207,6 +207,8 @@ test('new research adds to what was kept, a fact both give once; --fresh starts 
     facts: [
       { section: 'what', fact: 'Driftwood releases tannins that lower pH slightly and tint the water brown', source: 1 },
       { section: 'other', fact: 'Lũa linh sam sinks almost at once', source: 0 },
+      // Given again by a new page: kept once, the new page added to those that also give it.
+      { section: 'steps', fact: 'Soak new driftwood for one to two weeks, changing the water, before it goes in a tank', source: 0 },
     ],
     sources: [{ url: 'https://becanhatdinh.com/san-pham/lua-linh-sam/', title: 'Lũa linh sam', kind: 'shop' }, facts.sources[0]!],
   }
@@ -215,7 +217,7 @@ test('new research adds to what was kept, a fact both give once; --fresh starts 
   await makeGlossaryEntry(root, { research: async () => more as never, llm }, 'lua', { kind: 'aquascaping' })
   const kept = JSON.parse(await readFile(join(root, 'engine-state/glossary/lua.json'), 'utf8')) as TopicFacts
   expect(kept.sources.map(x => x.url)).toEqual([...facts.sources.map(x => x.url), 'https://becanhatdinh.com/san-pham/lua-linh-sam/'])
-  expect(kept.facts).toEqual([...facts.facts, { section: 'other', fact: 'Lũa linh sam sinks almost at once', source: 3 }])
+  expect(kept.facts).toEqual([...facts.facts.map((f, i) => (i === 1 ? { ...f, also: [3] } : f)), { section: 'other', fact: 'Lũa linh sam sinks almost at once', source: 3 }])
   expect(kept.species).toEqual(['Ancistrus'])
   await makeGlossaryEntry(root, { research: async () => more as never, llm }, 'lua', { kind: 'aquascaping', fresh: true })
   expect(JSON.parse(await readFile(join(root, 'engine-state/glossary/lua.json'), 'utf8'))).toEqual(more)

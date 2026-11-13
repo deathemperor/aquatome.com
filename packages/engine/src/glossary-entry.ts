@@ -48,7 +48,7 @@ const RULES = `GLOSSARY RULES. Below are a Vietnamese glossary ENTRY about a fis
 4. The remark that sources or shops disagree appears more than once. It should be said once, with what the keeper can do about it.
 5. A kind in KINDS that the FACTS describe is missing; a kind is without the English name the FACTS give it; an English name is given that the FACTS don't give.
 6. An animal or plant in PAGES is called by a name its line doesn't list. One with no line in PAGES is called by anything but its scientific name or its English name as the FACTS write them: a Vietnamese name for it is invented.
-7. The kinds sold in Vietnam (KINDS, local) don't come first, or one says less than the FACTS give while a foreign name gets more. A kind doesn't open with what it is and how it looks (a remark that no English name was found goes last).
+7. The kinds sold in Vietnam (KINDS, local) don't come first, or one says less than the FACTS give while a foreign name gets more. A kind doesn't open with what it is and how it looks, where the FACTS say so (a remark that no English name was found goes last).
 8. A brand or a product's name (a maker's, as in "Zoo Med Mopani"), where the kind's name is enough.
 9. A remark on safety that leaves a keeper unsure whether to use it in a tank ("the leaves are poisonous, the wood less so"), where the FACTS say how it is used in tanks.
 Reply {"notes": [...]}, empty if the entry keeps every rule.`
@@ -109,15 +109,24 @@ export function offLimits(url: string): boolean {
 
 /**
  * Two researches as one: the first's sources and facts, then the second's that aren't already there, their sources
- * renumbered. A fact both give is kept once.
+ * renumbered. A fact both give is kept once, with the second's sources added to the pages that also give it (`also`): a
+ * dose from a forum needs that second page (usableFact).
  */
 export function addResearch(a: TopicFacts, b: TopicFacts): TopicFacts {
   const sources = [...a.sources]
   const at = (x: TopicFacts['sources'][number]) => { const i = sources.findIndex(y => y.url === x.url); return i >= 0 ? i : sources.push(x) - 1 }
   const moved = b.facts.flatMap(f => (b.sources[f.source] ? [{ ...f, source: at(b.sources[f.source]!), ...(f.also ? { also: f.also.flatMap(i => (b.sources[i] ? [at(b.sources[i]!)] : [])) } : {}) }] : []))
   const key = (f: TopicFacts['facts'][number]) => `${f.section}|${f.fact.trim().toLowerCase()}`
-  const seen = new Set(a.facts.map(key))
-  return { found: a.found || b.found, facts: [...a.facts, ...moved.filter(f => !seen.has(key(f)) && seen.add(key(f)))], species: [...new Set([...a.species, ...b.species])], sources }
+  const facts = a.facts.map(f => ({ ...f }))
+  const at2 = new Map(facts.map((f, i) => [key(f), i]))
+  for (const f of moved) {
+    const i = at2.get(key(f))
+    if (i === undefined) { at2.set(key(f), facts.push(f) - 1); continue }
+    const kept = facts[i]!
+    const also = [...new Set([...(kept.also ?? []), f.source, ...(f.also ?? [])])].filter(x => x !== kept.source)
+    if (also.length) kept.also = also
+  }
+  return { found: a.found || b.found, facts, species: [...new Set([...a.species, ...b.species])], sources }
 }
 
 /**
