@@ -234,6 +234,8 @@ struct Lockup: View {
   var onDark = false
   /// Its photo as a rounded square, left out where the card shows it already.
   var icon = true
+  /// On a Hôm nay card: its page opens as a post (`Post`).
+  var post = false
   @ScaledMetric(relativeTo: .body) var thumb: CGFloat = 60
   @Environment(TanksModel.self) private var tanks
   @Environment(\.dynamicTypeSize) private var size
@@ -245,7 +247,7 @@ struct Lockup: View {
     let layout = size.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: 8)) : AnyLayout(HStackLayout(spacing: 12))
     let side = min(thumb, 88)
     layout {
-      NavigationLink(value: item) {
+      link {
         layout {
           if icon {
             // A fish's colour worked out here too, so its page opens in it, not in green first.
@@ -303,9 +305,14 @@ struct Lockup: View {
         .accessibilityLabel(Text("Thêm \(item.name) vào bể"))
     } else {
       // The same page the row opens: one stop for VoiceOver, the row.
-      NavigationLink(value: item) { Text(item.kind == .guide ? "Đọc" : "Xem").capsule(onDark) }.buttonStyle(.plain)
+      link { Text(item.kind == .guide ? "Đọc" : "Xem").capsule(onDark) }.buttonStyle(.plain)
         .accessibilityHidden(true)
     }
+  }
+
+  /// To its page, or to it as a post.
+  @ViewBuilder private func link<Label: View>(@ViewBuilder _ label: () -> Label) -> some View {
+    if post { NavigationLink(value: Post(item: item), label: label) } else { NavigationLink(value: item, label: label) }
   }
 
   /// `sub` is a scientific name, in italics, on these; a video series' is its channel.

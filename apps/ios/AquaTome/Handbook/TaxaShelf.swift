@@ -74,6 +74,7 @@ struct TaxaShelf: View {
         }
       }
       .font(.subheadline)
+      .v2YieldsToEdgeSwipe()
     }
   }
 

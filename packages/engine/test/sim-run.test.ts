@@ -115,6 +115,41 @@ test("this Mac's runner's simulator run waits while cores are taken away, and a 
   expect(s.stdout).toContain('went on after')
 }, slow(30_000))
 
+// 2026-11-12: a lead's simulator run lowered the photos cycle's stand-in 0.2 s after it started, and the cycle didn't
+// publish. A real run (no SIM_RUN_QUIET_ROOT) lowers a simulator's daemons wherever its runtime is mounted, and leaves the
+// system temp folder alone, under any of its names: tests make their stand-ins there, and no simulator runs from it. A
+// test's run lowers its own stand-ins only.
+test("a real run leaves the tests' stand-ins in the system temp folder alone; a test's run lowers only its own", () => {
+  const sim = 'Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/PrivateFrameworks/'
+  const media = `${sim}MediaAnalysis.framework/mediaanalysisd`
+  const photo = `${sim}PhotoAnalysis.framework/Support/photoanalysisd`
+  const lowered = (paths: string[], env: Record<string, string> = {}) => {
+    const r = spawnSync('python3', ['-I', '-c', 'import runpy, sys; m = runpy.run_path(sys.argv[1]); print(" ".join(str(m["lowered"](a)).lower() for a in sys.argv[2:]))', SIM_RUN, ...paths], {
+      encoding: 'utf8', env: { PATH: process.env.PATH, TMPDIR: process.env.TMPDIR ?? '', ...env },
+    })
+    expect(r.stderr).toBe('')
+    return r.stdout.trim().split(' ').map(w => w === 'true')
+  }
+  const real = [
+    `/Library/Developer/CoreSimulator/Volumes/iOS_23F77/${media}`,
+    `/private/var/run/com.apple.security.cryptexd/mnt/com.apple.iPhoneOS.SimulatorRuntime-v24.2.8117.0.ygaeG3/${photo}`,
+    `/Users/someone/Library/Developer/CoreSimulator/Volumes/iOS_23F77/${media} --flag`,
+  ]
+  const stand = 'CoreSimulator/Volumes/iOS/RuntimeRoot/System/Library/PrivateFrameworks/MediaAnalysis.framework/mediaanalysisd'
+  const tests = [
+    join(tmpdir(), 'aq-load-x', stand),
+    `/private/var/folders/5z/abc/T/aq-load-y/${stand}`,
+    `/var/folders/5z/abc/T/aq-load-y/${stand}`,
+    `/tmp/aq/${stand}`,
+    `/private/tmp/aq/${stand}`,
+  ]
+  const mac = ['/System/Library/PrivateFrameworks/PhotoAnalysis.framework/Versions/A/Support/photoanalysisd']
+  // A real run: every simulator's daemon, none of the tests' stand-ins, never the Mac's own.
+  expect(lowered([...real, ...tests, ...mac])).toEqual([true, true, true, false, false, false, false, false, false])
+  // A test's run: its own stand-ins only, not another test's or a real simulator's.
+  expect(lowered([...real, ...tests, ...mac], { SIM_RUN_QUIET_ROOT: join(tmpdir(), 'aq-load-x') })).toEqual([false, false, false, true, false, false, false, false, false])
+})
+
 // 2026-11-08: after main's simulator booted, its mediaanalysisd took 3.4 cores at normal priority for 8 min, and a 0.4 s job
 // on the Mac took up to 23 s. Stand-ins, named as the daemons are, inside a simulator's runtime and outside it. macOS's
 // alone, as simulators and taskpolicy are (and nice goes to 20 there, 19 on Linux): CI's Linux skips it, the Mac's cycles run it.
@@ -141,7 +176,7 @@ test.skipIf(process.platform !== 'darwin')("while a run has its turn, its simula
       // The run lasts until the stand-in is in the background, or 20 s: a fixed second ran out on a busy Mac, at nice 10,
       // before sim-run had looked once (2026-11-08).
       const until = `i=0; until [ "$(ps -o nice= -p ${sim.pid} | tr -d ' ')" = 20 ] || [ $i -ge 400 ]; do sleep 0.05; i=$((i + 1)); done`
-      expect(spawnSync(SIM_RUN, ['sh', '-c', until], { env: { ...process.env, HOME: dir, SIM_RUN_QUIET_PAUSE: '0.1' } }).status).toBe(0)
+      expect(spawnSync(SIM_RUN, ['sh', '-c', until], { env: { ...process.env, HOME: dir, SIM_RUN_QUIET_PAUSE: '0.1', SIM_RUN_QUIET_ROOT: dir } }).status).toBe(0)
       expect(nice(sim.pid)).toBe(20)
       expect(nice(mac.pid)).toBe(before)
     } finally {
