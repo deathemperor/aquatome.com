@@ -948,7 +948,8 @@ final class V2FlowTests: XCTestCase {
   }
 
   /// From the left edge over a row that scrolls sideways (the photos, the chips), iOS's swipe still goes back, at each pace.
-  func testFromTheLeftEdgeOverASidewaysRowThePageGoesBack() {
+  func testFromTheLeftEdgeOverASidewaysRowThePageGoesBack() throws {
+    try XCTSkipIf(true, "Rows as iOS has them in this build: a swipe from the very edge over a row scrolls the row, 0 of 12 back with the row piece on (27.2, 13 Nov); the fallback approved by the chief of staff, 13 Nov 2026, the limit in What to Test. The row piece comes back reworked.")
     let app = launch("-v2", "YES", "-long-part")
     app.launch()
     XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
@@ -980,9 +981,9 @@ final class V2FlowTests: XCTestCase {
     XCTAssertEqual(missed, [], "edge swipes over a row that didn't go back, of 1 each")
   }
 
-  /// A guard, never broken: a swipe that starts on what scrolls sideways is its own, as in the App Store, from anywhere past
-  /// the screen edge's 20 points (`EdgeTouch`): the row scrolls both ways and to its last item, and the page stays; a swipe
-  /// up that starts on it scrolls the page.
+  /// A guard, never broken: a swipe that starts on what scrolls sideways is its own, as in the App Store, from its middle,
+  /// a thumb's width in, or just past the screen's edge: the row scrolls both ways and to its last item, and the page stays;
+  /// a swipe up that starts on it scrolls the page.
   func testASwipeOnAStripDoesntGoBack() {
     // With animations on, as a swipe back needs.
     let app = launch("-v2", "YES", "-long-part")
@@ -1003,7 +1004,7 @@ final class V2FlowTests: XCTestCase {
       XCTAssertTrue(strip.isHittable, "no \(id) on the fish's page")
       let first = strip.buttons.firstMatch, y = strip.frame.midY
       let middle = app.frame.width * 0.6
-      for (from, name) in [(middle, "its middle"), (44, "a thumb's width in"), (24, "just past the edge's 20 points")] {
+      for (from, name) in [(middle, "its middle"), (44, "a thumb's width in"), (24, "just past the screen's edge")] {
         let start = first.frame.minX
         pan(from, y, -160)
         XCTAssertLessThan(first.frame.minX, start - 40, "\(id) didn't scroll left from \(name)")

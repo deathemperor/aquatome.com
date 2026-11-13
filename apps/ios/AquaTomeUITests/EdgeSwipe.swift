@@ -61,7 +61,7 @@ extension XCTestCase {
             // Settled: a touch on a page still gliding stops it first, a swipe's start taken.
             Thread.sleep(forTimeInterval: 1)
           }
-          edgeSwipe(app, pace, at: dy, fast: fast)
+          edgeSwipe(app, pace, at: offRows(app, dy), fast: fast)
           tried += 1
           if !shown.waitForNonExistence(timeout: 5) {
             missed.append("\(scrolled ? "scrolled" : "as opened") \(Int(dy * 100))% \(pace)")
@@ -72,6 +72,17 @@ extension XCTestCase {
       }
     }
     return (tried, missed)
+  }
+
+  /// A height down the screen, moved just past a row that scrolls sideways if it lands on one: in this build such a row
+  /// takes a swipe from the very edge, as iOS has it (the chief of staff's fallback, 13 Nov; `testFromTheLeftEdgeOverASidewaysRowThePageGoesBack`).
+  func offRows(_ app: XCUIApplication, _ dy: CGFloat) -> CGFloat {
+    let h = app.frame.height, y = h * dy
+    guard let row = app.scrollViews.allElementsBoundByIndex.first(where: {
+      $0.frame.height < h * 0.5 && $0.frame.width > app.frame.width * 0.8 && $0.frame.minY - 8 <= y && y <= $0.frame.maxY + 8
+    }) else { return dy }
+    let below = row.frame.maxY + 16
+    return (below < h * 0.95 ? below : row.frame.minY - 16) / h
   }
 
   /// iOS's own swipe from the left edge takes a page back from anywhere down the edge, every time: on the page as it opens

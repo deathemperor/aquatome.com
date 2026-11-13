@@ -32,9 +32,10 @@ struct PageLeaves: UIViewControllerRepresentable {
 /// edge, 0 of 6 back (27.2, 12 Nov); a row waiting for iOS's swipes instead lost its rightward scroll to them (13 Nov).
 /// Nothing set on iOS's swipes.
 struct YieldsToEdgeSwipe: UIViewRepresentable {
-  /// Off: rows as iOS has them, taking a swipe that starts over them at the very edge (the fallback the chief of staff
-  /// kept one switch away, 13 Nov).
-  static let on = true
+  /// Off in this build: rows as iOS has them, taking a swipe that starts over them at the very edge. On, the swipe from
+  /// the edge still didn't go back over a row, 0 of 12 (27.2, 13 Nov); the chief of staff's fallback ships, and the piece
+  /// is reworked later.
+  static let on = false
   func makeUIView(context: Context) -> Finder { Finder() }
   func updateUIView(_ view: Finder, context: Context) {}
 
