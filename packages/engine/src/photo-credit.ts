@@ -10,7 +10,7 @@ export type CreditKind = (typeof CREDIT_KINDS)[number]
 const ORG_TLD = /^(org|edu|gov|int|ac|museum)$/i
 const DOMAIN = /\b[a-z0-9][a-z0-9-]*(?:\.[a-z0-9-]+)*\.([a-z]{2,})(?:\/\S*)?$/i
 const ORGANISATION = /soci(?:ety|edad|edade|été|età)|associa|asociaci|verein|\bclub\b|institut|museum|museo|universi|college|foundation|funda[cç]|council|department|ministry|\bwiki|project|projeto|proyecto|^pro-|network|portal|\bgroup\b|\bteam\b|\bcent(?:re|er)\b|survey|conservation|biodiversity|fisheries|research|\bestudios\b/i
-const BUSINESS = /photograph(?:y|ie|ers)|(?:photo|foto)s?$|pix\b|\bstudio\b|\bltd\b|\bgmbh\b|\binc\b|\bllc\b|\baquari(?:um|a|stik)s?\b|\baquatics?\b|\bshop\b|\bstore\b|\btrading\b|\bimports?\b|\bexports?\b|\bfarm\b|\bhatchery\b|consult|\bimages\b|\bmedia\b/i
+const BUSINESS = /photograph(?:y|ie|ers)|(?:photo|foto)s?$|pix\b|\bstudio\b|\bltd\b|\bgmbh\b|\binc\b|\bllc\b|\baquari(?:um|a|stik)s?\b|\baquatics?\b|\bshop\b|\bstore\b|\btrading\b|\bimports?\b|\bexports?\b|\bfarm\b|\bhatchery\b|consult|\bimages\b|\bmedia\b|\bco\.|\bcompany\b|\bcorp(?:oration)?\b/i
 // "Photography" and "Photographers" name a business; "Photographer" alone is a person's trade, as in a credit's "Photographer <name>".
 /** Dotted capitals ("A.B.C."); plain capitals ("ABC") may be a person's initials, so they stay unclear. */
 const DOTTED = /^(?:[A-Z]\.){2,6}$/

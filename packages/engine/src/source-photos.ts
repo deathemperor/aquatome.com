@@ -9,7 +9,8 @@ import { ARTWORK } from './photos'
 
 export type Media = { urlFor: (key: string) => string; put: (key: string, bytes: Uint8Array) => Promise<{ url: string; thumb?: string; width: number; height: number }> }
 /** Layout dimensions are never a file size. Filename alternatives wait for retrieval before collapsing. */
-type Picked = PageImage & { probe?: boolean; extra?: boolean; minWidth?: number; alternatives?: Picked[] }
+/** `credits`: what the page prints under this address where it shows it again (the picture's credit, whichever showing carries it). */
+type Picked = PageImage & { probe?: boolean; extra?: boolean; minWidth?: number; alternatives?: Picked[]; credits?: string[] }
 /** At most four extra requests per page: newly eligible layout sizes and fallback addresses share this budget. */
 const EXTRA_DOWNLOADS = 4
 const THUMBNAIL = /\/(?:icons?|thumbs?|thumbnails?)\//i
@@ -45,9 +46,10 @@ function linksElsewhere(link: string, pageUrl: string) {
 
 /**
  * Best photos from a source page: real photos (not chrome), big enough, about the subject; the subject itself before scenery.
- * `skip`: photos we take no more (`heldBack`), passed over before the page's `max` places are counted, so they hold none.
+ * `take` (`mayTake`): photos we take no more are passed over before the page's `max` places are counted, so they hold
+ * none, and one the page shows whose credit we'd take no more keeps its place.
  */
-export function pickSourcePhotos(images: PageImage[], pageUrl: string, names: string[], max = 4, kind: 'subject' | 'guide' = 'subject', minWidth = MIN_WIDTH, skip?: (img: Picked) => boolean): Picked[] {
+export function pickSourcePhotos(images: PageImage[], pageUrl: string, names: string[], max = 4, kind: 'subject' | 'guide' = 'subject', minWidth = MIN_WIDTH, take?: (img: Picked) => Take): Picked[] {
   const terms = [...new Set(names.flatMap(n => [n.toLowerCase(), ...n.toLowerCase().split(/\s+/).filter(w => w.length >= 4)]))]
   const seen = new Map<string, Picked>()
   const seenAlt = new Set<string>()
@@ -77,7 +79,10 @@ export function pickSourcePhotos(images: PageImage[], pageUrl: string, names: st
     // Photos from pages of their own share captions ("Hoplisoma sterbai") without being copies.
     const duplicate = seen.get(key)
     if (duplicate) {
-      if (src !== duplicate.src && !duplicate.alternatives?.some(a => a.src === src)) (duplicate.alternatives ??= []).push(picked)
+      const again = [duplicate, ...(duplicate.alternatives ?? [])].find(a => a.src === src)
+      const credit = img.credit ?? img.author
+      if (!again) (duplicate.alternatives ??= []).push(picked)
+      else if (credit) (again.credits ??= []).push(credit)
       continue
     }
     if (altKey && !img.page && seenAlt.has(altKey)) continue
@@ -88,9 +93,12 @@ export function pickSourcePhotos(images: PageImage[], pageUrl: string, names: st
     seen.set(key, picked)
     ranked.push({ img: picked, score: score - (hint ? 0 : 0.25) })
   }
-  // Skipped once every copy of a photo is known: a photo held back under any of its addresses holds no place.
-  const ordered = ranked.map((r, i) => ({ ...r, i })).sort((a, b) => b.score - a.score || a.i - b.i).map(r => r.img).filter(img => !skip?.(img))
-  return [...ordered.filter(i => !i.extra).slice(0, max), ...ordered.filter(i => i.extra)]
+  // Judged once every copy of a photo is known: a photo held back under any of its addresses holds no place, and one the
+  // page shows that we'd take no more keeps its own, so the places left go to the rest in rank order.
+  const ordered = ranked.map((r, i) => ({ ...r, i })).sort((a, b) => b.score - a.score || a.i - b.i).map(r => ({ img: r.img, t: take?.(r.img) ?? 'yes' })).filter(r => r.t !== 'no')
+  const normal = ordered.filter(r => !r.img.extra)
+  let free = max - normal.filter(r => r.t === 'shown').length
+  return [...normal.filter(r => r.t === 'shown' || free-- > 0), ...ordered.filter(r => r.img.extra)].map(r => r.img)
 }
 
 /**
@@ -148,19 +156,25 @@ export function creditCover(credit: string | undefined, sourceName: string, term
 /** Where a source photo is kept in our media bucket: its address hashed, under the source's folder. */
 export const photoKey = (source: SourceId, src: string) => `${source}/${createHash('sha256').update(src).digest('hex').slice(0, 16)}.webp`
 
+/** Whether we take a picked photo: 'yes'; 'shown', only under an address the page already shows (`existing`); or 'no'. */
+export type Take = 'yes' | 'shown' | 'no'
+
 /**
- * A photo a source page still shows that we take no more: one taken off the site before (engine-state/_photo-rejected.json:
- * a mark, another species) under any of its addresses, one whose credit is never covered, or a new one whose credit is not
- * covered yet (`existing`: the page's photos, which keep theirs). For `pickSourcePhotos`' `skip` (Paraphanius mento,
- * 2026-11-13: four photos taken off for a mark held its four places at every read, so its six others were never tried
- * and the page stayed empty).
+ * A photo a source page still shows that we take no more ('no'): one taken off the site before
+ * (engine-state/_photo-rejected.json: a mark, another species) under any of its addresses, or one whose credit is never
+ * covered. One whose credit is not covered yet is 'shown': the page keeps it under the address it shows, and a page that
+ * doesn't show it takes none of its copies. A credit is the picture's, whichever of its copies or showings carries it.
+ * For `pickSourcePhotos` (Paraphanius mento, 2026-11-13: four photos taken off for a mark held its four places at every
+ * read, so its six others were never tried and the page stayed empty) and the store.
  */
-export const heldBack = (source: SourceId, sourceName: string, deps: CreditTerms & { media: Pick<Media, 'urlFor'>; blocked?: Record<string, string> }, existing: readonly { url: string }[] = []) => (img: Picked): boolean => {
+export const mayTake = (source: SourceId, sourceName: string, deps: CreditTerms & { media: Pick<Media, 'urlFor'>; blocked?: Record<string, string> }, existing: readonly { url: string }[] = []) => (img: Picked): Take => {
   const copies = [img, ...(img.alternatives ?? [])]
   const urls = copies.map(i => deps.media.urlFor(photoKey(source, i.src)))
-  if (urls.some(u => deps.blocked?.[u])) return true
-  const cover = copies.map(i => creditCover(i.credit ?? i.author, sourceName, deps))
-  return cover.includes('never') || (cover.includes('not yet') && !existing.some(p => urls.includes(p.url)))
+  if (urls.some(u => deps.blocked?.[u])) return 'no'
+  const cover = copies.flatMap(i => [i.credit ?? i.author, ...(i.credits ?? [])]).map(c => creditCover(c, sourceName, deps))
+  if (cover.includes('never')) return 'no'
+  if (!cover.includes('not yet')) return 'yes'
+  return existing.some(p => urls.includes(p.url)) ? 'shown' : 'no'
 }
 
 /** A stored photo and the source heading it sat under (guide-sections.ts turns that into the guide's own heading). */
@@ -178,9 +192,14 @@ export async function storeSourcePhotos(
   const out: SourcePhoto[] = []
   let extra = 0
   const keyFor = (src: string) => photoKey(source, src)
-  const held = heldBack(source, sourceName, deps, existing)
-  // A photo held back is known before any request: none is made for it.
-  const groups = picked.map(first => ({ images: [first, ...(first.alternatives ?? [])], done: held(first) }))
+  const take = mayTake(source, sourceName, deps, existing)
+  const shows = (img: Picked) => existing.some(p => p.url === deps.media.urlFor(keyFor(img.src)))
+  // A photo held back is known before any request: none is made for it, nor for a copy the page doesn't show of one it
+  // keeps only as it shows it.
+  const groups = picked.map(first => {
+    const t = take(first), images = [first, ...(first.alternatives ?? [])]
+    return { images: t === 'shown' ? images.filter(shows) : images, done: t === 'no' }
+  })
   // All normal requests finish first. Fallbacks and newly eligible photos share the extra turn and its budget.
   for (const extraTurn of [false, true]) for (const group of groups) {
     if (group.done) continue

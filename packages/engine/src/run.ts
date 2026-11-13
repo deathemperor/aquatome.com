@@ -20,7 +20,7 @@ import { readVarietyPages, recordVarietyPage } from './species-sources'
 import { rewriteVi, VI_WRITE } from './vi-rewrite'
 import { QUALITY_THRESHOLD, gate, reviewTranslation, steadyRead, WRITER_BAND } from './quality'
 import { logReviews, type Review } from './review-log'
-import { heldBack, linkedPhotos, pickSourcePhotos, storeSourcePhotos, type CreditTerms, type Media } from './source-photos'
+import { linkedPhotos, mayTake, pickSourcePhotos, storeSourcePhotos, type CreditTerms, type Media } from './source-photos'
 import { snapshotHash, writeSnapshot } from './snapshot'
 import { ARCHIVE_POLITE, ArchiveRefused } from './archive'
 import { SOURCES, sourceById, type SourceConfig } from './sources'
@@ -262,7 +262,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     const terms = sourceNames[source]?.permission
     const photoDeps = { bytes, media: deps.media, blocked, refusedCredits: terms?.refusedCredits, coveredCredits: terms?.coveredCredits }
     const sourcePhotos = (names: string[], existing: Photo[], max?: number) =>
-      storeSourcePhotos(source, sourceName, url, pickSourcePhotos(images, url, names, max, page.kind === 'guide' ? 'guide' : 'subject', minWidth, heldBack(source, sourceName, photoDeps, existing)), photoDeps, existing, max ?? 4)
+      storeSourcePhotos(source, sourceName, url, pickSourcePhotos(images, url, names, max, page.kind === 'guide' ? 'guide' : 'subject', minWidth, mayTake(source, sourceName, photoDeps, existing)), photoDeps, existing, max ?? 4)
     const log = (kind: ChangelogEntry['kind'], id: string, existed: boolean) => {
       const e: ChangelogEntry = { date: now, kind, id, source, action: existed ? 'updated' : 'new' }
       report.changed.push(e)

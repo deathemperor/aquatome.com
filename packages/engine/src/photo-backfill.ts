@@ -5,7 +5,7 @@ import { htmlToOutline, isChallenge } from './outline'
 import { mergePhotos } from './run'
 import { SOURCES, sourceById } from './sources'
 import { sourcesOnArchive } from './state'
-import { heldBack, linkedPhotos, pickSourcePhotos, storeSourcePhotos, type CreditTerms, type Media } from './source-photos'
+import { linkedPhotos, mayTake, pickSourcePhotos, storeSourcePhotos, type CreditTerms, type Media } from './source-photos'
 import { withSections } from './guide-sections'
 import { WRITTEN_OTHER_LANGS } from '@aq/schema/langs'
 
@@ -93,7 +93,7 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
           const name = names[source]?.name ?? source
           const terms = names[source]?.permission
           const photoDeps = { bytes: polite(source, d.bytes), media: d.media, blocked, refusedCredits: terms?.refusedCredits, coveredCredits: terms?.coveredCredits }
-          const picked = pickSourcePhotos(images, url, e.scientificName ? [e.scientificName] : [], max, kind === 'guides' ? 'guide' : 'subject', src.minPhotoWidth, heldBack(source, name, photoDeps, e.photos))
+          const picked = pickSourcePhotos(images, url, e.scientificName ? [e.scientificName] : [], max, kind === 'guides' ? 'guide' : 'subject', src.minPhotoWidth, mayTake(source, name, photoDeps, e.photos))
           const stored = await storeSourcePhotos(source, name, url, picked, photoDeps, e.photos, max)
           if (stored.length && kind === 'guides') {
             const body = async (l: string) => (JSON.parse(await readFile(join(root, 'content', kind, id, `${l}.json`), 'utf8').catch(() => '{}')) as { body?: string }).body
