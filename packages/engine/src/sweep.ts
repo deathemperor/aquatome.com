@@ -241,10 +241,10 @@ async function refusedByCredit(root: string, content: string): Promise<Map<strin
   const refused = new Map(Object.entries(records).flatMap(([s, r]) => (r.permission?.refusedCredits?.length ? [[s, r.permission.refusedCredits.map(alnum)] as const] : [])))
   const out = new Map<string, string>()
   if (!refused.size) return out
-  const lines = new Map<string, Set<string>>()
+  const lines = new Map<string, string[]>()
   const saved = async (source: string, url: string) => {
     const k = `${source} ${url}`
-    if (!lines.has(k)) lines.set(k, new Set((await readFile(join(root, 'sources', source, `${snapshotName(url)}.md`), 'utf8').catch(() => '')).split('\n').map(alnum).filter(Boolean)))
+    if (!lines.has(k)) lines.set(k, (await readFile(join(root, 'sources', source, `${snapshotName(url)}.md`), 'utf8').catch(() => '')).split('\n').map(alnum).filter(Boolean))
     return lines.get(k)!
   }
   const entities = async (kind: string) => (await readdir(join(content, kind)).catch(() => [] as string[])).sort().map(id => join(content, kind, id, 'entity.json'))
@@ -256,9 +256,12 @@ async function refusedByCredit(root: string, content: string): Promise<Map<strin
       const caption = alnum(p.caption ?? '')
       if (!credits || !caption || out.has(p.url)) continue
       const have = await saved(p.source!, p.sourceUrl)
-      // The caption under a credit: what follows it is a name's length, not a sentence that starts with the same words.
-      const lines = [...have].filter(l => l.startsWith(caption) && l.length - caption.length <= 60)
-      if (lines.length && lines.every(l => credits.some(c => l === caption + c))) out.set(p.url, `rejected: credited to someone its source's permission doesn't cover (${file.slice(content.length + 1)})`)
+      // The caption under a credit, in the page's order: what follows it is a name's length, not a sentence that starts
+      // with the same words. A line that ends with a refused credit after more words is another figure's longer caption,
+      // not a say on this one. The picker keeps the first figure of a caption, so the first line left is this photo's
+      // (the independent reader, 2026-11-13: three agency photos stayed while a later figure's credit was another's).
+      const lines = have.filter(l => l.startsWith(caption) && l.length - caption.length <= 60).filter(l => credits.some(c => l === caption + c) || !credits.some(c => l.endsWith(c)))
+      if (lines.length && credits.some(c => lines[0] === caption + c)) out.set(p.url, `rejected: credited to someone its source's permission doesn't cover (${file.slice(content.length + 1)})`)
     }
   }
   return out
