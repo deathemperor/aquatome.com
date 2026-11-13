@@ -80,6 +80,18 @@ test('a call slow to make its process group is still watched, and stopped at its
   expect(r.seconds).toBeLessThan(10)
 })
 
+// A call that ends before it makes its group is reaped, and its pid may go to another program: one whose parent isn't the
+// shell that started the call is never stopped. `ps` here says another program has the call's pid.
+test('before its group is made, a pid whose parent isn\'t the calling shell is not the call\'s, and is never stopped', () => {
+  const { h, env, exe } = home()
+  mkdirSync(join(h, 'perl5'))
+  writeFileSync(join(h, 'perl5', 'Slow.pm'), 'package Slow; sleep 2; 1;\n')
+  exe('ps', 'echo "    1"')
+  const slow = { ...env, GIT_NET_SECONDS: '1', PERL5LIB: join(h, 'perl5'), PERL5OPT: '-MSlow', AQ_CLOCK: exe('clock', 'echo "$(date +%s) 0"') }
+  const r = net(h, slow, 'sleep 1')
+  expect(r.out).toEqual(['status 0'])
+})
+
 test('every call the cycle makes to GitHub has the limit', () => {
   for (const file of ['engine-cycle.sh', 'cycle-checks.sh']) {
     const bare = readFileSync(join(SCRIPTS, file), 'utf8').split('\n').filter(l => !/^\s*#/.test(l) && /(^|[^\w/-])git (fetch|pull|push|ls-remote|clone) /.test(l.replace(/net git /g, '')))

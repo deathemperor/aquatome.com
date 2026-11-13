@@ -27,7 +27,7 @@ clock() {
 # the limit the call is stopped, the log says so (and how long the Mac slept in it), and it fails as a refused fetch or
 # push does: the opening fetch ends the cycle, which frees the next run (finish reports it to GitHub, engine-mac.yml).
 net() {
-  local limit="${GIT_NET_SECONDS:-600}" job dog status=0 stopped=0 t0 z0 t1 z1 slept why
+  local limit="${GIT_NET_SECONDS:-600}" job dog me status=0 stopped=0 t0 z0 t1 z1 slept why
   read -r t0 z0 < <(clock)
   # In a process group of its own, so the stop reaches what it started too (git pull's fetch, ssh, a merge driver).
   perl -e 'setpgrp(0, 0); exec { $ARGV[0] } @ARGV or die "$ARGV[0]: $!\n"' "$@" &
@@ -42,11 +42,15 @@ net() {
   # second: looking each second added a second to every call, and a cycle makes dozens.
   # Until the call's group is made, it watches (and stops) the call by its pid: perl slow to start makes the group late,
   # and a watchdog that looked for the group alone ended at its first look and left the call with no limit (Astra's
-  # read). Once the group is seen, the group alone, so a pid used again by another program is never touched.
+  # read). Then only while that pid is still a child of the shell that started it (`me`): a call that ended before making
+  # its group is reaped by this shell, its pid may go to another program, and this shell starts nothing while it waits,
+  # so a pid with another parent isn't the call's (Astra's read). Once the group is seen, the group alone.
+  me=$(exec sh -c 'echo $PPID')
   ( set +e
     seen=
-    alive() { if kill -0 -- -"$job" 2>/dev/null; then seen=1; return 0; fi; [ -z "$seen" ] && kill -0 "$job" 2>/dev/null; }
-    stop() { kill -"$1" -- -"$job" 2>/dev/null || { [ -n "$seen" ] || kill -"$1" "$job" 2>/dev/null; }; }
+    ours() { local p; p=$(ps -o ppid= -p "$job" 2>/dev/null) && [ "${p// /}" = "$me" ]; }
+    alive() { if kill -0 -- -"$job" 2>/dev/null; then seen=1; return 0; fi; [ -z "$seen" ] && ours; }
+    stop() { kill -"$1" -- -"$job" 2>/dev/null || { [ -z "$seen" ] && ours && kill -"$1" "$job" 2>/dev/null; }; }
     n=0
     while sleep 0.1; do
       alive || exit 0
