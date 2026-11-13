@@ -40,6 +40,12 @@ export type AppItem = {
   img?: string
   /** Where the fish is in `img` (a fish's or a breed's), once the site's switch for it is on: protocols/photo-crop-vectors.json. */
   imgBox?: Box
+  /**
+   * A fish's or breed's small photo where `img` can't carry it, none of its photos fitting a card (photoFitsCard, or one
+   * the site leads whole): its page's first, for a reader that draws it whole by the one rule for whole frames
+   * (protocols/whole-frame-vectors.json). An app that doesn't know it gets the same item as before. Never with `img`.
+   */
+  imgWhole?: { src: string; w: number; h: number }
   /** A fish's short silent loop, real footage of it (content/curation.json `loops`): for cards and its page. */
   loop?: Loop
   /** A guide's subject, as the guide list groups them (GuideEntity['kind']: setup, care, plantCare, …). */
@@ -202,6 +208,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   const leadOf = (photos: Photo[]) => photos.find(p => !p.generated && p.headFit !== 'contain' && photoFitsCard(p))
   const img = (photos: Photo[]) => { const p = leadOf(photos); return p ? smallSrc(p) : undefined }
   const imgBox = (photos: Photo[]) => { const p = leadOf(photos); return p && resizeOf(p, smallSrc(p)) ? boxFractions(p) : undefined }
+  const imgWhole = (photos: Photo[]) => { const p = leadOf(photos) ? undefined : photos.find(p => !p.generated); return p && { src: smallSrc(p), w: Math.round(p.width), h: Math.round(p.height) } }
   const aka = (names: string[]) => (names.length ? names : undefined)
   const items: AppItem[] = []
   const home: AppHome = { groups: [], fish: [], plants: [], guides: [] }
@@ -235,7 +242,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
       const life = resolveDataCard(s.dataCard.lifeYears ?? [], 'lifeYears')?.value
       const lifeYears = life === undefined ? undefined : typeof life === 'number' ? { min: life, max: life } : life
       items.push(clean({
-        kind: 'fish', id: s.id, name: s.t.name, sub: s.scientificName, aka: aka(s.t.altNames), path: at(`/vi/ca/${s.t.slug}/`), img: img(s.photos), imgBox: imgBox(s.photos), loop: loopOf(cur?.calendar ?? null, s.id), group: groupOf.get(s.id),
+        kind: 'fish', id: s.id, name: s.t.name, sub: s.scientificName, aka: aka(s.t.altNames), path: at(`/vi/ca/${s.t.slug}/`), img: img(s.photos), imgBox: imgBox(s.photos), imgWhole: imgWhole(s.photos), loop: loopOf(cur?.calendar ?? null, s.id), group: groupOf.get(s.id),
         tax: taxa ? [s.order, s.family, s.genus] : undefined, from: from.length ? from : undefined, lifeYears, range: appRange(s.range, regionName), ...facts,
       }))
     }
@@ -247,7 +254,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
       const card = breedFigures(b)
       const { tempC, ph, gh, sizeCm, tankCm, difficulty } = card
       items.push(clean({
-        kind: 'fish', id: b.id, name: b.t.name, aka: aka(b.t.altNames), path: at(`/vi/ca/${b.t.slug}/`), img: img(b.photos), imgBox: imgBox(b.photos), loop: loopOf(cur?.calendar ?? null, b.id), group: breedGroup(b, groupOf, c.breeds),
+        kind: 'fish', id: b.id, name: b.t.name, aka: aka(b.t.altNames), path: at(`/vi/ca/${b.t.slug}/`), img: img(b.photos), imgBox: imgBox(b.photos), imgWhole: imgWhole(b.photos), loop: loopOf(cur?.calendar ?? null, b.id), group: breedGroup(b, groupOf, c.breeds),
         of, card: Object.keys(card).length ? card : undefined, ...(of ? {} : { tempC, ph, gh, sizeCm, tankCm, difficulty }),
       }))
     }

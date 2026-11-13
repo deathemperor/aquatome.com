@@ -53,6 +53,15 @@ const headImage = (lang:Lang,p:Photo|undefined,alt:string) => {
   const box = img && boxFractions(p!)
   return img && box ? { ...img, box } : img
 }
+/**
+ * The page's head where `lead` can't carry it (`leadWhole`, packages/schema/src/app-page.ts): the first photo headImage
+ * leaves out, for a reader that draws it whole. An app that doesn't know the field gets the same page as before.
+ */
+const head = (lang: Lang, p: Photo | undefined, alt: string) => {
+  const lead = headImage(lang, p, alt)
+  const whole = !lead && image(lang, p, alt)
+  return lead ? { lead } : whole ? { leadWhole: whole } : {}
+}
 /** A link to a page as this language's page has it: to its own page, none (the text alone) when it has none. */
 const linked = (lang: Lang, text: string, viPath: string): Inline => (served(lang, viPath) ? { text, href: appPath(lang, viPath) } : text)
 
@@ -189,7 +198,7 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
   const { num } = fmt(lang)
   const at = (viPath: string) => appPath(lang, viPath)
   const p = await speciesParts(lang, c, s)
-  const lead = headImage(lang, s.photos[0], `${s.t.name}, ${s.scientificName}`)
+  const lead = head(lang, s.photos[0], `${s.t.name}, ${s.scientificName}`)
   const sources = [...new Set(s.sections.map(x => c.sources[x.source]?.name ?? x.source))].join(', ')
   const { blocks: text } = sectionBlocks(lang, c, { sections: p.text.sections, t: p.text.t, self: `species:${s.id}`, selfNames: [s.scientificName, s.t.name, ...s.t.altNames], figures: p.figures.map(photo => ({ photo })), card: s.dataCard, range: { id: s.id, name: s.t.name, range: s.range }, refs: s.refs })
   // "Nuôi chung" (Companions.astro): the fish to keep with it and away from it; with neither, the tool's link alone.
@@ -228,7 +237,7 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
     where: p.country ? [`${s.family}, `, linked(lang, p.country.t.name, `/vi/nguon-goc/${p.country.parent}/${p.country.id}/`)] : [s.family],
     ...(s.t.altNames.length ? { aka: t('Tên khác: {names}', { names: s.t.altNames.join(', ') }) } : {}),
     ...(p.firstSource ? { credit: p.researched ? [`${t('AquaTome tổng hợp từ')} `, { text: t('{n} nguồn', { n: p.researched }), href: '#nguon' }, ` ${t('rồi tự viết')}.`] : [t('Dịch và tổng hợp từ {sources}. Cập nhật {date}.', { sources, date: s.updatedAt })] } : {}),
-    ...(lead ? { lead } : {}),
+    ...lead,
     talk: { comments: commentsKey(lang, `species:${s.id}`), photos: photosKey(`species:${s.id}`) },
     blocks: [
       ...trustBlock(t, lang, p.card as SpeciesEntity['dataCard'], p.sources),
@@ -255,7 +264,7 @@ export function breedDoc(lang: Lang, c: Content, b: Breed, listed: Set<string>):
   const t = translator(lang)
   const at = (viPath: string) => appPath(lang, viPath)
   const p = breedParts(lang, c, b)
-  const lead = headImage(lang, b.photos[0], b.t.name)
+  const lead = head(lang, b.photos[0], b.t.name)
   const kind = t(BREED_KIND[b.kind])
   const parents: Block[] = p.parents.length ? [{
     t: 'p', c: [`${t('Lai từ:')} `, ...p.parents.flatMap((x, i): Inline[] => [
@@ -276,7 +285,7 @@ export function breedDoc(lang: Lang, c: Content, b: Breed, listed: Set<string>):
     where: p.parent && b.kind === 'variety' ? [`${kind}${t(', dòng của')} `, { text: p.parent.name, href: at(p.parent.href) }] : [kind],
     ...(b.t.altNames.length ? { aka: t('Tên khác: {names}', { names: b.t.altNames.join(', ') }) } : {}),
     credit: [t('AquaTome tổng hợp từ {n} nguồn (người lai tạo, bài viết, diễn đàn) rồi tự viết. Cập nhật {date}.', { n: b.sources.length, date: dmy(b.updatedAt) })],
-    ...(lead ? { lead } : {}),
+    ...lead,
     // Readers' photos on the Vietnamese page alone, as the page has them.
     talk: { comments: commentsKey(lang, p.key), ...(lang === 'vi' ? { photos: photosKey(p.key) } : {}) },
     blocks: [
@@ -301,7 +310,7 @@ export function breedDoc(lang: Lang, c: Content, b: Breed, listed: Set<string>):
 export function plantDoc(lang: Lang, c: Content, p: Localized<PlantEntity>, listed: Set<string>): PageDoc {
   const t = translator(lang)
   const parts = plantParts(lang, c, p)
-  const lead = headImage(lang, p.photos[0], `${p.t.name}, ${p.scientificName}`)
+  const lead = head(lang, p.photos[0], `${p.t.name}, ${p.scientificName}`)
   const { blocks: text } = sectionBlocks(lang, c, { sections: p.sections, t: p.t, self: `plant:${p.id}`, selfNames: [p.scientificName, p.t.name, ...p.t.altNames], figures: parts.figures.map(photo => ({ photo })), co2: p.co2, refs: p.refs })
   return {
     v: PAGE_VERSION,
@@ -310,7 +319,7 @@ export function plantDoc(lang: Lang, c: Content, p: Localized<PlantEntity>, list
     title: p.t.name,
     sub: p.scientificName,
     ...(p.t.altNames.length ? { aka: t('Tên khác: {names}', { names: p.t.altNames.join(', ') }) } : {}),
-    ...(lead ? { lead } : {}),
+    ...lead,
     talk: { comments: commentsKey(lang, `plant:${p.id}`) },
     blocks: [
       ...galleryBlock(lang, c.sources, p.t.name, parts.gallery, parts.strip, parts.galleryPath),
