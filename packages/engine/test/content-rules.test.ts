@@ -5,7 +5,7 @@ import { expect, test } from 'vitest'
 import {
   blocks, cardSlips, checkPages, gluedSyllables, claimsControl, countMismatch, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, emptySections, englishSentences, fixStored, fixTranslation, furniture,
   imperialUnits, isPermissionNote, labelSlips, leftoverMarkup, longFurniture, namesSource, numberSlips, otherFish, plainEntities, ratcheted, renumberLabels, RULES, rulesReport, sfScoreFixed, sourcePagePhrases, stripCount,
-  renameStored, renameSwapped, swappedNames, titleCount, unwellOff, vietnameseLeft, wrongFish, captionFlaw, type Ctx,
+  renameStored, renameFishNames, renameSwapped, swappedNames, titleCount, unwellOff, vietnameseLeft, wrongFish, captionFlaw, type Ctx,
 } from '../src/content-rules'
 import { pagePath, pageUrl, type Page } from '../src/pages'
 import { phraseSlips } from '../src/phrases'
@@ -661,6 +661,66 @@ test.each([
   // A sentence that doesn't name it: the page's tankmates.
   'Những loài nuôi chung rất hợp gồm rasbora nhỏ, cá chuột lùn và các loài cá cầu vồng hiền khác.',
 ])('a rainbowfish beside the blue-eye is neither listed nor renamed: %s', text => {
+  expect(swappedNames(text)).toEqual([])
+  expect(renameSwapped(text)).toBe(text)
+})
+// The owner, 2026-11-13: "is often táo đỏ" and "This is commonly called bèo nhật". A page's old name, and a name made by
+// translating an English one, are its name now wherever written, unless another species stands beside them.
+test.each([
+  ['Cá cầu vồng đỏ (Red rainbowfish, Glossolepis incisus): 5 năm', 'Cá táo đỏ (Red rainbowfish, Glossolepis incisus): 5 năm'],
+  ['<h3>10. Cá cầu vồng đỏ Irian</h3><p>Cá cầu vồng đỏ, hay cá cầu vồng đỏ Irian, sống ở hồ Sentani.</p>', '<h3>10. Cá táo đỏ Irian</h3><p>Cá táo đỏ, hay cá táo đỏ Irian, sống ở hồ Sentani.</p>'],
+  ['Cho con cá cầu vồng đỏ ăn trùng huyết.', 'Cho con cá táo đỏ ăn trùng huyết.'],
+  ['Bèo tây Nam Mỹ (Limnobium laevigatum) nổi trên mặt nước.', 'Bèo Nhật (Limnobium laevigatum) nổi trên mặt nước.'],
+  ['Thả vài cây bèo nhím Nam Mỹ cho cá trốn.', 'Thả vài cây bèo Nhật cho cá trốn.'],
+])('a named fish or plant takes its name wherever written: %s', (before, after) => {
+  expect(swappedNames(before)).not.toEqual([])
+  expect(renameSwapped(before)).toBe(after)
+  expect(renameFishNames(before)).toBe(after)
+  expect(swappedNames(after)).toEqual([])
+  expect(renameSwapped(after)).toBe(after)
+})
+test.each([
+  // Another species beside the same words, and the water hyacinth's own "bèo tây".
+  'Cá cầu vồng đỏ (Glossolepis pseudoincisus) sống ở sông Tami.',
+  'Bèo tây (Eichhornia crassipes) to hơn nhiều.',
+  'Cá táo đỏ và cá cầu vồng táo đỏ là một.',
+])('a page\'s old name beside another species, or words that only begin it, stay: %s', text => {
+  expect(swappedNames(text)).toEqual([])
+  expect(renameSwapped(text)).toBe(text)
+})
+
+// Astra's read of 2026-11-13: the kind's word goes with the words that name the fish, not the whole sentence; every
+// Pseudomugil, not one; read across tags and however it's spaced.
+test.each([
+  // Only the name tied to the fish: the other rainbowfish after the clause's end stay.
+  ['Pseudomugil luminatus là cá cầu vồng mắt xanh; cá cầu vồng khác cần bể lớn hơn.', 'Pseudomugil luminatus là cá mắt xanh; cá cầu vồng khác cần bể lớn hơn.'],
+  // Another blue-eye, by its name and by its letter.
+  ['Pseudomugil furcatus, thường gọi là cá cầu vồng mắt xanh, sống ở Papua New Guinea.', 'Pseudomugil furcatus, thường gọi là cá mắt xanh, sống ở Papua New Guinea.'],
+  ['Cá cầu vồng P. gertrudae đẻ trứng trên rêu.', 'Cá mắt xanh P. gertrudae đẻ trứng trên rêu.'],
+  // A rainbowfish in the sentence too: right beside its fish, the kind's word is the blue-eye's.
+  ['Cá cầu vồng chi Pseudomugil nhỏ hơn cá cầu vồng Melanotaenia.', 'Cá mắt xanh chi Pseudomugil nhỏ hơn cá cầu vồng Melanotaenia.'],
+  // The page's old name across a tag, and spaced any way.
+  ['<p>Cá cầu vồng neon đỏ <em>mắt xanh</em> (Pseudomugil luminatus) hiền.</p>', '<p>Cá mắt xanh neon đỏ (Pseudomugil luminatus) hiền.</p>'],
+  ['Nuôi cá cầu vồng  neon đỏ   mắt xanh cùng cá chuột.', 'Nuôi cá mắt xanh neon đỏ cùng cá chuột.'],
+])('the blue-eye\'s name goes where it names the fish: %s', (before, after) => {
+  expect(swappedNames(before)).not.toEqual([])
+  expect(renameSwapped(before)).toBe(after)
+  expect(swappedNames(after)).toEqual([])
+  expect(renameSwapped(after)).toBe(after)
+})
+test.each([
+  // Said not to be one, likened to one, set beside one.
+  'Pseudomugil luminatus không phải cá cầu vồng thật.',
+  'Pseudomugil gertrudae bơi như cá cầu vồng.',
+  'Nuôi Pseudomugil furcatus với cá cầu vồng.',
+  'Pseudomugil luminatus và cá cầu vồng đều thích nước cứng.',
+  // Far from the fish: the rainbowfish where it lives.
+  'Pseudomugil luminatus sống ở Papua New Guinea, nơi có nhiều loài cá cầu vồng sinh sống.',
+  // The page's old name beside another fish's scientific name is that fish's, for a person to read.
+  'Cá cầu vồng neon đỏ mắt xanh (Pseudomugil gertrudae) cũng đẹp.',
+  // 2026-11-07's probe: the Siamese algae eater beside its genus, the pencilfish set apart.
+  'Nannostomus và cá bút chì Xiêm (Crossocheilus) đều ăn rêu.',
+])('a rainbowfish that isn\'t the blue-eye stays as written: %s', text => {
   expect(swappedNames(text)).toEqual([])
   expect(renameSwapped(text)).toBe(text)
 })

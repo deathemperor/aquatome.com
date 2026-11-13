@@ -272,3 +272,15 @@ test('a name the page has with a note in brackets keeps the note; the same name 
   // "X (Y)" of two names the page has is still one name too many, and a name with no note beside it stays.
   expect(cleanAltNames(betta(['Cá xiêm', 'Cá chọi', 'Cá xiêm (cá chọi)'])).altNames).toEqual(['Cá xiêm', 'Cá chọi'])
 })
+
+// Astra, 2026-11-13: a name the chief of staff kept for a fish they renamed is kept whatever the cleaner makes of it, on
+// that fish's page alone. "Cá Noturus gladiator" reads as its scientific name with "Cá" before it.
+test('a renamed fish keeps the names the chief of staff kept for it; another fish\'s page is cleaned as before', () => {
+  const rows = [{ id: 'noturus-gladiator', sci: 'Noturus gladiator', was: 'Cá Noturus gladiator', name: 'Cá madtom gladiator' }]
+  const page = { name: 'Cá madtom gladiator', sci: 'Noturus gladiator', altNames: ['Cá Noturus gladiator', 'Piebald madtom', 'cá Noturus gladiator'] }
+  expect(cleanAltNames(page).altNames).not.toContain('Cá Noturus gladiator')
+  expect(cleanAltNames(page, [], rows).altNames).toEqual(['Piebald madtom', 'Cá Noturus gladiator'])
+  expect(cleanAltNames({ ...page, sci: 'Noturus nocturnus' }, [], rows).altNames).toEqual(cleanAltNames({ ...page, sci: 'Noturus nocturnus' }).altNames)
+  // The blue-eye's old name on its page.
+  expect(cleanAltNames({ name: 'Cá mắt xanh neon đỏ', sci: 'Pseudomugil luminatus', altNames: ['Red-Neon Blue-eye', 'Cá cầu vồng neon đỏ mắt xanh'] }).altNames).toEqual(['Red-Neon Blue-eye', 'Cá cầu vồng neon đỏ mắt xanh'])
+})

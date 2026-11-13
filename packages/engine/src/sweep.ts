@@ -7,11 +7,11 @@ import { loadAll, mayPublish, ownNumber, QUALITY_THRESHOLD, resolveDataCard, sho
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
-import { FISH_NAMES, type FishName } from './names'
+import { droppedName, FISH_NAMES, KIND_PASSAGES, type FishName, type KindPassage } from './names'
 import { withLNumber } from './l-numbers'
 import { pickStands, readPersonYes } from './person-yes'
 import type { PhotoVerdict } from './photo-check'
-import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, fixTranslation, isAdPoster, notAlive, isMap, unwellOff, NAMED_KINDS, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
+import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, fixTranslation, isAdPoster, notAlive, isMap, unwellOff, NAMED_KINDS, renameFishNames, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields } from './pages'
 import { sweepPlaceNames } from './place-names'
 import { sfDifficulty } from './process'
@@ -81,7 +81,11 @@ import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
  * - a fish's summary (content/summaries): the words Vietnamese readers write another way written their way (sanitize.ts
  *   viWording), as the page's own text has them (fixTranslation)
  * - a fish the chief of staff named (names.ts FISH_NAMES): its Vietnamese page takes the name, guarded (`nameFixed`), with
- *   the name it had among its other names; the address stays. Once guarded, a page is left as it is (nameFish)
+ *   the name it had among its other names; the address stays, or moves to the row's own with the old one forwarding.
+ *   Once guarded, a page is left as it is, but for the row's kept names a writer dropped (nameFish). Its old name in the
+ *   photos' captions too, their translations kept (renameCaptions)
+ * - a passage a person found calls a fish by another's kind where no rule can tell (names.ts KIND_PASSAGES): written as it
+ *   should be (kindPassages)
  * - a fish's old name, on a Vietnamese page, its summary or a buying guide: its name now, when the sentence says which fish
  *   it is, and a named fish's old page name wherever it is (content-rules.ts renameSwapped). A rename can't stop a publish
  *   that way, and what it leaves the tests list.
@@ -223,21 +227,88 @@ export const PHOTO_CAP = 10
 /**
  * Each fish the chief of staff named (names.ts FISH_NAMES): its Vietnamese page's name, guarded (`nameFixed`) so no later
  * step writes another, with the name it had, its old one and the row's others among its other names. The address stays.
- * A guarded page is left: done, or a person chose its name. The fish named, by id.
+ * A guarded page is left (done, or a person chose its name), but a page with the row's name gets back a kept name a
+ * writer dropped, and loses a dropped name a writer wrote again. A row may give a new address, the old one forwarding, and
+ * a plant's page is named the same way. The pages named or mended, as `<kind>/<id>`.
  */
 export async function nameFish(content: string, rows: readonly FishName[] = FISH_NAMES): Promise<string[]> {
   const named: string[] = []
   for (const r of rows) {
-    const file = join(content, 'species', r.id, 'vi.json')
+    const file = join(content, r.kind ?? 'species', r.id, 'vi.json')
     const raw = await readFile(file, 'utf8').catch(() => null)
     if (!raw) continue
-    const t = JSON.parse(raw) as Stored & { name: string; altNames: string[] }
-    if (t.nameFixed) continue
-    const altNames = [...new Set([...t.altNames, t.name, r.was, ...(r.alts ?? [])])].filter(n => n !== r.name)
-    await write(file, raw, { ...t, name: r.name, altNames, nameFixed: true })
-    named.push(r.id)
+    const t = JSON.parse(raw) as Stored & { name: string; altNames: string[]; slug: string; redirectFrom?: { slug: string; name: string }[] }
+    // Guarded: a person named it, and it's left; or this step did, and its kept names come back if a writer dropped them.
+    const keep = [r.was, ...(r.alts ?? [])].filter(n => n !== r.name && !droppedName(r, n))
+    // A new address: the old one forwards to it, its note the old name, or none when the old name is dropped (apps/site
+    // renamed.ts: a forward with no name adds no search name).
+    const moved = r.slug && t.slug !== r.slug && !t.nameFixed
+      ? { slug: r.slug, redirectFrom: [...(t.redirectFrom ?? []).filter(x => x.slug !== t.slug && x.slug !== r.slug), { slug: t.slug, name: droppedName(r, r.was) ? '' : r.was }] } : {}
+    if (t.nameFixed) {
+      // This step's name: its kept names back if a writer dropped them, its dropped ones off if a writer wrote them again.
+      const lost = keep.filter(n => !t.altNames.includes(n))
+      const again = t.altNames.filter(n => droppedName(r, n))
+      if (t.name !== r.name || (!lost.length && !again.length)) continue
+      await write(file, raw, { ...t, altNames: [...t.altNames.filter(n => !droppedName(r, n)), ...lost] })
+    } else await write(file, raw, { ...t, ...moved, name: r.name, altNames: [...new Set([...t.altNames, t.name, ...keep])].filter(n => n !== r.name && !droppedName(r, n)), nameFixed: true })
+    named.push(`${r.kind ?? 'species'}/${r.id}`)
   }
   return named
+}
+
+/**
+ * A renamed fish's old name (names.ts FISH_NAMES) in the photos' captions, written as its name, and each caption's
+ * translations kept under its new words (content/captions/<lang>.json is keyed by the Vietnamese). The galleries changed.
+ */
+export async function renameCaptions(content: string): Promise<string[]> {
+  const changed: string[] = []
+  const rekey = new Map<string, string>()
+  const dir = join(content, 'gallery')
+  for (const f of (await readdir(dir).catch(() => [] as string[])).filter(x => x.endsWith('.json'))) {
+    const raw = await readFile(join(dir, f), 'utf8')
+    const g = JSON.parse(raw) as { photos?: { caption?: string }[] }
+    let any = false
+    const photos = (g.photos ?? []).map(p => {
+      const to = p.caption && renameFishNames(p.caption)
+      if (!p.caption || to === p.caption) return p
+      any = true
+      rekey.set(p.caption, to!)
+      return { ...p, caption: to }
+    })
+    if (!any) continue
+    await write(join(dir, f), raw, { ...g, photos })
+    changed.push(`gallery/${f}`)
+  }
+  if (!rekey.size) return changed
+  for (const f of (await readdir(join(content, 'captions')).catch(() => [] as string[])).filter(x => x.endsWith('.json'))) {
+    const file = join(content, 'captions', f)
+    const raw = await readFile(file, 'utf8')
+    const map = JSON.parse(raw) as Record<string, string>
+    if (![...rekey.keys()].some(k => k in map)) continue
+    // In place, so the file's order stays and a diff shows only the keys.
+    await write(file, raw, Object.fromEntries(Object.entries(map).map(([k, v]) => [rekey.get(k) ?? k, v])))
+    changed.push(`captions/${f}`)
+  }
+  return changed
+}
+
+/** The passages a person found that a rule can't tell (names.ts KIND_PASSAGES), written as they should be on their page: the pages changed. */
+export async function kindPassages(content: string, rows: readonly KindPassage[] = KIND_PASSAGES): Promise<string[]> {
+  const changed = new Set<string>()
+  for (const page of new Set(rows.map(r => r.page))) {
+    const file = join(content, page, 'vi.json')
+    const raw = await readFile(file, 'utf8').catch(() => null)
+    if (!raw) continue
+    const t = JSON.parse(raw) as Stored & Record<string, unknown>
+    const fix = (v: unknown): unknown => (typeof v === 'string' ? rows.filter(r => r.page === page).reduce((s, r) => s.replaceAll(r.was, r.now), v.normalize('NFC'))
+      : Array.isArray(v) ? v.map(fix) : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, k.startsWith('references') ? x : fix(x)])) : v)
+    // What a reader reads; never its names or its address.
+    const next = { ...t, ...Object.fromEntries(['title', 'body', 'sections', 'faq', 'summary', 'intro'].flatMap(k => (k in t ? [[k, fix(t[k])]] : []))) }
+    if (JSON.stringify(next) === JSON.stringify(t)) continue
+    await write(file, raw, next)
+    changed.add(page)
+  }
+  return [...changed]
 }
 
 /** Guides whose title is shared or only a name, written again at most a run (each a write and a review). */
@@ -260,9 +331,17 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // A place's Vietnamese name with no generic word left in English (place-names.ts).
   for (const id of await sweepPlaceNames(root)) changed(`places/${id}/vi.json`)
   // A fish the chief of staff named, before the text: its name is guarded when the renames below read it.
-  for (const id of await nameFish(content)) {
-    changed(`species/${id}/vi.json`)
-    ;(report.text['fish-name'] ??= []).push(`species/${id}/vi`)
+  for (const page of await nameFish(content)) {
+    changed(`${page}/vi.json`)
+    ;(report.text['fish-name'] ??= []).push(`${page}/vi`)
+  }
+  for (const page of await kindPassages(content)) {
+    changed(`${page}/vi.json`)
+    ;(report.text['kind-passage'] ??= []).push(`${page}/vi`)
+  }
+  for (const f of await renameCaptions(content)) {
+    changed(f)
+    ;(report.text['fish-name-caption'] ??= []).push(f)
   }
 
   // Text, in every language the engine writes.

@@ -7,7 +7,7 @@ import { LlmError, type Llm } from '../src/claude'
 import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
 import { loadPages } from '../src/pages'
 import { checkPagePhotos } from '../src/photo-check'
-import { nameFish, sweep, sweepTranslation } from '../src/sweep'
+import { kindPassages, nameFish, sweep, sweepTranslation } from '../src/sweep'
 import { atCeiling } from './at-ceiling'
 
 const photo = (url: string, caption: string) => ({ url, width: 1200, height: 800, licence: 'CC BY 4.0', author: 'A', sourceUrl: 'https://commons.wikimedia.org/x', caption })
@@ -622,8 +622,29 @@ test('a fish the chief of staff named takes its name, guarded, the old one among
   // A name a person chose is theirs: the step leaves a guarded page as it is.
   await writeFile(join(c, at, 'vi.json'), JSON.stringify({ ...t, name: 'Cá mắt xanh Paskai', altNames: [] }, null, 1))
   expect(await nameFish(c)).toEqual([])
-  expect(await nameFish(c, [{ id: 'pseudomugil-luminatus', was: 'Cá mắt xanh Paskai', name: 'Cá khác' }])).toEqual([])
+  expect(await nameFish(c, [{ id: 'pseudomugil-luminatus', sci: 'Pseudomugil luminatus', was: 'Cá mắt xanh Paskai', name: 'Cá khác' }])).toEqual([])
   expect((await json(root, `content/${at}/vi.json`)).name).toBe('Cá mắt xanh Paskai')
+  // Its own name, the kept ones dropped by a later write (Astra, 2026-11-13: species research writes a page's other
+  // names afresh): they come back, once.
+  await writeFile(join(c, at, 'vi.json'), JSON.stringify({ ...t, altNames: ['Red-Neon Blue-eye'] }, null, 1))
+  expect(await nameFish(c)).toEqual(['pseudomugil-luminatus'])
+  expect((await json(root, `content/${at}/vi.json`)).altNames).toEqual(['Red-Neon Blue-eye', 'Cá cầu vồng neon đỏ mắt xanh'])
+  expect(await nameFish(c)).toEqual([])
+})
+
+// Astra, 2026-11-13: a guide's heading and line a rule can't tie to the blue-eye ("Bể cá cầu vồng nano") are written as
+// a person read them, on their own page; its sources' references and other pages stay.
+test('a passage a person found is written as they said, on its page only, once', async () => {
+  const root = await store()
+  const c = join(root, 'content')
+  const guide = await json(root, 'content/guides/g/vi.json')
+  await writeFile(join(c, 'guides/g/vi.json'), JSON.stringify({ ...guide, body: `<h3>Bể cá cầu vồng nano</h3>${guide.body}`, sections: { 'references:x': '<p>Bể cá cầu vồng nano</p>' } }, null, 2))
+  const rows = [{ page: 'guides/g', was: 'Bể cá cầu vồng nano', now: 'Bể cá mắt xanh' }, { page: 'guides/none', was: 'a', now: 'b' }]
+  expect(await kindPassages(c, rows)).toEqual(['guides/g'])
+  const t = await json(root, 'content/guides/g/vi.json')
+  expect(t.body).toBe(`<h3>Bể cá mắt xanh</h3>${guide.body}`)
+  expect(t.sections).toEqual({ 'references:x': '<p>Bể cá cầu vồng nano</p>' })
+  expect(await kindPassages(c, rows)).toEqual([])
 })
 
 test('a card\'s Seriously Fish difficulty read before the engine read its word is corrected from the stored page, and its summary written again', async () => {
@@ -854,4 +875,44 @@ test('every photo on the never-again list leaves the pages and albums it is stil
   // The list itself stays as it was, and a second sweep has nothing to take off.
   expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual(list)
   expect((await sweep(root)).again).toEqual([])
+})
+
+// The owner, 2026-11-13: "is often táo đỏ", and on Limnobium laevigatum "This is commonly called bèo nhật". Each page
+// takes the name keepers use and a new address, the old one forwarding: with the old name in its note for the fish, with
+// none for the plant, whose two names were English ones translated and come off altogether. The text and the photos'
+// captions follow, the captions' translations kept.
+test('a fish and a plant named by the names in use: new address, old one forwarding, old names off or kept, text and captions following', async () => {
+  const root = await store()
+  const c = join(root, 'content')
+  const put = async (path: string, data: unknown) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, 2)}\n`) }
+  await put('species/glossolepis-incisus/entity.json', species('glossolepis-incisus', 'Glossolepis incisus'))
+  await put('species/glossolepis-incisus/vi.json', { ...vi('Cá cầu vồng đỏ', { 'distribution:seriouslyfish': '<p>Cá cầu vồng đỏ chỉ sống ở hồ Sentani.</p>' }), slug: 'ca-cau-vong-do', altNames: ['Red rainbowfish', 'Cá táo đỏ'] })
+  await put('gallery/glossolepis-incisus.json', { id: 'glossolepis-incisus', photos: [{ ...photo('https://media.aquatome.com/inat/1.webp', 'Cá cầu vồng đỏ đực trong bể trồng cây'), best: true }], seen: 1, updatedAt: '2026-10-01' })
+  await put('captions/id.json', { 'Cá cầu vồng đỏ đực trong bể trồng cây': 'Rainbow merah jantan di akuarium tanaman', 'Cá khác': 'Ikan lain' })
+  await mkdir(join(c, 'plants/limnobium-laevigatum'), { recursive: true })
+  await writeFile(join(c, 'plants/limnobium-laevigatum/entity.json'), JSON.stringify({ id: 'limnobium-laevigatum', scientificName: 'Limnobium laevigatum', difficulty: 1, light: 'medium', co2: 'none', growth: 'fast', placement: ['floating'], sections: [{ key: 'notes', source: 'tropica', sourceUrl: 'https://tropica.com/limnobium', html: '<p>Floats.</p>' }], photos: [], productSlots: [], updatedAt: '2026-10-01' }, null, 2))
+  await writeFile(join(c, 'plants/limnobium-laevigatum/vi.json'), JSON.stringify({ slug: 'beo-tay-nam-my-limnobium-laevigatum', name: 'Bèo tây Nam Mỹ (Limnobium laevigatum)', altNames: ['Bèo nhím Nam Mỹ', 'Amazon frogbit'], sections: { 'notes:tropica': '<p>Bèo tây Nam Mỹ nổi trên mặt nước, khác bèo tây (Eichhornia crassipes).</p>' }, quality: { score: 0.9, indexable: true } }, null, 1))
+
+  const r = await sweep(root)
+  const fish = await json(root, 'content/species/glossolepis-incisus/vi.json')
+  expect([fish.name, fish.slug, fish.nameFixed]).toEqual(['Cá táo đỏ', 'ca-tao-do', true])
+  expect(fish.altNames).toEqual(['Red rainbowfish', 'Cá cầu vồng đỏ', 'Cá cầu vồng táo đỏ'])
+  expect(fish.redirectFrom).toEqual([{ slug: 'ca-cau-vong-do', name: 'Cá cầu vồng đỏ' }])
+  expect(fish.sections['distribution:seriouslyfish']).toBe('<p>Cá táo đỏ chỉ sống ở hồ Sentani.</p>')
+  expect((await json(root, 'content/gallery/glossolepis-incisus.json')).photos[0].caption).toBe('Cá táo đỏ đực trong bể trồng cây')
+  expect(await json(root, 'content/captions/id.json')).toEqual({ 'Cá táo đỏ đực trong bể trồng cây': 'Rainbow merah jantan di akuarium tanaman', 'Cá khác': 'Ikan lain' })
+  const plant = await json(root, 'content/plants/limnobium-laevigatum/vi.json')
+  expect([plant.name, plant.slug, plant.nameFixed]).toEqual(['Bèo Nhật', 'beo-nhat', true])
+  expect(plant.altNames).toEqual(['Amazon frogbit'])
+  expect(plant.redirectFrom).toEqual([{ slug: 'beo-tay-nam-my-limnobium-laevigatum', name: '' }])
+  expect(plant.sections['notes:tropica']).toBe('<p>Bèo Nhật nổi trên mặt nước, khác bèo tây (Eichhornia crassipes).</p>')
+  expect(r.text['fish-name']).toEqual(expect.arrayContaining(['species/glossolepis-incisus/vi', 'plants/limnobium-laevigatum/vi']))
+  expect((await sweep(root)).files).toEqual([])
+
+  // A writer that puts a dropped name back, or drops a kept one: the next run mends both.
+  await writeFile(join(c, 'plants/limnobium-laevigatum/vi.json'), JSON.stringify({ ...plant, altNames: ['Amazon frogbit', 'Bèo nhím Nam Mỹ'] }, null, 1))
+  await writeFile(join(c, 'species/glossolepis-incisus/vi.json'), JSON.stringify({ ...fish, altNames: ['Red rainbowfish'] }, null, 1))
+  await sweep(root)
+  expect((await json(root, 'content/plants/limnobium-laevigatum/vi.json')).altNames).toEqual(['Amazon frogbit'])
+  expect((await json(root, 'content/species/glossolepis-incisus/vi.json')).altNames).toEqual(['Red rainbowfish', 'Cá cầu vồng đỏ', 'Cá cầu vồng táo đỏ'])
 })

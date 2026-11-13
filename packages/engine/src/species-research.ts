@@ -265,7 +265,8 @@ export async function makeSpecies(root: string, d: SpeciesDeps, a: SpeciesAsk, o
   const deep = speciesDepth(sections).deep
   const vi: Translation = TranslationSchema.parse(metricPage({
     slug: prev?.slug ?? pickSlug(name, entity.genus, taken), name,
-    altNames: cleanAltNames({ name, sci, altNames: [...new Set([...c.viNames.slice(1), ...c.enNames])].filter(n => n !== name) }).altNames,
+    // A guarded name keeps the other names it came with (names.ts FISH_NAMES), as merge.ts keeps them.
+    altNames: cleanAltNames({ name, sci, altNames: [...new Set([...(prev?.nameFixed ? prev.altNames : []), ...c.viNames.slice(1), ...c.enNames])].filter(n => n !== name) }).altNames,
     sections: Object.fromEntries(sections.map(s => [`${s.key}:aquatome`, s.html])),
     quality: judgeQuality({ score: review.score, indexable: false, bySource: { aquatome: review.score } }, review.score >= QUALITY_THRESHOLD, deep),
     ...(prev?.nameFixed ? { nameFixed: true } : {}), ...(prev?.redirectFrom ? { redirectFrom: prev.redirectFrom } : {}),

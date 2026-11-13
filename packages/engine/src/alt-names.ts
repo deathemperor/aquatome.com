@@ -1,6 +1,7 @@
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { nameKey } from '@aq/schema'
+import { FISH_NAMES, type FishName } from './names'
 
 /**
  * A species' other names ("Tên khác", search aliases, the names its page is linked by in other pages' text): what
@@ -104,8 +105,10 @@ function better(a: string, b: string) {
  *   it, or "X (Y)" where X and Y are both its names already.
  * - a name the page also has with a note on it ("Cá tai tượng châu Phi (tên quen gọi, dù cá gốc Nam Mỹ)"): the noted
  *   one stays.
+ * A name the chief of staff kept for a fish they renamed (names.ts FISH_NAMES: its old name and the row's others) stays,
+ * after the rest, whatever it reads as.
  */
-export function cleanAltNames(page: { name: string; sci: string; altNames: string[] }, breeds: BreedName[] = []): { altNames: string[]; off: NameOff[] } {
+export function cleanAltNames(page: { name: string; sci: string; altNames: string[] }, breeds: BreedName[] = [], fishNames: readonly FishName[] = FISH_NAMES): { altNames: string[]; off: NameOff[] } {
   const off: NameOff[] = []
   const nameParts = parts(page.name).map(altKey)
   const own = new Set(words(page.name))
@@ -119,10 +122,15 @@ export function cleanAltNames(page: { name: string; sci: string; altNames: strin
     for (const k of keys) if (!breedOf.has(k)) breedOf.set(k, b.id)
   }
   const kept: string[] = []
+  // A name the chief of staff kept for a fish they renamed (names.ts FISH_NAMES) stays whatever it reads as: "Cá Noturus
+  // gladiator" is its old name, not a copy of its scientific name.
+  const must = new Set(fishNames.filter(r => r.sci === page.sci).flatMap(r => [r.was, ...(r.alts ?? [])]).map(altKey).filter(k => k && k !== altKey(page.name)))
+  const required: string[] = []
   for (const raw of page.altNames) {
     const name = raw.replace(/\s+/g, ' ').trim()
     const key = altKey(name)
     if (!key) continue
+    if (must.has(key)) { if (!required.some(n => altKey(n) === key)) required.push(name); continue }
     const breed = breedOf.get(key)
     if (breed) { off.push({ name: raw, why: 'breed', of: breed }); continue }
     kept.push(name)
@@ -174,7 +182,7 @@ export function cleanAltNames(page: { name: string; sci: string; altNames: strin
     off.push({ name: n, why: 'duplicate', of: by })
     return false
   })
-  return { altNames, off }
+  return { altNames: [...altNames, ...required], off }
 }
 
 /** A species a breed is a form of, or a hybrid's parent: its scientific name and its names in the breed page's language. */

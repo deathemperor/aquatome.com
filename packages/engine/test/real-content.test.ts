@@ -6,7 +6,7 @@ import { expect, test } from 'vitest'
 import { loadAll, mayPublish, resolveDataCard, type Translation } from '@aq/schema'
 import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
 import { englishOf } from '../src/english'
-import { FISH_NAMES } from '../src/names'
+import { droppedName, FISH_NAMES, KIND_PASSAGES, oldNames } from '../src/names'
 import { productOf } from '../src/fit'
 import { loadPages } from '../src/pages'
 import { ENGLISH_PLACE_WORD } from '../src/place-names'
@@ -66,25 +66,34 @@ test("the owner's Hải Hồ and the names that replaced \"thài lài\" stay, ea
 })
 
 // The chief of staff's names of 2026-11-13 (names.ts FISH_NAMES), set by the sweep (nameFish): each page has its name,
-// guarded, its old name among its other names, and the address it had. No other page has the name, none has the old one
-// in its own, and no fish summary or caption keeps the old one (the sweep renames the text; the swapped-name test above
-// holds the pages).
+// guarded, its old name among its other names unless the row drops it, and the address it had, or the row's own with the
+// old one forwarding (with no note when the old name is dropped). No other page has the name, none has an old one in its
+// own, and no fish summary or caption keeps an old one (the sweep renames the text; the swapped-name test above holds the
+// pages).
 const KEPT_ADDRESS: Record<string, string> = { 'pseudomugil-luminatus': 'ca-cau-vong-neon-do-mat-xanh' }
-test("the chief of staff's fish names stay, each guarded, the old name kept for search and the address as it was", () => {
+test("the chief of staff's fish and plant names stay, each guarded, the old name kept for search or dropped, the address as it was or forwarding", () => {
   const content = fileURLToPath(new URL('../../../content', import.meta.url))
   const pages = ['species', 'plants', 'breeds'].flatMap(kind => readdirSync(join(content, kind)).filter(id => existsSync(join(content, kind, id, 'vi.json')))
-    .map(id => ({ page: `${kind}/${id}`, t: JSON.parse(readFileSync(join(content, kind, id, 'vi.json'), 'utf8')) as Translation })))
+    .map(id => ({ page: `${kind}/${id}`, t: JSON.parse(readFileSync(join(content, kind, id, 'vi.json'), 'utf8')) as Translation & { redirectFrom?: { slug: string; name: string }[] } })))
   const old = (was: string) => new RegExp(`(?<!\\p{L})${was}(?!\\p{L})`, 'iu')
   for (const r of FISH_NAMES) {
-    const t = pages.find(p => p.page === `species/${r.id}`)!.t
-    expect([r.id, t.name, t.nameFixed, t.slug]).toEqual([r.id, r.name, true, KEPT_ADDRESS[r.id]])
-    expect(t.altNames).toEqual(expect.arrayContaining([r.was, ...(r.alts ?? [])].filter(n => n !== r.name)))
-    const others = pages.filter(p => p.page !== `species/${r.id}`)
+    const at = `${r.kind ?? 'species'}/${r.id}`
+    const t = pages.find(p => p.page === at)!.t
+    expect([r.id, t.name, t.nameFixed, t.slug]).toEqual([r.id, r.name, true, r.slug ?? KEPT_ADDRESS[r.id]])
+    expect(t.altNames).toEqual(expect.arrayContaining([r.was, ...(r.alts ?? [])].filter(n => n !== r.name && !droppedName(r, n))))
+    expect(t.altNames.filter(n => droppedName(r, n)), r.id).toEqual([])
+    if (r.slug) expect(t.redirectFrom?.at(-1)?.name, r.id).toBe(droppedName(r, r.was) ? '' : r.was)
+    // A row that keeps the page's name only adds other names: nothing is renamed, so the rest holds no name to.
+    if (!oldNames(r).length) continue
+    const others = pages.filter(p => p.page !== at)
     expect(others.filter(p => [p.t.name, ...p.t.altNames].some(n => n.toLowerCase() === r.name.toLowerCase())).map(p => p.page), r.name).toEqual([])
-    expect(others.filter(p => old(r.was).test(p.t.name)).map(p => p.page), r.was).toEqual([])
+    // An old name is this one's alone (Astra, 2026-11-13): no other page is called by it, or by a name it begins.
+    for (const was of oldNames(r)) expect(others.filter(p => [p.t.name, ...p.t.altNames].some(n => old(was).test(n))).map(p => p.page), was).toEqual([])
   }
   const files = [...readdirSync(join(content, 'summaries')).map(f => `summaries/${f}`), ...readdirSync(join(content, 'captions')).map(f => `captions/${f}`)]
-  expect(files.filter(f => FISH_NAMES.some(r => old(r.was).test(readFileSync(join(content, f), 'utf8').normalize('NFC'))))).toEqual([])
+  expect(files.filter(f => FISH_NAMES.some(r => oldNames(r).some(was => old(was).test(readFileSync(join(content, f), 'utf8').normalize('NFC')))))).toEqual([])
+  // The passages a person found read as they said (names.ts KIND_PASSAGES).
+  for (const r of KIND_PASSAGES) expect(readFileSync(join(content, r.page, 'vi.json'), 'utf8').normalize('NFC'), r.page).not.toContain(r.was)
 })
 
 // The owner, 2026-11-07: "fritz slim out is not for Vietnamese. I can effectively treat this with very cheap oxy già."
