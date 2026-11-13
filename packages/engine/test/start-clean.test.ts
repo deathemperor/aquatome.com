@@ -21,28 +21,52 @@ const LIVE: Record<(typeof LIVE_RUN_SETTINGS)[number], string> = {
   SKIP_VIDEOS: '1',
 }
 
-// The chief of staff, 13 Nov 2026: every Mac engine run from 18:20 failed its checks on these two files, which passed on
-// GitHub. Run here as a live run's second try runs them: its settings around them, a worker cap of two.
+// The chief of staff, 13 Nov 2026: every Mac engine run from 18:20 failed its checks on these three tests, which passed
+// on GitHub. Run here as a live run's second try runs them: its settings around them, a worker cap of two. Only those
+// three, by name: the rest of their files have timing checks of their own (cycle-net's 0.8 s) that a hot Mac can fail
+// for reasons that aren't the settings. The child's own limit follows the time scale, as spawnSync holds the event loop
+// and vitest's limit can't stop it.
+const FAILED_ON_13_NOV = [
+  "a check's second try on the Mac gives its tests 6 times their limits",
+  "a check's second try starts two vitest workers at a time",
+  'a Mac cycle whose opening fetch outlives a sleep ends',
+]
 test("the tests that failed every Mac run on 13 Nov pass with a live run's settings around them", () => {
   const outside = Object.fromEntries(Object.entries(process.env).filter(([name]) => !name.startsWith('VITEST')))
-  const r = spawnSync(process.execPath, [join(ENGINE, 'node_modules/vitest/vitest.mjs'), 'run', 'test/test-time-scale.test.ts', 'test/cycle-net.test.ts'], {
+  const names = FAILED_ON_13_NOV.map(n => n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')
+  const r = spawnSync(process.execPath, [join(ENGINE, 'node_modules/vitest/vitest.mjs'), 'run', 'test/test-time-scale.test.ts', 'test/cycle-net.test.ts', '-t', names], {
     cwd: ENGINE,
     encoding: 'utf8',
-    env: { ...outside, ...LIVE },
+    env: { ...outside, ...LIVE, NO_COLOR: '1' },
+    timeout: slow(90_000),
   })
   expect(r.status, r.stdout + r.stderr).toBe(0)
+  // All three ran: a renamed one would leave the pattern matching nothing, and vitest would pass on skips.
+  expect(r.stdout).toMatch(/Tests\s+3 passed/)
 }, slow(120_000))
 
 // One complaint, a check over all: a setting the next change has a run export, or set for the tests it runs, is on the
-// list, or kept on purpose here.
+// list, or kept on purpose here. It reads each `export` (several names, flags, `name=value`) and a setting in front of
+// `checks`, outside comment lines, and the schedule's environment keys. It doesn't catch a setting put in front of
+// another command (`X=1 cmd`), one a line exports after a `#` on it, or one set in a script it doesn't read.
 test('every setting a live run sets for the tests it runs is on the list', () => {
   const read = (f: string) => readFileSync(join(SCRIPTS, f), 'utf8')
   const set = new Set<string>()
   for (const f of ['engine-cycle.sh', 'cycle-checks.sh']) {
-    for (const m of read(f).matchAll(/\bexport\s+([A-Za-z_]\w*)/g)) set.add(m[1]!)
-    for (const m of read(f).matchAll(/\b([A-Za-z_]\w*)=\S*\s+checks\b/g)) set.add(m[1]!)
+    for (const line of read(f).split('\n')) {
+      if (/^\s*#/.test(line)) continue
+      for (const m of line.matchAll(/\bexport\s+([^;&|}#]*)/g)) {
+        for (const word of m[1]!.trim().split(/\s+/)) {
+          const name = /^([A-Za-z_]\w*)(=|$)/.exec(word)?.[1]
+          if (name) set.add(name)
+        }
+      }
+      for (const m of line.matchAll(/\b([A-Za-z_]\w*)=\S*\s+checks\b/g)) set.add(m[1]!)
+    }
   }
-  for (const m of read('install-engine-schedule.sh').matchAll(/<key>([A-Z_]+)<\/key><string>/g)) set.add(m[1]!)
+  const schedule = /<key>EnvironmentVariables<\/key><dict>([\s\S]*?)<\/dict>/.exec(read('install-engine-schedule.sh'))?.[1]
+  expect(schedule, "the schedule's environment").toBeTruthy()
+  for (const m of schedule!.matchAll(/<key>([A-Za-z_]\w*)<\/key>/g)) set.add(m[1]!)
   // PATH: the run's node. AQ_TEST_TIME_SCALE: the tests' own limits, and verify sets it again for each step it checks.
   // ENGINE_COST_LOG: vitest.config.ts sets it to off.
   const kept = ['PATH', 'AQ_TEST_TIME_SCALE', 'ENGINE_COST_LOG']
