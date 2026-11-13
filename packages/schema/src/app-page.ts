@@ -228,14 +228,13 @@ export const PageDoc = z.object({
    * counts then the playlist and channel it follows), linked as on the site.
    */
   credit: Text.optional(),
-  lead: Image.optional(),
   /**
-   * The page's first photo where `lead` can't carry it: one a cover frame would cut (the site leads it whole, headFit
-   * 'contain') or one the cards' frames refuse (photoFitsCard), as a dealer's shot cropped too near the fish. A reader
-   * that knows it draws it whole, never cropped: under the bar, centred on the page's colour, at most 420 pt tall (the
-   * Design Lead's frames.md, the chief of staff, 13 Nov). One that doesn't shows what it shows today. Never with `lead`.
+   * The page's photo: the same photo as its card in the app index (`img`), for every kind with one; a video guide's is its
+   * `video.poster` (the Design Lead's line, accepted by the chief of staff, 13 Nov: a card and the page it opens show one
+   * photo). Its `box` decides fill or whole by the frames rule (protocols/photo-crop-vectors.json); a photo no card's frame
+   * may fill comes with its whole area.
    */
-  leadWhole: Image.omit({ box: true }).optional(),
+  lead: Image.optional(),
   video: Video.optional(),
   /**
    * The keys of the page's readers' sections, as its web page has them (`data-entity`): its comments (`/_c?e=`) and its
