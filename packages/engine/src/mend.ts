@@ -47,29 +47,39 @@ const JOINING = new Set('và hoặc thì là mà rằng các những của này 
 const FRAMES = ['cần lưu ý rằng', 'cần lưu ý', 'lưu ý rằng', 'vì thế', 'vì vậy', 'do đó', 'tuy vậy', 'tuy nhiên', 'ngoài ra', 'cho nên'].map(f => f.split(' '))
 const NEGATIONS = new Set(['không', 'chẳng', 'chả', 'chưa', 'đừng'])
 const words = (s: string) => plain(s).normalize('NFC').toLowerCase().match(/[\p{L}\p{N}]+/gu) ?? []
-/** A sentence's words less the framing phrases that went whole from it. */
-const unframed = (ws: string[], after: string[]) => {
+/** Which of a sentence's words belong to a framing phrase that went whole from it. */
+const framed = (ws: string[], after: string[]) => {
   const kept = new Set(after.slice(1).map((w, i) => `${after[i]} ${w}`))
-  const out: string[] = []
+  const off = ws.map(() => false)
   for (let i = 0; i < ws.length;) {
     const f = FRAMES.find(f => f.every((w, j) => ws[i + j] === w))
-    if (!f) { out.push(ws[i++]!); continue }
-    if (NEGATIONS.has(ws[i - 1] ?? '') || f.slice(1).some((w, j) => kept.has(`${f[j]} ${w}`))) out.push(...f)
+    if (!f) { i++; continue }
+    if (!NEGATIONS.has(ws[i - 1] ?? '') && !f.slice(1).some((w, j) => kept.has(`${f[j]} ${w}`))) f.forEach((_, j) => { off[i + j] = true })
     i += f.length
   }
-  return out
+  return off
 }
 /**
  * The words a sentence lost that nothing covers: neither the new sentence, nor `covered` (quotes, listed drops), nor
- * JOINING or a whole frame. A pronoun counts like any word: a neighbour that names what its "Chúng" stood for loses it,
- * and the part stays as it was. Every rule tried for telling its noun from a claim let one through ("Không", "Chỉ những
- * cây này", a word of the sentence before put anywhere: Astra's reads, 13 Nov), and a part kept as it was is no harm.
+ * JOINING or a whole frame. Each covering text takes its own words where it stands in the sentence, once: a finding's
+ * quote and the reviewer's drop of the same words cover them once, not twice (Astra's read: "Chúng tôi không bán cây
+ * này; không thả cây vào bể tép" written "Thả cây vào bể tép" lost the second "không" too, and passed). A text that isn't
+ * in the sentence word for word covers nothing. A pronoun counts like any word: a neighbour that names what its "Chúng"
+ * stood for loses it, and the part stays as it was. Every rule tried for telling its noun from a claim let one through
+ * ("Không", "Chỉ những cây này", a word of the sentence before put anywhere: Astra's reads, 13 Nov), and a part kept as it
+ * was is no harm.
  */
 export function lostWords(before: string, after: string, covered: readonly string[]): string[] {
-  const now = words(after)
+  const was = words(before), now = words(after)
+  const off = framed(was, now)
+  for (const q of covered.map(words).filter(q => q.length)) {
+    for (let i = 0; i + q.length <= was.length; i++) {
+      if (q.every((w, j) => was[i + j] === w) && q.some((_, j) => !off[i + j])) { q.forEach((_, j) => { off[i + j] = true }); break }
+    }
+  }
   const left = new Map<string, number>()
-  for (const w of unframed(words(before), now)) left.set(w, (left.get(w) ?? 0) + 1)
-  for (const w of [...now, ...covered.flatMap(words)]) if (left.has(w)) left.set(w, left.get(w)! - 1)
+  was.forEach((w, i) => { if (!off[i]) left.set(w, (left.get(w) ?? 0) + 1) })
+  for (const w of now) if (left.has(w)) left.set(w, left.get(w)! - 1)
   return [...left].flatMap(([w, n]) => (n > 0 && !JOINING.has(w) ? Array<string>(n).fill(w) : []))
 }
 

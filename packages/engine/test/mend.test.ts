@@ -153,4 +153,9 @@ test('a changed sentence that loses "bị", a pronoun, or part of a frame fails,
   const scoped = await mendPart(llm([{ n: 1, vi: 'Chỉ những cây này chứa thuốc trừ sâu.' }]), '<p>Chúng chứa thuốc trừ sâu, giá 5 đô la. Cá sống theo đàn.</p>', price)
   if (typeof scoped === 'string') throw new Error(scoped)
   expect(scoped.unasked).toEqual(['Left out of sentence 1, and no finding asks for it to go: "chúng"'])
+  // Astra's read of 3cf526b4e: the quote and the reviewer's drop of it cover its words once, so a second "không" counts.
+  const notice = 'Chúng tôi không bán cây này'
+  const twice = await mendPart(llm([{ n: 1, vi: 'Thả cây vào bể tép.' }], [{ sentence: 1, finding: 1, text: notice }]), `<p>${notice}; không thả cây vào bể tép.</p>`, [{ check: 'source', quote: notice, note: 'Bỏ lời của người bán.' }])
+  if (typeof twice === 'string') throw new Error(twice)
+  expect(twice.unasked).toEqual(['Left out of sentence 1, and no finding asks for it to go: "không"'])
 })
