@@ -1,0 +1,48 @@
+{
+  "id": "pseudogastromyzon-laticeps",
+  "native": {
+    "input": "5d0508b1e6b4b4c6",
+    "at": "2026-11-13T05:31:31.275Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from a mountain stream at Lianhua Mountain (Lianhua Shan), Haifeng county, Guangdong province, southeastern China and apparently endemic to the Longjin river drainage which flows through the town of Haifeng before emptying into the South China Sea.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Longjin river",
+        "source": "seriouslyfish",
+        "quote": "Described from a mountain stream at Lianhua Mountain (Lianhua Shan), Haifeng county, Guangdong province, southeastern China and apparently endemic to the Longjin river drainage which flows through the town of Haifeng before emptying into the South China Sea.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudogastromyzon laticeps",
+    "status": "ACCEPTED",
+    "taxonKey": 2357512,
+    "datasets": [
+      [
+        "b9afe2d0-b264-4422-bf8c-096b2a53c18f",
+        2
+      ]
+    ],
+    "native": [
+      "CN"
+    ],
+    "requests": 12,
+    "at": "2026-11-13T05:31:31.275Z"
+  }
+}

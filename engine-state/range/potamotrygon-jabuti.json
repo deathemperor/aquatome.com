@@ -1,0 +1,60 @@
+{
+  "id": "potamotrygon-jabuti",
+  "native": {
+    "input": "ddb548a9d44d32c1",
+    "at": "2026-11-13T05:31:31.275Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "So far it has only been collected from the Rio Tapajos, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Tapajos",
+        "source": "seriouslyfish",
+        "quote": "So far it has only been collected from the Rio Tapajos, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Potamotrygon jabuti",
+    "status": "ACCEPTED",
+    "taxonKey": 9751920,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        46
+      ],
+      [
+        "d17d1474-7d18-4b6c-8b89-400e3fd15cac",
+        9
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T05:31:31.275Z"
+  }
+}

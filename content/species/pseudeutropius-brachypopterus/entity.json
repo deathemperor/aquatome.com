@@ -12,6 +12,109 @@
     "borneo",
     "kapuas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Sumatra",
+        "Borneo",
+        "Kapuas River",
+        "Siak River",
+        "Musi River"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Palembang, southern Sumatra, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Sumatra and Borneo.",
+          "countries": [],
+          "regions": [
+            "Sumatra",
+            "Borneo"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Asia: Kapuas River, Sumatra.",
+          "countries": [],
+          "regions": [
+            "Kapuas River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "This species is known from the Siak River drainage southwards to the Musi River drainage in Sumatra, and from the Kapuas, and the Sampit (Mentaya) River drainage eastwards to the Sebangau River drainage in Borneo.",
+          "countries": [],
+          "regions": [
+            "Siak River",
+            "Musi River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341814,
+      "total": 23,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "ID",
+          23
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          0,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          -2.8125,
+          7,
+          7
+        ],
+        [
+          104.0625,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          108.28125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          9,
+          9
+        ],
+        [
+          113.90625,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

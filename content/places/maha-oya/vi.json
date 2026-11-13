@@ -1,10 +1,13 @@
 {
   "slug": "maha-oya",
-  "name": "Maha Oya",
-  "altNames": [],
+  "name": "sông Maha Oya",
+  "altNames": [
+    "Maha Oya"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

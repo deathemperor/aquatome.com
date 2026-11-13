@@ -1,0 +1,90 @@
+{
+  "id": "potamotrygon-leopoldi",
+  "native": {
+    "input": "e5bdfad51ee98753",
+    "at": "2026-11-13T05:31:31.275Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The Black Diamond is a variety of Potamotrygon leopoldi that originates from the upper Rio Xingu in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Rio Xingu basin and Rio Fresco in central Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Xingu",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Rio Xingu basin and Rio Fresco in central Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Fresco",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Rio Xingu basin and Rio Fresco in central Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Xingu",
+        "source": "glaser",
+        "quote": "The Black Diamond is a variety of Potamotrygon leopoldi that originates from the upper Rio Xingu in Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Potamotrygon leopoldi",
+    "status": "ACCEPTED",
+    "taxonKey": 2419372,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        160
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        12
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        10
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        3
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-13T05:31:31.275Z"
+  }
+}

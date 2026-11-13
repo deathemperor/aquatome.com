@@ -10,6 +10,140 @@
     "united-states",
     "florida"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "St. John’s River",
+        "Florida peninsula"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It is naturally found east of the St. John’s River throughout the Florida peninsula to south of Levy and Marion counties.",
+          "countries": [],
+          "regions": [
+            "St. John’s River",
+            "Florida peninsula"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2227203,
+      "total": 206,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "US",
+          199
+        ],
+        [
+          "DE",
+          6
+        ],
+        [
+          "FR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -99.84375,
+          29.53125,
+          5
+        ],
+        [
+          -98.4375,
+          29.53125,
+          1
+        ],
+        [
+          -95.625,
+          28.125,
+          2
+        ],
+        [
+          -85.78125,
+          29.53125,
+          2
+        ],
+        [
+          -84.375,
+          28.125,
+          2
+        ],
+        [
+          -84.375,
+          29.53125,
+          1
+        ],
+        [
+          -82.96875,
+          25.3125,
+          9
+        ],
+        [
+          -82.96875,
+          26.71875,
+          45
+        ],
+        [
+          -82.96875,
+          28.125,
+          26
+        ],
+        [
+          -81.5625,
+          23.90625,
+          7
+        ],
+        [
+          -81.5625,
+          25.3125,
+          28
+        ],
+        [
+          -81.5625,
+          26.71875,
+          26
+        ],
+        [
+          -81.5625,
+          28.125,
+          21
+        ],
+        [
+          -81.5625,
+          29.53125,
+          19
+        ],
+        [
+          -80.15625,
+          25.3125,
+          4
+        ],
+        [
+          -80.15625,
+          26.71875,
+          1
+        ],
+        [
+          4.21875,
+          43.59375,
+          1
+        ],
+        [
+          7.03125,
+          47.8125,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
