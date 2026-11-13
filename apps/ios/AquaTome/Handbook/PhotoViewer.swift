@@ -171,9 +171,17 @@ struct GalleryViewer: View {
     .padding(.horizontal)
     .padding(.top, 48)
     .padding(.bottom, 4)
-    // A swipe on the fade, not on the words, still pages.
-    .background(LinearGradient(colors: [.clear, .black.opacity(0.5), .black.opacity(0.8)], startPoint: .top, endPoint: .bottom)
-      .ignoresSafeArea().allowsHitTesting(false))
+    // A swipe on the fade, not on the words, still pages. The fade ends above the caption's first line at any text size,
+    // and the words stand on black held at 55% or more (4.5:1 for white over a white photo): drawn over the whole box, the
+    // largest text put the caption above it, at 1.6:1 on a pale photo (Design's parity, 13 Nov). Solid black under Reduce
+    // Transparency.
+    .background {
+      VStack(spacing: 0) {
+        LinearGradient(colors: [.clear, .black.opacity(opaque ? 1 : 0.55)], startPoint: .top, endPoint: .bottom).frame(height: 48)
+        LinearGradient(colors: [.black.opacity(opaque ? 1 : 0.55), .black.opacity(opaque ? 1 : 0.8)], startPoint: .top, endPoint: .bottom)
+      }
+      .ignoresSafeArea().allowsHitTesting(false)
+    }
   }
 
   /// As it opens: who took it and its licence, on one line at the foot, over a short fade.
