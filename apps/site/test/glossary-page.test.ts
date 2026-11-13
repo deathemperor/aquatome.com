@@ -44,6 +44,22 @@ test('the guides that explain a term are found by its names as whole words, in a
   expect(nameCount(['chiều dài chuẩn (sl)'])('chiều dài chuẩn (SL) là')).toBe(1)
 })
 
+test('a fuller entry: its sections under plain headings, a term linked once across the meaning and the text, the terms to see next, its sources', async () => {
+  const c = await getContent('vi')
+  const cycle = c.glossary.find(x => x.id === 'chu-trinh-nito')!
+  const refs = [{ url: 'https://edis.ifas.ufl.edu/x', title: 'UF/IFAS' }]
+  const p = glossaryParts('vi', c, { ...term(cycle, { definition: 'Vi khuẩn đổi amoniac, nên pH quan trọng.', body: '<h3>Nên làm gì</h3><p>Đo pH mỗi tuần, đo GH khi thay nước.</p>' }), related: ['ph', 'nope', 'gh'], refs })
+  expect(p.body).toContain('<h2>Nên làm gì</h2>')
+  // pH is linked in the meaning, so not again in the text; GH is first named in the text.
+  expect(p.definition).toContain('/vi/thuat-ngu/ph/')
+  expect(p.body).not.toContain('/vi/thuat-ngu/ph/')
+  expect(p.body).toContain('/vi/thuat-ngu/gh/')
+  expect(p.related.map(x => x.id)).toEqual(['ph', 'gh'])
+  expect(p.refs).toEqual(refs)
+  // A term with no fuller entry has none of these.
+  expect(glossaryParts('vi', c, c.glossary.find(x => x.id === 'gh')!)).toMatchObject({ body: '', related: [], refs: [] })
+})
+
 /** The built pages of one kind (Vietnamese, at the root), each with the terms its text links: [path, slugs]. */
 function linking(dir: string): [string, Set<string>][] {
   if (!existsSync(`${DIST}/${dir}`)) return []

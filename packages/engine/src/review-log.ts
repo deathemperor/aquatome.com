@@ -35,7 +35,7 @@ export const REVIEW_KINDS = [
   'summary',
   /** A species or plant page in another language, against the English (localize.ts). */
   'localize',
-  /** A glossary term in another language, reviewed in a batch (localize.ts). */
+  /** A glossary term: its Vietnamese entry against its research (glossary-entry.ts); in another language, reviewed in a batch (localize.ts). */
   'glossary',
   /** A place's name in another language, reviewed in a batch (localize.ts). */
   'places',

@@ -227,7 +227,17 @@ export const SeriesSchema = z.object({
   vi: z.object({ slug: z.string(), name: z.string(), intro: z.string() }),
 })
 
-export const GlossarySchema = z.object({ id: z.string(), en: z.string(), latin: z.string().optional() })
+/**
+ * A glossary term. `refs`: the pages AquaTome's fuller entry was researched from (engine glossary-entry.ts), listed under
+ * it as a guide's are. `related`: other terms' ids, the ones a reader of this entry should see next. `photos`: as a
+ * species' (Curation's records), kept by the engine's rewrites of the entry.
+ */
+export const GlossarySchema = z.object({
+  id: z.string(), en: z.string(), latin: z.string().optional(),
+  refs: z.array(z.object({ url: WebUrl, title: z.string().min(1) })).optional(), related: z.array(z.string()).optional(),
+  /** Only where seeing it explains the term (driftwood, white spot): the first is shown under its meaning. */
+  photos: z.array(Photo).optional(),
+})
 export const PlaceSchema = z.object({
   id: z.string(), kind: z.enum(['continent', 'country', 'region', 'river']), parent: z.string().optional(),
   /** The countries (ISO codes) of the sentence that names a river or region only a species' range names, for whoever names it. A `parent` would list it on the country's page and link its name in guides. */

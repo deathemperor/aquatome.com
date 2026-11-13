@@ -428,7 +428,7 @@ test('each glossary term\'s copy reads as its built page; one in Indonesian has 
     const { dom } = appPage(d.path)
     expect(d.title).toBe(txt(dom.querySelector('h1')))
     // Its other names, its English name, its definition (with the page's links), in the page's order.
-    expect(all(d, 'p').map(b => text(b.c))).toEqual(['.aka', '.en', '.def'].flatMap(sel => (dom.querySelector(sel) ? [txt(dom.querySelector(sel))] : [])))
+    expect(all(d, 'p').map(b => text(b.c))).toEqual([...['.aka', '.en', '.def'].flatMap(sel => (dom.querySelector(sel) ? [txt(dom.querySelector(sel))] : [])), ...dom.querySelectorAll('.body > p').map(txt)])
     const def = dom.querySelector('.def')
     expect(all(d, 'p').flatMap(b => b.c.flatMap(r => (typeof r === 'string' || !r.href ? [] : [r.href]))), d.path).toEqual(
       (def?.querySelectorAll('a') ?? []).map(a => appHref(a.getAttribute('href')!)),
@@ -438,7 +438,9 @@ test('each glossary term\'s copy reads as its built page; one in Indonesian has 
     const kinds = dom.querySelectorAll('.used h3').map(h3 => ({
       t: 'pages', title: txt(h3), paths: (h3.nextElementSibling?.querySelectorAll('a') ?? []).map(a => appHref(a.getAttribute('href')!)).filter(x => listed.has(x)),
     }))
-    expect(all(d, 'pages'), d.path).toEqual(kinds.filter(k => k.paths.length))
+    // The terms to see next first, as on the page.
+    const related = { t: 'pages', title: txt(dom.querySelector('.related h2')), paths: dom.querySelectorAll('.related a').map(a => appHref(a.getAttribute('href')!)).filter(x => listed.has(x)) }
+    expect(all(d, 'pages'), d.path).toEqual([related, ...kinds].filter(k => k.paths.length))
     // The page's search for the rest of a long list: the app offers to open the page on the web.
     expect(all(d, 'web').length, d.path).toBe(dom.querySelector('.used .more a') ? 1 : 0)
   }
