@@ -26,6 +26,26 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   #expect(ix.items[5].contentId == nil)
 }
 
+// The site's material pages (#1240: driftwood, rocks, /vi/vat-lieu/): read, found by search, and opened on the web, since
+// the site sends them no shards of pages; before, the decoder left each one out.
+@Test func aMaterialIsReadFoundAndOpenedOnTheWeb() throws {
+  let index = try JSONDecoder().decode(HandbookIndex.self, from: Data(#"""
+  {"version":1,"lang":"vi","items":[
+   {"kind":"material","name":"Lũa","aka":["Gỗ lũa","Driftwood"],"path":"/vi/vat-lieu/lua/","img":"https://media.aquatome.com/a/lua.webp"},
+   {"kind":"equipment","name":"Lọc","path":"/vi/thiet-bi/loc/"}
+  ],
+   "shards":{"equipment":{"n":1,"level":2}}}
+  """#.utf8))
+  let lua = try #require(index.items.first)
+  #expect(lua.kind == .material && lua.aka == ["Gỗ lũa", "Driftwood"] && lua.path == "/vi/vat-lieu/lua/")
+  // No pages of its kind: the app draws none, so it opens on the web (HandbookModel.drawsItself).
+  #expect(index.pages[HandbookIndex.Kind.material.rawValue] == nil && index.pages[HandbookIndex.Kind.equipment.rawValue] != nil)
+  let s = HandbookSearch(index.items)
+  #expect(names(s.find("lua")) == ["Lũa"] && names(s.find("driftwood")) == ["Lũa"])
+  #expect(s.findAndCount("lua").counts == [nil: 1, .material: 1])
+  #expect(names(s.find("go lua", kind: .material)) == ["Lũa"] && s.find("lua", kind: .equipment).isEmpty)
+}
+
 @Test func aKindANewerSiteAddsIsLeftOutNotTheWholeIndex() throws {
   let newer = Data(#"""
   {"version":1,"lang":"vi","items":[
