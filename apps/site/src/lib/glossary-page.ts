@@ -1,6 +1,6 @@
 import { cleanPhoto, FIRST_PLANTS, linkTerms, photoFitsCard, plainText, POPULAR, slugify, STAPLE_SPECIES, type Content, type GlossaryEntity, type GuideEntity, type Localized, type Photo } from '@aq/schema'
 import { BREED_KIND } from './breeds'
-import { translator, type Lang } from './i18n'
+import { LANG, translator, type Lang } from './i18n'
 import { tilePhoto } from './img'
 import { materialPath } from './materials'
 import { mentionIndex } from './mentions'
@@ -145,9 +145,12 @@ export function glossaryParts(lang: Lang, c: Content, g: Localized<GlossaryEntit
   const more = guides.length > USED_IN_SHOWN.guides || fish.length > USED_IN_SHOWN.fish || plants.length > USED_IN_SHOWN.plants
   const m = lang === 'vi' ? c.materials.find(m => m.id === g.id) : undefined
   const material = m ? { href: materialPath(m), text: `Xem trang ${m.t.name}: cách chọn, xử lý${m.parent ? '' : ` và các loại ${m.t.name.toLocaleLowerCase('vi')}`} →` } : undefined
-  // A disease term's treatment: the guide that explains it first, where that is a guide on a disease that names it.
+  // A disease term's treatment: the guide that explains it first, where that is a guide on a disease that names it. The
+  // page and the app's copy give the same link.
   const lead = guides[0]
-  const treat = lead && lead.kind === 'disease' && rank.get(lead.id)![0] ? lead : undefined
+  const treat = lead && lead.kind === 'disease' && rank.get(lead.id)![0]
+    ? { href: `/vi/huong-dan/${lead.t.slug}/`, text: translator(lang)('Trị thế nào: đọc hướng dẫn trị {name} →', { name: g.t.name.toLocaleLowerCase(LANG[lang].locale) }) }
+    : undefined
   return { otherNames, definition, material, photo: g.photos?.[0], body, related, refs: g.refs ?? [], guides, fish, plants, total: usedCount(uses), more, treat }
 }
 
@@ -160,12 +163,17 @@ export function usedRows<G, U>(p: { guides: G[]; fish: U[]; plants: U[]; total: 
 
 /**
  * A related term's one line, as its tip begins (the Design Lead's board, 14 Nov 2026): its meaning's first sentence, to
- * a full stop or semicolon before a space or the end (never a decimal point); a semicolon ends it as a full stop. A
- * meaning with no such stop is its whole line.
+ * a full stop or semicolon before a space or the end (never a decimal point); a semicolon ends it as a full stop. Thai
+ * writes no full stops, and its spaces part list items as well as sentences (Grok's read, 15 Nov 2026): a meaning with no
+ * stop ends at its last space within TIP_MAX characters, with "…"; a shorter one is its whole line.
  */
+export const TIP_MAX = 120
 export const tipLine = (definition: string) => {
   const d = definition.trim(), m = /^.*?[.!?;](?=\s|$)/su.exec(d)
-  return m ? m[0].replace(/;$/, '.') : d
+  if (m) return m[0].replace(/;$/, '.')
+  if (d.length <= TIP_MAX) return d
+  const cut = d.lastIndexOf(' ', TIP_MAX)
+  return `${(cut > 0 ? d.slice(0, cut) : d.slice(0, TIP_MAX)).trimEnd()}…`
 }
 
 /**
@@ -200,7 +208,8 @@ const THAI_LEAD = /^[\u0E40-\u0E44]+/
 /** The letter a term is filed under in the list: its first letter without accents (Đ apart, in Vietnamese); in Thai its first consonant. */
 export function letterOf(lang: Lang, name: string): string {
   const n = name.trim()
-  if (lang === 'th') return n.replace(THAI_LEAD, '').charAt(0)
+  // A Latin first letter in Thai too is filed as a capital, so "pH" and "PH" share one letter and one address.
+  if (lang === 'th') return n.replace(THAI_LEAD, '').charAt(0).toLocaleUpperCase('en')
   const first = n.charAt(0)
   if (/[đĐ]/.test(first)) return lang === 'vi' ? 'Đ' : 'D'
   return first.normalize('NFD').replace(/\p{M}/gu, '').toLocaleUpperCase('en')
