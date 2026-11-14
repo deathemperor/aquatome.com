@@ -31,7 +31,8 @@ export type ByLang = Record<Lang, number>
 export type Gap = { n: number; top: [path: string, name: string][]; /** Per missing part, for a gap that is any of several (noKeyFacts: tempC, ph, sizeCm). */ by?: Record<string, number> }
 
 /**
- * - noPhoto: no photo on the page as a public build shows it (gallery photos aside)
+ * - noPhoto: a page a reader can open (not held back in Vietnamese) that shows no photo, as a public build shows it: none
+ *   of its own and no album (the chief of staff's rule, 14 Nov 2026)
  * - noViName: the Vietnamese name is the scientific name ("Cá Abbottina rivularis")
  * - noSummary: no approved "Tóm tắt nhanh" (content/summaries)
  * - noKeyFacts: the card lacks temperature, pH or size (a figure the engine hid counts as missing)
