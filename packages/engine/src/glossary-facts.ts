@@ -187,6 +187,9 @@ function placed<E extends { definition: string; body: string }>(e: E, text: stri
   return null
 }
 
+/** The phrases a note quotes, "…" or “…”, of three characters or more. */
+const quotes = (note: string) => [...note.matchAll(/"([^"]+)"|“([^”]+)”/g)].map(m => (m[1] ?? m[2]!).trim()).filter(q => q.length >= 3)
+
 /**
  * The middle path for loose (the chief of staff, 14 Nov 2026): the sentences two reads call loose go back once to the
  * writer with the reasons, to be reworded to what the facts carry, with no remark that sources differ and no hedge (four of
@@ -202,7 +205,7 @@ function placed<E extends { definition: string; body: string }>(e: E, text: stri
  * once in the entry, and its new wording only when that wording stood nowhere before and the entry then reads as it did
  * but for that one sentence, which stands once: the final read's verdict on it is its own, and going back finds it.
  */
-export async function rewordLoose<E extends { definition: string; body: string }>(llm: Llm, model: string, facts: object, e: E, loose: Flagged[]): Promise<{ entry: E; log: string[]; stops: Flagged[]; score?: number }> {
+export async function rewordLoose<E extends { definition: string; body: string }>(llm: Llm, model: string, facts: object, e: E, loose: Flagged[], rules?: (e: E) => Promise<string[]>): Promise<{ entry: E; log: string[]; stops: Flagged[]; score?: number }> {
   const log: string[] = []
   const texts = sentences(e).map(s => s.text)
   const here = loose.filter(s => (occurrences(e, s.text) === 1 && texts.filter(t => t === s.text).length === 1 && placed(e, s.text)) || (log.push(`Loose, left as written (not placeable): "${s.text}"`), false))
@@ -223,10 +226,18 @@ export async function rewordLoose<E extends { definition: string; body: string }
   if (!changed.length) return { entry: e, log, stops: [] }
   const final = await checkSentences(llm, facts, entry)
   const verdictsOf = (text: string) => [...final.stops, ...final.loose].find(f => f.text === text)?.verdicts.join(', ') ?? 'supported'
+  const stopped = (x: (typeof changed)[number]) => final.stops.some(f => f.text === x.to)
+  for (const x of changed.filter(stopped)) entry = placed(entry, x.to)?.(x.s.text) ?? entry
+  // The rewording reads only the facts, so the house rules and the term's notes are read again on what it kept: a rewording
+  // a rules note quotes goes back to its old wording too (the chief of staff, 15 Nov 2026: chu trình nitơ's put a brand
+  // where a kind stood, and took out the fish deaths and "0 or near 0" its notes asked for).
+  const ruled = rules && changed.some(x => !stopped(x)) ? await rules(entry) : []
   for (const x of changed) {
-    if (final.stops.some(f => f.text === x.to)) {
+    const broke = stopped(x) ? [] : ruled.filter(n => quotes(n).some(q => x.to.includes(q) || q.includes(x.to)))
+    if (stopped(x)) log.push(`Loose, rewording read as unsupported, old wording kept for the reader: "${x.s.text}" (not "${x.to}": ${verdictsOf(x.to)})`)
+    else if (broke.length) {
       entry = placed(entry, x.to)?.(x.s.text) ?? entry
-      log.push(`Loose, rewording read as unsupported, old wording kept for the reader: "${x.s.text}" (not "${x.to}": ${verdictsOf(x.to)})`)
+      log.push(`Loose, rewording broke a house rule, old wording kept for the reader: "${x.s.text}" (not "${x.to}": ${broke.join(' / ')})`)
     } else log.push(`${final.loose.some(f => f.text === x.to) ? 'Loose, reworded and still loose' : 'Loose, reworded'}: "${x.s.text}" → "${x.to}" (${verdictsOf(x.to)})`)
   }
   const stops = final.stops.filter(f => !changed.some(x => x.to === f.text))

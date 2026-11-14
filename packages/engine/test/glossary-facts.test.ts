@@ -172,6 +172,30 @@ test('the middle path rewords loose sentences once, no hedge, then reads the who
   expect(kept.score).toBe(0.83)
 })
 
+// The chief of staff, 15 Nov 2026: chu trình nitơ's rewording read only the facts, and put a brand where a kind stood (house
+// rule 8) and took out what the term's notes asked for, with nothing reading the rules after it.
+test('a rewording a house rules note quotes goes back to its old wording; one no note quotes stays', async () => {
+  const e = { definition: 'Khử clo cho nước máy.', body: '<p>Dùng thuốc khử clo. Thay nước mỗi tuần.</p>' }
+  const flag = (text: string) => ({ text, block: 'Dùng thuốc khử clo. Thay nước mỗi tuần.', verdicts: ['loose' as const, 'loose' as const], why: ['a shop names Prime'] })
+  const reword = { 'Dùng thuốc khử clo.': 'Dùng Seachem Prime.', 'Thay nước mỗi tuần.': 'Thay khoảng 30% nước mỗi tuần.' }
+  const { llm } = model([{}, {}, {}], [], reword)
+  const read: string[] = []
+  const rules = async (x: typeof e) => { read.push(x.body); return ['Rule 8: "Seachem Prime" is a brand where "thuốc khử clo" is enough.', 'Rule 4: "nước máy" twice.'] }
+  const r = await rewordLoose(llm, 'opus', facts, e, [flag('Dùng thuốc khử clo.'), flag('Thay nước mỗi tuần.')], rules)
+  // Read on the entry the rewording made, once.
+  expect(read).toEqual(['<p>Dùng Seachem Prime. Thay khoảng 30% nước mỗi tuần.</p>'])
+  expect(r.entry.body).toBe('<p>Dùng thuốc khử clo. Thay khoảng 30% nước mỗi tuần.</p>')
+  expect(r.log).toEqual([
+    'Loose, rewording broke a house rule, old wording kept for the reader: "Dùng thuốc khử clo." (not "Dùng Seachem Prime.": Rule 8: "Seachem Prime" is a brand where "thuốc khử clo" is enough.)',
+    'Loose, reworded: "Thay nước mỗi tuần." → "Thay khoảng 30% nước mỗi tuần." (supported)',
+  ])
+  expect(r.score).toBe(1)
+  // A note quoting a whole passage the rewording sits in counts too; a rewording that read stops isn't read for the rules.
+  const two = model([{ 'Thay khoảng 30% nước mỗi tuần.': 'unsupported: x' }, { 'Thay khoảng 30% nước mỗi tuần.': 'unsupported: x' }, {}], [], reword)
+  const passage = async () => ['Rule 12: "Khử clo cho nước máy. Dùng Seachem Prime. Thay" drops the kind.']
+  expect((await rewordLoose(two.llm, 'opus', facts, e, [flag('Dùng thuốc khử clo.'), flag('Thay nước mỗi tuần.')], passage)).entry.body).toBe(e.body)
+})
+
 test('a reworded sentence in the body is written back escaped, and one still loose stays, logged; a rewording of two sentences isn\'t placed', async () => {
   const e = { definition: 'Một câu.', body: '<p>Đá &amp; san hô làm pH lên.</p>' }
   const loose = [{ text: 'Đá & san hô làm pH lên.', block: 'Đá & san hô làm pH lên.', verdicts: ['loose' as const, 'loose' as const], why: ['x'] }]
