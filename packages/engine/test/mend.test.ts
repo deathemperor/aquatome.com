@@ -407,4 +407,6 @@ test('a plain cut takes out whole each sentence a product, shop or price finding
   expect(cutWhole(html, [{ check: 'elsewhere', quote: 'cát sông' }, { check: 'source', quote: 'Cây lớn nhanh' }, { check: 'words', quote: 'Ánh sáng' }])).toBeUndefined()
   // Every sentence would go: the dealer check's.
   expect(cutWhole('<p>Mua ở Petco, giá 5 đô la.</p>', [{ check: 'shop', quote: 'Petco' }])).toBeUndefined()
+  // Whole words only, and every sentence that names it (Astra's read: "ADA" in "Canada").
+  expect(cutWhole('<p>Cá được nuôi ở Canada. Dùng phân ADA. Cá cần ánh sáng vừa. Thêm ADA mỗi tuần.</p>', [{ check: 'product', quote: 'ADA' }])).toBe('<p>Cá được nuôi ở Canada. Cá cần ánh sáng vừa.</p>')
 })

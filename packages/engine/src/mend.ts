@@ -114,7 +114,13 @@ const CUTTABLE: readonly FitCheck[] = ['product', 'shop', 'price']
 export function cutWhole(html: string, fs: readonly { check: FitCheck; quote?: string }[]): string | undefined {
   const pieces = sentences(html)
   const n = pieces.filter(p => p.sentence).length
-  const gone = new Set(fs.filter(f => CUTTABLE.includes(f.check) && f.quote).flatMap(f => quoted(pieces, f.quote!)))
+  // Each sentence that holds the quote's words in a row, whole words (Astra's read: "ADA" matched in "Canada" cut the
+  // wrong sentence and left the product); a quote across two sentences is the writer's, not cut here.
+  const holds = (quote: string) => {
+    const x = words(quote)
+    return x.length ? pieces.filter(p => p.sentence).flatMap((p, i) => { const w = words(p.html); return w.some((_, k) => x.every((y, j) => w[k + j] === y)) ? [i] : [] }) : []
+  }
+  const gone = new Set(fs.filter(f => CUTTABLE.includes(f.check) && f.quote).flatMap(f => holds(f.quote!)))
   if (!gone.size || gone.size >= n) return undefined
   return splice(pieces, new Map([...gone].map(i => [i, ''])))
 }
