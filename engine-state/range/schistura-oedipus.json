@@ -1,0 +1,78 @@
+{
+  "id": "schistura-oedipus",
+  "native": {
+    "input": "060722db9b420acd",
+    "at": "2026-11-14T17:19:02.525Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Schistura oedipus is a troglomorphic nemacheilid loach restricted to five caves in the Pang Mapha karst, Mae Hong Son province, northwest Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Tham Nam Lang (Nam Lang Cave), 19°31'N, 98°09'E, Mae Hong Son Province, Thailand', and this species is restricted to a series of caves in the Pang Mapha karst formation, Mae Hong Son province, northwestern Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "Streams flowing from these caves drain into the Nam Lang and Nam Khong rivers of the Salween drainage system, and the two easternmost caves, Tham Huet and Tham Nong Pha Cham, are both tributaries of the former.",
+        "ok": true
+      },
+      {
+        "name": "Nam Lang",
+        "source": "seriouslyfish",
+        "quote": "Streams flowing from these caves drain into the Nam Lang and Nam Khong rivers of the Salween drainage system, and the two easternmost caves, Tham Huet and Tham Nong Pha Cham, are both tributaries of the former.",
+        "ok": true
+      },
+      {
+        "name": "Nam Khong",
+        "source": "seriouslyfish",
+        "quote": "Streams flowing from these caves drain into the Nam Lang and Nam Khong rivers of the Salween drainage system, and the two easternmost caves, Tham Huet and Tham Nong Pha Cham, are both tributaries of the former.",
+        "ok": true
+      },
+      {
+        "name": "Pang Mapha",
+        "source": "seriouslyfish",
+        "quote": "Schistura oedipus is a troglomorphic nemacheilid loach restricted to five caves in the Pang Mapha karst, Mae Hong Son province, northwest Thailand.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Schistura oedipus",
+    "status": "ACCEPTED",
+    "taxonKey": 5204909,
+    "datasets": [
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "9343010e-8261-4bd9-9314-bf2faf34f4e7",
+        1
+      ]
+    ],
+    "native": [
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T17:19:02.525Z"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "id": "schistura-jarutanini",
+  "native": {
+    "input": "40780cd956170a6b",
+    "at": "2026-11-14T17:19:02.525Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'underground stream, Tham Ba Dan, Amphoe Sri Sawat, about 14°02'N, 94°32'E, Kanchanaburi Province, Thailand', and this species appears to be endemic to the cave known as 'Ba Dan' in Lam Klong Ngu National Park, western Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Schistura jarutanini",
+    "status": "ACCEPTED",
+    "taxonKey": 5205011,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        21
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T17:19:02.525Z"
+  }
+}

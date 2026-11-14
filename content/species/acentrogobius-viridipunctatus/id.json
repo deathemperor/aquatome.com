@@ -1,0 +1,31 @@
+{
+  "slug": "midnight-goby",
+  "name": "Midnight goby",
+  "altNames": [
+    "Goby midnight",
+    "Emerald spotted goby"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Acentrogobius viridipunctatus kini untuk pertama kalinya berhasil diimpor dari India dalam jumlah yang lebih banyak. Spesies ini dapat mencapai panjang maksimal 15 cm.</p>",
+    "distribution:glaser": "<p>India.</p>",
+    "habitat:glaser": "<p>Di alam, ikan ini hidup di bagian hilir sungai, karena itu ia menyukai air dengan sedikit tambahan garam.</p>",
+    "waterConditions:glaser": "<p>Jika airnya cukup sadah (mulai 10° dGH ke atas), ikan ini juga tetap sehat sempurna di air tawar murni.</p>",
+    "diet:glaser": "<p>Ikan ini mau makan semua jenis pakan beku dan pakan hidup yang umum.</p>",
+    "behaviour:glaser": "<p>Goby ini sangat damai, tetapi tempat memijahnya akan dipertahankan dari pengganggu.</p>",
+    "dimorphism:glaser": "<p>Jantan dewasa memiliki kepala yang sangat tebal dan menonjol.</p>",
+    "reproduction:glaser": "<p>Saat masa birahi, warna dasar ikan berubah menjadi hitam pekat, sehingga bintik-bintik hijau zamrudnya tampak sangat kontras – penampilan yang luar biasa indah, dan itulah asal nama populernya, \"midnight goby\". Selain itu, pita terang pada sirip ekornya berubah menjadi oranye tua.</p>"
+  },
+  "quality": {
+    "score": 0.7,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.7
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-15"
+  }
+}

@@ -17,20 +17,30 @@
         "ID"
       ],
       "regions": [
-        "Bintan Island"
+        "Bintan Island",
+        "Riau Islands"
       ],
       "sources": [
+        "bwaquatics",
         "seriouslyfish"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Endemic to Bintan Island, Riau Islands province, Indonesia, where it is known only from a handful of localities in the northern portion of the island.",
+          "quote": "Betta miniopinna is a small bubble-nesting labyrinth fish endemic to Bintan Island, Indonesia, where it is known from a few northern localities.",
           "countries": [
             "ID"
           ],
           "regions": [
             "Bintan Island"
+          ]
+        },
+        {
+          "source": "bwaquatics",
+          "quote": "Betta miniopinna was described in 1994 from the remaining primary peat swamp forest on Bintan Island in the Riau Islands, Indonesia.",
+          "countries": [],
+          "regions": [
+            "Riau Islands"
           ]
         }
       ]

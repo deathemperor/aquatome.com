@@ -1024,5 +1024,67 @@
       "maintenance:aquatome": "36fa02bcf55e",
       "notes:tropica": "8de37432be88"
     }
+  },
+  "echinodorus-red-diamond": {
+    "at": "2026-11-14",
+    "from": "2026-10-30",
+    "name": "Echinodorus 'Red Diamond'",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 3: 'appeared as a culture' rendered as 'tanaman kultur' is slightly unclear; consider 'sebagai kultivar/hasil kultur tisu'.",
+      "Item 3: 'tumbuhan tunggal' is acceptable, but 'tumbuhan solo' or 'tumbuhan utama (specimen plant)' is more common among local hobbyists."
+    ],
+    "parts": {
+      "quickFacts:tropica": "a83b80e46d59",
+      "maintenance:tropica": "0344ff8cc5ae",
+      "notes:tropica": "45317d8f98e6"
+    }
+  },
+  "echinodorus-reni": {
+    "at": "2026-11-14",
+    "from": "2026-10-30",
+    "name": "Echinodorus 'Reni'",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 2: \"tidak cerewet\" for \"unpretentious\" is slightly off in tone; \"tidak memilih\" or \"mudah dijaga\" would be more natural for a plant.",
+      "Item 1: \"roset selebar 15-25 cm\" is fine, but you could add \"berbentuk roset\" for smoother reading (optional)."
+    ],
+    "parts": {
+      "quickFacts:tropica": "e11fadc4db1e",
+      "maintenance:tropica": "1c06f9eb2953",
+      "notes:tropica": "4a97b3955245"
+    }
+  },
+  "echinodorus-rose": {
+    "at": "2026-11-14",
+    "from": "2026-10-30",
+    "name": "Echinodorus 'Rosé'",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 3: 'pasu segi empat 9 cm' is slightly ambiguous; consider 'pasu persegi 9 cm' or '9 × 9 cm'.",
+      "Item 3: 'pokok induk' is acceptable, but 'tumbuhan induk' is more consistent with the rest of the text."
+    ],
+    "parts": {
+      "quickFacts:tropica": "1299460ee45c",
+      "maintenance:tropica": "ee10626283f0",
+      "notes:tropica": "5103c963dd43"
+    }
+  },
+  "echinodorus-x-barthii": {
+    "at": "2026-11-14",
+    "from": "2026-11-09",
+    "name": "Echinodorus Barthii",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "b0e70cd65633",
+      "maintenance:aquatome": "0fe1897fb6b4",
+      "maintenance:tropica": "33aab62b1f1c",
+      "notes:tropica": "aa72032ec879"
+    }
   }
 }

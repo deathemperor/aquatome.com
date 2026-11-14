@@ -317,6 +317,23 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-2htJPBhx7Cs#body": [
+    {
+      "at": "2026-11-14T17:34:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "Said more surely than before: \"Cá chuột cũng nuôi được ở đây.\" (was: \"Cá chuột cũng có thể nuôi được.\")",
+        "\"Cá sặc vằn (danio)\" became \"Cá ngựa vằn (danio)\": the common name changed. It is probably the same fish, but the name is different.",
+        "\"Cá chuột cũng có thể nuôi được\" became \"Cá chuột cũng nuôi được ở đây\": the \"có thể\" is gone, and \"ở đây\" is a small addition.",
+        "\"hy vọng là không nhiều rêu, chỉ cần vài con\" became \"hy vọng là không nhiều rêu và chỉ cần vài con\": the meaning is the same, with slightly different phrasing."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-7DFk4bnIxEg#body": [
     {
       "at": "2026-11-06T21:51:26Z",
@@ -381,6 +398,20 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/guides/youtube-KhlxefF9aRg#body": [
+    {
+      "at": "2026-11-14T17:33:03Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [
+        "Dropped the English gloss \"(root tab)\" after \"phân nhét\". This is a minor loss of precision."
+      ],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/guides/youtube-LmUGilbUlzY#body": [
@@ -500,6 +531,21 @@
       "notes": [
         "\"quá liều\" -> \"quá mạo hiểm\": slight nuance shift, but same meaning",
         "\"chia đều lực\" -> \"chia đều sức nặng của đá\": small elaboration only"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-XvXnPFqpa6E#body": [
+    {
+      "at": "2026-11-14T17:32:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "\"Giữ tannin lại bằng lọc\" became \"Chạy lọc để lọc bỏ tannin\". The meaning shifts slightly and is less clear.",
+        "\"ram Apistogramma\" became \"cá phượng hoàng, cá Apistogramma\". This reads as two species where BEFORE may have named one, and it adds the name \"cá phượng hoàng\"."
       ],
       "attempt": "first",
       "kept": true

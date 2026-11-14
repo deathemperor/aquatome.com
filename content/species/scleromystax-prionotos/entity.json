@@ -10,6 +10,134 @@
     "brazil",
     "rio-doce"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Doce"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Scleromystax prionotos is an armoured catfish known only from coastal rivers in Minas Gerais, Espírito Santo, Rio de Janeiro and São Paulo, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Linhares, 19°22'S, 40°04'W, Lagoa Juparaná, Rio Doce system, Espírito Santo State, Brazil'.",
+          "countries": [],
+          "regions": [
+            "Rio Doce"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342585,
+      "total": 84,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "BR",
+          84
+        ]
+      ],
+      "cells": [
+        [
+          -49.21875,
+          -25.3125,
+          9,
+          9
+        ],
+        [
+          -47.8125,
+          -25.3125,
+          19,
+          19
+        ],
+        [
+          -43.59375,
+          -23.90625,
+          4,
+          4
+        ],
+        [
+          -43.59375,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -22.5,
+          3,
+          3
+        ],
+        [
+          -42.1875,
+          -21.09375,
+          4,
+          4
+        ],
+        [
+          -42.1875,
+          -19.6875,
+          2,
+          2
+        ],
+        [
+          -40.78125,
+          -21.09375,
+          7,
+          7
+        ],
+        [
+          -40.78125,
+          -19.6875,
+          11,
+          11
+        ],
+        [
+          -40.78125,
+          -18.28125,
+          11,
+          11
+        ],
+        [
+          -40.78125,
+          -16.875,
+          6,
+          6
+        ],
+        [
+          -39.375,
+          -18.28125,
+          4,
+          4
+        ],
+        [
+          -39.375,
+          -16.875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

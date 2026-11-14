@@ -10,6 +10,53 @@
     "thailand",
     "chao-phraya"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Chao Phraya",
+        "Mae Taeng"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The mini dragon loach, Schistura pridii, is a small nemacheilid loach endemic to tributary streams of the upper Chao Phraya in northern Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to a handful of tributary streams within the upper Chao Phraya river system in northern Thailand.",
+          "countries": [],
+          "regions": [
+            "Chao Phraya"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Stream Nam Muen, a tributary of river Mae Taeng, upper Chao Phraya basin, Chiangmai Province, Thailand'.",
+          "countries": [],
+          "regions": [
+            "Mae Taeng"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205189,
+      "total": 0,
+      "fetched": "2026-11-14",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,8 +1,8 @@
 {
   "id": "crenicichla-johanna",
   "native": {
-    "input": "b85bf76e728c9d77",
-    "at": "2026-11-09T05:57:45.266Z",
+    "input": "0fe929e08389d9d7",
+    "at": "2026-11-14T17:19:02.525Z",
     "claims": [
       {
         "code": "CO",
@@ -67,44 +67,55 @@
         "quote": "Populations also exist in parts of Peru, Suriname and Bolivia.",
         "words": "Bolivia",
         "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Venezuela (Puerto Inírida).",
+        "words": "Venezuela",
+        "ok": true
       }
     ],
     "regions": [
       {
         "name": "Orinoco",
         "source": "seriouslyfish",
-        "quote": "It is known from the Orinoco, Essequibo, Oyapock and Approuague basins among others, mostly in faster moving rivers and streams, and a number of colour forms have developed across its range.",
+        "quote": "It's known from various river basins, including the Rio Orinoco in Colombia and Venezuela, Rio Essequibo in Guyana, Rio Oyapock and Rio Approuague in French Guiana and Rio Amapá in Brazil.",
         "ok": true
       },
       {
         "name": "Essequibo",
         "source": "seriouslyfish",
-        "quote": "It is known from the Orinoco, Essequibo, Oyapock and Approuague basins among others, mostly in faster moving rivers and streams, and a number of colour forms have developed across its range.",
+        "quote": "It's known from various river basins, including the Rio Orinoco in Colombia and Venezuela, Rio Essequibo in Guyana, Rio Oyapock and Rio Approuague in French Guiana and Rio Amapá in Brazil.",
+        "country": "GY",
         "ok": true
       },
       {
         "name": "Oyapock",
         "source": "seriouslyfish",
-        "quote": "It is known from the Orinoco, Essequibo, Oyapock and Approuague basins among others, mostly in faster moving rivers and streams, and a number of colour forms have developed across its range.",
+        "quote": "It's known from various river basins, including the Rio Orinoco in Colombia and Venezuela, Rio Essequibo in Guyana, Rio Oyapock and Rio Approuague in French Guiana and Rio Amapá in Brazil.",
+        "country": "GF",
         "ok": true
       },
       {
         "name": "Approuague",
         "source": "seriouslyfish",
-        "quote": "It is known from the Orinoco, Essequibo, Oyapock and Approuague basins among others, mostly in faster moving rivers and streams, and a number of colour forms have developed across its range.",
+        "quote": "It's known from various river basins, including the Rio Orinoco in Colombia and Venezuela, Rio Essequibo in Guyana, Rio Oyapock and Rio Approuague in French Guiana and Rio Amapá in Brazil.",
+        "country": "GF",
+        "ok": true
+      },
+      {
+        "name": "Amapá",
+        "source": "seriouslyfish",
+        "quote": "It's known from various river basins, including the Rio Orinoco in Colombia and Venezuela, Rio Essequibo in Guyana, Rio Oyapock and Rio Approuague in French Guiana and Rio Amapá in Brazil.",
+        "country": "BR",
         "ok": true
       },
       {
         "name": "Amazon",
         "source": "seriouslyfish",
         "quote": "As stated, this fish is found across most of the Amazon basin.",
-        "ok": true
-      },
-      {
-        "name": "Rio Amapá",
-        "source": "seriouslyfish",
-        "quote": "It's known from various river basins, including the Rio Orinoco in Colombia and Venezuela, Rio Essequibo in Guyana, Rio Oyapock and Rio Approuague in French Guiana and Rio Amapá in Brazil.",
-        "country": "BR",
         "ok": true
       }
     ],

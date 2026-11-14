@@ -1,0 +1,29 @@
+{
+  "slug": "cynopotamus-atratoensis",
+  "name": "ปลาริเวอร์ด็อก",
+  "altNames": [
+    "Doublespot Riverdog",
+    "ปลาดับเบิลสปอตริเวอร์ด็อก",
+    "Riverdog"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Cynopotamus atratoensis มีความยาวรวมประมาณ 35 ซม. ชื่อสามัญที่มีการเสนอไว้คือ Doublespot Riverdog</p>",
+    "beforeYouBuy:glaser": "<p>ปลาเตตร้านักล่าในสกุล Cynopotamus มีการนำเข้ามาน้อยมาก เพราะเป็นปลาที่ไวต่อความเครียดและการขนส่ง ครั้งหนึ่งมีการนำเข้าปลาขนาด 18-22 ซม. จำนวน 8 ตัวจากเวเนซุเอลา และปลาทั้งหมดแข็งแรงดีมาก</p><p>ปลาชนิดนี้อยู่ในกลุ่มเดียวกับ C. essequibensis, C. magdalenae และ C. venezuelae ซึ่งเป็นกลุ่มปลาที่ภายนอกดูคล้ายกันมาก จะแยกกันได้ก็ต้องนับจำนวนเกล็ด จำนวนก้านครีบ และลักษณะอื่น ๆ โดยเฉพาะ C. atratoensis กับ C. venezuelae นั้นแทบแยกกันไม่ออก C. venezuelae มีก้านครีบก้นน้อยกว่าเล็กน้อย ปลาที่นำเข้ามาชุดนี้จึงน่าจะเป็น C. atratoensis</p>",
+    "waterConditions:glaser": "<p>ความกระด้างและค่า pH ของน้ำไม่ค่อยมีผลมากนัก แต่ปลาดูเหมือนจะชอบอุณหภูมิที่สูงกว่าปกติเล็กน้อย คือ 26–28 °C</p>",
+    "diet:glaser": "<p>ปลาในสกุล Cynopotamus เป็นปลาเตตร้านักล่าที่กินปลาเล็กชนิดอื่นเป็นอาหาร</p>",
+    "notes:glaser": "<p>Cynopotamus: มาจากภาษากรีกโบราณ แปลว่า \"สุนัขแห่งแม่น้ำ\" atratoensis: ตั้งตามแหล่งที่พบตัวอย่างต้นแบบ คือแม่น้ำ Rio Atrato ในประเทศโคลอมเบีย essequibensis: ตั้งตามแม่น้ำ Essequibo ในประเทศกายอานา magdalenae: ตั้งตามแม่น้ำ Rio Magdalena ในประเทศโคลอมเบีย venezuelae: ตั้งตามประเทศเวเนซุเอลา</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.9
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-15"
+  }
+}

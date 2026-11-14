@@ -18,13 +18,15 @@
     "behaviour:seriouslyfish": "<p>Bisa agresif, terutama terhadap sesama jenisnya. Bisa dipelihara bersama cichlid besar lainnya atau di akuarium khusus satu spesies. Kemungkinan besar akan memangsa ikan apa pun yang cukup kecil untuk dianggap makanan – dan mulutnya besar!</p>",
     "dimorphism:seriouslyfish": "<p>Jantan lebih besar dan kemungkinan memiliki corak yang lebih mencolok. Betina lebih berwarna.</p>",
     "reproduction:seriouslyfish": "<p>Belum pernah berhasil dipijahkan oleh para penghobi.</p>",
-    "notes:seriouslyfish": "<p>Seperti telah disebutkan, ikan ini ditemukan di sebagian besar daerah aliran sungai Amazon. Karena itu, muncul sejumlah varian warna yang berbeda. Pike cichlid ini cukup umum di dunia hobi karena daerah sebarannya yang luas.</p>"
+    "notes:seriouslyfish": "<p>Seperti telah disebutkan, ikan ini ditemukan di sebagian besar daerah aliran sungai Amazon. Karena itu, muncul sejumlah varian warna yang berbeda. Pike cichlid ini cukup umum di dunia hobi karena daerah sebarannya yang luas.</p>",
+    "distribution:glaser": "<p>Asal: Venezuela (Puerto Inírida).</p>"
   },
   "quality": {
     "score": 0.88,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.88
+      "seriouslyfish": 0.88,
+      "glaser": 0.95
     }
   }
 }

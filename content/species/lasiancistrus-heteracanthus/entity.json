@@ -12,6 +12,40 @@
     "rio-napo"
   ],
   "range": {
+    "native": {
+      "countries": [
+        "EC",
+        "PE"
+      ],
+      "regions": [
+        "Río Napo",
+        "Amazons"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Upper Río Napo of Ecuador and the lower Río Napo of Peru.",
+          "countries": [
+            "EC",
+            "PE"
+          ],
+          "regions": [
+            "Río Napo"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Upper Amazons, Peruvian Amazons.",
+          "countries": [],
+          "regions": [
+            "Amazons"
+          ]
+        }
+      ]
+    },
     "records": {
       "taxonKey": 2339210,
       "total": 7,
@@ -34,27 +68,32 @@
         [
           -78.75,
           -5.625,
+          1,
           1
         ],
         [
           -77.34375,
           -8.4375,
+          1,
           1
         ],
         [
           -77.34375,
           0,
+          2,
           2
         ],
         [
           -74.53125,
           -4.21875,
+          2,
           2
         ],
         [
           -60.46875,
           -8.4375,
-          1
+          1,
+          0
         ]
       ]
     }

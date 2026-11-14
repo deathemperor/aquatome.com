@@ -826,6 +826,86 @@
       ]
     }
   ],
+  "ms/breeds/ranchu-goldfish": [
+    {
+      "at": "2026-11-14T17:13:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.86,
+      "notes": [
+        "\"Kedua-duanya tidak bersirip dorsal dan mempunyai wen, tetapi Ranchu dinilai mengikut piawaiannya sendiri\": the facts do not describe the lionhead's own features or say it is judged by a different standard. This comparison is a small unsupported generality.",
+        "\"Penternak biasanya membuang anak yang badannya bengkok atau ekornya kurang terbuka\": \"biasanya\" generalises one breeder's cull described in the facts."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.93,
+        0.86,
+        0.86
+      ]
+    },
+    {
+      "at": "2026-11-14T17:13:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [
+        "\"Tarikh tepat asalnya tidak sama antara sumber\" is a small editorial generalisation. The facts give a pre-17th-century lionhead presence and a Meiji-era date, but they don't say the sources disagree on the exact date."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.93,
+        0.92,
+        0.93
+      ]
+    }
+  ],
+  "ms/breeds/red-tailed-golden-arowana": [
+    {
+      "at": "2026-11-14T17:15:29Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "\"sirip bawahnya kemerahan\" in the intro: facts say anal fin and lower tail are light brown to dark red in young fish, not adult lower fins in general (minor generalisation).",
+        "\"Ia bukan ikan untuk pemula\": not stated in facts (difficulty 8 only implies this) - mild generalisation.",
+        "\"Sumber berbeza tentang tukar air\" - fine, but \"Panjang tangki ... 3 kali\" rule: facts say tank at least 3 times length, ok.",
+        "\"minta kedai mengimbas cip itu untuk memastikan nombornya sepadan dengan sijil\" in FAQ: facts say scan to check it matches, but not explicitly 'with the certificate'.",
+        "\"Warna emas RTG biasanya sampai ke baris sisik ke-4 atau ke-5\" fine; \"RTG agak agresif\" fine.",
+        "\"Sumber yang sama turut menyebut ... koi\" - source 0 matches, fine."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.88,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "at": "2026-11-14T17:15:29Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "\"Ikan muda yang kilauannya sangat tinggi selalu dijual sebagai gred HBRTG\": the facts say only that fish with very high sheen are often sold as HBRTG. They do not say these fish are young.",
+        "\"8 daripada 10\": the facts give a difficulty of 8 but no scale, so the maximum of 10 is assumed.",
+        "\"Kerana asalnya inilah ia juga dipanggil Indonesian golden\": the facts say the fish is also called the Indonesian golden, but they do not give origin as the reason for the name."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.88,
+        0.85,
+        0.88
+      ]
+    }
+  ],
   "ms/breeds/super-red-arowana": [
     {
       "at": "2026-11-14T11:02:38Z",

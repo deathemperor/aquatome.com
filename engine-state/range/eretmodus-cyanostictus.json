@@ -1,14 +1,20 @@
 {
   "id": "eretmodus-cyanostictus",
   "native": {
-    "input": "19e1298df4805a3f",
-    "at": "2026-11-08T06:57:58.844Z",
+    "input": "4ce1b90d96384ff0",
+    "at": "2026-11-14T17:19:02.525Z",
     "claims": [],
     "regions": [
       {
         "name": "Lake Tanganyika",
         "source": "seriouslyfish",
         "quote": "Endemic to Lake Tanganyika.",
+        "ok": true
+      },
+      {
+        "name": "Lake Tanganyika",
+        "source": "glaser",
+        "quote": "Lake Tanganyika.",
         "ok": true
       }
     ],

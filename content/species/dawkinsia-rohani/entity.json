@@ -22,15 +22,22 @@
         "Pamburivaikal"
       ],
       "sources": [
+        "glaser",
         "seriouslyfish"
       ],
       "quotes": [
         {
-          "source": "seriouslyfish",
-          "quote": "Type locality is 'Kodayar River drainage, near Mayilar, KWS, Kanyakumari District, Tamil Nadu, India, 8.5052°N, 77.3015°E, elevation 110 metres', and it has also been collected in the Paralayar and Pamburivaikal river systems.",
+          "source": "glaser",
+          "quote": "It originates from the south of India.",
           "countries": [
             "IN"
           ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Kodayar River drainage, near Mayilar, KWS, Kanyakumari District, Tamil Nadu, India, 8.5052°N, 77.3015°E, elevation 110 metres', and it has also been collected in the Paralayar and Pamburivaikal river systems.",
+          "countries": [],
           "regions": [
             "Kodayar River",
             "Paralayar",

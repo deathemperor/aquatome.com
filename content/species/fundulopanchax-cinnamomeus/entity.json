@@ -9,6 +9,34 @@
     "africa",
     "cameroon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species originates from Cameroon.",
+          "countries": [
+            "CM"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5788287,
+      "total": 0,
+      "fetched": "2026-11-14",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

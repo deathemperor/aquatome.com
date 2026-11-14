@@ -11,6 +11,72 @@
     "salween",
     "myanmar"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Salween"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Mustura maepaiensis is a small nemacheilid loach from tributaries of the Salween basin in Mae Hong Son and Tak provinces, northwestern Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Salween"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5204929,
+      "total": 5,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "MM",
+          3
+        ],
+        [
+          "TH",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          94.21875,
+          22.5,
+          1,
+          0
+        ],
+        [
+          95.625,
+          23.90625,
+          2,
+          0
+        ],
+        [
+          97.03125,
+          16.875,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          18.28125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

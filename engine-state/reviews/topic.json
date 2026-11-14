@@ -1152,6 +1152,16 @@
   ],
   "ms/guides/aquatome-be-ca-khi-mat-dien-giu-ca-song-the-nao": [
     {
+      "at": "2026-11-14T17:07:45Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    },
+    {
       "at": "2026-11-08T13:29:34Z",
       "model": "sonnet",
       "score": 0.82,
@@ -1182,6 +1192,45 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "ms/guides/aquatome-benh-nam-mieng-nam-lung-columnaris-o-ca-canh-nhan-biet-cach-chua-va-phong": [
+    {
+      "at": "2026-11-14T17:10:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "\"kerana bakteria ini lebih ganas apabila air panas\" is given as the reason for cooling to about 24 °C. The facts state the 24 °C step and the higher virulence at 85–90 °F separately and never link them. This is a small inference."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.95,
+        0.95,
+        0.96
+      ]
+    },
+    {
+      "at": "2026-11-14T17:10:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.86,
+      "notes": [
+        "\"jadi dapatkan pemeriksaan doktor haiwan\" (for koi gill rot): the facts say to tell it apart from KHV but do not tell the keeper to see a vet.",
+        "\"Menganggapnya kulat lalu merawat dengan ubat kulat\": the facts only say calling it a fungus is wrong. They say nothing about antifungal medicine being a common mistake.",
+        "\"beberapa ikan mati serentak\" as a warning sign: this is an extrapolation. The facts only describe acute spread and mortality within 36 hours.",
+        "\"Periksa ammonia dan nitrit, kemudian betulkan kualiti air di tangki utama\" as a first-aid step: the facts give this only as general husbandry and prevention, not as an emergency step."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.88,
+        0.86,
+        0.86
+      ]
     }
   ],
   "ms/guides/aquatome-benh-nhung-velvet-benh-bui-vang-o-ca-canh-nhan-biet-va-cach-chua": [
@@ -3901,6 +3950,41 @@
       ]
     }
   ],
+  "vi/guides/aquatome-cach-lam-trong-nuoc-be-ca-bi-duc": [
+    {
+      "at": "2026-11-14T17:54:18Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.95,
+        0.93,
+        0.95
+      ]
+    },
+    {
+      "at": "2026-11-14T17:54:18Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "\"hoặc bể bị nắng chiếu lâu trong ngày\": the facts say \"long daylight exposure\", not direct sun on the tank. This is a slight stretch.",
+        "\"Nước vàng hoặc nâu trong khi bể không có lũa hay lá\": this is the guide's own inference. The facts only say yellow or brown water can also mean decaying organic matter or high ammonia or nitrite."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.93,
+        0.92,
+        0.7
+      ]
+    }
+  ],
   "vi/guides/aquatome-cho-ca-an-khi-vang-nha-di-xa-va-dip-tet": [
     {
       "at": "2026-11-08T05:35:05Z",
@@ -4009,6 +4093,37 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/guides/aquatome-chon-va-trong-cay-thuy-sinh-cho-nguoi-moi": [
+    {
+      "at": "2026-11-14T17:47:29Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-14T17:47:29Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "\"Cây cấy mô bán trong cốc thì sạch ốc và sâu bọ\": the facts only say tissue-culture plants are free of pests. They do not mention snails.",
+        "\"Chỉ ngâm trong chậu riêng\": the facts only say never to use alum where livestock are present. The separate-container instruction is an inference.",
+        "\"hợp với nhiều kiểu bể\": the facts only call Cryptocoryne wendtii very versatile, so this is a slight embellishment."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.88,
+        0.9,
+        0.9
+      ]
     }
   ],
   "vi/guides/aquatome-loc-tran-tren-cach-lap-dat-va-su-dung": [

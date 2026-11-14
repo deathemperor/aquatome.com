@@ -10,6 +10,60 @@
     "thailand",
     "ping"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Ping River",
+        "Chao Phraya"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from tributaries of the upper Mae Nam Ping (Ping River) basin in Chiang Mai Province, northern Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Ping River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Ping is a major tributary of the Chao Phraya River.",
+          "countries": [],
+          "regions": [
+            "Chao Phraya"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205091,
+      "total": 1,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          19.6875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

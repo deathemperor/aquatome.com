@@ -14,6 +14,94 @@
     "china",
     "yunnan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MM",
+        "LA",
+        "CN"
+      ],
+      "regions": [
+        "Mekong",
+        "Nam Beng",
+        "Nam Tha",
+        "Nam Yuoan"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Schistura kengtungensis is a nemacheilid loach from the middle Mekong basin in Thailand, Myanmar, Laos and Yunnan Province, southern China.",
+          "countries": [
+            "TH",
+            "MM",
+            "LA",
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is distributed in the middle Mekong River basin in north and northeastern Thailand, Myanmar and Xishuangbanna Dai Autonomous Prefecture, Yunnan province, southern China, and is also known from the Nam Beng, Nam Tha and Nam Yuoan drainages in Laos.",
+          "countries": [],
+          "regions": [
+            "Mekong",
+            "Nam Beng",
+            "Nam Tha",
+            "Nam Yuoan"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205083,
+      "total": 5,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "LA",
+          3
+        ],
+        [
+          "MM",
+          1
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          16.875,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          21.09375,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
