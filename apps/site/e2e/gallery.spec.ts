@@ -25,10 +25,10 @@ for (const [what, section] of [['fish', 'ca'], ['plant', 'cay']] as const) {
     const viewer = page.locator('dialog.lb')
     await expect(viewer).toBeVisible()
     const by = viewer.locator('.by')
-    await expect(by).toContainText(`1/${n}`)
+    await expect(viewer.getByRole('status')).toHaveText(`1/${n}`)
     await expect(by.locator('a').first()).toHaveAttribute('href', /^https:\/\//) // an Unsplash photo's line has more (unsplash-credits.spec.ts)
     await page.keyboard.press('ArrowRight')
-    await expect(by).toContainText(`2/${n}`)
+    await expect(viewer.getByRole('status')).toHaveText(`2/${n}`)
     await expect(page).toHaveURL(/#a2$/)
     await page.keyboard.press('Escape')
     await expect(viewer).toBeHidden()
@@ -188,7 +188,7 @@ test('gallery viewer: #a3 opens photo 3, a swipe goes to the next, Back closes i
   await expect(viewer).toBeVisible()
   const n = await page.locator('[data-gallery] a[data-i]').count()
   const by = viewer.locator('.by')
-  await expect(by).toContainText(`3/${n}`)
+  await expect(by).toHaveText(new RegExp(`· 3/${n}$`)) // the credit line ends with the number
   await expect(viewer.getByRole('status')).toHaveText(`3/${n}`)
   // The photos follow the finger until it lifts.
   const stage = viewer.locator('.pv-stage')
@@ -198,10 +198,10 @@ test('gallery viewer: #a3 opens photo 3, a swipe goes to the next, Back closes i
     const x = () => viewer.locator('.pv-track').evaluate(t => new DOMMatrix(getComputedStyle(t).transform).m41)
     await expect.poll(x).toBeCloseTo(-0.6 * width, -1)
   })
-  await expect(by).toContainText(`4/${n}`)
+  await expect(viewer.getByRole('status')).toHaveText(`4/${n}`)
   await expect(page).toHaveURL(new RegExp(`${gallery}#a4$`))
   await swipe(page, stage, 0.6, info.project.name === 'phone')
-  await expect(by).toContainText(`3/${n}`)
+  await expect(viewer.getByRole('status')).toHaveText(`3/${n}`)
   await page.goBack()
   await expect(viewer).toBeHidden()
   await expect(page).toHaveURL(new RegExp(`${gallery}$`))
@@ -215,13 +215,19 @@ test('gallery viewer: a zoomed photo pans rather than swiping; a double tap zoom
   const gallery = galleryOf('ca')
   test.skip(!gallery, 'no fish gallery in this build')
   const touch = info.project.name === 'phone'
-  await page.goto(`${gallery}#a1`)
+  // The gallery's widest photo: zoomed on a computer's wide screen, a tall one can stay narrower than the screen, with
+  // nothing to pan sideways (the first fish gallery's first photo was one on 14 Nov).
+  await page.goto(gallery!)
+  const shapes = await page.locator('[data-gallery] a[data-i]').evaluateAll(as => as.map(a => Number((a as HTMLElement).dataset.w) / Number((a as HTMLElement).dataset.h)))
+  const n = shapes.length
+  const k = shapes.indexOf(Math.max(...shapes)) + 1
+  await page.goto(`${gallery}#a${k}`)
+  await page.reload() // the gallery reads the address's photo as it loads
   const viewer = page.locator('dialog.lb')
   const photo = viewer.locator('.pv-slide:not([inert]) .pv-pic')
   const stage = viewer.locator('.pv-stage') // its middle is on the photo, panned or not
-  const by = viewer.locator('.by')
-  const n = await page.locator('[data-gallery] a[data-i]').count()
-  await expect(by).toContainText(`1/${n}`)
+  const count = viewer.getByRole('status') // the photo's number alone: "1/11" is inside "11/11"
+  await expect(count).toHaveText(`${k}/${n}`)
   await expect(viewer).toHaveAttribute('data-zoom', 'out')
   if (touch) await pinchOut(page, stage)
   else {
@@ -231,7 +237,7 @@ test('gallery viewer: a zoomed photo pans rather than swiping; a double tap zoom
   }
   await expect(viewer).toHaveAttribute('data-zoom', 'in')
   await swipe(page, stage, -0.6, touch)
-  await expect(by).toContainText(`1/${n}`)
+  await expect(count).toHaveText(`${k}/${n}`)
   expect(await photo.evaluate(p => new DOMMatrix(getComputedStyle(p).transform).m41), 'panned to the left').toBeLessThan(0)
   await doubleTap(page, stage, touch)
   await expect(viewer).toHaveAttribute('data-zoom', 'out')
@@ -240,7 +246,7 @@ test('gallery viewer: a zoomed photo pans rather than swiping; a double tap zoom
   await doubleTap(page, stage, touch)
   await expect(viewer).toHaveAttribute('data-zoom', 'out')
   await swipe(page, stage, -0.6, touch)
-  await expect(by).toContainText(`2/${n}`)
+  await expect(count).toHaveText(`${(k % n) + 1}/${n}`) // after the last comes the first
   expect(errors).toEqual([])
 })
 
