@@ -69,6 +69,59 @@ public enum FishLamp {
     return Command(id: id, sent: scramble(plain + [UInt8(c & 0xFF), UInt8(c >> 8)]))
   }
 
+  /// A colour built anew, as Fish lamp's colour command (`02 07`): hue in degrees, going round; saturation and brightness
+  /// from 0 to 1. On Fish lamp's scales: hue × 65535 / 360 rounded half up, saturation in 16 bits, brightness one byte
+  /// doubled (its sliders send `a8 a8` for 168). Bytes 1–7 as the recorded `on` has them; `sequence` is byte 0
+  /// (`sequence(after:)`). A built white at half was taken on 14 Nov; other colours built so are untried.
+  public static func colour(hue: Double, saturation: Double, brightness: Double, sequence: UInt8) -> Command? {
+    let degrees = hue.truncatingRemainder(dividingBy: 360)
+    let h = UInt16(((degrees < 0 ? degrees + 360 : degrees) * 65535 / 360).rounded())
+    let s = UInt16((min(max(saturation, 0), 1) * 65535).rounded())
+    return colour(h, s, brightness: brightness, sequence: sequence)
+  }
+
+  /// A recorded colour's hue and saturation as Fish lamp sent them (its orange is not quite 30°), at another brightness:
+  /// a swatch sent at the card's level. Nil unless `recording` is a colour.
+  public static func colour(like recording: Command, brightness: Double, sequence: UInt8) -> Command? {
+    let p = recording.plain
+    guard p.count >= 14, p[8] == 0x02, p[9] == 0x07 else { return nil }
+    return colour(UInt16(p[10]) << 8 | UInt16(p[11]), UInt16(p[12]) << 8 | UInt16(p[13]), brightness: brightness, sequence: sequence)
+  }
+
+  private static func colour(_ h: UInt16, _ s: UInt16, brightness: Double, sequence: UInt8) -> Command? {
+    guard let on = loveEcology.first(where: { $0.id == "on" }) else { return nil }
+    let v = UInt16((min(max(brightness, 0), 1) * 255).rounded()) * 257
+    let hsv = [h, s, v].flatMap { [UInt8($0 >> 8), UInt8($0 & 0xFF)] }
+    return built(id: "colour", [sequence] + Array(on.plain[1..<8]) + [0x02, 0x07] + hsv + [0, 0, 0, 0])
+  }
+
+  /// Byte 0 for a command built anew: the next after `last` that no recording or trial uses, kept under 0x80 as every byte
+  /// 0 a phone has sent (6 and 14 Nov). Whether the light drops one it has seen lately is open; the app keeps the last one
+  /// it used, so a new launch goes on from there.
+  public static func sequence(after last: UInt8) -> UInt8 {
+    let used = Set((loveEcology + trials).map { $0.sent[0] })
+    var b = last
+    repeat { b = (b &+ 1) & 0x7F } while used.contains(b)
+    return b
+  }
+
+  /// When a slider's or colour wheel's value is broadcast: once the finger has paused for `pause`, or at once when it
+  /// lifts, and never sooner than `gap` after the last broadcast ends (`lastEnded` is ahead while one is on air). The
+  /// caller sends only the latest value and drops any older one still waiting. Fish lamp's own slider sent nine steps in
+  /// about twenty seconds, and the light kept up.
+  public struct Pacer: Sendable {
+    public var pause: Duration
+    public var gap: Duration
+
+    public init(pause: Duration, gap: Duration) { self.pause = pause; self.gap = gap }
+
+    public func due(moved: ContinuousClock.Instant, lifted: Bool, lastEnded: ContinuousClock.Instant?) -> ContinuousClock.Instant {
+      let ready = lifted ? moved : moved + pause
+      guard let lastEnded else { return ready }
+      return max(ready, lastEnded + gap)
+    }
+  }
+
   /// The owner's light's commands, in the order the app offers them: off, on, then the colours.
   public static let loveEcology: [Command] = {
     struct File: Decodable { struct C: Decodable { let id: String; let sent: String }; let commands: [C] }
