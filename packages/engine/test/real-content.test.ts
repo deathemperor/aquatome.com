@@ -6,6 +6,7 @@ import { expect, test } from 'vitest'
 import { loadAll, mayPublish, resolveDataCard, type Translation } from '@aq/schema'
 import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
 import { englishOf } from '../src/english'
+import { tilapiaUnnamed } from '../src/kind-words'
 import { droppedName, FISH_NAMES, KIND_PASSAGES, oldNames } from '../src/names'
 import { altKey, NOT_ITS } from '../src/alt-names'
 import { GROUP_ORDERS, MISMATCHED } from '../src/gbif'
@@ -13,6 +14,7 @@ import { productOf } from '../src/fit'
 import { loadPages } from '../src/pages'
 import { ENGLISH_PLACE_WORD } from '../src/place-names'
 import { roundPage } from '../src/round'
+import { snapshotName } from '../src/snapshot'
 import { mendPart } from '../src/source-figures'
 import { fishThaiLai, wordingSlips } from '../src/sanitize'
 import { cardOf, cardProblems, readSummaries } from '../src/summaries'
@@ -340,6 +342,34 @@ test('no two guides in a language share a title, and none is only a name', async
   expect(errors).toEqual([])
   expect(findings.map(f => `${f.page.lang}/${f.page.id}: ${f.detail}`)).toEqual([])
 }, slow(300_000))
+
+// Curation & Media, 2026-11-15: "Một loài cá rô phi lùn hoàn toàn mới" for "A brand-new dwarf cichlid". "Cá rô phi" is a
+// tilapia, and a guide's title heads it, picks its picture and made its address. A guide whose English is kept here
+// (sources/) says "rô phi" in its title only where that English names a tilapia; a video's transcript isn't kept here, and
+// isn't judged. The two that did on 15 Nov were titled by hand (nameFixed), their old address forwarding with no note, so
+// the tilapia's words aren't searched for.
+const CICHLID_TITLES: Record<string, { name: string; was: string }> = {
+  'glaser-en-25-perchlike-fishes-25d-perchlike-fishes-4-south-american-dwarf-cichlids-a-brandnew-dwarf-cichlid-apistogramma-sp-cristal-en':
+    { name: 'Một loài cá cichlid lùn hoàn toàn mới: Apistogramma sp. Cristal', was: 'mot-loai-ca-ro-phi-lun-hoan-toan-moi-apistogramma-sp-cristal' },
+  'seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy':
+    { name: 'Những thay đổi lớn trong phân loại cá cichlid Tân Thế Giới', was: 'nhung-thay-doi-lon-trong-phan-loai-ca-ro-phi-tan-the-gioi' },
+}
+test('no guide calls a cichlid a tilapia in its title', () => {
+  const root = fileURLToPath(new URL('../../../', import.meta.url))
+  const dir = join(root, 'content/guides')
+  const wrong = readdirSync(dir).filter(id => existsSync(join(dir, id, 'vi.json'))).flatMap(id => {
+    const e = JSON.parse(readFileSync(join(dir, id, 'entity.json'), 'utf8')) as { source: string; sourceUrl: string }
+    const en = join(root, 'sources', e.source, `${snapshotName(e.sourceUrl)}.md`)
+    const t = JSON.parse(readFileSync(join(dir, id, 'vi.json'), 'utf8')) as Translation
+    return existsSync(en) && tilapiaUnnamed(t.name, readFileSync(en, 'utf8')) ? [`${id}: ${t.name}`] : []
+  })
+  expect(wrong).toEqual([])
+  for (const [id, r] of Object.entries(CICHLID_TITLES)) {
+    const t = JSON.parse(readFileSync(join(dir, id, 'vi.json'), 'utf8')) as Translation & { redirectFrom?: { slug: string; name: string }[] }
+    expect([t.name, t.nameFixed, t.altNames.filter(n => /rô phi/i.test(n)), t.redirectFrom], id).toEqual([r.name, true, [], [{ slug: r.was, name: '' }]])
+    expect(t.slug, id).not.toMatch(/ro-phi/)
+  }
+})
 
 // The chief of staff's rulings of 2026-11-12 on the tap-water report. Each is a hand fix the engine keeps: a guide's body
 // marked bodyFixed, a page's part marked fixed (in English and in each language beside it), a note of ours in localNote.

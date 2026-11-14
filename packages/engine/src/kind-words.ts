@@ -88,6 +88,18 @@ export function headWord(t: Taxon): string | undefined {
 /** A name whose word from the table doesn't fit its animal: a new page doesn't go live with it. */
 export const wrongKind = (name: string, t: Taxon) => kindWord(name, t)?.fits === false
 
+// The English for a tilapia: the word, or a genus the table holds for "rô phi". "Xenotilapia" and "Paratilapia" are other
+// cichlids, and a word that only holds "tilapia" isn't it.
+const TILAPIA_EN = new RegExp(`(?<![\\p{L}\\p{N}])(?:tilapias?|${KIND_WORDS.find(k => k.word === 'rô phi')!.genera!.join('|')})(?![\\p{L}\\p{N}])`, 'iu')
+const RO_PHI = /(?<![\p{L}\p{M}\p{N}])rô phi(?![\p{L}\p{M}\p{N}])/iu
+
+/**
+ * A Vietnamese text that calls a fish "rô phi", a tilapia, where its English names none: "A brand-new dwarf cichlid"
+ * written "Một loài cá rô phi lùn hoàn toàn mới" (Curation & Media, 15 Nov 2026). A cichlid is "cá cichlid", or its own
+ * trade name ("cá Apisto").
+ */
+export const tilapiaUnnamed = (vi: string, en: string) => RO_PHI.test(vi.normalize('NFC')) && !TILAPIA_EN.test(en)
+
 /**
  * A page's plain scientific form, the name it takes when no name of its own passes: its head word and the scientific
  * name ("Cá Champsochromis caeruleus", "Tôm Lysmata debelius"). An animal of no known order keeps the "Cá" it always had.
