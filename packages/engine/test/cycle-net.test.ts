@@ -227,12 +227,17 @@ test('a cycle past its hours that is still moving, or waiting its turn in the ch
     await new Promise(r => setTimeout(r, 300))
     // No check has seen them yet: it can't tell.
     stuck('0')
+    // The photos cycle's CPU time as ps says it, right after that check: whole seconds on Linux, hundredths on macOS.
+    const cpu = () => execFileSync('ps', ['-o', 'time=', '-p', String(working.pid)], { encoding: 'utf8' }).trim()
+    const before = cpu()
     expect(log('pages')).toEqual([expect.stringMatching(said('pages', calls.pid, ': waiting, now in sleep 60; the next check says whether it moves'))])
     // The pages cycle's first call ends (our own test's process), and its next begins.
     const child = () => execFileSync('pgrep', ['-P', String(calls.pid)], { encoding: 'utf8' }).trim()
     const first = child()
     process.kill(Number(first))
     for (let i = 0; i < 50 && [first, ''].includes((() => { try { return child() } catch { return '' } })()); i++) await new Promise(r => setTimeout(r, 100))
+    // Until ps shows the photos cycle's CPU time grown: on GitHub's Linux runner, under a second of it showed none.
+    for (let i = 0; i < 100 && cpu() === before; i++) await new Promise(r => setTimeout(r, 100))
     stuck('0')
     expect(log('pages')[1]).toMatch(said('pages', calls.pid, ', still moving: waiting, now in sleep 61'))
     expect(log('photos')[1]).toMatch(said('photos', working.pid, `, still moving: a step of its own, now in /bin/bash ${join(h, 'fake/photos/engine-cycle.sh')} photos`))
