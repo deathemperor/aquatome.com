@@ -384,7 +384,7 @@ private struct ChatHeader: View {
     HStack(alignment: subject.fromPhoto ? .top : .center, spacing: 12) {
       Group {
         if let img = subject.img {
-          V2Photo(src: img.absoluteString)
+          V2Photo(src: img.absoluteString, box: subject.imgBox)
         } else {
           Image(systemName: "photo").font(.title3).foregroundStyle(.secondary).frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.fill.tertiary)

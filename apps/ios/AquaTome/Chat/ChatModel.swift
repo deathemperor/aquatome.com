@@ -15,6 +15,8 @@ struct ChatSubject: Hashable, Codable {
   let sci: String?
   /// Its photo; from fish ID, none (the reader's own isn't kept).
   let img: URL?
+  /// Where the fish is in `img`, as its page's lists have it.
+  var imgBox: PhotoBox? = nil
   /// From fish ID: its guesses as it words them ("Gần như chắc chắn Cá betta (cá xiêm), có thể Cá betta imbellis").
   let guesses: String?
   /// From fish ID: the second guess's name, which a starter asks how to tell apart.
@@ -34,7 +36,8 @@ extension ChatRoute {
   init?(about item: HandbookIndex.Item) {
     guard [.fish, .plant].contains(item.kind), let id = item.contentId else { return nil }
     self.init(start: Chat.Start(from: .species, about: id),
-              subject: ChatSubject(plant: item.kind == .plant, name: item.name, sci: item.subUnderName, img: item.img.flatMap(URL.init(string:)), guesses: nil, second: nil))
+              subject: ChatSubject(plant: item.kind == .plant, name: item.name, sci: item.subUnderName, img: item.img.flatMap(URL.init(string:)), imgBox: item.imgBox,
+                                   guesses: nil, second: nil))
   }
 }
 

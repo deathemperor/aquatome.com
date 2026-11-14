@@ -75,14 +75,24 @@ private struct BlockBox<Content: View>: View {
   }
 }
 
+extension HandbookModel {
+  /// Where the fish is in a card's photo: its page's box, when the card shows the photo the page's own lists draw (the box
+  /// is that photo's); none for another, which is drawn centred.
+  func box(of page: Chat.Linked) -> PhotoBox? {
+    guard let path = page.path, let found = item(at: path), found.img == page.img?.absoluteString else { return nil }
+    return found.imgBox
+  }
+}
+
 /// A photo of a set height, as wide as it's given.
 private struct BandImage: View {
   let src: String
+  let box: PhotoBox?
   let height: CGFloat
   var corner: CGFloat = 0
   var body: some View {
     // As v2's photos are drawn everywhere (V2Photo): framed by the photo's box once the app has it, centred until then.
-    V2Photo(src: src).frame(maxWidth: .infinity).frame(height: height).clipShape(.rect(cornerRadius: corner))
+    V2Photo(src: src, box: box).frame(maxWidth: .infinity).frame(height: height).clipShape(.rect(cornerRadius: corner))
       .accessibilityHidden(true)
   }
 }
@@ -143,12 +153,12 @@ private struct SpeciesBlock: View {
 
   var body: some View {
     BlockBox {
-      if !own, let img = card.page.img { BandImage(src: img.absoluteString, height: 150) }
+      if !own, let img = card.page.img { BandImage(src: img.absoluteString, box: handbook.box(of: card.page), height: 150) }
       let large = size.isAccessibilitySize
       let header = own && large ? AnyLayout(VStackLayout(alignment: .leading, spacing: 12)) : AnyLayout(HStackLayout(spacing: 12))
       header {
         if own, let img = card.page.img {
-          V2Photo(src: img.absoluteString).frame(width: large ? 120 : 64, height: large ? 90 : 48).clipShape(.rect(cornerRadius: 10))
+          V2Photo(src: img.absoluteString, box: handbook.box(of: card.page)).frame(width: large ? 120 : 64, height: large ? 90 : 48).clipShape(.rect(cornerRadius: 10))
             .accessibilityHidden(true)
         }
         VStack(alignment: .leading, spacing: own ? 0 : 1) {
@@ -291,7 +301,7 @@ private struct CompareBlock: View {
             name(c) {
               VStack(alignment: .leading, spacing: 5) {
                 if let img = c.page.img {
-                  BandImage(src: img.absoluteString, height: 58, corner: 9)
+                  BandImage(src: img.absoluteString, box: handbook.box(of: c.page), height: 58, corner: 9)
                 } else {
                   Rectangle().fill(.fill.tertiary).frame(height: 58).clipShape(.rect(cornerRadius: 9)).accessibilityHidden(true)
                 }
