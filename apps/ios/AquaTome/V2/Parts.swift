@@ -5,21 +5,29 @@ import UIKit
 // The v2 look's shared parts: a handbook photo that tells its colour, the lockup (a page's photo, name, line and its
 // action), the facts strip, a shelf's header, and the press of a card.
 
-/// A handbook photo filling its frame, and the colour drawn from it once it's decoded (`colour`), for the band, wash or
-/// page around it. The index carries a 480 px copy and the page the full one: the full one only for a frame much past
-/// 480 px, so a shelf's squares and tiles never fetch it.
+/// A handbook photo in its frame, and the colour drawn from it once it's decoded (`colour`), for the band, wash or page
+/// around it. The index carries a 480 px copy and the page the full one: the full one only for a frame much past 480 px,
+/// so a shelf's squares and tiles never fetch it. With where its fish is (`box`), the whole animal stays in the frame, by
+/// the site's rule at the size it's drawn (PhotoFrame): the crop centred, or moved onto the fish, or the photo whole on
+/// the mat or its own blur. Without one, centred, as before.
 struct V2Photo: View {
   let src: String?
+  var box: PhotoBox?
   /// What its colour is known by, if not `src`: a fish's page looks it up by the index's photo, which a tank-mate's tile may
   /// show in another size.
   var colourKey: String?
   /// The colour of the card or page around it, for its place when it doesn't come: that colour, not a grey band in it.
   var ground: Color?
+  /// A page's head: whole on `ground`, never on its own blur (the frames spec's page head, approved 11 Nov).
+  var onGround = false
   var colour: ((Color) -> Void)?
+  /// The photo's own shape (its width over its height), once it's there: a page's head takes it where the banner would cut it.
+  var shape: ((CGFloat) -> Void)?
   @State private var picture: (src: String, image: UIImage)?
   /// The address that didn't come (offline, not kept).
   @State private var missing: String?
   @State private var pixels = CGSize.zero
+  @State private var points = CGSize.zero
   @Environment(\.displayScale) private var scale
   @Environment(\.v2PhotoTries) private var tries
   /// Back in the app: a photo that didn't come asks again, as a page kept under another may have been shown offline.
@@ -37,7 +45,7 @@ struct V2Photo: View {
     Rectangle().fill(.fill.tertiary)
       .overlay {
         if let image {
-          Image(uiImage: image).resizable().scaledToFill().transition(.opacity)
+          framed(image).transition(.opacity)
         } else {
           ZStack {
             // No photo yet, none at all, or one that didn't come: in the colour around it, if any, not a grey band in it.
@@ -53,8 +61,9 @@ struct V2Photo: View {
         }
       }
       .clipped()
-      .onGeometryChange(for: CGSize.self) { $0.size } action: { pixels = CGSize(width: $0.width * scale, height: $0.height * scale) }
+      .onGeometryChange(for: CGSize.self) { $0.size } action: { points = $0; pixels = CGSize(width: $0.width * scale, height: $0.height * scale) }
       .onChange(of: phase) { if phase == .active, let src, missing == src { again += 1 } }
+      .onChange(of: image?.size, initial: true) { _, s in if let shape, let s, s.height > 0 { shape(s.width / s.height) } }
       .task(id: "\(src ?? "")|\(Int(pixels.width))x\(Int(pixels.height))|\(tries)|\(again)") {
         guard let src, pixels.width > 0 else { return }
         let size = PageImages.Size.filling(pixels)
@@ -75,6 +84,36 @@ struct V2Photo: View {
         missing = nil
         if let colour { colour(await PhotoColour.of(loaded, key: colourKey ?? src)) }
       }
+  }
+
+  /// The photo as the frame shows it: covering it, its window centred or moved onto the fish by its share of the overflow
+  /// (as CSS's object-position); or whole, the strips beside it the mat (the card's colour, else the frame's own fill)
+  /// where they're narrow, else the same photo blurred (frames.md, the Design Lead, 13 Nov).
+  @ViewBuilder private func framed(_ image: UIImage) -> some View {
+    let aspect = image.size.width / max(image.size.height, 1), ratio = points.width / max(points.height, 1)
+    switch box == nil || points.width == 0 ? PhotoFrame.cover(x: 0.5, y: 0.5) : PhotoFrame.of(aspect: aspect, box: box, ratio: ratio) {
+    case let .cover(x, y):
+      let s = max(points.width / max(image.size.width, 1), points.height / max(image.size.height, 1))
+      Image(uiImage: image).resizable().scaledToFill()
+        .offset(x: (0.5 - x) * (image.size.width * s - points.width), y: (0.5 - y) * (image.size.height * s - points.height))
+    case .whole:
+      // Each sized to the frame here, not by its own fit or fill: the blur's fill, larger than the frame, laid the whole
+      // photo out at its own size, so it showed cut as a centred cover would (the owner's report of 14 Nov, Cá chạch's list).
+      let fit = min(points.width / max(image.size.width, 1), points.height / max(image.size.height, 1))
+      let fill = max(points.width / max(image.size.width, 1), points.height / max(image.size.height, 1))
+      ZStack {
+        switch onGround ? .mat : PhotoFrame.ground(aspect: aspect, ratio: ratio) {
+        case .mat: if let ground { ground }
+        case .blur:
+          Image(uiImage: image).resizable().frame(width: image.size.width * fill, height: image.size.height * fill)
+            .scaleEffect(PhotoFrame.blurScale)
+            .blur(radius: PhotoFrame.blurRadius(height: points.height), opaque: true)
+        }
+        Image(uiImage: image).resizable().frame(width: image.size.width * fit, height: image.size.height * fit)
+      }
+      .frame(width: points.width, height: points.height)
+      .clipped()
+    }
   }
 
   /// The full-size photo of an index's 480 px copy (`…-480.webp` → `….webp`), as the page's own `lead` is.
@@ -236,7 +275,9 @@ struct Lockup: View {
   var icon = true
   /// On a Hôm nay card: its page opens as a post (`Post`).
   var post = false
-  @ScaledMetric(relativeTo: .body) var thumb: CGFloat = 60
+  /// The photo's height: 3:2, 84 × 56 at size L (a square cut 81% of fish centred, 3:2 27%: the Design Lead's frames,
+  /// 13 Nov), up to 132 × 88 over the words at the accessibility sizes.
+  @ScaledMetric(relativeTo: .body) var thumb: CGFloat = 56
   @Environment(TanksModel.self) private var tanks
   @Environment(\.dynamicTypeSize) private var size
   @State private var putting = false
@@ -245,17 +286,17 @@ struct Lockup: View {
     // At the accessibility sizes the button goes under the words, and the photo over them: the words get the row's whole
     // width, where beside the photo a long name ran a word to a line.
     let layout = size.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: 8)) : AnyLayout(HStackLayout(spacing: 12))
-    let side = min(thumb, 88)
+    let tall = min(thumb, 88), wide = tall * 1.5
     layout {
       link {
         layout {
           if icon {
             // A fish's colour worked out here too, so its page opens in it, not in green first.
-            V2Photo(src: item.img, colour: item.kind == .fish ? { _ in } : nil)
-              .frame(width: side, height: side)
-              .clipShape(.rect(cornerRadius: side * 0.23, style: .continuous))
+            V2Photo(src: item.img, box: item.imgBox, colour: item.kind == .fish ? { _ in } : nil)
+              .frame(width: wide, height: tall)
+              .clipShape(.rect(cornerRadius: tall * 0.23, style: .continuous))
               .overlay { if item.img == nil { Image(systemName: item.kind.symbol).font(.title3).foregroundStyle(.secondary).accessibilityHidden(true) } }
-              .overlay { RoundedRectangle(cornerRadius: side * 0.23, style: .continuous).strokeBorder(.primary.opacity(0.08), lineWidth: 0.5) }
+              .overlay { RoundedRectangle(cornerRadius: tall * 0.23, style: .continuous).strokeBorder(.primary.opacity(0.08), lineWidth: 0.5) }
           }
           VStack(alignment: .leading, spacing: 2) {
             Group {
@@ -322,7 +363,7 @@ struct Lockup: View {
   /// kit, under its own heading.
   static func line(_ item: HandbookIndex.Item) -> String? {
     if item.kind == .video, let n = item.parts { return String(localized: "\(n) video") }
-    return item.sub ?? (item.kind == .equipment ? nil : item.kind.title)
+    return item.subUnderName ?? (item.kind == .equipment ? nil : item.kind.title)
   }
 }
 

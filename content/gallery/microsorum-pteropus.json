@@ -62,18 +62,6 @@
       "kind": "submersed"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/599750115.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/599750115-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC0",
-      "author": "Agnes Trekker",
-      "sourceUrl": "https://www.inaturalist.org/photos/599750115",
-      "caption": "Cận cảnh lá Dương xỉ Java với gân lá rõ",
-      "best": true,
-      "kind": "detail"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/148983228.webp",
       "thumb": "https://media.aquatome.com/inaturalist/148983228-480.webp",
       "width": 1024,
@@ -396,6 +384,18 @@
       "caption": "Dương xỉ Java mọc dọc khe đá ẩm ướt",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/599750115.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/599750115-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC0",
+      "author": "Agnes Trekker",
+      "sourceUrl": "https://www.inaturalist.org/photos/599750115",
+      "caption": "Cận cảnh lá Dương xỉ Java với gân lá rõ",
+      "best": true,
+      "kind": "detail"
     }
   ],
   "seen": 77,

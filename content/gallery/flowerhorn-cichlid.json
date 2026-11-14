@@ -2,18 +2,6 @@
   "id": "flowerhorn-cichlid",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/1166ed0ab192571a.webp",
-      "thumb": "https://media.aquatome.com/commons/1166ed0ab192571a-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY-SA 4.0",
-      "author": "Amartya Mandal",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Albino_flowerhorn.jpg",
-      "caption": "Cá La Hán màu hồng đầu u lớn trong bể sỏi đỏ",
-      "best": true,
-      "kind": "form"
-    },
-    {
       "url": "https://media.aquatome.com/commons/0dd2e5d884c682eb.webp",
       "thumb": "https://media.aquatome.com/commons/0dd2e5d884c682eb-480.webp",
       "width": 1200,
@@ -274,6 +262,18 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Hammer_Fish.png",
       "caption": "Cá La Hán thân đỏ trắng bơi trong bể",
       "best": false,
+      "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/1166ed0ab192571a.webp",
+      "thumb": "https://media.aquatome.com/commons/1166ed0ab192571a-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY-SA 4.0",
+      "author": "Amartya Mandal",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Albino_flowerhorn.jpg",
+      "caption": "Cá La Hán màu hồng đầu u lớn trong bể sỏi đỏ",
+      "best": true,
       "kind": "form"
     }
   ],
