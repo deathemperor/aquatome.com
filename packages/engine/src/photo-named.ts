@@ -133,11 +133,37 @@ function namesAnother(title: string, page: NamedPage): boolean {
   return !own.some(n => n[1] === two[1] || (!!n[1] && words.includes(n[1])))
 }
 
-/** What the photo's source calls its subject, for this page. */
+/** A caption in Vietnamese is ours (the album step writes them), not the source's words: its letters only Vietnamese has. */
+const OURS = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i
+const esc = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+
+/**
+ * Whether the source's description names this species (or a synonym) as the photo's subject: "Schwarzer Pacu (Colossoma
+ * macropomum), Tierpark Hellabrunn". The genus as written or its initial, then the epithet; "maylandia-elegans" in a file
+ * name a caption repeats is not a description.
+ */
+function namesThis(caption: string, page: NamedPage): boolean {
+  const t = flat(caption)
+  return [page.sci, ...(page.latin ?? [])].some(n => {
+    const [g, e] = flat(n).split(' ')
+    if (!g || !e || !/^[a-z]+$/.test(e)) return false
+    const m = new RegExp(`(^|[\\s(,;:])(?:${esc(g)}|${esc(g[0]!)}\\.)\\s*${esc(e)}\\b`).exec(t)
+    return !!m && subjectAt(t, m.index + m[1]!.length, true)
+  })
+}
+
+/**
+ * What the photo's source calls its subject, for this page. The source's description outranks the file's name: one that
+ * names this species as the subject, with no "sp.", "cf." or doubt beside it, makes the photo named to the species
+ * whatever the file's name says (the chief of staff, 2026-11-14: the Colossoma's new head is described as "Schwarzer Pacu
+ * (Colossoma macropomum), Tierpark Hellabrunn", in a file whose name says Piaractus).
+ */
 export function namedAs(p: NamedPhoto, page: NamedPage): Named {
-  const caption = p.caption ?? ''
+  const caption = OURS.test(p.caption ?? '') ? '' : (p.caption ?? '')
+  const said = classOf(caption, page, true)
+  if (said === SPECIES && namesThis(caption, page) && !DOUBT.test(caption)) return SPECIES
   if (namesAnother(sourceTitle(p.sourceUrl), page)) return GENUS
-  const named = Math.max(classOf(sourceTitle(p.sourceUrl), page, false), classOf(caption, page, true)) as Named
+  const named = Math.max(classOf(sourceTitle(p.sourceUrl), page, false), said) as Named
   if (named === CF && DOUBT.test(caption)) return GENUS
   return named
 }

@@ -101,3 +101,17 @@ test('where nothing named to the species passes, "cf." isn\'t held back; where n
   // A page's only photo stays.
   expect(namedOrder([genus], cls, () => true).map(p => p.url)).toEqual(['g'])
 })
+
+test("the source's description naming this species outranks a file's name naming another (the chief of staff, 2026-11-14); our own Vietnamese captions aren't the source's words", () => {
+  const known = knownNames([{ scientificName: 'Heros severus' }, { scientificName: 'Heros notatus' }])
+  const at = (sci: string, title: string, caption: string) => namedAs({ sourceUrl: `https://commons.wikimedia.org/wiki/File:${title}.jpg`, caption }, { sci, known })
+  expect(at('Colossoma macropomum', 'Piaractus_sp,_Zoo', 'Schwarzer Pacu (Colossoma macropomum), Tierpark Hellabrunn')).toBe(SPECIES)
+  expect(at('Heros severus', 'Heros_notatus01', 'H. severus, adult male')).toBe(SPECIES)
+  // Not where the description has its own "sp.", "cf." or doubt, or names it only further on.
+  expect(at('Colossoma macropomum', 'Piaractus_sp,_Zoo', 'Colossoma macropomum or Piaractus sp.')).toBe(GENUS)
+  expect(at('Ophthalmotilapia ventralis', 'Ophthalmotilapia_sp._-_5287', 'Ophthalmotilapia in the Zoo Basel. A label gave Ophthalmotilapia ventralis but I am unsure of that.')).toBe(GENUS)
+  expect(at('Heros severus', 'Heros_notatus01', 'Heros severus, though I am unsure of that')).toBe(GENUS)
+  // A caption the album step wrote in Vietnamese: the file's name decides.
+  expect(at('Ophthalmotilapia ventralis', 'Ophthalmotilapia_sp._-_5289', 'Cá Ophthalmotilapia ventralis màu vàng ô liu bơi trong bể thủy sinh')).toBe(GENUS)
+  expect(at('Heros severus', 'Heros_notatus01', 'Cá severus đực màu tím ánh xanh, đốm đen')).toBe(GENUS)
+})
