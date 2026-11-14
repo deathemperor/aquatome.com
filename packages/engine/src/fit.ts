@@ -98,9 +98,15 @@ const CLIMATE_NOTE: Partial<Record<Lang, string>> = {
  * example that names its own size and figures, is the guide's, not the source talking. The Writing Lead's words.
  */
 const VIDEO_NOTE = ` On a guide written from the video above it: the video's build written as an example that names its own size and figures ("Ví dụ, một bể dài 45 cm…", "Với bể 45 cm chẳng hạn, …"). Still a finding: a first-person story, a bare "bể này", "ở đây", "lần này" or "hôm đó", "bể mẫu", the channel's shop, news or stock, and anything for another country.`
+/**
+ * Leaves and wood keepers in Vietnam don't buy or gather (the Writing Lead, 14 Nov 2026): Vietnamese pages only, as it
+ * names Vietnam and what keepers there use (Astra's read).
+ */
+const LEAVES_NOTE = ` Leaves, wood and other things for the tank that keepers in Vietnam don't buy or gather, such as beech or oak leaves and wood from European trees: an elsewhere finding. Quote the words, and name what keepers here use instead: lá bàng for leaves, lũa for wood.`
 export const fitPrompt = (lang: Lang, kind?: PageKind, video = false) => TEMPLATE
   .replace('{{CARD_NOTE}}', kind === 'cards' ? CARD_NOTE : '')
   .replace('{{VIDEO_NOTE}}', video && lang === 'vi' ? VIDEO_NOTE : '')
+  .replace('{{LEAVES_NOTE}}', lang === 'vi' ? LEAVES_NOTE : '')
   .replace('{{CLIMATE_NOTE}}', CLIMATE_NOTE[lang] ?? '')
   .replaceAll('{{COUNTRY}}', COUNTRY[lang]).replaceAll('{{LANG}}', LANG_NAME[lang])
   .replace('{{SHOP_NOTE}}', lang === 'vi' ? '' : ' A Vietnamese chain (Pharmacity) counts too: this reader isn\'t in Vietnam.')
