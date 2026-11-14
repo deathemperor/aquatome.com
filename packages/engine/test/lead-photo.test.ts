@@ -6,7 +6,7 @@ import { expect, test } from 'vitest'
 import { createHash } from 'node:crypto'
 import { ownerCropCanonical, type OwnerCropApproval, type Photo } from '@aq/schema'
 import { cardCrop, HEAD_IN_CROP, leadChoice, screenLeads, TRIES, type LeadDeps } from '../src/lead-photo'
-import { approvedCrop, hiddenFromReaders, mergePhotos, mergeRead } from '../src/run'
+import { approvedCrop, hiddenFromReaders, mergePhotos, mergeRead, waitsForScreen } from '../src/run'
 
 const jpeg = sharp({ create: { width: 64, height: 48, channels: 3, background: '#468' } }).jpeg().toBuffer()
 const url = (n: string) => `https://media.example/${n}.webp`
@@ -136,6 +136,24 @@ test("a photo still on a host that sets cookies, or one with no source and no op
   expect(hiddenFromReaders({}, sources)({ ...shown, url: 'https://upload.wikimedia.org/x/fish.jpg' })).toBe(true)
   expect(hiddenFromReaders({}, sources)({ ...shown, licence: 'All rights reserved' })).toBe(true)
   expect(hiddenFromReaders({}, sources)({ ...shown, licence: 'All rights reserved', source: 'bwaquatics' })).toBe(false)
+})
+
+test("a photo waiting for the watermark screen isn't one a reader sees yet: a re-read whose fresh photo waits keeps the page's last shown one in front of it, held, and a page whose photos all wait keeps them", () => {
+  // Grok's sixth read (14 Nov 2026): Aborichthys elongatus' one shown photo, re-read with a fresh one the screen hadn't
+  // looked at, left the page with only the fresh one, which the build hides until the screen judges it.
+  const page = 'https://x/fish'
+  const old = { ...photo('old'), source: 'bwaquatics' as const, sourceUrl: page }
+  const fresh = { ...photo('fresh'), source: 'bwaquatics' as const, sourceUrl: page }
+  expect(mergeRead([old], 'bwaquatics', page, [fresh], { waits: p => p.url === fresh.url })).toEqual({ photos: [old, fresh], held: [old] })
+  // Once the screen has judged it clean, the fresh one replaces the old as before.
+  expect(mergeRead([old], 'bwaquatics', page, [fresh], { waits: () => false })).toEqual({ photos: [fresh], held: [] })
+  // A page whose photos all wait: they stay, since each shows by itself once judged; the ones the read replaced are held.
+  const w = [1, 2].map(i => ({ ...photo(`waits-${i}`), source: 'bwaquatics' as const, sourceUrl: page }))
+  expect(mergeRead(w, 'bwaquatics', page, [], { waits: () => true })).toEqual({ photos: w, held: w })
+  // The screen's own rule (schema's awaitsScreen): no entry waits, a judged one doesn't; no record at all, nothing waits.
+  expect(waitsForScreen({})(fresh)).toBe(true)
+  expect(waitsForScreen({ [fresh.url]: { ocr: [], watermark: false } })(fresh)).toBe(false)
+  expect(waitsForScreen(undefined)(fresh)).toBe(false)
 })
 
 test("under the photo cap a photo a reader sees takes a seat before one no reader sees, and a page's last photos kept come to eight at most", () => {
