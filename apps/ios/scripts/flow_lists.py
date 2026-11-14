@@ -93,7 +93,7 @@ PAGES = ['NativePageFlowTests', 'FactsCardFlowTests', 'ReaderPostFlowTests', 'Re
          'PhotoGridFlowTests', 'TankLifeFlowTests', 'HandbookFlowTests/testAPageOpensInTheApp',
          'TanksFlowTests/testListsATanksFishAndPlantsAndOpensTheirPages', 'VideoFlowTests',
          'TelemetryFlowTests', 'ChatFlowTests', 'GuideTopFlowTests',
-         'V2FlowTests/testAGuideOpensOnItsPhotoAndNameWhileItsPageIsRead', 'V2FlowTests/testASwipeFromAnywhereOnThePageGoesBack',
+         'V2FlowTests/testAGuideOpensOnItsPhotoAndNameWhileItsPageIsRead', 'GuideEdgeSwipeFlowTests',
          'V2FlowTests/testNoPageOffersTheWholePageWhereverItsOpenedFrom'] + shots('pages', 'video', 'viewer', 'home', 'tab-bar')
 # The app's icon picker: its flows, and its shots.
 ICONS = ['AppIconFlowTests'] + shots('icons')
