@@ -512,8 +512,8 @@
           {
             "key": "needs",
             "label": "Needs you",
-            "value": "9",
-            "sub": "7 to review · 2 to fix",
+            "value": "10",
+            "sub": "7 to review · 3 to fix",
             "tone": "bad"
           },
           {
@@ -608,6 +608,15 @@
             "tone": "bad",
             "section": "noi-dung",
             "anchor": "engine"
+          },
+          {
+            "kind": "engine",
+            "label": "See engine",
+            "tone": "bad",
+            "section": "noi-dung",
+            "anchor": "engine",
+            "text": "No new video guides",
+            "sub": "Since Tue 27 Oct, 3:17"
           },
           {
             "kind": "comments",
@@ -949,6 +958,744 @@
             ]
           }
         ],
+        "publishing": {
+          "title": "New pages",
+          "kinds": [
+            {
+              "key": "fish",
+              "label": "Species pages",
+              "total": "730",
+              "bars": {
+                "days": [
+                  "2026-10-08",
+                  "2026-10-09",
+                  "2026-10-10",
+                  "2026-10-11",
+                  "2026-10-12",
+                  "2026-10-13",
+                  "2026-10-14",
+                  "2026-10-15",
+                  "2026-10-16",
+                  "2026-10-17",
+                  "2026-10-18",
+                  "2026-10-19",
+                  "2026-10-20",
+                  "2026-10-21",
+                  "2026-10-22",
+                  "2026-10-23",
+                  "2026-10-24",
+                  "2026-10-25",
+                  "2026-10-26",
+                  "2026-10-27",
+                  "2026-10-28",
+                  "2026-10-29",
+                  "2026-10-30",
+                  "2026-10-31",
+                  "2026-11-01",
+                  "2026-11-02",
+                  "2026-11-03",
+                  "2026-11-04"
+                ],
+                "values": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  20,
+                  null,
+                  null,
+                  10,
+                  0
+                ],
+                "readouts": [
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 8 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 9 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 10 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 11 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 12 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 13 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 14 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 15 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 16 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 17 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 18 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 19 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 20 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 21 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 22 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 23 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 24 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 25 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 26 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 27 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 28 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 29 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 30 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "+20 species pages",
+                    "detail": "Sat 31 Oct"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 1 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 2 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "+10 species pages",
+                    "detail": "Tue 3 Nov"
+                  },
+                  {
+                    "title": "None added",
+                    "detail": "Wed 4 Nov so far"
+                  }
+                ],
+                "today": 27
+              }
+            },
+            {
+              "key": "guide",
+              "label": "Guides",
+              "total": "310",
+              "bars": {
+                "days": [
+                  "2026-10-08",
+                  "2026-10-09",
+                  "2026-10-10",
+                  "2026-10-11",
+                  "2026-10-12",
+                  "2026-10-13",
+                  "2026-10-14",
+                  "2026-10-15",
+                  "2026-10-16",
+                  "2026-10-17",
+                  "2026-10-18",
+                  "2026-10-19",
+                  "2026-10-20",
+                  "2026-10-21",
+                  "2026-10-22",
+                  "2026-10-23",
+                  "2026-10-24",
+                  "2026-10-25",
+                  "2026-10-26",
+                  "2026-10-27",
+                  "2026-10-28",
+                  "2026-10-29",
+                  "2026-10-30",
+                  "2026-10-31",
+                  "2026-11-01",
+                  "2026-11-02",
+                  "2026-11-03",
+                  "2026-11-04"
+                ],
+                "values": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  5,
+                  null,
+                  null,
+                  5,
+                  0
+                ],
+                "readouts": [
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 8 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 9 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 10 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 11 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 12 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 13 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 14 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 15 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 16 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 17 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 18 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 19 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 20 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 21 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 22 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 23 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 24 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 25 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 26 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 27 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 28 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 29 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 30 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "+5 guides",
+                    "detail": "Sat 31 Oct"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 1 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 2 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "+5 guides",
+                    "detail": "Tue 3 Nov"
+                  },
+                  {
+                    "title": "None added",
+                    "detail": "Wed 4 Nov so far"
+                  }
+                ],
+                "today": 27
+              }
+            },
+            {
+              "key": "videoGuide",
+              "label": "Video guides",
+              "total": "0",
+              "bars": {
+                "days": [
+                  "2026-10-08",
+                  "2026-10-09",
+                  "2026-10-10",
+                  "2026-10-11",
+                  "2026-10-12",
+                  "2026-10-13",
+                  "2026-10-14",
+                  "2026-10-15",
+                  "2026-10-16",
+                  "2026-10-17",
+                  "2026-10-18",
+                  "2026-10-19",
+                  "2026-10-20",
+                  "2026-10-21",
+                  "2026-10-22",
+                  "2026-10-23",
+                  "2026-10-24",
+                  "2026-10-25",
+                  "2026-10-26",
+                  "2026-10-27",
+                  "2026-10-28",
+                  "2026-10-29",
+                  "2026-10-30",
+                  "2026-10-31",
+                  "2026-11-01",
+                  "2026-11-02",
+                  "2026-11-03",
+                  "2026-11-04"
+                ],
+                "values": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  0,
+                  null,
+                  null,
+                  0,
+                  0
+                ],
+                "readouts": [
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 8 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 9 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 10 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 11 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 12 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 13 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 14 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 15 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 16 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 17 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 18 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 19 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 20 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 21 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 22 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 23 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 24 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 25 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 26 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 27 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 28 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 29 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 30 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "None added",
+                    "detail": "Sat 31 Oct"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 1 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 2 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "None added",
+                    "detail": "Tue 3 Nov"
+                  },
+                  {
+                    "title": "None added",
+                    "detail": "Wed 4 Nov so far"
+                  }
+                ],
+                "today": 27
+              },
+              "stalled": {
+                "since": "2026-10-26T20:17:00.000Z",
+                "text": "No new video guides since Tue 27 Oct, 3:17"
+              }
+            },
+            {
+              "key": "plant",
+              "label": "Plant pages",
+              "total": "92",
+              "bars": {
+                "days": [
+                  "2026-10-08",
+                  "2026-10-09",
+                  "2026-10-10",
+                  "2026-10-11",
+                  "2026-10-12",
+                  "2026-10-13",
+                  "2026-10-14",
+                  "2026-10-15",
+                  "2026-10-16",
+                  "2026-10-17",
+                  "2026-10-18",
+                  "2026-10-19",
+                  "2026-10-20",
+                  "2026-10-21",
+                  "2026-10-22",
+                  "2026-10-23",
+                  "2026-10-24",
+                  "2026-10-25",
+                  "2026-10-26",
+                  "2026-10-27",
+                  "2026-10-28",
+                  "2026-10-29",
+                  "2026-10-30",
+                  "2026-10-31",
+                  "2026-11-01",
+                  "2026-11-02",
+                  "2026-11-03",
+                  "2026-11-04"
+                ],
+                "values": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  2,
+                  null,
+                  null,
+                  0,
+                  0
+                ],
+                "readouts": [
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 8 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 9 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 10 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 11 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 12 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 13 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 14 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 15 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 16 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 17 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 18 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 19 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 20 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 21 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 22 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 23 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 24 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 25 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 26 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 27 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 28 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 29 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 30 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "+2 plant pages",
+                    "detail": "Sat 31 Oct"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 1 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 2 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "None added",
+                    "detail": "Tue 3 Nov"
+                  },
+                  {
+                    "title": "None added",
+                    "detail": "Wed 4 Nov so far"
+                  }
+                ],
+                "today": 27
+              }
+            }
+          ],
+          "missing": "No count was kept that night."
+        },
         "sections": [
           {
             "key": "thanh-cong",
@@ -1119,7 +1866,7 @@
             "name": "Engine",
             "section": "noi-dung",
             "anchor": "engine",
-            "fig": "200",
+            "fig": "0",
             "sub": "videos waiting · 7 pages from videos in 7 days",
             "spark": [
               0,
@@ -1903,6 +2650,740 @@
             ]
           }
         ],
+        "publishing": {
+          "title": "New pages",
+          "kinds": [
+            {
+              "key": "fish",
+              "label": "Species pages",
+              "total": "730",
+              "bars": {
+                "days": [
+                  "2026-10-08",
+                  "2026-10-09",
+                  "2026-10-10",
+                  "2026-10-11",
+                  "2026-10-12",
+                  "2026-10-13",
+                  "2026-10-14",
+                  "2026-10-15",
+                  "2026-10-16",
+                  "2026-10-17",
+                  "2026-10-18",
+                  "2026-10-19",
+                  "2026-10-20",
+                  "2026-10-21",
+                  "2026-10-22",
+                  "2026-10-23",
+                  "2026-10-24",
+                  "2026-10-25",
+                  "2026-10-26",
+                  "2026-10-27",
+                  "2026-10-28",
+                  "2026-10-29",
+                  "2026-10-30",
+                  "2026-10-31",
+                  "2026-11-01",
+                  "2026-11-02",
+                  "2026-11-03",
+                  "2026-11-04"
+                ],
+                "values": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  20,
+                  null,
+                  null,
+                  10,
+                  0
+                ],
+                "readouts": [
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 8 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 9 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 10 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 11 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 12 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 13 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 14 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 15 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 16 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 17 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 18 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 19 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 20 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 21 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 22 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 23 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 24 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 25 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 26 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 27 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 28 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 29 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 30 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "+20 species pages",
+                    "detail": "Sat 31 Oct"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 1 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 2 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "+10 species pages",
+                    "detail": "Tue 3 Nov"
+                  },
+                  {
+                    "title": "None added",
+                    "detail": "Wed 4 Nov so far"
+                  }
+                ],
+                "today": 27
+              }
+            },
+            {
+              "key": "guide",
+              "label": "Guides",
+              "total": "310",
+              "bars": {
+                "days": [
+                  "2026-10-08",
+                  "2026-10-09",
+                  "2026-10-10",
+                  "2026-10-11",
+                  "2026-10-12",
+                  "2026-10-13",
+                  "2026-10-14",
+                  "2026-10-15",
+                  "2026-10-16",
+                  "2026-10-17",
+                  "2026-10-18",
+                  "2026-10-19",
+                  "2026-10-20",
+                  "2026-10-21",
+                  "2026-10-22",
+                  "2026-10-23",
+                  "2026-10-24",
+                  "2026-10-25",
+                  "2026-10-26",
+                  "2026-10-27",
+                  "2026-10-28",
+                  "2026-10-29",
+                  "2026-10-30",
+                  "2026-10-31",
+                  "2026-11-01",
+                  "2026-11-02",
+                  "2026-11-03",
+                  "2026-11-04"
+                ],
+                "values": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  5,
+                  null,
+                  null,
+                  5,
+                  0
+                ],
+                "readouts": [
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 8 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 9 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 10 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 11 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 12 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 13 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 14 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 15 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 16 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 17 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 18 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 19 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 20 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 21 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 22 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 23 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 24 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 25 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 26 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 27 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 28 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 29 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 30 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "+5 guides",
+                    "detail": "Sat 31 Oct"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 1 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 2 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "+5 guides",
+                    "detail": "Tue 3 Nov"
+                  },
+                  {
+                    "title": "None added",
+                    "detail": "Wed 4 Nov so far"
+                  }
+                ],
+                "today": 27
+              }
+            },
+            {
+              "key": "videoGuide",
+              "label": "Video guides",
+              "total": "0",
+              "bars": {
+                "days": [
+                  "2026-10-08",
+                  "2026-10-09",
+                  "2026-10-10",
+                  "2026-10-11",
+                  "2026-10-12",
+                  "2026-10-13",
+                  "2026-10-14",
+                  "2026-10-15",
+                  "2026-10-16",
+                  "2026-10-17",
+                  "2026-10-18",
+                  "2026-10-19",
+                  "2026-10-20",
+                  "2026-10-21",
+                  "2026-10-22",
+                  "2026-10-23",
+                  "2026-10-24",
+                  "2026-10-25",
+                  "2026-10-26",
+                  "2026-10-27",
+                  "2026-10-28",
+                  "2026-10-29",
+                  "2026-10-30",
+                  "2026-10-31",
+                  "2026-11-01",
+                  "2026-11-02",
+                  "2026-11-03",
+                  "2026-11-04"
+                ],
+                "values": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  0,
+                  null,
+                  null,
+                  0,
+                  0
+                ],
+                "readouts": [
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 8 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 9 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 10 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 11 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 12 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 13 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 14 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 15 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 16 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 17 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 18 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 19 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 20 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 21 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 22 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 23 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 24 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 25 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 26 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 27 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 28 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 29 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 30 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "None added",
+                    "detail": "Sat 31 Oct"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 1 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 2 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "None added",
+                    "detail": "Tue 3 Nov"
+                  },
+                  {
+                    "title": "None added",
+                    "detail": "Wed 4 Nov so far"
+                  }
+                ],
+                "today": 27
+              }
+            },
+            {
+              "key": "plant",
+              "label": "Plant pages",
+              "total": "92",
+              "bars": {
+                "days": [
+                  "2026-10-08",
+                  "2026-10-09",
+                  "2026-10-10",
+                  "2026-10-11",
+                  "2026-10-12",
+                  "2026-10-13",
+                  "2026-10-14",
+                  "2026-10-15",
+                  "2026-10-16",
+                  "2026-10-17",
+                  "2026-10-18",
+                  "2026-10-19",
+                  "2026-10-20",
+                  "2026-10-21",
+                  "2026-10-22",
+                  "2026-10-23",
+                  "2026-10-24",
+                  "2026-10-25",
+                  "2026-10-26",
+                  "2026-10-27",
+                  "2026-10-28",
+                  "2026-10-29",
+                  "2026-10-30",
+                  "2026-10-31",
+                  "2026-11-01",
+                  "2026-11-02",
+                  "2026-11-03",
+                  "2026-11-04"
+                ],
+                "values": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  2,
+                  null,
+                  null,
+                  0,
+                  0
+                ],
+                "readouts": [
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 8 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 9 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 10 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 11 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 12 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 13 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 14 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 15 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 16 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 17 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 18 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 19 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 20 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 21 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 22 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 23 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 24 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 25 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 26 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 27 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 28 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 29 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 30 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "+2 plant pages",
+                    "detail": "Sat 31 Oct"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 1 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 2 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "None added",
+                    "detail": "Tue 3 Nov"
+                  },
+                  {
+                    "title": "None added",
+                    "detail": "Wed 4 Nov so far"
+                  }
+                ],
+                "today": 27
+              }
+            }
+          ],
+          "missing": "No count was kept that night."
+        },
         "sections": [
           {
             "key": "thanh-cong",
@@ -2478,8 +3959,8 @@
           {
             "key": "needs",
             "label": "Needs you",
-            "value": "10",
-            "sub": "7 to review · 3 to fix",
+            "value": "11",
+            "sub": "7 to review · 4 to fix",
             "tone": "bad"
           },
           {
@@ -2520,6 +4001,15 @@
             "tone": "bad",
             "section": "noi-dung",
             "anchor": "engine"
+          },
+          {
+            "kind": "engine",
+            "label": "See engine",
+            "tone": "bad",
+            "section": "noi-dung",
+            "anchor": "engine",
+            "text": "No new video guides",
+            "sub": "Since Tue 27 Oct, 3:17"
           },
           {
             "kind": "failed",
@@ -2770,6 +4260,744 @@
             ]
           }
         ],
+        "publishing": {
+          "title": "New pages",
+          "kinds": [
+            {
+              "key": "fish",
+              "label": "Species pages",
+              "total": "730",
+              "bars": {
+                "days": [
+                  "2026-10-08",
+                  "2026-10-09",
+                  "2026-10-10",
+                  "2026-10-11",
+                  "2026-10-12",
+                  "2026-10-13",
+                  "2026-10-14",
+                  "2026-10-15",
+                  "2026-10-16",
+                  "2026-10-17",
+                  "2026-10-18",
+                  "2026-10-19",
+                  "2026-10-20",
+                  "2026-10-21",
+                  "2026-10-22",
+                  "2026-10-23",
+                  "2026-10-24",
+                  "2026-10-25",
+                  "2026-10-26",
+                  "2026-10-27",
+                  "2026-10-28",
+                  "2026-10-29",
+                  "2026-10-30",
+                  "2026-10-31",
+                  "2026-11-01",
+                  "2026-11-02",
+                  "2026-11-03",
+                  "2026-11-04"
+                ],
+                "values": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  20,
+                  null,
+                  null,
+                  10,
+                  0
+                ],
+                "readouts": [
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 8 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 9 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 10 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 11 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 12 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 13 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 14 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 15 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 16 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 17 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 18 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 19 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 20 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 21 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 22 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 23 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 24 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 25 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 26 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 27 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 28 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 29 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 30 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "+20 species pages",
+                    "detail": "Sat 31 Oct"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 1 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 2 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "+10 species pages",
+                    "detail": "Tue 3 Nov"
+                  },
+                  {
+                    "title": "None added",
+                    "detail": "Wed 4 Nov so far"
+                  }
+                ],
+                "today": 27
+              }
+            },
+            {
+              "key": "guide",
+              "label": "Guides",
+              "total": "310",
+              "bars": {
+                "days": [
+                  "2026-10-08",
+                  "2026-10-09",
+                  "2026-10-10",
+                  "2026-10-11",
+                  "2026-10-12",
+                  "2026-10-13",
+                  "2026-10-14",
+                  "2026-10-15",
+                  "2026-10-16",
+                  "2026-10-17",
+                  "2026-10-18",
+                  "2026-10-19",
+                  "2026-10-20",
+                  "2026-10-21",
+                  "2026-10-22",
+                  "2026-10-23",
+                  "2026-10-24",
+                  "2026-10-25",
+                  "2026-10-26",
+                  "2026-10-27",
+                  "2026-10-28",
+                  "2026-10-29",
+                  "2026-10-30",
+                  "2026-10-31",
+                  "2026-11-01",
+                  "2026-11-02",
+                  "2026-11-03",
+                  "2026-11-04"
+                ],
+                "values": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  5,
+                  null,
+                  null,
+                  5,
+                  0
+                ],
+                "readouts": [
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 8 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 9 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 10 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 11 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 12 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 13 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 14 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 15 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 16 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 17 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 18 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 19 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 20 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 21 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 22 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 23 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 24 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 25 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 26 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 27 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 28 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 29 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 30 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "+5 guides",
+                    "detail": "Sat 31 Oct"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 1 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 2 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "+5 guides",
+                    "detail": "Tue 3 Nov"
+                  },
+                  {
+                    "title": "None added",
+                    "detail": "Wed 4 Nov so far"
+                  }
+                ],
+                "today": 27
+              }
+            },
+            {
+              "key": "videoGuide",
+              "label": "Video guides",
+              "total": "0",
+              "bars": {
+                "days": [
+                  "2026-10-08",
+                  "2026-10-09",
+                  "2026-10-10",
+                  "2026-10-11",
+                  "2026-10-12",
+                  "2026-10-13",
+                  "2026-10-14",
+                  "2026-10-15",
+                  "2026-10-16",
+                  "2026-10-17",
+                  "2026-10-18",
+                  "2026-10-19",
+                  "2026-10-20",
+                  "2026-10-21",
+                  "2026-10-22",
+                  "2026-10-23",
+                  "2026-10-24",
+                  "2026-10-25",
+                  "2026-10-26",
+                  "2026-10-27",
+                  "2026-10-28",
+                  "2026-10-29",
+                  "2026-10-30",
+                  "2026-10-31",
+                  "2026-11-01",
+                  "2026-11-02",
+                  "2026-11-03",
+                  "2026-11-04"
+                ],
+                "values": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  0,
+                  null,
+                  null,
+                  0,
+                  0
+                ],
+                "readouts": [
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 8 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 9 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 10 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 11 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 12 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 13 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 14 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 15 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 16 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 17 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 18 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 19 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 20 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 21 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 22 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 23 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 24 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 25 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 26 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 27 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 28 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 29 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 30 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "None added",
+                    "detail": "Sat 31 Oct"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 1 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 2 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "None added",
+                    "detail": "Tue 3 Nov"
+                  },
+                  {
+                    "title": "None added",
+                    "detail": "Wed 4 Nov so far"
+                  }
+                ],
+                "today": 27
+              },
+              "stalled": {
+                "since": "2026-10-26T20:17:00.000Z",
+                "text": "No new video guides since Tue 27 Oct, 3:17"
+              }
+            },
+            {
+              "key": "plant",
+              "label": "Plant pages",
+              "total": "92",
+              "bars": {
+                "days": [
+                  "2026-10-08",
+                  "2026-10-09",
+                  "2026-10-10",
+                  "2026-10-11",
+                  "2026-10-12",
+                  "2026-10-13",
+                  "2026-10-14",
+                  "2026-10-15",
+                  "2026-10-16",
+                  "2026-10-17",
+                  "2026-10-18",
+                  "2026-10-19",
+                  "2026-10-20",
+                  "2026-10-21",
+                  "2026-10-22",
+                  "2026-10-23",
+                  "2026-10-24",
+                  "2026-10-25",
+                  "2026-10-26",
+                  "2026-10-27",
+                  "2026-10-28",
+                  "2026-10-29",
+                  "2026-10-30",
+                  "2026-10-31",
+                  "2026-11-01",
+                  "2026-11-02",
+                  "2026-11-03",
+                  "2026-11-04"
+                ],
+                "values": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  2,
+                  null,
+                  null,
+                  0,
+                  0
+                ],
+                "readouts": [
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 8 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 9 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 10 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 11 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 12 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 13 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 14 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 15 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 16 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 17 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 18 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 19 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 20 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 21 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 22 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 23 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 24 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 25 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 26 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 27 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 28 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 29 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 30 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "+2 plant pages",
+                    "detail": "Sat 31 Oct"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 1 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 2 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "None added",
+                    "detail": "Tue 3 Nov"
+                  },
+                  {
+                    "title": "None added",
+                    "detail": "Wed 4 Nov so far"
+                  }
+                ],
+                "today": 27
+              }
+            }
+          ],
+          "missing": "No count was kept that night."
+        },
         "sections": [
           {
             "key": "thanh-cong",
@@ -2949,7 +5177,7 @@
             "name": "Engine",
             "section": "noi-dung",
             "anchor": "engine",
-            "fig": "200",
+            "fig": "0",
             "sub": "videos waiting · 7 pages from videos in 7 days",
             "spark": [
               0,
@@ -3742,6 +5970,740 @@
             ]
           }
         ],
+        "publishing": {
+          "title": "New pages",
+          "kinds": [
+            {
+              "key": "fish",
+              "label": "Species pages",
+              "total": "730",
+              "bars": {
+                "days": [
+                  "2026-10-08",
+                  "2026-10-09",
+                  "2026-10-10",
+                  "2026-10-11",
+                  "2026-10-12",
+                  "2026-10-13",
+                  "2026-10-14",
+                  "2026-10-15",
+                  "2026-10-16",
+                  "2026-10-17",
+                  "2026-10-18",
+                  "2026-10-19",
+                  "2026-10-20",
+                  "2026-10-21",
+                  "2026-10-22",
+                  "2026-10-23",
+                  "2026-10-24",
+                  "2026-10-25",
+                  "2026-10-26",
+                  "2026-10-27",
+                  "2026-10-28",
+                  "2026-10-29",
+                  "2026-10-30",
+                  "2026-10-31",
+                  "2026-11-01",
+                  "2026-11-02",
+                  "2026-11-03",
+                  "2026-11-04"
+                ],
+                "values": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  20,
+                  null,
+                  null,
+                  10,
+                  0
+                ],
+                "readouts": [
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 8 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 9 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 10 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 11 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 12 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 13 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 14 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 15 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 16 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 17 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 18 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 19 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 20 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 21 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 22 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 23 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 24 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 25 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 26 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 27 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 28 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 29 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 30 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "+20 species pages",
+                    "detail": "Sat 31 Oct"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 1 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 2 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "+10 species pages",
+                    "detail": "Tue 3 Nov"
+                  },
+                  {
+                    "title": "None added",
+                    "detail": "Wed 4 Nov so far"
+                  }
+                ],
+                "today": 27
+              }
+            },
+            {
+              "key": "guide",
+              "label": "Guides",
+              "total": "310",
+              "bars": {
+                "days": [
+                  "2026-10-08",
+                  "2026-10-09",
+                  "2026-10-10",
+                  "2026-10-11",
+                  "2026-10-12",
+                  "2026-10-13",
+                  "2026-10-14",
+                  "2026-10-15",
+                  "2026-10-16",
+                  "2026-10-17",
+                  "2026-10-18",
+                  "2026-10-19",
+                  "2026-10-20",
+                  "2026-10-21",
+                  "2026-10-22",
+                  "2026-10-23",
+                  "2026-10-24",
+                  "2026-10-25",
+                  "2026-10-26",
+                  "2026-10-27",
+                  "2026-10-28",
+                  "2026-10-29",
+                  "2026-10-30",
+                  "2026-10-31",
+                  "2026-11-01",
+                  "2026-11-02",
+                  "2026-11-03",
+                  "2026-11-04"
+                ],
+                "values": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  5,
+                  null,
+                  null,
+                  5,
+                  0
+                ],
+                "readouts": [
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 8 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 9 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 10 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 11 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 12 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 13 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 14 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 15 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 16 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 17 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 18 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 19 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 20 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 21 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 22 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 23 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 24 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 25 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 26 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 27 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 28 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 29 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 30 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "+5 guides",
+                    "detail": "Sat 31 Oct"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 1 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 2 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "+5 guides",
+                    "detail": "Tue 3 Nov"
+                  },
+                  {
+                    "title": "None added",
+                    "detail": "Wed 4 Nov so far"
+                  }
+                ],
+                "today": 27
+              }
+            },
+            {
+              "key": "videoGuide",
+              "label": "Video guides",
+              "total": "0",
+              "bars": {
+                "days": [
+                  "2026-10-08",
+                  "2026-10-09",
+                  "2026-10-10",
+                  "2026-10-11",
+                  "2026-10-12",
+                  "2026-10-13",
+                  "2026-10-14",
+                  "2026-10-15",
+                  "2026-10-16",
+                  "2026-10-17",
+                  "2026-10-18",
+                  "2026-10-19",
+                  "2026-10-20",
+                  "2026-10-21",
+                  "2026-10-22",
+                  "2026-10-23",
+                  "2026-10-24",
+                  "2026-10-25",
+                  "2026-10-26",
+                  "2026-10-27",
+                  "2026-10-28",
+                  "2026-10-29",
+                  "2026-10-30",
+                  "2026-10-31",
+                  "2026-11-01",
+                  "2026-11-02",
+                  "2026-11-03",
+                  "2026-11-04"
+                ],
+                "values": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  0,
+                  null,
+                  null,
+                  0,
+                  0
+                ],
+                "readouts": [
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 8 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 9 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 10 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 11 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 12 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 13 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 14 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 15 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 16 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 17 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 18 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 19 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 20 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 21 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 22 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 23 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 24 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 25 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 26 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 27 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 28 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 29 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 30 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "None added",
+                    "detail": "Sat 31 Oct"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 1 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 2 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "None added",
+                    "detail": "Tue 3 Nov"
+                  },
+                  {
+                    "title": "None added",
+                    "detail": "Wed 4 Nov so far"
+                  }
+                ],
+                "today": 27
+              }
+            },
+            {
+              "key": "plant",
+              "label": "Plant pages",
+              "total": "92",
+              "bars": {
+                "days": [
+                  "2026-10-08",
+                  "2026-10-09",
+                  "2026-10-10",
+                  "2026-10-11",
+                  "2026-10-12",
+                  "2026-10-13",
+                  "2026-10-14",
+                  "2026-10-15",
+                  "2026-10-16",
+                  "2026-10-17",
+                  "2026-10-18",
+                  "2026-10-19",
+                  "2026-10-20",
+                  "2026-10-21",
+                  "2026-10-22",
+                  "2026-10-23",
+                  "2026-10-24",
+                  "2026-10-25",
+                  "2026-10-26",
+                  "2026-10-27",
+                  "2026-10-28",
+                  "2026-10-29",
+                  "2026-10-30",
+                  "2026-10-31",
+                  "2026-11-01",
+                  "2026-11-02",
+                  "2026-11-03",
+                  "2026-11-04"
+                ],
+                "values": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  2,
+                  null,
+                  null,
+                  0,
+                  0
+                ],
+                "readouts": [
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 8 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 9 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 10 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 11 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 12 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 13 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 14 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 15 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 16 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 17 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 18 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 19 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 20 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 21 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 22 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 23 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sat 24 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 25 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 26 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Tue 27 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Wed 28 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Thu 29 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Fri 30 Oct · no count was kept that night"
+                  },
+                  {
+                    "title": "+2 plant pages",
+                    "detail": "Sat 31 Oct"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Sun 1 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "Not counted",
+                    "detail": "Mon 2 Nov · no count was kept that night"
+                  },
+                  {
+                    "title": "None added",
+                    "detail": "Tue 3 Nov"
+                  },
+                  {
+                    "title": "None added",
+                    "detail": "Wed 4 Nov so far"
+                  }
+                ],
+                "today": 27
+              }
+            }
+          ],
+          "missing": "No count was kept that night."
+        },
         "sections": [
           {
             "key": "thanh-cong",
