@@ -17,10 +17,13 @@ export async function genera(root: string): Promise<Map<string, Taxon>> {
 
 export type KindName = { name: string; word: string; family: string }
 
-/** A name as the table reads it: NFC, any case, a hyphen or dash between words read as a space (the Writing Lead, 14 Nov 2026). */
-const key = (n: string) => n.normalize('NFC').toLowerCase().replace(/[\s\-–]+/gu, ' ').trim()
-/** Up to `n` words straight before the end of a text, each followed by a space, hyphen or dash. */
-const wordsBefore = (n: string) => new RegExp(`(?<![\\p{L}\\p{M}])((?:[\\p{L}\\p{M}]+[\\s\\-–]+){${n}})$`, 'u')
+/**
+ * A name as the table reads it (kind-words.ts): NFC, any case, anything but letters and numbers read as a space (the
+ * Writing Lead, 14 Nov 2026).
+ */
+const key = (n: string) => n.normalize('NFC').toLowerCase().replace(/[^\p{L}\p{M}\p{N}]+/gu, ' ').trim()
+/** Up to `n` words straight before the end of a text, each followed by spaces or any dash (Codex, 14 Nov 2026: an em dash). */
+const wordsBefore = (n: string) => new RegExp(`(?<![\\p{L}\\p{M}])((?:[\\p{L}\\p{M}]+[\\s\\p{Pd}]+){${n}})$`, 'u')
 
 /**
  * The kind words an entry writes straight before a scientific name ("tép Caridina", "cá trê Clarias", "Cá Betta"), judged

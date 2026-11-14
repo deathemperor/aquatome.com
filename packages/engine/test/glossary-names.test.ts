@@ -52,3 +52,11 @@ test('a naming note is dropped only when every name it quotes is one the table j
   ]
   expect(judgeKindNames(notes, k, ruleNumbers)).toEqual([notes[0]])
 })
+
+// Codex, 14 Nov 2026: an em dash wasn't read as a space, so "Tép—Caridina" went unjudged and its naming note stopped it.
+test('any dash between a kind word and the name reads as a space: an em dash too', () => {
+  const k = kindNames({ definition: 'Một câu.', body: '<p>Tép—Caridina thích lũa. Cá trê—Aulonocara là tên sai.</p>' }, taxa)
+  expect(k.fit.map(x => x.name)).toEqual(['Tép—Caridina'])
+  expect(k.misfit.map(x => x.name)).toEqual(['Cá trê—Aulonocara'])
+  expect(judgeKindNames(['Rule 6: "Tép—Caridina" in "Tép—Caridina thích lũa.": invented Vietnamese genus name'], k, ruleNumbers)).toEqual([misfitNote(k.misfit[0]!)])
+})
