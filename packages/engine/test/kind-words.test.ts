@@ -25,6 +25,11 @@ test('read the same whatever the case, the spaces or the Unicode form', () => {
   expect(kindWord('  CÁ   TRÊ  phi ', clarias)).toEqual({ word: 'trê', fits: true })
   expect(kindWord('Cá trê'.normalize('NFD'), clarias)).toEqual({ word: 'trê', fits: true })
   expect(kindWord('Cá trêx', clarias)).toEqual({ word: 'cá', fits: true }) // a word, not the start of one
+  // Punctuation is a space between words (Astra's read).
+  expect(kindWord('Cá trê-Malawi', { ...cichlid, genus: 'Champsochromis' })).toEqual({ word: 'trê', fits: false })
+  expect(kindWord('Cá rô phi-vằn', { family: 'Anabantidae', genus: 'Anabas', order: 'Anabantiformes' })).toEqual({ word: 'rô phi', fits: false })
+  expect(kindWord('Ốc mượn hồn-đỏ', { family: 'Neritidae', order: 'Cycloneritida' })).toEqual({ word: 'ốc mượn hồn', fits: false })
+  expect(kindWord('Cá (trê) vàng', clarias)).toEqual({ word: 'trê', fits: true })
 })
 
 test('plain "Cá" fits any fish and no other animal; with no order it is not judged', () => {
@@ -45,6 +50,19 @@ test('shrimp and shellfish words begin a name', () => {
   expect(kindWord('Ốc nerite ngựa vằn', { family: 'Neritidae', order: 'Cycloneritida' })).toEqual({ word: 'ốc', fits: true })
   expect(kindWord('Ốc mượn hồn đỏ', { ...decapod, family: 'Coenobitidae' })).toEqual({ word: 'ốc mượn hồn', fits: true })
   expect(kindWord('Cua ẩn sĩ đỏ', { ...decapod, family: 'Coenobitidae' })).toEqual({ word: 'cua', fits: true })
+})
+
+test('names keepers really use, from Astra\'s read', () => {
+  expect(kindWord('Cá bống vàng', { family: 'Gyrinocheilidae', genus: 'Gyrinocheilus', order: 'Cypriniformes' })).toEqual({ word: 'bống', fits: true })
+  expect(kindWord('Tép ma', { family: 'Palaemonidae', genus: 'Palaemonetes', order: 'Decapoda' })).toEqual({ word: 'tép', fits: true })
+  // Not the whole family: the sea's anemone shrimp is Palaemonidae too.
+  expect(kindWord('Tép hải quỳ đốm', { family: 'Palaemonidae', genus: 'Periclimenes', order: 'Decapoda' })).toEqual({ word: 'tép', fits: false })
+  expect(kindWord('Cá rô phi vằn', { ...cichlid, genus: 'Heterotilapia' })).toEqual({ word: 'rô phi', fits: true })
+  for (const family of ['Hydrobiidae', 'Tateidae', 'Amnicolidae', 'Cochliopidae', 'Lithoglyphidae']) {
+    expect(kindWord('Ốc Potamopyrgus antipodarum', { family, order: 'Littorinimorpha' }), family).toEqual({ word: 'ốc', fits: true })
+    expect(headWord({ family, order: 'Littorinimorpha' }), family).toBe('Ốc')
+  }
+  expect(headWord({ family: 'Palaemonidae', genus: 'Palaemonetes', order: 'Decapoda' })).toBe('Tép')
 })
 
 test('a name with no word from the table is not judged', () => {

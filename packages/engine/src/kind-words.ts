@@ -26,21 +26,23 @@ export const KIND_WORDS: readonly KindWord[] = [
   // Fish, after "Cá ".
   { word: 'trê', fish: true, families: ['Clariidae'] },
   { word: 'rô', fish: true, families: ['Anabantidae'] },
-  { word: 'rô phi', fish: true, families: [], genera: ['Oreochromis', 'Sarotherodon', 'Tilapia', 'Alcolapia', 'Coptodon'] },
+  { word: 'rô phi', fish: true, families: [], genera: ['Oreochromis', 'Sarotherodon', 'Tilapia', 'Alcolapia', 'Coptodon', 'Heterotilapia', 'Pelmatolapia'] },
   // "Catfish" word for word: keepers write no "cá mèo".
   { word: 'mèo', fish: true, families: [] },
   { word: 'chuột', fish: true, families: ['Callichthyidae'] },
   { word: 'rồng', fish: true, families: ['Osteoglossidae'] },
   { word: 'chó', fish: true, families: ['Esocidae'] },
-  { word: 'bống', fish: true, families: ['Gobiidae', 'Oxudercidae', 'Gobionellidae', 'Eleotridae', 'Butidae', 'Odontobutidae', 'Rhyacichthyidae'] },
+  // "Cá bống vàng" is keepers' name for the algae eater (Gyrinocheilus): the corpus's videos and a forum.
+  { word: 'bống', fish: true, families: ['Gobiidae', 'Oxudercidae', 'Gobionellidae', 'Eleotridae', 'Butidae', 'Odontobutidae', 'Rhyacichthyidae', 'Gyrinocheilidae'] },
   { word: 'mè', fish: true, families: ['Cyprinidae', 'Xenocyprididae'], genera: ['Hypophthalmichthys', 'Aristichthys'] },
   // The blue-eyes' name since 13 Nov (Pseudomugil).
   { word: 'mắt xanh', fish: true, families: ['Pseudomugilidae'] },
   // Shrimp and shellfish, beginning a name.
-  { word: 'tép', families: ['Atyidae', 'Desmocarididae'], head: true },
+  // The freshwater ghost shrimp's genus, not its family: Palaemonidae holds the sea's cleaner and anemone shrimp too.
+  { word: 'tép', families: ['Atyidae', 'Desmocarididae'], genera: ['Palaemonetes'], head: true },
   { word: 'tôm', families: ['Cambaridae', 'Parastacidae', 'Astacidae', 'Palaemonidae', 'Lysmatidae', 'Hippolytidae', 'Thoridae', 'Alpheidae', 'Stenopodidae', 'Rhynchocinetidae', 'Penaeidae', 'Triopsidae'], head: true },
   { word: 'ốc mượn hồn', families: ['Diogenidae', 'Paguridae', 'Coenobitidae'] },
-  { word: 'ốc', families: ['Neritidae', 'Ampullariidae', 'Planorbidae', 'Physidae', 'Lymnaeidae', 'Thiaridae', 'Pachychilidae', 'Paludomidae', 'Semisulcospiridae', 'Pleuroceridae', 'Melanopsidae', 'Viviparidae', 'Bithyniidae', 'Nassariidae', 'Babyloniidae', 'Cypraeidae', 'Margaritidae', 'Trochidae', 'Turbinidae', 'Tegulidae', 'Cerithiidae', 'Strombidae', 'Columbellidae', 'Littorinidae'], head: true },
+  { word: 'ốc', families: ['Neritidae', 'Ampullariidae', 'Planorbidae', 'Physidae', 'Lymnaeidae', 'Thiaridae', 'Pachychilidae', 'Paludomidae', 'Semisulcospiridae', 'Pleuroceridae', 'Melanopsidae', 'Viviparidae', 'Bithyniidae', 'Nassariidae', 'Babyloniidae', 'Cypraeidae', 'Margaritidae', 'Trochidae', 'Turbinidae', 'Tegulidae', 'Cerithiidae', 'Strombidae', 'Columbellidae', 'Littorinidae', 'Hydrobiidae', 'Tateidae', 'Amnicolidae', 'Cochliopidae', 'Lithoglyphidae', 'Assimineidae', 'Pomatiopsidae', 'Stenothyridae', 'Valvatidae'], head: true },
   { word: 'cua', families: ['Sesarmidae', 'Gecarcinucidae', 'Potamonautidae', 'Potamidae', 'Ocypodidae', 'Dotillidae', 'Varunidae', 'Grapsidae', 'Trichodactylidae', 'Pseudothelphusidae', 'Hymenosomatidae', 'Inachidae', 'Epialtidae', 'Majidae', 'Portunidae', 'Xanthidae', 'Diogenidae', 'Paguridae', 'Coenobitidae'], head: true },
   { word: 'hến', families: ['Cyrenidae', 'Corbiculidae'], head: true },
   { word: 'trai', families: ['Unionidae', 'Margaritiferidae', 'Hyriidae', 'Iridinidae', 'Mycetopodidae'], head: true },
@@ -60,7 +62,8 @@ const LONGEST = [...KIND_WORDS].sort((a, b) => b.word.length - a.word.length)
  * before anything else is a fish's: it fits any fish, and not a shrimp, a snail or a newt (an animal of a known order).
  */
 export function kindWord(name: string, t: Taxon): { word: string; fits: boolean } | undefined {
-  const n = name.normalize('NFC').toLowerCase().replace(/\s+/g, ' ').trim()
+  // Punctuation is a space between words, so "Cá trê-Malawi" reads as "cá trê malawi".
+  const n = name.normalize('NFC').toLowerCase().replace(/[^\p{L}\p{M}\p{N}]+/gu, ' ').trim()
   const begins = (s: string, w: string) => s === w || s.startsWith(`${w} `)
   if (begins(n, 'cá')) {
     const rest = n.slice(3)

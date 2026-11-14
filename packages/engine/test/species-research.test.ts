@@ -142,7 +142,7 @@ test('makeSpecies: a species GBIF\'s backbone lacks, researched with its video a
 
 test('makeSpecies: a Vietnamese page\'s name with another kind\'s word is no name of it; the page takes its plain scientific form, listed for the Writing Lead', async () => {
   const r = await root()
-  const research: Llm = async <T,>() => ({ ...facts, viNames: [{ name: 'Cá rô Huế', source: 4 }] }) as T
+  const research: Llm = async <T,>() => ({ ...facts, viNames: [{ name: 'Cá rô Huế', source: 4 }], enNames: [...facts.enNames, { name: 'Cá rô Huế', source: 4 }] }) as T
   const llm: Llm = async <T,>(a: { schema: object }) => ('score' in (a.schema as { properties: object }).properties
     ? { score: 0.95, notes: [] }
     : { sections: [{ key: 'reproduction', html: '<p>Cá đực xây tổ bọt.</p>', facts: ['f2'] }] }) as T
@@ -153,6 +153,21 @@ test('makeSpecies: a Vietnamese page\'s name with another kind\'s word is no nam
   expect(JSON.parse(await readFile(join(r, 'engine-state/_kind-fallbacks.json'), 'utf8'))).toEqual({
     'species/nanosphronemus-gemma': { name: 'Cá rô Huế', word: 'rô', took: 'Cá Nanosphronemus gemma', at: '2026-11-15T00:00:00.000Z' },
   })
+})
+
+test('makeSpecies again on a live page (Astra\'s read): a name with another kind\'s word, or none at all, leaves its name and address as they are', async () => {
+  const llm: Llm = async <T,>(a: { schema: object }) => ('score' in (a.schema as { properties: object }).properties
+    ? { score: 0.95, notes: [] }
+    : { sections: [{ key: 'reproduction', html: '<p>Cá đực xây tổ bọt.</p>', facts: ['f2'] }] }) as T
+  for (const viNames of [[{ name: 'Cá rô Huế', source: 4 }], []]) {
+    const r = await root()
+    await mkdir(join(r, 'content/species/nanosphronemus-gemma'), { recursive: true })
+    await writeFile(join(r, 'content/species/nanosphronemus-gemma/vi.json'), JSON.stringify({ slug: 'ca-ro-hue', name: 'Cá rô Huế', altNames: [], sections: {} }))
+    const research: Llm = async <T,>() => ({ ...facts, viNames }) as T
+    const out = await makeSpecies(r, { research, llm, http: gbif, now: () => new Date('2026-11-15T00:00:00Z') }, { name: 'Nanosphronemus gemma', videos: [video(false)] })
+    expect(out, JSON.stringify(viNames)).toMatchObject({ slug: 'ca-ro-hue', name: 'Cá rô Huế' })
+    await expect(readFile(join(r, 'engine-state/_kind-fallbacks.json'), 'utf8')).rejects.toThrow()
+  }
 })
 
 test('makeSpecies never writes over a page from a licensed source, nor a name GBIF doesn\'t know', async () => {

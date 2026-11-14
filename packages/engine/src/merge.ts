@@ -92,7 +92,7 @@ function translation(prev: Translation | undefined, page: ProcessedPage, ctx: Ct
   const picked = (prev ? (prev.nameFixed || clash || ctx.source !== 'seriouslyfish' ? prev.name : offered) : clash ? '' : offered) || prev?.name || fallbackName
   const name = prev?.nameFixed ? picked : tidyName(picked, kind)
   // A replaced name stays findable as an alternative name, unless a variety's (mergeSpecies, alt-names.ts).
-  const altNames = uniq([...(prev?.altNames ?? []), ...(prev?.name ? [prev.name] : []), ...(!prev && offered ? [offered] : []), ...page.viAltNames.filter(n => !wrongKind(n)), ...page.enCommonNames].map(n => tidyName(n, kind))).filter(n => n !== name)
+  const altNames = uniq([...(prev?.altNames ?? []), ...(prev?.name ? [prev.name] : []), ...(!prev && offered ? [offered] : []), ...[...page.viAltNames, ...page.enCommonNames].filter(n => !wrongKind(n))].map(n => tidyName(n, kind))).filter(n => n !== name)
   return {
     slug: prev?.slug ?? pickSlug(name, suffix, ctx.takenSlugs), name, altNames, sections, quality: ctx.quality ?? prev?.quality ?? DEFAULT_QUALITY,
     ...(prev?.nameFixed ? { nameFixed: true } : {}), ...(prev?.redirectFrom ? { redirectFrom: prev.redirectFrom } : {}),

@@ -62,7 +62,7 @@ test('a translated guide that fixes a problem is written with the fix first', ()
 
 test('a new page whose source names it with another kind\'s word takes its plain scientific form, and the name is no other name of it', () => {
   const cichlid = { canonicalName: 'Champsochromis caeruleus', order: 'Cichliformes', family: 'Cichlidae', genus: 'Champsochromis', matchType: 'EXACT' }
-  const fresh = mergeSpecies({}, page({ scientificName: 'Champsochromis caeruleus', viName: 'Cá trê Malawi', viAltNames: ['Cá trê xanh', 'Cá hồi Malawi'], enCommonNames: ['Malawi trout'] }), { ...ctx('glaser'), taxon: cichlid })
+  const fresh = mergeSpecies({}, page({ scientificName: 'Champsochromis caeruleus', viName: 'Cá trê Malawi', viAltNames: ['Cá trê xanh', 'Cá hồi Malawi'], enCommonNames: ['Malawi trout', 'Cá trê Malawi'] }), { ...ctx('glaser'), taxon: cichlid })
   expect(fresh.vi.name).toBe('Cá Champsochromis caeruleus')
   expect(fresh.vi.slug).toBe('ca-champsochromis-caeruleus')
   expect(fresh.vi.altNames).toEqual(['Cá hồi Malawi', 'Malawi trout'])

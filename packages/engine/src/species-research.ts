@@ -255,14 +255,15 @@ export async function makeSpecies(root: string, d: SpeciesDeps, a: SpeciesAsk, o
   })
 
   // A name only from a Vietnamese page, and none with a keepers' word for another kind of animal (kind-words.ts); else the
-  // plain scientific form, as a page from a source without one gets (merge.ts). A name that fell back is listed for the
-  // Writing Lead.
+  // plain scientific form, as a page from a source without one gets (merge.ts). A page already live keeps its name when
+  // research offers none that passes first: its name waits for the owner's sheet, and its address never moves. A name that
+  // fell back is listed for the Writing Lead.
   const prev = await read<Translation>(join(dir, 'vi.json'))
   const kin = { order: taxon.order, family: taxon.family, genus: entity.genus }
   const viNames = c.viNames.filter(n => !wrongKind(n, kin))
-  const name = prev?.nameFixed ? prev.name : viNames[0] ?? plainName(sci, kin)
-  const fell = c.viNames.find(n => wrongKind(n, kin))
-  if (fell && !prev?.nameFixed && fell === c.viNames[0]) await recordKindFallback(root, `species/${id}`, { name: fell, word: kindWord(fell, kin)!.word, took: name, at: d.now().toISOString() })
+  const firstFails = !!c.viNames[0] && wrongKind(c.viNames[0], kin)
+  const name = prev?.nameFixed ? prev.name : (!firstFails && viNames[0]) || prev?.name || (viNames[0] ?? plainName(sci, kin))
+  if (firstFails && !prev?.nameFixed && name !== prev?.name) await recordKindFallback(root, `species/${id}`, { name: c.viNames[0]!, word: kindWord(c.viNames[0]!, kin)!.word, took: name, at: d.now().toISOString() })
   const taken = new Set<string>()
   for (const kind of ['species', 'breeds']) for (const x of await readdir(join(content, kind)).catch(() => [] as string[])) {
     if (kind === 'species' && x === id) continue
@@ -273,7 +274,7 @@ export async function makeSpecies(root: string, d: SpeciesDeps, a: SpeciesAsk, o
   const vi: Translation = TranslationSchema.parse(metricPage({
     slug: prev?.slug ?? pickSlug(name, entity.genus, taken), name,
     // A guarded name keeps the other names it came with (names.ts FISH_NAMES), as merge.ts keeps them.
-    altNames: cleanAltNames({ name, sci, altNames: [...new Set([...(prev?.nameFixed ? prev.altNames : []), ...viNames.slice(1), ...c.enNames])].filter(n => n !== name) }).altNames,
+    altNames: cleanAltNames({ name, sci, altNames: [...new Set([...(prev?.nameFixed ? prev.altNames : []), ...(prev?.nameFixed ? viNames.slice(1) : viNames), ...c.enNames.filter(n => !wrongKind(n, kin))])].filter(n => n !== name) }).altNames,
     sections: Object.fromEntries(sections.map(s => [`${s.key}:aquatome`, s.html])),
     quality: judgeQuality({ score: review.score, indexable: false, bySource: { aquatome: review.score } }, review.score >= QUALITY_THRESHOLD, deep),
     ...(prev?.nameFixed ? { nameFixed: true } : {}), ...(prev?.redirectFrom ? { redirectFrom: prev.redirectFrom } : {}),
