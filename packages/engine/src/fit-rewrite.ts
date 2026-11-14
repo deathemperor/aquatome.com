@@ -7,7 +7,7 @@ import { LlmError, type Llm } from './claude'
 import { FIT_TITLE, fitDue, fitFindings, fitKey, fitText, type FitCheck, type FitFinding, type FitState } from './fit'
 import { rewriteForReader } from './for-reader'
 import { METRIC_KINDS } from './metric'
-import { mendPart } from './mend'
+import { mendPart, words as mendWords } from './mend'
 import { fixedParts, loadPages, type Page } from './pages'
 import { piece } from './pieces'
 import { fieldOf as partOf, norm, type ReaderFinding } from './reader'
@@ -131,8 +131,8 @@ const UNIT_WORDS = new Set(['lít', 'l', 'cm', 'mm', 'm', 'mỗi', 'cho', 'trên
 const figureRuns = (from: string) => {
   const runs: string[][] = [[]]
   // A figure whole, with its marks, as mend.ts reads words ("2,5").
-  for (const w of from.normalize('NFC').toLowerCase().match(/[.,]?\d+(?:[.,–-]\d+)*|[\p{L}\p{N}]+/gu) ?? []) {
-    if (/^[.,]?\d/.test(w) || UNIT_WORDS.has(w)) runs.at(-1)!.push(w)
+  for (const w of mendWords(from)) {
+    if (/^[.,-]?\d/.test(w) || UNIT_WORDS.has(w)) runs.at(-1)!.push(w)
     else if (runs.at(-1)!.length) runs.push([])
   }
   return runs.filter(r => r.length).map(r => r.join(' '))

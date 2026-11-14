@@ -263,9 +263,13 @@ test('a units finding\'s sentence gains no word or figure from its writer: left 
 // Astra's fourth read of 14 Nov 2026: a decimal written as a range and "5" as ".5" read as the same words; a breed's figure
 // licensed a word in each sentence its finding covered; the converter rounded a dose's water.
 test('a figure is one word with its marks; a finding\'s words go in once a part; a part with a dose isn\'t converted', async () => {
-  expect(addedWords('Nước cần pH 6,5.', 'Nước cần pH 6–5.')).toEqual(['6–5'])
+  expect(addedWords('Nước cần pH 6,5.', 'Nước cần pH 6–5.')).toEqual(['6-5'])
   expect(addedWords('Bể cần 5 lít.', 'Bể cần .5 lít.')).toEqual(['.5'])
   expect(addedWords('Cá dài 2–5 cm.', 'Cá dài 2–5 cm.')).toEqual([])
+  // Astra's fifth read: a spaced range written as two figures, and a figure given a minus.
+  expect(addedWords('Cá dài 5 – 8 cm.', 'Cá dài 5, 8 cm.')).toEqual(['5', '8'])
+  expect(addedWords('Nhiệt độ 5 °C.', 'Nhiệt độ -5 °C.')).toEqual(['-5'])
+  expect(addedWords('Cá dài 5 – 8 cm.', 'Cá dài 5–8 cm.')).toEqual([])
   const llm = (said: string[]) => (async ({ schema }: { schema: { required: string[] } }) => (schema.required.includes('sentences')
     ? { sentences: said.map((vi, i) => ({ n: i + 1, vi })) }
     : { score: 1, notes: [], dropped: [], hedges: [] })) as Llm
@@ -282,4 +286,12 @@ test('a figure is one word with its marks; a finding\'s words go in once a part;
   if (typeof dose === 'string') throw new Error(dose)
   expect(dose.html).toContain('vào 2 gallon nước')
   expect(dose.html).not.toContain('8 lít')
+})
+
+// The Writing Lead, 14 Nov 2026: the writer's rule as one sentence that doesn't contradict itself.
+test('the writer is told to cut, join with a listed word only, and add nothing else but a wording note\'s words', async () => {
+  const prompts: string[] = []
+  const llm = (async ({ prompt, schema }: { prompt: string; schema: { required: string[] } }) => { prompts.push(prompt); return schema.required.includes('sentences') ? { sentences: [{ n: 1, vi: 'Cây mọc nhanh.' }] } : { score: 1, notes: [], dropped: [], hedges: [] } }) as Llm
+  await mendPart(llm, '<p>Cây mọc nhanh, giá 5 đô la.</p>', [{ check: 'price', quote: 'giá 5 đô la', note: 'Bỏ giá.' }])
+  expect(prompts[0]).toContain('Changing a sentence means cutting it: take out what the note names, and if what\'s left needs joining, join it with one of these words: và, thì, là, mà, nhưng, của. Add no other word the sentence didn\'t have, except the words a wording note gives ("Nên viết"), and never say it another way.')
 })

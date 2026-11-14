@@ -52,11 +52,14 @@ const JOINING = new Set('và hoặc thì là mà rằng các những của này 
  */
 const FRAMES = ['cần lưu ý rằng', 'cần lưu ý', 'lưu ý rằng', 'vì thế', 'vì vậy', 'do đó', 'tuy vậy', 'tuy nhiên', 'ngoài ra', 'cho nên'].map(f => f.split(' '))
 const NEGATIONS = new Set(['không', 'chẳng', 'chả', 'chưa', 'đừng'])
+/** A figure, with a minus or a mark before it and a range's dash, spaced or not, inside it ("-5", "5 – 8"), or a word. */
+const FIGURE_OR_WORD = /(?:[.,]|[–—−-](?=\d))?\d+(?:[.,]\d+|\s*[–—−-]\s*\d+)*|[\p{L}\p{N}]+/gu
 /**
- * A text's words; a figure is one, with the marks inside it and a mark before it ("6,5", "6–8", ".5"), so a decimal written
- * as a range, or "5" as ".5", is a word taken out and another put in (Astra's read).
+ * A text's words; a figure is one, with the marks inside it and a mark before it ("6,5", "6–8", "5 – 8" as "5-8", ".5",
+ * "-5"), so a decimal or two figures written as a range, "5" as ".5" or as "-5", is a word taken out and another put in
+ * (Astra's reads).
  */
-const words = (s: string) => plain(s).normalize('NFC').toLowerCase().match(/[.,]?\d+(?:[.,–-]\d+)*|[\p{L}\p{N}]+/gu) ?? []
+export const words = (s: string) => (plain(s).normalize('NFC').toLowerCase().match(FIGURE_OR_WORD) ?? []).map(w => (/^[.,–—−-]?\d/.test(w) ? w.replace(/\s+/g, '').replace(/[–—−]/g, '-') : w))
 /** Which of a sentence's words belong to a framing phrase that went whole from it. */
 const framed = (ws: string[], after: string[]) => {
   const kept = new Set(after.slice(1).map((w, i) => `${after[i]} ${w}`))
