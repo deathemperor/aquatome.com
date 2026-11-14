@@ -471,3 +471,18 @@ test('over the reader\'s daily limit, the photo panel says so; the typed search 
   await expect(page.locator('#mt-opts [role=option].new')).toBeVisible()
   expect(errors).toEqual([])
 })
+
+// The picker's options are drawn in the browser, where the page check (scripts/page-check.ts) doesn't look. Each says
+// the scientific name once: beside a name only when the name doesn't say it (the fixture's Cryptocoryne wendtii is
+// named by it).
+test("the fish and plant picker gives a scientific name beside a name only when the name doesn't say it", async ({ page, errors }) => {
+  await seeded(page, { v: 1, tanks: [{ id: id(1), name: 'Bể', species: [], plants: [], createdAt: at, updatedAt: at }], devices: [] })
+  await page.goto(PAGE)
+  await page.locator('.tank [data-edit]').first().click()
+  await page.locator('#mt-q').fill('Cryptocoryne')
+  const opts = page.locator('#mt-opts [role=option]:not(.new)')
+  await expect(opts.first()).toBeVisible()
+  const pairs = await opts.evaluateAll(els => els.map(e => [e.querySelector('.nm > span')?.textContent ?? '', e.querySelector('.sci')?.textContent ?? '']))
+  expect(pairs.filter(([name, sci]) => sci && name.toLowerCase().includes(sci.toLowerCase()))).toEqual([])
+  expect(errors).toEqual([])
+})

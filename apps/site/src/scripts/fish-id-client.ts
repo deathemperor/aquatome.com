@@ -85,6 +85,10 @@ export const own = (u?: string) => {
 }
 const photoSrc = (u?: string) => (u && /^https:\/\//.test(u) ? u : undefined)
 
+const UNESC: Record<string, string> = { '&lt;': '<', '&gt;': '>', '&quot;': '"', '&#39;': "'", '&amp;': '&' }
+/** What HTML from escapeHtml reads as: its tags gone and its entities back ("Alternanthera reineckii &#39;Mini&#39;"). */
+const textOf = (html: string) => html.replace(/<[^>]*>/g, '').replace(/&(?:lt|gt|quot|#39|amp);/g, e => UNESC[e]!)
+
 /**
  * One guess, as both places show it: our page's photo when the handbook has the page, how sure, the name, the scientific
  * name and variety, why. `name` (HTML) and `more` (HTML under it: links, or the action) are the caller's.
@@ -94,7 +98,7 @@ export function guessHtml(t: T, r: Result, name: string, more: string): string {
   const img = src ? `<img src="${escapeHtml(src)}" width="120" height="90" alt="" loading="lazy">` : ''
   // The scientific name only when the name doesn't say it (lib/sci.ts): a handbook name that holds it, or the scientific
   // name itself when there's no other.
-  const said = sciBeside(name.replace(/<[^>]*>/g, ''), r.scientificName)
+  const said = sciBeside(textOf(name), r.scientificName)
   const sci = [said && `<i>${escapeHtml(said)}</i>`, r.variety && escapeHtml(r.variety)].filter(Boolean).join(' · ')
   const why = r.reason ? `<p class="why">${escapeHtml(r.reason)}</p>` : ''
   return `<li class="${r.page ? 'hit' : 'miss'}">${img}<div><span class="sure">${escapeHtml(sure(t, r.confidence))}</span><h3>${name}</h3>${sci ? `<p class="sci">${sci}</p>` : ''}${why}${more}</div></li>`

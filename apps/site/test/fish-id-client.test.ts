@@ -1,5 +1,6 @@
 import { expect, test, vi as vitest } from 'vitest'
 import { translator } from '../src/lib/i18n'
+import { escapeHtml } from '../src/scripts/comments'
 import { errorText, genusHtml, guessHtml, hasGuesses, own, sciAfter, sure, verdictLine, type Answer, type Result } from '../src/scripts/fish-id-client'
 import { guessEntry } from '../src/scripts/life-photo'
 import { unlistedName } from '../src/scripts/life-edit'
@@ -82,6 +83,10 @@ test("a photo's guess and its genus's other pages say the scientific name once",
   expect(guessHtml(vi, guessOf({ variety: 'Blue' }), 'Cá lóc Channa andrao', '')).toContain('<p class="sci">Blue</p>')
   // A name that doesn't say it keeps it, and the variety after it.
   expect(guessHtml(vi, guessOf({ variety: 'Blue' }), 'Cá lóc', '')).toContain('<p class="sci"><i>Channa andrao</i> · Blue</p>')
+  // A name with quote marks, escaped as the callers give it: the same name, so said once.
+  const mini = "Alternanthera reineckii 'Mini'"
+  expect(guessHtml(vi, guess({ scientificName: mini }), escapeHtml(mini), '')).not.toContain('class="sci"')
+  expect(guessHtml(vi, guess({ scientificName: mini }), `<a href="/cay/x/">${escapeHtml(`Rau dừa ${mini}`)}</a>`, '')).not.toContain('class="sci"')
   expect(sciAfter({ id: 'a', name: 'Cá lóc Channa andrao', sci: 'Channa andrao' })).toBe('')
   expect(sciAfter({ id: 'b', name: 'Cá lóc vảy rồng', sci: 'Channa asiatica' }, ' class="sci"')).toBe(' <i class="sci">Channa asiatica</i>')
   expect(sciAfter({ id: 'c', name: 'Cá lóc' })).toBe('')

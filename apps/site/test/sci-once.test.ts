@@ -76,6 +76,15 @@ test('the page check finds a scientific name printed under a name that says it, 
   // A hybrid's parent, linked with its scientific name in brackets after a name that says it.
   const parent = checkPage('/ca/ca-neon-vua/', html('<p class="parents">Lai từ: <a href="/ca/ca-loc-channa-andrao/">Cá lóc Channa andrao <span class="sci">(Channa andrao)</span></a></p>'), facts)
   expect(parent.filter(p => p.check === 'name-twice').map(p => p.detail)).toEqual(['"Cá lóc Channa andrao" over "Channa andrao"'])
+  // A picker's option, the name in the span before it, and a photo page's lead, its link back naming the fish.
+  const picker = checkPage('/ca/ca-neon-vua/', html('<ul><li role="option"><span class="nm"><span>Cá lóc Channa andrao</span> <i class="sci">Channa andrao</i></span></li><li role="option"><span class="nm"><span>Cá lóc vảy rồng</span> <i class="sci">Channa asiatica</i></span></li></ul>'), facts)
+  expect(picker.filter(p => p.check === 'name-twice').map(p => p.detail)).toEqual(['"Cá lóc Channa andrao" over "Channa andrao"'])
+  const lead = (sci: string) => checkPage('/ca/ca-neon-vua/', html(`<p class="lead">${sci}Ảnh từ nhiều nguồn. <a href="/ca/ca-loc-channa-andrao/">Cách nuôi Cá lóc Channa andrao →</a></p>`), facts)
+  expect(lead('<span class="sci">Channa andrao</span> · ').filter(p => p.check === 'name-twice')).toHaveLength(1)
+  expect(lead('').filter(p => p.check === 'name-twice')).toEqual([])
+  // A species page's crumbs end in its genus, in italics: not a name said twice.
+  const crumbs = checkPage('/ca/ca-neon-vua/', html('<nav class="crumb"><a href="/ca/">Loài cá</a> / <a href="/ca/ho/channidae/">Channidae</a> / <a class="sci" href="/ca/chi/channa/">Channa</a></nav>'), facts)
+  expect(crumbs.filter(p => p.check === 'name-twice')).toEqual([])
 })
 
 test("a hybrid's parents give the scientific name beside a name only when the name doesn't say it", () => {

@@ -63,6 +63,8 @@ export async function loadFacts(root: string): Promise<Facts> {
 }
 
 const text = (el: HTMLElement) => el.textContent.replace(/\s+/g, ' ').trim()
+/** The text of what `el` sits in, without `el`'s own. */
+const around = (el: HTMLElement) => el.parentNode ? el.parentNode.childNodes.filter(n => n !== el).map(n => n.textContent).join('').replace(/\s+/g, ' ').trim() : ''
 const BRACKETED = /^\s*\(\s*([A-Z][a-z]+ [a-z]{3,}(?: [a-z]{3,})?)\s*\)/
 const NUMBERED = /^(\d{1,2})[.)]\s/
 const level = (el: HTMLElement) => /^H([2-6])$/.exec(el.tagName)?.[1]
@@ -112,9 +114,10 @@ export function checkPage(path: string, html: string, facts: Facts): Problem[] {
   for (const el of root.querySelectorAll('.sci').filter(e => !e.closest('template'))) {
     let named = el.previousElementSibling
     while (named && !/^H[1-6]$/.test(named.tagName)) named = named.previousElementSibling
-    // Or a link that holds both, the name as its text and the scientific name in brackets (a hybrid's parents).
-    const link = !named && el.parentNode?.tagName === 'A' ? el.parentNode : undefined
-    const name = named ? text(named) : link ? text(link).replace(text(el), '').trim() : ''
+    // Or, with no heading before it, what it sits in says the name: a link with the scientific name in brackets (a
+    // hybrid's parents), a picker's option (the name in the span before it), a photo page's lead (its link back to the
+    // fish's page).
+    const name = named ? text(named) : around(el)
     const sci = text(el).replace(/^\((.*)\)$/, '$1')
     if (name && sci && saysSci(name, sci)) out.push({ check: 'name-twice', detail: `"${name}" over "${sci}"` })
   }
