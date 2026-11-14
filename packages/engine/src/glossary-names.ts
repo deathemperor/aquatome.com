@@ -59,15 +59,24 @@ export function kindNames(e: { definition: string; body: string }, taxa: Map<str
 /** The rules check's note for a kind word that doesn't fit its animal: a naming break, so it stops (rule 6). */
 export const misfitNote = (k: KindName) => `Rule 6: "${k.name}": "${k.word}" is the word for other animals, not for ${k.family} (the table of kind words).`
 
-/** The name a rules note quotes first, lowercased: Rule 6 asks for the name itself there. */
-const firstQuote = (note: string) => { const q = /"([^"]+)"/.exec(note)?.[1]; return q === undefined ? undefined : key(q) }
+/**
+ * Whether a naming note is about a name the table judged, and nothing else: Rule 6 asks for the name itself quoted first,
+ * one note a name. Every other quote must be text the name stands in (its sentence), or no words at all ("…"); a quote
+ * with words but without the name is another name, whose break the note carries too (Codex, 14 Nov 2026: "Tép Caridina"
+ * and "tép biển" in one note).
+ */
+const onlyJudged = (note: string, judged: Set<string>) => {
+  const [first, ...rest] = [...note.matchAll(/"([^"]+)"/g)].map(m => key(m[1]!))
+  return first !== undefined && judged.has(first) && rest.every(q => q.includes(first) || !/\p{L}/u.test(q))
+}
 
 /**
- * The rules check's notes with the table's judgement in: a naming note (rule 6 alone) on a name the table judged is
- * dropped, and a name that doesn't fit gets the table's note. Notes on other rules, or on rule 6 with another, stand.
+ * The rules check's notes with the table's judgement in: a naming note (rule 6 alone) on a name the table judged, and on
+ * no other, is dropped, and a name that doesn't fit gets the table's note. Notes on other rules, or on rule 6 with
+ * another, stand.
  */
 export function judgeKindNames(notes: string[], k: { fit: KindName[]; misfit: KindName[] }, ruleNumbers: (note: string) => number[]): string[] {
   const judged = new Set([...k.fit, ...k.misfit].map(x => key(x.name)))
-  const kept = notes.filter(n => { const r = ruleNumbers(n); return !(r.length === 1 && r[0] === 6 && judged.has(firstQuote(n) ?? '')) })
+  const kept = notes.filter(n => { const r = ruleNumbers(n); return !(r.length === 1 && r[0] === 6 && onlyJudged(n, judged)) })
   return [...kept, ...k.misfit.map(misfitNote)]
 }

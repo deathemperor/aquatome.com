@@ -41,3 +41,14 @@ test('a naming note on a name the table judged is dropped; one that doesn\'t fit
   expect(judgeKindNames(notes, k, ruleNumbers)).toEqual([notes[2], notes[3], notes[4], misfitNote(k.misfit[0]!)])
   expect(misfitNote(k.misfit[0]!)).toBe('Rule 6: "cá trê Aulonocara": "trê" is the word for other animals, not for Cichlidae (the table of kind words).')
 })
+
+// Codex, 14 Nov 2026: a note on two names was dropped whole when its first fitted, and took the second's break with it.
+test('a naming note is dropped only when every name it quotes is one the table judged', () => {
+  const k = { fit: [{ name: 'Tép Caridina', word: 'tép', family: 'Atyidae' }], misfit: [] }
+  const notes = [
+    'Rule 6: "Tép Caridina" and "tép biển": both are invented Vietnamese names; use scientific names.',
+    'Rule 6: "tép Caridina" in "Tép Caridina và tép biển.": a Vietnamese name the writer made up',
+    'Rule 6: "tép Caridina" in "Tép – Caridina ưa nước mềm.": made up',
+  ]
+  expect(judgeKindNames(notes, k, ruleNumbers)).toEqual([notes[0]])
+})
