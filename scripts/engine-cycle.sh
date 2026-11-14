@@ -285,10 +285,6 @@ if part rewrite; then
     pnpm engine localize-equipment --lang "$lang" || log "localize-equipment $lang: failed"
     pnpm engine localize-cards --lang "$lang" || log "localize-cards $lang: failed"
   done
-  # Indonesian, Thai and Malay place names, each judged alone against its source's sentence (place-judge.ts): the
-  # unjudged first, the lowest batch score first, JUDGE_PLACES_LIMIT a cycle (the chief of staff, 15 Nov 2026: at most
-  # 300). One that fails shows the source's name on the site until a name passes.
-  pnpm engine judge-places --limit "${JUDGE_PLACES_LIMIT:-300}" || log "judge-places: failed"
   # UI text those pages need that src/i18n lacks (a label no page used before): translated now, committed with the content.
   if I18N_MISSING_OUT=/tmp/aq-i18n-missing.json PUBLIC_BUILD=1 pnpm --filter site build >/dev/null 2>&1 \
     && node -e 'process.exit(Object.values(require("/tmp/aq-i18n-missing.json")).some(s => s.length) ? 0 : 1)'; then
@@ -324,6 +320,11 @@ if part rewrite; then
     ahead pnpm engine localize-equipment --lang "$lang" --limit "${LOCALIZE_EQUIPMENT_AHEAD_LIMIT:-2}"
     ahead pnpm engine localize-cards --lang "$lang"
   done
+  # Indonesian, Thai and Malay place names, each judged alone against its source's sentence (place-judge.ts), after every
+  # translation, Malay's too (the rewrites and translations spend first, cycle-languages.test.ts): the
+  # unjudged first, the lowest batch score first, JUDGE_PLACES_LIMIT a cycle (the chief of staff, 15 Nov 2026: at most
+  # 300). One that fails shows the source's name on the site until a name passes.
+  pnpm engine judge-places --limit "${JUDGE_PLACES_LIMIT:-300}" || log "judge-places: failed"
   # Diễn Đàn Cá Cảnh's guide sections, read for orientation (notes on each thread, never its text), 5 s between requests:
   # leads for breed and guide research (forum.ts).
   pnpm engine forum --limit "${FORUM_LIMIT:-10}" --pages 3 || log "forum: failed"
