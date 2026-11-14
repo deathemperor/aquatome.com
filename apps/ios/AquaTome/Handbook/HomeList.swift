@@ -507,7 +507,7 @@ private struct AskCard: View {
             .accessibilityHidden(true)
           VStack(alignment: .leading, spacing: 2) {
             Text("Hỏi AquaTome").font(.body.weight(.semibold)).foregroundStyle(.primary)
-            Text("Cá bệnh, nước đục, bể mới: hỏi bằng lời của bạn").font(.subheadline).foregroundStyle(.secondary)
+            Text("Cá bệnh, nước đục, bể mới setup: hỏi gì cũng được").font(.subheadline).foregroundStyle(.secondary)
           }
           .multilineTextAlignment(.leading)
         }

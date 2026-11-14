@@ -186,8 +186,8 @@ private struct ChatThread: View {
   /// The app's own first questions, by what the chat is about; about nothing, what keepers ask most.
   private var starters: [String] {
     guard let s = model.route.subject else {
-      return [String(localized: "Cá chết nổi đầu, vì sao?"), String(localized: "Bể mới bao lâu thì thả cá được?"),
-              String(localized: "Nước bể bị đục, làm sao cho trong?")]
+      return [String(localized: "Cá nổi lên mặt nước đớp không khí, phải làm sao?"), String(localized: "Bể mới bao lâu thì thả cá được?"),
+              String(localized: "Nước bể bị đục, làm sao cho trong lại?")]
     }
     if s.plant {
       return [String(localized: "Có cần CO₂ không?"), String(localized: "Trồng ở đâu trong bể?"), String(localized: "Có dễ trồng không?")]
