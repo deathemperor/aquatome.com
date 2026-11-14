@@ -47,24 +47,7 @@
     "figures": [
       {
         "heading": "Cần chuẩn bị những gì",
-        "moments": [
-          {
-            "t": 26,
-            "url": "https://media.aquatome.com/video/YpQiCUFALSM/at26-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hũ thủy tinh mason với nắp có phần giữa tháo rời được.",
-            "sharpness": 824.9
-          },
-          {
-            "t": 34,
-            "url": "https://media.aquatome.com/video/YpQiCUFALSM/at34-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các hũ mason và nắp được bày ra để chuẩn bị.",
-            "sharpness": 929.7
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/YpQiCUFALSM/p0-hcl9hcnJheS5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/YpQiCUFALSM/p0-hcl9hcnJheS5qcGc-480.webp",
@@ -80,20 +63,13 @@
         "heading": "Làm kệ và treo hũ thế nào",
         "moments": [
           {
-            "t": 50,
-            "url": "https://media.aquatome.com/video/YpQiCUFALSM/at50-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Kệ sơn trắng đã gắn giá đỡ lên tường, dùng thước thủy cân thẳng.",
-            "sharpness": 520
-          },
-          {
             "t": 68,
             "url": "https://media.aquatome.com/video/YpQiCUFALSM/at68-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Các hũ được luồn qua lỗ và treo lơ lửng dưới tấm ván kệ.",
-            "sharpness": 538.3
+            "sharpness": 538.3,
+            "person": false
           }
         ],
         "photo": {
@@ -108,27 +84,6 @@
         }
       },
       {
-        "heading": "Kệ có chịu nổi sức nặng không",
-        "moments": [
-          {
-            "t": 70,
-            "url": "https://media.aquatome.com/video/YpQiCUFALSM/at70-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tấm kệ trắng có ba lỗ tròn để đặt hũ, đặt trên hai chân đỡ.",
-            "sharpness": 528.3
-          },
-          {
-            "t": 90,
-            "url": "https://media.aquatome.com/video/YpQiCUFALSM/at90-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Kệ trắng đã được bắt lên tường, treo các hũ cây thủy sinh.",
-            "sharpness": 510
-          }
-        ]
-      },
-      {
         "heading": "Cho gì vào hũ để thành hệ sinh thái mini",
         "moments": [
           {
@@ -137,7 +92,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ba hũ thả nhánh trầu bà treo trên kệ trắng.",
-            "sharpness": 535.6
+            "sharpness": 535.6,
+            "person": false
           },
           {
             "t": 100,
@@ -145,7 +101,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Kệ treo ba hũ có trầu bà, kèm khung ảnh cá cho hợp kệ.",
-            "sharpness": 524.3
+            "sharpness": 524.3,
+            "person": false
           }
         ]
       },
@@ -158,7 +115,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Kệ treo tường có cây thủy sinh trong lọ thủy tinh, đặt chỗ sáng.",
-            "sharpness": 531.1
+            "sharpness": 531.1,
+            "person": false
           },
           {
             "t": 116,
@@ -166,7 +124,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh kệ trắng treo các lọ cây trồng thủy sinh trên tường.",
-            "sharpness": 519.5
+            "sharpness": 519.5,
+            "person": false
           }
         ],
         "photo": {

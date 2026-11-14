@@ -65,27 +65,6 @@
     ],
     "figures": [
       {
-        "heading": "Tháo viền bể thế nào để không hỏng kính",
-        "moments": [
-          {
-            "t": 15,
-            "url": "https://media.aquatome.com/video/nvG0MbTO3Co/at15-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng lưỡi cạo chạy dọc mép viền trên của bể kính.",
-            "sharpness": 508.8
-          },
-          {
-            "t": 45,
-            "url": "https://media.aquatome.com/video/nvG0MbTO3Co/at45-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Viền trên đã tách ra khỏi thân bể kính.",
-            "sharpness": 876.4
-          }
-        ]
-      },
-      {
         "heading": "Kính lỡ nứt thì cứu thế nào",
         "moments": [
           {
@@ -95,28 +74,12 @@
             "height": 675,
             "caption": "Dùng lưỡi dao rạch dọc đường silicone ở mối nối của bể kính.",
             "sharpness": 138.9
-          },
-          {
-            "t": 100,
-            "url": "https://media.aquatome.com/video/nvG0MbTO3Co/at100-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt thước làm cữ trên tấm kính để rạch đường cắt.",
-            "sharpness": 1482.8
           }
         ]
       },
       {
         "heading": "Xử lý cạnh kính và dán lại bể",
         "moments": [
-          {
-            "t": 135,
-            "url": "https://media.aquatome.com/video/nvG0MbTO3Co/at135-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chà nhám cạnh tấm kính bằng giấy nhám, tay đeo găng.",
-            "sharpness": 642.1
-          },
           {
             "t": 165,
             "url": "https://media.aquatome.com/video/nvG0MbTO3Co/at165-hd.webp",
@@ -129,24 +92,7 @@
       },
       {
         "heading": "Chuẩn bị đá, đất và cây",
-        "moments": [
-          {
-            "t": 235,
-            "url": "https://media.aquatome.com/video/nvG0MbTO3Co/at235-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rửa sỏi bằng vòi nước trong khay cho sạch.",
-            "sharpness": 779.3
-          },
-          {
-            "t": 260,
-            "url": "https://media.aquatome.com/video/nvG0MbTO3Co/at260-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tấm lưới nhựa tản sáng dùng để lót dưới đáy bể.",
-            "sharpness": 2853.8
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/nvG0MbTO3Co/p3-vcm1hdGlvbi5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/nvG0MbTO3Co/p3-vcm1hdGlvbi5qcGc-480.webp",
@@ -159,44 +105,16 @@
         }
       },
       {
-        "heading": "Xếp bố cục và làm nền kiểu Walstad",
-        "moments": [
-          {
-            "t": 290,
-            "url": "https://media.aquatome.com/video/nvG0MbTO3Co/at290-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đất trồng cây dùng làm nền kiểu Walstad được bốc trong khay.",
-            "sharpness": 535.3
-          },
-          {
-            "t": 345,
-            "url": "https://media.aquatome.com/video/nvG0MbTO3Co/at345-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bố cục đá và cành lũa đã xếp thử trong bể, trên lớp đất mỏng.",
-            "sharpness": 1765.3
-          }
-        ]
-      },
-      {
         "heading": "Trồng cây và hoàn thiện cảnh",
         "moments": [
-          {
-            "t": 440,
-            "url": "https://media.aquatome.com/video/nvG0MbTO3Co/at440-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây Syngonium lá sáng được trồng vào nền đất cạnh đá và lũa.",
-            "sharpness": 708.3
-          },
           {
             "t": 525,
             "url": "https://media.aquatome.com/video/nvG0MbTO3Co/at525-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể hoàn thiện với Syngonium, tillandsia, sỏi và lũa trắng.",
-            "sharpness": 3243.3
+            "sharpness": 3243.3,
+            "person": false
           }
         ]
       },
@@ -209,7 +127,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể ao nhỏ mới set với cây còn thưa.",
-            "sharpness": 4038.4
+            "sharpness": 4038.4,
+            "person": false
           },
           {
             "t": 540,
@@ -217,7 +136,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Mặt nước có lá nổi, đá cuội và cây ven bờ.",
-            "sharpness": 549.7
+            "sharpness": 549.7,
+            "person": false
           }
         ]
       }

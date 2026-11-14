@@ -13,132 +13,9 @@
     "russia",
     "vietnam",
     "lam",
-    "songhua"
+    "songhua",
+    "siberia"
   ],
-  "dataCard": {
-    "sizeCm": [
-      {
-        "source": "seriouslyfish",
-        "value": 200
-      }
-    ],
-    "tankCm": [
-      {
-        "source": "seriouslyfish",
-        "value": 200,
-        "hidden": "shorter than twice the fish (200 cm)"
-      }
-    ],
-    "difficulty": [
-      {
-        "source": "seriouslyfish",
-        "value": 6
-      }
-    ]
-  },
-  "sections": [
-    {
-      "key": "quickFacts",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/elopichthys-bambusa",
-      "html": "<p>Elopichthys bambusa is a large predatory cyprinid of eastern Asia, from the Amur River in Russia to the Lam drainage in northern Vietnam. Growing to 2 m and 40 kg, it is entirely unsuitable for the home aquarium, though young individuals appear in the ornamental trade on an irregular basis. The only species in its genus, it is an important food fish over much of its range.</p><ul><li>Difficulty: Difficult, because it needs a tank at least 2 m long</li></ul>"
-    },
-    {
-      "key": "distribution",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/elopichthys-bambusa",
-      "html": "<p>Widely distributed in eastern Asia, between the Amur River in the Russian Federation and the Lam drainage in northern Vietnam, and thus occurs in several major river systems of China.</p><p>Type locality is given simply as 'Canton, China'.</p>"
-    },
-    {
-      "key": "habitat",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/elopichthys-bambusa",
-      "html": "<p>Tends to occur in main river channels and avoids cooler upper basins and headwater streams.</p><p>In the Amur system, adults are known to spawn in the middle section of the river in spring, before moving into floodplain areas to feed during summer, and spending winter in major tributaries. Juveniles and sub-adults spend the initial portion of their lives in the lower part of the drainage.</p>"
-    },
-    {
-      "key": "aquariumSize",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/elopichthys-bambusa",
-      "html": "<p>Standard length: 200 cm SL.</p><p>Suitable only for public installations or the very largest, highly specialised private aquaria.</p>"
-    },
-    {
-      "key": "maintenance",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/elopichthys-bambusa",
-      "html": "<p>A large, mature filter system, a rigorous maintenance regime comprising weekly water changes of 50-70% of tank volume, and provision of highly oxygenated water with a degree of movement should be considered mandatory.</p>"
-    },
-    {
-      "key": "diet",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/elopichthys-bambusa",
-      "html": "<p>An obligate piscivore feeding mostly on smaller fishes in nature.</p><p>Young fish can be offered chironomid larvae (bloodworm), small earthworms, chopped prawn and suchlike, while adults will accept strips of fish flesh, whole prawns/shrimp, mussels, live river shrimp, larger earthworms, etc., as well as dried pellets, although the latter should not form the staple diet.</p><p>This species should not be fed mammalian or avian meat such as beef heart or chicken, since some of the lipids contained in these cannot be properly metabolised by the fish and may cause excess fat deposits and even organ degeneration.</p><p>Similarly, there is no benefit in the use of 'feeder' fish such as livebearers or small goldfish, which carry with them the risk of parasite or disease introduction and at any rate tend not to have a high nutritional value unless properly conditioned beforehand.</p>"
-    },
-    {
-      "key": "behaviour",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/elopichthys-bambusa",
-      "html": "<p>Relatively peaceful with fishes too large to be considered prey.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/elopichthys-bambusa",
-      "html": "<p>The adult size and power of this impressive predator preclude it from consideration as an aquarium species, but young individuals are nevertheless available in the ornamental trade on an irregular basis, therefore it is included here.</p><p>It is an entirely unsuitable choice for the home aquarium and the majority of zoos and public aquaria would probably struggle to maintain it in adequate conditions.</p><p>E. bambusa is the only species in the genus Elopichthys and is an important food fish over much of its natural range, as well as being a popular target for sport anglers.</p><p>Etymology: Elopichthys comes from the generic name Elops, a group of marine fishes commonly known as ladyfishes in English, and the Ancient Greek ἰχθύς (ikhthús), meaning 'fish', in reference to this species' superficial resemblance to Elops species. bambusa comes from the generic name Bambusa, a large group of bamboos, in allusion to the translation of the Chinese vernacular name given as \"bamboo spoilt fish\" by John Reeves, who painted fish while working as a tea inspector in China (1812-1831).</p>"
-    },
-    {
-      "key": "references",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/elopichthys-bambusa",
-      "html": "<ul><li>Richardson, J. (1845). Ichthyology. Part 3. In R. B. Hinds (ed.) The zoology of the voyage of H. M. S. Sulphur, under the command of Captain Sir Edward Belcher, R. N., C. B., F. R. G. S., etc., during the years 1836-42, No. 10. London: Smith, Elder &amp; Co., 99-150</li><li>Bogutskaya, N. G., A. M. Naseka, S. V. Shedko, E. D. Vasil'eva and I. A. Chereshnev (2008). The fishes of the Amur River: updated check-list and zoogeography. Ichthyological Exploration of Freshwaters 19(4), 301-366</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
-    }
-  ],
-  "photos": [],
-  "videos": [
-    {
-      "youtubeId": "WjvRR36-9Lk",
-      "title": "36\" elopichthys bambusa",
-      "durationSec": 13,
-      "lang": "en"
-    },
-    {
-      "youtubeId": "X-Gg7tTRvEw",
-      "title": "Bambusa Elopichthys Feeding",
-      "durationSec": 32,
-      "lang": "en"
-    },
-    {
-      "youtubeId": "h0dwWc6oRSk",
-      "title": "Elopichthys Bambusa 6-7-2026",
-      "durationSec": 182,
-      "lang": "en"
-    }
-  ],
-  "productSlots": [
-    {
-      "category": "loc",
-      "keywords": [
-        "lọc thùng công suất lớn",
-        "lọc bể cá cỡ lớn",
-        "máy bơm sục khí công suất lớn",
-        "lọc hồ lớn"
-      ]
-    },
-    {
-      "category": "thuc-an",
-      "keywords": [
-        "thức ăn cho cá săn mồi",
-        "tôm cho cá lớn"
-      ]
-    },
-    {
-      "category": "test-nuoc",
-      "keywords": [
-        "bộ test nước",
-        "test amoniac nitrit nitrat"
-      ]
-    }
-  ],
-  "updatedAt": "2026-11-07",
   "range": {
     "native": {
       "countries": [
@@ -257,5 +134,175 @@
         ]
       ]
     }
-  }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 200
+      },
+      {
+        "source": "glaser",
+        "value": 200
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 200,
+        "hidden": "shorter than twice the fish (200 cm)"
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/elopichthys-bambusa",
+      "html": "<p>Elopichthys bambusa is a large predatory cyprinid of eastern Asia, from the Amur River in Russia to the Lam drainage in northern Vietnam. Growing to 2 m and 40 kg, it is entirely unsuitable for the home aquarium, though young individuals appear in the ornamental trade on an irregular basis. The only species in its genus, it is an important food fish over much of its range.</p><ul><li>Difficulty: Difficult, because it needs a tank at least 2 m long</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/elopichthys_bambusa_en/",
+      "html": "<p>Common name: Yellowcheek. Maximum length reported is about 2 m. Origin: Asia.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/elopichthys_bambusa_en/",
+      "html": "<p>For the first time youngsters of this highly interesting fish species were received. Currently the genus Elopichthys is regarded as monotypic, but a second species might exist in the north of Vietnam, characterised by larger scales and a more anteriorly placed dorsal fin.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/elopichthys-bambusa",
+      "html": "<p>Widely distributed in eastern Asia, between the Amur River in the Russian Federation and the Lam drainage in northern Vietnam, and thus occurs in several major river systems of China.</p><p>Type locality is given simply as 'Canton, China'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/elopichthys_bambusa_en/",
+      "html": "<p>Elopichthys bambusa occurs in China and Siberia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/elopichthys-bambusa",
+      "html": "<p>Tends to occur in main river channels and avoids cooler upper basins and headwater streams.</p><p>In the Amur system, adults are known to spawn in the middle section of the river in spring, before moving into floodplain areas to feed during summer, and spending winter in major tributaries. Juveniles and sub-adults spend the initial portion of their lives in the lower part of the drainage.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/elopichthys_bambusa_en/",
+      "html": "<p>In the wild Elopichthys bambusa prefers to hunt near waterfalls and rapids.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/elopichthys-bambusa",
+      "html": "<p>Standard length: 200 cm SL.</p><p>Suitable only for public installations or the very largest, highly specialised private aquaria.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/elopichthys-bambusa",
+      "html": "<p>A large, mature filter system, a rigorous maintenance regime comprising weekly water changes of 50-70% of tank volume, and provision of highly oxygenated water with a degree of movement should be considered mandatory.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/elopichthys_bambusa_en/",
+      "html": "<p>Because it occurs in China and Siberia, it can be kept easily in garden ponds and has no problems during the winter in central Europe.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/elopichthys-bambusa",
+      "html": "<p>An obligate piscivore feeding mostly on smaller fishes in nature.</p><p>Young fish can be offered chironomid larvae (bloodworm), small earthworms, chopped prawn and suchlike, while adults will accept strips of fish flesh, whole prawns/shrimp, mussels, live river shrimp, larger earthworms, etc., as well as dried pellets, although the latter should not form the staple diet.</p><p>This species should not be fed mammalian or avian meat such as beef heart or chicken, since some of the lipids contained in these cannot be properly metabolised by the fish and may cause excess fat deposits and even organ degeneration.</p><p>Similarly, there is no benefit in the use of 'feeder' fish such as livebearers or small goldfish, which carry with them the risk of parasite or disease introduction and at any rate tend not to have a high nutritional value unless properly conditioned beforehand.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/elopichthys-bambusa",
+      "html": "<p>Relatively peaceful with fishes too large to be considered prey.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/elopichthys_bambusa_en/",
+      "html": "<p>This species is one of the very few real predators among the carp-like fish. Carps have no maxillary teeth at all, but Elopichthys has developed strong horny sheets along the maxilla, so the mouth works like a strong pair of scissors. The tip of the mouth has a hook on the lower jaw and a notch in the upper jaw, enabling the predator to hold its prey firmly. Towards conspecifics the fish are completely peaceful, at least in the supplier's facility.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/elopichthys-bambusa",
+      "html": "<p>The adult size and power of this impressive predator preclude it from consideration as an aquarium species, but young individuals are nevertheless available in the ornamental trade on an irregular basis, therefore it is included here.</p><p>It is an entirely unsuitable choice for the home aquarium and the majority of zoos and public aquaria would probably struggle to maintain it in adequate conditions.</p><p>E. bambusa is the only species in the genus Elopichthys and is an important food fish over much of its natural range, as well as being a popular target for sport anglers.</p><p>Etymology: Elopichthys comes from the generic name Elops, a group of marine fishes commonly known as ladyfishes in English, and the Ancient Greek ἰχθύς (ikhthús), meaning 'fish', in reference to this species' superficial resemblance to Elops species. bambusa comes from the generic name Bambusa, a large group of bamboos, in allusion to the translation of the Chinese vernacular name given as \"bamboo spoilt fish\" by John Reeves, who painted fish while working as a tea inspector in China (1812-1831).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/elopichthys_bambusa_en/",
+      "html": "<p>Lexicon: Elopichthys means \"fish like an Elops\"; Elops is another genus of fish. bambusa means \"belonging to bamboo\".</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/elopichthys-bambusa",
+      "html": "<ul><li>Richardson, J. (1845). Ichthyology. Part 3. In R. B. Hinds (ed.) The zoology of the voyage of H. M. S. Sulphur, under the command of Captain Sir Edward Belcher, R. N., C. B., F. R. G. S., etc., during the years 1836-42, No. 10. London: Smith, Elder &amp; Co., 99-150</li><li>Bogutskaya, N. G., A. M. Naseka, S. V. Shedko, E. D. Vasil'eva and I. A. Chereshnev (2008). The fishes of the Amur River: updated check-list and zoogeography. Ichthyological Exploration of Freshwaters 19(4), 301-366</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "WjvRR36-9Lk",
+      "title": "36\" elopichthys bambusa",
+      "durationSec": 13,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "X-Gg7tTRvEw",
+      "title": "Bambusa Elopichthys Feeding",
+      "durationSec": 32,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "h0dwWc6oRSk",
+      "title": "Elopichthys Bambusa 6-7-2026",
+      "durationSec": 182,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng công suất lớn",
+        "lọc bể cá cỡ lớn",
+        "máy bơm sục khí công suất lớn",
+        "lọc hồ lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá săn mồi",
+        "tôm cho cá lớn"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test nước",
+        "test amoniac nitrit nitrat"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
 }

@@ -1,8 +1,8 @@
 {
   "id": "astyanax-leopoldi",
   "native": {
-    "input": "5c48919eb1d78ebd",
-    "at": "2026-11-06T12:17:30.771Z",
+    "input": "4548200a042f3f1a",
+    "at": "2026-11-10T04:57:39.069Z",
     "claims": [
       {
         "code": "GF",
@@ -26,12 +26,14 @@
         "name": "Approuague",
         "source": "seriouslyfish",
         "quote": "Native to the Approuague and Oyapock river basins in French Guiana and northern Brazil.",
+        "country": "GF",
         "ok": true
       },
       {
         "name": "Oyapock",
         "source": "seriouslyfish",
         "quote": "Native to the Approuague and Oyapock river basins in French Guiana and northern Brazil.",
+        "country": "GF",
         "ok": true
       }
     ],

@@ -9,6 +9,68 @@
     "south-america",
     "peru"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2352562,
+      "total": 10,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "PE",
+          9
+        ],
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          7,
+          7
+        ],
+        [
+          -73.125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          -4.21875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -21,23 +83,39 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia_agnesae_en-2/",
-      "html": "<p>Moenkhausia agnesae is a larger species that can be kept ideally along with cichlids and catfish. The maximum length reported is about 8 cm.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia_agnesae_en/",
+      "html": "<p>Moenkhausia agnesae is only very rarely available. The species attains a maximum length of about 8 cm.</p>"
     },
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia_agnesae_en-2/",
-      "html": "<p>The fish were received from Peru.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia_agnesae_en/",
+      "html": "<p>Origin: Peru.</p>"
     },
     {
-      "key": "notes",
+      "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia_agnesae_en-2/",
-      "html": "<p>Formerly this species has often been confused with M. simulata. However, the horizontal stripes in M. simulata are all black, whereas in M. agnesae these stripes are reddish in the upper portions of the body.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia_agnesae_en/",
+      "html": "<p>This tetra is sometimes a bit quarrelsome. It should be kept along with other medium sized tetras, cichlids etc.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/bb8db3157ce5f813.webp",
+      "thumb": "https://media.aquatome.com/commons/bb8db3157ce5f813-480.webp",
+      "width": 1200,
+      "height": 676,
+      "licence": "CC BY-SA 4.0",
+      "author": "Cedricguppy - Loury Cédric",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Moenkhausia_agnesae_04.JPG",
+      "caption": "Cá tetra Moenkhausia agnesae bơi trong bể thủy sinh có rong",
+      "large": {
+        "url": "https://media.aquatome.com/commons/bb8db3157ce5f813-large.webp",
+        "width": 2129,
+        "height": 1200
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -61,5 +139,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-10"
 }

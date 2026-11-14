@@ -1,0 +1,65 @@
+{
+  "id": "placidochromis-electra",
+  "native": {
+    "input": "53af1ed767895c4e",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [
+      {
+        "code": "MW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Malawi. It occurs around Likoma Island and Mara Point, between Chiwindi and Lumbaulo, from Lumnessi to the Malawian border and down the coast of Malawi to Nekete.",
+        "words": "Malawi",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Malawi",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Malawi. It occurs around Likoma Island and Mara Point, between Chiwindi and Lumbaulo, from Lumnessi to the Malawian border and down the coast of Malawi to Nekete.",
+        "ok": true
+      },
+      {
+        "name": "Likoma Island",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Malawi. It occurs around Likoma Island and Mara Point, between Chiwindi and Lumbaulo, from Lumnessi to the Malawian border and down the coast of Malawi to Nekete.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Placidochromis electra",
+    "status": "ACCEPTED",
+    "taxonKey": 2372614,
+    "datasets": [
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        5
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        4
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ]
+    ],
+    "native": [
+      "MW"
+    ],
+    "requests": 11,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

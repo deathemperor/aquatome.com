@@ -1,6 +1,7 @@
 import { expect, test } from 'vitest'
 import { DIST } from './dist'
 import { unreached } from './reach'
+import { slow } from '@aq/schema/test-time'
 
 // The fish, plant and guide lists link only the cards on their first page (the rest are built in the browser from the list's
 // data file), and so do the group, taxon and origin pages. Search engines still reach every species, breed and plant: the
@@ -11,4 +12,4 @@ test('every species, breed, plant and guide page is reached by following links f
   const r = unreached(DIST)
   expect(r.items).toBeGreaterThan(0)
   expect(r.unreached, 'pages no link leads to').toEqual([])
-}, 120_000) // the real build has some 4,000 pages
+}, slow(120_000)) // the real build has some 4,000 pages

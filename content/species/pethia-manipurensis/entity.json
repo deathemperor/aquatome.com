@@ -11,6 +11,57 @@
     "manipur",
     "loktak-lake"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Loktak Lake"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The fish originates from the Indian state of Manipur, after which it is named.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from and apparently endemic to Loktak Lake in Bishnupur District, Manipur state, northeastern India, with no additional populations discovered to date.",
+          "countries": [],
+          "regions": [
+            "Loktak Lake"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7798441,
+      "total": 8,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "IN",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          92.8125,
+          23.90625,
+          8,
+          8
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

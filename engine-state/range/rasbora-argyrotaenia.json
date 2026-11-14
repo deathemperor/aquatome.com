@@ -1,0 +1,114 @@
+{
+  "id": "rasbora-argyrotaenia",
+  "native": {
+    "input": "a4fbd7bf540fef0d",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "SG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Peninsular Malaysia and Singapore, the Philippines (Palawan group of islands), and the islands of Sumatra, Borneo and Java.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Peninsular Malaysia and Singapore, the Philippines (Palawan group of islands), and the islands of Sumatra, Borneo and Java.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "PH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Peninsular Malaysia and Singapore, the Philippines (Palawan group of islands), and the islands of Sumatra, Borneo and Java.",
+        "words": "Philippines",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type localities are given as Banyumas, Gombong, Purworejo and Surabaya, all on Java, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Records from the Chao Phraya, Mae Klong and Mekong river systems in Thailand, Cambodia, China and Vietnam are now considered misidentifications of other species, although FishBase still includes them.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Records from the Chao Phraya, Mae Klong and Mekong river systems in Thailand, Cambodia, China and Vietnam are now considered misidentifications of other species, although FishBase still includes them.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Records from the Chao Phraya, Mae Klong and Mekong river systems in Thailand, Cambodia, China and Vietnam are now considered misidentifications of other species, although FishBase still includes them.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Records from the Chao Phraya, Mae Klong and Mekong river systems in Thailand, Cambodia, China and Vietnam are now considered misidentifications of other species, although FishBase still includes them.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "BN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "A study in Brunei Darussalam reported that it's mainly found swimming just below the surface in slower-moving sections and pools of forest streams containing clear water.",
+        "words": "Brunei Darussalam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Peninsular Malaysia and Singapore, the Philippines (Palawan group of islands), and the islands of Sumatra, Borneo and Java.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Peninsular Malaysia and Singapore, the Philippines (Palawan group of islands), and the islands of Sumatra, Borneo and Java.",
+        "ok": true
+      },
+      {
+        "name": "Java",
+        "source": "seriouslyfish",
+        "quote": "Peninsular Malaysia and Singapore, the Philippines (Palawan group of islands), and the islands of Sumatra, Borneo and Java.",
+        "ok": true
+      },
+      {
+        "name": "Palawan",
+        "source": "seriouslyfish",
+        "quote": "Peninsular Malaysia and Singapore, the Philippines (Palawan group of islands), and the islands of Sumatra, Borneo and Java.",
+        "country": "PH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  }
+}

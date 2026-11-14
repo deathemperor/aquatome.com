@@ -127,7 +127,73 @@
       "html": "<p>Etymology</p><p>Aphyosemion: from the Greek aphúe, meaning 'a small fish', and semeion, meaning 'banner, flag', in reference to the \"ornamented, often lyre-shaped\" caudal fin in male individuals of genus members.</p><p>celiae: named for Celia Epie of Mambanda, western Cameroon, the eldest daughter of rubber plantation manager John Epie, who hosted Scheel and accompanied him during his collecting trips. The holotype was collected close to Epie's home.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/8bd99f4aea675530fb536cd74e52160f.webp",
+      "thumb": "https://media.aquatome.com/processed/8bd99f4aea675530fb536cd74e52160f-480.webp",
+      "width": 786,
+      "height": 538,
+      "licence": "dùng với sự cho phép",
+      "author": "Hristo Hristov",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-celiae",
+      "caption": "Adult male of A. celiae 'Ebonji'.",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-aphyosemion-celiae",
+        "pixelHash": "3275a108483a166633a8738302f0796030b7f2a5c6a8c6c41705c7339d9f2102"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T09:36:12.074Z",
+          "originalHash": "b498af240d096eeebb76767b32bafdf2140289f7a5c18fb9ee2d47477e0712fa",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 786,
+            "originalHeight": 586,
+            "window": {
+              "x0": 0,
+              "y0": 0,
+              "x1": 786,
+              "y1": 538
+            },
+            "subject": {
+              "x0": 96,
+              "y0": 157,
+              "x1": 730,
+              "y1": 449
+            },
+            "margin": 15
+          },
+          "excludedMarks": [
+            {
+              "x0": 14,
+              "y0": 544,
+              "x1": 218,
+              "y1": 575
+            }
+          ],
+          "checks": {
+            "species": [
+              "4afa534beadd70558a02cf142e8c59979e803d345717a307d741bfecd48241a2",
+              "1717f9c6129dae82bb9f82bcfb72bdbd900e76d71086dbc939c0850c401a3018"
+            ],
+            "ownership": [
+              "144c4508a5c159ddd36c79149178624594da8d1c32555710795417e59ed5388c",
+              "bf43130d7647f5a9cf0ebd28f400eff2483091f29ff0eed471188cc832dd4ba1"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/46e84a0a0c61e231.webp",
+        "width": 786,
+        "height": 586,
+        "thumb": "https://media.aquatome.com/seriouslyfish/46e84a0a0c61e231-480.webp"
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

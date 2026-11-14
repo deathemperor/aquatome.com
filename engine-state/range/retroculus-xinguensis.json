@@ -1,0 +1,72 @@
+{
+  "id": "retroculus-xinguensis",
+  "native": {
+    "input": "57949be1ef37783c",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Retroculus xinguensis is a rheophilic cichlid from the rio Xingu basin in Brazil, with a handful of records from the Tapajós drainage.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The majority of records pertain to the lower rio Xingu basin in the state of Pará, northern Brazil, including middle and lower reaches of its major tributary the rio Iriri, although the type locality is in Mato Grosso state several hundred kilometres upstream.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Xingu",
+        "source": "seriouslyfish",
+        "quote": "Retroculus xinguensis is a rheophilic cichlid from the rio Xingu basin in Brazil, with a handful of records from the Tapajós drainage.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Tapajós",
+        "source": "seriouslyfish",
+        "quote": "Retroculus xinguensis is a rheophilic cichlid from the rio Xingu basin in Brazil, with a handful of records from the Tapajós drainage.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Iriri",
+        "source": "seriouslyfish",
+        "quote": "The majority of records pertain to the lower rio Xingu basin in the state of Pará, northern Brazil, including middle and lower reaches of its major tributary the rio Iriri, although the type locality is in Mato Grosso state several hundred kilometres upstream.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Jamanxim",
+        "source": "seriouslyfish",
+        "quote": "There also exist a handful of records from the rio Jamanxim (a major affluent of the rio Tapajós which drains the same mountain range as the rio Iriri), the rio Arapiuns, and the rio Maués Açu, another right bank tributary that enters the Amazon main channel upstream of the Tapajós and is connected to the rio Madeira.",
+        "ok": true
+      },
+      {
+        "name": "Arapiuns",
+        "source": "seriouslyfish",
+        "quote": "There also exist a handful of records from the rio Jamanxim (a major affluent of the rio Tapajós which drains the same mountain range as the rio Iriri), the rio Arapiuns, and the rio Maués Açu, another right bank tributary that enters the Amazon main channel upstream of the Tapajós and is connected to the rio Madeira.",
+        "ok": true
+      },
+      {
+        "name": "Maués Açu",
+        "source": "seriouslyfish",
+        "quote": "There also exist a handful of records from the rio Jamanxim (a major affluent of the rio Tapajós which drains the same mountain range as the rio Iriri), the rio Arapiuns, and the rio Maués Açu, another right bank tributary that enters the Amazon main channel upstream of the Tapajós and is connected to the rio Madeira.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  }
+}

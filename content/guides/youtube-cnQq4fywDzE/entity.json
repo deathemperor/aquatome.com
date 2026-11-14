@@ -57,19 +57,6 @@
     ],
     "figures": [
       {
-        "heading": "Sặc mật cam và sặc mật vàng khác nhau ở đâu",
-        "moments": [
-          {
-            "t": 100,
-            "url": "https://media.aquatome.com/video/cnQq4fywDzE/at100-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ảnh sặc mật cam trên màn hình điện thoại, thân cam đậm rõ.",
-            "sharpness": 854.3
-          }
-        ]
-      },
-      {
         "heading": "Kích thước và tính tình",
         "moments": [
           {
@@ -78,7 +65,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá nhỏ bơi trong bể có đá và rêu xanh.",
-            "sharpness": 566.6
+            "sharpness": 566.6,
+            "person": false
           }
         ],
         "photo": {
@@ -101,7 +89,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể cá có đá, rêu và cây thấp, đàn cá nhỏ bơi trong nước.",
-            "sharpness": 579.8
+            "sharpness": 579.8,
+            "person": false
           }
         ]
       },
@@ -114,7 +103,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể có đá và ít rêu, cây xanh ở đáy, cá bơi lơ lửng.",
-            "sharpness": 658.7
+            "sharpness": 658.7,
+            "person": false
           }
         ]
       },
@@ -127,7 +117,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể cá có đá và rêu dưới đáy, vài con cá nhỏ bơi lơ lửng.",
-            "sharpness": 452.7
+            "sharpness": 452.7,
+            "person": false
           }
         ],
         "photo": {

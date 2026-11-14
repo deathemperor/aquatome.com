@@ -63,7 +63,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hộp lọc tràn gắn phía sau bể, nước chảy vào các ngăn lọc.",
-            "sharpness": 275.3
+            "sharpness": 275.3,
+            "person": false
           },
           {
             "t": 70,
@@ -79,20 +80,13 @@
         "heading": "Chuyển vật liệu lọc đã chạy vi sinh sang bể mới",
         "moments": [
           {
-            "t": 225,
-            "url": "https://media.aquatome.com/video/qslR6wr0Rhk/at225-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay chỉ vào các viên sứ lọc vi sinh trong ngăn lọc.",
-            "sharpness": 316.1
-          },
-          {
             "t": 260,
             "url": "https://media.aquatome.com/video/qslR6wr0Rhk/at260-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Các viên bóng lọc vi sinh nằm trong ngăn lọc, cận cảnh.",
-            "sharpness": 481.5
+            "sharpness": 481.5,
+            "person": false
           }
         ],
         "photo": {
@@ -115,7 +109,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Vật liệu lọc dạng viên trải mỏng trong ngăn lọc, chưa phủ kín đáy.",
-            "sharpness": 361.2
+            "sharpness": 361.2,
+            "person": false
           },
           {
             "t": 255,
@@ -144,14 +139,6 @@
       {
         "heading": "Bắt và chuyển cá oscar, cá nóc",
         "moments": [
-          {
-            "t": 300,
-            "url": "https://media.aquatome.com/video/qslR6wr0Rhk/at300-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cá oscar bơi trong bể khi người đưa vợt vào bắt.",
-            "sharpness": 228.4
-          },
           {
             "t": 330,
             "url": "https://media.aquatome.com/video/qslR6wr0Rhk/at330-hd.webp",

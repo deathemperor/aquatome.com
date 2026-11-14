@@ -1,0 +1,41 @@
+{
+  "slug": "ikan-tapah",
+  "name": "Ikan Tapah",
+  "altNames": [
+    "Helicopter catfish",
+    "Wallago",
+    "Wallago catfish",
+    "Tapah (ikan)"
+  ],
+  "sections": {
+    "quickFacts:seriouslyfish": "<ul><li>Tingkat kesulitan: Sulit. Dinilai sulit karena butuh akuarium dengan panjang minimal 2 m.</li></ul>",
+    "quickFacts:glaser": "<p>Wallago attu bisa mencapai panjang maksimal sekitar 2 m. Ikan ini termasuk salah satu lele predator Asia yang paling rakus.</p>",
+    "beforeYouBuy:seriouslyfish": "<p>Butuh tutup yang rapat karena spesies ini dikenal suka melompat. Akuarium sebaiknya diberi penutup yang sangat berat dan rapat supaya ikan tidak bisa kabur.</p><p>Helicopter catfish, Wallago attu, adalah lele predator raksasa yang tersebar di sebagian besar Asia, dari Afganistan dan Pakistan sampai Indonesia. Panjangnya bisa mencapai 240 cm, dan mulutnya penuh gigi setajam jarum yang mengarah ke belakang. Ikan ini akan menggigit dengan agresif saat diberi pakan atau dipegang, dan profilnya menggolongkannya sebagai ikan yang benar-benar berbahaya dan jelas bukan spesies untuk akuarium.</p>",
+    "distribution:seriouslyfish": "<p>Tersebar luas di sebagian besar Asia. Tercatat ada di Afganistan, Pakistan, India, Nepal, Bangladesh, Sri Lanka, Myanmar, Tiongkok, Thailand, Laos, Kamboja, Vietnam, Indonesia, dan Malaysia.</p>",
+    "distribution:glaser": "<p>Asal: India.</p>",
+    "habitat:seriouslyfish": "<p>Menyukai perairan keruh dan dalam yang arusnya lambat atau tenang, seperti danau dan sungai besar. Ikan ini cenderung bersembunyi di area berlumpur, sering kali di sekitar tepian sungai. Ikan ini memijah di perairan dangkal menjelang musim hujan, lalu bermigrasi ke daerah yang tergenang banjir untuk mencari makan.</p>",
+    "aquariumSize:seriouslyfish": "<p>Panjang standar: 240 cm SL. Alas akuarium: 360 × 120 cm. Volume: sekitar 5184 liter.</p><p>Ikan dewasa membutuhkan akuarium yang benar-benar sangat besar, atau lebih baik lagi kolam. Ukuran minimalnya kira-kira 360 × 120 × 120 cm, sekitar 5184 liter. Itu pun mungkin belum cukup besar untuk ikan yang sudah tua.</p>",
+    "maintenance:seriouslyfish": "<p>Dekorasi tidak terlalu penting, dan kemungkinan besar akan hancur atau terus-menerus terdorong ke sana kemari, jadi akuarium kosong, mungkin dengan substrat kerikil, mungkin pilihan terbaik. Ikan seperti ini membutuhkan sistem filter yang sangat besar dan sangat efisien untuk mengatasi banyaknya kotoran yang dihasilkannya. Ganti air sebagian secara rutin juga diperlukan. Akuarium sebaiknya diberi penutup yang sangat berat dan rapat supaya ikan tidak bisa kabur.</p>",
+    "waterConditions:seriouslyfish": "<ul><li>Suhu: 19–29 °C</li><li>pH: 6,0–7,6</li><li>Kesadahan: 1–20 dGH</li></ul>",
+    "diet:seriouslyfish": "<p>Sangat piscivora (pemakan ikan), meskipun pernah ditemukan spesimen liar yang di perutnya terdapat amfibi, burung, mamalia kecil, bahkan sisa-sisa manusia! Di akuarium, ikan yang masih kecil bisa diberi ikan berdaging putih seperti lancefish (sejenis ikan sand eel), cacing tanah, dan udang. Ikan yang lebih besar mau menerima ikan trout utuh dan sejenisnya, tetapi tidak perlu diberi pakan sesering ikan kecil. Seminggu sekali atau dua kali sudah lebih dari cukup. Harus sangat berhati-hati saat memberi pakan ikan ini, karena ikan ini sering melompat keluar dari air dan sangat mampu menyebabkan cedera (lihat di bawah).</p>",
+    "behaviour:seriouslyfish": "<p>Sebaiknya dipelihara sendirian sebagai satu ekor saja, karena ikan ini akan memangsa ikan apa pun yang muat di mulutnya yang lebar, dan biasanya akan membunuh ikan yang tidak muat.</p>",
+    "dimorphism:seriouslyfish": "<p>Belum diketahui.</p>",
+    "reproduction:seriouslyfish": "<p>Belum pernah berhasil dipijahkan di akuarium karena alasan yang sudah jelas, tetapi sudah pernah dipijahkan secara komersial di kolam di Malaysia.</p>",
+    "notes:seriouslyfish": "<p>Spesies ini jelas bukan ikan akuarium, dan untungnya tidak terlalu rutin diimpor. Meski begitu, anakannya sesekali terlihat dijual, dan selucu apa pun tampangnya, jangan tergoda untuk membelinya. Ukuran dewasa yang raksasa bukan satu-satunya masalah W. attu, karena mulutnya penuh gigi setajam jarum yang mengarah ke belakang. Ikan ini akan menggigit dengan agresif saat diberi pakan, terutama saat dipegang, dan individu yang lebih besar bisa dengan mudah memutus tangan atau lebih parah lagi. Ikan ini benar-benar berbahaya untuk dipelihara, dan hanya layak dipertimbangkan oleh penghobi akuarium yang paling berpengalaman dan punya sarana yang dibutuhkan untuk menampungnya dengan layak.</p>",
+    "notes:glaser": "<p>Mulutnya yang sangat besar memanjang jauh ke belakang mata dan berisi banyak gigi runcing. Lele ini tidak ragu menggunakannya terhadap pemancing yang menanganinya dengan kasar saat ikan ini dipegang. Ikan mangsa yang sudah tergigit gigi-gigi ini pasti celaka. Mungkin inilah alasan lele ini dipersembahkan oleh umat Hindu kepada Dewi Kali, dewi kematian dan kehancuran (tetapi juga pembaruan).</p>"
+  },
+  "quality": {
+    "score": 0.7,
+    "indexable": false,
+    "bySource": {
+      "seriouslyfish": 0.7,
+      "glaser": 0.7
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-12"
+  }
+}

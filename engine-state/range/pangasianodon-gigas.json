@@ -1,0 +1,87 @@
+{
+  "id": "pangasianodon-gigas",
+  "native": {
+    "input": "a5e9928ad18cebb8",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The giant Mekong catfish, Pangasianodon gigas, is a pelagic shark catfish from the lower Mekong in China, Thailand, Laos, Cambodia and Vietnam.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The giant Mekong catfish, Pangasianodon gigas, is a pelagic shark catfish from the lower Mekong in China, Thailand, Laos, Cambodia and Vietnam.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The giant Mekong catfish, Pangasianodon gigas, is a pelagic shark catfish from the lower Mekong in China, Thailand, Laos, Cambodia and Vietnam.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The giant Mekong catfish, Pangasianodon gigas, is a pelagic shark catfish from the lower Mekong in China, Thailand, Laos, Cambodia and Vietnam.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The giant Mekong catfish, Pangasianodon gigas, is a pelagic shark catfish from the lower Mekong in China, Thailand, Laos, Cambodia and Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Native to the lower Mekong river running through parts of China, Thailand, Laos, Cambodia and Vietnam.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pangasianodon gigas",
+    "status": "ACCEPTED",
+    "taxonKey": 2340710,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [
+      "CN",
+      "TH",
+      "LA",
+      "KH",
+      "VN"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

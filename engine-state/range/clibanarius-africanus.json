@@ -1,0 +1,33 @@
+{
+  "id": "clibanarius-africanus",
+  "native": {
+    "input": "bf447e6f2be15458",
+    "at": "2026-11-10T20:57:55.515Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Clibanarius africanus",
+    "status": "ACCEPTED",
+    "taxonKey": 4311742,
+    "datasets": [
+      [
+        "47f75ea9-ad74-47ab-919a-b8c8d4f1fce3",
+        3
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-10T20:57:55.515Z"
+  }
+}

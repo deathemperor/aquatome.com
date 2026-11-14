@@ -134,7 +134,12 @@
       "author": "serwacy01-",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cincelichthys_pearsei.jpg",
       "caption": "Cincelichthys pearsei",
-      "thumb": "https://media.aquatome.com/commons/032e198bb07ca65b-480.webp"
+      "thumb": "https://media.aquatome.com/commons/032e198bb07ca65b-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/032e198bb07ca65b-large.webp",
+        "width": 2136,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

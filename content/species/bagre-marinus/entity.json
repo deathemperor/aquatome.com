@@ -1,0 +1,159 @@
+{
+  "id": "bagre-marinus",
+  "scientificName": "Bagre marinus",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Bagre",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "united-states",
+    "gulf-of-mexico",
+    "cuba",
+    "south-america",
+    "venezuela"
+  ],
+  "dataCard": {
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 8,
+          "max": 8.4
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 69
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
+      "html": "<p>Scientific name: Bagre marinus (Mitchill, 1815). Common names: Gafftopsail Catfish, Bagre Cacumo (Puerto Rican), Topsejlmalle (Denmark). Type locality: New York, U.S.A. Size: 690 mm SL (69 cm). This is a true marine fish.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
+      "html": "<p>Western Atlantic: coast of Gulf of Mexico, Cuba, western margin of the Caribbean, and the northern margin of South America. Sometimes in rivers and estuaries.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
+      "html": "<p>pH 8.0–8.4. Temperature 10–20°C. This is a true marine fish.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
+      "html": "<p>A marine aquarium containing a sand substrate and live rock to provide hiding places.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
+      "html": "<p>An opportunistic feeder in the wild that would be expected to consume a wide range of aquarium fare.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
+      "html": "<p>Compatible with other cold to cool water marine fishes that are too large for this fish to eat.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
+      "html": "<p>Unreported in aquaria. It is known that spawning in the wild occurs from May to June and that the male holds the large fertilized eggs in its mouth for up to two months until they hatch. The male does not eat during the incubation period.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
+      "html": "<p>Identification: overall gray with a blue sheen. Barbels on upper jaw noticeably flat. Long filaments on pectoral and dorsal fins reaching nearly to or beyond the anal fin. Caudal fin deeply forked with slightly longer upper lobe. Anal fin with concave margin. It has 22–26 anal fin rays and 7–12 gill rakers on the first branchial arch. Where plentiful, they are caught on longlines, bottom trawls, shore seines, cast nets, and hook and line. Not considered a food fish in North America, but eaten throughout the Caribbean and Northern South America where its flesh is considered tasty.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
+      "html": "<p>Transactions of the Literary and Philosophical Society of New-York v. 1 (art. 5) (for 1814), pp 433.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/64a951862c86fe7c.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY 4.0",
+      "author": "Bobby McCabe",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bagre_marinus_294334342.jpg",
+      "caption": "Gafftopsail Catfish (Bagre marinus)",
+      "thumb": "https://media.aquatome.com/commons/64a951862c86fe7c-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/d0c4fe879ec1f5a3.webp",
+      "width": 960,
+      "height": 566,
+      "licence": "CC BY 4.0",
+      "author": "https://www.inaturalist.org/users/3992463",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gafftop_cat_cropped.jpg",
+      "caption": "Crop of https://commons.wikimedia.org/wiki/File:Bagre_marinus_466971234.jpg",
+      "thumb": "https://media.aquatome.com/commons/d0c4fe879ec1f5a3-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/a4d68b937b214b11.webp",
+      "width": 960,
+      "height": 1275,
+      "licence": "CC BY 4.0",
+      "author": "Ryan Jakubek",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bagre_marinus_377349985.jpg",
+      "caption": "Gafftopsail Catfish (Bagre marinus) in the United States",
+      "thumb": "https://media.aquatome.com/commons/a4d68b937b214b11-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/fbdb628b03d461b5.webp",
+      "width": 960,
+      "height": 1280,
+      "licence": "CC BY 4.0",
+      "author": "CK Kelly",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bagre_marinus_40303083.jpg",
+      "caption": "Gafftopsail Catfish (Bagre marinus)",
+      "thumb": "https://media.aquatome.com/commons/fbdb628b03d461b5-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "4_2bi11oowk",
+      "title": "Aqua Facts/ part 37: Gafftopsail catfish🐟",
+      "durationSec": 21,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "hSXtY_RWQck",
+      "title": "UGA Aquarium's smallest  Sea Catfish",
+      "durationSec": 61,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "4hkKYfYOiNk",
+      "title": "UGA Aquarium's three Sea Catfish",
+      "durationSec": 61,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "wymROnFpYDU",
+      "title": "Third one and big. Gafftopsail catfish",
+      "durationSec": 14,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-13"
+}

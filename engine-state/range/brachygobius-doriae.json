@@ -1,8 +1,8 @@
 {
   "id": "brachygobius-doriae",
   "native": {
-    "input": "32fce46f2dba6e89",
-    "at": "2026-11-09T23:57:44.132Z",
+    "input": "9ca095e75d4894ee",
+    "at": "2026-11-10T20:57:55.515Z",
     "claims": [
       {
         "code": "MY",
@@ -35,6 +35,15 @@
         "quote": "Records from Singapore are apparently erroneous.",
         "words": "Singapore",
         "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Indonesia.",
+        "words": "Indonesia",
+        "ok": false,
+        "why": "no sentence"
       }
     ],
     "regions": [

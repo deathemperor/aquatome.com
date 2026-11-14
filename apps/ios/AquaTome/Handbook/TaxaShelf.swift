@@ -21,6 +21,7 @@ struct TaxaShelf: View {
         FishShelf(items: page.fish, header: AnyView(header))
       }
     }
+    .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
     .navigationTitle(page.title)
     .navigationBarTitleDisplayMode(.inline)
   }
@@ -73,6 +74,7 @@ struct TaxaShelf: View {
         }
       }
       .font(.subheadline)
+      .v2YieldsToEdgeSwipe()
     }
   }
 

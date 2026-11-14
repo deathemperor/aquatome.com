@@ -1,14 +1,14 @@
 {
   "id": "chromobotia-macracanthus",
   "native": {
-    "input": "1bce019f3f77d757",
-    "at": "2026-11-05T06:42:12.410Z",
+    "input": "4772ec06544edc09",
+    "at": "2026-11-10T23:57:51.686Z",
     "claims": [
       {
         "code": "ID",
         "status": "native",
         "source": "sprucepets",
-        "quote": "Origin: Indonesia",
+        "quote": "They are native to Indonesia and prefer shaded, slow-moving waters with plenty of hiding spots.",
         "words": "Indonesia",
         "ok": true
       },
@@ -23,17 +23,17 @@
       {
         "code": "ID",
         "status": "native",
-        "source": "sprucepets",
-        "quote": "They are native to Indonesia and prefer shaded, slow-moving waters with plenty of hiding spots.",
-        "words": "Indonesia",
+        "source": "seriouslyfish",
+        "quote": "In the former it's restricted to river systems of Kalimantan Barat (West Kalimantan), Kalimantan Tengah (Central Kalimantan) and Kalimantan Timur (East Kalimantan) provinces in the Indonesian portion including the Kapuas and Kayan.",
+        "words": "Indonesian",
         "ok": true
       },
       {
         "code": "ID",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "In the former it's restricted to river systems of Kalimantan Barat (West Kalimantan), Kalimantan Tengah (Central Kalimantan) and Kalimantan Timur (East Kalimantan) provinces in the Indonesian portion including the Kapuas and Kayan.",
-        "words": "Indonesian",
+        "source": "glaser",
+        "quote": "Origin: Indonesia",
+        "words": "Indonesia",
         "ok": true
       }
     ],

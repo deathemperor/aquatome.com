@@ -1,3 +1,4 @@
+import { piece } from './pieces'
 import { readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
@@ -11,6 +12,8 @@ import { readForumState, topicLeads } from './forum'
 import { lethalFigures, NAMES_TREATMENT } from './fit'
 import { steadyRead } from './quality'
 import { VI_STYLE as STYLE } from './phrases'
+import { TANK_RULE, withTanks } from './round'
+import { foreignSeasons } from './seasons'
 
 /**
  * What a source is: the research tags each one, and the writers and the checker get each fact's source with its kind, so a
@@ -41,7 +44,7 @@ const NAMED_AS: Record<SourceKind, string> = {
   news: 'a news report', reference: 'a reference site', forum: 'a forum post', farm: 'a fish-farming guide', other: 'a source',
 }
 const NAMED_LIST = KINDS.map(k => `${k}: ${NAMED_AS[k]}`).join('; ')
-const WRITE = readFileSync(new URL('./prompts/topic.md', import.meta.url), 'utf8')
+const WRITE = withTanks(readFileSync(new URL('./prompts/topic.md', import.meta.url), 'utf8'))
 const INTL = readFileSync(new URL('./prompts/topic-intl.md', import.meta.url), 'utf8').replace('{{SOURCE_KINDS}}', NAMED_LIST)
 
 const SECTIONS = ['what', 'signs', 'causes', 'firstAid', 'treatment', 'steps', 'prevention', 'mistakes', 'vietnam', 'myths', 'other'] as const
@@ -54,7 +57,7 @@ export type TopicFacts = {
   species: string[]
   sources: { url: string; title: string; kind: SourceKind }[]
 }
-const FACTS_SCHEMA = {
+export const FACTS_SCHEMA = {
   type: 'object', required: ['found', 'facts', 'species', 'sources'],
   properties: {
     found: { type: 'boolean' },
@@ -66,7 +69,7 @@ const FACTS_SCHEMA = {
 
 export type TopicAsk = { topic: string; kind: GuideEntity['kind'] }
 
-const researchPrompt = (a: TopicAsk) => `Research this freshwater fishkeeping topic for a Vietnamese aquarium handbook: "${a.topic}" (kind: ${a.kind}). Use WebSearch and WebFetch. Search in English and in Vietnamese.
+export const researchPrompt = (a: TopicAsk) => `Research this freshwater fishkeeping topic for a Vietnamese aquarium handbook: "${a.topic}" (kind: ${a.kind}). Use WebSearch and WebFetch. Search in English and in Vietnamese.
 
 Prefer aquatic vets, universities and extension services (for example UF/IFAS, Merck Veterinary Manual), makers' own documentation, and long-time hobbyist articles; forums only for what keepers report. Collect facts, each with the index of its source in sources[] and one section:
 - what (what it is, why it matters), signs (how it looks, how to tell it from look-alikes), causes, firstAid (what to do at once), treatment (methods with exact doses, temperatures and durations as sources give them, and what fish, shrimp, snails or plants cannot take them), steps (for a how-to: the steps in order), prevention, mistakes (common errors), vietnam (anything specific to Vietnam: tropical climate and hot season, tap water, power cuts, products or names used there), myths (claims sources say are wrong, with who says so), other.
@@ -175,13 +178,30 @@ const WRITE_SCHEMA = {
     faq: { type: 'array', items: { type: 'object', required: ['q', 'a'], properties: { q: { type: 'string' }, a: { type: 'string' } } } },
   },
 }
-type Written = { name: string; summary: string[]; body: string; faq: { q: string; a: string }[] }
+export type Written = { name: string; summary: string[]; body: string; faq: { q: string; a: string }[] }
+/** What a reader of a guide sees of it: its title, summary, body and questions. */
+/**
+ * A copy's text as it will be saved: its name, summary and answers unescaped, its body sanitized. The seasons check reads
+ * this, not what the writer sent (Astra's read: "<div>ฤดู</div><div>ใบไม้ผลิ</div>" passed and was saved as "ฤดูใบไม้ผลิ",
+ * and "musim&amp;#32;panas" passed and was saved as "musim panas").
+ */
+const savedText = (w: Written) => {
+  const p = plainParts(w.summary ?? [], w.faq ?? [])
+  return [unescapePlain(w.name), ...p.summary, sanitizeHtml(w.body), ...p.faq.flatMap(f => [f.q, f.a])].join('\n')
+}
 const INTL_SCHEMA = { ...WRITE_SCHEMA, required: [...WRITE_SCHEMA.required, 'slug'], properties: { ...WRITE_SCHEMA.properties, slug: { type: 'string' } } }
 
-const GROUNDED = `Below are FACTS gathered about a fishkeeping topic and a Vietnamese GUIDE written from them. Score 0–1 how well the GUIDE sticks to the FACTS: 1.0 = every claim, dose, number, product and recommendation is supported by the facts; 0.75 = small unsupported generalities; below 0.75 = an invented dose, number, medicine, cause or claim, or a fact turned around. A fact's figure converted to metric (°F → °C, inches → cm, gallons → litres, sensibly rounded) is that fact's figure.
+const GROUNDED = `Below are FACTS gathered about a fishkeeping topic and a Vietnamese GUIDE written from them. Score 0–1 how well the GUIDE sticks to the FACTS: 1.0 = every claim, dose, number, product and recommendation is supported by the facts; 0.75 = small unsupported generalities; below 0.75 = an invented dose, number, medicine, cause or claim, or a fact turned around. A fact's figure converted to metric (°F → °C, inches → cm, gallons → litres, sensibly rounded; ${TANK_RULE.en}) is that fact's figure.
 Each fact's source is a number, and the facts' sources list gives each number's kind. A page names a source as its kind (${NAMED_LIST}); naming one as another kind (a society called a guide, a shop called a vet, a forum post called a study) is a wrong claim.
 By the label: the writer's rules make it dose every medicine, product or salt the facts give no dose for by its label or its maker's directions ("theo nhãn", "sesuai label", "ikut label", "ตามฉลาก"). That counts as supported, whether or not the facts mention a label: score it as a supported line, and it is never one of the notes.
 notes: up to 10 unsupported or wrong claims (in English), quoting the phrase. Empty if none.`
+
+/**
+ * For a guide's copy in another language only (the Writing Lead, 13 Nov 2026): the copy's writer is told to give a fact
+ * tied to another place's season by its condition, and may call time away from home by the reader's own name for it.
+ * GROUNDED is the Vietnamese guides' and the recheck's too, so the line goes in for a copy alone.
+ */
+const COPY_GROUNDED = `Time away from home called by the reader's own name for it ("mudik", "balik kampung"), and a fact given by its condition without the season or place it was tied to, count as supported and are never notes. Anything said about that occasion or season itself is not.`
 
 type Grounded = { score: number; notes: string[]; reads?: number[] }
 /**
@@ -192,9 +212,9 @@ type Grounded = { score: number; notes: string[]; reads?: number[] }
  * A guide in `lang` (the language's English name) checked against the facts its writer had. A first read near the bar is
  * read twice more, and the guide gets the median read (steadyRead).
  */
-async function checkGuide(llm: Llm, lang: string, forWriter: object, x: Written): Promise<Grounded> {
+export async function checkGuide(llm: Llm, lang: string, forWriter: object, x: Written): Promise<Grounded> {
   return steadyRead(async (): Promise<Grounded> => {
-    const r = await llm<Grounded>({ system: 'You check a guide against its facts. Reply only with JSON.', prompt: `${GROUNDED.replace('Vietnamese GUIDE', `${lang} GUIDE`)}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nGUIDE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
+    const r = await llm<Grounded>({ system: 'You check a guide against its facts. Reply only with JSON.', prompt: `${lang === 'Vietnamese' ? GROUNDED : GROUNDED.replace('Vietnamese GUIDE', `${lang} GUIDE`).replace('\nnotes: ', `\n${COPY_GROUNDED}\nnotes: `)}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nGUIDE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
     return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: r.notes ?? [] }
   })
 }
@@ -204,7 +224,7 @@ async function checkGuide(llm: Llm, lang: string, forWriter: object, x: Written)
  * (a fact citing a page listed twice cites its first listing); a fact whose source was dropped goes with it, and the rest
  * are renumbered.
  */
-function viFacts(researched: TopicFacts) {
+export function viFacts(researched: TopicFacts) {
   const urls = [...new Set(researched.sources.map(s => s.url).filter(u => /^https?:\/\/\S+$/i.test(u)))]
   const at = (i: number) => urls.indexOf(researched.sources[i]?.url ?? '')
   const facts = researched.facts.filter(f => at(f.source) >= 0 && usableFact(researched, f)).map(f => ({ section: f.section, fact: f.fact, source: at(f.source) }))
@@ -358,41 +378,57 @@ export async function makeTopic(root: string, d: { research: Llm; llm: Llm }, a:
 export async function localizeTopic(root: string, llm: Llm, id: string, lang: TargetLang, o: { model?: string; redo?: boolean } = {}) {
   const file = join(root, 'content/guides', id, `${lang}.json`)
   if (!o.redo && (await readFile(file, 'utf8').then(() => true, () => false))) return { id, skipped: 'done' }
-  const researched = JSON.parse(await readFile(join(root, 'engine-state/topics', `${id}.json`), 'utf8')) as TopicFacts
-  const vi = JSON.parse(await readFile(join(root, 'content/guides', id, 'vi.json'), 'utf8')) as { name: string }
-  const entity = JSON.parse(await readFile(join(root, 'content/guides', id, 'entity.json'), 'utf8')) as GuideEntity
-  const { facts, refs, sources } = localFacts(researched, entity)
-  if (!facts.length) return { id, skipped: 'no facts' }
-  const forWriter = { topic: vi.name, kind: entity.kind, sources, facts }
-  const T = TARGETS[lang]
-  const prompt = (notes?: string[]) => `${INTL.replaceAll('{{LANG}}', T.lang).replaceAll('{{COUNTRY}}', T.country).replace('{{STYLE}}', T.style)}${notes?.length ? `\n\nThe previous version went beyond the facts. Fix these, writing only what the facts say:\n${notes.map(n => `- ${n}`).join('\n')}` : ''}\n\n--- FACTS (topic given in Vietnamese) ---\n${JSON.stringify(forWriter, null, 1)}`
-  const write = (notes?: string[]) => llm<Written & { slug: string }>({ system: `You write ${T.lang} aquarium guides from facts. Reply only with JSON.`, model: o.model ?? 'opus', schema: INTL_SCHEMA, prompt: prompt(notes) })
-  const check = (x: Written) => checkGuide(llm, T.lang, forWriter, x)
-  // A redo starts from what the last review of the guide on the site found.
-  const before = o.redo ? await lastKept(root, { id: `guides/${id}`, lang }, ['topic']) : undefined
-  let w = await write(before?.notes)
-  let review = await check(w)
-  const tries = [review]
-  if (review.score < QUALITY_THRESHOLD || review.notes.length) {
-    const again = await write(review.notes)
-    const r = await check(again)
-    tries.push(r)
-    if (r.score > review.score) { w = again; review = r }
-  }
-  const taken = new Set<string>()
-  for (const g of await readdir(join(root, 'content/guides')).catch(() => [] as string[])) {
-    if (g === id) continue
-    const t = JSON.parse(await readFile(join(root, 'content/guides', g, `${lang}.json`), 'utf8').catch(() => '{}')) as { slug?: string }
-    if (t.slug) taken.add(t.slug)
-  }
-  const prev = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as { slug: string } | null
-  const name = unescapePlain(w.name).trim()
-  const slug = prev?.slug ?? pickSlug(lang === 'th' || !slugify(name) ? w.slug : name.replace(/:.*$/, ''), T.slugWords.guide, taken)
-  const t = TranslationSchema.parse(metricPage({
-    slug, name, altNames: [], sections: {}, body: sanitizeHtml(w.body), ...plainParts(w.summary, w.faq),
-    refs, quality: { score: review.score, indexable: review.score >= QUALITY_THRESHOLD },
-  }, lang))
-  await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)
-  await logReviews(root, 'topic', { id: `guides/${id}`, lang }, tries, review)
-  return { id, slug, score: review.score, notes: review.notes }
+  return piece(`${lang}/${id}`, async () => {
+    const researched = JSON.parse(await readFile(join(root, 'engine-state/topics', `${id}.json`), 'utf8')) as TopicFacts
+    const vi = JSON.parse(await readFile(join(root, 'content/guides', id, 'vi.json'), 'utf8')) as { name: string }
+    const entity = JSON.parse(await readFile(join(root, 'content/guides', id, 'entity.json'), 'utf8')) as GuideEntity
+    const { facts, refs, sources } = localFacts(researched, entity)
+    if (!facts.length) return { id, skipped: 'no facts' }
+    const forWriter = { topic: vi.name, kind: entity.kind, sources, facts }
+    const T = TARGETS[lang]
+    const prompt = (notes?: string[]) => `${INTL.replaceAll('{{LANG}}', T.lang).replaceAll('{{COUNTRY}}', T.country).replace('{{STYLE}}', T.style)}${notes?.length ? `\n\nThe previous version went beyond the facts. Fix these, writing only what the facts say:\n${notes.map(n => `- ${n}`).join('\n')}` : ''}\n\n--- FACTS (topic given in Vietnamese) ---\n${JSON.stringify(forWriter, null, 1)}`
+    const write = (notes?: string[]) => llm<Written & { slug: string }>({ system: `You write ${T.lang} aquarium guides from facts. Reply only with JSON.`, model: o.model ?? 'opus', schema: INTL_SCHEMA, prompt: prompt(notes) })
+    const check = (x: Written) => checkGuide(llm, T.lang, forWriter, x)
+    // A redo starts from what the last review of the guide on the site found.
+    const before = o.redo ? await lastKept(root, { id: `guides/${id}`, lang }, ['topic']) : undefined
+    let w = await write(before?.notes)
+    let review = await check(w)
+    const tries = [review]
+    if (review.score < QUALITY_THRESHOLD || review.notes.length) {
+      const again = await write(review.notes)
+      const r = await check(again)
+      tries.push(r)
+      if (r.score > review.score) { w = again; review = r }
+    }
+    // A season none of its readers' countries has (seasons.ts), written once more with the condition in its place; a copy
+    // that still names one isn't saved (the chief of staff, 13 Nov 2026: eight guides' copies told readers in Indonesia,
+    // Thailand and Malaysia about a summer, a winter or koi fed by spring and autumn).
+    const named = foreignSeasons(savedText(w), lang)
+    if (named.length) {
+      const fixed = await write([`It names another place's season: ${named.map(s => `"${s}"`).join(', ')}. Write the condition the facts tie to it instead, and leave the season out.`, ...review.notes])
+      const r = await check(fixed)
+      tries.push(r)
+      const left = foreignSeasons(savedText(fixed), lang)
+      // Not saved, and every try's review logged, none of them kept (Astra's read).
+      if (left.length) { await logReviews(root, 'topic', { id: `guides/${id}`, lang }, tries, undefined); return { id, skipped: `names another place's season: ${left.join(', ')}` } }
+      w = fixed
+      review = r
+    }
+    const taken = new Set<string>()
+    for (const g of await readdir(join(root, 'content/guides')).catch(() => [] as string[])) {
+      if (g === id) continue
+      const t = JSON.parse(await readFile(join(root, 'content/guides', g, `${lang}.json`), 'utf8').catch(() => '{}')) as { slug?: string }
+      if (t.slug) taken.add(t.slug)
+    }
+    const prev = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as { slug: string } | null
+    const name = unescapePlain(w.name).trim()
+    const slug = prev?.slug ?? pickSlug(lang === 'th' || !slugify(name) ? w.slug : name.replace(/:.*$/, ''), T.slugWords.guide, taken)
+    const t = TranslationSchema.parse(metricPage({
+      slug, name, altNames: [], sections: {}, body: sanitizeHtml(w.body), ...plainParts(w.summary, w.faq),
+      refs, quality: { score: review.score, indexable: review.score >= QUALITY_THRESHOLD },
+    }, lang))
+    await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)
+    await logReviews(root, 'topic', { id: `guides/${id}`, lang }, tries, review)
+    return { id, slug, score: review.score, notes: review.notes }
+  })
 }

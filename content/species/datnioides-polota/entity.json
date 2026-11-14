@@ -29,20 +29,20 @@
       "countries": [
         "IN",
         "BD",
+        "ID",
         "MM",
         "TH",
         "VN",
         "MY",
-        "SG",
-        "ID"
+        "SG"
       ],
       "regions": [
         "Ganges",
         "Mekong",
         "Chao Phraya",
         "Salween",
-        "Mahanadi",
-        "Borneo"
+        "Borneo",
+        "Sumatra"
       ],
       "sources": [
         "seriouslyfish"
@@ -50,24 +50,38 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Currently understood to be widely distributed in Southeastern Asia, with confirmed records from India (Chilka Lake, Mahanadi and Hooghly rivers), Bangladesh (Ganges River delta), Myanmar (Yangon and Salween rivers), Thailand (Songkhla Lake, Tha Taphap and Chao Phraya rivers), Vietnam (Mekong River Delta), Malaysia (Perak, Bernam, and Melaka rivers, Peninsular Malaysia; Sarawak and Rajang rivers, Sarawak, Borneo), Singapore (Pulau Ubin), and Indonesia (Batang Hari River, Sumatra; Sambas, Kapuas and Barito rivers, Kalimantan, Borneo).",
+          "quote": "The silver tiger perch, Datnioides polota, is a tiger perch widely distributed in southeastern Asia, from India and Bangladesh east to Indonesia.",
           "countries": [
             "IN",
             "BD",
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Currently understood to be widely distributed in Southeastern Asia, with confirmed records from India (Chilka Lake, Mahanadi and Hooghly rivers), Bangladesh (Ganges River delta), Myanmar (Yangon and Salween rivers), Thailand (Songkhla Lake, Tha Taphap and Chao Phraya rivers), Vietnam (Mekong River Delta), Malaysia (Perak, Bernam, and Melaka rivers, Peninsular Malaysia; Sarawak and Rajang rivers, Sarawak, Borneo), Singapore (Pulau Ubin), and Indonesia (Batang Hari River, Sumatra; Sambas, Kapuas and Barito rivers, Kalimantan, Borneo).",
+          "countries": [
             "MM",
             "TH",
             "VN",
             "MY",
-            "SG",
-            "ID"
+            "SG"
           ],
           "regions": [
-            "Ganges",
             "Mekong",
             "Chao Phraya",
             "Salween",
-            "Mahanadi",
-            "Borneo"
+            "Borneo",
+            "Sumatra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'estuaries of the Ganges River, India [now Bangladesh]'.",
+          "countries": [],
+          "regions": [
+            "Ganges"
           ]
         }
       ]

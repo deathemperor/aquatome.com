@@ -1,3 +1,5 @@
+import { compactScreen, compactVerdict, photoFailure, photoModelStop } from './photo-observations'
+import { writePhotoState } from './photo-state'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -44,7 +46,7 @@ const sortedJson = (o: Record<string, unknown>) => `${JSON.stringify(Object.from
  * against its tile before anything else, then screened as the stills of a new guide are, before it is uploaded:
  * - a face in it (macOS Vision): the still leaves the page, since the tile only hid the person;
  * - text on it: the old still's watermark verdict holds when the model gave one, else the model judges the frame now; a
- *   watermark takes the still off the page and onto `_photo-rejected.json`. Its text and verdict go into
+ *   watermark takes the still off the page and onto `_photo-rejected.json`. Its measurements and verdict go into
  *   `_photo-watermarks.json` under the new address, so the watermark step doesn't read it again;
  * - a person, hands included, or a mark added on it (guide-photos.ts's question, which a tile's smudge hid): the still
  *   leaves the page and goes onto `_photo-rejected.json`. A frame that passes carries its verdict (`person: false`, which
@@ -58,10 +60,12 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
   const file = (...p: string[]) => join(root, ...p)
   const json = async <T>(path: string): Promise<T> => JSON.parse(await readFile(path, 'utf8').catch(() => '{}')) as T
   const state = await json<StillsState>(file('engine-state', '_video-stills.json'))
-  const marks = await json<Record<string, WatermarkEntry>>(file('engine-state', '_photo-watermarks.json'))
+  const oldMarks = await json<Record<string, WatermarkEntry>>(file('engine-state', '_photo-watermarks.json'))
+  const marks=Object.fromEntries(Object.entries(oldMarks).map(([u,v])=>[u,compactScreen(v)]))
   const rejected = await json<Record<string, string>>(file('engine-state', '_photo-rejected.json'))
   const hashes = await json<Record<string, string>>(file('content', 'picture-hashes.json'))
-  const verdicts = await json<Record<string, GuidePhotoVerdict>>(file('engine-state', '_photo-guides.json'))
+  const oldVerdicts = await json<Record<string, GuidePhotoVerdict>>(file('engine-state', '_photo-guides.json'))
+  const verdicts=Object.fromEntries(Object.entries(oldVerdicts).map(([u,v])=>[u,compactVerdict(v)]))
   const today = d.now().toISOString().slice(0, 10)
 
   // Guides with a still that is still a tile and not kept as one, or stills not yet timed; timing alone first, and one
@@ -85,13 +89,13 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
       let kept: Record<string, string> = { ...state[id]?.kept }
       let timed = !!state[id]?.timed
       const record = () => ({ at: today, ...(timed ? { timed: true as const } : {}), ...(Object.keys(kept).length ? { kept } : {}) })
-      const fail = (why: string) => { report.failed.push(`${id}: ${why}`); state[id] = { ...record(), failed: why }; worked = true }
+      const fail = (why: string) => { report.failed.push(`${id}: ${photoFailure(why)}`); state[id] = { ...record(), failed: photoFailure(why) }; worked = true }
       const save = (figures: NonNullable<typeof v.figures>) => writeFile(file('content', 'guides', id, 'entity.json'), `${JSON.stringify(GuideSchema.parse({ ...e, video: { ...v, figures } }), null, 2)}\n`)
 
       let frames: VideoFrames
       try { frames = await d.frames(v.youtubeId) } catch (err) {
-        if (throttled(err)) { report.stopped = (err as Error).message; break }
-        fail((err as Error).message.slice(0, 160)); continue
+        if (throttled(err)) { report.stopped = 'video source throttled'; break }
+        fail(photoFailure(err)); continue
       }
 
       // 0. Each still's t: the second its tile shows, from the t its address keeps (the kept tiles' too).
@@ -137,9 +141,9 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
           await writeFile(png, hd)
           grabbed.push({ m, t, hd, png })
         } catch (err) {
-          if (throttled(err)) { report.stopped = (err as Error).message; break }
+          if (throttled(err)) { report.stopped = 'video source throttled'; break }
           left++
-          report.failed.push(`${id} t${m.t}: ${(err as Error).message.slice(0, 160)}`)
+          report.failed.push(`${id} t${m.t}: ${photoFailure(err)}`)
           if (++inARow >= 3) { report.stopped = 'three frame grabs failed in a row'; break }
         }
       }
@@ -147,7 +151,7 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
 
       // 2. Faces and text, as for a new guide's stills; the model on text no earlier verdict covers.
       const faces = grabbed.length ? await d.faces(grabbed.map(g => g.png)) : []
-      const texts = grabbed.length ? await d.read(grabbed.map(g => g.png)) : []
+      const texts = grabbed.length ? await d.read(grabbed.map(g => g.png)).catch(()=>{throw new Error('native text reader unavailable')}) : []
       const drop = new Set<Moment>()
       const entries = new Map<Moment, WatermarkEntry>()
       const ask: { g: (typeof grabbed)[number]; entry: WatermarkEntry }[] = []
@@ -157,7 +161,7 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
         if (faces[i]! < 0 || !lines) { left++; return } // Vision couldn't read it: next run
         const entry: WatermarkEntry = { ocr: ocrOf(lines) }
         const old = marks[g.m.url]
-        if (ocrHit(entry.ocr) && typeof old?.watermark === 'boolean') Object.assign(entry, { watermark: old.watermark, kind: old.kind, what: old.what })
+        if (ocrHit(entry.ocr) && typeof old?.watermark === 'boolean') Object.assign(entry, { watermark: old.watermark, kind: old.kind, ...(old.locations?{locations:old.locations}:{}),...(old.observationHash?{observationHash:old.observationHash,hints:old.hints}:{}) })
         else if (ocrHit(entry.ocr)) ask.push({ g, entry })
         entries.set(g.m, entry)
       })
@@ -168,14 +172,14 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
           batch.forEach((x, j) => { if (verdicts[j]) Object.assign(x.entry, verdicts[j]); else { entries.delete(x.g.m); left++ } })
         }
       } catch (err) {
-        if (err instanceof LlmError) { report.stopped = err.message; break }
+        if (err instanceof LlmError) { report.stopped = photoModelStop(err); break }
         throw err
       }
       for (const [m, entry] of entries) if (entry.watermark) {
         drop.add(m)
         entries.delete(m)
-        rejected[m.url] ??= `watermark: ${entry.what || entry.kind}`
-        report.dropped.push(`${id} t${m.t}: watermark (${entry.what || entry.kind})`)
+        rejected[m.url] ??= `watermark: ${entry.kind ?? 'unknown'}`
+        report.dropped.push(`${id} t${m.t}: watermark (${entry.kind ?? 'unknown'})`)
       }
 
       // No person and no added mark on what's left.
@@ -188,7 +192,7 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
           batch.forEach((g, j) => { const v = answers[j]; if (v) judged.set(g.m, v); else { entries.delete(g.m); left++ } })
         }
       } catch (err) {
-        if (err instanceof LlmError) { report.stopped = err.message; break }
+        if (err instanceof LlmError) { report.stopped = photoModelStop(err); break }
         throw err
       }
       for (const [m, v] of judged) {
@@ -208,7 +212,7 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
         const s = await d.media.put(`video/${v.youtubeId}/at${t}-hd.webp`, hd)
         marks[s.url] = entry
         hashes[s.url] = await dhash(hd)
-        verdicts[s.url] = judged.get(m)!
+        verdicts[s.url] = compactVerdict(judged.get(m)!)
         swap.set(m, { ...m, t, url: s.url, width: s.width, height: s.height, sharpness: await frameSharpness(hd), person: false })
       }
       if (swap.size || drop.size || retimed) await save(figures.map(f => ({ ...f, moments: f.moments.filter(m => !drop.has(m)).map(m => swap.get(m) ?? m) })).filter(f => f.moments.length || f.photo))
@@ -219,12 +223,12 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
     }
   } finally {
     await rm(dir, { recursive: true, force: true })
-    if (worked) await writeFile(file('engine-state', '_video-stills.json'), sortedJson(state))
+    if (worked) await writePhotoState(file('engine-state', '_video-stills.json'), state)
     if (changed) {
-      await writeFile(file('engine-state', '_photo-watermarks.json'), `${JSON.stringify(Object.fromEntries(Object.entries(marks).sort()), null, 2)}\n`)
-      await writeFile(file('engine-state', '_photo-rejected.json'), `${JSON.stringify(rejected, null, 2)}\n`)
+      await writePhotoState(file('engine-state', '_photo-watermarks.json'), Object.fromEntries(Object.entries(marks).sort()))
+      await writePhotoState(file('engine-state', '_photo-rejected.json'), rejected)
       await writeFile(file('content', 'picture-hashes.json'), sortedJson(hashes))
-      await writeFile(file('engine-state', '_photo-guides.json'), sortedJson(verdicts))
+      await writePhotoState(file('engine-state', '_photo-guides.json'), Object.fromEntries(Object.entries(verdicts).sort()))
     }
   }
   return report

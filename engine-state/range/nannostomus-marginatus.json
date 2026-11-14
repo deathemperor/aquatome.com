@@ -1,0 +1,251 @@
+{
+  "id": "nannostomus-marginatus",
+  "native": {
+    "input": "be9b8a4a91f192bf",
+    "at": "2026-11-10T15:58:17.469Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Brazil",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The dwarf pencilfish, Nannostomus marginatus, is a lebiasinid of Guyana, Suriname and the middle-to-lower Amazon in Peru, Colombia and Brazil.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The dwarf pencilfish, Nannostomus marginatus, is a lebiasinid of Guyana, Suriname and the middle-to-lower Amazon in Peru, Colombia and Brazil.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The dwarf pencilfish, Nannostomus marginatus, is a lebiasinid of Guyana, Suriname and the middle-to-lower Amazon in Peru, Colombia and Brazil.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The dwarf pencilfish, Nannostomus marginatus, is a lebiasinid of Guyana, Suriname and the middle-to-lower Amazon in Peru, Colombia and Brazil.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The dwarf pencilfish, Nannostomus marginatus, is a lebiasinid of Guyana, Suriname and the middle-to-lower Amazon in Peru, Colombia and Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Records thus exist from various major river systems including the Rupununi, Takutu, Essequibo and Demerara in Guyana, the Nickerie and Courantyne/Corantijn in Suriname, Inírida and Caquetá in Colombia, the Ucayali, Javari, Ampiyacu, and Putumayo in Peru, the Napo in Ecuador and Peru, Juruá in Brazil, and throughout most major left-bank tributaries of the Amazon in Brazil, including the Japurá, Negro, Branco, and Trombetas.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Records from the upper Río Orinoco in Venezuela also exist but may require confirmation.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Maduni Creek, Guyana', and this species is widely-distributed throughout Guyana and Suriname, plus the middle-to-lower Amazon basin east of the Andes mountains in Peru, Colombia, and Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Essequibo",
+        "source": "seriouslyfish",
+        "quote": "Records thus exist from various major river systems including the Rupununi, Takutu, Essequibo and Demerara in Guyana, the Nickerie and Courantyne/Corantijn in Suriname, Inírida and Caquetá in Colombia, the Ucayali, Javari, Ampiyacu, and Putumayo in Peru, the Napo in Ecuador and Peru, Juruá in Brazil, and throughout most major left-bank tributaries of the Amazon in Brazil, including the Japurá, Negro, Branco, and Trombetas.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Courantyne",
+        "source": "seriouslyfish",
+        "quote": "Records thus exist from various major river systems including the Rupununi, Takutu, Essequibo and Demerara in Guyana, the Nickerie and Courantyne/Corantijn in Suriname, Inírida and Caquetá in Colombia, the Ucayali, Javari, Ampiyacu, and Putumayo in Peru, the Napo in Ecuador and Peru, Juruá in Brazil, and throughout most major left-bank tributaries of the Amazon in Brazil, including the Japurá, Negro, Branco, and Trombetas.",
+        "country": "SR",
+        "ok": true
+      },
+      {
+        "name": "Ucayali",
+        "source": "seriouslyfish",
+        "quote": "Records thus exist from various major river systems including the Rupununi, Takutu, Essequibo and Demerara in Guyana, the Nickerie and Courantyne/Corantijn in Suriname, Inírida and Caquetá in Colombia, the Ucayali, Javari, Ampiyacu, and Putumayo in Peru, the Napo in Ecuador and Peru, Juruá in Brazil, and throughout most major left-bank tributaries of the Amazon in Brazil, including the Japurá, Negro, Branco, and Trombetas.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Napo",
+        "source": "seriouslyfish",
+        "quote": "Records thus exist from various major river systems including the Rupununi, Takutu, Essequibo and Demerara in Guyana, the Nickerie and Courantyne/Corantijn in Suriname, Inírida and Caquetá in Colombia, the Ucayali, Javari, Ampiyacu, and Putumayo in Peru, the Napo in Ecuador and Peru, Juruá in Brazil, and throughout most major left-bank tributaries of the Amazon in Brazil, including the Japurá, Negro, Branco, and Trombetas.",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "Rio Negro forms have a similar red stripe but overlapping the central dark stripe and extending along most of the flank, while a form from Colombia has an elongate red stripe which is broken in two beneath the dorsal-fin.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": [
+        "EC"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Nannostomus marginatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2355640,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        184
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        35
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        30
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        26
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        26
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        25
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        23
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        14
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        11
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        11
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        9
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        8
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        8
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        7
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        6
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        5
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        4
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        2
+      ],
+      [
+        "2a79f202-3f3a-4d54-88fa-09aa8de1ac73",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "GY",
+      "SR",
+      "PE",
+      "CO",
+      "EC"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T15:58:17.469Z"
+  }
+}

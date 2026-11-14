@@ -9,6 +9,56 @@
     "asia",
     "india"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Ganges"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Pethia aurea is a small cyprinid known from ponds in South 24 Parganas District, West Bengal, in the Ganges delta of northern India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Currently known only from a series of ponds in South 24 Parganas District, West Bengal state, northern India, in the Ganges River delta region.",
+          "countries": [],
+          "regions": [
+            "Ganges"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7993405,
+      "total": 1,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "IN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          87.1875,
+          22.5,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

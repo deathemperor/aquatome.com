@@ -2,18 +2,6 @@
   "id": "polypterus-delhezi",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/138508c065626353.webp",
-      "thumb": "https://media.aquatome.com/commons/138508c065626353-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 4.0",
-      "author": "ばぶじ～",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barred_bichir.jpg",
-      "caption": "Cá khủng long vằn màu xanh lục trong bể cát hồng",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/commons/3f4160d5e2a1f542.webp",
       "thumb": "https://media.aquatome.com/commons/3f4160d5e2a1f542-480.webp",
       "width": 1200,
@@ -24,6 +12,19 @@
       "caption": "Cá khủng long vằn nhìn nghiêng, thân xanh sọc đen, bể cát",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/253200923.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/253200923-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Jenny Saito",
+      "sourceUrl": "https://www.inaturalist.org/photos/253200923",
+      "caption": "Cá khủng long vằn bơi trên nền cát trong bể có đá và cây thủy sinh",
+      "best": true,
+      "kind": "other",
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/commons/737dfd4e965d7b0b.webp",
@@ -38,7 +39,7 @@
       "kind": "pair"
     }
   ],
-  "seen": 5,
-  "updatedAt": "2026-11-09",
-  "builtAt": "2026-11-09"
+  "seen": 10,
+  "updatedAt": "2026-11-13",
+  "builtAt": "2026-11-13"
 }

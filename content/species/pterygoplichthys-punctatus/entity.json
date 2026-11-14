@@ -12,6 +12,189 @@
     "peru",
     "maranon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Madeira",
+        "Marañón",
+        "Juruá",
+        "Purus",
+        "Rio Guaporé"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio Guaporé, Amazon system, San Vincente, Mato Grosso state, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Guaporé"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Amazon basin, including the Middle Amazon (Solimões) and Madeira, the Upper Amazon (Marañón), the Juruá, and the Middle Amazon (Solimões) and Purus.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Madeira",
+            "Marañón",
+            "Juruá",
+            "Purus"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339993,
+      "total": 33,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "BR",
+          19
+        ],
+        [
+          "PE",
+          11
+        ],
+        [
+          "VE",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -7.03125,
+          2,
+          0
+        ],
+        [
+          -75.9375,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          -73.125,
+          -4.21875,
+          3,
+          0
+        ],
+        [
+          -70.3125,
+          -14.0625,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          8.4375,
+          2,
+          0
+        ],
+        [
+          -60.46875,
+          -15.46875,
+          6,
+          6
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

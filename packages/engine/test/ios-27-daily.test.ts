@@ -4,6 +4,7 @@ import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { beforeAll, expect, test, vi } from 'vitest'
+import { slow } from '@aq/schema/test-time'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 const RUNTIME = 'com.apple.CoreSimulator.SimRuntime.iOS-27-2'
@@ -11,7 +12,7 @@ const OURS = 'iPhone 13 Pro Max daily 27.2'
 
 // On a Mac at a load of 80 one of these took 24 s. A run of the engine's suite goes ahead at 300 and more, and a test out of
 // time costs a cycle its publish: each starts from one copy of a clone made once, and has a minute.
-vi.setConfig({ testTimeout: 60_000 })
+vi.setConfig({ testTimeout: slow(60_000) })
 
 const stub = (path: string, body: string) => {
   mkdirSync(dirname(path), { recursive: true })
@@ -59,7 +60,7 @@ beforeAll(() => {
   writeFileSync(join(config, 'ios-27-threads'), 'design-lead\nv2-lab\n')
   template = home
   head = sh('git rev-parse HEAD')
-}, 60_000)
+}, slow(60_000))
 
 function clone() {
   const home = realpathSync(mkdtempSync(join(tmpdir(), 'aq-ios-27-')))

@@ -1,0 +1,71 @@
+{
+  "id": "pachypanchax-omalonotus",
+  "native": {
+    "input": "bfd8eaa3fa9ee3bf",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "MG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The powder-blue panchax, Pachypanchax omalonotus, is a killifish from Nosy Be and the adjacent Sambirano River system in northwestern Madagascar.",
+        "words": "Madagascar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Nosy Be",
+        "source": "seriouslyfish",
+        "quote": "The powder-blue panchax, Pachypanchax omalonotus, is a killifish from Nosy Be and the adjacent Sambirano River system in northwestern Madagascar.",
+        "ok": true
+      },
+      {
+        "name": "Sambirano",
+        "source": "seriouslyfish",
+        "quote": "The powder-blue panchax, Pachypanchax omalonotus, is a killifish from Nosy Be and the adjacent Sambirano River system in northwestern Madagascar.",
+        "ok": true
+      },
+      {
+        "name": "Ankify peninsula",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Nosy Be [Nossi-Bé], northern Madagascar, 12°42'S, 48°16'E', and this species is restricted to the island of Nosy Be off northwestern Madagascar plus the Sambirano River system on the adjacent mainland and some small, first-order streams of the Ankify peninsula.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pachypanchax omalonotus",
+    "status": "ACCEPTED",
+    "taxonKey": 2347777,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        13
+      ],
+      [
+        "ebc90ee8-ffdd-462c-b5dd-8a8fe3921e5a",
+        5
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "MG"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

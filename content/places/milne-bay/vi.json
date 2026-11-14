@@ -1,10 +1,13 @@
 {
   "slug": "milne-bay",
-  "name": "Milne Bay",
-  "altNames": [],
+  "name": "vịnh Milne",
+  "altNames": [
+    "Milne Bay"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

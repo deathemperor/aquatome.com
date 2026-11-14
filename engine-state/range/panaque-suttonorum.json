@@ -1,0 +1,63 @@
+{
+  "id": "panaque-suttonorum",
+  "native": {
+    "input": "1556103cfae52405",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Western and eastern tributaries of Lake Maracaibo, Venezuela and Colombia.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Western and eastern tributaries of Lake Maracaibo, Venezuela and Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Maracaibo",
+        "source": "scotcat",
+        "quote": "South America: Western and eastern tributaries of Lake Maracaibo, Venezuela and Colombia.",
+        "ok": true
+      },
+      {
+        "name": "Río Negro",
+        "source": "scotcat",
+        "quote": "Type locality: Río Negro below the mouth of the Río Yasa, Maracaibo basin, Venezuela.",
+        "country": "VE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Panaque suttonorum",
+    "status": "ACCEPTED",
+    "taxonKey": 2339872,
+    "datasets": [
+      [
+        "f442ef1d-7104-4a8c-85d6-a55181d6b265",
+        1
+      ]
+    ],
+    "native": [
+      "VE",
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

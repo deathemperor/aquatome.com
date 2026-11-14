@@ -1,0 +1,35 @@
+{
+  "id": "pethia-canius",
+  "native": {
+    "input": "d97683da2e0fdbaf",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The full extent of this species' range is unconfirmed with recent collections deriving from Cooch Behar and Nadia districts, West Bengal state, northern India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pethia canius",
+    "status": "ACCEPTED",
+    "taxonKey": 8316725,
+    "datasets": [],
+    "native": [
+      "IN"
+    ],
+    "requests": 2,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

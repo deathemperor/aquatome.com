@@ -1,0 +1,92 @@
+{
+  "id": "youtube-aUeQBE8f--E",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=aUeQBE8f--E",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-11",
+  "video": {
+    "youtubeId": "aUeQBE8f--E",
+    "title": "Aquascaper 1200 - Brand New Aquascape Kit!",
+    "channel": "George Farmer",
+    "channelUrl": "https://www.youtube.com/channel/UC210QPUiYoCjm9IEuu5SHLQ",
+    "durationSec": 702,
+    "publishedAt": "2019-05-30",
+    "chapters": [],
+    "series": {
+      "id": "PLKedE6P1X5OzQk0rqwUGsOd1DKpjHEDAm",
+      "position": 2
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/aUeQBE8f--E/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [],
+    "gear": [
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "brand": "Chihiros",
+        "t": 0
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "Tropica",
+        "model": "Aquarium Soil",
+        "t": 233
+      },
+      {
+        "category": "loc",
+        "type": "thung",
+        "brand": "Oase",
+        "model": "Biomaster Thermo 600",
+        "t": 317
+      },
+      {
+        "category": "khac",
+        "brand": "DND",
+        "model": "Dosing pump P1",
+        "t": 467
+      },
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 0
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Vì sao chỉ dùng phân nền, không rải cát sỏi",
+        "moments": [
+          {
+            "t": 285,
+            "url": "https://media.aquatome.com/video/aUeQBE8f--E/at285-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể bố cục đảo trồng dày cây thủy sinh, chỉ trải phân nền.",
+            "sharpness": 1652.8,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Bể dài có nên chạy hai lọc",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/aUeQBE8f--E/p3-JfRmlsdGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/aUeQBE8f--E/p3-JfRmlsdGVyLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Fish Tank Society",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
+          "caption": "Lọc thùng đặt trong tủ bể, bên cạnh là xô và ống siphon."
+        }
+      }
+    ]
+  }
+}

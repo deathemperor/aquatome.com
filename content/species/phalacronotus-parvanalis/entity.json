@@ -1,0 +1,51 @@
+{
+  "id": "phalacronotus-parvanalis",
+  "scientificName": "Phalacronotus parvanalis",
+  "order": "Siluriformes",
+  "family": "Siluridae",
+  "genus": "Phalacronotus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "malaysia",
+    "kinabatangan"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 35
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1367",
+      "html": "<p>Scientific name: Phalacronotus parvanalis (Inger &amp; Chin, 1959). Synonym: Kryptoterus parvanalis. Size: 35 cm SL.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1367",
+      "html": "<p>Asia: northeastern Borneo. Type locality: Kinabatangan River at Deramakot, Kinabatangan District, Borneo, Malaysia.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1367",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1367",
+      "html": "<p>Fieldiana Zoology v. 39 (no. 27), pp 284, Fig. 46.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-13"
+}

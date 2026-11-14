@@ -1,0 +1,1093 @@
+{
+  "measurementLimit": 0.05,
+  "judgeLowestTestedAllRefused": 0.03,
+  "blendCount": 25,
+  "naturalCount": 20,
+  "naturalMeasurementFalseRefusals": 0,
+  "naturalJudgeFalseRefusals": 5,
+  "naturalCombinedFalseRefusals": 5,
+  "seconds": 597.8,
+  "beforePercent": 6,
+  "afterPercent": 6,
+  "naturalProtocol": "Each of five original marked boxes supplies the template; unmarked sand, plant, fin and water crops are the candidate detail. Twenty comparisons from three real photographs, not twenty independent photographs.",
+  "flatWaterCorrection": "Initial code treated zero candidate detail as unmeasurable. It now means zero outline overlap when the original template has detail. Vision remains mandatory. The old measurements are retained privately.",
+  "blends": [
+    {
+      "n": 1,
+      "strength": 0.03,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.5270200786325757,
+        "limit": 0.4,
+        "originalEnergy": 2155369.55555544,
+        "candidateEnergy": 12047.888888890177
+      },
+      "measurementRefused": true,
+      "judgeRefused": true,
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      },
+      "proof": {
+        "inside": 21092,
+        "outside": 0
+      }
+    },
+    {
+      "n": 1,
+      "strength": 0.05,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.6675263025684952,
+        "limit": 0.4,
+        "originalEnergy": 2155369.55555544,
+        "candidateEnergy": 15302.111111112712
+      },
+      "measurementRefused": true,
+      "judgeRefused": true,
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      },
+      "proof": {
+        "inside": 21092,
+        "outside": 0
+      }
+    },
+    {
+      "n": 1,
+      "strength": 0.08,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.8070865620557146,
+        "limit": 0.4,
+        "originalEnergy": 2155369.55555544,
+        "candidateEnergy": 22931.555555553212
+      },
+      "measurementRefused": true,
+      "judgeRefused": true,
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      },
+      "proof": {
+        "inside": 21092,
+        "outside": 0
+      }
+    },
+    {
+      "n": 1,
+      "strength": 0.12,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.9024424545245711,
+        "limit": 0.4,
+        "originalEnergy": 2155369.55555544,
+        "candidateEnergy": 39549.111111109785
+      },
+      "measurementRefused": true,
+      "judgeRefused": true,
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      },
+      "proof": {
+        "inside": 21092,
+        "outside": 0
+      }
+    },
+    {
+      "n": 1,
+      "strength": 0.2,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.9663510493899565,
+        "limit": 0.4,
+        "originalEnergy": 2155369.55555544,
+        "candidateEnergy": 93594.88888887678
+      },
+      "measurementRefused": true,
+      "judgeRefused": true,
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      },
+      "proof": {
+        "inside": 21092,
+        "outside": 0
+      }
+    },
+    {
+      "n": 2,
+      "strength": 0.03,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.3914525281474522,
+        "limit": 0.4,
+        "originalEnergy": 2953389.777777969,
+        "candidateEnergy": 291937.777777792
+      },
+      "measurementRefused": false,
+      "judgeRefused": true,
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      },
+      "proof": {
+        "inside": 29313,
+        "outside": 0
+      }
+    },
+    {
+      "n": 2,
+      "strength": 0.05,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.4237520189201896,
+        "limit": 0.4,
+        "originalEnergy": 2953389.777777969,
+        "candidateEnergy": 289087.22222223406
+      },
+      "measurementRefused": true,
+      "judgeRefused": true,
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      },
+      "proof": {
+        "inside": 29313,
+        "outside": 0
+      }
+    },
+    {
+      "n": 2,
+      "strength": 0.08,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.4829072795131343,
+        "limit": 0.4,
+        "originalEnergy": 2953389.777777969,
+        "candidateEnergy": 289063.55555557087
+      },
+      "measurementRefused": true,
+      "judgeRefused": true,
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      },
+      "proof": {
+        "inside": 29313,
+        "outside": 0
+      }
+    },
+    {
+      "n": 2,
+      "strength": 0.12,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.568840213635806,
+        "limit": 0.4,
+        "originalEnergy": 2953389.777777969,
+        "candidateEnergy": 299533.22222223814
+      },
+      "measurementRefused": true,
+      "judgeRefused": true,
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      },
+      "proof": {
+        "inside": 29313,
+        "outside": 0
+      }
+    },
+    {
+      "n": 2,
+      "strength": 0.2,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.7195716237383948,
+        "limit": 0.4,
+        "originalEnergy": 2953389.777777969,
+        "candidateEnergy": 347337.5555555465
+      },
+      "measurementRefused": true,
+      "judgeRefused": true,
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      },
+      "proof": {
+        "inside": 29313,
+        "outside": 0
+      }
+    },
+    {
+      "n": 3,
+      "strength": 0.03,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.670700211780456,
+        "limit": 0.4,
+        "originalEnergy": 5823445.999999517,
+        "candidateEnergy": 13837.444444445608
+      },
+      "measurementRefused": true,
+      "judgeRefused": true,
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      },
+      "proof": {
+        "inside": 12915,
+        "outside": 0
+      }
+    },
+    {
+      "n": 3,
+      "strength": 0.05,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.8239000630501677,
+        "limit": 0.4,
+        "originalEnergy": 5823445.999999517,
+        "candidateEnergy": 22690.22222222036
+      },
+      "measurementRefused": true,
+      "judgeRefused": true,
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      },
+      "proof": {
+        "inside": 12915,
+        "outside": 0
+      }
+    },
+    {
+      "n": 3,
+      "strength": 0.08,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.9222265395049004,
+        "limit": 0.4,
+        "originalEnergy": 5823445.999999517,
+        "candidateEnergy": 45078.55555555516
+      },
+      "measurementRefused": true,
+      "judgeRefused": true,
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      },
+      "proof": {
+        "inside": 12915,
+        "outside": 0
+      }
+    },
+    {
+      "n": 3,
+      "strength": 0.12,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.9659545045269642,
+        "limit": 0.4,
+        "originalEnergy": 5823445.999999517,
+        "candidateEnergy": 91270.44444443515
+      },
+      "measurementRefused": true,
+      "judgeRefused": true,
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      },
+      "proof": {
+        "inside": 12915,
+        "outside": 0
+      }
+    },
+    {
+      "n": 3,
+      "strength": 0.2,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.9892654124004804,
+        "limit": 0.4,
+        "originalEnergy": 5823445.999999517,
+        "candidateEnergy": 239478.77777779795
+      },
+      "measurementRefused": true,
+      "judgeRefused": true,
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      },
+      "proof": {
+        "inside": 12915,
+        "outside": 0
+      }
+    },
+    {
+      "n": 6,
+      "strength": 0.03,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.3833878948139976,
+        "limit": 0.4,
+        "originalEnergy": 2818652.9999999492,
+        "candidateEnergy": 48279.33333333314
+      },
+      "measurementRefused": false,
+      "judgeRefused": true,
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      },
+      "proof": {
+        "inside": 14268,
+        "outside": 0
+      }
+    },
+    {
+      "n": 6,
+      "strength": 0.05,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.49878510502410617,
+        "limit": 0.4,
+        "originalEnergy": 2818652.9999999492,
+        "candidateEnergy": 52368.00000000001
+      },
+      "measurementRefused": true,
+      "judgeRefused": true,
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      },
+      "proof": {
+        "inside": 14268,
+        "outside": 0
+      }
+    },
+    {
+      "n": 6,
+      "strength": 0.08,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.6438759514744279,
+        "limit": 0.4,
+        "originalEnergy": 2818652.9999999492,
+        "candidateEnergy": 62833.11111110959
+      },
+      "measurementRefused": true,
+      "judgeRefused": true,
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      },
+      "proof": {
+        "inside": 14268,
+        "outside": 0
+      }
+    },
+    {
+      "n": 6,
+      "strength": 0.12,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.7771996386430681,
+        "limit": 0.4,
+        "originalEnergy": 2818652.9999999492,
+        "candidateEnergy": 84451.22222221993
+      },
+      "measurementRefused": true,
+      "judgeRefused": true,
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      },
+      "proof": {
+        "inside": 14268,
+        "outside": 0
+      }
+    },
+    {
+      "n": 6,
+      "strength": 0.2,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.9071077348396891,
+        "limit": 0.4,
+        "originalEnergy": 2818652.9999999492,
+        "candidateEnergy": 153527.22222221852
+      },
+      "measurementRefused": true,
+      "judgeRefused": true,
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      },
+      "proof": {
+        "inside": 14268,
+        "outside": 0
+      }
+    },
+    {
+      "n": 8,
+      "strength": 0.03,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.602966848099759,
+        "limit": 0.4,
+        "originalEnergy": 816076.5555555914,
+        "candidateEnergy": 3273.111111111199
+      },
+      "measurementRefused": true,
+      "judgeRefused": true,
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      },
+      "proof": {
+        "inside": 17884,
+        "outside": 0
+      }
+    },
+    {
+      "n": 8,
+      "strength": 0.05,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.7495546132190843,
+        "limit": 0.4,
+        "originalEnergy": 816076.5555555914,
+        "candidateEnergy": 4780.7777777781
+      },
+      "measurementRefused": true,
+      "judgeRefused": true,
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      },
+      "proof": {
+        "inside": 17884,
+        "outside": 0
+      }
+    },
+    {
+      "n": 8,
+      "strength": 0.08,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.8631609759475073,
+        "limit": 0.4,
+        "originalEnergy": 816076.5555555914,
+        "candidateEnergy": 8080.666666666899
+      },
+      "measurementRefused": true,
+      "judgeRefused": true,
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      },
+      "proof": {
+        "inside": 17884,
+        "outside": 0
+      }
+    },
+    {
+      "n": 8,
+      "strength": 0.12,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.9298362037683189,
+        "limit": 0.4,
+        "originalEnergy": 816076.5555555914,
+        "candidateEnergy": 14432.000000000882
+      },
+      "measurementRefused": true,
+      "judgeRefused": true,
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      },
+      "proof": {
+        "inside": 17884,
+        "outside": 0
+      }
+    },
+    {
+      "n": 8,
+      "strength": 0.2,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.9742426556670418,
+        "limit": 0.4,
+        "originalEnergy": 816076.5555555914,
+        "candidateEnergy": 34902.444444442284
+      },
+      "measurementRefused": true,
+      "judgeRefused": true,
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      },
+      "proof": {
+        "inside": 17884,
+        "outside": 0
+      }
+    }
+  ],
+  "natural": [
+    {
+      "category": "sand",
+      "template": 1,
+      "box": {
+        "left": 15,
+        "top": 370,
+        "width": 385,
+        "height": 55
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.3028588373243415,
+        "limit": 0.4,
+        "originalEnergy": 2155369.55555544,
+        "candidateEnergy": 12984.444444447012
+      },
+      "measurementRefused": false,
+      "judgeRefused": false,
+      "verdict": {
+        "verdict": "pass",
+        "residual": false,
+        "newMark": false,
+        "note": "The checked region is clear."
+      }
+    },
+    {
+      "category": "sand",
+      "template": 2,
+      "box": {
+        "left": 30,
+        "top": 370,
+        "width": 459,
+        "height": 64
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.3218829279190965,
+        "limit": 0.4,
+        "originalEnergy": 2953389.777777969,
+        "candidateEnergy": 20948.33333333135
+      },
+      "measurementRefused": false,
+      "judgeRefused": false,
+      "verdict": {
+        "verdict": "pass",
+        "residual": false,
+        "newMark": false,
+        "note": "The checked region is clear."
+      }
+    },
+    {
+      "category": "sand",
+      "template": 3,
+      "box": {
+        "left": 0,
+        "top": 370,
+        "width": 287,
+        "height": 45
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.3415520371261012,
+        "limit": 0.4,
+        "originalEnergy": 5823445.999999517,
+        "candidateEnergy": 5609.333333333612
+      },
+      "measurementRefused": false,
+      "judgeRefused": false,
+      "verdict": {
+        "verdict": "pass",
+        "residual": false,
+        "newMark": false,
+        "note": "The checked region is clear."
+      }
+    },
+    {
+      "category": "sand",
+      "template": 6,
+      "box": {
+        "left": 0,
+        "top": 370,
+        "width": 242,
+        "height": 59
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.34865582054527494,
+        "limit": 0.4,
+        "originalEnergy": 2818652.9999999492,
+        "candidateEnergy": 5617.111111111466
+      },
+      "measurementRefused": false,
+      "judgeRefused": false,
+      "verdict": {
+        "verdict": "pass",
+        "residual": false,
+        "newMark": false,
+        "note": "The checked region is clear."
+      }
+    },
+    {
+      "category": "sand",
+      "template": 8,
+      "box": {
+        "left": 30,
+        "top": 370,
+        "width": 233,
+        "height": 78
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.33021572290071693,
+        "limit": 0.4,
+        "originalEnergy": 816076.5555555914,
+        "candidateEnergy": 6979.555555556055
+      },
+      "measurementRefused": false,
+      "judgeRefused": false,
+      "verdict": {
+        "verdict": "pass",
+        "residual": false,
+        "newMark": false,
+        "note": "The checked region is clear."
+      }
+    },
+    {
+      "category": "plants",
+      "template": 1,
+      "box": {
+        "left": 115,
+        "top": 60,
+        "width": 385,
+        "height": 55
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.3311992264320715,
+        "limit": 0.4,
+        "originalEnergy": 2155369.55555544,
+        "candidateEnergy": 193264.88888889915
+      },
+      "measurementRefused": false,
+      "judgeRefused": true,
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      }
+    },
+    {
+      "category": "plants",
+      "template": 2,
+      "box": {
+        "left": 130,
+        "top": 60,
+        "width": 459,
+        "height": 64
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.3582252209554337,
+        "limit": 0.4,
+        "originalEnergy": 2953389.777777969,
+        "candidateEnergy": 268995.5555555785
+      },
+      "measurementRefused": false,
+      "judgeRefused": true,
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      }
+    },
+    {
+      "category": "plants",
+      "template": 3,
+      "box": {
+        "left": 100,
+        "top": 60,
+        "width": 287,
+        "height": 45
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.2537977071525059,
+        "limit": 0.4,
+        "originalEnergy": 5823445.999999517,
+        "candidateEnergy": 120787.44444444083
+      },
+      "measurementRefused": false,
+      "judgeRefused": true,
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      }
+    },
+    {
+      "category": "plants",
+      "template": 6,
+      "box": {
+        "left": 100,
+        "top": 60,
+        "width": 242,
+        "height": 59
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.27989023554788395,
+        "limit": 0.4,
+        "originalEnergy": 2818652.9999999492,
+        "candidateEnergy": 119487.99999999405
+      },
+      "measurementRefused": false,
+      "judgeRefused": true,
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      }
+    },
+    {
+      "category": "plants",
+      "template": 8,
+      "box": {
+        "left": 130,
+        "top": 60,
+        "width": 233,
+        "height": 78
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.30946333247483254,
+        "limit": 0.4,
+        "originalEnergy": 816076.5555555914,
+        "candidateEnergy": 154676.55555555652
+      },
+      "measurementRefused": false,
+      "judgeRefused": true,
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      }
+    },
+    {
+      "category": "fins",
+      "template": 1,
+      "box": {
+        "left": 25,
+        "top": 115,
+        "width": 385,
+        "height": 55
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.2663166507675018,
+        "limit": 0.4,
+        "originalEnergy": 2155369.55555544,
+        "candidateEnergy": 214839.2222222351
+      },
+      "measurementRefused": false,
+      "judgeRefused": false,
+      "verdict": {
+        "verdict": "pass",
+        "residual": false,
+        "newMark": false,
+        "note": "The checked region is clear."
+      }
+    },
+    {
+      "category": "fins",
+      "template": 2,
+      "box": {
+        "left": 40,
+        "top": 115,
+        "width": 459,
+        "height": 64
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.26471974219327304,
+        "limit": 0.4,
+        "originalEnergy": 2953389.777777969,
+        "candidateEnergy": 472325.7777777675
+      },
+      "measurementRefused": false,
+      "judgeRefused": false,
+      "verdict": {
+        "verdict": "pass",
+        "residual": false,
+        "newMark": false,
+        "note": "The checked region is clear."
+      }
+    },
+    {
+      "category": "fins",
+      "template": 3,
+      "box": {
+        "left": 10,
+        "top": 115,
+        "width": 287,
+        "height": 45
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.288326736621822,
+        "limit": 0.4,
+        "originalEnergy": 5823445.999999517,
+        "candidateEnergy": 156071.55555555428
+      },
+      "measurementRefused": false,
+      "judgeRefused": false,
+      "verdict": {
+        "verdict": "pass",
+        "residual": false,
+        "newMark": false,
+        "note": "The checked region is clear."
+      }
+    },
+    {
+      "category": "fins",
+      "template": 6,
+      "box": {
+        "left": 10,
+        "top": 115,
+        "width": 242,
+        "height": 59
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.3053014399117282,
+        "limit": 0.4,
+        "originalEnergy": 2818652.9999999492,
+        "candidateEnergy": 200990.888888895
+      },
+      "measurementRefused": false,
+      "judgeRefused": false,
+      "verdict": {
+        "verdict": "pass",
+        "residual": false,
+        "newMark": false,
+        "note": "The checked region is clear."
+      }
+    },
+    {
+      "category": "fins",
+      "template": 8,
+      "box": {
+        "left": 40,
+        "top": 115,
+        "width": 233,
+        "height": 78
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.3381121281981292,
+        "limit": 0.4,
+        "originalEnergy": 816076.5555555914,
+        "candidateEnergy": 264381.0000000146
+      },
+      "measurementRefused": false,
+      "judgeRefused": false,
+      "verdict": {
+        "verdict": "pass",
+        "residual": false,
+        "newMark": false,
+        "note": "The checked region is clear."
+      }
+    },
+    {
+      "category": "water",
+      "template": 1,
+      "box": {
+        "left": 20,
+        "top": 5,
+        "width": 385,
+        "height": 55
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0,
+        "limit": 0.4,
+        "originalEnergy": 2155369.55555544,
+        "candidateEnergy": 0
+      },
+      "measurementRefused": false,
+      "judgeRefused": false,
+      "verdict": {
+        "verdict": "pass",
+        "residual": false,
+        "newMark": false,
+        "note": "The checked region is clear."
+      }
+    },
+    {
+      "category": "water",
+      "template": 2,
+      "box": {
+        "left": 35,
+        "top": 5,
+        "width": 459,
+        "height": 64
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0,
+        "limit": 0.4,
+        "originalEnergy": 2953389.777777969,
+        "candidateEnergy": 0
+      },
+      "measurementRefused": false,
+      "judgeRefused": false,
+      "verdict": {
+        "verdict": "pass",
+        "residual": false,
+        "newMark": false,
+        "note": "The checked region is clear."
+      }
+    },
+    {
+      "category": "water",
+      "template": 3,
+      "box": {
+        "left": 5,
+        "top": 5,
+        "width": 287,
+        "height": 45
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0,
+        "limit": 0.4,
+        "originalEnergy": 5823445.999999517,
+        "candidateEnergy": 0
+      },
+      "measurementRefused": false,
+      "judgeRefused": false,
+      "verdict": {
+        "verdict": "pass",
+        "residual": false,
+        "newMark": false,
+        "note": "The checked region is clear."
+      }
+    },
+    {
+      "category": "water",
+      "template": 6,
+      "box": {
+        "left": 5,
+        "top": 5,
+        "width": 242,
+        "height": 59
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0,
+        "limit": 0.4,
+        "originalEnergy": 2818652.9999999492,
+        "candidateEnergy": 0
+      },
+      "measurementRefused": false,
+      "judgeRefused": false,
+      "verdict": {
+        "verdict": "pass",
+        "residual": false,
+        "newMark": false,
+        "note": "The checked region is clear."
+      }
+    },
+    {
+      "category": "water",
+      "template": 8,
+      "box": {
+        "left": 35,
+        "top": 5,
+        "width": 233,
+        "height": 78
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0,
+        "limit": 0.4,
+        "originalEnergy": 816076.5555555914,
+        "candidateEnergy": 0
+      },
+      "measurementRefused": false,
+      "judgeRefused": false,
+      "verdict": {
+        "verdict": "pass",
+        "residual": false,
+        "newMark": false,
+        "note": "The checked region is clear."
+      }
+    }
+  ]
+}

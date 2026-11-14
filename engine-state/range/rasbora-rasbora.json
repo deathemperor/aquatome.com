@@ -1,0 +1,103 @@
+{
+  "id": "rasbora-rasbora",
+  "native": {
+    "input": "291477dac2165153",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "PK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Apparently native to Pakistan, India, Bangladesh, Myanmar and Thailand, which is a potentially enormous natural range.",
+        "words": "Pakistan",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Apparently native to Pakistan, India, Bangladesh, Myanmar and Thailand, which is a potentially enormous natural range.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Apparently native to Pakistan, India, Bangladesh, Myanmar and Thailand, which is a potentially enormous natural range.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Apparently native to Pakistan, India, Bangladesh, Myanmar and Thailand, which is a potentially enormous natural range.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Apparently native to Pakistan, India, Bangladesh, Myanmar and Thailand, which is a potentially enormous natural range.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Many of the older occurrence records are probably cases of mistaken identity as this species certainly does not occur in Singapore or the Greater Sunda Islands of Borneo and Sumatra.",
+        "words": "Singapore",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Brahmaputra",
+        "source": "seriouslyfish",
+        "quote": "More recent records have tended to be from the Brahmaputra river basin in northeastern India and Bangladesh or various parts of Myanmar including Lake Indawgyi as well as the Salween, Thandwe and Ayeyarwady river drainages.",
+        "ok": true
+      },
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "More recent records have tended to be from the Brahmaputra river basin in northeastern India and Bangladesh or various parts of Myanmar including Lake Indawgyi as well as the Salween, Thandwe and Ayeyarwady river drainages.",
+        "ok": true
+      },
+      {
+        "name": "Ayeyarwady",
+        "source": "seriouslyfish",
+        "quote": "More recent records have tended to be from the Brahmaputra river basin in northeastern India and Bangladesh or various parts of Myanmar including Lake Indawgyi as well as the Salween, Thandwe and Ayeyarwady river drainages.",
+        "ok": true
+      },
+      {
+        "name": "Lake Indawgyi",
+        "source": "seriouslyfish",
+        "quote": "More recent records have tended to be from the Brahmaputra river basin in northeastern India and Bangladesh or various parts of Myanmar including Lake Indawgyi as well as the Salween, Thandwe and Ayeyarwady river drainages.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Thandwe",
+        "source": "seriouslyfish",
+        "quote": "More recent records have tended to be from the Brahmaputra river basin in northeastern India and Bangladesh or various parts of Myanmar including Lake Indawgyi as well as the Salween, Thandwe and Ayeyarwady river drainages.",
+        "ok": true
+      },
+      {
+        "name": "Khwae Noi",
+        "source": "seriouslyfish",
+        "quote": "In Thailand it may be restricted to border rivers close to Myanmar such as the Songgaria, a tributary of the Khwae Noi (River Kwai).",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  }
+}

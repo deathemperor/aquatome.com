@@ -1,0 +1,91 @@
+{
+  "id": "hemigrammus-rubrostriatus",
+  "scientificName": "Hemigrammus rubrostriatus",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Hemigrammus",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "colombia"
+  ],
+  "range": {
+    "records": {
+      "taxonKey": 8568848,
+      "total": 6,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "VE",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          -67.5,
+          1.40625,
+          6
+        ]
+      ]
+    }
+  },
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hemigrammus-rubrostriatus/",
+      "html": "<p>There are some other, similar looking species, like Hemigrammus erythrozonus (Glowlight tetra) or the several species of Flag tetra (Hyphessobrycon heterorhabdus, H. amapaensis, H. agulha, H. eschwartzae). However, Hemigrammus rubrostriatus can be distinguished from all of them even in fright coloration by a shining spot on the basis of the tail, which is lacking in all other species mentioned above. Such a spot is known in Hemigrammus for example by the Head-and-Tail-Light tetras (Hemigrammus ocellifer and H. falsus).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "EvH4ki01BmY",
+      "title": "赤目赤線燈 (Hemigrammus rubrostriatus)",
+      "durationSec": 30,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "myVsPl3NstA",
+      "title": "Hemigrammus Rubrostriatus- Beautiful & Tricky to Keep! More details below #hemigrammusrubrostriatus",
+      "durationSec": 478,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "kbyDv2DRdCI",
+      "title": "Hemigrammus rubrostriatus",
+      "durationSec": 149,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "TbyUrkrLhjY",
+      "title": "RED EYE - RED LINE TETRA ( Hemigrammus rubrostriatus ), new tetra from COLOMBIA",
+      "durationSec": 89,
+      "lang": "en-CA"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá cộng đồng 60cm",
+        "bể cá thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra",
+        "thức ăn cá nhỏ"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

@@ -14,6 +14,19 @@
       "kind": "pair"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/32258547.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/32258547-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Kyle Elshoff",
+      "sourceUrl": "https://www.inaturalist.org/photos/32258547",
+      "caption": "Ốc đĩa non màu nâu đốm bơi trong nước",
+      "best": true,
+      "kind": "juvenile",
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/02b539e52d009948.webp",
       "thumb": "https://media.aquatome.com/commons/02b539e52d009948-480.webp",
       "width": 1200,
@@ -24,6 +37,19 @@
       "caption": "Ốc đĩa California trưởng thành cùng ốc con trong bể",
       "best": true,
       "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/46656528.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/46656528-480.webp",
+      "width": 1024,
+      "height": 917,
+      "licence": "CC BY",
+      "author": "Jason Eckberg",
+      "sourceUrl": "https://www.inaturalist.org/photos/46656528",
+      "caption": "Ốc đĩa bám trên lá cây trong bể thủy sinh",
+      "best": true,
+      "kind": "other",
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/commons/e7fe10a4527947df.webp",
@@ -38,6 +64,32 @@
       "kind": "pair"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/468798062.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/468798062-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Tim Johnson",
+      "sourceUrl": "https://www.inaturalist.org/photos/468798062",
+      "caption": "Ba con ốc đĩa trên khúc gỗ, vỏ nâu bóng",
+      "best": true,
+      "kind": "group",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/732099938.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/732099938-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Diego González Dopico",
+      "sourceUrl": "https://www.inaturalist.org/photos/732099938",
+      "caption": "Ốc đĩa vỏ nâu đỏ bò trên lá trong bể thủy sinh",
+      "best": true,
+      "kind": "other",
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/732d2872089a513d.webp",
       "thumb": "https://media.aquatome.com/commons/732d2872089a513d-480.webp",
       "width": 1200,
@@ -48,6 +100,45 @@
       "caption": "Hai ốc đĩa vỏ nâu đỏ và hồng trên sỏi",
       "best": true,
       "kind": "pair"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/470299111.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/470299111-480.webp",
+      "width": 1024,
+      "height": 578,
+      "licence": "CC BY",
+      "author": "Nico Hernandez",
+      "sourceUrl": "https://www.inaturalist.org/photos/470299111",
+      "caption": "Nhiều ốc đĩa bám trên lát dưa leo trong bể",
+      "best": true,
+      "kind": "group",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/319652582.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/319652582-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Igor Balashov",
+      "sourceUrl": "https://www.inaturalist.org/photos/319652582",
+      "caption": "Ốc đĩa vỏ cam nâu bò trên lá xanh, có râu",
+      "best": true,
+      "kind": "other",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/289235761.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/289235761-480.webp",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY",
+      "author": "Patrick Hanly",
+      "sourceUrl": "https://www.inaturalist.org/photos/289235761",
+      "caption": "Ốc đĩa vỏ nâu bò trên lá đỏ",
+      "best": true,
+      "kind": "other",
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/commons/d4982c558faa146d.webp",
@@ -122,7 +213,7 @@
       "kind": "form"
     }
   ],
-  "seen": 22,
-  "updatedAt": "2026-11-09",
-  "builtAt": "2026-11-09"
+  "seen": 63,
+  "updatedAt": "2026-11-13",
+  "builtAt": "2026-11-13"
 }

@@ -1,14 +1,22 @@
 {
   "id": "sahyadria-denisonii",
   "native": {
-    "input": "feb2454e406c52d7",
-    "at": "2026-11-06T06:16:32.822Z",
+    "input": "91d6d5aecbc4f697",
+    "at": "2026-11-11T08:59:40.517Z",
     "claims": [
       {
         "code": "IN",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Endemic to the states of Kerala and Karnataka in southern India.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Until now, S. denisonii was collected only in the state of Kerala, India.",
         "words": "India",
         "ok": true
       }
@@ -27,19 +35,13 @@
         "ok": true
       },
       {
-        "name": "Bhavani",
-        "source": "seriouslyfish",
-        "quote": "Its modern distribution is highly fragmented with small populations remaining in the Valapatanam, Chaliyar, Kallar, Karyangod, Kuttiyadi, Chandragiri, Sullya, Kuppam, Iritti, Anjarakandipuzha, Bhavani, and Bharatapuzha river systems.",
-        "ok": true
-      },
-      {
         "name": "Bharatapuzha",
         "source": "seriouslyfish",
         "quote": "Its modern distribution is highly fragmented with small populations remaining in the Valapatanam, Chaliyar, Kallar, Karyangod, Kuttiyadi, Chandragiri, Sullya, Kuppam, Iritti, Anjarakandipuzha, Bhavani, and Bharatapuzha river systems.",
         "ok": true
       },
       {
-        "name": "Chandragiri",
+        "name": "Bhavani",
         "source": "seriouslyfish",
         "quote": "Its modern distribution is highly fragmented with small populations remaining in the Valapatanam, Chaliyar, Kallar, Karyangod, Kuttiyadi, Chandragiri, Sullya, Kuppam, Iritti, Anjarakandipuzha, Bhavani, and Bharatapuzha river systems.",
         "ok": true

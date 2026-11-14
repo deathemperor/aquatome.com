@@ -1,0 +1,73 @@
+{
+  "id": "parosphromenus-opallios",
+  "native": {
+    "input": "cb804a6e7ff2925b",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "The Opal Licorice Gourami is endemic to Central Kalimantan in Indonesian Borneo.",
+        "words": "Indonesian",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Parosphromenus opallios is a liquorice gourami endemic to Central Kalimantan province in Indonesian Borneo, in the Arut and Benipah river systems.",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Parosphromenus opallios is a liquorice gourami endemic to Central Kalimantan province in Indonesian Borneo, in the Arut and Benipah river systems.",
+        "ok": true
+      },
+      {
+        "name": "Arut",
+        "source": "seriouslyfish",
+        "quote": "Parosphromenus opallios is a liquorice gourami endemic to Central Kalimantan province in Indonesian Borneo, in the Arut and Benipah river systems.",
+        "ok": true
+      },
+      {
+        "name": "Benipah",
+        "source": "seriouslyfish",
+        "quote": "Parosphromenus opallios is a liquorice gourami endemic to Central Kalimantan province in Indonesian Borneo, in the Arut and Benipah river systems.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "bwaquatics",
+        "quote": "The Opal Licorice Gourami is endemic to Central Kalimantan in Indonesian Borneo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parosphromenus opallios",
+    "status": "ACCEPTED",
+    "taxonKey": 2394181,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-12T13:29:05.219Z"
+  }
+}

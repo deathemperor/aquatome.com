@@ -1,0 +1,119 @@
+{
+  "id": "pethia-guganio",
+  "native": {
+    "input": "9f1f731d2bd5c099",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The glass barb, Pethia guganio, is a small cyprinid widespread in the Ganges and Brahmaputra river systems of Bangladesh, Nepal and northern India.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The glass barb, Pethia guganio, is a small cyprinid widespread in the Ganges and Brahmaputra river systems of Bangladesh, Nepal and northern India.",
+        "words": "Nepal",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The glass barb, Pethia guganio, is a small cyprinid widespread in the Ganges and Brahmaputra river systems of Bangladesh, Nepal and northern India.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in Bangladesh, Nepal, and northern India where it occurs throughout the Ganges and Brahmaputra river systems plus most of their major tributaries.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in Bangladesh, Nepal, and northern India where it occurs throughout the Ganges and Brahmaputra river systems plus most of their major tributaries.",
+        "words": "Nepal",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in Bangladesh, Nepal, and northern India where it occurs throughout the Ganges and Brahmaputra river systems plus most of their major tributaries.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ganges",
+        "source": "seriouslyfish",
+        "quote": "The glass barb, Pethia guganio, is a small cyprinid widespread in the Ganges and Brahmaputra river systems of Bangladesh, Nepal and northern India.",
+        "ok": true
+      },
+      {
+        "name": "Brahmaputra",
+        "source": "seriouslyfish",
+        "quote": "The glass barb, Pethia guganio, is a small cyprinid widespread in the Ganges and Brahmaputra river systems of Bangladesh, Nepal and northern India.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pethia guganio",
+    "status": "ACCEPTED",
+    "taxonKey": 7510327,
+    "datasets": [
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        12
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        9
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "BD",
+      "NP",
+      "IN"
+    ],
+    "requests": 12,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

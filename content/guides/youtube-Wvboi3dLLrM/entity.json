@@ -79,14 +79,6 @@
             "height": 675,
             "caption": "Đàn endler nhỏ bơi giữa rễ cây và lũa trong bể tối.",
             "sharpness": 83.4
-          },
-          {
-            "t": 40,
-            "url": "https://media.aquatome.com/video/Wvboi3dLLrM/at40-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Xô nước thải và dây thay nước bên dãy bể trong phòng nuôi.",
-            "sharpness": 2805.3
           }
         ],
         "photo": {
@@ -109,7 +101,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể kính ghép có mặt trước nông, trồng cây xanh và đặt tượng đá.",
-            "sharpness": 3352.4
+            "sharpness": 3352.4,
+            "person": false
           },
           {
             "t": 10,
@@ -117,7 +110,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cạnh kính ghép của bể bên cạnh rêu và dương xỉ xanh tốt.",
-            "sharpness": 1809.7
+            "sharpness": 1809.7,
+            "person": false
           }
         ]
       },
@@ -144,7 +138,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể có cây dương xỉ mọc xanh tốt phía trên mực nước.",
-            "sharpness": 4059.3
+            "sharpness": 4059.3,
+            "person": false
           }
         ],
         "photo": {

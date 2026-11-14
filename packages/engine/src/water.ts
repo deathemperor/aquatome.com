@@ -4,9 +4,10 @@ import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { z } from 'zod'
 import { mayPublish, WaterSchema, type SourceId, type SpeciesEntity, type SpeciesWater } from '@aq/schema'
-import type { Llm } from './claude'
+import { LlmError, type Llm } from './claude'
 import { flat, sourceTier, textOf, type Block } from './range'
 import type { SourceConfig } from './sources'
+import { errorKind } from './state'
 
 /**
  * Whether a species is kept in brackish or sea water (content `water`, `@aq/schema` WaterSchema), read by the model from
@@ -80,7 +81,7 @@ export function checkAnswer(answer: Answer, blocks: Block[], tierOf: (id: Source
 
 export type Audit = { id: string; input?: string; at?: string; claims?: Claim[]; failed?: { at: string; error: string } }
 export type WaterDeps = { llm: Llm; now: () => Date; order: string[] }
-export type WaterReport = { read: string[]; quiet: string[]; failed: string[]; calls: number; salt: string[] }
+export type WaterReport = { read: string[]; quiet: string[]; failed: string[]; calls: number; salt: string[]; stopped: string }
 
 const readJson = async <T>(path: string): Promise<T | undefined> => readFile(path, 'utf8').then(s => JSON.parse(s) as T, () => undefined)
 const hoursSince = (iso: string | undefined, now: Date) => (iso ? (now.getTime() - Date.parse(iso)) / 3_600_000 : Infinity)
@@ -96,7 +97,8 @@ async function writeWater(file: string, raw: string, water: SpeciesWater | undef
 
 /**
  * One pass, most popular first (`order`, then by id), over species whose sources' text is new or changed: one with no
- * word of salt or the sea is fresh with no call; up to `limit` model calls for the rest. `only`: these species.
+ * word of salt or the sea is fresh with no call; up to `limit` model calls for the rest. `only`: these species. A call
+ * that failed for the usage limit leaves that species' audit as it was and stops the step's model calls for the run.
  */
 export async function speciesWater(root: string, deps: WaterDeps, opts: { limit: number; only?: string[] }): Promise<WaterReport> {
   const now = deps.now()
@@ -108,7 +110,7 @@ export async function speciesWater(root: string, deps: WaterDeps, opts: { limit:
   const ids = (await readdir(dir).catch(() => [] as string[])).filter(id => !opts.only || opts.only.includes(id)).sort((a, b) => rank(a) - rank(b) || a.localeCompare(b))
   await mkdir(join(root, STATE), { recursive: true })
   const auditFile = (id: string) => join(root, STATE, `${id}.json`)
-  const report: WaterReport = { read: [], quiet: [], failed: [], calls: 0, salt: [] }
+  const report: WaterReport = { read: [], quiet: [], failed: [], calls: 0, salt: [], stopped: '' }
   for (const id of ids) {
     const file = join(dir, id, 'entity.json')
     const raw = await readFile(file, 'utf8').catch(() => '')
@@ -120,13 +122,15 @@ export async function speciesWater(root: string, deps: WaterDeps, opts: { limit:
     const input = inputHash(entity.scientificName, blocks)
     if (audit.input === input) continue
     const salty = blocks.some(b => SALT.test(b.text))
-    if (salty && (report.calls >= opts.limit || hoursSince(audit.failed?.at, now) < RETRY_HOURS)) continue
+    if (salty && (report.stopped || report.calls >= opts.limit || hoursSince(audit.failed?.at, now) < RETRY_HOURS)) continue
     let checked: ReturnType<typeof checkAnswer> = { claims: [] }
     if (salty) {
       report.calls++
       try {
         checked = checkAnswer(Answer.parse(await deps.llm({ system: 'Reply only with JSON.', prompt: promptOf(entity.scientificName, blocks), schema: schemaFor(blocks.map(b => b.source)) })), blocks)
       } catch (e) {
+        // Every account is out of its limit: a later call fails the same way, and a stamp would skip the species for a day.
+        if (e instanceof LlmError && errorKind(e.message) === 'usage') { report.stopped = e.message; continue }
         report.failed.push(id)
         await writeFile(auditFile(id), `${JSON.stringify({ ...audit, failed: { at, error: (e as Error).message.slice(0, 300) } }, null, 2)}\n`)
         continue

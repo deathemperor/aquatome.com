@@ -15,6 +15,28 @@
       {
         "source": "planetcatfish",
         "value": 5.7
+      },
+      {
+        "source": "scotcat",
+        "value": 8
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 26,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -26,16 +48,52 @@
       "html": "<p>Tatia neivai (Ihering, 1930), family Auchenipteridae. Common name: Naive Tatia (Germany). Type locality: Rio Piracicaba, Piracicaba, São Paulo State, Brazil. Synonym: Glanidium neivai. Etymology: Tatia was named after the ichthyologist C. Tate Regan. Size: 57 mm (2.2\") SL. IUCN Red List: Least Concern (last assessed 2018).</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_neivai.htm",
+      "html": "<p>Tatia neivai (Ihering, 1930). Family: Auchenipteridae. Synonym: Glanidium neivai. Size: 8 cm. Temperature: 26-28°C. pH: 6.5-7.5.</p><p>Description: dorsal spines (total): 1; dorsal soft rays (total): 4-5; anal soft rays: 9-10; vertebrae: 31-33. It differs from all congeners by its unique colour pattern, with scattered small white spots over the sides of the body and a caudal fin with dark vertical bars. It can be further distinguished by the following combination of characters: third nuchal plate broad, with short lateral projection; post-Weberian vertebrae alternatingly ribbed and unribbed; caudal-fin lobes of equal length in mature females, upper lobe more elongated in mature males; and 31-33 post-Weberian vertebrae.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1100",
       "html": "<p>South America: Piracicaba River, São Paulo, Brazil. Also found in the La Plata basin: Paraná, Upper Paraná, Grande (Paraná), Uberaba, Tietê, Piracicaba (São Paulo), and Paraguay, Upper Paraguay, Cuiabá and Claro.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_neivai.htm",
+      "html": "<p>South America: Piracicaba River basin in São Paulo State. Type locality: Piracicaba, Rio Piracicaba, Est. de S. Paulo.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_neivai.htm",
+      "html": "<p>Found in semi-lotic environments. Some individuals were observed hidden within marginal vegetation or found inside crevices of submersed trunks.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_neivai.htm",
+      "html": "<p>Keeping this species is not too much of a problem as long as the water is kept clean and not too alkaline, with a pH of between 6.5 and 7.0. They like a planted aquarium where they hide during the day. They also make a good show fish, as they usually deport well in a show tank.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_neivai.htm",
+      "html": "<p>Temperature: 26-28°C. pH: 6.5-7.5 (the aquarium care notes advise 6.5-7.0).</p>"
+    },
+    {
       "key": "equipment",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1100",
       "html": "<p>As the common name for this family, woodcat, implies, these fish like pieces of wood with crevices and gaps to squeeze into.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_neivai.htm",
+      "html": "<p>In its native habitat they feed on insects, mostly ants, beetles and mayflies. In the aquarium they will eat anything given, such as frozen bloodworm, which they will come out of hiding to feed on, catfish tablets, daphnia, white worm (sparingly) and any other worm-like foods.</p>"
     },
     {
       "key": "dimorphism",
@@ -50,10 +108,28 @@
       "html": "<p>Unreported. There is no breeding report.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_neivai.htm",
+      "html": "<p>Reaches sexual maturity above 4.81 cm SL.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_neivai.htm",
+      "html": "<p>Etymology: the specific epithet neivai is in honour of Arthur Neiva (1880-1943), founder of the Instituto Biológico, São Paulo.</p><p>IUCN Red List: the species is naturally infrequent and scarce. However, no significant threats have been identified that would endanger its population. Tatia neivai has been categorised as Least Concern (LC) (IUCN 2022).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1100",
       "html": "<p>Archivos do Instituto Biológico, São Paulo v. 3, pp 99, Pl. 13 (fig. 1).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_neivai.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2021. FishBase. World Wide Web electronic publication. www.fishbase.org, (10/2021). Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio). 2022. Tatia neivai. The IUCN Red List of Threatened Species 2022. Sarmento-Soares, Luisa Maria; Martins-Pinheiro, Ronaldo Fernando A systematic revision of Tatia (Siluriformes: Auchenipteridae: Centromochlinae) Neotropical Ichthyology, 6(3):495-542, 2008. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -102,5 +178,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-10"
 }

@@ -1,19 +1,26 @@
 {
   "slug": "ca-tre-tachysurus-nudiceps",
   "name": "Cá trê Tachysurus nudiceps",
-  "altNames": [],
+  "altNames": [
+    "Cá gigi"
+  ],
   "sections": {
     "quickFacts:planetcatfish": "<p>Tachysurus nudiceps (Sauvage, 1883). Nơi thu mẫu chuẩn: hồ Biwa, Nhật Bản. Kích thước: 150 mm SL.</p><p>Chi Tachysurus có hai đặc điểm nhận dạng. Xương extrascapular của chúng không có ống cảm giác đường bên. Xương pterotic thì có một phần phiến rộng mở ra hai bên. Đây là một trong những nhóm cá da trơn nhiều loài nhất ở Đông Á. Các loài trong nhóm sống ở đủ kiểu môi trường, từ suối đồi nước chảy xiết đến những con sông lớn.</p>",
     "distribution:planetcatfish": "<p>Châu Á: Nhật Bản (hồ Biwa).</p>",
     "dimorphism:planetcatfish": "<p>Cá đực có nhú sinh dục dài nằm ngay trước vây hậu môn.</p>",
     "reproduction:planetcatfish": "<p>Chưa có ghi nhận. Hiện chưa có báo cáo nào về chuyện cho loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Bulletin de la Société philomathique de Paris (7th Série) v. 7, pp 145.</p>"
+    "references:planetcatfish": "<p>Bulletin de la Société philomathique de Paris (7th Série) v. 7, pp 145.</p>",
+    "quickFacts:scotcat": "<ul><li>Danh sách đỏ IUCN: Chưa đánh giá</li></ul><p>Mô tả: Vây lưng có tổng cộng 1 gai và 5-7 tia mềm. Vây hậu môn không có gai, chỉ có 18-20 tia mềm. Thân cá dài, phần trước dẹp theo chiều lưng bụng, phần sau dẹp hai bên. Quanh miệng có bốn cặp râu. Thân trơn, không có vảy. Vây ngực và vây lưng to, có gai cứng. Mép sau vây đuôi chẻ sâu.</p>",
+    "distribution:scotcat": "<p>Châu Á: Nhật Bản, ở hồ Biwa, miền trung và miền tây đảo Honshu, miền đông đảo Shikoku và miền tây bắc đảo Kyushu (Matsuura et al., 2000). Watanabe &amp; Okuyama có ghi lại loài này ở tầng Pliocene sớm tại tỉnh Mie, Nhật Bản. Nơi thu mẫu chuẩn là hồ Biwako, Nhật Bản.</p>",
+    "notes:scotcat": "<p>Từ nguyên: Tên giống Tachysurus ghép từ tachys (nhanh) và oura (đuôi). Người đặt tên đoán T. sinensis bơi lanh lẹ vì nó có chiếc đuôi \"dài và nhanh nhẹn\" (câu này là bản dịch). Tên loài nudiceps ghép từ nudus (trần) và ceps (đầu), tức đầu trơ xương hoặc không có da. Tên này có lẽ nói tới đỉnh đầu của cá, chỗ này nổi hạt li ti và chỉ phủ một lớp da rất mỏng.</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr. 2007 Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (04/2009). The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
     "score": 0.85,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.85
+      "planetcatfish": 0.85,
+      "scotcat": 0.9
     }
   }
 }

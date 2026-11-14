@@ -1,0 +1,63 @@
+{
+  "id": "microsynodontis-nasutus",
+  "native": {
+    "input": "c6935b43e5cbdd6f",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Okano River on rapids 0.5 km south of the village of Na, Woleu-Ntem Province, Gabon.",
+        "words": "Gabon",
+        "ok": true
+      },
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Africa: Ogowe River, Gabon.",
+        "words": "Gabon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ogowe River",
+        "source": "planetcatfish",
+        "quote": "Africa: Ogowe River, Gabon.",
+        "country": "GA",
+        "ok": true
+      },
+      {
+        "name": "Okano River",
+        "source": "planetcatfish",
+        "quote": "Type locality: Okano River on rapids 0.5 km south of the village of Na, Woleu-Ntem Province, Gabon.",
+        "country": "GA",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Microsynodontis nasutus",
+    "status": "ACCEPTED",
+    "taxonKey": 2344195,
+    "datasets": [
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        3
+      ]
+    ],
+    "native": [
+      "GA"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

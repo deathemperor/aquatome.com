@@ -2,42 +2,6 @@
   "id": "betta-edithae",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/7e8bad26ee97e922.webp",
-      "thumb": "https://media.aquatome.com/commons/7e8bad26ee97e922-480.webp",
-      "width": 1200,
-      "height": 675,
-      "licence": "CC BY-SA 4.0",
-      "author": "Ahsan al hidayat",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Betta_edithae_blue.jpg",
-      "caption": "Cá betta edithae đực màu xanh lục trong bể thủy sinh",
-      "best": true,
-      "kind": "male"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/94fa125aa43fa1db.webp",
-      "thumb": "https://media.aquatome.com/commons/94fa125aa43fa1db-480.webp",
-      "width": 1200,
-      "height": 817,
-      "licence": "CC BY-SA 3.0",
-      "author": "Soulkeeper",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Betta_edithae_2.jpg",
-      "caption": "Cá betta edithae cái trong bể cát",
-      "best": true,
-      "kind": "female"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/9e796c4ba11d7345.webp",
-      "thumb": "https://media.aquatome.com/commons/9e796c4ba11d7345-480.webp",
-      "width": 1200,
-      "height": 666,
-      "licence": "CC BY-SA 3.0",
-      "author": "Soulkeeper",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Betta_edithae8.JPG",
-      "caption": "Cá betta edithae sọc đen bên thân, nhìn nghiêng",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/453637729.webp",
       "thumb": "https://media.aquatome.com/inaturalist/453637729-480.webp",
       "width": 1024,
@@ -131,6 +95,42 @@
       "sourceUrl": "https://www.inaturalist.org/photos/453637371",
       "caption": "Cá betta edithae mắt vàng trong bể quan sát",
       "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/7e8bad26ee97e922.webp",
+      "thumb": "https://media.aquatome.com/commons/7e8bad26ee97e922-480.webp",
+      "width": 1200,
+      "height": 675,
+      "licence": "CC BY-SA 4.0",
+      "author": "Ahsan al hidayat",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Betta_edithae_blue.jpg",
+      "caption": "Cá betta edithae đực màu xanh lục trong bể thủy sinh",
+      "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/94fa125aa43fa1db.webp",
+      "thumb": "https://media.aquatome.com/commons/94fa125aa43fa1db-480.webp",
+      "width": 1200,
+      "height": 817,
+      "licence": "CC BY-SA 3.0",
+      "author": "Soulkeeper",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Betta_edithae_2.jpg",
+      "caption": "Cá betta edithae cái trong bể cát",
+      "best": true,
+      "kind": "female"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/9e796c4ba11d7345.webp",
+      "thumb": "https://media.aquatome.com/commons/9e796c4ba11d7345-480.webp",
+      "width": 1200,
+      "height": 666,
+      "licence": "CC BY-SA 3.0",
+      "author": "Soulkeeper",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Betta_edithae8.JPG",
+      "caption": "Cá betta edithae sọc đen bên thân, nhìn nghiêng",
+      "best": true,
       "kind": "other"
     }
   ],

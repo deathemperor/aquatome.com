@@ -14,18 +14,6 @@
       "kind": "form"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/259004710.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/259004710-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY",
-      "author": "Nico Hernandez",
-      "sourceUrl": "https://www.inaturalist.org/photos/259004710",
-      "caption": "Hai tép Neocaridina màu nâu hoang dã trên nền sỏi trắng",
-      "best": true,
-      "kind": "pair"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/603056247.webp",
       "thumb": "https://media.aquatome.com/inaturalist/603056247-480.webp",
       "width": 1024,
@@ -36,18 +24,6 @@
       "caption": "Tép đỏ trên nền cát dưới nước ngoài tự nhiên",
       "best": true,
       "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/417540239.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/417540239-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Yoshihiro Tokue",
-      "sourceUrl": "https://www.inaturalist.org/photos/417540239",
-      "caption": "Tép đỏ Neocaridina màu hoang dã trong hộp nước trong suốt",
-      "best": true,
-      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/757287248.webp",
@@ -548,6 +524,30 @@
       "sourceUrl": "https://www.inaturalist.org/photos/642177826",
       "caption": "Tép màu tím nâu bám trên cây thủy sinh",
       "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/259004710.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/259004710-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Nico Hernandez",
+      "sourceUrl": "https://www.inaturalist.org/photos/259004710",
+      "caption": "Hai tép Neocaridina màu nâu hoang dã trên nền sỏi trắng",
+      "best": true,
+      "kind": "pair"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/417540239.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/417540239-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Yoshihiro Tokue",
+      "sourceUrl": "https://www.inaturalist.org/photos/417540239",
+      "caption": "Tép đỏ Neocaridina màu hoang dã trong hộp nước trong suốt",
+      "best": true,
       "kind": "other"
     }
   ],

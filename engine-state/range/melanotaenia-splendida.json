@@ -1,0 +1,165 @@
+{
+  "id": "melanotaenia-splendida",
+  "native": {
+    "input": "9f021116f62dce33",
+    "at": "2026-11-10T07:58:31.896Z",
+    "claims": [
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The eastern rainbowfish, Melanotaenia splendida, comes from Australia and now includes the checkered rainbowfish, once M. s. inornata.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Australia.",
+        "words": "Australia",
+        "ok": false,
+        "why": "no sentence"
+      },
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This was in 1866 and the description of the species is based on specimens from the Fitzroy River in Queensland, Australia.",
+        "words": "Australia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Fitzroy River",
+        "source": "glaser",
+        "quote": "This was in 1866 and the description of the species is based on specimens from the Fitzroy River in Queensland, Australia.",
+        "country": "AU",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Melanotaenia splendida",
+    "status": "ACCEPTED",
+    "taxonKey": 4284264,
+    "datasets": [
+      [
+        "40c0f670-ee87-4576-be9d-2725e0b47035",
+        2923
+      ],
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        2105
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        913
+      ],
+      [
+        "e4473544-f4cd-4429-b791-39d6e1fdb0a4",
+        872
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        499
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        344
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        166
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        113
+      ],
+      [
+        "18c93d12-34fb-4d3f-903c-b77215a1dcc9",
+        88
+      ],
+      [
+        "d51f93a6-a5b7-4025-83a9-3f7b8525755a",
+        88
+      ],
+      [
+        "358fbd61-739f-4102-afc9-9d468f571e4d",
+        76
+      ],
+      [
+        "39905320-6c8a-11de-8226-b8a03c50a862",
+        30
+      ],
+      [
+        "1f396a46-b83e-4255-a840-859985f73ded",
+        26
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        17
+      ],
+      [
+        "56caf05f-1364-4f24-85f6-0c82520c2792",
+        11
+      ],
+      [
+        "19729f12-88c3-4e56-a84f-b42a5cf052ad",
+        8
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        8
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        6
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "84a649ce-ff81-420d-9c41-aa1de59e3766",
+        3
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "AU"
+    ],
+    "requests": 13,
+    "at": "2026-11-10T07:58:31.896Z"
+  }
+}

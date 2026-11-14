@@ -1,0 +1,68 @@
+{
+  "id": "oryzias-asinua",
+  "native": {
+    "input": "e617cd458291137a",
+    "at": "2026-11-10T23:57:51.686Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Asinua ricefish, Oryzias asinua, is known only from the Sungai Asinua in Southeast Sulawesi, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Sungai (river) Asinua in Asinua District, Sulawesi Tenggara (Southeast Sulawesi), Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sungai Asinua",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Sungai (river) Asinua in Asinua District, Sulawesi Tenggara (Southeast Sulawesi), Indonesia.",
+        "country": "ID",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Sulawesi",
+        "source": "seriouslyfish",
+        "quote": "The Asinua ricefish, Oryzias asinua, is known only from the Sungai Asinua in Southeast Sulawesi, Indonesia.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Oryzias asinua",
+    "status": "ACCEPTED",
+    "taxonKey": 8369694,
+    "datasets": [
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T23:57:51.686Z"
+  }
+}

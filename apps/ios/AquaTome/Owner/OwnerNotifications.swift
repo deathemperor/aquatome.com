@@ -66,6 +66,7 @@ struct OwnerDelivery: View {
         }
         if let problem { Text(verbatim: problem).foregroundStyle(.red).accessibilityIdentifier("owner-message") }
       }
+      .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
       .navigationTitle(Text(verbatim: "Daily report"))
       .navigationBarTitleDisplayMode(.inline)
       .toolbar { ToolbarItem(placement: .confirmationAction) { Button { dismiss() } label: { Text(verbatim: "Done") } } }

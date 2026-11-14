@@ -10,6 +10,29 @@
     "indonesia",
     "vietnam"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "VN"
+      ],
+      "regions": [],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "Radix rubiginosa is native to Indonesia, Vietnam and Indo-China.",
+          "countries": [
+            "ID",
+            "VN"
+          ],
+          "regions": []
+        }
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

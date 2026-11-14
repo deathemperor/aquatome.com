@@ -10,6 +10,39 @@
     "indonesia",
     "kalimantan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Kalimantan",
+        "Borneo"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "In its natural habitat the species is restricted to peat swamps in the central parts of Kalimantan (the Indonesian part of Borneo).",
+          "countries": [],
+          "regions": [
+            "Kalimantan",
+            "Borneo"
+          ]
+        }
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

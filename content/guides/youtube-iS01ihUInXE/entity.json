@@ -95,7 +95,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể trồng cây rậm, có lũa và lá khô, cá betta ẩn nấp.",
-            "sharpness": 397.8
+            "sharpness": 397.8,
+            "person": false
           }
         ],
         "photo": {
@@ -139,7 +140,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cành lũa đẹp được chọn làm điểm chính của bố cục.",
-            "sharpness": 351.5
+            "sharpness": 351.5,
+            "person": false
           },
           {
             "t": 250,
@@ -147,7 +149,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các cành lũa được xếp ghép vào nhau trong bể trống.",
-            "sharpness": 1031.5
+            "sharpness": 1031.5,
+            "person": false
           }
         ],
         "photo": {
@@ -170,15 +173,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tô phân nền dạng hạt màu nâu sẫm, chuẩn bị đóng vào túi.",
-            "sharpness": 632.2
-          },
-          {
-            "t": 400,
-            "url": "https://media.aquatome.com/video/iS01ihUInXE/at400-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đang cho phân nền vào túi lưới trong tô phân.",
-            "sharpness": 472.6
+            "sharpness": 632.2,
+            "person": false
           }
         ]
       },
@@ -186,20 +182,13 @@
         "heading": "Trồng cây dày ngay từ đầu",
         "moments": [
           {
-            "t": 475,
-            "url": "https://media.aquatome.com/video/iS01ihUInXE/at475-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Những chậu cây thủy sinh lá xanh được gom lại để chuẩn bị trồng.",
-            "sharpness": 384.7
-          },
-          {
             "t": 540,
             "url": "https://media.aquatome.com/video/iS01ihUInXE/at540-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể trồng cây dày, lên lá xanh um như một khu rừng.",
-            "sharpness": 3976.8
+            "sharpness": 3976.8,
+            "person": false
           }
         ],
         "photo": {
@@ -222,15 +211,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lá khô và lũa trong bể, màu nâu cam tương phản với cây xanh.",
-            "sharpness": 686.6
-          },
-          {
-            "t": 610,
-            "url": "https://media.aquatome.com/video/iS01ihUInXE/at610-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tấm nắp polycarbonate đặt lên mặt bể để đậy kín.",
-            "sharpness": 535.2
+            "sharpness": 686.6,
+            "person": false
           }
         ]
       },
@@ -243,7 +225,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nghiêng hộp đựng cá trong bể để cá tự bơi ra.",
-            "sharpness": 906.7
+            "sharpness": 906.7,
+            "person": false
           },
           {
             "t": 780,
@@ -251,7 +234,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Betta lao vào giành trùn đỏ từ cốc cho ăn.",
-            "sharpness": 270.9
+            "sharpness": 270.9,
+            "person": false
           }
         ]
       }

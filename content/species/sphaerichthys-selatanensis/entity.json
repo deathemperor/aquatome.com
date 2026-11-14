@@ -68,6 +68,10 @@
       {
         "source": "seriouslyfish",
         "value": 4.5
+      },
+      {
+        "source": "glaser",
+        "value": 5
       }
     ],
     "difficulty": [
@@ -101,6 +105,12 @@
       "html": "<p>The crossband chocolate gourami, Sphaerichthys selatanensis, is a small labyrinth fish from southern Borneo, Indonesia. It probably inhabits peat swamps and associated blackwater streams, and is only occasionally seen in the hobby, sometimes sold as 'cherry chocolate gourami'. Originally described as a subspecies of S. osphromenoides, it differs in fin-ray counts and an additional light vertical bar on each flank.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/sphaerichthys_selatanensis_en-3/",
+      "html": "<p>With an overall length of 5 cm, Sphaerichthys selatanensis is probably the smallest representative of the chocolate gouramis. It may be recognised by its typical cross design.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/crossband-chocolate-gourami-sphaerichthys-selatanensis",
@@ -119,6 +129,12 @@
       "html": "<p>Described from close to the city of Banjarmasin in South Kalimantan (Kalimantan Selatan), Borneo, Indonesia, and appears well distributed in southern Borneo, having also been recorded from close to the settlement of Sampit several hundred kilometres east in Central Kalimantan (Kalimantan Tengah) province.</p><p>Tan and Ng (2005) report the presence of a similarly patterned fish on Belitung (also known as Billiton) Island, Bangka-Belitung Islands province, Indonesia. Belitung lies off the eastern coast of Sumatra, meaning this represents the first-ever record of a Sphaerichthys sp. other than S. osphromenoides outside Borneo.</p><p>The specimens collected had an overall more reddish colouration than the Bornean form, and the authors note that additional material and study would be required to fully confirm its identity.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/sphaerichthys_selatanensis_en-3/",
+      "html": "<p>The species originates from Kalimantan in the southeast part of the island of Borneo.</p>"
+    },
+    {
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/crossband-chocolate-gourami-sphaerichthys-selatanensis",
@@ -131,6 +147,12 @@
       "html": "<p>Probably inhabits peat swamps and associated blackwater streams, though may also be found in some clear water habitats.</p><p>The former tend to be located in forested areas and contain water that is typically stained dark brown by humic acids and other chemicals released from decaying organic material. This results in a negligible dissolved mineral content and the pH can drop as low as 3.0 or 4.0.</p><p>The dense rainforest canopy above means that very little light penetrates the water surface and the substrate is normally littered with fallen tree branches and rotting leaves.</p><p>Aquatic plant species may include representatives of genera such as Cryptocoryne, Blyxa, Barclaya, Eleocharis, Utricularia and Lymnophila.</p><p>Unfortunately, due to logging, agriculture and other human activities throughout Southeast Asia, vast tracts of primary forest have been altered or lost entirely. Fish habitats in affected regions have also been heavily modified in many cases, with species diversity declining as a result.</p>"
     },
     {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/sphaerichthys_selatanensis_en-3/",
+      "html": "<p>Like its relatives it lives in acidic black water brooks (at the discovery site measured water values: pH 4.5, conductivity 17 µS/cm, temperature 26°C).</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sphaerichthys-selatanensis",
@@ -141,6 +163,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sphaerichthys-selatanensis",
       "html": "<p>Provided adequate cover and structure is available, this species is unfussy with regard to décor, with ceramic flowerpots, lengths of plastic piping and other artificial materials all useful additions.</p><p>A more natural-looking arrangement might consist of a soft, sandy substrate with wood roots and branches placed in such a way that plenty of shady spots and caves are formed.</p><p>The addition of dried leaf litter (beech, oak or Ketapang almond leaves are all suitable) further emphasises the natural feel and, with it, the growth of beneficial microbe colonies as decomposition occurs. These can provide a valuable secondary food source for fry, whilst the tannins and other chemicals released by the decaying leaves will aid in the simulation of a blackwater environment. Leaves can be left in the tank to break down fully or removed and replaced every few weeks.</p><p>This species seems to do best under fairly dim lighting, and plant species from genera such as Microsorum, Taxiphyllum, Cryptocoryne and Anubias are recommended since they will grow under such conditions, while floating vegetation is appreciated as well.</p><p>It naturally inhabits sluggish or still environments, therefore filtration, or at least water movement, should not be very strong.</p><p>Very large water changes are best avoided, with 10–15% weekly adequate provided the tank is lightly stocked.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/sphaerichthys_selatanensis_en-3/",
+      "html": "<p>Chocolate gouramis need much attention during acclimatization and maintenance. Natural water conditions should serve as a model; peat filtering or the use of tropical almond leaves (catappa) is recommended.</p>"
     },
     {
       "key": "waterConditions",
@@ -185,6 +213,12 @@
       "html": "<p>Tankmates must be chosen with care since this species is slow-moving and will easily be intimidated or outcompeted for food by larger or more boisterous tankmates.</p><p>Peaceful, pelagic cyprinids such as Danionella, Microdevario, Trigonostigma or smaller Rasbora species make good choices, as do some loaches such as Pangio or Kottelatlimia spp.</p><p>It is not recommended to combine it with the congener S. osphromenoides in order to minimise the risk of hybridisation.</p><p>Though not gregarious in the sense of schooling fishes, it does seem to require interaction with conspecifics and displays more interesting behaviour when maintained in numbers, meaning the purchase of no fewer than 6 individuals is recommended.</p><p>Groups develop noticeable hierarchies, and you will often see dominant individuals chasing away their rivals at feeding time or when occupying their favourite spot.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/sphaerichthys_selatanensis_en-3/",
+      "html": "<p>Regarding community fish, small Rasbora species are suitable; they share the biotopes with S. selatanensis in the wild as well.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sphaerichthys-selatanensis",
@@ -203,10 +237,22 @@
       "html": "<p>Historically there has been some confusion surrounding this species' method of reproduction, with some sources listing it erroneously as a bubblenester or paternal mouthbrooder when it is by all accounts a maternal mouthbrooder.</p><p>This is intriguing since this species and S. osphromenoides are the only anabantoids in which the female is known to brood the eggs, with all other mouthbrooding relatives having evolved a paternal strategy.</p><p>It can be bred in a group or single pair in a set-up as suggested above and, provided the quality of both water and diet is maintained, should not prove too difficult.</p><p>Courtship is normally initiated by the male, or alpha male if multiple individuals are present, and nuptial behaviour can be recognised by an individual taking on a darker, almost greyish patterning, while receptive females intensify in colouration, becoming a deep chocolate brown with the light vertical bars appearing golden.</p><p>The climactic spawning embrace is similar to that seen in Luciocephalus and Parasphaerichthys species in that the pair remain almost upright, rather than the female being turned upside down as in Betta and most other anabantoid genera.</p><p>The spawning process may take several hours, with eggs laid and fertilised on the substrate and the female collecting them in her mouth directly. The surrounding area is defended by both fish throughout.</p><p>Brooding females tend to take refuge in a quiet area of the tank and eat very little, if at all.</p><p>The eggs and fry are retained in the mouth for 7–20 days before 10–40 fully formed, free-swimming juveniles are released.</p><p>The female can be removed to a separate tank a few days post-spawning in order to minimise the chances of fry predation if you prefer, though in mature, heavily decorated set-ups some may survive. Alternatively the fry can be removed as they are spotted, provided water of the same chemistry and temperature is available elsewhere.</p><p>The fry should be large enough to accept live foods such as microworm or Artemia nauplii immediately, and daily water changes of around 10% of tank volume should also be performed in order to maintain water quality and growth rate.</p><p>The rearing tank must have a tightly fitting cover (some breeders use clingfilm/shrinkwrap to ensure no gaps) as they need access to a layer of warm, humid air to ensure proper development of the labyrinth organ.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/sphaerichthys_selatanensis_en-3/",
+      "html": "<p>Breeding of chocolate gouramis is very difficult; in particular, raising the larvae often fails due to infections.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sphaerichthys-selatanensis",
       "html": "<p>This species is only occasionally seen in the hobby and sometimes sold as 'cherry chocolate gourami'.</p><p>It was originally described as a subspecies of S. osphromenoides since the two are very similar-looking, but has been considered a species in its own right since the late 1980s. The two differ in the number of dorsal-fin rays (7 in S. selatanensis vs. 9–10 in S. osphromenoides), anal-fin rays (7 vs. 8) and a relatively larger eye in S. selatanensis.</p><p>Although colour pattern is comparable, S. selatanensis possesses an additional light, vertically oriented bar on each flank originating just anterior to the dorsal fin and terminating posterior to the ventral fins. In S. osphromenoides this bar is absent or reduced to a small spot anterior to the dorsal fin.</p><p>S. vaillanti and S. acrostoma are easily distinguishable since they exhibit a notably more elongate head and body profile, reverse sexual dimorphism (females being more colourful/strongly patterned than males) and are paternal mouthbrooders.</p><p>Sphaerichthys species are often grouped within the Osphronemid subfamily Luciocephalinae along with the genera Trichogaster, Trichopodus, Luciocephalus, Parasphaerichthys and Ctenops. They share with the latter trio an egg structure that is unique among teleosts, the distinguishing factor consisting of a series of spiralling ridges on the outer surface. This has given rise to the (as yet unproven) theory that the four genera form a monophyletic group, i.e., they share a common genetic ancestor.</p><p>In Luciocephalus and Sphaerichthys the eggs are also distinctively pear-shaped, suggesting that these two share even closer genetic roots, and this theory was supported in the detailed phylogenetic study published by Rüber et al. (2006). Sphaerichthys and Luciocephalus were repeatedly found to be most closely related to one another and represent the sister group to Ctenops and Parasphaerichthys.</p><p>Like others in the suborder Anabantoidei, this species possesses an accessory breathing organ known as the labyrinth. So called due to its maze-like structure, this organ allows the fish to breathe atmospheric air to a certain extent. Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly vascularised, folded flaps of skin which function as a large respiratory surface. Its structure varies in complexity between species, tending to be better developed in those inhabiting harsher environments.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/sphaerichthys_selatanensis_en-3/",
+      "html": "<p>Sphaerichthys: from ancient Greek, meaning \"spheric fish\"; selatanensis: after the Province of Kalimantan Selatan on Borneo, where the fish was initially discovered.</p>"
     },
     {
       "key": "references",
@@ -306,5 +352,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-13"
 }

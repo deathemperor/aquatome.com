@@ -1,0 +1,57 @@
+{
+  "id": "pangio-doriae",
+  "native": {
+    "input": "799944a8a2ee7d59",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the Malaysian state of Sarawak, Borneo and also known from Peninsular Malaysia.",
+        "words": "Malaysian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Described from the Malaysian state of Sarawak, Borneo and also known from Peninsular Malaysia.",
+        "ok": true
+      },
+      {
+        "name": "Endau",
+        "source": "seriouslyfish",
+        "quote": "P. doriae is found living syntopically with various congeners across much of its range and in the Endau river drainage, southeastern Peninsular Malaysia sympatric fishes include Brevibora dorsiocellata, Rasbora cephalotaenia, R. einthovenii, R. dusonensis, R. paucisqualis, Puntius johorensis, P. partipentazona, Trigonopoma gracile, T. pauciperforatum, Betta pugnax, Sphaerichthys osphromenoides, Acanthopsoides molobrion, Vaillantella maassi, Pangio cuneovirgata, P. filinaris, P. malayana, P. piperata and P. shelfordii.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pangio doriae",
+    "status": "ACCEPTED",
+    "taxonKey": 2367982,
+    "datasets": [
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        5
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

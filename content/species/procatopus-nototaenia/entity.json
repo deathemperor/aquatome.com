@@ -10,6 +10,88 @@
     "cameroon",
     "lobi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM"
+      ],
+      "regions": [
+        "Lobi",
+        "Kienke"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Thought to be endemic to the Lobi and Kienke river basins in southwestern Cameroon.",
+          "countries": [
+            "CM"
+          ],
+          "regions": [
+            "Lobi",
+            "Kienke"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5203873,
+      "total": 45,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "CM",
+          36
+        ],
+        [
+          "GQ",
+          5
+        ],
+        [
+          "BJ",
+          3
+        ],
+        [
+          "NG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          1.40625,
+          5.625,
+          3,
+          0
+        ],
+        [
+          2.8125,
+          5.625,
+          1,
+          0
+        ],
+        [
+          8.4375,
+          2.8125,
+          5,
+          0
+        ],
+        [
+          9.84375,
+          1.40625,
+          25,
+          25
+        ],
+        [
+          9.84375,
+          2.8125,
+          11,
+          11
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

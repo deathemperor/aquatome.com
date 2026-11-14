@@ -1,0 +1,194 @@
+{
+  "id": "pseudocrenilabrus-multicolor",
+  "native": {
+    "input": "f1e56245e3785723",
+    "at": "2026-11-13T05:31:31.275Z",
+    "claims": [
+      {
+        "code": "EG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The dwarf Egyptian mouth-brooder, Pseudocrenilabrus multicolor, is a small cichlid from Egypt, Sudan, Uganda, Rwanda, Kenya and Tanzania.",
+        "words": "Egypt",
+        "ok": true
+      },
+      {
+        "code": "SD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The dwarf Egyptian mouth-brooder, Pseudocrenilabrus multicolor, is a small cichlid from Egypt, Sudan, Uganda, Rwanda, Kenya and Tanzania.",
+        "words": "Sudan",
+        "ok": true
+      },
+      {
+        "code": "UG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The dwarf Egyptian mouth-brooder, Pseudocrenilabrus multicolor, is a small cichlid from Egypt, Sudan, Uganda, Rwanda, Kenya and Tanzania.",
+        "words": "Uganda",
+        "ok": true
+      },
+      {
+        "code": "RW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The dwarf Egyptian mouth-brooder, Pseudocrenilabrus multicolor, is a small cichlid from Egypt, Sudan, Uganda, Rwanda, Kenya and Tanzania.",
+        "words": "Rwanda",
+        "ok": true
+      },
+      {
+        "code": "KE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The dwarf Egyptian mouth-brooder, Pseudocrenilabrus multicolor, is a small cichlid from Egypt, Sudan, Uganda, Rwanda, Kenya and Tanzania.",
+        "words": "Kenya",
+        "ok": true
+      },
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The dwarf Egyptian mouth-brooder, Pseudocrenilabrus multicolor, is a small cichlid from Egypt, Sudan, Uganda, Rwanda, Kenya and Tanzania.",
+        "words": "Tanzania",
+        "ok": true
+      },
+      {
+        "code": "EG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Egypt, Rwanda, Uganda, Sudan, Tanzania, Kenya and DR Congo.",
+        "words": "Egypt",
+        "ok": true
+      },
+      {
+        "code": "RW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Egypt, Rwanda, Uganda, Sudan, Tanzania, Kenya and DR Congo.",
+        "words": "Rwanda",
+        "ok": true
+      },
+      {
+        "code": "UG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Egypt, Rwanda, Uganda, Sudan, Tanzania, Kenya and DR Congo.",
+        "words": "Uganda",
+        "ok": true
+      },
+      {
+        "code": "SD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Egypt, Rwanda, Uganda, Sudan, Tanzania, Kenya and DR Congo.",
+        "words": "Sudan",
+        "ok": true
+      },
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Egypt, Rwanda, Uganda, Sudan, Tanzania, Kenya and DR Congo.",
+        "words": "Tanzania",
+        "ok": true
+      },
+      {
+        "code": "KE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Egypt, Rwanda, Uganda, Sudan, Tanzania, Kenya and DR Congo.",
+        "words": "Kenya",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Egypt, Rwanda, Uganda, Sudan, Tanzania, Kenya and DR Congo.",
+        "words": "DR Congo",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudocrenilabrus multicolor",
+    "status": "ACCEPTED",
+    "taxonKey": 4285761,
+    "datasets": [
+      [
+        "c2914e4b-381d-4814-8a34-66a7d949fd44",
+        31
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        27
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        9
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        7
+      ],
+      [
+        "ec6c5a00-8016-44cf-8550-62b8197c67fb",
+        6
+      ],
+      [
+        "22e2b984-fe8a-4344-9c2e-4145a89b6ec5",
+        4
+      ],
+      [
+        "8fbdc3e6-eaa0-4ad8-8733-ad433976a448",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "48a18d17-96f2-4a0d-89ad-bbe1ac6ce72c",
+        2
+      ],
+      [
+        "90b6055a-c12b-4c91-951a-7efbe184bca1",
+        2
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "EG",
+      "SD",
+      "UG",
+      "RW",
+      "KE",
+      "TZ",
+      "CD"
+    ],
+    "requests": 12,
+    "at": "2026-11-13T05:31:31.275Z"
+  }
+}

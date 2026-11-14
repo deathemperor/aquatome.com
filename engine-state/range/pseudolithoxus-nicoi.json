@@ -1,0 +1,43 @@
+{
+  "id": "pseudolithoxus-nicoi",
+  "native": {
+    "input": "cbdaebc792a0f3c1",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "VE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudolithoxus nicoi",
+    "status": "ACCEPTED",
+    "taxonKey": 2340035,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        5
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        3
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}

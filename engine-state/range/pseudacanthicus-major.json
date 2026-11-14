@@ -1,0 +1,53 @@
+{
+  "id": "pseudacanthicus-major",
+  "native": {
+    "input": "e05aa5fa79252ccb",
+    "at": "2026-11-13T05:31:31.275Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio Areias near the confluence with rio Tocantins, Porto Nacional, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon, Lower Amazon, Tocantins.",
+        "ok": true
+      },
+      {
+        "name": "Tocantins",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon, Lower Amazon, Tocantins.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudacanthicus major",
+    "status": "ACCEPTED",
+    "taxonKey": 10392625,
+    "datasets": [
+      [
+        "b5a26fc1-28bc-4edf-b0fc-9e535ddd9ec6",
+        2
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T05:31:31.275Z"
+  }
+}

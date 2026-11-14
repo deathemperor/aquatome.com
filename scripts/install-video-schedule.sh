@@ -26,7 +26,7 @@ PLIST
 load_agent "$LABEL" "$PLIST"
 echo "installed $LABEL → $CLONE (log: $LOG)"
 
-# The engine's clock (engine-due.sh), hourly: starts a GitHub cycle when none started for 2 h 50 min.
+# The engine's clock (engine-due.sh), hourly: starts a GitHub cycle when none started for ENGINE_EVERY_MINUTES.
 DUE=run.aquatome.engine-due
 DUE_PLIST="$HOME/Library/LaunchAgents/$DUE.plist"
 cat > "$DUE_PLIST" <<PLIST

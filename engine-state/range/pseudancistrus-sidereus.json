@@ -1,0 +1,57 @@
+{
+  "id": "pseudancistrus-sidereus",
+  "native": {
+    "input": "2b0eaf0c28782e34",
+    "at": "2026-11-13T05:31:31.275Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species inhabits the Rio Casiquiare and the upper Orinoco River drainage (Minicia in Venezuela).",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "The species inhabits the Rio Casiquiare and the upper Orinoco River drainage (Minicia in Venezuela).",
+        "ok": true
+      },
+      {
+        "name": "Rio Casiquiare",
+        "source": "glaser",
+        "quote": "The species inhabits the Rio Casiquiare and the upper Orinoco River drainage (Minicia in Venezuela).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudancistrus sidereus",
+    "status": "ACCEPTED",
+    "taxonKey": 5202292,
+    "datasets": [
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        6
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        1
+      ]
+    ],
+    "native": [
+      "VE"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T05:31:31.275Z"
+  }
+}

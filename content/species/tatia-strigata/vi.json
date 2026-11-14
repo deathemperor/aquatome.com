@@ -13,13 +13,23 @@
     "dimorphism:planetcatfish": "<p>Ở cá đực trưởng thành, vây hậu môn biến đổi thành cơ quan giao phối.</p>",
     "reproduction:planetcatfish": "<p>Người chơi đã cho loài này sinh sản trong bể vài lần. Cá đẻ trứng rải rác từng quả khắp bể chứ không đẻ thành cụm như một số loài cùng giống. Kích cho cá đẻ thì không khó. Cái khó là giữ cho trứng phát triển và nuôi cá bột lớn lên. Trứng chỉ phát triển được trong nước rất mềm và có tính axit. Nếu nước không đạt như vậy, trứng sẽ \"tan\" mất. Cá bột khá nhỏ và chết nhiều. Trong vài tuần đầu, bạn chỉ cho cá bột ăn được thức ăn dạng lỏng. Qua giai đoạn đó thì nuôi cá con khá dễ.</p><p>Hiện chỉ có một báo cáo về việc sinh sản của loài này.</p>",
     "notes:planetcatfish": "<p>Loài này lần đầu được nhập về và có ảnh chụp vào đầu năm 2011. Bản mô tả loài ghi chiều dài tối đa của các mẫu vật dùng để mô tả là 32 mm. Tuy vậy, người chơi cá đã ghi nhận cá đạt ít nhất chiều dài chuẩn nêu ở trên.</p>",
-    "references:planetcatfish": "<p>Ichthyological Exploration of Freshwaters v. 6 (no. 3), pp 202, Fig. 1.</p>"
+    "references:planetcatfish": "<p>Ichthyological Exploration of Freshwaters v. 6 (no. 3), pp 202, Fig. 1.</p>",
+    "quickFacts:scotcat": "<p>Tatia strigata là loài duy nhất trong giống có sọc phủ khắp thân. Hai bên thân nó có những sọc dọc dài, màu trắng nhạt, chạy không đều.</p><p>Tên loài strigata nghĩa là có sọc.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông Amazon và thượng nguồn sông Orinoco. Nơi thu mẫu định danh: Brazil, Amazonas, Municipio de Maués, Igarapé Limãozinho.</p>",
+    "habitat:scotcat": "<p>Tatia strigata có ở vùng trung tâm lưu vực Amazon, sông Negro và kênh Casiquiare. Ở kênh Casiquiare và sông Negro, nó sống cùng vùng với T. dunni.</p>",
+    "behaviour:scotcat": "<p>Giống hầu hết cá trong họ này, Tatia strigata rất nhát và trốn gần hết ngày. Để đèn mờ thì chúng sẽ ra ăn, và ăn rất hăng. Loài này sống chung được với hầu hết các loài cá khác, nhưng sẽ ăn cá nhỏ và cá con trong bể.</p>",
+    "diet:scotcat": "<p>Ngoài tự nhiên, chúng ăn tép, ốc nhỏ và các loài giáp xác. Trong bể thì cho gì chúng cũng ăn, chẳng hạn trùng huyết đông lạnh nhét vào tận chỗ trốn, thức ăn viên cho cá da trơn, giun trắng (cho ít thôi), tôm và tép. Loài này rất mê ăn. Lúc cho ăn, chúng phóng vụt ra khỏi chỗ trốn rồi bơi cuống cuồng để giành hết phần về mình, nhất là khi được món khoái nhất là trùng huyết đông lạnh.</p>",
+    "dimorphism:scotcat": "<p>Cá đực trưởng thành có vây hậu môn biến đổi theo một kiểu riêng chỉ loài này có. Tia vây hậu môn không phân nhánh thứ hai có các đốt phía trước to ra, và vây có một khía do tia phân nhánh thứ hai và thứ ba ngắn lại (Soares-Porto, 1995). Ngoài ra, có thể phân biệt loài này với mọi loài cùng giống nhờ một tổ hợp đặc điểm gồm bốn tia vây ngực phân nhánh, 7 xương sườn, 29-30 đốt sống. Ở cá đực trưởng thành, thùy trên vây đuôi hơi dài ra, còn ở cá cái hai thùy dài bằng nhau.</p>",
+    "notes:scotcat": "<p>Trong Danh lục Đỏ IUCN, loài này được xếp hạng Ít quan tâm (IUCN 2023), vì nó phân bố rộng và không gặp mối đe dọa trực tiếp nào.</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Frederico, R.G. 2023. Tatia strigata. The IUCN Red List of Threatened Species 2023. Sarmento-Soares, Luisa Maria; Martins-Pinheiro, Ronaldo Fernando A systematic revision of Tatia (Siluriformes: Auchenipteridae: Centromochlinae) Neotropical Ichthyology, 6(3):495- 542, 2008.</p>"
   },
   "quality": {
-    "score": 0.8,
-    "indexable": true,
+    "score": 0.6,
+    "indexable": false,
     "bySource": {
-      "planetcatfish": 0.8
-    }
+      "planetcatfish": 0.8,
+      "scotcat": 0.6
+    },
+    "reason": "score"
   }
 }

@@ -1,0 +1,191 @@
+{
+  "id": "hypostomus-pyrineusi",
+  "scientificName": "Hypostomus pyrineusi",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hypostomus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "madeira",
+    "peru",
+    "ucayali",
+    "ecuador",
+    "napo"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 25,
+          "max": 27
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 29
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 23
+      },
+      {
+        "source": "scotcat",
+        "value": 23
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "scotcat",
+        "value": 120
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1330",
+      "html": "<ul><li>Scientific name: Hypostomus pyrineusi (Miranda Ribeiro, 1920)</li><li>Type locality: Jamary, Rio Madeira, Amazon system, Brazil.</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pyrineusi.htm",
+      "html": "<ul><li>Common name: Madeira pleco</li><li>IUCN Red List: Least Concern (IUCN 2023)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1330",
+      "html": "<p>South America: Madeira River basin (?). Amazon, Middle Amazon (Solimoes), Madeira.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pyrineusi.htm",
+      "html": "<p>South America: Madeira, Napo, Ucayali, Marañon and upper Amazon River basins. Type locality: probably Jamary [Brazil].</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pyrineusi.htm",
+      "html": "<p>As with most of this genus, it will do well in a larger aquarium of 120 cm or over, well filtered.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pyrineusi.htm",
+      "html": "<p>Water parameters can be quite diverse for this genus.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pyrineusi.htm",
+      "html": "<p>Omnivore with a liking for green, tablet and frozen foods. This species is also a lover of wood, which should be provided in the aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pyrineusi.htm",
+      "html": "<p>Peaceful species that will dig up plants with its constant burrowing in the substrate, so it is better to put plants in pots.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1330",
+      "html": "<p>Breeding: Unreported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1330",
+      "html": "<p>Previously placed in Cochliodon and now included in the larger genus Hypostomus as a member of the Hypostomus Cochliodon group. All these species have higher backs than other conspecifics and spoon shaped teeth (like Panaque).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pyrineusi.htm",
+      "html": "<p>Placed in the Hypostomus cochliodon species group, which have a shorter, higher-backed body than other members of Hypostomus. They have a small number of spatulate teeth with a single cusp, with the jaws arranged in a V shape. Hypostomus have 7 dorsal fin rays, whereas the similar-looking Pterygoplichthys have 10. Hypostomus pyrineusi is distinguished from most members of the H. cochliodon group by having 0–10 (usually 0) odontodes on the opercle, large spoon-shaped teeth, no buccal papilla, no strong sharp keels on the lateral plates, an adipose fin, numerous close-set spots on the body, and pigmentation equally distributed on the lobes of the caudal fin (Armbruster 2003).</p><p>Etymology: the specific name pyrineusi honours Miranda Ribeiro's good friend Lieut. Antonio Pyrineus de Souza (d. 1936), a naturalist with the Rondon Commission, which installed telegraph poles from Mato Grosso to Amazonas, on an expedition that collected the type.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1330",
+      "html": "<p>Peixes (excl. Characinidae) No. 58 (Annexo 5), pp 9, Unnum. Pls. 3-4.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/a66cb31a3bc36c68.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a66cb31a3bc36c68-480.webp",
+      "width": 500,
+      "height": 269,
+      "licence": "dùng với sự cho phép",
+      "author": "Nathan Lujan / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pyrineusi.htm",
+      "caption": "Hypostomus pyrineusi",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/51749f2c311d34c2.webp",
+      "thumb": "https://media.aquatome.com/scotcat/51749f2c311d34c2-480.webp",
+      "width": 500,
+      "height": 206,
+      "licence": "dùng với sự cho phép",
+      "author": "Nathan Lujan / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pyrineusi.htm",
+      "caption": "Hypostomus pyrineusi: dorsal view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/d4151e7f05c82981.webp",
+      "thumb": "https://media.aquatome.com/scotcat/d4151e7f05c82981-480.webp",
+      "width": 500,
+      "height": 213,
+      "licence": "dùng với sự cho phép",
+      "author": "Nathan Lujan / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pyrineusi.htm",
+      "caption": "Hypostomus pyrineusi: ventral view",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

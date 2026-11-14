@@ -2,6 +2,19 @@
   "id": "rhinogobius-formosanus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/395260818.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/395260818-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "呂一起(Lyu yi-chi)",
+      "sourceUrl": "https://www.inaturalist.org/photos/395260818",
+      "caption": "Cá bống suối Đài Loan trên đá trong suối",
+      "best": true,
+      "kind": "habitat",
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/fc053250e72b92a6.webp",
       "thumb": "https://media.aquatome.com/commons/fc053250e72b92a6-480.webp",
       "width": 1200,
@@ -12,9 +25,22 @@
       "caption": "Cá bống suối Đài Loan trong bể cá có đá cuội",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/395263839.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/395263839-480.webp",
+      "width": 1024,
+      "height": 746,
+      "licence": "CC BY",
+      "author": "呂一起(Lyu yi-chi)",
+      "sourceUrl": "https://www.inaturalist.org/photos/395263839",
+      "caption": "Cá bống suối Đài Loan nằm trên đá dưới suối",
+      "best": true,
+      "kind": "habitat",
+      "unchecked": true
     }
   ],
-  "seen": 2,
-  "updatedAt": "2026-11-09",
-  "builtAt": "2026-11-09"
+  "seen": 7,
+  "updatedAt": "2026-11-10",
+  "builtAt": "2026-11-10"
 }

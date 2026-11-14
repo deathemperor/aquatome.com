@@ -1,0 +1,126 @@
+{
+  "id": "pseudomugil-tenellus",
+  "native": {
+    "input": "9679fd353c37d1d5",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Large Billabong at Oenpelli, Arnhem Land, Northern Territory, Australia', which is part of the East Alligator river system, and now known to have a patchy but wide range throughout much of coastal northern Australia.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It also occurs on the Aru Islands, Maluku province, Indonesia, and in the Bensbach River, Papua New Guinea, and may be more widely distributed in southern New Guinea.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "PG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It also occurs on the Aru Islands, Maluku province, Indonesia, and in the Bensbach River, Papua New Guinea, and may be more widely distributed in southern New Guinea.",
+        "words": "Papua New Guinea",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "East Alligator",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Large Billabong at Oenpelli, Arnhem Land, Northern Territory, Australia', which is part of the East Alligator river system, and now known to have a patchy but wide range throughout much of coastal northern Australia.",
+        "country": "AU",
+        "ok": true
+      },
+      {
+        "name": "Cape York Peninsula",
+        "source": "seriouslyfish",
+        "quote": "To the east its range extends as far as the Cape York Peninsula with Queensland populations including the Coleman, Edward, Jardine, Lockhart, and Watson river systems, plus the Jacky Jacky and Scrubby creeks.",
+        "ok": true
+      },
+      {
+        "name": "Daly",
+        "source": "seriouslyfish",
+        "quote": "Additional records from the Northern Territory include the Alligator, Blyth, Daly, Finniss, Howard, Liverpool, and Mary river drainages.",
+        "ok": true
+      },
+      {
+        "name": "Aru Islands",
+        "source": "seriouslyfish",
+        "quote": "It also occurs on the Aru Islands, Maluku province, Indonesia, and in the Bensbach River, Papua New Guinea, and may be more widely distributed in southern New Guinea.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Bensbach River",
+        "source": "seriouslyfish",
+        "quote": "It also occurs on the Aru Islands, Maluku province, Indonesia, and in the Bensbach River, Papua New Guinea, and may be more widely distributed in southern New Guinea.",
+        "country": "PG",
+        "ok": true
+      },
+      {
+        "name": "New Guinea",
+        "source": "seriouslyfish",
+        "quote": "It also occurs on the Aru Islands, Maluku province, Indonesia, and in the Bensbach River, Papua New Guinea, and may be more widely distributed in southern New Guinea.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudomugil tenellus",
+    "status": "ACCEPTED",
+    "taxonKey": 2411748,
+    "datasets": [
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        179
+      ],
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        29
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        12
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        7
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        4
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        4
+      ],
+      [
+        "e4473544-f4cd-4429-b791-39d6e1fdb0a4",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "AU",
+      "ID",
+      "PG"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}

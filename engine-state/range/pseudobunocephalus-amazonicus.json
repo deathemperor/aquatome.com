@@ -1,0 +1,116 @@
+{
+  "id": "pseudobunocephalus-amazonicus",
+  "native": {
+    "input": "f43b84d8dda8bf7d",
+    "at": "2026-11-13T05:31:31.275Z",
+    "claims": [
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: creek near Todos Santos, upper course of Río Mamoré, Cochabamba, Bolivia.",
+        "words": "Bolivia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "South America: upper and middle Amazon River basin.",
+        "ok": true
+      },
+      {
+        "name": "Madeira",
+        "source": "planetcatfish",
+        "quote": "Recorded from the Amazon, Middle Amazon (Solimões), Madeira, Mamoré and Upper Amazon.",
+        "ok": true
+      },
+      {
+        "name": "Mamoré",
+        "source": "planetcatfish",
+        "quote": "Recorded from the Amazon, Middle Amazon (Solimões), Madeira, Mamoré and Upper Amazon.",
+        "ok": true
+      },
+      {
+        "name": "Solimões",
+        "source": "planetcatfish",
+        "quote": "Recorded from the Amazon, Middle Amazon (Solimões), Madeira, Mamoré and Upper Amazon.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BR",
+        "PE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudobunocephalus amazonicus",
+    "status": "ACCEPTED",
+    "taxonKey": 2340587,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        9
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        8
+      ],
+      [
+        "ada824f0-5741-4f99-8452-9bcf46472a84",
+        6
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        5
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        4
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        4
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "BO"
+    ],
+    "requests": 12,
+    "at": "2026-11-13T05:31:31.275Z"
+  }
+}

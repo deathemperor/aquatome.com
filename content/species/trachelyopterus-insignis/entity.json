@@ -18,6 +18,13 @@
           "min": 23,
           "max": 28
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -26,6 +33,13 @@
         "value": {
           "min": 6.2,
           "max": 7.2
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
         }
       }
     ],
@@ -42,6 +56,10 @@
       {
         "source": "planetcatfish",
         "value": 20
+      },
+      {
+        "source": "scotcat",
+        "value": 22.5
       }
     ]
   },
@@ -53,10 +71,22 @@
       "html": "<ul><li>Scientific name: Trachelyopterus insignis (Steindachner, 1878)</li><li>Common name: Flag Woodcat</li><li>Size: 200 mm (7.9\") SL</li><li>Etymology: Trachelyopterus, from the Greek trachelos, meaning neck, and pteron, meaning fin; in reference to the long cranial shield, which gives the appearance that the dorsal fin originates at the neck region.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_insignis.htm",
+      "html": "<ul><li>Common name: Flag Woodcat</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1097",
       "html": "<p>South America: Lower Magdalena River basin. Colombia Caribbean Rivers, Magdalena, Lower Magdalena. Type locality: Río Magdalena, Colombia. IUCN Red List category: Least Concern (last assessed 2014).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_insignis.htm",
+      "html": "<p>South America: Lower Magdalena River basin, Colombia. Type Locality: Magdalenen-Stromes [Colombia].</p>"
     },
     {
       "key": "waterConditions",
@@ -65,16 +95,46 @@
       "html": "<ul><li>pH: 6.2 - 7.2</li><li>Temperature: 23.0-28.0°C (73.4-82.4°F)</li><li>dH 10-25</li></ul><p>Note: Fishbase lists 23-38°C - the latter is most likely a typo.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_insignis.htm",
+      "html": "<p>Will eat most aquarium fare.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_insignis.htm",
+      "html": "<p>Good addition to the larger community tank and will not harass other occupants as long as they are not too small to be eaten on this catfish's night time prowls. Provide hiding places for it.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_insignis.htm",
+      "html": "<p>Males possess a long curved dorsal, genital papilla and thickened maxillary barbels.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1097",
       "html": "<p>Unreported. There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_insignis.htm",
+      "html": "<p>Etymology: The genus name Trachelyopterus: meaning trachelos, neck; pterus, fin, presumably referring to the elevated nape of T. coriaceus, which gives the appearance that dorsal fin originates at the neck region. The specific name insignis: Latin for marked, distinctive or conspicuous, presumably referring to the colour pattern: one specimen with numerous dark purple spots and marblings on upper half of body, a second specimen with spots all over body and fins.</p><p>Remarks: The name Auchenipterus insignis given precedence over A. magdalenae by first reviser action of Miles (1947: 73). Redescribed, as Trachycorystes magdalenae, in Schmidt (1928).</p><p>IUCN: This species is listed as Least Concern because it has a wide distribution, is common and there are no known major threats currently affecting its population (IUCN 2016).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1097",
       "html": "<p>Anzeiger der Kaiserlichen Akademie der Wissenschaften, Wien, Mathematisch-Naturwissenschaftliche Classe v. 15 (no. 12) (for 9 May 1878), pp 89.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_insignis.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2003. Auchenipteridae (Driftwood catfishes). p. 470-482. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2024. FishBase. World Wide Web electronic publication. www.fishbase.org, version (01/24).</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p><p>Villa-Navarro, F. 2016. Trachelyopterus insignis. The IUCN Red List of Threatened Species 2016.</p>"
     }
   ],
   "photos": [
@@ -113,16 +173,41 @@
     },
     {
       "url": "https://media.aquatome.com/commons/655d0ff635a587ce.webp",
+      "thumb": "https://media.aquatome.com/commons/655d0ff635a587ce-480.webp",
       "width": 960,
       "height": 415,
       "licence": "CC BY 2.0",
       "author": "Ictiologia Universidad Católica de Oriente",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tracheolipterus_insignis_(16610903379).jpg",
-      "caption": "Tracheolipterus insignis",
-      "thumb": "https://media.aquatome.com/commons/655d0ff635a587ce-480.webp"
+      "caption": "Tracheolipterus insignis"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "kX98SYpXb_E",
+      "title": "Trachelyopterus insignis - flag wood cat",
+      "durationSec": 26,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "7pwOKurqQds",
+      "title": "Wood Catfish [Trachelyopterus insignis]4K #woodcatfish #catfish #woodfish #fishshorts #aquariumfish",
+      "durationSec": 26,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "5xm-XhLCCoc",
+      "title": "Wood catfish breeding  (Trachycorystes insignis)",
+      "durationSec": 88,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "hX4unF3OrPk",
+      "title": "Trachelyopterus sp.",
+      "durationSec": 16,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -150,5 +235,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-10"
 }

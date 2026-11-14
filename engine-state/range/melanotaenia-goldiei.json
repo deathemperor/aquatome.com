@@ -1,0 +1,51 @@
+{
+  "id": "melanotaenia-goldiei",
+  "native": {
+    "input": "ef0fa9dea20696e9",
+    "at": "2026-11-10T07:58:31.896Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PG"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Melanotaenia goldiei",
+    "status": "ACCEPTED",
+    "taxonKey": 2411669,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        61
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        43
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        11
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-10T07:58:31.896Z"
+  }
+}

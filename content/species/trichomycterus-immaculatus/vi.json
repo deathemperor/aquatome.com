@@ -7,14 +7,17 @@
     "distribution:planetcatfish": "<p>Nam Mỹ: sông Paraíbuna thuộc lưu vực sông Paraíba do Sul, các sông ở bang Rio de Janeiro, sông Paraíba do Sul và sông Paraibuna (Minas Gerais).</p>",
     "diet:planetcatfish": "<p>Cá thuộc chi này ăn tốt cả thức ăn sống lẫn đông lạnh. Thức ăn khô làm sẵn bán ngoài tiệm chúng cũng chịu ăn. Bạn chú ý đừng cho ăn quá tay. Ngoài tự nhiên, chúng ăn các loài động vật không xương sống nhỏ sống ở đáy.</p>",
     "reproduction:planetcatfish": "<p>Chưa có ghi nhận nào về việc loài này sinh sản trong bể nuôi. Hiện cũng chưa có báo cáo nào về chuyện cho chúng đẻ.</p>",
-    "references:planetcatfish": "<p>Proceedings of the California Academy of Sciences (Series 2) tập 2, tr. 52.</p>"
+    "references:planetcatfish": "<p>Proceedings of the California Academy of Sciences (Series 2) tập 2, tr. 52.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: sông Paraíbuna, thuộc lưu vực sông Paraíba do Sul, Brazil. Nơi thu mẫu chuẩn: Juiz de Fora, Rio Parahybuna, Sao Matheos, Goyaz [Brazil].</p><p>Trichomycterus immaculatus chỉ có ở các sông ven biển, từ nam Bahia đến nam bang São Paulo. Loài này phân bố rộng và có số lượng khá nhiều. Người ta cũng chưa thấy mối đe dọa đáng kể nào tới quần thể của nó, nên IUCN xếp nó vào mức Ít quan tâm (LC) (IUCN 2022).</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên: tên loài immaculatus lấy từ tính từ Latin immaculatus, nghĩa là không đốm, không vết. Tên này nói đến màu của loài cá này, trên thân không có chấm hay đốm nào.</p><p>Dọc nắp mang, ở phía dưới, T. immaculatus có những gai nhỏ (odontodes). Nhờ đám gai này mà nó bám được vào mặt đá (Sabaj, Mark Henry 2018).</p><p>Họ Trichomycteridae là một nhóm đơn ngành, gồm tám phân họ, 41 chi và khoảng 207 loài (Ferraris 2007). Có ý kiến cho rằng chi Trichomycterus không đơn ngành (de Pinna 1989). Đây là chi đông loài nhất và phân bố rộng nhất trong họ, với 113 loài hợp lệ có mặt khắp Nam Mỹ và Trung Mỹ, ở cả hai phía dãy Andes (de Pinna và Wosiacki 2003, Ferraris 2007). Riêng ở các lưu vực sông miền nam và đông nam Brazil, người ta đã mô tả 34 loài (Bockman và cộng sự 2004).</p>",
+    "references:scotcat": "<p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, (01/2019).</p><p>Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio). 2022. Trichomycterus immaculatus. The IUCN Red List of Threatened Species 2022.</p><p>Sabaj, Mark Henry; FB page 2018.</p>"
   },
   "quality": {
     "score": 0.8,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.8
-    },
-    "reason": "thin"
+      "planetcatfish": 0.8,
+      "scotcat": 0.8
+    }
   }
 }

@@ -69,7 +69,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bình lọc chứa đầy hạt vật liệu vi sinh lơ lửng trong nước.",
-            "sharpness": 235.5
+            "sharpness": 235.5,
+            "person": false
           },
           {
             "t": 225,
@@ -84,14 +85,6 @@
       {
         "heading": "Vì sao dùng một bể cá cũ làm thùng lọc",
         "moments": [
-          {
-            "t": 535,
-            "url": "https://media.aquatome.com/video/NsTJkrUrc_U/at535-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể lớn trong suốt đặt trong xưởng, dùng làm thùng lọc.",
-            "sharpness": 679.8
-          },
           {
             "t": 650,
             "url": "https://media.aquatome.com/video/NsTJkrUrc_U/at650.webp",
@@ -115,20 +108,13 @@
         "heading": "Dòng nước chạy thế nào",
         "moments": [
           {
-            "t": 255,
-            "url": "https://media.aquatome.com/video/NsTJkrUrc_U/at255-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Máy bơm lớn đặt trong hộc tủ gỗ dưới bể, dùng cho lọc thùng cũ.",
-            "sharpness": 475.6
-          },
-          {
             "t": 280,
             "url": "https://media.aquatome.com/video/NsTJkrUrc_U/at280-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Thùng lọc trong suốt đặt trên bệ gỗ, nước chảy xuống qua lớp hạt lọc.",
-            "sharpness": 584
+            "sharpness": 584,
+            "person": false
           }
         ]
       },
@@ -186,27 +172,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Air_pump_and_stone.jpg",
           "caption": "Máy sủi khí kèm dây dẫn khí và đá sủi để giữ hạt lọc lơ lửng."
         }
-      },
-      {
-        "heading": "Chân đế cho thùng lọc trên cao",
-        "moments": [
-          {
-            "t": 675,
-            "url": "https://media.aquatome.com/video/NsTJkrUrc_U/at675-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chân đế khung kim loại đặt dưới thùng lọc trên cao, có người chỉ vào.",
-            "sharpness": 170.1
-          },
-          {
-            "t": 680,
-            "url": "https://media.aquatome.com/video/NsTJkrUrc_U/at680-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khung chân đế chắc chắn gần tường, tay chỉ vào phần chân.",
-            "sharpness": 366.3
-          }
-        ]
       }
     ]
   }

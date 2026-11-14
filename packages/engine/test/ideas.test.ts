@@ -2,6 +2,7 @@ import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
+import { nameStep } from '../src/ceiling'
 import { LlmError, type Llm } from '../src/claude'
 import { listPosts, readIdeas, refreshIdeas, writeIdeas, type IdeasState } from '../src/ideas'
 
@@ -131,4 +132,37 @@ test('writing: the most asked idea first, its shops\' posts as leads that say ne
   expect(s.ideas[2]).not.toHaveProperty('skipped')
   expect(s.written['2026-11-04']).toBeUndefined()
   expect(JSON.parse(await readFile(join(root, 'engine-state/_ideas.json'), 'utf8')).ideas).toHaveLength(3)
+})
+
+test('a guide is started only when what\'s left of the day\'s line covers its last one too: in the cloud, $3 a day from 13 Nov', async () => {
+  // The chief of staff, 2026-11-12: on 12 Nov the step spent its $1 line on 7 of a guide's 9 calls and wrote nothing.
+  // A guide costs $1.28 to $1.37; the cloud's line is $3 (two guides). The Mac's stays $0: the step runs in the cloud.
+  const root = await site({})
+  const state: IdeasState = { readAt: '2026-11-13T00:00:00Z', posts: {}, ideas: [{ topic: 'Cá thiếu oxy', kind: 'care', posts: [], sites: 1 }], written: {} }
+  await writeFile(join(root, 'engine-state/_ideas.json'), JSON.stringify(state))
+  const log = join(root, 'aquatome-cost-rewrite.jsonl')
+  const piece = (at: string, usd: number) => JSON.stringify({ at, step: 'write-ideas', piece: `x ${at}`, pieceUsd: usd, finished: true })
+  const asked: string[] = []
+  const research: Llm = async <T>({ prompt }: { prompt: string }) => { asked.push(prompt); return { found: false, facts: [], species: [], sources: [] } as T }
+  const github = process.env.GITHUB_ACTIONS
+  process.env.GITHUB_ACTIONS = 'true'
+  process.env.ENGINE_COST_LOG = log
+  nameStep('write-ideas')
+  try {
+    // $1.65 spent today: $1.35 left covers the $1.30 middle, but not the $1.37 last guide.
+    await writeFile(log, [piece('2026-11-10T09:00:00Z', 1.28), piece('2026-11-11T09:00:00Z', 1.3), piece('2026-11-11T10:00:00Z', 1.37), JSON.stringify({ at: '2026-11-13T04:00:00Z', step: 'write-ideas', usd: 1.65 })].join('\n') + '\n')
+    const r = await writeIdeas(root, { research, llm: research, now: () => new Date('2026-11-13T05:00:00Z') }, { perDay: 2 })
+    expect(r.stopped).toContain('not started: $1.35 left, a piece costs about $1.37')
+    expect(asked).toEqual([])
+    expect((await readIdeas(root)).ideas[0]).not.toHaveProperty('skipped')
+    // $1 spent today: $2 left, and it starts.
+    await writeFile(log, [piece('2026-11-10T09:00:00Z', 1.28), piece('2026-11-11T09:00:00Z', 1.3), piece('2026-11-11T10:00:00Z', 1.37), JSON.stringify({ at: '2026-11-13T04:00:00Z', step: 'write-ideas', usd: 1 })].join('\n') + '\n')
+    expect((await writeIdeas(root, { research, llm: research, now: () => new Date('2026-11-13T05:00:00Z') }, { perDay: 2 })).stopped).toBe('')
+    expect(asked).toHaveLength(1)
+  } finally {
+    process.env.ENGINE_COST_LOG = 'off'
+    nameStep(undefined)
+    if (github === undefined) delete process.env.GITHUB_ACTIONS
+    else process.env.GITHUB_ACTIONS = github
+  }
 })

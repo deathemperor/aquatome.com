@@ -1,0 +1,60 @@
+{
+  "id": "nothobranchius-eggersi",
+  "native": {
+    "input": "868bbbb7a7e88da6",
+    "at": "2026-11-10T20:57:55.515Z",
+    "claims": [
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Nothobranchius eggersi is an annual killifish apparently endemic to the lower Rufiji in eastern Tanzania, including freshwater parts of the delta.",
+        "words": "Tanzania",
+        "ok": true
+      },
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rufiji River near Utete, eastern Tanzania', and this species is apparently endemic to the lower Rufiji including the Selous Game Reserve and freshwater parts of the Rufiji delta region.",
+        "words": "Tanzania",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rufiji",
+        "source": "seriouslyfish",
+        "quote": "Nothobranchius eggersi is an annual killifish apparently endemic to the lower Rufiji in eastern Tanzania, including freshwater parts of the delta.",
+        "country": "TZ",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Nothobranchius eggersi",
+    "status": "ACCEPTED",
+    "taxonKey": 2348645,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        11
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ]
+    ],
+    "native": [
+      "TZ"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T20:57:55.515Z"
+  }
+}

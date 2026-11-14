@@ -141,7 +141,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cóc Suriname dang tay đứng trong bể giữa lá khô và gỗ lũa.",
-            "sharpness": 1569.5
+            "sharpness": 1569.5,
+            "person": false
           },
           {
             "t": 1000,
@@ -149,7 +150,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể cao dáng đứng với lũa, rễ cây và cây thủy sinh xanh.",
-            "sharpness": 4323.5
+            "sharpness": 4323.5,
+            "person": false
           }
         ],
         "photo": {
@@ -164,65 +166,16 @@
         }
       },
       {
-        "heading": "Khoan kính và lắp bulkhead thế nào",
-        "moments": [
-          {
-            "t": 140,
-            "url": "https://media.aquatome.com/video/lM3-zxjaako/at140-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh đầu nối bulkhead đặt cạnh lỗ khoan trên tấm kính.",
-            "sharpness": 161.1
-          },
-          {
-            "t": 250,
-            "url": "https://media.aquatome.com/video/lM3-zxjaako/at250-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng kìm siết đai ốc bulkhead xuyên qua kính bể.",
-            "sharpness": 638
-          }
-        ]
-      },
-      {
         "heading": "Xử lý đáy bể và dán phông nền",
         "moments": [
-          {
-            "t": 300,
-            "url": "https://media.aquatome.com/video/lM3-zxjaako/at300-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Silicone được bôi thành các đường lên đáy bể trước khi ép phông.",
-            "sharpness": 1670.8
-          },
           {
             "t": 310,
             "url": "https://media.aquatome.com/video/lM3-zxjaako/at310-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Dùng tạ và vật nặng đè lên phông để keo dính chặt.",
-            "sharpness": 327.9
-          }
-        ]
-      },
-      {
-        "heading": "Làm bố cục, lá khô và cây cho cóc",
-        "moments": [
-          {
-            "t": 500,
-            "url": "https://media.aquatome.com/video/lM3-zxjaako/at500-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lũa xếp tỏa như rễ cây trong bể, có đá và nền cát.",
-            "sharpness": 2005.6
-          },
-          {
-            "t": 510,
-            "url": "https://media.aquatome.com/video/lM3-zxjaako/at510-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lũa được cố định vào phông bằng keo bọt nở màu trắng.",
-            "sharpness": 1678.8
+            "sharpness": 327.9,
+            "person": false
           }
         ]
       },
@@ -243,7 +196,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Sump tự làm với sưởi đặt trong ngăn lọc, cạnh mút xốp xanh.",
-            "sharpness": 1037.5
+            "sharpness": 1037.5,
+            "person": false
           }
         ],
         "photo": {
@@ -266,7 +220,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai cút hớt nước trên mặt đặt trong bể, phần miệng trắng nổi lên.",
-            "sharpness": 1081.3
+            "sharpness": 1081.3,
+            "person": false
           }
         ]
       },
@@ -274,20 +229,13 @@
         "heading": "Vì sao phải có lớp an toàn cho sưởi",
         "moments": [
           {
-            "t": 750,
-            "url": "https://media.aquatome.com/video/lM3-zxjaako/at750-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Xem nhiệt độ bể ngay trên điện thoại qua ứng dụng.",
-            "sharpness": 527.5
-          },
-          {
             "t": 780,
             "url": "https://media.aquatome.com/video/lM3-zxjaako/at780-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bộ điều nhiệt kỹ thuật số cắm hai sưởi đặt trên bể.",
-            "sharpness": 462.7
+            "sharpness": 462.7,
+            "person": false
           }
         ]
       },
@@ -300,7 +248,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể mới lên đèn, có lũa, cây và lá phủ nền.",
-            "sharpness": 4187
+            "sharpness": 4187,
+            "person": false
           },
           {
             "t": 950,
@@ -308,7 +257,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cặp cóc nằm giữa lớp lá khô trong bể mới.",
-            "sharpness": 516.6
+            "sharpness": 516.6,
+            "person": false
           }
         ]
       }

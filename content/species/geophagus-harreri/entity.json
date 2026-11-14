@@ -1,0 +1,215 @@
+{
+  "id": "geophagus-harreri",
+  "scientificName": "Geophagus harreri",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Geophagus",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "suriname",
+    "tapanahoni"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "SR"
+      ],
+      "regions": [
+        "Tapanahoni",
+        "Maroni"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The parents originate from Suriname (the Tapanahoni river).",
+          "countries": [
+            "SR"
+          ],
+          "regions": [
+            "Tapanahoni"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The species also occurs in other rivers of Suriname, for example the Maroni river.",
+          "countries": [],
+          "regions": [
+            "Maroni"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208428,
+      "total": 168,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "GF",
+          125
+        ],
+        [
+          "SR",
+          43
+        ]
+      ],
+      "cells": [
+        [
+          -56.25,
+          2.8125,
+          14,
+          14
+        ],
+        [
+          -54.84375,
+          1.40625,
+          4,
+          0
+        ],
+        [
+          -54.84375,
+          2.8125,
+          83,
+          8
+        ],
+        [
+          -54.84375,
+          4.21875,
+          63,
+          21
+        ],
+        [
+          -53.4375,
+          2.8125,
+          4,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 25
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "glaser",
+        "value": 200
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_harreri_en/",
+      "html": "<p>Maximum size: probably around 25 cm.</p><p>Geophagus means \"eartheater\"; harreri is a dedication name for one of the collectors of the type material.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_harreri_en/",
+      "html": "<p>The parents originate from Suriname (the Tapanahoni river). The species also occurs in other rivers of Suriname, for example the Maroni river.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_harreri_en/",
+      "html": "<p>The fish prefer a moderate to strong current, but change to habitats with less current for breeding.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_harreri_en/",
+      "html": "<p>Compared with other eartheaters, this species can be very aggressive. Thus G. harreri should only be kept in very spacious tanks (200 cm minimum length).</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_harreri_en/",
+      "html": "<p>This species needs comparably high water temperatures and should be kept at least at 28°C. It is no problem at all to go up to 32°C. Soft, acidic and bacteria-poor water boosts coloration and benefits the fish in general.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_harreri_en/",
+      "html": "<p>It is possible to keep the species along with other large cichlids (other eartheaters, Mesonauta, Heros, Uaru, etc.). Keeping G. harreri in company with many other fish calms them down with respect to aggressiveness.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_harreri_en/",
+      "html": "<p>Males become larger and are more elongate. Females stay smaller and look more stout. Old fish may get a slight hump, but this seems not to be sex-specific.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_harreri_en/",
+      "html": "<p>The species belongs to the open brooders and uses roots or stones for spawning. Up to 150 fry have been obtained so far, but a good pair may produce around 400 young.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "iH3NJhu4peo",
+      "title": "Fish of the Suriname Rapids ! Guianacara,  Crenicichla , Hypomasticus despaxi and Geophagus harreri",
+      "durationSec": 462,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "UoTSpZuIfUI",
+      "title": "Geophagus harreri wild Suriname",
+      "durationSec": 13,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "heAtUQWtA5o",
+      "title": "Geophagus Harreri",
+      "durationSec": 18,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "u4zzzIlUwmg",
+      "title": "Geophagus harreri",
+      "durationSec": 36,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 200cm"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300w",
+        "máy sưởi thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "sỏi mịn cho cá ăn đất"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-11"
+}

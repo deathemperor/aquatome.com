@@ -10,6 +10,75 @@
     "brazil",
     "sao-francisco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "São Francisco"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio São Francisco near Barra, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: São Francisco River basin, Brazil.",
+          "countries": [],
+          "regions": [
+            "São Francisco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340023,
+      "total": 12,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "BR",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          -46.40625,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          -45,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -40.78125,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -39.375,
+          -9.84375,
+          8,
+          8
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

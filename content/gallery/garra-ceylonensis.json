@@ -38,18 +38,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/614307660.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/614307660-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "dhfischer",
-      "sourceUrl": "https://www.inaturalist.org/photos/614307660",
-      "caption": "Cá hút rêu Sri Lanka bơi trong suối nước trong, đáy sỏi",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/374375899.webp",
       "thumb": "https://media.aquatome.com/inaturalist/374375899-480.webp",
       "width": 1024,
@@ -59,6 +47,18 @@
       "sourceUrl": "https://www.inaturalist.org/photos/374375899",
       "caption": "Cá hút rêu Sri Lanka bơi trên cát trong suối",
       "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/614307660.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/614307660-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "dhfischer",
+      "sourceUrl": "https://www.inaturalist.org/photos/614307660",
+      "caption": "Cá hút rêu Sri Lanka bơi trong suối nước trong, đáy sỏi",
+      "best": true,
       "kind": "habitat"
     }
   ],

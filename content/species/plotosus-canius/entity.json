@@ -1,0 +1,104 @@
+{
+  "id": "plotosus-canius",
+  "scientificName": "Plotosus canius",
+  "order": "Siluriformes",
+  "family": "Plotosidae",
+  "genus": "Plotosus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "sri-lanka",
+    "bangladesh",
+    "myanmar",
+    "philippines",
+    "oceania",
+    "papua-new-guinea"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 150
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1356",
+      "html": "<ul><li>Scientific name: Plotosus canius Hamilton, 1822</li><li>Type locality: Southern Bengal, India.</li><li>Identification: a plain dusky-brown species with a black dorsal fin tip. It shows a banded pattern at night. It is distinguished from adult Plotosus lineatus by its long nostril barbels, which can reach past the eyes.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1356",
+      "html": "<p>Indo-West Pacific: west and south coasts of India and off Sri Lanka, eastward along the coasts of Bangladesh and Myanmar, through the Indo-Australian Archipelago and the Philippines as far as Papua New Guinea.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1356",
+      "html": "<p>A brackish water to marine species.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1356",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1356",
+      "html": "<p>The spines associated with the anterior fins have potent venom.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1356",
+      "html": "<p>An account of the fishes found in the river Ganges, pp 142, 374, Pl. 15 (fig. 44).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/ff4d4d0357ebdc5d.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY 4.0",
+      "author": "Wich’yanan L",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Plotosus_canius_166132053.jpg",
+      "caption": "Eel Catfish (Plotosus canius) in Thailand",
+      "thumb": "https://media.aquatome.com/commons/ff4d4d0357ebdc5d-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "s54y1tgRAWQ",
+      "title": "Two eel tail catfish, Plotosus canius, ~1.5 years old, ~2', 4500 gal, 12-21-2017",
+      "durationSec": 43,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ziAHJLDPMGg",
+      "title": "Eel Tail Catfish (Plotosus canius) – A Unique Estuary Giant ",
+      "durationSec": 167,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "SF-YaKA7Rdw",
+      "title": "Black eeltail catfish | Plotosus canius #shorts",
+      "durationSec": 16,
+      "lang": "bn"
+    },
+    {
+      "youtubeId": "VGi8rGaoV9Y",
+      "title": "Two eeltail catfish Plotosus canius, 2.5', clip",
+      "durationSec": 26,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-13"
+}

@@ -1,0 +1,72 @@
+{
+  "id": "nemacheilus-saravacensis",
+  "native": {
+    "input": "409a88a043de0fb1",
+    "at": "2026-11-10T15:58:17.469Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Nemacheilus saravacensis is a nemacheilid loach from Borneo, recorded from drainages in Sarawak (Malaysia) and West Kalimantan (Indonesia).",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Nemacheilus saravacensis is a nemacheilid loach from Borneo, recorded from drainages in Sarawak (Malaysia) and West Kalimantan (Indonesia).",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the island of Borneo where it's been recorded from various drainages in the Malaysian state of Sarawak and neighbouring Indonesian province Kalimantan Barat (West Kalimantan).",
+        "words": "Malaysian",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the island of Borneo where it's been recorded from various drainages in the Malaysian state of Sarawak and neighbouring Indonesian province Kalimantan Barat (West Kalimantan).",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Native to the island of Borneo where it's been recorded from various drainages in the Malaysian state of Sarawak and neighbouring Indonesian province Kalimantan Barat (West Kalimantan).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Nemacheilus saravacensis",
+    "status": "ACCEPTED",
+    "taxonKey": 5205295,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T15:58:17.469Z"
+  }
+}

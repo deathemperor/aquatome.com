@@ -1,0 +1,74 @@
+{
+  "id": "rasbora-dusonensis",
+  "native": {
+    "input": "c899cf099103b95e",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known with certainty from Sumatra, Indonesia (from the Indragiri River, Riau province to the Musi River, South Sumatra province), Peninsular Malaysia (eastward and southward from the Bernam River system in Perak and Selangor states to the Endau River drainage in Johor state) and Borneo (from the Baram river basin in Sarawak state, Malaysia to the Barito drainage in South Kalimantan province, Indonesia).",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known with certainty from Sumatra, Indonesia (from the Indragiri River, Riau province to the Musi River, South Sumatra province), Peninsular Malaysia (eastward and southward from the Bernam River system in Perak and Selangor states to the Endau River drainage in Johor state) and Borneo (from the Baram river basin in Sarawak state, Malaysia to the Barito drainage in South Kalimantan province, Indonesia).",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Known with certainty from Sumatra, Indonesia (from the Indragiri River, Riau province to the Musi River, South Sumatra province), Peninsular Malaysia (eastward and southward from the Bernam River system in Perak and Selangor states to the Endau River drainage in Johor state) and Borneo (from the Baram river basin in Sarawak state, Malaysia to the Barito drainage in South Kalimantan province, Indonesia).",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Known with certainty from Sumatra, Indonesia (from the Indragiri River, Riau province to the Musi River, South Sumatra province), Peninsular Malaysia (eastward and southward from the Bernam River system in Perak and Selangor states to the Endau River drainage in Johor state) and Borneo (from the Baram river basin in Sarawak state, Malaysia to the Barito drainage in South Kalimantan province, Indonesia).",
+        "ok": true
+      },
+      {
+        "name": "Musi",
+        "source": "seriouslyfish",
+        "quote": "Known with certainty from Sumatra, Indonesia (from the Indragiri River, Riau province to the Musi River, South Sumatra province), Peninsular Malaysia (eastward and southward from the Bernam River system in Perak and Selangor states to the Endau River drainage in Johor state) and Borneo (from the Baram river basin in Sarawak state, Malaysia to the Barito drainage in South Kalimantan province, Indonesia).",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Barito",
+        "source": "seriouslyfish",
+        "quote": "Known with certainty from Sumatra, Indonesia (from the Indragiri River, Riau province to the Musi River, South Sumatra province), Peninsular Malaysia (eastward and southward from the Bernam River system in Perak and Selangor states to the Endau River drainage in Johor state) and Borneo (from the Baram river basin in Sarawak state, Malaysia to the Barito drainage in South Kalimantan province, Indonesia).",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Baram",
+        "source": "seriouslyfish",
+        "quote": "Known with certainty from Sumatra, Indonesia (from the Indragiri River, Riau province to the Musi River, South Sumatra province), Peninsular Malaysia (eastward and southward from the Bernam River system in Perak and Selangor states to the Endau River drainage in Johor state) and Borneo (from the Baram river basin in Sarawak state, Malaysia to the Barito drainage in South Kalimantan province, Indonesia).",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Indragiri",
+        "source": "seriouslyfish",
+        "quote": "Known with certainty from Sumatra, Indonesia (from the Indragiri River, Riau province to the Musi River, South Sumatra province), Peninsular Malaysia (eastward and southward from the Bernam River system in Perak and Selangor states to the Endau River drainage in Johor state) and Borneo (from the Baram river basin in Sarawak state, Malaysia to the Barito drainage in South Kalimantan province, Indonesia).",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  }
+}

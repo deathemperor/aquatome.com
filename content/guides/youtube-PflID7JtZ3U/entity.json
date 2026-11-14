@@ -40,48 +40,6 @@
     ],
     "figures": [
       {
-        "heading": "Dựng khung đáy và khung trên thế nào",
-        "moments": [
-          {
-            "t": 25,
-            "url": "https://media.aquatome.com/video/PflID7JtZ3U/at25-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng kẹp góc vuông giữ khung đáy bằng gỗ khi bắt vít.",
-            "sharpness": 710.8
-          },
-          {
-            "t": 50,
-            "url": "https://media.aquatome.com/video/PflID7JtZ3U/at50-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khung đáy đã có các thanh dẫn đứng dựng lên.",
-            "sharpness": 464.4
-          }
-        ]
-      },
-      {
-        "heading": "Cột chịu lực cần bao nhiêu và vì sao dùng gỗ 2x4",
-        "moments": [
-          {
-            "t": 110,
-            "url": "https://media.aquatome.com/video/PflID7JtZ3U/at110-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các cột 2x4 đứng quanh khung chân tủ, bên dưới còn nhiều chỗ trống.",
-            "sharpness": 187
-          },
-          {
-            "t": 120,
-            "url": "https://media.aquatome.com/video/PflID7JtZ3U/at120-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khung chân tủ gỗ 2x4 với các cột đứng chịu lực đã dựng xong.",
-            "sharpness": 160.7
-          }
-        ]
-      },
-      {
         "heading": "Thanh giằng ở giữa lắp thế nào",
         "moments": [
           {
@@ -91,14 +49,6 @@
             "height": 675,
             "caption": "Khung chân tủ gỗ với các thanh giằng ngang bên trong.",
             "sharpness": 57.1
-          },
-          {
-            "t": 160,
-            "url": "https://media.aquatome.com/video/PflID7JtZ3U/at160-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chân tủ đã lật lại, thấy rõ các thanh giằng đỡ.",
-            "sharpness": 359.7
           }
         ]
       },
@@ -136,14 +86,6 @@
       {
         "heading": "Ốp ván ép quanh chân tủ",
         "moments": [
-          {
-            "t": 260,
-            "url": "https://media.aquatome.com/video/PflID7JtZ3U/at260-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dải ván ép ốp ở mặt trước chân tủ, cách sàn vài cm.",
-            "sharpness": 491.8
-          },
           {
             "t": 320,
             "url": "https://media.aquatome.com/video/PflID7JtZ3U/at320-hd.webp",
@@ -186,7 +128,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Chân tủ và khung bể sơn xám rất đậm, gần như đen.",
-            "sharpness": 196.3
+            "sharpness": 196.3,
+            "person": false
           },
           {
             "t": 510,
@@ -194,7 +137,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể ván ép đã sơn xám đậm, hợp với tường và sàn gỗ.",
-            "sharpness": 282.8
+            "sharpness": 282.8,
+            "person": false
           }
         ]
       }

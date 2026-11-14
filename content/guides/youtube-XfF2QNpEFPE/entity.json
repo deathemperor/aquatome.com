@@ -57,20 +57,13 @@
         "heading": "Làm sao để tủ kính giữ được nước",
         "moments": [
           {
-            "t": 100,
-            "url": "https://media.aquatome.com/video/XfF2QNpEFPE/at100-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đeo găng bơm silicone vào mép kính ở đáy tủ.",
-            "sharpness": 392.7
-          },
-          {
             "t": 135,
             "url": "https://media.aquatome.com/video/XfF2QNpEFPE/at135-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Đáy tủ đã trám silicone thành hộp kính kín nước.",
-            "sharpness": 1416.8
+            "sharpness": 1416.8,
+            "person": false
           }
         ],
         "photo": {
@@ -93,36 +86,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thanh cữ nhôm được kẹp trên mặt kính làm đường dẫn để cắt.",
-            "sharpness": 415
-          },
-          {
-            "t": 75,
-            "url": "https://media.aquatome.com/video/XfF2QNpEFPE/at75-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đeo găng tay, rạch một đường dứt khoát dọc thanh cữ trên tấm kính.",
-            "sharpness": 522.9
-          }
-        ]
-      },
-      {
-        "heading": "Trám silicone để làm kín đáy tủ",
-        "moments": [
-          {
-            "t": 110,
-            "url": "https://media.aquatome.com/video/XfF2QNpEFPE/at110-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đeo găng miết silicone dọc mép kính ở đáy tủ.",
-            "sharpness": 686
-          },
-          {
-            "t": 125,
-            "url": "https://media.aquatome.com/video/XfF2QNpEFPE/at125-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng ngón tay miết phẳng đường silicone ở góc cạnh tấm kính.",
-            "sharpness": 899.3
+            "sharpness": 415,
+            "person": false
           }
         ]
       },
@@ -156,15 +121,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Những khúc lũa mopani nhiều nhánh dùng để dựng khung.",
-            "sharpness": 300.8
-          },
-          {
-            "t": 230,
-            "url": "https://media.aquatome.com/video/XfF2QNpEFPE/at230-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khoan xuyên qua nóc tủ để bắt vít treo khúc lũa.",
-            "sharpness": 352.3
+            "sharpness": 300.8,
+            "person": false
           }
         ]
       },
@@ -172,20 +130,13 @@
         "heading": "Trồng cây lên tường thế nào",
         "moments": [
           {
-            "t": 320,
-            "url": "https://media.aquatome.com/video/XfF2QNpEFPE/at320-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dương xỉ đã được trồng lên thân lũa, nhìn rất tự nhiên.",
-            "sharpness": 792.5
-          },
-          {
             "t": 335,
             "url": "https://media.aquatome.com/video/XfF2QNpEFPE/at335-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cây không khí gắn trên nhánh lũa cạnh bụi dương xỉ.",
-            "sharpness": 1350.5
+            "sharpness": 1350.5,
+            "person": false
           }
         ],
         "photo": {
@@ -200,19 +151,6 @@
         }
       },
       {
-        "heading": "Làm phần nước dưới đáy",
-        "moments": [
-          {
-            "t": 355,
-            "url": "https://media.aquatome.com/video/XfF2QNpEFPE/at355-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Xếp đá Dragon stone dưới đáy để giữ chân lũa và che bộ lọc.",
-            "sharpness": 1205.4
-          }
-        ]
-      },
-      {
         "heading": "Hệ thống này vận hành ra sao",
         "moments": [
           {
@@ -221,7 +159,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh tủ gần kín với đèn, lũa và cây phủ hai bên.",
-            "sharpness": 1019.7
+            "sharpness": 1019.7,
+            "person": false
           },
           {
             "t": 430,
@@ -229,7 +168,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây dương xỉ và cây bám lũa mọc um tùm trên bức tường cây.",
-            "sharpness": 2304.3
+            "sharpness": 2304.3,
+            "person": false
           }
         ],
         "photo": {

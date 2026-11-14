@@ -1,0 +1,72 @@
+{
+  "id": "aristochromis-christyi",
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/7542f3877ec8fc2442ff951612dbc879.webp",
+      "thumb": "https://media.aquatome.com/processed/7542f3877ec8fc2442ff951612dbc879-480.webp",
+      "width": 1024,
+      "height": 606,
+      "licence": "dùng với sự cho phép",
+      "author": "Harn Sheng",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aristochromis-christyi",
+      "caption": "Subadult male specimen.",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-aristochromis-christyi",
+        "pixelHash": "0c5ae46c99bcda7309246a69eec674fd4cf00360c46370bcb32900c8338a2c0f"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T09:46:43.063Z",
+          "originalHash": "854efb0b44d02beb3c23dbee69670f3a3d76e981324e1978d0c2812d74225494",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 1024,
+            "originalHeight": 685,
+            "window": {
+              "x0": 0,
+              "y0": 0,
+              "x1": 1024,
+              "y1": 606
+            },
+            "subject": {
+              "x0": 85,
+              "y0": 205,
+              "x1": 953,
+              "y1": 508
+            },
+            "margin": 18
+          },
+          "excludedMarks": [
+            {
+              "x0": 573,
+              "y0": 613,
+              "x1": 983,
+              "y1": 655
+            }
+          ],
+          "checks": {
+            "species": [
+              "5561a266ce3287165c03676cb2962a5c1d1cfb0cbee204d1e7e9ec964ffef51c",
+              "51b1104f1ec8b93e447be44a2ded4128cebe2134aa4eabd8d725087426f4a443"
+            ],
+            "ownership": [
+              "e02ba92798806db5b6fe0f8dc161ca4f8e9117e997f38ec52efa676bafb811b8",
+              "b9919105978655076b3a43736dfeebe70252b56760f83bb5057b555b96b160d3"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/bed4082d4d7bc354.webp",
+        "width": 1024,
+        "height": 685,
+        "thumb": "https://media.aquatome.com/seriouslyfish/bed4082d4d7bc354-480.webp"
+      }
+    }
+  ],
+  "seen": 0,
+  "updatedAt": "2026-11-11"
+}

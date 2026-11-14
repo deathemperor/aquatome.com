@@ -1,0 +1,70 @@
+{
+  "id": "geophagus-dicrozoster",
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/3abf2cf0986df24b30c9146129fa7001.webp",
+      "thumb": "https://media.aquatome.com/processed/3abf2cf0986df24b30c9146129fa7001-480.webp",
+      "width": 1000,
+      "height": 606,
+      "licence": "dùng với sự cho phép",
+      "author": "Gerry Verrier / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-dicrozoster",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261113-geophagus-dicrozoster-recovery-1",
+        "pixelHash": "467133a7d3884329a80b50dfb32dac91f24d437383821a0953442bc7e9d0e07b"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-13T07:58:31.924Z",
+          "originalHash": "74ca9f7a6f134117e59f622af44cc95fd8bace7d0119c08fd37f49cd3f2ba8a9",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 1000,
+            "originalHeight": 664,
+            "window": {
+              "x0": 0,
+              "y0": 58,
+              "x1": 1000,
+              "y1": 664
+            },
+            "subject": {
+              "x0": 86,
+              "y0": 114,
+              "x1": 875,
+              "y1": 584
+            },
+            "margin": 17
+          },
+          "excludedMarks": [
+            {
+              "x0": 842,
+              "y0": 28,
+              "x1": 965,
+              "y1": 51
+            }
+          ],
+          "checks": {
+            "species": [
+              "9faf8b7bbe17ca4528de5ee923e259a9ea8c0e3ffd69f656292dce82fee5702f",
+              "a07e048f39c72cc32e54cf03c685b930881c4ba393181327a0c07d37e0765aee"
+            ],
+            "ownership": [
+              "ad8018630404b948f5f2a0dfe5e66aa370dc1eb7dbf44ca260420e778e3cd5d7",
+              "f5ecf44dda1e89ee56d30a9723000103366e1076e3b4ae0e5a775e505824b99f"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/57534577c0c1ccbc.webp",
+        "width": 1000,
+        "height": 664
+      }
+    }
+  ],
+  "seen": 0,
+  "updatedAt": "2026-11-13"
+}

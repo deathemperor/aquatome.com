@@ -22,6 +22,9 @@ export function categories(c: Content): CategoryUse[] {
 /** The categories with a page in a language: all of them in Vietnamese; elsewhere those whose guide is translated. */
 export const categoriesIn = (lang: Lang, c: Content) => categories(c).filter(u => lang === 'vi' || c.equipment.some(e => e.category === u.category))
 
+/** Whether a language builds a page for a kind of kit. A guide alone does not make one: a fish or a plant there must use the kind. */
+export const hasCategoryPage = (lang: Lang, c: Content, category: string) => categoriesIn(lang, c).some(u => u.category === category)
+
 /** "Lọc thùng  100W" and "lọc thùng 100w" are one suggestion. */
 export const normKeyword = (k: string) => k.toLowerCase().replace(/\s+/g, ' ').trim()
 

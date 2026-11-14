@@ -1,0 +1,61 @@
+{
+  "id": "pethia-nigripinna",
+  "native": {
+    "input": "8dd2f5800e131765",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is Kalindhi stream, a tributary of the Kabini River in Wayanad District, Kerala state, southwestern India, with an additional population known from Kakkan Halla in the Moyar River system, Nilgiri Hills region, Tamil Nadu state.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Western Ghats",
+        "source": "seriouslyfish",
+        "quote": "It therefore appears endemic to the southern Western Ghats mountains.",
+        "ok": true
+      },
+      {
+        "name": "Kabini River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is Kalindhi stream, a tributary of the Kabini River in Wayanad District, Kerala state, southwestern India, with an additional population known from Kakkan Halla in the Moyar River system, Nilgiri Hills region, Tamil Nadu state.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Moyar River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is Kalindhi stream, a tributary of the Kabini River in Wayanad District, Kerala state, southwestern India, with an additional population known from Kakkan Halla in the Moyar River system, Nilgiri Hills region, Tamil Nadu state.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pethia nigripinna",
+    "status": "ACCEPTED",
+    "taxonKey": 7865249,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

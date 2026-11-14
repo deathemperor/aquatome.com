@@ -121,44 +121,16 @@
     ],
     "figures": [
       {
-        "heading": "Tháo bể cũ để lấy kính thế nào",
-        "moments": [
-          {
-            "t": 40,
-            "url": "https://media.aquatome.com/video/nhYS0j1dtbM/at40-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng lưỡi dao cắt dọc mép viền đáy của bể cũ.",
-            "sharpness": 378.3
-          },
-          {
-            "t": 80,
-            "url": "https://media.aquatome.com/video/nhYS0j1dtbM/at80-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Luồn dao cạo kính vào cắt lớp silicone ở góc bể.",
-            "sharpness": 766.7
-          }
-        ]
-      },
-      {
         "heading": "Cắt kính và ghép thành bể không viền",
         "moments": [
-          {
-            "t": 120,
-            "url": "https://media.aquatome.com/video/nhYS0j1dtbM/at120-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhỏ dầu vào bánh cắt kính, đặt cạnh thanh thước thẳng.",
-            "sharpness": 172.4
-          },
           {
             "t": 200,
             "url": "https://media.aquatome.com/video/nhYS0j1dtbM/at200-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Các tấm kính đã ghép thành bể, cố định bằng băng keo xanh.",
-            "sharpness": 1124.5
+            "sharpness": 1124.5,
+            "person": false
           }
         ]
       },
@@ -166,20 +138,13 @@
         "heading": "Bố cục thế nào để còn chỗ cho bình và bơm",
         "moments": [
           {
-            "t": 310,
-            "url": "https://media.aquatome.com/video/nhYS0j1dtbM/at310-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt rễ bạch đàn và đá nham thạch trong bể, chừa chỗ cho bình thủy tinh.",
-            "sharpness": 681.1
-          },
-          {
             "t": 320,
             "url": "https://media.aquatome.com/video/nhYS0j1dtbM/at320-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Rễ bạch đàn gác lên đá nham thạch để tạo khối bố cục chính.",
-            "sharpness": 2414
+            "sharpness": 2414,
+            "person": false
           }
         ]
       },
@@ -187,20 +152,13 @@
         "heading": "Khoan bình và lắp bơm ra sao",
         "moments": [
           {
-            "t": 390,
-            "url": "https://media.aquatome.com/video/nhYS0j1dtbM/at390-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khoan đáy bình thủy tinh bằng mũi khoét kim cương, tay giữ máy khoan.",
-            "sharpness": 283.2
-          },
-          {
             "t": 410,
             "url": "https://media.aquatome.com/video/nhYS0j1dtbM/at410-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Đầu nối xuyên vách đã lắp vào bình, ống đen gắn chắc.",
-            "sharpness": 301
+            "sharpness": 301,
+            "person": false
           }
         ]
       },
@@ -213,7 +171,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bình thủy tinh có đoạn ống nâng mực nước, chưa đổ giá thể.",
-            "sharpness": 293.2
+            "sharpness": 293.2,
+            "person": false
           },
           {
             "t": 620,
@@ -221,7 +180,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Giá thể đã đổ vào bình, đầu ống bịt tấm Matala xanh.",
-            "sharpness": 829.8
+            "sharpness": 829.8,
+            "person": false
           }
         ],
         "photo": {
@@ -239,20 +199,13 @@
         "heading": "Trồng cây trong bình và trong bể",
         "moments": [
           {
-            "t": 680,
-            "url": "https://media.aquatome.com/video/nhYS0j1dtbM/at680-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây nhỏ như Hemigraphis và Fittonia đã được trồng xanh um ở nửa sau bình.",
-            "sharpness": 1233.3
-          },
-          {
             "t": 710,
             "url": "https://media.aquatome.com/video/nhYS0j1dtbM/at710-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cryptanthus trồng phía trước bình, lá lúc đầu trông hơi tàn.",
-            "sharpness": 515.9
+            "sharpness": 515.9,
+            "person": false
           }
         ]
       },
@@ -265,7 +218,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá rasbora nhỏ bơi dưới lũa trong bể thủy sinh.",
-            "sharpness": 262.5
+            "sharpness": 262.5,
+            "person": false
           }
         ],
         "photo": {
@@ -283,20 +237,13 @@
         "heading": "Hệ lọc này hoạt động ra sao và có gì bất tiện",
         "moments": [
           {
-            "t": 850,
-            "url": "https://media.aquatome.com/video/nhYS0j1dtbM/at850-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các bình cây đặt trên lũa phía trên bể, rễ cây hút chất thải.",
-            "sharpness": 2390.6
-          },
-          {
             "t": 920,
             "url": "https://media.aquatome.com/video/nhYS0j1dtbM/at920-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bình thủy tinh chứa giá thể đá, cây mọc phía trên bình lọc.",
-            "sharpness": 1235.6
+            "sharpness": 1235.6,
+            "person": false
           }
         ]
       }

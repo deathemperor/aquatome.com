@@ -50,18 +50,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/commons/18d32913b66a5819.webp",
-      "thumb": "https://media.aquatome.com/commons/18d32913b66a5819-480.webp",
-      "width": 1200,
-      "height": 689,
-      "licence": "CC BY-SA 3.0",
-      "author": "Wikimedia Commons",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Roter_von_Rio_-_Hyphessobrycon_flammeus.jpg",
-      "caption": "Cá tetra lửa ánh vàng ô liu trong bể cây",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/319666874.webp",
       "thumb": "https://media.aquatome.com/inaturalist/319666874-480.webp",
       "width": 1024,
@@ -74,18 +62,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/commons/6459f66ab9a0f98e.webp",
-      "thumb": "https://media.aquatome.com/commons/6459f66ab9a0f98e-480.webp",
-      "width": 800,
-      "height": 493,
-      "licence": "CC BY 2.5",
-      "author": "Wikimedia Commons",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_flammeus.jpg",
-      "caption": "Cá tetra lửa nhợt màu bơi gần cây thủy sinh",
-      "best": false,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/commons/7e767579502ca77d.webp",
       "thumb": "https://media.aquatome.com/commons/7e767579502ca77d-480.webp",
       "width": 1098,
@@ -94,6 +70,30 @@
       "author": "Mosasaurus",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_flammeus_3.jpg",
       "caption": "Cá tetra lửa cận cảnh với vạch sọc thân rõ",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/18d32913b66a5819.webp",
+      "thumb": "https://media.aquatome.com/commons/18d32913b66a5819-480.webp",
+      "width": 1200,
+      "height": 689,
+      "licence": "CC BY-SA 3.0",
+      "author": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Roter_von_Rio_-_Hyphessobrycon_flammeus.jpg",
+      "caption": "Cá tetra lửa ánh vàng ô liu trong bể cây",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/6459f66ab9a0f98e.webp",
+      "thumb": "https://media.aquatome.com/commons/6459f66ab9a0f98e-480.webp",
+      "width": 800,
+      "height": 493,
+      "licence": "CC BY 2.5",
+      "author": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_flammeus.jpg",
+      "caption": "Cá tetra lửa nhợt màu bơi gần cây thủy sinh",
       "best": false,
       "kind": "other"
     }

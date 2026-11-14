@@ -1,0 +1,104 @@
+{
+  "id": "nemacheilus-pallidus",
+  "native": {
+    "input": "8cef46ad782f20e7",
+    "at": "2026-11-10T15:58:17.469Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Nemacheilus pallidus is a nemacheilid loach from the Mae Klong, Chao Phraya and Mekong systems in Thailand, Laos, Cambodia and Vietnam.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Nemacheilus pallidus is a nemacheilid loach from the Mae Klong, Chao Phraya and Mekong systems in Thailand, Laos, Cambodia and Vietnam.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Nemacheilus pallidus is a nemacheilid loach from the Mae Klong, Chao Phraya and Mekong systems in Thailand, Laos, Cambodia and Vietnam.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Nemacheilus pallidus is a nemacheilid loach from the Mae Klong, Chao Phraya and Mekong systems in Thailand, Laos, Cambodia and Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Nemacheilus pallidus is a nemacheilid loach from the Mae Klong, Chao Phraya and Mekong systems in Thailand, Laos, Cambodia and Vietnam.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Nemacheilus pallidus is a nemacheilid loach from the Mae Klong, Chao Phraya and Mekong systems in Thailand, Laos, Cambodia and Vietnam.",
+        "ok": true
+      },
+      {
+        "name": "Mae Klong",
+        "source": "seriouslyfish",
+        "quote": "Nemacheilus pallidus is a nemacheilid loach from the Mae Klong, Chao Phraya and Mekong systems in Thailand, Laos, Cambodia and Vietnam.",
+        "ok": true
+      },
+      {
+        "name": "Dong Nai",
+        "source": "seriouslyfish",
+        "quote": "A relatively widespread species native to the Mae Klong and upper Chao Phraya river systems in Thailand plus the Mekong basin in Thailand, Laos, Cambodia and Vietnam, where it also occurs in the Dong Nai drainage.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Nemacheilus pallidus",
+    "status": "ACCEPTED",
+    "taxonKey": 5205271,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        11
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "LA",
+      "KH",
+      "VN"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T15:58:17.469Z"
+  }
+}

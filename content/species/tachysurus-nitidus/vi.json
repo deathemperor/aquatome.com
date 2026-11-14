@@ -7,13 +7,17 @@
     "distribution:planetcatfish": "<p>Châu Á: sông Dương Tử, Trung Quốc. Loài này cũng có ghi nhận ở Hàn Quốc.</p>",
     "dimorphism:planetcatfish": "<p>Con đực có nhú sinh dục dài, nằm ngay trước vây hậu môn.</p>",
     "reproduction:planetcatfish": "<p>Hiện chưa có ghi nhận.</p>",
-    "references:planetcatfish": "<p>Annales des Sciences Naturelles, Paris (Zoologie et Paléontologie) (Sér. 6) v. 1 (art. 5), pp 5.</p>"
+    "references:planetcatfish": "<p>Annales des Sciences Naturelles, Paris (Zoologie et Paléontologie) (Sér. 6) v. 1 (art. 5), pp 5.</p>",
+    "distribution:scotcat": "<p>Châu Á: Trung Quốc, từ Hắc Long Giang (sông Amur) xuống tới Mân Giang (một nhánh của sông Dương Tử). Nơi thu mẫu chuẩn: Yang-tze-kiang, Trung Quốc.</p><p>Danh sách Đỏ IUCN: Tachysurus nitidus là một loài cá da trơn nước ngọt. Nó sống rộng khắp Trung Quốc và bán đảo Triều Tiên, gặp ở hồ chứa nhân tạo, hồ, suối nhỏ vùng đồi và sông. Ở Trung Quốc, loài này thường chiếm ưu thế trong các quần thể cá, còn ở bán đảo Triều Tiên thì có vẻ ít gặp hơn. Hiện chưa có dấu hiệu nào cho thấy số lượng của loài này trên toàn thế giới đang giảm, dù người ta suy ra rằng môi trường sống của nó vẫn đang xấu đi do một số mối đe dọa phổ biến ở nhiều vùng. Vì vùng phân bố rộng và không có bằng chứng suy giảm, IUCN xếp T. nitidus vào mức Ít quan tâm (IUCN 2023).</p>",
+    "notes:scotcat": "<p>Hiện một số ấn phẩm và FishBase (2009) vẫn gọi loài này là Pelteobagrus nitidus. Trước đó nó mang tên Leiocassis nitidus. Một số nguồn trên mạng vẫn ghi là Pseudobagrus nitidus.</p><p>Từ nguyên: Tên giống Tachysurus ghép từ tachys (nhanh) và oura (đuôi). Tên này nói tới T. sinensis, loài được đoán là nhanh nhẹn vì có chiếc đuôi \"dài và linh hoạt\" (bản dịch). Tên loài nitidus nghĩa là gọn gàng, thanh nhã hoặc sáng bóng. Người đặt tên không giải thích vì sao chọn chữ này. Có thể nó chỉ màu \"thân đỏ nhạt, ngả màu rượu vang về phía lưng\" (bản dịch).</p>",
+    "references:scotcat": "<ul><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Lyons, T.J. 2023. Tachysurus nitidus. The IUCN Red List of Threatened Species 2023.</li><li>Ng, H.H. and J. Freyhof, 2007. Pseudobagrus nubilosus, a new species of catfish from central Vietnam (Teleostei: Bagridae), with notes on the validity of Pelteobagrus and Pseudobagrus. Ichthyol. Explor. Freshwat. 18(1):9-16</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
   },
   "quality": {
     "score": 0.9,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.9
+      "planetcatfish": 0.9,
+      "scotcat": 0.95
     }
   }
 }

@@ -1,0 +1,47 @@
+{
+  "id": "rasbora-patrickyapi",
+  "native": {
+    "input": "e0a351ec4ca2739b",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "glaser",
+        "quote": "In its natural habitat the species is restricted to peat swamps in the central parts of Kalimantan (the Indonesian part of Borneo).",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kalimantan",
+        "source": "glaser",
+        "quote": "In its natural habitat the species is restricted to peat swamps in the central parts of Kalimantan (the Indonesian part of Borneo).",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "glaser",
+        "quote": "In its natural habitat the species is restricted to peat swamps in the central parts of Kalimantan (the Indonesian part of Borneo).",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  }
+}

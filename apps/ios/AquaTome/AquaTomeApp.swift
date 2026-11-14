@@ -119,7 +119,7 @@ struct AquaTomeApp: App {
       #endif
       // The owner's report button, and its offer after a screenshot (OwnerReport): the owner's account alone. Inside the
       // environment below, which it reads the account from.
-      .ownerReports { OwnerReportHere.place(tab: tab.screen.rawValue, account: showingAccount, lang: handbook.lang) }
+      .ownerReports { OwnerReportHere.place(tab: tab.screen.rawValue, lang: handbook.lang) }
       .environment(lights)
       .environment(handbook)
       .environment(tanks)
@@ -150,6 +150,8 @@ struct AquaTomeApp: App {
         guard phase == .active else { return }
         chat.inFront(true)
         Task { await account.refresh() }
+        // The index again if this run's is old (HandbookModel.staleAfter): what's new and the day's card come with it.
+        Task { await handbook.cameToFront() }
         // Whether the chat is on: its entries show only then.
         Task { await chat.refresh(account: account, site: handbook.site) }
       }

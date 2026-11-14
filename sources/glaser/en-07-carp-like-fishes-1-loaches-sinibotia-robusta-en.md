@@ -1,11 +1,11 @@
 ---
-url: https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/sinibotia_robusta_en/
+url: https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/sinibotia-robusta-en/
 title: Sinibotia robusta - Aquarium Glaser GmbH
-fetchedAt: 2026-10-29T04:23:46.456Z
-hash: edb29dddf742e1feec7e46f838062b8bee83346efd1711a484205063cd4860b8
+fetchedAt: 2026-11-10T22:07:14.371Z
+hash: 66fce21e3ef4c0c17251c52fe3a0036b0dc90b07ce387aab918ca3525b430570
 ---
 
-Every year in June is import season for Botia-like loaches from China. The genus Sinibotia currently contains six species. The genus Sinibotia differs from Botia by the presence of three pairs of barbel (two maxillary, one mandibulary), while in Botia a fourth pair of barbels is present on the lower lip.
-Sinibotia robusta is also known as the Kansu loach. This comparatively peaceful species is best kept at room temperature (18-24°C) without an additional heater. Maximum size reported for that species is about 18 cm, but in the wild most specimens become only 8-10 cm long.
-For our customers: the fish have code 405053 on our stocklist. Please note that we exclusively supply the wholesale trade. Only very few specimens available!
-Text & photos: Frank Schäfer
+We received beautiful coloured Kansu loaches (Sinibotia robusta) from China. This comparatively peaceful species is best kept at room temperature (18-24°C) without an additional heater. Only very few specimens available!
+For our customers: the fish have code 405053 on our stocklist. Please note that we exclusively supply the wholesale trade.
+Text & photo: Frank Schäfer
+Angaben zum Tier Herkunft China

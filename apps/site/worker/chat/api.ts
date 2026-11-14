@@ -9,6 +9,7 @@ import { healthyKeys, isApiError, loadKeys, rotate, type Attempt, type KeyEntry 
 import { ledgerClient, usdCap, type Stopped } from '../fishid/ledger'
 import { relayFetch } from '../fishid/relay'
 import { turnsOf } from '../fishid/transcript'
+import { fileClashes } from './clash-store'
 import { handoverFor } from './handover'
 import { sectionSearch } from './section-search'
 import { answerQuestion, CHAT_LIMITS, MAX_TOKENS, OPENING_TOKENS, type ChatRun, type Earlier, type Start } from './agent'
@@ -167,12 +168,14 @@ type Question = { conversation: string; question: string; lang: Lang; start: Sta
 function questionOf(v: unknown, maxChars: number): Question | 'too long' | undefined {
   if (!v || typeof v !== 'object' || Array.isArray(v)) return undefined
   const o = v as Record<string, unknown>
-  const known = ['conversation', 'question', 'lang', 'from', 'about', 'identified', 'continues']
+  const known = ['conversation', 'question', 'lang', 'from', 'about', 'tank', 'identified', 'continues']
   if (Object.keys(o).some(k => !known.includes(k))) return undefined
   if (typeof o.conversation !== 'string' || !UUID.test(o.conversation) || typeof o.question !== 'string' || !o.question.trim()) return undefined
   if (o.lang !== undefined && !LANGS.includes(o.lang as Lang)) return undefined
-  if (o.from !== undefined && !['fish-id', 'species', 'search'].includes(o.from as string)) return undefined
+  if (o.from !== undefined && !['fish-id', 'species', 'search', 'tank'].includes(o.from as string)) return undefined
   if (o.about !== undefined && typeof o.about !== 'string') return undefined
+  // A saved tank's id, as the app syncs it: never the reader's words, so no more than an id's length.
+  if (o.tank !== undefined && (typeof o.tank !== 'string' || !o.tank || o.tank.length > MAX_NAME)) return undefined
   if (o.continues !== undefined && (typeof o.continues !== 'string' || !UUID.test(o.continues))) return undefined
   let identified: Start['identified']
   if (o.identified !== undefined) {
@@ -189,7 +192,7 @@ function questionOf(v: unknown, maxChars: number): Question | 'too long' | undef
   if (charsOf(o.question.trim()) > maxChars) return 'too long'
   return {
     conversation: o.conversation.toLowerCase(), question: o.question.trim(), lang: (o.lang as Lang) ?? 'vi',
-    start: { ...(o.from ? { from: o.from as Start['from'] } : {}), ...(o.about ? { about: o.about as string } : {}), ...(identified ? { identified } : {}) },
+    start: { ...(o.from ? { from: o.from as Start['from'] } : {}), ...(o.about ? { about: o.about as string } : {}), ...(o.tank ? { tank: o.tank as string } : {}), ...(identified ? { identified } : {}) },
     ...(o.continues ? { continues: (o.continues as string).toLowerCase() } : {}),
   }
 }
@@ -437,6 +440,8 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
         ...(onOpening ? { opening: true, onOpening } : {}),
       })
       trail = out
+      // Handbook text only, on the owner's account only (clashes.ts). Never in the reader's way.
+      if (env.CHAT === 'owner' && out.answer?.clashes.length) wait(fileClashes(env.UPLOADS, hb, out.answer.clashes, q.lang, now).catch(e => console.error('chat clashes:', e)))
       if (out.dropped.length) console.log(JSON.stringify({ chat: 'dropped', dropped: out.dropped }))
       // No key answered a call: resting or unavailable (ours), or our request refused (failed: a 400 that isn't the
       // key's; out of credit also comes as a 400, and the key's fault goes to the next key). The run out of time:

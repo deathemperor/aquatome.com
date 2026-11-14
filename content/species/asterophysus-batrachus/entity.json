@@ -21,7 +21,8 @@
       ],
       "regions": [
         "Rio Negro",
-        "Orinoco"
+        "Orinoco",
+        "Atabapo"
       ],
       "sources": [
         "seriouslyfish",
@@ -30,20 +31,22 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The gulper catfish, Asterophysus batrachus, is a predatory auchenipterid catfish from the rio Negro in Brazil and the Orinoco in Venezuela.",
+          "quote": "Has been recorded throughout the rio Negro system in Brazil and Orinoco drainage in Venezuela.",
           "countries": [
             "BR",
             "VE"
           ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Has been recorded throughout the rio Negro system in Brazil and Orinoco drainage in Venezuela.",
-          "countries": [],
           "regions": [
             "Rio Negro",
             "Orinoco"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "According to the Check List of the Freshwater fishes of South and Central America, Asterophysus batrachus is distributed not only in the Orinoco basin (to which the Atabapo belongs), but also in the upper Rio Negro.",
+          "countries": [],
+          "regions": [
+            "Atabapo"
           ]
         }
       ]
@@ -315,17 +318,6 @@
       "source": "scotcat"
     },
     {
-      "url": "https://media.aquatome.com/scotcat/909bd49ea8f73c31.webp",
-      "thumb": "https://media.aquatome.com/scotcat/909bd49ea8f73c31-480.webp",
-      "width": 500,
-      "height": 334,
-      "licence": "dùng với sự cho phép",
-      "author": "Daniel Blom / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/auchenipteridae/asterophysus_batrachus.htm",
-      "caption": "Asterophysus batrachus: Showing the wide gape mouth",
-      "source": "scotcat"
-    },
-    {
       "url": "https://media.aquatome.com/scotcat/5d178338d4a77269.webp",
       "thumb": "https://media.aquatome.com/scotcat/5d178338d4a77269-480.webp",
       "width": 500,
@@ -334,6 +326,17 @@
       "author": "Daniel Blom / ScotCat",
       "sourceUrl": "https://www.scotcat.com/auchenipteridae/asterophysus_batrachus.htm",
       "caption": "Asterophysus batrachus: Showing the Salmon shaped mouth",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/909bd49ea8f73c31.webp",
+      "thumb": "https://media.aquatome.com/scotcat/909bd49ea8f73c31-480.webp",
+      "width": 500,
+      "height": 334,
+      "licence": "dùng với sự cho phép",
+      "author": "Daniel Blom / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/asterophysus_batrachus.htm",
+      "caption": "Asterophysus batrachus: Showing the wide gape mouth",
       "source": "scotcat"
     }
   ],

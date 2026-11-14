@@ -43,27 +43,6 @@
     ],
     "figures": [
       {
-        "heading": "Ngăn phần đất với phần nước bằng cách nào",
-        "moments": [
-          {
-            "t": 40,
-            "url": "https://media.aquatome.com/video/hTqxIrD_Vho/at40-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng thước kẻ làm mốc để rạch đường cắt trên tấm kính.",
-            "sharpness": 472.2
-          },
-          {
-            "t": 45,
-            "url": "https://media.aquatome.com/video/hTqxIrD_Vho/at45-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng dao cắt kính rạch một đường xéo trên mặt kính.",
-            "sharpness": 644
-          }
-        ]
-      },
-      {
         "heading": "Làm sao giữ nền khô trong ngăn hẹp",
         "moments": [
           {
@@ -72,7 +51,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lỗ khoan trên đáy kính cạnh chai cồn isopropyl để lau sạch.",
-            "sharpness": 583.5
+            "sharpness": 583.5,
+            "person": false
           },
           {
             "t": 70,
@@ -80,7 +60,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khoan xuyên đáy kính bằng mũi khoét đầu kim cương, có cữ định vị đổ nước.",
-            "sharpness": 182
+            "sharpness": 182,
+            "person": false
           }
         ]
       },
@@ -93,15 +74,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khay kính nông đã dán silicone, đặt trên mặt bàn gỗ.",
-            "sharpness": 169.2
-          },
-          {
-            "t": 325,
-            "url": "https://media.aquatome.com/video/hTqxIrD_Vho/at325-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khay đế có lót tấm lót màu tím, sẵn sàng đặt bể lên.",
-            "sharpness": 750.4
+            "sharpness": 169.2,
+            "person": false
           }
         ]
       },
@@ -109,20 +83,13 @@
         "heading": "Giấu máy bơm mà vẫn lấy ra được",
         "moments": [
           {
-            "t": 140,
-            "url": "https://media.aquatome.com/video/hTqxIrD_Vho/at140-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Gắn tấm lưới đan lên tấm PVC foam để làm vách chắn.",
-            "sharpness": 659.7
-          },
-          {
             "t": 145,
             "url": "https://media.aquatome.com/video/hTqxIrD_Vho/at145-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Hộp PVC foam bao quanh bơm đã dán vào góc bể.",
-            "sharpness": 286.8
+            "sharpness": 286.8,
+            "person": false
           }
         ],
         "photo": {
@@ -137,19 +104,6 @@
         }
       },
       {
-        "heading": "Xếp đá và tạo đồi sa mạc ra sao",
-        "moments": [
-          {
-            "t": 195,
-            "url": "https://media.aquatome.com/video/hTqxIrD_Vho/at195-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các lớp đá Pagoda xếp chồng, keo bọt nở trám giữa các khe.",
-            "sharpness": 951.5
-          }
-        ]
-      },
-      {
         "heading": "Trồng xương rồng ở phần đất",
         "moments": [
           {
@@ -158,7 +112,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây xương rồng tròn đã trồng trong nền đất giữa các tảng đá.",
-            "sharpness": 3052.9
+            "sharpness": 3052.9,
+            "person": false
           },
           {
             "t": 275,
@@ -166,7 +121,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Xương rồng và sen đá nhỏ trồng cạnh đá trong bể sa mạc.",
-            "sharpness": 2171.6
+            "sharpness": 2171.6,
+            "person": false
           }
         ]
       },
@@ -179,7 +135,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lớp sỏi xám rải trên nền đất đỏ tạo vân bề mặt.",
-            "sharpness": 1727.9
+            "sharpness": 1727.9,
+            "person": false
           },
           {
             "t": 380,
@@ -187,7 +144,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lũa cholla, đá đen và cây xanh trong khay phụ của bể sa mạc.",
-            "sharpness": 2531.9
+            "sharpness": 2531.9,
+            "person": false
           }
         ]
       },
@@ -200,7 +158,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lũa cholla nhiều hốc rỗng, bề mặt tốt cho tép gặm kiếm ăn.",
-            "sharpness": 217.4
+            "sharpness": 217.4,
+            "person": false
           },
           {
             "t": 445,

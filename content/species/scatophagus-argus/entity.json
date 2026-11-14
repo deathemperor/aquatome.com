@@ -1417,7 +1417,12 @@
       "author": "Fokko Toelstede, Wikipedia-User „Nyks“",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scatophagus_argus.jpg",
       "caption": "Scatophagus argus",
-      "thumb": "https://media.aquatome.com/commons/8db82d0f6f323b9e-480.webp"
+      "thumb": "https://media.aquatome.com/commons/8db82d0f6f323b9e-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/8db82d0f6f323b9e-large.webp",
+        "width": 1024,
+        "height": 683
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/186c37053d582117.webp",

@@ -1,0 +1,118 @@
+{
+  "id": "pethia-phutunio",
+  "native": {
+    "input": "43887005acde1bfa",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from 'ponds of northeastern Bengal' which according to changes in the region should now refer to Bangladesh or possibly the extreme north of West Bengal state, India, and appears endemic to the lower Ganges and Brahmaputra river basins in Bangladesh plus the Indian states of Bihar, West Bengal, Orissa, Assam, and Tripura.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from 'ponds of northeastern Bengal' which according to changes in the region should now refer to Bangladesh or possibly the extreme north of West Bengal state, India, and appears endemic to the lower Ganges and Brahmaputra river basins in Bangladesh plus the Indian states of Bihar, West Bengal, Orissa, Assam, and Tripura.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Records from Myanmar are now considered to represent Pethia didi (Kullander and Fang, 2005) whilst occurrences in Pakistan and Nepal would also appear to be cases of misidentification.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "PK",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Records from Myanmar are now considered to represent Pethia didi (Kullander and Fang, 2005) whilst occurrences in Pakistan and Nepal would also appear to be cases of misidentification.",
+        "words": "Pakistan",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Records from Myanmar are now considered to represent Pethia didi (Kullander and Fang, 2005) whilst occurrences in Pakistan and Nepal would also appear to be cases of misidentification.",
+        "words": "Nepal",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ganges",
+        "source": "seriouslyfish",
+        "quote": "Described from 'ponds of northeastern Bengal' which according to changes in the region should now refer to Bangladesh or possibly the extreme north of West Bengal state, India, and appears endemic to the lower Ganges and Brahmaputra river basins in Bangladesh plus the Indian states of Bihar, West Bengal, Orissa, Assam, and Tripura.",
+        "ok": true
+      },
+      {
+        "name": "Brahmaputra",
+        "source": "seriouslyfish",
+        "quote": "Described from 'ponds of northeastern Bengal' which according to changes in the region should now refer to Bangladesh or possibly the extreme north of West Bengal state, India, and appears endemic to the lower Ganges and Brahmaputra river basins in Bangladesh plus the Indian states of Bihar, West Bengal, Orissa, Assam, and Tripura.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pethia phutunio",
+    "status": "ACCEPTED",
+    "taxonKey": 7893869,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        20
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        11
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        10
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        7
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "9613ee46-eb0d-49fe-9ea6-f23bb27adadd",
+        1
+      ],
+      [
+        "a4202e55-050a-46a2-9c56-8b8507015ce7",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "BD",
+      "IN"
+    ],
+    "requests": 12,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

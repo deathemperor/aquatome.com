@@ -10,6 +10,58 @@
     "indonesia",
     "bintuni-bay"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Irian Jaya rainbowfish, Melanotaenia irianjaya, is a rainbowfish from Indonesia, recorded only around Bintuni Bay in Irian Jaya.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2411698,
+      "total": 27,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "ID",
+          27
+        ]
+      ],
+      "cells": [
+        [
+          132.1875,
+          -4.21875,
+          13,
+          13
+        ],
+        [
+          132.1875,
+          -2.8125,
+          12,
+          12
+        ],
+        [
+          132.1875,
+          -1.40625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -125,19 +177,7 @@
       "html": "<p>This beautiful rainbow is not often seen in the hobby. It can be identified by the fact that the middle rays in the dorsal and anal fins are longer than the other fin rays. This feature is usually associated with the closely related Glossolepis genus of rainbowfish.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/80e9703813801c33.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/80e9703813801c33-480.webp",
-      "width": 635,
-      "height": 300,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-irianjaya",
-      "caption": "Melanotaenia irianjaya male",
-      "source": "seriouslyfish"
-    }
-  ],
+  "photos": [],
   "videos": [],
   "productSlots": [
     {

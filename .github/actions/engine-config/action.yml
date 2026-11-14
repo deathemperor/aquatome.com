@@ -5,7 +5,11 @@ runs:
   steps:
     - shell: bash
       run: |
-        npm install -g @anthropic-ai/claude-code
+        # Pinned (the chief of staff, 2026-11-11): the reviewers' scores moved with the command's six releases of 3-10 Nov,
+        # and a run installed whichever was newest. To move the pin: a PR changing this one version, saying why; before it
+        # merges, 20 saved pages are read on both versions (40 reads, about $1), and it merges if their scores move by under
+        # 0.05 on average, else the chief of staff decides. Every call and review logs the version it ran on (claude.ts).
+        npm install -g @anthropic-ai/claude-code@2.1.322
         umask 077 && mkdir -p ~/.config/aquatome
         printf '%s' "$CLOUDFLARE_API_TOKEN" > ~/.config/aquatome/cf-token
         printf '%s' "$AB_DASH_TOKEN" > ~/.config/aquatome/ab-dash-token

@@ -1,0 +1,125 @@
+{
+  "id": "julidochromis-marksmithi",
+  "scientificName": "Julidochromis marksmithi",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Julidochromis",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "tanzania",
+    "lake-tanganyika"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "TZ"
+      ],
+      "regions": [
+        "Lake Tanganyika",
+        "Kerenge Island",
+        "Mvuna Island",
+        "Ulwile Island",
+        "Nkondwe Island"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The type locality of J. marksmithi is Kerenge Island on the Tanzanian coast of Lake Tanganyika.",
+          "countries": [
+            "TZ"
+          ],
+          "regions": [
+            "Lake Tanganyika",
+            "Kerenge Island"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "So far the species is known only from Kipili and the islands nearby (Mvuna Island, Ulwile Island, Kerenge Island, Nkondwe Island), and from the somewhat more northern Cape Mpimbwe (Msalaba).",
+          "countries": [],
+          "regions": [
+            "Mvuna Island",
+            "Ulwile Island",
+            "Nkondwe Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9786478,
+      "total": 0,
+      "fetched": "2026-11-11",
+      "countries": [],
+      "cells": []
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 9
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/julidochromis_marksmithi_en/",
+      "html": "<p>Julidochromis marksmithi is a cichlid from Lake Tanganyika. Maximum length is usually 8–9 cm, but literature reports say it may reach up to 12 cm. Origin of the animals: bred (captive-bred).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/julidochromis_marksmithi_en/",
+      "html": "<p>The type locality of J. marksmithi is Kerenge Island on the Tanzanian coast of Lake Tanganyika. So far the species is known only from Kipili and the islands nearby (Mvuna Island, Ulwile Island, Kerenge Island, Nkondwe Island), and from the somewhat more northern Cape Mpimbwe (Msalaba).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/julidochromis_marksmithi_en/",
+      "html": "<p>The cichlids of the genus Julidochromis are among the most popular cichlids from Lake Tanganyika. Until recently five species were recognised, all kept and bred in home aquaria: J. dickfeldi, J. marlieri, J. ornatus, J. regani and J. transcriptus. The most recently described of these is J. dickfeldi, described by Wolfgang Staeck in 1975.</p><p>For some time a form of Julidochromis was known in the hobby under various names, because it could not be placed with certainty in an already described species. It was called Julidochromis regani \"Kipili\", J. ornatus \"Kipili\" or simply J. sp. \"Kipili\". This form has now been formally described as Julidochromis marksmithi. It differs from J. ornatus and J. dickfeldi, among other things, by a dark stripe on the chin (absent in both J. ornatus and J. dickfeldi), and from J. regani by having only 2.5 longitudinal stripes (versus 4 in J. regani).</p>"
+    },
+    {
+      "key": "references",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/julidochromis_marksmithi_en/",
+      "html": "<p>Burgess, W. E. (2014): Julidochromis marksmithi, A New Species of Julidochromis from the Tanzanian Coast of Lake Tanganyika. Tanganika MAGAZYN nr 15, grudzień 2014: 40 – 49</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá cichlid Tanganyika"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cichlid"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền cichlid Tanganyika",
+        "đá trang trí hang cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-11"
+}

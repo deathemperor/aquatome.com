@@ -1,0 +1,61 @@
+{
+  "id": "neolamprologus-savoryi",
+  "native": {
+    "input": "ecf5a1235eab87e3",
+    "at": "2026-11-10T20:57:55.515Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Lake Tanganyika",
+        "source": "seriouslyfish",
+        "quote": "The striped brichardi, Neolamprologus savoryi, is a rock-dwelling cichlid endemic to Lake Tanganyika.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BI",
+        "CD",
+        "TZ",
+        "ZM"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Neolamprologus savoryi",
+    "status": "ACCEPTED",
+    "taxonKey": 2371821,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        22
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        7
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        4
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-10T20:57:55.515Z"
+  }
+}

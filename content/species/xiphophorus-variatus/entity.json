@@ -536,7 +536,12 @@
       "author": "Adrian Torres B.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xiphophorus_variatus_331363362.jpg",
       "caption": "Variable Platyfish (Xiphophorus variatus)",
-      "thumb": "https://media.aquatome.com/commons/ddcf2af852da1e4f-480.webp"
+      "thumb": "https://media.aquatome.com/commons/ddcf2af852da1e4f-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/ddcf2af852da1e4f-large.webp",
+        "width": 1200,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/ec136950b16b7b78.webp",

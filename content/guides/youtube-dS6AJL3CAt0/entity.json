@@ -53,7 +53,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các hộp epoxy Pond Shield xếp chồng trên mặt gỗ.",
-            "sharpness": 225.2
+            "sharpness": 225.2,
+            "person": false
           },
           {
             "t": 65,
@@ -61,43 +62,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Vải sợi thủy tinh dệt dùng để xử lý mối nối.",
-            "sharpness": 1124.2
-          }
-        ]
-      },
-      {
-        "heading": "Chuẩn bị bề mặt trước khi quét",
-        "moments": [
-          {
-            "t": 75,
-            "url": "https://media.aquatome.com/video/dS6AJL3CAt0/at75-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Máy chà nhám đang chà mặt trong bể gỗ.",
-            "sharpness": 171
+            "sharpness": 1124.2,
+            "person": false
           }
         ]
       },
       {
         "heading": "Pha epoxy thế nào",
-        "moments": [
-          {
-            "t": 110,
-            "url": "https://media.aquatome.com/video/dS6AJL3CAt0/at110-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cho cồn isopropyl vào cốc chất đóng rắn rồi khuấy đều.",
-            "sharpness": 363.5
-          },
-          {
-            "t": 135,
-            "url": "https://media.aquatome.com/video/dS6AJL3CAt0/at135-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đổ phần sơn epoxy đen vào hộp để trộn với chất đóng rắn.",
-            "sharpness": 382.3
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/dS6AJL3CAt0/p3-SGFyZGVuZXIuanBn.webp",
           "thumb": "https://media.aquatome.com/video/dS6AJL3CAt0/p3-SGFyZGVuZXIuanBn-480.webp",
@@ -110,27 +82,6 @@
         }
       },
       {
-        "heading": "Gia cố các mối nối bằng vải sợi thủy tinh",
-        "moments": [
-          {
-            "t": 270,
-            "url": "https://media.aquatome.com/video/dS6AJL3CAt0/at270-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Pha epoxy trong hộp rồi quét lên mối nối trong bể.",
-            "sharpness": 242
-          },
-          {
-            "t": 295,
-            "url": "https://media.aquatome.com/video/dS6AJL3CAt0/at295-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Vải sợi thủy tinh đã đặt lên mối nối góc bể.",
-            "sharpness": 309.8
-          }
-        ]
-      },
-      {
         "heading": "Lớp thứ hai và lớp cuối",
         "moments": [
           {
@@ -140,37 +91,12 @@
             "height": 675,
             "caption": "Lớp phủ đã quét trải khắp đáy và thành bể.",
             "sharpness": 96.5
-          },
-          {
-            "t": 380,
-            "url": "https://media.aquatome.com/video/dS6AJL3CAt0/at380-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng con lăn quét lớp phủ đen lên thành trong của bể.",
-            "sharpness": 202.1
           }
         ]
       },
       {
         "heading": "Bề mặt sau khi hoàn thiện và chuyện chọn màu",
-        "moments": [
-          {
-            "t": 365,
-            "url": "https://media.aquatome.com/video/dS6AJL3CAt0/at365-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lớp sơn Pond Shield màu đen láng bóng phủ trong lòng bể.",
-            "sharpness": 184
-          },
-          {
-            "t": 395,
-            "url": "https://media.aquatome.com/video/dS6AJL3CAt0/at395-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nền đen bóng của bể sau khi quét, hợp để nuôi cá rồng.",
-            "sharpness": 273.7
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/dS6AJL3CAt0/p7-dsb25neXUzLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/dS6AJL3CAt0/p7-dsb25neXUzLmpwZw-480.webp",

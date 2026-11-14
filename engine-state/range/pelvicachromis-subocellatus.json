@@ -1,0 +1,112 @@
+{
+  "id": "pelvicachromis-subocellatus",
+  "native": {
+    "input": "70bba26a8f0e7026",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The ocellated kribensis, Pelvicachromis subocellatus, is a cichlid from Nigeria, Gabon and the Democratic Republic of Congo.",
+        "words": "Nigeria",
+        "ok": true
+      },
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The ocellated kribensis, Pelvicachromis subocellatus, is a cichlid from Nigeria, Gabon and the Democratic Republic of Congo.",
+        "words": "Gabon",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The ocellated kribensis, Pelvicachromis subocellatus, is a cichlid from Nigeria, Gabon and the Democratic Republic of Congo.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Nigeria, Gabon, Democratic Republic of Congo, Angola, Republic of the Congo.",
+        "words": "Nigeria",
+        "ok": true
+      },
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Nigeria, Gabon, Democratic Republic of Congo, Angola, Republic of the Congo.",
+        "words": "Gabon",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Nigeria, Gabon, Democratic Republic of Congo, Angola, Republic of the Congo.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "AO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Nigeria, Gabon, Democratic Republic of Congo, Angola, Republic of the Congo.",
+        "words": "Angola",
+        "ok": true
+      },
+      {
+        "code": "CG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Nigeria, Gabon, Democratic Republic of Congo, Angola, Republic of the Congo.",
+        "words": "Republic of the Congo",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pelvicachromis subocellatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2372938,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        13
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        5
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ]
+    ],
+    "native": [
+      "NG",
+      "GA",
+      "CD",
+      "AO",
+      "CG"
+    ],
+    "requests": 11,
+    "at": "2026-11-12T13:29:05.219Z"
+  }
+}

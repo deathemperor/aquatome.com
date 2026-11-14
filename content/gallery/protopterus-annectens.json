@@ -2,6 +2,32 @@
   "id": "protopterus-annectens",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/223520639.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/223520639-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY-SA",
+      "author": "Fishes of Texas team",
+      "sourceUrl": "https://www.inaturalist.org/photos/223520639",
+      "caption": "Cá phổi châu Phi dựng đầu trong bể kính có cây giả",
+      "best": true,
+      "kind": "other",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/223520647.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/223520647-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY-SA",
+      "author": "Fishes of Texas team",
+      "sourceUrl": "https://www.inaturalist.org/photos/223520647",
+      "caption": "Cá phổi châu Phi nằm trên nền sỏi đen trắng trong bể",
+      "best": true,
+      "kind": "other",
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/79d89f771dd30fa3.webp",
       "thumb": "https://media.aquatome.com/commons/79d89f771dd30fa3-480.webp",
       "width": 1200,
@@ -50,7 +76,7 @@
       "kind": "other"
     }
   ],
-  "seen": 13,
-  "updatedAt": "2026-11-09",
-  "builtAt": "2026-11-09"
+  "seen": 15,
+  "updatedAt": "2026-11-13",
+  "builtAt": "2026-11-13"
 }

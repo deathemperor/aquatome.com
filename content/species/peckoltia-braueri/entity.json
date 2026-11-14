@@ -13,6 +13,96 @@
     "takutu",
     "guyana"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "GY"
+      ],
+      "regions": [
+        "Rio Negro",
+        "Takutu River"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Brazil, Guyana, Takutu River downstream of Lethem.",
+          "countries": [
+            "BR",
+            "GY"
+          ],
+          "regions": [
+            "Takutu River"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "L135 comes from the central Rio Negro basin.",
+          "countries": [],
+          "regions": [
+            "Rio Negro"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202092,
+      "total": 25,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "GY",
+          17
+        ],
+        [
+          "BR",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          -61.875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          0,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          2.8125,
+          18,
+          18
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

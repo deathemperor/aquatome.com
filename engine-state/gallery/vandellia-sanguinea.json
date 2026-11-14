@@ -4,5 +4,17 @@
  "hashes": {
   "https://media.aquatome.com/scotcat/b234596074d64639.webp": "030b030706070707"
  },
- "commons": "2026-11-10"
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 621902,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 5202902,
+  "next": null
+ }
 }

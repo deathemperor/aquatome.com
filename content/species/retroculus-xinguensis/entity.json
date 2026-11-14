@@ -10,6 +10,55 @@
     "brazil",
     "xingu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Xingu",
+        "Tapajós",
+        "Iriri",
+        "Jamanxim",
+        "Arapiuns",
+        "Maués Açu"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Retroculus xinguensis is a rheophilic cichlid from the rio Xingu basin in Brazil, with a handful of records from the Tapajós drainage.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Xingu",
+            "Tapajós"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The majority of records pertain to the lower rio Xingu basin in the state of Pará, northern Brazil, including middle and lower reaches of its major tributary the rio Iriri, although the type locality is in Mato Grosso state several hundred kilometres upstream.",
+          "countries": [],
+          "regions": [
+            "Iriri"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "There also exist a handful of records from the rio Jamanxim (a major affluent of the rio Tapajós which drains the same mountain range as the rio Iriri), the rio Arapiuns, and the rio Maués Açu, another right bank tributary that enters the Amazon main channel upstream of the Tapajós and is connected to the rio Madeira.",
+          "countries": [],
+          "regions": [
+            "Jamanxim",
+            "Arapiuns",
+            "Maués Açu"
+          ]
+        }
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

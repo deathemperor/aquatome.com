@@ -1,0 +1,27 @@
+{
+  "slug": "cardamine-lyrata",
+  "name": "Cardamine lyrata",
+  "altNames": [
+    "Japanese Cress",
+    "Chinese Ivy",
+    "Cardamine"
+  ],
+  "sections": {
+    "quickFacts:tropica": "<ul><li>Jenis: tumbuhan batang</li><li>Asal: Asia</li><li>Ketinggian: 20–30+ cm</li><li>Keperluan cahaya: rendah</li><li>Keperluan CO2: sederhana</li></ul>",
+    "maintenance:tropica": "<p>Tanam secara berkumpulan, dan pastikan suhu air tidak melebihi 28 °C (suhu yang lebih tinggi menyebabkan daunnya jauh lebih kecil dan batangnya memanjang dengan daun yang jarang).</p>",
+    "notes:tropica": "<p>Cardamine lyrata sebenarnya tumbuhan paya dari Jepun. Namun, ia juga tumbuhan akuarium yang biasa dikenali dan tumbuh subur di dalam air dengan batang sepanjang 20–50 cm. Cara tumbesarannya yang menjalar dan berjuntai menjadikannya sangat cantik sebagai hiasan, dan akar 'udara' selalunya tumbuh pada batang tumbuhan itu sendiri. Ia juga sesuai untuk kolam taman pada musim panas.</p>"
+  },
+  "quality": {
+    "score": 0.75,
+    "indexable": true,
+    "bySource": {
+      "tropica": 0.75
+    }
+  },
+  "held": {
+    "checks": [
+      "elsewhere"
+    ],
+    "at": "2026-11-13"
+  }
+}

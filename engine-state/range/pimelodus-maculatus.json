@@ -1,0 +1,184 @@
+{
+  "id": "pimelodus-maculatus",
+  "native": {
+    "input": "f92fd6b6d73c726e",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The spotted pim, Pimelodus maculatus, is a pimelodid catfish from the Rio Paraná and Rio São Francisco basins in Brazil and Argentina.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The spotted pim, Pimelodus maculatus, is a pimelodid catfish from the Rio Paraná and Rio São Francisco basins in Brazil and Argentina.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Rio Paraná and Rio São Francisco basins in Brazil and Argentina.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Rio Paraná and Rio São Francisco basins in Brazil and Argentina.",
+        "words": "Argentina",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Paraná",
+        "source": "seriouslyfish",
+        "quote": "Native to the Rio Paraná and Rio São Francisco basins in Brazil and Argentina.",
+        "ok": true
+      },
+      {
+        "name": "Rio São Francisco",
+        "source": "seriouslyfish",
+        "quote": "Native to the Rio Paraná and Rio São Francisco basins in Brazil and Argentina.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "UY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pimelodus maculatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2338908,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        760
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        721
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        219
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        149
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        138
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        92
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        85
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        70
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        30
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        26
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        21
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        12
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        9
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        9
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        5
+      ],
+      [
+        "d4b3cce1-4594-47bb-b1e2-1ace65458a11",
+        5
+      ],
+      [
+        "ca5ece39-358c-4dcf-8bb8-fa28601f1be6",
+        4
+      ],
+      [
+        "bba95e72-e2df-420e-8de3-b7ca814037ae",
+        3
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "AR"
+    ],
+    "requests": 12,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

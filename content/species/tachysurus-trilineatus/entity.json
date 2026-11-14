@@ -18,6 +18,13 @@
           "min": 16,
           "max": 23
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 15,
+          "max": 25
+        }
       }
     ],
     "ph": [
@@ -27,12 +34,23 @@
           "min": 6.4,
           "max": 7.6
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 7.6
+      },
+      {
+        "source": "scotcat",
+        "value": 7.5
       }
     ]
   },
@@ -44,10 +62,22 @@
       "html": "<ul><li>Common name: Highway Catfish</li><li>Described by Zheng, 1979</li><li>Size: 76 mm (3 in) SL</li><li>Temperature: 16.0–23.0°C</li><li>pH: 6.4–7.6</li><li>IUCN Red List: Not Evaluated</li><li>Etymology: the specific epithet comes from the Latin tres, meaning three, and linea, meaning line, in reference to the colour pattern.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/tachysurus_trilineatus.htm",
+      "html": "<p>Common name: Highway Catfish (no established Vietnamese name).</p><p>Family: Bagridae.</p><p>Synonyms: Pseudobagrus trilineatus, Leiocassis trilineatus.</p><p>Description: Dorsal spines (total): 2; dorsal soft rays (total): 7; anal soft rays: 18–19. Nude without scale, complete lateral line. Well developed dorsal fin, adipose fin about 1.4–2.8 times the length of the dorsal fin, nearly arc-shaped.</p><p>Colouration: Yellowish brown in colour, with three dark yellowish lateral stripes on the side (trilineatus). One of the stripes along the lateral line is discontinuous.</p><p>Size: 7.5 cm.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1028",
       "html": "<p>Dongjiang drainage (part of the Zhujiang [Pearl River] drainage) in southern China. Type locality: mountain stream in Luofu Shan, Boluo Xian, Guangdong Province, China.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/tachysurus_trilineatus.htm",
+      "html": "<p>Asia: China, Dongjiang basin. Type locality: Mountain stream in Luofu Shan, Boluo Xian, Guangdong Province, China.</p><p>IUCN Red List: This species occurs in the coastal rivers of Guangdong Province, China. The species has a stable population and is not impacted by significant threats. As such, it is assessed as Least Concern (IUCN 2024).</p>"
     },
     {
       "key": "habitat",
@@ -60,6 +90,12 @@
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1028",
       "html": "<ul><li>Temperature: 16.0–23.0°C (60.8–73.4°F)</li><li>pH: 6.4–7.6</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/tachysurus_trilineatus.htm",
+      "html": "<p>Temperature: 15–25°C.</p><p>pH: 6.0–7.5.</p>"
     },
     {
       "key": "dimorphism",
@@ -80,13 +116,41 @@
       "html": "<p>Tachysurus can be identified by an extrascapular without a laterosensory canal, and a pterotic with a broad lateral laminar expansion. It is among the most speciose catfish groups in East Asia and its members inhabit habitats ranging from fast-flowing hillstreams to large rivers.</p><p>Easily distinguished by its elongate body, long adipose fin and attractive colouration. Xanthic and albino forms exist.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/tachysurus_trilineatus.htm",
+      "html": "<p>Etymology: The genus name Tachysurus: tachys, swift; oura, tail, referring to the presumed agility of T. sinensis, based on its \"long and nimble\" tail (translation). The specific name trilineatus: tri-, three; lineatus, lined, referring to three yellowish lines on each side of the body.</p><p>Remarks: Still valid in some publications as Pseudobagrus trilineatus, but Eschmeyer's Catalog of Fishes has Tachysurus as the current genus name with Pseudobagrus trilineatus as a junior synonym.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1028",
       "html": "<p>Acta Zootaxonomica Sinica v. 4 (no. 2), pp 182 (English p. 183), Fig. 1</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/tachysurus_trilineatus.htm",
+      "html": "<p>Ferraris, C.J. Jr. 2007 Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Gao, G. 1991 Bagridae. p. 297-317. In J.-H. Pan, L. Zhong, C.-Y. Zheng, H.-L. Wu and J.-H. Liu (eds). 1991. The freshwater fishes of Guangdong Province. Guangdong Science and Technology Press, Guangzhou. 589 pp.</p><p>Shao, W. 2024. Tachysurus trilineatus. The IUCN Red List of Threatened Species 2024.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/201844546.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/201844546-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY",
+      "author": "Lawrence Hylton",
+      "sourceUrl": "https://www.inaturalist.org/photos/201844546",
+      "caption": "Cá da trơn ba sọc trong bể, thân có sọc vàng dọc",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/201844546-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    }
+  ],
   "videos": [
     {
       "youtubeId": "lf9Gp5uJBug",
@@ -136,5 +200,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-10"
 }

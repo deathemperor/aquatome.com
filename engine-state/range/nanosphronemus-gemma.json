@@ -1,0 +1,28 @@
+{
+  "id": "nanosphronemus-gemma",
+  "native": {
+    "input": "958d1111f4f27477",
+    "at": "2026-11-10T15:58:17.469Z",
+    "claims": [
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "aquatome",
+        "quote": "Hiện người ta chỉ biết loài này ở vùng đất ngập nước tại một địa điểm gần Huế, miền Trung Việt Nam.",
+        "words": "Việt Nam",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "unmatched": true,
+    "at": "2026-11-10T15:58:17.469Z"
+  }
+}

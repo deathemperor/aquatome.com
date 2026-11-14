@@ -134,7 +134,73 @@
       "html": "<p>Aphyosemion: from the Greek aphúe, meaning 'a small fish', and semeion, meaning 'banner, flag', in reference to the \"ornamented, often lyre-shaped\" caudal fin in male individuals of genus members.</p><p>cognatum: from the Latin adjective cognatus, meaning 'related', since at the time of description it was presumed to be closely related to the congeners A. calliurum and A. striatum.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/0e1bc1f83512ef9e91d184ba678caf2e.webp",
+      "thumb": "https://media.aquatome.com/processed/0e1bc1f83512ef9e91d184ba678caf2e-480.webp",
+      "width": 522,
+      "height": 392,
+      "licence": "dùng với sự cho phép",
+      "author": "Stefan van der Voort",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-cognatum",
+      "caption": "Adult male specimen; collection details not supplied.",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-aphyosemion-cognatum",
+        "pixelHash": "397ec89dbcea49436f8e20409ee8390acaecb29cb824ff3e4349c0e6e086ede1"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T09:37:11.235Z",
+          "originalHash": "644819546e58fdfe0472d5c1f1997b427c402c9d5786ff70380ea360981a5a9d",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 640,
+            "originalHeight": 424,
+            "window": {
+              "x0": 84,
+              "y0": 0,
+              "x1": 606,
+              "y1": 392
+            },
+            "subject": {
+              "x0": 104,
+              "y0": 139,
+              "x1": 585,
+              "y1": 301
+            },
+            "margin": 11
+          },
+          "excludedMarks": [
+            {
+              "x0": 16,
+              "y0": 397,
+              "x1": 247,
+              "y1": 415
+            }
+          ],
+          "checks": {
+            "species": [
+              "f29cdf70ed716ea4724f9168698c56965e67ce1e7becad57be18a7ce618c8571",
+              "4577e1d217d64f0c42e5f28643126a01db84d5714e77012a19b7d3cdd212321a"
+            ],
+            "ownership": [
+              "9a8667bcbbe7c936c04b1fac54b2c30b9288dba0e85221f8c010ec36b619b2aa",
+              "6ec84e1ffb94ab887ed7ccbede95ab021554d6f3d871ed0fbaa6382cee903834"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/382ebce842d91429.webp",
+        "width": 640,
+        "height": 424,
+        "thumb": "https://media.aquatome.com/seriouslyfish/382ebce842d91429-480.webp"
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

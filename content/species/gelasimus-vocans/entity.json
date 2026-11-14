@@ -1,0 +1,599 @@
+{
+  "id": "gelasimus-vocans",
+  "scientificName": "Gelasimus vocans",
+  "order": "Decapoda",
+  "family": "Ocypodidae",
+  "genus": "Gelasimus",
+  "group": "other",
+  "places": [
+    "asia",
+    "thailand"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9465889,
+      "total": 175,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "ID",
+          35
+        ],
+        [
+          "KE",
+          25
+        ],
+        [
+          "PH",
+          23
+        ],
+        [
+          "SG",
+          21
+        ],
+        [
+          "TH",
+          13
+        ],
+        [
+          "MY",
+          7
+        ],
+        [
+          "TW",
+          7
+        ],
+        [
+          "CN",
+          6
+        ],
+        [
+          "YT",
+          6
+        ],
+        [
+          "VN",
+          5
+        ],
+        [
+          "WS",
+          4
+        ],
+        [
+          "ZA",
+          4
+        ],
+        [
+          "AU",
+          3
+        ],
+        [
+          "IN",
+          3
+        ],
+        [
+          "HK",
+          2
+        ],
+        [
+          "MU",
+          2
+        ],
+        [
+          "TZ",
+          2
+        ],
+        [
+          "BN",
+          1
+        ],
+        [
+          "FM",
+          1
+        ],
+        [
+          "GU",
+          1
+        ],
+        [
+          "JP",
+          1
+        ],
+        [
+          "KH",
+          1
+        ],
+        [
+          "MG",
+          1
+        ],
+        [
+          "MZ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -172.96875,
+          -14.0625,
+          4,
+          0
+        ],
+        [
+          30.9375,
+          -30.9375,
+          3,
+          0
+        ],
+        [
+          30.9375,
+          -29.53125,
+          1,
+          0
+        ],
+        [
+          32.34375,
+          -26.71875,
+          1,
+          0
+        ],
+        [
+          37.96875,
+          -7.03125,
+          2,
+          0
+        ],
+        [
+          39.375,
+          -5.625,
+          13,
+          0
+        ],
+        [
+          39.375,
+          -4.21875,
+          12,
+          0
+        ],
+        [
+          43.59375,
+          -23.90625,
+          1,
+          0
+        ],
+        [
+          45,
+          -14.0625,
+          6,
+          0
+        ],
+        [
+          56.25,
+          -21.09375,
+          1,
+          0
+        ],
+        [
+          57.65625,
+          -21.09375,
+          1,
+          0
+        ],
+        [
+          71.71875,
+          18.28125,
+          2,
+          0
+        ],
+        [
+          78.75,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          97.03125,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          97.03125,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          99.84375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          12.65625,
+          4,
+          4
+        ],
+        [
+          101.25,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          101.25,
+          1.40625,
+          4,
+          0
+        ],
+        [
+          102.65625,
+          0,
+          10,
+          0
+        ],
+        [
+          102.65625,
+          1.40625,
+          12,
+          0
+        ],
+        [
+          102.65625,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          104.0625,
+          -2.8125,
+          10,
+          0
+        ],
+        [
+          105.46875,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          108.28125,
+          11.25,
+          1,
+          0
+        ],
+        [
+          108.28125,
+          15.46875,
+          4,
+          0
+        ],
+        [
+          108.28125,
+          16.875,
+          3,
+          0
+        ],
+        [
+          109.6875,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          112.5,
+          25.3125,
+          1,
+          0
+        ],
+        [
+          113.90625,
+          -9.84375,
+          2,
+          0
+        ],
+        [
+          113.90625,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          113.90625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          113.90625,
+          21.09375,
+          2,
+          0
+        ],
+        [
+          116.71875,
+          25.3125,
+          2,
+          0
+        ],
+        [
+          119.53125,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          119.53125,
+          14.0625,
+          1,
+          0
+        ],
+        [
+          119.53125,
+          15.46875,
+          1,
+          0
+        ],
+        [
+          119.53125,
+          22.5,
+          6,
+          0
+        ],
+        [
+          120.9375,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          120.9375,
+          5.625,
+          2,
+          0
+        ],
+        [
+          120.9375,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          120.9375,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          120.9375,
+          14.0625,
+          2,
+          0
+        ],
+        [
+          120.9375,
+          15.46875,
+          1,
+          0
+        ],
+        [
+          120.9375,
+          23.90625,
+          1,
+          0
+        ],
+        [
+          122.34375,
+          -11.25,
+          1,
+          0
+        ],
+        [
+          122.34375,
+          9.84375,
+          9,
+          0
+        ],
+        [
+          122.34375,
+          14.0625,
+          1,
+          0
+        ],
+        [
+          123.75,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          123.75,
+          1.40625,
+          2,
+          0
+        ],
+        [
+          123.75,
+          9.84375,
+          2,
+          0
+        ],
+        [
+          123.75,
+          23.90625,
+          1,
+          0
+        ],
+        [
+          125.15625,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          126.5625,
+          0,
+          9,
+          0
+        ],
+        [
+          127.96875,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          129.375,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          129.375,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          129.375,
+          1.40625,
+          2,
+          0
+        ],
+        [
+          135,
+          -35.15625,
+          1,
+          0
+        ],
+        [
+          143.4375,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          151.875,
+          -30.9375,
+          2,
+          0
+        ],
+        [
+          151.875,
+          7.03125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/uca-vocans-en/",
+      "html": "<p>Origin: Thailand.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/uca-vocans-en/",
+      "html": "<p>Fiddler crabs live along the border of water and land. During the tide they hide in holes in the sand. At low water they come out of their hiding places and search for food that the water left behind.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/uca-vocans-en/",
+      "html": "<p>The males display their mighty claw to impress the females, but this also is used to awe other males. Within the very same species males exist in which the left claw or the right is enlarged.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/uca-vocans-en/",
+      "html": "<p>Some males with extraordinarily large claws were recently imported from Thailand.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "f6aG6e9NZMY",
+      "title": "ヒメシオマネキ　Fiddler crab（Himesiomaneki）　 Uca vocans",
+      "durationSec": 70,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "uwndDW97BPg",
+      "title": "Fiddler Crab (04Dec2015h)",
+      "durationSec": 58,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "gYq9QC9iFvA",
+      "title": "Fiddler Crab (04Dec2015f)",
+      "durationSec": 33,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cua cạn nước",
+        "bể paludarium"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cua",
+        "cát mịn cho cua"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

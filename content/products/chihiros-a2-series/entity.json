@@ -1,0 +1,363 @@
+{
+  "id": "chihiros-a2-series",
+  "brand": "Chihiros",
+  "model": "A2 series",
+  "category": "den",
+  "type": "thuy-sinh",
+  "specs": [
+    {
+      "key": "Housing material",
+      "value": "Aluminium alloy, black coated, anodised surface (for heat dissipation and rust resistance)",
+      "source": 1
+    },
+    {
+      "key": "Control",
+      "value": "Built-in Bluetooth, My Chihiros app (brightness, timer)",
+      "source": 1
+    },
+    {
+      "key": "Colour temperature",
+      "value": "approx. 8000K",
+      "source": 4
+    },
+    {
+      "key": "Spectrum",
+      "value": "approx. 400–700 nm",
+      "source": 4
+    },
+    {
+      "key": "LED layout",
+      "value": "3 dense LED rows",
+      "source": 4
+    },
+    {
+      "key": "Max glass thickness for mounting legs",
+      "value": "8 mm",
+      "source": 4
+    },
+    {
+      "key": "Fixture width x height",
+      "value": "6.7 cm x 10 cm (including legs)",
+      "source": 1
+    },
+    {
+      "key": "LED lifespan",
+      "value": ">50,000 h",
+      "source": 1
+    },
+    {
+      "key": "Warranty",
+      "value": "6 months for manufacturer defects",
+      "source": 1
+    },
+    {
+      "key": "Origin",
+      "value": "China",
+      "source": 1
+    },
+    {
+      "key": "Water protection",
+      "value": "IP43 splash-resistant",
+      "source": 6
+    }
+  ],
+  "variants": [
+    {
+      "name": "A2 301 (30 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "14 W",
+          "source": 1
+        },
+        {
+          "key": "Luminous flux",
+          "value": "1400 lm",
+          "source": 1
+        },
+        {
+          "key": "LEDs",
+          "value": "30",
+          "source": 1
+        },
+        {
+          "key": "Fixture length",
+          "value": "28.5 cm",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "A2 351/361 (35 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "15 W",
+          "source": 1
+        },
+        {
+          "key": "Luminous flux",
+          "value": "1700 lm",
+          "source": 1
+        },
+        {
+          "key": "LEDs",
+          "value": "40",
+          "source": 1
+        },
+        {
+          "key": "Fixture length",
+          "value": "33.5 cm",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "A2 401 (40 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "15 W",
+          "source": 1
+        },
+        {
+          "key": "Luminous flux",
+          "value": "1700 lm",
+          "source": 1
+        },
+        {
+          "key": "LEDs",
+          "value": "40",
+          "source": 1
+        },
+        {
+          "key": "Fixture length",
+          "value": "38.5 cm",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "A2 451 (45 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "21 W",
+          "source": 1
+        },
+        {
+          "key": "Luminous flux",
+          "value": "1950 lm",
+          "source": 1
+        },
+        {
+          "key": "LEDs",
+          "value": "50",
+          "source": 1
+        },
+        {
+          "key": "Fixture length",
+          "value": "43.5 cm",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "A2 501 (50 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "23 W",
+          "source": 3
+        },
+        {
+          "key": "Luminous flux",
+          "value": "2060 lm",
+          "source": 3
+        }
+      ]
+    },
+    {
+      "name": "A2 601 (60 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "26 W",
+          "source": 1
+        },
+        {
+          "key": "Luminous flux",
+          "value": "2450 lm",
+          "source": 1
+        },
+        {
+          "key": "LEDs",
+          "value": "60",
+          "source": 1
+        },
+        {
+          "key": "Fixture length",
+          "value": "58.5 cm",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "A2 801 (80 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "32 W",
+          "source": 1
+        },
+        {
+          "key": "Luminous flux",
+          "value": "3300 lm",
+          "source": 1
+        },
+        {
+          "key": "LEDs",
+          "value": "80",
+          "source": 1
+        },
+        {
+          "key": "Fixture length",
+          "value": "78.5 cm",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "A2 901 (90 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "40 W",
+          "source": 1
+        },
+        {
+          "key": "Luminous flux",
+          "value": "3580 lm",
+          "source": 1
+        },
+        {
+          "key": "LEDs",
+          "value": "90",
+          "source": 1
+        },
+        {
+          "key": "Fixture length",
+          "value": "88.5 cm",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "A2 1201 (120 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "53 W",
+          "source": 1
+        },
+        {
+          "key": "Luminous flux",
+          "value": "4800 lm",
+          "source": 1
+        },
+        {
+          "key": "LEDs",
+          "value": "120",
+          "source": 1
+        },
+        {
+          "key": "Fixture length",
+          "value": "118.5 cm",
+          "source": 1
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://vuaqua.vn/den/chihiros/chihiros-a-series/",
+      "title": "Chihiros A series – Vua Aqua",
+      "kind": "shop",
+      "at": "2026-11-11"
+    },
+    {
+      "url": "https://thuysinhbichphuong.vn/den-led-chihiros-a2-series-led-lght",
+      "title": "Đèn LED Chihiros A2 Series – Thủy sinh Bích Phương",
+      "kind": "shop",
+      "at": "2026-11-11"
+    },
+    {
+      "url": "https://phuongnhiaquarium.vn/products/chihiros-a2-601-led",
+      "title": "Chihiros A2-601 led – Phương Nhi Aquarium",
+      "kind": "shop",
+      "at": "2026-11-11"
+    },
+    {
+      "url": "https://bachkhoaaqua.com/san-pham/den-led-chihiros-a-version-2-dieu-chinh-qua-app",
+      "title": "Đèn LED Chihiros A Version 2 – Bách Khoa Aqua",
+      "kind": "shop",
+      "at": "2026-11-11"
+    },
+    {
+      "url": "https://buceplant.com/a/amp-1/products/chihiros-aii-series-led-light",
+      "title": "Chihiros A II Series LED Light – Buce Plant",
+      "kind": "shop",
+      "at": "2026-11-11"
+    },
+    {
+      "url": "https://vuaqua.vn/chihiros/den-chihiros-a2-max-601-60-cm/",
+      "title": "Đèn Chihiros A2 Max 601 (60 cm) – Vua Aqua",
+      "kind": "shop",
+      "at": "2026-11-11"
+    },
+    {
+      "url": "https://www.onlineaquariumspullen.nl/en/go/category/12669526",
+      "title": "Chihiros A2 – onlineaquariumspullen.nl",
+      "kind": "shop",
+      "at": "2026-11-11"
+    },
+    {
+      "url": "https://bbs.chihirosaquaticstudio.com/threads/bluetooth-connectivity-issues-with-the-app.7841/",
+      "title": "Bluetooth connectivity issues with the app – Chihiros forum",
+      "kind": "forum",
+      "at": "2026-11-11"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=PmSk_ZvXD1A",
+      "title": "Unsponsored Review of Chihiros A II Series Aquarium Light.",
+      "kind": "video",
+      "at": "2026-11-11"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=pqdX6n29fHU",
+      "title": "UNBOXING CHIHIROS A2 SERIES CHIHIROS LED SYSTEM",
+      "kind": "video",
+      "at": "2026-11-11"
+    }
+  ],
+  "reviews": {
+    "checkedAt": "2026-11-11",
+    "videos": [
+      {
+        "youtubeId": "PmSk_ZvXD1A",
+        "title": "Unsponsored Review of Chihiros A II Series Aquarium Light.",
+        "durationSec": 574,
+        "lang": "en",
+        "channel": "Droeks on Fishkeeping"
+      },
+      {
+        "youtubeId": "pqdX6n29fHU",
+        "title": "UNBOXING CHIHIROS A2 SERIES CHIHIROS LED SYSTEM",
+        "durationSec": 876,
+        "lang": "en",
+        "channel": "TONAT Tiny mOther NATure"
+      }
+    ]
+  },
+  "updatedAt": "2026-11-11"
+}

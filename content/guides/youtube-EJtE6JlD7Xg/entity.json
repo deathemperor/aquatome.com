@@ -46,7 +46,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đống miếng cước rửa nồi nhựa nhiều màu dùng làm vật liệu lọc.",
-            "sharpness": 470.2
+            "sharpness": 470.2,
+            "person": false
           },
           {
             "t": 32,
@@ -54,49 +55,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai xô nhựa trắng đặt cạnh bể kính trống và máy khoan.",
-            "sharpness": 531.2
-          }
-        ]
-      },
-      {
-        "heading": "Cắt và khoan các bộ phận",
-        "moments": [
-          {
-            "t": 62,
-            "url": "https://media.aquatome.com/video/EJtE6JlD7Xg/at62-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng cưa lọng cắt chiếc xô nhựa để lấy phần đáy làm khay.",
-            "sharpness": 507.6
-          },
-          {
-            "t": 72,
-            "url": "https://media.aquatome.com/video/EJtE6JlD7Xg/at72-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khoan nhiều lỗ nhỏ trên đáy khay nhỏ giọt.",
-            "sharpness": 568
-          }
-        ]
-      },
-      {
-        "heading": "Lắp tháp vào sump",
-        "moments": [
-          {
-            "t": 122,
-            "url": "https://media.aquatome.com/video/EJtE6JlD7Xg/at122-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Xô đã đặt vào chân đế bên trong sump, khay đặt phía trên.",
-            "sharpness": 534.1
-          },
-          {
-            "t": 128,
-            "url": "https://media.aquatome.com/video/EJtE6JlD7Xg/at128-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Xô đầy cước rửa nồi màu xanh chuẩn bị đổ vào tháp.",
-            "sharpness": 537.4
+            "sharpness": 531.2,
+            "person": false
           }
         ]
       },
@@ -109,7 +69,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Xô lọc có lớp bông lọc trắng phủ phía trên khay nhỏ giọt.",
-            "sharpness": 491.1
+            "sharpness": 491.1,
+            "person": false
           },
           {
             "t": 186,
@@ -117,7 +78,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tháp nhỏ giọt đặt trên sump, chân đế nằm trong bể nước.",
-            "sharpness": 651.4
+            "sharpness": 651.4,
+            "person": false
           }
         ],
         "photo": {

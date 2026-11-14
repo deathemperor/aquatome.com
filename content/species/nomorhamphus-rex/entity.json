@@ -1,0 +1,158 @@
+{
+  "id": "nomorhamphus-rex",
+  "scientificName": "Nomorhamphus rex",
+  "order": "Beloniformes",
+  "family": "Zenarchopteridae",
+  "genus": "Nomorhamphus",
+  "group": "livebearers",
+  "places": [
+    "asia",
+    "indonesia",
+    "sulawesi"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Sulawesi"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Indonesia (Sulawesi).",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "This species of halfbeak comes from Sulawesi (formerly Celebes), Indonesia.",
+          "countries": [],
+          "regions": [
+            "Sulawesi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7962882,
+      "total": 1,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          120.9375,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nomorhamphus_rex_en/",
+      "html": "<p>Origin: Indonesia (Sulawesi). Females reach a maximum length of around 6 cm; males always stay smaller. Water temperature 24–28°C, pH 7–8.5.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nomorhamphus_rex_en/",
+      "html": "<p>This species of halfbeak comes from Sulawesi (formerly Celebes), Indonesia. It was described scientifically only in 2012.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nomorhamphus_rex_en/",
+      "html": "<p>Water temperature should be between 24 and 28°C. Neutral or slightly alkaline water (pH between 7 and 8.5) is the best choice.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nomorhamphus_rex_en/",
+      "html": "<p>Feeding is easy, as the fish readily take flakes from the water surface. Additionally, freeze-dried food items should be fed. The fish usually feed on sinking food only when they feel absolutely safe.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nomorhamphus_rex_en/",
+      "html": "<p>The livebearing halfbeaks are best kept in larger groups (10 specimens or more); they are then comparatively peaceful towards each other.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nomorhamphus_rex_en/",
+      "html": "<p>Males stay smaller than females. The anal fin of males is modified into an andropodium, which serves for internal fertilization of the females. It has a species-specific structure which usually also prevents hybrids from occurring.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nomorhamphus_rex_en/",
+      "html": "<p>N. rex is most easily distinguished by coloration from the quite similar N. ebrardtii: N. rex has yellow ventral fins (reddish-orange in N. ebrardtii), a red lower beak (in N. ebrardtii the lower beak is the same colour as the body), and black-bordered fins, which N. ebrardtii lacks. Other differences exist but are not visible in live animals.</p><p>Etymology: Nomorhamphus means \"with about equal beaks\"; ebrardtii is a dedication to \"Geheimrat\" (privy councillor) Ebrardt; rex means \"king\", chosen because the fish's teeth recall those of the dinosaur Tyrannosaurus rex.</p><p>Suggested common name: Red-black halfbeak.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm",
+        "bể cá thủy sinh 100cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá dạng mảnh",
+        "thức ăn sấy đông khô cho cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-11"
+}

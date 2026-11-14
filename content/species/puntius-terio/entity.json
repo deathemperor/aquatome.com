@@ -15,6 +15,206 @@
     "bangladesh",
     "brahmaputra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PK",
+        "IN",
+        "NP",
+        "BD"
+      ],
+      "regions": [
+        "Indus",
+        "Ganges",
+        "Brahmaputra"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Widely distributed from Pakistan, throughout northern India (records exist from the states of Uttar Pradesh, Bihar, Assam, Manipur, Meghalaya, West Bengal, and Orissa), Nepal, and Bangladesh, a range encompassing parts of the Indus, Ganges, and Brahmaputra river drainages plus many of their affluents.",
+          "countries": [
+            "PK",
+            "IN",
+            "NP",
+            "BD"
+          ],
+          "regions": [
+            "Indus",
+            "Ganges",
+            "Brahmaputra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2364088,
+      "total": 50,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "IN",
+          36
+        ],
+        [
+          "BD",
+          12
+        ],
+        [
+          "NP",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          73.125,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          74.53125,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          77.34375,
+          22.5,
+          9,
+          9
+        ],
+        [
+          77.34375,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          78.75,
+          11.25,
+          1,
+          1
+        ],
+        [
+          78.75,
+          16.875,
+          1,
+          1
+        ],
+        [
+          78.75,
+          22.5,
+          3,
+          3
+        ],
+        [
+          80.15625,
+          28.125,
+          1,
+          1
+        ],
+        [
+          81.5625,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          82.96875,
+          21.09375,
+          5,
+          5
+        ],
+        [
+          85.78125,
+          22.5,
+          1,
+          1
+        ],
+        [
+          85.78125,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          87.1875,
+          22.5,
+          2,
+          2
+        ],
+        [
+          87.1875,
+          25.3125,
+          4,
+          4
+        ],
+        [
+          88.59375,
+          21.09375,
+          3,
+          3
+        ],
+        [
+          88.59375,
+          22.5,
+          2,
+          2
+        ],
+        [
+          88.59375,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          90,
+          22.5,
+          4,
+          4
+        ],
+        [
+          90,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          91.40625,
+          22.5,
+          1,
+          1
+        ],
+        [
+          92.8125,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          95.625,
+          28.125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

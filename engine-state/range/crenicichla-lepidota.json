@@ -1,0 +1,153 @@
+{
+  "id": "crenicichla-lepidota",
+  "native": {
+    "input": "e27933e2c092b470",
+    "at": "2026-11-10T04:57:39.069Z",
+    "claims": [
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "A medium-sized (around 15 cm) pike cichlid from Paraguay.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Paraguay.",
+        "words": "Paraguay",
+        "ok": false,
+        "why": "no sentence"
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Crenicichla lepidota",
+    "status": "ACCEPTED",
+    "taxonKey": 2370934,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        204
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        148
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        101
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        55
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        47
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        37
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        30
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        17
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        17
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        17
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        14
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        13
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        13
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        10
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        10
+      ],
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        8
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        7
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        6
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        5
+      ],
+      [
+        "527885fc-bae8-48fd-8e13-349bb6dae9b8",
+        2
+      ],
+      [
+        "f8ba5386-8b91-4976-95bd-692e5d105eae",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        1
+      ],
+      [
+        "d4b3cce1-4594-47bb-b1e2-1ace65458a11",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "PY"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T04:57:39.069Z"
+  }
+}

@@ -46,10 +46,11 @@ struct AddPlug: View {
           Text("Các ổ cắm trong dự án Tuya của bạn.")
         }
       }
+      .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
       .navigationTitle("Thêm ổ cắm")
       .navigationBarTitleDisplayMode(.inline)
       .toolbar { ToolbarItem(placement: .cancellationAction) { Button("Hủy") { dismiss() } } }
-      .navigationDestination(item: $added) { id in PlugForm(deviceId: id) { dismiss() } }
+      .navigationDestination(item: $added) { id in PlugForm(deviceId: id) { dismiss() }.ownerScreen("plug-form") }
     }
   }
 
@@ -102,6 +103,7 @@ struct PlugForm: View {
           Text("Gỡ khỏi bể không bật tắt gì: ổ cắm vẫn chạy như cũ và vẫn ở trong Smart Life.")
         }
       }
+      .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
       .navigationTitle(d.nickname ?? String(localized: "Ổ cắm"))
       .navigationBarTitleDisplayMode(.inline)
       .navigationBarBackButtonHidden()

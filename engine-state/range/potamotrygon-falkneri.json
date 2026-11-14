@@ -1,0 +1,142 @@
+{
+  "id": "potamotrygon-falkneri",
+  "native": {
+    "input": "a84fe344571767d1",
+    "at": "2026-11-13T05:31:31.275Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Rio Paraná and Rio Paraguay basins in Brazil, Paraguay and Argentina.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Rio Paraná and Rio Paraguay basins in Brazil, Paraguay and Argentina.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Rio Paraná and Rio Paraguay basins in Brazil, Paraguay and Argentina.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Brazil, Rio Paraná-Paraguay.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Paraná",
+        "source": "seriouslyfish",
+        "quote": "Native to the Rio Paraná and Rio Paraguay basins in Brazil, Paraguay and Argentina.",
+        "ok": true
+      },
+      {
+        "name": "Rio Paraguay",
+        "source": "seriouslyfish",
+        "quote": "Native to the Rio Paraná and Rio Paraguay basins in Brazil, Paraguay and Argentina.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BO",
+        "PE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Potamotrygon falkneri",
+    "status": "ACCEPTED",
+    "taxonKey": 2419343,
+    "datasets": [
+      [
+        "5881ab01-ee4b-437f-b949-5f06c385b9bc",
+        75
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        66
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        48
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        32
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        14
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        6
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        5
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "PY",
+      "AR"
+    ],
+    "requests": 12,
+    "at": "2026-11-13T05:31:31.275Z"
+  }
+}

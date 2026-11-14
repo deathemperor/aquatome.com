@@ -10,6 +10,50 @@
     "cambodia",
     "tonle-sap"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "KH"
+      ],
+      "regions": [
+        "Tonlé Sap"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: Great Lake in Tonlé Sap drainage in Cambodia.",
+          "countries": [
+            "KH"
+          ],
+          "regions": [
+            "Tonlé Sap"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340948,
+      "total": 1,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "KH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          11.25,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

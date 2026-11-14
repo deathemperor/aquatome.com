@@ -1,8 +1,11 @@
 {
   "id": "neblinichthys-pilosus",
-  "summary": "Cá Neblinichthys pilosus (pleco punk) nhỏ, trưởng thành khoảng 8,9 cm. Hồ sơ chưa có thông tin về nhiệt độ, pH, độ cứng, bể tối thiểu hay độ khó, nên chưa đủ cơ sở nói ai nên nuôi và cần bể, nước thế nào. Điểm khó nhất là thiếu dữ liệu: loài có ở thượng nguồn sông Negro, sông Casiquiare và sông Baria (Venezuela), mẫu chuẩn thu ở đoạn nước cạn chảy xiết của một nhánh sông Mawarinuma, và chưa có báo cáo nào về sinh sản.",
-  "mistakes": [],
-  "speciesUpdatedAt": "2026-10-31",
-  "generatedAt": "2026-10-31T17:48:38.569Z",
-  "review": "pending"
+  "summary": "Neblinichthys pilosus (pleco punk, Punk Pleco) là cá nhỏ, lớn tới 9 cm, cần nước 20–25 °C và pH 6–7,2. Ngoài tự nhiên chúng sống ở các đoạn ghềnh nước chảy xiết, đáy toàn đá. Hồ sơ chưa nêu độ khó, cỡ bể, thức ăn hay chuyện sinh sản, nên chưa đủ cơ sở để nói loài này hợp với ai.",
+  "mistakes": [
+    "Đừng để nước vượt khỏi khoảng 20–25 °C; nên giữ nhiệt độ trong khoảng này.",
+    "Đừng để pH lệch khỏi khoảng 6–7,2; nên giữ pH trong khoảng này."
+  ],
+  "speciesUpdatedAt": "2026-11-04",
+  "generatedAt": "2026-11-11T04:58:08.535Z",
+  "review": "approved"
 }

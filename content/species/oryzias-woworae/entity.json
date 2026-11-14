@@ -10,6 +10,62 @@
     "indonesia",
     "sulawesi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Muna",
+        "Sulawesi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Daisy's ricefish, Oryzias woworae, is known only from a single stream on the island of Muna, Southeast Sulawesi, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Muna",
+            "Sulawesi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961081,
+      "total": 6,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "ID",
+          5
+        ],
+        [
+          "DE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          9.84375,
+          50.625,
+          1,
+          0
+        ],
+        [
+          122.34375,
+          -5.625,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

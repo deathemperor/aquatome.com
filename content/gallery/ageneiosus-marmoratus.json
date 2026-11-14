@@ -1,0 +1,72 @@
+{
+  "id": "ageneiosus-marmoratus",
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/705a98de2ecd0ae9ad00dfc3531d7490.webp",
+      "thumb": "https://media.aquatome.com/processed/705a98de2ecd0ae9ad00dfc3531d7490-480.webp",
+      "width": 800,
+      "height": 504,
+      "licence": "dùng với sự cho phép",
+      "author": "Enrico Richter",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ageneiosus-marmoratus",
+      "caption": "Specimen measuring 200 mm SL from the Río Nanay, Peru.",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-ageneiosus-marmoratus",
+        "pixelHash": "e2e80f536e55e1822f1cf55dc102fb5bb9c336469d5b72abc0be4bfd588905ae"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T09:14:31.558Z",
+          "originalHash": "dc830963105043efa9f68a3583ccf6ea8f473ff1d462e42a8d63e9009c3b412d",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 800,
+            "originalHeight": 542,
+            "window": {
+              "x0": 0,
+              "y0": 38,
+              "x1": 800,
+              "y1": 542
+            },
+            "subject": {
+              "x0": 146,
+              "y0": 222,
+              "x1": 637,
+              "y1": 364
+            },
+            "margin": 14
+          },
+          "excludedMarks": [
+            {
+              "x0": 21,
+              "y0": 8,
+              "x1": 176,
+              "y1": 32
+            }
+          ],
+          "checks": {
+            "species": [
+              "6d0c4f227103a8e5d9a65861fd901435225e8fd04d73375390e92985dda1f22c",
+              "7fcabdb36ba6ffd9dce6ce5964d79973c3c74b619c5cb1292dc6a7b2eccfae1f"
+            ],
+            "ownership": [
+              "324a697e8391a22c6f0ace5e7b8ee0f4b268f0e231ae735e3a8ce16e32721622",
+              "1553e1598cd410b979351417b114f96fb6e665673d5a9e726db9b0e408655fd3"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/779c55118562f497.webp",
+        "width": 800,
+        "height": 542,
+        "thumb": "https://media.aquatome.com/seriouslyfish/779c55118562f497-480.webp"
+      }
+    }
+  ],
+  "seen": 0,
+  "updatedAt": "2026-11-11"
+}

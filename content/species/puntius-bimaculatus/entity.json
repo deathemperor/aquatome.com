@@ -12,6 +12,105 @@
     "india",
     "tamil-nadu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LK",
+        "IN"
+      ],
+      "regions": [
+        "Nilwala",
+        "Cauvery",
+        "Thamirabarani",
+        "Chalakudy"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The two-spotted barb, Puntius bimaculatus, is a small cyprinid from Sri Lanka and southern India.",
+          "countries": [
+            "LK",
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from Sri Lanka where it's known from the Nilwala River drainage but also widely-distributed throughout river basins of southern India in the states of Tamil Nadu, Kerala, Karnataka, Andhra Pradesh, and Maharashtra.",
+          "countries": [],
+          "regions": [
+            "Nilwala"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Tamil Nadu records exist from the Thamirabarani, Cauvery, and Moyar river drainages, plus the Indira Gandhi Wildlife Sanctuary and National Park; in Kerala from the Chalakudy watershed; in Karnataka from the Hemavathi, Ekachi, and Bedti systems; in Andhra Pradesh from the Kundlakamma and Paleru rivers; in Maharashtra from the Phansad River.",
+          "countries": [],
+          "regions": [
+            "Cauvery",
+            "Thamirabarani",
+            "Chalakudy"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2363982,
+      "total": 30,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "LK",
+          25
+        ],
+        [
+          "IN",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          75.9375,
+          11.25,
+          4,
+          4
+        ],
+        [
+          77.34375,
+          11.25,
+          1,
+          1
+        ],
+        [
+          78.75,
+          5.625,
+          3,
+          3
+        ],
+        [
+          78.75,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          80.15625,
+          5.625,
+          5,
+          5
+        ],
+        [
+          80.15625,
+          7.03125,
+          15,
+          15
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

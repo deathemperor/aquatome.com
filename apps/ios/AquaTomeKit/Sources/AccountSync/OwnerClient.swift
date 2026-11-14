@@ -13,6 +13,8 @@ public enum OwnerError: Error {
   case refused(String, message: String?)
   /// A reply that isn't what the contract says.
   case badReply
+  /// A report that didn't go though the phone has a network: it waited too long, or the connection broke. By `URLError`'s code.
+  case network(Int)
 
   /// Worth trying again soon: offline, or the server's storage not answering just then (503 `unavailable`).
   public var passes: Bool {

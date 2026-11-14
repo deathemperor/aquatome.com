@@ -71,15 +71,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lũa phủ rêu trong bể có cá đĩa bơi quanh, đá xếp ở chân.",
-            "sharpness": 383.1
-          },
-          {
-            "t": 60,
-            "url": "https://media.aquatome.com/video/QOxxBn84t7Y/at60-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cụm lũa manzanita phủ kín rêu java xanh mướt giữa bể đáy cát.",
-            "sharpness": 315.4
+            "sharpness": 383.1,
+            "person": false
           }
         ]
       },
@@ -93,49 +86,12 @@
             "height": 675,
             "caption": "Hai khúc lũa được đặt sát vào nhau để xem chỗ ghép.",
             "sharpness": 68.2
-          },
-          {
-            "t": 140,
-            "url": "https://media.aquatome.com/video/QOxxBn84t7Y/at140-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Luồn dây rút qua chỗ ghép để siết chặt hai khúc lũa.",
-            "sharpness": 288.7
-          }
-        ]
-      },
-      {
-        "heading": "Làm cho khúc lũa tự đứng và đúng chiều cao",
-        "moments": [
-          {
-            "t": 170,
-            "url": "https://media.aquatome.com/video/QOxxBn84t7Y/at170-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các khúc lũa ghép lại tự đứng trong bể, bên cạnh máy cưa.",
-            "sharpness": 175.1
-          },
-          {
-            "t": 200,
-            "url": "https://media.aquatome.com/video/QOxxBn84t7Y/at200-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khúc lũa dài nhiều cành đặt trong bể, thấy rõ dáng của nó.",
-            "sharpness": 972.5
           }
         ]
       },
       {
         "heading": "Chọn rêu nào để phủ lũa",
         "moments": [
-          {
-            "t": 205,
-            "url": "https://media.aquatome.com/video/QOxxBn84t7Y/at205-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hộp rêu tươi cầm trên tay, sẵn sàng buộc lên lũa.",
-            "sharpness": 1337.5
-          },
           {
             "t": 425,
             "url": "https://media.aquatome.com/video/QOxxBn84t7Y/at425-hd.webp",
@@ -165,7 +121,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh bụi cây xanh um đã bám chắc trong bể.",
-            "sharpness": 209.4
+            "sharpness": 209.4,
+            "person": false
           },
           {
             "t": 590,
@@ -173,7 +130,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bụi cây xanh mọc đầy đặn trên nền sỏi trong bể.",
-            "sharpness": 772.3
+            "sharpness": 772.3,
+            "person": false
           }
         ],
         "photo": {
@@ -196,7 +154,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể piranha trồng cây với các khúc lũa đặt tạm bên trong.",
-            "sharpness": 712.4
+            "sharpness": 712.4,
+            "person": false
           },
           {
             "t": 240,
@@ -204,7 +163,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khúc lũa phủ rêu nằm giữa đám cây xanh trong bể.",
-            "sharpness": 318.9
+            "sharpness": 318.9,
+            "person": false
           }
         ],
         "photo": {

@@ -20,7 +20,7 @@ export const OUR_RUNS = [
   { cc: 'VN', from: '2026-11-07T20:40:00Z', to: '2026-11-07T21:24:00Z', tabs: 56 },
   { cc: 'VN', from: '2026-11-08T00:28:00Z', to: '2026-11-08T00:44:00Z', tabs: 23 },
 ] as const
-const dt = (iso: string) => `toDateTime('${iso.slice(0, 19).replace('T', ' ')}')`
+export const dt = (iso: string) => `toDateTime('${iso.slice(0, 19).replace('T', ' ')}')`
 /** No row from before the reset, nor from our runs before the mark (OUR_RUNS). */
 export const SINCE_RESET = `timestamp >= ${dt(READERS_FROM)}${OUR_RUNS.map(r => ` AND NOT (blob6 = '${r.cc}' AND timestamp >= ${dt(r.from)} AND timestamp < ${dt(r.to)})`).join('')}`
 /** A row-level beacon query's condition: no row from before the reset, and none of ours (blob1, worker/us.ts). */

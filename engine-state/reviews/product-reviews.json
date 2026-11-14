@@ -1,4 +1,14 @@
 {
+  "vi/products/ada-aqua-soil": [
+    {
+      "at": "2026-11-10T22:46:40Z",
+      "model": "code",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/products/aquario-neo-soil": [
     {
       "at": "2026-11-09T10:48:37Z",
@@ -17,6 +27,16 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/products/chihiros-a2-series": [
+    {
+      "at": "2026-11-11T04:47:55Z",
+      "model": "code",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/products/chihiros-c-ii": [
@@ -100,6 +120,28 @@
       "kept": true
     }
   ],
+  "vi/products/fluval-fx6": [
+    {
+      "at": "2026-11-13T23:03:15Z",
+      "model": "code",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T23:03:15Z",
+      "model": "code",
+      "cli": "2.1.323",
+      "score": 0,
+      "notes": [
+        "\"Một bài review lo cá con có thể lọt qua khe đầu hút lớn, và chưa tìm ra cách xử lý. Cũng bài này thấy đầu hút rộng nên lực hút ở lưới yếu hơn Rena XP4, có lẽ an toàn hơn.\" names Rena, XP4: its reviews' titles and descriptions and our catalog have no such name, so the captions may have misheard it. Say it without the name (\"một đèn khác\")"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/products/fluval-stratum": [
     {
       "at": "2026-11-09T22:50:43Z",
@@ -118,6 +160,17 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/products/sunsun-hbl-802": [
+    {
+      "at": "2026-11-13T19:15:19Z",
+      "model": "code",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/products/tuya-smart-life-power-strip": [

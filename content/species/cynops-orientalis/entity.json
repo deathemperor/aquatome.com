@@ -1,0 +1,244 @@
+{
+  "id": "cynops-orientalis",
+  "scientificName": "Cynops orientalis",
+  "order": "Caudata",
+  "family": "Salamandridae",
+  "genus": "Cynops",
+  "group": "other",
+  "places": [
+    "asia",
+    "china"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: eastern China",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2431860,
+      "total": 1925,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "CN",
+          1924
+        ],
+        [
+          "US",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -81.5625,
+          25.3125,
+          1,
+          0
+        ],
+        [
+          104.0625,
+          37.96875,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          28.125,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          29.53125,
+          1694,
+          1694
+        ],
+        [
+          116.71875,
+          28.125,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          30.9375,
+          9,
+          9
+        ],
+        [
+          118.125,
+          25.3125,
+          169,
+          169
+        ],
+        [
+          118.125,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          118.125,
+          30.9375,
+          4,
+          4
+        ],
+        [
+          119.53125,
+          28.125,
+          1,
+          1
+        ],
+        [
+          119.53125,
+          29.53125,
+          41,
+          41
+        ],
+        [
+          120.9375,
+          28.125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 10
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/cynops_orientalis_en/",
+      "html": "<ul><li>Origin: eastern China</li><li>Females up to 10 cm, males approximately 8 cm</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/cynops_orientalis_en/",
+      "html": "<p>Eastern China.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/cynops_orientalis_en/",
+      "html": "<p>In its eastern Chinese habitat the Chinese Fire Belly Newt inhabits small standing to slowly flowing overgrown waters.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/cynops_orientalis_en/",
+      "html": "<p>They can be kept predominantly aquatic, but a small land part with hiding places and climbing possibilities is appreciated. They do not like longer periods with high temperatures above 25°C; when kept indoors no heating is necessary.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/cynops_orientalis_en/",
+      "html": "<p>Live food like worms, water insects and their larvae are preferred.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/cynops_orientalis_en/",
+      "html": "<p>When kept together with small fishes caution is required, since these are gladly eaten.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/cynops_orientalis_en/",
+      "html": "<p>Females can get up to 10 cm long, while males remain somewhat smaller at approximately 8 cm.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/cynops_orientalis_en/",
+      "html": "<p>For breeding attempts the animals should be kept at lower temperatures for some weeks. They spawn on leaves of aquatic plants. The development of the larvae is temperature-dependent and quite short at 3–4 weeks.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "0jlaux3nr8c",
+      "title": "Cynops orientalis (HD movie 19) - Chinese Firebelly Newt - Paludarium.",
+      "durationSec": 221,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "pJV175yoOkY",
+      "title": "Chinese Fire Bellied Newt spawning 2 (Cynops Orientalis)",
+      "durationSec": 85,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "jTYVc6oUqv0",
+      "title": "Hypselotriton (Cynops) orientalis - Aquarium und Fütterung - Housing and feeding",
+      "durationSec": 288,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "OfweYGSPzus",
+      "title": "Chinese Fire Bellied Newt Half & Half Set Up (Cynops Orientalis)",
+      "durationSec": 41,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ",
+        "bể thủy sinh bán cạn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "giun huyết đông lạnh",
+        "thức ăn cho sa giông"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "rong đuôi chó",
+        "cây thủy sinh dễ trồng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "máy lọc nước êm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

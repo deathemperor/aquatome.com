@@ -1,8 +1,8 @@
 {
   "id": "biotodoma-cupido",
   "native": {
-    "input": "aaab6f13d4eb887f",
-    "at": "2026-11-06T21:19:39.004Z",
+    "input": "ac7e47ec5272c058",
+    "at": "2026-11-11T08:59:40.517Z",
     "claims": [
       {
         "code": "GY",
@@ -29,22 +29,6 @@
         "ok": true
       },
       {
-        "code": "BO",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The southern extremity of its range appears to be the Río Mamoré in Bolivia, a tributary of the rio Guaporé, and the northern limit the Essequibo basin, Guyana.",
-        "words": "Bolivia",
-        "ok": true
-      },
-      {
-        "code": "GY",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The southern extremity of its range appears to be the Río Mamoré in Bolivia, a tributary of the rio Guaporé, and the northern limit the Essequibo basin, Guyana.",
-        "words": "Guyana",
-        "ok": true
-      },
-      {
         "code": "BR",
         "status": "native",
         "source": "seriouslyfish",
@@ -53,11 +37,11 @@
         "ok": true
       },
       {
-        "code": "BR",
+        "code": "PE",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "To provide an example it was recorded to inhabit the igarapé Belmont, a tributary of the rio Madeira located close to Porto Velho city in Rondônia State, Brazil during a study conducted between May 2005 and April 2006.",
-        "words": "Brazil",
+        "source": "glaser",
+        "quote": "Specimens from the vicinity of Iquitos in Peru can be easily recognized by the large, bronze- or copper-coloured spot that is exhibited by the male and that makes the fish very attractive.",
+        "words": "Peru",
         "ok": true
       }
     ],

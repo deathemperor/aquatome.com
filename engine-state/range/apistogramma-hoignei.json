@@ -1,8 +1,8 @@
 {
   "id": "apistogramma-hoignei",
   "native": {
-    "input": "cbd10f60a68cb20f",
-    "at": "2026-11-06T09:17:06.855Z",
+    "input": "aef506c3348ae901",
+    "at": "2026-11-10T04:57:39.069Z",
     "claims": [
       {
         "code": "VE",
@@ -23,38 +23,29 @@
     ],
     "regions": [
       {
-        "name": "Orinoco",
+        "name": "Río Orinoco",
         "source": "seriouslyfish",
         "quote": "Apistogramma hoignei is a dwarf cichlid from the Río Orinoco basin in Venezuela, including the Apure, Arauca and Caura drainages.",
         "country": "VE",
         "ok": true
       },
       {
-        "name": "Apure",
-        "source": "seriouslyfish",
-        "quote": "Apistogramma hoignei is a dwarf cichlid from the Río Orinoco basin in Venezuela, including the Apure, Arauca and Caura drainages.",
-        "country": "VE",
-        "ok": true
-      },
-      {
-        "name": "Arauca",
-        "source": "seriouslyfish",
-        "quote": "Apistogramma hoignei is a dwarf cichlid from the Río Orinoco basin in Venezuela, including the Apure, Arauca and Caura drainages.",
-        "country": "VE",
-        "ok": true
-      },
-      {
-        "name": "Caura",
-        "source": "seriouslyfish",
-        "quote": "Apistogramma hoignei is a dwarf cichlid from the Río Orinoco basin in Venezuela, including the Apure, Arauca and Caura drainages.",
-        "country": "VE",
-        "ok": true
-      },
-      {
-        "name": "Río Portugesa",
+        "name": "Río Apuré",
         "source": "seriouslyfish",
         "quote": "Described from the Río Portugesa, a tributary of the Río Apuré in southwestern Venezuela and also recorded from the lower Río Arauca and Río Caura.",
         "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Río Arauca",
+        "source": "seriouslyfish",
+        "quote": "Described from the Río Portugesa, a tributary of the Río Apuré in southwestern Venezuela and also recorded from the lower Río Arauca and Río Caura.",
+        "ok": true
+      },
+      {
+        "name": "Río Caura",
+        "source": "seriouslyfish",
+        "quote": "Described from the Río Portugesa, a tributary of the Río Apuré in southwestern Venezuela and also recorded from the lower Río Arauca and Río Caura.",
         "ok": true
       }
     ],

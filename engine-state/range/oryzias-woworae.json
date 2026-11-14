@@ -1,0 +1,59 @@
+{
+  "id": "oryzias-woworae",
+  "native": {
+    "input": "f50e0ef4def34faf",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Daisy's ricefish, Oryzias woworae, is known only from a single stream on the island of Muna, Southeast Sulawesi, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Muna",
+        "source": "seriouslyfish",
+        "quote": "Daisy's ricefish, Oryzias woworae, is known only from a single stream on the island of Muna, Southeast Sulawesi, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Sulawesi",
+        "source": "seriouslyfish",
+        "quote": "Daisy's ricefish, Oryzias woworae, is known only from a single stream on the island of Muna, Southeast Sulawesi, Indonesia.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Oryzias woworae",
+    "status": "ACCEPTED",
+    "taxonKey": 5961081,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        5
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

@@ -14,18 +14,6 @@
       "kind": "male"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/295632865.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/295632865-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Moogoo Lee",
-      "sourceUrl": "https://www.inaturalist.org/photos/295632865",
-      "caption": "Cá rô phi ngọc trai bơi trên nền cát ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/298701712.webp",
       "thumb": "https://media.aquatome.com/inaturalist/298701712-480.webp",
       "width": 1024,
@@ -396,6 +384,18 @@
       "caption": "Cá rô phi ngọc trai trưởng thành xòe vây lưng",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/295632865.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/295632865-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Moogoo Lee",
+      "sourceUrl": "https://www.inaturalist.org/photos/295632865",
+      "caption": "Cá rô phi ngọc trai bơi trên nền cát ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
     }
   ],
   "seen": 120,

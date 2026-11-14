@@ -10,6 +10,48 @@
     "indonesia",
     "katingan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Katingan",
+        "Barito",
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Puntigrus navjotsodhii is a small cyprinid known only from the upper Katingan and Barito river basins in Central Kalimantan, Indonesian Borneo.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the upper Katingan and Barito river basins in Kalimantan Tengah (Central Kalimantan) province, Indonesian Borneo.",
+          "countries": [],
+          "regions": [
+            "Katingan",
+            "Barito",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7940010,
+      "total": 0,
+      "fetched": "2026-11-13",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

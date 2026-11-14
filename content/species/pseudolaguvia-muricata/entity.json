@@ -9,6 +9,62 @@
     "asia",
     "india"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341549,
+      "total": 15,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "BD",
+          13
+        ],
+        [
+          "IN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          87.1875,
+          25.3125,
+          3,
+          0
+        ],
+        [
+          88.59375,
+          25.3125,
+          6,
+          2
+        ],
+        [
+          91.40625,
+          23.90625,
+          6,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

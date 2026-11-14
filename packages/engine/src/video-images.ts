@@ -1,3 +1,5 @@
+import { errorKind } from './state'
+import { piece } from './pieces'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -7,6 +9,7 @@ import { frameSharpness } from './still-sharpness'
 import { GuideSchema, type GuideEntity, type Photo, type Translation } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import type { Media } from './source-photos'
+import { WikimediaRefused } from './wikimedia-rest'
 import { throttled } from './youtube'
 
 const SHARP = /-hd\.webp$/
@@ -176,8 +179,10 @@ async function figuresFor(e: GuideEntity, vi: Translation, d: ImageDeps, dir: st
 
     // One open-licence photo of the section's subject.
     if (p.query?.trim()) {
-      const photos = (await d.commons(p.query.trim()).catch(() => [] as Photo[])).slice(0, 6)
-      const bytes = await Promise.all(photos.map(ph => d.get(ph.url).catch(() => null)))
+      // Wikimedia resting is no "nothing found": the guide waits for its pictures until the rest ends.
+      const resting = (err: unknown) => { if (err instanceof WikimediaRefused) throw err }
+      const photos = (await d.commons(p.query.trim()).catch(err => { resting(err); return [] as Photo[] })).slice(0, 6)
+      const bytes = await Promise.all(photos.map(ph => d.get(ph.url).catch(err => { resting(err); return null })))
       const ok = photos.flatMap((ph, j) => (bytes[j] ? [{ ph, b: bytes[j]! }] : []))
       if (ok.length) {
         const sheet = join(dir, `${v.youtubeId}-${i}-p.jpg`)
@@ -213,11 +218,12 @@ export async function videoImages(contentRoot: string, d: ImageDeps, opts: { lim
       if (!e.video || e.video.figures) continue
       const vi = JSON.parse(await readFile(join(contentRoot, 'guides', id, 'vi.json'), 'utf8')) as Translation
       try {
-        const figures = await figuresFor(e, vi, d, dir)
+        const figures = await piece(id, () => figuresFor(e, vi, d, dir))
         await writeFile(file, `${JSON.stringify(GuideSchema.parse({ ...e, video: { ...e.video, figures } }), null, 2)}\n`)
         done.push(`${id}: ${figures.length} sections, ${figures.reduce((n, f) => n + f.moments.length, 0)} stills, ${figures.filter(f => f.photo).length} photos`)
       } catch (err) {
-        if (err instanceof LlmError || throttled(err)) { failed.push(`${id}: ${(err as Error).message}`); return { done, failed, stoppedEarly: true } }
+        if (err instanceof LlmError && errorKind(err.message) === 'usage') return { done, failed, stoppedEarly: true }
+        if (err instanceof LlmError || throttled(err) || err instanceof WikimediaRefused) { failed.push(`${id}: ${(err as Error).message}`); return { done, failed, stoppedEarly: true } }
         failed.push(`${id}: ${(err as Error).message}`)
       }
     }

@@ -1,0 +1,80 @@
+{
+  "id": "nannostomus-espei",
+  "native": {
+    "input": "cff4d9a185679c0f",
+    "at": "2026-11-10T15:58:17.469Z",
+    "claims": [
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The barred pencilfish, Nannostomus espei, is a lebiasinid considered endemic to the Mazaruni River system in Guyana.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The original description contained no type locality but this species is currently considered endemic to the Mazaruni River system in Guyana, including many of its tributaries such as the Kurupung (where the species was first discovered in 1953), Eping, and Tabuba.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "There also exist reported occurrences from the Casiquiare Canal and Río Ventuari, Venezuela (Río Orinoco drainage) but these apparently require confirmation.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mazaruni",
+        "source": "seriouslyfish",
+        "quote": "The original description contained no type locality but this species is currently considered endemic to the Mazaruni River system in Guyana, including many of its tributaries such as the Kurupung (where the species was first discovered in 1953), Eping, and Tabuba.",
+        "country": "GY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Nannostomus espei",
+    "status": "ACCEPTED",
+    "taxonKey": 2355637,
+    "datasets": [
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        22
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        12
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "GY"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T15:58:17.469Z"
+  }
+}

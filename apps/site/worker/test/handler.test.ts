@@ -8,6 +8,7 @@ import { testD1 } from './d1'
 import { memoryR2 } from './r2'
 import { saveRun, type RunRecord } from '../fishid/transcript'
 import { LANGS } from '@aq/schema/langs'
+import { localizePath } from '../../src/lib/i18n'
 
 const PAGE = '<!doctype html><html lang="vi"><head><title>t</title></head><body><p>x</p></body></html>'
 const CHROME = 'Mozilla/5.0 (Macintosh) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0 Safari/537.36'
@@ -392,7 +393,7 @@ test('Malay: a browser asking for it, a reader in Malaysia or Brunei, the menu a
   expect(await (await handle(at('/', 'GB', en), e)).text()).toContain('<a href="/?lang=ms" lang="ms" hreflang="ms"><b>Bahasa Melayu</b><span>Buku panduan ikan hiasan & aquascape</span></a>')
 })
 
-test('a browser asking for none of our languages, from a country with none of them, is asked to choose; the pick is remembered and counted', async () => {
+test('a browser asking for none of our languages, from a country with none of them, is asked to choose; the pick is remembered, and serving it counts nothing', async () => {
   const { e, points } = env()
   const at = (path: string, country: string, headers: Record<string, string>) => Object.assign(get(path, headers), { cf: { country } })
   const en = { ...browser, 'accept-language': 'en-GB,en;q=0.9' }
@@ -404,7 +405,8 @@ test('a browser asking for none of our languages, from a country with none of th
   expect(asked.headers.get('cache-control')).toBe('private, no-store')
   expect(asked.headers.get('vary')).toBe('Accept-Language, Cookie')
   expect(asked.headers.get('link')).toContain('rel="api-catalog"')
-  expect(points).toEqual([{ blobs: ['', 'lang', '/', '', '', 'GB'], doubles: [1], indexes: ['GB'] }])
+  expect(html).toContain("JSON.stringify({chooser:p})")
+  expect(points).toEqual([]) // its script counts it (below)
   // The home page instead: a language of ours asked for or picked, a country with one of ours, no country known, a crawler.
   const home = async (r: Request) => (await (await handle(r, e)).text()) === PAGE
   expect(await home(at('/', 'GB', { ...en, 'accept-language': 'en-GB,vi;q=0.5' }))).toBe(true)
@@ -414,25 +416,34 @@ test('a browser asking for none of our languages, from a country with none of th
   expect(await home(at('/', 'GB', { 'user-agent': 'Googlebot/2.1', 'accept-language': 'en' }))).toBe(true)
   expect(await home(at('/', 'GB', { ...en, 'user-agent': `${CHROME} AquaTomeCheck/1` }))).toBe(true)
   expect((await handle(at('/', 'GB', { ...en, cookie: 'aq_lang=th' }), e)).headers.get('location')).toBe('/th/')
-  expect(points).toHaveLength(1)
-  // A browser fetching / ahead of a click (the Vietnamese pages prefetch it) gets the chooser, uncounted.
-  for (const purpose of ['prefetch', 'prefetch;prerender']) expect(await (await handle(at('/', 'GB', { ...en, 'sec-purpose': purpose }), e)).text()).toContain('lang="en"')
-  expect(points).toHaveLength(1)
   // Its links keep the address's query for the page they lead to.
   expect(await (await handle(at('/?utm_source=x&a=1', 'GB', en), e)).text()).toContain('href="/?lang=th&amp;utm_source=x&amp;a=1"')
-  points.length = 1
   // The pick: Indonesian or Thai, that language's home; Vietnamese, the home page itself (never back to the chooser,
-  // whose test a lost cookie would fail again); remembered as the language menu does, counted by country.
+  // whose test a lost cookie would fail again); remembered as the language menu does.
   const id = await handle(at('/?lang=id&utm_source=x', 'GB', en), e)
   expect([id.status, id.headers.get('location'), id.headers.get('set-cookie')]).toEqual([302, '/id/?utm_source=x', 'aq_lang=id; Path=/; Max-Age=31536000; SameSite=Lax; Secure'])
-  expect(points.at(-1)).toEqual({ blobs: ['', 'lang', '/?lang=id', '', '', 'GB'], doubles: [1], indexes: ['GB'] })
   const vi = await handle(at('/?lang=vi', 'US', en), e)
   expect([vi.status, await vi.text(), vi.headers.get('set-cookie')]).toEqual([200, PAGE, 'aq_lang=vi; Path=/; Max-Age=31536000; SameSite=Lax; Secure'])
-  expect(points.at(-1)).toEqual({ blobs: ['', 'lang', '/?lang=vi', '', '', 'US'], doubles: [1], indexes: ['US'] })
-  // A crawler's pick isn't counted; a language not ours is no pick.
-  await handle(at('/?lang=th', 'GB', { 'user-agent': 'Googlebot/2.1', 'accept-language': 'en' }), e)
-  expect(points).toHaveLength(3)
+  // A language not ours is no pick.
   expect(await (await handle(at('/?lang=fr', 'GB', en), e)).text()).toContain('lang="en"')
+  expect(points).toEqual([])
+})
+
+test('the chooser counts when its script says so: shown or a language of ours, by country, marked if ours, never a bot', async () => {
+  const { e, points } = env()
+  const en = { ...browser, 'accept-language': 'en-GB,en;q=0.9', origin: 'https://x.test' }
+  const send = (body: unknown, headers: Record<string, string> = en) => handle(Object.assign(new Request('https://x.test/_e', { method: 'POST', body: JSON.stringify(body), headers }), { cf: { country: 'GB' } }), e)
+  expect((await send({ chooser: '/' })).status).toBe(204)
+  expect((await send({ chooser: '/?lang=id' })).status).toBe(204)
+  expect(points).toEqual([{ blobs: ['', 'lang', '/', '', '', 'GB'], doubles: [1], indexes: ['GB'] }, { blobs: ['', 'lang', '/?lang=id', '', '', 'GB'], doubles: [1], indexes: ['GB'] }])
+  await send({ chooser: '/' }, { ...en, cookie: 'aq_us=1' })
+  expect(points.at(-1)).toMatchObject({ blobs: ['team', 'lang', '/', '', '', 'GB'] })
+  // A program or our own check: answered, not counted. Anything else isn't a chooser event.
+  const before = points.length
+  expect((await send({ chooser: '/' }, { ...en, 'user-agent': 'Googlebot/2.1' })).status).toBe(204)
+  expect((await send({ chooser: '/' }, { ...en, 'user-agent': `${browser['user-agent']} AquaTomeCheck/1` })).status).toBe(204)
+  for (const chooser of ['/?lang=fr', '/ca/ca-betta/', 1, null]) expect((await send({ chooser })).status, String(chooser)).toBe(400)
+  expect(points).toHaveLength(before)
 })
 
 test('hide a page from the dashboard: 410 for HTML, markdown and index.*; unhide brings it back', async () => {
@@ -520,6 +531,49 @@ test('a renamed page\'s old address 301s to the new one with ?tu=<old slug>, its
   // Other languages' old addresses too.
   const id = await handle(new Request('https://aquatome.com/id/asal/north-america/usa/'), e)
   expect([id.status, id.headers.get('location')]).toEqual([301, '/id/asal/north-america/united-states/'])
+})
+
+test('a missing fish or plant gallery 302s to its existing page, keeping the query; renamed pages still 301', async () => {
+  const table = { '/ca/old/anh/': '/ca/x/' }
+  const live = ['/ca/x/', '/cay/y/', '/ca/old/']
+  const { e } = env({ ASSETS: { fetch: async (r: Request) => { const p = new URL(r.url).pathname; return p === '/redirects.json' ? Response.json(table) : live.includes(p) ? new Response(PAGE, { headers: { 'content-type': 'text/html; charset=utf-8' } }) : new Response('<h1>404</h1>', { status: 404, headers: { 'content-type': 'text/html' } }) } } as unknown as Fetcher })
+  for (const [from, to] of [['/ca/x/anh/', '/ca/x/'], ['/cay/y/anh/', '/cay/y/'], ['/ca/x/anh', '/ca/x/'], ['/ca/x/anh/?a=1', '/ca/x/?a=1']]) {
+    const r = await handle(get(from!), e)
+    expect([r.status, r.headers.get('location')], from).toEqual([302, to])
+    expect((await follow(r, e)).status, from).toBe(200)
+  }
+  for (const path of ['/ca/khong-co/anh/', '/ca/x/extra/anh/', '/id/ca/x/anh/', '/th/cay/y/anh/']) {
+    expect((await handle(get(path), e)).status, path).toBe(404)
+  }
+  const renamed = await handle(get('/ca/old/anh/'), e)
+  expect([renamed.status, renamed.headers.get('location')]).toEqual([301, '/ca/x/'])
+  live.push('/ca/x/anh/')
+  const existing = await handle(get('/ca/x/anh/'), e)
+  expect([existing.status, existing.headers.get('location')]).toEqual([200, null])
+})
+
+test('missing Indonesian and Thai fish or plant galleries forward to their pages, keeping the query', async () => {
+  for (const lang of ['id', 'th'] as const) {
+    const galleries = [localizePath(lang, '/vi/ca/x/anh/'), localizePath(lang, '/vi/cay/y/anh/')]
+    const parents = [localizePath(lang, '/vi/ca/x/'), localizePath(lang, '/vi/cay/y/')]
+    const live = [...parents]
+    const { e } = env({ ASSETS: { fetch: async (r: Request) => { const p = new URL(r.url).pathname; return p === '/redirects.json' ? Response.json({}) : live.includes(p) ? new Response(PAGE, { headers: { 'content-type': 'text/html; charset=utf-8' } }) : new Response('<h1>404</h1>', { status: 404, headers: { 'content-type': 'text/html' } }) } } as unknown as Fetcher })
+    for (const [i, gallery] of galleries.entries()) {
+      for (const from of [gallery, gallery.slice(0, -1), `${gallery}?a=1`]) {
+        const r = await handle(get(from), e)
+        expect([r.status, r.headers.get('location')], from).toEqual([302, `${parents[i]}${from.includes('?') ? '?a=1' : ''}`])
+        expect((await follow(r, e)).status, from).toBe(200)
+      }
+      expect((await handle(get(gallery.replace(/\/(x|y)\//, '/missing/')), e)).status).toBe(404)
+      expect((await handle(get(gallery.replace(/\/(x|y)\//, '/x/extra/')), e)).status).toBe(404)
+      live.push(gallery)
+      const existing = await handle(get(gallery), e)
+      expect([existing.status, existing.headers.get('location')]).toEqual([200, null])
+    }
+    for (const path of ['/id/ikan/x/anh/', '/id/ikan/x/photos/', '/th/fish/x/foto/', '/ca/x/foto/', '/id/ca/x/anh/']) {
+      expect((await handle(get(path), e)).status, path).toBe(404)
+    }
+  }
 })
 
 test('a page view never waits on KV: the list baked in at deploy answers until the live one is in, then the live one wins', async () => {

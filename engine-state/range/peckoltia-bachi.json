@@ -1,0 +1,153 @@
+{
+  "id": "peckoltia-bachi",
+  "native": {
+    "input": "b754a3d1ce66b302",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The bola pleco, Peckoltichthys bachi, is a loricariid catfish from the upper Amazon region in Brazil, Colombia, Ecuador and Peru.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The bola pleco, Peckoltichthys bachi, is a loricariid catfish from the upper Amazon region in Brazil, Colombia, Ecuador and Peru.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The bola pleco, Peckoltichthys bachi, is a loricariid catfish from the upper Amazon region in Brazil, Colombia, Ecuador and Peru.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The bola pleco, Peckoltichthys bachi, is a loricariid catfish from the upper Amazon region in Brazil, Colombia, Ecuador and Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "This species occurs throughout the upper Amazon region with records existing from various tributary drainages in Brazil, Colombia, Ecuador, and Peru including the Solimões, Purus, Japurá/Caquetá, Juruá, Putumayo/Içá, Napo, Itaya, Ampiyacu, Ucayali, Marañón and Huallaga.",
+        "ok": true
+      },
+      {
+        "name": "Solimões",
+        "source": "seriouslyfish",
+        "quote": "This species occurs throughout the upper Amazon region with records existing from various tributary drainages in Brazil, Colombia, Ecuador, and Peru including the Solimões, Purus, Japurá/Caquetá, Juruá, Putumayo/Içá, Napo, Itaya, Ampiyacu, Ucayali, Marañón and Huallaga.",
+        "ok": true
+      },
+      {
+        "name": "Purus",
+        "source": "seriouslyfish",
+        "quote": "This species occurs throughout the upper Amazon region with records existing from various tributary drainages in Brazil, Colombia, Ecuador, and Peru including the Solimões, Purus, Japurá/Caquetá, Juruá, Putumayo/Içá, Napo, Itaya, Ampiyacu, Ucayali, Marañón and Huallaga.",
+        "ok": true
+      },
+      {
+        "name": "Juruá",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Juruá, Brazil'.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Ucayali",
+        "source": "seriouslyfish",
+        "quote": "This species occurs throughout the upper Amazon region with records existing from various tributary drainages in Brazil, Colombia, Ecuador, and Peru including the Solimões, Purus, Japurá/Caquetá, Juruá, Putumayo/Içá, Napo, Itaya, Ampiyacu, Ucayali, Marañón and Huallaga.",
+        "ok": true
+      },
+      {
+        "name": "Marañón",
+        "source": "seriouslyfish",
+        "quote": "This species occurs throughout the upper Amazon region with records existing from various tributary drainages in Brazil, Colombia, Ecuador, and Peru including the Solimões, Purus, Japurá/Caquetá, Juruá, Putumayo/Içá, Napo, Itaya, Ampiyacu, Ucayali, Marañón and Huallaga.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Peckoltia bachi",
+    "status": "ACCEPTED",
+    "taxonKey": 5202091,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        13
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        12
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        5
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        2
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        2
+      ],
+      [
+        "278b1d5c-d7a9-4f7a-9651-69cddbb5b94e",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "CO",
+      "EC",
+      "PE"
+    ],
+    "requests": 12,
+    "at": "2026-11-12T13:29:05.219Z"
+  }
+}

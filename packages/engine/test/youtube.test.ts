@@ -1,3 +1,5 @@
+import { videoBudgetStopped } from '../src/youtube'
+import { denied } from './piece-admission'
 import { existsSync } from 'node:fs'
 import { mkdir, mkdtemp, readdir, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
@@ -5,8 +7,10 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
+import { fitRules } from '../src/fit'
+import type { Page } from '../src/pages'
 import { logReviews, readReviews } from '../src/review-log'
-import { chaptersFrom, crowdLines, parseTranscript, recheckedGuides, retry403, reviewDraft, storyboardInterval, videoGuides, ytApi, type VideoMeta, type YouTube } from '../src/youtube'
+import { chaptersFrom, crowdLines, lowVideoGuides, parseTranscript, recheckedGuides, retry403, reviewDraft, storyboardInterval, videoGuides, ytApi, type VideoMeta, type YouTube } from '../src/youtube'
 
 const ev = (s: number, text: string) => ({ tStartMs: s * 1000, segs: [{ utf8: text }] })
 
@@ -79,7 +83,7 @@ test('videoGuides writes a sanitised guide with video, series and quality; done 
   expect(vi.slug).toBe('cach-han-che-reu-hai-trong-be-thuy-sinh')
   expect(vi.body).toBe(`<p>Mở đầu.</p><h3>Vì sao rêu mọc</h3><p>Ánh sáng.</p><p>${LONG}</p>`)
   expect(vi.chapters).toEqual(['Mở đầu', 'Thay nước'])
-  expect(vi.faq).toEqual([{ q: 'Bao lâu thay nước?', a: 'Mỗi tuần, khoảng 19 lít.' }])
+  expect(vi.faq).toEqual([{ q: 'Bao lâu thay nước?', a: 'Mỗi tuần, khoảng 20 lít.' }])
   expect(vi.quality).toEqual({ score: 0.9, indexable: true, bySource: { youtube: 0.9 } })
   expect(await read(root, 'content/series/PL1.json')).toMatchObject({ playlistId: 'PL1', videoIds: ['a1'], vi: { slug: 'reu-hai-biet-de-tri', name: 'Rêu hại: biết để trị' } })
   expect((await read(root, 'content/changelog.json'))[0]).toMatchObject({ kind: 'guide', id: 'youtube-a1', source: 'youtube', action: 'new' })
@@ -210,6 +214,10 @@ test('the reviewer gets each sentence that speaks for many people or ranks somet
   expect(prompts[0]).not.toContain('- Lá vàng thì tỉa đi.')
   await reviewDraft(llm, 'I trim yellow leaves.', { ...d, summary: [], body: '<p>Lá vàng thì tỉa đi.</p>' })
   expect(prompts[1]).not.toContain('CHECK THESE SENTENCES')
+  // What a mender's editor was told reaches the reviewer only for a mended guide (video-mend.ts).
+  expect(prompts[1]).not.toContain('edited for readers in Vietnam')
+  await reviewDraft(llm, 'I trim yellow leaves.', d, undefined, 'This guide was edited for readers in Vietnam.')
+  expect(prompts[2]).toContain('This guide was edited for readers in Vietnam.\n\nTRANSCRIPT:')
 })
 
 test('every review of a guide is kept: the first draft\'s and the rewrite\'s, with the one on the page marked', async () => {
@@ -262,20 +270,23 @@ test('--only limits a run to the videos named', async () => {
 })
 
 const SINCE = '2026-11-07T12:00:00Z'
-const recheck = (root: string, vid: string, score: number, notes: string[], at = '2026-11-07T13:00:00Z') => { const r = { score, notes }; return logReviews(root, 'video-guide', { id: `guides/youtube-${vid}`, lang: 'vi' }, [r], r, { now: new Date(at), recheck: true }) }
+const recheck = (root: string, vid: string, score: number, notes: string[], at = '2026-11-07T13:00:00Z', reads?: number[]) => { const r = { score, notes, ...(reads ? { reads } : {}) }; return logReviews(root, 'video-guide', { id: `guides/youtube-${vid}`, lang: 'vi' }, [r], r, { now: new Date(at), recheck: true }) }
 /** The redo runs after the rechecks. */
 const later = (root: string, o: Parameters<typeof deps>[1] = {}) => { const x = deps(root, o); return { ...x, d: { ...x.d, now: () => new Date('2026-11-08T00:00:00Z') } } }
 
 test('a redo after a recheck: the guides it left under the bar with notes, the owner\'s first, then the lowest, --limit a run, each once', async () => {
   const root = await mkdtemp(join(tmpdir(), 'yt-'))
-  const videos = { a1: {}, a2: {}, a3: {}, a4: {}, a5: {} }
+  const videos = { a1: {}, a2: {}, a3: {}, a4: {}, a5: {}, a6: {} }
   await videoGuides(deps(root, { videos }).d, { playlists: ['PL1'] })
   await recheck(root, 'a1', 0.6, ['Says many people do it; the speaker says only he does'])
   await recheck(root, 'a2', 0.9, ['A small slip']) // above the bar
   await recheck(root, 'a3', 0.6, []) // nothing for the writer to go on
   await recheck(root, 'a4', 0.5, ['Adds a dose the video never gives'], '2026-11-07T11:00:00Z') // before the cutoff
-  await recheck(root, 'a5', 0.5, ['Adds a step the video never gives'])
+  await recheck(root, 'a5', 0.5, ['Adds a step the video never gives'], undefined, [0.5, 0.45, 0.6])
+  // In search, failed at 0.55 or under on one read: it waits for its two more reads (review-backfill-97) before a redo.
+  await recheck(root, 'a6', 0.5, ['Adds a price the video never gives'])
   await writeFile(join(root, 'engine-state/youtube-videos.json'), JSON.stringify([{ id: 'a1', by: 'owner' }]))
+  expect(await lowVideoGuides(root)).toEqual(['youtube-a4', 'youtube-a6'])
   expect(await recheckedGuides(root, SINCE)).toEqual([{ id: 'a1', series: 'PL1' }, { id: 'a5', series: 'PL1' }])
 
   const first = later(root, { videos })
@@ -371,13 +382,54 @@ test('redo rewrites only guides already written: a video not done yet waits for 
   expect(await read(root, 'content/guides/youtube-a1/entity.json')).toMatchObject({ video: { series: { id: 'PL1', position: 0 } } })
 })
 
-test('redo keeps a body fixed by hand; the rest of the guide is the new version', async () => {
+// The summary is the body's in short, so it stays with a body fixed by hand: a new draft's, from the transcript, would bring
+// back the line the fix took out (the stand-tap-water guide's "chỉ phí tiền", the independent read of 2026-11-12).
+test('redo keeps a body fixed by hand and its summary; the rest of the guide is the new version', async () => {
   const root = await mkdtemp(join(tmpdir(), 'yt-'))
   await videoGuides(deps(root).d, { playlists: ['PL1'] })
   const file = join(root, 'content/guides/youtube-a1/vi.json')
-  await writeFile(file, JSON.stringify({ ...(await read(root, 'content/guides/youtube-a1/vi.json')), body: '<p>người sửa</p>', bodyFixed: true }))
+  await writeFile(file, JSON.stringify({ ...(await read(root, 'content/guides/youtube-a1/vi.json')), body: '<p>người sửa</p>', summary: ['Tóm tắt người sửa.'], bodyFixed: true }))
   await videoGuides(deps(root, { drafts: [draft('Tiêu đề mới')] }).d, { playlists: ['PL1'], redo: true, write: { style: true, model: 'opus' } })
-  expect(await read(root, 'content/guides/youtube-a1/vi.json')).toMatchObject({ name: 'Tiêu đề mới', body: '<p>người sửa</p>', bodyFixed: true })
+  expect(await read(root, 'content/guides/youtube-a1/vi.json')).toMatchObject({ name: 'Tiêu đề mới', body: '<p>người sửa</p>', summary: ['Tóm tắt người sửa.'], bodyFixed: true, faq: [{ q: 'Bao lâu thay nước?', a: 'Mỗi tuần, khoảng 20 lít.' }] })
+})
+
+// Two guides from one channel had one title (the owner's "Duplicated", 2026-11-11); the titles picked by hand stay.
+test('redo keeps a title picked by hand', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  await videoGuides(deps(root).d, { playlists: ['PL1'] })
+  const file = join(root, 'content/guides/youtube-a1/vi.json')
+  await writeFile(file, JSON.stringify({ ...(await read(root, 'content/guides/youtube-a1/vi.json')), name: 'Tiêu đề người chọn', nameFixed: true }))
+  await videoGuides(deps(root, { drafts: [draft('Tiêu đề mới')] }).d, { playlists: ['PL1'], redo: true })
+  expect(await read(root, 'content/guides/youtube-a1/vi.json')).toMatchObject({ name: 'Tiêu đề người chọn', nameFixed: true })
+})
+
+// A fix made by hand in the FAQ as well as the body (2026-11-10: "nitrat" for the video's nitrite, in both): a new draft's
+// questions would bring the old line back.
+test('redo keeps a FAQ fixed by hand', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  await videoGuides(deps(root).d, { playlists: ['PL1'] })
+  const file = join(root, 'content/guides/youtube-a1/vi.json')
+  const faq = [{ q: 'Nước còn độc không?', a: 'người sửa' }]
+  await writeFile(file, JSON.stringify({ ...(await read(root, 'content/guides/youtube-a1/vi.json')), body: '<p>người sửa</p>', bodyFixed: true, faq, faqFixed: true }))
+  await videoGuides(deps(root, { drafts: [draft('Tiêu đề mới')] }).d, { playlists: ['PL1'], redo: true })
+  expect(await read(root, 'content/guides/youtube-a1/vi.json')).toMatchObject({ name: 'Tiêu đề mới', body: '<p>người sửa</p>', bodyFixed: true, faq, faqFixed: true })
+})
+
+// The video jobs go videos, sweep, gate, with no rounding step between (engine-cycle.sh has one: `pnpm engine metric`).
+// So a draft's "bể 10 gallon" reached the gate as "bể 38 lít", which its units rule finds, and the new text was put back:
+// units was among the reasons for 26 of the 84 guides put back in the recheck job's runs of 8 to 10 Nov 2026.
+test('a volume a gallon conversion gives is rounded where the guide is written, so the gate finds no unit to put it back for', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  const d = { ...draft('Bể cho cá mới'), summary: ['Một bể 10 gallon là đủ.'], body: `<p>Bể 20 gallon dễ giữ ổn định hơn bể 10 gallon.</p><p>${LONG}</p>`, faq: [{ q: 'Bể bao lớn?', a: 'Từ 10 gallon trở lên.' }] }
+  await videoGuides(deps(root, { drafts: [d] }).d, { playlists: ['PL1'] })
+  const vi = await read(root, 'content/guides/youtube-a1/vi.json')
+  expect(vi.summary).toEqual(['Một bể 40 lít là đủ.'])
+  expect(vi.body).toContain('Bể 80 lít dễ giữ ổn định hơn bể 40 lít.')
+  expect(vi.faq[0].a).toBe('Từ 40 lít trở lên.')
+  const page: Page = { lang: 'vi', kind: 'guides', id: 'youtube-a1', title: vi.name, path: `/vi/huong-dan/${vi.slug}/`, fields: [{ field: 'body', html: vi.body }], lines: [{ field: 'summary.0', text: vi.summary[0] }, { field: 'faq.0.a', text: vi.faq[0].a }], captions: [], latinNames: [], card: [] }
+  expect(fitRules(page).filter(f => f.check === 'units')).toEqual([])
+  // What the gate found before: the same page with the figures as the writer converts them.
+  expect(fitRules({ ...page, fields: [{ field: 'body', html: '<p>Bể 76 lít dễ giữ ổn định hơn bể 38 lít.</p>' }] }).filter(f => f.check === 'units').length).toBeGreaterThan(0)
 })
 
 test('redo rewrites a written guide with the same slug and cover; the reviewer is told the channel', async () => {
@@ -521,4 +573,24 @@ test('chapters: only when the description lists at least three, from 0:00, in or
   expect(chaptersFrom('0:00 a\n2:00 b')).toEqual([])
   expect(chaptersFrom('Intro text\n0:00 - Start\n1:02:03 End part\n59:00 back')).toEqual([])
   expect(chaptersFrom('0:00 - Start\n10:00 | Middle\n1:02:03 End')).toEqual([{ start: 0, title: 'Start' }, { start: 600, title: 'Middle' }, { start: 3723, title: 'End' }])
+})
+
+test('last item cost refuses admission without calls or content writes', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-admission-'))
+  const { d, calls } = deps(root)
+  await denied('videos', root, async () => {
+    const r = await videoGuides(d, { playlists: [], singles: ['a1'] })
+    expect(r.stoppedEarly).toBe(true)
+    expect(r.written).toEqual([])
+    expect(r.errors).toEqual([])
+    expect(r.stopped).toContain('not started')
+    expect(calls.prompts).toEqual([])
+  })
+})
+
+test('videos follow-up pictures stop on admission or usage, but can follow the writing limit', () => {
+  const r = { written: [], skipped: [], errors: [], stoppedEarly: true }
+  expect(videoBudgetStopped(r)).toBe(false)
+  expect(videoBudgetStopped({ ...r, stopped: 'not started' })).toBe(true)
+  expect(videoBudgetStopped({ ...r, errors: ["claude failed: the engine's daily limit reached for videos"] })).toBe(true)
 })

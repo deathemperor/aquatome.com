@@ -5,6 +5,7 @@ import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
 import { breedCare, breedPhotos, localizeBreed, makeBreed, type BreedFacts } from '../src/breeds'
+import { WikimediaRefused } from '../src/wikimedia-rest'
 import type { GalleryDeps } from '../src/gallery'
 
 const facts: BreedFacts = {
@@ -110,6 +111,28 @@ test('--redo keeps a name the owner fixed and the addresses the page had', async
   expect(prompts.filter(p => !p.startsWith('Below are FACTS')).at(-1)).toContain('Tên trang đã chốt: "Cá vàng Lan thọ (Ranchu)"')
 })
 
+test('a page written again leaves the photos that wait for the photo check in its gallery, marked', async () => {
+  const r = await root()
+  const llm: Llm = async <T,>(a: { schema: object }) => ('score' in ((a.schema as { properties: object }).properties) ? { score: 0.9, notes: [] } : { name: 'Cá vàng Ranchu', altNames: [], summary: [], body: '', faq: [] }) as T
+  const d = { research: (async () => facts) as Llm, llm, gallery: gallery([]) }
+  await makeBreed(r, d, { name: 'Ranchu goldfish' })
+  const file = join(r, 'content/breeds/ranchu-goldfish/entity.json')
+  const gfile = join(r, 'content/gallery/ranchu-goldfish.json')
+  const e = JSON.parse(await readFile(file, 'utf8')) as { photos: { url: string }[] }
+  const waits = JSON.parse(await readFile(gfile, 'utf8')).photos as { url: string; unchecked?: boolean }[]
+  expect(waits.map(p => p.unchecked)).toEqual([true, true])
+  // The photo check took one of the page's four off: the two that wait don't take its place.
+  await writeFile(file, JSON.stringify({ ...e, photos: e.photos.slice(0, 3) }))
+  await makeBreed(r, d, { name: 'Ranchu goldfish' }, { reuse: true })
+  expect((JSON.parse(await readFile(file, 'utf8')) as typeof e).photos.map(p => p.url)).toEqual(e.photos.slice(0, 3).map(p => p.url))
+  expect(JSON.parse(await readFile(gfile, 'utf8')).photos).toEqual(waits)
+  // One the check has judged and left on does.
+  await writeFile(gfile, JSON.stringify({ id: 'ranchu-goldfish', photos: [{ ...waits[0], unchecked: undefined }, waits[1]], seen: 6, updatedAt: '' }))
+  await makeBreed(r, d, { name: 'Ranchu goldfish' }, { reuse: true })
+  expect((JSON.parse(await readFile(file, 'utf8')) as typeof e).photos.map(p => p.url)).toEqual([...e.photos.slice(0, 3).map(p => p.url), waits[0]!.url])
+  expect(JSON.parse(await readFile(gfile, 'utf8')).photos).toEqual([waits[1]])
+})
+
 test('a page written again keeps the links it has: what it is a form of, and on a --redo its parents\'', async () => {
   const r = await root()
   const hybrid: BreedFacts = { ...facts, kind: 'hybrid', commons: undefined, parents: [{ name: 'Goldfish', scientificName: 'Carassius auratus', certain: true, source: 0 }, { name: 'Crucian carp', certain: false, source: 2 }] }
@@ -164,6 +187,12 @@ test('breed-photos: a page with no photo gets them from a word search on Commons
   await writeFile(join(r, 'content/breeds/crowntail-betta/entity.json'), JSON.stringify({ id: 'crowntail-betta', kind: 'variety', photos: [] }))
   await breedPhotos(r, d, {})
   expect(searches).toEqual([]) // tried today
+  // While Wikimedia rests, a breed isn't tried: its month starts once a screening has run.
+  await writeFile(join(r, 'engine-state/_breed-photos.json'), '{}')
+  await writeFile(join(r, 'content/breeds/crowntail-betta/entity.json'), JSON.stringify({ id: 'crowntail-betta', kind: 'variety', photos: [] }))
+  const resting = await breedPhotos(r, { ...d, get: async () => { throw new WikimediaRefused('2026-11-13T00:30:00.000Z') } }, {})
+  expect(resting.failed).toEqual(['crowntail-betta: Wikimedia refused this Mac: no request before 2026-11-13T00:30:00.000Z'])
+  expect(JSON.parse(await readFile(join(r, 'engine-state/_breed-photos.json'), 'utf8'))).toEqual({})
 })
 
 test('localizeBreed: the page in Thai written afresh from the same facts, without the Vietnamese names; parents named in Thai; skipped once done', async () => {

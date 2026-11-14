@@ -1,0 +1,88 @@
+{
+  "id": "rasbora-paviana",
+  "native": {
+    "input": "a437e2ef5211a887",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs in the great Mekong, Chao Phraya and Mae Klong river basins and is therefore widespread in Thailand as well as ranging into Laos, Cambodia and Vietnam.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs in the great Mekong, Chao Phraya and Mae Klong river basins and is therefore widespread in Thailand as well as ranging into Laos, Cambodia and Vietnam.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs in the great Mekong, Chao Phraya and Mae Klong river basins and is therefore widespread in Thailand as well as ranging into Laos, Cambodia and Vietnam.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs in the great Mekong, Chao Phraya and Mae Klong river basins and is therefore widespread in Thailand as well as ranging into Laos, Cambodia and Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Occurs in the great Mekong, Chao Phraya and Mae Klong river basins and is therefore widespread in Thailand as well as ranging into Laos, Cambodia and Vietnam.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Occurs in the great Mekong, Chao Phraya and Mae Klong river basins and is therefore widespread in Thailand as well as ranging into Laos, Cambodia and Vietnam.",
+        "ok": true
+      },
+      {
+        "name": "Mae Klong",
+        "source": "seriouslyfish",
+        "quote": "Occurs in the great Mekong, Chao Phraya and Mae Klong river basins and is therefore widespread in Thailand as well as ranging into Laos, Cambodia and Vietnam.",
+        "ok": true
+      },
+      {
+        "name": "Tonlé Sap",
+        "source": "seriouslyfish",
+        "quote": "In Laos it has been recorded from the Xe Bang Fai and Nam Theun river basins while in Cambodia it is known from the Tonlé Sap river and lake.",
+        "country": "KH",
+        "ok": true
+      },
+      {
+        "name": "Dong Nai",
+        "source": "seriouslyfish",
+        "quote": "The only confirmed occurences from Vietnam we have are from the Duc My river in the centre of the country and Dong Nai drainage in the south.",
+        "country": "VN",
+        "ok": true
+      },
+      {
+        "name": "Duc My",
+        "source": "seriouslyfish",
+        "quote": "The only confirmed occurences from Vietnam we have are from the Duc My river in the centre of the country and Dong Nai drainage in the south.",
+        "country": "VN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  }
+}

@@ -53,27 +53,6 @@
         }
       },
       {
-        "heading": "Vách tràn là gì và làm thế nào",
-        "moments": [
-          {
-            "t": 140,
-            "url": "https://media.aquatome.com/video/XR1LMoVU7CI/at140-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cắt răng vách tràn bằng máy cưa bàn.",
-            "sharpness": 443.2
-          },
-          {
-            "t": 145,
-            "url": "https://media.aquatome.com/video/XR1LMoVU7CI/at145-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Máy cưa đã cắt xong các răng trên đỉnh tấm vách.",
-            "sharpness": 1157.1
-          }
-        ]
-      },
-      {
         "heading": "Hộp tràn và hai đầu xuyên vách cho tràn êm",
         "moments": [
           {
@@ -147,7 +126,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá rồng châu Á bơi gần mặt nước trong bể.",
-            "sharpness": 171.3
+            "sharpness": 171.3,
+            "person": false
           },
           {
             "t": 510,
@@ -155,7 +135,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai con cá đuối đốm nằm trên nền cát đáy bể.",
-            "sharpness": 163.4
+            "sharpness": 163.4,
+            "person": false
           }
         ],
         "photo": {

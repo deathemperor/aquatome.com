@@ -12,6 +12,74 @@
     "brazil",
     "rio-negro"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "BR"
+      ],
+      "regions": [
+        "Orinoco",
+        "Rio Negro",
+        "Rio Ererê"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Venezuela (upper Orinoco) and northern Brazil (Rio Negro area).",
+          "countries": [
+            "VE",
+            "BR"
+          ],
+          "regions": [
+            "Orinoco",
+            "Rio Negro"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "A second location is in northern Brazil, in the waters of a savanna in the Rio Negro area, belonging to the Rio Ererê, which flows from the north into the Rio Negro about 250 km northwest of the mouth of the Rio Branco, near the Rio Padauari.",
+          "countries": [],
+          "regions": [
+            "Rio Ererê"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355642,
+      "total": 10,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "VE",
+          7
+        ],
+        [
+          "BR",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -67.5,
+          5.625,
+          7,
+          7
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

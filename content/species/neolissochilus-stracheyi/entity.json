@@ -12,6 +12,163 @@
     "thailand",
     "cambodia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM",
+        "IN",
+        "TH"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "A splendid large barb from Burma (Myanmar), reaching a maximum size of approx. 60 cm.",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Neolissochilus inhabit rivers in primary forests of subtropical regions of northern India, Burma, Thailand and most probably Cambodia.",
+          "countries": [
+            "IN",
+            "TH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2362798,
+      "total": 63,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "IN",
+          33
+        ],
+        [
+          "TH",
+          24
+        ],
+        [
+          "BD",
+          3
+        ],
+        [
+          "MM",
+          2
+        ],
+        [
+          "LA",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          88.59375,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          91.40625,
+          21.09375,
+          2,
+          0
+        ],
+        [
+          91.40625,
+          22.5,
+          1,
+          0
+        ],
+        [
+          92.8125,
+          23.90625,
+          32,
+          32
+        ],
+        [
+          94.21875,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          95.625,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          16.875,
+          2,
+          2
+        ],
+        [
+          97.03125,
+          18.28125,
+          3,
+          3
+        ],
+        [
+          98.4375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          11.25,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          14.0625,
+          9,
+          9
+        ],
+        [
+          98.4375,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          101.25,
+          11.25,
+          3,
+          3
+        ],
+        [
+          101.25,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          101.25,
+          18.28125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -13,10 +13,11 @@
     "behaviour:glaser": "<p>Cá luôn bơi sát ngay dưới mặt nước. Chúng hiếm khi xuống sâu hơn, mà có xuống thì cũng chỉ một lúc. Hemirhamphodon pogonognathus hiền với mọi loài cá. Có điều, nếu nuôi chung thì cá cùng bể không được quá to khỏe hay mạnh bạo, vì chúng hơi nhát và dễ giật mình. Các con đực với nhau thì có thể khá hay gây gổ.</p>"
   },
   "quality": {
-    "score": 0.72,
+    "score": 0.8,
     "indexable": false,
     "bySource": {
-      "glaser": 0.72
-    }
+      "glaser": 0.8
+    },
+    "reason": "thin"
   }
 }

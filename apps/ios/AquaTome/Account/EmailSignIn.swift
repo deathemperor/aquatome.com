@@ -64,6 +64,7 @@ struct EmailSignIn: View {
           Text(m.text).foregroundStyle(m.bad ? .red : .secondary).accessibilityIdentifier("email-message")
         }
       }
+      .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
       .navigationTitle("Đăng nhập bằng email")
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {

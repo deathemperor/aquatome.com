@@ -1,0 +1,49 @@
+{
+  "id": "caridina-propinqua",
+  "native": {
+    "input": "a23ca4135586190c",
+    "at": "2026-11-10T20:57:55.515Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Caridina propinqua",
+    "status": "ACCEPTED",
+    "taxonKey": 5178427,
+    "datasets": [
+      [
+        "5221e970-757c-43cb-bdd4-2f085bf36ae4",
+        21
+      ],
+      [
+        "7b84c0a2-f762-11e1-a439-00145eb45e9a",
+        4
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-10T20:57:55.515Z"
+  }
+}

@@ -8,7 +8,8 @@
   "places": [
     "asia",
     "india",
-    "kerala"
+    "kerala",
+    "karnataka"
   ],
   "range": {
     "native": {
@@ -18,13 +19,13 @@
       "regions": [
         "Valapatanam",
         "Chaliyar",
-        "Bhavani",
         "Bharatapuzha",
-        "Chandragiri",
+        "Bhavani",
         "Manimala River"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -42,9 +43,8 @@
           "regions": [
             "Valapatanam",
             "Chaliyar",
-            "Bhavani",
             "Bharatapuzha",
-            "Chandragiri"
+            "Bhavani"
           ]
         },
         {
@@ -151,9 +151,18 @@
     },
     {
       "key": "beforeYouBuy",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Cá này hơi đắt. Một người nuôi lâu năm chọn cách để dành tiền mua cả đàn một lần. Khi tiệm về hàng, người đó hỏi giá nếu lấy hết cả bể. Tiệm thường bớt chút ít vì bán hết bể thì có chỗ nhập hàng mới.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
+      "key": "beforeYouBuy",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/sahyadria_denisonii_gold_en/",
-      "html": "<p>Text &amp; photos: Frank Schäfer</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_denisonii_en/",
+      "html": "<p>Because of this, only small quantities may be caught and exported as aquarium fish.</p>"
     },
     {
       "key": "distribution",
@@ -162,10 +171,34 @@
       "html": "<p>Endemic to the states of Kerala and Karnataka in southern India.</p><p>Its modern distribution is highly fragmented with small populations remaining in the Valapatanam, Chaliyar, Kallar, Karyangod, Kuttiyadi, Chandragiri, Sullya, Kuppam, Iritti, Anjarakandipuzha, Bhavani, and Bharatapuzha river systems.</p><p>Historical records from the Chalakudy, Periyar, Pamba, and Achankovil river systems are now considered to represent D. chalakkudiensis.</p><p>Type locality is 'Mundakayam, Travancore, India', which appears to correspond to the Manimala River near the town of Mundakayam in Kottayam District, Kerala state, southern India.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_denisonii_en/",
+      "html": "<p>This splendid fish is endemic (i.e. only there and nowhere else) to several coastal rivers of South India. Origin: Kerala, India.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Sau khi loài này vào Sách đỏ, giá cá tăng lên và nạn bắt trộm lại nặng hơn, còn quần thể ngoài tự nhiên thì không khá lên. Từ khi cá trại có nhiều, quần thể hoang dã đã ổn định lại hay chưa thì vẫn chưa có thông tin rõ.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-denisonii",
       "html": "<p>A stream and river-dwelling species most often found in pristine, highly-oxygenated headwaters and upper parts of river basins where it typically congregates in rocky pools with dense riparian vegetation. It is supposedly more active at dusk and dawn than during daylight hours.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Những con sông nơi cá sống có nhiều đoạn dài toàn đá, hầu như không có cây thủy sinh.</p>",
+      "refs": [
+        0
+      ]
     },
     {
       "key": "aquariumSize",
@@ -174,10 +207,34 @@
       "html": "<p>Base dimensions of at least 120 × 45 cm, or equivalent (about 243 litres), are required.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Một người nuôi thấy cá con còn nhỏ thì tạm nuôi được trong bể dài 90 cm, nhưng không để lâu được. Khi cá lớn thì cần bể dài ít nhất 120 cm. Theo người này, nuôi cả đời trong bể 120 cm vẫn hơi chật, có một đàn đông thì bể dài 180 cm sẽ tốt hơn.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_denisonii_en/",
+      "html": "<p>This fish is used to flowing waters and is best kept in the biggest tanks possible, in a shoal.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-denisonii",
       "html": "<p>Not difficult to keep in a well-maintained set-up, and does not tend to harm aquatic plants.</p><p>Since it naturally occurs in pristine habitats it is intolerant to accumulation of organic pollutants and requires more-or-less spotless water in order to thrive. It also does best if there is a high proportion of dissolved oxygen and moderate water movement, and weekly water changes of 30-50% tank volume should be considered routine.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Bể không nhất thiết phải trồng cây. Cá sống ổn cả trong bể cá ali không có cây nào lẫn trong bể trồng cây dày, chỉ cần chừa khoảng trống phía trước bể để chúng bơi qua bơi lại. Loài này thích dòng chảy hơi mạnh, có thể dùng thổi luồng, lọc treo hoặc lọc thùng. Khi bể thiếu oxy, chúng thường là con lộ dấu hiệu đầu tiên.</p><p>Vạch đỏ trên thân bị nhạt là dấu hiệu cá không ổn. Gặp vậy thì kiểm tra lại thông số nước, thay nước và đổi món cho cá. Nitrat cao cũng làm vạch đỏ phai.</p>",
+      "refs": [
+        0
+      ]
     },
     {
       "key": "waterConditions",
@@ -186,16 +243,55 @@
       "html": "<ul><li>Temperature: 15–25°C</li><li>pH: 6.5–7.8</li><li>Hardness: 5–25 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Một người nuôi lâu năm coi đây là cá cận nhiệt đới, không nên nuôi nóng. Người này khuyên giữ nước dưới khoảng 27 °C. Cá chịu được nước nóng hơn trong thời gian khá dài và có lẽ sẽ lớn nhanh, nhưng muốn cá khỏe lâu dài thì nên giữ dưới mức đó. Người này cũng thấy cá chịu được pH tới khoảng 8,0. Ở một tiệm cá, có mấy con sống chung bể cá ali với pH trên 8 mà màu vẫn rất rực.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-denisonii",
       "html": "<p>Wild fish on a variety of worms, insects, crustaceans, plant material, and other organic debris.</p><p>In the aquarium it is easily fed but a balanced diet comprising regular meals of small live and frozen foods such as chironomid larvae (bloodworm), Daphnia, and Artemia alongside good quality dried products will bring about optimal condition and colours. Sinking foods are best.</p><p>It is said that the red pigmentation can be intensified by feeding a diet rich in carotenoids such as astaxanthin.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Cá ăn tạp, cần cả rau lẫn đạm. Khi cá đã lớn, một người nuôi lâu năm không cho ăn cám lá làm món chính mà chọn thức ăn viên to hơn để cá cắn được. Miệng cá không to nhưng chúng vẫn ăn tốt.</p><p>Loài này giành ăn rất nhanh. Thức ăn vừa rơi xuống là chúng lao tới ngay. Nếu nuôi chung với cá nhút nhát quen chờ ăn phần thừa thì phải tìm cách cho cá kia đủ ăn, không thì chúng có thể bị đói.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_denisonii_en/",
+      "html": "<p>Feeding with frozen food and flakes is unproblematic.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-denisonii",
       "html": "<p>Generally peaceful making it an ideal resident of the well-researched community aquarium.</p><p>It is a schooling species by nature, and at least 6-10 specimens should be purchased.</p><p>The similar-looking D. chalakkudiensis is occasionally traded as D. denisonii (see 'Notes') and is known to be more belligerent.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Cá bơi nhanh và bơi suốt ngày ngoài chỗ trống, ít khi núp dưới cây. Một người nuôi đàn 11–12 con thấy chúng không đuổi cắn nhau và cũng không cắn cá khác, kể cả cá nhỏ hiền như cá cầu vồng sợi chỉ, cá tetra hay cá tam giác. Người này thấy cá hiền hơn cá xăng nhiều. Nuôi một cặp thì con trội thường quấy con kia, tuy hiếm khi tới mức chết. Nuôi lẻ một con thì cá có thể bám theo cá khác, trông như đang gây sự.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_denisonii_en/",
+      "html": "<p>These animals are peaceful towards other fish and also among each other.</p>"
     },
     {
       "key": "dimorphism",
@@ -210,16 +306,25 @@
       "html": "<p>Large numbers are produced for the aquarium hobby in Southeast Asia and Eastern Europe, presumably via stimulation with hormones.</p><p>A 2011 study of its reproductive biology revealed that the sex ratio in wild fish appears skewed in favour of males and that absolute fecundity, i.e., the total number of eggs per female at a given point in time, is relatively low compared with some relatives such as Systomus sarana or Rasbora daniconius. Such factors, combined with habitat degradation via pollution or alteration, are likely to have an adverse effect on natural recruitment while affecting population dynamics and potentially leading to a reduced number of individuals in a given population.</p><p>In terms of private success at least one report of 'accidental' reproduction exists, in which a couple of fry were discovered hiding among plants during aquarium maintenance.</p><p>A more detailed report was published in the German magazine Aqualog in 2005. In this case a group of 15 adults spawned in soft, acidic water (gH 2-3/pH 5.7), depositing their eggs in a clump of Java moss (Taxiphylum barbieri). Apparently several of the adults exhibited a colour change with the dorsal surface becoming bluish, and the event appeared to be triggered by a gradual lowering of the pH via addition of driftwood.</p><p>Chester Zoo Aquarium in England have also reported successful breeding, and their theory is that a large group is needed as spawning is hypothesised to occur en masse.</p>"
     },
     {
-      "key": "notes",
+      "key": "reproduction",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/sahyadria_denisonii_gold_en/",
-      "html": "<p>In any species of fish that is bred in large numbers sooner or later sports appear. This now happened also in the gorgeous Indian Redline Torpedo Shark, Sahyadria denisonii. Besides “normal” bred ones Indonesian breeders now offer a golden sport of that fish. It is obvious that the individual fish differ a lot in the coloration.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_denisonii_en/",
+      "html": "<p>So far there is no news of successful breeding.</p>"
     },
     {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-denisonii",
       "html": "<p>This species has become an extremely popular aquarium fish since it first appeared in the ornamental trade during the late 1990s, and it has been sold under various names including 'Denison's barb', 'denisoni barb', 'Denison's flying fox', 'rose line shark', 'bleeding-eye barb', 'red flash barb', and 'Indian flasher barb'. In India it is known locally as 'Miss Kerala' and 'Chorai Kanni' (literally 'bleeding eyes').</p><p>It has been artificially hybridised with a member of the genus Dawkinsia (R. Collins, pers. comm.) and a selectively-bred 'gold' colour form has also been produced.</p><p>During the 2000s it was the Indian state of Kerala's most important export but collection of wild fish is now prohibited to an extent. Both D. denisonii and D. chalakkudiensis are listed as 'Endangered' in the IUCN Red List of Threatened Species, and wild stocks may have dwindled by as much as 50% in the last 15 years or so. Collection for the aquarium trade has been held largely responsible, although habitats are also being degraded by pollution from agricultural and domestic sources, plus destructive fishing methods involving explosives or organic toxins.</p><p>In 2011 the 'closed season' for collection was June, July, and October, based on the assumption that spawning takes place during these months, but Solomon et al. (2011) demonstrated that breeding occurs from October to March and collection should instead be prohibited between these months in order to adequately protect populations.</p><p>D. denisonii was described as a member of the genus Labeo and has also been placed in Barbus, Crossocheilus and most recently Puntius. The latter was formerly a polyphyletic catch-all which contained over 100 species, although this situation has been largely resolved since the turn of the century.</p><p>Sahyadria was raised by Raghavan et al. (2013) in order to accommodate this species and D. chalakkudiensis. Ren et al. (2020) found that both belong in Dawkinsia, and the Catalog of Fishes and FishBase now place them there.</p><p>D. denisonii can be told apart from D. chalakkudiensis by possession of a subterminal mouth (vs. inferior), absence of a black marking in the dorsal fin (vs. presence), and the scarlet body stripe being brighter and terminating beneath the centre of the dorsal fin (vs. duller and terminates beneath or anterior to dorsal-fin origin).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Francis Day mô tả loài này năm 1865, và tên loài đặt theo ngài William Denison. Tên chi <em>Sahyadria</em> lấy từ Sahyadri, tên vùng núi nơi cá sống.</p>",
+      "refs": [
+        0
+      ]
     },
     {
       "key": "references",
@@ -230,66 +335,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/fac072d0c3f3fd23.webp",
-      "thumb": "https://media.aquatome.com/commons/fac072d0c3f3fd23-480.webp",
-      "width": 960,
-      "height": 501,
-      "licence": "CC BY-SA 3.0",
-      "author": "Stan Shebs",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puntius_denisonii_1.jpg",
-      "caption": "Photo of Puntius denisonii (Denison's barb) at the Vancouver Aquarium",
-      "large": {
-        "url": "https://media.aquatome.com/commons/fac072d0c3f3fd23-large.webp",
-        "width": 1000,
-        "height": 522
-      }
-    },
-    {
-      "url": "https://media.aquatome.com/commons/48bb18c3de71c8f9.webp",
-      "thumb": "https://media.aquatome.com/commons/48bb18c3de71c8f9-480.webp",
-      "width": 960,
-      "height": 569,
-      "licence": "CC BY-SA 3.0",
-      "author": "H. Zell",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puntius_denisonii_-_Wilhelma_01.jpg",
-      "caption": "Puntius denisonii (Day, 1865), Denison barb; Wilhelma, Stuttgart, Baden-Württemberg, Germany.",
-      "large": {
-        "url": "https://media.aquatome.com/commons/48bb18c3de71c8f9-large.webp",
-        "width": 2025,
-        "height": 1200
-      }
-    },
-    {
-      "url": "https://media.aquatome.com/commons/9a8b1b422bec8eee.webp",
-      "thumb": "https://media.aquatome.com/commons/9a8b1b422bec8eee-480.webp",
-      "width": 960,
-      "height": 647,
-      "licence": "CC BY-SA 3.0",
-      "author": "Anandarajkumar at English Wikipedia",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sahyadria_denisonii_school.jpg",
-      "caption": "Sahyadria denisonii school.jpg",
-      "large": {
-        "url": "https://media.aquatome.com/commons/9a8b1b422bec8eee-large.webp",
-        "width": 1781,
-        "height": 1200
-      }
-    },
-    {
-      "url": "https://media.aquatome.com/commons/1c47fcf7f597a4b8.webp",
-      "thumb": "https://media.aquatome.com/commons/1c47fcf7f597a4b8-480.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY-SA 4.0",
-      "author": "NasserHalaweh",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cyprinidae_Sahyadria_denisonii_1.2.jpg",
-      "caption": "Sahyadria denisonii DENISON BARB. Zoologischer Garten Köln.",
-      "large": {
-        "url": "https://media.aquatome.com/commons/1c47fcf7f597a4b8-large.webp",
-        "width": 1601,
-        "height": 1200
-      }
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/10409e82b12b50f4.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/10409e82b12b50f4-480.webp",
       "width": 870,
@@ -299,14 +344,59 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-denisonii",
       "caption": "Juvenile individual: commercial strain.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/fac072d0c3f3fd23.webp",
+      "thumb": "https://media.aquatome.com/commons/fac072d0c3f3fd23-480.webp",
+      "width": 960,
+      "height": 501,
+      "large": {
+        "url": "https://media.aquatome.com/commons/fac072d0c3f3fd23-large.webp",
+        "width": 1000,
+        "height": 522
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "Stan Shebs",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puntius_denisonii_1.jpg",
+      "caption": "Photo of Puntius denisonii (Denison's barb) at the Vancouver Aquarium"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/48bb18c3de71c8f9.webp",
+      "thumb": "https://media.aquatome.com/commons/48bb18c3de71c8f9-480.webp",
+      "width": 960,
+      "height": 569,
+      "large": {
+        "url": "https://media.aquatome.com/commons/48bb18c3de71c8f9-large.webp",
+        "width": 2025,
+        "height": 1200
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "H. Zell",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puntius_denisonii_-_Wilhelma_01.jpg",
+      "caption": "Puntius denisonii (Day, 1865), Denison barb; Wilhelma, Stuttgart, Baden-Württemberg, Germany."
+    },
+    {
+      "url": "https://media.aquatome.com/commons/9a8b1b422bec8eee.webp",
+      "thumb": "https://media.aquatome.com/commons/9a8b1b422bec8eee-480.webp",
+      "width": 960,
+      "height": 647,
+      "large": {
+        "url": "https://media.aquatome.com/commons/9a8b1b422bec8eee-large.webp",
+        "width": 1781,
+        "height": 1200
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "Anandarajkumar at English Wikipedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sahyadria_denisonii_school.jpg",
+      "caption": "Sahyadria denisonii school.jpg"
     }
   ],
   "videos": [
     {
-      "youtubeId": "Z2HKMMfGcAE",
-      "title": "This is is what happens when yougive Denison barb a snack. They goes crazy! 🤩 #fish #aquarium",
-      "durationSec": 14,
-      "lang": "en-IN"
+      "youtubeId": "c1siLU71MxI",
+      "title": "Denison Barb / Roseline shark ( Sahyadria denisonii) Species profile",
+      "durationSec": 1233,
+      "lang": "en"
     },
     {
       "youtubeId": "GSaoOHqHEV8",
@@ -349,5 +439,11 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-13",
+  "refs": [
+    {
+      "url": "https://www.youtube.com/watch?v=c1siLU71MxI",
+      "title": "Denison Barb / Roseline shark ( Sahyadria denisonii) Species profile"
+    }
+  ]
 }

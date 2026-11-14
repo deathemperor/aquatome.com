@@ -1,0 +1,112 @@
+{
+  "id": "radix-rubiginosa",
+  "native": {
+    "input": "e96aa2aa9e0c87cd",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Radix rubiginosa is native to Indonesia, Vietnam and Indo-China.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Radix rubiginosa is native to Indonesia, Vietnam and Indo-China.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "TW",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It can be found in Taiwan, China, Japan, Australia, Russia (Lake Baikal), the USA and South Africa.",
+        "words": "Taiwan",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It can be found in Taiwan, China, Japan, Australia, Russia (Lake Baikal), the USA and South Africa.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It can be found in Taiwan, China, Japan, Australia, Russia (Lake Baikal), the USA and South Africa.",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It can be found in Taiwan, China, Japan, Australia, Russia (Lake Baikal), the USA and South Africa.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "RU",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It can be found in Taiwan, China, Japan, Australia, Russia (Lake Baikal), the USA and South Africa.",
+        "words": "Russia",
+        "ok": true
+      },
+      {
+        "code": "US",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It can be found in Taiwan, China, Japan, Australia, Russia (Lake Baikal), the USA and South Africa.",
+        "words": "USA",
+        "ok": true
+      },
+      {
+        "code": "ZA",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It can be found in Taiwan, China, Japan, Australia, Russia (Lake Baikal), the USA and South Africa.",
+        "words": "South Africa",
+        "ok": true
+      },
+      {
+        "code": "GB",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It is also listed as a \"hothouse\" alien species in Great Britain, Ireland and Israel.",
+        "words": "Great Britain",
+        "ok": true
+      },
+      {
+        "code": "IE",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It is also listed as a \"hothouse\" alien species in Great Britain, Ireland and Israel.",
+        "words": "Ireland",
+        "ok": true
+      },
+      {
+        "code": "IL",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It is also listed as a \"hothouse\" alien species in Great Britain, Ireland and Israel.",
+        "words": "Israel",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  }
+}

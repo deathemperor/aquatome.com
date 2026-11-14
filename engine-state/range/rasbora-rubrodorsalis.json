@@ -1,0 +1,92 @@
+{
+  "id": "rasbora-rubrodorsalis",
+  "native": {
+    "input": "89724d7a210f5655",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species is widely distributed in Southeast Asia (Laos, Cambodia, Thailand, Vietnam).",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species is widely distributed in Southeast Asia (Laos, Cambodia, Thailand, Vietnam).",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species is widely distributed in Southeast Asia (Laos, Cambodia, Thailand, Vietnam).",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species is widely distributed in Southeast Asia (Laos, Cambodia, Thailand, Vietnam).",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It is found most abundantly in the lower Mekong river basin, northeastern Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Some sources state that its range extends into Laos and Cambodia as well as the Mae Klong basin in western Thailand although to date no definitive records have been located.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Some sources state that its range extends into Laos and Cambodia as well as the Mae Klong basin in western Thailand although to date no definitive records have been located.",
+        "words": "Cambodia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "It is found most abundantly in the lower Mekong river basin, northeastern Thailand.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Supposedly it also occurs in central parts of the country including the Chao Phraya drainage with its associated floodplain and even Bangkok although specific locality details are scarce.",
+        "ok": true
+      }
+    ],
+    "disputed": [
+      "LA",
+      "KH"
+    ],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "LA",
+        "KH"
+      ],
+      "sourcesOnly": []
+    }
+  }
+}

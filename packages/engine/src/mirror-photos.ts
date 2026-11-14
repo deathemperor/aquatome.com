@@ -1,3 +1,4 @@
+import { writePhotoState } from './photo-state'
 import { createHash } from 'node:crypto'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
@@ -104,7 +105,7 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
     if (!cache) continue
     let n = 0
     for (const [from, to] of moved) if (from in cache && !(to in cache)) { cache[to] = cache[from]; n++ }
-    if (n) await writeFile(path, `${JSON.stringify(cache, null, 2)}\n`)
+    if (n) await writePhotoState(path, cache)
   }
   report.mirrored = done.size
   return report

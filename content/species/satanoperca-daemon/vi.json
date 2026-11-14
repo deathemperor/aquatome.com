@@ -1,8 +1,9 @@
 {
   "slug": "ca-than-tien-an-dat-ba-dom",
-  "name": "Cá thần tiên ăn đất ba đốm",
+  "name": "Cá hải hồ daemon",
   "altNames": [
-    "Threespot Eartheater"
+    "Threespot Eartheater",
+    "Cá thần tiên ăn đất ba đốm"
   ],
   "sections": {
     "beforeYouBuy:seriouslyfish": "<p>Cá ăn đất ba đốm (Satanoperca daemon) là một loài cichlid sống ở hệ sông rio Negro, Casiquiare và thượng nguồn Orinoco, thuộc Brazil, Venezuela và Colombia. Ngoài tự nhiên, loài này chủ yếu sống ở vùng nước đen, có tính axit và nghèo khoáng. Cá khá dễ kiếm ngoài tiệm nhưng không hề dễ nuôi. Muốn nuôi được thì phải đặc biệt để ý tới không gian, thức ăn, chất lượng nước và các thông số nước. Nhìn hai đốm sẫm trên thân là phân biệt được nó với S. lilith, loài trông giống nó nhưng chỉ có một đốm.</p><ul><li>Cần bể dài ít nhất 2 m.</li><li>Cần nền cát mềm để cá sàng nền kiếm ăn như ngoài tự nhiên (xem mục 'Thức ăn').</li></ul>",
@@ -24,5 +25,6 @@
     "bySource": {
       "seriouslyfish": 0.9
     }
-  }
+  },
+  "nameFixed": true
 }

@@ -5,6 +5,7 @@ import { SpeciesSchema } from '@aq/schema'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
 import { citeResearch, makeSpecies, namesVideo, type SpeciesFacts, type VideoSource } from '../src/species-research'
+import { WikimediaRefused } from '../src/wikimedia-rest'
 
 const sources: SpeciesFacts['sources'] = [
   { url: 'https://journal.example/nanosphronemus', title: 'A new miniature labyrinth fish from Vietnam', kind: 'paper' },
@@ -131,6 +132,12 @@ test('makeSpecies: a species GBIF\'s backbone lacks, researched with its video a
   // Written again from the research kept: an embeddable video joins the page's videos.
   await makeSpecies(r, { research: (async () => { throw new Error('no new research on a redo') }) as Llm, llm, http: gbif, now: () => new Date('2026-11-06T00:00:00Z') }, { name: 'Nanosphronemus gemma', videos: [video(true)] }, { reuse: true })
   expect(SpeciesSchema.parse(JSON.parse(await readFile(join(r, 'content/species/nanosphronemus-gemma/entity.json'), 'utf8'))).videos).toEqual([{ youtubeId: 'iV3tUG5Vd4I', title: 'Meet the Jewel Gourami!', durationSec: 261, lang: 'en' }])
+  // While Wikimedia rests, no page is made with no photo: the species waits until the rest ends.
+  const r2 = await root()
+  checks = 0
+  const resting = async (u: string) => { if (u.includes('commons.wikimedia.org')) throw new WikimediaRefused('2026-11-06T12:00:00.000Z'); return gbif(u) }
+  await expect(makeSpecies(r2, { research, llm, http: resting, now: () => new Date('2026-11-06T00:00:00Z') }, { name: 'Nanosphronemus gemma', videos: [video(false)] })).rejects.toBeInstanceOf(WikimediaRefused)
+  await expect(readFile(join(r2, 'content/species/nanosphronemus-gemma/entity.json'), 'utf8')).rejects.toThrow()
 })
 
 test('makeSpecies never writes over a page from a licensed source, nor a name GBIF doesn\'t know', async () => {

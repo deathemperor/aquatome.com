@@ -1,8 +1,9 @@
 {
   "slug": "ca-an-dat-buou-do",
-  "name": "Cá ăn đất bướu đỏ",
+  "name": "Cá hải hồ đầu đỏ",
   "altNames": [
-    "Red Hump Eartheater"
+    "Red Hump Eartheater",
+    "Cá ăn đất bướu đỏ"
   ],
   "sections": {
     "beforeYouBuy:seriouslyfish": "<p>Cá ăn đất bướu đỏ (Geophagus steindachneri) là một loài cichlid sống ở lưu vực sông Magdalena và sông Sinú của Colombia, cùng lưu vực sông Limón ở Venezuela. Nhóm 'G.' steindachneri được đặt theo tên loài này, và đến nay vẫn chưa ngã ngũ nên xếp nhóm này vào đâu trong hệ thống phân loại. Màu sắc của cá thay đổi theo từng vùng. Một số dạng màu có mặt trong danh sách hàng dưới tên đồng nghĩa Geophagus hondae. Đây là loài ấp miệng kiểu ovophilous (ngậm trứng ngay từ lúc đẻ), và chỉ cá cái ngậm trứng. Cá đực giữ lãnh thổ, nên tốt nhất là nuôi một con đực với ba con cái trở lên.</p><p>Thứ quan trọng nhất khi bày bể là lớp nền cát mềm, để cá sàng nền kiếm ăn như ngoài tự nhiên (xem mục 'Thức ăn').</p>",
@@ -24,5 +25,6 @@
     "bySource": {
       "seriouslyfish": 0.9
     }
-  }
+  },
+  "nameFixed": true
 }

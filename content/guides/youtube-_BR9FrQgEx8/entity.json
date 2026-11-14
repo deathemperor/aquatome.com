@@ -164,20 +164,13 @@
         "heading": "Chọn và tách đá",
         "moments": [
           {
-            "t": 190,
-            "url": "https://media.aquatome.com/video/_BR9FrQgEx8/at190-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng búa và đục tách khối đá Ohko thành các mảnh nhỏ.",
-            "sharpness": 482.6
-          },
-          {
             "t": 205,
             "url": "https://media.aquatome.com/video/_BR9FrQgEx8/at205-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Những mảnh đá Ohko vụn đã tách, sẵn sàng để ghép.",
-            "sharpness": 1572.6
+            "sharpness": 1572.6,
+            "person": false
           }
         ]
       },
@@ -190,15 +183,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khối đá đã ghép xong, các mảnh dính liền vào nhau trên đế kính.",
-            "sharpness": 590.4
-          },
-          {
-            "t": 280,
-            "url": "https://media.aquatome.com/video/_BR9FrQgEx8/at280-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bôi keo 502 dọc theo cạnh mảnh đá trước khi ghép vào khối đá.",
-            "sharpness": 623.1
+            "sharpness": 590.4,
+            "person": false
           }
         ]
       },
@@ -211,51 +197,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Nước chảy thành thác xuống từ mỏm đá vào hồ thử.",
-            "sharpness": 859
-          },
-          {
-            "t": 345,
-            "url": "https://media.aquatome.com/video/_BR9FrQgEx8/at345-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ống dẫn nước được đi giấu sau khối đá trong hồ.",
-            "sharpness": 1105
-          }
-        ]
-      },
-      {
-        "heading": "Trồng cây lên khối đá",
-        "moments": [
-          {
-            "t": 405,
-            "url": "https://media.aquatome.com/video/_BR9FrQgEx8/at405-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây đã gỡ hết giá thể, chỉ còn phần rễ trần để trồng vào kẽ đá.",
-            "sharpness": 884.1
-          },
-          {
-            "t": 435,
-            "url": "https://media.aquatome.com/video/_BR9FrQgEx8/at435-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng nhíp nhét rêu vào các khe đá, bên cạnh cây Callisia tím.",
-            "sharpness": 848.9
+            "sharpness": 859,
+            "person": false
           }
         ]
       },
       {
         "heading": "Thêm lũa, cát và những chi tiết cuối",
-        "moments": [
-          {
-            "t": 530,
-            "url": "https://media.aquatome.com/video/_BR9FrQgEx8/at530-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các nhánh lũa nhỏ ôm quanh khối đá, bể đã có lớp cát mỏng.",
-            "sharpness": 1514.2
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/_BR9FrQgEx8/p6-bm9pZGVhZSkuanBn.webp",
           "thumb": "https://media.aquatome.com/video/_BR9FrQgEx8/p6-bm9pZGVhZSkuanBn-480.webp",

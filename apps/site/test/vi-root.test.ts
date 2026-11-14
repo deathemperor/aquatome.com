@@ -3,7 +3,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { APP_VI_ROOT } from '../src/lib/i18n'
 import { VI_SECTIONS } from '../worker/paths'
-import { DIST, page } from './dist'
+import { DIST, page, sitemapText } from './dist'
 
 // Vietnamese pages live at the root (/ca/x/), and nothing the site builds links to the old /vi/… addresses, which the
 // Worker 301s (worker/test/handler.test.ts). The apps' files keep the /vi/ form until the app reads both (APP_VI_ROOT).
@@ -41,13 +41,17 @@ test('canonical, hreflang and x-default name the root addresses; the other langu
 })
 
 test('the sitemap and redirects.json give the root addresses', () => {
-  const locs = [...readFileSync(join(DIST, 'sitemap.xml'), 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => new URL(m[1]!).pathname)
+  const locs = [...sitemapText().matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => new URL(m[1]!).pathname)
   expect(locs).toContain('/')
   expect(locs).toContain('/ca/ca-neon-vua/')
   expect(locs).toContain('/id/')
   expect(locs.filter(p => p.startsWith('/vi/'))).toEqual([])
   // An old address of a renamed page, by its root form: the Worker reads an old /vi/… one without /vi.
-  expect(JSON.parse(readFileSync(join(DIST, 'redirects.json'), 'utf8'))).toEqual({ '/ca/ca-neon-vua-super-red/': '/ca/ca-neon-vua/?tu=ca-neon-vua-super-red', '/ca/ca-neon-vua-super-red/anh/': '/ca/ca-neon-vua/anh/' })
+  // One with no name (another animal's, page-folds.ts) forwards bare.
+  expect(JSON.parse(readFileSync(join(DIST, 'redirects.json'), 'utf8'))).toEqual({
+    '/ca/ca-neon-vua-super-red/': '/ca/ca-neon-vua/?tu=ca-neon-vua-super-red', '/ca/ca-neon-vua-super-red/anh/': '/ca/ca-neon-vua/anh/',
+    '/ca/ca-neon-vua-cu/': '/ca/ca-neon-vua/', '/ca/ca-neon-vua-cu/anh/': '/ca/ca-neon-vua/anh/',
+  })
 })
 
 test('the Vietnamese sections are the page folders, and the Worker runs first on each (wrangler.jsonc)', () => {

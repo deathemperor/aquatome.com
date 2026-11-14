@@ -11,6 +11,58 @@
     "guangdong",
     "hong-kong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "HK",
+        "CN"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The type locality is given simply as \"Hong Kong\" and the species is now known to be widespread throughout less-developed parts of the territory now referred to as 'Hong Kong Special Administrative Region' plus the neighbouring province of Guangdong, southeastern China.",
+          "countries": [
+            "HK",
+            "CN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2357503,
+      "total": 19,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "HK",
+          12
+        ],
+        [
+          "CN",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          113.90625,
+          21.09375,
+          13,
+          13
+        ],
+        [
+          113.90625,
+          22.5,
+          6,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

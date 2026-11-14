@@ -1,0 +1,24 @@
+{
+  "slug": "ca-bong-acentrogobius-globiceps",
+  "name": "Cá bống Acentrogobius globiceps",
+  "altNames": [],
+  "sections": {
+    "beforeYouBuy:glaser": "<p>Loài cá bống đẹp này rất hiếm khi có hàng. Vừa rồi lại có một đợt nhập từ Ấn Độ. Cá chỉ dài 5–7 cm.</p>",
+    "waterConditions:glaser": "<p>Pha thêm chút muối biển, một thìa cho mỗi 10 lít nước, thì cá khá khỏe hơn.</p>",
+    "notes:glaser": "<p>Tên loài ở đây mới chỉ là định danh tạm, vì phân loại cá bống còn khá rối. Con cá này cũng có thể thuộc loài A. moloanus.</p>"
+  },
+  "quality": {
+    "score": 0.7,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.7
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-11"
+  }
+}

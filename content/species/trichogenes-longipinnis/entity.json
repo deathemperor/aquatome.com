@@ -8,7 +8,8 @@
   "places": [
     "south-america",
     "brazil",
-    "sao-paulo"
+    "sao-paulo",
+    "parati-mirim"
   ],
   "dataCard": {
     "tempC": [
@@ -18,12 +19,32 @@
           "min": 20,
           "max": 24
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 25,
+          "max": 28
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 14
+      },
+      {
+        "source": "scotcat",
+        "value": 14
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ]
   },
@@ -35,10 +56,40 @@
       "html": "<ul><li>Scientific name: Trichogenes longipinnis Britski &amp; Ortega, 1983</li><li>Type locality: Cachoeira do Amor, kilometer 3 of the Parati-Ubatuba road, São Paulo, Brazil.</li><li>Breeding: unreported.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/trichogenes_longipinnis.htm",
+      "html": "<ul><li>Common name: Long-finned cambeva</li><li>Synonyms: none</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1230",
       "html": "<p>South America: coastal streams between Rio de Janeiro and São Paulo States, Southeastern Brazil. Due to restricted distribution, specialized habitat, and differentiated populations, the vulnerable (VU B1+2bc) status in the IUCN List is proposed.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/trichogenes_longipinnis.htm",
+      "html": "<p>South America: Coastal drainages in northern São Paulo State, Brazil. Type locality: Cachoeira do Amor, km 3 da estrada Parati-Ubatuba, SP [Brazil].</p><p>Trichogenes longipinnis is distributed in the headwaters of the Parati-Mirim river basin in Rio de Janeiro and coastal streams in the far north of the São Paulo coast.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/trichogenes_longipinnis.htm",
+      "html": "<p>Found in streams in the Atlantic forest; from backwaters with no flow to water flow of 0.44 meter per second. Dwells mostly in pools beneath small waterfalls in steep hill streams flowing over rocky and sandy substrates. Density varies from 3 to 25 individuals per square meter. At densities of 18 to 25 individuals per square meter, fish aggregate in loose groups of up to 30 individuals; the largest ones tend to be solitary and territorial.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/trichogenes_longipinnis.htm",
+      "html": "<p>Uses visual, tactile, and chemo-sensory orientation to feed on bottom-dwelling aquatic and terrestrial arthropods in the water column or on the surface. Diet includes immature aquatic insects, crustaceans, adult terrestrial winged insects whole or fragmented, as well as carrion. Forages mostly by scanning the bottom, the barbels touching the substrate, but visually oriented drift feeding is also employed by individuals up to 5 cm TL. While foraging may bury into sand or plant debris and sift through opercular openings and mouth.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/trichogenes_longipinnis.htm",
+      "html": "<p>Nektonic, active both during daytime and at night; juveniles and small adults of up to 9 cm TL are more active at daytime, whereas larger ones are active mostly at night.</p>"
     },
     {
       "key": "reproduction",
@@ -47,10 +98,28 @@
       "html": "<p>Unreported. There is no breeding report.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/trichogenes_longipinnis.htm",
+      "html": "<p>Reproduces at the onset of rainy season (austral summer). Mature oocytes about 0.2 cm diameter; pterigyolarvae range 1–1.5 cm TL.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/trichogenes_longipinnis.htm",
+      "html": "<p>Colouration: Spotted colour pattern differs consistently between stream populations, an indication of genetic differentiation.</p><p>Etymology: The genus name Trichogenes combines tricho– from Trichomycteridae and –genes from the cetopsid catfishes of Helogenes, referring to superficial resemblance to that genus (specifically, the long anal fin). The specific name longipinnis means long fins.</p><p>IUCN Red List: The extent of occurrence (EOO) calculated by the smallest convex polygon is 958 km² (EN B1). Although it occurs within Conservation Units, proximity to urban centers, tourist areas, and roads poses threats to habitat quality [b(iii)], which cannot yet be quantified but should be monitored; however, there is insufficient information to apply criterion (a or c). Therefore, Trichogenes longipinnis was listed as Near Threatened (NT) (IUCN 2022).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1230",
       "html": "<p>Revista Brasileira de Zoologia v. 1 (no. 3), pp 212, Figs. 1-2.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/trichogenes_longipinnis.htm",
+      "html": "<p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Trichogenes longipinnis. The IUCN Red List of Threatened Species 2022.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2024. FishBase. World Wide Web electronic publication. www.fishbase.org, (07/2024).</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -104,5 +173,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-10"
 }

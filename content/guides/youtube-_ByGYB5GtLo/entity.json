@@ -37,7 +37,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Quạt máy tính 12 V đặt trên bàn, thấy rõ dây điện.",
-            "sharpness": 598.8
+            "sharpness": 598.8,
+            "person": false
           },
           {
             "t": 96,
@@ -63,20 +64,13 @@
         "heading": "Nối quạt với nguồn thế nào",
         "moments": [
           {
-            "t": 116,
-            "url": "https://media.aquatome.com/video/_ByGYB5GtLo/at116-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai tay nối dây quạt với dây adapter, các dây màu còn hở.",
-            "sharpness": 244.2
-          },
-          {
             "t": 136,
             "url": "https://media.aquatome.com/video/_ByGYB5GtLo/at136-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Quạt đã nối với adapter nguồn đặt trên bàn.",
-            "sharpness": 1080.1
+            "sharpness": 1080.1,
+            "person": false
           }
         ],
         "photo": {
@@ -89,27 +83,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Steckernetzteil.JPG",
           "caption": "Adapter nguồn đã mở nắp, thấy rõ dây điện và mạch bên trong."
         }
-      },
-      {
-        "heading": "Lắp quạt vào tủ hoặc nắp bể",
-        "moments": [
-          {
-            "t": 160,
-            "url": "https://media.aquatome.com/video/_ByGYB5GtLo/at160-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Quạt máy tính 12cm với dây nguồn, chuẩn bị lắp vào tủ.",
-            "sharpness": 928.7
-          },
-          {
-            "t": 170,
-            "url": "https://media.aquatome.com/video/_ByGYB5GtLo/at170-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh quạt và đầu nối dây điện trước khi gắn vào tủ.",
-            "sharpness": 633.5
-          }
-        ]
       }
     ]
   }

@@ -48,18 +48,6 @@
       }
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/131701420.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/131701420-480.webp",
-      "width": 1020,
-      "height": 1020,
-      "licence": "CC BY",
-      "author": "Bill Levine",
-      "sourceUrl": "https://www.inaturalist.org/photos/131701420",
-      "caption": "Đàn cá bảy màu nhỏ bơi trong nước tối ngoài tự nhiên",
-      "best": true,
-      "kind": "group"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/259805566.webp",
       "thumb": "https://media.aquatome.com/inaturalist/259805566-480.webp",
       "width": 1024,
@@ -1132,6 +1120,18 @@
       "caption": "Cá bảy màu trong tự nhiên bên cạnh thân cây thủy sinh",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/131701420.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/131701420-480.webp",
+      "width": 1020,
+      "height": 1020,
+      "licence": "CC BY",
+      "author": "Bill Levine",
+      "sourceUrl": "https://www.inaturalist.org/photos/131701420",
+      "caption": "Đàn cá bảy màu nhỏ bơi trong nước tối ngoài tự nhiên",
+      "best": true,
+      "kind": "group"
     }
   ],
   "seen": 485,

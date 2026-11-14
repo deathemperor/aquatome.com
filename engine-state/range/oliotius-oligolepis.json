@@ -1,0 +1,94 @@
+{
+  "id": "oliotius-oligolepis",
+  "native": {
+    "input": "8bd33bf5972e4731",
+    "at": "2026-11-10T23:57:51.686Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The checkered barb, Oliotius oligolepis, is a small cyprinid apparently endemic to western central Sumatra, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Apparently endemic to western central Sumatra, Indonesia, but the full extent of its distribution is unclear.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Apparently endemic to western central Sumatra, Indonesia, but the full extent of its distribution is unclear.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Danau Maninjau",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Lake Meninju, Sumatra, Indonesia', which corresponds to the crater lake Danau Maninjau in Sumatera Barat (West Sumatra) province.",
+        "ok": true
+      },
+      {
+        "name": "Aek Sibundung",
+        "source": "seriouslyfish",
+        "quote": "The few recent records that exist pertain to lower basins of the Aek Sibundung, Aek Sumuran, and Aek Garoga rivers in Sumatera Utara (North Sumatra) province, with the Batang Gadis drainage and associated National Park possibly representing the northern limit of its range (D. Lumbantobing, pers. comm.).",
+        "ok": true
+      },
+      {
+        "name": "Aek Sumuran",
+        "source": "seriouslyfish",
+        "quote": "The few recent records that exist pertain to lower basins of the Aek Sibundung, Aek Sumuran, and Aek Garoga rivers in Sumatera Utara (North Sumatra) province, with the Batang Gadis drainage and associated National Park possibly representing the northern limit of its range (D. Lumbantobing, pers. comm.).",
+        "ok": true
+      },
+      {
+        "name": "Aek Garoga",
+        "source": "seriouslyfish",
+        "quote": "The few recent records that exist pertain to lower basins of the Aek Sibundung, Aek Sumuran, and Aek Garoga rivers in Sumatera Utara (North Sumatra) province, with the Batang Gadis drainage and associated National Park possibly representing the northern limit of its range (D. Lumbantobing, pers. comm.).",
+        "ok": true
+      },
+      {
+        "name": "Batang Gadis",
+        "source": "seriouslyfish",
+        "quote": "The few recent records that exist pertain to lower basins of the Aek Sibundung, Aek Sumuran, and Aek Garoga rivers in Sumatera Utara (North Sumatra) province, with the Batang Gadis drainage and associated National Park possibly representing the northern limit of its range (D. Lumbantobing, pers. comm.).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Oliotius oligolepis",
+    "status": "ACCEPTED",
+    "taxonKey": 7654632,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        4
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T23:57:51.686Z"
+  }
+}

@@ -2,18 +2,6 @@
   "id": "ariopsis-felis",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/86505605.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/86505605-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Cody Stricker",
-      "sourceUrl": "https://www.inaturalist.org/photos/86505605",
-      "caption": "Cá da trơn biển hardhead nhỏ trên cầu gỗ ven bờ",
-      "best": true,
-      "kind": "juvenile"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/171040469.webp",
       "thumb": "https://media.aquatome.com/inaturalist/171040469-480.webp",
       "width": 921,
@@ -38,42 +26,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/255805936.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/255805936-480.webp",
-      "width": 928,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Wendy McCrady",
-      "sourceUrl": "https://www.inaturalist.org/photos/255805936",
-      "caption": "Cá da trơn biển hardhead sống, vây ngực xòe rộng trên mặt nước",
-      "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/588306823.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/588306823-480.webp",
-      "width": 946,
-      "height": 976,
-      "licence": "CC BY",
-      "author": "Reanne (\"Bean\") Dunn",
-      "sourceUrl": "https://www.inaturalist.org/photos/588306823",
-      "caption": "Đàn cá da trơn biển hardhead bơi dưới nước",
-      "best": true,
-      "kind": "group"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/446544212.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/446544212-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Kristály Cravens-Liszak",
-      "sourceUrl": "https://www.inaturalist.org/photos/446544212",
-      "caption": "Cá da trơn biển bơi trong vùng nước nông ven biển",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/127738278.webp",
       "thumb": "https://media.aquatome.com/inaturalist/127738278-480.webp",
       "width": 768,
@@ -84,30 +36,6 @@
       "caption": "Đàn cá da trơn biển bơi sát nhau ở vùng nước nông",
       "best": true,
       "kind": "group"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/446544227.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/446544227-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Kristály Cravens-Liszak",
-      "sourceUrl": "https://www.inaturalist.org/photos/446544227",
-      "caption": "Cá da trơn biển bơi trên nền cát ở vùng nước nông",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/87662077.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/87662077-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "evangrimes",
-      "sourceUrl": "https://www.inaturalist.org/photos/87662077",
-      "caption": "Cá da trơn biển hardhead trưởng thành vừa câu được, còn dây câu",
-      "best": true,
-      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/127738314.webp",
@@ -348,6 +276,42 @@
       "caption": "Hai cá da trơn biển hardhead bơi ở vùng nước nông",
       "best": false,
       "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/588306823.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/588306823-480.webp",
+      "width": 946,
+      "height": 976,
+      "licence": "CC BY",
+      "author": "Reanne (\"Bean\") Dunn",
+      "sourceUrl": "https://www.inaturalist.org/photos/588306823",
+      "caption": "Đàn cá da trơn biển hardhead bơi dưới nước",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/446544212.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/446544212-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Kristály Cravens-Liszak",
+      "sourceUrl": "https://www.inaturalist.org/photos/446544212",
+      "caption": "Cá da trơn biển bơi trong vùng nước nông ven biển",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/446544227.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/446544227-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Kristály Cravens-Liszak",
+      "sourceUrl": "https://www.inaturalist.org/photos/446544227",
+      "caption": "Cá da trơn biển bơi trên nền cát ở vùng nước nông",
+      "best": true,
+      "kind": "habitat"
     }
   ],
   "seen": 456,

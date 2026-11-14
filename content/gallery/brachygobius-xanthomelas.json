@@ -1,0 +1,72 @@
+{
+  "id": "brachygobius-xanthomelas",
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/38e3832cba0e447b8c00b75944d8e2f0.webp",
+      "thumb": "https://media.aquatome.com/processed/38e3832cba0e447b8c00b75944d8e2f0-480.webp",
+      "width": 600,
+      "height": 309,
+      "licence": "dùng với sự cho phép",
+      "author": "Michael Lo",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-xanthomelas",
+      "caption": "Specimen photographed in the field, Bangka Island, Indonesia, again with the anterior dorsal-fin base unpigmented.",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-brachygobius-xanthomelas",
+        "pixelHash": "3cdae5acf655a4f51565334438b61f71735a0f25ef8de289459db57e3aaac1ad"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T10:17:46.850Z",
+          "originalHash": "1adfa63fb4cd02210b71c53aa3c690f5fae6533476d3001487ba633929b4cb0d",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 600,
+            "originalHeight": 397,
+            "window": {
+              "x0": 0,
+              "y0": 0,
+              "x1": 600,
+              "y1": 309
+            },
+            "subject": {
+              "x0": 84,
+              "y0": 105,
+              "x1": 511,
+              "y1": 276
+            },
+            "margin": 10
+          },
+          "excludedMarks": [
+            {
+              "x0": 39,
+              "y0": 313,
+              "x1": 168,
+              "y1": 329
+            }
+          ],
+          "checks": {
+            "species": [
+              "6b75792254fc9e253629105880f7e3c37f757adb31cd6de58fce469a899a82fb",
+              "7108bd8494e0cc4dbdc6d757d1cfe9ee470ab39e245ce2c0f4b0e2a35efb171b"
+            ],
+            "ownership": [
+              "f70ad0fe9d9b9ff9bd81074d8b71d6d77538c4d2b7aac02aea24483a51260f14",
+              "13b8cb35c5c6d227c285d25326d1a09d48d1eccca9cdebf65afedcc6cb9fad56"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/1571543d480e8603.webp",
+        "width": 600,
+        "height": 397,
+        "thumb": "https://media.aquatome.com/seriouslyfish/1571543d480e8603-480.webp"
+      }
+    }
+  ],
+  "seen": 0,
+  "updatedAt": "2026-11-11"
+}

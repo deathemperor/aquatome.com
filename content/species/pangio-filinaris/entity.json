@@ -10,6 +10,72 @@
     "malaysia",
     "terengganu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [
+        "Sungai Terengganu"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from Pahang and Terengganu states, Peninsular Malaysia.",
+          "countries": [
+            "MY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Sungai Tersat, a tributary of Sungai Terengganu, Terengganu, Malaysia, 4°57'51\"N, 102°57'45\"E'.",
+          "countries": [],
+          "regions": [
+            "Sungai Terengganu"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2367981,
+      "total": 3,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "TH",
+          2
+        ],
+        [
+          "MY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

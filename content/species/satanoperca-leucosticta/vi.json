@@ -1,9 +1,10 @@
 {
   "slug": "ca-dia-dan-dom-trang",
-  "name": "Cá địa đàn đốm trắng",
+  "name": "Cá hải hồ leucosticta",
   "altNames": [
     "Cá Satanoperca đốm trắng",
-    "Whitespot Eartheater"
+    "Whitespot Eartheater",
+    "Cá địa đàn đốm trắng"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<p>Cá địa đàn đốm trắng (Satanoperca leucosticta) là một loài cichlid ở vùng Guiana Shield, gồm Guyana, Suriname, miền đông Venezuela và miền bắc Brazil. Loài này được nuôi ở trại tại một số nước, và tiệm cá thường có bán. Nó hay bị nhầm với S. jurupari, nhưng dễ nhận ra nhờ các đốm trắng hoặc vằn hình giun nổi rõ ở hai bên đầu. Cá cái ngậm con trong miệng theo kiểu larvophilous (trứng đẻ xuống nền, nở thành cá bột rồi mới được ngậm), và loài này đã được cho đẻ trong bể.</p>",
@@ -25,5 +26,6 @@
     "bySource": {
       "seriouslyfish": 0.85
     }
-  }
+  },
+  "nameFixed": true
 }

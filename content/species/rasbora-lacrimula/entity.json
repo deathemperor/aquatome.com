@@ -10,6 +10,42 @@
     "indonesia",
     "mahakam"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Belayan",
+        "Mahakam",
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The red cherry rasbora, Rasbora lacrimula, is a small cyprinid confirmed only from the Belayan drainage in east Kalimantan, Indonesian Borneo.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Belayan"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The only confirmed record is from the type locality in the Ulu (river) Belayan drainage, part of the lower Mahakam drainage in Kalimantan Timur (east Kalimantan), Indonesian Borneo.",
+          "countries": [],
+          "regions": [
+            "Mahakam",
+            "Borneo"
+          ]
+        }
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

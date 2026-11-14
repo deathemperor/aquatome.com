@@ -21,6 +21,7 @@ function turns(steps: string[], waiter = '') {
     TEST_LOG="${dir}/test.log"
     source "${CHECKS}"
     calm() { echo CALM; }
+    settled() { :; }
     waiter='${waiter}'
     turn() {
       echo "TAKE \${*: -1}"; "$@"; local r=$?; echo GIVE
@@ -40,9 +41,9 @@ test('the checks take the lock a step at a time: whoever waits goes in between t
   expect(r.lock).toEqual(['TAKE echo build', 'GIVE', 'TAKE xcodebuild test', 'GIVE', 'TAKE echo test', 'GIVE'])
   // The wait for a calmer Mac comes once, before the first step: the queue is the wait after that.
   expect(r).toMatchObject({ calm: 1, code: 0 })
-  // A failed step gives the lock back and runs once more, after another wait for a calmer Mac, and the steps after it
-  // don't queue for it.
-  expect(turns(['exit 3', 'echo test'])).toMatchObject({ lock: ['TAKE exit 3', 'GIVE', 'TAKE exit 3', 'GIVE'], calm: 2, code: 1 })
+  // A failed step gives the lock back and runs once more, after another wait for a calmer Mac, its packages one at a time,
+  // and the steps after it don't queue for it.
+  expect(turns(['exit 3', 'echo test'])).toMatchObject({ lock: ['TAKE exit 3', 'GIVE', 'TAKE export pnpm_config_workspace_concurrency=1; exit 3', 'GIVE'], calm: 2, code: 1 })
 })
 
 /**

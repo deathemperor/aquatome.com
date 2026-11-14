@@ -1,0 +1,31 @@
+{
+  "slug": "sa-giong-da-khong-lo",
+  "name": "Sa giông đá khổng lồ",
+  "altNames": [
+    "Giant Rock Salamander",
+    "Sa giông Pachytriton",
+    "Paddletail Newt"
+  ],
+  "sections": {
+    "beforeYouBuy:glaser": "<p>Sa giông đuôi mái chèo (chi Pachytriton) mỗi năm chỉ có bán vài tuần. Phân loại của chi này rất rối, nên không xác định chính xác được từng con. Chúng thường được ghi tên là Pachytriton cf. labiatus.</p>",
+    "maintenance:glaser": "<p>Pachytriton cần nước sạch. Có chút dòng chảy thì chúng rất thích. Không cần sưởi.</p>",
+    "waterConditions:glaser": "<p>Lúc nuôi bình thường, nên giữ nước khoảng 20°C. Khi cho chúng ngủ đông thì hạ xuống 10°C. Nước có lúc lên tới 26°C một thời gian ngắn cũng hoàn toàn không hại gì.</p>",
+    "aquariumSize:glaser": "<p>Bể nên khá rộng.</p>",
+    "behaviour:glaser": "<p>Loài sa giông này hay giành chỗ. Nhưng giống cá cichlid, khi nuôi thật dày thì Pachytriton thôi không giành chỗ nữa.</p><p>Chúng sống hoàn toàn dưới nước. Hễ còn khỏe là chúng không bao giờ bò lên cạn.</p>",
+    "diet:glaser": "<p>Chúng ăn mọi loại thức ăn đông lạnh và đồ tươi sống, miễn vừa miệng.</p>"
+  },
+  "quality": {
+    "score": 0.7,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.7
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "elsewhere"
+    ],
+    "at": "2026-11-11"
+  }
+}

@@ -10,6 +10,88 @@
     "thailand",
     "laos"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "LA"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The arrowhead puffer, Pao suvattii, is a predatory puffer from Thailand and Laos, found over rocky or muddy substrates in main river channels.",
+          "countries": [
+            "TH",
+            "LA"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8043629,
+      "total": 19,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "TH",
+          13
+        ],
+        [
+          "LA",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          16.875,
+          6,
+          6
+        ],
+        [
+          101.25,
+          18.28125,
+          2,
+          2
+        ],
+        [
+          101.25,
+          19.6875,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          16.875,
+          4,
+          4
+        ],
+        [
+          105.46875,
+          14.0625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

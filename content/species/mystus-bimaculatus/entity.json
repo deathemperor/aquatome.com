@@ -10,6 +10,50 @@
     "indonesia",
     "sumatra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Sumatra"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "This species occurs only on the island of Sumatra in Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Sumatra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5201893,
+      "total": 1,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "MY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -157,17 +201,6 @@
       "author": "Chris Ralph / ScotCat",
       "sourceUrl": "https://www.scotcat.com/bagridae/mystus_bimaculatus.htm",
       "caption": "Mystus bimaculatus: head view",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/d0dd7264eba56ca4.webp",
-      "thumb": "https://media.aquatome.com/scotcat/d0dd7264eba56ca4-480.webp",
-      "width": 500,
-      "height": 333,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_bimaculatus.htm",
-      "caption": "Mystus bimaculatus",
       "source": "scotcat"
     }
   ],

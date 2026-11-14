@@ -1,0 +1,71 @@
+{
+  "id": "moenkhausia-pittieri",
+  "native": {
+    "input": "dd803e8dbbf08b88",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species is endemic to Lake Valencia in Venezuela (including some tributary rivers).",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Valencia and surrounding waters, Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Valencia",
+        "source": "glaser",
+        "quote": "The species is endemic to Lake Valencia in Venezuela (including some tributary rivers).",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Lake Valencia",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Valencia and surrounding waters, Venezuela.",
+        "country": "VE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Moenkhausia pittieri",
+    "status": "ACCEPTED",
+    "taxonKey": 2352623,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        4
+      ]
+    ],
+    "native": [
+      "VE"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

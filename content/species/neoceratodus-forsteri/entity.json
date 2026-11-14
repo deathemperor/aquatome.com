@@ -9,6 +9,116 @@
     "oceania",
     "australia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "AU"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to parts of Australia.",
+          "countries": [
+            "AU"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2441266,
+      "total": 7261,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "AU",
+          7260
+        ],
+        [
+          "NZ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          133.59375,
+          -26.71875,
+          22,
+          22
+        ],
+        [
+          143.4375,
+          -22.5,
+          3,
+          3
+        ],
+        [
+          149.0625,
+          -25.3125,
+          2,
+          2
+        ],
+        [
+          150.46875,
+          -28.125,
+          1,
+          1
+        ],
+        [
+          150.46875,
+          -26.71875,
+          170,
+          170
+        ],
+        [
+          150.46875,
+          -25.3125,
+          9,
+          9
+        ],
+        [
+          151.875,
+          -29.53125,
+          1,
+          1
+        ],
+        [
+          151.875,
+          -28.125,
+          262,
+          262
+        ],
+        [
+          151.875,
+          -26.71875,
+          6365,
+          6365
+        ],
+        [
+          151.875,
+          -25.3125,
+          423,
+          423
+        ],
+        [
+          153.28125,
+          -28.125,
+          2,
+          2
+        ],
+        [
+          172.96875,
+          -36.5625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -145,16 +255,6 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Australian_lungfish_2013-09-13_11-30.jpg",
       "caption": "Australian lungfish",
       "thumb": "https://media.aquatome.com/commons/810ee5eccafc1c31-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/af6a78e9276322be.webp",
-      "width": 960,
-      "height": 332,
-      "licence": "CC BY-SA 4.0",
-      "author": "Gunnar Creutz",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neoceratodus_forsteri_at_G%C3%B6teborgs_Naturhistoriska_Museum_2339.jpg",
-      "caption": "Neoceratodus forsteri at Göteborgs Naturhistoriska Museum",
-      "thumb": "https://media.aquatome.com/commons/af6a78e9276322be-480.webp"
     },
     {
       "url": "https://media.aquatome.com/commons/d28da40504dd3289.webp",

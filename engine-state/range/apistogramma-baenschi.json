@@ -1,8 +1,8 @@
 {
   "id": "apistogramma-baenschi",
   "native": {
-    "input": "dc41b153a93e4c96",
-    "at": "2026-11-09T20:43:02.940Z",
+    "input": "18f2b1b4c2a088ec",
+    "at": "2026-11-10T04:57:39.069Z",
     "claims": [
       {
         "code": "PE",
@@ -19,18 +19,26 @@
         "quote": "Apistogramma baenschi from Peru is for sure among the most beautiful species of dwarf cichlid.",
         "words": "Peru",
         "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Tributary of Rio Shanushi, lower Rio Huallaga System, Peru, near 6°03'S, 77°53'W' with additional records from between the towns of Tarapoto and Yurimaguas in the Shanushi and Paranapura drainages, both left-bank tributaries of the Huallaga.",
+        "words": "Peru",
+        "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Río Huallaga",
+        "name": "Huallaga",
         "source": "seriouslyfish",
         "quote": "The Inca dwarf cichlid, Apistogramma baenschi, is from tributaries of the lower Río Huallaga in the Amazonian portion of northern Peru.",
         "country": "PE",
         "ok": true
       },
       {
-        "name": "Rio Shanushi",
+        "name": "Shanushi",
         "source": "seriouslyfish",
         "quote": "Type locality is 'Tributary of Rio Shanushi, lower Rio Huallaga System, Peru, near 6°03'S, 77°53'W' with additional records from between the towns of Tarapoto and Yurimaguas in the Shanushi and Paranapura drainages, both left-bank tributaries of the Huallaga.",
         "country": "PE",
@@ -40,6 +48,7 @@
         "name": "Paranapura",
         "source": "seriouslyfish",
         "quote": "Type locality is 'Tributary of Rio Shanushi, lower Rio Huallaga System, Peru, near 6°03'S, 77°53'W' with additional records from between the towns of Tarapoto and Yurimaguas in the Shanushi and Paranapura drainages, both left-bank tributaries of the Huallaga.",
+        "country": "PE",
         "ok": true
       }
     ],

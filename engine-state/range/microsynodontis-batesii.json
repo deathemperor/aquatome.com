@@ -1,0 +1,95 @@
+{
+  "id": "microsynodontis-batesii",
+  "native": {
+    "input": "47ceed1c18fbe358",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from Democratic Republic of Congo, Gabon and Cameroon, where it's found in the Congo and Ogowe river basins.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from Democratic Republic of Congo, Gabon and Cameroon, where it's found in the Congo and Ogowe river basins.",
+        "words": "Gabon",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from Democratic Republic of Congo, Gabon and Cameroon, where it's found in the Congo and Ogowe river basins.",
+        "words": "Cameroon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Congo",
+        "source": "seriouslyfish",
+        "quote": "Recorded from Democratic Republic of Congo, Gabon and Cameroon, where it's found in the Congo and Ogowe river basins.",
+        "ok": true
+      },
+      {
+        "name": "Ogowe",
+        "source": "seriouslyfish",
+        "quote": "Recorded from Democratic Republic of Congo, Gabon and Cameroon, where it's found in the Congo and Ogowe river basins.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Microsynodontis batesii",
+    "status": "ACCEPTED",
+    "taxonKey": 2344189,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        42
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        7
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        6
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        4
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "CD",
+      "GA",
+      "CM"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

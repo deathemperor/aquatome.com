@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { CHECKLIST, doseGroups, fitCounts, fitDue, fitFindings, fitKey, fitOrder, fitPrompt, fitReport, fitRules, fitText, hasDose, keepCautions, keepDoses, keepFit, productOf, readFit, runFit, type FitCheck, type FitDose } from '../src/fit'
+import { CHECKLIST, dealerNotice, doseGroups, fitCounts, fitDue, fitFindings, fitKey, fitOrder, fitPrompt, fitReport, fitRules, fitText, hasDose, keepCautions, keepDoses, keepFit, productOf, readFit, runFit, type FitCheck, type FitDose } from '../src/fit'
 import { LlmError, type Llm } from '../src/claude'
 import type { Page } from '../src/pages'
 import { mkdtemp, readFile } from 'node:fs/promises'
@@ -229,6 +229,17 @@ test('a guide read with an older checklist is read again; another page is not, u
   expect(fitDue([g, s], { [fitKey(g)]: { ...old(g), checklist: 2 }, [fitKey(s)]: { ...old(s), checklist: 2 } }).map(p => p.id)).toEqual(['g'])
 })
 
+// 13 Nov 2026: AquaTome's own guide to the seasons was faulted, for a Vietnamese reader, for "Ban đêm phòng có thể xuống
+// 12–14 °C" on a winter night: a winter in Hà Nội. It was kept off the Curation Lead's winter shelf for it.
+test("for Vietnam the North's winter is the reader's own; a home heated as abroad still isn't", () => {
+  expect(fitPrompt('vi')).toContain("For this reader the North's winter is their own (December to February: rooms at 10–15 °C at night")
+  expect(fitPrompt('vi')).toContain('a furnace, radiators or central heating, a basement, snow or a frozen pond still does')
+  for (const lang of ['id', 'th', 'ms'] as const) expect(fitPrompt(lang)).not.toContain("North's winter")
+  for (const lang of ['vi', 'th'] as const) for (const kind of ['guides', 'cards'] as const) expect(fitPrompt(lang, kind)).not.toContain('{{CLIMATE_NOTE}}')
+  // In the elsewhere check itself, after its examples.
+  expect(fitPrompt('vi')).toMatch(/- elsewhere: [^\n]*phạm luật"\)\. For this reader the North's winter/)
+})
+
 test('advice that would hurt is a finding the checker keeps, and its prompt asks for it', () => {
   const text = '[P1 Bắt cá] Tăng CO₂ gấp 5 đến 10 lần và tắt lọc cho tới khi cá ngáp.'
   const harm = { check: 'harm', part: 'P1', quote: 'Tăng CO₂ gấp 5 đến 10 lần và tắt lọc', why: 'fish suffocate', fix: '', product: '' }
@@ -425,4 +436,103 @@ test("a test's lethal level with its figure is found on any page, in each langua
     ['id', 'Nitrit di atas 0,1 mg/L bersifat racun.'],
     ['th', 'ปลาตายครึ่งหนึ่งภายใน 3 วัน'],
   ] as const) expect(found('lethal', `<p>${s}</p>`, { lang }), s).toEqual([])
+})
+
+test('units: a figure the page\'s English gives in metric itself isn\'t counted; one converted from US units is', () => {
+  const fish = (vi: string, en: string, o: Partial<Page> = {}, field = 'sections.aquariumSize:seriouslyfish') =>
+    page(vi, { kind: 'species', fields: [{ field, html: vi }], en: { [field]: en }, ...o })
+  const units = (p: Page, found: { part: string; quote: string }[] = []) => fitFindings(p, { at: '2026-11-11', hash: fitText(p).hash, model: 'm', products: [], findings: found.map(f => ({ ...f, check: 'units' as const, why: 'converted', by: 'model' as const })) }).filter(f => f.check === 'units').map(f => f.quote)
+  // The source's own figure, alone or beside a US one: the rule's "38 lít" and the model's quote both go.
+  expect(units(fish('<p>Bể chỉ 11 lít cũng nuôi được.</p>', '<p>Kept in tanks as small as 11 litres.</p>'), [{ part: 'P1', quote: 'Bể chỉ 11 lít' }])).toEqual([])
+  expect(units(fish('<p>Bể 38 lít là đủ.</p>', '<p>A 10-gallon (38 litre) tank is enough.</p>'))).toEqual([])
+  expect(units(fish('<p>ลึกประมาณ 2.5–4 ซม.</p>', '<p>About 2.5–4 cm deep.</p>', { lang: 'th' }), [{ part: 'P1', quote: 'ลึกประมาณ 2.5–4 ซม.' }])).toEqual([])
+  // Converted by the writer: the English has gallons or inches only, or one of the quote's figures isn't the English's.
+  expect(units(fish('<p>Bể 38 lít là đủ.</p>', '<p>A 10-gallon tank is enough.</p>'))).toEqual(['38 lít'])
+  expect(units(fish('<p>Nền dày 2,5–5 cm.</p>', '<p>A substrate 1–2 inches (2.5 cm) deep.</p>'), [{ part: 'P1', quote: 'Nền dày 2,5–5 cm' }])).toEqual(['Nền dày 2,5–5 cm'])
+  // A US unit left on the page counts, whatever the English gives beside it.
+  expect(units(fish('<p>Bể 10 gallon (38 lít).</p>', '<p>A 10-gallon (38 litre) tank.</p>'))).toEqual(['gallon'])
+  // A section AquaTome wrote from many sources' facts has no English of its own: its figures still count.
+  expect(units(fish('<p>Bể 38 lít là đủ.</p>', '<p>Bể 38 lít là đủ.</p>', {}, 'sections.aquariumSize:aquatome'))).toEqual(['38 lít'])
+  // The same words in two parts: each part's English must give the figure, whatever part the finding names.
+  const two = page('', { kind: 'species', fields: [{ field: 'sections.aquariumSize:seriouslyfish', html: '<p>Bể 38 lít.</p>' }, { field: 'sections.aquariumSize:aquariumcoop', html: '<p>Bể 38 lít.</p>' }], en: { 'sections.aquariumSize:seriouslyfish': '<p>A 10-gallon tank.</p>', 'sections.aquariumSize:aquariumcoop': '<p>A 38 litre tank.</p>' } })
+  expect(units(two)).toEqual(['38 lít'])
+  expect(units(two, [{ part: 'P2', quote: 'Bể 38 lít' }])).toEqual(['38 lít', 'Bể 38 lít'])
+  expect(units(fish('<p>Bể 38 lít là đủ.</p>', '<p>Kept in 38 litres.</p>'), [{ part: '', quote: 'Bể 38 lít là đủ' }, { part: 'P9', quote: 'bể 40 lít' }])).toEqual(['bể 40 lít'])
+  // A guide keeps its source elsewhere: still counted.
+  expect(units(page('<p>Bể 38 lít là đủ.</p>'))).toEqual(['38 lít'])
+})
+
+// The 16 Vietnamese matches the chief of staff's count was checked by hand on (13 Nov 2026), as the site had them: half a
+// dealer's own news, half trade history the reader keeps.
+test('a dealer\'s own current batch or stock is the source check\'s; trade history stays', () => {
+  const news = [
+    'Dành cho khách hàng của chúng tôi: các loài này có mã 454900 (jardinii) và 454912 (leichardti) trong danh mục hàng.',
+    'Sau một thời gian gián đoạn, cuối cùng cũng lại có một lô cá nhập từ Congo. Trong lô này có hai loài Distichodus rất đẹp.',
+    'Một trong số đó là Poptella paraguayensis, nay đã được nhập về từ Paraguay. Đây là loài cá lớn, dài khoảng 8 cm.',
+    'Gần đây có một lô cá rô leo nhập từ Bengal. Trong lô, đa số là một loài đầu to.',
+    'Nhưng nếu dựa vào hoa văn ở lô cá này thì hầu như con nào cũng thuộc một loài khác nhau.',
+    'Corydoras imitator hiện được nhập về từ vùng thượng nguồn sông Rio Negro ở Brazil.',
+    'Bây giờ dạng thuần đã có hàng trở lại.',
+    'Gần đây có một đợt nhập từ Thái Lan về vài con đực có càng to khác thường.',
+    // Two more from the first run of the front list: a part that is a dealer's notice, and an import's colours.
+    'Hiện ngoài tiệm có bán cá phượng hoàng bắt ngoài tự nhiên ở Venezuela.',
+    'Còn ở đợt cá mới nhập về thì có vẻ cả đực lẫn cái đều mang màu của B. merah.',
+    // And from the count on the site: a batch in, this batch's fish.
+    'Mới đây có một lô lớn Corydoras burgessi về, toàn cá trưởng thành.',
+    'Đợt này về rất nhiều loài đẹp, trong đó có những loài rất hiếm.',
+    'Cá trong lô nhập về dài 14-18 cm. Lô này chỉ có 7 con.',
+    'Tên cũ cũng để chỉ ông. Hiện nay lại có cá thể hoang dã mới trưởng thành của loài này.',
+    // Astra's read: a brood just in, and a wild batch just in.
+    'Nhiều loài Parotocinclus họ hàng gần khá khó nuôi, nhưng lứa cá mới nhập này lại khá khỏe.',
+    'Trong đợt cá hoang dã mới nhập gần đây có một con đực màu đỏ.',
+    // A bare "lô này" after a sentence cut short by a genus's initial.
+    'Congo có ba loài cá phổi: Protopterus aethiopicus, P. annectens và P. dolloi. Lô này có ít nhất hai loài là P. aethiopicus và P. dolloi.',
+  ]
+  const history = [
+    'Cũng có con có thêm những đốm trắng nhỏ. Hai dạng màu này có thể lẫn chung trong cùng một lô nhập.',
+    'Tiệm cá bày bán quá nhiều loài, nên có những con bán khắp nơi mà người chơi lại ít để mắt tới.',
+    'Lý do là màu sắc của chúng biến đổi rất nhiều, và chúng thường được nhập về lẫn lộn với nhau.',
+    'Cửa hàng cá bán khá nhiều loài, nhưng nhiều loài phải đúng mùa mới có hàng.',
+    'Có khi cá về tiệm chỉ vì lẫn vào lô cá khác.',
+    'Năm 2002, một loài cá chì lùn màu đỏ đậm từ Peru được nhập về dưới tên Nannostomus marginatus “Purple”.',
+    'Nhiều khả năng tiếng xấu đó bắt nguồn từ những thiếu sót trong các đợt nhập đầu tiên vào thập niên 1970. Cá nhập về hiện nay thì nuôi không gặp vấn đề gì cả.',
+    'Ngày nay được nhập về khá đều từ nhiều nơi.',
+    // The count's false hits on the site: a museum's lots, the mixed batches a fish comes in, rounds and rarity, "now
+    // sold everywhere", taxa now available.
+    'Ông tìm thấy hai lô mẫu ghi nhãn Badis dario từ Wynaad. Hóa ra hai lô này cùng loài với mẫu vật mới.',
+    'Cá thường về lẫn trong các lô hàng trộn. Những lô này có thể có cả các loài Gastromyzon khác.',
+    'Những đợt này có thể dễ dàng làm chết các con yếu hơn.',
+    'Muốn cắt vòng đời thì phải làm hai đợt. Trong đợt này phân cá có thể trông lạ.',
+    'Thỉnh thoảng lắm mới có một đợt cá nhập về.',
+    'Loài cá tuyệt vời này bây giờ bán ở khắp nơi.',
+    'Hơn nữa, hiện đã có sẵn các đơn vị phân loại danh nghĩa.',
+    'Vì thế bạn sẽ phải liên tục săn loài mới để bổ sung vào danh mục hàng.',
+    // A batch told with its year, or as where the type specimens came from: history, the sentence after it too.
+    'Tháng 4/2002, nhà cung cấp nhận một lô Tetraodon mbu từ Cộng hòa Congo. Cá trong lô này to hơn mọi lô họ từng nhận trước đó.',
+    'Bộ mẫu chuẩn dùng để mô tả loài lấy từ một lô cá hoang dã nhập từ Peru về Đức. Sau đó, công ty nhập lô cá này ra thông báo rằng cá được bắt ở Saramirisa.',
+    'Hiện nay lại có ý kiến cho rằng đây là một loài riêng.',
+    // A keeper's own plants (Astra's read), and a shop putting a new brood in with the old.
+    'Cây ở lô này nằm ngoài nước khá lâu và được cất trong tủ lạnh trước khi trồng.',
+    'Đến đó, nhân viên tiệm lại thả lứa mới về chung với đàn cũ chưa bán hết.',
+    // A dated batch with a quoted question inside its sentence: still one sentence, its year still read (Astra's read).
+    'Năm 2002, nhà cung cấp hỏi “Có cá không?” rồi nhận một lô. Cá trong lô này rất lớn.',
+    'Năm 2002, một lô cá do ông A. Werner nhập về. Cá trong lô này rất lớn.',
+  ]
+  const dealer = (text: string) => fitRules(page(`<p>${text}</p>`, { kind: 'species' })).filter(f => f.check === 'source' && f.why.startsWith('a dealer'))
+  for (const t of news) expect(dealer(t).length, t).toBeGreaterThan(0)
+  for (const t of history) expect(dealer(t), t).toEqual([])
+  // Wholly a notice, each sentence one (two of the four such parts on the site on 13 Nov); a notice beside a fact, or a
+  // dated batch, isn't.
+  for (const t of ['<p>Hiện ngoài tiệm có bán cá phượng hoàng bắt ngoài tự nhiên ở Venezuela.</p>', '<p>Gần đây có một đợt nhập từ Thái Lan về vài con đực có càng to khác thường.</p>', '<p>Lô này chỉ có 7 con.</p><p>Mới đây có một lô lớn Corydoras burgessi về.</p>']) expect(dealerNotice(t), t).toBe(true)
+  for (const t of ['<p>Loài này rất gần với B. brigittae. Còn ở đợt cá mới nhập về thì có vẻ cả đực lẫn cái đều mang màu của B. merah.</p>', `<p>${history[8]}</p>`, '<p>Cá chuột hiền.</p>', '', '<p>Cá cần nước mềm… Lô này chỉ có 7 con.</p>', '<p>Người ta gọi nó là “cá chuột.” Lô này chỉ có 7 con.</p>', '<p>Lô này chỉ có 7 con. pH phù hợp là 6–7.</p>', '<p>Lô này chỉ có 7 con; loài này cần nước mềm và pH 6–7.</p>', '<p>Lô này chỉ có 7 con, loài này cần nước mềm.</p>', '<p>Lô này chỉ có 7 con, chúng cần nước mềm và chua.</p>',
+    // Every comma ends a clause, so the ram's notice that goes on about its batch after one stays too, to be rewritten.
+    '<p>Hiện ngoài tiệm có bán cá phượng hoàng bắt ngoài tự nhiên ở Venezuela, con nào cũng đã lớn hẳn.</p>',
+    // Cut at every stop, so a notice cut in two by a quoted question or an initial stays too: unsure, nothing comes off.
+    '<p>Lô này gồm cá mang nhãn “dolloi?” với 7 con.</p>', '<p>Lô này chỉ có 7 con P. dolloi.</p>']) expect(dealerNotice(t), t).toBe(false)
+  // Its quote is the words that say it, so the rewrite takes only the sentence they're in.
+  expect(dealer(news[6]!).map(f => f.quote)).toEqual(['đã có hàng trở lại'])
+  // The keeper's plants under a heading that says they came in weak, as the video's guide has them.
+  expect(fitRules(page('<h3>Cây về yếu thì chuyện gì đã xảy ra</h3><p>Cây ở lô này nằm ngoài nước khá lâu và được cất trong tủ lạnh trước khi trồng.</p>', { kind: 'species' })).filter(f => f.why.startsWith('a dealer'))).toEqual([])
+  // Only Vietnamese, for now.
+  expect(fitRules(page('<p>Bây giờ dạng thuần đã có hàng trở lại.</p>', { lang: 'id', path: '/id/panduan/g/' })).filter(f => f.why.startsWith('a dealer'))).toEqual([])
 })

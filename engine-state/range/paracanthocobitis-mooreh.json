@@ -1,0 +1,74 @@
+{
+  "id": "paracanthocobitis-mooreh",
+  "native": {
+    "input": "67fc9a512a1de998",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Godavari, Krishna, and Kaveri (Cauvery) river systems in western and southern India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Godavari",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Godavari, Krishna, and Kaveri (Cauvery) river systems in western and southern India.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Krishna",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Godavari, Krishna, and Kaveri (Cauvery) river systems in western and southern India.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Kaveri",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Godavari, Krishna, and Kaveri (Cauvery) river systems in western and southern India.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Paracanthocobitis mooreh",
+    "status": "ACCEPTED",
+    "taxonKey": 10535677,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        22
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        14
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

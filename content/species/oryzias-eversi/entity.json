@@ -10,6 +10,59 @@
     "indonesia",
     "salo-sadang"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Salo Sadang",
+        "Sulawesi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Oryzias eversi is a ricefish known only from a single karst pool in the Salo Sadang drainage, Tana Toraja, South Sulawesi, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Salo Sadang"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Salo Sadang drainage, stream close to village Tilanga, about 8 km south of Rantepao, 3°02.126'S, 119°53.232'E, Tana Toraja, South Sulawesi Province, Sulawesi, Indonesia', and the species is currently known only from this single location.",
+          "countries": [],
+          "regions": [
+            "Sulawesi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7193254,
+      "total": 2,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "ID",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          119.53125,
+          -4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

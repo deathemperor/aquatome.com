@@ -15,5 +15,17 @@
   "https://media.aquatome.com/scotcat/abd281d2c761f663.webp": "e96356d546c76af6",
   "https://media.aquatome.com/scotcat/369d9e469c536649.webp": "6d3759e1f06c8b19"
  },
- "commons": "2026-11-10"
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 556853,
+  "pass": "done",
+  "after": {
+   "research": 196981732,
+   "agree": 170674871
+  }
+ },
+ "gbif": {
+  "key": 2338770,
+  "next": null
+ }
 }

@@ -13,7 +13,8 @@ const KINDS = ['species', 'plants', 'breeds'] as const
  * keyed as the gallery step keys its own, "File:…", "inat:<id>"), put at the front of the page's gallery queue
  * (engine-state/gallery/<id>.json), where the gallery step screens them next, as it screens what it finds itself
  * (gallery.ts). Left out: one the step judged or queued already, one the page or its gallery shows, a rejected photo, a
- * licence the site may not show, and a page that doesn't exist. A page its sources ran dry for is tried again.
+ * licence the site may not show, and a page that doesn't exist. A page its sources ran dry for is tried again, and a full
+ * album is read for these alone, growing at most gallery.ts SEED_OVER past its target.
  */
 export async function seedGalleries(root: string, from: Record<string, unknown[]>) {
   const report = { pages: 0, added: 0, skipped: 0, unknown: [] as string[], invalid: 0 }
@@ -40,6 +41,8 @@ export async function seedGalleries(root: string, from: Record<string, unknown[]
     }
     if (!add.length) continue
     st.queue = [...add, ...st.queue]
+    // Marked as a person's finds: a full album is read again for these alone (gallery.ts SEED_OVER).
+    st.seeded = [...new Set([...st.seeded ?? [], ...add.map(c => c.key)])]
     delete st.exhausted
     await mkdir(join(root, 'engine-state/gallery'), { recursive: true })
     await writeFile(join(root, file), `${JSON.stringify(st, null, 1)}\n`)

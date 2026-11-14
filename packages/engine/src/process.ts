@@ -1,7 +1,8 @@
 import { readFileSync } from 'node:fs'
-import { SECTION_ORDER, tankIsVolume, type SourceId } from '@aq/schema'
+import { isOneEnded, SECTION_ORDER, sizeIsForSale, tankIsVolume, tempIsNotForKeeping, type SourceId } from '@aq/schema'
 import { z } from 'zod'
 import type { Llm } from './claude'
+import { withTanks } from './round'
 import { sanitizeHtml } from './sanitize'
 
 const Range = z.object({ min: z.number(), max: z.number() })
@@ -43,7 +44,10 @@ function saneCard(card: z.infer<typeof ProcessedPageSchema>['dataCard'], en: str
     const [lo, hi] = BOUNDS[k]
     const value = typeof v === 'number' ? v : { min: Math.min(v.min, v.max), max: Math.max(v.min, v.max) }
     const ok = typeof value === 'number' ? value >= lo && value <= hi : value.min >= lo && value.max <= hi
-    if (ok && !(k === 'tankCm' && typeof value === 'number' && tankIsVolume(en, value))) (out as Record<string, unknown>)[k] = value
+    if (ok && !(k === 'tankCm' && typeof value === 'number' && tankIsVolume(en, value))
+      && !(k === 'sizeCm' && typeof value === 'number' && sizeIsForSale(en, value))
+      && !(k === 'tempC' && tempIsNotForKeeping(en, value))
+      && !isOneEnded(en, k, value)) (out as Record<string, unknown>)[k] = value
   }
   return out
 }
@@ -62,7 +66,7 @@ export function sfDifficulty(page: string): number | null | undefined {
 }
 
 const SYSTEM = 'You are a meticulous aquarium-science editor and English→Vietnamese translator. Reply only with the requested JSON.'
-const TEMPLATE = readFileSync(new URL('./prompts/process.md', import.meta.url), 'utf8')
+const TEMPLATE = withTanks(readFileSync(new URL('./prompts/process.md', import.meta.url), 'utf8'))
 const KEYS = new Set<string>(SECTION_ORDER)
 
 export async function processPage(llm: Llm, input: { source: SourceId; url: string; title: string; outline: string; glossary: string[]; notes?: string[] }): Promise<ProcessedPage> {

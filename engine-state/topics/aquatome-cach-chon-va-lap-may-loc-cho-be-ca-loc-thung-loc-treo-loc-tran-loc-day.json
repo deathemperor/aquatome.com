@@ -1,0 +1,373 @@
+{
+  "found": true,
+  "species": [],
+  "sources": [
+    {
+      "url": "https://aquariumscience.org/index.php/8-1-review-of-filters",
+      "title": "8.1. Review of Filters",
+      "kind": "keeper"
+    },
+    {
+      "url": "https://www.liveaquaria.com/article/15/",
+      "title": "Choosing an Aquarium Filter: Undergravel, Power, Canister & Wet/Dry – LiveAquaria",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.merckvetmanual.com/exotic-and-laboratory-animals/aquatic-systems/aquatic-life-support-system-components",
+      "title": "Aquatic Life Support System Components",
+      "kind": "vet"
+    },
+    {
+      "url": "https://www.merckvetmanual.com/all-other-pets/fish/providing-a-home-for-fish",
+      "title": "Providing a Home for Fish",
+      "kind": "vet"
+    },
+    {
+      "url": "https://kb.rspca.org.au/knowledge-base/why-is-water-quality-important-when-setting-up-a-fish-aquarium/",
+      "title": "Why is water quality important when setting up a fish aquarium?",
+      "kind": "other"
+    },
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/power-outage",
+      "title": "How to Care for Your Aquarium Fish During a Power Outage",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquariumscience.org/index.php/14-7-overflow-devices",
+      "title": "14.7. Overflow Devices",
+      "kind": "keeper"
+    },
+    {
+      "url": "https://www.monsterfishkeepers.com/forums/threads/accounting-for-sump-power-outage.442988",
+      "title": "Accounting for sump power outage?",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/loc-tran-don-gian-cho-ca-la-han.43410/",
+      "title": "Lọc tràn đơn giản cho cá La Hán.",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/cach-khoan-thanh-lap-lo-air-va-hut-day-minhquang1976.46723/",
+      "title": "Cách khoan thành lắp lỗ air và hút đáy (minhquang1976)",
+      "kind": "forum"
+    },
+    {
+      "url": "https://aquazonefish.vn/blogs/kien-thuc/cach-chon-may-loc-be-ca",
+      "title": "Hướng Dẫn Cách Chọn Máy Lọc Bể Cá Thủy Sinh - AquaZone - Siêu thị cá cảnh",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquazonefish.vn/blogs/kien-thuc/cac-loai-loc-tran-khac-nhau-va-cach-su-dung-hieu-qua",
+      "title": "Các Loại Lọc Tràn Khác Nhau Và Cách Sử Dụng Hiệu Quả - AquaZone - Siêu thị cá cảnh",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquazonefish.vn/blogs/kien-thuc/loc-thung-be-thuy-sinh",
+      "title": "Những Điều Bạn Chưa Biết Về Lọc Thùng Bể Thủy Sinh - AquaZone - Siêu thị cá cảnh",
+      "kind": "shop"
+    },
+    {
+      "url": "https://rainbowfish.angfa.org.au/keeping_and_caring/aquarium_filtration.html",
+      "title": "Aquarium Filtration",
+      "kind": "society"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Filtration is split into three types: biological, mechanical and chemical. All recirculating systems have biological and mechanical parts, and most also have a chemical one.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Mechanical filters always go before biological filters, so that large debris does not clog the biofilter.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Biological filters must offer a very large surface area for nitrifying bacteria, which convert nitrogen waste. These bacteria need oxygen.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Activated carbon is chemical filtration. It removes toxins and colored compounds, and it can also remove chlorine or chloramine from incoming water.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Biological filtration is the most important of the three methods. A filter is only as effective as the media inside it, so choose biological media with a large surface area.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "An undergravel filter (lọc đáy) is a grate under the substrate with tubes rising through the gravel. An air pump or powerhead draws water down through the gravel, which traps particles and holds nitrifying bacteria.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "A hang-on-back filter uses an intake tube and a small electric pump to push water through a replaceable cartridge. The cartridge holds filter floss and activated carbon, and many also hold media for nitrifying bacteria.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Canister filters are large external units with several media baskets. They are recommended for big or heavily stocked tanks, including cichlid and planted freshwater tanks, but take more effort to set up and maintain.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Wet/dry (sump) filters give the most biological filtration and are the most complex to install. They usually sit under the tank and are fed by an overflow box, and the sump holds equipment and the return pump.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Air-driven sponge or box filters are small and cheap. They suit fry, hospital tanks and small fish, and internal power filters are suggested for tanks under about 20 gallons.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Undergravel filters mainly provide biological filtration and suit lightly stocked tanks.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Choose filtration by tank size and planned number of fish. Combining more than one filter type may be needed for the best water quality.",
+      "source": 1
+    },
+    {
+      "section": "other",
+      "fact": "In the author's tests, a fluidized-bed sump and an undergravel filter scored highest (71). Cartridge hang-on-back filters and ceramic-ring or bioball canisters scored lowest (22).",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "The author calls a fluidized-bed sump the best filter for tanks over 55 gallons.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "How well a canister filter works depends on the volume and type of its media, not its flow rate. Newer canisters with large volumes of foam are rated excellent, apart from the risk of leaks.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "The author sizes canisters this way: a Sunsun HW-603B, with about 80 cubic inches of foam, suits tanks under 30 gallons, and the Fluval FX series suits 30 to 75 gallons.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Hang-on-back filters that rely only on their small cartridge have too little biomedia for most tanks. The author advises adding more biofiltration, or foam inserts.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Leaks and burnt-out motors are common in hang-on-back filters, and the author expects about five years of life from one.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "For mechanical filtration, use filter socks, poly-fill, polyester pads or 40 ppi foam. The author rates 30 ppi foam as a poor mechanical filter.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "An undergravel filter is very simple and rarely breaks. The author reports units over 40 years old still working and suggests pairing one with a canister or sump.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "To run an undergravel filter with powerheads on the lift tubes, the author uses 130 to 170 GPH units on a 60-gallon tank rather than 300 GPH, for less noise and cost.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "In a breeding tank with a powerhead-driven sponge filter, use a sponge at least 5 x 5 inches, because a smaller one can pull fry onto it.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Cleaning an undergravel filter constantly makes it fail. Left alone, it is a strong, cheap biofilter.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "The author advises ignoring makers' media-replacement schedules. He says long-life foam such as that in the FX series lasts the life of the filter, and replacing it lowers performance.",
+      "source": 0
+    },
+    {
+      "section": "myths",
+      "fact": "Aquarium Science says the idea that gravel substrate gives meaningful biofiltration is wrong: in the author's test, gravel was a very weak biofilter.",
+      "source": 0
+    },
+    {
+      "section": "myths",
+      "fact": "Aquarium Science says it is wrong to think a higher flow rate makes a canister more efficient. Media volume and type decide it.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "With an undergravel filter, pile the gravel higher at the back near the lift tubes. Use about 1 lb of gravel per 1 gallon of water and rinse it thoroughly first.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Fill the tank completely before turning on filters, pumps, heaters or lights.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Unrinsed gravel dust can clog filters early and damage water pumps.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Beneficial bacteria develop on their own in 4 to 6 weeks. Add fish 1 or 2 at a time, or check ammonia and nitrite daily and use water changes to control rises.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "A tank is cycled when ammonia and nitrite are at zero and nitrate is being produced, usually after 4 to 6 weeks. Test ammonia and nitrite every 2 to 3 days for the first six weeks, then every 1 to 2 weeks.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "Ammonia becomes toxic to fish at 0.1 ppm.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Rinse the filter lightly in a bucket of tank water monthly or whenever it clogs, whichever comes first. Avoid over-cleaning, which removes beneficial bacteria.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Do not clean the filter in tap water, because chlorine or chloramine may kill the bacteria.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Allow time for the biofilter to mature before adding fish. Disease medications may harm biofilter bacteria, so have a way to treat fish in a separate tank.",
+      "source": 13
+    },
+    {
+      "section": "other",
+      "fact": "Keep dissolved oxygen above 5.0 mg/L.",
+      "source": 13
+    },
+    {
+      "section": "other",
+      "fact": "Mechanical filters clog easily and need regular cleaning.",
+      "source": 13
+    },
+    {
+      "section": "other",
+      "fact": "Small tanks such as betta tanks may be run without a filter, but then need more frequent water changes, up to 50% per week.",
+      "source": 3
+    },
+    {
+      "section": "firstAid",
+      "fact": "During a power cut, the media in hang-on-back and canister filters hold little water and oxygen, so the bacteria can run short of oxygen. Some keepers move the media into the tank.",
+      "source": 5
+    },
+    {
+      "section": "firstAid",
+      "fact": "Unplug hang-on-back and canister filters during an outage. Otherwise rotting organics and dead bacteria can flush into the tank when power returns.",
+      "source": 5
+    },
+    {
+      "section": "firstAid",
+      "fact": "After an outage, clean HOB and canister filters before restarting them. Don't feed for 24 hours, test ammonia and nitrite, and do water changes if either is above 0 ppm.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "For frequent power cuts, there are air pumps with a built-in battery that start automatically when power fails. Aquarium Co-Op's own model is rated for 20 hours of continuous running, or 40 hours or more in power-save mode.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Before setting the sump's water level, do a shutdown test: unplug the return pump and check whether the sump overflows. If it does, lower the sump level or reduce pump flow.",
+      "source": 7
+    },
+    {
+      "section": "prevention",
+      "fact": "One keeper drills a siphon-break hole in the return pipe about 1/2 inch below the water line, so air enters and stops water from siphoning back when the pump stops.",
+      "source": 7
+    },
+    {
+      "section": "prevention",
+      "fact": "Some keepers fill the sump only after leaving room for the water that drains back from the return lines and overflow. They mark a 'pump on' water line after testing a shutdown.",
+      "source": 7
+    },
+    {
+      "section": "prevention",
+      "fact": "Use two overflows per tank as a backup in case one loses its siphon. Gravity drain pipes should be oversized, since pipe is cheap compared with flood damage.",
+      "source": 6
+    },
+    {
+      "section": "other",
+      "fact": "In a 'Herbie' overflow, the safety drain sits about 1/4 inch below the top of the tank and the primary drain, which has a valve, about 2 inches below.",
+      "source": 6
+    },
+    {
+      "section": "other",
+      "fact": "The author's quietest overflow is a 3-inch PVC standpipe filled with pea gravel. Silencer media should be about 1/2 inch so it does not clog.",
+      "source": 6
+    },
+    {
+      "section": "mistakes",
+      "fact": "The author says commercial overflow boxes and Herbie designs need constant adjusting and are not truly silent.",
+      "source": 6
+    },
+    {
+      "section": "prevention",
+      "fact": "Clear piping makes it easy to see whether a siphon is full or has air bubbles in it.",
+      "source": 6
+    },
+    {
+      "section": "other",
+      "fact": "When feeding a canister filter from a drilled tank, keep the water level well above the hole. Air in the pipe ruins the canister's flow, and the author prefers placing the intake hose inside the tank.",
+      "source": 6
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese keeper reports building a 4-compartment glass hang-over overflow filter (lọc tràn trên) for a flowerhorn tank, about 60 x 10 x 15 cm. For a 1.2 m tank he built a 5-compartment box of about 1.1 m x 15 x 15 cm.",
+      "source": 8
+    },
+    {
+      "section": "vietnam",
+      "fact": "The keeper's media order: filter wool (bông lọc) over a plastic mat, then ceramic rings (sứ lọc), then lava rock (nham thạch) mixed with crushed coral (san hô vụn). Only the top layer of wool is washed often.",
+      "source": 8
+    },
+    {
+      "section": "vietnam",
+      "fact": "The keeper reports two 30 W pumps drawing water from both ends of the tank, which pushed waste toward the ends away from the outlet. He advised padding under the box to spread its weight on the stand.",
+      "source": 8
+    },
+    {
+      "section": "vietnam",
+      "fact": "For an under-tank sump (bể lọc tràn dưới), a Vietnamese keeper drills a 12 mm 'air' hole (lỗ air) about 2 cm below the top trim. He fits the bottom-drain elbow (hút đáy) about 1 cm above the tank floor.",
+      "source": 9
+    },
+    {
+      "section": "vietnam",
+      "fact": "The same keeper wraps threaded fittings with tape and injects silicone sealant (keo silicon) before fitting the threaded elbow (cút ren trong), and checks for leaks before filling.",
+      "source": 9
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese shops sell these filter types: lọc mút (sponge), lọc thác (hang-on waterfall), lọc trong hồ (internal), lọc thùng (canister), lọc tràn (overflow) and lọc đáy (undergravel).",
+      "source": 10
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese shops divide overflow filters into lọc tràn trên (box on top of the tank) and lọc tràn dưới (sump below the tank). They sell bông lọc (filter wool) and sứ lọc (ceramic rings) as media.",
+      "source": 11
+    },
+    {
+      "section": "vietnam",
+      "fact": "Netlea canister filters (lọc thùng) are sold in Vietnam. Common media names there are bông lọc, mút, than hoạt tính (activated carbon) and hạt resin.",
+      "source": 12
+    }
+  ]
+}

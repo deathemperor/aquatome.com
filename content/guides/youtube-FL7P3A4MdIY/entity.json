@@ -1,0 +1,77 @@
+{
+  "id": "youtube-FL7P3A4MdIY",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=FL7P3A4MdIY",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "microsorum-pteropus",
+    "lilaeopsis-brasiliensis",
+    "limnophila-sessiliflora",
+    "ludwigia-palustris",
+    "neocaridina-davidi"
+  ],
+  "updatedAt": "2026-11-13",
+  "video": {
+    "youtubeId": "FL7P3A4MdIY",
+    "title": "The Simplest Aquarium You'll Ever Make (ZERO TECH)",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 1197,
+    "publishedAt": "2025-09-04",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWvIM5TufKaTkbfXyaw3dd8K",
+      "position": 57
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/FL7P3A4MdIY/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Clea helena",
+      "Microsorum pteropus",
+      "Eleocharis sp.",
+      "Lilaeopsis brasiliensis",
+      "Limnophila sessiliflora",
+      "Rotala sp.",
+      "Ludwigia palustris",
+      "Neocaridina davidi",
+      "Neritina sp."
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "nano",
+        "t": 30
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 120
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 120
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 210
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "type": "gan-lua",
+        "t": 570
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "type": "trong-nen",
+        "t": 660
+      }
+    ]
+  }
+}

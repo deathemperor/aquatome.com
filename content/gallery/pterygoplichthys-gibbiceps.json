@@ -86,18 +86,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/433031382.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/433031382-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC0",
-      "author": "Юлия Китовски",
-      "sourceUrl": "https://www.inaturalist.org/photos/433031382",
-      "caption": "Cá lau kiếng vây cao vân mạng nhện trong bể thủy sinh",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/314702483.webp",
       "thumb": "https://media.aquatome.com/inaturalist/314702483-480.webp",
       "width": 1024,
@@ -179,6 +167,18 @@
       "sourceUrl": "https://www.inaturalist.org/photos/256121460",
       "caption": "Cá lau kiếng vây cao nằm trên nền sỏi sáng",
       "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/433031382.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/433031382-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Юлия Китовски",
+      "sourceUrl": "https://www.inaturalist.org/photos/433031382",
+      "caption": "Cá lau kiếng vây cao vân mạng nhện trong bể thủy sinh",
+      "best": true,
       "kind": "other"
     }
   ],

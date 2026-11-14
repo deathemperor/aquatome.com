@@ -111,24 +111,7 @@
     "figures": [
       {
         "heading": "Túi khí dưới nước giữ bằng cách nào",
-        "moments": [
-          {
-            "t": 95,
-            "url": "https://media.aquatome.com/video/UUEH_Ewta2U/at95-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Úp chuông thủy tinh xuống bể, không khí bị giữ lại bên trong.",
-            "sharpness": 1070.6
-          },
-          {
-            "t": 105,
-            "url": "https://media.aquatome.com/video/UUEH_Ewta2U/at105-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chuông úp miệng dưới nước, khí đẩy nước ra khỏi lòng chuông.",
-            "sharpness": 220.7
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/UUEH_Ewta2U/p0-k2OC0wMjM3LmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/UUEH_Ewta2U/p0-k2OC0wMjM3LmpwZw-480.webp",
@@ -149,15 +132,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Chuông thủy tinh đã khoan xong một lỗ tròn, có miếng xốp bên trong.",
-            "sharpness": 246.8
-          },
-          {
-            "t": 155,
-            "url": "https://media.aquatome.com/video/UUEH_Ewta2U/at155-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Mũi khoan đang khoan vào chuông thủy tinh có nhét miếng xốp.",
-            "sharpness": 4501.4
+            "sharpness": 246.8,
+            "person": false
           }
         ]
       },
@@ -178,28 +154,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Miếng kính neo đã dán sát bên chuông thủy tinh trong bể.",
-            "sharpness": 522.9
-          }
-        ]
-      },
-      {
-        "heading": "Xếp đá để che điểm neo",
-        "moments": [
-          {
-            "t": 310,
-            "url": "https://media.aquatome.com/video/UUEH_Ewta2U/at310-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Xếp đá xám trên lớp phân nền trong bể, sát mặt kính.",
-            "sharpness": 564.6
-          },
-          {
-            "t": 355,
-            "url": "https://media.aquatome.com/video/UUEH_Ewta2U/at355-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Xếp đá chia bể, chừa chỗ cho các chuông kính phía sau.",
-            "sharpness": 1179
+            "sharpness": 522.9,
+            "person": false
           }
         ]
       },
@@ -207,20 +163,13 @@
         "heading": "Trải nền và làm chi tiết",
         "moments": [
           {
-            "t": 380,
-            "url": "https://media.aquatome.com/video/UUEH_Ewta2U/at380-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhét bông lọc polyester vào khe giữa các viên đá trong bể.",
-            "sharpness": 2143.3
-          },
-          {
             "t": 395,
             "url": "https://media.aquatome.com/video/UUEH_Ewta2U/at395-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Lớp sỏi được phủ đều lên nền, chừa lại các điểm neo.",
-            "sharpness": 7066.5
+            "sharpness": 7066.5,
+            "person": false
           }
         ]
       },
@@ -228,20 +177,13 @@
         "heading": "Đưa cây cảnh xuống túi khí",
         "moments": [
           {
-            "t": 465,
-            "url": "https://media.aquatome.com/video/UUEH_Ewta2U/at465-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây cảnh trồng trong khe đá, chuẩn bị úp chuông lên.",
-            "sharpness": 1826.6
-          },
-          {
             "t": 510,
             "url": "https://media.aquatome.com/video/UUEH_Ewta2U/at510-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Chuông thủy tinh úp lên cây dưới nước, giữ khí bên trong.",
-            "sharpness": 339.9
+            "sharpness": 339.9,
+            "person": false
           }
         ]
       },
@@ -254,7 +196,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cụm cây thủy sinh trồng cạnh đá trong bể có ống lọc.",
-            "sharpness": 1563.2
+            "sharpness": 1563.2,
+            "person": false
           },
           {
             "t": 570,
@@ -262,7 +205,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh với đá và cây đã trồng phủ xanh, nước trong.",
-            "sharpness": 2288.5
+            "sharpness": 2288.5,
+            "person": false
           }
         ],
         "photo": {
@@ -285,7 +229,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Chuông kính úp lên cây trong bể, hơi nước đọng làm mờ mặt trong.",
-            "sharpness": 1384.6
+            "sharpness": 1384.6,
+            "person": false
           },
           {
             "t": 600,
@@ -293,7 +238,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ba chuông kính phủ cây trong bể dưới đèn, mặt trong chuông bị mờ hơi nước.",
-            "sharpness": 1324.6
+            "sharpness": 1324.6,
+            "person": false
           }
         ]
       }

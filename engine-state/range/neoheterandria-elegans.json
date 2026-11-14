@@ -1,0 +1,71 @@
+{
+  "id": "neoheterandria-elegans",
+  "native": {
+    "input": "c67da93f130445c8",
+    "at": "2026-11-10T15:58:17.469Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The Teddy Livebearer, as it is called to distinguish it from the actual Dwarf Livebearer Heterandria formosa, originates from Colombia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The tiger teddy, Neoheterandria elegans, is a small livebearer endemic to the Río Atrato drainage in northwestern Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Atrato",
+        "source": "seriouslyfish",
+        "quote": "The tiger teddy, Neoheterandria elegans, is a small livebearer endemic to the Río Atrato drainage in northwestern Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Río Truandó",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Río Truandó, a tributary of Lower Río Atrato, Colombia', and it may be restricted to that system.",
+        "country": "CO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Neoheterandria elegans",
+    "status": "ACCEPTED",
+    "taxonKey": 2350410,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T15:58:17.469Z"
+  }
+}

@@ -23,7 +23,7 @@ struct OwnerEntry: View {
           } label: {
             Label {
               owner.sessionEnded
-                ? Text("Bảng điều khiển") + Text(verbatim: "\n") + Text("Phiên đăng nhập đã hết: đăng nhập lại để xem bảng điều khiển.").font(.footnote).foregroundStyle(.red)
+                ? Text("Bảng điều khiển") + Text(verbatim: "\n") + Text("Phiên đăng nhập đã hết: đăng nhập lại để xem bảng điều khiển.").font(.subheadline).foregroundStyle(.red)
                 : Text("Bảng điều khiển")
             } icon: {
               Tile(symbol: "chart.bar.xaxis", color: Tile.green)

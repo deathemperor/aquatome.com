@@ -1,0 +1,81 @@
+{
+  "id": "peckoltia-oligospila",
+  "native": {
+    "input": "346c491af7b3f061",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The brown dot peckoltia (Peckoltia oligospila), also known as L006, is a suckermouth catfish from the rios Tocantins and Capim in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is known from the rios Tocantins and Capim in Tocantins and Pará states, Brazil including a number of their tributaries.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Tocantins",
+        "source": "seriouslyfish",
+        "quote": "This species is known from the rios Tocantins and Capim in Tocantins and Pará states, Brazil including a number of their tributaries.",
+        "country": "BR",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Rio Capim",
+        "source": "seriouslyfish",
+        "quote": "This species is known from the rios Tocantins and Capim in Tocantins and Pará states, Brazil including a number of their tributaries.",
+        "country": "BR",
+        "ok": false,
+        "why": "its name is not in the quote"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Peckoltia oligospila",
+    "status": "ACCEPTED",
+    "taxonKey": 5202100,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        15
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        4
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        3
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        3
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-12T13:29:05.219Z"
+  }
+}

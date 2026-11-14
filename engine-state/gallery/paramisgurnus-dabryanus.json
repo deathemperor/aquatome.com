@@ -4,13 +4,43 @@
   "File:Misgurnus darbyanus.jpg",
   "File:Fish (10.3897-BDJ.11.e97884) Figure 2.jpg",
   "File:Misgurnus darbyanus (cropped).jpg",
-  "File:Misgurnus dabryanus.png"
+  "File:Misgurnus dabryanus.png",
+  "inat:103581217",
+  "inat:170712105",
+  "inat:229120065",
+  "inat:229120093",
+  "inat:229120126",
+  "inat:464132452",
+  "inat:464132377",
+  "inat:608386783",
+  "inat:608386802",
+  "inat:638001011",
+  "inat:638001032",
+  "inat:684773434",
+  "inat:691208889",
+  "inat:744704244",
+  "inat:744704262",
+  "inat:744704285",
+  "inat:474934773"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/27da63b43eec347a.webp": "130bc65c0c0c05c1",
   "https://media.aquatome.com/seriouslyfish/5703b90f15e5d9a5.webp": "2f6d4d464626065c",
   "https://media.aquatome.com/seriouslyfish/d98dc9602701b00e.webp": "4f65f9bc381e1e7b",
-  "https://media.aquatome.com/seriouslyfish/6afa3121fe256851.webp": "4b4dc7656381730f"
+  "https://media.aquatome.com/seriouslyfish/6afa3121fe256851.webp": "4b4dc7656381730f",
+  "https://media.aquatome.com/inaturalist/229120093.webp": "33260589b5351344",
+  "https://media.aquatome.com/inaturalist/608386802.webp": "2f1b1f17178f9f1d",
+  "https://media.aquatome.com/inaturalist/608386783.webp": "071f07130f0f0f1f",
+  "https://media.aquatome.com/inaturalist/638001032.webp": "ec60f3b66576c4c6",
+  "https://media.aquatome.com/inaturalist/229120126.webp": "5393cb4b19b9f8e8"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 1316138,
+  "pass": "done",
+  "after": {
+   "research": 405433923,
+   "agree": 378006253
+  }
+ }
 }

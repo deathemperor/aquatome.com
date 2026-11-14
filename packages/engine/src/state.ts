@@ -76,10 +76,19 @@ export function needsFetch(prev: UrlState | undefined, lastmod: string | undefin
   return false
 }
 
-/** Sources that hit a browser check a person must pass: skipped by scheduled runs until cleared (or a day passes). */
+/**
+ * Sources that hit a browser check: skipped by scheduled runs until cleared (or a day passes). `blocks`: when runs met
+ * one lately. `archive`: when the source moved to the Internet Archive's copies, for good (run.ts).
+ */
 const blocksFile = (root: string) => join(root, 'engine-state', '_sources.json')
-async function readBlocks(root: string): Promise<Partial<Record<SourceId, { blockedAt: string }>>> {
+type SourceEntry = { blockedAt?: string; blocks?: string[]; archive?: string }
+type Blocks = Partial<Record<SourceId, SourceEntry>>
+async function readBlocks(root: string): Promise<Blocks> {
   return JSON.parse(await readFile(blocksFile(root), 'utf8').catch(() => '{}'))
+}
+async function writeBlocks(root: string, all: Blocks) {
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await writeFile(blocksFile(root), `${JSON.stringify(Object.fromEntries(Object.entries(all).sort()), null, 2)}\n`)
 }
 export async function sourceBlockedSince(root: string, source: SourceId): Promise<string | undefined> {
   return (await readBlocks(root))[source]?.blockedAt
@@ -87,8 +96,26 @@ export async function sourceBlockedSince(root: string, source: SourceId): Promis
 export async function setSourceBlock(root: string, source: SourceId, blockedAt: string | undefined): Promise<void> {
   const all = await readBlocks(root)
   if ((all[source]?.blockedAt) === blockedAt) return
-  if (blockedAt) all[source] = { blockedAt }
+  const { blockedAt: _was, ...rest } = all[source] ?? {}
+  const next = { ...rest, ...(blockedAt ? { blockedAt } : {}) }
+  if (Object.keys(next).length) all[source] = next
   else delete all[source]
-  await mkdir(join(root, 'engine-state'), { recursive: true })
-  await writeFile(blocksFile(root), `${JSON.stringify(Object.fromEntries(Object.entries(all).sort()), null, 2)}\n`)
+  await writeBlocks(root, all)
+}
+/** A run met a browser check: how many runs have within `windowMs` of this one, this one included. */
+export async function noteBlock(root: string, source: SourceId, at: string, windowMs: number): Promise<number> {
+  const all = await readBlocks(root)
+  const blocks = [...(all[source]?.blocks ?? []).filter(b => Date.parse(at) - Date.parse(b) < windowMs), at]
+  all[source] = { ...all[source], blocks }
+  await writeBlocks(root, all)
+  return blocks.length
+}
+/** The sources that moved to the archive by themselves. */
+export async function sourcesOnArchive(root: string): Promise<Set<string>> {
+  return new Set(Object.entries(await readBlocks(root)).flatMap(([id, e]) => (e?.archive ? [id] : [])))
+}
+export async function moveToArchive(root: string, source: SourceId, at: string): Promise<void> {
+  const all = await readBlocks(root)
+  all[source] = { archive: at }
+  await writeBlocks(root, all)
 }

@@ -1,8 +1,20 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "inat:540978021",
+  "inat:540978178",
+  "inat:540978915"
+ ],
  "hashes": {
   "https://media.aquatome.com/aquariumbreeder/c521996c38a57120.webp": "0c1d240e38822450"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 110433,
+  "pass": "done",
+  "after": {
+   "research": 300253230,
+   "agree": 0
+  }
+ }
 }

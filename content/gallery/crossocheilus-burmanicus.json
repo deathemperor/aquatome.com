@@ -1,0 +1,72 @@
+{
+  "id": "crossocheilus-burmanicus",
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/7e41a7d08480a5b7900ca6ce34edfcc2.webp",
+      "thumb": "https://media.aquatome.com/processed/7e41a7d08480a5b7900ca6ce34edfcc2-480.webp",
+      "width": 546,
+      "height": 410,
+      "licence": "dùng với sự cho phép",
+      "author": "Nonn Panitvong",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crossocheilus-burmanicus",
+      "caption": "Specimen in its natural habitat, northwestern Thailand.",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-crossocheilus-burmanicus",
+        "pixelHash": "aa3225f90a7d75929e8a3ac2cfea5359d5b067ccee505cde06135d0be193a4fe"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T10:29:05.046Z",
+          "originalHash": "a0ec6ae18bb27907c9ee1a780908bf1d3573a7846e4d0161497e98c9e8774b37",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 700,
+            "originalHeight": 437,
+            "window": {
+              "x0": 30,
+              "y0": 18,
+              "x1": 576,
+              "y1": 428
+            },
+            "subject": {
+              "x0": 130,
+              "y0": 128,
+              "x1": 486,
+              "y1": 318
+            },
+            "margin": 11
+          },
+          "excludedMarks": [
+            {
+              "x0": 581,
+              "y0": 10,
+              "x1": 687,
+              "y1": 26
+            }
+          ],
+          "checks": {
+            "species": [
+              "bb9a3844d05a795fce51bf0d73e98c9440bcf9f3040b6c32a36665a3a6ca1fef",
+              "4450bd3a60b6c04919d9909da1248bb579356daafb8d2f675315e25806618206"
+            ],
+            "ownership": [
+              "07da8cf96baf1318435d4248645e2e36fcf5d8f7119d890fefbe07a3cf36a9d7",
+              "b16be97ced16f9576132771da906714c754ff91368f5c6f24f6911911a8b2ef4"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/2dd23b29b9c56ec0.webp",
+        "width": 700,
+        "height": 437,
+        "thumb": "https://media.aquatome.com/seriouslyfish/2dd23b29b9c56ec0-480.webp"
+      }
+    }
+  ],
+  "seen": 0,
+  "updatedAt": "2026-11-11"
+}

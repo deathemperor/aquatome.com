@@ -1,0 +1,104 @@
+{
+  "id": "pareutropius-buffei",
+  "native": {
+    "input": "b61c3ecc099ec283",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The three striped African glass catfish, Pareutropius buffei, is a midwater, diurnal catfish from Nigeria, Niger, Benin, Mali and Guinea.",
+        "words": "Nigeria",
+        "ok": true
+      },
+      {
+        "code": "NE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The three striped African glass catfish, Pareutropius buffei, is a midwater, diurnal catfish from Nigeria, Niger, Benin, Mali and Guinea.",
+        "words": "Niger",
+        "ok": true
+      },
+      {
+        "code": "BJ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The three striped African glass catfish, Pareutropius buffei, is a midwater, diurnal catfish from Nigeria, Niger, Benin, Mali and Guinea.",
+        "words": "Benin",
+        "ok": true
+      },
+      {
+        "code": "ML",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The three striped African glass catfish, Pareutropius buffei, is a midwater, diurnal catfish from Nigeria, Niger, Benin, Mali and Guinea.",
+        "words": "Mali",
+        "ok": true
+      },
+      {
+        "code": "GN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The three striped African glass catfish, Pareutropius buffei, is a midwater, diurnal catfish from Nigeria, Niger, Benin, Mali and Guinea.",
+        "words": "Guinea",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pareutropius buffei",
+    "status": "ACCEPTED",
+    "taxonKey": 2341820,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        22
+      ],
+      [
+        "5e1d2d54-f5db-43ac-87c5-55a9f79ac718",
+        13
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ],
+      [
+        "d2724ca9-8ccd-416e-9837-7aee75f67422",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "fba36b75-451a-40e3-af18-297f151bcc91",
+        1
+      ]
+    ],
+    "native": [
+      "NG",
+      "NE",
+      "BJ",
+      "ML",
+      "GN"
+    ],
+    "requests": 13,
+    "at": "2026-11-12T13:29:05.219Z"
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "id": "parailia-occidentalis",
+  "native": {
+    "input": "61248ed1dd0185ce",
+    "at": "2026-11-11T08:59:40.517Z",
+    "claims": [
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Cape Lopez, Gabon.",
+        "words": "Gabon",
+        "ok": true
+      },
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "The specific name occidentalis is Latin for western, referring to Cap Lopez, Gabon, on the west coast of Africa.",
+        "words": "Gabon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ogowe",
+        "source": "planetcatfish",
+        "quote": "Africa: Ogowe, Congo, Quanza, Luculla, Chiloango.",
+        "ok": true
+      },
+      {
+        "name": "Congo",
+        "source": "planetcatfish",
+        "quote": "Africa: Ogowe, Congo, Quanza, Luculla, Chiloango.",
+        "ok": true
+      },
+      {
+        "name": "Quanza",
+        "source": "planetcatfish",
+        "quote": "Africa: Ogowe, Congo, Quanza, Luculla, Chiloango.",
+        "ok": true
+      },
+      {
+        "name": "Luculla",
+        "source": "planetcatfish",
+        "quote": "Africa: Ogowe, Congo, Quanza, Luculla, Chiloango.",
+        "ok": true
+      },
+      {
+        "name": "Chiloango",
+        "source": "planetcatfish",
+        "quote": "Africa: Ogowe, Congo, Quanza, Luculla, Chiloango.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CD",
+        "AO"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parailia occidentalis",
+    "status": "ACCEPTED",
+    "taxonKey": 2341600,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        26
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "b8ed9b7c-5b73-4e6d-a6e1-b0911a09f947",
+        1
+      ]
+    ],
+    "native": [
+      "GA"
+    ],
+    "requests": 12,
+    "at": "2026-11-11T08:59:40.517Z"
+  }
+}

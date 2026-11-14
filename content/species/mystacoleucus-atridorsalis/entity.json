@@ -12,6 +12,104 @@
     "thailand",
     "cambodia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "TH",
+        "KH"
+      ],
+      "regions": [
+        "Mekong",
+        "Xe Bang Fai",
+        "Mun",
+        "Songkhram"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Considered endemic to the lower Mekong River basin in Laos, Thailand, and Cambodia, including major tributaries such as the Xe Bang Fai in Laos, and the Mun and Songkhram watersheds in Thailand.",
+          "countries": [
+            "LA",
+            "TH",
+            "KH"
+          ],
+          "regions": [
+            "Mekong",
+            "Xe Bang Fai",
+            "Mun",
+            "Songkhram"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2363147,
+      "total": 32,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "TH",
+          25
+        ],
+        [
+          "KH",
+          6
+        ],
+        [
+          "LA",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          101.25,
+          16.875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          11.25,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          14.0625,
+          10,
+          10
+        ],
+        [
+          105.46875,
+          12.65625,
+          4,
+          4
+        ],
+        [
+          105.46875,
+          14.0625,
+          13,
+          13
+        ],
+        [
+          106.875,
+          12.65625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

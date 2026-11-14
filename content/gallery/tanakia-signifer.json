@@ -1,0 +1,72 @@
+{
+  "id": "tanakia-signifer",
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/65386165ea10433e0883a3976fdd7db5.webp",
+      "thumb": "https://media.aquatome.com/processed/65386165ea10433e0883a3976fdd7db5-480.webp",
+      "width": 418,
+      "height": 314,
+      "licence": "dùng với sự cho phép",
+      "author": "Jeon, Hyung-Bae",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acheilognathus-signifer",
+      "caption": "Nuptial male individual.",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-tanakia-signifer",
+        "pixelHash": "818e0422827bfe66a7414b84604f024240ea8cae9b2eb4a02500c55e1508ab96"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T11:04:05.885Z",
+          "originalHash": "d30faf5b0ce392facdec36e68ca6f7af8645d8484eb133017c26956c8cf0a28d",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 600,
+            "originalHeight": 400,
+            "window": {
+              "x0": 181,
+              "y0": 60,
+              "x1": 599,
+              "y1": 374
+            },
+            "subject": {
+              "x0": 200,
+              "y0": 119,
+              "x1": 546,
+              "y1": 314
+            },
+            "margin": 10
+          },
+          "excludedMarks": [
+            {
+              "x0": 27,
+              "y0": 31,
+              "x1": 177,
+              "y1": 74
+            }
+          ],
+          "checks": {
+            "species": [
+              "f0d0ff2f27abe8fcf68dd681181f62e18ba86702acc1790037b3f188a4d2e505",
+              "15dcc8f042c1443c7a29435e70d0775a454074ec90a7b09bd68274485d2e6b75"
+            ],
+            "ownership": [
+              "f28930fb460956ee947aa16ec5f0fe53ea753ee8e824957e81539e8a872fd9cc",
+              "8c3aa2901cdb0bb14cd2b143e8863f9e401ed14192aae670c92eaa5dc1fbe484"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/8aac76979eeaa69f.webp",
+        "width": 600,
+        "height": 400,
+        "thumb": "https://media.aquatome.com/seriouslyfish/8aac76979eeaa69f-480.webp"
+      }
+    }
+  ],
+  "seen": 0,
+  "updatedAt": "2026-11-11"
+}

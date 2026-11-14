@@ -10,6 +10,56 @@
     "democratic-republic-of-the-congo",
     "lake-mai-ndombe"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD"
+      ],
+      "regions": [
+        "Lake Mai-Ndombe"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "It is known only from Lake Mai-Ndombe in Democratic Republic of Congo.",
+          "countries": [
+            "CD"
+          ],
+          "regions": [
+            "Lake Mai-Ndombe"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372696,
+      "total": 10,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "CD",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          16.875,
+          -2.8125,
+          9,
+          9
+        ],
+        [
+          18.28125,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -125,19 +175,7 @@
       "html": "<p>N. transvestitus is a truly stunning fish when in good condition. However, it is not recommended to the beginner due to its very specific water requirements. The scientific name is derived from the fact that the female is the more colourful fish, making it something of an oddity.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/482a306c6dae1264.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/482a306c6dae1264-480.webp",
-      "width": 686,
-      "height": 300,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/nanochromis-transvestitus",
-      "caption": "Nanochromis transvestitus female",
-      "source": "seriouslyfish"
-    }
-  ],
+  "photos": [],
   "videos": [],
   "productSlots": [
     {

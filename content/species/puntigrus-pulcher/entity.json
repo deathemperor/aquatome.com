@@ -10,6 +10,55 @@
     "indonesia",
     "kayan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Kayan",
+        "Mahakam"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Puntigrus pulcher is a small cyprinid endemic to the Indonesian part of eastern Borneo, with records from the Kayan and Mahakam rivers.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Indonesian portion of eastern Borneo.",
+          "countries": [],
+          "regions": [
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The precise extent of its range is unclear, but official records exist from the Kayan River in Kalimantan Utara (North Kalimantan) province and the Mahakam River in Kalimantan Timur (East Kalimantan).",
+          "countries": [],
+          "regions": [
+            "Kayan",
+            "Mahakam"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7798668,
+      "total": 0,
+      "fetched": "2026-11-13",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

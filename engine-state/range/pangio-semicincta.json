@@ -1,0 +1,92 @@
+{
+  "id": "pangio-semicincta",
+  "native": {
+    "input": "91874049734c7279",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Currently accepted to occur in Peninsular Malaysia plus the Great Sunda Islands of Sumatra and Borneo but the true extent of its distribution is unclear.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Currently accepted to occur in Peninsular Malaysia plus the Great Sunda Islands of Sumatra and Borneo but the true extent of its distribution is unclear.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Currently accepted to occur in Peninsular Malaysia plus the Great Sunda Islands of Sumatra and Borneo but the true extent of its distribution is unclear.",
+        "ok": true
+      },
+      {
+        "name": "Malay Peninsula",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as Malay Peninsula (Malacca, Johore) which corresponds to what's now normally referred to as Mawai district collected in Johor state at the southern tip of Peninsular Malaysia, but similar-looking fish have been recorded from numerous localities across the above range.",
+        "ok": true
+      },
+      {
+        "name": "Rajang",
+        "source": "seriouslyfish",
+        "quote": "In the Rajang river basin, Sarawak state, Malaysian Borneo sympatric species include Cyclocheilichthys apogon, C. repasson, Garra borneensis, Osteochilus vittatus, Paracrossochilus vittatus, Rasbora argyrotaenia, R. dusonensis, R. kottelati, R. sarawakensis, 'Puntius' johorensis, 'P.' kuchingensis, 'P.' pentazona, Sundadanio margarition, Trigonopoma pauciperforatum, Pangio anguillaris, P. piperata, Syncrossus hymenophysa, several Gastromyzon, Homaloptera and Nemacheilus spp., Betta akarensis, Sphaerichthys osphromenoides and Carinotetraodon salivator.",
+        "country": "MY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pangio semicincta",
+    "status": "ACCEPTED",
+    "taxonKey": 2367988,
+    "datasets": [
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        3
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "id": "mikrogeophagus-altispinosus",
+  "native": {
+    "input": "f87b29539bca9a6c",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is considered endemic to the upper rio Madeira basin in Bolivia and Brazil.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is considered endemic to the upper rio Madeira basin in Bolivia and Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "rio Madeira",
+        "source": "seriouslyfish",
+        "quote": "This species is considered endemic to the upper rio Madeira basin in Bolivia and Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Río Mamoré",
+        "source": "seriouslyfish",
+        "quote": "Records exist from the Río Mamoré and Río Guaporé drainages in Bolivia (where the Guaporé is known as the Iténez) and Brazil plus the upper Río Orthon (ríos Tahuamanu and Manuripi).",
+        "ok": true
+      },
+      {
+        "name": "Río Guaporé",
+        "source": "seriouslyfish",
+        "quote": "Records exist from the Río Mamoré and Río Guaporé drainages in Bolivia (where the Guaporé is known as the Iténez) and Brazil plus the upper Río Orthon (ríos Tahuamanu and Manuripi).",
+        "ok": true
+      },
+      {
+        "name": "Río Orthon",
+        "source": "seriouslyfish",
+        "quote": "Records exist from the Río Mamoré and Río Guaporé drainages in Bolivia (where the Guaporé is known as the Iténez) and Brazil plus the upper Río Orthon (ríos Tahuamanu and Manuripi).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Mikrogeophagus altispinosus",
+    "status": "ACCEPTED",
+    "taxonKey": 2373109,
+    "datasets": [
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        3
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "ada824f0-5741-4f99-8452-9bcf46472a84",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        1
+      ],
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "BO",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

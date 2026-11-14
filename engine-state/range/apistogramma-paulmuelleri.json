@@ -1,8 +1,8 @@
 {
   "id": "apistogramma-paulmuelleri",
   "native": {
-    "input": "471133a0a44ccbf5",
-    "at": "2026-11-06T09:17:06.855Z",
+    "input": "7d50c8a428029353",
+    "at": "2026-11-10T04:57:39.069Z",
     "claims": [
       {
         "code": "PE",
@@ -11,17 +11,25 @@
         "quote": "Apistogramma paulmuelleri (A52) is a dwarf cichlid apparently endemic to Loreto, Peru, described from a forest stream near the Iquitos to Nauta road.",
         "words": "Peru",
         "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species seems to be restricted to the Departamento Loreto in Peru.",
+        "words": "Peru",
+        "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Rio Itaya",
+        "name": "Amazon River",
         "source": "seriouslyfish",
         "quote": "The authors also state that the species is 'apparently endemic to the Loreto' and that all localities are 'east of the rio Itaya and west of the Amazon River north of Nauta'.",
         "ok": true
       },
       {
-        "name": "Amazon River",
+        "name": "rio Itaya",
         "source": "seriouslyfish",
         "quote": "The authors also state that the species is 'apparently endemic to the Loreto' and that all localities are 'east of the rio Itaya and west of the Amazon River north of Nauta'.",
         "ok": true

@@ -1,0 +1,77 @@
+{
+  "id": "pangio-cuneovirgata",
+  "native": {
+    "input": "0e7fdda75aa1ef28",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the state of Johor, southern Peninsular Malaysia, with current knowledge suggesting it to be distributed southwards from Narathiwat Province, southern Thailand along the western coastlines of Peninsular Malaysia (states of Kelantan, Terengganu, Pahang, Johor and possibly Selangor), into Sumatra (provinces of Riau and Jambi) and western Java.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the state of Johor, southern Peninsular Malaysia, with current knowledge suggesting it to be distributed southwards from Narathiwat Province, southern Thailand along the western coastlines of Peninsular Malaysia (states of Kelantan, Terengganu, Pahang, Johor and possibly Selangor), into Sumatra (provinces of Riau and Jambi) and western Java.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Described from the state of Johor, southern Peninsular Malaysia, with current knowledge suggesting it to be distributed southwards from Narathiwat Province, southern Thailand along the western coastlines of Peninsular Malaysia (states of Kelantan, Terengganu, Pahang, Johor and possibly Selangor), into Sumatra (provinces of Riau and Jambi) and western Java.",
+        "ok": true
+      },
+      {
+        "name": "Java",
+        "source": "seriouslyfish",
+        "quote": "Described from the state of Johor, southern Peninsular Malaysia, with current knowledge suggesting it to be distributed southwards from Narathiwat Province, southern Thailand along the western coastlines of Peninsular Malaysia (states of Kelantan, Terengganu, Pahang, Johor and possibly Selangor), into Sumatra (provinces of Riau and Jambi) and western Java.",
+        "ok": true
+      },
+      {
+        "name": "Peninsular Malaysia",
+        "source": "seriouslyfish",
+        "quote": "Described from the state of Johor, southern Peninsular Malaysia, with current knowledge suggesting it to be distributed southwards from Narathiwat Province, southern Thailand along the western coastlines of Peninsular Malaysia (states of Kelantan, Terengganu, Pahang, Johor and possibly Selangor), into Sumatra (provinces of Riau and Jambi) and western Java.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Endau",
+        "source": "seriouslyfish",
+        "quote": "P. cuneovirgata is found living syntopically with P. semicincta across much of its range and in the Endau river drainage, southeastern Peninsular Malaysia other sympatric fishes include Brevibora dorsiocellata, Rasbora cephalotaenia, R. einthovenii, R. dusonensis, R. paucisqualis, 'Puntius' johorensis, 'P.' partipentazona, Trigonopoma gracile, T. pauciperforatum, Betta pugnax, Sphaerichthys osphromenoides, Acanthopsoides molobrion, Vaillantella maassi, Pangio doriae, P. filinaris, P. malayana, P. piperata, and P. shelfordii.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pangio cuneovirgata",
+    "status": "ACCEPTED",
+    "taxonKey": 2367979,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

@@ -13,6 +13,145 @@
     "niger",
     "chad"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "EG"
+      ],
+      "regions": [
+        "Nile"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Nile River near Thebes, Egypt.",
+          "countries": [
+            "EG"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Africa: Nile and Niger basins.",
+          "countries": [],
+          "regions": [
+            "Nile"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344258,
+      "total": 24,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "GN",
+          6
+        ],
+        [
+          "NG",
+          6
+        ],
+        [
+          "CF",
+          4
+        ],
+        [
+          "ET",
+          3
+        ],
+        [
+          "SS",
+          2
+        ],
+        [
+          "CI",
+          1
+        ],
+        [
+          "EG",
+          1
+        ],
+        [
+          "SD",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -11.25,
+          9.84375,
+          2,
+          0
+        ],
+        [
+          -9.84375,
+          9.84375,
+          4,
+          0
+        ],
+        [
+          -7.03125,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          5.625,
+          4.21875,
+          4,
+          0
+        ],
+        [
+          5.625,
+          12.65625,
+          2,
+          0
+        ],
+        [
+          18.28125,
+          5.625,
+          3,
+          0
+        ],
+        [
+          21.09375,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          30.9375,
+          8.4375,
+          2,
+          0
+        ],
+        [
+          32.34375,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          32.34375,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          33.75,
+          7.03125,
+          3,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

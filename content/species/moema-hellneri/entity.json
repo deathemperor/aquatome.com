@@ -10,6 +10,50 @@
     "peru",
     "rio-napo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Rio Napo"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "M. hellneri originates from the Rio Napo drainage in Peru, whereas M. ortegai originates from the drainage of the Madre de Dios.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Rio Napo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5203604,
+      "total": 7,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "PE",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -4.21875,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

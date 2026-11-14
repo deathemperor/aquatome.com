@@ -115,7 +115,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hộp acrylic trong suốt chia ba ngăn: một ngăn lớn và hai ngăn nhỏ.",
-            "sharpness": 1160.5
+            "sharpness": 1160.5,
+            "person": false
           },
           {
             "t": 55,
@@ -123,7 +124,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Máy bơm mini nhỏ gọn dùng để đẩy nước hồi về bể.",
-            "sharpness": 544.1
+            "sharpness": 544.1,
+            "person": false
           }
         ]
       },
@@ -137,14 +139,6 @@
             "height": 675,
             "caption": "Dùng đĩa cắt Dremel cắt răng tràn trên vách mica của bể.",
             "sharpness": 59.6
-          },
-          {
-            "t": 160,
-            "url": "https://media.aquatome.com/video/gPDRCDoDGBU/at160-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng Dremel cắt phần đáy vách ngăn để nước đi bên dưới.",
-            "sharpness": 173.6
           }
         ],
         "photo": {
@@ -196,7 +190,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đá nham thạch đã đổ đầy ngăn lọc thứ nhất.",
-            "sharpness": 1408
+            "sharpness": 1408,
+            "person": false
           }
         ]
       },
@@ -209,15 +204,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể giả làm từ các tấm PVC trắng, bên cạnh là đống đá nhỏ.",
-            "sharpness": 358.8
-          },
-          {
-            "t": 440,
-            "url": "https://media.aquatome.com/video/gPDRCDoDGBU/at440-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ghép lũa và đá bên trong bể giả PVC trước khi dán keo.",
-            "sharpness": 606
+            "sharpness": 358.8,
+            "person": false
           }
         ],
         "photo": {
@@ -235,20 +223,13 @@
         "heading": "Dán decal nền và rải cát",
         "moments": [
           {
-            "t": 485,
-            "url": "https://media.aquatome.com/video/gPDRCDoDGBU/at485-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể nhỏ trống với mặt sau dán decal mờ, chưa đặt bố cục.",
-            "sharpness": 454.3
-          },
-          {
             "t": 515,
             "url": "https://media.aquatome.com/video/gPDRCDoDGBU/at515-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Dùng nhíp đặt sỏi đá vôi lên nền cát trắng quanh bố cục.",
-            "sharpness": 215
+            "sharpness": 215,
+            "person": false
           }
         ]
       },
@@ -261,7 +242,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây Anubias lá xanh được nhét vào khe giữa đá và rễ lũa.",
-            "sharpness": 259.1
+            "sharpness": 259.1,
+            "person": false
           },
           {
             "t": 595,
@@ -269,7 +251,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể nhỏ đã trồng cây bám xanh um trên rễ và đá.",
-            "sharpness": 479.6
+            "sharpness": 479.6,
+            "person": false
           }
         ],
         "photo": {
@@ -284,27 +267,6 @@
         }
       },
       {
-        "heading": "Chỉnh dòng, làm nắp và gắn đèn",
-        "moments": [
-          {
-            "t": 615,
-            "url": "https://media.aquatome.com/video/gPDRCDoDGBU/at615-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Van chỉnh dây oxy gắn vào ống hồi để chỉnh tốc độ nước.",
-            "sharpness": 187.9
-          },
-          {
-            "t": 650,
-            "url": "https://media.aquatome.com/video/gPDRCDoDGBU/at650-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dây bơm được giữ gọn ở mặt sau bể bằng miếng dán Command.",
-            "sharpness": 803.9
-          }
-        ]
-      },
-      {
         "heading": "Nuôi ốc và giữ bể sạch",
         "moments": [
           {
@@ -313,7 +275,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Vài con ốc bám gần mặt nước cạnh ngăn lọc của bể nhỏ.",
-            "sharpness": 264.2
+            "sharpness": 264.2,
+            "person": false
           },
           {
             "t": 800,
@@ -321,7 +284,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Con ốc bò trên rêu và lũa trong bể nhỏ, nền cát trắng.",
-            "sharpness": 330.3
+            "sharpness": 330.3,
+            "person": false
           }
         ],
         "photo": {

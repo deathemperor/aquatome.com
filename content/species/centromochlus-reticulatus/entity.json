@@ -12,6 +12,146 @@
     "brazil",
     "preto-da-eva"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GY",
+        "BR"
+      ],
+      "regions": [
+        "Rupununi River",
+        "Amazon"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Initially known only from the upper Rupununi River basin in Guyana but it may have been overlooked elsewhere due to its secretive, mostly nocturnal behaviour.",
+          "countries": [
+            "GY"
+          ],
+          "regions": [
+            "Rupununi River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "For example, it's been recorded in the rio Preto da Eva, a tributary of the Amazon a little downstream of Manaus in Amazonas state, Brazil and an identical-looking fish is sometimes exported from Peru.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344773,
+      "total": 39,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "GY",
+          27
+        ],
+        [
+          "VE",
+          6
+        ],
+        [
+          "BR",
+          4
+        ],
+        [
+          "PE",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          2.8125,
+          26,
+          26
+        ],
+        [
+          -59.0625,
+          4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

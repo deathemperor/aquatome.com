@@ -2,14 +2,14 @@
   "id": "phalloceros-caudimaculatus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/d8b1c99ea5e990e1.webp",
-      "thumb": "https://media.aquatome.com/commons/d8b1c99ea5e990e1-480.webp",
-      "width": 1100,
-      "height": 843,
-      "licence": "CC BY-SA 4.0",
-      "author": "Livebearerguy",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phalloceros_caudimaculatus_reticulatus.jpg",
-      "caption": "Cá bảy màu đốm đuôi có đốm đen bơi bên cây thủy sinh",
+      "url": "https://media.aquatome.com/commons/12e1b6eac777134f.webp",
+      "thumb": "https://media.aquatome.com/commons/12e1b6eac777134f-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY-SA 3.0",
+      "author": "Haplochromis",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phalloceros_caudimaculatus.JPG",
+      "caption": "Cá bảy màu đốm đuôi đốm đen bơi trong bể có đá và sỏi",
       "best": true,
       "kind": "female"
     },
@@ -26,16 +26,68 @@
       "kind": "form"
     },
     {
-      "url": "https://media.aquatome.com/commons/12e1b6eac777134f.webp",
-      "thumb": "https://media.aquatome.com/commons/12e1b6eac777134f-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY-SA 3.0",
-      "author": "Haplochromis",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phalloceros_caudimaculatus.JPG",
-      "caption": "Cá bảy màu đốm đuôi đốm đen bơi trong bể có đá và sỏi",
+      "url": "https://media.aquatome.com/inaturalist/63953860.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/63953860-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC0",
+      "author": "demianlescano",
+      "sourceUrl": "https://www.inaturalist.org/photos/63953860",
+      "caption": "Hai cá bảy màu đốm đuôi bơi trong bể kính",
+      "best": true,
+      "kind": "pair",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/739022219.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/739022219-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Gabriel Albelda",
+      "sourceUrl": "https://www.inaturalist.org/photos/739022219",
+      "caption": "Cá bảy màu đốm đuôi nhỏ bơi giữa cây thủy sinh trong bể",
+      "best": true,
+      "kind": "juvenile",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/473731437.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/473731437-480.webp",
+      "width": 1024,
+      "height": 770,
+      "licence": "CC BY",
+      "author": "vinicius_s_domingues",
+      "sourceUrl": "https://www.inaturalist.org/photos/473731437",
+      "caption": "Cá bảy màu đốm đuôi bơi trong nước",
+      "best": true,
+      "kind": "other",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/commons/d8b1c99ea5e990e1.webp",
+      "thumb": "https://media.aquatome.com/commons/d8b1c99ea5e990e1-480.webp",
+      "width": 1100,
+      "height": 843,
+      "licence": "CC BY-SA 4.0",
+      "author": "Livebearerguy",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phalloceros_caudimaculatus_reticulatus.jpg",
+      "caption": "Cá bảy màu đốm đuôi có đốm đen bơi bên cây thủy sinh",
       "best": true,
       "kind": "female"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/757085765.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/757085765-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Tom Ferguson",
+      "sourceUrl": "https://www.inaturalist.org/photos/757085765",
+      "caption": "Cá bảy màu đốm đuôi vàng cam có đốm đen trong bể trong",
+      "best": true,
+      "kind": "form",
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/commons/4dfd15c4742d60e4.webp",
@@ -48,9 +100,22 @@
       "caption": "Hai cá bảy màu đốm đuôi bơi trong bể thủy sinh",
       "best": false,
       "kind": "pair"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/339617402.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/339617402-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC0",
+      "author": "Diego Carús",
+      "sourceUrl": "https://www.inaturalist.org/photos/339617402",
+      "caption": "Hai cá bảy màu đốm đuôi nhỏ màu nhạt trong bể",
+      "best": false,
+      "kind": "group",
+      "unchecked": true
     }
   ],
-  "seen": 10,
-  "updatedAt": "2026-11-09",
-  "builtAt": "2026-11-09"
+  "seen": 45,
+  "updatedAt": "2026-11-13",
+  "builtAt": "2026-11-13"
 }

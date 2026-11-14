@@ -1,0 +1,26 @@
+{
+  "slug": "ca-cichlid-lun-moi-do",
+  "name": "Cá cichlid lùn môi đỏ",
+  "altNames": [
+    "Vinered Dwarf Cichlid"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Đây là thêm một loài cichlid lùn rất đẹp đến từ Tây Phi. Có lô cá còn ghi cả tên nơi bắt. Tiệm có bán cả cá đã lớn hẳn, lên màu rất đẹp.</p><p>Xuất xứ: Guinea.</p>",
+    "distribution:glaser": "<p>Guinea.</p>",
+    "notes:glaser": "<p>Pelvicachromis: chữ Latin pelvis nghĩa là \"khung chậu\", còn chromis là tên một chi cá vược khác. Tên chi này ám chỉ màu ở bụng cá. rubrolabiatus: tiếng Latin, nghĩa là \"có môi đỏ\".</p><p>Tên thường gọi đề xuất: Vinered Dwarf Cichlid.</p>"
+  },
+  "quality": {
+    "score": 0.6,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.6
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-11"
+  }
+}

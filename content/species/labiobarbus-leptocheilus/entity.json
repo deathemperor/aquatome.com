@@ -20,7 +20,8 @@
     "malaysia",
     "peninsular-malaysia",
     "indonesia",
-    "kalimantan"
+    "kalimantan",
+    "java"
   ],
   "range": {
     "native": {
@@ -63,7 +64,8 @@
             "Salween",
             "Chao Phraya",
             "Borneo",
-            "Sumatra"
+            "Sumatra",
+            "Java"
           ]
         },
         {
@@ -72,9 +74,7 @@
           "countries": [
             "ID"
           ],
-          "regions": [
-            "Java"
-          ]
+          "regions": []
         }
       ]
     },
@@ -382,6 +382,10 @@
       {
         "source": "seriouslyfish",
         "value": 26
+      },
+      {
+        "source": "glaser",
+        "value": 30
       }
     ],
     "tankCm": [
@@ -405,10 +409,28 @@
       "html": "<p>Labiobarbus leptocheilus is a large cyprinid widespread in Southeast Asia, from the Mekong and Salween to the Greater Sunda Islands. Different populations vary somewhat in appearance, and it may turn out to represent a group of closely-related species. The Cambodian Mekong population has been considered a distinct species, Labiobarbus lineatus, and that name is widely used in the ornamental trade although it is currently a synonym. It grows to 260 mm SL and needs spotless, well-oxygenated water.</p><ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li><li>Needs a tank at least 2 m long</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labiobarbus_leptocheila_en/",
+      "html": "<p>Labiobarbus leptocheila is a barb growing up to 30 cm long, originating from Southeast Asia. The genus Labiobarbus is typified by the protracted dorsal fin and by longitudinal stripes formed by black marks on the scales.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/labiobarbus-leptocheilus",
       "html": "<p>Widespread in Southeast Asia, including the Mekong basin in southern China, Laos, Thailand, Cambodia, and Vietnam, the Salween River in Myanmar and Thailand, the Dong Nai drainage in Vietnam, the Chao Phraya and Mae Klong systems in Thailand, various smaller watersheds in southern Thailand and Peninsular Malaysia, plus the Greater Sunda Islands of Borneo, Sumatra, and Java.</p><p>Type locality is 'Jakarta, Java, Indonesia'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labiobarbus_leptocheila_en/",
+      "html": "<p>Found from the Mekong area over the Malayan peninsula to Java, Sumatra and Borneo.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labiobarbus_leptocheila_en/",
+      "html": "<p>In the wild they inhabit midwater depths and the bottom of larger rivers and streams, where they feed on plankton.</p>"
     },
     {
       "key": "aquariumSize",
@@ -417,10 +439,22 @@
       "html": "<p>An aquarium with base measurements of 240 × 60 cm or equivalent will be required for long-term maintenance (about 864 litres).</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labiobarbus_leptocheila_en/",
+      "html": "<p>Given their size they need large aquaria, which should have some shelters and hiding places.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/labiobarbus-leptocheilus",
       "html": "<p>This species will do well in most well-maintained larger aquaria but is best maintained in a set-up designed to resemble a flowing river or stream, with a substrate of variably-sized rocks, gravel and some large water-worn boulders.</p><p>This can be further furnished with driftwood branches, and while the majority of plant species will fail to thrive in such surroundings hardy types such as Microsorum, Bolbitis or Anubias spp. can be grown attached to the décor. In this kind of environment it will display more natural behaviour and can be kept alongside other species that enjoy similar conditions. Bright lighting will also promote the growth of aufwuchs upon which the fish will graze.</p><p>Like many fishes that naturally inhabit running waters it's intolerant to the accumulation of organic wastes and requires spotless water at all times in order to thrive. It also does best if there is a high level of dissolved oxygen and a decent level of water movement in the tank so external filters, powerheads or similar should be employed in order to obtain the desired effect.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labiobarbus_leptocheila_en/",
+      "html": "<p>Since they like plants, the aquarium should be planted only with hardy species. A generously dimensioned filtering unit and frequent water changes are normal for animals of this size.</p>"
     },
     {
       "key": "waterConditions",
@@ -451,6 +485,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/labiobarbus-leptocheilus",
       "html": "<p>Unrecorded.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labiobarbus_leptocheila_en/",
+      "html": "<p>No information about successful breeding attempts is available.</p>"
     },
     {
       "key": "notes",
@@ -523,5 +563,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-11"
 }

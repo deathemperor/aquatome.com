@@ -10,6 +10,56 @@
     "cameroon",
     "cross-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM"
+      ],
+      "regions": [
+        "River Cross"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Probably endemic to the River Cross drainage in Cameroon.",
+          "countries": [
+            "CM"
+          ],
+          "regions": [
+            "River Cross"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2346592,
+      "total": 12,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "CM",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          8.4375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          5.625,
+          11,
+          11
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,0 +1,136 @@
+{
+  "id": "cynops-cyanurus",
+  "scientificName": "Cynops cyanurus",
+  "order": "Caudata",
+  "family": "Salamandridae",
+  "genus": "Cynops",
+  "group": "other",
+  "places": [
+    "asia",
+    "china",
+    "hubei"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "According to the supplier, these newts were collected in the Chinese province of Hubei.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2431865,
+      "total": 296,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "CN",
+          296
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          23.90625,
+          43,
+          43
+        ],
+        [
+          102.65625,
+          23.90625,
+          219,
+          219
+        ],
+        [
+          104.0625,
+          25.3125,
+          33,
+          33
+        ],
+        [
+          104.0625,
+          37.96875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/cynops_cf_cyanurus_en/",
+      "html": "<p>According to the supplier, these newts were collected in the Chinese province of Hubei.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/cynops_cf_cyanurus_en/",
+      "html": "<p>The fire bellied newts of the genus Cynops are perfect aquarium newts. Most specimens can be easily adapted for a life in water the whole year through.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/cynops_cf_cyanurus_en/",
+      "html": "<p>Life in water makes feeding a lot easier, because on land newts are very secretive and feed only on live food, while in the water they also readily accept frozen food.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "BAi6k17wLHE",
+      "title": "Blue Tail Fire Belly Newt Care Guide - Cynops cyanurus #newts  #salamander #amphibians #careguide",
+      "durationSec": 976,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "CvqRW_3NETU",
+      "title": "Blue tail fire belly newts (cynops cyanurus)",
+      "durationSec": 58,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "1sPxxAOqJLY",
+      "title": "Blue-tailed Fire-bellied Newts (Cynops cyanurus)",
+      "durationSec": 745,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Ta5o4u_C1cw",
+      "title": "Cynops cyanurus mating, Blue Tailed Newts mating",
+      "durationSec": 71,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể nuôi sa giông",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh trùng huyết",
+        "thức ăn cho sa giông"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

@@ -2,7 +2,7 @@ import { copyFile, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { breedKin, cleanAltNames, cleanBreedAltNames, tidyName, tidyNames, type BreedName, type Kin } from '../src/alt-names'
+import { altKey, breedKin, cleanAltNames, cleanBreedAltNames, tidyName, tidyNames, type BreedName, type Kin } from '../src/alt-names'
 import { sweep } from '../src/sweep'
 
 // The betta's other names as the engine had stored them (2026-11-04): shop listings of one variety each (BW Aquatics'
@@ -271,4 +271,51 @@ test('a name the page has with a note in brackets keeps the note; the same name 
   expect(oscar(['Tiger oscar', 'Tiger oscar (Red)']).altNames).toEqual(['Tiger oscar', 'Tiger oscar (Red)'])
   // "X (Y)" of two names the page has is still one name too many, and a name with no note beside it stays.
   expect(cleanAltNames(betta(['Cá xiêm', 'Cá chọi', 'Cá xiêm (cá chọi)'])).altNames).toEqual(['Cá xiêm', 'Cá chọi'])
+})
+
+// Astra, 2026-11-13: a name the chief of staff kept for a fish they renamed is kept whatever the cleaner makes of it, on
+// that fish's page alone. "Cá Noturus gladiator" reads as its scientific name with "Cá" before it.
+test('a renamed fish keeps the names the chief of staff kept for it; another fish\'s page is cleaned as before', () => {
+  const rows = [{ id: 'noturus-gladiator', sci: 'Noturus gladiator', was: 'Cá Noturus gladiator', name: 'Cá madtom gladiator' }]
+  const page = { name: 'Cá madtom gladiator', sci: 'Noturus gladiator', altNames: ['Cá Noturus gladiator', 'Piebald madtom', 'cá Noturus gladiator'] }
+  expect(cleanAltNames(page).altNames).not.toContain('Cá Noturus gladiator')
+  expect(cleanAltNames(page, [], rows).altNames).toEqual(['Piebald madtom', 'Cá Noturus gladiator'])
+  expect(cleanAltNames({ ...page, sci: 'Noturus nocturnus' }, [], rows).altNames).toEqual(cleanAltNames({ ...page, sci: 'Noturus nocturnus' }).altNames)
+  // The blue-eye's old name on its page.
+  expect(cleanAltNames({ name: 'Cá mắt xanh neon đỏ', sci: 'Pseudomugil luminatus', altNames: ['Red-Neon Blue-eye', 'Cá cầu vồng neon đỏ mắt xanh'] }).altNames).toEqual(['Red-Neon Blue-eye', 'Cá cầu vồng neon đỏ mắt xanh'])
+})
+
+// 2026-11-13: Boraras merah's page had "Chili rasbora", B. brigittae's name, which neither of its sources gives.
+test('a name a person found is another fish\'s leaves that page in every form and stays on its own fish\'s', () => {
+  const merah = cleanAltNames({ name: 'Cá rasbora merah', sci: 'Boraras merah', altNames: ['Chili rasbora', 'Cá rasbora phượng hoàng', 'Cá chili rasbora', 'Phoenix rasbora'] })
+  expect(merah.altNames).toEqual(['Cá rasbora phượng hoàng', 'Phoenix rasbora'])
+  expect(merah.off).toEqual([{ name: 'Chili rasbora', why: 'species', of: 'boraras-brigittae' }, { name: 'Cá chili rasbora', why: 'species', of: 'boraras-brigittae' }])
+  expect(cleanAltNames({ name: 'Cá rasbora muỗi', sci: 'Boraras brigittae', altNames: ['Chili rasbora'] }).altNames).toEqual(['Chili rasbora'])
+  // Thai's classifier, joined or apart, before a name of two words (Astra, 2026-11-13); Thai written with or without spaces.
+  expect(cleanAltNames({ name: 'ปลาราสบอร่าเมราห์', sci: 'Boraras merah', altNames: ['ปลาChili rasbora', 'ปลา Chili rasbora', 'ราสบอร่าฟีนิกซ์'] }).altNames).toEqual(['ราสบอร่าฟีนิกซ์'])
+  expect(altKey('ปลา Chili rasbora')).toBe(altKey('Chili rasbora'))
+  expect(altKey('ปลากัด มหาชัย')).toBe(altKey('ปลากัดมหาชัย'))
+})
+
+// The chief of staff's ten of 2026-11-13: each page's other name that is another page's own, as their pages had them.
+test.each([
+  ['Chromobotia macracanthus', 'Cá heo hề', ['Cá chuột vằn', 'Cá chuột Mỹ', 'Cá hề'], ['Cá chuột vằn', 'Cá chuột Mỹ']],
+  ['Chitala ornata', 'Cá thát lát cườm', ['Cá hề', 'Clown knifefish'], ['Clown knifefish']],
+  ['Corydoras julii', 'Cá chuột julii', ['Cá chuột báo', 'Cá chuột ba sọc', 'Julii Cory', 'Leopard Cory', 'Three-lined Cory'], ['Cá chuột báo', 'Julii Cory', 'Leopard Cory']],
+  ['Corydoras trilineatus', 'Cá chuột ba sọc', ['Three-line corydoras', 'Julii corydoras', 'Cá chuột julii', 'Three-lined Cory', 'Julii Cory'], ['Three-line corydoras', 'Three-lined Cory']],
+  ['Ambastaia sidthimunki', 'Cá heo lùn', ['Cá chuột lùn', 'Cá chuột chipmunk'], ['Cá chuột chipmunk']],
+  ['Trichopsis pumila', 'Cá thanh ngọc lùn', ['Cá sặc lùn', 'Pygmy gourami'], ['Pygmy gourami']],
+  ['Devario aequipinnatus', 'Cá danio khổng lồ', ['Cá danio sọc', 'Giant danio'], ['Giant danio']],
+  ['Poecilia latipinna', 'Cá molly buồm', ['Cá molly', 'Sailfin molly'], ['Sailfin molly']],
+  ['Poecilia latipinna', 'Molly layar', ['Ikan Molly', 'Sailfin molly'], ['Sailfin molly']],
+  ['Glossolepis incisus', 'Cá cầu vồng đỏ', ['Cá cầu vồng New Guinea', 'New Guinea Rainbowfish', 'Red rainbowfish'], ['Red rainbowfish']],
+  ['Alestopetersius hilgendorfi', 'Cá tetra Congo đỏ', ['Cá tetra Congo', 'Congo tetra', 'Red Congo tetra'], ['Red Congo tetra']],
+  ['Phenacogrammus aurantiacus', 'Cá tetra Congo cam', ['Cá tetra Congo', 'Congo tetra'], []],
+])('%s loses the names that are another page\'s', (sci, name, altNames, kept) => {
+  expect(cleanAltNames({ name, sci, altNames }).altNames).toEqual(kept)
+})
+test('the pages whose own names those are keep them', () => {
+  expect(cleanAltNames({ name: 'Cá ngựa vằn', sci: 'Danio rerio', altNames: ['Cá danio sọc'] }).altNames).toEqual(['Cá danio sọc'])
+  expect(cleanAltNames({ name: 'Cá chuột julii', sci: 'Corydoras julii', altNames: ['Julii corydoras'] }).altNames).toEqual(['Julii corydoras'])
+  expect(cleanAltNames({ name: 'Cá chuột ba sọc', sci: 'Corydoras trilineatus', altNames: ['Three-lined Cory'] }).altNames).toEqual(['Three-lined Cory'])
 })

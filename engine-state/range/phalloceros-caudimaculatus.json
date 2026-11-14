@@ -1,0 +1,240 @@
+{
+  "id": "phalloceros-caudimaculatus",
+  "native": {
+    "input": "e66d63d335623417",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs naturally in Brazil, Paraguay, Uruguay and Argentina with feral populations in Australia, New Zealand, Ethiopia and Malawi which were purportedly introduced for purposes of mosquito control but are now considered invasive.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs naturally in Brazil, Paraguay, Uruguay and Argentina with feral populations in Australia, New Zealand, Ethiopia and Malawi which were purportedly introduced for purposes of mosquito control but are now considered invasive.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "UY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs naturally in Brazil, Paraguay, Uruguay and Argentina with feral populations in Australia, New Zealand, Ethiopia and Malawi which were purportedly introduced for purposes of mosquito control but are now considered invasive.",
+        "words": "Uruguay",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs naturally in Brazil, Paraguay, Uruguay and Argentina with feral populations in Australia, New Zealand, Ethiopia and Malawi which were purportedly introduced for purposes of mosquito control but are now considered invasive.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Occurs naturally in Brazil, Paraguay, Uruguay and Argentina with feral populations in Australia, New Zealand, Ethiopia and Malawi which were purportedly introduced for purposes of mosquito control but are now considered invasive.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "NZ",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Occurs naturally in Brazil, Paraguay, Uruguay and Argentina with feral populations in Australia, New Zealand, Ethiopia and Malawi which were purportedly introduced for purposes of mosquito control but are now considered invasive.",
+        "words": "New Zealand",
+        "ok": true
+      },
+      {
+        "code": "ET",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Occurs naturally in Brazil, Paraguay, Uruguay and Argentina with feral populations in Australia, New Zealand, Ethiopia and Malawi which were purportedly introduced for purposes of mosquito control but are now considered invasive.",
+        "words": "Ethiopia",
+        "ok": true
+      },
+      {
+        "code": "MW",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Occurs naturally in Brazil, Paraguay, Uruguay and Argentina with feral populations in Australia, New Zealand, Ethiopia and Malawi which were purportedly introduced for purposes of mosquito control but are now considered invasive.",
+        "words": "Malawi",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lagoa dos Patos",
+        "source": "seriouslyfish",
+        "quote": "Following Lucinda (2008) its natural range comprises the Lagoa dos Patos system, lower rio Uruguai, rio Tramandaí, and rio Mampituba in Rio Grande do Sul state, Brazil, plus coastal systems of Uruguay and Argentina.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Uruguai",
+        "source": "seriouslyfish",
+        "quote": "Following Lucinda (2008) its natural range comprises the Lagoa dos Patos system, lower rio Uruguai, rio Tramandaí, and rio Mampituba in Rio Grande do Sul state, Brazil, plus coastal systems of Uruguay and Argentina.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Tramandaí",
+        "source": "seriouslyfish",
+        "quote": "Following Lucinda (2008) its natural range comprises the Lagoa dos Patos system, lower rio Uruguai, rio Tramandaí, and rio Mampituba in Rio Grande do Sul state, Brazil, plus coastal systems of Uruguay and Argentina.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Mampituba",
+        "source": "seriouslyfish",
+        "quote": "Following Lucinda (2008) its natural range comprises the Lagoa dos Patos system, lower rio Uruguai, rio Tramandaí, and rio Mampituba in Rio Grande do Sul state, Brazil, plus coastal systems of Uruguay and Argentina.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Phalloceros caudimaculatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2350105,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        450
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        393
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        181
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        136
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        89
+      ],
+      [
+        "905129b1-ba63-4a7e-a83e-e11b83070996",
+        42
+      ],
+      [
+        "40c0f670-ee87-4576-be9d-2725e0b47035",
+        38
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        33
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        25
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        20
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        19
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        16
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        14
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        13
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        12
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        8
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        8
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        5
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        4
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        4
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        3
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "d4b3cce1-4594-47bb-b1e2-1ace65458a11",
+        3
+      ],
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        2
+      ],
+      [
+        "395b8d4a-7f39-4bfc-9db2-fd3e211b4e9b",
+        1
+      ],
+      [
+        "39905320-6c8a-11de-8226-b8a03c50a862",
+        1
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "PY",
+      "UY",
+      "AR"
+    ],
+    "requests": 13,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

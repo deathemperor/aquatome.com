@@ -1,12 +1,15 @@
 {
   "id": "pterophyllum-leopoldi",
-  "summary": "Hợp với người muốn nuôi một đàn cá ông tiên 10 cm có sắc đỏ hoặc nâu đỏ. Cần bể dài tối thiểu 90 cm, nước mềm, có tính axit (pH 5–7, 0–6 dGH), nhiệt độ 22–29 °C, nuôi nhóm từ 4 con trở lên, độ khó 4/8. Khó nhất là giữ nước thật sạch vì cá chịu nitrat kém, và nghe nói loài này thuộc nhóm dữ với đồng loại hơn cả trong giống.",
+  "summary": "Hợp người đã quen giữ nước mềm, axit và muốn nuôi một đàn cá ông tiên. Cá trưởng thành 10 cm, bể tối thiểu dài 90 cm; nước 22–29 °C, pH 5–7, 0–6 dGH, độ khó 4/8. Khó nhất là giữ nước thật sạch vì cá chịu nitrat kém, cộng với tính dữ với đồng loại nên phải nuôi đàn đủ đông.",
   "mistakes": [
-    "Nuôi lẻ hoặc chỉ vài con: nuôi nhóm từ 4 con trở lên, bày lũa, rễ cây, cây cao để con yếu có chỗ trốn.",
-    "Để nước bẩn lâu: loài này chịu nitrat kém, nên giữ nước trong bể thật sạch.",
-    "Nuôi trong nước cứng, pH cao: cá bán chủ yếu là cá bắt ngoài tự nhiên, nên giữ pH và độ cứng thấp, trong khoảng pH 5–7 và 0–6 dGH."
+    "Nuôi lẻ vài con thì con yếu bị bắt nạt quá đà; nên nuôi nhóm từ 4 con trở lên.",
+    "Để nước tích nitrat vì cá quen nước pH thấp, chịu nitrat kém; nên giữ nước lúc nào cũng thật sạch.",
+    "Để bể trống trải thì con yếu thế không có chỗ trốn; nên bày lũa, rễ cây hoặc cây cao như Echinodorus spp."
   ],
-  "speciesUpdatedAt": "2026-11-09",
-  "generatedAt": "2026-11-09T23:07:47.249Z",
-  "review": "approved"
+  "speciesUpdatedAt": "2026-11-11",
+  "generatedAt": "2026-11-11T04:56:17.950Z",
+  "review": "pending",
+  "problems": [
+    "\"tính dữ với đồng loại\": the page hedges this as hearsay (\"Nghe nói đây là một trong những loài dữ với đồng loại hơn cả trong giống\"). The summary states it as a certain trait and drops the hedge."
+  ]
 }

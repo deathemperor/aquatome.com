@@ -1,0 +1,94 @@
+{
+  "id": "pelvicachromis-humilis",
+  "native": {
+    "input": "8eb5a56b33e551f2",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [
+      {
+        "code": "GN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The current import from Guinea contains five different species/morphs of the relationship of Pelvicachromis humilis.",
+        "words": "Guinea",
+        "ok": true
+      },
+      {
+        "code": "LR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Pelvicachromis humilis \"Liberia Red\" was collected, as can be seen from the name, in the border region between Liberia and Guinea.",
+        "words": "Liberia",
+        "ok": true
+      },
+      {
+        "code": "GN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Pelvicachromis humilis \"Liberia Red\" was collected, as can be seen from the name, in the border region between Liberia and Guinea.",
+        "words": "Guinea",
+        "ok": true
+      },
+      {
+        "code": "SL",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The yellow kribensis, Wallaceochromis humilis, is a cichlid from Sierra Leone, Liberia and Guinea.",
+        "words": "Sierra Leone",
+        "ok": true
+      },
+      {
+        "code": "LR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The yellow kribensis, Wallaceochromis humilis, is a cichlid from Sierra Leone, Liberia and Guinea.",
+        "words": "Liberia",
+        "ok": true
+      },
+      {
+        "code": "GN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The yellow kribensis, Wallaceochromis humilis, is a cichlid from Sierra Leone, Liberia and Guinea.",
+        "words": "Guinea",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pelvicachromis humilis",
+    "status": "ACCEPTED",
+    "taxonKey": 2372945,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        28
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        3
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ]
+    ],
+    "native": [
+      "GN",
+      "LR",
+      "SL"
+    ],
+    "requests": 11,
+    "at": "2026-11-12T13:29:05.219Z"
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "id": "mesonauta-acora",
+  "native": {
+    "input": "4c3d9716a99f1859",
+    "at": "2026-11-10T07:58:31.896Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "M. acora was described from the Rio Araguaia, a large tributary of the Rio Tocantins in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Flag cichlids (Mesonauta) from the Rio Tocantins in Brazil have a very variable basic pattern.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Tocantins",
+        "source": "glaser",
+        "quote": "M. acora was described from the Rio Araguaia, a large tributary of the Rio Tocantins in Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Araguaia",
+        "source": "glaser",
+        "quote": "M. acora was described from the Rio Araguaia, a large tributary of the Rio Tocantins in Brazil.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Mesonauta acora",
+    "status": "ACCEPTED",
+    "taxonKey": 2369925,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        6
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        6
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        3
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T07:58:31.896Z"
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "id": "metaloricaria-nijsseni",
+  "native": {
+    "input": "08c1f0600cf72c60",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Sipaliwini River, southwestern Suriname.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Guyana waters, coastal rivers of the Guianas, Suriname coastal rivers.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Sipaliwini River, southwestern Surinam.",
+        "words": "Surinam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Corantijn",
+        "source": "planetcatfish",
+        "quote": "South America: Suriname, Saramacca, Nickerie and Corantijn River basins.",
+        "country": "SR",
+        "ok": true
+      },
+      {
+        "name": "Saramacca",
+        "source": "planetcatfish",
+        "quote": "South America: Suriname, Saramacca, Nickerie and Corantijn River basins.",
+        "country": "SR",
+        "ok": true
+      },
+      {
+        "name": "Nickerie",
+        "source": "planetcatfish",
+        "quote": "South America: Suriname, Saramacca, Nickerie and Corantijn River basins.",
+        "country": "SR",
+        "ok": true
+      },
+      {
+        "name": "Sipaliwini River",
+        "source": "planetcatfish",
+        "quote": "Type locality: Sipaliwini River, southwestern Suriname.",
+        "country": "SR",
+        "ok": true
+      },
+      {
+        "name": "Corantijne",
+        "source": "scotcat",
+        "quote": "The species is widespread in the Corantijne, Sipaliwini, Nickerie, Saramacca, and Suriname drainages.",
+        "ok": true
+      },
+      {
+        "name": "Sipaliwini",
+        "source": "scotcat",
+        "quote": "The species is widespread in the Corantijne, Sipaliwini, Nickerie, Saramacca, and Suriname drainages.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Metaloricaria nijsseni",
+    "status": "ACCEPTED",
+    "taxonKey": 2340050,
+    "datasets": [
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        26
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        19
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        7
+      ],
+      [
+        "56caf05f-1364-4f24-85f6-0c82520c2792",
+        2
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "SR",
+      "GY"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

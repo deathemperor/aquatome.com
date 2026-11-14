@@ -100,6 +100,7 @@ struct AppIconPicker: View {
       }
       .padding()
     }
+    .modifier(ClearUnderTopBar(shown: true))
     .navigationTitle("Biểu tượng ứng dụng")
     .navigationBarTitleDisplayMode(.inline)
     .alert("Không đổi được biểu tượng. Thử lại sau.", isPresented: $failed) {}
@@ -173,7 +174,7 @@ extension View {
 private struct AppIconsForTests: ViewModifier {
   @State private var shown = ProcessInfo.processInfo.arguments.contains("-app-icons")
   func body(content: Content) -> some View {
-    content.sheet(isPresented: $shown) { NavigationStack { AppIconPicker() } }
+    content.sheet(isPresented: $shown) { NavigationStack { AppIconPicker() }.ownerScreen("sheet app-icon") }
   }
 }
 #endif

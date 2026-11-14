@@ -1,0 +1,8 @@
+Các ghi chú dưới đây không phải lỗi so với video. Bài này viết cho người chơi ở Việt Nam, và mỗi ghi chú trích một chỗ không hợp với họ: tên một tiệm hay một sản phẩm ở nước ngoài, giá bằng tiền nước ngoài, chuyện chỉ đúng ở nước khác (nước máy, khí hậu, mùa, thói quen, nơi mua ở đó), hoặc câu nhắc tới video, người làm video hay bể của họ như thể người đọc đã biết.
+
+- Video có nói vậy thì vẫn sửa: bỏ chỗ được trích, hoặc viết lại câu đó để giữ ý mà không còn nó. Tên tiệm thành "tiệm cá cảnh" hay "trên mạng" nếu câu chỉ nói nơi mua; tên sản phẩm thành loại sản phẩm đó; câu nhắc tới video hay người làm video thành lời nói thẳng, giữ đúng mức chắc chắn của người nói.
+- Chỗ khác trong bài (tiêu đề, tóm tắt, thân bài, FAQ) nói cùng điều được trích thì sửa hết.
+- Giá bằng tiền nước ngoài không xoá đi, cũng không giữ con số: viết lại thành điều mà cái giá ấy muốn nói, và chỉ vậy thôi. Ví dụ: "linh kiện mua ở tiệm kim khí, rẻ hơn nhiều so với một bộ làm sẵn", "cả bộ tự làm tốn ít hơn một bộ mua sẵn". Không so sánh mạnh hơn mức các giá trong video cho thấy. Không ghi con số hay đơn vị tiền nào, trừ khi video nêu giá bằng đồng Việt Nam, và không đổi giá sang tiền Việt.
+- Không thay bằng tiệm, giá, sản phẩm hay lời khuyên khác.
+- Liều lượng, số đo và mọi số liệu khác giữ nguyên. Không biến liều của một sản phẩm thành liều của hoạt chất. Câu nào cho liều của một sản phẩm thì giữ tên sản phẩm; không đổi thành loại.
+- Bỏ một câu mà đoạn đó mất nghĩa thì bỏ cả ý đó, đừng viết thêm điều video không nói để lấp vào.

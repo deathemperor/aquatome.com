@@ -13,13 +13,19 @@
     "dimorphism:planetcatfish": "<p>Cá đực có nhú sinh dục dài nằm ngay trước vây hậu môn.</p>",
     "reproduction:planetcatfish": "<p>Chưa có ghi nhận. Đến nay chỉ có đúng một báo cáo về việc loài này sinh sản.</p>",
     "notes:planetcatfish": "<p>Có thể nhận ra chi Tachysurus qua hai đặc điểm xương. Xương extrascapular của chúng không có ống cảm giác bên, còn xương pterotic có một phần phiến xương mở rộng sang hai bên. Đây là một trong những nhóm cá da trơn nhiều loài nhất ở Đông Á. Các loài trong chi sống ở đủ kiểu môi trường, từ suối đồi nước chảy xiết cho đến sông lớn.</p><p>Loài này rất dễ phân biệt nhờ thân dài, vây mỡ dài và màu sắc đẹp. Ngoài dạng thường còn có dạng xanthic (vàng) và dạng bạch tạng.</p>",
-    "references:planetcatfish": "<p>Acta Zootaxonomica Sinica v. 4 (no. 2), pp 182 (English p. 183), Fig. 1</p>"
+    "references:planetcatfish": "<p>Acta Zootaxonomica Sinica v. 4 (no. 2), pp 182 (English p. 183), Fig. 1</p>",
+    "quickFacts:scotcat": "<p>Tên thường gọi: Highway Catfish (chưa có tên tiếng Việt quen dùng).</p><p>Họ: Bagridae.</p><p>Tên đồng nghĩa: Pseudobagrus trilineatus, Leiocassis trilineatus.</p><p>Mô tả: Vây lưng có tổng cộng 2 gai và 7 tia mềm. Vây hậu môn có 18–19 tia mềm. Thân trần, không có vảy, đường bên chạy liền một mạch. Vây lưng phát triển tốt. Vây mỡ dài gấp khoảng 1,4–2,8 lần vây lưng và gần như hình cung.</p><p>Màu sắc: Thân màu nâu vàng, mỗi bên thân có ba sọc dọc màu vàng sẫm (trilineatus). Sọc chạy dọc theo đường bên bị đứt quãng.</p><p>Kích thước: 7,5 cm.</p>",
+    "distribution:scotcat": "<p>Châu Á: Trung Quốc, lưu vực sông Dongjiang. Nơi thu mẫu chuẩn (type locality) là một con suối núi ở Luofu Shan, Boluo Xian, tỉnh Quảng Đông, Trung Quốc.</p><p>Danh lục đỏ IUCN: Loài này sống ở các sông ven biển tỉnh Quảng Đông, Trung Quốc. Quần thể của nó ổn định và không gặp mối đe dọa nào đáng kể, nên được xếp vào mức Ít quan tâm (IUCN 2024).</p>",
+    "waterConditions:scotcat": "<p>Nhiệt độ: 15–25 °C.</p><p>pH: 6,0–7,5.</p>",
+    "notes:scotcat": "<p>Từ nguyên: Tên giống Tachysurus ghép từ tachys (nhanh) và oura (đuôi). Cái tên này nói đến sự nhanh nhẹn mà người ta đoán ở T. sinensis, dựa vào chiếc đuôi \"dài và nhanh nhẹn\" (theo bản dịch). Tên loài trilineatus ghép từ tri- (ba) và lineatus (có sọc), chỉ ba sọc vàng ở mỗi bên thân.</p><p>Ghi chú: Một số tài liệu vẫn coi Pseudobagrus trilineatus là tên hợp lệ. Còn Eschmeyer's Catalog of Fishes thì dùng Tachysurus làm tên giống hiện hành và xếp Pseudobagrus trilineatus làm tên đồng nghĩa muộn.</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr. 2007 Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Gao, G. 1991 Bagridae. p. 297-317. In J.-H. Pan, L. Zhong, C.-Y. Zheng, H.-L. Wu and J.-H. Liu (eds). 1991. The freshwater fishes of Guangdong Province. Guangdong Science and Technology Press, Guangzhou. 589 pp.</p><p>Shao, W. 2024. Tachysurus trilineatus. The IUCN Red List of Threatened Species 2024.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.8
+      "planetcatfish": 0.8,
+      "scotcat": 0.85
     }
   }
 }

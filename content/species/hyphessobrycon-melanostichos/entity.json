@@ -8,7 +8,8 @@
   "places": [
     "south-america",
     "brazil",
-    "tapajos"
+    "tapajos",
+    "rio-tapajos"
   ],
   "range": {
     "native": {
@@ -118,6 +119,10 @@
       {
         "source": "seriouslyfish",
         "value": 3.7
+      },
+      {
+        "source": "glaser",
+        "value": 4
       }
     ],
     "tankCm": [
@@ -130,6 +135,10 @@
       {
         "source": "seriouslyfish",
         "value": 2
+      },
+      {
+        "source": "glaser",
+        "value": 2
       }
     ]
   },
@@ -141,10 +150,22 @@
       "html": "<p>The black stripe tetra, Hyphessobrycon melanostichos, is a characid endemic to the Rio Doze de Outubro in the upper Rio Tapajos basin, Brazil. It shares a number of similarities with Hyphessobrycon sp. 'Blue Ribbon' but has a lighter, more streamlined body, a smaller humeral spot and red colouring. It can become territorial in small tanks, but a group of 10 or more should prevent problems.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_cf_melanostichos_en/",
+      "html": "<p>Hyphessobrycon cf. melanostichos are very lively tetras. They reach a maximum length of about 3-4 cm. When the fish are displaying their proximal part of the back becomes bright red as well as the fins do.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-melanostichos",
       "html": "<p>Endemic to the Rio Doze de Outubro of the upper Rio Tapajos basin of Brazil.</p><p>A similar fish which is referred to as Hyphessobrycon cf. melanostichos is found in the Rio Teles Pires, but it is unclear whether this will be described as a new species or not.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_cf_melanostichos_en/",
+      "html": "<p>Hyphessobrycon melanostichos was described scientifically only in 2006. Until now the fish is known only from the upper reaches of the Rio Tapajos, namely a small river called Rio Doze de Outubro.</p>"
     },
     {
       "key": "aquariumSize",
@@ -157,6 +178,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-melanostichos",
       "html": "<p>A very straightforward species to keep, larger numbers will live much more harmoniously than small groups, where individuals will vie for dominance. Aim for a group of 12+ in a 90 cm long tank for the best results.</p><p>As far as décor is concerned, lush plant growth will provide an excellent contrasting backdrop to the blues and red of adult melanostichos. More natural setups might include rounded cobbles, sandy substrate, driftwood and even leaf litter. In tanks with large amounts of mosses, fry and young fish may occasionally appear from spawnings.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_cf_melanostichos_en/",
+      "html": "<p>Keeping these fish in aquaria is pretty easy and comparable to that of other small tetras.</p>"
     },
     {
       "key": "waterConditions",
@@ -195,10 +222,22 @@
       "html": "<p>Hyphessobrycon melanostichos shares a number of similarities with Hyphessobrycon sp. Blue Ribbon. The former can be differentiated from the latter by a lighter set, more streamlined body, smaller humeral spot and also red colouring, which is not present on the Blue Ribbon tetra. Care and maintenance of the two species is however, virtually the same.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_cf_melanostichos_en/",
+      "html": "<p>Hyphessobrycon: ancient Greek, means \"small Brycon\". Brycon is another genus of tetras. melanostichos: ancient Greek, means \"with a black band\". Suggested common name: Fireback-Blackband-Tetra.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-melanostichos",
       "html": "<ul><li>Bailly, Nicolas. https://www.fishbase.se/summary/Hyphessobrycon-melanostichos.html Fish Base</li><li>Pedley, Max A. (2020). Practical Fishkeeping Bauer Media</li><li>Carvalho, T. P. and V. A. Bertaco (2006). Two new species of Hyphessobrycon (Teleostei: Characidae) from upper rio Tapajós basin on Chapada dos Parecis, Central Brazil. Neotropical Ichthyology 4(3), 301-308</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_cf_melanostichos_en/",
+      "html": "<p>This attractive tetra is offered here for the first time; the specimens are German bred. Whether the fish are identical with H. melanostichos cannot be said for sure so far, but they have many similarities with that species. Available size: 3-5 cm.</p>"
     }
   ],
   "photos": [
@@ -214,7 +253,38 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "IB1-9kuen6Q",
+      "title": "Black Stripe Tetra - Melanostichos #13 Daniken Aquatics Top 100 Fish of the Fish House",
+      "durationSec": 271,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "bvxMQK-h_po",
+      "title": "Hyphessobrycon melanostichos: A Hidden Gem for Your Aquarium! AquaVerse #tetra #aquascape #shorts",
+      "durationSec": 30,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "TBQX_6nRV_8",
+      "title": "Hyphessobrycon melanostichos",
+      "durationSec": 58,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "1GBini3ANIQ",
+      "title": "Blauer Tapajós-Salmler - Hyphessobrycon melanostichos",
+      "durationSec": 35,
+      "lang": "de-DE"
+    },
+    {
+      "youtubeId": "iHX2mCFvjsI",
+      "title": "Hyphessobrycon Melanostichos Such a Rare amazing Tetra ❤️💕FISHROOMS LIFE",
+      "durationSec": 16,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -244,5 +314,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-13"
 }

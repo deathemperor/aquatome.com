@@ -123,7 +123,73 @@
       "html": "<ul><li>Hora, S. L. (1936). On a further collection of fish from the Naga Hills. Records of the Indian Museum (Calcutta) v. 38 (pt 3), 317-331</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/d385fb2540927bf8d5e858c8ef2cfd17.webp",
+      "thumb": "https://media.aquatome.com/processed/d385fb2540927bf8d5e858c8ef2cfd17-480.webp",
+      "width": 700,
+      "height": 372,
+      "licence": "dùng với sự cho phép",
+      "author": "Nonn Panitvong",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bangana-devdevi",
+      "caption": "Specimen from the Salween basin, northwestern Thailand.",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-bangana-devdevi",
+        "pixelHash": "b4412083a09a2387316ee2d59007417792311e25ef58de383ad3dae43168c45f"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T10:00:28.280Z",
+          "originalHash": "afc1b40956a50546d28a83e44667e6e741a0b6a4738bcb7cb70517a6c6cd3c41",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 700,
+            "originalHeight": 402,
+            "window": {
+              "x0": 0,
+              "y0": 0,
+              "x1": 700,
+              "y1": 372
+            },
+            "subject": {
+              "x0": 77,
+              "y0": 183,
+              "x1": 659,
+              "y1": 359
+            },
+            "margin": 11
+          },
+          "excludedMarks": [
+            {
+              "x0": 51,
+              "y0": 377,
+              "x1": 156,
+              "y1": 394
+            }
+          ],
+          "checks": {
+            "species": [
+              "780bcdde9a63528791803b824eb5c2979a452dfbae153f1bb35c55bdb25e7b1e",
+              "30e8ba6e62e712d8395b0d411a3f9a4e9b0ce670da12fd7fc9f2705473b64222"
+            ],
+            "ownership": [
+              "1c1caa34c90a920ffd207ac809dc34696bbddbe271d0990d1b690d64bbce004d",
+              "c3bbb71e398a74fccb80ab0c4ecd11f03887ec553502dd6b7fe604a0dd872d58"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/f62596ae756c7cc8.webp",
+        "width": 700,
+        "height": 402,
+        "thumb": "https://media.aquatome.com/seriouslyfish/f62596ae756c7cc8-480.webp"
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

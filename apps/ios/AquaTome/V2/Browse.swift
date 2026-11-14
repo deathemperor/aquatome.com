@@ -15,11 +15,7 @@ struct BrowseHome: View {
   @State private var recentShown: [HandbookIndex.Item] = []
   @State private var savedShown: [HandbookIndex.Item] = []
   @State private var held = false
-  /// The large title has gone up into the bar: the page's words are under the bar from here, and the band would hide the
-  /// title before this.
-  @State private var titleGone = false
   @State private var refreshes = 0
-  @ScaledMetric(relativeTo: .largeTitle) private var titleHeight: CGFloat = 44
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
   @Environment(\.dynamicTypeSize) private var size
@@ -56,9 +52,10 @@ struct BrowseHome: View {
               groups(s.groups)
             }
           }
-          let fish = s.featuredFish.filter { !onTop.contains($0.path) }
+          // Each shelf its count after what's shown above it, from its own list only (HandbookShelves.shelf).
+          let fish = HandbookShelves.shelf(s.browseFish, showing: HandbookShelves.Shown.fish, after: onTop)
           if !fish.isEmpty { columns("Loài quen thuộc", fish, more: Browse.fish(nil)) }
-          let plants = s.easyPlants.filter { !onTop.contains($0.path) }
+          let plants = HandbookShelves.shelf(s.browsePlants, showing: HandbookShelves.Shown.plants, after: onTop)
           if !plants.isEmpty || !s.placements.isEmpty {
             VStack(alignment: .leading, spacing: 12) {
               // Its chips never without a heading.
@@ -70,7 +67,7 @@ struct BrowseHome: View {
               if !s.placements.isEmpty { chips(s.placements.map { ($0.label, $0.count, Browse.plants($0.key)) }) }
             }
           }
-          let first = s.firstGuides.filter { !onTop.contains($0.path) }
+          let first = HandbookShelves.shelf(s.browseGuides, showing: HandbookShelves.Shown.guides, after: onTop)
           if !first.isEmpty || !s.sections.isEmpty {
             VStack(alignment: .leading, spacing: 12) {
               if first.isEmpty {
@@ -83,9 +80,9 @@ struct BrowseHome: View {
               if !s.sections.isEmpty { chips(s.sections.map { ($0.label, $0.count, Browse.guides($0.key)) }) }
             }
           }
-          let series = s.all(.video).filter { !onTop.contains($0.path) }
+          let series = HandbookShelves.shelf(s.all(.video), showing: HandbookShelves.Shown.videos, after: onTop)
           if !series.isEmpty {
-            if size.isAccessibilitySize { columns("Video", Array(series.prefix(8)), more: Browse.videos) } else { videos(Array(series.prefix(8))) }
+            if size.isAccessibilitySize { columns("Video", series, more: Browse.videos) } else { videos(series) }
           }
           let kit = s.all(.equipment).filter { !onTop.contains($0.path) }
           if !kit.isEmpty { columns("Thiết bị", kit) }
@@ -94,8 +91,7 @@ struct BrowseHome: View {
         .padding(.vertical, 12)
       }
       .v2ClearOfTheFade()
-      .onScrollGeometryChange(for: Bool.self) { [titleHeight] in $0.contentOffset.y + $0.contentInsets.top > min(titleHeight, V2Fade.largeTitleAtMost) } action: { _, gone in titleGone = gone }
-      .modifier(ClearUnderTopBar(shown: titleGone))
+      .modifier(ClearUnderLargeTitle())
       .accessibilityIdentifier("v2-browse")
       .v2ClearsFootGoingBack(path.count)
       .navigationTitle("Khám phá")

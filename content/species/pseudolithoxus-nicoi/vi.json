@@ -5,13 +5,19 @@
     "White seam flyer cat"
   ],
   "sections": {
-    "quickFacts:glaser": "<p>Đợt cá về này là những con Pseudolithoxus nicoi, một loài cá da trơn rất đẹp, nhập từ Venezuela. Loài này hiếm khi có hàng bán. Cá trưởng thành dài tối đa khoảng 12 cm.</p>"
+    "quickFacts:glaser": "<p>Đợt cá về này là những con Pseudolithoxus nicoi, một loài cá da trơn rất đẹp, nhập từ Venezuela. Loài này hiếm khi có hàng bán. Cá trưởng thành dài tối đa khoảng 12 cm.</p>",
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Pseudolithoxus nicoi (Armbruster &amp; Provenzano, 2000)</li><li>Tên đồng nghĩa: Lasiancistrus nicoi</li></ul>",
+    "notes:planetcatfish": "<p>Nhận dạng: thân xám than đến đen, rải đốm trắng, vây đuôi có một dải trắng. Chiều dài gốc vây lưng gấp 3,2–3,5 lần chiều cao cuống đuôi (SL).</p><ul><li>Tấm xương đường bên: 23–25</li><li>Tấm xương lưng: 6–7</li><li>Tấm xương giữa hai vây lưng: 5–7</li><li>Tấm xương từ vây mỡ tới vây đuôi: 7–8</li><li>Tấm xương dưới vây lưng khi gấp: 11–12</li><li>Tấm xương sau hậu môn: 11–12</li></ul><p>Nơi thu mẫu chuẩn: Río Manipitare (lưu vực Río Siapa), ngược lên thượng nguồn khoảng 5–8 km tính từ chỗ hợp lưu với Río Siapa, tỉnh (departamento) Río Negro, bang Amazonas, Venezuela.</p>",
+    "distribution:planetcatfish": "<p>Nam Mỹ: lưu vực thượng nguồn sông Negro, kể cả lưu vực kênh Casiquiare ở Venezuela.</p>",
+    "reproduction:planetcatfish": "<p>Chưa có thông tin về sinh sản, và cũng chưa ai báo cáo cho đẻ được loài này.</p>",
+    "references:planetcatfish": "<p>Ichthyological Exploration of Freshwaters v. 11 (no. 3), pp 249, Fig. 4.</p>"
   },
   "quality": {
     "score": 0.55,
     "indexable": false,
     "bySource": {
-      "glaser": 0.55
+      "glaser": 0.55,
+      "planetcatfish": 0.72
     },
     "reason": "thin"
   }

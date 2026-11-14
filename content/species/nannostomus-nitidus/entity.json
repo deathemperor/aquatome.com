@@ -10,6 +10,122 @@
     "brazil",
     "capim"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Capim",
+        "Rio Pará"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The shining pencilfish, Nannostomus nitidus, was described from the Rio Capim, a short river draining into the rio Pará near Belém, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Capim",
+            "Rio Pará"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355625,
+      "total": 25,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "BR",
+          24
+        ],
+        [
+          "GY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -61.875,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          -52.03125,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          -52.03125,
+          0,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -49.21875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          -47.8125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

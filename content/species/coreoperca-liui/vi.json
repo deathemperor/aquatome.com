@@ -1,0 +1,27 @@
+{
+  "slug": "ca-ro-trung-quoc-coreoperca-liui",
+  "name": "Cá rô Trung Quốc Coreoperca liui",
+  "altNames": [
+    "Cá rô Trung Quốc",
+    "Chinese perch"
+  ],
+  "sections": {
+    "beforeYouBuy:glaser": "<p>Đây là lần đầu tiên loài cá rô nước ngọt khá lạ từ miền nam Trung Quốc này được nhập về. Hai chi Coreoperca và Siniperca có tất cả 14 loài. Giới phân loại coi chúng là họ hàng gần của cá mú (Serranidae), nhưng lại xếp riêng vào một họ là Sinipercidae.</p>",
+    "quickFacts:glaser": "<p>Loài cá rô Trung Quốc này dài tối đa khoảng 11 cm.</p>",
+    "behaviour:glaser": "<p>Khác với cá mú, cá rô Trung Quốc hoàn toàn hiền với đồng loại. Chúng thậm chí có vẻ thích bơi cùng nhau. Dĩ nhiên đây vẫn là cá săn mồi cỡ nhỏ, và chúng thích ăn cá sống.</p><p>Nhìn bề ngoài, cá rô Trung Quốc rất giống cá rô lá (Nandus nandus), nhưng tính nết thì khác hẳn. Cá rô lá nhút nhát, lúc nào cũng tìm chỗ trốn. Còn cá rô Trung Quốc thì rất hiếu động, tò mò và hay bơi ra chỗ nước trống.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-11"
+  }
+}

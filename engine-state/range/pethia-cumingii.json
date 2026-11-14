@@ -1,0 +1,89 @@
+{
+  "id": "pethia-cumingii",
+  "native": {
+    "input": "3c01aa560f99784e",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Cuming's barb, Pethia cumingii, is a small cyprinid endemic to southwestern Sri Lanka, apparently only in the Bentara and Gin river drainages.",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to southwestern Sri Lanka where it appears to occur only in the Bentara and Gin river drainages.",
+        "words": "Sri Lanka",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Bentara",
+        "source": "seriouslyfish",
+        "quote": "Endemic to southwestern Sri Lanka where it appears to occur only in the Bentara and Gin river drainages.",
+        "ok": true
+      },
+      {
+        "name": "Gin",
+        "source": "seriouslyfish",
+        "quote": "Endemic to southwestern Sri Lanka where it appears to occur only in the Bentara and Gin river drainages.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pethia cumingii",
+    "status": "ACCEPTED",
+    "taxonKey": 7940244,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        15
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "988007b1-1179-42e0-863c-bb9f1bdfa6f7",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "LK"
+    ],
+    "requests": 11,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

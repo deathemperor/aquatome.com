@@ -2,6 +2,7 @@ import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { slugify, type GuideEntity, type SourceId } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
+import { piece } from './pieces'
 import { makeTopic, topicId } from './topics'
 
 /**
@@ -147,7 +148,8 @@ export async function writeIdeas(root: string, d: { research: Llm; llm: Llm; now
     // A guide of that name already (the ideas missed it): taken as written, never rewritten from here.
     if (await readFile(join(root, 'content/guides', id, 'vi.json'), 'utf8').then(() => true, () => false)) { idea.guide = id; continue }
     try {
-      const r = await makeTopic(root, { research: d.research, llm: d.llm }, { topic: idea.topic, kind: idea.kind }, { leads: ideaLeads(idea, state), now: d.now, ...(o.researchModel ? { researchModel: o.researchModel } : {}) })
+      // A guide is one piece: started only when what's left of the day's line covers a typical one (pieces.ts).
+      const r = await piece(id, () => makeTopic(root, { research: d.research, llm: d.llm }, { topic: idea.topic, kind: idea.kind }, { leads: ideaLeads(idea, state), now: d.now, ...(o.researchModel ? { researchModel: o.researchModel } : {}) }), { now: d.now })
       state.written[today] = (state.written[today] ?? 0) + 1
       if ('skipped' in r && r.skipped) { idea.skipped = r.skipped; report.skipped.push(r.skipped) } else { idea.guide = r.id; report.written.push(r.id) }
     } catch (err) {

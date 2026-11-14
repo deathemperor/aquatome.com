@@ -9,6 +9,52 @@
     "africa",
     "guinea"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GN"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "A dwarf cichlid from Guinea, a close relative of P. humilis.",
+          "countries": [
+            "GN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372944,
+      "total": 2,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "GN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -12.65625,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -11.25,
+          9.84375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,0 +1,76 @@
+{
+  "id": "rasbora-caudimaculata",
+  "native": {
+    "input": "877995aab1a35c2b",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Apparent occurences from Southern Thailand and the Lower Mekong basin in Cambodia are likely to be incorrect and it is probably restricted to Peninsular Malaysia and the Greater Sunda Islands of Borneo and Sumatra.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Apparent occurences from Southern Thailand and the Lower Mekong basin in Cambodia are likely to be incorrect and it is probably restricted to Peninsular Malaysia and the Greater Sunda Islands of Borneo and Sumatra.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Apparent occurences from Southern Thailand and the Lower Mekong basin in Cambodia are likely to be incorrect and it is probably restricted to Peninsular Malaysia and the Greater Sunda Islands of Borneo and Sumatra.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "A study into the fish species inhabiting the Middle Malinau River in the Indonesian province of Kalimatan Timur, Borneo (East Kalimantan) revealed that its range appears to extend throughout much of the island as it is also well documented from the Malaysian state of Sarawak and Brunei Darussalam in the west.",
+        "words": "Indonesian",
+        "ok": true
+      },
+      {
+        "code": "BN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "A study into the fish species inhabiting the Middle Malinau River in the Indonesian province of Kalimatan Timur, Borneo (East Kalimantan) revealed that its range appears to extend throughout much of the island as it is also well documented from the Malaysian state of Sarawak and Brunei Darussalam in the west.",
+        "words": "Brunei Darussalam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Apparent occurences from Southern Thailand and the Lower Mekong basin in Cambodia are likely to be incorrect and it is probably restricted to Peninsular Malaysia and the Greater Sunda Islands of Borneo and Sumatra.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Apparent occurences from Southern Thailand and the Lower Mekong basin in Cambodia are likely to be incorrect and it is probably restricted to Peninsular Malaysia and the Greater Sunda Islands of Borneo and Sumatra.",
+        "ok": true
+      },
+      {
+        "name": "Malinau River",
+        "source": "seriouslyfish",
+        "quote": "A study into the fish species inhabiting the Middle Malinau River in the Indonesian province of Kalimatan Timur, Borneo (East Kalimantan) revealed that its range appears to extend throughout much of the island as it is also well documented from the Malaysian state of Sarawak and Brunei Darussalam in the west.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  }
+}

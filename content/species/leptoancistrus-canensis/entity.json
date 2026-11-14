@@ -1,0 +1,50 @@
+{
+  "id": "leptoancistrus-canensis",
+  "scientificName": "Leptoancistrus canensis",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Leptoancistrus",
+  "group": "catfish",
+  "places": [
+    "central-america",
+    "panama"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 7.6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1333",
+      "html": "<ul><li>Scientific name: Leptoancistrus canensis (Meek &amp; Hildebrand, 1913)</li><li>Synonym: Ancistrus canensis</li><li>Type locality: Río Cana, Cana, Darien, Panama.</li><li>Identification: the genus Leptoancistrus is characterized by having one or more very long cheek odontodes, and lacking adipose and anal fins.</li><li>IUCN Red List: Least Concern (last assessed 2019).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1333",
+      "html": "<p>Central America: Pacific drainages of eastern Panama and Armila River on the Atlantic slope.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1333",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1333",
+      "html": "<p>Field Museum of Natural History, Publications, Zoölogical Series v. 10 (no. 8), pp 80.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-13"
+}

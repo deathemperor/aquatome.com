@@ -1,0 +1,112 @@
+{
+  "id": "kryptopterus-minor",
+  "scientificName": "Kryptopterus minor",
+  "order": "Siluriformes",
+  "family": "Siluridae",
+  "genus": "Kryptopterus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "indonesia",
+    "kapuas"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2337916,
+      "total": 5,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "ID",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          109.6875,
+          0,
+          2,
+          2
+        ],
+        [
+          111.09375,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          111.09375,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/kryptopterus_minor_en/",
+      "html": "<p>Origin: Indonesia. Available size: 6–8 cm. Suggested common name: Golden back ghost catfish.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/kryptopterus_minor_en/",
+      "html": "<p>Like Kryptopterus vitreolus, K. minor lives in very soft, acidic water in the wild. However, adaptation to other water conditions is very good, as it is in cardinal tetras (Paracheirodon axelrodi) and other blackwater fishes. By far more important than imitating the chemical water conditions found in the wild is partial water change on a regular basis in the home aquarium. The fish simply need clean water with as little pollution and as few bacteria as possible.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/kryptopterus_minor_en/",
+      "html": "<p>Lexicon: Kryptopterus: ancient Greek, means \"with hidden fin\". bicirrhis: Latin, means \"with two filaments\". minor: Latin, means \"small\". vitreolus: Latin, means \"small glass\".</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "máy lọc nước bể cá"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test nước bể cá",
+        "test pH nước"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "artemia đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-11"
+}

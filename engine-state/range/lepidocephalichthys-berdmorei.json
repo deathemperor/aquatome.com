@@ -1,8 +1,8 @@
 {
   "id": "lepidocephalichthys-berdmorei",
   "native": {
-    "input": "80d952bfc2b0992a",
-    "at": "2026-11-09T12:58:06.259Z",
+    "input": "68b4eb983bc5612b",
+    "at": "2026-11-10T07:58:31.896Z",
     "claims": [
       {
         "code": "MM",
@@ -55,13 +55,6 @@
     ],
     "regions": [
       {
-        "name": "Brahmaputra",
-        "source": "seriouslyfish",
-        "quote": "Thought to have been described from the Sittaung River basin, Bago Division, Myanmar but currently accepted to have a wide distribution including the following river systems and countries: Brahmaputra in Bangladesh; Manipur in Manipur state, north-eastern India; Irrawaddy, Sittaung and Salween in Myanmar; Chao Phraya and Mae Klong in Thailand; Mekong in Thailand and Laos.",
-        "country": "BD",
-        "ok": true
-      },
-      {
         "name": "Irrawaddy",
         "source": "seriouslyfish",
         "quote": "Thought to have been described from the Sittaung River basin, Bago Division, Myanmar but currently accepted to have a wide distribution including the following river systems and countries: Brahmaputra in Bangladesh; Manipur in Manipur state, north-eastern India; Irrawaddy, Sittaung and Salween in Myanmar; Chao Phraya and Mae Klong in Thailand; Mekong in Thailand and Laos.",
@@ -76,10 +69,9 @@
         "ok": true
       },
       {
-        "name": "Sittaung",
+        "name": "Mekong",
         "source": "seriouslyfish",
         "quote": "Thought to have been described from the Sittaung River basin, Bago Division, Myanmar but currently accepted to have a wide distribution including the following river systems and countries: Brahmaputra in Bangladesh; Manipur in Manipur state, north-eastern India; Irrawaddy, Sittaung and Salween in Myanmar; Chao Phraya and Mae Klong in Thailand; Mekong in Thailand and Laos.",
-        "country": "MM",
         "ok": true
       },
       {
@@ -90,9 +82,17 @@
         "ok": true
       },
       {
-        "name": "Mekong",
+        "name": "Brahmaputra",
         "source": "seriouslyfish",
         "quote": "Thought to have been described from the Sittaung River basin, Bago Division, Myanmar but currently accepted to have a wide distribution including the following river systems and countries: Brahmaputra in Bangladesh; Manipur in Manipur state, north-eastern India; Irrawaddy, Sittaung and Salween in Myanmar; Chao Phraya and Mae Klong in Thailand; Mekong in Thailand and Laos.",
+        "country": "BD",
+        "ok": true
+      },
+      {
+        "name": "Sittaung",
+        "source": "seriouslyfish",
+        "quote": "Thought to have been described from the Sittaung River basin, Bago Division, Myanmar but currently accepted to have a wide distribution including the following river systems and countries: Brahmaputra in Bangladesh; Manipur in Manipur state, north-eastern India; Irrawaddy, Sittaung and Salween in Myanmar; Chao Phraya and Mae Klong in Thailand; Mekong in Thailand and Laos.",
+        "country": "MM",
         "ok": true
       }
     ],

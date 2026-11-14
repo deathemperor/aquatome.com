@@ -1,0 +1,65 @@
+{
+  "id": "parosphromenus-quindecim",
+  "native": {
+    "input": "e309665bc01cf8ec",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Parosphromenus quindecim is a liquorice gourami known only from the Pawan and Liong river basins in West Kalimantan, Indonesian Borneo.",
+        "words": "Indonesian",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Pawan and Liong river basins in southeastern West Kalimantan (Kalimantan Barat) province, Indonesia (Borneo) with the full extent of its range somewhat unclear.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Pawan",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Pawan and Liong river basins in southeastern West Kalimantan (Kalimantan Barat) province, Indonesia (Borneo) with the full extent of its range somewhat unclear.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Liong",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Pawan and Liong river basins in southeastern West Kalimantan (Kalimantan Barat) province, Indonesia (Borneo) with the full extent of its range somewhat unclear.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Pawan and Liong river basins in southeastern West Kalimantan (Kalimantan Barat) province, Indonesia (Borneo) with the full extent of its range somewhat unclear.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parosphromenus quindecim",
+    "status": "ACCEPTED",
+    "taxonKey": 2394173,
+    "datasets": [],
+    "native": [
+      "ID"
+    ],
+    "requests": 2,
+    "at": "2026-11-12T13:29:05.219Z"
+  }
+}

@@ -203,10 +203,12 @@ function figure(f: HTMLElement, unknown: Set<string>): Block | undefined {
   const by = cap?.querySelector('.pic-by')
   const author = by?.querySelector('a.author')?.getAttribute('href')
   const name = by?.getAttribute('data-author')
+  const kind = by?.getAttribute('data-credit-kind')
+  const changed = kind === 'generated' || kind === 'altered'
   // A © without a tip names no licence (a photo a source let us use): its credit's licence is empty.
   const credit = mark && mark.getAttribute('data-term')
     ? { text: mark.getAttribute('data-term')!, licence: mark.getAttribute('data-tip') ?? '', ...(mark.getAttribute('href') ? { url: mark.getAttribute('href')! } : {}) }
-    : by ? { text: clean(by.textContent), licence: UNSPLASH_LICENCE, ...(by.getAttribute('data-src') ? { url: by.getAttribute('data-src')! } : {}), ...(author ? { authorUrl: author } : {}), ...(name ? { author: clean(name) } : {}) } : undefined
+    : by ? { text: clean(by.textContent), licence: changed ? by.getAttribute('data-licence') ?? '' : UNSPLASH_LICENCE, ...(by.getAttribute('data-src') ? { url: by.getAttribute('data-src')! } : {}), ...(!changed && author ? { authorUrl: author } : {}), ...(!changed && name ? { author: clean(name) } : {}) } : undefined
   mark?.remove()
   by?.remove()
   const img = image(f.querySelector('img'), credit)

@@ -1,0 +1,70 @@
+{
+  "id": "boulengerella-lateristriga",
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/e040326c174bf72adcc54fad279eb7b4.webp",
+      "thumb": "https://media.aquatome.com/processed/e040326c174bf72adcc54fad279eb7b4-480.webp",
+      "width": 800,
+      "height": 524,
+      "licence": "dùng với sự cho phép",
+      "author": "Enrico Richter / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerella-lateristriga",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261113-boulengerella-lateristriga-recovery-1",
+        "pixelHash": "35d0ad52e6dfc86981b6d11da30b7afd8146bbbaaa0fc45332ccbb39fdb36265"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-13T07:48:03.843Z",
+          "originalHash": "0a8d2a995ef1e3641d384cd97366b4a446f648f7ba6e0dd7450397db8f01f74c",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 800,
+            "originalHeight": 559,
+            "window": {
+              "x0": 0,
+              "y0": 35,
+              "x1": 800,
+              "y1": 559
+            },
+            "subject": {
+              "x0": 103,
+              "y0": 253,
+              "x1": 733,
+              "y1": 402
+            },
+            "margin": 14
+          },
+          "excludedMarks": [
+            {
+              "x0": 669,
+              "y0": 10,
+              "x1": 793,
+              "y1": 29
+            }
+          ],
+          "checks": {
+            "species": [
+              "02a8555f5ac5a9f01b44d41bd6bbca9a7b023ce68a9f6427b25ad96bf1fc40ab",
+              "84e3e8516fb472f66bdd53ecc27102121233667c73d5add9690aae80c8c56ae6"
+            ],
+            "ownership": [
+              "4fc51fa076e8628fb80509b07284259582149f7c3d38cd71f3e4c02051d3186a",
+              "4cf809a17a82a330cf93ed12d356f53461d18387feeab175b858b742a36bc0bb"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/de9c7fb392b738c0.webp",
+        "width": 800,
+        "height": 559
+      }
+    }
+  ],
+  "seen": 0,
+  "updatedAt": "2026-11-13"
+}

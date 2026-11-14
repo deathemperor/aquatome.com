@@ -14,6 +14,8 @@ export function getContent(lang: Lang): Promise<Content> {
       lang,
       publicBuild: process.env.PUBLIC_BUILD === '1',
       leaveOutHeld: true,
+      // The real content (no CONTENT_ROOT) is built public only with the watermark screen's record beside it.
+      ...(process.env.CONTENT_ROOT ? {} : { photoScreen: 'required' as const }),
     }).then(c => dropHidden(c, readHidden(), lang))
     cache.set(lang, c)
   }

@@ -1,0 +1,29 @@
+{
+  "id": "pseudomugil-pellucidus",
+  "native": {
+    "input": "61b9d7ee6ca9880a",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudomugil pellucidus",
+    "status": "ACCEPTED",
+    "taxonKey": 2411753,
+    "datasets": [
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}

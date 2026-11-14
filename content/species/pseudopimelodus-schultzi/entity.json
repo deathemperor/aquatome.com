@@ -10,6 +10,116 @@
     "colombia",
     "magdalena"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Rio Magdalena"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Cereté, Colombia",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Rio Magdalena, Colombia (Colombia Caribbean Rivers, Magdalena).",
+          "countries": [],
+          "regions": [
+            "Rio Magdalena"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344087,
+      "total": 4376,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "CO",
+          4376
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -77.34375,
+          5.625,
+          7,
+          7
+        ],
+        [
+          -77.34375,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          5.625,
+          3842,
+          3842
+        ],
+        [
+          -75.9375,
+          7.03125,
+          336,
+          336
+        ],
+        [
+          -75.9375,
+          8.4375,
+          132,
+          132
+        ],
+        [
+          -75.9375,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          5.625,
+          13,
+          13
+        ],
+        [
+          -74.53125,
+          7.03125,
+          5,
+          5
+        ],
+        [
+          -74.53125,
+          8.4375,
+          34,
+          34
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

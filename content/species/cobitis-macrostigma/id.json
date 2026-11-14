@@ -1,0 +1,28 @@
+{
+  "slug": "largespotted-spiny-loach",
+  "name": "Largespotted Spiny Loach",
+  "altNames": [
+    "Spiny Loach",
+    "Spined Loach"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Loach asal Tiongkok yang cantik dan sangat damai. Spesies ini sangat cocok sebagai penghuni dasar di akuarium komunitas tanpa pemanas. Betinanya tumbuh sampai sekitar 10 cm, sedangkan jantannya jauh lebih kecil.</p>",
+    "waterConditions:glaser": "<p>Suhu optimal untuk ikan ini adalah 10–24 °C.</p>",
+    "diet:glaser": "<p>Ikan ini mau memakan semua jenis pakan ikan yang umum.</p>",
+    "dimorphism:glaser": "<p>Betina bisa mencapai panjang sekitar 10 cm, sedangkan jantan tetap jauh lebih kecil.</p>",
+    "notes:glaser": "<p>Ikan ini bisa saja diberi nama \"Largespotted Spiny Loach\".</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.9
+    }
+  },
+  "held": {
+    "checks": [
+      "elsewhere"
+    ],
+    "at": "2026-11-10"
+  }
+}

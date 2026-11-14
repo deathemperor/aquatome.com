@@ -12,6 +12,86 @@
     "cambodia",
     "mekong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "KH",
+        "TH"
+      ],
+      "regions": [
+        "Chao Phraya",
+        "Mekong",
+        "Tonle Sap"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Ompok pinnatus Ng, H.H., 2003. Common name: Long-fin Glass Catfish. Type locality: Cambodia: Tonle Sap at Kompong Chhnang. Size: 81 mm (3.2\") SL. IUCN Red List status: Data Deficient.",
+          "countries": [
+            "KH"
+          ],
+          "regions": [
+            "Tonle Sap"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Southeast Asia: Chao Phraya and Mekong River drainages in Thailand and Cambodia.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Chao Phraya",
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2337673,
+      "total": 4,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "KH",
+          2
+        ],
+        [
+          "TH",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          11.25,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          12.65625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

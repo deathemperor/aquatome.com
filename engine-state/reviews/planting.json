@@ -98,6 +98,20 @@
       "kept": true
     }
   ],
+  "vi/plants/azolla": [
+    {
+      "at": "2026-11-10T05:09:04Z",
+      "model": "opus",
+      "score": 0.8,
+      "notes": [
+        "\"Mấy tuần đầu\" sets a timeframe the INPUT never gives. It only says biomass can double in 4–7 days once the plant takes hold.",
+        "\"dàn lại chỗ còn thưa\" changes the INPUT's advice. The INPUT says to thin out and spread the spots where the mat is too thick (\"dàn lại những chỗ thảm quá dày\"), not to fill in sparse spots.",
+        "\"không phải vùi hay buộc vào đâu cả\" is a small addition. The INPUT says no substrate is needed but says nothing about not burying or tying the plant."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/plants/bucephalandra-sp": [
     {
       "at": "2026-11-06T18:21:50Z",
@@ -364,6 +378,20 @@
       "kept": true
     }
   ],
+  "vi/plants/limnophila-aromatica": [
+    {
+      "at": "2026-11-10T05:08:41Z",
+      "model": "opus",
+      "score": 0.85,
+      "notes": [
+        "The general new-tank advice from the video guide ('để đèn thấp rồi nâng dần', 'chưa vội châm phân nước') is in the INPUT, but it reads as if it were specific to Ngò om. It also drifts away from where to place the plant and how to plant it.",
+        "'nhất là khi bể dùng nền soil' compresses the guide's split (3 weeks for soil, at least 1 week for inert gravel or sand). It's acceptable but loose.",
+        "'Loài này trồng dày được. Cứ cắm dày ngay từ đầu' joins the plant page's 'chịu được trồng dày' to the guide's general dense-planting tip. This is fine, but the second sentence isn't about this plant specifically."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/plants/littorella-uniflora": [
     {
       "at": "2026-11-09T10:15:37Z",
@@ -375,6 +403,18 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/plants/ludwigia-brevipes": [
+    {
+      "at": "2026-11-10T05:08:23Z",
+      "model": "opus",
+      "score": 0.9,
+      "notes": [
+        "\"để cây mọc thẳng lên\" turns the INPUT's hedge \"có xu hướng mọc thẳng lên hơn\" into a firm result. It only makes the cây more likely to grow upright."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/plants/marsilea-minuta": [
@@ -445,6 +485,27 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/plants/nymphaea-zenkeri": [
+    {
+      "at": "2026-11-10T05:08:04Z",
+      "model": "opus",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-10T05:08:04Z",
+      "model": "opus",
+      "score": 0.6,
+      "notes": [
+        "\"để lá vươn ra từ phía sau\" isn't on the plant's page. It comes from the betta video guide, which says lilies 'sẽ đẹp khi vươn ra từ đó', so the passage borrows a video's advice.",
+        "\"Chuyện này không đáng lo\" goes a bit further than the source, which only says a healthy new bulb is the most important part. It's acceptable but slightly reassuring in tone."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/plants/pogostemon-stellatus": [

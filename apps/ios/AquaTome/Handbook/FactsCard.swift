@@ -39,6 +39,7 @@ struct FactsCard: View {
         HStack(alignment: .top, spacing: 16) {
           ForEach(all.indices, id: \.self) { i in Fact(item: all[i]) }
         }
+        .v2YieldsToEdgeSwipe()
         .padding(.horizontal)
         .padding(.vertical, 8)
       }

@@ -1,14 +1,14 @@
 {
   "id": "gymnocorymbus-bondi",
   "native": {
-    "input": "788558f3fb42ea94",
-    "at": "2026-11-08T13:58:00.601Z",
+    "input": "e635fa644644835f",
+    "at": "2026-11-10T23:57:51.686Z",
     "claims": [
       {
         "code": "CO",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The silver tetra, Gymnocorymbus bondi, is a characid from the Rio Orinoco basin in Colombia and Venezuela.",
+        "quote": "Rio Orinoco basin in Colombia and Venezuela.",
         "words": "Colombia",
         "ok": true
       },
@@ -16,16 +16,25 @@
         "code": "VE",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The silver tetra, Gymnocorymbus bondi, is a characid from the Rio Orinoco basin in Colombia and Venezuela.",
+        "quote": "Rio Orinoco basin in Colombia and Venezuela.",
         "words": "Venezuela",
         "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Colombia.",
+        "words": "Colombia",
+        "ok": false,
+        "why": "no sentence"
       }
     ],
     "regions": [
       {
         "name": "Rio Orinoco",
         "source": "seriouslyfish",
-        "quote": "The silver tetra, Gymnocorymbus bondi, is a characid from the Rio Orinoco basin in Colombia and Venezuela.",
+        "quote": "Rio Orinoco basin in Colombia and Venezuela.",
         "ok": true
       }
     ],

@@ -15,6 +15,142 @@
     "kapuas",
     "singapore"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "SG",
+        "ID"
+      ],
+      "regions": [
+        "Malay Peninsula",
+        "Sumatra",
+        "Borneo",
+        "Kapuas",
+        "Mahakam",
+        "Batang Hari"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Current distribution is accepted to include the states of Terengganu, Pahang and Johor, Peninsular Malaysia and Singapore, plus the Great Sunda Islands of Sumatra and Borneo.",
+          "countries": [
+            "MY",
+            "SG"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Borneo it occurs in the Malaysian state of Sarawak plus the Indonesian provinces of Kalimantan Barat (Kapuas River) and Kalimantan Timur (Mahakam River) meaning it's also likely to occur in Kalimantan Tengah, which lies in between the former two.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Kapuas",
+            "Mahakam"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "As far as known, Pangio shelfordii is distributed across parts of the Malay Peninsula, Sumatra (including some small offshore islands), and Borneo.",
+          "countries": [],
+          "regions": [
+            "Malay Peninsula",
+            "Sumatra",
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "On Sumatra it's known from the provinces of Riau, Jambi (Batang Hari River drainage) and Bangka Island.",
+          "countries": [],
+          "regions": [
+            "Batang Hari"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2367941,
+      "total": 23,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "ID",
+          15
+        ],
+        [
+          "MY",
+          6
+        ],
+        [
+          "SG",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          0,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          109.6875,
+          -1.40625,
+          6,
+          6
+        ],
+        [
+          109.6875,
+          0,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          1.40625,
+          4,
+          4
+        ],
+        [
+          112.5,
+          0,
+          4,
+          4
+        ],
+        [
+          113.90625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          -1.40625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

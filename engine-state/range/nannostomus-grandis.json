@@ -1,0 +1,35 @@
+{
+  "id": "nannostomus-grandis",
+  "native": {
+    "input": "f6285ffe15b3cbd3",
+    "at": "2026-11-10T15:58:17.469Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The largest member of its genus at up to 46 mm, Nannostomus grandis is a pencilfish known only from commercial exports from Belém, Pará state, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Nannostomus grandis",
+    "status": "ACCEPTED",
+    "taxonKey": 6165647,
+    "datasets": [],
+    "native": [
+      "BR"
+    ],
+    "requests": 2,
+    "at": "2026-11-10T15:58:17.469Z"
+  }
+}

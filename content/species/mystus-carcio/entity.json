@@ -12,6 +12,88 @@
     "bangladesh",
     "meghna"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "BD"
+      ],
+      "regions": [
+        "Brahmaputra",
+        "Meghna"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "IUCN Red List: Mystus carcio is widely distributed in Brahmaputra and Meghna river drainages in northeastern India and Bangladesh.",
+          "countries": [
+            "IN",
+            "BD"
+          ],
+          "regions": [
+            "Brahmaputra",
+            "Meghna"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5788313,
+      "total": 13,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "BD",
+          8
+        ],
+        [
+          "IN",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          90,
+          22.5,
+          5,
+          5
+        ],
+        [
+          90,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          91.40625,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          91.40625,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          92.8125,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          94.21875,
+          26.71875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -1,0 +1,68 @@
+{
+  "id": "otothyris-travassosi",
+  "native": {
+    "input": "8e8b553d3f002d84",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Barra Sêca River at Linhares to São Mateus road, Espírito Santo State, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Barra Sêca River",
+        "source": "planetcatfish",
+        "quote": "Type locality: Barra Sêca River at Linhares to São Mateus road, Espírito Santo State, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Otothyris travassosi",
+    "status": "ACCEPTED",
+    "taxonKey": 2339535,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        120
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        112
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        33
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        19
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        7
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        4
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

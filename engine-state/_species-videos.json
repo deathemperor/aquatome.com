@@ -752,10 +752,14 @@
     "reason": "vague"
   },
   "7WuDB1RXfKY": {
-    "at": "2026-11-07",
+    "at": "2026-11-10",
     "title": "Get to Know the Charming Checkered Barb - Oliotius oligolepis",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Oliotius oligolepis",
+    "page": "species/oliotius-oligolepis",
+    "done": "added",
+    "score": 0.86
   },
   "8_Ir9-q-C8I": {
     "at": "2026-11-07",
@@ -766,10 +770,12 @@
     "reason": "many species"
   },
   "8A_c0nJn0B4": {
-    "at": "2026-11-07",
+    "at": "2026-11-10",
     "title": "Hyphessobrycon seizi — the Silver Tetra",
     "channel": "CHRIS LUKHAUP",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "failed",
+    "reason": "yt-dlp: ERROR: [youtube] 8A_c0nJn0B4: This video is available to this channel's members on level: Aquatic Adventures  (or any higher level). Join this channel to get access to members-only content and"
   },
   "8btOmmhB8zw": {
     "at": "2026-11-07",
@@ -823,10 +829,15 @@
     "reason": "tank how-to"
   },
   "91J9w0-vZDM": {
-    "at": "2026-11-07",
+    "at": "2026-11-10",
     "title": "ASSASSIN SNAIL \"Clea helena\" (Species Spotlight)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Anentome helena",
+    "page": "species/anentome-helena",
+    "done": "low",
+    "score": 0.5,
+    "reason": "[behaviour] 'Radula có răng rất nhỏ' fine, but 'bàn chân khỏe giữ chặt' ok; however 'tìm miệng vỏ' fine.; [notes] 'Nhiều người tưởng loài này ăn bằng ống thở' - the page already says the siphon is used for breathing and sniffing; the 'ăn bằng vòi' point partly repeats the page's 'dùng chiếc vòi để dò tìm con mồi' (which conflicts: video says siphon detects prey, proboscis feeds). The page mislabels the siphon as 'vòi'; NEW does not flag this difference."
   },
   "98gk-gSTe9w": {
     "at": "2026-11-07",
@@ -845,10 +856,14 @@
     "reason": "equipment how-to"
   },
   "9c_d4tiyUto": {
-    "at": "2026-11-07",
+    "at": "2026-11-10",
     "title": "American Badis! The PYGMY SUNFISH Had Babies! Spawning Elassoma Gilberti - Spawning Update",
     "channel": "FISHTORY",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Elassoma gilberti",
+    "page": "species/elassoma-gilberti",
+    "done": "new page",
+    "score": 0.96
   },
   "9DxsK8_uBws": {
     "at": "2026-11-07",
@@ -859,10 +874,12 @@
     "reason": "breeding project statistics"
   },
   "9hpUMRQJPqU": {
-    "at": "2026-11-07",
+    "at": "2026-11-10",
     "title": "West Papua Crayfish Jakarta",
     "channel": "CHRIS LUKHAUP",
-    "kind": "profile"
+    "kind": "other",
+    "done": "skipped",
+    "reason": "shop: Visit to a crayfish farm in Jakarta showing many Cherax varieties"
   },
   "9IMUnyyKMNU": {
     "at": "2026-11-07",
@@ -889,10 +906,15 @@
     "reason": "feeding topic"
   },
   "9wkUPrMzqfo": {
-    "at": "2026-11-07",
+    "at": "2026-11-10",
     "title": "Meet the Best Algae Eating Fish The Silver Flying Fox - Crossocheilus reticulatus",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Crossocheilus reticulatus",
+    "page": "species/crossocheilus-reticulatus",
+    "done": "low",
+    "score": 0.7,
+    "reason": "The size claim \"cá có thể dài tới 15 cm\" differs from the page's sizeCm 17. NEW doesn't say it differs, and it presents the figure as one keeper's observation when the video gives it as a general maximum.; \"cho gì cũng ăn\" and \"ăn tạp\" conflict with the page's advice to avoid protein-rich food. NEW doesn't say the video differs from the page here."
   },
   "a-RvCZ-LGQU": {
     "at": "2026-11-07",
@@ -911,10 +933,12 @@
     "reason": "trailer"
   },
   "a5LsDyFgPJ4": {
-    "at": "2026-11-07",
+    "at": "2026-11-11",
     "title": "How to Breed White Cloud Mountain Minnows - Freshwater Aquarium Nano Fish",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "aC5TwJ6P_kg": {
     "at": "2026-11-07",
@@ -933,16 +957,21 @@
     "reason": "tank rehab"
   },
   "aIikRDZZQ30": {
-    "at": "2026-11-07",
+    "at": "2026-11-11",
     "title": "Spotted Corydoras CW027 - Rare Aquarium Catfish",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "aiVcRDpBSW0": {
-    "at": "2026-11-07",
+    "at": "2026-11-11",
     "title": "Pros & Cons of keeping Duckweed (Lemna Minor) in Your Aquarium",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Lemna minor",
+    "done": "skipped",
+    "reason": "no plant page: a plant page comes from a licensed source"
   },
   "aLxwaPYThlY": {
     "at": "2026-11-07",
@@ -953,16 +982,20 @@
     "reason": "convention"
   },
   "AqbAr6DK5h8": {
-    "at": "2026-11-07",
+    "at": "2026-11-11",
     "title": "ELECTRIC BLUE ACARA SPECIES PROFILE",
     "channel": "Daniel Keeping Fish",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "aR_6iiGIF1c": {
-    "at": "2026-11-07",
+    "at": "2026-11-11",
     "title": "SPECIES PROFILE: FARLOWELLA CATFISH",
     "channel": "Daniel Keeping Fish",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "Ar3fHDXSCSk": {
     "at": "2026-11-07",
@@ -1029,10 +1062,14 @@
     "reason": "channel vlog"
   },
   "axPlxg-ortg": {
-    "at": "2026-11-07",
+    "at": "2026-11-11",
     "title": "Dwarf Chain Loaches: Why Doesn't Anyone Keep These?",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Ambastaia sidthimunki",
+    "page": "species/ambastaia-sidthimunki",
+    "done": "added",
+    "score": 0.82
   },
   "b32_HfRz9xg": {
     "at": "2026-11-07",
@@ -1043,10 +1080,12 @@
     "reason": "studio tour"
   },
   "BDtIx9Xd4nY": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "title": "RAMSHORN SNAIL (Species Spotlight)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "failed",
+    "reason": "fetch failed"
   },
   "BE-E-k-fjzs": {
     "at": "2026-11-07",
@@ -1065,10 +1104,12 @@
     "reason": "live food cultures"
   },
   "BhtC1GTu9Is": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "title": "Endler Guppies Care Guide",
     "channel": "CHRIS LUKHAUP",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "failed",
+    "reason": "fetch failed"
   },
   "bIb1FlMPF-A": {
     "at": "2026-11-07",
@@ -1103,10 +1144,12 @@
     "reason": "floating plants warning, general"
   },
   "bR5OgFk7kCk": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "title": "Before You Buy a Mooseface Loach, Watch This",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "failed",
+    "reason": "fetch failed"
   },
   "BRFO8yflCzE": {
     "at": "2026-11-07",
@@ -1133,10 +1176,12 @@
     "reason": "multi-species science"
   },
   "bVLQnOUZnz4": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "title": "Discover the Extravagant Gold Laser Corydoras CW010",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "bx2VN17LLzg": {
     "at": "2026-11-07",
@@ -1163,10 +1208,15 @@
     "reason": "vague"
   },
   "c1siLU71MxI": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "title": "Denison Barb / Roseline shark ( Sahyadria denisonii) Species profile",
     "channel": "Team Detritus",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Sahyadria denisonii",
+    "page": "species/sahyadria-denisonii",
+    "done": "low",
+    "score": 0.4,
+    "reason": "Page already has the 1865 description? No, but notes repeat IUCN endangered/poaching facts partly; 'Sau khi loài này vào Sách đỏ IUCN... bắt trộm' is okay, yet 'cá trại đã có nhiều' overlaps page's mass captive production.; 'Bể 40 lít hay 60 lít' — video says 10 or 15 gallon; converted figures are invented, not stated."
   },
   "C39oa-DeWjQ": {
     "at": "2026-11-07",
@@ -1233,10 +1283,12 @@
     "reason": "species not named in title"
   },
   "cBhYmAOi22M": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "title": "Morse Code Tetra \"Hemigrammus sp. Morse Code\" (Species Spotlight)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "ceG1n3PAwQk": {
     "at": "2026-11-07",
@@ -1247,10 +1299,15 @@
     "reason": "fish room tour"
   },
   "Cg5gUTFbSyA": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "title": "Threadfin Acara Care Guide - Pros, Cons, and Care Tips",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Acarichthys heckelii",
+    "page": "species/acarichthys-heckelii",
+    "done": "low",
+    "score": 0.68,
+    "reason": "[waterConditions] '23–27 °C, thấp nhất là 23 °C' differs from the page's 24–30 °C, but NEW never says so plainly. The video gives about 74–80°F.; [maintenance] 'khá khỏe và sống ổn trong nhiều điều kiện' contradicts the page, which says the fish is sensitive to poor water. NEW doesn't point out the difference."
   },
   "chFN3OeynVI": {
     "at": "2026-11-07",
@@ -1333,10 +1390,15 @@
     "reason": "river exploration"
   },
   "CVc-EzMdCeY": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "title": "Corydoras pantanalensis  Species Presentation",
     "channel": "CHRIS LUKHAUP",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Corydoras pantanalensis",
+    "page": "species/corydoras-pantanalensis",
+    "done": "low",
+    "score": 0.6,
+    "reason": "[notes] \"Cá thường lớn tới 7–8 cm\" — the page card already gives sizeCm 8 / 80 mm SL, so the figure is repeated. The video says 7–8 cm (3–4 inch), so this does not really add anything.; [distribution] \"Ngoài phần thuộc Bolivia\" — the page already says the Bolivian part of Pantanal, so this repeats it. The video's new point is only the clear rivers and creeks, plus a possible presence in Brazil."
   },
   "cz99uyKFcKU": {
     "at": "2026-11-07",
@@ -1355,10 +1417,15 @@
     "reason": "industry news"
   },
   "d10WwCWVOoo": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "title": "Jellybean Tetra - Ladigesia roloffi - Rare Nano Aquarium Fish Species Spotlight & Care Guide",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Ladigesia roloffi",
+    "page": "species/ladigesia-roloffi",
+    "done": "low",
+    "score": 0.72,
+    "reason": "[behaviour] \"Nên nuôi từ 10 con trở lên\" differs from the page's \"ít nhất 8-10 con\", but the text doesn't say it differs.; [behaviour] \"Đàn cá bơi túm sát nhau\", the peaceful nature and the same-size tank mates mostly repeat what the page already says (nuôi theo đàn, hiền, cỡ tương đương)."
   },
   "D1vYUoJ46tQ": {
     "at": "2026-11-07",
@@ -1409,10 +1476,12 @@
     "reason": "two species"
   },
   "DE7xIeC_ONI": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "title": "Endler's Livebearer (TIGER ENDLERS, K Class)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "dG7Ic2CvpoI": {
     "at": "2026-11-07",
@@ -1423,10 +1492,14 @@
     "reason": "magazine exploration"
   },
   "dgzW8B32GO0": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "title": "Leopard Corydoras/Three stripe Corydoras - Corydoras trilineatus  Freshwater Aquarium Catfish",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Corydoras trilineatus",
+    "page": "species/corydoras-trilineatus",
+    "done": "added",
+    "score": 0.8
   },
   "dKEVHp8t6_w": {
     "at": "2026-11-07",
@@ -1445,10 +1518,12 @@
     "reason": "Light review"
   },
   "DkucrWx_JJM": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "title": "Why Myanmar Holds So Many NEW Fish Species! + ROSY Loach AKA 'MANGO' Loach, Care Guide DEEP DIVE!",
     "channel": "FISHTORY",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "DS6Kjc37myo": {
     "at": "2026-11-07",
@@ -1615,6 +1690,14 @@
     "kind": "other",
     "done": "skipped",
     "reason": "multiple GloFish, news"
+  },
+  "eXzcsob9Z4U": {
+    "at": "2026-11-13",
+    "title": "This Is My Kind of Aquarium Predator",
+    "channel": "Steenfott Aquatics",
+    "kind": "other",
+    "done": "skipped",
+    "reason": "Vague title, no species named; not clearly a single-species profile"
   },
   "EY13FDXeW3Q": {
     "at": "2026-11-07",
@@ -3029,6 +3112,14 @@
     "done": "skipped",
     "reason": "trends discussion"
   },
+  "oHgx-jEHoro": {
+    "at": "2026-11-11",
+    "title": "Sumi Kitty Saves The Entire Fishtory Archive... and Family- From The ... WOLF SPIDER! ( 6 cm Across)",
+    "channel": "FISHTORY",
+    "kind": "other",
+    "done": "skipped",
+    "reason": "Pet cat vs wolf spider story, not a species profile"
+  },
   "OhIYotvKBcc": {
     "at": "2026-11-07",
     "title": "Strawberry Leporinus - Leporinus granti #shorts",
@@ -3221,6 +3312,12 @@
     "at": "2026-11-07",
     "title": "Saddleback Loach - Homaloptera Orthogoniata - Rare Freshwater Loach Aquarium Fish Profile",
     "channel": "Aquadiction",
+    "kind": "profile"
+  },
+  "ptOLs3ZBnB0": {
+    "at": "2026-11-11",
+    "title": "A Pike Cichlid That Actually Stays Small",
+    "channel": "Steenfott Aquatics",
     "kind": "profile"
   },
   "Pu6HlJCRRvI": {
@@ -3618,6 +3715,14 @@
     "kind": "other",
     "done": "skipped",
     "reason": "species not named in title"
+  },
+  "tQZze4odY6M": {
+    "at": "2026-11-11",
+    "title": "SEAOURA SR-620 AQUARIUM LIGHT WITH REMOTE CONTROL",
+    "channel": "Daniel Keeping Fish",
+    "kind": "other",
+    "done": "skipped",
+    "reason": "Product: aquarium light"
   },
   "tscVdxWPPqE": {
     "at": "2026-11-07",

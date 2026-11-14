@@ -1,25 +1,30 @@
 #!/usr/bin/env bash
 # Production build (publish-gated content, indexable) → Cloudflare Workers static assets at https://aquatome.com.
 # Requires CLOUDFLARE_API_TOKEN (and CLOUDFLARE_ACCOUNT_ID if the token can see several accounts).
+# deploy.yml runs `build` and `upload` as two steps, each with its own time limit; with no argument, both.
 set -euo pipefail
+phase="${1:-all}"
 cd "$(dirname "$0")/../apps/site"
-# Pages hidden from the /_ab/ dashboard leave lists, sitemap and search (the Worker already answers 410 for them).
-# On failure the last fetched list is kept; hidden pages still 410 either way.
-DASH_TOKEN="$HOME/.config/aquatome/ab-dash-token"
-if [ -s "$DASH_TOKEN" ] && curl -sf -H "authorization: Bearer $(cat "$DASH_TOKEN")" https://aquatome.com/_ab/hidden.json -o .hidden.json.tmp; then
-  mv .hidden.json.tmp .hidden.json
-else
-  rm -f .hidden.json.tmp; echo "warning: hidden-page list unavailable, using the last one fetched"
+if [ "$phase" != upload ]; then
+  # Pages hidden from the /_ab/ dashboard leave lists, sitemap and search (the Worker already answers 410 for them).
+  # On failure the last fetched list is kept; hidden pages still 410 either way.
+  DASH_TOKEN="$HOME/.config/aquatome/ab-dash-token"
+  if [ -s "$DASH_TOKEN" ] && curl -sf -H "authorization: Bearer $(cat "$DASH_TOKEN")" https://aquatome.com/_ab/hidden.json -o .hidden.json.tmp; then
+    mv .hidden.json.tmp .hidden.json
+  else
+    rm -f .hidden.json.tmp; echo "warning: hidden-page list unavailable, using the last one fetched"
+  fi
+  # I18N_LENIENT: a UI string an Indonesian or Thai page lacks shows in Vietnamese rather than stopping the deploy.
+  I18N_LENIENT=1 PUBLIC_BUILD=1 SITE_URL=https://aquatome.com pnpm build
+  # E2E_GATE (deploy.yml): the page checks on the real build, one or two pages of each kind (the same ones every time),
+  # before anything is uploaded. A broken template breaks its sampled page too. Then Lighthouse's budgets, alone, as
+  # PageSpeed's mobile test (the computer's runs in ci.yml and watch.yml).
+  if [ -n "${E2E_GATE:-}" ]; then
+    E2E_SEED=0 pnpm exec playwright test --grep @invariants
+    E2E_LIGHTHOUSE=1 pnpm exec playwright test --grep @lighthouse --workers=1 --project=phone
+  fi
 fi
-# I18N_LENIENT: a UI string an Indonesian or Thai page lacks shows in Vietnamese rather than stopping the deploy.
-I18N_LENIENT=1 PUBLIC_BUILD=1 SITE_URL=https://aquatome.com pnpm build
-# E2E_GATE (deploy.yml): the page checks on the real build, one or two pages of each kind (the same ones every time),
-# before anything is uploaded. A broken template breaks its sampled page too. Then Lighthouse's budgets, alone, as
-# PageSpeed's mobile test (the computer's runs in ci.yml and watch.yml).
-if [ -n "${E2E_GATE:-}" ]; then
-  E2E_SEED=0 pnpm exec playwright test --grep @invariants
-  E2E_LIGHTHOUSE=1 pnpm exec playwright test --grep @lighthouse --workers=1 --project=phone
-fi
+[ "$phase" != build ] || exit 0
 # The same list goes into the Worker: what it answers from until it has read the live one (worker/hidden.ts isHidden).
 HIDDEN_PAGES="$(node -e 'try { process.stdout.write(Object.keys(JSON.parse(require("fs").readFileSync(".hidden.json", "utf8"))).join(" ")) } catch {}')"
 [ "${#HIDDEN_PAGES}" -le 5000 ] || { echo "warning: hidden-page list over 5 KB, not baked in"; HIDDEN_PAGES=; } # a Worker variable's limit

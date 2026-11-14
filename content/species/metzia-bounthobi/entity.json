@@ -10,6 +10,46 @@
     "laos",
     "nam-ou"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA"
+      ],
+      "regions": [
+        "Nam Ou",
+        "Mekong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Metzia bounthobi is a cyprinid known only from the Nam Ou River basin, a Mekong tributary in northern Laos.",
+          "countries": [
+            "LA"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the Nam Ou River basin, a Mekong tributary in Phongsaly and Luang Prabang provinces, northern Laos.",
+          "countries": [],
+          "regions": [
+            "Nam Ou",
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7594233,
+      "total": 0,
+      "fetched": "2026-11-10",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

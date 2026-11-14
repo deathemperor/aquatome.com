@@ -1,14 +1,20 @@
 {
   "id": "copadichromis-borleyi",
   "native": {
-    "input": "3566494949165fe8",
-    "at": "2026-11-07T09:20:22.982Z",
+    "input": "a1b24be3523428f9",
+    "at": "2026-11-11T08:59:40.517Z",
     "claims": [],
     "regions": [
       {
         "name": "Lake Malawi",
         "source": "seriouslyfish",
         "quote": "Endemic to Lake Malawi.",
+        "ok": true
+      },
+      {
+        "name": "Lake Malawi",
+        "source": "glaser",
+        "quote": "Copadichromis borleyi inhabits Lake Malawi, where it is found pretty widespread.",
         "ok": true
       }
     ],

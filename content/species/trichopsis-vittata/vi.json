@@ -1,13 +1,14 @@
 {
   "slug": "ca-thai-lai-keu",
-  "name": "Cá thài lài kêu",
+  "name": "Cá bã trầu",
   "altNames": [
+    "Cá thanh ngọc",
     "Cá sặc gùi",
     "Cá sặc kêu",
     "Croaking gourami"
   ],
   "sections": {
-    "quickFacts:seriouslyfish": "<p>Cá thài lài kêu (croaking gourami), tên khoa học Trichopsis vittata, là một loài cá mê cung. Chúng phân bố ở phần lớn Đông Dương, bán đảo Malaysia và Singapore. Đây là loài lớn nhất trong giống. Cá kêu được thành tiếng mà tai người nghe thấy, nhờ một cơ chế chuyên biệt ở vây ngực, độc nhất trong họ Osphronemidae. Hoa văn màu sắc khác nhau giữa các quần thể hoang dã. Những ghi nhận từ Borneo, Sumatra và Java có thể là một loài khác.</p><ul><li>Kích thước tối đa: 70 mm SL</li><li>Kích thước bể: 60 × 30 cm</li><li>Nhiệt độ: 22–28°C</li><li>pH: 5,0–7,5</li><li>Độ cứng: 1–15 dGH</li></ul>",
+    "quickFacts:seriouslyfish": "<p>Cá bã trầu (croaking gourami), tên khoa học Trichopsis vittata, là một loài cá mê cung. Chúng phân bố ở phần lớn Đông Dương, bán đảo Malaysia và Singapore. Đây là loài lớn nhất trong giống. Cá kêu được thành tiếng mà tai người nghe thấy, nhờ một cơ chế chuyên biệt ở vây ngực, độc nhất trong họ Osphronemidae. Hoa văn màu sắc khác nhau giữa các quần thể hoang dã. Những ghi nhận từ Borneo, Sumatra và Java có thể là một loài khác.</p><ul><li>Kích thước tối đa: 70 mm SL</li><li>Kích thước bể: 60 × 30 cm</li><li>Nhiệt độ: 22–28°C</li><li>pH: 5,0–7,5</li><li>Độ cứng: 1–15 dGH</li></ul>",
     "distribution:seriouslyfish": "<p>Theo hiểu biết hiện nay, loài này có mặt ở phần lớn Đông Dương. Vùng phân bố gồm hạ lưu sông Mekong ở Lào, Campuchia và Việt Nam, khắp miền nam Thái Lan, hạ lưu sông Salween ở Myanmar, bán đảo Malaysia và Singapore. Các ghi nhận ở quần đảo Sunda Lớn, gồm Borneo, Sumatra và Java, có thể là một loài khác và cần nghiên cứu thêm.</p><p>Loài này đã lập quần thể hoang hóa ở một số nước, trong đó có Philippines, Ấn Độ và Mỹ.</p><p>Nơi thu mẫu chuẩn là 'Java, Indonesia'.</p>",
     "habitat:seriouslyfish": "<p>Loài này sống ở đủ kiểu môi trường nước tĩnh hoặc chảy chậm, phần lớn ở vùng đất thấp. Có thể gặp chúng trong rừng ngập nước, đầm lầy than bùn, bãi ngập lũ, các nhánh sông, kênh tưới tiêu, ruộng lúa và cả mương ven đường. Chúng đặc biệt ưa những chỗ nước lờ đờ hoặc đứng yên, có cây thủy sinh hay cây ven bờ mọc dày.</p>",
     "aquariumSize:seriouslyfish": "<p>Bể 60 × 30 × 30 cm (khoảng 54 lít) là vừa cho một cặp. Muốn nuôi theo nhóm thì cần bể rộng hơn.</p>",
@@ -26,5 +27,6 @@
     "bySource": {
       "seriouslyfish": 0.82
     }
-  }
+  },
+  "nameFixed": true
 }

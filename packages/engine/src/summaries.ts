@@ -1,3 +1,4 @@
+import { piece } from './pieces'
 import { readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
@@ -215,7 +216,7 @@ export async function draftSummaries(contentRoot: string, llm: Llm, opts: { top:
   await Promise.all(Array.from({ length: Math.max(1, opts.jobs ?? 1) }, async () => {
     while (next < todo.length && !report.stopped) {
       const s = todo[next++]!
-      try { await one(s) } catch (e) {
+      try { await piece(s.id, () => one(s)) } catch (e) {
         if (e instanceof LlmError) report.stopped = `${s.id}: ${e.message}`
         else { report.failed.push(s.id); console.warn(`summary failed: ${s.id}: ${(e as Error).message.slice(0, 200)}`) }
       }

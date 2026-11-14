@@ -1,0 +1,513 @@
+{
+  "found": true,
+  "species": [
+    "Audouinella",
+    "Compsopogon",
+    "Coleochaete",
+    "Oedogonium",
+    "Cladophora",
+    "Oscillatoria",
+    "Vallisneria",
+    "Riccia fluitans",
+    "Riccardia",
+    "Crossocheilus atrilimes",
+    "Crossocheilus langei"
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Some algae is always present in an aquarium, because biofilms on every surface contain microscopic algae, so a tank with no algae at all is not realistic. The goal is to keep visible growth under control.",
+      "source": 1,
+      "also": [
+        6
+      ]
+    },
+    {
+      "section": "what",
+      "fact": "Nuisance algae appear most often in new tanks during the first weeks, while the tank's biological balance is still forming.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Black beard algae can take over a whole tank within one to two years if it is left alone.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "Black beard algae is a red alga (genera Audouinella and Rhodochorton), and so is staghorn algae (genus Compsopogon).",
+      "source": 6
+    },
+    {
+      "section": "what",
+      "fact": "Blue-green algae are not true algae. They are photosynthetic bacteria (cyanobacteria).",
+      "source": 0,
+      "also": [
+        1,
+        6
+      ]
+    },
+    {
+      "section": "what",
+      "fact": "Cyanobacteria can use up the oxygen in the water, especially while they are dying off.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Black beard algae grows in thick, bushy clumps, usually black or gray but sometimes reddish or brownish. It favours driftwood, decor and plants.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Black beard and staghorn algae look grayish rather than red. They turn reddish in alcohol, which confirms that they are red algae.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Staghorn algae forms branching white, grey or green strands on leaves and equipment.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Diatoms ('brown algae') form brown, muddy coatings on all surfaces, usually in the first weeks of a new tank, and they often disappear on their own.",
+      "source": 1,
+      "also": [
+        3
+      ]
+    },
+    {
+      "section": "signs",
+      "fact": "Cyanobacteria form slimy sheets that can be blue-green, green, red, brown or black. They have an earthy, musty smell and grow on substrate, plants, glass and decor.",
+      "source": 0,
+      "also": [
+        1
+      ]
+    },
+    {
+      "section": "signs",
+      "fact": "In a tank with cyanobacteria, fish that shimmy, are lethargic, breathe fast or gasp at the surface may be suffering from low oxygen.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Green spot algae forms green spots on glass and on long-lived leaves such as Java fern, Anubias and Bolbitis.",
+      "source": 3,
+      "also": [
+        1
+      ]
+    },
+    {
+      "section": "signs",
+      "fact": "Green dust algae forms a dusty green film on the glass and leaves plants and hardscape alone. It comes away as loose green dust when disturbed.",
+      "source": 3,
+      "also": [
+        1
+      ]
+    },
+    {
+      "section": "signs",
+      "fact": "Green water is a green cloudiness caused by free-floating algae, usually Chlorella. A milky, light-gray cloudiness is a bacterial bloom, not algae.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Hair or thread algae forms long green filaments up to 30 cm long, often tangled into moss.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Cladophora forms tough, green, wool-like or bushy branching mats, and algae eaters find it harder to eat.",
+      "source": 3,
+      "also": [
+        1
+      ]
+    },
+    {
+      "section": "causes",
+      "fact": "In planted tanks, algae is favoured by nutrient imbalance. Contributing factors include skipped water changes, inconsistent fertilising, too much or too long lighting, an empty CO2 bottle, moving the tank and seasonal temperature changes.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "GWAPA links black beard algae to nutrient imbalance (excess nitrogen, phosphorus and iron) and to low pH.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Wikipedia says black beard algae may indicate high nitrates, phosphates or iron, and staghorn algae may indicate high nitrates or iron.",
+      "source": 6
+    },
+    {
+      "section": "causes",
+      "fact": "GWAPA ties green spot algae to low phosphate.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Wikipedia says green spot algae can indicate low phosphate and CO2, but is typically a sign of a healthy aquarium.",
+      "source": 6
+    },
+    {
+      "section": "causes",
+      "fact": "GWAPA links hair or thread algae to iron above 0.15 ppm.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Wikipedia says hair algae may be caused by too much light.",
+      "source": 6
+    },
+    {
+      "section": "causes",
+      "fact": "GWAPA links staghorn and fuzz algae to nutrient imbalance and low CO2.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "GWAPA lists low nitrates, high organics, old bulbs and poor circulation as causes of cyanobacteria.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Chewy lists uneaten food, fish waste, dead spots, weak flow, skipped water changes, dirty substrate or filters, lights left on too long, old bulbs and overstocking as causes of cyanobacteria.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Cyanobacteria may be caused by stagnant water, high temperatures, or high phosphates combined with low oxygen.",
+      "source": 6
+    },
+    {
+      "section": "causes",
+      "fact": "Cladophora can be brought into a tank on Marimo balls.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Diatoms are linked to new tanks, to excess silica and possibly to old bulbs.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Green water is linked to new setups, to nutrient imbalance and to medications that affect the biofilter.",
+      "source": 3
+    },
+    {
+      "section": "firstAid",
+      "fact": "For cyanobacteria, scrape or siphon out the slime during water changes and clean removable decor separately.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "For cyanobacteria, aim filter outlets at low-flow areas or add powerheads to remove dead spots.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "Thread algae can be wound up on a chopstick. Green spot algae on the glass needs a blade cleaner.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "Black beard and staghorn algae are very hard to remove by hand.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Aquarium Co-Op's hydrogen peroxide method for black beard algae: lower the water until the affected plants or decor are above the surface, spray drugstore 3% hydrogen peroxide on the algae, wait 5 minutes, then refill. You can also take the item out to treat it.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "With delicate plants, Aquarium Co-Op advises a shorter exposure time or treating only one section of the plant at a time.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Aquasabi's in-tank spot dose of 3% hydrogen peroxide is 5 ml per 30 L of tank volume (for example 20 ml for 120 L, about 5 mg/L H2O2). Spray it under water directly onto the algae with a syringe.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "Aquasabi's spot dose for Easy Carbo (a liquid carbon product) is 1 ml per 50 L as standard or 2 ml per 50 L as a double dose. High concentrations use up oxygen, so give good aeration.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "According to Aquasabi, Easy Carbo works best on red algae, while hydrogen peroxide works best on green algae and cyanobacteria.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "Easy Carbo and hydrogen peroxide may be used on the same day with a time gap between them, but they must never be mixed.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "Mosses are highly sensitive to spot treatments, especially Riccardia (coral moss) and Riccia fluitans, so keep the liquid away from them.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem's normal Flourish Excel dose is 5 mL per 40 L when starting or after a water change of more than 40%, then 5 mL per 200 L daily or every other day.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem does not market Flourish Excel as an algicide, and it says overdosing or applying it directly to a plant as a spot treatment can cause damage.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Large doses of Flourish Excel can melt Vallisneria leaves. Seachem says the damage is temporary and the roots are unaffected.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem calls Anacharis particularly sensitive to Flourish Excel and recommends dosing it every other day rather than daily.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "GWAPA dips items with black beard or staghorn algae in bleach at 1:20 bleach to water, then rinses them until no bleach smell remains before they go back in the tank.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "GWAPA also uses an original OxiClean dip (with no other additives) for black beard and staghorn algae.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "GWAPA treats cyanobacteria with erythromycin (for example Mardel's Maracyn) at half the usual dose, together with blackouts and dosing nitrate to about 5 ppm.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Antibiotic treatments for cyanobacteria may harm the tank's beneficial bacteria.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "GWAPA treats green water by blocking all light for 5 days and doing 5–10% water changes daily until the water clears. Daphnia in a breeder net and UV sterilizers also help.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "GWAPA treats green spot algae by dosing phosphate (PO4) to 0.5–2.0 ppm.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "GWAPA lets green dust algae run its full cycle of about 21 days until it hardens and falls off, then scrapes off the rest and does a thorough clean and water change.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Copper algaecides will most likely kill the plants too, so GWAPA does not recommend them.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Algae eaters named by GWAPA: Siamese algae eaters and Amano shrimp for black beard and fuzz algae, Otocinclus for diatoms and fuzz, nerite snails for diatoms, green dust and green spot algae, and mollies for fuzz. Most animals will not eat staghorn algae.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Aquarium Co-Op names Siamese algae eaters, Florida flagfish and Amano shrimp as black beard algae eaters. Amano shrimp work slowly unless kept in a large group.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Aquasabi recommends nerite snails of the genera Vittina, Neritina and Clithon, alongside Amano shrimp, as algae eaters.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Several near-identical Crossocheilus species are sold as 'Siamese algae eater', including C. atrilimes, C. langei and C. nigriloba.",
+      "source": 7
+    },
+    {
+      "section": "steps",
+      "fact": "Aquasabi spot treatment, step 1: draw the dose into a 5 ml disposable syringe.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Aquasabi spot treatment, step 2: switch off filters and pumps so the water is as still as possible.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Aquasabi spot treatment, step 3: spray the liquid under water directly onto the algae, avoiding plants and animals.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Aquasabi spot treatment, step 4: restart the filters and pumps after a few minutes.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Aquasabi spot treatment, step 5: repeat once daily for 3 to 4 days, with a two-day pause if needed so the tank can recover.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Aquasabi spot treatment, step 6: stop once red algae turn white or light pink, which usually takes a few days. Green algae may take up to a week to show clear damage.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "After a spot treatment, algae eaters such as Amano shrimp eat the dead algae.",
+      "source": 5,
+      "also": [
+        4
+      ]
+    },
+    {
+      "section": "other",
+      "fact": "Wear goggles and gloves when handling spot-treatment liquids, and keep them off skin, eyes and clothing.",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "Black beard algae can take six to eight months to establish, so expect removing it to take at least as long. Dying algae turns red or clear.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Aquasabi's suggested values for a new planted tank: CO2 20–30 mg/l, nitrate 10–25 mg/l, potassium 5–10 mg/l, phosphate 0.1–1 mg/l, magnesium above 10 mg/l, and iron at one-third of the maker's recommended dose.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "GWAPA's target nutrient levels: N 10–20 ppm, P 0.5–2 ppm, K 10–20 ppm, Fe 0.1 ppm, and CO2 20–30 ppm as the fish allow.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Aquasabi's lighting plan: start at 6 hours a day, then add half an hour per week once the tank is stable, up to 8–10 hours under moderate to strong light or 10–12 hours under weak light.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Aquasabi recommends changing around 50% of the water weekly in a new planted tank.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "To prevent cyanobacteria: test the water weekly, feed only what the fish eat in about 60 seconds, avoid overstocking, replace old bulbs, and in tanks without plants limit light to 6–8 hours a day.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Strong CO2 and good plant growth help plants outcompete black beard and staghorn algae.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Check Marimo balls for Cladophora before adding them to a tank.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "A common mistake is treating cyanobacteria like ordinary algae or overusing chemicals. Chemical treatments are only temporary unless the cause is fixed.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Large water changes during green water treatment prevent beneficial microorganisms from establishing.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Expecting algae to disappear without correcting the underlying imbalance, and removing biofilm unnecessarily, are common mistakes.",
+      "source": 1
+    },
+    {
+      "section": "myths",
+      "fact": "Aquasabi says the idea that nitrate or phosphate alone causes algae has been disproven. Nutrient deficiencies weaken plants, and that favours algae.",
+      "source": 1
+    },
+    {
+      "section": "myths",
+      "fact": "Aquasabi says aquarium 'brown algae' are diatoms, not true brown algae, which are almost all marine.",
+      "source": 1
+    },
+    {
+      "section": "myths",
+      "fact": "GWAPA says the belief that black beard algae thrives in acidic water is only an observation, not proven: Neil Frank noted that African Rift Lake tanks never have it.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese shops call nuisance algae 'rêu hại'. Black beard algae is 'rêu chùm đen', hair or thread algae is 'rêu tóc' or 'rêu sợi'/'rêu chỉ', green spot algae is 'rêu đốm xanh', diatoms are 'tảo nâu'/'rêu nâu', green water is 'nước xanh', and cyanobacteria is 'tảo lam' or 'rêu nhớt xanh'.",
+      "source": 8,
+      "also": [
+        9
+      ]
+    },
+    {
+      "section": "vietnam",
+      "fact": "Other Vietnamese names: staghorn algae is 'rêu sừng hươu', green dust algae is 'rêu bụi xanh', and fuzz algae is 'rêu lông tơ'.",
+      "source": 9
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese names for algae eaters: Siamese algae eater is 'cá bút chì', Otocinclus is 'Oto', nerite snails are 'ốc Nerita', and Amano shrimp is 'tép mũi dài'.",
+      "source": 9
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.chewy.com/education/fish/general/cyanobacteria-in-aquariums",
+      "title": "Cyanobacteria in Aquariums: Causes, Treatment, and Prevention",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.aquasabi.de/aquascaping-wiki-en_algae_algae-in-the-aquarium",
+      "title": "Algae in the Aquarium",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.seachem.com/flourish-excel.php",
+      "title": "Flourish Excel™",
+      "kind": "maker"
+    },
+    {
+      "url": "https://gwapa.org/wordpress/articles/algae-in-the-planted-aquarium/",
+      "title": "Algae in the Planted Aquarium",
+      "kind": "society"
+    },
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/black-beard-algae",
+      "title": "How to get rid of black beard algae (BBA)",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.aquasabi.de/aquascaping-wiki-en_algae_local-algae-control",
+      "title": "Fighting algae locally",
+      "kind": "shop"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Freshwater_aquarium_algae",
+      "title": "Freshwater aquarium algae",
+      "kind": "reference"
+    },
+    {
+      "url": "https://www.seriouslyfish.com/species/crossocheilus-oblongus/",
+      "title": "Crossocheilus · Seriously Fish",
+      "kind": "reference"
+    },
+    {
+      "url": "https://aquazonefish.vn/blogs/kien-thuc/tim-hieu-ve-reu-hai-be-ca",
+      "title": "Tìm Hiểu Về Rêu Hại Bể Cá Và Cách Xử Lý Hiệu Quả - AquaZone - Siêu thị cá cảnh",
+      "kind": "shop"
+    },
+    {
+      "url": "https://cacanhtailoc.com/blogs/tin-tuc/ly-do-khien-reu-hai-bung-phat-trong-moi-truong-thuy-sinh",
+      "title": "Lý do khiến Rêu hại bùng phát trong môi trường thủy sinh",
+      "kind": "shop"
+    }
+  ]
+}

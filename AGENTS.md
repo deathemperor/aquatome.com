@@ -11,6 +11,9 @@ and the rules every change follows) before changing the site. Commands and layou
   tests another checkout's build.
 - A bug fix comes with a check that fails without it. Lighthouse budgets (`apps/site/e2e/lighthouse.spec.ts`) only
   tighten.
+- A test's own scratch files go in the system temp folder, which every machine has. `~/.cache/aquatome` is for work worth
+  keeping (the rule under "This Mac" about `/tmp` is about that work, not about tests). On 2026-11-11 five tests made their
+  temp folders under a `~/.cache/aquatome` folder that existed only on this Mac, passed here and would have failed on GitHub.
 
 ## This Mac
 
@@ -21,12 +24,32 @@ Leads, the engine and main's iOS runs share one Mac. A booted simulator is the h
 - Other heavy work takes the checks queue: Astro builds, test suites, e2e and xcodebuild builds, as
   `scripts/checks.sh nice -n 10 <command>` from the repository's root, or `lockf -k ~/.cache/aquatome/checks.lock nice -n 10
   <command>` (`scripts/cycle-checks.sh`). A session's outside it is refused, since side by side they took the Mac to heavy
-  thermal pressure (2026-11-08). One test file needs no turn: `pnpm exec vitest run <file>`.
+  thermal pressure (2026-11-08). One test file needs no turn: `pnpm exec vitest run <file>`. A `lockf` on a queue's lock
+  without `-k` is refused: it deletes the link to the shared queue when it ends, as one did on 2026-11-09.
 - Both queues are first come, first served. Only the chief of staff, from their own thread, keeps the next turn in both for
   one run: `scripts/next-turn.py [--sim | --checks] <the run's pid, or a word only it has, such as its folder's> [minutes]`
   (30, at most 120; a pid keeps it in its own queue). Until that run has had it, a run that reaches the front steps back
-  behind it, if it came through `sim-run.py` or `checks.sh`. A plain `lockf` job, one from an older `sim-run.py` and the
-  TestFlight upload (another user) don't step back: name a plain `lockf` job by its pid.
+  behind it, if it came through `sim-run.py` or `checks.sh`. A plain `lockf` job, one from an older `sim-run.py`, a recording
+  waiting for its checks turn and the TestFlight upload (another user) don't step back: name a plain `lockf` job by its pid.
+- At most 3 simulators up at once, 2 while heat has taken cores away: a session's `device_open` or `simctl boot` past that is
+  refused, and told who is up. `scripts/mac-status.py` says the load, the heat, who is up and whether it's quiet enough to
+  record.
+- A screen recording runs as `scripts/quiet-recording.py [minutes] <command>`, which holds both queues' turns so nothing of
+  ours tests beside it, and gives them back unrecorded if the Mac stays too loaded. Between 08:00 and 22:00 it needs the chief
+  of staff's word first: it can hold the simulator idle for 15 minutes and both queues for 20. `scripts/frames-check.py <video>
+  --expected <frames>` says whether it kept every frame, and a recording offered as evidence of motion carries that count, or
+  it isn't evidence (the chief of staff, 2026-11-10).
+- Stop a process only by a pid you started yourself, whether you're a lead, a helper or a reviewer: `pkill` and `killall` match
+  other people's runs (the chief of staff, 2026-11-10). A session's `pkill`, `killall`, `kill $(pgrep …)` and `pgrep … | xargs
+  kill` are refused, but the rule is wider than the refusal, which can't see a script file, `python -c`, a loop over `pgrep`,
+  `ps | grep` into `kill`, or a session without the hook. Other projects on this Mac are the owner's and are never touched.
+- Delete a branch only by its exact name, and only one you made. A pattern (a glob, or a loop over `git for-each-ref`)
+  takes other sessions' branches, as one did to four on 2026-11-10 (the chief of staff).
+- A helper or a reviewer that runs anything (a test file, pnpm) does it in its own checkout with its own installation,
+  never in a scratch copy linked to another checkout's `node_modules`. pnpm brings an installation in line with the
+  package files it is run beside, and on 2026-11-11 a reviewer's scratch copy, linked to the main checkout's
+  installation, had pnpm rewrite that shared installation while an engine cycle was running (the chief of staff). A
+  delegate that will run anything is started with its own checkout (`isolation: "worktree"`).
 - Close a Device session when done: `agent-device close --shutdown`. `device_close` alone can leave the simulator running.
 - What's on screen is drawn every frame: WindowServer's compositing was a third of the GPU through the hot hours of
   2026-11-08. Simulators run headless (`xcrun simctl boot`, or xcodebuild's own); opening Simulator.app is refused. Watch
@@ -48,7 +71,7 @@ Leads, the engine and main's iOS runs share one Mac. A booted simulator is the h
 
 ## Checks also run on aquatome.com
 
-`watch.yml` runs every browser check against the live site, with real content (about 800 species), after each deploy and
+`watch.yml` runs every browser check against the live site, with real content (about 2,300 species), after each deploy and
 nightly. A journey holds on both the fixture build and the live site when it reads names, slugs and counts from the page
 (`#tm-form`'s species file, the result line) or uses species both have. Try one against the live site from `apps/site`:
 
@@ -56,6 +79,11 @@ nightly. A journey holds on both the fixture build and the live site when it rea
 node ../../scripts/site-watch.mjs prepare https://aquatome.com .
 E2E_BASE_URL=https://aquatome.com E2E_PAGES=e2e-pages.json pnpm exec playwright test <spec>
 ```
+
+`CLAUDE_ON_CI=off` (a repository variable) pauses Claude in the workflows: the AI page review, the auto-fix and the
+content rewrite. Comment and photo moderation stays on. Unset, or any other value, they run. `ENGINE_ON_CI=on` runs the
+content rewrite while the rest stay paused. Every one of them logs its calls and has a line in the daily ceilings
+(`packages/engine/src/ceilings.json`; the reviews and the auto-fix through `scripts/claude-spend.mjs`).
 
 ## The owner's reports
 
@@ -105,6 +133,7 @@ there: the script in every page (`OWNER_SCRIPT`) only loads it and may not grow.
 
   ```sh
   git config merge.jsonmap.driver 'node scripts/merge-json-map.mjs %O %A %B'
+  git config merge.regenerated.driver true
   git config merge.entity.driver 'node scripts/merge-entity.mjs %O %A %B'
   git config merge.changelog.driver 'node scripts/merge-changelog.mjs %O %A %B'
   ```
@@ -119,6 +148,13 @@ the next run keeps the fix. A hand edit to one item needs a guard the engine res
 - The repository is public. Secrets stay in `~/.config/aquatome/` and GitHub secrets, out of commits and logs. Device
   addresses, personal emails and personal names stay out too. One exception, with the owner's OK: the Love Ecology
   light's recorded commands (`apps/ios/AquaTomeKit/Sources/FishLamp/love-ecology.json`).
+- The owner's sign-ins (Codex, Cursor, Claude, GitHub, Cloudflare, Apple) never pass through code of ours and are never
+  held by it, in memory or on disk. A provider's own tool talks to its provider directly: no proxy, base-address
+  override or wrapper in between, and its sign-in file is never read (the chief of staff, 2026-11-11, after a local
+  proxy carried one for one run).
+- Lettering read off a photo (a signature, a watermark, a sign) is never written out in a commit, a PR, a test, a
+  fixture, a note or a log: say that lettering is there and where, not what it says. A photographer's name belongs in
+  the page's credit line (the chief of staff, 2026-11-11).
 - A challenge page (Cloudflare, Turnstile) marks a source `needs-human`, and the owner passes it by hand in the engine's
   Chrome profile. Marketplaces (Shopee, Lazada, Tiki, Tokopedia) are reached only through their affiliate APIs.
 - Every app merge uploads to TestFlight's internal "Owner" group without asking (`testflight.yml`). Ask the owner first

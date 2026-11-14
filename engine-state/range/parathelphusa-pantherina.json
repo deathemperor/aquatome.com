@@ -1,0 +1,48 @@
+{
+  "id": "parathelphusa-pantherina",
+  "native": {
+    "input": "d3818ca6b7d03750",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Lake Matano",
+        "source": "glaser",
+        "quote": "They originate from Lake Matano in Sulawesi, where they can also be found under roots etc. on the shore.",
+        "ok": true
+      },
+      {
+        "name": "Sulawesi",
+        "source": "glaser",
+        "quote": "They originate from Lake Matano in Sulawesi, where they can also be found under roots etc. on the shore.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parathelphusa pantherina",
+    "status": "ACCEPTED",
+    "taxonKey": 5790840,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        7
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-12T13:29:05.219Z"
+  }
+}

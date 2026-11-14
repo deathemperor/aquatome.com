@@ -1,0 +1,117 @@
+{
+  "id": "periophthalmus-novemradiatus",
+  "native": {
+    "input": "06c24d2af71310cf",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The specimens come from Bengal in India.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found on the coasts of eastern India and as far east as southern Thailand.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found on the coasts of eastern India and as far east as southern Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Records from Malaysia and Indonesia are of the similar P. variabilis (Jaafar et al. 2009).",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Records from Malaysia and Indonesia are of the similar P. variabilis (Jaafar et al. 2009).",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Periophthalmus novemradiatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2376982,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        15
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        12
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "878298f7-6182-4a72-bdf6-9dd480d89713",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "8498cbf2-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "a4202e55-050a-46a2-9c56-8b8507015ce7",
+        1
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "TH"
+    ],
+    "requests": 13,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

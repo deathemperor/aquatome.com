@@ -10,6 +10,61 @@
     "india",
     "kabini"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Western Ghats",
+        "Kabini River",
+        "Moyar River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is Kalindhi stream, a tributary of the Kabini River in Wayanad District, Kerala state, southwestern India, with an additional population known from Kakkan Halla in the Moyar River system, Nilgiri Hills region, Tamil Nadu state.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Kabini River",
+            "Moyar River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It therefore appears endemic to the southern Western Ghats mountains.",
+          "countries": [],
+          "regions": [
+            "Western Ghats"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7865249,
+      "total": 1,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "IN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          75.9375,
+          11.25,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

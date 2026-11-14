@@ -1,0 +1,196 @@
+{
+  "id": "potamorrhaphis-guianensis",
+  "native": {
+    "input": "8fb4e407d31870f2",
+    "at": "2026-11-13T05:31:31.275Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Amazonia",
+        "source": "glaser",
+        "quote": "These needlefish (Belonidae), called halfbeaks, come from almost all over Amazonia.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "They are also found in the Orinoco catchment area as well as in the Guyana countries.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "GY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Potamorrhaphis guianensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2369077,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        78
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        72
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        48
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        38
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        36
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        34
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        29
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        29
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        28
+      ],
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        28
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        27
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        25
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        16
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        13
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        10
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        10
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        10
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        6
+      ],
+      [
+        "278b1d5c-d7a9-4f7a-9651-69cddbb5b94e",
+        6
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        6
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        3
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        3
+      ],
+      [
+        "83c9289f-0d18-42ae-98b0-2ad3621f0dfa",
+        3
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        3
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "b8ed9b7c-5b73-4e6d-a6e1-b0911a09f947",
+        2
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        2
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        2
+      ],
+      [
+        "2bee4a91-9d92-430e-a87e-ab32d3b1ce47",
+        1
+      ],
+      [
+        "5818223b-9b8e-432c-9fca-cb4c43387e6a",
+        1
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ],
+      [
+        "f7739f2a-9d89-40c2-a262-813832add25d",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-13T05:31:31.275Z"
+  }
+}

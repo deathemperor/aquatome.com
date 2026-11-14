@@ -1,0 +1,70 @@
+{
+  "id": "caelatoglanis-zonatus",
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/a0573ec6aea971aee063055e0eddb621.webp",
+      "thumb": "https://media.aquatome.com/processed/a0573ec6aea971aee063055e0eddb621-480.webp",
+      "width": 800,
+      "height": 509,
+      "licence": "dùng với sự cho phép",
+      "author": "Enrico Richter / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/caelatoglanis-zonatus",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261113-caelatoglanis-zonatus-recovery-1",
+        "pixelHash": "ae40865c2f2342125e892df3709034f9c450b82d5b71a007da63b3368e08a260"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-13T07:52:10.093Z",
+          "originalHash": "fe5c4f31b8262edd0cdd5d6fa58664b6b45a47cdc7c7f680c4bde7ecd224e3e0",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 800,
+            "originalHeight": 542,
+            "window": {
+              "x0": 0,
+              "y0": 0,
+              "x1": 800,
+              "y1": 509
+            },
+            "subject": {
+              "x0": 159,
+              "y0": 244,
+              "x1": 713,
+              "y1": 383
+            },
+            "margin": 14
+          },
+          "excludedMarks": [
+            {
+              "x0": 7,
+              "y0": 515,
+              "x1": 169,
+              "y1": 539
+            }
+          ],
+          "checks": {
+            "species": [
+              "19215bc821c202e24470209da3928e7b76efbf55796d0381c460cb367351ab0b",
+              "cc8acad308e0885c8a3e12e4738f2ec021115d299ee0b9232a93424d822b2f1e"
+            ],
+            "ownership": [
+              "1752dc39d1e3e7ea539f9aa90ec6605586055027eb7be45545117024f780c37b",
+              "a4432c4bcb177c1b91ad4be8e0ef55e5acc9f57cc01a7b0d18ffde0bfdb34f6f"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/c862dfeb578cd14d.webp",
+        "width": 800,
+        "height": 542
+      }
+    }
+  ],
+  "seen": 0,
+  "updatedAt": "2026-11-13"
+}

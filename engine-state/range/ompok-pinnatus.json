@@ -1,0 +1,78 @@
+{
+  "id": "ompok-pinnatus",
+  "native": {
+    "input": "105dde83731a7a32",
+    "at": "2026-11-10T23:57:51.686Z",
+    "claims": [
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Ompok pinnatus Ng, H.H., 2003. Common name: Long-fin Glass Catfish. Type locality: Cambodia: Tonle Sap at Kompong Chhnang. Size: 81 mm (3.2\") SL. IUCN Red List status: Data Deficient.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Southeast Asia: Chao Phraya and Mekong River drainages in Thailand and Cambodia.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Southeast Asia: Chao Phraya and Mekong River drainages in Thailand and Cambodia.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Chao Phraya",
+        "source": "planetcatfish",
+        "quote": "Southeast Asia: Chao Phraya and Mekong River drainages in Thailand and Cambodia.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "planetcatfish",
+        "quote": "Southeast Asia: Chao Phraya and Mekong River drainages in Thailand and Cambodia.",
+        "ok": true
+      },
+      {
+        "name": "Tonle Sap",
+        "source": "planetcatfish",
+        "quote": "Ompok pinnatus Ng, H.H., 2003. Common name: Long-fin Glass Catfish. Type locality: Cambodia: Tonle Sap at Kompong Chhnang. Size: 81 mm (3.2\") SL. IUCN Red List status: Data Deficient.",
+        "country": "KH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Ompok pinnatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2337673,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        4
+      ]
+    ],
+    "native": [
+      "KH",
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T23:57:51.686Z"
+  }
+}

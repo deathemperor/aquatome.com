@@ -17,6 +17,67 @@
     "sumatra",
     "brunei"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MY",
+        "SG",
+        "ID",
+        "BN"
+      ],
+      "regions": [
+        "Borneo",
+        "Sumatra",
+        "Labuan Island",
+        "Bintan"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to southern Thailand, Peninsular Malaysia, Singapore and the Greater Sunda islands of Borneo and Sumatra.",
+          "countries": [
+            "TH",
+            "MY",
+            "SG"
+          ],
+          "regions": [
+            "Borneo",
+            "Sumatra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "On the Indonesian island of Sumatra localities include Harau Valley in West Sumatra province, Bagan Siapiapi in Riau province and various members of the Riau Islands province including Bintan, Pulau Sugi and Natuna Besar (Bunguran Island).",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Bintan"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It appears to be restricted to the north and west of Borneo with numerous records existing from the Malaysian states of Sarawak and Sabah, Brunei Darussalam and the Indonesian province of West Kalimantan.",
+          "countries": [
+            "BN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It is also found on Labuan Island off the coast of Sabah.",
+          "countries": [],
+          "regions": [
+            "Labuan Island"
+          ]
+        }
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

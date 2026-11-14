@@ -13,14 +13,13 @@ struct TodayView: View {
   @Environment(TanksModel.self) private var tanks
   @Environment(\.colorScheme) private var scheme
   @Namespace private var zoom
-  /// The large title has gone up into the bar, as on Khám phá.
-  @State private var titleGone = false
   @State private var refreshes = 0
-  @ScaledMetric(relativeTo: .largeTitle) private var titleHeight: CGFloat = 44
   /// The day the feed is for: read at midnight, or on coming back after it, not left at yesterday's.
   @State private var today = TodayView.now
   /// No fish yet, as the day began: held, so a fish added from the card doesn't change the card under the sheet.
   @State private var heldBeginner: Bool?
+  /// A post is open (`Post`): the screens opened inside it have its ✕.
+  @State private var postOpen = false
   private var beginner: Bool { heldBeginner ?? tanks.tanks.allSatisfy { $0.species.isEmpty } }
 
   var body: some View {
@@ -53,8 +52,7 @@ struct TodayView: View {
         .padding(.bottom, 32)
       }
       .v2ClearOfTheFade()
-      .onScrollGeometryChange(for: Bool.self) { [titleHeight] in $0.contentOffset.y + $0.contentInsets.top > min(titleHeight, V2Fade.largeTitleAtMost) } action: { _, gone in titleGone = gone }
-      .modifier(ClearUnderTopBar(shown: titleGone))
+      .modifier(ClearUnderLargeTitle())
       .navigationTitle("Hôm nay")
       // Its own, not one iOS picks from what passes under the bar: a dark card there turned the bar's words and the clock
       // white on the white band. As a fish's page pins its own.
@@ -63,6 +61,8 @@ struct TodayView: View {
       .onAppear { if heldBeginner == nil { heldBeginner = beginner } }
       .v2ClearsFootGoingBack(path.count)
       .v2Destinations(zoom: zoom)
+      .environment(\.v2Posts, Posts(open: $postOpen) { path = NavigationPath() })
+      .onChange(of: path.count) { if path.isEmpty { postOpen = false } }
       .task { await handbook.appear() }
       .refreshable {
         await handbook.load()
@@ -242,7 +242,7 @@ private struct FishOfTheDay: View {
 
   var body: some View {
     VStack(spacing: 0) {
-      NavigationLink(value: item) {
+      NavigationLink(value: Post(item: item)) {
         // At the accessibility sizes a name over the photo would hide the fish: it goes above, on the photo's colour. A fish
         // with no photo has no photo's place: its name on the colour.
         if size.isAccessibilitySize || img == nil {
@@ -264,7 +264,7 @@ private struct FishOfTheDay: View {
       // The band under it opens the same page: read here, one stop for VoiceOver (Lockup's `title`).
       .accessibilityValue(Text(verbatim: [item.sub ?? item.kind.title, factsLine(item, handbook.lang)].compactMap { $0 }.joined(separator: ", ")))
       // The name is the card's title: under it, the fish's other name and figures, not the name and photo again.
-      Lockup(item: item, title: item.sub ?? item.kind.title, line: factsLine(item, handbook.lang), onDark: true, icon: false)
+      Lockup(item: item, title: item.sub ?? item.kind.title, line: factsLine(item, handbook.lang), onDark: true, icon: false, post: true)
         .padding(.horizontal, 16).padding(.vertical, 10)
         .background(colour)
     }
@@ -314,7 +314,7 @@ private struct GuideCard: View {
   @State private var colour: Color
 
   var body: some View {
-    NavigationLink(value: item) {
+    NavigationLink(value: Post(item: item)) {
       Group {
         if img != nil {
           VStack(spacing: 0) {
@@ -387,7 +387,7 @@ private struct SeasonCard: View {
       VStack(spacing: 0) {
         ForEach(items) { item in
           Lockup(item: item, line: item.facts.tempC.map { HandbookIndex.Facts.degrees($0, Locale(identifier: handbook.lang)) },
-                 thumb: 52)
+                 post: true, thumb: 52)
             .padding(.vertical, 6)
             .matchedTransitionSource(id: item.path, in: zoom)
           if item.path != items.last?.path { Divider().padding(.leading, size.isAccessibilitySize ? 0 : 64) }
@@ -522,7 +522,7 @@ private struct SeriesCard: View {
   @Environment(\.dynamicTypeSize) private var size
 
   var body: some View {
-    NavigationLink(value: item) {
+    NavigationLink(value: Post(item: item)) {
       VStack(alignment: .leading, spacing: 14) {
         // Its mark first, as a guide's or a story's: under its eyebrow, wrapped at the largest text, it hung below a word.
         CardMark(symbol: "play.fill")
@@ -559,7 +559,7 @@ private struct LatestCard: View {
       }
       VStack(spacing: 0) {
         ForEach(rows) { row in
-          Lockup(item: row.item, thumb: 52).padding(.vertical, 6)
+          Lockup(item: row.item, post: true, thumb: 52).padding(.vertical, 6)
             .matchedTransitionSource(id: row.item.path, in: zoom)
           if row.id != rows.last?.id { Divider().padding(.leading, size.isAccessibilitySize ? 0 : 64) }
         }

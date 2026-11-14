@@ -334,7 +334,12 @@
       "author": "Happy Birthday To You!",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:RainbowCichlid.JPG",
       "caption": "One of my rainbow cichlids",
-      "thumb": "https://media.aquatome.com/commons/9a1a743ce15738c2-480.webp"
+      "thumb": "https://media.aquatome.com/commons/9a1a743ce15738c2-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/9a1a743ce15738c2-large.webp",
+        "width": 1599,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

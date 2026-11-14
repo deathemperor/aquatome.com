@@ -7,7 +7,7 @@ import PlantCard from '../../components/PlantCard.astro'
 import GuideCard from '../../components/GuideCard.astro'
 import GlossaryTip from '../../components/GlossaryTip.astro'
 import { getContent } from '../../lib/content'
-import { categoriesIn, type CategoryUse } from '../../lib/equipment'
+import { categoriesIn, hasCategoryPage, type CategoryUse } from '../../lib/equipment'
 import { equipmentParts } from '../../lib/equipment-page'
 import { alternatesWhere } from '../../lib/alternates'
 import { PAGE } from '../../scripts/filter-list'
@@ -23,7 +23,7 @@ const c = await getContent(lang)
 const parts = equipmentParts(lang, c, u)
 const { g, vn, label, entity, intro, chips, kinds, choose, mistakes, faq: answers, creators, plants, plantsMore, users, userPhotos, guides, keywords, credits } = parts
 const faq = g && g.faq.length > 0 ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: g.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []
-const alternates = await alternatesWhere(`/vi/thiet-bi/${u.category}/`, x => x.equipment.some(e => e.category === u.category && (e.quality?.indexable ?? true)))
+const alternates = await alternatesWhere(`/vi/thiet-bi/${u.category}/`, x => hasCategoryPage(x.lang ?? 'vi', x, u.category) && x.equipment.some(e => e.category === u.category && (e.quality?.indexable ?? true)))
 ---
 <Browse title={g ? t('{label}: chọn loại nào, dùng cho loài nào', { label }) : label} heading={label} description={g?.lead} crumbs={[['/vi/thiet-bi/', t('Thiết bị')]]} jsonld={faq} image={g?.hero.url} credits={credits} creditsLater={users.length > PAGE} noindex={g?.quality ? !g.quality.indexable : false} alternates={alternates}>
   {g && (

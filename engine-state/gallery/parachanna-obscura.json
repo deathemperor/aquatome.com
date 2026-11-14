@@ -10,7 +10,9 @@
   "File:Parachanna obscura - Aqua Porte Dorée 08.JPG",
   "File:Parachanna obscura - Aqua Porte Dorée 09.JPG",
   "File:Parachanna obscura - Aqua Porte Dorée 11.JPG",
-  "File:Parachanna obscura - Aqua Porte Dorée 10.JPG"
+  "File:Parachanna obscura - Aqua Porte Dorée 10.JPG",
+  "inat:333770468",
+  "inat:333770856"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/dcfad231307d4e41.webp": "340bc9c5e0b8eca9",
@@ -21,5 +23,13 @@
   "https://media.aquatome.com/commons/71a697dbca109e4b.webp": "87079c3d13a4e4c6",
   "https://media.aquatome.com/commons/64df6d3a145be125.webp": "4d4d9eb12d498787"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 554067,
+  "pass": "done",
+  "after": {
+   "research": 189718442,
+   "agree": 0
+  }
+ }
 }

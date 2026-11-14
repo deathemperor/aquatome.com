@@ -138,17 +138,12 @@
       "author": "Karelj",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichla_ocellaris_Dvur_zoo_1.jpg",
       "caption": "Fish Peacock Cichlid, Cichla ocellaris in ZOO Dvůr Králové, Czech Republic",
-      "thumb": "https://media.aquatome.com/commons/7c1ed635afbc3778-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/d05e88bbbef11718.webp",
-      "width": 960,
-      "height": 425,
-      "licence": "CC BY 4.0",
-      "author": "Matthew Pintar",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichla_ocellaris_57138663.jpg",
-      "caption": "Butterfly Peacock Bass (Cichla ocellaris)",
-      "thumb": "https://media.aquatome.com/commons/d05e88bbbef11718-480.webp"
+      "thumb": "https://media.aquatome.com/commons/7c1ed635afbc3778-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/7c1ed635afbc3778-large.webp",
+        "width": 1792,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

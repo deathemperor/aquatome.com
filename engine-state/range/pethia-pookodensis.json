@@ -1,0 +1,54 @@
+{
+  "id": "pethia-pookodensis",
+  "native": {
+    "input": "842975470c0ce76d",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from Pookode Lake in Wayanad district, Kerala state, southern India and possibly endemic there although some unconfirmed records exist from within the surrounding Wayanad Wildlife Sanctuary.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Pookode Lake",
+        "source": "seriouslyfish",
+        "quote": "Described from Pookode Lake in Wayanad district, Kerala state, southern India and possibly endemic there although some unconfirmed records exist from within the surrounding Wayanad Wildlife Sanctuary.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Kabani",
+        "source": "seriouslyfish",
+        "quote": "Pookode is a small freshwater lake surrounded by forest with a surface area of around 2 km² and is the source of the Panamaram River, a tributary within the much larger Kabani system.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pethia pookodensis",
+    "status": "ACCEPTED",
+    "taxonKey": 7986634,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

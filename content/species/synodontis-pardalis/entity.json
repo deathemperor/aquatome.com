@@ -1,0 +1,77 @@
+{
+  "id": "synodontis-pardalis",
+  "scientificName": "Synodontis pardalis",
+  "order": "Siluriformes",
+  "family": "Mochokidae",
+  "genus": "Synodontis",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "cameroon",
+    "dja"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 20
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_pardalis_en/",
+      "html": "<p>Maximum length about 20 cm. Peaceful, undemanding regarding feeding and water chemistry. Keep in groups of 5-8 specimens.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_pardalis_en/",
+      "html": "<p>The species is known only from the river Dja and its affluent Libi in Cameroon. It is considered an endangered species because the Dja is heavily destroyed and polluted due to intensive cobalt mining.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_pardalis_en/",
+      "html": "<p>Regarding feeding and water chemistry the species is undemanding.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_pardalis_en/",
+      "html": "<p>Synodontis pardalis belongs to a group of very slender species of Synodontis, as do also S. decorus and S. brichardi. Against each other they are astonishingly peaceful. This squeaker should be kept in groups of 5-8 specimens.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_pardalis_en/",
+      "html": "<p>S. pardalis is imported every now and then, which makes specimens available for breeding and conservation programs.</p><p>Etymology: Synodontis: an old name for an undetermined fish from the Nile. pardalis: means \"with the pattern of a leopard\".</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá cho cá nheo"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá nheo"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-11"
+}

@@ -154,7 +154,7 @@ export function chatTools(d: ToolDeps): Tool<Step>[] {
       name: 'search_handbook',
       description: 'Search the handbook\'s pages by name: fish, shrimp and snails (kind fish), plants, guides, glossary terms, videos, equipment kinds and tools. A fish or plant is found by its Vietnamese, other or scientific name; a guide by words of its title, or of one of its section headings or FAQ questions, when `section` says which (open the guide at that heading id with read_page; null: read its outline). Give kind to search one kind, or null for all. Returns up to 12 pages as JSON: path (open it with read_page), kind, name, id (a fish\'s or plant\'s, for a card), sub (scientific name), of (a breed: the species it is a form of), section, oneVideo (a guide written from one keeper\'s video).',
       input_schema: strict({
-        query: { type: 'string', description: 'A name, or a few words of a title, in the reader\'s language or the scientific name.' },
+        query: { type: 'string', description: 'A name, or two or three words of a title, in the reader\'s language or the scientific name. One thing at a time: a longer search finds nothing.' },
         kind: { anyOf: [{ type: 'string', enum: [...KINDS] }, { type: 'null' }], description: 'One kind of page, or null for all.' },
       }),
       step: input => ({ kind: 'search', query: String(input.query) }),

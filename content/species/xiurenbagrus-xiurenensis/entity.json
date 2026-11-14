@@ -1,0 +1,118 @@
+{
+  "id": "xiurenbagrus-xiurenensis",
+  "scientificName": "Xiurenbagrus xiurenensis",
+  "order": "Siluriformes",
+  "family": "Amblycipitidae",
+  "genus": "Xiurenbagrus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "china",
+    "zhujiang-river"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/xiurenbagrus_xiurenensis.htm",
+      "html": "<ul><li>Synonym: Liobagrus xiurenensis</li></ul><p>There are three species in this genus: X. dorsalis, X. xiurenensis and X. gigas.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/xiurenbagrus_xiurenensis.htm",
+      "html": "<p>Asia: China, Zhujiang River. The specific name xiurenensis refers to the Xiuren River, Pearl River drainage, Guangxi Province, China, the type locality.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/xiurenbagrus_xiurenensis.htm",
+      "html": "<p>Description: Elongated body, round in the front and gradually flattened towards the back, covered by a membrane. Short dorsal fin; very small eyes covered by a skin membrane. Dorsal spines (total): 1; dorsal soft rays (total): 6; anal soft rays: 7–8; vertebrae: 41–44. Dorsal-fin rays i,6; anal-fin rays vi,8 to vi,11; pectoral-fin rays i,6 to i,7; pelvic-fin rays i,6.</p><p>Colouration: The edges of the dorsal, anal and caudal fins are yellowish; the back is brownish and the belly yellowish.</p><p>IUCN Red List: assessed as Data Deficient, as the species is not well known beyond its type locality. Potential threats include overfishing and pollution.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/xiurenbagrus_xiurenensis.htm",
+      "html": "<p>Devi, R. &amp; Boguskaya, N. 2009. Xiurenbagrus xiurenensis. The IUCN Red List of Threatened Species 2009. Froese, R. and D. Pauly. Editors. 2009. FishBase. www.fishbase.org, version (01/2011). The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/a9a0bce1deab8603.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a9a0bce1deab8603-480.webp",
+      "width": 500,
+      "height": 239,
+      "licence": "dùng với sự cho phép",
+      "author": "Freshwater Fishes of China in Coloured Illustrations / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/xiurenbagrus_xiurenensis.htm",
+      "caption": "Xiurenbagrus xiurenensis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/5d428a7f3780d122.webp",
+      "thumb": "https://media.aquatome.com/scotcat/5d428a7f3780d122-480.webp",
+      "width": 600,
+      "height": 243,
+      "licence": "dùng với sự cho phép",
+      "author": "Zhou Hang / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/xiurenbagrus_xiurenensis.htm",
+      "caption": "Xiurenbagrus xiurenensis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/6c70835c98f037a1.webp",
+      "thumb": "https://media.aquatome.com/scotcat/6c70835c98f037a1-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Drake Shaw / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/xiurenbagrus_xiurenensis.htm",
+      "caption": "Xiurenbagrus xiurenensis",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "suoi",
+      "keywords": [
+        "quạt làm mát bể cá",
+        "máy làm lạnh nước bể cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thác bể cá",
+        "máy sục khí"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

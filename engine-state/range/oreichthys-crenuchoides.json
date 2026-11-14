@@ -1,0 +1,68 @@
+{
+  "id": "oreichthys-crenuchoides",
+  "native": {
+    "input": "971acb5239f3acd3",
+    "at": "2026-11-10T23:57:51.686Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The original home of this species is in the north of India, in Assam and northern Bengal.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The drape fin barb, Oreichthys crenuchoides, is a small cyprinid possibly endemic to Brahmaputra tributaries in West Bengal, eastern India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Brahmaputra",
+        "source": "seriouslyfish",
+        "quote": "Possibly endemic to tributaries of the Brahmaputra River in West Bengal state, eastern India.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Jorai River",
+        "source": "seriouslyfish",
+        "quote": "The type specimens came from the Jorai River, close to the border with Assam, but it has been collected elsewhere, including the Ghoti Ganga River, Cooch Behar district (A. Rao, pers. comm.).",
+        "ok": true
+      },
+      {
+        "name": "Himalayas",
+        "source": "glaser",
+        "quote": "In their homeland, at the foot of the Himalayas, it gets very hot in summer, but during the monsoon season the water temperature drops to 14°C.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Oreichthys crenuchoides",
+    "status": "ACCEPTED",
+    "taxonKey": 2366582,
+    "datasets": [
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        2
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T23:57:51.686Z"
+  }
+}

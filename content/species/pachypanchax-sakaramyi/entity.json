@@ -10,6 +10,66 @@
     "madagascar",
     "sakaramy"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MG"
+      ],
+      "regions": [
+        "Sakaramy River",
+        "Antongombato River",
+        "Ambohitra Massif"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Sakaramy River at village of Sakaramy, about 30 kilometers south of Antsiranana (Diego Suarez), 12°27'S, 49°16'E, Madagascar, elevation 500 meters', the Sakaramy being a tributary of the Sahakazoambany River, at the northernmost extremity of Madagascar.",
+          "countries": [
+            "MG"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Museum specimens and interviews with local people suggest it was once distributed around the northern and eastern sides of the Ambohitra Massif, a volcanic formation at the northern tip of Madagascar, but the only remaining riverine populations are restricted to a short stretch of the Sakaramy river between Ambohitra (aka Joffreville) and the village of Sakaramy, plus the upper reaches of the adjacent Antongombato River.",
+          "countries": [],
+          "regions": [
+            "Sakaramy River",
+            "Antongombato River",
+            "Ambohitra Massif"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2347793,
+      "total": 2,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "MG",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          47.8125,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          49.21875,
+          -12.65625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

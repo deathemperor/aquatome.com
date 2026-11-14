@@ -172,7 +172,73 @@
       "html": "<ul><li>de Pinna, M. C. C. (1996). A Phylogenetic Analysis of the Asian Catfish Families Sisoridae, Akysidae, and Amblycipitidae, with a Hypothesis on the Relationships of the Neotropical Aspredinidae (Teleostei, Ostariophysi). Fieldiana, Zoology (New Series) 84</li><li>Ng, H. H. and P. K. L. Ng (2001). A revision of the akysid catfish genus Acrochordonichthys Bleeker. Journal of Fish Biology 58(2), 386-418</li><li>Ng, H. H. and H. H. Tan (2002). Redescription of Acrochordonichthys ischnosoma Bleeker, 1858, a poorly-known species of akysid catfish (Teleostei: Siluriformes) from Sumatra and Java. The Raffles Bulletin of Zoology 50(2), 449-452</li><li>Rainboth, W. J. (1996). Fishes of the Cambodian Mekong. FAO Species Identification Field Guide for Fishery Purposes. FAO, Rome, 1-265</li><li>Roberts, T. R. (1989). The freshwater fishes of western Borneo (Kalimantan Barat, Indonesia). Memoirs of the California Academy of Sciences 14, 1-210</li><li>Sullivan, J. P., J. G. Lundberg and M. Hardman (2006). A phylogenetic analysis of the major groups of catfishes (Teleostei: Siluriformes) using rag1 and rag2 nuclear gene sequences. Molecular Phylogenetics and Evolution 41(3), 636–662</li><li>Vidthayanon, C. and H. H. Ng (2003). Acrochordonichthys gyrinus, a new species of akysid catfish (Teleostei: Siluriformes) from Thailand. Zootaxa No. 183, 1-7</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/b26048a12c276f0700b25f527d4d5f50.webp",
+      "thumb": "https://media.aquatome.com/processed/b26048a12c276f0700b25f527d4d5f50-480.webp",
+      "width": 700,
+      "height": 294,
+      "licence": "dùng với sự cho phép",
+      "author": "nonn",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acrochordonichthys-septentrionalis",
+      "caption": "This species is virtually unknown in the aquarium trade.",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-acrochordonichthys-septentrionalis",
+        "pixelHash": "280c2a56da6167cb8aabb46c4683fe26f75a71242b57c55ba99647deafa15be9"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T09:12:57.748Z",
+          "originalHash": "7864f3dd5a9ac1fd0b7cc4889e688bdc0c1aa0b141b025fdbc8b160451af198e",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 700,
+            "originalHeight": 322,
+            "window": {
+              "x0": 0,
+              "y0": 28,
+              "x1": 700,
+              "y1": 322
+            },
+            "subject": {
+              "x0": 33,
+              "y0": 125,
+              "x1": 655,
+              "y1": 267
+            },
+            "margin": 9
+          },
+          "excludedMarks": [
+            {
+              "x0": 19,
+              "y0": 11,
+              "x1": 55,
+              "y1": 24
+            }
+          ],
+          "checks": {
+            "species": [
+              "7f00d453136206a892df06c9150c3892a3e73874385df75c2d523be010465a1d",
+              "7faf2ec776d14f9784f5ab71cd9c084dac47a713ac142ff2148261215817cfd3"
+            ],
+            "ownership": [
+              "90a65b21ba9d9d6de4e5eb522c0279025d9193d7ae2f93947da4b3cfaf2b47f9",
+              "9ffd0485eb01cef02e02ca5bc15896464997852ff56da69320427d580e1ab26b"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/8f3d99f5083394cd.webp",
+        "width": 700,
+        "height": 322,
+        "thumb": "https://media.aquatome.com/seriouslyfish/8f3d99f5083394cd-480.webp"
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

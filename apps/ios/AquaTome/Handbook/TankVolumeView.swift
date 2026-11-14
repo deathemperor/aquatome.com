@@ -39,7 +39,7 @@ struct TankVolumeView: View {
         AnyView(Section("Kiểu bể (nhìn từ trên xuống, mặt áp tường ở trên)") {
           // One row, so the sizes and the litres are on the first screen.
           ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 6) { ForEach(TankShape.allCases, id: \.self) { shapeButton($0).id($0) } }
+            HStack(spacing: 6) { ForEach(TankShape.allCases, id: \.self) { shapeButton($0).id($0) } }.v2YieldsToEdgeSwipe()
           }
           .accessibilityIdentifier("shapes")
           .id("top")
@@ -64,6 +64,7 @@ struct TankVolumeView: View {
         return .handled
       })
     }
+    .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
     .navigationTitle("Bể bao nhiêu lít?")
     .navigationDestination(item: $web) { WebScreen(url: $0) }
     .onAppear {
@@ -84,6 +85,7 @@ struct TankVolumeView: View {
     }
     // The tank picked to save to, deleted on the tanks tab meanwhile: a new one, as the site's picker resets.
     .onChange(of: tanks.tanks.map(\.id)) { _, ids in if let t = target, !ids.contains(t) { target = nil } }
+    .ownerScreen("tool tank-volume")
   }
 
   private var sizes: some View {

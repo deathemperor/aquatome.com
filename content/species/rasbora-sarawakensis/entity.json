@@ -11,6 +11,62 @@
     "sarawak",
     "indonesia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Batang Kayan",
+        "Sungai Sarawak",
+        "Mempawah",
+        "Melawi"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "R. sarawakensis originates from the part of Borneo that belongs to Malaysia.",
+          "countries": [
+            "MY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Rasbora sarawakensis is a small rasbora endemic to Borneo, found in Sarawak and the neighbouring Indonesian province of West Kalimantan.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the island of Borneo.",
+          "countries": [],
+          "regions": [
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It has been recorded from numerous river systems including the Batang Kayan and Sungai Sarawak in Sarawak and the Mempawah and Melawi in Kalimantan Barat.",
+          "countries": [],
+          "regions": [
+            "Batang Kayan",
+            "Sungai Sarawak",
+            "Mempawah",
+            "Melawi"
+          ]
+        }
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

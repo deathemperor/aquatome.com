@@ -62,18 +62,6 @@
       "kind": "emersed"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/215552042.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/215552042-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Katrin Simon",
-      "sourceUrl": "https://www.inaturalist.org/photos/215552042",
-      "caption": "Cỏ tóc tiên ra hoa giữa đám cỏ xanh ngoài tự nhiên",
-      "best": true,
-      "kind": "flower"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/21341179.webp",
       "thumb": "https://media.aquatome.com/inaturalist/21341179-480.webp",
       "width": 1024,
@@ -84,18 +72,6 @@
       "caption": "Thảm Cỏ tóc tiên có bông nhỏ mọc ngoài tự nhiên",
       "best": true,
       "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/161246957.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/161246957-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Vladimír Fuka",
-      "sourceUrl": "https://www.inaturalist.org/photos/161246957",
-      "caption": "Bụi Cỏ tóc tiên xanh tươi mọc dày",
-      "best": true,
-      "kind": "emersed"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/317389527.webp",
@@ -302,6 +278,17 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/tropica/296910fdc8c2c709.webp",
+      "thumb": "https://media.aquatome.com/tropica/296910fdc8c2c709-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Eleocharisacicularis(133TC)/28401",
+      "source": "tropica",
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/103619712.webp",
       "thumb": "https://media.aquatome.com/inaturalist/103619712-480.webp",
       "width": 768,
@@ -350,6 +337,17 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/tropica/e3c42ecc86765747.webp",
+      "thumb": "https://media.aquatome.com/tropica/e3c42ecc86765747-480.webp",
+      "width": 1080,
+      "height": 1080,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Eleocharisacicularis(133TC)/28401",
+      "source": "tropica",
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/161246980.webp",
       "thumb": "https://media.aquatome.com/inaturalist/161246980-480.webp",
       "width": 768,
@@ -384,6 +382,17 @@
       "caption": "Thảm Cỏ tóc tiên mọc ven nước giữa cây khác",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/d776ed4d68b2f199.webp",
+      "thumb": "https://media.aquatome.com/tropica/d776ed4d68b2f199-480.webp",
+      "width": 1080,
+      "height": 1080,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Eleocharisacicularis(133TC)/28401",
+      "source": "tropica",
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/171815183.webp",
@@ -732,9 +741,33 @@
       "caption": "Thảm Cỏ tóc tiên mọc giữa đá ngoài tự nhiên",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/215552042.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/215552042-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Katrin Simon",
+      "sourceUrl": "https://www.inaturalist.org/photos/215552042",
+      "caption": "Cỏ tóc tiên ra hoa giữa đám cỏ xanh ngoài tự nhiên",
+      "best": true,
+      "kind": "flower"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/161246957.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/161246957-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Vladimír Fuka",
+      "sourceUrl": "https://www.inaturalist.org/photos/161246957",
+      "caption": "Bụi Cỏ tóc tiên xanh tươi mọc dày",
+      "best": true,
+      "kind": "emersed"
     }
   ],
   "seen": 160,
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-10",
   "builtAt": "2026-10-31"
 }

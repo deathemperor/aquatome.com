@@ -1,0 +1,26 @@
+{
+  "slug": "ca-bong-keo",
+  "name": "Cá bống kèo",
+  "altNames": [
+    "Elongate mudskipper"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Đây là một loài cá bống rất dễ thương, vừa được nhập lại từ Ấn Độ. Nó thuộc nhóm cá thòi lòi, nhưng không bao giờ lên hẳn khỏi mặt nước mà chỉ bơi ở chỗ nước thật nông.</p><p>Cá dài tối đa khoảng 20 cm, nhưng thường nhỏ hơn nhiều, chừng 12 cm.</p>",
+    "behaviour:glaser": "<p>Những con cá thòi lòi này sống với nhau hoàn toàn hiền hòa.</p>",
+    "diet:glaser": "<p>Chúng dễ ăn, loại thức ăn cá thông thường nào cũng ăn.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-11"
+  }
+}

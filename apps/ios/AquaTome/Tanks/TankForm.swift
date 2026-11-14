@@ -57,6 +57,7 @@ struct TankForm: View {
           Text("Chưa lưu được thay đổi. Thử lại.").foregroundStyle(Color.warning)
         }
       }
+      .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
       .navigationTitle(editing == nil ? "Thêm bể" : "Sửa")
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {

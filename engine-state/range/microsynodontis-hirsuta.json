@@ -1,0 +1,48 @@
+{
+  "id": "microsynodontis-hirsuta",
+  "native": {
+    "input": "9aee9f5ffcfe17d1",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Africa: Ntem River, Gabon. Type locality: Ngomo creek, where it crosses the Oyem-Minvoul road, 1°41'30.0''N, 11°39'18.9''E, Woleu-Ntem Province, Gabon.",
+        "words": "Gabon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ntem River",
+        "source": "planetcatfish",
+        "quote": "Africa: Ntem River, Gabon. Type locality: Ngomo creek, where it crosses the Oyem-Minvoul road, 1°41'30.0''N, 11°39'18.9''E, Woleu-Ntem Province, Gabon.",
+        "country": "GA",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Microsynodontis hirsuta",
+    "status": "ACCEPTED",
+    "taxonKey": 2344192,
+    "datasets": [
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        2
+      ]
+    ],
+    "native": [
+      "GA"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

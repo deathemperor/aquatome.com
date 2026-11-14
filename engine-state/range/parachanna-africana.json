@@ -1,0 +1,124 @@
+{
+  "id": "parachanna-africana",
+  "native": {
+    "input": "7959f62239268794",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "BJ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species' known range extends from Benin to Nigeria, with records from several rivers draining into the Gulf of Guinea, including the Ouémé watershed in southern Benin, and the lower Niger and Cross basins in Nigeria.",
+        "words": "Benin",
+        "ok": true
+      },
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species' known range extends from Benin to Nigeria, with records from several rivers draining into the Gulf of Guinea, including the Ouémé watershed in southern Benin, and the lower Niger and Cross basins in Nigeria.",
+        "words": "Nigeria",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ouémé",
+        "source": "seriouslyfish",
+        "quote": "This species' known range extends from Benin to Nigeria, with records from several rivers draining into the Gulf of Guinea, including the Ouémé watershed in southern Benin, and the lower Niger and Cross basins in Nigeria.",
+        "country": "BJ",
+        "ok": true
+      },
+      {
+        "name": "Niger",
+        "source": "seriouslyfish",
+        "quote": "This species' known range extends from Benin to Nigeria, with records from several rivers draining into the Gulf of Guinea, including the Ouémé watershed in southern Benin, and the lower Niger and Cross basins in Nigeria.",
+        "country": "NG",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Cross",
+        "source": "seriouslyfish",
+        "quote": "This species' known range extends from Benin to Nigeria, with records from several rivers draining into the Gulf of Guinea, including the Ouémé watershed in southern Benin, and the lower Niger and Cross basins in Nigeria.",
+        "country": "NG",
+        "ok": true
+      },
+      {
+        "name": "Niger Delta",
+        "source": "seriouslyfish",
+        "quote": "Primarily inhabits lowland, coastal river basins, swamps, lakes and man-made reservoirs, and has been recorded in the Niger Delta region.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "NE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parachanna africana",
+    "status": "ACCEPTED",
+    "taxonKey": 2391429,
+    "datasets": [
+      [
+        "5e1d2d54-f5db-43ac-87c5-55a9f79ac718",
+        13
+      ],
+      [
+        "8e912d78-6259-44e3-8f58-debb3081a15f",
+        13
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        10
+      ],
+      [
+        "d2724ca9-8ccd-416e-9837-7aee75f67422",
+        10
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "2ba30ed2-6f82-480c-a892-4c8749508324",
+        1
+      ],
+      [
+        "7d8ed137-1d30-42f1-8b78-12a4957e4690",
+        1
+      ],
+      [
+        "f08cb83c-9d50-4de8-aaa4-dd9bbe5cd02a",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ],
+      [
+        "fba36b75-451a-40e3-af18-297f151bcc91",
+        1
+      ]
+    ],
+    "native": [
+      "BJ",
+      "NG"
+    ],
+    "requests": 12,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

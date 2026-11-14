@@ -92,10 +92,10 @@ struct GoogleButton: View {
         Text("Đăng nhập bằng Google").font(.system(size: 16, weight: .medium)).lineLimit(1).minimumScaleFactor(0.8)
       }
       .padding(.horizontal, 16)
-      .frame(maxWidth: .infinity, minHeight: capsule ? 48 : 44, maxHeight: capsule ? 48 : 44)
+      .frame(maxWidth: .infinity, minHeight: capsule ? 50 : 44, maxHeight: capsule ? 50 : 44)
       .foregroundStyle(dark ? Self.rgb(0xE3E3E3) : Self.rgb(0x1F1F1F))
-      .background(dark ? Self.rgb(0x131314) : .white, in: .rect(cornerRadius: capsule ? 24 : 4))
-      .overlay(RoundedRectangle(cornerRadius: capsule ? 24 : 4).strokeBorder(dark ? Self.rgb(0x8E918F) : Self.rgb(0x747775), lineWidth: 1))
+      .background(dark ? Self.rgb(0x131314) : .white, in: .rect(cornerRadius: capsule ? 25 : 4))
+      .overlay(RoundedRectangle(cornerRadius: capsule ? 25 : 4).strokeBorder(dark ? Self.rgb(0x8E918F) : Self.rgb(0x747775), lineWidth: 1))
       .contentShape(.rect)
     }
     .buttonStyle(.plain)

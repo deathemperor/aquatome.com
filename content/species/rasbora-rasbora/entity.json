@@ -16,6 +16,62 @@
     "thailand",
     "khwae-noi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PK",
+        "IN",
+        "BD",
+        "MM",
+        "TH"
+      ],
+      "regions": [
+        "Brahmaputra",
+        "Salween",
+        "Ayeyarwady",
+        "Lake Indawgyi",
+        "Thandwe",
+        "Khwae Noi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Apparently native to Pakistan, India, Bangladesh, Myanmar and Thailand, which is a potentially enormous natural range.",
+          "countries": [
+            "PK",
+            "IN",
+            "BD",
+            "MM",
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "More recent records have tended to be from the Brahmaputra river basin in northeastern India and Bangladesh or various parts of Myanmar including Lake Indawgyi as well as the Salween, Thandwe and Ayeyarwady river drainages.",
+          "countries": [],
+          "regions": [
+            "Brahmaputra",
+            "Salween",
+            "Ayeyarwady",
+            "Lake Indawgyi",
+            "Thandwe"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Thailand it may be restricted to border rivers close to Myanmar such as the Songgaria, a tributary of the Khwae Noi (River Kwai).",
+          "countries": [],
+          "regions": [
+            "Khwae Noi"
+          ]
+        }
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

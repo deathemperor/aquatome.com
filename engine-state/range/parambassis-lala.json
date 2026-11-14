@@ -1,0 +1,102 @@
+{
+  "id": "parambassis-lala",
+  "native": {
+    "input": "e7bf22ae3c43227c",
+    "at": "2026-11-11T08:59:40.517Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The dwarf glass perch, Parambassis lala, is widely distributed in South Asia; it can be found in India, Burma and Nepal.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The dwarf glass perch, Parambassis lala, is widely distributed in South Asia; it can be found in India, Burma and Nepal.",
+        "words": "Burma",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The dwarf glass perch, Parambassis lala, is widely distributed in South Asia; it can be found in India, Burma and Nepal.",
+        "words": "Nepal",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parambassis lala",
+    "status": "ACCEPTED",
+    "taxonKey": 2387212,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        54
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        50
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        21
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        15
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        7
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        6
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "50dc97cf-251f-471e-997d-2f9d7d39a1be",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "9613ee46-eb0d-49fe-9ea6-f23bb27adadd",
+        1
+      ],
+      [
+        "c6b86c40-ff71-4e5e-902c-111f400d0d56",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "MM",
+      "NP"
+    ],
+    "requests": 12,
+    "at": "2026-11-11T08:59:40.517Z"
+  }
+}

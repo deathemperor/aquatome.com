@@ -2,18 +2,6 @@
   "id": "tetraodon-mbu",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/43f593b59bb687ed.webp",
-      "thumb": "https://media.aquatome.com/commons/43f593b59bb687ed-480.webp",
-      "width": 899,
-      "height": 779,
-      "licence": "CC BY-SA 4.0",
-      "author": "Tiia Monto",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tetraodon_mbu_in_S%C3%A4rk%C3%A4nniemi.jpg",
-      "caption": "Cá nóc khổng lồ bơi trong bể trồng nhiều cây",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/commons/d7066bfa193f9336.webp",
       "thumb": "https://media.aquatome.com/commons/d7066bfa193f9336-480.webp",
       "width": 1200,
@@ -58,6 +46,18 @@
       "author": "Cedricguppy - Loury Cédric",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tetraodon_mbu_-_aqua_porte_dor%C3%A9e_03.JPG",
       "caption": "Cá nóc khổng lồ nằm trên nền cát trong bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/43f593b59bb687ed.webp",
+      "thumb": "https://media.aquatome.com/commons/43f593b59bb687ed-480.webp",
+      "width": 899,
+      "height": 779,
+      "licence": "CC BY-SA 4.0",
+      "author": "Tiia Monto",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tetraodon_mbu_in_S%C3%A4rk%C3%A4nniemi.jpg",
+      "caption": "Cá nóc khổng lồ bơi trong bể trồng nhiều cây",
       "best": true,
       "kind": "other"
     },
@@ -158,18 +158,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/commons/c34165d94aa4578a.webp",
-      "thumb": "https://media.aquatome.com/commons/c34165d94aa4578a-480.webp",
-      "width": 800,
-      "height": 597,
-      "licence": "CC BY-SA 4.0",
-      "author": "Emőke Dénes",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tetraodon_mbu_-_Kew_5.jpg",
-      "caption": "Cá nóc khổng lồ nằm nghỉ trên nền cát trong bể",
-      "best": false,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/commons/a39b65cf74f6194a.webp",
       "thumb": "https://media.aquatome.com/commons/a39b65cf74f6194a-480.webp",
       "width": 1200,
@@ -252,9 +240,21 @@
       "caption": "Cá nóc khổng lồ bụng vàng bơi gần cây thủy sinh",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/c34165d94aa4578a.webp",
+      "thumb": "https://media.aquatome.com/commons/c34165d94aa4578a-480.webp",
+      "width": 800,
+      "height": 597,
+      "licence": "CC BY-SA 4.0",
+      "author": "Emőke Dénes",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tetraodon_mbu_-_Kew_5.jpg",
+      "caption": "Cá nóc khổng lồ nằm nghỉ trên nền cát trong bể",
+      "best": false,
+      "kind": "other"
     }
   ],
-  "seen": 40,
-  "updatedAt": "2026-11-07",
-  "builtAt": "2026-11-07"
+  "seen": 42,
+  "updatedAt": "2026-11-11",
+  "builtAt": "2026-11-11"
 }

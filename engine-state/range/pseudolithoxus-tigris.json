@@ -1,0 +1,87 @@
+{
+  "id": "pseudolithoxus-tigris",
+  "native": {
+    "input": "4ab2ac9e8560efc4",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: backwater of Río Orinoco behind a sand playa, approximately 0.5 hr upstream from Isla Temblador, 3°04'N, 66°28'W, Estado Amazonas, Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Upper Orinoco and Ventuari River basins in Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "scotcat",
+        "quote": "South America: Upper Orinoco and Ventuari River basins in Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Ventuari",
+        "source": "scotcat",
+        "quote": "South America: Upper Orinoco and Ventuari River basins in Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "planetcatfish",
+        "quote": "South America: Orinoco, Upper Orinoco, Ventuari.",
+        "ok": true
+      },
+      {
+        "name": "Ventuari",
+        "source": "planetcatfish",
+        "quote": "South America: Orinoco, Upper Orinoco, Ventuari.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudolithoxus tigris",
+    "status": "ACCEPTED",
+    "taxonKey": 2340039,
+    "datasets": [
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ]
+    ],
+    "native": [
+      "VE"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}

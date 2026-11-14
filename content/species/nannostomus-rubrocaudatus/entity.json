@@ -10,6 +10,56 @@
     "peru",
     "maranon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Marañón",
+        "Rio Morona",
+        "Rio Santiago"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The natural range is in Peru, Dep. Loreto.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The purple pencilfish, Nannostomus rubrocaudatus, is reportedly collected along the Marañón in Peru, between the Morona and Santiago rivers.",
+          "countries": [],
+          "regions": [
+            "Marañón"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Here, the species is collected for export near the village of Saramirisa on the Maranon (the upper Amazon) between the tributaries Rio Morona and Rio Santiago.",
+          "countries": [],
+          "regions": [
+            "Rio Morona",
+            "Rio Santiago"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355626,
+      "total": 0,
+      "fetched": "2026-11-10",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -5,12 +5,14 @@
   "family": "Callichthyidae",
   "genus": "Corydoras",
   "group": "catfish",
+  "lNumber": "CW043",
   "places": [
     "south-america",
     "brazil",
     "anori",
     "solimoes",
-    "peru"
+    "peru",
+    "amazon"
   ],
   "range": {
     "native": {
@@ -93,11 +95,25 @@
           "min": 20,
           "max": 26
         }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22.5,
+          "max": 26
+        }
       }
     ],
     "ph": [
       {
         "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      },
+      {
+        "source": "planetcatfish",
         "value": {
           "min": 6,
           "max": 8
@@ -111,12 +127,23 @@
           "min": 2,
           "max": 15
         }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 2,
+          "max": 16
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "seriouslyfish",
         "value": 5
+      },
+      {
+        "source": "planetcatfish",
+        "value": 4.8
       }
     ],
     "tankCm": [
@@ -140,6 +167,12 @@
       "html": "<p>Osteogaster eques, long known as Corydoras eques, is an armoured catfish described from the Amazon at Codajás, on the rio Solimões main channel in western Brazil. Its wider range is unclear, although similar-looking fish have been exported from Peru on occasion. It is sometimes confused with C. venezuelanus, and two similar unidentified fishes from Peru carry the codes CW007 and CW043.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1351",
+      "html": "<ul><li>Scientific name: Osteogaster eques (Steindachner, 1876)</li><li>Common names: CW043, Horsemans Cory</li><li>Synonym: Corydoras eques</li><li>Etymology: Latin eques, horseman, rider.</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_eques_en/",
@@ -150,6 +183,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-eques",
       "html": "<p>Type locality is 'Amazon River at Codajás, Amazonas, Brazil', which is located approximately midway between Tefé and Manaus on the rio Solimões (Amazon) main channel, western Brazil. Its extended range is unclear although similar-looking fish have been exported from Peru on occasion.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1351",
+      "html": "<p>South America: Amazon River basin. Type locality: Amazon River at Codajás, Amazonas, Brazil.</p>"
     },
     {
       "key": "aquariumSize",
@@ -170,10 +209,28 @@
       "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1351",
+      "html": "<ul><li>pH: 6.0–8.0</li><li>Temperature: 22.5–26.0°C</li><li>Hardness: 2–16 dH</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1351",
+      "html": "<p>Substrate should be a fine smooth-grained sand.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-eques",
       "html": "<p>Corydoras spp. are foraging omnivores and will accept most sinking dried foods, as well as small live and frozen varieties such as chironomid larvae (bloodworm), Tubifex, etc.</p><p>Feeding a varied diet will ensure the fish are in optimum condition.</p><p>Under no circumstances should they be expected to survive on 'left-overs' from other inhabitants of the aquarium or relied on to 'clean' the aquarium.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1351",
+      "html": "<p>Will readily accept all prepared foods that reach the bottom of the aquarium, such as tablets, granules and larger flakes. Live or frozen foods such as bloodworm, white worm, grindal worm (Enchytraeus), Daphnia and Tubifex are readily accepted and good for conditioning groups of fish for spawning.</p>"
     },
     {
       "key": "behaviour",
@@ -188,10 +245,22 @@
       "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 4-6 individuals.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1351",
+      "html": "<p>A peaceful species best kept in groups of five or more. Tank mates should be of a similar temperament. Small to medium tetras, barbs, anabantoids and danios make ideal tank mates.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-eques",
       "html": "<p>Females tend to grow larger, and sexually mature individuals are noticeably rounder and higher-bodied than males.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1351",
+      "html": "<p>Females are larger in overall body length and have a fuller, more rounded body shape.</p>"
     },
     {
       "key": "reproduction",
@@ -200,16 +269,34 @@
       "html": "<p>Can be bred in a similar fashion to many other Corydoras species but floating vegetation should be provided as this species tends to deposit eggs close to the water surface.</p><p>Use a ratio of 2 males per female if possible, and when the females are visibly full of eggs perform a large (50-70%) water change with cooler water, and increase oxygenation and flow in the tank. Repeat this daily until the fish spawn.</p><p>Eggs may be deposited on the aquarium glass, among fine-leaved vegetation or within sunken spawning mops, with the latter particularly recommended since they facilitate easy removal of eggs.</p><p>Once spawning is complete either adults or eggs should be removed; the latter can usually be rolled gently up the glass with a finger. The new container should contain the same water as the spawning tank and be similarly well-oxygenated.</p><p>Most breeders add a few drops of methylene blue, or an alder cone or two at this point in order to prevent the eggs developing fungus.</p><p>Incubation is normally 3-4 days and once the fry have fully-absorbed their yolk sacs they are able to accept small live foods such as microworm, Artemia nauplii, etc.</p><p>They are not the easiest to raise, requiring excellent water quality, but seem less susceptible to ailments when maintained over a thin layer of sand rather than in a bare-bottomed arrangement.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1351",
+      "html": "<p>Spawned in captivity.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-eques",
       "html": "<p>Although described as a member of Corydoras this species was later moved into the genus Osteogaster by Cope (1894), but this was later synonymised with Corydoras by Gosline (1940).</p><p>It is sometimes confused with C. venezuelanus, while two similar-looking, unidentified fishes from Peru have been assigned the codes CW007 and CW043, respectively.</p><p>The genus Corydoras is included in the family Callichthyidae, of which members are often referred to collectively as 'armoured' or 'mailed' catfishes group due to the presence of bony plates in place of scales on the body.</p><p>Their taxonomy can be confusing, and numerous undescribed species are also thought to exist.</p><p>Fish of unconfirmed identification entering the aquarium hobby are therefore typically assigned a 'C' or 'CW' number for purposes of reference and organisation.</p><p>They are facultative air breathers and possess a modified, highly vascularised intestine which has evolved to facilitate uptake of atmospheric oxygen and aid survival in oxygen-deprived environments. In the aquarium you'll occasionally see them rising to the surface to take in gulps of air.</p><p>The stiffened pectoral-fin spines are capable of piercing human skin and a 'sting' can be very painful indeed, so care should be exercised when handling them.</p><p>It is thought that secretions from the axillary glands at the base of each spine may even be mildly toxic or venomous.</p>"
     },
     {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1351",
+      "html": "<p>Identification: characterised by the large saddle-shaped dark greenish brown body marking, from which it gets its common name.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-eques",
       "html": "<ul><li>Steindachner, F. (1876). Ichthyologische Beiträge (V). Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften. Mathematisch-Naturwissenschaftliche Classe v. 74 (1. Abth.), 49-240</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1351",
+      "html": "<p>Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften. Mathematisch-Naturwissenschaftliche Classe v. 74 (1. Abth.), pp 140 [92], Pl. 12 (fig. 3-3a).</p>"
     }
   ],
   "photos": [
@@ -325,5 +412,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-13"
 }

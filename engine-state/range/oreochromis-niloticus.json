@@ -1,0 +1,784 @@
+{
+  "id": "oreochromis-niloticus",
+  "native": {
+    "input": "82e54e5cab7ebcf3",
+    "at": "2026-11-10T23:57:51.686Z",
+    "claims": [
+      {
+        "code": "SN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Nile tilapia, Oreochromis niloticus, is a cichlid with a very wide natural range in Africa, from Senegal east to Egypt and Uganda.",
+        "words": "Senegal",
+        "ok": true
+      },
+      {
+        "code": "EG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Nile tilapia, Oreochromis niloticus, is a cichlid with a very wide natural range in Africa, from Senegal east to Egypt and Uganda.",
+        "words": "Egypt",
+        "ok": true
+      },
+      {
+        "code": "UG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Nile tilapia, Oreochromis niloticus, is a cichlid with a very wide natural range in Africa, from Senegal east to Egypt and Uganda.",
+        "words": "Uganda",
+        "ok": true
+      },
+      {
+        "code": "BF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "O. n. niloticus has a very wide natural range and is native to (in alphabetical order) Burkina Faso, Cameroon, Chad, Egypt, Ethiopia, Gambia, Ghana, Guinea, Israel, Ivory Coast, Liberia, Mali, Niger, Nigeria, Senegal, Sierra Leone, Sudan, Togo and Uganda.",
+        "words": "Burkina Faso",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "O. n. niloticus has a very wide natural range and is native to (in alphabetical order) Burkina Faso, Cameroon, Chad, Egypt, Ethiopia, Gambia, Ghana, Guinea, Israel, Ivory Coast, Liberia, Mali, Niger, Nigeria, Senegal, Sierra Leone, Sudan, Togo and Uganda.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "TD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "O. n. niloticus has a very wide natural range and is native to (in alphabetical order) Burkina Faso, Cameroon, Chad, Egypt, Ethiopia, Gambia, Ghana, Guinea, Israel, Ivory Coast, Liberia, Mali, Niger, Nigeria, Senegal, Sierra Leone, Sudan, Togo and Uganda.",
+        "words": "Chad",
+        "ok": true
+      },
+      {
+        "code": "ET",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "O. n. niloticus has a very wide natural range and is native to (in alphabetical order) Burkina Faso, Cameroon, Chad, Egypt, Ethiopia, Gambia, Ghana, Guinea, Israel, Ivory Coast, Liberia, Mali, Niger, Nigeria, Senegal, Sierra Leone, Sudan, Togo and Uganda.",
+        "words": "Ethiopia",
+        "ok": true
+      },
+      {
+        "code": "GM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "O. n. niloticus has a very wide natural range and is native to (in alphabetical order) Burkina Faso, Cameroon, Chad, Egypt, Ethiopia, Gambia, Ghana, Guinea, Israel, Ivory Coast, Liberia, Mali, Niger, Nigeria, Senegal, Sierra Leone, Sudan, Togo and Uganda.",
+        "words": "Gambia",
+        "ok": true
+      },
+      {
+        "code": "GH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "O. n. niloticus has a very wide natural range and is native to (in alphabetical order) Burkina Faso, Cameroon, Chad, Egypt, Ethiopia, Gambia, Ghana, Guinea, Israel, Ivory Coast, Liberia, Mali, Niger, Nigeria, Senegal, Sierra Leone, Sudan, Togo and Uganda.",
+        "words": "Ghana",
+        "ok": true
+      },
+      {
+        "code": "GN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "O. n. niloticus has a very wide natural range and is native to (in alphabetical order) Burkina Faso, Cameroon, Chad, Egypt, Ethiopia, Gambia, Ghana, Guinea, Israel, Ivory Coast, Liberia, Mali, Niger, Nigeria, Senegal, Sierra Leone, Sudan, Togo and Uganda.",
+        "words": "Guinea",
+        "ok": true
+      },
+      {
+        "code": "IL",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "O. n. niloticus has a very wide natural range and is native to (in alphabetical order) Burkina Faso, Cameroon, Chad, Egypt, Ethiopia, Gambia, Ghana, Guinea, Israel, Ivory Coast, Liberia, Mali, Niger, Nigeria, Senegal, Sierra Leone, Sudan, Togo and Uganda.",
+        "words": "Israel",
+        "ok": true
+      },
+      {
+        "code": "CI",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "O. n. niloticus has a very wide natural range and is native to (in alphabetical order) Burkina Faso, Cameroon, Chad, Egypt, Ethiopia, Gambia, Ghana, Guinea, Israel, Ivory Coast, Liberia, Mali, Niger, Nigeria, Senegal, Sierra Leone, Sudan, Togo and Uganda.",
+        "words": "Ivory Coast",
+        "ok": true
+      },
+      {
+        "code": "LR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "O. n. niloticus has a very wide natural range and is native to (in alphabetical order) Burkina Faso, Cameroon, Chad, Egypt, Ethiopia, Gambia, Ghana, Guinea, Israel, Ivory Coast, Liberia, Mali, Niger, Nigeria, Senegal, Sierra Leone, Sudan, Togo and Uganda.",
+        "words": "Liberia",
+        "ok": true
+      },
+      {
+        "code": "ML",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "O. n. niloticus has a very wide natural range and is native to (in alphabetical order) Burkina Faso, Cameroon, Chad, Egypt, Ethiopia, Gambia, Ghana, Guinea, Israel, Ivory Coast, Liberia, Mali, Niger, Nigeria, Senegal, Sierra Leone, Sudan, Togo and Uganda.",
+        "words": "Mali",
+        "ok": true
+      },
+      {
+        "code": "NE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "O. n. niloticus has a very wide natural range and is native to (in alphabetical order) Burkina Faso, Cameroon, Chad, Egypt, Ethiopia, Gambia, Ghana, Guinea, Israel, Ivory Coast, Liberia, Mali, Niger, Nigeria, Senegal, Sierra Leone, Sudan, Togo and Uganda.",
+        "words": "Niger",
+        "ok": true
+      },
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "O. n. niloticus has a very wide natural range and is native to (in alphabetical order) Burkina Faso, Cameroon, Chad, Egypt, Ethiopia, Gambia, Ghana, Guinea, Israel, Ivory Coast, Liberia, Mali, Niger, Nigeria, Senegal, Sierra Leone, Sudan, Togo and Uganda.",
+        "words": "Nigeria",
+        "ok": true
+      },
+      {
+        "code": "SL",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "O. n. niloticus has a very wide natural range and is native to (in alphabetical order) Burkina Faso, Cameroon, Chad, Egypt, Ethiopia, Gambia, Ghana, Guinea, Israel, Ivory Coast, Liberia, Mali, Niger, Nigeria, Senegal, Sierra Leone, Sudan, Togo and Uganda.",
+        "words": "Sierra Leone",
+        "ok": true
+      },
+      {
+        "code": "SD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "O. n. niloticus has a very wide natural range and is native to (in alphabetical order) Burkina Faso, Cameroon, Chad, Egypt, Ethiopia, Gambia, Ghana, Guinea, Israel, Ivory Coast, Liberia, Mali, Niger, Nigeria, Senegal, Sierra Leone, Sudan, Togo and Uganda.",
+        "words": "Sudan",
+        "ok": true
+      },
+      {
+        "code": "TG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "O. n. niloticus has a very wide natural range and is native to (in alphabetical order) Burkina Faso, Cameroon, Chad, Egypt, Ethiopia, Gambia, Ghana, Guinea, Israel, Ivory Coast, Liberia, Mali, Niger, Nigeria, Senegal, Sierra Leone, Sudan, Togo and Uganda.",
+        "words": "Togo",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "SS"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Oreochromis niloticus",
+    "status": "ACCEPTED",
+    "taxonKey": 4285694,
+    "datasets": [
+      [
+        "010fcd64-caa7-47dd-b1b1-c8be5a2144b6",
+        74981
+      ],
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        2409
+      ],
+      [
+        "83cbdde7-998f-4354-95de-72d885cc5863",
+        2312
+      ],
+      [
+        "0a795556-3b24-4ff7-9113-22eb1bca08a4",
+        1446
+      ],
+      [
+        "f442ef1d-7104-4a8c-85d6-a55181d6b265",
+        1406
+      ],
+      [
+        "90b6055a-c12b-4c91-951a-7efbe184bca1",
+        1405
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        767
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        661
+      ],
+      [
+        "18d357a9-ffd9-4ab4-b453-9945817954bc",
+        613
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        548
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        476
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        454
+      ],
+      [
+        "372ac467-9b19-4373-8a0f-85fb3a91b6ca",
+        308
+      ],
+      [
+        "7d0726ee-f3f7-4c08-bd46-a1360abb3803",
+        263
+      ],
+      [
+        "3d514dad-76ed-43d3-893c-915910ce638c",
+        241
+      ],
+      [
+        "48a18d17-96f2-4a0d-89ad-bbe1ac6ce72c",
+        228
+      ],
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        130
+      ],
+      [
+        "175d2868-a330-4179-ba25-35da91a8214d",
+        113
+      ],
+      [
+        "5fab027d-14b6-4659-9a7e-8a0d4bd3e12b",
+        108
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        88
+      ],
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        81
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        65
+      ],
+      [
+        "8b26c7ae-a33a-4cc8-bfd7-875ef99bcc9b",
+        50
+      ],
+      [
+        "3ea542dc-885d-4c8a-91a3-64d0a5d78301",
+        45
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        43
+      ],
+      [
+        "52ff7a75-4354-464c-9765-eca68cf90859",
+        42
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        42
+      ],
+      [
+        "bcd192c2-18bf-44a8-a9df-80f92a1cb76d",
+        41
+      ],
+      [
+        "9b5577ee-34f9-4d09-9ce2-c70fd03ee6cd",
+        37
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        37
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        36
+      ],
+      [
+        "8fd84a4f-bbed-490b-9ca4-c0a3d0aea079",
+        31
+      ],
+      [
+        "c2914e4b-381d-4814-8a34-66a7d949fd44",
+        29
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        29
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        28
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        28
+      ],
+      [
+        "c6859214-65a4-4563-8d17-d464541af191",
+        28
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        27
+      ],
+      [
+        "e5687c66-55a2-4f5f-82aa-1838d9e67470",
+        25
+      ],
+      [
+        "698535ed-f0fd-4740-b6ad-cafdf51d9802",
+        24
+      ],
+      [
+        "5764708e-2a95-4d95-9447-2ed8a3bc46bd",
+        23
+      ],
+      [
+        "f6cc0fcc-1605-4bd4-bbea-dd12f697a2ba",
+        23
+      ],
+      [
+        "d2724ca9-8ccd-416e-9837-7aee75f67422",
+        22
+      ],
+      [
+        "026af01f-d227-476f-9e81-d5273eca6a2b",
+        21
+      ],
+      [
+        "7f6f33a0-f762-11e1-a439-00145eb45e9a",
+        21
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        21
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        20
+      ],
+      [
+        "1c6b8a9f-5bd9-4358-9915-b7643779b03e",
+        20
+      ],
+      [
+        "4ec633b0-8b1f-405e-86cf-7f782a3ced53",
+        20
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        19
+      ],
+      [
+        "7c95ae39-b477-4863-8dda-2d74dc48b067",
+        18
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        17
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        17
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        16
+      ],
+      [
+        "ca58433a-3ff8-492f-9d7b-6f6d289eb6d6",
+        16
+      ],
+      [
+        "ed820bdb-4345-4143-a280-4fbffaacd31d",
+        16
+      ],
+      [
+        "e46233d2-1baf-4aea-9bf7-a2f01c7cc7b0",
+        15
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        14
+      ],
+      [
+        "5e1d2d54-f5db-43ac-87c5-55a9f79ac718",
+        13
+      ],
+      [
+        "e8989ab2-94dc-4570-9783-c3ab92300872",
+        13
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        12
+      ],
+      [
+        "ec79bfca-83fc-4f89-baad-9a76d320953b",
+        12
+      ],
+      [
+        "18896efa-22df-4fbd-9782-42f47257e753",
+        10
+      ],
+      [
+        "35397e95-b688-4305-91f9-44d24535e27d",
+        10
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        10
+      ],
+      [
+        "8fbdc3e6-eaa0-4ad8-8733-ad433976a448",
+        10
+      ],
+      [
+        "7ff09cba-f762-11e1-a439-00145eb45e9a",
+        9
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        9
+      ],
+      [
+        "c43cabdf-1a3c-488c-9923-2466abd7df9b",
+        9
+      ],
+      [
+        "ebab8ef5-b3b3-440e-a79f-cc4cf8a5180c",
+        8
+      ],
+      [
+        "345d18b0-86e1-4417-a06b-e972ec6b72ec",
+        7
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        7
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        7
+      ],
+      [
+        "ba5b0f3a-73dd-459f-a7f1-9abc327aed00",
+        7
+      ],
+      [
+        "eaad657f-7bda-4705-a181-053d9e38033f",
+        7
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        6
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        6
+      ],
+      [
+        "bba95e72-e2df-420e-8de3-b7ca814037ae",
+        6
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        5
+      ],
+      [
+        "8049bed0-f762-11e1-a439-00145eb45e9a",
+        5
+      ],
+      [
+        "8498cbf2-f762-11e1-a439-00145eb45e9a",
+        5
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        5
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        5
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        5
+      ],
+      [
+        "1e09d985-8f58-4a34-ab86-17e55f203c8a",
+        4
+      ],
+      [
+        "63b115a8-da75-4d45-92f5-d43d99de95f3",
+        4
+      ],
+      [
+        "63c671b3-7a2c-4c1e-bad9-ff12f0697a67",
+        4
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        4
+      ],
+      [
+        "869e4288-f762-11e1-a439-00145eb45e9a",
+        4
+      ],
+      [
+        "f1d263a0-98a0-11de-b4d9-b8a03c50a862",
+        4
+      ],
+      [
+        "0496122f-8430-488b-bf78-64debf9cc2e4",
+        3
+      ],
+      [
+        "0c17fe57-fdea-4c15-a592-24631241215a",
+        3
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        3
+      ],
+      [
+        "4a7f53e7-3835-4f02-ad40-cf6e5219d910",
+        3
+      ],
+      [
+        "4e328d6a-62e2-4b5a-b2f2-e8362c4ff0b7",
+        3
+      ],
+      [
+        "8afcc57c-5d2b-4349-add6-29bfc33ed5cb",
+        3
+      ],
+      [
+        "90cbc357-530d-40f2-8000-331f6b575dd4",
+        3
+      ],
+      [
+        "988007b1-1179-42e0-863c-bb9f1bdfa6f7",
+        3
+      ],
+      [
+        "999d8fed-d06d-48d8-87ee-cc36e6c8456c",
+        3
+      ],
+      [
+        "c52a4cae-b9b4-44a2-bf07-15a7b6980ff6",
+        3
+      ],
+      [
+        "dbbdb1f4-d5c7-4b72-b31f-ef6fdf33a9b3",
+        3
+      ],
+      [
+        "18c93d12-34fb-4d3f-903c-b77215a1dcc9",
+        2
+      ],
+      [
+        "22615daa-7f09-4a71-8cdf-d168170e67dd",
+        2
+      ],
+      [
+        "685a47f1-95b5-4bc0-b105-3ed0128defbf",
+        2
+      ],
+      [
+        "727b83c1-e8a7-4dd9-a9a2-4c4a9ea9636c",
+        2
+      ],
+      [
+        "80cdb1cc-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "813b435e-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "b7dd8170-98a0-11de-b4d9-b8a03c50a862",
+        2
+      ],
+      [
+        "ca22abc0-98a1-11de-b4da-b8a03c50a862",
+        2
+      ],
+      [
+        "ce0f1750-ad92-46b7-b8c7-59033460de43",
+        2
+      ],
+      [
+        "d51f93a6-a5b7-4025-83a9-3f7b8525755a",
+        2
+      ],
+      [
+        "dc0c723c-3713-4e1a-aa55-61ade632b15c",
+        2
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        2
+      ],
+      [
+        "ec6c5a00-8016-44cf-8550-62b8197c67fb",
+        2
+      ],
+      [
+        "fc77b814-5596-4959-a779-30027a6507de",
+        2
+      ],
+      [
+        "22a4285d-5bfe-47da-9b9c-e4177ed9b707",
+        1
+      ],
+      [
+        "26ae0930-98a1-11de-b4da-b8a03c50a862",
+        1
+      ],
+      [
+        "271220a4-6665-402a-9e85-87e9f4762e99",
+        1
+      ],
+      [
+        "2a79f202-3f3a-4d54-88fa-09aa8de1ac73",
+        1
+      ],
+      [
+        "31fd4785-7ed4-422f-91fa-03b3833937a0",
+        1
+      ],
+      [
+        "34585f24-1ffe-4744-8734-7d563c918d18",
+        1
+      ],
+      [
+        "3fb7ddd8-07c0-490d-a0f1-32b5dec8d583",
+        1
+      ],
+      [
+        "40a262b4-6627-4011-afbe-159c00ec97e7",
+        1
+      ],
+      [
+        "47f75ea9-ad74-47ab-919a-b8c8d4f1fce3",
+        1
+      ],
+      [
+        "55164b42-8df2-4302-9823-153d51bb5b0e",
+        1
+      ],
+      [
+        "58b092f5-69d1-4dea-94bc-c90e736750d6",
+        1
+      ],
+      [
+        "5cd7bc3e-3c7d-49a2-8619-70e8e692177b",
+        1
+      ],
+      [
+        "6531f0a4-1db9-4da4-b3cb-82b843230ae2",
+        1
+      ],
+      [
+        "6a901195-ee9a-43ad-a43d-9095fd2aab0c",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "707b24b9-3ad8-4031-ad1d-2b81d76fef0c",
+        1
+      ],
+      [
+        "8d455dd5-0640-4211-acd1-8e88b171cfda",
+        1
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "9a0983a1-55dc-4492-bd6c-4085a36dcddc",
+        1
+      ],
+      [
+        "a22ace4f-cc03-4cd3-8c0c-c37f8ee73fda",
+        1
+      ],
+      [
+        "a386b330-40ce-4ae9-be09-4479ad3cf071",
+        1
+      ],
+      [
+        "b9afe2d0-b264-4422-bf8c-096b2a53c18f",
+        1
+      ],
+      [
+        "bd0b1ffa-bf79-4a4b-8019-d907607ac887",
+        1
+      ],
+      [
+        "c6b86c40-ff71-4e5e-902c-111f400d0d56",
+        1
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        1
+      ],
+      [
+        "e8dd97e5-0bd4-4da8-8f88-3ab91325a12c",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ],
+      [
+        "f83035bf-bcc7-45b1-87e6-ccd7d9922eed",
+        1
+      ],
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        1
+      ],
+      [
+        "fba36b75-451a-40e3-af18-297f151bcc91",
+        1
+      ]
+    ],
+    "native": [
+      "SN",
+      "EG",
+      "UG",
+      "BF",
+      "CM",
+      "TD",
+      "ET",
+      "GM",
+      "GH",
+      "GN",
+      "IL",
+      "CI",
+      "LR",
+      "ML",
+      "NE",
+      "NG",
+      "SL",
+      "SD",
+      "TG"
+    ],
+    "requests": 17,
+    "at": "2026-11-10T23:57:51.686Z"
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "id": "parathelphusa-pantherina",
+  "scientificName": "Parathelphusa pantherina",
+  "order": "Decapoda",
+  "family": "Gecarcinucidae",
+  "genus": "Parathelphusa",
+  "group": "other",
+  "places": [
+    "asia",
+    "indonesia",
+    "lake-matano"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Matano",
+        "Sulawesi"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "They originate from Lake Matano in Sulawesi, where they can also be found under roots etc. on the shore.",
+          "countries": [],
+          "regions": [
+            "Lake Matano",
+            "Sulawesi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5790840,
+      "total": 9,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "ID",
+          9
+        ]
+      ],
+      "cells": [
+        [
+          113.90625,
+          0,
+          4
+        ],
+        [
+          120.9375,
+          -2.8125,
+          5
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/panther_crabs_from_sulawesi_en/",
+      "html": "<p>The Panther crab (Parathelphusa pantherina) is certainly the most attractive of all freshwater crabs. The maximum carapace width is about 5-6 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/panther_crabs_from_sulawesi_en/",
+      "html": "<p>They originate from Lake Matano in Sulawesi, where they can also be found under roots etc. on the shore.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/panther_crabs_from_sulawesi_en/",
+      "html": "<p>Like almost all crabs, they are omnivorous. However, most food items taken are of animal origin.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "zBFkhSyd6HE",
+      "title": "Pantherkrabbe - Parathelphusa pantherina #aquarium #krabben #crabs #pantherkrabbe",
+      "durationSec": 6,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "hMGLVg3xiLs",
+      "title": "Panther Crabs: 10 Things To Know",
+      "durationSec": 457,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "gNvJJQa5CT0",
+      "title": "Parathelphusa pantherina.",
+      "durationSec": 23,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "6KQZsqpLECk",
+      "title": "Parathelphusa pantherina",
+      "durationSec": 15,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể nuôi cua cảnh",
+        "bể cua có nắp"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc nước bể cua"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cua cảnh",
+        "thức ăn đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

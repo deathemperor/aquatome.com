@@ -1,6 +1,6 @@
 {
   "slug": "ca-geophagus-proximus",
-  "name": "Cá Geophagus proximus",
+  "name": "Cá hải hồ proximus",
   "altNames": [
     "Cá ăn đất proximus"
   ],
@@ -25,5 +25,6 @@
     "bySource": {
       "seriouslyfish": 0.8
     }
-  }
+  },
+  "nameFixed": true
 }

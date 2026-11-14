@@ -1,0 +1,148 @@
+{
+  "id": "megalancistrus-parananus",
+  "native": {
+    "input": "0e7edc552a14c85f",
+    "at": "2026-11-10T07:58:31.896Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "L113, Megalancistrus parananus, is a large suckermouth catfish from the rios Paraná, Paraguay and Uruguay in Brazil, Paraguay, Uruguay and Argentina.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "L113, Megalancistrus parananus, is a large suckermouth catfish from the rios Paraná, Paraguay and Uruguay in Brazil, Paraguay, Uruguay and Argentina.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "UY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "L113, Megalancistrus parananus, is a large suckermouth catfish from the rios Paraná, Paraguay and Uruguay in Brazil, Paraguay, Uruguay and Argentina.",
+        "words": "Uruguay",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "L113, Megalancistrus parananus, is a large suckermouth catfish from the rios Paraná, Paraguay and Uruguay in Brazil, Paraguay, Uruguay and Argentina.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Brazil: Paraguay, Paraná and Uruguay River basins.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Paraná River at La Paz in Entre Ríos, Argentina.",
+        "words": "Argentina",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Paraná",
+        "source": "seriouslyfish",
+        "quote": "Distributed throughout the rios Paraná, Paraguay and Uruguay in southern Brazil, Paraguay, Uruguay, and Argentina.",
+        "ok": true
+      },
+      {
+        "name": "Paraguay",
+        "source": "seriouslyfish",
+        "quote": "Distributed throughout the rios Paraná, Paraguay and Uruguay in southern Brazil, Paraguay, Uruguay, and Argentina.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Uruguay",
+        "source": "seriouslyfish",
+        "quote": "Distributed throughout the rios Paraná, Paraguay and Uruguay in southern Brazil, Paraguay, Uruguay, and Argentina.",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Megalancistrus parananus",
+    "status": "ACCEPTED",
+    "taxonKey": 2340017,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        52
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        30
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        12
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        8
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        6
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        5
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        5
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "f8ba5386-8b91-4976-95bd-692e5d105eae",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "PY",
+      "UY",
+      "AR"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T07:58:31.896Z"
+  }
+}

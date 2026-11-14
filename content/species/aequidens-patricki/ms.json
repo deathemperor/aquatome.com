@@ -1,0 +1,30 @@
+{
+  "slug": "aequidens-patricki",
+  "name": "Aequidens patricki",
+  "altNames": [
+    "Patrick's acara",
+    "Aequidens sp. Jenaro Herrera"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Saiz maksimumnya 12-15 cm. Spesies ini agak aman dan sangat lasak.</p>",
+    "beforeYouBuy:glaser": "<p>Aequidens patricki sangat jarang diimport. Ikan kecil yang hidup di permukaan air, seperti ikan hatchetfish, mungkin dijadikan makanan oleh cichlid ini.</p><p>Spesimen yang diperoleh baru-baru ini daripada salah satu import yang sangat jarang dari Peru berukuran 5-7 cm dan baru sahaja mencapai tahap matang.</p>",
+    "distribution:glaser": "<p>Cichlid ini berasal dari satu lokasi pengumpulan yang agak kecil di Peru.</p>",
+    "habitat:glaser": "<p>Di alam liar, spesies ini hidup dalam air lembut dan berasid.</p>",
+    "aquariumSize:glaser": "<p>Walaupun saiz maksimumnya 12-15 cm, ikan ini sudah boleh dibiakkan dalam tangki yang agak kecil, iaitu dari 200 liter ke atas.</p>",
+    "waterConditions:glaser": "<p>Spesies ini sangat lasak dan mudah menyesuaikan diri dengan keadaan air yang berubah-ubah di dalam akuarium.</p>",
+    "notes:glaser": "<p>Spesies ini pernah diperkenalkan dalam Newsletter Extra Minggu Kalendar 23 (3), 2013, tetapi tersilap di bawah nama Aequidens sp. Jenaro Herrera.</p>"
+  },
+  "quality": {
+    "score": 0.7,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.7
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-13"
+  }
+}

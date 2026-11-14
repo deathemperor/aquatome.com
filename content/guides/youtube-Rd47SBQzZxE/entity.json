@@ -1,0 +1,79 @@
+{
+  "id": "youtube-Rd47SBQzZxE",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=Rd47SBQzZxE",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "neocaridina-davidi",
+    "rotala-rotundifolia",
+    "rotala-macrandra",
+    "ludwigia-glandulosa",
+    "trichogaster-chuna",
+    "blyxa-japonica",
+    "pogostemon-stellatus",
+    "vallisneria"
+  ],
+  "updatedAt": "2026-11-13",
+  "video": {
+    "youtubeId": "Rd47SBQzZxE",
+    "title": "Making SHRIMP MOUNTAINS | Nano Aquarium For Neocaridina Shrimp",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 2067,
+    "publishedAt": "2026-01-07",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWvIM5TufKaTkbfXyaw3dd8K",
+      "position": 36
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/Rd47SBQzZxE/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Neocaridina davidi",
+      "Micranthemus tweediei",
+      "Rotala rotundifolia",
+      "Rotala macrandra",
+      "Ludwigia glandulosa",
+      "Trichogaster chuna",
+      "Ancistrus sp.",
+      "Blyxa japonica",
+      "Pogostemon stellatus",
+      "Limnophila sp.",
+      "Vallisneria sp."
+    ],
+    "gear": [
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "Aquasoil",
+        "t": 315
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 345
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 440
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "type": "trong-nen",
+        "brand": "Tropica",
+        "t": 820
+      },
+      {
+        "category": "loc",
+        "type": "bot-bien",
+        "t": 1200
+      }
+    ]
+  }
+}

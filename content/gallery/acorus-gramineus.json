@@ -74,18 +74,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/commons/34fa5cabb2823a06.webp",
-      "thumb": "https://media.aquatome.com/commons/34fa5cabb2823a06-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY-SA 4.0",
-      "author": "Krzysztof Ziarnek, Kenraiz",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Acorus_gramineus_%27Aureovariegatus%27_kz01.jpg",
-      "caption": "Bụi Thạch xương bồ lá nhỏ mọc trên nền đất",
-      "best": true,
-      "kind": "emersed"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/84837343.webp",
       "thumb": "https://media.aquatome.com/inaturalist/84837343-480.webp",
       "width": 1024,
@@ -720,6 +708,18 @@
       "caption": "Các bụi Thạch xương bồ lá nhỏ bên suối",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/34fa5cabb2823a06.webp",
+      "thumb": "https://media.aquatome.com/commons/34fa5cabb2823a06-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY-SA 4.0",
+      "author": "Krzysztof Ziarnek, Kenraiz",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Acorus_gramineus_%27Aureovariegatus%27_kz01.jpg",
+      "caption": "Bụi Thạch xương bồ lá nhỏ mọc trên nền đất",
+      "best": true,
+      "kind": "emersed"
     }
   ],
   "seen": 127,

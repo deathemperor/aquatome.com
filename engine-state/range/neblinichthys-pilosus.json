@@ -1,0 +1,119 @@
+{
+  "id": "neblinichthys-pilosus",
+  "native": {
+    "input": "cd3591bbaf92f7f6",
+    "at": "2026-11-10T15:58:17.469Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Río Mawarinuma tributary, at Neblina base camp, on the right bank in a riffle, 0°55'N, 66°10'W, Venezuela, elevation 120 m.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Negro, Casiquiare, and Baria River basins in Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Upper Negro, Casiquiare and Baria River basins, Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Negro",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Negro, Casiquiare, and Baria River basins in Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Casiquiare",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Negro, Casiquiare, and Baria River basins in Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Baria",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Negro, Casiquiare, and Baria River basins in Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Negro",
+        "source": "scotcat",
+        "quote": "South America: Upper Negro, Casiquiare and Baria River basins, Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Casiquiare",
+        "source": "scotcat",
+        "quote": "South America: Upper Negro, Casiquiare and Baria River basins, Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Baria",
+        "source": "scotcat",
+        "quote": "South America: Upper Negro, Casiquiare and Baria River basins, Venezuela.",
+        "country": "VE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Neblinichthys pilosus",
+    "status": "ACCEPTED",
+    "taxonKey": 2339360,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "VE"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T15:58:17.469Z"
+  }
+}

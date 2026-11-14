@@ -1,0 +1,64 @@
+{
+  "id": "mystus-leucophasis",
+  "native": {
+    "input": "06f7afacf3721b74",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "But even experienced aquarists often don't know that an upside-down swimming species also occurs in Asia (in Burma): Mystus leucophasis, which can attain a maximum length of about 30 cm, but is commonly found 15-20 cm long.",
+        "words": "Burma",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Asian upside down catfish, Mystus leucophasis, is a bagrid catfish from rivers in Myanmar that spends most of its time swimming inverted.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Mystus leucophasis",
+    "status": "ACCEPTED",
+    "taxonKey": 5201901,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}
