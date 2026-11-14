@@ -189,21 +189,22 @@ function placed<E extends { definition: string; body: string }>(e: E, text: stri
 
 /**
  * The figures a text gives, each as often as it gives it, with the numbers it can be read as (Grok's reads, 15 Nov 2026).
- * The facts keep no one way of writing numbers (an English fact quotes a shop's "200.000đ"), so a fact's mark before
- * exactly three digits, after a whole part that isn't 0, reads both as a thousands mark and as a decimal ("2,000" is 2000
- * or 2, "1.020" 1.02 or 1020). The entry is Vietnamese and reads one way: dots before three-digit groups mark thousands
- * ("200.000" is 200000, "1.234,5" 1234.5), any other mark is a decimal ("1,020" is 1.02, "7,3" 7.3, a copied "6.0" 6).
- * So a figure the rewording changed ("200.000đ" to "200đ") is a figure it dropped. "20–30%" gives 20 and 30. Never a digit
- * inside a word or a formula (CO2, NH4+, H3PO4), but "pH7,2" gives 7.2.
+ * Vietnamese writes thousands with dots and the decimal with a comma ("200.000", "1.234,5"), English the other way round
+ * ("2,000", "1,500.00"); any other mark is a decimal ("6.0" is 6, "7,3" 7.3). The facts keep no one way (an English fact
+ * quotes a shop's "200.000đ"), so a fact's figure reads both ways ("2,000" is 2 or 2000). The entry is Vietnamese and reads
+ * one way, so a figure the rewording changed ("200.000đ" to "200đ") is a figure it dropped. "20–30%" gives 20 and 30.
+ * Never a digit inside a word or a formula (CO2, NH4+, H3PO4), but "pH7,2" gives 7.2.
  */
 type Figure = { text: string; reads: string[] }
-const figures = (text: string, entry = false): Figure[] => [...text.replace(/pH(?=\d)/g, 'pH ').matchAll(/(?<![\p{L}\p{N}.,])\d+(?:[.,]\d+)*/gu)].map(m => {
-  if (entry) return { text: m[0], reads: [String(Number(/^[1-9]\d{0,2}(?:\.\d{3})+(?:,\d+)?$/.test(m[0]) ? m[0].replace(/\./g, '').replace(',', '.') : m[0].replace(/^(\d+)[.,](\d+).*$/, '$1.$2')))] }
-  const parts = m[0].split(/[.,]/)
-  const decimal = String(Number(parts.length > 1 ? `${parts[0]}.${parts[1]}` : parts[0]))
-  const grouped = parts.length > 1 && parts[0] !== '0' && parts.slice(1).every(x => x.length === 3) ? String(Number(parts.join(''))) : undefined
-  return { text: m[0], reads: [...new Set([decimal, ...(grouped ? [grouped] : [])])] }
-})
+/** A figure's number when `thousands` marks thousands in it, and the other mark the decimal. */
+const written = (n: string, thousands: '.' | ',') => {
+  const decimal = thousands === '.' ? ',' : '.'
+  const grouped = new RegExp(`^[1-9]\\d{0,2}(?:\\${thousands}\\d{3})+(?:\\${decimal}\\d+)?$`).test(n)
+  return String(Number(grouped ? n.split(thousands).join('').replace(decimal, '.') : n.replace(/^(\d+)[.,](\d+).*$/, '$1.$2')))
+}
+const figures = (text: string, entry = false): Figure[] => [...text.replace(/pH(?=\d)/g, 'pH ').matchAll(/(?<![\p{L}\p{N}.,])\d+(?:[.,]\d+)*/gu)].map(m => (
+  { text: m[0], reads: [...new Set([written(m[0], '.'), ...(entry ? [] : [written(m[0], ',')])])] }
+))
 /** The figures `before` gives that `after` doesn't: each matched once to a figure after it that reads the same. */
 const lessOf = (before: Figure[], after: Figure[]) => {
   const left = [...after]

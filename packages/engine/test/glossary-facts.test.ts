@@ -226,7 +226,7 @@ test('going back puts in again only the rewordings that stay; a note is about a 
 
 // The chief of staff, 15 Nov 2026: the rewording bought its fit by taking specifics out (pH's weekly 20–30%, chu trình
 // nitơ's fish deaths and "0 or near 0", Lũa's "must soak"). A rewording that drops one the facts carry keeps the old wording.
-const told = { ...facts, facts: [{ section: 'do', fact: 'Replace about 20–30% of the water weekly. Cardinal tetras (Paracheirodon axelrodi) live below pH 5.5. Below pH 7.3 more of it is ammonium (NH4+). Wait 2 weeks, then add CO2. Keep pH 6.0–6.5. About 2,000 ppm. Lights on 24/24. Keep pH 7.2 for 6 days. Dose 1.500 mg. Specific gravity about 1.020. Use 0.125 g. A shop lists it at 200.000đ/kg.', source: 2 }] }
+const told = { ...facts, facts: [{ section: 'do', fact: 'Replace about 20–30% of the water weekly. Cardinal tetras (Paracheirodon axelrodi) live below pH 5.5. Below pH 7.3 more of it is ammonium (NH4+). Wait 2 weeks, then add CO2. Keep pH 6.0–6.5. About 2,000 ppm. Lights on 24/24. Keep pH 7.2 for 6 days. Dose 1.500 mg. Specific gravity about 1.020. Use 0.125 g. A shop lists it at 200.000đ/kg. One shop doses 1.234,5 mg. Another costs 2,500.00.', source: 2 }] }
 async function reworded(before: string, after: string, names: string[] = []) {
   const e = { definition: 'Một câu.', body: `<p>${before}</p>` }
   const { llm } = model([{}, {}, {}], [], { [before]: after })
@@ -261,6 +261,9 @@ test('a rewording that drops a figure the facts carry keeps the old wording; a f
   expect((await reworded('Giá 200.000đ một ký.', 'Giá 200đ một ký.')).entry.body).toBe('<p>Giá 200.000đ một ký.</p>')
   expect((await reworded('Cần khoảng 2.000 ppm.', 'Cần khoảng 2,000 ppm.')).entry.body).toBe('<p>Cần khoảng 2.000 ppm.</p>')
   expect((await reworded('Giữ pH 6,0–6,5.', 'Giữ pH 6–6.5.')).entry.body).toBe('<p>Giữ pH 6–6.5.</p>')
+  // A fact with both marks reads whole, the Vietnamese way and the English way: neither figure may go.
+  expect((await reworded('Liều 1.234,5 mg.', 'Liều nhỏ.')).entry.body).toBe('<p>Liều 1.234,5 mg.</p>')
+  expect((await reworded('Giá 2.500đ.', 'Giá rẻ.')).entry.body).toBe('<p>Giá 2.500đ.</p>')
 })
 
 test('a rewording that drops a named example, a page\'s name or a Latin name the facts write, keeps the old wording', async () => {
