@@ -512,7 +512,7 @@ struct SpeciesPage: View {
         ForEach(rowPhotos, id: \.p.src) { i, p in
           VStack(alignment: .leading, spacing: 4) {
             Button { viewing = viewerPhotos.firstIndex { V2Photo.full($0.src) == V2Photo.full(p.src) } ?? i } label: {
-              V2Photo(src: p.thumb ?? p.src, ground: colour)
+              V2Photo(src: p.thumb ?? p.src, box: p.box, ground: colour)
                 .aspectRatio(1.6, contentMode: .fit)
                 .clipShape(.rect(cornerRadius: 16, style: .continuous))
                 // Its edge on a dark page, as a row's photo has, for a photo on black.
