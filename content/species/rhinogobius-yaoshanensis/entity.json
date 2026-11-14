@@ -10,6 +10,46 @@
     "china",
     "guangxi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Rhinogobius yaoshanensis is a small goby recorded only from streams draining Jinxiu Yao Autonomous County in eastern Guangxi, China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2375357,
+      "total": 1,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "CN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          115.3125,
+          39.375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

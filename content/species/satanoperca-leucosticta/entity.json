@@ -15,6 +15,242 @@
     "brazil",
     "rio-branco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GY",
+        "SR",
+        "VE",
+        "BR"
+      ],
+      "regions": [
+        "Essequibo",
+        "Demerara",
+        "Nickerie",
+        "Branco",
+        "Rupununi River",
+        "Guiana Shield"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The whitespot eartheater, Satanoperca leucosticta, is a cichlid from the Guiana Shield in Guyana, Suriname, eastern Venezuela and northern Brazil.",
+          "countries": [
+            "GY",
+            "SR",
+            "VE",
+            "BR"
+          ],
+          "regions": [
+            "Guiana Shield"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It is known with certainty from the Essequibo, Demerara, Nickerie, and Branco river systems, but in the Guianas is also likely to occur in the Cuyuni, Mazaruni, Berbice, and Courantyne/Corantijn watersheds.",
+          "countries": [],
+          "regions": [
+            "Essequibo",
+            "Demerara",
+            "Nickerie",
+            "Branco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is not given in the original description although the specimens are assumed to have been collected from the Rupununi River.",
+          "countries": [],
+          "regions": [
+            "Rupununi River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208450,
+      "total": 138,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "GY",
+          96
+        ],
+        [
+          "VE",
+          19
+        ],
+        [
+          "CO",
+          10
+        ],
+        [
+          "BR",
+          9
+        ],
+        [
+          "SR",
+          2
+        ],
+        [
+          "GF",
+          1
+        ],
+        [
+          "TT",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          0,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          2.8125,
+          8,
+          1
+        ],
+        [
+          -67.5,
+          0,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          7.03125,
+          10,
+          10
+        ],
+        [
+          -63.28125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          5.625,
+          3,
+          3
+        ],
+        [
+          -61.875,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          2.8125,
+          32,
+          32
+        ],
+        [
+          -59.0625,
+          2.8125,
+          13,
+          13
+        ],
+        [
+          -59.0625,
+          4.21875,
+          30,
+          30
+        ],
+        [
+          -59.0625,
+          5.625,
+          18,
+          18
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          4.21875,
+          6,
+          6
+        ],
+        [
+          -54.84375,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

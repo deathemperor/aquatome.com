@@ -1,0 +1,83 @@
+{
+  "id": "schistura-denisoni",
+  "native": {
+    "input": "2e81c047ee49a475",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Schistura denisoni is a nemacheilid loach from the Western Ghats of southern India, described from the Bhavani River in the Cauvery system.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Western Ghats",
+        "source": "seriouslyfish",
+        "quote": "The precise extent of its distribution is unclear since populations of comparable-looking fish are known from throughout the Western Ghats.",
+        "ok": true
+      },
+      {
+        "name": "Cauvery",
+        "source": "seriouslyfish",
+        "quote": "Schistura denisoni is a nemacheilid loach from the Western Ghats of southern India, described from the Bhavani River in the Cauvery system.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Bhavani",
+        "source": "seriouslyfish",
+        "quote": "Schistura denisoni is a nemacheilid loach from the Western Ghats of southern India, described from the Bhavani River in the Cauvery system.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Tunga",
+        "source": "seriouslyfish",
+        "quote": "In the Tunga river sympatric species include Barilius bakerii, Devario malabaricus, Danio rerio, Rasbora daniconius, Dawkinsia arulius, D. assimilis, Haludaria fasciata, Pethia ticto, Puntius sahyadriensis, 'Puntius' narayani, Systomus sarana, Tor kudree, Garra mullya, Psilorhynchus tenura, Nemacheilus anguilla, Schistura nilgiriensis, S. semiarmatus, Aplocheilus blockii, A. lineatus, Pristolepis marginata, and Channa gachua.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Schistura denisoni",
+    "status": "ACCEPTED",
+    "taxonKey": 5204993,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        47
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        39
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "id": "satanoperca-acuticeps",
+  "native": {
+    "input": "e9e07a87f7b5f872",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The sharphead eartheater, Satanoperca acuticeps, is a cichlid from the central Amazon basin in Brazil, including the lower rio Negro and rio Branco.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Brazil: Rio Branco, Negro, Solimões.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Native to the central Amazon basin in Brazil where it occurs in the Amazon main channel and lower basins of tributary drainages between the rios Tapajós and Tefé, including the lower rio Negro and its principal affluent the rio Branco, plus the rios Arapiuns, Trombetas, Mamuru, Curuçá, Urubu, and Purus.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "Native to the central Amazon basin in Brazil where it occurs in the Amazon main channel and lower basins of tributary drainages between the rios Tapajós and Tefé, including the lower rio Negro and its principal affluent the rio Branco, plus the rios Arapiuns, Trombetas, Mamuru, Curuçá, Urubu, and Purus.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Branco",
+        "source": "seriouslyfish",
+        "quote": "Native to the central Amazon basin in Brazil where it occurs in the Amazon main channel and lower basins of tributary drainages between the rios Tapajós and Tefé, including the lower rio Negro and its principal affluent the rio Branco, plus the rios Arapiuns, Trombetas, Mamuru, Curuçá, Urubu, and Purus.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Purus",
+        "source": "seriouslyfish",
+        "quote": "Native to the central Amazon basin in Brazil where it occurs in the Amazon main channel and lower basins of tributary drainages between the rios Tapajós and Tefé, including the lower rio Negro and its principal affluent the rio Branco, plus the rios Arapiuns, Trombetas, Mamuru, Curuçá, Urubu, and Purus.",
+        "country": "BR",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Solimões",
+        "source": "glaser",
+        "quote": "Brazil: Rio Branco, Negro, Solimões.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Satanoperca acuticeps",
+    "status": "ACCEPTED",
+    "taxonKey": 5208452,
+    "datasets": [
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        137
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        42
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        34
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        12
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        8
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        6
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        6
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        3
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

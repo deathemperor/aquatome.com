@@ -958,5 +958,71 @@
       "quickFacts:tropica": "d6eeaf890a3b",
       "notes:tropica": "c88d4379280b"
     }
+  },
+  "echinodorus-grisebachii": {
+    "at": "2026-11-14",
+    "from": "2026-10-30",
+    "name": "Amazon Sword",
+    "confidence": "high",
+    "score": 0.7,
+    "notes": [
+      "\"dihimpunkan dalam pemberat\" / \"Buang pemberat\": 'anchor' here is the lead/metal weight strip bundling plants; 'pemberat' is acceptable, but \"Seikat ... yang dihimpunkan\" is a fragment; better \"Seikat batang... diikat dengan pemberat (jalur plumbum)\".",
+      "\"Regarding stem plants\": \"tumbuhan berbatang\" is fine, but \"pokok ini perlu dipangkas\" loses 'the plant' generic; minor.",
+      "\"dengan sedikit jarak\" is vague; better \"dengan jarak sesuai antara satu sama lain\".",
+      "\"Type: Rosulate\" translated as \"Roset\": more common hobby term is \"berroset\" (rosette-forming); minor.",
+      "\"tidak cerewet\" for 'undemanding' is a bit odd for plants; use \"tidak memerlukan penjagaan rapi\"/\"mudah dijaga\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "6c8e0b12bda0",
+      "maintenance:tropica": "ec4dc3a619c4",
+      "notes:tropica": "db7ac997a8e6"
+    }
+  },
+  "echinodorus-grisebachii-tropica": {
+    "at": "2026-11-14",
+    "from": "2026-10-30",
+    "name": "Echinodorus Tropica",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"sedikit berkedut\" for \"slightly bullate\": bullate means blistered or puckered (berlepuh/bergelembung). \"berkedut\" means wrinkled, so the meaning is slightly shifted.",
+      "\"Origin: Cultivar\" became \"Asal: Kultivar\": this is acceptable, but \"Roset\" for Rosulate is fine only if consistent. Consider \"berroset\" for the type.",
+      "\"mudah dikenali\" for \"distinctive\": better \"unik\" or \"tersendiri\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "ad876dd876a4",
+      "notes:tropica": "dcbf736d671d"
+    }
+  },
+  "echinodorus-ozelot": {
+    "at": "2026-11-14",
+    "from": "2026-10-30",
+    "name": "Echinodorus 'Ozelot'",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "\"dalam tangki\": \"akuarium\" is the more usual hobby term in Malaysia (\"tangki\" is acceptable but less common).",
+      "\"Ozelot\" paragraph: \"cahaya yang malap\" is slightly loose for \"low light intensity\"; \"keamatan cahaya rendah\" is closer."
+    ],
+    "parts": {
+      "quickFacts:tropica": "360d09be766e",
+      "notes:tropica": "910a081b8b65"
+    }
+  },
+  "echinodorus-ozelot-green": {
+    "at": "2026-11-14",
+    "from": "2026-11-07",
+    "name": "Echinodorus Ozelot Green",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 2: the source text is Vietnamese, not English. The Malay is faithful, but the source should be checked. The \"Echinodorus\" Latin name is added where the source only says \"Kiếm\" (sword plant), which is acceptable but worth confirming.",
+      "Item 2: \"bahagian belakang atau tengah aquascape\" is a little awkward. \"latar belakang atau tengah akuarium\" would read more naturally."
+    ],
+    "parts": {
+      "quickFacts:tropica": "3ec2ae5b518f",
+      "maintenance:aquatome": "36fa02bcf55e",
+      "notes:tropica": "8de37432be88"
+    }
   }
 }

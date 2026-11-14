@@ -9,6 +9,70 @@
     "africa",
     "south-africa"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ZA"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to a handful of river systems of the southeastern Cape, South Africa.",
+          "countries": [
+            "ZA"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2391607,
+      "total": 311,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "ZA",
+          311
+        ]
+      ],
+      "cells": [
+        [
+          18.28125,
+          -35.15625,
+          1,
+          1
+        ],
+        [
+          25.3125,
+          -33.75,
+          139,
+          139
+        ],
+        [
+          26.71875,
+          -33.75,
+          169,
+          169
+        ],
+        [
+          26.71875,
+          -30.9375,
+          1,
+          1
+        ],
+        [
+          28.125,
+          -32.34375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

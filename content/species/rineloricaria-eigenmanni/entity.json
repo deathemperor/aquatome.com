@@ -11,6 +11,130 @@
     "orinoco",
     "colombia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "CO"
+      ],
+      "regions": [
+        "Orinoco"
+      ],
+      "sources": [
+        "planetcatfish",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Sarare, Venezuela",
+          "countries": [
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Colombia and Venezuela.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Orinoco drainage basin.",
+          "countries": [],
+          "regions": [
+            "Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339053,
+      "total": 50,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "CO",
+          49
+        ],
+        [
+          "VE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          2.8125,
+          12,
+          12
+        ],
+        [
+          -74.53125,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -73.125,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          -73.125,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          4.21875,
+          15,
+          15
+        ],
+        [
+          -71.71875,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -71.71875,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          5.625,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          5.625,
+          7,
+          7
+        ],
+        [
+          -68.90625,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          8.4375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

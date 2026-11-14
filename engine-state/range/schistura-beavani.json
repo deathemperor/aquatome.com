@@ -1,0 +1,85 @@
+{
+  "id": "schistura-beavani",
+  "native": {
+    "input": "1c5953010efbe2f2",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It originates from Darjeeling and Assam in the eastern Himalayan mountains, Northern India, Nepal and Bhutan.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It originates from Darjeeling and Assam in the eastern Himalayan mountains, Northern India, Nepal and Bhutan.",
+        "words": "Nepal",
+        "ok": true
+      },
+      {
+        "code": "BT",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It originates from Darjeeling and Assam in the eastern Himalayan mountains, Northern India, Nepal and Bhutan.",
+        "words": "Bhutan",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Himalayan mountains",
+        "source": "glaser",
+        "quote": "It originates from Darjeeling and Assam in the eastern Himalayan mountains, Northern India, Nepal and Bhutan.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Schistura beavani",
+    "status": "ACCEPTED",
+    "taxonKey": 5205110,
+    "datasets": [
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        37
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        24
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        6
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "7b88be3f-ae5e-497d-bf56-0d549300d916",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "NP",
+      "BT"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

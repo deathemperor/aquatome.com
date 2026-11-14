@@ -9,6 +9,92 @@
     "south-america",
     "venezuela"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "A predatory tetra from Venezuela.",
+          "countries": [
+            "VE"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354085,
+      "total": 13,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "VE",
+          9
+        ],
+        [
+          "CO",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          -70.3125,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          7.03125,
+          4,
+          4
+        ],
+        [
+          -67.5,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          8.4375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

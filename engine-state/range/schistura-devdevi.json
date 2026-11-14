@@ -1,0 +1,86 @@
+{
+  "id": "schistura-devdevi",
+  "native": {
+    "input": "2d21cbe44095706f",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The saddleback loach, Schistura devdevi, is a nemacheilid loach from upland parts of Assam, Sikkim, Arunachal Pradesh and West Bengal, northern India.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Records from Nepal apparently require confirmation while it may also occur in Bhutan.",
+        "words": "Nepal",
+        "ok": true
+      },
+      {
+        "code": "BT",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Records from Nepal apparently require confirmation while it may also occur in Bhutan.",
+        "words": "Bhutan",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Eastern Himalayas; small streams below Darjeeling and Sikkim, India', and this species is only known with certainty from upland parts of Assam, Sikkim, Arunachal Pradesh and West Bengal states in northern India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Eastern Himalayas",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Eastern Himalayas; small streams below Darjeeling and Sikkim, India', and this species is only known with certainty from upland parts of Assam, Sikkim, Arunachal Pradesh and West Bengal states in northern India.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "NP"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Schistura devdevi",
+    "status": "ACCEPTED",
+    "taxonKey": 5205301,
+    "datasets": [
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        4
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "56caf05f-1364-4f24-85f6-0c82520c2792",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "id": "rineloricaria-fallax",
+  "native": {
+    "input": "bd1c9241c3bd08e9",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rineloricaria fallax is a whiptail catfish from the upper Rupununi and Branco river basins in Guyana and Brazil.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rineloricaria fallax is a whiptail catfish from the upper Rupununi and Branco river basins in Guyana and Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rupununi",
+        "source": "seriouslyfish",
+        "quote": "Rineloricaria fallax is a whiptail catfish from the upper Rupununi and Branco river basins in Guyana and Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Branco",
+        "source": "seriouslyfish",
+        "quote": "Rineloricaria fallax is a whiptail catfish from the upper Rupununi and Branco river basins in Guyana and Brazil.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rineloricaria fallax",
+    "status": "ACCEPTED",
+    "taxonKey": 2339147,
+    "datasets": [
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        42
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        29
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        15
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        9
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        9
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        9
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        7
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        6
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        3
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        2
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        2
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "GY",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

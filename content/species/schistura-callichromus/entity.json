@@ -10,6 +10,58 @@
     "china",
     "red-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Red River",
+        "Babianjiang River",
+        "Lixianjiang",
+        "Mengyejiang River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Schistura callichromus is a nemacheilid loach recorded only from the Babianjiang River in the Red River basin, Yunnan Province, China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Red River",
+            "Babianjiang River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Babianjiang joins the Mengyejiang River to form the Langmajiang River, a tributary of the Lixianjiang (Black River) within the Red River basin.",
+          "countries": [],
+          "regions": [
+            "Lixianjiang"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "At one locality in the Mengyejiang River S. callichromus was collected from a 40 m wide riffle section flowing over rocks and pebbles.",
+          "countries": [],
+          "regions": [
+            "Mengyejiang River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205105,
+      "total": 0,
+      "fetched": "2026-11-14",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

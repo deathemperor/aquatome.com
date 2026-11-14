@@ -1,0 +1,60 @@
+{
+  "id": "rhinogobius-formosanus",
+  "native": {
+    "input": "a0a0ea947e7003ba",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "TW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is endemic to river systems of northern and northeastern Taiwan.",
+        "words": "Taiwan",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rhinogobius formosanus",
+    "status": "ACCEPTED",
+    "taxonKey": 4840516,
+    "datasets": [
+      [
+        "9b5577ee-34f9-4d09-9ce2-c70fd03ee6cd",
+        8
+      ],
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        4
+      ],
+      [
+        "58c0f622-f643-48f5-af09-4dd2f8d2900f",
+        4
+      ],
+      [
+        "96ae8a00-c4f6-48e6-a99a-09e9bad57ae0",
+        4
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "TW"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

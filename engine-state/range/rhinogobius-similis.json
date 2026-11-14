@@ -1,0 +1,188 @@
+{
+  "id": "rhinogobius-similis",
+  "native": {
+    "input": "b7538c50e9f55d78",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species occurs naturally throughout much of China including the Yellow, Yangtze, Qiantang, Lingjiang, Pearl rivers plus some minor drainages in Fujian, Guangdong and Hainan regions.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "TW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's also known from Taiwan, the Korean Peninsula, (from the Tone River to Iriomote in Ibaraki Prefecture), Kawahara Lake in Nagasaki Prefecture, the Bonin and Ryukyu Islands in Japan, and the Red and Pha river basins in Vietnam.",
+        "words": "Taiwan",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's also known from Taiwan, the Korean Peninsula, (from the Tone River to Iriomote in Ibaraki Prefecture), Kawahara Lake in Nagasaki Prefecture, the Bonin and Ryukyu Islands in Japan, and the Red and Pha river basins in Vietnam.",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's also known from Taiwan, the Korean Peninsula, (from the Tone River to Iriomote in Ibaraki Prefecture), Kawahara Lake in Nagasaki Prefecture, the Bonin and Ryukyu Islands in Japan, and the Red and Pha river basins in Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Introduced populations exist in Singapore plus the Tibetan Plateau and Yunnan Province in China.",
+        "words": "Singapore",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Yangtze",
+        "source": "seriouslyfish",
+        "quote": "This species occurs naturally throughout much of China including the Yellow, Yangtze, Qiantang, Lingjiang, Pearl rivers plus some minor drainages in Fujian, Guangdong and Hainan regions.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Yellow",
+        "source": "seriouslyfish",
+        "quote": "This species occurs naturally throughout much of China including the Yellow, Yangtze, Qiantang, Lingjiang, Pearl rivers plus some minor drainages in Fujian, Guangdong and Hainan regions.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Pearl",
+        "source": "seriouslyfish",
+        "quote": "This species occurs naturally throughout much of China including the Yellow, Yangtze, Qiantang, Lingjiang, Pearl rivers plus some minor drainages in Fujian, Guangdong and Hainan regions.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Korean Peninsula",
+        "source": "seriouslyfish",
+        "quote": "It's also known from Taiwan, the Korean Peninsula, (from the Tone River to Iriomote in Ibaraki Prefecture), Kawahara Lake in Nagasaki Prefecture, the Bonin and Ryukyu Islands in Japan, and the Red and Pha river basins in Vietnam.",
+        "ok": true
+      },
+      {
+        "name": "Red",
+        "source": "seriouslyfish",
+        "quote": "It's also known from Taiwan, the Korean Peninsula, (from the Tone River to Iriomote in Ibaraki Prefecture), Kawahara Lake in Nagasaki Prefecture, the Bonin and Ryukyu Islands in Japan, and the Red and Pha river basins in Vietnam.",
+        "country": "VN",
+        "ok": true
+      },
+      {
+        "name": "Ryukyu Islands",
+        "source": "seriouslyfish",
+        "quote": "It's also known from Taiwan, the Korean Peninsula, (from the Tone River to Iriomote in Ibaraki Prefecture), Kawahara Lake in Nagasaki Prefecture, the Bonin and Ryukyu Islands in Japan, and the Red and Pha river basins in Vietnam.",
+        "country": "JP",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "KR",
+        "SG"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rhinogobius similis",
+    "status": "ACCEPTED",
+    "taxonKey": 2377652,
+    "datasets": [
+      [
+        "c6859214-65a4-4563-8d17-d464541af191",
+        2064
+      ],
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        450
+      ],
+      [
+        "83cbdde7-998f-4354-95de-72d885cc5863",
+        306
+      ],
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        203
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        58
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        40
+      ],
+      [
+        "59f905d4-fd46-4e45-a80d-ea519e91114d",
+        29
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        24
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        21
+      ],
+      [
+        "a61d7523-bbbc-48eb-8d7f-ee69106f0c67",
+        10
+      ],
+      [
+        "58c0f622-f643-48f5-af09-4dd2f8d2900f",
+        6
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "cf5e37a6-e657-4ee2-91c0-b1da03251a62",
+        3
+      ],
+      [
+        "71a44d8d-d405-4fcb-be12-07051bf3a38d",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        1
+      ]
+    ],
+    "native": [
+      "CN",
+      "TW",
+      "JP",
+      "VN"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

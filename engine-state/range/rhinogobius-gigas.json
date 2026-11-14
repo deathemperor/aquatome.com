@@ -1,0 +1,68 @@
+{
+  "id": "rhinogobius-gigas",
+  "native": {
+    "input": "8a78585c95c96f06",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "TW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to eastern Taiwan where it inhabits middle and lower sections of river systems in Yilan, Hualien and Taitung counties.",
+        "words": "Taiwan",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rhinogobius gigas",
+    "status": "ACCEPTED",
+    "taxonKey": 2377582,
+    "datasets": [
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        538
+      ],
+      [
+        "83cbdde7-998f-4354-95de-72d885cc5863",
+        529
+      ],
+      [
+        "9b5577ee-34f9-4d09-9ce2-c70fd03ee6cd",
+        15
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        7
+      ],
+      [
+        "b7dd8170-98a0-11de-b4d9-b8a03c50a862",
+        6
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "ca22abc0-98a1-11de-b4da-b8a03c50a862",
+        1
+      ],
+      [
+        "f1d263a0-98a0-11de-b4d9-b8a03c50a862",
+        1
+      ]
+    ],
+    "native": [
+      "TW"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

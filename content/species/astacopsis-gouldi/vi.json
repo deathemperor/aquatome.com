@@ -11,7 +11,7 @@
   ],
   "sections": {
     "quickFacts:aquariumbreeder": "<ul><li>Tên: Tôm hùm đất khổng lồ Tasmania</li><li>Tên thường gọi: Tôm hùm đất lớn nhất thế giới, tôm hùm nước ngọt khổng lồ</li><li>Tên khoa học: Astacopsis gouldi</li><li>Sinh sản: Khó</li><li>Thức ăn: Ăn mùn bã / ăn tạp</li><li>Tính tình: Hung dữ</li><li>Màu sắc: từ nâu xanh sẫm đến đen</li></ul>",
-    "beforeYouBuy:aquariumbreeder": "<p>Loài này bị cấm đánh bắt và mua bán, nên tiệm không có bán và hiếm ai nuôi cho đẻ trong bể nhà. Theo luật Tasmania, muốn bắt loài này phải có giấy phép. Ai bắt trái phép sẽ bị phạt 10.000 đô la Úc. Do bị bắt trộm và nơi sống bị tàn phá, loài này nằm trong nhóm nguy cấp của Danh lục đỏ IUCN. Lệnh cấm đánh bắt có hiệu lực từ tháng 1 năm 1998. Một nghiên cứu gần đây xem thử có nuôi thủy sản được không và kết luận đây là \"loài không phù hợp để nuôi thâm canh\", vì nó lớn chậm và không chịu được nước ấm.</p>",
+    "beforeYouBuy:aquariumbreeder": "<p>Loài này bị cấm đánh bắt và mua bán, nên tiệm không có bán và hiếm ai nuôi cho đẻ trong bể nhà. Theo luật Tasmania, muốn bắt loài này phải có giấy phép. Ai bắt trái phép sẽ bị phạt. Do bị bắt trộm và nơi sống bị tàn phá, loài này nằm trong nhóm nguy cấp của Danh lục đỏ IUCN. Lệnh cấm đánh bắt có hiệu lực từ tháng 1 năm 1998. Một nghiên cứu gần đây xem thử có nuôi thủy sản được không và kết luận đây là \"loài không phù hợp để nuôi thâm canh\", vì nó lớn chậm và không chịu được nước ấm.</p>",
     "distribution:aquariumbreeder": "<p>Tôm hùm đất khổng lồ Tasmania chỉ có ở các sông suối phía bắc Tasmania. Ngoài tự nhiên, nó sống ở độ cao dưới khoảng 400 m. Có thể gặp nó ở sông Arthur và mọi sông suối đổ ra eo biển Bass, gồm lưu vực các sông Cam, Forth-Wilmot, Inglis và Mersey. Riêng lưu vực sông Tamar thì không có.</p><p>Người ta cũng đã thả loài này sang lưu vực North Esk (sông St Patrick's) và lưu vực Derwent (sông Clyde), và quần thể ở hai nơi này đã sống ổn định.</p>",
     "habitat:aquariumbreeder": "<p>Nơi chúng sống có cây cối ven bờ mọc dày, tán lá che kín và rợp bóng xuống mặt nước.</p><p>Tôm lớn thích những vũng nước sâu, nước đứng, có gỗ mục chìm, gốc cành đổ và bờ bị khoét lõm để trốn. Tôm con thì chọn những đoạn nông, nước chảy mạnh hơn, có đá và gỗ, ít cát bùn mịn, nhiều rêu và đá tảng phủ lên. Ở chỗ nước chảy mạnh, tôm con dễ thoát khỏi những con săn mồi. Cả tôm lớn lẫn tôm con đều có vẻ thích chỗ râm mát, nước lạnh, trong và nhiều oxy hòa tan.</p>",
     "aquariumSize:aquariumbreeder": "<p>Muốn nuôi thì phải có bể khá lớn. Con tôm này rất to, nên bể không được nhỏ hơn 1000 lít. Nuôi riêng một bể thì hơn là thả chung với các con khác, để nó khỏi đánh nhau với những con nhỏ hơn.</p>",
@@ -29,11 +29,5 @@
     "bySource": {
       "aquariumbreeder": 0.9
     }
-  },
-  "held": {
-    "checks": [
-      "price"
-    ],
-    "at": "2026-11-14"
   }
 }

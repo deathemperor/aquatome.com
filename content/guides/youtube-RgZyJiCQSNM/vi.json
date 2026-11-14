@@ -37,11 +37,12 @@
       "youtube": 0.72
     }
   },
+  "bodyFixed": true,
   "held": {
     "checks": [
+      "dose",
       "source"
     ],
     "at": "2026-11-14"
-  },
-  "bodyFixed": true
+  }
 }

@@ -10,6 +10,68 @@
     "india",
     "mahanadi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Mahanadi"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Mahanadi river system in Orissa and Madhya Pradesh, India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Mahanadi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338116,
+      "total": 11,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "IN",
+          11
+        ]
+      ],
+      "cells": [
+        [
+          81.5625,
+          21.09375,
+          3,
+          3
+        ],
+        [
+          82.96875,
+          19.6875,
+          2,
+          2
+        ],
+        [
+          82.96875,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          85.78125,
+          19.6875,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

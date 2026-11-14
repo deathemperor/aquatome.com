@@ -1,0 +1,48 @@
+{
+  "id": "rhinogobius-filamentosus",
+  "native": {
+    "input": "0abafd28432c09da",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rhinogobius filamentosus is a small goby from the Li River system in Guangxi, southern China, also collected in neighbouring Guangdong province.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Li River",
+        "source": "seriouslyfish",
+        "quote": "Rhinogobius filamentosus is a small goby from the Li River system in Guangxi, southern China, also collected in neighbouring Guangdong province.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rhinogobius filamentosus",
+    "status": "ACCEPTED",
+    "taxonKey": 2375370,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

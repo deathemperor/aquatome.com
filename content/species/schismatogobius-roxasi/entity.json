@@ -9,6 +9,56 @@
     "asia",
     "taiwan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TW"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Two species have been reported from Taiwan: Schismatogobius ampluvinculus, which was described scientifically only in 1995, and S. roxasi.",
+          "countries": [
+            "TW"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2378072,
+      "total": 2,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "PH",
+          1
+        ],
+        [
+          "TW",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          119.53125,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          120.9375,
+          9.84375,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

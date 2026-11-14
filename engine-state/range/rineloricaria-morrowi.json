@@ -1,0 +1,96 @@
+{
+  "id": "rineloricaria-morrowi",
+  "native": {
+    "input": "cac2e7ab6b528ad8",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Rineloricaria morrowi Fowler, 1940. Type locality: Contamana, Río Ucayali basin, Peru. Size: 16.5 cm SL. Temperature: 20–24°C.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Ucayali River basin, Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ucayali",
+        "source": "seriouslyfish",
+        "quote": "Ucayali River basin, Peru.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "South America: Ucayali River basin (Amazon, Upper Amazon, Marañón, Ucayali).",
+        "ok": true
+      },
+      {
+        "name": "Marañón",
+        "source": "planetcatfish",
+        "quote": "South America: Ucayali River basin (Amazon, Upper Amazon, Marañón, Ucayali).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rineloricaria morrowi",
+    "status": "ACCEPTED",
+    "taxonKey": 2339048,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        22
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        10
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        6
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        3
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

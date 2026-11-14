@@ -12,6 +12,94 @@
     "vietnam",
     "thailand"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "VN",
+        "TH"
+      ],
+      "regions": [
+        "Mekong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from various parts of the middle and upper Mekong river basins with records from the Nam Tha, Nam Ou, Nam Khan, Nam Lik, Nam Ngum and Nam Mang tributary systems in Laos, the Nam Noeua (a tributary of Nam Ou) in Vietnam, and the Mae Nam Kok in Thailand.",
+          "countries": [
+            "LA",
+            "VN",
+            "TH"
+          ],
+          "regions": [
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2377648,
+      "total": 26,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "LA",
+          24
+        ],
+        [
+          "TH",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          19.6875,
+          5,
+          5
+        ],
+        [
+          101.25,
+          19.6875,
+          13,
+          13
+        ],
+        [
+          101.25,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          18.28125,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          19.6875,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

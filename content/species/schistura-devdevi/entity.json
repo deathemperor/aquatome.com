@@ -10,6 +10,72 @@
     "india",
     "nepal"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Eastern Himalayas"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The saddleback loach, Schistura devdevi, is a nemacheilid loach from upland parts of Assam, Sikkim, Arunachal Pradesh and West Bengal, northern India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Eastern Himalayas; small streams below Darjeeling and Sikkim, India', and this species is only known with certainty from upland parts of Assam, Sikkim, Arunachal Pradesh and West Bengal states in northern India.",
+          "countries": [],
+          "regions": [
+            "Eastern Himalayas"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205301,
+      "total": 10,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "IN",
+          5
+        ],
+        [
+          "NP",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          87.1875,
+          25.3125,
+          4,
+          0
+        ],
+        [
+          87.1875,
+          26.71875,
+          5,
+          4
+        ],
+        [
+          88.59375,
+          26.71875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

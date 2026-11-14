@@ -38,12 +38,13 @@
       "youtube": 0.75
     }
   },
+  "bodyFixed": true,
   "held": {
     "checks": [
       "elsewhere",
+      "harm",
       "price"
     ],
-    "at": "2026-11-08"
-  },
-  "bodyFixed": true
+    "at": "2026-11-14"
+  }
 }
