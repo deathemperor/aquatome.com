@@ -265,7 +265,9 @@ test('a mend takes out only a sentence a finding names: one that drops or reword
   expect(await deps(stop.root, kept(`<p>Bể 10 gallon là đủ.</p><p>Châm vi sinh, liều theo hướng dẫn trên bao bì.</p><p>${LONG}</p>`)).mend(page(), [gallons, { ...caps, quote: 'Bể này dùng khoảng 4 nắp.' }])).toEqual({ refused: 'a sentence no finding names was changed or left out: "cá ăn vào buổi sáng."' })
   expect(await readFile(stop.file, 'utf8')).toBe(stop.was)
   // A stop with a closing quote mark, or "…", ends the quote's sentence too (Grok's read).
-  for (const [line, quote] of [['Ông nói "Mua lọc ở Petco." Cá ăn vào buổi sáng.', 'Mua lọc ở Petco.'], ['Mua lọc ở Petco… Cá ăn vào buổi sáng.', 'Mua lọc ở Petco…']] as const) {
+  for (const [line, quote] of [['Ông nói "Mua lọc ở Petco." Cá ăn vào buổi sáng.', 'Mua lọc ở Petco.'], ['Mua lọc ở Petco… Cá ăn vào buổi sáng.', 'Mua lọc ở Petco…'],
+    // A one-letter word before the stop, an opening mark after it, another ellipsis (Grok's third read).
+    ['Mua lọc ở Petco loại a. Cá ăn vào buổi sáng.', 'Mua lọc ở Petco'], ['Ông nói “Mua lọc ở Petco.“ Cá ăn vào buổi sáng.', 'Mua lọc ở Petco.'], ['Mua lọc ở Petco⋯ Cá ăn vào buổi sáng.', 'Mua lọc ở Petco⋯']] as const) {
     const q = await setup({ body: `<p>${line}</p><p>${LONG}</p>`, faq: [] })
     expect(await deps(q.root, kept(`<p>Lọc mua ở tiệm cá cảnh.</p><p>${LONG}</p>`)).mend(page(), [{ ...shop, quote }]), line).toEqual({ refused: 'a sentence no finding names was changed or left out: "cá ăn vào buổi sáng."' })
   }
@@ -274,6 +276,11 @@ test('a mend takes out only a sentence a finding names: one that drops or reword
   const waits = deps(initial.root)
   expect(await waits.mend(page(), [{ ...caps, quote: '4 nắp, loài P.' }])).toBeUndefined()
   expect(waits.prompts).toEqual([])
+  // So does one inside a quote mark; and a sentence after a dose that ends on an initial still has to survive.
+  const quoted = await setup({ body: `<p>Bể này dùng khoảng 4 nắp, loài "P. aethiopicus", mỗi 10 lít.</p><p>${LONG}</p>`, faq: [] })
+  expect(await deps(quoted.root).mend(page(), [{ ...caps, quote: '4 nắp' }])).toBeUndefined()
+  const after = await setup({ body: `<p>Bể 10 gallon là đủ.</p><p>Bể này dùng khoảng 4 nắp, loài P. Cá ăn vào buổi sáng.</p><p>${LONG}</p>`, faq: [] })
+  expect(await deps(after.root, kept(`<p>Bể 10 gallon là đủ.</p><p>Châm vi sinh, liều theo hướng dẫn trên bao bì.</p><p>${LONG}</p>`)).mend(page(), [gallons, { ...caps, quote: '4 nắp, loài P.' }])).toEqual({ refused: 'a sentence no finding names was changed or left out: "cá ăn vào buổi sáng."' })
   // A summary the editor returns escaped ("&amp;") is the same words, as it's written unescaped.
   const amp = await setup({ summary: ['Cá & tép ăn sáng.'] })
   expect(await deps(amp.root, { fixed: { summary: ['Cá &amp; tép ăn sáng.'] } }).mend(page(), [shop, price])).toBe(true)

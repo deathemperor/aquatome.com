@@ -22,14 +22,14 @@ const REVIEW_NOTE = readFileSync(new URL('./prompts/video-mend-review.md', impor
  * whole. A quote that ends its sentence ("…4 nắp.", as the reader stores one) ends there, not at the next sentence's stop
  * (Grok's read).
  */
-function sentenceOf(paragraphs: string[], quote: string): string {
+function sentenceOf(paragraphs: string[], quote: string, stop = STOP): string {
   for (const p of paragraphs) {
     const i = p.indexOf(quote)
     if (i < 0) continue
     // The quote's own last mark, past a closing quote mark: a stop there ends the sentence; one inside the quote doesn't.
     const last = i + Math.max(1, quote.replace(/["'”’»)]+$/u, '').length) - 1
     let start = 0, end = p.length
-    for (const m of p.matchAll(STOP)) {
+    for (const m of p.matchAll(stop)) {
       if (m.index + m[0].length <= i) start = m.index + m[0].length
       else if (m.index >= last) { end = m.index + m[0].length; break }
     }
@@ -110,12 +110,15 @@ function figures(text: string): Map<string, number> {
 /** A figure's dose unit, when its key has one ("hai mươi nắp" is in nắp, "20 mg trênl" in mg). */
 const unit = (k: string) => k.split(' ').slice(1).find(p => DOSE_UNIT.test(p)) ?? ''
 /**
- * A sentence's stop: ".", "?", "!" or "…", with any closing quote mark, before a space or the end. Not a genus's initial
- * ("p. aethiopicus", the text as `norm` gives it) (Grok's read).
+ * A sentence's stop: ".", "?", "!" or an ellipsis, with any quote mark after it, before a space or the end. Every one is a
+ * stop for what a mend must keep, a genus's initial ("p. aethiopicus", the text as `norm` gives it) too: split finest,
+ * no sentence rides along with a named one (Grok's reads).
  */
-const STOP_MARK = `(?<!(?:^|[\\s(])[a-z])[.?!…]["'”’»)]*`
-const STOP = new RegExp(`${STOP_MARK}(?=\\s|$)`, 'giu')
-const split = (t: string) => t.split(new RegExp(`\\n|(?<=${STOP_MARK})\\s+`, 'iu')).map(x => x.trim()).filter(Boolean)
+const STOP_MARK = `[.?!…⋯‥]["'”’»)“‘]*`
+const STOP = new RegExp(`${STOP_MARK}(?=\\s|$)`, 'gu')
+/** Past a genus's initial, as a whole quote mark or bracket opens it: how far a dose's sentence reads, to see its rate. */
+const STOP_PAST_INITIALS = new RegExp(`(?<!(?:^|[\\s("'“‘])[a-z])${STOP_MARK}(?=\\s|$)`, 'gu')
+const split = (t: string) => t.split(new RegExp(`\\n|(?<=${STOP_MARK})\\s+`, 'u')).map(x => x.trim()).filter(Boolean)
 /** What `a` has more of than `b`. */
 const more = (a: Map<string, number>, b: Map<string, number>) => [...a].flatMap(([k, n]) => (n > (b.get(k) ?? 0) ? [k] : []))
 const less = (a: Map<string, number>, gone: Map<string, number>) => new Map([...a].map(([k, n]) => [k, Math.max(0, n - (gone.get(k) ?? 0))]))
@@ -148,7 +151,8 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   const paragraphs = [vi.name, ...(vi.summary ?? []), ...render(sanitizeHtml(vi.body ?? '')).split('\n'), ...(vi.faq ?? []).flatMap(f => [f.q, f.a])].map(norm)
   // A dose the editor may take is the source's own tank's; any other waits for a person, and so does the guide.
   const doses = findings.filter(f => f.check === 'dose').map(f => sentenceOf(paragraphs, norm(f.quote)))
-  if (!doses.every(ownTankDose)) return undefined
+  // Read on past a genus's initial ("loài P. aethiopicus, mỗi 10 lít"), so a rate after it is seen.
+  if (!findings.filter(f => f.check === 'dose').every(f => ownTankDose(sentenceOf(paragraphs, norm(f.quote), STOP_PAST_INITIALS)))) return undefined
   const sentence = (f: FitFinding) => sentenceOf(paragraphs, norm(f.quote))
   if (findings.some(f => (f.check === 'product' || f.check === 'price') && givesDose(sentence(f)) && !doses.includes(sentence(f)))) return undefined
   const lang = e.video.lang ?? 'en'
