@@ -62,7 +62,7 @@ PIDFILE="$(git rev-parse --absolute-git-dir)/aquatome-engine.pid"
 # working: on 12 Nov 2026 a fetch begun as the Mac fell asleep never ended.
 quiet_for() {
   local line at
-  line=$(grep -E '^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z ' "$HOME/Library/Logs/aquatome-engine-$PART.log" 2>/dev/null | grep -v -E '^[^ ]+ (stuck:|previous cycle)' | tail -1)
+  line=$(grep -E '^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z ' "$HOME/Library/Logs/aquatome-engine-$PART.log" 2>/dev/null | grep -v -E '^[^ ]+ (stuck:|past its hours:|previous cycle)' | tail -1)
   [ -n "$line" ] || return 0
   at=$(date -j -u -f %Y-%m-%dT%H:%M:%SZ "${line%% *}" +%s 2>/dev/null || date -u -d "${line%% *}" +%s 2>/dev/null) || return 0
   echo $(( $(date +%s) - at ))
