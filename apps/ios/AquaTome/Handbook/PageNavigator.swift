@@ -315,6 +315,8 @@ struct PageNavigatorList: View {
       .font(.body)
       .padding(.leading, 30)
       .padding(.trailing, 16)
+      // Room of its own above and below, so wrapped rows don't run together at the larger sizes; one line at size L is 44.
+      .padding(.vertical, 11)
       .frame(minHeight: 44)
       .contentShape(.rect)
     }

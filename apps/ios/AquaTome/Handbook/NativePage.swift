@@ -247,7 +247,11 @@ struct NativePage: View {
           image
         }
         if !caption.characters.isEmpty { Text(caption).font(.footnote).foregroundStyle(.secondary) }
-        if let credit { Text(credit).foregroundStyle(.secondary).tint(Color.secondary).padding(.horizontal, hero ? nil : 0) }
+        if let credit {
+          Text(credit).foregroundStyle(.secondary).tint(Color.secondary).padding(.horizontal, hero ? nil : 0)
+            // The head photo's capped as a fish page's: at the largest text it would outrank the name.
+            .dynamicTypeSize(...(hero ? DynamicTypeSize.xxLarge : .accessibility5))
+        }
       }
     case let .video(id, title, caption):
       VideoSlot(id: id, title: title, caption: caption)

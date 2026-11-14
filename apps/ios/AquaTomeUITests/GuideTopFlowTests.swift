@@ -1,3 +1,4 @@
+import UIKit
 import XCTest
 
 /// A guide's top in v2, as a fish page's (`headways/spec-guide-top.md`): its photo under the bar and the status bar,
@@ -94,12 +95,42 @@ final class GuideTopFlowTests: XCTestCase {
     XCTAssertTrue(sources.exists && named.exists, "not the sources and the pages it names, with their counts")
     XCTAssertTrue(talk.waitForExistence(timeout: 5), "no discussion with its count")
     XCTAssertGreaterThan(sources.frame.minY, feeding.frame.minY, "what follows the parts before them")
+    // Room above and below its words (the test at the largest text) leaves a one-line row at size L as it was.
+    XCTAssertEqual(feeding.frame.height, 44, accuracy: 1, "a one-line row at size L isn't 44")
     feeding.tap()
     wait(for: [expectation(for: NSPredicate(format: "label == 'Mục lục, đang ở Cho ăn'"), evaluatedWith: title)], timeout: 5)
     let heading = app.scrollViews.staticTexts["Cho ăn"].firstMatch
     wait(for: [expectation(for: NSPredicate(format: "isHittable == true"), evaluatedWith: heading)], timeout: 5)
     XCTAssertGreaterThan(heading.frame.minY, bar.frame.maxY, "the part's heading behind the bar")
     XCTAssertTrue(bar.buttons["page-more"].exists && bar.buttons.element(boundBy: 0).exists, "a part's name crowds the bar's buttons")
+  }
+
+  /// At the largest text each of Mục lục's rows has room of its own, 11 points above and below its words: without it,
+  /// rows of two lines and more ran together (Design's parity, 14 Nov). The list is the fish page's too.
+  func testAtTheLargestTextMucLucsRowsHaveRoomAboveAndBelow() {
+    let app = owner("-long-guide", "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
+    openGuide(app)
+    let title = app.descendants(matching: .any)["page-navigator-title"].firstMatch
+    XCTAssertTrue(title.waitForExistence(timeout: 5), "no Mục lục for the owner on a long guide")
+    title.tap()
+    let feeding = app.buttons.matching(identifier: "page-navigator-part").matching(NSPredicate(format: "label == 'Cho ăn'")).firstMatch
+    XCTAssertTrue(feeding.waitForExistence(timeout: 5), "no part for feeding")
+    // "Cho ăn" is one line at any size: its row is its line and the room above and below it.
+    let line = UIFont.preferredFont(forTextStyle: .body,
+                                    compatibleWith: UITraitCollection(preferredContentSizeCategory: .accessibilityExtraExtraExtraLarge)).lineHeight
+    XCTAssertGreaterThanOrEqual(feeding.frame.height, line + 21, "a row \(feeding.frame.height) high for a line of \(line): no room above and below")
+  }
+
+  /// At the largest text the head photo's credit stays at XXL's size, as a fish page's does: grown to the body's, it
+  /// outranked the guide's name (Design's parity, 14 Nov).
+  func testAtTheLargestTextTheHeadPhotosCreditIsCapped() {
+    let app = launch("-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
+    app.launchForFlow()
+    openGuide(app)
+    let credit = app.descendants(matching: .any)["native-page"].staticTexts.matching(NSPredicate(format: "label BEGINSWITH 'Ảnh:'")).firstMatch
+    XCTAssertTrue(credit.waitForExistence(timeout: 5), "no credit under the head photo")
+    let capped = UIFont.preferredFont(forTextStyle: .footnote, compatibleWith: UITraitCollection(preferredContentSizeCategory: .extraExtraLarge)).lineHeight
+    XCTAssertLessThanOrEqual(credit.frame.height, capped * 2 + 1, "the credit is \(credit.frame.height) high, past two lines at XXL (\(capped))")
   }
 
   /// A reader has none on the same long guide: no title in the bar, the name in its middle once scrolled.
