@@ -1,14 +1,15 @@
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { awaitsScreen, hashDistance, isAllowedLicence, isGenerated, isOwnerCrop, mayPublish, PHOTO_SCREEN_FILE, SAME_PICTURE, setsCookies, type Photo, type PhotoScreenEntry } from '@aq/schema'
+import { awaitsScreen, hashDistance, isAllowedLicence, isGenerated, isOwnerCrop, mayPublish, PHOTO_SCREEN_FILE, SAME_PICTURE, setsCookies, unmarked, type Photo, type PhotoScreenEntry } from '@aq/schema'
 import { isRejected } from './photos'
 
 /**
  * Fish the owner asked for more photos of: engine-state/_priority-fish.json, `kind/id` → the day it went on, and nothing
  * else, since the repository is public (the chief of staff, 15 Nov). The album step and the photo check take these first
- * (gallery-plan.ts, photo-check.ts), oldest day first, until the fish's album row shows: six pictures
+ * (gallery-plan.ts, photo-check.ts), oldest day first, until the fish's album row shows six pictures with no mark on them
  * (apps/site/src/lib/gallery.ts GALLERY_MIN, counted by apps/site/src/lib/photo-page.ts albumOf). Then it ranks where it
- * would anyway.
+ * would anyway. A photo kept with a shop's mark doesn't count: the owner asked for photos they'd like (the chief of staff,
+ * 15 Nov).
  */
 export const PRIORITY_UNTIL = 6
 const REF = /^(species|plants|breeds)\/[a-z0-9-]+$/, DAY = /^\d{4}-\d{2}-\d{2}$/
@@ -30,8 +31,10 @@ export async function readPriorityFish(root: string): Promise<Record<string, str
  * The pictures of a fish's album the site surely shows, as albumOf counts them: a breed's own photos after its first, then
  * its gallery; each picture once (content/picture-hashes.json). Left out, beyond what the site leaves out: a photo waiting
  * for the photo check or the watermark screen, an AI picture, an altered photo or an owner's crop (the site shows those
- * only under its switches), a never-again photo, one a source may not show. So this count can fall short of the row's,
- * never over it, and a fish never leaves the list before its row shows.
+ * only under its switches), a never-again photo, one a source may not show. And a marked photo, though the row shows it:
+ * one the watermark screen found a mark on, which the album holds only under a kept-mark record (a cleared shop's own
+ * mark), and one the site counts as marked (@aq/schema unmarked, Glaser's banner). So this count can fall short of the
+ * row's, never over it, and a fish never leaves the list before its row shows six photos with no mark.
  */
 async function shownPictures(root: string, kind: string, id: string): Promise<number> {
   const page = await readJson<{ photos?: Photo[] }>(join(root, 'content', kind, id, 'entity.json'), {})
@@ -45,6 +48,7 @@ async function shownPictures(root: string, kind: string, id: string): Promise<nu
   const seen: string[] = [], urls = new Set<string>()
   for (const p of photos as (Photo & { unchecked?: boolean })[]) {
     if (p.unchecked || isGenerated(p) || p.altered?.length || isOwnerCrop(p) || (!!screen && awaitsScreen(p.url, screen[p.url])) || rejected(p.url) || setsCookies(p.url)) continue
+    if (!unmarked(p) || screen?.[p.url]?.watermark === true) continue
     if (p.source ? !mayPublish(sources[p.source], 'photos') : !isAllowedLicence(p.licence)) continue
     const h = hashes[p.url]
     if (urls.has(p.url) || (h && seen.some(s => hashDistance(s, h) <= SAME_PICTURE))) continue

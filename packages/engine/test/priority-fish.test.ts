@@ -58,6 +58,27 @@ test('the count is the album row\'s: each picture once, nothing the build still 
   expect(await priorityFish(b)).toEqual(['breeds/blue-fish'])
 })
 
+test('a photo kept with a shop\'s mark doesn\'t count: the fish stays first until six photos with no mark', async () => {
+  // Betta mahachai's album once BW's five land: Glaser's photo and BW's five, kept with the shops' own marks, and one with
+  // no mark. Seven on the row, one that counts.
+  const kept = (shop: string, n: string, page: string) => [photo(n, { url: `https://media.aquatome.com/${shop}/${n}.webp`, source: shop }), { ocr: [], watermark: true, retainedOwnMark: { source: shop, sourceUrl: page, owner: 'source' } }] as const
+  const marked = [kept('glaser', 'g0', 'https://www.aquariumglaser.de/en/x/'), ...['b0', 'b1', 'b2', 'b3', 'b4'].map(n => kept('bwaquatics', n, 'https://bwaquatics.com/products/x'))]
+  const clean = (n: number) => checked(n).map(p => [p, { ocr: [], watermark: false }] as const)
+  const r = await root([...marked, ...clean(1)].map(([p]) => p))
+  // Both shops may show photos, so only the marks keep them out of the count.
+  await writeFile(join(r, 'content/sources.json'), JSON.stringify({ glaser: { publish: 'photos' }, bwaquatics: { publish: 'photos' } }))
+  const screen = async (all: (readonly [{ url: string }, object])[]) => writeFile(join(r, 'engine-state/_photo-watermarks.json'), JSON.stringify(Object.fromEntries(all.map(([p, e]) => [p.url, e]))))
+  await screen([...marked, ...clean(1)])
+  expect(await priorityFish(r)).toEqual(['species/zzz-liked'])
+  // Glaser's banner alone (the site's rule) keeps a photo out, with no record of a mark.
+  await screen([[marked[0][0], { ocr: [], watermark: false }], ...marked.slice(1), ...clean(1)])
+  expect(await priorityFish(r)).toEqual(['species/zzz-liked'])
+  // Six with no mark beside the six marked: it leaves the list.
+  await writeFile(join(r, 'content/gallery/zzz-liked.json'), JSON.stringify({ id: 'zzz-liked', photos: [...marked, ...clean(PRIORITY_UNTIL)].map(([p]) => p), seen: 0, updatedAt: '' }))
+  await screen([...marked, ...clean(PRIORITY_UNTIL)])
+  expect(await priorityFish(r)).toEqual([])
+})
+
 test('a list that isn\'t JSON reads as no list: the album step and the photo check go on as before', async () => {
   const r = await root()
   await writeFile(join(r, 'engine-state/_priority-fish.json'), '{ "species/zzz-liked": "2026-11-14", }')
