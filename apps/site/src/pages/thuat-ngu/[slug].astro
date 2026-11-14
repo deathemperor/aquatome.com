@@ -52,7 +52,7 @@ const REFS_SHOWN = 5
   {p.related.length > 0 && (
     <section class="related" aria-labelledby="xem-them">
       <h2 id="xem-them">{t('Xem thêm')}</h2>
-      <ul>{p.related.map(r => <li><a href={`/vi/thuat-ngu/${r.t.slug}/`}>{r.t.name}</a>{r.t.definition && <>: {tipLine(r.t.definition)}</>}</li>)}</ul>
+      <ul>{p.related.map(r => <li><a href={`/vi/thuat-ngu/${r.t.slug}/`}>{r.t.name}</a>{r.t.definition && <>: {tipLine(r.t.definition, r.t.name)}</>}</li>)}</ul>
     </section>
   )}
   {used.length > 0 && (

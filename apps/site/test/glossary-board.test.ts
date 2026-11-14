@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest'
 import { getContent } from '../src/lib/content'
-import { alphabet, bodySections, glossaryParts, letterOf, TIP_MAX, tipLine, usedRows, USED_IN_ALL, USED_IN_ROWS } from '../src/lib/glossary-page'
+import { alphabet, bodySections, glossaryParts, letterOf, TIP_ROOM, tipLine, usedRows, USED_IN_ALL, USED_IN_ROWS } from '../src/lib/glossary-page'
 
 // The Design Lead's board for the glossary (14 Nov 2026), the pieces a term's page and the list put together.
 
@@ -9,10 +9,15 @@ test('a related term reads as its tip begins: its meaning to the first full stop
   expect(tipLine('Độ cứng cacbonat: lượng cacbonat và bicacbonat trong nước; quyết định khả năng đệm.')).toBe('Độ cứng cacbonat: lượng cacbonat và bicacbonat trong nước.')
   expect(tipLine('Thang từ 0 đến 14, với 6.5 là hơi chua. Thêm.')).toBe('Thang từ 0 đến 14, với 6.5 là hơi chua.')
   expect(tipLine('  Một câu không có dấu chấm  ')).toBe('Một câu không có dấu chấm')
-  // Thai writes no full stops (Grok's read, 15 Nov 2026): a long meaning ends at its last space within the limit, with "…".
+  // Thai writes no full stops (Grok's read, 15 Nov 2026): a long meaning ends at its last space where the name and the line
+  // fit two lines on a phone (the Design Lead, 15 Nov 2026), with "…". A long name leaves less room.
   const th = 'สารประกอบธรรมชาติที่ปล่อยออกมาจากใบไม้แห้ง ขอนไม้ และเปลือกไม้ ทำให้น้ำมีสีเหลืองอมน้ำตาลและเป็นกรดเล็กน้อย แทนนินช่วยจำลองสภาพแวดล้อมแบบน้ำดำและเชื่อกันว่าช่วยให้ปลาเครียดน้อยลง สีของน้ำไม่เป็นอันตราย'
-  expect(tipLine(th)).toBe('สารประกอบธรรมชาติที่ปล่อยออกมาจากใบไม้แห้ง ขอนไม้ และเปลือกไม้ ทำให้น้ำมีสีเหลืองอมน้ำตาลและเป็นกรดเล็กน้อย…')
-  expect(tipLine('ก'.repeat(TIP_MAX + 5))).toBe(`${'ก'.repeat(TIP_MAX)}…`)
+  expect(tipLine(th, 'แทนนิน')).toBe('สารประกอบธรรมชาติที่ปล่อยออกมาจากใบไม้แห้ง ขอนไม้ และเปลือกไม้…')
+  const kh = 'ปริมาณคาร์บอเนตและไบคาร์บอเนตในน้ำ ซึ่งเป็นตัวกำหนดความสามารถในการบัฟเฟอร์ (รักษาค่า pH ให้คงที่) KH ต่ำทำให้ค่า pH แกว่ง'
+  expect(tipLine(kh, 'ความกระด้างคาร์บอเนต (KH)')).toBe('ปริมาณคาร์บอเนตและไบคาร์บอเนตในน้ำ…')
+  // Vowel and tone marks take no width; with no space in its room, a line is cut at the room.
+  expect(tipLine('ก'.repeat(TIP_ROOM + 5))).toBe(`${'ก'.repeat(TIP_ROOM - 3)}…`)
+  expect(tipLine('กิ'.repeat(30), 'ก')).toBe('กิ'.repeat(30))
 })
 
 test('a term\'s rows: three of each kind past six pages in all, with a search for the rest; six or fewer all show, no search', () => {

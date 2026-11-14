@@ -165,15 +165,21 @@ export function usedRows<G, U>(p: { guides: G[]; fish: U[]; plants: U[]; total: 
  * A related term's one line, as its tip begins (the Design Lead's board, 14 Nov 2026): its meaning's first sentence, to
  * a full stop or semicolon before a space or the end (never a decimal point); a semicolon ends it as a full stop. Thai
  * writes no full stops, and its spaces part list items as well as sentences (Grok's read, 15 Nov 2026): a meaning with no
- * stop ends at its last space within TIP_MAX characters, with "…"; a shorter one is its whole line.
+ * stop ends at its last space where the name, ": ", the line and "…" fit in TIP_ROOM letters, two lines on a phone (the
+ * Design Lead, 15 Nov 2026: 120 characters ran to three at 428 px, which holds about 37 Thai letters a line); a shorter one
+ * is its whole line. A letter is what takes width: Thai's vowel and tone marks above and below one take none.
  */
-export const TIP_MAX = 120
-export const tipLine = (definition: string) => {
+export const TIP_ROOM = 64
+const width = (s: string) => s.replace(/\p{Mn}/gu, '').length
+export const tipLine = (definition: string, name = '') => {
   const d = definition.trim(), m = /^.*?[.!?;](?=\s|$)/su.exec(d)
   if (m) return m[0].replace(/;$/, '.')
-  if (d.length <= TIP_MAX) return d
-  const cut = d.lastIndexOf(' ', TIP_MAX)
-  return `${(cut > 0 ? d.slice(0, cut) : d.slice(0, TIP_MAX)).trimEnd()}…`
+  const room = TIP_ROOM - width(`${name}: …`)
+  if (width(d) <= room + 1) return d
+  let cut = -1
+  for (let i = d.indexOf(' '); i > 0 && width(d.slice(0, i)) <= room; i = d.indexOf(' ', i + 1)) cut = i
+  if (cut < 0) for (cut = 0; cut < d.length && width(d.slice(0, cut + 1)) <= room; cut++);
+  return `${d.slice(0, cut).trimEnd()}…`
 }
 
 /**
