@@ -126,6 +126,7 @@ The calendar's nine new weeks (`content/curation.json`). These aren't in the tal
 | Round | Seats | Vietnamese | Indonesian | Thai | Malay |
 |---|---|---|---|---|---|
 | 1 | xAI alone | 8 | 7 | 7 | 7 |
+| 2 | Anthropic, xAI | 8, 8 | 8, 9 | 8, 8 | 8, 8 |
 
 Round 1 had the xAI seat alone: Cursor refused OpenAI and Google (not in that week's usage), and no Claude helper ran
 before 14 Nov.
@@ -142,7 +143,24 @@ before 14 Nov.
     shelf says;
   - "crew" carried over word for word in all four (Tim pembersih, ทีมทำความสะอาดตู้, Pasukan pembersih): the finding the
     Vietnamese references hold.
-- **Open, one seat and no corpus:** Malay "saudaranya" and "sempena".
+- **Open after round 1, answered in round 2:** Malay "saudaranya" (both seats: it reads as a sibling; changed) and
+  "sempena" (one seat would change it, the other kept it; kept).
+
+Round 2 (14 Nov): Anthropic and xAI. OpenAI and Google sat out again (not in Cursor's weekly usage).
+- **Vietnamese, by the references:**
+  - held: "set bể" for "dựng bể" (videos 29.5 a million words and forum 3.3, against 0 and 0);
+  - held, both seats: the corydoras-and-plecos shelf drops "và họ hàng". xAI's "loài cùng họ" was as rare in the
+    forum (0.7) as the old words, so the shelf names its two groups and nothing more;
+  - held, xAI: "cá vàng" in the 1–7 Feb theme reads as the goldfish, which that week doesn't hold. "Cá màu đỏ"
+    (forum 4.6) and "đỏ và vàng" (4.0) over xAI's "sắc đỏ" (5.9 against "màu đỏ" 152.3);
+  - dropped, Anthropic: "những con cá" (forum 133.2, as on the site) and "những chú cá" (forum 61.3, against 23.7 in the
+    site's guides); "cá thả đầu tiên" is in no forum or video.
+- **Indonesian, Thai and Malay**, changed where both seats raised it or the site's own pages bear it out: Thai
+  "สัตว์กินตะไคร่: …" (both), "กำจัดตะไคร่" (the site's guides 31.3 against 2.6), "ปลาคาร์ป" (the koi page's name); Malay
+  "ikan bandaraya" (both seats on "saudaranya") and "musim tengkujuh" on the heater shelf. Dropped: "lumut" for "alga"
+  (Indonesian pages say "pemakan alga" 39.2, "pemakan lumut" 0; the Malay interface writes "alga perosak"),
+  Indonesian "heater" (the site uses "pemanas" as much), Malay "berkelompok" (the site's "berkumpulan" 589.8 against
+  13.6), and "sempena" and "menyambut" (the seats split).
 
 ## Vietnamese
 
