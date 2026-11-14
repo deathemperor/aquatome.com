@@ -119,24 +119,29 @@ const prompt = (a: MaterialAsk, parent?: string) => WRITE.replace('{{PARENT_LINE
 const N = String.raw`(?<![\p{L}\d])\d(?:[\d.,]*\d)?`
 const END = String.raw`(?![\p{L}\d])`
 /**
- * A price in Vietnamese money, in the text a reader sees: "150.000 ₫", "150.000 đồng", "200 nghìn đồng", "mỗi khúc 200
- * nghìn", "1,5 triệu", "150k", "150K/khúc", "giá từ 90", "giá bán: 150.000". Not a quantity or another word: "2 triệu
- * năm", "6500 K", "10 đến 14 ngày", "5 kg", "giá thể 2 lớp", "giá trị pH 6,5", "đồng thời", "đánh giá 2 khúc". The
- * pilot's pages give none.
+ * A price in Vietnamese money, in the text a reader sees: "150.000 ₫", "150.000đ màu nâu", "150.000 đồng", "200 nghìn
+ * đồng", "mỗi khúc 200 nghìn tùy kích thước", "1,5 triệu", "150k", "150K/khúc", "giá từ 90", "giá bán: 150.000", "giá
+ * 150.000". Not a quantity or another word: "2 triệu năm", "6500 K", "10 đến 14 ngày", "5 kg", "giá thể 2 lớp", "giá trị
+ * pH 6,5", "ngày 7, đồng thời", "đánh giá 2 khúc", "trên giá 2 tầng". The pilot's pages give none.
  */
 const PRICE = [
-  new RegExp(String.raw`${N}\s*(?:₫|vnđ|vnd|đồng|đ)${END}(?!\s+(?:thời|nghĩa|đều|loạt|bộ|màu|dạng|nhất|hồ|ý|cỏ|ruộng|bằng)${END})`, 'iu'),
-  // "nghìn", "triệu" as money: a sign, "một" or "mỗi" after it, or nothing ("mỗi khúc 200 nghìn."), not a noun ("năm").
-  new RegExp(String.raw`${N}\s*(?:nghìn|ngàn|triệu|tỷ|tỉ)(?=\s*(?:$|[.,;:!?)/\n]|(?:₫|vnđ|vnd|đồng|đ|một|mỗi)${END}))`, 'iu'),
+  // A sign is always money; "đồng" is, but in a word of its own ("đồng thời", "đồng màu").
+  new RegExp(String.raw`${N}\s*(?:(?:₫|vnđ|vnd|đ)${END}|đồng${END}(?!\s+(?:thời|nghĩa|đều|loạt|bộ|màu|dạng|nhất|hồ|ý|cỏ|ruộng|bằng)${END}))`, 'iu'),
+  // "nghìn", "triệu" are money unless what's counted follows ("2 triệu năm", "2 nghìn loài").
+  new RegExp(String.raw`${N}\s*(?:nghìn|ngàn|triệu|tỷ|tỉ)${END}(?!\s+(?:năm|loài|con|cá\s+thể|người|lượt|lít|giờ|ngày|lần|hạt|tấn|km|mét|tế\s+bào|vi\s+khuẩn|cây)${END})`, 'iu'),
   new RegExp(String.raw`${N}\s*k${END}`, 'u'),
   // A capital K after three digits at most: a lamp's 6500 K is a colour.
   new RegExp(String.raw`(?<![\p{L}\d.,])\d{1,3}\s*K${END}`, 'u'),
-  new RegExp(String.raw`(?<![\p{L}])(?<!đánh\s+)giá(?:\s+(?:bán|chỉ|từ|khoảng|tầm|chừng|lẻ|sỉ|mua|niêm yết|tham khảo|dao động|rơi vào))*\s*:?\s*\d`, 'iu'),
+  // "giá" with a word of buying or a colon before any number; alone, before a sum of money ("giá 150.000", not "giá 2 tầng").
+  new RegExp(String.raw`(?<![\p{L}])(?<!đánh\s+)giá(?:(?:\s+(?:bán|chỉ|từ|khoảng|tầm|chừng|lẻ|sỉ|mua|niêm yết|tham khảo|dao động|rơi vào))+\s*:?\s*\d|\s*:\s*\d|\s+(?:\d{1,3}(?:[.,]\d{3})+|\d{4,})${END})`, 'iu'),
 ]
 const chars = (s: string) => [...s.normalize('NFC')].length
 const visible = (html: string) => unescapePlain(html.replace(/<[^>]*>/g, ' ')).replace(/\s+/g, ' ').trim()
-/** A tag or a comment, not a comparison: "<" then a letter, "/" or "!" ("pH < 7" stays). A block's edge leaves a space. */
-const TAG = /<!--[\s\S]*?-->|<\/?[a-z][^<>]*>/gi
+/**
+ * A tag, its quoted values read whole, or a comment; not a comparison: "<" then a letter, "/" or "!" ("pH < 7" stays,
+ * and so does nothing of `<em title="pH < 7">`). A block's edge leaves a space.
+ */
+const TAG = new RegExp(String.raw`<!--[\s\S]*?-->|<\/?[a-z][^\s/>]*(?:\s+[^\s"'>/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s"'>]+))?)*\s*\/?>`, 'gi')
 const untag = (s: string) => s.replace(TAG, t => (/^<\/?(?:p|br|div|li|ul|ol|h\d)\b/i.test(t) ? ' ' : ''))
 /** A summary line or a question as the page shows it: plain text, entities undone, no markup and no source's mark. */
 const plain = (s: string) => untag(unescapePlain(s ?? '')).replace(/\s*\[\d+\]/g, '').replace(/\s+/g, ' ').trim()
