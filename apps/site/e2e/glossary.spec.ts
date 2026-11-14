@@ -116,3 +116,35 @@ test('a source\'s mark uses the same card and isn\'t counted', async ({ page }, 
   await page.waitForTimeout(300)
   expect(sent).toEqual([])
 })
+
+// The list (the Design Lead's board, 14 Nov 2026): a search over the terms, an A to Z of its letters with their counts,
+// each letter's heading. Names and counts are read from the page, so it holds on the fixture and the live site alike.
+test('the list\'s search keeps only the terms that match, and says when none do; a letter takes the reader to its terms', async ({ page, errors }) => {
+  await page.goto('/thuat-ngu/')
+  const rows = page.locator('[data-find]')
+  const all = await rows.count()
+  expect(all).toBeGreaterThan(1)
+  // Each letter's count is its terms'.
+  for (const a of await page.locator('nav.az a').all()) {
+    const id = (await a.getAttribute('href'))!.slice(1)
+    await expect(page.locator(`section.letter:has(h2[id="${id}"]) [data-find]`)).toHaveCount(Number(await a.locator('small').textContent()))
+  }
+  const name = (await rows.first().locator('dt a').textContent())!.trim()
+  const find = page.locator('#tm-find')
+  await find.fill(name)
+  await expect(rows.first()).toBeVisible()
+  expect(await page.locator('[data-find]:visible').count()).toBeLessThan(all)
+  await expect(page.locator('.none')).toBeHidden()
+  await find.fill('zzqqxx')
+  await expect(page.locator('[data-find]:visible')).toHaveCount(0)
+  await expect(page.locator('section.letter:visible')).toHaveCount(0)
+  await expect(page.locator('.none')).toBeVisible()
+  await find.fill('')
+  await expect(page.locator('[data-find]:visible')).toHaveCount(all)
+  const letter = page.locator('nav.az a').last()
+  const target = (await letter.getAttribute('href'))!
+  await letter.click()
+  await expect(page).toHaveURL(new RegExp(`${target}$`))
+  await expect(page.locator(`h2[id="${target.slice(1)}"]`)).toBeInViewport()
+  expect(errors).toEqual([])
+})

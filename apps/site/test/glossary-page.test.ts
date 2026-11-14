@@ -2,7 +2,7 @@ import { existsSync, readdirSync } from 'node:fs'
 import { expect, test } from 'vitest'
 import type { GlossaryEntity, Localized } from '@aq/schema'
 import { getContent } from '../src/lib/content'
-import { glossaryParts, linkedTermPaths, nameCount, termTitle, USED_IN_SHOWN } from '../src/lib/glossary-page'
+import { bodySections, glossaryParts, linkedTermPaths, nameCount, termTitle, tipLine, usedRows } from '../src/lib/glossary-page'
 import { DIST, page } from './dist'
 
 // A term's page (pages/thuat-ngu/[slug].astro): its other names, its definition's links, and every page that uses it.
@@ -80,17 +80,21 @@ test('every term page lists, with its count, every built guide, fish and plant p
     expect(p.guides.map(x => `/vi/huong-dan/${x.t.slug}/`).sort(), g.id).toEqual(users('huong-dan'))
     expect(p.fish.map(x => x.href).sort(), g.id).toEqual(users('ca'))
     expect(p.plants.map(x => x.href).sort(), g.id).toEqual(users('cay'))
-    // The built term page: the whole count, each kind's count, its first pages.
+    // The built term page: the whole count, each kind's count, its rows (three of each past six in all, the Design
+    // Lead's board), each with its picture's place, and the search for the rest only past six.
     const { dom } = page(`/thuat-ngu/${g.t.slug}/`)
     const h2 = dom.querySelector('.used h2')
     expect(Number(h2?.textContent.replace(/\D/g, '') ?? 0), g.id).toBe(p.total)
     const lists = dom.querySelectorAll('.used h3').map(h3 => [Number(h3.textContent.match(/\(([\d.]+)\)/)?.[1]?.replace(/\./g, '')), (h3.nextElementSibling?.querySelectorAll('a') ?? []).map(a => a.getAttribute('href'))] as const)
+    const rows = usedRows(p)
     const want = [
-      [p.guides.length, p.guides.slice(0, USED_IN_SHOWN.guides).map(x => `/huong-dan/${x.t.slug}/`)],
-      [p.fish.length, p.fish.slice(0, USED_IN_SHOWN.fish).map(x => x.href.replace(/^\/vi/, ''))],
-      [p.plants.length, p.plants.slice(0, USED_IN_SHOWN.plants).map(x => x.href.replace(/^\/vi/, ''))],
+      [p.guides.length, rows.guides.map(x => `/huong-dan/${x.t.slug}/`)],
+      [p.fish.length, rows.fish.map(x => x.href.replace(/^\/vi/, ''))],
+      [p.plants.length, rows.plants.map(x => x.href.replace(/^\/vi/, ''))],
     ].filter(([n]) => n)
     expect(lists, g.id).toEqual(want)
+    expect(dom.querySelectorAll('.used .rows a').every(a => a.querySelector('.pic') && a.querySelector('.name')?.textContent.trim()), g.id).toBe(true)
+    expect(!!dom.querySelector('.used .more a[href^="/tim-kiem/"]'), g.id).toBe(rows.more)
     shown += p.total
   }
   // The fixture's pages use its terms: the check above compared something.
@@ -108,4 +112,31 @@ test('a term with a fuller entry shows its photo, its text under headings, the t
   expect(dom.querySelector('.body a[href="/thuat-ngu/ph/"]')).toBeTruthy()
   expect(dom.querySelectorAll('.related a').map(a => a.getAttribute('href'))).toEqual(['/thuat-ngu/chu-trinh-nito/', '/thuat-ngu/ph/'])
   expect(dom.querySelectorAll('.refs a').map(a => a.getAttribute('href'))).toEqual(['https://www.seriouslyfish.com/glossary/shoal'])
+})
+
+// Every term page as the Design Lead's board has it (14 Nov 2026): a long term's parts in the fish page's jump row with
+// "Dùng trong" at its end, none for a term of a meaning alone; each related term with its one line; five sources, the rest
+// folded under "Xem cả N nguồn".
+test('every term page: the jump row only for a term in parts, related terms in one line each, five sources and the rest folded', async () => {
+  const c = await getContent('vi')
+  let rows = 0, folded = 0
+  for (const g of c.glossary) {
+    const p = glossaryParts('vi', c, g)
+    const { dom } = page(`/thuat-ngu/${g.t.slug}/`)
+    const parts = bodySections(p.body).parts
+    const chips = dom.querySelectorAll('nav.jump a').map(a => a.getAttribute('href'))
+    if (parts.length >= 2) {
+      rows++
+      expect(chips, g.id).toEqual([...parts.map(x => x.href), ...(p.total ? ['#dung-trong'] : [])])
+      for (const x of parts) expect(dom.querySelector(`.body section ${x.href}`), `${g.id} ${x.href}`).toBeTruthy()
+    } else expect(chips, g.id).toEqual([])
+    expect(dom.querySelectorAll('.related li').map(li => li.textContent.trim()), g.id).toEqual(p.related.map(r => (r.t.definition ? `${r.t.name}: ${tipLine(r.t.definition)}` : r.t.name)))
+    const shown = dom.querySelectorAll('.refs > ol > li a').map(a => a.getAttribute('href'))
+    const rest = dom.querySelectorAll('.refs details ol > li a').map(a => a.getAttribute('href'))
+    expect([...shown, ...rest], g.id).toEqual(p.refs.map(r => r.url))
+    expect(shown.length, g.id).toBe(Math.min(5, p.refs.length))
+    if (rest.length) { folded++; expect(dom.querySelector('.refs details summary')?.textContent.trim(), g.id).toBe(`Xem cả ${p.refs.length} nguồn`) }
+  }
+  // The fixture holds a term in parts (lũa) and one with more than five sources: both rules were read.
+  expect([rows > 0, folded > 0]).toEqual([true, true])
 })
