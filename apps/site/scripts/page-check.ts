@@ -8,7 +8,7 @@ import { join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { HTMLElement, parse } from 'node-html-parser'
 import { headingSubject, loadAll, PictureSet, pictureOf, type LinkTarget, type PictureHashes } from '@aq/schema'
-import { LANGS, langOf, localizePath, type Lang } from '../src/lib/i18n'
+import { LANGS, langOf, LINK_MARK, localizePath, type Lang } from '../src/lib/i18n'
 import { sciWords } from '../src/lib/meta'
 import { linkTargets } from '../src/lib/mentions'
 
@@ -19,6 +19,7 @@ export const CHECKS = {
   'missing-photo': 'a fish\'s section without a photo, though the fish has one',
   toc: 'contents that disagree with the headings, or numbers out of order',
   'empty-section': 'a heading with nothing under it',
+  'link-mark': 'a marker localizeLinks left in the page, which no page may ship with',
   'name-twice': "a fish's or plant's title or description saying its scientific name twice",
 } as const
 export type Check = keyof typeof CHECKS
@@ -81,6 +82,7 @@ function section(h: HTMLElement): HTMLElement[] {
 
 export function checkPage(path: string, html: string, facts: Facts): Problem[] {
   const out: Problem[] = []
+  if (LINK_MARK.test(html)) out.push({ check: 'link-mark', detail: path })
   const root = parse(html)
   const lang = langOf(path)
   const owner = (src: string) => facts.owner.get(pictureOf(src, {}).key)

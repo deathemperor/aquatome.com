@@ -366,6 +366,42 @@
       "kept": true
     }
   ],
+  "vi/products/fluval-fx6": [
+    {
+      "at": "2026-11-13T22:59:47Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.88,
+      "notes": [
+        "\"FX4: ... rẻ hơn\" and \"FX2 ... rẻ nhất dòng FX\": supported, no issue.",
+        "\"Một số người siết chặt các khớp nối lại thì hết\": facts say tightening fixed it; the \"some people\" framing is a small generalisation.",
+        "\"và những trường hợp đó vệ sinh lại thì máy êm\": the facts say cleaning fixes it, so this is roughly supported but stated a bit more strongly.",
+        "\"nên nó chịu được bể thả dày tốt hơn\": mild inference from the facts that FX6 holds more foam, but it is supported.",
+        "\"Cánh quạt kêu ù mà không quay... bộ khởi động\": supported.",
+        "\"Kích thước có nguồn ghi 41 × 42 × 53 cm, có nguồn ghi 40 × 40 × 53 cm\": supported by the facts, though the facts don't call this a source disagreement."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T22:59:47Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.8,
+      "notes": [
+        "\"Bể nhỏ hơn thì FX6 là quá cỡ\" is an unsupported generalisation. The facts only say the FX4 and FX2 are better-sized and cheaper for smaller tanks.",
+        "\"Đặt thùng lọc thấp hơn đáy bể ít nhất 20 cm để nước về thùng có đủ áp\" adds a reason. The facts only say the canister should be at least 20 cm below the tank bottom to get good water pressure.",
+        "\"Vệ sinh xong là hết\" and \"siết chặt lại là hết\" overstate the facts. The facts say cleaning fixes it \"often\" and that tightening fixed it for some users.",
+        "\"Nếu set bể biển thì chọn vật liệu lọc cho hợp với nước mặn\" is fine. However, \"Trước tiên vệ sinh cánh quạt và vật liệu lọc... Sau đó kiểm tra các khớp nối ống\" is a troubleshooting order that the facts do not give.",
+        "\"Nhiều hơn FX6\" for the Oase 8 L media is supported. However, the FX6 has 5.9 L and the page never states this, so the comparison is only implied.",
+        "\"Cỡ ống lại không phổ biến\" is supported. \"Thùng chứa nhiều mút hơn FX4, tức là có nhiều chỗ cho vi sinh hơn\" is supported."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/products/fluval-stratum": [
     {
       "at": "2026-11-09T22:46:04Z",

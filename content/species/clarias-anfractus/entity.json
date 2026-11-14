@@ -1,0 +1,177 @@
+{
+  "id": "clarias-anfractus",
+  "scientificName": "Clarias anfractus",
+  "order": "Siluriformes",
+  "family": "Clariidae",
+  "genus": "Clarias",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "malaysia",
+    "sabah",
+    "indonesia",
+    "kalimantan"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [
+        "Borneo",
+        "Segama",
+        "Kalabakan"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Borneo, Malaysia.",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Borneo"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Pacific, Greater Sunda Island rivers, Borneo waters: East Borneo waters, Segama and Kalabakan.",
+          "countries": [],
+          "regions": [
+            "Segama",
+            "Kalabakan"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202763,
+      "total": 3,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "MY",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          116.71875,
+          4.21875,
+          3,
+          3
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7.8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 17.6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1364",
+      "html": "<p>Clarias anfractus Ng, 1999. Etymology: Clarias comes from the Greek chlaros, meaning lively, in reference to the ability of the fish to live for long periods out of water. Anfractus comes from the Latin anfractus, meaning twisted, in reference to the pectoral spine morphology.</p><p>Size: 176 mm SL (17.6 cm). IUCN Red List: Least Concern (last assessed 2018).</p><p>Identification: Clarias species have an elongated body; a soft-rayed dorsal fin extending to, or nearly to, the caudal fin base; a soft-rayed anal fin extending from just behind the anus to the caudal fin base; pectoral fins each with a serrated anterior bony spine; a depressed head covered largely by firmly sutured, surface-sculptured bony plates forming a protective helmet; four pairs of flagellate barbels (nasals, maxillaries, inner and outer mandibulars); and air-breathing organs derived from the 2nd and 4th epibranchials within a superbranchial chamber. This species is distinguished from congeners by a pectoral spine with an irregular outline, a pear-shaped genital papilla in males and relatively large white spots on the sides of the body.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1364",
+      "html": "<p>Asia: Borneo, Malaysia. Pacific, Greater Sunda Island rivers, Borneo waters: East Borneo waters, Segama and Kalabakan.</p><p>Type locality: Danum Valley, a forest stream 600 metres into the conservation area, a tributary of the Sungai Segama, Sabah, Borneo, eastern Malaysia.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1364",
+      "html": "<p>pH: 6.0–7.8. Temperature: 20–27°C.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1364",
+      "html": "<p>Very well rooted plants and large structures that provide some shade. Appropriately sized clay pipes seem to provide a readily accepted, if less cosmetically pleasing, hideaway for these fish.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1364",
+      "html": "<p>Anything; this fish is totally omnivorous and will gorge itself on most offerings.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1364",
+      "html": "<p>Keep with large robust fish; anything small enough will be eaten. Suggested tankmates: large cyprinids (silver sharks, tinfoil barbs or spanner barbs, for example) or Central American cichlids.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1364",
+      "html": "<p>Males have a white, pear-shaped genital papilla; females have a genital papilla in the shape of a rounded cone.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1364",
+      "html": "<p>Not reported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1364",
+      "html": "<p>The Raffles Bulletin of Zoology v. 47 (no. 1), pp18, Figs. 1a, 2a, 3a, 4a.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 200 lít",
+        "bể cá lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá ăn tạp",
+        "thức ăn cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

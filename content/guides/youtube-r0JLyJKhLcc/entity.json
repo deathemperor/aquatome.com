@@ -85,20 +85,13 @@
         "heading": "Váng trên mặt nước bể mới là gì và xử lý thế nào",
         "moments": [
           {
-            "t": 70,
-            "url": "https://media.aquatome.com/video/r0JLyJKhLcc/at70-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Mặt nước bể thủy sinh mới, tay chạm vào để kiểm tra lớp váng.",
-            "sharpness": 343
-          },
-          {
             "t": 140,
             "url": "https://media.aquatome.com/video/r0JLyJKhLcc/at140-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bật sủi tạo nhiều bọt khí trên mặt nước để xử lý váng.",
-            "sharpness": 407.9
+            "sharpness": 407.9,
+            "person": false
           }
         ]
       },
@@ -111,7 +104,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lọc thùng cỡ lớn đặt trong tủ dưới bể.",
-            "sharpness": 250.6
+            "sharpness": 250.6,
+            "person": false
           },
           {
             "t": 480,
@@ -155,7 +149,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh đầu van và đồng hồ trên bình CO2 axit citric bằng inox.",
-            "sharpness": 348
+            "sharpness": 348,
+            "person": false
           }
         ]
       },
@@ -163,20 +158,13 @@
         "heading": "Tạm chuyển cá dĩa khi dỡ bể cũ",
         "moments": [
           {
-            "t": 1500,
-            "url": "https://media.aquatome.com/video/r0JLyJKhLcc/at1500-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng vợt bắt cá dĩa nhẹ nhàng ở bể trồng cây.",
-            "sharpness": 1046.1
-          },
-          {
             "t": 1510,
             "url": "https://media.aquatome.com/video/r0JLyJKhLcc/at1510-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cá dĩa đỏ bơi trong bể nước đã hạ thấp, có cây thủy sinh.",
-            "sharpness": 395.3
+            "sharpness": 395.3,
+            "person": false
           }
         ],
         "photo": {
@@ -199,7 +187,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hút cặn bằng ống trong bể đục, cá con bơi lẫn trong nước.",
-            "sharpness": 210.2
+            "sharpness": 210.2,
+            "person": false
           },
           {
             "t": 1880,
@@ -207,7 +196,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nước bể đã hạ thấp, đục cặn, cá nhỏ nằm dưới nền.",
-            "sharpness": 259.7
+            "sharpness": 259.7,
+            "person": false
           }
         ],
         "photo": {
@@ -223,16 +213,7 @@
       },
       {
         "heading": "Vận chuyển và thả cá vào bể mới",
-        "moments": [
-          {
-            "t": 2430,
-            "url": "https://media.aquatome.com/video/r0JLyJKhLcc/at2430-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng vợt thả cá vào bể, cây thủy sinh xanh tốt.",
-            "sharpness": 1535.8
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/r0JLyJKhLcc/p7-fYWVuZXVzKS5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/r0JLyJKhLcc/p7-fYWVuZXVzKS5qcGc-480.webp",
@@ -253,7 +234,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Góc bể thủy sinh với đá phủ rêu, cây nhỏ và nền sỏi.",
-            "sharpness": 405.3
+            "sharpness": 405.3,
+            "person": false
           }
         ],
         "photo": {

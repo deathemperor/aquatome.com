@@ -1,10 +1,13 @@
 {
   "slug": "upper-congo",
-  "name": "Upper Congo",
-  "altNames": [],
+  "name": "thượng lưu sông Congo",
+  "altNames": [
+    "Upper Congo"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

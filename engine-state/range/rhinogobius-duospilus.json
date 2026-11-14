@@ -1,0 +1,73 @@
+{
+  "id": "rhinogobius-duospilus",
+  "native": {
+    "input": "de092a0b284a341b",
+    "at": "2026-11-14T05:39:06.336Z",
+    "claims": [
+      {
+        "code": "HK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from Hong Kong and known from much of southern China, including Shenzhen in Guangdong province immediately north of the type locality.",
+        "words": "Hong Kong",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from Hong Kong and known from much of southern China, including Shenzhen in Guangdong province immediately north of the type locality.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "FishBase and Kottelat (2001) also list it from northern Vietnam, but these records could not be confirmed, and several similar-looking species occur there.",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lantau Island",
+        "source": "seriouslyfish",
+        "quote": "Hong Kong populations are genetically distinct from one stream system to the next, and the population on Lantau Island has been suggested to represent an undescribed species (Chan et al., 2026).",
+        "country": "HK",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rhinogobius duospilus",
+    "status": "ACCEPTED",
+    "taxonKey": 2377596,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        17
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        16
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ]
+    ],
+    "native": [
+      "HK",
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T05:39:06.336Z"
+  }
+}

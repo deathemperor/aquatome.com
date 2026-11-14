@@ -11,6 +11,7 @@ import { gbifMatch, gbifSearchTaxon, type Taxon } from './gbif'
 import { isMarketplace } from './marketplaces'
 import { ensurePlaces, pickSlug, placeId, usableRegion } from './merge'
 import { findPhotos } from './photos'
+import { kindWord, plainName, recordKindFallback, wrongKind } from './kind-words'
 import { ABOUT } from './planting'
 import { lastKept, logReviews, type Review } from './review-log'
 import { sanitizeHtml } from './sanitize'
@@ -253,9 +254,19 @@ export async function makeSpecies(root: string, d: SpeciesDeps, a: SpeciesAsk, o
     ...(was?.range ? { range: was.range } : {}), dataCard, sections, photos, videos, productSlots: was?.productSlots ?? [], updatedAt: today, refs: c.refs,
   })
 
-  // A name only from a Vietnamese page; else the scientific name, as a page from a source without one gets (merge.ts).
+  // A name only from a Vietnamese page, and none with a keepers' word for another kind of animal (kind-words.ts); else the
+  // plain scientific form, as a page from a source without one gets (merge.ts). A page already live keeps its name when
+  // research offers none that passes first: its name waits for the owner's sheet, and its address never moves. A name that
+  // fell back is listed for the Writing Lead.
   const prev = await read<Translation>(join(dir, 'vi.json'))
-  const name = prev?.nameFixed ? prev.name : c.viNames[0] ?? `Cá ${sci}`
+  const kin = { order: taxon.order, family: taxon.family, genus: entity.genus }
+  const viNames = c.viNames.filter(n => !wrongKind(n, kin))
+  // A live page's own names stay among its other names, whatever the table says: they go to the owner's sheet, not away.
+  const had = new Set([...(prev?.altNames ?? []), ...(prev?.name ? [prev.name] : [])])
+  const passes = (n: string) => !wrongKind(n, kin) || had.has(n)
+  const firstFails = !!c.viNames[0] && wrongKind(c.viNames[0], kin)
+  const name = prev?.nameFixed ? prev.name : (!firstFails && viNames[0]) || prev?.name || (viNames[0] ?? plainName(sci, kin))
+  if (firstFails && !prev?.nameFixed && name !== prev?.name) await recordKindFallback(root, `species/${id}`, { name: c.viNames[0]!, word: kindWord(c.viNames[0]!, kin)!.word, took: name, at: d.now().toISOString() })
   const taken = new Set<string>()
   for (const kind of ['species', 'breeds']) for (const x of await readdir(join(content, kind)).catch(() => [] as string[])) {
     if (kind === 'species' && x === id) continue
@@ -266,7 +277,7 @@ export async function makeSpecies(root: string, d: SpeciesDeps, a: SpeciesAsk, o
   const vi: Translation = TranslationSchema.parse(metricPage({
     slug: prev?.slug ?? pickSlug(name, entity.genus, taken), name,
     // A guarded name keeps the other names it came with (names.ts FISH_NAMES), as merge.ts keeps them.
-    altNames: cleanAltNames({ name, sci, altNames: [...new Set([...(prev?.nameFixed ? prev.altNames : []), ...c.viNames.slice(1), ...c.enNames])].filter(n => n !== name) }).altNames,
+    altNames: cleanAltNames({ name, sci, altNames: [...new Set([...(prev?.nameFixed ? prev.altNames : []), ...(prev?.nameFixed ? c.viNames.slice(1) : c.viNames).filter(passes), ...c.enNames.filter(passes)])].filter(n => n !== name) }).altNames,
     sections: Object.fromEntries(sections.map(s => [`${s.key}:aquatome`, s.html])),
     quality: judgeQuality({ score: review.score, indexable: false, bySource: { aquatome: review.score } }, review.score >= QUALITY_THRESHOLD, deep),
     ...(prev?.nameFixed ? { nameFixed: true } : {}), ...(prev?.redirectFrom ? { redirectFrom: prev.redirectFrom } : {}),

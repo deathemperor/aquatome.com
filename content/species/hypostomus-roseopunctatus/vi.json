@@ -11,15 +11,22 @@
     "habitat:planetcatfish": "<p>Nơi sống có ảnh chụp: sông Rio Parana, bang Corrientes, Argentina.</p>",
     "reproduction:planetcatfish": "<p>Sinh sản: chưa có tài liệu nào ghi lại việc loài này đẻ.</p>",
     "notes:planetcatfish": "<p>Nguồn gốc tên: tên chi ghép từ hai chữ Hy Lạp, hypo là bên dưới và stoma là miệng. Tên loài nói tới những đốm màu hồng trên thân cá (roseus là màu hồng, đỏ, còn punctatus là đốm nhỏ). Ở Đan Mạch, loài này còn có tên Rosenplettet Sugemalle.</p>",
-    "references:planetcatfish": "<p>Revue Suisse de Zoologie v. 97 (no. 3), pp 756, Figs. 2, 25-28.</p>"
+    "references:planetcatfish": "<p>Revue Suisse de Zoologie v. 97 (no. 3), pp 756, Figs. 2, 25-28.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ, thuộc hệ sông La Plata (lưu vực sông Uruguay). Nơi thu mẫu chuẩn là sông Pelotas, đoạn nằm trên đường từ Esmeralda đến Anita Garibaldi, bang Rio Grande do Sul, Brazil.</p>",
+    "aquariumSize:scotcat": "<p>Loài này lớn con, nên cần bể rộng, dài từ 180 cm trở lên.</p>",
+    "behaviour:scotcat": "<p>Loài này hiền. Nó có hay giành chỗ, nhưng vì là một loài Hypostomus cỡ nhỏ nên bể lớn vẫn thả chung được nhiều loài Hypostomus.</p>",
+    "maintenance:scotcat": "<p>Trong bể nên có lũa và cây cứng lá. Nếu không được cho ăn đủ rau, cá sẽ ăn mất các loại cây lá mềm. Các loài trong chi này chủ yếu ăn vương vãi, làm bẩn nước, nên phải giữ nước sạch và lọc tốt. Nuôi ở nhiệt độ thấp hơn thì tốt cho loài này.</p>",
+    "diet:scotcat": "<p>Cá ăn rêu và các loại rau như dưa leo, bí ngòi. Thỉnh thoảng có thể cho thêm đồ đông lạnh để đổi món, và nó cũng ăn thức ăn viên chìm.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên: tên loài roseopunctatus ghép từ roseus (tiếng Latin), nghĩa là màu hồng, và punctatus (tiếng Latin), nghĩa là có chấm hoặc có đốm. Tên này nói về kiểu màu của cá.</p><p>Danh sách Đỏ IUCN: loài này còn ít thông tin, nhưng vùng phân bố rộng và chưa thấy mối đe dọa rõ ràng nào. Vì vậy nó được xếp vào mức Ít quan tâm (IUCN 2023).</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2016. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 01/2016 ). iNaturalist. 2021. Salvador, G.N. 2023. Hypostomus roseopunctatus. The IUCN Red List of Threatened Species 2023. Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
     "score": 0.85,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.85
-    },
-    "reason": "thin"
+      "planetcatfish": 0.85,
+      "scotcat": 0.85
+    }
   },
   "held": {
     "checks": [

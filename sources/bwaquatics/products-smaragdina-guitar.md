@@ -1,7 +1,7 @@
 ---
 url: https://bwaquatics.com/products/smaragdina-guitar
 title: Betta Smaragdina Guitar - Wild Type | Rare Bettas – BWAquatics
-fetchedAt: 2026-11-13T16:56:52.384Z
+fetchedAt: 2026-11-13T20:42:33.017Z
 hash: 2a94f33e1b4611ef111840d0cab0a2d962819dfd53471fd87824eddddfff20ef
 ---
 

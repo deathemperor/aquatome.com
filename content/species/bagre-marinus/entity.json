@@ -1,0 +1,804 @@
+{
+  "id": "bagre-marinus",
+  "scientificName": "Bagre marinus",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Bagre",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "united-states",
+    "gulf-of-mexico",
+    "cuba",
+    "south-america",
+    "venezuela"
+  ],
+  "dataCard": {
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 8,
+          "max": 8.4
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 69
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
+      "html": "<p>Scientific name: Bagre marinus (Mitchill, 1815). Common names: Gafftopsail Catfish, Bagre Cacumo (Puerto Rican), Topsejlmalle (Denmark). Type locality: New York, U.S.A. Size: 690 mm SL (69 cm). This is a true marine fish.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
+      "html": "<p>Western Atlantic: coast of Gulf of Mexico, Cuba, western margin of the Caribbean, and the northern margin of South America. Sometimes in rivers and estuaries.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
+      "html": "<p>pH 8.0–8.4. Temperature 10–20°C. This is a true marine fish.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
+      "html": "<p>A marine aquarium containing a sand substrate and live rock to provide hiding places.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
+      "html": "<p>An opportunistic feeder in the wild that would be expected to consume a wide range of aquarium fare.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
+      "html": "<p>Compatible with other cold to cool water marine fishes that are too large for this fish to eat.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
+      "html": "<p>Unreported in aquaria. It is known that spawning in the wild occurs from May to June and that the male holds the large fertilized eggs in its mouth for up to two months until they hatch. The male does not eat during the incubation period.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
+      "html": "<p>Identification: overall gray with a blue sheen. Barbels on upper jaw noticeably flat. Long filaments on pectoral and dorsal fins reaching nearly to or beyond the anal fin. Caudal fin deeply forked with slightly longer upper lobe. Anal fin with concave margin. It has 22–26 anal fin rays and 7–12 gill rakers on the first branchial arch. Where plentiful, they are caught on longlines, bottom trawls, shore seines, cast nets, and hook and line. Not considered a food fish in North America, but eaten throughout the Caribbean and Northern South America where its flesh is considered tasty.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
+      "html": "<p>Transactions of the Literary and Philosophical Society of New-York v. 1 (art. 5) (for 1814), pp 433.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "4_2bi11oowk",
+      "title": "Aqua Facts/ part 37: Gafftopsail catfish🐟",
+      "durationSec": 21,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "hSXtY_RWQck",
+      "title": "UGA Aquarium's smallest  Sea Catfish",
+      "durationSec": 61,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "4hkKYfYOiNk",
+      "title": "UGA Aquarium's three Sea Catfish",
+      "durationSec": 61,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "wymROnFpYDU",
+      "title": "Third one and big. Gafftopsail catfish",
+      "durationSec": 14,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-13",
+  "range": {
+    "native": {
+      "countries": [
+        "US",
+        "CU"
+      ],
+      "regions": [
+        "Gulf of Mexico"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: New York, U.S.A.",
+          "countries": [
+            "US"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Western Atlantic: coast of Gulf of Mexico, Cuba, western margin of the Caribbean, and the northern margin of South America.",
+          "countries": [
+            "CU"
+          ],
+          "regions": [
+            "Gulf of Mexico"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202981,
+      "total": 13582,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "US",
+          13219
+        ],
+        [
+          "MX",
+          173
+        ],
+        [
+          "BR",
+          99
+        ],
+        [
+          "CO",
+          70
+        ],
+        [
+          "GT",
+          5
+        ],
+        [
+          "HN",
+          5
+        ],
+        [
+          "TT",
+          4
+        ],
+        [
+          "PA",
+          3
+        ],
+        [
+          "CA",
+          2
+        ],
+        [
+          "BZ",
+          1
+        ],
+        [
+          "VE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -109.6875,
+          25.3125,
+          1,
+          0
+        ],
+        [
+          -101.25,
+          26.71875,
+          4,
+          0
+        ],
+        [
+          -99.84375,
+          18.28125,
+          16,
+          0
+        ],
+        [
+          -99.84375,
+          19.6875,
+          1,
+          0
+        ],
+        [
+          -99.84375,
+          28.125,
+          1,
+          1
+        ],
+        [
+          -98.4375,
+          19.6875,
+          9,
+          0
+        ],
+        [
+          -98.4375,
+          21.09375,
+          19,
+          0
+        ],
+        [
+          -98.4375,
+          22.5,
+          1,
+          0
+        ],
+        [
+          -98.4375,
+          23.90625,
+          3,
+          0
+        ],
+        [
+          -98.4375,
+          25.3125,
+          173,
+          170
+        ],
+        [
+          -98.4375,
+          26.71875,
+          2628,
+          2628
+        ],
+        [
+          -98.4375,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          -97.03125,
+          18.28125,
+          2,
+          0
+        ],
+        [
+          -97.03125,
+          26.71875,
+          776,
+          776
+        ],
+        [
+          -97.03125,
+          28.125,
+          6317,
+          6317
+        ],
+        [
+          -95.625,
+          18.28125,
+          4,
+          0
+        ],
+        [
+          -95.625,
+          28.125,
+          144,
+          144
+        ],
+        [
+          -95.625,
+          29.53125,
+          50,
+          50
+        ],
+        [
+          -94.21875,
+          16.875,
+          1,
+          0
+        ],
+        [
+          -94.21875,
+          18.28125,
+          3,
+          0
+        ],
+        [
+          -94.21875,
+          28.125,
+          1,
+          1
+        ],
+        [
+          -94.21875,
+          29.53125,
+          503,
+          503
+        ],
+        [
+          -92.8125,
+          16.875,
+          1,
+          0
+        ],
+        [
+          -92.8125,
+          18.28125,
+          73,
+          0
+        ],
+        [
+          -92.8125,
+          28.125,
+          2,
+          2
+        ],
+        [
+          -92.8125,
+          29.53125,
+          9,
+          9
+        ],
+        [
+          -91.40625,
+          18.28125,
+          9,
+          0
+        ],
+        [
+          -91.40625,
+          19.6875,
+          5,
+          0
+        ],
+        [
+          -91.40625,
+          28.125,
+          30,
+          30
+        ],
+        [
+          -91.40625,
+          29.53125,
+          16,
+          16
+        ],
+        [
+          -90,
+          15.46875,
+          5,
+          0
+        ],
+        [
+          -90,
+          21.09375,
+          6,
+          0
+        ],
+        [
+          -90,
+          28.125,
+          19,
+          19
+        ],
+        [
+          -90,
+          29.53125,
+          55,
+          55
+        ],
+        [
+          -90,
+          30.9375,
+          2,
+          2
+        ],
+        [
+          -88.59375,
+          16.875,
+          1,
+          0
+        ],
+        [
+          -88.59375,
+          18.28125,
+          12,
+          0
+        ],
+        [
+          -88.59375,
+          28.125,
+          1,
+          1
+        ],
+        [
+          -88.59375,
+          29.53125,
+          2155,
+          2155
+        ],
+        [
+          -87.1875,
+          29.53125,
+          3,
+          3
+        ],
+        [
+          -85.78125,
+          29.53125,
+          20,
+          20
+        ],
+        [
+          -84.375,
+          14.0625,
+          5,
+          0
+        ],
+        [
+          -84.375,
+          28.125,
+          2,
+          2
+        ],
+        [
+          -84.375,
+          29.53125,
+          13,
+          13
+        ],
+        [
+          -82.96875,
+          25.3125,
+          18,
+          18
+        ],
+        [
+          -82.96875,
+          26.71875,
+          46,
+          46
+        ],
+        [
+          -81.5625,
+          23.90625,
+          6,
+          6
+        ],
+        [
+          -81.5625,
+          25.3125,
+          3,
+          3
+        ],
+        [
+          -81.5625,
+          26.71875,
+          84,
+          84
+        ],
+        [
+          -81.5625,
+          28.125,
+          80,
+          80
+        ],
+        [
+          -81.5625,
+          29.53125,
+          3,
+          3
+        ],
+        [
+          -81.5625,
+          30.9375,
+          14,
+          14
+        ],
+        [
+          -81.5625,
+          32.34375,
+          2,
+          2
+        ],
+        [
+          -80.15625,
+          8.4375,
+          3,
+          0
+        ],
+        [
+          -80.15625,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          -80.15625,
+          32.34375,
+          12,
+          12
+        ],
+        [
+          -78.75,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -78.75,
+          33.75,
+          11,
+          11
+        ],
+        [
+          -77.34375,
+          8.4375,
+          3,
+          0
+        ],
+        [
+          -77.34375,
+          11.25,
+          1,
+          0
+        ],
+        [
+          -77.34375,
+          33.75,
+          11,
+          11
+        ],
+        [
+          -77.34375,
+          37.96875,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          8.4375,
+          5,
+          0
+        ],
+        [
+          -75.9375,
+          9.84375,
+          11,
+          0
+        ],
+        [
+          -75.9375,
+          37.96875,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          9.84375,
+          38,
+          0
+        ],
+        [
+          -74.53125,
+          11.25,
+          6,
+          0
+        ],
+        [
+          -74.53125,
+          39.375,
+          3,
+          3
+        ],
+        [
+          -73.125,
+          11.25,
+          5,
+          0
+        ],
+        [
+          -71.71875,
+          40.78125,
+          4,
+          4
+        ],
+        [
+          -68.90625,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          9.84375,
+          4,
+          0
+        ],
+        [
+          -61.875,
+          45,
+          2,
+          0
+        ],
+        [
+          -50.625,
+          -30.9375,
+          5,
+          0
+        ],
+        [
+          -50.625,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -49.21875,
+          -28.125,
+          2,
+          0
+        ],
+        [
+          -49.21875,
+          -25.3125,
+          1,
+          0
+        ],
+        [
+          -46.40625,
+          -25.3125,
+          1,
+          0
+        ],
+        [
+          -46.40625,
+          -23.90625,
+          1,
+          0
+        ],
+        [
+          -45,
+          -23.90625,
+          2,
+          0
+        ],
+        [
+          -45,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -43.59375,
+          -23.90625,
+          3,
+          0
+        ],
+        [
+          -43.59375,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -42.1875,
+          -22.5,
+          1,
+          0
+        ],
+        [
+          -42.1875,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          -42.1875,
+          -2.8125,
+          3,
+          0
+        ],
+        [
+          -40.78125,
+          -21.09375,
+          1,
+          0
+        ],
+        [
+          -40.78125,
+          -19.6875,
+          6,
+          0
+        ],
+        [
+          -39.375,
+          -18.28125,
+          9,
+          0
+        ],
+        [
+          -39.375,
+          -16.875,
+          1,
+          0
+        ],
+        [
+          -39.375,
+          -14.0625,
+          3,
+          0
+        ],
+        [
+          -39.375,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          -37.96875,
+          -5.625,
+          5,
+          0
+        ],
+        [
+          -36.5625,
+          -9.84375,
+          6,
+          0
+        ],
+        [
+          -36.5625,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          -36.5625,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -35.15625,
+          -9.84375,
+          25,
+          0
+        ],
+        [
+          -35.15625,
+          -8.4375,
+          9,
+          0
+        ],
+        [
+          -35.15625,
+          -7.03125,
+          6,
+          0
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "marine",
+    "source": "planetcatfish",
+    "quote": "A marine aquarium containing a sand substrate and live rock to provide hiding places."
+  }
+}

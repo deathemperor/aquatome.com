@@ -1,8 +1,8 @@
 {
   "id": "sahyadria-denisonii",
   "native": {
-    "input": "91d6d5aecbc4f697",
-    "at": "2026-11-11T08:59:40.517Z",
+    "input": "5e36a6c43f59d4da",
+    "at": "2026-11-14T05:39:06.336Z",
     "claims": [
       {
         "code": "IN",
@@ -16,7 +16,7 @@
         "code": "IN",
         "status": "native",
         "source": "glaser",
-        "quote": "Until now, S. denisonii was collected only in the state of Kerala, India.",
+        "quote": "Origin: Kerala, India.",
         "words": "India",
         "ok": true
       }
@@ -51,6 +51,12 @@
         "source": "seriouslyfish",
         "quote": "Type locality is 'Mundakayam, Travancore, India', which appears to correspond to the Manimala River near the town of Mundakayam in Kottayam District, Kerala state, southern India.",
         "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Sahyadri",
+        "source": "aquatome",
+        "quote": "Tên chi Sahyadria lấy từ Sahyadri, tên vùng núi nơi cá sống.",
         "ok": true
       }
     ],

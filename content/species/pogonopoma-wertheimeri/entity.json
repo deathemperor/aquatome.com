@@ -10,6 +10,94 @@
     "brazil",
     "mucuri"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Mucuri River",
+        "São Mateus River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio Mucuri District, Santa Clara, Bahia State, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Currently known from three coastal river drainages in southeastern Brazil: the Mucuri River in Bahia State and the São Mateus River in Espirito Santo State.",
+          "countries": [],
+          "regions": [
+            "Mucuri River",
+            "São Mateus River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339864,
+      "total": 68,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "BR",
+          68
+        ]
+      ],
+      "cells": [
+        [
+          -49.21875,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -19.6875,
+          8,
+          8
+        ],
+        [
+          -43.59375,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -19.6875,
+          14,
+          14
+        ],
+        [
+          -42.1875,
+          -18.28125,
+          6,
+          6
+        ],
+        [
+          -40.78125,
+          -19.6875,
+          19,
+          19
+        ],
+        [
+          -40.78125,
+          -18.28125,
+          19,
+          19
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

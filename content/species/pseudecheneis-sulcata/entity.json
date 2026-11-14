@@ -1,0 +1,266 @@
+{
+  "id": "pseudecheneis-sulcata",
+  "scientificName": "Pseudecheneis sulcata",
+  "order": "Siluriformes",
+  "family": "Sisoridae",
+  "genus": "Pseudecheneis",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "nepal",
+    "bangladesh",
+    "myanmar",
+    "china",
+    "tibet"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 20
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1374",
+      "html": "<ul><li>Scientific name: Pseudecheneis sulcata (McClelland, 1842)</li><li>Common name: Brahmaputra Suckerthroat</li><li>Type locality: Khasi Hills, Meghalaya, India</li><li>Sexing: not known</li><li>IUCN Red List: Least Concern (last assessed 2009)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1374",
+      "html": "<p>Asia: India, Nepal and Bangladesh. Reported from Tibet and Myanmar.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1374",
+      "html": "<p>Found in fast-flowing hill streams. Prefers deep riffles and runs over gravel and cobble substrates.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1374",
+      "html": "<p>Not known.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1374",
+      "html": "<p>Unreported in the aquarium. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1374",
+      "html": "<p>Fishes of the genus Pseudecheneis can be differentiated from other Glyptosternine fish in having a thoracic adhesive apparatus consisting of a series of transverse ridges (laminae) separated by grooves (sulcae).</p><p>Pseudecheneis sulcata can be distinguished from congeners by a unique combination of characters, including the lack of a prominent bony spur on the anterodorsal surface of the first dorsal-fin pterygiophore, separate pelvic fins, a less convex snout when viewed laterally, presence of pale spots on the body, 36–39 vertebrae and 12–14 transverse laminae on the thoracic adhesive apparatus.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "bCGh0L6VwXc",
+      "title": "Pseudecheneis sulcata",
+      "durationSec": 18,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc thùng bể cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi nền bể cá",
+        "đá cuội bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13",
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "NP",
+        "BD",
+        "MM"
+      ],
+      "regions": [
+        "Khasi Hills"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Khasi Hills, Meghalaya, India",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Khasi Hills"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: India, Nepal and Bangladesh. Reported from Tibet and Myanmar.",
+          "countries": [
+            "NP",
+            "BD",
+            "MM"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341456,
+      "total": 53,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "IN",
+          28
+        ],
+        [
+          "NP",
+          14
+        ],
+        [
+          "CN",
+          10
+        ],
+        [
+          "MM",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          77.34375,
+          29.53125,
+          4,
+          4
+        ],
+        [
+          78.75,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          80.15625,
+          22.5,
+          5,
+          5
+        ],
+        [
+          80.15625,
+          28.125,
+          2,
+          2
+        ],
+        [
+          81.5625,
+          28.125,
+          5,
+          5
+        ],
+        [
+          82.96875,
+          26.71875,
+          2,
+          2
+        ],
+        [
+          82.96875,
+          28.125,
+          2,
+          2
+        ],
+        [
+          84.375,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          84.375,
+          28.125,
+          1,
+          1
+        ],
+        [
+          87.1875,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          26.71875,
+          5,
+          5
+        ],
+        [
+          91.40625,
+          26.71875,
+          2,
+          2
+        ],
+        [
+          95.625,
+          28.125,
+          11,
+          11
+        ],
+        [
+          97.03125,
+          23.90625,
+          1,
+          0
+        ],
+        [
+          97.03125,
+          25.3125,
+          1,
+          0
+        ],
+        [
+          97.03125,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          22.5,
+          4,
+          0
+        ],
+        [
+          98.4375,
+          23.90625,
+          3,
+          0
+        ],
+        [
+          98.4375,
+          25.3125,
+          1,
+          0
+        ]
+      ]
+    }
+  }
+}

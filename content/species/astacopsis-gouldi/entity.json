@@ -1,0 +1,264 @@
+{
+  "id": "astacopsis-gouldi",
+  "scientificName": "Astacopsis gouldi",
+  "order": "Decapoda",
+  "family": "Parastacidae",
+  "genus": "Astacopsis",
+  "group": "other",
+  "places": [
+    "oceania",
+    "australia",
+    "tasmania"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Tasmania",
+        "Arthur River",
+        "Cam River",
+        "Forth-Wilmot River",
+        "Inglis River",
+        "Mersey River"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "The Tasmanian giant freshwater crayfish is endemic to rivers and streams of northern Tasmania.",
+          "countries": [],
+          "regions": [
+            "Tasmania"
+          ]
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "It naturally occurs at altitudes below about 400 m and is distributed across the Arthur River and all other rivers and creeks draining into Bass Strait, including the Cam River, Forth-Wilmot River, Inglis River and Mersey River catchments, with the exception of the Tamar River catchment.",
+          "countries": [],
+          "regions": [
+            "Arthur River",
+            "Cam River",
+            "Forth-Wilmot River",
+            "Inglis River",
+            "Mersey River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5789955,
+      "total": 1148,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "AU",
+          1148
+        ]
+      ],
+      "cells": [
+        [
+          133.59375,
+          -26.71875,
+          1
+        ],
+        [
+          143.4375,
+          -42.1875,
+          1
+        ],
+        [
+          144.84375,
+          -42.1875,
+          998
+        ],
+        [
+          146.25,
+          -43.59375,
+          1
+        ],
+        [
+          146.25,
+          -42.1875,
+          129
+        ],
+        [
+          147.65625,
+          -42.1875,
+          18
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 5,
+          "max": 18
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 80
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 8
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 40,
+          "max": 40
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/tasmanian-crayfish-profile-the-largest-crayfish-in-the-world/",
+      "html": "<ul><li>Name: Tasmanian giant crayfish</li><li>Common names: The largest crayfish, the giant freshwater lobster</li><li>Scientific name: Astacopsis gouldi</li><li>Breeding: Difficult</li><li>Diet: Detritivore / omnivore</li><li>Temperament: Aggressive</li><li>Colour: from dark brown-green to black</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/tasmanian-crayfish-profile-the-largest-crayfish-in-the-world/",
+      "html": "<p>This species is unavailable in the aquarium trade due to a ban that prevents its fishing and trade, so it is seldom bred in home aquaria. Under Tasmanian legislation, a permit is required to catch this species, and illegal fishing carries a fine of 10,000 Australian dollars. It is listed as endangered on the IUCN Red List due to illegal fishing and habitat degradation, and a ban on fishing it was put in place in January 1998. A recent study of its aquaculture potential found it \"not a suitable animal for intensive farming\" due to slow growth rates and intolerance of elevated temperature.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/tasmanian-crayfish-profile-the-largest-crayfish-in-the-world/",
+      "html": "<p>The Tasmanian giant freshwater crayfish is endemic to rivers and streams of northern Tasmania. It naturally occurs at altitudes below about 400 m and is distributed across the Arthur River and all other rivers and creeks draining into Bass Strait, including the Cam River, Forth-Wilmot River, Inglis River and Mersey River catchments, with the exception of the Tamar River catchment.</p><p>It has also been introduced into the North Esk catchment (St Patrick's River) and the Derwent catchment (Clyde River), where its populations have become established.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/tasmanian-crayfish-profile-the-largest-crayfish-in-the-world/",
+      "html": "<p>The habitat is characterised by abundant riparian vegetation which forms a dense canopy and shades the waterways.</p><p>Adults like still, deep pools containing submerged decaying logs, snags and undercut banks which offer shelter and protection, whereas juveniles prefer shallow, faster-flowing parts of waterways with rocks, logs, a minimal amount of fine substrate and a high proportion of moss and boulder cover. The juveniles' preference for faster-flowing water helps them escape predators. Both adults and juveniles seem to like well-shaded areas, cooler temperatures, clear water and high levels of dissolved oxygen.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/tasmanian-crayfish-profile-the-largest-crayfish-in-the-world/",
+      "html": "<p>In captivity a relatively large aquarium is needed, and the crayfish must not be housed in tanks smaller than 1000 litres because of their big size. It would be better off alone in a separate tank than in a community tank, to avoid bouts with smaller inhabitants.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/tasmanian-crayfish-profile-the-largest-crayfish-in-the-world/",
+      "html": "<p>The giant crayfish prefers clear freshwater with high oxygen content, pH 6.5–8 and temperatures of up to 18°C, and can tolerate cooler temperatures down to 5°C. It generally prefers water temperatures below 18°C and oxygen levels greater than 7 mg/L, and is sensitive to sedimentation. In the wild it needs well-vegetated forest streams with low turbidity and even temperatures.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/tasmanian-crayfish-profile-the-largest-crayfish-in-the-world/",
+      "html": "<p>The crayfish needs driftwood and lots of fresh vegetation in the tank, with hardy plants that thrive in low to moderate lighting, such as Java fern, Anubias, Java moss and Hornwort, plus plenty of rocks, cobbles and caves. Dense overhangs and walls can be formed with Java moss to make the environment a bit shady and provide extra comfort. The only problem is that the crayfish will eat or cut the plants.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/tasmanian-crayfish-profile-the-largest-crayfish-in-the-world/",
+      "html": "<p>In the wild, the main diet is decaying wood, leaf litter and its associated microbes. It also feeds on plant matter and animal flesh (dead or alive): small fish, shrimp, frogs, crayfish and worms. Dietary preferences shift with age, and juveniles have a higher animal content in their diet.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/tasmanian-crayfish-profile-the-largest-crayfish-in-the-world/",
+      "html": "<p>The Tasmanian giant crayfish can be territorial, with the male securing a secluded area within the habitat and gathering a harem of several females. Adults often dig burrows in stream banks and underneath logs and boulders in the streambed.</p><p>In the wild it shows two main movement patterns: periods of inactivity (between one and 10 days) or short trips after which it returns to the home site. It also migrates long distances, often taking up residence in a new home or eventually returning to the initial one. One specimen was reported travelling over 700 m in a single night, and the species has also been observed walking on land.</p><p>The large size of adults keeps them safe from predators such as the Australian bass, platypus and rakali, which often attack smaller crayfish. Juveniles conceal themselves behind large rocks, cavities and submerged logs if need be.</p><p>Freshwater crayfish are usually reported as primarily nocturnal, which is often attributed to avoiding diurnal predators, but adult Tasmanian giant crayfish do not appear to follow any daily rhythm in their activity.</p><h3>Moulting</h3><p>Freshwater crayfish grow by periodically shedding their highly calcified exoskeleton, so the moult cycle is the most important part of their life. It has 4 phases: inter-moult, pre-moult, moult and post-moult. The frequency of moulting and the moult increment are influenced by water temperature, food availability, reproductive condition and the size/age of the crayfish.</p><p>Inter-moult periods are short (weeks and months) when the crayfish is young and become further apart with age; adults moult once a year. During pre-moult most metabolic activity is reduced to a minimum: they stop eating, become very sluggish and spend most of their time sitting still in shelter. Adults start preparing 35–40 days before moulting.</p><p>Moulting is the most stressful moment of their life. For several days after the moult the crayfish is inactive while its new exoskeleton hardens, and it is completely vulnerable and helpless during and after moulting. The claws, walking legs and feeding appendages calcify first, with the rear of the carapace hardening last. About 6 to 10 days after the moult it begins feeding again.</p><p>Keep putting and replacing food in the tank, since it is unknown when they will come out of the moult, and give them something rich in calcium. Do not remove the old exoskeleton from the tank: it contains lots of minerals and will be eaten later.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/tasmanian-crayfish-profile-the-largest-crayfish-in-the-world/",
+      "html": "<p>The Tasmanian giant crayfish is sexually dimorphic.</p><ul><li>Claws: males have larger claws than same-sized females; females' claws are about 2/3 that size.</li><li>Size: males are larger than females.</li><li>Abdomen: males have a narrower, slimmer and shorter abdomen, while females have a larger and broader abdomen with heavier abdominal setation.</li></ul>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/tasmanian-crayfish-profile-the-largest-crayfish-in-the-world/",
+      "html": "<p>Growth and breeding rates are poor. They mature slowly and have low breeding potential: females reach sexual maturity at 14 years, with a carapace length of about 119 mm and an estimated weight of 550 g, while males reach maturity at 9 years, with a carapace length of about 76 mm and an estimated weight of 300 g.</p><p>Females mate and spawn every second year in autumn, typically after a summer moult, and moult about 60 days before mating/spawning. Gestation is about 9 months, with females carrying the eggs under the tail through winter. Brood size is proportional to female size, ranging from 224 to 1300 eggs. Eggs are 4.7 to 5.7 mm long and 3.5 to 4.2 mm wide.</p><h3>Hatching</h3><p>After hatching in mid-summer, hatchlings stay attached to the female's swimmerets until autumn, so females spend much of their mature life attached to their eggs and hatchlings. The young attach to the pleopodal setae by specialised hooks on the tips of the fourth and fifth pereiopods.</p><p>At 12 to 19°C, the babies spend 9 to 13 days in stage 1 and then moult to stage 2. After 7–10 days they moult to stage 3, in which they remain for 35 days before moulting to stage 4. At stage 3 the young start venturing away from the mother after 28 days, but most return to reattach to her abdomen. They become truly independent only after the moult to stage 4 (about 7 mm carapace length).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/tasmanian-crayfish-profile-the-largest-crayfish-in-the-world/",
+      "html": "<p>Astacopsis gouldi was first formally described by Ellen Clark in 1936. The genus Astacopsis is endemic to Tasmania and has three species: Astacopsis gouldi, Astacopsis franklinii and Astacopsis tricornis. Before the 1936 revision all three were known as Astacopsis franklinii. The species is named after Charles Gould, who published observations on its distribution, diet and habits in 1870. It is distinguished from the other two species by a raised ridge in the middle of the rostrum, between the eyes.</p><p>Specimens over 80 cm long and up to 6 kg have been recorded, though most larger specimens now weigh 2–3 kg. It is slow-growing and can live up to 40 years, reaching maximum size at an estimated 30–35 years. Colours range from dark brown-green to black, and blue morphs are often found among adults. Large males can have claws as large as a man's hand.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/50c9a6501bdad92d.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/50c9a6501bdad92d-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/tasmanian-crayfish-profile-the-largest-crayfish-in-the-world/",
+      "source": "aquariumbreeder"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "vGpP40iYIm0",
+      "title": "Astacopsis gouldi - 11 min Feb 25 2026",
+      "durationSec": 660,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "WcGiuH2z3gs",
+      "title": "Shocking footage of a battle-injured male Giant Freshwater Crayfish Astacopsis gouldi.",
+      "durationSec": 103,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "j3E1HtSVis8",
+      "title": "Tasmanian freshwater crayfish (Astacopsis gouldi) - #shorts",
+      "durationSec": 34,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể kính 1000 lít",
+        "bể cá lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng công suất lớn",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy làm lạnh nước bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

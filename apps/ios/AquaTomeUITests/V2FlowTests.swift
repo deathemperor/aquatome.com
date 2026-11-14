@@ -925,10 +925,10 @@ final class V2FlowTests: XCTestCase {
     let app = launch("-v2", "YES")
     app.launchForFlow()
     app.openTab("Đèn")
-    XCTAssertTrue(app.navigationBars["Đèn Chihiros"].waitForExistence(timeout: 5), "no Đèn")
+    XCTAssertTrue(app.navigationBars["Đèn"].waitForExistence(timeout: 5), "no Đèn")
     app.tabBars.buttons.element(boundBy: app.tabBars.buttons.count - 1).tap()
     XCTAssertTrue(app.descendants(matching: .any)["all-fish"].waitForExistence(timeout: 5), "the search tab didn't show its screen")
-    XCTAssertFalse(app.navigationBars["Đèn Chihiros"].exists, "Đèn stayed in front")
+    XCTAssertFalse(app.navigationBars["Đèn"].exists, "Đèn stayed in front")
   }
 
   /// The owner's report (10 Nov, iOS 27.2, dark): "Search page but search is hidden". The field waited behind a pull, and a grey

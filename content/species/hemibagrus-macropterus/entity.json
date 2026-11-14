@@ -18,28 +18,32 @@
       "regions": [
         "Zhujiang",
         "Changjiang",
-        "Qiantang Jiang"
+        "Qiantang Jiang",
+        "Yangtze River"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "planetcatfish"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Hemibagrus macropterus is a bagrid catfish from the Zhujiang (Pearl River), Changjiang (Yangtze) and Qiantang Jiang in central and southern China.",
+          "quote": "This species has been recorded from the Zhujiang (Pearl River), Changjiang (Yangtze River) and Qiantang Jiang in central and southern China.",
           "countries": [
             "CN"
           ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "This species has been recorded from the Zhujiang (Pearl River), Changjiang (Yangtze River) and Qiantang Jiang in central and southern China.",
-          "countries": [],
           "regions": [
             "Zhujiang",
             "Changjiang",
             "Qiantang Jiang"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Yangtze River, China.",
+          "countries": [],
+          "regions": [
+            "Yangtze River"
           ]
         }
       ]
@@ -141,12 +145,34 @@
       {
         "source": "seriouslyfish",
         "value": 40.8
+      },
+      {
+        "source": "planetcatfish",
+        "value": 23
       }
     ],
     "difficulty": [
       {
         "source": "seriouslyfish",
         "value": 4
+      }
+    ],
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.4,
+          "max": 7.6
+        }
       }
     ]
   },
@@ -158,10 +184,22 @@
       "html": "<p>Hemibagrus macropterus is a bagrid catfish from the Zhujiang (Pearl River), Changjiang (Yangtze) and Qiantang Jiang in central and southern China. It inhabits swiftly-flowing rivers and tributaries with rocky substrates and grows to 408 mm SL. Virtually unknown in the aquarium trade, it is fished for food, and dam construction and pollution have affected it in parts of its range, where it may be locally extirpated.</p><p>Needs a very large tank.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1376",
+      "html": "<ul><li>Scientific name: Hemibagrus macropterus Bleeker, 1870</li><li>Common name: Grey Chinese Catfish</li><li>Type locality: Chang Jiang [Yangtze River], China</li><li>Synonym: Mystus macropterus</li><li>IUCN Red List: Least Concern (last assessed 2011)</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hemibagrus-macropterus",
       "html": "<p>This species has been recorded from the Zhujiang (Pearl River), Changjiang (Yangtze River) and Qiantang Jiang in central and southern China.</p><p>Type locality is 'Chang Jiang, China', referring to the Yangtze.</p><p>It's been adversely affected by dam construction and pollution across certain parts of its range and may be locally extirpated in some cases.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1376",
+      "html": "<p>Asia: Yangtze River, China.</p>"
     },
     {
       "key": "habitat",
@@ -170,10 +208,46 @@
       "html": "<p>Inhabits swiftly-flowing rivers and tributaries with rocky substrates.</p>"
     },
     {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1376",
+      "html": "<p>Inhabits clear, swiftly flowing rivers with rocky bottoms; hides among submerged logs or rocks.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1376",
+      "html": "<ul><li>pH: 6.4–7.6</li><li>Temperature: 18–24°C</li><li>Requires fairly well-oxygenated, cool water.</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1376",
+      "html": "<p>Provide enough driftwood and rocks for cover.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hemibagrus-macropterus",
       "html": "<p>A predator feeding primarily on invertebrates and smaller fishes, although there should be no need to use such live foods in captivity.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1376",
+      "html": "<p>Will eat a wide variety of live, frozen and prepared foods. Meaty foods are particularly relished, as are smaller fishes.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1376",
+      "html": "<p>Best kept alone, as it will kill anything it cannot eat.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1376",
+      "html": "<p>Males have an elongate genital papilla in front of the anal fin.</p>"
     },
     {
       "key": "reproduction",
@@ -182,16 +256,34 @@
       "html": "<p>Unrecorded in aquaria.</p><p>In nature it breeds in June and July with up to 2000 eggs being deposited in a single spawning event. The larvae are fully developed in about 20 days.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1376",
+      "html": "<p>Not reported in the aquarium. In the wild, breeding takes place in June or July, and 1300 to 2000 eggs of up to 1.2 mm are laid. The larvae are fully developed in about 20 days.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hemibagrus-macropterus",
       "html": "<p>This species seems virtually unknown in the aquarium trade but is fished for food within its native range.</p><p>It can be told apart from most other congeners by the diagnostic characters given in Ng and Kottelat (2013) for the H. guttatus species group and from other group members by possessing a single-chambered (vs. double-chambered) swim bladder, a dark brown body with only a few small black spots, plus the adipose-fin is partially confluent (vs. not confluent) with the principal caudal-fin rays.</p><p>Hemibagrus has been divided into a number of putative species groups which may or may not represent monophyletic assemblages, and following a major review by Ng and Kottelat (2013) H. macropterus is included in the H. guttatus group.</p><p>Members of this assemblage can be told apart from other congeners by possession of 51–59 vertebrae, an adipose-fin with a very long base extending along most of the postdorsal distance (greater than 30% SL) and colour pattern comprising a grey or brown body, usually with numerous dark brown spots.</p><p>Currently valid species are H. guttatus, H. macropterus, and H. vietnamicus, while Aoria amemiyai Kimura, 1934, listed as species inquirenda in Hemibagrus by Ferraris (2007), is now considered synonymous with H. macropterus.</p><p>The genus Hemibagrus currently contains 40 nominal species which are distributed east of the Godavari River system in India and south of the Changjiang (Yangtze) drainage in China, with Southeast Asia a particular centre of diversity.</p><p>Many species are important food fishes and some are cultured for the purpose, or for sport angling.</p><p>Hemibagrus has previously been considered synonymous with Mystus but following Ng and Kottelat (2013) members can be diagnosed by their moderate to large adult size and strongly-depressed head shape with the interorbital region normally flat or slightly convex.</p><p>The grouping also shares a number of characters with the genera Sperata and Bagrus, and these three can be separated from other bagrids by the following: mesethmoid highly depressed (vs. not highly depressed), prominent (vs. reduced) dorsoposterior laminar extension of the mesethmoid, the first infraorbital with (vs. lacking) a posterolateral spine, enlarged (vs. moderate or small) premaxilla, and the metapterygoid with a long, free posterior margin (vs. contacting quadrate and hyomandibular).</p><p>Hemibagrus can be told apart from Sperata by possession of a relatively short and slender (vs. enlarged and elongate) interneural and by absence (vs. presence) of a concave surface in the posterior portion of the posttemporal in which lies a portion of the swimbladder.</p><p>It's distinguished from Bagrus by possession of 7, very rarely 8 (vs. 8-10) soft dorsal-fin rays.</p>"
     },
     {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1376",
+      "html": "<p>Members of the genus Hemibagrus are bagrid catfishes that can attain standard lengths of up to 800 mm and are found in large rivers throughout the Indian subcontinent, Southeast and East Asia. They have depressed heads, rugose head shields not covered by skin, a slender occipital process and moderately long adipose fins.</p><p>This species has a single-chambered swim bladder, the adipose fin partially confluent with the principal rays of the caudal fin, and a dark brown body with few very small black spots or no spots.</p><p>Etymology: from the Greek hemi- meaning half and bagrus, the catfish genus. The specific epithet comes from the Greek makros, meaning long and pteron, meaning fin; in reference to the long adipose fin.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hemibagrus-macropterus",
       "html": "<ul><li>Ng, H. H. and M. Kottelat (2013). Revision of the Asian catfish genus Hemibagrus Bleeker, 1862 (Teleostei: Siluriformes: Bagridae). The Raffles Bulletin of Zoology 61(1), 205-291</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Kottelat, M., H. H. Ng and P. K. L. Ng (1998). Notes on the identity of Hemibagrus elongatus (Günther, 1864) and other East Asian species allied to H. guttatus (La Cepède, 1803) (Teleostei: Bagridae). The Raffles Bulletin of Zoology 46(2), 565-572</li><li>Pan, J.-H., L. Zhong, C.-Y. Zheng, H.-L. Wu and J.-H. Liu (eds) (1991). The freshwater fishes of Guangdong Province. Guangdong Science and Technology Press, 1-589</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1376",
+      "html": "<p>Verslagen en Mededeelingen der Koninklijke Akademie van Wetenschappen. Afdeeling Natuurkunde (Ser. 2) v. 4, pp 257, Pl. (bottom fig.).</p>"
     }
   ],
   "photos": [
@@ -231,5 +323,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-13"
 }

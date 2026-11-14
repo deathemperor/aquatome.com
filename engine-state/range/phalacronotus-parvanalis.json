@@ -1,0 +1,58 @@
+{
+  "id": "phalacronotus-parvanalis",
+  "native": {
+    "input": "8c4f99b37a77f656",
+    "at": "2026-11-14T05:39:06.336Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Kinabatangan River at Deramakot, Kinabatangan District, Borneo, Malaysia.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "planetcatfish",
+        "quote": "Asia: northeastern Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Kinabatangan River",
+        "source": "planetcatfish",
+        "quote": "Type locality: Kinabatangan River at Deramakot, Kinabatangan District, Borneo, Malaysia.",
+        "country": "MY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Phalacronotus parvanalis",
+    "status": "ACCEPTED",
+    "taxonKey": 2337854,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        15
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T05:39:06.336Z"
+  }
+}

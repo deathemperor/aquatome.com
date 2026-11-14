@@ -88,18 +88,7 @@
       "html": "<p>Proceedings of the American Philosophical Society v. 33, pp 97, Pl. 8 [7] (figs. 13, 13a-b).</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/commons/75b95917d6c143d0.webp",
-      "width": 960,
-      "height": 3610,
-      "licence": "CC BY 4.0",
-      "author": "Fabiano Corrêa, Edson Fontes de Oliveira, Thiago Tuchtenhagen, Juvêncio Pouey, and Sérgio Piedras",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Species_of_fishes_from_the_Chasqueiro_Stream_(Mirim_Lagoon_system).jpg",
-      "caption": "Images of 83 species of fish collected from the Mirim Lagoon system in South America. --- Clupeiformes Clupeidae 1 - Platanichthys platana (Regan, 1917) Characiformes Acestrorhynchidae 2 - Acestrorhyn",
-      "thumb": "https://media.aquatome.com/commons/75b95917d6c143d0-480.webp"
-    }
-  ],
+  "photos": [],
   "videos": [
     {
       "youtubeId": "yiv7xCw06EM",
@@ -147,5 +136,179 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13"
+  "updatedAt": "2026-11-13",
+  "range": {
+    "native": {
+      "countries": [
+        "UY",
+        "PY",
+        "BR"
+      ],
+      "regions": [
+        "La Plata",
+        "Paraná",
+        "Rio Jacuhy"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "South America: La Plata basin, including Uruguay, Paraná (Middle and Lower Paraná) and Paraguay.",
+          "countries": [
+            "UY",
+            "PY"
+          ],
+          "regions": [
+            "La Plata",
+            "Paraná"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio Jacuhy [Jacuí], Rio Grande do Sul, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Jacuhy"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340461,
+      "total": 54,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "BR",
+          40
+        ],
+        [
+          "UY",
+          9
+        ],
+        [
+          "AR",
+          4
+        ],
+        [
+          "PY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -61.875,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -32.34375,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          -35.15625,
+          2,
+          0
+        ],
+        [
+          -57.65625,
+          -35.15625,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -32.34375,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -30.9375,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -29.53125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -28.125,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          -35.15625,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -32.34375,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -30.9375,
+          4,
+          4
+        ],
+        [
+          -56.25,
+          -28.125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -33.75,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -32.34375,
+          3,
+          3
+        ],
+        [
+          -54.84375,
+          -30.9375,
+          5,
+          5
+        ],
+        [
+          -53.4375,
+          -32.34375,
+          9,
+          9
+        ],
+        [
+          -53.4375,
+          -30.9375,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -30.9375,
+          17,
+          17
+        ]
+      ]
+    }
+  }
 }

@@ -10,7 +10,9 @@
     "india",
     "nepal",
     "bangladesh",
-    "indonesia"
+    "indonesia",
+    "ganges",
+    "brahmaputra"
   ],
   "range": {
     "native": {
@@ -20,9 +22,15 @@
         "BD",
         "ID"
       ],
-      "regions": [],
+      "regions": [
+        "Ganges",
+        "Brahmaputra",
+        "Padma",
+        "Jamuna"
+      ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "planetcatfish"
       ],
       "quotes": [
         {
@@ -35,6 +43,17 @@
             "ID"
           ],
           "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Indian waters, North Eastern India, Padma, Ganges; and Padma, Jamuna, Brahmaputra.",
+          "countries": [],
+          "regions": [
+            "Ganges",
+            "Brahmaputra",
+            "Padma",
+            "Jamuna"
+          ]
         }
       ]
     },
@@ -148,11 +167,25 @@
           "min": 22,
           "max": 25
         }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 24
+        }
       }
     ],
     "ph": [
       {
         "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      },
+      {
+        "source": "planetcatfish",
         "value": {
           "min": 6,
           "max": 8
@@ -171,6 +204,10 @@
     "sizeCm": [
       {
         "source": "seriouslyfish",
+        "value": 20
+      },
+      {
+        "source": "planetcatfish",
         "value": 20
       }
     ],
@@ -195,10 +232,22 @@
       "html": "<p>The frogmouth catfish, Chaca chaca, is an ambush predator from still and slow-moving waters in India, Nepal, Bangladesh and Indonesia. Also known as the angler catfish, it lies hidden among leaf litter and mulm and moves its barbels like a worm to lure prey, which can be almost as big as itself. It is usually lighter than C. bankanensis and has small hooklets on the lower lip and body that its relative lacks.</p><ul><li>Max size: 200 mm SL (8 in)</li><li>Temperature: 22–25°C</li><li>pH: 6.0–8.0</li><li>Hardness: 4–25 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=136",
+      "html": "<ul><li>Scientific name: Chaca chaca (Hamilton, 1822)</li><li>Type locality: Northeastern Bengal.</li><li>IUCN Red List: Least Concern (last assessed 2009).</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/chaca-chaca",
       "html": "<p>India, Nepal, Bangladesh and Indonesia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=136",
+      "html": "<p>Asia: Indian waters, North Eastern India, Padma, Ganges; and Padma, Jamuna, Brahmaputra.</p>"
     },
     {
       "key": "habitat",
@@ -223,6 +272,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/chaca-chaca",
       "html": "<ul><li>Temperature: 22–25°C</li><li>pH: 6.0–8.0</li><li>Hardness: 4–25 dGH</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=136",
+      "html": "<p>pH 6.0–8.0. Temperature 22–24°C.</p><p>Curiously, Chaca spp. appear to lower the pH of their aquariums much faster than the usual pH drop of a neglected tank (often to lower than pH 6.0 with no apparent ill effects to the fish). Thus regular water changes and pH testing are required, particularly in a smaller species tank. Buffering may be required in some instances. Some authors report the premature death of feeder fishes that do not tolerate lower, or quick shifts in, pH levels.</p>"
     },
     {
       "key": "diet",
@@ -253,6 +308,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/chaca-chaca",
       "html": "<p>Chaca are unsuitable subjects for the general aquarist, but are quite popular among lovers of oddball species. This species is very similar in appearance to the closely related C. bankanensis. However, it's usually a bit lighter in colour than its relative and possesses small hooklets on the lower lip and body that are not present in bankanensis. It's a true master of disguise and is also known as the angler catfish, due to its ability to use its barbels as a kind of lure. These can be moved in such a way as to simulate the movements of a worm when a potential meal approaches. The unwitting prey is attracted to this apparent feast, only to be grabbed in a lightning-fast movement by the catfish when it strays too close.</p><p>C. chaca is rarely observed moving around the aquarium during daylight hours, though it sometimes leaves its position to forage under cover of darkness. The use of a red light on the aquarium may allow you to witness this. Such is its commitment to camouflage it does not usually struggle even when netted or handled, although it does have the ability to emit a grunting sound when removed from the water.</p><p>An interesting fact about Chaca species is that they appear to lower the pH of the aquarium water when kept in confined conditions. There is some debate as to the reasons for this; it may be that the fish have particularly potent digestive juices in order to efficiently digest large prey items, or that they use some kind of chemical to assist in luring prey. Another theory is that, due to their inability to swim away quickly, they release an acid-containing secretion that makes them taste bad to potential predators. Whichever of these theories is correct, what remains true is that stringent attention to water quality must be paid in aquaria containing Chaca. This is particularly true in smaller volumes of water, in which the chemistry can change more rapidly.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=136",
+      "html": "<p>Chaca species are easily identified by their extremely large and severely dorsoventrally depressed head, caudal fin with greatly enlarged procurrent rays, and tuberculate skin, often with fimbriate skin flaps on the head and sometimes on the body. The genus forms the monotypic family Chacidae, whose phylogenetic affinities to other catfishes remain unclear.</p><p>Chaca spp. are considered poisonous by locals, particularly if stepped on. There is no breeding report.</p>"
     }
   ],
   "photos": [
@@ -301,7 +362,32 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "SaiNJ9sie1s",
+      "title": "Chaca-Chaca catfish feeding!",
+      "durationSec": 8,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "0iWf0mgy6kE",
+      "title": "Chaca chaca catfish swallows Molly",
+      "durationSec": 7,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "DsKdy1OywKI",
+      "title": "Chaca chaca in love",
+      "durationSec": 15,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "UuPN6IZQ0PY",
+      "title": "Chaca Chaca Catfish Walking Around Then Burrowing",
+      "durationSec": 28,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -329,5 +415,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-13"
 }

@@ -20,11 +20,13 @@
         "AR"
       ],
       "regions": [
+        "Rio Paraguay",
         "Río Paraná",
         "Rio Jauru"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -35,13 +37,8 @@
             "PY",
             "AR"
           ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Recorded from the upper rio Paraguay basin in southwestern Brazil and Paraguay and the Río Paraná in Corrientes province, northeastern Argentina.",
-          "countries": [],
           "regions": [
+            "Rio Paraguay",
             "Río Paraná"
           ]
         },

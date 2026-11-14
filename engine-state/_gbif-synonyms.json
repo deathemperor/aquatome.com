@@ -142,6 +142,7 @@
     "Acorus xiangyeus",
     "Acorus ziangyeus"
   ],
+  "Acrochordonichthys falcifer": [],
   "Acrochordonichthys gyrinus": [],
   "Acrochordonichthys rugosus": [
     "Acrochordonichthys buettikoferi",
@@ -472,6 +473,7 @@
   "Ammocryptocharax elegans": [
     "Ammochryptocharax elegans"
   ],
+  "Ammoglanis multidentatus": [],
   "Amphilius atesuensis": [
     "Amphilius pictus",
     "Amphlius pictus"
@@ -1019,6 +1021,7 @@
     "Corydoras raimundi"
   ],
   "Aspidoras taurus": [],
+  "Astacopsis gouldi": [],
   "Asterophysus batrachus": [],
   "Astronotus crassipinnis": [
     "Acara crassipinnis"
@@ -1269,6 +1272,15 @@
     "Bagarius lica",
     "Bagarius nieuwenhuisii",
     "Bagrus yarrelli"
+  ],
+  "Bagre marinus": [
+    "Aelurichthys longispinis",
+    "Felichthys felis",
+    "Felichthys marinus",
+    "Galeichthys bahiensis",
+    "Galeichthys blochii",
+    "Galeichthys parrae",
+    "Silurus marinus"
   ],
   "Bagrichthys hypselopterus": [
     "Bagrus hypselopterus"
@@ -2166,6 +2178,7 @@
   "Chaetostoma leucomelas": [
     "Chaetostomus leucomelas"
   ],
+  "Chaetostoma lineopunctatum": [],
   "Chaetostoma marginatum": [
     "Chaetostomus marginatus"
   ],
@@ -2527,6 +2540,7 @@
     "Distichodus marnoi",
     "Serrasalmus citharus"
   ],
+  "Clarias anfractus": [],
   "Clarias angolensis": [
     "Chlarias angolensis",
     "Clarias brevinuchalis",
@@ -2629,8 +2643,448 @@
     "Silurus argentata",
     "Silurus garua"
   ],
+  "Clupisoma longianale": [],
+  "Clupisoma prateri": [],
+  "Clypeobarbus congicus": [
+    "Barbus congicus"
+  ],
+  "Cnidoglanis macrocephalus": [
+    "Choeroplotosus decemfilis",
+    "Choeroplotosus limbatus",
+    "Cnidoglanis bostockii",
+    "Neoplotosus waterhousii",
+    "Ostophycephalus duriceps",
+    "Plotosus macrocephalus",
+    "Plotosus megastomus"
+  ],
+  "Cobitis macrostigma": [
+    "Lepidocephalus macrostigma"
+  ],
+  "Colomesus asellus": [
+    "Cheilichthys asellus",
+    "Chelichthys asellus"
+  ],
+  "Colomesus psittacus": [
+    "Tetrodon psittacus"
+  ],
+  "Colomesus tocantinensis": [],
+  "Colossoma macropomum": [
+    "Colosomma macropomum",
+    "Colossoma macropodum",
+    "Colossoma marcopomum",
+    "Colossoma nigripinne",
+    "Colossoma nigripinnis",
+    "Colossoma oculus",
+    "Colossoma tambaqui",
+    "Colossoma tombaqui",
+    "Melloina tambaqui",
+    "Myletes macropomus",
+    "Myletes nigripinnis",
+    "Myletes oculus",
+    "Piaractus macropomus",
+    "Piaractus nigripinnis",
+    "Salmo tambaqui"
+  ],
+  "Compsaraia samueli": [],
+  "Congochromis dimidiatus": [
+    "Nannochromis dimidiatus",
+    "Nanochromis dimidiatus",
+    "Pelmatochromis dimidiatus"
+  ],
+  "Congochromis sabinae": [
+    "Nanochromis sabinae"
+  ],
+  "Copadichromis azureus": [],
+  "Copadichromis borleyi": [
+    "Cyrtocara borleyi",
+    "Haplochromis borleyi"
+  ],
+  "Copadichromis chrysonotus": [
+    "Cyrtocara chrysonotus",
+    "Haplochromis chrysonotus",
+    "Paratilapia chrysonota"
+  ],
+  "Copadichromis ilesi": [],
+  "Copadichromis virginalis": [
+    "Cyrtocara virginalis",
+    "Haplochromis virginalis"
+  ],
+  "Copeina guttata": [
+    "Copeina argyrops",
+    "Pyrrhulina argyrops",
+    "Pyrrhulina guttata"
+  ],
+  "Copella arnoldi": [
+    "Copeina arnoldi"
+  ],
+  "Copella carsevennensis": [
+    "Copeina carsevennensis"
+  ],
+  "Copella eigenmanni": [
+    "Copeina eigenmanni"
+  ],
+  "Copella meinkeni": [],
+  "Copella nattereri": [
+    "Copeina callolepis",
+    "Copella callolepis",
+    "Pyrrhulina nattereri"
+  ],
+  "Corbicula fluminea": [
+    "Corbicula adunca",
+    "Corbicula andersoniana",
+    "Corbicula aquilina",
+    "Corbicula astronomica",
+    "Corbicula aurea",
+    "Corbicula bezuariana",
+    "Corbicula bicolor",
+    "Corbicula bilineata",
+    "Corbicula cheniana",
+    "Corbicula clenchii",
+    "Corbicula colombeliana",
+    "Corbicula conica",
+    "Corbicula cordieriana",
+    "Corbicula crebricostis",
+    "Corbicula delavayana",
+    "Corbicula diminuta",
+    "Corbicula ferruginea",
+    "Corbicula fluitans",
+    "Corbicula foukiensis",
+    "Corbicula fulgida",
+    "Corbicula gentiliana",
+    "Corbicula gravis",
+    "Corbicula grilloana",
+    "Corbicula gryphaea",
+    "Corbicula ignobilis",
+    "Corbicula indigotina",
+    "Corbicula inflata",
+    "Corbicula ingloriosa",
+    "Corbicula insularis",
+    "Corbicula iodina",
+    "Corbicula iridina",
+    "Corbicula lapicida",
+    "Corbicula leleciana",
+    "Corbicula montana",
+    "Corbicula natalensis",
+    "Corbicula obtruncata",
+    "Corbicula ovata",
+    "Corbicula pexata",
+    "Corbicula pfeifferiana",
+    "Corbicula polychromatica",
+    "Corbicula porcellanea",
+    "Corbicula portentosa",
+    "Corbicula praeterita",
+    "Corbicula producta",
+    "Corbicula rathousiana",
+    "Corbicula scholastica",
+    "Corbicula sphaerica",
+    "Corbicula squalida",
+    "Corbicula subquadrata",
+    "Corbicula subtriangularis",
+    "Corbicula uncinulata",
+    "Corbicula variegata",
+    "Corbicula vespertina",
+    "Corbicula vicina",
+    "Corbicula yunnanensis",
+    "Cyclas chinensis",
+    "Cyrena adunca",
+    "Cyrena aquilina",
+    "Cyrena astronomica",
+    "Cyrena bicolor",
+    "Cyrena chinensis",
+    "Cyrena colombeliana",
+    "Cyrena cordierian",
+    "Cyrena crebricostis",
+    "Cyrena diminuta",
+    "Cyrena foukiensis",
+    "Cyrena gentiliana",
+    "Cyrena gravis",
+    "Cyrena leleciana",
+    "Cyrena manilensis",
+    "Cyrena orienialis",
+    "Cyrena orientalis",
+    "Cyrena uncinulata",
+    "Tellina flumiatiles",
+    "Tellina fluminea",
+    "Tellina fluviatilis"
+  ],
+  "Coreoperca liui": [],
+  "Corydoras acrensis": [],
+  "Corydoras acutus": [],
+  "Corydoras adolfoi": [],
+  "Corydoras aeneus": [
+    "Callichthys aeneus",
+    "Corydoras aeheus",
+    "Corydoras aenaeus",
+    "Corydoras macrosteus",
+    "Corydoras microps",
+    "Corydoras schultzei",
+    "Corydoras schulzei",
+    "Corydoras venezuelanus",
+    "Hoplosoma aeneum",
+    "Hoplosternum aeneum"
+  ],
+  "Corydoras agassizii": [],
+  "Corydoras albolineatus": [],
+  "Corydoras amandajanea": [],
+  "Corydoras ambiacus": [
+    "Corydoras grafi",
+    "Corydoras longirostris"
+  ],
+  "Corydoras arcuatus": [],
+  "Corydoras armatus": [
+    "Callichthys armatus"
+  ],
+  "Corydoras atropersonatus": [],
+  "Corydoras aurofrenatus": [],
+  "Corydoras axelrodi": [],
+  "Corydoras boesemani": [],
+  "Corydoras bondi": [],
+  "Corydoras brevirostris": [],
+  "Corydoras britskii": [
+    "Brochis britskii"
+  ],
+  "Corydoras burgessi": [],
+  "Corydoras carlae": [],
+  "Corydoras caudimaculatus": [],
+  "Corydoras cochui": [],
+  "Corydoras concolor": [],
+  "Corydoras condiscipulus": [],
+  "Corydoras copei": [],
+  "Corydoras crimmeni": [],
+  "Corydoras cruziensis": [],
+  "Corydoras davidsandsi": [],
+  "Corydoras delphax": [],
+  "Corydoras desana": [],
+  "Corydoras diphyes": [],
+  "Corydoras duplicareus": [],
+  "Corydoras ehrhardti": [
+    "Corydoras meridionalis"
+  ],
+  "Corydoras elegans": [
+    "Corydoras pestai",
+    "Corydorus elegans"
+  ],
+  "Corydoras ellisae": [],
+  "Corydoras ephippifer": [],
+  "Corydoras eques": [],
+  "Corydoras flaveolus": [],
+  "Corydoras fowleri": [],
+  "Corydoras fulleri": [],
+  "Corydoras geryi": [
+    "Corydoras bolivianus"
+  ],
+  "Corydoras gladysae": [],
+  "Corydoras gomezi": [],
+  "Corydoras gossei": [],
+  "Corydoras gracilis": [],
+  "Corydoras granti": [],
+  "Corydoras griseus": [],
+  "Corydoras guapore": [],
+  "Corydoras habrosus": [],
+  "Corydoras haraldschultzi": [],
+  "Corydoras hastatus": [
+    "Corydoras australe",
+    "Microcorydoras hastatus"
+  ],
+  "Corydoras imitator": [],
+  "Corydoras incolicana": [],
+  "Corydoras julii": [],
+  "Corydoras kanei": [],
+  "Corydoras lacrimostigmata": [],
+  "Corydoras lamberti": [],
+  "Corydoras leopardus": [
+    "Corydoras funnelli"
+  ],
+  "Corydoras leucomelas": [
+    "Corydoras caquetae"
+  ],
+  "Corydoras longipinnis": [],
+  "Corydoras loretoensis": [],
+  "Corydoras loxozonus": [],
+  "Corydoras melanistius": [
+    "Corydoras wotroi"
+  ],
+  "Corydoras melanotaenia": [],
+  "Corydoras melini": [],
+  "Corydoras metae": [],
+  "Corydoras napoensis": [],
+  "Corydoras narcissus": [],
+  "Corydoras nattereri": [
+    "Corydoras juquiaae",
+    "Corydoras triseriatus"
+  ],
+  "Corydoras nijsseni": [],
+  "Corydoras oiapoquensis": [],
+  "Corydoras ornatus": [],
+  "Corydoras ourastigma": [],
+  "Corydoras paleatus": [
+    "Callichthys paleatus",
+    "Corydoras maculatus",
+    "Corydoras marmoratus",
+    "Silurus 7-radiatus",
+    "Silurus quadricostatus",
+    "Silurus septemradiatus"
+  ],
+  "Corydoras panda": [],
+  "Corydoras pantanalensis": [],
+  "Corydoras pastazensis": [],
+  "Corydoras petracinii": [],
+  "Corydoras pinheiroi": [],
+  "Corydoras polystictus": [
+    "Corydoras virescens"
+  ],
+  "Corydoras pygmaeus": [],
+  "Corydoras rabauti": [
+    "Corydoras meyersi",
+    "Corydoras myersi"
+  ],
+  "Corydoras reticulatus": [],
+  "Corydoras reynoldsi": [],
+  "Corydoras robineae": [
+    "Corydoras robinae"
+  ],
+  "Corydoras robustus": [],
+  "Corydoras sarareensis": [],
+  "Corydoras schwartzi": [],
+  "Corydoras semiaquilus": [],
+  "Corydoras septentrionalis": [
+    "Corydoras cortesi"
+  ],
+  "Corydoras serratus": [],
+  "Corydoras seussi": [],
+  "Corydoras similis": [],
+  "Corydoras simulatus": [],
+  "Corydoras sodalis": [],
+  "Corydoras spectabilis": [],
+  "Corydoras splendens": [
+    "Brochis coeruleus",
+    "Brochis dipterus",
+    "Brochis splendens",
+    "Callichthys splendens",
+    "Callichthys taiosh",
+    "Chaenothorax bicarinatus",
+    "Chaenothorax eigenmanni",
+    "Corydoras semiscutatus"
+  ],
+  "Corydoras sterbai": [],
+  "Corydoras trilineatus": [
+    "Corydoras dubius",
+    "Corydoras episcopi"
+  ],
+  "Corydoras virginiae": [],
+  "Corydoras vittatus": [],
+  "Corydoras weitzmani": [],
+  "Corydoras xinguensis": [],
+  "Corydoras zygatus": [],
+  "Corynopoma riisei": [
+    "Corynopoma veedonii",
+    "Nematopoma searlesii",
+    "Stevardia albipinnis",
+    "Stevardia aliata",
+    "Stevardia riisei"
+  ],
+  "Costasiella kuroshimae": [],
+  "Cranoglanis henrici": [
+    "Anopleutropius henrici",
+    "Cranoglanis sinensis"
+  ],
+  "Craterocephalus stercusmuscarum": [
+    "Atherina stercusmuscarum",
+    "Atherinichthys maculatus",
+    "Craterocephalus stercumuscarum",
+    "Craterocephalus worrelli"
+  ],
+  "Crenicara latruncularium": [],
+  "Crenicara punctulatum": [
+    "Acara punctulata",
+    "Aequidens hercules",
+    "Aequidens madeirae",
+    "Crenicara elegans"
+  ],
+  "Crenicichla albopunctata": [],
+  "Crenicichla compressiceps": [],
+  "Crenicichla johanna": [
+    "Crenicichla obtusirostris",
+    "Cychla fasciata"
+  ],
+  "Crenicichla lepidota": [
+    "Crenicara lepidota",
+    "Crenicichla edithae"
+  ],
+  "Crenicichla lugubris": [
+    "Cichla rutilens",
+    "Crenicichla funebris",
+    "Cychla rutilans",
+    "Cychla rutilens"
+  ],
+  "Crenicichla marmorata": [],
+  "Crenicichla notophthalmus": [],
+  "Crenicichla proteus": [
+    "Batrachops nemopterus",
+    "Crenicichla nijsseni"
+  ],
+  "Crenicichla regani": [],
+  "Crenicichla semifasciata": [
+    "Acharnes chacoensis",
+    "Bathracops semifasciatus",
+    "Batrachops semifasciatus",
+    "Boggiania ocellata",
+    "Crenicichla ocellata",
+    "Crenicichla simoni"
+  ],
+  "Crenicichla strigata": [
+    "Crenicara strigata"
+  ],
+  "Crenicichla tigrina": [],
+  "Crenicichla zebrina": [],
+  "Crenuchus spilurus": [],
   "Crinum calamistratum": [],
   "Crinum thaianum": [],
+  "Crossocheilus atrilimes": [],
+  "Crossocheilus burmanicus": [
+    "Crossocheilus multirastellus"
+  ],
+  "Crossocheilus cobitis": [
+    "Crossocheilos cobitis",
+    "Crossocheilus kalliurus",
+    "Crossochilus cobitis",
+    "Epalzeorhynchos kalliurus",
+    "Lobocheilos cobitis"
+  ],
+  "Crossocheilus elegans": [],
+  "Crossocheilus langei": [
+    "Crossocheilos langei",
+    "Crossochilus langii"
+  ],
+  "Crossocheilus latius": [
+    "Chondrostoma wattanah",
+    "Cirrhina latia",
+    "Corssocheilus latius",
+    "Crossocheilus gohama",
+    "Crossocheilus sada",
+    "Crossochilus latius",
+    "Cyprinus gohama",
+    "Cyprinus latius",
+    "Cyprinus sada",
+    "Gonorhynchus brevis",
+    "Gonorhynchus fimbriatus",
+    "Gonorhynchus macrosomus",
+    "Tariqilabeo latius"
+  ],
+  "Crossocheilus nigriloba": [],
+  "Crossocheilus reticulatus": [
+    "Crossocheilus stigmaeus",
+    "Crossocheilus tchangi",
+    "Epalzeorhynchos coatesi",
+    "Holotylognathus reticulatus",
+    "Tylognathus coatesi"
+  ],
+  "Cryptarius truncatus": [
+    "Arius truncatus",
+    "Cephalocassis truncatus",
+    "Hemipimelodus cochlearis",
+    "Tachysurus truncatus"
+  ],
   "Cryptocoryne albida": [
     "Cryptocoryne costata",
     "Cryptocoryne hansenii",
@@ -2652,12 +3106,576 @@
   ],
   "Cryptocoryne usteriana": [],
   "Cryptocoryne wendtii": [],
+  "Cryptoheros cutteri": [
+    "Archocentrus cutteri",
+    "Cichlasoma cutteri"
+  ],
+  "Ctenochromis polli": [
+    "Haplochromis polli"
+  ],
+  "Ctenolucius hujeta": [
+    "Ctenolucius insculptus",
+    "Hydrocynus hujeta",
+    "Luciocharax hujeta",
+    "Luciocharax insculptus",
+    "Xiphostoma hujeta"
+  ],
+  "Ctenopharyngodon idella": [
+    "Ctenopharingodon idellus",
+    "Ctenopharygodon idella",
+    "Ctenopharyngodon idellos",
+    "Ctenopharyngodon laticeps",
+    "Leuciscus idellus",
+    "Leuciscus tschiliensis",
+    "Pristiodon siemionovii",
+    "Sarcocheilichthys teretiusculus"
+  ],
+  "Ctenopoma acutirostre": [
+    "Anabas acutirostris",
+    "Ctenopoma acutirostris"
+  ],
+  "Ctenopoma kingsleyae": [
+    "Anabas africanus",
+    "Anabas argentivomer",
+    "Anabas argentoventer",
+    "Anabas breviventralis",
+    "Anabas kingsleyae",
+    "Ctenopoma argentoventer",
+    "Ctenopoma breviventrale"
+  ],
+  "Ctenopoma muriei": [
+    "Anabas ctenotis",
+    "Anabas muriei",
+    "Ctenopoma ctenotis",
+    "Ctenopoma murei",
+    "Ctenopoma murieiri",
+    "Ctenopoma murieri",
+    "Spirobranchus muriei"
+  ],
+  "Ctenopoma weeksii": [
+    "Anabas oxyrhynchus",
+    "Anabas weeksii",
+    "Ctenopoma oxyhynchus",
+    "Ctenopoma oxyrhynchus"
+  ],
+  "Ctenops nobilis": [
+    "Osphromenus nobilis",
+    "Osphronemus nobilis"
+  ],
+  "Cualac tessellatus": [],
+  "Cyathopharynx furcifer": [
+    "Cyathopharynx fucifer",
+    "Cyathopharynx furcifera",
+    "Cyathopharynx grandoculis",
+    "Ectodus foae",
+    "Ectodus foai",
+    "Ophthalmotilapia foae",
+    "Paratilapia furcifer",
+    "Tilapia grandoculis"
+  ],
+  "Cyclocheilichthys apogon": [
+    "Anematichthys apogon",
+    "Barbus apogon",
+    "Cyclocheilichthys rubripinnis",
+    "Rohteichthys macrolepis",
+    "Systomus apogon",
+    "Systomus apogonoides",
+    "Systomus macularius"
+  ],
+  "Cyclocheilichthys armatus": [
+    "Anematichthys armatus",
+    "Barbus armatus",
+    "Barbus dezwaani",
+    "Barbus fowleri",
+    "Barbus lineatus",
+    "Barbus valenciennesii",
+    "Capoeta deventeri",
+    "Cyclocheilichthys amartus",
+    "Cyclocheilichthys deventeri",
+    "Cyclocheilichthys dezwaani",
+    "Cyclocheilichthys mekongensis",
+    "Cyclocheilichthys siaja",
+    "Cyclocheilichthys tapiensis"
+  ],
+  "Cyclocheilichthys heteronema": [
+    "Barbus heteronema",
+    "Oxybarbus heteronema"
+  ],
+  "Cyclocheilichthys janthochir": [
+    "Barbus janthochir",
+    "Systomus janthochir"
+  ],
+  "Cyclocheilichthys lagleri": [],
+  "Cyclocheilos enoplos": [],
+  "Cynodon gibbus": [
+    "Rhaphiodon gibbus"
+  ],
+  "Cynops cyanurus": [
+    "Hypselotriton cyanurus"
+  ],
+  "Cynops orientalis": [
+    "Diemictylus orientalis",
+    "Hypselotriton orientalis",
+    "Triton orientalis",
+    "Triturus orientalis"
+  ],
+  "Cynotilapia afra": [
+    "Hemichromis afer",
+    "Paratilapia afra"
+  ],
+  "Cynotilapia pulpican": [
+    "Maylandia pulpican",
+    "Metriaclima pulpican"
+  ],
   "Cyperus helferi": [],
+  "Cyphotilapia frontosa": [
+    "Paratilapia frontosa",
+    "Pelmatochromis frontosus"
+  ],
+  "Cyphotilapia gibberosa": [],
+  "Cyprichromis leptosoma": [
+    "Limnochromis leptosoma",
+    "Paratilapia leptosoma"
+  ],
+  "Cyprichromis microlepidotus": [
+    "Limnochromis microlepidotus"
+  ],
+  "Cyprinion semiplotum": [
+    "Cyprinus semiplotus",
+    "Semiplotus emiplotus",
+    "Semiplotus macclellandi",
+    "Semiplotus semiplotus"
+  ],
+  "Cyprinodon alvarezi": [],
+  "Cyprinodon brontotheroides": [],
+  "Cyprinodon desquamator": [],
+  "Cyprinodon julimes": [],
+  "Cyprinodon pachycephalus": [],
+  "Cyprinodon variegatus": [
+    "Cyprinodon baconi",
+    "Cyprinodon ellipsoidea",
+    "Cyprinodon gibbosus",
+    "Cyprinodon rhomboidalis",
+    "Cyprinus variegatus",
+    "Esox ovinus",
+    "Lebia ellipsoidea",
+    "Lebias rhomboidalis"
+  ],
+  "Cyprinodon veronicae": [],
+  "Cyprinus rubrofuscus": [
+    "Carpio flavipinna",
+    "Cyprinus annacarolina",
+    "Cyprinus flammans",
+    "Cyprinus flavipinnis",
+    "Cyprinus floripenna",
+    "Cyprinus fossicola",
+    "Cyprinus haematopterus",
+    "Cyprinus hybiscoides",
+    "Cyprinus nigroauratus",
+    "Cyprinus sculponeatus",
+    "Cyprinus viridiviolaceus"
+  ],
+  "Cyrtocara moorii": [
+    "Haplochromis moori"
+  ],
+  "Danio aesculapii": [],
+  "Danio albolineatus": [
+    "Brachydanio albolineatus",
+    "Branchydanio albolineatus",
+    "Danio pulcher",
+    "Danio stoliczkae",
+    "Danio tweedei",
+    "Danio tweediei",
+    "Nuria albolineata"
+  ],
+  "Danio choprae": [
+    "Brachydanio choprai",
+    "Danio choprai"
+  ],
+  "Danio dangila": [
+    "Cyprinus dangila",
+    "Perilampus reticulatus"
+  ],
+  "Danio erythromicron": [
+    "Celestichthys erythromicron",
+    "Microrasbora erythromicron"
+  ],
+  "Danio feegradei": [
+    "Devario feegradei"
+  ],
+  "Danio flagrans": [],
+  "Danio jaintianensis": [
+    "Brachydanio jaintianensis"
+  ],
+  "Danio kerri": [
+    "Brachydanio kerri"
+  ],
+  "Danio kyathit": [],
+  "Danio margaritatus": [
+    "Celestichthys margaritatus"
+  ],
+  "Danio meghalayensis": [
+    "Danio deyi"
+  ],
+  "Danio nigrofasciatus": [
+    "Barilius nigrofasciatus",
+    "Brachydanio nigrofasciatus",
+    "Danio analipunctatus"
+  ],
+  "Danio rerio": [
+    "Barilius rerio",
+    "Brachydanio frankei",
+    "Brachydanio rerio",
+    "Cyprinus chapalio",
+    "Cyprinus rerio",
+    "Danio frankei",
+    "Danio lineatus",
+    "Nuria rerio",
+    "Perilampus striatus"
+  ],
+  "Danio roseus": [],
+  "Danio tinwini": [],
+  "Danionella dracula": [],
+  "Danionella priapus": [],
+  "Danionella translucida": [],
+  "Darienheros calobrensis": [
+    "Amphilophus calobrense",
+    "Amphilophus calobrensis",
+    "Cichlasoma calobrense"
+  ],
+  "Dario dario": [
+    "Badis dario",
+    "Labrus dario"
+  ],
+  "Dario dayingensis": [],
+  "Dario hysginon": [],
+  "Dario kajal": [],
+  "Dario tigris": [],
+  "Dario urops": [],
+  "Datnioides campbelli": [
+    "Coius campbelli"
+  ],
+  "Datnioides microlepis": [
+    "Coius microlepis"
+  ],
+  "Datnioides polota": [
+    "Chaetodon quadrifasciatus",
+    "Coius binotatus",
+    "Coius polota",
+    "Coius quadrifasciatus",
+    "Datniodes quadrifasciatus",
+    "Datnioides quadrifasciatus",
+    "Datnoides polota",
+    "Dattnioides quadrifasciatus",
+    "Lobotes hexazona"
+  ],
+  "Datnioides pulcher": [
+    "Coius pulcher"
+  ],
+  "Datnioides undecimradiatus": [
+    "Coius undecimradiatus"
+  ],
+  "Dawkinsia arulius": [
+    "Barbus arulius",
+    "Puntius arulius",
+    "Systomus arulius"
+  ],
+  "Dawkinsia assimilis": [
+    "Puntius assimilis",
+    "Puntius lepidus",
+    "Systomus assimilis"
+  ],
+  "Dawkinsia exclamatio": [
+    "Puntius exclamatio"
+  ],
+  "Dawkinsia filamentosa": [
+    "Barbus filamentosa",
+    "Leuciscus filamentosus",
+    "Puntius filamentosus",
+    "Systomus filamentosus",
+    "Systomus maderaspatensis",
+    "Systomus madraspatensis"
+  ],
+  "Dawkinsia rohani": [
+    "Puntius rohani"
+  ],
+  "Dawkinsia rubrotinctus": [
+    "Puntius rubrotinctus",
+    "Systomus rubrotinctus"
+  ],
+  "Dawkinsia tambraparniei": [
+    "Puntius tambraparniei"
+  ],
+  "Dekeyseria picta": [
+    "Ancistrus pictus",
+    "Peckoltia picta"
+  ],
+  "Dekeyseria pulchra": [
+    "Ancistrus pulcher",
+    "Aneistrus pulcher",
+    "Dekeyseria pulcher",
+    "Peckoltia pulcher"
+  ],
+  "Dekeyseria scaphirhyncha": [
+    "Ancistrus scaphirhynchus",
+    "Hemiancistrus scaphirhynchae",
+    "Hemiancistrus scaphirhynchus",
+    "Peckoltia scaphyrhyncha"
+  ],
+  "Denticetopsis macilenta": [
+    "Hemicetopsis macilentus",
+    "Pseudocetopsis macilentus"
+  ],
+  "Denticetopsis praecox": [
+    "Pseudocetopsis praecox"
+  ],
+  "Denticetopsis seducta": [],
+  "Dermogenys pusilla": [
+    "Dermogynys pusilus",
+    "Hemiramphus fluviatilis"
+  ],
+  "Dermogenys siamensis": [
+    "Demogenys siamensis"
+  ],
+  "Desmocaris trispinosa": [
+    "Palaemonetes trispinosus"
+  ],
+  "Desmopuntius foerschi": [
+    "Barbus foerschi",
+    "Puntius foerschi",
+    "Systomus foerschi"
+  ],
+  "Desmopuntius gemellus": [
+    "Puntius gemellus"
+  ],
+  "Desmopuntius hexazona": [
+    "Barbus hexazona",
+    "Puntius hexazona",
+    "Systomus hexazona"
+  ],
+  "Desmopuntius johorensis": [
+    "Barbus eugrammus",
+    "Barbus fasciatus",
+    "Puntius eugrammus",
+    "Puntius fasciatus",
+    "Puntius johorensis",
+    "Systomus johorensis"
+  ],
+  "Desmopuntius pentazona": [
+    "Barbus pentazona",
+    "Capoeta pentazona",
+    "Puntius pentazona",
+    "Systomus pentazona"
+  ],
+  "Desmopuntius rhomboocellatus": [
+    "Barbus kahajani",
+    "Barbus rhomboocellatus",
+    "Barbus tetrazona",
+    "Puntius rhomboocellatus",
+    "Systomus rhomboocellatus"
+  ],
+  "Desmopuntius trifasciatus": [
+    "Puntius trifasciatus"
+  ],
+  "Devario acrostomus": [
+    "Danio acrostomus"
+  ],
+  "Devario acuticephala": [
+    "Brachydanio acuticephala",
+    "Danio acuticephala"
+  ],
+  "Devario aequipinnatus": [
+    "Danio aequipinnatus",
+    "Danio aequipinnulus",
+    "Danio lineolatus",
+    "Leuciscus aequipinnatus",
+    "Leuciscus lineolatus",
+    "Perilampus aequipinnatus",
+    "Pteropsarion aequipinnatus"
+  ],
+  "Devario affinis": [
+    "Perilampus affinis"
+  ],
+  "Devario apogon": [
+    "Danio apogon"
+  ],
+  "Devario assamensis": [
+    "Danio assamensis"
+  ],
+  "Devario auropurpureus": [
+    "Barilius auropurpureus",
+    "Inlecypris auropurpureus"
+  ],
+  "Devario chrysotaeniatus": [
+    "Danio chrysotaeniatus"
+  ],
+  "Devario devario": [
+    "Cyprinus devario",
+    "Danio devario",
+    "Deuario deuario",
+    "Devario buchanani",
+    "Devario macclellandi",
+    "Leuciscus devario",
+    "Perilampus devario"
+  ],
+  "Devario interruptus": [
+    "Barilius interruptus",
+    "Danio interruptus"
+  ],
+  "Devario laoensis": [
+    "Danio laoensis",
+    "Danio myersi",
+    "Daniops myersi",
+    "Parabarilius laoensis"
+  ],
+  "Devario maetaengensis": [
+    "Danio maetaengensis",
+    "Inlecypris maetaengensis"
+  ],
+  "Devario malabaricus": [
+    "Danio malabaricus",
+    "Danio micronema",
+    "Devario micronema",
+    "Eustira ceylonensis",
+    "Paradanio aurolineatus",
+    "Perilampus aurolineatus",
+    "Perilampus canarensis",
+    "Perilampus ceylonensis",
+    "Perilampus malabaricus",
+    "Perilampus mysoricus",
+    "Puntius malabaricus"
+  ],
+  "Devario neilgherriensis": [
+    "Danio neilgherriensis",
+    "Paradanio neilgherriensis"
+  ],
+  "Devario pathirana": [
+    "Danio pathirana"
+  ],
+  "Devario regina": [
+    "Danio regina"
+  ],
+  "Devario shanensis": [
+    "Brachydanio shanensis",
+    "Danio shanensis"
+  ],
+  "Devario sondhii": [
+    "Brachydanio sondhii",
+    "Danio sondhii"
+  ],
+  "Devario xyrops": [],
+  "Dianema longibarbis": [
+    "Callichthys adspersus",
+    "Decapogon adspersus",
+    "Decapogon verissimi"
+  ],
+  "Dianema urostriatum": [
+    "Decapogon urostriatum"
+  ],
+  "Dichotomyctere fluviatilis": [
+    "Arothron dorsovittatus",
+    "Chelonodon fluviatilis",
+    "Crayracion fluviatilis",
+    "Dichotomycter fluviatilis",
+    "Dichotomycter rangoonensis",
+    "Dichotomycterus rangoonensis",
+    "Tetraodon fluviatilis",
+    "Tetrodon fluviatilis"
+  ],
+  "Dichotomyctere nigroviridis": [
+    "Arothron simulans",
+    "Chelonodon nigroviridis",
+    "Tetraodon nigroviridis",
+    "Tetraodon potamophilus",
+    "Tetraodon simulans",
+    "Tetrodon nigroviridis",
+    "Tetrodon simulans"
+  ],
+  "Dichotomyctere ocellatus": [
+    "Chelonodon biocellatus",
+    "Chelonodon ocellata",
+    "Tetraodon biocellatus",
+    "Tetraodon steindachneri",
+    "Tetrodon biocellatus"
+  ],
+  "Dicrossus filamentosus": [
+    "Crenicara filamentosa"
+  ],
+  "Dicrossus maculatus": [
+    "Crenicara maculata",
+    "Crenicara praetoriusi"
+  ],
+  "Dimidiochromis compressiceps": [
+    "Cyrtocara compressiceps",
+    "Paratilapia compressiceps"
+  ],
+  "Diplomystes nahuelbutaensis": [
+    "Diplomystes nahelbutaensis",
+    "Diplomystes nahualbutensis",
+    "Diplomystes nahuelbutensis"
+  ],
+  "Discherodontus ashmeadi": [
+    "Barbus ashmeadi",
+    "Puntius ashmeadi"
+  ],
+  "Discherodontus halei": [
+    "Barbus halei",
+    "Barbus somphongsi",
+    "Discherodontus somphongsi",
+    "Puntius somphongsi"
+  ],
+  "Discherodontus schroederi": [
+    "Acrossocheilus schroederi"
+  ],
+  "Distichodus affinis": [
+    "Distichodura affine",
+    "Distichodus abbreviatus"
+  ],
+  "Distichodus lusosso": [
+    "Distichodus leptorhynchus",
+    "Distichodus lussusso"
+  ],
+  "Distichodus sexfasciatus": [
+    "Distichodus tanganicae"
+  ],
+  "Dolichancistrus cobrensis": [],
+  "Dormitator lebretonis": [
+    "Batanga lebretoni",
+    "Batanga lebretonis",
+    "Eleotris lebretonis",
+    "Eleotris omosema"
+  ],
+  "Doryichthys boaja": [
+    "Doryichthys spinosus",
+    "Microphis boaja",
+    "Syngnathus boaja",
+    "Syngnathus jullieni",
+    "Syngnathus zonatus"
+  ],
+  "Doryichthys heterosoma": [
+    "Microphis heterosoma",
+    "Syngnathus heterosoma"
+  ],
+  "Doryichthys martensii": [
+    "Doryichthys brachyrhynchops",
+    "Microphis ignoratus",
+    "Syngnathus martensii"
+  ],
   "Dracaena sanderiana": [
     "Dracaena poggei",
     "Dracaena vanderystii",
     "Pleomele poggei",
     "Pleomele sanderiana"
+  ],
+  "Drombus globiceps": [
+    "Acentrogobius globiceps",
+    "Ctenogobius globiceps"
+  ],
+  "Duncanopsammia axifuga": [
+    "Dendrophyllia axifuga"
+  ],
+  "Duopalatinus peruanus": [
+    "Duopalatinus puruanus"
   ],
   "Echinodorus angustifolia": [],
   "Echinodorus cordifolius": [
@@ -2680,12 +3698,33 @@
     "Echinodorus heikobleheri",
     "Echinodorus parviflorus"
   ],
+  "Ectodus descampsii": [],
   "Egeria densa": [
     "Elodea densa",
     "Anacharis densa",
     "Philotria densa",
     "Potamogeton densus",
     "Udora densa"
+  ],
+  "Eigenmannia virescens": [
+    "Eigenmannia lineata",
+    "Sternachus virescens",
+    "Sternarchus virescens",
+    "Sternatchus virescens",
+    "Sternopygus lineatus",
+    "Sternopygus tumifrons"
+  ],
+  "Eirmotus insignis": [],
+  "Eirmotus octozona": [],
+  "Elacatinus oceanops": [
+    "Gobiosoma oceanops"
+  ],
+  "Elassoma gilberti": [],
+  "Electrophorus electricus": [
+    "Electrophorus multivalvulus",
+    "Gymnotus electricus",
+    "Gymnotus regius",
+    "Gymnotus tremulus"
   ],
   "Eleocharis acicularis": [
     "Baeothryon trichodes",
@@ -2737,6 +3776,92 @@
   "Eleocharis pusilla": [
     "Scirpus pumilio",
     "Scirpus pusillus"
+  ],
+  "Elopichthys bambusa": [
+    "Elopichthys dahuricus",
+    "Gymnognathus harmandi",
+    "Leuciscus bambusa",
+    "Nasus dahuricus",
+    "Scombrocypris styani"
+  ],
+  "Enneacampus ansorgii": [
+    "Enneacampus pulchellus",
+    "Syngnathus alsonni",
+    "Syngnathus ansorgei",
+    "Syngnathus ansorgii",
+    "Syngnathus olssoni",
+    "Syngnathus pulchellus"
+  ],
+  "Enneacanthus gloriosus": [
+    "Bryttus gloriosus",
+    "Copelandia eriarcha",
+    "Enneacanthus eriacha",
+    "Enneacanthus margarotis",
+    "Enneacanthus pinniger",
+    "Enneacanthus simulans",
+    "Hemioplites simulans"
+  ],
+  "Entacmaea quadricolor": [
+    "Actinia adhaerens",
+    "Actinia ehrenbergii",
+    "Actinia erythrosoma",
+    "Actinia helianthus",
+    "Actinia quadricolor",
+    "Actinia quatricolor",
+    "Actinia vas",
+    "Actinia vasa",
+    "Anemonia adhaerens",
+    "Anemonia adherens",
+    "Anemonia erythrosoma",
+    "Anemonia kwoiam",
+    "Anemonia ramsayi",
+    "Antheopsis carlgreni",
+    "Aulactinia gelam",
+    "Cereactis quadricolor",
+    "Condylactis erythrosoma",
+    "Condylactis ramsayi",
+    "Corynactis quadricolor",
+    "Corynactis vas",
+    "Crambactis arabica",
+    "Crambractis arabica",
+    "Cymbactis maxima",
+    "Entacmaea actinostoloides",
+    "Entacmaea adhaerens",
+    "Entacmaea quadricolour",
+    "Entacmaea ramsayi",
+    "Entacmea quadricolor",
+    "Gyrostoma adhaerens",
+    "Gyrostoma adherens",
+    "Gyrostoma erythrosoma",
+    "Gyrostoma erythrososma",
+    "Gyrostoma haddoni",
+    "Gyrostoma helianthus",
+    "Gyrostoma hertwigi",
+    "Gyrostoma kwoiam",
+    "Gyrostoma quadricolor",
+    "Gyrostoma ramsayi",
+    "Gyrostoma stuhlmanni",
+    "Gyrostoma sulcatum",
+    "Gysostoma hertwigi",
+    "Heteractis gelam",
+    "Isacmaea erythrosoma",
+    "Isactinia kwoiam",
+    "Melactis vas",
+    "Metactis vas",
+    "Paracicyonis maxima",
+    "Paractis adhaerens",
+    "Paractis ehrenbergii",
+    "Paractis erythrosoma",
+    "Paractis helianthus",
+    "Physobrachia douglasi",
+    "Physobrachia ramsayi",
+    "Psychobrachia douglasi",
+    "Radianthus carlgreni",
+    "Radianthus gelam",
+    "Ropalactis vas"
+  ],
+  "Enteromius candens": [
+    "Barbus candens"
   ],
   "Eriocaulon cinereum": [
     "Eriocaulon amboense",
@@ -3696,29 +4821,5 @@
     "Vesicularia surinamensis",
     "Vesicularia tamakii",
     "Vesicularia thermalis"
-  ],
-  "Clupisoma longianale": [],
-  "Clupisoma prateri": [],
-  "Clypeobarbus congicus": [
-    "Barbus congicus"
-  ],
-  "Cnidoglanis macrocephalus": [
-    "Choeroplotosus decemfilis",
-    "Choeroplotosus limbatus",
-    "Cnidoglanis bostockii",
-    "Neoplotosus waterhousii",
-    "Ostophycephalus duriceps",
-    "Plotosus macrocephalus",
-    "Plotosus megastomus"
-  ],
-  "Cobitis macrostigma": [
-    "Lepidocephalus macrostigma"
-  ],
-  "Colomesus asellus": [
-    "Cheilichthys asellus",
-    "Chelichthys asellus"
-  ],
-  "Colomesus psittacus": [
-    "Tetrodon psittacus"
   ]
 }

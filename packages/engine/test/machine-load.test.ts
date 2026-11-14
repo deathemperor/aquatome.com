@@ -5,7 +5,7 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 // @ts-expect-error a plain script
-import { archiveNamed, archiveWorktree, expireArchive, simVerdict, worktreeVerdict } from '../../../scripts/machine-sweep.mjs'
+import { archiveNamed, archiveWorktree, expireArchive, simVerdict, space, worktreeVerdict } from '../../../scripts/machine-sweep.mjs'
 import { slow } from '@aq/schema/test-time'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
@@ -193,4 +193,32 @@ test("main's flow jobs on this Mac test on its one simulator, with no copies", (
   expect(own).toContain('runner=["self-hosted","macOS","aquatome"]')
   expect(own).toContain("parallel=-parallel-testing-enabled NO'")
   expect(own).not.toContain('worker-count')
+})
+
+// 13 November, 23:45: a TestFlight upload stopped at 12 GB free, and nobody was watching. The sweep reads mac-status.py's
+// floor each hour: under 30 GB the chief of staff hears of it in their thread, once a day, with where the disk is.
+test('free space under 30 GB reaches the chief of staff once a day, with where it is; at 30 or more, or in a dry run, nothing goes', async () => {
+  const dir = mkdtempSync(join(tmpdir(), 'aq-space-'))
+  const chief = join(dir, 'thread')
+  writeFileSync(chief, 'the-chief\n')
+  const said = join(dir, 'said')
+  const sent: { threadId: string; message: string }[] = []
+  const lines: string[] = []
+  const where = '  simulators: 40 GB, 39 of them, 1 up\n  worktrees: 77 GB in 105 folders (the sweep takes merged ones at 03:35)'
+  const at = (stderr: string, { status = 0, today = '2026-11-14', dry = false } = {}) =>
+    space({ status: () => ({ status, stderr }), send: async (m: { threadId: string; message: string }) => { sent.push(m) }, chief, said, today, dry, say: (l: string) => lines.push(l) })
+  await at('')
+  expect(sent).toEqual([])
+  await at(`25 GB free on this Mac, under 30 GB: the sweep tells the chief of staff\n${where}`, { dry: true })
+  expect(sent).toEqual([])
+  await at(`25 GB free on this Mac, under 30 GB: the sweep tells the chief of staff\n${where}`)
+  expect(sent).toEqual([{ threadId: 'the-chief', message: `The Mac's upkeep (machine-sweep.mjs), once a day while it lasts: 25 GB free on this Mac, under 30 GB: the sweep tells the chief of staff Under 20 GB no simulator or upload starts.\nWhere it is:\n${where}\n\`scripts/mac-status.py\` shows who is up.` }])
+  // The same day: said in the log, not sent again. The next day, under the floor: sent again.
+  await at(`22 GB free on this Mac, under 30 GB: the sweep tells the chief of staff\n${where}`)
+  expect(sent).toHaveLength(1)
+  await at(`15 GB free on this Mac, under the 20 GB floor (AGENTS.md, This Mac): nothing big starts until there's more.\n${where}`, { status: 3, today: '2026-11-15' })
+  expect(sent).toHaveLength(2)
+  expect(sent[1]!.message).toMatch(/^The Mac's upkeep \(machine-sweep\.mjs\), once a day while it lasts: 15 GB free on this Mac, under the 20 GB floor/)
+  expect(sent[1]!.message).not.toContain('Under 20 GB no simulator')
+  expect(lines.filter(l => l.startsWith('space: '))).toHaveLength(4)
 })

@@ -1,0 +1,98 @@
+{
+  "id": "hypostomus-roseopunctatus",
+  "native": {
+    "input": "6663ab7b89cff866",
+    "at": "2026-11-14T05:39:06.336Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio Pelotas at road from Esmeralda to Anita Garibaldi, Rio Grande do Sul, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Rio Pelotas on the road from Esmeralda to Anita Garibaldi, Rio Grande do Sul, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Uruguay",
+        "source": "planetcatfish",
+        "quote": "Recorded from the Uruguay, Miriñay and Upper Uruguay (Pelotas) areas.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Miriñay",
+        "source": "planetcatfish",
+        "quote": "Recorded from the Uruguay, Miriñay and Upper Uruguay (Pelotas) areas.",
+        "ok": true
+      },
+      {
+        "name": "Rio Pelotas",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio Pelotas at road from Esmeralda to Anita Garibaldi, Rio Grande do Sul, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "La Plata",
+        "source": "planetcatfish",
+        "quote": "South America: La Plata system: Uruguay basin.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "AR",
+        "UY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hypostomus roseopunctatus",
+    "status": "ACCEPTED",
+    "taxonKey": 5202132,
+    "datasets": [
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        37
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        12
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        3
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "fee8fe77-502c-45a1-bf07-4ee23e26c186",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T00:09:29.977Z"
+  }
+}

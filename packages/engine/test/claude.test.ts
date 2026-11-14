@@ -24,7 +24,7 @@ vi.mock('node:child_process', () => ({
     return child
   },
 }))
-const { LlmError, claudeCli, claudeResearch, claudeVision } = await import('../src/claude')
+const { LlmError, claudeCli, claudeResearch, claudeVision, researchFor } = await import('../src/claude')
 const { accountReport, resetAccounts, tokenHash } = await import('../src/claude-accounts')
 const { errorKind } = await import('../src/state')
 const call = () => claudeCli<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {}, model: 'opus' })
@@ -224,4 +224,43 @@ test('image judgments use the native ephemeral flag; ordinary text calls keep th
  await claudeVision({system:'s',prompt:'p',schema:{},file:join(tmpdir(),'fixture.png')})
  expect(spawned.at(-1)?.args).toContain('--no-session-persistence')
  await call();expect(spawned.at(-1)?.args).not.toContain('--no-session-persistence')
+})
+
+// The chief of staff, 14 Nov 2026, on the owner's rule that nothing goes round a challenge: every step's web research keeps
+// off a source the engine reads only at its own pace, from the engine's own record, read again before every call.
+test('web research refuses every page of a source the engine reads only through the Archive or found blocked, in every step, and one marked since at once', async () => {
+  const refused = () => {
+    const a = spawned.at(-1)!.args!
+    return a[a.indexOf('--disallowedTools') + 1]!.split(',')
+  }
+  // The one every step is handed: this checkout's sources. Planet Catfish, 2Hr Aquarist and Spruce are read through the
+  // Archive by their config: each host and every host under it ("www.", a forum), the Archive, Translate's proxy.
+  spawned.length = 0
+  await claudeResearch<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {} })
+  expect(refused()).toEqual(expect.arrayContaining(['shopee.vn', 'planetcatfish.com', '*.planetcatfish.com', '2hraquarist.com', '*.2hraquarist.com', 'thesprucepets.com', '*.thesprucepets.com', '*.translate.goog', 'archive.org', '*.archive.org', 'archive.ph'].map(d => `WebFetch(domain:${d})`)))
+  // A source the engine finds blocked is off on the next call, with no list of its own to update; and back once cleared.
+  const root = await mkdtemp(join(tmpdir(), 'aq-research-'))
+  const research = researchFor(root)
+  const { mkdir, rm, writeFile } = await import('node:fs/promises')
+  const record = (s: string) => writeFile(join(root, 'engine-state', '_sources.json'), s)
+  // No record to keep to (Astra's read): research doesn't run at all.
+  const before = spawned.length
+  await expect(research<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {} })).rejects.toThrow()
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  for (const bad of ['[]', '{"loachesonline":true}', 'not json']) {
+    await record(bad)
+    await expect(research<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {} }), bad).rejects.toThrow()
+  }
+  expect(spawned.length).toBe(before)
+  await record('{}')
+  await research<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {} })
+  expect(refused()).not.toContain('WebFetch(domain:loaches.com)')
+  await record(JSON.stringify({ loachesonline: { blockedAt: '2026-11-14T01:00:00.000Z' } }))
+  await research<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {} })
+  expect(refused()).toEqual(expect.arrayContaining(['WebFetch(domain:loaches.com)', 'WebFetch(domain:*.loaches.com)']))
+  await record('{}')
+  await research<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {} })
+  expect(refused()).not.toContain('WebFetch(domain:loaches.com)')
+  expect(spawned.at(-1)!.args).toEqual(expect.arrayContaining(['--tools', 'WebSearch,WebFetch']))
+  await rm(root, { recursive: true, force: true })
 })

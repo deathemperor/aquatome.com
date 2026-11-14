@@ -1,0 +1,33 @@
+Scope: 2 of 4 workspace projects
+packages/schema test$ vitest run test/zz-probe-hook-timeout.test.ts
+packages/schema test: 
+packages/schema test: [1m[30m[46m RUN [49m[39m[22m [36mv5.0.5 [39m[90m<repo>/packages/schema[39m
+packages/schema test: 
+packages/schema test:  [31m❯[39m test/zz-probe-hook-timeout.test.ts [2m([22m[2m1 test[22m[2m | [22m[33m1 skipped[39m[2m)[22m[32m 105[2mms[22m[39m
+packages/schema test: 
+packages/schema test: [31m⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Suites 1 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+packages/schema test: 
+packages/schema test: [41m[1m FAIL [22m[49m test/zz-probe-hook-timeout.test.ts[2m [ test/zz-probe-hook-timeout.test.ts ][22m
+packages/schema test: [31m[1mError[22m: Hook timed out in 100ms.
+packages/schema test: If this is a long-running hook, pass a timeout value as the last argument or configure it globally with "hookTimeout".[39m
+packages/schema test: [36m [2m❯[22m test/zz-probe-hook-timeout.test.ts:[2m2:1[22m[39m
+packages/schema test:     [90m  1|[39m import { beforeAll, test } from 'vitest'
+packages/schema test:     [90m  2|[39m beforeAll(async () => { await new Promise(r => setTimeout(r, 2000)) },…
+packages/schema test:     [90m   |[39m [31m^[39m
+packages/schema test:     [90m  3|[39m test('a test after a hook that runs out of time', () => {})
+packages/schema test:     [90m  4|[39m
+packages/schema test: 
+packages/schema test: [31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯[22m[39m
+packages/schema test: 
+packages/schema test: 
+packages/schema test: [2m Test Files [22m [1m[31m1 failed[39m[22m[90m (1)[39m
+packages/schema test: [2m      Tests [22m [33m1 skipped[39m[90m (1)[39m
+packages/schema test: [2m   Start at [22m 12:03:03
+packages/schema test: [2m   Duration [22m 452ms[2m (tests 58%, import 30%, transform 8%, worker 4%)[22m
+packages/schema test: 
+packages/schema test: Failed
+[ELIFECYCLE] Test failed. See above for more details.
+Error: [31mERR_PNPM_RECURSIVE_FAIL[0m
+
+  [31m×[0m "pnpm recursive run" failed in 1 packages
+

@@ -2,30 +2,6 @@
   "id": "nimbochromis-venustus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/bacd8a56e274badb.webp",
-      "thumb": "https://media.aquatome.com/commons/bacd8a56e274badb-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY 4.0",
-      "author": "Vengolis",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amatitlania_nigrofasciatus_156.jpg",
-      "caption": "Cá venustus đực đầu xanh trong bể nền sỏi",
-      "best": true,
-      "kind": "male"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/c33630a154b9b347.webp",
-      "thumb": "https://media.aquatome.com/commons/c33630a154b9b347-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "Public domain",
-      "author": "Paolo Neo",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nimbochromis_venustus_Aquarium_animals.jpg",
-      "caption": "Cá venustus có vằn đốm đặc trưng trên nền đá trong bể",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/commons/ed2ba3bef4a9880a.webp",
       "thumb": "https://media.aquatome.com/commons/ed2ba3bef4a9880a-480.webp",
       "width": 1200,
@@ -95,6 +71,30 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nimbochromis_venustus_sub-adulte_2013._%D0%9A%D1%80%D1%8B%D0%BC_947.jpg",
       "caption": "Cá venustus trưởng thành bơi gần đá trong bể",
       "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/bacd8a56e274badb.webp",
+      "thumb": "https://media.aquatome.com/commons/bacd8a56e274badb-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY 4.0",
+      "author": "Vengolis",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amatitlania_nigrofasciatus_156.jpg",
+      "caption": "Cá venustus đực đầu xanh trong bể nền sỏi",
+      "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/c33630a154b9b347.webp",
+      "thumb": "https://media.aquatome.com/commons/c33630a154b9b347-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "Public domain",
+      "author": "Paolo Neo",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nimbochromis_venustus_Aquarium_animals.jpg",
+      "caption": "Cá venustus có vằn đốm đặc trưng trên nền đá trong bể",
+      "best": true,
       "kind": "other"
     }
   ],

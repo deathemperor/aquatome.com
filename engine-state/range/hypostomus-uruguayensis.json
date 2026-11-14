@@ -1,0 +1,121 @@
+{
+  "id": "hypostomus-uruguayensis",
+  "native": {
+    "input": "d12d6c90fb11ad00",
+    "at": "2026-11-14T05:39:06.336Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio Uruguay at \"Rancho da Amizade,\" São Borja, Rio Grande do Sul, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Uruguay River basin (Argentina, Bolivia, Brazil and Uruguay).",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Uruguay River basin (Argentina, Bolivia, Brazil and Uruguay).",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Uruguay River basin (Argentina, Bolivia, Brazil and Uruguay).",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "UY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Uruguay River basin (Argentina, Bolivia, Brazil and Uruguay).",
+        "words": "Uruguay",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Uruguay River",
+        "source": "planetcatfish",
+        "quote": "South America: Uruguay River basin.",
+        "ok": true
+      },
+      {
+        "name": "La Plata",
+        "source": "planetcatfish",
+        "quote": "Also recorded in the La Plata basin: Uruguay, Paraná (including Middle Paraná and Bermejo), Paraguay (including Pilcomayo, Upper Pilcomayo, and Upper Paraguay with the Cuiabá and Manso rivers).",
+        "ok": true
+      },
+      {
+        "name": "Paraná",
+        "source": "planetcatfish",
+        "quote": "Also recorded in the La Plata basin: Uruguay, Paraná (including Middle Paraná and Bermejo), Paraguay (including Pilcomayo, Upper Pilcomayo, and Upper Paraguay with the Cuiabá and Manso rivers).",
+        "ok": true
+      },
+      {
+        "name": "Paraguay",
+        "source": "planetcatfish",
+        "quote": "Also recorded in the La Plata basin: Uruguay, Paraná (including Middle Paraná and Bermejo), Paraguay (including Pilcomayo, Upper Pilcomayo, and Upper Paraguay with the Cuiabá and Manso rivers).",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Uruguay River",
+        "source": "scotcat",
+        "quote": "South America: Uruguay River basin (Argentina, Bolivia, Brazil and Uruguay).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hypostomus uruguayensis",
+    "status": "ACCEPTED",
+    "taxonKey": 5202220,
+    "datasets": [
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        24
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        24
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        5
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "AR",
+      "BO",
+      "UY"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T05:39:06.336Z"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "clarias-anfractus",
+  "native": {
+    "input": "044265071fc8b801",
+    "at": "2026-11-14T05:39:06.336Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Borneo, Malaysia.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "planetcatfish",
+        "quote": "Asia: Borneo, Malaysia.",
+        "ok": true
+      },
+      {
+        "name": "Segama",
+        "source": "planetcatfish",
+        "quote": "Pacific, Greater Sunda Island rivers, Borneo waters: East Borneo waters, Segama and Kalabakan.",
+        "ok": true
+      },
+      {
+        "name": "Kalabakan",
+        "source": "planetcatfish",
+        "quote": "Pacific, Greater Sunda Island rivers, Borneo waters: East Borneo waters, Segama and Kalabakan.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Clarias anfractus",
+    "status": "ACCEPTED",
+    "taxonKey": 5202763,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T05:39:06.336Z"
+  }
+}

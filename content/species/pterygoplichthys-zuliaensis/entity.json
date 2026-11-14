@@ -10,6 +10,56 @@
     "venezuela",
     "lake-maracaibo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Lake Maracaibo"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Pterygoplichthys zuliaensis Weber, 1991. Type locality: Río Santa Ana, Maracaibo basin, Hacienda Río Grande, Estado Zulia, Venezuela.",
+          "countries": [
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Lake Maracaibo basin.",
+          "countries": [],
+          "regions": [
+            "Lake Maracaibo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339961,
+      "total": 4,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "VE",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          8.4375,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

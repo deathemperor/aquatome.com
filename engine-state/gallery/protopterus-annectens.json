@@ -13,7 +13,9 @@
   "File:Protopterus annectens Aquarium Liège 30012016 1.jpg",
   "File:Rhipidistia.jpg",
   "File:Dipneute 1006050.jpg",
-  "File:Sarcopterygii collage.jpg"
+  "File:Sarcopterygii collage.jpg",
+  "inat:223520639",
+  "inat:223520647"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/8046ccad9f6ece26.webp": "1c1c9e1eafe87024",
@@ -23,7 +25,17 @@
   "https://media.aquatome.com/commons/79d89f771dd30fa3.webp": "c1a6c0c71f1bcef1",
   "https://media.aquatome.com/commons/b78164eed87c4d9f.webp": "08090d2d3d2dcfc1",
   "https://media.aquatome.com/commons/45e44735487f62d8.webp": "b29a4f0743c13021",
-  "https://media.aquatome.com/commons/6b87d1043562e699.webp": "b95bff1f0b1e0928"
+  "https://media.aquatome.com/commons/6b87d1043562e699.webp": "b95bff1f0b1e0928",
+  "https://media.aquatome.com/inaturalist/223520639.webp": "312222200c1cb898",
+  "https://media.aquatome.com/inaturalist/223520647.webp": "1930515c5dcdfcfc"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 110712,
+  "pass": "done",
+  "after": {
+   "research": 131355071,
+   "agree": 343420449
+  }
+ }
 }

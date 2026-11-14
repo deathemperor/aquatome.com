@@ -154,15 +154,33 @@ export async function sourceOf(root: string, e: Pick<GuideEntity, 'id' | 'source
   return own.trim() ? own : plain({ name: vi.name, summary: vi.summary ?? [], body: vi.body ?? '', faq: vi.faq ?? [] })
 }
 
-/** Writes one guide again for its reader, in the file a build reads, when it passes. A guide a person fixed stays, unless `force`. */
-export async function rewriteForReader(root: string, id: string, d: { llm: Llm }, o: Parameters<typeof writeForReader>[3] & { force?: boolean } = {}) {
+/**
+ * The figures a guide had that its rewrite gives nowhere, but those in `gone` (the quotes of the findings that asked for
+ * them to go or change): a figure said once fewer than before isn't lost, nor a name's digits ("CO2"). A rewrite from the facts dropped or
+ * changed a figure the page gave, and nothing held it (the chief of staff, 14 Nov 2026: the lane publishes pages no one has
+ * read).
+ */
+export function figuresLost(before: string, after: string, gone: readonly string[] = []): string[] {
+  // A figure, not a name's digits ("CO2", "T5"): "1.000" and "1000" alike, "2,5" and "2.5" alike.
+  const nums = (t: string) => [...t.matchAll(/(?<![\p{L}\d])\d+(?:[.,]\d+)*/gu)].map(m => (/^\d{1,3}(?:[.,]\d{3})+$/.test(m[0]) ? m[0].replace(/[.,]/g, '') : m[0].replace(/,/g, '.')))
+  const left = new Set([...nums(after), ...gone.flatMap(nums)])
+  return [...new Set(nums(before).filter(n => !left.has(n)))]
+}
+
+/**
+ * Writes one guide again for its reader, in the file a build reads, when it passes and keeps every figure it had but those
+ * `gone` names (figuresLost). A guide a person fixed stays, unless `force`.
+ */
+export async function rewriteForReader(root: string, id: string, d: { llm: Llm }, o: Parameters<typeof writeForReader>[3] & { force?: boolean; gone?: readonly string[] } = {}) {
   const dir = join(root, 'content/guides', id)
   const entity = JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8')) as GuideEntity
   const vi = JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8')) as Translation
   if (vi.bodyFixed && !o.force) return { id, skipped: 'a person fixed its text' }
   const source = await sourceOf(root, entity, vi)
   if (!source.trim()) return { id, skipped: 'no source kept' }
-  const r = await writeForReader(d, id, source, { ...o, ...(vi.nameFixed ? { name: vi.name } : {}) })
+  const r0 = await writeForReader(d, id, source, { ...o, ...(vi.nameFixed ? { name: vi.name } : {}) })
+  const lost = r0.kept ? figuresLost(plain({ name: vi.name, summary: vi.summary ?? [], body: vi.body ?? '', faq: vi.faq ?? [] }), plain(r0.written), o.gone) : []
+  const r = lost.length ? { ...r0, kept: false, notes: [`A figure the guide had is gone or changed: ${[...new Set(lost)].join(', ')}`, ...r0.notes] } : r0
   if (r.kept) {
     const { bodyFixed: _f, faqFixed: _q, localNote: _n, ...rest } = vi
     const out = TranslationSchema.parse(metricPage({ ...rest, name: r.written.name, body: r.written.body, ...plainParts(r.written.summary, r.written.faq), quality: { score: r.score, indexable: true } }, 'vi'))

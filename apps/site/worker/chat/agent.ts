@@ -124,6 +124,13 @@ export const LAST_TRY = { ms: 4_000, maxTokens: 2_048, word: `${LAST_WORD} Time 
  * by 23.8 s, and writing took 6.4 s at most (2026-11-10).
  */
 export const CHAT_LIMITS: Limits = { calls: 5, tools: 8, photos: 0, inputTokens: 60_000, ms: 27_000, lastCallMs: 12_000, callMs: 20_000, writingGraceMs: 3_000 }
+/**
+ * While the reader is there (the stream's writes still land, chat/api.ts), the turn reads for longer, and its end is also
+ * `until`: their last sign plus 26 s, so one who leaves has the time a run has after they go, less its save. At 27 s Claude
+ * chose when to answer in 11 of the tuning third's 93 questions, from 2.8 pages; at 45 s, with these calls and tool
+ * calls, in 50, from 4.4 pages, the first words at 13 s typically (2026-11-13).
+ */
+export const CHAT_PRESENT = { ms: 45_000, calls: 10, tools: 16 } as const satisfies Partial<Limits>
 
 /**
  * The first line (`opening`): one line for the reader during the wait, in their language, before anything is read
@@ -215,6 +222,8 @@ export type ChatOptions = {
   /** The forced answer's effort when time is short (loop.ts `lastEffort`): low unless the eval asks otherwise. */
   lastEffort?: 'low' | 'medium' | 'high'
   limits?: Partial<Limits>
+  /** The latest the run may end (loop.ts `until`). */
+  until?: () => number
   onStep?: (step: Step) => void
   /** The answer's text as Claude writes it: pieces of it, decoded, in order; joined, the answer's text. */
   onText?: (piece: string) => void
@@ -330,6 +339,7 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
     limits: { ...CHAT_LIMITS, ...o.limits, ms: (o.limits?.ms ?? CHAT_LIMITS.ms) - (clock() - asked) },
     lastWord: LAST_WORD,
     lastTry: { ...LAST_TRY, begun: () => wrote },
+    ...(o.until ? { until: o.until } : {}),
     onStep,
     clock: o.clock,
   })

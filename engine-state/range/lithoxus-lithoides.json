@@ -1,0 +1,94 @@
+{
+  "id": "lithoxus-lithoides",
+  "native": {
+    "input": "95a2aa2377da5308",
+    "at": "2026-11-14T00:09:29.977Z",
+    "claims": [
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Amatuk, Guyana.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Essequibo and upper Corantijn (Correntyne) River basins, Guyana and Suriname.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Essequibo and upper Corantijn (Correntyne) River basins, Guyana and Suriname.",
+        "words": "Suriname",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Essequibo",
+        "source": "planetcatfish",
+        "quote": "South America: Essequibo and upper Corantijn (Correntyne) River basins, Guyana and Suriname.",
+        "ok": true
+      },
+      {
+        "name": "Corantijn",
+        "source": "planetcatfish",
+        "quote": "South America: Essequibo and upper Corantijn (Correntyne) River basins, Guyana and Suriname.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Lithoxus lithoides",
+    "status": "ACCEPTED",
+    "taxonKey": 2339289,
+    "datasets": [
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        12
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        11
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        6
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "GY",
+      "SR"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T00:09:29.977Z"
+  }
+}

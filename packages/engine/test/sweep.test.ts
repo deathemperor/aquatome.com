@@ -306,6 +306,76 @@ test("a fish its source's caption calls unwell leaves a page that has another ph
   expect((await json(root, 'content/gallery/ddd-breed.json')).photos).toEqual([])
 })
 
+test("the unwell rule keeps a page's last photo when the never-again list takes the other in the same sweep, and an album's last on a page with none of its own (the guard's read, 14 Nov)", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'sweep-'))
+  const c = join(root, 'content')
+  const put = async (path: string, data: unknown) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, 2)}\n`) }
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await mkdir(c, { recursive: true })
+  await copyFile(new URL('../../../content/sources.json', import.meta.url), join(c, 'sources.json'))
+  const sf = (name: string, caption: string) => ({ ...photo(`https://media.aquatome.com/seriouslyfish/${name}.webp`, caption), sourceUrl: 'https://www.seriouslyfish.com/species/x/' })
+  // A guide's check listed `person` while the page still had `hurt` beside it, so it held neither.
+  const person = sf('person', 'Adult male.'), hurt = sf('hurt', 'Male specimen with fin damage caused by another male.')
+  await put('species/lll-two/entity.json', species('lll-two', 'Lll two', { photos: [person, hurt] }))
+  await put('species/lll-two/vi.json', vi('Cá chạch suối hai', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  await writeFile(join(root, 'engine-state/_photo-rejected.json'), JSON.stringify({ [person.url]: 'people' }))
+  // No photo of its own: the page shows its album.
+  const lone = sf('lone', 'Recently-deceased specimen.')
+  await put('species/mmm-album/entity.json', species('mmm-album', 'Mmm album', { photos: [] }))
+  await put('species/mmm-album/vi.json', vi('Cá chạch suối album', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  await put('gallery/mmm-album.json', { id: 'mmm-album', photos: [lone], seen: 1, updatedAt: '2026-10-01' })
+  const r = await sweep(root)
+  expect((await json(root, 'content/species/lll-two/entity.json')).photos).toEqual([hurt])
+  expect((await json(root, 'content/gallery/mmm-album.json')).photos).toEqual([lone])
+  expect(r.unwell).toEqual([
+    `species/lll-two: ${hurt.url} (damage; the page's only photo)`,
+    `species/mmm-album: ${lone.url} (deceased; the page's only photo)`,
+  ])
+  expect(Object.keys(await json(root, 'engine-state/_photo-rejected.json'))).toEqual([person.url])
+  expect(ratcheted(checkPages(await loadPages(c), RULES.filter(x => x.id in RATCHETED)).findings).filter(f => f.rule === 'unwell')).toEqual([])
+  // A gallery's photo the never-again list takes in the same sweep, on a page with none of its own: the other stays.
+  const plain = sf('plain-g', 'Adult male.'), dying = sf('dying', 'Recently-deceased specimen.')
+  await put('species/nnn-gallery/entity.json', species('nnn-gallery', 'Nnn gallery', { photos: [] }))
+  await put('species/nnn-gallery/vi.json', vi('Cá chạch suối sáu', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  await put('gallery/nnn-gallery.json', { id: 'nnn-gallery', photos: [plain, dying], seen: 1, updatedAt: '2026-10-01' })
+  // The same unwell photo as one page's only gallery photo and beside another photo on a second page: it leaves the
+  // second page only.
+  const shared = sf('shared-g', 'Recently-deceased specimen.')
+  await put('species/ooo-alone/entity.json', species('ooo-alone', 'Ooo alone', { photos: [] }))
+  await put('species/ooo-alone/vi.json', vi('Cá chạch suối bảy', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  await put('gallery/ooo-alone.json', { id: 'ooo-alone', photos: [shared], seen: 1, updatedAt: '2026-10-01' })
+  await put('species/ppp-two/entity.json', species('ppp-two', 'Ppp two', { photos: [sf('fine-p', 'Adult male.'), shared] }))
+  await put('species/ppp-two/vi.json', vi('Cá chạch suối tám', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  await writeFile(join(root, 'engine-state/_photo-rejected.json'), JSON.stringify({ [person.url]: 'people', [plain.url]: 'people' }))
+  const g = await sweep(root)
+  expect((await json(root, 'content/gallery/nnn-gallery.json')).photos).toEqual([dying])
+  expect((await json(root, 'content/gallery/ooo-alone.json')).photos).toEqual([shared])
+  expect((await json(root, 'content/species/ppp-two/entity.json')).photos.map((x: { url: string }) => x.url)).toEqual(['https://media.aquatome.com/seriouslyfish/fine-p.webp'])
+  expect(g.unwell).toContain(`species/nnn-gallery: ${dying.url} (deceased; the page's only photo)`)
+  expect(g.unwell).toContain(`species/ooo-alone: ${shared.url} (deceased; the page's only photo)`)
+  expect(Object.keys(await json(root, 'engine-state/_photo-rejected.json')).sort()).toEqual([person.url, plain.url].sort())
+})
+
+test("over the cap, the unwell rule counts the photos the cap keeps: none is reported as a page's only photo while another stays beside it (the guard's read, 14 Nov)", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'sweep-'))
+  const c = join(root, 'content')
+  const put = async (path: string, data: unknown) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, 2)}\n`) }
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await mkdir(c, { recursive: true })
+  await copyFile(new URL('../../../content/sources.json', import.meta.url), join(c, 'sources.json'))
+  const plate = (n: number) => ({ ...photo(`https://media.aquatome.com/commons/cap-plate-${n}.webp`, `Figure ${n}; (a) the whole fish, (b) its scales`), sourceUrl: `https://commons.wikimedia.org/wiki/File:Paper_Figure_${n}.jpg` })
+  const dying = { ...photo('https://media.aquatome.com/seriouslyfish/cap-dying.webp', 'Recently-deceased specimen.'), sourceUrl: 'https://www.seriouslyfish.com/species/x/' }
+  await put('species/qqq-plate/entity.json', species('qqq-plate', 'Qqq plate', { photos: [plate(1), dying] }))
+  await put('species/qqq-plate/vi.json', vi('Cá chạch suối chín', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  await put('species/rrr-plate/entity.json', species('rrr-plate', 'Rrr plate', { photos: [photo('https://media.aquatome.com/commons/cap-fine.webp', 'Adult male.'), plate(2)] }))
+  await put('species/rrr-plate/vi.json', vi('Cá chạch suối mười', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  const r = await sweep(root, { photoCap: 1 })
+  expect((await json(root, 'content/species/qqq-plate/entity.json')).photos.map((x: { url: string }) => x.url)).toEqual([plate(1).url, dying.url])
+  expect(r.unwell.filter(l => l.includes(dying.url))).toEqual([])
+  expect(r.held.some(l => l.startsWith(`${dying.url} (unwell`))).toBe(true)
+  expect(r.held).toHaveLength(3)
+})
+
 test("a run that would take more photos off every page than its cap takes none off, lists them, and leaves the check failing for a person; with the cap raised they go", async () => {
   const root = await mkdtemp(join(tmpdir(), 'sweep-'))
   const c = join(root, 'content')
@@ -1050,5 +1120,35 @@ test("a photo credited to someone its source's permission refuses leaves every p
   expect(Object.keys(rejected).sort()).toEqual([agency.url, trio.url, variant.url])
   for (const u of [agency.url, trio.url, variant.url]) expect(rejected[u]).toMatch(/^rejected: withheld \[sha256:[a-f0-9]{64}\]$/)
   expect(r.held).toEqual([])
+  expect((await sweep(root)).again).toEqual([])
+})
+
+// Photo Sourcing, 14 Nov: the aquatic-plants equipment page still showed an Aquarium Co-op photo on the never-again list,
+// in all four languages. The never-again pass walked fish, plant, breed, guide and album files only.
+test("a photo on the never-again list leaves every equipment page and each language's copy: a type's photo goes, a listed hero gives way to a type's", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'sweep-'))
+  const c = join(root, 'content')
+  const put = async (path: string, data: unknown) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, 2)}\n`) }
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await mkdir(c, { recursive: true })
+  await copyFile(new URL('../../../content/sources.json', import.meta.url), join(c, 'sources.json'))
+  const p = (name: string) => photo(`https://media.aquatome.com/aquariumcoop/${name}.webp`, 'Aquatic plants')
+  const hero = p('hero'), stem = p('stem'), listed = p('listed'), moss = p('moss')
+  const type = (id: string, photo: object) => ({ id, name: id, match: id, desc: '', pick: '', buy: id, photo })
+  const page = (category: string, heroPhoto: object) => ({ category, name: category, lead: '', intro: '', hero: heroPhoto, types: [type('than', stem), type('reu', listed), type('la', moss)], choose: [], mistakes: [], faq: [] })
+  await put('equipment/cay-thuy-sinh.json', page('cay-thuy-sinh', hero))
+  await put('equipment/id/cay-thuy-sinh.json', page('cay-thuy-sinh', hero))
+  await put('equipment/den.json', page('den', hero))
+  await put('equipment/th/den.json', page('den', listed))
+  await writeFile(join(root, 'engine-state/_photo-rejected.json'), `${JSON.stringify({ [listed.url]: 'rejected: withheld [sha256:' + 'a'.repeat(64) + ']' }, null, 2)}\n`)
+  const r = await sweep(root)
+  for (const f of ['equipment/cay-thuy-sinh.json', 'equipment/id/cay-thuy-sinh.json', 'equipment/den.json']) {
+    const e = await json(root, `content/${f}`)
+    expect(e.hero, f).toEqual(hero)
+    expect(e.types.map((t: { photo?: { url: string } }) => t.photo?.url ?? null), f).toEqual([stem.url, null, moss.url])
+  }
+  // A listed hero gives way to the first type's photo, as the photo check does.
+  expect((await json(root, 'content/equipment/th/den.json')).hero).toEqual(stem)
+  expect(r.again.filter(x => x.startsWith('equipment/')).length).toBe(5)
   expect((await sweep(root)).again).toEqual([])
 })

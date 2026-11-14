@@ -1,0 +1,331 @@
+{
+  "id": "glyptothorax-major",
+  "scientificName": "Glyptothorax major",
+  "order": "Siluriformes",
+  "family": "Sisoridae",
+  "genus": "Glyptothorax",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "malaysia",
+    "sarawak",
+    "indonesia",
+    "borneo"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [
+        "Mekong",
+        "Borneo",
+        "Baram River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Mekong basin; also from Malaysia and Borneo.",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Mekong",
+            "Borneo"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Senah River, Tagora River and Baram River, Sarawak state, Borneo, East Malaysia.",
+          "countries": [],
+          "regions": [
+            "Baram River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341296,
+      "total": 57,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "MY",
+          34
+        ],
+        [
+          "ID",
+          17
+        ],
+        [
+          "TH",
+          4
+        ],
+        [
+          "BN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          5.625,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          101.25,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          101.25,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          109.6875,
+          -1.40625,
+          4,
+          0
+        ],
+        [
+          109.6875,
+          0,
+          3,
+          3
+        ],
+        [
+          111.09375,
+          -1.40625,
+          6,
+          0
+        ],
+        [
+          111.09375,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          112.5,
+          0,
+          2,
+          0
+        ],
+        [
+          112.5,
+          1.40625,
+          12,
+          12
+        ],
+        [
+          113.90625,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          113.90625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          115.3125,
+          -4.21875,
+          3,
+          0
+        ],
+        [
+          115.3125,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          115.3125,
+          5.625,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          116.71875,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          5.625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.6,
+          "max": 7.8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 14.4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1365",
+      "html": "<ul><li>Scientific name: Glyptothorax major (Boulenger, 1894)</li><li>Synonyms: Akysis major, Glyptosternum tiong</li><li>IUCN Red List: Least Concern (last assessed 2019)</li></ul><p>A robust, stout-bodied species with a relatively deep caudal peduncle and a fairly uniformly coloured body with little or no paler patches.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1365",
+      "html": "<p>Asia: Mekong basin; also from Malaysia and Borneo. Type locality: Senah River, Tagora River and Baram River, Sarawak state, Borneo, East Malaysia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1365",
+      "html": "<p>Sisorid catfishes of the genus Glyptothorax are benthic inhabitants of torrential waters of rivers and streams in montane and submontane parts of tropical Asia. The members of the genus are adapted to attach themselves to rocks and boulders against strong currents by means of a thoracic adhesive apparatus comprising grooves and folded pleats of skin parallel or oblique to the longitudinal axis of the body.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1365",
+      "html": "<ul><li>pH: 6.6–7.8</li><li>Temperature: 20–25°C</li></ul><p>Strong current preferred. Good oxygenation necessary.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1365",
+      "html": "<p>A bottom of coarse sand/fine gravel and enough rocks to partially deflect the current and for the fish to hide in.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1365",
+      "html": "<p>Will feed on live/frozen food, but does not appear to take prepared foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1365",
+      "html": "<p>A peaceful species suitable for the hillstream biotope tank. Best kept in a well-oxygenated tank with strong current.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1365",
+      "html": "<p>Males have a longer genital papilla.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1365",
+      "html": "<p>Unreported in the aquarium.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1365",
+      "html": "<p>Annals and Magazine of Natural History (Series 6) v. 13 (no. 75) (art. 26), pp 246.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "8Xr221gIlNM",
+      "title": "VIDIO PEMBELAJARAN: IKAN GLYPTOTHORAX MAJOR",
+      "durationSec": 82,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy tạo sóng bể cá",
+        "bơm tạo dòng chảy",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát thô thủy sinh",
+        "sỏi nhỏ lót nền"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "thức ăn đông lạnh cho cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "quạt làm mát bể cá",
+        "máy làm lạnh nước bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

@@ -1,0 +1,87 @@
+{
+  "id": "pangasius-conchophilus",
+  "native": {
+    "input": "d2eeecc8922c33cd",
+    "at": "2026-11-14T05:39:06.336Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Thabo, Mekong River basin, Nongkhai Province, Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "planetcatfish",
+        "quote": "Asia: Mekong, Bangpakong and Chao Phraya basins.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "planetcatfish",
+        "quote": "Asia: Mekong, Bangpakong and Chao Phraya basins.",
+        "ok": true
+      },
+      {
+        "name": "Bangpakong",
+        "source": "planetcatfish",
+        "quote": "Asia: Mekong, Bangpakong and Chao Phraya basins.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pangasius conchophilus",
+    "status": "ACCEPTED",
+    "taxonKey": 5202481,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        56
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        7
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T05:39:06.336Z"
+  }
+}

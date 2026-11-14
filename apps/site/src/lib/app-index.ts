@@ -1,4 +1,4 @@
-import { boxFractions, FIRST_GUIDES, FIRST_PLANTS, photoFitsCard, POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, type BreedEntity, type Content, type Curation, type Loop, type Photo, type PlantEntity, type Range, type Traits } from '@aq/schema'
+import { boxFractions, cleanPhoto, FIRST_GUIDES, FIRST_PLANTS, frameOf, photoFitsCard, POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, unmarked, type BreedEntity, type Chip, type Content, type Curation, type Loop, type Photo, type PlantEntity, type Range, type SpeciesEntity, type Traits } from '@aq/schema'
 import type { Box, KindShards, PageDoc } from '@aq/schema/app-page'
 import type { SpeciesIndexItem } from '../scripts/filter'
 import { breedFigures, speciesOf, type BreedFigures } from './breeds'
@@ -165,7 +165,40 @@ export type AppHome = {
    * predates it shows `fish`, `plants` and `guides`.
    */
   browse?: { fish: string[]; plants: string[]; guides: string[] }
+  /** Khám phá's chips row, in its order (chipsFor). None where the curation file names none. */
+  chips?: AppChip[]
 } & AppCuration
+/**
+ * One chip of Khám phá's row in this language, whole, so the app sorts and works out nothing (the Design Lead, 13 Nov):
+ * its place in the row (`order`, from 1), its fish (`members`, this index's item ids, breeds included), how many, and
+ * one photo of a member whose fish a 3:2 crop keeps (`img`, `imgBox`). `guides` and `videos`: the paths of the guides
+ * about the group, written and on video, in the index's order (chipGuides); none where it has none.
+ */
+export type AppChip = { id: string; name: string; order: number; count: number; members: string[]; img?: string; imgBox?: Box; guides?: string[]; videos?: string[] }
+/**
+ * The guides about a chip's group, by their titles (the chief of staff, 14 Nov): a guide whose title holds the chip's
+ * word or one of a member's names, as this index has them, whole words (Thai, written without spaces, anywhere in it).
+ * A guide that names the fish only in its text stays off: the guides' lists of the fish they mention are too loose (the
+ * arowana guide lists the flowerhorn). A name another fish has too doesn't count ("cá hổ" is a clown loach's and an
+ * American cichlid's), and another fish's name that holds the group's word is no mention of it ("cá ốc", the shell
+ * dwellers, isn't a snail). `hand`: the paths the curation file adds and takes off by hand (Chip.guides). Written guides
+ * go in `guides`, video guides in `videos`, in the index's order.
+ */
+export function chipGuides(lang: Lang, chip: AppChip, items: AppItem[], hand: { add: string[]; off: string[] } = { add: [], off: [] }): Pick<AppChip, 'guides' | 'videos'> {
+  const fold = (s: string) => s.normalize('NFC').toLocaleLowerCase()
+  const namesOf = (i: AppItem) => [i.name, ...(i.aka ?? [])].map(fold).filter(Boolean)
+  const inside = new Set(chip.members), fish = items.filter(i => i.kind === 'fish' && i.id)
+  const others = new Set(fish.filter(i => !inside.has(i.id!)).flatMap(namesOf))
+  const own = [...new Set([fold(chip.name), ...fish.filter(i => inside.has(i.id!)).flatMap(namesOf).filter(n => !others.has(n))])]
+  const words = (ns: string[]) => {
+    const any = [...ns].sort((a, b) => b.length - a.length).map(n => n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')
+    return new RegExp(lang === 'th' ? `(?:${any})` : `(?<![\\p{L}\\p{M}\\p{N}])(?:${any})(?![\\p{L}\\p{M}\\p{N}])`, 'gu')
+  }
+  const mention = words(own), shadows = [...others].filter(n => n.search(mention) >= 0), shadow = shadows.length ? words(shadows) : undefined
+  const about = items.filter(i => i.kind === 'guide' && !hand.off.includes(i.path) && (hand.add.includes(i.path) || (shadow ? fold(i.name).replace(shadow, ' ') : fold(i.name)).search(mention) >= 0))
+  const guides = about.filter(i => !i.video).map(i => i.path), videos = about.filter(i => i.video).map(i => i.path)
+  return { ...(guides.length ? { guides } : {}), ...(videos.length ? { videos } : {}) }
+}
 /**
  * The site's words, in this language, each entry a map of strings: for each key the items carry (fish groups, guide
  * subjects, plant care), and those of the taxon and origin pages (lib/taxa-places.ts), which the app draws as shelves.
@@ -237,6 +270,57 @@ export const photoBox = (p: Photo): Box | undefined => (refusedByCards(p) ? WHOL
  * card and the page's head show one framing and the photo's box holds for both.
  */
 export const cardSrc = (p: Photo): string => { const small = smallSrc(p); return resizeOf(p, small) ? small : p.url }
+
+/** A chip's picture is 3:2 (the Design Lead's spec-chips.md). */
+const CHIP_RATIO = 3 / 2
+/** A box the engine found, not the whole area the loader gives a photo it found none in. */
+const foundBox = (p: Photo) => !!p.subject && !(p.subject.x0 <= 0 && p.subject.y0 <= 0 && p.subject.x1 >= Math.floor(p.width) && p.subject.y1 >= Math.floor(p.height))
+/**
+ * Khám phá's chips in this language (the curation file's `chips`, ChipSchema): each with a word in this language and a fish
+ * this index lists, in the file's order (the owner's to set). A species is in by the chip's rule, judged on every
+ * language's species (`everySpecies`); a breed by what it is a form of, or for a cross its parents. Each picture is a
+ * member's photo whose fish a 3:2 crop keeps (a box the engine found, and frameOf covers), no banner, none another chip
+ * shows, 640 px wide or more first.
+ */
+export function chipsFor(lang: Lang, c: Content, everySpecies: Content['species'], chips: Chip[], listed: { species: Content['species']; breeds: Content['breeds'] }): AppChip[] {
+  const byId = new Map(everySpecies.map(s => [s.id, s])), breedById = new Map(c.breeds.map(b => [b.id, b]))
+  const baseOf = (b: BreedEntity) => {
+    if (b.kind === 'hybrid') return undefined
+    const seen = new Set<string>()
+    for (let id = b.basedOn; id && !seen.has(id); id = breedById.get(id)?.basedOn) { seen.add(id); if (byId.has(id)) return id }
+    return undefined
+  }
+  const bases = (b: BreedEntity) => { const base = baseOf(b); return base ? [base] : (b.parents ?? []).flatMap(p => (p.species ? [p.species] : [])) }
+  const held = chips.flatMap(chip => {
+    const name = chip.names[lang]
+    if (!name) return []
+    const m = chip.match, rule = [m.group, m.places, m.family, m.genus].some(v => v?.length)
+    const fits = (want: string[] | undefined, has: string | string[] | undefined) => !want?.length || (Array.isArray(has) ? has.some(x => want.includes(x)) : !!has && want.includes(has))
+    const out = (id: string) => !!m.except?.includes(id)
+    const inChip = (s: SpeciesEntity | undefined) => !!s && !out(s.id) && (!!m.species?.includes(s.id) || (rule && fits(m.group, s.group) && fits(m.places, s.places) && fits(m.family, s.family) && fits(m.genus, s.genus)))
+    const members = [...listed.species.filter(inChip), ...listed.breeds.filter(b => !out(b.id) && (m.breeds?.includes(b.id) || bases(b).some(id => inChip(byId.get(id)))))]
+    return members.length ? [{ chip, name, members }] : []
+  })
+  // Pictures go to the chips with fewest fish first, so a group of one fish keeps its best photo when a wider group holds
+  // it too (Dĩa inside Cichlid châu Mỹ).
+  const used = new Set<string>(), pic = new Map<string, Photo>()
+  for (const x of [...held].sort((a, b) => a.members.length - b.members.length)) {
+    const cover = x.chip.cover ?? [], at = (id: string) => (cover.includes(id) ? cover.indexOf(id) : cover.length)
+    const ranked = [...x.members].sort((a, b) => at(a.id) - at(b.id) || Math.min(b.photos.length, 3) - Math.min(a.photos.length, 3) || a.t.name.localeCompare(b.t.name, lang))
+    // The members' heads first, the photo each card leads with and the engine ranked best; then their other photos, so a
+    // head that doesn't qualify leaves the member's next photo in the running. 640 px wide or more first, within each.
+    const fits = (p: Photo) => !p.generated && unmarked(p) && !refusedByCards(p) && foundBox(p) && frameOf(p.width / p.height, boxFractions(p), CHIP_RATIO).fit === 'cover'
+    const heads = ranked.flatMap(m => { const h = cleanPhoto(m.photos); return h && fits(h) ? [h] : [] }), head = new Set(heads)
+    const others = ranked.flatMap(m => m.photos.filter(p => !head.has(p) && fits(p)))
+    const wide = (ps: Photo[]) => [...ps.filter(p => p.width >= 640), ...ps]
+    const p = [...wide(heads), ...wide(others)].find(p => !used.has(p.url))
+    if (p) { used.add(p.url); pic.set(x.chip.id, p) }
+  }
+  return held.map((x, i) => {
+    const p = pic.get(x.chip.id)
+    return { id: x.chip.id, name: x.name, order: i + 1, count: x.members.length, members: x.members.map(m => m.id), ...(p ? { img: cardSrc(p), imgBox: photoBox(p) } : {}) }
+  })
+}
 
 /**
  * `traits`: behaviour by species id (lib/traits.ts), as the tank-mates tool reads it. `everySpecies`: the species of
@@ -384,6 +468,11 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
     }
     const boxAt = (u: string) => (own.has(u) ? own.get(u) : copies.get(u) ?? undefined)
     Object.assign(home, curationFor(cur.calendar, lang, cur.today, ref => { const p = refs.get(ref); return p && paths.has(p) ? p : undefined }, c.cards, c.photoWaits, boxAt))
+    const chips = chipsFor(lang, c, everySpecies, cur.calendar.chips, { species: appSpecies(lang, c), breeds: appBreeds(lang, c) })
+    const guidePath = new Map(appGuides(lang, c).map(g => [g.id, at(`/vi/huong-dan/${g.t.slug}/`)]))
+    const hand = (ids: string[] = []) => ids.flatMap(id => guidePath.get(id) ?? [])
+    const byId = new Map(cur.calendar.chips.map(ch => [ch.id, ch.guides]))
+    if (chips.length) home.chips = chips.map(ch => ({ ...ch, ...chipGuides(lang, ch, items, { add: hand(byId.get(ch.id)?.add), off: hand(byId.get(ch.id)?.off) }) }))
   }
   const codes = [...new Set(items.flatMap(i => [...(i.range?.native ?? []), ...(i.range?.records?.outside ?? []).map(([code]) => code)]))].sort()
   const nameOf = countryNames(lang, c.places, paged)

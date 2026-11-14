@@ -1,6 +1,35 @@
 {
  "queue": [],
- "judged": [],
- "hashes": {},
- "commons": "2026-11-10"
+ "judged": [
+  "inat:250977325",
+  "inat:250977557",
+  "inat:250977919",
+  "inat:311465588",
+  "inat:311465612",
+  "inat:311465638",
+  "inat:586010879",
+  "inat:602187083",
+  "inat:602187098",
+  "inat:602187108",
+  "inat:606276765",
+  "inat:606276803",
+  "inat:606276829",
+  "inat:575808682",
+  "inat:575813073"
+ ],
+ "hashes": {
+  "https://media.aquatome.com/inaturalist/602187108.webp": "071319d8efbeef6f",
+  "https://media.aquatome.com/inaturalist/606276765.webp": "3a385abcb64eec9e",
+  "https://media.aquatome.com/inaturalist/586010879.webp": "0b110101c1b03483",
+  "https://media.aquatome.com/inaturalist/311465638.webp": "f67c7f8fe1f9ffff"
+ },
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 110916,
+  "pass": "done",
+  "after": {
+   "research": 333915957,
+   "agree": 340234527
+  }
+ }
 }

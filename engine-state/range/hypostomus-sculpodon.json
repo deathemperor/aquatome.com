@@ -1,0 +1,66 @@
+{
+  "id": "hypostomus-sculpodon",
+  "native": {
+    "input": "f60e5c50cd944e23",
+    "at": "2026-11-14T00:09:29.977Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Rio Negro and upper Rio Orinoco basins in Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Rio Negro and upper Rio Orinoco basins in Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Rio Orinoco",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Rio Negro and upper Rio Orinoco basins in Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Río Casiquiare",
+        "source": "planetcatfish",
+        "quote": "Type locality: Piedra Carguana, Depto. Río Negro, Río Negro drainage, Río Casiquiare, Amazonas, Venezuela.",
+        "country": "VE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hypostomus sculpodon",
+    "status": "ACCEPTED",
+    "taxonKey": 5202123,
+    "datasets": [
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        7
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        2
+      ]
+    ],
+    "native": [
+      "VE"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T00:09:29.977Z"
+  }
+}

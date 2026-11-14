@@ -1,0 +1,267 @@
+{
+  "id": "leiocassis-micropogon",
+  "scientificName": "Leiocassis micropogon",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Leiocassis",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "indonesia",
+    "malaysia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7.4
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 18.3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1375",
+      "html": "<p>Scientific name: Leiocassis micropogon (Bleeker, 1852). Common name: Bumble Bee Catfish. Type locality: Tjirutjup River, Bilitong, Indonesia. Synonym: Bagrus micropogon. Size: 18.3 cm SL.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1375",
+      "html": "<p>Asia: Malaysia and Indonesia. Greater Sunda Island rivers. IUCN Red List category: Least Concern (last assessed 2019).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1375",
+      "html": "<p>Inhabits clear, swiftly flowing forested streams with sandy or rocky bottoms; hides under submerged logs or rocks with some leaf litter in the swifter parts of the stream.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1375",
+      "html": "<ul><li>pH: 6.0–7.4</li><li>Temperature: 20–26°C</li><li>Strong current and good oxygenation preferred.</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1375",
+      "html": "<p>Provide enough driftwood for cover.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1375",
+      "html": "<p>Will take most foods readily, although it shows a preference for live/frozen food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1375",
+      "html": "<p>Suitable for a community tank. Conspecifics are territorial, so ensure that there are enough hiding places.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1375",
+      "html": "<p>Males have an elongate genital papilla that is easily noticeable.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1375",
+      "html": "<p>Not reported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1375",
+      "html": "<p>The bagrid catfish genus Leiocassis is known only from Sundaic Southeast Asia. This species can be distinguished by its slender body and the occipital process not in contact with the nuchal plate.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1375",
+      "html": "<p>Natuurkundig Tijdschrift voor Nederlandsch Indië v. 3 (no. 1), pp 94.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/a0a1480bbcde6e2b.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a0a1480bbcde6e2b-480.webp",
+      "width": 500,
+      "height": 293,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/leiocassis_micropogon.htm",
+      "caption": "Leiocassis micropogon",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/368c79b2666a0b81.webp",
+      "thumb": "https://media.aquatome.com/scotcat/368c79b2666a0b81-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/leiocassis_micropogon.htm",
+      "caption": "Leiocassis micropogon",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/251c0dec72a5b222.webp",
+      "thumb": "https://media.aquatome.com/scotcat/251c0dec72a5b222-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/leiocassis_micropogon.htm",
+      "caption": "Leiocassis micropogon",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/4bda0d14d5492fd9.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4bda0d14d5492fd9-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/leiocassis_micropogon.htm",
+      "caption": "Leiocassis micropogon",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc thùng bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "thức ăn cho cá trê"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát bể cá",
+        "lũa thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13",
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "MY"
+      ],
+      "regions": [],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Tjirutjup River, Bilitong, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Malaysia and Indonesia.",
+          "countries": [
+            "MY"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338427,
+      "total": 8,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "ID",
+          6
+        ],
+        [
+          "MY",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          101.25,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          111.09375,
+          0,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  }
+}

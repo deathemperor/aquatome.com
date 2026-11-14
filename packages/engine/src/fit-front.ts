@@ -13,7 +13,7 @@ const keyOf = (p: { lang: string; kind: string; id: string }) => `${p.lang}/${p.
 export const frontEarly = (list: { first: string }, now: Date) => !(now.getTime() >= Date.parse(list.first))
 
 /**
- * What the first scheduled rewrite did, as its command printed it (engine-state/_fit-front.json). Its own file: the
+ * What the last rewrite on file did, as its command printed it (engine-state/_fit-front.json). Its own file: the
  * rewrite's record of tries (_fit-rewrite.json) goes back to what was committed for a page the gate couldn't read
  * (writer-records.ts), and the hold must outlast that.
  */
@@ -29,10 +29,53 @@ export function firstRun(r: { rewritten: string[]; notKept: string[]; skipped: s
 }
 
 /**
- * Whether a `--front` rewrite waits: the first scheduled run is looked at before another one runs, so while `cleared`
- * is false, a first run on file holds the command.
+ * Whether a `--front` rewrite's front-list and live pages wait (one-shot, the chief of staff, 14 Nov 2026): a run on file
+ * holds them until `cleared` names that run's `at`, set once the chief has read its pages. The run that goes writes its
+ * own record, so the one after waits again by itself, however its cycle was started. A flag set back by hand was how the
+ * night of 13 Nov stalled. False, true or any other value holds.
  */
-export const frontHeld = (list: { cleared: boolean }, first: FirstRun | undefined) => !list.cleared && !!first
+export const frontHeld = (list: { cleared: boolean | string }, last: FirstRun | undefined) => !!last && list.cleared !== last.at
+
+/** A page's mark from the gate (gate.ts Held): the checks it was held for, and the day. */
+export type HeldMark = { checks: readonly string[]; at: string }
+
+/** 2hraquarist's gallery posts of others' tanks: to go off, not be rewritten (the chief of staff, 14 Nov 2026). */
+const GALLERY = /^2hraquarist-blogs-aquascaping-ideas-/
+
+/**
+ * The lane (the chief of staff, 14 Nov 2026): pages the gate held new, which no reader has seen, rewritten first, newest
+ * first, whatever the hold on the front list; each comes out only when the gate passes it. A video guide goes to its own
+ * editor instead (video-mend.ts), a page held for harm, a kit or a dose waits for a person, and a gallery post isn't paid
+ * for.
+ */
+export function laneFirst<P extends { lang: string; kind: string; id: string }>(pages: readonly P[], held: ReadonlyMap<string, HeldMark>): P[] {
+  const ours = pages.filter(p => {
+    const h = held.get(keyOf(p))
+    return !!h && !(p.kind === 'guides' && (p.id.startsWith('youtube-') || GALLERY.test(p.id))) && !h.checks.some(c => ['harm', 'kit', 'dose'].includes(c))
+  })
+  // Newest first; a day's pages in the order given (sort is stable).
+  return [...new Map(ours.map(p => [keyOf(p), p])).values()].sort((a, b) => held.get(keyOf(b))!.at.localeCompare(held.get(keyOf(a))!.at))
+}
+
+/**
+ * What a `--front` rewrite runs (the chief of staff, 14 Nov 2026: "The hold covers the front list's pages only"): with the
+ * lane open, its pages first, then the front list's in their order unless it's held, then the rest; with it shut, as before
+ * the lane, nothing while held. `lane`: the lane's keys, whose outcomes never make a run the one on file.
+ */
+export function frontPlan<P extends { lang: string; kind: string; id: string }>(list: { cleared: boolean | string; lane: boolean; front: readonly string[] }, last: FirstRun | undefined, ranked: readonly P[], held: ReadonlyMap<string, HeldMark>) {
+  const isHeld = frontHeld(list, last)
+  const lane = list.lane ? laneFirst(ranked, held) : []
+  const inLane = new Set(lane.map(keyOf))
+  const front = new Set(list.front)
+  const rest = isHeld && !list.lane ? [] : orderFront(list, ranked).filter(p => !inLane.has(keyOf(p)) && !(isHeld && front.has(keyOf(p))))
+  return { held: isHeld, order: [...lane, ...rest], lane: inLane }
+}
+
+/** The run's outcomes without the lane's pages: what goes on file as the run the hold waits on. */
+export const offLane = (r: { rewritten: string[]; notKept: string[]; skipped: string[]; failed: string[]; stopped?: string }, lane: ReadonlySet<string>) => {
+  const ours = (x: string) => !lane.has(x.split(' ')[0]!.replace(/:$/, ''))
+  return { rewritten: r.rewritten.filter(ours), notKept: r.notKept.filter(ours), skipped: r.skipped.filter(ours), failed: r.failed.filter(ours), ...(r.stopped ? { stopped: r.stopped } : {}) }
+}
 
 /**
  * The front list's pages first, in the list's order, then every other page in the order given. A listed key with no

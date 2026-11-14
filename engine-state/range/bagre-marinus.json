@@ -1,0 +1,362 @@
+{
+  "id": "bagre-marinus",
+  "native": {
+    "input": "c0b3bd6a571c901c",
+    "at": "2026-11-14T05:39:06.336Z",
+    "claims": [
+      {
+        "code": "US",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: New York, U.S.A.",
+        "words": "U.S.A.",
+        "ok": true
+      },
+      {
+        "code": "CU",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Western Atlantic: coast of Gulf of Mexico, Cuba, western margin of the Caribbean, and the northern margin of South America.",
+        "words": "Cuba",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Gulf of Mexico",
+        "source": "planetcatfish",
+        "quote": "Western Atlantic: coast of Gulf of Mexico, Cuba, western margin of the Caribbean, and the northern margin of South America.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "VE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Bagre marinus",
+    "status": "ACCEPTED",
+    "taxonKey": 5202981,
+    "datasets": [
+      [
+        "1d39953f-5c1a-4dad-8524-70191eb4fe6c",
+        2101
+      ],
+      [
+        "b84099fa-99ac-4e11-a8da-d09add544131",
+        1923
+      ],
+      [
+        "d0351e80-ae78-46ea-8601-8c458282ae73",
+        1709
+      ],
+      [
+        "17411afb-5543-4d0a-8f36-47cb8322062e",
+        1241
+      ],
+      [
+        "a6e35034-fca7-457f-888b-e6d97030dee5",
+        1070
+      ],
+      [
+        "d0e9b7eb-29a9-4695-bb13-22585df648a5",
+        997
+      ],
+      [
+        "fcdd34e6-43cf-4fbb-a2a9-07163619b872",
+        972
+      ],
+      [
+        "420ab020-3d83-4787-8f3d-f83ebb0e6ded",
+        901
+      ],
+      [
+        "f42d2be3-1264-4b68-a3bd-39363bcc437f",
+        538
+      ],
+      [
+        "29b43457-5ebc-465c-b275-21a03cb9f148",
+        390
+      ],
+      [
+        "ba5b0f3a-73dd-459f-a7f1-9abc327aed00",
+        377
+      ],
+      [
+        "ab8c6591-2993-4bc5-85a4-1d106897b036",
+        168
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        149
+      ],
+      [
+        "933770e7-9480-49d4-acd4-6295d6c8cedc",
+        149
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        65
+      ],
+      [
+        "b902eee0-ecf4-4269-8af0-0e67d753b89a",
+        61
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        57
+      ],
+      [
+        "ea09e0f4-36c4-4383-b04d-48da83a32c5c",
+        56
+      ],
+      [
+        "010fcd64-caa7-47dd-b1b1-c8be5a2144b6",
+        39
+      ],
+      [
+        "e46233d2-1baf-4aea-9bf7-a2f01c7cc7b0",
+        37
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        36
+      ],
+      [
+        "9e82c117-54f1-4750-a029-2dacc9ef5158",
+        35
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        35
+      ],
+      [
+        "2a79f202-3f3a-4d54-88fa-09aa8de1ac73",
+        32
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        28
+      ],
+      [
+        "99cac79f-b9bf-42e5-88bd-68c30a595437",
+        25
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        22
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        22
+      ],
+      [
+        "e90a588b-0eed-4077-8a4f-7e61da35b3f8",
+        22
+      ],
+      [
+        "cc7cd3f8-1ff5-4273-ad34-f89351392925",
+        20
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        19
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        19
+      ],
+      [
+        "95b694cd-e9db-4831-b6a9-0a6d433d92c1",
+        17
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        17
+      ],
+      [
+        "c98e27a5-6876-4e09-b60a-2e4716ecad70",
+        15
+      ],
+      [
+        "f6cc0fcc-1605-4bd4-bbea-dd12f697a2ba",
+        15
+      ],
+      [
+        "5fab027d-14b6-4659-9a7e-8a0d4bd3e12b",
+        14
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        13
+      ],
+      [
+        "80540bc4-f762-11e1-a439-00145eb45e9a",
+        12
+      ],
+      [
+        "5000c6ca-d69a-4cc7-a4d2-1747803ce7e1",
+        11
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        11
+      ],
+      [
+        "805bbcde-f762-11e1-a439-00145eb45e9a",
+        10
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        10
+      ],
+      [
+        "f46c93f2-123d-4dc3-a06e-b2faecfda2ce",
+        10
+      ],
+      [
+        "803fc628-f762-11e1-a439-00145eb45e9a",
+        9
+      ],
+      [
+        "6a901195-ee9a-43ad-a43d-9095fd2aab0c",
+        8
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        8
+      ],
+      [
+        "175d2868-a330-4179-ba25-35da91a8214d",
+        7
+      ],
+      [
+        "4ec633b0-8b1f-405e-86cf-7f782a3ced53",
+        7
+      ],
+      [
+        "ec79bfca-83fc-4f89-baad-9a76d320953b",
+        7
+      ],
+      [
+        "9a0983a1-55dc-4492-bd6c-4085a36dcddc",
+        6
+      ],
+      [
+        "0b81b94a-9761-46e5-a483-df6fcb840cc5",
+        5
+      ],
+      [
+        "c5126b60-6dc3-428b-b479-15a921199da1",
+        5
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        5
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        5
+      ],
+      [
+        "2473e9c3-624f-4cd6-bfc6-b476913790b5",
+        4
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        4
+      ],
+      [
+        "fe388907-e2b6-44be-a9cb-a80b3924284c",
+        4
+      ],
+      [
+        "836204c6-f8ca-49f3-be9a-afbae64ae72c",
+        3
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "94a6bf19-40a2-4689-ab0e-53edb30b9d36",
+        2
+      ],
+      [
+        "bba95e72-e2df-420e-8de3-b7ca814037ae",
+        2
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        2
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        1
+      ],
+      [
+        "7c95ae39-b477-4863-8dda-2d74dc48b067",
+        1
+      ],
+      [
+        "7d3ad006-2cec-4488-ad1f-6e5998602de0",
+        1
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "969d55f6-ed52-4be9-a6dd-7afeccdfde76",
+        1
+      ],
+      [
+        "9dc24de5-be12-44f9-ab75-c4b62492e8da",
+        1
+      ],
+      [
+        "b0e3d03c-3f19-4ab7-b153-7d831d0b3727",
+        1
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "ce1b2519-0427-441e-9fc6-4fb83b53b5d9",
+        1
+      ]
+    ],
+    "native": [
+      "US",
+      "CU"
+    ],
+    "requests": 13,
+    "at": "2026-11-14T05:39:06.336Z"
+  }
+}

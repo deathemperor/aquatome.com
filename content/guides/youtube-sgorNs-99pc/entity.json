@@ -55,27 +55,6 @@
     ],
     "figures": [
       {
-        "heading": "Vì sao nên xếp đá trước khi cắt kính",
-        "moments": [
-          {
-            "t": 15,
-            "url": "https://media.aquatome.com/video/sgorNs-99pc/at15-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Vài viên đá được xếp thử trên mặt bàn trước khi làm bể.",
-            "sharpness": 1300.1
-          },
-          {
-            "t": 75,
-            "url": "https://media.aquatome.com/video/sgorNs-99pc/at75-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cụm đá xếp gọn lại thành dáng hang động trên bàn.",
-            "sharpness": 1451.6
-          }
-        ]
-      },
-      {
         "heading": "Cắt kính và ráp phần thân bể thế nào",
         "moments": [
           {
@@ -85,14 +64,6 @@
             "height": 675,
             "caption": "Bôi silicone dọc cạnh kính đã dán băng keo xanh.",
             "sharpness": 71.5
-          },
-          {
-            "t": 230,
-            "url": "https://media.aquatome.com/video/sgorNs-99pc/at230-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ráp các tấm kính lại và dùng băng keo giữ chặt.",
-            "sharpness": 1244.6
           }
         ]
       },
@@ -105,57 +76,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể đã dán băng keo xanh đánh dấu vị trí vách kính bên trong.",
-            "sharpness": 469.8
-          },
-          {
-            "t": 300,
-            "url": "https://media.aquatome.com/video/sgorNs-99pc/at300-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bơm silicone dán vách kính, bên dưới có miếng kê chừa khe nước chảy.",
-            "sharpness": 1334.7
-          }
-        ]
-      },
-      {
-        "heading": "Gắn đá lên kính thế nào cho khớp",
-        "moments": [
-          {
-            "t": 400,
-            "url": "https://media.aquatome.com/video/sgorNs-99pc/at400-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ép viên đá đã bôi silicone lên kính, tay giữ cho đá bám chắc.",
-            "sharpness": 954.2
-          },
-          {
-            "t": 460,
-            "url": "https://media.aquatome.com/video/sgorNs-99pc/at460-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cụm đá đã gắn xong trên kính, trông giống lúc xếp ngoài bàn.",
-            "sharpness": 1334.3
-          }
-        ]
-      },
-      {
-        "heading": "Thêm lũa và giấu vết keo",
-        "moments": [
-          {
-            "t": 450,
-            "url": "https://media.aquatome.com/video/sgorNs-99pc/at450-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cành lũa mảnh đan qua khối đá, đang chỉnh dáng trước khi dán.",
-            "sharpness": 1768.8
-          },
-          {
-            "t": 480,
-            "url": "https://media.aquatome.com/video/sgorNs-99pc/at480-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rắc bột màu lên chỗ dán lũa và đá để che vết keo.",
-            "sharpness": 1565.6
+            "sharpness": 469.8,
+            "person": false
           }
         ]
       },
@@ -168,7 +90,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Rêu sphagnum phủ lên mút lọc và một phần đá trong hộp tràn.",
-            "sharpness": 2675.4
+            "sharpness": 2675.4,
+            "person": false
           },
           {
             "t": 580,
@@ -176,7 +99,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Rêu sống gắn vào rễ và đá chỗ nước chảy qua.",
-            "sharpness": 1501
+            "sharpness": 1501,
+            "person": false
           }
         ],
         "photo": {
@@ -189,27 +113,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Christmas_moss_and_riccia_(14441185564).jpg",
           "caption": "Cận cảnh rêu xanh tươi, giống rêu Christmas dùng để phủ và gắn trong hồ."
         }
-      },
-      {
-        "heading": "Nền, đèn và các chi tiết cuối",
-        "moments": [
-          {
-            "t": 640,
-            "url": "https://media.aquatome.com/video/sgorNs-99pc/at640-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể đã có lớp nền sỏi và cát, đang chỉnh rễ cây phía sau.",
-            "sharpness": 2842.4
-          },
-          {
-            "t": 655,
-            "url": "https://media.aquatome.com/video/sgorNs-99pc/at655-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đèn chìm đặt trong bể hắt sáng lên lớp nền tối và đá.",
-            "sharpness": 2944.4
-          }
-        ]
       }
     ]
   }

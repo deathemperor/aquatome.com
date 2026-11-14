@@ -10,6 +10,7 @@ import { LlmError } from './claude'
 import { contactSheet, stillDone } from './video-images'
 import type { StillsState } from './video-stills'
 import { stripPhotos } from './watermarks'
+import { holdForSecondLook, lastPhotos, looks, pagesShowing, readSecondLook } from './last-photo'
 
 /**
  * No people and no logos in the pictures the subject check (photo-check.ts) doesn't look at: every guide's photos (the
@@ -125,7 +126,7 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
   const cache = Object.fromEntries(Object.entries(oldCache).map(([u,v])=>[u,compactVerdict(v)]))
   const rejected = (await readJson<Record<string, string>>(state('_photo-rejected.json'))) ?? {}
   const done = (await readJson<StillsState>(state('_video-stills.json'))) ?? {}
-  const report = { sheets: 0, judged: 0, cleared: 0, off: [] as string[], removed: [] as string[], kept: [] as string[], failed: [] as string[], left: 0, waiting: 0, stopped: '', subject: [] as string[] }
+  const report = { sheets: 0, judged: 0, cleared: 0, off: [] as string[], removed: [] as string[], kept: [] as string[], held: [] as string[], failed: [] as string[], left: 0, waiting: 0, stopped: '', subject: [] as string[] }
 
   // Every photo a guide or an equipment guide shows, and every video still, with the files they are in.
   const files: string[] = []
@@ -209,12 +210,20 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
   // 2. Off the guides and equipment guides; a person, a mark, or a brand on a photo no equipment guide shows and that
   // isn't a still, onto the blocklist.
   const now = (await readJson<Record<string, string>>(state('_photo-rejected.json'))) ?? {} // re-read: entries another step added meanwhile stay
+  // A guide's photo that is also the last photo of a species, plant or breed page doesn't go on the list, which would
+  // take it off that page too: it waits for a second look (last-photo.ts). It still leaves the guides.
+  const sl = looks(await readSecondLook(root))
+  const listing = new Set([...items.values()].filter(x => !!guidePhotoOff(cache[x.url], x.equipment || x.still) && sl.open(x.url)).map(x => x.url))
+  const last = new Map([...lastPhotos(await pagesShowing(content), u => listing.has(u) || u in now)].filter(([u]) => listing.has(u) && !(u in now)))
+  const holding = new Map<string, { why: string; pages: string[] }>()
   for (const x of items.values()) {
     const why = guidePhotoOff(cache[x.url], x.equipment || x.still)
     if (!why) continue
     report.off.push(`${x.url}: ${why}`)
-    now[x.url] ??= why
+    if (last.has(x.url)) { holding.set(x.url, { why, pages: last.get(x.url)! }); report.held.push(`${x.url}: ${last.get(x.url)!.join(', ')}`); continue }
+    if (sl.open(x.url)) now[x.url] ??= why
   }
+  await holdForSecondLook(root, holding, 'the guide photo check')
   for (const file of files) {
     const raw = await readFile(file, 'utf8')
     const data = JSON.parse(raw) as Guide
@@ -222,7 +231,7 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     const equipment = file.startsWith(join(content, 'equipment'))
     const subject = subjectOf.get(file)
     const another = (url: string) => !!subject && cache[url]?.other?.[subject] === true
-    stripPhotos(data, url => !!guidePhotoOff(cache[url], equipment || !!items.get(url)?.still) || another(url), removed, report.kept)
+    stripPhotos(data, url => sl.open(url) && (!!guidePhotoOff(cache[url], equipment || !!items.get(url)?.still) || another(url)), removed, report.kept)
     report.subject.push(...removed.filter(another).map(u => `${relative(root, file)}: ${u}: ${cache[u]!.note}`))
     // What's left of a guide's stills carries its verdict, which they need to show.
     let cleared = 0

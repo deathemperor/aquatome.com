@@ -889,6 +889,21 @@
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/commons/3aca0c6e6b7ef3e7.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY 3.0",
+      "author": "Donar Reiskoffer",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:20080113_Aquatopia_-_Rivierenhof_(034).jpg",
+      "caption": "Aquatopia",
+      "thumb": "https://media.aquatome.com/commons/3aca0c6e6b7ef3e7-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/3aca0c6e6b7ef3e7-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    },
+    {
       "url": "https://media.aquatome.com/commons/c60e41b45c2610ff.webp",
       "width": 960,
       "height": 773,
@@ -907,16 +922,6 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Serrasalmidae_Myloplus_rubripinnis_4.jpg",
       "caption": "Myloplus rubripinnis REDHOOK MYLEUS. Frankfurt Zoological Garden.",
       "thumb": "https://media.aquatome.com/commons/bddbbdac97c1d2fa-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/3aca0c6e6b7ef3e7.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY 3.0",
-      "author": "Donar Reiskoffer",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:20080113_Aquatopia_-_Rivierenhof_(034).jpg",
-      "caption": "Aquatopia",
-      "thumb": "https://media.aquatome.com/commons/3aca0c6e6b7ef3e7-480.webp"
     }
   ],
   "videos": [],

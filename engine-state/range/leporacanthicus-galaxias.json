@@ -1,14 +1,22 @@
 {
   "id": "leporacanthicus-galaxias",
   "native": {
-    "input": "dbb23cb58466a8bd",
-    "at": "2026-11-09T16:24:16.651Z",
+    "input": "63ca73c4a161d701",
+    "at": "2026-11-14T05:39:06.336Z",
     "claims": [
       {
         "code": "BR",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "The galaxy plec, Leporacanthicus galaxias (L029), is a suckermouth catfish from the Amazon, Tocantins and other river basins in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio Tocantins, Lagoa em frenta a Jacobal, Pará State, Brazil",
         "words": "Brazil",
         "ok": true
       }
@@ -25,6 +33,31 @@
         "name": "Tocantins",
         "source": "seriouslyfish",
         "quote": "The galaxy plec, Leporacanthicus galaxias (L029), is a suckermouth catfish from the Amazon, Tocantins and other river basins in Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon basin (Lower Amazon: Tocantins, Guamá and Nhamundá; Middle Amazon (Solimões): Madeira) and Upper Orinoco (Ventuari).",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon basin (Lower Amazon: Tocantins, Guamá and Nhamundá; Middle Amazon (Solimões): Madeira) and Upper Orinoco (Ventuari).",
+        "ok": true
+      },
+      {
+        "name": "Madeira",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon basin (Lower Amazon: Tocantins, Guamá and Nhamundá; Middle Amazon (Solimões): Madeira) and Upper Orinoco (Ventuari).",
+        "ok": true
+      },
+      {
+        "name": "Tocantins",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio Tocantins, Lagoa em frenta a Jacobal, Pará State, Brazil",
         "country": "BR",
         "ok": true
       }
