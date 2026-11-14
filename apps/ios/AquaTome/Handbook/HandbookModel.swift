@@ -104,7 +104,12 @@ final class HandbookModel {
     drawn = Self.pageCache(source, site: site)
     paths = HandbookPaths(lang: lang, cache: drawn)
     #if DEBUG
-    if ProcessInfo.processInfo.arguments.contains("-watch-tank-searches") { tankSearchChanges = 0; watchTankSearches() }
+    let args = ProcessInfo.processInfo.arguments
+    if args.contains("-watch-tank-searches") { tankSearchChanges = 0; watchTankSearches() }
+    // `-read-familiar N`: the first N of `-familiar`'s fish read in turn, the Nth last, so "Đọc gần đây" runs long.
+    if let n = args.firstIndex(of: "-read-familiar").flatMap({ $0 + 1 < args.count ? Int(args[$0 + 1]) : nil }), n > 0 {
+      for i in 1...n { paths.read(HandbookIndex.Item(kind: .fish, name: "Cá quen \(i)", path: "/vi/ca/ca-quen-\(i)/")) }
+    }
     #endif
   }
 

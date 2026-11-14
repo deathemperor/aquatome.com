@@ -6,8 +6,17 @@ import Testing
   var r = ReadingList()
   r.read("/a/"); r.read("/b/"); r.read("/a/")
   #expect(r.recent == ["/a/", "/b/"])
-  for n in 0..<30 { r.read("/p\(n)/") }
-  #expect(r.recent.count == ReadingList.recentMax && r.recent.first == "/p29/" && !r.recent.contains("/a/"))
+  for n in 0..<600 { r.read("/p\(n)/") }
+  #expect(r.recent.count == ReadingList.recentMax && r.recent.first == "/p599/" && !r.recent.contains("/a/"))
+}
+
+/// A list kept when the app kept 20 comes back whole and grows past 20: nobody's pages read last are lost.
+@Test func aListKeptAtTwentyComesBackWholeAndGrows() throws {
+  let old = (0..<20).map { "/p\($0)/" }
+  var r = try JSONDecoder().decode(ReadingList.self, from: JSONSerialization.data(withJSONObject: ["saved": [String](), "recent": old]))
+  #expect(r.recent == old)
+  for n in 20..<60 { r.read("/p\(n)/") }
+  #expect(r.recent.count == 60 && r.recent.last == "/p0/")
 }
 
 @Test func savingTogglesNewestFirst() throws {

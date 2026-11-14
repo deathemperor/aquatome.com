@@ -31,9 +31,9 @@ struct BrowseHome: View {
   var body: some View {
     let s = handbook.shelves
     let top = featuredItems(s)
-    // Its first 21, then "Xem tất cả": only those come off the shelves below.
+    // Saved: its first 21; read last: its first 30; each then "Xem tất cả". Only those come off the shelves below.
     let saved = Array(savedShown.filter { !top.map(\.path).contains($0.path) }.prefix(HandbookShelves.Shown.saved))
-    let recent = recentShown.filter { r in !(top + saved).contains { $0.path == r.path } }
+    let recent = Array(recentShown.filter { r in !(top + saved).contains { $0.path == r.path } }.prefix(HandbookShelves.Shown.recent))
     // A page on one shelf only, the first it's on (its zoom starts there).
     let onTop = Set((top + saved + recent).map(\.path))
     NavigationStack(path: $path) {
@@ -45,7 +45,7 @@ struct BrowseHome: View {
           }
           if !top.isEmpty { featured(top) }
           if !saved.isEmpty { columns("Đã lưu để đọc sau", saved, more: Browse.saved) }
-          if !recent.isEmpty { columns("Đọc gần đây", recent) }
+          if !recent.isEmpty { columns("Đọc gần đây", recent, more: recentShown.count > recent.count ? Browse.recent : nil) }
           if !handbook.keptItems.isEmpty { chips([(String(localized: "Đã tải để đọc offline"), handbook.keptItems.count, Browse.kept)]) }
           if !s.groups.isEmpty {
             VStack(alignment: .leading, spacing: 12) {
@@ -122,7 +122,7 @@ struct BrowseHome: View {
   }
 
   private func holdShelves() {
-    recentShown = handbook.recent(nil)
+    recentShown = handbook.recent(nil, limit: ReadingList.recentMax)
     savedShown = handbook.saved(nil)
   }
 

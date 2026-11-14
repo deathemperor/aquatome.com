@@ -1421,6 +1421,27 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.staticTexts["Đọc gần đây"].waitForExistence(timeout: 5), "it never took its place")
   }
 
+  /// "Đọc gần đây" shows the 30 pages read last, and its "Xem tất cả" every page kept, newest first (the owner, 15 Nov:
+  /// "Increase display of recently view to 30. Recording of recently viewed need to be big too").
+  func testReadLastShowsThe30ReadLastAndItsListAllOfThem() {
+    let app = launch("-v2", "YES", "-familiar", "40", "-read-familiar", "35")
+    app.launchForFlow()
+    app.openTab("Khám phá")
+    let title = app.staticTexts["Đọc gần đây"]
+    XCTAssertTrue(title.waitForExistence(timeout: 5), "no Đọc gần đây")
+    XCTAssertTrue(app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá quen 35")).firstMatch.exists, "the last read isn't first")
+    let more = app.buttons.matching(NSPredicate(format: "label == %@", "Xem tất cả")).allElementsBoundByIndex
+      .first { abs($0.frame.midY - title.frame.midY) < 30 }
+    XCTAssertNotNil(more, "no Xem tất cả beside Đọc gần đây")
+    more?.tap()
+    let list = app.descendants(matching: .any)["recent"]
+    XCTAssertTrue(list.waitForExistence(timeout: 5), "its list didn't open")
+    XCTAssertTrue(app.staticTexts["Cá quen 35"].waitForExistence(timeout: 5), "the last read isn't on the list")
+    // Past the row's 30: the first one read, the 35th from the newest.
+    for _ in 0..<8 where !app.staticTexts["Cá quen 1"].exists { list.swipeUp() }
+    XCTAssertTrue(app.staticTexts["Cá quen 1"].exists, "the list stops short of what's kept")
+  }
+
   /// A page just opened (`opened` comes), read down to its end: nowhere a row to v1's whole page.
   private func readWhole(_ app: XCUIApplication, _ page: String, opened: XCUIElement) {
     XCTAssertTrue(opened.waitForExistence(timeout: 5), "\(page) didn't open as it should")
