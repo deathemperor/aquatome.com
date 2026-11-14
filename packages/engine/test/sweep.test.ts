@@ -1153,6 +1153,25 @@ test("a photo on the never-again list leaves every equipment page and each langu
   expect((await sweep(root)).again).toEqual([])
 })
 
+test('a photo with a cleared shop\'s own mark kept goes after every unmarked photo, one its source names only to the genus too; a second sweep changes nothing', async () => {
+  const root = await store()
+  await sweep(root)
+  const at = 'content/species/corydoras-sterbai/entity.json'
+  const e = await json(root, at)
+  const own = e.photos[0]
+  const genus = photo('https://media.aquatome.com/commons/genus.webp', 'Corydoras sp.')
+  const page = 'https://bwaquatics.com/products/corydoras-sterbai'
+  const kept = { ...photo('https://media.aquatome.com/bwaquatics/kept.webp', 'Corydoras sterbai'), source: 'bwaquatics', sourceUrl: page }
+  const screen = await json(root, 'engine-state/_photo-watermarks.json').catch(() => ({}))
+  await writeFile(join(root, 'engine-state/_photo-watermarks.json'), JSON.stringify({ ...screen, [kept.url]: { ocr: [], watermark: true, kind: 'logo', retainedOwnMark: { source: 'bwaquatics', sourceUrl: page, owner: 'source' } } }))
+  const yes = { ok: 'yes', typical: true, person: false, logo: false }
+  await writeFile(join(root, 'engine-state/_photo-subjects.json'), JSON.stringify({ [own.url]: { 'corydoras-sterbai': yes }, [kept.url]: { 'corydoras-sterbai': { ...yes, logo: true } } }))
+  await writeFile(join(root, at), JSON.stringify({ ...e, photos: [own, kept, genus] }))
+  await sweep(root)
+  expect((await json(root, at)).photos.map((p: { url: string }) => p.url)).toEqual([own.url, genus.url, kept.url])
+  expect((await sweep(root)).files).toEqual([])
+})
+
 test('a head its source names only to the genus goes behind a photo named to the species that passes as a head; a pick of it still leads; a second sweep changes nothing', async () => {
   const root = await store()
   await sweep(root)

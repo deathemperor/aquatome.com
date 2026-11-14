@@ -36,6 +36,7 @@ import { readVideoRejected } from './videos'
 import { orderAlbums } from './gallery'
 import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
 import { holdForSecondLook, listAgreed, looks, readSecondLook } from './last-photo'
+import { keptLast } from './own-mark'
 import { namedOn, namedOrder, passesHead } from './photo-named'
 
 /**
@@ -701,7 +702,8 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // while one named better passes as a head (photo-named.ts). The photo check and the lead step rank the same way; this
   // has the last word, so no step between them leaves such a head. A standing pick still leads (the loop below).
   {
-    const asHead = passesHead(await readVerdicts(root))
+    const verdicts = await readVerdicts(root)
+    const asHead = passesHead(verdicts), kept = (u: string) => !!verdicts.kept?.(u)
     const on = await namedOn(content)
     type Named = { kind: string; id: string; file: string; raw: string; e: { scientificName?: string; synonyms?: string[]; photos?: Photo[] } }
     const read = async (kind: string) => Promise.all((await readdir(join(content, kind)).catch(() => [] as string[])).sort().map(async (id): Promise<Named | null> => {
@@ -712,11 +714,13 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     const pages = (await Promise.all(['species', 'plants', 'breeds'].map(read))).flat().filter((x): x is Named => !!x)
     for (const p of pages) {
       const photos = p.e.photos ?? []
-      if (photos.length < 2 || !p.e.scientificName) continue
+      if (photos.length < 2) continue
       // A standing pick keeps its place here, the rest ordered around it: the loop below puts it first and says so.
       const ref = `${p.kind}/${p.id}`, pick = headPicks[ref]
       const at = pick && pickStands(ref, pick, subjects, yes) ? photos.findIndex(x => x.url === pick) : -1
-      const now = namedOrder(at >= 0 ? photos.filter((_, i) => i !== at) : photos, on(p.id), x => asHead(x, p.id))
+      const rest = at >= 0 ? photos.filter((_, i) => i !== at) : photos
+      // A kept-mark photo after every unmarked one, as the photo check orders it, on a page with no Latin name too.
+      const now = keptLast(p.e.scientificName ? namedOrder(rest, on(p.id), x => asHead(x, p.id)) : rest, kept)
       if (at >= 0) now.splice(at, 0, photos[at]!)
       if (now.every((x, i) => x.url === photos[i]!.url)) continue
       if (now[0]!.url !== photos[0]!.url) report.named.push(`${ref}: ${photos[0]!.url} -> ${now[0]!.url}`)
@@ -898,8 +902,8 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     for (const [url, why] of maps) if (!rejected[url]) { rejected[url] = why; report.rejected++ }
     if (report.rejected) await writePhotoState(rejectedFile, rejected)
   }
-  // Every photo on the never-again list leaves the pages and albums the photo check strips, by the check's own rule (an
-  // Aquarium Glaser photo with the shop's own mark kept stays: watermarks.ts keptOwnMark). The check strips them only
+  // Every photo on the never-again list leaves the pages and albums the photo check strips, by the check's own rule (a
+  // cleared shop's photo with the shop's own mark kept stays: watermarks.ts keptOwnMark). The check strips them only
   // in the tree its run started from. The cycle's push keeps its own lines where they clash with main's, so a photo a
   // person took off while a run was under way came back in its album (three on 2026-11-11). The cycle sweeps after it
   // catches up with main, after a clash at its push and after a clean pull there that brought main's commits in

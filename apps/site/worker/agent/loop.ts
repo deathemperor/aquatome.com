@@ -101,9 +101,10 @@ export type AgentInput<Step> = {
    * For a call that hasn't begun writing with `ms` of the run left: it's given up, and one more is asked that can only
    * answer, with no thinking, at most `maxTokens`, at `lastEffort`, told `word`, so the reader gets a short answer and
    * not an error. So too for a call that runs out `callMs` unwritten. `begun`: some of the answer has reached the reader,
-   * and a second answer can't follow it.
+   * and a second answer can't follow it. `thinking`: the switch that turns the model's thinking off, as it accepts it
+   * (chat/agent.ts `NO_THINKING`); none is sent without it.
    */
-  lastTry?: { ms: number; maxTokens: number; word: string; begun: () => boolean }
+  lastTry?: { ms: number; maxTokens: number; word: string; begun: () => boolean; thinking?: Anthropic.ThinkingConfigParam }
   clock?: () => number
 }
 
@@ -169,7 +170,7 @@ export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step
         system: a.system,
         tools,
         tool_choice: forced ? { type: 'none' } : { type: 'auto' },
-        ...(trying ? { thinking: { type: 'disabled' as const } } : a.thinking ? { thinking: a.thinking } : {}),
+        ...(trying ? (a.lastTry!.thinking ? { thinking: a.lastTry!.thinking } : {}) : a.thinking ? { thinking: a.thinking } : {}),
         output_config: { effort, format: { type: 'json_schema', schema: a.schema } },
         messages: trying ? withWord(history, a.lastTry!.word) : forced && a.lastWord ? withWord(history, a.lastWord) : [...history],
       }, { timeoutMs: wait, writingMs: room, call: run.calls })

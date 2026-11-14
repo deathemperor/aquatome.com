@@ -1,5 +1,8 @@
+import { mkdir, mkdtemp, writeFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { CF, GENUS, knownNames, namedAs, namedOrder, SPECIES, type Named } from '../src/photo-named'
+import { CF, GENUS, knownNames, namedAs, namedOn, namedOrder, SPECIES, storedTitles, type Named } from '../src/photo-named'
 
 // The 30 heads on main whose source's words said "sp.", "spp." or "cf." (the chief of staff's rulings, 2026-11-14): each
 // page's scientific name, the photo's address and its caption, as they were.
@@ -134,3 +137,68 @@ test("the source's description naming this species outranks a file's name naming
   expect(at('Ophthalmotilapia ventralis', 'Ophthalmotilapia_sp._-_5289', 'Cá Ophthalmotilapia ventralis màu vàng ô liu bơi trong bể thủy sinh')).toBe(GENUS)
   expect(at('Heros severus', 'Heros_notatus01', 'Cá severus đực màu tím ánh xanh, đốm đen')).toBe(GENUS)
 })
+
+test("a source page's own title stands for its address where it says which fish it is (the chief of staff, 2026-11-14: five heads were counted as another fish by an old or copied address)", () => {
+  const known = knownNames(['Betta raja', 'Betta anabatoides', 'Parosphromenus parvulus', 'Parosphromenus linkei', 'Schismatogobius ampluvinculus', 'Stiphodon ornatus', 'Esmaeilius persicus', 'Aphanius farsicus', 'Moema hellneri', 'Annamia thuathienensis'].map(scientificName => ({ scientificName })))
+  const at = (sci: string, sourceUrl: string, stored?: string, caption = '') => namedAs({ sourceUrl, caption }, { sci, known }, stored)
+  // The five, as main had them on 14 Nov: the address alone said another fish or "cf."; the page's title says ours.
+  expect(at('Betta raja', 'https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas-1')).toBe(GENUS)
+  expect(at('Betta raja', 'https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas-1', 'Betta Raja | Wild Type Bettas – BWAquatics')).toBe(SPECIES)
+  expect(at('Parosphromenus parvulus', 'https://bwaquatics.com/products/parosphromenus-linkei-9g6xs-y9399', 'Parosphromenus Parvulus – BWAquatics')).toBe(SPECIES)
+  expect(at('Schismatogobius ampluvinculus', 'https://bwaquatics.com/products/stiphodon-ornatus-copy', 'Schismatogobius ampluvinculus (Micro Dragon Goby) – BWAquatics')).toBe(SPECIES)
+  expect(at('Esmaeilius persicus', 'https://www.seriouslyfish.com/species/aphanius-farsicus', 'Esmaeilius persicus (Farsi Toothcarp) · Seriously Fish', "Adult male specimen in spawning condition; 'Lake Maharlu 1,2' population.")).toBe(SPECIES)
+  expect(at('Moema hellneri', 'https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/moema_hellneri_m_cf_ortegai__en/')).toBe(CF)
+  expect(at('Moema hellneri', 'https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/moema_hellneri_m_cf_ortegai__en/', 'Moema hellneri - Aquarium Glaser GmbH')).toBe(SPECIES)
+  // The other way: a plain address whose page's own title says "cf." (Seriously Fish's "Annamia cf. thuathienensis").
+  expect(at('Annamia thuathienensis', 'https://www.seriouslyfish.com/species/annamia-thuathienensis', 'Annamia cf. thuathienensis · Seriously Fish')).toBe(CF)
+  // A title that names no fish leaves the address to decide; a caption still counts as before.
+  expect(at('Betta raja', 'https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas-1', 'Wild Type Bettas – BWAquatics')).toBe(GENUS)
+  expect(at('Esmaeilius persicus', 'https://www.seriouslyfish.com/species/aphanius-farsicus', 'Esmaeilius persicus (Farsi Toothcarp) · Seriously Fish', "Adult male of A. sp. 'Maharlu'.")).toBe(GENUS)
+})
+
+test("the stored title is read from the engine's copy of the source page, only where the copy is that address's, and through namedOn", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'named-titles-'))
+  await mkdir(join(root, 'sources/bwaquatics'), { recursive: true })
+  await mkdir(join(root, 'sources/glaser'), { recursive: true })
+  await writeFile(join(root, 'sources/bwaquatics/products-betta-anabatoides-wild-type-bettas-1.md'), '---\nurl: https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas-1\ntitle: Betta Raja | Wild Type Bettas – BWAquatics\n---\n\nText.\n')
+  await writeFile(join(root, 'sources/glaser/en-moema-hellneri-en.md'), '---\nurl: https://www.aquariumglaser.de/en/moema_hellneri_en/\ntitle: Moema hellneri (= M. cf. ortegai) - Aquarium Glaser GmbH\n---\n')
+  const titles = storedTitles(join(root, 'sources'))
+  expect(titles({ source: 'bwaquatics', sourceUrl: 'https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas-1' })).toBe('Betta Raja | Wild Type Bettas – BWAquatics')
+  // A former name in brackets is left out; a trailing slash on either address is the same address.
+  expect(titles({ source: 'glaser', sourceUrl: 'https://www.aquariumglaser.de/en/moema_hellneri_en' })).toBe('Moema hellneri - Aquarium Glaser GmbH')
+  // No copy, another address's copy, or a Commons file: none.
+  expect(titles({ source: 'bwaquatics', sourceUrl: 'https://bwaquatics.com/products/nothing-here' })).toBeUndefined()
+  expect(titles({ sourceUrl: 'https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas-1' })).toBeUndefined()
+  expect(titles({ source: 'bwaquatics', sourceUrl: 'https://commons.wikimedia.org/wiki/File:Betta_anabatoides.jpg' })).toBeUndefined()
+  await writeFile(join(root, 'sources/bwaquatics/products-moved.md'), '---\nurl: https://bwaquatics.com/products/other\ntitle: Betta Raja\n---\n')
+  expect(titles({ source: 'bwaquatics', sourceUrl: 'https://bwaquatics.com/products/moved' })).toBeUndefined()
+  // namedOn reads them beside content/.
+  for (const [id, sci] of [['betta-raja', 'Betta raja'], ['betta-anabatoides', 'Betta anabatoides']] as const) {
+    await mkdir(join(root, 'content/species', id), { recursive: true })
+    await writeFile(join(root, 'content/species', id, 'entity.json'), JSON.stringify({ scientificName: sci, photos: [] }))
+  }
+  const on = await namedOn(join(root, 'content'))
+  expect(on('betta-raja')({ source: 'bwaquatics', sourceUrl: 'https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas-1' })).toBe(SPECIES)
+})
+
+test("the second and third reads' captions that don't plainly say the photo shows this fish (2026-11-14), and a genus typed with a capital I", () => {
+  const known = knownNames(['Colossoma macropomum', 'Piaractus brachypomus', 'Corydoras elegans', 'Clarias batrachus'].map(scientificName => ({ scientificName })))
+  const at = (sci: string, title: string, caption: string) => namedAs({ sourceUrl: `https://commons.wikimedia.org/wiki/File:${title}.jpg`, caption }, { sci, known })
+  for (const caption of ["This isn't Colossoma macropomum", 'Similar to Colossoma macropomum', 'Rather than Colossoma macropomum', 'Instead of Colossoma macropomum', 'c.f. Colossoma macropomum', 'Colossoma macropomum. Piaractus'])
+    expect(at('Colossoma macropomum', 'Piaractus_sp', caption), caption).toBe(GENUS)
+  // A plain description whose name in brackets ends the sentence.
+  expect(at('Corydoras elegans', 'Corydoras_sp', 'The Elegant corydoras (Corydoras elegans).')).toBe(SPECIES)
+  expect(at('Clarias batrachus', '小丑武士_CIarias_sp._-_panoramio', '')).toBe(GENUS)
+})
+
+test("the source's own description, kept beside our caption from the album step's intake, is read before our caption (the chief of staff, 2026-11-14)", () => {
+  const known = knownNames(['Pseudoplatystoma fasciatum', 'Pseudoplatystoma tigrinum'].map(scientificName => ({ scientificName })))
+  const photo = { sourceUrl: 'https://commons.wikimedia.org/wiki/File:Pseudoplatystoma_tigrinum1.jpg', caption: 'Cá da trơn mũi xẻng sọc bơi trong nước, râu dài' }
+  const page = { sci: 'Pseudoplatystoma fasciatum', known }
+  // Without it, our Vietnamese caption says nothing and the file's name names another fish.
+  expect(namedAs(photo, page)).toBe(GENUS)
+  expect(namedAs({ ...photo, sourceCaption: 'Tiger sorubim Pseudoplatystoma fasciatum' }, page)).toBe(SPECIES)
+  // It counts as the source's words, hedges and all.
+  expect(namedAs({ ...photo, sourceCaption: 'Possibly Pseudoplatystoma fasciatum' }, page)).toBe(GENUS)
+})
+

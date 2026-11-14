@@ -1,4 +1,85 @@
 {
+  "vi/glossary/chu-trinh-nito": [
+    {
+      "at": "2026-11-14T21:42:07Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Lọc chín khi TAN và nitrit lên đỉnh rồi giảm về 0 hoặc gần 0, sau đó nitrat tăng lên.\" (not \"Lọc chín khi TAN và nitrit lên đỉnh rồi giảm xuống, sau đó nitrat tăng lên.\": Rule 12: \"Lọc chín khi TAN và nitrit lên đỉnh rồi giảm xuống, sau đó nitrat tăng lên.\": THIS TERM says this sentence must say that TAN …",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Khử clo cho nước máy bằng một trong ba cách: trữ 3–4 ngày, sục khí 24 giờ, hoặc dùng thuốc khử clo loại xử lý được cả chloramine và giữ lại amoniac mà nó nhả ra.\" (not \"Khử clo cho nước máy bằng một trong ba cách: trữ trong thùng 3–4 ngày, sục khí trong thùng 24 giờ, hoặc dùng Seachem Prime.\": Rules 8 and…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cá thả vào giai đoạn amoniac rất dễ mắc bệnh và có thể chết.\" (not \"Cá thả vào giai đoạn amoniac rất dễ mắc bệnh.\": Rule 12: \"Thả cá khi chu trình chưa ổn định. Cá thả vào giai đoạn amoniac rất dễ mắc bệnh.\": THIS TERM says this mistakes item must also say that the fish can die. The entry only says they f…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-14T21:42:07Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Rules 8 and 12: \"hoặc dùng Seachem Prime\" in \"Khử clo cho nước máy bằng một trong ba cách: trữ 3–4 ngày, sục khí 24 giờ, hoặc dùng Seachem Prime.\" names a product. THIS TERM says to name it by its kind as \"thuốc khử clo\", the kind that also handles chloramine and binds the ammonia it releases, never by a brand.",
+        "Rule 12: \"Lọc chín khi TAN và nitrit lên đỉnh rồi giảm xuống, sau đó nitrat tăng lên.\" leaves out \"0 hoặc gần 0\". THIS TERM says TAN and nitrite fall to 0 or near 0, and that this is said once, in this sentence.",
+        "Rule 12: \"Thả cá khi chu trình chưa ổn định. Cá thả vào giai đoạn amoniac rất dễ mắc bệnh.\" doesn't say the fish can die. THIS TERM says to say it here, once.",
+        "Rule 4: the daily testing step appears twice: \"Đo TAN và nitrit bằng bộ test mỗi ngày cho đến khi lọc chín.\" (in \"Trong bể của bạn\") and \"Đo TAN và nitrit mỗi ngày, thay nước thường xuyên cho tới khi lọc chín.\" (step 4). It should be said in one place only."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-14T17:11:02Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Loose, reworded: \"Lọc chín khi TAN và nitrit lên đỉnh rồi tụt về 0 hoặc gần 0, đồng thời nitrat bắt đầu tăng.\" → \"Lọc chín khi TAN và nitrit lên đỉnh rồi giảm xuống, sau đó nitrat tăng lên.\" (supported)",
+        "Loose, reworded: \"Cứ dựa vào số đo test để biết lọc đã chín chưa, đừng đếm số tuần.\" → \"Đo TAN và nitrit bằng bộ test mỗi ngày cho đến khi lọc chín.\" (supported)",
+        "Loose, reworded: \"Khử clo cho nước máy bằng một trong ba cách: trữ 3–4 ngày, sục khí 24 giờ, hoặc dùng thuốc khử clo.\" → \"Khử clo cho nước máy bằng một trong ba cách: trữ 3–4 ngày, sục khí 24 giờ, hoặc dùng Seachem Prime.\" (supported)",
+        "Loose, reworded: \"Châm thêm men vi sinh của hãng uy tín, hoặc lấy vật liệu lọc, nước, bông lọc từ một bể đã ổn định mà cá trong đó đều khỏe.\" → \"Châm thêm men vi sinh của hãng uy tín, hoặc lấy nước, bông lọc từ một bể đã ổn định; riêng vật liệu lọc thì chỉ lấy từ bể đã ổn định mà cá trong đó đều khỏe.\" (supported)",
+        "Loose, reworded: \"Cá đang ở giai đoạn amoniac rất dễ bệnh và chết.\" → \"Cá thả vào giai đoạn amoniac rất dễ mắc bệnh.\" (supported)"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-14T17:11:02Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Thả cá hay trồng cây khi chu trình chưa ổn định. Cá đang ở giai đoạn amoniac rất dễ bệnh và chết, còn cây có thể bị thối rễ.\" lists planting before the cycle is stable as a mistake and warns of root rot. THIS TERM says planting first is not a mistake, because only one shop makes that claim and AquaTome's own cycling guides plant first and then cycle. Keep only the fish half, e.g. \"Thả c…"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-14T01:10:39Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.9,
+      "notes": [
+        "\"Cứ dựa vào số đo test để biết lọc đã chín chưa, đừng đếm số tuần\" is the guide's own advice. The facts do say the cycle is complete when test readings drop to or near 0, but they don't tell keepers to ignore the number of weeks."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-14T01:10:39Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.95,
+      "notes": [
+        "Rule 4: The warning that adding fish too early kills them appears twice. The definition says \"amoniac và nitrit dễ tăng vọt và giết cá nếu thả cá quá sớm\", and the mistakes list says it again in \"Thả cá hay trồng cây khi chu trình chưa ổn định. Cá đang ở giai đoạn amoniac rất dễ bệnh và chết\". The point about the new tank's missing bacteria is also repeated: \"Bể mới chưa có đàn vi khuẩn này\" in t…",
+        "Rule 4: The note that sources disagree, \"Có tiệm nói chu trình xong sau 1–2 tuần, nhưng tài liệu thú y ghi rằng lọc mới thường mất khoảng 6 tuần mới ổn định hẳn\", doesn't say what the keeper can do about it. It should tell the keeper to go by test readings (TAN and nitrit at or near 0, nitrat rising) rather than by a set number of weeks.",
+        "The entry is 478 words: hold it to about 300, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    }
+  ],
   "vi/glossary/lua": [
     {
       "at": "2026-11-14T04:29:50Z",
@@ -120,79 +201,6 @@
         "\"Manzanita ... nhiều nhánh nhỏ\" and \"Mopani ... hay có hốc\": 'nhiều nhánh nhỏ' for manzanita is not stated. TFH says 'twiggy', so this is roughly supported. \"Mopani ... Ngoài nâu nhạt\" matches the 'tan outside' fact."
       ],
       "attempt": "rewrite",
-      "kept": false
-    }
-  ],
-  "vi/glossary/chu-trinh-nito": [
-    {
-      "at": "2026-11-14T17:11:02Z",
-      "model": "sonnet",
-      "cli": "2.1.323",
-      "score": 1,
-      "notes": [
-        "Loose, reworded: \"Lọc chín khi TAN và nitrit lên đỉnh rồi tụt về 0 hoặc gần 0, đồng thời nitrat bắt đầu tăng.\" → \"Lọc chín khi TAN và nitrit lên đỉnh rồi giảm xuống, sau đó nitrat tăng lên.\" (supported)",
-        "Loose, reworded: \"Cứ dựa vào số đo test để biết lọc đã chín chưa, đừng đếm số tuần.\" → \"Đo TAN và nitrit bằng bộ test mỗi ngày cho đến khi lọc chín.\" (supported)",
-        "Loose, reworded: \"Khử clo cho nước máy bằng một trong ba cách: trữ 3–4 ngày, sục khí 24 giờ, hoặc dùng thuốc khử clo.\" → \"Khử clo cho nước máy bằng một trong ba cách: trữ 3–4 ngày, sục khí 24 giờ, hoặc dùng Seachem Prime.\" (supported)",
-        "Loose, reworded: \"Châm thêm men vi sinh của hãng uy tín, hoặc lấy vật liệu lọc, nước, bông lọc từ một bể đã ổn định mà cá trong đó đều khỏe.\" → \"Châm thêm men vi sinh của hãng uy tín, hoặc lấy nước, bông lọc từ một bể đã ổn định; riêng vật liệu lọc thì chỉ lấy từ bể đã ổn định mà cá trong đó đều khỏe.\" (supported)",
-        "Loose, reworded: \"Cá đang ở giai đoạn amoniac rất dễ bệnh và chết.\" → \"Cá thả vào giai đoạn amoniac rất dễ mắc bệnh.\" (supported)"
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-14T17:11:02Z",
-      "model": "sonnet",
-      "cli": "2.1.323",
-      "score": 1,
-      "notes": [
-        "Rule 12: \"Thả cá hay trồng cây khi chu trình chưa ổn định. Cá đang ở giai đoạn amoniac rất dễ bệnh và chết, còn cây có thể bị thối rễ.\" lists planting before the cycle is stable as a mistake and warns of root rot. THIS TERM says planting first is not a mistake, because only one shop makes that claim and AquaTome's own cycling guides plant first and then cycle. Keep only the fish half, e.g. \"Thả c…"
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-14T01:10:39Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.323",
-      "score": 0.9,
-      "notes": [
-        "\"Cứ dựa vào số đo test để biết lọc đã chín chưa, đừng đếm số tuần\" is the guide's own advice. The facts do say the cycle is complete when test readings drop to or near 0, but they don't tell keepers to ignore the number of weeks."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-14T01:10:39Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.323",
-      "score": 0.95,
-      "notes": [
-        "Rule 4: The warning that adding fish too early kills them appears twice. The definition says \"amoniac và nitrit dễ tăng vọt và giết cá nếu thả cá quá sớm\", and the mistakes list says it again in \"Thả cá hay trồng cây khi chu trình chưa ổn định. Cá đang ở giai đoạn amoniac rất dễ bệnh và chết\". The point about the new tank's missing bacteria is also repeated: \"Bể mới chưa có đàn vi khuẩn này\" in t…",
-        "Rule 4: The note that sources disagree, \"Có tiệm nói chu trình xong sau 1–2 tuần, nhưng tài liệu thú y ghi rằng lọc mới thường mất khoảng 6 tuần mới ổn định hẳn\", doesn't say what the keeper can do about it. It should tell the keeper to go by test readings (TAN and nitrit at or near 0, nitrat rising) rather than by a set number of weeks.",
-        "The entry is 478 words: hold it to about 300, and leave what is left out to the pages that use the term."
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-14T01:10:39Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.323",
-      "score": 0.85,
-      "notes": [
-        "\"muối hột\": the facts only say \"salt\" and don't name rock or coarse salt as the type to use.",
-        "\"Nghĩ rằng men vi sinh khử được clo\": the facts say only that Seachem Stability doesn't remove chlorine. The guide applies this to bacteria products in general.",
-        "\"Liều và cách dùng: xem bài hướng dẫn chữa bệnh\": the guide points to another article that the facts don't mention. The facts give no emergency salt dose.",
-        "Rule 4: The idea that plants take up nitrate is said twice. It appears in the first paragraph as \"Cây hút nitrat làm phân\" and again in step 5 as \"trồng thêm cây để hút bớt nitrat\". It should be said once, in one place.",
-        "Rule 4: Checking the tap water for chloramine is said twice. Step 2 says \"Nếu nước máy có chloramine thì dùng loại khử được chloramine\", and the first-aid paragraph says \"Nhớ kiểm tra xem nước nguồn có sẵn amoniac hay chloramine không\". It should be said once, in one place.",
-        "Rule 4: The bacteria's need for oxygen is said twice. The first paragraph has \"Cả hai nhóm đều cần oxy\" and step 1 has \"sục khí, vì vi khuẩn dùng nhiều oxy\". It should be said once, in one place.",
-        "Rules 1 and 4: The two water-change amounts for high ammonia are set side by side without telling the keeper which to follow. One is \"thay ngay ít nhất 50% nước\" and the other is \"Có tiệm khuyên thay 30–50% mỗi ngày\". The disagreement should be stated once, together with what the keeper should do.",
-        "The entry is 833 words: hold it to about 300, and leave what is left out to the pages that use the term."
-      ],
-      "attempt": "first",
       "kept": false
     }
   ]
