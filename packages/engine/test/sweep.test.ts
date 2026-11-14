@@ -306,6 +306,35 @@ test("a fish its source's caption calls unwell leaves a page that has another ph
   expect((await json(root, 'content/gallery/ddd-breed.json')).photos).toEqual([])
 })
 
+test("the unwell rule keeps a page's last photo when the never-again list takes the other in the same sweep, and an album's last on a page with none of its own (the guard's read, 14 Nov)", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'sweep-'))
+  const c = join(root, 'content')
+  const put = async (path: string, data: unknown) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, 2)}\n`) }
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await mkdir(c, { recursive: true })
+  await copyFile(new URL('../../../content/sources.json', import.meta.url), join(c, 'sources.json'))
+  const sf = (name: string, caption: string) => ({ ...photo(`https://media.aquatome.com/seriouslyfish/${name}.webp`, caption), sourceUrl: 'https://www.seriouslyfish.com/species/x/' })
+  // A guide's check listed `person` while the page still had `hurt` beside it, so it held neither.
+  const person = sf('person', 'Adult male.'), hurt = sf('hurt', 'Male specimen with fin damage caused by another male.')
+  await put('species/lll-two/entity.json', species('lll-two', 'Lll two', { photos: [person, hurt] }))
+  await put('species/lll-two/vi.json', vi('Cá chạch suối hai', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  await writeFile(join(root, 'engine-state/_photo-rejected.json'), JSON.stringify({ [person.url]: 'people' }))
+  // No photo of its own: the page shows its album.
+  const lone = sf('lone', 'Recently-deceased specimen.')
+  await put('species/mmm-album/entity.json', species('mmm-album', 'Mmm album', { photos: [] }))
+  await put('species/mmm-album/vi.json', vi('Cá chạch suối album', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  await put('gallery/mmm-album.json', { id: 'mmm-album', photos: [lone], seen: 1, updatedAt: '2026-10-01' })
+  const r = await sweep(root)
+  expect((await json(root, 'content/species/lll-two/entity.json')).photos).toEqual([hurt])
+  expect((await json(root, 'content/gallery/mmm-album.json')).photos).toEqual([lone])
+  expect(r.unwell).toEqual([
+    `species/lll-two: ${hurt.url} (damage; the page's only photo)`,
+    `species/mmm-album: ${lone.url} (deceased; the page's only photo)`,
+  ])
+  expect(Object.keys(await json(root, 'engine-state/_photo-rejected.json'))).toEqual([person.url])
+  expect(ratcheted(checkPages(await loadPages(c), RULES.filter(x => x.id in RATCHETED)).findings).filter(f => f.rule === 'unwell')).toEqual([])
+})
+
 test("a run that would take more photos off every page than its cap takes none off, lists them, and leaves the check failing for a person; with the cap raised they go", async () => {
   const root = await mkdtemp(join(tmpdir(), 'sweep-'))
   const c = join(root, 'content')

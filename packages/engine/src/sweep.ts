@@ -364,6 +364,13 @@ export async function ownPages(content: string, rows: readonly FishName[] = FISH
  * letters and digits. Where one caption sits under several figures, the first decides, as the picker keeps the first
  * figure of a caption. A photo with no caption, and one the saved copy doesn't show, can't be told and stay.
  */
+/** The never-again list as the sweep strips it: a listed photo leaves every page, but one a shop's own mark keeps (watermarks.ts keptOwnMark). */
+async function neverAgain(root: string) {
+  const rejected = JSON.parse(await readFile(join(root, 'engine-state', '_photo-rejected.json'), 'utf8').catch(() => '{}')) as Record<string, string>
+  const kept = keptOwnMark(rejected, JSON.parse(await readFile(join(root, 'engine-state', '_photo-watermarks.json'), 'utf8').catch(() => '{}')) as Record<string, WatermarkEntry>)
+  return { rejected, listed: (url: string) => url in rejected && !kept(url) }
+}
+
 async function refusedByCredit(root: string, content: string): Promise<Map<string, string>> {
   const records = JSON.parse(await readFile(join(content, 'sources.json'), 'utf8').catch(() => '{}')) as Record<string, { permission?: { refusedCredits?: string[] } }>
   const refused = new Map(Object.entries(records).flatMap(([s, r]) => (r.permission?.refusedCredits?.length ? [[s, r.permission.refusedCredits.map(alnum)] as const] : [])))
@@ -695,17 +702,28 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     if (why) off.set(`${p.kind}/${p.id}`, (off.get(`${p.kind}/${p.id}`) ?? new Map()).set(c.url, why))
     if ((unfit || !other) && why) maps.set(c.url, `${why} (${p.kind}/${p.id})`)
   }
+  // What leaves the pages in this pass on another rule's word: a map or a plate above, a credit whose permission we don't
+  // hold, and the never-again list, which a second look's agreed photos join first (last-photo.ts). The unwell rule
+  // counts none of them as a photo its page keeps. Counted as kept, a photo a guide's check had listed while the page
+  // still had another let the unwell rule take that other, and the page was left with none (the guard's read, 14 Nov).
+  report.agreed.push(...await listAgreed(root))
+  const credit = await refusedByCredit(root, content)
+  const already = (await neverAgain(root)).listed
+  const before = new Set([...maps.keys(), ...credit.keys()])
+  const going = (url: string) => before.has(url) || already(url)
   // A fish its source's caption calls unwell (dead, thin, wounded, sick: content-rules.ts captionFlaw) is not shown where
   // its page has another photo of its own: off the page and its gallery, and never picked again. A page's only photo
   // stays, off every card (curation.ts cardWorthy), and is listed for a person.
   const everyPage = new Set<string>() // the photos this rule alone would take off every page
   for (const p of all) {
     const key = `${p.kind}/${p.id}`
-    const { off: gone, kept, picked } = unwellOff(p, new Set(off.get(key)?.keys()))
+    const leaving = [...(p.own ?? []), ...(p.album ?? []).map(c => c.url)].filter(going)
+    const { off: gone, kept, picked } = unwellOff(p, new Set([...(off.get(key)?.keys() ?? []), ...leaving]))
     if (kept) report.unwell.push(`${key}: ${kept.url} (${kept.word}; the page's only photo)`)
     // A head a person picked stays until a person says it goes: listed each run with its caption, at the size readers see.
     if (picked) report.unwell.push(`${key}: ${picked.url} (${picked.word}; a head a person picked. Its caption: "${p.captions.find(c => c.url === picked.url)?.caption ?? ''}")`)
     for (const x of gone) {
+      if (going(x.url)) continue // off in this pass on another rule's word
       const why = `unwell: its source's caption says "${x.word}"`
       const drop = off.get(key) ?? new Map<string, string>()
       if (!drop.has(x.url)) off.set(key, drop.set(x.url, why))
@@ -718,12 +736,12 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   for (const p of all) {
     const drop = off.get(`${p.kind}/${p.id}`)
     // Distinct photos: two pages today list one address twice among their own.
-    const left = [...new Set((p.own ?? []).filter(u => !drop?.has(u)))]
+    const left = [...new Set((p.own ?? []).filter(u => !drop?.has(u) && !going(u)))]
     for (const url of [...(left.length === 1 ? left : []), ...(p.picked && left.includes(p.picked) ? [p.picked] : [])]) if (everyPage.has(url)) maps.delete(url)
   }
   // A photo credited to someone its source's permission doesn't cover (a picture agency's) leaves every page and album
   // for good, under the same cap (the chief of staff, 2026-11-13: a picture agency's photos are never ours).
-  for (const [url, why] of await refusedByCredit(root, content)) if (!maps.has(url)) maps.set(url, why)
+  for (const [url, why] of credit) if (!maps.has(url)) maps.set(url, why)
   if (maps.size > cap) {
     // Too many to take off for good with nobody looking: they stay where they are, and a person is told (PHOTO_CAP).
     report.held = [...maps].map(([url, why]) => `${url} (${why})`)
@@ -805,12 +823,8 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // in the tree its run started from. The cycle's push keeps its own lines where they clash with main's, so a photo a
   // person took off while a run was under way came back in its album (three on 2026-11-11). The cycle sweeps after it
   // catches up with main, after a clash at its push and after a clean pull there that brought main's commits in
-  // (cycle-checks.sh swept_pull).
-  // What a second look agreed on goes on the list first (last-photo.ts), so it leaves every page in this pass.
-  report.agreed.push(...await listAgreed(root))
-  const rejected = JSON.parse(await readFile(join(root, 'engine-state', '_photo-rejected.json'), 'utf8').catch(() => '{}')) as Record<string, string>
-  const kept = keptOwnMark(rejected, JSON.parse(await readFile(join(root, 'engine-state', '_photo-watermarks.json'), 'utf8').catch(() => '{}')) as Record<string, WatermarkEntry>)
-  const listed = (url: string) => url in rejected && !kept(url)
+  // (cycle-checks.sh swept_pull). What a second look agreed on joined the list above.
+  const { rejected, listed } = await neverAgain(root)
   const shownIn = async (kind: string) => (await readdir(join(content, kind)).catch(() => [] as string[])).sort().map(id => join(content, kind, id, 'entity.json'))
   const galleryFiles = (await readdir(join(content, 'gallery')).catch(() => [] as string[])).filter(f => f.endsWith('.json')).sort().map(f => join(content, 'gallery', f))
   // Equipment pages too (a category's hero and its types' photos, each language's copy): the photo check strips every
