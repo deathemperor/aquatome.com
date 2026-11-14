@@ -37,6 +37,8 @@ final class AccountModel {
   private(set) var state = State.unknown
   /// The last sync that went through on this phone, kept across launches while signed in.
   private(set) var syncedAt: Date?
+  /// The tanks the account held at the last sync on this phone, by id, kept across launches while signed in.
+  private(set) var heldTanks: Set<String> = []
   private(set) var syncFault: SyncFault?
   /// The ways the account signed in when its session ended (it expired, or was signed out elsewhere): their buttons come
   /// first, so the reader doesn't make a second account with another, until an account signs in. Kept across launches.
@@ -117,6 +119,7 @@ final class AccountModel {
       let u = try? JSONDecoder().decode(AccountUser.self, from: kept) {
       state = .signedIn(u)
       syncedAt = UserDefaults.standard.object(forKey: Self.keptSyncedAt) as? Date
+      heldTanks = Set(UserDefaults.standard.stringArray(forKey: Self.keptHeldTanks) ?? [])
     }
     endedWays = UserDefaults.standard.stringArray(forKey: Self.keptEnded)
     endedSeen = UserDefaults.standard.bool(forKey: Self.keptEndedSeen)
@@ -125,6 +128,7 @@ final class AccountModel {
   /// The account as last seen signed in on this phone (its id and ways to sign in; nothing secret).
   private static let keptUser = "account.user"
   private static let keptSyncedAt = "account.syncedAt"
+  private static let keptHeldTanks = "account.heldTanks"
   private static let keptEnded = "account.endedWays"
   private static let keptEndedSeen = "account.endedSeen"
 
@@ -433,6 +437,8 @@ final class AccountModel {
       synced = tanks.store
       syncedAt = Date()
       UserDefaults.standard.set(syncedAt, forKey: Self.keptSyncedAt)
+      heldTanks = Set(r.store.tanks.map(Tank.init(json:)).filter { !$0.isTombstone }.map(\.id))
+      UserDefaults.standard.set(Array(heldTanks), forKey: Self.keptHeldTanks)
       syncs += 1
       let added = tanks.tanks.count - before
       syncFault = r.refused.isEmpty ? nil : .failed(String(localized: "\(r.refused.count) bản ghi không hợp lệ nên chưa vào tài khoản."), retry: false)
@@ -454,6 +460,10 @@ final class AccountModel {
     syncing = false
     if again { again = false; await sync() }
   }
+
+  /// Whether the account held `tank` at the last sync on this phone: signed in, and the tank neither added since nor
+  /// refused by the server. A tank's chat ("Hỏi về bể này") can ask the server only about a tank it holds.
+  func holds(_ tank: Tank) -> Bool { user != nil && heldTanks.contains(tank.id) }
 
   /// A change made on the phone: synced a moment later.
   func changed() {
@@ -586,8 +596,10 @@ final class AccountModel {
     signingInAgain = false
     synced = nil
     syncedAt = nil
+    heldTanks = []
     syncFault = nil
     UserDefaults.standard.removeObject(forKey: Self.keptSyncedAt)
+    UserDefaults.standard.removeObject(forKey: Self.keptHeldTanks)
     later?.cancel()
     if state != .off { state = .signedOut }
   }
