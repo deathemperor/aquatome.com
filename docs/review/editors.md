@@ -130,6 +130,7 @@ The calendar's nine new weeks (`content/curation.json`). These aren't in the tal
 | 3 | Anthropic, xAI | 9, 9 | 8, 8 | 8, 8 | 9, 8 |
 | 4 | Anthropic, xAI | 9, 9 | 9, 9 | 8, 8 | 8, 9 |
 | 5 | Anthropic, xAI | 9, 9 | 9, 9 | 8, 8 | 9, 8 |
+| 6 | Anthropic, xAI | 9, 9 | 8, 8 | 9, 9 | 8, 8 |
 
 Round 1 had the xAI seat alone: Cursor refused OpenAI and Google (not in that week's usage), and no Claude helper ran
 before 14 Nov.
@@ -186,6 +187,12 @@ shelf holds the koi betta and koi angelfish, not the koi carp (both seats on the
 for "giữ ấm cho bể". Dropped: Malay "musim tengkujuh" off the heater shelf (one seat; the week is for the rainy season's
 cool nights, and the other seat asked for it in round 2), "menyambut" again, the otocinclus and twig catfish named on
 the corydoras-and-plecos shelf (scored at 9; "lau kiếng" is the whole family on this site).
+
+Round 6 (14 Nov): Vietnamese and Thai held 9 with both seats. Held, both seats: the Indonesian and Malay koi shelf's bare
+"Koi" read as the koi carp, which it doesn't hold; Indonesian now names the koi betta and koi angelfish, Malay the
+angelfish alone (no Malay koi betta page). Held, both in some form: the Vietnamese "Những con cá đầu tiên cho bể mới"
+shortened to "Cá đầu tiên cho bể mới" (neither form is in the forum or the videos; a heading's padding). Dropped: Malay
+"Kelisa" again (the arowana shelf doesn't show in Malay yet, and holds the silver arowana).
 
 ## Vietnamese
 
