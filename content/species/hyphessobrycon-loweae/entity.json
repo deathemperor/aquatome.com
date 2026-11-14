@@ -10,6 +10,82 @@
     "brazil",
     "mato-grosso"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Brazil (caught in Mato Grosso).",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354660,
+      "total": 47,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "BR",
+          47
+        ]
+      ],
+      "cells": [
+        [
+          -56.25,
+          -16.875,
+          4,
+          4
+        ],
+        [
+          -56.25,
+          -12.65625,
+          14,
+          14
+        ],
+        [
+          -56.25,
+          -11.25,
+          3,
+          3
+        ],
+        [
+          -54.84375,
+          -15.46875,
+          11,
+          11
+        ],
+        [
+          -53.4375,
+          -14.0625,
+          10,
+          10
+        ],
+        [
+          -53.4375,
+          -12.65625,
+          3,
+          3
+        ],
+        [
+          -52.03125,
+          -14.0625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -1,9 +1,19 @@
 {
   "id": "pyrrhulina-brevis",
   "native": {
-    "input": "b9fdb4990e7641f3",
-    "at": "2026-11-13T11:20:11.221Z",
-    "claims": [],
+    "input": "14146033a556a698",
+    "at": "2026-11-14T05:39:06.336Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Peru.",
+        "words": "Peru",
+        "ok": false,
+        "why": "no sentence"
+      }
+    ],
     "regions": [],
     "disputed": [],
     "outranked": [],

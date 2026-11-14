@@ -534,6 +534,18 @@
       "kept": true
     }
   ],
+  "id/places/arapiuns": [
+    {
+      "at": "2026-11-14T05:11:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/ararangua": [
     {
       "at": "2026-11-12T20:40:40Z",
@@ -586,6 +598,20 @@
       "kept": true
     }
   ],
+  "id/places/armila-river": [
+    {
+      "at": "2026-11-14T05:11:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Armila → Armila: lacks 'Sungai' (should be Sungai Armila)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/arut": [
     {
       "at": "2026-11-08T05:19:45Z",
@@ -612,6 +638,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/atesu-river": [
+    {
+      "at": "2026-11-14T05:11:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Atesu, Luapula, Lufira, Ruzizi, Marah, Cana, Chio, Cuyuni, das Almas, Guamá, Gurupi, Huacamayo, Jacuhy, Yuruá, Japurá: rivers lacking 'Sungai'"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -976,6 +1016,20 @@
       "model": "sonnet",
       "score": 0.2,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/batang-kayan": [
+    {
+      "at": "2026-11-14T05:11:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Kayan → should be Sungai Kayan / Batang Kayan"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -3074,6 +3128,20 @@
       "kept": true
     }
   ],
+  "id/places/duc-my": [
+    {
+      "at": "2026-11-14T05:11:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Duc My → Duc My (Vietnamese source, fine) but dubious"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/duc-my-river": [
     {
       "at": "2026-11-08T08:48:27Z",
@@ -3292,6 +3360,18 @@
         "fly-river: \"Fly\" lacks \"Sungai\" (should be Sungai Fly)"
       ],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/fraser-island": [
+    {
+      "at": "2026-11-14T05:11:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -4061,6 +4141,18 @@
       "kept": true
     }
   ],
+  "id/places/ingei": [
+    {
+      "at": "2026-11-14T05:11:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/inle": [
     {
       "at": "2026-11-09T00:08:04Z",
@@ -4096,6 +4188,18 @@
       "at": "2026-11-08T05:20:19Z",
       "model": "sonnet",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/iriri": [
+    {
+      "at": "2026-11-14T05:11:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -4287,6 +4391,18 @@
       "kept": true
     }
   ],
+  "id/places/jamanxim": [
+    {
+      "at": "2026-11-14T05:11:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/jamanxim-river": [
     {
       "at": "2026-11-08T05:20:19Z",
@@ -4305,6 +4421,20 @@
       "cli": "2.1.322",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/japura-river": [
+    {
+      "at": "2026-11-14T05:11:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Atesu, Luapula, Lufira, Ruzizi, Marah, Cana, Chio, Cuyuni, das Almas, Guamá, Gurupi, Huacamayo, Jacuhy, Yuruá, Japurá: rivers lacking 'Sungai'"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -5187,6 +5317,20 @@
       "kept": true
     }
   ],
+  "id/places/kolok-river": [
+    {
+      "at": "2026-11-14T05:11:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Golok → should be Sungai Golok"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/komo": [
     {
       "at": "2026-11-08T05:20:20Z",
@@ -5384,6 +5528,18 @@
       "ran": "claude-sonnet-5-5",
       "cli": "2.1.322",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/labuan-island": [
+    {
+      "at": "2026-11-14T05:11:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -5910,6 +6066,18 @@
       "kept": true
     }
   ],
+  "id/places/lake-tanganyka": [
+    {
+      "at": "2026-11-14T05:11:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/lake-tapana": [
     {
       "at": "2026-11-12T13:10:55Z",
@@ -6047,6 +6215,18 @@
       "at": "2026-11-08T05:20:20Z",
       "model": "sonnet",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/landfall-island": [
+    {
+      "at": "2026-11-14T05:11:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -6447,6 +6627,20 @@
       "kept": true
     }
   ],
+  "id/places/luapula-river": [
+    {
+      "at": "2026-11-14T05:11:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Atesu, Luapula, Lufira, Ruzizi, Marah, Cana, Chio, Cuyuni, das Almas, Guamá, Gurupi, Huacamayo, Jacuhy, Yuruá, Japurá: rivers lacking 'Sungai'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/luculla": [
     {
       "at": "2026-11-12T13:10:55Z",
@@ -6455,6 +6649,20 @@
       "cli": "2.1.322",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/lufira-river": [
+    {
+      "at": "2026-11-14T05:11:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Atesu, Luapula, Lufira, Ruzizi, Marah, Cana, Chio, Cuyuni, das Almas, Guamá, Gurupi, Huacamayo, Jacuhy, Yuruá, Japurá: rivers lacking 'Sungai'"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -6561,6 +6769,18 @@
       "notes": [
         "Mã (should be Sungai Mã)"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/macae": [
+    {
+      "at": "2026-11-14T05:11:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -7049,6 +7269,20 @@
       "kept": true
     }
   ],
+  "id/places/marah-river": [
+    {
+      "at": "2026-11-14T05:11:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Atesu, Luapula, Lufira, Ruzizi, Marah, Cana, Chio, Cuyuni, das Almas, Guamá, Gurupi, Huacamayo, Jacuhy, Yuruá, Japurá: rivers lacking 'Sungai'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/maranon-river": [
     {
       "at": "2026-11-08T05:20:55Z",
@@ -7207,6 +7441,18 @@
       "kept": true
     }
   ],
+  "id/places/maues-acu": [
+    {
+      "at": "2026-11-14T05:11:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/mauritania": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -7308,6 +7554,20 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/mekang": [
+    {
+      "at": "2026-11-14T05:11:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Mekang → เมกัง (Thai script, not Indonesian)"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -7515,6 +7775,18 @@
       "kept": true
     }
   ],
+  "id/places/mirinay": [
+    {
+      "at": "2026-11-14T05:11:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/mishmee-hills": [
     {
       "at": "2026-11-08T20:40:33Z",
@@ -7574,6 +7846,20 @@
       "score": 0.4,
       "notes": [
         "Thoungyin River → เมย (Thai script, not Indonesian; Indonesian would be Sungai Moei/Thaungyin)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/moesi-river": [
+    {
+      "at": "2026-11-14T05:11:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Musi → should be Sungai Musi"
       ],
       "attempt": "first",
       "kept": true
@@ -7936,6 +8222,20 @@
       "kept": true
     }
   ],
+  "id/places/nam-ma-oun": [
+    {
+      "at": "2026-11-14T05:11:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Nam Ma Oun → น้ำมาอูน (Thai script, not Indonesian)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/nam-mae-lao": [
     {
       "at": "2026-11-08T05:20:55Z",
@@ -8128,11 +8428,35 @@
       "kept": true
     }
   ],
+  "id/places/ngoko": [
+    {
+      "at": "2026-11-14T05:11:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/nhamunda": [
     {
       "at": "2026-11-07T03:57:48Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/nias": [
+    {
+      "at": "2026-11-14T05:11:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -8255,6 +8579,18 @@
       "at": "2026-11-10T01:37:16Z",
       "model": "sonnet",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/north-andaman": [
+    {
+      "at": "2026-11-14T05:11:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -8724,6 +9060,18 @@
       "at": "2026-11-08T15:22:22Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/paraguacu": [
+    {
+      "at": "2026-11-14T05:11:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -9682,6 +10030,20 @@
       "kept": true
     }
   ],
+  "id/places/rio-cana": [
+    {
+      "at": "2026-11-14T05:11:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Atesu, Luapula, Lufira, Ruzizi, Marah, Cana, Chio, Cuyuni, das Almas, Guamá, Gurupi, Huacamayo, Jacuhy, Yuruá, Japurá: rivers lacking 'Sungai'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-capim": [
     {
       "at": "2026-11-10T17:42:34Z",
@@ -9759,6 +10121,20 @@
       "kept": true
     }
   ],
+  "id/places/rio-chio": [
+    {
+      "at": "2026-11-14T05:11:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Atesu, Luapula, Lufira, Ruzizi, Marah, Cana, Chio, Cuyuni, das Almas, Guamá, Gurupi, Huacamayo, Jacuhy, Yuruá, Japurá: rivers lacking 'Sungai'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-cinaruco": [
     {
       "at": "2026-11-08T05:21:29Z",
@@ -9831,6 +10207,34 @@
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-cuyuni": [
+    {
+      "at": "2026-11-14T05:11:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Atesu, Luapula, Lufira, Ruzizi, Marah, Cana, Chio, Cuyuni, das Almas, Guamá, Gurupi, Huacamayo, Jacuhy, Yuruá, Japurá: rivers lacking 'Sungai'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-das-almas": [
+    {
+      "at": "2026-11-14T05:11:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Atesu, Luapula, Lufira, Ruzizi, Marah, Cana, Chio, Cuyuni, das Almas, Guamá, Gurupi, Huacamayo, Jacuhy, Yuruá, Japurá: rivers lacking 'Sungai'"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -9974,6 +10378,20 @@
       "kept": true
     }
   ],
+  "id/places/rio-guama": [
+    {
+      "at": "2026-11-14T05:11:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Atesu, Luapula, Lufira, Ruzizi, Marah, Cana, Chio, Cuyuni, das Almas, Guamá, Gurupi, Huacamayo, Jacuhy, Yuruá, Japurá: rivers lacking 'Sungai'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-guamal": [
     {
       "at": "2026-11-09T00:08:05Z",
@@ -10000,6 +10418,34 @@
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-gurupi": [
+    {
+      "at": "2026-11-14T05:11:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Atesu, Luapula, Lufira, Ruzizi, Marah, Cana, Chio, Cuyuni, das Almas, Guamá, Gurupi, Huacamayo, Jacuhy, Yuruá, Japurá: rivers lacking 'Sungai'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-huacamayo": [
+    {
+      "at": "2026-11-14T05:11:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Atesu, Luapula, Lufira, Ruzizi, Marah, Cana, Chio, Cuyuni, das Almas, Guamá, Gurupi, Huacamayo, Jacuhy, Yuruá, Japurá: rivers lacking 'Sungai'"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -10126,6 +10572,20 @@
         "Rio Ivinheima → \"Ivinheima\" (a river, so it should be \"Sungai Ivinheima\")"
       ],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/rio-jacuhy": [
+    {
+      "at": "2026-11-14T05:11:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Atesu, Luapula, Lufira, Ruzizi, Marah, Cana, Chio, Cuyuni, das Almas, Guamá, Gurupi, Huacamayo, Jacuhy, Yuruá, Japurá: rivers lacking 'Sungai'"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -11168,6 +11628,20 @@
       "kept": true
     }
   ],
+  "id/places/rio-yurua": [
+    {
+      "at": "2026-11-14T05:11:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Atesu, Luapula, Lufira, Ruzizi, Marah, Cana, Chio, Cuyuni, das Almas, Guamá, Gurupi, Huacamayo, Jacuhy, Yuruá, Japurá: rivers lacking 'Sungai'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/river-choluteca": [
     {
       "at": "2026-11-12T13:10:56Z",
@@ -11378,6 +11852,20 @@
       "score": 0.1,
       "notes": [
         "ruvu-river: \"sông Ruvu\" (Vietnamese; should be Sungai Ruvu)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/ruzizi-river": [
+    {
+      "at": "2026-11-14T05:11:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Atesu, Luapula, Lufira, Ruzizi, Marah, Cana, Chio, Cuyuni, das Almas, Guamá, Gurupi, Huacamayo, Jacuhy, Yuruá, Japurá: rivers lacking 'Sungai'"
       ],
       "attempt": "first",
       "kept": true
@@ -11640,6 +12128,18 @@
       "at": "2026-11-08T05:21:30Z",
       "model": "sonnet",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/san-alejandro": [
+    {
+      "at": "2026-11-14T05:11:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -12349,6 +12849,18 @@
       "kept": true
     }
   ],
+  "id/places/south-china-sea": [
+    {
+      "at": "2026-11-14T05:11:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/south-kalimantan": [
     {
       "at": "2026-11-08T05:21:59Z",
@@ -12431,6 +12943,18 @@
       "kept": true
     }
   ],
+  "id/places/st-john": [
+    {
+      "at": "2026-11-14T05:11:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/st-john-s-river": [
     {
       "at": "2026-11-11T01:41:42Z",
@@ -12505,12 +13029,38 @@
       "kept": true
     }
   ],
+  "id/places/sunda-islands": [
+    {
+      "at": "2026-11-14T05:11:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/sungai-bernam": [
     {
       "at": "2026-11-09T07:33:47Z",
       "model": "sonnet",
       "score": 0.2,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/sungai-sarawak": [
+    {
+      "at": "2026-11-14T05:11:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Sarawak → should be Sungai Sarawak"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -12812,6 +13362,18 @@
       "kept": true
     }
   ],
+  "id/places/tasmania": [
+    {
+      "at": "2026-11-14T05:11:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/tatau": [
     {
       "at": "2026-11-08T08:48:28Z",
@@ -13050,6 +13612,18 @@
       "notes": [
         "Sungai names given without \"Sungai\" (Singen, Sita, Sittang, Sittaung, St. Johns, Tanintharyi, Thamirabarani, Tocantins, Tonle Sap, Tshuapa, Vaal, Yamuna, Yom, Yangtze, Huang He): inconsistent with Indonesian atlas style, which uses \"Sungai X\""
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/thandwe": [
+    {
+      "at": "2026-11-14T05:11:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -13726,6 +14300,20 @@
       "score": 0.4,
       "notes": [
         "Waigiou → Waigeo: the source name is outdated, but the Indonesian output is correct. It should be \"Pulau Waigeo\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/wang-river": [
+    {
+      "at": "2026-11-14T05:11:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "wang-river: วัง (Thai script, not Indonesian)"
       ],
       "attempt": "first",
       "kept": true
@@ -14963,6 +15551,18 @@
       "kept": true
     }
   ],
+  "ms/places/arapiuns": [
+    {
+      "at": "2026-11-14T05:31:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/ararangua": [
     {
       "at": "2026-11-12T20:52:01Z",
@@ -15021,6 +15621,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/armila-river": [
+    {
+      "at": "2026-11-14T05:31:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "\"Armila\" (river): should be \"Sungai Armila\""
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -15101,6 +15715,20 @@
       "model": "sonnet",
       "score": 0.55,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/atesu-river": [
+    {
+      "at": "2026-11-14T05:31:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "\"Atesu\" (river): should be \"Sungai Atesu\""
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -15638,6 +16266,18 @@
       "score": 0.93,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "ms/places/batang-kayan": [
+    {
+      "at": "2026-11-14T05:31:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -17837,6 +18477,18 @@
       "kept": true
     }
   ],
+  "ms/places/duc-my": [
+    {
+      "at": "2026-11-14T05:31:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/duc-my-river": [
     {
       "at": "2026-11-08T12:44:35Z",
@@ -17996,6 +18648,18 @@
       "at": "2026-11-09T00:52:34Z",
       "model": "sonnet",
       "score": 0.4,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/fraser-island": [
+    {
+      "at": "2026-11-14T05:31:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -19130,6 +19794,18 @@
       "kept": true
     }
   ],
+  "ms/places/ingei": [
+    {
+      "at": "2026-11-14T05:31:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/inirida": [
     {
       "at": "2026-11-08T03:36:56Z",
@@ -19207,6 +19883,18 @@
       "at": "2026-11-08T12:44:36Z",
       "model": "sonnet",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/iriri": [
+    {
+      "at": "2026-11-14T05:31:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -19482,6 +20170,18 @@
       "kept": true
     }
   ],
+  "ms/places/jamanxim": [
+    {
+      "at": "2026-11-14T05:31:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/jamanxim-river": [
     {
       "at": "2026-11-08T12:44:36Z",
@@ -19531,6 +20231,20 @@
       "score": 0.7,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "ms/places/japura-river": [
+    {
+      "at": "2026-11-14T05:31:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "\"Japurá\" (river): should be \"Sungai Japurá\""
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -20618,6 +21332,20 @@
       "kept": true
     }
   ],
+  "ms/places/kolok-river": [
+    {
+      "at": "2026-11-14T05:31:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "\"Golok\" (river): should be \"Sungai Golok\""
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/komo": [
     {
       "at": "2026-11-08T12:44:36Z",
@@ -20802,6 +21530,18 @@
       "notes": [
         "la-plata-river-basin: \"Lembangan La Plata\" (missing \"Sungai\"; inconsistent with other basin names)"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/labuan-island": [
+    {
+      "at": "2026-11-14T05:31:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -21226,6 +21966,18 @@
       "kept": true
     }
   ],
+  "ms/places/lake-tanganyka": [
+    {
+      "at": "2026-11-14T05:31:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/lake-tapana": [
     {
       "at": "2026-11-12T13:20:24Z",
@@ -21350,6 +22102,18 @@
       "notes": [
         "\"Sungai Lancang\" fine"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/landfall-island": [
+    {
+      "at": "2026-11-14T05:31:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -21718,6 +22482,20 @@
       "kept": true
     }
   ],
+  "ms/places/luapula-river": [
+    {
+      "at": "2026-11-14T05:31:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "\"Luapula\" (river): should be \"Sungai Luapula\""
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/luculla": [
     {
       "at": "2026-11-12T13:20:24Z",
@@ -21726,6 +22504,20 @@
       "cli": "2.1.322",
       "score": 0.5,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/lufira-river": [
+    {
+      "at": "2026-11-14T05:31:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "\"Lufira\" (river): should be \"Sungai Lufira\""
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -21826,6 +22618,18 @@
         "\"Mareremar\": should be \"Sungai Mareremar\".",
         "\"Norman\": should be \"Sungai Norman\"."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/macae": [
+    {
+      "at": "2026-11-14T05:31:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -22270,6 +23074,20 @@
       "kept": true
     }
   ],
+  "ms/places/marah-river": [
+    {
+      "at": "2026-11-14T05:31:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "\"Marah\" (river): should be \"Sungai Marah\""
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/maranon-river": [
     {
       "at": "2026-11-08T12:45:10Z",
@@ -22398,6 +23216,18 @@
       "kept": true
     }
   ],
+  "ms/places/maues-acu": [
+    {
+      "at": "2026-11-14T05:31:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/mazaruni": [
     {
       "at": "2026-11-08T12:45:10Z",
@@ -22468,6 +23298,18 @@
       "notes": [
         "sông Meenachil → Meenachil (Malay: Sungai Meenachil)"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/mekang": [
+    {
+      "at": "2026-11-14T05:31:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -22652,6 +23494,18 @@
       "kept": true
     }
   ],
+  "ms/places/mirinay": [
+    {
+      "at": "2026-11-14T05:31:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/mishmee-hills": [
     {
       "at": "2026-11-09T00:52:35Z",
@@ -22714,6 +23568,20 @@
       "model": "sonnet",
       "score": 0.8,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/moesi-river": [
+    {
+      "at": "2026-11-14T05:31:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "\"Musi\" (river): should be \"Sungai Musi\""
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -23046,6 +23914,18 @@
       "kept": true
     }
   ],
+  "ms/places/nam-ma-oun": [
+    {
+      "at": "2026-11-14T05:31:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/nam-mae-lao": [
     {
       "at": "2026-11-08T12:45:11Z",
@@ -23250,11 +24130,35 @@
       "kept": true
     }
   ],
+  "ms/places/ngoko": [
+    {
+      "at": "2026-11-14T05:31:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/nhamunda": [
     {
       "at": "2026-11-07T08:26:43Z",
       "model": "sonnet",
       "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/nias": [
+    {
+      "at": "2026-11-14T05:31:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -23374,6 +24278,18 @@
       "at": "2026-11-10T10:08:06Z",
       "model": "sonnet",
       "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/north-andaman": [
+    {
+      "at": "2026-11-14T05:31:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -23776,6 +24692,18 @@
       "at": "2026-11-08T15:47:59Z",
       "model": "sonnet",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/paraguacu": [
+    {
+      "at": "2026-11-14T05:31:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -25073,6 +26001,20 @@
       "kept": true
     }
   ],
+  "ms/places/rio-cana": [
+    {
+      "at": "2026-11-14T05:31:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "\"Cana\" (river): should be \"Sungai Cana\""
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/rio-canoas": [
     {
       "at": "2026-11-08T03:37:07Z",
@@ -25175,6 +26117,20 @@
       "kept": true
     }
   ],
+  "ms/places/rio-chio": [
+    {
+      "at": "2026-11-14T05:31:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "\"Chio\" (river): should be \"Sungai Chio\""
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/rio-cinaruco": [
     {
       "at": "2026-11-08T12:45:47Z",
@@ -25244,6 +26200,30 @@
       "at": "2026-11-08T12:45:47Z",
       "model": "sonnet",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/rio-cuyuni": [
+    {
+      "at": "2026-11-14T05:31:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/rio-das-almas": [
+    {
+      "at": "2026-11-14T05:31:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -25413,6 +26393,18 @@
       "kept": true
     }
   ],
+  "ms/places/rio-guama": [
+    {
+      "at": "2026-11-14T05:31:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/rio-guamal": [
     {
       "at": "2026-11-09T00:52:35Z",
@@ -25458,6 +26450,30 @@
       "at": "2026-11-08T12:45:47Z",
       "model": "sonnet",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/rio-gurupi": [
+    {
+      "at": "2026-11-14T05:31:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/rio-huacamayo": [
+    {
+      "at": "2026-11-14T05:31:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -25584,6 +26600,18 @@
       "score": 0.93,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "ms/places/rio-jacuhy": [
+    {
+      "at": "2026-11-14T05:31:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -26823,6 +27851,18 @@
       "kept": true
     }
   ],
+  "ms/places/rio-yurua": [
+    {
+      "at": "2026-11-14T05:31:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/river-choluteca": [
     {
       "at": "2026-11-12T13:20:45Z",
@@ -27077,6 +28117,18 @@
       "notes": [
         "Rivers lack 'Sungai': 'Capim', 'Cauca', 'Marowijne', 'Morichal', 'Morona', 'Orthon', 'Pará', 'San Miguel', 'Santiago', 'Sucio', 'Teuchitlán', 'Tigre', 'Truandó', 'Choluteca', 'Motagua', 'Naranjo', 'Roaring', 'Ruvu', 'Sakaramy', 'Salween', 'Sipaliwini', 'Solimões', 'St. Francis', 'St. Johns', 'St. Lawrence', 'Tennessee', 'Waccasassa', 'Wacissa', 'Xingu', 'Yenna'. Malay atlas would write 'Sungai X'."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/ruzizi-river": [
+    {
+      "at": "2026-11-14T05:31:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -27378,6 +28430,18 @@
       "at": "2026-11-08T12:46:22Z",
       "model": "sonnet",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/san-alejandro": [
+    {
+      "at": "2026-11-14T05:31:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -28003,6 +29067,18 @@
       "kept": true
     }
   ],
+  "ms/places/south-china-sea": [
+    {
+      "at": "2026-11-14T05:31:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/south-kalimantan": [
     {
       "at": "2026-11-08T12:46:23Z",
@@ -28086,6 +29162,18 @@
       "kept": true
     }
   ],
+  "ms/places/st-john": [
+    {
+      "at": "2026-11-14T05:31:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/st-john-s-river": [
     {
       "at": "2026-11-12T13:20:46Z",
@@ -28154,11 +29242,35 @@
       "kept": true
     }
   ],
+  "ms/places/sunda-islands": [
+    {
+      "at": "2026-11-14T05:31:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/sungai-bernam": [
     {
       "at": "2026-11-10T10:08:07Z",
       "model": "sonnet",
       "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/sungai-sarawak": [
+    {
+      "at": "2026-11-14T05:31:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -28446,6 +29558,18 @@
       "kept": true
     }
   ],
+  "ms/places/tasmania": [
+    {
+      "at": "2026-11-14T05:31:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/tatau": [
     {
       "at": "2026-11-08T12:46:23Z",
@@ -28673,6 +29797,18 @@
       "at": "2026-11-08T12:46:23Z",
       "model": "sonnet",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/thandwe": [
+    {
+      "at": "2026-11-14T05:31:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -29639,6 +30775,18 @@
       "notes": [
         "waigiou: \"Waigeo\" – fine as a name, but inconsistent with source; acceptable"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/wang-river": [
+    {
+      "at": "2026-11-14T05:31:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -30724,6 +31872,20 @@
       "kept": true
     }
   ],
+  "th/places/arapiuns": [
+    {
+      "at": "2026-11-14T05:18:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "Arapiuns → อาราปีอุนส์ (usual: อาราปิอุนส์/อาราปิอุนซ์; doubtful)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/ararangua": [
     {
       "at": "2026-11-12T20:43:38Z",
@@ -30785,6 +31947,20 @@
       "kept": true
     }
   ],
+  "th/places/armila-river": [
+    {
+      "at": "2026-11-14T05:18:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "Armila → อาร์มีลา (likely fine, minor)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/aru-islands": [
     {
       "at": "2026-11-06T12:36:07Z",
@@ -30830,6 +32006,18 @@
       "at": "2026-11-08T05:27:07Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/atesu-river": [
+    {
+      "at": "2026-11-14T05:18:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -31214,6 +32402,18 @@
       "at": "2026-11-11T01:45:24Z",
       "model": "sonnet",
       "score": 0.82,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/batang-kayan": [
+    {
+      "at": "2026-11-14T05:18:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -33391,6 +34591,18 @@
       "kept": true
     }
   ],
+  "th/places/duc-my": [
+    {
+      "at": "2026-11-14T05:18:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/duc-my-river": [
     {
       "at": "2026-11-08T05:27:55Z",
@@ -33630,6 +34842,18 @@
       "score": 0.55,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/fraser-island": [
+    {
+      "at": "2026-11-14T05:18:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -34451,6 +35675,20 @@
       "kept": true
     }
   ],
+  "th/places/ingei": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "Ingei → อิงเงย (doubtful transliteration)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/inle": [
     {
       "at": "2026-11-09T00:10:26Z",
@@ -34486,6 +35724,18 @@
       "at": "2026-11-08T05:27:55Z",
       "model": "sonnet",
       "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/iriri": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -34699,6 +35949,20 @@
       "kept": true
     }
   ],
+  "th/places/jamanxim": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "Jamanxim → จามันชิง (doubtful; Brazilian x = sh, ชามันชิม)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/jamanxim-river": [
     {
       "at": "2026-11-08T05:27:55Z",
@@ -34719,6 +35983,18 @@
       "notes": [
         "The Thai names are mostly plausible, but the source labels for several entries are Vietnamese (sông, đảo, bãi đá). This is not a problem with the Thai itself."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/japura-river": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -35605,6 +36881,20 @@
       "kept": true
     }
   ],
+  "th/places/kolok-river": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "Kolok → โก-ลก (hyphen; Thai name is สุไหงโก-ลก; acceptable)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/komo": [
     {
       "at": "2026-11-08T05:27:56Z",
@@ -35877,6 +37167,20 @@
       "score": 0.6,
       "notes": [
         "la-plata-river-basin: ลุ่มน้ำลาปลาตา (should be ลาพลาตา/ลาปลาตา without trailing า; 'ลุ่มน้ำริโอเดลาปลาตา')"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/labuan-island": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "Labuan → เกาะลาบวน (standard is เกาะลาบวน/ลาบวน; ok)"
       ],
       "attempt": "first",
       "kept": true
@@ -36392,6 +37696,20 @@
       "kept": true
     }
   ],
+  "th/places/lake-tanganyka": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "Tanganyika → แทนกันยีกา (standard: ทะเลสาบแทนกันยีกา; missing 'ทะเลสาบ')"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/lake-tapana": [
     {
       "at": "2026-11-12T13:12:16Z",
@@ -36543,6 +37861,18 @@
       "at": "2026-11-08T05:27:56Z",
       "model": "sonnet",
       "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/landfall-island": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -36961,6 +38291,18 @@
       ]
     }
   ],
+  "th/places/luapula-river": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/luculla": [
     {
       "at": "2026-11-12T13:12:16Z",
@@ -36968,6 +38310,18 @@
       "ran": "claude-sonnet-5-5",
       "cli": "2.1.322",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/lufira-river": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -37069,6 +38423,18 @@
       "at": "2026-11-10T01:42:04Z",
       "model": "sonnet",
       "score": 0.74,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/macae": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -37576,6 +38942,18 @@
       "kept": true
     }
   ],
+  "th/places/marah-river": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/maranon-river": [
     {
       "at": "2026-11-08T05:28:39Z",
@@ -37716,6 +39094,20 @@
       "kept": true
     }
   ],
+  "th/places/maues-acu": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "Maués Açu → เมาเอสอาซู (doubtful: เมาเอส-อาซู)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/mauritania": [
     {
       "at": "2026-11-06T12:36:07Z",
@@ -37822,6 +39214,20 @@
         "Meghna → เมฆนา (standard: เมกนา)"
       ],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/mekang": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "Mekang → เมกัง (the Thai name is probably แม่กลอง/แม่น้ำโขง; Mekang unclear)"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -38049,6 +39455,20 @@
       "kept": true
     }
   ],
+  "th/places/mirinay": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "Miriñay → มีรีญาย (doubtful; มิรินยาย)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/mishmee-hills": [
     {
       "at": "2026-11-08T20:47:48Z",
@@ -38122,6 +39542,18 @@
         "Moei → เมย (acceptable, river is แม่น้ำเมย)",
         "Thoungyin River → เมย (wrong: Thoungyin is แม่น้ำทวนยิน/ตองยิน, not เมย; missing แม่น้ำ)"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/moesi-river": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -38503,6 +39935,18 @@
       "kept": true
     }
   ],
+  "th/places/nam-ma-oun": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/nam-mae-lao": [
     {
       "at": "2026-11-08T05:28:40Z",
@@ -38757,11 +40201,35 @@
       "kept": true
     }
   ],
+  "th/places/ngoko": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/nhamunda": [
     {
       "at": "2026-11-07T04:00:41Z",
       "model": "sonnet",
       "score": 0.62,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/nias": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -38896,6 +40364,18 @@
       "at": "2026-11-10T01:42:04Z",
       "model": "sonnet",
       "score": 0.74,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/north-andaman": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -39346,6 +40826,18 @@
       "at": "2026-11-08T15:23:59Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/paraguacu": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -40349,6 +41841,18 @@
       "kept": true
     }
   ],
+  "th/places/rio-cana": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-canoas": [
     {
       "at": "2026-11-06T12:36:17Z",
@@ -40447,6 +41951,18 @@
       "kept": true
     }
   ],
+  "th/places/rio-chio": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-cinaruco": [
     {
       "at": "2026-11-08T05:29:24Z",
@@ -40520,6 +42036,30 @@
       "at": "2026-11-08T05:29:24Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/rio-cuyuni": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/rio-das-almas": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -40656,6 +42196,18 @@
       "kept": true
     }
   ],
+  "th/places/rio-guama": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-guamal": [
     {
       "at": "2026-11-09T00:10:26Z",
@@ -40691,6 +42243,30 @@
       "at": "2026-11-08T05:29:24Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/rio-gurupi": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/rio-huacamayo": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -40821,6 +42397,18 @@
         "Rio Ivinheima → อีวีนเยมา (omits 'Rio'/แม่น้ำ)"
       ],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/rio-jacuhy": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -41928,6 +43516,18 @@
       "kept": true
     }
   ],
+  "th/places/rio-yurua": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/river-choluteca": [
     {
       "at": "2026-11-12T13:12:17Z",
@@ -42153,6 +43753,18 @@
       "at": "2026-11-10T22:53:23Z",
       "model": "sonnet",
       "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/ruzizi-river": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -42405,6 +44017,18 @@
       "at": "2026-11-08T05:29:25Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/san-alejandro": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -43152,6 +44776,18 @@
       "kept": true
     }
   ],
+  "th/places/south-china-sea": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/south-kalimantan": [
     {
       "at": "2026-11-08T05:30:02Z",
@@ -43234,6 +44870,18 @@
       "kept": true
     }
   ],
+  "th/places/st-john": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/st-john-s-river": [
     {
       "at": "2026-11-11T01:45:24Z",
@@ -43306,6 +44954,18 @@
       "kept": true
     }
   ],
+  "th/places/sunda-islands": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/sungai-bernam": [
     {
       "at": "2026-11-09T07:46:38Z",
@@ -43325,6 +44985,18 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/sungai-sarawak": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -43638,6 +45310,18 @@
       "kept": true
     }
   ],
+  "th/places/tasmania": [
+    {
+      "at": "2026-11-14T05:18:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/tatau": [
     {
       "at": "2026-11-08T08:57:32Z",
@@ -43883,6 +45567,18 @@
       "at": "2026-11-08T05:30:02Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/thandwe": [
+    {
+      "at": "2026-11-14T05:18:32Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -44606,6 +46302,18 @@
       "notes": [
         "waigiou: ไวเกโอ (standard ไวกิว/วายเกียว)"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/wang-river": [
+    {
+      "at": "2026-11-14T05:18:32Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -45860,6 +47568,17 @@
       "kept": true
     }
   ],
+  "vi/places/arapiuns": [
+    {
+      "at": "2026-11-14T05:11:09Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/ararangua": [
     {
       "at": "2026-11-12T20:38:11Z",
@@ -45903,6 +47622,17 @@
       "notes": [
         "No wrong places found. Generic words are put into Vietnamese correctly: sông (river), vịnh (bay), hồ (lake), đảo (island). Proper names keep the source spelling."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/armila-river": [
+    {
+      "at": "2026-11-14T05:11:09Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -45985,6 +47715,17 @@
       "notes": [
         "No entry points to the wrong place. Every name is either a form Vietnamese readers use or the source spelling with its generic word in Vietnamese."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/atesu-river": [
+    {
+      "at": "2026-11-14T05:11:09Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -46538,6 +48279,19 @@
       "notes": [
         "No entry points to the wrong place. Every name is either a form Vietnamese readers use or the source spelling with its generic word in Vietnamese.",
         "'Bago Yoma' still contains the Burmese generic word 'yoma' (mountain range). It is the usual name, but 'dãy Bago Yoma' or 'dãy Pegu Yoma' would read better. 'Ann Chaung' ('chaung' means stream) and 'Batang Hari' ('batang' means river) are similar cases, but these are normally kept as proper names."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/batang-kayan": [
+    {
+      "at": "2026-11-14T05:11:09Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "\"sông Kayan\" for Batang Kayan is fine, because \"Batang\" means river in Malay/Iban."
       ],
       "attempt": "first",
       "kept": true
@@ -49139,6 +50893,17 @@
       "kept": true
     }
   ],
+  "vi/places/duc-my": [
+    {
+      "at": "2026-11-14T05:11:09Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/duc-my-river": [
     {
       "at": "2026-11-07T20:34:11Z",
@@ -49409,6 +51174,17 @@
       "at": "2026-11-07T20:34:11Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/fraser-island": [
+    {
+      "at": "2026-11-14T05:11:09Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -50476,6 +52252,17 @@
       "kept": true
     }
   ],
+  "vi/places/ingei": [
+    {
+      "at": "2026-11-14T05:11:09Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/inirida": [
     {
       "at": "2026-11-07T20:35:05Z",
@@ -50532,6 +52319,17 @@
     {
       "at": "2026-11-07T20:35:05Z",
       "model": "sonnet",
+      "score": 0.92,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/iriri": [
+    {
+      "at": "2026-11-14T05:11:09Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
       "score": 0.92,
       "notes": [],
       "attempt": "first",
@@ -50766,6 +52564,17 @@
       "kept": true
     }
   ],
+  "vi/places/jamanxim": [
+    {
+      "at": "2026-11-14T05:11:09Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/jamanxim-river": [
     {
       "at": "2026-11-07T20:35:05Z",
@@ -50803,6 +52612,17 @@
     {
       "at": "2026-11-07T20:35:05Z",
       "model": "sonnet",
+      "score": 0.92,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/japura-river": [
+    {
+      "at": "2026-11-14T05:11:09Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
       "score": 0.92,
       "notes": [],
       "attempt": "first",
@@ -51988,6 +53808,17 @@
       "kept": true
     }
   ],
+  "vi/places/kolok-river": [
+    {
+      "at": "2026-11-14T05:11:09Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/komo": [
     {
       "at": "2026-11-07T20:35:06Z",
@@ -52323,6 +54154,17 @@
       "model": "sonnet",
       "cli": "2.1.322",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/labuan-island": [
+    {
+      "at": "2026-11-14T05:11:09Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -53094,6 +54936,17 @@
       "kept": true
     }
   ],
+  "vi/places/lake-tanganyka": [
+    {
+      "at": "2026-11-14T05:11:09Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/lake-tapana": [
     {
       "at": "2026-11-12T13:10:35Z",
@@ -53302,6 +55155,17 @@
         "No wrong places found. All 99 names are either names Vietnamese readers already use, or the source's own name with the generic word put into Vietnamese.",
         "\"sông Lan Thương\" for Lancang Jiang and Lancangjiang River is the usual Sino-Vietnamese name."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/landfall-island": [
+    {
+      "at": "2026-11-14T05:11:09Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -53787,12 +55651,34 @@
       "kept": true
     }
   ],
+  "vi/places/luapula-river": [
+    {
+      "at": "2026-11-14T05:11:09Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/luculla": [
     {
       "at": "2026-11-12T13:10:35Z",
       "model": "sonnet",
       "cli": "2.1.322",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/lufira-river": [
+    {
+      "at": "2026-11-14T05:11:09Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -53912,6 +55798,17 @@
       "at": "2026-11-10T01:34:32Z",
       "model": "sonnet",
       "score": 0.96,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/macae": [
+    {
+      "at": "2026-11-14T05:11:09Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -54566,6 +56463,17 @@
       "kept": true
     }
   ],
+  "vi/places/marah-river": [
+    {
+      "at": "2026-11-14T05:11:09Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/maranon": [
     {
       "at": "2026-11-07T20:36:53Z",
@@ -54764,6 +56672,17 @@
       "kept": true
     }
   ],
+  "vi/places/maues-acu": [
+    {
+      "at": "2026-11-14T05:11:09Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/mayo-kebbi": [
     {
       "at": "2026-11-07T20:36:53Z",
@@ -54877,6 +56796,17 @@
       "at": "2026-11-07T20:36:53Z",
       "model": "sonnet",
       "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/mekang": [
+    {
+      "at": "2026-11-14T05:11:10Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -55175,6 +57105,17 @@
       "kept": true
     }
   ],
+  "vi/places/mirinay": [
+    {
+      "at": "2026-11-14T05:11:10Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/mishmee-hills": [
     {
       "at": "2026-11-08T20:36:09Z",
@@ -55265,6 +57206,17 @@
       "at": "2026-11-07T20:36:53Z",
       "model": "sonnet",
       "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/moesi-river": [
+    {
+      "at": "2026-11-14T05:11:10Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -55741,6 +57693,19 @@
       "kept": true
     }
   ],
+  "vi/places/nam-ma-oun": [
+    {
+      "at": "2026-11-14T05:11:10Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "\"Nam Ma Oun\" keeps the Lao word \"Nam\" (river). That is acceptable because the entry is a region name and this is its source spelling."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/nam-mae-lao": [
     {
       "at": "2026-11-07T20:36:54Z",
@@ -56087,6 +58052,17 @@
       "kept": true
     }
   ],
+  "vi/places/ngoko": [
+    {
+      "at": "2026-11-14T05:11:10Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/ngounie": [
     {
       "at": "2026-11-07T20:37:54Z",
@@ -56102,6 +58078,17 @@
       "at": "2026-11-07T20:37:54Z",
       "model": "sonnet",
       "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/nias": [
+    {
+      "at": "2026-11-14T05:11:10Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -56269,6 +58256,17 @@
       "at": "2026-11-10T01:34:32Z",
       "model": "sonnet",
       "score": 0.96,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/north-andaman": [
+    {
+      "at": "2026-11-14T05:11:10Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -56909,6 +58907,17 @@
       "at": "2026-11-07T20:37:55Z",
       "model": "sonnet",
       "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/paraguacu": [
+    {
+      "at": "2026-11-14T05:11:10Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -58221,6 +60230,17 @@
       "kept": true
     }
   ],
+  "vi/places/rio-cana": [
+    {
+      "at": "2026-11-14T05:11:10Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-canoas": [
     {
       "at": "2026-11-07T20:38:46Z",
@@ -58316,6 +60336,17 @@
       "kept": true
     }
   ],
+  "vi/places/rio-chio": [
+    {
+      "at": "2026-11-14T05:11:10Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-cinaruco": [
     {
       "at": "2026-11-07T20:38:46Z",
@@ -58387,6 +60418,30 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-cuyuni": [
+    {
+      "at": "2026-11-14T05:11:10Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-das-almas": [
+    {
+      "at": "2026-11-14T05:11:10Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "\"sông das Almas\" keeps the Portuguese preposition \"das\" (meaning \"of the\"). It is acceptable as the source's spelling, but it reads awkwardly; \"sông Almas\" would be smoother."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -58572,6 +60627,17 @@
       "kept": true
     }
   ],
+  "vi/places/rio-guama": [
+    {
+      "at": "2026-11-14T05:11:10Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-guamal": [
     {
       "at": "2026-11-09T00:06:31Z",
@@ -58619,6 +60685,28 @@
       "at": "2026-11-07T20:38:47Z",
       "model": "sonnet",
       "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-gurupi": [
+    {
+      "at": "2026-11-14T05:11:10Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-huacamayo": [
+    {
+      "at": "2026-11-14T05:11:10Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -58743,6 +60831,17 @@
       "at": "2026-11-07T20:38:47Z",
       "model": "sonnet",
       "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-jacuhy": [
+    {
+      "at": "2026-11-14T05:11:10Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -60057,6 +62156,17 @@
       "kept": true
     }
   ],
+  "vi/places/rio-yurua": [
+    {
+      "at": "2026-11-14T05:11:10Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/river-choluteca": [
     {
       "at": "2026-11-12T13:10:35Z",
@@ -60303,6 +62413,17 @@
       "at": "2026-11-10T22:46:14Z",
       "model": "sonnet",
       "score": 0.97,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/ruzizi-river": [
+    {
+      "at": "2026-11-14T05:11:10Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -60679,6 +62800,17 @@
       "notes": [
         "Every name refers to the right place. Generic words (river, Río/Rio, Islands, mountain range) are put into Vietnamese as sông, quần đảo and dãy, and the proper names keep the source spelling."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/san-alejandro": [
+    {
+      "at": "2026-11-14T05:11:10Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -61659,6 +63791,19 @@
       "kept": true
     }
   ],
+  "vi/places/south-china-sea": [
+    {
+      "at": "2026-11-14T05:11:10Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "\"Biển Đông\" is the standard Vietnamese name for the South China Sea, so it is correct."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/south-kalimantan": [
     {
       "at": "2026-11-07T20:40:25Z",
@@ -61729,6 +63874,17 @@
       "at": "2026-11-10T22:46:14Z",
       "model": "sonnet",
       "score": 0.97,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/st-john": [
+    {
+      "at": "2026-11-14T05:11:10Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -61846,6 +64002,17 @@
       "kept": true
     }
   ],
+  "vi/places/sunda-islands": [
+    {
+      "at": "2026-11-14T05:11:10Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/sungai-bernam": [
     {
       "at": "2026-11-09T07:28:43Z",
@@ -61866,6 +64033,17 @@
       "notes": [
         "sungai-golok: 'Sungai Golok' is kept. It is the name of a town, so 'Sungai' is part of the name and not a generic word to translate."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/sungai-sarawak": [
+    {
+      "at": "2026-11-14T05:11:10Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -62289,6 +64467,17 @@
       "kept": true
     }
   ],
+  "vi/places/tasmania": [
+    {
+      "at": "2026-11-14T05:11:10Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/tatau": [
     {
       "at": "2026-11-08T08:45:15Z",
@@ -62606,6 +64795,17 @@
       "at": "2026-11-07T20:40:25Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/thandwe": [
+    {
+      "at": "2026-11-14T05:11:10Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -63519,6 +65719,17 @@
       "at": "2026-11-07T20:41:17Z",
       "model": "sonnet",
       "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/wang-river": [
+    {
+      "at": "2026-11-14T05:11:10Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
       "notes": [],
       "attempt": "first",
       "kept": true

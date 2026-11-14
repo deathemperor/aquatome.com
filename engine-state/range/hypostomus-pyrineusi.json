@@ -1,8 +1,8 @@
 {
   "id": "hypostomus-pyrineusi",
   "native": {
-    "input": "9b008c2772164e31",
-    "at": "2026-11-14T00:09:29.977Z",
+    "input": "4fac4d42a33183f8",
+    "at": "2026-11-14T05:39:06.336Z",
     "claims": [
       {
         "code": "BR",
@@ -22,6 +22,30 @@
         "ok": true
       },
       {
+        "name": "Madeira",
+        "source": "scotcat",
+        "quote": "South America: Madeira, Napo, Ucayali, Marañon and upper Amazon River basins.",
+        "ok": true
+      },
+      {
+        "name": "Napo",
+        "source": "scotcat",
+        "quote": "South America: Madeira, Napo, Ucayali, Marañon and upper Amazon River basins.",
+        "ok": true
+      },
+      {
+        "name": "Ucayali",
+        "source": "scotcat",
+        "quote": "South America: Madeira, Napo, Ucayali, Marañon and upper Amazon River basins.",
+        "ok": true
+      },
+      {
+        "name": "Marañon",
+        "source": "scotcat",
+        "quote": "South America: Madeira, Napo, Ucayali, Marañon and upper Amazon River basins.",
+        "ok": true
+      },
+      {
         "name": "Amazon",
         "source": "planetcatfish",
         "quote": "Type locality: Jamary, Rio Madeira, Amazon system, Brazil.",
@@ -32,7 +56,10 @@
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "PE",
+        "EC"
+      ],
       "sourcesOnly": []
     }
   },

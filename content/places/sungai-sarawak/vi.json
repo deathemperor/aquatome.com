@@ -1,10 +1,13 @@
 {
   "slug": "sungai-sarawak",
-  "name": "Sungai Sarawak",
-  "altNames": [],
+  "name": "sông Sarawak",
+  "altNames": [
+    "Sungai Sarawak"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -1,14 +1,14 @@
 {
   "id": "betta-mahachaiensis",
   "native": {
-    "input": "64f3997da36a4a4e",
-    "at": "2026-11-14T00:09:29.977Z",
+    "input": "709c2132d36f1869",
+    "at": "2026-11-14T05:39:06.336Z",
     "claims": [
       {
         "code": "TH",
         "status": "native",
         "source": "bwaquatics",
-        "quote": "Betta mahachaiensis is a member of the Betta splendens complex, described in 2012 from Samut Sakhon province in Thailand.",
+        "quote": "The wild type is the natural green form of Betta mahachaiensis, described in 2012 from Samut Sakhon province in Thailand.",
         "words": "Thailand",
         "ok": true
       },
@@ -21,7 +21,15 @@
         "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Gulf of Thailand",
+        "source": "bwaquatics",
+        "quote": "It is native to the coast of the Gulf of Thailand around Samut Sakhon.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {

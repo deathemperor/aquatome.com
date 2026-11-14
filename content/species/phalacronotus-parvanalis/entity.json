@@ -10,6 +10,83 @@
     "malaysia",
     "kinabatangan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [
+        "Borneo",
+        "Kinabatangan River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Kinabatangan River at Deramakot, Kinabatangan District, Borneo, Malaysia.",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Kinabatangan River"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: northeastern Borneo.",
+          "countries": [],
+          "regions": [
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2337854,
+      "total": 16,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "MY",
+          16
+        ]
+      ],
+      "cells": [
+        [
+          112.5,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          4.21875,
+          10,
+          10
+        ],
+        [
+          116.71875,
+          5.625,
+          1,
+          1
+        ],
+        [
+          118.125,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          118.125,
+          5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
