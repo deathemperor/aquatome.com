@@ -129,6 +129,7 @@ The calendar's nine new weeks (`content/curation.json`). These aren't in the tal
 | 2 | Anthropic, xAI | 8, 8 | 8, 9 | 8, 8 | 8, 8 |
 | 3 | Anthropic, xAI | 9, 9 | 8, 8 | 8, 8 | 9, 8 |
 | 4 | Anthropic, xAI | 9, 9 | 9, 9 | 8, 8 | 8, 9 |
+| 5 | Anthropic, xAI | 9, 9 | 9, 9 | 8, 8 | 9, 8 |
 
 Round 1 had the xAI seat alone: Cursor refused OpenAI and Google (not in that week's usage), and no Claude helper ran
 before 14 Nov.
@@ -178,6 +179,13 @@ not a word keepers avoid). The Thai flowerhorn became "ฟลาวเวอร�
 against 3 and 2). Dropped: Malay "tangki" for "akuarium" (one seat; both read a bare "tangki" as a water tank in that
 morning's video titles), Malay "menyambut" for "sempena" (split again), Thai "บลัดพารอท" (the page says ปลาหมอนกแก้ว),
 Vietnamese "Cá thả trước" (one seat; "cá thả đầu tiên" is in no forum or video).
+
+Round 5 (14 Nov): Vietnamese and Indonesian held 9 with both seats again. Held, by the shelf itself: the 1–7 Feb koi
+shelf holds the koi betta and koi angelfish, not the koi carp (both seats on the Thai "ปลาคาร์ป"; round 4's Vietnamese
+"Cá koi" had the same fault), now named by their pages; the Vietnamese cold-season theme, whose week holds no guides
+for "giữ ấm cho bể". Dropped: Malay "musim tengkujuh" off the heater shelf (one seat; the week is for the rainy season's
+cool nights, and the other seat asked for it in round 2), "menyambut" again, the otocinclus and twig catfish named on
+the corydoras-and-plecos shelf (scored at 9; "lau kiếng" is the whole family on this site).
 
 ## Vietnamese
 
