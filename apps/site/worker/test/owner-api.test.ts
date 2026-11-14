@@ -563,6 +563,12 @@ test('the overview\'s version 2: the tiles add up to their parts, found an answe
     ['Fish ID and chat are down', 'Every key resting, the first until Wed 4 Nov, 16:30.'], ['2Hr Aquarist needs a browser check', '2Hr Aquarist since Wed 4 Nov, 5:00'],
     ['No new video guides', 'Since Tue 27 Oct, 3:17'], ['5 comments held for review', 'Cá neon vua · Cá betta (cá xiêm)'], ['2 reader photos to approve', 'Cá betta (cá xiêm) · Betta halfmoon'],
   ])
+  // Every kind still for 30 hours: the engine's one line, and no kind stalled on its own (admin/publishing.ts).
+  const quiet = todayJson(S.QUIET)
+  expect(quiet.needs).toEqual([{ kind: 'engine', text: 'Nothing new published', sub: 'Since Tue 3 Nov, 3:17', label: 'See engine', tone: 'bad', section: 'noi-dung', anchor: 'engine' }])
+  expect(quiet.publishing).toMatchObject({ quiet: { since: '2026-11-02T20:17:00.000Z', text: 'Nothing new since Tue 3 Nov, 3:17' } })
+  expect(quiet.publishing!.kinds.some(k => 'stalled' in k)).toBe(false)
+  expect(quiet.tiles[0]).toMatchObject({ value: '1', sub: '1 to fix', tone: 'bad' })
   // A day's AI spend near its cap waits on the owner: to review, not a fault.
   const spend = todayJson(S.SPENDING)
   expect(spend.needs).toEqual([{ kind: 'spend', text: 'AI spend at 85% of its cap', sub: 'Fish ID and chat: $1.70 of the $2 cap today.', label: 'See costs', tone: 'wait', section: 'nhan-dien-ca' }])
@@ -1202,7 +1208,7 @@ async function replies(): Promise<Reply[]> {
   const tz = { 'Time-Zone': S.TZ }
   const json = (x: unknown) => JSON.parse(JSON.stringify(x)) as unknown
   const out: Reply[] = [
-    ...([['dashboard', S.TODAY], ['dashboard: nothing needs you', S.CALM], ['dashboard: the readers\' beacon down', { ...S.TODAY, beacon: F }], ['dashboard: the AI spend near its cap', S.SPENDING]] as const).map(([name, t]) => (
+    ...([['dashboard', S.TODAY], ['dashboard: nothing needs you', S.CALM], ['dashboard: the readers\' beacon down', { ...S.TODAY, beacon: F }], ['dashboard: the AI spend near its cap', S.SPENDING], ['dashboard: the engine quiet', S.QUIET]] as const).map(([name, t]) => (
       { name, request: { method: 'GET', path: '/api/owner/dashboard', headers: tz }, status: 200, body: json({ tz: S.TZ, ...dashboardJson(t), sections: SECTIONS.map(({ key, name }) => ({ key, name })) }) })),
     ...KEYS.map(key => ({ name: `section ${key}`, request: { method: 'GET', path: `/api/owner/sections/${key}`, headers: tz }, status: 200, body: json({ tz: S.TZ, ...paged(VARIANTS[key]![0]![2]()) }) })),
     // The other two comment lists, from the section's filter: the comments the action replies show and hide are in them.

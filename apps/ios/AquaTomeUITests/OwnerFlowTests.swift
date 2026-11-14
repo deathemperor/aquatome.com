@@ -15,13 +15,13 @@ final class OwnerFlowTests: XCTestCase {
     open(app, "owner-dashboard")
     XCTAssertTrue(app.navigationBars["Dashboard"].waitForExistence(timeout: 10), "not the dashboard")
     for key in ["needs", "answers", "shipped", "cost"] { XCTAssertTrue(app.buttons["owner-tile-" + key].exists, "no \(key) tile") }
-    XCTAssertTrue(app.buttons["owner-tile-needs"].label.hasPrefix("Needs you, 9"), app.buttons["owner-tile-needs"].label)
+    XCTAssertTrue(app.buttons["owner-tile-needs"].label.hasPrefix("Needs you, 10"), app.buttons["owner-tile-needs"].label)
     XCTAssertTrue(app.staticTexts["Wednesday 4 Nov · figures as of 16:00"].exists, "when the figures were read")
-    XCTAssertEqual(app.buttons.matching(identifier: "owner-need").count, 4, "a line each of what needs the owner")
+    XCTAssertEqual(app.buttons.matching(identifier: "owner-need").count, 5, "a line each of what needs the owner")
     // Each line its title and the line under it, as the site draws them; the count is the tile's, not the heading's.
     let key = app.buttons.matching(identifier: "owner-need").firstMatch
     XCTAssertTrue(key.label.hasPrefix("Fish ID and chat are down, Every key resting, the first until Wed 4 Nov, 16:30."), key.label)
-    XCTAssertFalse(app.staticTexts["Needs you · 4"].exists, "a count beside the heading")
+    XCTAssertFalse(app.staticTexts["Needs you · 5"].exists, "a count beside the heading")
 
     // The cost tile scrolls to the costs, far down; the keys' line opens their section at its heading.
     app.buttons["owner-tile-cost"].tap()

@@ -405,5 +405,10 @@ export const CALM: Today = {
   ...TODAY, keys: { ...FISH.keys, rows: FISH.keys.rows.map(({ until: _u, ...r }) => ({ ...r, state: 'ok' as const })) }, held: 0, waitingPhotos: [],
   waiting: { comments: 0, photos: 0, oldest: null }, content: { ...NAMED, engine: STATS.engine && { ...STATS.engine, needsHuman: [], videos: { ...STATS.engine.videos, waiting: 0 } } }, crashes: 0,
 }
+/**
+ * The engine quiet: nothing else needs the owner, and no kind has added a page since the save of 2 Nov (03:17 on the 3rd in
+ * Vietnam), 30 hours before NOW: the save of the 3rd and this build are the 2nd's again. One line, no kind stalled.
+ */
+export const QUIET: Today = { ...CALM, snapshots: [...SNAPSHOTS.slice(0, 2), { day: days30[27]!, totals: SNAPSHOTS[2]!.totals }, { day: days30[28]!, totals: SNAPSHOTS[2]!.totals }] }
 /** A day's AI spend near its cap: the cap set low ($2 a day), and a busy day of chat on top of fish ID. */
 export const SPENDING: Today = { ...CALM, keys: { ...CALM.keys!, cap: 2, spend: [{ day: '2026-11-04', usd: 1.7 }, ...FISH.keys.spend.slice(1)] } }

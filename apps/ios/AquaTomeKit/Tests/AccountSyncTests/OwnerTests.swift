@@ -739,7 +739,7 @@ func standInTables() async throws {
 func standInOverview() async throws {
   let (fake, api) = ownerServer()
   let mine = try await api.signedIn("ui-apple")
-  #expect(try await mine.dashboard().needs.count == 4)
+  #expect(try await mine.dashboard().needs.count == 5)
   fake.owner?.overview = "dashboard: nothing needs you"
   let clear = try await mine.dashboard()
   #expect(clear.needs.isEmpty && clear.needsEmpty == "Nothing needs you right now" && clear.tiles.first?.value == "All clear")
