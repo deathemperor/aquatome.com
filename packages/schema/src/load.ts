@@ -121,12 +121,30 @@ async function loadKind<S extends z.ZodType>(root: string, dir: string, schema: 
   return out
 }
 
-/** The ids of a kind's folders that hold an entity, whatever their translations say (held, missing). */
-async function kindIds(root: string, dir: string): Promise<string[]> {
-  const ids = await readdir(join(root, dir)).catch(() => [] as string[])
-  const out: string[] = []
-  for (const id of ids) if (await exists(join(root, dir, id, 'entity.json'))) out.push(id)
-  return out
+/**
+ * Every material's parent, by id, whatever its translations say (held, missing): each folder's entity read and checked,
+ * its folder and its id the same. A parent is a material that is really there, never a folder name alone, and a chain
+ * of parents ends: lua's parent lua-sa-tung, whose parent is lua, would make each page the other's parent and child.
+ */
+async function materialParents(root: string): Promise<Map<string, string | undefined>> {
+  const parents = new Map<string, string | undefined>()
+  for (const folder of await readdir(join(root, 'materials')).catch(() => [] as string[])) {
+    const file = join(root, 'materials', folder, 'entity.json')
+    if (!(await exists(file))) continue
+    const m = await readJson(file, MaterialSchema)
+    if (m.id !== folder) throw new Error(`material ${folder}: its entity's id is "${m.id}"`)
+    parents.set(m.id, m.parent)
+  }
+  for (const [id, parent] of parents) {
+    if (parent === undefined) continue
+    if (parent === id || !parents.has(parent)) throw new Error(`material ${id}: parent "${parent}" is not another material`)
+    const seen = [id]
+    for (let p: string | undefined = parent; p !== undefined; p = parents.get(p)) {
+      if (seen.includes(p)) throw new Error(`material ${id}: its parents go round (${[...seen, p].join(' → ')})`)
+      seen.push(p)
+    }
+  }
+  return parents
 }
 
 /** The watermark screen's record, in the engine's state beside the content root. */
@@ -370,12 +388,11 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   }) : []
   const materialSlugs = new Set<string>()
   // A parent is another material, held back or not (a held parent leaves its kinds standing alone): never a typo that
-  // the page would drop without a word.
-  const materialIds = new Set(lang === 'vi' ? await kindIds(root, 'materials') : [])
+  // the page would drop without a word, and never a chain that comes back round (materialParents).
+  if (lang === 'vi') await materialParents(root)
   for (const m of materials) {
     if (materialSlugs.has(m.t.slug)) throw new Error(`material ${m.id}: duplicate slug "${m.t.slug}"`)
     materialSlugs.add(m.t.slug)
-    if (m.parent !== undefined && (m.parent === m.id || !materialIds.has(m.parent))) throw new Error(`material ${m.id}: parent "${m.parent}" is not another material`)
   }
 
   const allPlaces = await loadKind(root, 'places', PlaceSchema, lang)

@@ -85,14 +85,23 @@ export const appLinks = (html: string, lang: Lang, origin: string) => (lang === 
  * they are, and so is a /vi/ inside some other address (i.ytimg.com/vi/…): it has to start the address.
  */
 export function localizeLinks(html: string, lang: Lang, origin: string | string[]): string {
-  const site = [origin].flat().filter(Boolean).map(o => o.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')
+  // This site's addresses: each origin, and its protocol-relative form (//aquatome.com/…).
+  const site = [origin].flat().filter(Boolean).flatMap(o => [o, o.replace(/^[a-z]+:/i, '')]).map(o => o.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')
   // A link to a page this language doesn't have (yet) is dropped, its text kept: root-relative or absolute on this site,
   // as both are rewritten below (an absolute /vi/vat-lieu/ link on an Indonesian page would become a /id/ one with no page).
-  const own = new RegExp(`\\bhref="(?:${site})?(/vi/[^"]*)"`)
-  html = html.replace(/<a\b([^>]*)>([\s\S]*?)<\/a>/g, (m, attrs: string, inner: string) => {
-    const href = own.exec(attrs)?.[1]
-    return href && !/\bhreflang=/.test(attrs) && !served(lang, href.replace(/&amp;/g, '&')) ? inner : m
+  // Either quote, any case: every form the rewriting below takes.
+  const own = new RegExp(`\\bhref\\s*=\\s*(["'])(?:${site})?(/vi/(?:(?!\\1).)*)\\1`, 'i')
+  html = html.replace(/<a\b([^>]*)>([\s\S]*?)<\/a>/gi, (m, attrs: string, inner: string) => {
+    const href = own.exec(attrs)?.[2]
+    return href && !/\bhreflang\s*=/i.test(attrs) && !served(lang, href.replace(/&amp;/g, '&')) ? inner : m
   })
+  // Structured data names a page by its address alone: one this language doesn't have points at the Vietnamese page,
+  // which is there, never at a /id/ address with no page.
+  if (lang !== 'vi') {
+    const inData = new RegExp(`(?<=["'])(${site})?(/vi/[^"'\\s()<>\\\\]*)`, 'g')
+    html = html.replace(/(<script\b[^>]*\btype\s*=\s*["']?application\/ld\+json["']?[^>]*>)([\s\S]*?)(<\/script>)/gi, (_m, open: string, body: string, close: string) =>
+      open + body.replace(inData, (u, o: string | undefined, path: string) => (served(lang, path) ? u : (o ?? '') + localizePath('vi', path))) + close)
+  }
   const re = new RegExp(`<[^>]*\\bhreflang=[^>]*>|(?<=["'(=,\\s])(${site})?(/vi/[^"'\\s()<>\\\\]*)`, 'g')
   return html.replace(re, (m, o: string | undefined, path: string | undefined) => (path === undefined ? m : (o ?? '') + localizePath(lang, path)))
 }

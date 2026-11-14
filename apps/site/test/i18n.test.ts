@@ -38,6 +38,20 @@ test("a link to a page another language doesn't have is dropped, root-relative o
   expect(localizeLinks(html, 'vi', 'https://aquatome.com')).toBe('<p><a href="/vat-lieu/lua/">Lũa</a> và <a href="https://aquatome.com/vat-lieu/lua-sa-tung/">sa tùng</a></p>')
 })
 
+// The materials read (14 Nov): every form the rewriting takes is a form the dropping takes.
+test('a link to a page another language lacks is dropped in single quotes, upper case and protocol-relative too', () => {
+  for (const a of [`<a href='/vi/vat-lieu/lua/'>Lũa</a>`, '<A HREF="/vi/vat-lieu/lua/">Lũa</A>', '<a href = "//aquatome.com/vi/vat-lieu/lua/">Lũa</a>', '<a class="x" href="/vi/vat-lieu/lua/?a=1#b">Lũa</a>'])
+    expect(localizeLinks(`<p>${a}</p>`, 'id', 'https://aquatome.com'), a).toBe('<p>Lũa</p>')
+  // A page the language has still keeps its link, now localized protocol-relative too.
+  expect(localizeLinks(`<a href='/vi/ca/x/'>x</a> <a href="//aquatome.com/vi/ca/x/">x</a>`, 'id', 'https://aquatome.com')).toBe(`<a href='/id/ikan/x/'>x</a> <a href="//aquatome.com/id/ikan/x/">x</a>`)
+})
+
+test("structured data on another language's page names the Vietnamese page for one that language lacks", () => {
+  const ld = '<script type="application/ld+json">{"itemListElement":[{"item":"https://aquatome.com/vi/vat-lieu/lua/"},{"item":"https://aquatome.com/vi/ca/x/"}]}</script>'
+  expect(localizeLinks(ld, 'id', 'https://aquatome.com')).toBe('<script type="application/ld+json">{"itemListElement":[{"item":"https://aquatome.com/vat-lieu/lua/"},{"item":"https://aquatome.com/id/ikan/x/"}]}</script>')
+  expect(localizeLinks(ld, 'vi', 'https://aquatome.com')).toBe('<script type="application/ld+json">{"itemListElement":[{"item":"https://aquatome.com/vat-lieu/lua/"},{"item":"https://aquatome.com/ca/x/"}]}</script>')
+})
+
 test('links in a rendered page: own site only, language links untouched', () => {
   const html = '<a href="/vi/ca/x/">x</a><link rel="alternate" hreflang="vi" href="https://aquatome.com/vi/ca/y/"><img src="https://i.ytimg.com/vi/abc/hq.jpg">{"item":"https://aquatome.com/vi/cay/"} ["/vi/*"] <a href="https://example.com/vi/a/">e</a>'
   expect(localizeLinks(html, 'id', 'https://aquatome.com')).toBe(

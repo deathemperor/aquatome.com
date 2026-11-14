@@ -71,6 +71,22 @@ test("a parent that isn't another material stops a build, instead of the page dr
   expect(c.materials.map(m => [m.id, m.parent])).toEqual([['lua-sa-tung', 'lua']])
 })
 
+// The owner's driftwood pages are a parent and its kinds: each page names the other's place in the family.
+test('parents that go round stop a build: lua under lua-sa-tung, while lua-sa-tung is under lua', async () => {
+  const dir = await changed('lua/entity.json', e => { e.parent = 'lua-sa-tung' })
+  await expect(load(dir)).rejects.toThrow(/parents go round \((lua-sa-tung → lua → lua-sa-tung|lua → lua-sa-tung → lua)\)/)
+})
+
+test("a parent is a material whose entity is there and is itself: a folder named lua with another id isn't lua", async () => {
+  const dir = await changed('lua/entity.json', e => { e.id = 'lua-khac' })
+  await rm(join(dir, 'materials', 'lua', 'vi.json'))
+  await expect(load(dir)).rejects.toThrow(/material lua: its entity's id is "lua-khac"/)
+  // A parent with no Vietnamese translation yet is still read and checked.
+  const bare = await changed('lua/entity.json', e => { e.kind = 'fish' })
+  await rm(join(bare, 'materials', 'lua', 'vi.json'))
+  await expect(load(bare)).rejects.toThrow(/materials\/lua\/entity\.json/)
+})
+
 test('duplicate material slugs stop a build instead of replacing a page', async () => {
   const dir = await changed('lua-sa-tung/vi.json', t => { t.slug = 'lua' })
   await expect(load(dir)).rejects.toThrow(/material.*slug/i)
