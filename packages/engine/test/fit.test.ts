@@ -490,6 +490,8 @@ test('a dealer\'s own current batch or stock is the source check\'s; trade histo
     // The batch's own fish, which the read passed on the Crenuchus guide (the chief of staff, 14 Nov 2026).
     'Những con trong lô dài khoảng 5 cm và đã phân biệt rõ đực cái.',
     'Các cá thể của đợt nhập này đều còn nhỏ.',
+    'Cá trong đợt nhập hiện nay có hoa văn rất đồng đều.',
+    'Những con trong đợt cá mới nhập về đều khỏe.',
   ]
   const history = [
     'Cũng có con có thêm những đốm trắng nhỏ. Hai dạng màu này có thể lẫn chung trong cùng một lô nhập.',
@@ -525,6 +527,13 @@ test('a dealer\'s own current batch or stock is the source check\'s; trade histo
     'Những con trong lô hàng trộn thường nhỏ hơn.',
     'Những con trong lô mẫu ở bảo tàng đều là cá cái.',
     'Các con trong đợt điều trị đều khỏe lại.',
+    // A spawning, a migration, another import lot (Grok's read).
+    'Những con trong đợt cá đẻ đều là cá bột.',
+    'Cá của đợt cá sinh sản đã tách riêng.',
+    'Những con trong đợt mới đẻ còn rất nhỏ.',
+    'Cá trong đợt vừa đẻ đang bơi.',
+    'Những con trong đợt nhập cư bơi ngược sông.',
+    'Có vài con trong lô nhập khác.',
   ]
   const dealer = (text: string) => fitRules(page(`<p>${text}</p>`, { kind: 'species' })).filter(f => f.check === 'source' && f.why.startsWith('a dealer'))
   for (const t of news) expect(dealer(t).length, t).toBeGreaterThan(0)

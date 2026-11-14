@@ -172,8 +172,9 @@ const DEALER_VI = re([
   WORD('lứa(?: cá(?: hoang dã)?)? (?:mới|vừa) (?:nhập|về)(?: về)? (?:này|lần này)'),
   '(?<![\\p{L}\\p{N}])trong lô(?=[,:])',
   // The batch's own fish: "Những con trong lô dài khoảng 5 cm" (the Crenuchus guide, which the read passed; the chief of
-  // staff, 14 Nov 2026). Not fish that come in other batches or mixed ones, a museum's lots, or a round of treatment.
-  WORD('(?:những |các |mấy )?(?:con|cá thể|cá)(?: cá)? (?:trong|của) (?:lô(?! (?:cá |hàng )?(?:khác|trộn|đầu|mẫu))|đợt(?= (?:này|nhập|hàng|cá|mới|vừa)))'),
+  // staff, 14 Nov 2026). Not fish that come in other batches or mixed ones, a museum's lots, a round of treatment, a
+  // spawning or a migration: "đợt" only as this batch or one just in (Grok's read).
+  WORD('(?:những |các |mấy )?(?:con|cá thể|cá)(?: cá)? (?:trong|của) (?:lô(?! (?:(?:cá|hàng|nhập|về) ){0,2}(?:khác|trộn|đầu|mẫu)(?![\\p{L}\\p{N}]))|đợt(?= (?:này|hàng)(?![\\p{L}\\p{N}])| (?:cá )?(?:mới |vừa )?(?:nhập(?! cư)|về)(?![\\p{L}\\p{N}])))'),
   WORD('(?:(?<!ngày )nay|hiện nay|hiện|bây giờ|giờ đây)(?: thì)? (?:đã |đang |cũng )?(?:được )?(?:nhập về|có hàng)'),
   WORD('(?:đã |lại )?có hàng (?:trở )?lại'),
   // Stock back: "Hiện nay lại có cá thể hoang dã mới trưởng thành"; not "hiện nay lại có ý kiến".
