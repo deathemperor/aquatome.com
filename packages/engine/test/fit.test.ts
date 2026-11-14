@@ -487,6 +487,9 @@ test('a dealer\'s own current batch or stock is the source check\'s; trade histo
     'Trong đợt cá hoang dã mới nhập gần đây có một con đực màu đỏ.',
     // A bare "lô này" after a sentence cut short by a genus's initial.
     'Congo có ba loài cá phổi: Protopterus aethiopicus, P. annectens và P. dolloi. Lô này có ít nhất hai loài là P. aethiopicus và P. dolloi.',
+    // The batch's own fish, which the read passed on the Crenuchus guide (the chief of staff, 14 Nov 2026).
+    'Những con trong lô dài khoảng 5 cm và đã phân biệt rõ đực cái.',
+    'Các cá thể của đợt nhập này đều còn nhỏ.',
   ]
   const history = [
     'Cũng có con có thêm những đốm trắng nhỏ. Hai dạng màu này có thể lẫn chung trong cùng một lô nhập.',
@@ -517,6 +520,11 @@ test('a dealer\'s own current batch or stock is the source check\'s; trade histo
     // A dated batch with a quoted question inside its sentence: still one sentence, its year still read (Astra's read).
     'Năm 2002, nhà cung cấp hỏi “Có cá không?” rồi nhận một lô. Cá trong lô này rất lớn.',
     'Năm 2002, một lô cá do ông A. Werner nhập về. Cá trong lô này rất lớn.',
+    // Fish that come in other batches or mixed ones, a museum's lots, a round of treatment: not this batch's fish.
+    'Đôi khi có vài con trong lô cá khác.',
+    'Những con trong lô hàng trộn thường nhỏ hơn.',
+    'Những con trong lô mẫu ở bảo tàng đều là cá cái.',
+    'Các con trong đợt điều trị đều khỏe lại.',
   ]
   const dealer = (text: string) => fitRules(page(`<p>${text}</p>`, { kind: 'species' })).filter(f => f.check === 'source' && f.why.startsWith('a dealer'))
   for (const t of news) expect(dealer(t).length, t).toBeGreaterThan(0)

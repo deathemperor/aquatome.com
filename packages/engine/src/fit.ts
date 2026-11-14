@@ -171,6 +171,9 @@ const DEALER_VI = re([
   // This brood just in: "lứa cá mới nhập này lại khá khỏe" (Astra's read); not a shop's "thả lứa mới về chung với đàn cũ".
   WORD('lứa(?: cá(?: hoang dã)?)? (?:mới|vừa) (?:nhập|về)(?: về)? (?:này|lần này)'),
   '(?<![\\p{L}\\p{N}])trong lô(?=[,:])',
+  // The batch's own fish: "Những con trong lô dài khoảng 5 cm" (the Crenuchus guide, which the read passed; the chief of
+  // staff, 14 Nov 2026). Not fish that come in other batches or mixed ones, a museum's lots, or a round of treatment.
+  WORD('(?:những |các |mấy )?(?:con|cá thể|cá)(?: cá)? (?:trong|của) (?:lô(?! (?:cá |hàng )?(?:khác|trộn|đầu|mẫu))|đợt(?= (?:này|nhập|hàng|cá|mới|vừa)))'),
   WORD('(?:(?<!ngày )nay|hiện nay|hiện|bây giờ|giờ đây)(?: thì)? (?:đã |đang |cũng )?(?:được )?(?:nhập về|có hàng)'),
   WORD('(?:đã |lại )?có hàng (?:trở )?lại'),
   // Stock back: "Hiện nay lại có cá thể hoang dã mới trưởng thành"; not "hiện nay lại có ý kiến".
