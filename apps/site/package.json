@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && pagefind --site dist && node scripts/markdown.ts && node scripts/admin-fonts.ts && node scripts/owner-bundle.mjs && node scripts/content-stats.ts",
+    "build": "astro build && node scripts/check-addresses.ts && pagefind --site dist && node scripts/markdown.ts && node scripts/admin-fonts.ts && node scripts/owner-bundle.mjs && node scripts/content-stats.ts",
     "preview": "astro preview",
     "test": "CONTENT_ROOT=$PWD/test/fixture-content pnpm build && for s in off on; do CONTENT_ROOT=$PWD/test/fixture-content APP_INVITE_STATE=$s OUT_DIR=$PWD/dist-app-$s SITE_URL=https://aquatome.com astro build || exit 1; done && CONTENT_ROOT=$PWD/test/fixture-content vitest run",
     "typecheck": "astro check && tsc -p worker",

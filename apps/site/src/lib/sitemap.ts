@@ -1,10 +1,10 @@
 import type { Content } from '@aq/schema'
 import { APP_PAGE, APP_STATE } from './app'
-import { breedGallery, type Breed } from './breeds'
+import type { Breed } from './breeds'
 import { getContent } from './content'
 import { categoriesIn } from './equipment'
 import { localizePath, OTHER_LANGS, PAGES, routeIn, served } from './i18n'
-import { hasPhotoPage } from './pictures'
+import { albumOf, hasPhotoPage } from './photo-page'
 import { videoChannels } from './video'
 
 /** One sitemap per kind, so Search Console counts what's indexed for each. `/sitemap.xml` is their index. */
@@ -26,10 +26,10 @@ export async function sitemapEntries(): Promise<SitemapEntry[]> {
 
     const fish = [...c.species.map(s => ({ s, folder: 'species' })), ...c.breeds.map(s => ({ s, folder: 'breeds' }))].filter(x => x.s.t.quality.indexable)
     if (served(lang, '/vi/ca/x/')) for (const { s, folder } of fish) add('fish', `/vi/ca/${s.t.slug}/`, [...text(folder, s.id), ...(folder === 'species' && lang === 'vi' ? [`summaries/${s.id}.json`] : [])])
-    if (served(lang, '/vi/ca/x/anh/')) for (const { s, folder } of fish) if (hasPhotoPage(c, folder === 'breeds' ? breedGallery(c, s as Breed) : c.galleries[s.id] ?? [])) add('fish-photos', `/vi/ca/${s.t.slug}/anh/`, photos(folder, s.id))
+    if (served(lang, '/vi/ca/x/anh/')) for (const { s, folder } of fish) if (hasPhotoPage(folder === 'breeds' ? albumOf(c, 'breeds', s as Breed) : albumOf(c, 'species', s))) add('fish-photos', `/vi/ca/${s.t.slug}/anh/`, photos(folder, s.id))
     const plants = c.plants.filter(p => p.t.quality.indexable)
     if (served(lang, '/vi/cay/x/')) for (const p of plants) add('plants', `/vi/cay/${p.t.slug}/`, text('plants', p.id))
-    if (served(lang, '/vi/cay/x/anh/')) for (const p of plants) if (hasPhotoPage(c, c.galleries[p.id] ?? [])) add('plant-photos', `/vi/cay/${p.t.slug}/anh/`, photos('plants', p.id))
+    if (served(lang, '/vi/cay/x/anh/')) for (const p of plants) if (hasPhotoPage(albumOf(c, 'plants', p))) add('plant-photos', `/vi/cay/${p.t.slug}/anh/`, photos('plants', p.id))
     if (served(lang, '/vi/huong-dan/x/')) for (const g of c.guides) if (g.t.quality.indexable) add(g.video ? 'videos' : 'guides', `/vi/huong-dan/${g.t.slug}/`, text('guides', g.id))
     if (served(lang, '/vi/thuat-ngu/x/')) for (const g of c.glossary) if (g.t.quality.indexable) add('glossary', `/vi/thuat-ngu/${g.t.slug}/`, text('glossary', g.id))
     if (served(lang, '/vi/thiet-bi/x/')) {

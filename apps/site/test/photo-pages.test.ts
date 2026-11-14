@@ -4,7 +4,7 @@ import { beforeAll, expect, test, vi } from 'vitest'
 import { loadAll, type Content } from '@aq/schema'
 import { LANGS } from '@aq/schema/langs'
 import { localizePath } from '../src/lib/i18n'
-import { hasPhotoPage } from '../src/lib/pictures'
+import { albumOf, hasPhotoPage } from '../src/lib/photo-page'
 import { renamedPages } from '../src/lib/renamed'
 import { sitemapEntries } from '../src/lib/sitemap'
 import { galleryParent } from '../worker/paths'
@@ -33,10 +33,10 @@ function withGallery(hashes: string[]): Content {
 }
 
 test('a gallery of six files is a photo page only when they are six pictures', () => {
-  const c = withGallery(ONE_SHORT)
-  expect(hasPhotoPage(c, c.galleries[PLANT]!)).toBe(false)
-  const d = withGallery(FAR)
-  expect(hasPhotoPage(d, d.galleries[PLANT]!)).toBe(true)
+  const plant = { id: PLANT }
+  expect(albumOf(withGallery(ONE_SHORT), 'plants', plant)).toHaveLength(5)
+  expect(hasPhotoPage(albumOf(withGallery(ONE_SHORT), 'plants', plant))).toBe(false)
+  expect(hasPhotoPage(albumOf(withGallery(FAR), 'plants', plant))).toBe(true)
 })
 
 test("the sitemap lists a plant's photo page only when the build makes it", async () => {

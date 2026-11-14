@@ -1,7 +1,6 @@
 import type { Content } from '@aq/schema'
-import { breedGallery } from './breeds'
 import { localizePath } from './i18n'
-import { hasPhotoPage } from './pictures'
+import { albumOf, hasPhotoPage } from './photo-page'
 
 /**
  * Renamed Vietnamese pages: each earlier address (a page's `redirectFrom`) → the page now, with ?tu=<old slug>. An old
@@ -13,9 +12,9 @@ export function renamedPages(c: Pick<Content, 'species' | 'breeds' | 'plants' | 
   const out: Record<string, string> = {}
   // The pages whose photo page is built (hasPhotoPage), by their address's start and id.
   const photoPages = new Set([
-    ...c.species.filter(x => hasPhotoPage(c, c.galleries[x.id] ?? [])).map(x => `ca/${x.id}`),
-    ...c.breeds.filter(b => hasPhotoPage(c, breedGallery(c, b))).map(b => `ca/${b.id}`),
-    ...c.plants.filter(x => hasPhotoPage(c, c.galleries[x.id] ?? [])).map(x => `cay/${x.id}`),
+    ...c.species.filter(x => hasPhotoPage(albumOf(c, 'species', x))).map(x => `ca/${x.id}`),
+    ...c.breeds.filter(b => hasPhotoPage(albumOf(c, 'breeds', b))).map(b => `ca/${b.id}`),
+    ...c.plants.filter(x => hasPhotoPage(albumOf(c, 'plants', x))).map(x => `cay/${x.id}`),
   ])
   const kinds = [['ca', c.species], ['ca', c.breeds], ['cay', c.plants], ['huong-dan', c.guides]] as const
   const live = new Set(kinds.flatMap(([prefix, xs]) => xs.map(x => `${prefix}/${x.t.slug}`)))

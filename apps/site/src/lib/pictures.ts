@@ -1,5 +1,4 @@
 import { PictureSet, unmarked, type Content, type Photo } from '@aq/schema'
-import { GALLERY_MIN } from './gallery'
 import { cleanPhoto } from './home'
 
 /**
@@ -74,11 +73,3 @@ export function distinctPhotos<P extends Photo>(c: Pick<Content, 'pictureHashes'
   const pics = pagePictures(c)
   return photos.filter(p => pics.take([p]))
 }
-
-/**
- * Whether a fish's or a plant's photo page is built: GALLERY_MIN of its photos, each picture once, as
- * pages/ca/[slug]/anh.astro and pages/cay/[slug]/anh.astro count them. The sitemap and the renamed pages' redirects ask
- * the same, so neither names a page that isn't there: a gallery that kept two files of one photo can be a picture short
- * (live checks of 14 Nov, a plant's 6 files of 5 pictures).
- */
-export const hasPhotoPage = (c: Pick<Content, 'pictureHashes'>, photos: Photo[]) => distinctPhotos(c, photos).length >= GALLERY_MIN
