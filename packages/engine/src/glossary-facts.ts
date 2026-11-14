@@ -229,6 +229,32 @@ const namesIn = (text: string, names: string[], facts = '') => [
 const CAUTIONS = ['không được', 'không nên', 'đừng', 'chớ', 'tránh', 'phải', 'cẩn thận', 'lưu ý', 'coi chừng', 'cảnh báo', 'nguy hiểm', 'độc', 'hại', 'chết']
 const NOT_CAUTIONS = /(?<![\p{L}\p{N}])(?:không phải|độc đáo|độc lập|độc quyền|độc nhất|độc giả|đơn độc|bên phải|tay phải|phía phải|phải không|có phải|phải chăng|lẽ phải|phải trái)(?![\p{L}\p{N}])/giu
 const cautionsIn = (text: string) => { const t = text.replace(NOT_CAUTIONS, ' '); return CAUTIONS.filter(w => has(t, w)) }
+/** Each caution word as often as the text says it. */
+const cautionWords = (text: string) => {
+  const t = text.replace(NOT_CAUTIONS, ' ')
+  return CAUTIONS.flatMap(w => Array.from({ length: (t.match(new RegExp(`(?<![\\p{L}\\p{N}])${w}(?![\\p{L}\\p{N}])`, 'giu')) ?? []).length }, () => w))
+}
+/** What `before` has that `after` hasn't, each matched once. */
+const less = <T>(before: T[], after: T[]) => {
+  const left = [...after]
+  return before.filter(x => { const i = left.indexOf(x); if (i < 0) return true; left.splice(i, 1); return false })
+}
+/** Words too common to tell one part of a sentence from another. */
+const FUNCTION_WORDS = new Set(['của', 'và', 'hoặc', 'thì', 'là', 'có', 'một', 'các', 'những', 'cho', 'với', 'từ', 'trong', 'khi', 'đã', 'sẽ', 'được', 'bị', 'này', 'đó', 'mà', 'nên', 'rồi', 'cũng', 'để', 'ra', 'vào', 'lại', 'nó', 'như', 'hay', 'đến', 'tới', 'ở', 'rất', 'càng', 'thường', 'thể'])
+const wordsOf = (text: string) => (text.toLowerCase().match(/\p{L}+/gu) ?? []).filter(w => !FUNCTION_WORDS.has(w))
+/**
+ * A sentence's pieces of advice (the chief of staff, 15 Nov 2026: a dropped piece of advice counts): its parts between
+ * commas, semicolons and colons, and either side of "hoặc", "rồi" and "và", each an option, a step or a reason. A part is
+ * left out when not one of its own words stands in the other text: chu trình nitơ's seeding sentence lost its water, floss
+ * and media from an established tank that way ("…, hoặc lấy nước, bông lọc từ một bể đã ổn định; riêng vật liệu lọc thì
+ * chỉ lấy từ bể đã ổn định…" → "Châm thêm men vi sinh nitrat hóa của hãng uy tín.").
+ */
+const adviceLost = (before: string, after: string) => {
+  const kept = new Set(wordsOf(after))
+  return before.split(/[,;:]|\s(?:hoặc|rồi|và)\s/u).map(p => p.trim().replace(/[.!?…]+$/u, '')).filter(p => wordsOf(p).length && !wordsOf(p).some(w => kept.has(w)))
+}
+/** The facts' own words, not their source numbers. */
+const factText = (facts: object) => ((facts as { facts?: { fact: string }[] }).facts ?? []).map(f => f.fact).join('\n')
 
 /** The phrases a note quotes, "…" or “…”, of three characters or more. */
 const quotes = (note: string) => [...note.matchAll(/"([^"]+)"|“([^”]+)”/g)].map(m => (m[1] ?? m[2]!).trim()).filter(q => q.length >= 3)
@@ -291,11 +317,13 @@ export async function rewordLoose<E extends { definition: string; body: string }
   // nitơ its fish deaths and its "0 or near 0", Lũa its "must soak"): a figure the facts carry, a named example (a page's
   // name, a kind's, a Latin name) or a caution the old wording had and the new one hasn't keeps the old wording.
   // The facts' own words, not their source numbers.
-  const said = ((facts as { facts?: { fact: string }[] }).facts ?? []).map(f => f.fact).join('\n'), carried = new Set(figures(said).flatMap(f => f.reads))
+  // A piece of advice counts too, an option, step or reason the old wording gave (the chief of staff, 15 Nov 2026).
+  const said = factText(facts), carried = new Set(figures(said).flatMap(f => f.reads))
   const dropped = (x: Rewording) => [
     ...lessOf(figures(x.s.text, true), figures(x.to, true)).filter(f => f.reads.some(r => carried.has(r))).map(f => `the figure ${f.text}`),
     ...namesIn(x.s.text, keep.names ?? [], said).filter(n => !namesIn(x.to, keep.names ?? [], said).includes(n)).map(n => `the name ${n}`),
     ...cautionsIn(x.s.text).filter(w => !cautionsIn(x.to).includes(w)).map(w => `the caution "${w}"`),
+    ...adviceLost(x.s.text, x.to).map(p => `the advice "${p}"`),
   ]
   const broke = new Map(unstopped.done.map(x => [x, [...ruled.filter(n => about(n, x)), ...(dropped(x).length ? [`it drops ${dropped(x).join(', ')}`] : [])]]))
   const staying = unstopped.done.filter(x => !broke.get(x)!.length)
@@ -311,4 +339,39 @@ export async function rewordLoose<E extends { definition: string; body: string }
   const stops = final.stops.filter(f => standing.has(f.text))
   // The score of the entry as saved: a reworded sentence that stopped is back in its old wording, which read loose.
   return { entry, log, stops, score: scoreOf(final.claims, stops.filter(f => !f.unscored).length) }
+}
+
+const DROP = 'The rewrite dropped from "'
+/** A note the drop check wrote, never one that asks for a change. */
+export const isDrop = (note: string) => note.startsWith(DROP)
+/**
+ * What a rewrite on notes took out that no note asked for (the chief of staff, 15 Nov 2026: pH's trim for length dropped
+ * "pH đổi đột ngột có thể làm cá chết." and the log scale's worked example, and nothing checked the rewrite). A sentence a
+ * note quotes may change as the note asks, even to going (Lũa's 2,000 ppm). Any other sentence that is gone must leave
+ * nothing behind: its figures the facts carry, its names and its cautions, counted over the whole entry so what moved is
+ * kept (the 0,5 pace moved from the mistakes to the steps); and each piece of its advice, which must stand in the new or
+ * changed sentences. One note for each such sentence, naming what it lost, for the writer to put it back word for word.
+ */
+export function droppedInRewrite(before: { definition: string; body: string }, after: { definition: string; body: string }, facts: object, notes: string[], names: string[] = []): string[] {
+  const was = sentences(before).map(s => s.text), is = sentences(after).map(s => s.text)
+  const noted = (t: string) => notes.some(n => quotes(n).some(q => t.includes(q) || q.includes(t)))
+  const now = new Set(is), then = new Set(was)
+  const gone = was.filter(t => !now.has(t) && !noted(t))
+  if (!gone.length) return []
+  const said = factText(facts), carried = new Set(figures(said).flatMap(f => f.reads))
+  const rest = was.filter(t => !noted(t)).join(' '), all = is.join(' '), fresh = is.filter(t => !then.has(t)).join(' ')
+  const figs = lessOf(figures(rest, true), figures(all, true)).filter(f => f.reads.some(r => carried.has(r)))
+  const named = less(namesIn(rest, names, said), namesIn(all, names, said))
+  const warned = less(cautionWords(rest), cautionWords(all))
+  // Each thing lost goes to the first gone sentence that had it.
+  const take = <T>(pool: T[], has: (x: T) => boolean) => { const mine = pool.filter(has); pool.splice(0, pool.length, ...pool.filter(x => !mine.includes(x))); return mine }
+  return gone.flatMap(t => {
+    const lost = [
+      ...take(figs, f => figures(t, true).some(g => g.text === f.text)).map(f => `the figure ${f.text}`),
+      ...take(named, n => namesIn(t, names, said).includes(n)).map(n => `the name ${n}`),
+      ...take(warned, w => cautionWords(t).includes(w)).map(w => `the caution "${w}"`),
+      ...adviceLost(t, fresh).map(p => `the advice "${p}"`),
+    ]
+    return lost.length ? [`${DROP}${t}" ${lost.join(', ')}, and no note asks to change that sentence: keep it word for word.`] : []
+  })
 }

@@ -288,6 +288,20 @@ test('a rewording that drops a caution, a death or a must, keeps the old wording
   expect((await reworded('Đây không phải là muối.', 'Đây là loại khác.')).entry.body).toBe('<p>Đây là loại khác.</p>')
 })
 
+// The chief of staff, 15 Nov 2026: a dropped piece of advice counts. Chu trình nitơ's seeding sentence lost its established
+// tank's water, floss and media to a rewording the fact read called supported.
+test('a rewording that drops a piece of advice, an option or a step the old wording gave, keeps the old wording', async () => {
+  const seeding = 'Châm thêm men vi sinh của hãng uy tín, hoặc lấy nước, bông lọc từ một bể đã ổn định; riêng vật liệu lọc thì chỉ lấy từ bể đã ổn định mà cá trong đó đều khỏe.'
+  const r = await reworded(seeding, 'Châm thêm men vi sinh nitrat hóa của hãng uy tín.')
+  expect(r.entry.body).toBe(`<p>${seeding}</p>`)
+  expect(r.log[0]).toContain('it drops the advice "lấy nước", the advice "bông lọc từ một bể đã ổn định", the advice "riêng vật liệu lọc thì chỉ lấy từ bể đã ổn định mà cá trong đó đều khỏe"')
+  // One option of a list.
+  expect((await reworded('Nếu pH thấp, thêm baking soda, đá vôi, san hô vụn hoặc vỏ sò.', 'Nếu pH thấp, thêm baking soda, đá vôi hoặc vỏ sò.')).entry.body).toBe('<p>Nếu pH thấp, thêm baking soda, đá vôi, san hô vụn hoặc vỏ sò.</p>')
+  // A rewording that keeps each part, in its own words, stays.
+  expect((await reworded('Bể càng lâu năm, pH càng tụt dần do chất hữu cơ tích lại.', 'Khi bể lâu năm, pH thường tụt dần do chất hữu cơ tích lại.')).entry.body).toBe('<p>Khi bể lâu năm, pH thường tụt dần do chất hữu cơ tích lại.</p>')
+  expect((await reworded('Clo trong nước sẽ giết vi khuẩn có lợi.', 'Nước máy có thể chứa clo, sẽ giết vi khuẩn có lợi.')).entry.body).toBe('<p>Nước máy có thể chứa clo, sẽ giết vi khuẩn có lợi.</p>')
+})
+
 test('a reworded sentence in the body is written back escaped, and one still loose stays, logged; a rewording of two sentences isn\'t placed', async () => {
   const e = { definition: 'Một câu.', body: '<p>Đá &amp; san hô làm pH lên.</p>' }
   const loose = [{ text: 'Đá & san hô làm pH lên.', block: 'Đá & san hô làm pH lên.', verdicts: ['loose' as const, 'loose' as const], why: ['x'] }]

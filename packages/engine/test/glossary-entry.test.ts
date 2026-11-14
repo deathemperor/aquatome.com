@@ -546,6 +546,67 @@ test('a saved entry revised: one rewrite on its notes, from its research, saved 
   expect(w).toBe(1)
 })
 
+// The chief of staff, 15 Nov 2026: each revision of pH and chu trình nitơ fixed what its notes asked and dropped something
+// already read (pH's worked example of the log scale went in a trim for length), and a rewrite that put a notes line right
+// lost a tie to the saved text on its length.
+const scale: TopicFacts = { ...facts, facts: [...facts.facts, { section: 'what', fact: 'Each pH step is ten times the next: pH 4.0 is ten times more acidic than pH 5.0', source: 0 }] }
+const logLine = 'Mỗi nấc cách nhau 10 lần, tức là pH 4,0 chua gấp 10 lần pH 5,0.'
+const soak = '<h3>Nên làm gì</h3><p>Ngâm lũa mới 1–2 tuần.</p>'
+const soakFixed = '<h3>Nên làm gì</h3><p>Ngâm lũa mới 1–2 tuần, thay nước.</p>'
+async function savedWith(body: string, id = 'lua', kind: 'aquascaping' | 'care' = 'aquascaping') {
+  const root = await site()
+  const fresh: Llm = async ({ prompt }) => (prompt.startsWith('GLOSSARY RULES') ? { notes: [] } : isCheck(prompt) ? verdicts(prompt) : { ...written, body }) as never
+  await makeGlossaryEntry(root, { research: async () => scale as never, llm: fresh }, id, { kind })
+  return root
+}
+const bodyOf = async (root: string, id = 'lua') => JSON.parse(await readFile(join(root, 'content/glossary', id, 'vi.json'), 'utf8')).body
+/** The model for a revision: the rules read gives `notes` while the entry holds `while`, the writer gives `bodies` in turn. */
+const revising = (writes: string[], bodies: string[], notes: string[], while_: string): Llm => async ({ prompt }) => {
+  if (prompt.startsWith('GLOSSARY RULES')) return { notes: prompt.split('--- ENTRY ---')[1]!.includes(while_) ? notes : [] } as never
+  if (isCheck(prompt)) return verdicts(prompt) as never
+  writes.push(prompt)
+  return { ...written, body: bodies.length > 1 ? bodies.shift() : bodies[0] } as never
+}
+const revise = (root: string, llm: Llm, id = 'lua', kind: 'aquascaping' | 'care' = 'aquascaping') => makeGlossaryEntry(root, { research: async () => { throw new Error('no research') }, llm }, id, { kind, revise: true })
+
+test('a saved entry revised: a rewrite that drops what no note asks for is not saved, and what it dropped goes back to the writer once', async () => {
+  const before = `${soak}<p>Thang pH là thang logarit. ${logLine}</p>`
+  const asked = ['Rule 12: "Ngâm lũa mới 1–2 tuần." should say to change the water']
+  const trimmed = `${soakFixed}<p>Thang pH là thang logarit, mỗi nấc cách nhau 10 lần.</p>`
+  const whole = `${soakFixed}<p>Thang pH là thang logarit. ${logLine}</p>`
+  // The first rewrite does as the note asks and trims the worked example; told what it dropped, the second keeps it.
+  const root = await savedWith(before)
+  const writes: string[] = []
+  expect(await revise(root, revising(writes, [trimmed, whole], asked, 'Ngâm lũa mới 1–2 tuần.'))).toMatchObject({ id: 'lua', score: 1 })
+  expect(writes).toHaveLength(2)
+  expect(writes[1]).toContain(`- The rewrite dropped from "${logLine}" the figure 4,0, the figure 5,0, and no note asks to change that sentence: keep it word for word.`)
+  expect(await bodyOf(root)).toBe(whole)
+  // A writer that drops it again: the saved entry stays as it was.
+  const again = await savedWith(before)
+  const twice: string[] = []
+  await revise(again, revising(twice, [trimmed], asked, 'Ngâm lũa mới 1–2 tuần.'))
+  expect(twice).toHaveLength(2)
+  expect(await bodyOf(again)).toBe(before)
+  // A sentence a note quotes may go as the note asks.
+  const third = await savedWith(before)
+  const once: string[] = []
+  const leaveOut = [`Rule 12: "${logLine}" says the scale twice: leave it out`]
+  expect(await revise(third, revising(once, [`${soak}<p>Thang pH là thang logarit.</p>`], leaveOut, logLine))).toMatchObject({ id: 'lua', score: 1 })
+  expect(once).toHaveLength(1)
+  expect(await bodyOf(third)).toBe(`${soak}<p>Thang pH là thang logarit.</p>`)
+})
+
+test('a saved entry revised: an unmet line of the term\'s notes outranks a length still under its stop', async () => {
+  // pH's notes file sets 600 words, a stop past 690: a rewrite that meets the notes line at 640 words is saved.
+  const root = await savedWith(soak, 'ph', 'care')
+  const long = `${soakFixed}<p>${'nước '.repeat(640)}</p>`
+  const writes: string[] = []
+  const r = await revise(root, revising(writes, [long], ['Rule 12: "Ngâm lũa mới 1–2 tuần." should say to change the water'], 'Ngâm lũa mới 1–2 tuần.'), 'ph', 'care')
+  expect(r).toMatchObject({ id: 'ph', score: 1 })
+  expect((r as { notes: string[] }).notes.some(n => /^The entry is \d+ words/.test(n))).toBe(true)
+  expect(await bodyOf(root, 'ph')).toBe(long)
+})
+
 test('a sentence the whole entry\'s final read stops after the rewording keeps it from being saved, kept for a reader', async () => {
   const root = await site()
   const before = await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8')
