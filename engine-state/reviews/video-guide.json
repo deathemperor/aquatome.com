@@ -2054,6 +2054,18 @@
   ],
   "vi/guides/youtube-2EvDsbrS9Dg": [
     {
+      "at": "2026-11-14T22:45:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.6,
+      "notes": [
+        "\"Thay một ít nước. Lúc hút cặn thì thay luôn một ít nước.\" and \"thay nước ít\" in the summary: the video says no dedicated water change had been done yet, only that a small one would probably be beneficial. Remove this as a step already done, or hedge it as \"có thể thay một ít nước\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-14T12:52:48Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -3164,6 +3176,25 @@
     }
   ],
   "vi/guides/youtube-4lG_4wSx_bQ": [
+    {
+      "at": "2026-11-14T22:44:19Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.7,
+      "notes": [
+        "\"lần này thì chuyện đó lại tiện\": \"lần này\" is a bare reference to the video's own build. Rewrite it neutrally (e.g. \"và điều đó lại tiện cho hồ này\") or drop the clause.",
+        "\"Thùng dùng ở đây là loại thùng nhựa…\": \"ở đây\" is bare. Say \"Có thể dùng loại thùng nhựa đựng đồ 60 lít…\" instead.",
+        "\"ở đây trộn với cát\": \"ở đây\" is bare. Say \"chẳng hạn trộn với cát\" or give it as an example.",
+        "\"Hồ ở đây dựng toàn vật liệu mới\": \"ở đây\" is bare. Rewrite as \"Hồ dựng toàn vật liệu mới nên…\".",
+        "\"Một viên gạch đất nung có lỗ\": the video only says a clay brick. Remove \"có lỗ\".",
+        "\"tên gọi lấy từ con mồi khoái khẩu của nó là lăng quăng\": the video only says a favourite prey item (mosquitoes). Remove \"lăng quăng\" or say \"muỗi\".",
+        "\"Dưới cùng làm một khung giằng hình chữ H\": the video only says an H support was added to stabilize everything. Remove \"Dưới cùng\" because the position is invented.",
+        "\"Rửa thì lâu, nhưng làm vậy về sau hồ đỡ cặn bẩn hơn\": it is a plain translation of the video's remark. Reword it as one hedged tip, such as \"có thể rửa cát trước để bớt cặn\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
     {
       "at": "2026-11-09T03:07:29Z",
       "model": "sonnet",
@@ -7055,6 +7086,20 @@
   ],
   "vi/guides/youtube-Asi_tzpiHxM": [
     {
+      "at": "2026-11-14T22:46:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.6,
+      "notes": [
+        "\"bồn khoảng 1.135 lít\" appears in the summary bullet and in the \"Nối hai bồn\" section. A 300-gallon tank is not in the size table, so it should be converted and rounded to whole litres: 1.136 lít, not 1.135.",
+        "\"Lên cạn chúng dễ nổi nóng, còn dưới nước thì chúng tính kỹ từng động tác\" gives a claim the video doesn't make: that the turtles get angry on land. Remove \"Lên cạn chúng dễ nổi nóng\" and keep only that underwater they move in a deliberate, calculated way.",
+        "\"Mục tiêu ở đây là nhét được càng nhiều vật liệu vi sinh càng tốt\" uses a bare \"ở đây\" and sounds like a translation. Rephrase it, for example \"Bồn lọc nên chứa thật nhiều vật liệu vi sinh\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-09T20:44:54Z",
       "model": "sonnet",
       "score": 0.7,
@@ -7604,6 +7649,27 @@
     }
   ],
   "vi/guides/youtube-C4oUkABhXDA": [
+    {
+      "at": "2026-11-14T22:46:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.55,
+      "notes": [
+        "\"Bể thường 9,5 lít\" and \"bể nano khoảng 9,5 lít\" (also \"cỡ 9,5 lít\"): the video's tank is 2.5 gallons, which the table doesn't list, so it should be converted and rounded to whole litres (9 litres), not 9,5.",
+        "\"Bể không viền mua sẵn khá đắt. Một cách rẻ hơn hẳn\": the video only says rimless tanks are expensive and the creator paid 10 bucks; 'rẻ hơn hẳn' is stronger than the price comparison supports, so soften to 'rẻ hơn'.",
+        "\"keo 502\" (several places): the video says gel cyanoacrylate super glue (Gorilla Glue gel), not the product 502; replace with 'keo super glue (cyanoacrylate) dạng gel'.",
+        "\"Dùng dao cạo cạo sạch lớp silicone cũ\" and \"Cạy viền từng chút một, làm chậm và cẩn thận\": the video says to hack away at the trim with various tools, then use a razor scraper; fine, but the stated order 'Kiểm tra lại các mép kính… trước khi tính đến chuyện bơm nước' is OK. Remove the added step 'Kiểm tra lại' as a numbered step only if the video doesn't give it; the video only says the creator …",
+        "\"GE Silicone 1 là loại có thể dùng thay cho silicone chuyên dùng cho bể cá\": the creator's own opinion ('great DIY alternative') is stated as fact; hedge it as 'một cách là dùng thử GE Silicone 1 thay cho silicone bể cá'.",
+        "\"Rêu tản… Chắc là sẽ không mọc cao bằng các loại rêu\" and the table's 'Vì sao' column: awkward; also 'Star moss', 'Haircap moss', 'Hypnum' positions like 'Trên cao, trong phần đá' are ok, but the table has filler '—' cells; remove the empty 'Vì sao' cells or the column.",
+        "\"Việc này rất dễ quên, tranh thủ làm từ đầu thì đỡ phải sửa về sau\": 'dễ quên' is the creator's personal habit (he always forgets); the advice to do it from the start is not stated as advice. Rewrite as a plain step, e.g. 'nên dán giấy đen từ đầu', dropping the personal habit or hedging it.",
+        "\"Các loại trong bảng có lẽ đều sống lâu được, riêng hypnum thì chưa chắc\" and \"Trong danh sách trên, ít nhất một nửa đã từng trồng ngập thành công\": the video says at least half have worked for the creator, i.e. a personal experience; hedge to 'có thể' and don't present it as a general fact; also 'Bộ đèn này đã trồng rêu tốt trong nhiều năm' is one person's experience and should be hedged.",
+        "\"Nếu chưa bơm nước ngay trong ngày\" and the numbered final steps: the order 'Lót cao su → bơm nước → lắp đèn' is not given by the video (rubber is put under the tank before moving it, lighting is only described); drop the step 'Lắp đèn' as a sequenced step and fix the order.",
+        "FAQ \"Bể không viền xếp nhiều đá thì cần lót gì?\" repeats the rubber pad twice and the answer 'Dưới đáy bể, chỗ đặt bể, có thể lót thêm một miếng cao su' is awkward and redundant; also the summary bullet 'Rêu rất lì' and 'giá rẻ' repeats earlier content: tighten the FAQ answer."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
     {
       "at": "2026-11-09T15:39:28Z",
       "model": "sonnet",
@@ -17322,6 +17388,22 @@
   ],
   "vi/guides/youtube-SXZ7LUPIFAk": [
     {
+      "at": "2026-11-14T22:47:53Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.7,
+      "notes": [
+        "\"Vì vậy màu trong bể bị đẩy lên rất rực\" (and the bullet \"Đèn RGB không có kênh trắng nên màu rất rực\"): the video only guesses (\"I think this is why\") that the missing white causes the saturation. Hedge it with \"có lẽ\" instead of stating it as a firm cause, and in the bullet say it about this lamp rather than all RGB lights.",
+        "\"Đèn sẽ đổi màu vài lần để báo đã lưu\": the video only says the unit goes through some colour changes, with \"I think\" that this is the save. Hedge it (\"có vẻ là\") or drop the claim that it signals saving.",
+        "Table row \"Giá ... Cao, trả thêm cho thương hiệu và chất lượng hoàn thiện\": the video says only \"arguably\" higher build quality. Hedge it (\"có thể\") instead of stating it as fact.",
+        "\"Nếu Crypt có nhũn thì cũng không sao, cây có thể hồi lại\" (repeated in the FAQ): the video only says crypts will recover \"if I want them to\". Hedge it more, or drop the reassurance \"không sao\".",
+        "Awkward, translation-like phrasing: \"Tin vui là\", \"Nói đơn giản thì\", \"Chuyện này tùy gu từng người\", \"Đèn này dễ lắp\". Rewrite in natural guide Vietnamese and name the lamp instead of a bare \"đèn này\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-14T12:55:15Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -19386,6 +19468,20 @@
     }
   ],
   "vi/guides/youtube-WVpke0jbuGM": [
+    {
+      "at": "2026-11-14T22:46:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.75,
+      "notes": [
+        "\"Có bể mà các tấm kính sát nhau đến mức lưỡi dao không lách vào được. Lúc đó mà nóng ruột nạy mạnh tay thì kính có thể vỡ mất một góc. Nếu góc vỡ nằm ở tấm kính trước thì cắt bỏ luôn...\": this retells the video's own mishap, a story of the day, and turns it into advice the video doesn't give. Remove the passage or reduce it to a short general note that old tanks can be hard to take apart.",
+        "\"Ếch trưởng thành đủ lớn để không bị đường hút của lọc làm hại\" (also in the FAQ): the video says only that the frogs are large enough not to be harmed by the intake. Remove \"trưởng thành\" and the general claim, and keep it as these frogs being large enough.",
+        "\"loại giúp hạn chế bám bụi và dấu tay\": this phrasing reads like a translation. Rewrite it more naturally, e.g. \"loại có tác dụng chống bám bụi và dấu tay\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
     {
       "at": "2026-11-14T12:53:41Z",
       "model": "sonnet",
@@ -25488,6 +25584,27 @@
     }
   ],
   "vi/guides/youtube-gJuWCudImSc": [
+    {
+      "at": "2026-11-14T22:45:51Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.55,
+      "notes": [
+        "\"Lượng lá và rêu vớt ra có thể đầy cả một xô khoảng 20 lít\": the video says a five-gallon bucket; keep it as \"five gallon\" (code converts) or say about 20 litres is not wrong, but \"có thể\" hedges a fact stated as fact - state it as what that clean-up produced, not a general expectation.",
+        "\"Mùa lá rụng mà không phủ lưới thì hồ có thể đầy lá chỉ sau vài chuyến đi xa\": the video gives this as a personal story of being away and not finding the net; rewrite as a general tip to cover the pond with a net in leaf season or drop the trips detail.",
+        "\"Cá lớn trốn kỹ suốt mùa đông chưa chắc đã chết\" / the FAQ \"Chưa chắc\": the video only says the creator worried and then saw them again; do not give this as advice, hedge it as one case.",
+        "\"Có lẽ là do cá con quen thấy người từ nhỏ\": the guess is fine hedged, but \"Cá lớn từng nuôi trong nhà rồi mới chuyển ra hồ thì có thể nhát như cá hoang\" generalises one person's own fish; phrase it as an example of one pond, not a general rule.",
+        "\"Cá da trơn thì vốn hay trốn vài ngày rồi lại bơi ra, không cần lo\": \"không cần lo\" is advice stronger than the video; remove it or hedge it as the creator's own pond fish.",
+        "\"Mùa đông có phải đem cá trong hồ ngoài trời vào nhà không?\": the video never discusses bringing fish indoors; drop or reword this FAQ question (the video only says the pond was dug deep enough and the waterfall kept running).",
+        "\"Không cần làm gì đặc biệt cả, chỉ cần để hồ và thác nước chạy bình thường quanh năm\" / opening bullet: the video says this holds for a pond dug to the right depth that does not freeze solid; add that condition, otherwise it is stated too firmly.",
+        "\"Vớt hết lá và rêu ra là bước đầu để hồ chạy lại cho mùa mới\" and \"Nước trong lại thì sẽ thấy lá còn sót dưới đáy\": fine in spirit, but \"Đi từ trên xuống thì không phải làm lại\" and \"Đây là phần tốn công nhất\" are claims the video does not give in those words; soften or remove.",
+        "\"Mỗi lần vớt xong nên kiểm tra vợt, vì cá con hay lẫn trong đám rêu\": \"hay lẫn\" overstates, the video says it caught a fish or two by accident; change to \"có thể lẫn\".",
+        "\"Súng thì sắp phải bón phân\" and the plant list: this is the creator's own to-do for his pond, not general guidance; say it as \"có thể cần bón phân cho súng\" or remove."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
     {
       "at": "2026-11-14T12:54:10Z",
       "model": "sonnet",
