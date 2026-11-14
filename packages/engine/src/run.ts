@@ -96,13 +96,17 @@ export type ReadKeeps = { owned?: (p: Photo) => boolean; gone?: (p: Photo) => bo
  * This page's fresh photos replace its old ones; source photos first (registry order), open-licence photos after. A head
  * that fills the card stays first, unless this read replaced it: it's what the fish's cards show (lead-photo.ts).
  * Two things a read never does (14 Nov 2026: a pages rewrite took Betta rutilans' only photo, the owner's crop):
- * - drop a crop the owner approved (`owned`): it's the owner's, whatever the source's page now shows, and it keeps its
- *   place inside the page's MAX_PHOTOS;
- * - leave a page that had a photo it may show with none: those stay, `held` for a person's second look (last-photo.ts).
- *   A photo `gone` says may never stay doesn't count, so a page left with only those takes what Commons has instead.
+ * - replace a crop the owner approved (`owned`), whatever the source's page now shows. The page's crops come first inside
+ *   its MAX_PHOTOS, ahead of every other photo, its head too; a page with more than MAX_PHOTOS crops keeps its first
+ *   MAX_PHOTOS (none has more than three today);
+ * - leave a page that had a photo a reader could see with none such: those stay, `held` for a person's second look
+ *   (last-photo.ts). A reader sees neither a photo `gone` names (never-again, or a source that no longer lets us show
+ *   photos) nor a crop that fails its approval (the build hides it), so neither counts either way: a page left with only
+ *   those takes what Commons has instead, and one whose last such photo the read replaced keeps that one.
  */
 export const mergeRead = (prev: Photo[], source: SourceId, url: string, fresh: Photo[], o: ReadKeeps = {}): { photos: Photo[]; held: Photo[] } => {
   const owned = o.owned ?? (() => false)
+  const seen = (p: Photo) => !o.gone?.(p) && (!isOwnerCrop(p) || owned(p))
   const replaced = (p: Photo) => p.source === source && p.sourceUrl === url && !owned(p)
   const merged = [...fresh, ...prev.filter(p => !replaced(p))].map((p, i) => ({ p, i })).sort((a, b) => rank(a.p) - rank(b.p) || a.i - b.i).map(x => x.p)
   const head = prev[0] && !replaced(prev[0]) && across(prev[0].large ?? prev[0], 'square') >= LARGE_PX ? prev[0] : undefined
@@ -111,8 +115,8 @@ export const mergeRead = (prev: Photo[], source: SourceId, url: string, fresh: P
   const crops = all.filter(owned).slice(0, MAX_PHOTOS), room = MAX_PHOTOS - crops.length
   const others = new Set(all.filter(p => !owned(p)).slice(0, room))
   const photos = all.filter(p => crops.includes(p) || others.has(p))
-  const left = prev.filter(p => !o.gone?.(p))
-  return photos.length || !left.length ? { photos, held: [] } : { photos: left, held: left.filter(replaced) }
+  const left = prev.filter(seen)
+  return photos.some(seen) || !left.length ? { photos, held: [] } : { photos: left, held: left.filter(replaced) }
 }
 export const mergePhotos = (prev: Photo[], source: SourceId, url: string, fresh: Photo[], o: ReadKeeps = {}) => mergeRead(prev, source, url, fresh, o).photos
 

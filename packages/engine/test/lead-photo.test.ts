@@ -83,7 +83,7 @@ test("a crop the owner approved one by one is never dropped by a re-read of its 
   expect(mergePhotos([crop, old], 'bwaquatics', page, [fresh('fresh')], { owned: approvedCrop(at, sci, []) }).map(p => name(p.url))).toEqual(['fresh'])
 })
 
-test("a re-read never leaves a page with none of the photos it may show, but a never-again photo, or one whose source no longer lets us show photos, isn't kept for that", () => {
+test("a re-read never leaves a page with none of the photos a reader could see; a never-again photo, one whose source no longer lets us show photos, or a crop that fails its approval counts for nothing either way", () => {
   const page = 'https://x/fish'
   const mine = { ...photo('mine'), source: 'bwaquatics' as const, sourceUrl: page }
   const banned = { ...photo('banned'), source: 'bwaquatics' as const, sourceUrl: page }
@@ -91,6 +91,13 @@ test("a re-read never leaves a page with none of the photos it may show, but a n
   // Only photos that may never stay: nothing is kept, so the caller looks for Commons photos.
   expect(mergeRead([banned], 'bwaquatics', page, [], { gone: p => p.url === banned.url })).toEqual({ photos: [], held: [] })
   expect(mergeRead([mine, banned], 'bwaquatics', page, [], { gone: p => p.url === banned.url })).toEqual({ photos: [mine], held: [mine] })
+  // A banned photo from another source left on the page is nothing a reader sees: the page keeps its last one it may show.
+  const bannedElsewhere = { ...photo('banned-elsewhere'), source: 'seriouslyfish' as const, sourceUrl: 'https://y/fish' }
+  expect(mergeRead([bannedElsewhere, mine], 'bwaquatics', page, [], { gone: p => p.url === bannedElsewhere.url })).toEqual({ photos: [mine], held: [mine] })
+  // A crop that fails its approval is hidden by the build: alone on a page, it keeps nothing, so the caller looks to Commons.
+  const unapproved: Photo = { ...photo('unapproved-crop'), source: 'bwaquatics', sourceUrl: page, ownerCrop: { id: 'none', pixelHash: 'e'.repeat(64) } }
+  expect(mergeRead([unapproved], 'bwaquatics', page, [], { owned: () => false })).toEqual({ photos: [], held: [] })
+  expect(mergeRead([unapproved, mine], 'bwaquatics', page, [], { owned: () => false })).toEqual({ photos: [mine], held: [mine] })
 })
 
 test('at most a few photos a fish are asked about', () => {
