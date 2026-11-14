@@ -39,9 +39,15 @@ private let v: Vectors = {
   #expect(names("loc") == ["Bộ lọc thùng", "Lọc nước cho bể mới", "Cá lóc bông", "Trúc phú quý"])
   // The counts are of what's listed.
   #expect(s.findAndCount("lọc").counts[nil] == 2 && s.findAndCount("lọc").counts[.fish] == nil)
-  // As it's typed: a word begun with its tone, and one with its letters' marks and no tone yet.
+  // As it's typed: a word begun with its tone.
   #expect(names("lọ") == ["Bộ lọc thùng", "Lọc nước cho bể mới"])
   #expect(names("lộ") == ["Trúc phú quý"])
+  // Its letters' marks and no tone yet: any tone on them.
+  #expect(names("lô") == ["Trúc phú quý"])
+  #expect(names("bê") == ["Lọc nước cho bể mới", "Bể thủy sinh đầu tiên"])
+  #expect(names("nươc") == ["Lọc nước cho bể mới"])
+  // "đ" is a letter of its own.
+  #expect(names("đâu") == ["Bể thủy sinh đầu tiên"])
   // Marked and bare words together: each its own way.
   #expect(names("cá loc") == ["Cá lóc bông"])
   #expect(names("bộ loc") == ["Bộ lọc thùng"])
