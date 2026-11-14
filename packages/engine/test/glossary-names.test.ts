@@ -21,6 +21,14 @@ test('a kind word straight before a scientific name is judged by the table: tép
   expect(k.misfit).toEqual([{ name: 'Cá trê Aulonocara', word: 'trê', family: 'Cichlidae' }, { name: 'cá Caridina', word: 'cá', family: 'Atyidae' }])
 })
 
+// The Writing Lead, 14 Nov 2026: the table reads a hyphen or dash between words as a space, and so does this step.
+test('a hyphen or dash between a kind word and the name reads as a space, and a naming note on it is matched however it is spaced', () => {
+  const k = kindNames({ definition: 'Một câu.', body: '<p>Cá trê-Aulonocara là tên sai. Tép – Caridina thì đúng.</p>' }, taxa)
+  expect(k.misfit).toEqual([{ name: 'Cá trê-Aulonocara', word: 'trê', family: 'Cichlidae' }])
+  expect(k.fit.map(x => x.name)).toEqual(['Tép – Caridina'])
+  expect(judgeKindNames(['Rule 6: "cá trê Aulonocara" in "…": not its page\'s name', 'Rule 6: "tép Caridina" in "…": made up'], k, ruleNumbers)).toEqual([misfitNote(k.misfit[0]!)])
+})
+
 test('a naming note on a name the table judged is dropped; one that doesn\'t fit gets the table\'s note; other notes stand', () => {
   const k = { fit: [{ name: 'Tép Caridina', word: 'tép', family: 'Atyidae' }], misfit: [{ name: 'cá trê Aulonocara', word: 'trê', family: 'Cichlidae' }] }
   const notes = [

@@ -17,6 +17,11 @@ export async function genera(root: string): Promise<Map<string, Taxon>> {
 
 export type KindName = { name: string; word: string; family: string }
 
+/** A name as the table reads it: NFC, any case, a hyphen or dash between words read as a space (the Writing Lead, 14 Nov 2026). */
+const key = (n: string) => n.normalize('NFC').toLowerCase().replace(/[\s\-–]+/gu, ' ').trim()
+/** Up to `n` words straight before the end of a text, each followed by a space, hyphen or dash. */
+const wordsBefore = (n: string) => new RegExp(`(?<![\\p{L}\\p{M}])((?:[\\p{L}\\p{M}]+[\\s\\-–]+){${n}})$`, 'u')
+
 /**
  * The kind words an entry writes straight before a scientific name ("tép Caridina", "cá trê Clarias", "Cá Betta"), judged
  * by the Writing Lead's table (`kindWord`). The chief of staff, 14 Nov 2026: a plain kind word before a scientific name
@@ -32,16 +37,18 @@ export function kindNames(e: { definition: string; body: string }, taxa: Map<str
     for (const m of text.matchAll(/(?<![\p{L}\p{N}])([A-Z][a-z]+)(?![\p{L}\p{N}])/gu)) {
       const t = taxa.get(m[1]!)
       if (!t) continue
-      const before = text.slice(0, m.index).match(/(?<![\p{L}\p{M}])((?:[\p{L}\p{M}]+ ){1,3})$/u)?.[1]?.trim().split(' ') ?? []
-      for (let k = before.length; k >= 1; k--) {
-        const prefix = before.slice(-k).join(' ')
-        const r = kindWord(`${prefix} ${m[1]}`, t)
-        const p = prefix.normalize('NFC').toLowerCase()
+      const head = text.slice(0, m.index)
+      for (let k = 3; k >= 1; k--) {
+        const words = wordsBefore(String(k)).exec(head)?.[1]
+        if (!words) continue
+        // The name as written ("Cá trê-Aulonocara"), and its words as the table reads them.
+        const name = `${words}${m[1]}`
+        const p = key(words)
+        const r = kindWord(name, t)
         // Only the table's word itself, after "cá" for a fish word: "tép Caridina", not "tép như Caridina" or "cá và Caridina".
         if (!r || (p !== r.word && p !== `cá ${r.word}`)) continue
-        const name = `${prefix} ${m[1]}`
-        if (!seen.has(name.toLowerCase())) (r.fits ? fit : misfit).push({ name, word: r.word, family: t.family! })
-        seen.add(name.toLowerCase())
+        if (!seen.has(key(name))) (r.fits ? fit : misfit).push({ name, word: r.word, family: t.family! })
+        seen.add(key(name))
         break
       }
     }
@@ -53,14 +60,14 @@ export function kindNames(e: { definition: string; body: string }, taxa: Map<str
 export const misfitNote = (k: KindName) => `Rule 6: "${k.name}": "${k.word}" is the word for other animals, not for ${k.family} (the table of kind words).`
 
 /** The name a rules note quotes first, lowercased: Rule 6 asks for the name itself there. */
-const firstQuote = (note: string) => /"([^"]+)"/.exec(note)?.[1]?.normalize('NFC').toLowerCase().trim()
+const firstQuote = (note: string) => { const q = /"([^"]+)"/.exec(note)?.[1]; return q === undefined ? undefined : key(q) }
 
 /**
  * The rules check's notes with the table's judgement in: a naming note (rule 6 alone) on a name the table judged is
  * dropped, and a name that doesn't fit gets the table's note. Notes on other rules, or on rule 6 with another, stand.
  */
 export function judgeKindNames(notes: string[], k: { fit: KindName[]; misfit: KindName[] }, ruleNumbers: (note: string) => number[]): string[] {
-  const judged = new Set([...k.fit, ...k.misfit].map(x => x.name.normalize('NFC').toLowerCase()))
+  const judged = new Set([...k.fit, ...k.misfit].map(x => key(x.name)))
   const kept = notes.filter(n => { const r = ruleNumbers(n); return !(r.length === 1 && r[0] === 6 && judged.has(firstQuote(n) ?? '')) })
   return [...kept, ...k.misfit.map(misfitNote)]
 }
