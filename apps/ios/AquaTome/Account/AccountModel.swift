@@ -562,6 +562,11 @@ final class AccountModel {
 
   /// Signed in as `u`, kept on the phone for a launch with no network.
   private func signedIn(_ u: AccountUser) {
+    // Another account: the last one's tanks aren't this one's until its first sync says which are.
+    if u.id != user?.id {
+      heldTanks = []
+      UserDefaults.standard.removeObject(forKey: Self.keptHeldTanks)
+    }
     state = .signedIn(u)
     UserDefaults.standard.set(try? JSONEncoder().encode(u), forKey: Self.keptUser)
     endedWays = nil
