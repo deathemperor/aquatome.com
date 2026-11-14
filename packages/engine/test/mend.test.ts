@@ -264,15 +264,6 @@ test('a sentence a finding on where it applies names goes whole: a cut of it is 
   const ramGone = await mendPart(said(2, ''), ram, photo)
   if (typeof ramGone === 'string') throw new Error(ramGone)
   expect([ramGone.whole, ramGone.added, ramGone.unasked]).toEqual([[], [], []])
-  // The line after it named the Purus: left, it says the Orinoco is the Amazon's. One the writer can't cut to read, and
-  // returns empty, said why, keeps the part from being kept.
-  const purus = ram.replace('</p>', ' Đây là một phụ lưu của Amazon, nằm khá xa lưu vực Orinoco.</p>')
-  const strand = (async ({ schema }: { schema: { required: string[] } }) => (schema.required.includes('sentences')
-    ? { sentences: [{ n: 2, vi: '' }, { n: 3, vi: '', why: 'It named the river that went.' }] }
-    : { score: 1, notes: [], dropped: [], hedges: [] })) as Llm
-  const stranded = await mendPart(strand, purus, photo)
-  if (typeof stranded === 'string') throw new Error(stranded)
-  expect(stranded.whole).toEqual(['Sentence 3 no longer reads beside the one that changed, and no cut mends it: "Đây là một phụ lưu của Amazon, nằm khá xa lưu vực Orinoco."'])
   // A sentence left as it was is kept too, and refused; so is any check the code doesn't name as a detail.
   for (const check of ['source', 'elsewhere', 'harm', 'dose', 'lethal'] as const) {
     const same = await mendPart(said(2, 'Còn ở đợt cá mới nhập về thì có vẻ cả đực lẫn cái đều mang màu của B. merah.'), merah, [{ ...batch[0]!, check }])
@@ -285,6 +276,55 @@ test('a sentence a finding on where it applies names goes whole: a cut of it is 
     if (typeof r === 'string') throw new Error(r)
     expect([r.whole, r.added, r.unasked], check).toEqual([[], [], []])
   }
+})
+
+// The chief of staff, 14 Nov 2026: a sentence left pointing at one that went whole may go with it, when it is the one
+// right after, in the same paragraph, its writer returns it empty and says why, and its reviewer agrees. Anything further,
+// the part isn't kept.
+test('the sentence right after one that went whole goes with it only when its writer and its reviewer say it can\'t stand', async () => {
+  const ram = '<p>Phần lớn tài liệu cho rằng loài này chỉ có ở vùng llanos của Venezuela và Colombia, thuộc lưu vực sông Orinoco. Tuy vậy, một trong các mẫu cá trong ảnh được cho là bắt ở sông Purus, Brazil. Đây là một phụ lưu của Amazon, nằm khá xa lưu vực Orinoco.</p><p>Nơi thu mẫu chuẩn là \'hệ thống Orinoco, Venezuela\'.</p>'
+  const photo = [{ check: 'source' as FitCheck, quote: 'một trong các mẫu cá trong ảnh', note: 'The source\'s own photo.' }]
+  const why = 'It named the river that went: left, it says the Orinoco is the Amazon\'s.'
+  const llm = (returned: { n: number; vi: string; why?: string }[], follows: { sentence: number; agree: boolean }[] = [], prompts: string[] = []) => (async ({ prompt, schema }: { prompt: string; schema: { required: string[] } }) => {
+    prompts.push(prompt)
+    return schema.required.includes('sentences') ? { sentences: returned } : { score: 1, notes: [], dropped: [{ sentence: 3, finding: 0, text: 'Đây là một phụ lưu của Amazon' }], hedges: [], follows }
+  }) as Llm
+  // The ram's "Đây là một phụ lưu của Amazon": the writer and the reviewer agree, so it goes, and the run lists both.
+  const prompts: string[] = []
+  const both = await mendPart(llm([{ n: 2, vi: '' }, { n: 3, vi: '', why }], [{ sentence: 3, agree: true }], prompts), ram, photo)
+  if (typeof both === 'string') throw new Error(both)
+  expect([both.whole, both.unasked, both.added]).toEqual([[], [], []])
+  expect(both.html).toBe('<p>Phần lớn tài liệu cho rằng loài này chỉ có ở vùng llanos của Venezuela và Colombia, thuộc lưu vực sông Orinoco.</p><p>Nơi thu mẫu chuẩn là \'hệ thống Orinoco, Venezuela\'.</p>')
+  expect(both.gone).toEqual([
+    'sentence 2 went whole: "Tuy vậy, một trong các mẫu cá trong ảnh được cho là bắt ở sông Purus, Brazil."',
+    'sentence 3 went with the one before it ("Tuy vậy, một trong các mẫu cá trong ảnh được cho là bắt ở sông Purus, Brazil."): "Đây là một phụ lưu của Amazon, nằm khá xa lưu vực Orinoco."',
+  ])
+  expect(prompts[1]).toContain(`--- LEFT OUT WITH THE SENTENCE BEFORE ---\nsentence 3, after sentence 2, which went whole. The editor says: ${why}`)
+  // The reviewer doesn't agree, or says nothing of it: not kept.
+  for (const follows of [[{ sentence: 3, agree: false }], []]) {
+    const r = await mendPart(llm([{ n: 2, vi: '' }, { n: 3, vi: '', why }], follows), ram, photo)
+    if (typeof r === 'string') throw new Error(r)
+    expect(r.whole).toEqual(['Sentence 3 went with the one before it, and its reviewer doesn\'t agree it no longer reads without it: "Đây là một phụ lưu của Amazon, nằm khá xa lưu vực Orinoco."'])
+  }
+  // No why: it isn't taken, and stays.
+  const silent = await mendPart(llm([{ n: 2, vi: '' }, { n: 3, vi: '' }], [{ sentence: 3, agree: true }]), ram, photo)
+  if (typeof silent === 'string') throw new Error(silent)
+  expect(silent.html).toContain('Đây là một phụ lưu của Amazon')
+  // Further: the one before it, the next paragraph's, one after the sentence that went with it, or one after a cut. Not kept.
+  const further = (returned: { n: number; vi: string; why?: string }[], html: string, fs = photo) => mendPart(llm(returned, [{ sentence: 3, agree: true }, { sentence: 4, agree: true }]), html, fs)
+  const stranded = (n: number, text: string) => `Sentence ${n} no longer reads without what went, and only the one right after a sentence that went whole may go with it: "${text}"`
+  const before = await further([{ n: 2, vi: '' }, { n: 1, vi: '', why }], ram)
+  if (typeof before === 'string') throw new Error(before)
+  expect(before.whole).toEqual([stranded(1, 'Phần lớn tài liệu cho rằng loài này chỉ có ở vùng llanos của Venezuela và Colombia, thuộc lưu vực sông Orinoco.')])
+  const across = await further([{ n: 3, vi: '' }, { n: 4, vi: '', why }], ram, [{ check: 'source', quote: 'Đây là một phụ lưu của Amazon', note: 'n' }])
+  if (typeof across === 'string') throw new Error(across)
+  expect(across.whole).toEqual([stranded(4, 'Nơi thu mẫu chuẩn là \'hệ thống Orinoco, Venezuela\'.')])
+  const chain = await further([{ n: 2, vi: '' }, { n: 3, vi: '', why }, { n: 4, vi: '', why }], ram.replace('</p><p>', ' '))
+  if (typeof chain === 'string') throw new Error(chain)
+  expect(chain.whole).toEqual([stranded(4, 'Nơi thu mẫu chuẩn là \'hệ thống Orinoco, Venezuela\'.')])
+  const afterCut = await further([{ n: 2, vi: '' }, { n: 3, vi: '', why }], ram, [{ check: 'price', quote: 'Tuy vậy, một trong các mẫu cá trong ảnh được cho là bắt ở sông Purus, Brazil.', note: 'n' }])
+  if (typeof afterCut === 'string') throw new Error(afterCut)
+  expect(afterCut.whole).toEqual([stranded(3, 'Đây là một phụ lưu của Amazon, nằm khá xa lưu vực Orinoco.')])
 })
 
 // Astra's reads of 14 Nov 2026: a writer's own conversion let a claim through, then "mỗi con", "2 inch" as "2 cm" and a

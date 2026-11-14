@@ -691,7 +691,7 @@ if (cmd === 'photo-privacy') {
     const plan = values.front && !only ? frontPlan(fitFront, last, ranked, marks) : { held: false, order: ranked, lane: new Set<string>() }
     if (values.front && !only) console.log(`fit-rewrite: lane ${plan.lane.size} page${plan.lane.size === 1 ? '' : 's'} first${plan.held ? ', front list held' : ''}`)
     const r = await fitRewrite(ROOT, plan.order, state, { llm: claudeCli, now: () => new Date() }, { limit: Number(values.limit ?? 10), retry: !!only, mend: plan.lane })
-    for (const x of [...r.rewritten.map(x => `rewritten: ${x}`), ...r.notKept.map(x => `not kept: ${x}`), ...r.skipped.map(x => `skipped: ${x}`), ...r.failed.map(x => `failed: ${x}`)]) console.log(x)
+    for (const x of [...r.rewritten.map(x => `rewritten: ${x}`), ...r.gone.map(x => `gone: ${x}`), ...r.notKept.map(x => `not kept: ${x}`), ...r.skipped.map(x => `skipped: ${x}`), ...r.failed.map(x => `failed: ${x}`)]) console.log(x)
     console.log(`fit-rewrite: ${r.rewritten.length} rewritten, ${r.notKept.length} not kept, ${r.skipped.length} skipped, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
     // The run on file: the front list's and live pages' outcomes, never the lane's alone (fit-front.ts offLane).
     const ran = values.front && !only && !plan.held ? firstRun(offLane(r, plan.lane), new Date().toISOString()) : undefined

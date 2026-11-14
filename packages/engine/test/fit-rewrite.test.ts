@@ -281,6 +281,9 @@ test('a sentence a finding on where it applies names is not kept cut, only gone'
   expect(await readFile(file, 'utf8')).toBe(before)
   const gone = await fitRewrite(root, [p], reading(p, abroad), { llm: fakeLlm(() => '', 0.9).llm, now: () => new Date('2026-11-13T09:00:00Z') }, { limit: 5, retry: true })
   expect(gone.rewritten).toEqual(['vi/species/danio-margaritatus sections.habitat:seriouslyfish (0.90)'])
+  // Listed for the chief of staff.
+  expect(gone.gone).toEqual([`vi/species/danio-margaritatus sections.habitat:seriouslyfish sentence 6 went whole: "${said(TETRA_VI)[5]!.replace(/<[^>]+>/g, '')}"`])
+  expect(cut.gone).toEqual([])
   expect(said(JSON.parse(await readFile(file, 'utf8')).sections['habitat:seriouslyfish'])).toEqual(said(TETRA_VI).filter((_, i) => i !== 5))
 })
 

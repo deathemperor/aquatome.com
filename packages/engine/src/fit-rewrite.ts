@@ -144,7 +144,8 @@ const figureRuns = (from: string) => {
 /** A finding as the writer's note on the sentences it quotes (a breed page's units with the figures to write). */
 const noteOf = (f: FitFinding, figures?: BreedFigure[]) => { const n = asNote(f, figures); return `${n.problem}${n.fix ? ` Nên viết: "${n.fix}"` : ''}` }
 
-export type RewriteReport = { rewritten: string[]; notKept: string[]; skipped: string[]; failed: string[]; stopped: string }
+/** `gone`: each sentence a kept part lost whole, and each that went with it, for the chief of staff (mend.ts `Mended`). */
+export type RewriteReport = { rewritten: string[]; notKept: string[]; skipped: string[]; failed: string[]; stopped: string; gone: string[] }
 
 /**
  * Rewrites up to `limit` pages, in `pages`' order (the caller ranks them), each due (rewriteDue) and not tried on this text
@@ -152,7 +153,7 @@ export type RewriteReport = { rewritten: string[]; notKept: string[]; skipped: s
  * is kept, engine-state/rewritten.json and engine-state/_fit-rewrite.json.
  */
 export async function fitRewrite(root: string, pages: Page[], state: FitState, d: { llm: Llm; now: () => Date }, o: { limit: number; retry?: boolean; mend?: ReadonlySet<string> }): Promise<RewriteReport> {
-  const report: RewriteReport = { rewritten: [], notKept: [], skipped: [], failed: [], stopped: '' }
+  const report: RewriteReport = { rewritten: [], notKept: [], skipped: [], failed: [], stopped: '', gone: [] }
   const names = JSON.parse(await readFile(join(root, 'content', 'sources.json'), 'utf8').catch(() => '{}')) as Record<string, { name: string }>
   const triedFile = join(root, 'engine-state', '_fit-rewrite.json')
   const tried = JSON.parse(await readFile(triedFile, 'utf8').catch(() => '{}')) as Tried
@@ -259,6 +260,7 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
             const off = mine.length ? keepsFigures(textOf(before), textOf(next), mine.map(f => f.quote ?? ''), figures) : undefined
             if (r.score < QUALITY_THRESHOLD || r.lost.length || r.unasked.length || r.added.length || r.whole.length || off) { report.notKept.push(`${key} ${field} (${r.score.toFixed(2)}: ${[...(off ? [off] : []), ...r.notes].slice(0, 2).join('; ')})`); continue }
             if (next === before) { report.skipped.push(`${key} ${field}: the rewrite changed nothing`); continue }
+            report.gone.push(...r.gone.map(g => `${key} ${field} ${g}`))
             // A part a cut reduces to one line, or a shop's quick facts it had to mend, isn't a part (the chief of staff, 14 Nov
             // 2026: "A part reduced to one line from a dealer's stock list isn't a part", "is dropped, not kept"): off the page in
             // every language, as the sweep takes a dealer's notice off (sweep.ts). One reduced to one line goes with its heading

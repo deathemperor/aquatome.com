@@ -148,18 +148,23 @@ const tally = (xs: readonly string[]) => xs.flatMap(a => words(a)).reduce((m, w)
 export type MendFinding = { check: FitCheck; quote: string; note: string; covers?: readonly string[]; adds?: readonly string[] }
 export type Dropped = { sentence: number; finding: number; text: string }
 /** `added`: each changed sentence that says what it didn't (addedWords): the part isn't kept with any. */
-export type Mended = { html: string; score: number; notes: string[]; lost: HedgePair[]; unasked: string[]; added: string[]; whole: string[] }
+/**
+ * `whole`: what the whole-sentence rule refuses (`goesWhole`). `gone`: each sentence that went whole, and each that went
+ * with the one before it, as the run lists them for the chief of staff.
+ */
+export type Mended = { html: string; score: number; notes: string[]; lost: HedgePair[]; unasked: string[]; added: string[]; whole: string[]; gone: string[] }
 
 const WRITER_SCHEMA = {
   type: 'object', required: ['sentences'],
   properties: { sentences: { type: 'array', items: { type: 'object', required: ['n', 'vi'], properties: { n: { type: 'number' }, vi: { type: 'string' }, why: { type: 'string' } } } } },
 }
 const REVIEW_SCHEMA = {
-  type: 'object', required: ['score', 'notes', 'dropped', 'hedges'],
+  type: 'object', required: ['score', 'notes', 'dropped', 'hedges', 'follows'],
   properties: {
     score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } },
     dropped: { type: 'array', items: { type: 'object', required: ['sentence', 'finding', 'text'], properties: { sentence: { type: 'number' }, finding: { type: 'number' }, text: { type: 'string' } } } },
     hedges: HEDGES_SCHEMA,
+    follows: { type: 'array', items: { type: 'object', required: ['sentence', 'agree'], properties: { sentence: { type: 'number' }, agree: { type: 'boolean' } } } },
   },
 }
 
@@ -217,14 +222,21 @@ export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { e
   // before or after it in the same paragraph or list item (the Writing Lead: across a block, the reader starts afresh).
   const block = blockOf(pieces)
   // One the writer returns empty, said why, can't be cut to read: left, it points at what went ("Đây là một phụ lưu của
-  // Amazon" after the ram's photo sentence, which then says it of the Orinoco), so the part is a person's.
+  // Amazon" after the ram's photo sentence, which then says it of the Orinoco). It goes too only when it is the sentence
+  // right after one that went whole, in the same paragraph, and the reviewer agrees it no longer reads true or whole
+  // without it (`follows`): not the one before, nor one after that. Any other, the part is a person's (the chief of staff,
+  // 14 Nov 2026).
+  const wentWhole = (m: number) => fix.includes(m) && named.some(f => goesWhole(f.check) && f.sentences.includes(m)) && changes.get(m - 1) === ''
+  const follows = new Map<number, string>()
   const stranded: string[] = []
   for (const r of w.sentences) {
     const n = Number(r.n)
     if (fix.includes(n) || !texts[n - 1] || !r.why?.trim()) continue
-    if (!fix.some(m => Math.abs(m - n) === 1 && block[m - 1] === block[n - 1] && changes.get(m - 1) !== texts[m - 1])) continue
-    if (inline(r.vi)) changes.set(n - 1, written(n, r.vi))
-    else stranded.push(`Sentence ${n} no longer reads beside the one that changed, and no cut mends it: "${plain(texts[n - 1]!)}"`)
+    const beside = fix.some(m => Math.abs(m - n) === 1 && block[m - 1] === block[n - 1] && changes.get(m - 1) !== texts[m - 1])
+    if (inline(r.vi)) { if (beside) changes.set(n - 1, written(n, r.vi)) } else if (beside && wentWhole(n - 1) && block[n - 2] === block[n - 1]) {
+      changes.set(n - 1, '')
+      follows.set(n, r.why.trim())
+    } else stranded.push(`Sentence ${n} no longer reads without what went, and only the one right after a sentence that went whole may go with it: "${plain(texts[n - 1]!)}"`)
   }
   for (const [i, t] of [...changes]) if (t === texts[i]) changes.delete(i)
   const after = splice(pieces, changes)
@@ -232,7 +244,7 @@ export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { e
   // scores.
   const whole = [...[...new Set(named.filter(f => goesWhole(f.check)).flatMap(f => f.sentences))].sort((a, b) => a - b)
     .filter(n => raw.get(n - 1)).map(n => `Sentence ${n} goes whole, as its finding asks, and was kept as "${plain(raw.get(n - 1)!)}"`), ...stranded]
-  if (!changes.size) return { html, score: 1, notes: whole, lost: [], unasked: [], added: [], whole }
+  if (!changes.size) return { html, score: 1, notes: whole, lost: [], unasked: [], added: [], whole, gone: [] }
   if (texts.every((t, i) => changes.get(i) === '')) return 'every sentence would go, so the part is the dealer check\'s to settle'
   const shown = [...changes.keys()].sort((a, b) => a - b)
   const body = [
@@ -241,23 +253,26 @@ export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { e
     // A breed page's units: the figures the notes change, which the reviewer is told are right (fit-rewrite.ts).
     ...(o.figures ? [`--- FIGURES ---\n${o.figures}`] : []),
     shown.map(i => `### sentence ${i + 1}\nBEFORE:\n${texts[i]}\nAFTER:\n${changes.get(i) || '(left out)'}`).join('\n\n'),
+    ...(follows.size ? [`--- LEFT OUT WITH THE SENTENCE BEFORE ---\n${[...follows].map(([n, why]) => `sentence ${n}, after sentence ${n - 1}, which went whole. The editor says: ${why}`).join('\n')}`] : []),
   ].join('\n\n')
-  const r = await llm<{ score: number; notes: string[]; dropped: Dropped[]; hedges: HedgePair[] }>({ system: 'You are a strict Vietnamese editor checking an edit. Reply only with JSON.', prompt: `${REVIEW}\n\n${hedgesAsk('BEFORE', 'AFTER')}\n\n${body}`, schema: REVIEW_SCHEMA })
+  const r = await llm<{ score: number; notes: string[]; dropped: Dropped[]; hedges: HedgePair[]; follows?: { sentence: number; agree: boolean }[] }>({ system: 'You are a strict Vietnamese editor checking an edit. Reply only with JSON.', prompt: `${REVIEW}\n\n${hedgesAsk('BEFORE', 'AFTER')}\n\n${body}`, schema: REVIEW_SCHEMA })
   const dropped = (r.dropped ?? []).map(d => ({ ...d, sentence: Number(d.sentence), finding: Number(d.finding) }))
   const licensed = dropped.filter(d => asked(d, named))
   const flat = texts.flatMap((t, i) => words(t!).map((w, k) => ({ w, i, k })))
   // A sentence left out whole needs a finding that asks for something to go, whatever the reviewer lists; and every word
   // a changed sentence lost is quoted by a finding there, or listed under one that asks for it to go, or a joining word.
+  const agreed = new Set((r.follows ?? []).filter(x => x.agree === true).map(x => Number(x.sentence)))
+  const unagreed = [...follows.keys()].filter(n => !agreed.has(n)).map(n => `Sentence ${n} went with the one before it, and its reviewer doesn't agree it no longer reads without it: "${plain(texts[n - 1]!)}"`)
   const unasked = [
-    ...shown.filter(i => changes.get(i) === '' && !named.some(f => !NO_DROP.includes(f.check) && f.sentences.includes(i + 1))).map(i => `Left out, and no finding asks for it to go: "${plain(texts[i]!)}"`),
-    ...shown.flatMap(i => {
+    ...shown.filter(i => changes.get(i) === '' && !follows.has(i + 1) && !named.some(f => !NO_DROP.includes(f.check) && f.sentences.includes(i + 1))).map(i => `Left out, and no finding asks for it to go: "${plain(texts[i]!)}"`),
+    ...shown.filter(i => !follows.has(i + 1)).flatMap(i => {
       // Each quote and listed drop where it first stands in the part, and the share of it in this sentence: a quote over
       // two sentences covers its words in each (Astra's read). A finding that takes its sentence whole covers all of it.
       const covered = [...named.filter(f => f.sentences.includes(i + 1)).flatMap(f => (goesWhole(f.check) ? [texts[i]!] : [f.quote, ...(f.covers ?? [])])), ...licensed.filter(d => named[d.finding - 1]!.sentences.includes(i + 1)).map(d => d.text)]
       const gone = lostFrom(words(texts[i]!), words(raw.get(i) ?? changes.get(i)!), covered.map(c => firstAt(flat.map(x => x.w), words(c)).flatMap(n => (flat[n]!.i === i ? [flat[n]!.k] : []))))
       return gone.length ? [`Left out of sentence ${i + 1}, and no finding asks for it to go: "${gone.join(' ')}"`] : []
     }),
-    ...dropped.filter(d => !asked(d, named)).map(d => `Left out, and no finding asks for it to go: "${d.text}"`),
+    ...dropped.filter(d => !asked(d, named) && !follows.has(d.sentence)).map(d => `Left out, and no finding asks for it to go: "${d.text}"`),
   ]
   // Every changed sentence is the one it was, cut: what the writer wrote, before metric, as the words lost are counted. A
   // units finding's sentence too: the writer leaves its measures as they are and code converts them (`metric`), or gives
@@ -274,8 +289,12 @@ export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { e
     return extra.length ? [`Sentence ${i + 1} says what it didn't: "${extra.join(' ')}"`] : []
   })
   const lost = hedgesLost(r.hedges ?? [], shown.map(i => texts[i]).join('\n'), shown.map(i => changes.get(i)).join('\n'))
+  const gone = [
+    ...fix.filter(wentWhole).map(n => `sentence ${n} went whole: "${plain(texts[n - 1]!)}"`),
+    ...[...follows.keys()].map(n => `sentence ${n} went with the one before it ("${plain(texts[n - 2]!)}"): "${plain(texts[n - 1]!)}"`),
+  ]
   return {
-    html: after, score: Math.min(1, Math.max(0, Number(r.score) || 0)), lost, unasked, added, whole,
-    notes: [...unasked, ...added, ...whole, ...lost.map(h => `Said more surely than before: "${h.to}" (was: "${h.from}")`), ...(r.notes ?? []).slice(0, 10)],
+    html: after, score: Math.min(1, Math.max(0, Number(r.score) || 0)), lost, unasked, added, whole: [...whole, ...unagreed], gone,
+    notes: [...unasked, ...added, ...whole, ...unagreed, ...lost.map(h => `Said more surely than before: "${h.to}" (was: "${h.from}")`), ...(r.notes ?? []).slice(0, 10)],
   }
 }
