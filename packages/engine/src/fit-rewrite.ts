@@ -244,7 +244,7 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
               return fs.filter(x => !seen.has(`${block}|${x.at}`) && !!seen.add(`${block}|${x.at}`)).map(x => ({ ...x, block }))
             })
             const said = figures.length ? `This is a breed page with no English source: its litres are our conversion of a source's US figure, and the editor was told to name these as keepers here say, from the source's own US figure, a minimum never more than a twentieth under it: ${figuresSaid(figures)}. Those changes are correct, not errors.` : undefined
-            const r = await mendPart(d.llm, html, now.map(f => ({ check: f.check, quote: f.quote ?? '', note: noteOf(f, told.get(f)), covers: told.get(f)?.flatMap(x => figureRuns(x.from)), ...(f.check === 'words' && f.fix ? { adds: [f.fix] } : {}) })), { en: p.en?.[field], source: source && names[source]?.name, model: 'opus', metric: METRIC_KINDS.includes(p.kind), ...(said ? { figures: said } : {}) })
+            const r = await mendPart(d.llm, html, now.map(f => ({ check: f.check, quote: f.quote ?? '', note: noteOf(f, told.get(f)), covers: told.get(f)?.flatMap(x => figureRuns(x.from)), ...(f.check === 'words' && f.fix ? { adds: [f.fix] } : told.get(f)?.length ? { adds: told.get(f)!.map(x => x.to) } : {}) })), { en: p.en?.[field], source: source && names[source]?.name, model: 'opus', metric: METRIC_KINDS.includes(p.kind), ...(said ? { figures: said } : {}) })
             if (typeof r === 'string') { report.skipped.push(`${key} ${field}: ${r}`); continue }
             const next = faq ? parse(r.html).text.trim() : r.html
             // Kept at the bar, leaving out only what a finding asks to go, saying nothing more surely than before (hedges.ts),

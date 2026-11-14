@@ -103,7 +103,8 @@ test('a tank size its English gives in gallons, on a page already written, goes 
   await writeFile(file, (await readFile(file, 'utf8')).replace('Dung tích bể tối thiểu: 8 lít.', 'Dung tích bể tối thiểu: 11 lít.'))
   const p = await danio(root)
   const prompts: string[] = []
-  const { llm, calls } = fakeLlm(vi => vi.replace('11 lít', '10 lít'), 0.9)
+  // Written as the English's 2 gallons: a figure no conversion gives isn't kept (mend.ts figuresAdded).
+  const { llm, calls } = fakeLlm(vi => vi.replace('11 lít', '8 lít'), 0.9)
   const seen = (async (a: Parameters<Llm>[0]) => { prompts.push(a.prompt); return llm(a) }) as Llm
   const units = [{ check: 'units' as const, part: part(p, 'sections.aquariumSize:sprucepets'), quote: 'Dung tích bể tối thiểu: 11 lít.', why: 'a volume that shows it was converted from gallons' }]
   const r = await fitRewrite(root, [p], reading(p, units), { llm: seen, now: () => new Date('2026-11-12T09:00:00Z') }, { limit: 5 })
@@ -112,7 +113,7 @@ test('a tank size its English gives in gallons, on a page already written, goes 
   expect(prompts[0]).toContain('Convert the English\'s US units as the writing rules say')
   expect(prompts[0]).toContain('Never round a dose\'s amount or the water it goes into: convert those exactly')
   expect(prompts[0]).toContain('Dung tích bể tối thiểu: 11 lít.')
-  expect(JSON.parse(await readFile(file, 'utf8')).sections['aquariumSize:sprucepets']).toContain('Dung tích bể tối thiểu: 10 lít.')
+  expect(JSON.parse(await readFile(file, 'utf8')).sections['aquariumSize:sprucepets']).toContain('Dung tích bể tối thiểu: 8 lít.')
 })
 
 test('units are mended only from US units in the English, and never ride along with another mend of the same part', async () => {
@@ -739,7 +740,8 @@ test('a breed page\'s units rewrite that names another figure isn\'t kept, and t
   const { llm } = notesLlm({ figures: vi => vi.replace('132 lít', '140 lít') })
   const r = await fitRewrite(root, [p], reading(p, [source, tank]), { llm, now: () => new Date('2026-11-12T12:00:00Z') }, { limit: 5 })
   expect(r.rewritten).toEqual(['vi/breeds/pigeon-blood-discus body (0.90)'])
-  expect(r.notKept).toEqual(['vi/breeds/pigeon-blood-discus body (0.90: the figures as keepers say them aren\'t there: 130 lít)'])
+  // Its 140, no conversion of the part's figures, is named too (mend.ts figuresAdded).
+  expect(r.notKept).toEqual(['vi/breeds/pigeon-blood-discus body (0.90: the figures as keepers say them aren\'t there: 130 lít; Sentence 5 says what it didn\'t: "140")'])
   expect(JSON.parse(await readFile(file, 'utf8')).body).toContain('Một người chơi kể rằng cá cần nhiều chỗ. Một nguồn coi 132 lít')
 })
 for (const kind of ['species', 'guides']) test(`admission stops a ${kind} rewrite before calls, content writes or retry records`, async () => {

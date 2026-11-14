@@ -246,3 +246,26 @@ test('a sentence whose figure is converted may gain the new figure and its unit,
   if (typeof converted === 'string') throw new Error(converted)
   expect(converted.added).toEqual([])
 })
+
+// Astra's read of 14 Nov 2026, the second: a conversion's "mỗi con" made a tank's minimum a size for each fish, and a
+// figure no conversion gives passed.
+test('a converted sentence gains no "for each fish", and only the figures the site\'s own conversion gives', async () => {
+  const html = '<p>Dung tích bể tối thiểu: 2 gallon. Cá sống theo đàn.</p>'
+  const en = '<p>Minimum tank size: 2 gallons. They live in groups.</p>'
+  const f = [{ check: 'units' as FitCheck, quote: '2 gallon', note: 'Convert to litres.' }]
+  const llm = (said: string) => (async ({ schema }: { schema: { required: string[] } }) => (schema.required.includes('sentences')
+    ? { sentences: [{ n: 1, vi: said }] }
+    : { score: 1, notes: [], dropped: [], hedges: [] })) as Llm
+  const run = async (said: string) => { const r = await mendPart(llm(said), html, f, { en }); if (typeof r === 'string') throw new Error(r); return r.added }
+  expect(await run('Dung tích bể tối thiểu: 8 lít mỗi con.')).toEqual(['Sentence 1 says what it didn\'t: "mỗi con"'])
+  expect(await run('Dung tích bể tối thiểu: 1 lít.')).toEqual(['Sentence 1 says what it didn\'t: "1"'])
+  expect(await run('Dung tích bể tối thiểu: 80 lít.')).toEqual(['Sentence 1 says what it didn\'t: "80"'])
+  // What the site's conversion gives, of the sentence or the English: kept.
+  expect(await run('Dung tích bể tối thiểu: khoảng 8 lít.')).toEqual([])
+  // A US tank's size as keepers here say it (round.ts US_TANKS): 10 gallons, 38 litres exactly, is the 40 they name.
+  const ten = await mendPart(llm('Dung tích bể tối thiểu: 40 lít.'), '<p>Dung tích bể tối thiểu: 10 gallon.</p>', [{ ...f[0]!, quote: '10 gallon' }])
+  if (typeof ten === 'string') throw new Error(ten)
+  expect(ten.added).toEqual([])
+  // A figure the sentence had stays free, in any place.
+  expect(await run('Dung tích bể tối thiểu: 2 gallon, tức 8 lít.')).toEqual(['Sentence 1 says what it didn\'t: "tức"'])
+})

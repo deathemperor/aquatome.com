@@ -4,7 +4,7 @@ import type { Llm } from './claude'
 import type { FitCheck } from './fit'
 import { hedgesAsk, hedgesLost, HEDGES_SCHEMA, type HedgePair } from './hedges'
 import { VI_STYLE } from './phrases'
-import { withTanks } from './round'
+import { usTankOf, withTanks } from './round'
 import { sanitizeHtml } from './sanitize'
 import { blockOf, plain, quoted, sentences, splice } from './sentences'
 
@@ -93,9 +93,26 @@ export function lostWords(before: string, after: string, covered: readonly strin
   return lostFrom(was, words(after), covered.map(c => firstAt(was, words(c))))
 }
 
-/** A figure and its unit, what a units finding's conversion puts in: "120", "lít", "cm", "khoảng 120 lít mỗi con". */
-const UNITS = new Set('lít l ml cm mm m kg g độ c khoảng mỗi cho trên từng con'.split(' '))
+/**
+ * A figure and its unit, what a units finding's conversion puts in: "120", "lít", "cm", "khoảng 120 lít". Not "mỗi", "cho"
+ * or "con", which make a tank's size a size for each fish (Astra's read: "8 lít" written "8 lít mỗi con" passed). Each
+ * figure is held to a conversion (`figuresAdded`).
+ */
+const UNITS = new Set('lít l ml cm mm m kg g độ c khoảng'.split(' '))
 const isFigure = (w: string) => /^\d/.test(w) || UNITS.has(w)
+/** A text's figures, not a name's digits ("CO2", "T5"): "1.000" and "1000" alike, "2,5" and "2.5" alike (for-reader.ts). */
+const figuresOf = (t: string) => [...plain(t).matchAll(/(?<![\p{L}\d])\d+(?:[.,]\d+)*/gu)].map(m => (/^\d{1,3}(?:[.,]\d{3})+$/.test(m[0]) ? m[0].replace(/[.,]/g, '') : m[0].replace(/,/g, '.')))
+/**
+ * The figures a converted sentence gives that it didn't, and that are no conversion of it: each new one must be what the
+ * site's own conversion (toMetric) makes of the sentence or of the English beside it, the size keepers say for a US tank
+ * among those (round.ts usTankOf, as the writing rules ask), or one code worked out for it (`adds`, a breed's litres).
+ * Astra's read: "8 lít" written "1 lít" passed, its figure held to nothing.
+ */
+export function figuresAdded(before: string, after: string, en = '', adds: readonly string[] = []): string[] {
+  const may = new Set([before, toMetric(before, 'vi'), en ? toMetric(en, 'vi') : '', ...adds].flatMap(figuresOf))
+  for (const n of [...may]) { const tank = usTankOf(Number(n)); if (tank) may.add(String(tank[1])) }
+  return [...new Set(figuresOf(after).filter(n => !may.has(n)))]
+}
 /**
  * What a sentence cut may put in to join what's left: only these, not a pointer ("này", "đó") or "bạn", which say who or
  * which (the chief of staff, 14 Nov 2026: "The rewrite may mend the grammar round a deletion and nothing else").
@@ -229,13 +246,15 @@ export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { e
     ...dropped.filter(d => !asked(d, named)).map(d => `Left out, and no finding asks for it to go: "${d.text}"`),
   ]
   // Every changed sentence is the one it was, cut: what the writer wrote, before metric, as the words lost are counted. A
-  // sentence a units finding converts may gain its new figures and their units, and nothing else (Astra's read: "Cá dài 2
-  // inch" written "Cá dài 5 cm và sinh sản quanh năm" passed when such a sentence wasn't checked).
+  // sentence a units finding converts may gain its new figures, each a conversion, and their units, and nothing else
+  // (Astra's read: "Cá dài 2 inch" written "Cá dài 5 cm và sinh sản quanh năm" passed when such a sentence wasn't checked).
   const added = shown.flatMap(i => {
     const now = raw.get(i) ?? changes.get(i)!
     const mine = named.filter(f => f.sentences.includes(i + 1))
     if (!now) return []
-    const extra = addedWords(texts[i]!, now, mine.flatMap(f => f.adds ?? []), mine.some(f => f.check === 'units') ? isFigure : undefined)
+    const units = mine.some(f => f.check === 'units')
+    const adds = mine.flatMap(f => f.adds ?? [])
+    const extra = [...addedWords(texts[i]!, now, adds, units ? isFigure : undefined), ...(units ? figuresAdded(texts[i]!, now, o.en, adds) : [])]
     return extra.length ? [`Sentence ${i + 1} says what it didn't: "${extra.join(' ')}"`] : []
   })
   const lost = hedgesLost(r.hedges ?? [], shown.map(i => texts[i]).join('\n'), shown.map(i => changes.get(i)).join('\n'))
