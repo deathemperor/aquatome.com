@@ -14,6 +14,9 @@ import Testing
   #expect(HandbookIndex.Item.line(under: "Cá heo sọc đen", "Ambastaia nigrolineata") == "Ambastaia nigrolineata")
   // A name holding the genus alone still wants the whole name under it.
   #expect(HandbookIndex.Item.line(under: "Cá bám đá leonardi", "Pseudohomaloptera leonardi") == "Pseudohomaloptera leonardi")
+  // The Design Lead's (14 Nov): the genus alone, and a name short of the whole scientific name, keep it.
+  #expect(HandbookIndex.Item.line(under: "Cá betta", "Betta splendens") == "Betta splendens")
+  #expect(HandbookIndex.Item.line(under: "Cá betta channoides", "Betta cf. channoides") == "Betta cf. channoides")
   #expect(HandbookIndex.Item.line(under: "Cá neon", nil) == nil && HandbookIndex.Item.line(under: "Cá neon", "") == nil)
 }
 

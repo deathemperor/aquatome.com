@@ -21,6 +21,8 @@ struct V2Photo: View {
   /// A page's head: whole on `ground`, never on its own blur (the frames spec's page head, approved 11 Nov).
   var onGround = false
   var colour: ((Color) -> Void)?
+  /// The photo's own shape (its width over its height), once it's there: a page's head takes it where the banner would cut it.
+  var shape: ((CGFloat) -> Void)?
   @State private var picture: (src: String, image: UIImage)?
   /// The address that didn't come (offline, not kept).
   @State private var missing: String?
@@ -61,6 +63,7 @@ struct V2Photo: View {
       .clipped()
       .onGeometryChange(for: CGSize.self) { $0.size } action: { points = $0; pixels = CGSize(width: $0.width * scale, height: $0.height * scale) }
       .onChange(of: phase) { if phase == .active, let src, missing == src { again += 1 } }
+      .onChange(of: image?.size, initial: true) { _, s in if let shape, let s, s.height > 0 { shape(s.width / s.height) } }
       .task(id: "\(src ?? "")|\(Int(pixels.width))x\(Int(pixels.height))|\(tries)|\(again)") {
         guard let src, pixels.width > 0 else { return }
         let size = PageImages.Size.filling(pixels)

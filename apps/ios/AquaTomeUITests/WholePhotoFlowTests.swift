@@ -52,6 +52,23 @@ final class WholePhotoFlowTests: XCTestCase {
     showsBothEnds(app, "the search row", ys: [f.midY], from: f.minX, to: f.maxX)
   }
 
+  /// A fish's page whose photo the taller banner would cut: the whole photo from the bar's foot at the screen's width, both
+  /// ends there from its first rows to its last, no fade over its foot (Design's mock of 11 Nov; the owner's reports of 14
+  /// Nov, three heads showing a slice of the fish).
+  func testAFishPagesHeadShowsTheWholeFishUnderTheBar() {
+    let app = launch()
+    app.openTab("Khám phá")
+    let fish = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon")).firstMatch
+    XCTAssertTrue(fish.waitForExistence(timeout: 10), "no Cá neon on Khám phá")
+    fish.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 10), "no fish page")
+    Thread.sleep(forTimeInterval: 2)
+    // The stand-in is 8:3: at the screen's width, its rows run from the bar's foot to 3/8 of the width under it.
+    let bar = app.navigationBars.firstMatch.frame.maxY, w = app.frame.width
+    showsBothEnds(app, "the fish page's head, at its top", ys: [bar + 12], from: 0, to: w)
+    showsBothEnds(app, "the fish page's head, at its foot", ys: [bar + w * 3 / 8 - 12], from: 0, to: w)
+  }
+
   /// Its frame once it's still and its photo has come.
   private func settled(_ e: XCUIElement) -> CGRect {
     Thread.sleep(forTimeInterval: 2)
