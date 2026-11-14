@@ -63,11 +63,12 @@ export type Rewritten = Record<string, { at: string; hash: string }>
  */
 export type Tried = Record<string, { at: string; hash: string; n?: number; rule?: number }>
 /**
- * How a fish, plant or breed page's parts are mended. 2: only the sentences a finding quotes (mend.ts, 13 Nov 2026). A
- * page tried under an earlier rule is tried once more on the same text, within MAX_TRIES: the front list's first run
- * left 13 parts unkept under rule 1, and the chief of staff clears the list to see what rule 2 keeps of them.
+ * How a fish, plant or breed page's parts are mended. 2: only the sentences a finding quotes (mend.ts, 13 Nov 2026). 3: a
+ * part of three sentences or fewer that would lose every one comes off the page (14 Nov 2026). A page tried under an
+ * earlier rule is tried once more on the same text, within MAX_TRIES: the front list's first run left 13 parts unkept
+ * under rule 1, and the lane's first left 4 pages held on parts rule 3 takes off.
  */
-export const MEND_RULE = 2
+export const MEND_RULE = 3
 /**
  * A page is tried at most this often, on any of its texts, unless named: a part its reviewers pass that the next read
  * still faults would make the page due again on its new text, a cycle at a time, with only the step's ceiling to stop it.
@@ -260,21 +261,25 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
             const off = mine.length ? keepsFigures(textOf(before), textOf(next), mine.map(f => f.quote ?? ''), figures) : undefined
             if (r.score < QUALITY_THRESHOLD || r.lost.length || r.unasked.length || r.added.length || r.whole.length || off) { report.notKept.push(`${key} ${field} (${r.score.toFixed(2)}: ${[...(off ? [off] : []), ...r.notes].slice(0, 2).join('; ')})`); continue }
             if (next === before) { report.skipped.push(`${key} ${field}: the rewrite changed nothing`); continue }
+            const [sk, ss] = field.startsWith('sections.') ? field.slice('sections.'.length).split(':') : []
+            const lines = (h: string) => sentences(h).filter(x => x.sentence).length
+            // Every line gone (mendPart, three or fewer): only a source's part can come off the page; a body, an answer or a
+            // definition stays held, its sentences for the chief of staff.
+            const emptied = !lines(next)
+            if (emptied && !(sk && ss)) { report.skipped.push(`${key} ${field}: every sentence would go, and it isn't a part that can come off: held for the chief of staff (${r.gone.join('; ')})`); continue }
             report.gone.push(...r.gone.map(g => `${key} ${field} ${g}`))
             // A part a cut reduces to one line, or a shop's quick facts it had to mend, isn't a part (the chief of staff, 14 Nov
             // 2026: "A part reduced to one line from a dealer's stock list isn't a part", "is dropped, not kept"): off the page in
             // every language, as the sweep takes a dealer's notice off (sweep.ts). One reduced to one line goes with its heading
             // when it's the heading's only text, listed for the chief; a shop's list with more left stays when it is.
-            const [sk, ss] = field.startsWith('sections.') ? field.slice('sections.'.length).split(':') : []
-            const lines = (h: string) => sentences(h).filter(x => x.sentence).length
             const thin = lines(next) <= 1 && lines(before) > 1
-            if (sk && ss && (thin || (isShop(ss) && sk === 'quickFacts'))) {
+            if (sk && ss && (thin || emptied || (isShop(ss) && sk === 'quickFacts'))) {
               const dir = join(root, 'content', p.kind, p.id)
               const entityFile = join(dir, 'entity.json')
               const raw = await readFile(entityFile, 'utf8')
               const e = JSON.parse(raw) as { sections: { key: string; source: string; html: string }[] }
               const other = e.sections.some(s => s.key === sk && s.source !== ss && s.html.trim() && t.sections?.[`${sk}:${s.source}`]?.trim())
-              if (other || thin) {
+              if (other || thin || emptied) {
                 const k = `${sk}:${ss}`
                 await writeFile(entityFile, `${JSON.stringify({ ...e, sections: e.sections.filter(s => !(s.key === sk && s.source === ss)) }, null, 2)}\n`)
                 for (const f of (await readdir(dir)).filter(f => /^[a-z]{2}\.json$/.test(f) && f !== 'vi.json')) {
@@ -284,7 +289,7 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
                 delete t.sections![k]
                 await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)
                 changed++
-                report.rewritten.push(`${key} ${field} off the page (${thin ? 'one line left' : 'a shop\'s list'}${other ? '' : ', its heading with it: for the chief of staff'})`)
+                report.rewritten.push(`${key} ${field} off the page (${emptied ? 'every line went' : thin ? 'one line left' : 'a shop\'s list'}${other ? '' : ', its heading with it: for the chief of staff'})`)
                 break
               }
             }

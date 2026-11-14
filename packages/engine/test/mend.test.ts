@@ -88,10 +88,26 @@ test('the same drop with no finding that asks for it fails: none on that part, o
   }
 })
 
-test('a part that would lose every sentence isn\'t mended here: the dealer check settles it', async () => {
-  const html = '<p>Hiện có cá phượng hoàng bắt ngoài tự nhiên từ Venezuela, con nào cũng đã lớn hẳn.</p>'
-  const llm = (async () => ({ sentences: [{ n: 1, vi: '' }] })) as unknown as Llm
-  expect(await mendPart(llm, html, [{ check: 'source', quote: 'Hiện có cá phượng hoàng', note: 'n' }])).toMatch(/every sentence would go/)
+// The chief of staff, 14 Nov 2026: a part whose every sentence goes whole comes off the page when it is three sentences or
+// fewer; a longer one is more likely the read's mistake, and stays held with its sentences.
+test('a part that would lose every sentence goes whole at three sentences or fewer, each a finding\'s; a longer one is held', async () => {
+  const empty = (n: number) => (async () => ({ sentences: Array.from({ length: n }, (_, i) => ({ n: i + 1, vi: '' })) })) as unknown as Llm
+  const one = await mendPart(empty(1), '<p>Nơi sống có ảnh chụp: sông Rio Parana, bang Corrientes, Argentina.</p>', [{ check: 'source', quote: 'Nơi sống có ảnh chụp', note: 'n' }])
+  if (typeof one === 'string') throw new Error(one)
+  expect([one.html, one.gone]).toEqual(['', ['sentence 1 went whole: "Nơi sống có ảnh chụp: sông Rio Parana, bang Corrientes, Argentina."']])
+  const three = '<p>Hiện có cá bắt ngoài tự nhiên. Con nào cũng đã lớn. Lô này về từ Venezuela.</p>'
+  const all = [{ check: 'source' as FitCheck, quote: 'Hiện có cá bắt ngoài tự nhiên. Con nào cũng đã lớn. Lô này về từ Venezuela.', note: 'n' }]
+  const r3 = await mendPart(empty(3), three, all)
+  if (typeof r3 === 'string') throw new Error(r3)
+  expect(r3.gone).toHaveLength(3)
+  // Four sentences: held, with each sentence for the chief of staff.
+  const four = await mendPart(empty(4), three.replace('</p>', ' Cá khỏe.</p>'), [{ ...all[0]!, quote: 'Hiện có cá bắt ngoài tự nhiên. Con nào cũng đã lớn. Lô này về từ Venezuela. Cá khỏe.' }])
+  expect(four).toBe('every sentence would go, and the part has 4: held for the chief of staff (sentence 1: "Hiện có cá bắt ngoài tự nhiên."; sentence 2: "Con nào cũng đã lớn."; sentence 3: "Lô này về từ Venezuela."; sentence 4: "Cá khỏe.")')
+  // A sentence no finding asks to go (the line after, which the writer says goes with it), or one only a wording or a
+  // units finding names: held too, as no reviewer reads a part that goes whole.
+  const follower = (async () => ({ sentences: [{ n: 1, vi: '' }, { n: 2, vi: '', why: 'it was about those fish' }] })) as unknown as Llm
+  expect(await mendPart(follower, '<p>Hiện có cá bắt ngoài tự nhiên. Con nào cũng khỏe.</p>', [{ check: 'source', quote: 'Hiện có cá bắt ngoài tự nhiên.', note: 'n' }])).toMatch(/^every sentence would go, and not each is a finding's to take: held for the chief of staff/)
+  expect(await mendPart(empty(1), '<p>Cá dài 2 inch.</p>', [{ check: 'units', quote: '2 inch', note: 'n' }])).toMatch(/^every sentence would go, and not each is a finding's to take/)
 })
 
 // Astra's read of the first draft: what a writer drops beyond what its finding asks for fails, whatever the reviewer says.
