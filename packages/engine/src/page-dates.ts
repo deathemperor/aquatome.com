@@ -19,7 +19,7 @@ const canonical = (v: unknown): unknown => {
 export const visibleHash = (json: unknown) => createHash('sha256').update(JSON.stringify(canonical(json))).digest('hex').slice(0, 12)
 
 /** The files pages are made from, by their path in content/. */
-export const isPageFile = (rel: string) => /^(?:(?:species|breeds|plants|guides|glossary|products)\/[^/]+\/[^/]+|gallery\/[^/]+|summaries\/[^/]+|equipment\/(?:[^/]+\/)?[^/]+)\.json$/.test(rel)
+export const isPageFile = (rel: string) => /^(?:(?:species|breeds|plants|guides|glossary|products|materials)\/[^/]+\/[^/]+|gallery\/[^/]+|summaries\/[^/]+|equipment\/(?:[^/]+\/)?[^/]+)\.json$/.test(rel)
 
 /**
  * The day each page's content last changed (content/page-dates.json, file → "day hash"), for the sitemap's last-changed

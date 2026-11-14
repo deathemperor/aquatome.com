@@ -5,16 +5,16 @@ import { APP_WHOLE_PHOTOS, appIndex, cardSrc, photoBox, refusedByCards } from '.
 import { appPages, fishDoc, guideDoc } from '../src/lib/app-page'
 import { getContent } from '../src/lib/content'
 import { guideParts } from '../src/lib/guide-page'
-import { smallSrc } from '../src/lib/img'
+import { resizeOf, smallSrc } from '../src/lib/img'
 import { guideImage } from '../src/lib/mentions'
 
 // A card and the page it opens show one photo, and the app shows a page's photo whole where no frame may fill with it,
 // never nothing (the Design Lead's line, accepted by the chief of staff, 13 Nov). On 13 Nov 41 fish pages led with a
 // dealer's shot cropped too near the fish, which the app's data left out of the page's `lead` and the index's `img`, so
 // the app showed no photo for them, or a later one on the card. Now `img` and `lead` are the page's first photo that
-// isn't generated, with where the fish is (`box`): its whole area where the cards' frames refuse the photo. Until the v2
-// Lab's build that draws the box is on TestFlight, a switch keeps such a photo off both, so today's build doesn't crop it
-// (APP_WHOLE_PHOTOS, the chief of staff, 13 Nov): each case holds both ways.
+// isn't generated, with where the fish is (`box`): its whole area where the cards' frames refuse the photo. A switch kept
+// such a photo off both until the v2 Lab's build that draws the box (375) was on TestFlight, 14 Nov, so a build before it
+// doesn't crop it (APP_WHOLE_PHOTOS, the chief of staff, 13 Nov): each case holds both ways.
 const WHOLE = { x: 0, y: 0, w: 1, h: 1 }
 async function withSwitch<T>(on: boolean, run: () => Promise<T>): Promise<T> {
   const was = APP_WHOLE_PHOTOS.on
@@ -192,3 +192,26 @@ for (const on of [false, true]) test(`every card in the app index shows its page
   if (on) expect(refused).toBeGreaterThan(0)
   else expect(refused).toBe(0)
 }), 1_200_000)
+
+// An album's photos carry where the fish is, as a page's head does, so the app frames each tile by the fish (the Design
+// Lead, 13 Nov: 6,444 of 6,590 album photos on main had a box the app didn't get). A photo's small copy goes with it only
+// where that copy is the photo resized: another framing would move the fish off its box, so the row loads the photo.
+test("every album photo carries its box, and its small copy only where that is the photo resized, in every language", async () => {
+  let boxed = 0
+  for (const lang of LANGS) {
+    const c = { ...(await getContent(lang)) }
+    const byUrl = photosByUrl(c), docs = await appPages(lang, c)
+    for (const d of Object.values(docs).flat()) for (const b of d.blocks) {
+      if (b.t !== 'gallery') continue
+      for (const g of b.photos) {
+        const p = byUrl.get(g.src)
+        expect(p, `${lang} ${d.path}: ${g.src}`).toBeDefined()
+        expect(g.box, `${lang} ${d.path}: ${g.src}`).toEqual(photoBox(p!))
+        if (g.thumb) expect(resizeOf(p!, g.thumb), `${lang} ${d.path}: ${g.thumb}`).toBe(true)
+        else expect(smallSrc(p!) === p!.url || !resizeOf(p!, smallSrc(p!)), `${lang} ${d.path}: ${g.src} lost its small copy`).toBe(true)
+        if (g.box) boxed++
+      }
+    }
+  }
+  expect(boxed).toBeGreaterThan(0)
+}, 600_000)

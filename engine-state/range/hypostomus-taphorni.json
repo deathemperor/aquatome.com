@@ -1,8 +1,8 @@
 {
   "id": "hypostomus-taphorni",
   "native": {
-    "input": "6473e29d12504b71",
-    "at": "2026-11-14T00:09:29.977Z",
+    "input": "d123950c8d22fb54",
+    "at": "2026-11-14T05:39:06.336Z",
     "claims": [
       {
         "code": "GY",
@@ -19,6 +19,22 @@
         "quote": "Type locality: Río Botanamo, Río Cuyuni drainage, near the bridge on the road to Bochinche, Bolívar State, Venezuela.",
         "words": "Venezuela",
         "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Cuyuni River basin, Essequibo drainage, Venezuela (Armbruster, 2003a), Rupununi River and Takutu River basins, Guyana (Armbruster & de Souza, 2005).",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Cuyuni River basin, Essequibo drainage, Venezuela (Armbruster, 2003a), Rupununi River and Takutu River basins, Guyana (Armbruster & de Souza, 2005).",
+        "words": "Guyana",
+        "ok": true
       }
     ],
     "regions": [
@@ -30,10 +46,35 @@
         "ok": true
       },
       {
-        "name": "Río Cuyuni",
+        "name": "Cuyuni",
         "source": "planetcatfish",
         "quote": "Type locality: Río Botanamo, Río Cuyuni drainage, near the bridge on the road to Bochinche, Bolívar State, Venezuela.",
         "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Cuyuni",
+        "source": "scotcat",
+        "quote": "South America: Cuyuni River basin, Essequibo drainage, Venezuela (Armbruster, 2003a), Rupununi River and Takutu River basins, Guyana (Armbruster & de Souza, 2005).",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Essequibo",
+        "source": "scotcat",
+        "quote": "IUCN Red List: Hypostomus taphorni has a wide range in the Essequibo, Berbice, and Corantijn river basins, and the species appears to be tolerant of poor water quality.",
+        "ok": true
+      },
+      {
+        "name": "Berbice",
+        "source": "scotcat",
+        "quote": "IUCN Red List: Hypostomus taphorni has a wide range in the Essequibo, Berbice, and Corantijn river basins, and the species appears to be tolerant of poor water quality.",
+        "ok": true
+      },
+      {
+        "name": "Corantijn",
+        "source": "scotcat",
+        "quote": "IUCN Red List: Hypostomus taphorni has a wide range in the Essequibo, Berbice, and Corantijn river basins, and the species appears to be tolerant of poor water quality.",
         "ok": true
       }
     ],
@@ -41,9 +82,7 @@
     "outranked": [],
     "origin": {
       "pagesOnly": [],
-      "sourcesOnly": [
-        "VE"
-      ]
+      "sourcesOnly": []
     }
   },
   "records": {

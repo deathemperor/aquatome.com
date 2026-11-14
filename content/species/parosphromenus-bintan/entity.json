@@ -8,7 +8,8 @@
   "places": [
     "asia",
     "indonesia",
-    "bintan"
+    "bintan",
+    "jambi"
   ],
   "range": {
     "native": {
@@ -97,6 +98,10 @@
       {
         "source": "seriouslyfish",
         "value": 2.6
+      },
+      {
+        "source": "glaser",
+        "value": 3
       }
     ],
     "tankCm": [
@@ -118,6 +123,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-bintan",
       "html": "<p>Parosphromenus bintan is a liquorice gourami from Indonesia, confirmed only from Bintan Island in the Riau Archipelago and from Bangka. Similar-looking fish from Sumatra and Borneo may or may not be conspecific, and the name is sometimes misapplied to commercial shipments of other species. Males have a rounded caudal fin with concentric whitish, black, bluish and broad black or reddish-black bands.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/parosphromenus_cf_bintan_sintang_en/",
+      "html": "<p>Licorice gouramis are ideal inhabitants of nano tanks. They settle even in extreme natural habitats, where the water is very poor in nutrients, very soft and acidic. These dwarfs among the anabantoids become astoundingly old and can easily reach an age of 5 or more years. They should be kept in one-species tanks.</p>"
     },
     {
       "key": "distribution",
@@ -156,6 +167,12 @@
       "html": "<p>This species is chiefly a micropredator feeding on tiny aquatic invertebrates, therefore in the aquarium it must be offered a variety of small live foods such as Artemia nauplii, Daphnia, Moina, mosquito larvae, micro worm, etc.</p><p>Frozen foods are sometimes accepted but not considered sufficiently-nutritious while the majority of dried products are normally refused.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/parosphromenus_cf_bintan_sintang_en/",
+      "html": "<p>They can be fed exclusively with live brine shrimp nauplii (Artemia).</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-bintan",
@@ -168,16 +185,34 @@
       "html": "<p>In males the dorsal, anal and caudal fins have a thin whitish to bluish margin with a black subdistal band bordered internally by an iridescent bluish or bluish-green band.</p><p>The proximal portion of these fins is black, and the posterior lower edge of the dorsal sometimes contains a small bluish or greenish iridescent patch.</p><p>The pelvic fins are iridescent green or blue with a white filamentous tip, while the pectoral fins are hyaline.</p><p>Nuptial males exhibit an overall more intense colour pattern.</p><p>Females are far less colourful and lack the colourful bands in the dorsal, anal and caudal fins.</p><p>Nuptial females lose the majority of their markings and take on a pale beige colour pattern plus both nuptial males and females exhibit an oblique dark bar running through the eye.</p><p>Both sexes are also capable of rapidly changing colour depending on mood and become significantly darker when aggressive, for example.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/parosphromenus_cf_bintan_sintang_en/",
+      "html": "<p>The males display a very strong blue coloration. In all licorice gouramis the sexes can be distinguished even in fright coloration. Both males and females look like Betta-females in that mood, but the caudal fin of the females is completely hyaline whereas in the caudal fin of the males an iridescent shine can always be observed that reflects the courtship coloration.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-bintan",
       "html": "<p>Normally spawns in small caves or among leaf litter and forms temporary pair bonds with the male solely responsible for egg and brood-care.</p><p>Parosphromenus spp. have been grouped arbitrarily based on courtship behaviour in males which adopt a 'head-down', 'head-up', or 'horizontal' position depending on species.</p><p>P. bintan belongs to the former, more speciose, assemblage in which the male assumes a near-vertical position with the head lowermost and fins splayed during nuptial displays.</p><p>Sexually-active males form small territories at the centre of which is a small cave normally formed from leaf litter in nature, although in aquaria any suitable structure may be chosen (see 'Maintenance').</p><p>They then attempt to attract females in the vicinity to enter the cave via spectacular displays as described above.</p><p>Eggs and milt are released in batches during a series of embraces in which the male wraps its body around that of the female.</p><p>Some males construct a rudimentary bubble nest inside the cave while others do not, but either way both male and female attempt to attach the eggs to the ceiling after they are released.</p><p>Subsequent spawning embraces may dislodge eggs from the roof of the cave, and inexperienced adults sometimes simply eat them so a degree of patience may be required until the fish get things right.</p><p>Following a successful spawn the female leaves the cave and proceeds to defend the surrounding area while the male tends to the brood.</p><p>Incubation is normally 24-36 hours with the fry mobile around 4-6 days later.</p><p>They initially swim without direction and the male will collect and return them to the 'nest' but after 3-5 additional days are fully free-swimming and leave the cave at which point parental care ceases.</p><p>They may require Paramecium, rotifers or similar as a first food but are quickly able to accept Artemia nauplii and suchlike.</p><p>If the aquarium is well-structured they can often be raised alongside the parents but in more basic set-ups should be removed and grown on elsewhere.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/parosphromenus_cf_bintan_sintang_en/",
+      "html": "<p>They compensate for the low number of eggs they produce per spawning, usually fewer than 20, with their long lifespan.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-bintan",
       "html": "<p>This species is not generally available in the aquarium hobby on a commercial basis but is occasionally collected and distributed by private aquarists.</p><p>Its name is sometimes misapplied to commercial shipments of other species, and there also exist a number of other fish with rounded caudal-fins that may or may not be conspecific, including P. sp. 'blue line' and P. sp. 'Selatan' from Sumatra.</p><p>It can be distinguished from congeners by the following combination of characters: caudal-fin rounded with median ray not prolonged into a filament; pelvic-fin with white filamentous tip; anal and dorsal fins of males with stripes and caudal-fin with concentric bands in the following sequence, from distal to proximal: narrow whitish, narrow black, narrow bluish or bluish-green iridescent, broad black or reddish-black; 11-13 spinous and 5-7 soft dorsal-fin rays (mode 12, 6); 11-13 spinous and 8-10 soft anal-fin rays (mode 12, 9).</p><p>Aquarists often refer to Parosphromenus spp. collectively as 'liquorice/licorice gouramis' or 'paros'.</p><p>The genus occurs in southern (peninsular) Thailand, Peninsular Malaysia, Sumatra (Indonesia, including the islands of Bintan, Bangka and the Riau Archipelago), and Borneo (Malaysia and Indonesia).</p><p>All members are small-growing inhabitants of freshwater swamps and associated streams, and the grouping was considered to be monotypic, containing only P. deissneri (Bleeker, 1859), for almost a century.</p><p>Additional taxa have been described on a sporadic basis since the 1950s and there currently exist 20 recognised members with more likely to follow.</p><p>Despite the generic name the results of phylogenetic analyses by Rüber et al. (2006) suggest that Parosphromenus is most closely-related to Betta or Trichopsis in an evolutionary sense.</p><p>All three of these are sometimes included in the putative subfamily Macropodusinae alongside Macropodus, Pseudosphromenus and Malpulutta.</p><p>Like others in the suborder Anabantoidei members possess an accessory breathing organ known as the labyrinth organ, formed by a modification of the first gill arch and consisting of many highly-vascularised, folded flaps of skin.</p><p>So-called due to its maze-like structure this organ allows the fish to breathe atmospheric air to a certain extent.</p><p>The structure of the organ varies in complexity between species tending to be more well-developed in those inhabiting particularly oxygen-deprived conditions.</p><p>While some labyrinth fishes can be observed taking regular gulps of air from the surface others, including Parosphromenus spp., do so less often.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/parosphromenus_cf_bintan_sintang_en/",
+      "html": "<p>Lexicon: Parosphromenus means \"stands beside Osphromenus\"; Osphromenus is another genus of anabantid. bintan: after the island of Bintan, the type locality.</p><p>Suggested common name: Blue Sintang Licorice Gourami.</p>"
     },
     {
       "key": "references",
@@ -219,5 +254,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-14"
 }

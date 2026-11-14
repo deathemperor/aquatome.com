@@ -1,6 +1,23 @@
 {
  "queue": [],
- "judged": [],
- "hashes": {},
- "commons": "2026-11-09"
+ "judged": [
+  "inat:655859903",
+  "inat:658467467",
+  "inat:659010293",
+  "inat:661007220"
+ ],
+ "hashes": {
+  "https://media.aquatome.com/inaturalist/655859903.webp": "033e681a10a11112",
+  "https://media.aquatome.com/inaturalist/658467467.webp": "4949228e1e71a663",
+  "https://media.aquatome.com/inaturalist/659010293.webp": "5c1c8b9b1f1fc942"
+ },
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 530747,
+  "pass": "done",
+  "after": {
+   "research": 362172383,
+   "agree": 0
+  }
+ }
 }

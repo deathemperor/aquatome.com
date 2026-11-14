@@ -19,6 +19,7 @@ const KIND_LABEL: Record<ReviewKind, string> = {
   equipment: 'equipment buying guides in Indonesian and Thai, against the Vietnamese',
   planting: 'plants\' planting text, against their page and video guides',
   species: 'species pages AquaTome writes from research, and what a species video adds to a page, against their research or video',
+  material: 'hobby materials\' pages (lũa, đá, nền), against their research',
 }
 
 /**

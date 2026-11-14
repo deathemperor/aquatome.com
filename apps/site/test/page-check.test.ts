@@ -55,6 +55,10 @@ describe('each check, on a page made to fail it', () => {
   }
   const fig = (src: string, href?: string) => `<figure class="inl"><img src="${src}" width="1" height="1" alt=""><figcaption>${href ? `<a href="${href}">x</a>` : ''}</figcaption></figure>`
   const checks = (html: string) => checkPage('/huong-dan/x/', html, f).map(p => p.check)
+  test('a page that ships with a link marker left in it (localizeLinks), in any language', () => {
+    expect(checks('<p>Lũa \uE0000b6f2c1e-1d2a-4c3b-9e8f-7a6b5c4d3e2f\uE001</p>')).toEqual(['link-mark'])
+    expect(checks('<p>Lũa</p>')).toEqual([])
+  })
   test('one picture in two files, a card\'s thumb of it, a video\'s two thumbnails', () => {
     expect(checks(`<img src="https://m/1.webp"><img src="https://m/2-480.webp"><img src="https://i.ytimg.com/vi/v/hq.jpg"><img src="https://i.ytimg.com/vi_webp/v/mq.webp"><template><img src="https://m/1.webp"></template>`)).toEqual(['repeat', 'repeat'])
   })

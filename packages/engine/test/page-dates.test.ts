@@ -68,6 +68,6 @@ test('a file gone from content leaves the record; keys are sorted, a run with no
 })
 
 test('every kind of page\'s files is dated, and nothing else in content', () => {
-  for (const f of ['species/x/entity.json', 'species/x/th.json', 'breeds/x/vi.json', 'plants/x/id.json', 'guides/x/vi.json', 'glossary/x/vi.json', 'products/x/vi.json', 'gallery/x.json', 'summaries/x.json', 'equipment/den.json', 'equipment/th/den.json']) expect(isPageFile(f), f).toBe(true)
+  for (const f of ['species/x/entity.json', 'species/x/th.json', 'breeds/x/vi.json', 'plants/x/id.json', 'guides/x/vi.json', 'glossary/x/vi.json', 'products/x/vi.json', 'materials/lua/entity.json', 'materials/lua/vi.json', 'gallery/x.json', 'summaries/x.json', 'equipment/den.json', 'equipment/th/den.json']) expect(isPageFile(f), f).toBe(true)
   for (const f of ['page-dates.json', 'picture-hashes.json', 'changelog.json', 'sources.json', 'captions/th.json', 'series/x.json', 'species/x/notes.txt']) expect(isPageFile(f), f).toBe(false)
 })

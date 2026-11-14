@@ -6,9 +6,26 @@
 // has one for. Each language is set on its own; one that can't be set is a warning, and the build is up anyway.
 //
 // Without BUILD (a pull request's dry run) it only reports the newest build, which checks the key and this script.
+// A note Apple refuses for characters it names is sent once more without them, so a build never goes out with no note.
+// `--test` checks reading those characters, with no key.
 // Env: KEY_PATH (the .p8), KEY_ID, ISSUER_ID, APP_ID, BUILD (the build number), WHATS_NEW. Prints nothing secret.
 import { readFileSync, appendFileSync } from 'node:fs'
 import { sign } from 'node:crypto'
+import assert from 'node:assert/strict'
+
+// The characters Apple names when it refuses a note: build 363's answer (14 Nov) was "Text for whatsNew contains invalid
+// characters:'[✕]'". Several, it lists them comma-separated (Java's list form); none, an empty list.
+export const refused = (message) => (message.match(/invalid characters:\s*'\[(.*)\]'/s)?.[1] ?? '').split(', ').filter(Boolean)
+const without = (text, chars) => chars.reduce((t, c) => t.split(c).join(''), text)
+
+if (process.argv[2] === '--test') {
+  const apple = "PATCH betaBuildLocalizations/x answered 409: Text for whatsNew contains invalid characters:'[✕]'."
+  assert.deepEqual(refused(apple), ['✕'])
+  assert.deepEqual(refused("... invalid characters:'[✕, ⋯]'"), ['✕', '⋯'])
+  assert.deepEqual(refused('POST betaBuildLocalizations answered 409: The provided entity includes an unknown locale'), [])
+  assert.equal(without('Tap ✕: closed. ✕ again', refused(apple)), 'Tap : closed.  again')
+  process.exit(0)
+}
 
 const { KEY_PATH, KEY_ID, ISSUER_ID, APP_ID, BUILD, WHATS_NEW, GITHUB_STEP_SUMMARY } = process.env
 const key = readFileSync(KEY_PATH)
@@ -46,14 +63,21 @@ async function whatToTest(id) {
   const whatsNew = WHATS_NEW // within the limits already (testflight-notes.py)
   const have = await api('GET', `builds/${id}/betaBuildLocalizations`)
   const set = []
+  // Once more without the characters Apple names, if it names any: testflight-notes.py swaps the ones known so far.
   const each = async (locale, call) => {
-    try { await call(); set.push(locale) } catch (e) { console.log(`::warning title=What to Test not set (${locale})::${e.message}`) }
+    let bad
+    try { await call(whatsNew); set.push(locale); return } catch (e) {
+      bad = refused(e.message)
+      if (!bad.length) { console.log(`::warning title=What to Test not set (${locale})::${e.message}`); return }
+      console.log(`::warning title=What to Test (${locale})::Apple refused ${bad.join(' ')}; sending it again without them`)
+    }
+    try { await call(without(whatsNew, bad)); set.push(locale) } catch (e) { console.log(`::warning title=What to Test not set (${locale})::${e.message}`) }
   }
   for (const l of have)
-    await each(l.attributes.locale, () => api('PATCH', `betaBuildLocalizations/${l.id}`, { type: 'betaBuildLocalizations', id: l.id, attributes: { whatsNew } }))
+    await each(l.attributes.locale, (text) => api('PATCH', `betaBuildLocalizations/${l.id}`, { type: 'betaBuildLocalizations', id: l.id, attributes: { whatsNew: text } }))
   for (const locale of ['en-US', 'vi'].filter((x) => !have.some((l) => l.attributes.locale === x)))
-    await each(locale, () => api('POST', 'betaBuildLocalizations', {
-      type: 'betaBuildLocalizations', attributes: { locale, whatsNew }, relationships: { build: { data: { type: 'builds', id } } },
+    await each(locale, (text) => api('POST', 'betaBuildLocalizations', {
+      type: 'betaBuildLocalizations', attributes: { locale, whatsNew: text }, relationships: { build: { data: { type: 'builds', id } } },
     }))
   report(set.length ? `What to Test set (${set.join(', ')}).` : 'What to Test not set: see the warnings.')
 }

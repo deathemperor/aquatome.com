@@ -1,0 +1,79 @@
+{
+  "$comment": "Week Aqua (model code 5746) Bluetooth test vectors, read by the iOS app's tests (apps/ios/AquaTomeKit/Tests/WeekAquaTests) and meant for the site's too, so both send the same bytes. Change both implementations together. From the hands-on tests with the owner's three lights and the WEEK AQUA capture of 2026-11-03 (docs/research/aquarium-device-control.md). Light names and addresses are synthetic: never put a real device's name suffix or address here. Times are the phone's local time. WEEK AQUA also sends `F9 55 55 55 55 55 55 55` on connecting; its meaning is unknown and it is never sent.",
+  "gatt": {
+    "note": "Write fff2 under fff0, without response; fff1 never sends anything. The firmware-update service f000ffc0 is never written to: only fff0 is looked for.",
+    "discover": ["FFF0"],
+    "write": [
+      { "note": "the lights' service", "service": "FFF0", "characteristics": ["FFF1", "FFF2"], "write": "FFF2" },
+      { "note": "the same in the long form", "service": "0000fff0-0000-1000-8000-00805f9b34fb", "characteristics": ["0000fff1-0000-1000-8000-00805f9b34fb", "0000fff2-0000-1000-8000-00805f9b34fb"], "write": "0000fff2-0000-1000-8000-00805f9b34fb" },
+      { "note": "the firmware-update service: never", "service": "F000FFC0-0451-4000-B000-000000000000", "characteristics": ["F000FFC1-0451-4000-B000-000000000000", "F000FFC2-0451-4000-B000-000000000000"], "write": null },
+      { "note": "a firmware-update characteristic listed under fff0: never", "service": "FFF0", "characteristics": ["F000FFC1-0451-4000-B000-000000000000", "F000FFC2-0451-4000-B000-000000000000"], "write": null },
+      { "note": "fff2 under another service: never", "service": "FFE0", "characteristics": ["FFF2"], "write": null },
+      { "note": "no fff2", "service": "FFF0", "characteristics": ["FFF1"], "write": null }
+    ]
+  },
+  "advert": [
+    { "note": "5746, the lights' manufacturer data: the code, 00 01, then the light's address", "name": "WEEKAQUA3.0", "manufacturerData": "57 46 00 01 a1 b2 c3 d4 e5 f6", "code": "5746", "supported": true, "address": "A1:B2:C3:D4:E5:F6" },
+    { "note": "the other name seen, the same model code", "name": "B3.0-A430Pro-99", "manufacturerData": "57 46 00 01 a1 b2 c3 d4 e5 f7", "code": "5746", "supported": true, "address": "A1:B2:C3:D4:E5:F7" },
+    { "note": "too short for an address", "name": "WEEKAQUA3.0", "manufacturerData": "57 46", "code": "5746", "supported": true, "address": null },
+    { "note": "5745 speaks another protocol: listed, not written to", "name": "WEEKAQUA3.0", "manufacturerData": "57 45 00 01 a1 b2 c3 d4 e5 f8", "code": "5745", "supported": false, "address": "A1:B2:C3:D4:E5:F8" },
+    { "note": "5752 too", "name": "M-PRO", "manufacturerData": "57 52 00 01 a1 b2 c3 d4 e5 f9", "code": "5752", "supported": false, "address": "A1:B2:C3:D4:E5:F9" },
+    { "note": "a WEEK AQUA name without the data: a Week Aqua light of unknown code", "name": "WEEKAQUA3.0", "manufacturerData": null, "code": null, "supported": false, "address": null },
+    { "note": "a board-version name without the data", "name": "B3.0-A430Pro-99", "manufacturerData": null, "code": null, "supported": false, "address": null },
+    { "note": "a Chihiros light", "name": "DYSL30A1B2C3", "manufacturerData": null, "isWeekAqua": false },
+    { "note": "another code under 57: not a Week Aqua light", "name": "Lamp", "manufacturerData": "57 4a 00 01 a1 b2 c3 d4 e5 f6", "isWeekAqua": false }
+  ],
+  "clock": [
+    { "note": "the phone's local time, hour, minute and second in BCD", "local": "2026-11-03T21:35:07", "hex": "ff 21 35 07 55 55 55 55" },
+    { "local": "2026-11-04T00:00:00", "hex": "ff 00 00 00 55 55 55 55" },
+    { "local": "2026-11-04T09:05:59", "hex": "ff 09 05 59 55 55 55 55" }
+  ],
+  "levels": [
+    { "note": "blue only, confirmed by eye on each light", "levels": [0, 0, 235, 0], "hex": "fb f9 00 00 eb 00 55 55" },
+    { "note": "off, confirmed by eye on each light", "levels": [0, 0, 0, 0], "hex": "fb f9 00 00 00 00 55 55" },
+    { "note": "the owner's group, as WEEK AQUA sent it: Green at half brightness", "levels": [54, 114, 57, 117], "hex": "fb f9 36 72 39 75 55 55" },
+    { "note": "past 235: refused", "levels": [236, 0, 0, 0], "hex": null },
+    { "note": "below 0: refused", "levels": [0, -1, 0, 0], "hex": null },
+    { "note": "three levels: refused", "levels": [0, 0, 0], "hex": null }
+  ],
+  "manual": { "note": "manual mode: applies the levels and timer written before it. alokauz's 8 bytes; the research notes write it FD F1", "hex": "fd f1 55 55 55 55 55 55" },
+  "timer": [
+    { "note": "the owner's timer, captured from WEEK AQUA: past midnight, on almost all day", "on": "02:50", "off": "02:40", "hex": "fe f9 02 50 02 40 01 00" },
+    { "note": "the timer the lights were seen to switch off by; the hands-on test sent 00 in the seventh byte, WEEK AQUA sends 01 for a window this long", "on": "02:50", "off": "21:37", "hex": "fe f9 02 50 21 37 01 00" },
+    { "note": "an hour and a half: 00", "on": "21:00", "off": "22:30", "hex": "fe f9 21 00 22 30 00 00" },
+    { "note": "two hours: 00", "on": "08:00", "off": "10:00", "hex": "fe f9 08 00 10 00 00 00" },
+    { "note": "a minute more: 01", "on": "08:00", "off": "10:01", "hex": "fe f9 08 00 10 01 01 00" },
+    { "note": "an hour past midnight: 00", "on": "23:30", "off": "00:30", "hex": "fe f9 23 30 00 30 00 00" },
+    { "note": "on and off the same: 24", "on": "08:00", "off": "08:00", "hex": "fe f9 08 00 08 00 24 00" }
+  ],
+  "presets": [
+    { "id": "green", "levels": [108, 227, 115, 235] },
+    { "id": "red", "levels": [167, 185, 116, 235] },
+    { "id": "mixed", "levels": [121, 223, 116, 235] },
+    { "id": "gorgeous", "levels": [193, 94, 188, 235] },
+    { "id": "colorful", "levels": [235, 94, 148, 235] },
+    { "id": "algae", "levels": [163, 235, 112, 0] },
+    { "id": "nature", "levels": [119, 235, 119, 0] },
+    { "id": "elegant", "levels": [131, 235, 133, 0] },
+    { "id": "brisk", "levels": [94, 235, 94, 0] },
+    { "id": "fresh", "levels": [89, 235, 96, 0] },
+    { "id": "enjoy", "levels": [110, 235, 101, 0] },
+    { "id": "white", "levels": [126, 235, 105, 0] }
+  ],
+  "brightness": [
+    { "preset": "green", "brightness": 100, "levels": [108, 227, 115, 235] },
+    { "note": "each rounded to the nearest step, a half up; WEEK AQUA's own half brightness sent 54 114 57 117", "preset": "green", "brightness": 50, "levels": [54, 114, 58, 118] },
+    { "preset": "white", "brightness": 30, "levels": [38, 71, 32, 0] },
+    { "preset": "green", "brightness": 0, "levels": [0, 0, 0, 0] }
+  ],
+  "write": [
+    {
+      "note": "the order the lights took, which is also how WEEK AQUA leaves them: clock, manual, levels, timer, manual. The owner's group put back as it was.",
+      "local": "2026-11-03T21:35:07",
+      "levels": [54, 114, 57, 117],
+      "on": "02:50",
+      "off": "02:40",
+      "frames": ["ff 21 35 07 55 55 55 55", "fd f1 55 55 55 55 55 55", "fb f9 36 72 39 75 55 55", "fe f9 02 50 02 40 01 00", "fd f1 55 55 55 55 55 55"]
+    }
+  ]
+}

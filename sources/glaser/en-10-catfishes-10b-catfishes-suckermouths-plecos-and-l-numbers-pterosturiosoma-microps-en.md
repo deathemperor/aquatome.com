@@ -1,0 +1,9 @@
+---
+url: https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/pterosturiosoma_microps_en/
+title: Pterosturiosoma microps - Aquarium Glaser GmbH
+fetchedAt: 2026-11-14T04:36:38.758Z
+hash: 91ea1a89f88880ecb34a05eac6d1bd23e02dcdf9aa94013255ff5b328687f297
+---
+
+Pterosturiosoma microps is one of the regularly imported Loricariidae from Peru, although not in bigger quantities. Even though it is more impressing in colour by its soft black-grey, it can still arouse enthusiasm by its remarkable appearance and its impressive but graceful fins. But its steady nursing is not quite easy. Whereas the acclimatization probably seems to be the most problematic part, as it is difficult to get the fish used to food substitute and/or they could possibly be pre-injured by the catch or transport. The type of food is surely tainted with a certain risk, because during the first time these fish persistencely refuse to frequent a sandy or graveled ground or other decoration materials. This means they only eat what they find on waveless surfaces. Therefore it is recommended not to use ground during the quarantine, in order to get the animals into a good condition. When the fish got used to the life in the aquarium and when they recovered from the strains of transport, a nursing in a well-decorated and planted aquarium will be simple. Roots or the broad leaves of Vallisneria gigantea for example could be the prefered residences. As these catfish grow to a length of 20cm, the nursing tank should include 250 l. Unfortunately P. microps can be only socialized with really peaceful fish, which do not fight with him for food, because it does not have any self-assertion. If you meet its requirements, P. microps can be an absolutely recommendable fish, but it surely is not an easy to keep fish. (Photo & Text von T. Weidner)
+Angaben zum Tier Herkunft Peru

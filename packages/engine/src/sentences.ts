@@ -118,7 +118,11 @@ export function splice(pieces: Piece[], changes: ReadonlyMap<number, string>): s
     p.html = next
     if (next) return
     const after = out[i + 1]
-    const before = out[i - 1]
+    // The space before it, past any sentence already gone and its space: two going together at a paragraph's end leave
+    // none ("Orinoco. </p>").
+    let j = i - 1
+    while (j >= 0 && out[j]!.html === '') j--
+    const before = out[j]
     if (after && !after.sentence && /^\s+$/.test(after.html)) after.html = ''
     else if (before && !before.sentence && /\s$/.test(before.html)) before.html = before.html.replace(/\s+$/, '')
   })

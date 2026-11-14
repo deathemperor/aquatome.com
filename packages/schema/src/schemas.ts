@@ -3,7 +3,7 @@ import { isCountryCode } from './countries'
 import { WRITTEN_OTHER_LANGS, type WrittenOtherLang } from './langs'
 import { byCount, CELL_DEG } from './range'
 
-export const SOURCE_IDS = ['seriouslyfish', 'planetcatfish', 'loachesonline', 'glaser', 'bwaquatics', '2hraquarist', 'aquariumcoop', 'sprucepets', 'aquariumbreeder', 'tropica', 'scotcat', 'facebook-jim', 'panitvong', 'cryptspages', 'diendancacanh', 'youtube', 'aquatome', 'aquazonefish', 'aquahouse', 'chothuysinh', 'cacanhtailoc'] as const
+export const SOURCE_IDS = ['seriouslyfish', 'planetcatfish', 'loachesonline', 'glaser', 'bwaquatics', '2hraquarist', 'aquariumcoop', 'sprucepets', 'aquariumbreeder', 'tropica', 'scotcat', 'facebook-jim', 'panitvong', 'cryptspages', 'diendancacanh', 'youtube', 'aquatome', 'aquazonefish', 'aquahouse', 'chothuysinh', 'cacanhtailoc', 'practicalfishkeeping'] as const
 export { LANGS, WRITTEN_LANGS } from './langs'
 
 export const SECTION_ORDER = ['quickFacts', 'beforeYouBuy', 'distribution', 'habitat', 'aquariumSize', 'maintenance', 'waterConditions', 'equipment', 'diet', 'behaviour', 'dimorphism', 'reproduction', 'notes', 'references'] as const
@@ -285,7 +285,8 @@ export const OneVoiceSchema = z.record(z.string(), z.partialRecord(z.enum(SECTIO
  * check had judged had been rejected, most as another fish; the check takes the mark off a photo it judges and leaves on.
  * A photo without it was added before, or has been judged.
  */
-const GalleryPhoto = Photo.extend({ best: z.boolean().optional(), kind: z.string().optional(), unchecked: z.boolean().optional() })
+/** `setup`: the album check's word that the fish sits in a photo tank, box, tray or cup, or beside a ruler or a printed board (engine gallery.ts setupLast). */
+const GalleryPhoto = Photo.extend({ best: z.boolean().optional(), kind: z.string().optional(), setup: z.boolean().optional(), unchecked: z.boolean().optional() })
 export const GallerySchema = z.object({ id: z.string(), photos: z.array(GalleryPhoto), seen: z.number(), updatedAt: z.string(), builtAt: z.string().optional() })
 
 const ProductSpec = z.object({ key: z.string(), value: z.string(), source: z.number().int().optional() })
@@ -322,6 +323,22 @@ export const BreedSchema = z.object({
   /** Wikimedia Commons category for its photos, when there is one. */
   commons: z.string().optional(),
   sources: z.array(z.object({ url: WebUrl, title: z.string(), kind: z.enum(['breeder', 'shop', 'article', 'forum', 'video', 'paper', 'other']), at: z.string() })),
+  updatedAt: z.string(),
+})
+
+/** Hobby materials: our own cited writing, Vietnamese-only during the unlisted pilot. */
+export const MATERIAL_SECTION_ORDER = ['about', 'water', 'prepare', 'suits', 'mistakes', 'buy'] as const
+/**
+ * A hobby material's page (content/materials/<id>/): a driftwood kind, a substrate, a rock, a botanical (lá bàng, quả
+ * thông). `names`, and each language's `altNames`, hold only names a source writes, as it writes them (the engine keeps
+ * the evidence). A price, in `buy`, only from a Vietnamese shop's own page, dated beside it.
+ */
+export const MaterialSchema = z.object({
+  id: z.string(), kind: z.enum(['wood', 'substrate', 'rock', 'botanical', 'other']),
+  /** The general material page whose kinds include this one (for example, lua). */
+  parent: z.string().optional(),
+  names: z.array(z.string()), photos: z.array(Photo),
+  sources: z.array(z.object({ url: WebUrl, title: z.string(), kind: z.enum(['shop', 'article', 'forum', 'video', 'paper', 'other']), at: z.string() })),
   updatedAt: z.string(),
 })
 

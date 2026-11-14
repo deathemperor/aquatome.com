@@ -195,6 +195,18 @@ enum PageImages {
     let hue = 0.45 + CGFloat(seed % 100) / 500
     let format = UIGraphicsImageRendererFormat()
     format.scale = role == .full ? 2 : 1
+    // `-wide-pictures`: a fish as long as the kuhli's photo (8:3), its ends red and blue, so a test sees whether a frame
+    // shows them both.
+    if ProcessInfo.processInfo.arguments.contains("-wide-pictures") {
+      return UIGraphicsImageRenderer(size: CGSize(width: 800, height: 300), format: format).jpegData(withCompressionQuality: 0.9) { c in
+        UIColor(red: 0.2, green: 0.55, blue: 0.3, alpha: 1).setFill()
+        c.fill(CGRect(x: 0, y: 0, width: 800, height: 300))
+        UIColor(red: 0.92, green: 0.1, blue: 0.1, alpha: 1).setFill()
+        c.fill(CGRect(x: 0, y: 0, width: 120, height: 300))
+        UIColor(red: 0.1, green: 0.2, blue: 0.95, alpha: 1).setFill()
+        c.fill(CGRect(x: 680, y: 0, width: 120, height: 300))
+      }
+    }
     return UIGraphicsImageRenderer(size: CGSize(width: 600, height: 400), format: format).jpegData(withCompressionQuality: 0.9) { c in
       // The brightest photo there is: what stands on one has to read on it.
       if ProcessInfo.processInfo.arguments.contains("-white-pictures") {

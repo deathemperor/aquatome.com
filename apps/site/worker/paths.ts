@@ -9,7 +9,7 @@ import type { Lang } from '@aq/schema/langs'
 /** The first segment of every Vietnamese page's address (the folders of src/pages/). The Worker runs first on each (wrangler.jsonc). */
 export const VI_SECTIONS = [
   'ca', 'cay', 'chinh-sach-bao-mat', 'cong-cu', 'dang-nhap', 'gioi-thieu', 'huong-dan', 'kham-pha', 'lien-he', 'moi-cap-nhat',
-  'nguon-goc', 'nhom', 'phan-loai', 'san-pham', 'thiet-bi', 'thuat-ngu', 'tim-kiem', 'ung-dung', 'video',
+  'nguon-goc', 'nhom', 'phan-loai', 'san-pham', 'thiet-bi', 'thuat-ngu', 'tim-kiem', 'ung-dung', 'vat-lieu', 'video',
 ] as const
 
 /** "/vi/ca/x/?q=1" → "/ca/x/?q=1"; "/vi/" and "/vi" → "/". Any other path stays as it is. */
@@ -21,9 +21,12 @@ export const isViPage = (path: string) => {
   return p === '/' || (VI_SECTIONS as readonly string[]).includes(p.split('/')[1]!)
 }
 
-/** A Vietnamese, Indonesian or Thai photo page forwards to its parent while its album has fewer than six photos. */
+/**
+ * A fish's or plant's photo page the build didn't make (its album a picture short of six) forwards to its page, in every
+ * language (test/photo-pages.test.ts holds each served one, and its line in wrangler.jsonc's run_worker_first).
+ */
 export const galleryParent = (path: string) => {
-  const match = /^(\/(?:ca|cay)\/[^/]+\/)anh\/?$|^(\/id\/(?:ikan|tanaman)\/[^/]+\/)foto\/?$|^(\/th\/(?:fish|plants)\/[^/]+\/)photos\/?$/.exec(path)
+  const match = /^(\/(?:ca|cay)\/[^/]+\/)anh\/?$|^(\/(?:id|ms)\/(?:ikan|tanaman|tumbuhan)\/[^/]+\/)foto\/?$|^(\/th\/(?:fish|plants)\/[^/]+\/)photos\/?$/.exec(path)
   return match?.[1] ?? match?.[2] ?? match?.[3]
 }
 

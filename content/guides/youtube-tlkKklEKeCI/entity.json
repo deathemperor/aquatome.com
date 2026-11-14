@@ -52,41 +52,13 @@
         "heading": "Chọn bể thế nào khi muốn nuôi cả đàn cóc",
         "moments": [
           {
-            "t": 0,
-            "url": "https://media.aquatome.com/video/tlkKklEKeCI/at0-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai con cóc được cầm trên tay, thấy rõ hoa văn xanh đen.",
-            "sharpness": 945.9
-          },
-          {
             "t": 5,
             "url": "https://media.aquatome.com/video/tlkKklEKeCI/at5-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cóc bụng lửa ngồi trên cạn trong bể bán thủy sinh, có phần nước bên dưới.",
-            "sharpness": 290.5
-          }
-        ]
-      },
-      {
-        "heading": "Sửa bể kính thành cửa mở phía trước ra sao",
-        "moments": [
-          {
-            "t": 145,
-            "url": "https://media.aquatome.com/video/tlkKklEKeCI/at145-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Giá đỡ từ thanh gỗ thừa được kẹp chặt vào mép bàn.",
-            "sharpness": 401.9
-          },
-          {
-            "t": 155,
-            "url": "https://media.aquatome.com/video/tlkKklEKeCI/at155-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tấm kính hậu được giá đỡ bằng gỗ giữ vững trên đáy bể.",
-            "sharpness": 637.1
+            "sharpness": 290.5,
+            "person": false
           }
         ]
       },
@@ -99,15 +71,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khớp nối tròn gắn xuyên qua mặt kính bể.",
-            "sharpness": 928.9
-          },
-          {
-            "t": 245,
-            "url": "https://media.aquatome.com/video/tlkKklEKeCI/at245-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ống vinyl trong suốt nối vào co nối gắn trên thành bể.",
-            "sharpness": 676.9
+            "sharpness": 928.9,
+            "person": false
           }
         ],
         "photo": {
@@ -122,44 +87,16 @@
         }
       },
       {
-        "heading": "Lên bố cục đá Dragon và gốc cây ra sao",
-        "moments": [
-          {
-            "t": 325,
-            "url": "https://media.aquatome.com/video/tlkKklEKeCI/at325-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ghép đá Dragon vào giữa các gốc cây làm khung bố cục.",
-            "sharpness": 848.1
-          },
-          {
-            "t": 330,
-            "url": "https://media.aquatome.com/video/tlkKklEKeCI/at330-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt đá Dragon lên tấm lưới nhựa egg crate cạnh các gốc cây.",
-            "sharpness": 632.4
-          }
-        ]
-      },
-      {
         "heading": "Chỉnh dòng thác và dẫn ẩm cho cây",
         "moments": [
-          {
-            "t": 415,
-            "url": "https://media.aquatome.com/video/tlkKklEKeCI/at415-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh khe đá nơi dòng nước chảy xuống thành thác.",
-            "sharpness": 1122.9
-          },
           {
             "t": 430,
             "url": "https://media.aquatome.com/video/tlkKklEKeCI/at430-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Các mảng đá và lũa xếp tạo khe cho nước chảy qua.",
-            "sharpness": 712.8
+            "sharpness": 712.8,
+            "person": false
           }
         ],
         "photo": {
@@ -175,24 +112,7 @@
       },
       {
         "heading": "Làm phần nền sau bố cục thế nào",
-        "moments": [
-          {
-            "t": 450,
-            "url": "https://media.aquatome.com/video/tlkKklEKeCI/at450-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhét mút lọc vào khe hở giữa các khối gỗ và đá.",
-            "sharpness": 1836.3
-          },
-          {
-            "t": 465,
-            "url": "https://media.aquatome.com/video/tlkKklEKeCI/at465-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rải lớp nền nhẹ lên trên và chèn kín các khe hở.",
-            "sharpness": 1748.6
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/tlkKklEKeCI/p5-h5ZHJvdG9uLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/tlkKklEKeCI/p5-h5ZHJvdG9uLmpwZw-480.webp",
@@ -213,7 +133,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây lá to và dương xỉ nhỏ mọc xen nhau ở vùng cạn giáp nước.",
-            "sharpness": 473
+            "sharpness": 473,
+            "person": false
           },
           {
             "t": 540,
@@ -221,7 +142,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Rêu và cây lá dài trồng sát mép kính ở vùng giáp nước.",
-            "sharpness": 1711.2
+            "sharpness": 1711.2,
+            "person": false
           }
         ],
         "photo": {
@@ -252,7 +174,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bọ cánh cứng darkling to, màu đen, bò trên khúc gỗ phủ rêu.",
-            "sharpness": 2267.9
+            "sharpness": 2267.9,
+            "person": false
           }
         ],
         "photo": {

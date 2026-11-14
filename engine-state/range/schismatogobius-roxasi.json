@@ -1,0 +1,44 @@
+{
+  "id": "schismatogobius-roxasi",
+  "native": {
+    "input": "368fa7a18bcb963d",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "TW",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Two species have been reported from Taiwan: Schismatogobius ampluvinculus, which was described scientifically only in 1995, and S. roxasi.",
+        "words": "Taiwan",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Schismatogobius roxasi",
+    "status": "ACCEPTED",
+    "taxonKey": 2378072,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "9b5577ee-34f9-4d09-9ce2-c70fd03ee6cd",
+        1
+      ]
+    ],
+    "native": [
+      "TW"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

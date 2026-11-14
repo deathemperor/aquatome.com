@@ -1,5 +1,6 @@
 import Chihiros
 import SwiftUI
+import UIKit.UIGestureRecognizerSubclass
 
 /// The day from 00:00 to 24:00, as on the site's page: the light's curve, a mark at the time now, and handles for the
 /// on and off times and the ramp, dragged or adjusted with VoiceOver.
@@ -46,7 +47,6 @@ struct Timeline: View {
           Handle(which: .off, x: off, reach: (min(22, (off - on) / 2), min(22, w - off)), width: w).accessibilitySortPriority(1)
           RampHandle(x: x(Double(s.on.minutes + min(s.ramp, max(0, s.minutesLit) / 2))), width: w).accessibilitySortPriority(2)
         }
-        .coordinateSpace(name: "day")
         .accessibilityElement(children: .contain)
         .accessibilityIdentifier("day")
       }
@@ -108,6 +108,92 @@ private struct NowMark: View {
   }
 }
 
+/// A sideways drag on a handle; up or down, a drag that starts on one is the page's, and Đèn scrolls. As a SwiftUI drag,
+/// even beside the page's (`simultaneousGesture`), a handle held every swipe that began on it, so Đèn stopped part-way
+/// down once the Week Aqua row put the 12:00 handle where a swipe begins (14 Nov). From iOS 18 it is a UIKit gesture,
+/// which gives a drag up as soon as the finger goes more up or down than sideways. The page holds still while a handle moves
+/// (`LightsModel.draggingHandle`). `moved`: how far the finger has gone sideways since it touched down.
+private struct SideDrag: ViewModifier {
+  @Environment(LightsModel.self) private var lights
+  let moved: @MainActor (CGFloat) -> Void
+  let ended: @MainActor () -> Void
+
+  func body(content: Content) -> some View {
+    if #available(iOS 18.0, *) {
+      content.gesture(SidePan { dx in
+        if !lights.draggingHandle { lights.draggingHandle = true }
+        moved(dx)
+      } ended: {
+        lights.draggingHandle = false
+        ended()
+      })
+    } else {
+      content.gesture(DragGesture(minimumDistance: 4).onChanged { moved($0.translation.width) }.onEnded { _ in ended() })
+    }
+  }
+}
+
+@available(iOS 18.0, *)
+private struct SidePan: UIGestureRecognizerRepresentable {
+  let moved: @MainActor (CGFloat) -> Void
+  let ended: @MainActor () -> Void
+
+  func makeUIGestureRecognizer(context: Context) -> SidewaysPan { SidewaysPan() }
+
+  func handleUIGestureRecognizerAction(_ pan: SidewaysPan, context: Context) {
+    switch pan.state {
+    case .began, .changed: moved(pan.sideways)
+    case .ended, .cancelled: ended()
+    default: break
+    }
+  }
+}
+
+/// A drag decided at the finger's first 4 points, as SwiftUI's drag starts: more sideways, it begins; more up or down, it
+/// fails and the page has it. UIKit's pan needs about 10 points to begin, so a short drag (half an hour) did nothing.
+private final class SidewaysPan: UIGestureRecognizer {
+  private var start: CGPoint?
+
+  /// How far the finger has gone sideways since it touched down, in points.
+  private(set) var sideways: CGFloat = 0
+
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent) {
+    if start == nil { start = touches.first?.location(in: nil) }
+  }
+
+  override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent) {
+    guard let s = start, let p = touches.first?.location(in: nil) else { return }
+    let dx = p.x - s.x, dy = p.y - s.y
+    switch state {
+    case .possible:
+      guard max(abs(dx), abs(dy)) >= 4 else { return }
+      if abs(dy) > abs(dx) {
+        state = .failed
+      } else {
+        sideways = dx
+        state = .began
+      }
+    case .began, .changed:
+      sideways = dx
+      state = .changed
+    default: break
+    }
+  }
+
+  override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent) {
+    state = state == .began || state == .changed ? .ended : .failed
+  }
+
+  override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent) {
+    state = state == .began || state == .changed ? .cancelled : .failed
+  }
+
+  override func reset() {
+    start = nil
+    sideways = 0
+  }
+}
+
 /// The part of a 44-point-wide handle that takes touches: `left` and `right` points either side of its line.
 private struct Reach: Shape {
   let left: CGFloat
@@ -115,8 +201,9 @@ private struct Reach: Shape {
   func path(in r: CGRect) -> Path { Path(CGRect(x: r.midX - max(0, left), y: r.minY, width: max(0, left) + max(0, right), height: r.height)) }
 }
 
-/// The on or off time: a line with a knob. Dragged, it moves by as much as the finger does (to 15 minutes), so a touch
-/// alone changes nothing; VoiceOver adjusts it 15 minutes at a time, as the site's arrow keys do.
+/// The on or off time: a line with a knob. Dragged sideways, it moves by as much as the finger does (to 15 minutes), so a
+/// touch alone changes nothing; VoiceOver adjusts it 15 minutes at a time, as the site's arrow keys do. A drag up or down
+/// is the page's: a swipe that starts on a handle scrolls Đèn and leaves the time alone (`SideDrag`).
 private struct Handle: View {
   @Environment(LightsModel.self) private var lights
   let which: Schedule.Handle
@@ -141,13 +228,11 @@ private struct Handle: View {
     }
     .contentShape(Reach(left: reach.left, right: reach.right))
     .offset(x: x - 22)
-    .gesture(DragGesture(minimumDistance: 4, coordinateSpace: .named("day"))
-      .onChanged { v in
-        let start = from ?? minute
-        from = start
-        lights.move(which, to: Double(start) + Double(v.translation.width / width) * Double(Day.minutes))
-      }
-      .onEnded { _ in from = nil })
+    .modifier(SideDrag { dx in
+      let start = from ?? minute
+      from = start
+      lights.move(which, to: Double(start) + Double(dx / width) * Double(Day.minutes))
+    } ended: { from = nil })
     .accessibilityElement()
     .accessibilityLabel(which == .on ? Text("Giờ bật") : Text("Giờ tắt"))
     .accessibilityValue(which == .on ? Text("Bật lúc \(time)") : Text("Tắt lúc \(time)"))
@@ -173,13 +258,11 @@ private struct RampHandle: View {
       .frame(width: 44, height: 44)
       .contentShape(Rectangle())
       .offset(x: x - 22)
-      .gesture(DragGesture(minimumDistance: 4, coordinateSpace: .named("day"))
-        .onChanged { v in
-          let start = from ?? s.ramp
-          from = start
-          lights.setRamp(near: Double(start) + Double(v.translation.width / width) * Double(Day.minutes))
-        }
-        .onEnded { _ in from = nil })
+      .modifier(SideDrag { dx in
+        let start = from ?? s.ramp
+        from = start
+        lights.setRamp(near: Double(start) + Double(dx / width) * Double(Day.minutes))
+      } ended: { from = nil })
       .accessibilityElement()
       .accessibilityLabel(Text("Sáng dần, tối dần"))
       .accessibilityValue(rampText(s.ramp))

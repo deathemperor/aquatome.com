@@ -1,0 +1,102 @@
+{
+  "id": "rhinogobius-flumineus",
+  "native": {
+    "input": "898c4ce2870f6f2c",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rhinogobius flumineus is a goby endemic to Japan, found in central and western Honshu and on the islands of Kyushu and Shikoku.",
+        "words": "Japan",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Honshu",
+        "source": "seriouslyfish",
+        "quote": "Rhinogobius flumineus is a goby endemic to Japan, found in central and western Honshu and on the islands of Kyushu and Shikoku.",
+        "country": "JP",
+        "ok": true
+      },
+      {
+        "name": "Kyushu",
+        "source": "seriouslyfish",
+        "quote": "Rhinogobius flumineus is a goby endemic to Japan, found in central and western Honshu and on the islands of Kyushu and Shikoku.",
+        "country": "JP",
+        "ok": true
+      },
+      {
+        "name": "Shikoku",
+        "source": "seriouslyfish",
+        "quote": "Rhinogobius flumineus is a goby endemic to Japan, found in central and western Honshu and on the islands of Kyushu and Shikoku.",
+        "country": "JP",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rhinogobius flumineus",
+    "status": "ACCEPTED",
+    "taxonKey": 2377639,
+    "datasets": [
+      [
+        "c6859214-65a4-4563-8d17-d464541af191",
+        2078
+      ],
+      [
+        "8129ab94-f762-11e1-a439-00145eb45e9a",
+        1657
+      ],
+      [
+        "869e4288-f762-11e1-a439-00145eb45e9a",
+        231
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        35
+      ],
+      [
+        "8498cbf2-f762-11e1-a439-00145eb45e9a",
+        34
+      ],
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        16
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "71d8eb5a-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "JP"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

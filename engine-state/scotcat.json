@@ -867,6 +867,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/bagridae/nanobagrus_stellatus.htm": {
+    "entityIds": [
+      "species/nanobagrus-stellatus"
+    ],
+    "updatedAt": "2026-11-14T03:10:12.568Z",
+    "hash": "7c5e94e3e8239c2731e15f8a0bba22b7cbf69f21155e0d1a21d157e04fa04b18",
+    "processedHash": "7c5e94e3e8239c2731e15f8a0bba22b7cbf69f21155e0d1a21d157e04fa04b18",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/bagridae/pseudomystus_heokhuii.htm": {
     "entityIds": [
       "species/pseudomystus-heokhuii"
@@ -1307,6 +1317,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/chaetostoma_lineopunctatum.htm": {
+    "entityIds": [
+      "species/chaetostoma-lineopunctatum"
+    ],
+    "updatedAt": "2026-11-14T03:00:46.860Z",
+    "hash": "4a96456a6bc3663824e8d3a840d8e4351ed86504084538a27894059b4adb8e85",
+    "processedHash": "4a96456a6bc3663824e8d3a840d8e4351ed86504084538a27894059b4adb8e85",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/dekeyseria_scaphirhyncha.htm": {
     "entityIds": [
       "species/dekeyseria-scaphirhyncha"
@@ -1594,6 +1614,26 @@
     "updatedAt": "2026-11-03T08:22:41.220Z",
     "hash": "1372da02aa73c3dc2f6e2009430d1341eacc0d2401b6d73fff1a6136cedfa14b",
     "processedHash": "1372da02aa73c3dc2f6e2009430d1341eacc0d2401b6d73fff1a6136cedfa14b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/lasiancistrus_heteracanthus.htm": {
+    "entityIds": [
+      "species/lasiancistrus-heteracanthus"
+    ],
+    "updatedAt": "2026-11-14T03:03:38.616Z",
+    "hash": "5fe7df85f637c141ba58f49ccd6cd047e8458f2fed9f609533adb19ec1036d83",
+    "processedHash": "5fe7df85f637c141ba58f49ccd6cd047e8458f2fed9f609533adb19ec1036d83",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/lithoxus_lithoides.htm": {
+    "entityIds": [
+      "species/lithoxus-lithoides"
+    ],
+    "updatedAt": "2026-11-14T03:08:11.023Z",
+    "hash": "3b79c99bcd2978716ad26fd8b87bcff4153e5d633e3b242ab4027a3895f06108",
+    "processedHash": "3b79c99bcd2978716ad26fd8b87bcff4153e5d633e3b242ab4027a3895f06108",
     "status": "processed",
     "attempts": 0
   },

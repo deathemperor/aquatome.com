@@ -1,3 +1,4 @@
+import Handbook
 import SwiftUI
 import UIKit
 
@@ -178,37 +179,47 @@ struct PagePlace: View {
   }
 }
 
-/// The bar's title on a long page, plain beside the back button. At the top, "Mục lục"; once the name has gone, the name
-/// small over the part being read, each cut short at one line; at the accessibility sizes, the part alone. On the photo
-/// and its colour, white over the bar's shade, with a soft shadow for a light photo. Tapped, the list (PageNavigatorList).
+/// The bar's title on a long page, plain beside the back button. At the top, "Mục lục"; once the name has gone, the part
+/// being read, on one line (the owner, 11 Nov: the name leaves the bar). Over the photo, white on a dark capsule of its own;
+/// on the photo's colour, white. Tapped, the list (PageNavigatorList).
 struct PageNavigatorTitle: View {
-  let name: String
   let nameInView: Bool
   /// Over the page's photo and its colour.
   let onColour: Bool
-  /// Over the photo itself: its chevron in the word's white, the tint going faint on a pale leaf.
+  /// Over the photo itself, before the band comes: on its capsule.
   var onPhoto = false
   let navigator: PageNavigator
+  /// A guide's: once scrolled, its name small over the part being read, each on one line (the guide navigator's spec, 11
+  /// Nov); a fish page's has the part alone.
+  var name: String?
   @Environment(\.dynamicTypeSize) private var type
   @Environment(\.colorScheme) private var scheme
+  @Environment(\.accessibilityReduceTransparency) private var opaque
 
   var body: some View {
     let part = navigator.current?.name, big = type.isAccessibilitySize
     Button { navigator.listOpen = true } label: {
-      VStack(alignment: .leading, spacing: 0) {
-        if !nameInView, !big { Text(verbatim: name).font(.system(size: 12)).foregroundStyle(.secondary).lineLimit(1) }
-        HStack(spacing: 4) {
+      HStack(spacing: 4) {
+        VStack(alignment: .leading, spacing: 0) {
+          if let name, !nameInView, part != nil, !big {
+            Text(verbatim: name).font(.system(size: 12)).foregroundStyle(onColour ? Color.white.opacity(0.8) : Color.secondary).lineLimit(1)
+          }
           Text(verbatim: nameInView ? "Mục lục" : part ?? "Mục lục")
             .font(.system(size: big ? 22 : 15, weight: .semibold))
-            .foregroundStyle(.primary)
+            .foregroundStyle(onColour ? Color.white : Color.primary)
             .lineLimit(1)
-          // The asset by name: `.accentColor` drew black in the light bar. On the photo's colour the bar is dark whatever the
-          // phone's setting, so the tint's dark form, which reads there.
-          Image(systemName: "chevron.down").font(.system(size: big ? 14 : 10, weight: .semibold)).foregroundStyle(onPhoto ? Color.white : Color("AccentColor"))
-            .environment(\.colorScheme, onColour ? .dark : scheme)
         }
+        // The asset by name: `.accentColor` drew black in the light bar. Past the colour, the tint.
+        Image(systemName: "chevron.down").font(.system(size: big ? 14 : 10, weight: .semibold))
+          .foregroundStyle(onColour ? Color.white : Color("AccentColor"))
+          .environment(\.colorScheme, onColour ? .dark : scheme)
       }
-      .shadow(color: .black.opacity(onColour ? 0.45 : 0), radius: 3)
+      // On the colour, a soft shadow; on the photo, the capsule, its words' height and 10 points, never under 36.
+      .shadow(color: .black.opacity(onColour && !onPhoto ? 0.45 : 0), radius: 3)
+      .padding(.horizontal, onPhoto ? PageTop.capsuleSide : 0)
+      .padding(.vertical, onPhoto ? PageTop.capsuleAround / 2 : 0)
+      .frame(minHeight: onPhoto ? PageTop.capsule : 0)
+      .background { if onPhoto { Capsule().fill(.black.opacity(PageTop.ground(reduceTransparency: opaque))) } }
       .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
       .contentShape(.rect)
     }
@@ -304,6 +315,8 @@ struct PageNavigatorList: View {
       .font(.body)
       .padding(.leading, 30)
       .padding(.trailing, 16)
+      // Room of its own above and below, so wrapped rows don't run together at the larger sizes; one line at size L is 44.
+      .padding(.vertical, 11)
       .frame(minHeight: 44)
       .contentShape(.rect)
     }

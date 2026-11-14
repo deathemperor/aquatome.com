@@ -315,6 +315,43 @@ test('unchanged content refetched after a lastmod bump: no llm calls, error clea
   expect(r.changed).toHaveLength(0)
 })
 
+test("a page whose credits are still to learn is read only on its own turn: not due, no request; on its turn, each of our photos gets its credit's kind, with no model call", async () => {
+  // The chief of staff, 14 Nov 2026: the credit reads go inside the source's pace as it stands, taking no page's place early.
+  const root = await fresh()
+  await runEngine(deps(root, { urls: ['paracheirodon-axelrodi'] }).d, { sources: ['seriouslyfish'] })
+  const url = `${SF}paracheirodon-axelrodi`
+  await writeFile(join(root, 'engine-state/_credit-reads.json'), JSON.stringify({ [url]: { source: 'seriouslyfish', at: '2026-11-14', by: 'the chief of staff' } }))
+  const early = deps(root, { urls: ['paracheirodon-axelrodi'] })
+  expect((await runEngine(early.d, { sources: ['seriouslyfish'] })).perSource.seriouslyfish?.fetched).toBe(0)
+  expect(Object.keys(JSON.parse(await readFile(join(root, 'engine-state/_credit-reads.json'), 'utf8')))).toEqual([url])
+  const due = deps(root, { urls: ['paracheirodon-axelrodi'] })
+  due.d.fetcher.text = async () => `<urlset><url><loc>${url}</loc><lastmod>2026-10-20</lastmod></url></urlset>`
+  expect((await runEngine(due.d, { sources: ['seriouslyfish'] })).perSource.seriouslyfish).toMatchObject({ fetched: 1, processed: 0 })
+  expect(due.calls.llm).toBe(0)
+  expect(JSON.parse(await readFile(join(root, 'engine-state/_credit-reads.json'), 'utf8'))).toEqual({})
+  const credits = JSON.parse(await readFile(join(root, 'engine-state/_photo-credits.json'), 'utf8'))
+  const photos = JSON.parse(await readFile(join(root, 'content/species/paracheirodon-axelrodi/entity.json'), 'utf8')).photos as { url: string }[]
+  expect(photos.length).toBeGreaterThan(0)
+  for (const p of photos) expect(credits[p.url]).toMatchObject({ page: url, at: '2026-10-28' })
+})
+
+test("a credit read that fails is ours, not the page's: the page keeps its read and its turn, and its credits wait for the next one", async () => {
+  const root = await fresh()
+  await runEngine(deps(root, { urls: ['paracheirodon-axelrodi'] }).d, { sources: ['seriouslyfish'] })
+  const url = `${SF}paracheirodon-axelrodi`
+  await writeFile(join(root, 'engine-state/_credit-reads.json'), JSON.stringify({ [url]: { source: 'seriouslyfish', at: '2026-11-14', by: 'the chief of staff' } }))
+  await writeFile(join(root, 'engine-state/_photo-credits.json'), 'not json')
+  const due = deps(root, { urls: ['paracheirodon-axelrodi'] })
+  due.d.fetcher.text = async () => `<urlset><url><loc>${url}</loc><lastmod>2026-10-20</lastmod></url></urlset>`
+  const r = await runEngine(due.d, { sources: ['seriouslyfish'] })
+  expect(r.perSource.seriouslyfish).toMatchObject({ fetched: 1, errors: 0 })
+  expect(r.errors.some(e => e.startsWith(`${url}: credits not read`))).toBe(true)
+  const state = JSON.parse(await readFile(join(root, 'engine-state/seriouslyfish.json'), 'utf8'))
+  expect(state[url]).toMatchObject({ status: 'processed', lastmod: '2026-10-20' })
+  expect(state[url].error).toBeUndefined()
+  expect(Object.keys(JSON.parse(await readFile(join(root, 'engine-state/_credit-reads.json'), 'utf8')))).toEqual([url])
+})
+
 test('a poorer page from the same source does not replace a richer one', async () => {
   const root = await fresh()
   const rich = { ...species, sections: [...species.sections, { key: 'diet', en: '<p>Small.</p>', vi: '<p>Nhỏ.</p>' }] }

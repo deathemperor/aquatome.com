@@ -11,6 +11,97 @@
     "tadu",
     "china"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TW",
+        "CN"
+      ],
+      "regions": [
+        "Tadu",
+        "Tamshuei",
+        "Kaoping",
+        "Linbian"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The red-spotted goby, Rhinogobius rubromaculatus, is endemic to Taiwan and apparently quite common in central and western parts of the island.",
+          "countries": [
+            "TW"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Origin: China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Taiwan with type locality the Tadu river in Taichung County, and apparently quite common in central and western parts of the island, with the Tamshuei and Kaoping river basins representing the northern and southern limits of its range, respectively.",
+          "countries": [],
+          "regions": [
+            "Tadu",
+            "Tamshuei",
+            "Kaoping"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "An additional population inhabiting the Linbian river in southern Taiwan is currently considered conspecific but exhibits several notable differences (see 'Notes').",
+          "countries": [],
+          "regions": [
+            "Linbian"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2377623,
+      "total": 395,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "TW",
+          395
+        ]
+      ],
+      "cells": [
+        [
+          119.53125,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          119.53125,
+          22.5,
+          149,
+          149
+        ],
+        [
+          119.53125,
+          23.90625,
+          184,
+          184
+        ],
+        [
+          120.9375,
+          23.90625,
+          60,
+          60
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

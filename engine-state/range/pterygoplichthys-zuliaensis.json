@@ -1,0 +1,55 @@
+{
+  "id": "pterygoplichthys-zuliaensis",
+  "native": {
+    "input": "e5397b6de2726aec",
+    "at": "2026-11-14T05:39:06.336Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Pterygoplichthys zuliaensis Weber, 1991. Type locality: Río Santa Ana, Maracaibo basin, Hacienda Río Grande, Estado Zulia, Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Maracaibo",
+        "source": "planetcatfish",
+        "quote": "South America: Lake Maracaibo basin.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pterygoplichthys zuliaensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2339961,
+    "datasets": [
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        1
+      ]
+    ],
+    "native": [
+      "VE"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T05:39:06.336Z"
+  }
+}

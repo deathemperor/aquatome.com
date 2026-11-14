@@ -66,15 +66,49 @@ test('a head with no animal in it is judged first, before a more-read page\'s le
 })
 
 test('a head the check calls "none" comes off; the photo after it leads; the run counts the head moved', async () => {
-  const r = await root([{ id: 'aaa', photos: ['a-river', 'a-fish'] }, { id: 'bbb', photos: ['b-river'] }], { 'a-river': null, 'b-river': null })
-  const out = await checkPagePhotos(r, model({ 'a-river': none, 'b-river': none }), { limit: 10 })
+  const r = await root([{ id: 'aaa', photos: ['a-river', 'a-fish'] }], { 'a-river': null })
+  const out = await checkPagePhotos(r, model({ 'a-river': none }), { limit: 10 })
   expect(await photosOf(r, 'aaa')).toEqual(['a-fish'])
-  expect(await photosOf(r, 'bbb')).toEqual([])
-  expect(out.heads).toEqual({ moved: [`species/aaa: ${url('a-river')} -> ${url('a-fish')}`], emptied: [`species/bbb: ${url('b-river')}`], held: [] })
-  expect(Object.keys(await json(r, 'engine-state/_photo-rejected.json')).sort()).toEqual([url('a-river'), url('b-river')])
+  expect(out.heads).toEqual({ moved: [`species/aaa: ${url('a-river')} -> ${url('a-fish')}`], emptied: [], held: [] })
+  expect(Object.keys(await json(r, 'engine-state/_photo-rejected.json'))).toEqual([url('a-river')])
 })
 
-test(`a run that would leave more than ${EMPTY_CAP} pages with no photo takes none of theirs off, nor onto the never-again list, and lists them; up to ${EMPTY_CAP} go`, async () => {
+test('a page\'s only photo stays on the check\'s word alone, whatever the verdict: held, off the never-again list, and waiting for a second look', async () => {
+  // The chief of staff, 2026-11-14: one night's runs took every photo off 27 fish pages, each run within the old cap of 10.
+  const verdicts = { 'b-river': none, 'c-dead': { ok: 'dead', typical: false, note: 'dead' }, 'd-hand': { person: true, note: 'held in a hand' } } as Record<string, Partial<PhotoVerdict>>
+  const r = await root([{ id: 'bbb', photos: ['b-river'] }, { id: 'ccc', photos: ['c-dead'] }, { id: 'ddd', photos: ['d-hand'] }], { 'b-river': null })
+  const out = await checkPagePhotos(r, model(verdicts), { limit: 10 })
+  const stay = async () => { for (const [id, n] of [['bbb', 'b-river'], ['ccc', 'c-dead'], ['ddd', 'd-hand']] as const) expect(await photosOf(r, id)).toEqual([n]) }
+  await stay()
+  expect(out.heads.emptied).toEqual([])
+  expect(out.heads.held.sort()).toEqual([`species/bbb: ${url('b-river')}`, `species/ccc: ${url('c-dead')}`, `species/ddd: ${url('d-hand')}`])
+  expect(await json(r, 'engine-state/_photo-rejected.json').catch(() => ({}))).toEqual({})
+  expect(await json(r, 'engine-state/_photo-held.json')).toEqual({ 'species/bbb': true, 'species/ccc': true, 'species/ddd': true })
+  // Each waits for a second look (last-photo.ts), its reason kept as a category and a hash, as the never-again list keeps it.
+  const sl = await json(r, 'engine-state/_photo-second-look.json')
+  expect(Object.keys(sl).sort()).toEqual([url('b-river'), url('c-dead'), url('d-hand')])
+  expect(sl[url('c-dead')]).toMatchObject({ step: 'the photo check', pages: ['species/ccc'] })
+  expect(sl[url('c-dead')].why).toMatch(/^dead: withheld \[sha256:[0-9a-f]{64}\]$/)
+  expect(sl[url('d-hand')].why).toMatch(/^people: withheld \[sha256:[0-9a-f]{64}\]$/)
+  // A later run takes none off, and a run released with --empty-cap doesn't either: each waits for its own look.
+  expect((await checkPagePhotos(r, model({}), { limit: 10 })).heads.emptied).toEqual([])
+  expect((await checkPagePhotos(r, model({}), { limit: 10, emptyCap: 3 })).heads.emptied).toEqual([])
+  await stay()
+  expect(Object.keys(await json(r, 'engine-state/_photo-second-look.json'))).toHaveLength(3)
+})
+
+test('a page with none of its own photos keeps its album\'s last photo on the check\'s word alone, held for a second look', async () => {
+  // The chief of staff, 2026-11-14: "fish pages with no photo at all" counts the album too.
+  const r = await root([{ id: 'alb', gallery: [{ n: 'g-other' }] }, { id: 'two', gallery: [{ n: 'g2-other' }, { n: 'g2-fish' }] }])
+  const out = await checkPagePhotos(r, model({ 'g-other': { ok: 'other', note: 'another fish' }, 'g2-other': { ok: 'other', note: 'another fish' } }), { limit: 10 })
+  const album = async (id: string) => ((await json(r, `content/gallery/${id}.json`)).photos as { url: string }[]).map(p => name(p.url))
+  expect(await album('alb')).toEqual(['g-other'])
+  expect(await album('two')).toEqual(['g2-fish'])
+  expect(out.heads.held).toEqual([`species/alb: ${url('g-other')}`])
+  expect(Object.keys(await json(r, 'engine-state/_photo-second-look.json'))).toEqual([url('g-other')])
+})
+
+test(`a run that would leave more than ${EMPTY_CAP} pages with no photo takes none of theirs off, nor onto the never-again list, and lists them`, async () => {
   const pages = (n: number) => Array.from({ length: n }, (_, i) => ({ id: `p${String(i).padStart(2, '0')}`, photos: [`r${i}`] }))
   const rivers = (n: number) => Object.fromEntries(Array.from({ length: n }, (_, i) => [`r${i}`, none]))
   // One more page whose river leads a fish photo: its head moves, which no cap holds.
@@ -86,19 +120,11 @@ test(`a run that would leave more than ${EMPTY_CAP} pages with no photo takes no
   for (const p of pages(EMPTY_CAP + 1)) expect(await photosOf(over, p.id)).toEqual(p.photos)
   expect(Object.keys(await json(over, 'engine-state/_photo-rejected.json'))).toEqual([url('z-river')])
   expect(await photosOf(over, 'zzz')).toEqual(['z-fish'])
-  // A later run, its verdicts cached, holds them again: nothing reached the never-again list to take them off unseen.
-  const again = await checkPagePhotos(over, model({}), { limit: 20 })
-  expect(again.heads.held).toHaveLength(EMPTY_CAP + 1)
+  // A later run, its verdicts cached, takes none off: nothing reached the never-again list to take them off unseen, and
+  // each waits for its second look (last-photo.ts; the sweep's tests follow one through to its answer).
+  await checkPagePhotos(over, model({}), { limit: 20 })
   for (const p of pages(EMPTY_CAP + 1)) expect(await photosOf(over, p.id)).toEqual(p.photos)
-  // A person who has looked releases them.
-  const released = await checkPagePhotos(over, model({}), { limit: 20, emptyCap: EMPTY_CAP + 1 })
-  expect(released.heads.emptied).toHaveLength(EMPTY_CAP + 1)
-  for (const p of pages(EMPTY_CAP + 1)) expect(await photosOf(over, p.id)).toEqual([])
-  // Up to the cap, they go.
-  const at = await root(pages(EMPTY_CAP))
-  const ok = await checkPagePhotos(at, model(rivers(EMPTY_CAP)), { limit: 20 })
-  expect([ok.heads.held, ok.heads.emptied.length]).toEqual([[], EMPTY_CAP])
-  expect(Object.keys(await json(at, 'engine-state/_photo-rejected.json'))).toHaveLength(EMPTY_CAP)
+  expect(Object.keys(await json(over, 'engine-state/_photo-second-look.json'))).toHaveLength(EMPTY_CAP + 1)
 })
 
 test('the sweep lists each head with no animal in it that the check hasn\'t passed as the fish, from the day it first leads', async () => {

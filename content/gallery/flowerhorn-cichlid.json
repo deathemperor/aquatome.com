@@ -2,30 +2,6 @@
   "id": "flowerhorn-cichlid",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/1166ed0ab192571a.webp",
-      "thumb": "https://media.aquatome.com/commons/1166ed0ab192571a-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY-SA 4.0",
-      "author": "Amartya Mandal",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Albino_flowerhorn.jpg",
-      "caption": "Cá La Hán màu hồng đầu u lớn trong bể sỏi đỏ",
-      "best": true,
-      "kind": "form"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/20dafe6f5140cb6b.webp",
-      "thumb": "https://media.aquatome.com/commons/20dafe6f5140cb6b-480.webp",
-      "width": 1200,
-      "height": 956,
-      "licence": "CC BY-SA 4.0",
-      "author": "Yercaud-elango",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flowerhorn_Cichlid-2-R.M.Nagar-bangalore-India.jpg",
-      "caption": "Cá La Hán u hồng, vằn hoa trên thân trong bể",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/commons/0dd2e5d884c682eb.webp",
       "thumb": "https://media.aquatome.com/commons/0dd2e5d884c682eb-480.webp",
       "width": 1200,
@@ -41,6 +17,18 @@
         "width": 1600,
         "height": 1200
       }
+    },
+    {
+      "url": "https://media.aquatome.com/commons/20dafe6f5140cb6b.webp",
+      "thumb": "https://media.aquatome.com/commons/20dafe6f5140cb6b-480.webp",
+      "width": 1200,
+      "height": 956,
+      "licence": "CC BY-SA 4.0",
+      "author": "Yercaud-elango",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flowerhorn_Cichlid-2-R.M.Nagar-bangalore-India.jpg",
+      "caption": "Cá La Hán u hồng, vằn hoa trên thân trong bể",
+      "best": true,
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/63c3f69b0527d0b7.webp",
@@ -274,6 +262,18 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Hammer_Fish.png",
       "caption": "Cá La Hán thân đỏ trắng bơi trong bể",
       "best": false,
+      "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/1166ed0ab192571a.webp",
+      "thumb": "https://media.aquatome.com/commons/1166ed0ab192571a-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY-SA 4.0",
+      "author": "Amartya Mandal",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Albino_flowerhorn.jpg",
+      "caption": "Cá La Hán màu hồng đầu u lớn trong bể sỏi đỏ",
+      "best": true,
       "kind": "form"
     }
   ],

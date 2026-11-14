@@ -1,6 +1,7 @@
 import { chromium, expect, test } from '@playwright/test'
 import lighthouse from 'lighthouse'
 import desktopConfig from 'lighthouse/core/config/desktop-config.js'
+import { documentHeaders, headerLines } from './lighthouse-headers'
 import { lighthouseFlags } from './lighthouse-flags'
 import { indexed, LIVE, onePerKind, sourcePages, templateOf } from './pages'
 
@@ -78,6 +79,9 @@ for (const path of pages) {
       expect.soft(got.cls, `cumulative layout shift on a ${form}`).toBeLessThanOrEqual(budget.cls)
       expect.soft(got.js, `the site's own scripts, KB`).toBeLessThanOrEqual(budget.js)
       expect.soft(got.dom, 'page elements').toBeLessThanOrEqual(budget.dom)
+      // A load that missed a budget prints its document's own headers, to tell what the edge added to that response
+      // (lighthouse-headers.ts). The check is unchanged.
+      if (info.errors.length) console.log(`${form} ${path}: the document's headers\n${headerLines(documentHeaders(result!.artifacts.DevtoolsLog, lhr.mainDocumentUrl ?? lhr.finalDisplayedUrl)).join('\n') || '  (none found in the log)'}`)
     } finally {
       await browser.close()
     }

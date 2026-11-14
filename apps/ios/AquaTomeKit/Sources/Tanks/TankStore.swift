@@ -13,7 +13,7 @@ public let maxDevices = 100
 public enum Known {
   public static let substrate = ["soil", "sand", "gravel", "lava", "bare", "other"]
   public static let deviceKind = ["light", "plug"]
-  public static let brand = ["chihiros", "tuya", "ewelink"]
+  public static let brand = ["chihiros", "tuya", "ewelink", "weekaqua"]
   /// What a plug's outlet powers (docs/smart-plugs.md).
   public static let outletRole = ["light", "co2", "filter", "heater", "air", "fan", "other"]
   /// What an entry without a page is (UnlistedEntry).

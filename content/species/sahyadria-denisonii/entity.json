@@ -17,32 +17,26 @@
         "IN"
       ],
       "regions": [
-        "Manimala River",
         "Valapatanam",
         "Chaliyar",
         "Bharatapuzha",
-        "Bhavani"
+        "Bhavani",
+        "Manimala River",
+        "Sahyadri"
       ],
       "sources": [
         "seriouslyfish",
-        "glaser"
+        "glaser",
+        "aquatome"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The red-line torpedo barb, Dawkinsia denisonii, is a cyprinid endemic to Kerala and Karnataka in southern India.",
+          "quote": "Endemic to the states of Kerala and Karnataka in southern India.",
           "countries": [
             "IN"
           ],
           "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Type locality is 'Mundakayam, Travancore, India', which appears to correspond to the Manimala River near the town of Mundakayam in Kottayam District, Kerala state, southern India.",
-          "countries": [],
-          "regions": [
-            "Manimala River"
-          ]
         },
         {
           "source": "seriouslyfish",
@@ -53,6 +47,22 @@
             "Chaliyar",
             "Bharatapuzha",
             "Bhavani"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Mundakayam, Travancore, India', which appears to correspond to the Manimala River near the town of Mundakayam in Kottayam District, Kerala state, southern India.",
+          "countries": [],
+          "regions": [
+            "Manimala River"
+          ]
+        },
+        {
+          "source": "aquatome",
+          "quote": "Tên chi Sahyadria lấy từ Sahyadri, tên vùng núi nơi cá sống.",
+          "countries": [],
+          "regions": [
+            "Sahyadri"
           ]
         }
       ]
@@ -335,17 +345,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/10409e82b12b50f4.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/10409e82b12b50f4-480.webp",
-      "width": 870,
-      "height": 583,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-denisonii",
-      "caption": "Juvenile individual: commercial strain.",
-      "source": "seriouslyfish"
-    },
-    {
       "url": "https://media.aquatome.com/commons/fac072d0c3f3fd23.webp",
       "thumb": "https://media.aquatome.com/commons/fac072d0c3f3fd23-480.webp",
       "width": 960,
@@ -389,6 +388,17 @@
       "author": "Anandarajkumar at English Wikipedia",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sahyadria_denisonii_school.jpg",
       "caption": "Sahyadria denisonii school.jpg"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/10409e82b12b50f4.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/10409e82b12b50f4-480.webp",
+      "width": 870,
+      "height": 583,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-denisonii",
+      "caption": "Juvenile individual: commercial strain.",
+      "source": "seriouslyfish"
     }
   ],
   "videos": [

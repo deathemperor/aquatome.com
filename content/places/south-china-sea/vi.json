@@ -1,10 +1,13 @@
 {
   "slug": "south-china-sea",
-  "name": "South China Sea",
-  "altNames": [],
+  "name": "Biển Đông",
+  "altNames": [
+    "South China Sea"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

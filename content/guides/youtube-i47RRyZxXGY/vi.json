@@ -3,7 +3,7 @@
   "name": "Cách châm phân nước hằng ngày cho bể thủy sinh",
   "altNames": [],
   "sections": {},
-  "body": "<p>Cây thủy sinh cần đủ chất mới lên khỏe, và cây khỏe thì rêu hại khó lấn. Châm phân nước khá đơn giản. Chỉ cần đong đúng liều, rót vào bể và giữ lịch thay nước đều.</p><p>Bài này hướng dẫn cách tính liều theo thể tích bể, cách rót phân cho đều khắp bể, và một lịch châm hằng ngày đi kèm thay nước mỗi tuần.</p><h3>Chọn phân nước loại nào</h3><p>Loại phân dùng ở đây là phân tổng hợp (all in one), cụ thể là Aquascaper Complete. Chai này có đủ chất cây cần, gồm cả đạm (nitrogen), lân (phosphorus) và kali (potassium). Nhiều hãng phân không cho ba chất này vào. Loại phân này pha sẵn để châm mỗi ngày, và mọi chất cây cần đều nằm gọn trong một chai.</p><h3>Tính liều theo thể tích bể</h3><p>Đọc hướng dẫn trên chai trước khi châm. Ví dụ dưới đây là liều ghi trên chai cho bể high energy.</p><ul><li>Liều cho bể high energy: 5 ml cho mỗi 50 lít, mỗi ngày.</li><li>Bể khoảng 100 lít thì châm 10 ml mỗi ngày, vừa đúng một nắp đầy.</li></ul><h3>Châm phân thế nào</h3><ol><li>Mở nắp chai, rót phân vào nắp cho đủ liều. Với bể 100 lít thì rót đầy một nắp.</li><li>Rót phân vào bể. Có thể rót ngay chỗ đầu ra của lọc để dòng nước đưa phân đi đều khắp bể.</li><li>Rửa nắp bằng nước, vì muối trong phân sẽ khô lại trên nắp.</li><li>Đóng nắp chai lại.</li></ol><h3>Vì sao châm ít mỗi ngày</h3><p>Nhiều hãng khuyên châm một liều lớn mỗi tuần. Một cách khác là chia nhỏ ra châm mỗi ngày, vì có ý kiến cho rằng cây hưởng lợi từ liều nhỏ, đều đặn hơn là từ một liều lớn dồn một lần.</p><p>Châm hằng ngày nên đi kèm một lần thay nhiều nước mỗi tuần. Thay nước giữ cho lượng dinh dưỡng trong bể không vượt mức. Nước mới còn làm loãng chất thải hữu cơ, giúp cây lên khỏe và kìm bớt rêu hại.</p>",
+  "body": "<p>Cây thủy sinh cần đủ chất mới lên khỏe, và cây khỏe thì rêu hại khó lấn. Châm phân nước khá đơn giản. Chỉ cần đong đúng liều, rót vào bể và giữ lịch thay nước đều.</p><p>Bài này hướng dẫn cách tính liều theo thể tích bể, cách rót phân cho đều khắp bể, và một lịch châm hằng ngày đi kèm thay nước mỗi tuần.</p><h3>Chọn phân nước loại nào</h3><p>Loại phân dùng ở đây là phân tổng hợp (all in one), cụ thể là Aquascaper Complete. Chai này có đủ chất cây cần, gồm cả đạm (nitrogen), lân (phosphorus) và kali (potassium). Nhiều hãng phân không cho ba chất này vào. Loại phân này pha sẵn để châm mỗi ngày, và mọi chất cây cần đều nằm gọn trong một chai.</p><h3>Tính liều theo thể tích bể</h3><p>Đọc hướng dẫn trên chai trước khi châm, liều theo hướng dẫn trên bao bì.</p><h3>Châm phân thế nào</h3><ol><li>Mở nắp chai, rót phân vào nắp cho đủ liều. Với bể 100 lít thì rót đầy một nắp.</li><li>Rót phân vào bể. Có thể rót ngay chỗ đầu ra của lọc để dòng nước đưa phân đi đều khắp bể.</li><li>Rửa nắp bằng nước, vì muối trong phân sẽ khô lại trên nắp.</li><li>Đóng nắp chai lại.</li></ol><h3>Vì sao châm ít mỗi ngày</h3><p>Nhiều hãng khuyên châm một liều lớn mỗi tuần. Một cách khác là chia nhỏ ra châm mỗi ngày, vì có ý kiến cho rằng cây hưởng lợi từ liều nhỏ, đều đặn hơn là từ một liều lớn dồn một lần.</p><p>Châm hằng ngày nên đi kèm một lần thay nhiều nước mỗi tuần. Thay nước giữ cho lượng dinh dưỡng trong bể không vượt mức. Nước mới còn làm loãng chất thải hữu cơ, giúp cây lên khỏe và kìm bớt rêu hại.</p>",
   "summary": [
     "Phân nước loại tổng hợp có đủ chất cây cần, gồm cả đạm (N), lân (P) và kali (K).",
     "Tính liều theo hướng dẫn trên chai và thể tích bể. Ví dụ bể high energy khoảng 100 lít, châm 5 ml cho mỗi 50 lít, tức 10 ml mỗi ngày.",
@@ -33,10 +33,12 @@
       "youtube": 0.6
     }
   },
+  "bodyFixed": true,
   "held": {
     "checks": [
-      "dose"
+      "dose",
+      "source"
     ],
-    "at": "2026-11-11"
+    "at": "2026-11-14"
   }
 }

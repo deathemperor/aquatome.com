@@ -2,18 +2,6 @@
   "id": "cichla-ocellaris",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/201872750.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/201872750-480.webp",
-      "width": 992,
-      "height": 1024,
-      "licence": "CC BY-SA",
-      "author": "John Burnett",
-      "sourceUrl": "https://www.inaturalist.org/photos/201872750",
-      "caption": "Cá vược công bơi gần mặt nước, thân có sọc đen và đốm",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/65592566.webp",
       "thumb": "https://media.aquatome.com/inaturalist/65592566-480.webp",
       "width": 1024,
@@ -38,42 +26,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/177205590.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/177205590-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "sudomir",
-      "sourceUrl": "https://www.inaturalist.org/photos/177205590",
-      "caption": "Cá vược công có đốm đuôi bơi giữa cỏ nước",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/197006030.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/197006030-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "ahaywood.geo",
-      "sourceUrl": "https://www.inaturalist.org/photos/197006030",
-      "caption": "Cá vược công bơi gần mặt nước trong môi trường tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/206298039.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/206298039-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "David Garza",
-      "sourceUrl": "https://www.inaturalist.org/photos/206298039",
-      "caption": "Cá vược công bơi dưới nước trong suối tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/116456091.webp",
       "thumb": "https://media.aquatome.com/inaturalist/116456091-480.webp",
       "width": 1024,
@@ -82,6 +34,18 @@
       "author": "Mike Tilley",
       "sourceUrl": "https://www.inaturalist.org/photos/116456091",
       "caption": "Cá vược công có đốm mắt ở đuôi, bơi gần thực vật thủy sinh",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/177205590.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/177205590-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "sudomir",
+      "sourceUrl": "https://www.inaturalist.org/photos/177205590",
+      "caption": "Cá vược công có đốm đuôi bơi giữa cỏ nước",
       "best": true,
       "kind": "habitat"
     },
@@ -106,6 +70,42 @@
       "author": "Paul Asman",
       "sourceUrl": "https://www.inaturalist.org/photos/189652028",
       "caption": "Cá vược công sọc đậm bơi trong nước, thấy bóng cá khác",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/197006030.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/197006030-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "ahaywood.geo",
+      "sourceUrl": "https://www.inaturalist.org/photos/197006030",
+      "caption": "Cá vược công bơi gần mặt nước trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/201872750.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/201872750-480.webp",
+      "width": 992,
+      "height": 1024,
+      "licence": "CC BY-SA",
+      "author": "John Burnett",
+      "sourceUrl": "https://www.inaturalist.org/photos/201872750",
+      "caption": "Cá vược công bơi gần mặt nước, thân có sọc đen và đốm",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/206298039.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/206298039-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "David Garza",
+      "sourceUrl": "https://www.inaturalist.org/photos/206298039",
+      "caption": "Cá vược công bơi dưới nước trong suối tự nhiên",
       "best": true,
       "kind": "habitat"
     },
@@ -218,18 +218,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/197655678.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/197655678-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "David Garza",
-      "sourceUrl": "https://www.inaturalist.org/photos/197655678",
-      "caption": "Cá vược công có sọc đen bơi trên nền cát",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/196994375.webp",
       "thumb": "https://media.aquatome.com/inaturalist/196994375-480.webp",
       "width": 1024,
@@ -238,6 +226,18 @@
       "author": "Shawn Taylor",
       "sourceUrl": "https://www.inaturalist.org/photos/196994375",
       "caption": "Cá vược công bơi gần cỏ nước và đá",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/197655678.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/197655678-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "David Garza",
+      "sourceUrl": "https://www.inaturalist.org/photos/197655678",
+      "caption": "Cá vược công có sọc đen bơi trên nền cát",
       "best": false,
       "kind": "habitat"
     },

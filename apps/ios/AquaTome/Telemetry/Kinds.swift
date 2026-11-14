@@ -21,6 +21,9 @@ extension Event.Kind {
       case .noUART: .noUART
       case .failed: .failed
       case .busy: .busy
+      // A Week Aqua light of a code the app doesn't drive; one with no service to write to, as a light with no UART.
+      case .notSupported: .unsupportedModel
+      case .noWeekAquaService: .noUART
       }
     case let e as SessionError:
       self = switch e {

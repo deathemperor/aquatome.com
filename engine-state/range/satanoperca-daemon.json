@@ -1,0 +1,176 @@
+{
+  "id": "satanoperca-daemon",
+  "native": {
+    "input": "5f10156de5573a8e",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the rio Negro watershed in the western Amazon basin of Amazonas state, Brazil, plus the Casiquiare and upper Orinoco systems in Venezuela and Colombia, including the ríos Uaupés, Pasiba, Atabapo, Guaviare, Inírida, Vichada, Sipapo, Tomo, Autana, Tuparro, Ventuari, Parguaza, and Cinaruco.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the rio Negro watershed in the western Amazon basin of Amazonas state, Brazil, plus the Casiquiare and upper Orinoco systems in Venezuela and Colombia, including the ríos Uaupés, Pasiba, Atabapo, Guaviare, Inírida, Vichada, Sipapo, Tomo, Autana, Tuparro, Ventuari, Parguaza, and Cinaruco.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the rio Negro watershed in the western Amazon basin of Amazonas state, Brazil, plus the Casiquiare and upper Orinoco systems in Venezuela and Colombia, including the ríos Uaupés, Pasiba, Atabapo, Guaviare, Inírida, Vichada, Sipapo, Tomo, Autana, Tuparro, Ventuari, Parguaza, and Cinaruco.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "A typical example is the Río Cinaruco, a low nutrient tributary of the Orinoco in southwestern Venezuela comprising a meandering river channel with numerous lagoons and floodplain lakes which become connected during the annual wet season, when water levels can rise by several metres.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "Native to the rio Negro watershed in the western Amazon basin of Amazonas state, Brazil, plus the Casiquiare and upper Orinoco systems in Venezuela and Colombia, including the ríos Uaupés, Pasiba, Atabapo, Guaviare, Inírida, Vichada, Sipapo, Tomo, Autana, Tuparro, Ventuari, Parguaza, and Cinaruco.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Amazon basin",
+        "source": "seriouslyfish",
+        "quote": "Native to the rio Negro watershed in the western Amazon basin of Amazonas state, Brazil, plus the Casiquiare and upper Orinoco systems in Venezuela and Colombia, including the ríos Uaupés, Pasiba, Atabapo, Guaviare, Inírida, Vichada, Sipapo, Tomo, Autana, Tuparro, Ventuari, Parguaza, and Cinaruco.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Casiquiare",
+        "source": "seriouslyfish",
+        "quote": "Native to the rio Negro watershed in the western Amazon basin of Amazonas state, Brazil, plus the Casiquiare and upper Orinoco systems in Venezuela and Colombia, including the ríos Uaupés, Pasiba, Atabapo, Guaviare, Inírida, Vichada, Sipapo, Tomo, Autana, Tuparro, Ventuari, Parguaza, and Cinaruco.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Native to the rio Negro watershed in the western Amazon basin of Amazonas state, Brazil, plus the Casiquiare and upper Orinoco systems in Venezuela and Colombia, including the ríos Uaupés, Pasiba, Atabapo, Guaviare, Inírida, Vichada, Sipapo, Tomo, Autana, Tuparro, Ventuari, Parguaza, and Cinaruco.",
+        "ok": true
+      },
+      {
+        "name": "Río Cinaruco",
+        "source": "seriouslyfish",
+        "quote": "A typical example is the Río Cinaruco, a low nutrient tributary of the Orinoco in southwestern Venezuela comprising a meandering river channel with numerous lagoons and floodplain lakes which become connected during the annual wet season, when water levels can rise by several metres.",
+        "country": "VE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Satanoperca daemon",
+    "status": "ACCEPTED",
+    "taxonKey": 5208460,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        190
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        39
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        30
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        17
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        16
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        13
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        13
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        13
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        11
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        5
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        4
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        4
+      ],
+      [
+        "2bee4a91-9d92-430e-a87e-ab32d3b1ce47",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "VE",
+      "CO"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

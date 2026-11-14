@@ -12,6 +12,61 @@
     "indonesia",
     "kalimantan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [
+        "Borneo",
+        "Segama",
+        "Kalabakan"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Borneo, Malaysia.",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Borneo"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Pacific, Greater Sunda Island rivers, Borneo waters: East Borneo waters, Segama and Kalabakan.",
+          "countries": [],
+          "regions": [
+            "Segama",
+            "Kalabakan"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202763,
+      "total": 3,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "MY",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          116.71875,
+          4.21875,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

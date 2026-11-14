@@ -1,0 +1,395 @@
+{
+ "about": "The album ask's test set (album-ask.ts): 60 album photos judged by eye on 14 Nov 2026, three sheets of 20. cut: the fish cut by the photo's own edge (cut), partly, or whole. small: true where the fish is too small to make out; \"clear\" where it fills a small part of the photo but can be made out; false where it is large. setup: a photo tank, dish, tray or a ruler beside it. scripts/album-ask-set.ts asks it again and counts.",
+ "asked": [
+  "14 Nov 2026 (sonnet, the first try): whole false on 11 of 11 cut, 4 of 6 partly cut, 1 of 9 whole; small true on 12 of 13 too small, 4 of 7 clear (the swordtail's stream photo one of them), 1 of 20 large; setup true on 10 of 10 photo tanks, dishes and trays, 0 of 10 others. Asked as \"big enough to make out\" instead, false on 1 of 13 too small.",
+  "14 Nov 2026 (sonnet, scripts/album-ask-set.ts): whole false on 10 of 11 cut, 4 of 6 partly cut, 0 of 9 whole; small true on 11 of 13 too small, 5 of 7 clear, 1 of 20 large; setup true on 10 of 10 photo tanks, dishes and trays, 0 of 10 others."
+ ],
+ "photos": [
+  {
+   "sheet": 1,
+   "album": "parachanna-obscura",
+   "photo": "https://media.aquatome.com/commons/87eb05220f49e716-480.webp",
+   "cut": "cut",
+   "small": false
+  },
+  {
+   "sheet": 1,
+   "album": "oreochromis-niloticus",
+   "photo": "https://media.aquatome.com/inaturalist/135041281-480.webp",
+   "cut": "cut",
+   "small": false
+  },
+  {
+   "sheet": 1,
+   "album": "oxydoras-niger",
+   "photo": "https://media.aquatome.com/commons/022ed940ad44c7b8-480.webp",
+   "cut": "cut",
+   "small": false
+  },
+  {
+   "sheet": 1,
+   "album": "osphronemus-goramy",
+   "photo": "https://media.aquatome.com/commons/b42776670e935e27-480.webp",
+   "cut": "cut",
+   "small": false
+  },
+  {
+   "sheet": 1,
+   "album": "scleropages-formosus",
+   "photo": "https://media.aquatome.com/commons/49cb95d4921bfdbe-480.webp",
+   "cut": "cut",
+   "small": false
+  },
+  {
+   "sheet": 1,
+   "album": "oranda-goldfish",
+   "photo": "https://media.aquatome.com/commons/f5b4163ba3fcd28e-480.webp",
+   "cut": "cut",
+   "small": false
+  },
+  {
+   "sheet": 1,
+   "album": "gobioides-broussonnetii",
+   "photo": "https://media.aquatome.com/commons/5177ac8a72d74297-480.webp",
+   "cut": "cut",
+   "small": false
+  },
+  {
+   "sheet": 1,
+   "album": "hydrocynus-goliath",
+   "photo": "https://media.aquatome.com/commons/5d003cf1868d125b-480.webp",
+   "cut": "cut",
+   "small": false
+  },
+  {
+   "sheet": 1,
+   "album": "helostoma-temminckii",
+   "photo": "https://media.aquatome.com/commons/c1ecf3d5fd50e324-480.webp",
+   "cut": "cut",
+   "small": false
+  },
+  {
+   "sheet": 1,
+   "album": "channa-gachua",
+   "photo": "https://media.aquatome.com/commons/3f5d22407c8c5b98-480.webp",
+   "cut": "partly",
+   "small": false
+  },
+  {
+   "sheet": 1,
+   "album": "piaractus-brachypomus",
+   "photo": "https://media.aquatome.com/commons/788f436a1a643d4d-480.webp",
+   "cut": "partly",
+   "small": false
+  },
+  {
+   "sheet": 1,
+   "album": "tinca-tinca",
+   "photo": "https://media.aquatome.com/commons/ad75ce9102222319-480.webp",
+   "cut": "partly",
+   "small": false
+  },
+  {
+   "sheet": 1,
+   "album": "polypterus-weeksii",
+   "photo": "https://media.aquatome.com/commons/eceaa1e14fe42deb-480.webp",
+   "cut": "partly",
+   "small": false
+  },
+  {
+   "sheet": 1,
+   "album": "ameiurus-brunneus",
+   "photo": "https://media.aquatome.com/inaturalist/236409096-480.webp",
+   "cut": "whole",
+   "small": false
+  },
+  {
+   "sheet": 1,
+   "album": "caridina-multidentata",
+   "photo": "https://media.aquatome.com/flickr/53863403183-480.webp",
+   "cut": "whole",
+   "small": false
+  },
+  {
+   "sheet": 1,
+   "album": "pygocentrus-piraya",
+   "photo": "https://media.aquatome.com/commons/54a4c9e997fb561e-480.webp",
+   "cut": "whole",
+   "small": false
+  },
+  {
+   "sheet": 1,
+   "album": "oxydoras-niger",
+   "photo": "https://media.aquatome.com/commons/35823758577292a9-480.webp",
+   "cut": "whole",
+   "small": false
+  },
+  {
+   "sheet": 1,
+   "album": "xenentodon-cancila",
+   "photo": "https://media.aquatome.com/commons/039f2a8f88d33127-480.webp",
+   "cut": "whole",
+   "small": false
+  },
+  {
+   "sheet": 1,
+   "album": "laubuka-laubuca",
+   "photo": "https://media.aquatome.com/commons/4d132ee71fe78ca2-480.webp",
+   "cut": "whole",
+   "small": false
+  },
+  {
+   "sheet": 1,
+   "album": "neolamprologus-brichardi",
+   "photo": "https://media.aquatome.com/commons/344d566d5aeb374f-480.webp",
+   "cut": "whole",
+   "small": false
+  },
+  {
+   "sheet": 2,
+   "album": "acestrorhynchus-falcatus",
+   "photo": "https://media.aquatome.com/commons/0034aeaae1b8b85e-480.webp",
+   "small": true
+  },
+  {
+   "sheet": 2,
+   "album": "acrossocheilus-paradoxus",
+   "photo": "https://media.aquatome.com/inaturalist/463975478-480.webp",
+   "small": true
+  },
+  {
+   "sheet": 2,
+   "album": "betta-rubra",
+   "photo": "https://media.aquatome.com/inaturalist/46220972-480.webp",
+   "small": true
+  },
+  {
+   "sheet": 2,
+   "album": "cyprinodon-variegatus",
+   "photo": "https://media.aquatome.com/inaturalist/77231070-480.webp",
+   "small": true
+  },
+  {
+   "sheet": 2,
+   "album": "danio-margaritatus",
+   "photo": "https://media.aquatome.com/inaturalist/86335569-480.webp",
+   "small": true
+  },
+  {
+   "sheet": 2,
+   "album": "danio-margaritatus",
+   "photo": "https://media.aquatome.com/inaturalist/86335683-480.webp",
+   "small": true
+  },
+  {
+   "sheet": 2,
+   "album": "hypseleotris-compressa",
+   "photo": "https://media.aquatome.com/inaturalist/305391836-480.webp",
+   "small": true
+  },
+  {
+   "sheet": 2,
+   "album": "melanotaenia-trifasciata",
+   "photo": "https://media.aquatome.com/inaturalist/305384295-480.webp",
+   "small": true
+  },
+  {
+   "sheet": 2,
+   "album": "oreochromis-mossambicus",
+   "photo": "https://media.aquatome.com/commons/b04508b4c7671ade-480.webp",
+   "small": true
+  },
+  {
+   "sheet": 2,
+   "album": "paravandellia-oxyptera",
+   "photo": "https://media.aquatome.com/inaturalist/638414207-480.webp",
+   "small": true
+  },
+  {
+   "sheet": 2,
+   "album": "puntius-titteya",
+   "photo": "https://media.aquatome.com/flickr/8916958624-480.webp",
+   "small": true
+  },
+  {
+   "sheet": 2,
+   "album": "sphaerichthys-vaillanti",
+   "photo": "https://media.aquatome.com/commons/5974f9381b212d40-480.webp",
+   "small": true
+  },
+  {
+   "sheet": 2,
+   "album": "yunnanilus-cruciatus",
+   "photo": "https://media.aquatome.com/commons/7d934571843366bd-480.webp",
+   "small": true
+  },
+  {
+   "sheet": 2,
+   "album": "caridina-dennerli",
+   "photo": "https://media.aquatome.com/inaturalist/510305343-480.webp",
+   "small": "clear"
+  },
+  {
+   "sheet": 2,
+   "album": "glofish",
+   "photo": "https://media.aquatome.com/commons/791113ab89aa0b82-480.webp",
+   "small": "clear"
+  },
+  {
+   "sheet": 2,
+   "album": "paracheirodon-axelrodi",
+   "photo": "https://media.aquatome.com/inaturalist/258997770-480.webp",
+   "small": "clear"
+  },
+  {
+   "sheet": 2,
+   "album": "paracheirodon-simulans",
+   "photo": "https://media.aquatome.com/flickr/26621991737-480.webp",
+   "small": "clear"
+  },
+  {
+   "sheet": 2,
+   "album": "brachygobius-doriae",
+   "photo": "https://media.aquatome.com/commons/6bdf91f91abebc18-480.webp",
+   "small": "clear"
+  },
+  {
+   "sheet": 2,
+   "album": "sewellia-lineolata",
+   "photo": "https://media.aquatome.com/commons/11327e163bad790c-480.webp",
+   "small": "clear"
+  },
+  {
+   "sheet": 2,
+   "album": "xiphophorus-hellerii",
+   "photo": "https://media.aquatome.com/inaturalist/66191914-480.webp",
+   "small": "clear"
+  },
+  {
+   "sheet": 3,
+   "album": "xiphophorus-hellerii",
+   "photo": "https://media.aquatome.com/inaturalist/268032912-480.webp",
+   "setup": true
+  },
+  {
+   "sheet": 3,
+   "album": "xiphophorus-hellerii",
+   "photo": "https://media.aquatome.com/inaturalist/296295754-480.webp",
+   "setup": true
+  },
+  {
+   "sheet": 3,
+   "album": "xiphophorus-hellerii",
+   "photo": "https://media.aquatome.com/inaturalist/66191914-480.webp",
+   "setup": false
+  },
+  {
+   "sheet": 3,
+   "album": "xiphophorus-hellerii",
+   "photo": "https://media.aquatome.com/inaturalist/223427768-480.webp",
+   "setup": true
+  },
+  {
+   "sheet": 3,
+   "album": "xiphophorus-hellerii",
+   "photo": "https://media.aquatome.com/inaturalist/298676261-480.webp",
+   "setup": true
+  },
+  {
+   "sheet": 3,
+   "album": "xiphophorus-hellerii",
+   "photo": "https://media.aquatome.com/inaturalist/298703517-480.webp",
+   "setup": true
+  },
+  {
+   "sheet": 3,
+   "album": "xiphophorus-hellerii",
+   "photo": "https://media.aquatome.com/inaturalist/298703386-480.webp",
+   "setup": true
+  },
+  {
+   "sheet": 3,
+   "album": "xiphophorus-hellerii",
+   "photo": "https://media.aquatome.com/inaturalist/347913338-480.webp",
+   "setup": true
+  },
+  {
+   "sheet": 3,
+   "album": "oranda-goldfish",
+   "photo": "https://media.aquatome.com/commons/4e79dbc6b4fb79dc-480.webp",
+   "setup": false,
+   "cut": "whole"
+  },
+  {
+   "sheet": 3,
+   "album": "oranda-goldfish",
+   "photo": "https://media.aquatome.com/commons/5c695b18592945a0-480.webp",
+   "setup": false,
+   "cut": "partly"
+  },
+  {
+   "sheet": 3,
+   "album": "oranda-goldfish",
+   "photo": "https://media.aquatome.com/commons/f5b4163ba3fcd28e-480.webp",
+   "setup": false,
+   "cut": "cut"
+  },
+  {
+   "sheet": 3,
+   "album": "oranda-goldfish",
+   "photo": "https://media.aquatome.com/commons/300eebe4d0e0f664-480.webp",
+   "setup": false,
+   "cut": "partly"
+  },
+  {
+   "sheet": 3,
+   "album": "oranda-goldfish",
+   "photo": "https://media.aquatome.com/flickr/3645950993-480.webp",
+   "setup": false,
+   "cut": "whole"
+  },
+  {
+   "sheet": 3,
+   "album": "oranda-goldfish",
+   "photo": "https://media.aquatome.com/flickr/14513471362-480.webp",
+   "setup": false,
+   "cut": "cut"
+  },
+  {
+   "sheet": 3,
+   "album": "apistogramma-viejita",
+   "photo": "https://media.aquatome.com/commons/1db47495d1305437-480.webp",
+   "setup": true
+  },
+  {
+   "sheet": 3,
+   "album": "batasio-tigrinus",
+   "photo": "https://media.aquatome.com/inaturalist/653492787-480.webp",
+   "setup": true
+  },
+  {
+   "sheet": 3,
+   "album": "oxyeleotris-marmorata",
+   "photo": "https://media.aquatome.com/commons/a10ae39242338925-480.webp",
+   "setup": true
+  },
+  {
+   "sheet": 3,
+   "album": "lamprologus-ocellatus",
+   "photo": "https://media.aquatome.com/commons/3b7134b42fe497e6-480.webp",
+   "setup": false
+  },
+  {
+   "sheet": 3,
+   "album": "andinoacara-rivulatus",
+   "photo": "https://media.aquatome.com/commons/df6167478511727f-480.webp",
+   "setup": false
+  },
+  {
+   "sheet": 3,
+   "album": "betta-imbellis",
+   "photo": "https://media.aquatome.com/commons/7f503048ca1912d9-480.webp",
+   "setup": false
+  }
+ ]
+}

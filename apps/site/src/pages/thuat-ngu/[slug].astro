@@ -4,6 +4,7 @@ import Browse from '../../layouts/Browse.astro'
 import GlossaryTip from '../../components/GlossaryTip.astro'
 import { getContent } from '../../lib/content'
 import { glossaryTitle } from '../../lib/meta'
+import { sciBeside } from '../../lib/sci'
 import { i18n, langOf } from '../../lib/i18n'
 import { alternatesOf } from '../../lib/alternates'
 import { figureHtml } from '../../lib/figures'
@@ -28,8 +29,9 @@ const used = [
 ---
 <Browse title={glossaryTitle(lang, termTitle(g))} heading={g.t.name} description={g.t.definition} crumbs={[['/vi/thuat-ngu/', t('Thuật ngữ')]]} noindex={!g.t.quality.indexable} alternates={alternates}>
   {p.otherNames.length > 0 && <p class="aka">{t('Tên khác: {names}', { names: p.otherNames.join(', ') })}</p>}
-  <p class="en">{t('Tiếng Anh:')} <span lang="en">{g.en}</span>{g.latin && <>, <span class="sci">{g.latin}</span></>}</p>
+  <p class="en">{t('Tiếng Anh:')} <span lang="en">{g.en}</span>{g.latin && sciBeside(g.en ?? '', g.latin) && <>, <span class="sci">{g.latin}</span></>}</p>
   {p.definition && <p class="def" set:html={p.definition} />}
+  {p.material && <p class="material-link"><a href={p.material.href}>{p.material.text}</a></p>}
   {p.photo && <Fragment set:html={figureHtml(lang, { photo: p.photo, label: p.photo.caption })} />}
   {p.body && <div class="body" set:html={p.body} />}
   {p.related.length > 0 && (

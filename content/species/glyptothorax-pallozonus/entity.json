@@ -98,7 +98,41 @@
       "html": "<p>Lingnan Science Journal, Canton v. 13 (no. 2), pp 228, Figs. 7-8.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/ec0f09517c05aa46.webp",
+      "thumb": "https://media.aquatome.com/scotcat/ec0f09517c05aa46-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Drake Shaw / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/glyptothorax_pallozonus.htm",
+      "caption": "Glyptothorax pallozonus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/cdb0e2694856dbb1.webp",
+      "thumb": "https://media.aquatome.com/scotcat/cdb0e2694856dbb1-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Drake Shaw / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/glyptothorax_pallozonus.htm",
+      "caption": "Glyptothorax pallozonus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/35b824984372db49.webp",
+      "thumb": "https://media.aquatome.com/scotcat/35b824984372db49-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Drake Shaw / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/glyptothorax_pallozonus.htm",
+      "caption": "Glyptothorax pallozonus: head view",
+      "source": "scotcat"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -124,5 +158,55 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13"
+  "updatedAt": "2026-11-13",
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Zhujiang"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Loh-Fau Shan, Poh-Lo district, Kwangtung, China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Zhujiang (Pearl River) drainage in southeastern China.",
+          "countries": [],
+          "regions": [
+            "Zhujiang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341308,
+      "total": 1,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "CN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          37.96875,
+          1,
+          1
+        ]
+      ]
+    }
+  }
 }

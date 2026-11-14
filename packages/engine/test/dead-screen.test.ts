@@ -114,3 +114,23 @@ test('dead-screen: a frame YouTube does not have is passed over, and a verdict f
   const third = deps()
   expect(await screenDead(root, third.d, { limit: 48, backCheck: true })).toMatchObject({ sheets: 0, judged: 0 })
 })
+
+test("dead-screen: a page's only photo it calls dead stays where it is, off the never-again list, held for a second look; a page with another photo loses it as before", async () => {
+  // The chief of staff, 2026-11-14: a page's last photo doesn't come off on an automatic check's word alone (last-photo.ts).
+  const root = await store()
+  await mkdir(join(root, 'content/species/d'), { recursive: true })
+  await writeFile(join(root, 'content/species/d/entity.json'), JSON.stringify({ id: 'd', photos: [photo('https://m/d-only.webp')], videos: [] }))
+  DEAD.add('https://m/d-only.webp')
+  const r = await screenDead(root, deps().d, { limit: 48 })
+  expect(r.held).toEqual(['https://m/d-only.webp: species/d'])
+  expect((await json(root, 'content/species/d/entity.json')).photos.map((p: { url: string }) => p.url)).toEqual(['https://m/d-only.webp'])
+  const rejected = Object.keys(await json(root, 'engine-state/_photo-rejected.json'))
+  expect(rejected).toContain('https://m/a-dead.webp')
+  expect(rejected).not.toContain('https://m/d-only.webp')
+  const look = await json(root, 'engine-state/_photo-second-look.json')
+  expect(look['https://m/d-only.webp']).toMatchObject({ step: 'the dead-fish screen', pages: ['species/d'] })
+  expect(look['https://m/d-only.webp'].why).toMatch(/^dead: withheld \[sha256:[0-9a-f]{64}\]$/)
+  // Judged once: the next run doesn't take it off either.
+  await screenDead(root, deps().d, { limit: 48 })
+  expect((await json(root, 'content/species/d/entity.json')).photos).toHaveLength(1)
+})

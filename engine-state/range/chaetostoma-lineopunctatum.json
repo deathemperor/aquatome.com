@@ -1,0 +1,80 @@
+{
+  "id": "chaetostoma-lineopunctatum",
+  "native": {
+    "input": "f9f65c71b0fdf76a",
+    "at": "2026-11-14T05:39:06.336Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Rio San Alejandro",
+        "source": "planetcatfish",
+        "quote": "The L number specifically was collected in the Rio San Alejandro.",
+        "ok": true
+      },
+      {
+        "name": "Marañón",
+        "source": "planetcatfish",
+        "quote": "Amazon, Upper Amazon, Marañón, Ucayali, San Alejandro.",
+        "ok": true
+      },
+      {
+        "name": "Ucayali",
+        "source": "planetcatfish",
+        "quote": "Amazon, Upper Amazon, Marañón, Ucayali, San Alejandro.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "Amazon, Upper Amazon, Marañón, Ucayali, San Alejandro.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Chaetostoma lineopunctatum",
+    "status": "ACCEPTED",
+    "taxonKey": 5202363,
+    "datasets": [
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        12
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        10
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        9
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        6
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        6
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-14T05:39:06.336Z"
+  }
+}

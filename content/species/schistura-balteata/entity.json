@@ -13,6 +13,96 @@
     "kanchanaburi",
     "ataran"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM",
+        "TH"
+      ],
+      "regions": [
+        "Ataran River",
+        "Salween",
+        "Tenasserim Mountain range"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The sumo loach II, Schistura cf. balteata, is an apparently undescribed nemacheilid loach from the Ataran River drainage in Myanmar and Thailand.",
+          "countries": [
+            "MM",
+            "TH"
+          ],
+          "regions": [
+            "Ataran River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This apparently undescribed species has been collected from the Ataran River drainage, a tributary of the Salween River flowing through the states of Kayin and Mon, Myanmar, and the fish available in the trade are apparently sourced from the rivers' headwaters in Kayin.",
+          "countries": [],
+          "regions": [
+            "Salween"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "There actually exist various populations of similarly-patterned fishes on both the Thai and Myanmar sides of the Tenasserim Mountain range, of which a handful have been described as S. aurantiaca, S. cincticauda, S. paucifasciata, and S. robertsi, respectively.",
+          "countries": [],
+          "regions": [
+            "Tenasserim Mountain range"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5204974,
+      "total": 6,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "TH",
+          4
+        ],
+        [
+          "MM",
+          1
+        ],
+        [
+          "SE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          9.84375,
+          57.65625,
+          1,
+          0
+        ],
+        [
+          97.03125,
+          14.0625,
+          3,
+          3
+        ],
+        [
+          97.03125,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          12.65625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

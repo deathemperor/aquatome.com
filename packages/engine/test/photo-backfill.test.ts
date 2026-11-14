@@ -39,6 +39,35 @@ test('re-reads the source page of a photo-less species once, adds the photos, th
   expect(gets).toHaveLength(1)
 })
 
+test('--only reads those pages alone, now, though one was read a week ago (first in line, 14 Nov)', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'pb-'))
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await mkdir(join(root, 'content'), { recursive: true })
+  await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ seriouslyfish: { name: 'Seriously Fish' } }))
+  const other = 'https://www.seriouslyfish.com/species/aaa-other/'
+  for (const [id, url] of [['acanthopsoides-robertsi', URL_], ['aaa-other', other]] as const) {
+    await mkdir(join(root, 'content', 'species', id), { recursive: true })
+    await writeFile(join(root, 'content', 'species', id, 'entity.json'), JSON.stringify({ scientificName: 'Acanthopsoides robertsi', photos: [], sections: [{ source: 'seriouslyfish', sourceUrl: url }] }))
+  }
+  await writeFile(join(root, 'engine-state', '_photo-backfill.json'), JSON.stringify({ [URL_]: '2026-10-22T12:00:00.000Z' }))
+  const gets: string[] = []
+  const deps = {
+    get: async (u: string) => { gets.push(u); return { status: 200, html: page } },
+    bytes: async (u: string) => sharp({ create: { width: u.includes('robertsi-2') ? 550 : 600, height: 233, channels: 3, background: 'gray' } }).jpeg().toBuffer(),
+    media: { urlFor: (k: string) => `https://m/${k}`, put: async (k: string) => ({ url: `https://m/${k}`, width: 600, height: 233 }) },
+    now: () => new Date('2026-10-29T12:00:00Z'),
+    sleep: async () => {},
+  }
+  expect((await backfillPhotos(root, deps, { only: ['acanthopsoides-robertsi'] })).pages).toBe(1)
+  expect(gets).toEqual([URL_])
+  expect(JSON.parse(await readFile(join(root, 'content', 'species', 'acanthopsoides-robertsi', 'entity.json'), 'utf8')).photos).toHaveLength(1)
+  // Without it, the page read a week ago waits its month, and the other, never read, is due.
+  gets.length = 0
+  await writeFile(join(root, 'content', 'species', 'acanthopsoides-robertsi', 'entity.json'), JSON.stringify({ scientificName: 'Acanthopsoides robertsi', photos: [], sections: [{ source: 'seriouslyfish', sourceUrl: URL_ }] }))
+  await backfillPhotos(root, deps)
+  expect(gets).toEqual([other])
+})
+
 test('archive-read sources are left out; ScotCat photos come from their own pages', async () => {
   const root = await mkdtemp(join(tmpdir(), 'pb-'))
   await mkdir(join(root, 'engine-state'), { recursive: true })

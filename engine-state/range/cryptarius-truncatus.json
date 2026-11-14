@@ -1,8 +1,8 @@
 {
   "id": "cryptarius-truncatus",
   "native": {
-    "input": "24f1f7b986f7bc47",
-    "at": "2026-11-14T00:09:29.977Z",
+    "input": "60ee026ce7564f00",
+    "at": "2026-11-14T05:39:06.336Z",
     "claims": [
       {
         "code": "ID",
@@ -11,16 +11,41 @@
         "quote": "Type locality: Java, Indonesia.",
         "words": "Indonesia",
         "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South and southeast Asia: Thailand, Cambodia, Indonesia and Malaysia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South and southeast Asia: Thailand, Cambodia, Indonesia and Malaysia.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South and southeast Asia: Thailand, Cambodia, Indonesia and Malaysia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South and southeast Asia: Thailand, Cambodia, Indonesia and Malaysia.",
+        "words": "Malaysia",
+        "ok": true
       }
     ],
     "regions": [
-      {
-        "name": "Java",
-        "source": "planetcatfish",
-        "quote": "Type locality: Java, Indonesia.",
-        "country": "ID",
-        "ok": true
-      },
       {
         "name": "Chao Phraya",
         "source": "planetcatfish",
@@ -38,13 +63,30 @@
         "source": "planetcatfish",
         "quote": "Western Central Pacific: estuaries and lower courses of rivers from the Chao Phraya to Sumatra and Java, including the lower Mekong.",
         "ok": true
+      },
+      {
+        "name": "Java",
+        "source": "planetcatfish",
+        "quote": "Western Central Pacific: estuaries and lower courses of rivers from the Chao Phraya to Sumatra and Java, including the lower Mekong.",
+        "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "scotcat",
+        "quote": "Found in estuaries and lower courses of rivers from the Chao Phrya to Sumatra and Java, including the lower Mekong.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "scotcat",
+        "quote": "Found in estuaries and lower courses of rivers from the Chao Phrya to Sumatra and Java, including the lower Mekong.",
+        "ok": true
       }
     ],
     "disputed": [],
     "outranked": [],
     "origin": {
       "pagesOnly": [
-        "TH",
         "VN"
       ],
       "sourcesOnly": []
@@ -77,9 +119,12 @@
       ]
     ],
     "native": [
-      "ID"
+      "ID",
+      "TH",
+      "KH",
+      "MY"
     ],
     "requests": 12,
-    "at": "2026-11-14T00:09:29.977Z"
+    "at": "2026-11-14T05:39:06.336Z"
   }
 }

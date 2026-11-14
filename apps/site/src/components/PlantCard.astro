@@ -1,4 +1,5 @@
 ---
+import { sciBeside } from '../lib/sci'
 import { photoFitsCard, cleanPhoto, type Localized, type Photo, type PlantEntity } from '@aq/schema'
 import { plantMeta } from '../lib/list-data'
 import { smallSrc } from '../lib/img'
@@ -21,7 +22,7 @@ const { t } = i18n(Astro.url)
       ? <img src={smallSrc(ph)} width={ph.width} height={ph.height} alt="" loading={eager ? 'eager' : 'lazy'} />
       : <span class="ph" aria-hidden="true">{t('Chưa có ảnh')}</span>}</div>
     <h3>{p.t.name}</h3>
-    <p class="sci">{p.scientificName}</p>
+    {(template || sciBeside(p.t.name, p.scientificName)) && <p class="sci">{p.scientificName}</p>}
   </a>
   <p class="meta">{plantMeta(t, p)}</p>
 </article>

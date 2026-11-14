@@ -4,6 +4,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
+import { holdForSecondLook, lastPhotos, looks, pagesShowing, readSecondLook } from './last-photo'
 
 export type FaceDeps = { get: (url: string) => Promise<Uint8Array>; detect: (files: string[]) => Promise<number[]> }
 type Photo = { url: string }
@@ -24,9 +25,10 @@ export async function visionFaces(files: string[]): Promise<number[]> {
  * Photos must show the animal or plant, not people: every photo not yet screened is checked once (result cached by URL)
  * and any photo with a human face is dropped from its page, as is any photo the owner rejected by hand (`rejectedFile`:
  * URL → reason; hands, product packshots, English-text banners), and so is a video section's photo the owner rejected.
- * Runs each cycle, so a re-picked photo never publishes.
+ * Runs each cycle, so a re-picked photo never publishes. `root`: where engine-state is, for the second look
+ * (last-photo.ts).
  */
-export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: FaceDeps, rejectedFile?: string): Promise<{ checked: number; removed: string[]; failed: string[] }> {
+export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: FaceDeps, rejectedFile?: string, root = join(contentRoot, '..')): Promise<{ checked: number; removed: string[]; held: string[]; failed: string[] }> {
   const cache: Record<string, number> = JSON.parse(await readFile(cacheFile, 'utf8').catch(() => '{}'))
   const rejected: Record<string, string> = rejectedFile ? JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) : {}
   const pages: { file: string; e: { photos?: Photo[]; video?: { figures?: { photo?: Photo }[] } } }[] = []
@@ -56,9 +58,16 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   } finally {
     await rm(dir, { recursive: true, force: true })
   }
+  // A face takes a photo off, unless its going would leave a species, plant or breed page with nothing: then it stays,
+  // held for a second look (last-photo.ts). One the second look cleared stays too.
+  const sl = looks(await readSecondLook(root))
+  const face = (u: string) => cache[u]! > 0 && sl.open(u)
+  const last = new Map([...lastPhotos(await pagesShowing(contentRoot), u => face(u) || u in rejected)].filter(([u]) => face(u) && !(u in rejected)))
+  await holdForSecondLook(root, new Map([...last].map(([u, pages]) => [u, { why: 'people: a face (face detection)', pages }])), 'face detection')
+  const held = [...last].map(([u, ps]) => `${u}: ${ps.join(', ')}`)
   const removed: string[] = []
   for (const { file, e } of pages) {
-    const keep = (e.photos ?? []).filter(p => !(cache[p.url]! > 0) && !(p.url in rejected))
+    const keep = (e.photos ?? []).filter(p => !(face(p.url) && !last.has(p.url)) && !(p.url in rejected))
     // A video section's photo the owner rejected (the images pass screened it for faces when it picked it).
     const figures = (e.video?.figures ?? []).filter(f => f.photo && f.photo.url in rejected)
     if (keep.length === (e.photos ?? []).length && !figures.length) continue
@@ -69,5 +78,5 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
     await writeFile(file, `${JSON.stringify(e, null, 2)}\n`)
   }
   await writeFile(cacheFile, `${JSON.stringify(Object.fromEntries(Object.entries(cache).sort()), null, 2)}\n`)
-  return { checked: todo.length - failed.length, removed, failed }
+  return { checked: todo.length - failed.length, removed, held, failed }
 }

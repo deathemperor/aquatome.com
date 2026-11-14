@@ -2,18 +2,6 @@
   "id": "epalzeorhynchos-bicolor",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/226475991.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/226475991-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC0",
-      "author": "Matt Schultz",
-      "sourceUrl": "https://www.inaturalist.org/photos/226475991",
-      "caption": "Cá mập đuôi đỏ bơi trên nền cát trắng trong bể",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/601260022.webp",
       "thumb": "https://media.aquatome.com/inaturalist/601260022-480.webp",
       "width": 768,
@@ -66,21 +54,6 @@
       }
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/319712819.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/319712819-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Igor Balashov",
-      "sourceUrl": "https://www.inaturalist.org/photos/319712819",
-      "caption": "Cá mập đuôi đỏ thân đen tím trong bể thủy sinh có cây",
-      "large": {
-        "url": "https://media.aquatome.com/inaturalist/319712819-large.webp",
-        "width": 1600,
-        "height": 1200
-      }
-    },
-    {
       "url": "https://media.aquatome.com/commons/e81aeb8cff825be9.webp",
       "thumb": "https://media.aquatome.com/commons/e81aeb8cff825be9-480.webp",
       "width": 1200,
@@ -91,6 +64,21 @@
       "caption": "Cá mập đuôi đỏ bơi giữa cây thủy sinh trong bể",
       "large": {
         "url": "https://media.aquatome.com/commons/e81aeb8cff825be9-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/319712819.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/319712819-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Igor Balashov",
+      "sourceUrl": "https://www.inaturalist.org/photos/319712819",
+      "caption": "Cá mập đuôi đỏ thân đen tím trong bể thủy sinh có cây",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/319712819-large.webp",
         "width": 1600,
         "height": 1200
       }
@@ -129,6 +117,18 @@
       "author": "olmagon",
       "sourceUrl": "https://www.inaturalist.org/photos/504514431",
       "caption": "Cá mập đuôi đỏ bơi trong bể ánh sáng xanh"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/226475991.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/226475991-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Matt Schultz",
+      "sourceUrl": "https://www.inaturalist.org/photos/226475991",
+      "caption": "Cá mập đuôi đỏ bơi trên nền cát trắng trong bể",
+      "best": true,
+      "kind": "other"
     }
   ],
   "seen": 28,

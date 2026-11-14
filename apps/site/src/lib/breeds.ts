@@ -13,7 +13,7 @@ export function basedOn(c: Content, b: Breed): { name: string; href: string } | 
 }
 
 /** Every photo but the main one: the few kept on the page, then its gallery. */
-export const breedGallery = (c: Content, b: Breed): Photo[] => [...b.photos.slice(1), ...(c.galleries[b.id] ?? [])]
+export const breedGallery = (c: Pick<Content, 'galleries'>, b: Breed): Photo[] => [...b.photos.slice(1), ...(c.galleries[b.id] ?? [])]
 
 /** Lines, colour forms and hybrids made from a species (or from another breed), for its page. */
 export const breedsOf = (lang: Lang, c: Content, id: string): Breed[] =>

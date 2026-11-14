@@ -886,5 +886,143 @@
       "quickFacts:tropica": "12f02b6b31df",
       "notes:tropica": "37dd0c72e8bf"
     }
+  },
+  "dracaena-sanderiana": {
+    "at": "2026-11-14",
+    "from": "2026-11-09",
+    "name": "Buluh Bertuah",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": [
+      "Item 2: \"Alam\" for Kingdom and \"Order\" are acceptable, but \"Order\" could be \"Order/Tertib\" for consistency. This is optional and minor.",
+      "Item 3: \"suhu yang panas\" is slightly strong for \"warm temperatures\". \"suhu yang hangat\" or \"suhu yang suam\" reads more naturally."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "bfbebc835091",
+      "distribution:aquariumbreeder": "cb16d2349644",
+      "habitat:aquariumbreeder": "c71490ead308",
+      "aquariumSize:aquariumbreeder": "25e10316b03b",
+      "maintenance:aquariumbreeder": "3996b4c110b0",
+      "maintenance:aquatome": "5b57b98f4902",
+      "waterConditions:aquariumbreeder": "7affaa59661b",
+      "waterConditions:aquatome": "05e2eb34442b",
+      "equipment:aquariumbreeder": "2fd192012cfe",
+      "notes:aquariumbreeder": "f03fb6a42b7e"
+    }
+  },
+  "echinodorus-angustifolia": {
+    "at": "2026-11-14",
+    "from": "2026-11-10",
+    "name": "Echinodorus Vesuvius",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Items 2, 3 and 4: \"kuntum bunga\" means an open flower. For \"flower buds\" use \"kudup bunga\"."
+    ],
+    "parts": {
+      "quickFacts:aquariumcoop": "5d3f7aabb66d",
+      "beforeYouBuy:aquariumcoop": "2e3bba12ff2e",
+      "maintenance:aquatome": "5503d19be45f",
+      "maintenance:aquariumcoop": "64c740b3ebdf",
+      "notes:aquariumcoop": "ed9c0800ac5b"
+    }
+  },
+  "echinodorus-aquartica": {
+    "at": "2026-11-14",
+    "from": "2026-10-30",
+    "name": "Echinodorus 'Aquartica'",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"Asal\" for Origin is slightly terse; \"Asal usul\" or \"Asalan\" would be more natural (minor).",
+      "\"tumbuhan kultivasi\" is slightly awkward; \"tumbuhan kultivar\" or \"tumbuhan ternak/kacukan\" is more natural (minor)."
+    ],
+    "parts": {
+      "quickFacts:tropica": "5b4adfc6e8ba",
+      "notes:tropica": "03f1a1db2c22"
+    }
+  },
+  "echinodorus-cordifolius": {
+    "at": "2026-11-14",
+    "from": "2026-10-30",
+    "name": "Echinodorus Cordifolius Fluitans",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"Mexico\" should be \"Mexico\" in Malay is acceptable; but \"Asal: Amerika Utara\" in item 1 is fine—no issue; minor: \"Roset\" is OK.",
+      "\"Echinodorus dari Mexico yang tumbuh agak cepat berbanding yang lain\" is slightly awkward; better \"Echinodorus dari Mexico yang agak cepat membesar\".",
+      "\"memang cantik sebagai hiasan\" is a little awkward; use \"sangat menarik sebagai hiasan\".",
+      "\"instead\" nuance is lost in the last sentence: add \"sebaliknya\" (\"sebaliknya ia akan mengeluarkan daun besar betul-betul di bawah permukaan air\")."
+    ],
+    "parts": {
+      "quickFacts:tropica": "d6eeaf890a3b",
+      "notes:tropica": "c88d4379280b"
+    }
+  },
+  "echinodorus-grisebachii": {
+    "at": "2026-11-14",
+    "from": "2026-10-30",
+    "name": "Amazon Sword",
+    "confidence": "high",
+    "score": 0.7,
+    "notes": [
+      "\"dihimpunkan dalam pemberat\" / \"Buang pemberat\": 'anchor' here is the lead/metal weight strip bundling plants; 'pemberat' is acceptable, but \"Seikat ... yang dihimpunkan\" is a fragment; better \"Seikat batang... diikat dengan pemberat (jalur plumbum)\".",
+      "\"Regarding stem plants\": \"tumbuhan berbatang\" is fine, but \"pokok ini perlu dipangkas\" loses 'the plant' generic; minor.",
+      "\"dengan sedikit jarak\" is vague; better \"dengan jarak sesuai antara satu sama lain\".",
+      "\"Type: Rosulate\" translated as \"Roset\": more common hobby term is \"berroset\" (rosette-forming); minor.",
+      "\"tidak cerewet\" for 'undemanding' is a bit odd for plants; use \"tidak memerlukan penjagaan rapi\"/\"mudah dijaga\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "6c8e0b12bda0",
+      "maintenance:tropica": "ec4dc3a619c4",
+      "notes:tropica": "db7ac997a8e6"
+    }
+  },
+  "echinodorus-grisebachii-tropica": {
+    "at": "2026-11-14",
+    "from": "2026-10-30",
+    "name": "Echinodorus Tropica",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"sedikit berkedut\" for \"slightly bullate\": bullate means blistered or puckered (berlepuh/bergelembung). \"berkedut\" means wrinkled, so the meaning is slightly shifted.",
+      "\"Origin: Cultivar\" became \"Asal: Kultivar\": this is acceptable, but \"Roset\" for Rosulate is fine only if consistent. Consider \"berroset\" for the type.",
+      "\"mudah dikenali\" for \"distinctive\": better \"unik\" or \"tersendiri\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "ad876dd876a4",
+      "notes:tropica": "dcbf736d671d"
+    }
+  },
+  "echinodorus-ozelot": {
+    "at": "2026-11-14",
+    "from": "2026-10-30",
+    "name": "Echinodorus 'Ozelot'",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "\"dalam tangki\": \"akuarium\" is the more usual hobby term in Malaysia (\"tangki\" is acceptable but less common).",
+      "\"Ozelot\" paragraph: \"cahaya yang malap\" is slightly loose for \"low light intensity\"; \"keamatan cahaya rendah\" is closer."
+    ],
+    "parts": {
+      "quickFacts:tropica": "360d09be766e",
+      "notes:tropica": "910a081b8b65"
+    }
+  },
+  "echinodorus-ozelot-green": {
+    "at": "2026-11-14",
+    "from": "2026-11-07",
+    "name": "Echinodorus Ozelot Green",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 2: the source text is Vietnamese, not English. The Malay is faithful, but the source should be checked. The \"Echinodorus\" Latin name is added where the source only says \"Kiếm\" (sword plant), which is acceptable but worth confirming.",
+      "Item 2: \"bahagian belakang atau tengah aquascape\" is a little awkward. \"latar belakang atau tengah akuarium\" would read more naturally."
+    ],
+    "parts": {
+      "quickFacts:tropica": "3ec2ae5b518f",
+      "maintenance:aquatome": "36fa02bcf55e",
+      "notes:tropica": "8de37432be88"
+    }
   }
 }

@@ -7,13 +7,13 @@
   ],
   "sections": {
     "quickFacts:scotcat": "<p>Họ: Amphiliidae. Kích thước: 6 cm. Nhiệt độ: 18–22°C. pH: 6,5–7,5.</p>",
-    "beforeYouBuy:scotcat": "<p>Loài này rất dễ bị nhận nhầm, và có lẽ hầu hết các loài cùng giống cũng vậy. Ảnh thu nhỏ có thể là loài này, cũng có thể là một loài gần nó như A. platychir hay A. uranoscopus. Khi nuôi trong bể thì các loài này cũng na ná nhau. Loài này ít khi được nhập về, nhưng nếu giữ được điều kiện tốt nhất cho nó thì đây là con đáng thêm vào bể.</p>",
+    "beforeYouBuy:scotcat": "<p>Loài này rất dễ bị nhận nhầm, và có lẽ hầu hết các loài cùng giống cũng vậy. Khi nuôi trong bể thì các loài này cũng na ná nhau. Loài này ít khi được nhập về, nhưng nếu giữ được điều kiện tốt nhất cho nó thì đây là con đáng thêm vào bể.</p>",
     "distribution:scotcat": "<p>Châu Phi: sông Gbin ở Guinea, và sông Pra, từ Sierra Leone đến Ghana. Nơi thu mẫu chuẩn: sông Atesu, Bờ Biển Vàng. Loài này cũng có ở Liberia và Bờ Biển Ngà. Chúng sống rải rộng từ sông St. John (Liberia) đến sông Mono (Togo), và ở vùng thượng nguồn lưu vực sông Niger.</p>",
     "habitat:scotcat": "<p>Ngoài tự nhiên, chúng sống ở vùng nước chảy.</p>",
     "maintenance:scotcat": "<p>Có thể nuôi loài này trong bể nền sỏi hạt nhỏ hoặc nền cát, trồng nhiều cây, cho nước chảy nhẹ giống nơi chúng sống ngoài tự nhiên. Xếp đá và tạo hang cho chúng. Nước nên giữ hơi mát.</p>",
     "waterConditions:scotcat": "<p>Nhiệt độ: 18–22 °C. pH: 6,5–7,5.</p>",
     "diet:scotcat": "<p>Lăng quăng, trùn chỉ, Cyclops, bo bo, giun grindal, thức ăn có rau, thức ăn viên nén và cám vảy.</p>",
-    "notes:scotcat": "<p>Từ nguyên: tên loài atesuensis ghép từ hậu tố –ensis, chỉ nơi chốn, tức sông Atesu ở Ghana, nơi thu mẫu chuẩn. Sách Đỏ IUCN: chưa thấy mối đe dọa nào trên diện rộng, loài được xếp mức Ít quan ngại (IUCN 2020). Ghi chú: hai ảnh thu nhỏ cuối cùng chụp ở Vườn quốc gia Tai, vùng tây nam Bờ Biển Ngà, gần biên giới với Liberia.</p>",
+    "notes:scotcat": "<p>Từ nguyên: tên loài atesuensis ghép từ hậu tố –ensis, chỉ nơi chốn, tức sông Atesu ở Ghana, nơi thu mẫu chuẩn. Sách Đỏ IUCN: chưa thấy mối đe dọa nào trên diện rộng, loài được xếp mức Ít quan ngại (IUCN 2020).</p>",
     "references:scotcat": "<p>Baensch, H.A. and R. Riehl 1991 Aquarien atlas. Bd. 3. Melle: Mergus, Verlag für Natur- und Heimtierkunde, Germany. 1104 p.</p><p>Dankwa, H. &amp; Olaosebikan, B.D. 2020. Amphilius atesuensis. The IUCN Red List of Threatened Species 2020.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
@@ -22,11 +22,5 @@
     "bySource": {
       "scotcat": 0.8
     }
-  },
-  "held": {
-    "checks": [
-      "source"
-    ],
-    "at": "2026-11-14"
   }
 }

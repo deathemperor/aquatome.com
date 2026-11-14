@@ -225,7 +225,18 @@
       "html": "<p>Despite its looks, this fish, which can reach up to 25 cm in length, is very interesting.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/0ce648e488e5b3b5.webp",
+      "thumb": "https://media.aquatome.com/glaser/0ce648e488e5b3b5-480.webp",
+      "width": 850,
+      "height": 442,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/odontamblyopus_rubicundus_en/",
+      "source": "glaser"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "FkwDdo1BcXQ",

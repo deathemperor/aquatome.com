@@ -38,30 +38,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/706974564.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/706974564-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Vincent A. Vos",
-      "sourceUrl": "https://www.inaturalist.org/photos/706974564",
-      "caption": "Cá sói vàng bơi ở vùng nước nông trong tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/431334921.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/431334921-480.webp",
-      "width": 1024,
-      "height": 662,
-      "licence": "CC0",
-      "author": "Whaldener Endo",
-      "sourceUrl": "https://www.inaturalist.org/photos/431334921",
-      "caption": "Cá sói vàng bơi trên nền cát ở suối tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/147077095.webp",
       "thumb": "https://media.aquatome.com/inaturalist/147077095-480.webp",
       "width": 1024,
@@ -82,6 +58,30 @@
       "author": "João D'Andretta",
       "sourceUrl": "https://www.inaturalist.org/photos/147077538",
       "caption": "Cá sói vàng nhìn trực diện giữa bụi cây dưới nước",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/431334921.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/431334921-480.webp",
+      "width": 1024,
+      "height": 662,
+      "licence": "CC0",
+      "author": "Whaldener Endo",
+      "sourceUrl": "https://www.inaturalist.org/photos/431334921",
+      "caption": "Cá sói vàng bơi trên nền cát ở suối tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/706974564.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/706974564-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Vincent A. Vos",
+      "sourceUrl": "https://www.inaturalist.org/photos/706974564",
+      "caption": "Cá sói vàng bơi ở vùng nước nông trong tự nhiên",
       "best": true,
       "kind": "habitat"
     },

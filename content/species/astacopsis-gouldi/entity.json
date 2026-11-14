@@ -10,6 +10,87 @@
     "australia",
     "tasmania"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Tasmania",
+        "Arthur River",
+        "Cam River",
+        "Forth-Wilmot River",
+        "Inglis River",
+        "Mersey River"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "The Tasmanian giant freshwater crayfish is endemic to rivers and streams of northern Tasmania.",
+          "countries": [],
+          "regions": [
+            "Tasmania"
+          ]
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "It naturally occurs at altitudes below about 400 m and is distributed across the Arthur River and all other rivers and creeks draining into Bass Strait, including the Cam River, Forth-Wilmot River, Inglis River and Mersey River catchments, with the exception of the Tamar River catchment.",
+          "countries": [],
+          "regions": [
+            "Arthur River",
+            "Cam River",
+            "Forth-Wilmot River",
+            "Inglis River",
+            "Mersey River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5789955,
+      "total": 1148,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "AU",
+          1148
+        ]
+      ],
+      "cells": [
+        [
+          133.59375,
+          -26.71875,
+          1
+        ],
+        [
+          143.4375,
+          -42.1875,
+          1
+        ],
+        [
+          144.84375,
+          -42.1875,
+          998
+        ],
+        [
+          146.25,
+          -43.59375,
+          1
+        ],
+        [
+          146.25,
+          -42.1875,
+          129
+        ],
+        [
+          147.65625,
+          -42.1875,
+          18
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -421,7 +421,8 @@ test('a page the site leaves out (held by the reader-fit gate, or removed) is no
   // The site's build leaves a held or removed page out of its app index (apps/site/test/held.test.ts), and the chat's
   // handbook is that index: a page not in it is never found, read, carded or shown, even with its copy still in a shard.
   const all = (await source.index('vi'))!
-  const kinds = [...new Set(all.items.map(i => i.kind))].filter(k => k !== 'tool').sort()
+  // A material page is no page to the chat even when listed (the test after this one).
+  const kinds = [...new Set(all.items.map(i => i.kind))].filter(k => k !== 'tool' && (k as string) !== 'material').sort()
   expect(kinds).toEqual(['equipment', 'fish', 'glossary', 'guide', 'plant', 'video'])
   for (const lang of LANGS) {
     for (const kind of kinds) {
@@ -442,6 +443,20 @@ test('a page the site leaves out (held by the reader-fit gate, or removed) is no
       expect(blocks, at).toEqual([])
     }
   }
+})
+
+test('a material page, listed in the app index for the app to open on the web, is no page to the chat: it has no copy to read', async () => {
+  // The app index lists Vietnamese material pages (kind material) with no shards: the chat could only find one and name
+  // it, never read it, and its id is no fish's or plant's.
+  const all = (await source.index('vi'))!
+  const m = all.items.find(i => (i.kind as string) === 'material')!
+  expect(m, 'the fixture build lists a material page').toBeTruthy()
+  const h = await hb()
+  expect(h.items.map(i => i.path)).not.toContain(m.path)
+  expect(h.byPath(m.path)).toBeUndefined()
+  if (m.id) expect(h.byId(m.id)).toBeUndefined()
+  const out = (await run('search_handbook', { query: m.name, kind: null }, h)).out as string
+  expect(out.startsWith('No page') ? [] : JSON.parse(out).map((x: { path: string }) => x.path)).not.toContain(m.path)
 })
 
 test('a guide held out of the chat (a video guide being checked again) is never found, read or shown; the others are', async () => {

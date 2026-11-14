@@ -78,6 +78,13 @@ function notes(c, runUrl) {
 
 const strip = s => s.replace(/\x1b\[[0-9;]*m/g, '')
 /** Playwright's JSON report → one entry per check (a page or a journey), across the phone and computer runs. */
+/**
+ * The page a check is about, from its name, its project's tag off: "page /x/", "page checks /x/" (invariants.spec.ts),
+ * "review /x/", "lighthouse /x/". The page checks' names have two words before the page: on 14 Nov 2026 their issues
+ * recorded the page as "checks", so the recheck never found it and three issues stayed open after the page was fixed.
+ */
+export const checkedPage = title => /^(?:page checks|page|review|lighthouse) (\/\S*)$/.exec(title.replace(/ @\w+$/, ''))?.[1]
+
 export function checks(report) {
   const out = new Map()
   const walk = suite => {
@@ -190,7 +197,7 @@ if (cmd === 'prepare') {
   for (const c of files.flatMap(f => checks(JSON.parse(readFileSync(f, 'utf8'))))) {
     const fp = fingerprint(c.key)
     // The page a check is about (a page check, a review, Lighthouse): rechecked every run until it passes (prepare).
-    const path = /^(page|review|lighthouse) /.test(c.title) ? c.title.replace(/^(page|review|lighthouse) /, '').replace(/ @\w+$/, '') : undefined
+    const path = checkedPage(c.title)
     if (c.failed.length) {
       // A review's failure is its serious findings; any other check's is its error.
       const what = c.highs.length ? [...new Set(c.highs)].map(h => `- ${h}`) : ['```', ...c.errors, '```']

@@ -8,6 +8,8 @@
 // - Worktrees, at 03:35 or with --worktrees: merged ones. One left alone for 7 days with no live thread is saved first
 //   (archiveWorktree: never pushed, kept 30 days), then removed. No --force without that copy.
 // - ~/.cache/aquatome is what the leads keep (AGENTS.md, This Mac): never touched, but for the archive's copies past 30 days.
+// - Free space: under mac-status.py's 30 GB, the chief of staff hears of it once a day while it lasts, in the thread the
+//   owner's reports go to (theirs). Who clears what is theirs to say; nothing here deletes for space.
 // --dry-run says what it would do, and does none of it. --archive <path>...: save and remove those worktrees now, but
 // for one a process is working in, and one whose thread is live unless it's named again after --though-live.
 import { execFileSync, spawnSync } from 'node:child_process'
@@ -15,6 +17,7 @@ import { closeSync, existsSync, mkdirSync, openSync, readdirSync, readFileSync, 
 import { homedir } from 'node:os'
 import { basename, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { sendToThread } from './infinitus-send.mjs'
 
 const HOME = homedir()
 const REPO = join(HOME, '.infinitus/projects/aquatome.com')
@@ -27,6 +30,9 @@ const ARCHIVE = join(HOME, '.cache/aquatome/worktree-archive')
 const ARCHIVE_DAYS = 30
 const ABANDONED_HOURS = 7 * 24
 const DRY = process.argv.includes('--dry-run')
+const MAC_STATUS = fileURLToPath(new URL('./mac-status.py', import.meta.url))
+const CHIEF = join(HOME, '.config/aquatome/owner-report-thread')
+const SPACE_SAID = join(HOME, '.cache/aquatome/space-said')
 // Output anyone can make again: what's left of these in a worktree isn't work. Any other ignored file might be (notes,
 // page shots), so it counts as a change and goes in the archive.
 const REBUILDABLE = /(^|\/)(node_modules|dist(-[^/]*)?|build|\.build|\.astro|\.wrangler|\.swiftpm|DerivedData|__pycache__|test-results|playwright-report|coverage|\.turbo|\.cache|\.vite|xcuserdata|\.DS_Store|[^/]*\.tsbuildinfo|e2e-pages\.json)(\/|$)/
@@ -284,15 +290,33 @@ function worktrees() {
   if (!DRY) for (const name of expireArchive()) log(`archive: ${name} is past ${ARCHIVE_DAYS} days, deleted`)
 }
 
+/**
+ * Free space against mac-status.py's floor: its `--space` says nothing at 30 GB or more, a warning under, and exits 3
+ * under 20. Under 30, the chief of staff hears of it once a day (the day it was said is kept in `said`).
+ */
+export async function space({ status = () => spawnSync('python3', [MAC_STATUS, '--space'], { encoding: 'utf8' }), send = sendToThread, chief = CHIEF, said = SPACE_SAID, today = new Date().toISOString().slice(0, 10), dry = DRY, say = log } = {}) {
+  const r = status()
+  const what = (r.stderr ?? '').trim()
+  if (!what) return
+  say(`space: ${what}`)
+  if (dry || (existsSync(said) && readFileSync(said, 'utf8').trim() === today)) return
+  const threadId = existsSync(chief) ? readFileSync(chief, 'utf8').trim() : ''
+  if (!threadId) return say('space: no thread to tell (~/.config/aquatome/owner-report-thread)')
+  const [first, ...where] = what.split('\n')
+  await send({ threadId, message: [`The Mac's upkeep (machine-sweep.mjs), once a day while it lasts: ${first}${r.status === 3 ? '' : ' Under 20 GB no simulator or upload starts.'}`, ...(where.length ? ['Where it is:', ...where] : []), '`scripts/mac-status.py` shows who is up.'].join('\n') })
+  mkdirSync(join(said, '..'), { recursive: true })
+  writeFileSync(said, `${today}\n`)
+}
+
 if (process.argv[1] === fileURLToPath(import.meta.url) && process.argv.includes('--archive')) {
   const cwds = read('lsof', ['-d', 'cwd', '-Fn'])?.split('\n').filter(l => l.startsWith('n')).map(l => l.slice(1)) ?? null
   archiveNamed(process.argv, { cwds, live: liveWorktrees() })
 } else if (process.argv[1] === fileURLToPath(import.meta.url)) {
   // One pass failing leaves the others to run.
-  const passes = [simulators, agents, ...(process.argv.includes('--worktrees') || new Date().getHours() === 3 ? [worktrees] : [])]
+  const passes = [simulators, agents, space, ...(process.argv.includes('--worktrees') || new Date().getHours() === 3 ? [worktrees] : [])]
   for (const pass of passes) {
     try {
-      pass()
+      await pass()
     } catch (e) {
       log(`${pass.name}: ${e.message}`)
     }

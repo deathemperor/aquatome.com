@@ -10,6 +10,58 @@
     "thailand",
     "salween"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Nam Mae Yuan",
+        "Salween"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Schistura alticrista is a nemacheilid loach from the Nam Mae Yuan basin in Mae Hong Son Province, northwest Thailand, part of the Salween drainage.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the Nam Mae Yuan river basin in Mae Hong Son Province, north west Thailand, a tributary within the Salween drainage.",
+          "countries": [],
+          "regions": [
+            "Nam Mae Yuan",
+            "Salween"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205010,
+      "total": 1,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          16.875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

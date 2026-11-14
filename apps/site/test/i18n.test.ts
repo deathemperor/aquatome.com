@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { isVietnamese, langOf, localizeLinks, localizePath, routeIn, translator } from '../src/lib/i18n'
+import { isVietnamese, langOf, LINK_MARK, localizeLinks, localizePath, routeIn, translator } from '../src/lib/i18n'
 import { OTHER_LANGS } from '@aq/schema/langs'
 
 test('a page file mounted in each language', () => {
@@ -29,6 +29,50 @@ test('paths: sections and fixed segments, never a slug; query and hash kept', ()
   expect(localizePath('vi', '/vi/cong-cu/nuoi-chung/?ca=x:6#a')).toBe('/cong-cu/nuoi-chung/?ca=x:6#a')
   expect(localizePath('vi', '/ca/x/')).toBe('/ca/x/') // already an address
   expect(localizePath('id', '/go/shopee/')).toBe('/go/shopee/')
+})
+
+// The rule (the chief of staff, 14 Nov): the rewriting never writes an address that language doesn't serve; and since the
+// pilot (31 Oct), a link to a page that language lacks keeps its words only. The materials pages are Vietnamese only.
+const lacks = /\/id\/[^"' >]*vat-lieu|\/id\/[^"' >]*\/lua/
+test("a link to a page another language doesn't have keeps its words, in every form the rewriting takes", () => {
+  const forms: [string, string][] = [
+    ['<p><a href="/vi/vat-lieu/lua/">Lũa</a> và <a href="https://aquatome.com/vi/vat-lieu/lua-sa-tung/">sa tùng</a></p>', '<p>Lũa và sa tùng</p>'],
+    [`<a href='/vi/vat-lieu/lua/'>Lũa</a>`, 'Lũa'],
+    ['<A HREF="/vi/vat-lieu/lua/">Lũa</A>', 'Lũa'],
+    ['<a href = "//aquatome.com/vi/vat-lieu/lua/">Lũa</a>', 'Lũa'],
+    ['<a class="x" href="/vi/vat-lieu/lua/?a=1#b">Lũa</a >', 'Lũa'],
+    // The three forms the second read found: no quotes; a quoted ">" before the href; a tag with hreflang in upper case,
+    // a link between languages, left as it is.
+    ['<a href=/vi/vat-lieu/lua/>Lũa</a>', 'Lũa'],
+    ['<a title=">" href="/vi/vat-lieu/lua/">Lũa</a>', 'Lũa'],
+    // The third read's: a page's address without its trailing "/", and a quoted ">" after the href.
+    ['<a href="/vi/vat-lieu/lua">Lũa</a>', 'Lũa'],
+    ['<a href="https://aquatome.com/vi/vat-lieu/lua?x=1">Lũa</a>', 'Lũa'],
+    ['<a href="/vi/vat-lieu/lua/" title="a > b">Lũa</a>', 'Lũa'],
+    // An opening tag it can't read whole (an unclosed quote) keeps the Vietnamese address, which is there.
+    ['<a href="/vi/vat-lieu/lua/" title="a>Lũa</a>', '<a href="/vat-lieu/lua/" title="a>Lũa</a>'],
+    ['<a href="/vi/vat-lieu/lua/" HREFLANG="vi">Lũa</a>', '<a href="/vi/vat-lieu/lua/" HREFLANG="vi">Lũa</a>'],
+    // Structured data: the Vietnamese page for one Indonesian lacks, Indonesian for one it has.
+    ['<script type="application/ld+json">{"item":"https://aquatome.com/vi/vat-lieu/lua/"},{"item":"https://aquatome.com/vi/ca/x/"}</script>',
+      '<script type="application/ld+json">{"item":"https://aquatome.com/vat-lieu/lua/"},{"item":"https://aquatome.com/id/ikan/x/"}</script>'],
+  ]
+  for (const [html, out] of forms) {
+    const got = localizeLinks(html, 'id', 'https://aquatome.com')
+    expect(got, html).toBe(out)
+    expect(got, html).not.toMatch(lacks)
+    expect(got, html).not.toMatch(LINK_MARK)
+  }
+  // A page the language has is still localized, in the forms the rewriting newly takes too; Vietnamese pages are at the root.
+  expect(localizeLinks(`<a href='/vi/ca/x/'>x</a> <a href="//aquatome.com/vi/ca/x/">x</a>`, 'id', 'https://aquatome.com')).toBe(`<a href='/id/ikan/x/'>x</a> <a href="//aquatome.com/id/ikan/x/">x</a>`)
+  expect(localizeLinks('<a href="https://aquatome.com/vi/vat-lieu/lua/">Lũa</a>', 'vi', 'https://aquatome.com')).toBe('<a href="https://aquatome.com/vat-lieu/lua/">Lũa</a>')
+  // A page Indonesian has, without its trailing "/", is localized as on main.
+  expect(localizeLinks('<a href="/vi/ca/x">x</a>', 'id', 'https://aquatome.com')).toBe('<a href="/id/ikan/x">x</a>')
+})
+
+test("a page's own text can't forge the marker: a made-up one unwraps nothing and is left for the page check", () => {
+  const forged = '\uE000aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa\uE001'
+  const html = `<a href="${forged}/vi/ca/x/">x</a> <a href="/vi/ca/y/">y</a> ${forged}`
+  expect(localizeLinks(html, 'id', 'https://aquatome.com')).toBe(`<a href="${forged}/vi/ca/x/">x</a> <a href="/id/ikan/y/">y</a> ${forged}`)
 })
 
 test('links in a rendered page: own site only, language links untouched', () => {

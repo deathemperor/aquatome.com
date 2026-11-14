@@ -1,0 +1,326 @@
+{
+  "id": "sarotherodon-melanotheron",
+  "native": {
+    "input": "f69de53fbc212d07",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in coastal regions throughout Western Africa, being found in Nigeria, Cameroon, Senegal, Ivory Coast, Guinea, Liberia, Togo, Democratic Republic of Congo, Benin, Gambia, Guinea-Bissau, Republic of Congo, Mauritania, Ghana and Sierra Leone.",
+        "words": "Nigeria",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in coastal regions throughout Western Africa, being found in Nigeria, Cameroon, Senegal, Ivory Coast, Guinea, Liberia, Togo, Democratic Republic of Congo, Benin, Gambia, Guinea-Bissau, Republic of Congo, Mauritania, Ghana and Sierra Leone.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "SN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in coastal regions throughout Western Africa, being found in Nigeria, Cameroon, Senegal, Ivory Coast, Guinea, Liberia, Togo, Democratic Republic of Congo, Benin, Gambia, Guinea-Bissau, Republic of Congo, Mauritania, Ghana and Sierra Leone.",
+        "words": "Senegal",
+        "ok": true
+      },
+      {
+        "code": "CI",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in coastal regions throughout Western Africa, being found in Nigeria, Cameroon, Senegal, Ivory Coast, Guinea, Liberia, Togo, Democratic Republic of Congo, Benin, Gambia, Guinea-Bissau, Republic of Congo, Mauritania, Ghana and Sierra Leone.",
+        "words": "Ivory Coast",
+        "ok": true
+      },
+      {
+        "code": "GN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in coastal regions throughout Western Africa, being found in Nigeria, Cameroon, Senegal, Ivory Coast, Guinea, Liberia, Togo, Democratic Republic of Congo, Benin, Gambia, Guinea-Bissau, Republic of Congo, Mauritania, Ghana and Sierra Leone.",
+        "words": "Guinea",
+        "ok": true
+      },
+      {
+        "code": "LR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in coastal regions throughout Western Africa, being found in Nigeria, Cameroon, Senegal, Ivory Coast, Guinea, Liberia, Togo, Democratic Republic of Congo, Benin, Gambia, Guinea-Bissau, Republic of Congo, Mauritania, Ghana and Sierra Leone.",
+        "words": "Liberia",
+        "ok": true
+      },
+      {
+        "code": "TG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in coastal regions throughout Western Africa, being found in Nigeria, Cameroon, Senegal, Ivory Coast, Guinea, Liberia, Togo, Democratic Republic of Congo, Benin, Gambia, Guinea-Bissau, Republic of Congo, Mauritania, Ghana and Sierra Leone.",
+        "words": "Togo",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in coastal regions throughout Western Africa, being found in Nigeria, Cameroon, Senegal, Ivory Coast, Guinea, Liberia, Togo, Democratic Republic of Congo, Benin, Gambia, Guinea-Bissau, Republic of Congo, Mauritania, Ghana and Sierra Leone.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "BJ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in coastal regions throughout Western Africa, being found in Nigeria, Cameroon, Senegal, Ivory Coast, Guinea, Liberia, Togo, Democratic Republic of Congo, Benin, Gambia, Guinea-Bissau, Republic of Congo, Mauritania, Ghana and Sierra Leone.",
+        "words": "Benin",
+        "ok": true
+      },
+      {
+        "code": "GM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in coastal regions throughout Western Africa, being found in Nigeria, Cameroon, Senegal, Ivory Coast, Guinea, Liberia, Togo, Democratic Republic of Congo, Benin, Gambia, Guinea-Bissau, Republic of Congo, Mauritania, Ghana and Sierra Leone.",
+        "words": "Gambia",
+        "ok": true
+      },
+      {
+        "code": "GW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in coastal regions throughout Western Africa, being found in Nigeria, Cameroon, Senegal, Ivory Coast, Guinea, Liberia, Togo, Democratic Republic of Congo, Benin, Gambia, Guinea-Bissau, Republic of Congo, Mauritania, Ghana and Sierra Leone.",
+        "words": "Guinea-Bissau",
+        "ok": true
+      },
+      {
+        "code": "CG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in coastal regions throughout Western Africa, being found in Nigeria, Cameroon, Senegal, Ivory Coast, Guinea, Liberia, Togo, Democratic Republic of Congo, Benin, Gambia, Guinea-Bissau, Republic of Congo, Mauritania, Ghana and Sierra Leone.",
+        "words": "Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "MR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in coastal regions throughout Western Africa, being found in Nigeria, Cameroon, Senegal, Ivory Coast, Guinea, Liberia, Togo, Democratic Republic of Congo, Benin, Gambia, Guinea-Bissau, Republic of Congo, Mauritania, Ghana and Sierra Leone.",
+        "words": "Mauritania",
+        "ok": true
+      },
+      {
+        "code": "GH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in coastal regions throughout Western Africa, being found in Nigeria, Cameroon, Senegal, Ivory Coast, Guinea, Liberia, Togo, Democratic Republic of Congo, Benin, Gambia, Guinea-Bissau, Republic of Congo, Mauritania, Ghana and Sierra Leone.",
+        "words": "Ghana",
+        "ok": true
+      },
+      {
+        "code": "SL",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in coastal regions throughout Western Africa, being found in Nigeria, Cameroon, Senegal, Ivory Coast, Guinea, Liberia, Togo, Democratic Republic of Congo, Benin, Gambia, Guinea-Bissau, Republic of Congo, Mauritania, Ghana and Sierra Leone.",
+        "words": "Sierra Leone",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sarotherodon melanotheron",
+    "status": "ACCEPTED",
+    "taxonKey": 4285710,
+    "datasets": [
+      [
+        "91adb050-a7ca-4de1-85c5-e8d117f9f8a5",
+        343
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        200
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        136
+      ],
+      [
+        "933770e7-9480-49d4-acd4-6295d6c8cedc",
+        129
+      ],
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        66
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        32
+      ],
+      [
+        "1c6b8a9f-5bd9-4358-9915-b7643779b03e",
+        30
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        20
+      ],
+      [
+        "47f75ea9-ad74-47ab-919a-b8c8d4f1fce3",
+        17
+      ],
+      [
+        "0496122f-8430-488b-bf78-64debf9cc2e4",
+        13
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        13
+      ],
+      [
+        "5e1d2d54-f5db-43ac-87c5-55a9f79ac718",
+        13
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        10
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        8
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        7
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        7
+      ],
+      [
+        "d2724ca9-8ccd-416e-9837-7aee75f67422",
+        6
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        4
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        3
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        3
+      ],
+      [
+        "6f1d3840-55dc-49d5-a4be-263e6299cc79",
+        3
+      ],
+      [
+        "999e2b4b-5dae-475a-bd2d-beae8fd6c8c9",
+        2
+      ],
+      [
+        "1b18bab9-abdb-41b4-83c8-368ca2e6d391",
+        1
+      ],
+      [
+        "2a79f202-3f3a-4d54-88fa-09aa8de1ac73",
+        1
+      ],
+      [
+        "2ba30ed2-6f82-480c-a892-4c8749508324",
+        1
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "40a262b4-6627-4011-afbe-159c00ec97e7",
+        1
+      ],
+      [
+        "59f5ba07-1c5f-43dc-bbd5-6e4a7ced0f30",
+        1
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "b929f23d-290f-4e85-8f17-764c55b3b284",
+        1
+      ],
+      [
+        "ba5b0f3a-73dd-459f-a7f1-9abc327aed00",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        1
+      ],
+      [
+        "e90a588b-0eed-4077-8a4f-7e61da35b3f8",
+        1
+      ],
+      [
+        "ed820bdb-4345-4143-a280-4fbffaacd31d",
+        1
+      ],
+      [
+        "f83035bf-bcc7-45b1-87e6-ccd7d9922eed",
+        1
+      ]
+    ],
+    "native": [
+      "NG",
+      "CM",
+      "SN",
+      "CI",
+      "GN",
+      "LR",
+      "TG",
+      "CD",
+      "BJ",
+      "GM",
+      "GW",
+      "CG",
+      "MR",
+      "GH",
+      "SL"
+    ],
+    "requests": 15,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

@@ -1,4 +1,5 @@
 ---
+import { sciBeside } from '../lib/sci'
 import type { Lang, Photo } from '@aq/schema'
 import AiPhotoLabel from './AiPhotoLabel.astro'
 import Browse from '../layouts/Browse.astro'
@@ -16,7 +17,9 @@ import { isUnsplash } from '../lib/unsplash'
  * An Unsplash photo's credit in the viewer is its line (lib/unsplash.ts), then its own page.
  */
 interface Props { name: string; sci?: string; photos: Photo[]; page: string; back: string; crumbs: [string, string][]; indexable: boolean; alternates: Partial<Record<Lang, string>>; readers?: boolean }
-const { name, sci, photos, page, back, crumbs, indexable, alternates, readers } = Astro.props
+const { name, photos, page, back, crumbs, indexable, alternates, readers } = Astro.props
+// Beside the name only when the name doesn't say it already (lib/sci.ts).
+const sci = Astro.props.sci && sciBeside(name, Astro.props.sci)
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
 // A photo site's own Vietnamese name (Diễn Đàn Cá Cảnh) is a name, marked as Vietnamese on every other language's page,

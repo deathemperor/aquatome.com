@@ -1,4 +1,26 @@
 {
+  "vi/products/ada-amazonia": [
+    {
+      "at": "2026-11-14T04:57:34Z",
+      "model": "code",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-14T04:57:34Z",
+      "model": "code",
+      "cli": "2.1.323",
+      "score": 0,
+      "notes": [
+        "\"bộ test NH3/NH4 dạng nước, so màu, không quá chính xác\" names NH4: its reviews' titles and descriptions and our catalog have no such name, so the captions may have misheard it. Say it without the name (\"một đèn khác\")"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/products/ada-aqua-soil": [
     {
       "at": "2026-11-10T22:46:40Z",
