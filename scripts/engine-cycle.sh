@@ -50,7 +50,7 @@ push() {
     net git push -q && return 0
     sleep 30
   done
-  log "push failed three times"; return 1
+  log "push failed three times"; keep_lost_push "$PART"; return 1
 }
 
 # One job at a time in a clone (video-cycle.sh shares engine-repo's): a PID file, so a crashed or killed cycle doesn't
@@ -109,8 +109,8 @@ export ENGINE_COST_LOG="${ENGINE_COST_LOG:-$COST_DIR/aquatome-cost-$PART.jsonl}"
 log "cycle start ($PART)"
 if [ -n "${GITHUB_ACTIONS:-}" ] || [[ "$REPO" == "$HOME/.local/share/aquatome/"* ]]; then
   # A runner or one of the Mac's engine clones: start from GitHub's main, as a fresh runner does. What an earlier failed
-  # cycle left here (content that failed its tests, a commit whose push failed) is dropped, and that work redone, but
-  # for the work of a cycle whose tests ran out of time, kept on a branch and published first (publish_kept).
+  # cycle left here (content that failed its tests) is dropped, and that work redone, but for the work of a cycle whose
+  # tests ran out of time or whose push lost three times, kept on a branch and published first (publish_kept).
   [ -z "$(git status --porcelain -- content sources)" ] || log "dropping uncommitted content from an earlier failed cycle"
   from_main "$@"
   git clean -fdq -- content sources engine-state docs/review apps/site/src/i18n

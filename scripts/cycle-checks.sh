@@ -407,6 +407,16 @@ swept_pull() {
   sweep_merged
   [ -z "${MIGRATE_FAILED:-}" ] && [ "$(git rev-parse HEAD)" = "$head" ]
 }
+# Work whose checks passed but whose push lost to main three times (each try pulled, swept and pushed while main moved
+# on: five merges in forty minutes on 14 Nov, when the sf run lost three) is kept as work out of time is, and the next run
+# publishes it first, after its own tests (publish_kept). Until then it stayed in the clone, whose next run starts from
+# main and drops it. A branch of that name already there is never written over. `keep_lost_push <job>`.
+keep_lost_push() {
+  engine_clone || engine_cloud || return 0
+  local branch; branch="kept/$1/$(date -u +%Y%m%dT%H%M%S)"
+  if git show-ref -q --verify "refs/heads/$branch"; then log "push failed three times, and $branch is already there: this run's work isn't kept"; return 1; fi
+  keep_branch "$branch" && log "push failed three times: this run's work is kept on $branch for the next run"
+}
 # The calendar (content/curation.json) is one plan, not lines to blend. After a clash with a change on main, push()'s
 # line-by-line merge kept some of each plan's days, and named one guide on two days running (the photos part of
 # 2026-11-08, against an editor's re-plan): its tests failed and the part's photos waited a cycle. So when the calendar

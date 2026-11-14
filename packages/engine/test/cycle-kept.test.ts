@@ -354,3 +354,38 @@ test('a video job that kept work back for its photo records ends failed, and say
   // A job that failed already keeps its own status.
   expect(run('FAULT=x; exit 3').status).toBe(3)
 })
+
+// 14 Nov: the sf run's checks passed, and its push lost to main's merges three times; it stayed in the clone, whose next
+// run starts from main and would have dropped it. Each job's push lost three times keeps its work, as work out of time.
+test('work whose push lost to main three times is kept, never over a name already there, and the next run publishes it', () => {
+  const c = clone()
+  c.sh('echo photos > content/b.json && git add . && git commit -qm "content: engine photos"')
+  const work = c.sh('git rev-parse HEAD')
+  expect(c.cycle('keep_lost_push photos')).toMatch(/^LOG push failed three times: this run's work is kept on kept\/photos\/\d{8}T\d{6} for the next run$/)
+  const [kept = ''] = c.branches()
+  expect(c.sh(`git rev-parse ${kept}`)).toBe(work)
+  // The next run starts from main, then publishes it first.
+  c.sh('git fetch -q origin && git reset -q --hard origin/main')
+  c.elsewhere()
+  expect(c.cycle('publish_kept photos')).toContain(`LOG published ${kept}`)
+  expect(c.onMain('content/b.json')).toBe('photos')
+  expect(c.branches()).toEqual([])
+  // A kept branch of the same name (the same second): left as it is, and the run says so.
+  c.sh('echo again > content/d.json && git add . && git commit -qm "content: engine photos again"')
+  const home = c.sh('echo "$HOME"')
+  mkdirSync(join(home, 'clock'))
+  writeFileSync(join(home, 'clock/date'), '#!/bin/sh\n[ "$*" = "-u +%Y%m%dT%H%M%S" ] && echo 20261114T100000 || exec /bin/date "$@"\n')
+  chmodSync(join(home, 'clock/date'), 0o755)
+  c.sh('git branch kept/photos/20261114T100000 origin/main')
+  const before = c.sh('git rev-parse kept/photos/20261114T100000')
+  expect(c.cycle('keep_lost_push photos || echo "code=$?"', { PATH: `${home}/clock:${home}/bin:${process.env.PATH}` }))
+    .toBe("LOG push failed three times, and kept/photos/20261114T100000 is already there: this run's work isn't kept\ncode=1")
+  expect(c.sh('git rev-parse kept/photos/20261114T100000')).toBe(before)
+})
+
+test("the pages, sf and photos cycles, the video job and the video recheck keep their work when their push loses three times", () => {
+  for (const [name, job] of [['engine-cycle.sh', '"$PART"'], ['video-cycle.sh', 'videos'], ['video-recheck.sh', 'video-recheck']] as const) {
+    expect(script(name), name).toContain(`log "push failed three times"; keep_lost_push ${job};`)
+    expect(script(name).match(/push failed three times/g), name).toHaveLength(1)
+  }
+})
