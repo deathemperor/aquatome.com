@@ -94,7 +94,8 @@ jobs:
           EVENT: ${{ github.event_name }}
           LAST: ${{ steps.last.outputs.run }}
         run: |
-          if ! python3 apps/ios/scripts/testflight-notes.py --test; then
+          # ubuntu-latest has Node: the sender's own check (reading the characters Apple names) runs here too.
+          if ! python3 apps/ios/scripts/testflight-notes.py --test || ! node apps/ios/scripts/asc-build-state.mjs --test; then
             [ "$EVENT" != pull_request ] || exit 1
             echo "::warning title=What to Test::the note's own test failed; the build goes up without one"; exit 0
           fi

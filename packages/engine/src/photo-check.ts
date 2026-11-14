@@ -11,8 +11,10 @@ import { LlmError } from './claude'
 import { captionFlaw } from './content-rules'
 import { galleryPlan } from './gallery-plan'
 import { pickStands, readPersonYes } from './person-yes'
+import { holdForSecondLook, looks, readSecondLook } from './last-photo'
 import { contactSheet } from './video-images'
 import { keptOwnMark, LOGO_FOLDERS, stripPhotos, type WatermarkEntry } from './watermarks'
+import { CF, namedOn, namedOrder, passesHead, SPECIES } from './photo-named'
 
 type Photo = { url: string; caption?: string; author?: string; sourceUrl?: string; generated?: unknown }
 /**
@@ -103,8 +105,10 @@ const PER_SHEET = 6
  * A run that would leave more pages than this with no photo of their own takes none of their photos off, and none of
  * them onto the never-again list: it lists them and holds (`report.heads.held`), so a check gone wrong can't blank
  * pages. `--empty-cap` lets a person who has looked at them release a larger run (the chief of staff, 2026-11-12).
+ * None: a page's last photo doesn't come off on the check's word alone (the chief of staff, 2026-11-14, after one
+ * night's runs left 27 fish pages with no photo, within the cap of 10 a run).
  */
-export const EMPTY_CAP = 10
+export const EMPTY_CAP = 0
 /** Gallery photos a species page shows itself (the site's GALLERY_STRIP, apps/site/src/lib/gallery.ts); the rest are on the gallery page. */
 const STRIP = 8
 
@@ -358,6 +362,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const rawLegacy = (await readJson<Record<string, PhotoVerdict>>(join(root, 'engine-state/_photo-check.json'))) ?? {}
   const legacy=Object.fromEntries(Object.entries(rawLegacy).map(([u,v])=>[u,compactVerdict(v)]))
   const rejected = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
+  // A photo held for a second look, or one it cleared, isn't taken off on a verdict (last-photo.ts).
+  const sl = looks(await readSecondLook(root))
   const marks = (await readJson<Record<string, WatermarkEntry>>(join(root, 'engine-state/_photo-watermarks.json'))) ?? {}
   const keepLogo = keptOwnMark(rejected, marks)
   // A head a person picked (engine-state/_photo-head-picks.json, page → photo): it stays first on its page, while it
@@ -367,7 +373,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const report = {
     photos: 0, sheets: 0, judged: 0, removed: [] as string[], rejected: 0, blocked: [] as string[], unsure: 0, failed: [] as string[], stopped: '',
     /** A page's head that changed, `kind/id: old -> new`; a page left with no photo of its own, `kind/id: old`; one held by EMPTY_CAP. */
-    heads: { moved: [] as string[], emptied: [] as string[], held: [] as string[] },
+    heads: { moved: [] as string[], emptied: [] as string[], held: [] as string[], named: [] as string[] },
     /** A head a person picked that the check calls "none": it stays, listed for a person each run. */
     picked: [] as string[],
   }
@@ -376,6 +382,10 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
 
   const all = await rank(root, await subjects(content))
   const byId = new Map(all.map(s => [s.id, s]))
+  // What each photo's source calls its subject on each page (photo-named.ts), and the head's test.
+  const namedHere = await namedOn(content)
+  const faces = (await readJson<Record<string, number>>(join(root, 'engine-state/_photo-faces.json'))) ?? {}
+  const asHead = passesHead({ subjects: cache, legacy, rejected, faces, personYes: yes.counted })
   const shown: Shown[] = []
   for (const s of all) {
     let bare = false
@@ -528,6 +538,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     if (x.page) onPages.set(x.url, [...(onPages.get(x.url) ?? []), x])
   }
   const off = (x: Shown): boolean => {
+    if (!sl.open(x.url)) return false
     if (!x.page) {
       // A guide photo that is a page's photo goes with it where it shows another fish (a map or a tank may be the guide's point).
       const xs = onPages.get(x.url) ?? []
@@ -546,7 +557,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const label = (id: string) => { const s = byId.get(id)!; return s.kind === 'breeds' ? (s.names[0] ?? id) : s.sci }
   const added: Record<string, string> = {}
   for (const url of everywhere.keys()) {
-    const why = url in rejected ? undefined : blockedFor(cache[url], keepLogo(url))
+    const why = url in rejected || !sl.open(url) ? undefined : blockedFor(cache[url], keepLogo(url))
     if (why) { added[url] = why; report.blocked.push(`${url}: ${why}`) }
   }
   // Not one its file name took off: a photo of the species it names, which that species' page may still take.
@@ -560,13 +571,33 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const pageFiles = [...new Set(shown.filter(x => !x.guide && x.file.endsWith('entity.json')).map(x => x.file))]
   const emptying: string[] = []
   for (const file of pageFiles) { const ps = await ownPhotos(file); if (ps.length && ps.every(p => blocked(file)(p.url))) emptying.push(file) }
+  // A page with none of its own whose album would go whole is left with nothing too (the chief of staff, 2026-11-14).
+  const galleryOf = (file: string) => join(content, 'gallery', `${file.split('/').at(-2)}.json`)
+  for (const g of [...new Set(shown.filter(x => !x.guide && /\/gallery\/[^/]+\.json$/.test(x.file)).map(x => x.file))]) {
+    const s = byId.get(g.split('/').at(-1)!.replace(/\.json$/, ''))
+    if (!s) continue
+    const file = join(content, s.kind, s.id, 'entity.json')
+    if (emptying.includes(file) || (await ownPhotos(file)).length) continue
+    const ps = await ownPhotos(g)
+    if (ps.length && ps.every(p => blocked(g)(p.url))) emptying.push(file)
+  }
   // A cap that isn't a whole number (a typo) is the usual one: it never lets a run through unheld.
   const cap = Number.isInteger(o.emptyCap) && o.emptyCap! >= 0 ? o.emptyCap! : EMPTY_CAP
   const heldPages = emptying.length > cap ? emptying : []
   // A held page keeps its album too.
-  const held = new Set([...heldPages, ...heldPages.map(f => join(content, 'gallery', `${f.split('/').at(-2)}.json`))])
+  const held = new Set([...heldPages, ...heldPages.map(galleryOf)])
   const pageOf = (file: string) => file.slice(content.length + 1).split('/').slice(0, 2).join('/')
-  for (const file of heldPages) report.heads.held.push(`${pageOf(file)}: ${(await ownPhotos(file))[0]!.url}`)
+  for (const file of heldPages) report.heads.held.push(`${pageOf(file)}: ${((await ownPhotos(file))[0] ?? (await ownPhotos(galleryOf(file)))[0])!.url}`)
+  // Each photo a held page would have lost goes on the second look, with its reason (last-photo.ts).
+  const holding = new Map<string, { why: string; pages: string[] }>()
+  for (const file of heldPages) for (const f of [file, galleryOf(file)]) for (const p of await ownPhotos(f)) {
+    if (p.url in rejected || !blocked(f)(p.url)) continue
+    const id = file.split('/').at(-2)!
+    const h = holding.get(p.url) ?? { why: added[p.url] ?? `not ${label(id)}: ${verdict(p.url, id)?.note ?? ''}`, pages: [] }
+    h.pages.push(pageOf(file))
+    holding.set(p.url, h)
+  }
+  await holdForSecondLook(root, holding, 'the photo check')
   // The pages held go to engine-state/_photo-held.json (page → true, a map as the engine's other records, so its merge
   // driver keeps it whole) for the sweep, which keeps a refused photo off between two runs and leaves these as the check
   // left them (sweep.ts). The check's hold counts more than the sweep's rule can see (a person, a dead fish or a logo, the
@@ -628,9 +659,18 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       // person's yes for a card rests on it (person-yes.ts): its photo is the check's "can't tell" that the order above
       // would move behind a passed one (the stated exception to the owner's rule of 2026-11-11). A pick that rests on a
       // yes lapses with it, by this pass's verdicts: once the check says anything but "can't tell", the order above holds.
+      // A photo its source names only to the genus, as another fish, or with "cf." goes behind those named to the species,
+      // and never leads while one of those passes as a head (photo-named.ts; the chief of staff, 2026-11-14). The lead step
+      // and the sweep rank the same way, so none undoes another.
+      const cls = namedHere(s.id)
+      data.photos = namedOrder(data.photos, cls, x => asHead(x, s.id))
       const ref = `${s.kind}/${s.id}`, pick = headPicks[ref]
       const at = data.photos.findIndex(x => x.url === pick)
       if (at > 0 && pickStands(ref, pick!, cache, yes)) data.photos.unshift(...data.photos.splice(at, 1))
+      // One still leads where nothing better passes, or a person picked it: listed for the chief of staff each run.
+      const first = data.photos.find(x => !x.generated)
+      const c = first ? cls(first) : SPECIES
+      if (first && c !== SPECIES) report.heads.named.push(`${ref}: ${first.url} (${c === CF ? 'cf.' : 'genus only or another fish'}${picked(s.id, first.url) ? ', picked' : ''})`)
     }
     // In an album it comes after the photos the check passed or has not reached. The album step ranks the same way, but
     // only an album it adds to, so every album gets its order here, each run.

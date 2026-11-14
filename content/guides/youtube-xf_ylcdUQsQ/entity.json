@@ -131,7 +131,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thùng carton cắt mặt trước và trên, xếp thử đá và lũa bên trong.",
-            "sharpness": 996.9
+            "sharpness": 996.9,
+            "person": false
           }
         ]
       },
@@ -139,20 +140,13 @@
         "heading": "Dán lũa đá cho chắc bằng giấy vệ sinh và keo 502",
         "moments": [
           {
-            "t": 250,
-            "url": "https://media.aquatome.com/video/xf_ylcdUQsQ/at250-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đang dán khúc lũa vào đá bằng keo ở khe giữa.",
-            "sharpness": 2019.5
-          },
-          {
             "t": 280,
             "url": "https://media.aquatome.com/video/xf_ylcdUQsQ/at280-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Khối lũa và đá đã được dán chắc trong bể.",
-            "sharpness": 2178.9
+            "sharpness": 2178.9,
+            "person": false
           }
         ],
         "photo": {
@@ -183,20 +177,13 @@
         "heading": "Trồng cây cho bố cục",
         "moments": [
           {
-            "t": 610,
-            "url": "https://media.aquatome.com/video/xf_ylcdUQsQ/at610-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây con trồng vào các khe đá và rễ lũa.",
-            "sharpness": 2416.1
-          },
-          {
             "t": 730,
             "url": "https://media.aquatome.com/video/xf_ylcdUQsQ/at730-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Những cây nhỏ mới trồng xen giữa đá và lũa trong bố cục.",
-            "sharpness": 2550.5
+            "sharpness": 2550.5,
+            "person": false
           }
         ],
         "photo": {
@@ -219,7 +206,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể nhỏ đang lắp ống lọc, dây ống đặt cạnh lũa.",
-            "sharpness": 998.5
+            "sharpness": 998.5,
+            "person": false
           },
           {
             "t": 960,
@@ -227,22 +215,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Ống xả spin pipe trong, gắn trên thành bể nhỏ đã trồng cây.",
-            "sharpness": 1054.1
+            "sharpness": 1054.1,
+            "person": false
           }
         ]
       },
       {
         "heading": "CO2 và đèn",
-        "moments": [
-          {
-            "t": 1170,
-            "url": "https://media.aquatome.com/video/xf_ylcdUQsQ/at1170-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bộ CO2 cùng dây và phụ kiện được bày trên hộp xanh.",
-            "sharpness": 1661.7
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/xf_ylcdUQsQ/p5-1bV9MaWdodC5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/xf_ylcdUQsQ/p5-1bV9MaWdodC5qcGc-480.webp",

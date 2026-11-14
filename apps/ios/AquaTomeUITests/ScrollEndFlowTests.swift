@@ -129,7 +129,7 @@ final class ScrollEndFlowTests: XCTestCase {
   // The band behind the bar comes only once a large title has gone up: at rest it would stand over the title (10 Nov).
   func testLargeTitlesAreOnScreenAtRest() {
     let app = launch(["-v2", "YES", "-seed-tanks", "life"])
-    for (tab, title) in [("Bể của tôi", "Bể của tôi"), ("Đèn", "Đèn Chihiros")] {
+    for (tab, title) in [("Bể của tôi", "Bể của tôi"), ("Đèn", "Đèn")] {
       app.openTab(tab)
       app.largeTitleIsOnScreen(title)
     }

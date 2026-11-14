@@ -10,6 +10,50 @@
     "thailand",
     "chao-phraya"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Chao Phraya"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the middle-and-upper Chao Phraya river system in central Thailand including its major tributaries the Ping and Nan rivers.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Chao Phraya"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2377591,
+      "total": 1,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          18.28125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

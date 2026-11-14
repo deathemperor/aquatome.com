@@ -100,16 +100,17 @@ test('a head a person picked is out of the "none" rule on every page and listed 
   expect(r.refusedPicked).toEqual([`species/fish-p: ${photo('pick').url}`])
 })
 
-test('a run that would leave more than 10 pages with no photo of their own takes nothing off them or their albums and lists them; 10 go', async () => {
-  for (const n of [11, 10]) {
+test('a run that would leave a page with no photo of its own takes nothing off it or its album and lists it, one page as eleven', async () => {
+  // A page's last photo doesn't come off on the check's word alone (the chief of staff, 2026-11-14; EMPTY_CAP).
+  for (const n of [11, 1]) {
     const pages = Object.fromEntries(Array.from({ length: n }, (_, i) => [`fish-${i}`, [photo(`only-${i}`)]]))
     const subjects = Object.fromEntries(Array.from({ length: n }, (_, i) => [`only-${i}`, { [`fish-${i}`]: verdict('other') }]))
     const root = await store({ pages: { ...pages, 'fish-kept': [photo('kept'), photo('stray')] }, albums: { 'fish-0': [photo('only-0')] }, subjects: { ...subjects, stray: { 'fish-kept': verdict('other') } } })
     const r = await sweep(root)
-    expect(await photosOf(root, 'species/fish-0/entity.json')).toEqual(n > 10 ? ['only-0'] : [])
-    expect(await photosOf(root, 'gallery/fish-0.json')).toEqual(n > 10 ? ['only-0'] : [])
-    expect(r.refusedHeld).toHaveLength(n > 10 ? n : 0)
-    if (n > 10) expect(r.refusedHeld[0]).toBe('species/fish-0 (more than 10 pages left with no photo)')
+    expect(await photosOf(root, 'species/fish-0/entity.json')).toEqual(['only-0'])
+    expect(await photosOf(root, 'gallery/fish-0.json')).toEqual(['only-0'])
+    expect(r.refusedHeld).toHaveLength(n)
+    expect(r.refusedHeld[0]).toBe('species/fish-0 (would be left with no photo: a person looks first)')
     // A page the rule doesn't empty loses its refused photo either way.
     expect(await photosOf(root, 'species/fish-kept/entity.json')).toEqual(['kept'])
   }
@@ -138,14 +139,35 @@ test('the pages a run of the check held stay as it left them, though the sweep a
   const check = await checkPagePhotos(root, { get: async () => { throw new Error('no photo is fetched') }, look: async () => { throw new Error('no photo is judged') } }, { limit: 10 })
   expect(check.heads.held).toHaveLength(n + 1)
   expect(Object.keys(JSON.parse(await readFile(join(root, 'engine-state/_photo-held.json'), 'utf8')))).toHaveLength(n + 1)
-  const r = await sweep(root)
+  await sweep(root)
   for (let i = 0; i < n; i++) expect(await photosOf(root, `species/fish-${i}/entity.json`)).toEqual([`only-${i}`])
   expect(await photosOf(root, 'gallery/fish-0.json')).toEqual(['only-0'])
-  expect(r.refusedHeld).toContain('species/fish-0 (held by the photo check)')
-  // Released (the check's run with nothing held), the sweep keeps the refused photos off.
+  // Out of the check's hold, each waits for its second look (last-photo.ts), whatever the sweep counts.
+  const look = JSON.parse(await readFile(join(root, 'engine-state/_photo-second-look.json'), 'utf8'))
+  expect(Object.keys(look)).toHaveLength(n + 1)
   await writeFile(join(root, 'engine-state/_photo-held.json'), '{}\n')
   await sweep(root)
+  expect(await photosOf(root, 'species/fish-0/entity.json')).toEqual(['only-0'])
+  // The look agrees on one and clears another: the agreed one goes on the never-again list and leaves its page and
+  // album; the cleared one stays, and so do the photos still waiting.
+  look[photo('only-0').url].look = { said: 'agree', by: 'Photo sourcing', on: '2026-11-14' }
+  look[photo('only-1').url].look = { said: 'clear', by: 'the chief of staff', on: '2026-11-14' }
+  await writeFile(join(root, 'engine-state/_photo-second-look.json'), JSON.stringify(look))
+  const after = await sweep(root)
+  expect(after.agreed).toEqual([photo('only-0').url])
   expect(await photosOf(root, 'species/fish-0/entity.json')).toEqual([])
+  expect(await photosOf(root, 'gallery/fish-0.json')).toEqual([])
+  expect(Object.keys(JSON.parse(await readFile(join(root, 'engine-state/_photo-rejected.json'), 'utf8')))).toEqual([photo('only-0').url])
+  expect(await photosOf(root, 'species/fish-1/entity.json')).toEqual(['only-1'])
+  expect(await photosOf(root, 'species/fish-2/entity.json')).toEqual(['only-2'])
+  const left = JSON.parse(await readFile(join(root, 'engine-state/_photo-second-look.json'), 'utf8'))
+  expect(Object.keys(left)).toHaveLength(n)
+  expect(left[photo('only-0').url]).toBeUndefined()
+  // The cleared one: when its page gains a second photo, no verdict takes it off; the check doesn't hold it again.
+  await writeFile(join(root, 'content/species/fish-1/entity.json'), JSON.stringify(fish('fish-1', [photo('only-1'), photo('new-1')])))
+  await checkPagePhotos(root, { get: async () => { throw new Error('no photo is fetched') }, look: async () => { throw new Error('no photo is judged') } }, { limit: 0 })
+  await sweep(root)
+  expect(await photosOf(root, 'species/fish-1/entity.json')).toEqual(['only-1', 'new-1'])
 })
 
 test("a guide's verdict, the first check's verdict and a generated photo don't take a photo off; a breed page's \"none\" acts on fish pages, a plant album goes with its plant", async () => {
@@ -191,8 +213,9 @@ test('two holds merged by the engine records\' merge driver keep both; a held fi
   const r = await sweep(root)
   expect(await photosOf(root, 'species/fish-0/entity.json')).toEqual(['only-0'])
   expect(await photosOf(root, 'species/fish-1/entity.json')).toEqual(['only-1'])
-  expect(await photosOf(root, 'species/fish-2/entity.json')).toEqual([])
-  expect(r.refusedHeld.sort()).toEqual(['species/fish-0 (held by the photo check)', 'species/fish-1 (held by the photo check)'])
+  // The others, out of the check's hold, the sweep's own count holds (EMPTY_CAP).
+  expect(await photosOf(root, 'species/fish-2/entity.json')).toEqual(['only-2'])
+  expect(r.refusedHeld.filter(x => x.endsWith('(held by the photo check)')).sort()).toEqual(['species/fish-0 (held by the photo check)', 'species/fish-1 (held by the photo check)'])
   for (const bad of ['["species/fish-3"]', '{"0": "species/fish-3"}', '{"species/fish-3": tr']) {
     const again = await elevenHeld()
     await writeFile(join(again, 'engine-state/_photo-held.json'), bad)

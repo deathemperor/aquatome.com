@@ -270,7 +270,12 @@
       "author": "Stan Shebs",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Polypterus_weeksii_3.jpg",
       "caption": "Photo of Polypterus weeksii (mottled bichir) at the Steinhart Aquarium in San Francisco",
-      "thumb": "https://media.aquatome.com/commons/332e3f45385fc39f-480.webp"
+      "thumb": "https://media.aquatome.com/commons/332e3f45385fc39f-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/332e3f45385fc39f-large.webp",
+        "width": 1642,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/c79d3edaa7c6d3c3.webp",

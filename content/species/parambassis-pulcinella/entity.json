@@ -173,7 +173,12 @@
       "author": "Puchatech K.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parambassis_pulcinella_(01).jpg",
       "caption": "Parambassis pulcinella",
-      "thumb": "https://media.aquatome.com/commons/1c88215ddd4f69cf-480.webp"
+      "thumb": "https://media.aquatome.com/commons/1c88215ddd4f69cf-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/1c88215ddd4f69cf-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "videos": [

@@ -2,6 +2,18 @@
   "id": "abbottina-rivularis",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/47681523.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/47681523-480.webp",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Daniel J. Layton",
+      "sourceUrl": "https://www.inaturalist.org/photos/47681523",
+      "caption": "Cá Abbottina rivularis bơi sát đáy cát ở suối nước nông",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/502137765.webp",
       "thumb": "https://media.aquatome.com/inaturalist/502137765-480.webp",
       "width": 1008,
@@ -14,16 +26,24 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/47681523.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/47681523-480.webp",
-      "width": 576,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Daniel J. Layton",
-      "sourceUrl": "https://www.inaturalist.org/photos/47681523",
-      "caption": "Cá Abbottina rivularis bơi sát đáy cát ở suối nước nông",
-      "best": true,
-      "kind": "habitat"
+      "url": "https://media.aquatome.com/commons/a2ee97a27fb4b938.webp",
+      "thumb": "https://media.aquatome.com/commons/a2ee97a27fb4b938-480.webp",
+      "width": 999,
+      "height": 1000,
+      "licence": "CC BY-SA 2.5",
+      "author": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Abbottina_rivularis_by_OpenCage.jpg",
+      "caption": "Cá gudgeon giả Trung Quốc đốm đen trong bể sỏi có đá"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/8b7c3bf72f866d67.webp",
+      "thumb": "https://media.aquatome.com/commons/8b7c3bf72f866d67-480.webp",
+      "width": 1200,
+      "height": 669,
+      "licence": "CC BY-SA 4.0",
+      "author": "Totti",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Abbottina_rivularis.jpg",
+      "caption": "Cá gudgeon giả Trung Quốc bơi trên gỗ trong bể trồng cây"
     },
     {
       "url": "https://media.aquatome.com/commons/4d64fdc0876bd773.webp",
@@ -54,26 +74,6 @@
       "author": "Zinogre",
       "sourceUrl": "https://www.inaturalist.org/photos/32751885",
       "caption": "Cá gudgeon giả Trung Quốc nhìn nghiêng trên nền rêu thủy sinh"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/a2ee97a27fb4b938.webp",
-      "thumb": "https://media.aquatome.com/commons/a2ee97a27fb4b938-480.webp",
-      "width": 999,
-      "height": 1000,
-      "licence": "CC BY-SA 2.5",
-      "author": "Wikimedia Commons",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Abbottina_rivularis_by_OpenCage.jpg",
-      "caption": "Cá gudgeon giả Trung Quốc đốm đen trong bể sỏi có đá"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/8b7c3bf72f866d67.webp",
-      "thumb": "https://media.aquatome.com/commons/8b7c3bf72f866d67-480.webp",
-      "width": 1200,
-      "height": 669,
-      "licence": "CC BY-SA 4.0",
-      "author": "Totti",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Abbottina_rivularis.jpg",
-      "caption": "Cá gudgeon giả Trung Quốc bơi trên gỗ trong bể trồng cây"
     }
   ],
   "seen": 30,

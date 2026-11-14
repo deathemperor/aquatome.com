@@ -1,0 +1,77 @@
+{
+  "id": "acrochordonichthys-falcifer",
+  "native": {
+    "input": "c15e5942f4614040",
+    "at": "2026-11-14T05:39:06.336Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Sungai Segama, Sabah, Borneo, Malaysia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: known only from the Kinatabangan and Segama river drainages, and possibly from the Kayan River drainage in northeastern Borneo, Malaysia.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kinatabangan",
+        "source": "planetcatfish",
+        "quote": "Asia: known only from the Kinatabangan and Segama river drainages, and possibly from the Kayan River drainage in northeastern Borneo, Malaysia.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Segama",
+        "source": "planetcatfish",
+        "quote": "Asia: known only from the Kinatabangan and Segama river drainages, and possibly from the Kayan River drainage in northeastern Borneo, Malaysia.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Kayan River",
+        "source": "planetcatfish",
+        "quote": "Asia: known only from the Kinatabangan and Segama river drainages, and possibly from the Kayan River drainage in northeastern Borneo, Malaysia.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "planetcatfish",
+        "quote": "Asia: known only from the Kinatabangan and Segama river drainages, and possibly from the Kayan River drainage in northeastern Borneo, Malaysia.",
+        "country": "MY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Acrochordonichthys falcifer",
+    "status": "ACCEPTED",
+    "taxonKey": 2340876,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ]
+    ],
+    "native": [
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T05:39:06.336Z"
+  }
+}

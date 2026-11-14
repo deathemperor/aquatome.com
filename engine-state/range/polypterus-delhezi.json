@@ -1,9 +1,17 @@
 {
   "id": "polypterus-delhezi",
   "native": {
-    "input": "f4ed5a36171fafdc",
-    "at": "2026-11-12T21:02:28.514Z",
+    "input": "5e51baf7d37a9250",
+    "at": "2026-11-14T05:39:06.336Z",
     "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: DR Congo.",
+        "words": "DR Congo",
+        "ok": true
+      },
       {
         "code": "CD",
         "status": "native",
@@ -18,14 +26,6 @@
         "source": "seriouslyfish",
         "quote": "Democratic Republic of Congo and Republic of the Congo.",
         "words": "Republic of the Congo",
-        "ok": true
-      },
-      {
-        "code": "CD",
-        "status": "native",
-        "source": "glaser",
-        "quote": "Origin: DR Congo.",
-        "words": "DR Congo",
         "ok": true
       }
     ],

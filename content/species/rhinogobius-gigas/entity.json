@@ -10,6 +10,64 @@
     "taiwan",
     "taitung"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TW"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to eastern Taiwan where it inhabits middle and lower sections of river systems in Yilan, Hualien and Taitung counties.",
+          "countries": [
+            "TW"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2377582,
+      "total": 1098,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "TW",
+          1098
+        ]
+      ],
+      "cells": [
+        [
+          119.53125,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          119.53125,
+          22.5,
+          15,
+          15
+        ],
+        [
+          120.9375,
+          22.5,
+          776,
+          776
+        ],
+        [
+          120.9375,
+          23.90625,
+          306,
+          306
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

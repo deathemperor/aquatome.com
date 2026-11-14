@@ -10,6 +10,88 @@
     "french-guiana",
     "oyapock"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GF"
+      ],
+      "regions": [
+        "Oyapock",
+        "Approuague",
+        "Kourou",
+        "Sinnamary",
+        "Comté",
+        "Iracoubo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the Oyapock/Oiapoque, Approuague, Kaw, Kourou, Comté, Iracoubo, and Sinnamary river systems in French Guiana.",
+          "countries": [
+            "GF"
+          ],
+          "regions": [
+            "Oyapock",
+            "Approuague",
+            "Kourou",
+            "Sinnamary",
+            "Comté",
+            "Iracoubo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7193185,
+      "total": 28,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "GF",
+          22
+        ],
+        [
+          "BR",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          -53.4375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -53.4375,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          -53.4375,
+          4.21875,
+          18,
+          18
+        ],
+        [
+          -52.03125,
+          -1.40625,
+          3,
+          0
+        ],
+        [
+          -52.03125,
+          1.40625,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,10 +1,11 @@
 import type { Content, Localized, SectionKey, SpeciesEntity } from '@aq/schema'
 import { breedsOf } from './breeds'
 import { companionsOf } from './companions'
-import { GALLERY_COLUMN, GALLERY_MIN, GALLERY_STRIP } from './gallery'
+import { GALLERY_COLUMN, GALLERY_STRIP } from './gallery'
+import { albumOf, hasPhotoPage } from './photo-page'
 import { served, translator, type Lang } from './i18n'
 import { guideImages, guidesMentioning } from './mentions'
-import { distinctPhotos, morePhotos, pagePictures, takeEach } from './pictures'
+import { morePhotos, pagePictures, takeEach } from './pictures'
 import { foldNearEmpty } from './sections'
 import { approvedSummary } from './summaries'
 
@@ -51,9 +52,9 @@ export async function speciesParts(lang: Lang, c: Content, s: Localized<SpeciesE
   // The gallery as its page has it (each picture once), so a thumb opens its own photo there.
   const pics = pagePictures(c)
   pics.add(s.photos[0]?.url)
-  const gallery = distinctPhotos(c, c.galleries[s.id] ?? [])
+  const gallery = albumOf(c, 'species', s)
   const galleryPath = `/vi/ca/${s.t.slug}/anh/`
-  const grid = gallery.length >= GALLERY_MIN && served(lang, galleryPath)
+  const grid = hasPhotoPage(gallery) && served(lang, galleryPath)
   const strip = grid ? gallery.slice(0, GALLERY_STRIP).map(p => pics.take([p]) ?? null) : []
   const figures = s.photos.slice(1).filter(p => pics.take([p]))
   // Other languages' pages carry what's written for every reader; Vietnam-only parts (shops, climate, Vietnamese notes) stay on /vi/.

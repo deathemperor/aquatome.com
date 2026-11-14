@@ -299,7 +299,7 @@ private struct PieceHeight {
       look == .heading ? text(s, .title3) : look == .boxed ? text(s, inset: 28) + 28 : text(s)
     case let .photo(_, ratio, _, caption, credit, _, _, _):
       width / max(ratio, 0.2) + (caption.characters.isEmpty ? 0 : text(caption, .footnote) + 6) + (credit == nil ? 0 : line)
-    case let .video(_, _, caption):
+    case let .video(_, _, caption, _):
       width * 9 / 16 + text(caption, .subheadline) + line * 2
     case let .table(head, rows):
       CGFloat(rows.count + (head == nil ? 0 : 1)) * (line + 10) + 28
@@ -416,8 +416,8 @@ struct V2Piece: View {
         if !caption.characters.isEmpty { Text(caption).font(.footnote).foregroundStyle(.secondary) }
         if let credit { Text(credit).foregroundStyle(.secondary).tint(Color.secondary) }
       }
-    case let .video(id, title, caption):
-      VideoSlot(id: id, title: title, caption: caption)
+    case let .video(id, title, caption, head):
+      VideoSlot(id: id, title: title, caption: caption, head: head)
     case let .pages(title, paths):
       PagesBlock(title: title, paths: paths, titled: false)
     case let .cards(title, cards, good):
@@ -533,7 +533,7 @@ struct WholeParts {
     readersAt = parts.firstIndex {
       switch $0 { case .trust, .refs: true; default: heading($0) == "muc-references" }
     } ?? parts.count
-    videos = Set(pieces.joined().compactMap { if case let .video(id, _, _) = $0 { id } else { nil } })
+    videos = Set(pieces.joined().compactMap { if case let .video(id, _, _, _) = $0 { id } else { nil } })
     cardPhotos = parts.flatMap { p -> [PageDoc.Image] in
       guard case let .cards(b) = p, case let .cards(_, items) = doc.blocks[b] else { return [] }
       return items.compactMap(\.img)

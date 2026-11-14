@@ -37,9 +37,9 @@ struct TodayView: View {
           }
           ForEach(cards) { card in
             switch card {
-            case .fish(let item, let img): FishOfTheDay(item: item, img: img, zoom: zoom)
-            case .guide(let item, let img): GuideCard(item: item, img: img, zoom: zoom)
-            case .story(let item, let words): GuideCard(item: item, img: words.img, words: words, zoom: zoom)
+            case .fish(let item, let img, let box): FishOfTheDay(item: item, img: img, box: box, zoom: zoom)
+            case .guide(let item, let img, let box): GuideCard(item: item, img: img, box: box, zoom: zoom)
+            case .story(let item, let words): GuideCard(item: item, img: words.img, box: words.imgBox, words: words, zoom: zoom)
             case .season(let items): SeasonCard(items: items, zoom: zoom)
             case .tank(let tank): TankCard(tank: tank)
             case .firstTank: FirstTankCard()
@@ -100,17 +100,18 @@ struct TodayView: View {
     return .now
   }
 
-  /// A fish or guide with the photo for its card (none: drawn without one), and a story with the editors' words.
+  /// A fish or guide with the photo for its card and where its fish is (none: drawn without one), and a story with the
+  /// editors' words.
   enum Card: Identifiable {
-    case fish(HandbookIndex.Item, img: String?), guide(HandbookIndex.Item, img: String?)
+    case fish(HandbookIndex.Item, img: String?, box: PhotoBox?), guide(HandbookIndex.Item, img: String?, box: PhotoBox?)
     case story(HandbookIndex.Item, HandbookIndex.Home.Day.Story)
     case season([HandbookIndex.Item]), tank(Tank), firstTank
     case series(HandbookIndex.Item), latest([Latest.Row])
 
     var id: String {
       switch self {
-      case .fish(let i, _): "fish" + i.path
-      case .guide(let i, _): "guide" + i.path
+      case .fish(let i, _, _): "fish" + i.path
+      case .guide(let i, _, _): "guide" + i.path
       case .story(let i, _): "story" + i.path
       case .season: "season"
       case .tank(let t): "tank" + t.id
@@ -123,7 +124,7 @@ struct TodayView: View {
     /// The page it opens, for the one-card-a-page rule.
     var page: String? {
       switch self {
-      case .fish(let i, _), .guide(let i, _), .story(let i, _): i.path
+      case .fish(let i, _, _), .guide(let i, _, _), .story(let i, _): i.path
       default: nil
       }
     }
@@ -144,16 +145,16 @@ struct TodayView: View {
       // As planned: a slot left empty stays empty, as nothing passed the editors' checks for it, and each card shows the
       // photo picked for it or none, never the index's small one scaled up.
       var planned: [Card] = []
-      if let f = plan.fish { planned.append(.fish(f, img: plan.img)) }
-      if let g = plan.guide { planned.append(.guide(g, img: plan.guideImg)) }
+      if let f = plan.fish { planned.append(.fish(f, img: plan.img, box: plan.imgBox)) }
+      if let g = plan.guide { planned.append(.guide(g, img: plan.guideImg, box: plan.guideImgBox)) }
       if let p = plan.story, let words = plan.words { planned.append(.story(p, words)) }
       var pages = Set<String>()
       out = planned.filter { $0.page.map { pages.insert($0).inserted } ?? true }
     } else {
       // A reader with no fish yet isn't first shown one that needs a very large tank.
       let easy = beginner ? s.featuredFish.filter { ($0.facts.tankCm ?? 0) <= 100 } : []
-      if let f = pick(easy.isEmpty ? s.featuredFish : easy) { out.append(.fish(f, img: f.img)) }
-      if let g = pick(s.firstGuides) { out.append(.guide(g, img: g.img)) }
+      if let f = pick(easy.isEmpty ? s.featuredFish : easy) { out.append(.fish(f, img: f.img, box: f.imgBox)) }
+      if let g = pick(s.firstGuides) { out.append(.guide(g, img: g.img, box: g.imgBox)) }
     }
     // The northern winter (November to March): the well-known fish that need a heater. Vietnam's season, so Vietnamese only.
     let month = Calendar.current.component(.month, from: today)
@@ -223,13 +224,15 @@ extension HandbookIndex.Facts {
 @available(iOS 18, *)
 private struct FishOfTheDay: View {
   let item: HandbookIndex.Item
-  /// The card's photo: the editors' for the day, or the fish's own.
+  /// The card's photo: the editors' for the day, or the fish's own; and where its fish is.
   let img: String?
+  let box: PhotoBox?
   let zoom: Namespace.ID
 
-  init(item: HandbookIndex.Item, img: String?, zoom: Namespace.ID) {
+  init(item: HandbookIndex.Item, img: String?, box: PhotoBox?, zoom: Namespace.ID) {
     self.item = item
     self.img = img
+    self.box = box
     self.zoom = zoom
     _colour = State(initialValue: PhotoColour.cached(img) ?? PhotoColour.fallback)
   }
@@ -248,10 +251,10 @@ private struct FishOfTheDay: View {
         if size.isAccessibilitySize || img == nil {
           VStack(spacing: 0) {
             name.frame(maxWidth: .infinity, alignment: .leading).background(colour)
-            if img != nil { V2Photo(src: img, ground: colour) { colour = $0 }.frame(height: 260) }
+            if img != nil { V2Photo(src: img, box: box, ground: colour) { colour = $0 }.frame(height: 260) }
           }
         } else {
-          V2Photo(src: img, ground: colour) { colour = $0 }
+          V2Photo(src: img, box: box, ground: colour) { colour = $0 }
             .modifier(WordsOnPhoto(colour: colour, edge: .top, height: height) { name })
             .overlay(alignment: .bottom) {
               // Long, as `WordsOnPhoto`'s: on a photo with a black ground a short one ends in a hard stripe.
@@ -262,9 +265,9 @@ private struct FishOfTheDay: View {
       .buttonStyle(CardPress())
       .accessibilityIdentifier("v2-fish-of-the-day")
       // The band under it opens the same page: read here, one stop for VoiceOver (Lockup's `title`).
-      .accessibilityValue(Text(verbatim: [item.sub ?? item.kind.title, factsLine(item, handbook.lang)].compactMap { $0 }.joined(separator: ", ")))
+      .accessibilityValue(Text(verbatim: [item.subUnderName ?? item.kind.title, factsLine(item, handbook.lang)].compactMap { $0 }.joined(separator: ", ")))
       // The name is the card's title: under it, the fish's other name and figures, not the name and photo again.
-      Lockup(item: item, title: item.sub ?? item.kind.title, line: factsLine(item, handbook.lang), onDark: true, icon: false, post: true)
+      Lockup(item: item, title: item.subUnderName ?? item.kind.title, line: factsLine(item, handbook.lang), onDark: true, icon: false, post: true)
         .padding(.horizontal, 16).padding(.vertical, 10)
         .background(colour)
     }
@@ -291,14 +294,16 @@ private struct FishOfTheDay: View {
 @available(iOS 18, *)
 private struct GuideCard: View {
   let item: HandbookIndex.Item
-  /// The card's photo: the editors' for the day, or the guide's own.
+  /// The card's photo: the editors' for the day, or the guide's own; and where its fish is.
   let img: String?
+  let box: PhotoBox?
   var words: HandbookIndex.Home.Day.Story?
   let zoom: Namespace.ID
 
-  init(item: HandbookIndex.Item, img: String?, words: HandbookIndex.Home.Day.Story? = nil, zoom: Namespace.ID) {
+  init(item: HandbookIndex.Item, img: String?, box: PhotoBox?, words: HandbookIndex.Home.Day.Story? = nil, zoom: Namespace.ID) {
     self.item = item
     self.img = img
+    self.box = box
     self.words = words
     self.zoom = zoom
     // Until its photo comes, or when it doesn't, its own ground: not the tank card's green, one card twice.
@@ -318,7 +323,7 @@ private struct GuideCard: View {
       Group {
         if img != nil {
           VStack(spacing: 0) {
-            V2Photo(src: img, ground: colour) { colour = $0 }
+            V2Photo(src: img, box: box, ground: colour) { colour = $0 }
               .aspectRatio(16 / 9, contentMode: .fit)
               .overlay(alignment: .bottom) {
                 LinearGradient(colors: [colour.opacity(0), colour], startPoint: .top, endPoint: .bottom).frame(height: 40)

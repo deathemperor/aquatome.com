@@ -1,0 +1,117 @@
+{
+  "id": "rhinodoras-boehlkei",
+  "native": {
+    "input": "a37db1e74471f674",
+    "at": "2026-11-14T05:39:06.336Z",
+    "claims": [
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The fog talking catfish, Rhinodoras boehlkei, is a doradid catfish from the upper Amazon basin in eastern Ecuador and Peru.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The fog talking catfish, Rhinodoras boehlkei, is a doradid catfish from the upper Amazon basin in eastern Ecuador and Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Eastern Ecuador and Peru.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Eastern Ecuador and Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Native to the Upper Amazon basin in parts of Eastern Ecuador and Peru.",
+        "ok": true
+      },
+      {
+        "name": "Río Bobonaza",
+        "source": "planetcatfish",
+        "quote": "Type locality: Río Bobonaza between Montalvo and Chicherato, Ecuador.",
+        "country": "EC",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BR"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rhinodoras boehlkei",
+    "status": "ACCEPTED",
+    "taxonKey": 2344034,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        11
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        6
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        3
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        2
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [
+      "EC",
+      "PE"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T05:39:06.336Z"
+  }
+}

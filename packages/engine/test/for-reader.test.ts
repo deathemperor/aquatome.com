@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { amountsOutside, forWriter, rewriteForReader, sourceOf, writeForReader } from '../src/for-reader'
+import { amountsOutside, figuresLost, forWriter, rewriteForReader, sourceOf, writeForReader } from '../src/for-reader'
 import { marketFor } from '../src/market'
 
 const FACTS = { topic: 'blue-green algae', facts: [{ section: 'treatment', fact: 'Use 3 ml of 3% hydrogen peroxide per 4 litres.' }], products: [{ name: 'Slime Out', for: 'blue-green algae', ingredient: '', dose: '1 packet per 10 gallons' }], problems: ['cyanobacteria'] }
@@ -161,4 +161,35 @@ test('a note a reader could harm fish by following holds the guide back, whateve
   // Mended, it's kept; a number that names no note counts for nothing.
   const mended = fake({ written: [good, good], reviews: [{ score: 0.9, notes: [mix], unsafe: [0] }, { score: 0.9, notes: [], unsafe: [3] }] })
   expect(await writeForReader({ llm: mended.llm }, 'g', 'Source.')).toMatchObject({ kept: true, tries: 2 })
+})
+
+// The chief of staff, 14 Nov 2026: the lane publishes pages no one has read, so a rewrite keeps every figure the page had,
+// but those a finding asks to go or change.
+test('a rewrite that drops or changes a figure the guide had is not kept, unless a finding\'s quote asks for it to go', async () => {
+  expect(figuresLost('Thay 30% nước, 2 lần một tuần, ở 26–28 °C.', 'Thay 30% nước mỗi tuần, ở 26-28 °C.')).toEqual(['2'])
+  expect(figuresLost('Bể 2,5 m', 'Bể 2.5 m')).toEqual([])
+  expect(figuresLost('Giá 5 đô la, bể 38 lít.', 'Bể 40 lít.', ['Giá 5 đô la'])).toEqual(['38'])
+  const root = await mkdtemp(join(tmpdir(), 'for-reader-'))
+  const dir = join(root, 'content/guides/aquariumcoop-blogs-aquarium-x')
+  await mkdir(dir, { recursive: true })
+  await mkdir(join(root, 'sources/aquariumcoop'), { recursive: true })
+  await writeFile(join(root, 'sources/aquariumcoop/blogs-aquarium-x.md'), '---\nurl: u\n---\nThe article.')
+  await writeFile(join(dir, 'entity.json'), JSON.stringify({ id: 'aquariumcoop-blogs-aquarium-x', kind: 'care', source: 'aquariumcoop', sourceUrl: 'https://www.aquariumcoop.com/blogs/aquarium/x', html: '', photos: [], mentions: [], updatedAt: '2026-11-01' }))
+  const vi = { slug: 'x', name: 'Cũ', altNames: [], sections: {}, body: '<p>Hút oxy già 3% vào xi lanh, liều 3 ml cho mỗi 4 lít nước, 2 lần một ngày.</p>' }
+  await writeFile(join(dir, 'vi.json'), JSON.stringify(vi))
+  const before = await readFile(join(dir, 'vi.json'), 'utf8')
+  const id = 'aquariumcoop-blogs-aquarium-x'
+  const dropped = await rewriteForReader(root, id, { llm: fake({ written: [good] }).llm })
+  expect(dropped).toMatchObject({ kept: false })
+  expect('notes' in dropped && dropped.notes[0]).toBe('A figure the guide had is gone or changed: 2')
+  expect(await readFile(join(dir, 'vi.json'), 'utf8')).toBe(before)
+  // Asked to go by a finding: kept.
+  expect(await rewriteForReader(root, id, { llm: fake({ written: [good] }).llm }, { gone: ['2 lần một ngày'] })).toMatchObject({ kept: true })
+})
+
+test('a figure said once fewer, a name\'s digits or a thousand written either way isn\'t lost', () => {
+  expect(figuresLost('Giữ 26–28 °C. Ban đêm vẫn 26–28 °C.', 'Giữ 26–28 °C cả ngày lẫn đêm.')).toEqual([])
+  expect(figuresLost('Bơm CO2 và đèn T5.', 'Bơm khí và dùng đèn huỳnh quang.')).toEqual([])
+  expect(figuresLost('Bể 1.000 lít.', 'Bể 1000 lít.')).toEqual([])
+  expect(figuresLost('Bể 38 lít, thay 30% nước.', 'Bể 40 lít, thay 30% nước.')).toEqual(['38'])
 })

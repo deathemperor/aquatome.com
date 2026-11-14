@@ -177,7 +177,7 @@ private struct FlowRow: Layout {
 
 /// One level, 0–100%, with the channel's colour: its name and value beside the slider, or above it at the largest
 /// text sizes.
-private struct ChannelSlider: View {
+struct ChannelSlider: View {
   let id: String
   let title: String
   let swatch: Color?

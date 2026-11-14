@@ -1,0 +1,70 @@
+{
+  "id": "apistogramma-diplotaenia",
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/1c6bfc3826d8f547eeab328467cd0024.webp",
+      "thumb": "https://media.aquatome.com/processed/1c6bfc3826d8f547eeab328467cd0024-480.webp",
+      "width": 850,
+      "height": 439,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_diplotaenia_en/",
+      "source": "glaser",
+      "ownerCrop": {
+        "id": "owner-crop-20261114-apistogramma-diplotaenia-glaser-1",
+        "pixelHash": "44a83db458d084b60c145f7723334529a7c5ad39f9f4808842cb990c172126f7"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-14T02:47:36.775Z",
+          "originalHash": "97ff0a95a92bec608864e54f09fc43f11199dac85a653ce79b00ebe7bf6b03e2",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 850,
+            "originalHeight": 567,
+            "window": {
+              "x0": 0,
+              "y0": 128,
+              "x1": 850,
+              "y1": 567
+            },
+            "subject": {
+              "x0": 96,
+              "y0": 171,
+              "x1": 746,
+              "y1": 450
+            },
+            "margin": 15
+          },
+          "excludedMarks": [
+            {
+              "x0": 22,
+              "y0": 7,
+              "x1": 828,
+              "y1": 122
+            }
+          ],
+          "checks": {
+            "species": [
+              "1034807949c9d0202f18a2c2f2a53a8fc5a7752a2d38fba6193dc900d1e251dd",
+              "39d40a5d5b5cb6031964972426f4bffdefe4ad1488d9763a0cb9a8f47f92f43d"
+            ],
+            "ownership": [
+              "c33135d02a8ea61eec5b9a18fcd1d01be75876e9ac66a28030f517727c7bc61a",
+              "16f42510c4568a47405f3af6c477c8a78cc380a785057cb88191c68194eb4b3a"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/glaser/0de848cfd3b3ce69.webp",
+        "width": 850,
+        "height": 567
+      }
+    }
+  ],
+  "seen": 0,
+  "updatedAt": "2026-11-14"
+}

@@ -101,4 +101,4 @@ for _ in 1 2 3; do
   if git push -q; then log "pushed (GitHub deploys it)"; exit 0; fi
   sleep 30
 done
-log "push failed three times"; exit 1
+log "push failed three times"; keep_lost_push video-recheck; exit 1

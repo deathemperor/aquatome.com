@@ -11,6 +11,66 @@
     "lake-inle",
     "inle-lake"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Inlé Lake",
+        "Lake Inle"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Sawbwa resplendens is a small cyprinid endemic to Inlé Lake and its associated watershed in Shan State, eastern Myanmar.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Inlé Lake"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Lake Inle in Burma is a mountain lake located on the Shan Plateau about 900 meters above sea level; it is about 65 km long and 10-22 km wide.",
+          "countries": [],
+          "regions": [
+            "Lake Inle"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2363712,
+      "total": 25,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "MM",
+          25
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          19.6875,
+          10,
+          10
+        ],
+        [
+          97.03125,
+          19.6875,
+          15,
+          15
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

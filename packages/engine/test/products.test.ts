@@ -33,7 +33,7 @@ test('checkPrices keeps only prices the shop page shows, in any of the usual for
 })
 
 test('marketplaces and their short links are never fetched', async () => {
-  for (const u of ['https://shopee.vn/x', 'https://SHOPEE.VN/x', 'https://shope.ee/abc', 'https://vn.shp.ee/abc', 'https://lzd.co/x', 'https://www.lazada.vn/x', 'https://tiki.vn/x', 'https://ti.ki/x', 'not a url']) expect(isMarketplace(u)).toBe(true)
+  for (const u of ['https://shopee.vn/x', 'https://SHOPEE.VN/x', 'https://shope.ee/abc', 'https://vn.shp.ee/abc', 'https://lzd.co/x', 'https://www.lazada.vn/x', 'https://tiki.vn/x', 'https://ti.ki/x', 'https://www.tokopedia.com/x', 'https://tokopedia.link/x', 'not a url']) expect(isMarketplace(u)).toBe(true)
   expect(isMarketplace('https://thuysinh365.vn/x')).toBe(false)
   expect(cleanVariant('M')).toBe('M')
   expect(cleanVariant('180k')).toBeUndefined()

@@ -17,26 +17,47 @@
     "native": {
       "countries": [
         "GF",
-        "BR"
+        "BR",
+        "GY"
       ],
       "regions": [
+        "Oyapock",
         "Approuague",
-        "Oyapock"
+        "Rio Oyapock",
+        "Rio Approuague"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Native to the Approuague and Oyapock river basins in French Guiana and northern Brazil.",
+          "quote": "Leopold's tetra, Astyanax leopoldi, is a characid native to the Approuague and Oyapock river basins in French Guiana and Brazil.",
           "countries": [
             "GF",
             "BR"
           ],
           "regions": [
-            "Approuague",
-            "Oyapock"
+            "Oyapock",
+            "Approuague"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Origin: Guyana, Rio Oyapock.",
+          "countries": [
+            "GY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Apart from Rio Oyapock, Astyanax leopoldi are also said to be found in Rio Approuague.",
+          "countries": [],
+          "regions": [
+            "Rio Oyapock",
+            "Rio Approuague"
           ]
         }
       ]
@@ -44,7 +65,7 @@
     "records": {
       "taxonKey": 5204254,
       "total": 147,
-      "fetched": "2026-11-06",
+      "fetched": "2026-11-14",
       "countries": [
         [
           "GF",

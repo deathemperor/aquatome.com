@@ -166,7 +166,8 @@ test('each fish\'s copy reads as its built page: header, credits, sources, card 
     d.blocks.forEach(b => seen.add(b.t))
     // The header: name, scientific name, the line above the name, other names, the line under the card, the photo.
     expect(d.title, d.path).toBe(txt(dom.querySelector('h1')))
-    expect(d.sub, d.path).toBe(txt(dom.querySelector('.binomial')))
+    // No line under a name that says its scientific name (lib/sci.ts): none in the app's copy either.
+    expect(d.sub ?? '', d.path).toBe(txt(dom.querySelector('.binomial')))
     expect(text(d.where), d.path).toBe(txt(dom.querySelector('.where')))
     expect(d.where?.flatMap(r => (typeof r === 'string' || !r.href ? [] : [r.href])), d.path).toEqual(dom.querySelectorAll('.where a').map(a => appHref(a.getAttribute('href')!)))
     expect(d.aka, d.path).toBe(dom.querySelector('.alt') ? txt(dom.querySelector('.alt')) : undefined)
@@ -400,7 +401,8 @@ test('each plant\'s copy reads as its built page: header, credits, sources, gall
     expect(PageDoc.safeParse(d).error, d.path).toBeUndefined()
     const { dom } = appPage(d.path)
     expect(d.title, d.path).toBe(txt(dom.querySelector('h1')))
-    expect(d.sub, d.path).toBe(txt(dom.querySelector('.binomial')))
+    // No line under a name that says its scientific name (lib/sci.ts): none in the app's copy either.
+    expect(d.sub ?? '', d.path).toBe(txt(dom.querySelector('.binomial')))
     expect(d.aka, d.path).toBe(dom.querySelector('.alt') ? txt(dom.querySelector('.alt')) : undefined)
     expect(d.lead?.src, d.path).toBe(dom.querySelector('header .gallery img')?.getAttribute('src'))
     expect(d.talk, d.path).toEqual(talk(dom))
@@ -425,10 +427,11 @@ test('each glossary term\'s copy reads as its built page; one in Indonesian has 
     expect(PageDoc.safeParse(d).error, d.path).toBeUndefined()
     const { dom } = appPage(d.path)
     expect(d.title).toBe(txt(dom.querySelector('h1')))
-    // Its other names, its English name, its definition (with the page's links), in the page's order.
-    expect(all(d, 'p').map(b => text(b.c))).toEqual([...['.aka', '.en', '.def'].flatMap(sel => (dom.querySelector(sel) ? [txt(dom.querySelector(sel))] : [])), ...dom.querySelectorAll('.body > p').map(txt)])
+    // Its other names, its English name, its definition (with the page's links), the link to its material page, in the
+    // page's order.
+    expect(all(d, 'p').map(b => text(b.c))).toEqual([...['.aka', '.en', '.def', '.material-link'].flatMap(sel => (dom.querySelector(sel) ? [txt(dom.querySelector(sel))] : [])), ...dom.querySelectorAll('.body > p').map(txt)])
     expect(all(d, 'p').flatMap(b => b.c.flatMap(r => (typeof r === 'string' || !r.href ? [] : [r.href]))), d.path).toEqual(
-      dom.querySelectorAll('.def a, .body > p a').map(a => appHref(a.getAttribute('href')!)),
+      dom.querySelectorAll('.def a, .material-link a, .body > p a').map(a => appHref(a.getAttribute('href')!)),
     )
     // Its photo, then the fuller entry's headings, then the pages that use it: the heading with the count, then each
     // kind's first pages, those the app index lists. Last, its sources.

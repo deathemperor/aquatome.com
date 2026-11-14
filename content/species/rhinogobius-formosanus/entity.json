@@ -9,6 +9,46 @@
     "asia",
     "taiwan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TW"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is endemic to river systems of northern and northeastern Taiwan.",
+          "countries": [
+            "TW"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 4840516,
+      "total": 23,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "TW",
+          23
+        ]
+      ],
+      "cells": [
+        [
+          120.9375,
+          23.90625,
+          23,
+          23
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

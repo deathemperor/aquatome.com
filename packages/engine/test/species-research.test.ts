@@ -140,6 +140,58 @@ test('makeSpecies: a species GBIF\'s backbone lacks, researched with its video a
   await expect(readFile(join(r2, 'content/species/nanosphronemus-gemma/entity.json'), 'utf8')).rejects.toThrow()
 })
 
+test('makeSpecies: a Vietnamese page\'s name with another kind\'s word is no name of it; the page takes its plain scientific form, listed for the Writing Lead', async () => {
+  const r = await root()
+  const research: Llm = async <T,>() => ({ ...facts, viNames: [{ name: 'Cá rô Huế', source: 4 }], enNames: [...facts.enNames, { name: 'Cá rô Huế', source: 4 }] }) as T
+  const llm: Llm = async <T,>(a: { schema: object }) => ('score' in (a.schema as { properties: object }).properties
+    ? { score: 0.95, notes: [] }
+    : { sections: [{ key: 'reproduction', html: '<p>Cá đực xây tổ bọt.</p>', facts: ['f2'] }] }) as T
+  const out = await makeSpecies(r, { research, llm, http: gbif, now: () => new Date('2026-11-15T00:00:00Z') }, { name: 'Nanosphronemus gemma', videos: [video(false)] })
+  expect(out).toMatchObject({ slug: 'ca-nanosphronemus-gemma', name: 'Cá Nanosphronemus gemma' })
+  const vi = JSON.parse(await readFile(join(r, 'content/species/nanosphronemus-gemma/vi.json'), 'utf8'))
+  expect(vi.altNames).toEqual(['Jewel Gourami'])
+  expect(JSON.parse(await readFile(join(r, 'engine-state/_kind-fallbacks.json'), 'utf8'))).toEqual({
+    'species/nanosphronemus-gemma': { name: 'Cá rô Huế', word: 'rô', took: 'Cá Nanosphronemus gemma', at: '2026-11-15T00:00:00.000Z' },
+  })
+})
+
+test('makeSpecies again on a live page (Astra\'s read): a name with another kind\'s word, or none at all, leaves its name and address as they are', async () => {
+  const llm: Llm = async <T,>(a: { schema: object }) => ('score' in (a.schema as { properties: object }).properties
+    ? { score: 0.95, notes: [] }
+    : { sections: [{ key: 'reproduction', html: '<p>Cá đực xây tổ bọt.</p>', facts: ['f2'] }] }) as T
+  for (const viNames of [[{ name: 'Cá rô Huế', source: 4 }], []]) {
+    const r = await root()
+    await mkdir(join(r, 'content/species/nanosphronemus-gemma'), { recursive: true })
+    await writeFile(join(r, 'content/species/nanosphronemus-gemma/vi.json'), JSON.stringify({ slug: 'ca-ro-hue', name: 'Cá rô Huế', altNames: [], sections: {} }))
+    const research: Llm = async <T,>() => ({ ...facts, viNames }) as T
+    const out = await makeSpecies(r, { research, llm, http: gbif, now: () => new Date('2026-11-15T00:00:00Z') }, { name: 'Nanosphronemus gemma', videos: [video(false)] })
+    expect(out, JSON.stringify(viNames)).toMatchObject({ slug: 'ca-ro-hue', name: 'Cá rô Huế' })
+    await expect(readFile(join(r, 'engine-state/_kind-fallbacks.json'), 'utf8')).rejects.toThrow()
+  }
+})
+
+test('makeSpecies again (Astra\'s second read): a live page keeps the other names it had, and a guarded page the passing ones after its first', async () => {
+  const llm: Llm = async <T,>(a: { schema: object }) => ('score' in (a.schema as { properties: object }).properties
+    ? { score: 0.95, notes: [] }
+    : { sections: [{ key: 'reproduction', html: '<p>Cá đực xây tổ bọt.</p>', facts: ['f2'] }] }) as T
+  const run = async (prev: object, names: string[]) => {
+    const r = await root()
+    await mkdir(join(r, 'content/species/nanosphronemus-gemma'), { recursive: true })
+    await writeFile(join(r, 'content/species/nanosphronemus-gemma/vi.json'), JSON.stringify({ slug: 'ca-bai-trau-hue', sections: {}, ...prev }))
+    const research: Llm = async <T,>() => ({ ...facts, viNames: names.map(name => ({ name, source: 4 })) }) as T
+    await makeSpecies(r, { research, llm, http: gbif, now: () => new Date('2026-11-15T00:00:00Z') }, { name: 'Nanosphronemus gemma', videos: [video(false)] })
+    return JSON.parse(await readFile(join(r, 'content/species/nanosphronemus-gemma/vi.json'), 'utf8')) as { name: string; altNames: string[] }
+  }
+  // "Cá rô Huế" was already one of its other names: offered again, it stays one, as on main.
+  const live = await run({ name: 'Cá bãi trầu Huế', altNames: ['Cá rô Huế'] }, ['Cá bãi trầu Huế', 'Cá rô Huế'])
+  expect(live.name).toBe('Cá bãi trầu Huế')
+  expect(live.altNames).toContain('Cá rô Huế')
+  // A guarded page: research's first name is left out, as on main, and the passing second kept.
+  const guarded = await run({ name: 'Cá bãi trầu Huế', altNames: [], nameFixed: true }, ['Cá rô Huế', 'Cá sặc ngọc'])
+  expect(guarded.altNames).toContain('Cá sặc ngọc')
+  expect(guarded.altNames).not.toContain('Cá rô Huế')
+})
+
 test('makeSpecies never writes over a page from a licensed source, nor a name GBIF doesn\'t know', async () => {
   const r = await root()
   await mkdir(join(r, 'content/species/nanosphronemus-gemma'), { recursive: true })

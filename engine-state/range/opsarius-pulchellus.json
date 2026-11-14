@@ -1,8 +1,8 @@
 {
   "id": "opsarius-pulchellus",
   "native": {
-    "input": "1e471ff8e8846d75",
-    "at": "2026-11-10T23:57:51.686Z",
+    "input": "7dff73fdbe1659bb",
+    "at": "2026-11-14T05:39:06.336Z",
     "claims": [
       {
         "code": "TH",
@@ -42,6 +42,30 @@
         "source": "seriouslyfish",
         "quote": "Occurs throughout the Chao Phraya river system in central and western Thailand, and the mid-to-lower Mekong basins in Thailand, Laos, Cambodia, and Vietnam with a handful of reports from the upper Mekong in Yunnan province, China.",
         "words": "China",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "In nature, they settle in cool, clear mountain streams of northern Thailand, Laos, and Vietnam.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "glaser",
+        "quote": "In nature, they settle in cool, clear mountain streams of northern Thailand, Laos, and Vietnam.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "In nature, they settle in cool, clear mountain streams of northern Thailand, Laos, and Vietnam.",
+        "words": "Vietnam",
         "ok": true
       }
     ],

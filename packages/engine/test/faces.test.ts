@@ -57,3 +57,27 @@ test("a video section's photo the owner rejected leaves its section every cycle;
   expect(r.removed).toEqual(['guides/v/entity.json: statue'])
   expect(JSON.parse(await readFile(page, 'utf8')).video.figures).toEqual([{ heading: 'A', moments: [{ t: 1 }] }, { heading: 'B', moments: [], photo: { url: 'tank' } }])
 })
+
+test("a face on a page's last photo: it stays, held for a second look (last-photo.ts); one the look cleared stays though the page gains another", async () => {
+  // The chief of staff, 2026-11-14: a page's last photo doesn't come off on an automatic check's word alone.
+  const root = await mkdtemp(join(tmpdir(), 'fl-'))
+  const content = join(root, 'content')
+  await mkdir(join(content, 'species', 'a'), { recursive: true })
+  await mkdir(join(content, 'species', 'b'), { recursive: true })
+  await writeFile(join(content, 'species', 'a', 'entity.json'), JSON.stringify({ id: 'a', photos: [{ url: 'person' }] }))
+  await writeFile(join(content, 'species', 'b', 'entity.json'), JSON.stringify({ id: 'b', photos: [{ url: 'fish' }, { url: 'hand' }] }))
+  const deps = { get: async (u: string) => new TextEncoder().encode(u), detect: async (files: string[]) => Promise.all(files.map(async f => (['person', 'hand'].includes(await readFile(f, 'utf8')) ? 1 : 0))) }
+  const r = await dropFacePhotos(content, join(root, 'faces.json'), deps, undefined, root)
+  expect(r.removed).toEqual(['species/b/entity.json: hand'])
+  expect(r.held).toEqual(['person: species/a'])
+  expect(JSON.parse(await readFile(join(content, 'species', 'a', 'entity.json'), 'utf8')).photos).toEqual([{ url: 'person' }])
+  const file = join(root, 'engine-state', '_photo-second-look.json')
+  const look = JSON.parse(await readFile(file, 'utf8'))
+  expect(look.person).toMatchObject({ step: 'face detection', pages: ['species/a'] })
+  look.person.look = { said: 'clear', by: 'Photo sourcing', on: '2026-11-14' }
+  await writeFile(file, JSON.stringify(look))
+  await writeFile(join(content, 'species', 'a', 'entity.json'), JSON.stringify({ id: 'a', photos: [{ url: 'person' }, { url: 'fish' }] }))
+  const again = await dropFacePhotos(content, join(root, 'faces.json'), deps, undefined, root)
+  expect(again.removed).toEqual([])
+  expect(JSON.parse(await readFile(join(content, 'species', 'a', 'entity.json'), 'utf8')).photos).toEqual([{ url: 'person' }, { url: 'fish' }])
+})

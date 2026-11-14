@@ -9,13 +9,20 @@
     "quickFacts:planetcatfish": "<ul><li>Nama ilmiah: Cryptarius truncatus (Valenciennes, 1840)</li><li>Lokasi tipe: Jawa, Indonesia.</li><li>Ukuran: 420 mm SL</li><li>Kategori Daftar Merah IUCN: Belum Dievaluasi (Not Evaluated)</li></ul>",
     "distribution:planetcatfish": "<p>Pasifik Barat bagian tengah: muara dan bagian hilir sungai, mulai dari Chao Phraya sampai Sumatra dan Jawa, termasuk hilir Sungai Mekong.</p>",
     "reproduction:planetcatfish": "<p>Belum ada catatan. Belum ada laporan pemijahannya.</p>",
-    "references:planetcatfish": "<p>Histoire naturelle des poissons v. 15, pp 64.</p>"
+    "references:planetcatfish": "<p>Histoire naturelle des poissons v. 15, pp 64.</p>",
+    "quickFacts:scotcat": "<ul><li>Nama umum: Spoonsnouted catfish</li><li>Daftar Merah IUCN: Belum Dievaluasi (Not Evaluated)</li></ul>",
+    "distribution:scotcat": "<p>Asia Selatan dan Asia Tenggara: Thailand, Kamboja, Indonesia, dan Malaysia. Lokasi tipe: Jawa, Indonesia.</p>",
+    "habitat:scotcat": "<p>Ditemukan di muara dan bagian hilir sungai, mulai dari Chao Phraya sampai Sumatra dan Jawa, termasuk hilir Sungai Mekong. Pada waktu tertentu, spesies ini bisa cukup melimpah. Ditangkap dengan pukat, jaring tarik, perangkap, dan pancing. Dijual dalam keadaan segar.</p>",
+    "diet:scotcat": "<p>Memakan ikan dan krustasea.</p>",
+    "notes:scotcat": "<p>Genus Cryptarius dapat dibedakan dari ciri-ciri khas berikut: (1) vomer berbentuk mata panah; (2) tonjolan posterior epioksipital bersentuhan dengan krista median yang berhubungan dengan duri neural vertebra keempat; (3) bagian anterior interoperkulum sangat panjang dan runcing; (4) bagian anterior metapterigoid bersentuhan dengan tulang kuadrat melalui persendian bertakik, sedangkan sebagian besar sisa tulang ini hanya bersentuhan langsung dengan tulang kuadrat; (5) bagian posterior basibrankial kedua sangat lebar; (6) mesetmoid cukup tebal di bagian tengahnya.</p><p>Etimologi: Nama genus Cryptarius berasal dari kryptos, yang berarti tersembunyi atau rahasia, yaitu Arius yang tersamar, merujuk pada kombinasi ciri uniknya yang sekian lama terabaikan. Nama spesies truncatus merujuk pada moncongnya yang terpancung (atau berbentuk sendok).</p>",
+    "references:scotcat": "<p>Marceniuk, Alexandre P.; Menezes, Naércio A. (2007). \"Systematics of the family Ariidae (Ostariophysi, Siluriformes), with a redefinition of the genera\" Zootaxa 1416: 1–126. Rainboth, W.J. 1996 Fishes of the Cambodian Mekong. FAO Species Identification Field Guide for Fishery Purposes. FAO, Rome, 265 p. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
-    "score": 0.9,
+    "score": 0.85,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.9
+      "planetcatfish": 0.9,
+      "scotcat": 0.85
     }
   }
 }

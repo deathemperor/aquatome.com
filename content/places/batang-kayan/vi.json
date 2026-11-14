@@ -1,10 +1,13 @@
 {
   "slug": "batang-kayan",
-  "name": "Batang Kayan",
-  "altNames": [],
+  "name": "sông Kayan",
+  "altNames": [
+    "Batang Kayan"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

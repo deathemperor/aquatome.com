@@ -113,6 +113,7 @@ const LOOSER: Record<string, string> = {
   'off before on': 'a schedule\'s off time must be after its on time, the same day (00:00 = midnight at the end)',
   'a ramp longer than half the time lit': 'the ramp is at most half the time lit',
   'a store with the same tank twice': 'one record per id in each list',
+  'a Bluetooth address on a plug': 'only lights have a Bluetooth address',
 }
 
 test('the JSON Schema accepts every valid case and refuses the invalid ones it can express', () => {

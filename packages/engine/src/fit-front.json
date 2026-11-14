@@ -1,6 +1,7 @@
 {
-  "about": "first is when the reader-fit work may start: before it, neither the read nor the rewrite of the front list does anything. The first rewrite that gets a page to an outcome is written to engine-state/_fit-front.json, and while cleared is false it holds every later one: cleared is set to true here once the chief of staff has looked at that run's pages. front is the pages to read and rewrite first, in this order.",
+  "about": "first is when the reader-fit work may start: before it, neither the read nor the rewrite of the front list does anything. Each rewrite that gets a front-list or other live page to an outcome is written to engine-state/_fit-front.json, and holds the next one's front-list and live pages until cleared names that record's at: the chief of staff sets cleared to it once they have read that run's pages. The run that goes writes its own record, so the run after waits again by itself (one-shot). lane: pages the gate held new are mended first, newest first, then the front list (unless it's held) and every other page; false keeps them all waiting while the list is held, as before the lane. front is the pages to read and rewrite first, in this order.",
   "cleared": false,
+  "lane": true,
   "first": "2026-11-13T08:00:00+07:00",
   "front": [
     "vi/species/pterophyllum-scalare",

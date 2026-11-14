@@ -6,7 +6,7 @@ import { cleanPhoto } from './home'
  * decides every picture in its frontmatter, in page order, and hands each card its photo: Astro renders sibling
  * components at the same time, so a card can't safely ask while it renders, and the credits list must match.
  */
-export const pagePictures = (c: Content) => new PictureSet(c.pictureHashes)
+export const pagePictures = (c: Pick<Content, 'pictureHashes'>) => new PictureSet(c.pictureHashes)
 
 /** A fish's or plant's photos in the order its card tries them: the first without a dealer's mark, then the rest. */
 export function photosOf(photos: Photo[]): Photo[] {
@@ -69,7 +69,7 @@ export function morePhotos(pics: PictureSet, gallery: Photo[], strip: (Photo | n
 export const gridPhotos = (c: Content, species: { photos: Photo[] }[], pics = pagePictures(c)) => takeEach(pics, species, s => tilePhotos(s.photos))
 
 /** Photos with each picture once (a gallery that kept two files of one photo): the gallery page and its strip alike. */
-export function distinctPhotos<P extends Photo>(c: Content, photos: P[]): P[] {
+export function distinctPhotos<P extends Photo>(c: Pick<Content, 'pictureHashes'>, photos: P[]): P[] {
   const pics = pagePictures(c)
   return photos.filter(p => pics.take([p]))
 }

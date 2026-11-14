@@ -1,10 +1,21 @@
 import { readFileSync } from 'node:fs'
+import { loadAll } from '@aq/schema'
 import { expect, test } from 'vitest'
 import { searchAliases } from '../src/lib/search'
 import { namedFirst } from '../src/scripts/search-rank'
 
 const doc = (url: string, title: string, aka = '') => ({ url, meta: { title, aka } })
 const urls = (ds: { url: string }[]) => ds.map(d => d.url)
+
+test('sa tùng is first for its title and every other name, ahead of a guide that mentions it', async () => {
+  const c = await loadAll({ root: new URL('./fixture-content', import.meta.url).pathname, lang: 'vi', publicBuild: false })
+  const m = c.materials.find(m => m.id === 'lua-sa-tung')!
+  const aka = searchAliases(m.t, undefined, m.names)
+  const ds = [doc('guide', 'Chọn lũa sa tùng cho bể'), doc('material', m.t.name, aka)]
+  for (const query of [m.t.name, ...m.t.altNames, ...m.names, 'sa tung', 'lua sa tung', 'kim sa tung']) {
+    expect(namedFirst(query, ds)[0]!.url, query).toBe('material')
+  }
+})
 
 test('a page named exactly what was searched for comes first, by its title or another name; the rest keep their order', () => {
   // Pagefind's live order for "neon" and "bảy màu" on 2026-11-01.

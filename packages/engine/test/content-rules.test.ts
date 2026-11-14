@@ -209,6 +209,15 @@ test("a photo of an unwell fish fails its page where the page has another photo 
   // A photo that is the page's own and in its gallery too is one photo: kept as the only one, not also taken off.
   expect(unwellOff(page({ kind: 'breeds', own: ['a'], captions: [dead], album: [dead] }))).toEqual({ off: [], kept: { url: 'a', word: 'deceased' } })
   expect(unwellOff(page({ kind: 'species', own: ['a'], captions: [dead, dead] }))).toEqual({ off: [], kept: { url: 'a', word: 'deceased' } })
+  // A page with none of its own shows its gallery: the gallery's last photo stays the same way, and goes beside a well one.
+  expect(unwellOff(page({ kind: 'species', own: [], captions: [album], gallery: ['g'] }))).toEqual({ off: [], kept: { url: 'g', word: 'dead specimens' } })
+  expect(found(page({ kind: 'species', own: [], captions: [album], gallery: ['g'] }), 'unwell')).toEqual([])
+  expect(unwellOff(page({ kind: 'breeds', own: [], album: [album], gallery: ['g'] }))).toEqual({ off: [], kept: { url: 'g', word: 'dead specimens' } })
+  // Beside a well one, captioned or not, it goes.
+  expect(unwellOff(page({ kind: 'species', own: [], captions: [album, well], gallery: ['g', 'b'] }))).toEqual({ off: [{ url: 'g', word: 'dead specimens' }] })
+  expect(unwellOff(page({ kind: 'species', own: [], captions: [album], gallery: ['g', 'n'] }))).toEqual({ off: [{ url: 'g', word: 'dead specimens' }] })
+  // Its own photos another rule takes off in the same run leave the gallery as what the page shows: its last stays.
+  expect(unwellOff(page({ kind: 'species', own: ['b'], captions: [well, album], gallery: ['g'] }), new Set(['b']))).toEqual({ off: [], kept: { url: 'g', word: 'dead specimens' } })
   expect(unwellOff(page({ kind: 'species', own: ['a', 'b'], captions: [dead, well, dead], picked: 'a' }))).toEqual({ off: [], picked: { url: 'a', word: 'deceased' } })
   // A head a person picked is not taken off by a caption's words, whatever else the page has; the rule finds nothing.
   expect(unwellOff(page({ kind: 'species', own: ['a', 'b'], captions: [dead, well], picked: 'a' }))).toEqual({ off: [], picked: { url: 'a', word: 'deceased' } })

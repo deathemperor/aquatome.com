@@ -1,0 +1,71 @@
+{
+  "id": "schistura-disparizona",
+  "native": {
+    "input": "31610184aa1e9a09",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Schistura disparizona is a nemacheilid loach known only from its type locality on the Nangun River, a Salween tributary in Yunnan Province, China.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the type locality 'Cangyuan, Nangun River (a Salween River tributary), 0.5 kilometers to Manglai on road from Banhong to Mangku, 23°16.49'N, 99°04.34'E, Yunnan Province, China'.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "Schistura disparizona is a nemacheilid loach known only from its type locality on the Nangun River, a Salween tributary in Yunnan Province, China.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Nangun River",
+        "source": "seriouslyfish",
+        "quote": "Schistura disparizona is a nemacheilid loach known only from its type locality on the Nangun River, a Salween tributary in Yunnan Province, China.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Schistura disparizona",
+    "status": "ACCEPTED",
+    "taxonKey": 5205070,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

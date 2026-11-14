@@ -1,6 +1,63 @@
 {
   "vi/glossary/lua": [
     {
+      "at": "2026-11-14T04:29:50Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (not placeable): \"Lũa hải sơn quỳ: nguyên thân kèm gốc, thân gần thẳng hơi cong, dưới là chùm rễ nhỏ, màu vàng và nâu đỏ.\"",
+        "Loose, not reworded: \"Lũa nhẹ, nổi 1–6 tuần tùy độ dày, ra màu vàng đến nâu hổ phách.\"",
+        "Loose, not reworded: \"Chưa thấy tiệm Việt Nam bán.\"",
+        "Loose, reworded and still loose: \"Lũa là gỗ hoặc rễ cây khô đã làm sạch, đặt vào bể làm cảnh, làm chỗ trốn cho cá, tép và chỗ buộc rêu, cây.\" → \"Lũa là gỗ hoặc rễ cây khô đã làm sạch, đặt vào bể làm cảnh và làm chỗ buộc rêu, cây.\" (loose, loose, loose)",
+        "Loose, reworded: \"Lũa mới hay nổi và có thể làm nước ngả vàng, nên phải chà và ngâm trước khi thả vào bể.\" → \"Lũa khô thường nổi cho tới khi ngấm nước và có thể làm nước ngả vàng, nên thường được chà và ngâm trước khi thả vào bể.\" (supported)",
+        "Loose, reworded: \"Tanin chỉ hạ pH chút ít, vì khả năng đệm của nước giữ pH lại.\" → \"Tanin có thể làm hạ pH, và độ cứng của nước giúp đệm lại thay đổi này.\" (supported)",
+        "Loose, reworded: \"Nó hợp bể cá đĩa, cá ông tiên.\" → \"Lũa đỗ quyên việt được dùng trong bể BioTop nhiều gỗ ít cây, nuôi cá như cá đĩa, cá ông tiên.\" (supported)",
+        "Loose, reworded: \"Tiệm bán khúc tự nhiên, không cắt ghép, đã luộc chín và cạo sạch vỏ, ghi là không ra màu.\" → \"Có khúc bán ra để tự nhiên, không cắt ghép, có khúc đã luộc chín và cạo sạch vỏ, và đều được ghi là không ra màu.\" (supported)",
+        "Loose, reworded: \"Lúc đầu nó có thể ra nhớt trắng và làm nước vàng.\" → \"Dạng miếng lúc đầu có thể ra nhớt trắng và làm nước vàng.\" (supported)",
+        "Loose, reworded: \"Có tiệm ở Việt Nam bán dưới tên gỗ lũa mopani.\" → \"Ở Việt Nam, mopani của Zoo Med được bán dưới tên \"Gỗ lũa cho bể cá Zoo Med Mopani\".\" (supported)"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-14T04:29:50Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 0.99,
+      "notes": [
+        "\"Các nguồn chỉ khác nhau ở chuyện luộc có giúp gỗ chìm hay không.\": the facts don't carry it (unsupported, unsupported, unsupported): sources also disagree on whether to boil at all and on killing pathogens / sources also differ on whether to boil at all",
+        "Rule 4: The opening of 'Các loại lũa' says \"Nhiều tiệm ghi lũa sa tùng, hải sơn quỳ, trà rừng hay xương chùm là \\\"không ra màu\\\", còn tạp chí cá cảnh thì nói gỗ nào cũng tiết tanin.\" Each of those kinds already has its own 'không ra màu' claim in its own item, and the magazine's point that all wood releases tannin is already made in the first paragraph (\"Tanin rỉ ra từ gỗ làm nước ngả vàng…\"). So…",
+        "Rule 4: Floating until the wood takes up water is said twice: once in \"Lũa khô nổi cho tới khi ngấm đủ nước, chuyện này bình thường.\" and again in step 6, \"Lũa còn nổi thì đè bằng đá… cho tới khi gỗ ngấm nước.\" It should be said once, in one place.",
+        "Rule 7: In the 'Lũa săn đá' item, what it is used for (\"đặt vào bố cục không cần cắt\") comes before how it colours the water (\"Lúc đầu nó có thể ra nhớt trắng và làm nước vàng.\"). The item should follow the set order: what it is, how it looks, whether it sinks and colours the water, what it is used for, then its other names.",
+        "The entry is 2033 words: hold it to about 1920, about 60 a kind, and leave what is left out to the pages that use the term.",
+        "An item is 104 words, at most about 60: \"Lũa đỗ quyên (spider wood): rễ cây đỗ quyên, nhiều…\". Keep what it is, how it looks, whether it sinks and colours the water and what it is for.",
+        "An item is 91 words, at most about 60: \"Luộc thì tùy, không bắt buộc. Nước sôi kéo tanin ở…\". Keep what it is, how it looks, whether it sinks and colours the water and what it is for."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-14T04:29:50Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 0.98,
+      "notes": [
+        "\"Nó hợp Apistogramma, Betta và tép, không hợp cichlid nước cứng.\": the facts don't carry it (unsupported, unsupported, unsupported): drops 'wild' qualifier on Betta",
+        "\"Luộc không làm gỗ chìm, lại làm nhánh mảnh mềm đi, đầu nhánh dễ gãy.\": the facts don't carry it (contradicts, contradicts, contradicts): Gensou/Thái Hoà say boiling speeds sinking / Gensou/Thái Hoà say boiling helps sinking / other sources say boiling helps/speeds sinking",
+        "\"Các nguồn khác nhau ở chỗ luộc có làm lũa mau mục hay không.\": the facts don't carry it (unsupported, unsupported, unsupported): no source says boiling doesn't hasten rot / no source says boiling doesn't speed decay / no source says boiling doesn't speed rot",
+        "Rules 4 and 12: \"Luộc không làm gỗ chìm, lại làm nhánh mảnh mềm đi, đầu nhánh dễ gãy.\" must come out. It states one side of the sinking question as plain fact, when sources differ only on whether boiling helps wood sink. It also gives softened, breaking branches as true of all wood, when only one shop says this, and only of spider wood.",
+        "Rules 4 and 12: \"Các nguồn khác nhau ở chỗ luộc có làm lũa mau mục hay không.\" must come out. Sources do not differ on rot: two keepers say boiling can make wood softer and quicker to rot, and no source says otherwise. Step 5 should say this instead.",
+        "Rule 12: the item \"Lũa đỗ quyên (spider wood)\" leaves out the one point about boiling this kind alone. A shop says boiling spider wood for 1–2 hours speeds sinking but can soften thin branches and break their tips. This belongs in the spider wood item, not in step 5.",
+        "Rules 4 and 12: \"Cách chắc nhất là ngâm thử trong xô, thấy nước hết ra màu rồi hãy cho vào bể.\" in the opening paragraph of the kinds must come out. It repeats the bucket soak in step 4 and the warning in \"Thả lũa khi mới tráng qua, khi gỗ còn ra màu hoặc còn mùi.\"",
+        "Rule 12: \"Lũa vân thép, lũa thép: cũng mòn tới lõi như săn đá\" uses the banned phrase \"cũng mòn tới lõi như săn đá\". It also merges two shops: one says \"vân thép – san đá\" is worn to the core, and another calls lũa thép (vân thép) a newer, rough, very hard wood like linh sam. Each name should get only what its own source says.",
+        "Rules 4 and 12: \"Manzanita: gỗ một loại cây bụi Bắc Mỹ, nhạt màu, nhẹ, nhiều nhánh nhỏ. Nó không tự chìm, phải đè và ngâm 3–4 tuần.\" takes TFH's side (pale, light, does not sink) as plain fact. It leaves out that Gensou calls it dense and hard, reddish-brown, and quicker to sink than spider wood. The item should say once that the sources differ, then give what to do: soak it weighted for 3–4 week…",
+        "Rule 4: \"Gỗ nho cũng nên tránh, vì nó mục rất nhanh khi ngập nước, kéo theo vi khuẩn, tảo và nấm.\" puts a remark about which wood rots into the mistakes list. Rot is already covered in the paragraph that starts \"Không có cách nào đoán chắc một khúc lũa bền bao lâu.\" Rot should be said once, in one place."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-13T21:32:32Z",
       "model": "sonnet",
       "cli": "2.1.323",
@@ -61,59 +118,6 @@
         "\"Thả lũa vào một hôm không thay nước\" is a rephrasing of the fact that adding wood together with a water change hides the cause. It is acceptable.",
         "\"Ngâm ngập lũa trong xô lớn ít nhất 1–2 tuần, có khi tới vài tháng\" combines sources 23 and 28 (1 to 6 months). It is acceptable.",
         "\"Manzanita ... nhiều nhánh nhỏ\" and \"Mopani ... hay có hốc\": 'nhiều nhánh nhỏ' for manzanita is not stated. TFH says 'twiggy', so this is roughly supported. \"Mopani ... Ngoài nâu nhạt\" matches the 'tan outside' fact."
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-13T21:31:53Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.323",
-      "score": 0.72,
-      "notes": [
-        "\"Tép red cherry, Tép Amano, Ốc mystery, Otocinclus và Cá lau kiếng bristlenose đều ăn lớp này\" — fine, but \"Cá lau kiếng\" naming OK; not an issue.",
-        "\"Gỗ nho cũng nên tránh\" — the facts say grapevine decomposes quickly (TFH); acceptable, but \"Gỗ nho\" is a translation not in Vietnamese sources.",
-        "\"Lũa đỗ quyên... Thường dùng nguyên khúc cho bể nuôi Cá đĩa, Cá ông tiên\" — the facts attribute the discus/angelfish BioTop use to unpeeled pieces; the whole-piece use is for a larger tank, so the two are merged.",
-        "\"Lũa linh sam... Lũa chìm gần như ngay, không cần đè đá\" — only one shop says it sinks without stones; another says it sinks easily, so this is generalised.",
-        "\"Lũa sa tùng: gỗ sa tùng dạng nhánh... Tiệm bán khúc tự nhiên... đã luộc chín và cạo sạch vỏ\" — merges different shops' product descriptions into one generalisation.",
-        "\"Mopani... Ngoài nâu vàng nhạt\" — the facts say tan outside; \"nâu vàng nhạt\" is an embellishment. \"Có tiệm ở Việt Nam bán\" is supported.",
-        "\"Lũa săn đá... Khối gỗ rỗng\" and the claim that it releases white slime/yellow water come from one shop for San Đá Miếng; applied to the whole type.",
-        "\"Lũa vân thép, lũa thép: cũng mòn tới lõi như săn đá\" — the facts say vân thép–san đá is worn to the core, but lũa thép is described only as a newer, rough, very hard wood similar to linh sam, so merging the two is not supported.",
-        "\"Tép trốn trong đó lúc lột xác, tép con ăn màng bám\" is supported. \"Gỗ đã xử lý nhưng giữ vỏ\" is supported. However, \"Lũa hải sơn tùng giữ dáng và vân tự nhiên\" is only loosely supported.",
-        "\"Xếp lại lũa khi bể đã chạy dễ làm xáo trộn bể\" — supported only loosely, as the fact says rearranging can stress the tank."
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-13T21:10:44Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.323",
-      "score": 0.95,
-      "notes": [
-        "Rules 4 and 12: \"Lũa trà gừng: một tiệm ghi loại này nhiều nhánh, ghép lại với nhau thành bố cục\" is its own item, apart from \"Lũa trà rừng\". KINDS treat trà rừng and trà gừng as one kind written two ways, so the wood is described in two places. Merge them into one item and give each name as that shop's own page writes it.",
-        "Rule 4: \"Lũa xương trùm: một tiệm ghi loại này tạo được dáng tán cây, hang hoặc đồi nhỏ\" is its own item, apart from \"Lũa xương chùm\". It is the same crown wood, spelled differently by one shop, so it should go in the xương chùm item and not be listed as a separate kind.",
-        "Rule 4: In the Manzanita item, \"Các nguồn tả khác nhau: tạp chí cá cảnh ghi nó nhạt màu, nhẹ, không tự chìm, còn một tiệm ghi gỗ đặc, cứng, dễ chìm hơn lũa đỗ quyên\" says the sources disagree but not what the keeper can do about it. The FACTS give an action: soak it weighted down for three to four weeks.",
-        "Rule 5: The Malaysian driftwood item uses only \"Malaysian driftwood\" and says \"Chưa thấy tiệm Việt Nam bán dưới tên tiếng Việt\". It leaves out the name KINDS gives for it, \"lũa Malaysia\"."
-      ],
-      "attempt": "rewrite",
-      "kept": false,
-      "draft": "4e6643d033d9de9fc05f4290043afb1645c372ae467d724d7c6f6b849436be81"
-    },
-    {
-      "at": "2026-11-13T21:10:44Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.323",
-      "score": 0.92,
-      "notes": [
-        "\"Lũa cho bể dáng một khúc suối hay góc rừng\" is a mild generality that the facts don't state.",
-        "\"Lũa nhọ nồi ... dán vách\" is a loose rendering of \"wall mounting\".",
-        "Rule 11: In the rot paragraph, \"Gỗ nho cũng nên tránh, vì nó mục rất nhanh khi ngập nước, kéo theo vi khuẩn, rêu và nấm\" uses \"rêu\" (moss) for the algae that grapevine wood brings on. The TERMS call algae \"tảo\", so it should read \"vi khuẩn, tảo và nấm\".",
-        "Rule 7: The lũa linh sam item opens with what it is used for: \"loại hay dùng nhất để set bố cục\". Only then does it describe the wood (\"Gỗ nâu, vân như sóng, dáng từ thẳng tới cong queo, đủ cỡ\"), then the sinking and colour. The order should be: what it is, how it looks, whether it sinks and colours the water, then what it is used for.",
-        "The entry is 1911 words: hold it to about 1500, about 60 a kind, and leave what is left out to the pages that use the term."
       ],
       "attempt": "rewrite",
       "kept": false

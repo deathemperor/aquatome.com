@@ -8,7 +8,8 @@
   "places": [
     "asia",
     "indonesia",
-    "kalimantan-barat"
+    "kalimantan-barat",
+    "kapuas"
   ],
   "range": {
     "native": {
@@ -67,51 +68,47 @@
   "dataCard": {
     "tempC": [
       {
-        "source": "bwaquatics",
-        "value": {
-          "min": 24,
-          "max": 28
-        }
-      },
-      {
         "source": "seriouslyfish",
         "value": {
           "min": 22,
           "max": 27
         }
-      }
-    ],
-    "ph": [
+      },
       {
         "source": "bwaquatics",
         "value": {
-          "min": 5,
-          "max": 6.5
+          "min": 24,
+          "max": 28
         }
-      },
+      }
+    ],
+    "ph": [
       {
         "source": "seriouslyfish",
         "value": {
           "min": 3,
           "max": 6
         }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 4,
+          "max": 6
+        }
       }
     ],
     "sizeCm": [
       {
-        "source": "bwaquatics",
-        "value": 3.8
-      },
-      {
         "source": "seriouslyfish",
         "value": 3.5
+      },
+      {
+        "source": "bwaquatics",
+        "value": 3.6
       }
     ],
     "difficulty": [
-      {
-        "source": "bwaquatics",
-        "value": 5
-      },
       {
         "source": "seriouslyfish",
         "value": 4
@@ -138,7 +135,7 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-rutilans-green",
-      "html": "<ul><li>From the Betta coccina complex.</li><li>IUCN Red List: Critically Endangered (an extremely high risk of extinction in the wild).</li><li>Sold as wild-caught Betta rutilans Green.</li><li>Max size: 1.2-1.5 inches.</li><li>TDS: 60-100.</li><li>pH: 5.0-6.5.</li><li>Temperature: 75-82°F.</li></ul>"
+      "html": "<p>Betta rutilans is a small species of the Betta coccina complex. The name means \"reddish\". IUCN Red List: Critically Endangered. Origin: wild caught (West Kalimantan).</p><p>This group was ordered as rutilans \"Green\": body shape and colour match the regular red form, but some fish show a hint of green on the body and fins. Others show no green but may still carry it.</p><ul><li><strong>Body shape:</strong> small and slender.</li><li><strong>Fins:</strong> longer dorsal-fin base than most coccina species, and white tips on the pelvic fin filaments.</li><li><strong>Scaling:</strong> small, even scales. On many fish the scale tips carry small iridescent green points, most visible along the flank.</li><li><strong>Colouration:</strong> burgundy red with no mid-lateral spot. In this group some fish show green on the body and fins.</li></ul>"
     },
     {
       "key": "quickFacts",
@@ -153,16 +150,34 @@
       "html": "<p>The species has been collected from localities connected with the rivers Mempawah and Kepayang close to the town of Anjungan in Kalimantan Barat (West Kalimantan) province, Borneo, Indonesia.</p><p>Type locality is 'Sungei Kepayang, 7 kilometers southeast of Anjungan on road to Pontianak, 0°20'N, 109°08'E, Kalimantan Barat, Borneo'.</p>"
     },
     {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-rutilans-green",
+      "html": "<p>Betta rutilans is found in the Kapuas basin in West Kalimantan, Borneo.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-rutilans",
       "html": "<p>A stenotypic inhabitant of peat swamp forests and associated black water streams.</p><p>The dense canopy of branches above means very little light penetrates the surface of such environments, and riparian vegetation also tends to grow thickly.</p><p>The water is typically stained darkly with humic acids and other chemicals released by decaying organic material.</p><p>The dissolved mineral content is generally negligible and pH can be as low as 3.0 or 4.0.</p><p>The substrate is usually covered by fallen leaves, branches and submerged tree roots and at certain times of year the fish may be forced to survive within the moist leaf litter for several weeks as permanent water is not always available.</p>"
     },
     {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-rutilans-green",
+      "html": "<p>Peat swamp pools and blackwater streams in the Kapuas drainage.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-rutilans",
       "html": "<p>An aquarium with base measurements of 45 × 30 cm (18 × 12 in) should be the minimum considered. Volume is about 41 litres.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-rutilans-green",
+      "html": "<p>Recommended 1 pair per 20 litres.</p>"
     },
     {
       "key": "maintenance",
@@ -177,10 +192,16 @@
       "html": "<ul><li>Temperature: 22–27°C (72–81°F)</li><li>pH: 3.0–6.0</li><li>Hardness: 1–5 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-rutilans-green",
+      "html": "<ul><li>TDS: 60 to 100</li><li>pH: 4.0 to 6.0</li><li>Temperature: 24 to 28°C</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-rutilans-green",
-      "html": "<p>Carnivorous. They are currently fed live blackworms, frozen bloodworms and pellets.</p>"
+      "html": "<p>Carnivorous. Fed live blackworms, frozen bloodworms and pellets.</p>"
     },
     {
       "key": "diet",
@@ -192,7 +213,7 @@
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-rutilans-green",
-      "html": "<p>Moderately aggressive; males can be territorial when establishing breeding grounds. However, because of their small size, you can keep multiple pairs as long as you have enough space. Recommended 1 pair per 5 gallons.</p>"
+      "html": "<p>Moderately aggressive. Males can be territorial when setting up a breeding site, but because of their small size multiple pairs can be kept with enough space and cover.</p>"
     },
     {
       "key": "behaviour",
@@ -210,7 +231,7 @@
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-rutilans-green",
-      "html": "<p>Bubblenester.</p>"
+      "html": "<p>Bubble nester. The male builds a small bubble nest at the surface, usually under a floating leaf, inside a floating cave or among plants, and places the eggs in it after spawning. Pairs can often stay together in a well-planted tank; remove the female if the male keeps chasing her. Eggs hatch in 24 to 48 hours, and the fry are free-swimming about 3 days later. Start them on infusoria, then move to baby brine shrimp. Keep the surface calm so the nest stays intact.</p>"
     },
     {
       "key": "reproduction",
@@ -297,7 +318,32 @@
       }
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "WPgsBwfCMmw",
+      "title": "Wild Betta rutilans nest",
+      "durationSec": 219,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "I8pBH43t-sk",
+      "title": "Wild Betta rutilans breeding setup",
+      "durationSec": 405,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "XkkwEUXGMvg",
+      "title": "Betta rutilans \"Green\"",
+      "durationSec": 66,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "SKNFqlKdRLo",
+      "title": "Betta rutilans Blackwater tank",
+      "durationSec": 85,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -321,5 +367,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-14"
 }

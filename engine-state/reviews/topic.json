@@ -566,6 +566,44 @@
       ]
     }
   ],
+  "id/guides/aquatome-cham-soc-ca-canh-mua-he-va-mua-dong-mua-mua": [
+    {
+      "at": "2026-11-14T05:14:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [
+        "\"rutin cek suhu, amonia, nitrit, dan pH sampai kondisi stabil\" is a general monitoring routine the facts don't give. They only say to test ammonia, nitrite and pH after an outage and to watch the fish for a few weeks."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.9,
+        0.93,
+        0.93
+      ]
+    },
+    {
+      "at": "2026-11-14T05:14:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.86,
+      "notes": [
+        "\"bahaya terbesar bagi ikan biasanya kekurangan oksigen dan perubahan suhu yang mendadak\" is a broad generalisation. The facts do not rank dangers this way.",
+        "\"Sumbernya agak berbeda\" frames the maker and university heat figures as disagreeing. The facts do not say they conflict.",
+        "\"misalnya dari air tambahan yang belum diberi penetral klorin\" is an invented example of a chlorine source. The facts give none."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.86,
+        0.88,
+        0.86
+      ]
+    }
+  ],
   "id/guides/aquatome-cho-ca-an-khi-vang-nha-di-xa-va-dip-tet": [
     {
       "at": "2026-11-08T08:50:23Z",
@@ -657,6 +695,36 @@
         0.95,
         0.9,
         0.72
+      ]
+    }
+  ],
+  "id/guides/aquatome-giu-be-ca-mat-trong-mua-nong": [
+    {
+      "at": "2026-11-14T05:16:39Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-14T05:16:39Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "\"Ini tanda oksigen sudah menipis\" is applied to fish gathering near the filter output. The facts list hanging near filter outlets as a sign of overheating, not specifically of low oxygen.",
+        "\"misalnya saat listrik padam\" is an added example. The facts only say a battery-backup air pump keeps aeration running."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.88,
+        0.88,
+        0.88
       ]
     }
   ],

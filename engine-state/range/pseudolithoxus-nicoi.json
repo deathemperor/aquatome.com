@@ -1,16 +1,44 @@
 {
   "id": "pseudolithoxus-nicoi",
   "native": {
-    "input": "cbdaebc792a0f3c1",
-    "at": "2026-11-13T11:20:11.221Z",
-    "claims": [],
-    "regions": [],
+    "input": "285dc2d6a6556dbe",
+    "at": "2026-11-14T05:39:06.336Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Negro River basin, including Canal Casiquiare basin in Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Negro",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Negro River basin, including Canal Casiquiare basin in Venezuela.",
+        "ok": true
+      },
+      {
+        "name": "Canal Casiquiare",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Negro River basin, including Canal Casiquiare basin in Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Río Siapa",
+        "source": "planetcatfish",
+        "quote": "Type locality: Río Manipitare (Río Siapa drainage), from about 5-8 kilometers upstream from confluence with Río Siapa, Depto Río Negro, Estado Amazonas, Venezuela.",
+        "country": "VE",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [
-        "VE"
-      ],
+      "pagesOnly": [],
       "sourcesOnly": []
     }
   },
@@ -36,8 +64,10 @@
         1
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-13T11:20:11.221Z"
+    "native": [
+      "VE"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T05:39:06.336Z"
   }
 }

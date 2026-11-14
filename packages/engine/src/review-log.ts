@@ -45,6 +45,8 @@ export const REVIEW_KINDS = [
   'planting',
   /** A species page AquaTome writes from research, against it (species-research.ts); part: a video's id, for what that video added to the page (species-videos.ts). */
   'species',
+  /** A hobby material's page (lũa, đá, nền), against its research (materials.ts). */
+  'material',
 ] as const
 export type ReviewKind = (typeof REVIEW_KINDS)[number]
 /** The kinds that review a page's own text (not its title, summary or review section): what a rewrite of the text starts from. */

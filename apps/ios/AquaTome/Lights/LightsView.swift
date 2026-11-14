@@ -14,11 +14,17 @@ struct LightsView: View {
     // At the largest text sizes a bar pinned to the bottom would leave little of the screen: the write bar goes after the
     // colour instead, where the site's sits on a wide screen.
     let pinned = !size.isAccessibilitySize
-    NavigationStack {
+    @Bindable var weekAqua = lights.weekAqua
+    NavigationStack(path: $weekAqua.path) {
       ScrollView {
         VStack(alignment: .leading, spacing: 24) {
+          // Week Aqua lights on the first screen too: under the Chihiros card, and first once one is kept on a tank
+          // (it is from its first connection), for someone with only Week Aqua lights.
+          let weekAquaFirst = weekAqua.isConnected || !weekAqua.savedGroups.isEmpty
+          if weekAquaFirst { WeekAquaEntry().modifier(Panel()) }
           LoveEcologyCard()
           LightCard()
+          if !weekAquaFirst { WeekAquaEntry().modifier(Panel()) }
           ScheduleSection()
           ColourSection().modifier(Panel())
           if !pinned { WriteBar(pinned: false) }
@@ -32,10 +38,12 @@ struct LightsView: View {
         }
         .padding()
       }
+      .scrollDisabled(lights.draggingHandle)
       .background(Color(.systemGroupedBackground))
       .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
-      .navigationTitle("Đèn Chihiros")
+      .navigationTitle("Đèn")
       .profileButton()
+      .navigationDestination(for: WeekAquaModel.Screen.self) { _ in WeekAquaView() }
       // What just happened, and writing what is set, stay in view wherever the screen is scrolled (the site's write bar
       // is fixed to the bottom on a phone too).
       .safeAreaInset(edge: .bottom) { VStack(spacing: 0) { NoticeBar(); if pinned { WriteBar(pinned: true) } } }
@@ -53,8 +61,19 @@ struct LightsView: View {
   }
 }
 
+/// Words on a prominent button's mint. iOS draws them white, about 1.6:1 on the dark look's mint: there they take the dark
+/// ink the fish page's "Hỏi về …" button has (AskEntry). A disabled button keeps iOS's own grey words.
+struct InkOnMint: ViewModifier {
+  @Environment(\.colorScheme) private var scheme
+  @Environment(\.isEnabled) private var enabled
+
+  func body(content: Content) -> some View {
+    if scheme == .dark, enabled { content.foregroundStyle(Color(red: 0, green: 0x24 / 255, blue: 0x1B / 255)) } else { content }
+  }
+}
+
 /// A block of the screen on its own background, like a grouped list's section.
-private struct Panel: ViewModifier {
+struct Panel: ViewModifier {
   func body(content: Content) -> some View {
     content
       .padding()
@@ -171,11 +190,14 @@ private struct IdleCard: View {
 
 private struct SavedLightRow: View {
   @Environment(LightsModel.self) private var lights
+  @Environment(\.dynamicTypeSize) private var size
   let device: Device
 
   var body: some View {
     let again = lights.isLost && lights.device?.id == device.id
-    HStack(alignment: .center) {
+    // At the accessibility text sizes the button goes under the lines, which keep the row's width.
+    let layout = size.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: 8)) : AnyLayout(HStackLayout(alignment: .center))
+    layout {
       VStack(alignment: .leading, spacing: 2) {
         Text(LightsModel.title(device)).font(.headline).accessibilityIdentifier("saved-name")
         Text(verbatim: meta).font(.caption).foregroundStyle(.secondary).accessibilityIdentifier("saved-meta")
@@ -185,7 +207,7 @@ private struct SavedLightRow: View {
           .accessibilityLabel(Text("Quên đèn này") + Text(verbatim: ": \(LightsModel.title(device))"))
           .accessibilityIdentifier("forget")
       }
-      Spacer()
+      if !size.isAccessibilitySize { Spacer() }
       Button {
         Task { await lights.connect(saved: device) }
       } label: {
@@ -490,7 +512,7 @@ private struct WriteBar: View {
         Button {
           if lights.writeNeedsConfirming { confirming = true } else { Task { await lights.writeSchedule() } }
         } label: {
-          words
+          words.modifier(InkOnMint())
         }
         .buttonStyle(.borderedProminent)
         .controlSize(.large)

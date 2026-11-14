@@ -44,6 +44,19 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     /// The page: "/id/ikan/<slug>/".
     public let path: String
     public let img: String?
+    /// Where the fish is in `img` (PhotoBox): its card's frame keeps it by it. Packed in 8 bytes (`box`): every item is
+    /// copied as a list scrolls.
+    public var imgBox: PhotoBox? { PhotoBox(packed: box) }
+    /// Its scientific name as a list's second line: none where its name holds it already.
+    public var subUnderName: String? { Self.line(under: name, sub) }
+
+    /// `sub` under `name`, unless `name` holds it: "Cá bám đá Schistura spilota" over "Schistura spilota" said it twice
+    /// (the owner's report of 14 Nov, Khám phá's loach list).
+    public static func line(under name: String, _ sub: String?) -> String? {
+      guard let sub, !sub.isEmpty else { return nil }
+      return name.range(of: sub, options: [.caseInsensitive, .diacriticInsensitive]) == nil ? sub : nil
+    }
+    private let box: UInt64
     /// A fish's figures and behaviour (none for other kinds, nor for a fish the site has none for).
     public let facts: Facts
     /// A guide's subject, as the site's guide list groups them: "setup", "care", "plantCare", "aquascaping",
@@ -83,14 +96,14 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     /// Of `kind`, as a search narrowed to it or a list of it takes it: a video guide is a guide, and a video too.
     public func `is`(_ kind: Kind) -> Bool { self.kind == kind || (kind == .video && video != nil) }
 
-    enum CodingKeys: String, CodingKey { case kind, contentId = "id", name, sub, aka, path, img, section, about, group, plant, video, parts, words, tax, from, of, card, short }
+    enum CodingKeys: String, CodingKey { case kind, contentId = "id", name, sub, aka, path, img, imgBox, section, about, group, plant, video, parts, words, tax, from, of, card, short }
 
     public init(kind: Kind, contentId: String? = nil, name: String, sub: String? = nil, aka: [String]? = nil, path: String, img: String? = nil,
-                facts: Facts = Facts(), section: String? = nil, about: [String] = [], group: String? = nil, plant: Plant? = nil,
+                imgBox: PhotoBox? = nil, facts: Facts = Facts(), section: String? = nil, about: [String] = [], group: String? = nil, plant: Plant? = nil,
                 video: Int? = nil, parts: Int? = nil, words: [String] = [], tax: [String]? = nil, from: [String] = [],
                 of: String? = nil, card: Facts? = nil, short: String? = nil) {
       self.kind = kind; self.contentId = contentId; self.name = name; self.sub = sub; self.aka = aka; self.path = path; self.img = img
-      self.facts = facts; self.section = section; self.about = about; self.group = group; self.plant = plant
+      box = PhotoBox.pack(imgBox); self.facts = facts; self.section = section; self.about = about; self.group = group; self.plant = plant
       self.video = video; self.parts = parts; self.words = words; self.tax = tax; self.from = from
       self.rare = Rare(of: of, card: card, short: short)
     }
@@ -104,6 +117,7 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
       aka = try c.decodeIfPresent([String].self, forKey: .aka)
       path = try c.decode(String.self, forKey: .path)
       img = try c.decodeIfPresent(String.self, forKey: .img)
+      box = PhotoBox.pack((try? c.decodeIfPresent(PhotoBox.self, forKey: .imgBox)) ?? nil)
       facts = try Facts(from: decoder)
       // Read leniently, as the facts are: a value this app can't read is left out, never the item.
       section = (try? c.decodeIfPresent(String.self, forKey: .section)) ?? nil
@@ -130,6 +144,7 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
       try c.encodeIfPresent(aka, forKey: .aka)
       try c.encode(path, forKey: .path)
       try c.encodeIfPresent(img, forKey: .img)
+      try c.encodeIfPresent(imgBox, forKey: .imgBox)
       try c.encodeIfPresent(section, forKey: .section)
       if !about.isEmpty { try c.encode(about, forKey: .about) }
       try c.encodeIfPresent(group, forKey: .group)
@@ -193,7 +208,16 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     public struct Group: Codable, Sendable, Hashable {
       public let id: String
       public let img: String?
-      public init(id: String, img: String? = nil) { self.id = id; self.img = img }
+      /// Where the fish is in `img`.
+      public let imgBox: PhotoBox?
+      public init(id: String, img: String? = nil, imgBox: PhotoBox? = nil) { self.id = id; self.img = img; self.imgBox = imgBox }
+      enum CodingKeys: String, CodingKey { case id, img, imgBox }
+      public init(from decoder: any Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        id = try c.decode(String.self, forKey: .id)
+        img = (try? c.decodeIfPresent(String.self, forKey: .img)) ?? nil
+        imgBox = ((try? c.decodeIfPresent(PhotoBox.self, forKey: .imgBox)) ?? nil)?.valid
+      }
     }
 
     /// A day of the editors' calendar, from yesterday on (`apps/site/src/lib/curation.ts`): its fish and the fish card's
@@ -204,18 +228,21 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
       public struct Story: Codable, Sendable, Equatable {
         public let path: String
         public var img: String?
+        /// Where the fish is in `img`.
+        public var imgBox: PhotoBox?
         public var eyebrow: String?
         public var title: String?
         public var dek: String?
         public init(path: String, img: String? = nil, eyebrow: String? = nil, title: String? = nil, dek: String? = nil) {
           self.path = path; self.img = img; self.eyebrow = eyebrow; self.title = title; self.dek = dek
         }
-        enum CodingKeys: String, CodingKey { case path, img, eyebrow, title, dek }
+        enum CodingKeys: String, CodingKey { case path, img, imgBox, eyebrow, title, dek }
         public init(from decoder: any Decoder) throws {
           let c = try decoder.container(keyedBy: CodingKeys.self)
           func read(_ k: CodingKeys) -> String? { (try? c.decodeIfPresent(String.self, forKey: k)) ?? nil }
           path = try c.decode(String.self, forKey: .path)
           img = read(.img); eyebrow = read(.eyebrow); title = read(.title); dek = read(.dek)
+          imgBox = ((try? c.decodeIfPresent(PhotoBox.self, forKey: .imgBox)) ?? nil)?.valid
         }
       }
       /// "2026-11-13", the reader's own date (`key(_:)`).
@@ -223,22 +250,27 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
       public var fish: String?
       /// The fish card's photo, big enough for it: the card shows this one, or none.
       public var img: String?
+      /// Where the fish is in `img`.
+      public var imgBox: PhotoBox?
       public var guide: String?
       /// The guide card's photo, likewise.
       public var guideImg: String?
+      /// Where the fish is in `guideImg`.
+      public var guideImgBox: PhotoBox?
       public var story: Story?
 
       public init(date: String, fish: String? = nil, img: String? = nil, guide: String? = nil, guideImg: String? = nil, story: Story? = nil) {
         self.date = date; self.fish = fish; self.img = img; self.guide = guide; self.guideImg = guideImg; self.story = story
       }
 
-      enum CodingKeys: String, CodingKey { case date, fish, img, guide, guideImg, story }
+      enum CodingKeys: String, CodingKey { case date, fish, img, imgBox, guide, guideImg, guideImgBox, story }
 
       public init(from decoder: any Decoder) throws {
         let c = try decoder.container(keyedBy: CodingKeys.self)
         func read<T: Decodable>(_ k: CodingKeys) -> T? { (try? c.decodeIfPresent(T.self, forKey: k)) ?? nil }
         date = try c.decode(String.self, forKey: .date)
         fish = read(.fish); img = read(.img); guide = read(.guide); guideImg = read(.guideImg); story = read(.story)
+        imgBox = (read(.imgBox) as PhotoBox?)?.valid; guideImgBox = (read(.guideImgBox) as PhotoBox?)?.valid
       }
 
       /// A date as the calendar names it, on the reader's clock: always the Gregorian year, as a Thai phone's own

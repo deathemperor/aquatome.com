@@ -1,0 +1,133 @@
+{
+  "id": "pseudecheneis-sulcata",
+  "native": {
+    "input": "42393ff89dc82aa0",
+    "at": "2026-11-14T05:39:06.336Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Khasi Hills, Meghalaya, India",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: India, Nepal and Bangladesh. Reported from Tibet and Myanmar.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: India, Nepal and Bangladesh. Reported from Tibet and Myanmar.",
+        "words": "Nepal",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: India, Nepal and Bangladesh. Reported from Tibet and Myanmar.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: India, Nepal and Bangladesh. Reported from Tibet and Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Khasi Hills",
+        "source": "planetcatfish",
+        "quote": "Type locality: Khasi Hills, Meghalaya, India",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CN"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudecheneis sulcata",
+    "status": "ACCEPTED",
+    "taxonKey": 2341456,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        19
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        11
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        5
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "2a79f202-3f3a-4d54-88fa-09aa8de1ac73",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "9e4bbe9b-2885-4ff1-ae8e-c8442883bb50",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        1
+      ],
+      [
+        "f25ff0d4-4718-457b-a6ef-6606d30420e1",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "NP",
+      "BD",
+      "MM"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T05:39:06.336Z"
+  }
+}

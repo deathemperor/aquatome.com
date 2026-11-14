@@ -42,8 +42,20 @@ test("this Mac's own runner waits too, GitHub's runners never", () => {
   expect(cool([0x41f], 10, { GITHUB_ACTIONS: 'true', RUNNER_ENVIRONMENT: 'github-hosted' })).toEqual({ out: 'done\n', calls: 0 })
 })
 
-test('every engine and video run waits for a cooler Mac right after its start from main, before its work', () => {
-  for (const f of ['engine-cycle.sh', 'video-cycle.sh', 'video-recheck.sh']) {
+// The chief of staff, 14 Nov: an engine run publishes its kept and held work and writes first, as those are a build and
+// tests already due, and model calls and fetches; it waits for a cooler Mac before the Mac's own work on photos, the gate
+// and the checks. On 13 Nov the 18:10 run sat in the wait until 20:16 before it did anything.
+test('an engine run publishes kept work and writes before it waits for a cooler Mac, and waits before its photo work, gate and checks', () => {
+  const s = script('engine-cycle.sh')
+  const at = s.search(/^cool$/m)
+  expect(s.match(/^cool$/gm)).toHaveLength(1)
+  expect(at).toBeGreaterThan(s.indexOf('\npublish_kept '))
+  for (const writing of ['pnpm engine run --max-minutes', 'pnpm engine run --sources seriouslyfish', 'pnpm engine summaries', 'pnpm engine tropica-photos']) expect(at, writing).toBeGreaterThan(s.indexOf(writing))
+  for (const own of ['pnpm engine faces', 'pnpm engine photo-boxes', 'pnpm engine thumbs', 'gate_or_keep "content', 'if ! verify_cycle']) expect(at, own).toBeLessThan(s.indexOf(own))
+})
+
+test('every video run waits for a cooler Mac right after its start from main, before its work', () => {
+  for (const f of ['video-cycle.sh', 'video-recheck.sh']) {
     const s = script(f)
     const at = s.search(/^cool$/m)
     expect(at, f).toBeGreaterThan(s.indexOf('from_main "$@"'))

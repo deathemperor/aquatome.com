@@ -14,6 +14,11 @@ and the rules every change follows) before changing the site. Commands and layou
 - A test's own scratch files go in the system temp folder, which every machine has. `~/.cache/aquatome` is for work worth
   keeping (the rule under "This Mac" about `/tmp` is about that work, not about tests). On 2026-11-11 five tests made their
   temp folders under a `~/.cache/aquatome` folder that existed only on this Mac, passed here and would have failed on GitHub.
+- A change to the engine's cycle scripts (`scripts/engine-*.sh`, `scripts/cycle-*.sh`, `scripts/checks.sh`) or their tests
+  (`packages/engine/test/cycle-*`, `test-time-scale`, `start-clean`) runs those tests on this Mac the way a live second try
+  runs them, through the checks queue (`AQ_TEST_TIME_SCALE=6 VITEST_MAX_WORKERS=2 pnpm_config_workspace_concurrency=1`),
+  and its PR body says the command, the load it ran at and the result. GitHub's pass doesn't stand in for it: on 13 Nov
+  GitHub passed a change whose tests then failed in every Mac run that evening, on settings only a live run has.
 
 ## This Mac
 
@@ -34,6 +39,9 @@ Leads, the engine and main's iOS runs share one Mac. A booted simulator is the h
 - At most 3 simulators up at once, 2 while heat has taken cores away: a session's `device_open` or `simctl boot` past that is
   refused, and told who is up. `scripts/mac-status.py` says the load, the heat, who is up and whether it's quiet enough to
   record.
+- Free space has a floor. Under 30 GB the hourly sweep tells the chief of staff once a day, and `scripts/mac-status.py`
+  says where the disk is (`--where` says it any time). Under 20 GB, what an upload needs, no new simulator starts, and
+  `scripts/mac-status.py --space` exits 3 for any job that asks before it starts.
 - A screen recording runs as `scripts/quiet-recording.py [minutes] <command>`, which holds both queues' turns so nothing of
   ours tests beside it, and gives them back unrecorded if the Mac stays too loaded. Between 08:00 and 22:00 it needs the chief
   of staff's word first: it can hold the simulator idle for 15 minutes and both queues for 20. `scripts/frames-check.py <video>

@@ -6,6 +6,7 @@ import { join } from 'node:path'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { contactSheet } from './video-images'
+import { holdForSecondLook, lastPhotos, looks, pagesShowing, readSecondLook } from './last-photo'
 
 /**
  * No dead fish on a page, for what the photo check hasn't asked about (photo-check.ts asks since 2026-11-05): each species
@@ -72,7 +73,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   for (const [u, v] of Object.entries(legacy)) if ('logo' in v) asked.add(u)
   const subjects = (await readJson<Record<string, Record<string, { logo?: boolean }>>>(state('_photo-subjects.json'))) ?? {}
   for (const [u, by] of Object.entries(subjects)) if (Object.values(by).some(v => 'logo' in v)) asked.add(u)
-  const report = { sheets: 0, judged: 0, dead: [] as string[], failed: [] as string[], left: 0, stopped: '' }
+  const report = { sheets: 0, judged: 0, dead: [] as string[], held: [] as string[], failed: [] as string[], left: 0, stopped: '' }
 
   // Videos first (the owner's find), then main photos; each picture once, with every page that shows it.
   const videos = new Map<string, Item>()
@@ -138,9 +139,19 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     await rm(dir, { recursive: true, force: true })
   }
 
-  // Off the lists and off the pages that show them.
+  // Off the lists and off the pages that show them. A photo whose going would leave a page with nothing stays, held for
+  // a second look (last-photo.ts); one the second look cleared stays too.
+  const sl = looks(await readSecondLook(root))
+  const going = new Set(off.filter(x => !x.video && sl.open(x.url)).map(x => x.url))
+  // Photos already listed never-again leave every page anyway (the sweep), so they count as going.
+  const held = going.size ? new Map([...lastPhotos(await pagesShowing(content), u => going.has(u) || u in photoRejected)].filter(([u]) => going.has(u))) : new Map<string, string[]>()
+  const holding = new Map<string, { why: string; pages: string[] }>()
   for (const it of off) {
     const why = `dead: ${cache[it.key]!.note} (the dead-fish screen)`
+    if (!it.video && (!going.has(it.url) || held.has(it.url))) {
+      if (held.has(it.url)) { holding.set(it.url, { why, pages: held.get(it.url)! }); report.held.push(`${it.key}: ${held.get(it.url)!.join(', ')}`) }
+      continue
+    }
     report.dead.push(`${it.key}: ${cache[it.key]!.note}`)
     if (it.video) videoRejected[it.video] ??= why
     else photoRejected[it.url] ??= why
@@ -151,9 +162,10 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
       await writeFile(file, `${JSON.stringify(next, null, indentOf(raw))}\n`)
     }
   }
+  await holdForSecondLook(root, holding, 'the dead-fish screen')
   const save = (f: string, data: object) => writePhotoState(state(f), data)
   if (report.judged) await save('_dead-screen.json', cache)
   if (off.some(x => x.video)) await save('_video-rejected.json', videoRejected)
-  if (off.some(x => !x.video)) await save('_photo-rejected.json', photoRejected)
+  if (off.some(x => !x.video && going.has(x.url) && !held.has(x.url))) await save('_photo-rejected.json', photoRejected)
   return report
 }

@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import { gbifMatch, type Taxon } from '../src/gbif'
+import { gbifMatch, pageGroup, type Taxon } from '../src/gbif'
 
 const fx = (n: string) => JSON.parse(readFileSync(new URL(`./fixtures/gbif/${n}.json`, import.meta.url), 'utf8'))
 
@@ -178,4 +178,17 @@ test('a name a person found GBIF files under another animal is asked the right w
   const searched = asked.filter(u => u.includes('/species/search'))
   expect(searched.length).toBeGreaterThan(1)
   for (const u of searched) expect(u).toContain('q=Liobagrus%20chengduensis&')
+})
+
+// 14 Nov 2026: a model filed a new spiny eel (Synbranchiformes) with the loaches, and the pages run's checks held its work.
+test("a page's group as its order allows: kept where it fits, the order's one group where it has one, else other", () => {
+  expect(pageGroup('loaches', 'Cypriniformes')).toBe('loaches')
+  expect(pageGroup('loaches', 'Synbranchiformes')).toBe('other') // no group has the spiny eels' order
+  expect(pageGroup('loaches', 'Siluriformes')).toBe('catfish') // one group has it
+  expect(pageGroup('tetras', 'Atheriniformes')).toBe('rainbowfish')
+  expect(pageGroup('catfish', 'Cypriniformes')).toBe('other') // five groups share it: a guess would list a loach with the barbs
+  expect(pageGroup('other', 'Characiformes')).toBe('other') // "other" and "snails" aren't held to orders
+  expect(pageGroup('snails', 'Architaenioglossa')).toBe('snails')
+  expect(pageGroup('loaches', '')).toBe('loaches') // no order from GBIF: nothing to judge by
+  expect(pageGroup('loaches', undefined)).toBe('loaches')
 })
