@@ -536,3 +536,8 @@ test('a dealer\'s own current batch or stock is the source check\'s; trade histo
   // Only Vietnamese, for now.
   expect(fitRules(page('<p>Bây giờ dạng thuần đã có hàng trở lại.</p>', { lang: 'id', path: '/id/panduan/g/' })).filter(f => f.why.startsWith('a dealer'))).toEqual([])
 })
+
+// The Writing Lead, 14 Nov 2026: the glowlight tetra's "Lá dẻ gai hay lá sồi đều dùng được" passed the read.
+test('the elsewhere check names leaves and wood keepers here don\'t buy or gather, and what they use instead', () => {
+  expect(fitPrompt('vi')).toMatch(/- elsewhere: [^\n]*Leaves, wood and other things for the tank that keepers in Vietnam don't buy or gather, such as beech or oak leaves and wood from European trees: an elsewhere finding\. Quote the words, and name what keepers here use instead: lá bàng for leaves, lũa for wood\. Not:/)
+})
