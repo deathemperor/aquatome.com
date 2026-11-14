@@ -885,6 +885,47 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/101-growth-plllars": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-beginners-planted-tank-101-101-growth-plllars"
+    ],
+    "updatedAt": "2026-11-14T02:13:44.183Z",
+    "hash": "6f196620c55a48c5769c224ccd25ae109f2976f994c97602eb6411d89d575345",
+    "processedHash": "6f196620c55a48c5769c224ccd25ae109f2976f994c97602eb6411d89d575345",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/101-hightech-tank": {
+    "entityIds": [],
+    "updatedAt": "2026-11-14T02:18:46.085Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "no archived copy (HTTP 404)"
+  },
+  "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/101-lowtech": {
+    "entityIds": [],
+    "updatedAt": "2026-11-14T02:18:49.708Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "no archived copy (HTTP 404)"
+  },
+  "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/best-red-plants": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-beginners-planted-tank-101-best-red-plants"
+    ],
+    "updatedAt": "2026-11-14T02:19:02.409Z",
+    "hash": "8aafadaae8dd8324e2d304181d1495081160532d2d92bfc8bfcd561794bf7041",
+    "processedHash": "8aafadaae8dd8324e2d304181d1495081160532d2d92bfc8bfcd561794bf7041",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/carpeting-plants": {
+    "entityIds": [],
+    "updatedAt": "2026-11-14T02:23:09.856Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "no archived copy (HTTP 404)"
+  },
   "https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-limnophila-aromatica": {
     "entityIds": [
       "plants/limnophila-aromatica"

@@ -13,7 +13,9 @@
     "essequibo",
     "brazil",
     "rio-negro",
-    "rio-jutai"
+    "rio-jutai",
+    "venezuela",
+    "orinoco"
   ],
   "range": {
     "native": {
@@ -594,7 +596,7 @@
       },
       {
         "source": "glaser",
-        "value": 25
+        "value": 50
       }
     ],
     "tankCm": [
@@ -620,8 +622,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_lugubris_jutai_en/",
-      "html": "<p>Currently the specimens are 20-25 cm long.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_lugubris_orinoco_en/",
+      "html": "<p>The Orinoco population of Crenicichla lugubris has a lot of red in its coloration and can reach a length of around 50 cm, making it one of the largest species of the genus. It is suited to very large or public aquaria.</p>"
     },
     {
       "key": "distribution",
@@ -632,8 +634,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_lugubris_jutai_en/",
-      "html": "<p>Jutai is a municipality in western Brazil, named after the Rio Jutai, which is an affluent to the Amazon river. From this region originates the impressive, beautiful Crenicichla lugubris, which could be imported in very small numbers.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_lugubris_orinoco_en/",
+      "html": "<p>Venezuela (Orinoco).</p>"
     },
     {
       "key": "habitat",
@@ -672,16 +674,16 @@
       "html": "<p>Can be aggressive, especially towards conspecifics. May be kept with other large cichlids or as a species only setup. Likely to eat any fish small enough to be considered food - and they have big mouths!</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_lugubris_orinoco_en/",
+      "html": "<p>Juveniles show the typical \"French fries pattern\" and are schooling fish that feel very unsafe when kept alone. At puberty the fish see conspecifics only as competitors and try to bite and kill them whenever they have the opportunity. Once sexually mature, they form pairs that most often live in peace over long periods.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-lugubris",
       "html": "<p>Male has white stripe on the dorsal fin. Females are more colourful.</p>"
-    },
-    {
-      "key": "dimorphism",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_lugubris_jutai_en/",
-      "html": "<p>The females can be recognized by the broad white seam in the dorsal fin.</p>"
     },
     {
       "key": "reproduction",
@@ -694,6 +696,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-lugubris",
       "html": "<p>An attractive and colourful fish when small, this species quickly grows into a large aggressive adult, requiring a large tank.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_lugubris_orinoco_en/",
+      "html": "<p>The fish change their coloration drastically during their ontogenesis, and the older they become, the more beautiful they are. This population characteristically has many spots in the face, which can lead to confusion with C. lenticulata, which lives in the same area.</p><p>Lexicon: Crenicichla is ancient Greek, meaning \"Cichla with a comb\"; Cichla is another cichlid genus. lugubris is Latin, meaning \"the one that wears mourning\", referring to the coloration.</p>"
     }
   ],
   "photos": [
@@ -702,15 +710,15 @@
       "thumb": "https://media.aquatome.com/commons/b745cf5f5aef5694-480.webp",
       "width": 960,
       "height": 680,
-      "licence": "CC BY-SA 4.0",
-      "author": "Herbisius",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Crenicichla_Xingu_1_female_and_male.tif",
-      "caption": "Paar Crenicichla Xingu 1 (W oben, M unten)",
       "large": {
         "url": "https://media.aquatome.com/commons/b745cf5f5aef5694-large.webp",
         "width": 1694,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "Herbisius",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Crenicichla_Xingu_1_female_and_male.tif",
+      "caption": "Paar Crenicichla Xingu 1 (W oben, M unten)"
     },
     {
       "url": "https://media.aquatome.com/commons/7a50b50eaa7d6011.webp",
@@ -751,5 +759,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-14"
 }

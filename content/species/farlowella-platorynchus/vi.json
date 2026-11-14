@@ -4,7 +4,8 @@
   "altNames": [
     "Broadsnout Twig Catfish",
     "Cá que Farlowella",
-    "Crosshair twig catfish"
+    "Crosshair twig catfish",
+    "Broadsnouted Needle Sucker"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Farlowella platorynchus Retzer &amp; Page, 1997</li><li>Tên thường gọi: Broadsnout Twig Catfish</li><li>Kích thước: 194 mm (chiều dài chuẩn, SL)</li><li>Nhiệt độ: 22,0-27,0°C</li><li>Môi trường sống: Nước đen</li></ul>",
@@ -21,15 +22,23 @@
     "diet:scotcat": "<p>Chúng chủ yếu ăn thực vật. Tảo là nguồn thức ăn chính của cả cá trưởng thành lẫn cá bột. Vì vậy cho ăn thức ăn viên nhiều thành phần rau là đủ.</p>",
     "reproduction:scotcat": "<p>Cá đẻ trứng lên kính bể hoặc lên lá cây, sau đó cá đực ở lại chăm trứng. Bạn có thể nhận ra cá đực nhờ các odontode trên mõm.</p>",
     "notes:scotcat": "<p>Nguồn gốc tên gọi: Tên loài platorynchus nói về cái mõm rộng của cá (platys = rộng, rhynchos = mõm).</p><p>Trong Eschmeyer's Catalog of Fishes, Farlowella platorynchus hiện được xếp là tên đồng nghĩa của F. amazonum.</p>",
-    "references:scotcat": "<p>Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p>"
+    "references:scotcat": "<p>Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p>",
+    "quickFacts:glaser": "<p>Cá que (Farlowella) là một trong những nhóm cá lau kiếng chuyên hóa nhất. Cả đời chúng sống bằng một mánh duy nhất: trông giống hệt một cành que.</p><p>Farlowella: tên đặt theo W. G. Farlow, nguyên giáo sư Đại học Harvard, Hoa Kỳ. platorhynchus: gốc tiếng Hy Lạp cổ, nghĩa là \"mõm rộng\".</p><p>Tên thông dụng đề xuất: Broadsnouted Needle Sucker</p>",
+    "distribution:glaser": "<p>Peru.</p>",
+    "diet:glaser": "<p>Farlowella ăn chậm. Ngoài tự nhiên chúng quen gặm lớp rêu và sinh vật nhỏ bám trên đá, lũa (Aufwuchs). Trong bể, người nuôi phải để ý xem cá que có được ăn đủ không. Thức ăn viên nén và Cyclops đông lạnh đều rất hợp với chúng.</p>",
+    "equipment:glaser": "<p>Nền nên mịn, tốt nhất là cát. Nền thô thì mấy hạt thức ăn nhỏ lọt xuống kẽ rất nhanh, cá không kịp ăn. Farlowella bơi rất kém nên dễ mắc kẹt trong đám cây rậm và những chỗ tương tự. Bể nuôi chúng chỉ nên bày gọn gàng, thoáng.</p>",
+    "dimorphism:glaser": "<p>Muốn phân biệt đực cái thì nhìn từ trên xuống là rõ nhất: con đực có đầu rộng hơn con cái nhiều.</p>",
+    "reproduction:glaser": "<p>Khác với nhiều loài cá lau kiếng khác, Farlowella không đẻ trong hang. Chúng đẻ trứng ngay trên bề mặt trống, khá hay đẻ lên kính bể. Con đực canh trứng cho tới khi cá bột nở.</p>",
+    "notes:glaser": "<p>Màu sắc của loài này khác nhau khá nhiều giữa các con. Nuôi Farlowella không khó, nhưng có vài điều cốt yếu phải lưu ý.</p>"
   },
+  "nameFixed": true,
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
       "planetcatfish": 0.8,
-      "scotcat": 0.85
+      "scotcat": 0.85,
+      "glaser": 0.8
     }
-  },
-  "nameFixed": true
+  }
 }

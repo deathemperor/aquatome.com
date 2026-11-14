@@ -7,7 +7,9 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "peru"
+    "peru",
+    "ecuador",
+    "rio-napo"
   ],
   "range": {
     "records": {
@@ -65,12 +67,32 @@
           "min": 25,
           "max": 29
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 25,
+          "max": 29
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 18
+      },
+      {
+        "source": "scotcat",
+        "value": 18
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -82,10 +104,34 @@
       "html": "<ul><li>Total length: 15-18 cm</li><li>Avoid a pH lower than 6.5</li><li>Cave-brooder</li></ul>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/lasiancistrus_heteracanthus_en/",
+      "html": "<p>The rare Red-eyed Deltatail-suckercat, Lasiancistrus heteracanthus, was imported in small numbers from Peru. Besides the bright red eye the most striking feature of the species is the pretty brown-red lower lappet of the caudal fin.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/lasiancistrus_heteracanthus_en/",
       "html": "<p>Peru.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/lasiancistrus_heteracanthus.htm",
+      "html": "<p>South America: Upper Río Napo of Ecuador and the lower Río Napo of Peru. Type locality: Upper Amazons, Peruvian Amazons.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/lasiancistrus_heteracanthus_en/",
+      "html": "<p>In the natural habitat, the water is only slightly acidic or even alkaline.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/lasiancistrus_heteracanthus.htm",
+      "html": "<p>Relatively easy to keep but large males may tend to be territorial.</p>"
     },
     {
       "key": "waterConditions",
@@ -94,10 +140,22 @@
       "html": "<p>The water temperature should be a bit higher than usual, 25-29°C are ideal. There is no need for a low pH; on the contrary, one should avoid a pH lower than 6.5.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/lasiancistrus_heteracanthus.htm",
+      "html": "<p>Herbivore: vegetarian food, tablets and pellets, insect larvae, zooplankton and soft wood.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/lasiancistrus_heteracanthus_en/",
       "html": "<p>Lasiancistrus, in general, are good algae-eaters and fit in any community tank of appropriate size.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/lasiancistrus_heteracanthus.htm",
+      "html": "<p>Males have longer pectoral fins and have a heavier growth of odontodes behind the gill covers and on the edges of the snout.</p>"
     },
     {
       "key": "reproduction",
@@ -112,16 +170,16 @@
       "html": "<p>Lasiancistrus: Latin, means \"shaggy ancistrus\", referring to the skin-spines (odontodes). heteracanthus: ancient Greek, means \"with aberrant spines\".</p>"
     },
     {
-      "key": "beforeYouBuy",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/lasiancistrus_heteracanthus_en/",
-      "html": "<p>The rare Red-eyed Deltatail-suckercat, Lasiancistrus heteracanthus, was imported in small numbers from Peru. Besides the bright red eye the most striking feature of the species is the pretty brown-red lower lappet of the caudal fin.</p>"
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/lasiancistrus_heteracanthus.htm",
+      "html": "<p>This species can be distinguished from L. caucanus, L. saetiger, and L. tentaculatus by having abdominal plates (vs. absent), from L. schomburgkii and L. saetiger by having dark spots in the dorsal and caudal fins (vs. white spots or all dark); and from L. guacharote by not having the abdominal plates restricted to a region near the insertion of the pectoral-fin spine. The Lasiancistrus species are quite similar to the Ancistrus genus but have a flatter profile and do not possess the tentacles on the mouths of this genus.</p><p>Etymology: the specific name heteracanthus: héteros, different; acanthus, from ákantha, thorn, referring to two kinds of spines on the interoperculum: a group of ~12 slender but stiff and slightly hooked spines surrounded by a ring of long setiform spines.</p><p>IUCN Red List: Least Concern because it has a wide range and is not exposed to any major threat (IUCN 2016).</p>"
     },
     {
-      "key": "habitat",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/lasiancistrus_heteracanthus_en/",
-      "html": "<p>In the natural habitat, the water is only slightly acidic or even alkaline.</p>"
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/lasiancistrus_heteracanthus.htm",
+      "html": "<p>Armbruster, J.W., 2005. The loricariid catfish genus Lasiancistrus (Siluriformes) with descriptions of two new species. Neotrop. Ichthyol. 3(4):549-569. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2011. FishBase. www.fishbase.org. Hidalgo del Aguila, M., Chocano, L., Velasquez, M., Arguello, P. &amp; Jimenez-Prado, P. 2016. Lasiancistrus heteracanthus. The IUCN Red List of Threatened Species 2016. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -226,5 +284,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13"
+  "updatedAt": "2026-11-14"
 }

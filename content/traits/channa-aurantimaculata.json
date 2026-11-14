@@ -1,8 +1,13 @@
 {
   "id": "channa-aurantimaculata",
-  "temperament": "predator",
+  "temperament": "aggressive",
   "finNipper": false,
   "schoolMin": null,
-  "speciesUpdatedAt": "2026-10-31",
-  "generatedAt": "2026-10-31T06:22:53.391Z"
+  "speciesUpdatedAt": "2026-11-14",
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-14T04:58:52.372Z"
 }

@@ -109,12 +109,32 @@
           "min": 18,
           "max": 22
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 8.6
+      },
+      {
+        "source": "scotcat",
+        "value": 8.5
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -126,10 +146,22 @@
       "html": "<ul><li>Scientific name: Lithoxus lithoides Eigenmann, 1912</li><li>Type locality: Amatuk, Guyana.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/lithoxus_lithoides.htm",
+      "html": "<p>The only species in this genus. Family: Loricariidae. Size: 8.5 cm. Temperature: 23–27°C. pH: 6.0–7.5.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1334",
       "html": "<p>South America: Essequibo and upper Corantijn (Correntyne) River basins, Guyana and Suriname.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/lithoxus_lithoides.htm",
+      "html": "<p>South America: Essequibo River, Guyana and upper Corantijn River basin, Suriname. Type locality: Cataracts of British Guiana.</p>"
     },
     {
       "key": "habitat",
@@ -138,10 +170,28 @@
       "html": "<p>Inhabits stony rivulets; clings to rocks in the rapids.</p>"
     },
     {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/lithoxus_lithoides.htm",
+      "html": "<p>Clings to rocks in its natural habitat.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/lithoxus_lithoides.htm",
+      "html": "<p>Quite a demanding genus which needs pure, oxygen-rich water. They need plenty of hiding places and a very strongly filtered aquarium.</p>"
+    },
+    {
       "key": "diet",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1334",
       "html": "<p>Insectivore.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/lithoxus_lithoides.htm",
+      "html": "<p>Insectivores that feed on insect larvae on rocks in their natural habitat. Feed frozen mosquito larvae, brine shrimp and Daphnia. They will also accept tablet foods.</p>"
     },
     {
       "key": "reproduction",
@@ -156,10 +206,22 @@
       "html": "<p>Lithoxus is a genus of small, rheophilic loricariids that are externally characterized by a strongly dorsoventrally depressed body, a large round oral disk, and small tooth cups with few teeth.</p><p>Etymology: Greek, lithos = stone + Greek, oxys = sharp.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/lithoxus_lithoides.htm",
+      "html": "<p>Etymology: the specific name lithoides is Neo-Latin from eidos, form or shape, and lithos, stone, i.e. stone-like; \"It is flat and clings to the rock, which it greatly resembles\".</p><p>IUCN Red List: despite the little information available on this species and possible extinction of subpopulations due to dam construction, the current range of the species is relatively wide, and the current threat of any existing or future dams may be localised. It is therefore tentatively assessed as Least Concern. However, ongoing impacts of threats must continue to be investigated (IUCN 2023).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1334",
       "html": "<p>Memoirs of the Carnegie Museum v. 5 (no. 1), pp 242, Pl. 29 (figs. 1-4).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/lithoxus_lithoides.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2015. FishBase. www.fishbase.org (03/2016).</p><p>Lujan, N.K., 2008. Description of a new Lithoxus (Siluriformes: Loricariidae) from the Guayana Highlands with a discussion of Guiana Shield biogeography. Neotrop. Ichthyol. 6(3):413-418.</p><p>Salvador, G.N. 2023. Lithoxus lithoides. The IUCN Red List of Threatened Species 2023.</p><p>Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -203,5 +265,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13"
+  "updatedAt": "2026-11-14"
 }

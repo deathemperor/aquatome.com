@@ -1,0 +1,9 @@
+---
+url: https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/uca_annulipes_en/
+title: Uca annulipes - Aquarium Glaser GmbH
+fetchedAt: 2026-11-14T03:58:38.018Z
+hash: ca7cdc8979ef365f4eb6da49cee4e6b6a90235853f10947a651ada31acfcefbb
+---
+
+May 2005: One of the most beautiful fiddler crab, Uca annulipes has been available now. Fiddler crabs, a family of 65 species, live worldwide in tropical and subtropical areas where they inhabit beaches and swamps. They reach a length of no more then 2.5 to 3 cm. The male animals have one large and often colourful claw, which can get up to half of the body weight of the animal. The other claw is mostly much smaller, less colourful and is used mostly for digging, as is the case with both claws of the female animal. Fiddler crabs are social animals and at low tide they are grouped together in large quantities on the muddy surfaces. Every fiddler crab builds a hole in the mud, which can get a depth of up to 30 cm. During high tide when the mud areas are flooded the animals retreat within their hiding places. Fiddler crabs live from algae and other organic material available, which they collect with their small claws. The male crabs use their large claw for attracting the female crabs and to signal to other male crabs defending their territory against male intruders. If a fiddler crab male loses its large claw the claw on the other side enlarges after a while and the lost one is replaced after the next shedding of their external skeleton. Fiddler crabs need a tank with a large land part and could even drown if kept solely in water without the possibility of getting to dry land. In captivity they feed on all kinds of available food and they even take flake or pellet food.(Photo: Frank Schäfer, Text: Izaak den Daas)
+Angaben zum Tier Herkunft Philippinen, Indonesien, Malaysia

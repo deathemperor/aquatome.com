@@ -9,14 +9,21 @@
     "diet:planetcatfish": "<p>Ăn côn trùng.</p>",
     "reproduction:planetcatfish": "<p>Chưa có tài liệu nào ghi lại.</p>",
     "notes:planetcatfish": "<p>Lithoxus là một chi cá tỳ bà nhỏ, sống ở nơi nước chảy mạnh. Nhìn bên ngoài, chúng có thân rất dẹt theo chiều lưng bụng, đĩa miệng tròn và to, các ổ răng nhỏ với ít răng.</p><p>Nguồn gốc tên: tiếng Hy Lạp lithos = đá, oxys = sắc nhọn.</p>",
-    "references:planetcatfish": "<p>Memoirs of the Carnegie Museum v. 5 (no. 1), pp 242, Pl. 29 (figs. 1-4).</p>"
+    "references:planetcatfish": "<p>Memoirs of the Carnegie Museum v. 5 (no. 1), pp 242, Pl. 29 (figs. 1-4).</p>",
+    "quickFacts:scotcat": "<p>Đây là loài duy nhất trong giống. Họ: Loricariidae. Kích thước: 8,5 cm. Nhiệt độ: 23–27°C. pH: 6,0–7,5.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: sông Essequibo ở Guyana và thượng nguồn lưu vực sông Corantijn ở Suriname. Nơi thu mẫu chuẩn: các thác ghềnh ở British Guiana (Guyana thuộc Anh).</p>",
+    "habitat:scotcat": "<p>Ngoài tự nhiên, loài này sống bám trên đá.</p>",
+    "maintenance:scotcat": "<p>Đây là giống cá khá khó nuôi, đòi hỏi nước sạch và giàu oxy. Trong bể phải có nhiều chỗ trốn, và lọc phải thật mạnh.</p>",
+    "diet:scotcat": "<p>Loài này ăn côn trùng. Ngoài tự nhiên, chúng kiếm ấu trùng côn trùng bám trên đá. Trong bể thì cho ăn bọ gậy đông lạnh, Artemia và bo bo. Chúng cũng chịu ăn thức ăn viên.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên: tên loài lithoides là tiếng Latin mới, ghép từ eidos (hình dạng) và lithos (đá), nghĩa là \"giống đá\". Người đặt tên mô tả: \"Nó dẹt, bám vào đá và trông rất giống đá\".</p><p>Danh sách Đỏ IUCN: thông tin về loài này còn ít, và một số quần thể có thể đã biến mất do xây đập. Nhưng vùng phân bố hiện nay của loài khá rộng, còn các con đập đã có hoặc sắp xây có thể chỉ ảnh hưởng ở từng khu vực. Vì thế loài tạm được xếp vào mức Ít quan tâm. Tuy nhiên, vẫn cần theo dõi tiếp tác động của các mối đe dọa này (IUCN 2023).</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2015. FishBase. www.fishbase.org (03/2016).</p><p>Lujan, N.K., 2008. Description of a new Lithoxus (Siluriformes: Loricariidae) from the Guayana Highlands with a discussion of Guiana Shield biogeography. Neotrop. Ichthyol. 6(3):413-418.</p><p>Salvador, G.N. 2023. Lithoxus lithoides. The IUCN Red List of Threatened Species 2023.</p><p>Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
     "score": 0.85,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.85
-    },
-    "reason": "thin"
+      "planetcatfish": 0.85,
+      "scotcat": 0.9
+    }
   }
 }

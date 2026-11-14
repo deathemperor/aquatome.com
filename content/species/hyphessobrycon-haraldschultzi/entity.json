@@ -8,7 +8,8 @@
   "places": [
     "south-america",
     "brazil",
-    "araguaia"
+    "araguaia",
+    "rio-araguaia"
   ],
   "range": {
     "native": {
@@ -189,6 +190,18 @@
       "html": "<p>The crystal red tetra, Megalamphodus haraldschultzi, is a small characid endemic to the rio Araguaia system in Brazil. It is occasionally available, usually as bycatch among shipments of other fishes, and is sometimes traded as 'Araguaia red' or 'Schultz's tetra'. It is most easily separated from the similar Megalamphodus eques by the dorsal-fin marking, which is less extensive and bordered above by a white blotch and below by a yellowish band.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_haraldschultzi_spec_araguaia__en/",
+      "html": "<p>Origin: Brazil, Rio Araguaia. Name: Hyphessobrycon spec. \"Araguaia\". A final identification has not been made yet: it could be Hyphessobrycon haraldschultzi or an undefined species.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_haraldschultzi_spec_araguaia__en/",
+      "html": "<p>Red fish always attract interest amongst hobbyists, especially the intensively red coloured ones. The first animals of this tetra were received five years ago under the name \"Hyphessobrycon serpae – the real one\" (wild-caught from Rio Araguaia). At first sight (still inside the transport bag) these tetras looked very similar to the bloodtetra, Hyphessobrycon eques, formerly known as Hy. callistus. They also resembled the Red Phantom tetra, Hyphessobrycon (formerly Megalamphodus) sweglesi, while they obviously had \"short fins\". Soon it was clear, however, that they are neither. This tetra occurs very seldom on the market as wild-caught.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-haraldschultzi",
@@ -219,16 +232,34 @@
       "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 5.0–7.0</li><li>Hardness: 1–10 dGH</li></ul>"
     },
     {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_haraldschultzi_spec_araguaia__en/",
+      "html": "<p>For a sense of well-being, and in order to show the intensive red to advantage, the aquarium should contain well-planted sectors with indirect light.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-haraldschultzi",
       "html": "<p>Likely to be omnivorous feeding on small invertebrates, crustacea, filamentous algae, fallen fruit and suchlike in nature.</p><p>In aquaria it may survive on a diet of dried foods but like most fishes does best when offered a varied menu which in this case should also contain live and frozen chironomid larvae (bloodworm), mosquito larvae, Daphnia, Moina, etc.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_haraldschultzi_spec_araguaia__en/",
+      "html": "<p>Feeding with all kinds of live and dry food causes no problems. Plants are not bothered.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-haraldschultzi",
       "html": "<p>Very peaceful making it an ideal resident of the well-researched community aquarium.</p><p>It is perhaps best-maintained alongside similarly-sized characids, gasteropelecids, lebiasinids, smaller callichthyid or loricariid catfishes and non-predatory, small-to-medium-sized cichlids.</p><p>Try to buy a mixed-sex group of at least 8-10 specimens, include other schooling fishes to provide security, and you'll be rewarded with a more natural-looking spectacle.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_haraldschultzi_spec_araguaia__en/",
+      "html": "<p>Both the wild-caught \"crystal red tetra\" and later also the young animals turned out to be absolutely sociable among themselves and with other, also small, fish.</p>"
     },
     {
       "key": "dimorphism",
@@ -241,6 +272,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-haraldschultzi",
       "html": "<p>An egg-scattering free spawner exhibiting no parental care.</p><p>When in good condition adults will spawn often and in a mature aquarium it is possible that small numbers of fry may start to appear without intervention, but if you want to maximise yield a more controlled approach is required.</p><p>The adult group can still be conditioned together but a smaller aquarium should also be set up and filled with mature water. This should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them.</p><p>The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles. Alternatively filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or spawning mops can also return decent results.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above. An air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.</p><p>When the adult fish are well-conditioned a single pair or group comprising one or two males and several females can then be introduced to each container and left in place until eggs are detected (typically the following morning).</p><p>Initial food should be Paramecium or a proprietary dry food of sufficiently small (5-50 micron) grade, introducing Artemia nauplii, microworm, etc., once the fry are large enough to accept them.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_haraldschultzi_spec_araguaia__en/",
+      "html": "<p>Breeding this tetra is difficult, but quite possible with much patience. The young fish belong more to the slowly growing tetras.</p>"
     },
     {
       "key": "notes",
@@ -310,5 +347,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-14"
 }

@@ -419,6 +419,10 @@
       {
         "source": "seriouslyfish",
         "value": 25.6
+      },
+      {
+        "source": "glaser",
+        "value": 30
       }
     ],
     "tankCm": [
@@ -436,6 +440,12 @@
   },
   "sections": [
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus_brunneus_en/",
+      "html": "<p>A large tetra-relative imported from Venezuela for the first time. Maximum size 25–30 cm. The coloration is quite variable depending on origin. The orange spot under the eye on the operculum is characteristic for the species. Depending on the origin the lateral stripe might be solid or formed by spots. The intensity of the red coloration of the fins and throat also depends on origin.</p><p>Suggested common name: robin hare snout.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-brunneus",
@@ -446,6 +456,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-brunneus",
       "html": "<p>Known from the rios Madeira and Negro in Brazil and Orinoco system in Venezuela and Colombia plus the Casiquiare canal which connects the two.</p><p>Type locality is 'Rio Negro at Cachoeira Camanaos, Amazonas, Brazil'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus_brunneus_en/",
+      "html": "<p>Found in the basins of the Orinoco river and the rio Negro. Origin: Venezuela.</p>"
     },
     {
       "key": "aquariumSize",
@@ -478,6 +494,12 @@
       "html": "<p>Etymology: Leporinus comes from the Latin lepus, meaning 'hare', and the suffix -inus, meaning 'of or pertaining to', in reference to the enlarged pair of symphyseal teeth possessed by certain members of the genus. brunneus comes from the Latin brunneus, meaning 'brown'.</p><p>Leporinus is among the more diverse genera in the order Characiformes with around 90 valid species, and a phylogentic study by Sidlauskas and Vari (2008)[3] demonstrated it to represent a polyphyletic lineage.</p><p>Four species (H. despaxi, H. megalepis, H. mormyrops and H. pachycheilus) were thus placed into the revalidated genus Hypomasticus which had originally been proposed by Borodin (1929).</p><p>The remaining species of Leporinus, except for L. gomesi, formed a clade alongside Abramites, and this grouping was itself placed in a large polytomy alongside the genera Anostomoides, Anostomus, Gnathodolus, Laemolyta, Petulanos, Pseudanos, Rhytiodus, Sartor, Schizodon and Synaptolaemus.</p><p>In particular there was an overall lack of a resolution of relationships within Leporinus, and the authors suggested that molecular analysis is likely to be needed to fully resolve the relationships between them.</p><p>The family Anostomidae is distributed throughout much of tropical and subtropical South America from northwestern Colombia to central Argentina.</p><p>The majority of species are moderately-elongate and somewhat rounded in shape although there are some exceptions, e.g., the relatively deep-bodied Abramites.</p><p>Greater diversity is apparent in the range of oral morphology, however, and members exhibit a wide range of adaptations in dentition and jaw structure.</p><p>A number of anostomids tend to swim at an oblique 'head-down' angle which has given rise to them being referred to by the generalised vernacular term 'headstanders'.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus_brunneus_en/",
+      "html": "<p>Leporinus: Latin, means \"hare-nose\". brunneus: Latin, means \"dark, dusky\".</p><p>The specimens on offer measure 15–20 cm and are almost fully grown, giving the first chance to observe the behaviour of the fish under aquarium conditions.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-brunneus",
@@ -497,7 +519,20 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "7wuQHvh3pwQ",
+      "title": "Leporinus brunneus",
+      "durationSec": 18,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "dBMYRzrtIzo",
+      "title": "2019年5月19日Leporinus brunneus 血胭脂紅面騎士",
+      "durationSec": 45,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -527,5 +562,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-14"
 }

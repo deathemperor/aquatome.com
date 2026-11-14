@@ -1,0 +1,32 @@
+{
+  "slug": "ca-bong-nua-dem",
+  "name": "Cá bống nửa đêm",
+  "altNames": [
+    "Cá bống Acentrogobius viridipunctatus",
+    "Midnight goby"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Acentrogobius viridipunctatus giờ đã được nhập thành công từ Ấn Độ, và đây là lần đầu tiên nhập được với số lượng khá nhiều. Loài này dài tối đa 15 cm.</p>",
+    "distribution:glaser": "<p>Ấn Độ.</p>",
+    "habitat:glaser": "<p>Ngoài tự nhiên, loài cá này sống ở vùng hạ lưu sông, vì vậy nó thích nước có pha thêm chút muối.</p>",
+    "waterConditions:glaser": "<p>Nếu nước đủ cứng (từ 10° dGH trở lên), chúng vẫn sống hoàn toàn khỏe mạnh trong nước ngọt không pha muối.</p>",
+    "diet:glaser": "<p>Loài này ăn mọi loại thức ăn đông lạnh và đồ tươi sống thường dùng.</p>",
+    "behaviour:glaser": "<p>Loài bống này rất hiền, nhưng đến mùa đẻ thì nó sẽ giữ chỗ đẻ và đuổi những con khác bén mảng lại gần.</p>",
+    "dimorphism:glaser": "<p>Con đực lớn hẳn có hộp sọ rất dày.</p>",
+    "reproduction:glaser": "<p>Vào mùa sinh sản, màu nền của cá chuyển sang đen tuyền, làm các đốm xanh ngọc lục bảo nổi hẳn lên. Trông đẹp đến mức cá có cái tên quen gọi là \"midnight goby\" (bống nửa đêm). Dải sáng trên vây đuôi lúc này cũng chuyển sang màu cam đậm.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.8
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-14"
+  }
+}

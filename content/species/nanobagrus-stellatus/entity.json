@@ -8,7 +8,10 @@
   "places": [
     "asia",
     "indonesia",
-    "jambi"
+    "jambi",
+    "batang-hari",
+    "malaysia",
+    "pahang"
   ],
   "range": {
     "native": {
@@ -59,6 +62,28 @@
       {
         "source": "planetcatfish",
         "value": 3.4
+      },
+      {
+        "source": "scotcat",
+        "value": 4
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7
+        }
       }
     ]
   },
@@ -70,10 +95,22 @@
       "html": "<p>Nanobagrus stellatus Tan &amp; Ng, 2000. Maximum size 34 mm (1.3 inches) SL. Type locality: Sungai Alai (from aquarium collectors), Jambi Province, Sumatra. IUCN Red List: Least Concern (last assessed 2019).</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/nanobagrus_stellatus.htm",
+      "html": "<p>Description: Dorsal spines (total): 1; dorsal soft rays (total): 7–8; anal spines: 0; anal soft rays: 13–15; vertebrae: 34–36. Slender body (body depth at anus 14.1–15.9% SL); short adipose fin base (length of adipose fin base 12.8–16.4% SL); large eyes (eye diameter 12.3–16.1% HL).</p><p>Colouration: Body brown with three rows of cream-coloured spots located above, along and below lateral line.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1362",
       "html": "<p>Asia: Sumatra, Indonesia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/nanobagrus_stellatus.htm",
+      "html": "<p>Asia: Sumatra, Indonesia. This species is known from the Batang Hari drainage in Sumatra, and the Pahang and Endau river drainages in the Malay Peninsula.</p>"
     },
     {
       "key": "habitat",
@@ -94,14 +131,82 @@
       "html": "<p>Members of the genus are diagnosed from other bagrid catfishes by their miniature adult size (maximum size under ca 45 mm SL); reduced supraoccipital process; reduced anterior nuchal-plate element; and posterior cranial fontanel large and prominent.</p><p>Body brown with three rows of cream-coloured spots located above, along and below lateral line.</p><p>Etymology: from the Latin, nanus, meaning dwarf and bagrus, the name of a catfish genus frequently used to form generic names.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/nanobagrus_stellatus.htm",
+      "html": "<p>Etymology: The genus name Nanobagrus: Latin, nannus = small + Mozarabic bagre, Greek pagros = a fish, Dentex sp. The specific name stellatus: from the Latin for starred or spotted, in reference to the pattern of cream-coloured spots on the body.</p><p>IUCN Red List: Potential threats include habitat degradation resulting from deforestation due to logging and land conversion for plantation agriculture. However, the direct impact of these threats on its habitat extent and population status are unknown. Because of the broad distribution of this species, it is unlikely that the number of locations is less than five. Pervasive threats are considered unlikely to drive this species to critically endangered or extinct within 1–2 generations. Therefore, Nanobagrus stellatus is assessed as Least Concern (IUCN 2020).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1362",
       "html": "<p>Journal of Natural History v. 34 (no. 2), pp 278, Fig. 5a.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/nanobagrus_stellatus.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2024. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 02/2024 ). Ng, H.H. 2020. Nanobagrus stellatus. The IUCN Red List of Threatened Species 2020. Romero, P., 2002. An etymological dictionary of taxonomy. Madrid, unpublished. Tan, H.H. and H.H. Ng 2000 The catfishes (Teleostei: Siluriformes) of central Sumatra. J. Nat. Hist. 34:267-303.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/da5bf07f390cfcb5.webp",
+      "thumb": "https://media.aquatome.com/scotcat/da5bf07f390cfcb5-480.webp",
+      "width": 500,
+      "height": 262,
+      "licence": "dùng với sự cho phép",
+      "author": "Adrian Taylor / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/nanobagrus_stellatus.htm",
+      "caption": "Nanobagrus stellatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/54e11b8076b2d2e1.webp",
+      "thumb": "https://media.aquatome.com/scotcat/54e11b8076b2d2e1-480.webp",
+      "width": 500,
+      "height": 275,
+      "licence": "dùng với sự cho phép",
+      "author": "Adrian Taylor / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/nanobagrus_stellatus.htm",
+      "caption": "Nanobagrus stellatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/7140ee05c86ed772.webp",
+      "thumb": "https://media.aquatome.com/scotcat/7140ee05c86ed772-480.webp",
+      "width": 500,
+      "height": 270,
+      "licence": "dùng với sự cho phép",
+      "author": "Adrian Taylor / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/nanobagrus_stellatus.htm",
+      "caption": "Nanobagrus stellatus",
+      "source": "scotcat"
+    }
+  ],
   "videos": [],
-  "productSlots": [],
-  "updatedAt": "2026-11-13"
+  "productSlots": [
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá nhỏ",
+        "lọc treo bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nheo cảnh",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-14"
 }

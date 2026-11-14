@@ -92,6 +92,10 @@
       {
         "source": "seriouslyfish",
         "value": 40
+      },
+      {
+        "source": "glaser",
+        "value": 40
       }
     ],
     "tankCm": [
@@ -115,6 +119,12 @@
       "html": "<ul><li>Max size: 40 cm SL (16 in)</li><li>Aquarium size: 150 × 60 cm</li><li>Temperature: 10–28°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–20 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa_aurantimaculata_en/",
+      "html": "<p>One of the most beautiful of all snakehead species. Size up to 40 cm.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/channa-aurantimaculata",
@@ -125,6 +135,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/channa-aurantimaculata",
       "html": "<p>Endemic to the Brahmaputra River basin in the states of Assam and Arunachal Pradesh, northeastern India.</p><p>It's apparently restricted to the northern portion of Assam while in Arunachal Pradesh it's been collected in the vicinity of Tezu in Lohit district, although the full extent of its distribution is unclear.</p><p>Type locality is 'Market at Dibrugarh town, Dibrugarh, Assam, India'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa_aurantimaculata_en/",
+      "html": "<p>Origin: India.</p>"
     },
     {
       "key": "habitat",
@@ -200,7 +216,32 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "-ievPMhBa_c",
+      "title": "Channa Auranti Care & Habitat – The Golden Cobra Explained",
+      "durationSec": 903,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "dSgcOIDdbjE",
+      "title": "900 DÍAS con Luciana, mi Channa Aurantimaculata | Mantenimiento + Cuidados",
+      "durationSec": 1316,
+      "lang": "es-MX"
+    },
+    {
+      "youtubeId": "i3pIvEcv0WU",
+      "title": "Membangun Habitat Alami untuk Channa Auranti, Channa Auranti seperti kembali ke alam liar!",
+      "durationSec": 547,
+      "lang": "id"
+    },
+    {
+      "youtubeId": "0rVqA2PL-Z4",
+      "title": "Goldfleck Schlangenkopf (Channa aurantimaculata) im Aquarium",
+      "durationSec": 33,
+      "lang": "de-DE"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -223,5 +264,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-14"
 }

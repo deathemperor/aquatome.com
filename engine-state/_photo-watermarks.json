@@ -371034,5 +371034,842 @@
   },
   "https://upload.wikimedia.org/wikipedia/commons/f/fc/Midorifugu1.JPG": {
     "ocr": []
+  },
+  "https://media.aquatome.com/2hraquarist/6c1a2a191d5a9ec8.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 21,
+        "mark": false,
+        "hash": "7a3daf16340c9d51def769eb6ce23f4acc0c244c985701fe83759cd4dd73c43a"
+      }
+    ],
+    "watermark": true,
+    "kind": "name",
+    "locations": [
+      "bottom centre"
+    ]
+  },
+  "https://media.aquatome.com/2hraquarist/9826bc4c33a866eb.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/2hraquarist/a4c1ed2d04abab9b.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/2hraquarist/ab84d6e734ece8f8.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/aquariumbreeder/bb23bfc5bad63998.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/aquariumbreeder/c1074c4be09c1462.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/commons/21c44e29bf469c10.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/commons/7ea8fcd7e12ba322.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/commons/f9a491a62ab2857c.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/glaser/0261982db049fede.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 48,
+        "mark": false,
+        "hash": "94140cd0475f85df8530431dae4cd742980f2a8b221fc35cced3c40351e9c4f6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ]
+  },
+  "https://media.aquatome.com/glaser/19459d523196db22.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "810315be9452b198e10b6c46748b50913f6d0496c6e4f453237bc563cba52901"
+      },
+      {
+        "c": 0.3,
+        "at": "bottom left",
+        "alnum": 9,
+        "mark": false,
+        "hash": "d8ded5ebf787c33636dc9b9ece072ccc34ef168a5713ffc9ff41d6341a690c8b"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 22,
+        "mark": false,
+        "hash": "638cf0fcfe6dfee4091da740710e76e0a7c9274325505520361af91c55a79482"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "bottom left",
+      "bottom centre",
+      "bottom right"
+    ]
+  },
+  "https://media.aquatome.com/glaser/28e3ab3138bbfa93.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "440f3e77ecec4e65928cb27683f9a9790d7e07c977c0c37c2ed05915f3988f6c"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ]
+  },
+  "https://media.aquatome.com/glaser/4a904233c712261e.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 39,
+        "mark": false,
+        "hash": "f974e1e8fc4c8d615770e4a6175373982a27f0e4fc97c62fd0053cf6936312c0"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right",
+      "middle centre",
+      "bottom centre"
+    ]
+  },
+  "https://media.aquatome.com/glaser/4e8b4b44d039e765.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 37,
+        "mark": true,
+        "hash": "d259e39199992dace51d1276abe8581cf0133fd9c2cd69e7f3994032c9f802b8"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "top centre"
+    ]
+  },
+  "https://media.aquatome.com/glaser/547fc2de4d58b431.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 35,
+        "mark": false,
+        "hash": "3f232a323836c51a79ecce41e06c68b7a07c6971d117ce2f6cf3afedc9d76823"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 19,
+        "mark": false,
+        "hash": "5e4be54f9d9db5f6906e53596251a52050afea2beba66a88d0a1054bb41e392e"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ]
+  },
+  "https://media.aquatome.com/glaser/60f71a95e40bff21.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 17,
+        "mark": false,
+        "hash": "72c6f15a22a37751c76e5f15f67332a40466f5bff8e1d2150a858aa2aef95835"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 10,
+        "mark": false,
+        "hash": "6cbc0238587b8326408ac1e61e863244152836482e45dd115f70e8d4173514f7"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 19,
+        "mark": false,
+        "hash": "cf94222677d96aae9d10dd3a2f89d4e105efe43c4b154b7bba115e3227cf1b8e"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 18,
+        "mark": false,
+        "hash": "bf7883de47e7d8b1f034ad6ed0871cfb500c685612433d8a43cbcaa81fd98351"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ]
+  },
+  "https://media.aquatome.com/glaser/7bd5d834887961b8.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 54,
+        "mark": false,
+        "hash": "9858d856aaec3096e5e28067c0c5b173c6778289672384d6bc494aaf2af3a434"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ]
+  },
+  "https://media.aquatome.com/glaser/84b2fccd0f8bbbb4.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 51,
+        "mark": false,
+        "hash": "63ca4775e5bf6521d728b7dfc842250760552afa4bc0c75e780d9c34866849b3"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ]
+  },
+  "https://media.aquatome.com/glaser/86b214cd30ea5859.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "e057b4f53a2c7a129b77f5d93be3eed44d310f4b23b390efe60a33a31ff4d8d4"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ]
+  },
+  "https://media.aquatome.com/glaser/8bc3f622e7e5fd31.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
+  },
+  "https://media.aquatome.com/glaser/8e5a8f33692fdeaf.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 37,
+        "mark": false,
+        "hash": "9f1a41a8a2c721da2fa0745f5e4672a32f8dafa7ab5e29382ad35da12b3d5eeb"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 18,
+        "mark": false,
+        "hash": "c025de4e3556cdac4a3709454afaaabb2fe8507d4d05fcf7d248928c4b7874d8"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ]
+  },
+  "https://media.aquatome.com/glaser/9243fe6dc38f8077.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 19,
+        "mark": false,
+        "hash": "ab66aa8247000f94a7c71a36411777c1e6e0308716c587d99d020217f357673f"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "78686a7af4f81c3db0d20bec74d09448bf5239379d09b8a65f676d29d27b483a"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 39,
+        "mark": false,
+        "hash": "542619b15abe8b144df9c38afff9a1581f045a464edf7945164ead4f23b68b71"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ]
+  },
+  "https://media.aquatome.com/glaser/96fd9fe96633f615.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 11,
+        "mark": false,
+        "hash": "342b93a53c563475fdfb6d438fa810cd7524f346c45ef164c8b01e04d2f3a955"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 22,
+        "mark": false,
+        "hash": "f45a7fe6c438a57c9952ad233bd3c157fe652f0054cd72b5f4862551db25f1b8"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 18,
+        "mark": false,
+        "hash": "c025de4e3556cdac4a3709454afaaabb2fe8507d4d05fcf7d248928c4b7874d8"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ]
+  },
+  "https://media.aquatome.com/glaser/9ee191d8d706b11c.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "e4ef721bad9ed9c3be644470e35b0ae89cd5ca9b7817c59336233defb59e67ad"
+      },
+      {
+        "c": 0.3,
+        "at": "top right",
+        "alnum": 4,
+        "mark": false,
+        "hash": "9de48498c7d0e33544bc87de0fe3681888ca860f67eebdb3d1a561ee97d5c2f9"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 16,
+        "mark": false,
+        "hash": "43138a558c45c583f81e6c9d2d92c67a10db74212a3b591471171a2faec14425"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 23,
+        "mark": false,
+        "hash": "ed847826e9f5bab169634a8235e2ae42824205b5ed9e66da46f232271fa578f8"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ]
+  },
+  "https://media.aquatome.com/glaser/9f18d04f3dc019b6.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 17,
+        "mark": false,
+        "hash": "c030728e876ffa671d39788671af6c6cd32f3fd228256a245b1af4b1d036ba4f"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 34,
+        "mark": false,
+        "hash": "7a409c84af812a201893da5797977cee7f4d6dc8c01c5e226d376bb5e77294f6"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 18,
+        "mark": false,
+        "hash": "c025de4e3556cdac4a3709454afaaabb2fe8507d4d05fcf7d248928c4b7874d8"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ]
+  },
+  "https://media.aquatome.com/glaser/a855bcf44413d448.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 0.3,
+        "at": "top right",
+        "alnum": 5,
+        "mark": false,
+        "hash": "c132805bbfc954d76d709dd1d2c440cc2252bc4e01377d5bfd5d64611ae646f7"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 21,
+        "mark": false,
+        "hash": "b7f55a6b73d1dd7a38a345c0b72746566104e41c53b5557f05d42dd39e7e414c"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 18,
+        "mark": false,
+        "hash": "c025de4e3556cdac4a3709454afaaabb2fe8507d4d05fcf7d248928c4b7874d8"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ]
+  },
+  "https://media.aquatome.com/glaser/aee7f0ce7c8ba29e.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 0.3,
+        "at": "top right",
+        "alnum": 4,
+        "mark": false,
+        "hash": "46100b6ce05c901817ad73a56b580a33b904d189707dd3057173501589b01c91"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "1f4008301a01832eaa22f1f5eabccaafc1c20fcedd72eb77dbdad1129aa7d529"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ]
+  },
+  "https://media.aquatome.com/glaser/b89afcd0ff5312b4.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 15,
+        "mark": false,
+        "hash": "ab531c08e54173e8f6ae25da5b946a806e595b51d554734553c2bf78208ce0e9"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "b941c387fc607547497224e5fc008d4466dd01b4742048ed1af6a2238fdf3fa1"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ]
+  },
+  "https://media.aquatome.com/glaser/cd4e456cd8ad9ebf.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "2ef5a34e31ef5127146c1b6592119c2c2d43fc05af484c4eaa390a3df43ce251"
+      },
+      {
+        "c": 0.3,
+        "at": "top right",
+        "alnum": 4,
+        "mark": false,
+        "hash": "66d4ba64d8b7e553f7cd0c6c8b9ce76077c5dcf9c667aa351ed3fb4036ca0f5f"
+      },
+      {
+        "c": 0.5,
+        "at": "top centre",
+        "alnum": 32,
+        "mark": false,
+        "hash": "71a1cc2e7869197fe5fc8af5225ae276bfbdbdaa51b5106cdd6a13c5480988ad"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 18,
+        "mark": false,
+        "hash": "c025de4e3556cdac4a3709454afaaabb2fe8507d4d05fcf7d248928c4b7874d8"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ]
+  },
+  "https://media.aquatome.com/glaser/cf5fc9bdc609b8bf.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 15,
+        "mark": false,
+        "hash": "c814a57b7b956f57677beffbb0ccad1810b5c64d8b7fd80394ca4db3fe1b660a"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 35,
+        "mark": false,
+        "hash": "2fb7508a3140e4233047a2b6468c8cedb3da1d724470eed22aac5ac4fdb5c712"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 17,
+        "mark": false,
+        "hash": "fd7531741e38cddd558726cd463e02c5d63211ed2b93b39b0516c0ef2a70f0c7"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "bottom left",
+      "bottom centre",
+      "bottom right"
+    ]
+  },
+  "https://media.aquatome.com/glaser/d546d1847cbd39fa.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 37,
+        "mark": true,
+        "hash": "d259e39199992dace51d1276abe8581cf0133fd9c2cd69e7f3994032c9f802b8"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "top centre"
+    ]
+  },
+  "https://media.aquatome.com/glaser/dd69e5fe47ce3ddc.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 17,
+        "mark": false,
+        "hash": "9f3fce9a30659b33484755278cfc8c5fa02d6d8dfc3e12baa8acf278c7827813"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 8,
+        "mark": false,
+        "hash": "02890f93f035200b9e1910be7eba84d55a335b4b978a768ec990e51841db67a7"
+      },
+      {
+        "c": 0.3,
+        "at": "top centre",
+        "alnum": 5,
+        "mark": false,
+        "hash": "c0d838e31cc336ce70e8350cfc8bb2ef69b5919a240867511c578dd8851dde58"
+      },
+      {
+        "c": 0.3,
+        "at": "top centre",
+        "alnum": 13,
+        "mark": false,
+        "hash": "4155afb42dff1e42862f62717fb2f0fad71648b250b08781ad9913f734f2b6f1"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ]
+  },
+  "https://media.aquatome.com/glaser/e1b9c0e7f5f2cf52.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 38,
+        "mark": false,
+        "hash": "6798d6317e4a320d81d0e1ad3f2083a339ce030a2eb867ccde21cb8439906427"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ]
+  },
+  "https://media.aquatome.com/glaser/f19f3e9739c95af2.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "638fb51f8be51af573dc5b9041f89dbda7dace3f9994d13b078fc07ec9037dbe"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 4,
+        "mark": false,
+        "hash": "d2535fe8078b903d943a6421fe0c58f045eedf62bff13775235d5a52259467d4"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 38,
+        "mark": false,
+        "hash": "6c5ac81d07adcd856fe46af3022d687be344981227531ba09d1925e6351dbf60"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "bottom left",
+      "bottom centre",
+      "bottom right"
+    ]
+  },
+  "https://media.aquatome.com/glaser/f9621902d7282441.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 15,
+        "mark": false,
+        "hash": "6e959430b6880d29a1885cec5b74859eee1c3ffe6fd3aaa2523350b4ec7d7eee"
+      },
+      {
+        "c": 0.3,
+        "at": "top right",
+        "alnum": 4,
+        "mark": false,
+        "hash": "fa6011dcea44cda5c506ebb9919ff5ae758d6660fee85d8506beaced92e1372e"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "d046786479764e2e1c2f4521ce62e0bba2e557a0732bb9f214d5ac0e07424384"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ]
+  },
+  "https://media.aquatome.com/scotcat/54e11b8076b2d2e1.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
+  },
+  "https://media.aquatome.com/scotcat/7140ee05c86ed772.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
+  },
+  "https://media.aquatome.com/scotcat/da5bf07f390cfcb5.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
   }
 }

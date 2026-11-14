@@ -1,0 +1,232 @@
+{
+  "id": "ada-amazonia",
+  "brand": "ADA",
+  "model": "Amazonia",
+  "category": "phan-nen",
+  "type": "phan",
+  "specs": [
+    {
+      "key": "Manufacturer",
+      "value": "ADA (Aqua Design Amano), Japan",
+      "source": 0
+    },
+    {
+      "key": "Current range (article codes)",
+      "value": "Amazonia Ver.2 9L (104-060), Ver.2 3L (104-061), Ver.2 Powder 3L (104-063), Amazonia PRO 9L (104-028)",
+      "source": 0
+    },
+    {
+      "key": "Material",
+      "value": "Natural black soil",
+      "source": 0
+    },
+    {
+      "key": "Included additive",
+      "value": "Ver.2 comes with Amazonia Supplement, a pellet-type solid nutrient for the bottom of the substrate",
+      "source": 1
+    },
+    {
+      "key": "Grain size (normal type)",
+      "value": "2–4 mm",
+      "source": 3
+    },
+    {
+      "key": "Soil's own pH",
+      "value": "About 6.6–6.8. It doesn't lower water pH much.",
+      "source": 2
+    },
+    {
+      "key": "Coverage",
+      "value": "1 × 9L bag for a 60×30×36 cm tank; 1.5 bags for 60×40×40 cm; 3 bags for a 90 cm tank; 5 bags per 1 m²",
+      "source": 3
+    },
+    {
+      "key": "Coverage (rule of thumb)",
+      "value": "3L per ~5 gal or 9L per ~15 gal; one 9L bag gives about 4 in (10 cm) depth over 1 sq ft",
+      "source": 5
+    }
+  ],
+  "variants": [
+    {
+      "name": "Amazonia Ver.2 (normal) 9L",
+      "specs": [
+        {
+          "key": "Article code",
+          "value": "104-060",
+          "source": 0
+        },
+        {
+          "key": "Grain",
+          "value": "2–4 mm",
+          "source": 3
+        }
+      ]
+    },
+    {
+      "name": "Amazonia Ver.2 (normal) 3L",
+      "specs": [
+        {
+          "key": "Article code",
+          "value": "104-061",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "Amazonia Ver.2 Powder 3L",
+      "specs": [
+        {
+          "key": "Article code",
+          "value": "104-063",
+          "source": 0
+        },
+        {
+          "key": "Use",
+          "value": "Finer grain for small or nano tanks, or as a thin top layer over the normal grain",
+          "source": 5
+        },
+        {
+          "key": "Supplement",
+          "value": "The 3L powder bag doesn't include Amazonia Supplement",
+          "source": 5
+        }
+      ]
+    },
+    {
+      "name": "Aqua Soil Amazonia PRO 9L",
+      "specs": [
+        {
+          "key": "Article code",
+          "value": "104-028",
+          "source": 0
+        },
+        {
+          "key": "Positioning",
+          "value": "Professional grade with more nutrients, for vigorous long-term plant growth. Keeps water slightly acidic.",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "Amazonia Ver.1 / Amazonia II (older)",
+      "specs": [
+        {
+          "key": "Status",
+          "value": "Earlier versions. Ver.2 is a renewed Amazonia II made from the same raw materials, with the Supplement added.",
+          "source": 1
+        },
+        {
+          "key": "VN availability",
+          "value": "Some Vietnamese shops list Amazonia II 9L as out of stock",
+          "source": 6
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.adana.co.jp/en/contents/products/na_substrate/detail02.html",
+      "title": "ADA – Aqua Soil Amazonia product page",
+      "kind": "manufacturer",
+      "at": "2026-11-14"
+    },
+    {
+      "url": "https://www.adana.co.jp/en/aquajournal/makeandkeep_20/",
+      "title": "ADA – Make & Keep 'Aqua Soil – Amazonia Ver.2'",
+      "kind": "manufacturer",
+      "at": "2026-11-14"
+    },
+    {
+      "url": "https://www.adana.co.jp/en/release/detail?id=80",
+      "title": "ADA – Initial-stage maintenance notes (yellow water, ammonia, pH)",
+      "kind": "manufacturer",
+      "at": "2026-11-14"
+    },
+    {
+      "url": "https://thuysinhtim.vn/phan-nen-ada-amazonia-ver-2-9l",
+      "title": "Thủy Sinh Tím – Phân Nền ADA Amazonia Ver.2 (9L)",
+      "kind": "shop",
+      "at": "2026-11-14"
+    },
+    {
+      "url": "https://zenaquarius.com/phan-nen-ada-amazonia-ver-2-9l/",
+      "title": "Zen Aquarius – Phân Nền ADA Amazonia Ver.2 (9L)",
+      "kind": "shop",
+      "at": "2026-11-14"
+    },
+    {
+      "url": "https://aquaforestaquarium.com/products/ada-aqua-soil-amazonia-powder-ver-2-3l",
+      "title": "Aqua Forest Aquarium – ADA Amazonia Powder Ver.2 3L",
+      "kind": "shop",
+      "at": "2026-11-14"
+    },
+    {
+      "url": "https://phukienthuysinh.com/ct/chi-tiet/440/phan-nen-ada-aquasoil-amazonia-ii-9-lit.html",
+      "title": "Phụ Kiện Thủy Sinh – Phân nền ADA Aquasoil Amazonia II 9 lít",
+      "kind": "shop",
+      "at": "2026-11-14"
+    },
+    {
+      "url": "https://scapecrunch.com/threads/expected-ammonium-peak-ada-amazonia-v2.2872",
+      "title": "ScapeCrunch – Expected ammonium peak ADA Amazonia V2",
+      "kind": "forum",
+      "at": "2026-11-14"
+    },
+    {
+      "url": "https://skfaquatics.com/forum/topic/2281-substrate-cycling-times-for-ammonia-release/",
+      "title": "SKF Aquatics forum – Substrate cycling times for ammonia release",
+      "kind": "forum",
+      "at": "2026-11-14"
+    },
+    {
+      "url": "https://www.2hraquarist.com/blogs/substrates-overview/new-planted-aquasoil-tank-setup",
+      "title": "2HR Aquarist – New planted aquasoil tank setup",
+      "kind": "review",
+      "at": "2026-11-14"
+    },
+    {
+      "url": "https://gensou.sg/?p=41253",
+      "title": "Gensou – Best Aquarium Substrate Buying Guide: 8 Soil Brands",
+      "kind": "review",
+      "at": "2026-11-14"
+    },
+    {
+      "url": "https://piscespets.com/products/aquario-neo-plant-soil-normal",
+      "title": "Pisces Pets – Aquario Neo Plant Soil Normal",
+      "kind": "shop",
+      "at": "2026-11-14"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=AZA2z8g1aBc",
+      "title": "Why Buy ADA Amazonia?",
+      "kind": "video",
+      "at": "2026-11-14"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=TW1njQxwDUE",
+      "title": "Ada Amazonia Ammonia Test | Does Prime Work?",
+      "kind": "video",
+      "at": "2026-11-14"
+    }
+  ],
+  "reviews": {
+    "checkedAt": "2026-11-14",
+    "videos": [
+      {
+        "youtubeId": "AZA2z8g1aBc",
+        "title": "Why Buy ADA Amazonia?",
+        "durationSec": 475,
+        "lang": "en",
+        "channel": "Aqua Empire"
+      },
+      {
+        "youtubeId": "TW1njQxwDUE",
+        "title": "Ada Amazonia Ammonia Test | Does Prime Work?",
+        "durationSec": 793,
+        "lang": "en",
+        "channel": "Marks Shrimp Tanks"
+      }
+    ]
+  },
+  "updatedAt": "2026-11-14"
+}

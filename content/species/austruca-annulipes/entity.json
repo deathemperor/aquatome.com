@@ -1,0 +1,97 @@
+{
+  "id": "austruca-annulipes",
+  "scientificName": "Austruca annulipes",
+  "order": "Decapoda",
+  "family": "Ocypodidae",
+  "genus": "Austruca",
+  "group": "other",
+  "places": [
+    "asia",
+    "philippines",
+    "indonesia",
+    "malaysia"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/uca_annulipes_en/",
+      "html": "<p>Uca annulipes is one of the most beautiful fiddler crabs. Fiddler crabs are a family of 65 species. They reach a length of no more than 2.5 to 3 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/uca_annulipes_en/",
+      "html": "<p>Philippines, Indonesia, Malaysia. Fiddler crabs live worldwide in tropical and subtropical areas.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/uca_annulipes_en/",
+      "html": "<p>Fiddler crabs inhabit beaches and swamps. At low tide they are grouped together in large numbers on the muddy surfaces. Every fiddler crab builds a hole in the mud, which can reach a depth of up to 30 cm. During high tide, when the mud areas are flooded, the animals retreat into their hiding places.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/uca_annulipes_en/",
+      "html": "<p>Fiddler crabs need a tank with a large land part and could even drown if kept solely in water without the possibility of getting to dry land.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/uca_annulipes_en/",
+      "html": "<p>In the wild, fiddler crabs live from algae and other available organic material, which they collect with their small claws. In captivity they feed on all kinds of available food and even take flake or pellet food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/uca_annulipes_en/",
+      "html": "<p>Fiddler crabs are social animals. The male crabs use their large claw to attract the female crabs and to signal to other males, defending their territory against male intruders. If a male loses its large claw, the claw on the other side enlarges after a while, and the lost one is replaced after the next shedding of the external skeleton.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/uca_annulipes_en/",
+      "html": "<p>The male animals have one large and often colourful claw, which can reach up to half of the body weight of the animal. The other claw is mostly much smaller, less colourful and used mostly for digging, as are both claws of the female.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/8bc3f622e7e5fd31.webp",
+      "thumb": "https://media.aquatome.com/glaser/8bc3f622e7e5fd31-480.webp",
+      "width": 787,
+      "height": 591,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/uca_annulipes_en/",
+      "caption": "Uca annulipes",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cua cảnh",
+        "thức ăn dạng mảnh cho cua"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể bán cạn cho cua",
+        "bể paludarium"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-14"
+}

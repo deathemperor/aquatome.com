@@ -97949,17 +97949,25 @@
     "products": []
   },
   "vi/species/betta-brownorum": {
-    "at": "2026-11-08",
-    "hash": "ab53d39aa57bcb3d",
+    "at": "2026-11-14",
+    "hash": "112358661403c547",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P11",
-        "quote": "Thức ăn đang dùng cho cá gồm giun đen sống, trùng huyết đông lạnh và thức ăn viên.",
-        "why": "Describes what the source shop currently feeds its own stock, as if the reader knew those fish.",
+        "part": "P3",
+        "quote": "Nguồn gốc cá: cá bắt ngoài tự nhiên (Sibu, Sarawak, Malaysia).",
+        "why": "Describes the source shop's own stock origin rather than advice for the reader.",
         "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P18",
+        "quote": "giun vi tế (microworm)",
+        "why": "Literal rendering of 'microworm'; Vietnamese keepers use a different term.",
+        "by": "model",
+        "fix": "trùn vi sinh"
       }
     ],
     "products": []
@@ -98432,16 +98440,16 @@
     "products": []
   },
   "vi/species/betta-miniopinna": {
-    "at": "2026-11-08",
+    "at": "2026-11-14",
     "hash": "98388a044a5ad098",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P11",
         "quote": "Khuyến nghị: 1 cặp cho mỗi 19 lít.",
-        "why": "19 litres is a converted 5 US gallons, not a volume a keeper in Vietnam would use.",
+        "why": "19 litres is a converted 5 US gallons, a volume no keeper in Vietnam would use.",
         "by": "model"
       }
     ],
@@ -98801,31 +98809,25 @@
     "products": []
   },
   "vi/species/betta-rutilans": {
-    "at": "2026-11-08",
-    "hash": "c6d9f3f4e7a7498c",
+    "at": "2026-11-14",
+    "hash": "fdf97b4689e830dc",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Được bán dưới dạng Betta rutilans Green đánh bắt ngoài tự nhiên.",
-        "why": "Describes how the source shop sells this fish as its own stock.",
+        "quote": "Đợt cá này được đặt về dưới tên rutilans \"Green\"",
+        "why": "Refers to the source shop's own imported batch of stock as if the reader knew it.",
         "by": "model"
       },
       {
-        "check": "source",
-        "part": "P8",
-        "quote": "Hiện được cho ăn giun đen sống, giun đỏ đông lạnh và thức ăn viên.",
-        "why": "Reports what the source shop is currently feeding its own fish.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P10",
-        "quote": "Khuyến nghị 1 cặp cho mỗi 19 lít.",
-        "why": "19 litres is a converted 5-gallon figure that no Vietnamese keeper would use.",
-        "by": "model"
+        "check": "words",
+        "part": "P15",
+        "quote": "Một số loài cá chép nhỏ (cyprinid)",
+        "why": "Calque of 'small cyprinids'; Vietnamese keepers say cá họ chép nhỏ.",
+        "by": "model",
+        "fix": "cá họ chép nhỏ"
       }
     ],
     "products": []
@@ -100773,8 +100775,8 @@
     "products": []
   },
   "vi/species/chaetostoma-lineopunctatum": {
-    "at": "2026-11-13",
-    "hash": "fecc3179c3de2589",
+    "at": "2026-11-14",
+    "hash": "d076bbde3ceaca6b",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -100939,19 +100941,11 @@
     "products": []
   },
   "vi/species/channa-aurantimaculata": {
-    "at": "2026-11-07",
-    "hash": "d02fd420265eee4c",
+    "at": "2026-11-14",
+    "hash": "bb28f9b40b22188f",
     "model": "opus",
-    "findings": [
-      {
-        "check": "words",
-        "part": "P8",
-        "quote": "Đây là loài săn mồi bắt buộc.",
-        "why": "Literal calque of 'obligate predator'; not how Vietnamese keepers phrase it.",
-        "by": "model",
-        "fix": "cá chỉ ăn mồi tươi sống / cá ăn thịt hoàn toàn"
-      }
-    ],
+    "checklist": 3,
+    "findings": [],
     "products": []
   },
   "vi/species/channa-bankanensis": {
@@ -103647,16 +103641,16 @@
     "products": []
   },
   "vi/species/corydoras-spectabilis": {
-    "at": "2026-11-13",
-    "hash": "e2d5b3392d3d0e96",
+    "at": "2026-11-14",
+    "hash": "67195035108c07e7",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
-        "part": "P10",
+        "part": "P11",
         "quote": "Mùa này trùng với mùa đông ở Anh.",
-        "why": "Explains the spawning season by the British winter, as if that were the reader's own frame of reference.",
+        "why": "Times breeding by the UK winter, which means nothing to a reader in Vietnam.",
         "by": "model"
       }
     ],
@@ -103922,8 +103916,8 @@
     "products": []
   },
   "vi/species/crenicichla-johanna": {
-    "at": "2026-11-08",
-    "hash": "6ccd5a4e31e1c18e",
+    "at": "2026-11-14",
+    "hash": "5b9e4adba4983b61",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -103938,8 +103932,8 @@
     "products": []
   },
   "vi/species/crenicichla-lugubris": {
-    "at": "2026-11-09",
-    "hash": "c98f398ad7beb69e",
+    "at": "2026-11-14",
+    "hash": "78e1ba8925f67386",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -105122,10 +105116,10 @@
     "products": []
   },
   "vi/species/dawkinsia-rohani": {
-    "at": "2026-11-08",
-    "hash": "49aa785b11cde7d6",
+    "at": "2026-11-14",
+    "hash": "4ec7b827a920e1a0",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -106428,11 +106422,20 @@
     "products": []
   },
   "vi/species/eretmodus-cyanostictus": {
-    "at": "2026-11-08",
-    "hash": "e4f248f5f9266d2f",
+    "at": "2026-11-14",
+    "hash": "618862753487542d",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Bóng bơi của chúng gần như không còn tác dụng",
+        "why": "Literal calque of 'swim bladder'; Vietnamese keepers say 'bóng hơi' (as P4 does).",
+        "by": "model",
+        "fix": "bóng hơi"
+      }
+    ],
     "products": []
   },
   "vi/species/eriocheir-sinensis": {
@@ -106735,10 +106738,10 @@
     "products": []
   },
   "vi/species/farlowella-platorynchus": {
-    "at": "2026-11-08",
-    "hash": "953dc63710c8c2dc",
+    "at": "2026-11-14",
+    "hash": "d8742f41cf3f7de9",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -110159,7 +110162,7 @@
     "products": []
   },
   "vi/species/hyphessobrycon-haraldschultzi": {
-    "at": "2026-11-09",
+    "at": "2026-11-14",
     "hash": "1c6676f1f208a3e0",
     "model": "opus",
     "checklist": 3,
@@ -111433,8 +111436,8 @@
     "products": []
   },
   "vi/species/lasiancistrus-heteracanthus": {
-    "at": "2026-11-13",
-    "hash": "a9bd049cdc898a12",
+    "at": "2026-11-14",
+    "hash": "76f16c41a73bef22",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -111945,7 +111948,7 @@
     "products": []
   },
   "vi/species/leporinus-brunneus": {
-    "at": "2026-11-08",
+    "at": "2026-11-14",
     "hash": "bbd087ce21fc6fcc",
     "model": "opus",
     "checklist": 3,
@@ -112345,8 +112348,8 @@
     "products": []
   },
   "vi/species/lithoxus-lithoides": {
-    "at": "2026-11-13",
-    "hash": "11bae0dee8545c6a",
+    "at": "2026-11-14",
+    "hash": "0f26909b62a3ab28",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -114699,8 +114702,8 @@
     "products": []
   },
   "vi/species/nanobagrus-stellatus": {
-    "at": "2026-11-13",
-    "hash": "20c71b673f1c0996",
+    "at": "2026-11-14",
+    "hash": "51baf53302a33562",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -116436,10 +116439,10 @@
     "products": []
   },
   "vi/species/otothyris-travassosi": {
-    "at": "2026-11-08",
-    "hash": "01ae1ee3f93bf50f",
+    "at": "2026-11-14",
+    "hash": "39eaf26fd2b336b9",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -117547,11 +117550,20 @@
     "products": []
   },
   "vi/species/parosphromenus-bintan": {
-    "at": "2026-11-08",
-    "hash": "1098095b346d8163",
+    "at": "2026-11-14",
+    "hash": "8d32f671d943d7d7",
     "model": "opus",
-    "checklist": 2,
-    "findings": [],
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "TITLE",
+        "quote": "Cá thần tiên cam thảo Bintan",
+        "why": "\"Cá thần tiên\" is the angelfish; this fish is a licorice gourami, called \"cá sặc cam thảo\" elsewhere on the page.",
+        "by": "model",
+        "fix": "Cá sặc cam thảo Bintan"
+      }
+    ],
     "products": []
   },
   "vi/species/parosphromenus-deissneri": {
@@ -126121,6 +126133,182 @@
   "vi/species/iguanodectes-spilurus": {
     "at": "2026-11-14",
     "hash": "a58e3b2af974fa32",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/2hraquarist-blogs-beginners-planted-tank-101-101-growth-plllars": {
+    "at": "2026-11-14",
+    "hash": "c6cbc10280552853",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/2hraquarist-blogs-beginners-planted-tank-101-best-red-plants": {
+    "at": "2026-11-14",
+    "hash": "ec0e3386da720103",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Những cây Alternanthera reineckii nói tới ở đây được trồng trong bể châm CO2",
+        "why": "Refers to the source writer's own specific plants/tank (likely pictured originally) as if the reader knew them.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/aquariumbreeder-green-water-algae-profile-and-how-to-remove": {
+    "at": "2026-11-14",
+    "hash": "a0a4af091a297a4f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "gắn thêm thổi luồng hoặc thiết bị sục khí khác",
+        "why": "\"Thổi luồng\" is not what keepers in Vietnam call a powerhead.",
+        "by": "model",
+        "fix": "máy tạo sóng / bơm tạo luồng"
+      }
+    ],
+    "products": [
+      "Vortex Diatom",
+      "AlgaeFIX"
+    ]
+  },
+  "vi/species/acentrogobius-viridipunctatus": {
+    "at": "2026-11-14",
+    "hash": "080ce6780fb030c7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "giờ đã được nhập thành công từ Ấn Độ, và đây là lần đầu tiên nhập được với số lượng khá nhiều",
+        "why": "This is the source importer's own stock news, presented as if the reader knew about that shipment.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/austruca-annulipes": {
+    "at": "2026-11-14",
+    "hash": "f701c7c32bdbf27f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Uca annulipes là một trong những loài cua vĩ cầm đẹp nhất.",
+        "why": "\"Cua vĩ cầm\" is a literal calque of English \"fiddler crab\"; Vietnamese keepers call Uca crabs \"còng\" or \"cua kéo đàn\".",
+        "by": "model",
+        "fix": "còng (cua kéo đàn)"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/catalaphyllia-jardinei": {
+    "at": "2026-11-14",
+    "hash": "b8fdbd133899e81a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P10",
+        "quote": "tép skunk cleaner",
+        "why": "Marine shrimp are called \"tôm\" by Vietnamese reef keepers; the skunk cleaner is known locally as tôm bác sĩ.",
+        "by": "model",
+        "fix": "tôm bác sĩ"
+      },
+      {
+        "check": "words",
+        "part": "P10",
+        "quote": "tép blood",
+        "why": "A half-translated English name; Vietnamese reef keepers call the blood shrimp tôm lửa.",
+        "by": "model",
+        "fix": "tôm lửa"
+      },
+      {
+        "check": "words",
+        "part": "P10",
+        "quote": "cua ẩn chân xanh",
+        "why": "Hermit crabs are called ốc mượn hồn by keepers in Vietnam.",
+        "by": "model",
+        "fix": "ốc mượn hồn chân xanh"
+      }
+    ],
+    "products": [
+      "Reef Roids"
+    ]
+  },
+  "vi/species/cynopotamus-atratoensis": {
+    "at": "2026-11-14",
+    "hash": "51a7181a7d0ebed3",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/danionella-mirifica": {
+    "at": "2026-11-14",
+    "hash": "37241c5ac2186740",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/etheostoma-fusiforme": {
+    "at": "2026-11-14",
+    "hash": "a7083ae991a447f3",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P3",
+        "quote": "Mấy tháng mùa hè thì có thể thả loài này ra hồ ngoài vườn.",
+        "why": "Putting this cool-water North American fish in a garden pond only in summer assumes a temperate climate's seasons; a Vietnamese summer pond would be far too warm.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/fundulopanchax-cinnamomeus": {
+    "at": "2026-11-14",
+    "hash": "6f0673df6ba79490",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/goniopsis-pelii": {
+    "at": "2026-11-14",
+    "hash": "1a3e685f936c10ed",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/pterosturisoma-microps": {
+    "at": "2026-11-14",
+    "hash": "297408dfab0f0c88",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/skiffia-multipunctata": {
+    "at": "2026-11-14",
+    "hash": "d7631f0afbb95211",
     "model": "opus",
     "checklist": 3,
     "findings": [],
