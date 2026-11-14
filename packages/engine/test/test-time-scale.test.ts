@@ -1,5 +1,5 @@
 import { spawnSync } from 'node:child_process'
-import { mkdtempSync, writeFileSync } from 'node:fs'
+import { mkdtempSync, readFileSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -101,5 +101,15 @@ test("only vitest's own time-out line is a time-out: a failing test that quotes 
     'Error: Test timed out in 30000ms.', 'Error: [vitest-pool-runner]: Timeout waiting for worker to respond', 'Error: [vitest-pool]: Timeout starting forks runner.']) {
     expect(ranOut(line), line).toBe(true)
     expect(ranOut(`${quoted.join('\n')}\n${line}`), line).toBe(true)
+  }
+  // vitest's whole output, colours and all, from the version the engine pins (5.0.5, 14 Nov), written to a file as the
+  // cycle's log is: a test out of time and a hook out of time, each run alone (`pnpm exec vitest run <file>`, the engine's)
+  // and through pnpm's recursive run (`pnpm -r --stream`, the schema's), whose "<package> test: " prefix is the one the
+  // cycle's `pnpm test` gives when packages run side by side (fixtures/vitest-timeouts/; the checkout's folder is <repo>).
+  for (const name of ['test-bare', 'hook-bare', 'test-recursive', 'hook-recursive']) {
+    const out = readFileSync(fileURLToPath(new URL(`fixtures/vitest-timeouts/${name}.log`, import.meta.url)), 'utf8')
+    expect(out, name).toMatch(/(Test|Hook) timed out in 100ms\./)
+    expect(ranOut(out), name).toBe(true)
+    expect(ranOut(`${quoted.join('\n')}\n${out}`), name).toBe(true)
   }
 })

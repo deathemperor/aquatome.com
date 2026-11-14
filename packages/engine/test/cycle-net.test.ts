@@ -184,13 +184,15 @@ function stuckHome() {
 }
 /** The command of process `parent`'s child as ps shows it, once it's `command`, waiting up to 10 s; else it throws, so a
  * slow machine fails plainly instead of classifying a cycle before it's in place. Its pid. */
+// Up to 10 s by the clock, however long each ps takes, and each ps stopped after 2 s.
 async function seen(parent: number | undefined, command: string) {
-  for (let i = 0; i < 100; i++) {
-    const c = execFileSync('ps', ['-A', '-o', 'pid=,ppid=,command='], { encoding: 'utf8' }).split('\n').map(l => l.trim().split(/\s+/)).find(([, ppid]) => ppid === String(parent))
+  const until = Date.now() + 10_000
+  while (Date.now() < until) {
+    const c = execFileSync('ps', ['-A', '-o', 'pid=,ppid=,command='], { encoding: 'utf8', timeout: 2_000 }).split('\n').map(l => l.trim().split(/\s+/)).find(([, ppid]) => ppid === String(parent))
     if (c?.slice(2).join(' ') === command) return c[0]!
     await new Promise(r => setTimeout(r, 100))
   }
-  throw new Error(`the fake cycle never showed "${command}"`)
+  throw new Error(`the fake cycle never showed "${command}" in 10 s`)
 }
 const pattern = (line: string) => new RegExp(`Z ${line.replace(/[().]/g, '\\$&').replace('HH:MM', '\\d\\d:\\d\\d')}$`)
 
