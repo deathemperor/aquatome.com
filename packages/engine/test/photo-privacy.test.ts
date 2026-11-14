@@ -151,3 +151,24 @@ test('publication migration uses the repository root and one safe line, and a fa
  expect(lines).toHaveLength(5)
  expect(lines.join('\n')).not.toContain(trip)
 })
+
+test("a verdict keeps the day its question was asked only as a real calendar date, never words", () => {
+  expect(compactVerdict({ ok: 'yes', typical: true, note: 'blurred', poor: true, q: 2, on: '2026-11-13' })).toMatchObject({ poor: true, q: 2, on: '2026-11-13', note: 'subject yes; poor' })
+  for (const on of ['blurred outline', '2026-02-30', '13/11/2026', 20261113]) expect(() => compactVerdict({ ok: 'yes', typical: true, note: '', on })).toThrow('invalid photo question day')
+  // The guard on the written record: the day passes as a date and is refused as anything else.
+  const rec = (on: unknown) => photoPrivacyViolations('_photo-subjects.json', { 'https://x/a.webp': { fish: { ok: 'yes', typical: true, poor: true, q: 2, on, note: 'subject yes; poor' } } }).map(x => x.code)
+  expect(rec('2026-11-13')).toEqual([])
+  for (const on of ['blurred outline', '2026-02-30', 20261113]) expect(rec(on)).toContain('invalid question day')
+  expect(reviewPrivacyViolations('| Asked | Page | Photo | Recorded outcome |\n| --- | --- | --- | --- |\n| 2026-11-13 | species/a | [photo](https://x/a.webp) | subject yes; poor |')).toBe(0)
+  expect(reviewPrivacyViolations('| Asked | Page | Photo | Recorded outcome |\n| --- | --- | --- | --- |\n| murky water | species/a | [photo](https://x/a.webp) | subject yes; poor |')).toBe(1)
+})
+
+// The independent reader, 2026-11-13: the new answers' trial rows start with the day they were asked.
+test('a trial row with the day it was asked keeps its day and gets the controlled reason', () => {
+ const v={ok:'yes',typical:true,person:false,logo:false,poor:true,on:'2026-11-14',note:'free words'}
+ const raw=`| Asked | Page | Photo | Recorded outcome |\n| 2026-11-14 | species/alpha | [photo](https://example.org/p) | free words |\n| - | species/beta | [photo](https://example.org/q) | free words |\n`
+ const doc=compactPhotoReview(raw,{'https://example.org/p':{alpha:v},'https://example.org/q':{beta:v}})
+ expect(doc).toContain(`| 2026-11-14 | species/alpha | [photo](https://example.org/p) | ${photoReason(v)} |`)
+ expect(doc).toContain(`| - | species/beta | [photo](https://example.org/q) | ${photoReason(v)} |`)
+ expect(doc).not.toContain('free words')
+})

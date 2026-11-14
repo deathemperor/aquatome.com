@@ -53,12 +53,14 @@ export function photoReason(v:Record<string,any>):string {
 }
 export function compactVerdict<T extends Record<string,any>>(v:T):T & {note:string;noteHash:string;hints:PhotoHints} {
   const out:Record<string,unknown>={}
-  for(const k of ['ok','typical','person','logo','guide','file','mark','brand','poor','unwell','q','other','dead','frames'])if(Object.hasOwn(v,k)){
+  for(const k of ['ok','typical','person','logo','guide','file','mark','brand','poor','unwell','q','on','other','dead','frames'])if(Object.hasOwn(v,k)){
     const x=v[k]
     if(k==='ok'&&!['yes','other','none','habitat','unsure','dead','no'].includes(x))throw new Error('invalid photo verdict category')
     if(k==='q'&&(!Number.isSafeInteger(x)||x<0))throw new Error('invalid photo question version')
+    // The day the question was asked: a calendar date, never words.
+    if(k==='on'&&!(typeof x==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(x)&&!Number.isNaN(Date.parse(`${x}T00:00:00Z`))&&new Date(`${x}T00:00:00Z`).toISOString().slice(0,10)===x))throw new Error('invalid photo question day')
     if(k==='other'&&(!x||typeof x!=='object'||Array.isArray(x)||Object.entries(x).some(([s,b])=>!/[a-z]/.test(s)||s.length>64||typeof b!=='boolean')))throw new Error('invalid guide subject decisions')
-    if(!['ok','q','other'].includes(k)&&typeof x!=='boolean')throw new Error('invalid photo verdict flag')
+    if(!['ok','q','on','other'].includes(k)&&typeof x!=='boolean')throw new Error('invalid photo verdict flag')
     out[k]=x
   }
   const note=photoReason(v),old=typeof v.note==='string'?v.note:''
