@@ -199,6 +199,7 @@ ran_out() { tail -c +"$(($1 + 1))" "$TEST_LOG" | sed -E "s/$(printf '\033')\[[0-
 # A run whose checks failed twice for another reason goes on held/<job>/<when>, which nothing publishes as it is: it gets
 # one more try once main's code has changed since it was held (retry_held), the Machine Load Lead looks at those, never
 # the owner, and a run drops its job's after 14 days (drop_old_held).
+# Work out of time OUT_CYCLES cycles in a row is no longer put down to a busy Mac: it fails as broken work does (count_outs).
 # `keep_unpublished <job>`, where a run gives up publishing.
 engine_clone() { [ -z "${GITHUB_ACTIONS:-}" ] && case "$PWD/" in "$HOME/.local/share/aquatome/"*) true ;; *) false ;; esac; }
 # The cloud's cycle (engine.yml) keeps its work the same way, but a runner keeps nothing past its run, so each of those
@@ -212,7 +213,7 @@ keep_unpublished() {
   local when
   when=$(date -u +%Y%m%dT%H%M%S)
   if [ -n "${TIMED_OUT:-}" ]; then
-    keep_branch "kept/$1/$when" && log "tests ran out of time: this run's work is kept on kept/$1/$when for the next run"
+    keep_branch "kept/$1/$when-out1" && log "tests ran out of time: this run's work is kept on kept/$1/$when-out1 for the next run"
   elif [ -n "${MIGRATE_FAILED:-}" ]; then
     # The line the run's failure is reported with (engine-cycle.sh finish), as its callers then stop the run.
     FAILED="photo records not migrated: this run's work is kept on kept/$1/$when for the next run"
@@ -236,13 +237,61 @@ drop_branch() {
   engine_cloud || return 0
   net git push -q origin --delete "refs/heads/$1"
 }
-# `move_branch <from> <to>`, once its work failed its tests (push_kept): on the Mac the branch renamed. In the cloud, <to>
-# is the work as it was last checked, on the main it failed on, so its one more try waits for a main newer than that
-# (retry_held); and GitHub's <to> made and <from> deleted in one push, both or neither, so no branch is ever in two places.
+# `move_branch <from> <to>`, once its work failed its tests (push_kept): <to> is the work as it was last checked, on the
+# main it failed on, so its one more try waits for a main newer than that (retry_held). On the Mac too since 14 Nov: a
+# rename there kept the work's first main, so a branch just held was tried again in the same run. In the cloud, GitHub's
+# <to> made and <from> deleted in one push, both or neither, so no branch is ever in two places.
 move_branch() {
-  if ! engine_cloud; then git branch -q -M "$1" "$2"; return; fi
-  net git push -q --atomic origin "HEAD:refs/heads/$2" ":refs/heads/$1" || return 1
+  if engine_cloud; then net git push -q --atomic origin "HEAD:refs/heads/$2" ":refs/heads/$1" || return 1; fi
   git branch -q -f "$2" HEAD && git branch -q -D "$1"
+}
+# `rename_branch <from> <to>`: the same work under another name (its count, count_outs), and in the cloud GitHub's in one
+# push, both or neither.
+rename_branch() {
+  if engine_cloud; then net git push -q --atomic origin "refs/heads/$1:refs/heads/$2" ":refs/heads/$1" || return 1; fi
+  git branch -q -M "$1" "$2"
+}
+# The same work out of time OUT_CYCLES cycles in a row is no longer put down to a busy Mac (the chief of staff, 14 Nov): it
+# fails as work whose tests failed does, its output kept and the run failed with a notice. A branch's count is in its name,
+# the one thing a cloud runner and the Mac's clone share: kept/<job>/<when>-out1 is work out of time in its own run, and
+# each next run whose check of it runs out of time again moves it on, -out2, then the bound. A check that passed (its push
+# didn't land) ends the row; one that didn't run (a clash with main, its photo records) leaves it as it is. A branch with
+# no count (kept for its photo records, held for a real failure, or kept before 14 Nov) is at 0.
+OUT_CYCLES=3
+outs() { case "$1" in *-out[0-9]) echo "${1##*-out}" ;; *) echo 0 ;; esac; }
+uncounted() { echo "${1%-out[0-9]}"; }
+# After push_kept failed <branch>: BRANCH, its name now (moved on, or its row ended); or at the bound, OUT_FAILED, its
+# count, with KEPT_FAILED set, its output in the log and kept, and the notice in FAULT. Always 0, under set -e.
+count_outs() {
+  local n
+  BRANCH=$1 OUT_FAILED=
+  if [ "$KEPT_WHY" = "tests out of time again" ]; then
+    n=$(($(outs "$1") + 1))
+    if [ "$n" -ge "$OUT_CYCLES" ]; then
+      OUT_FAILED=$n KEPT_FAILED=1
+      out_of_time_output "$(uncounted "$1")" "$n"
+      return 0
+    fi
+    KEPT_WHY="tests out of time again: $n of $OUT_CYCLES cycles in a row"
+    if rename_branch "$1" "$(uncounted "$1")-out$n"; then BRANCH="$(uncounted "$1")-out$n"; else log "$1 couldn't be renamed $(uncounted "$1")-out$n: its count stays"; fi
+  elif [ "$KEPT_WHY" = "the push didn't land" ] && [ "$(outs "$1")" != 0 ]; then
+    if rename_branch "$1" "$(uncounted "$1")"; then BRANCH="$(uncounted "$1")"; else log "$1 couldn't be renamed $(uncounted "$1"): its count stays"; fi
+  fi
+  return 0
+}
+# The output of work failed at the bound, `out_of_time_output <branch> <cycles>`: its time-out lines and failed tests in the
+# log (a worker that never started names no test), on the Mac a copy of its whole test log in
+# ~/.cache/aquatome/engine-held/ ($TEST_LOG is in /tmp, and the run's next check empties it), and one line in FAULT.
+out_of_time_output() {
+  local where="this run's log" copy line
+  log "$1 ran out of time $2 cycles in a row, so it's no longer put down to a busy Mac: it fails as broken work does. Its tests:"
+  while IFS= read -r line; do [ -z "$line" ] || log "  $line"; done < <(
+    { sed -E "s/$(printf '\033')\[[0-9;]*m//g" "$TEST_LOG" | grep -E '(Test|Hook) timed out in|\[vitest-pool' | sort -u | head -20; failed_tests 0 | sed 's/^/FAIL /' | head -20; } || true)
+  if [ -z "${GITHUB_ACTIONS:-}" ]; then
+    copy="$HOME/.cache/aquatome/engine-held/$(tr / - <<<"$1").log"
+    if mkdir -p "${copy%/*}" && cp "$TEST_LOG" "$copy"; then where=$copy; fi
+  fi
+  FAULT="${FAULT:+$FAULT; }$1 ran out of time $2 cycles in a row and failed as broken work: its tests' output is in $where"
 }
 HELD_DAYS=14
 drop_old_held() {
@@ -260,7 +309,7 @@ drop_old_held() {
 # keeps it for the run after. Then this run's own work starts from main. `publish_kept <job>`, after the run's install
 # and merge drivers. In the cloud, the job's branches come from GitHub first.
 publish_kept() {
-  local branch
+  local branch held why as
   engine_clone || engine_cloud || return 0
   if engine_cloud; then
     net git fetch -q origin "+refs/heads/kept/$1/*:refs/heads/kept/$1/*" "+refs/heads/held/$1/*:refs/heads/held/$1/*" || log "the kept work on GitHub couldn't be fetched: left for the next run"
@@ -272,14 +321,26 @@ publish_kept() {
     if push_kept "$branch"; then
       git branch -q -D "$branch"
       log "published $branch"
-    elif [ -n "$KEPT_FAILED" ]; then
-      if move_branch "$branch" "held/${branch#kept/}"; then
-        log "$branch failed its tests twice: on held/${branch#kept/}, not published"
+      net git fetch -q origin || true
+      git reset -q --hard origin/main
+      continue
+    fi
+    count_outs "$branch"
+    if [ -n "$KEPT_FAILED" ]; then
+      # Held at the bound keeps its count, so its one more try out of time again is its last (retry_held); a real
+      # failure ends the row.
+      held="held/$(uncounted "${branch#kept/}")${OUT_FAILED:+-out$OUT_FAILED}"
+      why="failed its tests twice"
+      [ -z "$OUT_FAILED" ] || why="ran out of time $OUT_FAILED cycles in a row"
+      if move_branch "$branch" "$held"; then
+        log "$branch $why: on $held, not published"
       else
-        log "$branch failed its tests twice and couldn't be moved to held/${branch#kept/}: it stays kept for the next run"
+        log "$branch $why and couldn't be moved to $held: it stays kept for the next run"
       fi
     else
-      log "$branch isn't published yet ($KEPT_WHY): it stays kept for the next run"
+      as=
+      [ "$BRANCH" = "$branch" ] || as=", as $BRANCH"
+      log "$branch isn't published yet ($KEPT_WHY): it stays kept for the next run$as"
       # Kept work held back by its records goes on to the next run, never silently: the run reports it when it ends, as
       # a failed run is reported (FAULT, engine-cycle.sh finish; the chief of staff, 13 Nov).
       [ -z "${MIGRATE_FAILED:-}" ] || FAULT="${FAULT:+$FAULT; }$branch isn't published: its photo records couldn't be migrated, and it stays kept"
@@ -306,10 +367,11 @@ fault_exit() {
   exit "$status"
 }
 # Each held branch of <job> not yet tried again, once main's code (anything but the engine's output and the docs) has
-# changed since the main it was checked on: published as kept work is, or, failing its tests for real again,
-# moved to <branch>-tried, which nothing tries again. Out of time or not pushed, it stays held for the next run's try.
+# changed since the main it was checked on: published as kept work is, or, failing its tests for real again, or out of
+# time in OUT_CYCLES tries in a row (count_outs), moved to <branch>-tried, which nothing tries again. Out of time fewer
+# times, or not pushed, it stays held for the next run's try.
 retry_held() {
-  local branch base
+  local branch base tried why as
   for branch in $(git for-each-ref --sort=refname --format='%(refname:short)' "refs/heads/held/$1/"); do
     case "$branch" in *-tried) continue ;; esac
     base=$(git merge-base "$branch" origin/main) || continue
@@ -319,14 +381,24 @@ retry_held() {
     if push_kept "$branch"; then
       git branch -q -D "$branch"
       log "published $branch"
-    elif [ -n "$KEPT_FAILED" ]; then
-      if move_branch "$branch" "$branch-tried"; then
-        log "$branch failed its tests again: on $branch-tried, not tried again"
+      net git fetch -q origin || true
+      git reset -q --hard origin/main
+      continue
+    fi
+    count_outs "$branch"
+    if [ -n "$KEPT_FAILED" ]; then
+      tried="$(uncounted "$branch")-tried"
+      why="failed its tests again"
+      [ -z "$OUT_FAILED" ] || why="ran out of time $OUT_FAILED cycles in a row"
+      if move_branch "$branch" "$tried"; then
+        log "$branch $why: on $tried, not tried again"
       else
-        log "$branch failed its tests again and couldn't be moved to $branch-tried: it stays held"
+        log "$branch $why and couldn't be moved to $tried: it stays held"
       fi
     else
-      log "$branch isn't published yet ($KEPT_WHY): it stays held for the next run's try"
+      as=
+      [ "$BRANCH" = "$branch" ] || as=", as $BRANCH"
+      log "$branch isn't published yet ($KEPT_WHY): it stays held for the next run's try$as"
     fi
     net git fetch -q origin || true
     git reset -q --hard origin/main

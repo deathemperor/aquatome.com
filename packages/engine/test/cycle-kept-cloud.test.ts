@@ -60,9 +60,9 @@ function github() {
 
 test('a cloud cycle whose tests ran out of time keeps its work on GitHub, and the next run publishes it and deletes that branch', () => {
   const g = github()
-  expect(g.failedRun(TIMEOUT)).toMatch(/LOG tests ran out of time: this run's work is kept on kept\/rewrite\/\d{8}T\d{6} for the next run/)
+  expect(g.failedRun(TIMEOUT)).toMatch(/LOG tests ran out of time: this run's work is kept on kept\/rewrite\/\d{8}T\d{6}-out1 for the next run/)
   const [kept = ''] = g.onGitHub()
-  expect(kept).toMatch(/^kept\/rewrite\/\d{8}T\d{6}$/)
+  expect(kept).toMatch(/^kept\/rewrite\/\d{8}T\d{6}-out1$/)
   expect(g.onMain('content/b.json')).toBe('')
   g.land('content/c.json', 'sf')
   expect(g.nextRun()).toContain(`LOG published ${kept}`)
@@ -75,7 +75,7 @@ test('kept work that fails its tests for real in the next run moves to held on G
   const g = github()
   g.failedRun(TIMEOUT)
   const [kept = ''] = g.onGitHub()
-  const held = kept.replace(/^kept\//, 'held/')
+  const held = kept.replace(/^kept\//, 'held/').replace(/-out1$/, '')
   expect(g.nextRun({ CHECK: FAIL })).toContain(`LOG ${kept} failed its tests twice: on ${held}, not published`)
   expect(g.onGitHub()).toEqual([held])
   expect(g.onMain('content/b.json')).toBe('')
@@ -91,13 +91,13 @@ test('a real failure is held on GitHub, unpublished, until main\'s code changes;
   g.land('docs/note.md', 'note')
   expect(g.nextRun()).toBe('')
   expect(g.onGitHub()).toEqual([held])
-  // A fix lands. Out of time on its try, it stays held and untried; the run after, it passes and is published.
+  // A fix lands. Out of time on its try, it stays held, counted once, and untried; the run after, it passes and is published.
   g.land('packages/code.ts', '2')
-  expect(g.nextRun({ CHECK: TIMEOUT })).toContain(`LOG ${held} isn't published yet (tests out of time again): it stays held for the next run's try`)
-  expect(g.onGitHub()).toEqual([held])
+  expect(g.nextRun({ CHECK: TIMEOUT })).toContain(`LOG ${held} isn't published yet (tests out of time again: 1 of 3 cycles in a row): it stays held for the next run's try, as ${held}-out1`)
+  expect(g.onGitHub()).toEqual([`${held}-out1`])
   const log = g.nextRun()
-  expect(log).toContain(`LOG trying ${held} once more: main's code has changed since it was held`)
-  expect(log).toContain(`LOG published ${held}`)
+  expect(log).toContain(`LOG trying ${held}-out1 once more: main's code has changed since it was held`)
+  expect(log).toContain(`LOG published ${held}-out1`)
   expect(g.onMain('content/b.json')).toBe('rewrite')
   expect(g.onGitHub()).toEqual([])
 })
@@ -147,7 +147,7 @@ test('a move GitHub won\'t finish leaves the branch where it was, never in two p
   const g = github()
   g.failedRun(TIMEOUT)
   const [kept = ''] = g.onGitHub()
-  const held = kept.replace(/^kept\//, 'held/')
+  const held = kept.replace(/^kept\//, 'held/').replace(/-out1$/, '')
   g.refusingDeletes(true)
   expect(g.nextRun({ CHECK: FAIL })).toContain(`LOG ${kept} failed its tests twice and couldn't be moved to ${held}: it stays kept for the next run`)
   expect(g.onGitHub()).toEqual([kept])
@@ -167,7 +167,7 @@ test('kept work that fails on a newer main is held as checked there, and its one
   const g = github()
   g.failedRun(TIMEOUT)
   const [kept = ''] = g.onGitHub()
-  const held = kept.replace(/^kept\//, 'held/')
+  const held = kept.replace(/^kept\//, 'held/').replace(/-out1$/, '')
   g.land('packages/code.ts', '2')
   const log = g.nextRun({ CHECK: FAIL })
   expect(log).toContain(`LOG ${kept} failed its tests twice: on ${held}, not published`)
@@ -182,11 +182,27 @@ test('kept work that fails on a newer main is held as checked there, and its one
   expect(g.onMain('packages/code.ts')).toBe('3')
 })
 
+// The chief of staff, 14 Nov 2026: the count is in GitHub's branch name, the one thing the next runner has.
+test("in the cloud, out of time three cycles in a row is held at the bound, under GitHub's names, with a notice", () => {
+  const g = github()
+  g.failedRun(TIMEOUT)
+  const [kept = ''] = g.onGitHub()
+  const base = kept.replace(/-out1$/, '')
+  expect(g.nextRun({ CHECK: TIMEOUT })).toContain(`LOG ${kept} isn't published yet (tests out of time again: 2 of 3 cycles in a row): it stays kept for the next run, as ${base}-out2`)
+  expect(g.onGitHub()).toEqual([`${base}-out2`])
+  const third = g.cycle(g.runner(), 'publish_kept rewrite; echo "FAULT=$FAULT"', { CHECK: TIMEOUT })
+  const held = `${base.replace(/^kept\//, 'held/')}-out3`
+  expect(third).toContain(`LOG ${base}-out2 ran out of time 3 cycles in a row: on ${held}, not published`)
+  expect(third).toContain(`FAULT=${base} ran out of time 3 cycles in a row and failed as broken work: its tests' output is in this run's log`)
+  expect(g.onGitHub()).toEqual([held])
+  expect(g.onMain('content/b.json')).toBe('')
+})
+
 test('a branch that can\'t be pushed is said, and the run still goes on to say it isn\'t publishing', () => {
   const g = github()
   g.refusing(true)
   const log = g.failedRun(TIMEOUT, {}, '; echo "WENT ON"')
-  expect(log).toMatch(/LOG kept\/rewrite\/\d{8}T\d{6} couldn't be pushed to GitHub: this run's work is lost with the runner\nWENT ON$/)
+  expect(log).toMatch(/LOG kept\/rewrite\/\d{8}T\d{6}-out1 couldn't be pushed to GitHub: this run's work is lost with the runner\nWENT ON$/)
   g.refusing(false)
   expect(g.onGitHub()).toEqual([])
 })
@@ -206,6 +222,6 @@ test('only engine.yml\'s runs keep work on GitHub or touch its kept branches: an
 test('GitHub\'s branches are deleted only by their exact names', () => {
   const s = readFileSync(CHECKS, 'utf8')
   expect(s.match(/--delete [^\n]*/g)).toEqual(['--delete "refs/heads/$1"'])
-  // A deleting refspec in a push names one variable's branch, never a pattern.
-  expect([...s.matchAll(/(?:^|[\s"])(:refs\/heads\/[^"\s]*)/gm)].map(m => m[1])).toEqual([':refs/heads/$1', ':refs/heads/$1'])
+  // A deleting refspec in a push names one variable's branch, never a pattern: publishing, moving and renaming.
+  expect([...s.matchAll(/(?:^|[\s"])(:refs\/heads\/[^"\s]*)/gm)].map(m => m[1])).toEqual([':refs/heads/$1', ':refs/heads/$1', ':refs/heads/$1'])
 })

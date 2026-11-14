@@ -84,7 +84,7 @@ function clone() {
 test("a run whose tests ran out of time keeps its work, and the next run publishes it on main as it is then", () => {
   const c = clone()
   expect(c.timedOutRun()).toMatch(/LOG tests ran out of time: this run's work is kept on kept\/photos\//)
-  expect(c.branches()).toEqual([expect.stringMatching(/^kept\/photos\/\d{8}T\d{6}$/)])
+  expect(c.branches()).toEqual([expect.stringMatching(/^kept\/photos\/\d{8}T\d{6}-out1$/)])
   // The start from main left it out of main, and another job pushed meanwhile.
   expect(c.onMain('content/b.json')).toBe('')
   c.elsewhere()
@@ -98,15 +98,17 @@ test("a run whose tests ran out of time keeps its work, and the next run publish
   expect(c.sh('git status --porcelain')).toBe('')
 })
 
-test('kept work whose tests run out of time again stays kept; a real failure moves it aside, never pushed', () => {
+test('kept work whose tests run out of time again stays kept, counted; a real failure moves it aside, never pushed', () => {
   const c = clone()
   c.timedOutRun()
   const [kept = ''] = c.branches()
-  expect(c.cycle('publish_kept photos', { CHECK: 'Error: Test timed out in 30000ms.' })).toContain(`LOG ${kept} isn't published yet (tests out of time again): it stays kept`)
-  expect(c.branches()).toEqual([kept])
+  const again = kept.replace(/-out1$/, '-out2')
+  expect(c.cycle('publish_kept photos', { CHECK: 'Error: Test timed out in 30000ms.' })).toContain(`LOG ${kept} isn't published yet (tests out of time again: 2 of 3 cycles in a row): it stays kept for the next run, as ${again}`)
+  expect(c.branches()).toEqual([again])
   expect(c.onMain('content/b.json')).toBe('')
+  // A real failure ends the row: held under its time, with no count.
   c.cycle('publish_kept photos', { CHECK: 'AssertionError: expected 1 to be 2' })
-  expect(c.branches()).toEqual([kept.replace(/^kept\//, 'held/')])
+  expect(c.branches()).toEqual([kept.replace(/^kept\//, 'held/').replace(/-out1$/, '')])
   expect(c.onMain('content/b.json')).toBe('')
   // Another job's kept work isn't this one's to publish.
   c.sh('git branch kept/videos/20261108T000000 HEAD')
@@ -119,10 +121,71 @@ test("kept work whose push doesn't land stays kept, and goes out with the next r
   c.timedOutRun()
   const [kept = ''] = c.branches()
   c.refusing(true)
-  expect(c.cycle('publish_kept photos')).toContain(`LOG ${kept} isn't published yet (the push didn't land): it stays kept`)
-  expect(c.branches()).toEqual([kept])
+  // Its tests passed, so its row of time-outs ends: kept with no count.
+  const bare = kept.replace(/-out1$/, '')
+  expect(c.cycle('publish_kept photos')).toContain(`LOG ${kept} isn't published yet (the push didn't land): it stays kept for the next run, as ${bare}`)
+  expect(c.branches()).toEqual([bare])
   c.refusing(false)
-  expect(c.cycle('publish_kept photos')).toContain(`LOG published ${kept}`)
+  expect(c.cycle('publish_kept photos')).toContain(`LOG published ${bare}`)
+  expect(c.onMain('content/b.json')).toBe('photos')
+})
+
+// The chief of staff, 14 Nov 2026: the same work "out of time" three cycles in a row stops being put down to a busy Mac. It
+// fails as broken work does, with its output kept and the run failed with a notice; its one more try is its last.
+test('kept work out of time three cycles in a row fails as broken work, with its output kept and a notice', () => {
+  const c = clone()
+  const late = { CHECK: 'Error: Test timed out in 30000ms.' }
+  c.timedOutRun()
+  const [kept = ''] = c.branches()
+  const base = kept.replace(/-out1$/, '')
+  c.cycle('publish_kept photos', late)
+  expect(c.branches()).toEqual([`${base}-out2`])
+  const third = c.cycle('publish_kept photos; echo "FAULT=$FAULT"', late)
+  const held = `${base.replace(/^kept\//, 'held/')}-out3`
+  const copy = `${c.sh('echo "$HOME"')}/.cache/aquatome/engine-held/${base.replace(/\//g, '-')}.log`
+  expect(third).toContain(`LOG ${base} ran out of time 3 cycles in a row, so it's no longer put down to a busy Mac: it fails as broken work does. Its tests:\nLOG   Error: Test timed out in 30000ms.\n`)
+  expect(third).toContain(`LOG ${base}-out2 ran out of time 3 cycles in a row: on ${held}, not published`)
+  expect(third).toContain(`FAULT=${base} ran out of time 3 cycles in a row and failed as broken work: its tests' output is in ${copy}`)
+  expect(c.sh(`cat "${copy}"`)).toContain('Error: Test timed out in 30000ms.')
+  expect(c.branches()).toEqual([held])
+  expect(c.onMain('content/b.json')).toBe('')
+  // Held as checked on main as it was, it waits for main's code to change; then out of time again, it is tried no more.
+  expect(c.cycle('publish_kept photos', late)).toBe('')
+  c.elsewhere('packages/code.ts', '2')
+  c.sh('git fetch -q origin && git reset -q --hard origin/main')
+  const last = c.cycle('publish_kept photos', late)
+  expect(last).toContain(`LOG ${held} ran out of time 4 cycles in a row: on ${base.replace(/^kept\//, 'held/')}-tried, not tried again`)
+  expect(c.branches()).toEqual([`${base.replace(/^kept\//, 'held/')}-tried`])
+  expect(c.onMain('content/b.json')).toBe('')
+})
+
+test("a check that didn't run neither counts nor ends the row: a clash with main, or its photo records", () => {
+  const c = clone()
+  c.sh('git branch kept/photos/20261114T000000-out2 HEAD')
+  for (const why of ['a clash with main', "its photo records couldn't be migrated"])
+    expect(c.cycle(`KEPT_FAILED=; KEPT_WHY="${why}"; count_outs kept/photos/20261114T000000-out2; echo "$BRANCH [$KEPT_FAILED]"`), why).toBe('kept/photos/20261114T000000-out2 []')
+  expect(c.branches()).toEqual(['kept/photos/20261114T000000-out2'])
+})
+
+// Astra's read of #1172, on the Mac since 14 Nov: a rename there kept the work's first main, so kept work that failed on
+// a newer main was tried again in the same run, on the main it had just failed on.
+test('on the Mac too, kept work that fails on a newer main is held as checked there, and waits for a main newer still', () => {
+  const c = clone()
+  c.timedOutRun()
+  const [kept = ''] = c.branches()
+  const held = kept.replace(/^kept\//, 'held/').replace(/-out1$/, '')
+  c.elsewhere('packages/code.ts', '2')
+  c.sh('git fetch -q origin && git reset -q --hard origin/main')
+  const log = c.cycle('publish_kept photos', { CHECK: 'AssertionError: expected 1 to be 2' })
+  expect(log).toContain(`LOG ${kept} failed its tests twice: on ${held}, not published`)
+  expect(log).not.toContain('trying')
+  expect(c.branches()).toEqual([held])
+  expect(c.cycle('publish_kept photos')).toBe('')
+  c.elsewhere('packages/code.ts', '3')
+  c.sh('git fetch -q origin && git reset -q --hard origin/main')
+  const tried = c.cycle('publish_kept photos')
+  expect(tried).toContain(`LOG trying ${held} once more: main's code has changed since it was held`)
+  expect(tried).toContain(`LOG published ${held}`)
   expect(c.onMain('content/b.json')).toBe('photos')
 })
 
