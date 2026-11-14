@@ -100,18 +100,47 @@ export function lostWords(before: string, after: string, covered: readonly strin
  */
 const UNITS = new Set('lít l ml cm mm m kg g độ c khoảng'.split(' '))
 const isFigure = (w: string) => /^\d/.test(w) || UNITS.has(w)
-/** A text's figures, not a name's digits ("CO2", "T5"): "1.000" and "1000" alike, "2,5" and "2.5" alike (for-reader.ts). */
-const figuresOf = (t: string) => [...plain(t).matchAll(/(?<![\p{L}\d])\d+(?:[.,]\d+)*/gu)].map(m => (/^\d{1,3}(?:[.,]\d{3})+$/.test(m[0]) ? m[0].replace(/[.,]/g, '') : m[0].replace(/,/g, '.')))
+/** A unit as written, to one name: a measure is its number and this. */
+const UNIT_OF: [RegExp, string][] = [[/^(?:°\s*c|độ\s*c|độ)$/, 'c'], [/^(?:°\s*f|độ\s*f)$/, 'f'], [/^(?:lít|lit|litres?|liters?|l)$/, 'l'], [/^(?:gallons?|gal)$/, 'gal'], [/^inch(?:es)?$/, 'in'], [/^(?:feet|foot|ft)$/, 'ft'], [/^(?:lbs?|pounds?)$/, 'lb']]
+const unitOf = (u: string) => { const w = u.toLowerCase().replace(/\s+/g, ' ').trim(); return UNIT_OF.find(([re]) => re.test(w))?.[1] ?? w }
+const NUM = String.raw`\d+(?:[.,]\d+)*`
+const MEASURE = new RegExp(String.raw`(?<![\p{L}\d.,])(${NUM})(?:\s*(?:–|-|đến|tới|to)\s*(${NUM}))?(?:\s*(°\s*[CcFf]|độ\s*[CcFf]|độ|lít|lit|litres?|liters?|ml|cm|mm|kg|gallons?|gal|inch(?:es)?|feet|foot|ft|lbs?|pounds?|oz|l|m|g)(?![\p{L}]))?`, 'gu')
+const numOf = (s: string) => Number(/^\d{1,3}(?:[.,]\d{3})+$/.test(s) ? s.replace(/[.,]/g, '') : s.replace(',', '.'))
+type Measure = { n: number; unit: string; text: string }
+/** A text's measures in order, each end of a range one ("72–78 °F" is two), not a name's digits ("CO2", "T5"). */
+const measures = (t: string): Measure[] => [...plain(t).matchAll(MEASURE)].flatMap(m => {
+  const unit = m[3] ?? ''
+  return [m[1]!, ...(m[2] ? [m[2]] : [])].map(x => ({ n: numOf(x), unit: unitOf(unit), text: `${x}${unit ? ` ${unit}` : ''}` }))
+})
 /**
- * The figures a converted sentence gives that it didn't, and that are no conversion of it: each new one must be what the
- * site's own conversion (toMetric) makes of the sentence or of the English beside it, the size keepers say for a US tank
- * among those (round.ts usTankOf, as the writing rules ask), or one code worked out for it (`adds`, a breed's litres).
- * Astra's read: "8 lít" written "1 lít" passed, its figure held to nothing.
+ * What a measure may be written as in a sentence a units finding converts: itself, rounded to a whole number, what the
+ * site's own conversion (toMetric) makes of it, to within a twentieth (its own rounding: 2 gallons, 8 lít, may be 7,6), and for a tank in litres the size keepers say
+ * (round.ts usTankOf, as the writing rules ask).
  */
-export function figuresAdded(before: string, after: string, en = '', adds: readonly string[] = []): string[] {
-  const may = new Set([before, toMetric(before, 'vi'), en ? toMetric(en, 'vi') : '', ...adds].flatMap(figuresOf))
-  for (const n of [...may]) { const tank = usTankOf(Number(n)); if (tank) may.add(String(tank[1])) }
-  return [...new Set(figuresOf(after).filter(n => !may.has(n)))]
+const fits = (r: Measure, q: Measure) => {
+  if (r.unit === q.unit && (r.n === q.n || r.n === Math.round(q.n))) return true
+  const to = measures(toMetric(q.text, 'vi'))
+  const tanks = [q, ...to].filter(x => x.unit === 'l').flatMap(x => { const t = usTankOf(x.n); return t ? [{ n: t[1], unit: 'l', text: '' }] : [] })
+  return [...to, ...tanks].some(c => c.unit === r.unit && Math.abs(r.n - c.n) <= c.n / 20 + 0.05)
+}
+/**
+ * The measures a converted sentence gives that are no conversion of the one in their place: each, in order, must be one of
+ * the sentence's own measures from where the last one matched on, as it was or converted (`fits`), so a figure can't come
+ * from another measure, or keep its number under another unit; or one code worked out for it (`adds`, a breed's litres).
+ * Astra's reads of 14 Nov 2026: "8 lít" written "1 lít", "2 inch" written "2 cm", and a figure taken from another
+ * sentence of the English all passed a check of figures alone.
+ */
+export function figuresAdded(before: string, after: string, adds: readonly string[] = []): string[] {
+  const was = measures(before), told = adds.flatMap(measures)
+  const out: string[] = []
+  let at = 0
+  for (const r of measures(after)) {
+    if (told.some(t => t.unit === r.unit && t.n === r.n)) continue
+    const j = was.findIndex((q, k) => k >= at && fits(r, q))
+    if (j >= 0) at = j + 1
+    else out.push(r.text)
+  }
+  return out
 }
 /**
  * What a sentence cut may put in to join what's left: only these, not a pointer ("này", "đó") or "bạn", which say who or
@@ -254,7 +283,7 @@ export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { e
     if (!now) return []
     const units = mine.some(f => f.check === 'units')
     const adds = mine.flatMap(f => f.adds ?? [])
-    const extra = [...addedWords(texts[i]!, now, adds, units ? isFigure : undefined), ...(units ? figuresAdded(texts[i]!, now, o.en, adds) : [])]
+    const extra = [...addedWords(texts[i]!, now, adds, units ? isFigure : undefined), ...(units ? figuresAdded(texts[i]!, now, adds) : [])]
     return extra.length ? [`Sentence ${i + 1} says what it didn't: "${extra.join(' ')}"`] : []
   })
   const lost = hedgesLost(r.hedges ?? [], shown.map(i => texts[i]).join('\n'), shown.map(i => changes.get(i)).join('\n'))

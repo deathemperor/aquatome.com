@@ -258,14 +258,22 @@ test('a converted sentence gains no "for each fish", and only the figures the si
     : { score: 1, notes: [], dropped: [], hedges: [] })) as Llm
   const run = async (said: string) => { const r = await mendPart(llm(said), html, f, { en }); if (typeof r === 'string') throw new Error(r); return r.added }
   expect(await run('Dung tích bể tối thiểu: 8 lít mỗi con.')).toEqual(['Sentence 1 says what it didn\'t: "mỗi con"'])
-  expect(await run('Dung tích bể tối thiểu: 1 lít.')).toEqual(['Sentence 1 says what it didn\'t: "1"'])
-  expect(await run('Dung tích bể tối thiểu: 80 lít.')).toEqual(['Sentence 1 says what it didn\'t: "80"'])
-  // What the site's conversion gives, of the sentence or the English: kept.
+  expect(await run('Dung tích bể tối thiểu: 1 lít.')).toEqual(['Sentence 1 says what it didn\'t: "1 lít"'])
+  expect(await run('Dung tích bể tối thiểu: 80 lít.')).toEqual(['Sentence 1 says what it didn\'t: "80 lít"'])
+  // The site's conversion of the measure in its place: kept, rounded as keepers say it too.
   expect(await run('Dung tích bể tối thiểu: khoảng 8 lít.')).toEqual([])
+  expect(await run('Dung tích bể tối thiểu: khoảng 7,6 lít.')).toEqual([])
   // A US tank's size as keepers here say it (round.ts US_TANKS): 10 gallons, 38 litres exactly, is the 40 they name.
   const ten = await mendPart(llm('Dung tích bể tối thiểu: 40 lít.'), '<p>Dung tích bể tối thiểu: 10 gallon.</p>', [{ ...f[0]!, quote: '10 gallon' }])
   if (typeof ten === 'string') throw new Error(ten)
   expect(ten.added).toEqual([])
-  // A figure the sentence had stays free, in any place.
-  expect(await run('Dung tích bể tối thiểu: 2 gallon, tức 8 lít.')).toEqual(['Sentence 1 says what it didn\'t: "tức"'])
+  // Astra's third read: a number kept under another unit, and a figure from another measure of the English, are no
+  // conversion of the measure in their place.
+  const at = async (html: string, quote: string, said: string, en?: string) => { const r = await mendPart(llm(said), html, [{ ...f[0]!, quote }], en ? { en } : {}); if (typeof r === 'string') throw new Error(r); return r.added }
+  expect(await at('<p>Cá dài 2 inch.</p>', '2 inch', 'Cá dài 2 cm.')).toEqual(['Sentence 1 says what it didn\'t: "2 cm"'])
+  expect(await at('<p>Cá dài 2 inch.</p>', '2 inch', 'Cá dài 5 cm.')).toEqual([])
+  expect(await at('<p>Bể cần ít nhất 8 lít.</p>', '8 lít', 'Bể cần ít nhất 1 lít.', '<p>The tank needs at least 8 litres. Add 1 shelter.</p>')).toEqual(['Sentence 1 says what it didn\'t: "1 lít"'])
+  // Two measures, each in its place: a range's ends converted, and not traded.
+  expect(await at('<p>Nước 72–78 °F, bể 10 gallon.</p>', 'Nước 72–78 °F, bể 10 gallon.', 'Nước 22–26 °C, bể 40 lít.')).toEqual([])
+  expect(await at('<p>Cá dài 2 inch, bể 10 gallon.</p>', 'Cá dài 2 inch, bể 10 gallon.', 'Cá dài 40 lít, bể 5 cm.')).toEqual(['Sentence 1 says what it didn\'t: "5 cm"'])
 })

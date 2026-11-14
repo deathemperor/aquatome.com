@@ -99,20 +99,20 @@ test('a part its reviewer passes is written and recorded with the page\'s new ha
 test('a tank size its English gives in gallons, on a page already written, goes to the rewriter with a note to convert it as the writing rules say', async () => {
   const root = await content()
   const file = join(root, 'content/species', ID, 'vi.json')
-  // "bể chỉ 11 lít" is 3 gallons: the code rounds only the sizes it lists, so it stays as written.
-  await writeFile(file, (await readFile(file, 'utf8')).replace('Dung tích bể tối thiểu: 8 lít.', 'Dung tích bể tối thiểu: 11 lít.'))
+  // "7,6 lít" is 2 gallons exactly: the code rounds only the sizes it lists, so it stays as written.
+  await writeFile(file, (await readFile(file, 'utf8')).replace('Dung tích bể tối thiểu: 8 lít.', 'Dung tích bể tối thiểu: 7,6 lít.'))
   const p = await danio(root)
   const prompts: string[] = []
-  // Written as the English's 2 gallons: a figure no conversion gives isn't kept (mend.ts figuresAdded).
-  const { llm, calls } = fakeLlm(vi => vi.replace('11 lít', '8 lít'), 0.9)
+  // Written as keepers say 2 gallons: a figure that is no conversion of the one in its place isn't kept (mend.ts figuresAdded).
+  const { llm, calls } = fakeLlm(vi => vi.replace('7,6 lít', '8 lít'), 0.9)
   const seen = (async (a: Parameters<Llm>[0]) => { prompts.push(a.prompt); return llm(a) }) as Llm
-  const units = [{ check: 'units' as const, part: part(p, 'sections.aquariumSize:sprucepets'), quote: 'Dung tích bể tối thiểu: 11 lít.', why: 'a volume that shows it was converted from gallons' }]
+  const units = [{ check: 'units' as const, part: part(p, 'sections.aquariumSize:sprucepets'), quote: 'Dung tích bể tối thiểu: 7,6 lít.', why: 'a volume that shows it was converted from gallons' }]
   const r = await fitRewrite(root, [p], reading(p, units), { llm: seen, now: () => new Date('2026-11-12T09:00:00Z') }, { limit: 5 })
   expect(r.rewritten).toEqual(['vi/species/danio-margaritatus sections.aquariumSize:sprucepets (0.90)'])
   expect(calls).toEqual(['rewrite', 'review'])
   expect(prompts[0]).toContain('Convert the English\'s US units as the writing rules say')
   expect(prompts[0]).toContain('Never round a dose\'s amount or the water it goes into: convert those exactly')
-  expect(prompts[0]).toContain('Dung tích bể tối thiểu: 11 lít.')
+  expect(prompts[0]).toContain('Dung tích bể tối thiểu: 7,6 lít.')
   expect(JSON.parse(await readFile(file, 'utf8')).sections['aquariumSize:sprucepets']).toContain('Dung tích bể tối thiểu: 8 lít.')
 })
 
@@ -741,7 +741,7 @@ test('a breed page\'s units rewrite that names another figure isn\'t kept, and t
   const r = await fitRewrite(root, [p], reading(p, [source, tank]), { llm, now: () => new Date('2026-11-12T12:00:00Z') }, { limit: 5 })
   expect(r.rewritten).toEqual(['vi/breeds/pigeon-blood-discus body (0.90)'])
   // Its 140, no conversion of the part's figures, is named too (mend.ts figuresAdded).
-  expect(r.notKept).toEqual(['vi/breeds/pigeon-blood-discus body (0.90: the figures as keepers say them aren\'t there: 130 lít; Sentence 5 says what it didn\'t: "140")'])
+  expect(r.notKept).toEqual(['vi/breeds/pigeon-blood-discus body (0.90: the figures as keepers say them aren\'t there: 130 lít; Sentence 5 says what it didn\'t: "140 lít")'])
   expect(JSON.parse(await readFile(file, 'utf8')).body).toContain('Một người chơi kể rằng cá cần nhiều chỗ. Một nguồn coi 132 lít')
 })
 for (const kind of ['species', 'guides']) test(`admission stops a ${kind} rewrite before calls, content writes or retry records`, async () => {
