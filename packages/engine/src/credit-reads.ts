@@ -228,8 +228,9 @@ export async function holdForCreditRead(root: string, urls: readonly string[], b
  * held: after the photo each followed, else before the one it preceded, else its old place. They leave the never-again list.
  * One that list now holds for another reason stays off, as does every other kind. A held photo the read didn't find stays
  * held for the page's next turn, and so does any place of a returning photo that is gone (its file, or its list), no longer
- * told apart (two lists of the same name) or taken (its calendar card shows another picture): it is `stuck`, to be said. The never-again list is written before the holds, so a failure between the two leaves a state the
- * next read's release finishes.
+ * told apart (two lists of the same name) or taken (its calendar card shows another picture): it is `stuck`, to be said.
+ * The never-again list is written first, then the pages, then the holds, so a failure at any point leaves no photo both
+ * shown and barred, and a state the next read's release finishes.
  */
 export async function releaseCreditHolds(root: string, credits: Record<string, PhotoCredit>): Promise<{ back: string[]; off: string[]; stuck: string[] }> {
   const holds = await readMap<CreditHold>(join(root, CREDIT_HOLDS)), rejected = await readMap<string>(join(root, REJECTED))
@@ -244,6 +245,10 @@ export async function releaseCreditHolds(root: string, credits: Record<string, P
     cards.push(...(h.calendar ?? []).map(c => ({ url: u, c })))
   }
   const stay = (u: string) => left.get(u) ?? (left.set(u, { places: [], calendar: [] }), left.get(u)!)
+  // Off the never-again list first, then back on the pages, then out of the holds: a failure at any point leaves no
+  // photo shown while barred, and the hold still names what the next read's release finishes.
+  for (const u of back) if (rejected[u] === HOLD_NOTE) delete rejected[u]
+  await writePhotoState(join(root, REJECTED), rejected)
   for (const file of new Set([...places.map(p => p.file), ...cards.map(x => x.c.file)])) {
     const f = join(root, file), raw = await readFile(f, 'utf8').catch(() => undefined)
     const mine = places.filter(p => p.file === file).sort((a, b) => a.at - b.at), days = cards.filter(x => x.c.file === file)
@@ -262,8 +267,6 @@ export async function releaseCreditHolds(root: string, credits: Record<string, P
     }
     await writeJson(f, raw, data)
   }
-  for (const u of back) if (rejected[u] === HOLD_NOTE) delete rejected[u]
-  await writePhotoState(join(root, REJECTED), rejected)
   for (const u of [...off, ...back]) {
     const l = left.get(u)
     if (!l || (!l.places.length && !l.calendar.length)) { delete holds[u]; continue }

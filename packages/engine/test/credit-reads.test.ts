@@ -187,13 +187,16 @@ test("a place no longer told apart, or taken, keeps its photo held: two lists of
   expect(holds[b.url].calendar).toEqual([{ file: 'content/curation.json', date: '2026-11-27', guide: 'guides/dup' }])
 })
 
-test("a release that fails while writing the never-again list is finished by the next: the photo back once, off the list, its hold gone", async () => {
+test("a release that fails while writing the never-again list leaves no photo shown while barred, and is finished by the next: the photo back once, off the list, its hold gone", async () => {
   const a = photo('a'), b = photo('b')
   const r = await root({ 'content/species/fish-e/entity.json': { id: 'fish-e', photos: [a, b] } })
   await holdForCreditRead(r, [b.url], 'the chief of staff', '2026-11-14', 'credits unread')
   const read = { [b.url]: { page: PAGE, kind: 'own', line: 'sha256:x', at: '2026-11-28' } satisfies PhotoCredit }
   vi.mocked(writePhotoState).mockRejectedValueOnce(new Error('the disk is full'))
   await expect(releaseCreditHolds(r, read)).rejects.toThrow('the disk is full')
+  // Between the failure and the next release, the photo is never shown while still barred.
+  const shown = ((await json(join(r, 'content/species/fish-e/entity.json'))).photos as { url: string }[]).some(p => p.url === b.url)
+  expect(shown && b.url in (await json(join(r, 'engine-state/_photo-rejected.json')))).toBe(false)
   await releaseCreditHolds(r, read)
   expect((await json(join(r, 'content/species/fish-e/entity.json'))).photos).toEqual([a, b])
   expect(await json(join(r, 'engine-state/_photo-rejected.json'))).toEqual({})
