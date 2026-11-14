@@ -422,7 +422,7 @@ test('a page the site leaves out (held by the reader-fit gate, or removed) is no
   // handbook is that index: a page not in it is never found, read, carded or shown, even with its copy still in a shard.
   const all = (await source.index('vi'))!
   // A material page is no page to the chat even when listed (the test after this one).
-  const kinds = [...new Set(all.items.map(i => i.kind))].filter(k => k !== 'tool' && k !== 'material').sort()
+  const kinds = [...new Set(all.items.map(i => i.kind))].filter(k => k !== 'tool' && (k as string) !== 'material').sort()
   expect(kinds).toEqual(['equipment', 'fish', 'glossary', 'guide', 'plant', 'video'])
   for (const lang of LANGS) {
     for (const kind of kinds) {
