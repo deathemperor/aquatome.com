@@ -246,9 +246,9 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
     { from: '2026-11-13T08:00:00+07:00', to: '2026-11-13T21:59:00+07:00', steps: 278, backstop: 300, small: 2, run: 70, localize: 50, second: 18, fit: 10, vi: 12, crops: 4, board: 2 },
     { from: '2026-11-13T22:00:00+07:00', to: '2026-11-14T02:59:00+07:00', steps: 288, backstop: 300, small: 2, run: 70, localize: 50, second: 18, fit: 10, vi: 12, crops: 4, board: 2, glossary: 10 },
     { from: '2026-11-14T03:00:00+07:00', to: '2026-11-14T07:59:00+07:00', steps: 303, backstop: 300, small: 2, run: 70, localize: 50, second: 18, fit: 10, vi: 12, crops: 4, board: 2, glossary: 25 },
-    { from: '2026-11-14T08:00:00+07:00', to: '2026-11-14T23:59:00+07:00', steps: 466, backstop: 450, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 40, glossary: 40 },
-    { from: '2026-11-15T00:00:00+07:00', to: '2026-11-15T23:59:00+07:00', steps: 491, backstop: 450, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 60, glossary: 40, material: 5 },
-    { from: '2026-11-16T00:00:00+07:00', to: '2026-12-31T00:00:00+07:00', steps: 431, backstop: 450, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 5 },
+    { from: '2026-11-14T08:00:00+07:00', to: '2026-11-14T23:59:00+07:00', steps: 466, backstop: 450, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 40, glossary: 40, ask: 0 },
+    { from: '2026-11-15T00:00:00+07:00', to: '2026-11-15T23:59:00+07:00', steps: 491, backstop: 450, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 60, glossary: 40, material: 5, ask: 0 },
+    { from: '2026-11-16T00:00:00+07:00', to: '2026-12-31T00:00:00+07:00', steps: 433, backstop: 450, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 5, ask: 2 },
   ]
   for (const p of periods) for (const when of [p.from, p.to]) {
     const t = tableInForce(CEILINGS.tables, new Date(when))!
@@ -277,6 +277,9 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
     // The materials writer, run by hand on the Mac: $5 a day from 15 Nov, the two driftwood pages in turn (the chief of
     // staff, 14 Nov 2026).
     expect(cap(when, 'mac', 'material')).toBe(p.material ?? p.small)
+    // The album ask: $2 a day on the Mac from 16 Nov, the first day with room under the backstop, and none before (the chief
+    // of staff, 14 Nov 2026).
+    expect(cap(when, 'mac', 'album-ask')).toBe(p.ask ?? p.small)
     // The ideas step: on 12 Nov its $1 line stopped it part way through its first guide, which costs about $1.30 (9
     // calls), and it wrote nothing. Now a guide starts only when its line covers one (pieces.ts), and the line is $3, two
     // guides, in the cloud, where the step runs; the Mac's is $0 (the chief of staff, 12 Nov 2026).

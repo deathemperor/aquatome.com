@@ -107,6 +107,7 @@ import { backfillVideoItems } from './video-items'
 import { throttled, VIDEO_GAP_MS, videoGuides, ytApi, ytDlp, ytFinder, ytFrames, ytGrab } from './youtube'
 import { checkPagePhotos, EMPTY_CAP, PHOTO_CHECK_SCHEMA, recheckCandidates } from './photo-check'
 import { DEAD_SCREEN_SCHEMA, screenDead } from './dead-screen'
+import { askAlbums, askSchema, type AskTile } from './album-ask'
 import { GUIDE_PHOTO_SCHEMA, screenGuidePhotos, type GuidePhotoDeps } from './guide-photos'
 import { screenWatermarks, visionText, WATERMARK_SCHEMA } from './watermarks'
 import { imageSteps } from './image-steps'
@@ -949,6 +950,12 @@ if (cmd === 'photo-privacy') {
   const r = await galleries(ROOT, { ...galleryDeps(), openverse: await openverseApi() }, { sheets: values.sheets ? Number(values.sheets) : 40, ...(values.only ? { only: values.only } : {}), ...(values.shard ? { shard: values.shard.split('/').map(Number) as [number, number] } : {}), budget })
   console.log(`gallery: ${r.done.length} pages, ${r.sheets} sheets, added ${JSON.stringify(r.added)}, ${r.short.length} short of target, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of [...r.done, ...r.failed]) console.log(x)
+} else if (cmd === 'album-ask') {
+  // Each album photo asked once whether it shows a photo tank or a ruler, the whole fish, a fish filling a small part of
+  // it (album-ask.ts); its own line in ceilings.json. pnpm engine album-ask [--sheets N (model calls, default 20)]
+  const a = await askAlbums(ROOT, { get: galleryDeps().get, ask: (file, prompt, plant) => claudeVision<{ tiles: AskTile[] }>({ system: 'You look at photos for the photo albums of an aquarium handbook. Reply only with JSON.', prompt, schema: askSchema(plant), file, model: process.env.ALBUM_ASK_MODEL }) }, { sheets: values.sheets ? Number(values.sheets) : 20 })
+  console.log(`album-ask: ${a.sheets} sheets, ${a.answered} photos answered (${a.setup} photo tank or ruler, ${a.cut} cut by the frame, ${a.small} filling a small part of it), ${a.left} left, ${a.failed.length} failed${a.stopped ? ` (stopped: ${a.stopped})` : ''}`)
+  for (const x of a.failed) console.log(x)
 } else if (cmd === 'breed-photos') {
   // Photos for breed pages that have none (a word search on Commons): pnpm engine breed-photos [--limit N]
   const r = await breedPhotos(ROOT, galleryDeps(), { limit: values.limit ? Number(values.limit) : 10 })
