@@ -39,13 +39,14 @@ export function documentHeaders(log: readonly Event[], url: string): Record<stri
 }
 
 const REPORT_PATH = '/cdn-cgi/script_monitor/report'
+const REPORT_ONLY = 'content-security-policy-report-only'
 /**
  * The script monitor's policy on a document, its report address cut to its path (the address's query is the zone's), or
  * nothing. It is the monitor's only when it is the whole report-only header, directive for directive as Cloudflare
  * documents it, reporting to Cloudflare's host or the page's own, with no policy enforced beside it.
  */
 export function monitorPolicy(headers: Record<string, string>, pageUrl: string): string | undefined {
-  const header = headers['content-security-policy-report-only']
+  const header = headers[REPORT_ONLY]
   if (!header || headers['content-security-policy']) return undefined
   // Two of a header come joined, by a comma or (in the protocol's log) a new line: a second policy isn't the monitor's.
   if (/[,\n]/.test(header)) return undefined
@@ -62,6 +63,40 @@ export function monitorPolicy(headers: Record<string, string>, pageUrl: string):
   return `script-src 'unsafe-inline' 'unsafe-eval'; connect-src 'none'; report-uri https://${to.host}${REPORT_PATH}`
 }
 
+/**
+ * The policy a load ran under, when it is the monitor's: the page's own response has it (monitorPolicy), and no other
+ * response of the load (a frame's document, a worker's script) has a report-only policy that isn't the monitor's too.
+ * Chrome's issues don't say which policy they break, so another policy anywhere on the load leaves them unattributed:
+ * nothing. A redirect's own headers, under the page's request, never applied to a document.
+ */
+export function loadPolicy(log: readonly Event[], page: string): string | undefined {
+  const of = (e: Event) => (e.params ?? {}) as Params
+  const policy = monitorPolicy(documentHeaders(log, page), page)
+  if (!policy) return undefined
+  const main = log.find(e => e.method === 'Network.responseReceived' && of(e).type === 'Document' && of(e).response?.url === page)
+  const others = log.filter(e => (e.method === 'Network.responseReceived' || e.method === 'Network.responseReceivedExtraInfo') && of(e).requestId !== of(main!).requestId)
+  const foreign = others.some(e => {
+    const headers = lower(e.method === 'Network.responseReceived' ? of(e).response?.headers : of(e).headers)
+    return headers[REPORT_ONLY] !== undefined && monitorPolicy(headers, page) === undefined
+  })
+  return foreign ? undefined : policy
+}
+
+// CSP's directives (w3c.github.io/webappsec-csp, with those of Trusted Types, Fenced Frames and the older ones).
+const DIRECTIVES = new Set([
+  'default-src', 'script-src', 'script-src-elem', 'script-src-attr', 'style-src', 'style-src-elem', 'style-src-attr', 'img-src',
+  'connect-src', 'font-src', 'object-src', 'media-src', 'frame-src', 'child-src', 'worker-src', 'manifest-src', 'prefetch-src',
+  'fenced-frame-src', 'base-uri', 'form-action', 'frame-ancestors', 'navigate-to', 'report-uri', 'report-to', 'sandbox',
+  'upgrade-insecure-requests', 'block-all-mixed-content', 'require-trusted-types-for', 'trusted-types', 'plugin-types',
+  'require-sri-for', 'webrtc',
+])
+/**
+ * A report-only policy for the log: its directives' names only, any other word as "?". Nothing of its values is written,
+ * since a report address's query is the zone's, and a comma or a semicolon in it would split it anywhere.
+ */
+export const policyNames = (header: string): string =>
+  header.split(';').map(d => d.trim().split(/\s+/)[0]!.toLowerCase()).filter(Boolean).map(n => (DIRECTIVES.has(n) ? n : '?')).join(' ')
+
 // The kinds of issue Lighthouse's `inspector-issues` audit fails on (core/audits/dobetterweb/inspector-issues.js, 13.6).
 const COUNTED = ['mixedContentIssue', 'cookieIssue', 'blockedByResponseIssue', 'heavyAdIssue', 'contentSecurityPolicyIssue']
 // What the monitor's policy can be broken on: a script file (script-src, read as script-src-elem or, for a worker,
@@ -70,7 +105,7 @@ const MONITOR_BREAKS = ['script-src', 'script-src-elem', 'worker-src', 'connect-
 
 /**
  * Whether every issue Chrome logged on the load is a break of a report-only policy that only the monitor's could be,
- * while the monitor's is the only policy on the document: then none of them is the page's. An issue of another kind, a
+ * while the monitor's is the only report-only policy on the load (loadPolicy): then none of them is the page's. An issue of another kind, a
  * policy enforced (as one in a `<meta>` would be), or a break the monitor's policy can't make: they are the page's.
  */
 export function onlyMonitorBreaks(issues: Issues | undefined, policy: string | undefined): boolean {

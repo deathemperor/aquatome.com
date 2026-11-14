@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { documentHeaders, monitorPolicy, onlyMonitorBreaks, scoreWith, type Issues, type Lhr } from '../e2e/lighthouse-edge'
+import { documentHeaders, loadPolicy, monitorPolicy, onlyMonitorBreaks, policyNames, scoreWith, type Issues, type Lhr } from '../e2e/lighthouse-edge'
 
 // Live checks 43558404985 and 43564278975, 14 Nov 2026: on loads Cloudflare's script monitor sampled, every script file
 // and request of a page broke the monitor's report-only policy, Chrome logged each, and best-practices read 96 against a
@@ -62,6 +62,36 @@ test("the script monitor's policy is told from any other: the whole header, dire
     MONITOR.replace('https://', 'http://'),
     `${MONITOR}; report-uri https://csp-reporting.cloudflare.com/cdn-cgi/script_monitor/report`,
   ]) expect(monitorPolicy({ 'content-security-policy-report-only': other }, PAGE), other).toBeUndefined()
+})
+
+test("the monitor's policy is the load's only when no other response of it has a report-only policy of its own", () => {
+  const page = [
+    { method: 'Network.requestWillBeSent', params: { requestId: '1' } },
+    response('1', PAGE, 'Document', { 'content-type': 'text/html' }),
+    extra('1', 200, { 'content-security-policy-report-only': MONITOR }),
+    response('3', 'https://aquatome.com/_astro/fish-id-client.js', 'Script', { 'content-type': 'text/javascript' }),
+  ]
+  expect(loadPolicy(page, PAGE)).toBe(CUT)
+  // A frame whose own report-only policy Chrome's issues could be breaking (they don't say which policy): nothing, from
+  // either the frame's response or the headers logged beside it. The same for a worker's script.
+  const frame = 'https://widget.example/frame/'
+  expect(loadPolicy([...page, response('2', frame, 'Document', { 'content-security-policy-report-only': "connect-src 'self'; report-uri /csp" })], PAGE)).toBeUndefined()
+  expect(loadPolicy([...page, response('2', frame, 'Document', {}), extra('2', 200, { 'Content-Security-Policy-Report-Only': "connect-src 'self'" })], PAGE)).toBeUndefined()
+  expect(loadPolicy([...page, response('4', 'https://aquatome.com/worker.js', 'Script', { 'content-security-policy-report-only': "connect-src 'self'" })], PAGE)).toBeUndefined()
+  // A frame of the site's that the monitor sampled too, a frame with an enforced policy only (whose breaks aren't
+  // report-only, so they're never excused), and a redirect before the page with a policy of its own: still the monitor's.
+  expect(loadPolicy([...page, response('2', 'https://aquatome.com/embed/', 'Document', { 'content-security-policy-report-only': MONITOR })], PAGE)).toBe(CUT)
+  expect(loadPolicy([...page, response('2', frame, 'Document', { 'content-security-policy': "default-src 'none'" })], PAGE)).toBe(CUT)
+  expect(loadPolicy([page[0]!, extra('1', 301, { location: PAGE, 'content-security-policy-report-only': "connect-src 'self'" }), ...page.slice(1)], PAGE)).toBe(CUT)
+  // No monitor on the page: nothing, whatever else the load has.
+  expect(loadPolicy(page.filter(e => e.method !== 'Network.responseReceivedExtraInfo'), PAGE)).toBeUndefined()
+})
+
+test("a report-only policy is logged by its directives' names: nothing of a report address, its query split by a comma or not", () => {
+  expect(policyNames(MONITOR)).toBe('script-src connect-src report-uri')
+  const header = "script-src 'self'; report-uri https://reports.example/r?example=first,second&key=fictional;secret=1; img-src x"
+  expect(policyNames(header)).toBe('script-src report-uri ? img-src')
+  for (const word of ['example', 'first', 'second', 'fictional', 'secret', 'reports']) expect(policyNames(header)).not.toContain(word)
 })
 
 const scriptBreak = { isReportOnly: true, violatedDirective: 'script-src-elem', contentSecurityPolicyViolationType: 'kURLViolation', blockedURL: 'https://aquatome.com/_astro/a.js' }
