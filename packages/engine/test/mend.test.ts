@@ -27,7 +27,7 @@ const CASES: { page: string; html: string; en: string; check: FitCheck; quote: s
     page: 'species/mikrogeophagus-ramirezi distribution:seriouslyfish',
     html: '<p>Phần lớn tài liệu cho rằng loài này chỉ có ở vùng llanos của Venezuela và Colombia, thuộc lưu vực sông Orinoco. Tuy vậy, một trong các mẫu cá trong ảnh được cho là bắt ở sông Purus, Brazil. Đây là một phụ lưu của Amazon, nằm khá xa lưu vực Orinoco.</p><p>Nơi thu mẫu chuẩn là \'hệ thống Orinoco, Venezuela\'.</p>',
     en: '<p>The majority of literature suggests that this species is restricted to the Venezuelan and Colombian llanos of the Río Orinoco drainage, although one of the specimens in the images is said to have been collected in the rio Purus, Brazil, an Amazon tributary located some distance from that watershed.</p><p>Type locality is \'Orinoco system, Venezuela\'.</p>',
-    check: 'source', quote: 'một trong các mẫu cá trong ảnh', at: 2, to: 'Tuy vậy, có một mẫu cá được cho là bắt ở sông Purus, Brazil.',
+    check: 'source', quote: 'một trong các mẫu cá trong ảnh', at: 2, to: '',
   },
   {
     page: 'plants/vallisneria quickFacts:aquariumcoop',
@@ -56,6 +56,7 @@ test('a drop a reader-fit finding on that part names passes: the four parts the 
     const r = await mendPart(llmFor(c, prompts), c.html, [{ check: c.check, quote: c.quote, note: 'Write it for a keeper in Vietnam; drop what only holds abroad.' }], { en: c.en })
     if (typeof r === 'string') throw new Error(`${c.page}: ${r}`)
     expect(r.unasked, c.page).toEqual([])
+    expect(r.whole, c.page).toEqual([])
     expect(r.score, c.page).toBe(0.9)
     expect(r.html, c.page).not.toContain(c.quote)
     // The reviewer is shown the finding that asks for it, and only the sentences that changed.
@@ -154,13 +155,14 @@ test('a changed sentence that loses "bị", a pronoun, or part of a frame fails,
   if (typeof scoped === 'string') throw new Error(scoped)
   expect(scoped.unasked).toEqual(['Left out of sentence 1, and no finding asks for it to go: "chúng"'])
   // Astra's read of 3cf526b4e: the quote and the reviewer's drop of it cover its words once, so a second "không" counts.
+  // (A detail's finding: one on where a sentence applies covers all of it, below.)
   const notice = 'Chúng tôi không bán cây này'
-  const twice = await mendPart(llm([{ n: 1, vi: 'Thả cây vào bể tép.' }], [{ sentence: 1, finding: 1, text: notice }]), `<p>${notice}; không thả cây vào bể tép.</p>`, [{ check: 'source', quote: notice, note: 'Bỏ lời của người bán.' }])
+  const twice = await mendPart(llm([{ n: 1, vi: 'Thả cây vào bể tép.' }], [{ sentence: 1, finding: 1, text: notice }]), `<p>${notice}; không thả cây vào bể tép.</p>`, [{ check: 'price', quote: notice, note: 'Bỏ lời của người bán.' }])
   if (typeof twice === 'string') throw new Error(twice)
   expect(twice.unasked).toEqual(['Left out of sentence 1, and no finding asks for it to go: "không"'])
   // Astra's read of 36943e68c: a drop inside the quote doesn't move to the same words further on; a quote over two
   // sentences, and the reviewer's drop of it, cover each sentence's share.
-  const moved = await mendPart(llm([{ n: 1, vi: 'Bán cây này cho người mới.' }], [{ sentence: 1, finding: 1, text: 'không bán cây này' }]), `<p>${notice}; không bán cây này cho người mới.</p>`, [{ check: 'source', quote: notice, note: 'Bỏ lời của người bán.' }])
+  const moved = await mendPart(llm([{ n: 1, vi: 'Bán cây này cho người mới.' }], [{ sentence: 1, finding: 1, text: 'không bán cây này' }]), `<p>${notice}; không bán cây này cho người mới.</p>`, [{ check: 'price', quote: notice, note: 'Bỏ lời của người bán.' }])
   if (typeof moved === 'string') throw new Error(moved)
   expect(moved.unasked).toEqual(['Left out of sentence 1, and no finding asks for it to go: "không"'])
   const both = 'Chúng tôi bán cây. Giá 5 đô la.'
@@ -201,7 +203,8 @@ test('a mend that changes a figure beside the asked drop fails, though its revie
 })
 
 // The chief of staff, 14 Nov 2026, on the front list's second run: a sentence a finding flags is cut, never said another
-// way. Last night's nine kept parts: the two restated are refused, the plain cuts pass.
+// way. Last night's nine kept parts: the two restated say what they didn't, the plain cuts don't (and the two on where a
+// statement applies go whole, below).
 test('a sentence that changed is the one it was with words taken out: one that says anything new is caught', () => {
   // Boraras merah: a dealer's shipment turned into wild populations.
   expect(addedWords('Còn ở đợt cá mới nhập về thì có vẻ cả đực lẫn cái đều mang màu của B. merah.', 'Cũng có quần thể mà cả đực lẫn cái đều có vẻ mang màu của B. merah.')).toEqual(['cũng', 'quần', 'thể', 'có', 'vẻ'])
@@ -214,22 +217,74 @@ test('a sentence that changed is the one it was with words taken out: one that s
   expect(addedWords('Cá đẹp, giá 5 đô la ở Mỹ, dễ nuôi.', 'Cá đẹp và dễ nuôi.')).toEqual([])
   expect(addedWords('Cá dễ nuôi.', 'Bạn thấy cá này dễ nuôi.')).toEqual(['bạn', 'thấy', 'này'])
   expect(addedWords('Cá ăn tạp, dễ nuôi.', 'Dễ nuôi, cá ăn tạp.')).toEqual(['cá', 'ăn', 'tạp'])
+  // Only the six joining words the writer is told: "hoặc" makes "both" "either", "rằng" makes a fact something said.
+  expect(addedWords('Cá đẹp, dễ nuôi.', 'Cá đẹp và dễ nuôi.')).toEqual([])
+  expect(addedWords('Cá đẹp, dễ nuôi.', 'Cá đẹp hoặc dễ nuôi.')).toEqual(['hoặc'])
+  expect(addedWords('Cá dễ nuôi.', 'Rằng cá dễ nuôi.')).toEqual(['rằng'])
   // What a wording finding asks for is no addition.
   expect(addedWords('Cá ăn tạp.', 'Cá ăn đủ thứ.', ['đủ thứ'])).toEqual([])
 })
 
 test('a mend that says a sentence another way isn\'t kept, whatever its reviewer scores', async () => {
   const html = '<p>Loài này rất gần với B. brigittae. Còn ở đợt cá mới nhập về thì có vẻ cả đực lẫn cái đều mang màu của B. merah.</p>'
-  const f = [{ check: 'source' as FitCheck, quote: 'Còn ở đợt cá mới nhập về', note: 'A dealer\'s batch.' }]
-  const llm = (said: string) => (async ({ schema }: { schema: { required: string[] } }) => (schema.required.includes('sentences')
-    ? { sentences: [{ n: 2, vi: said }] }
-    : { score: 1, notes: [], dropped: [], hedges: [] })) as Llm
-  const restated = await mendPart(llm('Cũng có quần thể mà cả đực lẫn cái đều có vẻ mang màu của B. merah.'), html, f)
+  const f = [{ check: 'price' as FitCheck, quote: 'Còn ở đợt cá mới nhập về', note: 'n' }]
+  const restated = await mendPart(said(2, 'Cũng có quần thể mà cả đực lẫn cái đều có vẻ mang màu của B. merah.'), html, f)
   if (typeof restated === 'string') throw new Error(restated)
   expect(restated.added).toEqual(['Sentence 2 says what it didn\'t: "cũng quần thể có vẻ"'])
-  const cut = await mendPart(llm('Có vẻ cả đực lẫn cái đều mang màu của B. merah.'), html, f)
+})
+
+/** A writer that returns sentence `n` as `vi`, and a reviewer that scores it 1 and lists nothing. */
+const said = (n: number, vi: string) => (async ({ schema }: { schema: { required: string[] } }) => (schema.required.includes('sentences')
+  ? { sentences: [{ n, vi }] }
+  : { score: 1, notes: [], dropped: [], hedges: [] })) as Llm
+
+// The chief of staff, 14 Nov 2026: a finding on where a statement applies (a dealer's batch, the source's own photo) takes
+// the whole sentence; cut of those words, the rest says of every fish what was said of that one. Two of last night's nine.
+test('a sentence a finding on where it applies names goes whole: a cut of it is refused, the empty string passes', async () => {
+  // Boraras merah: the dealer's shipment. Cut of "Còn ở đợt cá mới nhập về", it says both sexes of the species show B.
+  // merah's colour.
+  const merah = '<p>Loài này rất gần với B. brigittae. Còn ở đợt cá mới nhập về thì có vẻ cả đực lẫn cái đều mang màu của B. merah.</p>'
+  const batch = [{ check: 'source' as FitCheck, quote: 'Còn ở đợt cá mới nhập về', note: 'A dealer\'s batch.' }]
+  const cut = await mendPart(said(2, 'Có vẻ cả đực lẫn cái đều mang màu của B. merah.'), merah, batch)
   if (typeof cut === 'string') throw new Error(cut)
   expect(cut.added).toEqual([])
+  expect(cut.whole).toEqual(['Sentence 2 goes whole, as its finding asks, and was kept as "Có vẻ cả đực lẫn cái đều mang màu của B. merah."'])
+  const gone = await mendPart(said(2, ''), merah, batch)
+  if (typeof gone === 'string') throw new Error(gone)
+  expect([gone.whole, gone.added, gone.unasked]).toEqual([[], [], []])
+  expect(gone.html).toBe('<p>Loài này rất gần với B. brigittae.</p>')
+  // The ram: one fish in the source's photo. Cut of "trong các … trong ảnh", it says a fish of the species was caught in
+  // the Purus.
+  const ram = '<p>Phần lớn tài liệu cho rằng loài này chỉ có ở vùng llanos của Venezuela và Colombia, thuộc lưu vực sông Orinoco. Tuy vậy, một trong các mẫu cá trong ảnh được cho là bắt ở sông Purus, Brazil.</p>'
+  const photo = [{ check: 'source' as FitCheck, quote: 'một trong các mẫu cá trong ảnh', note: 'The source\'s own photo.' }]
+  const ramCut = await mendPart(said(2, 'Tuy vậy, một mẫu cá được cho là bắt ở sông Purus, Brazil.'), ram, photo)
+  if (typeof ramCut === 'string') throw new Error(ramCut)
+  expect(ramCut.added).toEqual([])
+  expect(ramCut.whole).toEqual(['Sentence 2 goes whole, as its finding asks, and was kept as "Tuy vậy, một mẫu cá được cho là bắt ở sông Purus, Brazil."'])
+  const ramGone = await mendPart(said(2, ''), ram, photo)
+  if (typeof ramGone === 'string') throw new Error(ramGone)
+  expect([ramGone.whole, ramGone.added, ramGone.unasked]).toEqual([[], [], []])
+  // The line after it named the Purus: left, it says the Orinoco is the Amazon's. One the writer can't cut to read, and
+  // returns empty, said why, keeps the part from being kept.
+  const purus = ram.replace('</p>', ' Đây là một phụ lưu của Amazon, nằm khá xa lưu vực Orinoco.</p>')
+  const strand = (async ({ schema }: { schema: { required: string[] } }) => (schema.required.includes('sentences')
+    ? { sentences: [{ n: 2, vi: '' }, { n: 3, vi: '', why: 'It named the river that went.' }] }
+    : { score: 1, notes: [], dropped: [], hedges: [] })) as Llm
+  const stranded = await mendPart(strand, purus, photo)
+  if (typeof stranded === 'string') throw new Error(stranded)
+  expect(stranded.whole).toEqual(['Sentence 3 no longer reads beside the one that changed, and no cut mends it: "Đây là một phụ lưu của Amazon, nằm khá xa lưu vực Orinoco."'])
+  // A sentence left as it was is kept too, and refused; so is any check the code doesn't name as a detail.
+  for (const check of ['source', 'elsewhere', 'harm', 'dose', 'lethal'] as const) {
+    const same = await mendPart(said(2, 'Còn ở đợt cá mới nhập về thì có vẻ cả đực lẫn cái đều mang màu của B. merah.'), merah, [{ ...batch[0]!, check }])
+    if (typeof same === 'string') throw new Error(same)
+    expect(same.whole.length, check).toBe(1)
+  }
+  // A detail is cut from its sentence: a price, a product's or a shop's name.
+  for (const check of ['price', 'product', 'shop'] as const) {
+    const r = await mendPart(said(1, 'Cây rẻ.'), '<p>Cây rẻ, giá dưới 10 đô la.</p><p>Cây mọc nhanh.</p>', [{ check, quote: 'giá dưới 10 đô la', note: 'n' }])
+    if (typeof r === 'string') throw new Error(r)
+    expect([r.whole, r.added, r.unasked], check).toEqual([[], [], []])
+  }
 })
 
 // Astra's reads of 14 Nov 2026: a writer's own conversion let a claim through, then "mỗi con", "2 inch" as "2 cm" and a

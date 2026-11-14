@@ -7,7 +7,7 @@ import { LlmError, type Llm } from './claude'
 import { FIT_TITLE, fitDue, fitFindings, fitKey, fitText, type FitCheck, type FitFinding, type FitState } from './fit'
 import { rewriteForReader } from './for-reader'
 import { METRIC_KINDS } from './metric'
-import { mendPart, words as mendWords } from './mend'
+import { goesWhole, mendPart, words as mendWords } from './mend'
 import { fixedParts, loadPages, type Page } from './pages'
 import { piece } from './pieces'
 import { fieldOf as partOf, norm, type ReaderFinding } from './reader'
@@ -117,8 +117,12 @@ const asNote = (f: FitFinding, figures?: BreedFigure[]): ReaderFinding => ({
     // Its measures as they are: code converts them (mend.ts `metric`), as no writer's figure can be held to its place
     // (Astra's reads of 14 Nov 2026).
     : f.check === 'units' ? `${FIT_TITLE.units}: ${f.why}. Leave each figure and its unit exactly as written: code converts the US units to metric after you, as the writing rules say. Write no figure of your own.`
-    // Cut, never said another way (the chief of staff, 14 Nov 2026; mend.ts addedWords holds it).
-    : `${FIT_TITLE[f.check]}: ${f.why}. Cut what only holds abroad or for the shop, or the whole sentence: never say it another way, and put in nothing it didn't say.`,
+    // On where a statement applies (a dealer's batch, the source's own photo or tank), or a check code can't tell: the
+    // sentence goes whole, as what's left of it could say of every fish what was said of one (the chief of staff, 14 Nov
+    // 2026; mend.ts `goesWhole`).
+    : goesWhole(f.check) ? `${FIT_TITLE[f.check]}: ${f.why}. The whole sentence goes: return it empty.`
+    // A detail inside it is cut, never said another way (the chief of staff, 14 Nov 2026; mend.ts addedWords holds it).
+    : `${FIT_TITLE[f.check]}: ${f.why}. Cut the quoted words, or the whole sentence if nothing true is left without them: never say it another way, and put in nothing it didn't say.`,
   ...(f.fix ? { fix: f.fix } : {}),
 })
 
@@ -253,7 +257,7 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
             // Kept at the bar, leaving out only what a finding asks to go, saying nothing more surely than before (hedges.ts),
             // and a breed page's units with each figure.
             const off = mine.length ? keepsFigures(textOf(before), textOf(next), mine.map(f => f.quote ?? ''), figures) : undefined
-            if (r.score < QUALITY_THRESHOLD || r.lost.length || r.unasked.length || r.added.length || off) { report.notKept.push(`${key} ${field} (${r.score.toFixed(2)}: ${[...(off ? [off] : []), ...r.notes].slice(0, 2).join('; ')})`); continue }
+            if (r.score < QUALITY_THRESHOLD || r.lost.length || r.unasked.length || r.added.length || r.whole.length || off) { report.notKept.push(`${key} ${field} (${r.score.toFixed(2)}: ${[...(off ? [off] : []), ...r.notes].slice(0, 2).join('; ')})`); continue }
             if (next === before) { report.skipped.push(`${key} ${field}: the rewrite changed nothing`); continue }
             // A part a cut reduces to one line, or a shop's quick facts it had to mend, isn't a part (the chief of staff, 14 Nov
             // 2026: "A part reduced to one line from a dealer's stock list isn't a part", "is dropped, not kept"): off the page in

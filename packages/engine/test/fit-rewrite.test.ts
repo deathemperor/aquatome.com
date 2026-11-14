@@ -26,8 +26,10 @@ const content = async () => {
 const danio = async (root: string) => (await loadPages(join(root, 'content'), ['vi'])).find(p => p.id === ID)!
 const part = (p: Page, field: string) => fitText(p).parts.find(x => x.field === field)!.id
 const reading = (p: Page, findings: Omit<FitFinding, 'by'>[]): FitState => ({ [fitKey(p)]: { at: '2026-11-08', hash: fitText(p).hash, model: 'opus', checklist: CHECKLIST, findings: findings.map(f => ({ ...f, by: 'model' as const })), products: [] } })
+// A detail's finding, cut from its sentence: one on where a sentence applies takes it whole (mend.ts `goesWhole`), and here
+// the whole part, which is the dealer check's.
 const found = (p: Page) => [
-  { check: 'elsewhere' as const, part: part(p, 'sections.habitat:seriouslyfish'), quote: 'Ao cạn nhiều cỏ', why: 'x' },
+  { check: 'product' as const, part: part(p, 'sections.habitat:seriouslyfish'), quote: 'Ao cạn nhiều cỏ', why: 'x' },
   { check: 'words' as const, part: part(p, 'sections.habitat:seriouslyfish'), quote: 'cao nguyên Shan', why: 'y' },
   { check: 'words' as const, part: part(p, 'sections.quickFacts:sprucepets'), quote: 'ăn tạp', why: 'w' },
 ]
@@ -56,7 +58,7 @@ const fakeLlm = (rewrite: (vi: string) => string, score: number, o: { outAfter?:
 test('what a page has to mend: the parts its current reading faults for the reader, with their wording findings; words alone wait, and units alone on a guide', async () => {
   const p = await danio(await content())
   const state = reading(p, [...found(p), converted(p)])
-  expect([...mendable(p, state)].map(([field, fs]) => [field, fs.map(f => f.check)])).toEqual([['sections.habitat:seriouslyfish', ['elsewhere', 'words']], ['sections.aquariumSize:sprucepets', ['units']]])
+  expect([...mendable(p, state)].map(([field, fs]) => [field, fs.map(f => f.check)])).toEqual([['sections.habitat:seriouslyfish', ['product', 'words']], ['sections.aquariumSize:sprucepets', ['units']]])
   expect(rewriteDue(p, state)).toBe(true)
   expect(rewriteDue(p, reading(p, [converted(p)]))).toBe(true)
   // A reading of an older text, words alone, or a kit, which the gate holds: nothing to rewrite here.
@@ -245,7 +247,8 @@ const tetra = async (root: string) => {
   const entityFile = join(root, 'content/species', ID, 'entity.json')
   await writeFile(entityFile, (await readFile(entityFile, 'utf8')).replace('<p>[EN source text placeholder for habitat]</p>', TETRA_EN.replaceAll('"', '\\"')))
   const p = await danio(root)
-  return { p, file, beech: [{ check: 'elsewhere' as const, part: part(p, 'sections.habitat:seriouslyfish'), quote: 'bạn có thể dùng cành dẻ gai (beech) thông thường', why: 'Beech wood is common in Europe, not something a keeper in Vietnam has at hand.' }] }
+  // A product a keeper here can't buy, cut from its sentence (one on where a sentence applies takes it whole, below).
+  return { p, file, beech: [{ check: 'product' as const, part: part(p, 'sections.habitat:seriouslyfish'), quote: 'bạn có thể dùng cành dẻ gai (beech) thông thường', why: 'Beech wood is common in Europe, not something a keeper in Vietnam has at hand.' }] }
 }
 const said = (html: string) => sentences(html).filter(x => x.sentence).map(x => x.html)
 
@@ -263,6 +266,22 @@ test('a directed rewrite changes only the sentence its finding quotes: every oth
   expect(changed).toEqual([5])
   expect(after[5]).toContain('dùng cành thông thường')
   expect(after).toContain('Đèn nên để khá dịu.')
+})
+
+// The chief of staff, 14 Nov 2026: a finding on where a statement applies takes the whole sentence, whatever the reviewer
+// scores.
+test('a sentence a finding on where it applies names is not kept cut, only gone', async () => {
+  const root = await content()
+  const { p, file, beech } = await tetra(root)
+  const abroad = [{ ...beech[0]!, check: 'elsewhere' as const }]
+  const before = await readFile(file, 'utf8')
+  const cut = await fitRewrite(root, [p], reading(p, abroad), { llm: fakeLlm(vi => vi.replace('dẻ gai (beech) ', ''), 1).llm, now: () => new Date('2026-11-13T09:00:00Z') }, { limit: 5 })
+  expect(cut.rewritten).toEqual([])
+  expect(cut.notKept.join(' ')).toContain('Sentence 6 goes whole')
+  expect(await readFile(file, 'utf8')).toBe(before)
+  const gone = await fitRewrite(root, [p], reading(p, abroad), { llm: fakeLlm(() => '', 0.9).llm, now: () => new Date('2026-11-13T09:00:00Z') }, { limit: 5, retry: true })
+  expect(gone.rewritten).toEqual(['vi/species/danio-margaritatus sections.habitat:seriouslyfish (0.90)'])
+  expect(said(JSON.parse(await readFile(file, 'utf8')).sections['habitat:seriouslyfish'])).toEqual(said(TETRA_VI).filter((_, i) => i !== 5))
 })
 
 test('a changed sentence is written in metric, and nothing else on the page is touched', async () => {
@@ -324,7 +343,8 @@ const breed = async (o: { faq?: string; faqQuote?: string; faqQ?: string; body?:
   await mkdir(join(root, 'engine-state/breeds'), { recursive: true })
   await writeFile(join(root, 'engine-state/breeds/pigeon-blood-discus.json'), JSON.stringify({ keeping: ['For one large fish, 35 US gal (about 132 L) is the bare minimum; 40–50 gal (151–189 L) is better.'] }))
   const p = (await loadPages(join(root, 'content'), ['vi'])).find(x => x.id === 'pigeon-blood-discus')!
-  const source = { check: 'source' as const, part: part(p, 'body'), quote: 'Một người chơi ở Anh kể rằng cá cần nhiều chỗ.', why: 's' }
+  // The part's other mend, a detail cut from its sentence (one on where a sentence applies would take it whole).
+  const source = { check: 'product' as const, part: part(p, 'body'), quote: 'Một người chơi ở Anh kể rằng cá cần nhiều chỗ.', why: 's' }
   const tank = { check: 'units' as const, part: part(p, 'body'), quote: 'Một nguồn coi 132 lít là mức tối thiểu cho một con lớn.', why: 'a converted 35-gallon figure' }
   const faq = { check: 'units' as const, part: part(p, 'faq.0.a'), quote: o.faqQuote ?? o.faq ?? 'Cá con có thể bắt đầu trong bể 110 lít.', why: 'a converted 29-gallon tank' }
   return { root, file, p, source, tank, faq }
@@ -578,7 +598,7 @@ test('a breed page\'s units are mended, in an FAQ answer too, after the part\'s 
   const state = reading(p, [source, tank, faq])
   // Due on its units alone too: no English beside a breed page to keep a figure from.
   expect(rewriteDue(p, reading(p, [faq]))).toBe(true)
-  expect([...mendable(p, state)].map(([field, fs]) => [field, fs.map(f => f.check)])).toEqual([['body', ['source', 'units']], ['faq.0.a', ['units']]])
+  expect([...mendable(p, state)].map(([field, fs]) => [field, fs.map(f => f.check)])).toEqual([['body', ['product', 'units']], ['faq.0.a', ['units']]])
   const { llm, prompts } = notesLlm()
   const r = await fitRewrite(root, [p], state, { llm, now: () => new Date('2026-11-12T12:00:00Z') }, { limit: 5 })
   expect(r.rewritten).toEqual(['vi/breeds/pigeon-blood-discus body (0.90)', 'vi/breeds/pigeon-blood-discus body units (0.90)', 'vi/breeds/pigeon-blood-discus faq.0.a (0.90)'])
