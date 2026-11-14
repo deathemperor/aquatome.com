@@ -9,6 +9,34 @@
     "asia",
     "india"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The full extent of this species' range is unconfirmed with recent collections deriving from Cooch Behar and Nadia districts, West Bengal state, northern India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8316725,
+      "total": 0,
+      "fetched": "2026-11-12",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

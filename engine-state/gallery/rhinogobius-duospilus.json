@@ -8,5 +8,17 @@
   "inat:492157029"
  ],
  "hashes": {},
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 342836,
+  "pass": "done",
+  "after": {
+   "research": 273663675,
+   "agree": 170212769
+  }
+ },
+ "gbif": {
+  "key": 2377596,
+  "next": null
+ }
 }

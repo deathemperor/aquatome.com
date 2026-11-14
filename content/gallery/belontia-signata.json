@@ -2,18 +2,6 @@
   "id": "belontia-signata",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/616626828.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/616626828-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-SA",
-      "author": "Chris Oldnall",
-      "sourceUrl": "https://www.inaturalist.org/photos/616626828",
-      "caption": "Nhiều cá lược đuôi Sri Lanka giữa đá và lá khô ở suối",
-      "best": true,
-      "kind": "group"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/58714732.webp",
       "thumb": "https://media.aquatome.com/inaturalist/58714732-480.webp",
       "width": 1024,
@@ -36,18 +24,6 @@
       "caption": "Cá lược đuôi Sri Lanka màu đỏ cam trong bể có cây thủy sinh",
       "best": true,
       "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/612365509.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/612365509-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Mickey Wu",
-      "sourceUrl": "https://www.inaturalist.org/photos/612365509",
-      "caption": "Cá lược đuôi Sri Lanka bơi trên nền sỏi trong suối tự nhiên",
-      "best": true,
-      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/614307629.webp",
@@ -95,6 +71,30 @@
       "sourceUrl": "https://www.inaturalist.org/photos/58713751",
       "caption": "Cá lược Sri Lanka có vằn sọc gần cây thủy sinh trong suối",
       "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/616626828.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/616626828-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA",
+      "author": "Chris Oldnall",
+      "sourceUrl": "https://www.inaturalist.org/photos/616626828",
+      "caption": "Nhiều cá lược đuôi Sri Lanka giữa đá và lá khô ở suối",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/612365509.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/612365509-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Mickey Wu",
+      "sourceUrl": "https://www.inaturalist.org/photos/612365509",
+      "caption": "Cá lược đuôi Sri Lanka bơi trên nền sỏi trong suối tự nhiên",
+      "best": true,
       "kind": "habitat"
     },
     {

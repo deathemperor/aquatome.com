@@ -1,0 +1,38 @@
+{
+  "id": "pangio-alternans",
+  "native": {
+    "input": "33b984550cbbe687",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "glaser",
+        "quote": "Pangio alternans is a 6-7 cm long species from Borneo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pangio alternans",
+    "status": "ACCEPTED",
+    "taxonKey": 2368009,
+    "datasets": [
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

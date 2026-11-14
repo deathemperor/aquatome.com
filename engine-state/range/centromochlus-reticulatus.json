@@ -1,0 +1,92 @@
+{
+  "id": "centromochlus-reticulatus",
+  "native": {
+    "input": "6a8cd76b22a8378f",
+    "at": "2026-11-10T04:57:39.069Z",
+    "claims": [
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Initially known only from the upper Rupununi River basin in Guyana but it may have been overlooked elsewhere due to its secretive, mostly nocturnal behaviour.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "For example, it's been recorded in the rio Preto da Eva, a tributary of the Amazon a little downstream of Manaus in Amazonas state, Brazil and an identical-looking fish is sometimes exported from Peru.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rupununi River",
+        "source": "seriouslyfish",
+        "quote": "Initially known only from the upper Rupununi River basin in Guyana but it may have been overlooked elsewhere due to its secretive, mostly nocturnal behaviour.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "For example, it's been recorded in the rio Preto da Eva, a tributary of the Amazon a little downstream of Manaus in Amazonas state, Brazil and an identical-looking fish is sometimes exported from Peru.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Centromochlus reticulatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2344773,
+    "datasets": [
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        27
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        3
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        3
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "GY",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T04:57:39.069Z"
+  }
+}

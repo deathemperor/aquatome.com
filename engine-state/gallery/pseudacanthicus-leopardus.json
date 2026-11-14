@@ -2,7 +2,8 @@
  "queue": [],
  "judged": [
   "File:Pseudacanthicus leopardus.JPG",
-  "File:Leopard cactus pleco.jpg"
+  "File:Leopard cactus pleco.jpg",
+  "inat:575252970"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/1f9da20a0da07c40.webp": "a54c2ce60b98c000",
@@ -11,7 +12,16 @@
   "https://media.aquatome.com/scotcat/1e957492cd7cb32c.webp": "f2f2f5f7bc960f1e",
   "https://media.aquatome.com/scotcat/b1aa3ac55c377e05.webp": "b8b8d8d8d0d0908a",
   "https://media.aquatome.com/commons/cb0e6612bb9f42d0.webp": "8683818c0e43784c",
-  "https://media.aquatome.com/commons/3aa7b9ac945ec973.webp": "9494d8fef2aebcec"
+  "https://media.aquatome.com/commons/3aa7b9ac945ec973.webp": "9494d8fef2aebcec",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/575252970/large.jpg": "9f3e3cb2fe76a6e9"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 616783,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 318300658
+  }
+ }
 }

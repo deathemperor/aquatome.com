@@ -1,0 +1,83 @@
+{
+  "id": "panaque-armbrusteri",
+  "native": {
+    "input": "ca19b3ee3f7f9ed5",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Brazil: Rio Tapajós basin, Amazon, Lower Amazon.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Tapajós",
+        "source": "planetcatfish",
+        "quote": "South America: Brazil: Rio Tapajós basin, Amazon, Lower Amazon.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "South America: Brazil: Rio Tapajós basin, Amazon, Lower Amazon.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Panaque armbrusteri",
+    "status": "ACCEPTED",
+    "taxonKey": 5961548,
+    "datasets": [
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        9
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        8
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        6
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        2
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

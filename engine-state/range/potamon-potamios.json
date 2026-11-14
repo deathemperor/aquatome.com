@@ -1,0 +1,162 @@
+{
+  "id": "potamon-potamios",
+  "native": {
+    "input": "123cd9da3d9982f1",
+    "at": "2026-11-13T05:31:31.275Z",
+    "claims": [
+      {
+        "code": "GR",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It occurs in the Balkans, Greece (mainland and south-eastern Aegean Islands), southern Russia, Cyprus, southern Turkey, Palestine, Syria, Lebanon, northern Iran, Israel (Dead Sea area) and Egypt (Sinai Peninsula).",
+        "words": "Greece",
+        "ok": true
+      },
+      {
+        "code": "RU",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It occurs in the Balkans, Greece (mainland and south-eastern Aegean Islands), southern Russia, Cyprus, southern Turkey, Palestine, Syria, Lebanon, northern Iran, Israel (Dead Sea area) and Egypt (Sinai Peninsula).",
+        "words": "Russia",
+        "ok": true
+      },
+      {
+        "code": "CY",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It occurs in the Balkans, Greece (mainland and south-eastern Aegean Islands), southern Russia, Cyprus, southern Turkey, Palestine, Syria, Lebanon, northern Iran, Israel (Dead Sea area) and Egypt (Sinai Peninsula).",
+        "words": "Cyprus",
+        "ok": true
+      },
+      {
+        "code": "TR",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It occurs in the Balkans, Greece (mainland and south-eastern Aegean Islands), southern Russia, Cyprus, southern Turkey, Palestine, Syria, Lebanon, northern Iran, Israel (Dead Sea area) and Egypt (Sinai Peninsula).",
+        "words": "Turkey",
+        "ok": true
+      },
+      {
+        "code": "PS",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It occurs in the Balkans, Greece (mainland and south-eastern Aegean Islands), southern Russia, Cyprus, southern Turkey, Palestine, Syria, Lebanon, northern Iran, Israel (Dead Sea area) and Egypt (Sinai Peninsula).",
+        "words": "Palestine",
+        "ok": true
+      },
+      {
+        "code": "SY",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It occurs in the Balkans, Greece (mainland and south-eastern Aegean Islands), southern Russia, Cyprus, southern Turkey, Palestine, Syria, Lebanon, northern Iran, Israel (Dead Sea area) and Egypt (Sinai Peninsula).",
+        "words": "Syria",
+        "ok": true
+      },
+      {
+        "code": "LB",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It occurs in the Balkans, Greece (mainland and south-eastern Aegean Islands), southern Russia, Cyprus, southern Turkey, Palestine, Syria, Lebanon, northern Iran, Israel (Dead Sea area) and Egypt (Sinai Peninsula).",
+        "words": "Lebanon",
+        "ok": true
+      },
+      {
+        "code": "IR",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It occurs in the Balkans, Greece (mainland and south-eastern Aegean Islands), southern Russia, Cyprus, southern Turkey, Palestine, Syria, Lebanon, northern Iran, Israel (Dead Sea area) and Egypt (Sinai Peninsula).",
+        "words": "Iran",
+        "ok": true
+      },
+      {
+        "code": "IL",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It occurs in the Balkans, Greece (mainland and south-eastern Aegean Islands), southern Russia, Cyprus, southern Turkey, Palestine, Syria, Lebanon, northern Iran, Israel (Dead Sea area) and Egypt (Sinai Peninsula).",
+        "words": "Israel",
+        "ok": true
+      },
+      {
+        "code": "EG",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It occurs in the Balkans, Greece (mainland and south-eastern Aegean Islands), southern Russia, Cyprus, southern Turkey, Palestine, Syria, Lebanon, northern Iran, Israel (Dead Sea area) and Egypt (Sinai Peninsula).",
+        "words": "Egypt",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sinai Peninsula",
+        "source": "aquariumbreeder",
+        "quote": "It occurs in the Balkans, Greece (mainland and south-eastern Aegean Islands), southern Russia, Cyprus, southern Turkey, Palestine, Syria, Lebanon, northern Iran, Israel (Dead Sea area) and Egypt (Sinai Peninsula).",
+        "country": "EG",
+        "ok": true
+      },
+      {
+        "name": "Balkans",
+        "source": "aquariumbreeder",
+        "quote": "It occurs in the Balkans, Greece (mainland and south-eastern Aegean Islands), southern Russia, Cyprus, southern Turkey, Palestine, Syria, Lebanon, northern Iran, Israel (Dead Sea area) and Egypt (Sinai Peninsula).",
+        "ok": true
+      },
+      {
+        "name": "Aegean Islands",
+        "source": "aquariumbreeder",
+        "quote": "It occurs in the Balkans, Greece (mainland and south-eastern Aegean Islands), southern Russia, Cyprus, southern Turkey, Palestine, Syria, Lebanon, northern Iran, Israel (Dead Sea area) and Egypt (Sinai Peninsula).",
+        "country": "GR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Potamon potamios",
+    "status": "ACCEPTED",
+    "taxonKey": 2225546,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        33
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        13
+      ],
+      [
+        "4ed1f109-0bf2-45c1-94ee-88078dc512dd",
+        3
+      ],
+      [
+        "7b84c0a2-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "9668b676-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ]
+    ],
+    "native": [
+      "GR",
+      "RU",
+      "CY",
+      "TR",
+      "PS",
+      "SY",
+      "LB",
+      "IR",
+      "IL",
+      "EG"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T05:31:31.275Z"
+  }
+}

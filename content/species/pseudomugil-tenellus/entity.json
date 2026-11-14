@@ -14,6 +14,174 @@
     "papua-new-guinea",
     "bensbach"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "AU",
+        "ID",
+        "PG"
+      ],
+      "regions": [
+        "East Alligator",
+        "Cape York Peninsula",
+        "Daly",
+        "Aru Islands",
+        "Bensbach River",
+        "New Guinea"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from 'Large Billabong at Oenpelli, Arnhem Land, Northern Territory, Australia', which is part of the East Alligator river system, and now known to have a patchy but wide range throughout much of coastal northern Australia.",
+          "countries": [
+            "AU"
+          ],
+          "regions": [
+            "East Alligator"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It also occurs on the Aru Islands, Maluku province, Indonesia, and in the Bensbach River, Papua New Guinea, and may be more widely distributed in southern New Guinea.",
+          "countries": [
+            "ID",
+            "PG"
+          ],
+          "regions": [
+            "Aru Islands",
+            "Bensbach River",
+            "New Guinea"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "To the east its range extends as far as the Cape York Peninsula with Queensland populations including the Coleman, Edward, Jardine, Lockhart, and Watson river systems, plus the Jacky Jacky and Scrubby creeks.",
+          "countries": [],
+          "regions": [
+            "Cape York Peninsula"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Additional records from the Northern Territory include the Alligator, Blyth, Daly, Finniss, Howard, Liverpool, and Mary river drainages.",
+          "countries": [],
+          "regions": [
+            "Daly"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2411748,
+      "total": 239,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "AU",
+          236
+        ],
+        [
+          "PG",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          129.375,
+          -14.0625,
+          66,
+          66
+        ],
+        [
+          130.78125,
+          -15.46875,
+          15,
+          15
+        ],
+        [
+          130.78125,
+          -14.0625,
+          43,
+          43
+        ],
+        [
+          130.78125,
+          -12.65625,
+          22,
+          22
+        ],
+        [
+          132.1875,
+          -14.0625,
+          19,
+          19
+        ],
+        [
+          132.1875,
+          -12.65625,
+          17,
+          17
+        ],
+        [
+          133.59375,
+          -12.65625,
+          14,
+          14
+        ],
+        [
+          140.625,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          140.625,
+          -15.46875,
+          30,
+          30
+        ],
+        [
+          140.625,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          140.625,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          142.03125,
+          -15.46875,
+          4,
+          4
+        ],
+        [
+          142.03125,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          142.03125,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          144.84375,
+          -22.5,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

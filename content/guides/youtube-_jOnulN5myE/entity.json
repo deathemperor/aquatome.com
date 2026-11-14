@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-04",
+  "updatedAt": "2026-11-10",
   "video": {
     "youtubeId": "_jOnulN5myE",
     "title": "HOW TO: Build an aquarium Stand/Canopy 2/3",
@@ -29,66 +29,36 @@
       {
         "category": "den",
         "type": "thuy-sinh",
-        "t": 535
+        "t": 509
       }
     ],
     "figures": [
       {
-        "heading": "Cần chuẩn bị những gì",
+        "heading": "Vì sao chọn vít dài 3,8 cm",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/_jOnulN5myE/p0-aXBzX2hlYWQuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/_jOnulN5myE/p0-aXBzX2hlYWQuanBn-480.webp",
-          "width": 960,
-          "height": 796,
-          "licence": "CC BY-SA 4.0",
-          "author": "Mynameisnatmo",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Black_wood_screw_with_flat_Phillips_head.jpg",
-          "caption": "Vít gỗ đầu loe màu đen đặt trên mặt gỗ, dùng để bắt khung bể."
+          "url": "https://media.aquatome.com/video/_jOnulN5myE/p1-Zvcl93b29kLkpQRw.webp",
+          "thumb": "https://media.aquatome.com/video/_jOnulN5myE/p1-Zvcl93b29kLkpQRw-480.webp",
+          "width": 853,
+          "height": 731,
+          "licence": "CC BY-SA 2.5",
+          "author": "Haragayato",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Screw_for_wood.JPG",
+          "caption": "Con vít gỗ mạ kẽm dài, đầu chìm, ren rõ nét."
         }
       },
       {
-        "heading": "Đóng khung đáy và khung trên",
+        "heading": "Các bước đóng khung đáy và khung trên",
         "moments": [
           {
-            "t": 402,
-            "url": "https://media.aquatome.com/video/_jOnulN5myE/t402.webp",
-            "width": 270,
-            "height": 180,
-            "caption": "Cận cảnh đầu thanh gỗ dài của khung với vít và lỗ khoan mồi."
-          },
-          {
-            "t": 412,
-            "url": "https://media.aquatome.com/video/_jOnulN5myE/t412.webp",
-            "width": 270,
-            "height": 180,
-            "caption": "Cận cảnh hai thanh gỗ ghép nối với nhau, có vít khoan mồi."
+            "t": 440,
+            "url": "https://media.aquatome.com/video/_jOnulN5myE/at440-hd.webp",
+            "width": 720,
+            "height": 480,
+            "caption": "Góc khung gỗ đã ghép với hai lỗ vít ở đầu thanh.",
+            "sharpness": 118.9
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/_jOnulN5myE/p2-MjgwOTQwMSkuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/_jOnulN5myE/p2-MjgwOTQwMSkuanBn-480.webp",
-          "width": 960,
-          "height": 1285,
-          "licence": "CC BY 2.0",
-          "author": "The Finishing Company Richmond Va from Richmond,Virginia, United States",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wood_glue_(6612809401).jpg",
-          "caption": "Chai keo dán gỗ và mũi khoan, dùng khi làm khung bể."
-        }
-      },
-      {
-        "heading": "Canopy nên cao bao nhiêu",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/_jOnulN5myE/p3-hcmFzX2xlZC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/_jOnulN5myE/p3-hcmFzX2xlZC5qcGc-480.webp",
-          "width": 960,
-          "height": 577,
-          "licence": "CC BY-SA 4.0",
-          "author": "Gustavo Sivila",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Acuario_iluminado_con_l%C3%A1mparas_led.jpg",
-          "caption": "Bể thủy sinh với đèn LED treo cao phía trên mặt nước."
-        }
+        ]
       }
     ]
   }

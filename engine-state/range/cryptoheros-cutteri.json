@@ -1,0 +1,56 @@
+{
+  "id": "cryptoheros-cutteri",
+  "native": {
+    "input": "70dc290c68f2a1ce",
+    "at": "2026-11-10T04:57:39.069Z",
+    "claims": [
+      {
+        "code": "HN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "A smaller cichlid from Honduras.",
+        "words": "Honduras",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cryptoheros cutteri",
+    "status": "ACCEPTED",
+    "taxonKey": 2370310,
+    "datasets": [
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        36
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "HN"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T04:57:39.069Z"
+  }
+}

@@ -7,6 +7,7 @@ import type { Llm } from '../src/claude'
 import type { SpeciesFacts } from '../src/species-research'
 import { PROFILE_CHANNELS, speciesVideos, type SpeciesVideo } from '../src/species-videos'
 import { CHANNELS } from '../src/video-discovery'
+import { WikimediaRefused } from '../src/wikimedia-rest'
 
 const UPLOADS = [
   { id: 'A', title: 'Sawbwa resplendens – The Tiny Fish with a Big Story' },
@@ -124,6 +125,18 @@ test('species-videos: uploads vetted by title once; a few profiles a run, each t
   expect(again.skipped).toEqual(['A Sawbwa resplendens – The Tiny Fish with a Big Story: skipped (species/sawbwa-resplendens): the page cites this video already'])
 })
 
+test('species-videos: while Wikimedia rests, a new page waits: the run stops and the video is tried again after', async () => {
+  const r = await root()
+  const d = deps([])
+  await speciesVideos(r, d, { channels: ['chrislukhaup'], limit: 0 })
+  const resting = { ...d, http: async (u: string) => { if (u.includes('commons.wikimedia.org')) throw new WikimediaRefused('2026-11-06T12:00:00.000Z'); return d.http(u) } }
+  const out = await speciesVideos(r, resting, { channels: ['chrislukhaup'], only: ['G'] })
+  expect(out.stopped).toBe('G: Wikimedia refused this Mac: no request before 2026-11-06T12:00:00.000Z')
+  const s = JSON.parse(await readFile(join(r, 'engine-state/_species-videos.json'), 'utf8'))
+  expect(s.G.done).toBeUndefined()
+  await expect(readFile(join(r, 'content/species/nanosphronemus-gemma/entity.json'), 'utf8')).rejects.toThrow()
+})
+
 test('a video tried again (the owner\'s pick) after its part fell under the bar: the writer starts from that review\'s notes', async () => {
   const r = await root()
   const prompts: string[] = []
@@ -142,4 +155,23 @@ test('a video tried again (the owner\'s pick) after its part fell under the bar:
   prompts.length = 0
   expect((await speciesVideos(r, { ...d, llm }, { only: ['A'] })).done).toEqual(['A Sawbwa resplendens – The Tiny Fish with a Big Story: added (species/sawbwa-resplendens, 0.9)'])
   expect(prompts[0]).toContain('"16 loài đặc hữu" conflicts with the page')
+})
+
+// The independent read of the lucky bamboo note (2026-11-12): a fixed part of ours (a ruling written in by hand) is not
+// the video's to add to, so the video's text under that heading is left out, and the video isn't cited for nothing.
+test('a video leaves a fixed part of ours as it is, and adds no ref when nothing of it is kept', async () => {
+  const r = await root()
+  const dir = join(r, 'content/plants/taxiphyllum-sp-christmas')
+  const e = JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8'))
+  const note = { key: 'maintenance', source: 'aquatome', sourceUrl: 'https://aquatome.com/vi/gioi-thieu/', html: '<p>Our note.</p>', refs: [0], fixed: true }
+  const refs = [{ url: 'https://example.org/moss', title: 'Moss care' }]
+  await writeFile(join(dir, 'entity.json'), JSON.stringify({ ...e, sections: [...e.sections, note], refs }))
+  const t = JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8'))
+  await writeFile(join(dir, 'vi.json'), JSON.stringify({ ...t, sections: { ...t.sections, 'maintenance:aquatome': '<p>Ghi chú của AquaTome.</p>' } }))
+  const out = await speciesVideos(r, deps([]), { only: ['C'] })
+  expect(out.done.join(' ')).toContain('nothing new')
+  const after = PlantSchema.parse(JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8')))
+  expect(after.sections.find(s => s.source === 'aquatome')).toEqual(note)
+  expect(after.refs).toEqual(refs)
+  expect(JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8')).sections['maintenance:aquatome']).toBe('<p>Ghi chú của AquaTome.</p>')
 })

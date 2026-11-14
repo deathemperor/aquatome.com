@@ -1,12 +1,13 @@
 {
   "slug": "ca-ro-phi-mat-do-geophagus-brasiliensis",
-  "name": "Cá rô phi ngọc trai",
+  "name": "Cá hải hồ brasiliensis",
   "altNames": [
     "Pearl cichlid",
     "Cá rô phi mắt đỏ Geophagus brasiliensis",
     "Cá ăn đất ngọc trai",
     "Pearlscale Cichlid",
-    "Mother-of-pearl Cichlid"
+    "Mother-of-pearl Cichlid",
+    "Cá rô phi ngọc trai"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Geophagus brasiliensis là một trong những loài cichlid có mặt sớm nhất trong giới chơi cá cảnh. Cá được đưa về Đức lần đầu vào khoảng năm 1900. Chúng đã sinh sản được khi mới dài 6–8 cm, nhưng nếu được nuôi tốt thì có thể lớn hơn 20 cm. Đây là cichlid đẻ trứng trên giá thể hở. Cả cá bố lẫn cá mẹ cùng chăm con.</p>",
@@ -38,5 +39,6 @@
       "glaser": 0.8,
       "seriouslyfish": 0.8
     }
-  }
+  },
+  "nameFixed": true
 }

@@ -40,6 +40,10 @@
       {
         "source": "seriouslyfish",
         "value": 75
+      },
+      {
+        "source": "glaser",
+        "value": 70
       }
     ],
     "difficulty": [
@@ -91,10 +95,22 @@
       "html": "<p>The giant puffer, Tetraodon mbu, is a freshwater pufferfish from rivers and lakes in Central and East Africa, including Lake Tanganyika. Among the most aggressive puffers available, it can reach 75 cm and should be kept alone in a tank of around 240 by 90 by 90 cm. A molluscivore in nature, it needs snails and unshelled shellfish regularly to keep its continuously growing teeth worn down.</p><ul><li>Space: very large tank</li><li>Water: needs a steady pH</li><li>Temperature: needs a very steady temperature</li><li>Diet: needs snails to wear down its teeth</li><li>Temperament: territorial</li><li>Needs a tank at least 2 m long</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/tetraodon-mbu-en/",
+      "html": "<p>Tetraodon mbu, the true Congo puffer, was received from the Republic of Congo in April 2002 in a larger size than the supplier had ever received before. The maximum size cited in the literature is nearly 70 cm.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-mbu",
       "html": "<p>Republic of Congo, Democratic Republic of Congo, Tanzania, Zambia, Burundi, Cameroon.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/tetraodon-mbu-en/",
+      "html": "<p>Origin: Congo.</p>"
     },
     {
       "key": "habitat",
@@ -167,6 +183,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-mbu",
       "html": "<p>A generally aggressive and intolerant species that really should be kept alone. Its beak-like mouth can easily bite chunks from other fish, or in extreme cases rip them to pieces. However, some specimens are less aggressive than others and it is down to the individual fish as to how it will react to tankmates. If you decide to take the risk, you will need a huge tank and tankmates that swim too quickly for the puffer to catch them easily. It is also very aggressive towards conspecifics and should never be kept in groups.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/tetraodon-mbu-en/",
+      "html": "<p>Individuals differ astonishingly in their behaviour: there are shy ones and also aggressive ones.</p>"
     },
     {
       "key": "dimorphism",
@@ -246,5 +268,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-10"
 }

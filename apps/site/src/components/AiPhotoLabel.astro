@@ -1,0 +1,11 @@
+---
+import type { Photo } from '@aq/schema'
+import { i18n } from '../lib/i18n'
+interface Props { photo: Photo }
+const { photo } = Astro.props
+const { t } = i18n(Astro.url)
+---
+{photo.generated && <span class="ai-photo-label">{t('Ảnh do AI tạo')}</span>}
+<style>
+  .ai-photo-label { position: absolute; left: 0; bottom: 0; max-width: 100%; padding: 2px 4px; background: var(--c-paper); color: var(--c-ink); font: 500 0.75rem/1.2 var(--f-body); }
+</style>

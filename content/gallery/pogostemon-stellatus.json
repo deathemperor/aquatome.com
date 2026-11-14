@@ -14,18 +14,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/commons/69b90479574f6db2.webp",
-      "thumb": "https://media.aquatome.com/commons/69b90479574f6db2-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY 4.0",
-      "author": "Kudapan21",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pogostemon_stellatus_(emersed_form).jpg",
-      "caption": "Bụi Cây Pogostemon stellatus mọc dưới nước trong bể thủy sinh",
-      "best": true,
-      "kind": "submersed"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/56578924.webp",
       "thumb": "https://media.aquatome.com/inaturalist/56578924-480.webp",
       "width": 1024,
@@ -62,16 +50,33 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/288941429.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/288941429-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Alberto Alcalá",
-      "sourceUrl": "https://www.inaturalist.org/photos/288941429",
-      "caption": "Ngọn Pogostemon stellatus xanh tươi trong bể",
-      "best": false,
-      "kind": "emersed"
+      "url": "https://media.aquatome.com/tropica/e5ff857a9ba05c08.webp",
+      "thumb": "https://media.aquatome.com/tropica/e5ff857a9ba05c08-480.webp",
+      "width": 1000,
+      "height": 1000,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Pogostemonstellatus(053G)/4498",
+      "source": "tropica",
+      "kind": "other",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/5a5f165c8eb03d85.webp",
+      "thumb": "https://media.aquatome.com/tropica/5a5f165c8eb03d85-480.webp",
+      "width": 1200,
+      "height": 750,
+      "large": {
+        "url": "https://media.aquatome.com/tropica/5a5f165c8eb03d85-large.webp",
+        "width": 1920,
+        "height": 1200
+      },
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Pogostemonstellatus(053G)/4498",
+      "source": "tropica",
+      "kind": "submersed",
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/56578941.webp",
@@ -96,6 +101,18 @@
       "caption": "Bụi Pogostemon stellatus ra hoa bên mép nước",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/99bad474cd92755c.webp",
+      "thumb": "https://media.aquatome.com/tropica/99bad474cd92755c-480.webp",
+      "width": 1000,
+      "height": 1000,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Pogostemonstellatus(053G)/4498",
+      "source": "tropica",
+      "kind": "other",
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/643747209.webp",
@@ -132,9 +149,33 @@
       "caption": "Cây Pogostemon stellatus mọc ngoài tự nhiên với bông hoa",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/69b90479574f6db2.webp",
+      "thumb": "https://media.aquatome.com/commons/69b90479574f6db2-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY 4.0",
+      "author": "Kudapan21",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pogostemon_stellatus_(emersed_form).jpg",
+      "caption": "Bụi Cây Pogostemon stellatus mọc dưới nước trong bể thủy sinh",
+      "best": true,
+      "kind": "submersed"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/288941429.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/288941429-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Alberto Alcalá",
+      "sourceUrl": "https://www.inaturalist.org/photos/288941429",
+      "caption": "Ngọn Pogostemon stellatus xanh tươi trong bể",
+      "best": false,
+      "kind": "emersed"
     }
   ],
   "seen": 21,
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-10",
   "builtAt": "2026-10-31"
 }

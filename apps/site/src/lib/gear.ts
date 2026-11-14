@@ -1,4 +1,5 @@
 import type { Content, GuideEntity, Localized } from '@aq/schema'
+import { categoriesIn } from './equipment'
 import { categoryLabel } from './format'
 import { productFor, productHref } from './products'
 import { translator, type Lang } from './i18n'
@@ -13,6 +14,8 @@ const named = (g: Video['gear'] extends (infer X)[] | undefined ? X : never) => 
 export function gearRows(lang: Lang, c: Content, v: Video): GearRow[] {
   const t = translator(lang)
   const rows: GearRow[] = []
+  // A kind's page is linked only where this language builds it (equipment.ts).
+  const paged = new Set(categoriesIn(lang, c).map(u => u.category))
   for (const g of v.gear ?? []) {
     const eq = c.equipment.find(e => e.category === g.category)
     const type = eq?.types.find(t => t.id === g.type)
@@ -20,7 +23,7 @@ export function gearRows(lang: Lang, c: Content, v: Video): GearRow[] {
     if (!name) continue
     const p = productFor(c, g.brand, g.model)
     // Labels in the page's language; the shop search keeps the Vietnamese words.
-    rows.push({ category: g.category, label: t(label(g.category)), name: g.brand || type ? name : t(name), keyword: g.brand ? name : type?.buy ?? name, ...(g.t !== undefined ? { t: g.t } : {}), ...(eq ? { page: `/vi/thiet-bi/${g.category}/` } : {}), ...(p ? { product: productHref(p) } : {}) })
+    rows.push({ category: g.category, label: t(label(g.category)), name: g.brand || type ? name : t(name), keyword: g.brand ? name : type?.buy ?? name, ...(g.t !== undefined ? { t: g.t } : {}), ...(eq && paged.has(g.category) ? { page: `/vi/thiet-bi/${g.category}/` } : {}), ...(p ? { product: productHref(p) } : {}) })
   }
   return rows.sort((a, b) => (a.t ?? Infinity) - (b.t ?? Infinity))
 }

@@ -1,0 +1,276 @@
+{
+  "id": "pangasius-larnaudii",
+  "scientificName": "Pangasius larnaudii",
+  "order": "Siluriformes",
+  "family": "Pangasiidae",
+  "genus": "Pangasius",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "thailand",
+    "chao-phraya",
+    "laos",
+    "mekong"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 130
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1352",
+      "html": "<ul><li>Scientific name: Pangasius larnaudii Bocourt, 1866</li><li>Common names: One Spot Pangasius, Plettet Hajmalle (Denmark)</li><li>Type locality: Northern Thailand.</li><li>Synonyms: Pangasius burgini, Pangasius taeniura, Pangasius taeniurus</li><li>IUCN Red List: Least Concern (last assessed 2011)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1352",
+      "html": "<p>Asia: Mekong and Chao Phraya basins.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1352",
+      "html": "<p>Needs large amount of open space for swimming room and some plants to help reduce the nervous nature of the fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1352",
+      "html": "<p>Females are fuller-bodied.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1352",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1352",
+      "html": "<p>This species exhibits a dark spot just above the pectoral fin; this may fade in larger specimens.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1352",
+      "html": "<p>Nouvelles Archives du Muséum d'Histoire Naturelle, Paris v. 2, pp 15, Pl. 1 (figs. 2, 2a).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/9dec7eb05e9009c2.webp",
+      "width": 960,
+      "height": 674,
+      "licence": "CC BY-SA 4.0",
+      "author": "Jony Cooper",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pangasius_larnaudii.jpg",
+      "caption": "この白パン、アクア・トトぎふで撮影しました。",
+      "thumb": "https://media.aquatome.com/commons/9dec7eb05e9009c2-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "rEn8-tyGXrE",
+      "title": "Wels and Black ear pangasius catfishes, Silurus glanis and Pangasius larnaudii",
+      "durationSec": 266,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "pitDGBB2Jqs",
+      "title": "Stories of 2 black ear shark catfish 8yo & 1.5yo both 2ft/60cm in 1800 gal Pangasius larnaudii",
+      "durationSec": 587,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "h4hAFsQGntk",
+      "title": "Feeding Pangasius larnaudii",
+      "durationSec": 77,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "wSbhRFZ2Abw",
+      "title": "Pangasius larnaudii Black ear shark catfish",
+      "durationSec": 52,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 1000 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc ngoài công suất lớn",
+        "máy bơm tạo dòng"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13",
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Northern Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Mekong and Chao Phraya basins.",
+          "countries": [],
+          "regions": [
+            "Mekong",
+            "Chao Phraya"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202460,
+      "total": 45,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "TH",
+          27
+        ],
+        [
+          "KH",
+          13
+        ],
+        [
+          "VN",
+          4
+        ],
+        [
+          "LA",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          16.875,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          12.65625,
+          5,
+          5
+        ],
+        [
+          99.84375,
+          14.0625,
+          3,
+          3
+        ],
+        [
+          99.84375,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          11.25,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          104.0625,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          104.0625,
+          11.25,
+          6,
+          0
+        ],
+        [
+          104.0625,
+          12.65625,
+          3,
+          0
+        ],
+        [
+          104.0625,
+          14.0625,
+          7,
+          7
+        ],
+        [
+          104.0625,
+          16.875,
+          2,
+          2
+        ],
+        [
+          105.46875,
+          9.84375,
+          3,
+          0
+        ],
+        [
+          105.46875,
+          12.65625,
+          2,
+          0
+        ],
+        [
+          105.46875,
+          14.0625,
+          7,
+          7
+        ],
+        [
+          106.875,
+          12.65625,
+          1,
+          0
+        ]
+      ]
+    }
+  }
+}

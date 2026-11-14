@@ -3,20 +3,29 @@
   "name": "Cá mèo gỗ Flag",
   "altNames": [
     "Cá mèo gỗ cờ",
-    "Flag Woodcat"
+    "Flag Woodcat",
+    "Cá mèo gỗ Magdalena"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Trachelyopterus insignis (Steindachner, 1878)</li><li>Tên thường gọi: Flag Woodcat</li><li>Kích thước: 200 mm SL (chiều dài chuẩn)</li><li>Từ nguyên: Trachelyopterus ghép từ hai chữ Hy Lạp là trachelos (cổ) và pteron (vây). Tên này nói đến tấm giáp sọ dài của cá, khiến vây lưng trông như mọc ra từ vùng cổ.</li></ul>",
     "distribution:planetcatfish": "<p>Nam Mỹ: lưu vực hạ lưu sông Magdalena. Cá sống ở các sông đổ ra biển Caribe của Colombia, gồm sông Magdalena và vùng hạ Magdalena. Nơi thu mẫu chuẩn là Río Magdalena, Colombia. Trong Danh sách đỏ IUCN, loài này thuộc nhóm Ít quan tâm (lần đánh giá gần nhất vào năm 2014).</p>",
     "waterConditions:planetcatfish": "<ul><li>pH: 6,2 - 7,2</li><li>Nhiệt độ: 23-28°C</li><li>dH 10-25</li></ul><p>Lưu ý: Fishbase ghi nhiệt độ 23-38°C. Con số 38 nhiều khả năng là lỗi đánh máy.</p>",
     "reproduction:planetcatfish": "<p>Chưa có thông tin. Đến nay chưa có ghi nhận nào về việc loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Anzeiger der Kaiserlichen Akademie der Wissenschaften, Wien, Mathematisch-Naturwissenschaftliche Classe v. 15 (no. 12) (for 9 May 1878), pp 89.</p>"
+    "references:planetcatfish": "<p>Anzeiger der Kaiserlichen Akademie der Wissenschaften, Wien, Mathematisch-Naturwissenschaftliche Classe v. 15 (no. 12) (for 9 May 1878), pp 89.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: Flag Woodcat</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực hạ lưu sông Magdalena, Colombia. Nơi thu mẫu chuẩn: Magdalenen-Stromes [Colombia].</p>",
+    "behaviour:scotcat": "<p>Loài này hợp với bể nuôi chung cỡ lớn. Ban đêm nó hay đi lùng mồi, nhưng không quấy cá khác, miễn là cá nuôi chung không nhỏ tới mức lọt miệng nó. Nên bố trí chỗ trốn cho nó.</p>",
+    "diet:scotcat": "<p>Hầu như thức ăn cá cảnh nào nó cũng ăn.</p>",
+    "dimorphism:scotcat": "<p>Con đực có vây lưng dài và cong, có nhú sinh dục, râu hàm trên cũng dày hơn.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên gọi: Tên giống Trachelyopterus ghép từ trachelos là cổ và pterus là vây. Tên này có lẽ chỉ phần gáy nhô cao của T. coriaceus, làm vây lưng trông như mọc ra từ vùng cổ. Tên loài insignis trong tiếng Latin nghĩa là có dấu, đặc biệt hoặc dễ thấy. Nó có lẽ chỉ hoa văn trên thân: một mẫu vật có nhiều đốm tím sẫm và vân cẩm thạch ở nửa thân trên, còn mẫu vật thứ hai có đốm khắp thân và vây.</p><p>Ghi chú: Miles (1947: 73), với vai trò người hiệu chỉnh đầu tiên, đã chọn tên Auchenipterus insignis thay cho A. magdalenae. Schmidt (1928) mô tả lại loài này dưới tên Trachycorystes magdalenae.</p><p>IUCN: Loài này nằm ở mức Ít quan tâm vì nó phân bố rộng, phổ biến và hiện chưa có mối đe dọa lớn nào được biết tới đang ảnh hưởng tới quần thể (IUCN 2016).</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2003. Auchenipteridae (Driftwood catfishes). p. 470-482. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2024. FishBase. World Wide Web electronic publication. www.fishbase.org, version (01/24).</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p><p>Villa-Navarro, F. 2016. Trachelyopterus insignis. The IUCN Red List of Threatened Species 2016.</p>"
   },
   "quality": {
     "score": 0.85,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.85
+      "planetcatfish": 0.85,
+      "scotcat": 0.85
     }
   }
 }

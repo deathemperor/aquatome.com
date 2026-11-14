@@ -10,6 +10,58 @@
     "thailand",
     "khwae-noi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Mae Klong",
+        "Khwae Noi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from a single cave system (Tham Sai Yok Noi) near the town of Nam Tok Sai Yok Noi, Sai Yok district, Kanchanaburi Province, Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The headwater stream running through the cave is part of the Khwae Noi river basin, itself a tributary of the upper Mae Klong system.",
+          "countries": [],
+          "regions": [
+            "Mae Klong",
+            "Khwae Noi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205272,
+      "total": 5,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "TH",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          14.0625,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -1,13 +1,17 @@
 import { fileURLToPath } from 'node:url'
 import { beforeAll, expect, test } from 'vitest'
 import { loadAll, type Content } from '@aq/schema'
+import { GALLERY_MIN } from '../src/lib/gallery'
 import { renamedPages } from '../src/lib/renamed'
+import { slow } from '@aq/schema/test-time'
+
+type Pages = Parameters<typeof renamedPages>[0]
 
 const CONTENT = fileURLToPath(new URL('../../../content', import.meta.url))
 
 // Read once: every page of the real content, which takes a minute on a busy machine.
 let c: Content
-beforeAll(async () => { c = await loadAll({ root: CONTENT, lang: 'vi', publicBuild: false }) }, 300_000)
+beforeAll(async () => { c = await loadAll({ root: CONTENT, lang: 'vi', publicBuild: false }) }, slow(300_000))
 
 // The owner's naming of the two discus species (2026-11-07), in the real content as /redirects.json is built from it.
 // Symphysodon aequifasciatus, the discus shops sell, took the plain name and address from Symphysodon discus.
@@ -19,6 +23,14 @@ test("the shop discus's old address 301s to /ca/ca-dia/; /ca/ca-dia/, now its pa
   expect(table['/ca/ca-dia-nau/']).toBe('/ca/ca-dia/?tu=ca-dia-nau')
   expect(table['/ca/ca-dia/']).toBeUndefined()
   expect(Object.entries(table).filter(([, to]) => to.startsWith('/ca/ca-dia-heckel/'))).toEqual([])
+})
+
+// The chief of staff, 2026-11-13 (page-folds.ts): the skunk cory's address under a tube worm's name forwards bare, nothing
+// of the worm in the address the reader lands on; the molly article's, which had a name, with its note.
+test("the tube worm's old address forwards bare to the skunk cory; the molly article's to the common molly with its note", () => {
+  const table = renamedPages(c)
+  expect(table['/ca/ca-ditrupa-arietina/']).toBe('/ca/ca-chuot-skunk/')
+  expect(table['/ca/ca-molly-bryophila/']).toBe('/ca/ca-molly/?tu=ca-molly-bryophila')
 })
 
 // The owner's names of 2026-11-07: locked, old address 301s here, old name still finds the fish.
@@ -66,6 +78,18 @@ test('the pencilfish guide took "cá chì" and its old address 301s to it', () =
 
 test('an old address another page has taken since stays that page: it never redirects', () => {
   const t = (slug: string, redirectFrom?: { slug: string; name: string }[]) => ({ t: { slug, ...(redirectFrom ? { redirectFrom } : {}) } })
-  const pages = { species: [t('ca-dia', [{ slug: 'ca-dia-nau', name: 'Cá đĩa nâu' }]), t('ca-dia-heckel', [{ slug: 'ca-dia', name: 'Cá đĩa' }])], breeds: [], plants: [], guides: [] }
-  expect(renamedPages(pages as unknown as Pick<Content, 'species' | 'breeds' | 'plants' | 'guides'>)).toEqual({ '/ca/ca-dia-nau/': '/ca/ca-dia/?tu=ca-dia-nau' })
+  const pages = { species: [t('ca-dia', [{ slug: 'ca-dia-nau', name: 'Cá đĩa nâu' }]), t('ca-dia-heckel', [{ slug: 'ca-dia', name: 'Cá đĩa' }])], breeds: [], plants: [], guides: [], galleries: {} }
+  expect(renamedPages(pages as unknown as Pages)).toEqual({ '/ca/ca-dia-nau/': '/ca/ca-dia/?tu=ca-dia-nau' })
+})
+
+// Search Console, 2026-11-05: /ca/ca-tu-van-puntigrus/anh/ was a 404 when the fish's own old address redirected.
+test('a renamed page with a photo page takes its old photo address with it; a page without one has none to redirect', () => {
+  const page = (id: string, slug: string, old: string) => ({ id, t: { slug, redirectFrom: [{ slug: old, name: old }] } })
+  const pages = { species: [page('a', 'ca-moi', 'ca-cu'), page('b', 'ca-it-anh', 'ca-it-anh-cu')], breeds: [], plants: [page('c', 'cay-moi', 'cay-cu')], guides: [], galleries: { a: Array(GALLERY_MIN).fill({}), b: Array(GALLERY_MIN - 1).fill({}), c: Array(GALLERY_MIN).fill({}) } }
+  expect(renamedPages(pages as unknown as Pages)).toEqual({
+    '/ca/ca-cu/': '/ca/ca-moi/?tu=ca-cu', '/ca/ca-cu/anh/': '/ca/ca-moi/anh/',
+    '/ca/ca-it-anh-cu/': '/ca/ca-it-anh/?tu=ca-it-anh-cu',
+    '/cay/cay-cu/': '/cay/cay-moi/?tu=cay-cu', '/cay/cay-cu/anh/': '/cay/cay-moi/anh/',
+  })
+  expect(renamedPages(c)['/ca/ca-tu-van-puntigrus/anh/']).toBe('/ca/ca-tu-van/anh/')
 })

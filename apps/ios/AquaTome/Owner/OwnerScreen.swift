@@ -56,6 +56,7 @@ struct OwnerScreen: View {
       // Read the first time: at the heading the link named.
       .onChange(of: section == nil) { if let anchor { proxy.scrollTo(anchor, anchor: .top) } }
     }
+    .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
     .navigationTitle(Text(verbatim: key.isEmpty ? "Dashboard" : section?.title ?? owner.dashboard?.name(of: key) ?? ""))
     .navigationBarTitleDisplayMode(.large)
     .toolbar {
@@ -85,7 +86,7 @@ struct OwnerScreen: View {
       }
     }
     // Two switches: a sheet of their height, the whole screen only at the largest text.
-    .sheet(isPresented: $bell) { OwnerDelivery().presentationDetents(size.isAccessibilitySize ? [.large] : [.medium]) }
+    .sheet(isPresented: $bell) { OwnerDelivery().presentationDetents(size.isAccessibilitySize ? [.large] : [.medium]).ownerScreen("sheet report-delivery") }
     .refreshable { await load() }
     .task(id: "\(at ?? "")|\(period ?? "")|\(owner.era)|\(shown)") { await load() }
     // Another account, a sign-out, the session over: what this screen read goes with it.
@@ -94,6 +95,7 @@ struct OwnerScreen: View {
                         titleVisibility: .visible, presenting: asking) { a in
       Button(role: .destructive) { Task { _ = await send(a) } } label: { Text(verbatim: a.label) }
     }
+    .ownerScreen("dashboard \(key.isEmpty ? "home" : key)")
   }
 
   private func load() async {

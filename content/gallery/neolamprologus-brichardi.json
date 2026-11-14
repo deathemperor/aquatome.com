@@ -2,16 +2,17 @@
   "id": "neolamprologus-brichardi",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/31d7515acc11b8f6.webp",
-      "thumb": "https://media.aquatome.com/commons/31d7515acc11b8f6-480.webp",
-      "width": 1200,
-      "height": 789,
-      "licence": "CC BY 3.0",
-      "author": "Marrabbio2",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neolamprologus_brichardi_femmina.jpg",
-      "caption": "Cá hoàng tử Burundi bơi gần cây thủy sinh trong bể",
+      "url": "https://media.aquatome.com/inaturalist/520815008.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/520815008-480.webp",
+      "width": 1024,
+      "height": 551,
+      "licence": "CC BY",
+      "author": "Zach Johnson",
+      "sourceUrl": "https://www.inaturalist.org/photos/520815008",
+      "caption": "Cá hoàng tử Burundi bơi trên nền đá trong môi trường tự nhiên",
       "best": true,
-      "kind": "other"
+      "kind": "habitat",
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/commons/344d566d5aeb374f.webp",
@@ -48,9 +49,21 @@
       "caption": "Cá hoàng tử Burundi vây dài bơi giữa đá trong bể",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/31d7515acc11b8f6.webp",
+      "thumb": "https://media.aquatome.com/commons/31d7515acc11b8f6-480.webp",
+      "width": 1200,
+      "height": 789,
+      "licence": "CC BY 3.0",
+      "author": "Marrabbio2",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neolamprologus_brichardi_femmina.jpg",
+      "caption": "Cá hoàng tử Burundi bơi gần cây thủy sinh trong bể",
+      "best": true,
+      "kind": "other"
     }
   ],
-  "seen": 8,
-  "updatedAt": "2026-11-09",
-  "builtAt": "2026-11-09"
+  "seen": 9,
+  "updatedAt": "2026-11-10",
+  "builtAt": "2026-11-10"
 }

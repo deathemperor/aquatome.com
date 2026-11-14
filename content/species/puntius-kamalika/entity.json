@@ -10,6 +10,79 @@
     "sri-lanka",
     "kelani"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LK"
+      ],
+      "regions": [
+        "Kelani",
+        "Gin",
+        "Kalu River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Sri Lanka where it is widely distributed in the southwestern 'wet zone' of the island, between and including the Kelani and Gin river basins.",
+          "countries": [
+            "LK"
+          ],
+          "regions": [
+            "Kelani",
+            "Gin"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Kalu River at Walandure near Kuruwita, 6°46'N, 80°23'E, Sri Lanka, elevation 120 meters'.",
+          "countries": [],
+          "regions": [
+            "Kalu River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2364237,
+      "total": 8,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "LK",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          78.75,
+          5.625,
+          3,
+          3
+        ],
+        [
+          80.15625,
+          5.625,
+          2,
+          2
+        ],
+        [
+          80.15625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          80.15625,
+          8.4375,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -10,6 +10,58 @@
     "india",
     "meghalaya"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Barapani Lake",
+        "Khasi Hills"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Shalyni barb, Pethia shalynius, is a small cyprinid that appears to be endemic to Meghalaya state in northeastern India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Barapani Lake, about 20 kilometers north of Shillong, Khasi Hills, Meghalaya, India, elevation 1100 meters', and appears to be endemic to Meghalaya state where it's known from only a handful of localities in the Khasi and Jaintia hills.",
+          "countries": [],
+          "regions": [
+            "Barapani Lake",
+            "Khasi Hills"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7689888,
+      "total": 1,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "IN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          91.40625,
+          25.3125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,0 +1,60 @@
+{
+  "id": "paludomus-loricata",
+  "native": {
+    "input": "d3fd7b99235ddd3d",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Among the most unusual species of freshwater snail is the Red Spotted Bella Snail, Paludomus loricatus, from Sri Lanka.",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The snails inhabit clear, very clean, fast running streams in the crystalline uplands of South-West Sri Lanka (altitude 60-700 m).",
+        "words": "Sri Lanka",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Paludomus loricata",
+    "status": "ACCEPTED",
+    "taxonKey": 5782669,
+    "datasets": [
+      [
+        "f5783452-6ff5-4bef-8f30-9adfeba81bd7",
+        6
+      ],
+      [
+        "857bce66-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "07ae2aa8-5031-4312-b26e-84a5c753daac",
+        1
+      ],
+      [
+        "71d46a30-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "LK"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

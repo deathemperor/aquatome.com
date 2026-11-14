@@ -1,0 +1,55 @@
+{
+  "id": "reganochromis-calliurus",
+  "native": {
+    "input": "e75e513e262d6bfa",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "BI",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Tanganyika (Burundi, DR Congo, Tanzania, Zambia).",
+        "words": "Burundi",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Tanganyika (Burundi, DR Congo, Tanzania, Zambia).",
+        "words": "DR Congo",
+        "ok": true
+      },
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Tanganyika (Burundi, DR Congo, Tanzania, Zambia).",
+        "words": "Tanzania",
+        "ok": true
+      },
+      {
+        "code": "ZM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Tanganyika (Burundi, DR Congo, Tanzania, Zambia).",
+        "words": "Zambia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Tanganyika",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Tanganyika (Burundi, DR Congo, Tanzania, Zambia).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  }
+}

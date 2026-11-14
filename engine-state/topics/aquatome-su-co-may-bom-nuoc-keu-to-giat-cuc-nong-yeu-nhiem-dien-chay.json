@@ -1,0 +1,303 @@
+{
+  "found": true,
+  "species": [],
+  "sources": [
+    {
+      "url": "https://www.allpondsolutions.co.uk/blogs/fishkeeping-advice/submersible-aquarium-pump-care-guide-prevent-failures-reduce-noise-improve-flow",
+      "title": "Submersible Aquarium Pump Care Guide: Prevent Failures, Reduce Noise & Improve Flow",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.manualslib.fr/manual/476039/Sicce-Syncra-Adv-5-5.html?page=12",
+      "title": "Important Safety Instructions - Sicce Syncra ADV 5.5 Manuel d'instructions",
+      "kind": "maker"
+    },
+    {
+      "url": "https://www.manualslib.fr/manual/496801/Superfish-Pond-Eco-Plus-E.html?page=2",
+      "title": "GB - SuperFish PondECO Plus E 3500-5000-8000-10000-12000-15000-20000",
+      "kind": "maker"
+    },
+    {
+      "url": "https://charterhouse-aquatics.com/blogs/help-guides/aquarium-pump-maintenance-troubleshooting-guide",
+      "title": "Aquarium Pump Maintenance & Troubleshooting Guide",
+      "kind": "shop"
+    },
+    {
+      "url": "https://reefbuilders.com/2024/05/13/what-you-need-to-know-about-aquariums-and-electrical-safety",
+      "title": "What You Need to Know about Aquariums and Electrical Safety",
+      "kind": "magazine"
+    },
+    {
+      "url": "https://cvm.ncsu.edu/news/dealing-with-aquariums-and-ponds-during-power-outages/",
+      "title": "Dealing With Aquariums and Ponds During Power Outages",
+      "kind": "university"
+    },
+    {
+      "url": "https://aquahouse.vn/may-bom-nuoc-bi-nhay-cb/",
+      "title": "Máy bơm nước bị nhảy CB Nguyên nhân và cách khắc phục hiệu quả",
+      "kind": "shop"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Stray voltage happens when faulty equipment leaks current into the tank water.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "There is usually no warning of stray voltage until the current finds a path to ground, and a person can become that path.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "An ordinary outlet does not cut the power when a person gets a shock.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Warning signs of a failing pump include weaker flow, unusual noise, vibration, too much heat, running on and off, trouble starting and higher power use.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Pump noise is often caused by vibration, trapped air or a dirty impeller.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Noise often comes from debris in the impeller chamber, a worn shaft or bearing, or the pump vibrating against the glass or cabinet.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Strong vibration usually comes from worn bushings, a damaged shaft or a badly placed pump.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Weak flow is usually caused by blockages or debris inside the pump, or by kinks or airlocks in the tubing.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Weak flow can also come from a dirty impeller, a blocked intake, clogged filter media or trapped air.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "A pump that will not start often has a seized impeller or calcium (limescale) buildup.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "A pump that runs on and off may be overheating or may have loose connections, worn motor parts or debris inside.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Running a pump dry can overheat it and damage it for good.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Some pumps have dry-run protection: the SuperFish PondECO Plus E stops after 10 seconds without water flow and tries again every 10 seconds. After 5 tries it stops for good.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "If the SuperFish PondECO Plus E motor overheats, the pump switches itself off and starts again after about 15–20 minutes of cooling.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "If a plug or socket gets wet, do not pull the plug out. Switch off the fuse or circuit breaker that feeds it.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "Do not use a pump whose cord or plug is damaged, or one that has been dropped, damaged or is not working properly.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "After a dry-run shutdown of the SuperFish PondECO Plus E, make sure water reaches the pump, unplug it, wait 60 seconds and plug it back in.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "After the SuperFish PondECO Plus E shuts down from overheating, find and fix the cause of the overheating.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Unplug the pump before you take it out of the tank to clean it.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Unplug the pump whenever it is not in use, and before adding or removing parts or cleaning it.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "To clean: unplug the pump, take it out, take it apart as the maker describes, and check for dirt, algae, broken impeller blades, worn shafts and damaged bushings.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Clean the impeller, shaft and housing with a soft brush, and rinse the parts in tank water rather than tap water.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Check the shaft for wear, bending or damage while the pump is apart.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "When putting the pump back together, check that every part sits correctly before switching it on.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "After reassembly the impeller should turn freely, moving about halfway before it springs back into place.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "If the noise continues after cleaning, check for loose fittings and airlocks in the tubing.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Clean inlet grills, tubing and filter sponges to bring back weak flow.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Do not try to repair a pump yourself. Take it to an authorised service centre or throw it away.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Think about replacing a pump if it needs frequent repairs, if flow stays poor after cleaning, if electrical problems develop, if spare parts are unavailable or if the noise becomes excessive.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "A seized or limescale-blocked pump may start again after a thorough clean, but a damaged rotor needs a replacement part.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Use the pump only on a circuit protected by a ground-fault circuit interrupter (GFCI).",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Protect aquarium circuits with GFCI outlets or GFCI/AFCI breakers. A breaker in the main panel is often easier to fit when outlets are hidden behind the stand.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Make a drip loop in every cord that runs from the pump to an outlet, so water drips off the cord instead of reaching the socket.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Mount power strips firmly, away from water and splashes, and do not plug one power strip into another.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Dry your hands before plugging or unplugging equipment, and wear dry rubber-soled shoes when working on the tank.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Never let the pump run dry: it must be fully under water while it runs.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Unplug pumps and heaters before the water level drops so far that they run dry.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep the pump fully under water, on a flat surface, and not touching the tank walls or decorations.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Clean the pump every 4–6 weeks to stop blockages building up.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Check pumps every 2–3 months in lightly stocked freshwater tanks and monthly in heavily stocked tanks.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Maintenance plan: every month check flow, listen for noise and look at the intake strainers. Every 2–3 months clean the impeller chamber. Every 6–12 months replace worn impellers and check seals, O-rings and power cables.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Choose the right pump size: one too small struggles to move the water, and one too large makes strong flow that stresses fish.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Plug the SuperFish PondECO Plus E only into an earthed socket kept dry, and check that the voltage on its label matches your supply.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "The SuperFish PondECO Plus E manual says the water it pumps must never be hotter than 35°C.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Do not use soap or chemicals on pump parts. Rinse them in tank water, not tap water, to protect beneficial bacteria.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Do not handle a pump with wet hands.",
+      "source": 2
+    },
+    {
+      "section": "myths",
+      "fact": "Ground probes are hotly debated. Reef Builders says that if you use one, plug it into a GFCI-protected outlet, because it gives stray voltage a path to ground.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese shop blogs use these terms: CB (circuit breaker), chống giật (ELCB/RCCB residual-current breaker), cánh quạt (impeller), mô tơ/cuộn dây (motor/windings), ổn áp (voltage stabiliser), cột áp (head pressure).",
+      "source": 6
+    },
+    {
+      "section": "vietnam",
+      "fact": "Pump brands sold in Vietnam include Atman, Baoyu, Hsbao, Jebao, Jingye, Periha, Sobo and SunSun.",
+      "source": 6
+    },
+    {
+      "section": "vietnam",
+      "fact": "During power cuts, the heater and pump/filter can be run from another power source such as a generator.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "The longer fish stay in unfiltered water during a power cut, the worse the water gets. If ammonia rises above 1 ppm, change 10 to 30 percent of the water.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "Do not feed fish while the pump is off in an outage, because digestion uses oxygen in warm months. Stirring the water with a whisk raises dissolved oxygen.",
+      "source": 5
+    }
+  ]
+}

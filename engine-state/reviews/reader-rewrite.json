@@ -26,6 +26,20 @@
       "kept": true
     }
   ],
+  "vi/guides/aquariumbreeder-breeding-and-life-cycle-of-crayfish#body": [
+    {
+      "at": "2026-11-13T16:48:08Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "Added \"quạt liên tục\" (continuous fanning) – a new detail about the behaviour and its frequency that BEFORE does not state."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/aquariumbreeder-how-to-choose-aquarium-plants-for-beginners#body": [
     {
       "at": "2026-11-09T13:57:24Z",
@@ -38,6 +52,21 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/guides/aquariumbreeder-old-tank-syndrome#body": [
+    {
+      "at": "2026-11-10T21:53:32Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"bể mới\" changed to \"bể cũ\": contradicts BEFORE (new tank vs old tank)",
+        "\"Những con mới thả\" became \"Cá, tép mới thả\": adds specific animals (fish, shrimp) not in BEFORE",
+        "\"nơi nước tốt chuyển sang\" became \"vốn sống trong nước tốt\": the idea of moving from another place is weakened",
+        "added \"mà chúng vừa được thả vào\": redundant addition"
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/guides/aquatome-nuoc-be-ca-bi-xanh-do-tao-xanh-va-cach-xu-ly#body": [
@@ -54,6 +83,20 @@
       "kept": true
     }
   ],
+  "vi/guides/aquatome-reu-hai-trong-be-thuy-sinh-nguyen-nhan-va-cach-loai-bo#body": [
+    {
+      "at": "2026-11-11T03:44:51Z",
+      "model": "sonnet",
+      "score": 0.78,
+      "notes": [
+        "Dropped \"(ở tiệm còn gọi là tép mũi dài)\" alias for Amano shrimp.",
+        "\"Một hướng dẫn nuôi cá nói\" became \"Có sách hướng dẫn nuôi cá nói\": source is now a book, a slight change from a guide.",
+        "\"ốc thuộc các chi\" became \"các loài ốc thuộc chi\": minor wording shift."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/glaser-en-03-bony-tongues-scleropages-jardinii-and-s-leichardti-en#body": [
     {
       "at": "2026-11-07T06:57:24Z",
@@ -63,6 +106,20 @@
         "\"Rõ ràng\" (Apparently/Clearly) hedge dropped; AFTER states breeding seasonality as flat fact.",
         "\"khá rõ\" (fairly pronounced) seasonality changed to plain \"chỉ sinh sản theo mùa\"; the degree is lost.",
         "\"hiếm khi có hàng nhập về nhất\" is awkward. It is still close to \"rarest imported\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/glaser-en-25-perchlike-fishes-25g-perchlike-fishes-7-remaining-groups-sunfish-special-en#body": [
+    {
+      "at": "2026-11-10T21:53:00Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"cá bản địa ở châu Âu\" -> \"cá sống hoang ở châu Âu\": arguably a more accurate wording, but the meaning shifts slightly",
+        "\"Ngoài môi trường gốc\" -> \"Ở môi trường gốc tại Bắc Mỹ\": adds \"Bắc Mỹ\", which is consistent with the later sentence",
+        "\"các quần thể pumpkinseed hoang dã\" -> \"pumpkinseed hoang dã\": minor"
       ],
       "attempt": "first",
       "kept": true
@@ -199,6 +256,20 @@
       "kept": true
     }
   ],
+  "vi/guides/youtube-2Wjd1L52uWE#body": [
+    {
+      "at": "2026-11-11T09:48:21Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"cây ráy (Cryptocoryne)\" became \"tiêu thảo (Cryptocoryne)\" in the third step. This is a different common name, though Cryptocoryne is still given. The first step keeps \"ráy\" for the epiphyte plants, so the two steps now disagree.",
+        "\"Nhổ cây như ... sẽ làm đục nước nhiều, nhưng lọc sẽ làm nước trong lại khá nhanh\": a contrast is added, a small nuance shift.",
+        "\"Làm nhẹ tay\" became \"Nhấc nhẹ tay\": \"nhấc\" (lift) is added, a minor change."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-7DFk4bnIxEg#body": [
     {
       "at": "2026-11-06T21:51:26Z",
@@ -239,6 +310,18 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-HUa1u8usS5w#body": [
+    {
+      "at": "2026-11-10T05:24:45Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"dẫn đường ống ra ngoài, để các bộ phận của lọc nằm hết bên ngoài bể\" slightly elaborates BEFORE's \"đưa các bộ phận của lọc ra khỏi bể\"; adds the pipes-routed-out detail and \"nằm hết\" (entirely), a minor nuance shift."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/youtube-JQiui3Wmurs#body": [
     {
       "at": "2026-11-08T11:25:45Z",
@@ -253,6 +336,19 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-OrW6PZgqKSM#body": [
+    {
+      "at": "2026-11-11T00:42:01Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"không chịu nước\" became \"không chạm nước\": this changes the reason given. The original says the pieces are not water-resistant. The rewrite says they don't touch water, which is a small nuance shift.",
+        "The polycarbonate option is kept as a hedge (\"có thể\"), and the drawback is kept."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/youtube-QhPgAnEku_o#body": [
     {
       "at": "2026-11-09T13:59:44Z",
@@ -261,6 +357,20 @@
       "notes": [
         "Dropped \"và có thể không dùng luôn\": BEFORE says the substrate may be skipped entirely. AFTER only says it isn't needed, so the optional-omission caveat is lost.",
         "Added \"đất hay\": AFTER says no soil or substrate, but BEFORE only mentions giá thể."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-SRQp4aZJv1g#body": [
+    {
+      "at": "2026-11-13T05:46:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "Said more surely than before: \"Lớp phủ này dùng luôn làm lớp trang trí tiền cảnh cũng được.\" (was: \"Lớp phủ này cũng có thể dùng luôn làm lớp trang trí tiền cảnh.\")"
       ],
       "attempt": "first",
       "kept": false
@@ -320,6 +430,34 @@
       "kept": true
     }
   ],
+  "vi/guides/youtube-Wvboi3dLLrM#body": [
+    {
+      "at": "2026-11-11T00:40:30Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "\"quá liều\" -> \"quá mạo hiểm\": slight nuance shift, but same meaning",
+        "\"chia đều lực\" -> \"chia đều sức nặng của đá\": small elaboration only"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-Z2zNU9D9OWE#body": [
+    {
+      "at": "2026-11-13T05:48:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.68,
+      "notes": [
+        "Added claim: \"mà chỉ dùng nắng trời\" (only natural sunlight) is not in BEFORE, which only says the tank has no light.",
+        "\"bể thấp 4 tấc Anh\" became \"cỡ 1,2 m\": the 4-foot naming is dropped and \"cỡ\" makes the size approximate, though it is consistent with 120 cm."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-aXWDAuISGKs#body": [
     {
       "at": "2026-11-08T07:36:47Z",
@@ -329,6 +467,21 @@
         "\"viên thức ăn chìm cho rêu hại (algae wafer)\" became \"viên tảo chìm (algae wafer)\": drops the idea of food for algae-eaters and implies the wafer is made of algae; minor nuance shift",
         "\"Một cách dụ\" (one way) became \"Muốn dụ cua ra thì\" (to lure the crab out): slightly less hedged, as it no longer presents this as just one option",
         "\"ngay lập tức\" is a slight intensification of \"ngay\"; negligible"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-hO_nLV0YpX8#body": [
+    {
+      "at": "2026-11-11T03:46:24Z",
+      "model": "sonnet",
+      "score": 0.84,
+      "notes": [
+        "\"Tránh được keo thì nên tránh\" became \"nếu không cần keo thì đừng dùng\", a slightly stronger prohibition.",
+        "\"rễ sẽ tự bám vào\" became \"tự bám chặt\", so \"chặt\" is added.",
+        "\"Có thể nhét gốc cây\" adds a mild hedge or option wording that BEFORE did not have, since BEFORE gave it as a direct instruction.",
+        "\"Rêu đặt sát đèn\" became \"Chỗ nào sát đèn\", a small shift in wording."
       ],
       "attempt": "first",
       "kept": true
@@ -377,6 +530,20 @@
       "kept": true
     }
   ],
+  "vi/guides/youtube-jSjctgA1RZQ#body": [
+    {
+      "at": "2026-11-11T03:47:11Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "Added detail: \"thả cả bịch vào bể cho cân nhiệt\" (float bag to equalize temperature) not in BEFORE",
+        "Added procedure: \"châm nước bể vào bịch\" is more specific than BEFORE's \"tắm nước từ từ\"",
+        "\"Một cách chọn là\" (one option is) became \"Có thể thả\" (can/may add), a mild shift but still an option"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-nXDe9QF-Gu8#body": [
     {
       "at": "2026-11-09T10:47:51Z",
@@ -388,6 +555,21 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/guides/youtube-rWaSv_jw6Rs#body": [
+    {
+      "at": "2026-11-13T11:34:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [
+        "\"Chừa sẵn một khoảng phía sau\": 'một khoảng' is a trivial addition, no meaning change.",
+        "\"bể sẽ trông sâu hơn\": the 'sẽ' of the original is kept; the 'cảm giác' (impression) nuance is slightly flattened, since AFTER says the tank looks deeper."
+      ],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/guides/youtube-rh8iBySuUpE#body": [

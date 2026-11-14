@@ -64,3 +64,21 @@ test("a guide's topic, already checked, stays checked when only its units change
     a: sha('<p>Bể 40 lít.</p>'), 'b:id': `held:${sha('<p>Nước 24 °C.</p>')}`, c: 'old',
   })
 })
+
+test("a fish page's figure its English gives in metric stays as given; a breed's, with no English beside it, is rounded", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'metric-'))
+  const sections = [{ key: 'aquariumSize', source: 'seriouslyfish', sourceUrl: 'https://example.org', html: '<p>An aquarium measuring 60 × 38 × 30 cm (24 × 15 × 12 in) - approximately 68 litres.</p>' }]
+  const files: Record<string, object> = {
+    'species/g/entity.json': { id: 'g', sections },
+    'species/g/vi.json': page({ 'aquariumSize:seriouslyfish': '<p>Bể 60 × 38 × 30 cm (24 × 15 × 12 in), khoảng 68 lít.</p>', 'aquariumSize:aquatome': '<p>Bể 60 × 38 × 30 cm.</p>' }),
+    'breeds/h/vi.json': page({}, { body: '<p>Bể 60 × 38 × 30 cm.</p>' }),
+  }
+  for (const [f, v] of Object.entries(files)) {
+    await mkdir(join(root, f, '..'), { recursive: true })
+    await writeFile(join(root, f), `${JSON.stringify(v, null, 2)}\n`)
+  }
+  await metricPages(root)
+  const read = async (f: string) => JSON.parse(await readFile(join(root, f), 'utf8'))
+  expect((await read('species/g/vi.json')).sections).toEqual({ 'aquariumSize:seriouslyfish': '<p>Bể 60 × 38 × 30 cm, khoảng 68 lít.</p>', 'aquariumSize:aquatome': '<p>Bể 60 × 40 × 30 cm.</p>' })
+  expect((await read('breeds/h/vi.json')).body).toBe('<p>Bể 60 × 40 × 30 cm.</p>')
+})

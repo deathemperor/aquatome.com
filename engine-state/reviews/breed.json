@@ -481,5 +481,241 @@
       "attempt": "first",
       "kept": false
     }
+  ],
+  "ms/breeds/koi-betta": [
+    {
+      "at": "2026-11-13T05:26:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "No clear unsupported claims found; minor: the 'Satu sumber lain menyebut ukuran tangki sekitar 17–20 cm' is reproduced from the facts, though it is an odd figure."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T05:26:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.86,
+      "notes": [
+        "\"Penjagaannya sama seperti ikan laga biasa\": a general statement that the facts don't make directly.",
+        "\"Penilaian tahap kesukaran ... satu menilainya agak sukar, satu lagi agak mudah\": the facts give only the numbers 4 and 2, with no scale or wording. \"Agak sukar\" and \"agak mudah\" are interpretations.",
+        "\"corak ikan muda masih boleh berubah sehingga usia sekitar setahun\": the facts only give a 6-to-12-month example. They set no age limit for the pattern changing.",
+        "\"Asal usul bentuk koi sendiri tidak didokumenkan dengan jelas\": the facts show conflicting accounts but never say the origin is undocumented."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.86,
+        0.86,
+        0.86
+      ]
+    }
+  ],
+  "ms/breeds/koi-guppy": [
+    {
+      "at": "2026-11-13T05:28:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "Minor: \"tidak menyatakan skala yang digunakan\" (the scale is not stated) is not in the facts, though it is a harmless remark.",
+        "Minor: the intro's \"Ia perlukan ... tukar air setiap minggu\" is supported, but the FAQ framing \"Sumber berbeza pendapat\" is an editorial gloss."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.9,
+        0.95,
+        0.96
+      ]
+    },
+    {
+      "at": "2026-11-13T05:28:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "\"warnanya cepat pudar apabila kualiti air menurun\": the facts say pale-bodied fish show stress quickly when water quality drops. They don't say the colour fades.",
+        "\"Ikan ini agak mudah dijaga\" and \"Satu sumber menilainya sebagai ikan yang agak mudah dijaga\": the facts give only a difficulty value of 2 with no scale or label, so \"fairly easy\" is an interpretation.",
+        "\"Pastikan juga air sentiasa bersih dan stabil kerana ikan berbadan pucat cepat stres\": this is a reasonable extension of the facts, but the facts give no advice on keeping the red colour through water quality."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.6,
+        0.85,
+        0.85
+      ]
+    }
+  ],
+  "ms/breeds/lionhead-goldfish": [
+    {
+      "at": "2026-11-14T00:04:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "\"Lionhead, ranchu dan lionchu ada persamaan, jadi periksa sendiri...\": the fact only says that in Vietnam 'lan thọ' is used for both lionhead and ranchu. It doesn't mention lionchu or the Vietnam context.",
+        "\"Kuarantin ikan baharu sebelum dimasukkan ke dalam tangki utama\": the fact only says to quarantine new fish. 'Main tank' is a small addition.",
+        "\"Oleh itu, ia memerlukan arus perlahan, hiasan yang licin dan pemakanan yang seimbang\": this links weak swimming and swim bladder problems to those care needs. The facts don't state the link, and 'balanced feeding' is a paraphrase."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.88,
+        0.9,
+        0.88
+      ]
+    },
+    {
+      "at": "2026-11-14T00:04:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "FAQ: \"Ranchu sebenarnya dikembangkan di Jepun daripada Lionhead\" is stated as flat fact. The facts only say Lionhead was the precursor of the Ranchu. The \"sebenarnya\" framing turns that into a correction, which is unsupported.",
+        "\"Kenapa sebahagian anak Lionhead ada sirip belakang?\" is answered correctly, but \"Mendapat 40 peratus anak tanpa sirip belakang sudah dikira sangat baik\" is acceptable. The question itself is fine.",
+        "\"Jangka hayat 10–15 tahun\" merges two sources (15 and 10–15). It is a small, acceptable generalisation.",
+        "\"Lionchu ... yang dihasilkan di Thailand\" is supported. \"Lionhead sering digelar padanan Cina bagi ranchu Jepun\" is supported.",
+        "\"Nama Lionhead dan ranchu kadangkala bercampur aduk dalam jualan\" is slightly generalised. The facts say 'lan thọ' is mixed up in Vietnam, so the page drops the Vietnam context and the 'lan thọ' name.",
+        "\"Ada juga penternak yang memelihara Lionhead dalam air cetek\" is attributed to breeders. The facts call it Vietnamese practice and do not say breeders.",
+        "\"Menurut satu sumber, ia berasal daripada Egg Fish\" is supported. \"Dari China\" in the intro is supported.",
+        "\"Ikan ini perenang lemah dan lebih mudah mendapat masalah pundi renang\" is supported. The facts say it is more prone than the ranchu, and the page omits that comparison in the intro.",
+        "\"Belakangnya licin tanpa bonjol, lekuk atau duri sirip belakang\" is slightly altered. The facts say no bumps, dips or dorsal spikes.",
+        "\"Pilih ikan yang jambulnya meliputi ketiga-tiga bahagian (atas kepala, muka dan penutup insang)\" is acceptable."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    }
+  ],
+  "ms/breeds/mickey-mouse-platy": [
+    {
+      "at": "2026-11-14T00:06:05Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "\"Glaser, sebuah syarikat pengimport dari Jerman\": the facts only call Glaser \"a German importer\". They don't say it is a company, so \"syarikat\" is a small unsupported detail."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.92,
+        0.88,
+        0.96
+      ]
+    },
+    {
+      "at": "2026-11-14T00:06:05Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [
+        "\"jadi tangki boleh penuh dengan anak dalam masa singkat\" is a mild extrapolation. The facts say they breed easily, but they don't say the tank fills up quickly.",
+        "\"(semua anaknya bertanda sama)\" is an added gloss on \"breed true\". The facts don't spell this out.",
+        "\"menghasilkan kira-kira 75 peratus anak bertanda\" is the page's own sum of 50% and 25%. It is consistent with the facts, but the source never states it."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.93,
+        0.93,
+        0.9
+      ]
+    }
+  ],
+  "ms/breeds/oranda-goldfish": [
+    {
+      "at": "2026-11-12T20:57:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.95,
+        0.95,
+        0.93
+      ]
+    },
+    {
+      "at": "2026-11-12T20:57:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "\"seperti cacing darah, kutu air atau artemia\" - specific live foods (bloodworm, water fleas, artemia) are not in the facts.",
+        "\"satu sumber menganggapnya agak mudah\" - the facts give only difficulty numbers (2 and 4) with no scale. Calling 2 \"agak mudah\" is an unsupported interpretation.",
+        "\"Jadi, ikan muda di kedai ikan hiasan biasanya belum menunjukkan rupa sebenar ikan itu apabila dewasa\" - this generalisation is not in the facts.",
+        "\"iaitu umur wen mula tumbuh\" - linking the 6-month buying advice to wen onset is the page's own inference. The two facts come from different sources.",
+        "\"ikan ini perlukan air bersih yang stabil, tangki yang luas\" - 'stable' water and 'spacious' tank are loose generalities. The facts give no such wording."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  ],
+  "ms/breeds/plakat-betta": [
+    {
+      "at": "2026-11-12T20:59:35Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "\"Kebanyakan sumber menilainya mudah dijaga\" is a slight generalisation. The facts give difficulty ratings of 2, 2 and 4, and they don't say what those numbers mean.",
+        "\"kerana setiap jenis dinilai mengikut piawaian yang berbeza\" is a mild generalisation. The facts describe different standards only for some types."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.93,
+        0.92,
+        0.92
+      ]
+    },
+    {
+      "at": "2026-11-12T20:59:35Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "\"fokus menyerang sirip lawan\" – the facts only say \"fin focus\"; attacking the opponent's fins is an invented interpretation.",
+        "\"jangan sekali-kali melepaskan ikan hiasan ke dalam sungai atau tasik\" – this recommendation is not in the facts.",
+        "\"Nemo Koi bergantung pada salasilah dan keunikan warna\" – the facts say ancestry affects fighters' prices and only colour affects Nemo Koi.",
+        "\"Hal ini perlu diambil kira semasa memilih rakan setangki\" – a generalisation not stated in the facts."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.82,
+        0.8,
+        0.8
+      ]
+    }
   ]
 }

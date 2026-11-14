@@ -6,5 +6,7 @@ export PATH="$HOME/.local/bin:$HOME/Library/pnpm:/opt/homebrew/bin:/usr/local/bi
 cd "$(dirname "$0")/.."
 # shellcheck disable=SC1091
 . "$HOME/.nvm/nvm.sh" && nvm use --silent "$(cat .nvmrc)"
+# A line a model call (claude.ts): moderation has no ceiling for its day (ceiling.ts), and what it spends is on the record.
+export ENGINE_COST_LOG="${ENGINE_COST_LOG:-$HOME/Library/Logs/aquatome-cost-moderate.jsonl}"
 echo "$(date -u +%FT%TZ) moderate start"
 pnpm engine moderate

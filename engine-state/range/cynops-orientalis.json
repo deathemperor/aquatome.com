@@ -1,0 +1,64 @@
+{
+  "id": "cynops-orientalis",
+  "native": {
+    "input": "40570b6bf64bfa7f",
+    "at": "2026-11-10T20:57:55.515Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: eastern China",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cynops orientalis",
+    "status": "ACCEPTED",
+    "taxonKey": 2431860,
+    "datasets": [
+      [
+        "88dc0756-f762-11e1-a439-00145eb45e9a",
+        1895
+      ],
+      [
+        "09c4287e-e6d5-4552-a07f-bff8a00833d8",
+        21
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "8e479b8f-ac16-4bed-a11a-bc7e27c31663",
+        1
+      ],
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        1
+      ]
+    ],
+    "native": [
+      "CN"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T20:57:55.515Z"
+  }
+}

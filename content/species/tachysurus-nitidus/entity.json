@@ -9,9 +9,35 @@
     "asia",
     "china",
     "yangtze",
-    "south-korea"
+    "south-korea",
+    "amur-river"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 16,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 16
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
@@ -26,6 +52,12 @@
       "html": "<p>Asia: Yangtze-Kiang, China. Reported from South Korea.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/tachysurus_nitidus.htm",
+      "html": "<p>Asia: China, from Heilongjiang (Amur River) to Minjiang (Yangtze River tributary). Type locality: Yang-tze-kiang, China.</p><p>IUCN Red List: Tachysurus nitidus is a freshwater catfish species that is broadly distributed throughout China and the Korean Peninsula, occurring in artificial reservoirs, lakes, small hill streams, and rivers. This species often comprises a dominant portion of ichthyofauna in China, but appears to be less common on the Korean Peninsula. There is currently no indication that the global population is in decline, despite a continuing inferred decline in habitat quality resulting from several regionally pervasive threats. Given a broad distribution and lack of evidence of decline, T. nitidus is assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1105",
@@ -38,10 +70,22 @@
       "html": "<p>Unreported.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/tachysurus_nitidus.htm",
+      "html": "<p>Currently treated in some publications, and FishBase (2009), as Pelteobagrus nitidus. Was named as Leiocassis nitidus before this. Still found in some online sources as Pseudobagrus nitidus.</p><p>Etymology: The genus name Tachysurus: tachys, swift; oura, tail, referring to the presumed agility of T. sinensis based on its \"long and nimble\" tail (translation). The specific name nitidus: neat, elegant or shining, allusion not explained, perhaps referring to \"reddish body, wine-coloured towards the back\" (translation).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1105",
       "html": "<p>Annales des Sciences Naturelles, Paris (Zoologie et Paléontologie) (Sér. 6) v. 1 (art. 5), pp 5.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/tachysurus_nitidus.htm",
+      "html": "<ul><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Lyons, T.J. 2023. Tachysurus nitidus. The IUCN Red List of Threatened Species 2023.</li><li>Ng, H.H. and J. Freyhof, 2007. Pseudobagrus nubilosus, a new species of catfish from central Vietnam (Teleostei: Bagridae), with notes on the validity of Pelteobagrus and Pseudobagrus. Ichthyol. Explor. Freshwat. 18(1):9-16</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
     }
   ],
   "photos": [
@@ -57,7 +101,42 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
-  "productSlots": [],
-  "updatedAt": "2026-10-31"
+  "videos": [
+    {
+      "youtubeId": "lTiHHGTfkHM",
+      "title": "[BUSAN-A778]🌒어둠속 은둔자! 노란 매력의 #민물고기 73 #밀자개 #동자개과 #빠가사리 #매운탕 #생물관찰 #주변생물 #영상도감 #생태교육 #유입 #낙동강",
+      "durationSec": 61,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "YBuwu845_HM",
+      "title": "재래시장에서 구출한 초레어 어종을 키워보자!!!",
+      "durationSec": 167,
+      "lang": "en-US"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá nước lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm sục khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá da trơn",
+        "thức ăn chìm cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
 }

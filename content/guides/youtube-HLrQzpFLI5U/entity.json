@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "HLrQzpFLI5U",
     "title": "BUILD THIS AQUARIUM TOOL FOR ONLY $2!!!",
@@ -26,34 +26,40 @@
     },
     "transcribed": true,
     "taxa": [],
-    "gear": [],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "suc-khi",
+        "t": 69
+      }
+    ],
     "figures": [
       {
-        "heading": "Phao điện là gì và hoạt động ra sao",
+        "heading": "Phao điện hoạt động thế nào",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/HLrQzpFLI5U/p0-lbl90YW5rcy5KUEc.webp",
-          "thumb": "https://media.aquatome.com/video/HLrQzpFLI5U/p0-lbl90YW5rcy5KUEc-480.webp",
+          "url": "https://media.aquatome.com/video/HLrQzpFLI5U/p0-aXRjaF9vZmYuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/HLrQzpFLI5U/p0-aXRjaF9vZmYuanBn-480.webp",
           "width": 960,
-          "height": 609,
-          "licence": "CC BY 2.5",
-          "author": "S.J. de Waard",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Float_switch_for_open_tanks.JPG",
-          "caption": "Phao điện màu đỏ với dây điện, nhìn rõ thân phao nhựa nổi."
+          "height": 720,
+          "licence": "CC BY 3.0",
+          "author": "Martin Meise",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Float_switch_off.jpg",
+          "caption": "Phao điện mở nắp, thấy bi nổi và công tắc đóng ngắt bên trong."
         }
       },
       {
-        "heading": "Lắp ngửa hay lắp úp: chọn theo việc cần báo",
+        "heading": "Chiều lắp phao quyết định khi nào còi kêu",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/HLrQzpFLI5U/p1-hdGVycG9vbC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/HLrQzpFLI5U/p1-hdGVycG9vbC5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/HLrQzpFLI5U/p1-aXRjaF9vZmYuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/HLrQzpFLI5U/p1-aXRjaF9vZmYuanBn-480.webp",
           "width": 960,
-          "height": 640,
-          "licence": "CC BY-SA 4.0",
-          "author": "Hp.Baumeler",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mechanical_float_switch_waterpool.jpg",
-          "caption": "Cục phao nổi trên mặt nước khi vòi đang châm nước vào."
+          "height": 720,
+          "licence": "CC BY 3.0",
+          "author": "Martin Meise",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Float_switch_off.jpg",
+          "caption": "Bên trong phao điện: viên bi và công tắc quyết định lúc còi kêu."
         }
       }
     ]

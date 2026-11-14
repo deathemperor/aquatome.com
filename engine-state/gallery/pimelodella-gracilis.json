@@ -15,17 +15,36 @@
   "inat:153932422",
   "inat:455170138",
   "inat:455174611",
-  "File:Actinopterygii in the Guareí River basin 04 (1676-0611-BN-2020-1031).jpg"
+  "File:Actinopterygii in the Guareí River basin 04 (1676-0611-BN-2020-1031).jpg",
+  "inat:63953574",
+  "inat:130737376",
+  "inat:130737414",
+  "inat:130737441",
+  "inat:139358668",
+  "inat:188509623",
+  "inat:188509660",
+  "inat:188509689",
+  "inat:352319482",
+  "inat:352319507",
+  "inat:452521532",
+  "inat:455170117",
+  "inat:455174621",
+  "inat:624806864"
  ],
  "hashes": {
-  "https://media.aquatome.com/scotcat/4d96cdde8d74a986.webp": "1b1b9cc08082839b",
-  "https://media.aquatome.com/scotcat/e7dc9ab74f0282aa.webp": "d8d3a2c3ddbfdfd3",
-  "https://media.aquatome.com/scotcat/4cca89cfb658a59c.webp": "4de3e30737878306",
-  "https://media.aquatome.com/scotcat/a61eec78ed6587c3.webp": "85c2cec6f3c41307",
   "https://media.aquatome.com/inaturalist/711833496.webp": "1354cdcedc4a5226",
   "https://media.aquatome.com/inaturalist/711833398.webp": "5534f4e4c3eb37f3",
   "https://media.aquatome.com/inaturalist/711833448.webp": "e4051662c8686bab",
-  "https://media.aquatome.com/inaturalist/153931646.webp": "1836b2fce430381e"
+  "https://media.aquatome.com/inaturalist/153931646.webp": "1836b2fce430381e",
+  "https://media.aquatome.com/inaturalist/63953574.webp": "cf0f0c5c333b3377"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 470521,
+  "pass": "done",
+  "after": {
+   "research": 388649636,
+   "agree": 0
+  }
+ }
 }

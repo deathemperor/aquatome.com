@@ -1,0 +1,55 @@
+{
+  "id": "mastacembelus-brichardi",
+  "native": {
+    "input": "b1dbf0c2541e624a",
+    "at": "2026-11-10T07:58:31.896Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: D.R. Congo",
+        "words": "D.R. Congo",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Congo",
+        "source": "glaser",
+        "quote": "But in the rapids of the lower Congo river not less than 5 different species of blind fish exist (among them the only blind species of cichlid of the World, Lamprologus lethops) – and nobody can explain why these fish are blind.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Mastacembelus brichardi",
+    "status": "ACCEPTED",
+    "taxonKey": 2351745,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        8
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "CD"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T07:58:31.896Z"
+  }
+}

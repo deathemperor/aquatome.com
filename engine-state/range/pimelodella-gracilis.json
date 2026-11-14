@@ -1,0 +1,170 @@
+{
+  "id": "pimelodella-gracilis",
+  "native": {
+    "input": "7468a89d6076190b",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Corrientes, Río Paraná, Argentina.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "UY",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Orinoco, Amazon and La Plata basins. Collected in Arroyo Tropa Vieja, Salinas, Uruguay.",
+        "words": "Uruguay",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "planetcatfish",
+        "quote": "South America: Orinoco, Amazon and La Plata basins. Collected in Arroyo Tropa Vieja, Salinas, Uruguay.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "South America: Orinoco, Amazon and La Plata basins. Collected in Arroyo Tropa Vieja, Salinas, Uruguay.",
+        "ok": true
+      },
+      {
+        "name": "La Plata",
+        "source": "planetcatfish",
+        "quote": "South America: Orinoco, Amazon and La Plata basins. Collected in Arroyo Tropa Vieja, Salinas, Uruguay.",
+        "ok": true
+      },
+      {
+        "name": "Río Paraná",
+        "source": "planetcatfish",
+        "quote": "Type locality: Corrientes, Río Paraná, Argentina.",
+        "country": "AR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BR",
+        "VE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pimelodella gracilis",
+    "status": "ACCEPTED",
+    "taxonKey": 2343470,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        102
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        73
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        54
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        38
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        34
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        23
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        21
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        21
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        17
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        10
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        10
+      ],
+      [
+        "d4b3cce1-4594-47bb-b1e2-1ace65458a11",
+        10
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        7
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        6
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        6
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        4
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        3
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        3
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        2
+      ],
+      [
+        "527885fc-bae8-48fd-8e13-349bb6dae9b8",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        1
+      ]
+    ],
+    "native": [
+      "AR",
+      "UY"
+    ],
+    "requests": 12,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

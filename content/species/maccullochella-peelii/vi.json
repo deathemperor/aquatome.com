@@ -1,0 +1,28 @@
+{
+  "slug": "ca-tuyet-song-murray",
+  "name": "Cá tuyết sông Murray",
+  "altNames": [
+    "Murray Cod"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>M. peelii là loài cá nước ngọt lớn nhất nước Úc. Người ta thường gọi nó là \"Murray Cod\", theo tên sông Murray. Cá lớn thường dài khoảng 60 cm và nặng 2–3 kg. Con lớn nhất từng được giới khoa học đo đạc dài 183 cm, nặng 113 kg. Nghe đồn còn có những con lớn hơn nữa.</p>",
+    "beforeYouBuy:glaser": "<p>Dù tên có chữ \"Cod\", Murray Cod chẳng có họ hàng gì với cá tuyết (Gadus morhua). Ngoài tự nhiên, loài này đang bị đe dọa. Cá bán ngoài tiệm đều là cá trại, có nguồn gốc từ Đài Loan. Người ta cho đẻ loài này với số lượng lớn, kể cả ở Úc, để thả xuống sông hồ. Nhưng thả như vậy không cứu được các đàn cá tự nhiên, và nhiều đàn đã tuyệt chủng rồi.</p><p>Hiện đã có bốn con non nhập về, dài 18–22 cm.</p>",
+    "habitat:glaser": "<p>Ngoài tự nhiên, loài cá lớn này sống được ở đủ kiểu nơi. Chỗ nào có nước là có thể gặp nó, kể cả những vũng nước rất nhỏ.</p>",
+    "behaviour:glaser": "<p>Loài này cực kỳ hay giành chỗ, nên mỗi bể chỉ nuôi được một con. Nuôi lâu thì cá rất dạn người, thậm chí còn chơi với người nuôi và cả người lạ đứng bên ngoài kính. Murray Cod càng lớn thì càng dạn.</p>",
+    "diet:glaser": "<p>Murray Cod là cá săn mồi thuần túy. Nuôi trong bể thì cho ăn cá và tôm hùm đất là được, không khó. Ngoài tự nhiên, chúng còn săn cả chim nước non, thú nhỏ, ếch, rùa nước và các loài bò sát khác.</p>"
+  },
+  "quality": {
+    "score": 0.82,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.82
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-11"
+  }
+}

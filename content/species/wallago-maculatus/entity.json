@@ -1,0 +1,127 @@
+{
+  "id": "wallago-maculatus",
+  "scientificName": "Wallago maculatus",
+  "order": "Siluriformes",
+  "family": "Siluridae",
+  "genus": "Wallago",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "malaysia",
+    "kinabatangan"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 100
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1370",
+      "html": "<ul><li>Common name: Spotted Helicopter Catfish</li><li>IUCN Red List: Vulnerable (last assessed 2018)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1370",
+      "html": "<p>Type locality: Kinabatangan River at Deramakot, Kinabatangan District, Malaysia, Borneo.</p><p>Distribution: Northeast Borneo Pacific, Greater Sunda Island Rivers, Borneo Waters, East Borneo Waters, North Eastern Borneo Waters.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1370",
+      "html": "<p>Large driftwood as a hiding place is desirable, although not necessary. A bare tank makes cleaning easier.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1370",
+      "html": "<p>Will eat only live foods (fish or frogs) at first, but can be trained to take strips of raw meat.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1370",
+      "html": "<p>A solitary predator, will attempt to eat any tankmates.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1370",
+      "html": "<p>Males have a more slender genital papilla immediately in front of the anus.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1370",
+      "html": "<p>Not known and impossible in the home aquarium, given its size. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1370",
+      "html": "<p>Identification: it can be distinguished from W. leerii and W. micropogon by a paler body with a series of distinct dark blotches on the sides of the body below the lateral line.</p><p>Etymology: the specific epithet comes from the Latin maculatus, meaning spot, in reference to the dark blotches on the sides of the body.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1370",
+      "html": "<p>Fieldiana Zool. v. 39 (no. 27), p. 279</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "5Clur2OOfVo",
+      "title": "Wallago Catfish feeding",
+      "durationSec": 20,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "2ZLbZ7iCwpg",
+      "title": "Wallago maculatus @ Marbled Wallago Catfish/Tawi (Malaysia-Sabah)",
+      "durationSec": 86,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 1000 lít",
+        "bể kính cỡ lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc nước hồ cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

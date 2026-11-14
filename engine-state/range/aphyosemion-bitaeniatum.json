@@ -1,14 +1,14 @@
 {
   "id": "aphyosemion-bitaeniatum",
   "native": {
-    "input": "f4c3be7c539c98cd",
-    "at": "2026-11-06T09:17:06.855Z",
+    "input": "c1b485529fa3e571",
+    "at": "2026-11-09T23:57:44.132Z",
     "claims": [
       {
         "code": "TG",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The two-striped lyretail, Aphyosemion bitaeniatum, is a killifish from lowland coastal regions of Togo, Benin and Nigeria.",
+        "quote": "This species is widely-distributed in lowland, coastal regions of Togo, Benin and Nigeria as far as the Cross River delta, and occurs at some inland localities along the lower Niger River.",
         "words": "Togo",
         "ok": true
       },
@@ -16,7 +16,7 @@
         "code": "BJ",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The two-striped lyretail, Aphyosemion bitaeniatum, is a killifish from lowland coastal regions of Togo, Benin and Nigeria.",
+        "quote": "This species is widely-distributed in lowland, coastal regions of Togo, Benin and Nigeria as far as the Cross River delta, and occurs at some inland localities along the lower Niger River.",
         "words": "Benin",
         "ok": true
       },
@@ -24,7 +24,7 @@
         "code": "NG",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The two-striped lyretail, Aphyosemion bitaeniatum, is a killifish from lowland coastal regions of Togo, Benin and Nigeria.",
+        "quote": "This species is widely-distributed in lowland, coastal regions of Togo, Benin and Nigeria as far as the Cross River delta, and occurs at some inland localities along the lower Niger River.",
         "words": "Nigeria",
         "ok": true
       },
@@ -55,17 +55,17 @@
     ],
     "regions": [
       {
-        "name": "Cross River",
-        "source": "seriouslyfish",
-        "quote": "This species is widely-distributed in lowland, coastal regions of Togo, Benin and Nigeria as far as the Cross River delta, and occurs at some inland localities along the lower Niger River.",
-        "ok": true
-      },
-      {
         "name": "Niger",
         "source": "seriouslyfish",
         "quote": "This species is widely-distributed in lowland, coastal regions of Togo, Benin and Nigeria as far as the Cross River delta, and occurs at some inland localities along the lower Niger River.",
         "ok": false,
         "why": "a country"
+      },
+      {
+        "name": "Cross River",
+        "source": "seriouslyfish",
+        "quote": "This species is widely-distributed in lowland, coastal regions of Togo, Benin and Nigeria as far as the Cross River delta, and occurs at some inland localities along the lower Niger River.",
+        "ok": true
       }
     ],
     "disputed": [],

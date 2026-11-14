@@ -1,0 +1,56 @@
+{
+  "id": "pangio-filinaris",
+  "native": {
+    "input": "fddb72d13cc9dcd6",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from Pahang and Terengganu states, Peninsular Malaysia.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sungai Terengganu",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Sungai Tersat, a tributary of Sungai Terengganu, Terengganu, Malaysia, 4°57'51\"N, 102°57'45\"E'.",
+        "country": "MY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pangio filinaris",
+    "status": "ACCEPTED",
+    "taxonKey": 2367981,
+    "datasets": [
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

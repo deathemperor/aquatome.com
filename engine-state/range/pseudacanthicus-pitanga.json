@@ -1,0 +1,89 @@
+{
+  "id": "pseudacanthicus-pitanga",
+  "native": {
+    "input": "63ca2956c408375c",
+    "at": "2026-11-13T05:31:31.275Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Serra dos Carajás, bedrock at rio Itacaiunas, Serra dos Carajás, Pará, Brazil",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Brazil: Rio Tocantins (Amazon, Lower Amazon, Tocantins, Itacaiúnas).",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Rio Tocantins basin, northern Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Tocantins",
+        "source": "planetcatfish",
+        "quote": "South America: Brazil: Rio Tocantins (Amazon, Lower Amazon, Tocantins, Itacaiúnas).",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "South America: Brazil: Rio Tocantins (Amazon, Lower Amazon, Tocantins, Itacaiúnas).",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Itacaiunas",
+        "source": "planetcatfish",
+        "quote": "Type locality: Serra dos Carajás, bedrock at rio Itacaiunas, Serra dos Carajás, Pará, Brazil",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Tocantins",
+        "source": "glaser",
+        "quote": "Rio Tocantins basin, northern Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudacanthicus pitanga",
+    "status": "ACCEPTED",
+    "taxonKey": 8504004,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        2
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T05:31:31.275Z"
+  }
+}

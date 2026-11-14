@@ -1,5 +1,5 @@
 {
- "day": "2026-11-10",
+ "day": "2026-11-14",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -11,32 +11,32 @@
  },
  "langs": {
   "vi": {
-   "pages": 3714,
-   "read": 3418,
-   "wrong": 1560,
-   "pct": 46,
-   "held": 237
+   "pages": 4227,
+   "read": 3664,
+   "wrong": 1634,
+   "pct": 44,
+   "held": 459
   },
   "id": {
-   "pages": 1127,
-   "read": 1054,
-   "wrong": 330,
-   "pct": 31,
-   "held": 24
+   "pages": 1364,
+   "read": 1194,
+   "wrong": 350,
+   "pct": 29,
+   "held": 89
   },
   "th": {
-   "pages": 1120,
-   "read": 1048,
+   "pages": 1339,
+   "read": 1147,
    "wrong": 317,
-   "pct": 30,
-   "held": 24
+   "pct": 28,
+   "held": 81
   },
   "ms": {
-   "pages": 171,
-   "read": 129,
-   "wrong": 50,
-   "pct": 40,
-   "held": 9
+   "pages": 229,
+   "read": 184,
+   "wrong": 62,
+   "pct": 34,
+   "held": 24
   }
  },
  "labels": {
@@ -58,51 +58,38 @@
  },
  "sample": [
   {
+   "lang": "id",
+   "path": "/id/ikan/rainbow-robber-tetra/",
+   "url": "https://aquatome.com/id/ikan/rainbow-robber-tetra/",
+   "title": "Rainbow Robber Tetra",
+   "wrong": []
+  },
+  {
+   "lang": "th",
+   "path": "/th/fish/alcolapia-grahami/",
+   "url": "https://aquatome.com/th/fish/alcolapia-grahami/",
+   "title": "เกรแฮมส์โซดาซิคลิด",
+   "wrong": []
+  },
+  {
    "lang": "vi",
-   "path": "/vi/ca/ca-tetra-lung-do/",
-   "url": "https://aquatome.com/ca/ca-tetra-lung-do/",
-   "title": "Cá tetra tim chảy máu lưng lửa",
+   "path": "/vi/ca/ca-tren-bau/",
+   "url": "https://aquatome.com/ca/ca-tren-bau/",
+   "title": "Cá trèn bầu",
    "wrong": [
+    {
+     "check": "words",
+     "quote": "nhiều khả năng"
+    },
     {
      "check": "words",
      "quote": "ghi nhận"
     },
     {
      "check": "words",
-     "quote": "Tuy vậy"
-    },
-    {
-     "check": "words",
-     "quote": "gần như không"
+     "quote": "thức ăn sống"
     }
    ]
-  },
-  {
-   "lang": "vi",
-   "path": "/vi/huong-dan/5-loai-tep-nuoc-ngot-dang-nuoi-cho-be-thuy-sinh/",
-   "url": "https://aquatome.com/huong-dan/5-loai-tep-nuoc-ngot-dang-nuoi-cho-be-thuy-sinh/",
-   "title": "5 loại tép nước ngọt đáng nuôi cho bể thủy sinh",
-   "wrong": [
-    {
-     "check": "product",
-     "quote": "Wonder Shell"
-    },
-    {
-     "check": "elsewhere",
-     "quote": "Loại này dễ mua ở các chuỗi cửa hàng thú cưng lớn"
-    },
-    {
-     "check": "source",
-     "quote": "bạn xem bài chi tiết về nhân giống tép cherry"
-    }
-   ]
-  },
-  {
-   "lang": "id",
-   "path": "/id/ikan/dichotomyctere-fluviatilis/",
-   "url": "https://aquatome.com/id/ikan/dichotomyctere-fluviatilis/",
-   "title": "Dichotomyctere fluviatilis",
-   "wrong": []
   }
  ]
 }

@@ -10,6 +10,84 @@
     "myanmar",
     "ayeyarwady"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Ayeyarwady",
+        "Chindwin"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from central Myanmar where the type specimens were collected from a man-made pond fed by a small stream in a village called Toe Gyi which lies in the administrative division of Mandalay.",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's also been recorded from lower stretches of the river Chindwin, a tributary of the Ayeyarwady, and a 'small pond' 500m away from the main river channel.",
+          "countries": [],
+          "regions": [
+            "Ayeyarwady",
+            "Chindwin"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8015393,
+      "total": 13,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "CA",
+          6
+        ],
+        [
+          "MM",
+          5
+        ],
+        [
+          "NA",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -98.4375,
+          56.25,
+          6,
+          0
+        ],
+        [
+          14.0625,
+          -23.90625,
+          2,
+          0
+        ],
+        [
+          94.21875,
+          22.5,
+          2,
+          2
+        ],
+        [
+          95.625,
+          21.09375,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,0 +1,21 @@
+{
+  "slug": "ca-lau-kieng-hypostomus-oculeus",
+  "name": "Cá lau kiếng Hypostomus oculeus",
+  "altNames": [],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Hypostomus oculeus (Fowler, 1943)</li><li>Nơi thu mẫu chuẩn: Río Orteguasa, Florencia, Caquetá, Colombia.</li><li>Danh sách Đỏ IUCN: Thiếu dữ liệu (đánh giá lần cuối năm 2014).</li></ul>",
+    "distribution:planetcatfish": "<p>Nam Mỹ: thượng nguồn lưu vực sông Japurá.</p>",
+    "waterConditions:planetcatfish": "<ul><li>pH: 5,8–6,8</li><li>Nhiệt độ: 18–24°C</li></ul>",
+    "reproduction:planetcatfish": "<p>Sinh sản: chưa có thông tin. Đến nay chưa có báo cáo nào về chuyện loài này sinh sản.</p>",
+    "notes:planetcatfish": "<p>Loài này trước đây nằm trong chi Cochliodon. Nay nó được gộp vào chi lớn hơn là Hypostomus, thuộc nhóm Hypostomus Cochliodon. Các loài trong nhóm này đều có lưng cao hơn những loài Hypostomus khác và có răng hình thìa (giống Panaque).</p><p>Từ nguyên: tiếng Hy Lạp, hypo = dưới + tiếng Hy Lạp, stoma = miệng.</p>",
+    "references:planetcatfish": "<p>Proceedings of the Academy of Natural Sciences of Philadelphia v. 95, pp 256, Figs. 48-51.</p>"
+  },
+  "quality": {
+    "score": 0.92,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.92
+    },
+    "reason": "thin"
+  }
+}

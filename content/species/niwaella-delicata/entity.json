@@ -10,6 +10,77 @@
     "japan",
     "kiso"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "JP"
+      ],
+      "regions": [
+        "Honshu",
+        "Kiso River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Appears restricted to river drainages of central Honshu, Japan's largest island, where it's a prized food fish with the vernacular name 'Ajime dojo' translating as 'tasty loach'.",
+          "countries": [
+            "JP"
+          ],
+          "regions": [
+            "Honshu"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Agi River, branch stream of Kiso River, central Japan'.",
+          "countries": [],
+          "regions": [
+            "Kiso River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368107,
+      "total": 46,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "JP",
+          46
+        ]
+      ],
+      "cells": [
+        [
+          135,
+          33.75,
+          4,
+          4
+        ],
+        [
+          135,
+          35.15625,
+          1,
+          1
+        ],
+        [
+          136.40625,
+          35.15625,
+          40,
+          40
+        ],
+        [
+          136.40625,
+          36.5625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

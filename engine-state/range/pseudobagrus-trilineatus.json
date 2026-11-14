@@ -1,0 +1,43 @@
+{
+  "id": "pseudobagrus-trilineatus",
+  "native": {
+    "input": "52f881fb2aa71ea9",
+    "at": "2026-11-13T05:31:31.275Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This catfish originates from China.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Dong Jiang",
+        "source": "glaser",
+        "quote": "Endemic to the Dong Jiang in Guangdong province, China.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudobagrus trilineatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2338341,
+    "datasets": [],
+    "native": [
+      "CN"
+    ],
+    "requests": 2,
+    "at": "2026-11-13T05:31:31.275Z"
+  }
+}

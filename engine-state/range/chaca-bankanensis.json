@@ -1,8 +1,8 @@
 {
   "id": "chaca-bankanensis",
   "native": {
-    "input": "648fef5f776a5b1a",
-    "at": "2026-11-07T02:19:57.912Z",
+    "input": "6ecd25975e7f0541",
+    "at": "2026-11-11T08:59:40.517Z",
     "claims": [
       {
         "code": "MY",
@@ -33,7 +33,9 @@
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "SG"
+      ],
       "sourcesOnly": []
     }
   },

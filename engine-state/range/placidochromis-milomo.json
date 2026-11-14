@@ -1,0 +1,54 @@
+{
+  "id": "placidochromis-milomo",
+  "native": {
+    "input": "738cc3c29aec0be6",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Lake Malawi",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Malawi.",
+        "ok": true
+      },
+      {
+        "name": "Thumbi Island West",
+        "source": "seriouslyfish",
+        "quote": "It is found in the southern part of the lake from Thumbi Island West to Zambo, along the Nankumba Peninsula and also at Nkhata Bay.",
+        "ok": true
+      },
+      {
+        "name": "Nankumba Peninsula",
+        "source": "seriouslyfish",
+        "quote": "It is found in the southern part of the lake from Thumbi Island West to Zambo, along the Nankumba Peninsula and also at Nkhata Bay.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MW"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Placidochromis milomo",
+    "status": "ACCEPTED",
+    "taxonKey": 2372618,
+    "datasets": [
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        2
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "id": "otocinclus-cocama",
+  "native": {
+    "input": "ddd9bb1205cded0b",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The zebra oto, Otocinclus cocama, is a miniature loricariid from Peru, thought to occur throughout the lower Ucayali and Marañon.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Quebrada Yamayacu, about 4°55'S, 73°43'W, tributary to the caño of the cocha Supay in Jenaro Herrera, Provincia Requena, Departamento Loreto, Peru', and O. cocama is thought to occur throughout the lower Ucayali and Marañon in Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ucayali",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Quebrada Yamayacu, about 4°55'S, 73°43'W, tributary to the caño of the cocha Supay in Jenaro Herrera, Provincia Requena, Departamento Loreto, Peru', and O. cocama is thought to occur throughout the lower Ucayali and Marañon in Peru.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Marañon",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Quebrada Yamayacu, about 4°55'S, 73°43'W, tributary to the caño of the cocha Supay in Jenaro Herrera, Provincia Requena, Departamento Loreto, Peru', and O. cocama is thought to occur throughout the lower Ucayali and Marañon in Peru.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Otocinclus cocama",
+    "status": "ACCEPTED",
+    "taxonKey": 2340465,
+    "datasets": [
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        6
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "3f44406b-f1e8-4e4b-836e-1a0c8e903fdc",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

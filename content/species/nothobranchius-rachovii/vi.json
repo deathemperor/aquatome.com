@@ -14,7 +14,9 @@
     "Cá nothos vây xanh",
     "Cá killifish cầu vồng",
     "Bluefin nothos",
-    "Bluefin Nothobranch"
+    "Bluefin Nothobranch",
+    "Cá killi Rachow",
+    "Rachow's Nothobranch"
   ],
   "sections": {
     "quickFacts:aquariumbreeder": "<ul><li>Tên gọi khác: Bluefin nothos, African annual killifish, Annual Killifish, Blueband killifish, Rainbow killifish</li><li>Bể: khoảng 40 lít</li><li>Độ khó: dễ nuôi, khó cho đẻ</li><li>Tầng sống: giữa và đáy</li><li>Nitrat: dưới 100</li><li>Thức ăn: ăn tạp</li><li>Tính cách: hiền (nhưng cần để ý)</li><li>Tuổi thọ: tối đa 1 năm</li><li>Màu sắc: xanh dương – cam</li></ul><p>Nothobranchius rachovii là loài cá sống theo chu kỳ một năm. Loài này đã trở thành mô hình quen thuộc trong các nghiên cứu về lão hóa. Giống Nothobranchius có khoảng 100 loài, chiều dài chuẩn thường 4–7,5 cm. Con đực và con cái khác màu rất rõ. Con đực rực rỡ, còn con cái phần lớn mang màu xỉn.</p>",
@@ -41,14 +43,18 @@
     "dimorphism:seriouslyfish": "<p>Cá đực to hơn cá cái và có màu sặc sỡ hơn hẳn.</p>",
     "reproduction:seriouslyfish": "<p>Đến mùa khô, nơi sống tự nhiên của cá cạn nước và cá trưởng thành chết, chỉ còn trứng đã thụ tinh nằm lại trong lớp nền. Trứng chịu được khô hạn. Chúng nằm yên ở đó cho đến khi mưa trở lại, tức khoảng 5–6 tháng sau. Lúc đó cá bột nở ra và lớn rất nhanh. Chỉ khoảng 3 tuần tuổi là cá đã trưởng thành sinh dục. Trong bể, cá thường sống được 6–12 tháng. Trứng nên được giữ ở 21–25°C trong 5–7 tháng rồi mới cho ngâm nước.</p>",
     "notes:seriouslyfish": "<p>Trong giới chơi có một dòng cá có vẻ bắt nguồn từ lô cá Roloff nhập về năm 1958. Các lô thu thập khác thường được gắn mã riêng để dễ phân biệt, nhờ vậy hạn chế được chuyện lai tạp giữa các dòng. Ví dụ, mã 'Beira 1998' chỉ lô cá thu thập để kinh doanh tại vùng Beira năm 1998. Một ví dụ khác là các mã MOZ 99/1, MOZ 99/2, MOX 99/3, v.v. Trong đó 'MOZ' là Mozambique, '99' là năm thu thập (1999), còn con số cuối là điểm thu thập. Trước đây N. rachovii từng được xếp vào phân chi giả định Zononothobranchius. Theo phân tích mtDNA của Shidlovskiy và cộng sự (2010), phân chi này hiện chỉ còn một loài duy nhất là Nothobranchius rubroreticulatus.</p>",
-    "references:seriouslyfish": "<ul><li>Shidlovskiy, K. M., B. R. Watters, and R. H. Wildekamp (2010). Notes on the annual killifish species Nothobranchus rachovii (Cyprinodontiformes: Nothobranchiidae) with the description of two new species. Zootaxa 2724, 37-57</li><li>Dorn, A., E. Ng'oma , K. Janko , K. Reichwald, M. Polačik, M. Platzer, A. Cellerino, and M. Reichard (2011). Phylogeny, genetic variability and colour polymorphism of an emerging animal model: The short-lived annual Nothobranchius fishes from southern Mozambique. Molecular Phylogenetics and Evolution 61(3), 739-749</li></ul>"
+    "references:seriouslyfish": "<ul><li>Shidlovskiy, K. M., B. R. Watters, and R. H. Wildekamp (2010). Notes on the annual killifish species Nothobranchus rachovii (Cyprinodontiformes: Nothobranchiidae) with the description of two new species. Zootaxa 2724, 37-57</li><li>Dorn, A., E. Ng'oma , K. Janko , K. Reichwald, M. Polačik, M. Platzer, A. Cellerino, and M. Reichard (2011). Phylogeny, genetic variability and colour polymorphism of an emerging animal model: The short-lived annual Nothobranchius fishes from southern Mozambique. Molecular Phylogenetics and Evolution 61(3), 739-749</li></ul>",
+    "quickFacts:glaser": "<ul><li>Nguồn gốc: cá cho đẻ trong bể nuôi</li></ul>",
+    "references:glaser": "<p>Từ điển tên khoa học: Nothobranchius: từ tiếng Hy Lạp cổ \"nothos\" = giả, không thật và \"branchion\" = mang, ám chỉ cấu tạo mang. rachovii: tên đặt theo tên người chơi cá cảnh người Đức Arthur Rachow (1884 – 1960) để vinh danh ông.</p>"
   },
   "quality": {
-    "score": 0.93,
-    "indexable": true,
+    "score": 0.6,
+    "indexable": false,
     "bySource": {
       "aquariumbreeder": 0.93,
-      "seriouslyfish": 0.95
-    }
+      "seriouslyfish": 0.95,
+      "glaser": 0.6
+    },
+    "reason": "score"
   }
 }

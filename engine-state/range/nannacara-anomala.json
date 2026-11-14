@@ -1,0 +1,164 @@
+{
+  "id": "nannacara-anomala",
+  "native": {
+    "input": "17f39cead3a1ac8f",
+    "at": "2026-11-10T15:58:17.469Z",
+    "claims": [
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The golden dwarf cichlid, Nannacara anomala, ranges from the Rio Aruka in Guyana to the lower Rio Marowijne in Suriname.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The golden dwarf cichlid, Nannacara anomala, ranges from the Rio Aruka in Guyana to the lower Rio Marowijne in Suriname.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The natural range of this species extends from the Rio Aruka in Guyana to the lower Rio Marowijne in Suriname.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The natural range of this species extends from the Rio Aruka in Guyana to the lower Rio Marowijne in Suriname.",
+        "words": "Suriname",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Aruka",
+        "source": "seriouslyfish",
+        "quote": "The natural range of this species extends from the Rio Aruka in Guyana to the lower Rio Marowijne in Suriname.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Rio Marowijne",
+        "source": "seriouslyfish",
+        "quote": "The natural range of this species extends from the Rio Aruka in Guyana to the lower Rio Marowijne in Suriname.",
+        "country": "SR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Nannacara anomala",
+    "status": "ACCEPTED",
+    "taxonKey": 5208106,
+    "datasets": [
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        54
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        53
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        13
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        12
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        11
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        11
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        10
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        8
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        6
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        3
+      ],
+      [
+        "56caf05f-1364-4f24-85f6-0c82520c2792",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        1
+      ]
+    ],
+    "native": [
+      "GY",
+      "SR"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T15:58:17.469Z"
+  }
+}

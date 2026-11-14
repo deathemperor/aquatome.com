@@ -6,9 +6,10 @@
   "html": "",
   "photos": [],
   "mentions": [
-    "heros-severus"
+    "heros-severus",
+    "pterophyllum-scalare"
   ],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "UOyTpympfAA",
     "title": "BEST aquarium filter - DIY homemade fish tank filter - The king of diy",
@@ -27,37 +28,28 @@
       "height": 720
     },
     "taxa": [
-      "Heros severus"
+      "Pterophyllum scalare"
     ],
     "gear": [
       {
         "category": "loc",
-        "type": "suc-khi",
-        "t": 120
-      },
-      {
-        "category": "loc",
-        "t": 170
-      },
-      {
-        "category": "phan-nen",
-        "type": "soi",
+        "type": "bot-bien",
         "t": 170
       }
     ],
     "figures": [
       {
-        "heading": "Nhược điểm cần biết",
+        "heading": "Lắp lọc thế nào",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/UOyTpympfAA/p7-5OTMtNDIzMi5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/UOyTpympfAA/p7-5OTMtNDIzMi5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/UOyTpympfAA/p2-JfZm9hbV8xLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/UOyTpympfAA/p2-JfZm9hbV8xLmpwZw-480.webp",
           "width": 960,
-          "height": 1280,
+          "height": 720,
           "licence": "CC BY-SA 4.0",
-          "author": "Raimond Spekking",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eheim_type_2011,_pump_101101993-4232.jpg",
-          "caption": "Bộ lọc thùng ngoài có van và ống nối trông khá lộ liễu, khó giấu."
+          "author": "Ofkun",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_1.jpg",
+          "caption": "Miếng bông lọc xốp màu đen, nhét lên trên lớp sứ lọc trong chai."
         }
       }
     ]

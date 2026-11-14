@@ -49,6 +49,12 @@ test('implausible data-card numbers are dropped, swapped ranges fixed', async ()
   const p = await processPage(fake(bad), input)
   expect(p.dataCard).toEqual({ ph: { min: 6, max: 7.5 }, sizeCm: 4 })
 })
+test('a pH or hardness the page gives only as one end is left off the card', async () => {
+  const open = structuredClone(species) as Record<string, unknown>
+  open.dataCard = { ph: { min: 7.5, max: 9 }, gh: { min: 5, max: 12 } }
+  open.sections = [{ key: 'waterConditions', en: '<p>pH above 7.5. GH: at least 5 dGH.</p>', vi: '<p>pH trên 7,5. GH ít nhất 5 dGH.</p>' }]
+  expect((await processPage(fake(open), input)).dataCard).toEqual({})
+})
 test('a tank length that is the page\'s tank volume is dropped from the card', async () => {
   const volume = { ...structuredClone(species), dataCard: { ...species.dataCard, tankCm: 75 },
     sections: [{ key: 'aquariumSize', en: '<p>Minimum tank size: 75 litres (20 gallons).</p>', vi: '<p>Bể tối thiểu: 75 lít.</p>' }] }

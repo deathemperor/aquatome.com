@@ -28,7 +28,8 @@
         "Amazon",
         "Rio Solimões",
         "Rio Putumayo",
-        "Rio Tocantins"
+        "Rio Tocantins",
+        "Rio Moju"
       ],
       "sources": [
         "seriouslyfish",
@@ -55,6 +56,14 @@
             "Rio Solimões",
             "Rio Putumayo",
             "Rio Tocantins"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Origin: Brazil, Rio Moju.",
+          "countries": [],
+          "regions": [
+            "Rio Moju"
           ]
         }
       ]

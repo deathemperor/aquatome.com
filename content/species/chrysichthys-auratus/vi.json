@@ -1,0 +1,31 @@
+{
+  "slug": "ca-da-tron-gai-chrysichthys-auratus",
+  "name": "Cá da trơn gai Chrysichthys auratus",
+  "altNames": [
+    "Cá trê gai",
+    "Spiny Catfish"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Chrysichthys auratus (Geoffroy St. Hilaire, 1809)</li><li>Tên thường gọi: Spiny Catfish</li><li>Nơi thu mẫu chuẩn: sông Nile</li><li>Nguồn gốc tên: Chrysichthys ghép từ tiếng Hy Lạp chrysos (vàng) và ichthys (cá). Tên này lấy từ màu vàng óng của loài chuẩn của giống, C. auratus.</li></ul>",
+    "distribution:planetcatfish": "<p>Tây Phi, từ Mauritania tới Ghana. Riêng các lưu vực ven biển từ Gambia tới Liberia thì không có loài này mà là C. maurus. Ngoài ra còn gặp ở Nigeria và Cameroon. Ở sông Nile và hồ Turkana cũng có báo cáo về loài này, nhưng chưa chắc chắn.</p>",
+    "habitat:planetcatfish": "<p>Loài này sống ở hồ.</p>",
+    "diet:planetcatfish": "<p>Thức ăn của nó là ốc, trai và các loài giáp xác nhỏ (Branchiopoda, chân chèo Copepoda, giáp xác hạt đậu Ostracoda). Nó đào bới dưới nền để kiếm mấy con này. Ngoài ra nó còn ăn cá và côn trùng.</p>",
+    "reproduction:planetcatfish": "<p>Chưa có thông tin.</p><p>Chưa ai ghi lại chuyện loài này sinh sản.</p>",
+    "references:planetcatfish": "<p>Poissons du Nil v. 1 (part 1), pp [322], Pl. 14 (figs. 3-4).</p>",
+    "distribution:scotcat": "<p>Châu Phi: các sông Nile, Niger, Volta và Senegal, lưu vực hồ Chad và các sông ven biển Tây Phi, từ Liberia đến Angola.</p><p>Loài này có ba nhóm quần thể: một ở lưu vực sông Nile, một ở lưu vực Chad và một ở Tây Phi tính từ Cabinda. Cá thuộc nhóm Tây Phi thường có vây lưng kéo dài ra thành một đoạn dài. Ở nhóm sông Nile, đoạn kéo dài này ngắn hơn.</p>",
+    "habitat:scotcat": "<p>Loài này sống ở hồ và các sông ven biển. Nó thường ở chỗ nước sâu, khá lặng, trên nền mềm hơi lẫn bùn hoặc nền phủ một lớp lá mục dày. Đúng như tên loài, cá có màu vàng óng.</p>",
+    "behaviour:scotcat": "<p>Cũng như hầu hết các loài cùng giống, không thể yên tâm thả nó chung với cá nhỏ hơn. Nuôi chung với cá tetra châu Phi hoặc cichlid cỡ lớn thì hợp hơn. Loài này có thể hoạt động về đêm. Bố trí vài chỗ trốn cho nó chọn thì cá thấy yên tâm hơn.</p>",
+    "diet:scotcat": "<p>Cá ăn thân mềm và giáp xác nhỏ (chân mang, chân chèo, ostracoda), đào bới dưới nền để tìm chúng. Ngoài ra nó còn ăn cá và côn trùng. Trong bể, hầu hết các loại thức ăn cá cảnh nó đều ăn.</p>",
+    "notes:scotcat": "<p>Từ nguyên: tên loài auratus trong tiếng Latin nghĩa là mạ vàng, chỉ phần đầu màu vàng óng (ít nhất là ở các mẫu Geoffroy Saint-Hilaire đã xem xét).</p><p>Trừ C. ornatus, các loài trong giống này khó định danh tới loài nếu không biết cá được bắt ở đâu.</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2011. FishBase. World Wide Web electronic publication. www.fishbase.org. Seegers, L. 2008 The catfishes of Africa. A handbook for identification and maintenance. Aqualog Verlag A.C.S. GmbH, Germany. 604 p. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+  },
+  "quality": {
+    "score": 0.7,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.7,
+      "scotcat": 0.9
+    },
+    "reason": "score"
+  }
+}

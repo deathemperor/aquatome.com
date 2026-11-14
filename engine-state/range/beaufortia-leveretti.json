@@ -1,0 +1,53 @@
+{
+  "id": "beaufortia-leveretti",
+  "native": {
+    "input": "3630626756b203cc",
+    "at": "2026-11-11T08:59:40.517Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It originates from China and Vietnam, but is currently imported from China only.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It originates from China and Vietnam, but is currently imported from China only.",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Beaufortia leveretti",
+    "status": "ACCEPTED",
+    "taxonKey": 5205365,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ]
+    ],
+    "native": [
+      "CN",
+      "VN"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T08:59:40.517Z"
+  }
+}

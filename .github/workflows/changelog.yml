@@ -1,0 +1,30 @@
+name: Changelog lines (each push to main)
+# What each merge changed, into the change log the dashboard's "Shipped in 24 hours" reads (POST /_ab/changelog,
+# scripts/daily-report.mjs changes). Until 2026-11-10 only the daily report wrote it, and GitHub started that about 5 hours
+# late: the card showed 4 of 39 lines. Every push, whatever it touched: an engine-only merge doesn't deploy, and each run
+# looks back two days, so a merge whose push started nothing comes with the next.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+concurrency:
+  group: changelog
+  cancel-in-progress: false
+permissions:
+  contents: read
+  pull-requests: read
+jobs:
+  land:
+    name: Add what merged to the change log
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          sparse-checkout: scripts
+      - name: Post what merged
+        run: node scripts/daily-report.mjs changes
+        env:
+          GH_TOKEN: ${{ github.token }}
+          AB_DASH_TOKEN: ${{ secrets.AB_DASH_TOKEN }}

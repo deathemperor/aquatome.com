@@ -16,6 +16,89 @@
     "bangka-island",
     "belitung-island"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Sumatra",
+        "Borneo",
+        "Bangka",
+        "Belitung",
+        "Lenggang"
+      ],
+      "sources": [
+        "aquatome"
+      ],
+      "quotes": [
+        {
+          "source": "aquatome",
+          "quote": "Loài này có ở phía tây bán đảo Malaysia, phía bắc và miền trung Sumatra, phía tây Borneo, và hai đảo Bangka, Belitung của Indonesia.",
+          "countries": [
+            "MY",
+            "ID"
+          ],
+          "regions": [
+            "Sumatra",
+            "Borneo",
+            "Bangka",
+            "Belitung"
+          ]
+        },
+        {
+          "source": "aquatome",
+          "quote": "Con cá ở Belitung thì lại được bắt ở một vùng đầm lầy nước chảy chậm, nhiều cây thủy sinh, thuộc trung lưu sông Lenggang.",
+          "countries": [],
+          "regions": [
+            "Lenggang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2351732,
+      "total": 6,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "MY",
+          5
+        ],
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          101.25,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          -1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

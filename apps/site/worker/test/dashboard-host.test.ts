@@ -123,7 +123,7 @@ test('a page added under /_ab/<key>/ needs nothing else: the mapping reads the d
   }
   expect(hostPath('/_ab/nhan-dien-ca/?x=1#key')).toBe('/nhan-dien-ca/?x=1#key')
   // The rest of /_ab/ (actions, images, fonts, the build's JSON) stays where it is, on both hosts.
-  for (const p of ['/_ab/hidden', '/_ab/hidden.json', '/_ab/content.json', '/_ab/photos', '/_ab/report', '/_ab/anh/abc', '/_ab/fonts/a.woff2', '/_ab/anh-nhan-dien/anh/x/y', '/_ab/anh-nhan-dien/xoa', '/_ab/khong-co/', '/ca/x/', '/']) expect(hostPath(p), p).toBe(p)
+  for (const p of ['/_ab/hidden', '/_ab/hidden.json', '/_ab/content.json', '/_ab/photos', '/_ab/report', '/_ab/changelog', '/_ab/anh/abc', '/_ab/fonts/a.woff2', '/_ab/anh-nhan-dien/anh/x/y', '/_ab/anh-nhan-dien/xoa', '/_ab/khong-co/', '/ca/x/', '/']) expect(hostPath(p), p).toBe(p)
   for (const p of ['/hidden', '/hidden.json', '/fonts/', '/anh/', '/report', '/khong-co/', '/doc-gia', '/ca/x/', '/doc-gia/../hidden', '/DOC-GIA/']) expect(innerPath(p), p).toBeUndefined()
 })
 
@@ -342,7 +342,7 @@ test('configured: what isn\'t a browser asking for a page stays on the site, unc
   }
   // Every machine endpoint: answered, not moved.
   const post = (body: unknown) => ({ method: 'POST', body: JSON.stringify(body) })
-  for (const [path, init] of [['/_c/admin/queue', {}], ['/_c/admin/decisions', post([])], ['/_aff/products', post([])], ['/_p/admin/queue', {}], ['/_ab/report', post({})], ['/_ab/thanh-cong.json', {}]] as [string, RequestInit][]) {
+  for (const [path, init] of [['/_c/admin/queue', {}], ['/_c/admin/decisions', post([])], ['/_aff/products', post([])], ['/_p/admin/queue', {}], ['/_ab/report', post({})], ['/_ab/changelog', post({})], ['/_ab/thanh-cong.json', {}]] as [string, RequestInit][]) {
     expect((await site(path, e, dashToken, init)).status, path).not.toBe(404)
     expect((await site(path, e, browser, init)).status, path).toBe(404)
   }
@@ -587,7 +587,12 @@ test('no negative pattern in run_worker_first: one wins over every positive rule
 
 test('assets and the Indonesian and Thai pages stay as they were: no Worker before them, on either host', () => {
   for (const l of LANGS) if (LANG[l].prefix) expect(workerFirst(`${LANG[l].prefix}/`), l).toBe(false)
-  for (const p of ['/_astro/a.js', '/data/vi/species.json', '/app/vi.json', '/favicon.png', '/sitemap-index.xml', '/pagefind/pagefind.js', '/id/', '/id/ikan/x/', '/id/ikan/x/index.md', '/th/fish/x/']) expect(workerFirst(p), p).toBe(false)
+  for (const p of ['/_astro/a.js', '/data/vi/species.json', '/app/vi.json', '/favicon.png', '/sitemap.xml', '/sitemap-fish.xml', '/pagefind/pagefind.js', '/id/', '/id/ikan/x/', '/id/ikan/x/index.md', '/th/fish/x/']) expect(workerFirst(p), p).toBe(false)
+})
+
+test('Indonesian and Thai photo addresses ask the Worker first, while their parent pages stay static', () => {
+  for (const p of ['/id/ikan/x/foto/', '/id/tanaman/x/foto/', '/th/fish/x/photos/', '/th/plants/x/photos/']) expect(workerFirst(p), p).toBe(true)
+  for (const p of ['/id/ikan/x/', '/th/fish/x/', '/id/tanaman/x/', '/th/plants/x/']) expect(workerFirst(p), p).toBe(false)
 })
 
 test('what the Worker can\'t see on the host carries noindex: the host\'s rule in the build\'s _headers', () => {

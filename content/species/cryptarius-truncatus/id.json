@@ -1,0 +1,21 @@
+{
+  "slug": "manyung",
+  "name": "Manyung",
+  "altNames": [
+    "Ikan duri",
+    "Sea catfish"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Nama ilmiah: Cryptarius truncatus (Valenciennes, 1840)</li><li>Lokasi tipe: Jawa, Indonesia.</li><li>Ukuran: 420 mm SL</li><li>Kategori Daftar Merah IUCN: Belum Dievaluasi (Not Evaluated)</li></ul>",
+    "distribution:planetcatfish": "<p>Pasifik Barat bagian tengah: muara dan bagian hilir sungai, mulai dari Chao Phraya sampai Sumatra dan Jawa, termasuk hilir Sungai Mekong.</p>",
+    "reproduction:planetcatfish": "<p>Belum ada catatan. Belum ada laporan pemijahannya.</p>",
+    "references:planetcatfish": "<p>Histoire naturelle des poissons v. 15, pp 64.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": true,
+    "bySource": {
+      "planetcatfish": 0.9
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "id": "nemacheilus-guentheri",
+  "native": {
+    "input": "f5c75f242af17532",
+    "at": "2026-11-10T15:58:17.469Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Mesonoemacheilus guentheri is a loach from the Western Ghats of southern India, described from the Nilgiri Hills and since recorded in Kerala.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "All of them occur along the Western Ghats, a mountain chain along the west coast of India, the so called Malabar coast.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Western Ghats",
+        "source": "seriouslyfish",
+        "quote": "Mesonoemacheilus guentheri is a loach from the Western Ghats of southern India, described from the Nilgiri Hills and since recorded in Kerala.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Nilgiri Hills",
+        "source": "seriouslyfish",
+        "quote": "Mesonoemacheilus guentheri is a loach from the Western Ghats of southern India, described from the Nilgiri Hills and since recorded in Kerala.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Cardamom Hills",
+        "source": "seriouslyfish",
+        "quote": "It's now known to have an extended range and has been recorded in the Periyar Tiger Reserve of the Cardamom Hills, Kerala, some distance further south.",
+        "ok": true
+      },
+      {
+        "name": "Panniyar",
+        "source": "seriouslyfish",
+        "quote": "In the Panniyar river basin, Kerala it was collected alongside Haludaria fasciata, Tor khudree, Opsarius bakeri, Devario aequipinnatus, Rasbora daniconius, Garra mcclellandi, Homaloptera santhamparaiensis, the congener Mesonoemacheilus triangularis, and a Glyptothorax sp. during one study.",
+        "ok": true
+      },
+      {
+        "name": "Western Ghats",
+        "source": "glaser",
+        "quote": "All of them occur along the Western Ghats, a mountain chain along the west coast of India, the so called Malabar coast.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Nemacheilus guentheri",
+    "status": "ACCEPTED",
+    "taxonKey": 5205204,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        41
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        32
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T15:58:17.469Z"
+  }
+}

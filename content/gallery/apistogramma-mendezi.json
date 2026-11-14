@@ -1,0 +1,70 @@
+{
+  "id": "apistogramma-mendezi",
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/7e41747bbb80946bfcbf8a7ee028feb4.webp",
+      "thumb": "https://media.aquatome.com/processed/7e41747bbb80946bfcbf8a7ee028feb4-480.webp",
+      "width": 697,
+      "height": 507,
+      "licence": "dùng với sự cho phép",
+      "author": "Wilson Lee / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-mendezi",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261113-apistogramma-mendezi-recovery-1",
+        "pixelHash": "74c83896675bf13ff528884c68304e2e55612cf4ad24a3efbcb1a77c5f3b9806"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-13T07:41:39.488Z",
+          "originalHash": "b5c46a037befee2ad5d76e6f52378ba52d18d9272e13aeb9b57b1932525411cf",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 697,
+            "originalHeight": 542,
+            "window": {
+              "x0": 0,
+              "y0": 35,
+              "x1": 697,
+              "y1": 542
+            },
+            "subject": {
+              "x0": 183,
+              "y0": 97,
+              "x1": 673,
+              "y1": 452
+            },
+            "margin": 14
+          },
+          "excludedMarks": [
+            {
+              "x0": 14,
+              "y0": 10,
+              "x1": 389,
+              "y1": 29
+            }
+          ],
+          "checks": {
+            "species": [
+              "431184d61005e50ad82ab431fc8510eb014c3b618b14de38b324eaf09b4c3af6",
+              "16f43a9940009b51d42fbaaca58d24fbcad5d30d6e9dcfd2ee9ea68aa4a97f8c"
+            ],
+            "ownership": [
+              "653448a27c05e7ca4343f881d0d270554f7e0a76fb1a14c96cec4f86ad24f258",
+              "6d764f9f75afeab6756b12a03dbc6dde7efabd114fbb286a0d48c42686e3a8ce"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/a274e469518de050.webp",
+        "width": 697,
+        "height": 542
+      }
+    }
+  ],
+  "seen": 0,
+  "updatedAt": "2026-11-13"
+}

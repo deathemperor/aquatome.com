@@ -1,8 +1,8 @@
 {
   "id": "acanthodoras-spinosissimus",
   "native": {
-    "input": "0144e5019251ef95",
-    "at": "2026-11-05T22:45:18.315Z",
+    "input": "6c4f92f1868bd1de",
+    "at": "2026-11-09T23:57:44.132Z",
     "claims": [
       {
         "code": "GY",
@@ -43,6 +43,14 @@
         "quote": "Described from Lago do Coari (Lake Coari) on the rio Solimões at Coari, Amazonas state, northwestern Brazil and subsequently recorded throughout much of the northern Amazon basin in Peru, Colombia and Brazil, plus the Río Essequibo drainage in Guyana.",
         "words": "Guyana",
         "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "In the Iwokrama Forest, central Guyana it has been recorded to coexist with around 400 other species of which some available in the aquarium hobby include Anostomus anostomus, Hemigrammus bellottii, H. ocellifer, Hyphessobrycon bentosi, H. rosaceus, Moenkhausia collettii, Pristella maxillaris, Carnegiella strigata, Hemiodus argenteus, H. gracilis, Nannostomus eques, N. marginatus, N. trifasciatus, Bunocephalus coracoideus, Callichthys callichthys, Hoplisoma melanistium, Megalechis thoracata, the congeneric Acanthodoras cataphractus, Ancistrus hoplogenys, Hemiodontichthys acipenserinus, Hemiloricaria fallax, Apteronotus albifrons, Eigenmannia virescens, Biotodoma cupido, Geophagus brachybranchus, Pterophyllum scalare, Satanoperca jurupari, S. leucosticta and Colomesus asellus.",
+        "words": "Guyana",
+        "ok": true
       }
     ],
     "regions": [
@@ -60,7 +68,14 @@
         "ok": true
       },
       {
-        "name": "Rio Solimões",
+        "name": "Solimões",
+        "source": "seriouslyfish",
+        "quote": "Described from Lago do Coari (Lake Coari) on the rio Solimões at Coari, Amazonas state, northwestern Brazil and subsequently recorded throughout much of the northern Amazon basin in Peru, Colombia and Brazil, plus the Río Essequibo drainage in Guyana.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Lago do Coari",
         "source": "seriouslyfish",
         "quote": "Described from Lago do Coari (Lake Coari) on the rio Solimões at Coari, Amazonas state, northwestern Brazil and subsequently recorded throughout much of the northern Amazon basin in Peru, Colombia and Brazil, plus the Río Essequibo drainage in Guyana.",
         "country": "BR",

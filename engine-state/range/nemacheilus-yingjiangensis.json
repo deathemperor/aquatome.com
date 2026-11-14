@@ -1,0 +1,62 @@
+{
+  "id": "nemacheilus-yingjiangensis",
+  "native": {
+    "input": "a380347edfc7150e",
+    "at": "2026-11-10T15:58:17.469Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Schistura yingjiangensis is a nemacheilid loach known only from the Daying River, an Irrawaddy tributary in Yingjiang County, Yunnan, China.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Daying River, a tributary of the Irrawaddy watershed in Yingjiang County, Yunnan Province, China.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Irrawaddy",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Daying River, a tributary of the Irrawaddy watershed in Yingjiang County, Yunnan Province, China.",
+        "ok": true
+      },
+      {
+        "name": "Daying River",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Daying River, a tributary of the Irrawaddy watershed in Yingjiang County, Yunnan Province, China.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Nemacheilus yingjiangensis",
+    "status": "ACCEPTED",
+    "taxonKey": 5205251,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ]
+    ],
+    "native": [
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T15:58:17.469Z"
+  }
+}

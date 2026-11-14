@@ -33,23 +33,23 @@
    "hero": [
     {
      "page": "breeds/oranda-goldfish",
-     "img": "https://media.aquatome.com/commons/4a72748522b76373.webp"
+     "img": "https://media.aquatome.com/commons/10e486e74625ccb7-large.webp"
     },
     {
-     "page": "species/pterophyllum-scalare",
-     "img": "https://media.aquatome.com/commons/45fccde9d99b3154.webp"
+     "page": "species/pterophyllum-altum",
+     "img": "https://media.aquatome.com/commons/39763a757b3e093b.webp"
     },
     {
      "page": "breeds/black-moor-goldfish",
-     "img": "https://media.aquatome.com/commons/a2b410fe31df8255.webp"
+     "img": "https://media.aquatome.com/commons/a2b410fe31df8255-large.webp"
     },
     {
-     "page": "species/mikrogeophagus-ramirezi",
-     "img": "https://media.aquatome.com/commons/77efa1b146855ade.webp"
+     "page": "breeds/bubble-eye-goldfish",
+     "img": "https://media.aquatome.com/commons/3759a29c0b4578f7-large.webp"
     },
     {
      "page": "breeds/plakat-betta",
-     "img": "https://media.aquatome.com/commons/2f06e503b293c8ae.webp"
+     "img": "https://media.aquatome.com/commons/2f06e503b293c8ae-large.webp"
     }
    ],
    "shelves": [
@@ -119,23 +119,23 @@
    "hero": [
     {
      "page": "species/paracheirodon-axelrodi",
-     "img": "https://media.aquatome.com/sprucepets/4e2222e45b417ad7.webp"
+     "img": "https://media.aquatome.com/commons/9bd71e9d262fdea2-large.webp"
     },
     {
-     "page": "species/hemigrammus-erythrozonus",
-     "img": "https://media.aquatome.com/commons/92deb889aca4d02a.webp"
+     "page": "species/paracheirodon-innesi",
+     "img": "https://media.aquatome.com/commons/038fd41622de2f10-large.webp"
     },
     {
-     "page": "species/thayeria-boehlkei",
-     "img": "https://media.aquatome.com/commons/cd40e7262b6811c5.webp"
+     "page": "species/danio-tinwini",
+     "img": "https://media.aquatome.com/commons/647ba5aba1755f2b-large.webp"
     },
     {
-     "page": "species/oryzias-latipes",
-     "img": "https://media.aquatome.com/commons/4f94899e8e811e8e.webp"
+     "page": "species/axelrodia-riesei",
+     "img": "https://media.aquatome.com/aquariumbreeder/eb80c1e695ab26b1.webp"
     },
     {
-     "page": "species/boraras-merah",
-     "img": "https://media.aquatome.com/commons/4e16c3be6be70077.webp"
+     "page": "species/hyphessobrycon-flammeus",
+     "img": "https://media.aquatome.com/commons/d3522b158c15b71e-large.webp"
     }
    ],
    "shelves": [
@@ -215,8 +215,8 @@
      "img": "https://media.aquatome.com/commons/8bac445743996b73.webp"
     },
     {
-     "page": "species/mastacembelus-erythrotaenia",
-     "img": "https://media.aquatome.com/commons/66c8bc640e4b6617.webp"
+     "page": "species/anabas-testudineus",
+     "img": "https://media.aquatome.com/commons/771f9afef1d694dc-large.webp"
     },
     {
      "page": "species/dichotomyctere-nigroviridis",
@@ -252,7 +252,7 @@
       "species/anabas-testudineus",
       "species/trichopodus-trichopterus",
       "species/macropodus-opercularis",
-      "species/trichopodus-pectoralis"
+      "species/macropodus-spechti"
      ]
     }
    ],
@@ -285,7 +285,7 @@
    "hero": [
     {
      "page": "species/cyphotilapia-frontosa",
-     "img": "https://media.aquatome.com/commons/bc4cff24b4e87dba-large.webp"
+     "img": "https://media.aquatome.com/commons/c61a7aecabf37bf2-large.webp"
     },
     {
      "page": "species/pelvicachromis-pulcher",
@@ -297,11 +297,11 @@
     },
     {
      "page": "species/maylandia-estherae",
-     "img": "https://media.aquatome.com/commons/1f046c287b79d404-large.webp"
+     "img": "https://media.aquatome.com/commons/0bde0aea3f9c15e8-large.webp"
     },
     {
-     "page": "species/synodontis-eupterus",
-     "img": "https://media.aquatome.com/commons/246581693eccf859-large.webp"
+     "page": "species/tropheus-duboisi",
+     "img": "https://media.aquatome.com/commons/544d7ff2e7f88dbf-large.webp"
     }
    ],
    "shelves": [
@@ -318,7 +318,7 @@
       "species/aulonocara-maylandi",
       "species/cyphotilapia-frontosa",
       "species/tropheus-duboisi",
-      "species/cyprichromis-leptosoma",
+      "species/julidochromis-transcriptus",
       "species/altolamprologus-compressiceps",
       "species/synodontis-petricola"
      ]
@@ -374,33 +374,35 @@
   {
    "date": "2026-11-10",
    "fish": "species/pterophyllum-altum",
-   "img": "https://media.aquatome.com/commons/302997e125c7870b.webp",
+   "img": "https://media.aquatome.com/commons/39763a757b3e093b.webp",
    "guide": "guides/sprucepets-platy-types-1381066",
    "guideImg": "https://media.aquatome.com/sprucepets/9d227b32ea4026ab.webp",
-   "why": "Guide: Các biến thể của cá bình tích (Xiphophorus spp.), 4 search impressions."
+   "why": "Guide: Các biến thể của cá bình tích (Xiphophorus spp.), 4 search impressions.",
+   "fixed": true
   },
   {
    "date": "2026-11-11",
    "fish": "breeds/oranda-goldfish",
-   "img": "https://media.aquatome.com/commons/5c695b18592945a0.webp",
+   "img": "https://media.aquatome.com/commons/10e486e74625ccb7-large.webp",
    "guide": "guides/aquatome-cho-ca-an-bao-nhieu-va-may-lan-mot-ngay-tranh-cho-an-qua-nhieu",
    "why": "Guide: Cho cá ăn bao nhiêu, mấy lần một ngày: cách tránh cho ăn quá nhiều, on this week's list."
   },
   {
    "date": "2026-11-12",
    "fish": "breeds/bubble-eye-goldfish",
-   "img": "https://media.aquatome.com/commons/fe61173833b53e0d.webp",
+   "img": "https://media.aquatome.com/commons/3759a29c0b4578f7-large.webp",
    "guide": "guides/aquariumbreeder-why-do-shrimp-change-color",
    "guideImg": "https://media.aquatome.com/aquariumbreeder/077edec0ff1c1f11.webp",
    "why": "Guide: Vì sao tép đổi màu?, 3 search impressions."
   },
   {
    "date": "2026-11-13",
-   "fish": "species/xiphophorus-hellerii",
-   "img": "https://media.aquatome.com/inaturalist/268032912-large.webp",
+   "fish": "species/hyphessobrycon-eques",
+   "img": "https://media.aquatome.com/commons/551d0bdb3f541228-large.webp",
    "guide": "guides/aquatome-ca-bay-mau-sinh-san-dau-hieu-sap-de-tach-ca-me-va-nuoi-ca-con",
    "card": "cards/trivia-medaka-space",
-   "why": "Guide: Cá bảy màu sắp đẻ: dấu hiệu, cách tách cá mẹ và nuôi cá con, 5 search impressions."
+   "why": "Fish: Cá hồng nhung, chosen by hand: its page gives 20 °C as its lowest, so a heater once the room drops under 20 °C.",
+   "fixed": true
   },
   {
    "date": "2026-11-14",
@@ -412,10 +414,11 @@
   },
   {
    "date": "2026-11-15",
-   "fish": "species/monodactylus-sebae",
-   "img": "https://media.aquatome.com/commons/f951f81ed157dba7.webp",
+   "fish": "breeds/plakat-betta",
+   "img": "https://media.aquatome.com/commons/2f06e503b293c8ae-large.webp",
    "guide": "guides/aquatome-ca-di-phan-trang-benh-trung-roi-hexamita-ca-dia-nguyen-nhan-cach-chua",
-   "why": "Guide: Cá đĩa đi phân trắng: dấu hiệu, nguyên nhân và cách chữa trùng roi Hexamita, 3 search impressions."
+   "why": "Fish: Cá Betta Plakat (Plakat betta), needs a heater when it turns cold: in place of the pearlscale goldfish, whose head Hôm nay's card cuts (its box).",
+   "fixed": true
   },
   {
    "date": "2026-11-16",
@@ -426,14 +429,15 @@
   },
   {
    "date": "2026-11-17",
-   "fish": "species/nannostomus-marginatus",
-   "img": "https://media.aquatome.com/commons/1881b5ea5480ca6d.webp",
+   "fish": "species/danio-tinwini",
+   "img": "https://media.aquatome.com/commons/647ba5aba1755f2b-large.webp",
    "guide": "guides/aquatome-tha-ca-moi-mua-vao-be-cach-thuan-nuoc-dung",
-   "why": "Guide: Thả cá mới mua vào bể: cách thuần nước đúng để cá không sốc, on this week's list."
+   "why": "Fish: Cá danio vòng vàng, a small schooling fish for a small tank."
   },
   {
    "date": "2026-11-18",
-   "img": "https://media.aquatome.com/commons/40a970f67cc6e69d-large.webp",
+   "fish": "species/oryzias-dancena",
+   "img": "https://media.aquatome.com/inaturalist/304682978-large.webp",
    "guide": "guides/2hraquarist-blogs-algae-control-how-to-control-diatoms",
    "guideImg": "https://media.aquatome.com/2hraquarist/a9c11948bc323c9f.webp",
    "story": {
@@ -448,34 +452,39 @@
      "vi": "Bể 27 lít: dựng đá lũa, trải nền cao dần về phía sau, trồng cây, chạy lọc một ngày rồi mới châm vi sinh và lắp CO2"
     }
    },
-   "why": "Guide: Cách kiểm soát tảo nâu (tảo cát) trong bể thủy sinh, the best left with a big enough photo."
+   "why": "Fish: Cá lúa Ấn Độ, a small schooling fish for a small tank."
   },
   {
    "date": "2026-11-19",
    "fish": "species/paracheirodon-axelrodi",
-   "img": "https://media.aquatome.com/inaturalist/365422173-large.webp",
+   "img": "https://media.aquatome.com/commons/9bd71e9d262fdea2-large.webp",
    "guide": "guides/aquariumcoop-blogs-aquarium-neon-tetras-and-cardinal-tetras",
    "why": "Guide: Hướng dẫn nuôi cá neon và cá neon vua: những loài cá đàn dễ nuôi cho người mới, on this week's list."
   },
   {
    "date": "2026-11-20",
-   "img": "https://media.aquatome.com/commons/4f94899e8e811e8e-large.webp",
+   "fish": "species/boraras-brigittae",
+   "img": "https://media.aquatome.com/commons/bb991a4fdd2edcd5-large.webp",
    "guide": "guides/aquatome-ca-bi-xu-vay-benh-phu-dropsy-nguyen-nhan-cach-chua-va-phong",
    "card": "cards/trivia-glass-catfish-name",
-   "why": "Guide: Cá bị xù vảy (bệnh phù, dropsy): nguyên nhân, cách chữa và phòng, 2 search impressions."
+   "why": "Fish: Cá rasbora muỗi, a small schooling fish for a small tank."
   },
   {
    "date": "2026-11-21",
-   "img": "https://media.aquatome.com/commons/92deb889aca4d02a-large.webp",
+   "fish": "breeds/blue-velvet-shrimp",
+   "img": "https://images.unsplash.com/photo-1754077366222-858cb109e2e2?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8OXx8Ymx1ZSUyMHZlbHZldCUyMHNocmltcHxlbnwxfHx8fDE3OTMzNzk0MTl8MA&ixlib=rb-4.1.0&w=1811&q=80&fm=jpg&fit=max",
    "guide": "guides/2hraquarist-blogs-algae-control-ccontrol-algae-excess-nutrients",
    "guideImg": "https://media.aquatome.com/2hraquarist/20af0b5ea6f239f1.webp",
-   "why": "Guide: Dư dinh dưỡng có gây tảo trong bể thủy sinh không?, the best left with a big enough photo."
+   "why": "no fish of this week's tags (nano) is left. Fish: Tép Blue Dream (Blue Velvet Shrimp), for a small tank. Guide: Dư dinh dưỡng có gây tảo trong bể thủy sinh không?, the best left with a big enough photo.",
+   "fixed": true
   },
   {
    "date": "2026-11-22",
-   "img": "https://media.aquatome.com/commons/bb991a4fdd2edcd5-large.webp",
+   "fish": "species/aphyosemion-striatum",
+   "img": "https://media.aquatome.com/commons/6be9cab7aee7abed-large.webp",
    "guide": "guides/aquatome-ca-bo-an-khong-chiu-an-nguyen-nhan-va-cach-xu-ly",
-   "why": "Guide: Cá bỏ ăn, không chịu ăn: nguyên nhân và cách xử lý, 2 search impressions."
+   "why": "Fish: Cá killifish sọc đỏ đuôi đàn lia, chosen by hand: no fish of this week's tags is left, and a 5 cm killifish for a 45 cm tank keeps the small-tank week (the chief of staff, 12 Nov). Guide: Cá bỏ ăn, không chịu ăn: nguyên nhân và cách xử lý, 2 search impressions.",
+   "fixed": true
   },
   {
    "date": "2026-11-23",
@@ -483,7 +492,8 @@
    "img": "https://media.aquatome.com/commons/8bac445743996b73.webp",
    "guide": "guides/2hraquarist-blogs-algae-control-how-to-control-misc-green-algae",
    "guideImg": "https://media.aquatome.com/2hraquarist/de1486196265f59b.webp",
-   "why": "Guide: Cách kiểm soát tảo sợi (tảo tóc, tảo lông, tảo chỉ), the best left with a big enough photo."
+   "why": "Guide: Cách kiểm soát tảo sợi (tảo tóc, tảo lông, tảo chỉ), the best left with a big enough photo.",
+   "fixed": true
   },
   {
    "date": "2026-11-24",
@@ -491,16 +501,17 @@
    "img": "https://media.aquatome.com/commons/bcc6a38465399681-large.webp",
    "guide": "guides/aquariumbreeder-profile-of-diving-beetles-monsters-in-shrimp-and-fish-tanks",
    "guideImg": "https://media.aquatome.com/aquariumbreeder/eb9f5d29655fb0c7.webp",
-   "why": "Guide: Hồ sơ bọ cánh cứng lặn (Diving beetle): kẻ săn mồi trong bể tép và bể cá, the best left with a big enough photo."
+   "why": "Guide: Hồ sơ bọ cánh cứng lặn (Diving beetle): kẻ săn mồi trong bể tép và bể cá, the best left with a big enough photo.",
+   "fixed": true
   },
   {
    "date": "2026-11-25",
-   "fish": "species/channa-marulius",
-   "img": "https://media.aquatome.com/commons/407a83407c0434ed-large.webp",
+   "fish": "species/allenbatrachus-grunniens",
+   "img": "https://media.aquatome.com/commons/2f639cd464d93059-large.webp",
    "guide": "guides/sprucepets-barb-species-1380768",
-   "guideImg": "https://media.aquatome.com/sprucepets/0b24516e48902bab.webp",
    "card": "cards/trivia-climbing-perch-land",
-   "why": "Guide: Cá barb: hồ sơ các loài, the best left with a big enough photo."
+   "why": "Fish: Cá mang ếch, native to Vietnam.",
+   "fixed": true
   },
   {
    "date": "2026-11-26",
@@ -511,19 +522,19 @@
   },
   {
    "date": "2026-11-27",
-   "fish": "species/dermogenys-pusilla",
-   "img": "https://media.aquatome.com/commons/8679c734cd0bb8e0.webp",
+   "fish": "species/barbodes-binotatus",
+   "img": "https://media.aquatome.com/commons/48ac6e801db605ad-large.webp",
    "guide": "guides/sprucepets-aquarium-catfish-breeds-5115234",
    "guideImg": "https://media.aquatome.com/sprucepets/eb26692e4b7b47a6.webp",
-   "why": "Fish: Cá lìm kìm đấu, native to Vietnam."
+   "why": "Fish: Cá barb đốm, native to Vietnam."
   },
   {
    "date": "2026-11-28",
-   "fish": "species/misgurnus-anguillicaudatus",
-   "img": "https://media.aquatome.com/commons/c58b9359825a4664-large.webp",
+   "fish": "species/channa-maculata",
+   "img": "https://media.aquatome.com/inaturalist/513666208-large.webp",
    "guide": "guides/2hraquarist-blogs-algae-control-how-to-get-rid-of-staghorn-algae",
-   "guideImg": "https://media.aquatome.com/2hraquarist/2ff2150b8977932c.webp",
-   "why": "Fish: Cá chạch bùn, native to Vietnam."
+   "guideImg": "https://media.aquatome.com/2hraquarist/0eeea2db93aa3f5b.webp",
+   "why": "Fish: Cá lóc đốm, native to Vietnam."
   },
   {
    "date": "2026-11-29",
@@ -535,10 +546,43 @@
   },
   {
    "date": "2026-11-30",
-   "fish": "species/cyphotilapia-frontosa",
-   "img": "https://media.aquatome.com/commons/c61a7aecabf37bf2-large.webp",
+   "fish": "species/labidochromis-caeruleus",
+   "img": "https://media.aquatome.com/commons/0eb6aa8510474bca-large.webp",
    "guide": "guides/youtube-ohUzvlrSQDs",
-   "why": "Fish: Cá frontosa, on this week's list. Guide: Set bể thủy sinh chủ đề châu Phi cho cichlid bướm và cá Congo, on this week's list, the week's video guide."
+   "why": "Fish: Cá hoàng hậu vàng, on this week's list."
+  },
+  {
+   "date": "2026-12-01",
+   "fish": "species/polypterus-senegalus",
+   "img": "https://media.aquatome.com/commons/d7ac46635fc173c6-large.webp",
+   "guide": "guides/2hraquarist-blogs-algae-control-tackle-algae-by-doing-nothing",
+   "guideImg": "https://media.aquatome.com/2hraquarist/e97391145c58b6d6.webp",
+   "why": "Fish: Cá khủng long Senegal, on this week's list. Guide: Xử lý tảo bằng cách... không làm gì cả?, the best left with a big enough photo.",
+   "fixed": true
+  },
+  {
+   "date": "2026-12-02",
+   "fish": "species/maylandia-estherae",
+   "img": "https://media.aquatome.com/commons/0bde0aea3f9c15e8-large.webp",
+   "guide": "guides/aquariumbreeder-7-signs-your-crayfish-is-suffering-from-stress",
+   "guideImg": "https://media.aquatome.com/aquariumbreeder/c0e25bd3e9c353d3.webp",
+   "why": "Fish: Cá zebra đỏ, on this week's list. Guide: 7 dấu hiệu cho thấy tôm càng (crayfish) của bạn đang bị căng thẳng, the best left with a big enough photo."
+  },
+  {
+   "date": "2026-12-03",
+   "fish": "species/synodontis-petricola",
+   "img": "https://media.aquatome.com/commons/0729c51cc067b013-large.webp",
+   "guide": "guides/2hraquarist-blogs-algae-control-this-wouldnt-work",
+   "guideImg": "https://media.aquatome.com/2hraquarist/e97391145c58b6d6.webp",
+   "why": "Fish: Cá nheo Synodontis petricola, on this week's list. Guide: Khi bể “đơn giản” lại là con đường khó, the best left with a big enough photo."
+  },
+  {
+   "date": "2026-12-04",
+   "fish": "species/tropheus-duboisi",
+   "img": "https://media.aquatome.com/commons/544d7ff2e7f88dbf-large.webp",
+   "guide": "guides/aquariumbreeder-crossbreeding-can-you-mix-different-color-shrimp",
+   "guideImg": "https://media.aquatome.com/aquariumbreeder/04d8e1765b4ec85e.webp",
+   "why": "Fish: Cá Tropheus duboisi, on this week's list. Guide: Lai tạo: Có thể nuôi chung các tép khác màu không?, the best left with a big enough photo."
   }
  ],
  "loops": {
@@ -608,32 +652,426 @@
   }
  },
  "avoid": {
+  "https://media.aquatome.com/commons/f951f81ed157dba7.webp": "looked at: this photo does not stand as the sebae's head (chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/8679c734cd0bb8e0.webp": "halfbeak: cards only, it stays on its page (chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/a57ab47674cd2305.webp": "dark: cards only, it stays on its page until a clearer photo turns up (chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/inaturalist/436160058.webp": "a small fish in murk: cards only, it stays on its page until a clearer photo turns up (chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/inaturalist/268032912.webp": "a ruler and a brand printed in the picture",
   "https://media.aquatome.com/commons/d303bc24129e7273.webp": "betta: a dark tank where the fish is small; its caption says the fish is sick",
   "https://media.aquatome.com/aquariumcoop/f60636dca7caf019.webp": "a person",
   "https://media.aquatome.com/commons/f8dffac3dfb62633.webp": "fish out of water",
   "https://media.aquatome.com/seriouslyfish/df72499a9847ce5d.webp": "another subject",
   "https://media.aquatome.com/commons/fc9ccca176726701.webp": "red devil: looks like a juvenile or another cichlid, not the adult's look",
   "https://media.aquatome.com/aquariumbreeder/b40dca8c4c2540cf.webp": "a line diagram of a snail with English labels, not a photo",
-  "https://media.aquatome.com/2hraquarist/8a54f19dbc68c9c7.webp": "two photos joined side by side, with a slanted seam across the card"
+  "https://media.aquatome.com/2hraquarist/8a54f19dbc68c9c7.webp": "two photos joined side by side, with a slanted seam across the card",
+  "https://media.aquatome.com/commons/528d8e73e4cbf0de.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/4756ceeedd3cc5ce.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/0fada46707e939af.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/b45de7d4ff14ef35.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/556d7c9159783fd7.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/a26f2b6f13c9afab.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/77efa1b146855ade.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/528556175948f729.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/4f94899e8e811e8e.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/606d5d90c9a59424.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/18393583f25f86e2.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/1f89ca62db0f0e31.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/a9ce5abbcfa6ca8b.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/ba2194af56ba9989.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/246581693eccf859.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/feb062f1ee4e466f.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/19baaafa3f516888.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/inaturalist/669262813.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/797ee380743fcf6a.webp": "snout cut by the card's left edge (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/seriouslyfish/496b416ce504f0ef.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/scotcat/7d5c3b1d13865c76.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/seriouslyfish/24e3739ae989c261.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)"
+ },
+ "todayCut": {
+  "https://media.aquatome.com/commons/92d29fe557075047-large.webp": "kribensis: the card cuts its head at the right edge (looked at on the card, 2026-11-11)",
+  "https://media.aquatome.com/commons/c61a7aecabf37bf2-large.webp": "frontosa: the card cuts its mouth at the left edge (looked at on the card, 2026-11-11)"
  },
  "off": {
   "breeds/ranchu-goldfish": "reader fit: source, units",
   "species/betta-splendens": "reader fit: elsewhere",
   "species/boraras-maculatus": "reader fit: source",
-  "species/boraras-merah": "reader fit: elsewhere, source",
+  "species/boraras-merah": "reader fit: source, elsewhere",
   "species/channa-asiatica": "reader fit: source",
   "species/channa-gachua": "reader fit: source",
-  "species/channa-micropeltes": "reader fit: elsewhere",
   "species/hemigrammus-erythrozonus": "reader fit: elsewhere",
   "species/mikrogeophagus-ramirezi": "reader fit: source",
   "species/oryzias-latipes": "reader fit: elsewhere",
-  "species/poecilia-reticulata": "reader fit: units, elsewhere",
+  "species/poecilia-reticulata": "reader fit: elsewhere",
   "species/pristella-maxillaris": "reader fit: elsewhere",
   "species/pterophyllum-scalare": "reader fit: source",
   "species/symphysodon-aequifasciatus": "reader fit: source",
   "species/tanichthys-albonubes": "reader fit: source, elsewhere",
-  "species/thayeria-boehlkei": "reader fit: elsewhere",
-  "species/trichopodus-pectoralis": "reader fit: elsewhere",
-  "species/trichopodus-trichopterus": "reader fit: elsewhere"
- }
+  "species/thayeria-boehlkei": "reader fit: elsewhere"
+ },
+ "searches": {
+  "vi": [
+   "betta",
+   "cá vàng",
+   "bảy màu",
+   "tép",
+   "rêu java",
+   "bệnh đốm trắng",
+   "rêu hại",
+   "chu trình nitơ"
+  ],
+  "id": [
+   "betta",
+   "mas koki",
+   "guppy",
+   "udang",
+   "lumut jawa",
+   "lumut",
+   "louhan",
+   "arwana"
+  ],
+  "th": [
+   "ปลากัด",
+   "ปลาทอง",
+   "ปลาหางนกยูง",
+   "กุ้ง",
+   "มอส",
+   "ตะไคร่",
+   "หมอสี",
+   "ไม้น้ำ"
+  ],
+  "ms": [
+   "laga",
+   "guppy",
+   "udang",
+   "louhan",
+   "arowana",
+   "molly",
+   "discus",
+   "penapis"
+  ]
+ },
+ "chips": [
+  {
+   "id": "ali",
+   "names": {
+    "vi": "Ali"
+   },
+   "match": {
+    "group": [
+     "cichlids"
+    ],
+    "places": [
+     "africa"
+    ]
+   },
+   "guides": {
+    "add": [
+     "aquariumcoop-blogs-aquarium-how-to-set-up-an-easy-planted-tank-for-african-cichlids",
+     "aquariumcoop-blogs-aquarium-plants-for-african-cichlids",
+     "aquariumcoop-blogs-aquarium-shell-dwellers",
+     "loachesonline-articles-why-loaches-should-not-be-kept-with-malawi-cichlids",
+     "youtube-Gco4K1OuLaE",
+     "youtube-hQgZb6U3iPw",
+     "youtube-jFFbDTBUgIk",
+     "youtube-lnOoJm-b5vs",
+     "youtube-ohUzvlrSQDs",
+     "youtube-py-6gyQwVWU",
+     "youtube-wOFTF6CYtFc",
+     "youtube-yfiUqZ8IZU4"
+    ],
+    "off": [
+     "seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy",
+     "youtube-rXQS95MHmTk"
+    ]
+   }
+  },
+  {
+   "id": "cichlid-chau-my",
+   "names": {
+    "vi": "Cichlid châu Mỹ"
+   },
+   "match": {
+    "group": [
+     "cichlids"
+    ],
+    "places": [
+     "south-america",
+     "central-america",
+     "north-america"
+    ]
+   },
+   "guides": {
+    "add": [
+     "glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-thorichthys-week-at-aquarium-glaser-en",
+     "seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy"
+    ]
+   }
+  },
+  {
+   "id": "lau-kieng",
+   "names": {
+    "vi": "Lau kiếng",
+    "id": "Sapu-sapu",
+    "th": "ซัคเกอร์"
+   },
+   "match": {
+    "family": [
+     "Loricariidae"
+    ]
+   },
+   "guides": {
+    "add": [
+     "glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-peckoltia-sp-alto-nhamunda-en-2"
+    ]
+   }
+  },
+  {
+   "id": "tep",
+   "names": {
+    "vi": "Tép",
+    "id": "Udang hias",
+    "th": "กุ้ง"
+   },
+   "match": {
+    "group": [
+     "shrimp"
+    ],
+    "except": [
+     "cambarellus-puer",
+     "cambarellus-shufeldtii",
+     "cambarus-bartonii",
+     "cherax-holthuisi",
+     "lysmata-amboinensis",
+     "lysmata-debelius",
+     "periclimenes-yucatanicus",
+     "saron-marmoratus",
+     "gnathophyllum-americanum",
+     "urocaridella-antonbruunii",
+     "macrobrachium-brasiliense",
+     "macrobrachium-dayanum"
+    ]
+   },
+   "guides": {
+    "off": [
+     "aquariumbreeder-seed-shrimp-profile-ostracods-in-shrimp-and-fish-tank"
+    ]
+   }
+  },
+  {
+   "id": "dia",
+   "names": {
+    "vi": "Dĩa",
+    "id": "Discus"
+   },
+   "match": {
+    "genus": [
+     "Symphysodon"
+    ]
+   }
+  },
+  {
+   "id": "ong-tien",
+   "names": {
+    "vi": "Ông tiên",
+    "id": "Manfish",
+    "th": "ปลาเทวดา"
+   },
+   "match": {
+    "genus": [
+     "Pterophyllum"
+    ]
+   }
+  },
+  {
+   "id": "la-han",
+   "names": {
+    "vi": "La hán",
+    "id": "Louhan"
+   },
+   "match": {
+    "breeds": [
+     "flowerhorn-cichlid"
+    ]
+   }
+  },
+  {
+   "id": "betta",
+   "names": {
+    "vi": "Betta",
+    "id": "Cupang",
+    "th": "ปลากัด"
+   },
+   "match": {
+    "genus": [
+     "Betta"
+    ]
+   }
+  },
+  {
+   "id": "ca-sac",
+   "names": {
+    "vi": "Cá sặc",
+    "th": "ปลากระดี่"
+   },
+   "match": {
+    "genus": [
+     "Trichogaster",
+     "Trichopodus",
+     "Sphaerichthys",
+     "Parosphromenus",
+     "Helostoma",
+     "Osphronemus",
+     "Trichopsis",
+     "Belontia",
+     "Parasphaerichthys",
+     "Ctenops"
+    ]
+   }
+  },
+  {
+   "id": "bay-mau",
+   "names": {
+    "vi": "Bảy màu",
+    "id": "Guppy",
+    "th": "ปลาหางนกยูง"
+   },
+   "match": {
+    "species": [
+     "poecilia-reticulata",
+     "poecilia-wingei"
+    ]
+   }
+  },
+  {
+   "id": "ca-vang",
+   "names": {
+    "vi": "Cá vàng",
+    "id": "Koki",
+    "th": "ปลาทอง"
+   },
+   "match": {
+    "species": [
+     "carassius-auratus"
+    ]
+   }
+  },
+  {
+   "id": "ca-rong",
+   "names": {
+    "vi": "Cá rồng",
+    "id": "Arwana",
+    "th": "อะโรวาน่า"
+   },
+   "match": {
+    "family": [
+     "Osteoglossidae"
+    ]
+   }
+  },
+  {
+   "id": "koi",
+   "names": {
+    "vi": "Koi",
+    "id": "Koi"
+   },
+   "match": {
+    "genus": [
+     "Cyprinus"
+    ],
+    "breeds": [
+     "butterfly-koi"
+    ]
+   }
+  },
+  {
+   "id": "tetra",
+   "names": {
+    "vi": "Tetra",
+    "id": "Tetra",
+    "th": "เตตร้า"
+   },
+   "match": {
+    "group": [
+     "tetras"
+    ]
+   }
+  },
+  {
+   "id": "chach",
+   "names": {
+    "vi": "Chạch",
+    "th": "ปลาหมู"
+   },
+   "match": {
+    "group": [
+     "loaches"
+    ]
+   }
+  },
+  {
+   "id": "ca-chuot",
+   "names": {
+    "vi": "Cá chuột",
+    "id": "Corydoras",
+    "th": "ปลาแพะ"
+   },
+   "match": {
+    "family": [
+     "Callichthyidae"
+    ]
+   },
+   "guides": {
+    "off": [
+     "glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-peckoltia-sp-alto-nhamunda-en-2"
+    ]
+   }
+  },
+  {
+   "id": "killi",
+   "names": {
+    "vi": "Killi"
+   },
+   "match": {
+    "group": [
+     "killifish"
+    ]
+   }
+  },
+  {
+   "id": "long-tong",
+   "names": {
+    "vi": "Lòng tong",
+    "id": "Rasbora",
+    "th": "ปลาซิว"
+   },
+   "match": {
+    "group": [
+     "rasboras"
+    ]
+   }
+  },
+  {
+   "id": "oc",
+   "names": {
+    "vi": "Ốc",
+    "th": "หอย"
+   },
+   "match": {
+    "group": [
+     "snails"
+    ]
+   },
+   "guides": {
+    "off": [
+     "aquariumcoop-blogs-aquarium-shell-dwellers",
+     "youtube-Gco4K1OuLaE",
+     "youtube-hQgZb6U3iPw",
+     "youtube-jFFbDTBUgIk",
+     "youtube-py-6gyQwVWU",
+     "youtube-yfiUqZ8IZU4",
+     "youtube-9NhMq1H-aoo"
+    ]
+   }
+  }
+ ]
 }

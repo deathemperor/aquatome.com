@@ -1,0 +1,66 @@
+{
+  "id": "rasbora-vulcanus",
+  "native": {
+    "input": "f4315d77b6b4ddb7",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "There have been rumours that the species name was chosen because the fish were originally found in the foothills of Gunung (Mount) Talang, an active volcano in West Sumatra province, Sumatra, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "glaser",
+        "quote": "This Rasbora originates from the west coast of Sumatra.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "There have been rumours that the species name was chosen because the fish were originally found in the foothills of Gunung (Mount) Talang, an active volcano in West Sumatra province, Sumatra, Indonesia.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rasbora vulcanus",
+    "status": "ACCEPTED",
+    "taxonKey": 2359626,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        5
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        5
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T00:09:29.977Z"
+  }
+}

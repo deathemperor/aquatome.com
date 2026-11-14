@@ -9,6 +9,98 @@
     "asia",
     "india"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Western Ghats",
+        "Meenachil River",
+        "Periyar",
+        "Kali River",
+        "Thamirabarani",
+        "Chalakudy River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Puntius mahecola is a cyprinid from rivers draining much of the Western Ghats mountains in Kerala, Karnataka and Tamil Nadu states, southern India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Western Ghats"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Kerala records exist from the Meenachil River in Kottayam district, the Achankovil and Periyar Rivers in Pathanamthitta district, the Kallada River in Kollam District, and the Chalakudy River.",
+          "countries": [],
+          "regions": [
+            "Meenachil River",
+            "Periyar",
+            "Chalakudy River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Karnataka it's been collected close to Chikmagalur and from the Kali River, while in Tamil Nadu it's known from the Thamirabarani River system and waters around the city of Chennai.",
+          "countries": [],
+          "regions": [
+            "Kali River",
+            "Thamirabarani"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2364162,
+      "total": 16,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "IN",
+          16
+        ]
+      ],
+      "cells": [
+        [
+          73.125,
+          15.46875,
+          4,
+          4
+        ],
+        [
+          74.53125,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          75.9375,
+          8.4375,
+          7,
+          7
+        ],
+        [
+          75.9375,
+          9.84375,
+          3,
+          3
+        ],
+        [
+          80.15625,
+          19.6875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

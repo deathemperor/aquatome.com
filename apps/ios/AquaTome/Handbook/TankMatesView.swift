@@ -63,13 +63,15 @@ struct TankMatesView: View {
       if !chosen.isEmpty && tanks.canEdit { AnyView(save) }
     }
     .scrollDismissesKeyboard(.interactively)
+    .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
     .navigationTitle("Kiểm tra nuôi chung")
-    .sheet(isPresented: $picking) { FishPicker(chosen: Set(chosen.map(\.id)), add: add) }
+    .sheet(isPresented: $picking) { FishPicker(chosen: Set(chosen.map(\.id)), add: add).ownerScreen("sheet fish-picker") }
     .onChange(of: handbook.count, initial: true) { start() }
     // The tool changed: what was saved is no longer what it shows.
     .onChange(of: chosen.map { "\($0.id):\($0.count)" }) { said = nil }
     // The tank picked gone (removed, or by a sync): a new one again, not saved to a tank that isn't there.
     .onChange(of: tanks.tanks.map(\.id)) { if let t = target, !$1.contains(t) { target = nil } }
+    .ownerScreen("tool tank-mates")
   }
 
   /// What's checked: the reader's tank picked, with these fish put on it as saving leaves it; else these fish alone, in
@@ -220,6 +222,7 @@ private struct FishPicker: View {
       // Scientific names are typed here, as on the site's search: not corrected, not capitalized.
       .autocorrectionDisabled()
       .textInputAutocapitalization(.never)
+      .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
       .navigationTitle("Thêm loài")
       .navigationBarTitleDisplayMode(.inline)
       .toolbar { ToolbarItem(placement: .cancellationAction) { Button("Hủy") { dismiss() } } }

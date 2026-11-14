@@ -11,10 +11,17 @@ export type SwappedName = {
   brackets?: true
   /** `fish` is a group, and `now` its genera's names: the words don't say which one, so the sweep leaves it. */
   group?: true
-  /** The fish the old name belongs to now: a sentence naming them may be right, so it is neither listed nor renamed. */
+  /**
+   * The fish the old name belongs to now: a sentence naming them may be right, so it is neither listed nor renamed, unless
+   * the old name stands right beside the row's fish ("cá cầu vồng chi Pseudomugil").
+   */
   stillFor?: readonly string[]
 }
 export const SIAMESE = ['Crossocheilus', 'algae eater']
+/** The blue-eyes: the genus, its species as a page abbreviates them ("P. luminatus"), and the English. */
+export const BLUE_EYES = ['Pseudomugil', 'P\\.\\s*(?:connieae|cyanodorsalis|furcat(?:us|a)|gertrudae|halophilus|inconspicuus|ivantsoffi|luminatus|majusculus|mellis|novaeguineae|paludicola|paskai|pellucidus|reticulatus|signifer|tenellus)', 'blue[- ]?eyes?']
+/** The rainbowfish proper, whose word "cầu vồng" stays. */
+export const RAINBOWS = ['Melanotaenia', 'Glossolepis', 'Chilatherina', 'Iriatherina', 'Marosatherina', 'Rhadinocentrus', 'Bedotia', 'Cairnsichthys', 'Telmatherina']
 export const PARADISE = ['Macropodus', 'paradise fish']
 /** The owner's names of 2026-11-07. The writers' prompts read this list, the sweep writes it, and the swapped-name rule holds it. */
 export const SWAPPED: readonly SwappedName[] = [
@@ -25,4 +32,89 @@ export const SWAPPED: readonly SwappedName[] = [
   { was: 'cá cờ', fish: ['Laetacara'], now: 'cá Laetacara', stillFor: PARADISE },
   { was: 'cá cờ', fish: ['flag cichlid'], now: 'cá Mesonauta, cá Laetacara', group: true },
   { was: 'cá thiên đường', fish: ['Macropodus opercularis'], now: 'cá cờ' },
+  // The chief of staff's names of 2026-11-13 (FISH_NAMES below): the word for the fish's kind, beside a fish of that kind.
+  // The blue-eyes (Pseudomugil): "mắt xanh", the rainbowfish's "cầu vồng" never.
+  { was: 'cầu vồng', fish: BLUE_EYES, now: 'mắt xanh', stillFor: RAINBOWS },
+]
+
+/**
+ * A fish page's Vietnamese name, as the chief of staff settled it: the word keepers here use for its kind, never another
+ * fish's. The sweep sets it once and guards it (`nameFixed`), with `was` and `alts` among the page's other names, which
+ * every writer and cleaner keeps; the page's address stays. Its text follows: `was` wherever a Vietnamese page or summary
+ * writes it (no other page's name is it or begins with it: a test holds that), unless another scientific name stands in
+ * brackets beside it; and the kind's word beside the fish (its row in SWAPPED). A row whose `name` is `was` only adds
+ * `alts`: nothing is renamed.
+ */
+export type FishName = {
+  id: string
+  sci: string
+  was: string
+  name: string
+  alts?: readonly string[]
+  /** A new address: the old one forwards to it with `was` in its note. Without it, the address stays. */
+  slug?: string
+  /** A plant's page, not a fish's. */
+  kind?: 'species' | 'plants'
+  /**
+   * Names no one uses, made by translating an English name: off the page altogether, renamed wherever a page writes them,
+   * and never in the forward's note, so a search doesn't find the page by them.
+   */
+  drop?: readonly string[]
+  /** Longer names that begin with the old one, another name the page lists: written as they are, never renamed inside. */
+  longer?: readonly string[]
+  /**
+   * Names that mean another animal: off the page and out of its forward, as `drop`, but never renamed in the text, where
+   * they mean the other.
+   */
+  elsewhere?: readonly string[]
+  /** On its own page (text, summary, photo captions), what it is called where the page wrote an `elsewhere` name. */
+  own?: string
+}
+/** The chief of staff's names of 2026-11-13, kind by kind, smallest first. */
+export const FISH_NAMES: readonly FishName[] = [
+  { id: 'pseudomugil-luminatus', sci: 'Pseudomugil luminatus', was: 'Cá cầu vồng neon đỏ mắt xanh', name: 'Cá mắt xanh neon đỏ' },
+  // The owner, 2026-11-13: "is often táo đỏ". Keepers write "táo đỏ" bare (4 times in their own writing, "cầu vồng táo
+  // đỏ" never); shops write "Cá cầu vồng táo đỏ", kept so a search on it lands here. The page's "Cá cầu vồng đỏ cá hồi"
+  // (Salmon red rainbowfish, translated) is another of its names: renamed inside, it would read "cá táo đỏ cá hồi". So are
+  // a guide's "Cá cầu vồng đỏ Irian" (Irian red rainbowfish) and the page's "Cá cầu vồng đỏ Sentani".
+  { id: 'glossolepis-incisus', sci: 'Glossolepis incisus', was: 'Cá cầu vồng đỏ', name: 'Cá táo đỏ', alts: ['Cá cầu vồng táo đỏ'], slug: 'ca-tao-do', longer: ['Cá cầu vồng đỏ cá hồi', 'Cá cầu vồng đỏ Irian', 'Cá cầu vồng đỏ Sentani'] },
+  // The owner, 2026-11-13: "This is commonly called bèo nhật". The forum's "bèo nhật" (31 times) is this plant ("lá nhỏ cỡ
+  // móng tay, có rễ rất dài"); the page's two names were the English ones translated ("bèo tây" is the water hyacinth).
+  { id: 'limnobium-laevigatum', kind: 'plants', sci: 'Limnobium laevigatum', was: 'Bèo tây Nam Mỹ', name: 'Bèo Nhật', drop: ['Bèo tây Nam Mỹ', 'Bèo nhím Nam Mỹ'], slug: 'beo-nhat' },
+  // Curation, 2026-11-13: the guppy-breeding guide's "bo bo (rận nước)", the daphnia, linked to this water louse. Keepers
+  // write "rận nước" for the louse on a sick fish ("cá bị rận nước và mỏ neo", 3 forum threads), books for the daphnia;
+  // none for Asellus, which has no Vietnamese name in use: its scientific name, and the text's "rận nước" stays theirs.
+  // Its own page says "Asellus", so a search for "rận nước" doesn't find it by its text (Astra, 13 Nov).
+  { id: 'asellus-aquaticus', sci: 'Asellus aquaticus', was: 'Rận nước', name: 'Asellus aquaticus', slug: 'asellus-aquaticus', elsewhere: ['Rận nước'], own: 'Asellus' },
+]
+
+/** A row's names a page may not keep: those it drops or that are another's, in any form (the scientific name in brackets too). */
+export const droppedName = (r: FishName, n: string) => [...(r.drop ?? []), ...(r.elsewhere ?? [])].some(d => n.normalize('NFC').toLowerCase().startsWith(d.toLowerCase()))
+/** The names a row renames wherever a page writes them: its old one and those it drops, never another animal's. */
+export const oldNames = (r: FishName) => [...new Set([r.was, ...(r.drop ?? [])])].filter(n => n !== r.name && !(r.elsewhere ?? []).includes(n))
+/**
+ * Its own page's words with a name that is another animal's written as `own`: "Rận nước (Asellus aquaticus)" and "Rận
+ * nước Asellus aquaticus" as the scientific name, ", còn gọi là rận nước," gone with both its commas, any other "rận nước"
+ * as "Asellus".
+ */
+export const ownWords = (r: FishName, text: string) => (r.elsewhere ?? []).reduce((s, n) => {
+  const w = `(?<!\\p{L})${n.replace(/ /g, '\\s+')}(?!\\p{L})`
+  return s.replace(new RegExp(`${w}\\s*(?:\\(\\s*${r.sci}\\s*\\)|${r.sci})`, 'giu'), r.sci)
+    .replace(new RegExp(`,\\s*còn gọi là\\s+${w}(\\s*\\([^()]*\\))?,?`, 'giu'), '$1')
+    .replace(new RegExp(w, 'giu'), r.own ?? r.sci)
+}, text.normalize('NFC'))
+
+/**
+ * A passage a person found still calls a fish by another fish's kind, where no rule can tell the sentence is about it (a
+ * heading, "cá cầu vồng lùn" for a part about blue-eyes, when "Cá cầu vồng lùn" is also Melanotaenia maccullochi's name):
+ * the words as the page has them and as they should be, on that page's Vietnamese text. Gone from the page, the row does
+ * nothing: a writer told the names (VI_STYLE) doesn't write them again.
+ */
+export type KindPassage = { page: string; was: string; now: string }
+export const KIND_PASSAGES: readonly KindPassage[] = [
+  // The chief of staff's blue-eyes, Astra's read of 2026-11-13: Aquarium Co-op's "Nano Rainbowfish Tank" is about Pseudomugil.
+  { page: 'guides/aquariumcoop-blogs-aquarium-7-colorful-fish-for-10-gallon-aquarium', was: 'Bể cá cầu vồng nano', now: 'Bể cá mắt xanh' },
+  { page: 'guides/aquariumcoop-blogs-aquarium-7-colorful-fish-for-10-gallon-aquarium', was: 'Cá cầu vồng lùn sống khá ngắn', now: 'Cá mắt xanh sống khá ngắn' },
+  // Astra's second read: its "cầu vồng neon đỏ" sits in a sentence of three blue-eyes, so no rule can tell it from another.
+  { page: 'guides/aquariumcoop-blogs-aquarium-5-best-fish-tank-ideas-for-a-20-gallon-aquarium', was: 'cầu vồng neon đỏ (P. luminatus)', now: 'mắt xanh neon đỏ (P. luminatus)' },
 ]

@@ -1,0 +1,60 @@
+{
+  "id": "pethia-punctata",
+  "native": {
+    "input": "9f463c5d556fb1dd",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Pethia punctata is a small cyprinid endemic to the Western Ghats of southwestern India, where it appears restricted to west-flowing rivers.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Western Ghats",
+        "source": "seriouslyfish",
+        "quote": "Pethia punctata is a small cyprinid endemic to the Western Ghats of southwestern India, where it appears restricted to west-flowing rivers.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pethia punctata",
+    "status": "ACCEPTED",
+    "taxonKey": 7499460,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        10
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "988007b1-1179-42e0-863c-bb9f1bdfa6f7",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

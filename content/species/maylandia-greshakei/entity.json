@@ -10,6 +10,54 @@
     "malawi",
     "lake-malawi"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2373021,
+      "total": 4,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "MW",
+          3
+        ],
+        [
+          "MZ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -15.46875,
+          3
+        ],
+        [
+          33.75,
+          -12.65625,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -126,16 +174,6 @@
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/commons/5c677a486b35aa59.webp",
-      "width": 960,
-      "height": 640,
-      "licence": "CC BY-SA 4.0",
-      "author": "Klaus Rudloff",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Maylandia_greshakei.jpg",
-      "caption": "Maylandia greshakei",
-      "thumb": "https://media.aquatome.com/commons/5c677a486b35aa59-480.webp"
-    },
     {
       "url": "https://media.aquatome.com/commons/86c9eb901be3d4a3.webp",
       "width": 960,

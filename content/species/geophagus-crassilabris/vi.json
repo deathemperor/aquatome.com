@@ -1,9 +1,10 @@
 {
   "slug": "ca-geophagus-panama",
-  "name": "Cá Geophagus Panama",
+  "name": "Cá hải hồ crassilabris",
   "altNames": [
     "Cá ăn đất Panama",
-    "Panamanian Eartheater"
+    "Panamanian Eartheater",
+    "Cá Geophagus Panama"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<ul><li>Cần bể rất lớn. Cá hay đánh nhau với đồng loại. Nên nuôi một con đực với nhiều con cái. Bạn cùng bể phải chọn kỹ. Bể cần chạy ổn định lâu rồi mới thả.</li></ul>",
@@ -26,5 +27,6 @@
     "bySource": {
       "seriouslyfish": 0.88
     }
-  }
+  },
+  "nameFixed": true
 }

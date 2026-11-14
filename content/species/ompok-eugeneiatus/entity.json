@@ -13,6 +13,76 @@
     "malaysia",
     "indonesia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BN",
+        "TH",
+        "KH",
+        "MY",
+        "ID"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Borneo glass catfish, Ompok eugeneiatus, is a silurid catfish from flowing waters in Brunei, Thailand, Cambodia, Malaysia and Indonesia.",
+          "countries": [
+            "BN",
+            "TH",
+            "KH",
+            "MY",
+            "ID"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2337638,
+      "total": 12,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "ID",
+          11
+        ],
+        [
+          "MY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          -2.8125,
+          6,
+          6
+        ],
+        [
+          102.65625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -129,39 +199,6 @@
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/60fc80c8baaa9a8e.webp",
-      "thumb": "https://media.aquatome.com/scotcat/60fc80c8baaa9a8e-480.webp",
-      "width": 500,
-      "height": 333,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/siluridae/ompok_eugeneiatus.htm",
-      "caption": "Ompok eugeneiatus",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/4e04786daaea24c9.webp",
-      "thumb": "https://media.aquatome.com/scotcat/4e04786daaea24c9-480.webp",
-      "width": 500,
-      "height": 333,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/siluridae/ompok_eugeneiatus.htm",
-      "caption": "Ompok eugeneiatus: Pair-female below",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/5ccf6fce51029218.webp",
-      "thumb": "https://media.aquatome.com/scotcat/5ccf6fce51029218-480.webp",
-      "width": 500,
-      "height": 350,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/siluridae/ompok_eugeneiatus.htm",
-      "caption": "Ompok eugeneiatus",
-      "source": "scotcat"
-    },
     {
       "url": "https://media.aquatome.com/commons/03d2250a0b2a4c58.webp",
       "width": 960,

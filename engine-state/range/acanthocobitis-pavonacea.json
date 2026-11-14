@@ -1,9 +1,17 @@
 {
   "id": "acanthocobitis-pavonacea",
   "native": {
-    "input": "1a4332e824b26b5a",
-    "at": "2026-11-05T22:45:18.315Z",
+    "input": "9b8f0d64b1e4db35",
+    "at": "2026-11-09T23:57:44.132Z",
     "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The peacock loach, Acanthocobitis pavonacea, is a large nemacheilid loach from the Brahmaputra River drainage in Assam, northeastern India.",
+        "words": "India",
+        "ok": true
+      },
       {
         "code": "IN",
         "status": "native",
@@ -33,7 +41,8 @@
       {
         "name": "Brahmaputra",
         "source": "seriouslyfish",
-        "quote": "Singer and Page (2015) restrict this species to the Brahmaputra and Ganges river basins of northern India and Bangladesh [p. 398].",
+        "quote": "The peacock loach, Acanthocobitis pavonacea, is a large nemacheilid loach from the Brahmaputra River drainage in Assam, northeastern India.",
+        "country": "IN",
         "ok": true
       },
       {

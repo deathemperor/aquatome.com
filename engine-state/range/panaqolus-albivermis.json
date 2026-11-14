@@ -1,0 +1,67 @@
+{
+  "id": "panaqolus-albivermis",
+  "native": {
+    "input": "3ac9572c39021742",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species originates from Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Peru: Upper and Middle Ucayali drainage, Amazon basin.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ucayali",
+        "source": "planetcatfish",
+        "quote": "Peru: Upper and Middle Ucayali drainage, Amazon basin.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "Peru: Upper and Middle Ucayali drainage, Amazon basin.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Panaqolus albivermis",
+    "status": "ACCEPTED",
+    "taxonKey": 8072435,
+    "datasets": [
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

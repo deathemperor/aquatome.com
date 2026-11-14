@@ -1,0 +1,204 @@
+{
+  "id": "trachelyichthys-exilis",
+  "scientificName": "Trachelyichthys exilis",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Trachelyichthys",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "nanay"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 8
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trachelyichthys-exilis",
+      "html": "<p>The pygmy driftwood catfish, Trachelyichthys exilis, is a small auchenipterid catfish from the Nanay river basin in Peru. It is very similar to T. decaradiatus but has the eye set further forward and a longer, thinner humeral process. Unlike most auchenipterids it usually feeds by day. It is totally unaggressive towards conspecifics and does best in a group.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trachelyichthys-exilis",
+      "html": "<p>Nanay river basin, Peru.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trachelyichthys-exilis",
+      "html": "<p>The river and its tributaries.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trachelyichthys-exilis",
+      "html": "<p>Standard length: 80 mm SL (8 cm).</p><p>Aquarium base: 60 × 38 cm.</p><p>Volume: ~68 litres (60 × 38 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trachelyichthys-exilis",
+      "html": "<p>Ideally suited to a heavily planted setup, and will show its best colours in such surroundings. It doesn't appreciate bright conditions and we suggest the use of floating plants to diffuse the light entering the tank. Allow open spaces between areas of planting to allow swimming space.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trachelyichthys-exilis",
+      "html": "<ul><li>Temperature: 22–25°C</li><li>pH: 6.5–7.0</li><li>Hardness: 8–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trachelyichthys-exilis",
+      "html": "<p>It prefers live and frozen foods such as bloodworm, earthworms, prawns etc., but most will also take small pellets or flakes. Unlike most Auchenipterids it will usually feed during daylight hours.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trachelyichthys-exilis",
+      "html": "<p>Safe with all but the smallest of fry, and so suitable for most community aquaria. Ideally, keep it in a South American biotope aquarium, with tetras, dwarf cichlids and other peaceful catfish such as Corydoras sp. and smaller Loricariids. It's totally unaggressive towards conspecifics, and is happier when kept in a group.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trachelyichthys-exilis",
+      "html": "<p>Males have a heavily modified anal fin, which is used in a similar fashion to the gonopodium possessed by livebearers. Females are much rounder than males when gravid.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trachelyichthys-exilis",
+      "html": "<p>Has been achieved but very little data is available. In common with other members of the family, fertilisation is internal.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trachelyichthys-exilis",
+      "html": "<p>Very similar to its congener T. decaradiatus, it can be distinguished by looking at the position of the eye, which is set much further back in decaradiatus. Also, the humeral process (long spine extending from the back of the gill plate), is longer and thinner in this species than decaradiatus. Neither are seen very often in the hobby, but are sometimes available at specialist outlets.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/19b1b04edca3e20f.webp",
+      "thumb": "https://media.aquatome.com/scotcat/19b1b04edca3e20f-480.webp",
+      "width": 500,
+      "height": 241,
+      "licence": "dùng với sự cho phép",
+      "author": "Pertti Rassi / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyichthys_exilis.htm",
+      "caption": "Trachelyichthys exilis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/98b17ca5f8afb30b.webp",
+      "thumb": "https://media.aquatome.com/scotcat/98b17ca5f8afb30b-480.webp",
+      "width": 500,
+      "height": 326,
+      "licence": "dùng với sự cho phép",
+      "author": "Julian Dignall / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyichthys_exilis.htm",
+      "caption": "Trachelyichthys exilis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/128878a82098b029.webp",
+      "thumb": "https://media.aquatome.com/scotcat/128878a82098b029-480.webp",
+      "width": 500,
+      "height": 406,
+      "licence": "dùng với sự cho phép",
+      "author": "Julian Dignall / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyichthys_exilis.htm",
+      "caption": "Trachelyichthys exilis: top of head view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/9f946612f0cf90f2.webp",
+      "thumb": "https://media.aquatome.com/scotcat/9f946612f0cf90f2-480.webp",
+      "width": 500,
+      "height": 405,
+      "licence": "dùng với sự cho phép",
+      "author": "Julian Dignall / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyichthys_exilis.htm",
+      "caption": "Trachelyichthys exilis: close up of head",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "den",
+      "keywords": [
+        "đèn bể thủy sinh ánh sáng nhẹ"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh lá nổi",
+        "cây thủy sinh cho bể trồng cây"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "cám chìm cho cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

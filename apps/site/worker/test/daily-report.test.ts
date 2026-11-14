@@ -2,7 +2,8 @@ import { afterEach, beforeEach, expect, test, vi } from 'vitest'
 import { createSession, sha256 } from '../accounts/session'
 import { deleteUser } from '../accounts/users'
 import { NAV, WEB_PAGES } from '../admin/shell'
-import { ADMIN_PAGES, SECTIONS } from '../dashboard'
+import { todayPage } from '../admin/today'
+import { ADMIN_PAGES, loadToday, SECTIONS } from '../dashboard'
 import { addChanges, CHANGELOG_KEY } from '../daily/changelog'
 import { LOG_PREFIX, LOG_TTL, type Report } from '../daily/log'
 import { addDevice, TOKENS_KEY } from '../daily/push'
@@ -525,6 +526,35 @@ test('the change log: the report adds its changes to KV before it sends, each on
   const quiet = world()
   await post(quiet.e)
   expect(quiet.ab.m.has(CHANGELOG_KEY)).toBe(false)
+})
+
+const land = (e: Env, b: string, headers: Record<string, string> = { authorization: `Bearer ${TOKEN}` }, method = 'POST') => handle(new Request('https://x.test/_ab/changelog', { method, headers, ...(method === 'POST' ? { body: b } : {}) }), e)
+
+test('POST /_ab/changelog: a merge\'s lines are on the card at once, and the report that follows doesn\'t double them', async () => {
+  const w = world()
+  const at = new Date(Date.now() - 3_600_000).toISOString()
+  const lines = [change('Site', 'A comment waits for review.', at), change('App', 'The tanks tab matches its design.', at)]
+  const r = await land(w.e, JSON.stringify({ changes: lines }))
+  expect(r.status).toBe(200)
+  expect(await r.json()).toEqual({ ok: true, added: 2 })
+  expect(changesKept(w)).toEqual(lines)
+  expect(todayPage(await loadToday(w.e as never, new URL('https://x.test/_ab/'), new Date(), 'Asia/Ho_Chi_Minh'))).toContain('Changelog · 2 in 24 h')
+
+  // The next push sends them again, and the report after it: kept once.
+  expect(await (await land(w.e, JSON.stringify({ changes: lines }))).json()).toEqual({ ok: true, added: 0 })
+  expect((await post(w.e, body('1002', { changes: lines }))).status).toBe(200)
+  expect(changesKept(w)).toEqual(lines)
+})
+
+test('POST /_ab/changelog: the dashboard token only; a body of any other shape is refused and nothing is kept', async () => {
+  const w = world()
+  const good = JSON.stringify({ changes: [change('Site', 'A.', '2026-11-05T00:00:00Z')] })
+  expect((await land(w.e, good, {})).status).toBe(404)
+  expect((await land(w.e, good, { authorization: 'Bearer wrong' })).status).toBe(404)
+  expect((await land(w.e, '', { authorization: `Bearer ${TOKEN}` }, 'GET')).status).toBe(404)
+  for (const bad of ['not json', '{}', '{"changes":"x"}', JSON.stringify({ changes: [change('Nope', 'A.', '2026-11-05T00:00:00Z')] }), JSON.stringify({ changes: Array(101).fill(change('Site', 'A.', '2026-11-05T00:00:00Z')) })])
+    expect((await land(w.e, bad)).status, bad.slice(0, 40)).toBe(400)
+  expect(w.ab.m.has(CHANGELOG_KEY)).toBe(false)
 })
 
 test('the change log keeps a year: what is older leaves on the next write; nothing new, nothing written', async () => {

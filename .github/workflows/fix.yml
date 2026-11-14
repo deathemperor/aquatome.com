@@ -5,7 +5,12 @@ name: Auto-fix from an issue
 #
 # Three jobs keep the agent's work away from write access: `agent` holds only the Claude token and hands over a patch;
 # `verify` runs the patched code with no secrets; `publish` holds the write token but runs no repository code, only the
-# publish script as it is on main, and refuses patches to the workflows or to the fix and watch scripts.
+# publish script as it is on main, and refuses patches to the workflows or to the fix and watch scripts. While
+# CLAUDE_ON_CI is off, none of those three run: the run stays green and says Claude is paused.
+#
+# Two more keep the auto-fix to its line in the daily ceilings (packages/engine/src/ceilings.json): `budget` counts what
+# is left of the day before the session, which then runs under that as its cap, and `cost` keeps the session's cost line
+# for the next run to count. Neither runs the agent or holds a token of Claude's.
 on:
   workflow_dispatch:
     inputs:
@@ -21,22 +26,57 @@ permissions: {}
 env:
   ISSUE: ${{ github.event.issue.number || inputs.issue }}
 jobs:
+  # The auto-fix has a line in the engine's daily ceilings (packages/engine/src/ceilings.json, GitHub's side). What is
+  # left of its day is counted from the cost lines its earlier runs kept (scripts/claude-spend.mjs), in a job of its own:
+  # reading other runs' artifacts takes `actions: read`, which the agent's job doesn't get. No model, no token of Claude's.
+  # If the day can't be counted this job fails, and no session starts.
+  budget:
+    name: What the auto-fix has left of its day
+    if: (github.event_name == 'workflow_dispatch' || github.event.label.name == 'autofix') && vars.CLAUDE_ON_CI != 'off'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      actions: read
+    outputs:
+      left: ${{ steps.left.outputs.left }}
+      go: ${{ steps.left.outputs.go }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - id: left
+        name: Count the day's cost lines against the auto-fix's ceiling
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/claude-spend.mjs left autofix
   agent:
     name: Claude reproduces and fixes the issue (read-only token)
-    if: github.event_name == 'workflow_dispatch' || github.event.label.name == 'autofix'
+    # CLAUDE_ON_CI=off pauses Claude in the workflows. This run stays green and says it is paused.
+    # Unset, or any other value, and the fix runs.
+    needs: budget
+    if: (github.event_name == 'workflow_dispatch' || github.event.label.name == 'autofix') && vars.CLAUDE_ON_CI != 'off'
     runs-on: ubuntu-latest
     timeout-minutes: 60
     permissions:
       contents: read
       issues: read
+    outputs:
+      reported: ${{ steps.here.outputs.reported }}
+      started: ${{ steps.go.outputs.started }}
     steps:
+      # Said first, before anything of the repository runs. A job's outputs are handed on when its runner finishes the
+      # job, whatever became of its steps, so this reaches the `cost` job unless the runner was lost on the way.
+      - id: here
+        name: Say this job's runner is here
+        run: echo reported=1 >> "$GITHUB_OUTPUT"
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
       - name: Install Node, pnpm and the dependencies
         uses: ./.github/actions/setup
       - name: Install Chromium for Playwright, and Claude
-        run: pnpm --filter site exec playwright install --with-deps chromium && npm install -g @anthropic-ai/claude-code
+        run: scripts/install-browser.sh chromium && npm install -g @anthropic-ai/claude-code
       - name: Read the issue
         env:
           GH_TOKEN: ${{ github.token }}
@@ -46,17 +86,51 @@ jobs:
             --jq '"# #\(.number) \(.title)\n\nLabels: \([.labels[].name] | join(", "))\n\n\(.body)"' > ISSUE.md
       - name: Build the fixture site for the agent to start from
         run: pnpm test > /tmp/fixture-build.log 2>&1 || true # the agent starts from a built fixture site
+      # One session, up to this job's hour, so a count before it starts would stop nothing. The session runs under the
+      # CLI's own cap, --max-budget-usd, set to what the auto-fix has left of its day: the CLI adds up its estimate of
+      # the spend after each response and ends the session once that reaches the cap, so a run passes it by one
+      # response at most. That is cents as a rule. On paper it is as much as $10.56 at Opus 5.5's list price: the
+      # model's 1M context, all of it new to the cache at its dearest ($8 a million, an hour's keep), and a 128K answer
+      # ($20 a million). The session keeps the model's whole context, so the fixer is no less able: stopped by money, a
+      # response late at most, is the bound (the chief of staff, 11 Nov). With nothing left, no session starts, and the
+      # issue is told why. The step has 50 of the job's 60 minutes.
+      # The step before it says a session is about to start, for the job that keeps the cost line: said before the
+      # agent runs, so the agent can't have touched it. A job that failed before that (an install) spent nothing.
+      - id: go
+        name: Say a session is about to start
+        if: needs.budget.outputs.go == 'true'
+        run: echo started=1 >> "$GITHUB_OUTPUT"
       - name: Claude reproduces the problem and fixes it
+        timeout-minutes: 50
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # The CLI keeps its own sign-in out of what it hands the commands it runs (its default on GitHub's runners,
+          # said here so it stays so): the agent's Bash isn't handed the token to start a second session outside the
+          # cap with. It is not a wall: a command runs as the same user as the CLI, which holds the token.
+          CLAUDE_CODE_SUBPROCESS_ENV_SCRUB: '1'
+          LEFT: ${{ needs.budget.outputs.left }}
+          GO: ${{ needs.budget.outputs.go }}
         run: |
+          if [ "$GO" != true ]; then
+            echo '{"structured_output":{"status":"needs-person","summary":"No fix was tried: the auto-fix has spent its ceiling for today (packages/engine/src/ceilings.json). Start it again tomorrow, or fix it by hand."}}' > /tmp/agent.json
+            exit 0
+          fi
+          budget=()
+          if [ "$LEFT" != none ]; then
+            [[ "$LEFT" =~ ^[0-9]+(\.[0-9]+)?$ ]] || { echo "not a number of dollars: $LEFT"; exit 1; }
+            budget=(--max-budget-usd "$LEFT")
+          fi
           schema='{"type":"object","required":["status","summary"],"additionalProperties":false,"properties":{"status":{"enum":["fixed","not-reproduced","needs-person"]},"summary":{"type":"string"},"check":{"type":"string"}}}'
           claude -p --model "${FIX_MODEL:-opus}" --output-format json --tools 'Read,Edit,Write,Bash,Glob,Grep' --allowedTools 'Read,Edit,Write,Bash,Glob,Grep' \
-            --setting-sources '' --strict-mcp-config --json-schema "$schema" < scripts/site-fix-prompt.md > /tmp/agent.json || true
+            --setting-sources '' --strict-mcp-config "${budget[@]}" --json-schema "$schema" < scripts/site-fix-prompt.md > /tmp/agent.json || true
       - name: Turn the agent's work into a patch
         run: |
           mkdir -p /tmp/fix
-          node -e 'let r={};try{r=JSON.parse(require("fs").readFileSync("/tmp/agent.json","utf8"))}catch{};const o=r.structured_output??{status:"needs-person",summary:"The agent did not finish: "+String(r.result??"no output").slice(0,500)};require("fs").writeFileSync("/tmp/fix/result.json",JSON.stringify(o));console.log(o.status+": "+o.summary)'
+          node -e 'let r={};try{r=JSON.parse(require("fs").readFileSync("/tmp/agent.json","utf8"))}catch{};const o=r.structured_output??{status:"needs-person",summary:r.subtype==="error_max_budget_usd"?"The agent stopped before it finished: it had spent what was left of the auto-fix ceiling for today (packages/engine/src/ceilings.json).":"The agent did not finish: "+String(r.result??"no output").slice(0,500)};require("fs").writeFileSync("/tmp/fix/result.json",JSON.stringify(o));console.log(o.status+": "+o.summary)'
+          # What the session says it cost, for the job that keeps the cost line (`cost`, below). A file beside the
+          # patch, in the artifact this job hands on anyway: as one of this job's outputs it would be an input of that
+          # job's step, and a step's inputs are printed in its public log before the step runs.
+          node -e 'try{const r=JSON.parse(require("fs").readFileSync("/tmp/agent.json","utf8"));if(typeof r.total_cost_usd==="number")require("fs").writeFileSync("/tmp/fix/spent.txt",r.total_cost_usd.toFixed(6))}catch{}'
           rm -f ISSUE.md
           git add -A && git diff --cached --binary > /tmp/fix/fix.patch
           git diff --cached --stat
@@ -65,9 +139,86 @@ jobs:
         with:
           name: fix
           path: /tmp/fix
+  # The auto-fix's cost line, made and kept by a job the agent never ran in. The agent has Bash, and its issue may be a
+  # stranger's text, so nothing in its job is trusted to be what it seems, and a run's artifact and logs are public. One
+  # thing crosses from that job: the dollars the CLI said the session cost, taken only if it is a plain number of
+  # dollars, and kept to the cent. The line's other words are fixed ones.
+  # - It crosses as a file (`spent.txt`, in the artifact that job hands on anyway), never as one of this job's inputs:
+  #   a step's inputs are printed in its log before it runs, so text put there would be public whatever the step then
+  #   made of it. The file is read and never printed. The two inputs that do come from that job are its own "here" and
+  #   "about to start", both said before the agent ran.
+  # - With no such number (the session ran out of time or was stopped, the runner was lost, or something else was put
+  #   there), the session is counted at the whole of what it was allowed. One case writes no line: the agent's job said
+  #   its runner was there and never said a session was about to start (an install failed), so nothing was spent.
+  # - This job runs whatever became of the agent's. The number is that job's own word: an agent set on it could put a
+  #   smaller one there, and its run is still held to the cap.
+  cost:
+    name: Keep the auto-fix's cost line
+    needs: [budget, agent]
+    if: always() && needs.budget.outputs.go == 'true' && needs.agent.result != 'skipped'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions: {}
+    steps:
+      # No artifact (the session ran out of time, the job failed, the runner was lost), or one too big to fetch in
+      # two minutes, is no number: the step after this one runs all the same.
+      - name: Fetch what the agent's job handed on
+        continue-on-error: true
+        timeout-minutes: 2
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        with:
+          name: fix
+          path: ${{ runner.temp }}/fix
+      - name: Write the session's cost line
+        env:
+          LEFT: ${{ needs.budget.outputs.left }}
+          REPORTED: ${{ needs.agent.outputs.reported }}
+          STARTED: ${{ needs.agent.outputs.started }}
+          SPENT: ${{ runner.temp }}/fix/spent.txt
+          COST_LINE: ${{ runner.temp }}/aquatome-cost-autofix.jsonl
+        run: |
+          node - <<'JS'
+          const fs = require('fs')
+          const dollars = s => (/^\d{1,4}(\.\d{1,6})?$/.test(s ?? '') ? Number(s) : undefined)
+          // The agent's job's file: read only if it is a plain file of a few bytes, and never printed.
+          let said
+          try {
+            const file = fs.lstatSync(process.env.SPENT)
+            if (file.isFile() && file.size <= 16) said = fs.readFileSync(process.env.SPENT, 'utf8')
+          } catch {}
+          const left = dollars(process.env.LEFT)
+          let usd = dollars(said)
+          let assumed = false
+          if (usd === undefined) {
+            const none = process.env.REPORTED === '1' && process.env.STARTED !== '1'
+            if (none || !(left > 0)) { console.log('no cost to read, and no session or no ceiling to count it at: no line'); process.exit(0) }
+            usd = left
+            assumed = true
+          }
+          const line = { at: new Date().toISOString(), step: 'autofix', usd: Math.round(usd * 100) / 100, ...(assumed ? { assumed: true } : {}) }
+          fs.writeFileSync(process.env.COST_LINE, JSON.stringify(line) + '\n')
+          console.log(JSON.stringify(line))
+          JS
+      # Named by the run's attempt: a job run again keeps the first attempt's line too.
+      - name: Keep it with the run
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: cost-log-autofix-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/aquatome-cost-autofix.jsonl
+          if-no-files-found: ignore
+  # watch.yml starts this workflow for a new problem. While the switch is off that run stays green and says why it did nothing.
+  paused:
+    name: Claude is paused
+    if: (github.event_name == 'workflow_dispatch' || github.event.label.name == 'autofix') && vars.CLAUDE_ON_CI == 'off'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Say the fix is paused
+        run: echo "CLAUDE_ON_CI is off, so Claude is paused."
   verify:
     name: Every check on the patch (no secrets)
     needs: agent
+    if: vars.CLAUDE_ON_CI != 'off'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     permissions:
@@ -95,12 +246,12 @@ jobs:
         name: Unit tests, typecheck and browser checks
         if: steps.apply.outputs.applied == '1'
         run: |
-          pnpm --filter site exec playwright install --with-deps chromium
+          scripts/install-browser.sh chromium
           pnpm test && pnpm typecheck && pnpm --filter site e2e && echo ok=1 >> "$GITHUB_OUTPUT" || echo ok=0 >> "$GITHUB_OUTPUT"
   publish:
     name: Open the draft PR, or say why on the issue
     needs: [agent, verify]
-    if: always() && needs.agent.result == 'success'
+    if: always() && needs.agent.result == 'success' && vars.CLAUDE_ON_CI != 'off'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:

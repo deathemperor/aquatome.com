@@ -73,6 +73,37 @@ test('a model failure stops the run and leaves the page for next time; --limit b
   expect(Object.keys(await read(root, 's.json'))).toEqual(['guides/g'])
 })
 
+test('a usage limit or a ceiling part way through a page logs none of its reviews; another model failure logs them, not kept', async () => {
+  // As Claude's limit and a ceiling (ceiling.ts) word it, which errorKind classes as a usage limit; then a failure that isn't one.
+  const limits = ["claude failed (1): You've hit your weekly limit · resets Nov 14 at 8am (Asia/Saigon)", "claude failed: the engine's daily limit reached for rewrite-vi ($3.02 of $3 today)"]
+  for (const [message, logged] of [...limits.map(m => [m, 0] as const), ['claude failed (1): bad output', 1] as const]) {
+    const root = await setup()
+    let n = 0
+    const base = fake({ en: 0.9, vi: 0.9 })
+    // The page's first source is rewritten and reviewed (0.9 is near the bar: three reads); the second source's rewrite fails.
+    const llm: Llm = async <T,>(a: { system: string; prompt: string; schema: object }) => { if (n++ === 4) throw new LlmError(message); return base<T>(a) }
+    const r = await rewriteExisting(root, join(root, 's.json'), { llm, opts: { mode: 'fix' }, now }, { limit: 5, kinds: ['species'] })
+    expect(r.stopped).toContain(message)
+    expect(Object.keys(await readReviews(join(root, '..'), 'vi-rewrite')), message).toHaveLength(logged)
+    expect(await read(root, 'species/x/vi.json')).toMatchObject({ sections: { 'habitat:seriouslyfish': '<p>cũ</p>' } })
+  }
+})
+
+test('pages named first go first, in their order, ahead of guides and of pages out of search; one not due is passed over', async () => {
+  const root = await setup(0.6)
+  for (const id of ['y', 'z']) {
+    await put(root, `species/${id}/entity.json`, { id, sections: [{ key: 'diet', source: 'seriouslyfish', sourceUrl: 'u', html: '<p>diet</p>' }] })
+    await put(root, `species/${id}/vi.json`, { slug: id, name: id, sections: { 'diet:seriouslyfish': '<p>cũ</p>' }, quality: { score: 0.9, indexable: true } })
+  }
+  const state = join(root, 's.json')
+  // species/x is out of search (0.6) and would go first; g is a guide, the first kind. Named: z, then y, then a page done.
+  await writeFile(state, JSON.stringify({ 'species/done': { at: '2026-10-29', rewritten: 1, of: 1, scores: [0.9], v: 2 } }))
+  const r = await rewriteExisting(root, state, { llm: fake({ en: 0.9, vi: 0.9 }), opts: { mode: 'fix' }, now }, { limit: 3, first: ['species/z', 'species/y', 'species/done'], dry: true })
+  expect(r.done.map(x => x.split(' ')[0])).toEqual(['species/z', 'species/y', 'species/x'])
+  const plain = await rewriteExisting(await setup(0.6), state, { llm: fake({ en: 0.9, vi: 0.9 }), opts: { mode: 'fix' }, now }, { limit: 2, dry: true })
+  expect(plain.done.map(x => x.split(' ')[0])).toEqual(['species/x', 'guides/g'])
+})
+
 test('a long source split into chunks scores as its weakest kept chunk, or its old score where a chunk was not kept', async () => {
   const big = 'x'.repeat(7000)
   const make = async (scores: number[]) => {
@@ -93,6 +124,15 @@ test('a long source split into chunks scores as its weakest kept chunk, or its o
   const one = await make([0.9, 0.9, 0.9, 0.5]) // the second chunk keeps its old text, so the source can't rise above the old 0.6
   expect(one.sections['diet:seriouslyfish']).toBe('<p>cũ</p>')
   expect(one.quality).toEqual({ score: 0.6, indexable: false, bySource: { seriouslyfish: 0.6 }, reason: 'score' })
+})
+
+test('a page out of search for its score goes before the pages in search; a thin one keeps its place', async () => {
+  const root = await setup(0.6) // species/x is out of search for its score
+  await put(root, 'species/a/entity.json', { id: 'a', sections: [{ key: 'diet', source: 'glaser', sourceUrl: 'u', html: '<p>diet</p>' }] })
+  await put(root, 'species/a/vi.json', { slug: 'ca-a', name: 'Cá A', sections: { 'diet:glaser': '<p>cũ</p>' }, quality: { score: 0.8, indexable: false, bySource: { glaser: 0.8 }, reason: 'thin' } })
+  const order = async (limit: number) => (await rewriteExisting(root, join(root, 's.json'), { llm: fake({ en: 0.9, vi: 0.9 }), opts: { mode: 'fix' }, now }, { limit, dry: true })).done.map(x => x.split(' ')[0])
+  expect(await order(1)).toEqual(['species/x'])
+  expect(await order(10)).toEqual(['species/x', 'guides/g', 'species/a', 'glossary/t'])
 })
 
 test('a rewrite keeps a thin page out of search: it changes the words, not the page\'s depth', async () => {

@@ -204,7 +204,12 @@
       "author": "Przemysław Malkowski",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ameca_splendens.jpg",
       "caption": "Ameca splendens",
-      "thumb": "https://media.aquatome.com/commons/709d4ee1592e5d9a-480.webp"
+      "thumb": "https://media.aquatome.com/commons/709d4ee1592e5d9a-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/709d4ee1592e5d9a-large.webp",
+        "width": 1018,
+        "height": 577
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/b8246d0cc1307154.webp",

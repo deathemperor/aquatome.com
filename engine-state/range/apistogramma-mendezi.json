@@ -1,8 +1,8 @@
 {
   "id": "apistogramma-mendezi",
   "native": {
-    "input": "b67e55d9d82b7b02",
-    "at": "2026-11-09T20:43:02.940Z",
+    "input": "3e63ab6b4eaa6f4e",
+    "at": "2026-11-10T04:57:39.069Z",
     "claims": [
       {
         "code": "BR",
@@ -31,10 +31,9 @@
         "ok": true
       },
       {
-        "name": "Rio Salgado",
-        "source": "seriouslyfish",
-        "quote": "Type locality is 'Rio Salgado, near Barcelos do Rio Negro, Dept. Amazonas, Brazil, about 0°01'S, 63°04'W', this referring to an igarapé (stream) sometimes referred to as the rio Salgádo near Barcelos municipality, Amazonas state.",
-        "country": "BR",
+        "name": "Rio Negro",
+        "source": "glaser",
+        "quote": "A. mendezi and A. paucisquamis were suspected for a long time to live together in some regions east of Barcelos in the Rio Negro.",
         "ok": true
       }
     ],

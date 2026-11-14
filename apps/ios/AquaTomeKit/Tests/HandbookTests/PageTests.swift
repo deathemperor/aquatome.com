@@ -56,6 +56,7 @@ private func json(_ i: PageDoc.Image) -> [String: Any] {
   var o: [String: Any] = ["src": i.src, "w": i.w, "h": i.h]
   o["alt"] = i.alt
   o["thumb"] = i.thumb
+  o["box"] = i.box.map { ["x": $0.x, "y": $0.y, "w": $0.w, "h": $0.h] as [String: Any] }
   if let c = i.credit {
     var j: [String: Any] = ["text": c.text, "licence": c.licence]
     j["url"] = c.url
@@ -136,6 +137,21 @@ private func same(_ a: Any, _ b: Any) -> Bool { (a as AnyObject).isEqual(b) }
     // Each block this app can't read is one "open on the web", in its place: none merged, none lost.
     #expect(d.blocks.map(\.t) == c["blocks"] as! [String], "\(c["note"]!)")
   }
+}
+
+/// Where the fish is in a page's photo (`box`, fractions of the photo): read as sent, the whole area included, and a box
+/// out of the photo dropped rather than misread (the site's #1226; the frames rule is protocols/photo-crop-vectors.json).
+@Test func aPhotosBoxIsReadAsSentAndABrokenOneDropped() throws {
+  func lead(_ box: Any) throws -> PageDoc.Image? {
+    var p = page([["t": "p", "c": ["Một đoạn."]]])
+    p["lead"] = ["src": "https://media.aquatome.com/x.webp", "w": 1000, "h": 691, "box": box] as [String: Any]
+    return try doc(p).lead
+  }
+  #expect(try lead(["x": 0.25, "y": 0.4, "w": 0.5, "h": 0.3])?.box.map { [$0.x, $0.y, $0.w, $0.h] } == [0.25, 0.4, 0.5, 0.3])
+  #expect(try lead(["x": 0, "y": 0, "w": 1, "h": 1])?.box.map { [$0.x, $0.y, $0.w, $0.h] } == [0, 0, 1, 1])
+  // The photo still shows; only its box is left out.
+  #expect(try lead(["x": 0.8, "y": 0, "w": 0.5, "h": 1])?.box == nil)
+  #expect(try lead(["x": 0.1, "y": 0.1])?.src == "https://media.aquatome.com/x.webp")
 }
 
 /// Fish, plant and glossary pages, with the blocks and fields added for them: this app reads every one as written (an

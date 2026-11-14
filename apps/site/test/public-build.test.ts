@@ -3,6 +3,7 @@ import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync }
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { afterAll, beforeAll, expect, test } from 'vitest'
+import { slow } from '@aq/schema/test-time'
 
 const site = fileURLToPath(new URL('..', import.meta.url))
 // Inside the site (gitignored .astro/), not the OS temp dir: Astro moves built files into OUT_DIR with rename(), which
@@ -12,7 +13,7 @@ const out = mkdtempSync(join(site, '.astro', 'public-build-'))
 
 beforeAll(() => {
   execFileSync('pnpm', ['exec', 'astro', 'build'], { cwd: site, env: { ...process.env, PUBLIC_BUILD: '1', OUT_DIR: out }, stdio: 'pipe' })
-}, 120_000)
+}, slow(120_000))
 afterAll(() => rmSync(out, { recursive: true, force: true }))
 
 test('public build with no cleared sources publishes no species, plants or guides', () => {

@@ -1,8 +1,8 @@
 {
   "id": "brachyplatystoma-capapretum",
   "native": {
-    "input": "593de8e2dfb50698",
-    "at": "2026-11-06T21:19:39.004Z",
+    "input": "d25a0b77838c46c6",
+    "at": "2026-11-10T04:57:39.069Z",
     "claims": [
       {
         "code": "PE",
@@ -43,25 +43,25 @@
         "ok": true
       },
       {
-        "name": "Purus",
-        "source": "seriouslyfish",
-        "quote": "It also occurs in most major Amazon tributaries including the Trombetas, Madeira, Purus, Negro, Manacapuru, Purus, Tefé, Putumayo, Juruá, Jutaí, and Içá.",
-        "ok": true
-      },
-      {
         "name": "Negro",
         "source": "seriouslyfish",
         "quote": "It also occurs in most major Amazon tributaries including the Trombetas, Madeira, Purus, Negro, Manacapuru, Purus, Tefé, Putumayo, Juruá, Jutaí, and Içá.",
         "ok": true
       },
       {
-        "name": "Trombetas",
+        "name": "Purus",
         "source": "seriouslyfish",
         "quote": "It also occurs in most major Amazon tributaries including the Trombetas, Madeira, Purus, Negro, Manacapuru, Purus, Tefé, Putumayo, Juruá, Jutaí, and Içá.",
         "ok": true
       },
       {
         "name": "Putumayo",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in most major Amazon tributaries including the Trombetas, Madeira, Purus, Negro, Manacapuru, Purus, Tefé, Putumayo, Juruá, Jutaí, and Içá.",
+        "ok": true
+      },
+      {
+        "name": "Juruá",
         "source": "seriouslyfish",
         "quote": "It also occurs in most major Amazon tributaries including the Trombetas, Madeira, Purus, Negro, Manacapuru, Purus, Tefé, Putumayo, Juruá, Jutaí, and Içá.",
         "ok": true

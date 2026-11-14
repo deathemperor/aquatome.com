@@ -10,6 +10,67 @@
     "myanmar",
     "ayeyarwady"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Ayeyarwady",
+        "Nan Hto Chaung",
+        "Mali Hka"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the remote, mountainous area of Putao in Kachin state, northern Myanmar.",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Both known localities, the Nan Hto Chaung and the Mali Hka River, are part of the upper Ayeyarwady system.",
+          "countries": [],
+          "regions": [
+            "Ayeyarwady"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The holotype and most of the type series was collected from the Nan Hto Chaung (Nan Hto stream) with the Mali Hka River representing the only other locality known.",
+          "countries": [],
+          "regions": [
+            "Nan Hto Chaung",
+            "Mali Hka"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7482615,
+      "total": 7,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "MM",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          26.71875,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

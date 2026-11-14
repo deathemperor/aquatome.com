@@ -4,15 +4,15 @@ import { beaconScript, NOCOUNT, VID, VID_MS } from '../src/lib/beacon'
 
 // The beacon, run as a browser would run it, with the visitor switch on and off (src/lib/beacon.ts).
 
-type Sent = { p: string; t: string; v: number; sid: string; r: string; u?: string }
-function run(on: boolean, o: { local?: Record<string, string> | 'blocked'; gpc?: boolean; dnt?: string; now?: number } = {}) {
+type Sent = { p: string; t: string; v: number; sid: string; r: string; u?: string; d?: string }
+function run(on: boolean, o: { local?: Record<string, string> | 'blocked'; gpc?: boolean; dnt?: string; now?: number; ua?: string; touch?: number } = {}) {
   const sent: Sent[] = []
   const clicks: ((e: unknown) => void)[] = []
   const store = (m: Map<string, string>) => ({ getItem: (k: string) => m.get(k) ?? null, setItem: (k: string, v: string) => { m.set(k, String(v)) }, removeItem: (k: string) => { m.delete(k) } })
   const local = o.local === 'blocked' ? undefined : new Map(Object.entries(o.local ?? {}))
   const window: Record<string, unknown> = {
     sessionStorage: store(new Map()),
-    navigator: { sendBeacon: (_: string, body: string) => { sent.push(JSON.parse(body)); return true }, globalPrivacyControl: o.gpc, doNotTrack: o.dnt ?? null },
+    navigator: { sendBeacon: (_: string, body: string) => { sent.push(JSON.parse(body)); return true }, globalPrivacyControl: o.gpc, doNotTrack: o.dnt ?? null, userAgent: o.ua ?? '', maxTouchPoints: o.touch ?? 0 },
     location: { pathname: '/ca/ca-betta/', hostname: 'aquatome.com' },
     document: { documentElement: { scrollHeight: 1000 }, referrer: '', prerendering: false, visibilityState: 'visible', addEventListener: (t: string, f: (e: unknown) => void) => { if (t === 'click') clicks.push(f) } },
     addEventListener: () => {}, setTimeout: () => 0, scrollY: 0, innerHeight: 800, URL,
@@ -59,6 +59,34 @@ test('switch on: a visitor code made once, kept, sent with each event, and repla
   first.click({ dataset: { ev: 'src' }, rel: 'noopener' })
   first.click({ rel: 'sponsored', dataset: {} })
   expect(first.sent.map(s => [s.t, s.u])).toEqual([['view', u], ['tank', u], ['src', u], ['aff', u]])
+})
+
+test('switch on: the browser works out one of three words for the device and sends nothing else about it', () => {
+  const macSafari = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Safari/605.1.15'
+  const iPhone = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1'
+  const agents: [string, number, string][] = [
+    [iPhone, 5, 'phone'],
+    ['Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 5, 'phone'],
+    [macSafari, 5, 'tablet'], // an iPad on Safari says it's a Mac; its touch points tell
+    ['Mozilla/5.0 (iPad; CPU OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/130.0.0.0 Mobile/15E148 Safari/604.1', 5, 'tablet'],
+    ['Mozilla/5.0 (Linux; Android 14; SM-X710) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 10, 'tablet'],
+    [macSafari, 0, 'desktop'],
+    ['Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 10, 'desktop'], // a touch-screen laptop
+    ['Mozilla/5.0 (X11; CrOS x86_64 16002.51.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 10, 'desktop'], // a touch-screen Chromebook
+    // Can't tell: left empty, never guessed.
+    ['', 0, ''],
+    ['Mozilla/5.0 (Linux; Android 12; BRAVIA 4K UR3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36', 0, ''],
+    ['Mozilla/5.0 (SMART-TV; Linux; Tizen 7.0) AppleWebKit/537.36 (KHTML, like Gecko) Version/7.0 TV Safari/537.36', 0, ''],
+  ]
+  for (const [ua, touch, d] of agents) {
+    const { sent, click } = run(true, { local: {}, ua, touch })
+    click({ dataset: { ev: 'tank' } })
+    expect(sent.map(s => s.d), ua).toEqual([d, d])
+    expect(Object.keys(sent[0]!).sort()).toEqual(['d', 'p', 'r', 'sid', 't', 'u', 'v'])
+  }
+  // It identifies no one, so like the country it stays with Global Privacy Control, when the visitor code goes.
+  expect(run(true, { local: {}, gpc: true, ua: iPhone, touch: 5 }).sent[0]).toMatchObject({ u: '', d: 'phone' })
+  expect(run(false, { ua: iPhone, touch: 5 }).sent[0]).not.toHaveProperty('d')
 })
 
 test('switch on: no code with Global Privacy Control or Do Not Track, none when storage is blocked; the tab still counts', () => {

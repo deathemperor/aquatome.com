@@ -10,6 +10,70 @@
     "venezuela",
     "casiquiare"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Orinoco",
+        "Rio Casiquiare"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species inhabits the Rio Casiquiare and the upper Orinoco River drainage (Minicia in Venezuela).",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Orinoco",
+            "Rio Casiquiare"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202292,
+      "total": 7,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "VE",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          -67.5,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          1.40625,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

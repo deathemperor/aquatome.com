@@ -10,6 +10,69 @@
     "tanzania",
     "lake-malawi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TZ"
+      ],
+      "regions": [
+        "Lake Malawi",
+        "Pombo Rocks"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Chindongo demasoni is a dwarf mbuna endemic to Lake Malawi, where it occurs around Pombo Rocks off the Tanzanian coast.",
+          "countries": [
+            "TZ"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It occurs around Pombo Rocks off the Tanzanian coast.",
+          "countries": [],
+          "regions": [
+            "Pombo Rocks"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2373063,
+      "total": 2,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "MW",
+          1
+        ],
+        [
+          "MZ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -12.65625,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,14 +1,14 @@
 {
   "id": "datnioides-microlepis",
   "native": {
-    "input": "44157b1b397c103e",
-    "at": "2026-11-05T22:45:18.315Z",
+    "input": "1cd5499866717d98",
+    "at": "2026-11-14T00:09:29.977Z",
     "claims": [
       {
         "code": "MY",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Apparently restricted to the Malay Peninsula and western Indonesia, where it is known from the Perak and Selangor river systems in Peninsular Malaysia, Batang Hari and Musi watersheds in Sumatra, and Kapuas basin in Kalimantan (Indonesian Borneo).",
+        "quote": "The Indonesian tiger perch, Datnioides microlepis, is a large tiger perch from Peninsular Malaysia, Sumatra and Indonesian Borneo.",
         "words": "Malaysia",
         "ok": true
       },
@@ -16,8 +16,8 @@
         "code": "ID",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Apparently restricted to the Malay Peninsula and western Indonesia, where it is known from the Perak and Selangor river systems in Peninsular Malaysia, Batang Hari and Musi watersheds in Sumatra, and Kapuas basin in Kalimantan (Indonesian Borneo).",
-        "words": "Indonesia",
+        "quote": "The Indonesian tiger perch, Datnioides microlepis, is a large tiger perch from Peninsular Malaysia, Sumatra and Indonesian Borneo.",
+        "words": "Indonesian",
         "ok": true
       },
       {
@@ -26,6 +26,14 @@
         "source": "seriouslyfish",
         "quote": "It is unclear whether its range extends into peninsular Thailand, while records from the Chao Phraya and Mekong river basins refer to the congener D. pulcher.",
         "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It invariably has 5 bars, while specimens from Indonesia have an individually variable number of bars.",
+        "words": "Indonesia",
         "ok": true
       }
     ],
@@ -75,7 +83,11 @@
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "TH",
+        "LA",
+        "VN"
+      ],
       "sourcesOnly": []
     }
   },

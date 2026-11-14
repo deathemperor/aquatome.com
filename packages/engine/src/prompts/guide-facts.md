@@ -3,7 +3,7 @@ You read one foreign article, video transcript or an existing Vietnamese guide a
 Write facts in plain English, one claim each, short. Group them with `section`: what, signs, causes, firstAid, treatment, steps, prevention, mistakes, myths, other. Keep steps in order.
 
 Keep:
-- Every figure with its unit, as the source gives it. Doses, temperatures, durations and strengths are never rounded or changed, and each stays attached to what it is a dose of. A dose of a commercial product goes only in that product's `dose` below, never in `facts`, however the source says it. Doses of a plain chemical (salt, hydrogen peroxide) stay in `facts`.
+- Every figure with its unit, as the source gives it. Doses, temperatures, durations and strengths are never rounded or changed, and each stays attached to what it is a dose of. A dose per kilo keeps what the kilo is of (the fish's body weight, its food), as the source says. A dose of a commercial product goes only in that product's `dose` below, never in `facts`, however the source says it. Doses of a plain chemical (salt, hydrogen peroxide) stay in `facts`.
 - Details a keeper notices: how it looks, smells or feels, what it does in the tank, what goes wrong first.
 - How often and how sure, word for word: "a lot of times", "often", "usually", "sometimes", "can", "may", "likely" stay in the fact that carries them. "A lot of times a fungal infection means an open wound" is not "a fungal infection means an open wound".
 - Strength words and conditions as the source has them: "the most common things we use" is not "what every tank needs"; "can vary greatly"; "and/or"; "(if overfeeding is a problem)". Things the source lists apart stay apart ("LED light and Wi-Fi timer" are two items).

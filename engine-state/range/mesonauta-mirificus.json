@@ -1,0 +1,90 @@
+{
+  "id": "mesonauta-mirificus",
+  "native": {
+    "input": "2097e06bfc52418d",
+    "at": "2026-11-10T07:58:31.896Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "glaser",
+        "quote": "The Mesonauta species from the upper Amazon is M. mirificus.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Mesonauta mirificus",
+    "status": "ACCEPTED",
+    "taxonKey": 2369928,
+    "datasets": [
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        38
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        33
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        13
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        10
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        9
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        7
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "b8ed9b7c-5b73-4e6d-a6e1-b0911a09f947",
+        3
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "e90a588b-0eed-4077-8a4f-7e61da35b3f8",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-10T07:58:31.896Z"
+  }
+}

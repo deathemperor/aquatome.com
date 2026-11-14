@@ -1,0 +1,83 @@
+{
+  "id": "youtube-9uKsCQMvOuw",
+  "kind": "plantCare",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=9uKsCQMvOuw",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-11",
+  "video": {
+    "youtubeId": "9uKsCQMvOuw",
+    "title": "How to Trim Moss in your Aquascape",
+    "channel": "George Farmer",
+    "channelUrl": "https://www.youtube.com/channel/UC210QPUiYoCjm9IEuu5SHLQ",
+    "durationSec": 181,
+    "publishedAt": "2018-05-01",
+    "chapters": [],
+    "series": {
+      "id": "PLKedE6P1X5OxSCmguLdP1RLgT2C-7z9Ky",
+      "position": 0
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/9uKsCQMvOuw/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [],
+    "gear": [],
+    "figures": [
+      {
+        "heading": "Cần chuẩn bị những gì",
+        "moments": [
+          {
+            "t": 30,
+            "url": "https://media.aquatome.com/video/9uKsCQMvOuw/at30-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cụm rêu rậm trong hồ thủy sinh cần được cắt tỉa và hút vụn.",
+            "sharpness": 1123.1,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Không dùng ống hút thì sao",
+        "moments": [
+          {
+            "t": 60,
+            "url": "https://media.aquatome.com/video/9uKsCQMvOuw/at60-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Búi rêu phủ trên lũa sau khi tỉa, nhìn rõ trong hồ.",
+            "sharpness": 729.4,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Vì sao phải tỉa rêu đều tay",
+        "moments": [
+          {
+            "t": 64,
+            "url": "https://media.aquatome.com/video/9uKsCQMvOuw/at64-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh rêu và cây mọc um tùm, hơi bừa bộn nếu không tỉa.",
+            "sharpness": 46.2
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/9uKsCQMvOuw/p3-cXVhc2NhcGUucG5n.webp",
+          "thumb": "https://media.aquatome.com/video/9uKsCQMvOuw/p3-cXVhc2NhcGUucG5n-480.webp",
+          "width": 960,
+          "height": 447,
+          "licence": "CC BY-SA 4.0",
+          "author": "Duc Viet Bui",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nature_style_aquascape.png",
+          "caption": "Bể thủy sinh với lũa phủ rêu, vừa hoang dã vừa gọn gàng."
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "id": "radix-rubiginosa",
+  "native": {
+    "input": "e96aa2aa9e0c87cd",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Radix rubiginosa is native to Indonesia, Vietnam and Indo-China.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Radix rubiginosa is native to Indonesia, Vietnam and Indo-China.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "TW",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It can be found in Taiwan, China, Japan, Australia, Russia (Lake Baikal), the USA and South Africa.",
+        "words": "Taiwan",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It can be found in Taiwan, China, Japan, Australia, Russia (Lake Baikal), the USA and South Africa.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It can be found in Taiwan, China, Japan, Australia, Russia (Lake Baikal), the USA and South Africa.",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It can be found in Taiwan, China, Japan, Australia, Russia (Lake Baikal), the USA and South Africa.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "RU",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It can be found in Taiwan, China, Japan, Australia, Russia (Lake Baikal), the USA and South Africa.",
+        "words": "Russia",
+        "ok": true
+      },
+      {
+        "code": "US",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It can be found in Taiwan, China, Japan, Australia, Russia (Lake Baikal), the USA and South Africa.",
+        "words": "USA",
+        "ok": true
+      },
+      {
+        "code": "ZA",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It can be found in Taiwan, China, Japan, Australia, Russia (Lake Baikal), the USA and South Africa.",
+        "words": "South Africa",
+        "ok": true
+      },
+      {
+        "code": "GB",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It is also listed as a \"hothouse\" alien species in Great Britain, Ireland and Israel.",
+        "words": "Great Britain",
+        "ok": true
+      },
+      {
+        "code": "IE",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It is also listed as a \"hothouse\" alien species in Great Britain, Ireland and Israel.",
+        "words": "Ireland",
+        "ok": true
+      },
+      {
+        "code": "IL",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It is also listed as a \"hothouse\" alien species in Great Britain, Ireland and Israel.",
+        "words": "Israel",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Radix rubiginosa",
+    "status": "ACCEPTED",
+    "taxonKey": 7384449,
+    "datasets": [
+      [
+        "db9fe307-0dd1-48d8-b977-f025efb21a62",
+        16
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "a307e4d7-1de2-4adc-95d5-a0a8d5f57236",
+        4
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "44bcde48-ac71-46f2-bf73-24fc3c008b6c",
+        1
+      ],
+      [
+        "ca58433a-3ff8-492f-9d7b-6f6d289eb6d6",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "ID",
+      "VN"
+    ],
+    "requests": 14,
+    "at": "2026-11-14T00:09:29.977Z"
+  }
+}

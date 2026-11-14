@@ -1,0 +1,67 @@
+{
+  "id": "procatopus-nototaenia",
+  "native": {
+    "input": "704693553dbe1dce",
+    "at": "2026-11-13T05:31:31.275Z",
+    "claims": [
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Thought to be endemic to the Lobi and Kienke river basins in southwestern Cameroon.",
+        "words": "Cameroon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lobi",
+        "source": "seriouslyfish",
+        "quote": "Thought to be endemic to the Lobi and Kienke river basins in southwestern Cameroon.",
+        "country": "CM",
+        "ok": true
+      },
+      {
+        "name": "Kienke",
+        "source": "seriouslyfish",
+        "quote": "Thought to be endemic to the Lobi and Kienke river basins in southwestern Cameroon.",
+        "country": "CM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Procatopus nototaenia",
+    "status": "ACCEPTED",
+    "taxonKey": 5203873,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        35
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        3
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        2
+      ]
+    ],
+    "native": [
+      "CM"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T05:31:31.275Z"
+  }
+}

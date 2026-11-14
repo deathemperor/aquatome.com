@@ -676,7 +676,12 @@
       "author": "Vengolis",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Whitespot(Aplocheilus_panchax).jpg",
       "caption": "Aplocheilus panchax, Kerala,India",
-      "thumb": "https://media.aquatome.com/commons/3368eeafb203fe1b-480.webp"
+      "thumb": "https://media.aquatome.com/commons/3368eeafb203fe1b-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/3368eeafb203fe1b-large.webp",
+        "width": 1922,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/210aaefda8ced161.webp",

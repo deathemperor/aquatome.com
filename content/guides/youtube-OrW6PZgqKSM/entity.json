@@ -146,24 +146,7 @@
       },
       {
         "heading": "Xử lý lá khô và quả khô trước khi cho vào bể",
-        "moments": [
-          {
-            "t": 320,
-            "url": "https://media.aquatome.com/video/OrW6PZgqKSM/at320-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Gom lá khô, cành nhỏ cho vào nồi để chuẩn bị luộc.",
-            "sharpness": 336.5
-          },
-          {
-            "t": 330,
-            "url": "https://media.aquatome.com/video/OrW6PZgqKSM/at330-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng kẹp vớt lá khô và cành đã luộc trong nồi.",
-            "sharpness": 1734.5
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/OrW6PZgqKSM/p5-MTYuMjQuMzkuanBn.webp",
           "thumb": "https://media.aquatome.com/video/OrW6PZgqKSM/p5-MTYuMjQuMzkuanBn-480.webp",
@@ -192,7 +175,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá betta thập thò giữa lá khô trong bể mới.",
-            "sharpness": 216.6
+            "sharpness": 216.6,
+            "person": false
           }
         ],
         "photo": {

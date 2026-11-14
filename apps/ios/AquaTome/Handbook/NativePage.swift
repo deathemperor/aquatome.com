@@ -26,6 +26,8 @@ struct NativePage: View {
   var heading: String?
   /// A part to open the page at (its heading's id): v2's page offers this one where it holds a part it can't draw.
   var at: String?
+  /// A smaller copy of its photo, already on the screen, shown until the photo itself has come (`NativePage.head`).
+  var stillPhoto: String?
   @Environment(HandbookModel.self) private var handbook
   @Environment(TelemetryModel.self) private var telemetry
   @Environment(\.scenePhase) private var phase
@@ -143,7 +145,7 @@ struct NativePage: View {
     .onChange(of: phase) { reading?.inFront(phase == .active) }
     .navigationDestination(item: $onSite) { WebScreen(url: $0) }
     .navigationDestination(item: $gridAt) { place in
-      if let gallery { PhotoGrid(gallery: gallery, talk: talk, at: place, readerPhotos: $readerPhotos) }
+      if let gallery { PhotoGrid(gallery: gallery, talk: talk, at: place, readerPhotos: $readerPhotos).ownerScreen("photos") }
     }
     .alert(tip?.term ?? "", isPresented: Binding(get: { tip != nil }, set: { if !$0 { tip = nil } }), presenting: tip) { t in
       if let h = t.href, let u = URL(string: h) { Button("Xem thêm") { _ = open(u, nil) } }
@@ -196,7 +198,7 @@ struct NativePage: View {
     case let .photo(src, ratio, alt, caption, credit, href, play, hero):
       VStack(alignment: hero ? .trailing : .leading, spacing: 6) {
         // The page's own photo no taller than 4:3, cut to fit: a fish's side, not a screen of water.
-        let image = PageImage(src: src, ratio: hero ? max(ratio, 4 / 3) : ratio, alt: alt, corner: hero ? 0 : 10)
+        let image = PageImage(src: src, ratio: hero ? max(ratio, 4 / 3) : ratio, alt: alt, corner: hero ? 0 : 10, until: hero ? stillPhoto : nil)
           .overlay { if play { Image(systemName: "play.circle.fill").font(.system(size: 56)).foregroundStyle(.white, .black.opacity(0.5)) } }
         if let href {
           // Tapped, the page it shows or the video at that moment; read as its words, or else its caption.
@@ -320,6 +322,21 @@ struct NativePage: View {
       UIApplication.shared.open(u)
       return .handled
     }
+  }
+
+  /// The top of a page not read yet: its photo and name, which whatever opened it already holds, where the page will put
+  /// them. A card zooms into this, not into an empty screen. The photo's credit keeps its line, so the name doesn't move
+  /// when the page comes.
+  static func head(_ item: HandbookIndex.Item) -> [Piece] {
+    var out: [Piece] = []
+    if let src = item.img {
+      var line = AttributedString(" ")
+      line.font = .caption2
+      let ratio = PageImages.cached(src).map { $0.size.width / $0.size.height } ?? 3 / 2
+      out.append(.photo(src: src, ratio: ratio, alt: nil, caption: AttributedString(), credit: line, href: nil, hero: true))
+    }
+    out.append(.text(styled(item.name, .pageTitle), look: .title))
+    return out
   }
 
   /// The page as pieces: worked out once, when it's read, not on every redraw. `traits`: a fish's temperament and
@@ -915,6 +932,7 @@ private struct GalleryRow: View {
             .frame(width: 140 * ratio)
           }
         }
+        .v2YieldsToEdgeSwipe()
       }
       Button("Xem tất cả \(photos.count) ảnh") {
         if let grid { grid() } else { show(strip.first ?? 0) }
@@ -1015,6 +1033,8 @@ struct ReadersPart: View {
     .sheet(isPresented: $managing) {
       NavigationStack {
         List { BlockedList() }
+          .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
+          .ownerScreen("sheet blocked-readers")
           .navigationTitle("Người đã chặn")
           .navigationBarTitleDisplayMode(.inline)
           .toolbar { Button("Đóng") { managing = false } }

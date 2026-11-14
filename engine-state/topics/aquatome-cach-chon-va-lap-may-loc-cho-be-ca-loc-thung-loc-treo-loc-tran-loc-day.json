@@ -1,0 +1,340 @@
+{
+  "found": true,
+  "species": [
+    "Betta splendens"
+  ],
+  "sources": [
+    {
+      "url": "https://www.fishkeeper.co.uk/stories/choosing-an-aquarium-filter",
+      "title": "Choosing an aquarium filter",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquariumscience.org/index.php/8-review-of-aquarium-filters",
+      "title": "8. Review of Aquarium Filters - Aquarium Science",
+      "kind": "keeper"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/1208196/Fluval-Fx4.html?page=6",
+      "title": "Fluval FX4 User Manual",
+      "kind": "maker"
+    },
+    {
+      "url": "https://www.bulkreefsupply.com/choosing-an-aquarium-overflow?brs-source=mdredir",
+      "title": "Choosing an Aquarium Overflow",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/cach-khoan-thanh-lap-lo-air-va-hut-day-minhquang1976.46723/",
+      "title": "Cách khoan thành lắp lỗ air và hút đáy (minhquang1976)",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/power-outage",
+      "title": "How to Care for Your Aquarium Fish During a Power Outage - Aquarium Co-Op",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.fishkeeper.co.uk/faq/what-should-i-do-if-i-have-a-power-cut-on-my-aquarium",
+      "title": "What should I do if I have a power cut on my aquarium?",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/3853494/Aqua-Clear-70.html",
+      "title": "AQUA CLEAR 70 WATER FILTRATION SYSTEM INSTRUCTION MANUAL",
+      "kind": "maker"
+    },
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/sponge-filters",
+      "title": "Sponge Filters: The Easiest Fish Tank Filter Ever",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquazonefish.vn/blogs/kien-thuc/cach-chon-may-loc-be-ca",
+      "title": "Hướng Dẫn Cách Chọn Máy Lọc Bể Cá Thủy Sinh - AquaZone - Siêu thị cá cảnh",
+      "kind": "shop"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "The filter is the aquarium's life support. It should be reliable and easy to use and maintain, and a poor choice can harm the fish.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Filters can be grouped as internal or external, and as air-powered or motor-driven. External filters are always motor-driven.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "In this author's ammonia tests, how well a filter worked followed the surface area of its media very closely.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "In the same tests, cartridge and hang-on-back filters did poorly, canisters and undergravel filters did moderately, and sumps did well.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "The author found that cartridge hang-on-back filters do little biological filtration and suggests putting foam media in them instead.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "The author recommends a sump for tanks over 75 gallons.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "An overflow works like a dam: water only spills into it when the display tank's level rises above its teeth, so the tank keeps a steady level by gravity.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "In a sump system, water lost to evaporation shows up as a drop in the sump's last chamber, not in the display tank.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "A sponge filter has three parts: a sponge, an air pump and airline tubing. Bubbles rising inside the sponge pull water through its walls, which traps debris and gives beneficial bacteria a place to grow.",
+      "source": 8
+    },
+    {
+      "section": "what",
+      "fact": "An undergravel filter is an internal filter that can run on air. The source warns that it causes problems if it is not maintained properly.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Internal canister filters suit tropical and coldwater tanks up to 120 cm long and 200 litres. They may struggle in larger tanks or with messy fish such as cichlids.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "External canister filters are recommended for tanks of 120 cm / 200 L and larger. They typically turn over 600 litres per hour or more, often around 1,000 litres per hour.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Air-powered sponge filters give finer filtration and a gentle flow that suits very small fish and fry. They generally suit tanks up to about 60 cm.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Sponge filters are gentle enough not to suck up fry, shrimp and other slow-moving animals.",
+      "source": 8
+    },
+    {
+      "section": "other",
+      "fact": "A filter cannot over-filter as such, but too strong a current can exhaust weak swimmers such as Siamese fighting fish.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "For planted tanks, this source advises filters that make no air bubbles, which drive off CO2. It suggests removing carbon, turning off venturi devices and keeping outlets at least 5 cm below the surface.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "The same source advises against undergravel and air-driven sponge filters in planted tanks and says undergravel filters can hold back plant growth.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Rule of thumb for sizing an overflow: multiply the tank's gallons by 10 and round up to the next overflow size. For example, a 50-gallon tank needs 500 GPH, so a 600 GPH overflow fits.",
+      "source": 3
+    },
+    {
+      "section": "other",
+      "fact": "The overflow must be rated for more flow than the return pump.",
+      "source": 3
+    },
+    {
+      "section": "other",
+      "fact": "Internal overflows cost less and are more flexible but need a hole drilled in the glass. External (hang-on) overflows need no drilling but depend on a siphon.",
+      "source": 3
+    },
+    {
+      "section": "other",
+      "fact": "Spreading the flow across the overflow's teeth lowers the speed at the drain, which helps keep small animals and algae from being pulled in.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Canister (Fluval FX4) step 1: open the eight lid fasteners, take out the media baskets, rinse them and put the media back in its original layers.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Canister (Fluval FX4) step 2: leave at least 1 cm of space above the media in each basket, and put loose granular media in bags in the bottom basket so particles stay out of the impeller.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Canister (Fluval FX4) step 3: with the utility valve closed, put at least 6 litres of water into the canister, replace the lid, check the seal ring and tighten the fasteners by hand only.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Canister (Fluval FX4) step 4: click the intake and output valves onto the IN and OUT connections and lock them. Before starting, check that the intake strainer is under water and the canister holds enough water.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Hang-on-back filter (AquaClear) order: rinse the foam, carbon and BioMax inserts, put the basket in, fit the intake U-tube and leveling device, then fill the case with water, prime it, plug it in and set the flow.",
+      "source": 7
+    },
+    {
+      "section": "steps",
+      "fact": "Sponge filter: if the air pump sits below the top of the tank, fit a check valve with its flapper facing the pump. It stops water running back down the airline when the pump is off or the power is out.",
+      "source": 8
+    },
+    {
+      "section": "steps",
+      "fact": "Sponge filter: set the curved outlet so its opening is about 1/3 out of the water and 2/3 in. Cut the tubes for tanks less than 10 inches deep, and stack two or more sponges for tanks taller than 22 inches.",
+      "source": 8
+    },
+    {
+      "section": "steps",
+      "fact": "Sump with overflow (drilled tank): this keeper drilled a 12 mm hole about 2 cm below the reference line at the waterline for the air (siphon-break) fitting, and drilled the bottom-drain hole so the elbow sits 1 cm above the tank floor.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "The same keeper wraps tape and applies silicone sealant on the threads before screwing in the threaded elbow, to prevent leaks.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Never use tools on the Fluval canister's lid fasteners, as this can damage the unit.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Leaving the canister's utility valve open causes an immediate water spill. Keep it closed when not in use.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Do not let the pump run dry.",
+      "source": 7
+    },
+    {
+      "section": "mistakes",
+      "fact": "Rinse filter media in aquarium water, not tap water, because tap water contains chlorine and chemicals that are toxic to fish.",
+      "source": 7
+    },
+    {
+      "section": "mistakes",
+      "fact": "With an external (hang-on) overflow, if air breaks the siphon the drain stops while the return pump keeps running, and the display tank can overflow. The source recommends an internal overflow when possible.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "After a power cut, water can back-siphon down the return pump line into the sump.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Clean a sponge filter by squeezing it several times in old tank water. Do this about once a month, or whenever the bubbling drops.",
+      "source": 8
+    },
+    {
+      "section": "prevention",
+      "fact": "Clean the motor unit of an AquaClear hang-on-back filter every three months, unplugging it first.",
+      "source": 7
+    },
+    {
+      "section": "prevention",
+      "fact": "Clogged filter inserts lower the filter's efficiency and should be rinsed or replaced at once.",
+      "source": 7
+    },
+    {
+      "section": "prevention",
+      "fact": "In a canister with two sponges, clean one at a time so the other keeps the bacteria stable.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "External filters clog less often than internal ones, but their replacement media cost more over time.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "In a power cut, unplug canister and hang-on-back filters. Otherwise, when power returns, rotting organics and dead bacteria in the media are flushed into the tank.",
+      "source": 5
+    },
+    {
+      "section": "firstAid",
+      "fact": "Before plugging canister and hang-on-back filters back in after an outage, clean them to remove dead bacteria and nitrogen waste.",
+      "source": 5
+    },
+    {
+      "section": "firstAid",
+      "fact": "If the power cut lasts an hour or more, take out some filter media and keep it wet in a bucket of aquarium water. The bacteria survive better that way than in air.",
+      "source": 6
+    },
+    {
+      "section": "firstAid",
+      "fact": "Do not feed the fish while the filter is not running.",
+      "source": 6
+    },
+    {
+      "section": "firstAid",
+      "fact": "After power returns, add a filter bacteria starter, feed very little until tests show ammonia and nitrite are under control, and be ready to do several water changes.",
+      "source": 6
+    },
+    {
+      "section": "vietnam",
+      "fact": "For frequent power cuts, a battery-backup air pump with a sponge filter is an option. The pump in the article runs up to 20 hours on its battery, or 40 hours or more in power-save mode.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "USB air pumps can run from a USB power bank or a laptop during a power cut.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "In an outage, a battery air pump driving an air-powered box filter filled with zeolite or mature bio media can stand in for the main filter.",
+      "source": 6
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese shops name the filter types lọc mút (sponge filter), lọc thác (waterfall/hang-on filter), lọc trong hồ (internal filter), lọc thùng (canister), lọc tràn (overflow/sump) and lọc đáy (undergravel).",
+      "source": 9
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese keepers build drilled sumps (bể lọc tràn dưới) themselves from 27 mm PVC pipe and elbows, a brass threaded connector (suốt đồng) and a home-made air fitting (lỗ air) that breaks the siphon.",
+      "source": 4
+    },
+    {
+      "section": "myths",
+      "fact": "The aquariumscience.org author calls these claims false: that flow rate (GPH) alone decides how well a filter works, and that a 600 GPH canister can handle about twice the fish of a 300 GPH one.",
+      "source": 1
+    },
+    {
+      "section": "myths",
+      "fact": "The aquariumscience.org author calls replacing filter media or cartridges on a schedule a scam with no biological need.",
+      "source": 1
+    },
+    {
+      "section": "myths",
+      "fact": "The aquariumscience.org author says the claim that undergravel filters need heavy maintenance is wrong, and he prefers them to hang-on-back filters.",
+      "source": 1
+    },
+    {
+      "section": "myths",
+      "fact": "The aquariumscience.org author also lists monthly filter cleaning, and cleaning media only in aquarium water, as myths. Maker AquaClear says to rinse in aquarium water.",
+      "source": 1
+    },
+    {
+      "section": "myths",
+      "fact": "The aquariumscience.org author found that a 1-inch gravel bed with no filter oxidised little ammonia, so plain gravel is a weak biofilter.",
+      "source": 1
+    }
+  ]
+}

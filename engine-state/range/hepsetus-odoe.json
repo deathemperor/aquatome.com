@@ -1,15 +1,23 @@
 {
   "id": "hepsetus-odoe",
   "native": {
-    "input": "b59d37f49594bba1",
-    "at": "2026-11-08T18:57:48.756Z",
+    "input": "02d7d909780acac9",
+    "at": "2026-11-10T07:58:31.896Z",
     "claims": [
       {
         "code": "CI",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "It has been recorded in Ivory Coast, Ghana, Togo, Benin, Burkina Faso, Nigeria, Cameroon, Chad and the Central African Republic.",
+        "quote": "It is found in West and Central Africa, from the Sassandra in Ivory Coast to Kribi in Cameroon, and in the Niger, Volta and Chad basins.",
         "words": "Ivory Coast",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It is found in West and Central Africa, from the Sassandra in Ivory Coast to Kribi in Cameroon, and in the Niger, Volta and Chad basins.",
+        "words": "Cameroon",
         "ok": true
       },
       {
@@ -50,14 +58,6 @@
         "source": "seriouslyfish",
         "quote": "It has been recorded in Ivory Coast, Ghana, Togo, Benin, Burkina Faso, Nigeria, Cameroon, Chad and the Central African Republic.",
         "words": "Nigeria",
-        "ok": true
-      },
-      {
-        "code": "CM",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "It has been recorded in Ivory Coast, Ghana, Togo, Benin, Burkina Faso, Nigeria, Cameroon, Chad and the Central African Republic.",
-        "words": "Cameroon",
         "ok": true
       },
       {

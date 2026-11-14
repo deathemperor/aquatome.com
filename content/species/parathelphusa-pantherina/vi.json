@@ -1,0 +1,21 @@
+{
+  "slug": "cua-bao-sulawesi",
+  "name": "Cua báo Sulawesi",
+  "altNames": [
+    "Cua panther",
+    "Panther crab"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Cua báo (Parathelphusa pantherina) chắc chắn là loài cua nước ngọt đẹp nhất. Mai của nó rộng tối đa khoảng 5–6 cm.</p>",
+    "distribution:glaser": "<p>Cua báo đến từ hồ Matano trên đảo Sulawesi. Ở đó cũng gặp chúng trên bờ, nấp dưới rễ cây và những chỗ tương tự.</p>",
+    "diet:glaser": "<p>Giống gần như mọi loài cua khác, cua báo ăn tạp, nhưng thứ chúng ăn chủ yếu là đồ gốc động vật.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  }
+}

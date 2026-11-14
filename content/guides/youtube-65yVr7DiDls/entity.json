@@ -37,22 +37,7 @@
     "figures": [
       {
         "heading": "Cần chuẩn bị những gì",
-        "moments": [
-          {
-            "t": 30,
-            "url": "https://media.aquatome.com/video/65yVr7DiDls/t30.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Ống PVC, co 90 và tê bày sẵn trên nền đen."
-          },
-          {
-            "t": 50,
-            "url": "https://media.aquatome.com/video/65yVr7DiDls/t50.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Tay cầm nắp bịt, bên cạnh là ống và các co."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/65yVr7DiDls/p1-c19HLU1JTkUuanBn.webp",
           "thumb": "https://media.aquatome.com/video/65yVr7DiDls/p1-c19HLU1JTkUuanBn-480.webp",
@@ -96,18 +81,22 @@
         "heading": "Nắp bịt, lỗ khoan và cách mồi tràn",
         "moments": [
           {
-            "t": 1060,
-            "url": "https://media.aquatome.com/video/65yVr7DiDls/t1060.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Ống dây khí đi qua nắp bịt của ống tràn."
+            "t": 1070,
+            "url": "https://media.aquatome.com/video/65yVr7DiDls/at1070-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ống dây khí đi qua nắp bịt của ống tràn.",
+            "sharpness": 18.6,
+            "person": false
           },
           {
-            "t": 1130,
-            "url": "https://media.aquatome.com/video/65yVr7DiDls/t1130.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Ống dây khí và ống hút mồi gắn vào tràn trên bể."
+            "t": 1140,
+            "url": "https://media.aquatome.com/video/65yVr7DiDls/at1140-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ống dây khí và ống hút mồi gắn vào tràn trên bể.",
+            "sharpness": 23.9,
+            "person": false
           }
         ]
       },
@@ -115,18 +104,22 @@
         "heading": "Chỉnh bơm cho vừa sức tràn và chạy thử",
         "moments": [
           {
-            "t": 793,
-            "url": "https://media.aquatome.com/video/65yVr7DiDls/t793.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bơm nước với van bi gắn trên ống đẩy trong bể."
+            "t": 800,
+            "url": "https://media.aquatome.com/video/65yVr7DiDls/at800-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bơm nước với van bi gắn trên ống đẩy trong bể.",
+            "sharpness": 47.5,
+            "person": false
           },
           {
-            "t": 822,
-            "url": "https://media.aquatome.com/video/65yVr7DiDls/t822.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bộ tràn ống PVC vắt qua thành bể, miệng ống chỉnh mực nước."
+            "t": 830,
+            "url": "https://media.aquatome.com/video/65yVr7DiDls/at830-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bộ tràn ống PVC vắt qua thành bể, miệng ống chỉnh mực nước.",
+            "sharpness": 22.3,
+            "person": false
           }
         ]
       },
@@ -134,11 +127,13 @@
         "heading": "Dán keo và sơn cho đỡ lộ",
         "moments": [
           {
-            "t": 941,
-            "url": "https://media.aquatome.com/video/65yVr7DiDls/t941.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Ống nối vắt qua thành kính của bể, chỗ mối nối cần dán keo."
+            "t": 950,
+            "url": "https://media.aquatome.com/video/65yVr7DiDls/at950-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ống nối vắt qua thành kính của bể, chỗ mối nối cần dán keo.",
+            "sharpness": 24.5,
+            "person": false
           }
         ]
       }

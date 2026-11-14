@@ -1,0 +1,92 @@
+{
+  "id": "parakysis-verrucosus",
+  "native": {
+    "input": "8ce67413c8edefff",
+    "at": "2026-11-11T08:59:40.517Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Malay Peninsula, through to the Greater Sunda Isles of Borneo, Indonesia and Sumatra.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Mawai District, Johore, Malaysia.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Malay Peninsula",
+        "source": "scotcat",
+        "quote": "Asia: Malay Peninsula, through to the Greater Sunda Isles of Borneo, Indonesia and Sumatra.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "scotcat",
+        "quote": "Asia: Malay Peninsula, through to the Greater Sunda Isles of Borneo, Indonesia and Sumatra.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "scotcat",
+        "quote": "Asia: Malay Peninsula, through to the Greater Sunda Isles of Borneo, Indonesia and Sumatra.",
+        "ok": true
+      },
+      {
+        "name": "Terengganu River",
+        "source": "scotcat",
+        "quote": "This species is known from blackwater habitats from the Terengganu River drainage southwards to the Sedili River drainage in Peninsular Malaysia, and Pulau Batam and Pulau Lingga in the Riau Archipelago.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Sedili River",
+        "source": "scotcat",
+        "quote": "This species is known from blackwater habitats from the Terengganu River drainage southwards to the Sedili River drainage in Peninsular Malaysia, and Pulau Batam and Pulau Lingga in the Riau Archipelago.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Riau Archipelago",
+        "source": "scotcat",
+        "quote": "This species is known from blackwater habitats from the Terengganu River drainage southwards to the Sedili River drainage in Peninsular Malaysia, and Pulau Batam and Pulau Lingga in the Riau Archipelago.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parakysis verrucosus",
+    "status": "ACCEPTED",
+    "taxonKey": 2340929,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ]
+    ],
+    "native": [
+      "ID",
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T08:59:40.517Z"
+  }
+}

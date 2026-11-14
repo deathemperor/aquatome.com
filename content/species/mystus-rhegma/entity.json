@@ -11,6 +11,94 @@
     "thailand",
     "cambodia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "TH",
+        "KH"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Mystus rhegma is a peaceful bagrid catfish from Laos, Thailand and Cambodia, where it inhabits rivers and flooded areas including fields.",
+          "countries": [
+            "LA",
+            "TH",
+            "KH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5201848,
+      "total": 16,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "TH",
+          10
+        ],
+        [
+          "KH",
+          4
+        ],
+        [
+          "LA",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          99.84375,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          99.84375,
+          14.0625,
+          4,
+          4
+        ],
+        [
+          101.25,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          15.46875,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          11.25,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          12.65625,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

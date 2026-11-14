@@ -217,13 +217,16 @@ export function computeContentStats(o: StatsInput): ContentStats {
     photos.covered[kind] = { with: withPhoto, of: xs.length }
   }
   for (const f of files(join(root, 'gallery'))) {
-    const n = shown(read(join(root, 'gallery', f))?.photos).length
+    // A photo that waits for the photo check (`unchecked`) is on no page yet.
+    const n = shown(read(join(root, 'gallery', f))?.photos).filter(p => !p.unchecked).length
     if (n) { photos.gallery.pages++; photos.gallery.photos += n }
   }
 
   // ——— Gaps ———
   const hidden = o.hidden ?? new Set<string>()
-  const engineHere = !!o.engineState && existsSync(o.engineState)
+  // The loader's record of where the fish is in each photo (load.ts PHOTO_BOXES_FILE) is no engine run: the fixture keeps
+  // one beside its content for its fish frames, and has no engine state.
+  const engineHere = !!o.engineState && existsSync(o.engineState) && readdirSync(o.engineState).some(f => f !== '_photo-boxes.json')
   // The rewrite's record (none yet: nothing rewritten); without engine state at all, the oldVi gaps are left out.
   const rewrite = engineHere ? (read(join(o.engineState!, 'vi-rewrite.json')) ?? {}) : undefined
   const staple = new Map(STAPLE_SPECIES.map((id, i) => [id, i]))
@@ -396,6 +399,7 @@ function engineStats(dir: string, sourcesInfo: Json, now: Date): Omit<EngineStat
     sources.push(row)
   }
   const needsHuman = Object.entries(blocks).flatMap(([source, b]) => (b && typeof (b as Json).blockedAt === 'string' ? [{ source, since: (b as Json).blockedAt as string }] : []))
+  const movedToArchive = Object.entries(blocks).flatMap(([source, b]) => (b && typeof (b as Json).archive === 'string' ? [{ source, since: (b as Json).archive as string }] : []))
 
   // The video queue (youtube.ts videoGuides): each listed video once, playlists' then single videos', the skipped lists left out.
   const yt = (read(join(dir, 'youtube.json')) ?? {}) as Record<string, Json>
@@ -422,7 +426,7 @@ function engineStats(dir: string, sourcesInfo: Json, now: Date): Omit<EngineStat
   videos.writtenAt = Object.values(yt).filter(s => s.status === 'processed' && Date.parse(String(s.updatedAt)) >= since).map(s => new Date(String(s.updatedAt)).toISOString()).sort()
 
   return {
-    sources, needsHuman, videos,
+    sources, needsHuman, movedToArchive, videos,
     lastRun: lastRun ? { startedAt: String(lastRun.startedAt), finishedAt: String(lastRun.finishedAt), needsHuman: lastRun.needsHuman ?? [], errors: (lastRun.errors ?? []).length, changed: (lastRun.changed ?? []).length } : null,
   }
 }

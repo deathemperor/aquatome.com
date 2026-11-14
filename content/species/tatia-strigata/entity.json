@@ -17,6 +17,34 @@
       {
         "source": "planetcatfish",
         "value": 8
+      },
+      {
+        "source": "scotcat",
+        "value": 12
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "scotcat",
+        "value": 4
       }
     ]
   },
@@ -28,10 +56,28 @@
       "html": "<ul><li><strong>Scientific name:</strong> Tatia strigata Soares-Porto, 1995</li><li><strong>Common name:</strong> Pinstripe Woodcat</li><li><strong>Size:</strong> 80 mm (3.1\") SL</li><li><strong>Type locality:</strong> Municipio de Maués, Igarapé Limãozinho, Amazonas, Brazil</li><li><strong>IUCN Red List:</strong> Least Concern (last assessed 2020)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_strigata.htm",
+      "html": "<p>Tatia strigata is the only species of the genus with a completely striped colour pattern, bearing whitish elongate longitudinal irregular stripes along the lateral sides of the body.</p><p>Etymology: the specific epithet strigata means striped.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1095",
       "html": "<p>South America: Amazon River basin and upper reaches of the Orinoco, in Brazil and Venezuela.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_strigata.htm",
+      "html": "<p>South America: Amazon River basin and upper reaches of the Orinoco River. Type locality: Brazil, Amazonas, Municipio de Maués, Igarapé Limãozinho.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_strigata.htm",
+      "html": "<p>Tatia strigata is recorded from the central Amazon basin, Negro river and Casiquiare Channel and is sympatric with T. dunni in the Casiquiare Channel and Negro river.</p>"
     },
     {
       "key": "equipment",
@@ -46,10 +92,28 @@
       "html": "<p>Feeds mainly on insects.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_strigata.htm",
+      "html": "<p>In its native habitat they feed on small invertebrates and crustaceans and in the aquarium they will eat anything given such as frozen bloodworm inserted into their hideaway, catfish tablets, white worm (sparingly) and prawns and shrimp. They like their food and can be seen shooting out of their hideouts and swimming in a frenzied manner to try and take all for themselves, especially when fed their favourite food, frozen bloodworm.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_strigata.htm",
+      "html": "<p>As with most members of this family they are very secretive and will stay hidden for most of the day. Dim lighting will see them come out for food, which they eat with gusto. Will have no problem with most co-habitants but will eat small fish/fry in the aquarium.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1095",
       "html": "<p>Mature males exhibit a modified anal fin copulatory organ.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_strigata.htm",
+      "html": "<p>A unique arrangement of the adult male modified anal fin is present, with the second unbranched anal-fin ray with anterior enlarged segments and a notch formed by the reduction of the second and third branched rays (Soares-Porto, 1995). It is also distinguished from all congeners by a combination of characteristics: four branched pectoral-fin rays; 7 ribs; 29-30 vertebrae; and mature males with the upper caudal-fin lobe slightly elongated, same length in females.</p>"
     },
     {
       "key": "reproduction",
@@ -64,10 +128,22 @@
       "html": "<p>Imported and photographed for the first time in early 2011. Although the description of this species notes the maximum length of specimens treated therein as 32 mm, aquarists have recorded the species up to at least the SL presented here.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_strigata.htm",
+      "html": "<p>IUCN Red List: the species is widely distributed and faces no direct threats. Therefore, it is assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1095",
       "html": "<p>Ichthyological Exploration of Freshwaters v. 6 (no. 3), pp 202, Fig. 1.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_strigata.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Frederico, R.G. 2023. Tatia strigata. The IUCN Red List of Threatened Species 2023. Sarmento-Soares, Luisa Maria; Martins-Pinheiro, Ronaldo Fernando A systematic revision of Tatia (Siluriformes: Auchenipteridae: Centromochlinae) Neotropical Ichthyology, 6(3):495- 542, 2008.</p>"
     }
   ],
   "photos": [
@@ -117,16 +193,41 @@
     },
     {
       "url": "https://media.aquatome.com/commons/408a1da19062732e.webp",
+      "thumb": "https://media.aquatome.com/commons/408a1da19062732e-480.webp",
       "width": 960,
       "height": 685,
       "licence": "CC BY 2.0",
       "author": "Clinton & Charles Robertson",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tatia_strigata.jpg",
-      "caption": "Tatia strigata",
-      "thumb": "https://media.aquatome.com/commons/408a1da19062732e-480.webp"
+      "caption": "Tatia strigata"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "fpupOC099Eg",
+      "title": "F2 Tatia strigata feeding",
+      "durationSec": 21,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "iPmY0BaBAdE",
+      "title": "Tatia strigata fry",
+      "durationSec": 21,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "_dZtZ2Plbl8",
+      "title": "Tatia strigata eggs",
+      "durationSec": 120,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "n195gruf9IQ",
+      "title": "Tatia strigata fry!",
+      "durationSec": 16,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "thuc-an",
@@ -148,5 +249,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-10"
 }

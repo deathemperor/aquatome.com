@@ -1,0 +1,87 @@
+{
+  "id": "elassoma-gilberti",
+  "native": {
+    "input": "3b730df91bf6853f",
+    "at": "2026-11-10T15:58:17.469Z",
+    "claims": [
+      {
+        "code": "US",
+        "status": "native",
+        "source": "aquatome",
+        "quote": "Loài này sống ở các lưu vực đổ ra vịnh Mexico, thuộc tây bắc Florida và tận cùng tây nam Georgia, Mỹ.",
+        "words": "Mỹ",
+        "ok": false,
+        "why": "\"Mỹ\" is not US"
+      }
+    ],
+    "regions": [
+      {
+        "name": "Suwannee",
+        "source": "aquatome",
+        "quote": "Vùng phân bố kéo từ sông Waccasassa về phía tây tới vịnh Choctawhatchee, tính cả hạ lưu sông Suwannee.",
+        "ok": true
+      },
+      {
+        "name": "Waccasassa",
+        "source": "aquatome",
+        "quote": "Vùng phân bố kéo từ sông Waccasassa về phía tây tới vịnh Choctawhatchee, tính cả hạ lưu sông Suwannee.",
+        "ok": true
+      },
+      {
+        "name": "Apalachicola",
+        "source": "aquatome",
+        "quote": "Một danh sách khác kể ra các lưu vực Choctawhatchee, Apalachicola, Ochlockonee, Suwannee, hồ Okeechobee và những nhánh nhỏ đổ ra vịnh.",
+        "ok": true
+      },
+      {
+        "name": "Ochlockonee",
+        "source": "aquatome",
+        "quote": "Một danh sách khác kể ra các lưu vực Choctawhatchee, Apalachicola, Ochlockonee, Suwannee, hồ Okeechobee và những nhánh nhỏ đổ ra vịnh.",
+        "ok": true
+      },
+      {
+        "name": "Choctawhatchee",
+        "source": "aquatome",
+        "quote": "Một danh sách khác kể ra các lưu vực Choctawhatchee, Apalachicola, Ochlockonee, Suwannee, hồ Okeechobee và những nhánh nhỏ đổ ra vịnh.",
+        "ok": true
+      },
+      {
+        "name": "Okeechobee",
+        "source": "aquatome",
+        "quote": "Một danh sách khác kể ra các lưu vực Choctawhatchee, Apalachicola, Ochlockonee, Suwannee, hồ Okeechobee và những nhánh nhỏ đổ ra vịnh.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "US",
+        "GE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Elassoma gilberti",
+    "status": "ACCEPTED",
+    "taxonKey": 5852306,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        4
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        3
+      ],
+      [
+        "2a79f202-3f3a-4d54-88fa-09aa8de1ac73",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-10T15:58:17.469Z"
+  }
+}

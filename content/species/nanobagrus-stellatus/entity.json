@@ -1,0 +1,63 @@
+{
+  "id": "nanobagrus-stellatus",
+  "scientificName": "Nanobagrus stellatus",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Nanobagrus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "indonesia",
+    "jambi"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 3.4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1362",
+      "html": "<p>Nanobagrus stellatus Tan &amp; Ng, 2000. Maximum size 34 mm (1.3 inches) SL. Type locality: Sungai Alai (from aquarium collectors), Jambi Province, Sumatra. IUCN Red List: Least Concern (last assessed 2019).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1362",
+      "html": "<p>Asia: Sumatra, Indonesia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1362",
+      "html": "<p>The bagrid catfish genus Nanobagrus is found throughout Sundaic Southeast Asia. Its members typically inhabit small, forested streams with a moderate current.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1362",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1362",
+      "html": "<p>Members of the genus are diagnosed from other bagrid catfishes by their miniature adult size (maximum size under ca 45 mm SL); reduced supraoccipital process; reduced anterior nuchal-plate element; and posterior cranial fontanel large and prominent.</p><p>Body brown with three rows of cream-coloured spots located above, along and below lateral line.</p><p>Etymology: from the Latin, nanus, meaning dwarf and bagrus, the name of a catfish genus frequently used to form generic names.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1362",
+      "html": "<p>Journal of Natural History v. 34 (no. 2), pp 278, Fig. 5a.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-13"
+}

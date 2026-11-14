@@ -1,0 +1,66 @@
+{
+  "id": "metzia-bounthobi",
+  "native": {
+    "input": "82844ffd425c34d7",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Metzia bounthobi is a cyprinid known only from the Nam Ou River basin, a Mekong tributary in northern Laos.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Nam Ou River basin, a Mekong tributary in Phongsaly and Luang Prabang provinces, northern Laos.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Mekong basin in Sopvan, Nyoi District, Luang Prabang Province, Lao PDR (20°36.5’N, 102°39.1’E), northern Laos'.",
+        "words": "Lao PDR",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Nam Ou",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Nam Ou River basin, a Mekong tributary in Phongsaly and Luang Prabang provinces, northern Laos.",
+        "country": "LA",
+        "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Nam Ou River basin, a Mekong tributary in Phongsaly and Luang Prabang provinces, northern Laos.",
+        "country": "LA",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Metzia bounthobi",
+    "status": "ACCEPTED",
+    "taxonKey": 7594233,
+    "datasets": [],
+    "native": [
+      "LA"
+    ],
+    "requests": 2,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

@@ -2,7 +2,12 @@
   "id": "puntius-sahyadriensis",
   "temperament": "peaceful",
   "finNipper": false,
-  "schoolMin": null,
+  "schoolMin": 8,
   "speciesUpdatedAt": "2026-10-31",
-  "generatedAt": "2026-10-31T21:37:24.593Z"
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-13T06:52:08.481Z"
 }

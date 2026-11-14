@@ -9,6 +9,7 @@ import { healthyKeys, isApiError, loadKeys, rotate, type Attempt, type KeyEntry 
 import { ledgerClient, usdCap, type Stopped } from '../fishid/ledger'
 import { relayFetch } from '../fishid/relay'
 import { turnsOf } from '../fishid/transcript'
+import { fileClashes } from './clash-store'
 import { handoverFor } from './handover'
 import { sectionSearch } from './section-search'
 import { answerQuestion, CHAT_LIMITS, MAX_TOKENS, OPENING_TOKENS, type ChatRun, type Earlier, type Start } from './agent'
@@ -109,19 +110,29 @@ const streamHeaders = { 'content-type': 'text/event-stream; charset=utf-8', 'cac
  * One call to Claude. With `onDelta`, it streams, and each delta of its text (never its thinking) goes to `onDelta` as it
  * comes; the whole message comes back either way. The SDK's timeout ends once a stream begins, so a timer bounds the
  * whole streamed call, as the timeout bounds one that isn't: the stream is stopped, nothing more of it goes to `onDelta`,
- * and the call fails as a timeout does, with no status (keys.ts `classify`: the network, not the key). A timer, not an
+ * and the call fails as a timeout does, with no status (keys.ts `classify`: the network, not the key). Once its text has
+ * begun the timer runs to `writingMs` instead, if that's longer (loop.ts: an answer on its way isn't stopped). A timer, not an
  * abort signal: a stream stalled mid-body doesn't end on its signal in every runtime. A stream cut once it has begun
  * (the connection lost, the body ended early) fails in the SDK's own error with no status at all, where a call that
  * doesn't stream would have failed in its connection error: it is given one, so it too is the network's.
  */
-export function callClaude(c: Anthropic, b: Anthropic.MessageCreateParamsNonStreaming, timeoutMs: number, onDelta?: (delta: string) => void, signal?: AbortSignal): Promise<Anthropic.Message> {
+export function callClaude(c: Anthropic, b: Anthropic.MessageCreateParamsNonStreaming, timeoutMs: number, onDelta?: (delta: string) => void, signal?: AbortSignal, writingMs = 0): Promise<Anthropic.Message> {
   if (!onDelta) return c.messages.create(b, { timeout: timeoutMs, signal })
   const s = c.messages.stream(b, { timeout: timeoutMs, signal })
   let over = false
-  s.on('text', delta => { if (!over) onDelta(delta) })
+  const began = Date.now()
+  let writing = false
   let timer: ReturnType<typeof setTimeout> | undefined
+  let expire = () => {}
   const bound = new Promise<never>((_, reject) => {
-    timer = setTimeout(() => { over = true; s.abort(); reject(Object.assign(new Error('Request timed out.'), { status: undefined })) }, timeoutMs)
+    expire = () => { over = true; s.abort(); reject(Object.assign(new Error('Request timed out.'), { status: undefined })) }
+    timer = setTimeout(expire, timeoutMs)
+  })
+  s.on('text', delta => {
+    if (over) return
+    if (!writing && writingMs > timeoutMs) { clearTimeout(timer); timer = setTimeout(expire, writingMs - (Date.now() - began)) }
+    writing = true
+    onDelta(delta)
   })
   const sdkError = (c.constructor as typeof Anthropic).AnthropicError
   const done = s.finalMessage().catch((e: unknown) => { throw e instanceof sdkError && !isApiError(e) ? Object.assign(e, { status: undefined }) : e })
@@ -157,12 +168,14 @@ type Question = { conversation: string; question: string; lang: Lang; start: Sta
 function questionOf(v: unknown, maxChars: number): Question | 'too long' | undefined {
   if (!v || typeof v !== 'object' || Array.isArray(v)) return undefined
   const o = v as Record<string, unknown>
-  const known = ['conversation', 'question', 'lang', 'from', 'about', 'identified', 'continues']
+  const known = ['conversation', 'question', 'lang', 'from', 'about', 'tank', 'identified', 'continues']
   if (Object.keys(o).some(k => !known.includes(k))) return undefined
   if (typeof o.conversation !== 'string' || !UUID.test(o.conversation) || typeof o.question !== 'string' || !o.question.trim()) return undefined
   if (o.lang !== undefined && !LANGS.includes(o.lang as Lang)) return undefined
-  if (o.from !== undefined && !['fish-id', 'species', 'search'].includes(o.from as string)) return undefined
+  if (o.from !== undefined && !['fish-id', 'species', 'search', 'tank'].includes(o.from as string)) return undefined
   if (o.about !== undefined && typeof o.about !== 'string') return undefined
+  // A saved tank's id, as the app syncs it: never the reader's words, so no more than an id's length.
+  if (o.tank !== undefined && (typeof o.tank !== 'string' || !o.tank || o.tank.length > MAX_NAME)) return undefined
   if (o.continues !== undefined && (typeof o.continues !== 'string' || !UUID.test(o.continues))) return undefined
   let identified: Start['identified']
   if (o.identified !== undefined) {
@@ -179,7 +192,7 @@ function questionOf(v: unknown, maxChars: number): Question | 'too long' | undef
   if (charsOf(o.question.trim()) > maxChars) return 'too long'
   return {
     conversation: o.conversation.toLowerCase(), question: o.question.trim(), lang: (o.lang as Lang) ?? 'vi',
-    start: { ...(o.from ? { from: o.from as Start['from'] } : {}), ...(o.about ? { about: o.about as string } : {}), ...(identified ? { identified } : {}) },
+    start: { ...(o.from ? { from: o.from as Start['from'] } : {}), ...(o.about ? { about: o.about as string } : {}), ...(o.tank ? { tank: o.tank as string } : {}), ...(identified ? { identified } : {}) },
     ...(o.continues ? { continues: (o.continues as string).toLowerCase() } : {}),
   }
 }
@@ -398,14 +411,16 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
         // would be followed by a second answer from its start. It is our side's failure, as no key answering is.
         // Before that, the next key is asked, without streaming once any of the first's text was read (its reader can't
         // start again), so that answer's text comes whole.
-        send: async (b, { timeoutMs, call, onText: onDelta }) => {
+        send: async (b, { timeoutMs, writingMs, call, onText: onDelta }) => {
           if (stop.signal.aborted) throw new NoAnswer('unavailable')
           const ready = healthy.filter(k => !aside.has(k.hash))
           const mine = key && !aside.has(key.hash) ? key : undefined
           let fed = false
           const r = await rotate(mine ? [mine, ...ready.filter(k => k !== mine)] : ready, store, async (k, left) => {
             const feed = onDelta && !fed ? (d: string) => { fed = true; onDelta(d) } : undefined
-            try { return await callClaude(await clientFor(k, fetchImpl), b, Math.min(left, timeoutMs), feed, stop.signal) } catch (e) { throw shown || stop.signal.aborted ? new NoAnswer('unavailable') : e }
+            // What an earlier key's try used comes off both.
+            const bounded = Math.min(left, timeoutMs)
+            try { return await callClaude(await clientFor(k, fetchImpl), b, bounded, feed, stop.signal, writingMs && writingMs - (timeoutMs - bounded)) } catch (e) { throw shown || stop.signal.aborted ? new NoAnswer('unavailable') : e }
           }, { random: mine ? () => 0 : deps.random, clock, budgetMs: timeoutMs })
           attempts.push(...r.attempts)
           for (const a of r.attempts) if (a.marked) aside.add(a.hash)
@@ -425,6 +440,8 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
         ...(onOpening ? { opening: true, onOpening } : {}),
       })
       trail = out
+      // Handbook text only, on the owner's account only (clashes.ts). Never in the reader's way.
+      if (env.CHAT === 'owner' && out.answer?.clashes.length) wait(fileClashes(env.UPLOADS, hb, out.answer.clashes, q.lang, now).catch(e => console.error('chat clashes:', e)))
       if (out.dropped.length) console.log(JSON.stringify({ chat: 'dropped', dropped: out.dropped }))
       // No key answered a call: resting or unavailable (ours), or our request refused (failed: a 400 that isn't the
       // key's; out of credit also comes as a 400, and the key's fault goes to the next key). The run out of time:

@@ -856,6 +856,21 @@
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/commons/528d8e73e4cbf0de.webp",
+      "width": 960,
+      "height": 616,
+      "licence": "CC BY-SA 3.0",
+      "author": "H. Zell",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Astyanax_mexicanus_01.jpg",
+      "caption": "Astyanax mexicanus, Characidae, Blind Cave Tetra; Staatliches Museum für Naturkunde Karlsruhe, Germany.",
+      "thumb": "https://media.aquatome.com/commons/528d8e73e4cbf0de-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/528d8e73e4cbf0de-large.webp",
+        "width": 1869,
+        "height": 1200
+      }
+    },
+    {
       "url": "https://media.aquatome.com/commons/af29feec4b25fa8a.webp",
       "width": 960,
       "height": 859,
@@ -882,21 +897,6 @@
       "large": {
         "url": "https://media.aquatome.com/commons/45b717cab8081cac-large.webp",
         "width": 1600,
-        "height": 1200
-      }
-    },
-    {
-      "url": "https://media.aquatome.com/commons/528d8e73e4cbf0de.webp",
-      "width": 960,
-      "height": 616,
-      "licence": "CC BY-SA 3.0",
-      "author": "H. Zell",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Astyanax_mexicanus_01.jpg",
-      "caption": "Astyanax mexicanus, Characidae, Blind Cave Tetra; Staatliches Museum für Naturkunde Karlsruhe, Germany.",
-      "thumb": "https://media.aquatome.com/commons/528d8e73e4cbf0de-480.webp",
-      "large": {
-        "url": "https://media.aquatome.com/commons/528d8e73e4cbf0de-large.webp",
-        "width": 1869,
         "height": 1200
       }
     }

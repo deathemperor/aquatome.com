@@ -1,0 +1,75 @@
+{
+  "id": "parabotia-fasciata",
+  "native": {
+    "input": "b37f86e5d8cb4fb0",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the Yangtze River, China with later records suggesting it may be restricted to the Yuan and Jialing tributary drainages within that system.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "A similar-looking species of unconfirmed identity has been collected in northern Vietnam (Kottelat, 2001).",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Yangtze",
+        "source": "seriouslyfish",
+        "quote": "Described from the Yangtze River, China with later records suggesting it may be restricted to the Yuan and Jialing tributary drainages within that system.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Pearl River",
+        "source": "seriouslyfish",
+        "quote": "It's also been recorded from much of the Pearl (also known as Zhu Jiang) River watershed in Guangdong and Guangxi provinces including its major tributaries the West (Xi), North (Bei) and East (Dong) rivers, and may therefore also range into Yunnan, Guizhou and Jiangxi provinces.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parabotia fasciata",
+    "status": "ACCEPTED",
+    "taxonKey": 2367849,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        9
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

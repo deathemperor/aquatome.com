@@ -12,6 +12,148 @@
     "venezuela",
     "rio-negro"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "VE"
+      ],
+      "regions": [
+        "Rio Negro",
+        "Rio Orinoco",
+        "Orinoco"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The altum angel, Pterophyllum altum, is a cichlid from Colombia and Venezuela, native to the upper Rio Negro and tributaries of the upper Rio Orinoco.",
+          "countries": [
+            "CO",
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to Colombia and Venezuela, where it occurs in the upper Rio Negro and tributaries of the upper Rio Orinoco including the Rio Inírida and Rio Atabapo.",
+          "countries": [],
+          "regions": [
+            "Rio Negro",
+            "Rio Orinoco"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Colombia, Venezuela, Orinoco.",
+          "countries": [],
+          "regions": [
+            "Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208522,
+      "total": 30,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "VE",
+          20
+        ],
+        [
+          "CO",
+          5
+        ],
+        [
+          "BR",
+          4
+        ],
+        [
+          "SR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -71.71875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          -68.90625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          2.8125,
+          15,
+          15
+        ],
+        [
+          -67.5,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -54.84375,
+          -12.65625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -159,18 +301,39 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-altum",
       "html": "<p>Altum Angels are a lot less common in the trade than their well known (arguably the best known tropical fish) relatives Pterophyllum Scalare, the common Angelfish. However, they are still available from some of the better tropical fish suppliers. They are a challenge to keep - they share all of their relatives' difficulties (susceptible to hole-in-the-head disease, very weak to nitrate buildups, extremely prone to stress-related diseases, commonly eat their own spawns etc.) and have a few of their own (water parameters - very acidic and soft, feeding difficulties, lack of willingness to spawn in captivity and so on). That in its own right is very rewarding though, hence the reason that Altum Angels are quite a popular fish with the more experienced aquarist. Altum Angels require high temperatures but can be kept happily with Discus, as they possess similar water parameter requirements. Be wary of the Altum Angels eating Discus spawns, however.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Altum needs high temperatures, 28 to 32°C, and a pH of 4.8 to 6.2. At a higher pH the fish usually will not do well at all. This species must be kept in soft water, hardness 0–5°H, virtually undetectable. Another source reports that when the fish is not being bred, medium-hard water with a neutral pH is sufficient. For breeding attempts the water should contain almost no minerals and have a pH around 5.</p>",
+      "refs": [
+        0,
+        1
+      ],
+      "fixed": true
     }
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/74ad92ff7bac6980.webp",
-      "thumb": "https://media.aquatome.com/commons/74ad92ff7bac6980-480.webp",
-      "width": 960,
-      "height": 638,
+      "url": "https://media.aquatome.com/commons/39763a757b3e093b.webp",
+      "thumb": "https://media.aquatome.com/commons/39763a757b3e093b-480.webp",
+      "width": 1200,
+      "height": 1799,
       "licence": "CC BY-SA 2.0",
-      "author": "Jeff Kubina",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Group_of_Pterophyllum_Altum.jpg",
-      "caption": "A group of Pterophyllum Altum taken off Flickr. Released under a CC-BY-SA 2.0 license. Taken by Jeff Kubina @ https://www.flickr.com/photos/kubina/131667858/Fish"
+      "author": "Daniel Kruczynski",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Daniel_Kruczynski_-_4251752117.jpg",
+      "caption": "Cá ông tiên altum sọc đen giữa cỏ vallisneria"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/302997e125c7870b.webp",
+      "thumb": "https://media.aquatome.com/commons/302997e125c7870b-480.webp",
+      "width": 1200,
+      "height": 1363,
+      "licence": "CC BY 2.0",
+      "author": "Clinton & Charles Robertson from RAF Lakenheath, UK & San Marcos, TX, USA & UK",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichlidae_Pterophyllum_altum_(5806478789).jpg",
+      "caption": "Cá ông tiên altum nền trắng, thấy rõ thân và vây"
     },
     {
       "url": "https://media.aquatome.com/commons/c405b5b006021e9e.webp",
@@ -180,7 +343,12 @@
       "licence": "CC BY-SA 4.0",
       "author": "Chris Sherlock",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Altum_Angel.jpeg",
-      "caption": "An Altum Angel (Pterophyllum altum)"
+      "caption": "An Altum Angel (Pterophyllum altum)",
+      "large": {
+        "url": "https://media.aquatome.com/commons/c405b5b006021e9e-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/35857eb1c8cb97b7.webp",
@@ -191,6 +359,21 @@
       "author": "NasserHalaweh",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichlidae_Pterophyllum_altum_2.jpg",
       "caption": "Pterophyllum altum ALTUM ANGELFISH. Zoo Frankfurt."
+    },
+    {
+      "url": "https://media.aquatome.com/commons/74ad92ff7bac6980.webp",
+      "thumb": "https://media.aquatome.com/commons/74ad92ff7bac6980-480.webp",
+      "width": 960,
+      "height": 638,
+      "licence": "CC BY-SA 2.0",
+      "author": "Jeff Kubina",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Group_of_Pterophyllum_Altum.jpg",
+      "caption": "A group of Pterophyllum Altum taken off Flickr. Released under a CC-BY-SA 2.0 license. Taken by Jeff Kubina @ https://www.flickr.com/photos/kubina/131667858/Fish",
+      "large": {
+        "url": "https://media.aquatome.com/commons/74ad92ff7bac6980-large.webp",
+        "width": 1805,
+        "height": 1200
+      }
     }
   ],
   "videos": [
@@ -246,5 +429,15 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-03",
+  "refs": [
+    {
+      "url": "https://www.seriouslyfish.com/species/pterophyllum-altum",
+      "title": "Seriously Fish: Pterophyllum altum"
+    },
+    {
+      "url": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/pterophyllum_altum_en/",
+      "title": "Aquarium Glaser: Pterophyllum altum"
+    }
+  ]
 }

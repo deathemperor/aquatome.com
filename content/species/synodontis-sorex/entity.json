@@ -1,0 +1,72 @@
+{
+  "id": "synodontis-sorex",
+  "scientificName": "Synodontis sorex",
+  "order": "Siluriformes",
+  "family": "Mochokidae",
+  "genus": "Synodontis",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "nigeria"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 40
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis-sorex-en/",
+      "html": "<ul><li>Origin: Nigeria</li><li>Maximum length: reported to exceed 40 cm</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis-sorex-en/",
+      "html": "<p>Imported from Nigeria.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis-sorex-en/",
+      "html": "<p>S. sorex has a very unusual mouth shape that looks more like the suckermouth of a South American Ancistrus than the typical mouth of a Synodontis. It is able to feed very effectively from flat surfaces such as stones, roots and plant leaves.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis-sorex-en/",
+      "html": "<p>The seven animals showed much more schooling behaviour than is usually seen in Synodontis.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 200 cm",
+        "bể cá lớn cho cá nheo"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá nheo",
+        "thức ăn tảo viên"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

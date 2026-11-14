@@ -2,18 +2,27 @@
   "slug": "ca-thorny-catfish-paraguay",
   "name": "Cá thorny catfish Paraguay",
   "altNames": [
-    "Thorny catfish"
+    "Thorny catfish",
+    "Mouse Catfish"
   ],
   "sections": {
     "quickFacts:glaser": "<p>T. paraguayensis dài tới khoảng 10 cm. Bạn có thể nuôi nó giống như nuôi một loài cá chuột (Corydoras) cỡ lớn. Cụ thể, đây là loài cá hiền, không kén ăn và thích bơi theo đàn cùng đồng loại.</p>",
-    "distribution:glaser": "<p>Loài cá da trơn có gai dễ thương này có nguồn gốc từ Paraguay.</p>"
+    "distribution:glaser": "<p>Loài cá da trơn có gai dễ thương này có nguồn gốc từ Paraguay.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: cá da trơn chuột (Mouse Catfish)</li><li>Tên đồng nghĩa: Hemidoras paraguayensis</li><li>Danh lục đỏ IUCN: thông tin về loài này còn ít, nhưng nó phân bố rộng và chưa thấy mối đe dọa nào rõ ràng. Vì thế IUCN xếp loài này vào mức Ít quan tâm (IUCN 2024).</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông Paraná ở Paraguay, Brazil, Argentina và Bolivia. Nơi thu mẫu chuẩn là Corumba, Brazil.</p>",
+    "habitat:scotcat": "<p>Loài này có ở sông Paraguay, đoạn qua Corumba, Brazil.</p>",
+    "maintenance:scotcat": "<p>Đây là loài hiền, thả chung với cá hiền trong bể cỡ vừa được. Bể nên trồng cây và có chỗ trốn như ống hoặc lũa.</p>",
+    "diet:scotcat": "<p>Cho ăn viên dẹt, thức ăn viên, trùng huyết đông lạnh và thức ăn tươi sống là cá sẽ khỏe.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên gọi: tên loài paraguayensis mang hậu tố –ensis, trong tiếng Latinh dùng để chỉ nơi chốn. Ở đây nơi đó là Corumba, Paraguay, chỗ thu mẫu chuẩn.</p>",
+    "references:scotcat": "<p>Sabaj, M.H. và C.J. Ferraris, Jr. 2003 Doradidae (Thorny catfishes). tr. 456-469. Trong R.E. Reis, S.O. Kullander và C.J. Ferraris, Jr. (biên tập) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brazil.</p><p>Salvador, G.N. 2024. Trachydoras paraguayensis. The IUCN Red List of Threatened Species 2024.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
-    "score": 0.85,
+    "score": 0.72,
     "indexable": false,
     "bySource": {
-      "glaser": 0.85
+      "glaser": 0.85,
+      "scotcat": 0.72
     },
-    "reason": "thin"
+    "reason": "score"
   }
 }

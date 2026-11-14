@@ -10,6 +10,34 @@
     "brazil",
     "para"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The largest member of its genus at up to 46 mm, Nannostomus grandis is a pencilfish known only from commercial exports from Belém, Pará state, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 6165647,
+      "total": 0,
+      "fetched": "2026-11-10",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

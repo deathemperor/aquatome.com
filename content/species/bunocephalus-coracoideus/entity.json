@@ -687,7 +687,12 @@
       "author": "Kacper Aleksander",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Banjo_cat.jpg",
       "caption": "Banjo catfish (Bunocephalus coracoideus)",
-      "thumb": "https://media.aquatome.com/commons/5155fce2eece5ba6-480.webp"
+      "thumb": "https://media.aquatome.com/commons/5155fce2eece5ba6-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/5155fce2eece5ba6-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/scotcat/8b439449f52e8f34.webp",
@@ -696,28 +701,6 @@
       "height": 209,
       "licence": "dùng với sự cho phép",
       "author": "Klaus Dreymann / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_coracoideus.htm",
-      "caption": "Bunocephalus coracoideus",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/cd29c36311208df9.webp",
-      "thumb": "https://media.aquatome.com/scotcat/cd29c36311208df9-480.webp",
-      "width": 500,
-      "height": 333,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_coracoideus.htm",
-      "caption": "Bunocephalus coracoideus",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/6cf992b474ce425d.webp",
-      "thumb": "https://media.aquatome.com/scotcat/6cf992b474ce425d-480.webp",
-      "width": 500,
-      "height": 333,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
       "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_coracoideus.htm",
       "caption": "Bunocephalus coracoideus",
       "source": "scotcat"

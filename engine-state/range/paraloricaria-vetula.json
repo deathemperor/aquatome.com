@@ -1,0 +1,62 @@
+{
+  "id": "paraloricaria-vetula",
+  "native": {
+    "input": "64043e1be7cc34e1",
+    "at": "2026-11-11T08:59:40.517Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "La Plata River basin",
+        "source": "scotcat",
+        "quote": "South America: La Plata River basin.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Paraloricaria vetula",
+    "status": "ACCEPTED",
+    "taxonKey": 2339036,
+    "datasets": [
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        45
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        3
+      ],
+      [
+        "d4b3cce1-4594-47bb-b1e2-1ace65458a11",
+        2
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-11T08:59:40.517Z"
+  }
+}

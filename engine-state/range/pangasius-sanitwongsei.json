@@ -1,0 +1,106 @@
+{
+  "id": "pangasius-sanitwongsei",
+  "native": {
+    "input": "60f38e7f0f272f5a",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the lower Mekong river running through China, Thailand, Laos, Cambodia and Vietnam.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the lower Mekong river running through China, Thailand, Laos, Cambodia and Vietnam.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the lower Mekong river running through China, Thailand, Laos, Cambodia and Vietnam.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the lower Mekong river running through China, Thailand, Laos, Cambodia and Vietnam.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the lower Mekong river running through China, Thailand, Laos, Cambodia and Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Native to the lower Mekong river running through China, Thailand, Laos, Cambodia and Vietnam.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "It's also found in the Chao Phraya river in Thailand.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pangasius sanitwongsei",
+    "status": "ACCEPTED",
+    "taxonKey": 5202478,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        18
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "CN",
+      "TH",
+      "LA",
+      "KH",
+      "VN"
+    ],
+    "requests": 12,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

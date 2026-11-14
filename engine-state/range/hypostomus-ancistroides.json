@@ -1,8 +1,8 @@
 {
   "id": "hypostomus-ancistroides",
   "native": {
-    "input": "48add10bc02b4e9e",
-    "at": "2026-11-09T05:57:45.266Z",
+    "input": "71ab58618225eade",
+    "at": "2026-11-14T00:09:29.977Z",
     "claims": [
       {
         "code": "BR",
@@ -10,6 +10,14 @@
         "source": "scotcat",
         "quote": "South America: Tietê River basin, Ribeira de Iguape River basin, Brazil.",
         "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Paraguay.",
+        "words": "Paraguay",
         "ok": true
       }
     ],
@@ -32,9 +40,7 @@
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [
-        "PY"
-      ],
+      "pagesOnly": [],
       "sourcesOnly": []
     }
   },
@@ -97,9 +103,10 @@
       ]
     ],
     "native": [
-      "BR"
+      "BR",
+      "PY"
     ],
     "requests": 11,
-    "at": "2026-11-09T05:57:45.266Z"
+    "at": "2026-11-14T00:09:29.977Z"
   }
 }

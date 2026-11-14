@@ -125,8 +125,16 @@ final class ScrollEndFlowTests: XCTestCase {
     app.titleReadsCleanly("Đèn, the largest text")
   }
 
-  // v2, the app's look (the owner, 8 Nov): its Hôm nay and Khám phá lay their own band behind the bar
-  // (ClearUnderTopBar); its other tabs hold v1's screens, which keep this edge.
+  // v2, the app's look (the owner, 8 Nov): its tabs lay their own band behind the bar (ClearUnderTopBar).
+  // The band behind the bar comes only once a large title has gone up: at rest it would stand over the title (10 Nov).
+  func testLargeTitlesAreOnScreenAtRest() {
+    let app = launch(["-v2", "YES", "-seed-tanks", "life"])
+    for (tab, title) in [("Bể của tôi", "Bể của tôi"), ("Đèn", "Đèn Chihiros")] {
+      app.openTab(tab)
+      app.largeTitleIsOnScreen(title)
+    }
+  }
+
   func testV2sTodayTitleReadsCleanly() { v2TitleReads("Hôm nay", "v2's Hôm nay") }
   func testV2sBrowseTitleReadsCleanly() { v2TitleReads("Khám phá", "v2's Khám phá") }
   func testV2sTanksTitleReadsCleanly() { v2TitleReads("Bể của tôi", "v2's Bể của tôi", ["-seed-tanks", "many"]) }

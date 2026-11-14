@@ -1,0 +1,48 @@
+{
+  "id": "geosesarma-hagen",
+  "native": {
+    "input": "299a4094592385d7",
+    "at": "2026-11-10T20:57:55.515Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "So far, these crabs are known to be endemic to an island in Central Java, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Central Java",
+        "source": "aquariumbreeder",
+        "quote": "So far, these crabs are known to be endemic to an island in Central Java, Indonesia.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Geosesarma hagen",
+    "status": "ACCEPTED",
+    "taxonKey": 9030563,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T20:57:55.515Z"
+  }
+}

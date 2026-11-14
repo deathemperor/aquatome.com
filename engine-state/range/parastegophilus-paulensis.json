@@ -1,0 +1,78 @@
+{
+  "id": "parastegophilus-paulensis",
+  "native": {
+    "input": "a991a3a1f8e3699c",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Avanhandava, Rio Tieté, Estado de São Paulo, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Paraná River",
+        "source": "planetcatfish",
+        "quote": "South America: upper Paraná River basin.",
+        "ok": true
+      },
+      {
+        "name": "Rio Tieté",
+        "source": "planetcatfish",
+        "quote": "Type locality: Avanhandava, Rio Tieté, Estado de São Paulo, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parastegophilus paulensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2343225,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        10
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        6
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        3
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        3
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        2
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        2
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-12T13:29:05.219Z"
+  }
+}

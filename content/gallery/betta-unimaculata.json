@@ -1,0 +1,71 @@
+{
+  "id": "betta-unimaculata",
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/78589f44af889a965023df1404ad0adf.webp",
+      "thumb": "https://media.aquatome.com/processed/78589f44af889a965023df1404ad0adf-480.webp",
+      "width": 1000,
+      "height": 691,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/6qkuko5edszpeouygearvg6ca9e5y1-a8xlw",
+      "source": "bwaquatics",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-betta-unimaculata",
+        "pixelHash": "0445cd5bb7f246c1f204ced65a535ea83ffb2f1eccb6377413f805b6ec672574"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T10:14:45.690Z",
+          "originalHash": "11b9038ae440d04fae4864e8fb2b2f60b70082cca397ad9571c6960dd6b9e591",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 1000,
+            "originalHeight": 800,
+            "window": {
+              "x0": 0,
+              "y0": 0,
+              "x1": 1000,
+              "y1": 691
+            },
+            "subject": {
+              "x0": 104,
+              "y0": 298,
+              "x1": 810,
+              "y1": 599
+            },
+            "margin": 20
+          },
+          "excludedMarks": [
+            {
+              "x0": 351,
+              "y0": 699,
+              "x1": 650,
+              "y1": 726
+            }
+          ],
+          "checks": {
+            "species": [
+              "1d48a9ec1c8be1b7759a24581193de5ec6f2130c83e1ff40e86f7e0b236c1f94",
+              "b6ff5a6117d6b4ab083da0fa01f9dfdd393f1eb9543c0c2939312daf7cb39075"
+            ],
+            "ownership": [
+              "2aae1c2fa73ce34b5e7e2d80739c7a94a79b1485e2693adf9491e34f14ec9fd7",
+              "8c4bfc71a674175e3363a5287f7f6e7ce256fc6fac74247ed37fe4ffe0ef1970"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/bwaquatics/570b57974b4f9f1a.webp",
+        "width": 1000,
+        "height": 800,
+        "thumb": "https://media.aquatome.com/bwaquatics/570b57974b4f9f1a-480.webp"
+      }
+    }
+  ],
+  "seen": 0,
+  "updatedAt": "2026-11-11"
+}

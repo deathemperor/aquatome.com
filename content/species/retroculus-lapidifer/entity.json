@@ -11,6 +11,54 @@
     "rio-tocantins",
     "tocantins"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Tocantins",
+        "Rio Araguaia",
+        "Araguaia",
+        "Rio Guamá",
+        "Rio Gurupi"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Brazil (Rio Tocantins/Rio Araguaia).",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Tocantins",
+            "Rio Araguaia"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Retroculus lapidifer is a rheophilic cichlid from the rio Tocantins and Araguaia systems and nearby coastal drainages of northeastern Brazil.",
+          "countries": [],
+          "regions": [
+            "Araguaia"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It also occurs in the rio Capim within the rio Guamá watershed and the rio Gurupi, a smaller coastal drainage.",
+          "countries": [],
+          "regions": [
+            "Rio Guamá",
+            "Rio Gurupi"
+          ]
+        }
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,0 +1,28 @@
+{
+  "slug": "cua-vi-cam",
+  "name": "Cua vĩ cầm",
+  "altNames": [
+    "Cua càng ếch",
+    "Fiddler crab"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Nguồn gốc: Thái Lan.</p>",
+    "habitat:glaser": "<p>Cua vĩ cầm sống ở dải bờ giáp ranh giữa nước và đất. Lúc triều lên, chúng chui vào hang trong cát để trốn. Khi nước ròng, chúng bò ra khỏi hang và đi kiếm thức ăn mà nước để lại.</p>",
+    "behaviour:glaser": "<p>Con đực giơ chiếc càng to khỏe ra để gây ấn tượng với con cái, và cũng dùng nó để dọa các con đực khác. Ngay trong cùng một loài, có con đực to càng trái, có con lại to càng phải.</p>",
+    "notes:glaser": "<p>Gần đây có một đợt nhập từ Thái Lan về vài con đực có càng to khác thường.</p>"
+  },
+  "quality": {
+    "score": 0.95,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.95
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-11"
+  }
+}

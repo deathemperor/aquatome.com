@@ -1,9 +1,33 @@
 {
   "id": "danio-roseus",
   "native": {
-    "input": "1da49b576670813c",
-    "at": "2026-11-05T19:44:13.099Z",
+    "input": "7c22b7dc526c2a44",
+    "at": "2026-11-10T23:57:51.686Z",
     "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Brachydanio roseus originates from northern Thailand, northern Laos and northern Burma. It becomes around 5-6 cm long.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Brachydanio roseus originates from northern Thailand, northern Laos and northern Burma. It becomes around 5-6 cm long.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Brachydanio roseus originates from northern Thailand, northern Laos and northern Burma. It becomes around 5-6 cm long.",
+        "words": "Burma",
+        "ok": true
+      },
       {
         "code": "TH",
         "status": "native",
@@ -34,20 +58,6 @@
         "name": "Mekong",
         "source": "seriouslyfish",
         "quote": "Described from the Mekong River basin in Nong Khai and Chiang Rai Provinces, northern Thailand, and Louangphabang Province, northern Laos but now known to occur further north having been recorded at several localities in northern Myanmar.",
-        "ok": true
-      },
-      {
-        "name": "Nam Khwe River",
-        "source": "seriouslyfish",
-        "quote": "In images the Nam Khwe River, Myanmar contains quite shallow, turbid, moderately fast-flowing water; the substrate is composed of variably-sized boulders with some relatively little streamside vegetation.",
-        "country": "MM",
-        "ok": true
-      },
-      {
-        "name": "Nam Lawe River",
-        "source": "seriouslyfish",
-        "quote": "Sympatric species include Danio albolineatus plus unidentified members of Barilius and Opsarius. In the larger Nam Lawe River, also Myanmar, it lives alongside Badis ruber, Colisa labiosa, Lepidocephalichthys berdmorei and an unidentified Danio species.",
-        "country": "MM",
         "ok": true
       }
     ],

@@ -12,6 +12,87 @@
     "tanzania",
     "mozambique"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TZ",
+        "MZ"
+      ],
+      "regions": [
+        "Lake Malawi",
+        "Chirwa Island"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "It occurs along a stretch of the north-western coast from Chirwa Island to Usisya, and also on the Tanzanian and Mozambican shores.",
+          "countries": [
+            "TZ",
+            "MZ"
+          ],
+          "regions": [
+            "Chirwa Island"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2373068,
+      "total": 38,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "TZ",
+          26
+        ],
+        [
+          "MW",
+          7
+        ],
+        [
+          "MZ",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -19.6875,
+          2,
+          2
+        ],
+        [
+          33.75,
+          -12.65625,
+          7,
+          7
+        ],
+        [
+          33.75,
+          -11.25,
+          21,
+          14
+        ],
+        [
+          33.75,
+          -9.84375,
+          8,
+          8
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

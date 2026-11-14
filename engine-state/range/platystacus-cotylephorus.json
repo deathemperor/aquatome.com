@@ -1,0 +1,189 @@
+{
+  "id": "platystacus-cotylephorus",
+  "native": {
+    "input": "350b045726e9537e",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Central and South America: Venezuela to northern Brazil (including the lower portions of coastal rivers).",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Central and South America: Venezuela to northern Brazil (including the lower portions of coastal rivers).",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Found in Venezuela Caribbean waters, Guyana waters, coastal rivers of the Guianas, Amapá State waters and Pará State waters.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "French Guiana, Guyana, Suriname, Venezuela, Brazil, Trinidad and Tobago.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "French Guiana, Guyana, Suriname, Venezuela, Brazil, Trinidad and Tobago.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "French Guiana, Guyana, Suriname, Venezuela, Brazil, Trinidad and Tobago.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "French Guiana, Guyana, Suriname, Venezuela, Brazil, Trinidad and Tobago.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "French Guiana, Guyana, Suriname, Venezuela, Brazil, Trinidad and Tobago.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "TT",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "French Guiana, Guyana, Suriname, Venezuela, Brazil, Trinidad and Tobago.",
+        "words": "Trinidad and Tobago",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Platystacus cotylephorus",
+    "status": "ACCEPTED",
+    "taxonKey": 2340512,
+    "datasets": [
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        23
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        23
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        9
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        8
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        4
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        3
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "cd31232e-57a9-4777-ab9d-406333c42769",
+        3
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        3
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "df12ca07-f133-4550-ab3b-fde13f0e76ba",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "VE",
+      "BR",
+      "GY",
+      "GF",
+      "SR",
+      "TT"
+    ],
+    "requests": 13,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

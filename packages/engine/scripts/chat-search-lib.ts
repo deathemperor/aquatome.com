@@ -14,7 +14,7 @@ import { pool } from './eval-lib'
 
 export type Doc = { path: string; heading: string | null; title: string; text: string }
 export type Embedder = { token: string; account: string; model: string; cache: string }
-const hash = (s: string) => createHash('sha256').update(s).digest('hex').slice(0, 16)
+export const hash = (s: string) => createHash('sha256').update(s).digest('hex').slice(0, 16)
 
 /** The handbook build read last (chat-speed.ts keeps one folder a build). */
 export async function latestBuild(): Promise<string> {
@@ -29,9 +29,44 @@ export function siteSource(dir: string): Source {
   return { index: l => json(`/app/${l}.json`), shard: (l, k, n) => json(`/app/pages/${l}/${k}-${n}.json`), topics: l => json(`/app/chat/${l}.json`) }
 }
 
+/** fetch, tried again when a connection drops or the server answers 5xx: a run makes over a thousand calls, and every one of them is safe to repeat. */
+export const steady = (get: typeof fetch = fetch, ms = 2000): typeof fetch => async (input, init) => {
+  for (let tries = 1; ; tries++) {
+    try {
+      const r = await get(input, init)
+      if (r.status < 500 || tries === 3) return r
+    } catch (e) {
+      if (tries === 3) throw e
+    }
+    await new Promise(res => setTimeout(res, ms * tries))
+  }
+}
+
+/** The handbook as the site serves it now, each file read once. A read that fails stops the run: a page left out would be taken for one removed. */
+export function liveSource(site: string, get: typeof fetch = steady()): Required<Source> {
+  const read = new Map<string, Promise<unknown>>()
+  const json = <T>(path: string): Promise<T> => {
+    if (!read.has(path)) read.set(path, get(new URL(path, site)).then(r => { if (!r.ok) throw new Error(`${path}: ${r.status}`); return r.json() }))
+    return read.get(path) as Promise<T>
+  }
+  return { index: l => json(`/app/${l}.json`), shard: (l, k, n) => json(`/app/pages/${l}/${k}-${n}.json`), topics: l => json(`/app/chat/${l}.json`) }
+}
+
+/** What a run has to do, from each section's id and text hash: what it wrote last time, against the handbook now. */
+export function changesOf(written: Record<string, string>, wanted: Record<string, string>): { write: string[]; gone: string[] } {
+  return { write: Object.keys(wanted).filter(id => written[id] !== wanted[id]), gone: Object.keys(written).filter(id => !(id in wanted)) }
+}
+
+export const batchesOf = <T>(all: T[], size: number): T[][] => Array.from({ length: Math.ceil(all.length / size) }, (_, i) => all.slice(i * size, (i + 1) * size))
+
+/** The delete calls for these ids: Vectorize refuses more than 100 in one. */
+export const deleteBodies = (ids: string[]): string[] => batchesOf(ids, 100).map(b => JSON.stringify({ ids: b }))
+
 /** Every section a read_page call can open: a page's opening (heading null) and each heading with an id. */
 export async function docsOf(source: Source, lang: Lang, chars: number): Promise<{ docs: Doc[]; hb: Handbook }> {
   const hb = (await handbookOf(source, lang))!
+  // With no topics to read, the handbook holds back every video guide: their sections would look removed.
+  if (!await hb.topics()) throw new Error(`No topics file for ${lang}`)
   const out: Doc[] = []
   for (const i of hb.items) {
     const doc = await hb.page(i.path)
@@ -47,7 +82,7 @@ export async function docsOf(source: Source, lang: Lang, chars: number): Promise
 
 async function embed(e: Embedder, texts: string[]): Promise<number[][]> {
   for (let tries = 0; ; tries++) {
-    const r = await fetch(`https://api.cloudflare.com/client/v4/accounts/${e.account}/ai/run/${e.model}`, {
+    const r = await steady()(`https://api.cloudflare.com/client/v4/accounts/${e.account}/ai/run/${e.model}`, {
       method: 'POST', headers: { authorization: `Bearer ${e.token}`, 'content-type': 'application/json' }, body: JSON.stringify({ text: texts }),
     })
     const j = await r.json().catch(() => null) as { success?: boolean; result?: { data?: number[][] }; errors?: unknown } | null

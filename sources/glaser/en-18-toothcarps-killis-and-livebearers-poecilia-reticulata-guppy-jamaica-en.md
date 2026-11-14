@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia_reticulata_guppy_jamaica_en/
 title: Poecilia reticulata Guppy Jamaica - Aquarium Glaser GmbH
-fetchedAt: 2026-11-09T21:46:56.513Z
+fetchedAt: 2026-11-10T15:37:29.864Z
 hash: 4d3251e3c0511d6ee92fbc47e7b940eb4148c1308ea1a9b9ee8ca3ec4338211d
 ---
 

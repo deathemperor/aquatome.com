@@ -3,7 +3,9 @@
   "name": "Cá mèo gỗ Fisher",
   "altNames": [
     "Cá mèo gỗ",
-    "Fisher's Woodcat"
+    "Fisher's Woodcat",
+    "Cá trê lũa Fisher",
+    "Fisher's driftwood catfish"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<p>Trachelyopterus fisheri (Eigenmann, 1916). Tên thường gọi: Fisher's Woodcat (cá mèo gỗ Fisher). Nơi thu mẫu chuẩn: Río Sucio, Colombia. Kích thước: 28 cm SL (chiều dài chuẩn, tính từ mõm đến gốc vây đuôi).</p><p>Nguồn gốc tên gọi: Trachelyopterus ghép từ hai chữ Hy Lạp là trachelos (cổ) và pteron (vây). Cái tên này ám chỉ tấm giáp sọ dài của cá, khiến vây lưng trông như mọc ra từ vùng cổ. Tên loài được đặt để vinh danh doanh nhân người Mỹ Carl Graham Fisher.</p><p>Nhận dạng: đây là loài thon mảnh hơn hẳn mọi loài Trachelyopterus khác. Một đặc điểm nữa để nhận ra nó là miệng nằm ngay đầu mõm (miệng cuối). Các loài Trachelyopterus còn lại có miệng hơi hướng lên trên.</p>",
@@ -15,13 +17,20 @@
     "dimorphism:planetcatfish": "<p>Cá đực có gai sinh dục và râu hàm dày hơn. Trên râu và đỉnh đầu cá đực mọc các nốt sần sinh sản. Gai lưng của con đực cong, to ra và có thể dựng lên, đưa về phía trước. Gáy cá đực cũng cong vồng lên, giống như ở các loài thuộc chi Tetranematichthys và Ageneiosus. Cá cái lớn hơn cá đực và có hoa văn màu đơn giản hơn.</p>",
     "reproduction:planetcatfish": "<p>Đã có ghi nhận cá sinh sản (xem phần tài liệu tham khảo). Giống các loài khác trong họ Auchenipteridae, loài này thụ tinh trong. Lúc giao phối, hai con quấn thân vào nhau. Cá đực dùng râu, gai lưng và các nốt sần sinh sản để bám giữ cho đúng tư thế. Lần giao phối thực sự chỉ kéo dài khoảng 30 giây, có khi ngắn hơn. Bốn tuần sau, cá cái mới đẻ trứng. Cá bố mẹ không chăm trứng nhưng cũng không ăn trứng.</p>",
     "notes:planetcatfish": "<p>Xét về tập tính chung khi nuôi trong bể, loài này không giống các loài cùng chi. Nó gần với các loài Auchenipterichthys cỡ lớn hơn và các loài ageneiosid (nhóm cá mèo thuộc chi Ageneiosus) cỡ nhỏ hơn. Đây là loài rất hiền. Cá lướt nhẹ trong nước và không bao giờ hấp tấp như các loài khác trong chi vẫn thường thấy. Ngoài ra, phần gáy và chiếc gai lưng to khiến nó trông giống Ageneiosus hoặc Tetranematichthys hơn.</p><p>Xem thêm TFH August 1982, trang 84-89, Burgess và Azuma: The first spawning of the woodcat, Trachycorystes insignis [sic]. Những hình ảnh này cùng một đoạn tóm tắt rất ngắn của bài báo cũng có trong An Atlas of Marine and Freshwater Catfishes (1989), trang 586-589, Burgess. Sách gọi loài này là Parauchenipterus fisheri, tên đúng của nó vào thời điểm đó.</p>",
-    "references:planetcatfish": "<p>Annals of the Carnegie Museum v. 10 (nos 1-2) (art. 6), pp 82.</p>"
+    "references:planetcatfish": "<p>Annals of the Carnegie Museum v. 10 (nos 1-2) (art. 6), pp 82.</p>",
+    "quickFacts:glaser": "<p>Trachelyopterus fisheri là một loài cá da trơn lũa rất lạ. Nó dài khoảng 12–15 cm. Tính nó hiền, nhưng cá nuôi chung quá nhỏ thì có thể bị nó ăn.</p>",
+    "distribution:glaser": "<p>Loài cá da trơn lũa này có nguồn gốc ở Colombia, sống trong hệ thống sông Rio Sucio. Cá từ vùng này rất lâu mới được nhập về một lần.</p>",
+    "behaviour:glaser": "<p>Chúng bơi suốt cả ngày và rõ là thích ở cùng đồng loại. Tính chúng hiền, nhưng cá nuôi chung quá nhỏ thì có thể bị ăn.</p>",
+    "dimorphism:glaser": "<p>Vào mùa sinh sản, cá đực Trachelyopterus mọc gai vây lưng to khỏe, một cơ quan giống dương vật (dùng để thụ tinh trong cho cá cái) và râu hàm dày lên, giống như họ hàng gần của nó là cá da trơn mũi chai thuộc giống Ageneiosus. Ở Ageneiosus, hết mùa sinh sản thì các đặc điểm này mất hết, lúc đó nhìn bên ngoài không phân biệt được đực cái. Chưa rõ Trachelyopterus có như vậy không.</p>",
+    "reproduction:glaser": "<p>Loài hiếm này đã được các trại ở Indonesia cho đẻ để bán làm cá cảnh. Cá trại có màu rất khác nhau giữa từng con.</p>",
+    "notes:glaser": "<p>Trachelyopterus có nghĩa là \"có vây cực đại\". Tên fisheri đặt để vinh danh Carl G. Fisher ở Indianapolis, người đã giúp có được chuyến thám hiểm thứ hai tới nơi thu mẫu chuẩn của loài này.</p>"
   },
   "quality": {
     "score": 0.7,
     "indexable": false,
     "bySource": {
-      "planetcatfish": 0.7
+      "planetcatfish": 0.7,
+      "glaser": 0.85
     },
     "reason": "score"
   }

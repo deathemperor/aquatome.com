@@ -1,0 +1,86 @@
+{
+  "id": "ophthalmotilapia-nasuta",
+  "native": {
+    "input": "d4916c852eb32b90",
+    "at": "2026-11-10T23:57:51.686Z",
+    "claims": [
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It occurs on the eastern coast between Kigoma and Halembe in Tanzania, and down the southwestern coast and around the south of the lake from Isonga to Cape Kachese.",
+        "words": "Tanzania",
+        "ok": true
+      },
+      {
+        "code": "BI",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Countries: Burundi, DR Congo, Tanzania, Zambia.",
+        "words": "Burundi",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Countries: Burundi, DR Congo, Tanzania, Zambia.",
+        "words": "DR Congo",
+        "ok": true
+      },
+      {
+        "code": "ZM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Countries: Burundi, DR Congo, Tanzania, Zambia.",
+        "words": "Zambia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Tanganyika",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Tanganyika.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Ophthalmotilapia nasuta",
+    "status": "ACCEPTED",
+    "taxonKey": 2371962,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        90
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        8
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        5
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [
+      "TZ",
+      "BI",
+      "CD",
+      "ZM"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T23:57:51.686Z"
+  }
+}

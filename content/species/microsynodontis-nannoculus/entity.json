@@ -12,6 +12,62 @@
     "cameroon",
     "ntem"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM",
+        "GQ"
+      ],
+      "regions": [
+        "Ntem",
+        "Kyé"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Africa: southern Cameroon waters, Ntem and Kyé.",
+          "countries": [
+            "CM"
+          ],
+          "regions": [
+            "Ntem"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Mami River, a tributary of Kyé River, Equatorial Guinea.",
+          "countries": [
+            "GQ"
+          ],
+          "regions": [
+            "Kyé"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344197,
+      "total": 2,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "GQ",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          11.25,
+          1.40625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

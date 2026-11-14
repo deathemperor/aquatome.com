@@ -17,6 +17,7 @@ struct PageView: View {
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
   @Environment(ChatStore.self) private var chat
+  @Environment(\.v2PostClose) private var closePost
   @State private var offline = false
   @State private var failed = false
   @State private var putting = false
@@ -57,9 +58,13 @@ struct PageView: View {
     Group {
       if native, let pieces {
         NativePage(pieces: pieces, facts: facts(inPage: true), put: inPagePut ? { putting = true } : nil, ask: chat.on ? ChatRoute(about: item) : nil,
-                   web: { onWeb = true }, nameInView: { nameInView = $0 }, path: item.path, heading: heading, at: at)
+                   web: { onWeb = true }, nameInView: { nameInView = $0 }, path: item.path, heading: heading, at: at, stillPhoto: item.img)
       } else if native && !tried {
-        ProgressView().frame(maxWidth: .infinity, maxHeight: .infinity)
+        // Its photo and name while the page is read: a card zoomed into a screen with only a spinner on it, black in dark mode.
+        NativePage(pieces: NativePage.head(item), web: {})
+          .overlay(alignment: .bottom) { LateSpinner().padding(.bottom, 64) }
+          // Not the page's own id, which says the page has come: an outer id wins.
+          .accessibilityIdentifier("page-head")
       } else {
         // The site's tools save to "Bể của tôi": here, to the app's tanks (PageBridge).
         WebPage(url: atHeading, lang: handbook.lang, offline: $offline, failed: $failed, store: tanks.storeForPages(), saved: { tanks.mergeFromPage($0) }, open: openScreen)
@@ -80,8 +85,11 @@ struct PageView: View {
         pieces = await handbook.doc(item).map { NativePage.pieces($0, traits: traits) }
         tried = true
       }
+      .modifier(ClearUnderTopBar(shown: true))
       .navigationTitle(item.name)
       .navigationBarTitleDisplayMode(.inline)
+      // A Hôm nay post's ✕ (v2), after the page's buttons: a toolbar applied inside theirs comes after them.
+      .v2PostCloseButton(closePost)
       .toolbar {
         // The page the app draws shows its name under its photo: the bar's, once that has scrolled away.
         if native && pieces != nil {
@@ -124,7 +132,7 @@ struct PageView: View {
         .background(.bar)
       }
       .onAppear { handbook.read(item) }
-      .ownerShows(item.path, as: "page")
+      .ownerShows(item.path, as: "\(item.kind.rawValue) page")
       .sheet(isPresented: $putting, onDismiss: {
         if let id = openAfter { openAfter = nil; openScreen(.tanks(id)) }
       }) {
@@ -174,6 +182,7 @@ struct WebScreen: View {
             .accessibilityIdentifier("page-status")
         }
       }
+    .ownerScreen("web page", path: url.host == handbook.site.host ? url.path : nil)
   }
 }
 
@@ -201,8 +210,8 @@ private struct WebPage: UIViewRepresentable {
     config.userContentController.add(WeakHandler(context.coordinator), name: PageBridge.handler)
     context.coordinator.bridge(config.userContentController)
     let web = WKWebView(frame: .zero, configuration: config)
-    // As the app's own screens: a page's words passing under the title are cut off there, not shown behind it.
-    if #available(iOS 26.0, *) { web.scrollView.topEdgeEffect.style = .hard }
+    // The app's own band stands behind the title (ClearUnderTopBar on the page), as on its other screens.
+    if #available(iOS 26.0, *) { web.scrollView.topEdgeEffect.isHidden = true }
     web.navigationDelegate = context.coordinator
     web.allowsBackForwardNavigationGestures = true
     // Ads stay out of the app: AdSense isn't allowed in an app's web view that isn't registered with Google.
@@ -341,6 +350,18 @@ private final class WeakHandler: NSObject, WKScriptMessageHandler {
   init(_ target: WKScriptMessageHandler) { self.target = target }
   func userContentController(_ content: WKUserContentController, didReceive message: WKScriptMessage) {
     target?.userContentController(content, didReceive: message)
+  }
+}
+
+/// A spinner for a wait long enough to need one: most pages come sooner, and one shown for a moment only flickers.
+private struct LateSpinner: View {
+  @State private var shown = false
+  var body: some View {
+    ProgressView().opacity(shown ? 1 : 0)
+      .task {
+        try? await Task.sleep(for: .milliseconds(700))
+        shown = true
+      }
   }
 }
 

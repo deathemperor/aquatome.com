@@ -11,6 +11,49 @@
     "niger",
     "liberia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LR",
+        "GN"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The pygmy synodontis, Microsynodontis polli, is a small catfish from the upper Niger basin in Liberia and Guinea, growing to around 40 mm SL.",
+          "countries": [
+            "LR",
+            "GN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344196,
+      "total": 1,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "GN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -9.84375,
+          7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -163,28 +206,6 @@
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/f4ce9d73619f6fa7.webp",
-      "thumb": "https://media.aquatome.com/scotcat/f4ce9d73619f6fa7-480.webp",
-      "width": 500,
-      "height": 333,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/mochokidae/microsynodontis_polli.htm",
-      "caption": "Microsynodontis polli",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/e3adf1743b5848e4.webp",
-      "thumb": "https://media.aquatome.com/scotcat/e3adf1743b5848e4-480.webp",
-      "width": 500,
-      "height": 333,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/mochokidae/microsynodontis_polli.htm",
-      "caption": "Microsynodontis polli",
-      "source": "scotcat"
-    },
     {
       "url": "https://media.aquatome.com/scotcat/a48348111ea091c2.webp",
       "thumb": "https://media.aquatome.com/scotcat/a48348111ea091c2-480.webp",

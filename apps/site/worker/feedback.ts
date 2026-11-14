@@ -35,7 +35,7 @@ const owners = (env: AdminEnv) => (env.OWNER_ACCOUNTS ?? '').split(',').map(id =
 
 /** One line of each kind of field, as the contract's Where has it. Anything else is left out. */
 const FIELDS: Record<string, RegExp> = {
-  screen: /^[A-Za-z0-9 _./-]{1,80}$/,
+  screen: /^[A-Za-z0-9 _./-]{1,200}$/,
   kind: /^[a-z-]{1,20}$/,
   item: /^[A-Za-z0-9_.:-]{1,120}$/,
   section: /^[A-Za-z0-9_.:-]{1,120}$/,
@@ -44,6 +44,8 @@ const FIELDS: Record<string, RegExp> = {
   device: /^[A-Za-z0-9 _.,:;()/+@-]{1,160}$/,
   viewport: /^[0-9]{2,5}x[0-9]{2,5}(@[0-9.]{1,4}x)?$/,
   notDrawn: /^[0-9]{1,3}$/,
+  conversation: /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/,
+  answers: /^[0-9]{1,4}(,[0-9]{1,4}){0,19}$/,
 }
 const CHOICES: Record<string, readonly string[]> = {
   source: ['web', 'app'],

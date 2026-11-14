@@ -1,0 +1,30 @@
+{
+  "slug": "ca-tarpon-dai-tay-duong",
+  "name": "Cá tarpon Đại Tây Dương",
+  "altNames": [
+    "Cá tarpon",
+    "Atlantic Tarpon"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Con cá khổng lồ này dài tới 2,5 mét và nặng tới 160 kg, rõ ràng không phải cá cảnh bình thường. Nó chịu được nhiều độ mặn (euryhaline), nên bơi từ nước ngọt ra nước mặn rồi quay về tùy ý. Bóng bơi của loài này còn dùng để thở phụ, vì vậy cá vẫn sống được ở vùng nước thiếu oxy.</p>",
+    "beforeYouBuy:glaser": "<p>Thoạt nhìn cá tarpon trông giống cá trích, nhưng thật ra nó có rất ít điểm chung với họ cá trích. Ấu trùng của nó giống ấu trùng cá chình hơn nhiều. Đó là loại ấu trùng leptocephalus, dẹt và thuôn dài hình bầu dục như lá liễu.</p>",
+    "distribution:glaser": "<p>Cá tarpon sống ở cả hai bờ Đại Tây Dương. Loài còn lại duy nhất trong chi là M. cyprinoides, sống ở Thái Bình Dương và nhỏ hơn hẳn (con lớn nhất từng gặp dài 150 cm, nhưng ngoài tự nhiên thường chỉ 30-40 cm). Đợt cá nhập về gần đây có nguồn gốc từ Nigeria.</p>",
+    "diet:glaser": "<p>Nuôi trong bể, Megalops phải được cho ăn cá, và nó nuốt được những miếng to đến bất ngờ. Chỉ sau vài tuần, cá đã quen ăn cá mồi đông lạnh (cá smelt) và đớp thẳng từ kẹp gắp.</p>",
+    "behaviour:glaser": "<p>Loài săn mồi cỡ lớn này không hề nhát và chẳng bao giờ hoảng loạn trong bể. Đứng xem, người ta luôn có cảm giác con Megalops biết suy tính việc mình làm, và nó chăm chú dõi theo mọi thứ diễn ra bên ngoài bể.</p>",
+    "notes:glaser": "<p>Megalops: từ tiếng Hy Lạp cổ, nghĩa là \"trông to lớn\". atlanticus: tiếng Latin, nghĩa là \"đến từ Đại Tây Dương\". cyprinoides: tiếng Latin, nghĩa là \"giống cá họ cá chép\". Tên thường gọi: Megalops atlanticus là Atlantic Tarpon (cá tarpon Đại Tây Dương), M. cyprinoides là Pacific Tarpon (cá tarpon Thái Bình Dương).</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-11"
+  }
+}

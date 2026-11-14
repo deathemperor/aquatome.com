@@ -2,7 +2,8 @@
   "slug": "ca-tetra-leopold",
   "name": "Cá tetra Leopold",
   "altNames": [
-    "Leopold's Tetra"
+    "Leopold's Tetra",
+    "Cá tetra vua Leopold"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<ul><li>Kích thước tối đa: 60 mm SL (6 cm)</li><li>Kích thước bể: 60 × 30 cm</li><li>Nhiệt độ: 23–27°C</li><li>pH: 5,5–7,0</li><li>Độ cứng: 1–15 dGH</li><li>Độ khó: 4/8 (trung bình), được xếp mức trung bình vì cần dòng chảy mạnh</li><li>Cần dòng chảy mạnh, bộ lọc quay vòng nước trong bể 8–12 lần mỗi giờ</li></ul><p>Cá tetra Leopold, Astyanax leopoldi, là một loài cá họ Characidae bản địa của các lưu vực sông Approuague và Oyapock ở Guyane thuộc Pháp và Brazil. Chúng phổ biến nhất ở vùng nước chảy xiết, nơi chúng bơi thành đàn lớn ở khu vực ven bờ hoặc nơi nước êm hơn. Giống như hầu hết các loài Astyanax, chúng hiếm khi được bán.</p>",
@@ -15,13 +16,19 @@
     "behaviour:seriouslyfish": "<p>Rất hiền và phù hợp với nhiều bể cộng đồng. Không nuôi chung với các loài rất lớn hoặc hung dữ. Bạn cùng bể phù hợp gồm các loài cá characin nhỏ, cá cichlid lùn và các loài cá da trơn hiền thuộc họ Callichthyidae và Loricariidae. Đây là loài cá đàn theo bản năng, vì vậy hãy mua một nhóm ít nhất 8–10 con.</p>",
     "dimorphism:seriouslyfish": "<p>Cá cái trưởng thành có thân nặng nề hơn cá đực.</p>",
     "reproduction:seriouslyfish": "<p>Có vẻ loài này đã được sinh sản trong điều kiện nuôi nhốt nhưng cho đến nay chúng tôi chưa thể có được thông tin cụ thể.</p>",
-    "notes:seriouslyfish": "<p>Hầu hết các loài Astyanax không phổ biến trong thú chơi cá cảnh, mặc dù chi này là một trong những chi có nhiều loài nhất trong họ Characidae. A. leopoldi cũng không ngoại lệ, bạn sẽ hiếm khi thấy chúng được bán.</p>"
+    "notes:seriouslyfish": "<p>Hầu hết các loài Astyanax không phổ biến trong thú chơi cá cảnh, mặc dù chi này là một trong những chi có nhiều loài nhất trong họ Characidae. A. leopoldi cũng không ngoại lệ, bạn sẽ hiếm khi thấy chúng được bán.</p>",
+    "distribution:glaser": "<p>Ngoài sông Oyapock, nghe nói Astyanax leopoldi cũng có ở sông Approuague. Nguồn gốc: Guyana, sông Oyapock.</p>",
+    "maintenance:glaser": "<p>Cần cẩn thận nhất là khi thay nước quá tay làm pH tăng lên. Lúc đó cá ở mọi lứa tuổi đôi khi bị \"sốc\" (thân chuyển trắng), và có khi không hồi lại được.</p>",
+    "behaviour:glaser": "<p>Ngoài chuyện đó ra, đây là loài cá rất bền, hiền và dễ nuôi. Thân chúng hình thoi nên nhìn hơi giống các loài tetra châu Phi thuộc chi Phenacogrammus hoặc Bathyaethiops.</p>",
+    "reproduction:glaser": "<p>Người ta cho loài này đẻ được khá sớm, dù nó không phải lúc nào cũng dễ chiều.</p>",
+    "notes:glaser": "<p>Loài này mang tên vua Leopold III của Bỉ, người từng tham gia một chuyến khảo sát cá ở sông Oyapock năm 1962. Chúng không hẳn là loài mới về có màu sắc nổi bật, nhưng chắc chắn xứng đáng có chỗ đứng lâu dài trong bể của người chơi.</p>"
   },
   "quality": {
     "score": 0.85,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.85
+      "seriouslyfish": 0.85,
+      "glaser": 0.85
     }
   }
 }

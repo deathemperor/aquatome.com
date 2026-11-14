@@ -9,6 +9,35 @@
     "south-america",
     "peru"
   ],
+  "range": {
+    "records": {
+      "taxonKey": 2355683,
+      "total": 28,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "PE",
+          26
+        ],
+        [
+          "BR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -4.21875,
+          26
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -10,6 +10,92 @@
     "thailand",
     "chao-phraya"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Chao Phraya",
+        "Mae Klong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Ping River, a major tributary of the Chao Phraya system, flows through Chiang Mai and the species is known only from the Chao Phraya and Mae Klong watersheds, both located entirely within central and western Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Chao Phraya",
+            "Mae Klong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9580574,
+      "total": 10,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "TH",
+          7
+        ],
+        [
+          "MY",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          16.875,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          16.875,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          116.71875,
+          4.21875,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

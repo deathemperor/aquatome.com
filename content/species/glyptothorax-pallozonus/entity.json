@@ -1,0 +1,128 @@
+{
+  "id": "glyptothorax-pallozonus",
+  "scientificName": "Glyptothorax pallozonus",
+  "order": "Siluriformes",
+  "family": "Sisoridae",
+  "genus": "Glyptothorax",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "china",
+    "zhujiang"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 16,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7.6
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1372",
+      "html": "<p>Scientific name: Glyptothorax pallozonus (Lin, 1934). Synonym: Glyptosternum pallozonum. Type locality: Loh-Fau Shan, Poh-Lo district, Kwangtung, China. Size: 80 mm SL. This species is distinguished from other striped Glyptothorax by its deep caudal peduncle.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1372",
+      "html": "<p>Zhujiang (Pearl River) drainage in southeastern China.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1372",
+      "html": "<p>Sisorid catfishes of the genus Glyptothorax are benthic inhabitants of torrential waters of rivers and streams in montane and submontane parts of tropical Asia. They are adapted to attach themselves to rocks and boulders against strong currents by means of a thoracic adhesive apparatus comprising grooves and folded pleats of skin parallel or oblique to the longitudinal axis of the body.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1372",
+      "html": "<ul><li>pH: 6.0–7.6</li><li>Temperature: 16–24°C</li><li>Needs well oxygenated water.</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1372",
+      "html": "<p>A sandy/gravel bottom and enough rocks/driftwood to partially deflect the current and for the fish to hide in. Best kept in a well-oxygenated tank with strong current.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1372",
+      "html": "<p>Will feed on live/frozen food, but does not appear to take prepared foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1372",
+      "html": "<p>A peaceful species suitable for the hillstream biotope tank. Ideal tankmates include balitorine loaches such as Homaloptera, fast-swimming cyprinids such as Danio or Barilius, and smaller mastacembelids.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1372",
+      "html": "<p>Males have a more elongate genital papilla.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1372",
+      "html": "<p>Not reported.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1372",
+      "html": "<p>Lingnan Science Journal, Canton v. 13 (no. 2), pp 228, Figs. 7-8.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "sục khí bể cá",
+        "wave maker"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát sỏi thủy sinh",
+        "sỏi nền bể cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "quạt làm mát bể cá",
+        "máy làm lạnh nước bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

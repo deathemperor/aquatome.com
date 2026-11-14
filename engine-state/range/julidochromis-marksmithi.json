@@ -1,0 +1,68 @@
+{
+  "id": "julidochromis-marksmithi",
+  "native": {
+    "input": "bab761ec0b1038c6",
+    "at": "2026-11-11T08:59:40.517Z",
+    "claims": [
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The type locality of J. marksmithi is Kerenge Island on the Tanzanian coast of Lake Tanganyika.",
+        "words": "Tanzanian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Tanganyika",
+        "source": "glaser",
+        "quote": "The type locality of J. marksmithi is Kerenge Island on the Tanzanian coast of Lake Tanganyika.",
+        "country": "TZ",
+        "ok": true
+      },
+      {
+        "name": "Kerenge Island",
+        "source": "glaser",
+        "quote": "The type locality of J. marksmithi is Kerenge Island on the Tanzanian coast of Lake Tanganyika.",
+        "country": "TZ",
+        "ok": true
+      },
+      {
+        "name": "Mvuna Island",
+        "source": "glaser",
+        "quote": "So far the species is known only from Kipili and the islands nearby (Mvuna Island, Ulwile Island, Kerenge Island, Nkondwe Island), and from the somewhat more northern Cape Mpimbwe (Msalaba).",
+        "ok": true
+      },
+      {
+        "name": "Ulwile Island",
+        "source": "glaser",
+        "quote": "So far the species is known only from Kipili and the islands nearby (Mvuna Island, Ulwile Island, Kerenge Island, Nkondwe Island), and from the somewhat more northern Cape Mpimbwe (Msalaba).",
+        "ok": true
+      },
+      {
+        "name": "Nkondwe Island",
+        "source": "glaser",
+        "quote": "So far the species is known only from Kipili and the islands nearby (Mvuna Island, Ulwile Island, Kerenge Island, Nkondwe Island), and from the somewhat more northern Cape Mpimbwe (Msalaba).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Julidochromis marksmithi",
+    "status": "ACCEPTED",
+    "taxonKey": 9786478,
+    "datasets": [],
+    "native": [
+      "TZ"
+    ],
+    "requests": 2,
+    "at": "2026-11-11T08:59:40.517Z"
+  }
+}

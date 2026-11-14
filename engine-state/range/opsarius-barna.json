@@ -1,0 +1,158 @@
+{
+  "id": "opsarius-barna",
+  "native": {
+    "input": "a7faba76a1e8a137",
+    "at": "2026-11-10T23:57:51.686Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Ganges and Brahmaputra river basins in northern India, and according to current thinking also occurs in the Mahanadi drainage as well as various river systems in Nepal, Bhutan, Bangladesh, and Rhakine State, Myanmar.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Ganges and Brahmaputra river basins in northern India, and according to current thinking also occurs in the Mahanadi drainage as well as various river systems in Nepal, Bhutan, Bangladesh, and Rhakine State, Myanmar.",
+        "words": "Nepal",
+        "ok": true
+      },
+      {
+        "code": "BT",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Ganges and Brahmaputra river basins in northern India, and according to current thinking also occurs in the Mahanadi drainage as well as various river systems in Nepal, Bhutan, Bangladesh, and Rhakine State, Myanmar.",
+        "words": "Bhutan",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Ganges and Brahmaputra river basins in northern India, and according to current thinking also occurs in the Mahanadi drainage as well as various river systems in Nepal, Bhutan, Bangladesh, and Rhakine State, Myanmar.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Ganges and Brahmaputra river basins in northern India, and according to current thinking also occurs in the Mahanadi drainage as well as various river systems in Nepal, Bhutan, Bangladesh, and Rhakine State, Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Given this distribution existing records from the Mekong drainage appear questionable, though it may occur in the upper part of that system in Yunnan province, China.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ganges",
+        "source": "seriouslyfish",
+        "quote": "Known from the Ganges and Brahmaputra river basins in northern India, and according to current thinking also occurs in the Mahanadi drainage as well as various river systems in Nepal, Bhutan, Bangladesh, and Rhakine State, Myanmar.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Brahmaputra",
+        "source": "seriouslyfish",
+        "quote": "Known from the Ganges and Brahmaputra river basins in northern India, and according to current thinking also occurs in the Mahanadi drainage as well as various river systems in Nepal, Bhutan, Bangladesh, and Rhakine State, Myanmar.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Mahanadi",
+        "source": "seriouslyfish",
+        "quote": "Known from the Ganges and Brahmaputra river basins in northern India, and according to current thinking also occurs in the Mahanadi drainage as well as various river systems in Nepal, Bhutan, Bangladesh, and Rhakine State, Myanmar.",
+        "ok": true
+      },
+      {
+        "name": "Himalayas",
+        "source": "glaser",
+        "quote": "Opsarius barna is found along the foot of the Himalayas and is widely distributed.",
+        "ok": true
+      },
+      {
+        "name": "Indrawati",
+        "source": "seriouslyfish",
+        "quote": "At one locality in the Indrawati River basin, Nepal, B. barna was collected from a pristine, fast-to-torrential flowing river with a substrate of cobbles and boulders and a gravel shoreline.",
+        "country": "NP",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Opsarius barna",
+    "status": "ACCEPTED",
+    "taxonKey": 5787933,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        50
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        17
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        12
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        11
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        9
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        8
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "7b88be3f-ae5e-497d-bf56-0d549300d916",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "NP",
+      "BT",
+      "BD",
+      "MM"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T23:57:51.686Z"
+  }
+}

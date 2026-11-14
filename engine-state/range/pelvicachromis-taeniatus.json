@@ -1,0 +1,122 @@
+{
+  "id": "pelvicachromis-taeniatus",
+  "native": {
+    "input": "3ba8d150b325e406",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The striped kribensis, Pelvicachromis taeniatus, is a cichlid from still and slow-moving forest streams and rivers in Nigeria and Cameroon.",
+        "words": "Nigeria",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The striped kribensis, Pelvicachromis taeniatus, is a cichlid from still and slow-moving forest streams and rivers in Nigeria and Cameroon.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Nigeria, Cameroon, Benin.",
+        "words": "Nigeria",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Nigeria, Cameroon, Benin.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "BJ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Nigeria, Cameroon, Benin.",
+        "words": "Benin",
+        "ok": true
+      },
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Nigeria.",
+        "words": "Nigeria",
+        "ok": false,
+        "why": "no sentence"
+      }
+    ],
+    "regions": [
+      {
+        "name": "Benue",
+        "source": "glaser",
+        "quote": "The pictured wild-collected specimens came from the Benue river.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pelvicachromis taeniatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2372921,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        20
+      ],
+      [
+        "8e912d78-6259-44e3-8f58-debb3081a15f",
+        13
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        11
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        6
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        5
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        3
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "NG",
+      "CM",
+      "BJ"
+    ],
+    "requests": 11,
+    "at": "2026-11-12T13:29:05.219Z"
+  }
+}

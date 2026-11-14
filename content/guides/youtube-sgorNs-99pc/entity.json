@@ -1,0 +1,119 @@
+{
+  "id": "youtube-sgorNs-99pc",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=sgorNs-99pc",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-09",
+  "video": {
+    "youtubeId": "sgorNs-99pc",
+    "title": "Dripping Shiny Cave Paludarium",
+    "channel": "SerpaDesign",
+    "channelUrl": "https://www.youtube.com/channel/UCGzXtNdhjPxvCNWFme1bG0g",
+    "durationSec": 731,
+    "publishedAt": "2021-06-26",
+    "chapters": [],
+    "series": {
+      "id": "PLGPT1t4CqpfiPXahgre_hVWtId4eP7bUm",
+      "position": 32
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/sgorNs-99pc/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Vesicularia sp.",
+      "Lemna sp."
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "nano",
+        "t": 40
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 7
+      },
+      {
+        "category": "loc",
+        "t": 526
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 562
+      },
+      {
+        "category": "den",
+        "t": 593
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Cắt kính và ráp phần thân bể thế nào",
+        "moments": [
+          {
+            "t": 215,
+            "url": "https://media.aquatome.com/video/sgorNs-99pc/at215-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bôi silicone dọc cạnh kính đã dán băng keo xanh.",
+            "sharpness": 71.5
+          }
+        ]
+      },
+      {
+        "heading": "Làm vách kính và hộp tràn ra sao",
+        "moments": [
+          {
+            "t": 295,
+            "url": "https://media.aquatome.com/video/sgorNs-99pc/at295-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể đã dán băng keo xanh đánh dấu vị trí vách kính bên trong.",
+            "sharpness": 469.8,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Lắp bơm, thử nước và phủ rêu",
+        "moments": [
+          {
+            "t": 555,
+            "url": "https://media.aquatome.com/video/sgorNs-99pc/at555-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Rêu sphagnum phủ lên mút lọc và một phần đá trong hộp tràn.",
+            "sharpness": 2675.4,
+            "person": false
+          },
+          {
+            "t": 580,
+            "url": "https://media.aquatome.com/video/sgorNs-99pc/at580-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Rêu sống gắn vào rễ và đá chỗ nước chảy qua.",
+            "sharpness": 1501,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/sgorNs-99pc/p5-xMTg1NTY0KS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/sgorNs-99pc/p5-xMTg1NTY0KS5qcGc-480.webp",
+          "width": 960,
+          "height": 540,
+          "licence": "CC BY-SA 2.0",
+          "author": "Storm from Canada",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Christmas_moss_and_riccia_(14441185564).jpg",
+          "caption": "Cận cảnh rêu xanh tươi, giống rêu Christmas dùng để phủ và gắn trong hồ."
+        }
+      }
+    ]
+  }
+}

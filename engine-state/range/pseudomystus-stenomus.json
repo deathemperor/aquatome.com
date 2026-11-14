@@ -1,0 +1,74 @@
+{
+  "id": "pseudomystus-stenomus",
+  "native": {
+    "input": "0c53fcb4b1917f6b",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "South-eastern Thailand and peninsular Malaysia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "South-eastern Thailand and peninsular Malaysia.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Java",
+        "source": "seriouslyfish",
+        "quote": "P. stenomus is endemic to the island of Java and supposedly exhibits a higher degree of light-coloured patterning on the body.",
+        "ok": true
+      },
+      {
+        "name": "Malay Peninsula",
+        "source": "seriouslyfish",
+        "quote": "This fish is usually imported as Pseudomystus stenomus but actually seems to be an undescribed species, as it's collected from the Malay Peninsula.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudomystus stenomus",
+    "status": "ACCEPTED",
+    "taxonKey": 2338299,
+    "datasets": [
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}

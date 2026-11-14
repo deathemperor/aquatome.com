@@ -1,0 +1,20 @@
+{
+  "slug": "tep-noi-nigeria",
+  "name": "Tép nổi Nigeria",
+  "altNames": [
+    "Nigerian Floating Shrimp"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Đây là một loài tép lùn dễ thương đến từ Nigeria. Con lớn nhất dài khoảng 4 cm.</p>",
+    "behaviour:glaser": "<p>Tép có kiểu lơ lửng trôi trong nước rất lạ mắt, không loài nào giống. Nhưng chỉ khi nước thật yên thì chúng mới chịu làm vậy.</p>",
+    "reproduction:glaser": "<p>Loài này đẻ trong bể khá dễ, vì tép con vừa ra đã rất to.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  }
+}

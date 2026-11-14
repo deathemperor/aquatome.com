@@ -9,6 +9,46 @@
     "north-america",
     "mexico"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "chamulae: after the indigenous tribe of the Chamula, which live in the region in Mexico where the species is found.",
+          "countries": [
+            "MX"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2350144,
+      "total": 1,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "MX",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -92.8125,
+          16.875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

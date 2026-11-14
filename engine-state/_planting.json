@@ -30,6 +30,11 @@
     "score": 0.85,
     "kept": true
   },
+  "azolla": {
+    "at": "2026-11-10",
+    "score": 0.8,
+    "kept": true
+  },
   "bacopa-monnieri": {
     "at": "2026-11-08",
     "kept": false
@@ -121,6 +126,11 @@
   "cyperus-helferi": {
     "at": "2026-11-08",
     "kept": false
+  },
+  "echinodorus-angustifolia": {
+    "at": "2026-11-10",
+    "score": 0.8,
+    "kept": true
   },
   "echinodorus-aquartica": {
     "at": "2026-11-09",
@@ -229,6 +239,10 @@
     "score": 0.9,
     "kept": true
   },
+  "hygrophila-serpyllum": {
+    "at": "2026-11-10",
+    "kept": false
+  },
   "lagenandra-meeboldii": {
     "at": "2026-11-08",
     "kept": false
@@ -242,6 +256,11 @@
     "at": "2026-11-08",
     "kept": false
   },
+  "limnophila-aromatica": {
+    "at": "2026-11-10",
+    "score": 0.85,
+    "kept": true
+  },
   "lindernia-rotundifolia": {
     "at": "2026-11-08",
     "kept": false
@@ -249,6 +268,11 @@
   "littorella-uniflora": {
     "at": "2026-11-09",
     "score": 0.8,
+    "kept": true
+  },
+  "ludwigia-brevipes": {
+    "at": "2026-11-10",
+    "score": 0.9,
     "kept": true
   },
   "ludwigia-glandulosa": {
@@ -296,6 +320,11 @@
     "score": 0.85,
     "kept": true
   },
+  "nymphaea-zenkeri": {
+    "at": "2026-11-10",
+    "score": 0.95,
+    "kept": true
+  },
   "nymphoides-hydrophylla": {
     "at": "2026-11-09",
     "kept": false
@@ -337,10 +366,19 @@
     "at": "2026-11-09",
     "kept": false
   },
+  "spirodela-polyrrhiza": {
+    "at": "2026-11-10",
+    "score": 0.85,
+    "kept": true
+  },
   "utricularia-graminifolia": {
     "at": "2026-11-09",
     "score": 0.85,
     "kept": true
+  },
+  "vallisneria": {
+    "at": "2026-11-10",
+    "kept": false
   },
   "vallisneria-sp-gigantea": {
     "at": "2026-11-08",

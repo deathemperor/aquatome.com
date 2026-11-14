@@ -1,0 +1,73 @@
+{
+  "id": "pungu-maclareni",
+  "native": {
+    "input": "305f08081d0c36f5",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Pungu maclareni is a maternally mouthbrooding cichlid endemic to Lake Barombi Mbo, a small volcanic crater lake in Cameroon.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Cameroon.",
+        "words": "Cameroon",
+        "ok": false,
+        "why": "no sentence"
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Barombi Mbo",
+        "source": "seriouslyfish",
+        "quote": "Pungu maclareni is a maternally mouthbrooding cichlid endemic to Lake Barombi Mbo, a small volcanic crater lake in Cameroon.",
+        "country": "CM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pungu maclareni",
+    "status": "ACCEPTED",
+    "taxonKey": 2372475,
+    "datasets": [
+      [
+        "31fd4785-7ed4-422f-91fa-03b3833937a0",
+        11
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        2
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "CM"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}

@@ -8,7 +8,8 @@
   "places": [
     "asia",
     "laos",
-    "sekong"
+    "sekong",
+    "thailand"
   ],
   "dataCard": {
     "tempC": [
@@ -71,6 +72,12 @@
       "html": "<p>The type series was collected from the Sekong River basin in southern Laos, part of the lower Mekong system, and this species is apparently endemic to that area.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/serpenticobitis-octozona-en/",
+      "html": "<p>Thailand.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/serpenticobitis-octozona",
@@ -123,6 +130,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/serpenticobitis-octozona",
       "html": "<p>This species exhibits some interesting behaviour including a degree of social interaction plus the ability to cling to vertical or overhanging surfaces. It's sometimes sold under the name 'serpent loach'.</p><p>The genus currently contains just three members all of which are known only from the Mekong basin. S. octozona is the type species and separated from the others mainly by body patterning which consists of 8-9 pale, relatively thin bars on each flank, these extending the full depth of the otherwise dark-coloured body.</p><p>In S. cingulata there are 7-12 thin, dark bars mostly not extending the full depth of the otherwise pale body whereas S. zonata has a pale body with 7-8 regular, dark vertical bars which are equal in width or slightly wider than the pale interspaces and additional thin, dark median bars on the interspaces in some specimens.</p><p>Post-description the position of the genus within the superfamily Cobitoidea was uncertain because it had not been included in any genetic analysis, plus members possess a confusing combination of characters.</p><p>For example the general body shape, shape of the swim bladder and gut and barbel arrangement are all reminiscent of the family Nemacheilidae but all Serpenticobitis spp. possess a motile suborbital spine, a trait previously thought restricted to the family Cobitidae.</p><p>The latter attribute prompted Roberts (1997) and Kottelat (1998, 2001) to place Serpenticobitis into Cobitidae although Nalbant (2001) apparently considered it a nemacheilid genus.</p><p>Šlechtová et al. (2007) included S. zonata in a phylogenetic analysis for the first time and their results appeared to confirm the genus as a member of the family Balitoridae, but in 2012 Kottelat erected the new family Serpenticobitidae of which Serpenticobitis is currently the sole member.</p><p>Serpenticobitidae is told apart from all other Cobitoidea families by the following combination of characters: body short and cylindrical in shape, with a barred colour pattern; head small, snout rounded and conspicuously overhanging; presence of a large bifid spine below eye; caudal-fin slightly forked; dorsal-fin origin anterior to pelvic-fin origin; pectoral fins oriented laterally; pectoral and pelvic fins with a single simple ray; mouth small and arched; upper and lower lips fleshy and continuous with one another; lower lip with a few folds and a median interruption but no mental lobes; presence of two pairs of rostral barbels and one pair of maxillary barbels; lower jaw partly exposed; anterior nostril pierced at front side of a flap-like tube; all fins containing rows of spots; presence of a large, conspicuous black spot at the caudal-fin base; swim bladder capsule comprises two smaller chambers connected to each other posteriorly and forming a canal referred to as the 'manubrium' located around the duct which connects the two halves of the anterior swim bladder chamber.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/serpenticobitis-octozona-en/",
+      "html": "<p>Lexicon: Serpenticobitis means \"snake-Cobitis\"; Cobitis is another genus of loach. octozona means \"with eight bands\".</p><p>Suggestion of a common name: Medusa Loach</p>"
     },
     {
       "key": "references",
@@ -234,5 +247,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-10"
 }

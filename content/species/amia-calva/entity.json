@@ -1272,7 +1272,12 @@
       "author": "Original uploader was Stan Shebs at commons.wikipedia",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amia_calva_4.jpg",
       "caption": "Amia calva.",
-      "thumb": "https://media.aquatome.com/commons/e9a9059d4d73c052-480.webp"
+      "thumb": "https://media.aquatome.com/commons/e9a9059d4d73c052-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/e9a9059d4d73c052-large.webp",
+        "width": 1200,
+        "height": 475
+      }
     }
   ],
   "videos": [],

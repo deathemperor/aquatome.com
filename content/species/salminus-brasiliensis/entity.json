@@ -16,11 +16,11 @@
   "dataCard": {
     "sizeCm": [
       {
-        "source": "glaser",
+        "source": "seriouslyfish",
         "value": 100
       },
       {
-        "source": "seriouslyfish",
+        "source": "glaser",
         "value": 100
       }
     ],
@@ -56,8 +56,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/salminus_arrived__en/",
-      "html": "<p>The genus Salminus currently comprises four species. These tetras can become very large. The most colorful of them is S. brasiliensis, also known as \"Dorado\". The species can become one meter long.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/salminus_brasiliensis_formerly_maxillosus__en/",
+      "html": "<p>Salminus brasiliensis (formerly S. maxillosus) is a characin rarity that grows to up to 1 m and over 20 kg. It is a migratory species.</p>"
     },
     {
       "key": "quickFacts",
@@ -68,8 +68,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/salminus_arrived__en/",
-      "html": "<p>The juveniles described here originate from Paraguay and are 7-10 cm long.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/salminus_brasiliensis_formerly_maxillosus__en/",
+      "html": "<p>Origin: Brazil, Bolivia.</p>"
     },
     {
       "key": "distribution",
@@ -90,6 +90,12 @@
       "html": "<p>A truly humongous tank (or pond) would be required by an adult specimen, as it's an incredibly fast-swimming, active, predatory fish. Something in the region of 6 m x 1.2 m x 1.2 m should be considered a bare minimum. A tank like this would hold over 9000 litres of water!</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/salminus_brasiliensis_formerly_maxillosus__en/",
+      "html": "<p>Even young animals should have large aquariums available.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/salminus-brasiliensis",
@@ -108,10 +114,22 @@
       "html": "<p>Highly piscivorous in nature, juvenile captive specimens have been known to accept prawns, lancefish etc. An adult fish would need large amounts of fish such as whole trout. An expensive proposition!</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/salminus_brasiliensis_formerly_maxillosus__en/",
+      "html": "<p>As strong devourers, their appetite cannot be satisfied with flake food in the long term. Sometimes a defrosted fish should be fed.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/salminus-brasiliensis",
       "html": "<p>Will not eat anything it can't fit into its mouth, but this doesn't leave many available species with which it could be housed in the long term. Young fish have been seen cohabiting with large tankmates such as Cichla sp., arowana and other tankbusting fish.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/salminus_brasiliensis_formerly_maxillosus__en/",
+      "html": "<p>Migrations take place from October to January and are correlated with the rise of the water levels as well as the rising length of day. The fish follow their prey on their migrations to the spawning grounds. In both migratory behaviour and appearance Salminus species recall salmon, and like them they are threatened by dams, barrages and environmental pollution.</p><p>In aquaria their rowdiness must be considered: with their strong teeth they can hurt their tankmates.</p>"
     },
     {
       "key": "dimorphism",
@@ -128,8 +146,8 @@
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/salminus_arrived__en/",
-      "html": "<p>Old fish get a breathtakingly beautiful golden colour all over the body. This species is also known under the old, invalid name S. maxillosus.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/salminus_brasiliensis_formerly_maxillosus__en/",
+      "html": "<p>As an esteemed food fish, it is farmed in Brazil.</p>"
     },
     {
       "key": "notes",
@@ -141,36 +159,61 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/3096111c283216b4.webp",
+      "thumb": "https://media.aquatome.com/commons/3096111c283216b4-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC0",
       "author": "Diego Carús",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salminus_brasiliensis_102879277.jpg",
-      "caption": "Golden Dorado (Salminus brasiliensis)",
-      "thumb": "https://media.aquatome.com/commons/3096111c283216b4-480.webp"
+      "caption": "Golden Dorado (Salminus brasiliensis)"
     },
     {
       "url": "https://media.aquatome.com/commons/8cfcc41ecef75124.webp",
+      "thumb": "https://media.aquatome.com/commons/8cfcc41ecef75124-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 4.0",
       "author": "Pablo H Capovilla",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salminus_brasiliensis_167978728.jpg",
-      "caption": "Golden Dorado (Salminus brasiliensis)",
-      "thumb": "https://media.aquatome.com/commons/8cfcc41ecef75124-480.webp"
+      "caption": "Golden Dorado (Salminus brasiliensis)"
     },
     {
       "url": "https://media.aquatome.com/commons/b9387d5f31cdda39.webp",
+      "thumb": "https://media.aquatome.com/commons/b9387d5f31cdda39-480.webp",
       "width": 960,
       "height": 593,
       "licence": "CC0",
       "author": "Diego Carús",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salminus_brasiliensis_102879283.jpg",
-      "caption": "Golden Dorado (Salminus brasiliensis)",
-      "thumb": "https://media.aquatome.com/commons/b9387d5f31cdda39-480.webp"
+      "caption": "Golden Dorado (Salminus brasiliensis)"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "xfV1VRPfUb4",
+      "title": "Salminus brasiliensis",
+      "durationSec": 17,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "sDrNdXgbq9Y",
+      "title": "DORADO ! - SALMINUS brasiliensis in their natural habitat, WOLF in the WATER",
+      "durationSec": 177,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "BmYFENQ4j2k",
+      "title": "ドラード、ドラド　Dorado　Salminus brasiliensis",
+      "durationSec": 47,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "419iwocHdwA",
+      "title": "Salminus brasiliensis",
+      "durationSec": 15,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -193,5 +236,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-13"
 }

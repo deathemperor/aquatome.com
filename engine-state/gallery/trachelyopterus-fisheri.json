@@ -1,16 +1,25 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/319861466/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/319861466/medium.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Igor Balashov",
-   "sourceUrl": "https://www.inaturalist.org/photos/319861466",
-   "key": "inat:319861466"
-  }
+ "queue": [],
+ "judged": [
+  "inat:319861466"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/scotcat/12f39d26bdc5f54d.webp": "f8f8f882f2a23833",
+  "https://media.aquatome.com/scotcat/fd76d27c1ae985a1.webp": "1d1c6ce13eff38ba",
+  "https://media.aquatome.com/scotcat/c55bbca8fe50f4f6.webp": "4e536ec5e0dcce93",
+  "https://media.aquatome.com/inaturalist/319861466.webp": "20e1c919fdfdcf2e"
+ },
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 608890,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 183384825
+  }
+ },
+ "gbif": {
+  "key": 2344682,
+  "next": null
+ }
 }

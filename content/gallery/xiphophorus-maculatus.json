@@ -55,18 +55,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/207091518.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/207091518-480.webp",
-      "width": 1024,
-      "height": 804,
-      "licence": "CC BY",
-      "author": "Zakqary Roy",
-      "sourceUrl": "https://www.inaturalist.org/photos/207091518",
-      "caption": "Cá platy vàng bơi trong bể nước hơi đục",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/558226066.webp",
       "thumb": "https://media.aquatome.com/inaturalist/558226066-480.webp",
       "width": 1024,
@@ -92,16 +80,6 @@
       "author": "Monika Korzeniec",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:18_marca_06_r._015.jpg",
       "caption": "Cá platy cam đuôi đen trong bể thủy sinh"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/08a2c431a9cfdaa8.webp",
-      "thumb": "https://media.aquatome.com/commons/08a2c431a9cfdaa8-480.webp",
-      "width": 1200,
-      "height": 770,
-      "licence": "CC BY-SA 3.0",
-      "author": "Marrabbio2",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gold_comet_tuxedo_platy.JPG",
-      "caption": "Cá platy đen vàng kiểu mickey trong bể cát"
     },
     {
       "url": "https://media.aquatome.com/commons/69b902fcef197d40.webp",
@@ -461,16 +439,26 @@
       "kind": "group"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/746844741.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/746844741-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/207091518.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/207091518-480.webp",
       "width": 1024,
-      "height": 935,
-      "licence": "CC0",
-      "author": "Ben Keen",
-      "sourceUrl": "https://www.inaturalist.org/photos/746844741",
-      "caption": "Cá platy màu đỏ bơi ngoài tự nhiên trong nước đục",
-      "best": false,
-      "kind": "habitat"
+      "height": 804,
+      "licence": "CC BY",
+      "author": "Zakqary Roy",
+      "sourceUrl": "https://www.inaturalist.org/photos/207091518",
+      "caption": "Cá platy vàng bơi trong bể nước hơi đục",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/08a2c431a9cfdaa8.webp",
+      "thumb": "https://media.aquatome.com/commons/08a2c431a9cfdaa8-480.webp",
+      "width": 1200,
+      "height": 770,
+      "licence": "CC BY-SA 3.0",
+      "author": "Marrabbio2",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gold_comet_tuxedo_platy.JPG",
+      "caption": "Cá platy đen vàng kiểu mickey trong bể cát"
     }
   ],
   "seen": 240,

@@ -1,8 +1,16 @@
 {
   "id": "mastiglanis-asopos",
-  "summary": "Cá da trơn Mastiglanis asopos nhỏ, trưởng thành khoảng 6,6 cm, nguồn gốc từ các sông ở Nam Mỹ (Amazon, Capim, Orinoco). Hồ sơ không ghi nhiệt độ, pH, độ cứng hay bể tối thiểu, nên chưa đủ cơ sở để nói bể và nước thế nào cho hợp. Điểm khó nhất là chưa có ghi nhận nào về việc loài này sinh sản trong bể nuôi, nên không thể trông chờ gây giống.",
-  "mistakes": [],
-  "speciesUpdatedAt": "2026-10-31",
-  "generatedAt": "2026-10-31T17:47:05.234Z",
-  "review": "approved"
+  "summary": "Cá da trơn Mastiglanis asopos hợp với người thích cá nhỏ, hiền, nuôi để ngắm, vì cá chỉ dài khoảng 7 cm. Cần nước 23–25 °C, pH 6–7,2 và bể nền cát; hồ sơ ghi cá từng được nuôi trong bể nền cát có cây, lũa và hang trú ẩn. Điểm khó nhất là cá kiếm ăn kiểu rình mồi trôi, thức ăn của nó là ấu trùng côn trùng, còn chuyện sinh sản trong bể thì chưa có ghi nhận nào.",
+  "mistakes": [
+    "Đừng lót nền sỏi hay nền thô, vì ngoài tự nhiên cá chỉ sống trên nền cát; hãy dùng nền cát.",
+    "Đừng cho ăn kiểu thả mồi chìm một lần rồi bỏ đi, vì cá rình mồi trôi trong dòng chảy; hãy cho mồi như ấu trùng muỗi lắc.",
+    "Đừng bỏ bể trống không chỗ trú, vì cá hay quanh quẩn dưới lọc mút; hãy thêm cây, lũa và hang."
+  ],
+  "speciesUpdatedAt": "2026-11-10",
+  "generatedAt": "2026-11-10T22:59:34.606Z",
+  "review": "pending",
+  "problems": [
+    "\"Đừng cho ăn kiểu thả mồi chìm một lần rồi bỏ đi... hãy cho mồi như ấu trùng muỗi lắc\": the page gives no feeding-method advice. It only says what the fish eats in the wild, and it never says to offer live food in a current. This is invented advice.",
+    "\"Đừng bỏ bể trống không chỗ trú, vì cá hay quanh quẩn dưới lọc mút; hãy thêm cây, lũa và hang\": the page only describes one tank that had plants, wood and caves. It does not say hiding places are needed, and staying under the sponge filter does not support that reason. The fix is invented advice."
+  ]
 }

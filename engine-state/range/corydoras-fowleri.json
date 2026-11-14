@@ -1,8 +1,8 @@
 {
   "id": "corydoras-fowleri",
   "native": {
-    "input": "58222b1a37f744b8",
-    "at": "2026-11-07T09:20:22.982Z",
+    "input": "712326b14256ef56",
+    "at": "2026-11-14T00:09:29.977Z",
     "claims": [
       {
         "code": "PE",
@@ -43,6 +43,14 @@
         "quote": "South America: Peru; Loreto, Caño del Chancho near Pebas (03º10'S, 71º46'W), Río Amazonus system.",
         "words": "Peru",
         "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Chancho Caño, near Pebas, Amazon River system, Loreto, Peru",
+        "words": "Peru",
+        "ok": true
       }
     ],
     "regions": [
@@ -54,7 +62,7 @@
         "ok": true
       },
       {
-        "name": "río Ampiyacu",
+        "name": "Ampiyacu",
         "source": "seriouslyfish",
         "quote": "Native to the Amazon basin in Peru, with its range appearing to extend west from the río Ampiyacu at least as far as Iquitos, meaning it should also occur in the ríos Napo, Nanay, and Itaya.",
         "country": "PE",
@@ -82,10 +90,9 @@
         "ok": true
       },
       {
-        "name": "Río Amazonus",
-        "source": "scotcat",
-        "quote": "South America: Peru; Loreto, Caño del Chancho near Pebas (03º10'S, 71º46'W), Río Amazonus system.",
-        "country": "PE",
+        "name": "Amazon River",
+        "source": "planetcatfish",
+        "quote": "South America: western Amazon River basin.",
         "ok": true
       }
     ],

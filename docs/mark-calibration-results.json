@@ -1,0 +1,168 @@
+{
+  "ready": true,
+  "seconds": 139.321,
+  "model": "gpt-6.1-sol",
+  "threshold": 0.4,
+  "cases": [
+    {
+      "n": 1,
+      "expected": "pass",
+      "actual": "pass",
+      "pixelHash": "21b4df72e87e129dc9d0f8390b890923cc774254376107021f1e7bd7ebfab2b0",
+      "outside": 0,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.31750499517673075,
+        "limit": 0.4,
+        "originalEnergy": 2155369.55555544,
+        "candidateEnergy": 9687.444444445235
+      },
+      "verdict": {
+        "verdict": "pass",
+        "residual": false,
+        "newMark": false,
+        "note": "The checked region is clear."
+      }
+    },
+    {
+      "n": 2,
+      "expected": "pass",
+      "actual": "pass",
+      "pixelHash": "d9671a4de5fe2fd013198a5825c8bbc7c55079771f22f4f49b65695b0ddb3361",
+      "outside": 0,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.3631685115061895,
+        "limit": 0.4,
+        "originalEnergy": 2953389.777777969,
+        "candidateEnergy": 298990.88888890453
+      },
+      "verdict": {
+        "verdict": "pass",
+        "residual": false,
+        "newMark": false,
+        "note": "The checked region is clear."
+      }
+    },
+    {
+      "n": 3,
+      "expected": "pass",
+      "actual": "pass",
+      "pixelHash": "a6c7816561ce42332b2d3b5f3bac9ff910594a30bff6105453324da4ca3f027d",
+      "outside": 0,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.21436848810661838,
+        "limit": 0.4,
+        "originalEnergy": 5823445.999999517,
+        "candidateEnergy": 8073.222222222707
+      },
+      "verdict": {
+        "verdict": "pass",
+        "residual": false,
+        "newMark": false,
+        "note": "The checked region is clear."
+      }
+    },
+    {
+      "n": 4,
+      "expected": "refuse",
+      "actual": "refuse",
+      "pixelHash": "8b210d68be20cdfe659b76886ace075eae14a87f3b2925248985cf48b32ed8b9",
+      "outside": 0,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.41452033826633217,
+        "limit": 0.4,
+        "originalEnergy": 6373345.999999532,
+        "candidateEnergy": 128804.66666665989
+      },
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      }
+    },
+    {
+      "n": 5,
+      "expected": "refuse",
+      "actual": "refuse",
+      "pixelHash": "09f8cf806eaf15e2a90ac1873e024e596793625e68da9deb2258c59fd040dfbf",
+      "outside": 0,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.4685358199244786,
+        "limit": 0.4,
+        "originalEnergy": 126202.7777777743,
+        "candidateEnergy": 15079.222222222466
+      },
+      "verdict": {
+        "verdict": "pass",
+        "residual": false,
+        "newMark": false,
+        "note": "The checked region is clear."
+      }
+    },
+    {
+      "n": 6,
+      "expected": "pass",
+      "actual": "pass",
+      "pixelHash": "e9455e6da8b7d0b848a193d5cf205344f694d3e7150e3470b229abe32bcfa169",
+      "outside": 0,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.25241058661128507,
+        "limit": 0.4,
+        "originalEnergy": 2818652.9999999492,
+        "candidateEnergy": 46012.77777777768
+      },
+      "verdict": {
+        "verdict": "pass",
+        "residual": false,
+        "newMark": false,
+        "note": "The checked region is clear."
+      }
+    },
+    {
+      "n": 7,
+      "expected": "refuse",
+      "actual": "refuse",
+      "pixelHash": "21a6dfcbc8a5d189e2c53e4b7c96d09cdb3b1f698f49d1c0deef94d21d2dd92a",
+      "outside": 0,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.37004232258364084,
+        "limit": 0.4,
+        "originalEnergy": 3333742.555555577,
+        "candidateEnergy": 29342.666666665962
+      },
+      "verdict": {
+        "verdict": "fail",
+        "residual": true,
+        "newMark": false,
+        "note": "Residual lettering or unnatural patch detail remains in the checked region."
+      }
+    },
+    {
+      "n": 8,
+      "expected": "pass",
+      "actual": "pass",
+      "pixelHash": "12d227cb1bf4a7419528f0fe601be6051c1d31e4bb55efa226860858884722e7",
+      "outside": 0,
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.2930276361148778,
+        "limit": 0.4,
+        "originalEnergy": 816076.5555555914,
+        "candidateEnergy": 2170.9999999997895
+      },
+      "verdict": {
+        "verdict": "pass",
+        "residual": false,
+        "newMark": false,
+        "note": "The checked region is clear."
+      }
+    }
+  ]
+}

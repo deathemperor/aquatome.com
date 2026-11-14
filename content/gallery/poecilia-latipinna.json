@@ -2,18 +2,6 @@
   "id": "poecilia-latipinna",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/88927621.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/88927621-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Andrew Durso",
-      "sourceUrl": "https://www.inaturalist.org/photos/88927621",
-      "caption": "Cá molly vây buồm đực bơi gần mặt nước ngoài tự nhiên",
-      "best": true,
-      "kind": "male"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/90477891.webp",
       "thumb": "https://media.aquatome.com/inaturalist/90477891-480.webp",
       "width": 1024,
@@ -36,30 +24,6 @@
       "caption": "Hai cá molly vây buồm bơi ở vùng nước nông",
       "best": true,
       "kind": "pair"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/252129078.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/252129078-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Chet Burrier",
-      "sourceUrl": "https://www.inaturalist.org/photos/252129078",
-      "caption": "Đàn cá molly vây buồm bơi trong nước tự nhiên",
-      "best": true,
-      "kind": "group"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/313886713.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/313886713-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Suanne Pyle",
-      "sourceUrl": "https://www.inaturalist.org/photos/313886713",
-      "caption": "Cá molly vây buồm trong môi trường tự nhiên, nước nông",
-      "best": true,
-      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/297096133.webp",
@@ -168,18 +132,6 @@
       "caption": "Cá molly vây buồm trong hộp nhựa trong suốt, nhìn nghiêng",
       "best": true,
       "kind": "female"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/61406053.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/61406053-480.webp",
-      "width": 718,
-      "height": 956,
-      "licence": "CC0",
-      "author": "mefisher",
-      "sourceUrl": "https://www.inaturalist.org/photos/61406053",
-      "caption": "Hai cá molly vây buồm trên nền cát ngoài tự nhiên",
-      "best": true,
-      "kind": "group"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/149313021.webp",
@@ -291,18 +243,6 @@
       "author": "Kelsey Low",
       "sourceUrl": "https://www.inaturalist.org/photos/70385006",
       "caption": "Đàn cá molly vây buồm bơi gần mặt nước ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/4183108.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/4183108-480.webp",
-      "width": 1000,
-      "height": 714,
-      "licence": "CC BY-SA",
-      "author": "psweet",
-      "sourceUrl": "https://www.inaturalist.org/photos/4183108",
-      "caption": "Cá molly vây buồm sống trong tự nhiên giữa thực vật thủy sinh",
       "best": true,
       "kind": "habitat"
     },
@@ -702,6 +642,66 @@
       "caption": "Cá molly vây buồm bơi gần đáy nước đục",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/88927621.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/88927621-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Andrew Durso",
+      "sourceUrl": "https://www.inaturalist.org/photos/88927621",
+      "caption": "Cá molly vây buồm đực bơi gần mặt nước ngoài tự nhiên",
+      "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/252129078.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/252129078-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Chet Burrier",
+      "sourceUrl": "https://www.inaturalist.org/photos/252129078",
+      "caption": "Đàn cá molly vây buồm bơi trong nước tự nhiên",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/313886713.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/313886713-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Suanne Pyle",
+      "sourceUrl": "https://www.inaturalist.org/photos/313886713",
+      "caption": "Cá molly vây buồm trong môi trường tự nhiên, nước nông",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/61406053.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/61406053-480.webp",
+      "width": 718,
+      "height": 956,
+      "licence": "CC0",
+      "author": "mefisher",
+      "sourceUrl": "https://www.inaturalist.org/photos/61406053",
+      "caption": "Hai cá molly vây buồm trên nền cát ngoài tự nhiên",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/4183108.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/4183108-480.webp",
+      "width": 1000,
+      "height": 714,
+      "licence": "CC BY-SA",
+      "author": "psweet",
+      "sourceUrl": "https://www.inaturalist.org/photos/4183108",
+      "caption": "Cá molly vây buồm sống trong tự nhiên giữa thực vật thủy sinh",
+      "best": true,
+      "kind": "habitat"
     }
   ],
   "seen": 593,

@@ -12,8 +12,10 @@ import { makeSpecies, pageVideo, reviewed, speciesTaxon, videoBlock, watchUrl, w
 import type { Finder, Found } from './video-discovery'
 import { throttled, type YouTube } from './youtube'
 import { VI_STYLE as STYLE } from './phrases'
+import { withTanks } from './round'
+import { WikimediaRefused } from './wikimedia-rest'
 
-const WRITE = readFileSync(new URL('./prompts/species-video.md', import.meta.url), 'utf8')
+const WRITE = withTanks(readFileSync(new URL('./prompts/species-video.md', import.meta.url), 'utf8'))
 
 /**
  * Channels with a regular series of species profiles (the species' scientific name in the title), by YouTube handle, each
@@ -98,11 +100,14 @@ export async function addFromVideo(root: string, d: Pick<SpeciesDeps, 'llm' | 'n
     return { done: 'low', score: review.score, reason: review.notes.slice(0, 2).join('; ') }
   }
 
+  // A fixed part of ours (a ruling written in by hand) isn't the video's to add to.
+  const open = w.sections.filter(s => !e.sections.some(x => x.key === s.key && x.source === 'aquatome' && x.fixed))
+  if (!open.length) return { done: 'nothing new' }
   const refs = [...(e.refs ?? []), { url, title: v.meta.title }]
   const at = refs.length - 1
   const sections = [...e.sections]
   const vi = { ...t.sections }
-  for (const s of w.sections) {
+  for (const s of open) {
     const key = `${s.key}:aquatome`
     const i = sections.findIndex(x => x.key === s.key && x.source === 'aquatome')
     if (i >= 0) sections[i] = { ...sections[i]!, html: `${sections[i]!.html}\n${s.html}`, refs: [...new Set([...(sections[i]!.refs ?? []), at])] }
@@ -232,7 +237,7 @@ export async function speciesVideos(root: string, d: SpeciesVideosDeps, o: { cha
       if (r.done === 'skipped') report.skipped.push(line); else report.done.push(line)
     } catch (e) {
       const m = (e as Error).message
-      if (e instanceof LlmError || throttled(e)) { report.stopped = `${id}: ${m.slice(0, 200)}`; break }
+      if (e instanceof LlmError || throttled(e) || e instanceof WikimediaRefused) { report.stopped = `${id}: ${m.slice(0, 200)}`; break }
       state[id] = { ...(state[id] ?? { title: '', channel: '', kind: 'profile' }), at: today, done: 'failed', reason: m.slice(0, 200) }
       report.failed.push(`${id}: ${m.slice(0, 200)}`)
     } finally {

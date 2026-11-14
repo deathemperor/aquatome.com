@@ -7,14 +7,19 @@
     "distribution:planetcatfish": "<p>Nam Mỹ: sông Marimbondo, một nhánh của sông Preto thuộc lưu vực sông Paraíba do Sul, bang Rio de Janeiro.</p>",
     "diet:planetcatfish": "<p>Cá trong giống này ăn được thức ăn sống, đông lạnh và cả thức ăn khô bán sẵn. Bạn cần chú ý đừng cho ăn quá nhiều. Ngoài tự nhiên, chúng ăn các loài động vật không xương sống nhỏ sống dưới đáy.</p>",
     "reproduction:planetcatfish": "<p>Chưa có thông tin. Hiện chưa có ghi nhận nào về việc sinh sản loài này.</p>",
-    "references:planetcatfish": "<p>Revue française d'Aquariologie Herpétologie v. 18 (no. 4) [for 1991], pp 105, Fig. 6.</p>"
+    "references:planetcatfish": "<p>Revue française d'Aquariologie Herpétologie v. 18 (no. 4) [for 1991], pp 105, Fig. 6.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: sông Marimbondo, một nhánh của sông Preto, thuộc lưu vực sông Paraíba do Sul.</p>",
+    "habitat:scotcat": "<p>Loài này sống ở sông Marimbondo, một nhánh của sông Preto, thuộc lưu vực sông Paraíba do Sul (Costa et al. 2022).</p>",
+    "diet:scotcat": "<p>Trong bể, nó ăn được hầu hết các loại thức ăn quen thuộc như thức ăn viên, đồ đông lạnh và đồ tươi sống. Đây là loài săn mồi cơ hội. Ngoài tự nhiên, chúng chủ yếu ăn côn trùng, nhưng cũng ăn cả giáp xác nhỏ và thực vật (tảo và xác cây có hoa).</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên loài: auroguttatus ghép từ aureus (tiếng La-tinh, nghĩa là vàng) và guttatus (tiếng La-tinh, nghĩa là có đốm). Tên này chỉ các đốm vàng xen với đốm sẫm ở nửa sau thân, cùng một hàng đốm vàng chạy giữa sống lưng, phía sau gốc vây lưng.</p><p>Trichomycterus auroguttatus là loài đặc hữu của lưu vực Paraíba do Sul. Nó hiếm và số lượng không nhiều. Nơi loài này sống bị đô thị hóa tác động, nhưng có vẻ chuyện đó không đe dọa đáng kể tới quần thể. IUCN xếp nó vào mức Ít quan tâm (LC) (IUCN 2022).</p>",
+    "references:scotcat": "<p>Costa, W.J.E.M.; Mattos, J.L.; Vilardo, P.J.; Amorim, P.F.; Katz, A.M. Perils of Underestimating Species Diversity: Revisiting Systematics of Psammocambeva Catfishes (Siluriformes: Trichomycteridae) from the Rio Paraíba do Sul Basin, South-Eastern Brazil. Taxonomy 2022. 2, 491-523.</p><p>de Pínna, M.C.C. and W. Wosiacki, 2003. Trichomycteridae (pencil or parasitic catfishes). p. 270-290. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>Froese, R. and D. Pauly. Editors. 2024. FishBase. www.fishbase.org (02/2024).</p><p>Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio). 2022. Trichomycterus auroguttatus. The IUCN Red List of Threatened Species 2022.</p>"
   },
   "quality": {
-    "score": 0.9,
-    "indexable": false,
+    "score": 0.8,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.9
-    },
-    "reason": "thin"
+      "planetcatfish": 0.9,
+      "scotcat": 0.8
+    }
   }
 }

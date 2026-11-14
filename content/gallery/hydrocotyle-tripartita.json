@@ -62,18 +62,6 @@
       "kind": "emersed"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/124522488.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/124522488-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Thomas Mesaglio",
-      "sourceUrl": "https://www.inaturalist.org/photos/124522488",
-      "caption": "Lá Rau má lá nhỏ Nhật xẻ thùy rõ nét",
-      "best": true,
-      "kind": "detail"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/59953159.webp",
       "thumb": "https://media.aquatome.com/inaturalist/59953159-480.webp",
       "width": 768,
@@ -110,6 +98,18 @@
       "kind": "detail"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/101169164.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/101169164-480.webp",
+      "width": 1000,
+      "height": 750,
+      "licence": "CC BY",
+      "author": "nick_goldwater",
+      "sourceUrl": "https://www.inaturalist.org/photos/101169164",
+      "caption": "Mảng Rau má lá nhỏ Nhật xanh tươi mọc dày",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/321767153.webp",
       "thumb": "https://media.aquatome.com/inaturalist/321767153-480.webp",
       "width": 768,
@@ -134,14 +134,14 @@
       "kind": "detail"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/101169164.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/101169164-480.webp",
-      "width": 1000,
-      "height": 750,
-      "licence": "CC BY",
-      "author": "nick_goldwater",
-      "sourceUrl": "https://www.inaturalist.org/photos/101169164",
-      "caption": "Mảng Rau má lá nhỏ Nhật xanh tươi mọc dày",
+      "url": "https://media.aquatome.com/inaturalist/162387133.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/162387133-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-SA",
+      "author": "Greg Tasney",
+      "sourceUrl": "https://www.inaturalist.org/photos/162387133",
+      "caption": "Thảm Rau má lá nhỏ Nhật mọc dày ngoài tự nhiên",
       "best": true,
       "kind": "habitat"
     },
@@ -170,14 +170,14 @@
       "kind": "detail"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/162387133.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/162387133-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/294640559.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/294640559-480.webp",
       "width": 1024,
       "height": 683,
       "licence": "CC BY-SA",
       "author": "Greg Tasney",
-      "sourceUrl": "https://www.inaturalist.org/photos/162387133",
-      "caption": "Thảm Rau má lá nhỏ Nhật mọc dày ngoài tự nhiên",
+      "sourceUrl": "https://www.inaturalist.org/photos/294640559",
+      "caption": "Bụi Rau má lá nhỏ Nhật mọc lan giữa cỏ ngoài tự nhiên",
       "best": true,
       "kind": "habitat"
     },
@@ -206,14 +206,14 @@
       "kind": "detail"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/294640559.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/294640559-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/279230135.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/279230135-480.webp",
       "width": 1024,
-      "height": 683,
-      "licence": "CC BY-SA",
-      "author": "Greg Tasney",
-      "sourceUrl": "https://www.inaturalist.org/photos/294640559",
-      "caption": "Bụi Rau má lá nhỏ Nhật mọc lan giữa cỏ ngoài tự nhiên",
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Petra Holland",
+      "sourceUrl": "https://www.inaturalist.org/photos/279230135",
+      "caption": "Rau má lá nhỏ Nhật bò lan trên nền đất ẩm",
       "best": true,
       "kind": "habitat"
     },
@@ -230,18 +230,6 @@
       "kind": "detail"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/279230135.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/279230135-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY",
-      "author": "Petra Holland",
-      "sourceUrl": "https://www.inaturalist.org/photos/279230135",
-      "caption": "Rau má lá nhỏ Nhật bò lan trên nền đất ẩm",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/3707221.webp",
       "thumb": "https://media.aquatome.com/inaturalist/3707221-480.webp",
       "width": 1024,
@@ -252,6 +240,35 @@
       "caption": "Thảm Rau má lá nhỏ Nhật mọc dày ngoài tự nhiên",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/9d5d2c7f64881181.webp",
+      "thumb": "https://media.aquatome.com/tropica/9d5d2c7f64881181-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Hydrocotyletripartita(039BTC)/18751",
+      "source": "tropica",
+      "kind": "other",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/fc1a8c3f32720877.webp",
+      "thumb": "https://media.aquatome.com/tropica/fc1a8c3f32720877-480.webp",
+      "width": 1200,
+      "height": 782,
+      "large": {
+        "url": "https://media.aquatome.com/tropica/fc1a8c3f32720877-large.webp",
+        "width": 1840,
+        "height": 1200
+      },
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Hydrocotyletripartita(039BTC)/18751",
+      "source": "tropica",
+      "kind": "submersed",
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/112214731.webp",
@@ -302,6 +319,18 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/tropica/374e4e481e993f5d.webp",
+      "thumb": "https://media.aquatome.com/tropica/374e4e481e993f5d-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Hydrocotyletripartita(039BTC)/18751",
+      "source": "tropica",
+      "kind": "other",
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/321767118.webp",
       "thumb": "https://media.aquatome.com/inaturalist/321767118-480.webp",
       "width": 768,
@@ -348,6 +377,18 @@
       "caption": "Rau má lá nhỏ Nhật lan giữa đám cỏ",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/4bd4173d025f9548.webp",
+      "thumb": "https://media.aquatome.com/tropica/4bd4173d025f9548-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Hydrocotyletripartita(039BTC)/18751",
+      "source": "tropica",
+      "kind": "other",
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/267760200.webp",
@@ -780,9 +821,21 @@
       "caption": "Bụi Rau má lá nhỏ Nhật mọc dày xen cỏ",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/124522488.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/124522488-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Thomas Mesaglio",
+      "sourceUrl": "https://www.inaturalist.org/photos/124522488",
+      "caption": "Lá Rau má lá nhỏ Nhật xẻ thùy rõ nét",
+      "best": true,
+      "kind": "detail"
     }
   ],
   "seen": 140,
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-10",
   "builtAt": "2026-10-31"
 }

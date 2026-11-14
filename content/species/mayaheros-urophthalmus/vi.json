@@ -20,11 +20,10 @@
     "notes:seriouslyfish": "<p>Đây là loài cá khỏe và lì, chịu được cả nước biển hoàn toàn và vẫn sinh sản được trong đó. Cá cichlid Maya còn có tên mojarra Mexico. Thỉnh thoảng cá có bán ở Anh, hoặc bạn có thể tìm qua các nhà buôn chuyên cichlid. Ở Mỹ, loài này bị xem là cá có nguy cơ gây hại. Lý do là cá chịu được rất nhiều kiểu môi trường và có thể đe dọa hệ động vật bản địa.</p>"
   },
   "quality": {
-    "score": 0.72,
-    "indexable": false,
+    "score": 0.9,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.72
-    },
-    "reason": "score"
+      "seriouslyfish": 0.9
+    }
   }
 }

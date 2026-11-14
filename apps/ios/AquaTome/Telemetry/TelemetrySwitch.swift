@@ -9,6 +9,7 @@ struct TelemetrySwitch: View {
     @Bindable var telemetry = telemetry
     Toggle(isOn: $telemetry.readerOn) {
       Label { Text("Gửi thống kê") } icon: { Tile(symbol: "chart.bar.fill", color: .indigo) }
+        .modifier(RowLabel())
     }
     .accessibilityIdentifier("telemetry-switch")
   }

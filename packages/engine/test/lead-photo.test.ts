@@ -1,0 +1,247 @@
+import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
+import sharp from 'sharp'
+import { expect, test } from 'vitest'
+import type { Photo } from '@aq/schema'
+import { cardCrop, HEAD_IN_CROP, leadChoice, screenLeads, TRIES, type LeadDeps } from '../src/lead-photo'
+import { mergePhotos } from '../src/run'
+
+const jpeg = sharp({ create: { width: 64, height: 48, channels: 3, background: '#468' } }).jpeg().toBuffer()
+const url = (n: string) => `https://media.example/${n}.webp`
+const name = (u: string) => u.split('/').pop()!.replace('.webp', '')
+const photo = (n: string, width = 1000, height = 667): Photo => ({ url: url(n), width, height, licence: 'x', author: 'a', sourceUrl: 'x' })
+const big = (n: string) => photo(n, 1600, 1400)
+const yes = () => true
+
+test('a head big enough for the card stays; a page with no photo takes the best that passes, whatever its size, then the largest', () => {
+  expect(leadChoice([big('head')], [big('other')], yes, {})).toBeUndefined()
+  expect(leadChoice([], [big('plain'), { ...big('chosen'), best: true }], yes, {})).toEqual({ lead: { ...big('chosen'), best: true } })
+  expect(leadChoice([], [photo('small')], yes, {})).toEqual({ lead: photo('small') })
+  expect(leadChoice([], [photo('small', 500, 400), photo('larger', 900, 700)], yes, {})).toEqual({ lead: photo('larger', 900, 700) })
+  expect(leadChoice([], [photo('small')], () => false, {})).toBeUndefined()
+})
+
+test("a photo with its source's own mark leads only where nothing else passes, and an unmarked one replaces it", () => {
+  const isMarked = (p: Photo) => name(p.url).startsWith('marked')
+  const passes = (p: Photo) => !isMarked(p)
+  expect(leadChoice([], [big('marked-1')], passes, {}, isMarked)).toEqual({ lead: big('marked-1') })
+  expect(leadChoice([], [big('marked-1'), photo('plain', 500, 400)], passes, {}, isMarked)).toEqual({ lead: photo('plain', 500, 400) })
+  expect(leadChoice([big('marked-1')], [photo('plain', 500, 400)], passes, {}, isMarked)).toEqual({ lead: photo('plain', 500, 400) })
+  expect(leadChoice([big('marked-1')], [], passes, {}, isMarked)).toBeUndefined()
+  // It never replaces an unmarked head.
+  expect(leadChoice([photo('head', 500, 400)], [big('marked-1')], passes, {}, isMarked)).toBeUndefined()
+})
+
+test('a large copy counts for the head and for what could replace it', () => {
+  const withLarge = { ...photo('head', 960, 640), large: { url: url('head-large'), width: 1800, height: 1200 } }
+  expect(leadChoice([withLarge], [big('other')], yes, {})).toBeUndefined()
+})
+
+test("a small head waits for the model's answer, gives way to a yes, and tries the next photo after a no; a photo that doesn't pass is never asked about", () => {
+  const head = photo('head'), own = big('own'), gal = big('gal')
+  const passes = (p: Photo) => p.url !== url('fails')
+  expect(leadChoice([head, big('fails'), own], [gal], passes, {})).toEqual({ ask: { head, photo: own } })
+  expect(leadChoice([head, own], [gal], passes, { [own.url]: { [head.url]: true } })).toEqual({ lead: own })
+  expect(leadChoice([head, own], [gal], passes, { [own.url]: { [head.url]: false } })).toEqual({ ask: { head, photo: gal } })
+  expect(leadChoice([head, own], [gal], passes, { [own.url]: { [head.url]: false }, [gal.url]: { [head.url]: false } })).toBeUndefined()
+})
+
+test("a re-read of a source doesn't push down a head that fills the card, gallery photo or not; a smaller head goes back to source order, and one the read replaced goes", () => {
+  // A review, 2026-11-10: five of the seven new heads lost first place in a simulated re-read, and the owner's complaint came back.
+  const head = { ...big('promoted') }
+  const old = { ...photo('old'), source: 'seriouslyfish' as const, sourceUrl: 'https://x/fish' }
+  const fresh = { ...photo('fresh'), source: 'seriouslyfish' as const, sourceUrl: 'https://x/fish' }
+  expect(mergePhotos([head, old], 'seriouslyfish', 'https://x/fish', [fresh]).map(p => name(p.url))).toEqual(['promoted', 'fresh'])
+  expect(mergePhotos([photo('small'), old], 'seriouslyfish', 'https://x/fish', [fresh]).map(p => name(p.url))).toEqual(['fresh', 'small'])
+  const ownBig = { ...big('own-big'), source: 'seriouslyfish' as const, sourceUrl: 'https://x/fish' }
+  expect(mergePhotos([ownBig, old], 'seriouslyfish', 'https://x/fish', [fresh]).map(p => name(p.url))).toEqual(['fresh'])
+})
+
+test('at most a few photos a fish are asked about', () => {
+  const head = photo('head')
+  const many = Array.from({ length: TRIES + 2 }, (_, i) => big(`g${i}`))
+  const allNo = Object.fromEntries(many.slice(0, TRIES).map(p => [p.url, { [head.url]: false }]))
+  expect(leadChoice([head], many, yes, allNo)).toBeUndefined()
+})
+
+async function store(fish: Record<string, { photos: Photo[]; gallery?: object[] }>, days: object[] = []) {
+  const root = await mkdtemp(join(tmpdir(), 'lead-photos-'))
+  await mkdir(join(root, 'engine-state'))
+  await mkdir(join(root, 'content/gallery'), { recursive: true })
+  const subjects: Record<string, Record<string, object>> = {}
+  for (const [id, f] of Object.entries(fish)) {
+    await mkdir(join(root, 'content/species', id), { recursive: true })
+    await writeFile(join(root, 'content/species', id, 'entity.json'), `${JSON.stringify({ id, photos: f.photos }, null, 2)}\n`)
+    if (f.gallery) await writeFile(join(root, 'content/gallery', `${id}.json`), JSON.stringify({ id, photos: f.gallery }))
+    for (const p of [...f.photos, ...(f.gallery ?? [])] as Photo[]) (subjects[p.url] ??= {})[id] = { ok: 'yes', typical: true, note: '', person: false, logo: false }
+  }
+  await writeFile(join(root, 'engine-state/_photo-subjects.json'), JSON.stringify(subjects))
+  await writeFile(join(root, 'content/curation.json'), JSON.stringify({ version: 1, weeks: [], days, loops: {}, avoid: {}, off: {} }))
+  return root
+}
+const entity = async (root: string, id: string) => JSON.parse(await readFile(join(root, 'content/species', id, 'entity.json'), 'utf8')) as { photos: (Photo & { best?: boolean })[] }
+
+function model(answer: (photo: string) => boolean, inCrop: (photo: string) => boolean = yes) {
+  const seen: string[][] = []
+  let got: string[] = []
+  const d: LeadDeps = {
+    get: async u => { got.push(name(u)); return new Uint8Array(await jpeg) },
+    look: async () => {
+      const sheet = got; got = []
+      seen.push(sheet)
+      return { pairs: Array.from({ length: sheet.length / 2 }, (_, i) => ({ n: i + 1, asWell: answer(sheet[2 * i + 1]!), headInCrop: inCrop(sheet[2 * i + 1]!) })) }
+    },
+  }
+  return { d, seen }
+}
+
+test('the Altum: a head too small for the card gives way to a gallery photo the model says is as good, and it stays there on the next run', async () => {
+  // The owner (2026-11-10): the card and the page showed different photos, and the head was 608 px across.
+  const root = await store({ altum: { photos: [photo('head', 960, 638)], gallery: [{ ...big('gal'), best: true, kind: 'portrait', caption: 'c' }] } })
+  const { d, seen } = model(() => true)
+  const r = await screenLeads(root, d, { limit: 5 })
+  expect(seen).toEqual([['head', 'gal']])
+  expect(r.changed).toEqual([`species/altum: ${url('head')} -> ${url('gal')}`])
+  const after = await entity(root, 'altum')
+  expect(after.photos.map(p => name(p.url))).toEqual(['gal', 'head'])
+  expect(after.photos[0]).not.toHaveProperty('best')
+  expect(after.photos[0]).not.toHaveProperty('kind')
+  expect((await screenLeads(root, d, { limit: 5 })).changed).toEqual([])
+  expect(seen).toHaveLength(1)
+})
+
+test('a no leaves the head, and the next photo is asked in the same run; no answer changes nothing', async () => {
+  const root = await store({ a: { photos: [photo('head')], gallery: [big('tiny-fish'), big('fine')] }, b: { photos: [photo('b-head')], gallery: [big('b-no')] } })
+  const { d, seen } = model(p => p === 'fine')
+  const r = await screenLeads(root, d, { limit: 5 })
+  expect(seen.flat()).toEqual(['head', 'tiny-fish', 'b-head', 'b-no', 'head', 'fine'])
+  expect((await entity(root, 'a')).photos.map(p => name(p.url))).toEqual(['fine', 'head'])
+  expect((await entity(root, 'b')).photos.map(p => name(p.url))).toEqual(['b-head'])
+  expect(r.changed).toHaveLength(1)
+
+  const root2 = await store({ a: { photos: [photo('head')], gallery: [big('gal')] } })
+  const none = await screenLeads(root2, model(yes).d, { limit: 0 })
+  expect(none).toMatchObject({ sheets: 0, waiting: 1, changed: [] })
+  expect((await entity(root2, 'a')).photos.map(p => name(p.url))).toEqual(['head'])
+})
+
+test("a photo on the calendar's avoid list doesn't lead; --calendar touches only the coming days' fish, which are asked about first", async () => {
+  const days = [{ date: '2099-01-01', fish: 'species/zzz' }]
+  const fish = { aaa: { photos: [photo('a-head')], gallery: [big('a-gal')] }, zzz: { photos: [photo('z-head')], gallery: [big('z-avoided'), big('z-gal')] } }
+  const root = await store(fish, days)
+  const cal = JSON.parse(await readFile(join(root, 'content/curation.json'), 'utf8'))
+  await writeFile(join(root, 'content/curation.json'), JSON.stringify({ ...cal, avoid: { [url('z-avoided')]: 'a ruler in the picture' } }))
+  const { d, seen } = model(yes)
+  await screenLeads(root, d, { limit: 1, calendar: true })
+  expect(seen).toEqual([['z-head', 'z-gal']])
+  expect((await entity(root, 'zzz')).photos.map(p => name(p.url))).toEqual(['z-gal', 'z-head'])
+  expect((await entity(root, 'aaa')).photos.map(p => name(p.url))).toEqual(['a-head'])
+})
+
+test("--calendar fills an empty page with no model call; a plant is given a first photo and otherwise left alone", async () => {
+  const root = await store({
+    aaa: { photos: [photo('a-head')], gallery: [big('a-gal')] }, empty: { photos: [], gallery: [photo('e-gal', 500, 400)] },
+    // A fish its source's caption calls unwell, or names a damaged fin of, is no page's first photo: not by the card's
+    // checks, and not as the one photo with its source's own mark.
+    sickly: { photos: [], gallery: [{ ...photo('s-gal', 500, 400), caption: 'Recently-deceased specimen.' }] },
+    marked: { photos: [], gallery: [{ ...photo('m-gal', 500, 400), sourceUrl: 'https://www.aquariumglaser.de/en/x/', caption: 'Adult with a slightly damaged caudal fin.' }] },
+  })
+  const subjects = JSON.parse(await readFile(join(root, 'engine-state/_photo-subjects.json'), 'utf8'))
+  subjects[url('m-gal')].marked.logo = true
+  const ok = { ok: 'yes', typical: true, note: '', person: false, logo: false }
+  await mkdir(join(root, 'content/plants/bare'), { recursive: true })
+  await mkdir(join(root, 'content/plants/full'), { recursive: true })
+  await writeFile(join(root, 'content/plants/bare/entity.json'), JSON.stringify({ id: 'bare', photos: [] }))
+  await writeFile(join(root, 'content/plants/full/entity.json'), JSON.stringify({ id: 'full', photos: [photo('p-head')] }))
+  // A plant's caption is not asked: a damaged leaf is no unwell fish.
+  await writeFile(join(root, 'content/gallery/bare.json'), JSON.stringify({ id: 'bare', photos: [{ ...photo('p-gal'), caption: 'A slightly damaged leaf.' }] }))
+  await writeFile(join(root, 'content/gallery/full.json'), JSON.stringify({ id: 'full', photos: [big('p-big')] }))
+  for (const [u, id] of [[url('p-gal'), 'bare'], [url('p-head'), 'full'], [url('p-big'), 'full']] as const) (subjects[u] ??= {})[id] = ok
+  await writeFile(join(root, 'engine-state/_photo-subjects.json'), JSON.stringify(subjects))
+  const { d, seen } = model(yes)
+  const r = await screenLeads(root, d, { limit: 3, calendar: true })
+  expect(seen).toEqual([])
+  expect(r.gained).toHaveLength(2)
+  expect((await entity(root, 'empty')).photos.map(p => name(p.url))).toEqual(['e-gal'])
+  expect((await entity(root, 'aaa')).photos.map(p => name(p.url))).toEqual(['a-head'])
+  expect((await entity(root, 'sickly')).photos).toEqual([])
+  expect((await entity(root, 'marked')).photos).toEqual([])
+  const plant = async (id: string) => (JSON.parse(await readFile(join(root, 'content/plants', id, 'entity.json'), 'utf8')) as { photos: Photo[] }).photos.map(p => name(p.url))
+  expect(await plant('bare')).toEqual(['p-gal'])
+  expect(await plant('full')).toEqual(['p-head'])
+})
+
+test('a gallery photo that waits for the photo check leads no page, whatever an old verdict says of it', async () => {
+  const root = await store({ waits: { photos: [], gallery: [{ ...photo('w-gal', 500, 400), unchecked: true }] }, shown: { photos: [], gallery: [photo('s-gal', 500, 400)] } })
+  await screenLeads(root, model(yes).d, { limit: 3 })
+  expect((await entity(root, 'waits')).photos).toEqual([])
+  expect((await entity(root, 'shown')).photos.map(p => name(p.url))).toEqual(['s-gal'])
+})
+
+test("a download that fails leaves that pair out of the sheet, and the others are still numbered right", async () => {
+  const root = await store({ a: { photos: [photo('a-head')], gallery: [big('gone')] }, b: { photos: [photo('b-head')], gallery: [big('b-gal')] } })
+  const d: LeadDeps = {
+    get: async u => { if (u.includes('gone')) throw new Error('HTTP 404'); return new Uint8Array(await jpeg) },
+    look: async () => ({ pairs: [{ n: 1, asWell: true, headInCrop: true }] }),
+  }
+  const r = await screenLeads(root, d, { limit: 1 })
+  expect(r.failed).toHaveLength(1)
+  expect((await entity(root, 'b')).photos.map(p => name(p.url))).toEqual(['b-gal', 'b-head'])
+  expect((await entity(root, 'a')).photos.map(p => name(p.url))).toEqual(['a-head'])
+})
+
+test("a photo as good as the head that loses the fish's head to the card's crop doesn't lead, and the old head stays (the clown loach, 2026-11-10)", async () => {
+  const root = await store({ a: { photos: [photo('head')], gallery: [big('tail-half')] } })
+  const r = await screenLeads(root, model(() => true, () => false).d, { limit: 5 })
+  expect(r.changed).toEqual([])
+  expect((await entity(root, 'a')).photos.map(p => name(p.url))).toEqual(['head'])
+  const asked = JSON.parse(await readFile(join(root, 'engine-state/_photo-leads.json'), 'utf8'))
+  expect(asked[url('tail-half')][url('head')]).toBe(false)
+})
+
+test('an answer that says nothing about the crop is a no', async () => {
+  const root = await store({ a: { photos: [photo('head')], gallery: [big('gal')] } })
+  const d: LeadDeps = { get: async () => new Uint8Array(await jpeg), look: async () => ({ pairs: [{ n: 1, asWell: true }] }) }
+  await screenLeads(root, d, { limit: 1 })
+  expect((await entity(root, 'a')).photos.map(p => name(p.url))).toEqual(['head'])
+})
+
+test("each pair goes to the model with, beside it, the second photo as the card crops it", async () => {
+  const root = await store({ a: { photos: [photo('head')], gallery: [big('gal')] } })
+  let width = 0
+  const d: LeadDeps = {
+    get: async () => new Uint8Array(await jpeg),
+    look: async sheet => { width = (await sharp(sheet).metadata()).width!; return { pairs: [{ n: 1, asWell: false, headInCrop: true }] } },
+  }
+  await screenLeads(root, d, { limit: 1 })
+  expect(width).toBe(3 * (640 + 6))
+})
+
+test("the card's crop is the middle of the picture, at the card's shape", async () => {
+  const third = (colour: string) => sharp({ create: { width: 300, height: 300, channels: 3, background: colour } }).png().toBuffer()
+  const wide = await sharp({ create: { width: 900, height: 300, channels: 3, background: '#000' } })
+    .composite([{ input: await third('#f00'), left: 0, top: 0 }, { input: await third('#0f0'), left: 300, top: 0 }, { input: await third('#00f'), left: 600, top: 0 }]).png().toBuffer()
+  const { data, info } = await sharp(await cardCrop(wide)).raw().toBuffer({ resolveWithObject: true })
+  expect(info.width / info.height).toBeCloseTo(400 / 420, 2)
+  const pixel = (x: number) => [data[info.height * 0.5 * info.width * info.channels + x * info.channels]!, data[info.height * 0.5 * info.width * info.channels + x * info.channels + 1]!, data[info.height * 0.5 * info.width * info.channels + x * info.channels + 2]!]
+  for (const x of [4, info.width - 5]) { const [r, g, b] = pixel(x); expect(g).toBeGreaterThan(200); expect(r).toBeLessThan(40); expect(b).toBeLessThan(40) }
+})
+
+test('a change of head goes back, with no model call, when the old head now fills the card or a look has since said no', () => {
+  const promoted = big('cut-out'), small = photo('old')
+  const group = { ...photo('group', 960, 640), large: { url: url('group-large'), width: 1800, height: 1200 } }
+  // The Altum: the old head has its large copy now, so the reason for the change is gone.
+  expect(leadChoice([promoted, group], [], yes, { [promoted.url]: { [group.url]: true } })).toEqual({ lead: group })
+  expect(leadChoice([promoted, group], [], p => p.url !== group.url, { [promoted.url]: { [group.url]: true } })).toBeUndefined()
+  // Still small and nobody said no: the change stands.
+  expect(leadChoice([promoted, small], [], yes, { [promoted.url]: { [small.url]: true } })).toBeUndefined()
+  // The sebae: a look said no, so the old head comes back, small as it is, and the other doesn't lead again.
+  expect(leadChoice([promoted, small], [], yes, { [promoted.url]: { [small.url]: false } })).toEqual({ lead: small })
+  expect(leadChoice([small, promoted], [], yes, { [promoted.url]: { [small.url]: false } })).toBeUndefined()
+})
+
+test('the guard asks about the whole head, snout to gill cover, not an eye inside the picture (the Devario, 2026-11-10)', () => {
+  expect(HEAD_IN_CROP).toMatch(/tip of its snout to its gill cover/)
+  expect(HEAD_IN_CROP).toMatch(/an eye inside the picture is not enough/)
+})

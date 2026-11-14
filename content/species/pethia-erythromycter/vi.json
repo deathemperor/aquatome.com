@@ -26,12 +26,11 @@
     "references:seriouslyfish": "<ul><li>Kullander, S. O. (2008). Five new species of Puntius from Myanmar (Teleostei: Cyprinidae). Ichthyological Exploration of Freshwaters 19(1), 59-84</li><li>Kullander, S. O. and F. Fang (2005). Two new species of Puntius from northern Myanmar (Teleostei: Cyprinidae). Copeia 2005(2), 290-302</li><li>Kullander, S. O. and R. Britz (2008). Puntius padamya, a new species of cyprinid fish from Myanmar (Teleostei: Cyprinidae). Electronic Journal of Ichthyology, Bulletin of the European Ichthyology Society 2, 56-66</li><li>Knight, J. D. M., K. Rema Devi, T. J. Indra and M. Arunachalam (2012). A new species of barb Puntius nigripinnis (Teleostei: Cyprinidae) from southern Western Ghats, India. Journal of Threatened Taxa 4(3), 2409-2416</li><li>Pethiyagoda, R., M. Meegaskumbura, and K. Maduwage (2012). A synopsis of the South Asian fishes referred to Puntius (Pisces: Cyprinidae). Ichthyological Exploration of Freshwaters 23(1), 69-95</li><li>Pethiyagoda, R. (2013). Haludaria, a replacement generic name for Dravidia (Teleostei: Cyprinidae). Zootaxa 3646(2), 199</li></ul>"
   },
   "quality": {
-    "score": 0.7,
-    "indexable": false,
+    "score": 0.85,
+    "indexable": true,
     "bySource": {
       "glaser": 0.85,
-      "seriouslyfish": 0.7
-    },
-    "reason": "score"
+      "seriouslyfish": 0.85
+    }
   }
 }

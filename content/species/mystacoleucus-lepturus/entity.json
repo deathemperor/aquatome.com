@@ -13,6 +13,100 @@
     "mekong",
     "thailand"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "LA",
+        "TH"
+      ],
+      "regions": [
+        "Mekong",
+        "Lancang Jiang"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the upper Mekong River basin in southern China (where the river is known as Lancang Jiang), Laos, and Thailand.",
+          "countries": [
+            "CN",
+            "LA",
+            "TH"
+          ],
+          "regions": [
+            "Mekong",
+            "Lancang Jiang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2363145,
+      "total": 10,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "LA",
+          7
+        ],
+        [
+          "CN",
+          2
+        ],
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          101.25,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          101.25,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          101.25,
+          21.09375,
+          4,
+          4
+        ],
+        [
+          102.65625,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          104.0625,
+          37.96875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

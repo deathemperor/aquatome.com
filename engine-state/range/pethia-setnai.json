@@ -1,0 +1,87 @@
+{
+  "id": "pethia-setnai",
+  "native": {
+    "input": "b260dc4d824f79bc",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Narayan barb, Pethia setnai, is a small cyprinid common in rivers draining the Western Ghats of India, described from Sanguem in Goa.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Sanguem, Goa, western coast of India', but current knowledge suggests that this species is common throughout most rivers draining the Western Ghats mountains including the Tunga, Hemavathi, Cauvery, Kumaradhara, etc.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Western Ghats",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Sanguem, Goa, western coast of India', but current knowledge suggests that this species is common throughout most rivers draining the Western Ghats mountains including the Tunga, Hemavathi, Cauvery, Kumaradhara, etc.",
+        "ok": true
+      },
+      {
+        "name": "Cauvery",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Sanguem, Goa, western coast of India', but current knowledge suggests that this species is common throughout most rivers draining the Western Ghats mountains including the Tunga, Hemavathi, Cauvery, Kumaradhara, etc.",
+        "ok": true
+      },
+      {
+        "name": "Tunga",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Sanguem, Goa, western coast of India', but current knowledge suggests that this species is common throughout most rivers draining the Western Ghats mountains including the Tunga, Hemavathi, Cauvery, Kumaradhara, etc.",
+        "ok": true
+      },
+      {
+        "name": "Hemavathi",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Sanguem, Goa, western coast of India', but current knowledge suggests that this species is common throughout most rivers draining the Western Ghats mountains including the Tunga, Hemavathi, Cauvery, Kumaradhara, etc.",
+        "ok": true
+      },
+      {
+        "name": "Kumaradhara",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Sanguem, Goa, western coast of India', but current knowledge suggests that this species is common throughout most rivers draining the Western Ghats mountains including the Tunga, Hemavathi, Cauvery, Kumaradhara, etc.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pethia setnai",
+    "status": "ACCEPTED",
+    "taxonKey": 7393947,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        11
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        10
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

@@ -95,7 +95,7 @@ struct AccountPictureRow: View {
 
   var body: some View {
     let picture = AccountPicture.chosen(stored, by: account.user)
-    NavigationLink { ProfilePicturePicker() } label: {
+    NavigationLink { ProfilePicturePicker().accountSheetDone() } label: {
       Label { Text("Ảnh đại diện") } icon: { Tile(symbol: "fish.fill", color: Tile.green) }
     }
     .accessibilityValue(Text(verbatim: picture?.name(handbook) ?? ""))
@@ -141,6 +141,7 @@ struct ProfilePicturePicker: View {
       }
       .padding(20)
     }
+    .modifier(ClearUnderTopBar(shown: true))
     .navigationTitle("Ảnh đại diện")
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {

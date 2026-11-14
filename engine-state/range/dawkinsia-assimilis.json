@@ -1,14 +1,22 @@
 {
   "id": "dawkinsia-assimilis",
   "native": {
-    "input": "ac4221a2781d844b",
-    "at": "2026-11-07T16:21:07.852Z",
+    "input": "4ade8913de45adce",
+    "at": "2026-11-10T23:57:51.686Z",
     "claims": [
       {
         "code": "IN",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "The mascara barb, Dawkinsia assimilis, is a cyprinid from the Netravati, Chalakudy and Kallada basins of Karnataka and Kerala, India.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "India (South India).",
         "words": "India",
         "ok": true
       }

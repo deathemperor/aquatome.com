@@ -12,6 +12,99 @@
     "indonesia",
     "kapuas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Endau River",
+        "Kapuas",
+        "Borneo"
+      ],
+      "sources": [
+        "bwaquatics",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "Native to Peninsular Malaysia, particularly in Johor.",
+          "countries": [
+            "MY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Specimens collected from the Kapuas River basin, Kalimantan Barat (West Kalimantan), Indonesian Borneo have also been identified as N. johorensis although a similar-looking fish from the Batang Hari drainage, Jambi province, Sumatra was diagnosed as having different body colour and a longer nasal barbel by Tan and Kottelat (2009).",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Kapuas",
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from a brook near the town of Simpang Renggam, Kluang district, Johor state, southern Peninsular Malaysia and since recorded from the Endau River system, also in Johor, plus the North Selangor peat swamp forest, Selangor state and Perak state in the north west of the country.",
+          "countries": [],
+          "regions": [
+            "Endau River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358750,
+      "total": 6,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "MY",
+          5
+        ],
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          101.25,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

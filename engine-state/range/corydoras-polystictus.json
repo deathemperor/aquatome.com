@@ -1,8 +1,8 @@
 {
   "id": "corydoras-polystictus",
   "native": {
-    "input": "3d6647b149eea22f",
-    "at": "2026-11-08T18:57:48.756Z",
+    "input": "e09485ae863cad6d",
+    "at": "2026-11-14T00:09:29.977Z",
     "claims": [
       {
         "code": "BR",
@@ -10,6 +10,30 @@
         "source": "seriouslyfish",
         "quote": "Found in the upper Rio Paraguay in the Brazilian state of Mato Grosso.",
         "words": "Brazilian",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "C. polystictus inhabits the Rio Paraguay basin in Brazil, Paraguay, and Argentina.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "C. polystictus inhabits the Rio Paraguay basin in Brazil, Paraguay, and Argentina.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "C. polystictus inhabits the Rio Paraguay basin in Brazil, Paraguay, and Argentina.",
+        "words": "Argentina",
         "ok": true
       }
     ],
@@ -20,15 +44,18 @@
         "quote": "Found in the upper Rio Paraguay in the Brazilian state of Mato Grosso.",
         "country": "BR",
         "ok": true
+      },
+      {
+        "name": "Rio Paraguay",
+        "source": "glaser",
+        "quote": "C. polystictus inhabits the Rio Paraguay basin in Brazil, Paraguay, and Argentina.",
+        "ok": true
       }
     ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [
-        "PY",
-        "AR"
-      ],
+      "pagesOnly": [],
       "sourcesOnly": []
     }
   },
@@ -79,9 +106,11 @@
       ]
     ],
     "native": [
-      "BR"
+      "BR",
+      "PY",
+      "AR"
     ],
     "requests": 11,
-    "at": "2026-11-08T18:57:48.756Z"
+    "at": "2026-11-14T00:09:29.977Z"
   }
 }

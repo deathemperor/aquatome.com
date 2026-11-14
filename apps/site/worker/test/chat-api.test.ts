@@ -1,12 +1,14 @@
 import { existsSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
-import { expect, test } from 'vitest'
+import { describe, expect, test } from 'vitest'
 import { COOKIE, createSession, type Client } from '../accounts/session'
 import { syncStore } from '../accounts/tanks'
 import { assetSource, callClaude, chat, chatWorstCost, type ChatDeps, type ChatEnv, type Conversation } from '../chat/api'
 import { chatPast } from '../chat/past'
 import { OPENING_SYSTEM } from '../chat/agent'
 import { OFF_TOPIC } from '../chat/answer'
+import { handbookOf, sectionsOf } from '../chat/handbook'
+import { textOf } from '../chat/tools'
 import { chatAccount, conversationKey } from '../chat/store'
 import type { ChatRunRecord } from '../chat/transcript'
 import { clientFor, priceOf } from '../fishid/claude'
@@ -203,6 +205,11 @@ test('who may ask: an app session as a bearer, or a site session from the site\'
   expect(await status(ask(bearer(app.token), { identified: { verdict: 'fish', results: [], photo: 'x' } }))).toEqual([400, 'bad request'])
   expect(await status(ask(bearer(app.token), { identified: { verdict: 'fish', results: [{ scientificName: 'x'.repeat(101), confidence: 0.9 }] } }))).toEqual([400, 'bad request'])
   expect(await status(ask(bearer(app.token), { identified: { verdict: 'fish', results: [{ scientificName: 'Paracheirodon innesi', id: 'x'.repeat(101), confidence: 0.9 }] } }))).toEqual([400, 'bad request'])
+  // A saved tank's id is an id: a string of 1 to 100 characters. A start the contract doesn't name is refused.
+  expect(await status(ask(bearer(app.token), { from: 'tank', tank: 7 }))).toEqual([400, 'bad request'])
+  expect(await status(ask(bearer(app.token), { from: 'tank', tank: '' }))).toEqual([400, 'bad request'])
+  expect(await status(ask(bearer(app.token), { from: 'tank', tank: 'x'.repeat(101) }))).toEqual([400, 'bad request'])
+  expect(await status(ask(bearer(app.token), { from: 'pond' }))).toEqual([400, 'bad request'])
   // One character past the limit (a whole forum post fits: maxChars) is refused, saying the limit, so the client keeps the text and says it.
   expect(await status(ask(bearer(app.token), { question: 'á'.repeat(1501) }))).toEqual([413, 'too long'])
   expect((await run(ask(bearer(app.token), { question: 'á'.repeat(1501) }), e, deps(c.fetch))).body).toEqual({ error: 'too long', limit: 1500 })
@@ -337,6 +344,39 @@ test('each question\'s transcript is kept under its account and conversation: wh
   expect(seconds.every(k => k.includes('/002-'))).toBe(true)
 })
 
+test('the owner\'s answer files the two places it names, the handbook\'s words and nothing of the reader; on open chat, nothing; the reader never gets them', async () => {
+  const PATH = '/vi/ca/ca-neon-xanh/'
+  const setup = async (CHAT: string) => {
+    const { e, db, store } = env({ CHAT })
+    const me = await signIn(db)
+    e.OWNER_ACCOUNTS = me.id
+    return { e, me, store }
+  }
+  const owner = await setup('owner')
+  const hb = (await handbookOf(assetSource(owner.e, 'https://aquatome.com'), 'vi'))!
+  const [one, two] = sectionsOf((await hb.page(PATH))!).flatMap(s => textOf(s.blocks).split('\n')).filter(t => t.length > 20 && !t.startsWith('['))
+  const clash = { a: { path: PATH, passage: one! }, b: { path: PATH, passage: two! } }
+  const made = { a: { path: PATH, passage: 'Bạn đọc này nuôi cá trong bể sáu mươi lít ở nhà.' }, b: clash.b }
+  const QUESTION = 'Câu hỏi riêng của bạn đọc về bể cá?'
+  const c = claude([() => reads(PATH), () => answers({ clashes: [clash, made] })])
+  const r = await run(ask(bearer(owner.me.token), { question: QUESTION }), owner.e, deps(c.fetch))
+  expect(r.body).toMatchObject({ n: 1 })
+  expect(JSON.stringify(r.body)).not.toContain(one!)
+  expect(JSON.stringify(r.body)).not.toContain('clashes')
+  const filed = [...owner.store.m.keys()].filter(k => k.startsWith('handbook-clash/'))
+  expect(filed).toHaveLength(1)
+  const kept = owner.store.read<Record<string, unknown>>(filed[0]!)!
+  const body = JSON.stringify(kept)
+  expect(kept).toMatchObject({ lang: 'vi', places: [{ path: PATH }, { path: PATH }] })
+  expect(Object.keys(kept).sort()).toEqual(['at', 'lang', 'places'])
+  expect(body).not.toContain(QUESTION)
+  expect(body).not.toContain(owner.me.id)
+  const open = await setup('1')
+  const o = claude([() => reads(PATH), () => answers({ clashes: [clash] })])
+  await run(ask(bearer(open.me.token), { question: QUESTION }), open.e, deps(o.fetch))
+  expect([...open.store.m.keys()].filter(k => k.startsWith('handbook-clash/'))).toEqual([])
+})
+
 test('sections are searched for on the first question alone, on the owner\'s account alone, and the transcript says which went', async () => {
   const POST = 'Bể em mới set được ba tuần, nước cứ đục trắng dù đã thay nước. '.repeat(4)
   const searches: unknown[] = []
@@ -345,15 +385,23 @@ test('sections are searched for on the first question alone, on the owner\'s acc
     CHAT_SEARCH: { query: async (_: number[], o: unknown) => { searches.push(o); return { matches: [{ metadata: { path: '/vi/huong-dan/thay-nuoc-dung-cach/' } }] } } } as unknown as Vectorize,
   }
   const handed = (b: Record<string, unknown>) => JSON.stringify((b.messages as { content: unknown }[])[0]!.content).includes('These sections came from a search')
-  const setup = async (CHAT: string) => {
+  const setup = async (CHAT: string, tank = true) => {
     const { e, db, store } = env({ CHAT, ...bindings })
     const me = await signIn(db)
     e.OWNER_ACCOUNTS = me.id
+    const at = new Date()
+    if (tank) await syncStore(db, me.id, { v: 1, tanks: [{ id: 'a1b2c3d4-0000-4000-8000-000000000001', name: 'Bể phòng khách', dims: { l: 60, w: 30, h: 36 }, species: [{ id: 'paracheirodon-innesi', count: 12 }], plants: [], createdAt: at.toISOString(), updatedAt: at.toISOString() }], devices: [] }, at)
     return { e, me, store, account: await chatAccount('k', me.id) }
   }
   const owner = await setup('owner')
+  // A whole post with a saved tank: as today, nothing searched or handed over.
+  const whole = await setup('owner')
+  const w = claude(NEON)
+  expect((await run(ask(bearer(whole.me.token), { question: POST }), whole.e, deps(w.fetch))).body).toMatchObject({ n: 1 })
+  expect(searches).toEqual([])
+  expect(w.bodies.some(handed)).toBe(false)
   const c = claude(NEON)
-  expect((await run(ask(bearer(owner.me.token), { question: POST }), owner.e, deps(c.fetch))).body).toMatchObject({ n: 1 })
+  expect((await run(ask(bearer(owner.me.token), {}), owner.e, deps(c.fetch))).body).toMatchObject({ n: 1 })
   expect(searches).toEqual([{ topK: 5, namespace: 'vi', returnMetadata: 'all' }])
   expect(c.bodies.filter(b => b.tools).every(handed)).toBe(true)
   const key = [...owner.store.m.keys()].find(k => k.startsWith(`chat-run/${owner.account}/`))!
@@ -361,19 +409,21 @@ test('sections are searched for on the first question alone, on the owner\'s acc
   expect(owner.store.read<ChatRunRecord>(key)!.handed).toEqual([{ path: '/vi/ca/ca-neon-xanh/', heading: null }, { path: '/vi/huong-dan/thay-nuoc-dung-cach/', heading: null }])
   // The next question of the conversation: as today.
   const next = claude(NEON)
-  expect((await run(ask(bearer(owner.me.token), { question: POST }), owner.e, deps(next.fetch))).body).toMatchObject({ n: 2 })
+  expect((await run(ask(bearer(owner.me.token), {}), owner.e, deps(next.fetch))).body).toMatchObject({ n: 2 })
   expect(searches).toHaveLength(1)
   expect(next.bodies.some(handed)).toBe(false)
-  // A short question with no tank, on the owner's account: as today.
-  const short = await setup('owner')
-  const s = claude(NEON)
-  await run(ask(bearer(short.me.token)), short.e, deps(s.fetch))
-  expect(searches).toHaveLength(1)
-  expect(s.bodies.some(handed)).toBe(false)
+  // No saved tank on the owner's account, a short question or a whole post: as today.
+  const none = await setup('owner', false)
+  for (const body of [{}, { question: POST }]) {
+    const s = claude(NEON)
+    await run(ask(bearer(none.me.token), body), none.e, deps(s.fetch))
+    expect(searches).toHaveLength(1)
+    expect(s.bodies.some(handed)).toBe(false)
+  }
   // Chat open to everyone: as today, until the judged bar holds.
   const open = await setup('1')
   const o = claude(NEON)
-  await run(ask(bearer(open.me.token), { question: POST }), open.e, deps(o.fetch))
+  await run(ask(bearer(open.me.token), {}), open.e, deps(o.fetch))
   expect(searches).toHaveLength(1)
   expect(o.bodies.some(handed)).toBe(false)
 })
@@ -697,6 +747,43 @@ test('a streamed call is bounded end to end: one that stalls after its first byt
   expect(Date.now() - t).toBeLessThan(2000)
   expect(isApiError(e) && e.status === undefined).toBe(true)
   expect(classify(e)).toEqual({ next: true })
+})
+
+describe('a call that has begun writing', () => {
+  const event = (type: string, data: object) => `event: ${type}\ndata: ${JSON.stringify({ type, ...data })}\n\n`
+  const start = event('message_start', { message: { id: 'm', type: 'message', role: 'assistant', model: 'claude-opus-5-5', content: [], stop_reason: null, stop_sequence: null, usage } })
+  const writes = event('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }) + event('content_block_delta', { index: 0, delta: { type: 'text_delta', text: 'Nước' } })
+  const ends = event('content_block_stop', { index: 0 }) + event('message_delta', { delta: { stop_reason: 'end_turn', stop_sequence: null }, usage: { output_tokens: 1 } }) + event('message_stop', {})
+  const body = { model: 'claude-opus-5-5', max_tokens: 10, messages: [{ role: 'user' as const, content: 'hi' }] }
+  /** A stream that sends `first` at once and, `ms` later, `then` (and ends), or nothing more with no `then`. */
+  const streams = async (first: string, then?: string, ms = 0) => clientFor({ key: 'sk-ant-test', hash: 'h' } as KeyEntry, (async () => new Response(new ReadableStream({
+    start: ctl => {
+      ctl.enqueue(new TextEncoder().encode(first))
+      if (then !== undefined) setTimeout(() => { ctl.enqueue(new TextEncoder().encode(then)); ctl.close() }, ms)
+    },
+  }), { headers: { 'content-type': 'text/event-stream' } })) as typeof globalThis.fetch)
+
+  test('runs past its limit to the time left, so an answer on its way isn\'t lost', async () => {
+    const said: string[] = []
+    const m = await callClaude(await streams(start + writes, ends, 250), body, 100, d => said.push(d), undefined, 2000)
+    expect(said).toEqual(['Nước'])
+    expect(m.stop_reason).toBe('end_turn')
+  })
+
+  test('is still stopped when the time left runs out', async () => {
+    const t = Date.now()
+    const e = await callClaude(await streams(start + writes), body, 100, () => {}, undefined, 300).catch(x => x)
+    expect(Date.now() - t).toBeGreaterThanOrEqual(250)
+    expect(Date.now() - t).toBeLessThan(2000)
+    expect(isApiError(e) && e.status === undefined).toBe(true)
+  })
+
+  test('a call still silent at its limit gets no more time', async () => {
+    const t = Date.now()
+    const e = await callClaude(await streams(start), body, 100, () => {}, undefined, 2000).catch(x => x)
+    expect(Date.now() - t).toBeLessThan(1000)
+    expect(isApiError(e) && e.status === undefined).toBe(true)
+  })
 })
 
 test('retries by Idempotency-Key: after the answer, the kept turn with no new count; while it runs, it waits for that answer; another question meanwhile is 409', async () => {
@@ -1269,6 +1356,11 @@ test('each answer writes the conversation\'s row: its first question, where it s
   const row = await db.prepare('SELECT * FROM chat_conversations WHERE account = ? AND id = ?').bind(account, CONV).first<Record<string, unknown>>()
   expect(row).toMatchObject({ title: 'Nuôi cá này thế nào?', questions: 2, continues: null, hidden: 0 })
   expect(JSON.parse(row!.start as string)).toEqual({ from: 'fish-id', about: 'paracheirodon-innesi', lang: 'vi' })
+  // From a saved tank: where, and which tank, kept with the row.
+  const fromTank = crypto.randomUUID()
+  await go({ conversation: fromTank, from: 'tank', about: undefined, tank: 't1' })
+  const tankRow = await db.prepare('SELECT start FROM chat_conversations WHERE account = ? AND id = ?').bind(account, fromTank).first<{ start: string }>()
+  expect(JSON.parse(tankRow!.start)).toEqual({ from: 'tank', tank: 't1', lang: 'vi' })
   expect(String(row!.last_at)).toMatch(/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ$/)
   const next = crypto.randomUUID()
   await go({ conversation: next, continues: CONV })

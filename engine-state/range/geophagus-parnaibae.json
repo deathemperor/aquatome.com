@@ -1,8 +1,8 @@
 {
   "id": "geophagus-parnaibae",
   "native": {
-    "input": "59772b6615feed3e",
-    "at": "2026-11-08T10:57:49.558Z",
+    "input": "df0a7055d73012f2",
+    "at": "2026-11-10T07:58:31.896Z",
     "claims": [
       {
         "code": "BR",
@@ -15,11 +15,12 @@
     ],
     "regions": [
       {
-        "name": "Rio Parnaíba",
+        "name": "rio Parnaíba",
         "source": "seriouslyfish",
-        "quote": "Endemic to the rio Parnaíba drainage in the states of Piauí and Maranhão, northeastern Brazil with type locality 'Richao Ponti near Timon, drainage of the rio Parnaía, Estado Maranhão, northeastern Brazil'.",
+        "quote": "Endemic to the rio Parnaíba drainage in the states of Piauí and Maranhão, northeastern Brazil with type locality 'Richao Ponti near Timon, drainage of the rio Parnaia, Estado Maranhão, northeastern Brazil'.",
         "country": "BR",
-        "ok": true
+        "ok": false,
+        "why": "not in the source's text"
       }
     ],
     "disputed": [],

@@ -1,16 +1,16 @@
 {
   "slug": "ca-cau-vong-neon-do-mat-xanh",
-  "name": "Cá cầu vồng neon đỏ mắt xanh",
+  "name": "Cá mắt xanh neon đỏ",
   "altNames": [
     "Cá cầu vồng neon đỏ",
     "Red-Neon Blue-eye",
     "Red Neon Rainbowfish",
     "Red Neon Blue Eye Rainbowfish",
-    "Cá mắt xanh neon đỏ",
-    "Paskai Red-Neon"
+    "Paskai Red-Neon",
+    "Cá cầu vồng neon đỏ mắt xanh"
   ],
   "sections": {
-    "quickFacts:bwaquatics": "<p>Pseudomugil luminatus, tên thường gọi là cá cầu vồng mắt xanh đỏ neon, là một loài cá nước ngọt nhỏ nhưng màu sắc rất rực rỡ. Cá trưởng thành dài khoảng 2,5–3,8 cm.</p>",
+    "quickFacts:bwaquatics": "<p>Pseudomugil luminatus, tên thường gọi là cá mắt xanh đỏ neon, là một loài cá nước ngọt nhỏ nhưng màu sắc rất rực rỡ. Cá trưởng thành dài khoảng 2,5–3,8 cm.</p>",
     "distribution:bwaquatics": "<p>Cá có nguồn gốc từ một vùng hẹp gần Timika, thuộc Papua, Indonesia.</p>",
     "habitat:bwaquatics": "<p>Bể nuôi cần nước sạch và ổn định, dòng chảy nhẹ, trồng nhiều cây, có cây nổi trên mặt nước và ánh sáng dịu. Cách bố trí như vậy giống với môi trường nước đen ngoài tự nhiên của chúng.</p>",
     "waterConditions:bwaquatics": "<p>Cá thích nước mềm đến hơi mềm, pH từ hơi axit đến trung tính.</p><ul><li>pH 6,0–7,5</li><li>GH ≤ 8 dGH</li><li>KH ≤ 4 dKH</li><li>TDS &lt; 200 ppm</li><li>Nhiệt độ 22–26 °C. Bạn nên giữ nước ấm ổn định để cá lên màu đều và luôn hoạt bát.</li></ul>",
@@ -30,5 +30,6 @@
       "bwaquatics": 0.8,
       "glaser": 0.9
     }
-  }
+  },
+  "nameFixed": true
 }

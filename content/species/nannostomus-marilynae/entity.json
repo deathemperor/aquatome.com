@@ -13,6 +13,233 @@
     "colombia",
     "vichada"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "CO"
+      ],
+      "regions": [
+        "Rio Negro",
+        "Orinoco",
+        "Río Vichada"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The greenstripe pencilfish, Nannostomus marilynae, occurs in the rio Negro in Brazil and the Río Vichada in the upper Orinoco basin, Colombia.",
+          "countries": [
+            "BR",
+            "CO"
+          ],
+          "regions": [
+            "Rio Negro",
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It has also been recorded further upstream in the Negro system at Cucui and downstream at Castanheiro, plus the Río Vichada in Meta department, Colombia, an affluent of the upper Orinoco basin and located much further north.",
+          "countries": [],
+          "regions": [
+            "Río Vichada"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355658,
+      "total": 120,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "BR",
+          70
+        ],
+        [
+          "VE",
+          40
+        ],
+        [
+          "CO",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -71.71875,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          2.8125,
+          4,
+          0
+        ],
+        [
+          -68.90625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          5.625,
+          3,
+          3
+        ],
+        [
+          -67.5,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          0,
+          3,
+          1
+        ],
+        [
+          -67.5,
+          1.40625,
+          14,
+          1
+        ],
+        [
+          -67.5,
+          2.8125,
+          14,
+          0
+        ],
+        [
+          -67.5,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          33,
+          33
+        ],
+        [
+          -66.09375,
+          1.40625,
+          2,
+          0
+        ],
+        [
+          -66.09375,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          18,
+          18
+        ],
+        [
+          -61.875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          5,
+          5
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

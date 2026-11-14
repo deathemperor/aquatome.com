@@ -1,0 +1,492 @@
+{
+  "id": "maccullochella-peelii",
+  "scientificName": "Maccullochella peelii",
+  "order": "Perciformes",
+  "family": "Percichthyidae",
+  "genus": "Maccullochella",
+  "group": "other",
+  "places": [
+    "oceania",
+    "australia",
+    "murray-river"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "AU"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "M. peelii is the largest freshwater fish of Australia.",
+          "countries": [
+            "AU"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2380484,
+      "total": 24476,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "AU",
+          24476
+        ]
+      ],
+      "cells": [
+        [
+          116.71875,
+          -35.15625,
+          1,
+          1
+        ],
+        [
+          133.59375,
+          -26.71875,
+          12,
+          12
+        ],
+        [
+          137.8125,
+          -36.5625,
+          1,
+          1
+        ],
+        [
+          137.8125,
+          -33.75,
+          1,
+          1
+        ],
+        [
+          139.21875,
+          -35.15625,
+          13,
+          13
+        ],
+        [
+          140.625,
+          -37.96875,
+          89,
+          89
+        ],
+        [
+          140.625,
+          -36.5625,
+          43,
+          43
+        ],
+        [
+          140.625,
+          -35.15625,
+          625,
+          625
+        ],
+        [
+          142.03125,
+          -37.96875,
+          46,
+          46
+        ],
+        [
+          142.03125,
+          -36.5625,
+          22,
+          22
+        ],
+        [
+          142.03125,
+          -35.15625,
+          176,
+          176
+        ],
+        [
+          142.03125,
+          -33.75,
+          49,
+          49
+        ],
+        [
+          142.03125,
+          -32.34375,
+          6,
+          6
+        ],
+        [
+          143.4375,
+          -39.375,
+          3,
+          3
+        ],
+        [
+          143.4375,
+          -37.96875,
+          221,
+          221
+        ],
+        [
+          143.4375,
+          -36.5625,
+          906,
+          906
+        ],
+        [
+          143.4375,
+          -35.15625,
+          31,
+          31
+        ],
+        [
+          143.4375,
+          -29.53125,
+          1,
+          1
+        ],
+        [
+          143.4375,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          144.84375,
+          -39.375,
+          6,
+          6
+        ],
+        [
+          144.84375,
+          -37.96875,
+          464,
+          464
+        ],
+        [
+          144.84375,
+          -36.5625,
+          18818,
+          18818
+        ],
+        [
+          144.84375,
+          -35.15625,
+          22,
+          22
+        ],
+        [
+          144.84375,
+          -33.75,
+          16,
+          16
+        ],
+        [
+          144.84375,
+          -30.9375,
+          12,
+          12
+        ],
+        [
+          144.84375,
+          -28.125,
+          4,
+          4
+        ],
+        [
+          144.84375,
+          -26.71875,
+          4,
+          4
+        ],
+        [
+          146.25,
+          -39.375,
+          2,
+          2
+        ],
+        [
+          146.25,
+          -37.96875,
+          226,
+          226
+        ],
+        [
+          146.25,
+          -36.5625,
+          1839,
+          1839
+        ],
+        [
+          146.25,
+          -35.15625,
+          46,
+          46
+        ],
+        [
+          146.25,
+          -33.75,
+          14,
+          14
+        ],
+        [
+          146.25,
+          -32.34375,
+          2,
+          2
+        ],
+        [
+          146.25,
+          -30.9375,
+          6,
+          6
+        ],
+        [
+          147.65625,
+          -36.5625,
+          107,
+          107
+        ],
+        [
+          147.65625,
+          -35.15625,
+          15,
+          15
+        ],
+        [
+          147.65625,
+          -33.75,
+          38,
+          38
+        ],
+        [
+          147.65625,
+          -32.34375,
+          8,
+          8
+        ],
+        [
+          147.65625,
+          -30.9375,
+          31,
+          31
+        ],
+        [
+          147.65625,
+          -29.53125,
+          15,
+          15
+        ],
+        [
+          147.65625,
+          -28.125,
+          9,
+          9
+        ],
+        [
+          147.65625,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          149.0625,
+          -36.5625,
+          4,
+          4
+        ],
+        [
+          149.0625,
+          -35.15625,
+          1,
+          1
+        ],
+        [
+          149.0625,
+          -33.75,
+          5,
+          5
+        ],
+        [
+          149.0625,
+          -32.34375,
+          2,
+          2
+        ],
+        [
+          149.0625,
+          -30.9375,
+          81,
+          81
+        ],
+        [
+          149.0625,
+          -29.53125,
+          66,
+          66
+        ],
+        [
+          149.0625,
+          -28.125,
+          8,
+          8
+        ],
+        [
+          150.46875,
+          -35.15625,
+          66,
+          66
+        ],
+        [
+          150.46875,
+          -33.75,
+          1,
+          1
+        ],
+        [
+          150.46875,
+          -32.34375,
+          18,
+          18
+        ],
+        [
+          150.46875,
+          -30.9375,
+          120,
+          120
+        ],
+        [
+          150.46875,
+          -29.53125,
+          80,
+          80
+        ],
+        [
+          150.46875,
+          -28.125,
+          11,
+          11
+        ],
+        [
+          151.875,
+          -30.9375,
+          8,
+          8
+        ],
+        [
+          151.875,
+          -29.53125,
+          51,
+          51
+        ],
+        [
+          151.875,
+          -28.125,
+          1,
+          1
+        ],
+        [
+          157.5,
+          -33.75,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 60
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/maccullochella_peelii_en/",
+      "html": "<p>M. peelii is the largest freshwater fish of Australia. Its popular name is \"Murray Cod\", after the Murray River. The average length of adults is about 60 cm and 2-3 kg weight; the largest specimen recorded scientifically was 183 cm long and weighed 113 kg. There are rumors of even larger specimens.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/maccullochella_peelii_en/",
+      "html": "<p>The Murray Cod is not a relative of the Cod (Gadus morhua) at all. It is endangered in the wild. Specimens in the trade are bred ones and originate from Taiwan. The Murray Cod is bred in large numbers, also in Australia, for stocking purposes, but this does not help the natural populations, many of which are already extinct.</p><p>Four juvenile fish were imported, currently 18-22 cm long.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/maccullochella_peelii_en/",
+      "html": "<p>This large fish is a generalist in the wild and occurs in any thinkable waterbodies, even very small ones.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/maccullochella_peelii_en/",
+      "html": "<p>Murray Cods are obligate predators. In the aquarium they can be fed easily with fish and crayfish. In the wild they also prey on young waterfowl, small mammals, frogs, water turtles and other reptiles.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/maccullochella_peelii_en/",
+      "html": "<p>The species is extremely territorial, so only a single specimen per tank can be kept. The animals become very tame and even interact with the keeper and other persons on the other side of the glass. The larger a Murray Cod becomes, the tamer it will be.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "4B3yI4XZWgo",
+      "title": "Murray cod (Maccullochella peelii) Biotope Aquarium.",
+      "durationSec": 187,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "hRGM1r0R8zs",
+      "title": "My pet Murray Cod.",
+      "durationSec": 11,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "qj6BpVNjOeI",
+      "title": "Sleepy Cod Feeding #nativefish #shorts #fishkeeping",
+      "durationSec": 10,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "2aJF72DcH44",
+      "title": "Murray cod fish tank",
+      "durationSec": 13,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể kính cỡ lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy bơm tạo dòng"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "cá mồi sống",
+        "thức ăn cho cá săn mồi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

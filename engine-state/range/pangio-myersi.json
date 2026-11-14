@@ -1,0 +1,104 @@
+{
+  "id": "pangio-myersi",
+  "native": {
+    "input": "be3613d5b202cf6e",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "P. myersi is the largest species of banded coolie loaches and is found only in the Mekong River basin (southeastern Thailand to western Cambodia).",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "P. myersi is the largest species of banded coolie loaches and is found only in the Mekong River basin (southeastern Thailand to western Cambodia).",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the lower Mekong basin in Laos, Cambodia, Vietnam and Thailand with type locality 'Nong Khor, southeastern Thailand'.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the lower Mekong basin in Laos, Cambodia, Vietnam and Thailand with type locality 'Nong Khor, southeastern Thailand'.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the lower Mekong basin in Laos, Cambodia, Vietnam and Thailand with type locality 'Nong Khor, southeastern Thailand'.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the lower Mekong basin in Laos, Cambodia, Vietnam and Thailand with type locality 'Nong Khor, southeastern Thailand'.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "glaser",
+        "quote": "P. myersi is the largest species of banded coolie loaches and is found only in the Mekong River basin (southeastern Thailand to western Cambodia).",
+        "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Native to the lower Mekong basin in Laos, Cambodia, Vietnam and Thailand with type locality 'Nong Khor, southeastern Thailand'.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pangio myersi",
+    "status": "ACCEPTED",
+    "taxonKey": 2367949,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "KH",
+      "LA",
+      "VN"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

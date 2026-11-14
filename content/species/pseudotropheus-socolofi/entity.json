@@ -11,6 +11,80 @@
     "lake-malawi",
     "mozambique"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MZ"
+      ],
+      "regions": [
+        "Lake Malawi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi. It occurs along the coast of Mozambique, between Cobue and Tumbi point, although it has been introduced elsewhere.",
+          "countries": [
+            "MZ"
+          ],
+          "regions": [
+            "Lake Malawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2373077,
+      "total": 8,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "US",
+          3
+        ],
+        [
+          "IN",
+          2
+        ],
+        [
+          "MZ",
+          2
+        ],
+        [
+          "MW",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -91.40625,
+          39.375,
+          2,
+          0
+        ],
+        [
+          -90,
+          40.78125,
+          1,
+          0
+        ],
+        [
+          33.75,
+          -12.65625,
+          3,
+          2
+        ],
+        [
+          71.71875,
+          18.28125,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -155,6 +229,16 @@
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/ee4d4832defa5400.webp",
+      "thumb": "https://media.aquatome.com/commons/ee4d4832defa5400-480.webp",
+      "width": 800,
+      "height": 534,
+      "licence": "CC BY-SA 3.0",
+      "author": "JanRehschuh",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eisblauer_Maulbr%C3%BCter_Mbuna_Pseudotropheus_Socolofi_Malawi_Male_P1000285.JPG",
+      "caption": "Cá mbuna xanh phấn đực trong bể có cây thủy sinh"
+    },
     {
       "url": "https://media.aquatome.com/glaser/45aa7c921c6df9d0.webp",
       "thumb": "https://media.aquatome.com/glaser/45aa7c921c6df9d0-480.webp",

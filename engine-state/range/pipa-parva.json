@@ -1,0 +1,57 @@
+{
+  "id": "pipa-parva",
+  "native": {
+    "input": "e24c4d9866c31370",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Venezuela.",
+        "words": "Venezuela",
+        "ok": false,
+        "why": "no sentence"
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "VE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pipa parva",
+    "status": "ACCEPTED",
+    "taxonKey": 2423968,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        57
+      ],
+      [
+        "8e479b8f-ac16-4bed-a11a-bc7e27c31663",
+        10
+      ],
+      [
+        "5f19459c-0da2-4d2a-8180-87a917410b07",
+        4
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

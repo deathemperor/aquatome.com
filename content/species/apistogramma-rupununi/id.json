@@ -1,0 +1,24 @@
+{
+  "slug": "apistogramma-rupununi",
+  "name": "Apistogramma rupununi",
+  "altNames": [
+    "Apisto rupununi",
+    "Rupununi apisto"
+  ],
+  "sections": {
+    "notes:glaser": "<p>Setelah cukup lama tidak ada, cichlid kerdil ini akhirnya diimpor lagi. Kemungkinan besar spesimennya berasal dari Amapá, Brasil. Pada spesimen tangkapan alam yang masih kecil, A. rupununi cukup sulit dibedakan dari A. steindachneri. Namun, ikan yang baru diimpor ini sudah cukup besar (beberapa jantan sudah sekitar 5 cm). Tidak ada satu spesimen pun yang memperlihatkan pemanjangan jari-jari sirip paling atas dan paling bawah pada sirip ekor. Ekor lira pada jantan A. steindachneri yang sudah matang adalah ciri terbaik untuk membedakan kedua spesies ini, sehingga ikan-ikan impor baru ini diperkirakan termasuk A. rupununi.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.85
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-10"
+  }
+}

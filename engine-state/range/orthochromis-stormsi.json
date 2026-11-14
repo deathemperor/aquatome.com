@@ -1,0 +1,86 @@
+{
+  "id": "orthochromis-stormsi",
+  "native": {
+    "input": "59d04d836a854652",
+    "at": "2026-11-10T23:57:51.686Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Orthochromis stormsi is a cichlid from fast-moving, well-oxygenated stretches of the Congo River in the Democratic Republic of Congo.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Democratic Republic of Congo.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Congo River",
+        "source": "seriouslyfish",
+        "quote": "Orthochromis stormsi is a cichlid from fast-moving, well-oxygenated stretches of the Congo River in the Democratic Republic of Congo.",
+        "country": "CD",
+        "ok": true
+      },
+      {
+        "name": "Congo River",
+        "source": "glaser",
+        "quote": "Central Africa, where it inhabits the cataracts of the Congo River.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Orthochromis stormsi",
+    "status": "ACCEPTED",
+    "taxonKey": 2369739,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        19
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        7
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        5
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "CD"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T23:57:51.686Z"
+  }
+}

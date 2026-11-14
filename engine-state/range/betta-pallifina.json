@@ -1,8 +1,8 @@
 {
   "id": "betta-pallifina",
   "native": {
-    "input": "5f13f969285f2bf6",
-    "at": "2026-11-06T18:08:44.169Z",
+    "input": "cf4be005e02f6790",
+    "at": "2026-11-14T00:09:29.977Z",
     "claims": [
       {
         "code": "ID",
@@ -10,6 +10,14 @@
         "source": "seriouslyfish",
         "quote": "To date it has only been collected from a remote part of the upper Barito river basin in the Indonesian province of Kalimantan Tengah (Central Kalimantan), Borneo.",
         "words": "Indonesian",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Central Kalimantan, Indonesia.",
+        "words": "Indonesia",
         "ok": true
       }
     ],

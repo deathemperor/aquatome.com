@@ -1,0 +1,52 @@
+{
+  "id": "polypterus-teugelsi",
+  "native": {
+    "input": "08c274705c95e73f",
+    "at": "2026-11-13T05:31:31.275Z",
+    "claims": [
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Probably endemic to the River Cross drainage in Cameroon.",
+        "words": "Cameroon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "River Cross",
+        "source": "seriouslyfish",
+        "quote": "Probably endemic to the River Cross drainage in Cameroon.",
+        "country": "CM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Polypterus teugelsi",
+    "status": "ACCEPTED",
+    "taxonKey": 2346592,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        11
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        1
+      ]
+    ],
+    "native": [
+      "CM"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T05:31:31.275Z"
+  }
+}

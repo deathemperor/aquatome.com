@@ -1,7 +1,9 @@
 {
  "queue": [],
  "judged": [],
- "hashes": {},
+ "hashes": {
+  "https://media.aquatome.com/processed/963615abc14e66229dae9b876f7c6193.webp": "34c526830e5eda7c"
+ },
  "commons": "2026-11-04",
  "inat": {
   "taxon": 341447,
@@ -14,5 +16,9 @@
  "gbif": {
   "key": 4284383,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-13"
 }

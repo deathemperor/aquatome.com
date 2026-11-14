@@ -1,0 +1,72 @@
+{
+  "id": "aphanius-asquamatus",
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/4785607dd9b1e67e0410b66332c7a565.webp",
+      "thumb": "https://media.aquatome.com/processed/4785607dd9b1e67e0410b66332c7a565-480.webp",
+      "width": 800,
+      "height": 427,
+      "licence": "dùng với sự cho phép",
+      "author": "Barbara Nicca",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphanius-asquamatus",
+      "caption": "Captive-raised juvenile.",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-aphanius-asquamatus",
+        "pixelHash": "4ee3e0f2ae196ff85c26f3282865fc1d8bf95cc00df781534b690584984ce1d5"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T09:33:10.845Z",
+          "originalHash": "4ad4fbb5381e799be72d837a1a97433fe775649ae21635ae5d773d085d9cbba1",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 800,
+            "originalHeight": 534,
+            "window": {
+              "x0": 0,
+              "y0": 0,
+              "x1": 800,
+              "y1": 427
+            },
+            "subject": {
+              "x0": 120,
+              "y0": 164,
+              "x1": 716,
+              "y1": 346
+            },
+            "margin": 14
+          },
+          "excludedMarks": [
+            {
+              "x0": 562,
+              "y0": 433,
+              "x1": 725,
+              "y1": 455
+            }
+          ],
+          "checks": {
+            "species": [
+              "ff79497c7dd8c3734002e67a45aa655da5688e6ae5c312f9b7850ab052272a1b",
+              "6175bdfcebcb2b7516d825e4e8ac965e2d88b9ee46981458d03b4ad240cedf32"
+            ],
+            "ownership": [
+              "ee07c32101147336ec5a6d851a6dd2203d438704298438e8371f9bce61c7b4bb",
+              "f0c9ec105fccce6d9416498c9fc4b7eb557fb85a1fa512a0dd30ea925ab2e0fb"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/0ffa52f0aeefa37a.webp",
+        "width": 800,
+        "height": 534,
+        "thumb": "https://media.aquatome.com/seriouslyfish/0ffa52f0aeefa37a-480.webp"
+      }
+    }
+  ],
+  "seen": 0,
+  "updatedAt": "2026-11-11"
+}

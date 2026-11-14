@@ -1,0 +1,60 @@
+{
+  "id": "melanotaenia-picta",
+  "native": {
+    "input": "76b7824fe2f24c66",
+    "at": "2026-11-10T07:58:31.896Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Kobroor belongs to the Aru Islands, which are politically part of Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mareremar River",
+        "source": "glaser",
+        "quote": "M. picta was described from the drainage of the Mareremar River on the island of Kobroor.",
+        "ok": true
+      },
+      {
+        "name": "Kobroor",
+        "source": "glaser",
+        "quote": "M. picta was described from the drainage of the Mareremar River on the island of Kobroor.",
+        "ok": true
+      },
+      {
+        "name": "Aru Islands",
+        "source": "glaser",
+        "quote": "Kobroor belongs to the Aru Islands, which are politically part of Indonesia.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Melanotaenia picta",
+    "status": "ACCEPTED",
+    "taxonKey": 9361077,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T07:58:31.896Z"
+  }
+}

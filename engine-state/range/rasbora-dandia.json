@@ -1,0 +1,65 @@
+{
+  "id": "rasbora-dandia",
+  "native": {
+    "input": "5f0cf7afae3871e9",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread throughout Sri Lanka, where it's possibly the commonest freshwater fish species (Silva et al. 2010), and equally well-distributed in the southern Indian states of Karnataka, Kerala and Tamil Nadu.",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread throughout Sri Lanka, where it's possibly the commonest freshwater fish species (Silva et al. 2010), and equally well-distributed in the southern Indian states of Karnataka, Kerala and Tamil Nadu.",
+        "words": "Indian",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rasbora dandia",
+    "status": "ACCEPTED",
+    "taxonKey": 8681465,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        46
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        42
+      ],
+      [
+        "988007b1-1179-42e0-863c-bb9f1bdfa6f7",
+        2
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        1
+      ],
+      [
+        "bd0b1ffa-bf79-4a4b-8019-d907607ac887",
+        1
+      ]
+    ],
+    "native": [
+      "LK",
+      "IN"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T00:09:29.977Z"
+  }
+}

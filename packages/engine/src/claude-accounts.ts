@@ -19,6 +19,17 @@ export function parseTokens(list?: string, single?: string): string[] {
   return [...new Set([...(list ?? '').split(/\r?\n/), single ?? ''].map(t => t.trim()).filter(Boolean))]
 }
 
+/**
+ * Where a process starts in the list: CLAUDE_FIRST_ACCOUNT, a position in it (unset, or no position in the list: 1, the
+ * first, as before), then on in order and round to the start. The cloud's list begins with the Mac's own sign-ins, so the
+ * cloud starts on the one after them and leaves those to the Mac until its own is out (the chief of staff, 2026-11-12).
+ * Reports still name each account by its number in the list as given.
+ */
+export function startAt<T>(all: T[], first?: string): T[] {
+  const k = Number(first)
+  const i = Number.isInteger(k) && k >= 1 && k <= all.length ? k - 1 : 0
+  return [...all.slice(i), ...all.slice(0, i)]
+}
 export const tokenHash = (token: string) => createHash('sha256').update(token).digest('hex').slice(0, 8)
 
 /** Why an account was set aside: its usage limit (and when it lifts, as the CLI said), or its token rejected. */
@@ -48,7 +59,7 @@ let listed = new Set<string>()
 function list(): Account[] {
   if (!accounts) {
     listed = new Set(parseTokens(process.env.CLAUDE_CODE_OAUTH_TOKENS))
-    accounts = parseTokens(process.env.CLAUDE_CODE_OAUTH_TOKENS, process.env.CLAUDE_CODE_OAUTH_TOKEN).map((token, i) => ({ n: i + 1, token, hash: tokenHash(token), answered: 0 }))
+    accounts = startAt(parseTokens(process.env.CLAUDE_CODE_OAUTH_TOKENS, process.env.CLAUDE_CODE_OAUTH_TOKEN).map((token, i) => ({ n: i + 1, token, hash: tokenHash(token), answered: 0 })), process.env.CLAUDE_FIRST_ACCOUNT)
   }
   return accounts
 }
@@ -59,11 +70,26 @@ export function resetAccounts() { accounts = undefined }
 const name = (a: Account) => `token ${a.n} (${a.hash})`
 const why = (o: Out) => (o.why === 'usage' ? `usage limit${o.reset ? ` until ${o.reset}` : ''}` : 'credential rejected')
 
-/** The child's environment: this account's token, and not the list (the call needs only its own). */
-export function envFor(token: string): NodeJS.ProcessEnv {
-  const { CLAUDE_CODE_OAUTH_TOKENS: _, ...env } = process.env
-  return { ...env, CLAUDE_CODE_OAUTH_TOKEN: token }
+/**
+ * The child's environment. A step run by hand from a session and a scheduled run call the model the same way
+ * (2026-11-11): every name starting with CLAUDE or ANTHROPIC is dropped, and MAX_THINKING_TOKENS, then this call's
+ * token is set when there is one. PATH, HOME and the rest pass through.
+ */
+export function envFor(token?: string): NodeJS.ProcessEnv {
+  const env: NodeJS.ProcessEnv = {}
+  for (const [name, value] of Object.entries(process.env)) {
+    if (name.startsWith('CLAUDE') || name.startsWith('ANTHROPIC') || name === 'MAX_THINKING_TOKENS') continue
+    env[name] = value
+  }
+  if (token) env.CLAUDE_CODE_OAUTH_TOKEN = token
+  return env
 }
+
+/**
+ * A call stopped before it was made, for a reason that isn't its account's: the engine's own ceiling for the day
+ * (ceiling.ts). Its message reads as a usage limit to the steps, so it is told apart here by its class.
+ */
+export class NotTheAccount extends Error {}
 
 /**
  * One call on the first account not set aside. Out of its limit or rejected, that account is set aside and the same call
@@ -72,7 +98,15 @@ export function envFor(token: string): NodeJS.ProcessEnv {
  */
 export async function onAccounts<T>(call: (token?: string) => Promise<T>, fail: (message: string) => Error): Promise<T> {
   const all = list()
-  if (!all.length) return call()
+  // A stop that isn't the account's goes straight up: no account is set aside for it, and the next isn't tried.
+  const stopped = (e: unknown) => (e instanceof NotTheAccount ? fail(e.message) : undefined)
+  if (!all.length) {
+    try {
+      return await call()
+    } catch (e) {
+      throw stopped(e) ?? e
+    }
+  }
   for (;;) {
     const a = all.find(x => !x.out)
     if (!a) throw fail((all.findLast(x => x.out?.why === 'usage') ?? all.at(-1)!).out!.message)
@@ -81,6 +115,8 @@ export async function onAccounts<T>(call: (token?: string) => Promise<T>, fail: 
       a.answered++
       return r
     } catch (e) {
+      const stop = stopped(e)
+      if (stop) throw stop
       const out = outOf((e as Error).message)
       if (!out) throw e
       if (!a.out) {

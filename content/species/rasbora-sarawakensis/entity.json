@@ -11,6 +11,121 @@
     "sarawak",
     "indonesia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Batang Kayan",
+        "Sungai Sarawak",
+        "Mempawah",
+        "Melawi"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "R. sarawakensis originates from the part of Borneo that belongs to Malaysia.",
+          "countries": [
+            "MY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Rasbora sarawakensis is a small rasbora endemic to Borneo, found in Sarawak and the neighbouring Indonesian province of West Kalimantan.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the island of Borneo.",
+          "countries": [],
+          "regions": [
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It has been recorded from numerous river systems including the Batang Kayan and Sungai Sarawak in Sarawak and the Mempawah and Melawi in Kalimantan Barat.",
+          "countries": [],
+          "regions": [
+            "Batang Kayan",
+            "Sungai Sarawak",
+            "Mempawah",
+            "Melawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2359528,
+      "total": 27,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "ID",
+          21
+        ],
+        [
+          "MY",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          108.28125,
+          0,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          0,
+          2,
+          2
+        ],
+        [
+          109.6875,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          111.09375,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          111.09375,
+          0,
+          14,
+          14
+        ],
+        [
+          111.09375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          112.5,
+          1.40625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

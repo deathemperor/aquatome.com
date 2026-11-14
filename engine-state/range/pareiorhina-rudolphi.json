@@ -1,0 +1,105 @@
+{
+  "id": "pareiorhina-rudolphi",
+  "native": {
+    "input": "5525cfc5c389ac69",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Piquete (Lorena), upper reaches of the rio Paraíba do Sul basin, São Paulo State, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: rivers of Rio de Janeiro State, Paraíba do Sul basin, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Paraíba do Sul River, São Paulo State, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Paraíba do Sul",
+        "source": "planetcatfish",
+        "quote": "South America: rivers of Rio de Janeiro State, Paraíba do Sul basin, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Paraíba do Sul",
+        "source": "scotcat",
+        "quote": "South America: Paraíba do Sul River, São Paulo State, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Mantiqueira",
+        "source": "scotcat",
+        "quote": "Pareiorhina rudolphi is found only in streams tributary to the Paraíba do Sul River in the eastern Mantiqueira mountain range, specifically in streams located on the slope and pediplain.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pareiorhina rudolphi",
+    "status": "ACCEPTED",
+    "taxonKey": 2339858,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        35
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        16
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        10
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        8
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        7
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        5
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-12T13:29:05.219Z"
+  }
+}

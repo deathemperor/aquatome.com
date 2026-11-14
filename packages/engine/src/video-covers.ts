@@ -2,6 +2,9 @@ import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { TranslationSchema, type GuideEntity, type Translation } from '@aq/schema'
+import { LlmError } from './claude'
+import { piece } from './pieces'
+import { errorKind } from './state'
 
 export type CoverDeps = { get: (url: string) => Promise<Uint8Array>; look: (file: string, prompt: string) => Promise<{ candidates?: string[]; cover: string }> }
 export const COVER_SCHEMA = { type: 'object', properties: { candidates: { type: 'array', items: { type: 'string' } }, cover: { type: 'string' } }, required: ['candidates', 'cover'] }
@@ -21,10 +24,15 @@ candidates: 5 phương án thật khác nhau. cover: phương án tự nhiên v�
 const clean = (s: string) => s.replace(/^["“”']+|["“”'.!?]+$/g, '').trim()
 const usableCover = (s: string) => !!s && s.length <= 36 && !/[:;,]/.test(s)
 
-/** Gives each video guide without one a Vietnamese cover label, from a look at its thumbnail. */
-export async function videoCovers(contentRoot: string, d: CoverDeps, opts: { limit?: number; redo?: boolean } = {}): Promise<{ done: string[]; failed: string[] }> {
+/**
+ * Gives each video guide without one a Vietnamese cover label, from a look at its thumbnail. Each guide is a piece
+ * (pieces.ts): one that what's left of the day's line can't cover isn't started, and a usage limit or that refusal stops
+ * the run (`stopped`), with nothing marked failed (Astra's read).
+ */
+export async function videoCovers(contentRoot: string, d: CoverDeps, opts: { limit?: number; redo?: boolean } = {}): Promise<{ done: string[]; failed: string[]; stopped?: string }> {
   const done: string[] = []
   const failed: string[] = []
+  let stopped: string | undefined
   const dir = await mkdtemp(join(tmpdir(), 'aq-cover-'))
   try {
     for (const id of (await readdir(join(contentRoot, 'guides')).catch(() => [] as string[])).filter(x => x.startsWith('youtube-')).sort()) {
@@ -33,21 +41,25 @@ export async function videoCovers(contentRoot: string, d: CoverDeps, opts: { lim
       const vi = JSON.parse(await readFile(viFile, 'utf8')) as Translation
       const e = JSON.parse(await readFile(join(contentRoot, 'guides', id, 'entity.json'), 'utf8')) as GuideEntity
       if ((vi.cover && !opts.redo) || !e.video) continue
+      const video = e.video
       try {
-        const file = join(dir, `${e.video.youtubeId}.jpg`)
-        await writeFile(file, await d.get(e.video.thumb?.url ?? `https://i.ytimg.com/vi/${e.video.youtubeId}/hqdefault.jpg`))
-        const r = await d.look(file, coverPrompt(e.video.title, vi.name, e.video.channel))
-        // The pick, or the first usable candidate when the pick breaks the length/punctuation rules.
-        const cover = [r.cover, ...(r.candidates ?? [])].map(clean).find(usableCover)
-        if (!cover) throw new Error(`unusable cover "${r.cover}"`)
-        await writeFile(viFile, `${JSON.stringify(TranslationSchema.parse({ ...vi, cover }), null, 2)}\n`)
-        done.push(`${id}: ${cover}`)
+        await piece(id, async () => {
+          const file = join(dir, `${video.youtubeId}.jpg`)
+          await writeFile(file, await d.get(video.thumb?.url ?? `https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg`))
+          const r = await d.look(file, coverPrompt(video.title, vi.name, video.channel))
+          // The pick, or the first usable candidate when the pick breaks the length/punctuation rules.
+          const cover = [r.cover, ...(r.candidates ?? [])].map(clean).find(usableCover)
+          if (!cover) throw new Error(`unusable cover "${r.cover}"`)
+          await writeFile(viFile, `${JSON.stringify(TranslationSchema.parse({ ...vi, cover }), null, 2)}\n`)
+          done.push(`${id}: ${cover}`)
+        })
       } catch (err) {
+        if (err instanceof LlmError && errorKind(err.message) === 'usage') { stopped = `${id}: ${err.message}`; break }
         failed.push(`${id}: ${(err as Error).message}`)
       }
     }
   } finally {
     await rm(dir, { recursive: true, force: true })
   }
-  return { done, failed }
+  return { done, failed, ...(stopped ? { stopped } : {}) }
 }

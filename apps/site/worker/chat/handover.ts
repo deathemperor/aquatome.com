@@ -12,15 +12,18 @@ import { chatTools, handedTanks, type Tank } from './tools'
 /** Said after the sections handed over: they came from a search, so some may not fit. */
 export const HANDED_NOTE = 'These sections came from a search of the handbook for the reader\'s words, before you read anything. Some may be about another fish, tank or problem than theirs: use only what fits their case, and read more where they leave a gap.'
 
-/** A question this long or longer is a whole post: the short ones readers type run to about 100 characters. */
+/** From this many characters, once trimmed, a question is a whole post. */
 export const WHOLE_POST = 150
+
 /**
- * Whether sections go with the question: with a saved tank, or for a whole post. A short question with neither stays on
- * the chat's own reading: handed sections made Claude stop reading, and those answers lost (two judged passes, 2026-11-09).
+ * Whether sections go with the question: only a short question from a reader with a saved tank. Anything else stays on
+ * the chat's own reading: handed sections made Claude stop reading and short questions with no tank lost (two judged
+ * passes, 2026-11-09), whole posts made more mistakes with them and scored no better (the 3× pass, 2026-11-10), and
+ * whole posts with a saved tank lost to the chat's own reading and leaned to more mistakes (the whole-post run, 2026-11-10).
  */
-export const handsOver = (question: string, tanks: readonly unknown[]) => tanks.length > 0 || question.trim().length >= WHOLE_POST
-/** The languages sections are handed over in. Thai lost its judged passes, for a reason not found: it keeps the chat's own reading (2026-11-09). */
-export const SEARCHED: readonly Lang[] = ['vi', 'id', 'ms']
+export const handsOver = (question: string, tanks: readonly unknown[]) => tanks.length > 0 && question.trim().length < WHOLE_POST
+/** The languages sections are handed over in. Thai joined once it was judged under `handsOver` (2026-11-10): it had lost on short questions alone. */
+export const SEARCHED: readonly Lang[] = ['vi', 'id', 'ms', 'th']
 
 /** A section found: a page, and the id of a heading on it, or null for its opening. */
 export type Found = { path: string; heading: string | null }

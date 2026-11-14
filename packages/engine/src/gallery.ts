@@ -1,17 +1,19 @@
+import { piece } from './pieces'
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { GallerySchema, hashDistance, isAllowedLicence, SAME_PICTURE, thumbOf, type Photo } from '@aq/schema'
+import { GallerySchema, hashDistance, isAllowedLicence, realPhotosFirst, SAME_PICTURE, thumbOf, type Photo } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { galleryPlan, TARGETS, TIER_ORDER, type PlanItem } from './gallery-plan'
 import { gbifMediaPage, gbifUsageKey } from './gbif'
 import { inatPage, inatTaxon, newInatCursor, type InatCursor } from './inat'
 import { openversePage } from './openverse'
-import { OFF, type PhotoVerdict } from './photo-check'
+import { cantTellLast, cantTellOn, OFF, type PhotoVerdict } from './photo-check'
 import { isRejected, unfitCommons } from './photos'
 import { contactSheet } from './video-images'
 import { authorText } from './wiki-author'
+import { WikimediaRefused } from './wikimedia-rest'
 
 /** A photo found for a species or plant, before screening: `key` identifies it across runs (Commons title, iNaturalist photo id…). */
 export type Candidate = Photo & { key: string }
@@ -48,8 +50,8 @@ export async function commonsCandidates(name: string, http: Http, max = 450, loo
   for (const x of s.query?.search ?? []) titles.add(x.title)
   const list = [...titles].filter(t => !unfitCommons({ title: t })).slice(0, max)
   const out: Candidate[] = []
-  for (let i = 0; i < list.length; i += 50) {
-    const r = (await api({ action: 'query', titles: list.slice(i, i + 50).join('|'), prop: 'imageinfo', iiprop: 'url|size|mime|extmetadata', iiurlwidth: '1280', iiextmetadatafilter: 'LicenseShortName|Artist|ImageDescription|Categories' })) as Info
+  for (const batch of titleBatches(list)) {
+    const r = (await api({ action: 'query', titles: batch.join('|'), prop: 'imageinfo', iiprop: 'url|size|mime|extmetadata', iiurlwidth: '1280', iiextmetadatafilter: 'LicenseShortName|Artist|ImageDescription|Categories' })) as Info
     for (const p of Object.values(r.query?.pages ?? {})) {
       const ii = p.imageinfo?.[0]
       const licence = ii?.extmetadata?.LicenseShortName?.value ?? ''
@@ -62,6 +64,23 @@ export async function commonsCandidates(name: string, http: Http, max = 450, loo
         author: authorText(ii.extmetadata?.Artist?.value) || 'Wikimedia Commons', sourceUrl: ii.descriptionurl,
       })
     }
+  }
+  return out
+}
+
+/**
+ * Titles for one file-details request: 50 at most (the API's limit), fewer when their names are long. Commons refuses an
+ * address past about 8,000 characters (HTTP 414), and museum shell series are named in whole sentences: until 2026-11-10
+ * the nerite and mystery snails' pages failed here every cycle, so Commons was never read for them.
+ */
+export function titleBatches(titles: string[], most = 50, room = 6000): string[][] {
+  const out: string[][] = []
+  let used = 0
+  for (const t of titles) {
+    const size = encodeURIComponent(t).length + 3 // and the "|" between two, as it is sent
+    if (!out.length || out.at(-1)!.length >= most || used + size > room) { out.push([]); used = 0 }
+    out.at(-1)!.push(t)
+    used += size
   }
   return out
 }
@@ -122,7 +141,12 @@ export async function screenTagged(cands: Candidate[], name: string, viName: str
           const file = join(dir, `${i + j}.jpg`)
           await writeFile(file, b)
           got.push({ c, file, b, hash })
-        } catch { /* unreachable or corrupt thumb: skip */ }
+        } catch (e) {
+          // Wikimedia resting is no verdict on the photo: the whole screening stops, and its candidates stay queued
+          // unjudged (a page's album, a breed's month) until the rest ends.
+          if (e instanceof WikimediaRefused) throw e
+          /* unreachable or corrupt thumb: skip */
+        }
       }))
     }
     got.sort((a, b) => cands.indexOf(a.c) - cands.indexOf(b.c))
@@ -160,7 +184,13 @@ export async function screen(cands: Candidate[], name: string, viName: string, d
   return [...kept.filter(k => k.best), ...kept.filter(k => !k.best)].map(k => k.photo)
 }
 
-export type GalleryPhoto = Photo & { best?: boolean; kind?: string }
+export type GalleryPhoto = Photo & { best?: boolean; kind?: string; unchecked?: boolean }
+/**
+ * A photo as a step adds it to a gallery: `unchecked`, so no page shows it until the photo check has judged it and left
+ * it on (the chief of staff, 2026-11-10: of 2,611 gallery photos that check had judged, it took off 272, most as another
+ * fish, and each had been on a page meanwhile). Every step that adds to a gallery adds through this.
+ */
+export const waiting = <P extends Photo>(p: P): P & { unchecked: true } => ({ ...p, unchecked: true })
 const KIND_ORDER: string[] = [...FISH_KINDS, ...PLANT_KINDS]
 
 /** Round robin across kinds (male, female, colour form… in that order), each kind's largest photos first. */
@@ -177,18 +207,21 @@ function mix(photos: GalleryPhoto[]): GalleryPhoto[] {
 /**
  * A gallery's order: the model's best picks first, mixed so the first screen shows the range (male, female, colour
  * forms, young, the wild fish; a plant under water, emersed, in flower), the largest of each first; then photos screened
- * before kinds were recorded, in their order; then the other kept photos, mixed the same way.
+ * before kinds were recorded, in their order; then the other kept photos, mixed the same way. Last, whatever their rank,
+ * the photos the photo check could not tell show the page's subject (`cantTell`: photo-check.ts cantTellOn), so a later run
+ * keeps the place the check gave them.
  */
-export function rankGallery(photos: GalleryPhoto[]): GalleryPhoto[] {
+export function rankGallery(photos: GalleryPhoto[], cantTell: (url: string) => boolean = () => false): GalleryPhoto[] {
   const tagged = (best: boolean) => photos.filter(p => p.kind !== undefined && !!p.best === best)
-  return [...mix(tagged(true)), ...photos.filter(p => p.kind === undefined), ...mix(tagged(false))]
+  return realPhotosFirst(cantTellLast([...mix(tagged(true)), ...photos.filter(p => p.kind === undefined), ...mix(tagged(false))], cantTell))
 }
 
 /**
  * Where each source stands for one species, plant or breed (engine-state/gallery/<id>.json), so each run continues
  * where the last stopped: iNaturalist's cursor, when Commons was read, GBIF's and Openverse's next page; candidates found
  * but not screened yet (`queue`); every candidate screened, kept or not (`judged`), never screened again; the image hash
- * of every photo shown, against near-copies; `exhausted`: the day every source ran dry below target (tried again later).
+ * of every photo shown, against near-copies; `exhausted`: the day every source ran dry below target (tried again later);
+ * `seeded`: the keys of queued candidates a person found by hand (gallery-seed.ts), until they are screened.
  */
 export type GalleryState = {
   inat?: InatCursor
@@ -199,7 +232,14 @@ export type GalleryState = {
   judged: string[]
   hashes: Record<string, string>
   exhausted?: string
+  seeded?: string[]
 }
+/**
+ * How far past its target a full album may grow, from candidates a person seeded only: a full album is never read for its
+ * sources' own finds. The chief of staff, 2026-11-12, for the weather loach, whose album was full and whose head can't
+ * reach the card's size: a card-size photo found by hand had no way in.
+ */
+export const SEED_OVER = 3
 /** Requests a run may make to each source (iNaturalist asks for about one a second and under 10,000 a day; Openverse lets anonymous clients make 200 a day). */
 export type SourceBudget = { inat: number; gbif: number; openverse: number }
 const RETRY_DAYS = 30
@@ -312,9 +352,15 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
     const gfile = join(content, 'gallery', `${t.id}.json`)
     const g = JSON.parse(await readFile(gfile, 'utf8').catch(() => 'null')) as { photos: GalleryPhoto[]; seen: number; updatedAt: string; builtAt?: string } | null
     let gallery = g?.photos ?? []
-    if (gallery.length >= t.target) continue
     const sfile = join(root, 'engine-state/gallery', `${t.id}.json`)
     const saved = JSON.parse(await readFile(sfile, 'utf8').catch(() => 'null')) as GalleryState | null
+    // A full album is read only for what a person seeded, and those alone (SEED_OVER).
+    const seeded = new Set((saved?.seeded ?? []).filter(k => saved!.queue.some(q => q.key === k)))
+    const full = gallery.length >= t.target
+    if (full && !seeded.size) continue
+    const limit = full ? t.target + SEED_OVER : t.target
+    // Full to its last seeded space: the seeds left wait in the queue for a photo the check takes off.
+    if (gallery.length >= limit) continue
     const st: GalleryState = saved ?? { queue: [], judged: [], hashes: {} }
     if (st.exhausted && !o.only && days(st.exhausted) < RETRY_DAYS) continue
     if (st.exhausted) {
@@ -335,6 +381,8 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
       // Hashes of photos still shown only (a photo moved to our bucket has a new address).
       const shown = new Set([...page?.photos ?? [], ...gallery].map(p => p.url))
       st.hashes = Object.fromEntries(Object.entries(st.hashes).filter(([u]) => shown.has(u)))
+      st.seeded = st.seeded?.filter(k => st.queue.some(q => q.key === k))
+      if (!st.seeded?.length) delete st.seeded
       await mkdir(join(root, 'engine-state/gallery'), { recursive: true })
       await writeFile(sfile, `${JSON.stringify(st, null, 1)}\n`)
     }
@@ -417,30 +465,33 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
       }
       const dry = () => (breed || (st.inat?.pass === 'done' && !!st.gbif && (!st.gbif.key || st.gbif.next === null))) && !!st.commons && (!d.openverse || st.openverse?.next === null)
 
-      while (gallery.length < t.target && left.sheets > 0) {
+      while (gallery.length < limit && left.sheets > 0) {
         const want = Math.max(SHEET, (t.target - gallery.length) * 2)
-        while (st.queue.length < want) {
+        while (!full && st.queue.length < want) {
           const got = await more()
           if (got === null) break
           st.queue.push(...got.filter(isNew))
         }
-        if (!st.queue.length) break
-        const chunk = st.queue.slice(0, SHEET)
+        const pool = full ? st.queue.filter(c => seeded.has(c.key)) : st.queue
+        if (!pool.length) break
+        // A full album screens no more seeds than it has spaces, so none is judged and then turned away for want of room.
+        const chunk = pool.slice(0, full ? Math.min(SHEET, limit - gallery.length) : SHEET)
         // A breed's Vietnamese name without the English one in brackets ("Cá bình tích balloon (Balloon molly)").
         const viName = (breed ? vi.name?.replace(/\s*\(.*\)\s*$/, '') : vi.name) || sci
-        const r = await screenTagged(chunk, sci, viName, d, { plant: t.kind === 'plants', strict: line, hashes: [...Object.values(st.hashes).filter(Boolean), ...other.hashes] })
-        st.queue = st.queue.slice(chunk.length)
+        const r = await piece(`${t.id}/${chunk[0]?.key}`, () => screenTagged(chunk, sci, viName, d, { plant: t.kind === 'plants', strict: line, hashes: [...Object.values(st.hashes).filter(Boolean), ...other.hashes] }))
+        st.queue = st.queue.filter(c => !chunk.includes(c))
         st.judged.push(...chunk.map(c => c.key))
         chunk.forEach(c => judged.add(c.key))
         left.sheets -= r.sheets
         report.sheets += r.sheets
         seenCount += chunk.length
-        for (const k of r.kept) {
+        const kept = r.kept
+        for (const k of kept) {
           st.hashes[k.photo.url] = k.hash
           report.added[sourceOfKey(k.key)] = (report.added[sourceOfKey(k.key)] ?? 0) + 1
         }
-        gallery = rankGallery([...gallery, ...r.kept.map(k => ({ ...k.photo, best: k.best, kind: k.kind ?? 'other' }))])
-        if (r.kept.length) {
+        gallery = rankGallery([...gallery, ...kept.map(k => waiting({ ...k.photo, best: k.best, kind: k.kind ?? 'other' }))], cantTellOn(subjects, t.id))
+        if (kept.length) {
           await mkdir(join(content, 'gallery'), { recursive: true })
           await writeFile(gfile, `${JSON.stringify(GallerySchema.parse({ id: t.id, photos: gallery, seen: seenCount, updatedAt: today, builtAt: today }), null, 2)}\n`)
         }

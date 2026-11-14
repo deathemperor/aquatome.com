@@ -1,8 +1,8 @@
 {
   "id": "ambastaia-nigrolineata",
   "native": {
-    "input": "f151a028480e8e1a",
-    "at": "2026-11-06T01:44:56.709Z",
+    "input": "07222f40380945bd",
+    "at": "2026-11-10T23:57:51.686Z",
     "claims": [
       {
         "code": "CN",
@@ -32,7 +32,7 @@
         "code": "LA",
         "status": "native",
         "source": "glaser",
-        "quote": "Ambastaia nigrolineata occurs in Laos, Thailand, and China.",
+        "quote": "This pretty loach is distributed in Laos, Thailand and parts of China.",
         "words": "Laos",
         "ok": true
       },
@@ -40,7 +40,7 @@
         "code": "TH",
         "status": "native",
         "source": "glaser",
-        "quote": "Ambastaia nigrolineata occurs in Laos, Thailand, and China.",
+        "quote": "This pretty loach is distributed in Laos, Thailand and parts of China.",
         "words": "Thailand",
         "ok": true
       },
@@ -48,7 +48,7 @@
         "code": "CN",
         "status": "native",
         "source": "glaser",
-        "quote": "Ambastaia nigrolineata occurs in Laos, Thailand, and China.",
+        "quote": "This pretty loach is distributed in Laos, Thailand and parts of China.",
         "words": "China",
         "ok": true
       }
@@ -57,8 +57,8 @@
       {
         "name": "Mekong",
         "source": "seriouslyfish",
-        "quote": "Described from the Lancang Jiang (Lancang River - the Chinese name for the Mekong River) close to the settlement of Menghanzhen, Xishuangbanna Prefecture, Yunnan province, southern China.",
-        "country": "CN",
+        "quote": "It's subsequently been recorded from parts of the Mekong drainage in northern Laos plus the Nan River, a tributary of the Chao Phraya in northern Thailand.",
+        "country": "LA",
         "ok": true
       },
       {

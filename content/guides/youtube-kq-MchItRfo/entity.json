@@ -102,7 +102,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể đã rút cạn nước, chỉ còn lớp cát cũ dưới đáy.",
-            "sharpness": 373.7
+            "sharpness": 373.7,
+            "person": false
           },
           {
             "t": 110,
@@ -110,7 +111,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lũa và đá đã lấy ra khỏi bể, để trên tấm khăn đỏ.",
-            "sharpness": 296.7
+            "sharpness": 296.7,
+            "person": false
           }
         ],
         "photo": {
@@ -133,7 +135,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cụm lũa và đá gom lại thành một đảo trong bể cube.",
-            "sharpness": 444
+            "sharpness": 444,
+            "person": false
           },
           {
             "t": 295,
@@ -141,7 +144,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Góc khác của cụm lũa đá gọn gàng trên nền đất.",
-            "sharpness": 633.3
+            "sharpness": 633.3,
+            "person": false
           }
         ]
       },
@@ -154,7 +158,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thảm cây tiền cảnh mọc thấp quanh các viên đá và lũa trong bể.",
-            "sharpness": 1518.3
+            "sharpness": 1518.3,
+            "person": false
           },
           {
             "t": 530,
@@ -162,7 +167,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh đá và lũa với cây trồng xen ở nền bể.",
-            "sharpness": 773
+            "sharpness": 773,
+            "person": false
           }
         ],
         "photo": {
@@ -185,7 +191,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ống lọc đặt cạnh lũa và đá trong bể sau khi châm nước.",
-            "sharpness": 780.6
+            "sharpness": 780.6,
+            "person": false
           },
           {
             "t": 550,
@@ -193,7 +200,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá đã được thả lại, bơi giữa đám cây thủy sinh trong bể.",
-            "sharpness": 216.6
+            "sharpness": 216.6,
+            "person": false
           }
         ]
       }

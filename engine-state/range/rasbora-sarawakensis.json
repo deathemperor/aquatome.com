@@ -1,0 +1,135 @@
+{
+  "id": "rasbora-sarawakensis",
+  "native": {
+    "input": "97ff9e19db33d8bf",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "R. sarawakensis originates from the part of Borneo that belongs to Malaysia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rasbora sarawakensis is a small rasbora endemic to Borneo, found in Sarawak and the neighbouring Indonesian province of West Kalimantan.",
+        "words": "Indonesian",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Although the name may suggest otherwise it is not only found in Sarawak state (Malaysia) but also ranges into neighbouring West Kalimantan/Kalimantan Barat province (Indonesia).",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Although the name may suggest otherwise it is not only found in Sarawak state (Malaysia) but also ranges into neighbouring West Kalimantan/Kalimantan Barat province (Indonesia).",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the island of Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Batang Kayan",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded from numerous river systems including the Batang Kayan and Sungai Sarawak in Sarawak and the Mempawah and Melawi in Kalimantan Barat.",
+        "ok": true
+      },
+      {
+        "name": "Sungai Sarawak",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded from numerous river systems including the Batang Kayan and Sungai Sarawak in Sarawak and the Mempawah and Melawi in Kalimantan Barat.",
+        "ok": true
+      },
+      {
+        "name": "Mempawah",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded from numerous river systems including the Batang Kayan and Sungai Sarawak in Sarawak and the Mempawah and Melawi in Kalimantan Barat.",
+        "ok": true
+      },
+      {
+        "name": "Melawi",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded from numerous river systems including the Batang Kayan and Sungai Sarawak in Sarawak and the Mempawah and Melawi in Kalimantan Barat.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "glaser",
+        "quote": "R. sarawakensis originates from the part of Borneo that belongs to Malaysia.",
+        "country": "MY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rasbora sarawakensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2359528,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        7
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        6
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T00:09:29.977Z"
+  }
+}

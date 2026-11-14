@@ -8,7 +8,7 @@
   "mentions": [
     "staurogyne-repens"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-10",
   "video": {
     "youtubeId": "FBPzPrh-i_A",
     "title": "INTERMEDIATE PLANT: Staurogyne Repens",
@@ -27,38 +27,67 @@
       "height": 720
     },
     "taxa": [
-      "Staurogyne repens"
+      "Staurogyne repens",
+      "Anubias sp."
     ],
     "gear": [
       {
-        "category": "den",
-        "type": "thuy-sinh",
-        "brand": "Finnex",
-        "t": 206
+        "category": "cay-thuy-sinh",
+        "type": "trong-nen",
+        "t": 60
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 150
       },
       {
         "category": "phan-nen",
         "type": "phan",
         "brand": "Fluval",
         "model": "Stratum",
-        "t": 153
+        "t": 182
       },
       {
         "category": "phan-nen",
         "type": "phan",
         "brand": "Eco-Complete",
-        "t": 153
+        "t": 182
       },
       {
-        "category": "phan-nen",
-        "type": "cat",
-        "t": 150
+        "category": "den",
+        "type": "thuy-sinh",
+        "brand": "Finnex",
+        "t": 213
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "brand": "Fluval",
+        "t": 213
       }
     ],
     "figures": [
       {
-        "heading": "Staurogyne repens là cây gì",
-        "moments": [],
+        "heading": "Staurogyne repens trông thế nào",
+        "moments": [
+          {
+            "t": 145,
+            "url": "https://media.aquatome.com/video/FBPzPrh-i_A/at145-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Những cây tiền cảnh non xanh mọc rải rác trên nền cát gần đá.",
+            "sharpness": 30
+          },
+          {
+            "t": 160,
+            "url": "https://media.aquatome.com/video/FBPzPrh-i_A/at160-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây Staurogyne repens nhỏ màu xanh mới trồng trên nền cát tiền cảnh.",
+            "sharpness": 38.6
+          }
+        ],
         "photo": {
           "url": "https://media.aquatome.com/video/FBPzPrh-i_A/p0-bl9hX3RhbmsuanBn.webp",
           "thumb": "https://media.aquatome.com/video/FBPzPrh-i_A/p0-bl9hX3RhbmsuanBn-480.webp",
@@ -67,55 +96,100 @@
           "licence": "CC BY-SA 3.0",
           "author": "호로조",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:S._repens_in_a_tank.jpg",
-          "caption": "Cây Staurogyne repens với lá xanh tươi mọc xòe, trồng gần lũa."
+          "caption": "Cận cảnh một cụm Staurogyne repens xanh mọc cạnh lũa trong bể."
         }
       },
       {
-        "heading": "Vì sao cây xếp ở mức trung bình",
+        "heading": "Nền cần gì",
         "moments": [
           {
-            "t": 10,
-            "url": "https://media.aquatome.com/video/FBPzPrh-i_A/t10.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể nền cát trơn với đá bố cục, chưa trồng cây."
+            "t": 180,
+            "url": "https://media.aquatome.com/video/FBPzPrh-i_A/at180-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nền cát sáng với đá xếp và vài cây con mới trồng.",
+            "sharpness": 88.5
+          },
+          {
+            "t": 190,
+            "url": "https://media.aquatome.com/video/FBPzPrh-i_A/at190-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lớp nền cát trơn trong hồ, cây con còn thưa thớt.",
+            "sharpness": 155.6
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/FBPzPrh-i_A/p1-FzY2FwaW5nLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/FBPzPrh-i_A/p1-FzY2FwaW5nLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/FBPzPrh-i_A/p2-FzY2FwaW5nLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/FBPzPrh-i_A/p2-FzY2FwaW5nLmpwZw-480.webp",
           "width": 960,
           "height": 338,
           "licence": "CC BY 3.0",
           "author": "Ghostsword",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
-          "caption": "Bể thủy sinh nền dinh dưỡng, đèn mạnh, cây mọc dày và lên thảm xanh."
+          "caption": "Bể thủy sinh cây mọc dày xanh tốt trên lớp nền dinh dưỡng."
         }
       },
       {
-        "heading": "Chọn nền cho cây",
+        "heading": "Đèn và độ sâu bể",
         "moments": [
           {
-            "t": 15,
-            "url": "https://media.aquatome.com/video/FBPzPrh-i_A/t15.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể chỉ có lớp cát mỏng và đá, chưa lót phân nền."
+            "t": 210,
+            "url": "https://media.aquatome.com/video/FBPzPrh-i_A/at210-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh cây con nhỏ mọc trên nền cát giữa các tảng đá.",
+            "sharpness": 152.9
+          },
+          {
+            "t": 225,
+            "url": "https://media.aquatome.com/video/FBPzPrh-i_A/at225-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh có cầu đá và cây con mới trồng trên nền cát.",
+            "sharpness": 86
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/FBPzPrh-i_A/p3-cXVhc2NhcGUuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/FBPzPrh-i_A/p3-cXVhc2NhcGUuanBn-480.webp",
+          "width": 960,
+          "height": 549,
+          "licence": "CC0",
+          "author": "Dileepkumardr",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nature_Aquarium_Aquascape.jpg",
+          "caption": "Bể thủy sinh nông, cây mọc xanh tốt dưới ánh đèn mạnh."
+        }
       },
       {
-        "heading": "Đèn và độ sâu bể",
-        "moments": [],
+        "heading": "Cắm cây thế nào",
+        "moments": [
+          {
+            "t": 360,
+            "url": "https://media.aquatome.com/video/FBPzPrh-i_A/at360-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây non mới trồng trên nền cát phía trước bể, cạnh đá.",
+            "sharpness": 68
+          },
+          {
+            "t": 370,
+            "url": "https://media.aquatome.com/video/FBPzPrh-i_A/at370-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Những cây con nhỏ cắm rải trên nền cát ở dải tiền cảnh.",
+            "sharpness": 35.9
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/FBPzPrh-i_A/p3-1bV9MaWdodC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/FBPzPrh-i_A/p3-1bV9MaWdodC5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/FBPzPrh-i_A/p4-LWxlbm5hcnQuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/FBPzPrh-i_A/p4-LWxlbm5hcnQuanBn-480.webp",
           "width": 960,
-          "height": 666,
-          "licence": "CC BY-SA 3.0",
-          "author": "Lime Huang",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
-          "caption": "Bể thủy sinh có đèn LED gắn phía trên, cây xanh phủ kín nền."
+          "height": 337,
+          "licence": "CC BY-SA 4.0",
+          "author": "Lennart Jöhnk",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquascaping-minilandschaft-lennart.jpg",
+          "caption": "Thảm cây tiền cảnh xanh mướt lan kín nền, xen đá trong bể thủy sinh."
         }
       }
     ]

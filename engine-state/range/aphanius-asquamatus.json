@@ -1,14 +1,14 @@
 {
   "id": "aphanius-asquamatus",
   "native": {
-    "input": "45248cc0f9b7441d",
-    "at": "2026-11-06T06:16:32.822Z",
+    "input": "0d892b5e5e42a3a9",
+    "at": "2026-11-09T23:57:44.132Z",
     "claims": [
       {
         "code": "TR",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Contrary to some of the available information this species is not found in Iran and is endemic to Lake Hazar in the eastern Taurus mountains, southeastern Anatolia, Turkey.",
+        "quote": "The Hazar toothcarp, Kosswigichthys asquamatus, is a relict species endemic to Lake Hazar in southeastern Anatolia, Turkey.",
         "words": "Turkey",
         "ok": true
       },
@@ -19,20 +19,35 @@
         "quote": "Contrary to some of the available information this species is not found in Iran and is endemic to Lake Hazar in the eastern Taurus mountains, southeastern Anatolia, Turkey.",
         "words": "Iran",
         "ok": true
+      },
+      {
+        "code": "TR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Contrary to some of the available information this species is not found in Iran and is endemic to Lake Hazar in the eastern Taurus mountains, southeastern Anatolia, Turkey.",
+        "words": "Turkey",
+        "ok": true
       }
     ],
     "regions": [
       {
         "name": "Lake Hazar",
         "source": "seriouslyfish",
+        "quote": "The Hazar toothcarp, Kosswigichthys asquamatus, is a relict species endemic to Lake Hazar in southeastern Anatolia, Turkey.",
+        "country": "TR",
+        "ok": true
+      },
+      {
+        "name": "Taurus mountains",
+        "source": "seriouslyfish",
         "quote": "Contrary to some of the available information this species is not found in Iran and is endemic to Lake Hazar in the eastern Taurus mountains, southeastern Anatolia, Turkey.",
         "country": "TR",
         "ok": true
       },
       {
-        "name": "Taurus",
+        "name": "Anatolia",
         "source": "seriouslyfish",
-        "quote": "Contrary to some of the available information this species is not found in Iran and is endemic to Lake Hazar in the eastern Taurus mountains, southeastern Anatolia, Turkey.",
+        "quote": "The Hazar toothcarp, Kosswigichthys asquamatus, is a relict species endemic to Lake Hazar in southeastern Anatolia, Turkey.",
         "country": "TR",
         "ok": true
       }

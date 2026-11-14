@@ -1,8 +1,8 @@
 {
   "id": "helostoma-temminckii",
   "native": {
-    "input": "c6ccb800f7b308a6",
-    "at": "2026-11-05T19:44:13.099Z",
+    "input": "274bfaa3be625a90",
+    "at": "2026-11-09T23:57:44.132Z",
     "claims": [
       {
         "code": "ID",
@@ -34,6 +34,14 @@
         "source": "seriouslyfish",
         "quote": "Described from the island of Java, Indonesia but currently accepted to occur throughout much of southern Indochina and the Malay Archipelago including Vietnam (Dong Nai river basin), Cambodia (Mekong), Thailand (Mekong, Chao Phraya, Tapi and Peninsular drainages), Peninsular Malaysia, the Greater Sunda Islands of Borneo (where it's restricted to western and southern zones of Sarawak and Kalimantan), Sumatra and Java.",
         "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the island of Java, Indonesia but currently accepted to occur throughout much of southern Indochina and the Malay Archipelago including Vietnam (Dong Nai river basin), Cambodia (Mekong), Thailand (Mekong, Chao Phraya, Tapi and Peninsular drainages), Peninsular Malaysia, the Greater Sunda Islands of Borneo (where it's restricted to western and southern zones of Sarawak and Kalimantan), Sumatra and Java.",
+        "words": "Malaysia",
         "ok": true
       },
       {
@@ -90,9 +98,7 @@
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [
-        "MY"
-      ],
+      "pagesOnly": [],
       "sourcesOnly": []
     }
   },
@@ -150,9 +156,10 @@
       "ID",
       "VN",
       "KH",
-      "TH"
+      "TH",
+      "MY"
     ],
     "requests": 13,
-    "at": "2026-11-05T19:44:13.099Z"
+    "at": "2026-11-09T23:57:44.132Z"
   }
 }

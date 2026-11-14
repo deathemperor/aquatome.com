@@ -39,7 +39,22 @@
   "File:Dipnotetrapodomorpha.jpg",
   "File:Rhipidistia.png",
   "File:Sarcopterygii montage V 2.0.jpg",
-  "File:Osteichthyes montage V 2.0.jpg"
+  "File:Osteichthyes montage V 2.0.jpg",
+  "inat:164484616",
+  "inat:164484870",
+  "inat:164484930",
+  "inat:92364092",
+  "inat:92364112",
+  "inat:386038924",
+  "inat:454534658",
+  "inat:454534633",
+  "inat:454534663",
+  "inat:482966365",
+  "inat:485309889",
+  "inat:485309936",
+  "inat:485310113",
+  "inat:576174609",
+  "inat:625551580"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/eb075aba0971c023.webp": "07070f0e8b8d246c",
@@ -62,7 +77,23 @@
   "https://media.aquatome.com/commons/e2abc3bc9cc3e603.webp": "602111bc7312908e",
   "https://media.aquatome.com/commons/5ad116938ec99a21.webp": "721d78cc9a183c3e",
   "https://media.aquatome.com/commons/a4f14f96ab066cee.webp": "397135164672d870",
-  "https://media.aquatome.com/commons/96be630d2d08f94f.webp": "7f0f071b373f3e1f"
+  "https://media.aquatome.com/commons/96be630d2d08f94f.webp": "7f0f071b373f3e1f",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/92364092/large.jpeg": "6963437168d89c59",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/92364112/large.jpeg": "181c1683215b5059",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/386038924/large.jpeg": "0f0d2334a490019b",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/454534633/large.jpeg": "f4f2f17be609e80c",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/454534663/large.jpeg": "96b0e0cb8e1c543c",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/482966365/large.jpeg": "7a130341b15c5690",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/576174609/large.jpg": "b10304010c5c2081",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/625551580/large.jpg": "ff1f183bffffe1c1"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 460249,
+  "pass": "done",
+  "after": {
+   "research": 98750788,
+   "agree": 343420457
+  }
+ }
 }

@@ -10,6 +10,59 @@
     "papua-new-guinea",
     "lake-tebera"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PG"
+      ],
+      "regions": [
+        "Lake Tebera",
+        "New Guinea"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Papua New Guinea. Endemic to the Lake Tebera basin, located in the Central Highlands of the island.",
+          "countries": [
+            "PG"
+          ],
+          "regions": [
+            "Lake Tebera"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Lake Tebera rainbowfish, Melanotaenia herbertaxelrodi, is a rainbowfish endemic to the Lake Tebera basin in the Central Highlands of New Guinea.",
+          "countries": [],
+          "regions": [
+            "New Guinea"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2411662,
+      "total": 1,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "PG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          143.4375,
+          -7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

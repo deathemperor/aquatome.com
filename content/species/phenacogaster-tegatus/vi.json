@@ -15,13 +15,17 @@
     "diet:seriouslyfish": "<p>Ngoài tự nhiên, có lẽ loài này săn mồi tí hon, ăn các con vật rất nhỏ và động vật phù du.</p><p>Trong bể, cá chịu ăn thức ăn khô cỡ vừa miệng. Nhưng mỗi ngày vẫn nên cho ăn thêm đồ tươi sống hoặc đông lạnh cỡ nhỏ, như artemia mới nở, Moina, giun grindal…</p>",
     "behaviour:seriouslyfish": "<p>Cá hiền nhưng không hợp lắm với bể nuôi chung thông thường.</p><p>Có lẽ hợp nhất là nuôi chung với các loài characid cỡ tương tự, cá rìu (gasteropelecid), cá họ Lebiasinidae, cá chuột hoặc cá lau kiếng cỡ nhỏ, và các loài cichlid tí hon không ăn thịt.</p><p>Nên mua một đàn có cả đực lẫn cái, ít nhất 8–10 con, và thả thêm vài loài cá bơi đàn khác cho chúng yên tâm. Làm vậy thì cảnh trong bể sẽ trông tự nhiên hơn.</p>",
     "notes:seriouslyfish": "<p>Loài này từng được bán với tên 'tetra sáu mắt'. Tên đó lấy từ kiểu màu của nó: hai đốm đen trên mỗi bên thân cộng với con mắt.</p><p>Lucena và Malabarba (2010) đã rà soát kỹ cả giống này và mô tả chín loài mới. Theo công trình đó, P. tegatus phân biệt được với các loài cùng giống nhờ hai đặc điểm đi cùng nhau. Thứ nhất, đường bên không liền, chỉ có 8–13 vảy có lỗ. Thứ hai, cả cá đực lẫn cá cái đều có đốm vai kéo dài theo chiều ngang. Đốm này nằm trên đường thẳng đứng ngay trước gốc vây lưng, nên ở xa pseudotympanum.</p>",
-    "references:seriouslyfish": "<ul><li>Lucena, Z. M. S. de and L. R. Malabarba (2010). Descrição de nove espécies de Phenacogaster (Ostraiophysi: Characiiformes: Characidae) e comentários sobre as demais espécies do gênero. Zoologica 27(2), 263-604</li><li>Eigenmann, C. H. (1911). New characins in the collection of the Carnegie Museum. Annals of the Carnegie Museum v. 8 (no. 1), 164-181</li><li>Lucena, Z. M. S. de and C. de S. Gama (2007). Phenacogaster apletostigma, nova espécie de Peixe do Estado do Amapá, Brasil (Characiformes, Characidae). Revista Brasileira de Zoologia 24(1), 151-156</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li></ul>"
+    "references:seriouslyfish": "<ul><li>Lucena, Z. M. S. de and L. R. Malabarba (2010). Descrição de nove espécies de Phenacogaster (Ostraiophysi: Characiiformes: Characidae) e comentários sobre as demais espécies do gênero. Zoologica 27(2), 263-604</li><li>Eigenmann, C. H. (1911). New characins in the collection of the Carnegie Museum. Annals of the Carnegie Museum v. 8 (no. 1), 164-181</li><li>Lucena, Z. M. S. de and C. de S. Gama (2007). Phenacogaster apletostigma, nova espécie de Peixe do Estado do Amapá, Brasil (Characiformes, Characidae). Revista Brasileira de Zoologia 24(1), 151-156</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li></ul>",
+    "quickFacts:glaser": "<p>Cá tetra sáu mắt (Phenacogaster tegatus, trước đây xếp vào giống Vesicatrus) là loài cá đàn hiền, khá hiếm, dài khoảng 6 cm. Nó có nguồn gốc từ Paraguay.</p>",
+    "distribution:glaser": "<p>Paraguay.</p>",
+    "behaviour:glaser": "<p>Đây là loài cá đàn hiền. P. tegatus có đốm hình mắt ở giữa thân và ở cuống đuôi, nhìn cứ như mỗi bên thân có ba con mắt. Cá săn mồi lúc nào cũng nhắm vào mắt con mồi. Kiểu \"sáu mắt\" độc nhất này làm chúng rối, không biết đâu là mắt thật, và đó là cách tự vệ an toàn nhất có thể nghĩ ra.</p>"
   },
   "quality": {
-    "score": 0.9,
+    "score": 0.8,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.9
+      "seriouslyfish": 0.9,
+      "glaser": 0.8
     }
   }
 }

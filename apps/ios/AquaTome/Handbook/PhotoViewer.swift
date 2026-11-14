@@ -97,6 +97,7 @@ struct GalleryViewer: View {
       handbook.safety.hidePending()
       pictures.stop()
     }
+    .ownerScreen("photo viewer")
   }
 
   private var pager: some View {

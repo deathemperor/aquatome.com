@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs'
 import type { WrittenLang } from '@aq/schema'
-import { SWAPPED, type SwappedName } from './names'
+import { FISH_NAMES, oldNames, SWAPPED, type FishName, type SwappedName } from './names'
 
 /**
  * Per language the engine writes: words and turns it writes far more often than that language's hobbyists do, each with
@@ -28,6 +28,12 @@ export const PHRASES: Partial<Record<WrittenLang, Phrase[]>> = {
   // site, except where its line says; per million words: site | forum | videos.
   vi: [
     { say: 'nhiều khả năng', instead: '"chắc là", "có lẽ" (giữ đúng mức chắc chắn của nguồn)' }, // 473 | 5 | 0
+    // The owner, 2026-11-11: "Cá thài lài doesn't exist in Vietnamese". 0 in the forum and the videos; the plant's name.
+    { say: 'thài lài', find: '(?<!(?:cỏ|rau|cây|hoa|họ)\\s)thài lài(?! tía)', instead: 'tên cá: "cá sặc" cho cá gourami, "cá sặc mật ong", "cá bã trầu" (cây "cỏ thài lài" giữ nguyên)' },
+    // The reader check's wording findings on top-card pages (2026-11-08); the sweep writes each the keepers' way (sanitize.ts).
+    { say: 'trùn chỉ đỏ', find: 'trùng? chỉ đỏ', instead: '"trùng huyết" (bloodworm, ấu trùng muỗi lắc); "trùn chỉ" là giun Tubifex, con khác' }, // 13 | 0 | 0; "trùng chỉ đỏ" 6 | 0 | 0
+    { say: 'nửa tá', instead: '"6 con"' }, // 8 | 0 | 0; "nửa tá loài" (six kinds) stays
+    { say: 'thủng lỗ đầu', find: '(?:thủng|lủng) lỗ đầu', instead: '"lủng đầu" (bệnh lủng đầu; 11 lần mỗi triệu chữ trên diễn đàn)' }, // 0.4 | 0 | 0; "lủng lỗ đầu" 0.9 | 0 | 0
     { say: 'dù vậy', find: '(?:dù|tuy) vậy', instead: '"nhưng", "tuy nhiên"' }, // dù vậy 568 | 5 | 0, tuy vậy 560 | 3 | 26
     { say: 'phần lớn', instead: '"thường", "chủ yếu", hoặc bỏ' }, // 1100 | 25 | 15
     { say: 'nhìn chung', instead: '"thường", hoặc bỏ' }, // 167 | 14 | 15
@@ -173,9 +179,13 @@ const viPrompt = (list: Phrase[]) => !list.length ? '' : [
 
 /** The owner's fish names (names.ts), as the writers read them: the fish, its name, the name it no longer has. */
 const q = (s: string) => `"${s}"`
-export const namesPrompt = (list: readonly SwappedName[] = SWAPPED) => [
-  'Tên cá chủ trang đã chốt. Gọi đúng tên này, kể cả khi nguồn hay bản dịch cũ gọi khác:',
-  ...list.map(r => `- ${r.fish.join(', ')}: ${r.now.split(', ').map(q).join(' hoặc ')}, không gọi là ${q(r.was)}${r.stillFor ? ` (${q(r.was)} là ${r.stillFor.join(', ')})` : ''}.`),
+export const namesPrompt = (list: readonly SwappedName[] = SWAPPED, fishNames: readonly FishName[] = FISH_NAMES) => [
+  'Tên cá và cây chủ trang đã chốt. Gọi đúng tên này, kể cả khi nguồn hay bản dịch cũ gọi khác:',
+  // The fish as a reader writes them: a pattern for their abbreviated names ("P. luminatus") is the rule's, not the writer's.
+  ...list.map(r => `- ${r.fish.filter(f => !/[\\[(?|]/.test(f)).join(', ')}: ${r.now.split(', ').map(q).join(' hoặc ')}, không gọi là ${q(r.was)}${r.stillFor ? ` (${q(r.was)} là ${r.stillFor.join(', ')})` : ''}.`),
+  // The chief of staff's names for single fish and plants (FISH_NAMES): the page's name, never its old ones.
+  // A name that means another animal ("rận nước") is said to be that one's, so the writer still uses it for it.
+  ...fishNames.map(r => `- ${r.sci}: ${q(r.name)}${oldNames(r).length ? `, không gọi là ${oldNames(r).map(q).join(' hay ')}` : ''}${r.elsewhere?.length ? `, không gọi là ${r.elsewhere.map(q).join(' hay ')} (tên của loài khác)` : ''}.`),
 ].join('\n')
 
 /** The style guide every Vietnamese writer reads (prompts/vi-style.md), with the Vietnamese list and the owner's fish names. */

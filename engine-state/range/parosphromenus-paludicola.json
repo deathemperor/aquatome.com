@@ -1,0 +1,49 @@
+{
+  "id": "parosphromenus-paludicola",
+  "native": {
+    "input": "e7272e1851a799e9",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Currently there are wild catches from the surroundings of Narathiwat in Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Malay peninsula",
+        "source": "glaser",
+        "quote": "P. paludicola comes from the Malay peninsula and was described in 1952 as the second species of the genus.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parosphromenus paludicola",
+    "status": "ACCEPTED",
+    "taxonKey": 2394185,
+    "datasets": [
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ]
+    ],
+    "native": [
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-12T13:29:05.219Z"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "id": "nomorhamphus-celebensis",
+  "native": {
+    "input": "187f900199bb9cfe",
+    "at": "2026-11-10T20:57:55.515Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Sulawesi (formerly known as Celebes), Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sulawesi",
+        "source": "glaser",
+        "quote": "Sulawesi (formerly known as Celebes), Indonesia.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Nomorhamphus celebensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2369042,
+    "datasets": [],
+    "native": [
+      "ID"
+    ],
+    "requests": 2,
+    "at": "2026-11-10T20:57:55.515Z"
+  }
+}

@@ -1,11 +1,16 @@
 {
   "id": "trichogenes-longipinnis",
-  "summary": "Cá trichogenes vây dài (Trichogenes longipinnis) dài 14 cm khi trưởng thành, sống ở suối ven biển đông nam Brazil và cần nước mát 20–24 °C. Hồ sơ chưa nêu pH, độ cứng hay bể tối thiểu, nên người mới khó có đủ thông tin để nuôi. Chưa có ghi nhận sinh sản, nên đừng tính chuyện nhân giống.",
+  "summary": "Cá trichogenes vây dài (Trichogenes longipinnis) dài tới 14 cm, hợp với người thích cá đáy sống ở suối rừng. Cần nước 20–28 °C, pH 6–7, nền đá và cát như suối nó sống. Điểm khó nhất là hồ sơ chưa có ghi nhận sinh sản nào, và loài này phân bố rất hẹp, môi trường sống đang bị đe dọa.",
   "mistakes": [
-    "Để nước ngoài khoảng 20–24 °C: loài này sống ở suối ven biển, nên giữ nhiệt trong khoảng này.",
-    "Đặt kỳ vọng sẽ cho sinh sản trong bể: hồ sơ chưa có báo cáo nào, nên nuôi để ngắm và đừng tính chuyện nhân giống."
+    "Dùng nền trơn thì nên chuyển sang nền cát và đá, vì cá rà đáy bằng râu và có thể rúc vào cát hoặc đám xác thực vật vụn.",
+    "Nuôi chung nhiều con lớn trong bể chật thì nên cho đủ chỗ, vì những con lớn nhất hay sống một mình và đuổi cá khác khỏi chỗ của nó."
   ],
-  "speciesUpdatedAt": "2026-11-02",
-  "generatedAt": "2026-11-04T09:09:52.173Z",
-  "review": "approved"
+  "speciesUpdatedAt": "2026-11-10",
+  "generatedAt": "2026-11-10T22:53:00.043Z",
+  "review": "pending",
+  "problems": [
+    "Mistake 2, \"Nuôi chung nhiều con lớn trong bể chật thì nên cho đủ chỗ\": the page gives no tank-keeping advice. It only says that in the wild the largest fish live alone and chase others off (\"đuổi cá khác khỏi chỗ của nó\"). That giving more space fixes this is an invented fix.",
+    "Mistake 1, \"Dùng nền trơn thì nên chuyển sang nền cát và đá\": the page only describes the wild habitat (streams over rock and sand, fish foraging in sand). It never advises a substrate for the aquarium or calls a smooth substrate a mistake.",
+    "\"Cần nước ... nền đá và cát như suối nó sống\": this turns a description of the wild habitat into a requirement for the tank, which the page does not state."
+  ]
 }

@@ -76,7 +76,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Chân tủ gỗ đã đóng xong, chừa sẵn chỗ đặt bể lớn.",
-            "sharpness": 1243.2
+            "sharpness": 1243.2,
+            "person": false
           }
         ]
       },
@@ -89,7 +90,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tấm background giả đá cũ nằm ngoài trời, bám bẩn và nhăn nheo.",
-            "sharpness": 633
+            "sharpness": 633,
+            "person": false
           },
           {
             "t": 155,
@@ -97,28 +99,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dùng máy rửa áp lực xịt sạch bụi bẩn bám trên tấm background giả đá.",
-            "sharpness": 2308.3
-          }
-        ]
-      },
-      {
-        "heading": "Lắp overflow và dán background theo thứ tự nào",
-        "moments": [
-          {
-            "t": 195,
-            "url": "https://media.aquatome.com/video/hPicG4pgGmI/at195-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Siết đầu xuyên vách (bulkhead) từ bên trong hộp overflow.",
-            "sharpness": 201.1
-          },
-          {
-            "t": 215,
-            "url": "https://media.aquatome.com/video/hPicG4pgGmI/at215-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bôi silicone lên mặt sau tấm background trước khi dán vào kính.",
-            "sharpness": 900.4
+            "sharpness": 2308.3,
+            "person": false
           }
         ]
       },
@@ -131,7 +113,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cành lũa uốn dọc background, được cố định sát vách.",
-            "sharpness": 850.2
+            "sharpness": 850.2,
+            "person": false
           },
           {
             "t": 315,
@@ -139,7 +122,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bộ khung lũa sồi xếp rối, phủ kín background như rừng rậm.",
-            "sharpness": 1423.5
+            "sharpness": 1423.5,
+            "person": false
           }
         ],
         "photo": {
@@ -162,7 +146,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khung lũa ban đầu trong bể còn trống, chưa thêm chi tiết.",
-            "sharpness": 1431.8
+            "sharpness": 1431.8,
+            "person": false
           },
           {
             "t": 375,
@@ -170,7 +155,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Spiderwood nhánh mảnh gắn theo đường nét khung lũa, tạo chiều sâu.",
-            "sharpness": 1906.7
+            "sharpness": 1906.7,
+            "person": false
           }
         ]
       },
@@ -178,34 +164,19 @@
         "heading": "Làm nền bằng túi đất giấu dưới cát",
         "moments": [
           {
-            "t": 405,
-            "url": "https://media.aquatome.com/video/hPicG4pgGmI/at405-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Gói hỗn hợp đất vào túi lưới rồi buộc miệng bằng dây rút.",
-            "sharpness": 667.8
-          },
-          {
             "t": 415,
             "url": "https://media.aquatome.com/video/hPicG4pgGmI/at415-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Đổ lớp cát phủ lên trên nền trong bể.",
-            "sharpness": 801.8
+            "sharpness": 801.8,
+            "person": false
           }
         ]
       },
       {
         "heading": "Hoàn thiện hệ thống lọc sump",
         "moments": [
-          {
-            "t": 440,
-            "url": "https://media.aquatome.com/video/hPicG4pgGmI/at440-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ống mềm được nối vào bể sump đặt trong chân tủ.",
-            "sharpness": 166.7
-          },
           {
             "t": 455,
             "url": "https://media.aquatome.com/video/hPicG4pgGmI/at455-hd.webp",
@@ -228,24 +199,7 @@
       },
       {
         "heading": "Trồng cây theo thứ tự nào",
-        "moments": [
-          {
-            "t": 500,
-            "url": "https://media.aquatome.com/video/hPicG4pgGmI/at500-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhét thân rễ cây bám vào khe lũa trong bể chưa có nước.",
-            "sharpness": 684.7
-          },
-          {
-            "t": 530,
-            "url": "https://media.aquatome.com/video/hPicG4pgGmI/at530-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Trồng cây Amazon phía sau bố cục, gần phần lũa đá.",
-            "sharpness": 1090.8
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/hPicG4pgGmI/p7-bG93ZXJfMS53ZWJw.webp",
           "thumb": "https://media.aquatome.com/video/hPicG4pgGmI/p7-bG93ZXJfMS53ZWJw-480.webp",

@@ -1,0 +1,173 @@
+{
+  "id": "phalacronotus-apogon",
+  "native": {
+    "input": "5a5de2a99ee6a074",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Bandjarmasin, Borneo, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Phalacronotus apogon is a large silurid catfish from much of Southeast Asia, including Thailand, the Mekong basin and the Greater Sunda Islands.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Widely distributed throughout Southeast Asia: Mekong, Thailand waters, Chao Praya, Peninsular Malaysia, Sumatra and Borneo.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is currently understood to occur throughout much of Southeast Asia including major river systems in Thailand, Laos, Cambodia, Vietnam and Peninsular Malaysia plus the Greater Sunda Islands of Sumatra, Borneo and Java.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is currently understood to occur throughout much of Southeast Asia including major river systems in Thailand, Laos, Cambodia, Vietnam and Peninsular Malaysia plus the Greater Sunda Islands of Sumatra, Borneo and Java.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is currently understood to occur throughout much of Southeast Asia including major river systems in Thailand, Laos, Cambodia, Vietnam and Peninsular Malaysia plus the Greater Sunda Islands of Sumatra, Borneo and Java.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is currently understood to occur throughout much of Southeast Asia including major river systems in Thailand, Laos, Cambodia, Vietnam and Peninsular Malaysia plus the Greater Sunda Islands of Sumatra, Borneo and Java.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Bandjarmasin, southern Kalimantan, Borneo, Indonesia' which corresponds to a town located on the Barito River and now more commonly referred to as 'Banjarmasin' in South Kalimantan (Kalimantan Selatan) province, Indonesia (Borneo).",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "planetcatfish",
+        "quote": "Widely distributed throughout Southeast Asia: Mekong, Thailand waters, Chao Praya, Peninsular Malaysia, Sumatra and Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Chao Praya",
+        "source": "planetcatfish",
+        "quote": "Widely distributed throughout Southeast Asia: Mekong, Thailand waters, Chao Praya, Peninsular Malaysia, Sumatra and Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "planetcatfish",
+        "quote": "Widely distributed throughout Southeast Asia: Mekong, Thailand waters, Chao Praya, Peninsular Malaysia, Sumatra and Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "planetcatfish",
+        "quote": "Widely distributed throughout Southeast Asia: Mekong, Thailand waters, Chao Praya, Peninsular Malaysia, Sumatra and Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Java",
+        "source": "seriouslyfish",
+        "quote": "This species is currently understood to occur throughout much of Southeast Asia including major river systems in Thailand, Laos, Cambodia, Vietnam and Peninsular Malaysia plus the Greater Sunda Islands of Sumatra, Borneo and Java.",
+        "ok": true
+      },
+      {
+        "name": "Barito",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Bandjarmasin, southern Kalimantan, Borneo, Indonesia' which corresponds to a town located on the Barito River and now more commonly referred to as 'Banjarmasin' in South Kalimantan (Kalimantan Selatan) province, Indonesia (Borneo).",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MY",
+        "BN"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Phalacronotus apogon",
+    "status": "ACCEPTED",
+    "taxonKey": 2337856,
+    "datasets": [
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        24
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        24
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        10
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        4
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "ID",
+      "TH",
+      "LA",
+      "KH",
+      "VN"
+    ],
+    "requests": 12,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

@@ -13,6 +13,78 @@
     "indonesia",
     "riau"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "TH"
+      ],
+      "regions": [
+        "Rajang",
+        "Sumatra",
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from the states of Terengganu, Penang and Johor in Peninsular Malaysia, southern (peninsular) Thailand, Riau Province in Sumatra and the Rajang river drainage in Sarawak state, Malaysia (Borneo).",
+          "countries": [
+            "MY",
+            "TH"
+          ],
+          "regions": [
+            "Rajang",
+            "Sumatra",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368008,
+      "total": 8,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "MY",
+          7
+        ],
+        [
+          "KH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          5.625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          112.5,
+          1.40625,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

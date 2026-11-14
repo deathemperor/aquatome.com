@@ -1,0 +1,56 @@
+{
+  "id": "moema-hellneri",
+  "native": {
+    "input": "c993304533721206",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "M. hellneri originates from the Rio Napo drainage in Peru, whereas M. ortegai originates from the drainage of the Madre de Dios.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Napo",
+        "source": "glaser",
+        "quote": "M. hellneri originates from the Rio Napo drainage in Peru, whereas M. ortegai originates from the drainage of the Madre de Dios.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Moema hellneri",
+    "status": "ACCEPTED",
+    "taxonKey": 5203604,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

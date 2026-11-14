@@ -91,7 +91,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khúc lũa đặt cùng vài viên đá da voi vàng nâu ở chân.",
-            "sharpness": 2237.4
+            "sharpness": 2237.4,
+            "person": false
           }
         ],
         "photo": {
@@ -114,15 +115,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đá xếp sát chân khúc lũa lớn trên nền cát.",
-            "sharpness": 442
-          },
-          {
-            "t": 140,
-            "url": "https://media.aquatome.com/video/Xb3Trilltik/at140-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ken nhánh spider wood vào các khe giữa lũa và đá.",
-            "sharpness": 1420.1
+            "sharpness": 442,
+            "person": false
           }
         ]
       },
@@ -135,15 +129,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bông lọc nhét chặt phía sau bể, giữa kính và lũa.",
-            "sharpness": 703.8
-          },
-          {
-            "t": 205,
-            "url": "https://media.aquatome.com/video/Xb3Trilltik/at205-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt cây lớn lên lũa, rễ hướng xuống phần nước.",
-            "sharpness": 2235
+            "sharpness": 703.8,
+            "person": false
           }
         ]
       },
@@ -151,20 +138,13 @@
         "heading": "Châm nước và thả cá thế nào",
         "moments": [
           {
-            "t": 295,
-            "url": "https://media.aquatome.com/video/Xb3Trilltik/at295-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Châm Fritz Turbo Start vào bể có cây trồng sát mép bể.",
-            "sharpness": 1054.7
-          },
-          {
             "t": 310,
             "url": "https://media.aquatome.com/video/Xb3Trilltik/at310-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể đã đầy nước, bao cá thả nổi trên mặt để cá quen nhiệt độ.",
-            "sharpness": 265.5
+            "sharpness": 265.5,
+            "person": false
           }
         ],
         "photo": {
@@ -187,7 +167,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây thủy sinh mọc sát cành lũa làm bố cục mềm mại hơn.",
-            "sharpness": 1740.5
+            "sharpness": 1740.5,
+            "person": false
           },
           {
             "t": 365,
@@ -195,7 +176,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể có cây thủy sinh trồng gần lũa, cá bơi bên dưới.",
-            "sharpness": 275.8
+            "sharpness": 275.8,
+            "person": false
           }
         ],
         "photo": {

@@ -1,0 +1,133 @@
+{
+  "id": "mystus-singaringan",
+  "native": {
+    "input": "9d8f90dae3df8714",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Mystus singaringan is a large bagrid catfish from Cambodia, Thailand, Vietnam, Laos, Malaysia and Indonesia.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Mystus singaringan is a large bagrid catfish from Cambodia, Thailand, Vietnam, Laos, Malaysia and Indonesia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Mystus singaringan is a large bagrid catfish from Cambodia, Thailand, Vietnam, Laos, Malaysia and Indonesia.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Mystus singaringan is a large bagrid catfish from Cambodia, Thailand, Vietnam, Laos, Malaysia and Indonesia.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Mystus singaringan is a large bagrid catfish from Cambodia, Thailand, Vietnam, Laos, Malaysia and Indonesia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Mystus singaringan is a large bagrid catfish from Cambodia, Thailand, Vietnam, Laos, Malaysia and Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Mystus singaringan",
+    "status": "ACCEPTED",
+    "taxonKey": 5201864,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        47
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        23
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        20
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        11
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        7
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        6
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        5
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [
+      "KH",
+      "TH",
+      "VN",
+      "LA",
+      "MY",
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

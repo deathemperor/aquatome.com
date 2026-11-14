@@ -50,18 +50,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/5205384.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/5205384-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Sam Kieschnick",
-      "sourceUrl": "https://www.inaturalist.org/photos/5205384",
-      "caption": "Thảm Rau đắng biển compact mọc khỏi nước dày đặc",
-      "best": true,
-      "kind": "emersed"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/1848009.webp",
       "thumb": "https://media.aquatome.com/inaturalist/1848009-480.webp",
       "width": 1024,
@@ -264,6 +252,17 @@
       "caption": "Rau đắng biển phủ trên nền sỏi ngoài tự nhiên",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/9d219f693f49c19d.webp",
+      "thumb": "https://media.aquatome.com/tropica/9d219f693f49c19d-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Bacopamonnieri'Compact'(044ACLP)/30569",
+      "source": "tropica",
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/8708875.webp",
@@ -732,9 +731,21 @@
       "caption": "Bụi Rau đắng biển mọc ở vùng đất ẩm",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/5205384.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/5205384-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Sam Kieschnick",
+      "sourceUrl": "https://www.inaturalist.org/photos/5205384",
+      "caption": "Thảm Rau đắng biển compact mọc khỏi nước dày đặc",
+      "best": true,
+      "kind": "emersed"
     }
   ],
   "seen": 140,
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-10",
   "builtAt": "2026-10-31"
 }

@@ -1,0 +1,28 @@
+{
+  "slug": "ca-leporinus-ho",
+  "name": "Cá Leporinus hổ",
+  "altNames": [
+    "Tiger-Leporinus"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Đây là một loài Leporinus có sọc, sống ở sông Ventuari thuộc Venezuela. Có thể nó là một loài chưa ai mô tả. Chữ Leporinus nghĩa là \"mõm thỏ\", còn tigrinus nghĩa là \"sọc như hổ\". Tên thường gọi được đề xuất cho nó là Tiger-Leporinus.</p>",
+    "distribution:glaser": "<p>Loài Leporinus này đến từ sông Ventuari ở Venezuela. Cho tới nay, những con Leporinus có màu tương tự chỉ mới thấy ở sông Tapajos và sông Xingu bên Brazil. Nhóm cá đó được mô tả năm 1929 với tên Leporinus fasciatus tigrinus. Bây giờ phân loài này thường được tách thành một loài riêng, tức Leporinus tigrinus.</p>",
+    "behaviour:glaser": "<p>Cá Leporinus đôi khi hay gây gổ với cá cùng loài, nhưng những con này tới giờ vẫn khá hiền.</p>",
+    "diet:glaser": "<p>Rất có thể loài cá này ăn chủ yếu là thực vật.</p>",
+    "notes:glaser": "<p>Dải sọc đôi ngay trước vây lưng và hàng vảy óng ánh trên lưng rất dễ thấy. Hai đặc điểm này có vẻ là nét riêng của loài. Các loài họ hàng gần như L. fasciatus, L. affinis và L. y-ophorus đều dài hơn 20 cm, nên có thể đoán loài này cũng lớn hơn 20 cm tính cả đuôi.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-14"
+  }
+}

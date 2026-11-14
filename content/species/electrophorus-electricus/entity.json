@@ -777,7 +777,12 @@
       "author": "Stan Shebs",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Electrophorus_electricus_3.jpg",
       "caption": "Photo of Electrophorus electricus (electric eel) at the Steinhart Aquarium in San Francisco",
-      "thumb": "https://media.aquatome.com/commons/b850c855738c6538-480.webp"
+      "thumb": "https://media.aquatome.com/commons/b850c855738c6538-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/b850c855738c6538-large.webp",
+        "width": 1800,
+        "height": 1091
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/ea49b17e561ba24e.webp",

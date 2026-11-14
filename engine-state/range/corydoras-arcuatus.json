@@ -1,8 +1,8 @@
 {
   "id": "corydoras-arcuatus",
   "native": {
-    "input": "816f4daf4fd51bee",
-    "at": "2026-11-07T09:20:22.982Z",
+    "input": "c48c29aee6833c70",
+    "at": "2026-11-13T11:20:11.221Z",
     "claims": [
       {
         "code": "BR",
@@ -35,6 +35,38 @@
         "quote": "The Skunk Cory is native to the upper Amazon River basin in Brazil, Colombia, Ecuador and Peru.",
         "words": "Peru",
         "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The skunk cory, Brochis arcuata, long known as Corydoras arcuatus, is an armoured catfish from the upper Amazon region in Brazil, Peru, Ecuador and Colombia.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The skunk cory, Brochis arcuata, long known as Corydoras arcuatus, is an armoured catfish from the upper Amazon region in Brazil, Peru, Ecuador and Colombia.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The skunk cory, Brochis arcuata, long known as Corydoras arcuatus, is an armoured catfish from the upper Amazon region in Brazil, Peru, Ecuador and Colombia.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The skunk cory, Brochis arcuata, long known as Corydoras arcuatus, is an armoured catfish from the upper Amazon region in Brazil, Peru, Ecuador and Colombia.",
+        "words": "Colombia",
+        "ok": true
       }
     ],
     "regions": [
@@ -42,6 +74,37 @@
         "name": "Amazon",
         "source": "sprucepets",
         "quote": "The Skunk Cory is native to the upper Amazon River basin in Brazil, Colombia, Ecuador and Peru.",
+        "ok": true
+      },
+      {
+        "name": "Solimões",
+        "source": "seriouslyfish",
+        "quote": "Records thus exist from the Solimões, Purus, Japurá, Caquetá, Yavarí, Tefé, Napo and Ucayali drainage basins although it's worth noting that a number of similar-looking fishes also exist in the region, and only some of them are described to science (see 'Notes').",
+        "ok": true
+      },
+      {
+        "name": "Purus",
+        "source": "seriouslyfish",
+        "quote": "Records thus exist from the Solimões, Purus, Japurá, Caquetá, Yavarí, Tefé, Napo and Ucayali drainage basins although it's worth noting that a number of similar-looking fishes also exist in the region, and only some of them are described to science (see 'Notes').",
+        "ok": true
+      },
+      {
+        "name": "Río Negro",
+        "source": "seriouslyfish",
+        "quote": "In the Negro it's known to range upstream as far as São Gabriel da Cachoeira.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Ucayali",
+        "source": "seriouslyfish",
+        "quote": "Records thus exist from the Solimões, Purus, Japurá, Caquetá, Yavarí, Tefé, Napo and Ucayali drainage basins although it's worth noting that a number of similar-looking fishes also exist in the region, and only some of them are described to science (see 'Notes').",
+        "ok": true
+      },
+      {
+        "name": "Napo",
+        "source": "seriouslyfish",
+        "quote": "Records thus exist from the Solimões, Purus, Japurá, Caquetá, Yavarí, Tefé, Napo and Ucayali drainage basins although it's worth noting that a number of similar-looking fishes also exist in the region, and only some of them are described to science (see 'Notes').",
         "ok": true
       }
     ],

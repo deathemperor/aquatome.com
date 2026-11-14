@@ -1,0 +1,219 @@
+{
+  "id": "nannostomus-eques",
+  "native": {
+    "input": "e5dd8f478ba91d20",
+    "at": "2026-11-10T15:58:17.469Z",
+    "claims": [
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The hockeystick pencilfish, Nannostomus eques, is a lebiasinid from the central and upper Amazon, the Orinoco drainage and rivers of Guyana.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the Peruvian Amazon above Tabatinga, the latter being located in the Três Fronteiras region of Amazonas state, northwestern Brazil, where the borders of Brazil, Peru, and Colombia meet.",
+        "words": "Peruvian",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's since been recorded throughout the central and upper Amazon region in Brazil, Peru, and Colombia including the rios Tapajós, Trombetas, Madeira, Negro, Japurá, Içá, and Putumayo, and is also known from the Orinoco drainage in Venezuela and Colombia (Guaviare and Inírida tributary systems) plus various rivers of Guyana including the Essequibo and Curuni.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's since been recorded throughout the central and upper Amazon region in Brazil, Peru, and Colombia including the rios Tapajós, Trombetas, Madeira, Negro, Japurá, Içá, and Putumayo, and is also known from the Orinoco drainage in Venezuela and Colombia (Guaviare and Inírida tributary systems) plus various rivers of Guyana including the Essequibo and Curuni.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's since been recorded throughout the central and upper Amazon region in Brazil, Peru, and Colombia including the rios Tapajós, Trombetas, Madeira, Negro, Japurá, Içá, and Putumayo, and is also known from the Orinoco drainage in Venezuela and Colombia (Guaviare and Inírida tributary systems) plus various rivers of Guyana including the Essequibo and Curuni.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's since been recorded throughout the central and upper Amazon region in Brazil, Peru, and Colombia including the rios Tapajós, Trombetas, Madeira, Negro, Japurá, Içá, and Putumayo, and is also known from the Orinoco drainage in Venezuela and Colombia (Guaviare and Inírida tributary systems) plus various rivers of Guyana including the Essequibo and Curuni.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "The hockeystick pencilfish, Nannostomus eques, is a lebiasinid from the central and upper Amazon, the Orinoco drainage and rivers of Guyana.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "The hockeystick pencilfish, Nannostomus eques, is a lebiasinid from the central and upper Amazon, the Orinoco drainage and rivers of Guyana.",
+        "ok": true
+      },
+      {
+        "name": "Essequibo",
+        "source": "seriouslyfish",
+        "quote": "It's since been recorded throughout the central and upper Amazon region in Brazil, Peru, and Colombia including the rios Tapajós, Trombetas, Madeira, Negro, Japurá, Içá, and Putumayo, and is also known from the Orinoco drainage in Venezuela and Colombia (Guaviare and Inírida tributary systems) plus various rivers of Guyana including the Essequibo and Curuni.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "It's since been recorded throughout the central and upper Amazon region in Brazil, Peru, and Colombia including the rios Tapajós, Trombetas, Madeira, Negro, Japurá, Içá, and Putumayo, and is also known from the Orinoco drainage in Venezuela and Colombia (Guaviare and Inírida tributary systems) plus various rivers of Guyana including the Essequibo and Curuni.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Madeira",
+        "source": "seriouslyfish",
+        "quote": "It's since been recorded throughout the central and upper Amazon region in Brazil, Peru, and Colombia including the rios Tapajós, Trombetas, Madeira, Negro, Japurá, Içá, and Putumayo, and is also known from the Orinoco drainage in Venezuela and Colombia (Guaviare and Inírida tributary systems) plus various rivers of Guyana including the Essequibo and Curuni.",
+        "ok": true
+      },
+      {
+        "name": "Putumayo",
+        "source": "seriouslyfish",
+        "quote": "It's since been recorded throughout the central and upper Amazon region in Brazil, Peru, and Colombia including the rios Tapajós, Trombetas, Madeira, Negro, Japurá, Içá, and Putumayo, and is also known from the Orinoco drainage in Venezuela and Colombia (Guaviare and Inírida tributary systems) plus various rivers of Guyana including the Essequibo and Curuni.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Nannostomus eques",
+    "status": "ACCEPTED",
+    "taxonKey": 2355643,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        149
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        140
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        52
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        32
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        28
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        25
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        25
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        23
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        22
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        21
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        18
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        16
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        16
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        16
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        12
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        11
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        10
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        7
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        7
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        5
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "6424b95e-eee2-41fc-9450-bac5d6767525",
+        1
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "GY",
+      "PE",
+      "BR",
+      "CO",
+      "VE"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T15:58:17.469Z"
+  }
+}

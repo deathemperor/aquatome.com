@@ -42,9 +42,35 @@ export function score(item: Item, query: string): number {
   return hit === want.length ? 40 : hit >= Math.max(2, Math.ceil(want.length * 0.6)) ? 10 + hit : 0
 }
 
-/** The best matches, best first (the index's order among equals), of a kind when given. */
+/** A term's name is rare when at most this many pages' names have it: then it says what a longer query is about. */
+export const RARE_NAME = 12
+const spaced = new WeakMap<Item[], string[]>()
+/** Every page's own name, folded and between spaces, once for an index. */
+const namesOf = (items: Item[]) => {
+  let out = spaced.get(items)
+  if (!out) {
+    out = items.map(i => ` ${fold(i.name)} `)
+    spaced.set(items, out)
+  }
+  return out
+}
+
+/** A glossary term with the whole of one of its names among a longer query's words ("driftwood tannin" for Tanin), when that name is rare. */
+function termIn(item: Item, query: string, names: string[]): boolean {
+  if (item.kind !== 'glossary') return false
+  const q = ` ${fold(query)} `
+  const words = split(fold(query))
+  return [item.name, ...(item.aka ?? [])].map(fold).some(n => {
+    // Thai writes no spaces between words, so a Thai name with no space can still be several words: it never matches by its start.
+    const said = n.length > 2 && (q.includes(` ${n} `) || (!n.includes(' ') && !THAI.test(n) && words.some(w => w.length > 3 && n.startsWith(w))))
+    return said && names.filter(x => x.includes(` ${n} `)).length <= RARE_NAME
+  })
+}
+
+/** The best matches, best first (the index's order among equals), of a kind when given. A term found only inside a longer query comes after every other match. */
 export function search(items: Item[], query: string, kind: Item['kind'] | null, max = 12): Item[] {
-  return items.map((item, i) => ({ item, i, s: kind && item.kind !== kind ? 0 : score(item, query) }))
+  const names = namesOf(items)
+  return items.map((item, i) => ({ item, i, s: kind && item.kind !== kind ? 0 : score(item, query) || (termIn(item, query, names) ? 5 : 0) }))
     .filter(x => x.s > 0).sort((a, b) => b.s - a.s || a.i - b.i).slice(0, max).map(x => x.item)
 }
 

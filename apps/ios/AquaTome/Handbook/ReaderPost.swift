@@ -72,6 +72,7 @@ struct ReaderPost: View {
           form
         }
       }
+      .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
       .navigationTitle(kind == .comment ? "Thảo luận" : "Ảnh bạn đọc")
       .navigationBarTitleDisplayMode(.inline)
       .toolbar { Button("Đóng") { dismiss() }.disabled(sending) }
@@ -108,6 +109,7 @@ struct ReaderPost: View {
       // The photo as picked goes, now it's shrunk: a phone's is tens of megabytes. Last, as a change ends this task.
       self.picked = nil
     }
+    .ownerScreen("sheet reader-post")
   }
 
   private var form: some View {
@@ -137,6 +139,7 @@ struct ReaderPost: View {
                     picked = PickedPhoto(data: data)
                   }, cancelled: { library = false })
                   .ignoresSafeArea()
+                  .ownerScreen("sheet photo-library")
                 }
               if reading {
                 HStack(spacing: 8) { ProgressView(); Text("Đang chuẩn bị ảnh…") }.foregroundStyle(.secondary)

@@ -1,12 +1,12 @@
 {
   "id": "youtube-jHg4Dx3rPSo",
-  "kind": "setup",
+  "kind": "care",
   "source": "youtube",
   "sourceUrl": "https://www.youtube.com/watch?v=jHg4Dx3rPSo",
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-03",
+  "updatedAt": "2026-11-10",
   "video": {
     "youtubeId": "jHg4Dx3rPSo",
     "title": "HOW TO: $8 Aquarium sterilizer",
@@ -28,7 +28,7 @@
     "gear": [
       {
         "category": "khac",
-        "brand": "TwinStar",
+        "brand": "Twinstar",
         "t": 0
       },
       {
@@ -39,21 +39,16 @@
     ],
     "figures": [
       {
-        "heading": "Máy diệt khuẩn điện phân hoạt động thế nào",
+        "heading": "Thiết bị này hoạt động thế nào",
         "moments": [
           {
-            "t": 201,
-            "url": "https://media.aquatome.com/video/jHg4Dx3rPSo/t201.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đĩa điện phân đặt trong bể, dây nối với cục pin 6V."
-          },
-          {
-            "t": 206,
-            "url": "https://media.aquatome.com/video/jHg4Dx3rPSo/t206.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Thiết bị hình đĩa trong bể nước, bọt khí bốc lên khi có điện."
+            "t": 5,
+            "url": "https://media.aquatome.com/video/jHg4Dx3rPSo/at5-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cái đĩa nhỏ trong bể đang tạo ra dòng bọt khí li ti.",
+            "sharpness": 215.2,
+            "person": false
           }
         ],
         "photo": {
@@ -64,106 +59,36 @@
           "licence": "CC0",
           "author": "Rhetos",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wasserzersetzer_(Firma_LCEM).jpg",
-          "caption": "Thí nghiệm điện phân nước: dòng điện một chiều tạo bọt khí oxy và hydro ở hai điện cực."
+          "caption": "Thí nghiệm điện phân nước bằng pin 9V, khí oxy và hydro tách ra ở hai cực."
         }
       },
       {
-        "heading": "Cần chuẩn bị những gì",
-        "moments": [
-          {
-            "t": 98,
-            "url": "https://media.aquatome.com/video/jHg4Dx3rPSo/t98.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Khớp nối ống nhựa đen cùng tấm lưới inox tròn và giác hút."
-          },
-          {
-            "t": 128,
-            "url": "https://media.aquatome.com/video/jHg4Dx3rPSo/t128.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đoạn dây điện cũ dùng để nối vào lưới."
-          }
-        ],
+        "heading": "Nối pin và bật máy",
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/jHg4Dx3rPSo/p1-ZpdF9tZXNoLnBuZw.webp",
-          "thumb": "https://media.aquatome.com/video/jHg4Dx3rPSo/p1-ZpdF9tZXNoLnBuZw-480.webp",
+          "url": "https://media.aquatome.com/video/jHg4Dx3rPSo/p3-uX1Nlcmllcy5KUEc.webp",
+          "thumb": "https://media.aquatome.com/video/jHg4Dx3rPSo/p3-uX1Nlcmllcy5KUEc-480.webp",
           "width": 960,
           "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Robinson Wire Cloth Ltd.",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Soffit_mesh.png",
-          "caption": "Các cuộn lưới inox mịn, có thể cắt tròn vừa khớp nối ống."
+          "licence": "CC BY-SA 3.0",
+          "author": "SeanShriner",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Four_batteries_in_Series.JPG",
+          "caption": "Các cục pin 6V được nối với nhau bằng dây điện ở hai cực."
         }
       },
       {
-        "heading": "Các bước lắp ráp",
-        "moments": [
-          {
-            "t": 88,
-            "url": "https://media.aquatome.com/video/jHg4Dx3rPSo/t88.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Tấm lưới tròn được ép vừa khít vào trong khoanh nhựa."
-          },
-          {
-            "t": 138,
-            "url": "https://media.aquatome.com/video/jHg4Dx3rPSo/t138.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Dùng keo đóng rắn bằng đèn UV để cố định chỗ nối dây vào lưới."
-          }
-        ]
-      },
-      {
-        "heading": "Cách dùng trong bể",
-        "moments": [
-          {
-            "t": 133,
-            "url": "https://media.aquatome.com/video/jHg4Dx3rPSo/t133.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Nối dây điện vào đĩa điện phân có phần lưới."
-          },
-          {
-            "t": 147,
-            "url": "https://media.aquatome.com/video/jHg4Dx3rPSo/t147.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đĩa điện phân đã gắn dây, sẵn sàng nối với pin."
-          }
-        ]
-      },
-      {
-        "heading": "Có thực sự hiệu quả không",
-        "moments": [
-          {
-            "t": 192,
-            "url": "https://media.aquatome.com/video/jHg4Dx3rPSo/t192.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Thiết bị thả trong bể kính đang thử nghiệm, nước vẫn không đổi."
-          }
-        ]
-      },
-      {
-        "heading": "Điện phân hay đèn UV",
-        "moments": [
-          {
-            "t": 226,
-            "url": "https://media.aquatome.com/video/jHg4Dx3rPSo/t226.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Tấm lướt điện phân tự chế trong bể, sủi bọt khí quanh điện cực."
-          },
-          {
-            "t": 236,
-            "url": "https://media.aquatome.com/video/jHg4Dx3rPSo/t236.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Pin nối dây điện vào tấm điện phân đặt trong bể."
-          }
-        ]
+        "heading": "Kết quả khi thử trên bể thật",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/jHg4Dx3rPSo/p4-FxdWFyaXVtLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/jHg4Dx3rPSo/p4-FxdWFyaXVtLmpwZw-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY 2.0",
+          "author": "Tim Sheerman-Chase",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_Tank,_Blue_Reef_Aquarium.jpg",
+          "caption": "Một bể thủy sinh có cây và đá, nước trong nhìn xuyên qua kính."
+        }
       }
     ]
   }

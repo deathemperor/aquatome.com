@@ -53,30 +53,30 @@
   "dataCard": {
     "tempC": [
       {
-        "source": "bwaquatics",
+        "source": "seriouslyfish",
         "value": {
-          "min": 23,
+          "min": 22,
           "max": 28
         }
       },
       {
-        "source": "seriouslyfish",
+        "source": "bwaquatics",
         "value": {
-          "min": 22,
+          "min": 24,
           "max": 28
         }
       }
     ],
     "ph": [
       {
-        "source": "bwaquatics",
+        "source": "seriouslyfish",
         "value": {
           "min": 4,
           "max": 6
         }
       },
       {
-        "source": "seriouslyfish",
+        "source": "bwaquatics",
         "value": {
           "min": 4,
           "max": 6
@@ -84,13 +84,6 @@
       }
     ],
     "gh": [
-      {
-        "source": "bwaquatics",
-        "value": {
-          "min": 0,
-          "max": 2
-        }
-      },
       {
         "source": "seriouslyfish",
         "value": {
@@ -101,11 +94,11 @@
     ],
     "sizeCm": [
       {
-        "source": "bwaquatics",
-        "value": 2.6
+        "source": "seriouslyfish",
+        "value": 3.5
       },
       {
-        "source": "seriouslyfish",
+        "source": "bwaquatics",
         "value": 3.5
       }
     ],
@@ -127,7 +120,7 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-persephone",
-      "html": "<ul><li>IUCN Red List: Endangered (very high risk of extinction in the wild)</li><li>Captive-bred</li><li>Adult size: approximately 2.5–2.6 cm (≈ 1.0″) standard length</li><li>Temperature: 23–28 °C (73–82 °F)</li></ul>"
+      "html": "<ul><li>Belongs to the Betta coccina complex.</li><li>IUCN Red List: Endangered (very high risk of extinction in the wild).</li><li>Origin of the fish on this page: captive bred.</li></ul>"
     },
     {
       "key": "quickFacts",
@@ -142,10 +135,16 @@
       "html": "<p>Appears to be endemic to forested areas around the towns of Ayer Hitam, Muar, and Kluang in southwestern Johor state, Peninsular Malaysia.</p><p>Type locality is ‘Asian highway No. 2, 1°56'20.00\"N, 103°09'40.00\"E, at road bridge about 3 kilometers north of Ayer Hitam, Malaysia’.</p>"
     },
     {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-persephone",
+      "html": "<p>Betta persephone is endemic to a few peat swamp forest fragments around Ayer Hitam, Muar and Kluang in southwestern Johor, Peninsular Malaysia. It is one of the smallest and darkest members of the coccina complex, named after Persephone, queen of the Underworld, for its near-black color. Much of its habitat has been drained for oil palm, and Malaysian hobbyists have bred the species and released it back into protected forest in Johor.</p>"
+    },
+    {
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-persephone",
-      "html": "<p>Betta persephone is an exceptionally rare and striking member of the Betta coccina complex. In the wild, it inhabits shallow, darkly stained blackwater streams and pools beneath dense forest canopy where light barely penetrates, and the water is extremely soft, acidic, and tannin-rich.</p>"
+      "html": "<p>Dark blackwater streams and peat swamp pools under closed forest canopy. When pools dry out, the fish can survive for weeks in wet leaf litter.</p>"
     },
     {
       "key": "habitat",
@@ -157,7 +156,7 @@
       "key": "aquariumSize",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-persephone",
-      "html": "<p>Recommended 1 pair per 5 gallons (about 19 litres) minimum.</p>"
+      "html": "<p>Recommended 1 pair per 20 litres.</p>"
     },
     {
       "key": "aquariumSize",
@@ -175,7 +174,7 @@
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-persephone",
-      "html": "<p>Tolerant of different water parameters but do best in blackwater conditions.</p><ul><li>pH 4.0–6.0</li><li>GH ≤ 2 °d</li><li>KH ≤ 1 °d</li><li>TDS &lt; 80 ppm</li><li>Temperature: 23–28 °C (73–82 °F); maintain stable conditions for optimal health and breeding behavior.</li></ul>"
+      "html": "<ul><li>TDS: 60 to 100</li><li>pH: 4.0 to 6.0</li><li>Temperature: 24 to 28°C</li></ul>"
     },
     {
       "key": "waterConditions",
@@ -184,16 +183,10 @@
       "html": "<ul><li>Temperature: 22–28°C</li><li>pH: 4.0–6.0</li><li>Hardness: 1–5 dGH</li></ul>"
     },
     {
-      "key": "equipment",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/wild-betta-persephone",
-      "html": "<p>Provide minimal flow, dense vegetation, floating plants, and abundant leaf litter (such as Indian almond or oak leaves) to replicate the dimly lit peat-swamp habitat. Subdued lighting is strongly recommended.</p>"
-    },
-    {
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-persephone",
-      "html": "<p>Carnivorous. Requires a varied diet of live or frozen foods such as brine shrimp, daphnia, bloodworms, mosquito larvae, and other small invertebrates. May accept high-quality micro-pellets once fully acclimated, though live foods are essential for bringing out optimal color and condition.</p>"
+      "html": "<p>Carnivorous. Accepts live blackworms, frozen bloodworms and pellets.</p>"
     },
     {
       "key": "diet",
@@ -205,7 +198,7 @@
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-persephone",
-      "html": "<p>Best kept as a pair in a species-only tank with ample hiding places. Males can be territorial and moderately aggressive, particularly during breeding. If housing with other fish, only select extremely peaceful, tiny soft-water species such as Boraras or small Rasboras, provided there is extensive cover, plants, roots, and botanicals. Avoid standard community aquarium setups.</p>"
+      "html": "<p>Moderately aggressive. Males can be territorial when setting up a breeding site, but because of their small size multiple pairs can be kept with enough space and cover.</p>"
     },
     {
       "key": "behaviour",
@@ -217,7 +210,7 @@
       "key": "dimorphism",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-persephone",
-      "html": "<p>Males display a mesmerizing blue-black body with iridescent blue-green reflections on the fins and body, accented by black pelvic fins with white filamentous tips. Females are smaller with brown to reddish tones and less vibrant coloration.</p>"
+      "html": "<p>Males are blue-black with blue-green iridescence on the body and fins, and have black pelvic fins with white filament tips. Females are smaller with brown to reddish tones.</p>"
     },
     {
       "key": "dimorphism",
@@ -229,7 +222,7 @@
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-persephone",
-      "html": "<p>Betta persephone are bubble nesters — males construct floating nests at the water surface, typically beneath floating plants, leaves, or other debris for shelter and protection. During courtship, the male displays vibrant colors and performs elaborate fin movements to attract the female. Once the female accepts, spawning occurs beneath the bubble nest where the male collects the released eggs in his mouth and carefully places each one into the bubbles. The male then guards and maintains the nest, retrieving any fallen eggs and fanning them to prevent fungal growth. Eggs hatch in 24–48 hours, and fry become free-swimming after 3–4 days. Fry are large enough to accept newly hatched baby brine shrimp (BBS) immediately.</p>"
+      "html": "<p>Bubblenester. The male builds a small bubble nest at the surface, usually under a floating leaf, inside a floating cave or among plants, and places the eggs in it after spawning. Pairs can often stay together in a well-planted tank; remove the female if the male keeps chasing her. Eggs hatch in 24 to 48 hours, and the fry are free-swimming about 3 days later. Start them on infusoria, then move to baby brine shrimp. Keep the surface calm so the nest stays intact.</p>"
     },
     {
       "key": "reproduction",
@@ -241,7 +234,7 @@
       "key": "notes",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-persephone",
-      "html": "<p>Because Betta persephone are wild-caught and endemic to a critically threatened habitat, they are exceptionally sensitive to water parameter changes and require meticulous acclimation. Maintain extremely soft, acidic, tannin-stained water with stable temperature and minimal disturbance. This species thrives in dimly lit environments with subdued lighting. Keep the tank well-covered and do not fill to the top — like all bettas, they require access to humid air above the water surface and are excellent jumpers. Monitor behavior closely, as males can become territorial in confined spaces. Providing ample cover through driftwood, leaf litter, caves, and floating vegetation helps reduce stress and aggression while supporting natural breeding behavior.</p><p>Due to habitat loss from deforestation and oil palm cultivation, this species is rapidly declining in the wild — please consider breeding and maintaining this species to preserve it in the aquarium hobby.</p>"
+      "html": "<p>Body shape: small and slender, one of the smallest bettas. Fins: rounded caudal fin and a long anal fin. Scaling: small, even scales; scattered scales on the flank and fin bases show blue-green iridescence against the dark body.</p>"
     },
     {
       "key": "notes",
@@ -268,7 +261,32 @@
       "source": "bwaquatics"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "uqqglO7WAvs",
+      "title": "Betta Persephone Mating",
+      "durationSec": 44,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "_XZLhtJ_giQ",
+      "title": "Betta persephone spawning",
+      "durationSec": 30,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "94RP4g14EeU",
+      "title": "Betta Persephone Tank",
+      "durationSec": 26,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Tp6NCvm3Agg",
+      "title": "Betta persephone tank no filter",
+      "durationSec": 492,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -297,5 +315,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-13"
 }

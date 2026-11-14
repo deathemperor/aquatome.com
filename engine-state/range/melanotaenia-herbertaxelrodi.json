@@ -1,0 +1,54 @@
+{
+  "id": "melanotaenia-herbertaxelrodi",
+  "native": {
+    "input": "0849751e1a9a7426",
+    "at": "2026-11-10T07:58:31.896Z",
+    "claims": [
+      {
+        "code": "PG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Papua New Guinea. Endemic to the Lake Tebera basin, located in the Central Highlands of the island.",
+        "words": "Papua New Guinea",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Tebera",
+        "source": "seriouslyfish",
+        "quote": "Papua New Guinea. Endemic to the Lake Tebera basin, located in the Central Highlands of the island.",
+        "country": "PG",
+        "ok": true
+      },
+      {
+        "name": "New Guinea",
+        "source": "seriouslyfish",
+        "quote": "The Lake Tebera rainbowfish, Melanotaenia herbertaxelrodi, is a rainbowfish endemic to the Lake Tebera basin in the Central Highlands of New Guinea.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Melanotaenia herbertaxelrodi",
+    "status": "ACCEPTED",
+    "taxonKey": 2411662,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "PG"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T07:58:31.896Z"
+  }
+}

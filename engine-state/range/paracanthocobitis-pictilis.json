@@ -1,0 +1,72 @@
+{
+  "id": "paracanthocobitis-pictilis",
+  "native": {
+    "input": "0b0964c361bd1440",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Kottelat (2012a) has this species occurring in the Ataran River, an affluent of the upper Salween basin flowing into Myanmar from Kanchanaburi province, Thailand, and the Mae Khlong watershed in western Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Kottelat (2012a) has this species occurring in the Ataran River, an affluent of the upper Salween basin flowing into Myanmar from Kanchanaburi province, Thailand, and the Mae Khlong watershed in western Thailand.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ataran River",
+        "source": "seriouslyfish",
+        "quote": "Kottelat (2012a) has this species occurring in the Ataran River, an affluent of the upper Salween basin flowing into Myanmar from Kanchanaburi province, Thailand, and the Mae Khlong watershed in western Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "Kottelat (2012a) has this species occurring in the Ataran River, an affluent of the upper Salween basin flowing into Myanmar from Kanchanaburi province, Thailand, and the Mae Khlong watershed in western Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Hanthayaw River",
+        "source": "seriouslyfish",
+        "quote": "Occurrences of 'P. rubidipinnis' from the Hanthayaw River, another Salween tributary originating in Tak province, Thailand, before entering Myanmar presumably pertain to P. pictilis as well.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Paracanthocobitis pictilis",
+    "status": "ACCEPTED",
+    "taxonKey": 12210402,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

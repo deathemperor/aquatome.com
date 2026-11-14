@@ -1,8 +1,8 @@
 {
   "id": "hydrolycus-armatus",
   "native": {
-    "input": "68bbebf9e2e1ab85",
-    "at": "2026-11-08T22:57:48.089Z",
+    "input": "6586d5e27c72fba8",
+    "at": "2026-11-11T08:59:40.517Z",
     "claims": [
       {
         "code": "GY",
@@ -45,11 +45,18 @@
         "ok": true
       },
       {
-        "name": "Río Orinoco",
+        "name": "Orinoco",
         "source": "seriouslyfish",
         "quote": "Type locality is 'sandbars in vicinity of Maipuri campsite, 4°34'N, 58°35'W, Essequibo River, Guyana', with current records suggesting it to occur in the eastern Amazon basin in Brazil, Río Orinoco in Venezuela and Essequibo drainage in Guyana.",
         "country": "VE",
         "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "Orinoco.",
+        "ok": false,
+        "why": "no sentence"
       },
       {
         "name": "Río Caroni",

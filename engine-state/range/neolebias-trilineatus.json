@@ -1,0 +1,90 @@
+{
+  "id": "neolebias-trilineatus",
+  "native": {
+    "input": "562c3be047e8d61d",
+    "at": "2026-11-10T20:57:55.515Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The three-lined neolebias, Neolebias trilineatus, is a small distichodontid from the Democratic Republic of Congo.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Democratic Republic of Congo.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CF"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Neolebias trilineatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2355749,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        114
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        9
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        7
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        3
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "CD"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T20:57:55.515Z"
+  }
+}

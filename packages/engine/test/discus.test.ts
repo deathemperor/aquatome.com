@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto'
 import { cp, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -65,7 +66,7 @@ test('an Indonesian or Thai translation run offering the other fish\'s name keep
 })
 
 test("the red discus photo stays off Heckel's discus page: brought back by a source re-read, the next cycle takes it off", async () => {
-  expect((await read<Record<string, string>>(ROOT, 'engine-state/_photo-rejected.json'))[RED]).toMatch(/^not Symphysodon discus: /)
+  expect((await read<Record<string, string>>(ROOT, 'engine-state/_photo-rejected.json'))[RED]).toMatch(/^rejected: withheld \[sha256:[a-f0-9]{64}\]$/)
   const e = await read<SpeciesEntity>(ROOT, 'content/species', HECKEL, 'entity.json')
   expect(e.photos.map(p => p.url)).not.toContain(RED)
   const content = await mkdtemp(join(tmpdir(), 'discus-photo-'))
@@ -88,7 +89,31 @@ test("Heckel's discus never takes a bred discus: the photo check tells the model
   for (const p of gallery.photos) expect(cache[p.url]?.[HECKEL]?.ok, p.url).toBe('yes')
   // The 22 it showed, looked at by eye: "other" here, with the check's current fields so no run judges them again (the
   // photo check takes an "other" photo off its page each cycle); the shop discus's own verdicts are untouched.
-  const bred = Object.values(cache).filter(v => v[HECKEL]?.note.startsWith('captive-bred colour form'))
+  const frozenBred = new Set([
+  "008e8b371ee3467eb15d5e2b9813535840fb7eb143b18a588b7ed40d963db81b",
+  "121f2e7c779bdabfa385fac0f8f9efb54174dce332eb228ba63240c271fb8129",
+  "19919218efd829813b76c5ab60293ad2e7ae1d254696a5f9470ae77fe3899a30",
+  "1da3f9dd751374812690666cd2f06fcf457b3feeac255a55096a3e196ae2dcea",
+  "20a939a15caa0e9b6019047b8c148cf5de8dd3307687c7410ea91fa85bbd4c06",
+  "385989e8e669b4660a6c481cd5abb448aaced9b832081ec53e42913b31efe4dc",
+  "43fa4d7558a41de59fa689bd397826d44fe730a5af2ce972b72084c3783e5018",
+  "43fc9709b575b01769f374a5ac07b0c6403f54a7b3cf6bb5197c0978ec451276",
+  "5e1a0335bf902caca9e0a3f5003bcb9b7153cd02bc6a79d660af49581570fdd5",
+  "81a47ce2e51384cc589edffb7b010e7c481e3221d3c5fe0befbb000658920d0d",
+  "849fe426c933cf74b19f10453399907475e9a6e93fcdb0277e15248d64e1f95c",
+  "8517f77bae4bf8e0a1c22e8b1d6c50b2c11a3528a0b7737b7d3b0924d5d2a805",
+  "86c452938b9339ef1e17a63883d14315c88239d8d3e10e6ec8ab69b6df67de87",
+  "a5a263e93e373c7ff5a943b31630b53518991741678675f5879977d2370ed909",
+  "af56c82a981fe46c084da177f61c746ed3f48fe7622eab43ad046735d225c60b",
+  "b212fdf6110621b4ff5fc25cec4c16bccd58663eee1af6627d6207a57102d916",
+  "b9dced5a6ae3ce1fb7bfd6e957fd711d7f57f79a871e0bc56456d86b80b37056",
+  "dfe69f875cc1377dc5659ec5668688ab6bf0e0148ea14a5850c96cfda82ee60d",
+  "e4de22f214f31ca61b8ed2f9d73171445b1dbc2b6c2c7c1882ecd827c49012b6",
+  "ec3e54fa17e0420b3f6707e15af221a3e3de5824b984b2fea49458ba086116ff",
+  "f68dd4386250d8641732905997abb10fb9def232b47d0ed9393e7f0b3442e6ff",
+  "fda1c4474b5b0df8d7ded408a00b56eb0c4cf3419c26ea4f0d6af8912b144784"
+])
+  const bred = Object.entries(cache).filter(([url]) => frozenBred.has(createHash('sha256').update(url).digest('hex'))).map(([,v])=>v)
   expect(bred).toHaveLength(22)
   for (const v of bred) expect(v[HECKEL]).toMatchObject({ ok: 'other', logo: false })
 })

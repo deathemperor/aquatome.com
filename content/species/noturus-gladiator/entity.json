@@ -11,6 +11,77 @@
     "hatchie-river",
     "mississippi-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "US"
+      ],
+      "regions": [
+        "Hatchie River",
+        "Mississippi River"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "North America: coastal plain streams of Tennessee and Mississippi, USA.",
+          "countries": [
+            "US"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: just upstream of Potters Creek, about 2.5 km west of Bolivar, Pleasant Run, Hatchie River at Summerville-Bolivar Road, Mississippi River basin, Hardeman County, Tennessee, U.S.A.",
+          "countries": [],
+          "regions": [
+            "Hatchie River",
+            "Mississippi River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341013,
+      "total": 46,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "US",
+          46
+        ]
+      ],
+      "cells": [
+        [
+          -90,
+          32.34375,
+          2,
+          2
+        ],
+        [
+          -90,
+          33.75,
+          21,
+          21
+        ],
+        [
+          -90,
+          35.15625,
+          18,
+          18
+        ],
+        [
+          -88.59375,
+          35.15625,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

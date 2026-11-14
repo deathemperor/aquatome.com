@@ -1,0 +1,84 @@
+{
+  "id": "pseudolaguvia-shawi",
+  "native": {
+    "input": "97e805152b79d24b",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Mahanadi R. below Darjeeling, West Bengal, India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Brahmaputra",
+        "source": "planetcatfish",
+        "quote": "Indian waters, North Eastern India, Padma, Jamuna, Brahmaputra, Manas (Mou chhu)",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Padma",
+        "source": "planetcatfish",
+        "quote": "Indian waters, North Eastern India, Padma, Jamuna, Brahmaputra, Manas (Mou chhu)",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Jamuna",
+        "source": "planetcatfish",
+        "quote": "Indian waters, North Eastern India, Padma, Jamuna, Brahmaputra, Manas (Mou chhu)",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Manas",
+        "source": "planetcatfish",
+        "quote": "Indian waters, North Eastern India, Padma, Jamuna, Brahmaputra, Manas (Mou chhu)",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Mahanadi",
+        "source": "planetcatfish",
+        "quote": "Type locality: Mahanadi R. below Darjeeling, West Bengal, India.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudolaguvia shawi",
+    "status": "ACCEPTED",
+    "taxonKey": 2341543,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        10
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "30470b8f-1655-4192-9ec6-92c5f4ba8dd8",
+        2
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 12,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}

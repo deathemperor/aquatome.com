@@ -18,6 +18,7 @@ export const NAV = [
   ['/_ab/binh-luan/', 'Comments', 'Community'],
   ['/_ab/anh-ban-doc/', 'Reader photos', 'Community'],
   ['/_ab/tai-khoan/', 'Accounts', 'Community'],
+  ['/_ab/bao-sai/', 'Chat reports', 'Community'],
   ['/_ab/nhan-dien-ca/', 'Calls and keys', 'Fish ID'],
   ['/_ab/anh-nhan-dien/', 'Kept photos', 'Fish ID'],
   ['/_ab/ung-dung/', 'iPhone app', 'App'],
@@ -29,7 +30,7 @@ export const SCOREBOARD_PATH = '/_ab/thanh-cong/'
 /** The daily report's log and its delivery (worker/daily). */
 export const REPORT_PATH = '/_ab/bao-cao/'
 export const REPORT_NAME = 'Daily reports'
-/** The product change log (daily/changelog.ts), which the daily report adds to. */
+/** The product change log (daily/changelog.ts), which each merge adds to. */
 export const CHANGELOG_PATH = '/_ab/thay-doi/'
 export const CHANGELOG_NAME = 'Changelog'
 export type WebPath = AdminPath
@@ -390,6 +391,7 @@ a.go{display:inline-flex;align-items:center;min-height:44px;padding:.5rem 1rem;b
 .cm .by{font-size:13px;color:var(--muted)}
 .cm .by b{color:var(--ink);font-size:14.5px}
 .cm .text{margin:4px 0;white-space:pre-line;overflow-wrap:anywhere}
+.reports td{white-space:pre-line;overflow-wrap:anywhere}
 .cm .why,.cm .reports{font-size:13px;color:var(--muted)}
 .cm .why b{color:var(--rust)}
 .cm form{display:flex;gap:8px;align-items:start}

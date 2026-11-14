@@ -10,6 +10,76 @@
     "peru",
     "ucayali"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Ucayali",
+        "Marañon"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The zebra oto, Otocinclus cocama, is a miniature loricariid from Peru, thought to occur throughout the lower Ucayali and Marañon.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Quebrada Yamayacu, about 4°55'S, 73°43'W, tributary to the caño of the cocha Supay in Jenaro Herrera, Provincia Requena, Departamento Loreto, Peru', and O. cocama is thought to occur throughout the lower Ucayali and Marañon in Peru.",
+          "countries": [],
+          "regions": [
+            "Ucayali",
+            "Marañon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340465,
+      "total": 12,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "PE",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          -75.9375,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          -5.625,
+          5,
+          5
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,0 +1,90 @@
+{
+  "id": "pseudoxiphophorus-anzuetoi",
+  "native": {
+    "input": "067efcbf375b883d",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [
+      {
+        "code": "GT",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Pseudoxiphophorus anzuetoi originates from Guatemala, El Salvador, and Honduras.",
+        "words": "Guatemala",
+        "ok": true
+      },
+      {
+        "code": "SV",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Pseudoxiphophorus anzuetoi originates from Guatemala, El Salvador, and Honduras.",
+        "words": "El Salvador",
+        "ok": true
+      },
+      {
+        "code": "HN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Pseudoxiphophorus anzuetoi originates from Guatemala, El Salvador, and Honduras.",
+        "words": "Honduras",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudoxiphophorus anzuetoi",
+    "status": "ACCEPTED",
+    "taxonKey": 9736974,
+    "datasets": [
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        32
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        30
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        16
+      ],
+      [
+        "805bbcde-f762-11e1-a439-00145eb45e9a",
+        11
+      ],
+      [
+        "2a79f202-3f3a-4d54-88fa-09aa8de1ac73",
+        10
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        4
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "GT",
+      "SV",
+      "HN"
+    ],
+    "requests": 12,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}

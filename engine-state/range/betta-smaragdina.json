@@ -1,30 +1,14 @@
 {
   "id": "betta-smaragdina",
   "native": {
-    "input": "4734f0a58f5295e4",
-    "at": "2026-11-06T21:19:39.004Z",
+    "input": "5e7959c97a852395",
+    "at": "2026-11-14T00:09:29.977Z",
     "claims": [
       {
         "code": "TH",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The emerald betta, Betta smaragdina, is a bubble-nesting labyrinth fish from the Khorat Plateau in eastern Thailand and Mekong tributaries in Laos.",
-        "words": "Thailand",
-        "ok": true
-      },
-      {
-        "code": "LA",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The emerald betta, Betta smaragdina, is a bubble-nesting labyrinth fish from the Khorat Plateau in eastern Thailand and Mekong tributaries in Laos.",
-        "words": "Laos",
-        "ok": true
-      },
-      {
-        "code": "TH",
-        "status": "native",
         "source": "bwaquatics",
-        "quote": "Native to northeastern Thailand, Laos, and parts of Cambodia in the Mekong Basin.",
+        "quote": "Native to northeastern Thailand, Laos and parts of Cambodia in the Mekong Basin.",
         "words": "Thailand",
         "ok": true
       },
@@ -32,7 +16,7 @@
         "code": "LA",
         "status": "native",
         "source": "bwaquatics",
-        "quote": "Native to northeastern Thailand, Laos, and parts of Cambodia in the Mekong Basin.",
+        "quote": "Native to northeastern Thailand, Laos and parts of Cambodia in the Mekong Basin.",
         "words": "Laos",
         "ok": true
       },
@@ -40,16 +24,39 @@
         "code": "KH",
         "status": "native",
         "source": "bwaquatics",
-        "quote": "Native to northeastern Thailand, Laos, and parts of Cambodia in the Mekong Basin.",
+        "quote": "Native to northeastern Thailand, Laos and parts of Cambodia in the Mekong Basin.",
         "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Khorat Plateau in eastern Thailand, a saucer-shaped upland region enclosed by the Mekong River main channel to the north and east.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The emerald betta, Betta smaragdina, is a bubble-nesting labyrinth fish from the Khorat Plateau in eastern Thailand and Mekong tributaries in Laos.",
+        "words": "Laos",
         "ok": true
       }
     ],
     "regions": [
       {
         "name": "Mekong",
-        "source": "seriouslyfish",
-        "quote": "The plateau is drained by the Mun, Chi, Songkhram, and Loei rivers, all of which belong to the Mekong watershed, and B. smaragdina has also been recorded from Mekong tributaries in central Laos.",
+        "source": "bwaquatics",
+        "quote": "Native to northeastern Thailand, Laos and parts of Cambodia in the Mekong Basin.",
+        "ok": true
+      },
+      {
+        "name": "Khorat Plateau",
+        "source": "bwaquatics",
+        "quote": "The fish originate from the Khorat Plateau in Thailand.",
+        "country": "TH",
         "ok": true
       },
       {
@@ -61,8 +68,8 @@
       },
       {
         "name": "Mekong",
-        "source": "bwaquatics",
-        "quote": "Native to northeastern Thailand, Laos, and parts of Cambodia in the Mekong Basin.",
+        "source": "seriouslyfish",
+        "quote": "Native to the Khorat Plateau in eastern Thailand, a saucer-shaped upland region enclosed by the Mekong River main channel to the north and east.",
         "ok": true
       }
     ],

@@ -14,18 +14,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/flickr/3453471951.webp",
-      "thumb": "https://media.aquatome.com/flickr/3453471951-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY-SA 2.0",
-      "author": "threefingeredlord",
-      "sourceUrl": "https://www.flickr.com/photos/12568296@N06/3453471951",
-      "caption": "Ngò om mọc dưới nước, ngọn đỏ tím trong bể thủy sinh",
-      "best": true,
-      "kind": "submersed"
-    },
-    {
       "url": "https://media.aquatome.com/commons/2190f37cb2eb866e.webp",
       "thumb": "https://media.aquatome.com/commons/2190f37cb2eb866e-480.webp",
       "width": 1200,
@@ -48,30 +36,6 @@
       "caption": "Hoa Ngò om màu tím hồng nở rõ nét",
       "best": true,
       "kind": "flower"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/1695b2d849ba5326.webp",
-      "thumb": "https://media.aquatome.com/commons/1695b2d849ba5326-480.webp",
-      "width": 1200,
-      "height": 1344,
-      "licence": "CC BY-SA 3.0",
-      "author": "Vinayaraj",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Limnophila_aromatica_12.JPG",
-      "caption": "Tầng lá Ngò om xếp vòng nhìn từ trên",
-      "best": true,
-      "kind": "detail"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/259982701.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/259982701-480.webp",
-      "width": 576,
-      "height": 1024,
-      "licence": "CC BY-SA",
-      "author": "許文俊",
-      "sourceUrl": "https://www.inaturalist.org/photos/259982701",
-      "caption": "Cành Ngò om có hoa tím trong tự nhiên",
-      "best": true,
-      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/commons/453908d9d170f57b.webp",
@@ -215,6 +179,42 @@
       "sourceUrl": "https://www.inaturalist.org/photos/186369192",
       "caption": "Cây Ngò om nhỏ ra hoa bên mép nước",
       "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/3453471951.webp",
+      "thumb": "https://media.aquatome.com/flickr/3453471951-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-SA 2.0",
+      "author": "threefingeredlord",
+      "sourceUrl": "https://www.flickr.com/photos/12568296@N06/3453471951",
+      "caption": "Ngò om mọc dưới nước, ngọn đỏ tím trong bể thủy sinh",
+      "best": true,
+      "kind": "submersed"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/1695b2d849ba5326.webp",
+      "thumb": "https://media.aquatome.com/commons/1695b2d849ba5326-480.webp",
+      "width": 1200,
+      "height": 1344,
+      "licence": "CC BY-SA 3.0",
+      "author": "Vinayaraj",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Limnophila_aromatica_12.JPG",
+      "caption": "Tầng lá Ngò om xếp vòng nhìn từ trên",
+      "best": true,
+      "kind": "detail"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/259982701.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/259982701-480.webp",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC BY-SA",
+      "author": "許文俊",
+      "sourceUrl": "https://www.inaturalist.org/photos/259982701",
+      "caption": "Cành Ngò om có hoa tím trong tự nhiên",
+      "best": true,
       "kind": "habitat"
     }
   ],

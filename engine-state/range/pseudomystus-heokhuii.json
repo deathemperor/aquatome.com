@@ -1,0 +1,62 @@
+{
+  "id": "pseudomystus-heokhuii",
+  "native": {
+    "input": "e54c3f3ebd2cf6da",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Batang Hari and Indragiri River drainages in Sumatra, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Batang Hari",
+        "source": "scotcat",
+        "quote": "Asia: Batang Hari and Indragiri River drainages in Sumatra, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Indragiri",
+        "source": "scotcat",
+        "quote": "Asia: Batang Hari and Indragiri River drainages in Sumatra, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "scotcat",
+        "quote": "Asia: Batang Hari and Indragiri River drainages in Sumatra, Indonesia.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudomystus heokhuii",
+    "status": "ACCEPTED",
+    "taxonKey": 2338298,
+    "datasets": [
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}

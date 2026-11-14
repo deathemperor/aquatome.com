@@ -49,24 +49,7 @@
     "figures": [
       {
         "heading": "Cá rìu trông thế nào, có những loại nào",
-        "moments": [
-          {
-            "t": 75,
-            "url": "https://media.aquatome.com/video/kcoeJ-4CeHA/at75-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ảnh cá rìu trên màn hình điện thoại, thấy rõ thân và vây chĩa lên.",
-            "sharpness": 599.5
-          },
-          {
-            "t": 445,
-            "url": "https://media.aquatome.com/video/kcoeJ-4CeHA/at445-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cá rìu cận cảnh trên điện thoại, miệng hướng lên và vây rộng.",
-            "sharpness": 314.1
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/kcoeJ-4CeHA/p0-YV8tXzkzMjYuanBn.webp",
           "thumb": "https://media.aquatome.com/video/kcoeJ-4CeHA/p0-YV8tXzkzMjYuanBn-480.webp",
@@ -87,7 +70,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể nhỏ có đá bố cục, đàn cá rìu bơi ở tầng mặt.",
-            "sharpness": 541.7
+            "sharpness": 541.7,
+            "person": false
           },
           {
             "t": 160,
@@ -95,7 +79,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá rìu nhỏ bơi gần mặt nước trong bể khoảng vài chục lít.",
-            "sharpness": 509.1
+            "sharpness": 509.1,
+            "person": false
           }
         ]
       },
@@ -108,7 +93,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá nhỏ bơi gần mặt nước trong bể không có nắp.",
-            "sharpness": 509.6
+            "sharpness": 509.6,
+            "person": false
           },
           {
             "t": 250,
@@ -116,7 +102,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá bơi sát mặt nước, dễ nhảy ra ngoài nếu bể không có nắp.",
-            "sharpness": 525.5
+            "sharpness": 525.5,
+            "person": false
           }
         ]
       },
@@ -129,7 +116,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể bày đá tạo hốc trốn, ít cây, cá bơi gần mặt nước.",
-            "sharpness": 201.1
+            "sharpness": 201.1,
+            "person": false
           }
         ]
       },

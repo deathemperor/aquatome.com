@@ -127,6 +127,16 @@
       "source": "scotcat"
     },
     {
+      "url": "https://media.aquatome.com/commons/aa110ca147bb2ba8.webp",
+      "thumb": "https://media.aquatome.com/commons/aa110ca147bb2ba8-480.webp",
+      "width": 960,
+      "height": 617,
+      "licence": "CC BY-SA 2.0",
+      "author": "Sini Merikallio from Helsinki, Finland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Panaque_cochliodon_-_Blue-eyed_plec_(5936849425).jpg",
+      "caption": "I named him Rambo. He came with the aquarium I bought when 10 years old or so, he was already big. When I was about 17 he died, shortly after which I sold my aquarium as he was 'the fish of my life'. "
+    },
+    {
       "url": "https://media.aquatome.com/scotcat/1a076d54068972ac.webp",
       "thumb": "https://media.aquatome.com/scotcat/1a076d54068972ac-480.webp",
       "width": 500,
@@ -147,16 +157,6 @@
       "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_cochliodon.htm",
       "caption": "Panaque cochliodon",
       "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/aa110ca147bb2ba8.webp",
-      "thumb": "https://media.aquatome.com/commons/aa110ca147bb2ba8-480.webp",
-      "width": 960,
-      "height": 617,
-      "licence": "CC BY-SA 2.0",
-      "author": "Sini Merikallio from Helsinki, Finland",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Panaque_cochliodon_-_Blue-eyed_plec_(5936849425).jpg",
-      "caption": "I named him Rambo. He came with the aquarium I bought when 10 years old or so, he was already big. When I was about 17 he died, shortly after which I sold my aquarium as he was 'the fish of my life'. "
     }
   ],
   "videos": [],
@@ -183,5 +183,86 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-09",
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Rio Magdalena",
+        "Rio Cauca"
+      ],
+      "sources": [
+        "scotcat",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Colombia, Rio Magdalena.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Colombia, Rio Magdalena and Rio Cauca.",
+          "countries": [],
+          "regions": [
+            "Rio Magdalena",
+            "Rio Cauca"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339868,
+      "total": 157,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "CO",
+          156
+        ],
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -75.9375,
+          5.625,
+          10,
+          10
+        ],
+        [
+          -75.9375,
+          7.03125,
+          142,
+          142
+        ],
+        [
+          -75.9375,
+          9.84375,
+          1,
+          1
+        ]
+      ]
+    }
+  }
 }

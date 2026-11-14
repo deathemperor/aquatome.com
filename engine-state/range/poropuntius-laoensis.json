@@ -1,0 +1,56 @@
+{
+  "id": "poropuntius-laoensis",
+  "native": {
+    "input": "ae971662609b8423",
+    "at": "2026-11-13T05:31:31.275Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "glaser",
+        "quote": "It usually lives in clear wood bourns in the catchment area of the huge Mekong River.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Poropuntius laoensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2366191,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        24
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "57bd1d90-6de1-40c8-98a7-acac50ba37d2",
+        1
+      ],
+      [
+        "777dddfc-9b3a-4a68-a2a2-464275f52197",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-13T05:31:31.275Z"
+  }
+}

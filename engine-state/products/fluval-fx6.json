@@ -1,0 +1,433 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Pump output",
+      "value": "3,500 L/h",
+      "source": 0
+    },
+    {
+      "key": "Filtration flow (through media)",
+      "value": "2,130 L/h",
+      "source": 2
+    },
+    {
+      "key": "Power",
+      "value": "41 W (230–240 V version)",
+      "source": 2
+    },
+    {
+      "key": "Power",
+      "value": "43 W",
+      "source": 0
+    },
+    {
+      "key": "Power (US 120 V version)",
+      "value": "43 W; pump output 925 US GPH",
+      "source": 8
+    },
+    {
+      "key": "Recommended tank size",
+      "value": "up to 1,500 L",
+      "source": 0
+    },
+    {
+      "key": "Media capacity",
+      "value": "5.9 L",
+      "source": 0
+    },
+    {
+      "key": "Water capacity of canister",
+      "value": "20 L",
+      "source": 2
+    },
+    {
+      "key": "Max head height",
+      "value": "2.1 m (per Vietnamese shop)",
+      "source": 0
+    },
+    {
+      "key": "Max head height",
+      "value": "3.3 m (per UK retailer)",
+      "source": 9
+    },
+    {
+      "key": "Dimensions",
+      "value": "41 × 42 × 53 cm",
+      "source": 0
+    },
+    {
+      "key": "Dimensions",
+      "value": "400 × 400 × 530 mm",
+      "source": 9
+    },
+    {
+      "key": "Weight (empty)",
+      "value": "9.5 kg",
+      "source": 0
+    },
+    {
+      "key": "Hose inlet/outlet diameter",
+      "value": "26 mm",
+      "source": 0
+    },
+    {
+      "key": "Media trays",
+      "value": "3 large trays, each with 2 baskets",
+      "source": 0
+    },
+    {
+      "key": "Included media",
+      "value": "Foam, Bio-Foam, Biomax, Carbon Foam, media bags",
+      "source": 2
+    },
+    {
+      "key": "Origin",
+      "value": "Made in Italy (Fluval / Hagen, Canada)",
+      "source": 0
+    },
+    {
+      "key": "Warranty",
+      "value": "3-year official manufacturer warranty (stated for the FX range listing)",
+      "source": 3
+    },
+    {
+      "key": "Water type",
+      "value": "Freshwater and saltwater",
+      "source": 1
+    }
+  ],
+  "variants": [
+    {
+      "name": "Fluval FX2",
+      "specs": [
+        {
+          "key": "Tank size",
+          "value": "up to 750 L",
+          "source": 2
+        },
+        {
+          "key": "Pump output",
+          "value": "1,800 L/h",
+          "source": 2
+        },
+        {
+          "key": "Filtration flow",
+          "value": "1,300 L/h",
+          "source": 2
+        },
+        {
+          "key": "Media capacity",
+          "value": "3.9 L",
+          "source": 2
+        },
+        {
+          "key": "Power",
+          "value": "27 W",
+          "source": 2
+        },
+        {
+          "key": "Dimensions",
+          "value": "34 × 34 × 42 cm",
+          "source": 2
+        }
+      ]
+    },
+    {
+      "name": "Fluval FX4",
+      "specs": [
+        {
+          "key": "Tank size",
+          "value": "up to 1,000 L",
+          "source": 4
+        },
+        {
+          "key": "Pump output",
+          "value": "2,650 L/h",
+          "source": 4
+        },
+        {
+          "key": "Filtration flow",
+          "value": "1,700 L/h",
+          "source": 2
+        },
+        {
+          "key": "Media capacity",
+          "value": "3.9 L",
+          "source": 4
+        },
+        {
+          "key": "Power",
+          "value": "30 W",
+          "source": 4
+        },
+        {
+          "key": "Dimensions",
+          "value": "36 × 36 × 42 cm",
+          "source": 4
+        },
+        {
+          "key": "Hose diameter",
+          "value": "24 mm",
+          "source": 4
+        },
+        {
+          "key": "Weight (empty)",
+          "value": "6.5 kg",
+          "source": 4
+        }
+      ]
+    },
+    {
+      "name": "Fluval FX6",
+      "specs": [
+        {
+          "key": "Tank size",
+          "value": "up to 1,500 L",
+          "source": 2
+        },
+        {
+          "key": "Pump output",
+          "value": "3,500 L/h",
+          "source": 2
+        },
+        {
+          "key": "Filtration flow",
+          "value": "2,130 L/h",
+          "source": 2
+        },
+        {
+          "key": "Media capacity",
+          "value": "5.9 L",
+          "source": 2
+        },
+        {
+          "key": "Power",
+          "value": "41 W",
+          "source": 2
+        },
+        {
+          "key": "Dimensions",
+          "value": "40 × 40 × 53 cm",
+          "source": 2
+        }
+      ]
+    }
+  ],
+  "prices": [
+    {
+      "shop": "Thủy Sinh Bích Phương",
+      "url": "https://thuysinhbichphuong.vn/fluval-fx6-filter-loc-thung-cao-cap",
+      "vnd": 11850000,
+      "variant": "FX6 (listed as sold out)",
+      "source": 0
+    },
+    {
+      "shop": "ShopThuySinh.com",
+      "url": "https://shopthuysinh.com/may-loc-be-ca-fluval-fx2-fx4-fx6-xuat-xu-chau-au/",
+      "vnd": 11850000,
+      "variant": "FX6",
+      "source": 2
+    },
+    {
+      "shop": "ShopThuySinh.com",
+      "url": "https://shopthuysinh.com/may-loc-be-ca-fluval-fx2-fx4-fx6-xuat-xu-chau-au/",
+      "vnd": 9750000,
+      "variant": "FX4",
+      "source": 2
+    },
+    {
+      "shop": "Thủy Sinh Bích Phương",
+      "url": "https://thuysinhbichphuong.vn/fluval-fx4-filter-loc-thung-cao-cap",
+      "vnd": 9750000,
+      "variant": "FX4 (in stock)",
+      "source": 4
+    },
+    {
+      "shop": "Tép Màu Quận 3",
+      "url": "https://tepmauquan3.com/loc-thung-fluval-fx2-fx4-fx6-cao-cap-italy",
+      "vnd": 7850000,
+      "variant": "FX2",
+      "source": 3
+    }
+  ],
+  "fits": [
+    {
+      "fact": "Aimed at large tanks of roughly 400–1,500 L.",
+      "source": 1
+    },
+    {
+      "fact": "Can be used on freshwater or marine tanks; for marine, pick media to suit.",
+      "source": 1
+    },
+    {
+      "fact": "Total rated capacity is up to 1,500 L, so it suits big community, monster-fish or heavily stocked tanks.",
+      "source": 0
+    },
+    {
+      "fact": "The FX6 holds more foam than the FX4, which gives it more biological capacity for heavy stocking.",
+      "source": 5
+    },
+    {
+      "fact": "One estimate: about 0.2 cu ft of 30 ppi foam in an FX6 supports roughly 1 lb of fish, and adding similar media in the baskets raises that to about 2 lb.",
+      "source": 5
+    },
+    {
+      "fact": "For smaller tanks, the FX4 (up to 1,000 L) or FX2 (up to 750 L) is a better-sized and cheaper choice.",
+      "source": 2
+    }
+  ],
+  "usage": [
+    {
+      "fact": "Put the canister at least 20 cm below the tank bottom so it gets good water pressure.",
+      "source": 0
+    },
+    {
+      "fact": "Set the intake low near the tank bottom and keep it away from the outlet so filtered water isn't sucked straight back in.",
+      "source": 0
+    },
+    {
+      "fact": "Fill the canister with water before the first start. It starts by itself when plugged in, but give it a few minutes to push out the air.",
+      "source": 0
+    },
+    {
+      "fact": "Never run it dry, because the pump can burn out.",
+      "source": 0
+    },
+    {
+      "fact": "Check the AquaStop valves regularly for leaks. They let you cut off the flow for maintenance without taking the hoses apart.",
+      "source": 0
+    },
+    {
+      "fact": "The shop recommends cleaning every 1–2 months, depending on how heavily the tank is stocked.",
+      "source": 0
+    },
+    {
+      "fact": "The Smart Pump is said to restart by itself after a power cut and to adjust its output.",
+      "source": 1
+    },
+    {
+      "fact": "An independent guide says to clean the foam only when it clogs, not on a fixed schedule, because cleaning strips bacteria that take a month or more to recover.",
+      "source": 5
+    },
+    {
+      "fact": "The same guide advises leaving the trays in, swapping the Biomax ceramic rings for better media, and skipping monthly carbon changes.",
+      "source": 5
+    },
+    {
+      "fact": "Some owners say the impeller and its housing need cleaning about every 3 months, or the pump may not start or may get loud.",
+      "source": 6
+    }
+  ],
+  "issues": [
+    {
+      "fact": "Some new units are reported as very noisy. Often the cause is debris in the impeller or clogged media, and cleaning fixes it.",
+      "source": 6
+    },
+    {
+      "fact": "Air leaking in at the hose connections can cause noise and slow water loss. Tightening the connections fixed it.",
+      "source": 6
+    },
+    {
+      "fact": "The stock ribbed hose is criticised for getting pinholes, cracks and tears, and its unusual size makes replacement fittings hard to find.",
+      "source": 5
+    },
+    {
+      "fact": "The one-direction motor depends on a starter that can fail, so the impeller hums but doesn't spin.",
+      "source": 5
+    },
+    {
+      "fact": "Some buyers report leaks from the impeller housing within months, plus slow warranty and customer-service responses from Fluval.",
+      "source": 7
+    },
+    {
+      "fact": "Specs differ by voltage: the 230 V unit is listed at 41 W and the US 120 V unit at 43 W, and sources disagree on head height (2.1 m vs 3.3 m).",
+      "source": 9
+    },
+    {
+      "fact": "The 3,500 L/h figure is the pump's output with no load. Flow through the media is about 2,130 L/h.",
+      "source": 2
+    },
+    {
+      "fact": "Stock in Vietnam is patchy: one shop shows the FX6 as sold out and another only gives the price on request.",
+      "source": 0
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "Fluval",
+      "model": "FX4",
+      "why": "Same Smart Pump design for less money (about 9.75M VND). It is rated for tanks up to 1,000 L, uses 30 W and is smaller, so it suits mid-size tanks better.",
+      "source": 4
+    },
+    {
+      "brand": "Fluval",
+      "model": "FX2",
+      "why": "Cheapest model in the range (about 7.85M VND), for tanks up to 750 L.",
+      "source": 3
+    },
+    {
+      "brand": "Oase",
+      "model": "BioMaster 850",
+      "why": "A European rival with a larger 8 L media volume for tanks up to 850 L, drawing 32 W. Its flow is lower (1,550 L/h). I didn't confirm a Vietnamese shop price.",
+      "source": 10
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://thuysinhbichphuong.vn/fluval-fx6-filter-loc-thung-cao-cap",
+      "title": "FLUVAL FX6 FILTER - LỌC THÙNG CAO CẤP (Thủy Sinh Bích Phương)",
+      "kind": "shop"
+    },
+    {
+      "url": "https://yeuthuysinh.vn/fluval-fx6-filter-loc-thung-cao-cap",
+      "title": "FLUVAL FX6 FILTER - LỌC THÙNG CAO CẤP (Yêu Thủy Sinh)",
+      "kind": "shop"
+    },
+    {
+      "url": "https://shopthuysinh.com/may-loc-be-ca-fluval-fx2-fx4-fx6-xuat-xu-chau-au/",
+      "title": "Máy lọc bể cá Fluval FX2 FX4 FX6 xuất xứ Châu Âu - ShopThuySinh.com",
+      "kind": "shop"
+    },
+    {
+      "url": "https://tepmauquan3.com/loc-thung-fluval-fx2-fx4-fx6-cao-cap-italy",
+      "title": "Lọc Thùng Fluval FX2 FX4 FX6 Cao Cấp - Tép Màu Quận 3",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhbichphuong.vn/fluval-fx4-filter-loc-thung-cao-cap",
+      "title": "FLUVAL FX4 FILTER - LỌC THÙNG CAO CẤP (Thủy Sinh Bích Phương)",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquariumscience.org/index.php/8-3-3-fx-series-canister-filters",
+      "title": "FX Series Canister Filters - Aquarium Science",
+      "kind": "review"
+    },
+    {
+      "url": "https://www.monsterfishkeepers.com/forums/threads/noisy-fluval-fx6.758237",
+      "title": "Noisy Fluval FX6 - MonsterFishKeepers",
+      "kind": "forum"
+    },
+    {
+      "url": "https://uk.trustpilot.com/review/fluvalaquatics.com",
+      "title": "Fluval Aquatics reviews - Trustpilot UK",
+      "kind": "other"
+    },
+    {
+      "url": "https://www.bulkreefsupply.com/fluval-fx6-canister-filter-fluval.html",
+      "title": "Fluval FX6 Canister Filter - Bulk Reef Supply",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.fishkeeper.co.uk/fluval-fx6-filter",
+      "title": "Fluval FX6 High Performance External Canister Filter - Fishkeeper UK",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.oase.com/en-GB/aquarium/biomaster-850",
+      "title": "OASE BioMaster 850",
+      "kind": "manufacturer"
+    }
+  ]
+}

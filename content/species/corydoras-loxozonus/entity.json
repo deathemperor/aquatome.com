@@ -237,7 +237,12 @@
       "author": "Soulkeeper",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_loxozonus_1.jpg",
       "caption": "Corydoras loxozonus",
-      "thumb": "https://media.aquatome.com/commons/239a8791dc8649af-480.webp"
+      "thumb": "https://media.aquatome.com/commons/239a8791dc8649af-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/239a8791dc8649af-large.webp",
+        "width": 1776,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/d3c8875e91611f0e.webp",

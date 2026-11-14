@@ -11,6 +11,90 @@
     "brazil",
     "rio-negro"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "GY"
+      ],
+      "regions": [
+        "rio Negro",
+        "Rupununi River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Mostly collected in the rio Negro basin, Amazonas state, Brazil, and in particular the rio Demini, a northern tributary flowing into the central Negro in the municipality of Barcelos.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "rio Negro"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "P. leopardus was described from the Rupununi River in Guyana and the identity of this fish thus remains unconfirmed.",
+          "countries": [
+            "GY"
+          ],
+          "regions": [
+            "Rupununi River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339455,
+      "total": 14,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "GY",
+          10
+        ],
+        [
+          "BR",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -61.875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          2.8125,
+          9,
+          9
+        ],
+        [
+          -59.0625,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

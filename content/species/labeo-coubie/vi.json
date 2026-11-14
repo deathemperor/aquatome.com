@@ -1,0 +1,29 @@
+{
+  "slug": "ca-labeo-coubie",
+  "name": "Cá Labeo coubie",
+  "altNames": [
+    "Cá chép châu Phi",
+    "African carp"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<ul><li>Tên thường gọi: cá chép châu Phi</li><li>Xuất xứ: Nigeria</li><li>Dài tối đa 75 cm, nặng tới 5 kg, nhưng thường chỉ lớn tới 25-30 cm</li></ul>",
+    "beforeYouBuy:glaser": "<p>Loài này có thể dài tới 75 cm và nặng tới 5 kg. Dĩ nhiên cá to cỡ đó thỉnh thoảng mới gặp. Thường thì chúng chỉ dài 25-30 cm. Nhưng kể cả vậy, đây vẫn là cá chỉ hợp với bể lớn.</p>",
+    "distribution:glaser": "<p>Châu Phi có rất nhiều loài Labeo, nhưng người chơi cá hầu như không biết tới chúng. Đến các nhà khoa học cũng khó định danh. Mãi tới năm 1990 mới có thêm một loài mới được tìm thấy ở lưu vực sông Niger! Như vậy, sông Niger hiện có bốn loài Labeo đã biết: Labeo parvus, L. roseopunctatus, L. senegalensis và L. coubie. Số cá này được nhập về từ Nigeria.</p>",
+    "behaviour:glaser": "<p>Loài này hay gây gổ với đồng loại, chuyện quen thuộc ở cả nhóm họ hàng Labeo và Epalzeorhynchus, nhưng chúng không làm nhau bị thương. Trong bể nên nuôi một con riêng, hoặc nuôi thành đàn lớn. Thả chung hai ba con thì rất khó ổn lâu dài.</p>",
+    "notes:glaser": "<p>Cá còn nhỏ có một đốm mờ ở đuôi, lớn lên thì đốm này mất. Cá càng lớn thì vây lưng càng to, đến những con lớn nhất thì vây lưng xòe ra như cánh buồm. Mới nhìn thì cá chỉ có màu xám, nhưng mỗi chiếc vảy có một đốm đỏ tím nên trông vẫn đẹp. Màng vây cũng ánh tím.</p><p>Nguồn gốc tên: Labeo nói tới đôi môi dày của các loài trong chi này. Tên coubie lấy theo tên người bán gọi loài này ở chợ cá Cairo (Ai Cập), nơi lấy các mẫu chuẩn.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-11"
+  }
+}

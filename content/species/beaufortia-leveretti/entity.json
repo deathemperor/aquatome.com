@@ -1,0 +1,133 @@
+{
+  "id": "beaufortia-leveretti",
+  "scientificName": "Beaufortia leveretti",
+  "order": "Cypriniformes",
+  "family": "Balitoridae",
+  "genus": "Beaufortia",
+  "group": "loaches",
+  "places": [
+    "asia",
+    "china",
+    "vietnam"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "VN"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It originates from China and Vietnam, but is currently imported from China only.",
+          "countries": [
+            "CN",
+            "VN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205365,
+      "total": 6,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "CN",
+          3
+        ],
+        [
+          "VN",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          21.09375,
+          3,
+          3
+        ],
+        [
+          108.28125,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          108.28125,
+          25.3125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 12,
+          "max": 24
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/hillstream_loach_week_at_aquarium_glaser_part_2_beaufortia_leveretti_en/",
+      "html": "<p>This is by far the most often offered hillstream loach. The whole habitus is very similar to the Sewellia species. The coloration is formed by pretty black spots on a golden background.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/hillstream_loach_week_at_aquarium_glaser_part_2_beaufortia_leveretti_en/",
+      "html": "<p>It originates from China and Vietnam, but is currently imported from China only.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/hillstream_loach_week_at_aquarium_glaser_part_2_beaufortia_leveretti_en/",
+      "html": "<p>B. leveretti is not a tropical fish at all, but comes from moderate climate zones. It is impossible to keep it in the long term at water temperatures above 24°C. The ideal range is 12°C in winter and 21°C in summer. Avoid abrupt jumps in temperature!</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/hillstream_loach_week_at_aquarium_glaser_part_2_beaufortia_leveretti_en/",
+      "html": "<p>B. leveretti is an ideal inhabitant of unheated aquaria and helps you save energy costs.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/hillstream_loach_week_at_aquarium_glaser_part_2_beaufortia_leveretti_en/",
+      "html": "<p>A perfect tankmate for B. leveretti is the White cloud mountain minnow, Tanichthys albonubes. A school of about 15-20 specimens of that fish in the water column and 10-12 Beaufortia form a very nice picture.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc bể cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "quạt làm mát bể cá",
+        "máy làm lạnh nước bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-11"
+}

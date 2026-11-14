@@ -74,18 +74,6 @@
       "kind": "emersed"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/98294780.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/98294780-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Guy Taseski",
-      "sourceUrl": "https://www.inaturalist.org/photos/98294780",
-      "caption": "Hoa vàng của Cây mao lương thủy sinh ngoài tự nhiên",
-      "best": true,
-      "kind": "flower"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/564536573.webp",
       "thumb": "https://media.aquatome.com/inaturalist/564536573-480.webp",
       "width": 1024,
@@ -264,6 +252,18 @@
       "caption": "Cây mao lương thủy sinh ra hoa giữa các cây khác ngoài tự nhiên",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/02a799002cd2b166.webp",
+      "thumb": "https://media.aquatome.com/tropica/02a799002cd2b166-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Ranunculusinundatus(022CTC)/18225",
+      "source": "tropica",
+      "kind": "other",
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/347392273.webp",
@@ -708,9 +708,21 @@
       "caption": "Hai cụm Cây mao lương mọc trên đất ven bờ",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/98294780.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/98294780-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Guy Taseski",
+      "sourceUrl": "https://www.inaturalist.org/photos/98294780",
+      "caption": "Hoa vàng của Cây mao lương thủy sinh ngoài tự nhiên",
+      "best": true,
+      "kind": "flower"
     }
   ],
   "seen": 124,
-  "updatedAt": "2026-11-09",
+  "updatedAt": "2026-11-10",
   "builtAt": "2026-11-09"
 }

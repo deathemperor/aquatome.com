@@ -1,0 +1,280 @@
+{
+  "found": false,
+  "specs": [
+    {
+      "key": "Flow rate",
+      "value": "700 l/h",
+      "source": 0
+    },
+    {
+      "key": "Power consumption",
+      "value": "9 W",
+      "source": 0
+    },
+    {
+      "key": "Recommended aquarium size",
+      "value": "60–200 L",
+      "source": 0
+    },
+    {
+      "key": "Dimensions",
+      "value": "18 × 21 × 35 cm",
+      "source": 1
+    },
+    {
+      "key": "Canister volume",
+      "value": "6.1 L",
+      "source": 1
+    },
+    {
+      "key": "Filter media volume",
+      "value": "3.5 L",
+      "source": 1
+    },
+    {
+      "key": "Hose diameter (in/out)",
+      "value": "12/16 mm",
+      "source": 1
+    },
+    {
+      "key": "Motor warranty (Vietnamese seller claim)",
+      "value": "4 years",
+      "source": 1
+    },
+    {
+      "key": "Status",
+      "value": "Discontinued by JBL; replaced by the CristalProfi e702 greenline",
+      "source": 0
+    }
+  ],
+  "variants": [
+    {
+      "name": "CristalProfi e701 greenline (discontinued)",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "700 l/h",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "9 W",
+          "source": 0
+        },
+        {
+          "key": "Tank size",
+          "value": "60–200 L",
+          "source": 0
+        },
+        {
+          "key": "Canister volume",
+          "value": "6.1 L",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "CristalProfi e702 greenline (successor)",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "700 l/h",
+          "source": 2
+        },
+        {
+          "key": "Tank size",
+          "value": "60–200 L (60–100 cm tank length)",
+          "source": 2
+        },
+        {
+          "key": "Filter volume",
+          "value": "6.1 L",
+          "source": 2
+        },
+        {
+          "key": "Dimensions (L/H/W)",
+          "value": "18 × 20 × 35 cm",
+          "source": 2
+        },
+        {
+          "key": "Power",
+          "value": "9 W",
+          "source": 4
+        },
+        {
+          "key": "Pre-filter surface",
+          "value": "Twice the surface area of the e701",
+          "source": 2
+        }
+      ]
+    },
+    {
+      "name": "Other sizes in the e2 range (e402, e902, e1502, e1902)",
+      "specs": [
+        {
+          "key": "Sold in Vietnam",
+          "value": "Shrimphome lists e402, e702, e902, e1502 and e1902",
+          "source": 3
+        }
+      ]
+    }
+  ],
+  "prices": [
+    {
+      "shop": "Brothers Concept",
+      "url": "https://brothersconcept.vn/loc-thung-jbl-e701",
+      "variant": "e701 (marked out of stock)",
+      "vnd": 3650000,
+      "source": 1
+    },
+    {
+      "shop": "Shrimphome",
+      "url": "https://shrimphome.vn/jbl-cristalprofi-greenline-filter",
+      "variant": "e702",
+      "vnd": 3590000,
+      "source": 3
+    },
+    {
+      "shop": "Sinh Cảnh Việt",
+      "url": "https://sinhcanhviet.com.vn/jbl-cristalprofi-e702",
+      "variant": "e702 (in stock, discounted from 3,450,000₫)",
+      "vnd": 3275000,
+      "source": 4
+    },
+    {
+      "shop": "Carong1068",
+      "url": "https://m.carong1068.com/bo-loc-jbl-cristalprofi-e702-hieu-suat-loc-cao-9w-700lh-3370.htm",
+      "variant": "e702",
+      "vnd": 6350000,
+      "source": 6
+    }
+  ],
+  "fits": [
+    {
+      "fact": "JBL rates it for aquariums of 60–200 litres.",
+      "source": 0
+    },
+    {
+      "fact": "A Vietnamese seller recommends it for tanks under 100 cm long, but gives two different volume limits on the same page (120 L and 160 L).",
+      "source": 1
+    },
+    {
+      "fact": "The e702 is rated for tanks 60–100 cm long.",
+      "source": 2
+    },
+    {
+      "fact": "Avoid placing it beside the tank. If you must, keep the top of the filter at least 20 cm below the water surface, and keep the height difference to the filter bottom within 180 cm.",
+      "source": 2
+    }
+  ],
+  "usage": [
+    {
+      "fact": "It comes ready to connect, with hoses, intake strainer, elbow, suction cups, bio-balls and bio-foam (as listed for the e702).",
+      "source": 2
+    },
+    {
+      "fact": "A quick-start priming button fills the filter, so no manual priming is needed. The button can be stiff at first; press firmly with both hands until it clicks.",
+      "source": 2
+    },
+    {
+      "fact": "Manual restart: drain the filter, open both taps on the head, raise the outlet above the water, and pump START until water flows in. Once it is full, plug it in and shake it gently to release trapped air.",
+      "source": 2
+    },
+    {
+      "fact": "Some gurgling during the first 5–7 days is normal while trapped air leaves the media.",
+      "source": 2
+    },
+    {
+      "fact": "The filter should stand only on its four rubber feet, without touching the cabinet anywhere else, to limit vibration noise.",
+      "source": 2
+    },
+    {
+      "fact": "Clean the hoses and pipes with a brush, because rinsing alone won't remove biofilm. Clean the impeller regularly as well; dirt on it causes noise.",
+      "source": 2
+    },
+    {
+      "fact": "The impeller is a wear part. Replace it as a full set (impeller, shaft and two rubber bearings) once it gets noisy or flow drops.",
+      "source": 2
+    }
+  ],
+  "issues": [
+    {
+      "fact": "The e701 has been discontinued and the Vietnamese shop that listed it shows it as out of stock, so buyers will mostly find the e702.",
+      "source": 1
+    },
+    {
+      "fact": "Differences between versions: the e702 adds a redesigned pre-filter with double the surface area and a coarse pre-filter in the top section.",
+      "source": 2
+    },
+    {
+      "fact": "JBL warns that loose or leaking intake hoses commonly let air in, which causes noise.",
+      "source": 2
+    },
+    {
+      "fact": "Noise after months of use usually comes from a dirty or worn impeller. Impellers and shafts are not covered by the warranty.",
+      "source": 2
+    },
+    {
+      "fact": "Warranty claims vary by seller. One shop advertises 4 years on the motor, another 3 years. JBL gives 2 years, plus 2 more if you register the product.",
+      "source": 2
+    },
+    {
+      "fact": "Vietnamese prices for the same e702 vary widely, from about 3.3 million to 6.35 million VND.",
+      "source": 6
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "JBL",
+      "model": "CristalProfi e702 greenline",
+      "why": "Direct successor with the same flow and tank range plus a bigger pre-filter. In stock in Vietnam for about 3.3–3.6 million VND."
+    },
+    {
+      "brand": "Oase",
+      "model": "BioMaster 2 250/350",
+      "why": "Premium choice with a built-in pre-filter, but much pricier (from about 7.08 million VND at Shrimphome)."
+    },
+    {
+      "brand": "Atman",
+      "model": "RF 701",
+      "why": "Budget canister in a similar flow class, about 1.24–1.78 million VND across the RF range at Shrimphome."
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.jbl.de/en/products/detail/4322/jbl-cristalprofi-e701-greenline?country=ie",
+      "title": "JBL CristalProfi e701 greenline (JBL official)",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://brothersconcept.vn/loc-thung-jbl-e701",
+      "title": "LỌC THÙNG JBL E701 - Brothers Concept",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.jbl.de/en-us/productsv2/detail/25192083",
+      "title": "JBL CRISTALPROFI e702 greenline (JBL official)",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://shrimphome.vn/jbl-cristalprofi-greenline-filter",
+      "title": "JBL CristalProfi Greenline Filter - Shrimphome",
+      "kind": "shop"
+    },
+    {
+      "url": "https://sinhcanhviet.com.vn/jbl-cristalprofi-e702",
+      "title": "Lọc thùng - JBL CristalProfi e702 - Sinh Cảnh Việt",
+      "kind": "shop"
+    },
+    {
+      "url": "https://shrimphome.vn/loc-thung",
+      "title": "Lọc thùng - Shrimphome",
+      "kind": "shop"
+    },
+    {
+      "url": "https://m.carong1068.com/bo-loc-jbl-cristalprofi-e702-hieu-suat-loc-cao-9w-700lh-3370.htm",
+      "title": "Bộ lọc JBL CristalProfi e702 9W 700l/h - Carong1068",
+      "kind": "shop"
+    }
+  ]
+}

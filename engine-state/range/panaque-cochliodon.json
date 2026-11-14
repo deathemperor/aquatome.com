@@ -1,0 +1,99 @@
+{
+  "id": "panaque-cochliodon",
+  "native": {
+    "input": "bd55e881b34fac00",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Colombia, Rio Magdalena.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Colombia, Rio Magdalena and Rio Cauca.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Magdalena",
+        "source": "scotcat",
+        "quote": "South America: Colombia, Rio Magdalena and Rio Cauca.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Rio Cauca",
+        "source": "scotcat",
+        "quote": "South America: Colombia, Rio Magdalena and Rio Cauca.",
+        "country": "CO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Panaque cochliodon",
+    "status": "ACCEPTED",
+    "taxonKey": 2339868,
+    "datasets": [
+      [
+        "0a795556-3b24-4ff7-9113-22eb1bca08a4",
+        126
+      ],
+      [
+        "f442ef1d-7104-4a8c-85d6-a55181d6b265",
+        14
+      ],
+      [
+        "372ac467-9b19-4373-8a0f-85fb3a91b6ca",
+        7
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        3
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        2
+      ],
+      [
+        "0c17fe57-fdea-4c15-a592-24631241215a",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 12,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

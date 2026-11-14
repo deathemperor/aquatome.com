@@ -1,0 +1,243 @@
+{
+  "id": "pseudocrenilabrus-philander",
+  "native": {
+    "input": "cab012f6c627001f",
+    "at": "2026-11-13T05:31:31.275Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The southern mouth-brooder, Pseudocrenilabrus philander, is a cichlid found in eleven countries from the Democratic Republic of Congo to South Africa.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "ZA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The southern mouth-brooder, Pseudocrenilabrus philander, is a cichlid found in eleven countries from the Democratic Republic of Congo to South Africa.",
+        "words": "South Africa",
+        "ok": true
+      },
+      {
+        "code": "MW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Democratic Republic of Congo, Malawi, Zimbabwe, South Africa, Angola, Namibia, Zambia, Tanzania, Botswana, Mozambique, Swaziland.",
+        "words": "Malawi",
+        "ok": true
+      },
+      {
+        "code": "ZW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Democratic Republic of Congo, Malawi, Zimbabwe, South Africa, Angola, Namibia, Zambia, Tanzania, Botswana, Mozambique, Swaziland.",
+        "words": "Zimbabwe",
+        "ok": true
+      },
+      {
+        "code": "AO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Democratic Republic of Congo, Malawi, Zimbabwe, South Africa, Angola, Namibia, Zambia, Tanzania, Botswana, Mozambique, Swaziland.",
+        "words": "Angola",
+        "ok": true
+      },
+      {
+        "code": "NA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Democratic Republic of Congo, Malawi, Zimbabwe, South Africa, Angola, Namibia, Zambia, Tanzania, Botswana, Mozambique, Swaziland.",
+        "words": "Namibia",
+        "ok": true
+      },
+      {
+        "code": "ZM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Democratic Republic of Congo, Malawi, Zimbabwe, South Africa, Angola, Namibia, Zambia, Tanzania, Botswana, Mozambique, Swaziland.",
+        "words": "Zambia",
+        "ok": true
+      },
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Democratic Republic of Congo, Malawi, Zimbabwe, South Africa, Angola, Namibia, Zambia, Tanzania, Botswana, Mozambique, Swaziland.",
+        "words": "Tanzania",
+        "ok": true
+      },
+      {
+        "code": "BW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Democratic Republic of Congo, Malawi, Zimbabwe, South Africa, Angola, Namibia, Zambia, Tanzania, Botswana, Mozambique, Swaziland.",
+        "words": "Botswana",
+        "ok": true
+      },
+      {
+        "code": "MZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Democratic Republic of Congo, Malawi, Zimbabwe, South Africa, Angola, Namibia, Zambia, Tanzania, Botswana, Mozambique, Swaziland.",
+        "words": "Mozambique",
+        "ok": true
+      },
+      {
+        "code": "SZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Democratic Republic of Congo, Malawi, Zimbabwe, South Africa, Angola, Namibia, Zambia, Tanzania, Botswana, Mozambique, Swaziland.",
+        "words": "Swaziland",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Congo",
+        "source": "glaser",
+        "quote": "The fish originate from the upper parts of the Congo river (Lualaba).",
+        "ok": true
+      },
+      {
+        "name": "Lualaba",
+        "source": "glaser",
+        "quote": "The fish originate from the upper parts of the Congo river (Lualaba).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudocrenilabrus philander",
+    "status": "ACCEPTED",
+    "taxonKey": 4285757,
+    "datasets": [
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1970
+      ],
+      [
+        "3ea542dc-885d-4c8a-91a3-64d0a5d78301",
+        1485
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        406
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        48
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        46
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        27
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        25
+      ],
+      [
+        "1b18bab9-abdb-41b4-83c8-368ca2e6d391",
+        21
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        19
+      ],
+      [
+        "d27a7bf0-d78e-46d4-bc74-6b2ae4705367",
+        19
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        16
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        13
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        12
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        11
+      ],
+      [
+        "77929c0a-7506-4b2d-a49d-10fc3312d50d",
+        8
+      ],
+      [
+        "2ca312ee-40cf-49e0-b864-31531b7eba81",
+        7
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        2
+      ],
+      [
+        "d71e908c-f944-4fdd-9872-178754a00805",
+        2
+      ],
+      [
+        "415cdd20-b2a4-45b1-8918-b6a4bf188ffe",
+        1
+      ],
+      [
+        "5da288d0-94ca-4355-a438-11890b726f5b",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ]
+    ],
+    "native": [
+      "CD",
+      "ZA",
+      "MW",
+      "ZW",
+      "AO",
+      "NA",
+      "ZM",
+      "TZ",
+      "BW",
+      "MZ",
+      "SZ"
+    ],
+    "requests": 12,
+    "at": "2026-11-13T05:31:31.275Z"
+  }
+}

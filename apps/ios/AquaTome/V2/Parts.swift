@@ -234,6 +234,8 @@ struct Lockup: View {
   var onDark = false
   /// Its photo as a rounded square, left out where the card shows it already.
   var icon = true
+  /// On a Hôm nay card: its page opens as a post (`Post`).
+  var post = false
   @ScaledMetric(relativeTo: .body) var thumb: CGFloat = 60
   @Environment(TanksModel.self) private var tanks
   @Environment(\.dynamicTypeSize) private var size
@@ -245,7 +247,7 @@ struct Lockup: View {
     let layout = size.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: 8)) : AnyLayout(HStackLayout(spacing: 12))
     let side = min(thumb, 88)
     layout {
-      NavigationLink(value: item) {
+      link {
         layout {
           if icon {
             // A fish's colour worked out here too, so its page opens in it, not in green first.
@@ -303,9 +305,14 @@ struct Lockup: View {
         .accessibilityLabel(Text("Thêm \(item.name) vào bể"))
     } else {
       // The same page the row opens: one stop for VoiceOver, the row.
-      NavigationLink(value: item) { Text(item.kind == .guide ? "Đọc" : "Xem").capsule(onDark) }.buttonStyle(.plain)
+      link { Text(item.kind == .guide ? "Đọc" : "Xem").capsule(onDark) }.buttonStyle(.plain)
         .accessibilityHidden(true)
     }
+  }
+
+  /// To its page, or to it as a post.
+  @ViewBuilder private func link<Label: View>(@ViewBuilder _ label: () -> Label) -> some View {
+    if post { NavigationLink(value: Post(item: item), label: label) } else { NavigationLink(value: item, label: label) }
   }
 
   /// `sub` is a scientific name, in italics, on these; a video series' is its channel.
@@ -405,6 +412,24 @@ struct ClearUnderTopBar: ViewModifier {
   }
 }
 
+/// `ClearUnderTopBar` for a screen with iOS's large title: the band comes once the title has gone up into the bar, when the
+/// page's words are under the bar. Before that it would stand over the title (10 Nov). iOS 17 has no edge to replace.
+struct ClearUnderLargeTitle: ViewModifier {
+  var ground = Color(.systemBackground)
+  @State private var titleGone = false
+  @ScaledMetric(relativeTo: .largeTitle) private var titleHeight: CGFloat = 44
+
+  func body(content: Content) -> some View {
+    if #available(iOS 18, *) {
+      content
+        .onScrollGeometryChange(for: Bool.self) { [titleHeight] in $0.contentOffset.y + $0.contentInsets.top > min(titleHeight, V2Fade.largeTitleAtMost) } action: { _, gone in titleGone = gone }
+        .modifier(ClearUnderTopBar(shown: titleGone, ground: ground))
+    } else {
+      content
+    }
+  }
+}
+
 extension ShapeStyle where Self == Color {
   /// A line under a page's name: the text's colour at 60%. The system's secondary measures 3.5:1 on white, under 4.5:1.
   static var v2Faint: Color { .primary.opacity(0.6) }
@@ -452,12 +477,21 @@ func shelfCard(_ w: CGFloat, across: CGFloat, spacing: CGFloat) -> CGFloat {
   (w + 20 - 36 - across * spacing) / across
 }
 
-/// A card pressed: it gives a little under the finger, as the App Store's do.
+/// A card pressed: it gives a little under the finger, as the App Store's do; with Reduce Motion it dims a little instead
+/// of moving.
 struct CardPress: ButtonStyle {
-  func makeBody(configuration: Configuration) -> some View {
-    configuration.label
-      .scaleEffect(configuration.isPressed ? 0.97 : 1)
-      .animation(.spring(response: 0.3, dampingFraction: 0.7), value: configuration.isPressed)
+  func makeBody(configuration: Configuration) -> some View { Pressed(configuration: configuration) }
+
+  private struct Pressed: View {
+    let configuration: Configuration
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+
+    var body: some View {
+      configuration.label
+        .scaleEffect(configuration.isPressed && !reduceMotion ? 0.97 : 1)
+        .opacity(configuration.isPressed && reduceMotion ? 0.8 : 1)
+        .animation(reduceMotion ? .easeInOut(duration: 0.1) : .spring(response: 0.3, dampingFraction: 0.7), value: configuration.isPressed)
+    }
   }
 }
 

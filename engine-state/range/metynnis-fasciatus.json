@@ -1,0 +1,49 @@
+{
+  "id": "metynnis-fasciatus",
+  "native": {
+    "input": "4e8131a63d9d35a9",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Metynnis fasciatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2353430,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        7
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        2
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

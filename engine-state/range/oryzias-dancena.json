@@ -1,0 +1,135 @@
+{
+  "id": "oryzias-dancena",
+  "native": {
+    "input": "f34f243ccee76fa4",
+    "at": "2026-11-10T23:57:51.686Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Indian ricefish, Oryzias dancena, is widely distributed through eastern and southern India, Sri Lanka, Bangladesh and Myanmar.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Indian ricefish, Oryzias dancena, is widely distributed through eastern and southern India, Sri Lanka, Bangladesh and Myanmar.",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Indian ricefish, Oryzias dancena, is widely distributed through eastern and southern India, Sri Lanka, Bangladesh and Myanmar.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Indian ricefish, Oryzias dancena, is widely distributed through eastern and southern India, Sri Lanka, Bangladesh and Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "There also exist records from the western slope of the Malay Peninsula including Ranong province in southern (Peninsular) Thailand and Penang state, northern Peninsular Malaysia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "There also exist records from the western slope of the Malay Peninsula including Ranong province in southern (Peninsular) Thailand and Penang state, northern Peninsular Malaysia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The elder hobbyists will know this nice blue-eye from India under the name of O. melastigmus; but this is another species, which is hardly ever kept in aquaria.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Hooghly River",
+        "source": "seriouslyfish",
+        "quote": "Described from 'the estuary below Calcutta', which presumably refers to the mouth of the Hooghly River south of Kolkata, West Bengal state, eastern India.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Malay Peninsula",
+        "source": "seriouslyfish",
+        "quote": "There also exist records from the western slope of the Malay Peninsula including Ranong province in southern (Peninsular) Thailand and Penang state, northern Peninsular Malaysia.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Oryzias dancena",
+    "status": "ACCEPTED",
+    "taxonKey": 2368418,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        17
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        14
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        9
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        7
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        5
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        4
+      ],
+      [
+        "a255c20a-10de-4bb7-8ba8-10ba413a9845",
+        1
+      ],
+      [
+        "a4202e55-050a-46a2-9c56-8b8507015ce7",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "LK",
+      "BD",
+      "MM",
+      "TH",
+      "MY"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T23:57:51.686Z"
+  }
+}

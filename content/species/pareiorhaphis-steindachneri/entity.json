@@ -11,6 +11,90 @@
     "santa-catarina",
     "itajai-acu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Cubatão",
+        "Itapocu",
+        "Itajaí-Açu",
+        "Tubarão",
+        "Araranguá"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio Itapucú, Santa Catharina, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Cubatão, Itapocu, and Itajaí-Açu River basins in Brazil, in the states of Paraná and Santa Catarina.",
+          "countries": [],
+          "regions": [
+            "Cubatão",
+            "Itapocu",
+            "Itajaí-Açu"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Rivers of Santa Catarina State: Cubatão, Tubarão and Araranguá.",
+          "countries": [],
+          "regions": [
+            "Tubarão",
+            "Araranguá"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340203,
+      "total": 85,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "BR",
+          85
+        ]
+      ],
+      "cells": [
+        [
+          -50.625,
+          -28.125,
+          30,
+          30
+        ],
+        [
+          -50.625,
+          -26.71875,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -28.125,
+          21,
+          21
+        ],
+        [
+          -49.21875,
+          -26.71875,
+          32,
+          32
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

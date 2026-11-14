@@ -1,0 +1,166 @@
+{
+  "id": "opsarius-koratensis",
+  "native": {
+    "input": "2efc5b829fbf2ba4",
+    "at": "2026-11-10T23:57:51.686Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Opsarius koratensis is relatively widespread in Southeast Asia and colonizes the river systems of the Mekong, the Chao Phraya and the Xe Bangfai (Thailand, Cambodia, Laos and parts of China).",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Opsarius koratensis is relatively widespread in Southeast Asia and colonizes the river systems of the Mekong, the Chao Phraya and the Xe Bangfai (Thailand, Cambodia, Laos and parts of China).",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Opsarius koratensis is relatively widespread in Southeast Asia and colonizes the river systems of the Mekong, the Chao Phraya and the Xe Bangfai (Thailand, Cambodia, Laos and parts of China).",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Opsarius koratensis is relatively widespread in Southeast Asia and colonizes the river systems of the Mekong, the Chao Phraya and the Xe Bangfai (Thailand, Cambodia, Laos and parts of China).",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Mun is a tributary of the Mekong River and this species is widely-distributed throughout the middle and lower Mekong in Thailand, Laos, and Cambodia, as well as the Chao Phraya and Mae Klong systems in central and western Thailand, respectively, plus the Dong Nai drainage in southern Vietnam.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Mun is a tributary of the Mekong River and this species is widely-distributed throughout the middle and lower Mekong in Thailand, Laos, and Cambodia, as well as the Chao Phraya and Mae Klong systems in central and western Thailand, respectively, plus the Dong Nai drainage in southern Vietnam.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Mun is a tributary of the Mekong River and this species is widely-distributed throughout the middle and lower Mekong in Thailand, Laos, and Cambodia, as well as the Chao Phraya and Mae Klong systems in central and western Thailand, respectively, plus the Dong Nai drainage in southern Vietnam.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Mun is a tributary of the Mekong River and this species is widely-distributed throughout the middle and lower Mekong in Thailand, Laos, and Cambodia, as well as the Chao Phraya and Mae Klong systems in central and western Thailand, respectively, plus the Dong Nai drainage in southern Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "There also exists at least one record from the upper Mekong in southern China (Yunnan province).",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "The Mun is a tributary of the Mekong River and this species is widely-distributed throughout the middle and lower Mekong in Thailand, Laos, and Cambodia, as well as the Chao Phraya and Mae Klong systems in central and western Thailand, respectively, plus the Dong Nai drainage in southern Vietnam.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "The Mun is a tributary of the Mekong River and this species is widely-distributed throughout the middle and lower Mekong in Thailand, Laos, and Cambodia, as well as the Chao Phraya and Mae Klong systems in central and western Thailand, respectively, plus the Dong Nai drainage in southern Vietnam.",
+        "ok": true
+      },
+      {
+        "name": "Mae Klong",
+        "source": "seriouslyfish",
+        "quote": "The Mun is a tributary of the Mekong River and this species is widely-distributed throughout the middle and lower Mekong in Thailand, Laos, and Cambodia, as well as the Chao Phraya and Mae Klong systems in central and western Thailand, respectively, plus the Dong Nai drainage in southern Vietnam.",
+        "ok": true
+      },
+      {
+        "name": "Dong Nai",
+        "source": "seriouslyfish",
+        "quote": "The Mun is a tributary of the Mekong River and this species is widely-distributed throughout the middle and lower Mekong in Thailand, Laos, and Cambodia, as well as the Chao Phraya and Mae Klong systems in central and western Thailand, respectively, plus the Dong Nai drainage in southern Vietnam.",
+        "ok": true
+      },
+      {
+        "name": "Xe Bangfai",
+        "source": "glaser",
+        "quote": "Opsarius koratensis is relatively widespread in Southeast Asia and colonizes the river systems of the Mekong, the Chao Phraya and the Xe Bangfai (Thailand, Cambodia, Laos and parts of China).",
+        "ok": true
+      },
+      {
+        "name": "Mun",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Mun River at Tachang (Ta-Chang), Nakorn-Rajsima, Korat District, eastern Thailand'.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Opsarius koratensis",
+    "status": "ACCEPTED",
+    "taxonKey": 5205418,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        52
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        18
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        3
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        2
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "KH",
+      "LA",
+      "CN",
+      "VN"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T23:57:51.686Z"
+  }
+}

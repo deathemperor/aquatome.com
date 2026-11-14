@@ -1,0 +1,42 @@
+{
+  "id": "nomorhamphus-ebrardtii",
+  "native": {
+    "input": "6ea18a75a59c3a64",
+    "at": "2026-11-10T20:57:55.515Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Sulawesi",
+        "source": "glaser",
+        "quote": "This livebearing fish lives endemic (exclusively there) on the island of Sulawesi, formerly known as Celebes.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Nomorhamphus ebrardtii",
+    "status": "ACCEPTED",
+    "taxonKey": 2369046,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        11
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        2
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-10T20:57:55.515Z"
+  }
+}

@@ -1,14 +1,27 @@
 {
  "queue": [],
  "judged": [
-  "File:Stream fish from Araguaia and Rio da Mortes basin.png"
+  "File:Stream fish from Araguaia and Rio da Mortes basin.png",
+  "inat:47566298",
+  "inat:47566306",
+  "inat:118570943",
+  "inat:124364903",
+  "inat:217009464",
+  "inat:479746768"
  ],
  "hashes": {
   "https://media.aquatome.com/scotcat/7f0a435e6f624c42.webp": "191996d74637671d",
   "https://media.aquatome.com/scotcat/b2c2be60c81941f9.webp": "c4ccdd73e2bf3ed9",
-  "https://media.aquatome.com/scotcat/3506a9babf10dd78.webp": "4bcdd129298c999c",
   "https://media.aquatome.com/scotcat/32e220d5e7d9d414.webp": "c000646f78810341",
   "https://media.aquatome.com/commons/dfbeb19c1114a1ea.webp": "5ed911c171622649"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 619226,
+  "pass": "done",
+  "after": {
+   "research": 266951897,
+   "agree": 0
+  }
+ }
 }

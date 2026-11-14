@@ -1,9 +1,10 @@
 {
   "slug": "ca-dia-tinh-pantanal",
-  "name": "Cá địa tinh Pantanal",
+  "name": "Cá hải hồ pappaterra",
   "altNames": [
     "Cá ăn đất Pantanal",
-    "Pantanal Eartheater"
+    "Pantanal Eartheater",
+    "Cá địa tinh Pantanal"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<ul><li>Độ khó: Khó, vì cá cần bể dài ít nhất 2 m.</li></ul>",
@@ -26,5 +27,6 @@
     "bySource": {
       "seriouslyfish": 0.9
     }
-  }
+  },
+  "nameFixed": true
 }

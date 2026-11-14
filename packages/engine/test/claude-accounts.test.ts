@@ -19,7 +19,7 @@ vi.mock('node:child_process', () => ({
     const token = opts.env?.CLAUDE_CODE_OAUTH_TOKEN
     spawned.push({ token: opts.env ? token : undefined, list: !!opts.env?.CLAUDE_CODE_OAUTH_TOKENS })
     const child = Object.assign(new EventEmitter(), { stdout: new PassThrough(), stderr: new PassThrough(), stdin: new PassThrough(), kill: () => true })
-    const a = opts.env ? ANSWERS[token!]! : ANSWERS['tok-ok']!
+    const a = token ? ANSWERS[token]! : ANSWERS['tok-ok']!
     child.stdin.on('finish', () => {
       child.stdout.end(JSON.stringify(a.json))
       setImmediate(() => child.emit('close', a.code))
@@ -28,7 +28,7 @@ vi.mock('node:child_process', () => ({
   },
 }))
 const { LlmError, claudeCli } = await import('../src/claude')
-const { accountReport, outOf, parseTokens, rejectedTokens, resetAccounts, resetOf, tokenHash } = await import('../src/claude-accounts')
+const { accountReport, envFor, NotTheAccount, onAccounts, outOf, parseTokens, rejectedTokens, resetAccounts, resetOf, tokenHash } = await import('../src/claude-accounts')
 const { errorKind } = await import('../src/state')
 const call = () => claudeCli<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {} })
 const h = (t: string) => tokenHash(t)
@@ -41,7 +41,13 @@ const setTokens = (list?: string, one?: string) => {
   else process.env.CLAUDE_CODE_OAUTH_TOKEN = one
 }
 let logs: string[] = []
+// A starting position set in the shell that runs the tests would move every default-order case (the cycles set it as
+// a repository variable): none here but a test's own.
+const savedFirst = process.env.CLAUDE_FIRST_ACCOUNT
 beforeEach(() => {
+  // A stand-in call must not be written to a real cost log (vitest.config.ts): `off` is no log.
+  process.env.ENGINE_COST_LOG = 'off'
+  delete process.env.CLAUDE_FIRST_ACCOUNT
   spawned.length = 0
   logs = []
   resetAccounts()
@@ -49,6 +55,8 @@ beforeEach(() => {
 })
 afterEach(() => {
   setTokens(saved.list, saved.one)
+  if (savedFirst === undefined) delete process.env.CLAUDE_FIRST_ACCOUNT
+  else process.env.CLAUDE_FIRST_ACCOUNT = savedFirst
   vi.restoreAllMocks()
 })
 
@@ -86,6 +94,44 @@ test('token 1 out of its weekly limit: the same call answers on token 2, and lat
     `token 2 (${h('tok-ok')}): 2 answered`,
   ])
   expect(logs).toEqual([`claude: token 1 (${h('tok-weekly')}) set aside: usage limit until Nov 5 at 6am (UTC)`])
+})
+
+// The cloud's list begins with the Mac's two sign-ins; the chief of staff (2026-11-12): the cloud starts on its third and
+// leaves those to the Mac until the third is out.
+test('CLAUDE_FIRST_ACCOUNT: a call starts at that position, goes round to the start when it is out, and reports keep the list\'s numbers', async () => {
+  const saved = process.env.CLAUDE_FIRST_ACCOUNT
+  try {
+    setTokens('tok-ok\ntok-ok-2\ntok-weekly\n')
+    process.env.CLAUDE_FIRST_ACCOUNT = '2'
+    expect(await call()).toEqual({ ok: true })
+    expect(spawned.map(s => s.token)).toEqual(['tok-ok-2'])
+    // The third, out of its limit: the call goes on to the first, round the list, never back to the third.
+    resetAccounts()
+    spawned.length = 0
+    process.env.CLAUDE_FIRST_ACCOUNT = '3'
+    expect(await call()).toEqual({ ok: true })
+    expect(await call()).toEqual({ ok: true })
+    expect(spawned.map(s => s.token)).toEqual(['tok-weekly', 'tok-ok', 'tok-ok'])
+    expect(accountReport()).toEqual([
+      `token 3 (${h('tok-weekly')}): 0 answered; set aside: usage limit until Nov 5 at 6am (UTC)`,
+      `token 1 (${h('tok-ok')}): 2 answered`,
+      `token 2 (${h('tok-ok-2')}): 0 answered`,
+    ])
+    // Unset, empty, or no position in the list: the first, as before.
+    for (const v of [undefined, '', '0', '4', '-1', '1.5', 'third']) {
+      resetAccounts()
+      spawned.length = 0
+      if (v === undefined) delete process.env.CLAUDE_FIRST_ACCOUNT
+      else process.env.CLAUDE_FIRST_ACCOUNT = v
+      await call()
+      expect(spawned.map(s => s.token), String(v)).toEqual(['tok-ok'])
+    }
+    // The child never sees it: every CLAUDE name is dropped from its environment.
+    expect(envFor('tok-ok').CLAUDE_FIRST_ACCOUNT).toBeUndefined()
+  } finally {
+    if (saved === undefined) delete process.env.CLAUDE_FIRST_ACCOUNT
+    else process.env.CLAUDE_FIRST_ACCOUNT = saved
+  }
 })
 
 test('every token out: the usage limit as before (errorKind usage), and later calls fail without calling', async () => {
@@ -132,6 +178,38 @@ test('the list, then the single secret: the first account takes its turn last, a
   expect(spawned.map(s => s.token)).toEqual(['tok-weekly', 'tok-bad'])
   expect(errorKind(e.message)).toBe('usage')
   expect(rejectedTokens()).toBe(`token 2 (${h('tok-bad')}) in CLAUDE_CODE_OAUTH_TOKEN`)
+})
+
+// The engine's own ceiling for the day (ceiling.ts) reads as a usage limit to the steps. It is not the account's: the
+// account stays in use and the next one isn't tried, before the first try or between two.
+test('a stop that is not the account\'s goes straight up: no account is set aside and the next is not tried', async () => {
+  const ceiling = 'claude failed: the engine\'s daily limit reached for run ($30.00 of $30 today)'
+  const fail = (m: string) => new LlmError(m)
+  setTokens('tok-one\ntok-two')
+  const tried: (string | undefined)[] = []
+  const first = await onAccounts(async t => { tried.push(t); throw new NotTheAccount(ceiling) }, fail).catch((e: unknown) => e)
+  expect(first).toBeInstanceOf(LlmError)
+  expect((first as Error).message).toBe(ceiling)
+  expect(errorKind((first as Error).message)).toBe('usage')
+  expect(tried).toEqual(['tok-one'])
+  // The first account runs out for real, and by the time the second would be tried the step is at its ceiling.
+  tried.length = 0
+  const second = await onAccounts(async t => {
+    tried.push(t)
+    throw t === 'tok-one' ? new LlmError("claude failed (1): You've hit your weekly limit · resets Nov 14 at 8am (Asia/Saigon)") : new NotTheAccount(ceiling)
+  }, fail).catch((e: unknown) => e)
+  expect((second as Error).message).toBe(ceiling)
+  expect(tried).toEqual(['tok-one', 'tok-two'])
+  const report = accountReport()
+  expect(report).toHaveLength(2)
+  expect(report[0]).toContain('usage limit')
+  expect(report[1]).toBe(`token 2 (${tokenHash('tok-two')}): 0 answered`)
+  // With no account at all (the CLI's own login), the same.
+  setTokens()
+  resetAccounts()
+  const none = await onAccounts(async () => { throw new NotTheAccount(ceiling) }, fail).catch((e: unknown) => e)
+  expect(none).toBeInstanceOf(LlmError)
+  expect((none as Error).message).toBe(ceiling)
 })
 
 test('any other failure fails the call on its own account, which stays in use', async () => {

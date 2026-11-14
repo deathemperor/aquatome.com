@@ -1,0 +1,43 @@
+{
+  "id": "liobagrus-chengduensis",
+  "native": {
+    "input": "7495032304802b81",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "China: Xihe River, a tributary of the Minjiang River, Qionglai City, Chengdu City, Sichuan Province, China.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Minjiang River",
+        "source": "scotcat",
+        "quote": "China: Xihe River, a tributary of the Minjiang River, Qionglai City, Chengdu City, Sichuan Province, China.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Xihe River",
+        "source": "scotcat",
+        "quote": "China: Xihe River, a tributary of the Minjiang River, Qionglai City, Chengdu City, Sichuan Province, China.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "unmatched": true,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}

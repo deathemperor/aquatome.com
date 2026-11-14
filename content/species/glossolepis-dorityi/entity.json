@@ -1,0 +1,120 @@
+{
+  "id": "glossolepis-dorityi",
+  "scientificName": "Glossolepis dorityi",
+  "order": "Atheriniformes",
+  "family": "Melanotaeniidae",
+  "genus": "Glossolepis",
+  "group": "rainbowfish",
+  "places": [
+    "oceania",
+    "indonesia"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Nenggwambu"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Glossolepis dorityi \"Lake Nenggwambu\" originates from West Papua.",
+          "countries": [],
+          "regions": [
+            "Lake Nenggwambu"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5214487,
+      "total": 2,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "ID",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          139.21875,
+          -2.8125,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 28,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 15
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/glossolepis_dorityi_lake_nenggwambu__en/",
+      "html": "<p>Glossolepis dorityi \"Lake Nenggwambu\" originates from West Papua. Males attain a maximum length of about 15 cm, females stay smaller. The females have only quite dull colours.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/glossolepis_dorityi_lake_nenggwambu__en/",
+      "html": "<p>Glossolepis dorityi \"Lake Nenggwambu\" does best at comparatively high water temperatures (28°C), medium hard water, a pH around 7 and regular water changes.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/glossolepis_dorityi_lake_nenggwambu__en/",
+      "html": "<p>Males attain a maximum length of about 15 cm, females stay smaller. The females have only quite dull colours. Males need about one year to reach a length of 7-8 cm. At that size they already display splendid colours.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/glossolepis_dorityi_lake_nenggwambu__en/",
+      "html": "<p>The males circle around each other and the females with fins fully displayed. The females are led into the plantation where they spawn. These continuous spawners spawn some eggs daily. Over one week the breeder can obtain more than 100 eggs from one male and two females. The newly hatched larvae must be fed with infusoria or similarly small food, because Artemia nauplii are much too large for them.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100w",
+        "máy sưởi thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia nở",
+        "thức ăn cá cầu vồng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy lọc bể thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

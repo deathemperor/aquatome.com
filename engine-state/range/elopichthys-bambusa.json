@@ -1,8 +1,8 @@
 {
   "id": "elopichthys-bambusa",
   "native": {
-    "input": "64e9f907e4ae5995",
-    "at": "2026-11-08T03:17:10.020Z",
+    "input": "73d8421a36890395",
+    "at": "2026-11-14T00:09:29.977Z",
     "claims": [
       {
         "code": "RU",
@@ -48,25 +48,31 @@
       {
         "code": "CN",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Type locality is given simply as 'Canton, China'.",
+        "source": "glaser",
+        "quote": "Elopichthys bambusa occurs in China and Siberia.",
         "words": "China",
         "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Amur River",
+        "name": "Amur",
         "source": "seriouslyfish",
-        "quote": "Widely distributed in eastern Asia, between the Amur River in the Russian Federation and the Lam drainage in northern Vietnam, and thus occurs in several major river systems of China.",
+        "quote": "Elopichthys bambusa is a large predatory cyprinid of eastern Asia, from the Amur River in Russia to the Lam drainage in northern Vietnam.",
         "country": "RU",
         "ok": true
       },
       {
         "name": "Lam",
         "source": "seriouslyfish",
-        "quote": "Widely distributed in eastern Asia, between the Amur River in the Russian Federation and the Lam drainage in northern Vietnam, and thus occurs in several major river systems of China.",
+        "quote": "Elopichthys bambusa is a large predatory cyprinid of eastern Asia, from the Amur River in Russia to the Lam drainage in northern Vietnam.",
         "country": "VN",
+        "ok": true
+      },
+      {
+        "name": "Siberia",
+        "source": "glaser",
+        "quote": "Elopichthys bambusa occurs in China and Siberia.",
         "ok": true
       }
     ],

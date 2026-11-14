@@ -1,8 +1,9 @@
 {
   "slug": "ca-an-dat-parnaiba",
-  "name": "Cá ăn đất Parnaíba",
+  "name": "Cá hải hồ parnaibae",
   "altNames": [
-    "Geophagus sp. 'Parnaíba'"
+    "Geophagus sp. 'Parnaíba'",
+    "Cá ăn đất Parnaíba"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<ul><li>Kích thước tối đa: 120 mm SL (chiều dài chuẩn)</li><li>Kích thước bể: 100 × 45 cm</li><li>Nhiệt độ: 24–31°C</li><li>pH: 6,5–7,6</li><li>Độ cứng: 2–10 dGH</li><li>Độ khó: trung bình (7 trên 8 tiêu chí)</li></ul>",
@@ -25,5 +26,6 @@
     "bySource": {
       "seriouslyfish": 0.82
     }
-  }
+  },
+  "nameFixed": true
 }

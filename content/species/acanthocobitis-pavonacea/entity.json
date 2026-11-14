@@ -28,11 +28,13 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Type locality is simply 'Assam, India', and this species appears restricted to the Brahmaputra River drainage in Assam State, northeastern India and probably the neighbouring state of West Bengal given that A. longipinnis, a synonym of this species (see 'Notes'), was described from the Ganges drainage.",
+          "quote": "The peacock loach, Acanthocobitis pavonacea, is a large nemacheilid loach from the Brahmaputra River drainage in Assam, northeastern India.",
           "countries": [
             "IN"
           ],
-          "regions": []
+          "regions": [
+            "Brahmaputra"
+          ]
         },
         {
           "source": "seriouslyfish",
@@ -41,7 +43,6 @@
             "BD"
           ],
           "regions": [
-            "Brahmaputra",
             "Ganges"
           ]
         }

@@ -223,6 +223,7 @@ struct BlockedPage: View {
           .accessibilityIdentifier("blocked-none")
       }
     }
+    .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
     .navigationTitle("Người đã chặn")
     .navigationBarTitleDisplayMode(.inline)
   }

@@ -1,0 +1,117 @@
+{
+  "id": "cyprinion-semiplotum",
+  "native": {
+    "input": "d7aea60fa0d3c321",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species originates from the north of India, Nepal and Bhutan.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species originates from the north of India, Nepal and Bhutan.",
+        "words": "Nepal",
+        "ok": true
+      },
+      {
+        "code": "BT",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species originates from the north of India, Nepal and Bhutan.",
+        "words": "Bhutan",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ganges",
+        "source": "glaser",
+        "quote": "This unique carp lives exclusively in clear mountain streams in the Himalaya, which flow to the Ganges and the Brahmaputra.",
+        "ok": true
+      },
+      {
+        "name": "Brahmaputra",
+        "source": "glaser",
+        "quote": "This unique carp lives exclusively in clear mountain streams in the Himalaya, which flow to the Ganges and the Brahmaputra.",
+        "ok": true
+      },
+      {
+        "name": "Himalaya",
+        "source": "glaser",
+        "quote": "This unique carp lives exclusively in clear mountain streams in the Himalaya, which flow to the Ganges and the Brahmaputra.",
+        "ok": true
+      },
+      {
+        "name": "Sankosh",
+        "source": "glaser",
+        "quote": "The specimens currently traded are said to originate from the Sankosh and Torsa rivers in North Bengal.",
+        "ok": true
+      },
+      {
+        "name": "Torsa",
+        "source": "glaser",
+        "quote": "The specimens currently traded are said to originate from the Sankosh and Torsa rivers in North Bengal.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cyprinion semiplotum",
+    "status": "ACCEPTED",
+    "taxonKey": 2363439,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        8
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        8
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "926f3dd4-89d9-4cbd-8ed7-32fb6fcfa861",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "NP",
+      "BT"
+    ],
+    "requests": 12,
+    "at": "2026-11-12T13:29:05.219Z"
+  }
+}

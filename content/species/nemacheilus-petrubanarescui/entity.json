@@ -10,6 +10,69 @@
     "india",
     "netravati"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Netravati",
+        "Kabini",
+        "Western Ghats",
+        "Kumaradhara"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Mesonoemacheilus petrubanarescui is a loach from the Netravati and Kabini river basins in the Western Ghats of southern India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Netravati",
+            "Kabini",
+            "Western Ghats"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's unclear if M. petrubanarescui occurs elsewhere in the Cauvery basin but it has been recorded in the Kumaradhara drainage, a major tributary of the Netravati.",
+          "countries": [],
+          "regions": [
+            "Kumaradhara"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205326,
+      "total": 13,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "IN",
+          13
+        ]
+      ],
+      "cells": [
+        [
+          74.53125,
+          11.25,
+          6,
+          6
+        ],
+        [
+          74.53125,
+          12.65625,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -3,6 +3,7 @@ import type { PageDoc } from '@aq/schema/app-page'
 import { figuresOf, isBreed, sectionsOf, type Facts, type Handbook, type Item, type Lang, type PlantFacts } from './handbook'
 import type { TankCheck } from '../../src/scripts/tank-check'
 import { addedOf, drawnOf, summed, type MatesCheck, type Mine } from './mates'
+import type { Clash } from './clashes'
 
 /**
  * Claude's answer and the blocks the Worker fills from it (protocols/chat.openapi.json). Claude writes the text and
@@ -20,6 +21,7 @@ export const MAX_FISH = 6
 export const MAX_SUGGESTIONS = 3
 
 const nullable = (s: Record<string, unknown>) => ({ anyOf: [s, { type: 'null' }] })
+const PLACE = { type: 'object', additionalProperties: false, required: ['path', 'passage'], properties: { path: { type: 'string' }, passage: { type: 'string' } } } as const
 /**
  * The answer's schema (output_config.format): what structured outputs take, every object closed and every field required.
  * `offTopic`, then `text`, stay first: structured outputs write the keys in the schema's order, the reader sees the text
@@ -28,10 +30,10 @@ const nullable = (s: Record<string, unknown>) => ({ anyOf: [s, { type: 'null' }]
 export const ANSWER_SCHEMA = {
   type: 'object',
   additionalProperties: false,
-  required: ['offTopic', 'text', 'covered', 'blocks', 'suggestions'],
+  required: ['offTopic', 'text', 'covered', 'blocks', 'suggestions', 'clashes'],
   properties: {
     offTopic: { type: 'boolean', description: 'true when the question isn\'t about keeping fish, shrimp, snails or plants, their tanks, ponds, water or gear: then the text is one short line and nothing else.' },
-    text: { type: 'string', description: 'In the reader\'s language, plain text, no markdown. A problem: the likely cause in a sentence or two, the steps in order one per line ("1. "), then what to watch. A quick question: two or three sentences. Never refer to the blocks. Figures from a page read first, common hobby figures from your own knowledge, never a dose no page gives.' },
+    text: { type: 'string', description: 'In the reader\'s language, plain text, no markdown. A problem: the likely cause in a sentence or two, the steps in order one per line, each with its figure ("1. "), then what to watch, and last the readings that would decide the cause when the reader hasn\'t given them. A quick question: two or three sentences, with the figures and the method when it asks for them. Never refer to the blocks or to earlier answers. Figures from a page read first, common hobby figures from your own knowledge, never a dose no page gives.' },
     covered: { type: 'boolean', description: 'false when the handbook doesn\'t answer the question: say so in the text, and show the nearest page.' },
     blocks: {
       type: 'array',
@@ -63,11 +65,16 @@ export const ANSWER_SCHEMA = {
       },
     },
     suggestions: { type: 'array', items: { type: 'string' }, description: 'Up to three next questions the reader may ask, in their language, short.' },
+    clashes: {
+      type: 'array',
+      description: 'Almost always empty. Only where what you read disagrees: the two places, each a page\'s path and its passage word for word as read_page gave it. The reader never sees this.',
+      items: { type: 'object', additionalProperties: false, required: ['a', 'b'], properties: { a: PLACE, b: PLACE } },
+    },
   },
 } as const
 
 export type Choice = { t: (typeof BLOCKS)[number]; ids: string[]; path: string | null; heading: string | null; tool: ToolName | null; fish: { id: string; count: number }[]; tank: { l: number; w: number; h: number } | null; tankId: string | null }
-export type Answer = { offTopic: boolean; text: string; covered: boolean; blocks: Choice[]; suggestions: string[] }
+export type Answer = { offTopic: boolean; text: string; covered: boolean; blocks: Choice[]; suggestions: string[]; clashes: Clash[] }
 
 /**
  * What an off-topic question gets, in the reader's language, whatever Claude wrote: one friendly line back to what the
@@ -89,8 +96,8 @@ export function readAnswer(m: Anthropic.Message): Answer | undefined {
   const text = m.content.flatMap(b => (b.type === 'text' ? [b.text] : [])).join('')
   try {
     const a = JSON.parse(text) as Answer
-    if (a.offTopic === true) return { offTopic: true, text: '', covered: true, blocks: [], suggestions: [] }
-    return typeof a.text === 'string' && a.text.trim().length >= MIN_TEXT && typeof a.covered === 'boolean' && Array.isArray(a.blocks) && Array.isArray(a.suggestions) ? { ...a, offTopic: false } : undefined
+    if (a.offTopic === true) return { offTopic: true, text: '', covered: true, blocks: [], suggestions: [], clashes: [] }
+    return typeof a.text === 'string' && a.text.trim().length >= MIN_TEXT && typeof a.covered === 'boolean' && Array.isArray(a.blocks) && Array.isArray(a.suggestions) ? { ...a, offTopic: false, clashes: Array.isArray(a.clashes) ? a.clashes : [] } : undefined
   } catch {
     return undefined
   }

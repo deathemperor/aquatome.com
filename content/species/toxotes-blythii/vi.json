@@ -1,0 +1,26 @@
+{
+  "slug": "ca-cung-thu-mien-dien",
+  "name": "Cá cung thủ Miến Điện",
+  "altNames": [
+    "Cá cung thủ Blyth",
+    "Burmese archerfish"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Loài cá cung thủ này chỉ sống trong nước ngọt và có nguồn gốc từ Miến Điện.</p>",
+    "notes:glaser": "<p>Cá trong đợt nhập hiện nay có hoa văn rất đồng đều, khá khác với những con thấy ở các đợt nhập trước. Có thể số cá này thậm chí là một loài khoa học chưa biết tới. Có nhiều dấu hiệu cho thấy người ta vẫn chưa nắm hết cá cung thủ đa dạng tới đâu và có bao nhiêu loài. Hiện chi Toxotes mới chỉ có 7 loài được công nhận.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-11"
+  }
+}

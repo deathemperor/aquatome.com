@@ -1,0 +1,131 @@
+{
+  "id": "polycentropsis-abbreviata",
+  "native": {
+    "input": "d57105e57a890637",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The African leaf fish, Polycentropsis abbreviata, is a predatory leaf fish from Nigeria, Benin, Cameroon and Gabon.",
+        "words": "Nigeria",
+        "ok": true
+      },
+      {
+        "code": "BJ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The African leaf fish, Polycentropsis abbreviata, is a predatory leaf fish from Nigeria, Benin, Cameroon and Gabon.",
+        "words": "Benin",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The African leaf fish, Polycentropsis abbreviata, is a predatory leaf fish from Nigeria, Benin, Cameroon and Gabon.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The African leaf fish, Polycentropsis abbreviata, is a predatory leaf fish from Nigeria, Benin, Cameroon and Gabon.",
+        "words": "Gabon",
+        "ok": true
+      },
+      {
+        "code": "BJ",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The P. abbreviata that still exists today comes from West Africa, from Benin to Gabon.",
+        "words": "Benin",
+        "ok": true
+      },
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The P. abbreviata that still exists today comes from West Africa, from Benin to Gabon.",
+        "words": "Gabon",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Polycentropsis abbreviata",
+    "status": "ACCEPTED",
+    "taxonKey": 2399376,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        19
+      ],
+      [
+        "5e1d2d54-f5db-43ac-87c5-55a9f79ac718",
+        13
+      ],
+      [
+        "d2724ca9-8ccd-416e-9837-7aee75f67422",
+        4
+      ],
+      [
+        "8e912d78-6259-44e3-8f58-debb3081a15f",
+        3
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        2
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "2ba30ed2-6f82-480c-a892-4c8749508324",
+        1
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ],
+      [
+        "f83035bf-bcc7-45b1-87e6-ccd7d9922eed",
+        1
+      ],
+      [
+        "fba36b75-451a-40e3-af18-297f151bcc91",
+        1
+      ]
+    ],
+    "native": [
+      "NG",
+      "BJ",
+      "CM",
+      "GA"
+    ],
+    "requests": 13,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

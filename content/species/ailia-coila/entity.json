@@ -292,7 +292,73 @@
       "html": "<ul><li>Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, (02/2019).</li><li>Mishra, Abhisek. pers comm 2023.</li><li>Ng, H.H. &amp; Dahanukar, N. 2011. Ailia coila. The IUCN Red List of Threatened Species 2011.</li><li>Sampod, Rhaman Mabubur., pers comm, FB. 2023.</li><li>Talwar, P.K. and A.G. Jhingran, 1991. Inland fishes of India and adjacent countries. Volume 2. A.A. Balkema, Rotterdam.</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/a231531613014f55b9bee6a2bb7b019c.webp",
+      "thumb": "https://media.aquatome.com/processed/a231531613014f55b9bee6a2bb7b019c-480.webp",
+      "width": 500,
+      "height": 310,
+      "licence": "dùng với sự cho phép",
+      "author": "Arnob Bora / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/ailia_coila.htm",
+      "caption": "Ailia coila",
+      "source": "scotcat",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-ailia-coila",
+        "pixelHash": "3f705e1d7f74a62e760338c79b3cc7d06e2d0902e055d796b1dac1d91dc679dc"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T07:42:13.243Z",
+          "originalHash": "adaa8c441d75407298324470ba2745750bd54f85625564a495d45f7685fcfc57",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 500,
+            "originalHeight": 346,
+            "window": {
+              "x0": 0,
+              "y0": 36,
+              "x1": 500,
+              "y1": 346
+            },
+            "subject": {
+              "x0": 35,
+              "y0": 53,
+              "x1": 359,
+              "y1": 267
+            },
+            "margin": 9
+          },
+          "excludedMarks": [
+            {
+              "x0": 412,
+              "y0": 16,
+              "x1": 475,
+              "y1": 32
+            }
+          ],
+          "checks": {
+            "species": [
+              "531fcc946c405db30c0896aab9a4af79ec99c9f1b5b1d7f8e13e75336c7af1a0",
+              "0f1c5535845617eed515867271c19fe887aba84a964af54914a6f46f2135d3b0"
+            ],
+            "ownership": [
+              "f38fde69e8203c6e9022609535b3ac689324ba6ccaac86530122a697387ad7f6",
+              "bece1c799340010381e971af89a2e3030b9d9d49e3ab18e1d1b439987d5cf84f"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/scotcat/6eac5d554c8f1006.webp",
+        "width": 500,
+        "height": 346,
+        "thumb": "https://media.aquatome.com/scotcat/6eac5d554c8f1006-480.webp"
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

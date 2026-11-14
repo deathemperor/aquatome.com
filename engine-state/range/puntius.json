@@ -1,0 +1,38 @@
+{
+  "id": "puntius",
+  "native": {
+    "input": "459023d97e64ba7a",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [
+      {
+        "code": "TW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rigyokutsu, Nanto, Taiwan' and this species is distributed in central and northern Taiwan, being replaced by the closely-related 'P.' semifasciolatus in the south of the island.",
+        "words": "Taiwan",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It also occurs on mainland China but those populations are still referred to as 'P.' semifaciolatus (Chen and Chang, 2005).",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CN"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "unmatched": true,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}

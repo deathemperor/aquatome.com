@@ -6,7 +6,7 @@ import { expect, test } from './fixtures'
 test.skip(!VISITOR_STATS, 'the visitor switch is off (worker/stats-switch.ts)')
 
 const beacons = (page: import('@playwright/test').Page) => {
-  const sent: { t: string; u?: string }[] = []
+  const sent: { t: string; u?: string; d?: string }[] = []
   page.on('request', r => { if (new URL(r.url()).pathname === '/_e' && r.method() === 'POST') sent.push(JSON.parse(r.postData() ?? '{}')) })
   return sent
 }
@@ -16,6 +16,7 @@ test('«Không đếm tôi» deletes the visitor code and stops every event; pre
   await page.goto('/chinh-sach-bao-mat/')
   await expect.poll(() => sent.length).toBeGreaterThan(0)
   expect(sent[0]!.u).toMatch(/^[a-z0-9]{4,12}$/)
+  expect(sent[0]!.d).toBe(test.info().project.name === 'phone' ? 'phone' : 'desktop')
   const button = page.getByRole('button', { name: 'Không đếm tôi' })
   await button.click()
   await expect(button).toHaveAttribute('aria-pressed', 'true')

@@ -1,0 +1,203 @@
+{
+  "id": "anablepsoides-rubrolineatus",
+  "scientificName": "Anablepsoides rubrolineatus",
+  "order": "Cyprinodontiformes",
+  "family": "Rivulidae",
+  "genus": "Anablepsoides",
+  "group": "killifish",
+  "places": [
+    "south-america",
+    "peru"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Rivulus rubrolineatus is a killifish from Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7193335,
+      "total": 29,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "PE",
+          21
+        ],
+        [
+          "CO",
+          7
+        ],
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          1.40625,
+          4,
+          0
+        ],
+        [
+          -74.53125,
+          -5.625,
+          8,
+          8
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          -5.625,
+          11,
+          11
+        ],
+        [
+          -73.125,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "lifeYears": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 3,
+          "max": 3
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/rivulus_rubrolineatus_en/",
+      "html": "<p>Rivulus rubrolineatus is a killifish from Peru. Under aquarium conditions it can live about 3 years (much shorter in the wild). Common name suggestion: Redlined Rivulus.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/rivulus_rubrolineatus_en/",
+      "html": "<p>Peru.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/rivulus_rubrolineatus_en/",
+      "html": "<p>Rivulus always dwell near the water surface, and R. rubrolineatus is a perfect aquarium fish for the upper region of a tank. It fits quite well in a community tank along with peaceful tetras, catfish etc.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/rivulus_rubrolineatus_en/",
+      "html": "<p>Males and females can be easily distinguished by coloration. If the fish show stress coloration (for example when being caught), the females can be recognised by the typical dark spot on the upper end of the caudal peduncle.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/rivulus_rubrolineatus_en/",
+      "html": "<p>Rivulus attach their eggs to fine plant material. The eggs do not need a dry period and hatch after about two weeks.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/rivulus_rubrolineatus_en/",
+      "html": "<p>Lexicon: Rivulus: Latin, means \"small brook\". Probably the name was given because the describer was told the fish live in brooks. rubrolineatus: Latin, means \"with red lines\". Anablepsoides: in allusion to the genus Anableps (four-eyed fishes), due to the water-surface-dwelling behaviour.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/rivulus_rubrolineatus_en/",
+      "html": "<p>This rare fish is offered as wild-collected fish. The genus Rivulus was split into several new genera back in 1992, although this was adopted only hesitantly. According to this, R. rubrolineatus belongs to the genus Anablepsoides.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/rivulus_rubrolineatus_en/",
+      "html": "<p>The tank must be covered perfectly, because Rivulus tend to change their habitat by wandering over land. When the weather is wet, the fish jump through the land vegetation to reach new water. This migratory instinct also breaks out from time to time in aquaria.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/rivulus_rubrolineatus_en/",
+      "html": "<p>The animals are very undemanding regarding water chemistry.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/rivulus_rubrolineatus_en/",
+      "html": "<p>The animals are very undemanding regarding food.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "1LJzEZTlF7w",
+      "title": "Rivulus rubrolineatus 24 convencion de la Sociedad española de killis",
+      "durationSec": 22,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá có nắp kín",
+        "bể cá 40 lít",
+        "bể cá nắp kín",
+        "bể cá mini có nắp"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá killifish",
+        "artemia đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

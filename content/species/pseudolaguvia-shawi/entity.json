@@ -10,6 +10,99 @@
     "india",
     "brahmaputra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Brahmaputra",
+        "Padma",
+        "Jamuna",
+        "Manas",
+        "Mahanadi"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Mahanadi R. below Darjeeling, West Bengal, India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Mahanadi"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Indian waters, North Eastern India, Padma, Jamuna, Brahmaputra, Manas (Mou chhu)",
+          "countries": [],
+          "regions": [
+            "Brahmaputra",
+            "Padma",
+            "Jamuna",
+            "Manas"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341543,
+      "total": 17,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "IN",
+          10
+        ],
+        [
+          "BD",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          87.1875,
+          25.3125,
+          1,
+          0
+        ],
+        [
+          87.1875,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          23.90625,
+          1,
+          0
+        ],
+        [
+          88.59375,
+          25.3125,
+          4,
+          4
+        ],
+        [
+          91.40625,
+          23.90625,
+          5,
+          0
+        ],
+        [
+          94.21875,
+          28.125,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

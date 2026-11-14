@@ -12,6 +12,61 @@
     "indonesia",
     "kalimantan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Kalimantan"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Nematabramis borneensis is a cyprinid endemic to the Malaysian state of Sabah in northern Borneo.",
+          "countries": [
+            "MY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Found in the Malaysian state of Sabah in northern Borneo and in Kalimantan, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Borneo",
+            "Kalimantan"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2367365,
+      "total": 2,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "MY",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          115.3125,
+          5.625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

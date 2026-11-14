@@ -1,8 +1,8 @@
 {
   "id": "hemiodontichthys-acipenserinus",
   "native": {
-    "input": "4f87ebe4f1e420bf",
-    "at": "2026-11-08T18:57:48.756Z",
+    "input": "61e1c3425a20fc8e",
+    "at": "2026-11-11T08:59:40.517Z",
     "claims": [
       {
         "code": "GY",
@@ -43,6 +43,15 @@
         "quote": "The Pinocchio whiptail catfish, Hemiodontichthys acipenserinus, is a loricariid from Guyana, French Guiana, Peru, Bolivia and Brazil.",
         "words": "Brazil",
         "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Peru.",
+        "words": "Peru",
+        "ok": false,
+        "why": "no sentence"
       }
     ],
     "regions": [],

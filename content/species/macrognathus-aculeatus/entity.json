@@ -405,7 +405,72 @@
       "html": "<p>All spiny eels are free spawners, spawning near the water surface in dense plant tangles.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/f1f5cb3539e4509ee2fe744e03f75fa3.webp",
+      "thumb": "https://media.aquatome.com/processed/f1f5cb3539e4509ee2fe744e03f75fa3-480.webp",
+      "width": 850,
+      "height": 417,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/macrognathus-aculeatus-2/",
+      "source": "glaser",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-macrognathus-aculeatus",
+        "pixelHash": "00360209aa94b30bfb9a4e09f12fc6029beeec850de65d586c3679acefac62af"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T07:41:27.526Z",
+          "originalHash": "091b49d7f3f67fb9e4285276ad29fd08fd5f9e00778a705027be8d442fde344c",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 850,
+            "originalHeight": 567,
+            "window": {
+              "x0": 0,
+              "y0": 150,
+              "x1": 850,
+              "y1": 567
+            },
+            "subject": {
+              "x0": 49,
+              "y0": 304,
+              "x1": 833,
+              "y1": 468
+            },
+            "margin": 15
+          },
+          "excludedMarks": [
+            {
+              "x0": 24,
+              "y0": 31,
+              "x1": 827,
+              "y1": 144
+            }
+          ],
+          "checks": {
+            "species": [
+              "d72ef69db82ae70d72297024e6ee5c6ced2d585ea3ecef6a469b7e21cc2d6161",
+              "3f0043d8bd476e2f3d84375a4b4306db894ddd643510b9ee2379d4ab6541ed56"
+            ],
+            "ownership": [
+              "8a137b6b9ae5eab99f3d8bdb7713336cbdbd3d24689f6304270876bc0f5d073f",
+              "8e52747adf8ee3eda5fe552b9ccff6571b36a14f897313afc58eebaa5b137af1"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/glaser/9374f3c3a8839250.webp",
+        "width": 850,
+        "height": 567,
+        "thumb": "https://media.aquatome.com/glaser/9374f3c3a8839250-480.webp"
+      }
+    }
+  ],
   "videos": [
     {
       "youtubeId": "WoUQWmH0fi8",

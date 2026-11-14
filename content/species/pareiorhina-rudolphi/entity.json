@@ -10,6 +10,84 @@
     "brazil",
     "paraiba-do-sul"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Paraíba do Sul",
+        "Mantiqueira"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Piquete (Lorena), upper reaches of the rio Paraíba do Sul basin, São Paulo State, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: rivers of Rio de Janeiro State, Paraíba do Sul basin, Brazil.",
+          "countries": [],
+          "regions": [
+            "Paraíba do Sul"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Pareiorhina rudolphi is found only in streams tributary to the Paraíba do Sul River in the eastern Mantiqueira mountain range, specifically in streams located on the slope and pediplain.",
+          "countries": [],
+          "regions": [
+            "Mantiqueira"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339858,
+      "total": 87,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "BR",
+          87
+        ]
+      ],
+      "cells": [
+        [
+          -47.8125,
+          -23.90625,
+          2,
+          2
+        ],
+        [
+          -46.40625,
+          -23.90625,
+          42,
+          42
+        ],
+        [
+          -45,
+          -23.90625,
+          11,
+          11
+        ],
+        [
+          -45,
+          -22.5,
+          32,
+          32
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

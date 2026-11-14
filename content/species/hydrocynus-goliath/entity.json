@@ -9,7 +9,8 @@
     "africa",
     "tanzania",
     "lake-tanganyika",
-    "democratic-republic-of-the-congo"
+    "democratic-republic-of-the-congo",
+    "congo"
   ],
   "range": {
     "native": {
@@ -18,20 +19,32 @@
         "CD"
       ],
       "regions": [
+        "Congo",
+        "Lake Tanganyka",
         "Tanganyika"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The giant tigerfish, Hydrocynus goliath, is a huge predatory alestid from large rivers and lakes of Tanzania and the Democratic Republic of Congo.",
+          "quote": "Tanzania and the Democratic Republic of Congo.",
           "countries": [
             "TZ",
             "CD"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "The species is native in the Congo basin and Lake Tanganyka.",
+          "countries": [],
+          "regions": [
+            "Congo",
+            "Lake Tanganyka"
+          ]
         },
         {
           "source": "seriouslyfish",
@@ -250,10 +263,22 @@
       "html": "<ul><li>Difficulty: Difficult – it needs a tank at least 2 m long.</li></ul><p>The giant tigerfish, Hydrocynus goliath, is a huge predatory alestid from large rivers and lakes of Tanzania and the Democratic Republic of Congo. A voracious piscivore with dagger-shaped, interlocking teeth, it is one of the world's most infamous game fish. Small specimens are becoming easier to acquire, but its enormous adult size and the danger of maintaining it make it totally unsuited to aquarium life.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hydrocynus_goliath_en/",
+      "html": "<p>The tigerfish of the genus Hydrocynus are the top predators among the freshwater fishes of Africa. H. goliath represents the largest species, maximum length reported so far is more than 130 cm and 50 kg weight. Specimens are currently 10-12 cm long.</p><p>Origin: D.R. Congo.</p><p>Common name: Giant tigerfish</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hydrocynus-goliath",
       "html": "<p>Tanzania and the Democratic Republic of Congo.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hydrocynus_goliath_en/",
+      "html": "<p>The species is native in the Congo basin and Lake Tanganyka.</p>"
     },
     {
       "key": "habitat",
@@ -292,6 +317,12 @@
       "html": "<p>Should be kept alone, although juvenile fish do shoal. There are reports of it being kept with Loricariids, cichlids etc. but these are usually young fish being kept with larger tankmates. Anything smaller than the tiger fish may be ripped to pieces without prior warning.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hydrocynus_goliath_en/",
+      "html": "<p>Hydrocynus goliath is quite peaceful against conspecifics and other tankmates as long as they do not fit as prey. The teeth cannot be used for dissipating or gnawing, but work like a trap and prong the feeder fish.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hydrocynus-goliath",
@@ -308,51 +339,93 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hydrocynus-goliath",
       "html": "<p>A voracious piscivore this species is perfectly designed for its lifestyle. It is very streamlined and muscular and has one of the most amazing sets of teeth of any freshwater fish. These are dagger-shaped and interlock, meaning the fish can rip chunks out of its prey. The teeth are visible even when the animal's mouth is closed, which makes for a fearsome sight. It is one of the world's most infamous game fish and specimens weighing over 45 kg have been recorded.</p><p>This is a species totally unsuited to aquarium life. Alarmingly, it is becoming easier to acquire, with small specimens showing up quite frequently in dealers' tanks over the last few years. When small, it makes an interesting and undeniably impressive addition to a large aquarium but, bearing in mind its enormous adult size and the potential dangers associated with the maintenance of such a fearsome predator, it is recommended that it be avoided. Tank maintenance is incredibly dangerous, with adult fish easily able to sever a man's hand. The other thing to consider is what to do with the fish once it approaches 90–120 cm in length. It is sad when so many suitable aquarium species are available that some of these wonderful predators will be consigned to an early death.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hydrocynus_goliath_en/",
+      "html": "<p>Tigerfish are very popular among sport fishers, but aquarists specialized in predatory fish also get nervous when they get the opportunity to observe these animals, as they represent everything that is typical for a predator: power, size, elegance and a deathful set of teeth.</p><p>Lexicon: Hydrocynus: from ancient Greek, means \"waterdog\". goliath: after the mythological giantic warrior in the bible, Goliath.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hydrocynus_goliath_en/",
+      "html": "<p>Juveniles of the different species of Hydrocynus look quite similar to each other; all have a silvery shine on the flanks and a similar shape of the body. H. goliath can be recognized best by the fact that only the lower lobe of the caudal fin has red coloration.</p>"
     }
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/024576971c29c22f.webp",
-      "width": 960,
-      "height": 452,
-      "licence": "CC BY-SA 3.0",
-      "author": "Sablegsd",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hydrocynus_goliath.jpg",
-      "caption": "A young, tank raised specimen.",
-      "thumb": "https://media.aquatome.com/commons/024576971c29c22f-480.webp"
-    },
-    {
       "url": "https://media.aquatome.com/commons/3c9874624693119e.webp",
+      "thumb": "https://media.aquatome.com/commons/3c9874624693119e-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 4.0",
       "author": "Totti",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hydrocynus_goliath_Gifu.jpg",
       "caption": "ムベンガ。アクア・トトぎふ飼育展示個体。",
-      "thumb": "https://media.aquatome.com/commons/3c9874624693119e-480.webp"
+      "large": {
+        "url": "https://media.aquatome.com/commons/3c9874624693119e-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/dbdedf2cff683034.webp",
+      "thumb": "https://media.aquatome.com/commons/dbdedf2cff683034-480.webp",
       "width": 960,
       "height": 541,
       "licence": "CC BY-SA 4.0",
       "author": "Cedricguppy - Loury Cédric",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hydrocynus_goliath_-_Poisson-chien_-_Aqua_porte_Dor%C3%A9e_06.JPG",
-      "caption": "Hydrocynus goliath - Poisson-chien - Aquarium tropical du Palais de la porte Dorée, Paris, ile de France, France - 12/2014",
-      "thumb": "https://media.aquatome.com/commons/dbdedf2cff683034-480.webp"
+      "caption": "Hydrocynus goliath - Poisson-chien - Aquarium tropical du Palais de la porte Dorée, Paris, ile de France, France - 12/2014"
     },
     {
       "url": "https://media.aquatome.com/commons/33824c1343a12c51.webp",
+      "thumb": "https://media.aquatome.com/commons/33824c1343a12c51-480.webp",
       "width": 960,
       "height": 541,
       "licence": "CC BY-SA 4.0",
       "author": "Cedricguppy - Loury Cédric",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hydrocynus_goliath_-_Poisson-chien_-_Aqua_porte_Dor%C3%A9e_08.JPG",
-      "caption": "Hydrocynus goliath - Poisson-chien - Aquarium tropical du Palais de la porte Dorée, Paris, ile de France, France - 12/2014",
-      "thumb": "https://media.aquatome.com/commons/33824c1343a12c51-480.webp"
+      "caption": "Hydrocynus goliath - Poisson-chien - Aquarium tropical du Palais de la porte Dorée, Paris, ile de France, France - 12/2014"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/024576971c29c22f.webp",
+      "thumb": "https://media.aquatome.com/commons/024576971c29c22f-480.webp",
+      "width": 960,
+      "height": 452,
+      "licence": "CC BY-SA 3.0",
+      "author": "Sablegsd",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hydrocynus_goliath.jpg",
+      "caption": "A young, tank raised specimen."
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "dMNoYprXzvw",
+      "title": "12 years goliath tigerfish catch a carp",
+      "durationSec": 106,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "qcP95EIjTak",
+      "title": "Goliath Tiger aka Hydrocynus Goliath",
+      "durationSec": 36,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "SquFqkwfM0Y",
+      "title": "African goliath tigerfish (Hydrocynus goliath) exhibit at Poema del Mar Aquarium",
+      "durationSec": 47,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "fvG8_KryVPk",
+      "title": "feeding a 14 years old goliath tiger fish",
+      "durationSec": 84,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -369,5 +442,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-13"
 }

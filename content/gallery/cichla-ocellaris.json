@@ -2,18 +2,6 @@
   "id": "cichla-ocellaris",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/c1fbc82879ee5da0.webp",
-      "thumb": "https://media.aquatome.com/commons/c1fbc82879ee5da0-480.webp",
-      "width": 1200,
-      "height": 909,
-      "licence": "Public domain",
-      "author": "Karelj",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichla_ocellaris_Dvur_zoo_3.jpg",
-      "caption": "Hai cá vược công bơi cùng nhau trong bể",
-      "best": true,
-      "kind": "pair"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/201872750.webp",
       "thumb": "https://media.aquatome.com/inaturalist/201872750-480.webp",
       "width": 992,
@@ -26,18 +14,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/commons/dadaaba7b495aacb.webp",
-      "thumb": "https://media.aquatome.com/commons/dadaaba7b495aacb-480.webp",
-      "width": 1200,
-      "height": 811,
-      "licence": "Public domain",
-      "author": "Karelj",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichla_ocellaris_Dvur_zoo_2.jpg",
-      "caption": "Cá vược công trưởng thành vây cam trong bể tối",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/65592566.webp",
       "thumb": "https://media.aquatome.com/inaturalist/65592566-480.webp",
       "width": 1024,
@@ -48,18 +24,6 @@
       "caption": "Cá vược công với sọc ngang rõ, bơi gần mặt nước ngoài tự nhiên",
       "best": true,
       "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/d17bbeeb1764c15d.webp",
-      "thumb": "https://media.aquatome.com/commons/d17bbeeb1764c15d-480.webp",
-      "width": 1200,
-      "height": 541,
-      "licence": "Public domain",
-      "author": "Karelj",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichla_ocellaris_Dvur_zoo_1_(cropped).jpg",
-      "caption": "Cận cảnh cá vược công màu vàng cam với vằn đen",
-      "best": true,
-      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/109877666.webp",
@@ -276,6 +240,42 @@
       "caption": "Cá vược công bơi gần cỏ nước và đá",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/c1fbc82879ee5da0.webp",
+      "thumb": "https://media.aquatome.com/commons/c1fbc82879ee5da0-480.webp",
+      "width": 1200,
+      "height": 909,
+      "licence": "Public domain",
+      "author": "Karelj",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichla_ocellaris_Dvur_zoo_3.jpg",
+      "caption": "Hai cá vược công bơi cùng nhau trong bể",
+      "best": true,
+      "kind": "pair"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/dadaaba7b495aacb.webp",
+      "thumb": "https://media.aquatome.com/commons/dadaaba7b495aacb-480.webp",
+      "width": 1200,
+      "height": 811,
+      "licence": "Public domain",
+      "author": "Karelj",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichla_ocellaris_Dvur_zoo_2.jpg",
+      "caption": "Cá vược công trưởng thành vây cam trong bể tối",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/d17bbeeb1764c15d.webp",
+      "thumb": "https://media.aquatome.com/commons/d17bbeeb1764c15d-480.webp",
+      "width": 1200,
+      "height": 541,
+      "licence": "Public domain",
+      "author": "Karelj",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichla_ocellaris_Dvur_zoo_1_(cropped).jpg",
+      "caption": "Cận cảnh cá vược công màu vàng cam với vằn đen",
+      "best": true,
+      "kind": "other"
     }
   ],
   "seen": 72,

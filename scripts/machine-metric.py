@@ -8,6 +8,7 @@ import json
 import os
 import re
 import subprocess
+import sys
 import time
 
 HOME = os.path.expanduser("~")
@@ -53,6 +54,14 @@ def waiting():
     return len(checks), len(sim), round(max([minutes(e) for e in checks + sim], default=0)), sims
 
 
+def chrome_on_screen():
+    """The engine's Chrome windows on the owner's screen (chrome-windows.py); a run that keeps showing one has stopped minimizing."""
+    try:
+        return int(run(sys.executable, "-I", os.path.join(os.path.dirname(os.path.realpath(__file__)), "chrome-windows.py"), "--count").strip())
+    except (ValueError, OSError, subprocess.TimeoutExpired):
+        return None
+
+
 def main():
     job = small_job()
     checks, sim, longest, sims = waiting()
@@ -63,7 +72,8 @@ def main():
     cores = run("/usr/sbin/sysctl", "-n", "kern.sched_recommended_cores").strip()
     line = {"at": time.strftime("%Y-%m-%dT%H:%M:%S"), "small_job_s": job, "waiting_checks": checks, "waiting_sim": sim, "longest_wait_min": longest,
             "simulators": sims, "swap_gb": round(float(swap.group(1)) / 1024, 1) if swap else None, "load1": float(load),
-            "thermal": int(thermal.group(1)) if thermal else None, "cores": bin(int(cores)).count("1") if cores.isdigit() else None}
+            "thermal": int(thermal.group(1)) if thermal else None, "cores": bin(int(cores)).count("1") if cores.isdigit() else None,
+            "chrome_on_screen": chrome_on_screen()}
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "a") as f:
         f.write(json.dumps(line) + "\n")

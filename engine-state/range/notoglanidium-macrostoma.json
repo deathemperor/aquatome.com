@@ -1,0 +1,151 @@
+{
+  "id": "notoglanidium-macrostoma",
+  "native": {
+    "input": "4bce685ab508eb03",
+    "at": "2026-11-10T20:57:55.515Z",
+    "claims": [
+      {
+        "code": "AO",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Africa: Chiloango basin in Angola, central basin of the Congo, Loémé basin in Congo, Ogooué basin in Gabon and the basins of the Nyong, Sanaga and Dja in Cameroon.",
+        "words": "Angola",
+        "ok": true
+      },
+      {
+        "code": "CG",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Africa: Chiloango basin in Angola, central basin of the Congo, Loémé basin in Congo, Ogooué basin in Gabon and the basins of the Nyong, Sanaga and Dja in Cameroon.",
+        "words": "Congo",
+        "ok": true
+      },
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Africa: Chiloango basin in Angola, central basin of the Congo, Loémé basin in Congo, Ogooué basin in Gabon and the basins of the Nyong, Sanaga and Dja in Cameroon.",
+        "words": "Gabon",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Africa: Chiloango basin in Angola, central basin of the Congo, Loémé basin in Congo, Ogooué basin in Gabon and the basins of the Nyong, Sanaga and Dja in Cameroon.",
+        "words": "Cameroon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Congo",
+        "source": "planetcatfish",
+        "quote": "Africa: Chiloango basin in Angola, central basin of the Congo, Loémé basin in Congo, Ogooué basin in Gabon and the basins of the Nyong, Sanaga and Dja in Cameroon.",
+        "ok": true
+      },
+      {
+        "name": "Ogooué",
+        "source": "planetcatfish",
+        "quote": "Africa: Chiloango basin in Angola, central basin of the Congo, Loémé basin in Congo, Ogooué basin in Gabon and the basins of the Nyong, Sanaga and Dja in Cameroon.",
+        "country": "GA",
+        "ok": true
+      },
+      {
+        "name": "Chiloango",
+        "source": "planetcatfish",
+        "quote": "Africa: Chiloango basin in Angola, central basin of the Congo, Loémé basin in Congo, Ogooué basin in Gabon and the basins of the Nyong, Sanaga and Dja in Cameroon.",
+        "country": "AO",
+        "ok": true
+      },
+      {
+        "name": "Loémé",
+        "source": "planetcatfish",
+        "quote": "Africa: Chiloango basin in Angola, central basin of the Congo, Loémé basin in Congo, Ogooué basin in Gabon and the basins of the Nyong, Sanaga and Dja in Cameroon.",
+        "country": "CG",
+        "ok": true
+      },
+      {
+        "name": "Nyong",
+        "source": "planetcatfish",
+        "quote": "Africa: Chiloango basin in Angola, central basin of the Congo, Loémé basin in Congo, Ogooué basin in Gabon and the basins of the Nyong, Sanaga and Dja in Cameroon.",
+        "country": "CM",
+        "ok": true
+      },
+      {
+        "name": "Sanaga",
+        "source": "planetcatfish",
+        "quote": "Africa: Chiloango basin in Angola, central basin of the Congo, Loémé basin in Congo, Ogooué basin in Gabon and the basins of the Nyong, Sanaga and Dja in Cameroon.",
+        "country": "CM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": [
+        "CG"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Notoglanidium macrostoma",
+    "status": "ACCEPTED",
+    "taxonKey": 7806469,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        131
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        36
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        3
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        2
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "AO",
+      "CG",
+      "GA",
+      "CM"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T20:57:55.515Z"
+  }
+}

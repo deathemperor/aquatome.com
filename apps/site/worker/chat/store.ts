@@ -19,7 +19,8 @@ export const retryKey = (account: string, key: string) => `chat-turn/${account}/
 /** A report of one answer as wrong (past.ts): one a turn, the first one's reason standing. */
 /** Set once an account's conversations from before the list are all in it. */
 export const importedKey = (account: string) => `chat-import/${account}/done`
-export const reportKey = (account: string, conversation: string, n: number) => `chat-report/${account}/${conversation}/${n}.json`
+export const REPORT_PREFIX = 'chat-report/'
+export const reportKey = (account: string, conversation: string, n: number) => `${REPORT_PREFIX}${account}/${conversation}/${n}.json`
 /** A time as the contract's fixtures write it and the app reads it: to the second. */
 export const secs = (t: number) => new Date(t).toISOString().replace(/\.\d{3}Z$/, 'Z')
 /** A question, as a stop names it in the ledger: an account's Idempotency-Key, so one account's key can't stop another's. */

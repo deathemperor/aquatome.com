@@ -1,9 +1,17 @@
 {
   "id": "badis-juergenschmidti",
   "native": {
-    "input": "5b70bd1bac8425e2",
-    "at": "2026-11-06T12:17:30.771Z",
+    "input": "bdbbf7b926bc8cc9",
+    "at": "2026-11-10T04:57:39.069Z",
     "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Badis juergenschmidti is a badid known only from the Ka Dat Chaung river system in Mon State, south-eastern Myanmar, part of the Sittaung drainage.",
+        "words": "Myanmar",
+        "ok": true
+      },
       {
         "code": "MM",
         "status": "native",
@@ -17,14 +25,15 @@
       {
         "name": "Ka Dat Chaung",
         "source": "seriouslyfish",
-        "quote": "Currently known only from the type locality in the Ka Dat Chaung river system, Mon State, south-eastern Myanmar.",
+        "quote": "Badis juergenschmidti is a badid known only from the Ka Dat Chaung river system in Mon State, south-eastern Myanmar, part of the Sittaung drainage.",
         "country": "MM",
         "ok": true
       },
       {
         "name": "Sittaung",
         "source": "seriouslyfish",
-        "quote": "This is part of the larger Sittaung River drainage.",
+        "quote": "Badis juergenschmidti is a badid known only from the Ka Dat Chaung river system in Mon State, south-eastern Myanmar, part of the Sittaung drainage.",
+        "country": "MM",
         "ok": true
       }
     ],

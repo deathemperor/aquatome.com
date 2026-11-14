@@ -1,0 +1,94 @@
+{
+  "id": "pseudacanthicus-leopardus",
+  "native": {
+    "input": "b7e7ce1877adb391",
+    "at": "2026-11-13T05:31:31.275Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Mostly collected in the rio Negro basin, Amazonas state, Brazil, and in particular the rio Demini, a northern tributary flowing into the central Negro in the municipality of Barcelos.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "P. leopardus was described from the Rupununi River in Guyana and the identity of this fish thus remains unconfirmed.",
+        "words": "Guyana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "rio Negro",
+        "source": "seriouslyfish",
+        "quote": "Mostly collected in the rio Negro basin, Amazonas state, Brazil, and in particular the rio Demini, a northern tributary flowing into the central Negro in the municipality of Barcelos.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rupununi River",
+        "source": "seriouslyfish",
+        "quote": "P. leopardus was described from the Rupununi River in Guyana and the identity of this fish thus remains unconfirmed.",
+        "country": "GY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": [
+        "GY"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Pseudacanthicus leopardus",
+    "status": "ACCEPTED",
+    "taxonKey": 2339455,
+    "datasets": [
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        6
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "GY"
+    ],
+    "requests": 12,
+    "at": "2026-11-13T05:31:31.275Z"
+  }
+}

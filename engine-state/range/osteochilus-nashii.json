@@ -1,0 +1,55 @@
+{
+  "id": "osteochilus-nashii",
+  "native": {
+    "input": "8c4dcb79a864223e",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to India where it appears to be restricted to the southwesterly states of Karnataka and Kerala.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Tunga",
+        "source": "seriouslyfish",
+        "quote": "In the former it has been collected from close to the city of Dandeli, Uttara Kannada (North Canara) district, the Fraserpett River, Coorg district and Korkanhalla stream, a tributary of the Tunga river at an altitude of 652 m above sea level, whereas in the latter the only information available is that it occurs in Wayanad district.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Osteochilus nashii",
+    "status": "ACCEPTED",
+    "taxonKey": 2364294,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

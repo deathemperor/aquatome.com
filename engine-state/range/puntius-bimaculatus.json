@@ -1,0 +1,111 @@
+{
+  "id": "puntius-bimaculatus",
+  "native": {
+    "input": "c9f2346e547a184b",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The two-spotted barb, Puntius bimaculatus, is a small cyprinid from Sri Lanka and southern India.",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The two-spotted barb, Puntius bimaculatus, is a small cyprinid from Sri Lanka and southern India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Nilwala",
+        "source": "seriouslyfish",
+        "quote": "Described from Sri Lanka where it's known from the Nilwala River drainage but also widely-distributed throughout river basins of southern India in the states of Tamil Nadu, Kerala, Karnataka, Andhra Pradesh, and Maharashtra.",
+        "country": "LK",
+        "ok": true
+      },
+      {
+        "name": "Cauvery",
+        "source": "seriouslyfish",
+        "quote": "In Tamil Nadu records exist from the Thamirabarani, Cauvery, and Moyar river drainages, plus the Indira Gandhi Wildlife Sanctuary and National Park; in Kerala from the Chalakudy watershed; in Karnataka from the Hemavathi, Ekachi, and Bedti systems; in Andhra Pradesh from the Kundlakamma and Paleru rivers; in Maharashtra from the Phansad River.",
+        "ok": true
+      },
+      {
+        "name": "Thamirabarani",
+        "source": "seriouslyfish",
+        "quote": "In Tamil Nadu records exist from the Thamirabarani, Cauvery, and Moyar river drainages, plus the Indira Gandhi Wildlife Sanctuary and National Park; in Kerala from the Chalakudy watershed; in Karnataka from the Hemavathi, Ekachi, and Bedti systems; in Andhra Pradesh from the Kundlakamma and Paleru rivers; in Maharashtra from the Phansad River.",
+        "ok": true
+      },
+      {
+        "name": "Chalakudy",
+        "source": "seriouslyfish",
+        "quote": "In Tamil Nadu records exist from the Thamirabarani, Cauvery, and Moyar river drainages, plus the Indira Gandhi Wildlife Sanctuary and National Park; in Kerala from the Chalakudy watershed; in Karnataka from the Hemavathi, Ekachi, and Bedti systems; in Andhra Pradesh from the Kundlakamma and Paleru rivers; in Maharashtra from the Phansad River.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Puntius bimaculatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2363982,
+    "datasets": [
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        7
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        4
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "988007b1-1179-42e0-863c-bb9f1bdfa6f7",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "c6b86c40-ff71-4e5e-902c-111f400d0d56",
+        2
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "LK",
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}

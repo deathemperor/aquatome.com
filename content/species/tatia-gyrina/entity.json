@@ -11,13 +11,38 @@
     "itaya",
     "suriname",
     "marowijne",
-    "guyana"
+    "guyana",
+    "amazon",
+    "colombia",
+    "brazil"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 7
+      },
+      {
+        "source": "scotcat",
+        "value": 5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 21,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 5.5,
+          "max": 6.5
+        }
       }
     ]
   },
@@ -29,16 +54,40 @@
       "html": "<ul><li>Scientific name: Tatia gyrinus (Eigenmann &amp; Allen, 1942)</li><li>Common names: Woodcat, Zwergdornwels (Germany)</li><li>Type locality: Río Itaya, Iquitos, Peru.</li><li>Size: 70 mm (2.8\") SL.</li><li>IUCN Red List: Not Evaluated</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_gyrina.htm",
+      "html": "<ul><li>Common name: none</li><li>IUCN Red List: Least Concern. Despite the little information available on this species, it is assessed as Least Concern due to its wide range and many occurrences (IUCN 2023).</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1102",
       "html": "<p>South America: Upper Amazon River basin, Guyana waters, coastal rivers of the Guianas, Suriname coastal rivers (Suriname), Marowijne, Itaya.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_gyrina.htm",
+      "html": "<p>South America: Upper and central Amazon, in Peru, Colombia and Brazil. It is also found in rivers of northern Suriname.</p>"
+    },
+    {
       "key": "equipment",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1102",
       "html": "<p>As the common name for this family, woodcat, implies, these fish like pieces of wood with crevices and gaps to squeeze into.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_gyrina.htm",
+      "html": "<p>In its native habitat they feed on small invertebrates and crustaceans. In the aquarium they will eat anything given, such as frozen bloodworm inserted into their hideaway, catfish tablets, white worm (sparingly), and prawns and shrimp. They do like their food and you can see them shooting out of their hideouts and swimming in a frenzied manner to try and take all of it for themselves, especially when fed their favourite food, frozen bloodworm.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_gyrina.htm",
+      "html": "<p>As with most members of this family they are very secretive and will stay hidden for most of the day. Dim lighting will see them come out for food, which they eat with gusto. They will have no problem with most tankmates but will eat small fish/fry in the aquarium.</p>"
     },
     {
       "key": "dimorphism",
@@ -59,10 +108,22 @@
       "html": "<p>May easily be mistaken for juveniles of Glanidium leopardus, from which it is distinguished by the pectoral spines (with projections vs. smooth) and by the number of rays in the anal fin (8-9 vs. 12-14).</p><p>Etymology: Tatia was named after the ichthyologist C. Tate Regan.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_gyrina.htm",
+      "html": "<p>Was known as Tatia creutzbergi but this name has now been put into synonymy.</p><p>Colouration: Variation in body pigmentation was observed between the Suriname and Amazonian populations. In Suriname specimens the body is usually yellowish ventrally or sometimes with a rounded brown spot present near each pelvic-fin base. No Amazon specimens had a rounded brown spot near the pelvic-fin base and the body is invariably yellowish ventrally. Variation in pectoral-fin spine pigmentation occurs independent of geographical locality: the pectoral-fin spine is usually transversely banded but is uniformly dark to unpigmented in some specimens. Coloration of the dark lateral stripe on the side of the body varies. In some Suriname specimens the dark brown lateral stripe has irregular dark and light areas. In addition, the lateral stripe was interrupted in some and absent in decolorised specimens. In an upper Amazon specimen, the lateral stripe is light brown, not as dark as in the Amazon specimens. The first two thumbnail specimens could be from Suriname and the next three the Amazon variety.</p><p>Etymology: gyrina: latinisation of gyrinos, tadpole, presumably referring to its tadpole-like shape.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1102",
       "html": "<p>Fishes of western South America, pp 118, Pl. 5 (fig. 4).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_gyrina.htm",
+      "html": "<p>Baensch, H.A. and R. Riehl, 1991. Aquarien atlas. Bd. 3. Melle: Mergus, Verlag für Natur-und Heimtierkunde, Germany. 1104 p.</p><p>Frederico, R.G. 2023. Tatia gyrina. The IUCN Red List of Threatened Species 2023.</p><p>Mol, H.A. Jan, The Freshwater Fishes of Suriname. BRILL, Leiden Boston, 2012. 889 p.</p><p>Sarmento-Soares, Luisa Maria; Martins-Pinheiro, Ronaldo Fernando A systematic revision of Tatia (Siluriformes: Auchenipteridae: Centromochlinae) Neotropical Ichthyology, 6(3):495-542, 2008.</p><p>ScotCat Factsheet no. 48. June 2000.</p>"
     }
   ],
   "photos": [
@@ -110,7 +171,32 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "JrQs7Izt1K0",
+      "title": "Tatia gyrina",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "jxDkszyAXQk",
+      "title": "Tatia gyrina eggs",
+      "durationSec": 180,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Iq1g9Yk97j8",
+      "title": "Tatia gyrina spawn 2025-01-15",
+      "durationSec": 26,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "kwxseo3E_20",
+      "title": "Tatia gyrina feeding",
+      "durationSec": 104,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -126,5 +212,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-10"
 }

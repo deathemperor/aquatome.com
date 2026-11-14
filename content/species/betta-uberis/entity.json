@@ -91,8 +91,8 @@
       {
         "source": "bwaquatics",
         "value": {
-          "min": 5,
-          "max": 6.5
+          "min": 4,
+          "max": 6
         }
       }
     ],
@@ -138,8 +138,8 @@
     {
       "key": "quickFacts",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-pangkalabun-wild-type-bettas",
-      "html": "<p>Wild-caught Betta uberis from Palangkaraya, part of the Betta coccina complex. IUCN Red List: Vulnerable (threatened and facing a high risk of extinction in the wild).</p><ul><li>TDS: 60–100</li><li>Diet: carnivorous</li><li>Breeding: bubble nest builder</li></ul>"
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
+      "html": "<ul><li>From the Betta coccina complex.</li><li>IUCN Red List: Vulnerable (high risk of extinction in the wild).</li><li>Origin: wild caught (Palangkaraya, Central Kalimantan).</li><li>Temperament: moderately aggressive.</li><li>Diet: carnivorous.</li><li>Breeding: bubble nest builder.</li></ul>"
     },
     {
       "key": "distribution",
@@ -150,14 +150,20 @@
     {
       "key": "distribution",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-pangkalabun-wild-type-bettas",
-      "html": "<p>Collected in the wild around Palangkaraya. Part of the Betta coccina complex.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
+      "html": "<p>Betta uberis was described in 2006 from peat swamp forests in Central and West Kalimantan, Borneo. The name means \"abundant\", for its high dorsal-fin ray count of 14 to 17. It is often confused with Betta burdigala, but uberis males show a green iridescent patch along the middle of the flank and usually have a slimmer body and shorter fins.</p>"
     },
     {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-uberis",
       "html": "<p>A stenotopic inhabitant of peat swamp forests and associated streams. The dense canopy of branches above means very little light penetrates the surface of such environments, although they are increasingly disturbed by human activity.</p><p>The water is typically stained darkly with humic acids and other chemicals released by decaying organic material. The dissolved mineral content tends to be negligible and pH can be as low as 3.0 or 4.0.</p><p>The substrate is usually covered by fallen leaves, branches and submerged tree roots and at certain times of year the fish may be forced to survive within the moist leaf litter for several weeks since permanent water is not always available.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
+      "html": "<p>Peat swamp forest pools in Central Kalimantan with very soft, dark, acidic water.</p>"
     },
     {
       "key": "aquariumSize",
@@ -168,8 +174,8 @@
     {
       "key": "aquariumSize",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-pangkalabun-wild-type-bettas",
-      "html": "<p>Recommended 1 pair per 20 litres. Because of their small size, several pairs can be kept together as long as there is enough space.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
+      "html": "<p>Recommended 1 pair per 20 litres.</p>"
     },
     {
       "key": "maintenance",
@@ -186,8 +192,8 @@
     {
       "key": "waterConditions",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-pangkalabun-wild-type-bettas",
-      "html": "<p>pH: 5.0–6.5. TDS: 60–100. Temperature: 24–28°C.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
+      "html": "<ul><li>TDS: 60 to 100</li><li>pH: 4.0 to 6.0</li><li>Temperature: 24 to 28°C</li></ul>"
     },
     {
       "key": "diet",
@@ -198,7 +204,7 @@
     {
       "key": "diet",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-pangkalabun-wild-type-bettas",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
       "html": "<p>Carnivorous. Fed live blackworms, frozen bloodworms and pellets.</p>"
     },
     {
@@ -210,8 +216,8 @@
     {
       "key": "behaviour",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-pangkalabun-wild-type-bettas",
-      "html": "<p>Moderately aggressive; males can be territorial when establishing breeding grounds.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
+      "html": "<p>Moderately aggressive. Males can be territorial when setting up a breeding site, but because of their small size multiple pairs can be kept with enough space and cover.</p>"
     },
     {
       "key": "dimorphism",
@@ -222,8 +228,8 @@
     {
       "key": "dimorphism",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-pangkalabun-wild-type-bettas",
-      "html": "<p>The colour is very similar to Betta burdigala, but male Betta uberis show a green iridescent mid-lateral stripe and generally have a less robust body. The fins are also shorter than those of B. burdigala.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
+      "html": "<p>Males show a group of iridescent green scales in the middle of the flank, forming a distinct spot in many fish. The green mid-lateral spot varies between individuals, and some wild fish have no spot at all.</p>"
     },
     {
       "key": "reproduction",
@@ -234,8 +240,8 @@
     {
       "key": "reproduction",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-pangkalabun-wild-type-bettas",
-      "html": "<p>Bubble nest builder.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
+      "html": "<p>Bubble nester. The male builds a small bubble nest at the surface, usually under a floating leaf, inside a floating cave or among plants, and places the eggs in it after spawning. Pairs can often stay together in a well-planted tank; remove the female if the male keeps chasing her. Eggs hatch in 24 to 48 hours, and the fry are free-swimming about 3 days later. Start them on infusoria, then move to baby brine shrimp. Keep the surface calm so the nest stays intact.</p>"
     },
     {
       "key": "notes",
@@ -246,8 +252,8 @@
     {
       "key": "notes",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-pangkalabun-wild-type-bettas",
-      "html": "<p>The spot on the body varies from individual to individual, and some fish in the wild do not have it. Have the habitat ready before buying.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
+      "html": "<p>Body shape: slender and less robust than Betta burdigala. Fins: long-based dorsal fin with 14 to 17 rays and a rounded caudal fin, shorter than those of Betta burdigala. Scaling: small, even scales. Coloration: deep red body.</p>"
     },
     {
       "key": "references",
@@ -290,16 +296,6 @@
       "source": "bwaquatics"
     },
     {
-      "url": "https://media.aquatome.com/bwaquatics/dfb3c8e748123ea0.webp",
-      "thumb": "https://media.aquatome.com/bwaquatics/dfb3c8e748123ea0-480.webp",
-      "width": 1000,
-      "height": 667,
-      "licence": "dùng với sự cho phép",
-      "author": "BW Aquatics",
-      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
-      "source": "bwaquatics"
-    },
-    {
       "url": "https://media.aquatome.com/bwaquatics/7de3e867c1a9cce1.webp",
       "thumb": "https://media.aquatome.com/bwaquatics/7de3e867c1a9cce1-480.webp",
       "width": 1000,
@@ -310,7 +306,32 @@
       "source": "bwaquatics"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "D-5auJqkxyM",
+      "title": "Betta Uberis Belitung Breeding",
+      "durationSec": 100,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "NZmwUXJbtq0",
+      "title": "Betta uberis - Allevamento",
+      "durationSec": 743,
+      "lang": "it"
+    },
+    {
+      "youtubeId": "M52eS4WT1fA",
+      "title": "Betta Uberis Sp.Kubu",
+      "durationSec": 45,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "N9RmhX0NPDM",
+      "title": "LET'S PRESERVE WILD BETTA UBERIS. (ravenwater76@gmail.com)",
+      "durationSec": 37,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -340,5 +361,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-13"
 }

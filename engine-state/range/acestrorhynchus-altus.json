@@ -1,8 +1,8 @@
 {
   "id": "acestrorhynchus-altus",
   "native": {
-    "input": "671535147dc4bf15",
-    "at": "2026-11-05T22:45:18.315Z",
+    "input": "421a29b4f2e02efc",
+    "at": "2026-11-09T23:57:44.132Z",
     "claims": [
       {
         "code": "BR",
@@ -42,6 +42,14 @@
         "source": "glaser",
         "quote": "The fish were obtained from the state of Pará in Brazil, which is also the type locality of Acestrorhynchus altus.",
         "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "doubtful",
+        "source": "glaser",
+        "quote": "However, the species from Paraguay has been described scientifically as Acestrorhynchus pantaneiro.",
+        "words": "Paraguay",
         "ok": true
       }
     ],

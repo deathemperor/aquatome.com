@@ -1,0 +1,24 @@
+{
+  "slug": "ca-lau-kieng-cham-xanh",
+  "name": "Cá lau kiếng chấm xanh L16",
+  "altNames": [
+    "Cá tỳ bà chấm xanh",
+    "Bluespotted Pleco",
+    "Blåplettet Sugemalle"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Spectracanthicus punctatissimus (Steindachner, 1881)</li><li>Tên thường gọi: L016, L030, L315, Bluespotted Pleco</li><li>Phân bố: lưu vực sông Xingu, Brazil</li><li>IUCN: Ít quan tâm (đánh giá năm 2018)</li></ul>",
+    "distribution:planetcatfish": "<p>Nam Mỹ: lưu vực sông Xingu, Brazil. Nơi thu mẫu chuẩn là bờ đông sông Xingu, ở Pôrto de Mós, bang Pará, Brazil.</p>",
+    "reproduction:planetcatfish": "<p>Sinh sản: chưa có báo cáo. Hiện chỉ có đúng một báo cáo về việc loài này sinh sản.</p>",
+    "notes:planetcatfish": "<p>Spectracanthicus có màng vây lưng chạm tới gai vây mỡ. Nhờ đặc điểm này có thể tách nó khỏi mọi loài cá lau kiếng khác, trừ một số loài Baryancistrus, Parancistrus và một loài Hemiancistrus chưa được mô tả. Với Baryancistrus và loài Hemiancistrus đó thì đếm răng: Spectracanthicus có dưới 25 răng, hai nhóm kia có trên 25. Còn với Parancistrus thì xem khe mang, vì khe mang của Spectracanthicus hẹp.</p><p>Từ nguyên: tên giống ghép từ tiếng Latin spectrum (vẻ ngoài, bóng ma) và tiếng Hy Lạp akantha (gai). Tên loài nói tới thân cá có rất nhiều đốm (punctum = đốm, -issimus = rất, hết sức).</p>",
+    "references:planetcatfish": "<p>Denkschriften der Kaiserlichen Akademie der Wissenschaften in Wien, Mathematisch-Naturwissenschaftliche Classe. v. 43, pp 119 [19], Pl. 3 (figs. 3-3a).</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.9
+    },
+    "reason": "thin"
+  }
+}

@@ -701,13 +701,20 @@
             "enum": [
               "fish-id",
               "species",
-              "search"
+              "search",
+              "tank"
             ],
-            "description": "The first question only: where the chat started. For the owner's log."
+            "description": "The first question only: where the chat started. For the owner's log; from a saved tank, the chat reads that tank first."
           },
           "about": {
             "type": "string",
             "description": "The first question only: the page the chat starts from, by its id as fish ID links it (a species, breed or plant)."
+          },
+          "tank": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100,
+            "description": "The first question only, from a saved tank (\"Hỏi về bể này\"): its id, as the app syncs it. The Worker reads the tank from the account's synced tanks; one it doesn't hold is answered as if no tank was named."
           },
           "identified": {
             "type": "object",
@@ -1681,12 +1688,17 @@
             "enum": [
               "fish-id",
               "species",
-              "search"
+              "search",
+              "tank"
             ],
             "description": "Where it started, as its first question said."
           },
           "about": {
             "$ref": "#/components/schemas/Linked"
+          },
+          "tank": {
+            "type": "string",
+            "description": "Started from a saved tank: its id."
           },
           "identified": {
             "$ref": "#/components/schemas/Question/properties/identified"
@@ -1800,12 +1812,17 @@
             "enum": [
               "fish-id",
               "species",
-              "search"
+              "search",
+              "tank"
             ],
             "description": "Where it started, as its first question said."
           },
           "about": {
             "$ref": "#/components/schemas/Linked"
+          },
+          "tank": {
+            "type": "string",
+            "description": "Started from a saved tank: its id."
           },
           "identified": {
             "$ref": "#/components/schemas/Question/properties/identified"

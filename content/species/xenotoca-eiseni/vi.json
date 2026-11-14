@@ -1,14 +1,28 @@
 {
   "slug": "ca-xenotoca-eiseni",
-  "name": "Cá Xenotoca eiseni",
-  "altNames": [],
-  "sections": {},
+  "name": "Cá goodeid đuôi đỏ",
+  "altNames": [
+    "Redtail Goodeid"
+  ],
+  "sections": {
+    "quickFacts:seriouslyfish": "<p>Cá goodeid đuôi đỏ (Xenotoca eiseni) là cá đẻ con ở Mexico. Ngoài tự nhiên, nó sống ở đủ kiểu nơi, từ suối núi nước trong đến mương ven đường ô nhiễm. Loài này rất khỏe, dễ thích nghi, nhưng giờ ít người nuôi hơn trước, có lẽ vì tính nó hay dữ. Có con tấn công và giết cá khác, nhất là cá da trơn, vì thế tốt nhất là nuôi riêng một loài. Giống các goodeid khác, cá con trong bụng mẹ lấy dinh dưỡng qua một cấu trúc gọi là trophotaenia.</p>",
+    "distribution:seriouslyfish": "<p>Mexico. Loài này sống ở đủ kiểu nơi, từ suối núi nước trong đến mương ven đường ô nhiễm.</p>",
+    "habitat:seriouslyfish": "",
+    "aquariumSize:seriouslyfish": "<p>Chiều dài chuẩn (SL): 6 cm. Đáy bể: 60 × 30 cm. Thể tích: khoảng 54 lít (60 × 30 × 30 cm).</p>",
+    "maintenance:seriouslyfish": "<p>Bể trồng dày cây, nền tối màu thì cá lên màu đẹp nhất.</p>",
+    "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 15–30°C</li><li>pH: 6,0–8,0</li><li>Độ cứng: 10–20 dGH</li></ul>",
+    "diet:seriouslyfish": "<p>Không kén ăn. Cho gì nó cũng thường ăn hết.</p>",
+    "behaviour:seriouslyfish": "<p>Tính khí khó đoán. Có con sống hiền khi thả chung với cá khác, nhưng có con lại cắn vây, hoặc tấn công và giết bất cứ loài nào khác trong bể. Loài này có vẻ đặc biệt ghét cá da trơn. Đã có trường hợp nó rỉa trụi vây và ăn mắt những loài như cá chuột (Corydoras). Tốt nhất là nuôi riêng một loài.</p>",
+    "dimorphism:seriouslyfish": "<p>Cá đực màu sặc sỡ hơn nhiều, và càng lớn thì lưng càng cao lên. Con đực còn có andropodium, tức vây hậu môn có khía dùng để giao phối.</p>",
+    "reproduction:seriouslyfish": "<p>Dễ. Cá đẻ con. Nên ghép cặp trong bể chỉ nuôi riêng loài này. Có thể cho đẻ theo một cặp hoặc theo nhóm, để cả đàn cùng đẻ (flock spawning). Bể đẻ cần có nhiều cây.</p><p>Goodeid đẻ hơi khác các loài đẻ con khác. Con cái không trữ tinh trùng như nhiều loài đẻ con khác, nên mỗi lứa đều phải cho ghép lại với con đực. Chúng cũng không có đốm mang thai (gravid spot). Cá mang thai 7–8 tuần, rồi đẻ ra 5–50 con cá bột cỡ lớn. Đôi khi cá bột còn dính theo một sợi trông như dây rốn. Chuyện này hoàn toàn bình thường, sợi đó sẽ mất sau 2–3 ngày.</p><p>Cá bột mới đẻ đã đủ lớn để ăn chung thức ăn với cá lớn. Ngay từ đầu chúng đã bạo dạn, hay bơi ra ngoài và tranh ăn với mọi con cá khác trong bể. Cá bố mẹ ít khi ăn con.</p>",
+    "notes:seriouslyfish": "<p>Loài này cực kỳ khỏe và dễ thích nghi, nhưng giờ ít người nuôi hơn trước, có lẽ vì tính nó hay dữ. Giống các goodeid khác, con đực và con cái chênh nhau về kích cỡ ít hơn so với nhiều loài đẻ con khác. Người ta cho rằng đó là do andropodium của chúng có cấu tạo còn khá nguyên thủy. Vì thế cá thường chọn bạn tình cùng cỡ để cơ quan sinh dục khớp nhau.</p><p>Điểm riêng của goodeid so với mọi loài đẻ con khác là cá con trong bụng mẹ lấy dinh dưỡng qua một cấu trúc chuyên biệt gọi là trophotaenia. Nó làm việc giống nhau thai ở động vật có vú, và cá con lúc mới đẻ thường còn dính phần sót lại của nó. Con đực còn có một khối cơ bên trong gọi là pseudophallus, nối ống dẫn tinh với lỗ sinh dục. Nghe nói bộ phận này phóng tinh trùng ra mạnh.</p>"
+  },
   "quality": {
     "score": 0.9,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.9
-    },
-    "reason": "thin"
+      "glaser": 0.9,
+      "seriouslyfish": 0.9
+    }
   }
 }

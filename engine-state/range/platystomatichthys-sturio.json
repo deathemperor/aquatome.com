@@ -1,0 +1,110 @@
+{
+  "id": "platystomatichthys-sturio",
+  "native": {
+    "input": "6832b4259d045e09",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Amazon basin. Type locality: Rio Branco, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Amazon basin. Type locality: Rio Branco, Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Rio Branco",
+        "source": "scotcat",
+        "quote": "South America: Amazon basin. Type locality: Rio Branco, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Amazonia",
+        "source": "glaser",
+        "quote": "The species has a very wide distribution in Amazonia.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Platystomatichthys sturio",
+    "status": "ACCEPTED",
+    "taxonKey": 2338737,
+    "datasets": [
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        12
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        12
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        11
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        7
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        3
+      ],
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

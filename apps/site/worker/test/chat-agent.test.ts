@@ -4,7 +4,7 @@ import type Anthropic from '@anthropic-ai/sdk'
 import type { PageDoc } from '@aq/schema/app-page'
 import { LANGS } from '@aq/schema/langs'
 import { expect, test, vi } from 'vitest'
-import { answerQuestion, CHAT_LIMITS, firstMessage, HANDBOOK, HANDOVER_MS, LAST_WORD, MAX_TOKENS, OPENING_SYSTEM, SYSTEM, unaccented, type ChatOptions, type Start } from '../chat/agent'
+import { answerQuestion, CHAT_LIMITS, firstMessage, openedTank, HANDBOOK, HANDOVER_MS, LAST_TRY, LAST_WORD, MAX_TOKENS, OPENING_SYSTEM, SYSTEM, unaccented, type ChatOptions, type Start } from '../chat/agent'
 import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, OFF_TOPIC, picksReader, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search, searchTopics } from '../chat/search'
@@ -23,7 +23,7 @@ const hb = async (): Promise<Handbook> => (await handbookOf(source, 'vi'))!
 const { misfits } = contract('chat.openapi.json')
 const block = { $ref: '#/components/schemas/Block' }
 const pick = (p: Partial<Choice>): Choice => ({ t: 'species', ids: [], path: null, heading: null, tool: null, fish: [], tank: null, tankId: null, ...p })
-const answer = (blocks: Choice[], o: Partial<Answer> = {}): Answer => ({ offTopic: false, text: 'x', covered: true, blocks, suggestions: [], ...o })
+const answer = (blocks: Choice[], o: Partial<Answer> = {}): Answer => ({ offTopic: false, text: 'x', covered: true, blocks, suggestions: [], clashes: [], ...o })
 const run = async (name: string, input: Record<string, unknown>, h?: Handbook) => {
   const tool = chatTools({ handbook: h ?? (await hb()), tanks: async () => [] }).find(t => t.name === name)!
   return { step: tool.step?.(input), out: await tool.run(input, { photosLeft: 0 }) }
@@ -87,6 +87,55 @@ test('a guide written from one video is marked so in the search and its outline,
   expect(JSON.parse(await run('read_page', { path: '/vi/huong-dan/setup-be-thuy-sinh-dau-tien/', heading: null }))).not.toHaveProperty('oneVideo')
   expect(JSON.parse(await run('read_page', { path: '/vi/ca/ca-neon-xanh/', heading: null }))).not.toHaveProperty('oneVideo')
   expect(SYSTEM).toContain('oneVideo')
+})
+
+test('a glossary term named inside a longer search is found after every other match, unless its name is common', () => {
+  const term = (name: string, aka: string[] = []) => ({ kind: 'glossary', name, aka, path: `/vi/thuat-ngu/${fold(name)}/` }) as Item
+  const guide = (name: string, n: number) => ({ kind: 'guide', name, path: `/vi/huong-dan/g${n}/` }) as Item
+  const tanin = term('Tanin', ['Tannins']), nitrit = term('Nitrit', ['Nitrite']), water = term('Nước')
+  const yellow = guide('Nước vàng trong bể mới', 0)
+  const items = [tanin, nitrit, water, yellow, ...Array.from({ length: 13 }, (_, i) => guide(`Nước máy ${i}`, i + 1))]
+  expect(search(items, 'driftwood tannin', 'glossary')).toEqual([tanin])
+  expect(search(items, 'nitrite ngộ độc', 'glossary')).toEqual([nitrit])
+  // "Nước" is in 14 pages' names, so it says nothing about what's asked; and the guide that has most of the words comes first.
+  expect(search(items, 'nước vàng tannin', null)).toEqual([yellow, tanin])
+  expect(search(items, 'nước vàng', 'glossary')).toEqual([])
+  // A Thai name has no spaces, so "current" in an electrical query isn't the start of the term for water current.
+  expect(search([...items, term('กระแสน้ำ')], 'ค่ากระแสไฟฟ้า', 'glossary')).toEqual([])
+})
+
+test('the prompt answers about the fish: the card wins, no talk of pages disagreeing, the method read and given, no care question handed on, no pointing at earlier answers', () => {
+  expect(SYSTEM).toContain('is the answer over any passage')
+  expect(SYSTEM).toContain('Never say that the pages or their sources disagree')
+  expect(SYSTEM).toContain('Put the two places in clashes')
+  expect(SYSTEM).toContain('read the guide that gives it as well as the fish\'s page')
+  expect(SYSTEM).toContain('Search for that guide (kind guide) in your first call')
+  expect(SYSTEM).toContain('a longer search finds nothing')
+  expect(SYSTEM).toContain('as a fact about the fish, without "the handbook says"')
+  expect(SYSTEM).toContain('empty of numbers isn\'t')
+  expect(SYSTEM).toContain('the share of tap water is the target GH divided by the tap\'s')
+  expect(SYSTEM).toContain('A care question is yours to answer')
+  expect(SYSTEM).toContain('names the next step the keeper takes')
+  expect(SYSTEM).toContain('A vet may be named beside that step, never in place of it')
+  expect(SYSTEM).toContain('say plainly you don\'t have it, and say what to ask for or look for')
+  expect(SYSTEM).toContain('Never point at your earlier answers')
+  expect(ANSWER_SCHEMA.required).toContain('clashes')
+})
+
+test('a problem\'s steps each carry a figure, with no cap of five, and the answer asks last for the readings that would decide the cause', () => {
+  expect(SYSTEM).not.toContain('at most five')
+  expect(SYSTEM).toContain('as many as the problem needs')
+  expect(SYSTEM).toContain('each one action for their tank with its figure')
+  expect(SYSTEM).toContain('ask for the one to three readings that decide it')
+  expect(SYSTEM).toContain('Ask only for what would change your answer, never for what they told you')
+  // The forced last call writes most answers (the board, 13 Nov 2026: 184 of 225), so it says the same.
+  expect(LAST_WORD).toContain('each with its figure')
+  expect(LAST_WORD).toContain('the readings that would decide the cause')
+  expect(ANSWER_SCHEMA.properties.text.description).toContain('each with its figure')
+  expect(ANSWER_SCHEMA.properties.text.description).toContain('and last the readings that would decide the cause when the reader hasn\'t given them')
+  // A safe reading is none on the kit: "under 0.25 mg/l" mixes total ammonia with the free ammonia that harms fish (the review, 13 Nov).
+  expect(SYSTEM).toContain('amoniac và nitrit về 0 trên bộ test')
+  expect(SYSTEM).not.toContain('0,25 mg/l')
 })
 
 test('read_tanks reads the reader\'s tanks with their ids, says when there are none, and is an error when they can\'t be read', async () => {
@@ -653,6 +702,7 @@ test('a slow turn answers sooner, and quickly: the chat keeps the answer\'s time
 
 test('the run ends within fish ID\'s time, so it outlives a dropped connection (the platform keeps it 30 s), and an answer with no text is none', () => {
   expect(CHAT_LIMITS.ms).toBeLessThanOrEqual(27_000)
+  expect(CHAT_LIMITS.ms + CHAT_LIMITS.writingGraceMs!).toBeLessThanOrEqual(30_000)
   const said = (text: string) => readAnswer(message([{ type: 'text', text: JSON.stringify({ text, covered: true, blocks: [], suggestions: [] }) }]))
   expect(said('x')).toBeUndefined()
   expect(said('   ')).toBeUndefined()
@@ -713,6 +763,57 @@ test('a turn: Claude reads the handbook, then answers; the steps are shown as th
   // A refusal, or an answer cut short, is no answer: no blocks.
   expect(readAnswer(message([{ type: 'text', text: '{"text":' }], 'max_tokens'))).toBeUndefined()
   expect(readAnswer(message([], 'refusal'))).toBeUndefined()
+})
+
+test('a chat opened from a saved tank says so first, with the tank as every handed tank is, without its name; a tank the reader doesn\'t hold says nothing', async () => {
+  const h = await hb()
+  const tank: Tank = { id: 't1', name: 'Bể phòng khách', dims: { l: 60, w: 30, h: 36 }, species: [{ id: 'paracheirodon-innesi', count: 10 }], unlisted: [] }
+  const tanks = async () => [tank]
+  const line = await openedTank({ from: 'tank', tank: 't1' }, tanks, h, false)
+  expect(line).toContain('They opened the chat from one of their saved tanks, id t1: what they ask is about that tank unless they say otherwise.')
+  expect(line).toContain('"count":10')
+  expect(line).not.toContain('Bể phòng khách')
+  // With every tank handed over already, the line alone.
+  expect(await openedTank({ from: 'tank', tank: 't1' }, tanks, h, true)).toBe('They opened the chat from one of their saved tanks, id t1: what they ask is about that tank unless they say otherwise.')
+  // Not synced yet, deleted, or the tanks unreadable: answered as if no tank was named.
+  expect(await openedTank({ from: 'tank', tank: 'gone' }, tanks, h, false)).toBeUndefined()
+  expect(await openedTank({ from: 'tank', tank: 't1' }, async () => null, h, false)).toBeUndefined()
+  expect(await openedTank({ from: 'species', about: 'paracheirodon-innesi' }, tanks, h, false)).toBeUndefined()
+  // The run's first call carries it after the question.
+  const bodies: Anthropic.MessageCreateParamsNonStreaming[] = []
+  await answerQuestion({
+    send: async b => { bodies.push(b); return message([{ type: 'text', text: JSON.stringify(answer([])) }]) },
+    model: 'claude-opus-5-5', lang: 'vi', question: 'Bể này ổn không?', earlier: [], start: { from: 'tank', tank: 't1' }, handbook: h, tanks,
+  })
+  const first = JSON.stringify(bodies[0]!.messages[0]!.content)
+  expect(first.indexOf('The reader asks:')).toBeLessThan(first.indexOf('id t1: what they ask is about that tank'))
+})
+
+test('asked whether their tank is all right, the chat reviews it with the tank-mates check on that tank, says what to fix first, and asks for the readings it lacks', async () => {
+  expect(SYSTEM).toContain('whether it is all right ("bể này ổn không"), review that tank. With fish in it: check_tank_mates with its id')
+  expect(SYSTEM).toContain('and no fish to add, once')
+  expect(SYSTEM).toContain('Open with the check\'s verdict, or, with one kind of fish, when it gives none, with how full the tank is and its notes')
+  expect(SYSTEM).toContain('With no fish in it there is nothing to check: don\'t call it.')
+  expect(SYSTEM).toContain('end by asking for the one to three they haven\'t given that would change your advice')
+  // What the prompt leans on, from the check itself: a verdict with two kinds or more; with one, none, but how full the
+  // tank is and its notes; with none, an error (the review, 13 Nov).
+  const h = await hb()
+  const dims = { l: 60, w: 30, h: 36 }
+  const tanks: Tank[] = [
+    { id: 'two', name: 'Bể 1', dims, species: [{ id: 'paracheirodon-innesi', count: 6 }, { id: 'pigeon-blood-discus', count: 2 }], unlisted: [] },
+    { id: 'one', name: 'Bể 2', dims, species: [{ id: 'paracheirodon-innesi', count: 3 }], unlisted: [] },
+    { id: 'none', name: 'Bể 3', dims, species: [], unlisted: [{ name: 'Rong lạ', kind: 'plant' }] },
+  ]
+  const tool = chatTools({ handbook: h, tanks: async () => tanks }).find(t => t.name === 'check_tank_mates')!
+  const review = async (tankId: string) => JSON.parse(await tool.run({ fish: [], tank: null, tankId }, { photosLeft: 0 }) as string) as MatesCheck
+  const two = await review('two')
+  expect(two.answer?.head).toEqual(expect.any(String))
+  expect(two.verdict).toBeDefined()
+  const one = await review('one')
+  expect(one.answer).toBeUndefined()
+  expect(one.verdict).toBeUndefined()
+  expect(one.stocking?.notes.length).toBeGreaterThan(0)
+  await expect(review('none')).rejects.toThrow('That tank has no fish')
 })
 
 test('the first message says where the chat started, what fish ID named, the earlier turns and what they showed, then the question', async () => {
@@ -778,7 +879,7 @@ test('an off-topic question gets the Worker\'s own line in the reader\'s languag
       model: 'claude-opus-5-5', lang, question: 'Tối qua Real Madrid đá thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [],
       onText: p => said.push(p),
     })
-    expect(out.answer).toEqual({ offTopic: true, text: OFF_TOPIC[lang], covered: true, blocks: [], suggestions: [] })
+    expect(out.answer).toEqual({ offTopic: true, text: OFF_TOPIC[lang], covered: true, blocks: [], suggestions: [], clashes: [] })
     expect(out.blocks).toEqual([])
   }
   expect(said.join('')).toBe('')
@@ -897,6 +998,41 @@ test('words before a tool call that look like broken JSON never fail the call: b
   }
 })
 
+test('an answer the reader is already reading gets the chat\'s grace past the run\'s limit', async () => {
+  const opts: { timeoutMs: number; writingMs?: number }[] = []
+  await answerQuestion({
+    send: async (_, o) => { opts.push(o); return message([{ type: 'text', text: JSON.stringify({ offTopic: false, text: 'Cá neon xanh sống theo đàn, từ 6 con.', covered: true, blocks: [], suggestions: [] }) }]) },
+    model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [], clock: () => 0,
+  })
+  expect(opts.map(o => [o.timeoutMs, o.writingMs])).toEqual([[20_000, 30_000]])
+})
+
+test('a call still silent as time runs out is given up for a short answer; once the reader has words, there is no second answer', async () => {
+  const final = { offTopic: false, text: 'Cá neon xanh sống theo đàn, từ 6 con.', covered: true, blocks: [], suggestions: [] }
+  const ask = { model: 'claude-haiku-5-5', lang: 'vi' as const, question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [] }
+  let now = 0
+  const bodies: Anthropic.MessageCreateParamsNonStreaming[] = []
+  const out = await answerQuestion({ ...ask, clock: () => now, send: async (b, o) => {
+    bodies.push(b)
+    if (bodies.length === 1) { now += o.timeoutMs; throw new Error('Request timed out.') }
+    return message([{ type: 'text', text: JSON.stringify(final) }])
+  } })
+  expect(out).toMatchObject({ calls: 2, stopped: 'time', answer: final })
+  expect(bodies[1]).toMatchObject({ thinking: { type: 'disabled' }, max_tokens: LAST_TRY.maxTokens, tool_choice: { type: 'none' } })
+
+  let tries = 0
+  const said: string[] = []
+  const cut = await answerQuestion({ ...ask, clock: () => now, onText: p => said.push(p), send: async (_, o) => {
+    tries++
+    o.onText?.('{"offTopic":false,"text":"Cá neon xanh sống')
+    now += o.timeoutMs
+    throw new Error('Request timed out.')
+  } })
+  expect(said.join('')).toContain('Cá neon')
+  expect(tries).toBe(1)
+  expect(cut.stopped).toBe('error')
+})
+
 test('without onText a run is as before: no call is asked to stream, and a tool call after an answer\'s text still runs', async () => {
   const final = { offTopic: false, text: 'Cá neon xanh sống theo đàn, từ 6 con.', covered: true, blocks: [], suggestions: [] }
   const opts: object[] = []
@@ -907,7 +1043,7 @@ test('without onText a run is as before: no call is asked to stream, and a tool 
     },
     model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [],
   })
-  expect(opts.map(o => Object.keys(o))).toEqual([['timeoutMs', 'call'], ['timeoutMs', 'call']])
+  expect(opts.map(o => Object.keys(o))).toEqual([['timeoutMs', 'writingMs', 'call'], ['timeoutMs', 'writingMs', 'call']])
   expect(out).toMatchObject({ calls: 2, tools: 1, stopped: 'answer', answer: final })
 })
 

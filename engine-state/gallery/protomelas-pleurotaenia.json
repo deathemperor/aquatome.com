@@ -3,8 +3,14 @@
  "judged": [
   "File:Protomelas pleurotaenia2.jpg"
  ],
- "hashes": {
-  "https://media.aquatome.com/seriouslyfish/168542af74486c92.webp": "8f0f1e3f5f1f1e56"
- },
- "commons": "2026-11-09"
+ "hashes": {},
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 110688,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ }
 }

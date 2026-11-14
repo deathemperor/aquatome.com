@@ -1,12 +1,13 @@
 {
   "slug": "ca-satanopera-acuticeps",
-  "name": "Cá ăn đất đầu nhọn",
+  "name": "Cá hải hồ acuticeps",
   "altNames": [
     "Eartheater",
     "Cá Satanopera acuticeps",
     "Sparkling eartheater",
     "Four-spot eartheater",
-    "Sharphead Eartheater"
+    "Sharphead Eartheater",
+    "Cá ăn đất đầu nhọn"
   ],
   "sections": {
     "distribution:glaser": "<p>Brazil: Rio Branco, Negro, Solimões.</p>",
@@ -27,12 +28,12 @@
     "references:seriouslyfish": "<ul><li>Heckel, J. J. (1840). Johann Natterer's neue Flussfische Brasilien's nach den Beobachtungen und Mittheilungen des Entdeckers beschrieben (Erste Abtheilung, Die Labroiden). Annalen des Wiener Museums der Naturgeschichte v. 2, 325-471</li><li>Kullander, S. O. (1986). Cichlid fishes of the Amazon River drainage of Peru. Swedish Museum of Natural History, 1-431</li><li>Kullander, S. O. and E. J. G. Ferreira (1988). A new Satanoperca species (Teleostei, Cichlidae) from the Amazon River basin in Brazil. Cybium 12(4), 343-355</li></ul>"
   },
   "quality": {
-    "score": 0.72,
-    "indexable": false,
+    "score": 0.8,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.72,
+      "glaser": 0.8,
       "seriouslyfish": 0.85
-    },
-    "reason": "score"
-  }
+    }
+  },
+  "nameFixed": true
 }

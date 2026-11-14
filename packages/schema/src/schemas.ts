@@ -17,21 +17,45 @@ const Range = z.object({ min: z.number(), max: z.number() })
 /**
  * `ref`: a figure AquaTome researched (source 'aquatome'), the page in the species' `refs` it comes from.
  */
-const SourcedValue = z.object({ source: SourceId, value: z.union([Range, z.number()]), hidden: z.string().optional(), ref: z.number().int().nonnegative().optional() })
+/**
+ * `overruled`: why this figure is off the card though its source would otherwise win: two independent sources agree against
+ * it and the gap is wide (size 1.5 times or more, water ranges that don't overlap); a tank set for the smaller fish; or a figure
+ * against its source's own measured reading, with an independent source beside the reading. It stays while the source gives the same figure.
+ */
+const SourcedValue = z.object({ source: SourceId, value: z.union([Range, z.number()]), hidden: z.string().optional(), overruled: z.string().optional(), ref: z.number().int().nonnegative().optional() })
 const DataCardField = z.enum(['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'difficulty', 'lifeYears'])
 
 /**
  * `refs`: text AquaTome wrote from web research (source 'aquatome'), the pages in the species' `refs` its facts come from.
- * `fixed`: a person rewrote this part, in English and in the Vietnamese beside it, and reading its source again never
- * replaces it, as `nameFixed` holds a name.
+ * `fixed`: a person rewrote this part, in English and in each language beside it, and neither reading its source again
+ * nor translating the page replaces it, as `nameFixed` holds a name.
  */
 const Section = z.object({ key: z.enum(SECTION_ORDER), source: SourceId, sourceUrl: z.string(), html: z.string(), refs: z.array(z.number().int().nonnegative()).optional(), fixed: z.literal(true).optional() })
 /** `authorUrl`: the photographer's own page (an Unsplash profile), which their credit links. */
 /**
  * `large`: a copy for the app's large cards, 1,200 px on its short side (the engine's large-photos.ts); the site's pages
  * show `url`, at most 1,200 wide.
+ * `subject`: where the fish is, in the photo's pixels, from the engine's box record (engine-state/_photo-boxes.json). The
+ * engine never writes one into content: the loader adds it from the record alone, behind its switch (image-geometry.ts
+ * SUBJECT_FRAMES), to the photos it clears (pages', albums', guides', breeds' and cards'), dropping any other.
  */
-const Photo = z.object({ url: z.string(), thumb: z.string().optional(), width: z.number(), height: z.number(), large: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional(), licence: z.string(), author: z.string(), authorUrl: z.string().optional(), sourceUrl: z.string(), caption: z.string().optional(), source: SourceId.optional() })
+const Hash = z.string().regex(/^[a-f0-9]{64}$/)
+const PixelBox = z.object({ x0:z.number().int().nonnegative(),y0:z.number().int().nonnegative(),x1:z.number().int().positive(),y1:z.number().int().positive() })
+const HashPair = z.tuple([Hash,Hash])
+const Generated = z.object({
+  model: z.string().min(1), driverModel: z.string().min(1), date: z.string().min(1), prompt: z.string().min(1), referenceHash: Hash,
+  check: z.object({ passes: z.literal(2).optional(), judgments: z.tuple([Hash, Hash]).optional(), verdict: z.literal('pass'), version: Hash, model: z.string().min(1), at: z.string().min(1), referenceHash: Hash, pixelHash: Hash, calibrationHash: Hash }).optional(),
+})
+const Alteration = z.object({
+  method: z.enum(['mark-removal', 'mark-crop', 'lanczos3-upscale']), date: z.string().min(1), originalHash: Hash,
+  box: z.object({ x0: z.number().int().nonnegative(), y0: z.number().int().nonnegative(), x1: z.number().int().positive(), y1: z.number().int().positive() }).optional(),
+  outsideChanged: z.literal(0).optional(), noTrace: z.literal('pass').optional(), permissionDate: z.string().optional(), residue: z.object({ version: z.string(), score: z.number().min(0).max(1), limit: z.number().min(0).max(1) }).optional(),
+  retainedChanged:z.literal(0).optional(), crop:z.object({originalWidth:z.number().int().positive(),originalHeight:z.number().int().positive(),window:PixelBox,subject:PixelBox,margin:z.number().int().nonnegative()}).optional(),
+  excludedMarks:z.array(PixelBox).optional(),
+  checks:z.object({species:HashPair,ownership:HashPair,noTrace:HashPair.optional(),preservation:HashPair.optional()}).optional(),
+})
+const OriginalPicture = z.object({ url: z.string(), width: z.number(), height: z.number(), thumb: z.string().optional(), large: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional() })
+const Photo = z.object({ url: z.string(), thumb: z.string().optional(), width: z.number(), height: z.number(), large: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional(), licence: z.string(), author: z.string(), authorUrl: z.string().optional(), sourceUrl: z.string(), caption: z.string().optional(), source: SourceId.optional(), ownerCrop: z.object({ id: z.string(), pixelHash: Hash }).optional(), headFit: z.literal("contain").optional(), generated: Generated.optional(), altered: z.array(Alteration).optional(), original: OriginalPicture.optional(), subject: PixelBox.optional() })
 export const PhotoSchema = Photo
 const Video = z.object({ youtubeId: z.string(), title: z.string(), durationSec: z.number(), lang: z.string() })
 const ProductSlot = z.object({ category: z.string(), keywords: z.array(z.string()) })
@@ -177,16 +201,16 @@ const GuidePhoto = Photo.extend({ section: z.object({ vi: z.string(), ...section
  * A video still is shown only when it passes all three bars (the owner's report, 2026-11-09: unreadable smudges on a phone).
  * - Its shorter side is 480 px or more: a storyboard tile (90 or 180 px), or a frame from a video under 480p, doesn't.
  *   Stills are never stored larger than the frame they came from, so this is the source's resolution too.
- * - Its `sharpness` (the engine's still-sharpness.ts) is at the bar; a still not yet measured isn't shown. Tuned by eye
- *   on 58 stills seen whole at phone width: at 12 it stops 3 of the 7 blurry and 1 of the 45 fine. It stops the frames
- *   with nothing in focus. A soft frame with texture passes: stopping those would cost most of the fine ones
- *   (packages/engine/test/still-sharpness-labels.json).
+ * - Its `sharpness` (the engine's still-sharpness.ts) is at the bar; a still not yet measured isn't shown. Judged blind
+ *   at phone width on 120 live stills (2026-11-10, packages/engine/test/still-sharpness-labels.json), every one called
+ *   soft scored under 160 and none of the 36 sampled above it was soft. The cost is the fine frames under 160. At 12 (the
+ *   bar from 9 Nov) it stopped only frames with nothing in focus, and the owner's report of blurry captures stayed open.
  * - Its `person` verdict says no one is in it, hands included (PRODUCT.md). guide-photos.ts or video-stills.ts writes it once
  *   a model has looked; a still not yet judged isn't shown. Tiles hid the people in teaching videos: of 30 frames sampled on
  *   2026-11-09, 14 showed hands or a person.
  */
 export const STILL_MIN_SIDE = 480
-export const STILL_MIN_SHARPNESS = 12
+export const STILL_MIN_SHARPNESS = 160
 export const stillShown = (m: { width: number; height: number; sharpness?: number; person?: boolean }) =>
   Math.min(m.width, m.height) >= STILL_MIN_SIDE && (m.sharpness ?? 0) >= STILL_MIN_SHARPNESS && m.person === false
 
@@ -203,7 +227,17 @@ export const SeriesSchema = z.object({
   vi: z.object({ slug: z.string(), name: z.string(), intro: z.string() }),
 })
 
-export const GlossarySchema = z.object({ id: z.string(), en: z.string(), latin: z.string().optional() })
+/**
+ * A glossary term. `refs`: the pages AquaTome's fuller entry was researched from (engine glossary-entry.ts), listed under
+ * it as a guide's are. `related`: other terms' ids, the ones a reader of this entry should see next. `photos`: as a
+ * species' (Curation's records), kept by the engine's rewrites of the entry.
+ */
+export const GlossarySchema = z.object({
+  id: z.string(), en: z.string(), latin: z.string().optional(),
+  refs: z.array(z.object({ url: WebUrl, title: z.string().min(1) })).optional(), related: z.array(z.string()).optional(),
+  /** Only where seeing it explains the term (driftwood, white spot): the first is shown under its meaning. */
+  photos: z.array(Photo).optional(),
+})
 export const PlaceSchema = z.object({
   id: z.string(), kind: z.enum(['continent', 'country', 'region', 'river']), parent: z.string().optional(),
   /** The countries (ISO codes) of the sentence that names a river or region only a species' range names, for whoever names it. A `parent` would list it on the country's page and link its name in guides. */
@@ -231,13 +265,27 @@ export const EquipmentSchema = z.object({
 export const CaptionsSchema = z.record(z.string(), z.string())
 /** content/picture-hashes.json: each photo's 64-bit difference hash (hex) by its address (pictures.ts). */
 export const PictureHashesSchema = z.record(z.string(), z.string().regex(/^[0-9a-f]{16}$/))
+/** The day each content file last changed for a reader, with its hash: file → "2026-11-10 ab12cd34ef56" (the engine's page-dates.ts). */
+export const PageDatesSchema = z.record(z.string(), z.string().regex(/^\d{4}-\d{2}-\d{2} [0-9a-f]{12}$/))
+
+/**
+ * content/one-voice.json: a species' id, then a heading (section key), then the one source that speaks under it. Where the
+ * sources under a heading can't both be true, the page shows that source's text alone (load.ts).
+ */
+export const OneVoiceSchema = z.record(z.string(), z.partialRecord(z.enum(SECTION_ORDER), SourceId))
 
 /**
  * A gallery photo can carry what the screening model said of it, so a top-up re-ranks the whole gallery: `best`, one of
  * its picks of a contact sheet; `kind`, what it shows (male, female, colour form, juvenile, habitat; for a plant
  * submersed, emersed, flower…). Photos screened before these existed have neither.
  */
-const GalleryPhoto = Photo.extend({ best: z.boolean().optional(), kind: z.string().optional() })
+/**
+ * `unchecked`: a step added it to the gallery and the photo check (check-photos) has not judged it for this page yet, so
+ * no page shows it (load.ts). Set on every photo a step adds since 2026-11-10, when a tenth of the gallery photos the
+ * check had judged had been rejected, most as another fish; the check takes the mark off a photo it judges and leaves on.
+ * A photo without it was added before, or has been judged.
+ */
+const GalleryPhoto = Photo.extend({ best: z.boolean().optional(), kind: z.string().optional(), unchecked: z.boolean().optional() })
 export const GallerySchema = z.object({ id: z.string(), photos: z.array(GalleryPhoto), seen: z.number(), updatedAt: z.string(), builtAt: z.string().optional() })
 
 const ProductSpec = z.object({ key: z.string(), value: z.string(), source: z.number().int().optional() })
@@ -318,6 +366,8 @@ export const TranslationSchema = z.object({
   nameFixed: z.boolean().optional(),
   /** Owner-fixed text: the engine never replaces this guide's body (nameFixed's kin, for a fix made by hand). */
   bodyFixed: z.boolean().optional(),
+  /** Owner-fixed questions, set with bodyFixed on a video guide: written again, it keeps this FAQ (its other writers leave a video guide with a fixed body alone; a topic guide's and a translated guide's writers don't read this mark). */
+  faqFixed: z.boolean().optional(),
   /**
    * A note for this language's readers (what is sold here, a cheaper local way), labelled "Ở Việt Nam…" and kept apart from
    * what the source says. Its own field, so a source read again or a video checked again can't lose it, and no reviewer
@@ -346,10 +396,15 @@ export const ChangelogSchema = z.array(ChangelogEntrySchema)
 /**
  * `publish`: true once the written permission covers the source's text and photos; `'photos'` when it covers only photos
  * (Diễn Đàn Cá Cảnh): a public build shows its photos, and nothing written from its text (sections, guides, card values).
+ * `permission.refusedCredits`: credits the permission doesn't cover, whatever the source allows (a picture agency's): the
+ * intake takes no photo it credits so, and the sweep takes those already shown off for good (engine source-photos.ts, sweep.ts).
+ * `permission.coveredCredits`: the kinds of credit, besides a person or a one-word handle, the permission covers. The intake
+ * takes no new photo credited to a business, an organisation or a person with an organisation unless its kind is listed
+ * (engine source-photos.ts `creditCovered`); a picture agency can't be.
  */
 export const SourceInfoSchema = z.object({
   name: z.string(), homepage: z.string(), publish: z.union([z.boolean(), z.literal('photos')]),
-  permission: z.object({ date: z.string(), file: z.string(), scope: z.array(z.string()) }).optional(),
+  permission: z.object({ date: z.string(), file: z.string(), scope: z.array(z.string()), refusedCredits: z.array(z.string().min(1)).optional(), coveredCredits: z.array(z.enum(['organisation', 'business', 'person-with-organisation'])).optional(), markRemoval: z.discriminatedUnion('allowed', [z.object({ allowed: z.literal(false) }), z.object({ allowed: z.literal(true), date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/), basis: z.string().optional() })]).optional() }).optional(),
 }).refine(s => !s.publish || s.permission !== undefined, { message: 'publish requires a permission record', path: ['permission'] })
 /** What a public build may show from a source: its text (and what is written from it), or its photos. */
 export const mayPublish = (info: { publish?: boolean | 'photos' } | undefined, what: 'text' | 'photos') =>

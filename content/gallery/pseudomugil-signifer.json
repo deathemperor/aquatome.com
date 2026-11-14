@@ -86,18 +86,6 @@
       "kind": "group"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/184142946.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/184142946-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC0",
-      "author": "Richard Fuller",
-      "sourceUrl": "https://www.inaturalist.org/photos/184142946",
-      "caption": "Cá mắt xanh Thái Bình Dương ngoài tự nhiên giữa lá khô",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/596077358.webp",
       "thumb": "https://media.aquatome.com/inaturalist/596077358-480.webp",
       "width": 1024,
@@ -215,6 +203,18 @@
       "sourceUrl": "https://www.inaturalist.org/photos/689017016",
       "caption": "Cá mắt xanh Thái Bình Dương bơi giữa đá ở suối",
       "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/184142946.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/184142946-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC0",
+      "author": "Richard Fuller",
+      "sourceUrl": "https://www.inaturalist.org/photos/184142946",
+      "caption": "Cá mắt xanh Thái Bình Dương ngoài tự nhiên giữa lá khô",
+      "best": true,
       "kind": "habitat"
     }
   ],

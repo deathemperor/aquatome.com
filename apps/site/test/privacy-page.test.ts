@@ -36,12 +36,40 @@ test('the privacy page says an account keeps the id of the profile picture its r
   expect(page('/th/privacy/').dom.textContent).toContain('รูปโปรไฟล์ที่คุณเลือกจากชุดรูปปลาในแอป (เก็บเฉพาะรหัสของรูป);')
 })
 
-// The page promises its date moves with its text (section 8): the visitor code's text, live in Vietnam on 9 November 2026,
-// moved it there.
+test('the privacy page says a tap on a glossary term\'s card is counted, with the term, in every language', () => {
+  const vi = page('/chinh-sach-bao-mat/').dom.textContent
+  expect(vi).toContain('lượt chạm mở thẻ giải thích một thuật ngữ hoặc bấm “Đọc thêm” trên thẻ đó (kèm thuật ngữ đó)')
+  expect(vi).toContain('taps that open a glossary term\'s card or follow its "Đọc thêm" (read more) link (with the term)')
+  expect(page('/id/kebijakan-privasi/').dom.textContent).toContain('mengikuti tautan “Baca selengkapnya” pada kartu itu (beserta istilahnya)')
+  expect(page('/th/privacy/').dom.textContent).toContain('แตะลิงก์ “อ่านเพิ่มเติม” บนการ์ดนั้น (พร้อมคำศัพท์นั้น)')
+  expect(page('/ms/dasar-privasi/').dom.textContent).toContain('mengikuti pautan “Baca lagi” pada kad itu (berserta istilahnya)')
+})
+
+test('the privacy page names the device word and says nothing else about the device is kept, in every language', () => {
+  const vi = page('/chinh-sach-bao-mat/').dom.textContent
+  expect(vi).toContain('quốc gia, loại thiết bị (điện thoại, máy tính bảng hay máy tính), mức cuộn')
+  expect(vi).toContain('trong thống kê này, chúng tôi chỉ lưu một từ đó, không lưu thông tin trình duyệt hay kích thước màn hình.')
+  expect(vi).toContain('thì không có mã khách; các sự kiện khác, gồm quốc gia và loại thiết bị, vẫn được ghi.')
+  expect(vi).toContain('country, device type (phone, tablet or computer), scroll depth')
+  expect(vi).toContain("in these statistics we keep only that one word, not your browser's details or screen size.")
+  expect(vi).toContain('gets no visitor code; its other events, including country and device type, are still recorded.')
+  for (const [path, type, kept, signals] of [
+    ['/id/kebijakan-privasi/', 'jenis perangkat (ponsel, tablet, atau komputer)', 'dalam statistik ini kami hanya menyimpan satu kata itu', 'termasuk negara dan jenis perangkat, tetap dicatat.'],
+    ['/th/privacy/', 'ประเภทอุปกรณ์ (โทรศัพท์ แท็บเล็ต หรือคอมพิวเตอร์)', 'ในสถิตินี้เราเก็บเพียงคำเดียวนั้น', 'รวมถึงประเทศและประเภทอุปกรณ์ ยังคงถูกบันทึก'],
+    ['/ms/dasar-privasi/', 'jenis peranti (telefon, tablet atau komputer)', 'dalam statistik ini kami hanya menyimpan satu perkataan itu', 'termasuk negara dan jenis peranti, tetap direkodkan.'],
+  ] as const) {
+    const text = page(path).dom.textContent
+    expect(text, path).toContain(type)
+    expect(text, path).toContain(kept)
+    expect(text, path).toContain(signals)
+  }
+})
+
+// The page promises its date moves with its text (section 8): the device word's line moved it to 10 November 2026.
 test('the privacy page\'s date is the last approved edit\'s, in every language and the English block', () => {
   const updated = (path: string) => page(path).dom.querySelector('.updated')?.textContent
-  expect(updated('/chinh-sach-bao-mat/')).toBe('Cập nhật: 09/11/2026')
-  expect(updated('/id/kebijakan-privasi/')).toBe('Diperbarui: 09/11/2026')
-  expect(updated('/th/privacy/')).toBe('อัปเดต: 09/11/2026')
-  expect(page('/chinh-sach-bao-mat/').dom.textContent).toContain('Last updated: 9 November 2026.')
+  expect(updated('/chinh-sach-bao-mat/')).toBe('Cập nhật: 10/11/2026')
+  expect(updated('/id/kebijakan-privasi/')).toBe('Diperbarui: 10/11/2026')
+  expect(updated('/th/privacy/')).toBe('อัปเดต: 10/11/2026')
+  expect(page('/chinh-sach-bao-mat/').dom.textContent).toContain('Last updated: 10 November 2026.')
 })

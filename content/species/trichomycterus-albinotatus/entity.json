@@ -15,6 +15,28 @@
       {
         "source": "planetcatfish",
         "value": 4.6
+      },
+      {
+        "source": "scotcat",
+        "value": 4.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ]
   },
@@ -26,10 +48,28 @@
       "html": "<ul><li>Scientific name: Trichomycterus albinotatus Costa, 1992</li><li>Size: 46 mm (1.8 in) SL</li><li>IUCN Red List: Least Concern (last assessed 2018)</li><li>Type locality: Visconde de Maua, 1 kilometer west of Maromba, Rio Preto, Rio Paraiba basin, Rio de Janeiro State, Brazil, elevation above 1,100 meters.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/trichomycterus_albinotatus.htm",
+      "html": "<p>Trichomycterus albinotatus is a common but not very abundant species.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1231",
       "html": "<p>South America: Preto River, tributary of Paraíba do Sul River in Brazil. Rio de Janeiro State Rivers, Paraíba do Sul, Prêto (MG, Paraíba do Sul).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/trichomycterus_albinotatus.htm",
+      "html": "<p>South America: Upper course of the Rio Preto, Ribeirão Santa Clara and Córrego das Cruzes drainages, Paraíba do Sul River basin (Rio de Janeiro state, Brazil).</p><p>Type locality: Estado do Rio de Janeiro: Visconde de Maua, 1 km O de la Ville de Maromba, rio Preto, bassin du rio Paraíba [22º30'S 44º15'], Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/trichomycterus_albinotatus.htm",
+      "html": "<p>Trichomycterus albinotatus is endemic to the Paraíba do Sul basin. It is collected fairly frequently, but is not very abundant.</p>"
     },
     {
       "key": "diet",
@@ -50,10 +90,22 @@
       "html": "<p>Etymology: Trichomycterus comes from the Greek trichos, meaning hair, and mykter, meaning nose, in reference to the barbels.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/trichomycterus_albinotatus.htm",
+      "html": "<p>Etymology: The specific name albinotatus: albus (L.), white; notatus (L.), marked, referring to white marks on upper body.</p><p>IUCN Red List: it occurs in an area impacted by urbanisation, which apparently does not represent a significant threat that puts its population at risk, and is categorised as Least Concern (LC) (IUCN 2022).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1231",
       "html": "<p>Revue française d'Aquariologie Herpétologie v. 18 (no. 4) [for 1991], pp 102, Figs. 1-2.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/trichomycterus_albinotatus.htm",
+      "html": "<p>de Pínna, M.C.C. and W. Wosiacki, 2003. Trichomycteridae (pencil or parasitic catfishes). p. 270-290. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2024. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 08/2024 ).</p><p>Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio). 2022. Trichomycterus albinotatus. The IUCN Red List of Threatened Species 2022.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -91,5 +143,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-10"
 }

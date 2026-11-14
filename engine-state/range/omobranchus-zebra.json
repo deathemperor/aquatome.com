@@ -1,0 +1,54 @@
+{
+  "id": "omobranchus-zebra",
+  "native": {
+    "input": "5c70cbf1086ed99e",
+    "at": "2026-11-11T08:59:40.517Z",
+    "claims": [
+      {
+        "code": "SG",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species has a large distribution along the coastline of the Indo-West-Pacific, ranging from the Bay of Bengal in the west to Singapore in the east.",
+        "words": "Singapore",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "IN"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Omobranchus zebra",
+    "status": "ACCEPTED",
+    "taxonKey": 2396159,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        2
+      ]
+    ],
+    "native": [
+      "SG"
+    ],
+    "requests": 13,
+    "at": "2026-11-11T08:59:40.517Z"
+  }
+}

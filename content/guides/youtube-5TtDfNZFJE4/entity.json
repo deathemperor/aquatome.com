@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-10",
   "video": {
     "youtubeId": "5TtDfNZFJE4",
     "title": "#0001 Hướng dẫn setup bể thủy sinh bố cục đá - Aqua Hà Nội",
@@ -30,12 +30,12 @@
       {
         "category": "be-ca",
         "type": "chuan",
-        "t": 0
+        "t": 15
       },
       {
         "category": "phan-nen",
         "type": "cat",
-        "t": 30
+        "t": 40
       },
       {
         "category": "phan-nen",
@@ -46,40 +46,35 @@
         "category": "phan-nen",
         "type": "phan",
         "t": 420
-      },
-      {
-        "category": "cay-thuy-sinh",
-        "type": "reu",
-        "t": 741
       }
     ],
     "figures": [
       {
-        "heading": "Vì sao phải lót cát trước khi đặt đá",
+        "heading": "Lót cát dưới đáy để làm gì",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/5TtDfNZFJE4/p0-LWxlbm5hcnQuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/5TtDfNZFJE4/p0-LWxlbm5hcnQuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/5TtDfNZFJE4/p0-RvbV9zYW5kLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/5TtDfNZFJE4/p0-RvbV9zYW5kLmpwZw-480.webp",
           "width": 960,
-          "height": 337,
-          "licence": "CC BY-SA 4.0",
-          "author": "Lennart Jöhnk",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquascaping-minilandschaft-lennart.jpg",
-          "caption": "Bể thủy sinh bố cục núi đá với thảm cỏ xanh phủ trên nền cát."
+          "height": 640,
+          "licence": "CC BY-SA 2.0",
+          "author": "kerinin",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diatom_sand.jpg",
+          "caption": "Lớp cát mỏng lót giữa khối đá và đáy kính bể."
         }
       },
       {
-        "heading": "Trồng cây gì và trồng ở đâu",
+        "heading": "Trồng cây thế nào",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/5TtDfNZFJE4/p5-J1LUluZGlhLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/5TtDfNZFJE4/p5-J1LUluZGlhLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/5TtDfNZFJE4/p4-FzY2FwaW5nLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/5TtDfNZFJE4/p4-FzY2FwaW5nLmpwZw-480.webp",
           "width": 960,
-          "height": 1280,
-          "licence": "CC BY 4.0",
-          "author": "Yercaud-elango",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rotala_rotundifolia_pink-2-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Bụi Rotala đỏ mọc cao ở hậu cảnh bể thủy sinh, bên cạnh đá và rêu."
+          "height": 338,
+          "licence": "CC BY 3.0",
+          "author": "Ghostsword",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
+          "caption": "Bể thủy sinh có cây lá đỏ phía sau, cây xanh phía trước, tạo hai tầng màu."
         }
       }
     ]

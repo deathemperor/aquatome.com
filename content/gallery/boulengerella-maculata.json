@@ -14,18 +14,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/commons/1cfb0a6c8d48ed0a.webp",
-      "thumb": "https://media.aquatome.com/commons/1cfb0a6c8d48ed0a-480.webp",
-      "width": 1000,
-      "height": 1000,
-      "licence": "CC BY-SA 2.5",
-      "author": "Wikimedia Commons",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Boulengerella_maculata_by_OpenCage.jpg",
-      "caption": "Cá giáo đốm trong bể thủy sinh có cây và gỗ",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/73724565.webp",
       "thumb": "https://media.aquatome.com/inaturalist/73724565-480.webp",
       "width": 1024,
@@ -48,6 +36,18 @@
       "caption": "Cá giáo đốm bơi sát mặt nước trong môi trường tự nhiên",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/1cfb0a6c8d48ed0a.webp",
+      "thumb": "https://media.aquatome.com/commons/1cfb0a6c8d48ed0a-480.webp",
+      "width": 1000,
+      "height": 1000,
+      "licence": "CC BY-SA 2.5",
+      "author": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Boulengerella_maculata_by_OpenCage.jpg",
+      "caption": "Cá giáo đốm trong bể thủy sinh có cây và gỗ",
+      "best": true,
+      "kind": "other"
     }
   ],
   "seen": 12,

@@ -1,0 +1,921 @@
+{
+  "id": "gnathophyllum-americanum",
+  "scientificName": "Gnathophyllum americanum",
+  "order": "Decapoda",
+  "family": "Palaemonidae",
+  "genus": "Gnathophyllum",
+  "group": "shrimp",
+  "places": [
+    "north-america",
+    "bermuda",
+    "asia",
+    "india",
+    "andaman",
+    "japan",
+    "oceania",
+    "australia",
+    "africa"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BM",
+        "IN",
+        "JP",
+        "AU"
+      ],
+      "regions": [
+        "Landfall Island",
+        "North Andaman"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "They are also known from Bermuda, India (Landfall Island, North Andaman), and from the Indo-West Pacific region from the Red Sea to Japan, Australia and Oceania.",
+          "countries": [
+            "BM",
+            "IN",
+            "JP",
+            "AU"
+          ],
+          "regions": [
+            "Landfall Island",
+            "North Andaman"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5178555,
+      "total": 258,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "US",
+          59
+        ],
+        [
+          "MQ",
+          27
+        ],
+        [
+          "GP",
+          23
+        ],
+        [
+          "AU",
+          16
+        ],
+        [
+          "MX",
+          14
+        ],
+        [
+          "PF",
+          14
+        ],
+        [
+          "KY",
+          12
+        ],
+        [
+          "PG",
+          10
+        ],
+        [
+          "ES",
+          7
+        ],
+        [
+          "RE",
+          7
+        ],
+        [
+          "NC",
+          6
+        ],
+        [
+          "BZ",
+          4
+        ],
+        [
+          "MF",
+          4
+        ],
+        [
+          "PA",
+          4
+        ],
+        [
+          "VU",
+          4
+        ],
+        [
+          "YT",
+          4
+        ],
+        [
+          "ZA",
+          4
+        ],
+        [
+          "BL",
+          3
+        ],
+        [
+          "GF",
+          3
+        ],
+        [
+          "JP",
+          3
+        ],
+        [
+          "PR",
+          3
+        ],
+        [
+          "TF",
+          3
+        ],
+        [
+          "BM",
+          2
+        ],
+        [
+          "FM",
+          2
+        ],
+        [
+          "GU",
+          2
+        ],
+        [
+          "MH",
+          2
+        ],
+        [
+          "PH",
+          2
+        ],
+        [
+          "BB",
+          1
+        ],
+        [
+          "BR",
+          1
+        ],
+        [
+          "BS",
+          1
+        ],
+        [
+          "CC",
+          1
+        ],
+        [
+          "CO",
+          1
+        ],
+        [
+          "CW",
+          1
+        ],
+        [
+          "ID",
+          1
+        ],
+        [
+          "KE",
+          1
+        ],
+        [
+          "MG",
+          1
+        ],
+        [
+          "MP",
+          1
+        ],
+        [
+          "PW",
+          1
+        ],
+        [
+          "TO",
+          1
+        ],
+        [
+          "TW",
+          1
+        ],
+        [
+          "VE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -174.375,
+          -19.6875,
+          1,
+          0
+        ],
+        [
+          -158.90625,
+          21.09375,
+          13,
+          0
+        ],
+        [
+          -157.5,
+          19.6875,
+          5,
+          0
+        ],
+        [
+          -156.09375,
+          19.6875,
+          2,
+          0
+        ],
+        [
+          -150.46875,
+          -18.28125,
+          11,
+          0
+        ],
+        [
+          -143.4375,
+          -16.875,
+          1,
+          0
+        ],
+        [
+          -140.625,
+          -9.84375,
+          2,
+          0
+        ],
+        [
+          -113.90625,
+          28.125,
+          1,
+          0
+        ],
+        [
+          -97.03125,
+          18.28125,
+          3,
+          0
+        ],
+        [
+          -92.8125,
+          19.6875,
+          1,
+          0
+        ],
+        [
+          -90,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          -90,
+          22.5,
+          1,
+          0
+        ],
+        [
+          -88.59375,
+          15.46875,
+          4,
+          0
+        ],
+        [
+          -88.59375,
+          18.28125,
+          1,
+          0
+        ],
+        [
+          -88.59375,
+          19.6875,
+          1,
+          0
+        ],
+        [
+          -87.1875,
+          19.6875,
+          5,
+          0
+        ],
+        [
+          -85.78125,
+          28.125,
+          1,
+          0
+        ],
+        [
+          -82.96875,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -82.96875,
+          23.90625,
+          9,
+          0
+        ],
+        [
+          -81.5625,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          -81.5625,
+          18.28125,
+          12,
+          0
+        ],
+        [
+          -81.5625,
+          23.90625,
+          3,
+          0
+        ],
+        [
+          -81.5625,
+          25.3125,
+          3,
+          0
+        ],
+        [
+          -81.5625,
+          26.71875,
+          1,
+          0
+        ],
+        [
+          -80.15625,
+          8.4375,
+          3,
+          0
+        ],
+        [
+          -80.15625,
+          25.3125,
+          2,
+          0
+        ],
+        [
+          -80.15625,
+          26.71875,
+          21,
+          0
+        ],
+        [
+          -68.90625,
+          11.25,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          16.875,
+          2,
+          0
+        ],
+        [
+          -66.09375,
+          16.875,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          30.9375,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          16.875,
+          7,
+          0
+        ],
+        [
+          -61.875,
+          14.0625,
+          27,
+          0
+        ],
+        [
+          -61.875,
+          15.46875,
+          23,
+          0
+        ],
+        [
+          -60.46875,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          -53.4375,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -53.4375,
+          5.625,
+          2,
+          0
+        ],
+        [
+          -42.1875,
+          -23.90625,
+          1,
+          0
+        ],
+        [
+          -16.875,
+          26.71875,
+          1,
+          0
+        ],
+        [
+          -16.875,
+          28.125,
+          4,
+          0
+        ],
+        [
+          -15.46875,
+          26.71875,
+          2,
+          0
+        ],
+        [
+          29.53125,
+          -30.9375,
+          1,
+          0
+        ],
+        [
+          30.9375,
+          -29.53125,
+          2,
+          0
+        ],
+        [
+          32.34375,
+          -29.53125,
+          1,
+          0
+        ],
+        [
+          39.375,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          40.78125,
+          -21.09375,
+          2,
+          0
+        ],
+        [
+          45,
+          -26.71875,
+          1,
+          0
+        ],
+        [
+          45,
+          -14.0625,
+          4,
+          0
+        ],
+        [
+          46.40625,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          54.84375,
+          -22.5,
+          6,
+          0
+        ],
+        [
+          54.84375,
+          -21.09375,
+          1,
+          0
+        ],
+        [
+          95.625,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          112.5,
+          -29.53125,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          120.9375,
+          23.90625,
+          1,
+          0
+        ],
+        [
+          122.34375,
+          -12.65625,
+          3,
+          3
+        ],
+        [
+          122.34375,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          123.75,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          126.5625,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          133.59375,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          133.59375,
+          32.34375,
+          2,
+          2
+        ],
+        [
+          143.4375,
+          12.65625,
+          2,
+          0
+        ],
+        [
+          144.84375,
+          -5.625,
+          2,
+          0
+        ],
+        [
+          144.84375,
+          14.0625,
+          1,
+          0
+        ],
+        [
+          150.46875,
+          -35.15625,
+          2,
+          2
+        ],
+        [
+          150.46875,
+          -2.8125,
+          8,
+          0
+        ],
+        [
+          151.875,
+          -28.125,
+          2,
+          2
+        ],
+        [
+          151.875,
+          -26.71875,
+          2,
+          2
+        ],
+        [
+          151.875,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          151.875,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          153.28125,
+          -30.9375,
+          1,
+          1
+        ],
+        [
+          153.28125,
+          -29.53125,
+          1,
+          1
+        ],
+        [
+          153.28125,
+          -28.125,
+          2,
+          2
+        ],
+        [
+          154.6875,
+          0,
+          2,
+          0
+        ],
+        [
+          163.125,
+          -21.09375,
+          3,
+          0
+        ],
+        [
+          164.53125,
+          -21.09375,
+          1,
+          0
+        ],
+        [
+          164.53125,
+          11.25,
+          2,
+          0
+        ],
+        [
+          165.9375,
+          -22.5,
+          1,
+          0
+        ],
+        [
+          165.9375,
+          -21.09375,
+          1,
+          0
+        ],
+        [
+          165.9375,
+          -16.875,
+          4,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 8.1,
+          "max": 8.4
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 2.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 3
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 2,
+          "max": 3
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bumble-bee-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Names: Bumble bee shrimp; Striped Bumble Bee Shrimp (Gnathophyllum americanum), also called the striped harlequin or zebra shrimp; Spotted Bumble Bee Shrimp (Gnathophyllum elegans)</li><li>Minimum tank: 40 litres</li><li>Breeding: difficult (almost impossible)</li><li>Salinity: SG 1.023–1.025</li><li>KH: 8–12</li><li>Nitrate: less than 20 ppm</li><li>Diet: carnivorous</li><li>Temperament: territorial</li><li>Colour: dark and white stripes or yellow dots all over the body</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bumble-bee-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Bumble bee shrimp are mainly distributed in the eastern Atlantic. They are also known from Bermuda, India (Landfall Island, North Andaman), and from the Indo-West Pacific region from the Red Sea to Japan, Australia and Oceania.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bumble-bee-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Gnathophyllum is a group of marine crustaceans living in the shallow waters of tropical and subtropical seas. They are often found on rocky and coral reefs, as free-living shrimp or in association with echinoids, ophiuroids, sea stars and sea cucumbers, from intertidal pools. They are found free-living and on a wide array of substrates (hard natural, hard anthropogenic, and amidst algae), suggesting that their colour pattern is not particularly related to any habitat type.</p><p>According to studies, these shrimp are known to be associated with coelenterates, echinoderms and the echinoid Echinometra lucunter, where they presumably find shelter, although commensalism in Gnathophyllum is not certain.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bumble-bee-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Because of their small size there are no strict minimum requirements; even a 40-litre tank is good enough for a few shrimp. A larger tank is better for the stability of water chemistry, but these small shrimp may get lost in large tanks and be seen only about once a month.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bumble-bee-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Keeping Bumble bee shrimp in an aquarium is not complicated because they have no special water quality requirements. They should be kept under conditions suitable for any other typical reef-aquarium inhabitants.</p><p>They need careful acclimation, as all invertebrates do, and it should be done very slowly; 2–3 hours is generally good enough. They do not like swings in salinity.</p><p>Tank décor should include plenty of structures for the shrimp to hide in. If the conditions are met, they will show funny behaviour and make periodic trips to the front glass.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bumble-bee-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>They have no special water quality requirements and should be kept under conditions suitable for typical reef aquarium inhabitants.</p><ul><li>Temperature: 22–26°C</li><li>pH: 8.1–8.4</li><li>Hardness: 8–12 dKH</li><li>Calcium: 400–450 ppm is optimal, but it can be a bit lower or higher</li></ul><p>They need careful, slow acclimation like all invertebrates, generally 2–3 hours, and do not like swings in salinity.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bumble-bee-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Lighting: they do not really need light, so lighting should suit the corals and fish in the tank.</p><p>Substrate: they are not diggers and have no substrate preference.</p><p>Decor: include plenty of structures where the shrimp can hide.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bumble-bee-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Feeding is the most challenging aspect of keeping these shrimp. They are carnivorous and do not eat algae at all. In the wild they prefer sea stars, specifically the tube feet of echinoderms, so they should not be kept with most starfish, sea urchins, sea cucumbers and sand dollars unless well fed, to reduce the risk of aggression. Some reports mention other echinoderms being eaten even without tube feet, but usually in starved specimens with no access to sea stars.</p><p>They do not require sea stars to survive. Without sea stars they will not starve (unlike Harlequin shrimp) and will eat any frozen meaty foods, such as brine or mysis shrimp, cockle, or small pieces of fish or shrimp. They are very bad at finding food, and daily feeding is recommended.</p><p><strong>Asterina starfish:</strong> there is a popular misconception that bumble bee shrimp control or eliminate Asterina starfish. Asterina have no tube feet, the shrimp would have to be really hungry, and they are generally not good hunters. For eliminating Asterina, Harlequin shrimp are needed. There are many Asterina species, some coral safe and others able to harm a reef tank, and they are hard to tell apart and multiply quickly.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bumble-bee-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Until they get used to the aquarium, they are very shy and easier to see at night when the lights go out. During the day many sit under rocks or hide from tank mates, probably because of their small size and many potential predators.</p><p>In nature they are typically found in pairs, where the male performs a ritual dance, covering and shepherding the female with his claws. Unlike their close relative the Harlequin shrimp (Hymenocera picta), they are not completely monogamous.</p><p>Although quite peaceful, they do not like the presence of their own kind in the tank and are territorial despite their small size. Their territories are small and they usually do not fight to the death.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bumble-bee-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Colour pattern differs between species and life stages. Gnathophyllum americanum has alternating transverse dark reddish-brown and white stripes, with narrow white bands over the carapace and abdomen. Gnathophyllum elegans adults have small yellow-orange spots scattered over the body. Juveniles can have many stripes, blotches and dots, which fade in late juveniles.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bumble-bee-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>There are no reports of bumble bee shrimp breeding in captivity. Little is known about the larval, postlarval and juvenile stages. Females become mature when their carapace is around 2.3–4.4 mm. Larval development of the genus is poorly documented; only the first-stage zoea of Gnathophyllum americanum has been described.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bumble-bee-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p><strong>Size and lifespan:</strong> up to about 2.5 cm in aquariums (generally a little less, about 2 cm). The rostrum is so short and downward-directed that they look headless. Lifespan in the wild is unknown; in captivity up to 2–3 years with good care.</p><p><strong>Reef safe:</strong> in most cases yes, they do not harm corals. Only one case is known of them picking on Crocea clams; do not let them starve.</p><p><strong>Tankmates:</strong> ideally a species tank, but they can be kept with other fish chosen with care. They are prone to being eaten by carnivorous fish; large predators such as triggerfish, wrasses, hawkfish and angelfish are unsuitable. Avoid large or aggressive invertebrates such as coral banded shrimp and arrow crabs. Boxer crabs, emerald crabs, porcelain anemone crabs, cleaner shrimp (peppermint, red fire, skunk, red-white), saron shrimp and sexy shrimp usually do not bother them.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/ff9be746823e9ad0.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/ff9be746823e9ad0-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/bumble-bee-shrimp-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "ta8VXuBaiiE",
+      "title": "Crevette Gnathophyllum Americanum.",
+      "durationSec": 30,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "L_uauwQM-yA",
+      "title": "Crevette Gnathophyllum Americanum",
+      "durationSec": 61,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Q-68ewngowY",
+      "title": "Bumble Bee Shrimp (Gnathophyllum americanum)",
+      "durationSec": 20,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Zf7hDX0h7y8",
+      "title": "Marine Life Vlog - STRIPED BUMBLEBEE SHRIMP",
+      "durationSec": 57,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "knEFoU3_c8g",
+      "title": "Striped Bumblebee Shrimp - Gnathophyllum americanum #stripedbumblebeeshrimp #gnathophyllumamericanum",
+      "durationSec": 15,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "SNZRE5DDDWU",
+      "title": "Bumblebee Shrimp (Gnathophyllum americanum) ready for a fight!",
+      "durationSec": 23,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "0fok9cMXGpQ",
+      "title": "Gnatophyllum americanum Bumblebee shrimp",
+      "durationSec": 116,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể nước mặn 40 lít",
+        "bể san hô nhỏ",
+        "bể kính biển 40 lít",
+        "bể nano nước mặn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "tôm mysis đông lạnh",
+        "artemia đông lạnh",
+        "thức ăn đông lạnh cho cá biển",
+        "mysis đông lạnh"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "test KH nước biển",
+        "test canxi nước biển",
+        "khúc xạ kế đo độ mặn",
+        "test KH nước mặn",
+        "test canxi bể biển"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể nước mặn",
+        "quạt làm mát bể cá",
+        "máy sưởi thủy sinh 100W"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

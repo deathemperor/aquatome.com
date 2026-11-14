@@ -23,11 +23,10 @@
     "references:aquariumbreeder": "<ul><li>Haynes, Alison. “Notes on the stream neritids (Gastropoda; Prosobranchia) of Oceania.” Micronesica21 (1988): 93-102.</li><li>Liu, H-T. Tina, and V. H. Resh. “Abundance and microdistribution of freshwater gastropods in three streams of Moorea, French Polynesia.” In Annales de Limnologie-International Journal of Limnology, vol. 33, no. 4, pp. 235-244. EDP Sciences, 1997.</li><li>POINTIER, Jean Pierre, and Gerard MARQUET. “Taxonomy and distribution of freshwater mollusks of French Polynesia.” Venus (Japanese Journal of Malacology)49, no. 3 (1990): 215-231.</li><li>Tan, Siong Kiat, and Reuben Clements. “Taxonomy and distribution of the Neritidae (Mollusca: Gastropoda) in Singapore.” Zoological studies47, no. 4 (2008): 481-494.</li><li>Takada, Yoshitake. “Seasonal growth fluctuations of four species of neritid gastropods in an upper mangrove estuary, Ishigaki Island, Japan.” Pacific Science70, no. 4 (2016): 463-476.</li><li>Rao, NV Subba, A. K. Das, and S. C. Mitra. “On freshwater molluscs of Andaman and Nicobar islands.” Records of the Zoological Survey of India77, no. 1-4 (1979): 215-245.</li><li>Kerr, Alexander M. “Annotated checklist of the aquatic snails of the Mariana Islands, Micronesia.” University of Guam Marine Laboratory Technical Report147 (2013): 26p.</li><li>DUGAN, JESSICA A. “DIADROMOUS NERITID GASTROPODS: EXAMINING HOW WATER VELOCITY, DISTANCE FROM OCEAN, AND LOCATION ON SUBSTRATE SHAPE STREAM COMMUNITIES.”</li><li>Capdevielle, Jillian. “Neritid Gastropods Adapted to Different pH Environments: Spatial, temporal, and abiotic factors affecting life history traits of marine and freshwater snails.” (2013).</li><li>Starmuhlner, F. “Results of the Austrian-Ceylonese hydrobiological mission 1970 of the 1st Zoological Institute University of Vienna (Austria) and the Department of Zoology of the University of Ceylon, Vidyalankara Campus, Kelaniya (Sri Lanka). Pt 17. The freshwater gastropods of Ceylon.” (1974).</li></ul>"
   },
   "quality": {
-    "score": 0.62,
-    "indexable": false,
+    "score": 0.82,
+    "indexable": true,
     "bySource": {
-      "aquariumbreeder": 0.62
-    },
-    "reason": "score"
+      "aquariumbreeder": 0.82
+    }
   }
 }

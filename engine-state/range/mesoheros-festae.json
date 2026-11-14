@@ -1,0 +1,94 @@
+{
+  "id": "mesoheros-festae",
+  "native": {
+    "input": "fa406b57cc3cd00d",
+    "at": "2026-11-10T07:58:31.896Z",
+    "claims": [
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The red terror, Mesoheros festae, is a large, territorial cichlid from the Rio Esmeraldas in Ecuador and the Rio Tumbes in Peru.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The red terror, Mesoheros festae, is a large, territorial cichlid from the Rio Esmeraldas in Ecuador and the Rio Tumbes in Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "An introduced population also exists in Singapore.",
+        "words": "Singapore",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Esmeraldas",
+        "source": "seriouslyfish",
+        "quote": "The red terror, Mesoheros festae, is a large, territorial cichlid from the Rio Esmeraldas in Ecuador and the Rio Tumbes in Peru.",
+        "country": "EC",
+        "ok": true
+      },
+      {
+        "name": "Rio Tumbes",
+        "source": "seriouslyfish",
+        "quote": "The red terror, Mesoheros festae, is a large, territorial cichlid from the Rio Esmeraldas in Ecuador and the Rio Tumbes in Peru.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "SG"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Mesoheros festae",
+    "status": "ACCEPTED",
+    "taxonKey": 9285139,
+    "datasets": [
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        6
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "EC",
+      "PE"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T07:58:31.896Z"
+  }
+}

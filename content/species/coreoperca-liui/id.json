@@ -1,0 +1,25 @@
+{
+  "slug": "chinese-perch",
+  "name": "Chinese Perch",
+  "altNames": [
+    "Perch Cina"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Spesies perch Cina ini bisa mencapai panjang maksimal sekitar 11 cm.</p>",
+    "beforeYouBuy:glaser": "<p>Perch air tawar yang menarik dari Cina selatan ini baru pertama kali berhasil didatangkan. Genus Coreoperca dan Siniperca seluruhnya berisi 14 spesies. Keduanya diduga berkerabat dekat dengan ikan kerapu (Serranidae), tetapi dimasukkan ke dalam famili tersendiri, yaitu Sinipercidae.</p>",
+    "behaviour:glaser": "<p>Berbeda dengan ikan kerapu, perch Cina sama sekali tidak agresif terhadap sesama jenisnya. Mereka malah tampak lebih suka berenang bersama pasangannya. Tentu saja ikan ini termasuk predator kecil yang suka diberi pakan ikan hidup.</p><p>Dari penampilan luarnya, perch Cina sangat mirip dengan ikan nandid (Nandus nandus), tetapi perilakunya sama sekali berbeda. Nandid itu pemalu dan selalu berusaha bersembunyi, sedangkan perch Cina sangat aktif, penasaran, dan berenang di area terbuka.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.8
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-11"
+  }
+}

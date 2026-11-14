@@ -1,0 +1,72 @@
+{
+  "id": "nemacheilus-saravacensis",
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/f8d1b78aeba3d969adaffa4fe7af6b30.webp",
+      "thumb": "https://media.aquatome.com/processed/f8d1b78aeba3d969adaffa4fe7af6b30-480.webp",
+      "width": 600,
+      "height": 196,
+      "licence": "dùng với sự cho phép",
+      "author": "Michael Lo",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-saravacensis",
+      "caption": "Freshly-collected wild specimen with relatively solid body markings.",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-nemacheilus-saravacensis",
+        "pixelHash": "cdc1864505b242637877fe4173377e488c54bdb4b156682664df98393e8b7fad"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T10:51:20.585Z",
+          "originalHash": "fb1df7b6372f1ad43d81d9142e4971e3fd13ec91beadfc2defe53b9dd5a22d1c",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 600,
+            "originalHeight": 222,
+            "window": {
+              "x0": 0,
+              "y0": 26,
+              "x1": 600,
+              "y1": 222
+            },
+            "subject": {
+              "x0": 18,
+              "y0": 60,
+              "x1": 555,
+              "y1": 187
+            },
+            "margin": 6
+          },
+          "excludedMarks": [
+            {
+              "x0": 455,
+              "y0": 5,
+              "x1": 576,
+              "y1": 22
+            }
+          ],
+          "checks": {
+            "species": [
+              "417a3358e81738846bbf2a2b3eb8d8e2b7eea72e3e8a91c754e6b7dc99dbf4bf",
+              "6dca29125047e456bf127f58d88f8714ae64e65f0df9b29c24a60c45f42f4cf3"
+            ],
+            "ownership": [
+              "0bd1234b0bba85beeedd318711761dbc809c5a399f843d027b90928f75f2e87a",
+              "effa4b13d0ba3660c2d99b514b6e4678e1ff77bf0dc67556abeaa25266827faa"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/da84a833d2349ccc.webp",
+        "width": 600,
+        "height": 222,
+        "thumb": "https://media.aquatome.com/seriouslyfish/da84a833d2349ccc-480.webp"
+      }
+    }
+  ],
+  "seen": 0,
+  "updatedAt": "2026-11-11"
+}

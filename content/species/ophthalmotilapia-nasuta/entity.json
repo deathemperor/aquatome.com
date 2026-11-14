@@ -13,6 +13,129 @@
     "tanzania",
     "zambia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TZ",
+        "BI",
+        "CD",
+        "ZM"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "It occurs on the eastern coast between Kigoma and Halembe in Tanzania, and down the southwestern coast and around the south of the lake from Isonga to Cape Kachese.",
+          "countries": [
+            "TZ"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Countries: Burundi, DR Congo, Tanzania, Zambia.",
+          "countries": [
+            "BI",
+            "CD",
+            "ZM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371962,
+      "total": 104,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "CD",
+          45
+        ],
+        [
+          "TZ",
+          31
+        ],
+        [
+          "ZM",
+          26
+        ],
+        [
+          "BI",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          10,
+          10
+        ],
+        [
+          28.125,
+          -5.625,
+          12,
+          12
+        ],
+        [
+          28.125,
+          -4.21875,
+          19,
+          19
+        ],
+        [
+          29.53125,
+          -9.84375,
+          22,
+          22
+        ],
+        [
+          29.53125,
+          -8.4375,
+          23,
+          23
+        ],
+        [
+          29.53125,
+          -7.03125,
+          8,
+          8
+        ],
+        [
+          29.53125,
+          -5.625,
+          7,
+          7
+        ],
+        [
+          30.9375,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          30.9375,
+          -8.4375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

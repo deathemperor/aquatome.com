@@ -14,10 +14,7 @@
   "inat:104446810",
   "inat:104446816"
  ],
- "hashes": {
-  "https://media.aquatome.com/commons/acfb5f8a64e04fdd.webp": "abd89a12887b63f9",
-  "https://media.aquatome.com/inaturalist/53146347.webp": "70f0f0cc8aec712d"
- },
+ "hashes": {},
  "commons": "2026-11-08",
  "inat": {
   "taxon": 102479,
@@ -26,5 +23,9 @@
    "research": 64919233,
    "agree": 237079466
   }
+ },
+ "gbif": {
+  "key": 2371378,
+  "next": null
  }
 }

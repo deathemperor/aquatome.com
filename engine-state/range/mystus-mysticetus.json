@@ -1,0 +1,118 @@
+{
+  "id": "mystus-mysticetus",
+  "native": {
+    "input": "503652e014047cb7",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Mystus mysticetus is a peaceful bagrid catfish from rivers of Laos, Thailand and Cambodia.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Mystus mysticetus is a peaceful bagrid catfish from rivers of Laos, Thailand and Cambodia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Mystus mysticetus is a peaceful bagrid catfish from rivers of Laos, Thailand and Cambodia.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Laos, Thailand, Cambodia.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Laos, Thailand, Cambodia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Laos, Thailand, Cambodia.",
+        "words": "Cambodia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Mystus mysticetus",
+    "status": "ACCEPTED",
+    "taxonKey": 5201854,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        63
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        18
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        14
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        13
+      ],
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        9
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        3
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "LA",
+      "TH",
+      "KH"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

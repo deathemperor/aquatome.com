@@ -24,6 +24,29 @@ public struct HandbookShelves: Sendable {
   public let featuredFish: [HandbookIndex.Item]
   public let easyPlants: [HandbookIndex.Item]
   public let firstGuides: [HandbookIndex.Item]
+  /// Khám phá's longer lists (`HandbookIndex.Home.Browse`): the fish starting with those above in their order, the
+  /// plants and guides Curation's, then the home's ranking; a list the index doesn't have, or that this app can't read,
+  /// is the one above.
+  public let browseFish: [HandbookIndex.Item]
+  public let browsePlants: [HandbookIndex.Item]
+  public let browseGuides: [HandbookIndex.Item]
+
+  /// How many of its list each of Khám phá's shelves shows, after the pages shown above it: seven columns at most, as the
+  /// App Store's shelves (the owner, 11 Nov: "Appstore gives up to 7 columns in total"); fish and plants three to a
+  /// column, guides and video series one.
+  public enum Shown {
+    public static let columns = 7
+    public static let fish = columns * 3
+    public static let plants = columns * 3
+    public static let guides = columns
+    public static let videos = columns
+  }
+
+  /// A shelf of `list`: the first `count` of it not among `shown` (the pages on a shelf above). Never more than the list
+  /// holds, so a bigger drop leaves a shorter shelf rather than one filled from further down a ranking.
+  public static func shelf(_ list: [HandbookIndex.Item], showing count: Int, after shown: Set<String>) -> [HandbookIndex.Item] {
+    Array(list.lazy.filter { !shown.contains($0.path) }.prefix(count))
+  }
   /// The editors' calendar for Hôm nay, by date ("2026-11-13", `HandbookIndex.Home.Day.key`), its pages found in the
   /// index. A date not here is the app's own to fill.
   public let plan: [String: Planned]
@@ -96,6 +119,9 @@ public struct HandbookShelves: Sendable {
     featuredFish = home.fish.compactMap { byPath[$0] }
     easyPlants = home.plants.compactMap { byPath[$0] }
     firstGuides = home.guides.compactMap { byPath[$0] }
+    browseFish = home.browse?.fish.map { $0.compactMap { byPath[$0] } } ?? featuredFish
+    browsePlants = home.browse?.plants.map { $0.compactMap { byPath[$0] } } ?? easyPlants
+    browseGuides = home.browse?.guides.map { $0.compactMap { byPath[$0] } } ?? firstGuides
     plan = Dictionary(home.days.map { d in
       let fish = d.fish.flatMap { byPath[$0] }, guide = d.guide.flatMap { byPath[$0] }, story = d.story.flatMap { byPath[$0.path] }
       return (d.date, Planned(fish: fish, img: fish == nil ? nil : d.img, guide: guide, guideImg: guide == nil ? nil : d.guideImg,

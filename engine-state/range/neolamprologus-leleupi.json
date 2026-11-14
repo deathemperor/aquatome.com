@@ -1,0 +1,52 @@
+{
+  "id": "neolamprologus-leleupi",
+  "native": {
+    "input": "b425eeff76e21a8a",
+    "at": "2026-11-10T20:57:55.515Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Lake Tanganyika",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Tanganyika.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CD",
+        "TZ",
+        "ZM"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Neolamprologus leleupi",
+    "status": "ACCEPTED",
+    "taxonKey": 2371746,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        22
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        4
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-10T20:57:55.515Z"
+  }
+}

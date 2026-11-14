@@ -1,0 +1,70 @@
+{
+  "id": "pelteobagrus-intermedius",
+  "scientificName": "Pelteobagrus intermedius",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Pelteobagrus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "china",
+    "hainan",
+    "vietnam"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 13.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1379",
+      "html": "<ul><li>Scientific name: Tachysurus intermedius (Nichols &amp; Pope, 1927)</li><li>Type locality: Nodoa, Hainan Island, China.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1379",
+      "html": "<p>Asia: Hainan Island, China and Viet Nam.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1379",
+      "html": "<p>Occurs in fresh and brackish water.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1379",
+      "html": "<p>Males have an elongate genital papilla in front of the anal fin.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1379",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1379",
+      "html": "<p>Tachysurus can be identified by an extrascapular without a laterosensory canal, and a pterotic with a broad lateral laminar expansion. It is among the most speciose catfish groups in East Asia and its members inhabit habitats ranging from fast-flowing hillstreams to large rivers.</p><p>Greyish in colour, with some dark spots on the side; all fins are coloured black.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1379",
+      "html": "<p>Bulletin of the American Museum of Natural History v. 54 (art. 2), pp 331, Fig. 5.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-13"
+}

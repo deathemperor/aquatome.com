@@ -13,6 +13,96 @@
     "vietnam",
     "mekong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "VN"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species is widely distributed in Southeast Asia (Laos, Cambodia, Thailand, Vietnam).",
+          "countries": [
+            "TH",
+            "VN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It is found most abundantly in the lower Mekong river basin, northeastern Thailand.",
+          "countries": [],
+          "regions": [
+            "Mekong"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Supposedly it also occurs in central parts of the country including the Chao Phraya drainage with its associated floodplain and even Bangkok although specific locality details are scarce.",
+          "countries": [],
+          "regions": [
+            "Chao Phraya"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2359535,
+      "total": 20,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "KH",
+          18
+        ],
+        [
+          "TH",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          12.65625,
+          15,
+          0
+        ],
+        [
+          102.65625,
+          14.0625,
+          1,
+          0
+        ],
+        [
+          104.0625,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          14.0625,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -1,8 +1,8 @@
 {
   "id": "garra-fasciacauda",
   "native": {
-    "input": "e45cc4615dbe55ad",
-    "at": "2026-11-08T10:57:49.558Z",
+    "input": "a4126a1be37e2831",
+    "at": "2026-11-10T07:58:31.896Z",
     "claims": [
       {
         "code": "TH",
@@ -34,6 +34,22 @@
         "source": "seriouslyfish",
         "quote": "Native to the Mekong river system in Thailand, Laos, Vietnam, and Cambodia, including the Tonlé Sap basin.",
         "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Kemarat, Thailand', which corresponds to the Mekong River in Khemmarat district, Ubon Ratchathani province, northeastern Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It is migratory on a seasonal basis, with many individuals moving from the Tonlé Sap system to the Khone Falls in southern Laos during the dry season.",
+        "words": "Laos",
         "ok": true
       }
     ],

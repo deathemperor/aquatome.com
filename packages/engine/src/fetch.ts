@@ -1,4 +1,5 @@
 import { chromium, type BrowserContext, type Page } from 'playwright-core'
+import { holdFocus, minimize } from './chrome-window'
 import { isChallenge } from './outline'
 
 /** A browser check that didn't clear on its own; a person has to pass it once in the engine's Chrome profile. */
@@ -6,17 +7,25 @@ export class ChallengeError extends Error {
   constructor(url: string) { super(`challenge at ${url}`) }
 }
 
-/** Real Chrome with a persistent profile. No stealth, proxies or challenge solving — a challenge page is returned as-is. */
+/** Real Chrome with a persistent profile. No stealth, proxies or challenge solving — a challenge page is returned as-is.
+ *  On the owner's Mac a headed one is minimized as soon as it has opened, and hands focus back (chrome-window.ts). */
 export class ChromeFetcher {
   private ctx?: BrowserContext
   private page?: Page
   constructor(private opts: { profileDir: string; headless?: boolean; settleMs?: number }) {}
 
   async open(): Promise<void> {
-    this.ctx = await chromium.launchPersistentContext(this.opts.profileDir, {
-      channel: 'chrome', headless: this.opts.headless ?? false, locale: 'en-US', viewport: { width: 1280, height: 900 },
-    })
-    this.page = this.ctx.pages()[0] ?? (await this.ctx.newPage())
+    const outOfTheWay = !this.opts.headless && process.platform === 'darwin'
+    const keeper = outOfTheWay ? await holdFocus() : undefined
+    try {
+      this.ctx = await chromium.launchPersistentContext(this.opts.profileDir, {
+        channel: 'chrome', headless: this.opts.headless ?? false, locale: 'en-US', viewport: { width: 1280, height: 900 },
+      })
+      this.page = this.ctx.pages()[0] ?? (await this.ctx.newPage())
+      if (outOfTheWay) await minimize(this.ctx, this.page).catch(e => console.warn(`chrome: not minimized: ${e}`))
+    } finally {
+      keeper?.stop()
+    }
   }
 
   /** The open page, for drivers that need more than get/links (Facebook's scrolling feed). */

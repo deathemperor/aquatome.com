@@ -10,6 +10,61 @@
     "venezuela",
     "rio-negro"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Negro",
+        "Casiquiare",
+        "Baria"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Río Mawarinuma tributary, at Neblina base camp, on the right bank in a riffle, 0°55'N, 66°10'W, Venezuela, elevation 120 m.",
+          "countries": [
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Upper Negro, Casiquiare, and Baria River basins in Venezuela.",
+          "countries": [],
+          "regions": [
+            "Negro",
+            "Casiquiare",
+            "Baria"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339360,
+      "total": 6,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "VE",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          -67.5,
+          0,
+          6,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -1,0 +1,71 @@
+{
+  "id": "maylandia-callainos",
+  "native": {
+    "input": "556713db1dcf12e6",
+    "at": "2026-11-10T07:58:31.896Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Lake Malawi",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Malawi.",
+        "ok": true
+      },
+      {
+        "name": "Lake Malawi",
+        "source": "glaser",
+        "quote": "Overall, M. callainos colonizes the northwest coast of Lake Malawi between Kande Island and Ngara, and there is also a population near Maleri Island that has been settled by humans.",
+        "ok": true
+      },
+      {
+        "name": "Ruhuhu River",
+        "source": "seriouslyfish",
+        "quote": "It occurs around the north of the lake, between Ikombe and the Ruhuhu River in the east, and from Kande Island to Ngara in the west.",
+        "ok": true
+      },
+      {
+        "name": "Kande Island",
+        "source": "seriouslyfish",
+        "quote": "It occurs around the north of the lake, between Ikombe and the Ruhuhu River in the east, and from Kande Island to Ngara in the west.",
+        "ok": true
+      },
+      {
+        "name": "Chitande Island",
+        "source": "glaser",
+        "quote": "There is also a population near Chitande Island, where the males are cobalt blue and the females are white.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MW",
+        "TZ"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Maylandia callainos",
+    "status": "ACCEPTED",
+    "taxonKey": 2372988,
+    "datasets": [
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        29
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        5
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-10T07:58:31.896Z"
+  }
+}

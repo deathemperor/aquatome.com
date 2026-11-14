@@ -1,0 +1,314 @@
+{
+  "id": "otocinclus-flexilis",
+  "scientificName": "Otocinclus flexilis",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Otocinclus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-jacui",
+    "uruguay",
+    "la-plata",
+    "paraguay",
+    "argentina",
+    "parana"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 2,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 5.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1350",
+      "html": "<ul><li>Scientific name: Otocinclus flexilis Cope, 1894</li><li>Common name: Peppered Oto</li><li>Synonyms: Macrotocinclus flexilis, Otocinclus fimbriatus</li><li>IUCN Red List: Least Concern (last assessed 2018)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1350",
+      "html": "<p>South America: La Plata basin, including Uruguay, Paraná (Middle and Lower Paraná) and Paraguay. Type locality: Rio Jacuhy [Jacuí], Rio Grande do Sul, Brazil.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1350",
+      "html": "<ul><li>Temperature: 20–25°C</li><li>pH: 6.5–7.8</li><li>Hardness: 2–25 dGH</li></ul>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1350",
+      "html": "<p>Females are larger and broader, especially when viewed from above.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1350",
+      "html": "<p>There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1350",
+      "html": "<p>Proceedings of the American Philosophical Society v. 33, pp 97, Pl. 8 [7] (figs. 13, 13a-b).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "yiv7xCw06EM",
+      "title": "Otocinclus flexilis （オトシンクルス・フレキシリス）",
+      "durationSec": 59,
+      "lang": "ja"
+    },
+    {
+      "youtubeId": "_p-MCMmysO8",
+      "title": "Otocinclus flexilis 花椒小精靈",
+      "durationSec": 31,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Q9FZDhF5FxQ",
+      "title": "Otocinclus flexilis",
+      "durationSec": 88,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "PehtRp5PRyA",
+      "title": "Hisonotus thayeri　（ヒソノートゥス・セイヤリー）とOtocinclus flexilis （オトシンクルス・フレキシリス）",
+      "durationSec": 27,
+      "lang": "ja"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá otocinclus",
+        "rong tảo cho cá oto"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bể cá thủy sinh nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13",
+  "range": {
+    "native": {
+      "countries": [
+        "UY",
+        "PY",
+        "BR"
+      ],
+      "regions": [
+        "La Plata",
+        "Paraná",
+        "Rio Jacuhy"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "South America: La Plata basin, including Uruguay, Paraná (Middle and Lower Paraná) and Paraguay.",
+          "countries": [
+            "UY",
+            "PY"
+          ],
+          "regions": [
+            "La Plata",
+            "Paraná"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio Jacuhy [Jacuí], Rio Grande do Sul, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Jacuhy"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340461,
+      "total": 54,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "BR",
+          40
+        ],
+        [
+          "UY",
+          9
+        ],
+        [
+          "AR",
+          4
+        ],
+        [
+          "PY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -61.875,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -32.34375,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          -35.15625,
+          2,
+          0
+        ],
+        [
+          -57.65625,
+          -35.15625,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -32.34375,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -30.9375,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -29.53125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -28.125,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          -35.15625,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -32.34375,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -30.9375,
+          4,
+          4
+        ],
+        [
+          -56.25,
+          -28.125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -33.75,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -32.34375,
+          3,
+          3
+        ],
+        [
+          -54.84375,
+          -30.9375,
+          5,
+          5
+        ],
+        [
+          -53.4375,
+          -32.34375,
+          9,
+          9
+        ],
+        [
+          -53.4375,
+          -30.9375,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -30.9375,
+          17,
+          17
+        ]
+      ]
+    }
+  }
+}

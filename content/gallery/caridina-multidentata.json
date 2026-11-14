@@ -14,30 +14,6 @@
       "kind": "female"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/103111757.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/103111757-480.webp",
-      "width": 1024,
-      "height": 681,
-      "licence": "CC BY",
-      "author": "Takaaki Hattori",
-      "sourceUrl": "https://www.inaturalist.org/photos/103111757",
-      "caption": "Tép Amano ngoài tự nhiên trên nền sỏi đá suối",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/458429689.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/458429689-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Igor Balashov",
-      "sourceUrl": "https://www.inaturalist.org/photos/458429689",
-      "caption": "Tép Amano trên đá đỏ trong bể thủy sinh",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/flickr/53632573324.webp",
       "thumb": "https://media.aquatome.com/flickr/53632573324-480.webp",
       "width": 1024,
@@ -413,6 +389,30 @@
       "sourceUrl": "https://www.flickr.com/photos/16059070@N04/4271448077",
       "caption": "Tép Amano bám trên gỗ lũa trong bể thủy sinh",
       "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/103111757.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/103111757-480.webp",
+      "width": 1024,
+      "height": 681,
+      "licence": "CC BY",
+      "author": "Takaaki Hattori",
+      "sourceUrl": "https://www.inaturalist.org/photos/103111757",
+      "caption": "Tép Amano ngoài tự nhiên trên nền sỏi đá suối",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/458429689.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/458429689-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Igor Balashov",
+      "sourceUrl": "https://www.inaturalist.org/photos/458429689",
+      "caption": "Tép Amano trên đá đỏ trong bể thủy sinh",
+      "best": true,
       "kind": "other"
     }
   ],

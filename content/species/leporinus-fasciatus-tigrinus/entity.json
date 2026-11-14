@@ -1,0 +1,332 @@
+{
+  "id": "leporinus-fasciatus-tigrinus",
+  "scientificName": "Leporinus fasciatus tigrinus",
+  "order": "Characiformes",
+  "family": "Anostomidae",
+  "genus": "Leporinus",
+  "group": "other",
+  "places": [
+    "south-america",
+    "venezuela",
+    "ventuari"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "BR"
+      ],
+      "regions": [
+        "Ventuari",
+        "Rio Tapajos",
+        "Rio Xingu"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "A striped Leporinus from the Ventuari river in Venezuela, possibly a still undescribed species.",
+          "countries": [
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Leporinus with a similar coloration are known so far only from the Rio Tapajos and Rio Xingu in Brazil; these were described in 1929 as Leporinus fasciatus tigrinus.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Tapajos",
+            "Rio Xingu"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "This Leporinus originates from the Ventuari river in Venezuela.",
+          "countries": [],
+          "regions": [
+            "Ventuari"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355391,
+      "total": 144,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "BR",
+          144
+        ]
+      ],
+      "cells": [
+        [
+          -63.28125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -9.84375,
+          8,
+          8
+        ],
+        [
+          -57.65625,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -26.71875,
+          7,
+          7
+        ],
+        [
+          -54.84375,
+          -25.3125,
+          5,
+          5
+        ],
+        [
+          -54.84375,
+          -23.90625,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -23.90625,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -22.5,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          -21.09375,
+          11,
+          11
+        ],
+        [
+          -53.4375,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -16.875,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -52.03125,
+          -19.6875,
+          5,
+          5
+        ],
+        [
+          -52.03125,
+          -16.875,
+          3,
+          3
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -19.6875,
+          36,
+          36
+        ],
+        [
+          -50.625,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -19.6875,
+          25,
+          25
+        ],
+        [
+          -49.21875,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -14.0625,
+          3,
+          3
+        ],
+        [
+          -49.21875,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -9.84375,
+          7,
+          7
+        ],
+        [
+          -49.21875,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -12.65625,
+          3,
+          3
+        ],
+        [
+          -47.8125,
+          -5.625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 20
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus_sp_aff_tigrinus_en/",
+      "html": "<p>A striped Leporinus from the Ventuari river in Venezuela, possibly a still undescribed species. The name Leporinus means \"haresnout\"; tigrinus means \"striped like a tiger\". Suggested common name: Tiger-Leporinus.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus_sp_aff_tigrinus_en/",
+      "html": "<p>This Leporinus originates from the Ventuari river in Venezuela. Leporinus with a similar coloration are known so far only from the Rio Tapajos and Rio Xingu in Brazil; these were described in 1929 as Leporinus fasciatus tigrinus. Nowadays this subspecies is usually regarded as a full species, e.g. Leporinus tigrinus.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus_sp_aff_tigrinus_en/",
+      "html": "<p>It is very likely that the fish feeds mainly on plant material.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus_sp_aff_tigrinus_en/",
+      "html": "<p>Leporinus are known to be sometimes quarrelsome against their own kind, but these fish are quite peaceful so far.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus_sp_aff_tigrinus_en/",
+      "html": "<p>The double band in front of the dorsal fin and the shining scales on the back are very obvious and seem to be species-specific. One may reckon that the species attains a total length of more than 20 cm, as its close relatives (L. fasciatus, L. affinis, L. y-ophorus) do.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "JvlqFPiOtus",
+      "title": "Discover the Misunderstood Banded Leporinus Fish - Leporinus fasciatus",
+      "durationSec": 210,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "69xAPhZbJxc",
+      "title": "Leporinus tigrinus , F1",
+      "durationSec": 88,
+      "lang": "zxx"
+    },
+    {
+      "youtubeId": "TjKcTjBUSI8",
+      "title": "Leporinus fasciatus 35 cm",
+      "durationSec": 36,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn thực vật cho cá",
+        "thức ăn viên cá cảnh ăn thực vật",
+        "thức ăn viên cá cỡ lớn"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 300 lít",
+        "bể cá 150cm",
+        "bể cá 150 cm",
+        "bể cá lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

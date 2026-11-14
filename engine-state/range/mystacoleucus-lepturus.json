@@ -1,0 +1,92 @@
+{
+  "id": "mystacoleucus-lepturus",
+  "native": {
+    "input": "64a9d62575a9eb9a",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the upper Mekong River basin in southern China (where the river is known as Lancang Jiang), Laos, and Thailand.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the upper Mekong River basin in southern China (where the river is known as Lancang Jiang), Laos, and Thailand.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the upper Mekong River basin in southern China (where the river is known as Lancang Jiang), Laos, and Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Records from Vietnam and Hainan Island are incorrect and refer to other species.",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Known only from the upper Mekong River basin in southern China (where the river is known as Lancang Jiang), Laos, and Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Lancang Jiang",
+        "source": "seriouslyfish",
+        "quote": "Known only from the upper Mekong River basin in southern China (where the river is known as Lancang Jiang), Laos, and Thailand.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Mystacoleucus lepturus",
+    "status": "ACCEPTED",
+    "taxonKey": 2363145,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        7
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ]
+    ],
+    "native": [
+      "CN",
+      "LA",
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

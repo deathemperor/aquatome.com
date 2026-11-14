@@ -1,0 +1,72 @@
+{
+  "id": "badis-ruber",
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/cef3bc8057866cb03b425ed4596a60a4.webp",
+      "thumb": "https://media.aquatome.com/processed/cef3bc8057866cb03b425ed4596a60a4-480.webp",
+      "width": 640,
+      "height": 360,
+      "licence": "dùng với sự cho phép",
+      "author": "Maciej Chochla",
+      "sourceUrl": "https://www.seriouslyfish.com/species/badis-ruber",
+      "caption": "Young male specimen...",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-badis-ruber",
+        "pixelHash": "7011cfcca9077ce4106285ce12a0cc2aa003d05cd9c93b763fe3e43cd8599ed1"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T09:52:24.954Z",
+          "originalHash": "9dbef784f51bc8f0c4c69d290f0a8b9730ee1dbbcfc700017786132f77c0dbca",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 800,
+            "originalHeight": 501,
+            "window": {
+              "x0": 154,
+              "y0": 97,
+              "x1": 794,
+              "y1": 457
+            },
+            "subject": {
+              "x0": 249,
+              "y0": 181,
+              "x1": 699,
+              "y1": 391
+            },
+            "margin": 13
+          },
+          "excludedMarks": [
+            {
+              "x0": 497,
+              "y0": 463,
+              "x1": 786,
+              "y1": 494
+            }
+          ],
+          "checks": {
+            "species": [
+              "4d5bf70c1825b26cfc92e9742dfb003ccca928068a604da6bebd9742d71e7ec8",
+              "69687023e0371255695cfc789156e4ed3c832bb59d61eb83c427102910ea2202"
+            ],
+            "ownership": [
+              "a5338256c5bb0f2ac01ddbb555eeecee8f860c4e7db43f93a8548d16017e0b84",
+              "d8390148dafba0f1da898514e79640e309cff2aea3cc7c9de78b88a2f5b19821"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/223b770d4175f4c2.webp",
+        "width": 800,
+        "height": 501,
+        "thumb": "https://media.aquatome.com/seriouslyfish/223b770d4175f4c2-480.webp"
+      }
+    }
+  ],
+  "seen": 0,
+  "updatedAt": "2026-11-11"
+}

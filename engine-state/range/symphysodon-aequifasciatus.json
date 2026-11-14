@@ -1,8 +1,8 @@
 {
   "id": "symphysodon-aequifasciatus",
   "native": {
-    "input": "84a507d55bc6f005",
-    "at": "2026-11-06T18:08:44.169Z",
+    "input": "907245e1f81f974a",
+    "at": "2026-11-09T23:57:44.132Z",
     "claims": [
       {
         "code": "CO",
@@ -48,7 +48,7 @@
         "code": "BR",
         "status": "native",
         "source": "glaser",
-        "quote": "Among the green discus the Royal from Tefé in Brazil (which is also one of the type localities of S. aequifasciatus, i.e. the locality from which the specimens on which the scientific description is based were collected) is the legendarily most beautiful.",
+        "quote": "Origin: Brazil, Rio Moju.",
         "words": "Brazil",
         "ok": true
       }
@@ -76,6 +76,13 @@
         "name": "Rio Tocantins",
         "source": "seriouslyfish",
         "quote": "The natural range of this species extends down the Rio Solimões and along the main Amazon river, between the Rio Putumayo in Colombia and Peru as far as the Rio Tocantins drainage in Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Moju",
+        "source": "glaser",
+        "quote": "Origin: Brazil, Rio Moju.",
         "country": "BR",
         "ok": true
       }

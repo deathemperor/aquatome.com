@@ -141,6 +141,13 @@ test('the message keeps what the owner said apart from everything recorded with 
   expect(composeMessage({ ...REPORT, where: { url: 'https://x/`y' } })).toContain('`https://x/%60y`')
 })
 
+test("the message says which conversation and answers were on the chat's screen", () => {
+  const m = composeMessage({ ...REPORT, where: { source: 'app', screen: 'v2 today / chat ca-neon', conversation: '3f2b8c1e-7a4d-4e21-9b6a-1c2d3e4f5a6b', answers: '2,3' } })
+  expect(m).toContain('- Screen: `v2 today / chat ca-neon`')
+  expect(m).toContain('- Conversation: `3f2b8c1e-7a4d-4e21-9b6a-1c2d3e4f5a6b`')
+  expect(m).toContain('- Answers on screen: `2,3`')
+})
+
 test('the message says how far its picture can be trusted, and only in its own words', () => {
   const said = (where: Record<string, string>, image: unknown = REPORT.image) => composeMessage({ ...REPORT, image, where }).split('\n').filter((l: string) => l.startsWith('- Picture:')).join()
   expect(said({ picture: 'drawn' })).toContain('drawn by the page, not a photo of the screen')

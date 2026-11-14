@@ -1,0 +1,85 @@
+{
+  "id": "microctenopoma-fasciolatum",
+  "native": {
+    "input": "104d48a53ad56e8b",
+    "at": "2026-11-11T08:59:40.517Z",
+    "claims": [
+      {
+        "code": "CG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Congo basin in both the Republic of Congo and Democratic Republic of Congo, as well as a handful of rivers in Cameroon.",
+        "words": "Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Congo basin in both the Republic of Congo and Democratic Republic of Congo, as well as a handful of rivers in Cameroon.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Congo basin in both the Republic of Congo and Democratic Republic of Congo, as well as a handful of rivers in Cameroon.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "glaser",
+        "quote": "D.R. Congo.",
+        "words": "D.R. Congo",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Congo basin",
+        "source": "seriouslyfish",
+        "quote": "Known from the Congo basin in both the Republic of Congo and Democratic Republic of Congo, as well as a handful of rivers in Cameroon.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Microctenopoma fasciolatum",
+    "status": "ACCEPTED",
+    "taxonKey": 2391653,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        70
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "CM",
+      "CG",
+      "CD"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

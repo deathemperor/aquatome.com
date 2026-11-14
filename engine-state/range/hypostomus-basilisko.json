@@ -1,0 +1,101 @@
+{
+  "id": "hypostomus-basilisko",
+  "native": {
+    "input": "4338c83d30cc5895",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It occurs in the Rio Paraguay, both in Brazil and Paraguay.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It occurs in the Rio Paraguay, both in Brazil and Paraguay.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Bodoquena Plateau in Mato Grosso do Sul, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Paraguay",
+        "source": "glaser",
+        "quote": "It occurs in the Rio Paraguay, both in Brazil and Paraguay.",
+        "ok": true
+      },
+      {
+        "name": "Rio Salobra",
+        "source": "scotcat",
+        "quote": "South America: Rio Salobra basin, Rio Paraguay basin.",
+        "ok": true
+      },
+      {
+        "name": "Bodoquena Plateau",
+        "source": "scotcat",
+        "quote": "Bodoquena Plateau in Mato Grosso do Sul, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hypostomus basilisko",
+    "status": "ACCEPTED",
+    "taxonKey": 9458802,
+    "datasets": [
+      [
+        "899a1453-96d6-40a0-b4cf-2bf9361dc99b",
+        31
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        5
+      ],
+      [
+        "a75b2ed4-f805-42ba-a965-dca3541aee24",
+        5
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        5
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        2
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "PY"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T08:59:40.517Z"
+  }
+}

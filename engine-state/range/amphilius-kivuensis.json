@@ -1,0 +1,67 @@
+{
+  "id": "amphilius-kivuensis",
+  "native": {
+    "input": "701e34ed8d7f2c3d",
+    "at": "2026-11-14T00:09:29.977Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Etymology: The specific name kivuensis: –ensis, suffix denoting place: region of Kivu (west of Lake Kivu), Democratic Republic of the Congo, type locality.",
+        "words": "Democratic Republic of the Congo",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Kivu",
+        "source": "scotcat",
+        "quote": "Africa: Rivers to west of Lake Kivu; Ruzizi River and rivers entering Lake Tanganyika.",
+        "ok": true
+      },
+      {
+        "name": "Ruzizi River",
+        "source": "scotcat",
+        "quote": "Africa: Rivers to west of Lake Kivu; Ruzizi River and rivers entering Lake Tanganyika.",
+        "ok": true
+      },
+      {
+        "name": "Lake Tanganyika",
+        "source": "scotcat",
+        "quote": "Africa: Rivers to west of Lake Kivu; Ruzizi River and rivers entering Lake Tanganyika.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Amphilius kivuensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2340748,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        53
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ]
+    ],
+    "native": [
+      "CD"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T00:09:29.977Z"
+  }
+}

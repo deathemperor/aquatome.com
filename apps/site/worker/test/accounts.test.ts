@@ -7,6 +7,7 @@ import type { Mail } from '../accounts/email'
 import { idTokenVerifier, type IdClaims } from '../accounts/idtoken'
 import { COOKIE } from '../accounts/session'
 import { testD1 } from './d1'
+import { slow } from '@aq/schema/test-time'
 
 const readJson = (rel: string) => JSON.parse(readFileSync(fileURLToPath(new URL(rel, import.meta.url).href), 'utf8'))
 const ORIGIN = 'https://x.test'
@@ -449,7 +450,7 @@ test('sessions expire, and a session used again is extended', async () => {
 
 // Generating an RSA key takes from 30 ms to several seconds (a random prime search), so 5 s wasn't enough on a busy
 // runner (deploy 41222798049).
-test('ID tokens: Apple\'s and Google\'s signature, issuer, audience and expiry are all checked', { timeout: 30_000 }, async () => {
+test('ID tokens: Apple\'s and Google\'s signature, issuer, audience and expiry are all checked', { timeout: slow(30_000) }, async () => {
   const { privateKey, publicKey } = await generateKeyPair('RS256')
   const jwk = { ...(await exportJWK(publicKey)), kid: 'k1', alg: 'RS256' }
   const keys = createLocalJWKSet({ keys: [jwk] })

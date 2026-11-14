@@ -19,10 +19,9 @@
         "BR"
       ],
       "regions": [
-        "Amazon",
+        "Amazon/Solimões basin",
         "Río Ucayali",
-        "Capim River",
-        "Lake Manacapurú"
+        "Capim River"
       ],
       "sources": [
         "seriouslyfish"
@@ -36,17 +35,9 @@
             "BR"
           ],
           "regions": [
-            "Amazon",
+            "Amazon/Solimões basin",
             "Río Ucayali",
             "Capim River"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "The lectotype originates from Lake Manacapurú in Amazonas state, northwestern Brazil, just upstream from the city of Manaus and fed by the main Amazon river channel.",
-          "countries": [],
-          "regions": [
-            "Lake Manacapurú"
           ]
         }
       ]
@@ -565,17 +556,6 @@
       "source": "seriouslyfish"
     },
     {
-      "url": "https://media.aquatome.com/seriouslyfish/b0fa1a45b6159be0.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/b0fa1a45b6159be0-480.webp",
-      "width": 800,
-      "height": 543,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-agassizii",
-      "caption": "The same specimen as in the previous image - neutral mood.",
-      "source": "seriouslyfish"
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/8783543ddb79a0ad.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/8783543ddb79a0ad-480.webp",
       "width": 1200,
@@ -584,6 +564,17 @@
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-agassizii",
       "caption": "Adult male specimen; origin unspecified.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/b0fa1a45b6159be0.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/b0fa1a45b6159be0-480.webp",
+      "width": 800,
+      "height": 543,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-agassizii",
+      "caption": "The same specimen as in the previous image - neutral mood.",
       "source": "seriouslyfish"
     },
     {

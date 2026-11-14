@@ -1,0 +1,90 @@
+{
+  "id": "neohomaloptera-johorensis",
+  "native": {
+    "input": "c0c3b6c766d5d663",
+    "at": "2026-11-10T15:58:17.469Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Native to Peninsular Malaysia, particularly in Johor.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from a brook near the town of Simpang Renggam, Kluang district, Johor state, southern Peninsular Malaysia and since recorded from the Endau River system, also in Johor, plus the North Selangor peat swamp forest, Selangor state and Perak state in the north west of the country.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Specimens collected from the Kapuas River basin, Kalimantan Barat (West Kalimantan), Indonesian Borneo have also been identified as N. johorensis although a similar-looking fish from the Batang Hari drainage, Jambi province, Sumatra was diagnosed as having different body colour and a longer nasal barbel by Tan and Kottelat (2009).",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Endau River",
+        "source": "seriouslyfish",
+        "quote": "Described from a brook near the town of Simpang Renggam, Kluang district, Johor state, southern Peninsular Malaysia and since recorded from the Endau River system, also in Johor, plus the North Selangor peat swamp forest, Selangor state and Perak state in the north west of the country.",
+        "ok": true
+      },
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "Specimens collected from the Kapuas River basin, Kalimantan Barat (West Kalimantan), Indonesian Borneo have also been identified as N. johorensis although a similar-looking fish from the Batang Hari drainage, Jambi province, Sumatra was diagnosed as having different body colour and a longer nasal barbel by Tan and Kottelat (2009).",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Specimens collected from the Kapuas River basin, Kalimantan Barat (West Kalimantan), Indonesian Borneo have also been identified as N. johorensis although a similar-looking fish from the Batang Hari drainage, Jambi province, Sumatra was diagnosed as having different body colour and a longer nasal barbel by Tan and Kottelat (2009).",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Neohomaloptera johorensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2358750,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T15:58:17.469Z"
+  }
+}

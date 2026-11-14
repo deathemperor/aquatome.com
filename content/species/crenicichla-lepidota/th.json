@@ -1,0 +1,28 @@
+{
+  "slug": "crenicichla-lepidota",
+  "name": "ปลาหมอไพค์ เลพิโดต้า",
+  "altNames": [
+    "ไพค์ซิคลิด เลพิโดต้า",
+    "Saxatilia lepidota",
+    "Pike cichlid"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>ปลาหมอสีไพค์ (pike cichlid) ขนาดกลาง ยาวประมาณ 15 ซม. จากประเทศปารากวัย ปลาที่นำเข้ามาตรงกับรูปแบบที่ระบุเป็น Crenicichla cf. edithae ใน Stawikowski &amp; Werner (2004: 140) บางครั้ง Crenicichla edithae ถูกจัดให้เป็นชื่อพ้องของ C. lepidota</p>",
+    "distribution:glaser": "<p>ประเทศปารากวัย</p>",
+    "notes:glaser": "<p>C. edithae ได้รับการจัดจำแนกเป็นชนิดใหม่ทางวิทยาศาสตร์ในปี 1991 โดย Alex Ploeg ซึ่งตั้งชื่อตามภรรยาของเขา คือ Edith หากไม่ได้รับความช่วยเหลือจากเธอ เขาคงไม่สามารถทำการศึกษาเรื่องปลาสกุล Crenicichla ให้เสร็จได้ Alex และ Edith เสียชีวิตเมื่อวันที่ 18 กรกฎาคม 2014 เมื่อเที่ยวบิน MH17 ถูกยิงตกเหนือประเทศยูเครน</p>",
+    "references:glaser": "<p>Stawikowski, R. &amp; U. Werner (2004): Die Buntbarsche Amerikas. Band 3: Erdfresser, Hecht- und Kammbuntbarsche. Verlag Eugen Ulmer, Stuttgart.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.9
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-13"
+  }
+}

@@ -1,8 +1,13 @@
 {
   "id": "corydoras-fowleri",
-  "temperament": null,
+  "temperament": "peaceful",
   "finNipper": false,
-  "schoolMin": null,
-  "speciesUpdatedAt": "2026-11-04",
-  "generatedAt": "2026-11-04T15:52:31.670Z"
+  "schoolMin": 4,
+  "speciesUpdatedAt": "2026-11-13",
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-13T19:17:01.148Z"
 }

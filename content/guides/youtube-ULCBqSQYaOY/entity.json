@@ -111,27 +111,6 @@
     ],
     "figures": [
       {
-        "heading": "Vì sao bể dùng phân nền mới hay gặp rắc rối",
-        "moments": [
-          {
-            "t": 40,
-            "url": "https://media.aquatome.com/video/ULCBqSQYaOY/at40-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể mới setup với phân nền và đá, chưa trồng cây.",
-            "sharpness": 4656.2
-          },
-          {
-            "t": 60,
-            "url": "https://media.aquatome.com/video/ULCBqSQYaOY/at60-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhiều cốc cây cấy mô (in vitro) chuẩn bị đem trồng vào bể.",
-            "sharpness": 800
-          }
-        ]
-      },
-      {
         "heading": "Làm dark start thế nào",
         "moments": [
           {
@@ -140,7 +119,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bố cục đá trên nền đất khi set bể, chưa có nước.",
-            "sharpness": 1705.5
+            "sharpness": 1705.5,
+            "person": false
           },
           {
             "t": 135,
@@ -148,7 +128,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể đã trải nền, dựng đá xong và đổ nước, chưa trồng cây.",
-            "sharpness": 5521.7
+            "sharpness": 5521.7,
+            "person": false
           }
         ],
         "photo": {
@@ -171,7 +152,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây thảm xanh mướt và tép đỏ bò trên nền sau khi dark start.",
-            "sharpness": 1959
+            "sharpness": 1959,
+            "person": false
           },
           {
             "t": 240,
@@ -179,7 +161,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh cây phát triển xanh tốt, sạch rêu hại.",
-            "sharpness": 5038.7
+            "sharpness": 5038.7,
+            "person": false
           }
         ]
       }

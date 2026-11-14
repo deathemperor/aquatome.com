@@ -1,8 +1,8 @@
 {
   "id": "boulengerella-maculata",
   "native": {
-    "input": "b5a122272823ba4b",
-    "at": "2026-11-06T21:19:39.004Z",
+    "input": "141473daf035d9d1",
+    "at": "2026-11-10T04:57:39.069Z",
     "claims": [
       {
         "code": "BR",
@@ -62,6 +62,18 @@
         "name": "Tocantins",
         "source": "seriouslyfish",
         "quote": "Type locality is given simply as 'Amazon River, Brazil', but this species is currently understood to be distributed throughout much of the Amazon, Orinoco and Tocantins river systems with records existing from Ecuador, Colombia, Peru, Brazil and Venezuela.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "glaser",
+        "quote": "B. maculata has an exceptionally wide distribution and occurs in almost the entire Amazon and Orinoco systems.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "B. maculata has an exceptionally wide distribution and occurs in almost the entire Amazon and Orinoco systems.",
         "ok": true
       },
       {

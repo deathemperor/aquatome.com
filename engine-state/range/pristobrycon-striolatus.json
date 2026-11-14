@@ -1,0 +1,160 @@
+{
+  "id": "pristobrycon-striolatus",
+  "native": {
+    "input": "47533169b1949083",
+    "at": "2026-11-13T05:31:31.275Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pristobrycon striolatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2354222,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        65
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        47
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        43
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        24
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        13
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        13
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        12
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        11
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        9
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        6
+      ],
+      [
+        "2d74ce7a-a3c9-4045-b98d-7bb6cd043894",
+        5
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        4
+      ],
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        4
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        4
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        4
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        3
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        3
+      ],
+      [
+        "2bee4a91-9d92-430e-a87e-ab32d3b1ce47",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "6424b95e-eee2-41fc-9450-bac5d6767525",
+        2
+      ],
+      [
+        "79a5a2c0-dfde-4ae6-bc44-d809e8d166b7",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "3b8f8089-0261-4ec1-829c-1f17828fbd96",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-13T05:31:31.275Z"
+  }
+}

@@ -10,6 +10,46 @@
     "malaysia",
     "johor"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Parosphromenus tweediei is a liquorice gourami restricted to a handful of localities in western Johor state, Peninsular Malaysia.",
+          "countries": [
+            "MY"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394174,
+      "total": 1,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          12.65625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

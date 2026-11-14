@@ -1,0 +1,92 @@
+{
+  "id": "rasbora-dorsinotata",
+  "native": {
+    "input": "be6b674f8a857448",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rasbora dorsinotata is a small rasbora from the Mekong and upper Chao Phraya river basins in northern Thailand and northern Laos.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rasbora dorsinotata is a small rasbora from the Mekong and upper Chao Phraya river basins in northern Thailand and northern Laos.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Mae Nam Huey Bon, kilometer 45 on road from Amphoe ThaWang Pha to Amphoe Chiang Kham, Chiang Rai Province, Thailand', and this species appears restricted to the Mekong and upper Chao Phraya river basins in northern Thailand and northern Laos.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Mae Nam Huey Bon, kilometer 45 on road from Amphoe ThaWang Pha to Amphoe Chiang Kham, Chiang Rai Province, Thailand', and this species appears restricted to the Mekong and upper Chao Phraya river basins in northern Thailand and northern Laos.",
+        "words": "Laos",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Rasbora dorsinotata is a small rasbora from the Mekong and upper Chao Phraya river basins in northern Thailand and northern Laos.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Rasbora dorsinotata is a small rasbora from the Mekong and upper Chao Phraya river basins in northern Thailand and northern Laos.",
+        "ok": true
+      },
+      {
+        "name": "Wang River",
+        "source": "seriouslyfish",
+        "quote": "The specimens pictured here were collected from the upper Wang River, a tributary of the Chao Phraya in Thailand, and it's also known from Nam Ma Oun, Louang Nam Tha (Luang Namtha) province, Laos.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Nam Ma Oun",
+        "source": "seriouslyfish",
+        "quote": "The specimens pictured here were collected from the upper Wang River, a tributary of the Chao Phraya in Thailand, and it's also known from Nam Ma Oun, Louang Nam Tha (Luang Namtha) province, Laos.",
+        "country": "LA",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rasbora dorsinotata",
+    "status": "ACCEPTED",
+    "taxonKey": 2359557,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "LA"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T00:09:29.977Z"
+  }
+}

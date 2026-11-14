@@ -1,0 +1,23 @@
+{
+  "slug": "oc-faunus-den",
+  "name": "Ốc Faunus đen",
+  "altNames": [
+    "Black Faunus snail"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Đây là một loài ốc đẹp, dài khoảng 6 cm. Nó là họ hàng của ốc tháp Malaysia, loài ốc ai chơi bể cũng biết.</p>",
+    "habitat:glaser": "<p>Ngoài tự nhiên, loài ốc này sống trên nền bùn ở khúc sông sát cửa biển, nên chịu mặn rất tốt. Nuôi nó trong bể nước ngọt hay bể nước lợ đều được.</p>",
+    "diet:glaser": "<p>Ngoài tự nhiên, chúng có lẽ ăn phù sa và bùn. Loài ốc này không ăn rêu. Thức ăn của chúng là mùn bã hữu cơ và những thứ tương tự.</p>",
+    "dimorphism:glaser": "<p>Nhìn bên ngoài thì không phân biệt được con đực với con cái.</p>",
+    "reproduction:glaser": "<p>Ốc tháp Malaysia đẻ con, còn Faunus ater thì đẻ trứng. Ấu trùng của nó chỉ lớn được trong nước biển, nên ốc không thể sinh sôi tràn lan trong bể.</p>",
+    "notes:glaser": "<p>Faunus là tên một vị thần La Mã, thần bảo hộ nghề nông và gia súc, ứng với thần Pan của Hy Lạp. Không ai biết vì sao chi này lại được đặt theo tên vị thần đó. Ater là tiếng Latin, nghĩa là \"đen\".</p>"
+  },
+  "quality": {
+    "score": 0.92,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.92
+    },
+    "reason": "thin"
+  }
+}

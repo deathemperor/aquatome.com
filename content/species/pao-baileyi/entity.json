@@ -10,6 +10,76 @@
     "thailand",
     "laos"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "LA"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The hairy puffer, Pao baileyi, is a puffer from Thailand and Laos, where it inhabits rocky areas of large rivers, including whitewater.",
+          "countries": [
+            "TH",
+            "LA"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8243292,
+      "total": 9,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "TH",
+          7
+        ],
+        [
+          "LA",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          16.875,
+          4,
+          4
+        ],
+        [
+          101.25,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          15.46875,
+          2,
+          2
+        ],
+        [
+          105.46875,
+          12.65625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

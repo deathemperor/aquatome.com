@@ -12,6 +12,102 @@
     "tanzania",
     "democratic-republic-of-the-congo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BI",
+        "TZ",
+        "CD"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika, where it's recorded from the shores of Burundi, Tanzania and the Democratic Republic of the Congo.",
+          "countries": [
+            "BI",
+            "TZ",
+            "CD"
+          ],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371754,
+      "total": 49,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "TZ",
+          19
+        ],
+        [
+          "CD",
+          10
+        ],
+        [
+          "ZM",
+          10
+        ],
+        [
+          "BI",
+          9
+        ]
+      ],
+      "cells": [
+        [
+          -30.9375,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          28.125,
+          -4.21875,
+          15,
+          15
+        ],
+        [
+          29.53125,
+          -9.84375,
+          2,
+          0
+        ],
+        [
+          29.53125,
+          -8.4375,
+          3,
+          2
+        ],
+        [
+          29.53125,
+          -7.03125,
+          5,
+          5
+        ],
+        [
+          29.53125,
+          -5.625,
+          16,
+          16
+        ],
+        [
+          30.9375,
+          -9.84375,
+          7,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

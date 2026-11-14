@@ -1,0 +1,44 @@
+{
+  "id": "nannacara-taenia",
+  "native": {
+    "input": "0b3602432f9d041f",
+    "at": "2026-11-10T15:58:17.469Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the area around Belém in the state of Pará, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Nannacara taenia",
+    "status": "ACCEPTED",
+    "taxonKey": 5208105,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        5
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T15:58:17.469Z"
+  }
+}

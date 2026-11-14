@@ -10,13 +10,23 @@
     "equipment:planetcatfish": "<p>Họ cá này có tên chung là woodcat (mèo gỗ), và cái tên nói đúng tính nết của chúng. Chúng thích những khúc lũa có khe, có kẽ hở để chui rúc vào.</p>",
     "dimorphism:planetcatfish": "<p>Ở con đực trưởng thành, vây hậu môn biến đổi thành cơ quan giao phối.</p>",
     "reproduction:planetcatfish": "<p>Chưa có thông tin. Cho đến nay chưa có báo cáo nào ghi nhận loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Archivos do Instituto Biológico, São Paulo v. 3, pp 99, Pl. 13 (fig. 1).</p>"
+    "references:planetcatfish": "<p>Archivos do Instituto Biológico, São Paulo v. 3, pp 99, Pl. 13 (fig. 1).</p>",
+    "quickFacts:scotcat": "<p>Tatia neivai (Ihering, 1930). Họ: Auchenipteridae. Tên đồng nghĩa: Glanidium neivai. Kích thước: 8 cm. Nhiệt độ: 26-28°C. pH: 6,5-7,5.</p><p>Mô tả: vây lưng có tổng cộng 1 gai và 4-5 tia mềm, vây hậu môn có 9-10 tia mềm, cột sống có 31-33 đốt. Loài này có kiểu màu không lẫn với loài nào khác cùng chi. Hai bên thân rải rác những đốm trắng nhỏ, còn vây đuôi có các vạch sẫm chạy dọc. Ngoài ra còn có thể nhận ra nó qua mấy đặc điểm đi cùng nhau như sau:</p><ul><li>tấm gáy thứ ba rộng, có mấu nhô ngắn ra hai bên</li><li>các đốt sống sau Weber cứ một đốt có xương sườn lại đến một đốt không có</li><li>ở cá cái đủ lớn để đẻ, hai thùy vây đuôi dài bằng nhau, còn ở cá đực đủ lớn thì thùy trên dài hơn</li><li>có 31-33 đốt sống sau Weber</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông Piracicaba ở bang São Paulo. Nơi thu mẫu chuẩn: Piracicaba, Rio Piracicaba, bang São Paulo.</p>",
+    "habitat:scotcat": "<p>Loài này sống ở những đoạn nước chảy nhẹ. Có những con được thấy nấp trong đám cây ven bờ, hoặc chui vào khe của những thân cây chìm dưới nước.</p>",
+    "maintenance:scotcat": "<p>Loài này nuôi không khó lắm, miễn là nước sạch và không kiềm quá, pH giữ trong khoảng 6,5-7,0. Chúng thích bể có trồng cây, ban ngày thì trốn trong cây. Đây cũng là loài hợp để mang đi thi, vì chúng thường thể hiện tốt trong bể thi.</p>",
+    "waterConditions:scotcat": "<p>Nhiệt độ: 26-28°C. pH: 6,5-7,5 (khi nuôi trong bể thì nên giữ 6,5-7,0).</p>",
+    "diet:scotcat": "<p>Ngoài tự nhiên, chúng ăn côn trùng, chủ yếu là kiến, bọ cánh cứng và phù du. Trong bể thì cho gì chúng cũng ăn. Trùng huyết đông lạnh là món chúng chịu bò ra khỏi chỗ trốn để ăn. Ngoài ra có thể cho ăn viên chìm cho cá da trơn, bo bo, giun trắng (cho ít thôi) và các loại thức ăn dạng giun khác.</p>",
+    "reproduction:scotcat": "<p>Cá đủ lớn để đẻ khi dài hơn 4,81 cm SL (chiều dài chuẩn, không tính vây đuôi).</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên loài: chữ neivai đặt để vinh danh Arthur Neiva (1880-1943), người sáng lập Instituto Biológico ở São Paulo.</p><p>Sách Đỏ IUCN: ngoài tự nhiên loài này vốn hiếm và ít gặp, nhưng chưa thấy mối đe dọa đáng kể nào có thể làm hại quần thể của nó. Tatia neivai được xếp vào nhóm Ít quan tâm (LC) (IUCN 2022).</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2021. FishBase. World Wide Web electronic publication. www.fishbase.org, (10/2021). Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio). 2022. Tatia neivai. The IUCN Red List of Threatened Species 2022. Sarmento-Soares, Luisa Maria; Martins-Pinheiro, Ronaldo Fernando A systematic revision of Tatia (Siluriformes: Auchenipteridae: Centromochlinae) Neotropical Ichthyology, 6(3):495-542, 2008. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.8
+      "planetcatfish": 0.8,
+      "scotcat": 0.9
     }
   }
 }

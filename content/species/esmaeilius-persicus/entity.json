@@ -189,7 +189,73 @@
       "html": "<ul><li>Esmaeili, H. R., Z. Piravar, and A. H. Shiva (2007). Karyological Analysis of Two Endemic Tooth-Carps, Aphanius persicus and Aphanius sophiae (Pisces: Cyprinodontidae), from Southwest Iran. Turkish Jounal of Zoology 31, 69-74</li><li>Gaudant, J. (2011). Aphanius persicus (Priem, 1908) (Pisces, Teleostei, Cyprinodontidae): une nouvelle combinaison pour Brachylebias persicus Priem, 1908, du Miocène supérieur des environs de Tabriz (Iran). Geodiversitas 33, 347-356</li><li>Monsefi, M., A. H. Shiva, and H. R. Esmaeili (2009). Gonad Histology of the Persian Tooth-carp Aphanius persicus (Jenkins, 1910) (Cyprinodontidae) in Southern Iran. Turkish Jounal of Zoology 33, 27-33</li><li>Teimori, A, H. R. Esmaeili, and B. Reichenbacher (2011). Aphanius farsicus, a replacement name for A. persicus (Jenkins, 1910) (Teleostei, Cyprinodontidae). Zootaxa 3096, 53-58</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/81fac9c1608ba9a84382ef8c317808b4.webp",
+      "thumb": "https://media.aquatome.com/processed/81fac9c1608ba9a84382ef8c317808b4-480.webp",
+      "width": 800,
+      "height": 444,
+      "licence": "dùng với sự cho phép",
+      "author": "Barbara Nicca",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphanius-farsicus",
+      "caption": "Adult male specimen in spawning condition; 'Lake Maharlu 1,2' population.",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-esmaeilius-persicus",
+        "pixelHash": "997ba5fa13b253f163f90ffad3d8edb2bdec22dda30c12360844f5db852e8301"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T10:31:15.476Z",
+          "originalHash": "104ddaa9432535e328d4442e69221fb86998de44445e074c272404c2f091f6ad",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 800,
+            "originalHeight": 534,
+            "window": {
+              "x0": 0,
+              "y0": 90,
+              "x1": 800,
+              "y1": 534
+            },
+            "subject": {
+              "x0": 61,
+              "y0": 149,
+              "x1": 714,
+              "y1": 430
+            },
+            "margin": 14
+          },
+          "excludedMarks": [
+            {
+              "x0": 57,
+              "y0": 60,
+              "x1": 240,
+              "y1": 84
+            }
+          ],
+          "checks": {
+            "species": [
+              "51d9a0bd9b9c1ec9baa6f1f7222e5a0cce97ac74e66adce31b5efecbeeaa3164",
+              "bee9326ff05bfa1234eb0fff0de24cc26c7bb68b99e9b5e52444379ccf0b9920"
+            ],
+            "ownership": [
+              "e2697fe6b4cdda2756de50e2fdaf4ceea6e7af5bab865860a31d43ff90ca0cb7",
+              "67ad01d35ed759ac218ce0267f1cece310a663d401c05a64c1eeee9379fbb597"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/0c3c643bba6fbb02.webp",
+        "width": 800,
+        "height": 534,
+        "thumb": "https://media.aquatome.com/seriouslyfish/0c3c643bba6fbb02-480.webp"
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

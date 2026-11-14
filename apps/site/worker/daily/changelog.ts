@@ -7,9 +7,9 @@ import { AREAS, type Area, type Change } from './github'
 
 /**
  * The product change log, /_ab/thay-doi/: what each merged pull request changed for readers, app users and the engine's
- * content, in its own plain words (scripts/changelog.mjs), by the day it merged, newest first. The daily report adds the
- * day's changes to one key in KV `AB` when it is made (daily/api.ts), so the page reads that key and never GitHub. A year
- * is kept. A change sent again (a run retried, or one started by hand within 24 hours of the last) is kept once. The
+ * content, in its own plain words (scripts/changelog.mjs), by the day it merged, newest first. Each push to main adds what
+ * merged to one key in KV `AB` (changelog.yml, POST /_ab/changelog), and the daily report the same lines when it is made
+ * (daily/api.ts), so the page reads that key and never GitHub. A year is kept. A change sent again is kept once. The
  * entries are in English, as the report and the rest of the dashboard are.
  */
 export const CHANGELOG_KEY = 'changelog'

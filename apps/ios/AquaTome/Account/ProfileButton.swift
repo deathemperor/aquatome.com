@@ -33,7 +33,15 @@ struct ProfileButton: View {
 
 extension View {
   /// On a tab's first screen, inside its navigation stack: the profile button at the top right.
-  func profileButton() -> some View {
-    toolbar { ToolbarItem(placement: .topBarTrailing) { ProfileButton() } }
+  @ViewBuilder func profileButton() -> some View {
+    if #available(iOS 26, *) {
+      // Its own glass circle, after the tab's other buttons (the account sheet's spec): the space is what parts them.
+      toolbar {
+        ToolbarSpacer(.fixed, placement: .topBarTrailing)
+        ToolbarItem(placement: .topBarTrailing) { ProfileButton() }
+      }
+    } else {
+      toolbar { ToolbarItem(placement: .topBarTrailing) { ProfileButton() } }
+    }
   }
 }

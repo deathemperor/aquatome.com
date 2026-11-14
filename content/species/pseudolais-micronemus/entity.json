@@ -1,0 +1,136 @@
+{
+  "id": "pseudolais-micronemus",
+  "scientificName": "Pseudolais micronemus",
+  "order": "Siluriformes",
+  "family": "Pangasiidae",
+  "genus": "Pseudolais",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "vietnam",
+    "mekong",
+    "malaysia",
+    "malay-peninsula",
+    "indonesia",
+    "java"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 100
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1368",
+      "html": "<ul><li>Type locality: Java, Indonesia.</li><li>Conservation status (IUCN): Least Concern (last assessed 2019).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1368",
+      "html": "<p>Asia: Mekong basin, Hue River, the Malay Peninsula and Indonesia, including Sumatra, Java and Borneo. Particularly widely distributed in Borneo (Kapuas, Mahakam, Rejang and Kinabatangan).</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1368",
+      "html": "<p>Needs a large amount of open space for swimming room and some plants to help reduce the nervous nature of the fish.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1368",
+      "html": "<p>Omnivorous, feeding on animal and plant matter including detritus.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1368",
+      "html": "<p>Females are fuller-bodied.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1368",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1368",
+      "html": "<p>Identification: eye large, its diameter 4-5 times in head length (in 18 cm long specimens); dark grey caudal fin; maxillary barbel rarely extends past eye and never past preopercle. Vomero-palatine teeth in 4 more or less ovoid patches; truncate snout; lower jaw with angular outline rather than rounded; very short humeral process.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1368",
+      "html": "<p>Verhandelingen van het Bataviaasch Genootschap van Kunsten en Wetenschappen. v. 21 (art. 7), pp 8.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/5d22e4a643f7cd1f.webp",
+      "width": 960,
+      "height": 1121,
+      "licence": "CC BY 4.0",
+      "author": "Natural History Museum",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudolais_micronemus_(Bleeker,_1846)_1055649002.jpg",
+      "caption": "Pseudolais micronemus (Bleeker, 1846) 1055649002",
+      "thumb": "https://media.aquatome.com/commons/5d22e4a643f7cd1f-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "2LzBgwyEkNg",
+      "title": "Pseudolais micronemus @ Shortbarbel Pangasius/Lawang (Malaysia)",
+      "durationSec": 101,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ahXoyrwYD9w",
+      "title": "update jendhil (Pseudolais micronemus) setelah 8 bulan di aquarium. catfish exotic asli indonesia",
+      "durationSec": 22,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ANLbkTdfC3A",
+      "title": "jedil (pseudolais micronemus) feeding time",
+      "durationSec": 42,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "VhRD-X6qEp0",
+      "title": "Jendil (pseudolais micronemus) ikan eksotik asli perairan Jawa",
+      "durationSec": 52,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 400 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá da trơn",
+        "thức ăn cá ăn tạp"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "cynotilapia-pulpican",
+  "native": {
+    "input": "0c4d16a97daf5299",
+    "at": "2026-11-11T08:59:40.517Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Lake Malawi",
+        "source": "glaser",
+        "quote": "Cynotilapia pulpican can be kept in aquaria like any other Mbuna (Mbuna is the name for all the rock dwelling cichlids from Lake Malawi).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cynotilapia pulpican",
+    "status": "ACCEPTED",
+    "taxonKey": 2372861,
+    "datasets": [
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        13
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        3
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-11T08:59:40.517Z"
+  }
+}

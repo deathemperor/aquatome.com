@@ -15,26 +15,19 @@
       "countries": [
         "VN"
       ],
-      "regions": [
-        "Quảng Trị",
-        "Cam Lo",
-        "Giang"
-      ],
+      "regions": [],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Known from the coastal Quảng Trị, Cam Lo, and Giang river systems, between the cities of Đồng Hới and Đông Hà in Quảng Bình and Quảng Trị provinces, central Vietnam (Freyhof & Herder, 2002).",
+          "quote": "Macropodus erythropterus is a paradisefish from coastal hill streams of central Vietnam, in Quang Binh and Quang Tri provinces.",
           "countries": [
             "VN"
           ],
-          "regions": [
-            "Quảng Trị",
-            "Cam Lo",
-            "Giang"
-          ]
+          "regions": []
         }
       ]
     },
@@ -119,10 +112,22 @@
       "html": "<p>Macropodus erythropterus is a paradisefish from coastal hill streams of central Vietnam, in Quang Binh and Quang Tri provinces. Occasionally traded, sometimes as 'red-backed paradisefish', it is often misidentified as M. spechti, which lacks red in the dorsal, anal and caudal fins. Whether the two represent the same taxon has been debated. A bubble nester, it is relatively peaceful unless breeding.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/macropodus_erythropterus_en/",
+      "html": "<p>Common name: Red-back Paradise. Origin of the specimens offered: bred. Available size: 6–8 cm.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-erythropterus",
       "html": "<p>Known from the coastal Quảng Trị, Cam Lo, and Giang river systems, between the cities of Đồng Hới and Đông Hà in Quảng Bình and Quảng Trị provinces, central Vietnam (Freyhof &amp; Herder, 2002). It may also occur further south, in the Hương and Truồi river basins, Thừa Thiên-Huế province (Winstanley &amp; Clements, 2008).</p><p>Type locality is 'Vietnam: Quảng Bình Province: stream at Quyêt Tiên; 17°11.54'N 106°37.53'E'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/macropodus_erythropterus_en/",
+      "html": "<p>This paradise fish comes from Vietnam.</p>"
     },
     {
       "key": "habitat",
@@ -177,6 +182,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-erythropterus",
       "html": "<p>M. erythropterus is occasionally available in the ornamental trade, sometimes under the name 'red-backed paradisefish', but often misidentified (see below).</p><p>It can be distinguished from congeners by the following combination of characters: caudal-fin forked; opercular spot pale or absent; body with 10-12 faint, inconspicuous dark bars; dorsal surface of head and predorsum without dark spots or saddle-like blotches; posterior tip or margin of scales on head and body conspicuously darker than scales; distal portion of anterior soft pelvic-fin ray red; spots and bars on dorsal and caudal-fin membranes red; soft rays of unpaired fins brown; predorsal and subdorsal regions of body reddish; region above anal-fin iridescent blue-green in life.</p><p>This species is frequently mistaken for the similar-looking congener M. spechti Schreitmüller 1936, which is easily-identified by the absence of reddish pigmentation in the dorsal, anal, and caudal fins. There has been some debate as to whether these two represent the same taxon, however, with Winstanley and Clements (2008) proposing that M. erythropterus be considered a synonym of M. spechti because they were unable to separate the two species by morphological characters, and specimens with red pigmentation on the unpaired fins were collected within the distributional range of M. spechti during the course of their study. This was rejected by Herder et al. (2010), who argued that Winstanley and Clements did not use material from the type locality of M. erythropterus, and that their study used a limited number of mainly juvenile specimens from only a part of the species' known distribution. Both species are thus considered valid at the present time, with Kottelat (2013) remarking that additional study is necessary to determine whether they represent distinct taxa or not.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth, which permits the fish to breathe atmospheric air to a certain extent. Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly-vascularised, folded flaps of skin which function as a large respiratory surface. Its structure varies in complexity between species, tending to be more developed in those inhabiting harsher environments.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/macropodus_erythropterus_en/",
+      "html": "<p>Not much has been heard in the past few years about this beautiful paradise fish from Vietnam. This might be connected with the dispute about the validity of the species, which has been considered to be a mere synonym of M. spechti (formerly: M. concolor) by some scientists. Recently bred specimens were obtained that clearly show why M. erythropterus has been named the \"Red-back Paradise\" and without any doubt represents a species on its own: the back of animals in neutral mood is brown-red and in aroused specimens bright rusty-red.</p><p>Lexicon: Macropodus means \"the large-finned one\". erythropterus means \"with red fins\", referring to the red spots or bars in the dorsal and caudal fins.</p>"
     },
     {
       "key": "references",
@@ -239,5 +250,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-11"
 }

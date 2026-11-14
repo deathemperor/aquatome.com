@@ -3,6 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { videoCovers } from '../src/video-covers'
+import { denied } from './piece-admission'
 
 const vi = (extra = {}) => ({ slug: 's', name: 'Hạn chế rêu hại', altNames: [], sections: {}, quality: { score: 0.9, indexable: true }, ...extra })
 
@@ -45,4 +46,16 @@ test('labels stay unless --redo; the pick falls back to the first usable candida
   expect(JSON.parse(await readFile(join(root, 'guides/youtube-a/vi.json'), 'utf8')).cover).toBe('Vì sao bể bạn dính BBA')
   expect(prompts[0]).toContain('Đừng dịch chữ trên thumbnail')
   expect(prompts[0]).not.toContain('Lỗi này gây rêu hại"') // no translation pairs to copy
+})
+
+// Astra's read of c69e30048: a cover the day's line can't cover isn't started, and the run stops, nothing failed.
+test('a cover is not started when what is left of the line is less than the last one cost', async () => {
+  const root = await setup()
+  let calls = 0
+  await denied('videos', root, async () => {
+    const r = await videoCovers(root, { get: async () => { calls++; return new Uint8Array([1]) }, look: async () => { calls++; return { cover: 'x' } } }, { redo: true })
+    expect(r.stopped).toContain('not started')
+    expect(r.failed).toEqual([])
+    expect(calls).toBe(0)
+  })
 })
