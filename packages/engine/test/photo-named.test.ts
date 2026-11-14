@@ -111,6 +111,25 @@ test("the source's description naming this species outranks a file's name naming
   expect(at('Colossoma macropomum', 'Piaractus_sp,_Zoo', 'Colossoma macropomum or Piaractus sp.')).toBe(GENUS)
   expect(at('Ophthalmotilapia ventralis', 'Ophthalmotilapia_sp._-_5287', 'Ophthalmotilapia in the Zoo Basel. A label gave Ophthalmotilapia ventralis but I am unsure of that.')).toBe(GENUS)
   expect(at('Heros severus', 'Heros_notatus01', 'Heros severus, though I am unsure of that')).toBe(GENUS)
+  // A second read (2026-11-14) wrote captions that name this fish without saying the photo shows it: a passing mention,
+  // a denial, a trade name, a hedge in capitals or words, another fish beside it, or an initial another page shares.
+  // None is plain enough to outrank the file's name.
+  const piaractus = (caption: string) => at('Colossoma macropomum', 'Piaractus_sp,_Zoo', caption)
+  for (const caption of [
+    'Not Colossoma macropomum', 'Unlike Colossoma macropomum this fish has a red belly', 'Misidentified as Colossoma macropomum',
+    'Adult male of Piaractus brachypomus. Kept in the company of Colossoma macropomum.',
+    'Juveniles of Betta splendens conceal themselves among shoals of Colossoma macropomum', 'Sold as Colossoma macropomum',
+    'cf. Colossoma macropomum', 'aff. Colossoma macropomum', 'cf. C. macropomum', 'Colossoma macropomum cf. Piaractus',
+    'sp. Colossoma macropomum', 'Colossoma macropomum?', 'Probably Colossoma macropomum', 'Possibly Colossoma macropomum',
+    'Perhaps Colossoma macropomum', 'Colossoma macropomum, I think', 'Colossoma macropomum, identification uncertain',
+    'Piaractus brachypomus juvenile with Colossoma macropomum',
+  ]) expect(piaractus(caption), caption).toBe(GENUS)
+  expect(at('Heros severus', 'Heros_notatus01', 'Heros notatus, or possibly H. severus')).toBe(GENUS)
+  // Another fish the site has a page for, named in full or by its genus: the description isn't about this one alone.
+  expect(at('Heros severus', 'Heros_notatus01', 'Heros severus beside a Heros notatus')).toBe(GENUS)
+  const cory = (caption: string) => namedAs({ sourceUrl: 'https://commons.wikimedia.org/wiki/File:Copella_sp.jpg', caption }, { sci: 'Corydoras nattereri', known: knownNames([{ scientificName: 'Corydoras nattereri' }, { scientificName: 'Copella nattereri' }]) })
+  expect(cory('C. nattereri, adult')).toBe(GENUS)
+  expect(cory('Corydoras nattereri, adult')).toBe(SPECIES)
   // A caption the album step wrote in Vietnamese: the file's name decides.
   expect(at('Ophthalmotilapia ventralis', 'Ophthalmotilapia_sp._-_5289', 'Cá Ophthalmotilapia ventralis màu vàng ô liu bơi trong bể thủy sinh')).toBe(GENUS)
   expect(at('Heros severus', 'Heros_notatus01', 'Cá severus đực màu tím ánh xanh, đốm đen')).toBe(GENUS)

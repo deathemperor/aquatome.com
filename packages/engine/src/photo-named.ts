@@ -135,21 +135,63 @@ function namesAnother(title: string, page: NamedPage): boolean {
 
 /** A caption in Vietnamese is ours (the album step writes them), not the source's words: its letters only Vietnamese has. */
 const OURS = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i
-const esc = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 
 /**
- * Whether the source's description names this species (or a synonym) as the photo's subject: "Schwarzer Pacu (Colossoma
- * macropomum), Tierpark Hellabrunn". The genus as written or its initial, then the epithet; "maylandia-elegans" in a file
- * name a caption repeats is not a description.
+ * Words that keep a caption from plainly naming its photo's subject: a hedge ("cf.", "aff.", "sp.", "possibly", "?"), a
+ * denial ("not", "unlike", "misidentified"), a choice ("or", "vs"), or another fish beside it ("with", "and", "among").
  */
-function namesThis(caption: string, page: NamedPage): boolean {
-  const t = flat(caption)
-  return [page.sci, ...(page.latin ?? [])].some(n => {
-    const [g, e] = flat(n).split(' ')
-    if (!g || !e || !/^[a-z]+$/.test(e)) return false
-    const m = new RegExp(`(^|[\\s(,;:])(?:${esc(g)}|${esc(g[0]!)}\\.)\\s*${esc(e)}\\b`).exec(t)
-    return !!m && subjectAt(t, m.index + m[1]!.length, true)
-  })
+const HEDGE = /\b(?:cf|aff|spp?|not|unlike|misidentified|mislabell?ed|possibly|probably|perhaps|maybe|likely|presumably|apparently|uncertain|unsure|unclear|doubtful|questionable|or|vs|versus|think|hybrids?|with|and|among|beside|alongside|plus)\b|[?&]/i
+
+/** The site's other fish (or plants) as a caption may write them: genera, and "x. epithet" initials to their full names. */
+const shapes = new WeakMap<Set<string>, { genera: Set<string>; initials: Map<string, Set<string>> }>()
+function shapesOf(known: Set<string>) {
+  let s = shapes.get(known)
+  if (!s) {
+    s = { genera: new Set(), initials: new Map() }
+    for (const n of known) {
+      const [g, e] = n.split(' ')
+      if (!g || !e) continue
+      s.genera.add(g)
+      const k = `${g[0]}. ${e}`
+      s.initials.set(k, new Set([...(s.initials.get(k) ?? []), n]))
+    }
+    shapes.set(known, s)
+  }
+  return s
+}
+
+/**
+ * Whether the source's description plainly names this species (or a synonym) as the photo's subject, for the order of
+ * trust: "Schwarzer Pacu (Colossoma macropomum), Tierpark Hellabrunn". The name stands in the first five words, by its
+ * genus as written or by an initial no other fish on the site shares with that epithet. Nothing beside it hedges, denies
+ * or offers a choice (HEDGE, DOUBT), no other fish the site has a page for is named, and a trade name doesn't count
+ * ("sold as …"). Anything less leaves the file's name to decide, as before.
+ */
+function plainlyThis(caption: string, page: NamedPage): boolean {
+  const t = flat(caption.replace(TRADE, ' '))
+  if (!t || HEDGE.test(t) || DOUBT.test(t)) return false
+  const own = [page.sci, ...(page.latin ?? [])].map(n => flat(n).toLowerCase().split(' ')).filter(([g, e]) => !!g && !!e && /^[a-z]+$/.test(e))
+  const ownGenera = new Set(own.map(([g]) => g!))
+  const { genera, initials } = shapesOf(page.known ?? new Set())
+  const words = t.split(' ').map(w => w.replace(/^['"(]+|[)'",;:]+$/g, ''))
+  let mine = -1
+  for (let i = 0; i < words.length; i++) {
+    const a = words[i]!, b = (words[i + 1] ?? '').toLowerCase().replace(/\.$/, '')
+    const g = a.toLowerCase().replace(/\.$/, '')
+    const initial = /^[A-Z]\.$/.test(a)
+    if (initial) {
+      const ours = own.some(([og, oe]) => og![0] === g && oe === b)
+      const others = [...(initials.get(`${g}. ${b}`) ?? [])].filter(n => !own.some(o => o.join(' ') === n))
+      if (others.length) return false
+      if (ours && mine < 0) mine = i
+      continue
+    }
+    if (!/^[A-Z][a-z]+\.?$/.test(a) || !/^[a-z]+$/.test(b)) continue
+    if (own.some(([og, oe]) => og === g && oe === b)) { if (mine < 0) mine = i; continue }
+    if (genera.has(g) && !ownGenera.has(g)) return false
+    if ((page.known ?? new Set()).has(`${g} ${b}`)) return false
+  }
+  return mine >= 0 && mine <= 5
 }
 
 /**
@@ -161,7 +203,7 @@ function namesThis(caption: string, page: NamedPage): boolean {
 export function namedAs(p: NamedPhoto, page: NamedPage): Named {
   const caption = OURS.test(p.caption ?? '') ? '' : (p.caption ?? '')
   const said = classOf(caption, page, true)
-  if (said === SPECIES && namesThis(caption, page) && !DOUBT.test(caption)) return SPECIES
+  if (said === SPECIES && plainlyThis(caption, page)) return SPECIES
   if (namesAnother(sourceTitle(p.sourceUrl), page)) return GENUS
   const named = Math.max(classOf(sourceTitle(p.sourceUrl), page, false), said) as Named
   if (named === CF && DOUBT.test(caption)) return GENUS
