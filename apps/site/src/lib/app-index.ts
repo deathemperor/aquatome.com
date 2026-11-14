@@ -241,11 +241,12 @@ export const refusedByCards = (p: Photo): boolean => p.headFit === 'contain' || 
 /**
  * The switch for a fish's, a breed's or a plant's page photo the cards refuse. On, its card and its head are that photo
  * with its whole area as the box (photoBox), which the v2 Lab's build draws whole. Off, they have no photo, as before 14
- * Nov: today's build ignores the box and would crop it, for 41 fish in Vietnamese on 13 Nov (Esomus caudiocellatus losing
- * about half its length on a card). Turned on, in a one-line change, the day the Lab's build that reads the box is on
- * TestFlight (the chief of staff, 13 Nov). An object, so a test holds both ways.
+ * Nov: a build before 375 ignores the box and would crop it (Esomus caudiocellatus losing about half its length on a card).
+ * On since build 375, the Lab's frames build, on TestFlight 14 Nov 20:01: 53 fish and breed pages in Vietnamese, 41 in
+ * Indonesian, 42 in Thai and 6 in Malay get their photo back (the chief of staff, 13 Nov; the Lab, 14 Nov). An object,
+ * so a test holds both ways.
  */
-export const APP_WHOLE_PHOTOS = { on: false }
+export const APP_WHOLE_PHOTOS = { on: true }
 const realPhoto = (photos: Photo[]) => photos.find(p => !p.generated)
 /**
  * The one photo a page's card and its head both show, for a fish, a breed or a plant: the page's first photo that isn't

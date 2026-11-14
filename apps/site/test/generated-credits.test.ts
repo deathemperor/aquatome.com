@@ -70,7 +70,7 @@ test('a crop preserves the existing combined source and contributor credit',()=>
 
 // A head the cards' frames refuse is the app's lead, with its whole area as its box, so the app shows it whole by the frames
 // rule, never cut and never missing (the Design Lead's line, accepted by the chief of staff, 13 Nov), once the switch is on
-// (APP_WHOLE_PHOTOS: off until the v2 Lab's build that draws the box is on TestFlight, the chief of staff, 13 Nov).
+// (APP_WHOLE_PHOTOS: on since build 375, the v2 Lab's build that draws the box, on TestFlight 14 Nov).
 const WHOLE={x:0,y:0,w:1,h:1}
 import { APP_WHOLE_PHOTOS, appIndex } from '../src/lib/app-index'
 const switched=(on:boolean)=>{const was=APP_WHOLE_PHOTOS.on;APP_WHOLE_PHOTOS.on=on;onTestFinished(()=>{APP_WHOLE_PHOTOS.on=was})}
