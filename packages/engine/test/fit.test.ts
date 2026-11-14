@@ -561,6 +561,12 @@ test('a dealer\'s own current batch or stock is the source check\'s; trade histo
     'Những con trong đợt mới nhập đầu tiên chỉ toàn cá bệnh.',
     'Những con trong đợt vừa về sau lớn hơn hẳn.',
     'Những con trong lô gần đó nhỏ hơn hẳn.',
+    // Just in, but an earlier or a later one, told in words no list of others can hold (Grok's fourth read).
+    'Những con trong lô nhập về nọ nhỏ hơn.',
+    'Những con trong lô nhập về năm ngoái nhỏ hơn.',
+    'Những con trong lô nhập về đã lâu không còn.',
+    'Những con trong đợt mới nhập năm ngoái nhỏ hơn.',
+    'Những con trong lô nhập về đợt tới nhỏ hơn.',
   ]
   const dealer = (text: string) => fitRules(page(`<p>${text}</p>`, { kind: 'species' })).filter(f => f.check === 'source' && f.why.startsWith('a dealer'))
   for (const t of news) expect(dealer(t).length, t).toBeGreaterThan(0)
