@@ -463,6 +463,7 @@ final class HandbookModel {
         : launch.contains("-newer-part") ? HandbookIndex.fixturePagesWithANewerPart
         : launch.contains("-long-page") ? HandbookIndex.fixturePagesLong
         : launch.contains("-long-part") ? HandbookIndex.fixturePagesWithLongParts
+        : launch.contains("-long-guide") ? HandbookIndex.fixturePagesWithALongGuide
         : launch.contains("-lead-in-gallery") ? HandbookIndex.fixturePagesLeadInGallery : HandbookIndex.fixturePages
       // `-slow-pages`: a page that takes its time to be read.
       let slow = launch.contains("-slow-pages")
@@ -658,6 +659,25 @@ extension HandbookIndex {
                           with: #"{"t":"p","c":["Thức ăn viên nhỏ, thêm trùn chỉ vài lần một tuần."]}"# + #",{"t":"p","c":["Cá con mới mua về thường nhát ăn vài ngày đầu: cho ít, quan sát xem cá có lên ăn không rồi mới tăng dần lượng thức ăn."]},{"t":"p","c":["Thức ăn đông lạnh như trùn chỉ hay artemia nên rã đông trong một ít nước bể trước khi thả, để cá không ăn phải miếng còn cứng lạnh."]},{"t":"p","c":["Mỗi tuần nên có một ngày không cho ăn: hệ tiêu hóa của cá được nghỉ, nước bể cũng sạch hơn vì ít thức ăn thừa."]},{"t":"p","c":["Thức ăn thừa chìm xuống đáy sau vài phút cần hút bỏ, vì nó làm nước đục và tăng amoniac rất nhanh trong bể nhỏ."]},{"t":"p","c":["Đoạn cuối về cho ăn: khi đi vắng vài ngày, cá khỏe chịu nhịn được, không cần thả viên thức ăn tan chậm."]}"#)
     .replacingOccurrences(of: #"{"t":"p","c":["Khó cho đẻ trong bể nuôi chung: cần bể đẻ riêng, nước rất mềm."]}"#,
                           with: #"{"t":"p","c":["Muốn cho đẻ, nuôi riêng một cặp như ",{"text":"cá ngựa vằn","href":"/vi/ca/ca-ngua-van/"}," vẫn làm: bể đẻ nhỏ, nước rất mềm và hơi chua, ánh sáng yếu, đáy có lưới hoặc rêu để trứng rơi xuống mà cá bố mẹ không ăn được; sau khi đẻ thì vớt cá bố mẹ ra ngay, che tối bể vì trứng sợ sáng, giữ nhiệt độ ổn định, đến khi cá bột bơi được thì cho ăn infusoria rồi chuyển dần sang artemia mới nở, thay một ít nước mỗi ngày bằng nước cùng nhiệt độ và độ cứng, và kiên nhẫn vì tỉ lệ sống của cá bột neon trong bể nuôi ở nhà thường thấp. Cá bột rất nhỏ, nên vài ngày đầu chỉ để lọc bông thật nhẹ hoặc tắt lọc, kẻo cá bị hút vào; đợi cá lớn bằng hạt cát rồi mới chuyển sang bể to hơn, và đừng thả chung với cá trưởng thành cho tới khi cá đủ lớn để không bị ăn."]}"#).utf8)
+  /// UI tests (`-long-guide`): the fixture's pages, the neon guide's parts each eight paragraphs long, past three screens,
+  /// and its readers' comments: a guide long enough for the owner's navigator.
+  static let fixturePagesWithALongGuide: Data = {
+    var all = try! JSONSerialization.jsonObject(with: fixturePages) as! [String: Any]
+    var pages = all["pages"] as! [String: Any]
+    var guide = pages["/vi/huong-dan/nuoi-ca-neon/"] as! [String: Any]
+    let more: [String: Any] = ["t": "p", "c": ["Một đoạn dài cho phần này: cá neon nhỏ và nhạy, nên mọi thay đổi trong bể cần làm từ từ, "
+      + "theo dõi cá vài ngày rồi mới làm bước tiếp theo, và ghi lại những gì đã làm để biết điều gì giúp cá khỏe hơn."]]
+    var blocks: [Any] = []
+    for b in guide["blocks"] as! [[String: Any]] {
+      blocks.append(b)
+      if b["t"] as? String == "h" { blocks += Array(repeating: more, count: 8) }
+    }
+    guide["blocks"] = blocks
+    guide["talk"] = ["comments": "guide:nuoi-ca-neon"]
+    pages["/vi/huong-dan/nuoi-ca-neon/"] = guide
+    all["pages"] = pages
+    return try! JSONSerialization.data(withJSONObject: all)
+  }()
   /// Performance tests (`-long-page`): the fixture's pages, the neon's with its text twelve times over, a long page.
   static let fixturePagesLong: Data = {
     var all = try! JSONSerialization.jsonObject(with: fixturePages) as! [String: Any]
@@ -689,6 +709,13 @@ extension HandbookIndex {
      "sitekey":"k","verification":"none"}
     """#.utf8),
     "https://aquatome.com/_c?e=plant:rotala-rotundifolia": Data(#"{"comments":[],"sitekey":"k","verification":"none"}"#.utf8),
+    // The long neon guide's (`-long-guide`).
+    "https://aquatome.com/_c?e=guide:nuoi-ca-neon": Data(#"""
+    {"comments":[{"id":"g1","name":"Lan","body":"Bể 40 lít nuôi 8 con vẫn ổn.","helpful":false,"createdAt":"2026-11-02T08:00:00.000Z","author":"a1a1a1a1a1a1a1a1"},
+                 {"id":"g2","name":"Minh","body":"Thay nước mỗi tuần, cá lên màu đẹp.","helpful":false,"createdAt":"2026-11-03T08:00:00.000Z","author":"b2b2b2b2b2b2b2b2"},
+                 {"id":"g3","name":"Hà","body":"Cho ăn ít thôi là đúng.","helpful":false,"createdAt":"2026-11-04T08:00:00.000Z","author":"c3c3c3c3c3c3c3c3"}],
+     "sitekey":"k","verification":"none"}
+    """#.utf8),
   ]
 
   /// Performance tests' index: the fixture plus 800 fish (the site lists about 700), named and shaped like real ones,

@@ -26,6 +26,15 @@ struct NativePage: View {
   var at: String?
   /// A smaller copy of its photo, already on the screen, shown until the photo itself has come (`NativePage.head`).
   var stillPhoto: String?
+  /// A guide's or a kind of kit's lighter top, as a fish page's (PageView): its photo runs under the bar and the status bar,
+  /// and the page says when its name has gone under the bar (`nameInView`) and when its first words have reached it.
+  var underBar = false
+  /// Told whether the words under the photo have reached the bar's foot (`underBar`): the band comes, the shade goes.
+  var scrolled: (Bool) -> Void = { _ in }
+  /// The owner's way round a long page (PageNavigator); for everyone else, none, and nothing of it runs.
+  var navigator: PageNavigator?
+  /// The page's sources, for the navigator's list: their heading's id and how many.
+  var sources: (id: String, count: Int)?
   @Environment(HandbookModel.self) private var handbook
   @Environment(TelemetryModel.self) private var telemetry
   @Environment(\.scenePhase) private var phase
@@ -44,6 +53,13 @@ struct NativePage: View {
   @State private var player = PagePlayer()
   /// VoiceOver's place: moved with a `#id` link, as the scroll is.
   @AccessibilityFocusState private var focus: String?
+  @Environment(\.dynamicTypeSize) private var size
+  @Environment(\.accessibilityReduceMotion) private var reduceMotion
+  /// The bar's foot on the screen, and the room the page scrolls in: under the bar, a part comes to rest below it.
+  @State private var barFoot: CGFloat = 0
+  @State private var room = CGSize.zero
+  /// How many comments its readers' part shows, for the navigator's list: nil until the site has answered.
+  @State private var comments: Int?
 
   /// What the page shows, in order.
   enum Piece {
@@ -107,10 +123,14 @@ struct NativePage: View {
           ForEach(pieces.indices, id: \.self) { i in
             let hero = if case .photo(_, _, _, _, _, _, _, true) = pieces[i] { true } else { false }
             piece(i).padding(.horizontal, hero ? 0 : nil).padding(.top, gap(i))
+              .background(alignment: .top) { if let navigator, let part = part(i) { navigable(i, part.id, navigator) } }
           }
         }
         .padding(.bottom, 32)
         .frame(maxWidth: .infinity, alignment: .leading)
+        // One stack, the page's content: a part's place in it (PageNavigator.space) doesn't change as the page scrolls.
+        .coordinateSpace(.named(PageNavigator.space))
+        .background { if let navigator { PageNavigatorHook(navigator: navigator, parts: pieces.indices.compactMap(part)) } }
       }
       // Links in the text: a page the index lists opens in the app, `#id` scrolls to it, a word's tip shows.
       .environment(\.openURL, OpenURLAction { open($0, proxy) })
@@ -118,14 +138,31 @@ struct NativePage: View {
       .task {
         guard let at else { return }
         await Task.yield()
-        proxy.scrollTo(at, anchor: .top)
+        proxy.scrollTo(at, anchor: top)
       }
       // A chapter or a still tapped: its video in view.
       .onChange(of: player.asked) { withAnimation { proxy.scrollTo(PagePlayer.anchor(player.id), anchor: .center) } }
+      // A part chosen from the navigator's list: its heading just under the bar.
+      .onChange(of: navigator?.asked) { _, asked in
+        guard let asked else { return }
+        // Its photos: their grid, the page staying where it is.
+        if navigator?.parts.first(where: { $0.id == asked.id })?.photos == true { gridAt = .photos; return }
+        withAnimation(reduceMotion ? nil : .default) { proxy.scrollTo(asked.id, anchor: top) }
+        focus = asked.id
+      }
       .modifier(SeenDown { reading?.scrolled(to: $0) })
     }
+    // Under the bar, its photo across the top of the screen, as a fish page's (PageView's lighter top).
+    .ignoresSafeArea(edges: underBar ? .top : [])
+    .onGeometryChange(for: CGFloat.self) { $0.safeAreaInsets.top } action: {
+      barFoot = $0
+      navigator?.barFoot = $0
+    }
+    .onGeometryChange(for: CGSize.self) { $0.size } action: { room = $0 }
     .environment(player)
     .accessibilityIdentifier("native-page")
+    // Its list, dropped from under the bar, over the page.
+    .overlay { if let navigator { PageNavigatorList(navigator: navigator, top: barFoot + 6) } }
     .onAppear {
       if reading == nil, let path { reading = PageReading(path: path, telemetry: telemetry.telemetry) }
       reading?.shown(true)
@@ -183,12 +220,16 @@ struct NativePage: View {
         .accessibilityAddTraits([.title, .heading, .subheading].contains(look) ? .isHeader : [])
         .accessibilityFocused($focus, equals: anchor ?? "piece-\(i)")
         .id(anchor ?? "piece-\(i)")
-        .modifier(InView(report: look == .title ? nameInView : nil))
+        .modifier(InView(report: look == .title && !underBar ? nameInView : nil))
+        // Under the bar, on the screen isn't in view: in view until it has gone under the bar's foot.
+        .modifier(PassesBar(foot: barFoot, report: look == .title && underBar ? { nameInView(!$0) } : nil))
     case let .photo(src, ratio, alt, caption, credit, href, play, hero):
       VStack(alignment: hero ? .trailing : .leading, spacing: 6) {
-        // The page's own photo no taller than 4:3, cut to fit: a fish's side, not a screen of water.
-        let image = PageImage(src: src, ratio: hero ? max(ratio, 4 / 3) : ratio, alt: alt, corner: hero ? 0 : 10, until: hero ? stillPhoto : nil)
+        // The page's own photo no taller than 4:3, cut to fit: a fish's side, not a screen of water. Under the bar, no taller
+        // than a fish page's banner either.
+        let image = PageImage(src: src, ratio: hero ? headRatio(ratio) : ratio, alt: alt, corner: hero ? 0 : 10, until: hero ? stillPhoto : nil)
           .overlay { if play { Image(systemName: "play.circle.fill").font(.system(size: 56)).foregroundStyle(.white, .black.opacity(0.5)) } }
+          .modifier(PassesBar(foot: barFoot, report: hero && underBar ? scrolled : nil))
         if let href {
           // Tapped, the page it shows or the video at that moment; read as its words, or else its caption.
           Button { _ = open(href, nil) } label: { image }
@@ -206,7 +247,11 @@ struct NativePage: View {
           image
         }
         if !caption.characters.isEmpty { Text(caption).font(.footnote).foregroundStyle(.secondary) }
-        if let credit { Text(credit).foregroundStyle(.secondary).tint(Color.secondary).padding(.horizontal, hero ? nil : 0) }
+        if let credit {
+          Text(credit).foregroundStyle(.secondary).tint(Color.secondary).padding(.horizontal, hero ? nil : 0)
+            // The head photo's capped as a fish page's: at the largest text it would outrank the name.
+            .dynamicTypeSize(...(hero ? DynamicTypeSize.xxLarge : .accessibility5))
+        }
       }
     case let .video(id, title, caption, head):
       VideoSlot(id: id, title: title, caption: caption, head: head)
@@ -265,7 +310,8 @@ struct NativePage: View {
         .buttonStyle(.bordered)
         .accessibilityIdentifier("page-web")
     case let .readers(talk, name):
-      ReadersPart(talk: talk, name: name, photos: $readerPhotos, grid: gallery != nil ? { gridAt = .readers } : nil)
+      ReadersPart(talk: talk, name: name, photos: $readerPhotos, grid: gallery != nil ? { gridAt = .readers } : nil,
+                  counted: navigator != nil ? { comments = $0 } : nil)
     case let .table(head, rows):
       TablePart(head: head, rows: rows)
     }
@@ -275,7 +321,7 @@ struct NativePage: View {
     switch url.scheme {
     case "page-anchor":
       let id = String(url.absoluteString.dropFirst("page-anchor:".count)).removingPercentEncoding ?? ""
-      withAnimation { proxy?.scrollTo(id, anchor: .top) }
+      withAnimation { proxy?.scrollTo(id, anchor: top) }
       focus = id
       return .handled
     case "page-tip":
@@ -311,6 +357,50 @@ struct NativePage: View {
       UIApplication.shared.open(u)
       return .handled
     }
+  }
+
+  /// Where a part or a `#id` comes to rest: at the screen's top, or under the bar where the page runs under it (a fish
+  /// page's `jump`).
+  private var top: UnitPoint {
+    guard underBar, room.height > 0 else { return .top }
+    return UnitPoint(x: 0, y: min((barFoot + 8) / room.height, 0.5))
+  }
+
+  /// The page's own photo's shape: no taller than 4:3; under the bar, no taller than a fish page's banner (46% of the
+  /// screen, a third at the accessibility sizes, at most 420 points).
+  private func headRatio(_ ratio: CGFloat) -> CGFloat {
+    guard underBar, room.width > 0, room.height > 0 else { return max(ratio, 4 / 3) }
+    return max(ratio, 4 / 3, room.width / min(420, room.height * (size.isAccessibilitySize ? 0.34 : 0.46)))
+  }
+
+  /// A part of the page for the navigator's list (the owner's): a heading's, a gallery's photos; after them, under their
+  /// own line, the pages it lists, its sources and its discussion. A part that draws nothing has no place, and isn't one.
+  private func part(_ i: Int) -> PageNavigator.Part? {
+    switch pieces[i] {
+    case let .text(s, anchor, .heading):
+      let id = anchor ?? "piece-\(i)"
+      if let sources, sources.id == anchor { return .init(id: id, name: String(s.characters), count: sources.count, tail: true) }
+      return .init(id: id, name: String(s.characters))
+    case let .fold(s, anchor, _):
+      return .init(id: anchor ?? "piece-\(i)", name: String(s.characters))
+    case let .gallery(_, _, photos, _):
+      return .init(id: "piece-\(i)", name: "Ảnh", count: photos.count, photos: true, thumbs: photos.prefix(3).map { $0.thumb ?? $0.src })
+    case let .pages(title, paths):
+      let items = paths.compactMap(handbook.item(at:))
+      // How many where it names fish or plants ("Loài và cây trong bài"), not the next guide.
+      return .init(id: "piece-\(i)", name: title, count: items.contains { $0.kind == .fish || $0.kind == .plant } ? items.count : nil, tail: true)
+    case let .readers(talk, _) where talk.comments != nil:
+      return .init(id: "piece-\(i)", name: "Thảo luận", count: comments, tail: true)
+    default:
+      return nil
+    }
+  }
+
+  /// A part's place for the navigator; one with no id of its own (not a heading) gets one at its top, to scroll to.
+  @ViewBuilder private func navigable(_ i: Int, _ id: String, _ navigator: PageNavigator) -> some View {
+    let own = switch pieces[i] { case .text, .fold: true; default: false }
+    PagePlace(navigator: navigator, id: id)
+    if !own { Color.clear.frame(height: 0).id(id) }
   }
 
   /// The top of a page not read yet: its photo and name, which whatever opened it already holds, where the page will put
@@ -961,6 +1051,8 @@ struct ReadersPart: View {
   var heading: Font = .pageHeading
   /// The room it keeps from the next part (v1: above it), only when it shows something.
   var space: (edge: Edge.Set, length: CGFloat) = (.top, 40)
+  /// Told how many comments it shows, once the site has answered: the count beside "Thảo luận" in the navigator's list.
+  var counted: ((Int) -> Void)?
   @Environment(HandbookModel.self) private var handbook
   @Environment(AccountModel.self) private var account
   @State private var comments: [Readers.Comment]?
@@ -1043,7 +1135,10 @@ struct ReadersPart: View {
       #endif
       let (c, p) = await handbook.readers(talk)
       guard !Task.isCancelled else { return }
-      if let c { comments = c }
+      if let c {
+        comments = c
+        counted?(c.filter { !handbook.safety.hides(ReaderItem($0)) }.count)
+      }
       if let p { photos = p }
       #if DEBUG
       answered = true
@@ -1054,6 +1149,7 @@ struct ReadersPart: View {
         if let key = talk.comments { handbook.posted(c, on: key) }
         handbook.safety.posted(c)
         comments = (comments ?? []) + [c]
+        counted?((comments ?? []).filter { !handbook.safety.hides(ReaderItem($0)) }.count)
       }
     }
   }
@@ -1086,6 +1182,19 @@ private struct InView: ViewModifier {
   func body(content: Content) -> some View {
     if #available(iOS 18, *), let report {
       content.onScrollVisibilityChange(threshold: 0.3, report)
+    } else {
+      content
+    }
+  }
+}
+
+/// Reports whether a view has gone up under the bar's foot (its bottom above it), as the page scrolls.
+private struct PassesBar: ViewModifier {
+  let foot: CGFloat
+  let report: ((Bool) -> Void)?
+  func body(content: Content) -> some View {
+    if let report {
+      content.onGeometryChange(for: Bool.self, of: { [foot] in $0.frame(in: .scrollView).maxY < foot }, action: report)
     } else {
       content
     }

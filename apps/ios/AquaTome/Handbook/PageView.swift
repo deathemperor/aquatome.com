@@ -18,6 +18,22 @@ struct PageView: View {
   @Environment(\.openScreen) private var openScreen
   @Environment(ChatStore.self) private var chat
   @Environment(\.v2PostClose) private var closePost
+  @Environment(AccountModel.self) private var account
+  @Environment(\.colorScheme) private var scheme
+  @Environment(\.dynamicTypeSize) private var size
+  @Environment(\.accessibilityReduceMotion) private var reduceMotion
+  @Environment(\.accessibilityReduceTransparency) private var opaque
+  /// The app's look: the lighter top is v2's (V2Switch); the old look keeps the old top.
+  @AppStorage(V2Switch.key) private var v2 = V2Switch.byDefault
+  /// The way round a long guide (PageNavigator), its title in the bar: the owner's alone for now.
+  @State private var navigator = PageNavigator()
+  /// The lighter top's: the words under the photo have reached the bar, so the band comes and the shade goes.
+  @State private var scrolled = false
+  /// Saved or unsaved from the ⋯, which shows no bookmark: a tap felt (`sensoryFeedback`).
+  @State private var savedFromMore = 0
+  /// The page's sources, for the navigator's list: their heading's id and how many.
+  @State private var sources: (id: String, count: Int)?
+  @State private var width: CGFloat = 0
   @State private var offline = false
   @State private var failed = false
   @State private var putting = false
@@ -49,10 +65,12 @@ struct PageView: View {
     Group {
       if native, let pieces {
         NativePage(pieces: pieces, facts: facts(inPage: true), put: inPagePut ? { putting = true } : nil, ask: chat.on ? ChatRoute(about: item) : nil,
-                   web: { onWeb = true }, nameInView: { nameInView = $0 }, path: item.path, at: at, stillPhoto: item.img)
+                   web: { onWeb = true }, nameInView: { nameInView = $0 }, path: item.path, at: at, stillPhoto: item.img,
+                   underBar: lighter, scrolled: { s in withAnimation(.easeInOut(duration: 0.2)) { scrolled = s } }, navigator: trying, sources: sources)
       } else if native && !tried {
         // Its photo and name while the page is read: a card zoomed into a screen with only a spinner on it, black in dark mode.
-        NativePage(pieces: NativePage.head(item), web: {})
+        // Under the bar as the page will be, its photo in the same box.
+        NativePage(pieces: NativePage.head(item), web: {}, underBar: lighter)
           .overlay(alignment: .bottom) { LateSpinner().padding(.bottom, 64) }
           // Not the page's own id, which says the page has come: an outer id wins.
           .accessibilityIdentifier("page-head")
@@ -68,54 +86,81 @@ struct PageView: View {
         // Opened before the index said the app draws this kind: the web page, for this visit (not a spinner later).
         guard handbook.drawsItself(item), !tried else { tried = true; return }
         let traits = item.kind == .fish ? FactsCard.traits(item.facts) : nil
-        pieces = await handbook.doc(item).map { NativePage.pieces($0, traits: traits) }
+        let doc = await handbook.doc(item)
+        pieces = doc.map { NativePage.pieces($0, traits: traits) }
+        sources = doc?.blocks.lazy.compactMap { if case let .refs(_, id?, items, _) = $0 { (id, items.count) } else { nil } }.first
         tried = true
       }
-      .modifier(ClearUnderTopBar(shown: true))
+      // The lighter top: no band until the words under the photo reach the bar, over the photo the bar's words white.
+      .modifier(ClearUnderTopBar(shown: !lighter || scrolled))
+      .toolbarBackground(lighter ? .hidden : .automatic, for: .navigationBar)
+      .toolbarColorScheme(lighter ? (scrolled ? scheme : .dark) : nil, for: .navigationBar)
+      .overlay(alignment: .top) { if lighter { shade } }
+      // The bar's middle is the page's own item (the name once scrolled, or none), so iOS's title never shows; it names the
+      // page in the back button's list.
       .navigationTitle(item.name)
       .navigationBarTitleDisplayMode(.inline)
-      // A Hôm nay post's ✕ (v2), after the page's buttons: a toolbar applied inside theirs comes after them.
-      .v2PostCloseButton(closePost)
-      .toolbar {
-        // The page the app draws shows its name under its photo: the bar's, once that has scrolled away.
-        if native && pieces != nil {
-          ToolbarItem(placement: .principal) {
-            Text(item.name).font(.headline).lineLimit(1)
-              .opacity(nameInView ? 0 : 1)
-              .animation(.easeOut(duration: 0.2), value: nameInView)
-              .accessibilityHidden(nameInView)
-          }
+      // A Hôm nay post's ✕ (v2), after the page's buttons: a toolbar applied inside theirs comes after them. On the lighter
+      // top, on its dark disc over the photo, as a fish post's.
+      .v2PostCloseButton(lighter ? nil : closePost)
+      .toolbar(when: lighter && closePost != nil) {
+        ToolbarItem(placement: .topBarTrailing) {
+          Button { closePost?() } label: { round("xmark") }
+            .buttonStyle(.plain)
+            .accessibilityLabel(Text("Đóng"))
+            .accessibilityIdentifier("v2-close-post")
         }
-        ToolbarItemGroup(placement: .primaryAction) {
-          // A fish or plant page: onto one of the reader's tanks (TankLife.swift); the page the app draws has it under
-          // the name (none in the bar while it is read, to come and go).
-          if Life(item) != nil, !(native && (inPagePut || !tried)) {
-            // Not into a store this app must leave alone (newer, unreadable).
-            Button { putting = true } label: { Label("Thêm vào bể", systemImage: "plus.circle") }
-              .disabled(!tanks.canEdit).accessibilityIdentifier("put-on-tank")
+        .v2Glass(scrolled)
+      }
+      .toolbar {
+        if lighter {
+          lighterBar
+        } else {
+          // The page the app draws shows its name under its photo: the bar's, once that has scrolled away.
+          if native && pieces != nil {
+            ToolbarItem(placement: .principal) {
+              Text(item.name).font(.headline).lineLimit(1)
+                .opacity(nameInView ? 0 : 1)
+                .animation(.easeOut(duration: 0.2), value: nameInView)
+                .accessibilityHidden(nameInView)
+            }
           }
-          // Saved to read later, on this phone (the Tìm tab lists them).
-          let saved = handbook.isSaved(item)
-          Button { handbook.toggleSaved(item) } label: {
-            Label(saved ? "Bỏ lưu" : "Lưu để đọc sau", systemImage: saved ? "bookmark.fill" : "bookmark")
+          ToolbarItemGroup(placement: .primaryAction) {
+            // A fish or plant page: onto one of the reader's tanks (TankLife.swift); the page the app draws has it under
+            // the name (none in the bar while it is read, to come and go).
+            if Life(item) != nil, !(native && (inPagePut || !tried)) {
+              // Not into a store this app must leave alone (newer, unreadable).
+              Button { putting = true } label: { Label("Thêm vào bể", systemImage: "plus.circle") }
+                .disabled(!tanks.canEdit).accessibilityIdentifier("put-on-tank")
+            }
+            // Saved to read later, on this phone (the Tìm tab lists them).
+            let saved = handbook.isSaved(item)
+            Button { handbook.toggleSaved(item) } label: {
+              Label(saved ? "Bỏ lưu" : "Lưu để đọc sau", systemImage: saved ? "bookmark.fill" : "bookmark")
+            }
+            .accessibilityIdentifier("save-for-later")
+            PageMore(url: url)
           }
-          .accessibilityIdentifier("save-for-later")
-          PageMore(url: url)
         }
       }
+      .sensoryFeedback(.success, trigger: savedFromMore)
+      .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { width = $0 }
       .safeAreaInset(edge: .top) {
-        VStack(spacing: 0) {
-          // Over the web page: the page the app draws has them under its name.
-          if !(native && (pieces != nil || !tried)), let facts = facts(inPage: false) { facts }
-          if offline || failed {
-            Text(failed ? "Không tải được trang. Kiểm tra kết nối mạng." : "Đang xem bản đã lưu (ngoại tuyến).")
-              .font(.footnote)
-              .padding(8)
-              .frame(maxWidth: .infinity)
-              .accessibilityIdentifier("page-status")
+        // Not under the lighter top: its band, drawn behind the bar, is the black band it takes away.
+        if !lighter {
+          VStack(spacing: 0) {
+            // Over the web page: the page the app draws has them under its name.
+            if !(native && (pieces != nil || !tried)), let facts = facts(inPage: false) { facts }
+            if offline || failed {
+              Text(failed ? "Không tải được trang. Kiểm tra kết nối mạng." : "Đang xem bản đã lưu (ngoại tuyến).")
+                .font(.footnote)
+                .padding(8)
+                .frame(maxWidth: .infinity)
+                .accessibilityIdentifier("page-status")
+            }
           }
+          .background(.bar)
         }
-        .background(.bar)
       }
       .onAppear { handbook.read(item) }
       .ownerShows(item.path, as: "\(item.kind.rawValue) page")
@@ -125,6 +170,103 @@ struct PageView: View {
         if let life = Life(item) { NavigationStack { PutOnTank(life: life, open: { openAfter = $0; putting = false }) } }
       }
   }
+
+  /// A guide's or a kind of kit's page the app draws in v2, with a photo at its head: a fish page's lighter top (the photo
+  /// under the bar and the status bar, iOS's back, one ⋯), and the owner's navigator on a long one. Every other page, and
+  /// the old look, keeps its top.
+  private var lighter: Bool {
+    guard #available(iOS 18, *), v2 else { return false }
+    guard item.kind == .guide || item.kind == .equipment, handbook.drawsItself(item), !onWeb else { return false }
+    guard let first = pieces?.first else { return !tried && item.img != nil }
+    if case .photo(_, _, _, _, _, _, _, true) = first { return true }
+    return false
+  }
+
+  /// The navigator, the owner's alone for now, once the page has come.
+  private var trying: PageNavigator? { account.owner.isOwner == true && lighter && pieces != nil ? navigator : nil }
+
+  /// The lighter top's bar: iOS's back, then for the owner Mục lục; at the right one ⋯ holding save, share and the browser.
+  @ToolbarContentBuilder private var lighterBar: some ToolbarContent {
+    if let trying, trying.long {
+      ToolbarItem(placement: .topBarLeading) {
+        PageNavigatorTitle(nameInView: nameInView, onColour: !scrolled, onPhoto: !scrolled, navigator: trying, name: item.name)
+          // A width of its own, as a fish page's (`titleWidth` there): offered "up to", the bar gave it next to none.
+          .frame(width: titleWidth + 20, alignment: .leading)
+          .frame(width: titleWidth, alignment: .leading)
+          .environment(\.dynamicTypeSize, size)
+      }
+      .v2Glass(false)
+    }
+    // The bar's middle: for a reader, the name once it has gone under the bar; with the owner's navigator, which names the
+    // part being read, nothing. Always an item of the page's own, so iOS's title never stands there.
+    ToolbarItem(placement: .principal) {
+      if trying?.long == true {
+        // No room taken from Mục lục: wider, iOS folds the bar's items into a "⋯" of its own.
+        Color.clear.frame(width: 0, height: 0).accessibilityHidden(true)
+      } else {
+        Text(item.name).font(.headline).lineLimit(1)
+          .opacity(nameInView ? 0 : 1)
+          .animation(.easeOut(duration: 0.2), value: nameInView)
+          .accessibilityHidden(nameInView)
+      }
+    }
+    ToolbarItem(placement: .topBarTrailing) {
+      Menu {
+        let saved = handbook.isSaved(item)
+        Button(saved ? String(localized: "Bỏ lưu") : String(localized: "Lưu để đọc sau"), systemImage: saved ? "bookmark.fill" : "bookmark") {
+          handbook.toggleSaved(item)
+          savedFromMore += 1
+        }
+        .accessibilityIdentifier("save-for-later")
+        ShareLink(item: url) { Label("Chia sẻ", systemImage: "square.and.arrow.up") }
+        Link(destination: url) { Label("Mở trong trình duyệt", systemImage: "safari") }
+      } label: {
+        round("ellipsis")
+      }
+      .buttonStyle(.plain)
+      .accessibilityLabel(Text("Thêm"))
+      .accessibilityIdentifier("page-more")
+    }
+    .v2Glass(scrolled)
+  }
+
+  /// White on a dark circle over the photo, in a 44-point tap area; past it, iOS's glass around it (`v2Glass`), as a fish
+  /// page's.
+  private func round(_ symbol: String) -> some View {
+    Image(systemName: symbol)
+      .font(.body.weight(.semibold))
+      .dynamicTypeSize(...DynamicTypeSize.xLarge)
+      .foregroundStyle(scrolled ? Color.primary : Color.white)
+      .frame(width: 44, height: 44)
+      .background {
+        Circle().fill(.black.opacity(scrolled ? 0 : PageTop.ground(reduceTransparency: opaque)))
+          .frame(width: PageTop.disc, height: PageTop.disc)
+      }
+      .contentShape(Circle())
+  }
+
+  /// A shade behind the status bar and the bar, until the band comes, so the clock and iOS's back read on a light photo
+  /// (`PageTop`, as a fish page's); under Reduce Motion it goes at once.
+  private var shade: some View {
+    VStack(spacing: 0) {
+      LinearGradient(stops: [.init(color: .black.opacity(PageTop.shadeOpacity), location: 0),
+                             .init(color: .black.opacity(PageTop.shadeHeldOpacity), location: PageTop.shadeHeld),
+                             .init(color: .clear, location: 1)], startPoint: .top, endPoint: .bottom)
+        .frame(height: PageTop.shadeHeight)
+      Spacer(minLength: 0)
+    }
+    .ignoresSafeArea()
+    // Gone too while Mục lục's list is open: laid over the page, list and all, it greyed the list's top rows (Design's
+    // parity, 14 Nov). The list's own dimming covers the photo then.
+    .opacity(scrolled || trying?.listOpen == true ? 0 : 1)
+    .animation(reduceMotion ? nil : .easeInOut(duration: 0.2), value: scrolled)
+    .animation(reduceMotion ? nil : .easeOut(duration: 0.2), value: trying?.listOpen)
+    .allowsHitTesting(false)
+  }
+
+  /// How wide the navigator's title may be beside the back button, as a fish page's: any wider and iOS folds the bar's
+  /// items into a "⋯" of its own.
+  private var titleWidth: CGFloat { max(80, (width > 0 ? width : 402) - 240) }
 
   /// The page the app draws has a place for putting the fish or plant on a tank, under its name (`.facts`).
   private var inPagePut: Bool {
@@ -139,6 +281,20 @@ struct PageView: View {
     if item.kind == .fish, let card = item.card, card.any { return FactsCard(facts: card, inPage: inPage) }
     if item.kind == .plant, let plant = item.plant, plant.any { return FactsCard(facts: .init(), plant: plant, inPage: inPage) }
     return nil
+  }
+}
+
+private extension View {
+  /// A toolbar's items only when `on`, after the view's other toolbars' items; on iOS 26 a fixed space first, so the bar's
+  /// glass doesn't draw them in one capsule with the others (as a fish post's ✕, `Species.swift`).
+  @ViewBuilder func toolbar<C: ToolbarContent>(when on: Bool, @ToolbarContentBuilder _ content: () -> C) -> some View {
+    if !on {
+      self
+    } else if #available(iOS 26, *) {
+      toolbar { ToolbarSpacer(.fixed, placement: .topBarTrailing); content() }
+    } else {
+      toolbar(content: content)
+    }
   }
 }
 
