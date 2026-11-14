@@ -1,12 +1,5 @@
 import Foundation
 
-/// Where a photo's fish sits: fractions of the photo from its top-left corner, as the app is sent them (`imgBox` on a card,
-/// `box` on a page's `lead`). A photo no frame may crop comes with its whole area (0, 0, 1, 1).
-public struct PhotoBox: Codable, Sendable, Hashable {
-  public let x, y, w, h: Double
-  public init(x: Double, y: Double, w: Double, h: Double) { (self.x, self.y, self.w, self.h) = (x, y, w, h) }
-}
-
 /// How a frame shows a photo so the whole animal is in it (the chief of staff, 13 Nov): the site's rule (`frameOf`,
 /// packages/schema/src/image-geometry.ts), decided at the size the frame is drawn. Centred, as before, where that cuts
 /// `cut` of the fish or less; else the window moved onto the fish, where that does; else the photo whole. No box: centred.
