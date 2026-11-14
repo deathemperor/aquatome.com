@@ -1176,3 +1176,25 @@ test('a head its source names only to the genus goes behind a photo named to the
   expect([picked.named, picked.heads]).toEqual([[], [`species/corydoras-sterbai: ${own.url} -> ${genus.url}`]])
   expect((await sweep(root)).files).toEqual([])
 })
+
+// 14 Nov 2026: a model filed a new spiny eel with the loaches, and the pages run's checks held its work. The sweep runs
+// before every run's checks, a held batch's retry included, so it moves such a page to the group its order allows.
+test("a species page whose order its group doesn't allow is moved to the group the order allows, its file's layout kept", async () => {
+  const root = await store()
+  const c = join(root, 'content')
+  const put = async (id: string, order: string, group: string, indent: number) => {
+    await mkdir(join(c, 'species', id), { recursive: true })
+    await writeFile(join(c, 'species', id, 'entity.json'), `${JSON.stringify({ ...species(id, 'Macrognathus x'), order, group }, null, indent)}\n`)
+  }
+  await put('macrognathus-x', 'Synbranchiformes', 'loaches', 1)
+  await put('corydoras-x', 'Siluriformes', 'loaches', 2)
+  await put('botia-x', 'Cypriniformes', 'loaches', 2)
+  const before = await readFile(join(c, 'species/macrognathus-x/entity.json'), 'utf8')
+  const r = await sweep(root)
+  expect(r.regrouped).toEqual(['corydoras-x', 'macrognathus-x'])
+  expect(r.files).toEqual(expect.arrayContaining(['species/macrognathus-x/entity.json', 'species/corydoras-x/entity.json']))
+  expect(await readFile(join(c, 'species/macrognathus-x/entity.json'), 'utf8')).toBe(before.replace('"group": "loaches"', '"group": "other"'))
+  expect((await json(root, 'content/species/corydoras-x/entity.json')).group).toBe('catfish')
+  expect((await json(root, 'content/species/botia-x/entity.json')).group).toBe('loaches')
+  expect((await sweep(root)).regrouped).toEqual([])
+})

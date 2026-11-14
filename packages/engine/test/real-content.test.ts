@@ -8,7 +8,7 @@ import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
 import { englishOf } from '../src/english'
 import { droppedName, FISH_NAMES, KIND_PASSAGES, oldNames } from '../src/names'
 import { altKey, NOT_ITS } from '../src/alt-names'
-import { MISMATCHED } from '../src/gbif'
+import { GROUP_ORDERS, MISMATCHED } from '../src/gbif'
 import { productOf } from '../src/fit'
 import { loadPages } from '../src/pages'
 import { ENGLISH_PLACE_WORD } from '../src/place-names'
@@ -437,24 +437,16 @@ test('the tap-water fixes hold: Seachem Prime named at its dose, our note on wat
 // GBIF's fuzzy matches made a catfish page a tube worm's (Brochis arcuata → Ditrupa arietina, Sabellida), and its exact
 // Mollienisia, a moth's genus, gave a molly page a moth's family (Noctuidae). The engine now takes a match only of an animal
 // the page's group can be (gbif.ts pageTaxon). This holds each fish or shrimp page's order to its group; "other" and
-// "snails", too many orders to name, are held by that class check alone. The two above are folded (page-folds.ts); a
-// spiny eel filed with the loaches waits for its own fix.
-const GROUP_ORDERS: Record<string, string[]> = {
-  catfish: ['Siluriformes'],
-  tetras: ['Characiformes'], characins: ['Characiformes'], characoids: ['Characiformes'],
-  barbs: ['Cypriniformes'], danios: ['Cypriniformes'], rasboras: ['Cypriniformes'], cyprinid: ['Cypriniformes'],
-  loaches: ['Cypriniformes'],
-  cichlids: ['Perciformes', 'Cichliformes'], labyrinth: ['Perciformes', 'Anabantiformes'], gobies: ['Perciformes', 'Gobiiformes'],
-  killifish: ['Cyprinodontiformes', 'Beloniformes'], livebearers: ['Cyprinodontiformes', 'Beloniformes'],
-  rainbowfish: ['Atheriniformes'], shrimp: ['Decapoda'],
-}
+// "snails", too many orders to name, are held by that class check alone. The two above are folded (page-folds.ts). The
+// table is the engine's own (gbif.ts GROUP_ORDERS), which places a new page by it (pageGroup). A spiny eel filed with the
+// loaches went to "other" with the order's 16 other pages (the chief of staff, 14 Nov 2026).
 test('every species page\'s order fits its group', () => {
   const root = fileURLToPath(new URL('../../../content/species', import.meta.url))
   const off = readdirSync(root).filter(id => {
     const e = JSON.parse(readFileSync(join(root, id, 'entity.json'), 'utf8')) as { group: string; order: string }
     return GROUP_ORDERS[e.group] !== undefined && !GROUP_ORDERS[e.group]!.includes(e.order)
   })
-  expect(off.sort()).toEqual(['macrognathus-siamensis'])
+  expect(off.sort()).toEqual([])
 })
 
 // The chief of staff, 2026-11-13: the skunk cory's text under a tube worm's name ends as one page with its fish's, the

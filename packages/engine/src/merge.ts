@@ -1,7 +1,7 @@
 import { dropCardRepeats, PLACE_ALIASES, SECTION_ORDER, nameKey, slugify, type GuideEntity, type PlaceEntity, type PlantEntity, type Section, type SourceId, type SpeciesEntity, type Translation } from '@aq/schema'
 import { cleanAltNames, tidyName } from './alt-names'
 import { kindWord, plainName } from './kind-words'
-import type { Taxon } from './gbif'
+import { pageGroup, type Taxon } from './gbif'
 import { fixFirst } from './guide-sections'
 import type { ProcessedPage } from './process'
 import { isShop, withoutShopTalk } from './species-sources'
@@ -119,7 +119,7 @@ export function mergeSpecies(existing: { entity?: SpeciesEntity; vi?: Translatio
   }
   const entity: SpeciesEntity = {
     id: slugify(taxon.canonicalName), scientificName: taxon.canonicalName, order: taxon.order ?? '', family: taxon.family ?? '', genus,
-    group: prev?.group ?? page.group ?? 'other', ...(lNumber ? { lNumber } : {}),
+    group: prev?.group ?? pageGroup(page.group ?? 'other', taxon.order), ...(lNumber ? { lNumber } : {}),
     places: uniq([...(prev?.places ?? []), ...page.places.flatMap(p => [p.continent, p.country, usableRegion(p.region) ? p.region : undefined].filter((x): x is string => !!x).map(placeId))]),
     // The range step's (range.ts): read again there when this source's text changes it.
     ...(prev?.range ? { range: prev.range } : {}),
