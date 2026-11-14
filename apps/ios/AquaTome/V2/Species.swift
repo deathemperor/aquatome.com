@@ -57,10 +57,8 @@ struct SpeciesPage: View {
   @State private var onSite: URL?
   /// Its parts opened past their fold ("thêm", or a chip to them).
   @State private var opened: Set<Int> = []
-  /// The page has been asked for: nil after this, it didn't come (offline, and not kept).
+  /// The page has been asked for: nil after this, it didn't come (offline, and not kept), or the app doesn't draw its kind.
   @State private var asked = false
-  /// "Thử lại" pressed, so many times.
-  @State private var retries = 0
   @Environment(\.dynamicTypeSize) private var size
   @State private var colour: Color
   @State private var putting = false
@@ -140,6 +138,16 @@ struct SpeciesPage: View {
   private var facts: HandbookIndex.Facts { item.facts.any ? item.facts : item.card ?? item.facts }
 
   var body: some View {
+    // A page the app can't draw (its kind not drawn here, or it didn't come): the site's page, or its kept copy offline, as
+    // v1 showed it, under v1's bar (the v2 Lab, 15 Nov: the old look's switch goes on Thu 19, and this was only v1's).
+    if asked && doc == nil {
+      PageView(item: item, url: handbook.url(item))
+    } else {
+      drawn
+    }
+  }
+
+  private var drawn: some View {
     framed
     // A Hôm nay post's ✕, at the bar's end after the bookmark and share: a toolbar of its own, inside theirs. iOS put the
     // items of a toolbar applied after theirs first, and one among them first too (27.2, 12 Nov).
@@ -180,6 +188,7 @@ struct SpeciesPage: View {
           }
           .accessibilityIdentifier("save-for-later")
           ShareLink(item: handbook.url(item)) { Label("Chia sẻ", systemImage: "square.and.arrow.up") }
+          Link(destination: handbook.url(item)) { Label("Mở trong trình duyệt", systemImage: "safari") }
         } label: {
           round("ellipsis")
             // Where the bar's middle is, and where its buttons on the right begin, for the name in it.
@@ -199,16 +208,12 @@ struct SpeciesPage: View {
       GalleryViewer(note: galleryNote, photos: viewerPhotos, readers: nil, index: viewing ?? 0)
     }
     // Runs on each appearing too: nothing to do with the page here. A page that didn't come isn't one read.
-    // "Thử lại" asks its photos again too.
-    .environment(\.v2PhotoTries, retries)
-    .task(id: "\(item.path) \(retries)") { await come() }
+    .task(id: item.path) { await come() }
   }
 
   /// The page asked for, and worked out into its parts once.
   private func come() async {
     guard doc == nil else { return }
-    // The whole index first only when it hasn't said this page's kind is drawn here: on a weak signal it holds up the page.
-    if retries > 0, !handbook.drawsItself(item) { await handbook.load() }
     doc = await handbook.doc(item)
     whole = doc.map(WholeParts.init)
     asked = true
@@ -411,6 +416,15 @@ struct SpeciesPage: View {
         .environment(\.colorScheme, .dark)
         .padding(.horizontal, 20)
         .padding(.vertical, 14)
+      // Whose text the page is, under its figures, as the site's data card ends and v1's page had it ("AquaTome tổng hợp từ
+      // 9 nguồn rồi tự viết"), its sources a tap away; on the colour as the photo's credit is.
+      if let credit = doc?.credit, !credit.isEmpty {
+        Text(styled(credit, font: .footnote)).foregroundStyle(.white.opacity(0.75)).tint(.white)
+          .frame(maxWidth: .infinity, alignment: .leading)
+          .padding(.horizontal, 20)
+          .padding(.bottom, 14)
+          .accessibilityIdentifier("v2-page-credit")
+      }
       if !photos.isEmpty { gallery.padding(.bottom, 24) }
       // Until it's asked for, the colour runs on past the screen's foot, the spinner on it: no white strip, no tab bar
       // changing, when the page comes. Not a fish with no photo: it'll have no gallery to fill the place.
@@ -838,19 +852,6 @@ struct SpeciesPage: View {
     // All at once, as v1's page: in a lazy stack the page's layout could spin for seconds on end as parts came and went,
     // and a chip's jump landed past its part. What a part folds away isn't drawn (V2Section).
     VStack(alignment: .leading, spacing: 28) {
-      if asked && doc == nil {
-        VStack(alignment: .leading, spacing: 4) {
-          // The handbook's status says nothing here: it stays online from launch, whatever the signal is now.
-          Text("Không tải được trang. Kiểm tra kết nối mạng.").font(.footnote).foregroundStyle(.v2Faint)
-          Button("Thử lại") {
-            asked = false
-            retries += 1
-          }
-          .frame(minHeight: 44)
-          .accessibilityIdentifier("v2-retry")
-        }
-        .padding(.horizontal, 20)
-      }
       if let doc, let whole {
         // For whoever hasn't the navigator: it does their job.
         if !whole.jumps.isEmpty, trying == nil { jumps(whole, proxy) }
