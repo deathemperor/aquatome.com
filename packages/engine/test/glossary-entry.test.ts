@@ -263,6 +263,25 @@ test('an entry\'s length: 900 and 60 a named kind, or 400; one trim note past it
   expect(lengthNotes(`<p>${'nước '.repeat(392)}</p>`)).toEqual({ notes: [], stop: false })
   expect(lengthNotes(`<p>${'nước '.repeat(450)}</p>`)).toEqual({ notes: ['The entry is 450 words: hold it to about 400, and leave what is left out to the pages that use the term.'], stop: false })
   expect(lengthNotes(`<p>${'nước '.repeat(478)}</p>`).stop).toBe(true)
+  // A term whose notes file sets its own length (the chief of staff, 14 Nov 2026: pH 600, a stop past 690).
+  expect(lengthNotes(`<p>${'nước '.repeat(650)}</p>`, 0, 600)).toEqual({ notes: ['The entry is 650 words: hold it to about 600, and leave what is left out to the pages that use the term.'], stop: false })
+  expect(lengthNotes(`<p>${'nước '.repeat(691)}</p>`, 0, 600).stop).toBe(true)
+})
+
+test('a term\'s notes file sets its length: pH\'s 648 words get a trim pass and save; a length past 600 names the chief of staff\'s word', async () => {
+  const root = await site()
+  let writes = 0
+  const llm: Llm = async ({ prompt }) => {
+    if (prompt.startsWith('GLOSSARY RULES')) return { notes: [] } as never
+    if (isCheck(prompt)) return verdicts(prompt) as never
+    writes++
+    return { ...written, body: `<p>${'Nước có pH. '.repeat(216)}</p>` } as never
+  }
+  expect(await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'ph', { kind: 'setup' })).toMatchObject({ id: 'ph', score: 1 })
+  expect(writes).toBe(2)
+  const asks = JSON.parse(await readFile(new URL('../src/glossary-asks.json', import.meta.url), 'utf8')) as Record<string, { length?: { words: number; why: string } }>
+  expect(asks.ph!.length!.words).toBe(600)
+  for (const [id, a] of Object.entries(asks)) if (a.length) expect(a.length.words <= 600 || /chief of staff/.test(a.length.why), id).toBe(true)
 })
 
 // Past Lũa's cap: its notes file names 17 kinds, so 1,920 words and a stop past 2,208.
