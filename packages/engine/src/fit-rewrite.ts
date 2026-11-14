@@ -130,8 +130,9 @@ const asNote = (f: FitFinding, figures?: BreedFigure[]): ReaderFinding => ({
 const UNIT_WORDS = new Set(['lít', 'l', 'cm', 'mm', 'm', 'mỗi', 'cho', 'trên', 'từng', 'gallon', 'gal', 'inch'])
 const figureRuns = (from: string) => {
   const runs: string[][] = [[]]
-  for (const w of from.normalize('NFC').toLowerCase().match(/[\p{L}\p{N}]+/gu) ?? []) {
-    if (/^\d/.test(w) || UNIT_WORDS.has(w)) runs.at(-1)!.push(w)
+  // A figure whole, with its marks, as mend.ts reads words ("2,5").
+  for (const w of from.normalize('NFC').toLowerCase().match(/[.,]?\d+(?:[.,–-]\d+)*|[\p{L}\p{N}]+/gu) ?? []) {
+    if (/^[.,]?\d/.test(w) || UNIT_WORDS.has(w)) runs.at(-1)!.push(w)
     else if (runs.at(-1)!.length) runs.push([])
   }
   return runs.filter(r => r.length).map(r => r.join(' '))

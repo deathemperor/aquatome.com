@@ -251,11 +251,35 @@ test('a units finding\'s sentence gains no word or figure from its writer: left 
     ['<p>Cá dài 2 inch. Cá sống theo đàn.</p>', '2 inch', 'Cá dài 5 cm và sinh sản quanh năm.', '5 cm sinh sản quanh năm'],
     ['<p>Cá dài 2 inch. Cá sống theo đàn.</p>', '2 inch', 'Cá dài 2 cm.', 'cm'],
     ['<p>Bể cần ít nhất 8 lít. Cá sống theo đàn.</p>', '8 lít', 'Bể cần ít nhất 1 lít.', '1', '<p>The tank needs at least 8 litres. Add 1 shelter.</p>'],
-    ['<p>Bể cần ít nhất 8 lít. Cá sống theo đàn.</p>', '8 lít', 'Bể cần ít nhất .5 lít.', '5'],
+    ['<p>Bể cần ít nhất 8 lít. Cá sống theo đàn.</p>', '8 lít', 'Bể cần ít nhất .5 lít.', '.5'],
     ['<p>Nước pH 6,5, bể 10 gallon. Cá sống theo đàn.</p>', '10 gallon', 'Nước pH 7, bể 40 lít.', '7 40 lít'],
   ] as const) expect((await run(html, quote, said, en ? { en } : {})).added).toEqual([`Sentence 1 says what it didn't: "${extra}"`])
   // Left as written, code converts it, and nothing is added.
   const left = await run(gal, '2 gallon', 'Dung tích bể tối thiểu: 2 gallon.', { metric: true })
   expect(left.added).toEqual([])
   expect(left.html).toContain('Dung tích bể tối thiểu: 8 lít.')
+})
+
+// Astra's fourth read of 14 Nov 2026: a decimal written as a range and "5" as ".5" read as the same words; a breed's figure
+// licensed a word in each sentence its finding covered; the converter rounded a dose's water.
+test('a figure is one word with its marks; a finding\'s words go in once a part; a part with a dose isn\'t converted', async () => {
+  expect(addedWords('Nước cần pH 6,5.', 'Nước cần pH 6–5.')).toEqual(['6–5'])
+  expect(addedWords('Bể cần 5 lít.', 'Bể cần .5 lít.')).toEqual(['.5'])
+  expect(addedWords('Cá dài 2–5 cm.', 'Cá dài 2–5 cm.')).toEqual([])
+  const llm = (said: string[]) => (async ({ schema }: { schema: { required: string[] } }) => (schema.required.includes('sentences')
+    ? { sentences: said.map((vi, i) => ({ n: i + 1, vi })) }
+    : { score: 1, notes: [], dropped: [], hedges: [] })) as Llm
+  const html = '<p>Bể cần 132 lít. Cá dài 2 cm.</p>'
+  const f = [{ check: 'units' as FitCheck, quote: 'Bể cần 132 lít. Cá dài 2 cm.', note: 'Write 130 lít.', adds: ['130 lít'] }]
+  const twice = await mendPart(llm(['Bể cần 130 lít.', 'Cá dài 130 cm.']), html, f)
+  if (typeof twice === 'string') throw new Error(twice)
+  expect(twice.added).toEqual(['Sentence 2 says what it didn\'t: "130"'])
+  const once = await mendPart(llm(['Bể cần 130 lít.', 'Cá dài 2 cm.']), html, f)
+  if (typeof once === 'string') throw new Error(once)
+  expect(once.added).toEqual([])
+  // A dose's water stays as written: the converter would make 2 gallons 8 litres.
+  const dose = await mendPart(llm(['Pha 1 ml thuốc vào 2 gallon nước.']), '<p>Pha 1 ml thuốc vào 2 gallon nước. Cá sống theo đàn.</p>', [{ check: 'units', quote: '2 gallon', note: 'Leave it.' }], { metric: true })
+  if (typeof dose === 'string') throw new Error(dose)
+  expect(dose.html).toContain('vào 2 gallon nước')
+  expect(dose.html).not.toContain('8 lít')
 })

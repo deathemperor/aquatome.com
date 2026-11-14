@@ -4,7 +4,7 @@ import type { Llm } from './claude'
 import type { FitCheck } from './fit'
 import { hedgesAsk, hedgesLost, HEDGES_SCHEMA, type HedgePair } from './hedges'
 import { VI_STYLE } from './phrases'
-import { withTanks } from './round'
+import { givesDose, withTanks } from './round'
 import { sanitizeHtml } from './sanitize'
 import { blockOf, plain, quoted, sentences, splice } from './sentences'
 
@@ -52,7 +52,11 @@ const JOINING = new Set('và hoặc thì là mà rằng các những của này 
  */
 const FRAMES = ['cần lưu ý rằng', 'cần lưu ý', 'lưu ý rằng', 'vì thế', 'vì vậy', 'do đó', 'tuy vậy', 'tuy nhiên', 'ngoài ra', 'cho nên'].map(f => f.split(' '))
 const NEGATIONS = new Set(['không', 'chẳng', 'chả', 'chưa', 'đừng'])
-const words = (s: string) => plain(s).normalize('NFC').toLowerCase().match(/[\p{L}\p{N}]+/gu) ?? []
+/**
+ * A text's words; a figure is one, with the marks inside it and a mark before it ("6,5", "6–8", ".5"), so a decimal written
+ * as a range, or "5" as ".5", is a word taken out and another put in (Astra's read).
+ */
+const words = (s: string) => plain(s).normalize('NFC').toLowerCase().match(/[.,]?\d+(?:[.,–-]\d+)*|[\p{L}\p{N}]+/gu) ?? []
 /** Which of a sentence's words belong to a framing phrase that went whole from it. */
 const framed = (ws: string[], after: string[]) => {
   const kept = new Set(after.slice(1).map((w, i) => `${after[i]} ${w}`))
@@ -103,21 +107,24 @@ const GLUE = new Set('và hoặc thì là mà rằng nhưng của'.split(' '))
  * The words `after` has that `before` hasn't, in its order: each of its words is the next of `before`'s that is still to
  * come, or a joining word (GLUE), or one of `allowed` (each once). Words only taken out, and joined again, add none.
  */
-export function addedWords(before: string, after: string, allowed: readonly string[] = []): string[] {
+export function addedWords(before: string, after: string, allowed: readonly string[] | readonly Map<string, number>[] = []): string[] {
   const was: string[] = [...words(before)]
-  const may = new Map<string, number>()
-  for (const w of allowed.flatMap(a => words(a))) may.set(w, (may.get(w) ?? 0) + 1)
+  // The words each finding may put in, each once: a list, or its findings' tallies, spent across the part (`tally`).
+  const pools = allowed.length && typeof allowed[0] !== 'string' ? allowed as readonly Map<string, number>[] : [tally(allowed as readonly string[])]
   const out: string[] = []
   let at = 0
   for (const w of words(after)) {
     const i = was.indexOf(w, at)
     if (i >= 0) { at = i + 1; continue }
     if (GLUE.has(w)) continue
-    if (may.get(w)) { may.set(w, may.get(w)! - 1); continue }
+    const pool = pools.find(m => m.get(w))
+    if (pool) { pool.set(w, pool.get(w)! - 1); continue }
     out.push(w)
   }
   return out
 }
+/** A finding's words to put in, each as often as it gives it. */
+const tally = (xs: readonly string[]) => xs.flatMap(a => words(a)).reduce((m, w) => m.set(w, (m.get(w) ?? 0) + 1), new Map<string, number>())
 
 /**
  * A finding to mend: what it quotes, the writer's note, (`covers`) the other text its change replaces, as a breed page's
@@ -183,7 +190,10 @@ export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { e
   const changes = new Map<number, string>()
   // What the writer wrote, before any conversion: the words it lost are counted on this, not on the metric we add.
   const raw = new Map<number, string>()
-  const written = (n: number, vi: string) => { const t = inline(vi); raw.set(n - 1, t); return o.metric && t ? toMetric(t, 'vi') : t }
+  // Not where a dose is given: its water is converted exactly or not at all, and the converter rounds (round.ts givesDose,
+  // read over the whole part; Astra's read: "Pha 1 ml thuốc vào 2 gallon nước" became "8 lít").
+  const metric = o.metric && !givesDose(html) && !givesDose(o.en ?? '')
+  const written = (n: number, vi: string) => { const t = inline(vi); raw.set(n - 1, t); return metric && t ? toMetric(t, 'vi') : t }
   for (const n of fix) {
     const r = w.sentences.find(x => Number(x.n) === n)
     if (!r) throw new Error(`the writer left out sentence ${n}`)
@@ -230,11 +240,14 @@ export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { e
   // units finding's sentence too: the writer leaves its measures as they are and code converts them (`metric`), or gives
   // the figures code worked out for a breed (`adds`). Astra's reads of 14 Nov 2026: a writer's own conversion let "mỗi
   // con", "2 inch" as "2 cm" and a figure from another measure through, however its figures were held.
+  // A finding's words to put in are spent across the part, not given again to each sentence it covers (Astra's read: a
+  // breed's "130 lít" let "130" into a fish's length beside it).
+  const pools = new Map(named.map(f => [f, tally(f.adds ?? [])]))
   const added = shown.flatMap(i => {
     const now = raw.get(i) ?? changes.get(i)!
     const mine = named.filter(f => f.sentences.includes(i + 1))
     if (!now) return []
-    const extra = addedWords(texts[i]!, now, mine.flatMap(f => f.adds ?? []))
+    const extra = addedWords(texts[i]!, now, mine.map(f => pools.get(f)!))
     return extra.length ? [`Sentence ${i + 1} says what it didn't: "${extra.join(' ')}"`] : []
   })
   const lost = hedgesLost(r.hedges ?? [], shown.map(i => texts[i]).join('\n'), shown.map(i => changes.get(i)).join('\n'))
