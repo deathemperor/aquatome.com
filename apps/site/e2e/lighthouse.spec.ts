@@ -60,10 +60,15 @@ for (const path of pages) {
 
       // A load Cloudflare's script monitor sampled: its report-only policy's breaks are logged as issues, and aren't the
       // page's (lighthouse-edge.ts). Any other issue on that load still counts.
-      const policy = monitorPolicy(documentHeaders(result!.artifacts.DevtoolsLog, lhr.mainDocumentUrl ?? lhr.finalDisplayedUrl))
-      const excused = onlyMonitorBreaks(lhr, policy) ? ['inspector-issues'] : []
-      if (policy) console.log(`${form} ${path}: Cloudflare's script monitor sampled this response (${policy})${excused.length ? '; the issues logged are its policy\'s breaks, not counted' : ''}`)
-      const score = (k: string) => scoreWith(lhr, k, excused)
+      const page = lhr.mainDocumentUrl ?? lhr.finalDisplayedUrl
+      const headers = documentHeaders(result!.artifacts.DevtoolsLog, page)
+      const policy = monitorPolicy(headers, page)
+      const excused = onlyMonitorBreaks(result!.artifacts.InspectorIssues, policy) ? ['inspector-issues'] : []
+      // A report address's query is the zone's, and stays out of the log.
+      const reportOnly = headers['content-security-policy-report-only']
+      if (reportOnly) console.log(`${form} ${path}: a report-only policy, ${policy ? "Cloudflare's script monitor's" : 'not the script monitor\'s as documented'} (${policy ?? reportOnly.replace(/\?[^\s;,]*/g, '?…')})${excused.length ? '; the issues logged are its breaks, not counted' : ''}`)
+      const own = (k: string) => Math.round((lhr.categories[k]?.score ?? 0) * 100)
+      const score = (k: string) => (k === 'best-practices' && excused.length ? (scoreWith(lhr, k, excused) ?? 0) : own(k))
       const value = (k: string) => lhr.audits[k]?.numericValue ?? NaN
       const scripts = (lhr.audits['network-requests']?.details as { items?: { url: string; resourceType?: string; resourceSize?: number }[] } | undefined)?.items ?? []
       const got = {
