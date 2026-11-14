@@ -81,19 +81,38 @@ export const appLinks = (html: string, lang: Lang, origin: string) => (lang === 
 
 /**
  * Every /vi/… address in a rendered page → this language's: root-relative ones and absolute ones on this site (`origin`,
- * one or more), in attributes, JSON-LD and inline scripts. Tags with hreflang (the links between languages) are left as
- * they are, and so is a /vi/ inside some other address (i.ytimg.com/vi/…): it has to start the address.
+ * one or more, and their protocol-relative forms), in attributes, JSON-LD and inline scripts. Tags with hreflang (the
+ * links between languages, in any case) are left as they are, and so is a /vi/ inside some other address
+ * (i.ytimg.com/vi/…): it has to start the address.
+ *
+ * It never writes an address that language doesn't serve. The match that rewrites decides, alone: a page that language
+ * doesn't have (yet), such as a video or a material on an Indonesian page, gets its Vietnamese address, which is there,
+ * with this call's marker on it. A link so marked then keeps its words only (the rule since the pilot, 31 Oct: a reader
+ * in one language isn't sent to a page in another), and the markers left (structured data, a link it can't unwrap) are
+ * removed. The unwrapping reads no address forms, only the marker, so it can't disagree with the matcher; a form the
+ * matcher doesn't take is left as it is, a /vi/ address that forwards to the Vietnamese page. A page address ends in "/"
+ * (then any ?query or #part): a pattern (/vi/*) or a file keeps its language's form.
  */
 export function localizeLinks(html: string, lang: Lang, origin: string | string[]): string {
-  // A link to a page this language doesn't have (yet) is dropped, its text kept.
-  html = html.replace(/<a\b([^>]*)>([\s\S]*?)<\/a>/g, (m, attrs: string, inner: string) => {
-    const href = /\bhref="(\/vi\/[^"]*)"/.exec(attrs)?.[1]
-    return href && !/\bhreflang=/.test(attrs) && !served(lang, href.replace(/&amp;/g, '&')) ? inner : m
+  const site = [origin].flat().filter(Boolean).flatMap(o => [o, o.replace(/^[a-z]+:/i, '')]).map(o => o.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')
+  const re = new RegExp(`<[^>]*\\b[Hh][Rr][Ee][Ff][Ll][Aa][Nn][Gg]\\s*=[^>]*>|(?<=["'(=,\\s])(${site})?(/vi/[^"'\\s()<>\\\\]*)`, 'g')
+  // A private-use character round a number made for this call: no page's text can carry it, or guess it to forge one.
+  const mark = `${crypto.randomUUID()}`
+  const out = html.replace(re, (m, o: string | undefined, path: string | undefined) => {
+    if (path === undefined) return m
+    // A page's address, with its trailing "/" or without (/vi/vat-lieu/lua is the same page): no "." or "*" in it.
+    const page = /^\/vi\/[^?#*.]*(?:[?#].*)?$/.test(path)
+    const asPage = path.replace(/&amp;/g, '&').replace(/^([^?#]*?)\/?((?:[?#].*)?)$/, '$1/$2')
+    return page && !served(lang, asPage) ? `${mark}${o ?? ''}${localizePath('vi', path)}` : (o ?? '') + localizePath(lang, path)
   })
-  const site = [origin].flat().filter(Boolean).map(o => o.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')
-  const re = new RegExp(`<[^>]*\\bhreflang=[^>]*>|(?<=["'(=,\\s])(${site})?(/vi/[^"'\\s()<>\\\\]*)`, 'g')
-  return html.replace(re, (m, o: string | undefined, path: string | undefined) => (path === undefined ? m : (o ?? '') + localizePath(lang, path)))
+  if (!out.includes(mark)) return out
+  // The whole opening tag, quoted values and all (a ">" inside title="a > b" is the title's): a link the matcher marked
+  // keeps its words. One it can't read whole keeps its Vietnamese address once the markers go.
+  return out.replace(/(<a\b(?:[^>"']|"[^"]*"|'[^']*')*>)([\s\S]*?)<\/a\s*>/gi, (m, open: string, inner: string) => (open.includes(mark) ? inner : m))
+    .split(mark).join('')
 }
+/** What localizeLinks's marker looks like: a page the build ships with one in it is the page check's "link-mark". */
+export const LINK_MARK = /[0-9a-f-]{36}/
 
 /** "/id/ikan/x/foto/" → "/vi/ca/x/anh/", "/ca/x/" → "/vi/ca/x/": the form links are written in, of any page's path. */
 export function toVi(path: string): string {

@@ -12,9 +12,9 @@ import { markOutsideCrop, photoFitsCard, photoFitsHead, photoFitsWholeHead, SUBJ
 import { judgeQuality, speciesDepth } from './depth'
 import { isAllowedLicence } from './licence'
 import { isVietnamese, markVietnameseNames } from './text'
-import { BreedSchema, CaptionsSchema, OneVoiceSchema, PageDatesSchema, PictureHashesSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MarketSchema, mayPublish, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
+import { BreedSchema, CaptionsSchema, OneVoiceSchema, PageDatesSchema, PictureHashesSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MATERIAL_SECTION_ORDER, MaterialSchema, MarketSchema, mayPublish, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
 import type { PictureHashes } from './pictures'
-import type { BreedEntity, ChangelogEntry, EquipmentGuide, GlossaryEntity, GuideEntity, Lang, Market, Photo, PlaceEntity, PlantEntity, ProductEntity, Section, Series, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
+import type { BreedEntity, ChangelogEntry, EquipmentGuide, GlossaryEntity, GuideEntity, Lang, Market, MaterialEntity, Photo, PlaceEntity, PlantEntity, ProductEntity, Section, Series, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
 
 export const QUALITY_THRESHOLD = 0.75
 /** The market (prices, shops) each site language serves. */
@@ -63,6 +63,8 @@ export type Content = {
   products: (Localized<ProductEntity> & { market?: Market })[]
   /** Man-made fish (hybrids, lines, colour forms): pages beside the species, at /<lang>/ca/<slug>/. */
   breeds: Localized<BreedEntity>[]
+  /** Unlisted Vietnamese hobby materials. No other language or catalogue consumes the pilot. */
+  materials: Localized<MaterialEntity>[]
   /** YouTube playlists turned into guide series (content/series/*.json); only those with a published guide. */
   series: Series[]
   sources: Partial<Record<SourceId, SourceInfo>>
@@ -126,6 +128,36 @@ async function loadKind<S extends z.ZodType>(root: string, dir: string, schema: 
     out.push({ ...(entity as object), t } as Localized<z.infer<S>>)
   }
   return out
+}
+
+/**
+ * Every material's parent, by id, whatever its translations say (held, missing): each folder's entity read and checked,
+ * its folder and its id the same. A parent is a material that is really there, never a folder name alone, and a chain
+ * of parents ends: lua's parent lua-sa-tung, whose parent is lua, would make each page the other's parent and child.
+ */
+async function materialParents(root: string): Promise<Map<string, string | undefined>> {
+  const parents = new Map<string, string | undefined>()
+  for (const folder of await readdir(join(root, 'materials')).catch(() => [] as string[])) {
+    const file = join(root, 'materials', folder, 'entity.json')
+    if (!(await exists(file))) continue
+    const m = await readJson(file, MaterialSchema)
+    if (m.id !== folder) throw new Error(`material ${folder}: its entity's id is "${m.id}"`)
+    parents.set(m.id, m.parent)
+  }
+  for (const [id, parent] of parents)
+    if (parent !== undefined && (parent === id || !parents.has(parent))) throw new Error(`material ${id}: parent "${parent}" is not another material`)
+  // Each material walked once: a chain stops at one already known to end.
+  const ends = new Set<string>()
+  for (const id of parents.keys()) {
+    const chain = new Map<string, number>()
+    for (let p: string | undefined = id; p !== undefined && !ends.has(p); p = parents.get(p)) {
+      const at = chain.get(p)
+      if (at !== undefined) throw new Error(`material ${id}: its parents go round (${[...[...chain.keys()].slice(at), p].join(' → ')})`)
+      chain.set(p, chain.size)
+    }
+    for (const p of chain.keys()) ends.add(p)
+  }
+  return parents
 }
 
 /** The watermark screen's record, in the engine's state beside the content root. */
@@ -378,9 +410,31 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     cards.push({ ...card, ...(shown ? { photo: shown } : {}), t })
   }
 
+  // Pilot content stays Vietnamese-only even if another language file arrives before its routes and address words.
+  const materials = lang === 'vi' ? (await loadKind(root, 'materials', MaterialSchema, lang, leaveOutHeld)).map(m => {
+    if (!m.t.summary || m.t.summary.length < 2 || m.t.summary.length > 4 || m.t.summary.some(s => !s.trim())) throw new Error(`material ${m.id}: summary needs 2–4 non-empty lines`)
+    for (const key of Object.keys(m.t.sections)) if (!(MATERIAL_SECTION_ORDER as readonly string[]).includes(key)) throw new Error(`material ${m.id}: unknown section ${key}`)
+    // A translation's citations are 1-based positions in this entity's source list, never an uncited fallback.
+    for (const text of Object.values(m.t.sections)) {
+      for (const mark of text.matchAll(/\[(\d+)\]/g)) {
+        const n = Number(mark[1])
+        if (n < 1 || n > m.sources.length) throw new Error(`material ${m.id}: source ${mark[0]} is outside sources (1–${m.sources.length})`)
+      }
+    }
+    return { ...m, photos: cleanPhotos(m.photos) }
+  }) : []
+  const materialSlugs = new Set<string>()
+  // A parent is another material, held back or not (a held parent leaves its kinds standing alone): never a typo that
+  // the page would drop without a word, and never a chain that comes back round (materialParents).
+  if (lang === 'vi') await materialParents(root)
+  for (const m of materials) {
+    if (materialSlugs.has(m.t.slug)) throw new Error(`material ${m.id}: duplicate slug "${m.t.slug}"`)
+    materialSlugs.add(m.t.slug)
+  }
+
   const allPlaces = await loadKind(root, 'places', PlaceSchema, lang)
   return {
-    lang, species, plants, guides, changelog, equipment, series, galleries, products, breeds, cards,
+    lang, species, plants, guides, changelog, equipment, series, galleries, products, breeds, materials, cards,
     ...(screen ? { photoWaits } : {}),
     // A term's photos follow the same rules as a page's (publish gates, the watermark screen).
     glossary: (await loadKind(root, 'glossary', GlossarySchema, lang)).map(g => (g.photos ? { ...g, photos: cleanPhotos(g.photos, g.id) } : g)),

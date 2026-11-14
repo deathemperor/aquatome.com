@@ -1,0 +1,60 @@
+---
+import type { Localized, MaterialEntity } from '@aq/schema'
+import Browse from '../../layouts/Browse.astro'
+import PhotoGallery from '../../components/PhotoGallery.astro'
+import GlossaryTip from '../../components/GlossaryTip.astro'
+import { getContent } from '../../lib/content'
+import { creditsFor } from '../../lib/credits'
+import { langOf } from '../../lib/i18n'
+import { materialSections } from '../../lib/materials'
+
+// Deliberately absent from i18n PAGES: the pilot has no routes or address words in other languages.
+export async function getStaticPaths({ routePattern }: { routePattern: string }) {
+  if (langOf(routePattern) !== 'vi') return []
+  const c = await getContent('vi')
+  return c.materials.map(m => ({ params: { slug: m.t.slug }, props: { m } }))
+}
+const { m } = Astro.props as { m: Localized<MaterialEntity> }
+const c = await getContent('vi')
+const href = (material: Localized<MaterialEntity>) => `/vi/vat-lieu/${material.t.slug}/`
+const parent = c.materials.find(p => p.id === m.parent)
+const kinds = c.materials.filter(p => p.parent === m.id)
+const crumbs: [string, string][] = [['/vi/', 'Trang chủ'], ...(parent ? [[href(parent), parent.t.name] as [string, string]] : [])]
+const sections = materialSections(m)
+---
+<Browse title={m.t.name} heading={m.t.name} description={m.t.summary?.join(' ')} image={m.photos[0]?.url} crumbs={crumbs} noindex search={false} credits={creditsFor(m.photos.slice(0, 1))}>
+  <div class="material body">
+    {(m.t.altNames.length > 0 || m.names.length > 0) && <p class="alt">Tên khác: {m.t.altNames.join(', ')}{m.t.altNames.length > 0 && m.names.length > 0 && ', '}{m.names.map((name, i) => <>{i > 0 && ', '}<span lang="en">{name}</span></>)}</p>}
+    <div class="intro">{m.t.summary?.map(line => <p>{line}</p>)}</div>
+    <PhotoGallery photos={m.photos} alt={m.t.name} />
+    {sections.map(section => <section data-section={section.key} id={`muc-${section.key}`}>
+      <h2>{section.heading}</h2>
+      <div class="prose" set:html={section.html} />
+    </section>)}
+    {m.t.faq?.length ? <section class="faq" aria-labelledby="faq-h">
+      <h2 id="faq-h">Hỏi đáp</h2>
+      {m.t.faq.map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
+    </section> : null}
+    {m.sources.length > 0 && <section class="sources" aria-labelledby="src-h">
+      <h2 id="src-h">Nguồn</h2>
+      <ol>{m.sources.map((source, i) => <li id={`nguon-${i + 1}`}><a href={source.url} rel="nofollow noopener" target="_blank">{source.title}</a></li>)}</ol>
+    </section>}
+    {parent && <p class="parent">Thuộc nhóm <a href={href(parent)}>{parent.t.name}</a>.</p>}
+    {kinds.length > 0 && <section class="kinds" aria-labelledby="kinds-h">
+      <h2 id="kinds-h">Các loại {m.t.name.toLocaleLowerCase('vi')}</h2>
+      <ul>{kinds.map(kind => <li><a href={href(kind)}>{kind.t.name}</a></li>)}</ul>
+    </section>}
+  </div>
+  <GlossaryTip />
+</Browse>
+<style>
+  .material { max-width: var(--measure); }
+  .alt { font-size: 0.85rem; color: var(--c-ink-soft); margin: 0 0 var(--space-4); }
+  .intro { margin-bottom: var(--space-5); }
+  h2 { font-size: var(--step-2); margin: var(--space-6) 0 var(--space-3); }
+  .faq details { border-bottom: 1px solid var(--c-rule); padding: var(--space-3) 0; }
+  .faq summary { cursor: pointer; font-weight: 600; }
+  .sources { font-size: 0.9rem; color: var(--c-ink-soft); }
+  .sources ol, .kinds ul { padding-left: 1.4em; }
+  .parent { margin-top: var(--space-6); }
+</style>
