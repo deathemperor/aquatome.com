@@ -6,6 +6,7 @@ import type { z } from 'zod'
 import { across, LARGE_PX } from './curation'
 import { cardGaps } from './card-fill'
 import { appendChangelog } from './changelog'
+import { applyCreditReads, creditPagesWaiting, pageCredits, readCreditReads, recordCredits, releaseCreditHolds, writeCreditReads } from './credit-reads'
 import { LlmError, type Llm } from './claude'
 import { deeperPages, depthReport, popularityOrder, readSearchCache, runOrder, saveSearchCache, searchThin, thinSpecies, type DepthReport } from './depth'
 import { discover } from './discover'
@@ -193,6 +194,16 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   const deadline = opts.maxMinutes ? deps.now().getTime() + opts.maxMinutes * 60_000 : Infinity
   const report: RunReport = { perSource: {}, needsHuman: [], movedToArchive: [], changed: [], errors: [] }
   const today = () => deps.now().toISOString().slice(0, 10)
+  // Source pages whose credits a read still has to learn (credit-reads.ts): read only on their own turn, like any page.
+  const creditWaiting = await creditPagesWaiting(root)
+  const creditRead = async (source: SourceId, url: string, images: PageImage[]) => {
+    const credits = pageCredits(images, url, source, sourceNames[source]?.name ?? source, sourceNames[source]?.permission ?? {}, deps.media, today())
+    await recordCredits(root, credits)
+    await releaseCreditHolds(root, credits)
+    await applyCreditReads(root)
+    const reads = await readCreditReads(root)
+    if (url in reads) { delete reads[url]; await writeCreditReads(root, reads) }
+  }
 
   // Species our pages name but don't have yet: their source pages are fetched first (see wanted.ts); the audit lists the rest.
   const gbifNamesFile = join(root, 'engine-state/_gbif-names.json')
@@ -444,6 +455,8 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
         if (r.status >= 400) throw new Error(`HTTP ${r.status}`)
         const hash = snapshotHash(o)
         if (hash !== prev?.hash || r.capturedAt) await writeSnapshot(root, id, url, o, deps.now(), r.capturedAt)
+        // A page whose credits are still to learn, read now on its own turn: what this read shows decides (credit-reads.ts).
+        if (creditWaiting.has(url)) await creditRead(id, url, o.images)
         if (prev?.processedHash === hash && !forced(url)) {
           counts.skipped++
           const { error: _stale, ...rest } = prev
