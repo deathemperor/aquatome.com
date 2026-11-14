@@ -57,10 +57,14 @@ final class WholePhotoFlowTests: XCTestCase {
   /// Nov, three heads showing a slice of the fish).
   func testAFishPagesHeadShowsTheWholeFishUnderTheBar() {
     let app = launch()
-    app.openTab("Khám phá")
-    let fish = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon")).firstMatch
-    XCTAssertTrue(fish.waitForExistence(timeout: 10), "no Cá neon on Khám phá")
-    fish.tap()
+    app.openTab("Tìm kiếm")
+    let field = app.searchFields.firstMatch
+    XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
+    field.tap()
+    field.typeText("neon")
+    let row = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon")).firstMatch
+    XCTAssertTrue(row.waitForExistence(timeout: 10), "no Cá neon row")
+    row.tap()
     XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 10), "no fish page")
     Thread.sleep(forTimeInterval: 2)
     // The stand-in is 8:3: at the screen's width, its rows run from the bar's foot to 3/8 of the width under it.

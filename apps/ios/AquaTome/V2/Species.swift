@@ -79,6 +79,8 @@ struct SpeciesPage: View {
   @State private var width: CGFloat = 0
   /// The screen's height the page scrolls in, from its top under the status bar.
   @State private var viewport: CGFloat = 0
+  /// The page has moved from its top: over a whole head, the band comes now, as the photo goes under the bar.
+  @State private var moved = false
   @State private var origin = CGPoint.zero
   @State private var barMid: CGFloat = 0
   /// Where the bar's buttons on the right begin.
@@ -245,8 +247,9 @@ struct SpeciesPage: View {
       .frame(width: 0, height: 0)
     }
     // The band in the page's colour while that's under it, so white doesn't cut the colour; then the screen's.
-    // Over a whole head, from the first frame: the photo goes up under it.
-    .modifier(ClearUnderTopBar(shown: scrolled || wholeHead != nil, ground: colourAt.top ? colour : Color(.systemBackground)))
+    // Over a whole head, as soon as the page moves: the photo goes up under it. Not before, when its fade would lie on the
+    // photo's top.
+    .modifier(ClearUnderTopBar(shown: scrolled || (wholeHead != nil && moved), ground: colourAt.top ? colour : Color(.systemBackground)))
     // The name in the bar once it has left the page, on the colour too, in the bar's middle. The page's own, not iOS's
     // title: with the bar's buttons on no glass, on the colour, iOS set its title beside the back button, and moved it to
     // the middle as the glass came. Placed as iOS's is (`barName`); a name wider than the room is cut short. At the bar's
@@ -308,6 +311,7 @@ struct SpeciesPage: View {
     }
     .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { width = $0 }
     .onScrollGeometryChange(for: CGFloat.self) { $0.containerSize.height } action: { _, h in viewport = h }
+    .onScrollGeometryChange(for: Bool.self) { $0.contentOffset.y + $0.contentInsets.top > 0.5 } action: { _, m in moved = m }
     .onGeometryChange(for: CGPoint.self) { $0.frame(in: .global).origin } action: { origin = $0 }
     .onChange(of: colourAt.foot) { if front { standOnColour() } }
     .onChange(of: colour) { if front { standOnColour() } }
