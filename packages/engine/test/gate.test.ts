@@ -903,3 +903,43 @@ test('a page held for units alone is let out, with no read, once its saved read\
   expect(converted.report.release).toEqual([])
   expect(converted.calls).toEqual([])
 })
+
+// The chief of staff, 14 Nov 2026: 15 of 15 new video guides were held, for the video's own build told as if the reader
+// had watched it. A new video guide goes through its editor at birth, and the held ones 12 a run, each read again after.
+const editor = (root: string, sent: string[] = []) => async (p: Page, fs: FitFinding[]) => {
+  sent.push(`${p.id}: ${fs.map(f => f.check).join(', ')}`)
+  return cutter(root, [], `content/guides/${p.id}/vi.json`)(p, fs)
+}
+test('a new video guide held only for what its editor fixes goes to it first, and out once its text passes; one held for a kit waits', async () => {
+  const root = await repo()
+  const dir = 'content/guides/youtube-r53ZQW0m8VM'
+  for (const id of ['youtube-new-shop', 'youtube-new-kit']) {
+    await cp(join(root, dir), join(root, `content/guides/${id}`), { recursive: true })
+    await edit(root, `content/guides/${id}/entity.json`, e => { e.id = id })
+  }
+  await edit(root, 'content/guides/youtube-new-shop/vi.json', t => { t.slug = 'new-shop'; t.body = '<p>Mua lọc ở Petco.</p><p>Lọc vi sinh hợp bể nhỏ.</p>' })
+  await edit(root, 'content/guides/youtube-new-kit/vi.json', t => { t.slug = 'new-kit'; t.body = '<p>Cả bể dựng theo bộ Aqueon.</p>' })
+  const sent: string[] = []
+  const { report } = await gate(root, { llm: reader(), now, mend: editor(root, sent), jobs: 1 })
+  expect(sent).toEqual(['youtube-new-shop: shop'])
+  expect(report.mended).toEqual(['/vi/huong-dan/new-shop/ (shop)'])
+  expect((await readJson(root, 'content/guides/youtube-new-shop/vi.json')).held).toBeUndefined()
+  expect((await readJson(root, 'content/guides/youtube-new-shop/vi.json')).body).toBe('<p>Lọc vi sinh hợp bể nhỏ.</p>')
+  expect((await readJson(root, 'content/guides/youtube-new-kit/vi.json')).held).toEqual({ checks: ['kit'], at: '2026-11-09' })
+})
+
+test('a video guide held already goes to its editor only within the run\'s held mends, and is let out once its text passes', async () => {
+  const root = await repo()
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Mua ở Petco.</p>`; t.held = { checks: ['shop'], at: '2026-11-08' } })
+  save(root, 'held')
+  const sent: string[] = []
+  const none = await gate(root, { llm: reader(), now, mend: editor(root, sent) })
+  expect(sent).toEqual([])
+  expect(none.report.mended).toEqual([])
+  expect((await readJson(root, GUIDE)).held).toEqual({ checks: ['shop'], at: '2026-11-08' })
+  const r = await gate(root, { llm: reader(), now, mend: editor(root, sent), heldMends: 1 })
+  expect(sent).toEqual(['youtube-r53ZQW0m8VM: shop'])
+  expect(r.report.release).toHaveLength(1)
+  expect((await readJson(root, GUIDE)).held).toBeUndefined()
+  expect((await readJson(root, GUIDE)).body).not.toContain('Petco')
+})
