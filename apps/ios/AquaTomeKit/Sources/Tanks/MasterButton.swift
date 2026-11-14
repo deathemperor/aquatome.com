@@ -1,7 +1,7 @@
 import Foundation
 
-// The master button ("Nút tổng" on Đèn): one tap sets the devices the reader chose, and everything it changed goes back
-// at the end (docs/smart-plugs.md). Kept on the phone. What it does and when, pure; sending is the app's.
+// The master button ("Nút tổng" on Đèn): one tap sets the devices the reader chose, and the phone puts back what it
+// changed at the end (docs/smart-plugs.md). Kept on the phone. What it does and when, pure; sending is the app's.
 
 public struct MasterButton: Sendable, Equatable, Codable {
   public var name: String
@@ -22,17 +22,12 @@ public struct MasterRun: Sendable, Equatable, Codable {
   public struct Back: Sendable, Equatable, Codable {
     /// What puts it back.
     public var command: DeviceCommand
-    /// The outlet's own countdown was started: the plug puts it back by itself at the end.
-    public var counting = false
     /// Sent back, or seen back.
     public var done = false
     /// Why the last try to put it back didn't (shown as it is).
     public var problem: String?
 
-    public init(command: DeviceCommand, counting: Bool = false) {
-      self.command = command
-      self.counting = counting
-    }
+    public init(command: DeviceCommand) { self.command = command }
   }
 
   public var started: Date
@@ -83,24 +78,4 @@ public struct MasterRun: Sendable, Equatable, Codable {
 
   /// Ended by the clock, at `now`, and not yet marked so.
   public func isDue(at now: Date) -> Bool { isRunning && ends.map { now >= $0 } == true }
-
-  /// The countdown an outlet is given when its step goes, at `now`: the seconds to the end, if it ends by itself and at
-  /// least a minute is left (a plug's countdown is whole seconds, up to a day).
-  public func countdown(at now: Date) -> Int? {
-    guard let left = left(at: now), left >= 60 else { return nil }
-    return min(Int(left.rounded()), 86_400)
-  }
-
-  /// A plug with a countdown may put its outlet back only at the end by its own clock, a little off the phone's: the phone
-  /// looks at it only this long after the end, so the two never cross.
-  public static let countdownGrace: TimeInterval = 60
-
-  /// What to put back now, ending at `now`: the lamp and outlets without a countdown at once; an outlet with one, ended
-  /// before its time (its countdown is stopped first), or once the grace after the end has passed (only if the plug
-  /// hasn't put it back by itself).
-  public func toSend(at now: Date) -> [Back] {
-    let early = ends.map { now < $0 } ?? true
-    let late = ends.map { now >= $0.addingTimeInterval(Self.countdownGrace) } ?? true
-    return pending.filter { !$0.counting || early || late }
-  }
 }

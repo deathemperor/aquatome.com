@@ -114,18 +114,16 @@ func theLampGoesBack() {
   #expect(back(DeviceCommand(device: lampId, on: false), DeviceCommand(device: lampId, on: false, colour: "red")) == nil)
 }
 
-@Test("An outlet's countdown runs to the end; the phone leaves it to the plug until a minute after, unless ended early")
-func whenThingsGoBack() {
+@Test("It's due at its end, not before; one ended on a tap never is; what's back leaves what's pending; kept as it is")
+func whenItEnds() throws {
   var run = MasterRun(button, at: m0, before: { _ in nil }, lamp: nil)
-  #expect(run.countdown(at: m0.addingTimeInterval(5)) == 7195)
-  #expect(run.countdown(at: m0.addingTimeInterval(7150)) == nil, "under a minute left: the phone puts it back")
-  #expect(MasterRun(MasterButton(name: "x", steps: [co2On], minutes: nil), at: m0, before: { _ in nil }, lamp: nil).countdown(at: m0) == nil)
-  run.back[1].counting = true
-  #expect(run.toSend(at: m0.addingTimeInterval(600)).count == 4, "ended early: everything, its countdown stopped first")
   #expect(!run.isDue(at: m0.addingTimeInterval(7199)) && run.isDue(at: m0.addingTimeInterval(7200)))
-  #expect(run.toSend(at: m0.addingTimeInterval(7200)).map(\.command.outlet) == [nil, "switch_3", "switch_1"])
-  #expect(run.toSend(at: m0.addingTimeInterval(7260)).count == 4, "a minute after: the plug's too, if it hasn't put it back")
+  #expect(run.left(at: m0.addingTimeInterval(5)) == 7195 && run.left(at: m0.addingTimeInterval(9000)) == 0)
+  let onTap = MasterRun(MasterButton(name: "x", steps: [co2On], minutes: nil), at: m0, before: { _ in nil }, lamp: nil)
+  #expect(onTap.ends == nil && onTap.left(at: m0) == nil && !onTap.isDue(at: m0.addingTimeInterval(86_400)))
   run.back[0].done = true
-  #expect(run.pending.count == 3 && run.left(at: m0.addingTimeInterval(9000)) == 0)
+  #expect(run.pending.count == 3)
+  run.ended = m0.addingTimeInterval(7200)
+  #expect(!run.isRunning && !run.isDue(at: m0.addingTimeInterval(9000)))
   #expect(try JSONDecoder().decode(MasterRun.self, from: JSONEncoder().encode(run)) == run)
 }

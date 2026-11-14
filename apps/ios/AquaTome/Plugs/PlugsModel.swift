@@ -92,7 +92,7 @@ final class PlugsModel {
   static func forSimulator(_ args: [String]) -> PlugsModel {
     let strip = args.firstIndex(of: "-stand-in-strip").flatMap { $0 + 1 < args.count ? args[$0 + 1] : nil } ?? "Ổ cắm bể 60"
     let timer = args.firstIndex(of: "-stand-in-timer").flatMap { $0 + 1 < args.count ? args[$0 + 1] : nil }
-    var first = FakeTuya.Device(id: "fake-strip-1", name: strip, status: [("switch_1", .bool(true)), ("switch_2", .bool(false)), ("switch_3", .bool(false)), ("switch_led", .bool(true)), ("countdown_2", .number(0))],
+    var first = FakeTuya.Device(id: "fake-strip-1", name: strip, status: [("switch_1", .bool(true)), ("switch_2", .bool(false)), ("switch_3", .bool(false)), ("switch_led", .bool(true)), ("countdown_1", .number(0))],
                                 names: [("switch_1", "Đèn"), ("switch_2", "CO2")])
     if let timer, timer == "enabled" || timer == "disabled" {
       let status = timer == "enabled" ? 1 : 0

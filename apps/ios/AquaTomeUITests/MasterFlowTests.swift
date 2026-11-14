@@ -16,10 +16,11 @@ final class MasterFlowTests: XCTestCase {
     expect(app, "master-name", contains: "Ngắm bể")
     expect(app, "master-summary", contains: "Đèn sáng, CO2 bật, đèn tắt · 1 giờ")
     tap(app, "master-start")
-    // The lamp on in white, CO2 on with its countdown to the end, the light's outlet off.
+    // The lamp on in white, CO2 on, the light's outlet off; no countdown written to a plug.
     expect(app, "master-log", contains: "lamp on+white", timeout: 20)
-    expect(app, "master-log", contains: "switch_2 on | switch_2 countdown")
+    expect(app, "master-log", contains: "switch_2 on")
     expect(app, "master-log", contains: "switch_1 off")
+    expect(app, "master-log", lacks: "countdown")
     expect(app, "master-left", contains: "1:00")
     expect(app, "master-summary", contains: "· kết thúc lúc ")
     XCTAssertTrue(element(app, "master-end").waitForExistence(timeout: 20), "not running")
@@ -27,9 +28,8 @@ final class MasterFlowTests: XCTestCase {
     let again = launch(signIn: false, reset: false)
     XCTAssertTrue(element(again, "master-left").waitForExistence(timeout: 10), "not running after a relaunch")
     tap(again, "master-end")
-    // CO2's countdown stopped first, then each put back; the lamp to the other way (nothing was sent to it before).
-    expect(again, "master-log", contains: "switch_2 countdown 0", timeout: 20)
-    expect(again, "master-log", contains: "switch_2 back off")
+    // Each put back by the phone; the lamp the other way (nothing was sent to it before).
+    expect(again, "master-log", contains: "switch_2 back off", timeout: 20)
     expect(again, "master-log", contains: "switch_1 back on")
     expect(again, "master-log", contains: "lamp back off")
     XCTAssertTrue(element(again, "master-start").waitForExistence(timeout: 20), "not ready again")
@@ -45,7 +45,7 @@ final class MasterFlowTests: XCTestCase {
     expect(app, "master-summary", contains: "· đến khi bạn bấm Kết thúc")
     tap(app, "master-start")
     expect(app, "master-log", contains: "lamp on+white", timeout: 20)
-    // Ended by the clock (six seconds here): under a minute to go, no countdown; everything back from the phone.
+    // Ended by the clock (six seconds here), the app open: everything back from the phone.
     expect(app, "master-log", contains: "lamp back on+yellow", timeout: 30)
     expect(app, "master-log", contains: "switch_2 back off")
     expect(app, "master-log", lacks: "countdown")
@@ -61,6 +61,19 @@ final class MasterFlowTests: XCTestCase {
     expect(app, "master-summary", contains: "· đến khi bạn bấm Kết thúc")
     tap(app, "master-end")
     XCTAssertTrue(element(app, "master-start").waitForExistence(timeout: 20), "not ready again")
+  }
+
+  func testTheOwnersCountdownTrialSwitchesAnOutletOffAndSeesItComeBackOn() {
+    let app = launch(["-countdown-trial-seconds", "3"])
+    // The stand-in strip's light outlet is on and has a countdown; CO2 is never offered.
+    tap(app, "trial-pick")
+    XCTAssertFalse(app.buttons["CO2"].exists, "CO2 offered for the trial")
+    let light = app.buttons["Đèn"].firstMatch
+    XCTAssertTrue(light.waitForExistence(timeout: 5), "the light's outlet not offered")
+    light.tap()
+    tap(app, "trial-run")
+    XCTAssertTrue(element(app, "trial-running").waitForExistence(timeout: 10), "not counting down")
+    expect(app, "trial-result", contains: "ổ Đèn bật lại khi đếm về 0.", timeout: 40)
   }
 
   func testWithBluetoothOffTheLampSaysSoAndThePlugsStillGo() {

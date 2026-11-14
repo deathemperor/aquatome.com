@@ -66,7 +66,7 @@ struct MasterSheet: View {
         } header: {
           Text("Kết thúc")
         } footer: {
-          Text("Khi kết thúc, ổ cắm có hẹn giờ tự trở lại. Đèn và phần còn lại do điện thoại trả lại: cần ở gần đèn.")
+          Text("Khi kết thúc, AquaTome trả đèn và ổ cắm về như cũ nếu ứng dụng đang mở. Đèn cần điện thoại ở gần. Hết giờ lúc ứng dụng đóng thì mở lại cạnh bể rồi bấm Trả lại.")
         }
         if !isNew {
           Section {

@@ -278,6 +278,27 @@ func countdowns() async throws {
   #expect(TuyaPlugs.countdownCode("switch_2") == "countdown_2" && TuyaPlugs.countdownCode("switch_usb1") == "countdown_usb1" && TuyaPlugs.countdownCode("switch") == "countdown")
 }
 
+@MainActor @Test("The stand-in's countdowns reach 0 on its clock, at the next request; one that only switches off leaves an outlet off")
+func standInCountdowns() async throws {
+  let c = Cloud([strip("fake-a"), { var d = strip("fake-b"); d.countdownOnlyOff = true; return d }()])
+  var t = Date(timeIntervalSince1970: 1_800_000_000)
+  c.fake.now = { t }
+  let s = c.source()
+  _ = try await s.list()
+  for id in ["fake-a", "fake-b"] {
+    _ = try await s.set(provider: "tuya", device: id, outlet: "switch_1", on: false)
+    #expect(try await s.countdown(provider: "tuya", device: id, outlet: "switch_1", seconds: 60))
+  }
+  let on = { (id: String) in c.fake.device(id)?.status.first { $0.code == "switch_1" }?.value }
+  t = t.addingTimeInterval(59)
+  _ = try await s.list()
+  #expect(on("fake-a") == .bool(false) && on("fake-b") == .bool(false))
+  t = t.addingTimeInterval(2)
+  _ = try await s.list()
+  #expect(on("fake-a") == .bool(true), "back on at 0")
+  #expect(on("fake-b") == .bool(false), "a countdown that only switches off")
+}
+
 @Test("Tuya's error codes as the app tells them apart (https://developer.tuya.com/en/docs/iot/error-code)")
 func errorCodes() {
   let expected: [Int: PlugError] = [

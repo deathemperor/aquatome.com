@@ -92,21 +92,25 @@ A plug switches mains power to a CO2 solenoid, a heater or a filter. So:
 ## The master button
 
 "Nút tổng" on the iOS app's Đèn tab (the owner's account; Design Lead's drawing of 14 Nov): one tap sets the devices the
-reader chose (the Love Ecology lamp, and any outlet of the Tuya plugs on their tanks: CO2 on, a fan off…), and what it
-changed goes back at the end, after 1 or 2 hours or when the reader taps Kết thúc. Kept on the phone, not synced.
+reader chose (the Love Ecology lamp, and any outlet of the Tuya plugs on their tanks: CO2 on, a fan off…), and the phone
+puts back what it changed at the end, after 1 or 2 hours or when the reader taps Kết thúc. Kept on the phone, not synced.
 
 - **A press** reads the list once (how each outlet is now), then sends each step once, as a tap would: an outlet already
   as asked has nothing to put back. A step that fails says why under the button; the others stay done.
-- **Its own countdown.** An outlet the press changed, on a plug that lists a countdown for it (Tuya's `countdown_1` for
-  `switch_1`), is given one to the end (`PlugSource.countdown`, read back once). At 0 the plug switches the outlet the
-  other way by itself, with or without the phone: the plugs go back from anywhere. The phone looks at it only a minute
-  after the end (the plug's clock and the phone's differ a little), and puts it back if the plug hasn't (a plug whose
-  countdown only switches off). Ended early, its countdown is stopped first, then it is switched back; if the countdown
-  can't be stopped, it is left to come back by itself at the end, and the card says when.
-- **The rest, from the phone:** outlets without a countdown, and the lamp, at the end while the app is open, or when it
-  next opens. The lamp hears the phone only close by and reports nothing: it goes back to the last command this phone
-  sent it (its card's or the button's), or the other way when there is none. Ended while the app was away, the lamp
-  waits for the reader's "Trả lại" near it.
+- **The end is the phone's**, while the app is open, or when it next opens: iOS runs nothing for the app at the end time
+  otherwise. Where AquaTome's notifications are already allowed, one comes at the end time to say so; it never asks for
+  them. The lamp hears the phone only close by and reports nothing: it goes back to the last command this phone sent it
+  (its card's or the button's), or the other way when there is none. Ended while the app was closed, the lamp waits for
+  the reader's "Trả lại" near it.
+- **Put back only what is still as the button left it.** An outlet its schedule or a hand switched during the run is
+  left as it is, and the card says so. CO2 is never switched on by the phone at the end: its schedule may mean it off by
+  then, and CO2 with the lights out can kill fish; the card says to turn it on by hand if wanted.
+- **No countdown is written to a plug by the button** (the chief, 15 Nov). A Tuya countdown switches the outlet the
+  other way at 0 whatever it is then, and some plugs' only switch off. First the owner tries one: an owner-only row on
+  the card switches an outlet that is on (never CO2 or a heater) off with a one-minute countdown, the app open, and
+  keeps whether it came back on (`PlugSource.countdown`, read back once; the phone switches it back on if not). The
+  button may use countdowns only after that, and for CO2 only on the owner's word; the strips' Smart Life timers, which
+  the app can read, would then rule out an outlet a timer switches before the run ends.
 - **Turning off a filter, a heater or an air pump** asks a second time when the button is set up. CO2 set on warns that
   outside the light's hours the plants don't use it.
 - Its steps are `DeviceCommand`s (protocols/device-command.schema.json), the shape the chat's commands will take: the

@@ -28,6 +28,8 @@ public final class FakeTuya {
     public var dropsOff = false
     /// Its timers in Smart Life, as Tuya lists them (/v1.0/devices/{id}/timers).
     public var timers: JSON = .array([])
+    /// Its countdowns only switch off at 0, as some plugs' do.
+    public var countdownOnlyOff = false
 
     public init(id: String, name: String, online: Bool = true, status: [(code: String, value: JSON)], names: [(code: String, name: String)]? = nil) {
       self.id = id
@@ -68,17 +70,34 @@ public final class FakeTuya {
     self.devices = devices
   }
 
-  /// Every countdown running reaches 0: its outlet switches the other way, as Tuya's do (`onlyOff`: as a plug whose
-  /// countdown only switches off).
-  public func countdownsEnd(onlyOff: Bool = false) {
+  /// Every countdown running reaches 0 now: its outlet switches the other way, as Tuya's do (only off, for a plug with
+  /// `countdownOnlyOff`). Otherwise each reaches 0 by `now`, its seconds after it was set, at the next request.
+  public func countdownsEnd() {
     for i in devices.indices {
       for (j, s) in devices[i].status.enumerated() where s.code.hasPrefix("countdown") {
         guard let left = s.value.number, left > 0 else { continue }
         devices[i].status[j].value = .number(0)
+        countdownEnds[devices[i].id + "|" + s.code] = nil
         let sw = "switch" + s.code.dropFirst("countdown".count)
         guard let k = devices[i].status.firstIndex(where: { $0.code == sw }), case .bool(let on) = devices[i].status[k].value else { continue }
-        devices[i].status[k].value = .bool(onlyOff ? false : !on)
+        devices[i].status[k].value = .bool(devices[i].countdownOnlyOff ? false : !on)
       }
+    }
+  }
+
+  /// The clock countdowns run on.
+  public var now: () -> Date = Date.init
+  private var countdownEnds: [String: Date] = [:]
+
+  private func endDueCountdowns() {
+    for (k, at) in countdownEnds where now() >= at {
+      let parts = k.split(separator: "|", maxSplits: 1).map(String.init)
+      guard let i = devices.firstIndex(where: { $0.id == parts[0] }), let j = devices[i].status.firstIndex(where: { $0.code == parts[1] }) else { continue }
+      countdownEnds[k] = nil
+      devices[i].status[j].value = .number(0)
+      let sw = "switch" + parts[1].dropFirst("countdown".count)
+      guard let s = devices[i].status.firstIndex(where: { $0.code == sw }), case .bool(let on) = devices[i].status[s].value else { continue }
+      devices[i].status[s].value = .bool(devices[i].countdownOnlyOff ? false : !on)
     }
   }
 
@@ -89,6 +108,7 @@ public final class FakeTuya {
 
   public func send(_ r: URLRequest) async throws -> (Data, HTTPURLResponse) {
     if offline { throw URLError(.notConnectedToInternet) }
+    endDueCountdowns()
     let method = r.httpMethod ?? "GET", url = r.url!
     let path = url.path(percentEncoded: true), query = url.query(percentEncoded: false)
     func reply(_ o: [String: JSON], status: Int = 200) throws -> (Data, HTTPURLResponse) {
@@ -157,6 +177,9 @@ public final class FakeTuya {
         guard let code = c.object?["code"]?.string, let value = c.object?["value"], let j = devices[i].status.firstIndex(where: { $0.code == code }) else { continue }
         if devices[i].ignores { continue }
         if devices[i].lags > 0 { pending[devices[i].id] = (j, value, devices[i].lags) } else { devices[i].status[j].value = value }
+        if code.hasPrefix("countdown") {
+          countdownEnds[devices[i].id + "|" + code] = (value.number ?? 0) > 0 ? now().addingTimeInterval(value.number!) : nil
+        }
       }
       if losesAnswers { throw URLError(.timedOut) }
       return try ok(.bool(true))

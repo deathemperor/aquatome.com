@@ -38,6 +38,7 @@ struct MasterCard: View {
         Button { editing = true } label: { Text("Tạo nút tổng").frame(maxWidth: .infinity) }
           .buttonStyle(.bordered).controlSize(.large)
           .accessibilityIdentifier("master-create")
+        CountdownTrialRow()
       }
       .modifier(Panel())
     }
@@ -61,9 +62,17 @@ struct MasterCard: View {
       problems
       if master.run?.pending.contains(where: { $0.problem != nil }) == true {
         Button { Task { await master.finish(byReader: true) } } label: { Text("Trả lại").frame(maxWidth: .infinity) }
-          .buttonStyle(.bordered).disabled(master.sending)
+          .buttonStyle(.bordered).controlSize(.large).disabled(master.sending)
           .accessibilityIdentifier("master-put-back")
       }
+      // What the last end left as it was: nothing failed, so not in the warning's style.
+      if !master.notes.isEmpty {
+        VStack(alignment: .leading, spacing: 4) { ForEach(master.notes, id: \.self) { Text(verbatim: $0) } }
+          .font(.footnote).foregroundStyle(.secondary)
+          .accessibilityElement(children: .combine)
+          .accessibilityIdentifier("master-notes")
+      }
+      CountdownTrialRow()
     }
     .modifier(Panel())
     // VoiceOver reads it as one ("Ngắm bể, Đèn sáng, CO2 bật, quạt tắt, 2 giờ"), Bắt đầu and Sửa its actions.
@@ -127,9 +136,7 @@ struct MasterCard: View {
 
   /// What didn't go, one line each, under the button: the steps that failed, then what hasn't come back.
   @ViewBuilder private var problems: some View {
-    let lines = (master.run?.failed.map(\.line) ?? []) + (master.run?.pending.compactMap { b in
-      b.problem ?? (b.counting && master.run?.isRunning == false ? master.backByItself(b) : nil)
-    } ?? [])
+    let lines = (master.run?.failed.map(\.line) ?? []) + (master.run?.pending.compactMap(\.problem) ?? [])
     if !lines.isEmpty {
       VStack(alignment: .leading, spacing: 4) {
         ForEach(lines, id: \.self) { line in
@@ -208,8 +215,4 @@ extension MasterModel {
     return f.lowercased() + s.dropFirst()
   }
 
-  /// An outlet left to its plug's countdown: when it comes back.
-  func backByItself(_ b: MasterRun.Back) -> String {
-    String(localized: "\(switcher.name(b.command)) tự trở lại lúc \(MasterCard.time(run?.ends ?? now())).")
-  }
 }
