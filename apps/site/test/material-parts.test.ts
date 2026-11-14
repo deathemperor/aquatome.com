@@ -14,7 +14,7 @@ test('material sections keep their reading order, skip absent text and turn mark
   const m = (await content()).materials.find(m => m.id === 'lua-sa-tung')!
   const sections = materialSections({ ...m, t: { ...m.t, sections: { buy: m.t.sections.buy!, about: m.t.sections.about!, water: '' } } })
   expect(sections.map(s => s.key)).toEqual(['about', 'buy'])
-  expect(sections.map(s => s.heading)).toEqual(['Là gì', 'Mua ở đâu, giá bao nhiêu'])
+  expect(sections.map(s => s.heading)).toEqual(['Là gì', 'Mua ở đâu, chọn thế nào'])
   expect(sections[0]!.html).toContain(`href="${m.sources[0]!.url}"`)
   expect(sections[1]!.html).toContain(`href="${m.sources[2]!.url}"`)
   expect(sections[1]!.html).toContain('class="cite"')

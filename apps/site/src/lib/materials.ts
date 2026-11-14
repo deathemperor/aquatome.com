@@ -7,7 +7,7 @@ export const MATERIAL_HEADINGS = {
   prepare: 'Xử lý trước khi dùng',
   suits: 'Hợp với cá và cây nào',
   mistakes: 'Lỗi hay gặp',
-  buy: 'Mua ở đâu, giá bao nhiêu',
+  buy: 'Mua ở đâu, chọn thế nào',
 } as const
 
 /** Fixed reading order, regardless of JSON key order. loadAll refuses references outside the source list. */
