@@ -2,30 +2,6 @@
   "id": "limnophila-aquatica",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/72f11539e6593890.webp",
-      "thumb": "https://media.aquatome.com/commons/72f11539e6593890-480.webp",
-      "width": 1200,
-      "height": 1600,
-      "licence": "CC BY-SA 3.0",
-      "author": "Andreus Felipen",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Plantadeambulia.JPG",
-      "caption": "Bụi Cây Limnophila aquatica mọc dưới nước trong bể có cá thần tiên",
-      "best": true,
-      "kind": "submersed"
-    },
-    {
-      "url": "https://media.aquatome.com/tropica/c0cd36663863d2ae.webp",
-      "thumb": "https://media.aquatome.com/tropica/c0cd36663863d2ae-480.webp",
-      "width": 1200,
-      "height": 1200,
-      "licence": "dùng với sự cho phép",
-      "author": "Tropica",
-      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Limnophilaaquatica(046TC)/30333",
-      "source": "tropica",
-      "kind": "other",
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/tropica/34a8486e1ca57b35.webp",
       "thumb": "https://media.aquatome.com/tropica/34a8486e1ca57b35-480.webp",
       "width": 1200,
@@ -48,6 +24,18 @@
       "source": "tropica",
       "kind": "other",
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/commons/72f11539e6593890.webp",
+      "thumb": "https://media.aquatome.com/commons/72f11539e6593890-480.webp",
+      "width": 1200,
+      "height": 1600,
+      "licence": "CC BY-SA 3.0",
+      "author": "Andreus Felipen",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Plantadeambulia.JPG",
+      "caption": "Bụi Cây Limnophila aquatica mọc dưới nước trong bể có cá thần tiên",
+      "best": true,
+      "kind": "submersed"
     }
   ],
   "seen": 1,

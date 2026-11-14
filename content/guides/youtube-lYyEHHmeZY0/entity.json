@@ -48,22 +48,7 @@
     "figures": [
       {
         "heading": "Cần chuẩn bị những gì",
-        "moments": [
-          {
-            "t": 25,
-            "url": "https://media.aquatome.com/video/lYyEHHmeZY0/at25.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Chai nước nhựa loại thường dùng để làm bộ lọc."
-          },
-          {
-            "t": 35,
-            "url": "https://media.aquatome.com/video/lYyEHHmeZY0/at35.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Mũi khoan bậc và đáy chai đã khoan lỗ nhỏ."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/lYyEHHmeZY0/p0-JfQm90dGxlLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/lYyEHHmeZY0/p0-JfQm90dGxlLmpwZw-480.webp",
@@ -77,15 +62,7 @@
       },
       {
         "heading": "Cắt và khoan chai thế nào",
-        "moments": [
-          {
-            "t": 29,
-            "url": "https://media.aquatome.com/video/lYyEHHmeZY0/at29.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Khoan lỗ trên chai nhựa, tay giữ chai chắc chắn."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/lYyEHHmeZY0/p1-b3NhZ2FpYWsuanBn.webp",
           "thumb": "https://media.aquatome.com/video/lYyEHHmeZY0/p1-b3NhZ2FpYWsuanBn-480.webp",
@@ -96,18 +73,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Liztor_beltzak_harrapatzeko_tranpak_egiteko_behar_diren_osagaiak.jpg",
           "caption": "Chai nhựa, mũi khoan và dao đã chuẩn bị sẵn để cắt và khoan chai."
         }
-      },
-      {
-        "heading": "Lắp ráp lọc theo thứ tự nào",
-        "moments": [
-          {
-            "t": 51,
-            "url": "https://media.aquatome.com/video/lYyEHHmeZY0/at51.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Gắn núm giác hút vào thân chai nhựa làm lọc."
-          }
-        ]
       },
       {
         "heading": "Nước chạy trong lọc ra sao",
@@ -127,18 +92,22 @@
         "heading": "Vệ sinh và chăm cây trên lọc",
         "moments": [
           {
-            "t": 143,
-            "url": "https://media.aquatome.com/video/lYyEHHmeZY0/at143.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cận cảnh miếng mút đen ở đáy ống lọc chứa sỏi đất nung."
+            "t": 146,
+            "url": "https://media.aquatome.com/video/lYyEHHmeZY0/at146-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh miếng mút đen ở đáy ống lọc chứa sỏi đất nung.",
+            "sharpness": 532.5,
+            "person": false
           },
           {
-            "t": 145,
-            "url": "https://media.aquatome.com/video/lYyEHHmeZY0/at145.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cây trầu bà mọc trên lọc gắn ở thành bể."
+            "t": 148,
+            "url": "https://media.aquatome.com/video/lYyEHHmeZY0/at148-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây trầu bà mọc trên lọc gắn ở thành bể.",
+            "sharpness": 473.9,
+            "person": false
           }
         ],
         "photo": {
