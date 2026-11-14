@@ -7,6 +7,7 @@ import sharp from 'sharp'
 import { albumLooks, rankGallery, screenedAt, waiting, type GalleryPhoto, type GalleryState } from './gallery'
 import { largeSize } from './large-photos'
 import { cantTellOn, type PhotoVerdict } from './photo-check'
+import { namedOn } from './photo-named'
 import { MAX_PHOTOS } from './run'
 import { SOURCE_PHOTO_LICENCE, type Media } from './source-photos'
 
@@ -95,6 +96,7 @@ export async function tropicaPhotos(root: string, d: TropicaDeps, o: { limit?: n
   const rejected = JSON.parse(await readFile(join(root, 'engine-state/_photo-rejected.json'), 'utf8').catch(() => '{}')) as Record<string, string>
   const subjects = JSON.parse(await readFile(join(root, 'engine-state/_photo-subjects.json'), 'utf8').catch(() => '{}')) as Record<string, Record<string, PhotoVerdict>>
   const looksOn = await albumLooks(root, subjects)
+  const on = await namedOn(join(root, 'content'))
   const report = { added: [] as string[], skipped: [] as string[], failed: [] as string[] }
   let pages = 0
   for (const id of (await readdir(dir).catch(() => [] as string[])).sort()) {
@@ -142,7 +144,7 @@ export async function tropicaPhotos(root: string, d: TropicaDeps, o: { limit?: n
       if (rest.length) {
         // Ranked as the sweep ranks it (gallery.ts orderAlbums), so the next sweep doesn't move its photos again.
         const st = JSON.parse(await readFile(join(root, 'engine-state/gallery', `${id}.json`), 'utf8').catch(() => '{}')) as Partial<GalleryState>
-        const photos = rankGallery([...(g?.photos ?? []), ...rest.map((p, i) => waiting({ ...plain(p), kind: p.scene ? 'submersed' : 'other', ...(empty && p.scene && i === 0 ? { best: true } : {}) }))], cantTellOn(subjects, id), screenedAt(st.judged ?? []), looksOn(id))
+        const photos = rankGallery([...(g?.photos ?? []), ...rest.map((p, i) => waiting({ ...plain(p), kind: p.scene ? 'submersed' : 'other', ...(empty && p.scene && i === 0 ? { best: true } : {}) }))], cantTellOn(subjects, id), screenedAt(st.judged ?? []), looksOn(id), on(id))
         await mkdir(join(root, 'content/gallery'), { recursive: true })
         await writeFile(gfile, `${JSON.stringify(GallerySchema.parse({ id, photos, seen: g?.seen ?? 0, updatedAt: d.now().toISOString().slice(0, 10), ...(g?.builtAt ? { builtAt: g.builtAt } : {}) }), null, 2)}\n`)
       }

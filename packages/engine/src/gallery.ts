@@ -10,6 +10,7 @@ import { gbifMediaPage, gbifUsageKey } from './gbif'
 import { inatPage, inatTaxon, newInatCursor, type InatCursor } from './inat'
 import { openversePage } from './openverse'
 import { cantTellOn, OFF, type PhotoVerdict } from './photo-check'
+import { namedOn, namedOrder, SPECIES, type Named } from './photo-named'
 import { isRejected, unfitCommons } from './photos'
 import { contactSheet } from './video-images'
 import { authorText } from './wiki-author'
@@ -295,9 +296,12 @@ function byKind(photos: GalleryPhoto[], at: ScreenedAt): GalleryPhoto[] {
  * same way among themselves. Then, whatever their rank, the photos the photo check could not tell show the page's subject
  * (`cantTell`: photo-check.ts cantTellOn), so a later run keeps the place the check gave them; AI pictures last. Each part
  * is ordered on its own, so ordering an album twice changes nothing: the sweep orders every album so each cycle
- * (orderAlbums), with the same `looks` as the album step, so the two agree.
+ * (orderAlbums), with the same `looks` as the album step, so the two agree. A photo its source names only with "cf.", to
+ * its genus or as another fish (`named`, photo-named.ts) goes behind those it names better, among the photos the check is
+ * sure of and among those it can't tell alike, so the photo check's moving the latter last keeps the order (the chief of
+ * staff, 2026-11-14).
  */
-export function rankGallery(photos: GalleryPhoto[], cantTell: (url: string) => boolean = () => false, at: ScreenedAt = () => undefined, looks: Looks = () => ({})): GalleryPhoto[] {
+export function rankGallery(photos: GalleryPhoto[], cantTell: (url: string) => boolean = () => false, at: ScreenedAt = () => undefined, looks: Looks = () => ({}), named: (p: GalleryPhoto) => Named = () => SPECIES): GalleryPhoto[] {
   const real = photos.filter(p => !isGenerated(p))
   const sure = real.filter(p => !cantTell(p.url)), unsure = real.filter(p => cantTell(p.url))
   const poor = (p: GalleryPhoto) => isPoor(p, looks(p.url))
@@ -306,8 +310,9 @@ export function rankGallery(photos: GalleryPhoto[], cantTell: (url: string) => b
   const typed = sure.filter(p => !p.unchecked && looks(p.url).typical === true).length >= SETUP_ROOM
   const step = (p: GalleryPhoto) => { const t = looks(p.url).typical; return !typed || t === true ? 0 : t === undefined ? 1 : 2 }
   const front = sure.filter(p => !back(p))
-  const parts = [...[0, 1, 2].map(k => front.filter(p => step(p) === k)), sure.filter(back), unsure]
-  return [...parts.flatMap(ps => byKind(ps, at)), ...photos.filter(isGenerated)]
+  const parts = [...[0, 1, 2].map(k => front.filter(p => step(p) === k)), sure.filter(back)]
+  const order = (ps: GalleryPhoto[]) => namedOrder(ps, named, p => !p.unchecked)
+  return [...order(parts.flatMap(ps => byKind(ps, at))), ...order(byKind(unsure, at)), ...photos.filter(isGenerated)]
 }
 
 /**
@@ -446,6 +451,7 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
   for (const [url, pages] of Object.entries(subjects)) for (const [id, v] of Object.entries(pages)) if (OFF.has(v.ok)) (offBy.get(id) ?? offBy.set(id, {}).get(id)!)[url] = v.ok
   const gbifNames = JSON.parse(await readFile(join(root, 'engine-state/_gbif-names.json'), 'utf8').catch(() => '{}')) as Record<string, { canonicalName: string } | null>
   const looksOn = await albumLooks(root, subjects)
+  const on = await namedOn(content)
   const left: SourceBudget & { sheets: number } = { inat: 150, gbif: 60, openverse: 20, ...o.budget, sheets: o.sheets }
   // Openverse is slow (20 s or more a query) and sometimes stalls: after 3 failures it rests until the next run.
   let openverseFailures = 0
@@ -609,7 +615,7 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
           st.hashes[k.photo.url] = k.hash
           report.added[sourceOfKey(k.key)] = (report.added[sourceOfKey(k.key)] ?? 0) + 1
         }
-        gallery = rankGallery([...gallery, ...kept.map(k => waiting({ ...k.photo, best: k.best, kind: k.kind ?? 'other', ...(k.setup !== undefined ? { setup: k.setup } : {}) }))], cantTellOn(subjects, t.id), screenedAt(st.judged), looksOn(t.id))
+        gallery = rankGallery([...gallery, ...kept.map(k => waiting({ ...k.photo, best: k.best, kind: k.kind ?? 'other', ...(k.setup !== undefined ? { setup: k.setup } : {}) }))], cantTellOn(subjects, t.id), screenedAt(st.judged), looksOn(t.id), on(t.id))
         if (kept.length) {
           await mkdir(join(content, 'gallery'), { recursive: true })
           await writeFile(gfile, `${JSON.stringify(GallerySchema.parse({ id: t.id, photos: gallery, seen: seenCount, updatedAt: today, builtAt: today }), null, 2)}\n`)
@@ -640,13 +646,14 @@ export async function orderAlbums(root: string, subjects: Record<string, Record<
   const out = { files: [] as string[], leads: [] as string[] }
   const lead = (ps: GalleryPhoto[]) => ps.find(p => !p.unchecked && !isGenerated(p))?.url
   const looksOn = await albumLooks(root, subjects)
+  const on = await namedOn(join(root, 'content'))
   for (const f of (await readdir(dir).catch(() => [] as string[])).filter(f => f.endsWith('.json')).sort()) {
     const id = f.replace(/\.json$/, ''), file = join(dir, f)
     const raw = await readFile(file, 'utf8')
     const g = JSON.parse(raw) as { photos?: GalleryPhoto[] }
     if (!g.photos?.length) continue
     const st = JSON.parse(await readFile(join(root, 'engine-state', 'gallery', f), 'utf8').catch(() => '{}')) as Partial<GalleryState>
-    const ranked = rankGallery(g.photos, cantTellOn(subjects, id), screenedAt(st.judged ?? []), looksOn(id))
+    const ranked = rankGallery(g.photos, cantTellOn(subjects, id), screenedAt(st.judged ?? []), looksOn(id), on(id))
     if (ranked.every((p, i) => p === g.photos![i])) continue
     if (lead(g.photos) !== lead(ranked)) out.leads.push(`${id}: ${lead(g.photos)} -> ${lead(ranked)}`)
     await writeFile(file, `${JSON.stringify({ ...g, photos: ranked }, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)

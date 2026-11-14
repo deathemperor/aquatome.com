@@ -403,6 +403,8 @@ if (cmd === 'photo-privacy') {
     for (const x of r.heads.emptied) console.log(`head removed: ${x}`)
     for (const x of r.heads.moved) console.log(`head moved: ${x}`)
     for (const x of r.picked) console.log(`picked head: ${x}`)
+    // For the chief of staff: a page led by a photo its source names only with "cf.", to its genus or as another fish (photo-named.ts).
+    for (const x of r.heads.named) console.log(`head its source doesn't name to the species: ${x}`)
     for (const x of r.blocked) console.log(`rejected: ${x}`)
     for (const x of r.removed) console.log(`removed: ${x}`)
     for (const x of r.failed.slice(0, 30)) console.log(`failed: ${x}`)
@@ -570,9 +572,10 @@ if (cmd === 'photo-privacy') {
   // past it none leave, each is listed, and a person looks before running it again with the cap raised.
   const photoCap = values['photo-cap'] ? { photoCap: Number(values['photo-cap']) } : {}
   const r = await sweep(ROOT, { ...(titles > 0 ? { llm: claudeCli, titles, model: process.env.READER_MODEL ?? 'opus' } : {}), ...photoCap })
-  console.log(`sweep: ${r.files.length} files; ${Object.entries(r.text).map(([k, v]) => `${k} ${v.length}`).join(', ') || 'no text fixes'}; ${r.photos.length} photos off (${r.rejected} off every page); ${r.again.length} never-again photos off; ${r.heads.length} heads picked; ${r.videos.length} videos off; ${r.card.length} cards (${r.summaries.length} summaries to write again); ${r.tanks.length} tank searches; ${r.shop.length} shop texts; ${r.dealer.length} dealer notices off; ${r.varieties.length} variety pages; ${r.titles.length} titles; ${r.names.length} other names off; ${r.mentions.length} breeds off guides; ${r.links.length} breed links${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  console.log(`sweep: ${r.files.length} files; ${Object.entries(r.text).map(([k, v]) => `${k} ${v.length}`).join(', ') || 'no text fixes'}; ${r.photos.length} photos off (${r.rejected} off every page); ${r.again.length} never-again photos off; ${r.heads.length} heads picked; ${r.named.length} heads behind one named to the species; ${r.videos.length} videos off; ${r.card.length} cards (${r.summaries.length} summaries to write again); ${r.tanks.length} tank searches; ${r.shop.length} shop texts; ${r.dealer.length} dealer notices off; ${r.varieties.length} variety pages; ${r.titles.length} titles; ${r.names.length} other names off; ${r.mentions.length} breeds off guides; ${r.links.length} breed links${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   if (r.noAnimal.length) console.log(`sweep: ${r.noAnimal.length} heads with no animal in them and no "yes" from the photo check (engine-state/_photo-no-animal-heads.json)`)
   for (const x of r.noAnimal) console.log(`no animal: ${x}`)
+  for (const x of r.named) console.log(`head behind one named to the species: ${x}`)
   for (const x of [...r.dealer.map(x => `dealer notice off: ${x}`), ...r.dealerOnly.map(x => `dealer notice, its heading's only text (for the chief of staff): ${x}`)]) console.log(x)
   if (r.albums.length) console.log(`sweep: ${r.albums.length} albums with a new lead photo (gallery.ts orderAlbums)`)
   if (r.refused.length || r.refusedHeld.length || r.refusedPicked.length) console.log(`sweep: ${r.refused.length} refused photos kept off; ${r.refusedHeld.length} pages held; ${r.refusedPicked.length} picked heads the check calls "none" (photo-check.ts refusedOn)`)

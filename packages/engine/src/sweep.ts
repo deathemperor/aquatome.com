@@ -35,6 +35,7 @@ import { readVideoRejected } from './videos'
 import { orderAlbums } from './gallery'
 import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
 import { holdForSecondLook, listAgreed, looks, readSecondLook } from './last-photo'
+import { namedOn, namedOrder, passesHead } from './photo-named'
 
 /**
  * The content rules' safe fixes (content-rules.ts, RATCHETED) on every page, each cycle, before the build, as
@@ -133,6 +134,8 @@ export type SweepReport = {
   unwell: string[]
   /** Heads a person picked (engine-state/_photo-head-picks.json) put first, `kind/id: old -> new`, picks not found on the page, or picks that lapsed with their person's yes. */
   heads: string[]
+  /** Heads its source names only with "cf.", to the genus or as another fish, put behind one named better that passes (photo-named.ts), `kind/id: old -> new`. */
+  named: string[]
   /** Heads with no animal in them and no "yes" from the photo check, `kind/id: url (since day)`. */
   noAnimal: string[]
   /** Photos the photo check refused, kept off a page or an album it is back on (photo-check.ts refusedOn), `file: url (why)`. */
@@ -414,7 +417,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   const cap = o.photoCap ?? PHOTO_CAP
   if (!Number.isInteger(cap) || cap < 0) throw new Error(`sweep: the photo cap is a whole number, 0 or more, not ${cap}`)
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], secondLook: [], agreed: [], unwell: [], heads: [], noAnimal: [], refused: [], refusedHeld: [], refusedPicked: [], albums: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], secondLook: [], agreed: [], unwell: [], heads: [], named: [], noAnimal: [], refused: [], refusedHeld: [], refusedPicked: [], albums: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
@@ -668,6 +671,33 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   const headPicks = JSON.parse(await readFile(join(root, 'engine-state', '_photo-head-picks.json'), 'utf8').catch(() => '{}')) as Record<string, string>
   const yes = await readPersonYes(root)
   const subjects = JSON.parse(await readFile(join(root, 'engine-state', '_photo-subjects.json'), 'utf8').catch(() => '{}')) as Record<string, Record<string, PhotoVerdict>>
+  // The chief of staff, 2026-11-14: a photo its source names only with "cf.", to its genus or as another fish never leads
+  // while one named better passes as a head (photo-named.ts). The photo check and the lead step rank the same way; this
+  // has the last word, so no step between them leaves such a head. A standing pick still leads (the loop below).
+  {
+    const asHead = passesHead(await readVerdicts(root))
+    const on = await namedOn(content)
+    type Named = { kind: string; id: string; file: string; raw: string; e: { scientificName?: string; synonyms?: string[]; photos?: Photo[] } }
+    const read = async (kind: string) => Promise.all((await readdir(join(content, kind)).catch(() => [] as string[])).sort().map(async (id): Promise<Named | null> => {
+      const file = join(content, kind, id, 'entity.json')
+      const raw = await readFile(file, 'utf8').catch(() => null)
+      return raw ? { kind, id, file, raw, e: JSON.parse(raw) as Named['e'] } : null
+    }))
+    const pages = (await Promise.all(['species', 'plants', 'breeds'].map(read))).flat().filter((x): x is Named => !!x)
+    for (const p of pages) {
+      const photos = p.e.photos ?? []
+      if (photos.length < 2 || !p.e.scientificName) continue
+      // A standing pick keeps its place here, the rest ordered around it: the loop below puts it first and says so.
+      const ref = `${p.kind}/${p.id}`, pick = headPicks[ref]
+      const at = pick && pickStands(ref, pick, subjects, yes) ? photos.findIndex(x => x.url === pick) : -1
+      const now = namedOrder(at >= 0 ? photos.filter((_, i) => i !== at) : photos, on(p.id), x => asHead(x, p.id))
+      if (at >= 0) now.splice(at, 0, photos[at]!)
+      if (now.every((x, i) => x.url === photos[i]!.url)) continue
+      if (now[0]!.url !== photos[0]!.url) report.named.push(`${ref}: ${photos[0]!.url} -> ${now[0]!.url}`)
+      await write(p.file, p.raw, { ...p.e, photos: now })
+      changed(`${ref}/entity.json`)
+    }
+  }
   for (const [ref, url] of Object.entries(headPicks)) {
     if (!pickStands(ref, url, subjects, yes)) { report.heads.push(`${ref}: pick lapsed with its person's yes`); continue }
     const file = join(content, ref, 'entity.json')
