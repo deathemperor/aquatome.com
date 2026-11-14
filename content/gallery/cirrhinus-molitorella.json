@@ -2,14 +2,14 @@
   "id": "cirrhinus-molitorella",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/471481910.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/471481910-480.webp",
-      "width": 1003,
-      "height": 1024,
-      "licence": "CC0",
-      "author": "Agnes Trekker",
-      "sourceUrl": "https://www.inaturalist.org/photos/471481910",
-      "caption": "Cá trôi vảy rõ bơi trên đáy vàng trong suối",
+      "url": "https://media.aquatome.com/inaturalist/141394219.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/141394219-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Toby Y",
+      "sourceUrl": "https://www.inaturalist.org/photos/141394219",
+      "caption": "Cá trôi bơi trên nền đáy sỏi trong suối",
       "best": true,
       "kind": "habitat"
     },
@@ -26,27 +26,15 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/141394219.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/141394219-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Toby Y",
-      "sourceUrl": "https://www.inaturalist.org/photos/141394219",
-      "caption": "Cá trôi bơi trên nền đáy sỏi trong suối",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/471481931.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/471481931-480.webp",
-      "width": 1007,
+      "url": "https://media.aquatome.com/inaturalist/471481910.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/471481910-480.webp",
+      "width": 1003,
       "height": 1024,
       "licence": "CC0",
       "author": "Agnes Trekker",
-      "sourceUrl": "https://www.inaturalist.org/photos/471481931",
-      "caption": "Cá trôi bơi ở vùng nước nông ngoài tự nhiên",
-      "best": false,
+      "sourceUrl": "https://www.inaturalist.org/photos/471481910",
+      "caption": "Cá trôi vảy rõ bơi trên đáy vàng trong suối",
+      "best": true,
       "kind": "habitat"
     },
     {
@@ -82,6 +70,18 @@
       "author": "Aiken Lau",
       "sourceUrl": "https://www.inaturalist.org/photos/416842451",
       "caption": "Cá trôi bơi cạnh đá trong nước suối nông",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/471481931.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/471481931-480.webp",
+      "width": 1007,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Agnes Trekker",
+      "sourceUrl": "https://www.inaturalist.org/photos/471481931",
+      "caption": "Cá trôi bơi ở vùng nước nông ngoài tự nhiên",
       "best": false,
       "kind": "habitat"
     }

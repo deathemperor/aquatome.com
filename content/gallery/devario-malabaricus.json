@@ -2,18 +2,6 @@
   "id": "devario-malabaricus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/467341034.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/467341034-480.webp",
-      "width": 1024,
-      "height": 566,
-      "licence": "CC BY",
-      "author": "Vsevolod Rudyi",
-      "sourceUrl": "https://www.inaturalist.org/photos/467341034",
-      "caption": "Cá danio khổng lồ bơi thành nhóm trong nước tự nhiên",
-      "best": true,
-      "kind": "group"
-    },
-    {
       "url": "https://media.aquatome.com/commons/a70950776eced725.webp",
       "thumb": "https://media.aquatome.com/commons/a70950776eced725-480.webp",
       "width": 800,
@@ -22,6 +10,18 @@
       "author": "Blaise",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Group_of_devario_malabaricus_by_Blaise.png",
       "caption": "Đàn cá danio khổng lồ bơi trong bể thủy sinh nhiều rong",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/467341034.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/467341034-480.webp",
+      "width": 1024,
+      "height": 566,
+      "licence": "CC BY",
+      "author": "Vsevolod Rudyi",
+      "sourceUrl": "https://www.inaturalist.org/photos/467341034",
+      "caption": "Cá danio khổng lồ bơi thành nhóm trong nước tự nhiên",
       "best": true,
       "kind": "group"
     }

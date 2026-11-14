@@ -2,18 +2,6 @@
   "id": "corydoras-pygmaeus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/757259951.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/757259951-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Kaden Slone",
-      "sourceUrl": "https://www.inaturalist.org/photos/757259951",
-      "caption": "Cá chuột pygmy bên đá phủ rêu trong bể nuôi",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/696106999.webp",
       "thumb": "https://media.aquatome.com/inaturalist/696106999-480.webp",
       "width": 576,
@@ -26,34 +14,16 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/commons/fb6f0354a2bf4b60.webp",
-      "thumb": "https://media.aquatome.com/commons/fb6f0354a2bf4b60-480.webp",
-      "width": 1200,
-      "height": 690,
-      "licence": "CC BY-SA 4.0",
-      "author": "Anastasiya Lvova",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%9E%D0%B1%D0%B8%D1%82%D0%B0%D1%82%D0%B5%D0%BB%D0%B8_%D0%BF%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%9E%D0%BA%D0%B5%D0%B0%D0%BD%D0%B0%D1%80%D0%B8%D1%83%D0%BC%D0%B0_10_(cropped).jpg",
-      "caption": "Cá chuột pygmy ánh bạc trên nền cát mịn trong bể",
-      "large": {
-        "url": "https://media.aquatome.com/commons/fb6f0354a2bf4b60-large.webp",
-        "width": 1881,
-        "height": 1081
-      }
-    },
-    {
-      "url": "https://media.aquatome.com/commons/8e8ec8a041a9b6b9.webp",
-      "thumb": "https://media.aquatome.com/commons/8e8ec8a041a9b6b9-480.webp",
-      "width": 1200,
-      "height": 638,
-      "licence": "CC0",
-      "author": "Softepaul",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:PXL_20260810_003453528~2.jpg",
-      "caption": "Cận cảnh cá chuột pygmy sọc đen trên nền sỏi trắng",
-      "large": {
-        "url": "https://media.aquatome.com/commons/8e8ec8a041a9b6b9-large.webp",
-        "width": 1839,
-        "height": 978
-      }
+      "url": "https://media.aquatome.com/inaturalist/757259951.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/757259951-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Kaden Slone",
+      "sourceUrl": "https://www.inaturalist.org/photos/757259951",
+      "caption": "Cá chuột pygmy bên đá phủ rêu trong bể nuôi",
+      "best": true,
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/48cf2672196a8c25.webp",
@@ -83,6 +53,36 @@
         "url": "https://media.aquatome.com/commons/40a970f67cc6e69d-large.webp",
         "width": 1600,
         "height": 1200
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/commons/fb6f0354a2bf4b60.webp",
+      "thumb": "https://media.aquatome.com/commons/fb6f0354a2bf4b60-480.webp",
+      "width": 1200,
+      "height": 690,
+      "licence": "CC BY-SA 4.0",
+      "author": "Anastasiya Lvova",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%9E%D0%B1%D0%B8%D1%82%D0%B0%D1%82%D0%B5%D0%BB%D0%B8_%D0%BF%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%9E%D0%BA%D0%B5%D0%B0%D0%BD%D0%B0%D1%80%D0%B8%D1%83%D0%BC%D0%B0_10_(cropped).jpg",
+      "caption": "Cá chuột pygmy ánh bạc trên nền cát mịn trong bể",
+      "large": {
+        "url": "https://media.aquatome.com/commons/fb6f0354a2bf4b60-large.webp",
+        "width": 1881,
+        "height": 1081
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/commons/8e8ec8a041a9b6b9.webp",
+      "thumb": "https://media.aquatome.com/commons/8e8ec8a041a9b6b9-480.webp",
+      "width": 1200,
+      "height": 638,
+      "licence": "CC0",
+      "author": "Softepaul",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:PXL_20260810_003453528~2.jpg",
+      "caption": "Cận cảnh cá chuột pygmy sọc đen trên nền sỏi trắng",
+      "large": {
+        "url": "https://media.aquatome.com/commons/8e8ec8a041a9b6b9-large.webp",
+        "width": 1839,
+        "height": 978
       }
     }
   ],

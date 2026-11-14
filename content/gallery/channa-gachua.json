@@ -26,14 +26,14 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/commons/32b5af3692be981b.webp",
-      "thumb": "https://media.aquatome.com/commons/32b5af3692be981b-480.webp",
+      "url": "https://media.aquatome.com/commons/c7f945c5a57c560d.webp",
+      "thumb": "https://media.aquatome.com/commons/c7f945c5a57c560d-480.webp",
       "width": 1200,
-      "height": 900,
+      "height": 800,
       "licence": "CC BY-SA 3.0",
       "author": "Wibowo Djatmiko (Wie146)",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chan_gachu_120715_0406_krw.jpg",
-      "caption": "Cá lóc lùn trong bể, nhìn nghiêng gần",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chan_gachu_120715_0270_krw.jpg",
+      "caption": "Cá lóc lùn trong bể với đá cuội",
       "best": true,
       "kind": "other"
     },
@@ -50,26 +50,26 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/commons/c7f945c5a57c560d.webp",
-      "thumb": "https://media.aquatome.com/commons/c7f945c5a57c560d-480.webp",
+      "url": "https://media.aquatome.com/commons/32b5af3692be981b.webp",
+      "thumb": "https://media.aquatome.com/commons/32b5af3692be981b-480.webp",
       "width": 1200,
-      "height": 800,
+      "height": 900,
       "licence": "CC BY-SA 3.0",
       "author": "Wibowo Djatmiko (Wie146)",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chan_gachu_120715_0270_krw.jpg",
-      "caption": "Cá lóc lùn trong bể với đá cuội",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chan_gachu_120715_0406_krw.jpg",
+      "caption": "Cá lóc lùn trong bể, nhìn nghiêng gần",
       "best": true,
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/commons/3016ed0c46a525af.webp",
-      "thumb": "https://media.aquatome.com/commons/3016ed0c46a525af-480.webp",
-      "width": 1200,
-      "height": 670,
-      "licence": "CC0",
-      "author": "5snake5",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Channa_gachua_%E2%99%82.jpg",
-      "caption": "Hai cá lóc lùn trong bể nền cát",
+      "url": "https://media.aquatome.com/commons/3f5d22407c8c5b98.webp",
+      "thumb": "https://media.aquatome.com/commons/3f5d22407c8c5b98-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "CC BY-SA 3.0",
+      "author": "Acapella",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Channa_gachua_Maulzerren.jpg",
+      "caption": "Hai cá lóc lùn đối đầu trong bể thủy sinh",
       "best": false,
       "kind": "pair"
     },
@@ -86,30 +86,6 @@
       "kind": "group"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/155552960.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/155552960-480.webp",
-      "width": 1200,
-      "height": 1600,
-      "licence": "CC BY",
-      "author": "Vivaan jalan",
-      "sourceUrl": "https://www.inaturalist.org/photos/155552960",
-      "caption": "Cá lóc lùn trong thau trắng, thân nâu vây trong",
-      "best": false,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/3f5d22407c8c5b98.webp",
-      "thumb": "https://media.aquatome.com/commons/3f5d22407c8c5b98-480.webp",
-      "width": 800,
-      "height": 600,
-      "licence": "CC BY-SA 3.0",
-      "author": "Acapella",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Channa_gachua_Maulzerren.jpg",
-      "caption": "Hai cá lóc lùn đối đầu trong bể thủy sinh",
-      "best": false,
-      "kind": "pair"
-    },
-    {
       "url": "https://media.aquatome.com/commons/970af6f5e6ec1b49.webp",
       "thumb": "https://media.aquatome.com/commons/970af6f5e6ec1b49-480.webp",
       "width": 1024,
@@ -122,6 +98,18 @@
       "kind": "other"
     },
     {
+      "url": "https://media.aquatome.com/commons/3016ed0c46a525af.webp",
+      "thumb": "https://media.aquatome.com/commons/3016ed0c46a525af-480.webp",
+      "width": 1200,
+      "height": 670,
+      "licence": "CC0",
+      "author": "5snake5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Channa_gachua_%E2%99%82.jpg",
+      "caption": "Hai cá lóc lùn trong bể nền cát",
+      "best": false,
+      "kind": "pair"
+    },
+    {
       "url": "https://media.aquatome.com/commons/b72603309a6cad05.webp",
       "thumb": "https://media.aquatome.com/commons/b72603309a6cad05-480.webp",
       "width": 1200,
@@ -130,6 +118,18 @@
       "author": "Aqmal-Naser et al. (2023)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Channa_limbata_(10.3897-BDJ.11.e100337)_Figure_28.jpg",
       "caption": "Cá lóc lùn nhỏ trên nền sỏi cam",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/155552960.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/155552960-480.webp",
+      "width": 1200,
+      "height": 1600,
+      "licence": "CC BY",
+      "author": "Vivaan jalan",
+      "sourceUrl": "https://www.inaturalist.org/photos/155552960",
+      "caption": "Cá lóc lùn trong thau trắng, thân nâu vây trong",
       "best": false,
       "kind": "other"
     }

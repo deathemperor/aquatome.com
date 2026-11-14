@@ -2,18 +2,6 @@
   "id": "luciosoma-setigerum",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/471093500.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/471093500-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "zr217",
-      "sourceUrl": "https://www.inaturalist.org/photos/471093500",
-      "caption": "Hai cá apollo shark bơi trong suối nước nông",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/226641296.webp",
       "thumb": "https://media.aquatome.com/inaturalist/226641296-480.webp",
       "width": 1024,
@@ -34,6 +22,18 @@
       "author": "desertnaturalist",
       "sourceUrl": "https://www.inaturalist.org/photos/226641410",
       "caption": "Cá apollo shark bơi gần cành cây chìm trong suối",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/471093500.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/471093500-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "zr217",
+      "sourceUrl": "https://www.inaturalist.org/photos/471093500",
+      "caption": "Hai cá apollo shark bơi trong suối nước nông",
       "best": true,
       "kind": "habitat"
     }

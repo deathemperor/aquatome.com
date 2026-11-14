@@ -2,14 +2,14 @@
   "id": "amia-calva",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/391248984.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/391248984-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/59542794.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/59542794-480.webp",
       "width": 1024,
-      "height": 1022,
+      "height": 768,
       "licence": "CC BY",
-      "author": "Nick Tobler (Cowturtle)",
-      "sourceUrl": "https://www.inaturalist.org/photos/391248984",
-      "caption": "Cá bowfin bơi giữa thảm thực vật xanh dưới nước",
+      "author": "Matt Bowser",
+      "sourceUrl": "https://www.inaturalist.org/photos/59542794",
+      "caption": "Cá bowfin bơi dưới nước trong, ngoài tự nhiên",
       "best": true,
       "kind": "habitat"
     },
@@ -50,14 +50,26 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/59542794.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/59542794-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/391248984.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/391248984-480.webp",
       "width": 1024,
-      "height": 768,
+      "height": 1022,
       "licence": "CC BY",
-      "author": "Matt Bowser",
-      "sourceUrl": "https://www.inaturalist.org/photos/59542794",
-      "caption": "Cá bowfin bơi dưới nước trong, ngoài tự nhiên",
+      "author": "Nick Tobler (Cowturtle)",
+      "sourceUrl": "https://www.inaturalist.org/photos/391248984",
+      "caption": "Cá bowfin bơi giữa thảm thực vật xanh dưới nước",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/391222209.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/391222209-480.webp",
+      "width": 473,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Nick Tobler (Cowturtle)",
+      "sourceUrl": "https://www.inaturalist.org/photos/391222209",
+      "caption": "Cá bowfin sẫm màu bơi trong bụi cây thủy sinh",
       "best": true,
       "kind": "habitat"
     },
@@ -86,28 +98,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/391222209.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/391222209-480.webp",
-      "width": 473,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Nick Tobler (Cowturtle)",
-      "sourceUrl": "https://www.inaturalist.org/photos/391222209",
-      "caption": "Cá bowfin sẫm màu bơi trong bụi cây thủy sinh",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/035a528e609accc0.webp",
-      "thumb": "https://media.aquatome.com/commons/035a528e609accc0-480.webp",
-      "width": 1200,
-      "height": 667,
-      "licence": "CC BY-SA 3.0",
-      "author": "Cody Hough",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:SheddFish.JPG",
-      "caption": "Cá bowfin trong bể nuôi, nền sỏi, nhìn rõ đầu và mắt"
-    },
-    {
       "url": "https://media.aquatome.com/commons/1d069314c67c02d5.webp",
       "thumb": "https://media.aquatome.com/commons/1d069314c67c02d5-480.webp",
       "width": 1200,
@@ -126,6 +116,26 @@
       "author": "Stan Shebs",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amia_calva_3.jpg",
       "caption": "Cá bowfin màu xám xanh vằn đen trong bể thủy sinh"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/035a528e609accc0.webp",
+      "thumb": "https://media.aquatome.com/commons/035a528e609accc0-480.webp",
+      "width": 1200,
+      "height": 667,
+      "licence": "CC BY-SA 3.0",
+      "author": "Cody Hough",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:SheddFish.JPG",
+      "caption": "Cá bowfin trong bể nuôi, nền sỏi, nhìn rõ đầu và mắt"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/4150d596c186cc62.webp",
+      "thumb": "https://media.aquatome.com/commons/4150d596c186cc62-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "Public domain",
+      "author": "United States Fish and Wildlife Services",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bowfin_01.jpg",
+      "caption": "Cá bowfin bơi giữa rong thủy sinh ngoài tự nhiên"
     },
     {
       "url": "https://media.aquatome.com/commons/1e130872ad9a0857.webp",
@@ -246,16 +256,6 @@
       "author": "James Hussey",
       "sourceUrl": "https://www.inaturalist.org/photos/301524127",
       "caption": "Cá bowfin trưởng thành màu xanh olive vây đuôi cam trong bể kính"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/4150d596c186cc62.webp",
-      "thumb": "https://media.aquatome.com/commons/4150d596c186cc62-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "Public domain",
-      "author": "United States Fish and Wildlife Services",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bowfin_01.jpg",
-      "caption": "Cá bowfin bơi giữa rong thủy sinh ngoài tự nhiên"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/401928878.webp",

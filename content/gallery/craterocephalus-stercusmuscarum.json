@@ -2,14 +2,14 @@
   "id": "craterocephalus-stercusmuscarum",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/744720812.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/744720812-480.webp",
-      "width": 1024,
-      "height": 768,
+      "url": "https://media.aquatome.com/inaturalist/329930609.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/329930609-480.webp",
+      "width": 826,
+      "height": 465,
       "licence": "CC BY",
-      "author": "Tom Ferguson",
-      "sourceUrl": "https://www.inaturalist.org/photos/744720812",
-      "caption": "Cá hardyhead chấm ruồi bơi trên nền đá nâu",
+      "author": "Jesse de Vries",
+      "sourceUrl": "https://www.inaturalist.org/photos/329930609",
+      "caption": "Cá hardyhead chấm ruồi trên nền cát với mảnh vụn thực vật",
       "best": true,
       "kind": "habitat"
     },
@@ -26,27 +26,15 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/329930609.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/329930609-480.webp",
-      "width": 826,
-      "height": 465,
-      "licence": "CC BY",
-      "author": "Jesse de Vries",
-      "sourceUrl": "https://www.inaturalist.org/photos/329930609",
-      "caption": "Cá hardyhead chấm ruồi trên nền cát với mảnh vụn thực vật",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/505012372.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/505012372-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/744720812.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/744720812-480.webp",
       "width": 1024,
-      "height": 1024,
+      "height": 768,
       "licence": "CC BY",
-      "author": "Luke Lythgoe",
-      "sourceUrl": "https://www.inaturalist.org/photos/505012372",
-      "caption": "Cá hardyhead chấm ruồi với sọc dọc thân rõ trong nước đục",
-      "best": false,
+      "author": "Tom Ferguson",
+      "sourceUrl": "https://www.inaturalist.org/photos/744720812",
+      "caption": "Cá hardyhead chấm ruồi bơi trên nền đá nâu",
+      "best": true,
       "kind": "habitat"
     },
     {
@@ -58,18 +46,6 @@
       "author": "Richard Fuller",
       "sourceUrl": "https://www.inaturalist.org/photos/60369088",
       "caption": "Cá hardyhead chấm ruồi bơi trên nền cát đá trong tự nhiên",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/479381779.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/479381779-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Andrew Allen",
-      "sourceUrl": "https://www.inaturalist.org/photos/479381779",
-      "caption": "Cá hardyhead chấm ruồi bơi trên nền sỏi trong tự nhiên",
       "best": false,
       "kind": "habitat"
     },
@@ -94,6 +70,30 @@
       "author": "Jesse de Vries",
       "sourceUrl": "https://www.inaturalist.org/photos/306705153",
       "caption": "Hai cá hardyhead chấm ruồi bơi trong nước xanh giữa đá",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/479381779.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/479381779-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Andrew Allen",
+      "sourceUrl": "https://www.inaturalist.org/photos/479381779",
+      "caption": "Cá hardyhead chấm ruồi bơi trên nền sỏi trong tự nhiên",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/505012372.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/505012372-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Luke Lythgoe",
+      "sourceUrl": "https://www.inaturalist.org/photos/505012372",
+      "caption": "Cá hardyhead chấm ruồi với sọc dọc thân rõ trong nước đục",
       "best": false,
       "kind": "habitat"
     }
