@@ -491,7 +491,7 @@ test('a dealer\'s own current batch or stock is the source check\'s; trade histo
     'Những con trong lô dài khoảng 5 cm và đã phân biệt rõ đực cái.',
     'Các cá thể của đợt nhập này đều còn nhỏ.',
     'Cá trong đợt nhập hiện nay có hoa văn rất đồng đều.',
-    'Những con trong đợt cá mới nhập về đều khỏe.',
+    'Những con trong đợt cá mới nhập về dài khoảng 4 cm.',
     // A lot's own fish that differ among themselves (Grok's read).
     'Những con trong lô khác nhau về kích cỡ.',
     'Những con trong lô khác biệt hẳn về màu.',
@@ -585,6 +585,16 @@ test('a dealer\'s own current batch or stock is the source check\'s; trade histo
     'Những con trong lô cũng là cá của năm ngoái.',
     'Đôi khi có vài con trong lô giống khác.',
     'Những con trong lô mang về từ năm ngoái.',
+    // A hedge, a time, a longer while, a smaller lot, a recovery, a stop before another clause (Grok's sixth read).
+    'Những con trong lô gần như là cá của đợt trước.',
+    'Những con trong lô nhập về gần như là cá của đợt trước.',
+    'Những con trong lô nhập về khoảng 2 năm trước.',
+    'Cá trong lô chừng 3 tháng là bán hết.',
+    'Những con trong lô nhập về dài lâu rồi.',
+    'Những con trong lô dài hơn một năm mới lớn hẳn.',
+    'Những con của lô nhỏ hơn toàn là cá của đợt trước.',
+    'Những con trong lô đều khỏe lại sau đợt bệnh.',
+    'Những con trong lô; chúng là cá của năm ngoái.',
   ]
   const dealer = (text: string) => fitRules(page(`<p>${text}</p>`, { kind: 'species' })).filter(f => f.check === 'source' && f.why.startsWith('a dealer'))
   for (const t of news) expect(dealer(t).length, t).toBeGreaterThan(0)
