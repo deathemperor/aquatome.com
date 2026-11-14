@@ -283,10 +283,16 @@ test('a mend takes out only a sentence a finding names: one that drops or reword
   // fourth read).
   for (const line of ['Bể này dùng khoảng 4 nắp, loài "P. aethiopicus", mỗi 10 lít.', 'Bể này dùng khoảng 4 nắp v.v. mỗi 10 lít.', 'Bể này dùng khoảng 4 nắp, vd. mỗi 10 lít.', 'Bể này dùng khoảng 4 nắp, loài sp. aethiopicus, mỗi 10 lít.', 'Bể này dùng khoảng 4 nắp, loài «P. aethiopicus», mỗi 10 lít.',
     // A capital or a figure after an abbreviation is no sentence start (Grok's fifth read).
-    'Bể này dùng khoảng 4 nắp, loài P. Scalare, mỗi 10 lít.', 'Bể này dùng khoảng 4 nắp, vd. 5 ml cho mỗi 10 lít.', 'Bể này dùng khoảng 4 nắp v.v. 5 ml mỗi 10 lít.', "Bể này dùng khoảng 4 nắp, loài sp. 'Pygmy', mỗi 10 lít."]) {
+    'Bể này dùng khoảng 4 nắp, loài P. Scalare, mỗi 10 lít.', 'Bể này dùng khoảng 4 nắp, vd. 5 ml cho mỗi 10 lít.', 'Bể này dùng khoảng 4 nắp v.v. 5 ml mỗi 10 lít.', "Bể này dùng khoảng 4 nắp, loài sp. 'Pygmy', mỗi 10 lít.",
+]) {
     const quoted = await setup({ body: `<p>${line}</p><p>${LONG}</p>`, faq: [] })
     expect(await deps(quoted.root).mend(page(), [{ ...caps, quote: '4 nắp' }]), line).toBeUndefined()
   }
+  // The tank named only in the next sentence: not its own dose (Grok's sixth read).
+  const next = await setup({ body: `<p>Châm 5 ml. Bể này ổn.</p><p>${LONG}</p>`, faq: [] })
+  const nextDeps = deps(next.root)
+  expect(await nextDeps.mend(page(), [{ ...caps, quote: '5 ml' }])).toBeUndefined()
+  expect(nextDeps.prompts).toEqual([])
   // A dose quote that keeps the opening mark after its stop takes only its own sentence.
   const marked = await setup({ body: `<p>Bể 10 gallon là đủ.</p><p>Bể này dùng khoảng 4 nắp.“ Cá ăn vào buổi sáng.</p><p>${LONG}</p>`, faq: [] })
   expect(await deps(marked.root, kept(`<p>Bể 10 gallon là đủ.</p><p>Châm vi sinh, liều theo hướng dẫn trên bao bì.</p><p>${LONG}</p>`)).mend(page(), [gallons, { ...caps, quote: '4 nắp.“' }])).toEqual({ refused: 'a sentence no finding names was changed or left out: "cá ăn vào buổi sáng."' })

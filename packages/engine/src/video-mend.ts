@@ -165,10 +165,10 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   const paragraphs = [vi.name, ...(vi.summary ?? []), ...render(sanitizeHtml(vi.body ?? '')).split('\n'), ...(vi.faq ?? []).flatMap(f => [f.q, f.a])].map(norm)
   // A dose the editor may take is the source's own tank's; any other waits for a person, and so does the guide.
   const doses = findings.filter(f => f.check === 'dose').map(f => sentenceOf(paragraphs, norm(f.quote)))
-  // Read on to a stop the next sentence starts after with a capital ("loài P. aethiopicus, mỗi 10 lít"), so a rate after
-  // an abbreviation is seen.
+  // The tank's own in its own sentence, and nothing of advice read on past an abbreviation ("loài P. aethiopicus, mỗi 10
+  // lít"): a "bể này" in the next sentence doesn't make a dose the tank's (Grok's read of "Châm 5 ml. Bể này ổn.").
   const cased = [vi.name, ...(vi.summary ?? []), ...render(sanitizeHtml(vi.body ?? '')).split('\n'), ...(vi.faq ?? []).flatMap(f => [f.q, f.a])].map(x => x.normalize('NFC').replace(/\s+/g, ' ').trim())
-  if (!findings.filter(f => f.check === 'dose').every(f => ownTankDose(sentenceOf(paragraphs, norm(f.quote), cased)))) return undefined
+  if (!findings.filter(f => f.check === 'dose').every(f => ownTankDose(sentenceOf(paragraphs, norm(f.quote))) && ownTankDose(sentenceOf(paragraphs, norm(f.quote), cased)))) return undefined
   const sentence = (f: FitFinding) => sentenceOf(paragraphs, norm(f.quote))
   if (findings.some(f => (f.check === 'product' || f.check === 'price') && givesDose(sentence(f)) && !doses.includes(sentence(f)))) return undefined
   const lang = e.video.lang ?? 'en'
