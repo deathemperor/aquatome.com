@@ -78,10 +78,10 @@ test.each([
   ['amphilius-frieli', 'ca-da-tron-amphilius-frieli'],
   ['corbicula-fluminea', 'hen-nuoc-ngot'],
   ['nothobranchius-pienaari', 'ca-nothobranchius-pienaari'],
-])('%s: its first address, /ca/%s/, leads to its page', (id, first) => {
+])('%s: its first address, /ca/%s/, is its page or leads to it', (id, first) => {
   const slug = c.species.find(s => s.id === id)!.t.slug
-  expect(slug).not.toBe(first)
-  expect(renamedPages(c)[`/ca/${first}/`]).toBe(`/ca/${slug}/?tu=${first}`)
+  // A later naming can give the page its first address back; then it is the page, and nothing forwards from it.
+  expect(renamedPages(c)[`/ca/${first}/`]).toBe(slug === first ? undefined : `/ca/${slug}/?tu=${first}`)
 })
 
 test('the pencilfish guide took "cá chì" and its old address 301s to it', () => {
