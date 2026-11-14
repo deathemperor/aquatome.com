@@ -547,3 +547,29 @@ test('the entry as reworded is counted again: a rewording that runs it past the 
   expect((r as { notes: string[] }).notes).toContain('The entry is 466 words: hold it to about 400, and leave what is left out to the pages that use the term.')
   expect(await readFile(join(root, 'content/glossary/tanin/vi.json'), 'utf8')).toBe(before)
 })
+
+test('a kind word the table allows before a scientific name doesn\'t stop a save; one it doesn\'t allow does', async () => {
+  const root = await site()
+  const species = async (slug: string, scientific: string, family: string, order: string) => {
+    await mkdir(join(root, 'content/species', slug), { recursive: true })
+    await writeFile(join(root, 'content/species', slug, 'entity.json'), JSON.stringify({ id: slug, scientificName: scientific, genus: scientific.split(' ')[0], family, order }))
+    await writeFile(join(root, 'content/species', slug, 'vi.json'), JSON.stringify({ name: scientific }))
+  }
+  await species('caridina-dennerli', 'Caridina dennerli', 'Atyidae', 'Decapoda')
+  await species('aulonocara-jacobfreibergi', 'Aulonocara jacobfreibergi', 'Cichlidae', 'Cichliformes')
+  const run = async (body: string) => {
+    const asked: string[] = []
+    const llm: Llm = async ({ prompt }) => {
+      if (prompt.startsWith('GLOSSARY RULES')) { asked.push(prompt); return { notes: ['Rule 6: "tép Caridina" in "Tép Caridina thích lũa.": a Vietnamese name the writer made up for a genus'] } as never }
+      if (isCheck(prompt)) return verdicts(prompt) as never
+      return { ...written, body } as never
+    }
+    return { r: await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'lua', { kind: 'aquascaping' }), asked }
+  }
+  const fits = await run('<p>Tép Caridina thích lũa.</p>')
+  expect(fits.r).toMatchObject({ id: 'lua', score: 1 })
+  expect(fits.asked[0]).toContain('--- KIND WORDS ---\nTép Caridina\n')
+  const wrong = await run('<p>Tép Caridina thích lũa, cá trê Aulonocara thì không.</p>')
+  expect(wrong.r).toMatchObject({ id: 'lua', skipped: 'stopped by 1 note' })
+  expect((wrong.r as { notes: string[] }).notes).toContain('Rule 6: "cá trê Aulonocara": "trê" is the word for other animals, not for Cichlidae (the table of kind words).')
+})

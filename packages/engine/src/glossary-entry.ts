@@ -10,6 +10,7 @@ import { logReviews, readReviews } from './review-log'
 import { withTanks } from './round'
 import { sanitizeHtml, unescapePlain } from './sanitize'
 import { checkSentences, rewordLoose, stopNote } from './glossary-facts'
+import { genera, judgeKindNames, kindNames } from './glossary-names'
 import { FACTS_SCHEMA, researchPrompt, viFacts, type TopicFacts } from './topics'
 
 const WRITE = withTanks(readFileSync(new URL('./prompts/glossary-entry.md', import.meta.url), 'utf8'))
@@ -54,7 +55,7 @@ const RULES = `GLOSSARY RULES. Below are a Vietnamese glossary ENTRY about a fis
 3. A word is used against a TERM's definition: tannins that lower pH a little do not soften water (hardness is GH and KH), and so on.
 4. A thing is said in more than one place (a step such as boiling, a warning such as rot, a number): it should be said once, in one place. Or the remark that sources or shops disagree appears more than once, or another line takes a side on what it says they disagree on: it should be said once, with what the keeper can do about it only where the FACTS say what to do; where they don't, it is said once and left (about one kind alone, in that kind's item). Never ask for advice the FACTS don't give.
 5. A kind in KINDS that the FACTS describe is missing; a kind is without the English name the FACTS give it; an English name is given that the FACTS don't give.
-6. An animal or plant in PAGES is called by anything but its page's name, the first name on its line. One with no line in PAGES, or a group of them (a genus, "plecos", "pencilfish"), is called by anything but its scientific name as the FACTS write it: an English name, or a Vietnamese name the writer made up.
+6. An animal or plant in PAGES is called by anything but its page's name, the first name on its line. One with no line in PAGES, or a group of them (a genus, "plecos", "pencilfish"), is called by anything but its scientific name as the FACTS write it: an English name, or a Vietnamese name the writer made up. A name under KIND WORDS (a kind word before a scientific name, already checked against the site's table of kind words) keeps this rule: don't note it. When you note this rule, quote the name itself first, as Rule 6: "<the name>" in "<the sentence>": …
 7. The kinds sold in Vietnam (KINDS, local) don't come first, or one says less than the FACTS give while a foreign name gets more. A kind's item isn't in this order, where the FACTS say these: what it is, how it looks, whether it sinks and colours the water, what it is used for, then its other names (a remark that no English name was found goes last). A kind's own key facts (it sinks at once, it colours the water for long) sit elsewhere and not in its item.
 8. A brand or a product's name (a maker's, as in "Zoo Med Mopani"), where the kind's name is enough.
 9. A remark on safety that leaves a keeper unsure whether to use it in a tank ("the leaves are poisonous, the wood less so"), where the FACTS say how it is used in tanks.
@@ -293,6 +294,7 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   }
   const forWriter = { term: vi.name, english: entity.en, sources, facts }
   const pages = await pageNames(root, facts.map(f => f.fact).join('\n'))
+  const taxa = await genera(root)
   const terms = others.map(x => `${x.id}: ${x.name}: ${x.definition}`).join('\n')
   const kinds = [
     asks.local?.length ? `--- LOẠI BÁN Ở VIỆT NAM ---\n${asks.local.join('\n')}` : '',
@@ -306,10 +308,14 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     system: 'You write Vietnamese aquarium glossary entries from facts. Reply only with JSON.', model: o.writeModel ?? 'opus', schema: ENTRY_SCHEMA,
     prompt: `${WRITE}\n\n${STYLE}${notes?.length ? `\n\nBản trước có chỗ vượt quá dữ kiện, phạm quy tắc hoặc quá dài. Sửa bản trước, không viết lại: chỉ sửa, gộp hay bỏ những câu mà ghi chú trích hoặc chỉ tới, và giữ nguyên từng chữ mọi câu khác. Quá dài thì bỏ hoặc rút gọn câu, không viết lại câu khác. Chỉ thêm câu khi ghi chú nói thiếu, và chỉ viết điều dữ kiện có. Các ghi chú:\n${notes.map(n => `- ${n}`).join('\n')}${before ? `\n\n--- BẢN TRƯỚC ---\n${JSON.stringify(before)}` : ''}` : ''}${kinds}\n\n--- TRANG CỦA AQUATOME (tên trang | tên khác) ---\n${pages.join('\n')}\n\n--- CÁC THUẬT NGỮ KHÁC (id: tên: định nghĩa) ---\n${terms}\n\n--- DỮ KIỆN ---\n${JSON.stringify(forWriter)}`,
   })
-  const rules = async (e: Entry) => (await d.llm<{ notes?: string[] }>({
-    system: 'You check a Vietnamese glossary entry against house rules. Reply only with JSON.', model: 'opus', schema: RULES_SCHEMA,
-    prompt: `${RULES}\n\n--- KINDS ---\nlocal: ${(asks.local ?? []).join('; ') || '(none named)'}\nforeign: ${(asks.foreign ?? []).join('; ') || '(none named)'}\n\n--- THIS TERM ---\n${(asks.write ?? []).join('\n') || '(nothing more)'}\n\n--- PAGES ---\n${pages.join('\n') || '(none)'}\n\n--- TERMS ---\n${terms}\n\n--- FACTS ---\n${JSON.stringify(forWriter)}\n\n--- ENTRY ---\n${JSON.stringify(e)}`,
-  })).notes ?? []
+  const rules = async (e: Entry) => {
+    const k = kindNames(e, taxa)
+    const notes = (await d.llm<{ notes?: string[] }>({
+      system: 'You check a Vietnamese glossary entry against house rules. Reply only with JSON.', model: 'opus', schema: RULES_SCHEMA,
+      prompt: `${RULES}\n\n--- KINDS ---\nlocal: ${(asks.local ?? []).join('; ') || '(none named)'}\nforeign: ${(asks.foreign ?? []).join('; ') || '(none named)'}\n\n--- THIS TERM ---\n${(asks.write ?? []).join('\n') || '(nothing more)'}\n\n--- PAGES ---\n${pages.join('\n') || '(none)'}\n\n--- KIND WORDS ---\n${k.fit.map(x => x.name).join('\n') || '(none)'}\n\n--- TERMS ---\n${terms}\n\n--- FACTS ---\n${JSON.stringify(forWriter)}\n\n--- ENTRY ---\n${JSON.stringify(e)}`,
+    })).notes ?? []
+    return judgeKindNames(notes, k, ruleNumbers)
+  }
   const check = async (e: Entry) => {
     const [f, r] = await Promise.all([checkSentences(d.llm, forWriter, e), rules(e)])
     const long = lengthNotes(e.body, named)
