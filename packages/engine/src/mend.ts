@@ -93,6 +93,9 @@ export function lostWords(before: string, after: string, covered: readonly strin
   return lostFrom(was, words(after), covered.map(c => firstAt(was, words(c))))
 }
 
+/** A figure and its unit, what a units finding's conversion puts in: "120", "lít", "cm", "khoảng 120 lít mỗi con". */
+const UNITS = new Set('lít l ml cm mm m kg g độ c khoảng mỗi cho trên từng con'.split(' '))
+const isFigure = (w: string) => /^\d/.test(w) || UNITS.has(w)
 /**
  * What a sentence cut may put in to join what's left: only these, not a pointer ("này", "đó") or "bạn", which say who or
  * which (the chief of staff, 14 Nov 2026: "The rewrite may mend the grammar round a deletion and nothing else").
@@ -102,7 +105,7 @@ const GLUE = new Set('và hoặc thì là mà rằng nhưng của'.split(' '))
  * The words `after` has that `before` hasn't, in its order: each of its words is the next of `before`'s that is still to
  * come, or a joining word (GLUE), or one of `allowed` (each once). Words only taken out, and joined again, add none.
  */
-export function addedWords(before: string, after: string, allowed: readonly string[] = []): string[] {
+export function addedWords(before: string, after: string, allowed: readonly string[] = [], free: (w: string) => boolean = () => false): string[] {
   const was: string[] = [...words(before)]
   const may = new Map<string, number>()
   for (const w of allowed.flatMap(a => words(a))) may.set(w, (may.get(w) ?? 0) + 1)
@@ -111,7 +114,7 @@ export function addedWords(before: string, after: string, allowed: readonly stri
   for (const w of words(after)) {
     const i = was.indexOf(w, at)
     if (i >= 0) { at = i + 1; continue }
-    if (GLUE.has(w)) continue
+    if (GLUE.has(w) || free(w)) continue
     if (may.get(w)) { may.set(w, may.get(w)! - 1); continue }
     out.push(w)
   }
@@ -226,12 +229,13 @@ export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { e
     ...dropped.filter(d => !asked(d, named)).map(d => `Left out, and no finding asks for it to go: "${d.text}"`),
   ]
   // Every changed sentence is the one it was, cut: what the writer wrote, before metric, as the words lost are counted. A
-  // sentence a units finding converts is checked by its figures instead (fit-rewrite.ts keepsFigures).
+  // sentence a units finding converts may gain its new figures and their units, and nothing else (Astra's read: "Cá dài 2
+  // inch" written "Cá dài 5 cm và sinh sản quanh năm" passed when such a sentence wasn't checked).
   const added = shown.flatMap(i => {
     const now = raw.get(i) ?? changes.get(i)!
     const mine = named.filter(f => f.sentences.includes(i + 1))
-    if (!now || mine.some(f => f.check === 'units')) return []
-    const extra = addedWords(texts[i]!, now, mine.flatMap(f => f.adds ?? []))
+    if (!now) return []
+    const extra = addedWords(texts[i]!, now, mine.flatMap(f => f.adds ?? []), mine.some(f => f.check === 'units') ? isFigure : undefined)
     return extra.length ? [`Sentence ${i + 1} says what it didn't: "${extra.join(' ')}"`] : []
   })
   const lost = hedgesLost(r.hedges ?? [], shown.map(i => texts[i]).join('\n'), shown.map(i => changes.get(i)).join('\n'))

@@ -686,7 +686,10 @@ test('a breed page\'s units rewrite is kept only with the part\'s litres as they
     const { llm } = notesLlm({ figures: vi => vi.replace('132 lít', to) })
     const r = await fitRewrite(b.root, [b.p], reading(b.p, [b.tank]), { llm, now: () => new Date('2026-11-12T12:00:00Z') }, { limit: 5 })
     expect(r.rewritten).toEqual([])
-    expect(r.notKept).toEqual([`vi/breeds/pigeon-blood-discus body (0.90: ${off})`])
+    expect(r.notKept).toHaveLength(1)
+    expect(r.notKept[0]).toMatch(new RegExp(`^vi/breeds/pigeon-blood-discus body \\(0\\.90: ${off}`))
+    // A figure written as words is something the sentence didn't say, too (mend.ts addedWords).
+    if (to === 'bể rộng') expect(r.notKept[0]).toContain('Sentence 5 says what it didn\'t: "bể rộng"')
     expect(await readFile(b.file, 'utf8')).toBe(before)
   }
   // Told right, it's kept, the spare tank as it was; quoted twice (the check's own finding on "132 lít" too), mended once.
@@ -768,7 +771,7 @@ for (const kind of ['species', 'guides']) test(`admission stops a ${kind} rewrit
 
 // The chief of staff, 14 Nov 2026: "A part left with one line, or with only what a dealer's list gave it, is dropped, not
 // kept" (the angelfish's quick facts, down to "Xuất xứ: Brazil").
-test('a part a cut leaves with one line goes off the page in every language when its heading has another source\'s text; with none, it isn\'t kept', async () => {
+test('a part a cut reduces to one line goes off the page in every language, its heading with it when it was the heading\'s only text', async () => {
   const root = await content()
   const dir = join(root, 'content/species', ID)
   const p = await danio(root)
@@ -782,18 +785,31 @@ test('a part a cut leaves with one line goes off the page in every language when
   expect(Object.keys(JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8')).sections)).not.toContain('quickFacts:sprucepets')
   expect(JSON.parse(await readFile(join(dir, 'id.json'), 'utf8')).sections).toEqual({ 'habitat:seriouslyfish': '<p>Kolam.</p>' })
 
-  // A heading with no other source's text: the part stays as it was.
+  // A heading with no other source's text: the part goes, and the heading with it, listed for the chief of staff.
   const lone = await content()
   const file = join(lone, 'content/species', ID, 'vi.json')
   const vi = JSON.parse(await readFile(file, 'utf8'))
   vi.sections['habitat:seriouslyfish'] = '<p>Ao cạn nhiều cỏ ở cao nguyên Shan, Myanmar. Một cửa hàng ở Đức có bán.</p>'
   await writeFile(file, JSON.stringify(vi, null, 2))
   const q = await danio(lone)
-  const before = await readFile(file, 'utf8')
   const shop = { check: 'shop' as const, part: part(q, 'sections.habitat:seriouslyfish'), quote: 'Một cửa hàng ở Đức có bán.', why: 'a shop' }
   const s = await fitRewrite(lone, [q], reading(q, [shop]), { llm: fakeLlm(vi => (vi.includes('cửa hàng') ? '' : vi), 0.9).llm, now: () => new Date() }, { limit: 5 })
-  expect(s.notKept).toEqual(['vi/species/danio-margaritatus sections.habitat:seriouslyfish (0.90: one line would be left, and it\'s its heading\'s only text: for the chief of staff)'])
-  expect(await readFile(file, 'utf8')).toBe(before)
+  expect(s.rewritten).toEqual(['vi/species/danio-margaritatus sections.habitat:seriouslyfish off the page (one line left, its heading with it: for the chief of staff)'])
+  expect(Object.keys(JSON.parse(await readFile(file, 'utf8')).sections)).not.toContain('habitat:seriouslyfish')
+  const loneEntity = JSON.parse(await readFile(join(lone, 'content/species', ID, 'entity.json'), 'utf8'))
+  expect(loneEntity.sections.map((x: { key: string }) => x.key)).not.toContain('habitat')
+
+  // One line that was one line, a detail cut from it: not reduced, kept (the chief of staff: "reduced to one line").
+  const one = await content()
+  const oneFile = join(one, 'content/species', ID, 'vi.json')
+  const ov = JSON.parse(await readFile(oneFile, 'utf8'))
+  ov.sections['habitat:seriouslyfish'] = '<p>Ao cạn nhiều cỏ ở cao nguyên Shan, giá 5 đô la ở Mỹ.</p>'
+  await writeFile(oneFile, JSON.stringify(ov, null, 2))
+  const o1 = await danio(one)
+  const price = { check: 'price' as const, part: part(o1, 'sections.habitat:seriouslyfish'), quote: ', giá 5 đô la ở Mỹ', why: 'a US price' }
+  const kept = await fitRewrite(one, [o1], reading(o1, [price]), { llm: fakeLlm(vi => vi.replace(', giá 5 đô la ở Mỹ', ''), 0.9).llm, now: () => new Date() }, { limit: 5 })
+  expect(kept.rewritten).toEqual(['vi/species/danio-margaritatus sections.habitat:seriouslyfish (0.90)'])
+  expect(JSON.parse(await readFile(oneFile, 'utf8')).sections['habitat:seriouslyfish']).toBe('<p>Ao cạn nhiều cỏ ở cao nguyên Shan.</p>')
 })
 
 // The lane's guides (fit-front.ts): no reader has read them, so they're cut sentence by sentence, not written whole.

@@ -231,3 +231,18 @@ test('a mend that says a sentence another way isn\'t kept, whatever its reviewer
   if (typeof cut === 'string') throw new Error(cut)
   expect(cut.added).toEqual([])
 })
+
+// Astra's read of 14 Nov 2026: a sentence a units finding converts was left out of the guard, and gained a claim.
+test('a sentence whose figure is converted may gain the new figure and its unit, and nothing else', async () => {
+  const html = '<p>Cá dài 2 inch. Cá sống theo đàn.</p>'
+  const f = [{ check: 'units' as FitCheck, quote: '2 inch', note: 'Convert to cm.' }]
+  const llm = (said: string) => (async ({ schema }: { schema: { required: string[] } }) => (schema.required.includes('sentences')
+    ? { sentences: [{ n: 1, vi: said }] }
+    : { score: 1, notes: [], dropped: [], hedges: [] })) as Llm
+  const invented = await mendPart(llm('Cá dài 5 cm và sinh sản quanh năm.'), html, f)
+  if (typeof invented === 'string') throw new Error(invented)
+  expect(invented.added).toEqual(['Sentence 1 says what it didn\'t: "sinh sản quanh năm"'])
+  const converted = await mendPart(llm('Cá dài khoảng 5 cm.'), html, f)
+  if (typeof converted === 'string') throw new Error(converted)
+  expect(converted.added).toEqual([])
+})
