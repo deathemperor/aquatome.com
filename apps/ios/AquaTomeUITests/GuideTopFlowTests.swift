@@ -22,7 +22,15 @@ final class GuideTopFlowTests: XCTestCase {
     XCTAssertFalse(app.descendants(matching: .any)["page-navigator-title"].exists, "Mục lục for a reader")
     let page = app.descendants(matching: .any)["native-page"].firstMatch
     XCTAssertLessThan(page.frame.minY, bar.frame.maxY - 20, "the page, its photo first, starts under the bar's foot, not at it")
-    XCTAssertFalse(bar.staticTexts["Nuôi cá neon trong bể nhỏ"].exists, "the name in the bar over the page's own")
+    // What the bar holds for VoiceOver, kept with the run.
+    let tree = XCTAttachment(string: bar.debugDescription)
+    tree.name = "bar-at-rest"
+    tree.lifetime = .keepAlways
+    add(tree)
+    // No name drawn in the bar at rest: its middle third holds no white lettering over the photo and its shade. (Measured
+    // as NativePageFlowTests measures the bar's title: an element there can be in the bar and not drawn.)
+    RunLoop.current.run(until: Date().addingTimeInterval(1))
+    XCTAssertLessThan(whiteInk(bar), 0.002, "the name drawn in the bar over the page's own")
     let more = bar.buttons["page-more"]
     XCTAssertTrue(more.exists, "no ⋯")
     XCTAssertEqual(more.label, "Thêm")
@@ -139,6 +147,26 @@ final class GuideTopFlowTests: XCTestCase {
       from.press(forDuration: 0.05, thenDragTo: to, withVelocity: quick ? XCUIGestureVelocity(app.frame.width / 0.1) : .slow, thenHoldForDuration: 0)
       XCTAssertTrue(page.waitForNonExistence(timeout: 5), "a \(quick ? "quick" : "slow") edge swipe\(scrolled ? ", scrolled," : "") didn't go back")
     }
+  }
+
+  /// How much of the bar's middle third (clear of back and the ⋯) is drawn near white, as a name's letters are over the
+  /// photo and its shade; the shade over a photo, or over the grey of one not come, stays darker.
+  private func whiteInk(_ bar: XCUIElement) -> CGFloat {
+    guard let cg = bar.screenshot().image.cgImage else { return -1 }
+    let w = cg.width, h = cg.height
+    var px = [UInt8](repeating: 0, count: w * h * 4)
+    let ctx = CGContext(data: &px, width: w, height: h, bitsPerComponent: 8, bytesPerRow: w * 4, space: CGColorSpaceCreateDeviceRGB(),
+                        bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)
+    ctx?.draw(cg, in: CGRect(x: 0, y: 0, width: w, height: h))
+    var white = 0, all = 0
+    for y in 0..<h {
+      for x in (w / 3)..<(2 * w / 3) {
+        let i = (y * w + x) * 4
+        all += 1
+        if px[i] > 235, px[i + 1] > 235, px[i + 2] > 235 { white += 1 }
+      }
+    }
+    return all > 0 ? CGFloat(white) / CGFloat(all) : -1
   }
 
   private func launch(_ more: String...) -> XCUIApplication {
