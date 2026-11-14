@@ -343,8 +343,9 @@ if (cmd === 'photo-privacy') {
   const r = await dropFacePhotos(join(ROOT, 'content'), join(ROOT, 'engine-state/_photo-faces.json'), {
     get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
     detect: visionFaces,
-  }, join(ROOT, 'engine-state/_photo-rejected.json'))
-  console.log(`faces: ${r.checked} checked, ${r.removed.length} removed, ${r.failed.length} failed`)
+  }, join(ROOT, 'engine-state/_photo-rejected.json'), ROOT)
+  console.log(`faces: ${r.checked} checked, ${r.removed.length} removed, ${r.held.length} held for a second look (a page's last photo), ${r.failed.length} failed`)
+  for (const x of r.held) console.log(`held for a second look: ${x}`)
   for (const x of r.removed) console.log(`removed: ${x}`)
   for (const f of r.failed) console.log(`failed: ${f}`)
 } else if (cmd === 'calibrate-marks') {
@@ -395,7 +396,7 @@ if (cmd === 'photo-privacy') {
   }, { limit: values.limit ? Number(values.limit) : 40, ...(Number(values.fill) > 0 ? { fill: Number(values.fill) } : {}), parallel: values.parallel ? Number(values.parallel) : 1, ...(values.only ? { only: values.only } : {}), ...(recheck ? { recheck: new Set(recheck.keys()) } : {}), ...(values['empty-cap'] ? { emptyCap: Number(values['empty-cap']) } : {}) })
   if (r) {
     console.log(`${cmd}: ${r.sheets} sheets, ${r.judged} photos judged (${r.photos} verdicts in all), ${r.removed.length} removed, ${r.rejected} newly rejected, ${r.unsure} can't tell, ${r.failed.length} failed; heads: ${r.heads.moved.length} moved, ${r.heads.emptied.length} removed (page left with no photo)${r.heads.held.length ? `, ${r.heads.held.length} held` : ''}${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
-    if (r.heads.held.length) console.log(`${cmd}: ${r.heads.held.length} pages would be left with no photo, ${EMPTY_CAP ? `more than a run may with nobody looking (${EMPTY_CAP})` : 'which no run may with nobody looking'}: none taken off. Look at them, then run: pnpm engine ${cmd} --only <their ids> --empty-cap ${r.heads.held.length}`)
+    if (r.heads.held.length) console.log(`${cmd}: ${r.heads.held.length} pages would be left with no photo, ${EMPTY_CAP ? `more than a run may with nobody looking (${EMPTY_CAP})` : 'which no run may with nobody looking'}: none taken off. Their photos wait for a second look (engine-state/_photo-second-look.json, last-photo.ts): a pull request writes each one's answer.`)
     for (const x of r.heads.held) console.log(`held: ${x}`)
     for (const x of r.heads.emptied) console.log(`head removed: ${x}`)
     for (const x of r.heads.moved) console.log(`head moved: ${x}`)
@@ -413,8 +414,9 @@ if (cmd === 'photo-privacy') {
     get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
     look: (file, prompt) => claudeVision({ system: 'You look at pictures for an aquarium handbook. Reply only with JSON.', prompt, schema: DEAD_SCREEN_SCHEMA, file, model: process.env.DEAD_SCREEN_MODEL ?? 'sonnet' }),
   }, { limit: values.limit ? Number(values.limit) : 48, parallel: values.parallel ? Number(values.parallel) : 1, backCheck: !!values['back-check'] })
-  console.log(`dead-screen: ${r.sheets} sheets, ${r.judged} judged, ${r.dead.length} dead, ${r.left} left for later, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  console.log(`dead-screen: ${r.sheets} sheets, ${r.judged} judged, ${r.dead.length} dead, ${r.held.length} held for a second look (a page's last photo), ${r.left} left for later, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of r.dead) console.log(`dead: ${x}`)
+  for (const x of r.held) console.log(`held for a second look: ${x}`)
   for (const x of r.failed.slice(0, 30)) console.log(`failed: ${x}`)
 } else if (cmd === 'guide-photos') {
   // No people or logos in guides' and equipment guides' photos and video guides' stills (guide-photos.ts): --limit model
@@ -429,6 +431,7 @@ if (cmd === 'photo-privacy') {
   console.log(`guide-photos: ${r.sheets} sheets, ${r.judged} judged, ${r.cleared} cleared to show, ${r.off.length} off, ${r.removed.length} removed, ${r.left} left for later, ${r.waiting} stills waiting for their frame, ${r.subject.length} off their guide's subject, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of r.subject) console.log(`subject: ${x}`)
   for (const x of r.off) console.log(`off: ${x}`)
+  for (const x of r.held) console.log(`held for a second look (kept off the list: a page's last photo): ${x}`)
   for (const x of r.removed) console.log(`removed: ${x}`)
   for (const x of r.kept) console.log(`kept (a required hero with nothing to replace it): ${x}`)
   for (const x of r.failed.slice(0, 30)) console.log(`failed: ${x}`)
@@ -440,8 +443,9 @@ if (cmd === 'photo-privacy') {
     read: files => visionText(files, parallel),
     look: (file, prompt) => claudeVision({ system: 'You spot watermarks on photos. Reply only with JSON.', prompt, schema: WATERMARK_SCHEMA, file, model: process.env.WATERMARK_MODEL ?? 'opus' }),
   }, { limit: values.limit ? Number(values.limit) : 20, parallel })
-  console.log(`watermarks: ${r.read} read, ${r.hits} to judge, ${r.judged} judged, ${r.confirmed.length} watermarked, ${r.removed.length} removed, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  console.log(`watermarks: ${r.read} read, ${r.hits} to judge, ${r.judged} judged, ${r.confirmed.length} watermarked, ${r.removed.length} removed, ${r.held.length} held for a second look (a page's last photo), ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of r.removed) console.log(`removed: ${x}`)
+  for (const x of r.held) console.log(`held for a second look: ${x}`)
   for (const x of r.kept) console.log(`kept (a required hero with nothing to replace it): ${x}`)
   for (const x of r.failed.slice(0, 30)) console.log(`failed: ${x}`)
 } else if (cmd === 'photos') {
@@ -569,6 +573,7 @@ if (cmd === 'photo-privacy') {
   for (const x of [...r.dealer.map(x => `dealer notice off: ${x}`), ...r.dealerOnly.map(x => `dealer notice, its heading's only text (for the chief of staff): ${x}`)]) console.log(x)
   if (r.refused.length || r.refusedHeld.length || r.refusedPicked.length) console.log(`sweep: ${r.refused.length} refused photos kept off; ${r.refusedHeld.length} pages held; ${r.refusedPicked.length} picked heads the check calls "none" (photo-check.ts refusedOn)`)
   for (const x of [...r.refusedHeld.map(x => `refused held: ${x}`), ...r.refusedPicked.map(x => `picked head the check calls none: ${x}`), ...r.refused.map(x => `refused off: ${x}`)]) console.log(x)
+  for (const x of [...r.secondLook.map(x => `held for a second look: ${x}`), ...r.agreed.map(x => `second look agreed, now never-again: ${x}`)]) console.log(x)
   if (r.held.length) console.log(`sweep: ${r.held.length} photos would leave every page for good, more than a run may with nobody looking: none taken off. Look at them, then run: pnpm engine sweep --titles 0 --photo-cap ${r.held.length}`)
   for (const x of [...r.held.map(x => `photo held: ${x}`), ...r.unwell.map(x => `photo of an unwell fish kept: ${x}`), ...Object.entries(r.text).flatMap(([k, v]) => v.map(p => `${k}: ${p}`)), ...r.photos.map(x => `photo off: ${x}`), ...r.again.map(x => `never-again off: ${x}`), ...r.videos.map(x => `video off: ${x}`), ...r.card.map(x => `card: ${x}`), ...r.summaries.map(x => `summary again: ${x}`), ...r.tanks.map(x => `tank search: ${x}`), ...r.shop.map(x => `shop text off: ${x}`), ...r.varieties.map(x => `variety page off: ${x}`), ...r.titles.map(x => `title: ${x}`), ...r.schools.map(x => `school size: ${x}`), ...r.names.map(x => `name off: ${x}`), ...r.mentions.map(x => `mention off: ${x}`), ...r.links.map(x => `link: ${x}`), ...r.unmatched.map(x => `not linked: ${x}`), ...r.unplaced.map(x => `photo under no heading: ${x}`), ...r.folds.map(x => `page folded: ${x}`)]) console.log(x)
   // After the sweep's own fixes, so a fix a reader sees dates its page (page-dates.ts).

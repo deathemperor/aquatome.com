@@ -33,6 +33,7 @@ import { breedsNamed } from './topics'
 import { schoolFromSeriouslyFish } from './traits'
 import { readVideoRejected } from './videos'
 import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
+import { holdForSecondLook, listAgreed, looks, readSecondLook } from './last-photo'
 
 /**
  * The content rules' safe fixes (content-rules.ts, RATCHETED) on every page, each cycle, before the build, as
@@ -123,6 +124,10 @@ export type SweepReport = {
   again: string[]
   /** Photos the caption rule would have taken off every page, left where they are: more than the cap in one run (`photoCap`), `url (why)`. */
   held: string[]
+  /** A page's last photo the refused-photo rule would have taken, left for a second look (last-photo.ts), `url: pages (why)`. */
+  secondLook: string[]
+  /** Photos a second look agreed on, put on the never-again list in this pass (last-photo.ts). */
+  agreed: string[]
   /** A page's only photo that its source's caption calls unwell: left on the page, off every card, `kind/id: url (word; …)`. */
   unwell: string[]
   /** Heads a person picked (engine-state/_photo-head-picks.json) put first, `kind/id: old -> new`, picks not found on the page, or picks that lapsed with their person's yes. */
@@ -399,7 +404,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   const cap = o.photoCap ?? PHOTO_CAP
   if (!Number.isInteger(cap) || cap < 0) throw new Error(`sweep: the photo cap is a whole number, 0 or more, not ${cap}`)
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], unwell: [], heads: [], noAnimal: [], refused: [], refusedHeld: [], refusedPicked: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], secondLook: [], agreed: [], unwell: [], heads: [], noAnimal: [], refused: [], refusedHeld: [], refusedPicked: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
@@ -801,6 +806,8 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // person took off while a run was under way came back in its album (three on 2026-11-11). The cycle sweeps after it
   // catches up with main, after a clash at its push and after a clean pull there that brought main's commits in
   // (cycle-checks.sh swept_pull).
+  // What a second look agreed on goes on the list first (last-photo.ts), so it leaves every page in this pass.
+  report.agreed.push(...await listAgreed(root))
   const rejected = JSON.parse(await readFile(join(root, 'engine-state', '_photo-rejected.json'), 'utf8').catch(() => '{}')) as Record<string, string>
   const kept = keptOwnMark(rejected, JSON.parse(await readFile(join(root, 'engine-state', '_photo-watermarks.json'), 'utf8').catch(() => '{}')) as Record<string, WatermarkEntry>)
   const listed = (url: string) => url in rejected && !kept(url)
@@ -833,16 +840,24 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     const why = refusedOn(subjects, id => kindOf.get(id), (id, url) => pickedOn.has(`${id}\n${url}`), new Set(standing.map(([, url]) => url)))
     for (const [ref, url] of standing) if (Object.values(subjects[url] ?? {}).some(v => !v.guide && v.ok === 'none')) report.refusedPicked.push(`${ref}: ${url}`)
     type Doc = { photos?: { url: string; generated?: boolean }[] }
+    // A photo held for a second look, or one it cleared, stays (last-photo.ts).
+    const sl = looks(await readSecondLook(root))
     const plan: { file: string; id: string; raw: string; data: Doc; off: Map<string, string> }[] = []
     for (const [id, kind] of [...kindOf].sort((a, b) => a[0].localeCompare(b[0]))) for (const file of [join(content, kind, id, 'entity.json'), join(content, 'gallery', `${id}.json`)]) {
       const raw = await readFile(file, 'utf8').catch(() => null)
       if (!raw) continue
       const data = JSON.parse(raw) as Doc
-      const off = new Map((data.photos ?? []).filter(p => !p.generated).flatMap(p => { const w = why(id, p.url); return w ? [[p.url, w] as const] : [] }))
+      const off = new Map((data.photos ?? []).filter(p => !p.generated).flatMap(p => { const w = why(id, p.url); return w && sl.open(p.url) ? [[p.url, w] as const] : [] }))
       if (off.size) plan.push({ file, id, raw, data, off })
     }
     const own = (x: (typeof plan)[number]) => (x.data.photos ?? []).filter(p => !p.generated)
     const emptying = plan.filter(x => x.file.endsWith('entity.json') && own(x).length && own(x).every(p => x.off.has(p.url)))
+    // A page with none of its own whose album would go whole is left with nothing too (the chief of staff, 2026-11-14).
+    for (const x of plan) {
+      if (!x.file.endsWith(`gallery/${x.id}.json`) || !own(x).length || !own(x).every(p => x.off.has(p.url))) continue
+      const page = JSON.parse(await readFile(join(content, kindOf.get(x.id)!, x.id, 'entity.json'), 'utf8').catch(() => '{}')) as Doc
+      if (!(page.photos ?? []).some(p => !p.generated)) emptying.push(x)
+    }
     // The pages the check's last run held (photo-check.ts writes them, page → true), and this run's own past the cap. A
     // held file the sweep can't read holds every page: nothing comes off until a run of the check writes it again.
     const heldRaw = await readFile(join(root, 'engine-state', '_photo-held.json'), 'utf8').then(s => JSON.parse(s) as unknown, (e: NodeJS.ErrnoException) => (e.code === 'ENOENT' ? {} : undefined)).catch(() => undefined)
@@ -852,6 +867,15 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     const held = new Set([...byCheck, ...overCap])
     const heldWhy = (id: string) => (!readable ? 'engine-state/_photo-held.json unreadable: nothing taken off' : byCheck.has(id) ? 'held by the photo check' : EMPTY_CAP ? `more than ${EMPTY_CAP} pages left with no photo` : 'would be left with no photo: a person looks first')
     for (const id of [...new Set(plan.map(x => x.id))].filter(id => held.has(id))) report.refusedHeld.push(`${kindOf.get(id)}/${id} (${heldWhy(id)})`)
+    // The pages this rule's own count holds go on the second look (the check's own holds it put there itself).
+    const holding = new Map<string, { why: string; pages: string[] }>()
+    for (const x of plan) if (overCap.has(x.id) && !byCheck.has(x.id)) for (const [url, w] of x.off) {
+      const h = holding.get(url) ?? { why: `subject: ${w}`, pages: [] }
+      h.pages.push(`${kindOf.get(x.id)}/${x.id}`)
+      holding.set(url, h)
+    }
+    for (const [url, { why, pages }] of holding) report.secondLook.push(`${url}: ${pages.join(', ')} (${why})`)
+    await holdForSecondLook(root, holding, 'the sweep (refused photos)')
     for (const x of plan) {
       if (held.has(x.id)) continue
       x.data.photos = x.data.photos!.filter(p => p.generated || !x.off.has(p.url))
