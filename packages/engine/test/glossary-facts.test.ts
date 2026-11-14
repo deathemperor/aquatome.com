@@ -24,9 +24,23 @@ function model(reads: Record<string, string>[], one: string[] = [], reword: Reco
   return { llm, calls }
 }
 
-test('an entry is split into its sentences: the definition\'s, then each paragraph\'s and list item\'s, as plain text', () => {
-  expect(sentences(entry).map(s => s.text)).toEqual(['pH đo độ chua của nước.', 'Nó đi từ 0 tới 14.', 'Lá bàng làm pH xuống.', 'Nên thả lá từ từ rồi đo pH.', 'Làm pH lên: san hô.'])
-  expect(sentences(entry)[3]!.block).toBe('Lá bàng làm pH xuống. Nên thả lá từ từ rồi đo pH.')
+test('an entry is split into its sentences: the definition\'s, then each heading\'s, paragraph\'s and list item\'s, as plain text', () => {
+  expect(sentences(entry).map(s => s.text)).toEqual(['pH đo độ chua của nước.', 'Nó đi từ 0 tới 14.', 'Trong bể', 'Lá bàng làm pH xuống.', 'Nên thả lá từ từ rồi đo pH.', 'Làm pH lên: san hô.'])
+  expect(sentences(entry)[4]!).toEqual({ text: 'Nên thả lá từ từ rồi đo pH.', block: 'Lá bàng làm pH xuống. Nên thả lá từ từ rồi đo pH.', heading: 'Trong bể' })
+})
+
+// Codex, 14 Nov 2026: a claim in a table cell, which the saved page keeps, was never read.
+test('every piece of the body\'s text is read, wherever it stands: a table\'s cells, a div, text outside any tag, any heading', () => {
+  const e = {
+    definition: 'Muối là NaCl.',
+    body: 'Chữ ngoài thẻ.<h2>Bảng</h2><table><tr><th>Loại</th><td>Muối loại bỏ mọi độc tố.</td></tr></table><div>Một khối <em>khác</em>.</div><p>Dòng một<br>Dòng hai.</p><h4>Cuối</h4>Hết.',
+  }
+  const list = sentences(e)
+  expect(list.map(s => s.text)).toEqual(['Muối là NaCl.', 'Chữ ngoài thẻ.', 'Bảng', 'Loại', 'Muối loại bỏ mọi độc tố.', 'Một khối khác.', 'Dòng một', 'Dòng hai.', 'Cuối', 'Hết.'])
+  expect(list[4]!.heading).toBe('Bảng')
+  // Nothing the page would show is left out: every letter of the text, in order.
+  const letters = (t: string) => t.replace(/<[^>]+>/g, '').replace(/\s+/g, '')
+  expect(list.map(s => s.text).join('').replace(/\s+/g, '')).toBe(letters(e.definition + e.body))
 })
 
 test('two reads of three that say the facts don\'t carry a sentence stop it; one doesn\'t; loose is advice', async () => {
@@ -35,12 +49,12 @@ test('two reads of three that say the facts don\'t carry a sentence stop it; one
   const r = await checkSentences(llm, facts, entry)
   // The sentence one read stopped is read three times more, alone, under its heading; none of those stops it.
   expect(calls).toHaveLength(6)
-  expect(calls[0]).toContain('SENTENCES:\n1. pH đo độ chua của nước.\n2. Nó đi từ 0 tới 14.\n[Trong bể]\n3. Lá bàng làm pH xuống.')
+  expect(calls[0]).toContain('SENTENCES:\n1. pH đo độ chua của nước.\n2. Nó đi từ 0 tới 14.\n[Trong bể]\n3. Trong bể\n4. Lá bàng làm pH xuống.')
   expect(calls[3]).toContain('HEADING:\n(the definition)\n\nPARAGRAPH:\npH đo độ chua của nước. Nó đi từ 0 tới 14.\n\nSENTENCE:\nNó đi từ 0 tới 14.')
   expect(r.stops.map(s => s.text)).toEqual([advice])
   expect(stopNote(r.stops[0]!)).toBe('"Nên thả lá từ từ rồi đo pH.": the facts don\'t carry it (unsupported, unsupported, supported): not in the facts / advice not given')
   expect(r.loose.map(s => s.text)).toEqual(['Lá bàng làm pH xuống.'])
-  expect(r.score).toBe(0.8)
+  expect(r.score).toBe(0.83)
 })
 
 test('a sentence one read stops is read three times more alone, and stops when two of those do, whatever the other two reads said', async () => {
@@ -59,9 +73,9 @@ test('a sentence one read stops is read three times more alone, and stops when t
 })
 
 test('a read that leaves a sentence out, or gives a verdict not on the list, neither stops it nor clears it', async () => {
-  const llm: Llm = async () => ({ verdicts: [{ n: 4, verdict: 'unsupported' }, { n: 5, verdict: 'wrong' }] }) as never
+  const llm: Llm = async () => ({ verdicts: [{ n: 5, verdict: 'unsupported' }, { n: 6, verdict: 'wrong' }] }) as never
   const r = await checkSentences(llm, facts, entry)
-  expect(r).toMatchObject({ score: 0.8, loose: [] })
+  expect(r).toMatchObject({ score: 0.83, loose: [] })
   expect(r.stops.map(s => s.text)).toEqual(['Nên thả lá từ từ rồi đo pH.'])
   const none: Llm = async () => ({}) as never
   expect(await checkSentences(none, facts, entry)).toEqual({ score: 1, stops: [], loose: [] })
@@ -90,7 +104,7 @@ test('the middle path rewords loose sentences once, no hedge, then reads the who
   expect(calls[0]).toContain('1. CÂU: Lá bàng làm pH xuống.\n   ĐOẠN: Lá bàng làm pH xuống. Nên thả lá từ từ rồi đo pH.\n   LÝ DO: stronger than the facts')
   // The whole entry as it would be saved, read three times as the first check read it.
   expect(calls).toHaveLength(4)
-  expect(calls[1]).toContain(`SENTENCES:\n1. ${added}\n2. Nó đi từ 0 tới 14.\n[Trong bể]\n3. Lá bàng làm pH xuống chút ít.\n4. Nên thả lá từ từ rồi đo pH.\n5. Làm pH lên: san hô.`)
+  expect(calls[1]).toContain(`SENTENCES:\n1. ${added}\n2. Nó đi từ 0 tới 14.\n[Trong bể]\n3. Trong bể\n4. Lá bàng làm pH xuống chút ít.\n5. Nên thả lá từ từ rồi đo pH.\n6. Làm pH lên: san hô.`)
   expect(r.entry.body).toBe('<h3>Trong bể</h3><p>Lá bàng làm pH xuống chút ít. Nên thả lá từ từ rồi đo pH.</p><ul><li><strong>Làm pH lên:</strong> san hô.</li></ul>')
   expect(r.entry.definition).toBe(entry.definition)
   expect(r.stops).toEqual([])
@@ -113,4 +127,22 @@ test('a reworded sentence in the body is written back escaped, and one still loo
   expect(r.log).toEqual(['Loose, reworded and still loose: "Đá & san hô làm pH lên." → "Đá & vỏ ốc làm pH lên <nhẹ>." (loose, loose, supported)'])
   const two = model([], [], { 'Đá & san hô làm pH lên.': 'Đá làm pH lên. San hô cũng vậy.' })
   expect(await rewordLoose(two.llm, 'opus', facts, e, loose)).toEqual({ entry: e, log: ['Loose, not reworded: "Đá & san hô làm pH lên."'], stops: [] })
+})
+
+// Codex, 14 Nov 2026: a rewording word for word the same as the definition took the definition's stop away with it.
+test('a sentence is known by where it stands: a rewording that matches another sentence, runs into the next, or a sentence written twice, isn\'t placed', async () => {
+  const e = { definition: 'Nó chìm ngay.', body: '<p>Nó chìm nhanh. Nó nổi lại.</p><p>Gỗ mềm.</p><p>Gỗ mềm.</p>' }
+  const flag = (text: string, block: string) => ({ text, block, verdicts: ['loose' as const, 'loose' as const], why: ['x'] })
+  const same = model([], [], { 'Nó chìm nhanh.': 'Nó chìm ngay.' })
+  expect(await rewordLoose(same.llm, 'opus', facts, e, [flag('Nó chìm nhanh.', 'Nó chìm nhanh. Nó nổi lại.')])).toEqual({ entry: e, log: ['Loose, not reworded: "Nó chìm nhanh."'], stops: [] })
+  expect(same.calls).toHaveLength(1)
+  const runOn = model([], [], { 'Nó chìm nhanh.': 'Nó chìm khá nhanh' })
+  expect((await rewordLoose(runOn.llm, 'opus', facts, e, [flag('Nó chìm nhanh.', 'Nó chìm nhanh. Nó nổi lại.')])).log).toEqual(['Loose, not reworded: "Nó chìm nhanh."'])
+  const twice = model([], [], { 'Gỗ mềm.': 'Gỗ khá mềm.' })
+  expect(await rewordLoose(twice.llm, 'opus', facts, e, [flag('Gỗ mềm.', 'Gỗ mềm.')])).toEqual({ entry: e, log: ['Loose, left as written (not placeable): "Gỗ mềm."'], stops: [] })
+  // Two rewordings that land on the same words: the second isn't placed, so the final read judges each sentence once.
+  const both = model([{}, {}, {}], [], { 'Nó chìm nhanh.': 'Nó chìm khá nhanh.', 'Nó nổi lại.': 'Nó chìm khá nhanh.' })
+  const r = await rewordLoose(both.llm, 'opus', facts, e, [flag('Nó chìm nhanh.', 'Nó chìm nhanh. Nó nổi lại.'), flag('Nó nổi lại.', 'Nó chìm nhanh. Nó nổi lại.')])
+  expect(r.entry.body).toBe('<p>Nó chìm khá nhanh. Nó nổi lại.</p><p>Gỗ mềm.</p><p>Gỗ mềm.</p>')
+  expect(r.log).toEqual(['Loose, not reworded: "Nó nổi lại."', 'Loose, reworded: "Nó chìm nhanh." → "Nó chìm khá nhanh." (supported)'])
 })
