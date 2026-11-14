@@ -265,7 +265,7 @@ test('a mend takes out only a sentence a finding names: one that drops or reword
   expect(await deps(stop.root, kept(`<p>Bể 10 gallon là đủ.</p><p>Châm vi sinh, liều theo hướng dẫn trên bao bì.</p><p>${LONG}</p>`)).mend(page(), [gallons, { ...caps, quote: 'Bể này dùng khoảng 4 nắp.' }])).toEqual({ refused: 'a sentence no finding names was changed or left out: "cá ăn vào buổi sáng."' })
   expect(await readFile(stop.file, 'utf8')).toBe(stop.was)
   // A stop with a closing quote mark, or "…", ends the quote's sentence too (Grok's read).
-  for (const [line, quote] of [['Ông nói "Mua lọc ở Petco." Cá ăn vào buổi sáng.', 'Mua lọc ở Petco.'], ['Mua lọc ở Petco… Cá ăn vào buổi sáng.', 'Mua lọc ở Petco…']]) {
+  for (const [line, quote] of [['Ông nói "Mua lọc ở Petco." Cá ăn vào buổi sáng.', 'Mua lọc ở Petco.'], ['Mua lọc ở Petco… Cá ăn vào buổi sáng.', 'Mua lọc ở Petco…']] as const) {
     const q = await setup({ body: `<p>${line}</p><p>${LONG}</p>`, faq: [] })
     expect(await deps(q.root, kept(`<p>Lọc mua ở tiệm cá cảnh.</p><p>${LONG}</p>`)).mend(page(), [{ ...shop, quote }]), line).toEqual({ refused: 'a sentence no finding names was changed or left out: "cá ăn vào buổi sáng."' })
   }
