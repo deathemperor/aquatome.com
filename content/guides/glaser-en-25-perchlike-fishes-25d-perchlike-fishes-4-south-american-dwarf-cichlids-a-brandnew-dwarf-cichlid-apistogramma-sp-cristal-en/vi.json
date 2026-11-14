@@ -1,6 +1,6 @@
 {
-  "slug": "mot-loai-ca-ro-phi-lun-hoan-toan-moi-apistogramma-sp-cristal",
-  "name": "Một loài cá rô phi lùn hoàn toàn mới: Apistogramma sp. Cristal",
+  "slug": "mot-loai-ca-cichlid-lun-hoan-toan-moi-apistogramma-sp",
+  "name": "Một loài cá cichlid lùn hoàn toàn mới: Apistogramma sp. Cristal",
   "altNames": [],
   "sections": {},
   "body": "<p>Gần đây có một loài Apistogramma hoàn toàn mới từ Peru về. Nhà xuất khẩu đặt tên cho nó là “Apistogramma Cristal”, nhưng cái tên này không có giá trị khoa học gì cả. Cá về với số lượng rất ít.</p>",
@@ -16,5 +16,12 @@
       "source"
     ],
     "at": "2026-11-10"
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "mot-loai-ca-ro-phi-lun-hoan-toan-moi-apistogramma-sp-cristal",
+      "name": ""
+    }
+  ]
 }
