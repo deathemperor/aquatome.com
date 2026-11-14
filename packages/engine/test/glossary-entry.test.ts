@@ -597,9 +597,10 @@ test('a saved entry revised: a rewrite that drops what no note asks for is not s
 })
 
 test('a saved entry revised: an unmet line of the term\'s notes outranks a length still under its stop', async () => {
-  // pH's notes file sets 600 words, a stop past 690: a rewrite that meets the notes line at 640 words is saved.
+  // pH's notes file sets its own length: a rewrite that meets the notes line 40 words past it, still under its stop, is saved.
+  const own = (JSON.parse(await readFile(new URL('../src/glossary-asks.json', import.meta.url), 'utf8')) as Record<string, { length: { words: number } }>).ph!.length.words
   const root = await savedWith(soak, 'ph', 'care')
-  const long = `${soakFixed}<p>${'nước '.repeat(640)}</p>`
+  const long = `${soakFixed}<p>${'nước '.repeat(own + 40)}</p>`
   const writes: string[] = []
   const r = await revise(root, revising(writes, [long], ['Rule 12: "Ngâm lũa mới 1–2 tuần." should say to change the water'], 'Ngâm lũa mới 1–2 tuần.'), 'ph', 'care')
   expect(r).toMatchObject({ id: 'ph', score: 1 })

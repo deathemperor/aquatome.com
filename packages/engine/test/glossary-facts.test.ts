@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { checkSentences, rewordLoose, sentences, stopNote } from '../src/glossary-facts'
+import { checkSentences, droppedInRewrite, rewordLoose, sentences, stopNote } from '../src/glossary-facts'
 
 // The glossary's fact check, sentence by sentence (the chief of staff, 14 Nov 2026): the old one-score check judged claims of
 // its own choosing each read, and scored one unchanged draft 0.95 and then 0.72.
@@ -186,7 +186,7 @@ test('a rewording a house rules note quotes goes back to its old wording; one no
   expect(read).toEqual(['<p>Dùng Seachem Prime. Thay khoảng 30% nước mỗi tuần.</p>'])
   expect(r.entry.body).toBe('<p>Dùng thuốc khử clo. Thay khoảng 30% nước mỗi tuần.</p>')
   expect(r.log).toEqual([
-    'Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: "Dùng thuốc khử clo." (not "Dùng Seachem Prime.": Rule 8: "Seachem Prime" is a brand where "thuốc khử clo" is enough.)',
+    'Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: "Dùng thuốc khử clo." (not "Dùng Seachem Prime.": Rule 8: "Seachem Prime" is a brand where "thuốc khử clo" is enough. / it drops the advice "Dùng thuốc khử clo")',
     'Loose, reworded: "Thay nước mỗi tuần." → "Thay khoảng 30% nước mỗi tuần." (supported)',
   ])
   expect(r.score).toBe(1)
@@ -285,7 +285,7 @@ test('a rewording that drops a caution, a death or a must, keeps the old wording
   // Grok's read: the same words in a phrase that is no caution.
   expect((await reworded('Màu sắc độc đáo.', 'Màu sắc lạ.')).entry.body).toBe('<p>Màu sắc lạ.</p>')
   expect((await reworded('Có phải thay nước không?', 'Thay nước định kỳ.')).entry.body).toBe('<p>Thay nước định kỳ.</p>')
-  expect((await reworded('Đây không phải là muối.', 'Đây là loại khác.')).entry.body).toBe('<p>Đây là loại khác.</p>')
+  expect((await reworded('Đây không phải là muối.', 'Đây chẳng là muối.')).entry.body).toBe('<p>Đây chẳng là muối.</p>')
 })
 
 // The chief of staff, 15 Nov 2026: a dropped piece of advice counts. Chu trình nitơ's seeding sentence lost its established
@@ -300,6 +300,35 @@ test('a rewording that drops a piece of advice, an option or a step the old word
   // A rewording that keeps each part, in its own words, stays.
   expect((await reworded('Bể càng lâu năm, pH càng tụt dần do chất hữu cơ tích lại.', 'Khi bể lâu năm, pH thường tụt dần do chất hữu cơ tích lại.')).entry.body).toBe('<p>Khi bể lâu năm, pH thường tụt dần do chất hữu cơ tích lại.</p>')
   expect((await reworded('Clo trong nước sẽ giết vi khuẩn có lợi.', 'Nước máy có thể chứa clo, sẽ giết vi khuẩn có lợi.')).entry.body).toBe('<p>Nước máy có thể chứa clo, sẽ giết vi khuẩn có lợi.</p>')
+})
+
+// Grok's read of 15 Nov 2026: four ways a rewrite on notes still lost a read sentence with no note to say so.
+test('a rewrite\'s drop check: a part with one word left, a figure by its number, a note on a phrase only, and a definition cut while its sentence stands in the body', () => {
+  const said = { facts: [{ fact: 'pH 4.0 is ten times more acidic than pH 5.0; cardinals live below pH 5.5' }, { fact: 'Change 20–30% weekly; wait 4 weeks' }] }
+  const drop = (before: { definition: string; body: string }, after: { definition: string; body: string }, notes: string[] = []) => droppedInRewrite(before, after, said, notes)
+  const note = (t: string, lost: string) => `The rewrite dropped from "${t}" ${lost}, and no note asks to change that sentence: keep it word for word.`
+  const one = 'Một câu.'
+  // A part kept only by "nước", which the merged sentence says for another reason.
+  expect(drop({ definition: one, body: '<p>Thay 20–30% nước mỗi tuần, nước đã khử clo.</p><p>Ngâm lũa mới 1–2 tuần.</p>' }, { definition: one, body: '<p>Ngâm lũa mới 1–2 tuần, thay 20–30% nước.</p>' }))
+    .toEqual([note('Thay 20–30% nước mỗi tuần, nước đã khử clo.', 'the advice "nước đã khử clo"')])
+  // A merge that keeps every word stays.
+  expect(drop({ definition: one, body: '<p>Ngâm lũa mới 1–2 tuần.</p><p>Thay nước mỗi ngày.</p>' }, { definition: one, body: '<p>Ngâm lũa mới 1–2 tuần và thay nước mỗi ngày.</p>' })).toEqual([])
+  // 4,0 cut while "4 tuần" stands: the 4 left over is the sentence's 4,0.
+  expect(drop({ definition: one, body: '<p>pH 4,0 là rất chua.</p><p>Đợi 4 tuần.</p>' }, { definition: one, body: '<p>pH rất chua.</p><p>Đợi 4 tuần.</p>' }))
+    .toEqual([note('pH 4,0 là rất chua.', 'the figure 4,0')])
+  // A note on "10 lần" frees those words, not the worked example's figures; one quoting the whole sentence frees it.
+  const log = 'Mỗi nấc cách nhau 10 lần, tức là pH 4,0 chua gấp 10 lần pH 5,0.'
+  const cut = drop({ definition: one, body: `<p>${log}</p>` }, { definition: one, body: '<p>Thang đo.</p>' }, ['Rule 12: "10 lần" is unclear'])
+  expect(cut).toHaveLength(1)
+  expect(cut[0]).toContain('the figure 4,0, the figure 5,0')
+  expect(drop({ definition: one, body: `<p>${log}</p>` }, { definition: one, body: '<p>Thang đo.</p>' }, [`Rule 12: "${log}" is unclear`])).toEqual([])
+  // A note on "neon" lets the name change, not the rest of the sentence go.
+  expect(drop({ definition: one, body: '<p>Cá neon vua sống dưới pH 5,5.</p>' }, { definition: one, body: '<p>Có loài chịu nước chua.</p>' }, ['Rule 6: "neon" is not the page name'])[0]).toContain('the figure 5,5')
+  // A definition cut to two words, its old sentence still in the body.
+  const lead = 'Giữ pH ổn định quan trọng hơn con số chính xác.'
+  expect(drop({ definition: lead, body: `<p>${lead}</p>` }, { definition: 'Độ chua.', body: `<p>${lead}</p>` })).toHaveLength(1)
+  // A sentence moved from the body to the definition is kept.
+  expect(drop({ definition: 'Lũa là gỗ khô.', body: '<p>Lũa làm nước ngả vàng.</p>' }, { definition: 'Lũa là gỗ khô. Lũa làm nước ngả vàng.', body: '' })).toEqual([])
 })
 
 test('a reworded sentence in the body is written back escaped, and one still loose stays, logged; a rewording of two sentences isn\'t placed', async () => {

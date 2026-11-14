@@ -245,13 +245,17 @@ const wordsOf = (text: string) => (text.toLowerCase().match(/\p{L}+/gu) ?? []).f
 /**
  * A sentence's pieces of advice (the chief of staff, 15 Nov 2026: a dropped piece of advice counts): its parts between
  * commas, semicolons and colons, and either side of "hoặc", "rồi" and "và", each an option, a step or a reason. A part is
- * left out when not one of its own words stands in the other text: chu trình nitơ's seeding sentence lost its water, floss
- * and media from an established tank that way ("…, hoặc lấy nước, bông lọc từ một bể đã ổn định; riêng vật liệu lọc thì
- * chỉ lấy từ bể đã ổn định…" → "Châm thêm men vi sinh nitrat hóa của hãng uy tín.").
+ * left out when fewer than half of its own words stand in the other text: chu trình nitơ's seeding sentence lost its water,
+ * floss and media from an established tank that way ("…, hoặc lấy nước, bông lọc từ một bể đã ổn định; riêng vật liệu lọc
+ * thì chỉ lấy từ bể đã ổn định…" → "Châm thêm men vi sinh nitrat hóa của hãng uy tín."). One word was too few (Grok's read,
+ * 15 Nov 2026): "nước" kept "nước đã khử clo" once a merged sentence said "thay 20–30% nước".
  */
 const adviceLost = (before: string, after: string) => {
   const kept = new Set(wordsOf(after))
-  return before.split(/[,;:]|\s(?:hoặc|rồi|và)\s/u).map(p => p.trim().replace(/[.!?…]+$/u, '')).filter(p => wordsOf(p).length && !wordsOf(p).some(w => kept.has(w)))
+  return before.split(/[,;:]|\s(?:hoặc|rồi|và)\s/u).map(p => p.trim().replace(/[.!?…]+$/u, '')).filter(p => {
+    const own = [...new Set(wordsOf(p))]
+    return own.length > 0 && own.filter(w => kept.has(w)).length * 2 < own.length
+  })
 }
 /** The facts' own words, not their source numbers. */
 const factText = (facts: object) => ((facts as { facts?: { fact: string }[] }).facts ?? []).map(f => f.fact).join('\n')
@@ -347,31 +351,44 @@ export const isDrop = (note: string) => note.startsWith(DROP)
 /**
  * What a rewrite on notes took out that no note asked for (the chief of staff, 15 Nov 2026: pH's trim for length dropped
  * "pH đổi đột ngột có thể làm cá chết." and the log scale's worked example, and nothing checked the rewrite). A sentence a
- * note quotes may change as the note asks, even to going (Lũa's 2,000 ppm). Any other sentence that is gone must leave
- * nothing behind: its figures the facts carry, its names and its cautions, counted over the whole entry so what moved is
- * kept (the 0,5 pace moved from the mistakes to the steps); and each piece of its advice, which must stand in the new or
- * changed sentences. One note for each such sentence, naming what it lost, for the writer to put it back word for word.
+ * note quotes whole, or within a passage it quotes, may change as the note asks, even to going (Lũa's 2,000 ppm). A note
+ * that quotes a phrase frees that phrase only (Grok's read, 15 Nov 2026: a note on "10 lần" freed the whole worked
+ * example, and one on "neon" every sentence naming the fish). Any other sentence that is gone from where it stood, the
+ * definition or the body (Grok: a definition cut to two words read as kept while its old sentence stood in the body too),
+ * must leave nothing behind: its figures the facts carry, its names and its cautions, counted over the whole entry so what
+ * moved is kept (the 0,5 pace moved from the mistakes to the steps); and each piece of its advice, which must stand in the
+ * new or moved sentences. One note for each such sentence, naming what it lost, for the writer to put it back word for word.
  */
 export function droppedInRewrite(before: { definition: string; body: string }, after: { definition: string; body: string }, facts: object, notes: string[], names: string[] = []): string[] {
-  const was = sentences(before).map(s => s.text), is = sentences(after).map(s => s.text)
-  const noted = (t: string) => notes.some(n => quotes(n).some(q => t.includes(q) || q.includes(t)))
+  const placed = (e: { definition: string; body: string }) => [
+    ...sentences({ definition: e.definition, body: '' }).map(s => `d ${s.text}`),
+    ...sentences({ definition: '', body: e.body }).map(s => `b ${s.text}`),
+  ]
+  const text = (k: string) => k.slice(2)
+  const was = placed(before), is = placed(after)
+  const quoted = notes.flatMap(quotes)
+  const whole = (t: string) => quoted.some(q => q.includes(t))
+  const unquoted = (t: string) => quoted.filter(q => t.includes(q)).reduce((s, q) => s.split(q).join(' '), t)
   const now = new Set(is), then = new Set(was)
-  const gone = was.filter(t => !now.has(t) && !noted(t))
+  const gone = was.filter(k => !now.has(k) && !whole(text(k))).map(k => ({ t: text(k), u: unquoted(text(k)) }))
   if (!gone.length) return []
   const said = factText(facts), carried = new Set(figures(said).flatMap(f => f.reads))
-  const rest = was.filter(t => !noted(t)).join(' '), all = is.join(' '), fresh = is.filter(t => !then.has(t)).join(' ')
+  const rest = was.filter(k => !whole(text(k))).map(k => unquoted(text(k))).join(' ')
+  const all = is.map(text).join(' '), fresh = is.filter(k => !then.has(k)).map(text).join(' ')
   const figs = lessOf(figures(rest, true), figures(all, true)).filter(f => f.reads.some(r => carried.has(r)))
   const named = less(namesIn(rest, names, said), namesIn(all, names, said))
   const warned = less(cautionWords(rest), cautionWords(all))
-  // Each thing lost goes to the first gone sentence that had it.
+  // Each thing lost goes to the first gone sentence that had it. A figure goes by its number, named as that sentence wrote
+  // it (Grok: "pH 4,0" cut, with "4 tuần" still standing, left a 4 no sentence wrote as "4" to take it).
   const take = <T>(pool: T[], has: (x: T) => boolean) => { const mine = pool.filter(has); pool.splice(0, pool.length, ...pool.filter(x => !mine.includes(x))); return mine }
-  return gone.flatMap(t => {
+  return gone.flatMap(({ t, u }) => {
+    const own = figures(u, true), as = (f: Figure) => own.find(g => g.reads.some(r => f.reads.includes(r)))
     const lost = [
-      ...take(figs, f => figures(t, true).some(g => g.text === f.text)).map(f => `the figure ${f.text}`),
-      ...take(named, n => namesIn(t, names, said).includes(n)).map(n => `the name ${n}`),
-      ...take(warned, w => cautionWords(t).includes(w)).map(w => `the caution "${w}"`),
-      ...adviceLost(t, fresh).map(p => `the advice "${p}"`),
+      ...take(figs, f => !!as(f)).map(f => `the figure ${as(f)!.text}`),
+      ...take(named, n => namesIn(u, names, said).includes(n)).map(n => `the name ${n}`),
+      ...take(warned, w => cautionWords(u).includes(w)).map(w => `the caution "${w}"`),
+      ...adviceLost(u, fresh).map(p => `the advice "${p}"`),
     ]
-    return lost.length ? [`${DROP}${t}" ${lost.join(', ')}, and no note asks to change that sentence: keep it word for word.`] : []
+    return lost.length ? [`${DROP}${t}" ${[...new Set(lost)].join(', ')}, and no note asks to change that sentence: keep it word for word.`] : []
   })
 }
