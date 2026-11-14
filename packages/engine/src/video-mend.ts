@@ -21,15 +21,23 @@ const REVIEW_NOTE = readFileSync(new URL('./prompts/video-mend-review.md', impor
  * The sentence a quote sits in, within its paragraph (both as `norm` gives them); the quote alone when no paragraph has it
  * whole. A quote that ends its sentence ("…4 nắp.", as the reader stores one) ends there, not at the next sentence's stop
  * (Grok's read).
+ *
+ * `cased`, the same paragraphs with their capitals: then only a stop the next sentence starts after with a capital or a
+ * figure ends it, so a dose's sentence reads on past "v.v.", "vd.", "sp." or "P. aethiopicus" to a rate after them
+ * (Grok's reads). A paragraph whose two forms don't line up is read whole: unsure, more is read, and a dose waits.
  */
-function sentenceOf(paragraphs: string[], quote: string, stop = STOP): string {
-  for (const p of paragraphs) {
+function sentenceOf(paragraphs: string[], quote: string, cased?: string[]): string {
+  for (const [k, p] of paragraphs.entries()) {
     const i = p.indexOf(quote)
     if (i < 0) continue
+    const c = cased?.[k]
+    if (cased && c?.length !== p.length) return p
+    const ends = (m: RegExpMatchArray) => !c || /^\s*["'“‘«(]*(?:[\p{Lu}\d]|$)/u.test(c.slice(m.index! + m[0].length))
     // The quote's own last mark, past a closing quote mark: a stop there ends the sentence; one inside the quote doesn't.
-    const last = i + Math.max(1, quote.replace(/["'”’»)]+$/u, '').length) - 1
+    const last = i + Math.max(1, quote.replace(CLOSING, '').length) - 1
     let start = 0, end = p.length
-    for (const m of p.matchAll(stop)) {
+    for (const m of p.matchAll(STOP)) {
+      if (!ends(m)) continue
       if (m.index + m[0].length <= i) start = m.index + m[0].length
       else if (m.index >= last) { end = m.index + m[0].length; break }
     }
@@ -114,10 +122,10 @@ const unit = (k: string) => k.split(' ').slice(1).find(p => DOSE_UNIT.test(p)) ?
  * stop for what a mend must keep, a genus's initial ("p. aethiopicus", the text as `norm` gives it) too: split finest,
  * no sentence rides along with a named one (Grok's reads).
  */
-const STOP_MARK = `[.?!…⋯‥]["'”’»)“‘]*`
+const MARKS_AFTER = `"'”’»)“‘`
+const CLOSING = new RegExp(`[${MARKS_AFTER}]+$`, 'u')
+const STOP_MARK = `[.?!…⋯‥][${MARKS_AFTER}]*`
 const STOP = new RegExp(`${STOP_MARK}(?=\\s|$)`, 'gu')
-/** Past a genus's initial, as a whole quote mark or bracket opens it: how far a dose's sentence reads, to see its rate. */
-const STOP_PAST_INITIALS = new RegExp(`(?<!(?:^|[\\s("'“‘])[a-z])${STOP_MARK}(?=\\s|$)`, 'gu')
 const split = (t: string) => t.split(new RegExp(`\\n|(?<=${STOP_MARK})\\s+`, 'u')).map(x => x.trim()).filter(Boolean)
 /** What `a` has more of than `b`. */
 const more = (a: Map<string, number>, b: Map<string, number>) => [...a].flatMap(([k, n]) => (n > (b.get(k) ?? 0) ? [k] : []))
@@ -151,8 +159,10 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   const paragraphs = [vi.name, ...(vi.summary ?? []), ...render(sanitizeHtml(vi.body ?? '')).split('\n'), ...(vi.faq ?? []).flatMap(f => [f.q, f.a])].map(norm)
   // A dose the editor may take is the source's own tank's; any other waits for a person, and so does the guide.
   const doses = findings.filter(f => f.check === 'dose').map(f => sentenceOf(paragraphs, norm(f.quote)))
-  // Read on past a genus's initial ("loài P. aethiopicus, mỗi 10 lít"), so a rate after it is seen.
-  if (!findings.filter(f => f.check === 'dose').every(f => ownTankDose(sentenceOf(paragraphs, norm(f.quote), STOP_PAST_INITIALS)))) return undefined
+  // Read on to a stop the next sentence starts after with a capital ("loài P. aethiopicus, mỗi 10 lít"), so a rate after
+  // an abbreviation is seen.
+  const cased = [vi.name, ...(vi.summary ?? []), ...render(sanitizeHtml(vi.body ?? '')).split('\n'), ...(vi.faq ?? []).flatMap(f => [f.q, f.a])].map(x => x.normalize('NFC').replace(/\s+/g, ' ').trim())
+  if (!findings.filter(f => f.check === 'dose').every(f => ownTankDose(sentenceOf(paragraphs, norm(f.quote), cased)))) return undefined
   const sentence = (f: FitFinding) => sentenceOf(paragraphs, norm(f.quote))
   if (findings.some(f => (f.check === 'product' || f.check === 'price') && givesDose(sentence(f)) && !doses.includes(sentence(f)))) return undefined
   const lang = e.video.lang ?? 'en'
