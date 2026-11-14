@@ -3,7 +3,7 @@ import { isCountryCode } from './countries'
 import { WRITTEN_OTHER_LANGS, type WrittenOtherLang } from './langs'
 import { byCount, CELL_DEG } from './range'
 
-export const SOURCE_IDS = ['seriouslyfish', 'planetcatfish', 'loachesonline', 'glaser', 'bwaquatics', '2hraquarist', 'aquariumcoop', 'sprucepets', 'aquariumbreeder', 'tropica', 'scotcat', 'facebook-jim', 'panitvong', 'cryptspages', 'diendancacanh', 'youtube', 'aquatome', 'aquazonefish', 'aquahouse', 'chothuysinh', 'cacanhtailoc'] as const
+export const SOURCE_IDS = ['seriouslyfish', 'planetcatfish', 'loachesonline', 'glaser', 'bwaquatics', '2hraquarist', 'aquariumcoop', 'sprucepets', 'aquariumbreeder', 'tropica', 'scotcat', 'facebook-jim', 'panitvong', 'cryptspages', 'diendancacanh', 'youtube', 'aquatome', 'aquazonefish', 'aquahouse', 'chothuysinh', 'cacanhtailoc', 'practicalfishkeeping'] as const
 export { LANGS, WRITTEN_LANGS } from './langs'
 
 export const SECTION_ORDER = ['quickFacts', 'beforeYouBuy', 'distribution', 'habitat', 'aquariumSize', 'maintenance', 'waterConditions', 'equipment', 'diet', 'behaviour', 'dimorphism', 'reproduction', 'notes', 'references'] as const

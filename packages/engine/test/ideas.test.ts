@@ -4,13 +4,14 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { nameStep } from '../src/ceiling'
 import { LlmError, type Llm } from '../src/claude'
-import { listPosts, readIdeas, refreshIdeas, writeIdeas, type IdeasState } from '../src/ideas'
+import { IDEA_SOURCES, listPosts, readIdeas, refreshIdeas, writeIdeas, type IdeasState } from '../src/ideas'
 
 // Shaped like the shops' own sitemaps and WordPress answers: placeholder titles, never the shops' text.
 const sitemap = (urls: [string, string?][]) => `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map(([u, d]) => `<url><loc>${u}</loc>${d ? `<lastmod>${d}T08:00:00+07:00</lastmod>` : ''}</url>`).join('')}</urlset>`
 const AZ = 'https://aquazonefish.vn/blogs/kien-thuc/'
 const TL = 'https://cacanhtailoc.com/blogs/tin-tuc/'
 const AH = 'https://aquahouse.vn'
+const PF = 'https://www.practicalfishkeeping.co.uk/'
 const wpPosts = (n: number, from = 0) => JSON.stringify(Array.from({ length: n }, (_, i) => ({ link: `${AH}/post-${from + i}/`, title: { rendered: `Post ${from + i} &#8211; <b>A</b> &amp; B` }, date: '2026-05-0' + (1 + (i % 9)) + 'T10:00:00' })))
 
 function web(pages: Record<string, string>) {
@@ -23,6 +24,9 @@ const PAGES = {
   'https://cacanhtailoc.com/sitemap_blogs_1.xml': sitemap([[`${TL}nuoc-be-ca-bi-duc-trang`, '2026-03-01'], ['https://cacanhtailoc.com/blogs/bao-gia/bao-gia', '2026-01-01'], [`${TL}Bad_Slug`]]),
   [`${AH}/wp-json/wp/v2/categories?slug=tin-tuc-aqua&_fields=id`]: '[{"id":853}]',
   [`${AH}/wp-json/wp/v2/posts?categories=853&per_page=100&page=1&_fields=link,title,date`]: JSON.stringify([{ link: `${AH}/ca-bi-tuot-nhot/`, title: { rendered: 'Cá Bị Tuột Nhớt' }, date: '2026-03-06T10:00:00' }, { link: `${AH}/ho-ca-bi-tao-xanh/`, title: { rendered: 'Hồ cá bị tảo xanh &#8211; cách xử lý' }, date: '2026-01-10T10:00:00' }]),
+  // The magazine's: its features, readers' questions and beginners' pages; never its news, gear, galleries or readers' tank visits.
+  [`${PF}sitemap-1.xml`]: sitemap([[`${PF}features/cloudy-water-explained/`, '2026-05-01'], [`${PF}fishkeeping-answers/why-is-my-water-cloudy/`, '2026-04-01'], [`${PF}beginners-hub/your-first-tank/`],
+    [`${PF}readers-visits/a-readers-fish-room/`, '2026-06-01'], [`${PF}fishkeeping-news/a-show-this-weekend/`, '2026-06-02'], [`${PF}gear/a-filter-on-test/`], [`${PF}features/a/nested/`]]),
 }
 
 async function site(guides: Record<string, string> = { 'be-moi-chu-trinh-nito': 'Chu trình nitơ cho bể mới' }) {
@@ -56,6 +60,18 @@ test('a sitemap: the blog\'s posts only, titled by their address\'s words, with 
   await expect(listPosts({ kind: 'wordpress', base: AH, category: 'none' }, web({ [`${AH}/wp-json/wp/v2/categories?slug=none&_fields=id`]: '[]' }).get)).rejects.toThrow('no category none')
 })
 
+// The owner's word through the chief of staff, 13 Nov: a British magazine's topics. Its features, readers' questions and
+// beginners' pages only; never its readers' tank visits, a page about someone's tank whose photos we couldn't show (14 Nov).
+test("the magazine's sitemap: its features, readers' questions and beginners' pages, under any of its prefixes; nothing else", async () => {
+  const magazine = IDEA_SOURCES.find(s => s.id === 'practicalfishkeeping')!
+  expect(magazine.magazine).toBe(true)
+  expect(await listPosts(magazine.list, web(PAGES).get)).toEqual([
+    { url: `${PF}features/cloudy-water-explained/`, title: 'cloudy water explained', date: '2026-05-01' },
+    { url: `${PF}fishkeeping-answers/why-is-my-water-cloudy/`, title: 'why is my water cloudy', date: '2026-04-01' },
+    { url: `${PF}beginners-hub/your-first-tank/`, title: 'your first tank' },
+  ])
+})
+
 test('ideas: the shops\' titles and the handbook\'s guides go to the model; its topics kept most asked first; one already written never comes back; a week fresh', async () => {
   const root = await site()
   await writeFile(join(root, 'engine-state/_ideas.json'), JSON.stringify({ posts: {}, ideas: [{ topic: 'Tảo xanh trong bể', kind: 'disease', posts: [], sites: 1, guide: 'aquatome-tao-xanh-trong-be' }], written: {} }))
@@ -74,12 +90,17 @@ test('ideas: the shops\' titles and the handbook\'s guides go to the model; its 
   }
   const { d, slept } = deps(get, llm)
   const r = await refreshIdeas(root, d)
-  expect(r).toMatchObject({ fresh: false, posts: 5, ideas: 2, failed: [] })
+  expect(r).toMatchObject({ fresh: false, posts: 8, ideas: 2, failed: [] })
   expect(slept).toEqual(Array(asked.length - 1).fill(5000))
   expect(prompts[0]).toContain('1. nuoc be ca bi duc')
   expect(prompts[0]).toContain('Hồ cá bị tảo xanh – cách xử lý')
   expect(prompts[0]).toContain('- Chu trình nitơ cho bể mới')
   expect(prompts[0]).not.toContain('sale')
+  // The magazine's last, each marked (UK), with what only fits the UK left out; the shops' unmarked.
+  expect(prompts[0]).toContain('6. cloudy water explained (UK)\n7. why is my water cloudy (UK)\n8. your first tank (UK)\n')
+  expect(prompts[0]).toContain('1. nuoc be ca bi duc\n')
+  expect(prompts[0]).toContain('From the magazine, also what only fits the UK')
+  expect(prompts[0]).not.toMatch(/fish room|a show this weekend|a filter on test/)
   const s = await readIdeas(root)
   expect(s.ideas.map(i => [i.topic, i.sites, i.posts.length, i.latest])).toEqual([
     ['Nước bể cá bị đục trắng: nguyên nhân và cách xử lý', 2, 2, '2026-06-02'],
@@ -94,17 +115,17 @@ test('ideas: the shops\' titles and the handbook\'s guides go to the model; its 
   const down = web(Object.fromEntries(Object.entries(PAGES).filter(([u]) => !u.includes('cacanhtailoc'))))
   const later = await refreshIdeas(root, deps(down.get, llm, '2026-11-11T00:00:00Z').d)
   expect(later.failed).toEqual(['cacanhtailoc: HTTP 404'])
-  expect(later.posts).toBe(5)
+  expect(later.posts).toBe(8)
 })
 
 test('writing: the most asked idea first, its shops\' posts as leads that say never to copy them; the day\'s cap; a guide already there is not rewritten', async () => {
   const root = await site({ 'aquatome-ca-bi-tuot-nhot': 'Cá bị tuột nhớt' })
   const state: IdeasState = {
     readAt: '2026-11-03T00:00:00Z',
-    posts: { aquazonefish: [{ url: `${AZ}nuoc-be-ca-bi-duc`, title: 'nuoc be ca bi duc' }] },
+    posts: { aquazonefish: [{ url: `${AZ}nuoc-be-ca-bi-duc`, title: 'nuoc be ca bi duc' }], practicalfishkeeping: [{ url: `${PF}features/cloudy-water-explained/`, title: 'cloudy water explained' }] },
     ideas: [
       { topic: 'Cá bị tuột nhớt', kind: 'disease', posts: [], sites: 1 },
-      { topic: 'Nước bể cá bị đục trắng', kind: 'disease', posts: [`${AZ}nuoc-be-ca-bi-duc`], sites: 2 },
+      { topic: 'Nước bể cá bị đục trắng', kind: 'disease', posts: [`${AZ}nuoc-be-ca-bi-duc`, `${PF}features/cloudy-water-explained/`], sites: 2 },
       { topic: 'Cá thiếu oxy', kind: 'care', posts: [], sites: 1 },
     ],
     written: { '2026-09-01': 3 },
@@ -119,6 +140,9 @@ test('writing: the most asked idea first, its shops\' posts as leads that say ne
   expect(asked[0]).toContain('"Nước bể cá bị đục trắng"')
   expect(asked[0]).toContain(`- ${AZ}nuoc-be-ca-bi-duc (nuoc be ca bi duc)`)
   expect(asked[0]).toContain('never copy or translate their text')
+  // The magazine's post apart, with its own words: never copied, the facts checked elsewhere, not cited.
+  expect(asked[0]).toContain(`British fishkeeping magazine wrote on this (orientation only: never copy or translate its text, check every fact elsewhere and cite the sources you checked, not the magazine; leave out what only fits the UK):\n- ${PF}features/cloudy-water-explained/ (cloudy water explained)`)
+  expect(asked[0].indexOf(`${PF}features/`)).toBeGreaterThan(asked[0].indexOf('British fishkeeping magazine'))
   let s = await readIdeas(root)
   expect(s.ideas.map(i => i.guide ?? i.skipped ?? '')).toEqual(['aquatome-ca-bi-tuot-nhot', 'Nước bể cá bị đục trắng: nothing reliable found', ''])
   // Old days are dropped; today's count stops a second run.

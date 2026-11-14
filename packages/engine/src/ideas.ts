@@ -9,14 +9,18 @@ import { makeTopic, topicId } from './topics'
  * Vietnamese shops' blogs, read for ideas (content/sources.json: orientation only, the owner's word of 2026-11-03): their
  * posts' titles, never their text. What they write about is what Vietnamese keepers search for; a topic the handbook has
  * no guide on becomes one of AquaTome's own guides, researched like any other (topics.ts), with the shops' posts on it
- * as leads. engine-state/_ideas.json.
+ * as leads. engine-state/_ideas.json. And a British magazine's features, readers' questions and beginners' pages
+ * (`magazine`, the owner's word through the chief of staff, 13 Nov 2026), what keepers anywhere ask, its UK-only topics
+ * left out; never its readers' tank visits, whose photos a page of ours couldn't show (the chief of staff, 14 Nov).
  */
-type Listing = { kind: 'sitemap'; url: string; prefix: string } | { kind: 'wordpress'; base: string; category: string }
-export const IDEA_SOURCES: { id: SourceId; name: string; list: Listing }[] = [
+type Listing = { kind: 'sitemap'; url: string; prefix: string | string[] } | { kind: 'wordpress'; base: string; category: string }
+export const IDEA_SOURCES: { id: SourceId; name: string; list: Listing; magazine?: true }[] = [
   { id: 'aquazonefish', name: 'AquaZone', list: { kind: 'sitemap', url: 'https://aquazonefish.vn/sitemap_blogs_1.xml', prefix: 'https://aquazonefish.vn/blogs/kien-thuc/' } },
   { id: 'aquahouse', name: 'Aqua House', list: { kind: 'wordpress', base: 'https://aquahouse.vn', category: 'tin-tuc-aqua' } },
   { id: 'cacanhtailoc', name: 'Cá Cảnh Tài Lộc', list: { kind: 'sitemap', url: 'https://cacanhtailoc.com/sitemap_blogs_1.xml', prefix: 'https://cacanhtailoc.com/blogs/tin-tuc/' } },
+  { id: 'practicalfishkeeping', name: 'Practical Fishkeeping', magazine: true, list: { kind: 'sitemap', url: 'https://www.practicalfishkeeping.co.uk/sitemap-1.xml', prefix: ['features/', 'fishkeeping-answers/', 'beginners-hub/'].map(s => `https://www.practicalfishkeeping.co.uk/${s}`) } },
 ]
+const MAGAZINES = new Set<SourceId>(IDEA_SOURCES.filter(s => s.magazine).map(s => s.id))
 const DELAY = 5_000
 /** The titles are read again a week on. */
 const FRESH_DAYS = 7
@@ -45,13 +49,14 @@ const save = (root: string, s: IdeasState) => writeFile(file(root), `${JSON.stri
 const unescape = (s: string) => s.replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n))).replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)))
   .replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&')
 
-/** A site's posts: a sitemap's addresses under the blog (titled by their words), or a WordPress category's posts (100 a page). */
+/** A site's posts: a sitemap's addresses under the blog's prefix or prefixes (titled by their words), or a WordPress category's posts (100 a page). */
 export async function listPosts(list: Listing, get: (url: string) => Promise<string>): Promise<Post[]> {
   if (list.kind === 'sitemap') {
     const xml = await get(list.url)
     return [...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)].flatMap(([, u]) => {
       const loc = unescape(/<loc>\s*([^<]+?)\s*<\/loc>/.exec(u!)?.[1] ?? '')
-      const slug = loc.startsWith(list.prefix) ? loc.slice(list.prefix.length).replace(/\/$/, '') : ''
+      const under = [list.prefix].flat().find(p => loc.startsWith(p))
+      const slug = under ? loc.slice(under.length).replace(/\/$/, '') : ''
       if (!/^[a-z0-9-]+$/.test(slug)) return []
       const date = /<lastmod>\s*(\d{4}-\d{2}-\d{2})/.exec(u!)?.[1]
       return [{ url: loc, title: slug.replace(/-/g, ' '), ...(date ? { date } : {}) }]
@@ -68,14 +73,14 @@ export async function listPosts(list: Listing, get: (url: string) => Promise<str
   return out
 }
 
-const PROMPT = `Below are the titles of posts on Vietnamese aquarium shops' blogs (a title may be the post's address, without accents), numbered, and the guides a Vietnamese freshwater aquarium handbook already has. The shops write what Vietnamese keepers search for. List the topics these posts are about that the handbook should have a guide on and has none.
+const PROMPT = `Below are the titles of posts, numbered: on Vietnamese aquarium shops' blogs (a title may be the post's address, without accents) and, marked (UK), a British fishkeeping magazine's features and readers' questions (each its address's words). Then the guides a Vietnamese freshwater aquarium handbook already has. The shops write what Vietnamese keepers search for; the magazine, what keepers anywhere ask. List the topics these posts are about that the handbook should have a guide on and has none.
 
 For each topic:
 - topic: the guide's subject in Vietnamese, with its accents, as a keeper would search it (for example "Nước bể cá bị đục trắng: nguyên nhân và cách xử lý").
 - kind: setup (setting up a tank and its equipment), care (keeping fish well: water, feeding, tank mates, routine), breeding, disease (an illness or a problem to fix), aquascaping, plantCare, discovery (other things worth knowing).
 - posts: the numbers of the posts about it.
 
-Leave out: what a listed guide already covers, even in other words; one fish's or plant's own profile (the handbook has a page for each species); products, prices, brands, shop news and lists of shops; ponds and koi; saltwater; luck and feng shui. One topic per subject: merge posts that ask the same thing.`
+Leave out: what a listed guide already covers, even in other words; one fish's or plant's own profile (the handbook has a page for each species); products, prices, brands, shop news and lists of shops; ponds and koi; saltwater; luck and feng shui. From the magazine, also what only fits the UK: its shops, shows, clubs and events, products or medicines sold only there, prices in pounds, UK law, British weather and seasons, British native fish, and someone's own tank. One topic per subject: merge posts that ask the same thing, whichever language they're in.`
 const SCHEMA = {
   type: 'object', required: ['ideas'],
   properties: { ideas: { type: 'array', items: { type: 'object', required: ['topic', 'kind', 'posts'], properties: { topic: { type: 'string' }, kind: { type: 'string', enum: KINDS }, posts: { type: 'array', items: { type: 'number' } } } } } },
@@ -110,7 +115,7 @@ export async function refreshIdeas(root: string, d: IdeasDeps, o: { force?: bool
   const guides = await guideNames(root)
   const r = await d.llm<{ ideas: { topic: string; kind: GuideKind; posts: number[] }[] }>({
     system: 'You plan an aquarium handbook\'s guides. Reply only with JSON.', schema: SCHEMA,
-    prompt: `${PROMPT}\n\nPOSTS:\n${posts.map((p, i) => `${i + 1}. ${p.title}`).join('\n')}\n\nGUIDES:\n${guides.map(g => `- ${g}`).join('\n')}`,
+    prompt: `${PROMPT}\n\nPOSTS:\n${posts.map((p, i) => `${i + 1}. ${p.title}${MAGAZINES.has(p.site) ? ' (UK)' : ''}`).join('\n')}\n\nGUIDES:\n${guides.map(g => `- ${g}`).join('\n')}`,
   })
   const done = new Map(state.ideas.filter(i => i.guide || i.skipped).map(i => [slugify(i.topic), i]))
   const made = new Map<string, Idea>()
@@ -127,10 +132,15 @@ export async function refreshIdeas(root: string, d: IdeasDeps, o: { force?: bool
   return { ...report, posts: posts.length, ideas: made.size }
 }
 
-/** The lines a guide's research gets from the shops' posts on its topic. */
+/** The lines a guide's research gets from the shops' posts on its topic, and the magazine's. */
 export function ideaLeads(idea: Idea, state: IdeasState): string {
   const titles = new Map(Object.values(state.posts).flat().map(p => [p!.url, p!.title]))
-  return `\n\nWhat Vietnamese keepers read on this, from aquarium shops' blogs (orientation only: never copy or translate their text; they sell what they write about, so check every fact elsewhere, and cite one of them only for a Vietnamese name or what is sold in Vietnam):\n${idea.posts.slice(0, 6).map(u => `- ${u} (${titles.get(u) ?? ''})`).join('\n')}`
+  const fromMagazine = new Set((Object.entries(state.posts) as [SourceId, Post[]][]).filter(([id]) => MAGAZINES.has(id)).flatMap(([, ps]) => ps.map(p => p.url)))
+  const line = (u: string) => `- ${u} (${titles.get(u) ?? ''})`
+  const shops = idea.posts.filter(u => !fromMagazine.has(u)).slice(0, 6)
+  const magazine = idea.posts.filter(u => fromMagazine.has(u)).slice(0, 4)
+  return (shops.length ? `\n\nWhat Vietnamese keepers read on this, from aquarium shops' blogs (orientation only: never copy or translate their text; they sell what they write about, so check every fact elsewhere, and cite one of them only for a Vietnamese name or what is sold in Vietnam):\n${shops.map(line).join('\n')}` : '')
+    + (magazine.length ? `\n\nWhat a British fishkeeping magazine wrote on this (orientation only: never copy or translate its text, check every fact elsewhere and cite the sources you checked, not the magazine; leave out what only fits the UK):\n${magazine.map(line).join('\n')}` : '')
 }
 
 /**
