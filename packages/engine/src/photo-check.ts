@@ -103,8 +103,10 @@ const PER_SHEET = 6
  * A run that would leave more pages than this with no photo of their own takes none of their photos off, and none of
  * them onto the never-again list: it lists them and holds (`report.heads.held`), so a check gone wrong can't blank
  * pages. `--empty-cap` lets a person who has looked at them release a larger run (the chief of staff, 2026-11-12).
+ * None: a page's last photo doesn't come off on the check's word alone (the chief of staff, 2026-11-14, after one
+ * night's runs left 27 fish pages with no photo, within the cap of 10 a run).
  */
-export const EMPTY_CAP = 10
+export const EMPTY_CAP = 0
 /** Gallery photos a species page shows itself (the site's GALLERY_STRIP, apps/site/src/lib/gallery.ts); the rest are on the gallery page. */
 const STRIP = 8
 
