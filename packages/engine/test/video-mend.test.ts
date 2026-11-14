@@ -9,7 +9,7 @@ import { readReviews } from '../src/review-log'
 import { ownTankDose, videoMend } from '../src/video-mend'
 
 const LONG = 'Cây khỏe và mọc nhanh thì rêu hại khó chen vào. '.repeat(6).trim()
-const BODY = `<p>Bể nhỏ dễ dựng.</p><h3>Mua đồ</h3><p>Mua lọc ở Petco, giá khoảng 5 USD.</p><p>${LONG}</p>`
+const BODY = `<p>Bể nhỏ dễ dựng.</p><h3>Mua đồ</h3><p>Mua lọc ở Petco, giá khoảng 5 USD. Bể 38 lít là vừa.</p><p>${LONG}</p>`
 const FIXED = `<p>Bể nhỏ dễ dựng.</p><h3>Mua đồ</h3><p>Lọc mua ở tiệm cá cảnh. Bể 38 lít là vừa.</p><p>${LONG}</p>`
 const shop: FitFinding = { check: 'shop', part: 'P1', quote: 'Mua lọc ở Petco', why: 'a US shop', by: 'model' }
 const price: FitFinding = { check: 'price', part: 'P1', quote: 'giá khoảng 5 USD', why: 'a price in dollars', by: 'rule' }
@@ -95,9 +95,10 @@ test('a product or a price quoted in a sentence that gives a dose is not mended:
     expect(await readFile(file, 'utf8'), name).toBe(was)
   }
   // The same product named where no dose is given goes to the editor as before, and so does a shop in a guide that gives a dose elsewhere.
-  for (const [body, findings] of [[`<p>Seachem Prime là loại khử clo quen thuộc.</p><p>${LONG}</p>`, [product]], [`${dosed}<p>Mua lọc ở Petco.</p>`, [shop]]] as const) {
+  // (The editor keeps every figure of the sentences no finding takes.)
+  for (const [body, findings, after] of [[`<p>Seachem Prime là loại khử clo quen thuộc.</p><p>${LONG}</p>`, [product], `<p>Bể nhỏ dễ dựng.</p><p>${LONG}</p>`], [`${dosed}<p>Mua lọc ở Petco.</p>`, [shop], dosed]] as const) {
     const { root } = await setup({ body })
-    const { mend, prompts } = deps(root, { fixed: { body: `<p>Bể nhỏ dễ dựng.</p><p>${LONG}</p>` } })
+    const { mend, prompts } = deps(root, { fixed: { body: after } })
     expect(await mend(page(), [...findings])).toBe(true)
     expect(prompts).toHaveLength(2)
   }
@@ -119,7 +120,7 @@ test('a mend never leaves a guide worse: under the bar it is kept only when no l
 
 test('the title is the editor\'s only when a fault was in it', async () => {
   const { root, file } = await setup({ name: 'Mua lọc ở Petco cho bể nhỏ' })
-  expect(await deps(root).mend(page(), [{ ...shop, part: 'T' }])).toBe(true)
+  expect(await deps(root).mend(page(), [{ ...shop, part: 'T' }, price])).toBe(true)
   expect(JSON.parse(await readFile(file, 'utf8'))).toMatchObject({ name: 'Tên khác', slug: 'dung-be-nho' })
 })
 
@@ -196,6 +197,8 @@ test('a figure keeps its percent, a units quote keeps its figure beside another 
     ['a percent sign dropped', '<p>Thay 30% nước mỗi tuần. Bể 10 gallon là đủ.</p>', '<p>Thay 30 nước mỗi tuần. Bể 10 gallon là đủ.</p>', [units('Bể 10 gallon')]],
     // A size in words changed beside a units finding (Grok's fifth read).
     ['a size in words changed', '<p>Bể mười lít là đủ cho một đàn nhỏ. Bể 10 gallon là đủ.</p>', '<p>Bể năm mươi lít là đủ cho một đàn nhỏ. Bể 10 gallon là đủ.</p>', [units('Bể 10 gallon')]],
+    // A shop's mend that changes a figure in a sentence no finding takes (Grok's fifth read).
+    ['a figure changed beside a shop', '<p>Bể dài 80 cm. Mua lọc ở Petco, giá khoảng 5 USD.</p>', '<p>Bể dài 90 cm. Lọc mua ở tiệm cá cảnh.</p>', [{ ...shop, quote: 'Mua lọc ở Petco' }, { ...price, quote: 'giá khoảng 5 USD' }]],
     ['a units figure dropped beside a shop', '<p>Bể 10 gallon mua ở Petco.</p>', '<p>Bể mua ở tiệm cá cảnh.</p>', [units('Bể 10 gallon'), { ...shop, quote: 'mua ở Petco' }]],
     ['a figure lost after a sentence two findings quote', '<p>Bể mẫu dài 30 cm, mua ở Petco. Đèn cách mặt nước 30 cm.</p><p>Bể 10 gallon là đủ.</p>', '<p>Bể mua ở tiệm cá cảnh. Đèn cách mặt nước.</p><p>Bể 10 gallon là đủ.</p>', [{ ...own, quote: 'Bể mẫu dài 30 cm' }, { ...shop, quote: 'mua ở Petco' }, units('Bể 10 gallon')]],
   ]

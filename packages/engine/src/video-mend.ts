@@ -140,8 +140,8 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   const text = norm([name, ...fixed.summary, render(sanitizeHtml(fixed.body)), ...fixed.faq.flatMap(f => [f.q, f.a])].join('\n'))
   // A units finding's figures stay as written, for code to convert; every other quote goes.
   if (findings.some(f => f.check !== 'units' && text.includes(norm(f.quote)))) return false
-  // No dose figure comes out that didn't go in; and beside units or a dose, no figure at all, and none lost but those of
-  // the sentences a finding takes (the chief of staff, 14 Nov 2026: "every figure in equals every figure out").
+  // No dose figure comes out that didn't go in (the chief of staff, 14 Nov 2026: "every figure in equals every figure
+  // out").
   const had = figures(paragraphs.join('\n')), has = figures(text)
   if (more(has, had).some(k => DOSE_UNIT.test(unit(k)))) return false
   // The video's own dose goes, however its sentence is reworded (Grok's read).
@@ -151,11 +151,11 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   const own = new Set([...figures(doses.join('\n')).keys()].filter(k => DOSE_UNIT.test(unit(k))))
   const carried = new Set(split(paragraphs.join('\n')).filter(x => !doses.some(s => s.trim() === x)))
   if (split(text).some(x => !carried.has(x) && [...figures(x).keys()].some(k => own.has(k)))) return false
-  if (findings.some(f => f.check === 'units' || f.check === 'dose')) {
-    // Each sentence a finding takes once, and never a units quote's figures, which stay for code to convert.
-    const taken = less(figures([...new Set(findings.filter(f => f.check !== 'units').map(sentence))].join('\n')), figures(findings.filter(f => f.check === 'units').map(f => norm(f.quote)).join('\n')))
-    if (more(has, had).length || more(less(had, taken), has).length) return false
-  }
+  // In every mend, not only beside units or a dose: no figure added, and none lost but those of the sentences a finding
+  // takes, each once, and never a units quote's, which stay for code to convert (a shop's mend made "80 cm" "90 cm",
+  // Grok's read).
+  const taken = less(figures([...new Set(findings.filter(f => f.check !== 'units').map(sentence))].join('\n')), figures(findings.filter(f => f.check === 'units').map(f => norm(f.quote)).join('\n')))
+  if (more(has, had).length || more(less(had, taken), has).length) return false
 
   const review = await reviewDraft(d.llm, transcript, { ...fixed, viTitle: name }, { title: e.video.title, channel: e.video.channel, lang }, REVIEW_NOTE)
   const page = { id: `guides/${p.id}`, lang: 'vi' }
