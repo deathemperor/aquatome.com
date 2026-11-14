@@ -18,7 +18,7 @@ test('the material page answers first, then shows its photo, six sections, FAQ, 
   expect(material.querySelector('.alt [lang="en"]')!.text).toBe('Sa tung wood')
   expect(material.querySelectorAll('.intro p')).toHaveLength(2)
   expect(material.querySelectorAll('h2').map(h => h.text)).toEqual([
-    'Là gì', 'Ảnh hưởng tới nước', 'Xử lý trước khi dùng', 'Hợp với cá và cây nào', 'Lỗi hay gặp', 'Mua ở đâu, giá bao nhiêu', 'Hỏi đáp', 'Nguồn',
+    'Là gì', 'Ảnh hưởng tới nước', 'Xử lý trước khi dùng', 'Hợp với cá và cây nào', 'Lỗi hay gặp', 'Mua ở đâu, chọn thế nào', 'Hỏi đáp', 'Nguồn',
   ])
   expect(material.querySelectorAll('.faq details')).toHaveLength(1)
   expect(material.querySelector('figure img')!.getAttribute('alt')).toBe('Lũa sa tùng')
