@@ -1,6 +1,195 @@
 {
   "id": "carnegiella-myersi",
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/ef3b506952a44cc27542238bf18011ab.webp",
+      "thumb": "https://media.aquatome.com/processed/ef3b506952a44cc27542238bf18011ab-480.webp",
+      "width": 820,
+      "height": 484,
+      "licence": "dùng với sự cho phép",
+      "author": "Robert Beke / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carnegiella-myersi",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261113-carnegiella-myersi-sf-1",
+        "pixelHash": "b963229f54687fd927eafd1f7a613a0d86bc17fb6641e06863af4242aa2fbdc0"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-12T11:23:05.431Z",
+          "originalHash": "fe285400c86040c4bf5d1fe3f909888102ef98c7669429a4fd14434d0160fb3f",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 820,
+            "originalHeight": 546,
+            "window": {
+              "x0": 0,
+              "y0": 0,
+              "x1": 820,
+              "y1": 484
+            },
+            "subject": {
+              "x0": 122,
+              "y0": 207,
+              "x1": 601,
+              "y1": 388
+            },
+            "margin": 14
+          },
+          "excludedMarks": [
+            {
+              "x0": 583,
+              "y0": 490,
+              "x1": 765,
+              "y1": 521
+            }
+          ],
+          "checks": {
+            "species": [
+              "f1e66119552af09e30052d02b3b9c4823ef895c4e1d4017811ba8d88856bddd5",
+              "5377b9afe414160f9fae549377d308250be6f1deaf50ab75ab5bd3ef0faefa38"
+            ],
+            "ownership": [
+              "99376384e210c4a775c7cadfbaedabedceb8974bc29b4ce8cf79e765ccab225a",
+              "8edadb9e228b9167778d643122c5082242f62d37165031026adacc2dcf9e2d6c"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://www.seriouslyfish.com/images/2015/01/Carnegiella-myersi-RB.jpg",
+        "width": 820,
+        "height": 546
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/processed/42c1ebdc155076ffc83fd65a56d8ac66.webp",
+      "thumb": "https://media.aquatome.com/processed/42c1ebdc155076ffc83fd65a56d8ac66-480.webp",
+      "width": 800,
+      "height": 471,
+      "licence": "dùng với sự cho phép",
+      "author": "Robert Beke / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carnegiella-myersi",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261113-carnegiella-myersi-sf-4",
+        "pixelHash": "8742588c9eee8a775a2f06466c6c95f537fc1cf3578661ff490eece3c695b5a6"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-12T11:31:39.932Z",
+          "originalHash": "c9b7e2bd23f444589c053c3f5e3ea517052ad4ac241f5338f2a79eff4c5ea83a",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 800,
+            "originalHeight": 533,
+            "window": {
+              "x0": 0,
+              "y0": 0,
+              "x1": 800,
+              "y1": 471
+            },
+            "subject": {
+              "x0": 250,
+              "y0": 204,
+              "x1": 729,
+              "y1": 424
+            },
+            "margin": 14
+          },
+          "excludedMarks": [
+            {
+              "x0": 574,
+              "y0": 477,
+              "x1": 752,
+              "y1": 508
+            }
+          ],
+          "checks": {
+            "species": [
+              "0dc82b115ab4d598168dae8af865f5d389d167adb4f1815be7fd8c01cdb4aafe",
+              "9ef76d2662f3368f1fe9866b9b8ec00f1c5c2531bb0ffda03caf81588e88be41"
+            ],
+            "ownership": [
+              "1d8372da6a0a897d5bf9ec3a02ef1245f1a3df42e0ab752d6ef9eae39acda4d7",
+              "e4ea29197c78b7e2b3069da726d60c1e90a4e855562dadaf4831a34199f009db"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://www.seriouslyfish.com/images/2015/01/Carnegiella-myersi-RB-2.jpg",
+        "width": 800,
+        "height": 533
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/processed/604fb2b42a1f6f403b1e150476b3fed1.webp",
+      "thumb": "https://media.aquatome.com/processed/604fb2b42a1f6f403b1e150476b3fed1-480.webp",
+      "width": 796,
+      "height": 448,
+      "licence": "CC BY-SA 2.5",
+      "author": "opencage",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carnegiella_myersi.jpg",
+      "ownerCrop": {
+        "id": "owner-crop-20261113-carnegiella-myersi-commons-1",
+        "pixelHash": "b2c37785c2adb3f14ceba4947286d7d001a9ac0e458b5bf4e42a97f6d1cafc5d"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-12T11:35:41.638Z",
+          "originalHash": "ee905cd2f6d659a610260c20158fa6406c0e359ca66715d92d12fb63759af283",
+          "permissionDate": "2026-11-12",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 798,
+            "originalHeight": 800,
+            "window": {
+              "x0": 0,
+              "y0": 23,
+              "x1": 796,
+              "y1": 471
+            },
+            "subject": {
+              "x0": 169,
+              "y0": 75,
+              "x1": 583,
+              "y1": 394
+            },
+            "margin": 20
+          },
+          "excludedMarks": [
+            {
+              "x0": 2,
+              "y0": 1,
+              "x1": 87,
+              "y1": 15
+            }
+          ],
+          "checks": {
+            "species": [
+              "d39c2e139af1c56e97bbfe471b1f63a35c89432833732f5e615c507980d6b7d9",
+              "6571e9741c121810077be5e7575c797984a5632e8a942ccb961be126decd1b00"
+            ],
+            "ownership": [
+              "1165088d96ba004ad7aa2f3e0fb354e50c82b7c6af5af761b76adb8f809026fb",
+              "e6db2c8eae8dac1037e2e86700401dca2b20726031d28c1fa7b171dc7dd3881f"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Carnegiella_myersi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 798,
+        "height": 800
+      }
+    }
+  ],
   "seen": 1,
   "updatedAt": "2026-11-08",
   "builtAt": "2026-11-08"

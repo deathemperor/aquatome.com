@@ -10708,6 +10708,31 @@
       "reproduction:glaser": "f58f667969db"
     }
   },
+  "ctenochromis-polli": {
+    "at": "2026-11-13",
+    "from": "2026-11-09",
+    "name": "ซีโนโครมิส พอลลี",
+    "confidence": "low",
+    "score": 0.93,
+    "notes": [],
+    "parts": {
+      "quickFacts:seriouslyfish": "6e0f2d4fdad2",
+      "quickFacts:glaser": "00cc88382e6e",
+      "distribution:seriouslyfish": "ccda778d285c",
+      "distribution:glaser": "44b3b09483b9",
+      "aquariumSize:seriouslyfish": "88b03bcd87d5",
+      "aquariumSize:glaser": "6696443ef17b",
+      "maintenance:seriouslyfish": "a3ad38f9883a",
+      "waterConditions:seriouslyfish": "b1e23c66272c",
+      "waterConditions:glaser": "2ec52d939f4b",
+      "equipment:glaser": "1bfa114f2081",
+      "diet:glaser": "e4fe51764559",
+      "behaviour:seriouslyfish": "3e6b7bbe06e1",
+      "behaviour:glaser": "dfa388aedfba",
+      "dimorphism:seriouslyfish": "0885c099c280",
+      "reproduction:glaser": "2ee9743ce31c"
+    }
+  },
   "ctenolucius-hujeta": {
     "at": "2026-10-31",
     "from": "2026-10-31",
@@ -10720,6 +10745,154 @@
       "Item 2: the common name \"gar characin\" is dropped (\"ปลาฮูเจต้า Ctenolucius hujeta\"). Add a Thai equivalent such as \"ปลาการ์คาราซิน\", or keep the English name in brackets.",
       "Item 12: \"ขากรรไกรยื่นยาว\" for \"elongate jaw shape\" is slightly loose. Use \"ขากรรไกรเรียวยาว\"."
     ]
+  },
+  "ctenopharyngodon-idella": {
+    "at": "2026-11-13",
+    "from": "2026-11-06",
+    "name": "ปลาเฉาฮื้อ",
+    "confidence": "high",
+    "score": 0.6,
+    "notes": [
+      "Item 1: 'ปลาเฉาฮื้อ' is fine, but 'ปลาในวงศ์ปลาตะเพียน' for 'cyprinid' is loose; use 'วงศ์ปลาตะเพียน (Cyprinidae)'.",
+      "Item 8: 'จะไม่ล่าสิ่งใดที่ยาวเกินกว่าไม่กี่เซนติเมตร' is ambiguous. Use 'จะไม่ล่าสัตว์ที่ยาวเกินไม่กี่เซนติเมตร' or 'ไม่ล่าปลาที่ยาวเกินไม่กี่ซม.'.",
+      "Item 11: 'Cyprininae, Leuciscinae, Xenocyprinidae' are rendered as 'วงศ์ย่อย' (subfamilies); 'Xenocyprinidae' is a family-level name, and the original calls it a subfamily, so the source is questionable. The translation is faithful but the term is unclear.",
+      "Item 11: 'ทำให้โครงสร้างห่วงโซ่อาหารเปลี่ยนไป' for 'trophic structure'. Better: 'โครงสร้างการกินกันในระบบนิเวศ'.",
+      "Item 11: 'สาหร่ายบลูม' is a transliteration; use 'สาหร่ายเจริญอย่างรวดเร็ว/น้ำเขียว (algal bloom)'.",
+      "Item 11: 'พืชน้ำใบอ่อน' for 'soft-leaved aquatic plants'; 'ใบนิ่ม' is more accurate.",
+      "Item 11: 'ปลาไน' for the genus Cyprinus is correct but 'ตัวอย่างเช่น มีการสังเกตพบว่า...' is repetitive: 'กินพืชน้ำใบอ่อนจนหมด หรือเลือกกินเฉพาะพืชน้ำใบอ่อน'.",
+      "Item 2: 'อาจตั้งตัวได้เฉพาะในภาคเหนือของสหรัฐอเมริกาเท่านั้น' adds 'เท่านั้น' and 'ตั้งตัวได้' is awkward; use 'อาจตั้งถิ่นฐานได้เฉพาะในตอนเหนือของสหรัฐฯ'.",
+      "Item 7: 'แหน' for duckweed is acceptable but 'แหนเป็ด' is more specific; 'cultivated' translated as 'ที่เพาะเลี้ยงไว้' is fine.",
+      "Item 10: 'เพาะพันธุ์แบบหนาแน่น' for 'intensive basis' is awkward; use 'เพาะเลี้ยงเชิงเข้มข้น/อย่างเข้มข้น'."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "37bb45b552f9",
+      "distribution:seriouslyfish": "3358b100516c",
+      "habitat:seriouslyfish": "19c2e7f2f63f",
+      "aquariumSize:seriouslyfish": "401251443915",
+      "maintenance:seriouslyfish": "48ebd942a2b5",
+      "waterConditions:seriouslyfish": "5e8e3a53e8d2",
+      "diet:seriouslyfish": "ac632a6ca438",
+      "behaviour:seriouslyfish": "03aaa86bb23a",
+      "dimorphism:seriouslyfish": "841de4f6a691",
+      "reproduction:seriouslyfish": "76be03ed94e8",
+      "notes:seriouslyfish": "98b541f84588",
+      "references:seriouslyfish": "95ccb2bc479b"
+    }
+  },
+  "ctenopoma-acutirostre": {
+    "at": "2026-11-13",
+    "from": "2026-11-11",
+    "name": "ลีโอพาร์ดบุชฟิช",
+    "confidence": "medium",
+    "score": 0.82,
+    "notes": [
+      "Item 7: 'หัวใจวัวหรือไก่' is ambiguous (reads as heart of beef or chicken); write 'เนื้อวัวหรือไก่ เช่น หัวใจวัว'.",
+      "Item 7: 'เป็นปลานักล่าโดยสมบูรณ์' is awkward for 'obligate predator'; use 'ปลานักล่าที่กินเนื้อเป็นอาหารเท่านั้น'.",
+      "Items 1/2: the place names 'Malebo Pool' and 'Boyoma' are left in English next to the Thai 'น้ำตก'. Use Thai forms, e.g. 'บึงมาเลโบ' and 'น้ำตกบอยอมา'.",
+      "Item 10: 'วิวัฒนาการแบบเบนเข้าหากัน' is a non-standard term for convergent evolution; use 'วิวัฒนาการแบบลู่เข้า' (convergent evolution)."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "932cd1030da8",
+      "distribution:seriouslyfish": "bf3a690cb940",
+      "habitat:seriouslyfish": "ee6c86c79fe7",
+      "aquariumSize:seriouslyfish": "969902fe9df2",
+      "maintenance:seriouslyfish": "ff1801c12c5a",
+      "waterConditions:seriouslyfish": "e66996dc247c",
+      "diet:seriouslyfish": "9a5b61719cbf",
+      "dimorphism:seriouslyfish": "c7f143b0b6b0",
+      "reproduction:seriouslyfish": "c12b5bcb6a51",
+      "notes:seriouslyfish": "973ec2d321eb",
+      "notes:glaser": "e2c31ef7d56c",
+      "references:seriouslyfish": "a646a740f4bd"
+    }
+  },
+  "ctenopoma-kingsleyae": {
+    "at": "2026-11-13",
+    "from": "2026-11-03",
+    "name": "ทีโนโพม่า คิงส์ลีย์",
+    "confidence": "low",
+    "score": 0.6,
+    "notes": [
+      "Item 5: tank given as 120x30x30 cm, 108 litre and 150x45x45 cm, 304 litres are metric figures, kept as is. This is fine, but the Thai has an issue elsewhere (see other notes).",
+      "Item 7: 'any drinking water is suitable' became 'น้ำประปาที่ดื่มได้ทุกแบบ' (tap water). 'Tap water' is added and 'any drinking water' is garbled; use 'น้ำดื่มทั่วไป' or 'น้ำที่ดื่มได้ทั่วไปใช้เลี้ยงได้'.",
+      "Item 11: 'ปลาจะไม่สนใจสัตว์หรือพืชที่อยู่ร่วมตู้เลยโดยทั่วไป' is awkward word order; use 'โดยทั่วไปปลาจะไม่สนใจสัตว์หรือพืชที่อยู่ร่วมตู้เลย'.",
+      "Item 12: 'Loricariids' rendered as 'ปลาซักเกอร์กลุ่มลอริคาริอิด'. 'Cyprinids' as 'ปลาในวงศ์ปลาตะเพียน' is clumsy; use 'ปลากลุ่มปลาตะเพียน/ไซปรินิด'. 'Mormyrids' as 'ปลาจมูกช้าง' is acceptable.",
+      "Item 12: 'Polypterus' as 'ปลาบิเชียร์' is fine, but 'ปลาแมวซิโนดอนติส' is awkward; use 'ปลาหมอซิโนดอนติส' or 'ซิโนดอนติส'.",
+      "Item 2/6: 'กระโดดเก่งมาก' for 'notorious jumper' loses the 'notorious/infamous' sense; 'ขึ้นชื่อเรื่องกระโดด' is better.",
+      "Item 15: 'หยดน้ำมันอยู่ภายใน' is fine, but 'การกระตุ้น... จำเป็นต้องจำลองช่วงฤดูแล้ง' should say 'ต้องจำลองช่วงฤดูแล้งขึ้นมา'; ลาบิรินท์ is usually 'ลาบิรินท์/ปลากลุ่มเขาวงกต'.",
+      "Item 17: 'Asian climbing perch (Anabas sp.)' became 'ปลาหมอของเอเชีย'; the common Thai name 'ปลาหมอ (ปลาหมอไทย)' is fine, but 'ไม่พบว่ามีความสามารถ... แบบปลาหมอ' should be 'ปลาหมอไทย' for clarity.",
+      "Item 1: 'Typical of C. kingsleyae is...' and 'ทีโนโพม่า' fine; 'the tail root spot ... found in several species' fine. 'ปลาที่สงบและไม่ดุ' is redundant; use 'ปลาที่สงบเสงี่ยม'."
+    ],
+    "parts": {
+      "quickFacts:glaser": "16580629bb1f",
+      "beforeYouBuy:seriouslyfish": "ed116920d6da",
+      "distribution:seriouslyfish": "48caa7010ba7",
+      "habitat:seriouslyfish": "b1ae7911a37d",
+      "aquariumSize:seriouslyfish": "1b3e138b15b0",
+      "maintenance:seriouslyfish": "5de92dffe097",
+      "waterConditions:glaser": "99857043c751",
+      "waterConditions:seriouslyfish": "f9721999774e",
+      "diet:glaser": "ee8de362917f",
+      "diet:seriouslyfish": "89bd6a2ae2db",
+      "behaviour:glaser": "7bfd826e9a00",
+      "behaviour:seriouslyfish": "94fa4b8804e9",
+      "dimorphism:glaser": "f15140c18ce8",
+      "dimorphism:seriouslyfish": "b5da7a931c94",
+      "reproduction:glaser": "7ab2b7d3f8f3",
+      "reproduction:seriouslyfish": "9e5f131193e3",
+      "notes:seriouslyfish": "034ea72de979"
+    }
+  },
+  "ctenopoma-muriei": {
+    "at": "2026-11-13",
+    "from": "2026-11-06",
+    "name": "โอเซลเลต บุชฟิช",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 11: \"ซื้อปลาเล็กมาเป็นกลุ่ม\" adds \"buying\"; the English says \"obtaining\". Use a neutral word such as \"หามา\".",
+      "Item 11: \"anabantoid\" is left in Latin letters. Consider \"ปลากลุ่มอะนาบันทอยด์ (ปลากริม/ปลาหมอ)\" or similar.",
+      "Item 8: \"กินได้หลากหลายแบบกินทั้งพืชและสัตว์\" is clumsy. Use \"กินอาหารได้หลากหลาย (omnivore) มากกว่า...\".",
+      "Item 8: \"ชอบอาหารสดและอาหารแช่แข็งขนาดเล็กมาก\" is ambiguous (\"small\" might read as \"very\"). Use \"ชอบอาหารสดและแช่แข็งชิ้นเล็ก\".",
+      "Item 12: \"ซี่เหงือกคู่แรก\" for \"first gill arch\" is better as \"ก้านเหงือกคู่แรก\" or \"โครงเหงือกคู่แรก\"."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "0bf60b945abd",
+      "beforeYouBuy:seriouslyfish": "766828261671",
+      "distribution:seriouslyfish": "c81a9a1f0496",
+      "habitat:seriouslyfish": "f3c227f1a05e",
+      "aquariumSize:seriouslyfish": "a10671795dd6",
+      "maintenance:seriouslyfish": "9994679c2841",
+      "waterConditions:seriouslyfish": "1220c06f555e",
+      "diet:seriouslyfish": "7228b77319c6",
+      "behaviour:seriouslyfish": "9f907029c504",
+      "dimorphism:seriouslyfish": "9c6c551e8e54",
+      "reproduction:seriouslyfish": "0f93d1c1f0f9",
+      "notes:seriouslyfish": "16a3f0cd08d6"
+    }
+  },
+  "ctenopoma-weeksii": {
+    "at": "2026-11-13",
+    "from": "2026-11-06",
+    "name": "มอทเทิล บุชฟิช",
+    "confidence": "low",
+    "score": 0.88,
+    "notes": [
+      "Item 8: \"ปลาแมว\" for catfish is a non-standard calque; hobbyists say \"ปลาดุก\", \"ปลาหนัง\" or \"แคทฟิช\"."
+    ],
+    "parts": {
+      "beforeYouBuy:seriouslyfish": "0800a1a9a713",
+      "distribution:seriouslyfish": "52bc7179719f",
+      "habitat:seriouslyfish": "891f0737b384",
+      "aquariumSize:seriouslyfish": "94b41c0f4086",
+      "maintenance:seriouslyfish": "953619ef8d6f",
+      "waterConditions:seriouslyfish": "fc743f1e6c7d",
+      "diet:seriouslyfish": "adc5c2fc1f01",
+      "behaviour:seriouslyfish": "3b5471c3fb75",
+      "dimorphism:seriouslyfish": "6cf98cfd8015",
+      "reproduction:seriouslyfish": "debaa0957fdd",
+      "notes:seriouslyfish": "e2c165961970"
+    }
   },
   "cyclocheilichthys-apogon": {
     "at": "2026-11-07",

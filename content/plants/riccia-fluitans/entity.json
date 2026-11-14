@@ -1,13 +1,14 @@
 {
   "id": "riccia-fluitans",
   "scientificName": "Riccia fluitans",
-  "difficulty": 2,
+  "difficulty": 1,
   "light": "medium",
   "co2": "optional",
-  "growth": "medium",
+  "growth": "fast",
   "placement": [
-    "floating",
-    "foreground"
+    "foreground",
+    "midground",
+    "floating"
   ],
   "sections": [
     {
@@ -17,58 +18,122 @@
       "html": "<ul><li>Type: Moss (liverwort)</li><li>Origin: Cosmopolitan</li><li>Growth rate: Medium</li><li>Height: 3 - 5+ cm after two months in the tank</li><li>Light demand: Medium</li><li>CO2: Medium</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/crystalwort-care-guide-planting-growing-and-propagation/",
+      "html": "<ul><li>Common name: Crystalwort</li><li>Other names: Floating moss, Floating Liverwort</li><li>Scientific name: Riccia fluitans</li><li>Minimum tank size: 40 litres</li><li>Difficulty: easy to medium</li><li>Lighting: moderate to high</li><li>Water hardness: soft to moderately hard (1–10)</li><li>Substrate: not needed</li><li>Growth rate: fast</li><li>Placement in tank: foreground / midground / floating</li><li>Fertilizer: recommended</li><li>CO2: not needed for emersed (floating) plants; recommended for submersed plants</li><li>Propagation: through spore production</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/crystalwort-care-guide-planting-growing-and-propagation/",
+      "html": "<p>This species is affordable and readily available; a decent-sized clump can usually be bought at local fish stores for a few dollars.</p><p>A tissue culture variant is also available in a small plastic cup; it is often free of algae and tiny snails. Whichever type you buy, make sure the plant is in good condition so it grows well once planted.</p><p>Quarantine Riccia fluitans before putting it into your aquarium if necessary. There is no need to do so for \"in vitro\" plants, which are cultivated on nutrient media under sterile laboratory conditions. In all other cases:</p><ul><li>The plant can carry parasites, pests such as snails, or even predators (dragonfly and damselfly nymphs, etc.).</li><li>It may also have been treated with chemicals (pesticides) to remove parasites, snails, etc. These chemicals are extremely poisonous to fish, shrimp and other invertebrates.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/crystalwort-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Riccia fluitans belongs to Ricciaceae, a family of minute liverworts with a flat thallus. The thallus is the undifferentiated body of these plants.</p><p>The species was first described by Carl Linnaeus in 1753. In terms of its use in aquariums, the Japanese aquascaper Takashi Amano was the earliest user: he incorporated this plant in his nature aquarium and grew it submersed. Thanks to him, many aquarists have been inspired to aquascape their tanks with this liverwort.</p><p>The specific epithet \"fluitans\" is of Latin origin and means \"floating\", hence the common name floating Crystalwort.</p><p>This species has a cosmopolitan distribution and is presently widespread in the Americas, Africa and Eurasia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/crystalwort-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Floating Crystalwort is an amphibious liverwort. The plant has adapted to live on moist soil as well as in water, where it floats on the surface or stays submersed, attached to other plants or the bottom.</p><p>In the submersed state, it prefers shallow or quiet waters: ponds, swamps, ditches and slow-moving streams.</p><p>Riccia plants form thick clusters of bright green threads and grow in sphere-shaped, slightly flattened clumps. It is a perennial plant made up of a thallus, a body not differentiated into leaves and stems. It branches out profusely, forming numerous bright green, flat, forked shoots, giving them a Y-shape.</p><p>Each thallus is often about 0.5–2 cm long and up to 1 mm wide. The body contains air pores that help the plant stay buoyant in water, and other specialized cells that hold chlorophyll and starch for energy production.</p><p>If grown emersed, the plant forms root-like structures called rhizoids that anchor the thallus to the substrate. The branching thalli of the terrestrial form are twice as broad as those of the aquatic form. In this state, emersed Riccia fluitans produces spore capsules, whereas aquatic forms tend to reproduce asexually.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/crystalwort-care-guide-planting-growing-and-propagation/",
+      "html": "<p>The recommended minimum tank size for Riccia fluitans is 40 litres.</p><p>The plant can also be used sparingly in smaller (nano) tanks to adorn the foreground, but this is not recommended as it can quickly overtake the system.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Ricciafluitans(001TC)/4386",
       "html": "<p>Riccia fluitans can be kept down by tying it to a stone with a piece of fishing line, but new shoots always grow towards the surface, so it may be necessary to prune it with scissors. It thrives best with added CO2 and in good growing conditions small oxygen bubbles form on the leaf tips.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/crystalwort-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Crystalwort is undemanding and very attractive. It grows like crazy if its care conditions are met. Being able to thrive in a wide range of water conditions, with or without CO2 supplementation (depending on its position), is a big plus.</p><ul><li>Riccia fluitans grows fast, so cut back the foliage with pruning scissors to curb overgrowth. The shoots tend to grow towards the surface when not clipped often, and the result is undesirable.</li><li>Water flow should be low. The plant comes from quiet, slow-moving waters, so it is best to provide little current. Because of its soft, fragile structure, the stems snap easily when there is a lot of water movement. To avoid tiny loose pieces floating around the tank, keep the current weak.</li><li>Carry out routine partial water changes to reduce excess nitrates, and prune the shoots frequently to keep the growth healthy and compact.</li><li>Provide ample light, bright enough to penetrate the water column and reach submerged lawns. For floating plants, keep them in check so they don't cast too much shade in the aquarium.</li><li>The plant thrives with or without CO2, but CO2 together with liquid fertilizers rich in nitrates, phosphates, potassium and iron gives it an extra boost.</li><li>When optimal growth conditions exist, tiny oxygen bubbles form on the tips of the shoots; this phenomenon is called \"pearling\".</li></ul><p>Riccia is a floater that must be tied down or glued to stay down, as it does not attach to things, though most people like it as a mat or ball. It is often netted down. Once it gets very full, the stems tangle together into a solid mass of plant, but without roots.</p><h3>Planting and propagation</h3><p>Before planting, decide whether to let it float on the water surface or to grow it submersed.</p><p>Floating it is easy: split the plant into several pieces, spread them on the water surface and watch them grow.</p><p>Planting it fully submersed is different. Divide the clump into small portions, attach them to a chosen object and place it in the tank. For example, with a rock: lay a sizeable amount of Riccia fluitans on the rock and spread it into an even layer. Glue one end of a thin fishing line beneath the rock with aquarium-safe glue, let it dry, then wind the line over the whole surface to hold the plant firmly. Make a final knot or glue the remaining end of the line to the rock with super glue so the plant stays in place. Repeat for as many rocks as you want; the same process works on driftwood, slate or coconut shells to form thick mats on the bottom. Make sure the plant is attached properly, then rinse it in running water to remove loose pieces before placing it.</p><p>Another way is to sandwich it between 2 pieces of mesh and let it grow through (like moss). You can also place Riccia on a rock and pull a net (for example a hairnet) over it; the plant will grow right through and over the net, hiding it from view.</p><p>The plant propagates through spore production, but this is uncommon in the aquarium. Usually any piece of stem that breaks away can form a new plant. To make things easier, take a sizeable amount of the plant, divide it into smaller portions and replant them in the tank as described above.</p><h3>Dry start method</h3><p>One way of growing Riccia fluitans is the dry start method. It provides unlimited CO2 without having to buy anything, and it lets you grow the plant even before cycling the tank.</p><ul><li>Instead of filling the tank with water right after planting, add only enough water to reach the surface of the lowest part of the substrate.</li><li>Place the plant on top of the substrate.</li><li>Cover the top of the tank with cling wrap to increase humidity.</li><li>After about 3 to 6 weeks, you can flood the tank.</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/crystalwort-care-guide-planting-growing-and-propagation/",
+      "html": "<ul><li>Temperature: the optimal range is 20–26 °C. The species can nevertheless survive in water of 15–30 °C.</li><li>pH: for best growth, 6.0–8.0.</li><li>Hardness: Riccia fluitans thrives comfortably in very soft to moderately hard water.</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/crystalwort-care-guide-planting-growing-and-propagation/",
+      "html": "<h3>Lighting</h3><p>The position of the plants dictates the intensity of lighting. Plants floating on the surface can easily cope with low to moderate lighting. Submersed Riccia fluitans appreciates stronger lighting; bright illumination is required to see the full growth potential of this liverwort, so provide medium-high lighting (30–50 PAR) with an efficient lighting system. An LED fixture is now the preferred choice because of its durability, efficiency, lower heat generation and better customization. Aim for a minimum of 10 hours of light daily.</p><h3>Substrate</h3><p>The choice of substrate doesn't really matter, since this species is a well-known floater that can also grow fully submerged in the water column. Whether plain washed gravel, sand or soil, the plant will survive; just make sure to dose fertilizers to enrich the water.</p><h3>CO2 and fertilization</h3><p>CO2 depends on the position of Riccia fluitans in the tank. As a floating plant, Crystalwort has unlimited and constant access to carbon dioxide (CO2) for photosynthesis and growth, so CO2 is not needed. If kept underwater, however, it looks best with pressurized CO2 injection; otherwise the plant looks flaccid. For submersed growth, CO2 injection is therefore recommended.</p><p>Fertilizers can affect the growth and development of aquarium plants, especially those that absorb nutrients through their leaves. Riccia fluitans needs a steady supply of liquid fertilizers added directly to the water column. Fertilizers rich in essential macro- and micronutrients can make a significant difference to the health and mass of the plants. The plant stays relatively skinny if water column nutrients are low.</p><p><strong>Important:</strong> if you keep shrimp in the tank with Crystalwort, note that a high level of CO2 and copper (most fertilizers contain copper) is extremely dangerous to shrimp.</p>"
+    },
+    {
       "key": "notes",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Ricciafluitans(001TC)/4386",
       "html": "<p>Aquarium plant from tissue culture in closed cup. Japanese Takashi Amano has inspired many aquarium owners to keep the 1-5 cm tall cosmopolitic liverwort, Riccia fluitans, submerged. As a traditional floating plant it offers good protection for young fish.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/crystalwort-care-guide-planting-growing-and-propagation/",
+      "html": "<h3>Problems</h3><ul><li>Clogging the filter intake: because of its structure, Riccia often breaks away and clogs the filter intake, so the plant should always be kept under control.</li><li>Fast growth: Riccia fluitans grows explosively and reproduces rapidly once nutrient levels are high. In most cases the plant may overgrow the aquarium; it can cover the entire surface and be difficult to control.</li><li>Attachment: unlike most mosses, liverworts or even ferns, this plant does not attach to anything. If it is not tied down, it turns into a complete mess.</li><li>Discoloration: shoots may melt and discolor, typically because of a lack of essential nutrients or poor water quality.</li><li>Neglecting trimming encourages rot of the stems at the lower levels, so trim regularly.</li></ul><h3>Benefits</h3><ul><li>Aquascape: one of the great choices for aquascapes. It forms a gorgeous, lush green carpet that complements the look of an aquarium.</li><li>Oxygenation: helps generate a lot of oxygen in the water. Small pearls of oxygen stay on top of the plant, adding a very lively aspect to the carpet.</li><li>Outcompetes algae: under optimal conditions Riccia fluitans grows so fast that it leaves no chance for algae to grow, and so helps reduce algae.</li><li>Hiding place: serves as cover and shade for invertebrates and small fish, and is a perfect hiding place for shrimp and fish.</li><li>Foraging place: acts as a buffet of biofilm, an ideal first food for newly hatched fry and shrimplets.</li><li>Reduces excess nutrients: its fast growth absorbs phosphates, nitrates, ammonia and toxins in the tank, preventing the accumulation of harmful chemicals.</li></ul><h3>Tankmates</h3><p>Most community fish are ideal tankmates, including but not limited to:</p><ul><li>Fish (for example Bettas, Tetras, Zebra Danio, Platies, Guppies, Endlers, Mollies, Otocinclus catfish, Pygmy Cory catfish).</li><li>Snails (for example Japanese trapdoor snails, Ramshorn snails, Nerite snails, Malaysian trumpet snails, Black Devil snails, Asolene spixi, Rabbit snails).</li><li>Dwarf shrimp (all varieties of Neocaridina such as Red Cherry, Blue Velvet, Snowball, Black Rose, Orange Sakura, Green Jade and Rili shrimp; or Caridina species such as Crystal Red shrimp, Caridina cf. babaulti and Blue Tiger shrimp; Amano shrimp, Ghost shrimp, Bamboo shrimp, Vampire shrimp). Basically, any shrimp species can be kept with it.</li><li>Crayfish and crabs. These animals are very hard to keep in planted tanks, as most species try to uproot and eat everything until they turn the tank into a wasteland. Floating plants are therefore a good choice for them, since the animals simply won't be able to reach them.</li></ul><p><strong>Avoid</strong> species that may find Riccia fluitans palatable, such as Koi, Goldfish, Oscars, Rainbowfish, Jack Dempsey, Clown loaches and African cichlids. These species can cause real problems in planted tanks.</p><p>Important: it is illegal to sell (but not to have) Riccia in some US states due to its potential to become invasive, so check your state laws before purchasing.</p><p>Riccia fluitans is an excellent choice for lush green cushions in the foreground and midground of a freshwater aquarium at minimal cost. Depending on how it is cultivated, it can form thick mats on the water surface, in the water column or on the aquarium floor. These dense mats benefit shrimp and juvenile fish, absorb nitrates from the water and serve as breeding spots for fish. It is one of the easiest plants for a high-tech setup (lots of light, CO2, etc.), but it is not recommended if you are going for low maintenance.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/a3347af258a1e296.webp",
+      "thumb": "https://media.aquatome.com/commons/a3347af258a1e296-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY 2.5",
       "author": "Wikimedia Commons",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:RicciaFluitans1.jpg",
-      "caption": "RicciaFluitans1.jpg",
-      "thumb": "https://media.aquatome.com/commons/a3347af258a1e296-480.webp"
+      "caption": "RicciaFluitans1.jpg"
     },
     {
       "url": "https://media.aquatome.com/commons/be4fac0fa1eb9325.webp",
+      "thumb": "https://media.aquatome.com/commons/be4fac0fa1eb9325-480.webp",
       "width": 960,
       "height": 540,
       "licence": "CC BY-SA 2.0",
       "author": "Storm from Canada",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Christmas_moss_and_riccia_(14441185564).jpg",
-      "caption": "Flickr description Riccia fluitans (crystalwort) and Vesicularia montagnei (christmas moss) gowing out of water on driftwood stump.",
-      "thumb": "https://media.aquatome.com/commons/be4fac0fa1eb9325-480.webp"
+      "caption": "Flickr description Riccia fluitans (crystalwort) and Vesicularia montagnei (christmas moss) gowing out of water on driftwood stump."
     },
     {
       "url": "https://media.aquatome.com/commons/0c943b46be4bd008.webp",
+      "thumb": "https://media.aquatome.com/commons/0c943b46be4bd008-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 3.0",
       "author": "Piotr Kuczynski",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Riccia_fluitans_1_(Piotr_Kuczynski).jpg",
-      "caption": "Riccia fluitans",
-      "thumb": "https://media.aquatome.com/commons/0c943b46be4bd008-480.webp"
+      "caption": "Riccia fluitans"
     },
     {
       "url": "https://media.aquatome.com/commons/1b1ffe292212ec04.webp",
+      "thumb": "https://media.aquatome.com/commons/1b1ffe292212ec04-480.webp",
       "width": 960,
       "height": 710,
       "licence": "CC0",
       "author": "Lendskaip",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Close-up_van_een_voorjaarsaspect_van_de_watervorkje-associatie_(Riccietum_fluitantis).jpg",
-      "caption": "Een close-up van een voorjaarsaspect van de watervorkje-associatie (Riccietum fluitantis). In dit geval gaat het om de typische subassociatie (Riccietum fluitantis typicum).",
-      "thumb": "https://media.aquatome.com/commons/1b1ffe292212ec04-480.webp"
+      "caption": "Een close-up van een voorjaarsaspect van de watervorkje-associatie (Riccietum fluitantis). In dit geval gaat het om de typische subassociatie (Riccietum fluitantis typicum)."
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/8bfa74e06f78fd7f.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/8bfa74e06f78fd7f-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/crystalwort-care-guide-planting-growing-and-propagation/",
+      "source": "aquariumbreeder"
     }
   ],
   "productSlots": [
@@ -93,5 +158,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-13"
 }

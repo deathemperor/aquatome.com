@@ -7,7 +7,7 @@ import { LlmError, type Llm } from '../src/claude'
 import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
 import { loadPages } from '../src/pages'
 import { checkPagePhotos } from '../src/photo-check'
-import { sweep, sweepTranslation } from '../src/sweep'
+import { kindPassages, nameFish, sweep, sweepTranslation } from '../src/sweep'
 import { atCeiling } from './at-ceiling'
 
 const photo = (url: string, caption: string) => ({ url, width: 1200, height: 800, licence: 'CC BY 4.0', author: 'A', sourceUrl: 'https://commons.wikimedia.org/x', caption })
@@ -430,6 +430,48 @@ test('a shop\'s own talk and a page about one variety leave a species page, in e
   expect((await sweep(root)).files).toEqual([])
 })
 
+// The chief of staff, 13 Nov 2026: a shop's part that is wholly its notice of a current batch or stock comes off when its
+// heading has another source's text, and is listed when it's that heading's only text (fit.ts dealerNotice).
+test('a shop\'s part that is wholly its notice of a batch or stock comes off when its heading has another source; alone, it\'s listed and stays', async () => {
+  const root = await store()
+  const file = (f: string) => join(root, 'content/species/corydoras-adolfoi', f)
+  const e = JSON.parse(await readFile(file('entity.json'), 'utf8'))
+  e.sections.push(
+    { key: 'distribution', source: 'glaser', sourceUrl: 'https://glaser/x', html: '<p>Currently fully grown, wild collected fish from Venezuela are on offer.</p>' },
+    { key: 'beforeYouBuy', source: 'glaser', sourceUrl: 'https://glaser/x', html: '<p>Beautiful wild-caught fish from Brazil have recently been imported.</p>' },
+    { key: 'notes', source: 'glaser', sourceUrl: 'https://glaser/x', html: '<p>A peaceful catfish. Some were recently imported from Peru.</p>' },
+    // Two shops' notices alone under one heading: neither is the text that stays (Astra's read).
+    { key: 'diet', source: 'glaser', sourceUrl: 'https://glaser/x', html: '<p>This batch has only 7 fish.</p>' },
+    { key: 'diet', source: 'bwaquatics', sourceUrl: 'https://bw/x', html: '<p>This batch has only 8 fish.</p>' },
+    // A notice with a fact after a comma, beside another source's text: it stays, its fact with it (Astra's read).
+    { key: 'habitat', source: 'glaser', sourceUrl: 'https://glaser/x', html: '<p>This batch has only 7 fish, the species needs soft water.</p>' },
+  )
+  await writeFile(file('entity.json'), JSON.stringify(e, null, 1))
+  const vi = JSON.parse(await readFile(file('vi.json'), 'utf8'))
+  Object.assign(vi.sections, {
+    'distribution:glaser': '<p>Hiện ngoài tiệm có bán cá bắt ngoài tự nhiên ở Venezuela.</p>',
+    'beforeYouBuy:glaser': '<p>Gần đây có một đợt cá bắt tự nhiên từ Brazil rất đẹp vừa được nhập về.</p>',
+    'notes:glaser': '<p>Cá chuột hiền. Gần đây có một đợt nhập từ Peru về.</p>',
+    'diet:glaser': '<p>Lô này chỉ có 7 con.</p>',
+    'diet:bwaquatics': '<p>Lô này chỉ có 8 con.</p>',
+    'habitat:glaser': '<p>Lô này chỉ có 7 con, loài này cần nước mềm.</p>',
+  })
+  await writeFile(file('vi.json'), JSON.stringify(vi, null, 1))
+  await writeFile(file('th.json'), JSON.stringify({ ...vi, sections: { 'distribution:glaser': '<p>มีขาย</p>', 'notes:glaser': '<p>ปลาสงบ</p>' } }, null, 2))
+
+  const r = await sweep(root)
+  expect(r.dealer).toEqual(['species/corydoras-adolfoi: distribution:glaser'])
+  expect(r.dealerOnly).toEqual(['species/corydoras-adolfoi: beforeYouBuy:glaser', 'species/corydoras-adolfoi: diet:glaser', 'species/corydoras-adolfoi: diet:bwaquatics'])
+  const keys = (x: { sections: { key: string; source: string }[] }) => x.sections.map(s => `${s.key}:${s.source}`)
+  expect(keys(JSON.parse(await readFile(file('entity.json'), 'utf8')))).toEqual(['distribution:seriouslyfish', 'habitat:seriouslyfish', 'beforeYouBuy:glaser', 'notes:glaser', 'diet:glaser', 'diet:bwaquatics', 'habitat:glaser'])
+  expect(Object.keys(JSON.parse(await readFile(file('vi.json'), 'utf8')).sections).filter(k => k.endsWith(':glaser')).sort()).toEqual(['beforeYouBuy:glaser', 'diet:glaser', 'habitat:glaser', 'notes:glaser'])
+  expect(JSON.parse(await readFile(file('th.json'), 'utf8')).sections).toEqual({ 'notes:glaser': '<p>ปลาสงบ</p>' })
+  // Again: nothing to change, and the one left is listed each run.
+  const again = await sweep(root)
+  expect(again.files).toEqual([])
+  expect(again.dealerOnly).toEqual(['species/corydoras-adolfoi: beforeYouBuy:glaser', 'species/corydoras-adolfoi: diet:glaser', 'species/corydoras-adolfoi: diet:bwaquatics'])
+})
+
 const WEEKLY = "claude failed (1): You've hit your weekly limit · resets Nov 14 at 8am (Asia/Saigon)"
 // The guide body the sweep already leaves in place, so a counted title is the only thing that would change the file.
 const CLEAN = '<h3>Đèn</h3><p><strong>Sai lầm 1:</strong> đèn mạnh.</p><p><strong>Sai lầm 2:</strong> bật lâu.</p><h3>CO2</h3><p><strong>Sai lầm 3:</strong> thiếu CO2.</p><h3>Phân nền</h3><h3>Kết luận</h3><p>Kiên nhẫn là chính, thay nước đều đặn mỗi tuần và theo dõi cây.</p>'
@@ -584,6 +626,80 @@ test('a fish\'s old name can\'t stop a publish: the sweep writes its name wherev
   await writeFile(join(c, 'species/nannostomus-eques/vi.json'), JSON.stringify(vi('Cá chì', { 'distribution:seriouslyfish': '<p>Cá cờ lùn (dwarf flag cichlid) sống ở Nam Mỹ.</p>' }), null, 1))
   await sweep(root)
   expect(await listed()).toEqual(['/vi/ca/cá-chì/'])
+})
+
+// The chief of staff, 2026-11-13: the blue-eye is "cá mắt xanh", not the rainbowfish's "cầu vồng". Through the engine, guarded,
+// the old name kept for search, the address as it was.
+test('a fish the chief of staff named takes its name, guarded, the old one among its other names and its address as it was; its text, summary and other pages follow; the second run changes nothing', async () => {
+  const root = await store()
+  const c = join(root, 'content')
+  const at = 'species/pseudomugil-luminatus'
+  await mkdir(join(c, at), { recursive: true })
+  await writeFile(join(c, at, 'entity.json'), JSON.stringify(species('pseudomugil-luminatus', 'Pseudomugil luminatus'), null, 1))
+  await writeFile(join(c, at, 'vi.json'), JSON.stringify({
+    ...vi('Cá cầu vồng neon đỏ mắt xanh', { 'distribution:seriouslyfish': '<p>Pseudomugil luminatus, tên thường gọi là cá cầu vồng mắt xanh đỏ neon, sống ở New Guinea.</p><p>Nuôi chung với các loài cá cầu vồng hiền khác.</p>' }),
+    slug: 'ca-cau-vong-neon-do-mat-xanh', altNames: ['Cá cầu vồng neon đỏ', 'Red-Neon Blue-eye', 'Cá mắt xanh neon đỏ'],
+  }, null, 1))
+  await writeFile(join(c, at, 'id.json'), JSON.stringify(vi('Ikan Pelangi Neon Merah', { 'distribution:seriouslyfish': '<p>Ikan.</p>' }), null, 1))
+  await writeFile(join(c, 'summaries/pseudomugil-luminatus.json'), JSON.stringify({ id: 'pseudomugil-luminatus', summary: 'Cá cầu vồng neon đỏ mắt xanh hợp bể nhỏ.', mistakes: [], speciesUpdatedAt: '2026-10-01', generatedAt: '2026-10-02', review: 'approved' }, null, 2))
+  const guide = await json(root, 'content/guides/g/vi.json')
+  await writeFile(join(c, 'guides/g/vi.json'), JSON.stringify({ ...guide, body: `<p>Thử cá cầu vồng neon đỏ mắt xanh.</p>${guide.body}` }, null, 2))
+  const listed = async () => checkPages(await loadPages(c), RULES.filter(r => r.id === 'swapped-name')).findings.map(f => f.page.path)
+  expect(await listed()).toEqual(expect.arrayContaining(['/vi/ca/ca-cau-vong-neon-do-mat-xanh/', '/vi/huong-dan/10-cách-xử-lý-rêu-hại-nhanh/']))
+
+  const r = await sweep(root)
+  expect(await listed()).toEqual([])
+  const t = await json(root, `content/${at}/vi.json`)
+  expect([t.name, t.nameFixed, t.slug]).toEqual(['Cá mắt xanh neon đỏ', true, 'ca-cau-vong-neon-do-mat-xanh'])
+  expect(t.altNames).toEqual(['Cá cầu vồng neon đỏ', 'Red-Neon Blue-eye', 'Cá cầu vồng neon đỏ mắt xanh'])
+  // Its tankmates' "cá cầu vồng" names no blue-eye, so it stays.
+  expect(t.sections['distribution:seriouslyfish']).toBe('<p>Pseudomugil luminatus, tên thường gọi là cá mắt xanh đỏ neon, sống ở New Guinea.</p><p>Nuôi chung với các loài cá cầu vồng hiền khác.</p>')
+  expect((await json(root, `content/${at}/id.json`)).name).toBe('Ikan Pelangi Neon Merah')
+  expect((await json(root, 'content/summaries/pseudomugil-luminatus.json')).summary).toBe('Cá mắt xanh neon đỏ hợp bể nhỏ.')
+  expect((await json(root, 'content/guides/g/vi.json')).body).toContain('<p>Thử cá mắt xanh neon đỏ.</p>')
+  expect(r.text['fish-name']).toEqual(['species/pseudomugil-luminatus/vi'])
+  expect(r.files).toEqual(expect.arrayContaining([`${at}/vi.json`, 'summaries/pseudomugil-luminatus.json', 'guides/g/vi.json']))
+  expect((await sweep(root)).files).toEqual([])
+
+  // A name a person chose is theirs: the step leaves a guarded page as it is.
+  await writeFile(join(c, at, 'vi.json'), JSON.stringify({ ...t, name: 'Cá mắt xanh Paskai', altNames: [] }, null, 1))
+  expect(await nameFish(c)).toEqual([])
+  expect(await nameFish(c, [{ id: 'pseudomugil-luminatus', sci: 'Pseudomugil luminatus', was: 'Cá mắt xanh Paskai', name: 'Cá khác' }])).toEqual([])
+  expect((await json(root, `content/${at}/vi.json`)).name).toBe('Cá mắt xanh Paskai')
+  // Its own name, the kept ones dropped by a later write (Astra, 2026-11-13: species research writes a page's other
+  // names afresh): they come back, once.
+  await writeFile(join(c, at, 'vi.json'), JSON.stringify({ ...t, altNames: ['Red-Neon Blue-eye'] }, null, 1))
+  expect(await nameFish(c)).toEqual(['species/pseudomugil-luminatus'])
+  expect((await json(root, `content/${at}/vi.json`)).altNames).toEqual(['Red-Neon Blue-eye', 'Cá cầu vồng neon đỏ mắt xanh'])
+  expect(await nameFish(c)).toEqual([])
+})
+
+// Astra, 2026-11-13: a guide's heading and line a rule can't tie to the blue-eye ("Bể cá cầu vồng nano") are written as
+// a person read them, on their own page; its sources' references and other pages stay.
+test('a passage a person found is written as they said, on its page only, once', async () => {
+  const root = await store()
+  const c = join(root, 'content')
+  const guide = await json(root, 'content/guides/g/vi.json')
+  await writeFile(join(c, 'guides/g/vi.json'), JSON.stringify({ ...guide, body: `<h3>Bể cá cầu vồng nano</h3>${guide.body}`, sections: { 'references:x': '<p>Bể cá cầu vồng nano</p>' } }, null, 2))
+  const rows = [{ page: 'guides/g', was: 'Bể cá cầu vồng nano', now: 'Bể cá mắt xanh' }, { page: 'guides/none', was: 'a', now: 'b' }]
+  expect(await kindPassages(c, rows)).toEqual(['guides/g'])
+  const t = await json(root, 'content/guides/g/vi.json')
+  expect(t.body).toBe(`<h3>Bể cá mắt xanh</h3>${guide.body}`)
+  expect(t.sections).toEqual({ 'references:x': '<p>Bể cá cầu vồng nano</p>' })
+  expect(await kindPassages(c, rows)).toEqual([])
+})
+
+// Astra's second read: the 20-gallon guide's three blue-eyes, the first still "cầu vồng neon đỏ"; the others stay as they are.
+test('the 20-gallon guide\'s red neon blue-eye is called by its name, in its sentence', async () => {
+  const root = await store()
+  const c = join(root, 'content')
+  const page = 'guides/aquariumcoop-blogs-aquarium-5-best-fish-tank-ideas-for-a-20-gallon-aquarium'
+  await mkdir(join(c, page), { recursive: true })
+  const said = (first: string) => `<p>Một số loài được chuộng nhất là ${first} (P. luminatus), mắt xanh đuôi chẻ hay furcata (P. furcatus), mắt xanh đốm (P. gertrudae), cầu vồng Celebes (Marosatherina ladigesi) và cầu vồng vây sợi (Iriatherina werneri).</p>`
+  await writeFile(join(c, page, 'vi.json'), JSON.stringify(vi('5 ý tưởng bể 75 lít', {}, { body: said('cầu vồng neon đỏ') }), null, 2))
+  expect(await kindPassages(c)).toEqual([page])
+  expect((await json(root, `content/${page}/vi.json`)).body).toBe(said('mắt xanh neon đỏ'))
+  expect(await kindPassages(c)).toEqual([])
 })
 
 test('a card\'s Seriously Fish difficulty read before the engine read its word is corrected from the stored page, and its summary written again', async () => {
@@ -816,6 +932,81 @@ test('every photo on the never-again list leaves the pages and albums it is stil
   expect((await sweep(root)).again).toEqual([])
 })
 
+// The owner, 2026-11-13: "is often táo đỏ", and on Limnobium laevigatum "This is commonly called bèo nhật". Each page
+// takes the name keepers use and a new address, the old one forwarding: with the old name in its note for the fish, with
+// none for the plant, whose two names were English ones translated and come off altogether. The text and the photos'
+// captions follow, the captions' translations kept.
+test('a fish and a plant named by the names in use: new address, old one forwarding, old names off or kept, text and captions following', async () => {
+  const root = await store()
+  const c = join(root, 'content')
+  const put = async (path: string, data: unknown) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, 2)}\n`) }
+  await put('species/glossolepis-incisus/entity.json', species('glossolepis-incisus', 'Glossolepis incisus'))
+  await put('species/glossolepis-incisus/vi.json', { ...vi('Cá cầu vồng đỏ', { 'distribution:seriouslyfish': '<p>Cá cầu vồng đỏ chỉ sống ở hồ Sentani.</p>' }), slug: 'ca-cau-vong-do', altNames: ['Red rainbowfish', 'Cá táo đỏ'] })
+  await put('gallery/glossolepis-incisus.json', { id: 'glossolepis-incisus', photos: [{ ...photo('https://media.aquatome.com/inat/1.webp', 'Cá cầu vồng đỏ đực trong bể trồng cây'), best: true }], seen: 1, updatedAt: '2026-10-01' })
+  await put('captions/id.json', { 'Cá cầu vồng đỏ đực trong bể trồng cây': 'Rainbow merah jantan di akuarium tanaman', 'Cá khác': 'Ikan lain' })
+  await mkdir(join(c, 'plants/limnobium-laevigatum'), { recursive: true })
+  await writeFile(join(c, 'plants/limnobium-laevigatum/entity.json'), JSON.stringify({ id: 'limnobium-laevigatum', scientificName: 'Limnobium laevigatum', difficulty: 1, light: 'medium', co2: 'none', growth: 'fast', placement: ['floating'], sections: [{ key: 'notes', source: 'tropica', sourceUrl: 'https://tropica.com/limnobium', html: '<p>Floats.</p>' }], photos: [], productSlots: [], updatedAt: '2026-10-01' }, null, 2))
+  await writeFile(join(c, 'plants/limnobium-laevigatum/vi.json'), JSON.stringify({ slug: 'beo-tay-nam-my-limnobium-laevigatum', name: 'Bèo tây Nam Mỹ (Limnobium laevigatum)', altNames: ['Bèo nhím Nam Mỹ', 'Amazon frogbit'], sections: { 'notes:tropica': '<p>Bèo tây Nam Mỹ nổi trên mặt nước, khác bèo tây (Eichhornia crassipes).</p>' }, quality: { score: 0.9, indexable: true } }, null, 1))
+
+  const r = await sweep(root)
+  const fish = await json(root, 'content/species/glossolepis-incisus/vi.json')
+  expect([fish.name, fish.slug, fish.nameFixed]).toEqual(['Cá táo đỏ', 'ca-tao-do', true])
+  expect(fish.altNames).toEqual(['Red rainbowfish', 'Cá cầu vồng đỏ', 'Cá cầu vồng táo đỏ'])
+  expect(fish.redirectFrom).toEqual([{ slug: 'ca-cau-vong-do', name: 'Cá cầu vồng đỏ' }])
+  expect(fish.sections['distribution:seriouslyfish']).toBe('<p>Cá táo đỏ chỉ sống ở hồ Sentani.</p>')
+  expect((await json(root, 'content/gallery/glossolepis-incisus.json')).photos[0].caption).toBe('Cá táo đỏ đực trong bể trồng cây')
+  expect(await json(root, 'content/captions/id.json')).toEqual({ 'Cá táo đỏ đực trong bể trồng cây': 'Rainbow merah jantan di akuarium tanaman', 'Cá khác': 'Ikan lain' })
+  const plant = await json(root, 'content/plants/limnobium-laevigatum/vi.json')
+  expect([plant.name, plant.slug, plant.nameFixed]).toEqual(['Bèo Nhật', 'beo-nhat', true])
+  expect(plant.altNames).toEqual(['Amazon frogbit'])
+  expect(plant.redirectFrom).toEqual([{ slug: 'beo-tay-nam-my-limnobium-laevigatum', name: '' }])
+  expect(plant.sections['notes:tropica']).toBe('<p>Bèo Nhật nổi trên mặt nước, khác bèo tây (Eichhornia crassipes).</p>')
+  expect(r.text['fish-name']).toEqual(expect.arrayContaining(['species/glossolepis-incisus/vi', 'plants/limnobium-laevigatum/vi']))
+  expect((await sweep(root)).files).toEqual([])
+
+  // A writer that puts a dropped name back, or drops a kept one: the next run mends both.
+  await writeFile(join(c, 'plants/limnobium-laevigatum/vi.json'), JSON.stringify({ ...plant, altNames: ['Amazon frogbit', 'Bèo nhím Nam Mỹ'] }, null, 1))
+  await writeFile(join(c, 'species/glossolepis-incisus/vi.json'), JSON.stringify({ ...fish, altNames: ['Red rainbowfish'] }, null, 1))
+  await sweep(root)
+  expect((await json(root, 'content/plants/limnobium-laevigatum/vi.json')).altNames).toEqual(['Amazon frogbit'])
+  expect((await json(root, 'content/species/glossolepis-incisus/vi.json')).altNames).toEqual(['Red rainbowfish', 'Cá cầu vồng đỏ', 'Cá cầu vồng táo đỏ'])
+})
+
+// Curation, 2026-11-13: "bo bo (rận nước)", the daphnia, linked to the water louse named "Rận nước". Astra's second read:
+// its own page's text and photos still said "rận nước", so a search for it found the louse.
+test('a name that is another animal\'s leaves the page, its other names, its forward and its own words, and stays in other pages\' text', async () => {
+  const root = await store()
+  const c = join(root, 'content')
+  const put = async (path: string, data: unknown) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, 2)}\n`) }
+  const two = 'Hai con rận nước trên rêu'
+  await put('species/asellus-aquaticus/entity.json', species('asellus-aquaticus', 'Asellus aquaticus', { photos: [photo('https://media.aquatome.com/commons/a.webp', two)] }))
+  await put('species/asellus-aquaticus/vi.json', { ...vi('Rận nước', {
+    'quickFacts:aquariumbreeder': '<p>Asellus aquaticus, còn gọi là rận nước (tên tiếng Anh: Water louse), là một loài giáp xác nhỏ.</p>',
+    'behaviour:aquariumbreeder': '<p>Rận nước bò chậm. Vì ăn mùn bã, rận nước dọn bể.</p>',
+    'references:aquariumbreeder': '<p>Rận nước</p>',
+  }), slug: 'ran-nuoc', altNames: ['Rận nước ngọt', 'Water louse'] })
+  await put('gallery/asellus-aquaticus.json', { id: 'asellus-aquaticus', photos: [photo('https://media.aquatome.com/inat/a.webp', 'Rận nước Asellus aquaticus trên đá cuội'), photo('https://media.aquatome.com/commons/a.webp', two)], seen: 2, updatedAt: '2026-10-01' })
+  await put('captions/id.json', { [two]: 'Dua kutu air di atas lumut', 'Rận nước Asellus aquaticus trên đá cuội': 'Asellus aquaticus di atas kerikil' })
+  await put('summaries/asellus-aquaticus.json', { id: 'asellus-aquaticus', summary: 'Rận nước (Asellus aquaticus) hợp với người muốn một đội dọn mùn bã.', mistakes: ['Rận nước đẻ nhanh hơn tép.'], speciesUpdatedAt: '2026-10-01', generatedAt: '2026-10-02', review: 'approved' })
+  await put('species/poecilia-reticulata/entity.json', species('poecilia-reticulata', 'Poecilia reticulata'))
+  await put('species/poecilia-reticulata/vi.json', vi('Cá bảy màu', { 'feeding:seriouslyfish': '<p>Cho cá bột ăn bo bo (rận nước) mỗi ngày.</p>' }))
+  await sweep(root)
+  const louse = await json(root, 'content/species/asellus-aquaticus/vi.json')
+  expect([louse.name, louse.slug, louse.nameFixed, louse.altNames]).toEqual(['Asellus aquaticus', 'asellus-aquaticus', true, ['Water louse']])
+  expect(louse.redirectFrom).toEqual([{ slug: 'ran-nuoc', name: '' }])
+  expect(louse.sections).toEqual({
+    'quickFacts:aquariumbreeder': '<p>Asellus aquaticus (tên tiếng Anh: Water louse) là một loài giáp xác nhỏ.</p>',
+    'behaviour:aquariumbreeder': '<p>Asellus bò chậm. Vì ăn mùn bã, Asellus dọn bể.</p>',
+    'references:aquariumbreeder': '<p>Rận nước</p>',
+  })
+  expect((await json(root, 'content/gallery/asellus-aquaticus.json')).photos.map((p: { caption: string }) => p.caption)).toEqual(['Asellus aquaticus trên đá cuội', 'Hai con Asellus trên rêu'])
+  expect((await json(root, 'content/species/asellus-aquaticus/entity.json')).photos[0].caption).toBe('Hai con Asellus trên rêu')
+  expect(await json(root, 'content/captions/id.json')).toEqual({ 'Hai con Asellus trên rêu': 'Dua kutu air di atas lumut', 'Asellus aquaticus trên đá cuội': 'Asellus aquaticus di atas kerikil' })
+  expect(await json(root, 'content/summaries/asellus-aquaticus.json')).toMatchObject({ summary: 'Asellus aquaticus hợp với người muốn một đội dọn mùn bã.', mistakes: ['Asellus đẻ nhanh hơn tép.'], review: 'approved' })
+  expect((await json(root, 'content/species/poecilia-reticulata/vi.json')).sections['feeding:seriouslyfish']).toBe('<p>Cho cá bột ăn bo bo (rận nước) mỗi ngày.</p>')
+  expect((await sweep(root)).files).toEqual([])
+})
+
 // Astra, 2026-11-13: the school size was read before the fold, so the skunk cory's came only on a second run.
 test('a page folded into its fish\'s gives that fish its school size in the same run', async () => {
   const root = await store()
@@ -859,5 +1050,35 @@ test("a photo credited to someone its source's permission refuses leaves every p
   expect(Object.keys(rejected).sort()).toEqual([agency.url, trio.url, variant.url])
   for (const u of [agency.url, trio.url, variant.url]) expect(rejected[u]).toMatch(/^rejected: withheld \[sha256:[a-f0-9]{64}\]$/)
   expect(r.held).toEqual([])
+  expect((await sweep(root)).again).toEqual([])
+})
+
+// Photo Sourcing, 14 Nov: the aquatic-plants equipment page still showed an Aquarium Co-op photo on the never-again list,
+// in all four languages. The never-again pass walked fish, plant, breed, guide and album files only.
+test("a photo on the never-again list leaves every equipment page and each language's copy: a type's photo goes, a listed hero gives way to a type's", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'sweep-'))
+  const c = join(root, 'content')
+  const put = async (path: string, data: unknown) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, 2)}\n`) }
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await mkdir(c, { recursive: true })
+  await copyFile(new URL('../../../content/sources.json', import.meta.url), join(c, 'sources.json'))
+  const p = (name: string) => photo(`https://media.aquatome.com/aquariumcoop/${name}.webp`, 'Aquatic plants')
+  const hero = p('hero'), stem = p('stem'), listed = p('listed'), moss = p('moss')
+  const type = (id: string, photo: object) => ({ id, name: id, match: id, desc: '', pick: '', buy: id, photo })
+  const page = (category: string, heroPhoto: object) => ({ category, name: category, lead: '', intro: '', hero: heroPhoto, types: [type('than', stem), type('reu', listed), type('la', moss)], choose: [], mistakes: [], faq: [] })
+  await put('equipment/cay-thuy-sinh.json', page('cay-thuy-sinh', hero))
+  await put('equipment/id/cay-thuy-sinh.json', page('cay-thuy-sinh', hero))
+  await put('equipment/den.json', page('den', hero))
+  await put('equipment/th/den.json', page('den', listed))
+  await writeFile(join(root, 'engine-state/_photo-rejected.json'), `${JSON.stringify({ [listed.url]: 'rejected: withheld [sha256:' + 'a'.repeat(64) + ']' }, null, 2)}\n`)
+  const r = await sweep(root)
+  for (const f of ['equipment/cay-thuy-sinh.json', 'equipment/id/cay-thuy-sinh.json', 'equipment/den.json']) {
+    const e = await json(root, `content/${f}`)
+    expect(e.hero, f).toEqual(hero)
+    expect(e.types.map((t: { photo?: { url: string } }) => t.photo?.url ?? null), f).toEqual([stem.url, null, moss.url])
+  }
+  // A listed hero gives way to the first type's photo, as the photo check does.
+  expect((await json(root, 'content/equipment/th/den.json')).hero).toEqual(stem)
+  expect(r.again.filter(x => x.startsWith('equipment/')).length).toBe(5)
   expect((await sweep(root)).again).toEqual([])
 })

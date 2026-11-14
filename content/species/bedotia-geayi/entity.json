@@ -106,7 +106,12 @@
       "author": "Stan Shebs",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bedotia_geayi_1.jpg",
       "caption": "Photo of Bedotia geayi (Madagascar rainbowfish) at the Steinhart Aquarium in San Francisco",
-      "thumb": "https://media.aquatome.com/commons/e22737f8a2707271-480.webp"
+      "thumb": "https://media.aquatome.com/commons/e22737f8a2707271-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/e22737f8a2707271-large.webp",
+        "width": 1200,
+        "height": 757
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/6f54a3f73b120b4a.webp",

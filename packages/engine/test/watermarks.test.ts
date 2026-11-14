@@ -1,3 +1,4 @@
+import { denied } from './piece-admission'
 import { createHash } from 'node:crypto'
 import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
@@ -111,4 +112,15 @@ test('a model failure (usage limit) stops the run; photos not judged stay on the
   const next = await screenWatermarks(r, cache, rejected, d, { limit: 10 })
   expect(next).toMatchObject({ read: 0, judged: 5 })
   expect((await read(r, 'content/species/a/entity.json')).photos).toHaveLength(2)
+})
+
+test('item admission stops without model calls or content changes', async () => {
+  const root = await site()
+  const { d, calls } = deps()
+  await denied('watermarks', root, async () => {
+    const r = await screenWatermarks(root, join(root, 'engine-state/cache.json'), join(root, 'engine-state/rejected.json'), d, { limit: 10 })
+    expect(r.stopped).toBeTruthy()
+    expect(r.failed).toEqual([])
+    expect(calls.looked).toEqual([])
+  })
 })

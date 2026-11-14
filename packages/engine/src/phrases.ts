@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs'
 import type { WrittenLang } from '@aq/schema'
-import { SWAPPED, type SwappedName } from './names'
+import { FISH_NAMES, oldNames, SWAPPED, type FishName, type SwappedName } from './names'
 
 /**
  * Per language the engine writes: words and turns it writes far more often than that language's hobbyists do, each with
@@ -179,9 +179,13 @@ const viPrompt = (list: Phrase[]) => !list.length ? '' : [
 
 /** The owner's fish names (names.ts), as the writers read them: the fish, its name, the name it no longer has. */
 const q = (s: string) => `"${s}"`
-export const namesPrompt = (list: readonly SwappedName[] = SWAPPED) => [
-  'Tên cá chủ trang đã chốt. Gọi đúng tên này, kể cả khi nguồn hay bản dịch cũ gọi khác:',
-  ...list.map(r => `- ${r.fish.join(', ')}: ${r.now.split(', ').map(q).join(' hoặc ')}, không gọi là ${q(r.was)}${r.stillFor ? ` (${q(r.was)} là ${r.stillFor.join(', ')})` : ''}.`),
+export const namesPrompt = (list: readonly SwappedName[] = SWAPPED, fishNames: readonly FishName[] = FISH_NAMES) => [
+  'Tên cá và cây chủ trang đã chốt. Gọi đúng tên này, kể cả khi nguồn hay bản dịch cũ gọi khác:',
+  // The fish as a reader writes them: a pattern for their abbreviated names ("P. luminatus") is the rule's, not the writer's.
+  ...list.map(r => `- ${r.fish.filter(f => !/[\\[(?|]/.test(f)).join(', ')}: ${r.now.split(', ').map(q).join(' hoặc ')}, không gọi là ${q(r.was)}${r.stillFor ? ` (${q(r.was)} là ${r.stillFor.join(', ')})` : ''}.`),
+  // The chief of staff's names for single fish and plants (FISH_NAMES): the page's name, never its old ones.
+  // A name that means another animal ("rận nước") is said to be that one's, so the writer still uses it for it.
+  ...fishNames.map(r => `- ${r.sci}: ${q(r.name)}${oldNames(r).length ? `, không gọi là ${oldNames(r).map(q).join(' hay ')}` : ''}${r.elsewhere?.length ? `, không gọi là ${r.elsewhere.map(q).join(' hay ')} (tên của loài khác)` : ''}.`),
 ].join('\n')
 
 /** The style guide every Vietnamese writer reads (prompts/vi-style.md), with the Vietnamese list and the owner's fish names. */

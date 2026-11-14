@@ -1,0 +1,131 @@
+{
+  "id": "youtube-RgZyJiCQSNM",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=RgZyJiCQSNM",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "poecilia-reticulata",
+    "paracheirodon-simulans",
+    "staurogyne-repens",
+    "hygrophila-polysperma",
+    "ludwigia-repens",
+    "limnobium-laevigatum",
+    "hydrocotyle-tripartita",
+    "pogostemon-helferi",
+    "phyllanthus-fluitans"
+  ],
+  "updatedAt": "2026-11-13",
+  "video": {
+    "youtubeId": "RgZyJiCQSNM",
+    "title": "Making A NO FILTER Guppy Ecosystem Pond Aquarium From Start To Finish",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 1304,
+    "publishedAt": "2025-09-27",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWvIM5TufKaTkbfXyaw3dd8K",
+      "position": 51
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/RgZyJiCQSNM/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Poecilia reticulata",
+      "Paracheirodon simulans",
+      "Staurogyne repens",
+      "Hygrophila polysperma",
+      "Ludwigia repens",
+      "Echinodorus sp.",
+      "Cryptocoryne sp.",
+      "Limnobium laevigatum",
+      "Hydrocotyle tripartita",
+      "Pogostemon helferi",
+      "Hemianthus callitrichoides",
+      "Phyllanthus fluitans"
+    ],
+    "gear": [
+      {
+        "category": "den",
+        "brand": "ADA",
+        "model": "Aqua Sky",
+        "t": 70
+      },
+      {
+        "category": "khac",
+        "brand": "API",
+        "model": "Leaf Zone",
+        "t": 97
+      },
+      {
+        "category": "khac",
+        "brand": "API",
+        "model": "Quick Start",
+        "t": 100
+      },
+      {
+        "category": "khac",
+        "brand": "API",
+        "model": "Root Tabs",
+        "t": 103
+      },
+      {
+        "category": "test-nuoc",
+        "type": "test",
+        "brand": "API",
+        "model": "Freshwater Master Test Kit",
+        "t": 107
+      },
+      {
+        "category": "khac",
+        "brand": "API",
+        "model": "Accu-Clear",
+        "t": 110
+      },
+      {
+        "category": "khac",
+        "brand": "API",
+        "model": "Tap Water Conditioner",
+        "t": 115
+      },
+      {
+        "category": "thuc-an",
+        "type": "kho",
+        "brand": "Aquarian",
+        "model": "Tropical and Temperate Flake",
+        "t": 1180
+      },
+      {
+        "category": "thuc-an",
+        "type": "kho",
+        "brand": "Aquarian",
+        "model": "Cichlid Pellets",
+        "t": 120
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 375
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 160
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 520
+      },
+      {
+        "category": "loc",
+        "type": "bot-bien",
+        "t": 725
+      }
+    ]
+  }
+}

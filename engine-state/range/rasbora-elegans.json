@@ -1,0 +1,81 @@
+{
+  "id": "rasbora-elegans",
+  "native": {
+    "input": "1412779191d46f06",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to Peninsular Malaysia, Singapore and the Greater Sunda Islands of Borneo and Sumatra.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to Peninsular Malaysia, Singapore and the Greater Sunda Islands of Borneo and Sumatra.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "BN",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It is unclear whether the species ranges into Malaysian Borneo, Brunei Darussalam or northern parts of Indonesian Borneo.",
+        "words": "Brunei Darussalam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Native to Peninsular Malaysia, Singapore and the Greater Sunda Islands of Borneo and Sumatra.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Native to Peninsular Malaysia, Singapore and the Greater Sunda Islands of Borneo and Sumatra.",
+        "ok": true
+      },
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "On Borneo there are occurrences from the Marah River basin, East Kalimantan (Kalimantan Timur) and parts of the lower Kapuas River basin in West Kalimantan (Kalimantan Barat).",
+        "ok": true
+      },
+      {
+        "name": "Marah River",
+        "source": "seriouslyfish",
+        "quote": "On Borneo there are occurrences from the Marah River basin, East Kalimantan (Kalimantan Timur) and parts of the lower Kapuas River basin in West Kalimantan (Kalimantan Barat).",
+        "ok": true
+      },
+      {
+        "name": "Nias",
+        "source": "seriouslyfish",
+        "quote": "The only record found from Sumatra is from the small island of Nias off the northwestern coast although presumably it also occurs on the main island.",
+        "ok": true
+      },
+      {
+        "name": "Peninsular Malaysia",
+        "source": "seriouslyfish",
+        "quote": "Native to Peninsular Malaysia, Singapore and the Greater Sunda Islands of Borneo and Sumatra.",
+        "country": "MY",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  }
+}

@@ -10,7 +10,8 @@
     "indonesia",
     "muara-teweh",
     "barito",
-    "mahakam"
+    "mahakam",
+    "kalimantan"
   ],
   "range": {
     "native": {
@@ -98,7 +99,7 @@
       },
       {
         "source": "bwaquatics",
-        "value": 8
+        "value": 7.5
       }
     ],
     "gh": [
@@ -127,14 +128,20 @@
     {
       "key": "quickFacts",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-palifina-red-wild-type-bettas",
-      "html": "<p>From the Betta unimaculata complex. IUCN Red List: Data Deficient (not enough information at this time).</p><p>Wild-caught Betta pallifina from Mahakam. A mouthbrooding type of betta belonging to the unimaculata complex. Unlike the normal pallifina type, this type is particularly large and has red on its fins. Males and females both have colorful blue-teal fins with a metallic copper coating and red banding.</p><p>Maximum size: 3+ inches (about 8 cm).</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-pallifina-montoni-wild-type-bettas",
+      "html": "<p>A mouthbrooding betta belonging to the unimaculata complex, wild caught in Central Kalimantan. IUCN Red List: Data Deficient. This form is particularly large and has red on its fins. Males and females both have colourful blue-teal fins with a metallic copper coating and red banding.</p>"
     },
     {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-pallifina",
       "html": "<p>To date it has only been collected from a remote part of the upper Barito river basin in the Indonesian province of Kalimantan Tengah (Central Kalimantan), Borneo.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-pallifina-montoni-wild-type-bettas",
+      "html": "<p>Central Kalimantan, Indonesia.</p>"
     },
     {
       "key": "habitat",
@@ -163,8 +170,8 @@
     {
       "key": "waterConditions",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-palifina-red-wild-type-bettas",
-      "html": "<ul><li>TDS: ~60–250 (very adaptable)</li><li>pH: ~5.0–7.5 (very adaptable)</li><li>Temperature: 22–28°C (72–82°F); they prefer cooler temperatures, but higher temperatures induce coloration and breeding behaviours.</li></ul>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-pallifina-montoni-wild-type-bettas",
+      "html": "<ul><li>TDS: about 60–250 (very adaptable)</li><li>pH: 5.0–7.5 (very adaptable)</li><li>Temperature: 22–28°C. It prefers cooler temperatures, but higher temperatures bring out colouration and breeding behaviour.</li></ul>"
     },
     {
       "key": "diet",
@@ -175,8 +182,8 @@
     {
       "key": "diet",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-palifina-red-wild-type-bettas",
-      "html": "<p>Carnivorous. Fed on live, frozen and dry foods, currently blackworms, frozen bloodworms and pellets.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-pallifina-montoni-wild-type-bettas",
+      "html": "<p>Carnivorous. Fed on live, frozen and dry foods, including blackworms, frozen bloodworms and pellets.</p>"
     },
     {
       "key": "behaviour",
@@ -187,8 +194,8 @@
     {
       "key": "behaviour",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-palifina-red-wild-type-bettas",
-      "html": "<p>Like many of the species in this complex, and especially the largest bettas, they can be aggressive. They should be kept in a species-only tank, as they can eat anything that fits in their big mouth.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-pallifina-montoni-wild-type-bettas",
+      "html": "<p>Like many species in this complex, the largest bettas can be aggressive. They are best kept in a species-only tank, as they can eat anything that fits in their big mouth.</p>"
     },
     {
       "key": "dimorphism",
@@ -205,7 +212,7 @@
     {
       "key": "reproduction",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-palifina-red-wild-type-bettas",
+      "sourceUrl": "https://bwaquatics.com/products/betta-pallifina-montoni-wild-type-bettas",
       "html": "<p>Mouthbrooder.</p>"
     },
     {
@@ -215,16 +222,16 @@
       "html": "<p>This species is included in the Betta unimaculata complex of closely-related species within the genus, of which members share the following set of characters: body long and slender with depth at dorsal fin origin 18-25 % SL; head large and blunt with width 19-24 % SL; long maxilla and lower lip with distance from tip of lower jaw to posterior end of maxilla 27-54 % HL; caudal-fin rounded in shape, occasionally with elongated median rays; pelvic-fin short and filamentous; dorsal and anal fins relatively pointed.</p><p>The unique combination of characters distinguishing it from others in the group is as follows: caudal-fin lanceolate; female with orange subdistal band in anal fin; modally 6 subdorsal scales; predorsal length 64.6-69.4 % SL; head width 17.7-20.8 % SL.</p><p>The genus Betta is the most speciose within the family Osphronemidae with almost 70 recognised members and looks set to grow further with new ones continuing to be described on a regular basis since the turn of the century.</p><p>Member species have successfully adapted to inhabit a variety of ecological niches from stagnant ditches to flowing hill streams including some extreme environments such as highly acidic peat swamp forests.</p><p>The referral of members to a number of groups containing closely-related species is now generally accepted but largely based on morphological/behavioural characters. Molecular phylogenetic work is thus required and would undoubtedly prove useful in more precisely determining relationships between these fishes.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth. So-called due to its maze-like structure this organ allows the fish to breathe atmospheric air to a certain extent.</p><p>Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly-vascularised, folded flaps of skin which function as a large respiratory surface. Its structure varies in complexity between species, tending to be better-developed in those inhabiting harsher environments.</p>"
     },
     {
-      "key": "notes",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-palifina-red-wild-type-bettas",
-      "html": "<p>All wild-caught fish go through a one-month quarantine to ensure they are free of disease.</p><p>These fish make great species-only tank inhabitants and are a good fish for beginners getting into mouthbrooders.</p>"
-    },
-    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-pallifina",
       "html": "<ul><li>Tan, H. H. and P. K. L. Ng (2005). The fighting fishes (Teleostei: Osphronemidae: Genus Betta) of Singapore, Malaysia and Brunei. Raffles Bulletin of Zoology Supplement 13, 43-99</li></ul>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-pallifina-montoni-wild-type-bettas",
+      "html": "<p>Maximum size: 3+ inches (over 7.5 cm).</p>"
     }
   ],
   "photos": [
@@ -233,15 +240,25 @@
       "thumb": "https://media.aquatome.com/commons/eae81e422682d5bd-480.webp",
       "width": 960,
       "height": 640,
-      "licence": "CC BY-SA 3.0",
-      "author": "Stacyh202",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Male_Betta_Pallifina.jpg",
-      "caption": "Photo of a male Betta pallifina",
       "large": {
         "url": "https://media.aquatome.com/commons/eae81e422682d5bd-large.webp",
         "width": 1800,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "Stacyh202",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Male_Betta_Pallifina.jpg",
+      "caption": "Photo of a male Betta pallifina"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/99e6d38a8ca9268c.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/99e6d38a8ca9268c-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-pallifina-montoni-wild-type-bettas",
+      "source": "bwaquatics"
     },
     {
       "url": "https://media.aquatome.com/commons/bb4b9374c622f46a.webp",
@@ -264,7 +281,44 @@
       "caption": "Young betta pallifina (unsexed)."
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "NIAyyWO_Vmw",
+      "title": "Pair of Wild Betta Pallifinas flaring",
+      "durationSec": 122,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "8m5lfi_NfT0",
+      "title": "Betta pallifina Courtship Behavior",
+      "durationSec": 561,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "I_8I5WT5YiQ",
+      "title": "2026 Betta pallifina F1 male w fry",
+      "durationSec": 31,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "cgbJnp36PiQ",
+      "title": "Betta pallifina",
+      "durationSec": 74,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "owkV5e6kMcI",
+      "title": "Betta Pallifina big mouth close up",
+      "durationSec": 60,
+      "lang": "zh-HK"
+    },
+    {
+      "youtubeId": "Z9Mie5380ms",
+      "title": "Betta Pallifina: Mating!",
+      "durationSec": 67,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -289,5 +343,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-13"
 }

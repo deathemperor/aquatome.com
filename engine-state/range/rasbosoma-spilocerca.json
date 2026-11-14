@@ -1,0 +1,78 @@
+{
+  "id": "rasbosoma-spilocerca",
+  "native": {
+    "input": "b66b8a9bdfd6ab26",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The natural distribution of the species is the lower Mekong basin of Laos, Thailand and Cambodia.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The natural distribution of the species is the lower Mekong basin of Laos, Thailand and Cambodia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The natural distribution of the species is the lower Mekong basin of Laos, Thailand and Cambodia.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Lower Mekong River basin in Laos, Thailand and Cambodia.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Lower Mekong River basin in Laos, Thailand and Cambodia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Lower Mekong River basin in Laos, Thailand and Cambodia.",
+        "words": "Cambodia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Native to the Lower Mekong River basin in Laos, Thailand and Cambodia.",
+        "ok": true
+      },
+      {
+        "name": "Tonlé Sap",
+        "source": "seriouslyfish",
+        "quote": "A major population in Cambodia can be found in the great lake of Tonlé Sap and surrounding swamps.",
+        "country": "KH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  }
+}

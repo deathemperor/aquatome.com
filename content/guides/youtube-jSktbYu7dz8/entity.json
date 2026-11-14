@@ -1,0 +1,77 @@
+{
+  "id": "youtube-jSktbYu7dz8",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=jSktbYu7dz8",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "paracheirodon-innesi",
+    "microsorum-pteropus",
+    "poecilia-reticulata",
+    "betta-splendens",
+    "pterophyllum-scalare"
+  ],
+  "updatedAt": "2026-11-13",
+  "video": {
+    "youtubeId": "jSktbYu7dz8",
+    "title": "Fluval Flex 2.0 Planted Aquarium: The Results SHOCKED ME!",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 2647,
+    "publishedAt": "2025-12-13",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWvIM5TufKaTkbfXyaw3dd8K",
+      "position": 38
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/jSktbYu7dz8/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Paracheirodon innesi",
+      "Microsorum pteropus",
+      "Anubias sp.",
+      "Ludwigia sp.",
+      "Rotala sp.",
+      "Hygrophila sp.",
+      "Poecilia reticulata",
+      "Corydoras sp.",
+      "Betta splendens",
+      "Pterophyllum scalare"
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "chuan",
+        "brand": "Fluval",
+        "model": "Flex 2.0",
+        "t": 0
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "brand": "Fluval",
+        "model": "Flex 2.0",
+        "t": 6026
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 570
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 870
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 1077
+      }
+    ]
+  }
+}

@@ -16,6 +16,54 @@
     "brunei",
     "belait"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "KH",
+        "MY",
+        "BN"
+      ],
+      "regions": [
+        "Sumatra",
+        "Borneo",
+        "Mekong",
+        "Perak River",
+        "Musi",
+        "Siak River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Central Sumatra, Indonesia', with additional records existing from Cambodia (Mekong drainage), Peninsular Malaysia (Perak River), Sumatra (from the Siak River, Riau province to the Musi River, South Sumatra (Sumatera Selatan) province) and Borneo (south and westwards from the Belait river basin in Brunei Darussalam to the Sambas drainage in West Kalimantan (Kalimantan Barat) province, Indonesia and probably in Sarawak, Malaysia).",
+          "countries": [
+            "ID",
+            "KH",
+            "MY",
+            "BN"
+          ],
+          "regions": [
+            "Sumatra",
+            "Borneo",
+            "Mekong",
+            "Perak River",
+            "Siak River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In the Musi river, Sumatra, R. tornieri occurs sympatrically with the similar-looking congener R. dusonensis (see 'Notes').",
+          "countries": [],
+          "regions": [
+            "Musi"
+          ]
+        }
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

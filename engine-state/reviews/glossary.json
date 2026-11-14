@@ -1,0 +1,122 @@
+{
+  "vi/glossary/lua": [
+    {
+      "at": "2026-11-13T21:32:32Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 0.9,
+      "notes": [
+        "\"Cách chắc nhất là ngâm thử trong xô, thấy nước hết ra màu rồi hãy cho vào bể\" is the guide's own synthesis. It is loosely based on the curing facts but is not stated as such.",
+        "Mopani \"hợp Apistogramma, Betta\": the facts say wild Betta only, so dropping \"wild\" is a small overgeneralisation.",
+        "Manzanita \"nhạt màu, nhẹ\" comes from TFH, while Gensou calls it dense and hard. The guide gives both without noting the conflict.",
+        "Rules 4 and 12: Rot should be covered once, in the rot paragraph. The mistakes list brings it up again: \"Gỗ nho cũng nên tránh, vì nó mục rất nhanh khi ngập nước\". This is about which wood lasts, so it belongs with \"Gốc sú, vẹt, đước... mau mục\" in the rot paragraph.",
+        "Rules 4 and 7: The opening line of \"Các loại lũa\" repeats the colour claims of four kinds: \"Nhiều tiệm ghi lũa sa tùng, hải sơn quỳ, trà rừng hay xương chùm là \\\"không ra màu\\\"\". Each of those items already says \"không ra màu\". A kind's colour belongs in its own item only, so it should not appear twice or in a general line.",
+        "Rule 4: The general remark that shops and the magazine disagree (\"còn tạp chí cá cảnh thì nói gỗ nào cũng tiết tanin\") makes two remarks about shops disagreeing on colour. The other is in the linh sam item: \"Các tiệm ghi màu nước khác nhau\". The general remark also repeats the soaking step. \"Cách chắc nhất là ngâm thử trong xô, thấy nước hết ra màu rồi hãy cho vào bể\" says the same as step 4: \"Ngâm ngập lũa trong xô lớn... làm tới khi nước trong mấy ngày liền\".",
+        "Rule 4: Floating wood is covered in two places. \"Trong bể của bạn\" has \"Lũa khô nổi cho tới khi ngấm đủ nước, chuyện này bình thường\", and step 6 has \"Lũa còn nổi thì đè bằng đá...\". The definition also says \"Lũa mới hay nổi\". This should be said once.",
+        "Rule 4: The mistake \"Thả lũa khi mới tráng qua, khi gỗ còn ra màu hoặc còn mùi\" repeats step 2 (\"Ngửi gỗ. Có mùi hóa chất...\") and step 4 (soaking until the water stays clear).",
+        "Rule 7: In the \"Lũa xương chùm\" item, the use (\"dùng làm tán cho lũa bonsai\") comes before whether it sinks (\"Lũa nhẹ, không chìm\") and before the colour (\"Tiệm ghi không ra màu\"). The order should be: looks, then sinking and colour, then use.",
+        "Rule 7: In the \"Lũa săn đá\" item, the use (\"đặt vào bố cục không cần cắt\") comes before what it does to the water (\"Lúc đầu nó có thể ra nhớt trắng và làm nước vàng\"). Sinking and colour should come before use.",
+        "The entry is 2007 words: hold it to about 1500, about 60 a kind, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "acceptedBy": "the chief of staff"
+    },
+    {
+      "at": "2026-11-13T21:31:53Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.72,
+      "notes": [
+        "\"Neocaridina, Tép Amano, Ốc mystery, Otocinclus và Cá lau kiếng bristlenose đều ăn lớp này\" — the facts also list nerite and Malaysian trumpet snails; this is a subset, so it's fine. The real problems are below.",
+        "\"Thả lũa vào một hôm không thay nước\" — the fact says adding wood at the same time as a water change hides the cause. The 'one day without a water change' wording is a reworded recommendation. This is a minor generalisation.",
+        "\"Gỗ lõi cây Colophospermum mopane ở vùng nóng khô châu Phi\" is supported. \"hay có hốc\" is supported (forms caves).",
+        "\"Lũa đỗ quyên ... lên màng trắng nhiều\" — supported only loosely, as 'heavy biofilm' from source 29.",
+        "\"Lũa hải sơn tùng ... Một tiệm ghi lũa hải sơn tùng giữ được dáng và bề mặt tự nhiên\" is supported. \"Lũa xương trùm: một tiệm ghi loại này tạo được dáng tán cây, hang hoặc đồi nhỏ\" is supported.",
+        "\"Lũa nhẹ Hải Ninh\", \"Nguyệt Quế\", \"Dã Quỳ\" — supported by source 7.",
+        "\"Chọn khúc có nhánh sắc nhọn cho bể Cá betta (cá xiêm) hay Cá bảy màu\" — the facts name betta and guppies for the sharp-edge warning. Guppies as 'cá bảy màu' is fine. Fine.",
+        "\"Gỗ mau mục khi ngập nước dễ kéo theo vi khuẩn, tảo và nấm bùng lên\" is supported by TFH.",
+        "\"Ngâm ngập lũa ... ít nhất 1–2 tuần, có khi tới vài tháng\" is supported by sources 23 and 28.",
+        "\"Lũa linh sam ... Đây là một trong những loại hay dùng nhất để set bố cục\" is supported. The guide's \"gỗ nâu, vân như sóng\" combines facts from different shops. This is acceptable."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "draft": "1eed847111c22d99825d9be921b38f5736f386b6857b77ae556bf89a6c25ee47"
+    },
+    {
+      "at": "2026-11-13T21:31:53Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.72,
+      "notes": [
+        "\"Lũa bonsai ... gắn được rêu và Bucephalandra\" is fine, but \"Lũa hải sơn quỳ ... Dựng được thành cột đứng hoặc làm bonsai\" mixes sources; minor.",
+        "\"Tép red cherry, Tép Amano, Ốc mystery, Otocinclus và Cá lau kiếng bristlenose đều ăn lớp này\" is supported, but \"Màng ... vô hại với ... cây\" fine; no issue.",
+        "\"Lũa đỗ quyên ... lên màng trắng nhiều\": the facts say spiderwood is known for heavy biofilm, but the \"gốc dày 2–6 tuần\" figure and the \"nổi lâu\" detail are supported. The claim that it \"hợp bể hơi lớn\" is supported.",
+        "\"Lũa linh sam ... Đây là loại hay dùng nhất để set bố cục\": the facts say \"most popular decorative wood\" and \"one of the most common\". Calling it the most-used type is a mild overstatement.",
+        "\"Lũa trà gừng: một tiệm ghi loại này nhiều nhánh\" is supported, but \"Người chơi miền Nam hay dùng\" is attributed to trà rừng, which matches.",
+        "\"Gỗ mau mục khi ngập nước dễ kéo theo vi khuẩn, rêu và nấm bùng lên\": supported by the TFH fact about grapevine, but \"Gốc sú, vẹt, đước ... mau mục\" is supported.",
+        "\"Lũa là gỗ hoặc rễ cây khô đã làm sạch\": the opening definition is a general claim that the facts do not give. The facts also say the wood is not always dry or cleaned.",
+        "\"Thả lũa vào một hôm không thay nước\" is a rephrasing of the fact that adding wood together with a water change hides the cause. It is acceptable.",
+        "\"Ngâm ngập lũa trong xô lớn ít nhất 1–2 tuần, có khi tới vài tháng\" combines sources 23 and 28 (1 to 6 months). It is acceptable.",
+        "\"Manzanita ... nhiều nhánh nhỏ\" and \"Mopani ... hay có hốc\": 'nhiều nhánh nhỏ' for manzanita is not stated. TFH says 'twiggy', so this is roughly supported. \"Mopani ... Ngoài nâu nhạt\" matches the 'tan outside' fact."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-13T21:31:53Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.72,
+      "notes": [
+        "\"Tép red cherry, Tép Amano, Ốc mystery, Otocinclus và Cá lau kiếng bristlenose đều ăn lớp này\" — fine, but \"Cá lau kiếng\" naming OK; not an issue.",
+        "\"Gỗ nho cũng nên tránh\" — the facts say grapevine decomposes quickly (TFH); acceptable, but \"Gỗ nho\" is a translation not in Vietnamese sources.",
+        "\"Lũa đỗ quyên... Thường dùng nguyên khúc cho bể nuôi Cá đĩa, Cá ông tiên\" — the facts attribute the discus/angelfish BioTop use to unpeeled pieces; the whole-piece use is for a larger tank, so the two are merged.",
+        "\"Lũa linh sam... Lũa chìm gần như ngay, không cần đè đá\" — only one shop says it sinks without stones; another says it sinks easily, so this is generalised.",
+        "\"Lũa sa tùng: gỗ sa tùng dạng nhánh... Tiệm bán khúc tự nhiên... đã luộc chín và cạo sạch vỏ\" — merges different shops' product descriptions into one generalisation.",
+        "\"Mopani... Ngoài nâu vàng nhạt\" — the facts say tan outside; \"nâu vàng nhạt\" is an embellishment. \"Có tiệm ở Việt Nam bán\" is supported.",
+        "\"Lũa săn đá... Khối gỗ rỗng\" and the claim that it releases white slime/yellow water come from one shop for San Đá Miếng; applied to the whole type.",
+        "\"Lũa vân thép, lũa thép: cũng mòn tới lõi như săn đá\" — the facts say vân thép–san đá is worn to the core, but lũa thép is described only as a newer, rough, very hard wood similar to linh sam, so merging the two is not supported.",
+        "\"Tép trốn trong đó lúc lột xác, tép con ăn màng bám\" is supported. \"Gỗ đã xử lý nhưng giữ vỏ\" is supported. However, \"Lũa hải sơn tùng giữ dáng và vân tự nhiên\" is only loosely supported.",
+        "\"Xếp lại lũa khi bể đã chạy dễ làm xáo trộn bể\" — supported only loosely, as the fact says rearranging can stress the tank."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-13T21:10:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.95,
+      "notes": [
+        "Rules 4 and 12: \"Lũa trà gừng: một tiệm ghi loại này nhiều nhánh, ghép lại với nhau thành bố cục\" is its own item, apart from \"Lũa trà rừng\". KINDS treat trà rừng and trà gừng as one kind written two ways, so the wood is described in two places. Merge them into one item and give each name as that shop's own page writes it.",
+        "Rule 4: \"Lũa xương trùm: một tiệm ghi loại này tạo được dáng tán cây, hang hoặc đồi nhỏ\" is its own item, apart from \"Lũa xương chùm\". It is the same crown wood, spelled differently by one shop, so it should go in the xương chùm item and not be listed as a separate kind.",
+        "Rule 4: In the Manzanita item, \"Các nguồn tả khác nhau: tạp chí cá cảnh ghi nó nhạt màu, nhẹ, không tự chìm, còn một tiệm ghi gỗ đặc, cứng, dễ chìm hơn lũa đỗ quyên\" says the sources disagree but not what the keeper can do about it. The FACTS give an action: soak it weighted down for three to four weeks.",
+        "Rule 5: The Malaysian driftwood item uses only \"Malaysian driftwood\" and says \"Chưa thấy tiệm Việt Nam bán dưới tên tiếng Việt\". It leaves out the name KINDS gives for it, \"lũa Malaysia\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "draft": "4e6643d033d9de9fc05f4290043afb1645c372ae467d724d7c6f6b849436be81"
+    },
+    {
+      "at": "2026-11-13T21:10:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.92,
+      "notes": [
+        "\"Lũa cho bể dáng một khúc suối hay góc rừng\" is a mild generality that the facts don't state.",
+        "\"Lũa nhọ nồi ... dán vách\" is a loose rendering of \"wall mounting\".",
+        "Rule 11: In the rot paragraph, \"Gỗ nho cũng nên tránh, vì nó mục rất nhanh khi ngập nước, kéo theo vi khuẩn, rêu và nấm\" uses \"rêu\" (moss) for the algae that grapevine wood brings on. The TERMS call algae \"tảo\", so it should read \"vi khuẩn, tảo và nấm\".",
+        "Rule 7: The lũa linh sam item opens with what it is used for: \"loại hay dùng nhất để set bố cục\". Only then does it describe the wood (\"Gỗ nâu, vân như sóng, dáng từ thẳng tới cong queo, đủ cỡ\"), then the sinking and colour. The order should be: what it is, how it looks, whether it sinks and colours the water, then what it is used for.",
+        "The entry is 1911 words: hold it to about 1500, about 60 a kind, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    }
+  ]
+}

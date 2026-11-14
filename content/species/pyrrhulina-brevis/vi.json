@@ -1,17 +1,23 @@
 {
   "slug": "ca-pyrrhulina-brevis",
   "name": "Cá pyrrhulina brevis",
-  "altNames": [],
+  "altNames": [
+    "Redfin-Pyrrhulina"
+  ],
   "sections": {
-    "quickFacts:glaser": "<p>Pyrrhulina brevis dài khoảng 7-8 cm. Cá ăn được mọi loại thức ăn cá thông dụng và không kén chất lượng nước. Nhiệt độ nước có thể nằm trong khoảng 22 đến 30°C.</p>",
-    "behaviour:glaser": "<p>Về tập tính, các loài tetra thuộc chi Pyrrhulina giống cá cichlid (họ cá rô phi cảnh) hơn là giống các loài characin khác. Vào mùa sinh sản, cá đực giữ một vùng lãnh thổ nhỏ và lên màu rất đẹp. Chúng bảo vệ ổ trứng rất hăng cho đến khi cá bột nở.</p><p>Ngoài chuyện cá đực giữ lãnh thổ lúc đẻ, loài này có thể xem là cá hiền. Chúng cũng không phá cây.</p>",
-    "dimorphism:glaser": "<p>Tên chi Pyrrhulina có nghĩa là “chim gimpel nhỏ” (bullfinch). Lý do là khi vào mùa sinh sản, cá đực của nhiều loài trong chi lên màu đỏ rất đẹp, gợi nhớ bộ lông đỏ của chim gimpel trống. Pyrrhulina brevis từ Peru cũng có đặc điểm này. Cá đực càng sẵn sàng đẻ thì vây càng chuyển sang màu cam đậm. Về sau, trên thân cá còn hiện thêm các đốm màu đỏ anh đào.</p>"
+    "quickFacts:glaser": "<p>Viên ngọc đến từ Peru này chắc chắn là loài màu mè nhất trong chi Pyrrhulina. Lúc vào mùa đẻ, cá đực lên vây đỏ cam, và trên mỗi chiếc vảy hiện ra một đốm đỏ anh đào. Loài này dài tới 6 cm.</p>",
+    "distribution:glaser": "<p>Peru.</p>",
+    "aquariumSize:glaser": "<p>Nên nuôi loài này trong bể lớn. Bể đủ rộng thì có thể nuôi hơn một con đực, dù cá đực hay giành chỗ.</p>",
+    "behaviour:glaser": "<p>Trong bể lúc nào cũng có cảnh cãi nhau không dứt, nhưng vô hại. Ngồi xem loài cá đẹp này sinh hoạt thật sự rất thú vị.</p>",
+    "reproduction:glaser": "<p>Cách nuôi và cho đẻ giống như P. laeta.</p>",
+    "notes:glaser": "<p>Pyrrhulina nghĩa là \"chim sẻ lửa nhỏ\". Tên này có vì cá đực lên nhiều màu đỏ lúc tán tỉnh, giống hệt chim sẻ lửa đực (Pyrrhula pyrrhula). Còn brevis là tiếng Latin, nghĩa là \"ngắn\".</p>"
   },
   "quality": {
-    "score": 0.6,
+    "score": 0.88,
     "indexable": false,
     "bySource": {
-      "glaser": 0.6
-    }
+      "glaser": 0.88
+    },
+    "reason": "thin"
   }
 }

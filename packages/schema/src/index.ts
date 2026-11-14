@@ -17,7 +17,7 @@ export { cToF, cmToIn, imperialLeft, metricPage, toMetric, type UnitLang } from 
 export { SECTION_LABELS } from './labels'
 export { CARE_TOPICS, DEPTH_CHARS, DEPTH_TOPICS, NEAR_EMPTY_WORDS, PROFILE_IF_FULL, PROFILE_SOURCES, judgeQuality, nearEmptyKeys, plainText, speciesDepth, wordCount, type CareTopic, type Depth } from './depth'
 export { CARD_TYPES, cardShownIn, CardSchema, CardTextSchema, type Card, type CardEntity, type CardText } from './cards'
-export { addDays, CurationSchema, vnDate, type Curation, type CurationCopy, type CurationDay, type CurationWeek, type Loop } from './curation'
+export { addDays, ChipSchema, CurationSchema, vnDate, type Chip, type Curation, type CurationCopy, type CurationDay, type CurationWeek, type Loop } from './curation'
 export { loadAll, MARKET, PHOTO_BOXES_FILE, PHOTO_SCREEN_FILE, QUALITY_THRESHOLD, type LoadOptions, type Localized, type Content } from './load'
 export { linkGlossary, type GlossaryLinkTerm } from './glossary-link'
 export { headingSubject, linkTerms, type LinkTarget } from './link-terms'

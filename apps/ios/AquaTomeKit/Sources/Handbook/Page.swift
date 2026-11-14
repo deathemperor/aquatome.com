@@ -1,5 +1,23 @@
 import Foundation
 
+/// Where the fish is in a photo: fractions of the photo from its top-left corner (`x`, `y`, `w`, `h`, each 0…1), its whole
+/// area where no frame may cut it. The app's one box type: a page's photos (`box`) and, with the v2 Lab's frames, the
+/// index's `imgBox`. A frame keeps the fish by it (protocols/photo-crop-vectors.json).
+public struct PhotoBox: Codable, Sendable, Hashable {
+  public let x, y, w, h: Double
+  public init(x: Double, y: Double, w: Double, h: Double) { (self.x, self.y, self.w, self.h) = (x, y, w, h) }
+}
+
+extension PhotoBox {
+  /// `{x, y, w, h}` as the site sends it; none where one is missing or falls outside the photo.
+  init?(json v: Any?) {
+    guard let o = v as? [String: Any], let x = (o["x"] as? NSNumber)?.doubleValue, let y = (o["y"] as? NSNumber)?.doubleValue,
+          let w = (o["w"] as? NSNumber)?.doubleValue, let h = (o["h"] as? NSNumber)?.doubleValue,
+          x >= 0, y >= 0, w > 0, h > 0, x + w <= 1.0001, y + h <= 1.0001 else { return nil }
+    self.init(x: x, y: y, w: w, h: h)
+  }
+}
+
 /// A content page as blocks, for the app to draw itself (packages/schema/src/app-page.ts; JSON Schema
 /// protocols/page.schema.json; shared cases protocols/page-vectors.json): the page the site shows at `path`.
 ///
@@ -85,10 +103,13 @@ public struct PageDoc: Sendable {
     public let thumb: String?
     /// The photo's credit as the page shows it: the line ("Ảnh: Aquarium Breeder"), its licence, the photo's own page.
     public let credit: Credit?
+    /// Where the fish is in the photo (PhotoBox); the whole area where no frame may cut it. Read and kept here; no view
+    /// draws by it yet.
+    public let box: PhotoBox?
 
     /// A photo the page doesn't carry (a reader's): `credit`, who took it.
-    public init(src: String, w: Int, h: Int, alt: String?, thumb: String?, credit: Credit?) {
-      self.src = src; self.w = w; self.h = h; self.alt = alt; self.thumb = thumb; self.credit = credit
+    public init(src: String, w: Int, h: Int, alt: String?, thumb: String?, credit: Credit?, box: PhotoBox? = nil) {
+      self.src = src; self.w = w; self.h = h; self.alt = alt; self.thumb = thumb; self.credit = credit; self.box = box
     }
 
     init?(json v: Any?) {
@@ -97,6 +118,7 @@ public struct PageDoc: Sendable {
       alt = o["alt"] as? String
       thumb = o["thumb"] as? String
       credit = Credit(json: o["credit"])
+      box = PhotoBox(json: o["box"])
     }
 
     /// A photo's credit: the line ("Ảnh: Aquarium Breeder"), its licence, the photo's own page. An Unsplash photo's line

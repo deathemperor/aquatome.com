@@ -164,7 +164,71 @@
       "html": "<p>This species may also be sold variously as 'yellow regal cichlid', 'Baensch's peacock', 'sunshine peacock' and 'Nkhomo-Benga peacock'. The easiest way to distinguish it from similar-looking congeners is to look at the profile of the snout, which is steeper and more curved than in other species.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/34b99d9f1c33fcdc51d7847daf77f055.webp",
+      "thumb": "https://media.aquatome.com/processed/34b99d9f1c33fcdc51d7847daf77f055-480.webp",
+      "width": 1024,
+      "height": 652,
+      "licence": "dùng với sự cho phép",
+      "author": "Phil Sieradzan / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aulonocara-baenschi",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261113-aulonocara-baenschi-recovery-1",
+        "pixelHash": "15d354bb8cb0576cb4c684718647ffa8ca9513e677292251f6e04e0d7e6b1ec5"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-13T07:42:46.875Z",
+          "originalHash": "6018f2fbc89ea97ec9843e7fdcc6e7fda536c3e86465381b4e57204100fc8b1d",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 1024,
+            "originalHeight": 685,
+            "window": {
+              "x0": 0,
+              "y0": 0,
+              "x1": 1024,
+              "y1": 652
+            },
+            "subject": {
+              "x0": 129,
+              "y0": 189,
+              "x1": 775,
+              "y1": 451
+            },
+            "margin": 18
+          },
+          "excludedMarks": [
+            {
+              "x0": 810,
+              "y0": 659,
+              "x1": 1023,
+              "y1": 685
+            }
+          ],
+          "checks": {
+            "species": [
+              "553e4abedd05e530a34cfba0ef736407f747691615d38b61785b4c419853c781",
+              "db8f505f023f75aea4860c171cfe113e456c7cec59cf204c3285d10a5ef2c1f9"
+            ],
+            "ownership": [
+              "6b36f26bfa22c4fe117dd9fa5ab417ee83d30f9266909c9b729f8e50a6c9190b",
+              "7e0e68bf6033fef901326ee18b96a9862b0d8574b29b802df3b5446d52a1edfa"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/e54c394dd7c45f9d.webp",
+        "width": 1024,
+        "height": 685
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

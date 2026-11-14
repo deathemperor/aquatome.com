@@ -7,7 +7,8 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "venezuela"
+    "venezuela",
+    "rio-negro"
   ],
   "range": {
     "records": {
@@ -62,6 +63,10 @@
       {
         "source": "glaser",
         "value": 12
+      },
+      {
+        "source": "planetcatfish",
+        "value": 11.4
       }
     ]
   },
@@ -71,6 +76,36 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/pseudolithoxus_nicoi_en/",
       "html": "<p>Specimens of the pretty white seam flyer cat were imported from Venezuela. This rarely offered species attains a maximum length of about 12 cm.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1343",
+      "html": "<ul><li>Scientific name: Pseudolithoxus nicoi (Armbruster &amp; Provenzano, 2000)</li><li>Synonym: Lasiancistrus nicoi</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1343",
+      "html": "<p>South America: Upper Negro River basin, including Canal Casiquiare basin in Venezuela.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1343",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1343",
+      "html": "<p>Identification: body charcoal gray to black with white spots and a white band in the caudal fin. Dorsal base length to caudal depth ratio, 3.2-3.5 SL.</p><ul><li>Lateral line plates: 23-25</li><li>Dorsal plates: 6-7</li><li>Interdorsal plates: 5-7</li><li>Adipose-caudal plates: 7-8</li><li>Folded dorsal fin plates: 11-12</li><li>Postanal plates: 11-12</li></ul><p>Type locality: Río Manipitare (Río Siapa drainage), from about 5-8 kilometers upstream from confluence with Río Siapa, Depto Río Negro, Estado Amazonas, Venezuela.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1343",
+      "html": "<p>Ichthyological Exploration of Freshwaters v. 11 (no. 3), pp 249, Fig. 4.</p>"
     }
   ],
   "photos": [],
@@ -91,5 +126,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-13"
 }

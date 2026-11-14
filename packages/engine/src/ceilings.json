@@ -151,6 +151,50 @@
       }
     },
     {
+      "from": "2026-11-14T03:00:00+07:00",
+      "note": "As from 13 Nov 22:00, and $25 for the glossary's fuller entries until 08:00, so Lũa's last pass can't run out partway: three passes since midnight spent $7.30 of the $10. Inside the $40 already agreed for the 14th, on the sign-in (the chief of staff, 14 Nov 2026).",
+      "mac": {
+        "default": 2,
+        "backstop": 180,
+        "steps": {
+          "gate": null,
+          "moderate": null,
+          "run": 70,
+          "videos": 20,
+          "summaries": 16,
+          "review-backfill": 12,
+          "review-backfill-97": 10,
+          "check-photos": 10,
+          "watermarks": 6,
+          "guide-photos": 5,
+          "traits": 4,
+          "gallery": 4,
+          "card-crops": 4,
+          "glossary-entry": 25,
+          "write-ideas": 0
+        }
+      },
+      "github": {
+        "default": 2,
+        "backstop": 120,
+        "steps": {
+          "gate": null,
+          "moderate": null,
+          "localize": 50,
+          "fit-rewrite": 10,
+          "reader": 10,
+          "review-backfill": 6,
+          "rewrite-vi": 12,
+          "range": 4,
+          "localize-guides": 3,
+          "page-review": 8,
+          "autofix": 8,
+          "nightly-review": 3,
+          "write-ideas": 3
+        }
+      }
+    },
+    {
       "from": "2026-11-14T08:00:00+07:00",
       "note": "Three sign-ins' day, about $420: the second is back. The style rewrite keeps the $12 it has had since 13 Nov. The troubleshooting board has $40 on the Mac today: plain Opus's answers and today's chat judged against them (the chief of staff, 13 Nov 2026). It yields: it spends only what leaves every other step its whole line (leftYielding). The glossary's fuller entries have $40 a day on the Mac from 14 Nov 08:00, about 7 terms a day, in place of the $10 and $20 set earlier (the chief of staff, 13 Nov 2026, after the owner found the glossary pages still bare).",
       "mac": {

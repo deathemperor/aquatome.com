@@ -1,0 +1,128 @@
+{
+  "id": "pangasius-macronema",
+  "scientificName": "Pangasius macronema",
+  "order": "Siluriformes",
+  "family": "Pangasiidae",
+  "genus": "Pangasius",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "indonesia",
+    "kalimantan",
+    "malaysia",
+    "thailand",
+    "mekong",
+    "laos",
+    "cambodia",
+    "vietnam"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1369",
+      "html": "<ul><li>Scientific name: Pangasius macronema Bleeker, 1850</li><li>Common name: Haiwels (Germany)</li><li>Type locality: Bandjarmasin, Kalimantan, Borneo, Indonesia</li><li>IUCN Red List: Least Concern (last assessed 2019)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1369",
+      "html": "<p>Asia: Mekong, Peninsular Malaysia, and the Greater Sunda Islands rivers of Java, Sumatra and Borneo.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1369",
+      "html": "<p>Needs a large amount of open space for swimming room and some plants to help reduce the nervous nature of the fish.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1369",
+      "html": "<p>Feeds on mollusks and chironomid insects.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1369",
+      "html": "<p>Females are fuller-bodied.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1369",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1369",
+      "html": "<p>Identification: relatively deep body; lacks mid-lateral and abdominal stripes; lacks a black spot at the dorsal-fin origin; teeth on the roof of the mouth in 4 separate patches (2 vomerine and 3 palatine patches); the maxillary barbel reaches the tip of the pectoral fin.</p><p>Etymology: the name Pangasius comes from a local (Bengali) name of the fish (pungas).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1369",
+      "html": "<p>Natuurkundig Tijdschrift voor Nederlandsch Indië v. 1 (no. 1), pp 11.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "c_B95uaxhsk",
+      "title": "pangasius macronema",
+      "durationSec": 26,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "a-syxvWU1kM",
+      "title": "FishFacts Part 95: Pangasius macronema 🐱🐟 #pangasiusfish #fishpetfun #aquarium #aquaticpets #catfish",
+      "durationSec": 14,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "wN_WGOqtIz4",
+      "title": "ปลาสังกะวาดเหลือง Pangasius macronema",
+      "durationSec": 27,
+      "lang": "th"
+    },
+    {
+      "youtubeId": "4zvIcpi4114",
+      "title": "ikan pangasius",
+      "durationSec": 17,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 400 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy bơm tạo dòng"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá da trơn",
+        "thức ăn chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

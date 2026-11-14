@@ -87,48 +87,6 @@
     ],
     "figures": [
       {
-        "heading": "Đèn cho bể lớn",
-        "moments": [
-          {
-            "t": 15,
-            "url": "https://media.aquatome.com/video/XULsOeB7Q0A/at15-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các thanh đèn LED dạng dải được lắp trên khung phía trên bể lớn.",
-            "sharpness": 1140.5
-          },
-          {
-            "t": 20,
-            "url": "https://media.aquatome.com/video/XULsOeB7Q0A/at20-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh dàn đèn LED dải và dây điện trên khung đèn.",
-            "sharpness": 953.3
-          }
-        ]
-      },
-      {
-        "heading": "Làm nền có dinh dưỡng",
-        "moments": [
-          {
-            "t": 50,
-            "url": "https://media.aquatome.com/video/XULsOeB7Q0A/at50-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lớp nền được đắp thành các gò dọc theo chiều dài bể.",
-            "sharpness": 2154.8
-          },
-          {
-            "t": 55,
-            "url": "https://media.aquatome.com/video/XULsOeB7Q0A/at55-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cát phủ kín nền, tạo các gò thấp cho bố cục ba đảo.",
-            "sharpness": 1492.1
-          }
-        ]
-      },
-      {
         "heading": "Bố cục lũa và đá sao cho trông tự nhiên",
         "moments": [
           {
@@ -137,15 +95,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ba gốc lũa lớn đặt trên nền cát trong bể trưng bày.",
-            "sharpness": 2310.9
-          },
-          {
-            "t": 110,
-            "url": "https://media.aquatome.com/video/XULsOeB7Q0A/at110-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đá lớn và đá nhỏ xếp quanh chân lũa, rải thêm sỏi mịn.",
-            "sharpness": 1351.5
+            "sharpness": 2310.9,
+            "person": false
           }
         ]
       },
@@ -158,7 +109,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây dương xỉ xanh bám trên lũa, tạo chiều cao cho bể.",
-            "sharpness": 1128.9
+            "sharpness": 1128.9,
+            "person": false
           },
           {
             "t": 165,
@@ -166,7 +118,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cụm cây bám lũa và đá phủ xanh phần chân lũa.",
-            "sharpness": 1427.5
+            "sharpness": 1427.5,
+            "person": false
           }
         ],
         "photo": {
@@ -182,16 +135,7 @@
       },
       {
         "heading": "Lọc và dòng chảy cho 1000 lít nước",
-        "moments": [
-          {
-            "t": 285,
-            "url": "https://media.aquatome.com/video/XULsOeB7Q0A/at285-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh lớn mới đổ nước, nước còn hơi mờ do bụi cát.",
-            "sharpness": 1546.9
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/XULsOeB7Q0A/p4-JfRmlsdGVyLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/XULsOeB7Q0A/p4-JfRmlsdGVyLmpwZw-480.webp",
@@ -207,14 +151,6 @@
         "heading": "CO2 từ axit citric và baking soda",
         "moments": [
           {
-            "t": 310,
-            "url": "https://media.aquatome.com/video/XULsOeB7Q0A/at310-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bình CO2 có đồng hồ và bộ phận khuếch tán đặt trước bể thủy sinh.",
-            "sharpness": 1275.2
-          },
-          {
             "t": 320,
             "url": "https://media.aquatome.com/video/XULsOeB7Q0A/at320-hd.webp",
             "width": 1200,
@@ -226,24 +162,7 @@
       },
       {
         "heading": "Thả cá ăn rêu và chạy chu trình",
-        "moments": [
-          {
-            "t": 345,
-            "url": "https://media.aquatome.com/video/XULsOeB7Q0A/at345-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Toàn cảnh bể trồng cây, rêu và cây bắt đầu phủ các bề mặt.",
-            "sharpness": 3900
-          },
-          {
-            "t": 355,
-            "url": "https://media.aquatome.com/video/XULsOeB7Q0A/at355-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh mới set với lũa và cây xanh um tùm, nước trong vắt.",
-            "sharpness": 3091.1
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/XULsOeB7Q0A/p6-dmVzdGl0dXMuanBn.webp",
           "thumb": "https://media.aquatome.com/video/XULsOeB7Q0A/p6-dmVzdGl0dXMuanBn-480.webp",
@@ -264,7 +183,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể thủy sinh cây rậm rạp, cá đã thả trong bể.",
-            "sharpness": 4202.8
+            "sharpness": 4202.8,
+            "person": false
           },
           {
             "t": 430,
@@ -272,7 +192,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá ông tiên và cá nhỏ bơi giữa đám cây xanh um trong bể.",
-            "sharpness": 261.8
+            "sharpness": 261.8,
+            "person": false
           }
         ],
         "photo": {

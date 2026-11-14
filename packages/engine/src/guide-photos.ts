@@ -1,3 +1,4 @@
+import { piece } from './pieces'
 import { compactVerdict, photoReason, photoFailure, photoModelStop, type PhotoHints } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
@@ -187,7 +188,7 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
       }
       if (!ok.length) return
       try {
-        const verdicts = await judgeGuidePhotos(ok.map(x => x.b), join(dir, `sheet-${i}.jpg`), d.look, ok.map(x => x.about))
+        const verdicts = await piece(`sheet-${i}`, () => judgeGuidePhotos(ok.map(x => x.b), join(dir, `sheet-${i}.jpg`), d.look, ok.map(x => x.about)))
         report.sheets++
         verdicts.forEach((v, j) => {
           if (!v) return

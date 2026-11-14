@@ -1,9 +1,19 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "inat:427166577"
+ ],
  "hashes": {
   "https://media.aquatome.com/commons/4b6e5f11b9d83c2f.webp": "0f1f1e0c9c5818b0",
   "https://media.aquatome.com/commons/9ec4e1b2c051426c.webp": "bde7e3c6cc9cdcb9"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 623701,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 239814902
+  }
+ }
 }

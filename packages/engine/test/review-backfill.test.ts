@@ -1,3 +1,4 @@
+import { denied } from './piece-admission'
 import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -310,4 +311,16 @@ test('place names on second reads are read three times within the band, and each
   await reviewBackfill({ root, llm, now: () => new Date('2026-11-13T01:00:00Z') }, { kinds: ['places'], limit: 5, band: NEAR_BAR })
   expect(n).toBe(3)
   expect((await readReviews(root, 'places'))['id/places/rio-negro']![0]).toMatchObject({ attempt: 'recheck', score: 0.7, reads: [0.6, 0.8, 0.7] })
+})
+
+test('last item cost refuses admission without calls or content writes', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'review-admission-'))
+  await guide(root, 'low', 0.4)
+  for (const step of ['review-backfill', 'review-backfill-97']) await denied(step, root, async () => {
+    let calls = 0
+    const r = await reviewBackfill({ root, yt, llm: async () => { calls++; throw new Error('must not call') }, now: () => new Date() }, { kinds: ['video-guide'], limit: 1 })
+    expect(r.stopped).toContain('not started')
+    expect(r.failed).toEqual([])
+    expect(calls).toBe(0)
+  })
 })

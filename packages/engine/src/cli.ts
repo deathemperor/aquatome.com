@@ -1,3 +1,4 @@
+import { videoBudgetStopped } from './youtube'
 import { appendFileSync, readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, writeFile, rename } from 'node:fs/promises'
 import { get as httpsGet } from 'node:https'
@@ -60,7 +61,7 @@ import { ARCHIVE_AFTER_BLOCKS, runEngine } from './run'
 import { cardGaps } from './card-fill'
 import { depthReport, popularityOrder, thinSpecies, type DepthReport } from './depth'
 import { SOURCES } from './sources'
-import { loadState, setSourceBlock, sourceBlockedSince } from './state'
+import { errorKind, loadState, setSourceBlock, sourceBlockedSince } from './state'
 import { collect } from './facebook/collect'
 import { chromeFb } from './facebook/chrome'
 import { FB } from './facebook/config'
@@ -98,6 +99,7 @@ import { addPlantSynonyms } from './plant-synonyms'
 import { fetchFishSynonyms, fishOlderNames } from './fish-synonyms'
 import { writePlanting } from './planting'
 import { localizeTopic, makeTopic } from './topics'
+import { makeGlossaryEntry } from './glossary-entry'
 import { CLASSIFICATION_THREAD, FORUM_SECTIONS, readForum } from './forum'
 import { readIdeas, refreshIdeas, writeIdeas } from './ideas'
 import { backfillVideoItems } from './video-items'
@@ -159,7 +161,7 @@ const readersWanted = (() => {
 /** No people or marks: the model guide-photos and video-stills ask. */
 const guidePhotoLook: GuidePhotoDeps['look'] = (file, prompt) => claudeVision({ system: 'You look at pictures for an aquarium handbook. Reply only with JSON.', prompt, schema: GUIDE_PHOTO_SCHEMA, file, model: process.env.GUIDE_PHOTOS_MODEL ?? 'opus' })
 
-const { positionals, values } = parseArgs({ allowPositionals: true, options: { write: { type: 'boolean' }, 'empty-cap': { type: 'string' }, manifest: { type: 'string' }, heads: { type: 'boolean' }, 'back-check': { type: 'boolean' }, sources: { type: 'string' }, phrases: { type: 'boolean' }, calendar: { type: 'boolean' }, except: { type: 'string' }, limit: { type: 'string' }, fill: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' }, popular: { type: 'boolean' }, titles: { type: 'string' }, 'photo-cap': { type: 'string' }, records: { type: 'string' }, 'no-new-pages': { type: 'boolean' }, video: { type: 'string' }, 'reviewed-before': { type: 'string' }, 'rechecked-since': { type: 'string' }, class: { type: 'string' }, clear: { type: 'boolean' }, days: { type: 'string' }, check: { type: 'boolean' }, gsc: { type: 'string' }, from: { type: 'string' }, mends: { type: 'string' }, first: { type: 'string' }, front: { type: 'boolean' }, record: { type: 'boolean' } } })
+const { positionals, values } = parseArgs({ allowPositionals: true, options: { write: { type: 'boolean' }, 'empty-cap': { type: 'string' }, manifest: { type: 'string' }, heads: { type: 'boolean' }, 'back-check': { type: 'boolean' }, sources: { type: 'string' }, phrases: { type: 'boolean' }, calendar: { type: 'boolean' }, except: { type: 'string' }, limit: { type: 'string' }, fill: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, fresh: { type: 'boolean' }, 'from-draft': { type: 'boolean' }, accept: { type: 'string' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, sf: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' }, popular: { type: 'boolean' }, titles: { type: 'string' }, 'photo-cap': { type: 'string' }, records: { type: 'string' }, 'no-new-pages': { type: 'boolean' }, video: { type: 'string' }, 'reviewed-before': { type: 'string' }, 'rechecked-since': { type: 'string' }, class: { type: 'string' }, clear: { type: 'boolean' }, days: { type: 'string' }, check: { type: 'boolean' }, gsc: { type: 'string' }, from: { type: 'string' }, mends: { type: 'string' }, first: { type: 'string' }, front: { type: 'boolean' }, record: { type: 'boolean' } } })
 
 /**
  * Openverse's API (anonymous: 20 requests a minute, 200 a day). A registered Openverse app raises that: its client id and
@@ -216,9 +218,10 @@ async function covers(o: { redo?: boolean; limit?: number }) {
     get: async u => { const res = await fetch(u); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
     look: (file, prompt) => claudeVision<{ candidates: string[]; cover: string }>({ system: 'You write short Vietnamese labels for video thumbnails. Reply only with JSON.', prompt, schema: COVER_SCHEMA, file, model: process.env.COVER_MODEL ?? 'opus' }),
   }, o)
-  console.log(`covers: ${cv.done.length} done, ${cv.failed.length} failed`)
+  console.log(`covers: ${cv.done.length} done, ${cv.failed.length} failed${cv.stopped ? ` (stopped: ${cv.stopped})` : ''}`)
   for (const d of cv.done) console.log(`cover: ${d}`)
   for (const f of cv.failed) console.log(`cover failed: ${f}`)
+  return cv
 }
 
 if (cmd === 'photo-privacy') {
@@ -250,6 +253,7 @@ if (cmd === 'photo-privacy') {
       await writeFile(join(ROOT, 'engine-state/last-run.json'), `${JSON.stringify({ startedAt, finishedAt: new Date().toISOString(), ...report }, null, 2)}\n`)
     }
     console.table(report.perSource)
+    if (report.stopped) console.log(`stopped: ${report.stopped}`)
     if (report.needsHuman.length) console.log(`needs-human: ${report.needsHuman.join(', ')} — pass the browser check in the engine Chrome profile, then: pnpm engine run --sources <id> --retry-blocked`)
     if (report.movedToArchive.length) console.log(`moved to the Internet Archive: ${report.movedToArchive.join(', ')} (browser checks on ${ARCHIVE_AFTER_BLOCKS} runs within a week)`)
     for (const e of report.errors) console.log(`error: ${e}`)
@@ -559,9 +563,10 @@ if (cmd === 'photo-privacy') {
   // past it none leave, each is listed, and a person looks before running it again with the cap raised.
   const photoCap = values['photo-cap'] ? { photoCap: Number(values['photo-cap']) } : {}
   const r = await sweep(ROOT, { ...(titles > 0 ? { llm: claudeCli, titles, model: process.env.READER_MODEL ?? 'opus' } : {}), ...photoCap })
-  console.log(`sweep: ${r.files.length} files; ${Object.entries(r.text).map(([k, v]) => `${k} ${v.length}`).join(', ') || 'no text fixes'}; ${r.photos.length} photos off (${r.rejected} off every page); ${r.again.length} never-again photos off; ${r.heads.length} heads picked; ${r.videos.length} videos off; ${r.card.length} cards (${r.summaries.length} summaries to write again); ${r.tanks.length} tank searches; ${r.shop.length} shop texts; ${r.varieties.length} variety pages; ${r.titles.length} titles; ${r.names.length} other names off; ${r.mentions.length} breeds off guides; ${r.links.length} breed links${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  console.log(`sweep: ${r.files.length} files; ${Object.entries(r.text).map(([k, v]) => `${k} ${v.length}`).join(', ') || 'no text fixes'}; ${r.photos.length} photos off (${r.rejected} off every page); ${r.again.length} never-again photos off; ${r.heads.length} heads picked; ${r.videos.length} videos off; ${r.card.length} cards (${r.summaries.length} summaries to write again); ${r.tanks.length} tank searches; ${r.shop.length} shop texts; ${r.dealer.length} dealer notices off; ${r.varieties.length} variety pages; ${r.titles.length} titles; ${r.names.length} other names off; ${r.mentions.length} breeds off guides; ${r.links.length} breed links${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   if (r.noAnimal.length) console.log(`sweep: ${r.noAnimal.length} heads with no animal in them and no "yes" from the photo check (engine-state/_photo-no-animal-heads.json)`)
   for (const x of r.noAnimal) console.log(`no animal: ${x}`)
+  for (const x of [...r.dealer.map(x => `dealer notice off: ${x}`), ...r.dealerOnly.map(x => `dealer notice, its heading's only text (for the chief of staff): ${x}`)]) console.log(x)
   if (r.refused.length || r.refusedHeld.length || r.refusedPicked.length) console.log(`sweep: ${r.refused.length} refused photos kept off; ${r.refusedHeld.length} pages held; ${r.refusedPicked.length} picked heads the check calls "none" (photo-check.ts refusedOn)`)
   for (const x of [...r.refusedHeld.map(x => `refused held: ${x}`), ...r.refusedPicked.map(x => `picked head the check calls none: ${x}`), ...r.refused.map(x => `refused off: ${x}`)]) console.log(x)
   if (r.held.length) console.log(`sweep: ${r.held.length} photos would leave every page for good, more than a run may with nobody looking: none taken off. Look at them, then run: pnpm engine sweep --titles 0 --photo-cap ${r.held.length}`)
@@ -766,7 +771,7 @@ if (cmd === 'photo-privacy') {
   // Temperament / fin-nipping / school size from each page's text, for the tank-mates checker: new or changed pages, then
   // those read with an older prompt; --only id,id reads those again whatever their state.
   const r = await extractTraits(join(ROOT, 'content'), claudeCli, { limit: Number(values.limit ?? 100), now: () => new Date(), only: values.only?.split(',').map(x => x.trim()).filter(Boolean) })
-  console.log(`traits: ${r.done.length} done, ${r.failed.length} failed${r.failed.length ? ` (${r.failed.join(', ')})` : ''}`)
+  console.log(`traits: ${r.done.length} done, ${r.failed.length} failed${r.stopped ? ' (stopped: ' + r.stopped + ')' : ''}${r.failed.length ? ` (${r.failed.join(', ')})` : ''}`)
   // The school size Seriously Fish gives replaces the model's reading in the sweep, which every part runs (sweep.ts).
 } else if (cmd === 'range') {
   // Where each species lives in the wild (range.ts): its sources' countries and regions, --limit model calls (species
@@ -849,20 +854,22 @@ if (cmd === 'photo-privacy') {
       ...(since ? { rechecked: since, rank: await guideRank(ROOT, popularityOrder(await popularFirst(ROOT))), parallel: Number(values.parallel ?? 1) } : {}),
     },
   )
-  console.log(`videos: ${r.written.length} written, ${r.skipped.length} skipped, ${r.errors.length} errors${r.stoppedEarly ? ' (stopped early)' : ''}`)
+  console.log(`videos: ${r.written.length} written, ${r.skipped.length} skipped, ${r.errors.length} errors${r.stoppedEarly ? ` (stopped: ${r.stopped ?? 'early'})` : ''}`)
   for (const w of r.written) console.log(`written: ${w}`)
   for (const s of r.skipped) console.log(`skipped: ${s}`)
   for (const e of r.errors) console.log(`error: ${e}`)
-  await covers({})
-  // Pictures per section: video stills (picked on storyboard tiles, then the video's own frames) + an open-licence Commons photo, picked by Claude, no faces.
-  const get = async (u: string) => { const res = await fetch(u); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) }
-  const im = await videoImages(join(ROOT, 'content'), {
-    llm: claudeCli, faces: visionFaces, frames: ytFrames, grab: ytGrab, transcript: async (id, lang) => (await ytDlp.transcript(id, lang)) ?? (await ytDlp.transcribe!(id, lang)), commons: q => searchCommons(q, http, 6), get, media: media(),
-    look: (file, prompt, schema) => claudeVision({ system: 'You pick pictures for an aquarium guide. Reply only with JSON.', prompt, schema, file }),
-  }, { limit: Number(process.env.VIDEO_IMAGES_LIMIT ?? 40) })
-  console.log(`images: ${im.done.length} guides, ${im.failed.length} failed`)
-  for (const x of im.done) console.log(`images: ${x}`)
-  for (const f of im.failed) console.log(`images failed: ${f}`)
+  // Covers, then pictures, only while the day's line covers them: a stop in either ends the step's model work.
+  if (!videoBudgetStopped(r) && !(await covers({})).stopped) {
+    // Pictures per section: video stills (picked on storyboard tiles, then the video's own frames) + an open-licence Commons photo, picked by Claude, no faces.
+    const get = async (u: string) => { const res = await fetch(u); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) }
+    const im = await videoImages(join(ROOT, 'content'), {
+      llm: claudeCli, faces: visionFaces, frames: ytFrames, grab: ytGrab, transcript: async (id, lang) => (await ytDlp.transcript(id, lang)) ?? (await ytDlp.transcribe!(id, lang)), commons: q => searchCommons(q, http, 6), get, media: media(),
+      look: (file, prompt, schema) => claudeVision({ system: 'You pick pictures for an aquarium guide. Reply only with JSON.', prompt, schema, file }),
+    }, { limit: Number(process.env.VIDEO_IMAGES_LIMIT ?? 40) })
+    console.log(`images: ${im.done.length} guides, ${im.failed.length} failed${im.stoppedEarly ? ' (stopped early)' : ''}`)
+    for (const x of im.done) console.log(`images: ${x}`)
+    for (const f of im.failed) console.log(`images failed: ${f}`)
+  }
 } else if (cmd === 'product') {
   // A product page from web research (facts only, prices checked on the shop's page): pnpm engine product <brand> <model> --category loc [--type treo]
   // --redo: rewrite the page from the research already kept (engine-state/products), no new searching.
@@ -1061,6 +1068,20 @@ if (cmd === 'photo-privacy') {
   if (!topic || !kind || !kinds.includes(kind)) throw new Error(`usage: pnpm engine topic "<chủ đề>" --kind ${kinds.join('|')} [--redo]`)
   const r = await makeTopic(ROOT, { research: claudeResearch, llm: claudeCli }, { topic, kind }, { researchModel: process.env.RESEARCH_MODEL ?? 'opus', reuse: values.redo })
   console.log(JSON.stringify(r, null, 1))
+} else if (cmd === 'glossary-entry') {
+  // A glossary term's fuller entry, written from web research and checked like a guide (glossary-entry.ts):
+  // pnpm engine glossary-entry <term id> --kind setup|care|breeding|disease|aquascaping|plantCare|discovery [--sf <Seriously Fish glossary slug>] [--redo | --fresh]
+  // --redo: write again from the research already kept (engine-state/glossary), no new searching.
+  // Without --redo, new research adds to what was kept; --fresh starts over.
+  // --from-draft: revise the draft kept below the bar, sentence by sentence, from its research. --accept "<who>": save that
+  // draft as it is, on that reader's word, if its notes are only repetition, order or length (refusals).
+  const id = positionals[1]
+  const kinds = ['setup', 'care', 'breeding', 'disease', 'aquascaping', 'plantCare', 'discovery'] as const
+  const kind = values.kind as (typeof kinds)[number] | undefined
+  if (!id || !kind || !kinds.includes(kind)) throw new Error(`usage: pnpm engine glossary-entry <term id> --kind ${kinds.join('|')} [--sf <slug>] [--redo | --fresh | --from-draft | --accept "<who>"]`)
+  if (values.accept !== undefined && !values.accept.trim()) throw new Error('--accept needs who accepts the draft')
+  const r = await makeGlossaryEntry(ROOT, { research: claudeResearch, llm: claudeCli }, id, { kind, sf: values.sf, reuse: values.redo, fresh: values.fresh, fromDraft: values['from-draft'], ...(values.accept ? { accept: values.accept.trim() } : {}), researchModel: process.env.RESEARCH_MODEL ?? 'opus' })
+  console.log(JSON.stringify(r, null, 1))
 } else if (cmd === 'covers') {
   // Vietnamese thumbnail labels: pnpm engine covers [--redo] [--limit N] (--redo rewrites the ones already there).
   await covers({ redo: values.redo, limit: values.limit ? Number(values.limit) : undefined })
@@ -1156,7 +1177,8 @@ if (cmd === 'photo-privacy') {
   let made = first.made
   for (const id of ids) {
     if (first.stopped || made >= limit) break
-    const r = await localizeTopic(ROOT, claudeCli, id, lang, { redo: values.redo }).catch(e => ({ id, failed: (e as Error).message.slice(0, 200) }))
+    const r = await localizeTopic(ROOT, claudeCli, id, lang, { redo: values.redo }).catch(e => (e instanceof LlmError && errorKind(e.message) === 'usage' ? { id, stopped: e.message } : { id, failed: (e as Error).message.slice(0, 200) }))
+    if ('stopped' in r) { console.log(JSON.stringify(r)); break }
     if (!('skipped' in r)) made++
     console.log(JSON.stringify(r))
   }

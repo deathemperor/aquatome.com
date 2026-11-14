@@ -5,6 +5,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
 import { localizeTopic, makeTopic, SOURCE_KINDS, usableFact, type TopicFacts } from '../src/topics'
+import { denied } from './piece-admission'
 
 const facts: TopicFacts = {
   found: true,
@@ -55,6 +56,8 @@ test('makeTopic: cited facts → Vietnamese guide checked against them, rewritte
   expect(prompts[0]).toContain('- society: "một hội người nuôi cá"')
   expect(checks).toBe(4)
   expect(prompts[4]).toContain('"3 ngày" is not in the facts')
+  // The copies' line is the copies' alone: a Vietnamese guide's check has none.
+  expect(prompts.filter(p => p.startsWith('Below are FACTS')).some(p => p.includes('balik kampung'))).toBe(false)
   const e = JSON.parse(await readFile(join(root, 'content/guides/aquatome-ca-bi-loi-mat-popeye/entity.json'), 'utf8'))
   expect(e).toMatchObject({ kind: 'disease', source: 'aquatome', html: '', photos: [], mentions: ['carassius-auratus', 'betta-splendens', 'blue-diamond-discus'], updatedAt: '2026-10-31' })
   expect(e.refs).toEqual([{ url: 'https://edis.ifas.ufl.edu/x', title: 'UF/IFAS' }, { url: 'https://example.org/epsom', title: 'Epsom' }])
@@ -112,6 +115,14 @@ test('localizeTopic: from the same facts, minus Vietnam-only ones; cites only th
   expect(prompts[0]).toContain('shop: a fishkeeping guide, never the shop by name')
   expect(prompts[0]).not.toContain('{{')
   expect(prompts[0]).not.toContain('thuốc lồi mắt')
+  // The Writing Lead's rules, for a reader in Thailand; the check reads time away by the reader's own name, and a fact by
+  // its condition, as supported (a copy's alone).
+  expect(prompts[0]).toContain('The reader lives in Thailand.')
+  expect(prompts[0]).toContain('skip any with no facts, or with nothing for a reader in Thailand')
+  expect(prompts[0]).toContain('- faq: up to 5 questions')
+  const checked = prompts.filter(p => p.startsWith('Below are FACTS'))
+  expect(checked.length).toBeGreaterThan(0)
+  expect(checked.every(p => p.includes('Thai GUIDE') && p.includes('("mudik", "balik kampung"), and a fact given by its condition without the season or place it was tied to, count as supported'))).toBe(true)
   const th = JSON.parse(await readFile(join(root, 'content/guides', r0.id, 'th.json'), 'utf8'))
   expect(th.refs).toEqual([{ url: 'https://edis.ifas.ufl.edu/x', title: 'UF/IFAS' }])
   expect(th.quality).toEqual({ score: 0.88, indexable: true })
@@ -154,8 +165,8 @@ test('a copy naming a season its readers don\'t have is written once more with t
   // Named, then written with the condition: saved without the season.
   const r = await localizeTopic(root, writer(['<p>Paling sering pada musim panas.</p>', '<p>Paling sering saat air di atas 28 °C.</p>']), r0.id, 'id')
   expect(r).toMatchObject({ score: 0.9 })
-  expect(prompts[0]).toContain('Readers in Indonesia have a rainy and a dry season, and no other')
-  expect(prompts.some(p => p.includes('It names a season readers in Indonesia don\'t have: "musim panas"'))).toBe(true)
+  expect(prompts[0]).toContain('Heat, a rainy season and power cuts are Indonesia\'s too')
+  expect(prompts.some(p => p.includes('It names another place\'s season: "musim panas"'))).toBe(true)
   const file = join(root, 'content/guides', r0.id, 'id.json')
   expect(JSON.parse(await readFile(file, 'utf8')).body).toBe('<p>Paling sering saat air di atas 28 °C.</p>')
   // Still named after the try: nothing saved, and the copy on the site stays as it was.
@@ -163,19 +174,19 @@ test('a copy naming a season its readers don\'t have is written once more with t
   const log = join(root, 'engine-state/reviews/topic.json')
   const logged = async () => (JSON.parse(await readFile(log, 'utf8')) as Record<string, { kept: boolean }[]>)[`id/guides/${r0.id}`] ?? []
   const earlier = (await logged()).length
-  expect(await localizeTopic(root, writer(['<p>Pada musim dingin.</p>']), r0.id, 'id', { redo: true })).toMatchObject({ skipped: 'names a season its readers don\'t have: musim dingin' })
+  expect(await localizeTopic(root, writer(['<p>Pada musim dingin.</p>']), r0.id, 'id', { redo: true })).toMatchObject({ skipped: 'names another place\'s season: musim dingin' })
   expect(await readFile(file, 'utf8')).toBe(before)
   // Each try's review is logged, and none as kept (Astra's read).
   const now = await logged()
   expect(now.length).toBeGreaterThan(earlier)
   expect(now.slice(0, now.length - earlier).every(t => !t.kept)).toBe(true)
   // A season written with an entity in it is read as the reader reads it.
-  expect(await localizeTopic(root, writer(['<p>Saat musim&#32;panas.</p>']), r0.id, 'id', { redo: true })).toMatchObject({ skipped: 'names a season its readers don\'t have: musim panas' })
+  expect(await localizeTopic(root, writer(['<p>Saat musim&#32;panas.</p>']), r0.id, 'id', { redo: true })).toMatchObject({ skipped: 'names another place\'s season: musim panas' })
   expect(await readFile(file, 'utf8')).toBe(before)
   // And as it would be saved (Astra's read): escaped twice, or split into blocks the sanitizer joins.
-  expect(await localizeTopic(root, writer(['<p>Saat musim&amp;#32;panas.</p>']), r0.id, 'id', { redo: true })).toMatchObject({ skipped: 'names a season its readers don\'t have: musim panas' })
+  expect(await localizeTopic(root, writer(['<p>Saat musim&amp;#32;panas.</p>']), r0.id, 'id', { redo: true })).toMatchObject({ skipped: 'names another place\'s season: musim panas' })
   expect(await readFile(file, 'utf8')).toBe(before)
-  expect(await localizeTopic(root, writer(['<div>ฤดู</div><div>ใบไม้ผลิ</div>']), r0.id, 'th')).toMatchObject({ skipped: 'names a season its readers don\'t have: ฤดูใบไม้ผลิ' })
+  expect(await localizeTopic(root, writer(['<div>ฤดู</div><div>ใบไม้ผลิ</div>']), r0.id, 'th')).toMatchObject({ skipped: 'names another place\'s season: ฤดูใบไม้ผลิ' })
   expect(existsSync(join(root, 'content/guides', r0.id, 'th.json'))).toBe(false)
 })
 
@@ -368,4 +379,14 @@ test("a test's lethal level never reaches a guide's writer, from any source; the
   ]) expect(usable(fact), fact).toBe(false)
   expect(usable('Copper sulfate: the 96-hour LC50 for pond snails at 20 °C is 0.39 mg/L.', 1)).toBe(false)
   for (const fact of ['Nitrite above 0.1 mg/L is listed as toxic, especially in freshwater with little chloride.', 'About 2 mg/L of un-ionized ammonia is lethal to many fish.', 'Because nitrite gets more toxic as temperature rises, the hot season raises the risk.']) expect(usable(fact), fact).toBe(true)
+})
+
+test('last item cost refuses admission without calls or content writes', async () => {
+  const root = await site()
+  let calls = 0
+  await denied('localize-guides', root, async () => {
+    // Refused as a usage limit, so the redo list (seasons.ts redoCopies) stops without counting a try.
+    await expect(localizeTopic(root, async () => { calls++; throw new Error('must not call') }, 'other', 'th')).rejects.toThrow(/not started/)
+    expect(calls).toBe(0)
+  })
 })

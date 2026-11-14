@@ -7,7 +7,7 @@ import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
 import { CHECKLIST, fitKey, fitText, type FitState } from '../src/fit'
 import { loadPages } from '../src/pages'
-import { copiesToRedo, foreignSeasons, readerCountries, readerSeasons, redoCopies, type Redone } from '../src/seasons'
+import { copiesToRedo, foreignSeasons, redoCopies, type Redone } from '../src/seasons'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 const FIXTURE = join(ROOT, 'apps/site/test/fixture-content')
@@ -17,8 +17,13 @@ test('a season the reader\'s countries don\'t have is named; their own seasons a
   expect(foreignSeasons('Wabah paling sering terjadi pada musim panas. Saat musim hujan dan musim kemarau…', 'id')).toEqual(['musim panas'])
   expect(foreignSeasons('Beri makan sedikit pada musim dingin dan musim semi; musim gugur juga.', 'id')).toEqual(['musim semi', 'musim gugur', 'musim dingin'])
   expect(foreignSeasons('Pada musim panas, air cepat panas. Musim tengkujuh membawa hujan.', 'ms')).toEqual(['musim panas'])
-  // Thailand: hot, rainy and cool (ฤดูหนาว is its own cool season, not a winter of snow).
-  expect(foreignSeasons('ช่วงฤดูหนาวน้ำเย็นลง ส่วนฤดูร้อนและฤดูฝนต้องระวัง', 'th')).toEqual([])
+  // Thailand: hot and rainy. Its own cool season (ฤดูหนาว, หน้าหนาว) is no guide's fact: in a copy it was always
+  // someone else's winter (the Writing Lead, 13 Nov 2026).
+  expect(foreignSeasons('ช่วงฤดูหนาวน้ำเย็นลง ส่วนฤดูร้อนและฤดูฝนต้องระวัง', 'th')).toEqual(['ฤดูหนาว'])
+  expect(foreignSeasons('<h3>รับมือหน้าหนาว</h3><p>หน้าร้อนให้วันละ 1–3 ครั้ง</p>', 'th')).toEqual(['หน้าหนาว'])
+  // A disease's name isn't a season: spring viraemia of carp, as the Thai copy of the anchor worm guide names it.
+  expect(foreignSeasons('เป็นพาหะของไวรัส SVC (โรคเลือดออกฤดูใบไม้ผลิในปลาคาร์ป)', 'th')).toEqual([])
+  expect(foreignSeasons('โรคเลือดออกฤดูใบไม้ผลิ พบบ่อยในฤดูใบไม้ผลิ', 'th')).toEqual(['ฤดูใบไม้ผลิ'])
   expect(foreignSeasons('ให้อาหารน้อยลงในฤดูใบไม้ร่วงและฤดูใบไม้ผลิ', 'th')).toEqual(['ฤดูใบไม้ผลิ', 'ฤดูใบไม้ร่วง'])
   // Vietnam has all of them, the North's four and the South's two.
   expect(foreignSeasons('mùa hè, mùa đông', 'vi')).toEqual([])
@@ -27,9 +32,6 @@ test('a season the reader\'s countries don\'t have is named; their own seasons a
   expect(foreignSeasons('Saat musim\npanas', 'id')).toEqual(['musim panas'])
   expect(foreignSeasons('Saat musim&#32;panas', 'id')).toEqual(['musim panas'])
   expect(foreignSeasons('<p>ให้อาหารน้อยลงในฤดู<strong>ใบไม้ผลิ</strong></p>', 'th')).toEqual(['ฤดูใบไม้ผลิ'])
-  expect(readerCountries('ms')).toBe('Malaysia and Brunei')
-  expect(readerSeasons('id')).toBe('a rainy and a dry season')
-  expect(readerSeasons('th')).toBe('a hot, a rainy and a cool season')
 })
 
 test('copies to write again first: one naming a season its readers don\'t have, or read as advice for elsewhere; twice at most', async () => {
@@ -69,8 +71,8 @@ const STILL_TO_REDO = [
   'ms/aquatome-benh-nam-mieng-nam-lung-columnaris-o-ca-canh-nhan-biet-cach-chua-va-phong',
   'ms/aquatome-ca-ngoi-len-mat-nuoc-tho-gap-nguyen-nhan-va-cach-xu-ly',
   'ms/aquatome-cham-soc-ca-canh-mua-he-va-mua-dong-mua-mua',
+  'th/aquatome-cham-soc-ca-canh-mua-he-va-mua-dong-mua-mua',
   'th/aquatome-nuoi-ca-koi-trong-be-kinh-va-ho-nho-the-tich-loc-thuc-an-va-mat-do',
-  'th/aquatome-trung-mo-neo-va-ran-ca-nhan-biet-va-cach-diet',
 ]
 
 test('no copy of AquaTome\'s own guides names a season its readers\' countries don\'t have, but those still to be written again', async () => {

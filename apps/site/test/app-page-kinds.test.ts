@@ -1,9 +1,9 @@
 import { existsSync, readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
 import type { HTMLElement } from 'node-html-parser'
-import { photoFitsCard, type Content, type Photo } from '@aq/schema'
+import type { Content, Photo } from '@aq/schema'
 import { PageDoc, type Block, type Image, type Inline } from '@aq/schema/app-page'
-import { appBreeds, appGlossary, appPlants, appSpecies } from '../src/lib/app-index'
+import { appBreeds, appGlossary, appPlants, appSpecies, headPhoto } from '../src/lib/app-index'
 import { appPages, breedDoc, fishDoc, glossaryDoc, listedPaths, plantDoc, sectionBlocks } from '../src/lib/app-page'
 import { photoCredit } from '../src/lib/cite'
 import { getContent } from '../src/lib/content'
@@ -63,10 +63,6 @@ function pictured(d: PageDoc, dom: HTMLElement, bySource: Map<string, Photo[]>, 
   // footer also credits a photo the text had no room for; the copy doesn't show that one either.)
   const ours = new Set(images(d).map(i => i.credit!.url))
   const shown = new Set(dom.querySelectorAll('img').map(i => i.getAttribute('src')))
-  // A site-only fitted/unsafe cropped head is deliberately withheld from both app banner inputs.
-  const siteHead=dom.querySelector('.photo img')?.getAttribute('src')
-  const headRecord=[...bySource.values()].flat().find(p=>p.url===siteHead)
-  if(headRecord && (headRecord.headFit==='contain'||!photoFitsCard(headRecord)))shown.delete(siteHead)
   for (const a of dom.querySelectorAll('#photo-credits li a')) {
     const href = a.getAttribute('href')!
     if (!(bySource.get(href) ?? []).some(p => shown.has(p.url) || shown.has(smallSrc(p)))) continue
@@ -175,7 +171,9 @@ test('each fish\'s copy reads as its built page: header, credits, sources, card 
     expect(d.where?.flatMap(r => (typeof r === 'string' || !r.href ? [] : [r.href])), d.path).toEqual(dom.querySelectorAll('.where a').map(a => appHref(a.getAttribute('href')!)))
     expect(d.aka, d.path).toBe(dom.querySelector('.alt') ? txt(dom.querySelector('.alt')) : undefined)
     expect(text(d.credit), d.path).toBe(txt(dom.querySelector('.facts > .srcline')).startsWith('Dịch') ? txt(dom.querySelector('.facts > .srcline')) : '')
-    expect(d.lead?.src, d.path).toBe(s.photos[0] && (s.photos[0].headFit==='contain'||!photoFitsCard(s.photos[0])) ? undefined : dom.querySelector('.photo img')?.getAttribute('src'))
+    // The head is the page's photo, whole where no frame may fill with it (its box), never left out (the Design Lead, 13 Nov).
+    expect(d.lead?.src, d.path).toBe(headPhoto(s.photos)?.url)
+    if (d.lead) expect(d.lead.src, d.path).toBe(dom.querySelector('.photo img')?.getAttribute('src'))
     expect(d.talk, d.path).toEqual(talk(dom))
     expect(d.talk?.comments && d.talk.photos, d.path).toBeTruthy()
     if (d.lead) expect(d.lead.credit?.text, d.path).toBe(dom.querySelector('.photo a.cite.pic')!.getAttribute('data-term'))
@@ -428,17 +426,21 @@ test('each glossary term\'s copy reads as its built page; one in Indonesian has 
     const { dom } = appPage(d.path)
     expect(d.title).toBe(txt(dom.querySelector('h1')))
     // Its other names, its English name, its definition (with the page's links), in the page's order.
-    expect(all(d, 'p').map(b => text(b.c))).toEqual(['.aka', '.en', '.def'].flatMap(sel => (dom.querySelector(sel) ? [txt(dom.querySelector(sel))] : [])))
-    const def = dom.querySelector('.def')
+    expect(all(d, 'p').map(b => text(b.c))).toEqual([...['.aka', '.en', '.def'].flatMap(sel => (dom.querySelector(sel) ? [txt(dom.querySelector(sel))] : [])), ...dom.querySelectorAll('.body > p').map(txt)])
     expect(all(d, 'p').flatMap(b => b.c.flatMap(r => (typeof r === 'string' || !r.href ? [] : [r.href]))), d.path).toEqual(
-      (def?.querySelectorAll('a') ?? []).map(a => appHref(a.getAttribute('href')!)),
+      dom.querySelectorAll('.def a, .body > p a').map(a => appHref(a.getAttribute('href')!)),
     )
-    // The pages that use it: the heading with the count, then each kind's first pages, those the app index lists.
-    expect(one(d, 'h')?.text).toBe(dom.querySelector('.used h2') ? txt(dom.querySelector('.used h2')) : undefined)
+    // Its photo, then the fuller entry's headings, then the pages that use it: the heading with the count, then each
+    // kind's first pages, those the app index lists. Last, its sources.
+    expect(all(d, 'figure').length, d.path).toBe(dom.querySelectorAll('main figure').length)
+    expect(all(d, 'h').map(b => b.text), d.path).toEqual(dom.querySelectorAll('.body > h2, .used h2').map(txt))
+    expect(one(d, 'refs')?.items.map(r => r.url) ?? [], d.path).toEqual(dom.querySelectorAll('.refs a').map(a => a.getAttribute('href')))
     const kinds = dom.querySelectorAll('.used h3').map(h3 => ({
       t: 'pages', title: txt(h3), paths: (h3.nextElementSibling?.querySelectorAll('a') ?? []).map(a => appHref(a.getAttribute('href')!)).filter(x => listed.has(x)),
     }))
-    expect(all(d, 'pages'), d.path).toEqual(kinds.filter(k => k.paths.length))
+    // The terms to see next first, as on the page.
+    const related = { t: 'pages', title: txt(dom.querySelector('.related h2')), paths: dom.querySelectorAll('.related a').map(a => appHref(a.getAttribute('href')!)).filter(x => listed.has(x)) }
+    expect(all(d, 'pages'), d.path).toEqual([related, ...kinds].filter(k => k.paths.length))
     // The page's search for the rest of a long list: the app offers to open the page on the web.
     expect(all(d, 'web').length, d.path).toBe(dom.querySelector('.used .more a') ? 1 : 0)
   }

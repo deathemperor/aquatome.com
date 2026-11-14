@@ -1,0 +1,86 @@
+{
+  "id": "youtube-ePzGVkEOCrs",
+  "kind": "care",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=ePzGVkEOCrs",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "symphysodon-aequifasciatus",
+    "paracheirodon-axelrodi",
+    "poecilia-reticulata"
+  ],
+  "updatedAt": "2026-11-13",
+  "video": {
+    "youtubeId": "ePzGVkEOCrs",
+    "title": "Building A Home Discus Aquarium (FINAL EPISODE)",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 2114,
+    "publishedAt": "2026-01-24",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWvIM5TufKaTkbfXyaw3dd8K",
+      "position": 30
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/ePzGVkEOCrs/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Symphysodon aequifasciatus",
+      "Corydoras sp.",
+      "Paracheirodon axelrodi",
+      "Ancistrus sp.",
+      "Lemna minor",
+      "Poecilia reticulata"
+    ],
+    "gear": [
+      {
+        "category": "khac",
+        "brand": "Chihiros",
+        "t": 1464
+      },
+      {
+        "category": "loc",
+        "type": "suc-khi",
+        "t": 2010
+      },
+      {
+        "category": "co2",
+        "t": 2026
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Bắt cá đĩa sao cho nhẹ nhàng",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/ePzGVkEOCrs/p1-aF9Hb2xkZW4uanBn.webp",
+          "thumb": "https://media.aquatome.com/video/ePzGVkEOCrs/p1-aF9Hb2xkZW4uanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Biotopica, criadero de peces disco",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Biot%C3%B3pica,_breeding_discus_fish_Golden.jpg",
+          "caption": "Cá đĩa cam trong bể trống, thấy rõ vây lưng xòe ra."
+        }
+      },
+      {
+        "heading": "Thả cá vào bể mới",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/ePzGVkEOCrs/p3-VtLUluZGlhLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/ePzGVkEOCrs/p3-VtLUluZGlhLmpwZw-480.webp",
+          "width": 960,
+          "height": 865,
+          "licence": "CC BY 4.0",
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Discus_Fish-1-edward_aquarium-salem-India.jpg",
+          "caption": "Mấy con cá dĩa vừa thả vào bể mới, bơi thoải mái trong bể trống."
+        }
+      }
+    ]
+  }
+}

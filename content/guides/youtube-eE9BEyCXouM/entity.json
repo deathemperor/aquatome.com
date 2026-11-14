@@ -77,7 +77,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh cây xanh um, lên dày và đẹp sau hai tuần.",
-            "sharpness": 1764.5
+            "sharpness": 1764.5,
+            "person": false
           }
         ],
         "photo": {
@@ -100,30 +101,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh cây mọc dày, xanh tốt, không dùng vật liệu lọc vi sinh.",
-            "sharpness": 2153.4
-          },
-          {
-            "t": 155,
-            "url": "https://media.aquatome.com/video/eE9BEyCXouM/at155-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh lá cây xanh khỏe và lũa phủ rêu trong bể.",
-            "sharpness": 1107.7
+            "sharpness": 2153.4,
+            "person": false
           }
         ]
       },
       {
         "heading": "Thay nước giai đoạn đầu",
-        "moments": [
-          {
-            "t": 150,
-            "url": "https://media.aquatome.com/video/eE9BEyCXouM/at150-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh cây thủy sinh lá xanh và lũa trong bể.",
-            "sharpness": 1119.2
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/eE9BEyCXouM/p2-bV9maXNoZXMuanBn.webp",
           "thumb": "https://media.aquatome.com/video/eE9BEyCXouM/p2-bV9maXNoZXMuanBn-480.webp",
@@ -144,15 +129,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Một con ốc nerite bò trên nền đất giữa đám cây xanh.",
-            "sharpness": 475.9
-          },
-          {
-            "t": 135,
-            "url": "https://media.aquatome.com/video/eE9BEyCXouM/at135-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rêu sợi bám trên lũa, có bọt khí nhỏ giữa các cây.",
-            "sharpness": 1137.8
+            "sharpness": 475.9,
+            "person": false
           }
         ]
       },
@@ -165,7 +143,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thảm cây tiền cảnh xanh um quanh khúc lũa và đá.",
-            "sharpness": 1830.2
+            "sharpness": 1830.2,
+            "person": false
           },
           {
             "t": 330,
@@ -173,7 +152,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh Ludwigia palustris đỏ cam và dương xỉ Java trong bể.",
-            "sharpness": 424.5
+            "sharpness": 424.5,
+            "person": false
           }
         ],
         "photo": {
@@ -196,15 +176,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cụm Ludwigia palustris đỏ cam nổi bật giữa các cây xanh.",
-            "sharpness": 425.1
-          },
-          {
-            "t": 345,
-            "url": "https://media.aquatome.com/video/eE9BEyCXouM/at345-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thảm cây xanh dày trải trên nền, bên cạnh lũa.",
-            "sharpness": 2639.8
+            "sharpness": 425.1,
+            "person": false
           }
         ],
         "photo": {
@@ -227,7 +200,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lũa đặt trong bể cùng các cây trung cảnh lá xanh tươi.",
-            "sharpness": 1369.4
+            "sharpness": 1369.4,
+            "person": false
           },
           {
             "t": 390,

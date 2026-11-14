@@ -1,0 +1,334 @@
+{
+  "id": "fluval-fx6",
+  "brand": "Fluval",
+  "model": "FX6",
+  "category": "loc",
+  "type": "thung",
+  "specs": [
+    {
+      "key": "Pump output",
+      "value": "3,500 L/h",
+      "source": 0
+    },
+    {
+      "key": "Filtration flow (through media)",
+      "value": "2,130 L/h",
+      "source": 2
+    },
+    {
+      "key": "Power",
+      "value": "41 W (230–240 V version)",
+      "source": 2
+    },
+    {
+      "key": "Power",
+      "value": "43 W",
+      "source": 0
+    },
+    {
+      "key": "Power (US 120 V version)",
+      "value": "43 W; pump output 925 US GPH",
+      "source": 8
+    },
+    {
+      "key": "Recommended tank size",
+      "value": "up to 1,500 L",
+      "source": 0
+    },
+    {
+      "key": "Media capacity",
+      "value": "5.9 L",
+      "source": 0
+    },
+    {
+      "key": "Water capacity of canister",
+      "value": "20 L",
+      "source": 2
+    },
+    {
+      "key": "Max head height",
+      "value": "2.1 m (per Vietnamese shop)",
+      "source": 0
+    },
+    {
+      "key": "Max head height",
+      "value": "3.3 m (per UK retailer)",
+      "source": 9
+    },
+    {
+      "key": "Dimensions",
+      "value": "41 × 42 × 53 cm",
+      "source": 0
+    },
+    {
+      "key": "Dimensions",
+      "value": "400 × 400 × 530 mm",
+      "source": 9
+    },
+    {
+      "key": "Weight (empty)",
+      "value": "9.5 kg",
+      "source": 0
+    },
+    {
+      "key": "Hose inlet/outlet diameter",
+      "value": "26 mm",
+      "source": 0
+    },
+    {
+      "key": "Media trays",
+      "value": "3 large trays, each with 2 baskets",
+      "source": 0
+    },
+    {
+      "key": "Included media",
+      "value": "Foam, Bio-Foam, Biomax, Carbon Foam, media bags",
+      "source": 2
+    },
+    {
+      "key": "Origin",
+      "value": "Made in Italy (Fluval / Hagen, Canada)",
+      "source": 0
+    },
+    {
+      "key": "Warranty",
+      "value": "3-year official manufacturer warranty (stated for the FX range listing)",
+      "source": 3
+    },
+    {
+      "key": "Water type",
+      "value": "Freshwater and saltwater",
+      "source": 1
+    }
+  ],
+  "variants": [
+    {
+      "name": "Fluval FX2",
+      "specs": [
+        {
+          "key": "Tank size",
+          "value": "up to 750 L",
+          "source": 2
+        },
+        {
+          "key": "Pump output",
+          "value": "1,800 L/h",
+          "source": 2
+        },
+        {
+          "key": "Filtration flow",
+          "value": "1,300 L/h",
+          "source": 2
+        },
+        {
+          "key": "Media capacity",
+          "value": "3.9 L",
+          "source": 2
+        },
+        {
+          "key": "Power",
+          "value": "27 W",
+          "source": 2
+        },
+        {
+          "key": "Dimensions",
+          "value": "34 × 34 × 42 cm",
+          "source": 2
+        }
+      ]
+    },
+    {
+      "name": "Fluval FX4",
+      "specs": [
+        {
+          "key": "Tank size",
+          "value": "up to 1,000 L",
+          "source": 4
+        },
+        {
+          "key": "Pump output",
+          "value": "2,650 L/h",
+          "source": 4
+        },
+        {
+          "key": "Filtration flow",
+          "value": "1,700 L/h",
+          "source": 2
+        },
+        {
+          "key": "Media capacity",
+          "value": "3.9 L",
+          "source": 4
+        },
+        {
+          "key": "Power",
+          "value": "30 W",
+          "source": 4
+        },
+        {
+          "key": "Dimensions",
+          "value": "36 × 36 × 42 cm",
+          "source": 4
+        },
+        {
+          "key": "Hose diameter",
+          "value": "24 mm",
+          "source": 4
+        },
+        {
+          "key": "Weight (empty)",
+          "value": "6.5 kg",
+          "source": 4
+        }
+      ]
+    },
+    {
+      "name": "Fluval FX6",
+      "specs": [
+        {
+          "key": "Tank size",
+          "value": "up to 1,500 L",
+          "source": 2
+        },
+        {
+          "key": "Pump output",
+          "value": "3,500 L/h",
+          "source": 2
+        },
+        {
+          "key": "Filtration flow",
+          "value": "2,130 L/h",
+          "source": 2
+        },
+        {
+          "key": "Media capacity",
+          "value": "5.9 L",
+          "source": 2
+        },
+        {
+          "key": "Power",
+          "value": "41 W",
+          "source": 2
+        },
+        {
+          "key": "Dimensions",
+          "value": "40 × 40 × 53 cm",
+          "source": 2
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://thuysinhbichphuong.vn/fluval-fx6-filter-loc-thung-cao-cap",
+      "title": "FLUVAL FX6 FILTER - LỌC THÙNG CAO CẤP (Thủy Sinh Bích Phương)",
+      "kind": "shop",
+      "at": "2026-11-13"
+    },
+    {
+      "url": "https://yeuthuysinh.vn/fluval-fx6-filter-loc-thung-cao-cap",
+      "title": "FLUVAL FX6 FILTER - LỌC THÙNG CAO CẤP (Yêu Thủy Sinh)",
+      "kind": "shop",
+      "at": "2026-11-13"
+    },
+    {
+      "url": "https://shopthuysinh.com/may-loc-be-ca-fluval-fx2-fx4-fx6-xuat-xu-chau-au/",
+      "title": "Máy lọc bể cá Fluval FX2 FX4 FX6 xuất xứ Châu Âu - ShopThuySinh.com",
+      "kind": "shop",
+      "at": "2026-11-13"
+    },
+    {
+      "url": "https://tepmauquan3.com/loc-thung-fluval-fx2-fx4-fx6-cao-cap-italy",
+      "title": "Lọc Thùng Fluval FX2 FX4 FX6 Cao Cấp - Tép Màu Quận 3",
+      "kind": "shop",
+      "at": "2026-11-13"
+    },
+    {
+      "url": "https://thuysinhbichphuong.vn/fluval-fx4-filter-loc-thung-cao-cap",
+      "title": "FLUVAL FX4 FILTER - LỌC THÙNG CAO CẤP (Thủy Sinh Bích Phương)",
+      "kind": "shop",
+      "at": "2026-11-13"
+    },
+    {
+      "url": "https://aquariumscience.org/index.php/8-3-3-fx-series-canister-filters",
+      "title": "FX Series Canister Filters - Aquarium Science",
+      "kind": "review",
+      "at": "2026-11-13"
+    },
+    {
+      "url": "https://www.monsterfishkeepers.com/forums/threads/noisy-fluval-fx6.758237",
+      "title": "Noisy Fluval FX6 - MonsterFishKeepers",
+      "kind": "forum",
+      "at": "2026-11-13"
+    },
+    {
+      "url": "https://uk.trustpilot.com/review/fluvalaquatics.com",
+      "title": "Fluval Aquatics reviews - Trustpilot UK",
+      "kind": "other",
+      "at": "2026-11-13"
+    },
+    {
+      "url": "https://www.bulkreefsupply.com/fluval-fx6-canister-filter-fluval.html",
+      "title": "Fluval FX6 Canister Filter - Bulk Reef Supply",
+      "kind": "shop",
+      "at": "2026-11-13"
+    },
+    {
+      "url": "https://www.fishkeeper.co.uk/fluval-fx6-filter",
+      "title": "Fluval FX6 High Performance External Canister Filter - Fishkeeper UK",
+      "kind": "shop",
+      "at": "2026-11-13"
+    },
+    {
+      "url": "https://www.oase.com/en-GB/aquarium/biomaster-850",
+      "title": "OASE BioMaster 850",
+      "kind": "manufacturer",
+      "at": "2026-11-13"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=oliDuLCTFio",
+      "title": "Fluval FX6 Canister Filter | Unboxing, Setup & Review",
+      "kind": "video",
+      "at": "2026-11-13"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=T3R5tfU8Yz0",
+      "title": "My 1 Concern With The Fluval FX6",
+      "kind": "video",
+      "at": "2026-11-13"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=60pWEV3vM7c",
+      "title": "Fluval FX6 review",
+      "kind": "video",
+      "at": "2026-11-13"
+    }
+  ],
+  "reviews": {
+    "checkedAt": "2026-11-13",
+    "videos": [
+      {
+        "youtubeId": "oliDuLCTFio",
+        "title": "Fluval FX6 Canister Filter | Unboxing, Setup & Review",
+        "durationSec": 630,
+        "lang": "en",
+        "channel": "Cichlid Bros"
+      },
+      {
+        "youtubeId": "T3R5tfU8Yz0",
+        "title": "My 1 Concern With The Fluval FX6",
+        "durationSec": 264,
+        "lang": "en",
+        "channel": "Aquatic Logic"
+      },
+      {
+        "youtubeId": "60pWEV3vM7c",
+        "title": "Fluval FX6 review",
+        "durationSec": 539,
+        "lang": "en",
+        "channel": "Jay Wilson"
+      }
+    ]
+  },
+  "updatedAt": "2026-11-13"
+}

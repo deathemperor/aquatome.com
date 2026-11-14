@@ -129,6 +129,10 @@
       {
         "source": "scotcat",
         "value": 7
+      },
+      {
+        "source": "planetcatfish",
+        "value": 6
       }
     ],
     "tempC": [
@@ -145,6 +149,13 @@
           "min": 21,
           "max": 24
         }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 21,
+          "max": 24
+        }
       }
     ],
     "ph": [
@@ -157,6 +168,13 @@
       },
       {
         "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
+      },
+      {
+        "source": "planetcatfish",
         "value": {
           "min": 6,
           "max": 7.2
@@ -199,16 +217,52 @@
       "html": "<p>Fowler's cory, Corydoras fowleri, is a long-snouted armoured catfish from the Amazon basin in Peru. Also known as the 'huanta cory' and 'milegros cory', it is often confused with C. coriatae and C. semiaquilus, and aquarium fish are regularly misidentified. Most long-snouted cories grow larger and are more aggressive than other Corydoras, and this one is suitable only for larger community aquaria.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_fowleri.htm",
+      "html": "<ul><li>Size: male 6.5 cm, female 7.0 cm</li><li>Synonyms: none</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=135",
+      "html": "<ul><li>Scientific name: Corydoras fowleri Böhlke, 1950</li><li>Common names: Fowler's Cory, Huanta Cory, Milagros Cory</li><li>Type locality: Chancho Caño, near Pebas, Amazon River system, Loreto, Peru</li><li>IUCN: Least Concern</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=135",
+      "html": "<p>Corydoras are identified by their twin rows of armour plates along the flanks and by having fewer than 10 dorsal fin rays. They are most commonly confused with the other genera in the sub-family, namely Brochis, Scleromystax and Aspidoras.</p><p>Very similar indeed to C. coriatae, the latter being differentiated primarily on colouration differences. Imports are very variable in terms of colouration.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-fowleri",
       "html": "<p>Native to the Amazon basin in Peru, with its range appearing to extend west from the río Ampiyacu at least as far as Iquitos, meaning it should also occur in the ríos Napo, Nanay, and Itaya. Its distribution is somewhat unclear, however, not least because there exist problems with its identification (see 'Notes'). For example, it may also occur in the 'Tres Fronteras' region further east, where similar-looking fish have been collected around the borders between Peru, Brazil and Colombia.</p><p>Type locality is 'Chancho Caño, near Pebas, 3°10'S, 71°46'W, Amazon River system, Loreto, Peru'.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_fowleri.htm",
+      "html": "<p>South America: Peru; Loreto, Caño del Chancho near Pebas (03º10'S, 71º46'W), Río Amazonus system.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=135",
+      "html": "<p>South America: western Amazon River basin.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-fowleri",
       "html": "<p>Observations of wild fish suggest that this species prefers smaller, quiet tributaries with clear, acidic water (pH ~5.0-5.5) substrates of fine sand and leaf litter, and extensive riparian vegetation.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=135",
+      "html": "<p>Type locality: Chancho Caño, near Pebas, Amazon River system, Loreto, Peru.</p>"
     },
     {
       "key": "aquariumSize",
@@ -223,10 +277,28 @@
       "html": "<p>Ideally use a substrate of fine sand, although rounded gravel is an acceptable alternative provided that it is kept scrupulously clean.</p><p>Other décor is largely down to personal choice, but some cover should be provided to give the fish security.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_fowleri.htm",
+      "html": "<p>As this is one of the longer snouted species it will be well suited to most community tanks. A well planted tank with a soft substrate such as sand so they can bury their snouts while searching out food.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-fowleri",
       "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 5.0–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=135",
+      "html": "<p>pH: 6.0–7.2. Temperature: 21–24°C.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=135",
+      "html": "<p>Ideally substrate should be sand, but rounded gravel is an imperfect alternative. Avoid keeping over rough edged (chipped) gravel, as this will increase the risk of damage to the fish's barbels when it tries to dig. Substrate should be bordered with driftwood and aquatic plants, leaving an open area for them to search for food and swim. The shade provided by overhanging rock work, arching bogwood, tall or floating plants is all that is required to settle these fish.</p>"
     },
     {
       "key": "diet",
@@ -235,16 +307,40 @@
       "html": "<p>Corydoras spp. are foraging omnivores and most species will accept good quality, sinking dried foods, as well as small live and frozen varieties such as chironomid larvae (bloodworm), Tubifex, etc.</p><p>C. fowleri is among the pickier species and may refuse to accept dried foods, however, while newly-imported wild fish are often infested with internal parasites and require constant access to live foods in order to maintain body weight during the acclimatisation period.</p><p>Under no circumstances should they be expected to survive on 'left-overs' from other inhabitants of the aquarium or relied on to 'clean' the aquarium.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_fowleri.htm",
+      "html": "<p>A good quality flake food and tablet food for adults with sporadic feedings of frozen or live food will keep your Corydoras in good health.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=135",
+      "html": "<p>Will readily accept all prepared foods that reach the bottom of the aquarium such as tablets, granules and larger flakes. Live or frozen foods such as bloodworm, white worm, grindal worm (Enchytraeus), Daphnia and Tubifex are readily accepted and good for conditioning groups of fish for spawning.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-fowleri",
       "html": "<p>Peaceful with the majority of other fishes, but males in particular can be aggressive towards conspecifics and other similarly-shaped species. This behaviour is most pronounced when the fish are reproductively active and males are competing for female attention.</p><p>It is thus suitable only for larger community aquaria, and should be maintained in a pair or group comprising at least 4-6 individuals.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=135",
+      "html": "<p>A peaceful, shoaling, community fish.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-fowleri",
       "html": "<p>Females tend to grow larger, and sexually mature individuals are noticeably broader and deeper-bodied than males. Sexually mature males possess thickened anterior pectoral-fin rays, while in females the ventral fins are noticeably rounded.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=135",
+      "html": "<p>Females grow larger and are more full-bodied, which is best observed from above. Males will typically have more pointed as opposed to more rounded fin tips as they mature.</p>"
     },
     {
       "key": "reproduction",
@@ -259,40 +355,16 @@
       "html": "<p>Can be bred in a similar fashion to many other Corydoras species, although it may be preferable to use pairs of adults rather than a mixed group in order to minimise aggression.</p><p>When the female is noticeably gravid perform a large (50-70%) water change with cooler water, and increase oxygenation and flow in the tank. Repeat this daily until the fish spawn.</p><p>Eggs may be deposited on the aquarium glass, among fine-leaved vegetation or within sunken spawning mops, with the latter particularly recommended since they facilitate easy removal of eggs.</p><p>Once spawning is complete either adults or eggs should be removed; the latter can usually be rolled gently up the glass with a finger. The new container should contain the same water as the spawning tank and be similarly well-oxygenated.</p><p>Most breeders add a few drops of methylene blue, or an alder cone or two at this point in order to prevent the eggs developing fungus.</p><p>Incubation is normally 3-4 days and once the fry have fully-absorbed their yolk sacs they are able to accept small live foods such as microworm, Artemia nauplii, etc.</p><p>They are not the easiest to raise, requiring excellent water quality, but seem less susceptible to ailments when maintained over a thin layer of sand rather than in a bare arrangement.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=135",
+      "html": "<p>Unreported.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-fowleri",
       "html": "<p>C. fowleri is also known as 'huanta cory' and 'milegros cory' in the aquarium trade. It is often confused with similar-looking congeners, particularly C. coriatae Burgess 1997 and C. semiaquilus Weitzman 1964, both of which are also native to the Peruvian Amazon basin.</p><p>The type locality of C. coriatae is the río Aguaytia, a tributary of the río Ucayali, but its description was published in an aquarium hobbyist magazine and a copy has not been obtained to date, thus its diagnosis is currently unavailable.</p><p>C. semiaquilus was described from Igarapé Preto, which corresponds to a tributary in the upper rio Juruá basin in Acre state, western Brazil. Following Weitzman (1964), C. fowleri differs from C. semiaquilus in the following characters: snout relatively short, measuring 24% of the body length without the head (vs. 32-33% in C. semiquilus); shorter head, measuring 26.6% SL (vs. 32.9-33.2%); smaller eye, measuring 6.1% SL (vs. 6.6-7.4%); dorsal-fin located more anteriorly, with predorsal length measuring 66.5% (vs. 85.2-85.5%) of the distance between the dorsal-fin origin and caudal-fin base. Weitzman also noted that the two species might have a similar colour pattern in life, but that he could not be certain because only a single specimen of C. fowleri (the holotype) was available to him.</p><p>In addition, the colour pattern in aquarium fish traded or identified as C. fowleri is highly variable, but it is unclear whether such differences represent diversity within or between populations. Nevertheless, colour pattern is typically used to distinguish them, with fish from Peru possessing a greater extent of dark pigmentation on the body generally referred to C. semiaquilus, for example, although based on its type locality that species might be restricted to Brazil.</p><p>What is certain is that there exists a group of closely-related Corydoras species with long snouts which are native to southern Colombia, western Brazil and northern Peru, but that those in the aquarium trade are regularly misidentified with no clear diagnoses available for them. The images attached to this profile are examples of fishes referred to as putative C. fowleri.</p><p>C. fowleri is one of a number of Corydoras species to possess extended mouthparts. Most of these grow larger and are more aggressive than other members of the genus, and they are commonly referred to as 'long-nosed' or 'long-snouted' cories.</p><p>The genus Corydoras is included in the family Callichthyidae, of which members are often referred to collectively as 'armoured' or 'mailed' catfishes due to the presence of bony plates in place of scales on the body.</p><p>Their taxonomy can be confusing, and numerous undescribed species are also thought to exist. Fish of unconfirmed identification entering the aquarium hobby are therefore typically assigned a 'C' or 'CW' number for purposes of reference and organisation.</p><p>They are facultative air breathers and possess a modified, highly vascularised intestine which has evolved to facilitate uptake of atmospheric oxygen and aid survival in oxygen-deprived environments. In the aquarium you'll occasionally see them rising to the surface to take in gulps of air.</p><p>The stiffened pectoral-fin spines are capable of piercing human skin and a 'sting' can be very painful indeed, so care should be exercised when handling them.</p><p>It is thought that secretions from the axillary glands at the base of each spine may even be mildly toxic or venomous.</p>"
-    },
-    {
-      "key": "references",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-fowleri",
-      "html": "<ul><li>Böhlke, J. E. (1950). A new catfish of the genus Corydoras from the Peruvian Amazon. The Fish Culturist 30(4), 26-27</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Ortega, H. and R. P. Vari (1986). Annotated checklist of the freshwater fishes of Peru. Smithsonian Contributions to Zoology No. 437, iii + 1-25</li><li>Nijssen, H. and I. J. H. Isbrücker (1980). A review of the genus Corydoras Lacépède, 1803 (Pisces, Siluriformes, Callichthyidae). Bijdragen tot de Dierkunde 50(1), 190-220</li><li>Weitzman, S. H. (1964). One new species and two redescriptions of catfishes of the South American callichthyid genus Corydoras. Proceedings of the United States National Museum v. 116 (no. 3498), 115-126</li></ul>"
-    },
-    {
-      "key": "quickFacts",
-      "source": "scotcat",
-      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_fowleri.htm",
-      "html": "<ul><li>Size: male 6.5 cm, female 7.0 cm</li><li>Synonyms: none</li></ul>"
-    },
-    {
-      "key": "distribution",
-      "source": "scotcat",
-      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_fowleri.htm",
-      "html": "<p>South America: Peru; Loreto, Caño del Chancho near Pebas (03º10'S, 71º46'W), Río Amazonus system.</p>"
-    },
-    {
-      "key": "maintenance",
-      "source": "scotcat",
-      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_fowleri.htm",
-      "html": "<p>As this is one of the longer snouted species it will be well suited to most community tanks. A well planted tank with a soft substrate such as sand so they can bury their snouts while searching out food.</p>"
-    },
-    {
-      "key": "diet",
-      "source": "scotcat",
-      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_fowleri.htm",
-      "html": "<p>A good quality flake food and tablet food for adults with sporadic feedings of frozen or live food will keep your Corydoras in good health.</p>"
     },
     {
       "key": "notes",
@@ -302,23 +374,24 @@
     },
     {
       "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-fowleri",
+      "html": "<ul><li>Böhlke, J. E. (1950). A new catfish of the genus Corydoras from the Peruvian Amazon. The Fish Culturist 30(4), 26-27</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Ortega, H. and R. P. Vari (1986). Annotated checklist of the freshwater fishes of Peru. Smithsonian Contributions to Zoology No. 437, iii + 1-25</li><li>Nijssen, H. and I. J. H. Isbrücker (1980). A review of the genus Corydoras Lacépède, 1803 (Pisces, Siluriformes, Callichthyidae). Bijdragen tot de Dierkunde 50(1), 190-220</li><li>Weitzman, S. H. (1964). One new species and two redescriptions of catfishes of the South American callichthyid genus Corydoras. Proceedings of the United States National Museum v. 116 (no. 3498), 115-126</li></ul>"
+    },
+    {
+      "key": "references",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_fowleri.htm",
       "html": "<p>Alexandrou, Markos &amp; Taylor, Martin. (2011). Evolution, ecology and taxonomy of the Corydoradinae revisited.</p><p>Angelica C Dias, Luiz F C Tencatt, Fabio F Roxo, Gabriel de Souza da Costa Silva, Sérgio A Santos, Marcelo R Britto, Martin I Taylor, Claudio Oliveira, Phylogenomic analyses in the complex Neotropical subfamily Corydoradinae (Siluriformes: Callichthyidae) with a new classification based on morphological and molecular data, Zoological Journal of the Linnean Society, 2024;, zlae053.</p><p>Fuller, Ian A.M. &amp; Evers, Hans-Georg: Identifying Corydoradinae Catfish. 2005. 384 p.</p><p>Ian A. M. Fuller &amp; Hans-Georg Evers (2011). Identifying Corydoradinae Catfish Supplement 1. Ian Fuller Enterprises.</p><p>Sanchez-Duarte, P. 2016. Corydoras fowleri. The IUCN Red List of Threatened Species 2016.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=135",
+      "html": "<p>The Fish Culturist v. 30 (no. 4), pp 26.</p>"
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/5a1741353d2d636c.webp",
-      "thumb": "https://media.aquatome.com/scotcat/5a1741353d2d636c-480.webp",
-      "width": 500,
-      "height": 266,
-      "licence": "dùng với sự cho phép",
-      "author": "Allan James / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_fowleri.htm",
-      "caption": "Corydoras fowleri",
-      "source": "scotcat"
-    },
     {
       "url": "https://media.aquatome.com/seriouslyfish/dc8332b333820dbe.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/dc8332b333820dbe-480.webp",
@@ -331,10 +404,10 @@
       "source": "seriouslyfish"
     },
     {
-      "url": "https://media.aquatome.com/scotcat/cb95afdf78fce497.webp",
-      "thumb": "https://media.aquatome.com/scotcat/cb95afdf78fce497-480.webp",
+      "url": "https://media.aquatome.com/scotcat/5a1741353d2d636c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/5a1741353d2d636c-480.webp",
       "width": 500,
-      "height": 335,
+      "height": 266,
       "licence": "dùng với sự cho phép",
       "author": "Allan James / ScotCat",
       "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_fowleri.htm",
@@ -351,6 +424,17 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-fowleri",
       "caption": "Head detail.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/cb95afdf78fce497.webp",
+      "thumb": "https://media.aquatome.com/scotcat/cb95afdf78fce497-480.webp",
+      "width": 500,
+      "height": 335,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_fowleri.htm",
+      "caption": "Corydoras fowleri",
+      "source": "scotcat"
     }
   ],
   "videos": [
@@ -390,5 +474,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-13"
 }

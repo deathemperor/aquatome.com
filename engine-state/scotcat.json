@@ -578,11 +578,44 @@
     "attempts": 0
   },
   "https://www.scotcat.com/amblycipitidae/xiurenbagrus_xiurenensis.htm": {
-    "entityIds": [],
-    "updatedAt": "2026-11-11T20:39:50.280Z",
-    "status": "error",
-    "attempts": 0,
-    "error": "claude failed: the engine's daily limit reached for run ($0.00 of $0 today)"
+    "entityIds": [
+      "species/xiurenbagrus-xiurenensis"
+    ],
+    "updatedAt": "2026-11-13T04:47:07.067Z",
+    "hash": "b63a0e2b8b69aae61e80280544804d860ad1a601a7fde6169c9d6e756ab7ffd4",
+    "processedHash": "b63a0e2b8b69aae61e80280544804d860ad1a601a7fde6169c9d6e756ab7ffd4",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amphiliidae/amphilius_atesuensis.htm": {
+    "entityIds": [
+      "species/amphilius-atesuensis"
+    ],
+    "updatedAt": "2026-11-13T04:50:30.279Z",
+    "hash": "812ce4418542d7a965de764ac985b122bedd022358925b086626d92df8c6f83e",
+    "processedHash": "812ce4418542d7a965de764ac985b122bedd022358925b086626d92df8c6f83e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amphiliidae/amphilius_cryptobullatus.htm": {
+    "entityIds": [
+      "species/amphilius-cryptobullatus"
+    ],
+    "updatedAt": "2026-11-13T04:53:17.590Z",
+    "hash": "eb165426589a4193b4efb593a76242f6f208116b5c5efb65dc4ae8432a67b38c",
+    "processedHash": "eb165426589a4193b4efb593a76242f6f208116b5c5efb65dc4ae8432a67b38c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amphiliidae/amphilius_frieli.htm": {
+    "entityIds": [
+      "species/amphilius-frieli"
+    ],
+    "updatedAt": "2026-11-13T04:55:52.932Z",
+    "hash": "cb3d118571f663f7c0a07c522b0af9568a48223b1d0dd7a079d9887664dc7837",
+    "processedHash": "cb3d118571f663f7c0a07c522b0af9568a48223b1d0dd7a079d9887664dc7837",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.scotcat.com/anchariidae/ancharius_fuscus.htm": {
     "entityIds": [
@@ -601,6 +634,16 @@
     "updatedAt": "2026-11-03T04:50:49.713Z",
     "hash": "66b39326566f5042dc951c743d47db8fe1a4f06a8c5d1db0c6dafa73a917e59c",
     "processedHash": "66b39326566f5042dc951c743d47db8fe1a4f06a8c5d1db0c6dafa73a917e59c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/cryptarius_truncatus.htm": {
+    "entityIds": [
+      "species/cryptarius-truncatus"
+    ],
+    "updatedAt": "2026-11-13T21:11:58.858Z",
+    "hash": "f09b7d67d36ad1c2969c8560574c4aaa9fcc03003b618a6cc481dff55125273c",
+    "processedHash": "f09b7d67d36ad1c2969c8560574c4aaa9fcc03003b618a6cc481dff55125273c",
     "status": "processed",
     "attempts": 0
   },
@@ -735,11 +778,14 @@
     "attempts": 0
   },
   "https://www.scotcat.com/auchenipteridae/tetranematichthys_wallacei.htm": {
-    "entityIds": [],
-    "updatedAt": "2026-11-11T20:39:38.071Z",
-    "status": "error",
-    "attempts": 0,
-    "error": "claude failed: the engine's daily limit reached for run ($0.00 of $0 today)"
+    "entityIds": [
+      "species/tetranematichthys-wallacei"
+    ],
+    "updatedAt": "2026-11-13T04:44:24.299Z",
+    "hash": "05860a04a11b220f5a1b0d9df72001b028fa50978e9f8d45e94aab4606fd6138",
+    "processedHash": "05860a04a11b220f5a1b0d9df72001b028fa50978e9f8d45e94aab4606fd6138",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.scotcat.com/auchenipteridae/trachelyopterus_insignis.htm": {
     "entityIds": [
@@ -998,6 +1044,16 @@
     "updatedAt": "2026-11-02T12:26:21.488Z",
     "hash": "fea6f59241d06d0096dd16a3cbfa19e8b1ac98a232617ac493b787b64d35bab7",
     "processedHash": "fea6f59241d06d0096dd16a3cbfa19e8b1ac98a232617ac493b787b64d35bab7",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/claroteidae/chrysichthys_auratus.htm": {
+    "entityIds": [
+      "species/chrysichthys-auratus"
+    ],
+    "updatedAt": "2026-11-13T21:09:57.324Z",
+    "hash": "0e6ed5ddc9fc3fe412bf70fbd9953e890aad385b8fc50ad97d8a281ae7ecf438",
+    "processedHash": "0e6ed5ddc9fc3fe412bf70fbd9953e890aad385b8fc50ad97d8a281ae7ecf438",
     "status": "processed",
     "attempts": 0
   },
@@ -1471,6 +1527,26 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/hypostomus_pyrineusi.htm": {
+    "entityIds": [
+      "species/hypostomus-pyrineusi"
+    ],
+    "updatedAt": "2026-11-13T21:14:24.992Z",
+    "hash": "807d4d76541995488cb42d328e5f8df1f6fe417bbe7ecc53b2f8c098e287a301",
+    "processedHash": "807d4d76541995488cb42d328e5f8df1f6fe417bbe7ecc53b2f8c098e287a301",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/hypostomus_roseopunctatus.htm": {
+    "entityIds": [
+      "species/hypostomus-roseopunctatus"
+    ],
+    "updatedAt": "2026-11-13T21:16:17.868Z",
+    "hash": "2fcdb3e5bb3f2dbee8ebaed5977fa488499d390303e969249b5a2a089397dff6",
+    "processedHash": "2fcdb3e5bb3f2dbee8ebaed5977fa488499d390303e969249b5a2a089397dff6",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/hypostomus_soniae.htm": {
     "entityIds": [
       "species/hypostomus-soniae"
@@ -1478,6 +1554,26 @@
     "updatedAt": "2026-11-11T09:01:57.806Z",
     "hash": "95e844c072ea69b9244c944ba2f7b7edbce2167562400f0db99b4a4ca94dbb11",
     "processedHash": "95e844c072ea69b9244c944ba2f7b7edbce2167562400f0db99b4a4ca94dbb11",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/hypostomus_taphorni.htm": {
+    "entityIds": [
+      "species/hypostomus-taphorni"
+    ],
+    "updatedAt": "2026-11-13T21:19:33.035Z",
+    "hash": "bc3359be5518ec5dba4d9a956fea338e72230d38dc419af88219378d211b7d58",
+    "processedHash": "bc3359be5518ec5dba4d9a956fea338e72230d38dc419af88219378d211b7d58",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/hypostomus_uruguayensis.htm": {
+    "entityIds": [
+      "species/hypostomus-uruguayensis"
+    ],
+    "updatedAt": "2026-11-13T21:22:14.549Z",
+    "hash": "ccb1da7d77610510124588767ce96309062bfc1af000523ca183ed4506c81762",
+    "processedHash": "ccb1da7d77610510124588767ce96309062bfc1af000523ca183ed4506c81762",
     "status": "processed",
     "attempts": 0
   },

@@ -682,6 +682,12 @@
     "findings": [],
     "ruled": "7e6a4a68f82a8da4"
   },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dutch-style-sp": {
+    "at": "2026-11-13",
+    "hash": "6806df37291c69ee",
+    "findings": [],
+    "ruled": "6806df37291c69ee"
+  },
   "vi/guides/2hraquarist-blogs-aquascaping-ideas-fernando-ferreira": {
     "at": "2026-11-09",
     "hash": "1e7d79ef8f11362a",
@@ -1150,6 +1156,61 @@
       }
     ],
     "ruled": "2b0502a994a2c676"
+  },
+  "vi/guides/aquariumbreeder-breeding-and-life-cycle-of-crayfish": {
+    "at": "2026-11-13",
+    "hash": "2c1aed02b75dcbef",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Nó dùng chân bơi để giữ trứng sạch bẩn và đủ oxy.",
+        "problem": "\"giữ trứng sạch bẩn\" is garbled: it reads as \"keep the eggs clean-dirty\" rather than \"keep the eggs clean of dirt\".",
+        "fix": "Nó dùng chân bơi để giữ cho trứng sạch, không bám bẩn và đủ oxy.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Con đực có thêm một cặp chân bơi dùng để thụ tinh trong.",
+        "problem": "The page first says fertilisation is external (\"Thụ tinh diễn ra bên ngoài\"), then says the male's extra pleopods are used for internal fertilisation.",
+        "fix": "Con đực có thêm một cặp chân bơi dùng để gắn tinh vào con cái.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Chẳng hạn, Cherax destructor non có thể lột 5–7 ngày một lần, còn yabby non thường 3–4 tuần mới lột một lần.",
+        "problem": "The yabby is Cherax destructor, so the page gives two different moult intervals for the same animal as if they were different species.",
+        "fix": "Chẳng hạn, yabby (Cherax destructor) lúc còn rất nhỏ có thể lột 5–7 ngày một lần, lớn hơn thì thường 3–4 tuần mới lột một lần.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## 3.1. Lột xác",
+        "problem": "The subsection numbered 3.1 is a heading at the same level as \"Giai đoạn 3\", so it looks like a separate section and not part of stage 3.",
+        "fix": "### 3.1. Lột xác",
+        "rule": "A heading numbered like a sub-item (\"3.1.\") at the same level as its parent stage heading.",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-13",
+        "field": "body",
+        "score": 0.7,
+        "kept": false,
+        "problems": [
+          "\"giữ trứng sạch bẩn\" is garbled: it reads as \"keep the eggs clean-dirty\" rather than \"keep the eggs clean of dirt\"."
+        ]
+      }
+    ],
+    "ruled": "2c1aed02b75dcbef"
   },
   "vi/guides/aquariumbreeder-can-i-put-snails-in-an-uncycled-tank": {
     "at": "2026-11-06",
@@ -1993,6 +2054,51 @@
     "findings": [],
     "ruled": "9b75bfc1341a29f9"
   },
+  "vi/guides/aquariumbreeder-importance-of-surface-agitation-in-aquariums": {
+    "at": "2026-11-13",
+    "hash": "6431fde972d5ae15",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## 1. Lọc:",
+        "problem": "The numbered methods (1–6) are set as top-level headings, the same level as their parent section \"Các cách khuấy mặt nước\", so that section looks empty and the list items look like separate sections.",
+        "fix": "### 1. Lọc:",
+        "rule": "Numbered headings ('## 1.', '## 2.' …) sit at the same level as the heading directly before them.",
+        "field": "body"
+      },
+      {
+        "kind": "unsupported",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Trao đổi khí chỉ xảy ra khi sức căng bề mặt bị phá.",
+        "problem": "The source says gas exchange happens when surface tension is broken. Adding \"chỉ\" (only) wrongly claims there is no gas exchange at a still surface.",
+        "fix": "Trao đổi khí diễn ra mạnh khi sức căng bề mặt bị phá.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đây thêm một cái lợi của khuấy mặt nước",
+        "problem": "The verb \"là\" is missing, so the sentence reads as broken.",
+        "fix": "Đây là thêm một cái lợi của khuấy mặt nước",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "đẩy carbon dioxide do cây nhả ra ra ngoài",
+        "problem": "\"ra ra\" is an awkward doubled word that makes readers stumble. It appears twice on the page.",
+        "fix": "đẩy ra ngoài lượng carbon dioxide cây nhả ra",
+        "rule": "The same word repeated back to back, such as 'ra ra'.",
+        "field": "body"
+      }
+    ],
+    "ruled": "6431fde972d5ae15"
+  },
   "vi/guides/aquariumbreeder-infusoria-profile-and-how-to-culture-as-live-food": {
     "at": "2026-11-05",
     "hash": "515cf4bbec73a79f",
@@ -2772,6 +2878,32 @@
     ],
     "ruled": "ec830a20b8771ffb"
   },
+  "vi/guides/aquariumbreeder-tannins-in-aquarium": {
+    "at": "2026-11-13",
+    "hash": "415ef96ca7fad458",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "high",
+        "part": "P1",
+        "quote": "- rút ngắn thời gian mang thai,",
+        "problem": "The 'breeding rates in fish' item and its intro about Indian almond leaves and guppies are missing, so the pregnancy and fry effects appear under the antioxidant item with no context.",
+        "fix": "- Cá đẻ tốt hơn. Chẳng hạn, tanin từ lá bàng giúp cá bảy màu sinh sản tốt hơn. Tanin từ lá bàng giúp:",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## 1. Than hoạt tính",
+        "problem": "The five numbered removal methods are top-level headings, the same level as their parent section 'Làm sao để loại bỏ…', instead of sub-headings under it.",
+        "fix": "### 1. Than hoạt tính",
+        "rule": "Flag numbered headings that have the same heading level as the unnumbered heading just before them, which introduces them.",
+        "field": "body"
+      }
+    ],
+    "ruled": "415ef96ca7fad458"
+  },
   "vi/guides/aquariumbreeder-top-10-weirdly-beautiful-aquarium-plants": {
     "at": "2026-11-08",
     "hash": "af72146bd6889ece",
@@ -2964,6 +3096,22 @@
     "hash": "3e16e03a1864bfe8",
     "findings": [],
     "ruled": "3e16e03a1864bfe8"
+  },
+  "vi/guides/aquariumbreeder-why-do-crabs-bubble-at-the-mouth": {
+    "at": "2026-11-13",
+    "hash": "4ec66829f74a5967",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Thường thì bọt chỉ sinh ra vô hại từ cách mang hít vào và thải khí ra khi cua ở trên cạn",
+        "problem": "The sentence in the conclusion is awkward, translated word for word: 'sinh ra vô hại từ cách…' does not read naturally in Vietnamese.",
+        "fix": "Bọt thường chỉ là thứ sinh ra khi mang hút và thải khí lúc cua ở trên cạn. Nó vô hại, không có gì đáng lo.",
+        "field": "body"
+      }
+    ],
+    "ruled": "4ec66829f74a5967"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-10-best-aquarium-fish-for-beginners": {
     "at": "2026-11-01",
@@ -5916,6 +6064,12 @@
     ],
     "ruled": "e9e843bbdb80297e"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-tissue-culture-plants": {
+    "at": "2026-11-13",
+    "hash": "92d1e40382df2003",
+    "findings": [],
+    "ruled": "92d1e40382df2003"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-top-10-barbs": {
     "at": "2026-11-08",
     "hash": "08b16c1336548b41",
@@ -8637,6 +8791,22 @@
     "findings": [],
     "ruled": "052b483af239d0bd"
   },
+  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-new-names-for-goldseam-cichlid-and-green-terror-en": {
+    "at": "2026-11-13",
+    "hash": "88aacd18ffba7103",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "(xem chẳng hạn Aqualog Southamerican Cichlids III)",
+        "problem": "Word-for-word rendering of 'see for example' that reads awkwardly in Vietnamese.",
+        "fix": "(xem ví dụ trong Aqualog Southamerican Cichlids III)",
+        "field": "body"
+      }
+    ],
+    "ruled": "88aacd18ffba7103"
+  },
   "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-the-discus-season-has-started-2-en": {
     "at": "2026-11-10",
     "hash": "34eb827b52682942",
@@ -8707,6 +8877,12 @@
       }
     ],
     "ruled": "7501c80f246887ba"
+  },
+  "vi/guides/glaser-en-27-puffers-new-generic-names-for-freshwater-pufferfish-1-en": {
+    "at": "2026-11-13",
+    "hash": "f63e4e0ebb0f98ea",
+    "findings": [],
+    "ruled": "f63e4e0ebb0f98ea"
   },
   "vi/guides/glaser-en-29-lungfishes-lungfishes-from-the-congo": {
     "at": "2026-11-10",
@@ -15167,6 +15343,12 @@
     ],
     "ruled": "9cad6049bd0cabd1"
   },
+  "vi/guides/youtube-Ct6YVxp_mFc": {
+    "at": "2026-11-13",
+    "hash": "2ad86c91163f5f86",
+    "findings": [],
+    "ruled": "2ad86c91163f5f86"
+  },
   "vi/guides/youtube-CteRIdT1Ous": {
     "at": "2026-11-05",
     "hash": "6803a0bd77ac3435",
@@ -18257,6 +18439,43 @@
     "findings": [],
     "ruled": "af6fc87e3dd5f0c8"
   },
+  "vi/guides/youtube-lSVI3YTPLyc": {
+    "at": "2026-11-13",
+    "hash": "61dc9e1ec9f5f08c",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "| Vị trí\n| Cây\n| Tiền cảnh\n| Cryptocoryne parva chạy dọc phía trước",
+        "problem": "The planting-plan table is broken: each cell sits on its own line, so the reader cannot tell which plant goes with which position.",
+        "fix": "| Vị trí | Cây |\n|---|---|\n| Tiền cảnh | Cryptocoryne parva chạy dọc phía trước |\n| Sau parva, giữa các viên đá | Cryptocoryne albida brown |\n| Trung cảnh | Các bụi Cryptocoryne lớn (lucens hoặc loài tương tự) |\n| Góc sau bên trái | Cây trồng sẵn dạng thủy sinh, mọc cao |\n| Trên lũa và khe giữa lũa với đá | Ráy, Bucephalandra, dương xỉ Trident, rêu mini Christmas |",
+        "rule": "Table rows written as lines that each start with a single '|' cell and have no closing pipe or separator row.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "có vài đốm rêu râu đen (black beard algae, BBA)",
+        "problem": "Vietnamese hobbyists call BBA 'rêu chùm đen', not the literal translation 'rêu râu đen'. It also comes with an English gloss the reader doesn't need.",
+        "fix": "có vài đốm rêu chùm đen (BBA)",
+        "rule": "The phrase 'rêu râu đen' appears anywhere on a Vietnamese page.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L4",
+        "quote": "Lũa dính rêu râu đen (BBA)",
+        "problem": "This uses the literal translation 'rêu râu đen' instead of the hobby term 'rêu chùm đen'.",
+        "fix": "Lũa dính rêu chùm đen (BBA)",
+        "rule": "The phrase 'rêu râu đen' appears anywhere on a Vietnamese page.",
+        "field": "summary.3"
+      }
+    ],
+    "ruled": "61dc9e1ec9f5f08c"
+  },
   "vi/guides/youtube-lVFJKBML5Ws": {
     "at": "2026-11-07",
     "hash": "2db72c8dbd9e35b2",
@@ -18423,6 +18642,12 @@
       }
     ],
     "ruled": "4b87e78999aa9acb"
+  },
+  "vi/guides/youtube-MCII9KCy60M": {
+    "at": "2026-11-13",
+    "hash": "03f09655b3ee5edb",
+    "findings": [],
+    "ruled": "03f09655b3ee5edb"
   },
   "vi/guides/youtube-MCLyq24fzNM": {
     "at": "2026-11-13",

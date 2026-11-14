@@ -168,43 +168,43 @@
   "dataCard": {
     "tempC": [
       {
-        "source": "bwaquatics",
-        "value": {
-          "min": 24,
-          "max": 29
-        }
-      },
-      {
         "source": "seriouslyfish",
         "value": {
           "min": 20,
           "max": 28
         }
-      }
-    ],
-    "ph": [
+      },
       {
         "source": "bwaquatics",
         "value": {
-          "min": 5,
-          "max": 7
+          "min": 24,
+          "max": 29
         }
-      },
+      }
+    ],
+    "ph": [
       {
         "source": "seriouslyfish",
         "value": {
           "min": 5,
           "max": 7.5
         }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
       }
     ],
     "sizeCm": [
       {
-        "source": "bwaquatics",
+        "source": "seriouslyfish",
         "value": 6
       },
       {
-        "source": "seriouslyfish",
+        "source": "bwaquatics",
         "value": 6
       }
     ],
@@ -235,7 +235,7 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/imbellis-4xyd2-mz7hr",
-      "html": "<ul><li>From the Betta splendens complex. IUCN Red List: Least Concern.</li><li>Maximum size: 2.3 inches (about 6 cm).</li><li>Temperature: 75-85°F (24-29°C); much better coloration at warmer temperatures above 78°F (about 26°C).</li><li>pH: 5.0-7.0.</li><li>TDS: 60-200.</li><li>Breeding: bubblenester.</li></ul>"
+      "html": "<p>From the Betta splendens complex. IUCN Red List: Least Concern. Origin: wild caught (Hau Giang province, Vietnam). These are wild-caught Betta imbellis, not line-bred or deliberately hybridized like most farm imbellis, though wild populations may carry some splendens genes from fighter types released into the area in the past. They are close relatives of Betta siamorientalis. Reaches about 6 cm.</p>"
     },
     {
       "key": "quickFacts",
@@ -244,16 +244,10 @@
       "html": "<p>The crescent betta, Betta imbellis, is a labyrinth fish thought to be native to southern Thailand, Peninsular Malaysia and northern Sumatra. It has been line-bred for aggression in southern Thailand and hybridised with B. splendens and other congeners for the ornamental trade, producing colour forms that do not occur naturally. Introduced ornamental forms and other Betta spp. are having an adverse effect on the genetic integrity of some wild populations.</p>"
     },
     {
-      "key": "beforeYouBuy",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/imbellis-4xyd2-mz7hr",
-      "html": "<p>These fish are caught from the province of Hau Giang. Wild caught Betta imbellis from Vietnam. They are not line-bred and do not contain any hybridization like most Imbellis you have seen from farms, although they might contain some hybridization from the historical release of fighter-type splendens.</p>"
-    },
-    {
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/imbellis-4xyd2-mz7hr",
-      "html": "<p>Native to Southeast Asia, including southern Thailand, Peninsular Malaysia, and northern Sumatra, with introduced populations in Singapore. The fish offered here are caught in Hau Giang province, Vietnam.</p>"
+      "html": "<p>Found across Southeast Asia, including southern Thailand, Peninsular Malaysia, northern Sumatra and southern Vietnam.</p>"
     },
     {
       "key": "distribution",
@@ -265,7 +259,7 @@
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/imbellis-4xyd2-mz7hr",
-      "html": "<p>Inhabits slow-moving, shallow waters: rice paddies, swamps, roadside ditches, and ponds with dense aquatic vegetation and leaf litter. Thrives in warm, slightly acidic to neutral water (pH 4-7), often with low dissolved oxygen, relying on its labyrinth organ for breathing.</p>"
+      "html": "<p>Lives in slow-moving, shallow water: rice paddies, swamps, roadside ditches and ponds with dense vegetation and leaf litter, in warm, slightly acidic to neutral water (pH 4 to 7). Uses its labyrinth organ to breathe air.</p>"
     },
     {
       "key": "habitat",
@@ -289,7 +283,7 @@
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/imbellis-4xyd2-mz7hr",
-      "html": "<ul><li>TDS: 60-200. They are kept in soft water with low TDS to match other wild bettas, but are more tolerant of water conditions.</li><li>pH: 5.0-7.0</li><li>Temperature: 75-85°F (24-29°C); much better coloration at warmer temperatures above 78°F (about 26°C).</li></ul>"
+      "html": "<ul><li>TDS: 60 to 200 (kept in soft, low-TDS water to match wild bettas, but they tolerate a wider range)</li><li>pH: 5.0 to 7.0</li><li>Temperature: 24 to 29°C (much better coloration above 26°C)</li></ul>"
     },
     {
       "key": "waterConditions",
@@ -301,7 +295,7 @@
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/imbellis-4xyd2-mz7hr",
-      "html": "<p>Carnivorous. Currently fed live blackworms, frozen bloodworms and pellets.</p>"
+      "html": "<p>Carnivorous. Fed live blackworms, frozen bloodworms and pellets.</p>"
     },
     {
       "key": "diet",
@@ -313,7 +307,7 @@
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/imbellis-4xyd2-mz7hr",
-      "html": "<p>Males are VERY aggressive and should be kept alone or in tanks with non-male betta mates. Can be kept in a planted community tank of multiple females if there is adequate space.</p>"
+      "html": "<p>Males are very aggressive and should be kept alone or with non-male betta tankmates. Multiple females can be kept together in a planted community tank if there is enough space.</p>"
     },
     {
       "key": "behaviour",
@@ -325,7 +319,7 @@
       "key": "dimorphism",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/imbellis-4xyd2-mz7hr",
-      "html": "<p><strong>Body shape:</strong> Slender and elongated, characteristic of wild Betta species in the Betta splendens complex, reaching a maximum standard length of approximately 2.4 inches (6 cm). The body is slightly compressed, giving it a streamlined appearance suited for navigating dense vegetation.</p><p><strong>Tail shape:</strong> Caudal fin is rounded or crescent-shaped, often displaying a distinctive red, crescent-like distal band, which inspires the common name \"Crescent Betta.\" Fins are shorter and less ornate than those of Betta splendens.</p><p><strong>Coloration:</strong> Base color is dark brown to black, overlaid with iridescent blue or green scales. Males exhibit vivid red accents on the caudal, ventral, and anal fins, with more intense coloration during courtship or aggression. Females are less vibrant, typically brownish with muted red or blue tints and faint iridescence. Like all wild fish, they have \"green\" metallic coloration with blue iridescence.</p><p><strong>Operculum:</strong> Males feature striking iridescent blue or green scales on the gill covers, often with two vertical blue-green bars (occasionally red in some populations). Females have subdued opercular markings with minimal iridescence.</p>"
+      "html": "<p>Males show vivid red on the caudal, ventral and anal fins, strongest during courtship or display, and two iridescent blue-green vertical bars on the gill covers that stand out against the dark body. Females are duller and brownish with muted red and faint markings.</p>"
     },
     {
       "key": "dimorphism",
@@ -337,7 +331,7 @@
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/imbellis-4xyd2-mz7hr",
-      "html": "<p>Bubblenester.</p>"
+      "html": "<p>Bubblenester. The male builds a bubble nest under a floating leaf or plants and places the eggs in it after spawning. Remove the female once spawning is done. Eggs hatch in 24 to 48 hours, and the fry are free-swimming about 3 days later. Start them on infusoria, then move to baby brine shrimp. Keep the surface calm so the nest stays intact.</p>"
     },
     {
       "key": "reproduction",
@@ -352,6 +346,12 @@
       "html": "<p>This species has been extensively line-bred for aggression in southern Thailand, where it is used in organised bouts in the same way as B. splendens elsewhere. It has also been selectively-bred for the ornamental trade, and hybridised with the congeners B. smaragdina, B. mahachaiensis, and B. splendens, leading to the development of a number of colour forms that do not occur naturally.</p><p>Populations from different localities tend to exhibit differences in colouration and patterning, and if the locality of wild fish is known, they are often labelled as such by aquarists in order to maintain accuracy and preserve pure bloodlines, e.g., Penang Island, Tiak/Perak, Batang Berjuntai/Selangor, Sepang/Selangor, etc.</p><p>B. imbellis is included in the Betta splendens complex of closely-related species within the genus, of which members share the following set of characters: head length short 22-31 % SL; often a brightly-coloured body; iris of the eye with iridescent green or blue patches; body elongate or slender; opercles parallel when head viewed dorsally; caudal-fin rays red or brown and contrasting with the iridescent interradial membranes; unpaired fins without an iridescent margin; opercle with red or blue vertical bars in males; dorsal-fin rays 0-II, 7-9; anal-fin rays II-V, 21-26.</p><p>The unique combination of characters distinguishing B. imbellis from others in the group is as follows: base body colour dark brown to black; opercle with iridescent blue scales; fins iridescent blue; no transverse bars in caudal-fin; caudal-fin with red, crescent-shaped distal band; posterior anal-fin rays coloured red distally.</p><p>The genus Betta is the most speciose within the family Osphronemidae. Members have successfully adapted to inhabit a variety of ecological niches from stagnant ditches to flowing hill streams including some extreme environments such as highly acidic peat swamp forests.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth, which permits the fish to breathe atmospheric air to a certain extent. Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly-vascularised, folded flaps of skin which function as a large respiratory surface. Its structure varies in complexity between species, tending to be more developed in those inhabiting harsher environments.</p>"
     },
     {
+      "key": "notes",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/imbellis-4xyd2-mz7hr",
+      "html": "<p>Known as the crescent betta for the red trim on the caudal, anal and ventral fins. The body is slender and elongated, slightly compressed, suited to moving through dense vegetation. The caudal fin is short and rounded with a red crescent-shaped band along the edge; fins are shorter and less ornate than in domestic splendens. Like all wild bettas, the natural colour is metallic green with blue iridescence on a dark brown to black body.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-imbellis",
@@ -359,16 +359,6 @@
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/bwaquatics/fe59db10a1bc15ec.webp",
-      "thumb": "https://media.aquatome.com/bwaquatics/fe59db10a1bc15ec-480.webp",
-      "width": 1200,
-      "height": 675,
-      "licence": "dùng với sự cho phép",
-      "author": "BW Aquatics",
-      "sourceUrl": "https://bwaquatics.com/products/imbellis-4xyd2-mz7hr",
-      "source": "bwaquatics"
-    },
     {
       "url": "https://media.aquatome.com/seriouslyfish/8d6d9e2a614cbc44.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/8d6d9e2a614cbc44-480.webp",
@@ -390,9 +380,44 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-imbellis",
       "caption": "Males will spar regularly if maintained together.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/fe59db10a1bc15ec.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/fe59db10a1bc15ec-480.webp",
+      "width": 1200,
+      "height": 675,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/imbellis-4xyd2-mz7hr",
+      "source": "bwaquatics"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "wxhe6UguYck",
+      "title": "Building a Natural Blackwater Biotope for a Betta Imbellis",
+      "durationSec": 550,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "dID3S1tChvk",
+      "title": "Wild Betta Imbellis species and care guide - FranksBettas",
+      "durationSec": 649,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "0fjdDZn4Glc",
+      "title": "The Crescent Betta: Wild Hunting | Betta imbellis Species Focus",
+      "durationSec": 231,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "_C-wd1hzde8",
+      "title": "Wild Betta Imbellis | Courtship, Spawning & New Life 🎬🐟",
+      "durationSec": 60,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -420,5 +445,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-13"
 }

@@ -11,6 +11,29 @@
     "india",
     "karnataka"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LK",
+        "IN"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Widespread throughout Sri Lanka, where it's possibly the commonest freshwater fish species (Silva et al. 2010), and equally well-distributed in the southern Indian states of Karnataka, Kerala and Tamil Nadu.",
+          "countries": [
+            "LK",
+            "IN"
+          ],
+          "regions": []
+        }
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

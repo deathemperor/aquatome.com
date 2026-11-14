@@ -2,18 +2,6 @@
   "id": "periophthalmus-barbarus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/2ad3c959eb896575.webp",
-      "thumb": "https://media.aquatome.com/commons/2ad3c959eb896575-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY 4.0",
-      "author": "Tanviralinbd",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Love_on_the_muddy_shore.jpg",
-      "caption": "Hai cá thòi lòi đối mặt nhau trên mặt bùn ven nước",
-      "best": true,
-      "kind": "pair"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/9766662.webp",
       "thumb": "https://media.aquatome.com/inaturalist/9766662-480.webp",
       "width": 1024,
@@ -276,6 +264,18 @@
       "best": false,
       "kind": "habitat",
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/commons/2ad3c959eb896575.webp",
+      "thumb": "https://media.aquatome.com/commons/2ad3c959eb896575-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY 4.0",
+      "author": "Tanviralinbd",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Love_on_the_muddy_shore.jpg",
+      "caption": "Hai cá thòi lòi đối mặt nhau trên mặt bùn ven nước",
+      "best": true,
+      "kind": "pair"
     }
   ],
   "seen": 65,

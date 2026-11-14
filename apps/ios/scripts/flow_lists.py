@@ -19,7 +19,9 @@ HANDBOOK = ['HandbookFlowTests', 'FactsCardFlowTests', 'ReadingFlowTests', 'Nati
 # What a class of flows takes on GitHub's Macs, in seconds, for packing a pull request's few flows into one job
 # (flows-to-run.py): the sum of each test's median in the logs of 2026-11-06's runs, the flows' animations off. A class
 # not named here counts FLOW_SECONDS a test; light flows are never packed (their halves already fill a job each).
+# The edge swipes' classes from #1171's run on 9fecd66 (2026-11-13): about 190 s a test.
 CLASS_SECONDS = {'FactsCardFlowTests': 280, 'FishIdFlowTests': 486, 'HandbookFlowTests': 632,
+                 'FishPageEdgeSwipeFlowTests': 570, 'GuideEdgeSwipeFlowTests': 570, 'PostEdgeSwipeFlowTests': 570,
                  'NativePageFlowTests': 648, 'OfflineFlowTests': 225, 'PageShotsFlowTests': 2100, 'PlugFlowTests': 744,
                  'ReadingFlowTests': 69, 'TankCheckFlowTests': 67, 'TankLifeFlowTests': 280, 'TelemetryFlowTests': 136,
                  'VideoFlowTests': 330}

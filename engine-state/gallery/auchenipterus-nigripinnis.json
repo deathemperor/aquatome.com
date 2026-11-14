@@ -14,10 +14,7 @@
   "gbif:1563263205:d02f96242708f612",
   "gbif:1563283207:e6dbc0c018615cc5"
  ],
- "hashes": {
-  "https://media.aquatome.com/scotcat/4c1710a0f142f9a4.webp": "d8787f3e1ed87249",
-  "https://media.aquatome.com/scotcat/c2adfc0fb67aaca3.webp": "9b59eafae6b43823"
- },
+ "hashes": {},
  "commons": "2026-11-06",
  "inat": {
   "taxon": 608825,
@@ -30,5 +27,9 @@
  "gbif": {
   "key": 2344571,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-13"
 }

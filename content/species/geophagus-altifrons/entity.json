@@ -492,6 +492,10 @@
       {
         "source": "seriouslyfish",
         "value": 22.5
+      },
+      {
+        "source": "glaser",
+        "value": 30
       }
     ],
     "tankCm": [
@@ -517,8 +521,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_cf_altifrons_rio_araguari__en/",
-      "html": "<p>Up to a length of about 10 cm this variety exhibits exclusively a pattern of vertical double-bars and has a comparatively large lateral spot. The dark zone between operculum and lateral spot, which is so characteristic for G. altifrons, is lacking. The fish is therefore better named Geophagus cf. altifrons \"Rio Araguari\".</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_altifrons_en/",
+      "html": "<p>Geophagus altifrons is an easy-to-keep cichlid. The softer the water, the more beautifully coloured this fish is, but it can also be kept in harder water or at higher pH values without problems. One of the most beautiful variants is Geophagus altifrons \"Tapajos\".</p>"
     },
     {
       "key": "distribution",
@@ -529,8 +533,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_cf_altifrons_rio_araguari__en/",
-      "html": "<p>The parents of the fish were imported by Aquarium Glaser in March 2014 via Amapa.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_altifrons_en/",
+      "html": "<p>Origin: Brazil.</p>"
     },
     {
       "key": "habitat",
@@ -543,6 +547,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-altifrons",
       "html": "<p>An aquarium with a base measuring 180 × 60 cm or more is required to house a group long-term (about 648 litres).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_altifrons_en/",
+      "html": "<p>It requires an aquarium of at least 500 litres due to its maximum size of 30 cm. When kept in such a tank it is rather undemanding.</p>"
     },
     {
       "key": "maintenance",
@@ -559,14 +569,26 @@
     {
       "key": "waterConditions",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_cf_altifrons_rio_araguari__en/",
-      "html": "<p>These eartheaters should be kept in soft and slightly acidic water. Regular water changes are necessary, and an intense, beautiful coloration of the fish shows that these water changes are highly appreciated. The same can be said for comparatively high water temperatures.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_altifrons_en/",
+      "html": "<p>The softer the water, the more beautifully coloured the fish is. It can also be kept in harder water or at higher pH values without problems.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_altifrons_en/",
+      "html": "<p>As it is an eartheater, fine substrate without sharp edges must be available for burrowing. It does not eat plants, but as it burrows, it is difficult to fasten plants tightly in the substrate.</p>"
     },
     {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-altifrons",
       "html": "<p>Geophagus spp. are benthophagous by nature, employing a method of feeding whereby mouthfuls of substrate are taken and sifted for edible items with the remaining material expelled via the gill openings and mouth.</p><p>For this reason they're commonly termed 'eartheaters' and the provision of a suitable substrate is essential to their long-term well-being.</p><p>Once settled they readily rise into the water column when food is introduced but continue to browse normally at other times.</p><p>The stomach contents of wild specimens mostly comprise small aquatic and terrestrial invertebrates, plant material in the form of seeds, organic detritus and sediment.</p><p>Even as adults these cichlids seem unable to properly ingest larger food items meaning the diet should contain a variety of high quality, fine-grade prepared foods plus small live or frozen bloodworm, Tubifex, Artemia, mosquito larvae, etc.</p><p>At least some of the dried products should contain a high proportion of vegetable matter such as Spirulina or similar.</p><p>Home-made, gelatine-bound recipes containing a mixture of dried fish food, puréed shellfish, fresh fruit and vegetables, for example, are proven to work well and can be cut into bite-sized discs using the end of a sharp pipette or small knife.</p><p>Rather than a single large meal offer 3-4 smaller portions daily to allow natural browsing behaviour as this seems to result in the best growth rate and condition.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_altifrons_en/",
+      "html": "<p>Despite its size it accepts dry food. Frozen food must not be too coarse and must be without hard shells, otherwise digestive trouble might occur.</p>"
     },
     {
       "key": "behaviour",
@@ -589,8 +611,8 @@
     {
       "key": "reproduction",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_cf_altifrons_rio_araguari__en/",
-      "html": "<p>The fish bred successfully in the aquarium and proved to be ovophilous, maternal mouthbrooders. Fish kept under the conditions described will readily breed in the aquarium.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_altifrons_en/",
+      "html": "<p>Geophagus altifrons is an ovophile mouthbrooder. It can even be bred in somewhat harder water (approx. 25 dGH).</p>"
     },
     {
       "key": "notes",
@@ -673,5 +695,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-11"
+  "updatedAt": "2026-11-13"
 }

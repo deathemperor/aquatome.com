@@ -10,6 +10,41 @@
     "thailand",
     "malaysia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MY"
+      ],
+      "regions": [
+        "Malay Peninsula"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described on the basis of a single specimen from the aquarium trade which was supposedly imported from the Malay Peninsula, and currently accepted to occur throughout much of Peninsular Malaysia with records existing from the states of Johor, Pahang, Selangor, Kelantan and Terengganu.",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Malay Peninsula"
+          ]
+        }
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
