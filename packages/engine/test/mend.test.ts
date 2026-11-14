@@ -232,48 +232,30 @@ test('a mend that says a sentence another way isn\'t kept, whatever its reviewer
   expect(cut.added).toEqual([])
 })
 
-// Astra's read of 14 Nov 2026: a sentence a units finding converts was left out of the guard, and gained a claim.
-test('a sentence whose figure is converted may gain the new figure and its unit, and nothing else', async () => {
-  const html = '<p>Cá dài 2 inch. Cá sống theo đàn.</p>'
-  const f = [{ check: 'units' as FitCheck, quote: '2 inch', note: 'Convert to cm.' }]
+// Astra's reads of 14 Nov 2026: a writer's own conversion let a claim through, then "mỗi con", "2 inch" as "2 cm" and a
+// figure from another measure, however its figures were held. A units finding's sentence is left as written; code converts.
+test('a units finding\'s sentence gains no word or figure from its writer: left as written, code puts it in metric', async () => {
   const llm = (said: string) => (async ({ schema }: { schema: { required: string[] } }) => (schema.required.includes('sentences')
     ? { sentences: [{ n: 1, vi: said }] }
     : { score: 1, notes: [], dropped: [], hedges: [] })) as Llm
-  const invented = await mendPart(llm('Cá dài 5 cm và sinh sản quanh năm.'), html, f)
-  if (typeof invented === 'string') throw new Error(invented)
-  expect(invented.added).toEqual(['Sentence 1 says what it didn\'t: "sinh sản quanh năm"'])
-  const converted = await mendPart(llm('Cá dài khoảng 5 cm.'), html, f)
-  if (typeof converted === 'string') throw new Error(converted)
-  expect(converted.added).toEqual([])
-})
-
-// Astra's read of 14 Nov 2026, the second: a conversion's "mỗi con" made a tank's minimum a size for each fish, and a
-// figure no conversion gives passed.
-test('a converted sentence gains no "for each fish", and only the figures the site\'s own conversion gives', async () => {
-  const html = '<p>Dung tích bể tối thiểu: 2 gallon. Cá sống theo đàn.</p>'
-  const en = '<p>Minimum tank size: 2 gallons. They live in groups.</p>'
-  const f = [{ check: 'units' as FitCheck, quote: '2 gallon', note: 'Convert to litres.' }]
-  const llm = (said: string) => (async ({ schema }: { schema: { required: string[] } }) => (schema.required.includes('sentences')
-    ? { sentences: [{ n: 1, vi: said }] }
-    : { score: 1, notes: [], dropped: [], hedges: [] })) as Llm
-  const run = async (said: string) => { const r = await mendPart(llm(said), html, f, { en }); if (typeof r === 'string') throw new Error(r); return r.added }
-  expect(await run('Dung tích bể tối thiểu: 8 lít mỗi con.')).toEqual(['Sentence 1 says what it didn\'t: "mỗi con"'])
-  expect(await run('Dung tích bể tối thiểu: 1 lít.')).toEqual(['Sentence 1 says what it didn\'t: "1 lít"'])
-  expect(await run('Dung tích bể tối thiểu: 80 lít.')).toEqual(['Sentence 1 says what it didn\'t: "80 lít"'])
-  // The site's conversion of the measure in its place: kept, rounded as keepers say it too.
-  expect(await run('Dung tích bể tối thiểu: khoảng 8 lít.')).toEqual([])
-  expect(await run('Dung tích bể tối thiểu: khoảng 7,6 lít.')).toEqual([])
-  // A US tank's size as keepers here say it (round.ts US_TANKS): 10 gallons, 38 litres exactly, is the 40 they name.
-  const ten = await mendPart(llm('Dung tích bể tối thiểu: 40 lít.'), '<p>Dung tích bể tối thiểu: 10 gallon.</p>', [{ ...f[0]!, quote: '10 gallon' }])
-  if (typeof ten === 'string') throw new Error(ten)
-  expect(ten.added).toEqual([])
-  // Astra's third read: a number kept under another unit, and a figure from another measure of the English, are no
-  // conversion of the measure in their place.
-  const at = async (html: string, quote: string, said: string, en?: string) => { const r = await mendPart(llm(said), html, [{ ...f[0]!, quote }], en ? { en } : {}); if (typeof r === 'string') throw new Error(r); return r.added }
-  expect(await at('<p>Cá dài 2 inch.</p>', '2 inch', 'Cá dài 2 cm.')).toEqual(['Sentence 1 says what it didn\'t: "2 cm"'])
-  expect(await at('<p>Cá dài 2 inch.</p>', '2 inch', 'Cá dài 5 cm.')).toEqual([])
-  expect(await at('<p>Bể cần ít nhất 8 lít.</p>', '8 lít', 'Bể cần ít nhất 1 lít.', '<p>The tank needs at least 8 litres. Add 1 shelter.</p>')).toEqual(['Sentence 1 says what it didn\'t: "1 lít"'])
-  // Two measures, each in its place: a range's ends converted, and not traded.
-  expect(await at('<p>Nước 72–78 °F, bể 10 gallon.</p>', 'Nước 72–78 °F, bể 10 gallon.', 'Nước 22–26 °C, bể 40 lít.')).toEqual([])
-  expect(await at('<p>Cá dài 2 inch, bể 10 gallon.</p>', 'Cá dài 2 inch, bể 10 gallon.', 'Cá dài 40 lít, bể 5 cm.')).toEqual(['Sentence 1 says what it didn\'t: "5 cm"'])
+  const run = async (html: string, quote: string, said: string, o: { en?: string; metric?: boolean } = {}) => {
+    const r = await mendPart(llm(said), html, [{ check: 'units' as FitCheck, quote, note: 'Leave the figures as written.' }], o)
+    if (typeof r === 'string') throw new Error(r)
+    return r
+  }
+  const gal = '<p>Dung tích bể tối thiểu: 2 gallon. Cá sống theo đàn.</p>'
+  for (const [html, quote, said, extra, en] of [
+    [gal, '2 gallon', 'Dung tích bể tối thiểu: 8 lít mỗi con.', '8 lít mỗi con'],
+    [gal, '2 gallon', 'Dung tích bể tối thiểu: 1 lít.', '1 lít'],
+    [gal, '2 gallon', 'Dung tích bể tối thiểu: khoảng 8 lít.', 'khoảng 8 lít'],
+    ['<p>Cá dài 2 inch. Cá sống theo đàn.</p>', '2 inch', 'Cá dài 5 cm và sinh sản quanh năm.', '5 cm sinh sản quanh năm'],
+    ['<p>Cá dài 2 inch. Cá sống theo đàn.</p>', '2 inch', 'Cá dài 2 cm.', 'cm'],
+    ['<p>Bể cần ít nhất 8 lít. Cá sống theo đàn.</p>', '8 lít', 'Bể cần ít nhất 1 lít.', '1', '<p>The tank needs at least 8 litres. Add 1 shelter.</p>'],
+    ['<p>Bể cần ít nhất 8 lít. Cá sống theo đàn.</p>', '8 lít', 'Bể cần ít nhất .5 lít.', '5'],
+    ['<p>Nước pH 6,5, bể 10 gallon. Cá sống theo đàn.</p>', '10 gallon', 'Nước pH 7, bể 40 lít.', '7 40 lít'],
+  ] as const) expect((await run(html, quote, said, en ? { en } : {})).added).toEqual([`Sentence 1 says what it didn't: "${extra}"`])
+  // Left as written, code converts it, and nothing is added.
+  const left = await run(gal, '2 gallon', 'Dung tích bể tối thiểu: 2 gallon.', { metric: true })
+  expect(left.added).toEqual([])
+  expect(left.html).toContain('Dung tích bể tối thiểu: 8 lít.')
 })

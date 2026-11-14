@@ -114,7 +114,9 @@ const asNote = (f: FitFinding, figures?: BreedFigure[]): ReaderFinding => ({
   kind: 'language', severity: 'high', part: f.part, quote: f.quote,
   problem: f.check === 'words' ? `A word keepers here don't use${f.fix ? `: write "${f.fix}"` : ''}.`
     : f.check === 'units' && figures ? `${FIT_TITLE.units}: ${f.why}. ${BREED_UNITS}.${figures.length ? ` Write exactly these figures: ${figuresSaid(figures)}. Change no other figure.` : ''} Give no US figure.`
-    : f.check === 'units' ? `${FIT_TITLE.units}: ${f.why}. Convert the English's US units as the writing rules say (${TANK_RULE.en}; inches to cm), and give no US figure. Never round a dose's amount or the water it goes into: convert those exactly.`
+    // Its measures as they are: code converts them (mend.ts `metric`), as no writer's figure can be held to its place
+    // (Astra's reads of 14 Nov 2026).
+    : f.check === 'units' ? `${FIT_TITLE.units}: ${f.why}. Leave each figure and its unit exactly as written: code converts the US units to metric after you, as the writing rules say. Write no figure of your own.`
     // Cut, never said another way (the chief of staff, 14 Nov 2026; mend.ts addedWords holds it).
     : `${FIT_TITLE[f.check]}: ${f.why}. Cut what only holds abroad or for the shop, or the whole sentence: never say it another way, and put in nothing it didn't say.`,
   ...(f.fix ? { fix: f.fix } : {}),
