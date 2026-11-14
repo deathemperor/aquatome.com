@@ -544,14 +544,18 @@ test('the stream: a reader still there gets the longer turn\'s calls; one who le
   const { e, db, store } = env()
   const me = await signIn(db)
   let offset = 0
-  const clock = () => Date.now() + offset
+  // The test's own clock, which only the calls move. Read off the wall as well, it counted each call's real time against
+  // the run's limits, and on 14 Nov a loaded machine stopped the JSON answer on 'time' at its fourth call.
+  const at = Date.now()
+  const clock = () => at + offset
   /** A Claude that searches until it may only answer, each call 2.5 s: every search a step sent, as a reader there sees it. */
-  const slow = () => {
+  const slow = (ms = 0) => {
     const bodies: Record<string, unknown>[] = []
     const fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
       const b = await new Request(input, init).json() as Record<string, unknown>
       bodies.push(b)
       offset += 2_500
+      if (ms) await new Promise(r => setTimeout(r, ms))
       const r = (b.tool_choice as { type: string }).type === 'none' ? answers({})
         : msg([{ type: 'thinking', thinking: '', signature: `s${seq}` }, { type: 'tool_use', id: `t${seq}`, name: 'search_handbook', input: { query: `neon ${bodies.length}`, kind: null } }], 'tool_use')
       return b.stream ? streamOf(r) : r
@@ -581,9 +585,9 @@ test('the stream: a reader still there gets the longer turn\'s calls; one who le
   expect(recordOf(id).agent).toMatchObject({ calls: 4, stopped: 'time' })
   expect(recordOf(id).timing!.seen).toBeLessThan(recordOf(id).timing!.answered!)
   expect(store.read<Conversation>(conversationKey(await chatAccount('k', me.id), id))!.turns).toHaveLength(1)
-  // The JSON answer has no reader to see: the usual 5 calls.
+  // The JSON answer has no reader to see: the usual 5 calls. Each call takes 100 ms of real time too, as on a loaded machine.
   offset = 0
-  const plain = slow()
+  const plain = slow(100)
   const other = '8b1c2a52-8d3e-4b7a-9c41-2e5d7f80b913'
   await run(ask(bearer(me.token), { conversation: other }), e, deps(plain.fetch, { clock }))
   expect(recordOf(other).agent).toMatchObject({ calls: 5, stopped: 'calls' })
