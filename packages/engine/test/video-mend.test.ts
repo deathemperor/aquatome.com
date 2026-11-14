@@ -199,6 +199,13 @@ test('a figure keeps its percent, a units quote keeps its figure beside another 
     ['a size in words changed', '<p>Bể mười lít là đủ cho một đàn nhỏ. Bể 10 gallon là đủ.</p>', '<p>Bể năm mươi lít là đủ cho một đàn nhỏ. Bể 10 gallon là đủ.</p>', [units('Bể 10 gallon')]],
     // A shop's mend that changes a figure in a sentence no finding takes (Grok's fifth read).
     ['a figure changed beside a shop', '<p>Bể dài 80 cm. Mua lọc ở Petco, giá khoảng 5 USD.</p>', '<p>Bể dài 90 cm. Lọc mua ở tiệm cá cảnh.</p>', [{ ...shop, quote: 'Mua lọc ở Petco' }, { ...price, quote: 'giá khoảng 5 USD' }]],
+    // A half, a range in words, a rate (Grok's sixth read).
+    ['a half in words dropped', '<p>Bể mười lít rưỡi là đủ. Mua lọc ở Petco, giá khoảng 5 USD.</p>', '<p>Bể mười lít là đủ. Lọc mua ở tiệm cá cảnh.</p>', [{ ...shop, quote: 'Mua lọc ở Petco' }, { ...price, quote: 'giá khoảng 5 USD' }]],
+    ['a half dropped', '<p>Bể 10 lít rưỡi là đủ. Mua lọc ở Petco, giá khoảng 5 USD.</p>', '<p>Bể 10 lít là đủ. Lọc mua ở tiệm cá cảnh.</p>', [{ ...shop, quote: 'Mua lọc ở Petco' }, { ...price, quote: 'giá khoảng 5 USD' }]],
+    ['a litre and a half dropped', '<p>Bể lít rưỡi là đủ cho một đàn nhỏ. Mua lọc ở Petco, giá khoảng 5 USD.</p>', '<p>Lọc mua ở tiệm cá cảnh.</p>', [{ ...shop, quote: 'Mua lọc ở Petco' }, { ...price, quote: 'giá khoảng 5 USD' }]],
+    ['a range in words changed', '<p>Bể từ mười đến hai mươi lít là đủ. Mua lọc ở Petco, giá khoảng 5 USD.</p>', '<p>Bể từ năm đến hai mươi lít là đủ. Lọc mua ở tiệm cá cảnh.</p>', [{ ...shop, quote: 'Mua lọc ở Petco' }, { ...price, quote: 'giá khoảng 5 USD' }]],
+    ['a rate in words made a volume', '<p>Bơm ba trăm lít/giờ. Mua lọc ở Petco, giá khoảng 5 USD.</p>', '<p>Bơm ba trăm lít. Lọc mua ở tiệm cá cảnh.</p>', [{ ...shop, quote: 'Mua lọc ở Petco' }, { ...price, quote: 'giá khoảng 5 USD' }]],
+    ['a rate made a volume', '<p>Bơm 300 lít/giờ. Mua lọc ở Petco, giá khoảng 5 USD.</p>', '<p>Bơm 300 lít. Lọc mua ở tiệm cá cảnh.</p>', [{ ...shop, quote: 'Mua lọc ở Petco' }, { ...price, quote: 'giá khoảng 5 USD' }]],
     ['a units figure dropped beside a shop', '<p>Bể 10 gallon mua ở Petco.</p>', '<p>Bể mua ở tiệm cá cảnh.</p>', [units('Bể 10 gallon'), { ...shop, quote: 'mua ở Petco' }]],
     ['a figure lost after a sentence two findings quote', '<p>Bể mẫu dài 30 cm, mua ở Petco. Đèn cách mặt nước 30 cm.</p><p>Bể 10 gallon là đủ.</p>', '<p>Bể mua ở tiệm cá cảnh. Đèn cách mặt nước.</p><p>Bể 10 gallon là đủ.</p>', [{ ...own, quote: 'Bể mẫu dài 30 cm' }, { ...shop, quote: 'mua ở Petco' }, units('Bể 10 gallon')]],
   ]

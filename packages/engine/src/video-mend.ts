@@ -68,27 +68,38 @@ const isFigure = (w: string) => /^[.,-]?[\d½¼¾⅓⅔⅛]/u.test(w)
  * counts before a dose's or a size's unit ("hai mươi nắp", "mười lít") (Grok's reads).
  */
 function figures(text: string): Map<string, number> {
-  const w = words(text.replace(/(\d)\s*%/gu, '$1 phầntrăm').replace(/(\d)\s*[×xX*]\s*(?=\d)/gu, '$1 ').replace(/([½¼¾⅓⅔⅛])(?=\p{L})/gu, '$1 '))
+  const w = words(text.replace(/(\d)\s*%/gu, '$1 phầntrăm').replace(/(\d)\s*[×xX*]\s*(?=\d)/gu, '$1 ').replace(/([½¼¾⅓⅔⅛])(?=\p{L})/gu, '$1 ')
+    // A rate's "/giờ" stays with its unit ("300 lít/giờ" isn't "300 lít").
+    .replace(/(\p{L})\s*\/\s*(\p{L}+)/gu, '$1 trên$2'))
   const m = new Map<string, number>()
   const add = (k: string) => m.set(k, (m.get(k) ?? 0) + 1)
   const after = (j: number) => (w[j] === 'cái' ? w[j + 1] : w[j])
+  const isUnit = (u?: string) => !!u && (DOSE_UNIT.test(u) || SIZE_UNIT_WORD.test(u))
+  // What follows a unit and is the figure's: a half ("10 lít rưỡi") or a rate ("lít/giờ").
+  const tail = (j: number) => (w[j] === 'rưỡi' || w[j]?.startsWith('trên') ? ` ${w[j]}` : '')
   w.forEach((x, i) => {
     if (NUMBER_WORD.test(x)) {
       if (NUMBER_WORD.test(w[i - 1] ?? '')) return
+      // "lít rưỡi", a litre and a half, with no number before it.
+      if (x === 'rưỡi' && isUnit(w[i - 1]) && !isFigure(w[i - 2] ?? '') && !NUMBER_WORD.test(w[i - 2] ?? '')) return void add(`${w[i - 1]} rưỡi`)
       let j = i
       while (NUMBER_WORD.test(w[j] ?? '')) j++
-      const u = after(j)
-      if (u && (DOSE_UNIT.test(u) || SIZE_UNIT_WORD.test(u))) add(`${w.slice(i, j).join(' ')} ${u}`)
+      let k = j
+      // A range in words takes the unit after it: "từ mười đến hai mươi lít" is ten litres too.
+      if (/^(?:đến|tới|hay|hoặc)$/u.test(w[k] ?? '') && NUMBER_WORD.test(w[k + 1] ?? '')) for (k++; NUMBER_WORD.test(w[k] ?? ''); k++);
+      const u = after(k)
+      if (isUnit(u)) add(`${w.slice(i, j).join(' ')} ${u}${tail(w[k] === 'cái' ? k + 2 : k + 1)}`)
       return
     }
     if (!isFigure(x)) return
-    const next = after(i + 1)
-    add(`${x} ${next && !isFigure(next) ? next : ''}`.trim())
+    const at = w[i + 1] === 'cái' ? i + 2 : i + 1
+    const next = w[at]
+    add(`${x} ${next && !isFigure(next) ? `${next}${isUnit(next) ? tail(at + 1) : ''}` : ''}`.trim())
   })
   return m
 }
-/** A figure's unit: its key's last word, when it has one ("hai mươi nắp" is in nắp). */
-const unit = (k: string) => { const p = k.split(' '); return p.length > 1 ? p[p.length - 1]! : '' }
+/** A figure's dose unit, when its key has one ("hai mươi nắp" is in nắp, "20 mg trênl" in mg). */
+const unit = (k: string) => k.split(' ').slice(1).find(p => DOSE_UNIT.test(p)) ?? ''
 const split = (t: string) => t.split(/\n|(?<=[.?!])\s+/).map(x => x.trim()).filter(Boolean)
 /** What `a` has more of than `b`. */
 const more = (a: Map<string, number>, b: Map<string, number>) => [...a].flatMap(([k, n]) => (n > (b.get(k) ?? 0) ? [k] : []))
