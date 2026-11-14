@@ -7,12 +7,15 @@
   "File:Hal - Pseudotropheus demasoni - 7.jpg"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/1f5062084c98fa35.webp": "8f0c0d27d3fc0ec6",
-  "https://media.aquatome.com/commons/f2e7b047fff5b3f3.webp": "1d34174e2e32ab34",
-  "https://media.aquatome.com/commons/57eb9c0196ba3cfb.webp": "c6a62e4c8c979db9",
-  "https://media.aquatome.com/commons/6a80c295bc783b59.webp": "762f1f0f07c7a832",
-  "https://media.aquatome.com/commons/0e23155a7aec2167.webp": "b0e49f1f24e1800d",
-  "https://media.aquatome.com/commons/73440dc6da5a88c4.webp": "14ee749cdc383861"
+  "https://media.aquatome.com/commons/1f5062084c98fa35.webp": "8f0c0d27d3fc0ec6"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 1015253,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 346479660
+  }
+ }
 }

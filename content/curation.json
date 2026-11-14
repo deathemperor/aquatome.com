@@ -1452,8 +1452,7 @@
  "off": {
   "breeds/ranchu-goldfish": "reader fit: source, units",
   "species/betta-splendens": "reader fit: elsewhere",
-  "species/boraras-maculatus": "reader fit: source",
-  "species/boraras-merah": "reader fit: source, elsewhere",
+  "species/boraras-merah": "reader fit: elsewhere",
   "species/channa-asiatica": "reader fit: source",
   "species/channa-gachua": "reader fit: source",
   "species/hemigrammus-erythrozonus": "reader fit: elsewhere",
@@ -1461,7 +1460,6 @@
   "species/oryzias-latipes": "reader fit: elsewhere",
   "species/poecilia-reticulata": "reader fit: elsewhere",
   "species/pristella-maxillaris": "reader fit: elsewhere",
-  "species/pterophyllum-scalare": "reader fit: source",
   "species/symphysodon-aequifasciatus": "reader fit: source",
   "species/tanichthys-albonubes": "reader fit: source, elsewhere",
   "species/thayeria-boehlkei": "reader fit: elsewhere"
