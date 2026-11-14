@@ -3,7 +3,8 @@ import { loadAll } from '@aq/schema'
 import { expect, test } from 'vitest'
 import { materialCrumbs, materialGroups, materialPath } from '../src/lib/materials'
 import { glossaryParts } from '../src/lib/glossary-page'
-import { glossaryDoc } from '../src/lib/app-page'
+import { glossaryDoc, listedPaths } from '../src/lib/app-page'
+import { appPath } from '../src/lib/i18n'
 import { dropHidden } from '../src/lib/hidden'
 
 const root = fileURLToPath(new URL('./fixture-content', import.meta.url))
@@ -35,12 +36,12 @@ test('a glossary term links only its matching material, and its app copy carries
   const c = await content()
   const term = c.glossary.find(g => g.id === 'lua')!
   const link = { href: '/vi/vat-lieu/lua/', text: 'Xem trang Lũa: cách chọn, xử lý và các loại lũa →' }
-  expect(glossaryParts('vi', term, c).material).toEqual(link)
-  expect(glossaryDoc('vi', term, c).blocks.at(-1)).toEqual({ t: 'p', c: [link] })
-  expect(glossaryParts('vi', c.glossary.find(g => g.id === 'ph')!, c).material).toBeUndefined()
-  expect(glossaryParts('vi', term, { materials: [] }).material).toBeUndefined()
+  expect(glossaryParts('vi', c, term).material).toEqual(link)
+  expect(glossaryDoc('vi', c, term, listedPaths('vi', c)).blocks).toContainEqual({ t: 'p', c: [{ text: link.text, href: appPath('vi', link.href) }] })
+  expect(glossaryParts('vi', c, c.glossary.find(g => g.id === 'ph')!).material).toBeUndefined()
+  expect(glossaryParts('vi', { ...c, materials: [] }, term).material).toBeUndefined()
   for (const lang of ['id', 'th', 'ms'] as const) {
-    expect(glossaryParts(lang, term, c).material).toBeUndefined()
-    expect(JSON.stringify(glossaryDoc(lang, term, c))).not.toContain('vat-lieu')
+    expect(glossaryParts(lang, c, term).material).toBeUndefined()
+    expect(JSON.stringify(glossaryDoc(lang, c, term, listedPaths(lang, c)))).not.toContain('vat-lieu')
   }
 })
