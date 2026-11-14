@@ -525,3 +525,23 @@ test('a sentence the whole entry\'s final read stops after the rewording keeps i
   expect(await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8')).toBe(before)
   expect(JSON.parse(await readFile(draftPath(root), 'utf8')).entry.body).toContain('Ngâm lũa mới khoảng 1–2 tuần.')
 })
+
+// Codex, 14 Nov 2026: a rewording that ran the entry past its cap was saved, since its length wasn't counted again.
+test('the entry as reworded is counted again: a rewording that runs it past the cap keeps it from being saved', async () => {
+  const root = await site()
+  const before = await readFile(join(root, 'content/glossary/tanin/vi.json'), 'utf8')
+  const body = `<p>Tanin làm nước vàng. Nước ${'nước '.repeat(389)}</p>`
+  const longer = `Tanin làm nước ngả vàng ${'nhạt '.repeat(70)}.`
+  let rewordings = 0
+  const llm: Llm = async ({ prompt, system }) => {
+    if (prompt.startsWith('GLOSSARY RULES')) return { notes: [] } as never
+    if (system.startsWith('You reword')) { rewordings++; return { sentences: [{ n: 1, text: longer }] } as never }
+    if (isCheck(prompt)) return verdicts(prompt, t => (t === 'Tanin làm nước vàng.' ? 'loose: x' : undefined)) as never
+    return { ...written, body } as never
+  }
+  const r = await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'tanin', { kind: 'setup' })
+  expect(rewordings).toBe(1)
+  expect(r).toMatchObject({ id: 'tanin', skipped: 'stopped by 1 note' })
+  expect((r as { notes: string[] }).notes).toContain('The entry is 466 words: hold it to about 400, and leave what is left out to the pages that use the term.')
+  expect(await readFile(join(root, 'content/glossary/tanin/vi.json'), 'utf8')).toBe(before)
+})

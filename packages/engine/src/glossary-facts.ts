@@ -15,7 +15,7 @@ export type Verdict = 'supported' | 'loose' | 'unsupported' | 'contradicts' | 'n
 export type Sentence = { text: string; block: string; heading?: string }
 type Read = { verdict: Verdict; why?: string }
 /** A sentence the reads call loose, unsupported or contradicted, with what they said. */
-export type Flagged = Sentence & { verdicts: Verdict[]; why: string[] }
+export type Flagged = Sentence & { verdicts: Verdict[]; why: string[]; unjudged?: true }
 export type FactCheck = {
   /** The share of its claims (sentences most reads don't call "not a claim") no stop falls on. */
   score: number
@@ -71,7 +71,7 @@ const KNOWN = new Set<string>(['supported', 'loose', 'unsupported', 'contradicts
 const STOP = new Set<Verdict>(['unsupported', 'contradicts'])
 const LOOSE = new Set<Verdict>(['loose'])
 const NOT_A_CLAIM = new Set<Verdict>(['not a claim'])
-/** A verdict a read left out, or one not on the list, counts as no verdict: it can't stop a sentence or clear one. */
+/** A verdict a read left out, or one not on the list, counts as no verdict: it can't stop a sentence or clear one. A sentence fewer than two reads judge isn't cleared: it stops, unjudged (Codex, 14 Nov 2026: three empty replies scored an entry 1). */
 const asRead = (v: { verdict?: string; why?: string } | undefined): Read | null => (v && KNOWN.has(v.verdict ?? '') ? { verdict: v.verdict as Verdict, ...(v.why ? { why: v.why } : {}) } : null)
 
 /** Three reads of numbered sentences, one after another (the later ones read the facts from the cache), each sentence's verdicts in read order. */
@@ -92,6 +92,7 @@ const flagged = (s: Sentence, rs: (Read | null)[]): Flagged => ({ ...s, verdicts
  * One that only one read does is read three more times alone, in its paragraph and under its heading, and two of those
  * that stop it stop it too: a lone stop is settled, not outvoted, whatever the other two said ("not a claim" among them).
  * A sentence two reads call loose is advice (`loose`), never a stop. "Not a claim" takes a sentence out of the score only.
+ * A sentence fewer than two reads give a verdict stops, unjudged: what the check didn't read, it can't clear.
  */
 export async function checkSentences(llm: Llm, facts: object, e: { definition: string; body: string }): Promise<FactCheck> {
   const list = sentences(e)
@@ -102,6 +103,7 @@ export async function checkSentences(llm: Llm, facts: object, e: { definition: s
   let [claims, stopped] = [0, 0]
   for (const [i, s] of list.entries()) {
     const rs = reads[i]!
+    if (rs.filter(Boolean).length < 2) { claims++; stopped++; stops.push({ ...flagged(s, rs), unjudged: true }); continue }
     const claim = count(rs, NOT_A_CLAIM) < 2
     if (claim) claims++
     let all = count(rs, STOP) >= 2 ? rs : null
@@ -117,7 +119,9 @@ export async function checkSentences(llm: Llm, facts: object, e: { definition: s
 }
 
 /** A stop as a note for the rewrite and the log: the sentence, how the reads judged it, and why. */
-export const stopNote = (s: Flagged) => `"${s.text}": the facts don't carry it (${s.verdicts.join(', ')}): ${[...new Set(s.why)].join(' / ') || 'no reason given'}`
+export const stopNote = (s: Flagged) => s.unjudged
+  ? `"${s.text}": the reads left it unjudged (${s.verdicts.length} of 3 gave a verdict)`
+  : `"${s.text}": the facts don't carry it (${s.verdicts.join(', ')}): ${[...new Set(s.why)].join(' / ') || 'no reason given'}`
 
 const REWORD = `Dưới đây là DỮ KIỆN (JSON) đã thu thập về một thuật ngữ cá cảnh, và vài CÂU trong mục thuật ngữ tiếng Việt viết từ đó, mỗi câu trong đoạn của nó, kèm lý do người kiểm tra cho là câu ấy nói rộng hơn, mạnh hơn hoặc gộp hơn dữ kiện. Viết lại từng câu cho đúng điều dữ kiện ghi: giữ ý và giọng văn, vừa với đoạn, chỉ nói điều dữ kiện chịu được. Không thêm ý mới. Không thêm câu hay vế nói các nguồn khác nhau, và không rào đón ("có nguồn cho rằng", "nhiều nguồn", "có tiệm ghi"): nói thẳng điều dữ kiện chịu được, hẹp lại nếu cần. Trả lời {"sentences": [{"n": 1, "text": "..."}]}, mỗi câu một mục, theo thứ tự.`
 const REWORD_SCHEMA = { type: 'object', required: ['sentences'], properties: { sentences: { type: 'array', items: { type: 'object', required: ['n', 'text'], properties: { n: { type: 'number' }, text: { type: 'string' } } } } } }

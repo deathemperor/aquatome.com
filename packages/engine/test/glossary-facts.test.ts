@@ -72,13 +72,22 @@ test('a sentence one read stops is read three times more alone, and stops when t
   expect((await checkSentences(settled.llm, facts, entry)).stops.map(x => x.text)).toEqual([item])
 })
 
-test('a read that leaves a sentence out, or gives a verdict not on the list, neither stops it nor clears it', async () => {
-  const llm: Llm = async () => ({ verdicts: [{ n: 5, verdict: 'unsupported' }, { n: 6, verdict: 'wrong' }] }) as never
+// Codex, 14 Nov 2026: three empty replies scored an entry 1, and it saved unread.
+test('a read that leaves a sentence out, or gives a verdict not on the list, gives it no verdict; a sentence fewer than two reads judge stops, unjudged', async () => {
+  let k = 0
+  const llm: Llm = async () => {
+    k++
+    // Sentence 5 has one verdict in three reads; sentence 4 has two, both supported; the rest all three.
+    const all = [1, 2, 3, 4, 5, 6].map(n => ({ n, verdict: 'supported' }))
+    return { verdicts: all.filter(v => !(v.n === 5 && k > 1) && !(v.n === 4 && k === 2)).map(v => (v.n === 6 && k === 1 ? { ...v, verdict: 'wrong' } : v)) } as never
+  }
   const r = await checkSentences(llm, facts, entry)
+  expect(r.stops.map(stopNote)).toEqual(['"Nên thả lá từ từ rồi đo pH.": the reads left it unjudged (1 of 3 gave a verdict)'])
   expect(r).toMatchObject({ score: 0.83, loose: [] })
-  expect(r.stops.map(s => s.text)).toEqual(['Nên thả lá từ từ rồi đo pH.'])
   const none: Llm = async () => ({}) as never
-  expect(await checkSentences(none, facts, entry)).toEqual({ score: 1, stops: [], loose: [] })
+  const blank = await checkSentences(none, facts, entry)
+  expect(blank.score).toBe(0)
+  expect(blank.stops).toHaveLength(6)
 })
 
 test('"not a claim" takes a sentence out of the score, and never keeps two stops from stopping it', async () => {

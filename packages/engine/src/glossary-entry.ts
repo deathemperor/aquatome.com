@@ -94,8 +94,8 @@ export function refusals(d: Draft): string[] {
   return out
 }
 
-/** A fact check's note on a sentence that stops (stopNote). */
-const FACT_STOP = /^".*": the facts don't carry it \(/s
+/** A fact check's note on a sentence that stops (stopNote), unjudged ones included. */
+const FACT_STOP = /^".*": (the facts don't carry it|the reads left it unjudged) \(/s
 
 const sha = (text: string) => createHash('sha256').update(text).digest('hex')
 
@@ -358,8 +358,12 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     if (passes(review) && review.loose?.length) {
       const m = await rewordLoose(d.llm, o.writeModel ?? 'opus', forWriter, w, review.loose)
       w = m.entry
-      review.notes = [...m.stops.map(stopNote), ...m.log, ...review.notes]
-      review.stops = stopping(review) + m.stops.length
+      // The reworded entry is the one saved, so its length is counted again: past the cap, it stops (Codex, 14 Nov 2026).
+      const long = lengthNotes(w.body, named)
+      const over = long.stop ? long.notes.slice(0, 1) : []
+      review.notes = [...m.stops.map(stopNote), ...m.log, ...review.notes, ...over]
+      review.stops = stopping(review) + m.stops.length + over.length
+      review.broken += over.length
     }
     // Kept for a reader to judge (the chief of staff, 14 Nov 2026): the draft that came closest, and why it wasn't saved.
     // A revision that came no closer leaves the draft it revised as it was.
