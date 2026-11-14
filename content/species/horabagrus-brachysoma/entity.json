@@ -201,26 +201,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/5d6b280793474d45.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY-SA 3.0",
-      "author": "Saleeshkumar2000",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Manjakkoory_(Horabagrus_brachysoma).jpg",
-      "caption": "Horabagrus_brachysoma.a species of bagrid catfish endemic to Vembanadu Lake, Kerala, India",
-      "thumb": "https://media.aquatome.com/commons/5d6b280793474d45-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/77706eaefc064e4f.webp",
-      "width": 960,
-      "height": 1440,
-      "licence": "CC BY-SA 4.0",
-      "author": "Ranjith-chemmad",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Horabagrus_brachysoma_From_Chemmad.jpg",
-      "caption": "Horabagrus brachysoma",
-      "thumb": "https://media.aquatome.com/commons/77706eaefc064e4f-480.webp"
-    },
-    {
       "url": "https://media.aquatome.com/commons/28a1e3bd0ae1a077.webp",
       "width": 960,
       "height": 640,
@@ -228,17 +208,12 @@
       "author": "Jan Joseph George",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Manjakoori_(Sun_Catfish)_from_the_Chalakudy_River,_Kerala.jpg",
       "caption": "Known as Horabagrus brachysoma or the sun catfish is found in specific rivers in the Western Ghats and this is belongs the Chalakudy River and grows to a length of 18 inch.",
-      "thumb": "https://media.aquatome.com/commons/28a1e3bd0ae1a077-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/ab858ff54ec552bf.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY-SA 3.0",
-      "author": "Saleeshkumar2000",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Manjakkoory_2.jpg",
-      "caption": "Other side",
-      "thumb": "https://media.aquatome.com/commons/ab858ff54ec552bf-480.webp"
+      "thumb": "https://media.aquatome.com/commons/28a1e3bd0ae1a077-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/28a1e3bd0ae1a077-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     }
   ],
   "videos": [

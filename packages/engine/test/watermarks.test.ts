@@ -124,3 +124,20 @@ test('item admission stops without model calls or content changes', async () => 
     expect(calls.looked).toEqual([])
   })
 })
+
+test("a watermarked photo that is a page's last stays everywhere it shows, off the blocklist, held for a second look; one on a page with another photo leaves as before", async () => {
+  // The chief of staff, 2026-11-14: a page's last photo doesn't come off on an automatic check's word alone (last-photo.ts).
+  const r = await mkdtemp(join(tmpdir(), 'aq-wm-last-'))
+  const put = async (path: string, data: unknown) => { await mkdir(join(r, 'content', path, '..'), { recursive: true }); await writeFile(join(r, 'content', path), `${JSON.stringify(data, null, 2)}\n`) }
+  await mkdir(join(r, 'engine-state'))
+  await put('species/z/entity.json', { id: 'z', photos: [photo('glaser')] })
+  await put('species/y/entity.json', { id: 'y', photos: [photo('fish'), photo('hero-credit'), photo('glaser')] })
+  const out = await screenWatermarks(r, join(r, 'engine-state/_photo-watermarks.json'), join(r, 'engine-state/_photo-rejected.json'), deps().d, { limit: 10 })
+  expect(out.held).toEqual([`${url('glaser')}: species/z`])
+  expect((await read(r, 'content/species/z/entity.json')).photos.map((p: { url: string }) => p.url)).toEqual([url('glaser')])
+  expect((await read(r, 'content/species/y/entity.json')).photos.map((p: { url: string }) => p.url)).toEqual([url('fish'), url('glaser')])
+  expect(Object.keys(await read(r, 'engine-state/_photo-rejected.json'))).toEqual([url('hero-credit')])
+  const look = await read(r, 'engine-state/_photo-second-look.json')
+  expect(look[url('glaser')]).toMatchObject({ step: 'the watermark screen', pages: ['species/z'] })
+  expect(look[url('glaser')].why).toMatch(/^watermark: /)
+})

@@ -18,6 +18,34 @@
       {
         "source": "planetcatfish",
         "value": 23
+      },
+      {
+        "source": "scotcat",
+        "value": 23
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "scotcat",
+        "value": 180
       }
     ]
   },
@@ -35,10 +63,40 @@
       "html": "<p>South America: La Plata system: Uruguay basin. Recorded from the Uruguay, Miriñay and Upper Uruguay (Pelotas) areas. Type locality: Rio Pelotas at road from Esmeralda to Anita Garibaldi, Rio Grande do Sul, Brazil.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_roseopunctatus.htm",
+      "html": "<p>South America: La Plata system: Uruguay basin. Type locality: Rio Pelotas on the road from Esmeralda to Anita Garibaldi, Rio Grande do Sul, Brazil.</p>"
+    },
+    {
       "key": "habitat",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1337",
       "html": "<p>Photographed habitat: Rio Parana, Corrientes State, Argentina.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_roseopunctatus.htm",
+      "html": "<p>Grows large, so a spacious aquarium of 180 cm or over is needed.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_roseopunctatus.htm",
+      "html": "<p>Tank layout should include bogwood and tough plants; soft-leaved plants will be eaten if the fish are not given an adequate vegetable diet. As this genus is in the main messy eaters, good water quality and filtration must be maintained. Lower water temperatures are beneficial to this species.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_roseopunctatus.htm",
+      "html": "<p>Algae, and vegetable foods such as cucumber and courgette (zucchini). Will also take frozen foods as a treat and sinking tablet foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_roseopunctatus.htm",
+      "html": "<p>Peaceful and, being a smaller species of Hypostomus, although territorial, more than one Hypostomus species in a large tank would be okay.</p>"
     },
     {
       "key": "reproduction",
@@ -53,13 +111,70 @@
       "html": "<p>Etymology: Greek, hypo = under + Greek, stoma = mouth. The specific epithet refers to its rose-coloured (roseus = rose-coloured, red) spots (punctatus = small spots). Other common name: Rosenplettet Sugemalle (Denmark).</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_roseopunctatus.htm",
+      "html": "<p>Etymology: the specific name roseopunctatus comes from roseus (Latin), rose-coloured or pink, and punctatus (Latin), dotted or spotted, referring to its colour pattern.</p><p>IUCN Red List: despite the little information available on this species, it has a wide range and no apparent threats. Therefore, it is assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1337",
       "html": "<p>Revue Suisse de Zoologie v. 97 (no. 3), pp 756, Figs. 2, 25-28.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_roseopunctatus.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2016. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 01/2016 ). iNaturalist. 2021. Salvador, G.N. 2023. Hypostomus roseopunctatus. The IUCN Red List of Threatened Species 2023. Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/2d95ea92e0ff14d8.webp",
+      "thumb": "https://media.aquatome.com/scotcat/2d95ea92e0ff14d8-480.webp",
+      "width": 500,
+      "height": 285,
+      "licence": "dùng với sự cho phép",
+      "author": "Ian Fuller / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_roseopunctatus.htm",
+      "caption": "Hypostomus roseopunctatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/6020c669a7589de7.webp",
+      "thumb": "https://media.aquatome.com/scotcat/6020c669a7589de7-480.webp",
+      "width": 500,
+      "height": 332,
+      "licence": "dùng với sự cho phép",
+      "author": "Peter Petersen / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_roseopunctatus.htm",
+      "caption": "Hypostomus spiniger",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/d3fed97f64a6d960.webp",
+      "thumb": "https://media.aquatome.com/scotcat/d3fed97f64a6d960-480.webp",
+      "width": 500,
+      "height": 555,
+      "licence": "dùng với sự cho phép",
+      "author": "aleduarte / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_roseopunctatus.htm",
+      "caption": "Hypostomus roseopunctatus: Dorsal view-Sección 11, Durazno, Uruguay",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/d263b22dab40e2e9.webp",
+      "thumb": "https://media.aquatome.com/scotcat/d263b22dab40e2e9-480.webp",
+      "width": 500,
+      "height": 597,
+      "licence": "dùng với sự cho phép",
+      "author": "aleduarte / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_roseopunctatus.htm",
+      "caption": "Hypostomus roseopunctatus: Ventral view-Sección 11, Durazno, Uruguay",
+      "source": "scotcat"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "HyVxpwYIwxs",
@@ -84,8 +199,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá 150cm"
+        "bể cá 180cm"
       ]
     },
     {
@@ -102,5 +216,116 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13"
+  "updatedAt": "2026-11-13",
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Miriñay",
+        "Rio Pelotas"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio Pelotas at road from Esmeralda to Anita Garibaldi, Rio Grande do Sul, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Pelotas"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Recorded from the Uruguay, Miriñay and Upper Uruguay (Pelotas) areas.",
+          "countries": [],
+          "regions": [
+            "Miriñay"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202132,
+      "total": 55,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "BR",
+          54
+        ],
+        [
+          "AR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -57.65625,
+          -30.9375,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          -29.53125,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -30.9375,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -29.53125,
+          3,
+          3
+        ],
+        [
+          -56.25,
+          -28.125,
+          16,
+          16
+        ],
+        [
+          -54.84375,
+          -32.34375,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -29.53125,
+          5,
+          5
+        ],
+        [
+          -54.84375,
+          -28.125,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -28.125,
+          15,
+          15
+        ],
+        [
+          -52.03125,
+          -28.125,
+          10,
+          10
+        ]
+      ]
+    }
+  }
 }

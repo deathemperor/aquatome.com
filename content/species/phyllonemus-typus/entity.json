@@ -1,0 +1,78 @@
+{
+  "id": "phyllonemus-typus",
+  "scientificName": "Phyllonemus typus",
+  "order": "Siluriformes",
+  "family": "Claroteidae",
+  "genus": "Phyllonemus",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "tanzania",
+    "lake-tanganyika"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 9
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/phyllonemus_typus_en/",
+      "html": "<p>The Spatula-barbeled Catfish, endemic to Lake Tanganyika, has a very special way of reproducing for a catfish: it is a biparental mouthbrooder. This small catfish is the only representative of its genus and can be easily distinguished by the long barbels on both sides of the upper jaw, which end in a spatula shape. The total length of the fish is approximately 9 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/phyllonemus_typus_en/",
+      "html": "<p>Lake Tanganyika.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/phyllonemus_typus_en/",
+      "html": "<p>Keeping these fish in the aquarium should not be too difficult. They are nocturnal animals, although they will come out during the daytime for feeding. Mostly, however, they rest during the light phase in dark places or caves, which have to be available in the tank.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/phyllonemus_typus_en/",
+      "html": "<p>These are peaceful fish, although any fish small enough to fit in their mouth, and therefore seen as food, might be eaten.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/phyllonemus_typus_en/",
+      "html": "<p>The species is a biparental mouthbrooder.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá tanganyika"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền hồ tanganyika"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

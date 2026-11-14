@@ -388,25 +388,50 @@
       ]
     }
   },
-  "dataCard": {},
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 6
+      }
+    ]
+  },
   "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina_cf_brevis_en/",
+      "html": "<p>This gem from Peru is without any doubt the most colorful species in the genus Pyrrhulina. In breeding mood the males get red-orange fins and on each scale appears a cherry-red spot. The species grows up to 6 cm long.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina_cf_brevis_en/",
+      "html": "<p>Peru.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina_cf_brevis_en/",
+      "html": "<p>One should keep this species in larger tanks. Under these conditions it is possible to keep more than one territorial male.</p>"
+    },
     {
       "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina_cf_brevis_red_spots_en/",
-      "html": "<p>Despite the fact that the males are quarrelling quite a lot, these quarrels are harmless and don't even lead to fin damage.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina_cf_brevis_en/",
+      "html": "<p>The tank becomes the scene of neverending (but harmless) quarrels – it is simply amazing to observe the behaviour of this beautiful fish.</p>"
     },
     {
-      "key": "dimorphism",
+      "key": "reproduction",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina_cf_brevis_red_spots_en/",
-      "html": "<p>When the males came into breeding mood in the photo tank and started to quarrel, they became even more colourful. At a glance, deep red spots developed on the scales, which were hardly visible before. Females don't get these spots at all.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina_cf_brevis_en/",
+      "html": "<p>Keeping and breeding is equal to that of P. laeta.</p>"
     },
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina_cf_brevis_red_spots_en/",
-      "html": "<p>Lexicon: Pyrrhulina means \"little bullfinch\". brevis: Latin, means \"short\".</p><p>Suggestion of a common name: Red Spotted Pyrrhulina.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina_cf_brevis_en/",
+      "html": "<p>Pyrrhulina means \"small bullfinch\", because the males develop much red coloration during courtship, exactly as the bullfinch male (Pyrrhula pyrrhula) does. brevis is Latin and means \"short\".</p>"
     }
   ],
   "photos": [
@@ -469,5 +494,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-11"
+  "updatedAt": "2026-11-13"
 }

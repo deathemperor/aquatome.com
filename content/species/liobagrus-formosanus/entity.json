@@ -9,6 +9,58 @@
     "asia",
     "taiwan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TW"
+      ],
+      "regions": [],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: endemic to Taiwan.",
+          "countries": [
+            "TW"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342841,
+      "total": 33,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "TW",
+          33
+        ]
+      ],
+      "cells": [
+        [
+          119.53125,
+          22.5,
+          1,
+          1
+        ],
+        [
+          119.53125,
+          23.90625,
+          9,
+          9
+        ],
+        [
+          120.9375,
+          23.90625,
+          23,
+          23
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,0 +1,218 @@
+{
+  "id": "gnathophyllum-americanum",
+  "native": {
+    "input": "802f687f4432fbde",
+    "at": "2026-11-14T00:09:29.977Z",
+    "claims": [
+      {
+        "code": "BM",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "They are also known from Bermuda, India (Landfall Island, North Andaman), and from the Indo-West Pacific region from the Red Sea to Japan, Australia and Oceania.",
+        "words": "Bermuda",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "They are also known from Bermuda, India (Landfall Island, North Andaman), and from the Indo-West Pacific region from the Red Sea to Japan, Australia and Oceania.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "They are also known from Bermuda, India (Landfall Island, North Andaman), and from the Indo-West Pacific region from the Red Sea to Japan, Australia and Oceania.",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "They are also known from Bermuda, India (Landfall Island, North Andaman), and from the Indo-West Pacific region from the Red Sea to Japan, Australia and Oceania.",
+        "words": "Australia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Landfall Island",
+        "source": "aquariumbreeder",
+        "quote": "They are also known from Bermuda, India (Landfall Island, North Andaman), and from the Indo-West Pacific region from the Red Sea to Japan, Australia and Oceania.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "North Andaman",
+        "source": "aquariumbreeder",
+        "quote": "They are also known from Bermuda, India (Landfall Island, North Andaman), and from the Indo-West Pacific region from the Red Sea to Japan, Australia and Oceania.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Gnathophyllum americanum",
+    "status": "ACCEPTED",
+    "taxonKey": 5178555,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        53
+      ],
+      [
+        "da6a07ed-9eee-460d-9448-910f542c1a7b",
+        51
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        36
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        11
+      ],
+      [
+        "8e9974a4-12e2-475f-9aec-5abdf24a1f50",
+        11
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        8
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        8
+      ],
+      [
+        "25e3e8f1-86ee-440c-adfc-8e63759a6505",
+        7
+      ],
+      [
+        "8b8c78fb-53d7-434c-b800-61f38b30d0c9",
+        7
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        7
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        7
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        6
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        5
+      ],
+      [
+        "73a6c4b3-f013-43f7-bcc9-93cf07f98a5d",
+        4
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        3
+      ],
+      [
+        "7fba982c-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "a0a4d131-f53f-43b2-a1ba-254473b8a006",
+        3
+      ],
+      [
+        "a4305468-d94d-4244-b146-738e52d8a6e9",
+        3
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        3
+      ],
+      [
+        "03b8dac0-be98-4f71-9440-76c406cbf2c1",
+        2
+      ],
+      [
+        "0b1150c9-dfa8-4904-8bc5-b79b4e1930e6",
+        2
+      ],
+      [
+        "0f6d26c0-c645-4f15-b1c9-fbcb77515545",
+        2
+      ],
+      [
+        "372fc871-64bd-4fd3-bc32-7dc6eb4dcfd4",
+        2
+      ],
+      [
+        "9668b676-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "10710e0f-205f-46d4-b1f3-1a92bd21a4f3",
+        1
+      ],
+      [
+        "129704b4-762b-4f0c-8eab-ef3f8aedd478",
+        1
+      ],
+      [
+        "393b8c26-e4e0-4dd0-a218-93fc074ebf4e",
+        1
+      ],
+      [
+        "44bcde48-ac71-46f2-bf73-24fc3c008b6c",
+        1
+      ],
+      [
+        "7a9ad56e-7452-4f24-a1b4-3be3400c9a9d",
+        1
+      ],
+      [
+        "854e35e6-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "968dfa3e-3614-4bab-a3b5-e9209bdd6078",
+        1
+      ],
+      [
+        "b2f2cfc7-bd72-403b-9a58-8d0bcdc6e1d7",
+        1
+      ],
+      [
+        "b7ca8e9d-5609-4356-b5c3-b2ca7071cf58",
+        1
+      ],
+      [
+        "c80621e4-eb0e-4a42-8125-52840b5db839",
+        1
+      ]
+    ],
+    "native": [
+      "BM",
+      "IN",
+      "JP",
+      "AU"
+    ],
+    "requests": 17,
+    "at": "2026-11-14T00:09:29.977Z"
+  }
+}

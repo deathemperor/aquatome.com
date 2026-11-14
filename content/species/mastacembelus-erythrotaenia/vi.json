@@ -3,7 +3,9 @@
   "name": "Cá chạch lửa",
   "altNames": [
     "Cá chạch lửa đỏ",
-    "Fire Eel"
+    "Fire eel",
+    "Cá chạch sông vằn đỏ",
+    "Red-striped spiny eel"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<p>Cá chạch lửa (Mastacembelus erythrotaenia) là một loài cá chạch gai. Loài này đã được ghi nhận ở Lào, Việt Nam, Campuchia, Thái Lan, Malaysia và Indonesia. Chúng thường sống ở vùng nước chảy lờ đờ ở vùng đất thấp, như đồng bằng ngập lũ và những con sông chảy chậm. Ở các nước bản địa, cá chạch lửa còn là cá thực phẩm. Khi nuôi trong bể, cá trốn kỹ suốt ban ngày và hay vùi mình xuống nền. Vì thế bể cần nền cát, nhiều chỗ trú và nắp đậy thật khít.</p>",
@@ -16,13 +18,20 @@
     "behaviour:seriouslyfish": "<p>Nhìn chung đây là cá cộng đồng hiền lành. Tuy vậy, bạn cần chọn cá nuôi chung đủ to để cá chạch lửa không coi là mồi, vì ngoài tự nhiên loài này có ăn cá sống. Mỗi bể chỉ nên nuôi một con cá chạch lửa, vì chúng có thể hung hăng với đồng loại. Đôi khi có thể tránh được chuyện này bằng cách nuôi theo đàn từ năm con trở lên.</p>",
     "dimorphism:seriouslyfish": "<p>Vào mùa sinh sản, con cái có thân đầy đặn hơn.</p>",
     "reproduction:seriouslyfish": "<p>Cá chạch lửa thỉnh thoảng đã sinh sản trong bể nuôi, nhưng những lần đó đều là tình cờ.</p>",
-    "notes:seriouslyfish": "<p>Mastacembelus erythrotaenia thuộc họ cá chạch gai, một họ phân bố khắp vùng nhiệt đới châu Á và châu Phi. Đây là một trong những loài thường gặp hơn cả trong giới chơi cá, cùng với cá chạch công (Macrognathus siamensis) và cá chạch vằn bánh xe (Mastacembelus favus). Các loài này đều đến từ châu Á, nhưng thỉnh thoảng trên thị trường cũng có vài loài trong họ đến từ châu Phi. Phần lớn các loài châu Phi đó thuộc chi Afromastacembelus. Đại diện hay gặp nhất của chi này là cá chạch gai Tanganyika (Afromastacembelus tanganicae).</p><p>Họ này có tên 'cá chạch gai' vì cá có một hàng gai chạy dọc lưng. Những chiếc gai này không gây hại gì cho người.</p><p>Ở các nước bản địa, cá chạch lửa còn là cá thực phẩm.</p>"
+    "notes:seriouslyfish": "<p>Mastacembelus erythrotaenia thuộc họ cá chạch gai, một họ phân bố khắp vùng nhiệt đới châu Á và châu Phi. Đây là một trong những loài thường gặp hơn cả trong giới chơi cá, cùng với cá chạch công (Macrognathus siamensis) và cá chạch vằn bánh xe (Mastacembelus favus). Các loài này đều đến từ châu Á, nhưng thỉnh thoảng trên thị trường cũng có vài loài trong họ đến từ châu Phi. Phần lớn các loài châu Phi đó thuộc chi Afromastacembelus. Đại diện hay gặp nhất của chi này là cá chạch gai Tanganyika (Afromastacembelus tanganicae).</p><p>Họ này có tên 'cá chạch gai' vì cá có một hàng gai chạy dọc lưng. Những chiếc gai này không gây hại gì cho người.</p><p>Ở các nước bản địa, cá chạch lửa còn là cá thực phẩm.</p>",
+    "quickFacts:glaser": "<ul><li>Nguồn gốc: Indonesia</li><li>Con lớn nhất từng biết dài khoảng 1 m</li></ul>",
+    "distribution:glaser": "<p>Loài cá chạch sông này có nguồn gốc từ Indonesia.</p>",
+    "waterConditions:glaser": "<p>Loài cá chạch sông này không kén nước. Nên giữ nhiệt độ nước trong khoảng 24–28°C.</p>",
+    "diet:glaser": "<p>Cá to cỡ này thì cho ăn đồ đông lạnh như cá smelt và tôm là tốt nhất. Chúng cũng rất mê giun đất.</p>",
+    "behaviour:glaser": "<p>Cá chạch sông sống trong bể rất hiền và về sau rất dạn người. Chúng dễ tập theo hiệu lệnh, chẳng hạn nghe tiếng huýt sáo. Tập quen rồi thì những con cá to này sẽ bơi lại, đớp mồi ngay ở đầu kẹp. Cũng có thể đút mồi bằng tay không, nhưng chúng không phải lúc nào cũng đớp trúng. Cây và cá nuôi chung thường không bị đụng tới, riêng cá nhỏ thì sẽ thành mồi.</p>",
+    "notes:glaser": "<p>Nghe nói tên Mastacembelus bắt nguồn từ tiếng Hy Lạp cổ, có lẽ mang nghĩa \"kẻ lao tới cắn\". Còn erythrotaenia cũng là tiếng Hy Lạp cổ, nghĩa là \"có vằn đỏ\". Đây là một trong những loài cá chạch sông lớn nhất. Với người có bể lớn, nó là một con cá thật sự có cá tính.</p>"
   },
   "quality": {
-    "score": 0.85,
+    "score": 0.8,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.85
+      "seriouslyfish": 0.85,
+      "glaser": 0.8
     }
   }
 }

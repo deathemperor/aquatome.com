@@ -1,14 +1,14 @@
 {
   "id": "sahyadria-denisonii",
   "native": {
-    "input": "91d6d5aecbc4f697",
-    "at": "2026-11-11T08:59:40.517Z",
+    "input": "901847c14c1ec80e",
+    "at": "2026-11-14T00:09:29.977Z",
     "claims": [
       {
         "code": "IN",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Endemic to the states of Kerala and Karnataka in southern India.",
+        "quote": "The red-line torpedo barb, Dawkinsia denisonii, is a cyprinid endemic to Kerala and Karnataka in southern India.",
         "words": "India",
         "ok": true
       },
@@ -22,6 +22,13 @@
       }
     ],
     "regions": [
+      {
+        "name": "Manimala River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Mundakayam, Travancore, India', which appears to correspond to the Manimala River near the town of Mundakayam in Kottayam District, Kerala state, southern India.",
+        "country": "IN",
+        "ok": true
+      },
       {
         "name": "Valapatanam",
         "source": "seriouslyfish",
@@ -44,13 +51,6 @@
         "name": "Bhavani",
         "source": "seriouslyfish",
         "quote": "Its modern distribution is highly fragmented with small populations remaining in the Valapatanam, Chaliyar, Kallar, Karyangod, Kuttiyadi, Chandragiri, Sullya, Kuppam, Iritti, Anjarakandipuzha, Bhavani, and Bharatapuzha river systems.",
-        "ok": true
-      },
-      {
-        "name": "Manimala River",
-        "source": "seriouslyfish",
-        "quote": "Type locality is 'Mundakayam, Travancore, India', which appears to correspond to the Manimala River near the town of Mundakayam in Kottayam District, Kerala state, southern India.",
-        "country": "IN",
         "ok": true
       }
     ],

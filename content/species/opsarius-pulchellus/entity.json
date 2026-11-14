@@ -14,7 +14,8 @@
     "cambodia",
     "vietnam",
     "china",
-    "yunnan"
+    "yunnan",
+    "mekang"
   ],
   "range": {
     "native": {
@@ -197,12 +198,12 @@
   "dataCard": {
     "sizeCm": [
       {
-        "source": "glaser",
-        "value": 8
-      },
-      {
         "source": "seriouslyfish",
         "value": 11
+      },
+      {
+        "source": "glaser",
+        "value": 7
       }
     ],
     "tempC": [
@@ -247,6 +248,12 @@
   },
   "sections": [
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/opsarius_pulchellus_en-2/",
+      "html": "<p>Described by Hugh M. Smith in 1931. Usually 7 cm long, the largest known specimen was 10.5 cm. Very peaceful and does not damage plants.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-pulchellus",
@@ -257,6 +264,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-pulchellus",
       "html": "<p>Occurs throughout the Chao Phraya river system in central and western Thailand, and the mid-to-lower Mekong basins in Thailand, Laos, Cambodia, and Vietnam with a handful of reports from the upper Mekong in Yunnan province, China.</p><p>Type locality is 'Mekang River at Pang Chao, northern Thailand' which is not a misspelling of 'Mekong' but a stream draining the Doi Inthanon (formerly Doi Angka), Thailand's highest mountain, in Chiang Mai province, northern Thailand.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/opsarius_pulchellus_en-2/",
+      "html": "<p>In nature, they settle in cool, clear mountain streams of northern Thailand, Laos, and Vietnam. The type locality is Mekang (not Mekong, as can be found erroneously in some literature) near Pang Chao.</p>"
     },
     {
       "key": "habitat",
@@ -283,10 +296,22 @@
       "html": "<ul><li>Temperature: 18–26°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/opsarius_pulchellus_en-2/",
+      "html": "<p>Regarding water chemistry they are undemanding; medium hard water with a neutral or slightly alkaline pH is equal to the conditions in nature.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-pulchellus",
       "html": "<p>Opsarius spp. are predominantly surface-feeders preying on aquatic and terrestrial insects in nature, with some small fishes and benthic invertebrates probably taken as well.</p><p>In the aquarium good quality dried products can be offered but should be supplemented with regular meals of live and frozen fare such as chironomid larvae (bloodworm), Artemia, chopped earthworms, etc. Drosophila fruit flies and small crickets are also suitable provided they are gut-loaded prior to use.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/opsarius_pulchellus_en-2/",
+      "html": "<p>The fish take readily any type of fishfood that fits the size of the mouth.</p>"
     },
     {
       "key": "behaviour",
@@ -295,10 +320,22 @@
       "html": "<p>Unsuitable for the general community due to its environmental requirements, and likely to outcompete or intimidate slow-moving and less bold species at meal times since it is an extremely fast swimmer and vigorous feeder. Much smaller fishes should also be omitted as they may be predated upon.</p><p>The best tankmates are similarly-sized, robust, pelagic cyprinids such as Dawkinsia, Barilius or larger Devario and Rasbora spp. while bottom-dwellers could consist of Garra, Crossocheilus, Botia and Schistura spp., for example. Many characids and loricariid catfishes should also work well, but be sure to perform thorough research before purchase.</p><p>Although gregarious by nature this is a shoaling rather than schooling species which develops a distinct pecking order and therefore should always be maintained in a group of five or more individuals. If only two or three are purchased the subdominant fish may be bullied incessantly whereas solitary specimens may become aggressive towards similar-looking species.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/opsarius_pulchellus_en-2/",
+      "html": "<p>The wonderful fish are very peaceful and do not care for plants.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-pulchellus",
       "html": "<p>Mature males develop extended pectoral, dorsal, and anal fins and nuptial individuals possess visible breeding tubercules on the head and body, plus bright yellow-orange pigmentation in the lower portion of the body.</p><p>Adult females are less-brightly-coloured, tend to grow a little larger and are thicker-bodied than males, especially when gravid.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/opsarius_pulchellus_en-2/",
+      "html": "<p>Females stay generally smaller than the males and are much more elongate.</p>"
     },
     {
       "key": "reproduction",
@@ -307,10 +344,22 @@
       "html": "<p>Unreported.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/opsarius_pulchellus_en-2/",
+      "html": "<p>So far, nothing has been published about the breeding behaviour of the species. However, it is very likely that they spawn in the gravel.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-pulchellus",
       "html": "<p>This species is traded for aquaria under various names including 'butterfly barb', 'mackerel barb', 'green-barred danio', or 'royal opsarius'.</p><p>It can be told apart from other members of the genus by the following combination of characters: 37-43 lateral line scales; 21-25 predorsal scales; 7-10 elongate vertical bars on each flank, becoming more circular in the posterior portion of the body.</p><p>The generic placement of species currently referred to Opsarius has been open to question since Howes (1980) concluded that the Barilius grouping, within which they were included at the time, was not monophyletic and identified two separate lineages. The first group contained B. barila, the type species, plus B. bendelisis, B. radiolatus, B. vagra, and B. shacra, while the second included all other species, and initially these were referred to the subdivisions 'group i' and 'group ii' within Barilius itself.</p><p>The composition of these groups is confusing since in a later work Howes (1983) included B. evezardi and B. modestus in 'group i' whilst omitting B. bendelisis, B. radiolatus, and B. shacra without explicitly stating why.</p><p>Rainboth (1991) assigned the members of Howe's 'group ii' to the revalidated generic name Opsarius based on the fact it was the oldest available with 'group i' species retaining the name Barilius due to the presence of the type species.</p><p>This system has been followed by some subsequent authors, e.g., Tang et al. (2010) and Collins et al. (2012) but not gain wider usage until Kottelat (2013), who included all former Barilius from Southeast Asia in Opsarius.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/opsarius_pulchellus_en-2/",
+      "html": "<p>Opsarius: from ancient Greek, means \"small fish\". pulchellus: Latin, means \"beautiful\". The animals are close relatives of the Danios.</p>"
     },
     {
       "key": "references",
@@ -385,7 +434,32 @@
       }
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "wZj3rwetTkQ",
+      "title": "Opsarius pulchellus",
+      "durationSec": 59,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "-jlu148gBJ8",
+      "title": "Opsarius Pulchellus, Torpedo Barbs, Geophagus Red Heads & Butterfly Plecs - Fish Tank/Aquarium",
+      "durationSec": 359,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "J-88uzH3pGo",
+      "title": "Opsarius pulchellus VF",
+      "durationSec": 88,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "tnF7oepWmxQ",
+      "title": "Opsarius pulchellus Barilius dogarsinghi and canarensis Puntius denisonii",
+      "durationSec": 210,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -408,5 +482,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-13"
 }

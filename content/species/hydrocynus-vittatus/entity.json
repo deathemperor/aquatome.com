@@ -1093,17 +1093,12 @@
       "author": "Totti",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hydrocynus_vittatus_Gifu.jpg",
       "caption": "タイガーフィッシュ。アクア・トトぎふ飼育展示個体。",
-      "thumb": "https://media.aquatome.com/commons/7ffe7cce4567725c-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/fa1e93cf9cd7e234.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC0",
-      "author": "Andrew Deacon",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hydrocynus_vittatus_15808090.jpg",
-      "caption": "Striped Tigerfish (Hydrocynus vittatus)",
-      "thumb": "https://media.aquatome.com/commons/fa1e93cf9cd7e234-480.webp"
+      "thumb": "https://media.aquatome.com/commons/7ffe7cce4567725c-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/7ffe7cce4567725c-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

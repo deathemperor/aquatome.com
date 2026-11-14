@@ -11,6 +11,119 @@
     "brazil",
     "paraiba-do-sul"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Paraíba do Sul",
+        "Macaé"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio de Janeiro (possibly Rio Parahyba), Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Paraíba do Sul River basin.",
+          "countries": [],
+          "regions": [
+            "Paraíba do Sul"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Rio de Janeiro State rivers, Paraíba do Sul and Macaé.",
+          "countries": [],
+          "regions": [
+            "Macaé"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339401,
+      "total": 326,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "BR",
+          326
+        ]
+      ],
+      "cells": [
+        [
+          -54.84375,
+          -12.65625,
+          4,
+          4
+        ],
+        [
+          -46.40625,
+          -23.90625,
+          93,
+          93
+        ],
+        [
+          -45,
+          -23.90625,
+          56,
+          56
+        ],
+        [
+          -45,
+          -22.5,
+          36,
+          36
+        ],
+        [
+          -43.59375,
+          -23.90625,
+          3,
+          3
+        ],
+        [
+          -43.59375,
+          -22.5,
+          43,
+          43
+        ],
+        [
+          -43.59375,
+          -21.09375,
+          4,
+          4
+        ],
+        [
+          -42.1875,
+          -22.5,
+          10,
+          10
+        ],
+        [
+          -42.1875,
+          -21.09375,
+          75,
+          75
+        ],
+        [
+          -40.78125,
+          -21.09375,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

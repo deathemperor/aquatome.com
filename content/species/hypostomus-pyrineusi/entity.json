@@ -8,7 +8,11 @@
   "places": [
     "south-america",
     "brazil",
-    "madeira"
+    "madeira",
+    "peru",
+    "ucayali",
+    "ecuador",
+    "napo"
   ],
   "dataCard": {
     "tempC": [
@@ -18,12 +22,38 @@
           "min": 25,
           "max": 27
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 29
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 23
+      },
+      {
+        "source": "scotcat",
+        "value": 23
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "scotcat",
+        "value": 120
       }
     ]
   },
@@ -35,10 +65,46 @@
       "html": "<ul><li>Scientific name: Hypostomus pyrineusi (Miranda Ribeiro, 1920)</li><li>Type locality: Jamary, Rio Madeira, Amazon system, Brazil.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pyrineusi.htm",
+      "html": "<ul><li>Common name: Madeira pleco</li><li>IUCN Red List: Least Concern (IUCN 2023)</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1330",
       "html": "<p>South America: Madeira River basin (?). Amazon, Middle Amazon (Solimoes), Madeira.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pyrineusi.htm",
+      "html": "<p>South America: Madeira, Napo, Ucayali, Marañon and upper Amazon River basins. Type locality: probably Jamary [Brazil].</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pyrineusi.htm",
+      "html": "<p>As with most of this genus, it will do well in a larger aquarium of 120 cm or over, well filtered.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pyrineusi.htm",
+      "html": "<p>Water parameters can be quite diverse for this genus.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pyrineusi.htm",
+      "html": "<p>Omnivore with a liking for green, tablet and frozen foods. This species is also a lover of wood, which should be provided in the aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pyrineusi.htm",
+      "html": "<p>Peaceful species that will dig up plants with its constant burrowing in the substrate, so it is better to put plants in pots.</p>"
     },
     {
       "key": "reproduction",
@@ -53,20 +119,59 @@
       "html": "<p>Previously placed in Cochliodon and now included in the larger genus Hypostomus as a member of the Hypostomus Cochliodon group. All these species have higher backs than other conspecifics and spoon shaped teeth (like Panaque).</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pyrineusi.htm",
+      "html": "<p>Placed in the Hypostomus cochliodon species group, which have a shorter, higher-backed body than other members of Hypostomus. They have a small number of spatulate teeth with a single cusp, with the jaws arranged in a V shape. Hypostomus have 7 dorsal fin rays, whereas the similar-looking Pterygoplichthys have 10. Hypostomus pyrineusi is distinguished from most members of the H. cochliodon group by having 0–10 (usually 0) odontodes on the opercle, large spoon-shaped teeth, no buccal papilla, no strong sharp keels on the lateral plates, an adipose fin, numerous close-set spots on the body, and pigmentation equally distributed on the lobes of the caudal fin (Armbruster 2003).</p><p>Etymology: the specific name pyrineusi honours Miranda Ribeiro's good friend Lieut. Antonio Pyrineus de Souza (d. 1936), a naturalist with the Rondon Commission, which installed telegraph poles from Mato Grosso to Amazonas, on an expedition that collected the type.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1330",
       "html": "<p>Peixes (excl. Characinidae) No. 58 (Annexo 5), pp 9, Unnum. Pls. 3-4.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/a66cb31a3bc36c68.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a66cb31a3bc36c68-480.webp",
+      "width": 500,
+      "height": 269,
+      "licence": "dùng với sự cho phép",
+      "author": "Nathan Lujan / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pyrineusi.htm",
+      "caption": "Hypostomus pyrineusi",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/51749f2c311d34c2.webp",
+      "thumb": "https://media.aquatome.com/scotcat/51749f2c311d34c2-480.webp",
+      "width": 500,
+      "height": 206,
+      "licence": "dùng với sự cho phép",
+      "author": "Nathan Lujan / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pyrineusi.htm",
+      "caption": "Hypostomus pyrineusi: dorsal view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/d4151e7f05c82981.webp",
+      "thumb": "https://media.aquatome.com/scotcat/d4151e7f05c82981-480.webp",
+      "width": 500,
+      "height": 213,
+      "licence": "dùng với sự cho phép",
+      "author": "Nathan Lujan / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pyrineusi.htm",
+      "caption": "Hypostomus pyrineusi: ventral view",
+      "source": "scotcat"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 200 lít",
-        "bể cá 300 lít"
+        "bể cá 120cm"
       ]
     },
     {
@@ -82,5 +187,373 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13"
+  "updatedAt": "2026-11-13",
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Madeira",
+        "Amazon"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Jamary, Rio Madeira, Amazon system, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Madeira",
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202212,
+      "total": 255,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "BR",
+          128
+        ],
+        [
+          "PE",
+          67
+        ],
+        [
+          "EC",
+          34
+        ],
+        [
+          "BO",
+          25
+        ],
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -7.03125,
+          3,
+          0
+        ],
+        [
+          -78.75,
+          -5.625,
+          14,
+          0
+        ],
+        [
+          -78.75,
+          -4.21875,
+          31,
+          0
+        ],
+        [
+          -78.75,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          -78.75,
+          -1.40625,
+          4,
+          0
+        ],
+        [
+          -78.75,
+          0,
+          6,
+          0
+        ],
+        [
+          -77.34375,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          -77.34375,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -77.34375,
+          -1.40625,
+          15,
+          0
+        ],
+        [
+          -77.34375,
+          0,
+          7,
+          0
+        ],
+        [
+          -75.9375,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          -8.4375,
+          2,
+          0
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          -73.125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          -14.0625,
+          3,
+          0
+        ],
+        [
+          -70.3125,
+          -14.0625,
+          4,
+          0
+        ],
+        [
+          -70.3125,
+          -12.65625,
+          5,
+          0
+        ],
+        [
+          -70.3125,
+          -11.25,
+          2,
+          1
+        ],
+        [
+          -70.3125,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          -12.65625,
+          6,
+          0
+        ],
+        [
+          -68.90625,
+          -11.25,
+          11,
+          10
+        ],
+        [
+          -68.90625,
+          -9.84375,
+          7,
+          7
+        ],
+        [
+          -67.5,
+          -15.46875,
+          3,
+          0
+        ],
+        [
+          -66.09375,
+          -16.875,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -11.25,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -14.0625,
+          4,
+          0
+        ],
+        [
+          -64.6875,
+          -12.65625,
+          5,
+          0
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          -63.28125,
+          -14.0625,
+          2,
+          0
+        ],
+        [
+          -63.28125,
+          -12.65625,
+          3,
+          3
+        ],
+        [
+          -63.28125,
+          -11.25,
+          19,
+          19
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          14,
+          14
+        ],
+        [
+          -61.875,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -12.65625,
+          10,
+          10
+        ],
+        [
+          -61.875,
+          -9.84375,
+          13,
+          13
+        ],
+        [
+          -61.875,
+          -8.4375,
+          5,
+          5
+        ],
+        [
+          -61.875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -12.65625,
+          13,
+          13
+        ],
+        [
+          -56.25,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -16.875,
+          5,
+          5
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -7.03125,
+          5,
+          5
+        ]
+      ]
+    }
+  }
 }

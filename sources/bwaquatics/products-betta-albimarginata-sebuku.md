@@ -1,7 +1,7 @@
 ---
 url: https://bwaquatics.com/products/betta-albimarginata-sebuku
 title: Betta Albimarginata - Sebuku | Wild Betta Fish – BWAquatics
-fetchedAt: 2026-11-13T17:10:41.732Z
+fetchedAt: 2026-11-13T20:54:22.995Z
 hash: 6f372222da9b375f8af688e91d94e57a1f1d4fcc155899b02d7498af306e7bfc
 ---
 

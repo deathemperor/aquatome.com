@@ -1,7 +1,7 @@
 ---
 url: https://bwaquatics.com/products/betta-albimarginata
 title: Betta Albimarginata - Malinau | Wild Betta Fish – BWAquatics
-fetchedAt: 2026-11-13T17:08:43.939Z
+fetchedAt: 2026-11-13T20:52:38.133Z
 hash: 89dfaae524df1317869c671d705eca631f3171a80ff8c1c573196d1d2897f984
 ---
 

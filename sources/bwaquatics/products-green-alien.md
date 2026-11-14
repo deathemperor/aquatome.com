@@ -1,7 +1,7 @@
 ---
 url: https://bwaquatics.com/products/green-alien
 title: Alien Betta Green Hybrid | Rare Bettas – BWAquatics
-fetchedAt: 2026-11-13T17:00:44.168Z
+fetchedAt: 2026-11-13T20:44:46.769Z
 hash: d28fa62d89e52906f539aeb98b7c2bcb9288869ba7806f80043aa87331b58265
 ---
 

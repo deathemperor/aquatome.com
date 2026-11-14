@@ -475,6 +475,7 @@
    "img": "https://images.unsplash.com/photo-1754077366222-858cb109e2e2?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8OXx8Ymx1ZSUyMHZlbHZldCUyMHNocmltcHxlbnwxfHx8fDE3OTMzNzk0MTl8MA&ixlib=rb-4.1.0&w=1811&q=80&fm=jpg&fit=max",
    "guide": "guides/2hraquarist-blogs-algae-control-ccontrol-algae-excess-nutrients",
    "guideImg": "https://media.aquatome.com/2hraquarist/20af0b5ea6f239f1.webp",
+   "card": "cards/trivia-marimo-alga",
    "why": "no fish of this week's tags (nano) is left. Fish: Tép Blue Dream (Blue Velvet Shrimp), for a small tank. Guide: Dư dinh dưỡng có gây tảo trong bể thủy sinh không?, the best left with a big enough photo.",
    "fixed": true
   },
@@ -501,6 +502,7 @@
    "img": "https://media.aquatome.com/commons/bcc6a38465399681-large.webp",
    "guide": "guides/aquariumbreeder-profile-of-diving-beetles-monsters-in-shrimp-and-fish-tanks",
    "guideImg": "https://media.aquatome.com/aquariumbreeder/eb9f5d29655fb0c7.webp",
+   "card": "cards/new-species-nanosphronemus-gemma",
    "why": "Guide: Hồ sơ bọ cánh cứng lặn (Diving beetle): kẻ săn mồi trong bể tép và bể cá, the best left with a big enough photo.",
    "fixed": true
   },
@@ -749,5 +751,360 @@
    "discus",
    "penapis"
   ]
- }
+ },
+ "chips": [
+  {
+   "id": "ali",
+   "names": {
+    "vi": "Ali",
+    "id": "Cichlid Afrika",
+    "th": "ปลาหมอสีแอฟริกา",
+    "ms": "Cichlid Afrika"
+   },
+   "match": {
+    "group": [
+     "cichlids"
+    ],
+    "places": [
+     "africa"
+    ]
+   },
+   "guides": {
+    "add": [
+     "aquariumcoop-blogs-aquarium-how-to-set-up-an-easy-planted-tank-for-african-cichlids",
+     "aquariumcoop-blogs-aquarium-plants-for-african-cichlids",
+     "aquariumcoop-blogs-aquarium-shell-dwellers",
+     "loachesonline-articles-why-loaches-should-not-be-kept-with-malawi-cichlids",
+     "youtube-Gco4K1OuLaE",
+     "youtube-hQgZb6U3iPw",
+     "youtube-jFFbDTBUgIk",
+     "youtube-lnOoJm-b5vs",
+     "youtube-ohUzvlrSQDs",
+     "youtube-py-6gyQwVWU",
+     "youtube-wOFTF6CYtFc",
+     "youtube-yfiUqZ8IZU4"
+    ],
+    "off": [
+     "seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy",
+     "youtube-rXQS95MHmTk"
+    ]
+   }
+  },
+  {
+   "id": "cichlid-chau-my",
+   "names": {
+    "vi": "Cichlid châu Mỹ",
+    "id": "Cichlid Amerika",
+    "th": "ปลาหมอสีอเมริกา",
+    "ms": "Cichlid Amerika"
+   },
+   "match": {
+    "group": [
+     "cichlids"
+    ],
+    "places": [
+     "south-america",
+     "central-america",
+     "north-america"
+    ]
+   },
+   "guides": {
+    "add": [
+     "glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-thorichthys-week-at-aquarium-glaser-en",
+     "seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy"
+    ]
+   }
+  },
+  {
+   "id": "lau-kieng",
+   "names": {
+    "vi": "Lau kiếng",
+    "id": "Sapu-sapu",
+    "th": "ซักเกอร์",
+    "ms": "Bandaraya"
+   },
+   "match": {
+    "family": [
+     "Loricariidae"
+    ]
+   },
+   "guides": {
+    "add": [
+     "glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-peckoltia-sp-alto-nhamunda-en-2"
+    ]
+   }
+  },
+  {
+   "id": "tep",
+   "names": {
+    "vi": "Tép",
+    "id": "Udang hias",
+    "th": "กุ้ง",
+    "ms": "Udang hiasan"
+   },
+   "match": {
+    "group": [
+     "shrimp"
+    ],
+    "except": [
+     "cambarellus-puer",
+     "cambarellus-shufeldtii",
+     "cambarus-bartonii",
+     "cherax-holthuisi",
+     "lysmata-amboinensis",
+     "lysmata-debelius",
+     "periclimenes-yucatanicus",
+     "saron-marmoratus",
+     "gnathophyllum-americanum",
+     "urocaridella-antonbruunii",
+     "macrobrachium-brasiliense",
+     "macrobrachium-dayanum"
+    ]
+   },
+   "guides": {
+    "off": [
+     "aquariumbreeder-seed-shrimp-profile-ostracods-in-shrimp-and-fish-tank"
+    ]
+   }
+  },
+  {
+   "id": "dia",
+   "names": {
+    "vi": "Dĩa",
+    "id": "Discus",
+    "th": "ปลาปอมปาดัวร์",
+    "ms": "Discus"
+   },
+   "match": {
+    "genus": [
+     "Symphysodon"
+    ]
+   }
+  },
+  {
+   "id": "ong-tien",
+   "names": {
+    "vi": "Ông tiên",
+    "id": "Manfish",
+    "th": "ปลาเทวดา",
+    "ms": "Angel"
+   },
+   "match": {
+    "genus": [
+     "Pterophyllum"
+    ]
+   }
+  },
+  {
+   "id": "la-han",
+   "names": {
+    "vi": "La hán",
+    "id": "Louhan",
+    "th": "ฟลาวเวอร์ฮอร์น",
+    "ms": "Louhan"
+   },
+   "match": {
+    "breeds": [
+     "flowerhorn-cichlid"
+    ]
+   }
+  },
+  {
+   "id": "betta",
+   "names": {
+    "vi": "Betta",
+    "id": "Cupang",
+    "th": "ปลากัด",
+    "ms": "Laga"
+   },
+   "match": {
+    "genus": [
+     "Betta"
+    ]
+   }
+  },
+  {
+   "id": "ca-sac",
+   "names": {
+    "vi": "Cá sặc",
+    "id": "Gurami",
+    "th": "ปลากระดี่",
+    "ms": "Sepat"
+   },
+   "match": {
+    "genus": [
+     "Trichogaster",
+     "Trichopodus",
+     "Sphaerichthys",
+     "Parosphromenus",
+     "Helostoma",
+     "Osphronemus",
+     "Trichopsis",
+     "Belontia",
+     "Parasphaerichthys",
+     "Ctenops"
+    ]
+   }
+  },
+  {
+   "id": "bay-mau",
+   "names": {
+    "vi": "Bảy màu",
+    "id": "Guppy",
+    "th": "ปลาหางนกยูง",
+    "ms": "Guppy"
+   },
+   "match": {
+    "species": [
+     "poecilia-reticulata",
+     "poecilia-wingei"
+    ]
+   }
+  },
+  {
+   "id": "ca-vang",
+   "names": {
+    "vi": "Cá vàng",
+    "id": "Koki",
+    "th": "ปลาทอง",
+    "ms": "Ikan emas"
+   },
+   "match": {
+    "species": [
+     "carassius-auratus"
+    ]
+   }
+  },
+  {
+   "id": "ca-rong",
+   "names": {
+    "vi": "Cá rồng",
+    "id": "Arwana",
+    "th": "อะโรวาน่า",
+    "ms": "Arowana"
+   },
+   "match": {
+    "family": [
+     "Osteoglossidae"
+    ]
+   }
+  },
+  {
+   "id": "koi",
+   "names": {
+    "vi": "Koi",
+    "id": "Koi",
+    "th": "ปลาคาร์ป",
+    "ms": "Koi"
+   },
+   "match": {
+    "genus": [
+     "Cyprinus"
+    ],
+    "breeds": [
+     "butterfly-koi"
+    ]
+   }
+  },
+  {
+   "id": "tetra",
+   "names": {
+    "vi": "Tetra",
+    "id": "Tetra",
+    "th": "เตตร้า",
+    "ms": "Tetra"
+   },
+   "match": {
+    "group": [
+     "tetras"
+    ]
+   }
+  },
+  {
+   "id": "chach",
+   "names": {
+    "vi": "Chạch",
+    "id": "Loach",
+    "th": "ปลาหมู",
+    "ms": "Loach"
+   },
+   "match": {
+    "group": [
+     "loaches"
+    ]
+   }
+  },
+  {
+   "id": "ca-chuot",
+   "names": {
+    "vi": "Cá chuột",
+    "id": "Corydoras",
+    "th": "ปลาแพะ",
+    "ms": "Cory"
+   },
+   "match": {
+    "family": [
+     "Callichthyidae"
+    ]
+   },
+   "guides": {
+    "off": [
+     "glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-peckoltia-sp-alto-nhamunda-en-2"
+    ]
+   }
+  },
+  {
+   "id": "killi",
+   "names": {
+    "vi": "Killi",
+    "id": "Killifish",
+    "th": "ปลาคิลลี่",
+    "ms": "Killifish"
+   },
+   "match": {
+    "group": [
+     "killifish"
+    ]
+   }
+  },
+  {
+   "id": "long-tong",
+   "names": {
+    "vi": "Lòng tong",
+    "id": "Rasbora",
+    "th": "ปลาซิว",
+    "ms": "Rasbora"
+   },
+   "match": {
+    "group": [
+     "rasboras"
+    ]
+   }
+  },
+  {
+   "id": "oc",
+   "names": {
+    "vi": "Ốc",
+    "id": "Keong",
+    "th": "หอย",
+    "ms": "Siput"
+   },
+   "match": {
+    "group": [
+     "snails"
+    ]
+   },
+   "guides": {
+    "off": [
+     "aquariumcoop-blogs-aquarium-shell-dwellers",
+     "youtube-Gco4K1OuLaE",
+     "youtube-hQgZb6U3iPw",
+     "youtube-jFFbDTBUgIk",
+     "youtube-py-6gyQwVWU",
+     "youtube-yfiUqZ8IZU4",
+     "youtube-9NhMq1H-aoo"
+    ]
+   }
+  }
+ ]
 }

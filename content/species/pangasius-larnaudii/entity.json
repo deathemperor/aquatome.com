@@ -66,16 +66,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/f95803502d899c97.webp",
-      "width": 960,
-      "height": 762,
-      "licence": "CC BY-SA 4.0",
-      "author": "Trương Minh Khải",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pangasius_larnaudii_in_Ho_Chi_Minh_city,_Vietnam.jpg",
-      "caption": "Pangasius larnaudii is caught in Nha Be River, Ho Chi Minh City in April 2021",
-      "thumb": "https://media.aquatome.com/commons/f95803502d899c97-480.webp"
-    },
-    {
       "url": "https://media.aquatome.com/commons/9dec7eb05e9009c2.webp",
       "width": 960,
       "height": 674,
@@ -84,26 +74,6 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pangasius_larnaudii.jpg",
       "caption": "この白パン、アクア・トトぎふで撮影しました。",
       "thumb": "https://media.aquatome.com/commons/9dec7eb05e9009c2-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/71e2106f6f530110.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY-SA 4.0",
-      "author": "Phoebus 28",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pangasius_larnaudii_at_Talat_Phlu.jpg",
-      "caption": "Living Pangasius larnaudii, also known locally as Tepho (เทโพ) or Hu-mat (หูหมาด) that was caught in the canal Khlong Bangkok Yai at Talat Phlu, Bangkok, on October 20, 2024 at approximately 11:00 a.m",
-      "thumb": "https://media.aquatome.com/commons/71e2106f6f530110-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/cc00f1f229a4f76a.webp",
-      "width": 960,
-      "height": 960,
-      "licence": "CC BY-SA 3.0",
-      "author": "Takeaway",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kaeng_thae_pho.jpg",
-      "caption": "Kaeng thae pho (Thai script: แกงเทโพ) is one of the dishes mentioned in King Rama II's poem on Thai dishes. It is a central Thai curry originally made with the fatty belly part of the Pangasius larnau",
-      "thumb": "https://media.aquatome.com/commons/cc00f1f229a4f76a-480.webp"
     }
   ],
   "videos": [
@@ -148,5 +118,159 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13"
+  "updatedAt": "2026-11-13",
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Northern Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Mekong and Chao Phraya basins.",
+          "countries": [],
+          "regions": [
+            "Mekong",
+            "Chao Phraya"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202460,
+      "total": 45,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "TH",
+          27
+        ],
+        [
+          "KH",
+          13
+        ],
+        [
+          "VN",
+          4
+        ],
+        [
+          "LA",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          16.875,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          12.65625,
+          5,
+          5
+        ],
+        [
+          99.84375,
+          14.0625,
+          3,
+          3
+        ],
+        [
+          99.84375,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          11.25,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          104.0625,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          104.0625,
+          11.25,
+          6,
+          0
+        ],
+        [
+          104.0625,
+          12.65625,
+          3,
+          0
+        ],
+        [
+          104.0625,
+          14.0625,
+          7,
+          7
+        ],
+        [
+          104.0625,
+          16.875,
+          2,
+          2
+        ],
+        [
+          105.46875,
+          9.84375,
+          3,
+          0
+        ],
+        [
+          105.46875,
+          12.65625,
+          2,
+          0
+        ],
+        [
+          105.46875,
+          14.0625,
+          7,
+          7
+        ],
+        [
+          106.875,
+          12.65625,
+          1,
+          0
+        ]
+      ]
+    }
+  }
 }

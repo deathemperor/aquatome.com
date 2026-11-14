@@ -12,9 +12,36 @@
     "indonesia",
     "java",
     "vietnam",
-    "mekong"
+    "mekong",
+    "cambodia",
+    "malaysia"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 26,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 42
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
@@ -23,10 +50,34 @@
       "html": "<ul><li>Scientific name: Cryptarius truncatus (Valenciennes, 1840)</li><li>Type locality: Java, Indonesia.</li><li>Size: 420 mm SL (16.5\")</li><li>IUCN Red List category: Not Evaluated</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/cryptarius_truncatus.htm",
+      "html": "<ul><li>Common name: Spoonsnouted catfish</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1358",
       "html": "<p>Western Central Pacific: estuaries and lower courses of rivers from the Chao Phraya to Sumatra and Java, including the lower Mekong.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/cryptarius_truncatus.htm",
+      "html": "<p>South and southeast Asia: Thailand, Cambodia, Indonesia and Malaysia. Type locality: Java, Indonesia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/cryptarius_truncatus.htm",
+      "html": "<p>Found in estuaries and lower courses of rivers from the Chao Phrya to Sumatra and Java, including the lower Mekong. The species can be quite abundant at times. Caught with trawls, seines, traps and hook-and-line. Marketed fresh.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/cryptarius_truncatus.htm",
+      "html": "<p>Feeds on fishes and crustaceans.</p>"
     },
     {
       "key": "reproduction",
@@ -35,13 +86,70 @@
       "html": "<p>Unreported. There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/cryptarius_truncatus.htm",
+      "html": "<p>The genus Cryptarius can be distinguished by the following exclusive characters: (1) vomer arrow shaped; (2) epioccipital posterior process contacting median crest associated with neural spine of fourth vertebra; (3) anterior part of interopercle very long and pointed; (4) anterior part of metapterygoid contacting quadrate through an indented articulation, most of the remaining part of this bone simply contacting the quadrate; (5) posterior portion of second basibranchial very wide; (6) mesethmoid moderately thick at median portion.</p><p>Etymology: The genus name Cryptarius: kryptos, hidden or secret, i.e., a cryptic Arius, referring to its unique combination of characters having been ignored for such a long time. The specific name truncatus: referring to truncate (or spoon-shaped) snout.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1358",
       "html": "<p>Histoire naturelle des poissons v. 15, pp 64.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/cryptarius_truncatus.htm",
+      "html": "<p>Marceniuk, Alexandre P.; Menezes, Naércio A. (2007). \"Systematics of the family Ariidae (Ostariophysi, Siluriformes), with a redefinition of the genera\" Zootaxa 1416: 1–126. Rainboth, W.J. 1996 Fishes of the Cambodian Mekong. FAO Species Identification Field Guide for Fishery Purposes. FAO, Rome, 265 p. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/99d274f48bd8f37e.webp",
+      "thumb": "https://media.aquatome.com/scotcat/99d274f48bd8f37e-480.webp",
+      "width": 500,
+      "height": 305,
+      "licence": "dùng với sự cho phép",
+      "author": "Jean-Francois Helias / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/cryptarius_truncatus.htm",
+      "caption": "Cryptarius truncatus: Showing the spoon shaped snout",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/bfa7aa48ee8eb07a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/bfa7aa48ee8eb07a-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Jean-Francois Helias / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/cryptarius_truncatus.htm",
+      "caption": "Cryptarius truncatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/c34ca5b5b606fcf5.webp",
+      "thumb": "https://media.aquatome.com/scotcat/c34ca5b5b606fcf5-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Jean-Francois Helias / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/cryptarius_truncatus.htm",
+      "caption": "Cryptarius truncatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/f1da689b56238f69.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f1da689b56238f69-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Jean-Francois Helias / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/cryptarius_truncatus.htm",
+      "caption": "Cryptarius truncatus",
+      "source": "scotcat"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "TR9RqveC0Hs",
@@ -68,6 +176,125 @@
       "lang": "en"
     }
   ],
-  "productSlots": [],
-  "updatedAt": "2026-11-13"
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 400 lít",
+        "bể cá kính cường lực"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài bể lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300w"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13",
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Java",
+        "Chao Phraya",
+        "Mekong",
+        "Sumatra"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Java, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Java"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Western Central Pacific: estuaries and lower courses of rivers from the Chao Phraya to Sumatra and Java, including the lower Mekong.",
+          "countries": [],
+          "regions": [
+            "Chao Phraya",
+            "Mekong",
+            "Sumatra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2345492,
+      "total": 6,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "KH",
+          2
+        ],
+        [
+          "MY",
+          2
+        ],
+        [
+          "CN",
+          1
+        ],
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          104.0625,
+          11.25,
+          1,
+          0
+        ],
+        [
+          104.0625,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          104.0625,
+          37.96875,
+          1,
+          0
+        ],
+        [
+          105.46875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          118.125,
+          4.21875,
+          1,
+          0
+        ]
+      ]
+    }
+  }
 }

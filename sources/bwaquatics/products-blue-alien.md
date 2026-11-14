@@ -1,7 +1,7 @@
 ---
 url: https://bwaquatics.com/products/blue-alien
 title: Alien Betta Blue Hybrid | Rare Bettas – BWAquatics
-fetchedAt: 2026-11-13T17:02:06.751Z
+fetchedAt: 2026-11-13T20:45:43.855Z
 hash: 3d241669dbf0b3883adb0f702298509488c96158dc75a820f19a1620ede1466d
 ---
 

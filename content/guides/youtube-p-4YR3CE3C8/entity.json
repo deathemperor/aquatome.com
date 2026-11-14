@@ -113,7 +113,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể 1,2 m trồng dày cây thủy sinh, thả cá thưa.",
-            "sharpness": 2142.8
+            "sharpness": 2142.8,
+            "person": false
           },
           {
             "t": 210,
@@ -121,7 +122,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh lớn có lũa và cây, bố cục thoáng, ít cá.",
-            "sharpness": 1787.1
+            "sharpness": 1787.1,
+            "person": false
           }
         ],
         "photo": {
@@ -144,7 +146,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể hệ sinh thái nhiều cây và cá nhỏ, không cần lọc.",
-            "sharpness": 574.4
+            "sharpness": 574.4,
+            "person": false
           },
           {
             "t": 450,
@@ -152,7 +155,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bộ hớt váng nhỏ đặt ở góc sau bể, giữa rễ cây.",
-            "sharpness": 680
+            "sharpness": 680,
+            "person": false
           }
         ]
       },
@@ -180,14 +184,6 @@
             "height": 675,
             "caption": "Sỏi và đất ao đựng riêng trong hai khay thủy tinh.",
             "sharpness": 106.4
-          },
-          {
-            "t": 1090,
-            "url": "https://media.aquatome.com/video/p-4YR3CE3C8/at1090-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng tay rải đều lớp đất trộn sỏi dưới đáy bể.",
-            "sharpness": 1354.2
           }
         ]
       },
@@ -195,20 +191,13 @@
         "heading": "Đèn bao nhiêu là đủ cho bể ít công nghệ",
         "moments": [
           {
-            "t": 1200,
-            "url": "https://media.aquatome.com/video/p-4YR3CE3C8/at1200-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đưa đầu đo PAR xuống đáy bể trống để đo ánh sáng.",
-            "sharpness": 1025.9
-          },
-          {
             "t": 2290,
             "url": "https://media.aquatome.com/video/p-4YR3CE3C8/at2290-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể 60 cm với đèn mỏng phía trên, cây thủy sinh và lũa.",
-            "sharpness": 1158.5
+            "sharpness": 1158.5,
+            "person": false
           }
         ]
       },
@@ -221,15 +210,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khúc lũa đặt cùng đá cuội tròn trên nền sỏi trắng trong hồ.",
-            "sharpness": 1146.8
-          },
-          {
-            "t": 1480,
-            "url": "https://media.aquatome.com/video/p-4YR3CE3C8/at1480-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt đá cuội lớn nhỏ và đá đen vụn quanh gốc lũa.",
-            "sharpness": 703.2
+            "sharpness": 1146.8,
+            "person": false
           }
         ],
         "photo": {
@@ -245,24 +227,7 @@
       },
       {
         "heading": "Chọn và trồng cây",
-        "moments": [
-          {
-            "t": 1890,
-            "url": "https://media.aquatome.com/video/p-4YR3CE3C8/at1890-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây thủy sinh xanh mọc xen giữa lũa và đá trong bể mới setup.",
-            "sharpness": 1455.6
-          },
-          {
-            "t": 1960,
-            "url": "https://media.aquatome.com/video/p-4YR3CE3C8/at1960-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây trồng dày quanh lũa và đá, tạo bố cục xanh um.",
-            "sharpness": 929
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/p-4YR3CE3C8/p6-NfUGxhbnRzLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/p-4YR3CE3C8/p6-NfUGxhbnRzLmpwZw-480.webp",
@@ -290,24 +255,7 @@
       },
       {
         "heading": "Theo dõi TDS để biết khi nào thay nước",
-        "moments": [
-          {
-            "t": 280,
-            "url": "https://media.aquatome.com/video/p-4YR3CE3C8/at280-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bút đo TDS đặt cạnh bể tròn nhiều cây thủy sinh.",
-            "sharpness": 1423.7
-          },
-          {
-            "t": 2940,
-            "url": "https://media.aquatome.com/video/p-4YR3CE3C8/at2940-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cầm bút đo TDS nhúng vào nước bể cây thủy sinh.",
-            "sharpness": 446.7
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/p-4YR3CE3C8/p8-kcy1tZXRlci5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/p-4YR3CE3C8/p8-kcy1tZXRlci5qcGc-480.webp",
@@ -323,20 +271,13 @@
         "heading": "Thả cá thế nào để bể giữ cân bằng",
         "moments": [
           {
-            "t": 3490,
-            "url": "https://media.aquatome.com/video/p-4YR3CE3C8/at3490-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thả cá vào bể thủy sinh nhiều cây, túi cá đang để trên mặt nước.",
-            "sharpness": 2154.5
-          },
-          {
             "t": 3520,
             "url": "https://media.aquatome.com/video/p-4YR3CE3C8/at3520-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh cây xanh um với lũa và đá, cá đã được thả.",
-            "sharpness": 1874.5
+            "sharpness": 1874.5,
+            "person": false
           }
         ],
         "photo": {

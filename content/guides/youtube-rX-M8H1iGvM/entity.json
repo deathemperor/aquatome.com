@@ -68,15 +68,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thùng sump mica hoàn chỉnh với các vách ngăn bên trong.",
-            "sharpness": 417
-          },
-          {
-            "t": 55,
-            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/at55-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cắt tấm mica trên máy cưa bàn, vụn mica văng đầy mặt bàn.",
-            "sharpness": 1843.5
+            "sharpness": 417,
+            "person": false
           }
         ]
       },
@@ -90,14 +83,6 @@
             "height": 675,
             "caption": "Chạy keo loãng dọc mép nối giữa hai tấm mica.",
             "sharpness": 50.9
-          },
-          {
-            "t": 120,
-            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/at120-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai tấm mica dựng vuông góc, đang dán keo dọc mép nối.",
-            "sharpness": 560.2
           }
         ]
       },
@@ -111,14 +96,6 @@
             "height": 675,
             "caption": "Thùng mica trong với hai vách ngăn đen đã được đặt vào.",
             "sharpness": 130.9
-          },
-          {
-            "t": 245,
-            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/at245-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thùng sump có vách ngăn đen bên trong, nhìn từ bên cạnh.",
-            "sharpness": 1122
           }
         ]
       },
@@ -126,20 +103,13 @@
         "heading": "Bố trí lọc cơ học ở ngăn đầu",
         "moments": [
           {
-            "t": 290,
-            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/at290-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Túi lọc trắng treo trong ngăn đầu của hồ.",
-            "sharpness": 579.1
-          },
-          {
             "t": 295,
             "url": "https://media.aquatome.com/video/rX-M8H1iGvM/at295-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Gờ mica trong ngăn lọc đầu, bên dưới có bông lọc lót sẵn.",
-            "sharpness": 587.8
+            "sharpness": 587.8,
+            "person": false
           }
         ]
       },
@@ -160,7 +130,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Vật liệu K1 được sục khí đảo liên tục trong ngăn lọc.",
-            "sharpness": 471.8
+            "sharpness": 471.8,
+            "person": false
           }
         ]
       },
@@ -173,15 +144,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Sump đặt trong tủ chân bể, vật liệu lọc trắng đang chuyển động nhẹ.",
-            "sharpness": 435.8
-          },
-          {
-            "t": 345,
-            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/at345-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đặt tấm polycarbonate trong suốt lên đậy miệng sump.",
-            "sharpness": 2769.4
+            "sharpness": 435.8,
+            "person": false
           }
         ]
       },
@@ -202,7 +166,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ngăn moving bed trong sump với giá thể vi sinh đang xoay đảo.",
-            "sharpness": 551.4
+            "sharpness": 551.4,
+            "person": false
           }
         ],
         "photo": {
@@ -225,7 +190,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ngăn lọc moving bed đầy hạt vật liệu đang xoay đảo trong bể.",
-            "sharpness": 516.7
+            "sharpness": 516.7,
+            "person": false
           },
           {
             "t": 400,
@@ -256,7 +222,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Sump nằm sát dưới tủ, phía trên chỉ còn khoảng trống hẹp.",
-            "sharpness": 489.2
+            "sharpness": 489.2,
+            "person": false
           },
           {
             "t": 430,
@@ -264,7 +231,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khe hở giữa sump và trần tủ khá chật, nhìn thấy cả ống nước.",
-            "sharpness": 373.5
+            "sharpness": 373.5,
+            "person": false
           }
         ]
       }

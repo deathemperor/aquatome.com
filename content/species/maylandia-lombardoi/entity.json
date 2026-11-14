@@ -175,16 +175,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/c133e75989528b88.webp",
-      "width": 960,
-      "height": 512,
-      "licence": "CC BY 2.0",
-      "author": "Brian Gratwicke",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Maylandia_lombardoi_1.jpg",
-      "caption": "pseudotropheus lombardoi",
-      "thumb": "https://media.aquatome.com/commons/c133e75989528b88-480.webp"
-    },
-    {
       "url": "https://media.aquatome.com/commons/1b32e009222384a2.webp",
       "width": 960,
       "height": 655,
@@ -192,17 +182,12 @@
       "author": "Vlad Butsky from San Jose, CA, USA",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudotropheus_lombardoi_3.jpg",
       "caption": "Pseudotropheus lombardoiImage #10914 (http://www.butsky.com)",
-      "thumb": "https://media.aquatome.com/commons/1b32e009222384a2-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/f91c7dbe8f30683c.webp",
-      "width": 960,
-      "height": 628,
-      "licence": "CC BY 2.0",
-      "author": "Vlad Butsky from San Jose, CA, USA",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudotropheus_lombardoi_4.jpg",
-      "caption": "Pseudotropheus lombardoiImage #10922 (http://www.butsky.com)",
-      "thumb": "https://media.aquatome.com/commons/f91c7dbe8f30683c-480.webp"
+      "thumb": "https://media.aquatome.com/commons/1b32e009222384a2-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/1b32e009222384a2-large.webp",
+        "width": 1758,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/7da985e3c4c3f42b.webp",
@@ -213,6 +198,26 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudotropheus_lombardoi_2.jpg",
       "caption": "Pseudotropheus lombardoiImage #10912 (http://www.butsky.com)",
       "thumb": "https://media.aquatome.com/commons/7da985e3c4c3f42b-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/c133e75989528b88.webp",
+      "width": 960,
+      "height": 512,
+      "licence": "CC BY 2.0",
+      "author": "Brian Gratwicke",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Maylandia_lombardoi_1.jpg",
+      "caption": "pseudotropheus lombardoi",
+      "thumb": "https://media.aquatome.com/commons/c133e75989528b88-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/f91c7dbe8f30683c.webp",
+      "width": 960,
+      "height": 628,
+      "licence": "CC BY 2.0",
+      "author": "Vlad Butsky from San Jose, CA, USA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudotropheus_lombardoi_4.jpg",
+      "caption": "Pseudotropheus lombardoiImage #10922 (http://www.butsky.com)",
+      "thumb": "https://media.aquatome.com/commons/f91c7dbe8f30683c-480.webp"
     }
   ],
   "videos": [],

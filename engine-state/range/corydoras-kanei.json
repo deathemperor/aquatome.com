@@ -1,8 +1,8 @@
 {
   "id": "corydoras-kanei",
   "native": {
-    "input": "845741fc908e71c8",
-    "at": "2026-11-08T18:57:48.756Z",
+    "input": "e5387e446a5551a4",
+    "at": "2026-11-14T00:09:29.977Z",
     "claims": [
       {
         "code": "BR",
@@ -15,24 +15,31 @@
       {
         "code": "BR",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Type locality is 'Aquarium specimen, said to be from Brazil, Roraima State near Boa Vista, possibly from the Rio Branco'.",
+        "source": "glaser",
+        "quote": "It is said that C142 originates from the Rio Tapajos in Brazil.",
         "words": "Brazil",
         "ok": true
       }
     ],
     "regions": [
       {
-        "name": "rio Negro",
+        "name": "Rio Negro",
         "source": "seriouslyfish",
         "quote": "Hoplisoma kanei, long known as Corydoras kanei, is an armoured catfish that appears to be native to the rio Negro basin in Brazil, possibly only the rio Branco drainage.",
         "country": "BR",
         "ok": true
       },
       {
-        "name": "rio Branco",
+        "name": "Rio Branco",
         "source": "seriouslyfish",
         "quote": "Hoplisoma kanei, long known as Corydoras kanei, is an armoured catfish that appears to be native to the rio Negro basin in Brazil, possibly only the rio Branco drainage.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Tapajos",
+        "source": "glaser",
+        "quote": "It is said that C142 originates from the Rio Tapajos in Brazil.",
         "country": "BR",
         "ok": true
       }
