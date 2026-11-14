@@ -165,16 +165,21 @@ test("a returning photo finds its place by its neighbours and its list by what n
 })
 
 test("a place no longer told apart, or taken, keeps its photo held: two lists of the same name, a calendar card now showing another picture", async () => {
-  const x = photo('x'), y = photo('y'), b = photo('b'), other = photo('other')
+  const x = photo('x'), y = photo('y'), b = photo('b'), other = photo('other'), z = photo('z'), w = photo('w')
   const r = await root({
     'content/guides/dup/entity.json': { id: 'dup', sections: [{ key: 'same', source: 's', photos: [x] }, { key: 'same', source: 's', photos: [y] }] },
+    'content/guides/dup-gone/entity.json': { id: 'dup-gone', sections: [{ key: 'same', source: 's', photos: [w] }, { key: 'same', source: 's', photos: [z] }] },
     'content/curation.json': { days: [{ date: '2026-11-27', guide: 'guides/dup', guideImg: b.url }] },
   })
-  await holdForCreditRead(r, [y.url, b.url], 'the chief of staff', '2026-11-14', 'credits unread')
+  await holdForCreditRead(r, [y.url, b.url, z.url], 'the chief of staff', '2026-11-14', 'credits unread')
+  // The section z was held from goes; its sibling of the same name is now the only one, and still isn't its place.
+  const gone = join(r, 'content/guides/dup-gone/entity.json')
+  await writeFile(gone, JSON.stringify({ id: 'dup-gone', sections: [{ key: 'same', source: 's', photos: [w] }] }))
   const cal = join(r, 'content/curation.json')
   await writeFile(cal, JSON.stringify({ days: [{ date: '2026-11-27', guide: 'guides/dup', guideImg: other.url }] }))
   const own = (): PhotoCredit => ({ page: PAGE, kind: 'own', line: 'sha256:x', at: '2026-11-28' })
-  expect(await releaseCreditHolds(r, { [y.url]: own(), [b.url]: own() })).toEqual({ back: [b.url, y.url], off: [], stuck: [y.url, b.url] })
+  expect(await releaseCreditHolds(r, { [y.url]: own(), [b.url]: own(), [z.url]: own() })).toEqual({ back: [b.url, y.url, z.url], off: [], stuck: [y.url, z.url, b.url] })
+  expect((await json(gone)).sections).toEqual([{ key: 'same', source: 's', photos: [w] }])
   expect((await json(join(r, 'content/guides/dup/entity.json'))).sections).toEqual([{ key: 'same', source: 's', photos: [x] }, { key: 'same', source: 's', photos: [] }])
   expect((await json(cal)).days).toEqual([{ date: '2026-11-27', guide: 'guides/dup', guideImg: other.url }])
   const holds = await json(join(r, CREDIT_HOLDS))

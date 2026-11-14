@@ -133,14 +133,20 @@ const writeJson = (f: string, raw: string, data: unknown) => writeFile(f, `${JSO
 type Node = Record<string, unknown>
 const isNode = (x: unknown): x is Node => !!x && typeof x === 'object' && !Array.isArray(x)
 
-/** An item of a list by what names it (its id, or its key and source), so a list put in another order still finds it; else its place. */
-const step = (v: unknown, i: number) => {
+const named = (list: unknown[], name: Record<string, string>) => list.filter(v => isNode(v) && Object.entries(name).every(([f, s]) => v[f] === s))
+/**
+ * An item of a list by what names it (its id, or its key and source), so a list put in another order still finds it; else
+ * its place. A name another item of the list shares is recorded as one never to be matched (`?`): which of them it was
+ * can't be known later, even once the other has gone, so a photo held from it stays held.
+ */
+const step = (list: unknown[], v: unknown, i: number) => {
   const name = isNode(v) ? Object.fromEntries((['id', 'key', 'source'] as const).filter(k => typeof v[k] === 'string').map(k => [k, v[k] as string])) : {}
-  return Object.keys(name).length ? `@${JSON.stringify(name)}` : String(i)
+  if (!Object.keys(name).length) return String(i)
+  return `${named(list, name).length === 1 ? '@' : '?'}${JSON.stringify(name)}`
 }
 /** Takes the wanted photos out of every `photos` list in a content file, at any depth, noting where each was. */
 function takeOut(x: unknown, want: Set<string>, file: string, path: string[], out: HeldPlace[]) {
-  if (Array.isArray(x)) { x.forEach((v, i) => takeOut(v, want, file, [...path, step(v, i)], out)); return }
+  if (Array.isArray(x)) { x.forEach((v, i) => takeOut(v, want, file, [...path, step(x, v, i)], out)); return }
   if (!isNode(x)) return
   if (Array.isArray(x.photos)) {
     const list = x.photos as Photo[], held = (p: unknown) => isNode(p) && want.has((p as Photo).url)
@@ -162,11 +168,11 @@ function leftOver(x: unknown, want: Set<string>): boolean {
 }
 const at = (data: unknown, path: string[]) => path.reduce<unknown>((n, k) => {
   if (Array.isArray(n)) {
+    if (k.startsWith('?')) return undefined
     if (!k.startsWith('@')) return n[Number(k)]
-    const name = JSON.parse(k.slice(1)) as Record<string, string>
-    // Two items with the same name: no telling which it was, so the photo stays held.
-    const named = n.filter(v => isNode(v) && Object.entries(name).every(([f, s]) => v[f] === s))
-    return named.length === 1 ? named[0] : undefined
+    // Two items with the same name now: no telling which it was, so the photo stays held.
+    const m = named(n, JSON.parse(k.slice(1)) as Record<string, string>)
+    return m.length === 1 ? m[0] : undefined
   }
   return isNode(n) ? n[k] : undefined
 }, data)
