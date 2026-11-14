@@ -173,7 +173,7 @@ test("the stored title is read from the engine's copy of the source page, only w
   await writeFile(join(root, 'sources/bwaquatics/products-moved.md'), '---\nurl: https://bwaquatics.com/products/other\ntitle: Betta Raja\n---\n')
   expect(titles({ source: 'bwaquatics', sourceUrl: 'https://bwaquatics.com/products/moved' })).toBeUndefined()
   // namedOn reads them beside content/.
-  for (const [id, sci] of [['betta-raja', 'Betta raja'], ['betta-anabatoides', 'Betta anabatoides']]) {
+  for (const [id, sci] of [['betta-raja', 'Betta raja'], ['betta-anabatoides', 'Betta anabatoides']] as const) {
     await mkdir(join(root, 'content/species', id), { recursive: true })
     await writeFile(join(root, 'content/species', id, 'entity.json'), JSON.stringify({ scientificName: sci, photos: [] }))
   }
