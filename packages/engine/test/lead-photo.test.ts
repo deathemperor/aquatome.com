@@ -245,3 +245,15 @@ test('the guard asks about the whole head, snout to gill cover, not an eye insid
   expect(HEAD_IN_CROP).toMatch(/tip of its snout to its gill cover/)
   expect(HEAD_IN_CROP).toMatch(/an eye inside the picture is not enough/)
 })
+
+test("a photo its source names only to its genus or as another fish doesn't lead while one named better passes (photo-named.ts)", () => {
+  const named = (p: Photo) => (name(p.url).startsWith('genus') ? 2 : name(p.url).startsWith('cf') ? 1 : 0)
+  // A genus-only head gives way to the first passing photo named to the species, the page's or the album's, with no question.
+  expect(leadChoice([big('genus-head'), big('own')], [], yes, {}, undefined, named)).toEqual({ lead: big('own') })
+  expect(leadChoice([big('genus-head')], [big('cf-1'), big('album')], yes, {}, undefined, named)).toEqual({ lead: big('album') })
+  // Where nothing named better passes, it stays.
+  expect(leadChoice([big('genus-head')], [big('own')], p => name(p.url) !== 'own', {}, undefined, named)).toBeUndefined()
+  // It never replaces a head named to the species, small as that is, and a page with none takes one named to the species first.
+  expect(leadChoice([photo('head', 500, 400)], [big('genus-1')], yes, {}, undefined, named)).toBeUndefined()
+  expect(leadChoice([], [{ ...big('genus-1'), best: true }, photo('plain', 500, 400)], yes, {}, undefined, named)).toEqual({ lead: photo('plain', 500, 400) })
+})

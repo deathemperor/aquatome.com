@@ -818,3 +818,15 @@ test('item admission stops without model calls or content changes', async () => 
     expect(d.seen).toEqual([])
   })
 })
+
+test("a photo its source names only to the genus doesn't lead while one named to the species passes as a head; a \"cf.\" one that's all a page has leads and is listed (photo-named.ts)", async () => {
+  const r = await root([
+    { id: 'aaa-fish', sci: 'Aaa fish', extra: { photos: [photo('genus', 'Aaa sp.'), photo('own', 'Aaa fish')] } },
+    { id: 'bbb-fish', sci: 'Bbb fish', extra: { photos: [photo('cf', 'Bbb cf. fish'), photo('plain')] } },
+  ])
+  const d = model({ genus: { typical: true }, own: { typical: true }, cf: { typical: true } })
+  const rep = await checkPagePhotos(r, d, { limit: 5 })
+  expect(await urls(r, 'content/species/aaa-fish/entity.json')).toEqual(['own', 'genus'])
+  expect(await urls(r, 'content/species/bbb-fish/entity.json')).toEqual(['cf', 'plain'])
+  expect(rep?.heads.named).toEqual([`species/bbb-fish: ${url('cf')} (cf.)`])
+})

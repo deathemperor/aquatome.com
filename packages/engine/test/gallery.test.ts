@@ -10,6 +10,7 @@ import { mirrorPlan } from '../src/mirror-photos'
 import { WikimediaRefused } from '../src/wikimedia-rest'
 import { breedNames, commonsCandidates, dhash, galleries, isSetup, orderAlbums, rankGallery, screenedAt, screenTagged, VET_SCHEMA, type GalleryDeps, type GalleryPhoto, type Look, type Vet } from '../src/gallery'
 import { slow } from '@aq/schema/test-time'
+import { knownNames, namedAs } from '../src/photo-named'
 
 const meta = (licence: string, artist = '<a href="x">Ann</a>, [[User:Bo K|Bo]]') => ({ LicenseShortName: { value: licence }, Artist: { value: artist } })
 const info = (title: string, licence: string, width = 2000) => ({
@@ -714,4 +715,17 @@ test('last item cost refuses admission without calls or content writes', async (
     expect(report.failed).toEqual([])
     expect(calls).toBe(0)
   })
+})
+
+test("gallery order: a photo its source names only to the genus or as another fish goes behind those named to the species, among the sure and the can't-tell alike, and stays", () => {
+  const p = (id: string, title: string): GalleryPhoto => ({ url: id, width: 1000, height: 800, licence: 'CC BY', author: 'a', sourceUrl: `https://commons.wikimedia.org/wiki/File:${title}.jpg`, kind: 'male' })
+  const page = { sci: 'Heros severus', known: knownNames([{ scientificName: 'Heros severus' }, { scientificName: 'Heros notatus' }]) }
+  const named = (x: GalleryPhoto) => namedAs(x, page)
+  const photos = [p('notatus', 'Heros_notatus01'), p('a', 'Heros_severus_1'), p('unsure-genus', 'Heros_sp'), p('b', 'Heros_severus_2'), p('unsure', 'Heros_severus_3')]
+  const cantTell = (u: string) => u.startsWith('unsure')
+  const at = screenedAt(['File:Heros notatus01.jpg', 'File:Heros severus 1.jpg', 'File:Heros sp.jpg', 'File:Heros severus 2.jpg', 'File:Heros severus 3.jpg'])
+  expect(rankGallery(photos, cantTell, at).map(x => x.url)).toEqual(['notatus', 'a', 'b', 'unsure-genus', 'unsure'])
+  const once = rankGallery(photos, cantTell, at, () => ({}), named)
+  expect(once.map(x => x.url)).toEqual(['a', 'b', 'notatus', 'unsure', 'unsure-genus'])
+  expect(rankGallery(once, cantTell, at, () => ({}), named)).toEqual(once)
 })

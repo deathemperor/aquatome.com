@@ -1152,3 +1152,27 @@ test("a photo on the never-again list leaves every equipment page and each langu
   expect(r.again.filter(x => x.startsWith('equipment/')).length).toBe(5)
   expect((await sweep(root)).again).toEqual([])
 })
+
+test('a head its source names only to the genus goes behind a photo named to the species that passes as a head; a pick of it still leads; a second sweep changes nothing', async () => {
+  const root = await store()
+  await sweep(root)
+  const at = 'content/species/corydoras-sterbai/entity.json'
+  const e = await json(root, at)
+  const own = e.photos[0]
+  const genus = photo('https://media.aquatome.com/commons/genus.webp', 'Corydoras sp.')
+  await writeFile(join(root, at), JSON.stringify({ ...e, photos: [genus, own] }))
+  // Nothing named to the species passes yet: it stays.
+  expect((await sweep(root)).named).toEqual([])
+  expect((await json(root, at)).photos.map((p: { url: string }) => p.url)).toEqual([genus.url, own.url])
+  await writeFile(join(root, 'engine-state/_photo-subjects.json'), JSON.stringify({ [own.url]: { 'corydoras-sterbai': { ok: 'yes', typical: true, person: false, logo: false } } }))
+  const r = await sweep(root)
+  expect((await json(root, at)).photos.map((p: { url: string }) => p.url)).toEqual([own.url, genus.url])
+  expect(r.named).toEqual([`species/corydoras-sterbai: ${genus.url} -> ${own.url}`])
+  expect((await sweep(root)).files).toEqual([])
+  // A person's pick of it leads, reported as a pick, and stays.
+  await writeFile(join(root, 'engine-state/_photo-head-picks.json'), JSON.stringify({ 'species/corydoras-sterbai': genus.url }))
+  const picked = await sweep(root)
+  expect((await json(root, at)).photos.map((p: { url: string }) => p.url)).toEqual([genus.url, own.url])
+  expect([picked.named, picked.heads]).toEqual([[], [`species/corydoras-sterbai: ${own.url} -> ${genus.url}`]])
+  expect((await sweep(root)).files).toEqual([])
+})

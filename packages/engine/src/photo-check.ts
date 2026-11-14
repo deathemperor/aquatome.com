@@ -14,6 +14,7 @@ import { pickStands, readPersonYes } from './person-yes'
 import { holdForSecondLook, looks, readSecondLook } from './last-photo'
 import { contactSheet } from './video-images'
 import { keptOwnMark, LOGO_FOLDERS, stripPhotos, type WatermarkEntry } from './watermarks'
+import { CF, namedOn, namedOrder, passesHead, SPECIES } from './photo-named'
 
 type Photo = { url: string; caption?: string; author?: string; sourceUrl?: string; generated?: unknown }
 /**
@@ -372,7 +373,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const report = {
     photos: 0, sheets: 0, judged: 0, removed: [] as string[], rejected: 0, blocked: [] as string[], unsure: 0, failed: [] as string[], stopped: '',
     /** A page's head that changed, `kind/id: old -> new`; a page left with no photo of its own, `kind/id: old`; one held by EMPTY_CAP. */
-    heads: { moved: [] as string[], emptied: [] as string[], held: [] as string[] },
+    heads: { moved: [] as string[], emptied: [] as string[], held: [] as string[], named: [] as string[] },
     /** A head a person picked that the check calls "none": it stays, listed for a person each run. */
     picked: [] as string[],
   }
@@ -381,6 +382,10 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
 
   const all = await rank(root, await subjects(content))
   const byId = new Map(all.map(s => [s.id, s]))
+  // What each photo's source calls its subject on each page (photo-named.ts), and the head's test.
+  const namedHere = await namedOn(content)
+  const faces = (await readJson<Record<string, number>>(join(root, 'engine-state/_photo-faces.json'))) ?? {}
+  const asHead = passesHead({ subjects: cache, legacy, rejected, faces, personYes: yes.counted })
   const shown: Shown[] = []
   for (const s of all) {
     let bare = false
@@ -654,9 +659,18 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       // person's yes for a card rests on it (person-yes.ts): its photo is the check's "can't tell" that the order above
       // would move behind a passed one (the stated exception to the owner's rule of 2026-11-11). A pick that rests on a
       // yes lapses with it, by this pass's verdicts: once the check says anything but "can't tell", the order above holds.
+      // A photo its source names only to the genus, as another fish, or with "cf." goes behind those named to the species,
+      // and never leads while one of those passes as a head (photo-named.ts; the chief of staff, 2026-11-14). The lead step
+      // and the sweep rank the same way, so none undoes another.
+      const cls = namedHere(s.id)
+      data.photos = namedOrder(data.photos, cls, x => asHead(x, s.id))
       const ref = `${s.kind}/${s.id}`, pick = headPicks[ref]
       const at = data.photos.findIndex(x => x.url === pick)
       if (at > 0 && pickStands(ref, pick!, cache, yes)) data.photos.unshift(...data.photos.splice(at, 1))
+      // One still leads where nothing better passes, or a person picked it: listed for the chief of staff each run.
+      const first = data.photos.find(x => !x.generated)
+      const c = first ? cls(first) : SPECIES
+      if (first && c !== SPECIES) report.heads.named.push(`${ref}: ${first.url} (${c === CF ? 'cf.' : 'genus only or another fish'}${picked(s.id, first.url) ? ', picked' : ''})`)
     }
     // In an album it comes after the photos the check passed or has not reached. The album step ranks the same way, but
     // only an album it adds to, so every album gets its order here, each run.
