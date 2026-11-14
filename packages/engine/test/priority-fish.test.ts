@@ -37,7 +37,7 @@ test('the album step takes a priority fish first, ahead of the staples, until it
   expect(await ids(await root(checked(PRIORITY_UNTIL)))).toEqual(['betta-splendens', 'danio-rerio', 'zzz-liked'])
 })
 
-test('the count is the album row\'s: each picture once, nothing the build still holds back, a breed\'s own photos after its first', async () => {
+test('the count is the album row\'s or under it: each picture once, nothing the build still holds back, a breed\'s album alone', async () => {
   // Six files of five pictures: two files of one photo.
   const r = await root(checked(PRIORITY_UNTIL))
   await writeFile(join(r, 'content/picture-hashes.json'), JSON.stringify({ [url('a0')]: 'ffffffffffffffff', [url('a1')]: 'fffffffffffffffe' }))
@@ -48,14 +48,21 @@ test('the count is the album row\'s: each picture once, nothing the build still 
   expect(await priorityFish(s)).toEqual(['species/zzz-liked'])
   await writeFile(join(s, 'engine-state/_photo-watermarks.json'), JSON.stringify(Object.fromEntries(checked(PRIORITY_UNTIL).map(p => [p.url, { ocr: [], watermark: false }]))))
   expect(await priorityFish(s)).toEqual([])
-  // A breed: its own photos after the first count, as its album row counts them. Two of its own and five in the album: six.
+  // A video's two thumbnails are one picture on the row, and a photo and its thumb are one, its hash stored under the photo.
+  const yt = (q: string) => ({ ...photo('x'), url: `https://i.ytimg.com/vi/abcdefghijk/${q}.jpg`, thumb: `https://i.ytimg.com/vi/abcdefghijk/${q}.jpg` })
+  const v = await root([yt('hqdefault'), yt('maxresdefault'), ...checked(PRIORITY_UNTIL - 2)])
+  expect(await priorityFish(v)).toEqual(['species/zzz-liked'])
+  const t = await root([photo('a0'), { ...photo('a0'), url: url('a0-480') }, ...checked(PRIORITY_UNTIL).slice(1, -1)])
+  await writeFile(join(t, 'content/picture-hashes.json'), JSON.stringify({ [url('a0')]: 'ffffffffffffffff' }))
+  expect(await priorityFish(t)).toEqual(['species/zzz-liked'])
+  // A breed counts its album alone: which of its own photos the site leads with rests on the build's own steps. Here its
+  // file leads with an AI picture the build leaves out, then six photos: the row shows five of them, and the breed stays.
   const b = await root([], { 'breeds/blue-fish': '2026-11-14' })
   await mkdir(join(b, 'content/breeds/blue-fish'), { recursive: true })
-  await writeFile(join(b, 'content/breeds/blue-fish/entity.json'), JSON.stringify({ id: 'blue-fish', kind: 'variety', photos: [photo('b0'), photo('b1')], sources: [] }))
-  await writeFile(join(b, 'content/gallery/blue-fish.json'), JSON.stringify({ id: 'blue-fish', photos: checked(PRIORITY_UNTIL - 1), seen: 0, updatedAt: '' }))
-  expect(await priorityFish(b)).toEqual([])
-  await writeFile(join(b, 'content/gallery/blue-fish.json'), JSON.stringify({ id: 'blue-fish', photos: checked(PRIORITY_UNTIL - 2), seen: 0, updatedAt: '' }))
+  await writeFile(join(b, 'content/breeds/blue-fish/entity.json'), JSON.stringify({ id: 'blue-fish', kind: 'variety', photos: [photo('ai', { generated: { by: 'x', on: '2026-11-15' } }), ...checked(PRIORITY_UNTIL)], sources: [] }))
   expect(await priorityFish(b)).toEqual(['breeds/blue-fish'])
+  await writeFile(join(b, 'content/gallery/blue-fish.json'), JSON.stringify({ id: 'blue-fish', photos: checked(PRIORITY_UNTIL), seen: 0, updatedAt: '' }))
+  expect(await priorityFish(b)).toEqual([])
 })
 
 test('a photo kept with a shop\'s mark doesn\'t count: the fish stays first until six photos with no mark', async () => {
