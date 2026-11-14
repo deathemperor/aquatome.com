@@ -1,11 +1,11 @@
-import { spawnSync } from 'node:child_process'
+import { execFileSync, spawnSync } from 'node:child_process'
 import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, realpathSync, writeFileSync } from 'node:fs'
 import { homedir, tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 // @ts-expect-error a plain script
-import { archiveNamed, archiveWorktree, expireArchive, scratch, scratchVerdict, simVerdict, space, worktreeVerdict } from '../../../scripts/machine-sweep.mjs'
+import { archiveNamed, archiveWorktree, expireArchive, scratch, scratchFolders, scratchKind, scratchVerdict, simVerdict, space, worktreeVerdict } from '../../../scripts/machine-sweep.mjs'
 import { slow } from '@aq/schema/test-time'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
@@ -228,7 +228,7 @@ test('free space under 30 GB reaches the chief of staff once a day, with where i
 test("the sweep takes our tests' scratch untouched for 6 h and open in no process, and nothing else in the temp folder", () => {
   const temp = mkdtempSync(join(tmpdir(), 'aq-load-'))
   const make = (name: string, kids: string[] = []) => { mkdirSync(join(temp, name)); for (const k of kids) mkdirSync(join(temp, name, k)) }
-  const litter = Array.from({ length: 20 }, (_, i) => `gate-Kq2a${String(i).padStart(2, '0')}`)
+  const litter = Array.from({ length: 21 }, (_, i) => `gate-Kq2a${String(i).padStart(2, '0')}`)
   for (const n of litter) make(n, ['content', 'engine-state'])
   make('aq-tests-a1B2c3') // a killed run's own folder
   make('aq-open-k3Jd9s') // a run still working in it
@@ -236,14 +236,15 @@ test("the sweep takes our tests' scratch untouched for 6 h and open in no proces
   make('lonely-a1B2c3', ['content']) // one of its kind: made by hand
   make('com.apple.dock.launchpad') // not mkdtemp's name
   const said: string[] = []
-  const pass = (now: number, dry = false) => scratch({ temp, open: () => new Set(['aq-open-k3Jd9s']), now, dry, say: (m: string) => said.push(m) })
+  // One of them holds a lead's worktree (Grok's read): never taken.
+  const pass = (now: number, dry = false) => scratch({ temps: [temp], open: () => new Set(['aq-open-k3Jd9s']), worktrees: () => new Set(['gate-Kq2a20']), now, dry, say: (m: string) => said.push(m) })
   // Everything here changed just now.
   expect(pass(Date.now())).toBe(0)
   expect(pass(Date.now() + 7 * 3_600_000, true)).toBe(21)
-  expect(readdirSync(temp)).toHaveLength(25)
+  expect(readdirSync(temp)).toHaveLength(26)
   expect(pass(Date.now() + 7 * 3_600_000)).toBe(21)
-  expect(readdirSync(temp).sort()).toEqual(['aq-open-k3Jd9s', 'com.apple.dock.launchpad', 'gate-Zz9Yy8', 'lonely-a1B2c3'])
-  expect(said.at(-1)).toMatch(/removed 21; left .*open in a process.*not test scratch by what it holds.*a kind too rare/)
+  expect(readdirSync(temp).sort()).toEqual(['aq-open-k3Jd9s', 'com.apple.dock.launchpad', 'gate-Kq2a20', 'gate-Zz9Yy8', 'lonely-a1B2c3'])
+  expect(said.at(-1)).toMatch(/removed 21; left .*open in a process.*holds a worktree.*not test scratch by what it holds.*a kind too rare/)
 })
 
 test("a folder goes only when it's ours by name, owner and what it holds, and nothing in it changed within 6 h", () => {
@@ -254,4 +255,12 @@ test("a folder goes only when it's ours by name, owner and what it holds, and no
   expect(scratchVerdict({ ...ours, name: 'gate-abcdef' })).toBe('not a scratch name')
   expect(scratchVerdict({ ...ours, kids: ['content', 'Photos Library.photoslibrary'] })).toBe('not test scratch by what it holds')
   expect(scratchVerdict({ ...ours, name: 'aq-tests-x1y2z3', kindCount: 1, kids: ['anything'] })).toBe('remove')
+  // A run's own folder whose suffix came out all lower case (about 1 in 180), and one holding a worktree (Grok's read).
+  expect([scratchKind('aq-tests-abcdef'), scratchVerdict({ ...ours, name: 'aq-tests-abcdef', kindCount: 1 })]).toEqual(['aq-tests', 'remove'])
+  expect(scratchVerdict({ ...ours, worktree: true })).toBe('holds a worktree')
+})
+
+test("the sweep looks in /tmp as well as this user's temp folder: launchd's jobs have no TMPDIR, so Node writes there", () => {
+  expect(scratchFolders()).toContain(realpathSync('/tmp'))
+  expect(scratchFolders()).toContain(realpathSync(process.platform === 'darwin' ? execFileSync('getconf', ['DARWIN_USER_TEMP_DIR'], { encoding: 'utf8' }).trim() : tmpdir()))
 })

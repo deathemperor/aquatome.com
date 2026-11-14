@@ -19,9 +19,13 @@ export function runScratch(parent = tmpdir(), env: NodeJS.ProcessEnv = process.e
   return { dir, end: () => rmSync(dir, { recursive: true, force: true }) }
 }
 
-/** For a package's vitest.config.ts: the run's folder, removed as vitest's process exits. */
+/**
+ * For a package's vitest.config.ts: the run's folder, removed as vitest's process exits, and on a hang-up, which ends
+ * vitest without its exit (a closed terminal; Grok's read). A run killed outright leaves it to the sweep.
+ */
 export function testRunScratch(): string {
   const { dir, end } = runScratch()
   process.once('exit', end)
+  process.once('SIGHUP', () => { end(); process.kill(process.pid, 'SIGHUP') })
   return dir
 }

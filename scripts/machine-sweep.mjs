@@ -8,8 +8,9 @@
 // - Worktrees, at 03:35 or with --worktrees: merged ones. One left alone for 7 days with no live thread is saved first
 //   (archiveWorktree: never pushed, kept 30 days), then removed. No --force without that copy.
 // - ~/.cache/aquatome is what the leads keep (AGENTS.md, This Mac): never touched, but for the archive's copies past 30 days.
-// - Scratch: our tests' leftover folders in the system temp folder, untouched for 6 h and open in no process (`scratch`;
-//   the chief of staff, 15 Nov 2026). Nothing else there: other projects', the system's, Xcode's, the browsers'.
+// - Scratch: our tests' leftover folders in this user's temp folder and /tmp, untouched for 6 h, open in no process and
+//   holding no worktree (`scratch`; the chief of staff, 15 Nov 2026). Nothing else there: other projects', the system's,
+//   Xcode's, the browsers'.
 // - Free space: under mac-status.py's 30 GB, the chief of staff hears of it once a day while it lasts, in the thread the
 //   owner's reports go to (theirs). Who clears what is theirs to say; nothing here deletes for space but that scratch.
 // --dry-run says what it would do, and does none of it. --archive <path>...: save and remove those worktrees now, but
@@ -306,6 +307,8 @@ const SCRATCH_NAME = /^(?<kind>[A-Za-z][A-Za-z0-9._-]*?)[-._](?<suffix>[A-Za-z0-
 /** What the engine's tests put in a scratch folder that isn't named aq-…: a copy of the repository's content and state. */
 const FIXTURE = new Set(['engine-state', 'content', 'sources', 'docs', '.git'])
 export const scratchKind = name => {
+  // A run's own folder, whatever its letters: about 1 in 180 of mkdtemp's suffixes are all lower case (Grok's read).
+  if (/^aq-tests-[A-Za-z0-9]{6}$/.test(name)) return 'aq-tests'
   const m = SCRATCH_NAME.exec(name)
   return m && /[0-9A-Z]/.test(m.groups.suffix) ? m.groups.kind : null
 }
@@ -315,31 +318,48 @@ export const scratchKind = name => {
  * own (aq-tests-), or of a kind with at least 20 folders (test litter comes in thousands, a hand-made folder alone) named
  * aq-… or holding only the engine's fixture folders.
  */
-export function scratchVerdict({ name, dir, mine, open, hours, kids, kidsHours, kindCount }) {
+export function scratchVerdict({ name, dir, mine, open, worktree, hours, kids, kidsHours, kindCount }) {
   if (!scratchKind(name)) return 'not a scratch name'
   if (!dir || !mine) return 'not our folder'
   if (open) return 'open in a process'
+  if (worktree) return 'holds a worktree'
   if (Math.min(hours, kidsHours) < SCRATCH_HOURS) return `changed within ${SCRATCH_HOURS} h`
   if (name.startsWith('aq-tests-')) return 'remove'
   if (kindCount < 20) return 'a kind too rare to be test scratch'
   if (!name.startsWith('aq-') && !(kids.every(k => FIXTURE.has(k)) && kids.some(k => k === 'content' || k === 'engine-state'))) return 'not test scratch by what it holds'
   return 'remove'
 }
-/** This user's temp folder, as launchd's jobs and a shell both see it. */
-const tempFolder = () => realpathSync((process.platform === 'darwin' && read('getconf', ['DARWIN_USER_TEMP_DIR'])?.trim()) || tmpdir())
+/**
+ * The temp folders our scratch lands in: this user's, which a shell's TMPDIR names, and /tmp, which Node takes when TMPDIR
+ * is unset, as it is in launchd's jobs (the engine's cycles) and in a test that starts a program with an env of its own
+ * (Grok's read: 1,118 restore folders in /tmp). /tmp first: it's small, and a pass's minutes would otherwise go to the other.
+ */
+export const scratchFolders = () => [...new Set(['/tmp', (process.platform === 'darwin' && read('getconf', ['DARWIN_USER_TEMP_DIR'])?.trim()) || tmpdir()].flatMap(d => { try { return [realpathSync(d)] } catch { return [] } }))]
 /** The temp folder's entries a running process of this user has a file open in, or works in; null when lsof can't say. */
 const openIn = temp => {
   const out = read('lsof', ['-u', String(process.getuid()), '-Fn'])
   return out == null ? null : new Set(out.split('\n').filter(l => l.startsWith(`n${temp}/`)).map(l => l.slice(temp.length + 2).split('/')[0]))
 }
-export function scratch({ temp = tempFolder(), open = openIn, now = Date.now(), clock = Date.now, minutes = SCRATCH_MINUTES, dry = DRY, say = log } = {}) {
-  const held = open(temp)
-  if (held == null) return say('scratch: lsof gave no answer, nothing removed')
+/** The temp folder's entries that hold one of this repository's worktrees (a lead's checkout), which this pass never takes. */
+const worktreesIn = temp => {
+  const list = read('git', ['-C', REPO, 'worktree', 'list', '--porcelain'])
+  if (list == null) return null
+  const paths = list.split('\n').filter(l => l.startsWith('worktree ')).map(l => { const p = l.slice(9); try { return realpathSync(p) } catch { return p } })
+  return new Set(paths.filter(p => p.startsWith(`${temp}/`)).map(p => p.slice(temp.length + 1).split('/')[0]))
+}
+export function scratch({ temps = scratchFolders(), open = openIn, worktrees = worktreesIn, now = Date.now(), clock = Date.now, minutes = SCRATCH_MINUTES, dry = DRY, say = log } = {}) {
+  const until = clock() + minutes * 60_000
+  let removed = 0
+  for (const temp of temps) removed += scratchIn(temp, { open, worktrees, now, clock, until, minutes, dry, say })
+  return removed
+}
+function scratchIn(temp, { open, worktrees, now, clock, until, minutes, dry, say }) {
+  const held = open(temp), trees = worktrees(temp)
+  if (held == null || trees == null) { say(`scratch: ${temp}: lsof or git gave no answer, nothing removed`); return 0 }
   const names = readdirSync(temp)
   const kinds = new Map()
   for (const n of names) { const k = scratchKind(n); if (k) kinds.set(k, (kinds.get(k) ?? 0) + 1) }
   const hoursOf = st => (now - Math.max(st.mtimeMs, st.ctimeMs)) / 3_600_000
-  const until = clock() + minutes * 60_000
   const kept = new Map()
   let removed = 0
   for (const name of names) {
@@ -350,12 +370,12 @@ export function scratch({ temp = tempFolder(), open = openIn, now = Date.now(), 
     let st, kids = []
     try { st = lstatSync(path); if (st.isDirectory()) kids = readdirSync(path) } catch { continue }
     const ages = kids.slice(0, 40).flatMap(k => { try { return [hoursOf(lstatSync(join(path, k)))] } catch { return [] } })
-    const verdict = scratchVerdict({ name, dir: st.isDirectory(), mine: st.uid === process.getuid(), open: held.has(name), hours: hoursOf(st), kids, kidsHours: Math.min(Infinity, ...ages), kindCount: kinds.get(kind) })
+    const verdict = scratchVerdict({ name, dir: st.isDirectory(), mine: st.uid === process.getuid(), open: held.has(name), worktree: trees.has(name), hours: hoursOf(st), kids, kidsHours: Math.min(Infinity, ...ages), kindCount: kinds.get(kind) })
     if (verdict !== 'remove') { kept.set(verdict, (kept.get(verdict) ?? 0) + 1); continue }
     if (!dry) rmSync(path, { recursive: true, force: true })
     removed++
   }
-  say(`scratch: ${dry ? 'would remove' : 'removed'} ${removed}; left ${[...kept].map(([why, n]) => `${n} (${why})`).join(', ') || 'none'}`)
+  say(`scratch: ${temp}: ${dry ? 'would remove' : 'removed'} ${removed}; left ${[...kept].map(([why, n]) => `${n} (${why})`).join(', ') || 'none'}`)
   return removed
 }
 
