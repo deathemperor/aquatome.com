@@ -133,6 +133,22 @@ final class GuideTopFlowTests: XCTestCase {
     XCTAssertLessThanOrEqual(credit.frame.height, capped * 2 + 1, "the credit is \(credit.frame.height) high, past two lines at XXL (\(capped))")
   }
 
+  /// Mục lục's list opened at rest, over the photo, is drawn clean: the photo's shade lay over it, the first row came out
+  /// grey and the panel's top darker (Design's parity, 14 Nov). In light, the panel is white under its words.
+  func testMucLucsListOpenedAtRestIsntUnderThePhotosShade() {
+    let app = owner("-long-guide", "-appearance", "light")
+    openGuide(app)
+    let title = app.descendants(matching: .any)["page-navigator-title"].firstMatch
+    XCTAssertTrue(title.waitForExistence(timeout: 5), "no Mục lục for the owner on a long guide")
+    title.tap()
+    let first = app.buttons.matching(identifier: "page-navigator-part").firstMatch
+    XCTAssertTrue(first.waitForExistence(timeout: 5), "no list of parts")
+    // The list's drop and the shade's going, 0.2 s each.
+    RunLoop.current.run(until: Date().addingTimeInterval(0.6))
+    let white = lightShare(first)
+    XCTAssertGreaterThan(white, 0.5, "the first row is greyed: \(white) of it white")
+  }
+
   /// A reader has none on the same long guide: no title in the bar, the name in its middle once scrolled.
   func testAReaderHasNoMucLucOnALongGuide() {
     let app = launch("-long-guide")
@@ -182,6 +198,19 @@ final class GuideTopFlowTests: XCTestCase {
 
   /// How much of the bar's middle third (clear of back and the ⋯) is drawn near white, as a name's letters are over the
   /// photo and its shade; the shade over a photo, or over the grey of one not come, stays darker.
+  /// How much of an element is drawn near white, all of it.
+  private func lightShare(_ element: XCUIElement) -> CGFloat {
+    guard let cg = element.screenshot().image.cgImage else { return -1 }
+    let w = cg.width, h = cg.height
+    var px = [UInt8](repeating: 0, count: w * h * 4)
+    let ctx = CGContext(data: &px, width: w, height: h, bitsPerComponent: 8, bytesPerRow: w * 4, space: CGColorSpaceCreateDeviceRGB(),
+                        bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)
+    ctx?.draw(cg, in: CGRect(x: 0, y: 0, width: w, height: h))
+    var white = 0
+    for i in stride(from: 0, to: px.count, by: 4) where px[i] > 235 && px[i + 1] > 235 && px[i + 2] > 235 { white += 1 }
+    return w * h > 0 ? CGFloat(white) / CGFloat(w * h) : -1
+  }
+
   private func whiteInk(_ bar: XCUIElement) -> CGFloat {
     guard let cg = bar.screenshot().image.cgImage else { return -1 }
     let w = cg.width, h = cg.height

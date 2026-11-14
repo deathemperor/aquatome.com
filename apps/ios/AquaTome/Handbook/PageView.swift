@@ -256,8 +256,11 @@ struct PageView: View {
       Spacer(minLength: 0)
     }
     .ignoresSafeArea()
-    .opacity(scrolled ? 0 : 1)
+    // Gone too while Mục lục's list is open: laid over the page, list and all, it greyed the list's top rows (Design's
+    // parity, 14 Nov). The list's own dimming covers the photo then.
+    .opacity(scrolled || trying?.listOpen == true ? 0 : 1)
     .animation(reduceMotion ? nil : .easeInOut(duration: 0.2), value: scrolled)
+    .animation(reduceMotion ? nil : .easeOut(duration: 0.2), value: trying?.listOpen)
     .allowsHitTesting(false)
   }
 
