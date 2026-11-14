@@ -487,6 +487,16 @@ test('a dealer\'s own current batch or stock is the source check\'s; trade histo
     'Trong đợt cá hoang dã mới nhập gần đây có một con đực màu đỏ.',
     // A bare "lô này" after a sentence cut short by a genus's initial.
     'Congo có ba loài cá phổi: Protopterus aethiopicus, P. annectens và P. dolloi. Lô này có ít nhất hai loài là P. aethiopicus và P. dolloi.',
+    // The batch's own fish, which the read passed on the Crenuchus guide (the chief of staff, 14 Nov 2026).
+    'Những con trong lô dài khoảng 5 cm và đã phân biệt rõ đực cái.',
+    'Các cá thể của đợt nhập này đều còn nhỏ.',
+    'Cá trong đợt nhập hiện nay có hoa văn rất đồng đều.',
+    'Những con trong đợt cá mới nhập về dài khoảng 4 cm.',
+    // A lot's own fish that differ among themselves (Grok's read).
+    'Những con trong lô khác nhau về kích cỡ.',
+    'Những con trong lô khác biệt hẳn về màu.',
+    'Màu của mấy con trong lô gần như không khác gì cá đã ghi nhận trước đây.',
+    'Cá trong lô vừa nhập về dài 6 cm.',
   ]
   const history = [
     'Cũng có con có thêm những đốm trắng nhỏ. Hai dạng màu này có thể lẫn chung trong cùng một lô nhập.',
@@ -517,6 +527,74 @@ test('a dealer\'s own current batch or stock is the source check\'s; trade histo
     // A dated batch with a quoted question inside its sentence: still one sentence, its year still read (Astra's read).
     'Năm 2002, nhà cung cấp hỏi “Có cá không?” rồi nhận một lô. Cá trong lô này rất lớn.',
     'Năm 2002, một lô cá do ông A. Werner nhập về. Cá trong lô này rất lớn.',
+    // Fish that come in other batches or mixed ones, a museum's lots, a round of treatment: not this batch's fish.
+    'Đôi khi có vài con trong lô cá khác.',
+    'Những con trong lô hàng trộn thường nhỏ hơn.',
+    'Những con trong lô mẫu ở bảo tàng đều là cá cái.',
+    'Các con trong đợt điều trị đều khỏe lại.',
+    // A spawning, a migration, another import lot (Grok's read).
+    'Những con trong đợt cá đẻ đều là cá bột.',
+    'Cá của đợt cá sinh sản đã tách riêng.',
+    'Những con trong đợt mới đẻ còn rất nhỏ.',
+    'Cá trong đợt vừa đẻ đang bơi.',
+    'Những con trong đợt nhập cư bơi ngược sông.',
+    'Có vài con trong lô nhập khác.',
+    // Another import, a mixed one, the first, a calendar round, a wave, a later or earlier round, another lot (Grok's
+    // second read); a bare "đợt (lần) này", as often a spawning or a treatment.
+    'Có vài con trong đợt nhập khác.',
+    'Những con trong đợt hàng trộn thường nhỏ hơn.',
+    'Những con trong đợt nhập đầu tiên chỉ toàn cá bệnh.',
+    'Những con trong đợt hàng tháng thường nhỏ.',
+    'Những con trong đợt hàng loạt đều chết.',
+    'Cá trong đợt về sau lớn hơn hẳn.',
+    'Cá trong đợt về trước nhỏ hơn.',
+    'Đôi khi có vài con trong lô cá hoang dã khác.',
+    'Những con trong lô trước nhỏ hơn.',
+    'Có vài con trong lô loài khác.',
+    'Những con trong lô cá nhập về khác.',
+    'Những con trong đợt này đều là cá bột.',
+    'Các con trong đợt này đều khỏe lại sau khi tắm muối.',
+    'Những con trong đợt lần này dài khoảng 5 cm.',
+    // Just in, but another, an earlier or a later one, a migration, or a lot nearby (Grok's third read).
+    'Những con trong lô nhập về lần trước nhỏ hơn.',
+    'Những con trong đợt mới nhập về khác thường nhỏ hơn.',
+    'Những con trong đợt mới nhập đầu tiên chỉ toàn cá bệnh.',
+    'Những con trong đợt vừa về sau lớn hơn hẳn.',
+    'Những con trong lô gần đó nhỏ hơn hẳn.',
+    // Just in, but an earlier or a later one, told in words no list of others can hold (Grok's fourth read).
+    'Những con trong lô nhập về nọ nhỏ hơn.',
+    'Những con trong lô nhập về năm ngoái nhỏ hơn.',
+    'Những con trong lô nhập về đã lâu không còn.',
+    'Những con trong đợt mới nhập năm ngoái nhỏ hơn.',
+    'Những con trong lô nhập về đợt tới nhỏ hơn.',
+    // Words as often the start of something else: a time, leftovers, a maybe, another round, a breed, brought back
+    // (Grok's fifth read).
+    'Những con trong lô nhập về khá lâu rồi.',
+    'Những con trong lô nhập về rất lâu không còn.',
+    'Những con trong lô nhập về hơi lâu rồi.',
+    'Những con trong lô nhập về được vài năm.',
+    'Những con trong lô nhập về còn lại từ năm ngoái.',
+    'Những con trong lô không phải của đợt này.',
+    'Những con trong lô chưa được nhập về.',
+    'Những con trong lô nhập về không phải hàng mới.',
+    'Những con trong lô nhập về có thể là cá của đợt trước.',
+    'Những con trong lô là cá của đợt trước.',
+    'Những con trong lô là mẫu vật bảo tàng.',
+    'Những con trong lô chỉ là cá của đợt trước.',
+    'Những con trong lô thì thuộc đợt nhập trước.',
+    'Những con trong lô cũng là cá của năm ngoái.',
+    'Đôi khi có vài con trong lô giống khác.',
+    'Những con trong lô mang về từ năm ngoái.',
+    // A hedge, a time, a longer while, a smaller lot, a recovery, a stop before another clause (Grok's sixth read).
+    'Những con trong lô gần như là cá của đợt trước.',
+    'Những con trong lô nhập về gần như là cá của đợt trước.',
+    'Những con trong lô nhập về khoảng 2 năm trước.',
+    'Cá trong lô chừng 3 tháng là bán hết.',
+    'Những con trong lô nhập về dài lâu rồi.',
+    'Những con trong lô dài hơn một năm mới lớn hẳn.',
+    'Những con của lô nhỏ hơn toàn là cá của đợt trước.',
+    'Những con trong lô đều khỏe lại sau đợt bệnh.',
+    'Những con trong lô; chúng là cá của năm ngoái.',
   ]
   const dealer = (text: string) => fitRules(page(`<p>${text}</p>`, { kind: 'species' })).filter(f => f.check === 'source' && f.why.startsWith('a dealer'))
   for (const t of news) expect(dealer(t).length, t).toBeGreaterThan(0)
