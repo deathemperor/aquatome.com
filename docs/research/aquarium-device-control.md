@@ -365,7 +365,7 @@ The owner's lights, tested from a MacBook with Python and [bleak](https://github
     | 8–9 | command |
     | 10–15 | parameters |
     | 16–19 | 4 changing bytes on on/off; zeros on `02 07` |
-    | 20–21 | no checksum found (standard CRC-16s and sums tried); possibly random |
+    | 20–21 | a checksum: CRC-16, polynomial `0x1021`, start `0xA5FF`, over the plain bytes 0–19, low byte first (found 14 Nov; the start value isn't a standard one, which is why the standard CRC-16s missed it). Every phone message of the 6 Nov capture fits, and so do the light's own 22-byte frames |
 
   - Commands seen:
     - `00 00` is off and `00 01` is on, confirmed twice.
@@ -378,11 +378,50 @@ The owner's lights, tested from a MacBook with Python and [bleak](https://github
   - **Messages we build are ignored.** We took the same off/on messages and changed only the sequence byte to unused values. Both were scrambled correctly, and the light did nothing.
     - Byte 0 XOR `0x1A` is a counter that goes up by 1 per command. (In the 2026-11-06 colour taps, green's also had bit `0x40` set, and the light took it.) Replays with older counters still worked, so the light isn't simply rejecting old counters.
     - We also built off/on with the very next counter after the app's last one. The light ignored those too, so it isn't a "counter within a window" rule either.
-    - The 4 bytes that change on every on/off (bytes 16–19) are probably a signature over the message. They are not a Unix timestamp, and no CRC-32 variant matches. Bytes 20–21 match no standard CRC-16.
+    - The 4 bytes that change on every on/off (bytes 16–19) are probably a signature over the message. They are not a Unix timestamp, and no CRC-32 variant matches. Bytes 20–21 are a checksum of bytes 0–19 (above), so these built messages most likely failed on it: they changed the sequence byte and kept the old checksum.
   - On 2026-11-06 the Mac replayed off, on and each colour, and the light followed every one and echoed them.
-  - So for now this light supports **replay only**: an app could record a user's own commands from Fish lamp and play them back.
+  - **The 2026-11-14 evening, with the owner's yes** (the Mac's broadcasts 3 s each; the owner's phone sending recordings from AquaTome's Đèn tab; a Fish lamp timer running on the light all evening; the raw frames are kept out of the repository with the 6 Nov capture):
+
+      | Time (UTC+7) | From | Command | The light's echo |
+      |---|---|---|---|
+      | 19:37:17 | Mac | recorded green | none |
+      | 19:37:43 | Mac | recorded cyan | none |
+      | 19:37:48 | Mac | recorded green | none |
+      | 19:40:37 | Mac | recorded green | none |
+      | 19:40:50 | Mac | recorded cyan | none |
+      | 19:40:55 | Mac | recorded green | none |
+      | 19:44:22 | the owner's phone | recorded white, AquaTome's card (-57 to -46 dBm) | echo, -61 to -60 dBm |
+      | 19:53:25 | the owner's phone | recorded orange, AquaTome's card (-51 to -47 dBm) | echo, -61 dBm |
+      | 19:53:30 | the owner's phone | recorded magenta, AquaTome's card (-54 to -49 dBm) | echo, -64 dBm |
+      | 19:53:34 | the owner's phone | recorded yellow, AquaTome's card (-56 to -49 dBm) | echo, -61 dBm |
+      | 20:00:56 | Mac | recorded green | none |
+      | 20:01:15 | Mac | recorded cyan | echo, -77 dBm |
+      | 20:01:20 | Mac | recorded green | none |
+      | 20:01:43 | Mac | built white at half (byte 0 `48`) | echo, -70 to -64 dBm |
+      | 20:01:48 | Mac | built white at half (byte 0 `08`) | echo, -64 dBm |
+      | 20:01:53 | Mac | built off, bytes 16–19 zero | none |
+      | 20:01:58 | Mac | built on, bytes 16–19 zero | none |
+      | 20:02:03 | Mac | built off, the recording's bytes 16–19 | none |
+      | 20:02:08 | Mac | built on, the recording's bytes 16–19 | none |
+      | 20:02:14 | Mac | recorded on | none |
+      | 20:02:19 | Mac | recorded yellow | none |
+      | 20:03:51 | Mac | built yellow (byte 0 `2b`) | none |
+      | 20:04:05 | Mac | built yellow (byte 0 `37`) | none |
+      | 20:09:09 | the owner's phone | recorded yellow, AquaTome's card (-76 to -51 dBm) | echo, -64 to -62 dBm |
+      | 20:09:17 | the owner's phone | recorded orange, AquaTome's card (-64 to -56 dBm) | none |
+
+    - What stands: **a built colour was taken.** A colour never recorded (white at half value, `02 07 0000 0000 8080`), built with an unused sequence byte and the checksum, was echoed twice, with two different sequence bytes. It is the only built command seen taken.
+    - After those two the light answered nothing from the Mac: not the four built on and off tries, not the recorded on and yellow after them, and not a built yellow sent twice a minute and a half later. None of those prove anything either way, and no other colour or brightness was tried.
+    - The Mac's two first runs got nothing: the owner said the Mac was too far, and moved it.
+    - Open, each untested:
+      - **On and off, and any other built colour.** Every built try after the white fell in that silent stretch.
+      - **Quiet after a command.** After the two built colours the light answered nothing from the Mac for the rest of the run; and at 20:09 it echoed a yellow from the owner's phone but not an orange the phone sent a second later. Does it ignore commands for a while after it takes one, or take them without echoing? The smallest test: two recorded colours from the phone two seconds apart, then the same two thirty seconds apart, the owner saying what the light did.
+      - **A sequence byte seen lately.** Recorded green never got an echo from the Mac that evening; recorded yellow got none from the Mac at 20:02 but did from the phone at 19:53 and 20:09. The smallest test: one recording, then the same again after a minute of quiet.
+      - **The Fish lamp timer.** The smallest test: one built colour with the timer off.
+    - Built with: `FishLamp.built` (the checksum and scrambling), and `light-harness fishlamp`, which broadcasts steps and hears the echo.
+  - Until then the app supports **replay** for on and off: it records a user's own commands from Fish lamp and plays them back.
     - AquaTome does that for the owner's light: `apps/ios/AquaTomeKit/Sources/FishLamp/love-ecology.json` holds their recordings, committed with their OK. Whether another owner's light would take them is untested.
-  - Building arbitrary commands would mean finding the signature, most likely by reverse-engineering the app. That is a bigger job, with the ToS risk in 3.7. It is not worth it for v1.
+  - Building an on or off, if the light checks bytes 16–19, would mean finding the signature, most likely by reverse-engineering the app. That is a bigger job, with the ToS risk in 3.7. It is not worth it for v1.
 - The format is not one that [ha-ble-adv](https://github.com/NicoIIT/ha-ble-adv) (MIT) decodes. Its codecs use other headers (Zhi Jia / Zhi Guang `F9 08 49` / `22 9D`, Mantra `4E 6F`). The payload is scrambled, so decoding it needs labelled captures (known on/off and brightness steps).
 - What this means for the app:
   - A website can't control this light, because Web Bluetooth can't broadcast.

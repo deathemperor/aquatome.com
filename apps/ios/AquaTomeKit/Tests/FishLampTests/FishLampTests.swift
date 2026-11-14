@@ -58,3 +58,23 @@ private func hex(_ b: ArraySlice<UInt8>) -> String { b.map { String(format: "%02
   let plain: [UInt8] = (0..<26).map { UInt8($0 * 11 & 0xff) }
   #expect(FishLamp.unscramble(FishLamp.scramble(plain)) == plain)
 }
+
+// The owner's trials: each says what its name says, from the same app ID to the same light, with a byte 0 no recording
+// uses and the checksum; the second off and on carry their recording's bytes 16–19.
+@Test func theTrialsAreTheCommandsTheirNamesSay() throws {
+  #expect(FishLamp.trials.map(\.id) == ["trial-white-half", "trial-off", "trial-on", "trial-off-recorded", "trial-on-recorded"])
+  let on = try command("on"), off = try command("off")
+  let recorded = Set(FishLamp.loveEcology.map { $0.plain[0] })
+  for t in FishLamp.trials {
+    let p = t.plain
+    #expect(p[1...7] == on.plain[1...7], Comment(rawValue: t.id))
+    #expect(!recorded.contains(p[0]), Comment(rawValue: t.id))
+    #expect(FishLamp.checksum(p[0..<20]) == UInt16(p[20]) | UInt16(p[21]) << 8, Comment(rawValue: t.id))
+  }
+  let trial = { (id: String) in try #require(FishLamp.trials.first { $0.id == id }).plain }
+  #expect(hex(try trial("trial-white-half")[8...19]) == "02 07 00 00 00 00 80 80 00 00 00 00")
+  #expect(try trial("trial-off")[8...19] == off.plain[8...15] + [0, 0, 0, 0])
+  #expect(try trial("trial-on")[8...19] == on.plain[8...15] + [0, 0, 0, 0])
+  #expect(try trial("trial-off-recorded")[8...19] == off.plain[8...19])
+  #expect(try trial("trial-on-recorded")[8...19] == on.plain[8...19])
+}
