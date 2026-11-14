@@ -131,6 +131,25 @@ test('the index lists every glossary term the glossary list shows, a page out of
   }
 })
 
+// The app's glossary list (the chief of staff and the Site lead, 14 Nov 2026): each term's meaning and how many pages use
+// it, as its own page gives them. The meaning is the definition the page leads with, its links taken out; the count is
+// the number under "Dùng trong", none where the page has no such section.
+test('a glossary term carries its meaning and the number of pages that use it, as its built page gives them', () => {
+  let used = 0
+  for (const lang of LANGS) {
+    for (const i of index(lang).items.filter(x => x.kind === 'glossary')) {
+      const { dom } = appPage(i.path)
+      expect(i.def, `${lang} ${i.path}`).toBe(dom.querySelector('p.def')?.text.trim())
+      // Plain text: the page's links and markup are not in it.
+      expect(i.def ?? '', `${lang} ${i.path}`).not.toMatch(/[<>]/)
+      const heading = dom.querySelector('#dung-trong')?.text
+      expect(i.uses, `${lang} ${i.path}`).toBe(heading ? Number(heading.replace(/\D/g, '')) : undefined)
+      if (i.uses) used++
+    }
+  }
+  expect(used, 'the fixture has terms other pages use').toBeGreaterThan(0)
+})
+
 test('a plant or a species whose translation scored low is still listed, as the site\'s lists show it', async () => {
   const c = await getContent('vi')
   const low = { indexable: false, score: 0.2, reason: 'low' as const }
