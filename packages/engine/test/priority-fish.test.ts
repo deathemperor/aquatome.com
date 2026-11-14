@@ -78,7 +78,7 @@ test('a photo kept with a shop\'s mark doesn\'t count: the fish stays first unti
   await screen([...marked, ...clean(1)])
   expect(await priorityFish(r)).toEqual(['species/zzz-liked'])
   // Glaser's banner alone (the site's rule) keeps a photo out, with no record of a mark.
-  await screen([[marked[0][0], { ocr: [], watermark: false }], ...marked.slice(1), ...clean(1)])
+  await screen([[marked[0]![0], { ocr: [], watermark: false }], ...marked.slice(1), ...clean(1)])
   expect(await priorityFish(r)).toEqual(['species/zzz-liked'])
   // Six with no mark beside the six marked: it leaves the list.
   await writeFile(join(r, 'content/gallery/zzz-liked.json'), JSON.stringify({ id: 'zzz-liked', photos: [...marked, ...clean(PRIORITY_UNTIL)].map(([p]) => p), seen: 0, updatedAt: '' }))
