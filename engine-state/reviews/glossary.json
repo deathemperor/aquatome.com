@@ -122,5 +122,97 @@
       "attempt": "rewrite",
       "kept": false
     }
+  ],
+  "vi/glossary/ph": [
+    {
+      "at": "2026-11-14T18:52:20Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (not placeable): \"Làm pH lên: san hô, đá vôi, vỏ ốc, sỏi ba màu trộn vỏ ốc, cát muối tiêu, đá trắng như đá tai mèo, sục khí mạnh, baking soda.\"",
+        "Loose, reworded: \"Mỗi loài cá hợp một khoảng pH riêng, và pH còn quyết định amoniac trong bể độc đến đâu, nên cần đo định kỳ.\" → \"Có loài cá cần pH khá đúng khoảng, có loài chịu được khoảng rộng, và pH còn ảnh hưởng đến mức độc của amoniac trong bể.\" (supported)",
+        "Loose, reworded: \"Dưới 7,3 thì nó chủ yếu ở dạng amoni NH4+ ít hại hơn.\" → \"Dưới 7,3 thì phần nhiều hơn của nó ở dạng amoni NH4+ ít hại hơn.\" (supported)",
+        "Loose, reworded: \"Trước khi set bể, đo pH nước máy hoặc nước giếng xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\" → \"Trước khi set bể, đo pH nước máy xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\" (supported)",
+        "Loose, reworded: \"Thay nước một phần đều đặn để bổ sung khoáng đệm, chẳng hạn 20–30% mỗi tuần bằng nước đã xử lý và đã đo.\" → \"Thay nước một phần đều đặn để bổ sung khoáng đệm pH.\" (supported)",
+        "Loose, reworded: \"Nước nguồn pH 8 thì mới đáng chỉnh.\" → \"Nước nguồn pH 8 thì dùng axit có thể giúp được.\" (supported)",
+        "Loose, reworded: \"Nếu pH thấp, thay nước, dọn chất hữu cơ, rồi thêm một trong những thứ làm pH lên kể ở trên.\" → \"Nếu pH thấp, thay nước, dọn chất hữu cơ, rồi thêm baking soda, đá vôi, san hô vụn hoặc vỏ sò.\" (supported)",
+        "Loose, reworded: \"Bể bị hội chứng bể cũ (pH dưới 6,0, KH gần 0, amoniac và nitrat cao) thì đừng thay hết nước.\" → \"Bể bị hội chứng bể cũ (pH dưới 6,0, KH dưới 50 mg/L và thường bằng 0, amoniac và nitrat cao) thì đừng thay hết nước.\" (supported)"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-14T18:52:20Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 0.98,
+      "notes": [
+        "\"Bể cũ thì đừng thay hết nước.\": the facts don't carry it (unsupported, loose, unsupported): advice is for old tank syndrome, not any old tank / The fact is about old tank syndrome, not any old tank. / advice is for old tank syndrome only, not every old tank",
+        "The entry is 693 words: hold it to about 600, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-14T18:52:20Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 0.98,
+      "notes": [
+        "\"Nên thả lá từ từ rồi đo pH.\": the facts don't carry it (unsupported, unsupported, unsupported): Advice to add leaves gradually is not in the facts / advice to add leaves gradually and test isn't in the facts / advice to add leaves gradually and test is not in facts",
+        "Rule 12: \"Khi cá ngộ độc amoniac, hạ pH xuống khoảng 6,0–6,5 nếu cá chịu được, kèm thay 25–50% nước.\" THIS TERM says to leave out lowering pH to 6.0–6.5 during ammonia poisoning. Only the 25–50% water change should stay.",
+        "Rule 4: \"Mức hạ của lá bàng thì các trang hướng dẫn nuôi cá ghi khác nhau: nơi nói 1–2 đơn vị, nơi nói chỉ hạ nhẹ và chậm. Nên thả lá từ từ rồi đo pH.\" The FACTS say nothing about what to do about this disagreement. The advice \"Nên thả lá từ từ rồi đo pH\" isn't in the FACTS, so the disagreement should be stated once and left there.",
+        "The entry is 916 words: hold it to about 600, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-14T01:18:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.93,
+      "notes": [
+        "Rule 6: \"tép Caridina ưa pH thấp hơn đa số con khác trong bể\" names a genus with an added Vietnamese word (\"tép\"). It should use the scientific name as the FACTS write it, \"Caridina\", without the made-up Vietnamese label."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "draft": "881b7dd4615bbdbace30e780201e4d9f92225ee59ed2de3ad64a81a5ab3d8841"
+    },
+    {
+      "at": "2026-11-14T01:18:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.92,
+      "notes": [
+        "\"Nên thả từ từ rồi đo lại pH\" (about Indian almond leaves): the facts don't give this specific advice. It is a small generality.",
+        "\"Cá neon vua\" as the Vietnamese name for the cardinal tetra isn't in the facts. It is a minor naming addition.",
+        "Rule 6: \"tép Caridina ưa pH thấp hơn đa số con khác trong bể\" uses a name the writer made up for a group that has no line in PAGES. The FACTS write the genus as \"Caridina\", so it should be called just \"Caridina\". The FACTS also say this about bee shrimp (Caridina), but \"tép Caridina\" makes it sound like it covers the whole genus."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-14T01:18:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.85,
+      "notes": [
+        "\"Các tiệm ghi mức hạ khác nhau\" calls the sources shops. The facts list them as fishkeeping guides (kind \"shop\"), so this names the wrong kind of source.",
+        "Rule 11: \"Tránh phosphat vì nó nuôi rêu\" uses \"rêu\" (moss) for algae. The TERMS call algae \"tảo\", so it should read \"nuôi tảo\".",
+        "Rule 4: \"Các tiệm ghi mức hạ khác nhau: nơi nói 1–2 đơn vị, nơi nói chỉ hạ nhẹ và chậm\" says the shops disagree but doesn't tell the keeper what to do about it (for example, add the leaves slowly and test pH).",
+        "Rule 4: Indian almond leaves and driftwood lowering pH comes up twice: in the list \"Làm pH xuống: ... Lá bàng, lũa\" and again in step 4, \"Lá bàng và lũa cũng hạ pH\". It should be said in one place.",
+        "Rule 4: Peat appears twice: in the list \"than bùn (peat)\" under \"Làm pH xuống\" and again in step 4, \"Lọc qua than bùn là cách tự nhiên. Than bùn phải ngâm hoặc luộc...\". It should be said in one place.",
+        "Rule 4: Coral, limestone, shells and baking soda raising pH are listed under \"Làm pH lên: san hô, đá vôi, vỏ ốc, ... baking soda\" and repeated in step 5, \"thêm baking soda, đá vôi, san hô vụn hoặc vỏ ốc\". It should be said in one place.",
+        "Rule 4: pH falling in old tanks is said twice: \"Bể càng lâu năm, pH càng tụt dần...\" in the body and again under mistakes as \"Để pH bể cũ trôi dần xuống\".",
+        "An item is 126 words, at most about 60: \"Nếu pH cao, tìm và bỏ thứ làm pH lên ra trước. Nướ…\". Keep what it is, how it looks, whether it sinks and colours the water and what it is for."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }
