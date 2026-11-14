@@ -147,12 +147,18 @@ function namesHeld(c: Content): Held {
   const hit = holders.get(c)
   if (hit) return hit
   const held = new Map<string, Set<Named>>(), full = new Map<string, Set<Named>>(), bareOnly = new Map<string, Set<Named>>()
+  const fished = new Map<string, Set<Named>>()
   const add = (m: Map<string, Set<Named>>, k: string, x: Named) => { if (k) m.set(k, (m.get(k) ?? new Set()).add(x)) }
+  // Indonesian and Malay titles put the word for fish before a name without it: "Ikan Discus" is the page "Discus".
+  const fish = c.lang === 'id' || c.lang === 'ms' ? 'ikan' : undefined
   for (const x of [...c.species, ...c.plants, ...c.breeds]) for (const n of ownNames(x).flatMap(n => [...new Set([n, unglossed(n)])])) {
     const k = words(n).trim(), b = words(bare(n)).trim()
     add(held, k, x); add(full, k, x)
+    if (fish && b === k) add(fished, words(`${fish} ${n}`).trim(), x)
     if (b !== k && b.length >= 4) add(held, b, x)
   }
+  // Unless a page has it as its own name: Malay's "Ikan Discus" stays that page, not also the page "Discus" (Grok's read).
+  for (const [k, xs] of fished) if (!held.has(k)) for (const x of xs) { add(held, k, x); add(full, k, x) }
   for (const [k, xs] of held) for (const x of xs) if (!full.get(k)?.has(x)) add(bareOnly, k, x)
   const out = { held, bareOnly }
   holders.set(c, out)
@@ -218,17 +224,64 @@ export function titleNames(c: Content, g: Localized<GuideEntity>): Named[] {
  * drops each (guide-heads-awaiting.json). A guide picked by hand (guide-heads-picks.json, by its id, so in every language)
  * borrows that page instead, or nothing (null): one whose title names an animal it isn't about borrows nothing until its
  * page is right, as the owner was told a guide picturing the wrong animal shows no photo, and the name goes to Writing as
- * a naming fault ("cá rô phi lùn", the tilapia, for a dwarf cichlid); one whose translations don't name its fish as the
- * Vietnamese does ("Ikan Discus", "ปลาปอมปาดัวร์ขี้ขาว") borrows the page the Vietnamese names. Never the video's thumbnail: it shows the people in the video, and a page's
+ * a naming fault ("cá rô phi lùn", the tilapia, for a dwarf cichlid). In every language a guide borrows what its pick
+ * or its Vietnamese title names (heads), so a translation that names its fish otherwise ("Ikan Discus",
+ * "ปลาปอมปาดัวร์ขี้ขาว") shows the same picture. Never the video's thumbnail: it shows the people in the video, and a page's
  * photos show none (PRODUCT.md). A card takes the first one its page doesn't show yet (lib/pictures.ts).
  */
 export function guideImages(c: Content, g: Localized<GuideEntity>): Photo[] {
   // A section's photo can be a strip (a lamp, a tank's length) that a card's 16:9 would crop to a sliver.
   const sections = (g.video?.figures ?? []).flatMap(f => f.photo ?? []).filter(fitsCard)
+  return [...g.photos, ...sections, ...heads(c, g).flatMap(x => x.photos[0] ?? [])].filter(p => !p.generated)
+}
+/**
+ * The pages a guide borrows its head from, chosen once for every language (the chief of staff, 15 Nov 2026): Curation's
+ * pick, else what the Vietnamese title names, as this language's page of each; nothing where this language has no page
+ * for the Vietnamese head's. A guide the Vietnamese doesn't have, or content with no Vietnamese beside it (withVietnameseHeads), reads its own
+ * title.
+ */
+function heads(c: Content, g: Localized<GuideEntity>): Named[] {
   const pick = PICKS.get(g.id)
-  const named = pick === undefined ? titleNames(c, g) : pick ? [picked(c, pick)].filter(x => !!x) : []
-  const before = pick === undefined && AWAITING.has(g.id) ? textNamed(c, g, named) : []
-  return [...g.photos, ...sections, ...[...named, ...before].flatMap(x => x.photos[0] ?? [])].filter(p => !p.generated)
+  if (pick !== undefined) return pick ? [picked(c, pick)].filter(x => !!x) : []
+  const vi = VIETNAMESE.get(c), vg = vi && guideOf(vi, g.id)
+  // The waiting list keeps each language's own until Curation's drops apply with a card for a guide without a picture:
+  // a guide never loses its place in a list for want of one (the chief of staff, 15 Nov 2026).
+  if (!vi || !vg || AWAITING.has(g.id)) return named(c, g)
+  const here = named(vi, vg).filter(x => x.photos[0] && !x.photos[0].generated).map(x => picked(c, refOf(vi, x)))
+  // The Vietnamese head's page missing here: none, not the next page, so no language shows another fish.
+  return here[0] ? here.filter(x => !!x) : []
+}
+/** What a guide's title names here, and, until Curation's keep or drop (awaiting), the fish its text names after them. */
+const named = (c: Content, g: Localized<GuideEntity>): Named[] => {
+  const t = titleNames(c, g)
+  return AWAITING.has(g.id) ? [...t, ...textNamed(c, g, t)] : t
+}
+/** The Vietnamese content beside each other language's, whose titles choose every language's heads. */
+const VIETNAMESE = new WeakMap<Content, Content>()
+export function withVietnameseHeads(c: Content, vi: Content): Content {
+  if (c !== vi) VIETNAMESE.set(c, vi)
+  return c
+}
+const guidesById = new WeakMap<Content, Map<string, Localized<GuideEntity>>>()
+function guideOf(c: Content, id: string) {
+  let m = guidesById.get(c)
+  if (!m) guidesById.set(c, (m = new Map(c.guides.map(g => [g.id, g]))))
+  return m.get(id)
+}
+/**
+ * The guides whose title in this language names a page the Vietnamese title doesn't: a translation fault, for Writing,
+ * or the Vietnamese title's ("cá dĩa" for the page "Cá đĩa") (scripts/guide-head-titles.ts). A title naming fewer is no
+ * fault (Thai runs words together); its head is the Vietnamese one's all the same.
+ */
+export function titleFaults(c: Content): { id: string; title: string; vi: string[]; own: string[] }[] {
+  const vi = VIETNAMESE.get(c)
+  if (!vi) return []
+  return c.guides.flatMap(g => {
+    const vg = guideOf(vi, g.id)
+    if (!vg) return []
+    const own = titleNames(c, g).map(x => refOf(c, x)), want = titleNames(vi, vg).map(x => refOf(vi, x))
+    return own.some(r => !want.includes(r)) ? [{ id: g.id, title: g.t.name, vi: want, own }] : []
+  })
 }
 /** Until Curation's keep or drop (Mon 16 Nov): the fish the text names, those the title names first, as it borrowed before. */
 const textNamed = (c: Content, g: Localized<GuideEntity>, named: Named[]): Named[] => {
@@ -239,10 +292,17 @@ const AWAITING = new Set<string>(awaiting)
 const PICKS = new Map<string, string | null>(Object.entries(picks as Record<string, string | null>))
 /** A page picked by hand, as "species/<id>", "plant/<id>" or "breed/<id>", in this language; none if it has no page here. */
 const pages = new WeakMap<Content, Map<string, Named>>()
+const refs = new WeakMap<Content, Map<Named, string>>()
 function picked(c: Content, ref: string): Named | undefined {
   let m = pages.get(c)
   if (!m) pages.set(c, (m = new Map<string, Named>([...c.species.map(x => [`species/${x.id}`, x] as const), ...c.plants.map(x => [`plant/${x.id}`, x] as const), ...c.breeds.map(x => [`breed/${x.id}`, x] as const)])))
   return m.get(ref)
+}
+/** A page's "species/<id>", "plant/<id>" or "breed/<id>", as a pick names it. */
+function refOf(c: Content, x: Named): string {
+  let m = refs.get(c)
+  if (!m) { picked(c, ''); refs.set(c, (m = new Map([...pages.get(c)!].map(([r, p]) => [p, r])))) }
+  return m.get(x)!
 }
 
 /** A guide's picture: its own photo, else one from its video's sections, else the first fish, plant or breed its title names. */
