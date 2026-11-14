@@ -249,14 +249,15 @@ export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { e
   const whole = [...[...new Set(named.filter(f => goesWhole(f.check)).flatMap(f => f.sentences))].sort((a, b) => a - b)
     .filter(n => raw.get(n - 1)).map(n => `Sentence ${n} goes whole, as its finding asks, and was kept as "${plain(raw.get(n - 1)!)}"`), ...stranded]
   if (!changes.size) return { html, score: 1, notes: whole, lost: [], unasked: [], added: [], whole, gone: [] }
-  // Every sentence to go: a part of three or fewer, each named by a finding that asks for something to go, comes off the
-  // page whole (fit-rewrite.ts), with nothing left to review. A longer one is more likely the read's mistake than the
-  // page's, and stays held, its sentences for the chief of staff (14 Nov 2026: four pages were held for good on one-line
-  // parts that were all the source's, "Nơi sống có ảnh chụp: …", which no dealer check takes).
+  // Every sentence to go: a part of three or fewer, each named by a finding that takes its sentence whole
+  // (`goesWhole`: a price, product or shop finding cuts only its words, Grok's read), comes off the page whole
+  // (fit-rewrite.ts), with nothing left to review. A longer one is more likely the read's mistake than the page's, and
+  // stays held, its sentences for the chief of staff (14 Nov 2026: four pages were held for good on one-line parts that
+  // were all the source's, "Nơi sống có ảnh chụp: …", which no dealer check takes).
   if (texts.every((t, i) => changes.get(i) === '')) {
     const said = texts.map((t, i) => `sentence ${i + 1}: "${plain(t!)}"`).join('; ')
     if (texts.length > 3) return `every sentence would go, and the part has ${texts.length}: held for the chief of staff (${said})`
-    if (!texts.every((_, i) => named.some(f => !NO_DROP.includes(f.check) && f.sentences.includes(i + 1)))) return `every sentence would go, and not each is a finding's to take: held for the chief of staff (${said})`
+    if (!texts.every((_, i) => named.some(f => goesWhole(f.check) && f.sentences.includes(i + 1)))) return `every sentence would go, and not each is a finding's to take: held for the chief of staff (${said})`
     return { html: '', score: 1, notes: [], lost: [], unasked: [], added: [], whole: [], gone: texts.map((t, i) => `sentence ${i + 1} went whole: "${plain(t!)}"`) }
   }
   const shown = [...changes.keys()].sort((a, b) => a - b)

@@ -108,6 +108,9 @@ test('a part that would lose every sentence goes whole at three sentences or few
   const follower = (async () => ({ sentences: [{ n: 1, vi: '' }, { n: 2, vi: '', why: 'it was about those fish' }] })) as unknown as Llm
   expect(await mendPart(follower, '<p>Hiện có cá bắt ngoài tự nhiên. Con nào cũng khỏe.</p>', [{ check: 'source', quote: 'Hiện có cá bắt ngoài tự nhiên.', note: 'n' }])).toMatch(/^every sentence would go, and not each is a finding's to take: held for the chief of staff/)
   expect(await mendPart(empty(1), '<p>Cá dài 2 inch.</p>', [{ check: 'units', quote: '2 inch', note: 'n' }])).toMatch(/^every sentence would go, and not each is a finding's to take/)
+  // A price, product or shop finding cuts only its words: the rest of its sentence isn't its to take (Grok's read).
+  expect(await mendPart(empty(1), '<p>Cây giá dưới 10 đô la và độc với tép.</p>', [{ check: 'price', quote: 'giá dưới 10 đô la', note: 'n' }])).toMatch(/^every sentence would go, and not each is a finding's to take/)
+  expect(await mendPart(empty(2), '<p>Cây mọc nhanh và rẻ. Mua ở Petco.</p>', [{ check: 'price', quote: 'rẻ', note: 'n' }, { check: 'shop', quote: 'Petco', note: 'n' }])).toMatch(/^every sentence would go, and not each is a finding's to take/)
 })
 
 // Astra's read of the first draft: what a writer drops beyond what its finding asks for fails, whatever the reviewer says.
