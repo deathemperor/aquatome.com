@@ -63,6 +63,11 @@ test('the lead step: a young head gives way to the page\'s own grown photo, and 
   expect(leadChoice([young, other, grown], [], () => false, {})).toBeUndefined()
   // Run again on the order it wrote: nothing.
   expect(leadChoice([grown, young, other], [], () => false, {}, undefined, undefined, undefined, age)).toBeUndefined()
+  // Named no worse than the head, as the check and the sweep require: a grown photo its source names only to the genus
+  // doesn't take a species-named young head's place, though nothing on the page passes as a card (Grok's read).
+  const genus = (p: Photo) => (p.url === grown.url ? 2 : 0)
+  expect(leadChoice([young, grown], [], () => false, {}, undefined, genus, undefined, age)).toBeUndefined()
+  expect(leadChoice([young, other, grown], [], () => false, {}, undefined, (p: Photo) => (p.url === young.url ? 1 : p.url === grown.url ? 1 : 2), undefined, age)).toEqual({ lead: grown })
   // A young photo the check also called typical passes as a card. Compared with a grown head and said to be as good, it
   // would take the lead, and the young rule would give it back each cycle; it doesn't.
   const said = { [grown.url]: { [young.url]: false } }
@@ -136,6 +141,13 @@ test('a head a person picked stays first, young or not, in the photo check and t
   const r = await site([photo('young'), photo('grown')], {}, { [`species/${ID}`]: url('young') })
   await check(r, model(['young']))
   expect(await order(r)).toEqual(['young', 'grown'])
+  const lead = await screenLeads(r, { get: refuse('fetch'), look: refuse('model') } as LeadDeps, { limit: 5 })
+  expect(lead.changed).toEqual([])
+  expect(await order(r)).toEqual(['young', 'grown'])
+})
+
+test('the lead step leaves a species-named young head before a grown photo its source names only to the genus', async () => {
+  const r = await site([photo('young'), photo('grown', 'Acanthicus sp.')], { [url('young')]: v({ young: true }), [url('grown')]: v({ young: false }) })
   const lead = await screenLeads(r, { get: refuse('fetch'), look: refuse('model') } as LeadDeps, { limit: 5 })
   expect(lead.changed).toEqual([])
   expect(await order(r)).toEqual(['young', 'grown'])

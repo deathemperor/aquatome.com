@@ -83,9 +83,9 @@ export function leadChoice(own: Photo[], gallery: GalleryPhoto[], passes: (p: Ph
   // A photo with its source's mark leads only where nothing else passes, and one its source names worse than the bar
   // gives way to the first that passes at the bar. So does one with a shop's own mark, kept (`kept`, own-mark.ts).
   if (marked(head) || kept(head) || down(head)) { const lead = pool.find(p => passes(p) && !down(p)); if (lead) return { lead } }
-  // A head the photo check calls young gives way to the first of the page's own photos it calls grown that passes at the
-  // bar, as the check orders them (`age`, young-heads.ts; the chief of staff, 15 Nov). A head a person picked has no age here.
-  if (age(head) === true) { const lead = own.slice(1).find(p => !down(p) && age(p) === false); if (lead) return { lead } }
+  // A head the photo check calls young gives way to the first of the page's own photos it calls grown, named no worse
+  // than the head, as the check and the sweep order them (`age`, young-heads.ts; the chief of staff, 15 Nov). A head a person picked has no age here.
+  if (age(head) === true) { const lead = own.slice(1).find(p => named(p) <= named(head) && age(p) === false); if (lead) return { lead } }
   // Nor does a young photo take the lead from a head that isn't, so the step never undoes the rule above.
   const younger = (p: Photo) => age(p) === true && age(head) !== true
   const back = own.slice(1).find(o => { const said = compared[head.url]?.[o.url]; return passes(o) && !down(o) && !younger(o) && (said === false || (said === true && fills(o))) })
