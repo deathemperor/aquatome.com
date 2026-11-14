@@ -10,6 +10,74 @@
     "brazil",
     "paraiba-do-sul"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Paraíba do Sul"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio Parahyba [Paraíba do Sul], southeastern Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Paraíba do Sul River basin, Rio de Janeiro State rivers.",
+          "countries": [],
+          "regions": [
+            "Paraíba do Sul"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339861,
+      "total": 9,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "BR",
+          9
+        ]
+      ],
+      "cells": [
+        [
+          -46.40625,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          -46.40625,
+          -23.90625,
+          4,
+          4
+        ],
+        [
+          -45,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -22.5,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

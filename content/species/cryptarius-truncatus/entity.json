@@ -16,6 +16,118 @@
     "cambodia",
     "malaysia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "TH",
+        "KH",
+        "MY"
+      ],
+      "regions": [
+        "Chao Phraya",
+        "Mekong",
+        "Sumatra",
+        "Java"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Java, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South and southeast Asia: Thailand, Cambodia, Indonesia and Malaysia.",
+          "countries": [
+            "TH",
+            "KH",
+            "MY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Western Central Pacific: estuaries and lower courses of rivers from the Chao Phraya to Sumatra and Java, including the lower Mekong.",
+          "countries": [],
+          "regions": [
+            "Chao Phraya",
+            "Mekong",
+            "Sumatra",
+            "Java"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2345492,
+      "total": 6,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "KH",
+          2
+        ],
+        [
+          "MY",
+          2
+        ],
+        [
+          "CN",
+          1
+        ],
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          11.25,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          37.96875,
+          1,
+          0
+        ],
+        [
+          105.46875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          118.125,
+          4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -197,104 +309,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13",
-  "range": {
-    "native": {
-      "countries": [
-        "ID"
-      ],
-      "regions": [
-        "Java",
-        "Chao Phraya",
-        "Mekong",
-        "Sumatra"
-      ],
-      "sources": [
-        "planetcatfish"
-      ],
-      "quotes": [
-        {
-          "source": "planetcatfish",
-          "quote": "Type locality: Java, Indonesia.",
-          "countries": [
-            "ID"
-          ],
-          "regions": [
-            "Java"
-          ]
-        },
-        {
-          "source": "planetcatfish",
-          "quote": "Western Central Pacific: estuaries and lower courses of rivers from the Chao Phraya to Sumatra and Java, including the lower Mekong.",
-          "countries": [],
-          "regions": [
-            "Chao Phraya",
-            "Mekong",
-            "Sumatra"
-          ]
-        }
-      ]
-    },
-    "records": {
-      "taxonKey": 2345492,
-      "total": 6,
-      "fetched": "2026-11-14",
-      "countries": [
-        [
-          "KH",
-          2
-        ],
-        [
-          "MY",
-          2
-        ],
-        [
-          "CN",
-          1
-        ],
-        [
-          "ID",
-          1
-        ]
-      ],
-      "cells": [
-        [
-          99.84375,
-          4.21875,
-          1,
-          0
-        ],
-        [
-          104.0625,
-          11.25,
-          1,
-          0
-        ],
-        [
-          104.0625,
-          12.65625,
-          1,
-          0
-        ],
-        [
-          104.0625,
-          37.96875,
-          1,
-          0
-        ],
-        [
-          105.46875,
-          -7.03125,
-          1,
-          1
-        ],
-        [
-          118.125,
-          4.21875,
-          1,
-          0
-        ]
-      ]
-    }
-  }
+  "updatedAt": "2026-11-13"
 }

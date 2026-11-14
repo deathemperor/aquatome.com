@@ -4,6 +4,7 @@ import { expect, test } from 'vitest'
 import { robotsTxt } from '../src/lib/seo'
 import { createHash } from 'node:crypto'
 import { DIST, page, sitemapText } from './dist'
+import { missingAddresses } from '../scripts/check-addresses'
 import { VI_SECTIONS } from '../worker/paths'
 import { LANGS } from '@aq/schema/langs'
 import { APP_PAGES, APP_STATE } from '../src/lib/app'
@@ -51,6 +52,13 @@ test('/sitemap.xml is the index of one sitemap per kind of page, and a page is i
   expect(sheet('videos')).toContain('/huong-dan/bon-phan-cho-cay-thuy-sinh/</loc>')
   expect(sheet('guides')).not.toContain('/huong-dan/bon-phan-cho-cay-thuy-sinh/</loc>')
   expect(sheet('guides')).toContain('/huong-dan/setup-be-thuy-sinh-dau-tien/</loc>')
+})
+
+// Live checks of 14 Nov: the sitemap listed a plant's photo page the build never made (test/photo-pages.test.ts). The
+// build stops on it (scripts/check-addresses.ts); this holds the fixture build to it too.
+test('every page a sitemap lists, and every redirect target, is a page the build wrote', () => {
+  expect(sitemapText().match(/<loc>/g)!.length).toBeGreaterThan(30)
+  expect(missingAddresses(DIST)).toEqual({ sitemap: [], redirects: [] })
 })
 
 // The dates are the fixture's page-dates.json, all in the past: a page's own files, the latest of them.

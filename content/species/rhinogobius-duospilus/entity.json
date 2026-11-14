@@ -11,6 +11,122 @@
     "guangdong",
     "hong-kong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "HK",
+        "CN"
+      ],
+      "regions": [
+        "Lantau Island"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from Hong Kong and known from much of southern China, including Shenzhen in Guangdong province immediately north of the type locality.",
+          "countries": [
+            "HK",
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Hong Kong populations are genetically distinct from one stream system to the next, and the population on Lantau Island has been suggested to represent an undescribed species (Chan et al., 2026).",
+          "countries": [],
+          "regions": [
+            "Lantau Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2377596,
+      "total": 35,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "CN",
+          27
+        ],
+        [
+          "HK",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          106.875,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          106.875,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          22.5,
+          2,
+          2
+        ],
+        [
+          109.6875,
+          23.90625,
+          3,
+          3
+        ],
+        [
+          109.6875,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          22.5,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          23.90625,
+          5,
+          5
+        ],
+        [
+          113.90625,
+          21.09375,
+          7,
+          7
+        ],
+        [
+          113.90625,
+          22.5,
+          12,
+          12
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

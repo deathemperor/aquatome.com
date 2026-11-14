@@ -2,12 +2,12 @@ import Handbook
 import SwiftUI
 import UIKit
 
-/// Every photo of a gallery, full screen on black, one at a time, each with its words, who took it, its licence and its
-/// own page. Swiped between, or picked in the strip under it; pinched or double-tapped to zoom (no swiping while zoomed);
-/// tapped to hide the bars and words; pulled down to close. A photo shows its thumbnail at once (the row it was tapped in
-/// has it in memory) until the full photo comes, and the two either side are fetched while it's looked at.
+/// Every photo of a gallery, full screen on black, one at a time, as Photos shows it: no bar and no clock, a ✕ and who took
+/// it (the owner, 11 Nov). Tapped, its words: the caption, who took it, its licence and its own page, its place in the
+/// gallery and the strip; tapped again, the photo alone. Swiped between, or picked in the strip; pinched or double-tapped to
+/// zoom (no swiping while zoomed); pulled down to close. A photo shows its thumbnail at once (the row it was tapped in has
+/// it in memory) until the full photo comes, and the two either side are fetched while it's looked at.
 struct GalleryViewer: View {
-  let title: String
   let note: String
   let photos: [PageDoc.Image]
   let readers: [ReaderItem]?
@@ -18,7 +18,8 @@ struct GalleryViewer: View {
   /// The pager's place: nil only between two photos.
   @State private var position: Int?
   @State private var pictures: ViewerPictures
-  @State private var chrome = true
+  /// Its words shown: not as it opens.
+  @State private var chrome = false
   @State private var zoomed = false
   /// How far it's pulled down to close, from 0 to 1.
   @State private var pull: CGFloat = 0
@@ -29,9 +30,9 @@ struct GalleryViewer: View {
   @Environment(\.displayScale) private var scale
   @Environment(\.accessibilityReduceMotion) private var reduceMotion
   @Environment(\.accessibilityVoiceOverEnabled) private var voiceOver
+  @Environment(\.accessibilityReduceTransparency) private var opaque
 
-  init(title: String, note: String, photos: [PageDoc.Image], readers: [ReaderItem]?, index: Int, closing: ((Int) -> Void)? = nil) {
-    self.title = title
+  init(note: String, photos: [PageDoc.Image], readers: [ReaderItem]?, index: Int, closing: ((Int) -> Void)? = nil) {
     self.note = note
     self.photos = photos
     self.readers = readers
@@ -41,36 +42,25 @@ struct GalleryViewer: View {
     _pictures = State(initialValue: ViewerPictures(photos, at: index))
   }
 
-  /// The bars and words: hidden by a tap, never with VoiceOver on (they're what it reads).
+  /// Its words: shown by a tap, always with VoiceOver on (they're what it reads).
   private var showsChrome: Bool { (chrome || voiceOver) && pull == 0 }
 
   var body: some View {
     NavigationStack {
       pager
         .background(Color.black.opacity(1 - pull).ignoresSafeArea())
-        .overlay(alignment: .top) {
-          // The bar's title and buttons readable on a light photo.
-          if showsChrome {
-            LinearGradient(colors: [.black.opacity(0.55), .clear], startPoint: .top, endPoint: .bottom)
-              .frame(height: 120).ignoresSafeArea().allowsHitTesting(false).transition(.opacity)
+        // Its words, or who took it alone; not for a photo the row no longer has (one just reported, as the viewer closes),
+        // nor while it's pulled down.
+        .overlay(alignment: .bottom) {
+          if pull == 0, photos.indices.contains(index) {
+            if showsChrome { words.transition(.opacity) } else { creditLine.transition(.opacity) }
           }
         }
-        // Not for a photo the row no longer has (one just reported, as the viewer closes).
-        .overlay(alignment: .bottom) { if showsChrome, photos.indices.contains(index) { words.transition(.opacity) } }
-        .navigationTitle(title)
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-          ToolbarItem(placement: .primaryAction) { Button("Đóng") { close() } }
-          // A reader's photo: report it, or block who sent it; then the viewer closes, and the row shows it no more.
-          if let readers, readers.indices.contains(index), !handbook.safety.isOwn(readers[index]) {
-            ToolbarItem(placement: .topBarLeading) { ReaderMenu(item: readers[index], reporting: $reporting, blocking: $blocking) }
-          }
-        }
-        .toolbarBackground(.hidden, for: .navigationBar)
-        .toolbarColorScheme(.dark, for: .navigationBar)
-        .toolbar(showsChrome ? .visible : .hidden, for: .navigationBar)
-        .statusBarHidden(!showsChrome)
-        .persistentSystemOverlays(showsChrome ? .automatic : .hidden)
+        .overlay(alignment: .top) { if pull == 0 { buttons } }
+        // No bar and no clock, so no band over the photo and no frost on a zoomed one (the owner, 11 Nov).
+        .toolbar(.hidden, for: .navigationBar)
+        .statusBarHidden(true)
+        .persistentSystemOverlays(.hidden)
         .readerActions(reporting: $reporting, blocking: $blocking, inViewer: true) { close() }
         #if DEBUG
         .background { testsRead }
@@ -125,7 +115,7 @@ struct GalleryViewer: View {
   private func page(_ i: Int) -> some View {
     let shown = pictures.shown[i], p = photos[i]
     return ZoomablePhoto(image: shown?.full ?? shown?.thumb, aspect: CGSize(width: p.w, height: p.h), current: i == index, motion: !reduceMotion,
-                         tapped: { withAnimation(.easeInOut(duration: 0.2)) { chrome.toggle() } },
+                         tapped: { withAnimation(reduceMotion ? nil : .easeInOut(duration: 0.2)) { chrome.toggle() } },
                          zoomed: { if i == index { zoomed = $0 } },
                          pulled: {
                            if pull == 0, $0 > 0 { closing?(index) }
@@ -181,9 +171,58 @@ struct GalleryViewer: View {
     .padding(.horizontal)
     .padding(.top, 48)
     .padding(.bottom, 4)
-    // A swipe on the fade, not on the words, still pages.
-    .background(LinearGradient(colors: [.clear, .black.opacity(0.5), .black.opacity(0.8)], startPoint: .top, endPoint: .bottom)
-      .ignoresSafeArea().allowsHitTesting(false))
+    // A swipe on the fade, not on the words, still pages. The fade ends above the caption's first line at any text size,
+    // and the words stand on black held at 55% or more (4.5:1 for white over a white photo): drawn over the whole box, the
+    // largest text put the caption above it, at 1.6:1 on a pale photo (Design's parity, 13 Nov). Solid black under Reduce
+    // Transparency.
+    .background {
+      VStack(spacing: 0) {
+        LinearGradient(colors: [.clear, .black.opacity(opaque ? 1 : 0.55)], startPoint: .top, endPoint: .bottom).frame(height: 48)
+        LinearGradient(colors: [.black.opacity(opaque ? 1 : 0.55), .black.opacity(opaque ? 1 : 0.8)], startPoint: .top, endPoint: .bottom)
+      }
+      .ignoresSafeArea().allowsHitTesting(false)
+    }
+  }
+
+  /// As it opens: who took it and its licence, on one line at the foot, over a short fade.
+  @ViewBuilder private var creditLine: some View {
+    if let c = credit(photos[index]) {
+      Text(c).font(.footnote).foregroundStyle(.white.opacity(0.8)).tint(.white.opacity(0.8)).lineLimit(1).truncationMode(.tail)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.horizontal, 16)
+        .padding(.top, 32)
+        .padding(.bottom, 4)
+        .background(LinearGradient(colors: [.clear, .black.opacity(0.6)], startPoint: .top, endPoint: .bottom)
+          .ignoresSafeArea().allowsHitTesting(false))
+    }
+  }
+
+  /// The ✕ at the top right, always; a reader's photo, its ⋯ to report it or block who sent it at the top left (then the
+  /// viewer closes, and the row shows it no more). Each white on a dark circle of its own: iOS's glass read 2.4:1 over a
+  /// pale photo zoomed in.
+  private var buttons: some View {
+    HStack {
+      if let readers, readers.indices.contains(index), !handbook.safety.isOwn(readers[index]) {
+        disc(ReaderMenu(item: readers[index], reporting: $reporting, blocking: $blocking))
+      }
+      Spacer()
+      Button { close() } label: { disc(Image(systemName: "xmark")) }
+        .buttonStyle(.plain)
+        .accessibilityLabel(Text("Đóng"))
+        .accessibilityIdentifier("viewer-close")
+    }
+    .padding(.horizontal, 16)
+    .padding(.top, 6)
+  }
+
+  private func disc(_ symbol: some View) -> some View {
+    symbol
+      .font(.body.weight(.semibold))
+      .dynamicTypeSize(...DynamicTypeSize.xLarge)
+      .foregroundStyle(.white)
+      .frame(width: 44, height: 44)
+      .background(.black.opacity(PageTop.ground(reduceTransparency: opaque)), in: Circle())
+      .contentShape(Circle())
   }
 
   /// "12/28 · its note": the number brighter than the note.

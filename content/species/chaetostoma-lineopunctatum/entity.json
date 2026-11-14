@@ -111,5 +111,107 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13"
+  "updatedAt": "2026-11-13",
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Rio San Alejandro",
+        "Marañón",
+        "Ucayali",
+        "Amazon"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "The L number specifically was collected in the Rio San Alejandro.",
+          "countries": [],
+          "regions": [
+            "Rio San Alejandro"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Amazon, Upper Amazon, Marañón, Ucayali, San Alejandro.",
+          "countries": [],
+          "regions": [
+            "Marañón",
+            "Ucayali",
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202363,
+      "total": 45,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "PE",
+          45
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -7.03125,
+          1
+        ],
+        [
+          -78.75,
+          -5.625,
+          1
+        ],
+        [
+          -78.75,
+          -4.21875,
+          5
+        ],
+        [
+          -77.34375,
+          -9.84375,
+          1
+        ],
+        [
+          -77.34375,
+          -8.4375,
+          5
+        ],
+        [
+          -77.34375,
+          -7.03125,
+          1
+        ],
+        [
+          -75.9375,
+          -9.84375,
+          9
+        ],
+        [
+          -74.53125,
+          -12.65625,
+          2
+        ],
+        [
+          -73.125,
+          -12.65625,
+          4
+        ],
+        [
+          -71.71875,
+          -14.0625,
+          14
+        ],
+        [
+          -70.3125,
+          -14.0625,
+          2
+        ]
+      ]
+    }
+  }
 }

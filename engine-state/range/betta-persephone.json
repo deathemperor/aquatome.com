@@ -1,14 +1,22 @@
 {
   "id": "betta-persephone",
   "native": {
-    "input": "7abd9e68ff2b6737",
-    "at": "2026-11-06T18:08:44.169Z",
+    "input": "b436e5a4ed40bd20",
+    "at": "2026-11-14T05:39:06.336Z",
     "claims": [
       {
         "code": "MY",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Betta persephone is a small bubble-nesting labyrinth fish that appears to be endemic to southwestern Johor state, Peninsular Malaysia.",
+        "quote": "Appears to be endemic to forested areas around the towns of Ayer Hitam, Muar, and Kluang in southwestern Johor state, Peninsular Malaysia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Betta persephone is endemic to a few peat swamp forest fragments around Ayer Hitam, Muar and Kluang in southwestern Johor, Peninsular Malaysia.",
         "words": "Malaysia",
         "ok": true
       }
@@ -17,7 +25,15 @@
       {
         "name": "Peninsular Malaysia",
         "source": "seriouslyfish",
-        "quote": "Betta persephone is a small bubble-nesting labyrinth fish that appears to be endemic to southwestern Johor state, Peninsular Malaysia.",
+        "quote": "Appears to be endemic to forested areas around the towns of Ayer Hitam, Muar, and Kluang in southwestern Johor state, Peninsular Malaysia.",
+        "country": "MY",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Peninsular Malaysia",
+        "source": "bwaquatics",
+        "quote": "Betta persephone is endemic to a few peat swamp forest fragments around Ayer Hitam, Muar and Kluang in southwestern Johor, Peninsular Malaysia.",
         "country": "MY",
         "ok": false,
         "why": "a country"

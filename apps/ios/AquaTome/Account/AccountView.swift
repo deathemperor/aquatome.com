@@ -86,7 +86,9 @@ struct Tile: View {
 /// which opens their shelf on the Tìm tab, where pages open.
 private struct AppSection: View {
   @Environment(HandbookModel.self) private var handbook
+  @Environment(AccountModel.self) private var account
   @Environment(\.openScreen) private var openScreen
+  @AppStorage(TabBarGlass.key) private var tabBarGlass = true
 
   /// "Ngôn ngữ" as kept, which the section's footer reads too.
   @State private var language = AppLanguage.stored
@@ -99,6 +101,13 @@ private struct AppSection: View {
       .accessibilityIdentifier("app-icon-row")
       AppearanceRow()
       LanguageRow(choice: $language)
+      // The owner's trial (TabBarGlass): their words alone, so not in the strings file.
+      if #available(iOS 26, *), account.owner.isOwner == true, account.user != nil {
+        Toggle(isOn: $tabBarGlass) {
+          Label { Text(verbatim: "Thanh tab kiểu App Store (thử)") } icon: { Tile(symbol: "dock.rectangle", color: .indigo) }
+        }
+        .accessibilityIdentifier("tab-bar-glass-switch")
+      }
       let kept = handbook.keptItems.count
       if kept > 0 {
         Button { openScreen(.kept) } label: {

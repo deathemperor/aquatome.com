@@ -1,0 +1,121 @@
+{
+  "id": "costasiella-kuroshimae",
+  "native": {
+    "input": "c95c2c39c34b386f",
+    "at": "2026-11-14T05:39:06.336Z",
+    "claims": [
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Costasiella kuroshimae was discovered in 1993 off the coast of Kuroshima, Japan; its name refers to the type locality Kuroshima in Okinawa, Ryukyu Islands.",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It is found on reefs off the coasts of Japan, Indonesia and the Philippines.",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It is found on reefs off the coasts of Japan, Indonesia and the Philippines.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "PH",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It is found on reefs off the coasts of Japan, Indonesia and the Philippines.",
+        "words": "Philippines",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ryukyu Islands",
+        "source": "aquariumbreeder",
+        "quote": "Costasiella kuroshimae was discovered in 1993 off the coast of Kuroshima, Japan; its name refers to the type locality Kuroshima in Okinawa, Ryukyu Islands.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Costasiella kuroshimae",
+    "status": "ACCEPTED",
+    "taxonKey": 5859288,
+    "datasets": [
+      [
+        "a43faa76-9803-4e7f-9b11-315983fd8c49",
+        65
+      ],
+      [
+        "a8a65250-235c-4310-a97a-06704981dac4",
+        36
+      ],
+      [
+        "8241c49f-36bc-4cf2-a707-75bae56e9986",
+        23
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        21
+      ],
+      [
+        "44bcde48-ac71-46f2-bf73-24fc3c008b6c",
+        9
+      ],
+      [
+        "7447a228-a4cf-414b-87e4-3aba15275580",
+        2
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        2
+      ],
+      [
+        "a92da926-607a-4c77-8b13-14779db96730",
+        2
+      ],
+      [
+        "c6ca96bc-7cf5-4fe7-ac44-d01e06394ef3",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "JP",
+      "ID",
+      "PH"
+    ],
+    "requests": 14,
+    "at": "2026-11-14T05:39:06.336Z"
+  }
+}

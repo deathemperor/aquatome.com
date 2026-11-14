@@ -6,6 +6,31 @@
   "genus": "Priapella",
   "group": "livebearers",
   "places": [],
+  "range": {
+    "records": {
+      "taxonKey": 2350141,
+      "total": 17,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "MX",
+          17
+        ]
+      ],
+      "cells": [
+        [
+          -97.03125,
+          16.875,
+          2
+        ],
+        [
+          -95.625,
+          18.28125,
+          15
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

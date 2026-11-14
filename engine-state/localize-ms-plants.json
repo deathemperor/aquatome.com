@@ -886,5 +886,77 @@
       "quickFacts:tropica": "12f02b6b31df",
       "notes:tropica": "37dd0c72e8bf"
     }
+  },
+  "dracaena-sanderiana": {
+    "at": "2026-11-14",
+    "from": "2026-11-09",
+    "name": "Buluh Bertuah",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": [
+      "Item 2: \"Alam\" for Kingdom and \"Order\" are acceptable, but \"Order\" could be \"Order/Tertib\" for consistency. This is optional and minor.",
+      "Item 3: \"suhu yang panas\" is slightly strong for \"warm temperatures\". \"suhu yang hangat\" or \"suhu yang suam\" reads more naturally."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "bfbebc835091",
+      "distribution:aquariumbreeder": "cb16d2349644",
+      "habitat:aquariumbreeder": "c71490ead308",
+      "aquariumSize:aquariumbreeder": "25e10316b03b",
+      "maintenance:aquariumbreeder": "3996b4c110b0",
+      "maintenance:aquatome": "5b57b98f4902",
+      "waterConditions:aquariumbreeder": "7affaa59661b",
+      "waterConditions:aquatome": "05e2eb34442b",
+      "equipment:aquariumbreeder": "2fd192012cfe",
+      "notes:aquariumbreeder": "f03fb6a42b7e"
+    }
+  },
+  "echinodorus-angustifolia": {
+    "at": "2026-11-14",
+    "from": "2026-11-10",
+    "name": "Echinodorus Vesuvius",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Items 2, 3 and 4: \"kuntum bunga\" means an open flower. For \"flower buds\" use \"kudup bunga\"."
+    ],
+    "parts": {
+      "quickFacts:aquariumcoop": "5d3f7aabb66d",
+      "beforeYouBuy:aquariumcoop": "2e3bba12ff2e",
+      "maintenance:aquatome": "5503d19be45f",
+      "maintenance:aquariumcoop": "64c740b3ebdf",
+      "notes:aquariumcoop": "ed9c0800ac5b"
+    }
+  },
+  "echinodorus-aquartica": {
+    "at": "2026-11-14",
+    "from": "2026-10-30",
+    "name": "Echinodorus 'Aquartica'",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"Asal\" for Origin is slightly terse; \"Asal usul\" or \"Asalan\" would be more natural (minor).",
+      "\"tumbuhan kultivasi\" is slightly awkward; \"tumbuhan kultivar\" or \"tumbuhan ternak/kacukan\" is more natural (minor)."
+    ],
+    "parts": {
+      "quickFacts:tropica": "5b4adfc6e8ba",
+      "notes:tropica": "03f1a1db2c22"
+    }
+  },
+  "echinodorus-cordifolius": {
+    "at": "2026-11-14",
+    "from": "2026-10-30",
+    "name": "Echinodorus Cordifolius Fluitans",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"Mexico\" should be \"Mexico\" in Malay is acceptable; but \"Asal: Amerika Utara\" in item 1 is fine—no issue; minor: \"Roset\" is OK.",
+      "\"Echinodorus dari Mexico yang tumbuh agak cepat berbanding yang lain\" is slightly awkward; better \"Echinodorus dari Mexico yang agak cepat membesar\".",
+      "\"memang cantik sebagai hiasan\" is a little awkward; use \"sangat menarik sebagai hiasan\".",
+      "\"instead\" nuance is lost in the last sentence: add \"sebaliknya\" (\"sebaliknya ia akan mengeluarkan daun besar betul-betul di bawah permukaan air\")."
+    ],
+    "parts": {
+      "quickFacts:tropica": "d6eeaf890a3b",
+      "notes:tropica": "c88d4379280b"
+    }
   }
 }

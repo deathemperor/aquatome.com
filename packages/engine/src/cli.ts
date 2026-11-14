@@ -99,6 +99,7 @@ import { addPlantSynonyms } from './plant-synonyms'
 import { fetchFishSynonyms, fishOlderNames } from './fish-synonyms'
 import { writePlanting } from './planting'
 import { localizeTopic, makeTopic } from './topics'
+import { makeMaterial, MATERIALS } from './materials'
 import { makeGlossaryEntry } from './glossary-entry'
 import { CLASSIFICATION_THREAD, FORUM_SECTIONS, readForum } from './forum'
 import { readIdeas, refreshIdeas, writeIdeas } from './ideas'
@@ -744,10 +745,12 @@ if (cmd === 'photo-privacy') {
   // fails is held back, a live page that got worse gets its committed text back, a page no rewording fixes is held.
   // A video guide worse only for a sentence (a shop or a price abroad, talk about the video) has it fixed by the video's
   // editor and is read again instead (video-mend.ts), --mends pages a run; what does go back is kept (engine-state/put-back/).
-  // pnpm engine gate [--limit N: model reads at most] [--jobs N] [--mends N: pages sent to the mender's editor at most, 6; 0: none]
+  // A new video guide held only for such sentences goes to the editor first too, and so do GATE_HELD_MENDS (12) of the held
+  // ones a run (the chief of staff, 14 Nov 2026).
+  // pnpm engine gate [--limit N: model reads at most] [--jobs N] [--mends N: new and live pages sent to the mender's editor at most, 20; 0: none]
   const { report: r, state, pages, held } = await gate(ROOT, {
     llm: claudeCli, model: process.env.FIT_MODEL ?? 'opus', jobs: Number(values.jobs ?? 3), limit: Number(values.limit ?? 150),
-    mend: videoMend(ROOT, { llm: claudeCli, yt: youtube(), write: { style: true, model: process.env.VIDEO_MODEL ?? 'opus' } }), mends: Number(values.mends ?? process.env.GATE_MENDS ?? 6),
+    mend: videoMend(ROOT, { llm: claudeCli, yt: youtube(), write: { style: true, model: process.env.VIDEO_MODEL ?? 'opus' } }), mends: Number(values.mends ?? process.env.GATE_MENDS ?? 20), heldMends: Number(process.env.GATE_HELD_MENDS ?? 12),
   })
   await writeFile(join(ROOT, 'docs/review/fit.md'), fitReport(pages, state))
   await writeFitSummary(ROOT, pages, state, { held })
@@ -1067,6 +1070,14 @@ if (cmd === 'photo-privacy') {
   const kind = values.kind as (typeof kinds)[number] | undefined
   if (!topic || !kind || !kinds.includes(kind)) throw new Error(`usage: pnpm engine topic "<chủ đề>" --kind ${kinds.join('|')} [--redo]`)
   const r = await makeTopic(ROOT, { research: claudeResearch, llm: claudeCli }, { topic, kind }, { researchModel: process.env.RESEARCH_MODEL ?? 'opus', reuse: values.redo })
+  console.log(JSON.stringify(r, null, 1))
+} else if (cmd === 'material') {
+  // A hobby material's page (lũa, đá, nền), written from web research and checked like a guide (materials.ts):
+  // pnpm engine material <id> [--redo]. Its id, address and names are in MATERIALS. --redo: write again from the research
+  // already kept (engine-state/materials), no new searching.
+  const a = MATERIALS.find(m => m.id === positionals[1])
+  if (!a) throw new Error(`usage: pnpm engine material ${MATERIALS.map(m => m.id).join('|')} [--redo]`)
+  const r = await makeMaterial(ROOT, { research: claudeResearch, llm: claudeCli }, a, { researchModel: process.env.RESEARCH_MODEL ?? 'opus', reuse: values.redo })
   console.log(JSON.stringify(r, null, 1))
 } else if (cmd === 'glossary-entry') {
   // A glossary term's fuller entry, written from web research and checked like a guide (glossary-entry.ts):

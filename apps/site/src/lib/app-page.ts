@@ -350,6 +350,7 @@ export function glossaryDoc(lang: Lang, c: Content, g: Localized<GlossaryEntity>
       ...(p.otherNames.length ? [{ t: 'p' as const, c: [t('Tên khác: {names}', { names: p.otherNames.join(', ') })] }] : []),
       { t: 'p', c: g.latin ? [`${t('Tiếng Anh:')} ${g.en}, `, { text: g.latin, i: true }] : [`${t('Tiếng Anh:')} ${g.en}`] },
       ...(p.definition ? proseBlocks(lang, `<p>${p.definition}</p>`).blocks : []),
+      ...(p.material ? [{ t: 'p' as const, c: [{ text: p.material.text, href: appPath(lang, p.material.href) }] }] : []),
       ...(p.photo && image(lang, p.photo, p.photo.caption) ? [{ t: 'figure' as const, img: image(lang, p.photo, p.photo.caption)!, ...(p.photo.caption ? { caption: [p.photo.caption] } : {}) }] : []),
       ...(p.body ? proseBlocks(lang, p.body).blocks : []),
       ...pagesBlock(lang, listed, t('Xem thêm'), p.related.map(r => `/vi/thuat-ngu/${r.t.slug}/`), p.related.length),

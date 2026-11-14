@@ -10,6 +10,52 @@
     "malaysia",
     "segama"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Segama River",
+        "Borneo"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Upper reaches of the Segama River drainage in Sabah, Borneo.",
+          "countries": [],
+          "regions": [
+            "Segama River",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338186,
+      "total": 2,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "MY",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          116.71875,
+          4.21875,
+          1
+        ],
+        [
+          118.125,
+          4.21875,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

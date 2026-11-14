@@ -1,0 +1,48 @@
+{
+  "id": "hemibagrus-furcatus",
+  "native": {
+    "input": "a3e3e722495a4f42",
+    "at": "2026-11-14T05:39:06.336Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Segama River",
+        "source": "planetcatfish",
+        "quote": "Upper reaches of the Segama River drainage in Sabah, Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "planetcatfish",
+        "quote": "Upper reaches of the Segama River drainage in Sabah, Borneo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemibagrus furcatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2338186,
+    "datasets": [
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-14T05:39:06.336Z"
+  }
+}

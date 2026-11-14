@@ -10,6 +10,50 @@
     "indonesia",
     "jambi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Sumatra"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Sumatra, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Sumatra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338163,
+      "total": 1,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "MY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          1.40625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

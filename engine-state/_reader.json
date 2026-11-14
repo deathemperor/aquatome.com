@@ -849,6 +849,195 @@
     "findings": [],
     "ruled": "37d34ebe039019b0"
   },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-josh-sim-2": {
+    "at": "2026-11-14",
+    "hash": "ac05c8c1cb38c651",
+    "findings": [],
+    "ruled": "ac05c8c1cb38c651"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-josh-sim-2019": {
+    "at": "2026-11-14",
+    "hash": "5652471c13a9dd4a",
+    "findings": [],
+    "ruled": "5652471c13a9dd4a"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-juan-puchades-rufino-2660": {
+    "at": "2026-11-14",
+    "hash": "03879ca605990786",
+    "findings": [
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "bắt đầu từ gần mặt trước bể rồi thu hẹp dần về phía sau",
+        "problem": "In the source, the tall rock sides 'taper' to the rear, meaning they get lower. 'Thu hẹp dần' means they get narrower, which changes the layout advice.",
+        "fix": "bắt đầu từ gần mặt trước bể rồi thấp dần về phía sau",
+        "field": "body"
+      }
+    ],
+    "ruled": "03879ca605990786"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-long-tranhoang-1": {
+    "at": "2026-11-14",
+    "hash": "22caaec6107ee57e",
+    "findings": [],
+    "ruled": "22caaec6107ee57e"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-luca-galarraga-2018-soul": {
+    "at": "2026-11-14",
+    "hash": "d53634c75ec489f9",
+    "findings": [],
+    "rewrites": [
+      {
+        "at": "2026-11-14",
+        "field": "body",
+        "score": 0.85,
+        "kept": true,
+        "problems": [
+          "The source's 'flow' means how the eye moves through the layout, but 'dòng chảy' reads as water current in the tank."
+        ]
+      }
+    ],
+    "ruled": "d53634c75ec489f9"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-marcelo-barros-2": {
+    "at": "2026-11-14",
+    "hash": "74b2c6ac4ad85316",
+    "findings": [],
+    "ruled": "74b2c6ac4ad85316"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-marcelo-tonon-chiovatto": {
+    "at": "2026-11-14",
+    "hash": "3beb36ada57892bd",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "với khoảng nền giữa được chiếu sáng và cảnh thác nước",
+        "problem": "The source means a lit background at the centre, but \"nền giữa\" reads like the midground, which the next sentence describes as dark.",
+        "fix": "với phần hậu cảnh ở giữa được chiếu sáng và cảnh thác nước",
+        "field": "body"
+      }
+    ],
+    "ruled": "3beb36ada57892bd"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-martial-hervy": {
+    "at": "2026-11-14",
+    "hash": "e00c9402c7614c26",
+    "findings": [],
+    "ruled": "e00c9402c7614c26"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-martial-hervy-1710": {
+    "at": "2026-11-14",
+    "hash": "e509950488a1ee3a",
+    "findings": [],
+    "ruled": "e509950488a1ee3a"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-paul-vitor-pacheco-2440": {
+    "at": "2026-11-14",
+    "hash": "cb533d8072e8f5f8",
+    "findings": [],
+    "ruled": "cb533d8072e8f5f8"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-roger-goh": {
+    "at": "2026-11-14",
+    "hash": "45e898d5bdb8e01c",
+    "findings": [],
+    "ruled": "45e898d5bdb8e01c"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-sumida-5": {
+    "at": "2026-11-14",
+    "hash": "a72b31826d53b09c",
+    "findings": [],
+    "ruled": "a72b31826d53b09c"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-takayuki-fukada": {
+    "at": "2026-11-14",
+    "hash": "4bf441c5a65865d5",
+    "findings": [],
+    "ruled": "4bf441c5a65865d5"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-tom-barr-1": {
+    "at": "2026-11-14",
+    "hash": "36ab1a20e5c2e8a3",
+    "findings": [],
+    "ruled": "36ab1a20e5c2e8a3"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-wang-chao": {
+    "at": "2026-11-14",
+    "hash": "0936be90a5378d7d",
+    "findings": [],
+    "ruled": "0936be90a5378d7d"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-wolinski-gregoire-5340": {
+    "at": "2026-11-14",
+    "hash": "01ce05c22ed11422",
+    "findings": [],
+    "ruled": "01ce05c22ed11422"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-xue-hai": {
+    "at": "2026-11-14",
+    "hash": "3300988ca7dbb06c",
+    "findings": [],
+    "ruled": "3300988ca7dbb06c"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-yoyo-prayogi": {
+    "at": "2026-11-14",
+    "hash": "1606a8b4ff2c97be",
+    "findings": [],
+    "ruled": "1606a8b4ff2c97be"
+  },
+  "vi/guides/2hraquarist-blogs-beginners-planted-tank-101-10-best-low-tech-plants": {
+    "at": "2026-11-14",
+    "hash": "ca81e614d641c587",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Bể tép không châm CO2 (low-tech) này dùng rêu fissidens.",
+        "problem": "This line is a photo caption from the source page left in the body text, and it points to a tank photo that isn't on the page.",
+        "rule": "A body line ending a section that uses a demonstrative ('này') to point at a tank or photo with no image attached.",
+        "field": "body"
+      },
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C3",
+        "quote": "How do you plant a Microsorum or Java Fern in an aquarium?",
+        "problem": "The caption is a question followed by cut-off care text and doesn't describe what the photo shows.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "ca81e614d641c587"
+  },
+  "vi/guides/aquariumbreeder-10-questions-to-ask-when-buying-aquarium-crustaceans": {
+    "at": "2026-11-14",
+    "hash": "5296103b90f0a7ca",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Chúng có thể phá yên ổn của bể nuôi chung, và chắc chắn sẽ phá.",
+        "problem": "The phrase 'phá yên ổn của bể' is missing a noun and reads like a word-for-word rendering of 'may and will disrupt the peace'.",
+        "fix": "Chúng sẽ phá sự yên ổn của bể nuôi chung, chuyện này gần như chắc chắn.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "đổi sang nước khác kiểu gì cũng có thể làm chúng bị sốc",
+        "problem": "The sentence uses both 'kiểu gì cũng' (bound to happen) and 'có thể' (may), so the hedge contradicts itself and reads awkwardly.",
+        "fix": "Lúc đó, đổi sang nước khác có thể làm chúng bị sốc.",
+        "rule": "Flag 'kiểu gì cũng có thể' in the same clause.",
+        "field": "body"
+      }
+    ],
+    "ruled": "5296103b90f0a7ca"
+  },
   "vi/guides/aquariumbreeder-10-slow-growing-plants-in-the-tank": {
     "at": "2026-11-01",
     "hash": "7d8ace662d61562a",
