@@ -86,14 +86,31 @@
       "html": "<p>Transactions of the Literary and Philosophical Society of New-York v. 1 (art. 5) (for 1814), pp 433.</p>"
     }
   ],
-  "photos": [],
-  "videos": [
+  "photos": [
     {
-      "youtubeId": "4_2bi11oowk",
-      "title": "Aqua Facts/ part 37: Gafftopsail catfish🐟",
-      "durationSec": 21,
-      "lang": "en"
+      "url": "https://media.aquatome.com/scotcat/558c9b451e57db0b.webp",
+      "thumb": "https://media.aquatome.com/scotcat/558c9b451e57db0b-480.webp",
+      "width": 500,
+      "height": 379,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/bagre_marinus.htm",
+      "caption": "Bagre marinus (Mitchill, 1815)",
+      "source": "scotcat"
     },
+    {
+      "url": "https://media.aquatome.com/scotcat/2fa8a931287ab76b.webp",
+      "thumb": "https://media.aquatome.com/scotcat/2fa8a931287ab76b-480.webp",
+      "width": 500,
+      "height": 388,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/bagre_marinus.htm",
+      "caption": "Bagre marinus",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
     {
       "youtubeId": "hSXtY_RWQck",
       "title": "UGA Aquarium's smallest  Sea Catfish",

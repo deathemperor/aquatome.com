@@ -1,4 +1,5 @@
 ---
+import { sciBeside } from '../lib/sci'
 import { resolveDataCard, type Localized, type Photo, type SpeciesEntity } from '@aq/schema'
 import Difficulty from './Difficulty.astro'
 import RangeBar from './RangeBar.astro'
@@ -42,7 +43,7 @@ const fig = breed ? { tempC: asRange(temp?.value), ph: asRange(ph?.value), tankC
       : p ? (frame.whole ? <span class="whole">{!frame.mat && <img class="ground" src={smallSrc(p)} width={p.width} height={p.height} alt="" aria-hidden="true" loading={load} />}<img src={smallSrc(p)} width={p.width} height={p.height} alt="" loading={load} /></span>
         : <img src={smallSrc(p)} width={p.width} height={p.height} alt="" loading={load} style={frame.pos && `object-position: ${frame.pos}`} />)
       : <span class="ph"><svg viewBox="0 0 64 32" aria-hidden="true"><path d="M6 16c8-11 26-13 40-3l12-8v22l-12-8C32 29 14 27 6 16Z" /><circle cx="17" cy="14" r="1.6" /></svg>{tr('Chưa có ảnh')}</span>}</div>
-    {breed ? <><h3 class="n">{breed.t.name}</h3><p class="kind">{tr(BREED_KIND[breed.kind])}</p></> : <><h3>{s.t.name}</h3><p class="sci">{s.scientificName}</p>{(template || water) && <p class="water">{water}</p>}</>}
+    {breed ? <><h3 class="n">{breed.t.name}</h3><p class="kind">{tr(BREED_KIND[breed.kind])}</p></> : <><h3>{s.t.name}</h3>{(template || sciBeside(s.t.name, s.scientificName)) && <p class="sci">{s.scientificName}</p>}{(template || water) && <p class="water">{water}</p>}</>}
   </a>
   {t || h || diff ? (
     <dl class="label">

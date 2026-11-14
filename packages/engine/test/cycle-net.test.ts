@@ -202,7 +202,8 @@ async function seen(parent: number | undefined, command: string) {
   }
   throw new Error(`the fake cycle never showed "${command}" in ${slow(10_000) / 1000} s`)
 }
-const pattern = (line: string) => new RegExp(`Z ${line.replace(/[().]/g, '\\$&').replace('HH:MM', '\\d\\d:\\d\\d')}$`)
+// HH:MM is a clock time; "N min", a real run's minutes, which a slow machine makes more than none.
+const pattern = (line: string) => new RegExp(`Z ${line.replace(/[().]/g, '\\$&').replace('HH:MM', '\\d\\d:\\d\\d').replace(' N min', ' \\d+ min')}$`)
 
 test('a part\'s cycle that has stopped moving past its hours is called stuck, by its step, in its log every hour and on GitHub once a day, and not stopped', async () => {
   const { h, clones, gh, stuck, log } = stuckHome()
@@ -215,7 +216,7 @@ test('a part\'s cycle that has stopped moving past its hours is called stuck, by
     expect(stuck('6').status).toBe(0)
     expect(log('photos')).toEqual([])
     expect(stuck('0').status).toBe(0)
-    const line = `stuck: the photos cycle (pid ${cycle.pid}) has run 0 h 0 min and hasn't moved since the check at HH:MM: talking to GitHub, in git fetch -q origin 60. launchd starts no photos run until it ends, and nothing stops it by itself`
+    const line = `stuck: the photos cycle (pid ${cycle.pid}) has run 0 h N min and hasn't moved since the check at HH:MM: talking to GitHub, in git fetch -q origin 60. launchd starts no photos run until it ends, and nothing stops it by itself`
     expect(log('photos')).toEqual([expect.stringMatching(pattern(line))])
     expect(gh()).toEqual([expect.stringMatching(new RegExp(`^workflow run engine-mac.yml -R deathemperor/aquatome.com -f part=photos -f why=${pattern(line).source.slice(2)}`))])
     // The next hour: its log again, GitHub not again; the cycle still running; the other parts said nothing.
@@ -306,7 +307,7 @@ test('a real cycle whose call ends and whose next begins is still moving, each s
     process.kill(Number(first))
     await seen(calls.pid, 'sleep 61')
     stuck('0')
-    expect(log('pages')).toEqual([expect.stringMatching(pattern(`past its hours: the pages cycle (pid ${calls.pid}) has run 0 h 0 min, still moving: waiting, now in sleep 61. launchd starts no pages run until it ends, and nothing stops it by itself`))])
+    expect(log('pages')).toEqual([expect.stringMatching(pattern(`past its hours: the pages cycle (pid ${calls.pid}) has run 0 h N min, still moving: waiting, now in sleep 61. launchd starts no pages run until it ends, and nothing stops it by itself`))])
     expect(gh().filter(c => c.includes('why=stuck'))).toEqual([])
   } finally {
     process.kill(-calls.pid!)

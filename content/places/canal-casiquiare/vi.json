@@ -1,10 +1,13 @@
 {
   "slug": "canal-casiquiare",
-  "name": "Canal Casiquiare",
-  "altNames": [],
+  "name": "kênh Casiquiare",
+  "altNames": [
+    "Canal Casiquiare"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

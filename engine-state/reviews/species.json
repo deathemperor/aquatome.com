@@ -479,6 +479,37 @@
       "kept": false
     }
   ],
+  "vi/species/hyphessobrycon-vilmae#DY6gcyX2Stk": [
+    {
+      "at": "2026-11-14T03:27:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.86,
+      "notes": [
+        "Minor: \"gặp cá bán dưới tên H. vilmae mà có sọc đỏ trên sọc đen thì chưa chắc đó đã là loài này\" is the writer's own conclusion. The video only implies it, so the claim goes slightly beyond what is said.",
+        "Minor: \"kẻ hay cắn\" is a slightly stiff, literal rendering of the etymology. A hobbyist would more likely write \"cá cắn khỏe\" or something similar.",
+        "Minor: the page already lists vilmae as having no shoulder spot. NEW leaves out the video's point that the complete absence of a shoulder spot suggests H. vilmae, so the contrast with the page is not drawn."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-14T03:27:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.8,
+      "notes": [
+        "Notes paragraph: the colour description (\"sọc đen đậm… vàng óng, đỏ, chút ánh xanh nhạt\") comes from the video description and is about H. vilmae. The spoken video says the fish it shows is probably a different, unresolved fish with a red stripe. Presenting it as the page species' colour pattern blurs that.",
+        "beforeYouBuy: \"không có đốm vai thì giống H. vilmae\" repeats a point the page already makes, that H. vilmae has no distinct shoulder spot. The video's link between the two is stated only as a trait comparison.",
+        "beforeYouBuy: the \"redline\" and \"đưa sang châu Á cho đẻ rồi mới bán về châu Âu\" statements are supported by the video. They are about the one mystery batch, but the wording \"Có những lô cá\" makes it sound like a general market pattern.",
+        "The video never says the fish is certainly not H. vilmae. \"thật ra chưa chắc là loài này\" is a reasonable hedge, but it leans slightly beyond what the video says."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/ladigesia-roloffi#d10WwCWVOoo": [
     {
       "at": "2026-11-13T19:09:14Z",
@@ -855,6 +886,44 @@
       "kept": false
     }
   ],
+  "vi/species/puntigrus-tetrazona#e-vMaC6qG9E": [
+    {
+      "at": "2026-11-14T03:29:59Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.6,
+      "notes": [
+        "[aquariumSize] \"thấy bể dài 80 cm vẫn còn chật\": the video never mentions an 80 cm tank. It says 10 and 20 gallon tanks are too small and recommends a 40 breeder or a three-foot tank or bigger. This is the main unsupported claim.",
+        "[aquariumSize] \"bể 200 lít hay 150 lít bớt cáu và bớt rỉa vây hẳn\": the video compares a 55 gallon or 40 breeder with a small tank. Reading \"hẳn\" as a strong effect and the litre figures are loose conversions.",
+        "[aquariumSize] \"Thả 6 con trong bể 80 lít\": the video says six fish in a 20 long. The 80 L figure is a conversion, and it also pushes the page's 80 × 30 cm line toward looking wrong.",
+        "[behaviour] \"Cá đĩa (discus) cũng là lựa chọn rất tệ, giống cá ông tiên\": the video does say this, but it sits as a bare bullet. The page already warns against angelfish and long-finned fish.",
+        "[reproduction] Steps such as \"cách đáy khoảng 7–8 cm\" and \"nâng nhiệt lên khoảng 26 °C\" are unit conversions of the video's \"three inches\" and \"78\", and they read as precise figures. The 5–6 day free-swimming time is hedged in the video (\"I think\"), but NEW hedges it only partly.",
+        "[waterConditions] \"nước mát tới khoảng 18 °C\" is a conversion of \"mid 60s\". It is attributed to one keeper, so this is acceptable, though it differs from the page's 20 °C minimum without saying so plainly."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-14T03:29:59Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.6,
+      "notes": [
+        "\"lúc nào cũng phải có sẵn bể dự phòng\": the video says \"always have a backup plan\", not a backup tank. It is also written as a flat rule rather than one keeper's experience.",
+        "\"Có lẽ vì màu đuôi giống màu cám hạt đỏ cá vẫn được ăn\": the speaker only notes the red tail and the red food. NEW presents the link as an explanation.",
+        "\"cá chịu được nước mát cỡ 18–20 °C và nóng tới khoảng 28 °C\": the page already says \"nhiệt độ từ 20 đến 28°C\", so this repeats a figure on the page.",
+        "[diet] \"Cám viên hay cám hạt phải đủ nhỏ\" and the plant-matter point are already on the page (small pellets and flakes, some plant component). This is repetition.",
+        "[reproduction] The infusoria-then-Artemia fry feeding is already on the page. It is not framed as a difference from the page.",
+        "\"Cá bột lúc đó còn quá nhỏ để ăn Artemia mới nở\": the speaker was unsure and said his memory might be wrong. NEW states it as fact.",
+        "The video disagrees with the page on tank size: it says larger, and that small tanks make the fish nip. NEW does not say plainly how that differs from the page's 80 cm minimum and its note that biting shows when tanks are cramped.",
+        "\"Ông cũng là người được đặt tên cho loài cichlid mắt Bleeker\": the wording is awkward and reads like a translation. It is also trivia about another species."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/puntius-titteya#541vhQjR9fI": [
     {
       "at": "2026-11-09T05:54:12Z",
@@ -1127,6 +1196,46 @@
         "[diet] \"có thể tập cho ăn cám viên cỡ nhỏ hoặc thức ăn dạng mảnh\": the video does say micro pellets or flakes. But the page already says fish may get used to dry food, so this is partly redundant.",
         "[behaviour] \"Cá bơi rất năng động\": the video says this, but the page lacks it. \"thấy đàn từ sáu con trở lên là được\" contradicts the page's 20-30 fish and turns the video's 'at least six' into one keeper's view without saying how it differs from the page.",
         "[behaviour] \"Người này thả chúng chung với tép trong bể nano\": this is the video maker's own experience, and it is given in a stilted third-person way ('Người này') that reads as a translation."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/tateurndina-ocellicauda#DS6Kjc37myo": [
+    {
+      "at": "2026-11-14T03:25:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.45,
+      "notes": [
+        "[distribution] \"Một người nuôi lâu năm còn cho rằng có thể gặp chúng ở khắp Úc và New Zealand\": the video states this as fact about the species' range, not as a keeper's experience. The attribution is wrong. The claim is also dubious.",
+        "[diet] \"Một người nuôi thấy chúng chỉ thỉnh thoảng mới chịu ăn thức ăn khô\": the video gives this as a general statement about the species. It is not one keeper's experience, so the attribution is misplaced.",
+        "[diet] \"Ngoài trùng huyết, bo bo và artemia\": the page already lists trùng huyết, bo bo and artemia. This repeats page content. The page also says the fish usually accept dry food, and the video differs (picky, only occasionally takes dry food). NEW does not say this contrast plainly.",
+        "[diet] \"artemia đã tách vỏ\": this is not really a keeper's observation. The wording \"có vẻ rất thích\" reads as a stiff translation of the video's \"seem to prefer decapsulated brine shrimp\".",
+        "[reproduction] \"Mỗi lứa con cái đẻ khoảng 50–100 trứng\": the video does say this, but it is placed in a general statement. Elsewhere in the paragraph, the video's general statements are wrongly framed as one keeper's experience.",
+        "[reproduction] \"Một người nuôi thấy lúc đầu phải cho cá bột ăn infusoria...\" and \"Người này cũng thấy phải mất vài tuần\": the video gives these as general facts. The page says the fry eat artemia nauplii at once and swim freely after 2–4 days. NEW does not flag this conflict plainly, since the video says fry feed on infusoria first and take several weeks to swim.",
+        "[reproduction] \"Cá trong nhóm thường bắt cặp khá nhanh... chuyển chúng sang một bể đẻ riêng\": this conflicts with the page, which advises letting the fish pair up themselves and breed in the same tank. NEW does not state the difference. \"Thay một lượng nước lớn\" also contradicts the page's 20% weekly change without saying so.",
+        "[habitat] The text is mostly faithful to the video, but it overlaps with the page's habitat section on streams, ponds and rivers."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-14T03:25:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.45,
+      "notes": [
+        "[behaviour] 'Cá mắt xanh (Pseudomugil)' – the video says rainbow fish 'from the gina sudan mcgill' (garbled), never blue-eyes/Pseudomugil; unsupported, and the page already has rainbowfish as tank mates.",
+        "[diet] 'Một người nuôi thấy loài này kén ăn và khá khó cho ăn' – the video states picky eating as fact about the species, not one keeper's experience; misattributed framing.",
+        "[diet] 'Thỉnh thoảng chúng mới chịu ăn thức ăn khô' – the page already says the fish usually accept dry food; the video differs and the text doesn't say so plainly.",
+        "[diet] 'Trứng artemia đã tách vỏ' – the video says decapsulated brine shrimp, which is not 'trứng artemia'; also the video says live/frozen food is almost always preferred, left out here.",
+        "[maintenance] 'Thay nước thường xuyên… chọn loại lọc chạy nhẹ' – the page already says clean water and that strong current harms them (overlap).",
+        "[habitat] 'Nước ở đó mềm và có tính axit' – the page already has soft, slightly acidic water; the habitat is already covered there.",
+        "[reproduction] 'Một người nuôi loài này thấy cá bột lớn khá chậm' – the video states this as a general fact, not a keeper's experience; also the page says fry eat artemia nauplii right away, and the video differs (infusoria/powder first) without saying so plainly.",
+        "[reproduction] 'Nuôi theo nhóm thì cá thường bắt cặp… vớt riêng cặp đó' and 'chậu đất nung' – partly repeat page content (grouping, pairing, tubes, live/frozen feeding, water change, dance display); 'đến khi đủ lớn' and 'vài tuần' are in the video, but the several-week claim conflicts with the page's 2–4 days without noting it."
       ],
       "attempt": "first",
       "kept": false

@@ -10,6 +10,62 @@
     "china",
     "salween"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Salween",
+        "Nangun River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Schistura disparizona is a nemacheilid loach known only from its type locality on the Nangun River, a Salween tributary in Yunnan Province, China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Salween",
+            "Nangun River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205070,
+      "total": 7,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "CN",
+          6
+        ],
+        [
+          "MM",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          22.5,
+          1,
+          0
+        ],
+        [
+          98.4375,
+          23.90625,
+          6,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

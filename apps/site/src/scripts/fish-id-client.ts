@@ -5,6 +5,7 @@ import { escapeHtml, loadTurnstile, type Turnstile } from './comments'
 import { msg } from '../i18n/msg'
 import type { T } from '../lib/i18n'
 import { ct } from './ct'
+import { sciBeside } from '../lib/sci'
 import { shrink, type Region } from './reader-photos'
 
 /**
@@ -60,6 +61,12 @@ const IN_BOOK = msg('{n} loài {genus} có trong cẩm nang')
  * and the species wrong. "Không phải? N loài <Genus> khác…" under a page, "N loài <Genus> có…" under a guess with none.
  * `item` draws each page: a link on the tool's page, a button in the tank's form.
  */
+/** A page's scientific name after its name, in italics (`attrs`: the <i>'s), or nothing when its name says it. */
+export const sciAfter = (l: Linked, attrs = '') => {
+  const sci = l.sci && sciBeside(l.name, l.sci)
+  return sci ? ` <i${attrs}>${escapeHtml(sci)}</i>` : ''
+}
+
 export function genusHtml(t: T, r: Result, item: (l: Linked, i: number) => string): string {
   const list = r.sameGenus ?? []
   if (!list.length) return ''
@@ -78,6 +85,10 @@ export const own = (u?: string) => {
 }
 const photoSrc = (u?: string) => (u && /^https:\/\//.test(u) ? u : undefined)
 
+const UNESC: Record<string, string> = { '&lt;': '<', '&gt;': '>', '&quot;': '"', '&#39;': "'", '&amp;': '&' }
+/** What HTML from escapeHtml reads as: its tags gone and its entities back ("Alternanthera reineckii &#39;Mini&#39;"). */
+const textOf = (html: string) => html.replace(/<[^>]*>/g, '').replace(/&(?:lt|gt|quot|#39|amp);/g, e => UNESC[e]!)
+
 /**
  * One guess, as both places show it: our page's photo when the handbook has the page, how sure, the name, the scientific
  * name and variety, why. `name` (HTML) and `more` (HTML under it: links, or the action) are the caller's.
@@ -85,9 +96,12 @@ const photoSrc = (u?: string) => (u && /^https:\/\//.test(u) ? u : undefined)
 export function guessHtml(t: T, r: Result, name: string, more: string): string {
   const src = r.page && photoSrc(r.page.img)
   const img = src ? `<img src="${escapeHtml(src)}" width="120" height="90" alt="" loading="lazy">` : ''
-  const sci = `<i>${escapeHtml(r.scientificName)}</i>${r.variety ? ` · ${escapeHtml(r.variety)}` : ''}`
+  // The scientific name only when the name doesn't say it (lib/sci.ts): a handbook name that holds it, or the scientific
+  // name itself when there's no other.
+  const said = sciBeside(textOf(name), r.scientificName)
+  const sci = [said && `<i>${escapeHtml(said)}</i>`, r.variety && escapeHtml(r.variety)].filter(Boolean).join(' · ')
   const why = r.reason ? `<p class="why">${escapeHtml(r.reason)}</p>` : ''
-  return `<li class="${r.page ? 'hit' : 'miss'}">${img}<div><span class="sure">${escapeHtml(sure(t, r.confidence))}</span><h3>${name}</h3><p class="sci">${sci}</p>${why}${more}</div></li>`
+  return `<li class="${r.page ? 'hit' : 'miss'}">${img}<div><span class="sure">${escapeHtml(sure(t, r.confidence))}</span><h3>${name}</h3>${sci ? `<p class="sci">${sci}</p>` : ''}${why}${more}</div></li>`
 }
 
 /**

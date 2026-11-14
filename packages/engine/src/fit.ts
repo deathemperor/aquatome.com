@@ -126,6 +126,19 @@ export function fitText(p: Page): { parts: { id: string; field: string; text: st
 }
 
 const WORD = (s: string) => `(?<![\\p{L}\\p{N}])(?:${s})(?![\\p{L}\\p{N}])`
+/**
+ * What a lot's own fish are like, straight after "trong lô": only as the site's lines say it, a length with its figure,
+ * "gần như không khác", "còn nhỏ", how they differ. A word that can start something else ("gần như là cá của đợt
+ * trước", "khoảng 2 năm trước", "dài lâu", "lô nhỏ hơn", "đều khỏe lại") isn't on it (Grok's reads).
+ */
+const LOT_SAYS = '(?:dài (?:khoảng |chừng |cỡ |tầm )?\\d[\\d.,–-]*|gần như không khác|còn (?:nhỏ|non|bé)|khác nhau|khác biệt|(?:cỡ|chừng|khoảng|tầm) \\d[\\d.,–-]*\\s*(?:cm|mm))'
+/**
+ * After a lot or a round just in: "này", "hiện nay", what its fish are like, or a comma. Anything else may be another,
+ * an earlier or a later one ("nhập về năm ngoái", "đợt tới"), so the line stays (Grok's reads).
+ */
+const JUST_IN_ENDS = `(?=(?: (?:này|lần này|hiện nay|gần đây|${LOT_SAYS}))(?![\\p{L}])|\\s*[,:])`
+/** A lot told as this one or as just in (fit.ts's batch line). */
+const LOT_NOW = `(?:(?:cá |hàng )?(?:lần )?này|(?:(?:cá |hàng )?(?:(?:mới|vừa) )?nhập về|(?:mới|vừa) (?:nhập|về)(?: về)?)${JUST_IN_ENDS}|nhập (?:này|lần này|hiện nay|gần đây))`
 const re = (s: string) => new RegExp(s, 'giu')
 const AMOUNT = '\\d[\\d.,–-]*\\s*'
 /** Amazon the shop, not the river: a sentence buying from it, or its address. */
@@ -171,6 +184,12 @@ const DEALER_VI = re([
   // This brood just in: "lứa cá mới nhập này lại khá khỏe" (Astra's read); not a shop's "thả lứa mới về chung với đàn cũ".
   WORD('lứa(?: cá(?: hoang dã)?)? (?:mới|vừa) (?:nhập|về)(?: về)? (?:này|lần này)'),
   '(?<![\\p{L}\\p{N}])trong lô(?=[,:])',
+  // The batch's own fish: "Những con trong lô dài khoảng 5 cm" (the Crenuchus guide, which the read passed; the chief of
+  // staff, 14 Nov 2026). Only a lot told as this one, just in, or followed straight by what its fish are like; not other
+  // lots ("lô trước", "lô cá hoang dã khác", "lô nhập về khác"), mixed ones, a museum's, a round of treatment, a spawning,
+  // a migration, a calendar round ("đợt hàng tháng") or a later one ("đợt về sau"). A bare "đợt (lần) này" is as often a
+  // round of treatment or a spawning, as above (Grok's reads). Unsure, a line stays.
+  WORD(`(?:những |các |mấy )?(?:con|cá thể|cá)(?: cá)? (?:trong|của) (?:lô (?:${LOT_NOW}|${LOT_SAYS})|đợt (?:cá |hàng )?(?:(?:mới|vừa) (?:nhập|về)(?: về)?${JUST_IN_ENDS}|nhập(?: về)? (?:này|lần này|hiện nay|gần đây)))`),
   WORD('(?:(?<!ngày )nay|hiện nay|hiện|bây giờ|giờ đây)(?: thì)? (?:đã |đang |cũng )?(?:được )?(?:nhập về|có hàng)'),
   WORD('(?:đã |lại )?có hàng (?:trở )?lại'),
   // Stock back: "Hiện nay lại có cá thể hoang dã mới trưởng thành"; not "hiện nay lại có ý kiến".

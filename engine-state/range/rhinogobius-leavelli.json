@@ -1,0 +1,104 @@
+{
+  "id": "rhinogobius-leavelli",
+  "native": {
+    "input": "ba741c84a16b9e97",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed from the Nam Ma and Nam Mat river systems in northeastern Laos throughout northern Vietnam, including the Red (Hóng Hé) River, to the Pearl (Zhu Jiang) drainage in Guangxi Zhuang Autonomous Region, southern China.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed from the Nam Ma and Nam Mat river systems in northeastern Laos throughout northern Vietnam, including the Red (Hóng Hé) River, to the Pearl (Zhu Jiang) drainage in Guangxi Zhuang Autonomous Region, southern China.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed from the Nam Ma and Nam Mat river systems in northeastern Laos throughout northern Vietnam, including the Red (Hóng Hé) River, to the Pearl (Zhu Jiang) drainage in Guangxi Zhuang Autonomous Region, southern China.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Red River",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed from the Nam Ma and Nam Mat river systems in northeastern Laos throughout northern Vietnam, including the Red (Hóng Hé) River, to the Pearl (Zhu Jiang) drainage in Guangxi Zhuang Autonomous Region, southern China.",
+        "country": "VN",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Pearl",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed from the Nam Ma and Nam Mat river systems in northeastern Laos throughout northern Vietnam, including the Red (Hóng Hé) River, to the Pearl (Zhu Jiang) drainage in Guangxi Zhuang Autonomous Region, southern China.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Nam Ma",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed from the Nam Ma and Nam Mat river systems in northeastern Laos throughout northern Vietnam, including the Red (Hóng Hé) River, to the Pearl (Zhu Jiang) drainage in Guangxi Zhuang Autonomous Region, southern China.",
+        "country": "LA",
+        "ok": true
+      },
+      {
+        "name": "Nam Mat",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed from the Nam Ma and Nam Mat river systems in northeastern Laos throughout northern Vietnam, including the Red (Hóng Hé) River, to the Pearl (Zhu Jiang) drainage in Guangxi Zhuang Autonomous Region, southern China.",
+        "country": "LA",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rhinogobius leavelli",
+    "status": "ACCEPTED",
+    "taxonKey": 2377609,
+    "datasets": [
+      [
+        "a61d7523-bbbc-48eb-8d7f-ee69106f0c67",
+        11
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "LA",
+      "VN",
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

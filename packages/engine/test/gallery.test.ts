@@ -8,8 +8,9 @@ import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
 import { mirrorPlan } from '../src/mirror-photos'
 import { WikimediaRefused } from '../src/wikimedia-rest'
-import { breedNames, commonsCandidates, dhash, galleries, isSetup, orderAlbums, rankGallery, screenedAt, screenTagged, VET_SCHEMA, type GalleryDeps, type GalleryPhoto, type Vet } from '../src/gallery'
+import { breedNames, commonsCandidates, dhash, galleries, isSetup, orderAlbums, rankGallery, screenedAt, screenTagged, VET_SCHEMA, type GalleryDeps, type GalleryPhoto, type Look, type Vet } from '../src/gallery'
 import { slow } from '@aq/schema/test-time'
+import { knownNames, namedAs } from '../src/photo-named'
 
 const meta = (licence: string, artist = '<a href="x">Ann</a>, [[User:Bo K|Bo]]') => ({ LicenseShortName: { value: licence }, Artist: { value: artist } })
 const info = (title: string, licence: string, width = 2000) => ({
@@ -442,8 +443,8 @@ test('gallery order: photo-tank, ruler and printed-board photos go after all the
   const photos = [...tank.map((caption, i) => inatPhoto(i + 1, 1024, 768, { caption })), ...Array.from({ length: 6 }, (_, i) => inatPhoto(i + 10, 1024, 683, { caption: 'Cá kiếm đực trong bể thủy sinh' }))]
   const at = (p: Photo) => Number(/(\d+)\.webp$/.exec(p.url)![1])
   const ranked = rankGallery(photos, () => false, at)
-  expect(ranked.slice(0, 6).some(isSetup)).toBe(false)
-  expect(ranked.slice(6).map(isSetup)).toEqual([true, true, true])
+  expect(ranked.slice(0, 6).some(p => isSetup(p))).toBe(false)
+  expect(ranked.slice(6).map(p => isSetup(p))).toEqual([true, true, true])
   expect(ranked).toHaveLength(9)
   // Five others: they keep their place.
   expect(rankGallery(photos.slice(0, 8), () => false, at)[0]!.caption).toBe(tank[0])
@@ -462,7 +463,7 @@ test('gallery order: photo-tank, ruler and printed-board photos go after all the
   const unsure = photos[4]!.url
   const withUnsure = rankGallery([...photos, inatPhoto(20, 1024, 683)], u => u === unsure, at)
   expect(withUnsure.at(-1)!.url).toBe(unsure)
-  expect(withUnsure.slice(0, 6).some(isSetup)).toBe(false)
+  expect(withUnsure.slice(0, 6).some(p => isSetup(p))).toBe(false)
 })
 
 test('gallery order: a second pass over an album changes nothing', () => {
@@ -474,6 +475,12 @@ test('gallery order: a second pass over an album changes nothing', () => {
   const once = rankGallery(photos, cantTell, at)
   expect(rankGallery(once, cantTell, at)).toEqual(once)
   expect(rankGallery([...once].reverse(), cantTell, at).filter(p => at(p) !== undefined)).toEqual(once.filter(p => at(p) !== undefined))
+  // With the photo check's, the box step's and the album ask's answers too.
+  const looks = (url: string): Look => { const k = Number(/(\d+)\.webp$/.exec(url)?.[1] ?? 0); return { ...(k % 3 ? { typical: k % 3 === 1 } : {}), share: k % 7 ? 0.3 : 0.02, whole: k % 5 !== 0, small: k % 11 === 0 } }
+  const seen = rankGallery(photos, cantTell, at, looks)
+  expect(seen).not.toEqual(once)
+  expect(rankGallery(seen, cantTell, at, looks)).toEqual(seen)
+  expect(rankGallery([...seen].reverse(), cantTell, at, looks).filter(p => at(p) !== undefined)).toEqual(seen.filter(p => at(p) !== undefined))
 })
 
 test('orderAlbums: every album in the album order, the leads that changed listed, a second run writing nothing', async () => {
@@ -490,6 +497,62 @@ test('orderAlbums: every album in the album order, the leads that changed listed
   const g = GallerySchema.parse(await read(r, 'content/gallery/poecilia-reticulata.json'))
   expect(g.photos.map(p => p.url.split('/').at(-1))).toEqual(['296283368.webp', '340813812.webp'])
   expect(await orderAlbums(r, {})).toEqual({ files: [], leads: [] })
+})
+
+const num = (p: { url: string }) => Number(/(\d+)\.webp$/.exec(p.url)![1])
+
+test('gallery order: where six photos the photo check called typical show, they lead, then those it has not judged, then those it called not typical (16 albums led with one, 14 Nov)', () => {
+  const photos = Array.from({ length: 9 }, (_, i) => inatPhoto(i + 1, 1024, 768))
+  // Photo 1 not typical; photo 2 not judged yet; then `n` typical; photo 9 not judged yet.
+  const verdicts = (n: number) => (url: string): Look => { const k = num({ url }); return k === 1 ? { typical: false } : k === 2 || k > n + 2 ? {} : { typical: true } }
+  expect(rankGallery(photos, () => false, num).map(num)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9])
+  expect(rankGallery(photos, () => false, num, verdicts(6)).map(num)).toEqual([3, 4, 5, 6, 7, 8, 2, 9, 1])
+  // Five typical: the album keeps its order. A sixth waiting for the photo check (shown nowhere yet) doesn't count.
+  expect(rankGallery(photos, () => false, num, verdicts(5)).map(num)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9])
+  const waitingSixth = photos.map(p => (num(p) === 8 ? { ...p, unchecked: true } : p))
+  expect(rankGallery(waitingSixth, () => false, num, url => (num({ url }) === 8 ? { typical: true } : verdicts(5)(url))).map(num)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9])
+})
+
+test('gallery order: a lone fish under a twentieth of the frame goes behind where six others show; a group or a wild place stays (the cherry barb led with a fish 2% of its frame, 14 Nov)', () => {
+  const photos = [inatPhoto(1, 1024, 768), inatPhoto(2, 1024, 768, { kind: 'group' }), inatPhoto(3, 1024, 768, { kind: 'habitat' }), ...Array.from({ length: 4 }, (_, i) => inatPhoto(i + 10, 1024, 768))]
+  const boxes = (url: string): Look => ({ share: num({ url }) < 10 ? 0.023 : 0.3 })
+  const ranked = rankGallery(photos, () => false, num, boxes)
+  expect(num(ranked.at(-1)!)).toBe(1)
+  expect(ranked.slice(0, 6).map(num).sort((a, b) => a - b)).toEqual([2, 3, 10, 11, 12, 13])
+  // Five others: it keeps its place. Just over a twentieth: it keeps its place too.
+  expect(rankGallery(photos.slice(0, 6), () => false, num, boxes)[0]).toBe(photos[0])
+  expect(rankGallery(photos, () => false, num, url => ({ share: num({ url }) === 1 ? 0.051 : 0.3 }))[0]).toBe(photos[0])
+})
+
+test("gallery order: the album ask's answers: a fish cut by the frame or filling a small part of it goes behind; its word on a photo tank wins over the caption's", () => {
+  const photos = Array.from({ length: 9 }, (_, i) => inatPhoto(i + 1, 1024, 768, i === 3 ? { caption: 'Cá kiếm trong bể chụp ảnh' } : {}))
+  const answers: Record<number, Look> = { 1: { whole: false, small: false, setup: false }, 2: { whole: true, small: true, setup: false }, 3: { whole: true, small: false, setup: true }, 4: { whole: true, small: false, setup: false } }
+  expect(rankGallery(photos, () => false, num, url => answers[num({ url })] ?? {}).map(num)).toEqual([4, 5, 6, 7, 8, 9, 1, 2, 3])
+  // Without the answers, the caption still calls photo 4 a photo tank.
+  expect(rankGallery(photos, () => false, num).map(num)).toEqual([1, 2, 3, 5, 6, 7, 8, 9, 4])
+})
+
+test('the album step and the sweep order an album alike, from the saved verdicts, boxes and answers: the sweep moves nothing after the step', async () => {
+  const r = await root()
+  // 101 cut by the frame (the album ask), 102 a fish 2% of the frame (its box), 103 not typical and 104 to 109 typical (the photo check).
+  const album = Array.from({ length: 9 }, (_, i) => inatPhoto(101 + i, 1024, 768))
+  await mkdir(join(r, 'content/gallery'), { recursive: true })
+  await writeFile(join(r, 'content/gallery/betta-splendens.json'), JSON.stringify({ id: 'betta-splendens', photos: album, seen: 9, updatedAt: '2026-10-29' }))
+  const subjects = Object.fromEntries(album.slice(2).map((p, i) => [p.url, { 'betta-splendens': { ok: 'yes' as const, typical: i > 0, note: '' } }]))
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify(subjects))
+  await mkdir(join(r, 'engine-state/gallery'), { recursive: true })
+  await writeFile(join(r, 'engine-state/gallery/betta-splendens.json'), JSON.stringify({ queue: [], judged: album.map(p => `inat:${num(p)}`), hashes: {} }))
+  await writeFile(join(r, 'engine-state/_album-ask.json'), JSON.stringify({ [album[0]!.url]: { setup: false, whole: false, small: false } }))
+  await writeFile(join(r, 'engine-state/_photo-boxes.json'), JSON.stringify({ [album[1]!.url]: { x: 0.4, y: 0.4, w: 0.1, h: 0.2 } }))
+  await galleries(r, deps(), { sheets: 1 })
+  const g = GallerySchema.parse(await read(r, 'content/gallery/betta-splendens.json'))
+  expect(g.photos.length).toBeGreaterThan(9)
+  expect(g.photos.filter(p => !p.unchecked).map(num)).toEqual([104, 105, 106, 107, 108, 109, 103, 101, 102])
+  expect(await orderAlbums(r, subjects)).toEqual({ files: [], leads: [] })
+  // The sweep reads the same: with the answers gone, it moves them back.
+  await writeFile(join(r, 'engine-state/_album-ask.json'), '{}')
+  await writeFile(join(r, 'engine-state/_photo-boxes.json'), '{}')
+  expect((await orderAlbums(r, subjects)).files).toEqual(['gallery/betta-splendens.json'])
 })
 
 test('the album check says which photos are in a photo tank or beside a ruler, and the album keeps its word', async () => {
@@ -652,4 +715,17 @@ test('last item cost refuses admission without calls or content writes', async (
     expect(report.failed).toEqual([])
     expect(calls).toBe(0)
   })
+})
+
+test("gallery order: a photo its source names only to the genus or as another fish goes behind those named to the species, among the sure and the can't-tell alike, and stays", () => {
+  const p = (id: string, title: string): GalleryPhoto => ({ url: id, width: 1000, height: 800, licence: 'CC BY', author: 'a', sourceUrl: `https://commons.wikimedia.org/wiki/File:${title}.jpg`, kind: 'male' })
+  const page = { sci: 'Heros severus', known: knownNames([{ scientificName: 'Heros severus' }, { scientificName: 'Heros notatus' }]) }
+  const named = (x: GalleryPhoto) => namedAs(x, page)
+  const photos = [p('notatus', 'Heros_notatus01'), p('a', 'Heros_severus_1'), p('unsure-genus', 'Heros_sp'), p('b', 'Heros_severus_2'), p('unsure', 'Heros_severus_3')]
+  const cantTell = (u: string) => u.startsWith('unsure')
+  const at = screenedAt(['File:Heros notatus01.jpg', 'File:Heros severus 1.jpg', 'File:Heros sp.jpg', 'File:Heros severus 2.jpg', 'File:Heros severus 3.jpg'])
+  expect(rankGallery(photos, cantTell, at).map(x => x.url)).toEqual(['notatus', 'a', 'b', 'unsure-genus', 'unsure'])
+  const once = rankGallery(photos, cantTell, at, () => ({}), named)
+  expect(once.map(x => x.url)).toEqual(['a', 'b', 'notatus', 'unsure', 'unsure-genus'])
+  expect(rankGallery(once, cantTell, at, () => ({}), named)).toEqual(once)
 })

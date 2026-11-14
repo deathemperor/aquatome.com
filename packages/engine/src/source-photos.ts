@@ -27,7 +27,7 @@ const okShape = (w: number, h: number) => h / w >= 0.25 && h / w <= 1.6
 export const SOURCE_PHOTO_LICENCE = 'dùng với sự cho phép'
 
 const file = (src: string) => decodeURIComponent(src.split(/[?#]/)[0]!.split('/').pop() ?? '')
-const dedupeKey = (src: string) => file(src).toLowerCase().replace(/\.[a-z0-9]+$/, '').replace(/-(\d+x\d+|scaled)$/, '')
+export const dedupeKey = (src: string) => file(src).toLowerCase().replace(/\.[a-z0-9]+$/, '').replace(/-(\d+x\d+|scaled)$/, '')
 const words = (s: string) => s.toLowerCase().replace(/[-_.]+/g, ' ')
 
 /**

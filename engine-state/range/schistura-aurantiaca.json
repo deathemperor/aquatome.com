@@ -1,0 +1,83 @@
+{
+  "id": "schistura-aurantiaca",
+  "native": {
+    "input": "cbdc5ddb57d3818e",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Schistura aurantiaca is a small nemacheilid loach known only from the Mae Khlong basin in Kanchanaburi Province, western Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Kwai Noi River system, Khayeng River at Route 3272 bridge, 14°39'35\"N, 98°32'01\"E, Mae Khlong basin, Thong Pha Phum, Kanchanaburi Province, Thailand', and this species is currently known only from Kanchanaburi.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mae Khlong",
+        "source": "seriouslyfish",
+        "quote": "Schistura aurantiaca is a small nemacheilid loach known only from the Mae Khlong basin in Kanchanaburi Province, western Thailand.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Kwai Noi",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Kwai Noi River system, Khayeng River at Route 3272 bridge, 14°39'35\"N, 98°32'01\"E, Mae Khlong basin, Thong Pha Phum, Kanchanaburi Province, Thailand', and this species is currently known only from Kanchanaburi.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Schistura aurantiaca",
+    "status": "ACCEPTED",
+    "taxonKey": 6167727,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

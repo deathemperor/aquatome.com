@@ -324,7 +324,7 @@ struct LifePicker: View {
           Button { picked = Life(item) } label: {
             VStack(alignment: .leading, spacing: 2) {
               Text(item.name).foregroundStyle(.primary)
-              if let sub = item.sub { Text(sub).font(.caption).italic().foregroundStyle(.secondary) }
+              if let sub = item.subUnderName { Text(sub).font(.caption).italic().foregroundStyle(.secondary) }
             }
           }
           .accessibilityIdentifier("life-item")

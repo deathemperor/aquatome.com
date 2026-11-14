@@ -7,6 +7,7 @@ import { langOfPath, pageIndex, pagesByRef } from './content'
 import { LANG_NAME, MAIN } from './content-page'
 import { fishSpan, periodTotals } from './fishid'
 import { ago, alignDaily, didntLoad, placeOf, todos, type Overview } from './pages'
+import { publishingOf, type PublishingJson } from './publishing'
 import { weekByDay, type BeaconRow, type WeekByDay } from './scoreboard'
 import { ICON, isFailed, NAV, page, type Soft } from './shell'
 import { clock, HOME_TZ, hourMinute, localDay } from './time'
@@ -62,6 +63,8 @@ export type TodayJson = {
   costs: { title: string; lines: Figure[]; keys: { label: string; text: string; tone: TextTone; section: string; anchor?: string }; fixed: string[]; note: string }
   pages: { name: string; pages: { key: string; name: string; figure: { text: string; tone: TextTone } }[] }[]
   days: { title: string; figure: string; text: string; section?: string }[]
+  /** New pages by kind and day (admin/publishing.ts); absent while the build's figures or the nightly saves can't be read. */
+  publishing?: PublishingJson
 }
 
 const DAY_MS = 86_400_000
@@ -82,12 +85,23 @@ function fishWeek(t: Today): { calls: number; usd: number } | undefined {
   return { calls: now.calls, usd: now.usd }
 }
 
-/** What needs the owner, faults first: the overview's to-dos, then the comments held and the photos waiting. Each title one short line. */
+/** The overview's "New pages", from this build and the nightly saves; undefined when either didn't load or none is saved. */
+export const publishingOfToday = (t: Today) => (isFailed(t.content) || isFailed(t.snapshots) ? undefined : publishingOf(t.now, t.tz ?? HOME_TZ, t.content, t.snapshots))
+
+/**
+ * What needs the owner, faults first: the overview's to-dos, the parts that didn't load, the engine's pages stopped (all of
+ * them as one line, or a kind with work waiting), then the comments held and the photos waiting. Each title one short line.
+ */
 export function needsOf(t: Today): Need[] {
   const out: Need[] = todos(t).map(x => ({ kind: x.kind, text: x.title, sub: x.text, label: x.action, tone: x.kind === 'spend' ? 'wait' as const : 'bad' as const, ...placeOf(x.href) }))
   for (const [what, part, section] of [['Readers’ beacon', t.beacon, 'thanh-cong'], ['Held comments', t.held, 'binh-luan'], ['Waiting photos', t.waitingPhotos, 'anh-ban-doc'], ['Kept photos', t.kept, 'anh-nhan-dien'], ['App crashes', t.crashes, 'ung-dung'], ['Daily reports', t.lastReport, 'bao-cao'], ['Changelog', t.changes, 'thay-doi']] as const) {
     if (isFailed(part)) out.push({ kind: 'failed', text: didntLoad(what), sub: 'Its page has the error.', label: 'Open', tone: 'bad', section })
   }
+  const pub = publishingOfToday(t)
+  const engine = { kind: 'engine' as const, label: 'See engine', tone: 'bad' as const, section: 'noi-dung', anchor: 'engine' }
+  const since = (x: { since: string }) => `Since ${clock(x.since, t.tz ?? HOME_TZ, t.now)}`
+  if (pub?.quiet) out.push({ ...engine, text: 'Nothing new published', sub: since(pub.quiet) })
+  for (const k of pub?.kinds ?? []) if (k.stalled) out.push({ ...engine, text: `No new ${k.label.toLowerCase()}`, sub: since(k.stalled) })
   const named = (refs: string[]) => pageNames(t, refs)
   if (!isFailed(t.held) && t.held) {
     const sub = t.heldPages && !isFailed(t.heldPages) ? named(t.heldPages) : ''
@@ -243,6 +257,7 @@ function figureOf(key: string, t: Today, w: WeekByDay | undefined): { text: stri
 export function todayJson(t: Today): TodayJson {
   const w = isFailed(t.beacon) ? undefined : weekByDay(t.now, t.beacon, t.countingFrom)
   const needs = needsOf(t)
+  const pub = publishingOfToday(t)
   // Held comments and waiting photos one by one, and a day's AI spend near its cap: what waits on the owner.
   const review = toReview(t) + needs.filter(x => x.kind === 'spend').length
   const fix = needs.filter(x => x.tone === 'bad').length
@@ -305,6 +320,7 @@ export function todayJson(t: Today): TodayJson {
     },
     pages: PAGE_GROUPS.map(([name, pages]) => ({ name, pages: pages.map(([key, page]) => ({ key, name: page, figure: figureOf(key, t, w) })) })),
     days: daysOf(t),
+    ...(pub ? { publishing: pub } : {}),
   }
 }
 

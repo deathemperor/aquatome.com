@@ -8,6 +8,7 @@ import { categoryLabel, GROUP_LABELS, GUIDE_KIND_LABELS, PLANT_LABELS } from './
 import { easyPlants, featuredSpecies, groupTiles, leadGuides, listOrder } from './home'
 import { resizeOf, sameShape, smallSrc } from './img'
 import { appPath, served, translator, type Lang } from './i18n'
+import { termListing } from './glossary-page'
 import { guideImage, mentionIndex } from './mentions'
 import { toIndexItem } from './species-index'
 import { appRange, capitalized, countryNames, originPages, regionNames, type AppCountry, type AppRange } from './range'
@@ -73,6 +74,10 @@ export type AppItem = {
    * when no source states it; breeds have none.
    */
   lifeYears?: Range
+  /** A glossary term's meaning, plain text: its definition, as its card and page give it, whole (the app cuts it to two lines). */
+  def?: string
+  /** A glossary term: how many pages use it, the number its page gives under "Dùng trong". None when none does. */
+  uses?: number
   /** Where a species lives in the wild and its wild records (lib/range.ts, protocols/range-vectors.json); breeds have none. */
   range?: AppRange
   /**
@@ -236,11 +241,12 @@ export const refusedByCards = (p: Photo): boolean => p.headFit === 'contain' || 
 /**
  * The switch for a fish's, a breed's or a plant's page photo the cards refuse. On, its card and its head are that photo
  * with its whole area as the box (photoBox), which the v2 Lab's build draws whole. Off, they have no photo, as before 14
- * Nov: today's build ignores the box and would crop it, for 41 fish in Vietnamese on 13 Nov (Esomus caudiocellatus losing
- * about half its length on a card). Turned on, in a one-line change, the day the Lab's build that reads the box is on
- * TestFlight (the chief of staff, 13 Nov). An object, so a test holds both ways.
+ * Nov: a build before 375 ignores the box and would crop it (Esomus caudiocellatus losing about half its length on a card).
+ * On since build 375, the Lab's frames build, on TestFlight 14 Nov 20:01: 53 fish and breed pages in Vietnamese, 41 in
+ * Indonesian, 42 in Thai and 6 in Malay get their photo back (the chief of staff, 13 Nov; the Lab, 14 Nov). An object,
+ * so a test holds both ways.
  */
-export const APP_WHOLE_PHOTOS = { on: false }
+export const APP_WHOLE_PHOTOS = { on: true }
 const realPhoto = (photos: Photo[]) => photos.find(p => !p.generated)
 /**
  * The one photo a page's card and its head both show, for a fish, a breed or a plant: the page's first photo that isn't
@@ -411,7 +417,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   }
   if (served(lang, '/vi/thuat-ngu/x/')) {
     // A term's English name is among its other names: the chat's search and the app's read them from here.
-    for (const g of appGlossary(lang, c)) items.push(clean({ kind: 'glossary', name: g.t.name, aka: aka([g.t.name, ...g.t.altNames].includes(g.en) ? g.t.altNames : [...g.t.altNames, g.en]), path: at(`/vi/thuat-ngu/${g.t.slug}/`) }))
+    for (const g of appGlossary(lang, c)) items.push(clean({ kind: 'glossary', name: g.t.name, aka: aka([g.t.name, ...g.t.altNames].includes(g.en) ? g.t.altNames : [...g.t.altNames, g.en]), path: at(`/vi/thuat-ngu/${g.t.slug}/`), ...termListing(lang, c, g) }))
   }
   // Vietnamese pilot pages stay out of Google. No native page shards yet: an app opens them on the web once it knows the
   // kind, and today's skips them, as it does any kind it doesn't know (AquaTomeKit's Handbook.swift).

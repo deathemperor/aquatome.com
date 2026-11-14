@@ -5,7 +5,7 @@ import WebKit
 
 /// A page's videos, played in the page in YouTube's own player (its IFrame Player API, from youtube-nocookie.com, as the
 /// site plays them), not in the YouTube app. Nothing from YouTube loads before the reader presses play: until then a
-/// video is its thumbnail. One plays at a time: another pressed stops the first. A chapter or a still seeks the page's
+/// video is its thumbnail, a video guide's its poster. One plays at a time: another pressed stops the first. A chapter or a still seeks the page's
 /// player to its time, starting it there if it isn't loaded yet. Full screen moves the same web view into a cover, so
 /// the video plays on without loading again; closed, it goes back to its place on the page. Only a video id as YouTube
 /// gives them plays here (`PageDoc.isYouTubeId`), and only one YouTube's player takes; any other opens on YouTube, as
@@ -18,6 +18,10 @@ final class PagePlayer {
   private(set) var web: WKWebView?
   /// Its player answered: until then its thumbnail stays, with a spinner.
   private(set) var ready = false
+  /// YouTube's player said it's playing: until then, and again once it has played to its end (`over`), the video's
+  /// poster or thumbnail stays over it, so YouTube's own picture (often people) doesn't show.
+  private(set) var playing = false
+  private(set) var over = false
   /// The video that couldn't load (offline, YouTube's script blocked, or its player never came up): its thumbnail
   /// again, with a note, to try again.
   private(set) var failed: String?
@@ -43,6 +47,7 @@ final class PagePlayer {
     failed = nil
     if self.id == id, let web {
       if ready { web.evaluateJavaScript("seek(\(t))") } else { wanted = t }
+      over = false
       return
     }
     // The video playing before stops with its web view.
@@ -122,7 +127,7 @@ final class PagePlayer {
       web.removeFromSuperview()
     }
     failed = note ? id : nil
-    (id, web, watcher, loading, ready, wanted, full) = (nil, nil, nil, nil, false, nil, false)
+    (id, web, watcher, loading, ready, wanted, full, playing, over) = (nil, nil, nil, nil, false, nil, false, false, false)
   }
 
   fileprivate func heard(_ message: String, from web: WKWebView) {
@@ -132,6 +137,8 @@ final class PagePlayer {
       ready = true
       if let t = wanted { web.evaluateJavaScript("seek(\(t))") }
       wanted = nil
+    case "playing": (playing, over) = (true, false)
+    case "ended": (playing, over) = (false, true)
     case "failed": drop(failed: true)
     case "refused":
       if let id { refused.insert(id) }
@@ -203,7 +210,10 @@ final class PagePlayer {
           onReady: e => { e.target.playVideo(); tell('ready') },
           onError: () => tell('refused'),
           onStateChange: e => {
-            if (e.data !== YT.PlayerState.PLAYING || captioned) return
+            if (e.data === YT.PlayerState.ENDED) tell('ended')
+            if (e.data !== YT.PlayerState.PLAYING) return
+            tell('playing')
+            if (captioned) return
             captioned = true
             try { captions(e.target) } catch { /* captions stay as YouTube chose */ }
           },
@@ -324,6 +334,11 @@ struct VideoSlot: View {
   let caption: AttributedString
   /// Its caption (its title first) straight under its picture, before the way to YouTube, as v2's row of videos has it.
   var captionUnder = false
+  /// The page's own video (a video guide's, at its top): its card's photo, the poster, in the thumbnail's place, by the
+  /// frame rule; with none, the poster's place in its colour. YouTube's thumbnail never shows there (the Design Lead's
+  /// frames, 14 Nov).
+  var head: PageDoc.Video?
+  @State private var colour: Color?
   @Environment(PagePlayer.self) private var player
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openURL) private var openURL
@@ -336,21 +351,21 @@ struct VideoSlot: View {
           PlayerHost(web: web, holds: !player.full, label: String(localized: "Video: \(title)"), name: "video-player",
                      gone: { [player, weak web] in if let web { player.gone(web) } })
         }
-        if web == nil || !player.ready {
+        if web == nil || !player.playing {
           Button {
             if outside { openURL(PagePlayer.watch(id, at: 0)) } else { player.play(id, at: 0, lang: handbook.lang, site: handbook.site) }
           } label: {
-            PageImage(src: PageDoc.thumbnail(id), ratio: 16 / 9, corner: 0)
+            picture
               .overlay {
-                if web == nil {
-                  Image(systemName: "play.circle.fill").font(.system(size: 56)).foregroundStyle(.white, .black.opacity(0.5))
+                if web == nil || player.over {
+                  Image(systemName: "play.circle.fill").font(.system(size: 56)).foregroundStyle(.white, .black.opacity(0.45))
                 } else {
                   ProgressView().controlSize(.large).tint(.white)
                 }
               }
           }
           .buttonStyle(.plain)
-          .allowsHitTesting(web == nil)
+          .allowsHitTesting(web == nil || player.over)
           .accessibilityLabel(Text("Phát video: \(title)"))
         }
       }
@@ -384,6 +399,14 @@ struct VideoSlot: View {
     .onDisappear { player.leave(id) }
     .fullScreenCover(isPresented: Binding(get: { player.full && web != nil }, set: { player.full = $0 })) {
       if let web { FullVideo(player: player, web: web, title: title).ownerScreen("video full screen") }
+    }
+  }
+
+  @ViewBuilder private var picture: some View {
+    if let head {
+      V2Photo(src: head.poster?.src, box: head.poster?.box, ground: colour) { colour = $0 }.aspectRatio(16 / 9, contentMode: .fit)
+    } else {
+      PageImage(src: PageDoc.thumbnail(id), ratio: 16 / 9, corner: 0)
     }
   }
 

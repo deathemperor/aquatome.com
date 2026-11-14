@@ -1,0 +1,57 @@
+{
+  "id": "rhinogobius-lentiginis",
+  "native": {
+    "input": "3c5bc28ea34f0119",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Appears endemic to Zhejiang province, eastern China with records existing from the Cheng-Tang, Ling, and O river systems.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Cheng-Tang",
+        "source": "seriouslyfish",
+        "quote": "Appears endemic to Zhejiang province, eastern China with records existing from the Cheng-Tang, Ling, and O river systems.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Ling",
+        "source": "seriouslyfish",
+        "quote": "Appears endemic to Zhejiang province, eastern China with records existing from the Cheng-Tang, Ling, and O river systems.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "O",
+        "source": "seriouslyfish",
+        "quote": "Appears endemic to Zhejiang province, eastern China with records existing from the Cheng-Tang, Ling, and O river systems.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rhinogobius lentiginis",
+    "status": "ACCEPTED",
+    "taxonKey": 2377663,
+    "datasets": [],
+    "native": [
+      "CN"
+    ],
+    "requests": 2,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

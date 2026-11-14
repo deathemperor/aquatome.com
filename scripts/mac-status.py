@@ -167,6 +167,24 @@ def turn():
     return line if match and alive(int(match.group(1))) else "free"
 
 
+def two_names():
+    """The engine's batches under two names, a line each: no run publishes, renames or drops them until a person puts their
+    names right (cycle-checks.sh, two_names). Each engine clone keeps its own record in its git folder."""
+    lines = []
+    for record in sorted(glob.glob(os.path.expanduser("~/.local/share/aquatome/*/.git/aquatome-two-names"))):
+        clone = record.split(os.sep)[-3]
+        try:
+            with open(record) as f:
+                rows = [line.rstrip("\n").split("\t") for line in f if line.strip()]
+        except OSError:
+            continue
+        for row in rows:
+            if len(row) >= 4:
+                runs = int(row[1]) if row[1].isdigit() else 0
+                lines.append(f"under two names, in {clone}: {row[0]}, left by {runs} run{'' if runs == 1 else 's'}: {row[3]}")
+    return lines
+
+
 def status():
     now = cores()
     up = booted(simulators())
@@ -188,6 +206,8 @@ def status():
                                              else f": under {SPACE_WARN} GB, the sweep tells the chief of staff" if free < SPACE_WARN else ""))
         if free < SPACE_WARN:
             print("\n".join(where_space()))
+    for line in two_names():
+        print(line)
     reason = too_loaded()
     print(f"too loaded to record: {reason}" if reason else "quiet enough to record")
     return 1 if reason else 0

@@ -1,0 +1,78 @@
+{
+  "id": "schistura-caudofurca",
+  "native": {
+    "input": "30a3d0e7ec807f53",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from northern Vietnam, Laos and southern China.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from northern Vietnam, Laos and southern China.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from northern Vietnam, Laos and southern China.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mã River",
+        "source": "seriouslyfish",
+        "quote": "Schistura caudofurca is a nemacheilid loach from northern Vietnam, Laos and southern China, described from the Mã River in Vietnam.",
+        "country": "VN",
+        "ok": true
+      },
+      {
+        "name": "Red River",
+        "source": "seriouslyfish",
+        "quote": "The Red River is known as Yuanjiang in China and flows from Yunnan into northern Vietnam, where it's known as Sông Cái.",
+        "ok": true
+      },
+      {
+        "name": "Mengyejiang River",
+        "source": "seriouslyfish",
+        "quote": "At one locality in the Mengyejiang River, S. caudofurca was collected from a 40 m wide riffle section flowing over rocks and pebbles.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Schistura caudofurca",
+    "status": "ACCEPTED",
+    "taxonKey": 5204999,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        4
+      ]
+    ],
+    "native": [
+      "VN",
+      "LA",
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

@@ -38,12 +38,13 @@
       "youtube": 0.6
     }
   },
+  "bodyFixed": true,
   "held": {
     "checks": [
+      "kit",
       "source",
       "units"
     ],
-    "at": "2026-11-09"
-  },
-  "bodyFixed": true
+    "at": "2026-11-14"
+  }
 }

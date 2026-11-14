@@ -13,6 +13,80 @@
     "china",
     "pearl-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "VN",
+        "CN"
+      ],
+      "regions": [
+        "Pearl",
+        "Nam Ma",
+        "Nam Mat"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Widely distributed from the Nam Ma and Nam Mat river systems in northeastern Laos throughout northern Vietnam, including the Red (Hóng Hé) River, to the Pearl (Zhu Jiang) drainage in Guangxi Zhuang Autonomous Region, southern China.",
+          "countries": [
+            "LA",
+            "VN",
+            "CN"
+          ],
+          "regions": [
+            "Pearl",
+            "Nam Ma",
+            "Nam Mat"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2377609,
+      "total": 18,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "VN",
+          11
+        ],
+        [
+          "CN",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          106.875,
+          15.46875,
+          11,
+          11
+        ],
+        [
+          108.28125,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          22.5,
+          2,
+          2
+        ],
+        [
+          113.90625,
+          23.90625,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

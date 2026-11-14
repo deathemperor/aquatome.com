@@ -11,6 +11,7 @@ import type { CategoryUse } from './equipment'
 import { equipmentParts } from './equipment-page'
 import { figureHtml } from './figures'
 import { cardRows } from './card-rows'
+import { nameAndSci, sciBeside } from './sci'
 import { FIELD_LABELS, fmt, GUIDE_KIND_LABELS } from './format'
 import { galleryNote } from './gallery'
 import { glossaryParts, USED_IN_SHOWN } from './glossary-page'
@@ -195,7 +196,7 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
   const { num } = fmt(lang)
   const at = (viPath: string) => appPath(lang, viPath)
   const p = await speciesParts(lang, c, s)
-  const lead = headImage(lang, headPhoto(s.photos), `${s.t.name}, ${s.scientificName}`)
+  const lead = headImage(lang, headPhoto(s.photos), nameAndSci(s.t.name, s.scientificName))
   const sources = [...new Set(s.sections.map(x => c.sources[x.source]?.name ?? x.source))].join(', ')
   const { blocks: text } = sectionBlocks(lang, c, { sections: p.text.sections, t: p.text.t, self: `species:${s.id}`, selfNames: [s.scientificName, s.t.name, ...s.t.altNames], figures: p.figures.map(photo => ({ photo })), card: s.dataCard, range: { id: s.id, name: s.t.name, range: s.range }, refs: s.refs })
   // "Nuôi chung" (Companions.astro): the fish to keep with it and away from it; with neither, the tool's link alone.
@@ -230,7 +231,7 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
     kind: 'fish',
     path: at(`/vi/ca/${s.t.slug}/`),
     title: s.t.name,
-    sub: s.scientificName,
+    sub: sciBeside(s.t.name, s.scientificName),
     where: p.country ? [`${s.family}, `, linked(lang, p.country.t.name, `/vi/nguon-goc/${p.country.parent}/${p.country.id}/`)] : [s.family],
     ...(s.t.altNames.length ? { aka: t('Tên khác: {names}', { names: s.t.altNames.join(', ') }) } : {}),
     ...(p.firstSource ? { credit: p.researched ? [`${t('AquaTome tổng hợp từ')} `, { text: t('{n} nguồn', { n: p.researched }), href: '#nguon' }, ` ${t('rồi tự viết')}.`] : [t('Dịch và tổng hợp từ {sources}. Cập nhật {date}.', { sources, date: s.updatedAt })] } : {}),
@@ -266,7 +267,7 @@ export function breedDoc(lang: Lang, c: Content, b: Breed, listed: Set<string>):
   const parents: Block[] = p.parents.length ? [{
     t: 'p', c: [`${t('Lai từ:')} `, ...p.parents.flatMap((x, i): Inline[] => [
       ...(i > 0 ? [', '] : []),
-      x.path ? { text: `${x.name} (${x.sci})`, href: at(x.path) } : x.name,
+      x.path ? { text: x.sci ? `${x.name} (${x.sci})` : x.name, href: at(x.path) } : x.name,
       ...(x.certain ? [] : [` ${t('(chưa chắc chắn)')}`]),
     ])],
   }] : []
@@ -307,14 +308,14 @@ export function breedDoc(lang: Lang, c: Content, b: Breed, listed: Set<string>):
 export function plantDoc(lang: Lang, c: Content, p: Localized<PlantEntity>, listed: Set<string>): PageDoc {
   const t = translator(lang)
   const parts = plantParts(lang, c, p)
-  const lead = headImage(lang, headPhoto(p.photos), `${p.t.name}, ${p.scientificName}`)
+  const lead = headImage(lang, headPhoto(p.photos), nameAndSci(p.t.name, p.scientificName))
   const { blocks: text } = sectionBlocks(lang, c, { sections: p.sections, t: p.t, self: `plant:${p.id}`, selfNames: [p.scientificName, p.t.name, ...p.t.altNames], figures: parts.figures.map(photo => ({ photo })), co2: p.co2, refs: p.refs })
   return {
     v: PAGE_VERSION,
     kind: 'plant',
     path: appPath(lang, `/vi/cay/${p.t.slug}/`),
     title: p.t.name,
-    sub: p.scientificName,
+    sub: sciBeside(p.t.name, p.scientificName),
     ...(p.t.altNames.length ? { aka: t('Tên khác: {names}', { names: p.t.altNames.join(', ') }) } : {}),
     ...(lead ? { lead } : {}),
     talk: { comments: commentsKey(lang, `plant:${p.id}`) },
@@ -454,7 +455,7 @@ export function equipmentDoc(lang: Lang, c: Content, u: CategoryUse, listed: Set
           }]),
         },
       ] : []),
-      ...(p.plants.length ? [{ t: 'cards' as const, title: p.plantsTitle, items: p.plants.map(({ p: x, photo }) => card(`/vi/cay/${x.t.slug}/`, x.t.name, photo, x.scientificName)) }] : []),
+      ...(p.plants.length ? [{ t: 'cards' as const, title: p.plantsTitle, items: p.plants.map(({ p: x, photo }) => card(`/vi/cay/${x.t.slug}/`, x.t.name, photo, sciBeside(x.t.name, x.scientificName))) }] : []),
       ...(p.plantsMore ? [{ t: 'p' as const, c: [linked(lang, p.plantsMore.text, p.plantsMore.href)] }] : []),
       ...pagesBlock(lang, listed, p.usersTitle, p.users.map(s => `/vi/ca/${s.t.slug}/`), p.users.length),
       ...(p.faq.length ? [{ t: 'faq' as const, title: t('Hỏi đáp'), items: p.faq.map(f => ({ q: f.q, a: f.a })) }] : []),

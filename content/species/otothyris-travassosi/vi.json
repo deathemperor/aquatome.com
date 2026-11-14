@@ -8,13 +8,20 @@
     "quickFacts:planetcatfish": "<p>Otothyris travassosi Garavello, Britski &amp; Schaefer, 1998, thuộc họ Loricariidae. Cá dài tối đa 32 mm SL (chiều dài chuẩn). Tên gọi bắt nguồn từ tiếng Hy Lạp, ghép từ otis, ous nghĩa là tai và thyra, thyris nghĩa là cánh cửa nhỏ.</p>",
     "distribution:planetcatfish": "<p>Loài này sống ở Nam Mỹ, trong các con sông thuộc bang Espírito Santo, vùng ven biển Đại Tây Dương ở đông nam Brazil. Nơi thu mẫu chuẩn là sông Barra Sêca, chỗ con đường từ Linhares đi São Mateus băng qua, thuộc bang Espírito Santo, Brazil. Danh lục đỏ IUCN xếp loài này vào nhóm Ít quan ngại, lần đánh giá gần nhất là năm 2018.</p>",
     "reproduction:planetcatfish": "<p>Sinh sản: chưa có báo cáo. Đến nay chưa ai ghi nhận được loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>American Museum Novitates No. 3222, pp 12, Figs. 2c, 6.</p>"
+    "references:planetcatfish": "<p>American Museum Novitates No. 3222, pp 12, Figs. 2c, 6.</p>",
+    "quickFacts:glaser": "<p>Loài cá da trơn này ít khi có hàng nhập. Nó là một trong những loài cá lau kiếng nhỏ nhất, dài tổng cộng chỉ 3 cm. Otothyris travassosi không hợp với người mới chơi, vì nó đòi hỏi nước phải rất sạch và bể phải giữ vệ sinh kỹ.</p>",
+    "distribution:glaser": "<p>Loài này có nguồn gốc từ hai bang Bahia và Espírito Santo, ở vùng ven biển Brazil.</p>",
+    "habitat:glaser": "<p>Ngoài tự nhiên, chúng sống ở những con suối nhỏ nước chảy xiết và thường ở những chỗ cây thủy sinh mọc dày. Theo một số tài liệu, loài này có ở cả vùng nước trắng lẫn nước trong. Ở những nơi bắt được chúng, nước có pH hơi dưới 7 và độ dẫn điện từ 100 đến 150 µS/cm.</p>",
+    "waterConditions:glaser": "<p>Không nên để nước quá ấm. Nhiệt độ hợp với chúng là 19–25°C.</p>",
+    "diet:glaser": "<p>Cần cho ăn đủ thức ăn thực vật. Chúng cũng ăn thức ăn tươi sống cỡ nhỏ.</p>",
+    "reproduction:glaser": "<p>Chưa có thông tin nào về chuyện cho loài này đẻ thành công.</p>"
   },
   "quality": {
     "score": 0.85,
     "indexable": false,
     "bySource": {
-      "planetcatfish": 0.85
+      "planetcatfish": 0.85,
+      "glaser": 0.95
     },
     "reason": "thin"
   }

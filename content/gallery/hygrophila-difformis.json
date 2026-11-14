@@ -14,14 +14,14 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/commons/497efa242498d263.webp",
-      "thumb": "https://media.aquatome.com/commons/497efa242498d263-480.webp",
-      "width": 1200,
-      "height": 1600,
-      "licence": "CC BY-SA 4.0",
-      "author": "Kephalian",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hygrophila_difformis_also_known_as_water_wisteria_Submerged_and_Emmersed_growth_2.jpg",
-      "caption": "Cây thủy cúc lá xẻ thùy mọc dưới nước",
+      "url": "https://media.aquatome.com/inaturalist/360109705.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/360109705-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Kaden Slone",
+      "sourceUrl": "https://www.inaturalist.org/photos/360109705",
+      "caption": "Cây thủy cúc lá xẻ nhạt màu trong bể thủy sinh",
       "best": true,
       "kind": "submersed"
     },
@@ -50,6 +50,18 @@
       "kind": "detail"
     },
     {
+      "url": "https://media.aquatome.com/commons/497efa242498d263.webp",
+      "thumb": "https://media.aquatome.com/commons/497efa242498d263-480.webp",
+      "width": 1200,
+      "height": 1600,
+      "licence": "CC BY-SA 4.0",
+      "author": "Kephalian",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hygrophila_difformis_also_known_as_water_wisteria_Submerged_and_Emmersed_growth_2.jpg",
+      "caption": "Cây thủy cúc lá xẻ thùy mọc dưới nước",
+      "best": true,
+      "kind": "submersed"
+    },
+    {
       "url": "https://media.aquatome.com/commons/66c6c46b3ee7cd29.webp",
       "thumb": "https://media.aquatome.com/commons/66c6c46b3ee7cd29-480.webp",
       "width": 1200,
@@ -58,18 +70,6 @@
       "author": "Krzysztof Ziarnek, Kenraiz",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hygrophila_difformis_kz01.jpg",
       "caption": "Bụi Cây thủy cúc lá xẻ mảnh màu xanh vàng",
-      "best": true,
-      "kind": "submersed"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/360109705.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/360109705-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Kaden Slone",
-      "sourceUrl": "https://www.inaturalist.org/photos/360109705",
-      "caption": "Cây thủy cúc lá xẻ nhạt màu trong bể thủy sinh",
       "best": true,
       "kind": "submersed"
     },
@@ -98,16 +98,16 @@
       "unchecked": true
     },
     {
-      "url": "https://media.aquatome.com/tropica/e2fad567d215aa46.webp",
-      "thumb": "https://media.aquatome.com/tropica/e2fad567d215aa46-480.webp",
-      "width": 1000,
-      "height": 1000,
-      "licence": "dùng với sự cho phép",
-      "author": "Tropica",
-      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Hygrophiladifformis(051BDT)/4485",
-      "source": "tropica",
-      "kind": "submersed",
-      "unchecked": true
+      "url": "https://media.aquatome.com/inaturalist/317089758.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/317089758-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "chiuluan",
+      "sourceUrl": "https://www.inaturalist.org/photos/317089758",
+      "caption": "Cây thủy cúc ngập nước trong suối, lá xẻ mảnh",
+      "best": false,
+      "kind": "submersed"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/168504515.webp",
@@ -146,15 +146,10 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/tropica/654307e2f97fcd38.webp",
-      "thumb": "https://media.aquatome.com/tropica/654307e2f97fcd38-480.webp",
-      "width": 1200,
-      "height": 750,
-      "large": {
-        "url": "https://media.aquatome.com/tropica/654307e2f97fcd38-large.webp",
-        "width": 1361,
-        "height": 851
-      },
+      "url": "https://media.aquatome.com/tropica/e2fad567d215aa46.webp",
+      "thumb": "https://media.aquatome.com/tropica/e2fad567d215aa46-480.webp",
+      "width": 1000,
+      "height": 1000,
       "licence": "dùng với sự cho phép",
       "author": "Tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Hygrophiladifformis(051BDT)/4485",
@@ -199,16 +194,21 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/317089758.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/317089758-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "chiuluan",
-      "sourceUrl": "https://www.inaturalist.org/photos/317089758",
-      "caption": "Cây thủy cúc ngập nước trong suối, lá xẻ mảnh",
-      "best": false,
-      "kind": "submersed"
+      "url": "https://media.aquatome.com/tropica/654307e2f97fcd38.webp",
+      "thumb": "https://media.aquatome.com/tropica/654307e2f97fcd38-480.webp",
+      "width": 1200,
+      "height": 750,
+      "large": {
+        "url": "https://media.aquatome.com/tropica/654307e2f97fcd38-large.webp",
+        "width": 1361,
+        "height": 851
+      },
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Hygrophiladifformis(051BDT)/4485",
+      "source": "tropica",
+      "kind": "submersed",
+      "unchecked": true
     }
   ],
   "seen": 31,

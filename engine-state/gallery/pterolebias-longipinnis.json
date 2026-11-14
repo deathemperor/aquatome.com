@@ -1,8 +1,19 @@
 {
  "queue": [],
  "judged": [
-  "File:Fish fauna from Río Pilcomayo National Park (6 of 7).png"
+  "File:Fish fauna from Río Pilcomayo National Park (6 of 7).png",
+  "inat:292679579",
+  "inat:292679440",
+  "inat:472373965"
  ],
  "hashes": {},
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 341197,
+  "pass": "done",
+  "after": {
+   "research": 262993999,
+   "agree": 0
+  }
+ }
 }

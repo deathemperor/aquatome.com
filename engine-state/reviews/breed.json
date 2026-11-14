@@ -787,5 +787,91 @@
         0.8
       ]
     }
+  ],
+  "ms/breeds/platinum-angelfish": [
+    {
+      "at": "2026-11-14T11:04:28Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [
+        "\"jadi pilih rakan setangki dengan berhati-hati\" is a mild recommendation not in the facts; the facts only say semi-aggressive.",
+        "\"Perkara ini normal.\" is a mild generalisation. The facts only say adults can take on a green or blue tint."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.9,
+        0.93,
+        0.95
+      ]
+    },
+    {
+      "at": "2026-11-14T11:04:28Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "\"Namun, kebanyakan sumber mengaitkannya dengan Pterophyllum scalare\": the facts only give the base species. They do not say that most sources link it to that species.",
+        "\"Ada juga penjual yang menjual stok bermata merah sebagai platinum\": the facts only say that one wholesaler describes its stock as red-eyed. They do not say that sellers pass red-eyed fish off as platinum. This is a mild extrapolation."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.85,
+        0.88,
+        0.72
+      ]
+    }
+  ],
+  "ms/breeds/super-red-arowana": [
+    {
+      "at": "2026-11-14T11:02:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.82,
+      "notes": [
+        "\"Di alam liar ia hanya ditemui di hulu Sungai Kapuas, Borneo Barat\" - fine, but the page says the fish is \"bukan hasil kacukan\" and \"membiak dengan baka yang tulen\" - OK per facts.",
+        "\"Sesetengah pembeli menilai terutamanya dari segi warna ... Ada juga yang mementingkan bentuk badan\" - facts attribute these to southern and northern Vietnamese buyers; the page drops the regional framing (minor generalisation).",
+        "\"Penjaga yang berpengalaman menekankan bahawa penapisan yang baik paling penting\" - the facts say Vietnamese keepers; 'berpengalaman' is an unsupported embellishment.",
+        "\"Perlu diingat bahawa pemberian ikan loach bercanggah dengan nasihat Seriously Fish\" - this is the page's own inference, not in the facts.",
+        "\"Ikan ini pemangsa yang boleh mencapai 60–90 cm\" - supported by the sizes, but the lead summary merges sources.",
+        "\"Banjar Red: kacukan yang biasa\" - the facts also say Vietnamese hobbyists list Banjar Red separately as Hồng long, which the page omits; the omission is not an error.",
+        "\"Penggemar sering mengaitkan drop eye ... \" and \"Ramai penggemar menganggap cip ini sebagai sijil kelahiran\" - 'ramai' (many) is slightly stronger than the facts' 'Vietnamese hobbyists'."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.82,
+        0.9,
+        0.8
+      ]
+    },
+    {
+      "at": "2026-11-14T11:02:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "\"Ikan ini sukar dipelihara.\" Facts give a difficulty rating of 4 but no wording for it. This is a small generality.",
+        "\"hidup sekitar 20 tahun\" in the intro. Sources give 20–25 and 20 years. This is a minor simplification.",
+        "\"Hampir semua ikan yang dijual sekarang dibiakkan di ladang\". Facts say fish in the trade are bred on farms, with no \"hampir semua\".",
+        "\"Jika mahu meletakkan rakan setangki\" and \"Berhati-hatilah dengan janji gred yang terlalu yakin\" are mild embellishments not in the facts.",
+        "\"gunakan pemanas apabila suhu turun\" paraphrases \"use a heater in winter\". It is roughly supported.",
+        "\"Banjar Red ... Ia sering dianggap kumpulan yang berasingan\" is a loose reading of the fact that Vietnamese hobbyists list it as Hồng long, separate from Huyết long.",
+        "\"mikrocip yang menunjukkan ladang berdaftar CITES\" in the FAQ. Facts say the chip shows which farm bred the fish, not that the farm is CITES-registered, though CITES farms are mentioned elsewhere."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.8,
+        0.72,
+        0.8
+      ]
+    }
   ]
 }

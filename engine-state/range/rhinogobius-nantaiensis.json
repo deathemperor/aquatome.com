@@ -1,0 +1,79 @@
+{
+  "id": "rhinogobius-nantaiensis",
+  "native": {
+    "input": "73363fb33a3135f4",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "TW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rhinogobius nantaiensis is a goby from Taiwan, officially known only from the Tzengwen and Kaoping river basins in the south of the island.",
+        "words": "Taiwan",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Tzengwen",
+        "source": "seriouslyfish",
+        "quote": "Rhinogobius nantaiensis is a goby from Taiwan, officially known only from the Tzengwen and Kaoping river basins in the south of the island.",
+        "country": "TW",
+        "ok": true
+      },
+      {
+        "name": "Kaoping",
+        "source": "seriouslyfish",
+        "quote": "Rhinogobius nantaiensis is a goby from Taiwan, officially known only from the Tzengwen and Kaoping river basins in the south of the island.",
+        "country": "TW",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rhinogobius nantaiensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2377636,
+    "datasets": [
+      [
+        "83cbdde7-998f-4354-95de-72d885cc5863",
+        279
+      ],
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        129
+      ],
+      [
+        "b7dd8170-98a0-11de-b4d9-b8a03c50a862",
+        4
+      ],
+      [
+        "9b5577ee-34f9-4d09-9ce2-c70fd03ee6cd",
+        2
+      ],
+      [
+        "26ae0930-98a1-11de-b4da-b8a03c50a862",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "85bc2470-98a1-11de-b4da-b8a03c50a862",
+        1
+      ]
+    ],
+    "native": [
+      "TW"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

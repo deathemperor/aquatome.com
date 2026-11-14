@@ -19,18 +19,6 @@
       }
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/327646525.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/327646525-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Igor Balashov",
-      "sourceUrl": "https://www.inaturalist.org/photos/327646525",
-      "caption": "Cá frontosa trưởng thành trong bể, ánh đèn tím",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/420403500.webp",
       "thumb": "https://media.aquatome.com/inaturalist/420403500-480.webp",
       "width": 1024,
@@ -63,27 +51,17 @@
       }
     },
     {
-      "url": "https://media.aquatome.com/commons/a21ca2af5458bc22.webp",
-      "thumb": "https://media.aquatome.com/commons/a21ca2af5458bc22-480.webp",
+      "url": "https://media.aquatome.com/commons/c61a7aecabf37bf2.webp",
+      "thumb": "https://media.aquatome.com/commons/c61a7aecabf37bf2-480.webp",
       "width": 1200,
-      "height": 795,
+      "height": 866,
       "licence": "CC BY-SA 3.0",
-      "author": "Patrick Ch. Apfeld",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cyphotilapia_frontosa_Zoo_Cologne.jpg",
-      "caption": "Cá frontosa đực màu xanh dương đậm, bướu trán nổi rõ"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/1d1b4ae6c78f14d1.webp",
-      "thumb": "https://media.aquatome.com/commons/1d1b4ae6c78f14d1-480.webp",
-      "width": 1200,
-      "height": 843,
-      "licence": "CC BY-SA 4.0",
-      "author": "5snake5",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cyphotilapia_frontosa_-_Tanganjika-Beulenkopf.jpg",
-      "caption": "Cá frontosa đực sọc đen trắng với bướu trán lớn",
+      "author": "Maha Dinesh",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Frontosa_Cichlid.JPG",
+      "caption": "Cá frontosa đực có bướu trán, vây lưng cao trong bể",
       "large": {
-        "url": "https://media.aquatome.com/commons/1d1b4ae6c78f14d1-large.webp",
-        "width": 1709,
+        "url": "https://media.aquatome.com/commons/c61a7aecabf37bf2-large.webp",
+        "width": 1663,
         "height": 1200
       }
     },
@@ -111,16 +89,6 @@
       "author": "Nick T.",
       "sourceUrl": "https://www.inaturalist.org/photos/359142787",
       "caption": "Cận cảnh cá frontosa sọc đen trắng vây xanh trong bể"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/359142803.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/359142803-480.webp",
-      "width": 1024,
-      "height": 621,
-      "licence": "CC BY-SA",
-      "author": "Nick T.",
-      "sourceUrl": "https://www.inaturalist.org/photos/359142803",
-      "caption": "Cận cảnh đầu cá frontosa vây xanh trong bể thủy sinh"
     },
     {
       "url": "https://media.aquatome.com/commons/0e84089ca6f1e14d.webp",
@@ -186,21 +154,6 @@
       "author": "Père Igor",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cyphotilapia_frontosa_Pierrefitte-Nestalas_Aquarium.JPG",
       "caption": "Cá frontosa nhỏ hơn bơi giữa hốc đá trong bể"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/c61a7aecabf37bf2.webp",
-      "thumb": "https://media.aquatome.com/commons/c61a7aecabf37bf2-480.webp",
-      "width": 1200,
-      "height": 866,
-      "licence": "CC BY-SA 3.0",
-      "author": "Maha Dinesh",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Frontosa_Cichlid.JPG",
-      "caption": "Cá frontosa đực có bướu trán, vây lưng cao trong bể",
-      "large": {
-        "url": "https://media.aquatome.com/commons/c61a7aecabf37bf2-large.webp",
-        "width": 1663,
-        "height": 1200
-      }
     },
     {
       "url": "https://media.aquatome.com/commons/19770b31a8a0a23a.webp",
@@ -273,6 +226,16 @@
       "caption": "Cá frontosa trưởng thành bơi trong bể tối có đá"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/359142803.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/359142803-480.webp",
+      "width": 1024,
+      "height": 621,
+      "licence": "CC BY-SA",
+      "author": "Nick T.",
+      "sourceUrl": "https://www.inaturalist.org/photos/359142803",
+      "caption": "Cận cảnh đầu cá frontosa vây xanh trong bể thủy sinh"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/420403449.webp",
       "thumb": "https://media.aquatome.com/inaturalist/420403449-480.webp",
       "width": 1024,
@@ -327,6 +290,43 @@
       "caption": "Cá frontosa xanh dương sẫm giữa đá trong bể",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/327646525.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/327646525-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Igor Balashov",
+      "sourceUrl": "https://www.inaturalist.org/photos/327646525",
+      "caption": "Cá frontosa trưởng thành trong bể, ánh đèn tím",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/a21ca2af5458bc22.webp",
+      "thumb": "https://media.aquatome.com/commons/a21ca2af5458bc22-480.webp",
+      "width": 1200,
+      "height": 795,
+      "licence": "CC BY-SA 3.0",
+      "author": "Patrick Ch. Apfeld",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cyphotilapia_frontosa_Zoo_Cologne.jpg",
+      "caption": "Cá frontosa đực màu xanh dương đậm, bướu trán nổi rõ"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/1d1b4ae6c78f14d1.webp",
+      "thumb": "https://media.aquatome.com/commons/1d1b4ae6c78f14d1-480.webp",
+      "width": 1200,
+      "height": 843,
+      "licence": "CC BY-SA 4.0",
+      "author": "5snake5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cyphotilapia_frontosa_-_Tanganjika-Beulenkopf.jpg",
+      "caption": "Cá frontosa đực sọc đen trắng với bướu trán lớn",
+      "large": {
+        "url": "https://media.aquatome.com/commons/1d1b4ae6c78f14d1-large.webp",
+        "width": 1709,
+        "height": 1200
+      }
     }
   ],
   "seen": 44,

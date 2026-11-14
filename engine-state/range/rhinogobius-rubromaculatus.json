@@ -1,0 +1,110 @@
+{
+  "id": "rhinogobius-rubromaculatus",
+  "native": {
+    "input": "55a2603e2cc2d7bf",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "TW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The red-spotted goby, Rhinogobius rubromaculatus, is endemic to Taiwan and apparently quite common in central and western parts of the island.",
+        "words": "Taiwan",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: China.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Tadu",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Taiwan with type locality the Tadu river in Taichung County, and apparently quite common in central and western parts of the island, with the Tamshuei and Kaoping river basins representing the northern and southern limits of its range, respectively.",
+        "country": "TW",
+        "ok": true
+      },
+      {
+        "name": "Tamshuei",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Taiwan with type locality the Tadu river in Taichung County, and apparently quite common in central and western parts of the island, with the Tamshuei and Kaoping river basins representing the northern and southern limits of its range, respectively.",
+        "country": "TW",
+        "ok": true
+      },
+      {
+        "name": "Kaoping",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Taiwan with type locality the Tadu river in Taichung County, and apparently quite common in central and western parts of the island, with the Tamshuei and Kaoping river basins representing the northern and southern limits of its range, respectively.",
+        "country": "TW",
+        "ok": true
+      },
+      {
+        "name": "Linbian",
+        "source": "seriouslyfish",
+        "quote": "An additional population inhabiting the Linbian river in southern Taiwan is currently considered conspecific but exhibits several notable differences (see 'Notes').",
+        "country": "TW",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rhinogobius rubromaculatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2377623,
+    "datasets": [
+      [
+        "83cbdde7-998f-4354-95de-72d885cc5863",
+        195
+      ],
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        109
+      ],
+      [
+        "cf5e37a6-e657-4ee2-91c0-b1da03251a62",
+        45
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        27
+      ],
+      [
+        "b7dd8170-98a0-11de-b4d9-b8a03c50a862",
+        11
+      ],
+      [
+        "9b5577ee-34f9-4d09-9ce2-c70fd03ee6cd",
+        5
+      ],
+      [
+        "3a3aae4c-5895-4ba5-b3ba-d5f7d924478d",
+        1
+      ],
+      [
+        "85bc2470-98a1-11de-b4da-b8a03c50a862",
+        1
+      ],
+      [
+        "ca22abc0-98a1-11de-b4da-b8a03c50a862",
+        1
+      ]
+    ],
+    "native": [
+      "TW",
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

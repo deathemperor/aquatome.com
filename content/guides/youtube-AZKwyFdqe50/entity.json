@@ -90,7 +90,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể đá phủ rêu hại và lớp nhớt xanh, nước đục màu xanh.",
-            "sharpness": 310.7
+            "sharpness": 310.7,
+            "person": false
           },
           {
             "t": 50,
@@ -98,7 +99,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể với đá và cát bị rêu bám xanh.",
-            "sharpness": 325.3
+            "sharpness": 325.3,
+            "person": false
           }
         ]
       },
@@ -111,7 +113,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể cichlid nền cát sáng, đèn mạnh, nước xanh đục phủ rêu hại.",
-            "sharpness": 366.8
+            "sharpness": 366.8,
+            "person": false
           },
           {
             "t": 30,
@@ -119,7 +122,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh bể đá và mặt cát sáng, nước đục xanh, đáy ít dòng chảy.",
-            "sharpness": 247.6
+            "sharpness": 247.6,
+            "person": false
           }
         ]
       },
@@ -132,7 +136,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể đá với lớp rêu hại phủ trên đá và cát.",
-            "sharpness": 653.3
+            "sharpness": 653.3,
+            "person": false
           },
           {
             "t": 570,
@@ -140,7 +145,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh bể có đá và cát đáy, nơi rêu hại bám.",
-            "sharpness": 1169
+            "sharpness": 1169,
+            "person": false
           }
         ]
       },
@@ -153,15 +159,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể có đá và cát trước khi châm thuốc.",
-            "sharpness": 793.5
-          },
-          {
-            "t": 1050,
-            "url": "https://media.aquatome.com/video/AZKwyFdqe50/at1050-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đổ thuốc từ cốc thẳng vào bể thủy sinh.",
-            "sharpness": 1777.9
+            "sharpness": 793.5,
+            "person": false
           }
         ]
       },
@@ -174,7 +173,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đèn đã giảm yếu hơn nhiều nhưng vẫn đủ sáng để ngắm bể.",
-            "sharpness": 830.8
+            "sharpness": 830.8,
+            "person": false
           },
           {
             "t": 1150,
@@ -182,7 +182,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể sau khi hạ đèn, chỉ nhích kênh xanh dương lên một chút.",
-            "sharpness": 1341.8
+            "sharpness": 1341.8,
+            "person": false
           }
         ],
         "photo": {
@@ -197,19 +198,6 @@
         }
       },
       {
-        "heading": "Bước 4: Thay nước lớn và khuấy cát",
-        "moments": [
-          {
-            "t": 1450,
-            "url": "https://media.aquatome.com/video/AZKwyFdqe50/at1450-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Quạt tay khuấy cát lên trong bể thủy sinh lúc thay nước.",
-            "sharpness": 1385.2
-          }
-        ]
-      },
-      {
         "heading": "Bước 5: Chỉnh dòng chảy và vệ sinh lọc",
         "moments": [
           {
@@ -218,7 +206,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Mặt cát sạch và hòn non bộ ở phía trước bể, nước trong.",
-            "sharpness": 598.7
+            "sharpness": 598.7,
+            "person": false
           }
         ]
       },
@@ -231,15 +220,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh cát sạch và đá chỉ còn lớp rêu xanh nhạt.",
-            "sharpness": 449.5
-          },
-          {
-            "t": 1630,
-            "url": "https://media.aquatome.com/video/AZKwyFdqe50/at1630-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể sau một ngày: nước trong, cát sạch, đá còn lớp xanh nhạt.",
-            "sharpness": 1463.6
+            "sharpness": 449.5,
+            "person": false
           }
         ],
         "photo": {

@@ -8,7 +8,8 @@
   "places": [
     "asia",
     "india",
-    "kanyakumari"
+    "kanyakumari",
+    "tamil-nadu"
   ],
   "range": {
     "native": {
@@ -67,12 +68,12 @@
   "dataCard": {
     "sizeCm": [
       {
-        "source": "glaser",
-        "value": 12
-      },
-      {
         "source": "seriouslyfish",
         "value": 9.5
+      },
+      {
+        "source": "glaser",
+        "value": 12
       }
     ],
     "tempC": [
@@ -119,8 +120,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/dawkinsia_rohani_formerly_barbus_or_puntius_rohani__en/",
-      "html": "<p>A gorgeous, medium-sized barb that attains a length of 8-12 cm.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/dawkinsia_formerly_barbus_rohani_en/",
+      "html": "<p>It was only last year that this beautiful Indian barb was described scientifically. The species attains a length of around 8-12 cm. Like all these Indian barbs, D. rohani is a wonderful schooling fish for larger aquaria.</p>"
     },
     {
       "key": "quickFacts",
@@ -131,8 +132,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/dawkinsia_rohani_formerly_barbus_or_puntius_rohani__en/",
-      "html": "<p>Imported from southern India.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/dawkinsia_formerly_barbus_rohani_en/",
+      "html": "<p>It originates from the south of India. Presently it is only known from hill streams in the Kanyakumari District, Tamil Nadu.</p>"
     },
     {
       "key": "distribution",
@@ -179,8 +180,8 @@
     {
       "key": "dimorphism",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/dawkinsia_rohani_formerly_barbus_or_puntius_rohani__en/",
-      "html": "<p>A mating male is recognizable by the tubercles on the snout and the red caudal fin.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/dawkinsia_formerly_barbus_rohani_en/",
+      "html": "<p>Males and females can be easily distinguished by the shape of the dorsal fin, which is filamentous in males.</p>"
     },
     {
       "key": "dimorphism",
@@ -201,6 +202,12 @@
       "html": "<p>D. rohani was formerly included in the genus Puntius and Puntius filamentosus 'group' of related species which also contained P. arulius, P. assimilis, P. exclamatio, P. filamentosus, P. rohani, P. rubrotinctus, P. singhala, P. srilankensis and P. tambraparniei, but all of these were moved to the new genus Dawkinsia by Pethiyagoda et al. (2012).</p><p>The precise relationships within the genus are still open to question in some respects with Knight et al. (2011) suggesting that members may hybridise naturally at some localities.</p><p>The genus Puntius was for a number of years viewed as a polyphyletic catch-all containing over 100 species of small to mid-sized cyprinid until Pethiyagoda et al. (2012) published a partial review covering South Asian members.</p><p>The majority of sub-Himalayan Puntius species were reclassified and new genera Dawkinsia, Dravidia, and Pethia erected to accomodate some of them. It subsequently became clear that the name Dravidia was preoccupied by a genus of flesh fly, therefore the replacement name Haludaria was made available by Pethiyagoda (2013).</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/dawkinsia_formerly_barbus_rohani_en/",
+      "html": "<p>It differs from the other Indian barbs of its closer relationship (e.g. D. arulius, D. assimilis, D. exclamatio, D. filamentosa, and D. tambraparniei) by the coloration. Especially diagnostic is the shape of the caudal spot, which is teardrop-shaped in D. rohani and circular in D. assimilis and D. filamentosa, the two species that look most similar to D. rohani. Moreover, the caudal fin of D. rohani has no pattern, whereas in D. assimilis and D. filamentosa this fin has black markings.</p><p>Lexicon: Barbus: Latin, means \"the bearded\". rohani: dedication name for Rohan Pethiyagoda, an ichthyologist who works mainly on the freshwater fishes of Sri Lanka and India. Dawkinsia: dedication name for the biologist Richard Dawkins (\"The Selfish Gene\").</p><p>Suggestion for a common name: Golden Scaled Indian Barb.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-rohani",
@@ -213,18 +220,43 @@
       "thumb": "https://media.aquatome.com/commons/5316fc7e3e54926d-480.webp",
       "width": 960,
       "height": 536,
-      "licence": "CC BY 4.0",
-      "author": "Rahul Gautam",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:D_rohani-_Rahul_Gautam.jpg",
-      "caption": "Dawkinsia rohani",
       "large": {
         "url": "https://media.aquatome.com/commons/5316fc7e3e54926d-large.webp",
         "width": 1867,
         "height": 1042
-      }
+      },
+      "licence": "CC BY 4.0",
+      "author": "Rahul Gautam",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:D_rohani-_Rahul_Gautam.jpg",
+      "caption": "Dawkinsia rohani"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "pt9DyFDl4Ys",
+      "title": "Breeding Project - Dawkinsia rohani",
+      "durationSec": 479,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "HK5SfY92EOo",
+      "title": "2 Minute Tuesday: Teardrop Barb, Dawkinsia Romano",
+      "durationSec": 204,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Zx11y6Crook",
+      "title": "Dawkinsia rohani in the wild",
+      "durationSec": 36,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Crf2MKQs2L8",
+      "title": "Breeding Project:  Dawkinsia rohani - Part 2",
+      "durationSec": 901,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -247,5 +279,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-14"
 }

@@ -15,13 +15,15 @@
     "behaviour:seriouslyfish": "<p>Loài này có thể dữ, nhất là với đồng loại. Có thể nuôi chung với các loài cichlid lớn khác, hoặc nuôi riêng một loài. Con cá nào đủ nhỏ để làm mồi thì chắc là sẽ bị ăn, mà miệng chúng thì rất to!</p>",
     "dimorphism:seriouslyfish": "<p>Con đực lớn hơn và có lẽ có hoa văn rõ nét hơn. Con cái thì màu sắc sặc sỡ hơn.</p>",
     "reproduction:seriouslyfish": "<p>Người chơi chưa cho loài này đẻ được trong bể.</p>",
-    "notes:seriouslyfish": "<p>Như đã nói, loài cá này có mặt trên hầu khắp lưu vực Amazon, nên đã hình thành nhiều dạng màu khác nhau. Cũng vì vùng phân bố rộng mà loài pike này khá phổ biến với người chơi.</p>"
+    "notes:seriouslyfish": "<p>Như đã nói, loài cá này có mặt trên hầu khắp lưu vực Amazon, nên đã hình thành nhiều dạng màu khác nhau. Cũng vì vùng phân bố rộng mà loài pike này khá phổ biến với người chơi.</p>",
+    "distribution:glaser": "<p>Nguồn gốc: Venezuela (Puerto Inírida).</p>"
   },
   "quality": {
     "score": 0.7,
     "indexable": false,
     "bySource": {
-      "seriouslyfish": 0.7
+      "seriouslyfish": 0.7,
+      "glaser": 1
     },
     "reason": "score"
   }

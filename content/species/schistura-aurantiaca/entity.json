@@ -10,6 +10,65 @@
     "thailand",
     "mae-khlong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Mae Khlong",
+        "Kwai Noi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Schistura aurantiaca is a small nemacheilid loach known only from the Mae Khlong basin in Kanchanaburi Province, western Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Mae Khlong"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Kwai Noi River system, Khayeng River at Route 3272 bridge, 14°39'35\"N, 98°32'01\"E, Mae Khlong basin, Thong Pha Phum, Kanchanaburi Province, Thailand', and this species is currently known only from Kanchanaburi.",
+          "countries": [],
+          "regions": [
+            "Kwai Noi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 6167727,
+      "total": 10,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "TH",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          12.65625,
+          4,
+          4
+        ],
+        [
+          98.4375,
+          14.0625,
+          6,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

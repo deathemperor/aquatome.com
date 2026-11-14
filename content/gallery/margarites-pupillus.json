@@ -62,18 +62,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/413731838.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/413731838-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "giantcicada",
-      "sourceUrl": "https://www.inaturalist.org/photos/413731838",
-      "caption": "Ốc margarita vỏ sọc bò trên cát ướt",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/4175175.webp",
       "thumb": "https://media.aquatome.com/inaturalist/4175175-480.webp",
       "width": 1024,
@@ -82,6 +70,18 @@
       "author": "Erin McKittrick",
       "sourceUrl": "https://www.inaturalist.org/photos/4175175",
       "caption": "Ốc margarita vỏ nâu trên đá ướt ven biển",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/127466110.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/127466110-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Erin McKittrick",
+      "sourceUrl": "https://www.inaturalist.org/photos/127466110",
+      "caption": "Ốc margarita đang bò trên đá phủ tảo đỏ",
       "best": true,
       "kind": "habitat"
     },
@@ -122,18 +122,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/127466110.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/127466110-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Erin McKittrick",
-      "sourceUrl": "https://www.inaturalist.org/photos/127466110",
-      "caption": "Ốc margarita đang bò trên đá phủ tảo đỏ",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/297932615.webp",
       "thumb": "https://media.aquatome.com/inaturalist/297932615-480.webp",
       "width": 576,
@@ -142,6 +130,18 @@
       "author": "Kristiina Hurme",
       "sourceUrl": "https://www.inaturalist.org/photos/297932615",
       "caption": "Ốc margarita trên đá ven biển cùng các ốc nhỏ khác",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/413731838.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/413731838-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "giantcicada",
+      "sourceUrl": "https://www.inaturalist.org/photos/413731838",
+      "caption": "Ốc margarita vỏ sọc bò trên cát ướt",
       "best": true,
       "kind": "habitat"
     },
@@ -158,14 +158,14 @@
       "kind": "group"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/413731837.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/413731837-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/22031071.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/22031071-480.webp",
       "width": 1024,
-      "height": 1024,
+      "height": 683,
       "licence": "CC BY",
-      "author": "giantcicada",
-      "sourceUrl": "https://www.inaturalist.org/photos/413731837",
-      "caption": "Ốc margarita bò trên bờ cát ven biển",
+      "author": "Erin McKittrick",
+      "sourceUrl": "https://www.inaturalist.org/photos/22031071",
+      "caption": "Ốc margarita vỏ ánh xà cừ, râu duỗi ra trên đá",
       "best": false,
       "kind": "habitat"
     },
@@ -182,14 +182,14 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/125953969.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/125953969-480.webp",
-      "width": 769,
-      "height": 1024,
+      "url": "https://media.aquatome.com/inaturalist/65980489.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/65980489-480.webp",
+      "width": 1024,
+      "height": 682,
       "licence": "CC BY",
       "author": "Erin McKittrick",
-      "sourceUrl": "https://www.inaturalist.org/photos/125953969",
-      "caption": "Ốc margarita nâu trên đá vùng triều",
+      "sourceUrl": "https://www.inaturalist.org/photos/65980489",
+      "caption": "Ốc margarita vỏ tròn nâu hồng trên nền cát đá",
       "best": false,
       "kind": "habitat"
     },
@@ -206,38 +206,14 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/365520500.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/365520500-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Cricket Raspet",
-      "sourceUrl": "https://www.inaturalist.org/photos/365520500",
-      "caption": "Ốc margarita vỏ hồng trên tảo đỏ sẫm",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/386237610.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/386237610-480.webp",
-      "width": 1024,
-      "height": 748,
-      "licence": "CC BY",
-      "author": "Cricket Raspet",
-      "sourceUrl": "https://www.inaturalist.org/photos/386237610",
-      "caption": "Ốc margarita vỏ hồng trên nền cát tối",
-      "best": false,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/22031071.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/22031071-480.webp",
-      "width": 1024,
-      "height": 683,
+      "url": "https://media.aquatome.com/inaturalist/125953969.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/125953969-480.webp",
+      "width": 769,
+      "height": 1024,
       "licence": "CC BY",
       "author": "Erin McKittrick",
-      "sourceUrl": "https://www.inaturalist.org/photos/22031071",
-      "caption": "Ốc margarita vỏ ánh xà cừ, râu duỗi ra trên đá",
+      "sourceUrl": "https://www.inaturalist.org/photos/125953969",
+      "caption": "Ốc margarita nâu trên đá vùng triều",
       "best": false,
       "kind": "habitat"
     },
@@ -266,6 +242,18 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/386237610.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/386237610-480.webp",
+      "width": 1024,
+      "height": 748,
+      "licence": "CC BY",
+      "author": "Cricket Raspet",
+      "sourceUrl": "https://www.inaturalist.org/photos/386237610",
+      "caption": "Ốc margarita vỏ hồng trên nền cát tối",
+      "best": false,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/306779742.webp",
       "thumb": "https://media.aquatome.com/inaturalist/306779742-480.webp",
       "width": 1024,
@@ -278,14 +266,26 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/65980489.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/65980489-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/365520500.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/365520500-480.webp",
       "width": 1024,
-      "height": 682,
+      "height": 768,
       "licence": "CC BY",
-      "author": "Erin McKittrick",
-      "sourceUrl": "https://www.inaturalist.org/photos/65980489",
-      "caption": "Ốc margarita vỏ tròn nâu hồng trên nền cát đá",
+      "author": "Cricket Raspet",
+      "sourceUrl": "https://www.inaturalist.org/photos/365520500",
+      "caption": "Ốc margarita vỏ hồng trên tảo đỏ sẫm",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/413731837.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/413731837-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "giantcicada",
+      "sourceUrl": "https://www.inaturalist.org/photos/413731837",
+      "caption": "Ốc margarita bò trên bờ cát ven biển",
       "best": false,
       "kind": "habitat"
     }

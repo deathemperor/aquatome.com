@@ -86,18 +86,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/tropica/f8ecb0be0123129f.webp",
-      "thumb": "https://media.aquatome.com/tropica/f8ecb0be0123129f-480.webp",
-      "width": 1200,
-      "height": 1200,
-      "licence": "dùng với sự cho phép",
-      "author": "Tropica",
-      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Hygrophilapinnatifida(051ATC)/19228",
-      "source": "tropica",
-      "kind": "other",
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/commons/acad1c677518f0f5.webp",
       "thumb": "https://media.aquatome.com/commons/acad1c677518f0f5-480.webp",
       "width": 1200,
@@ -110,20 +98,44 @@
       "kind": "submersed"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/486322124.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/486322124-480.webp",
+      "url": "https://media.aquatome.com/tropica/f8ecb0be0123129f.webp",
+      "thumb": "https://media.aquatome.com/tropica/f8ecb0be0123129f-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Hygrophilapinnatifida(051ATC)/19228",
+      "source": "tropica",
+      "kind": "other",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/54451175704.webp",
+      "thumb": "https://media.aquatome.com/flickr/54451175704-480.webp",
       "width": 1024,
       "height": 683,
-      "licence": "CC BY-SA",
+      "licence": "CC BY-SA 2.0",
       "author": "Dinesh Valke",
-      "sourceUrl": "https://www.inaturalist.org/photos/486322124",
-      "caption": "Thân Hygrophila pinnatifida với hoa tím nhỏ",
+      "sourceUrl": "https://www.flickr.com/photos/91314344@N00/54451175704",
+      "caption": "Cành Hygrophila pinnatifida có hoa tím nhỏ mọc ngoài tự nhiên",
       "best": false,
       "kind": "flower"
     },
     {
       "url": "https://media.aquatome.com/tropica/2d5adec256e92419.webp",
       "thumb": "https://media.aquatome.com/tropica/2d5adec256e92419-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Hygrophilapinnatifida(051ATC)/19228",
+      "source": "tropica",
+      "kind": "other",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/83fd7c76dada80f3.webp",
+      "thumb": "https://media.aquatome.com/tropica/83fd7c76dada80f3-480.webp",
       "width": 1200,
       "height": 1200,
       "licence": "dùng với sự cho phép",
@@ -146,28 +158,16 @@
       "kind": "submersed"
     },
     {
-      "url": "https://media.aquatome.com/flickr/54451175704.webp",
-      "thumb": "https://media.aquatome.com/flickr/54451175704-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/486322124.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/486322124-480.webp",
       "width": 1024,
       "height": 683,
-      "licence": "CC BY-SA 2.0",
+      "licence": "CC BY-SA",
       "author": "Dinesh Valke",
-      "sourceUrl": "https://www.flickr.com/photos/91314344@N00/54451175704",
-      "caption": "Cành Hygrophila pinnatifida có hoa tím nhỏ mọc ngoài tự nhiên",
+      "sourceUrl": "https://www.inaturalist.org/photos/486322124",
+      "caption": "Thân Hygrophila pinnatifida với hoa tím nhỏ",
       "best": false,
       "kind": "flower"
-    },
-    {
-      "url": "https://media.aquatome.com/tropica/83fd7c76dada80f3.webp",
-      "thumb": "https://media.aquatome.com/tropica/83fd7c76dada80f3-480.webp",
-      "width": 1200,
-      "height": 1200,
-      "licence": "dùng với sự cho phép",
-      "author": "Tropica",
-      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Hygrophilapinnatifida(051ATC)/19228",
-      "source": "tropica",
-      "kind": "other",
-      "unchecked": true
     }
   ],
   "seen": 19,

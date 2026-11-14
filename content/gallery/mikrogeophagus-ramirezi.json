@@ -2,18 +2,6 @@
   "id": "mikrogeophagus-ramirezi",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/545967345.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/545967345-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "olmagon",
-      "sourceUrl": "https://www.inaturalist.org/photos/545967345",
-      "caption": "Cá phượng hoàng bơi gần tảo cầu trong bể",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/flickr/2479429940.webp",
       "thumb": "https://media.aquatome.com/flickr/2479429940-480.webp",
       "width": 1024,
@@ -104,36 +92,6 @@
         "width": 1844,
         "height": 1200
       }
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/551166878.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/551166878-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Alesha Teitzel",
-      "sourceUrl": "https://www.inaturalist.org/photos/551166878",
-      "caption": "Cá phượng hoàng trong bể thủy sinh có đá và cây thủy sinh"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/551166926.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/551166926-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Alesha Teitzel",
-      "sourceUrl": "https://www.inaturalist.org/photos/551166926",
-      "caption": "Cá phượng hoàng mắt đỏ bên đá trong bể nuôi"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/249967782.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/249967782-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Lythronax246",
-      "sourceUrl": "https://www.inaturalist.org/photos/249967782",
-      "caption": "Cá phượng hoàng màu vàng trên nền sỏi sáng trong bể"
     },
     {
       "url": "https://media.aquatome.com/commons/86cde16fe69ad32a.webp",
@@ -246,6 +204,16 @@
       "caption": "Cá phượng hoàng màu vàng vây lưng cao trong bể thủy sinh"
     },
     {
+      "url": "https://media.aquatome.com/commons/534361be1a8f647a.webp",
+      "thumb": "https://media.aquatome.com/commons/534361be1a8f647a-480.webp",
+      "width": 1200,
+      "height": 803,
+      "licence": "CC BY 2.0",
+      "author": "lwolfartist",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Unidentified_fish_-_23.jpg",
+      "caption": "Cá phượng hoàng màu vàng cam trong bể nền xanh dương"
+    },
+    {
       "url": "https://media.aquatome.com/commons/b05ad7efe9997f79.webp",
       "thumb": "https://media.aquatome.com/commons/b05ad7efe9997f79-480.webp",
       "width": 1200,
@@ -256,14 +224,34 @@
       "caption": "Cá phượng hoàng đực bơi trong bể nền xanh dương"
     },
     {
-      "url": "https://media.aquatome.com/commons/534361be1a8f647a.webp",
-      "thumb": "https://media.aquatome.com/commons/534361be1a8f647a-480.webp",
-      "width": 1200,
-      "height": 803,
-      "licence": "CC BY 2.0",
-      "author": "lwolfartist",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Unidentified_fish_-_23.jpg",
-      "caption": "Cá phượng hoàng màu vàng cam trong bể nền xanh dương"
+      "url": "https://media.aquatome.com/inaturalist/551166878.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/551166878-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Alesha Teitzel",
+      "sourceUrl": "https://www.inaturalist.org/photos/551166878",
+      "caption": "Cá phượng hoàng trong bể thủy sinh có đá và cây thủy sinh"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/551166926.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/551166926-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Alesha Teitzel",
+      "sourceUrl": "https://www.inaturalist.org/photos/551166926",
+      "caption": "Cá phượng hoàng mắt đỏ bên đá trong bể nuôi"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/249967782.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/249967782-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Lythronax246",
+      "sourceUrl": "https://www.inaturalist.org/photos/249967782",
+      "caption": "Cá phượng hoàng màu vàng trên nền sỏi sáng trong bể"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/41797041.webp",
@@ -307,6 +295,18 @@
       "sourceUrl": "https://www.inaturalist.org/photos/41797083",
       "caption": "Cá phượng hoàng trong bể kính hơi xanh rêu",
       "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/545967345.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/545967345-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "olmagon",
+      "sourceUrl": "https://www.inaturalist.org/photos/545967345",
+      "caption": "Cá phượng hoàng bơi gần tảo cầu trong bể",
+      "best": true,
       "kind": "other"
     }
   ],

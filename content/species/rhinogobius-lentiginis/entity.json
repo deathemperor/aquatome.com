@@ -10,6 +10,42 @@
     "china",
     "zhejiang"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Cheng-Tang",
+        "Ling",
+        "O"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Appears endemic to Zhejiang province, eastern China with records existing from the Cheng-Tang, Ling, and O river systems.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Cheng-Tang",
+            "Ling",
+            "O"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2377663,
+      "total": 0,
+      "fetched": "2026-11-14",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

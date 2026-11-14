@@ -9,13 +9,36 @@
   "places": [
     "south-america",
     "peru",
-    "san-alejandro"
+    "san-alejandro",
+    "ucayali"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 12
+      },
+      {
+        "source": "scotcat",
+        "value": 10
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -27,10 +50,28 @@
       "html": "<ul><li>Common names: L276, Bloodfin Bulldog Pleco</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/chaetostoma_lineopunctatum.htm",
+      "html": "<ul><li>Common names: L276, Bloodfin Bulldog Pleco</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1371",
       "html": "<p>The L number specifically was collected in the Rio San Alejandro. Amazon, Upper Amazon, Marañón, Ucayali, San Alejandro.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/chaetostoma_lineopunctatum.htm",
+      "html": "<p>Peru: Aguaytia, Pachitea and Pisqui River basins in the Ucayali River drainage.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/chaetostoma_lineopunctatum.htm",
+      "html": "<p>Will need a good water flow in the aquarium with a sand substrate and plenty of hiding places.</p><p>The Chaetostoma species are not the easiest to maintain as the mountain stream species will need a water current to provide oxygen-rich water. The species that are exported usually originate from warmer waters so are a bit easier to keep than the mountain stream variety.</p>"
     },
     {
       "key": "equipment",
@@ -39,10 +80,22 @@
       "html": "<p>Well rounded stones stacked to replicate a river bottom and provide caves.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/chaetostoma_lineopunctatum.htm",
+      "html": "<p>Great algae eater, but you will have to subsidise this food with algae wafers and vegetable foods such as cucumber, zucchini and lettuce. Will also accept tablet and worm foods.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1371",
       "html": "<p>The males have a larger and broader head, slimmer ventral sides and disproportionately large pelvic fins. Perhaps the over-sized pelvic fins play a large role in the fertilization of the eggs. By inverting these over the clutch of eggs, they prevent the sperm cells being carried away by fast water current.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/chaetostoma_lineopunctatum.htm",
+      "html": "<p>Males have better colour, a broader head and lips and adult males possess longer ventral fins than the females.</p>"
     },
     {
       "key": "reproduction",
@@ -55,14 +108,20 @@
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1371",
       "html": "<p>The genus Chaetostoma is not straightforward to identify, but as a general rule, the species has spines behind the gill-cover (interopercular odontodes), no plates on the abdomen, and aside from C. platyrhynchus also lack plates on the snout edge. Different from Ancistrus by not having fleshy tentacles on the snout.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/chaetostoma_lineopunctatum.htm",
+      "html": "<p>Etymology: The specific name lineopunctatum: lineo– (L.), line; punctatum (L.), spotted, allusion not explained, perhaps referring to conspicuous black spots between dorsal-fin rays, which can be said to form a line-like series, and/or to “each membrane of the caudal, anal, pectoral, and ventral fins with a dark longitudinal line” and “many obscure black spots” on head and sides (on older specimens only).</p><p>IUCN Red List: The species is listed as Least Concern due to its wide range, because it is common where it occurs, and because the known threats are not reducing it at a level that may warrant listing in a threatened category.</p>"
     }
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/scotcat/889960036f55cde9.webp",
-      "thumb": "https://media.aquatome.com/scotcat/889960036f55cde9-480.webp",
+      "url": "https://media.aquatome.com/scotcat/ce8f7db75c01b9d7.webp",
+      "thumb": "https://media.aquatome.com/scotcat/ce8f7db75c01b9d7-480.webp",
       "width": 500,
-      "height": 278,
+      "height": 327,
       "licence": "dùng với sự cho phép",
       "author": "Haakon Haagensen / ScotCat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/chaetostoma_lineopunctatum.htm",
@@ -70,10 +129,10 @@
       "source": "scotcat"
     },
     {
-      "url": "https://media.aquatome.com/scotcat/ce8f7db75c01b9d7.webp",
-      "thumb": "https://media.aquatome.com/scotcat/ce8f7db75c01b9d7-480.webp",
+      "url": "https://media.aquatome.com/scotcat/889960036f55cde9.webp",
+      "thumb": "https://media.aquatome.com/scotcat/889960036f55cde9-480.webp",
       "width": 500,
-      "height": 327,
+      "height": 278,
       "licence": "dùng với sự cho phép",
       "author": "Haakon Haagensen / ScotCat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/chaetostoma_lineopunctatum.htm",
@@ -111,7 +170,7 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13",
+  "updatedAt": "2026-11-14",
   "range": {
     "native": {
       "countries": [],

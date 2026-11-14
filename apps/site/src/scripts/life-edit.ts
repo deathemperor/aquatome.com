@@ -2,6 +2,7 @@ import type { Tank, UnlistedEntry } from '@aq/schema'
 import { ct, siteHref } from './ct'
 import type { Guessed } from './life-photo'
 import { msg } from '../i18n/msg'
+import { sciBeside } from '../lib/sci'
 import { esc, type IndexItem } from './my-tanks'
 import { exactMatch, rankMatches, type MateItem } from './tankmates'
 
@@ -22,6 +23,14 @@ const MAX_PAGES = 200
 /** Typed like a scientific name ("Rhinogobius duospilus"): offered as the new entry's scientific name too. */
 const LATIN = /^[A-Z][a-z]+ (?:(?:cf|aff)\.? )?[a-z]+$/
 const PHOTO_OFF = msg('Nhận diện qua ảnh tạm thời chưa dùng được. Bạn gõ tên cá hoặc cây vào ô tìm nhé.')
+
+/** An entry with no page of its own, as its row names it: the page that has its name, or its name marked, and its
+ * scientific name when the name doesn't say it (a photo's guess with no common name is named by it). */
+export function unlistedName(u: Pick<UnlistedEntry, 'name' | 'sci'>, p?: { name: string; path: string } | null): string {
+  if (p) return `<a href="${esc(siteHref(p.path))}">${esc(p.name)}</a>`
+  const sci = u.sci && sciBeside(u.name, u.sci)
+  return `<span>${esc(u.name)}</span> <span class="tag">${ct('chưa có trang')}</span>${sci ? ` <i class="sci">${esc(sci)}</i>` : ''}`
+}
 
 export function initLife(root: HTMLElement, o: {
   /** The handbook's fish and plants (the app index), when they could be read. */
@@ -74,9 +83,7 @@ export function initLife(root: HTMLElement, o: {
       ...life.plants.map((p, i) => `<li><span class="nm">${linked(p.id)}</span>${remove('plants', i, pageName(p.id))}</li>`),
       ...life.unlisted.map((u, i) => {
         const p = o.match(u)
-        const nm = p ? `<a href="${esc(siteHref(p.path))}">${esc(p.name)}</a>` : `<span>${esc(u.name)}</span> <span class="tag">${ct('chưa có trang')}</span>`
-        const sci = u.sci && !p ? ` <i class="sci">${esc(u.sci)}</i>` : ''
-        return `<li><span class="nm">${nm}${sci}</span>${u.kind === 'plant' ? '' : countBox(i, u.count, u.name, 'unlisted')}${remove('unlisted', i, p?.name ?? u.name)}</li>`
+        return `<li><span class="nm">${unlistedName(u, p)}</span>${u.kind === 'plant' ? '' : countBox(i, u.count, u.name, 'unlisted')}${remove('unlisted', i, p?.name ?? u.name)}</li>`
       }),
     ]
     list.innerHTML = rows.join('')
@@ -102,7 +109,7 @@ export function initLife(root: HTMLElement, o: {
     shown = q.length >= 2 ? [...hits, 'new'] : hits
     opts.innerHTML = shown.map((s, i) => s === 'new'
       ? `<li role="option" id="mt-opt-${i}" class="new" aria-selected="false">${ct('Thêm “{q}” (chưa có trong cẩm nang)', { q: esc(q) })}</li>`
-      : `<li role="option" id="mt-opt-${i}" aria-selected="false"${has(s.page) ? ' aria-disabled="true"' : ''}><span class="nm"><span>${esc(s.name)}</span>${s.scientificName ? ` <i class="sci">${esc(s.scientificName)}</i>` : ''}</span><span class="tag">${has(s.page) ? ct('Đã có') : kindWord(s.page.kind)}</span></li>`).join('')
+      : `<li role="option" id="mt-opt-${i}" aria-selected="false"${has(s.page) ? ' aria-disabled="true"' : ''}><span class="nm"><span>${esc(s.name)}</span>${sciBeside(s.name, s.scientificName) ? ` <i class="sci">${esc(s.scientificName)}</i>` : ''}</span><span class="tag">${has(s.page) ? ct('Đã có') : kindWord(s.page.kind)}</span></li>`).join('')
     setActive(-1)
     openList(shown.length > 0)
   }

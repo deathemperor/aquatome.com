@@ -3,7 +3,8 @@
   "name": "Cá lau kiếng bulldog vây đỏ L276",
   "altNames": [
     "Cá bulldog pleco vây đỏ",
-    "Bloodfin Bulldog Pleco"
+    "Bloodfin Bulldog Pleco",
+    "Cá tỳ bà Bloodfin Bulldog"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li>Tên thường gọi: L276, Bloodfin Bulldog Pleco (cá lau kiếng bulldog vây đỏ)</li></ul>",
@@ -11,14 +12,20 @@
     "equipment:planetcatfish": "<p>Xếp chồng đá cuội tròn cho giống đáy sông và tạo hang cho cá trốn.</p>",
     "dimorphism:planetcatfish": "<p>Con đực có đầu to và bè hơn, bụng thon hơn, còn vây bụng thì to quá khổ so với thân. Cặp vây bụng to này có lẽ rất có ích khi trứng thụ tinh. Con đực úp vây lên ổ trứng để tinh trùng không bị dòng nước chảy xiết cuốn đi.</p>",
     "reproduction:planetcatfish": "<p>Chưa có thông tin. Chưa ai báo cáo cho loài này đẻ.</p>",
-    "notes:planetcatfish": "<p>Cá thuộc giống Chaetostoma không dễ nhận diện. Thường thì chúng có gai sau nắp mang (răng nhỏ ở xương gian nắp mang) và bụng không có tấm xương. Trừ C. platyrhynchus ra, mép mõm của chúng cũng không có tấm xương. Điểm khác với Ancistrus là trên mõm không có tua thịt.</p>"
+    "notes:planetcatfish": "<p>Cá thuộc giống Chaetostoma không dễ nhận diện. Thường thì chúng có gai sau nắp mang (răng nhỏ ở xương gian nắp mang) và bụng không có tấm xương. Trừ C. platyrhynchus ra, mép mõm của chúng cũng không có tấm xương. Điểm khác với Ancistrus là trên mõm không có tua thịt.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: L276, Bloodfin Bulldog Pleco</li></ul>",
+    "distribution:scotcat": "<p>Peru: lưu vực các sông Aguaytia, Pachitea và Pisqui, thuộc hệ thống sông Ucayali.</p>",
+    "maintenance:scotcat": "<p>Bể cần có dòng chảy tốt, nền cát và nhiều chỗ trốn.</p><p>Chaetostoma không phải nhóm cá dễ nuôi nhất. Các loài sống ở suối núi cần dòng chảy để nước lúc nào cũng giàu oxy. Cá xuất khẩu thường đến từ vùng nước ấm hơn, nên dễ nuôi hơn loại suối núi một chút.</p>",
+    "diet:scotcat": "<p>Loài này ăn rêu rất giỏi, nhưng chỉ có rêu thì không đủ. Cần cho ăn thêm viên tảo và rau như dưa chuột, bí ngòi, xà lách. Nó cũng ăn thức ăn viên và các loại giun, trùn.</p>",
+    "dimorphism:scotcat": "<p>Con đực màu đẹp hơn, đầu và môi rộng hơn. Đực lớn còn có vây bụng dài hơn con cái.</p>",
+    "notes:scotcat": "<p>Từ nguyên: tên loài lineopunctatum ghép từ lineo– (tiếng Latin, nghĩa là đường kẻ) và punctatum (tiếng Latin, nghĩa là có đốm). Ý nghĩa của tên không được giải thích. Có lẽ tên ám chỉ các đốm đen nổi rõ giữa các tia vây lưng, xếp thành một dãy trông như đường kẻ, hoặc chi tiết “màng của mỗi vây đuôi, vây hậu môn, vây ngực và vây bụng có một đường dọc sẫm màu” cùng “nhiều đốm đen mờ” trên đầu và hai bên thân (chỉ thấy ở các mẫu vật lớn tuổi).</p><p>Sách Đỏ IUCN: loài này được xếp vào mức Ít quan tâm vì phân bố rộng và phổ biến ở những nơi có nó. Các mối đe dọa đã biết cũng chưa làm số lượng giảm tới mức có thể phải xếp vào nhóm bị đe dọa.</p>"
   },
   "quality": {
     "score": 0.8,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.8
-    },
-    "reason": "thin"
+      "planetcatfish": 0.8,
+      "scotcat": 0.9
+    }
   }
 }

@@ -2,18 +2,6 @@
   "id": "mastacembelus-erythrotaenia",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/66c8bc640e4b6617.webp",
-      "thumb": "https://media.aquatome.com/commons/66c8bc640e4b6617-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY 4.0",
-      "author": "Jesaya Li",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fire_eel_in_the_corner_of_aquarium_01.jpg",
-      "caption": "Cá chạch lửa sọc đỏ cam bên đá cuội trong bể",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/470665911.webp",
       "thumb": "https://media.aquatome.com/inaturalist/470665911-480.webp",
       "width": 1024,
@@ -22,6 +10,18 @@
       "author": "Matthew Inabinett",
       "sourceUrl": "https://www.inaturalist.org/photos/470665911",
       "caption": "Cá chạch lửa bơi giữa rễ lũa trong bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/66c8bc640e4b6617.webp",
+      "thumb": "https://media.aquatome.com/commons/66c8bc640e4b6617-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY 4.0",
+      "author": "Jesaya Li",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fire_eel_in_the_corner_of_aquarium_01.jpg",
+      "caption": "Cá chạch lửa sọc đỏ cam bên đá cuội trong bể",
       "best": true,
       "kind": "other"
     },
@@ -48,18 +48,6 @@
       "caption": "Cá chạch lửa sọc đỏ trong bể thủy sinh có cây xanh"
     },
     {
-      "url": "https://media.aquatome.com/commons/579b202140466936.webp",
-      "thumb": "https://media.aquatome.com/commons/579b202140466936-480.webp",
-      "width": 1200,
-      "height": 1600,
-      "licence": "CC BY 4.0",
-      "author": "Jesaya Li",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fire_eel_in_the_corner_of_aquarium_02.jpg",
-      "caption": "Cá chạch lửa núp dưới tảng đá trong bể",
-      "best": false,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/470665992.webp",
       "thumb": "https://media.aquatome.com/inaturalist/470665992-480.webp",
       "width": 1024,
@@ -68,6 +56,18 @@
       "author": "Matthew Inabinett",
       "sourceUrl": "https://www.inaturalist.org/photos/470665992",
       "caption": "Cá chạch lửa thò đầu từ rễ lũa trong bể",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/579b202140466936.webp",
+      "thumb": "https://media.aquatome.com/commons/579b202140466936-480.webp",
+      "width": 1200,
+      "height": 1600,
+      "licence": "CC BY 4.0",
+      "author": "Jesaya Li",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fire_eel_in_the_corner_of_aquarium_02.jpg",
+      "caption": "Cá chạch lửa núp dưới tảng đá trong bể",
       "best": false,
       "kind": "other"
     }

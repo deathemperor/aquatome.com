@@ -1,0 +1,145 @@
+{
+  "id": "satanoperca-pappaterra",
+  "native": {
+    "input": "acc3933cd41bc973",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Originally native to the rio Guaporé in Brazil and Bolivia (where it is known as the Río Iténez) and the upper rio Paraguai in Brazil and northern Paraguay, these two basins being connected during the wettest part of the year via the vast Pantanal wetland, where they both have their headwaters.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Originally native to the rio Guaporé in Brazil and Bolivia (where it is known as the Río Iténez) and the upper rio Paraguai in Brazil and northern Paraguay, these two basins being connected during the wettest part of the year via the vast Pantanal wetland, where they both have their headwaters.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Originally native to the rio Guaporé in Brazil and Bolivia (where it is known as the Río Iténez) and the upper rio Paraguai in Brazil and northern Paraguay, these two basins being connected during the wettest part of the year via the vast Pantanal wetland, where they both have their headwaters.",
+        "words": "Paraguay",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Guaporé",
+        "source": "seriouslyfish",
+        "quote": "Originally native to the rio Guaporé in Brazil and Bolivia (where it is known as the Río Iténez) and the upper rio Paraguai in Brazil and northern Paraguay, these two basins being connected during the wettest part of the year via the vast Pantanal wetland, where they both have their headwaters.",
+        "ok": true
+      },
+      {
+        "name": "Paraguai",
+        "source": "seriouslyfish",
+        "quote": "Originally native to the rio Guaporé in Brazil and Bolivia (where it is known as the Río Iténez) and the upper rio Paraguai in Brazil and northern Paraguay, these two basins being connected during the wettest part of the year via the vast Pantanal wetland, where they both have their headwaters.",
+        "ok": true
+      },
+      {
+        "name": "Pantanal",
+        "source": "seriouslyfish",
+        "quote": "Originally native to the rio Guaporé in Brazil and Bolivia (where it is known as the Río Iténez) and the upper rio Paraguai in Brazil and northern Paraguay, these two basins being connected during the wettest part of the year via the vast Pantanal wetland, where they both have their headwaters.",
+        "ok": true
+      },
+      {
+        "name": "Madeira",
+        "source": "seriouslyfish",
+        "quote": "The Guaporé is an affluent of the rio Mamoré within the rio Madeira basin, a major branch of the western Amazon watershed, and S. pappaterra is also known from several of its tributaries including the rios San Martin, Alegre, and Branco.",
+        "ok": true
+      },
+      {
+        "name": "Mamoré",
+        "source": "seriouslyfish",
+        "quote": "The Guaporé is an affluent of the rio Mamoré within the rio Madeira basin, a major branch of the western Amazon watershed, and S. pappaterra is also known from several of its tributaries including the rios San Martin, Alegre, and Branco.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Satanoperca pappaterra",
+    "status": "ACCEPTED",
+    "taxonKey": 5208456,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        112
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        84
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        28
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        25
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        12
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        11
+      ],
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        7
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        4
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "f8ba5386-8b91-4976-95bd-692e5d105eae",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "ada824f0-5741-4f99-8452-9bcf46472a84",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "BO",
+      "PY"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

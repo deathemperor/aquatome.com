@@ -105,61 +105,6 @@
     ],
     "figures": [
       {
-        "heading": "Lớp nền đầu tiên: tạo độ cao phía sau",
-        "moments": [
-          {
-            "t": 100,
-            "url": "https://media.aquatome.com/video/KmxHHPPTIgk/at100-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đổ lớp nền dồn ra phía sau bể để tạo dốc.",
-            "sharpness": 3117.4
-          }
-        ]
-      },
-      {
-        "heading": "Lớp dinh dưỡng: đất ao trộn sỏi",
-        "moments": [
-          {
-            "t": 160,
-            "url": "https://media.aquatome.com/video/KmxHHPPTIgk/at160-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Trộn đất trồng cây thủy sinh với sỏi trong xô.",
-            "sharpness": 1345.7
-          },
-          {
-            "t": 180,
-            "url": "https://media.aquatome.com/video/KmxHHPPTIgk/at180-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đổ hỗn hợp đất trộn sỏi lên nền bể.",
-            "sharpness": 4895.6
-          }
-        ]
-      },
-      {
-        "heading": "Phủ cát và chọn một hòn đá",
-        "moments": [
-          {
-            "t": 210,
-            "url": "https://media.aquatome.com/video/KmxHHPPTIgk/at210-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lớp cát trang trí đã phủ đều trên nền dinh dưỡng trong bể trống.",
-            "sharpness": 2568.2
-          },
-          {
-            "t": 320,
-            "url": "https://media.aquatome.com/video/KmxHHPPTIgk/at320-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt một hòn đá seiryu sẫm màu vào giữa bể đã phủ cát.",
-            "sharpness": 1576.7
-          }
-        ]
-      },
-      {
         "heading": "Trồng tiền cảnh bằng glossostigma",
         "moments": [
           {
@@ -168,7 +113,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thảm glossostigma xanh mướt phủ kín nền bể.",
-            "sharpness": 1028
+            "sharpness": 1028,
+            "person": false
           },
           {
             "t": 410,
@@ -176,7 +122,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Những mảng glossostigma đã xé ra, đặt trên khay.",
-            "sharpness": 1710.9
+            "sharpness": 1710.9,
+            "person": false
           }
         ],
         "photo": {
@@ -199,15 +146,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể đã cắm cây phủ nền, đá seiryu đứng giữa, chưa châm nước.",
-            "sharpness": 1856.8
-          },
-          {
-            "t": 550,
-            "url": "https://media.aquatome.com/video/KmxHHPPTIgk/at550-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Châm nước chậm vào bể, nước dâng quanh khối đá.",
-            "sharpness": 387.2
+            "sharpness": 1856.8,
+            "person": false
           }
         ]
       },
@@ -220,7 +160,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các loại cây cắt cắm hậu cảnh xếp cạnh nhau, lá xanh và đỏ.",
-            "sharpness": 1767
+            "sharpness": 1767,
+            "person": false
           },
           {
             "t": 650,
@@ -228,19 +169,10 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai nhánh cây Limnophila lá mảnh để cắm hậu cảnh.",
-            "sharpness": 2499.4
+            "sharpness": 2499.4,
+            "person": false
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/KmxHHPPTIgk/p5-A0NDAzNDApLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/KmxHHPPTIgk/p5-A0NDAzNDApLmpwZw-480.webp",
-          "width": 861,
-          "height": 467,
-          "licence": "CC BY-SA 2.0",
-          "author": "Andreea Filip",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ludwigia_glandulosa_(4830440340).jpg",
-          "caption": "Cụm Ludwigia lá đỏ rực, loại cây cắt cắm hậu cảnh rất đẹp trong bể."
-        }
+        ]
       },
       {
         "heading": "Lọc mút không dính kính và nước đục",
@@ -251,7 +183,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lọc mút gắn trên kính bể nano, cạnh đá và cây.",
-            "sharpness": 3313.5
+            "sharpness": 3313.5,
+            "person": false
           },
           {
             "t": 820,
@@ -259,7 +192,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể nano cây thủy sinh sau khi cắm lại, nước hơi đục.",
-            "sharpness": 2218.5
+            "sharpness": 2218.5,
+            "person": false
           }
         ],
         "photo": {
@@ -282,7 +216,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tép đỏ neocaridina trong bể thủy sinh nhiều cây rêu.",
-            "sharpness": 860.6
+            "sharpness": 860.6,
+            "person": false
           },
           {
             "t": 990,
@@ -290,7 +225,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dùng vợt nhỏ bắt tép đỏ ra khỏi bể để chuyển sang bể mới.",
-            "sharpness": 2895.8
+            "sharpness": 2895.8,
+            "person": false
           }
         ],
         "photo": {
@@ -313,7 +249,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh cây lá xanh và cây đỏ mọc dày bên cạnh đá.",
-            "sharpness": 471.9
+            "sharpness": 471.9,
+            "person": false
           },
           {
             "t": 1080,
@@ -321,7 +258,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh trồng nhiều cây xanh đỏ quanh hòn đá, chưa thả tép.",
-            "sharpness": 4966
+            "sharpness": 4966,
+            "person": false
           }
         ],
         "photo": {

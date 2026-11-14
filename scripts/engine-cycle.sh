@@ -50,7 +50,7 @@ push() {
     net git push -q && return 0
     sleep 30
   done
-  log "push failed three times"; return 1
+  log "push failed three times"; keep_lost_push "$PART"; return 1
 }
 
 # One job at a time in a clone (video-cycle.sh shares engine-repo's): a PID file, so a crashed or killed cycle doesn't
@@ -109,8 +109,8 @@ export ENGINE_COST_LOG="${ENGINE_COST_LOG:-$COST_DIR/aquatome-cost-$PART.jsonl}"
 log "cycle start ($PART)"
 if [ -n "${GITHUB_ACTIONS:-}" ] || [[ "$REPO" == "$HOME/.local/share/aquatome/"* ]]; then
   # A runner or one of the Mac's engine clones: start from GitHub's main, as a fresh runner does. What an earlier failed
-  # cycle left here (content that failed its tests, a commit whose push failed) is dropped, and that work redone, but
-  # for the work of a cycle whose tests ran out of time, kept on a branch and published first (publish_kept).
+  # cycle left here (content that failed its tests) is dropped, and that work redone, but for the work of a cycle whose
+  # tests ran out of time or whose push lost three times, kept on a branch and published first (publish_kept).
   [ -z "$(git status --porcelain -- content sources)" ] || log "dropping uncommitted content from an earlier failed cycle"
   from_main "$@"
   git clean -fdq -- content sources engine-state docs/review apps/site/src/i18n
@@ -119,7 +119,6 @@ else
   if [ -n "$(git status --porcelain -- content sources)" ]; then log "uncommitted content in this checkout: commit or drop it first"; exit 1; fi
   git checkout -q main && net git pull -q --ff-only
 fi
-cool
 # content/changelog.json gets entries from here and from the Mac's video job (video-cycle.sh): merge, don't conflict.
 git config merge.changelog.driver 'node scripts/merge-changelog.mjs %O %A %B'
 # The parts all add to the photo caches and the run records in engine-state.
@@ -182,6 +181,11 @@ if part photos; then
   # yet: 60 pages a cycle at five seconds a request, so its 152 pages take three cycles.
   pnpm engine tropica-photos --limit 60 || log "tropica-photos: failed"
 fi
+# The wait for a cooler Mac (cool) comes here, after the writing, not at the start (the chief of staff, 14 Nov). Before it:
+# kept and held work published (a build, the tests and a push, no writing) and the steps that write, whose model calls and
+# fetches are the network's, not this Mac's. After it: the Mac's own work on photos, the gate and the checks. On 13 Nov
+# the 18:10 run sat in the wait until 20:16 before it did anything.
+cool
 if part pages sf photos; then
   # No people in photos: drop any with a human face (before thumbs, so none are made for dropped photos).
   pnpm engine faces || log "faces: failed (unscreened photos may publish)"
@@ -220,6 +224,10 @@ if part photos; then
   # open licences, screened (right species or line, no faces). GALLERY_SHEETS model calls a cycle (about 480 a day on
   # the subscription); each page continues next cycle where this one stopped.
   pnpm engine gallery --sheets "${GALLERY_SHEETS:-60}" || log "gallery: failed"
+  # Each album photo asked once: a photo tank or a ruler, the whole fish in the frame, the fish filling a small part of it
+  # (album-ask.ts), which the album order reads. ALBUM_ASK_SHEETS model calls a cycle, under its own $2 a day: 513 sheets
+  # on 14 Nov, about five days.
+  pnpm engine album-ask --sheets "${ALBUM_ASK_SHEETS:-20}" || log "album-ask: failed"
   # Breed pages with no photo: a looser Commons search than the page step's (Unsplash below tries them too).
   pnpm engine breed-photos --limit 10 || log "breed-photos: failed"
   # Unsplash photos added to the galleries of the most-read fish (hot-linked and credited, per Unsplash's API terms). First

@@ -2,7 +2,8 @@
   "slug": "ca-pike-cichlid-do-atabo",
   "name": "Cá pike cichlid đỏ Atabo",
   "altNames": [
-    "Atabo Red Pike Cichlid"
+    "Atabo Red Pike Cichlid",
+    "Giant Orinoco Pike Cichlid"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<p>Cá pike cichlid đỏ Atabo (Lugubria lugubris) là một loài pike cichlid cỡ lớn, sống ở các con sông tại Suriname, Guyana và Brazil. Lúc nhỏ nó có màu đẹp, nhưng lớn rất nhanh thành con trưởng thành hung dữ, dài tới 40 cm. Con cá nào đủ nhỏ để làm mồi là nó ăn. Ghép cặp loài này khó, vì con đực càng lớn càng dữ, và con định ghép với nó thường bị giết.</p><ul><li>Cần nhiệt độ từ 27 °C trở lên</li><li>Cần bể rất lớn</li></ul>",
@@ -15,13 +16,18 @@
     "behaviour:seriouslyfish": "<p>Loài này có thể dữ, nhất là với đồng loại. Muốn nuôi chung thì chọn các loài cichlid lớn khác, hoặc nuôi riêng một loài. Con cá nào đủ nhỏ để làm mồi thì chắc là sẽ bị ăn, mà miệng chúng thì rất to!</p>",
     "dimorphism:seriouslyfish": "<p>Cá đực có sọc trắng trên vây lưng, còn cá cái thì màu sặc sỡ hơn.</p>",
     "reproduction:seriouslyfish": "<p>Rất ít người báo là cho loài này đẻ được trong bể. Có lẽ nó đẻ trong hang. Cá bố mẹ chăm con rất tốt. Ghép cặp có thể khó, vì con đực càng lớn càng dữ. Con định ghép với nó thường bị giết.</p>",
-    "notes:seriouslyfish": "<p>Lúc nhỏ đây là loài cá đẹp, nhiều màu, nhưng nó lớn rất nhanh thành con trưởng thành to và dữ, nên phải có bể lớn.</p>"
+    "notes:seriouslyfish": "<p>Lúc nhỏ đây là loài cá đẹp, nhiều màu, nhưng nó lớn rất nhanh thành con trưởng thành to và dữ, nên phải có bể lớn.</p>",
+    "quickFacts:glaser": "<p>Crenicichla lugubris dòng Orinoco có nhiều màu đỏ trên thân và có thể dài tới khoảng 50 cm. Đây là một trong những loài lớn nhất của giống này. Loài này chỉ hợp với bể thật lớn hoặc bể trưng bày công cộng.</p>",
+    "distribution:glaser": "<p>Venezuela (Orinoco).</p>",
+    "behaviour:glaser": "<p>Cá con mang hoa văn kiểu \"khoai tây chiên\" quen thuộc của nhóm này. Lúc nhỏ chúng sống theo đàn, nuôi lẻ một con thì nó rất bất an. Đến tuổi dậy thì, chúng coi đồng loại chỉ là đối thủ, hễ có dịp là cắn và tìm cách giết. Khi đã đủ lớn để đẻ, chúng bắt cặp, và các cặp thường sống yên ổn với nhau trong thời gian dài.</p>",
+    "notes:glaser": "<p>Màu của loài này đổi rất nhiều từ lúc nhỏ tới lúc lớn, và cá càng già càng đẹp. Dòng này có nhiều đốm trên mặt. Vì thế nó dễ bị nhầm với C. lenticulata, loài sống cùng vùng.</p><p>Nguồn gốc tên gọi: Crenicichla là tiếng Hy Lạp cổ, nghĩa là \"Cichla có lược\". Cichla là một giống cichlid khác. lugubris là tiếng Latin, nghĩa là \"kẻ để tang\", ý chỉ màu sắc của cá.</p>"
   },
   "quality": {
     "score": 0.9,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.9
+      "seriouslyfish": 0.9,
+      "glaser": 0.9
     }
   }
 }

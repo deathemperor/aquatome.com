@@ -8,7 +8,8 @@
   "places": [
     "south-america",
     "brazil",
-    "guapore"
+    "guapore",
+    "rio-guapore"
   ],
   "range": {
     "native": {
@@ -115,6 +116,12 @@
       "html": "<p>Guaporé River basin, Brazil.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_spectabilis_en/",
+      "html": "<p>Origin: Brazil, Rio Guaporé. Corydoras spectabilis is found in the upper Rio Guaporé around Vila Bela.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brochis-spectabilis",
@@ -170,7 +177,32 @@
     }
   ],
   "photos": [],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "cf0A45xiWwA",
+      "title": "#Corydoras_sp_C98 #長吻菸圈鼠#Corydoras_spectabilis #黑腰豹鼠#wild_fish#悠遊魚坊yoyofishroom",
+      "durationSec": 28,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "6fCEB_nI3pE",
+      "title": "Hai's Biotope Tank",
+      "durationSec": 89,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ZcgZUmtvayY",
+      "title": "Angelfish and Corydoras",
+      "durationSec": 220,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "CutcNUhWEAE",
+      "title": "#Corydoras_spectabilis #黑腰豹鼠#Corydoras_cf_urucu #烏魯庫煙圈鼠#wild_fish#悠遊魚坊yoyofishroom",
+      "durationSec": 30,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -200,5 +232,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-14"
 }

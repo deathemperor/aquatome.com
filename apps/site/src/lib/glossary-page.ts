@@ -65,6 +65,20 @@ function termUses(lang: Lang, c: Content): Map<string, Uses> {
 
 const escapeText = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;')
 
+/** How many pages use a term: the guides, fish and plants that link it, the number its page gives under "Dùng trong". */
+const usedCount = (u: Uses) => u.guides.length + u.fish.length + u.plants.length
+
+/**
+ * A term as the app's glossary list shows it (lib/app-index.ts): its meaning as plain text, the definition its card and
+ * its page lead with (the page's has its links in), and how many pages its page says use it. Each left out where the term
+ * has none, as its page leaves out the section.
+ */
+export function termListing(lang: Lang, c: Content, g: Localized<GlossaryEntity>): { def?: string; uses?: number } {
+  const def = g.t.definition?.trim()
+  const uses = usedCount(termUses(lang, c).get(g.id) ?? { guides: [], fish: [], plants: [] })
+  return { ...(def ? { def } : {}), ...(uses ? { uses } : {}) }
+}
+
 /** How many times a text names any of these, as whole words in any case, as the linker reads them: "pH" is not in "Phosphat". */
 export function nameCount(names: string[]): (text: string) => number {
   const re = new RegExp(`(?<![\\p{L}\\p{N}])(?:${names.map(n => n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})(?![\\p{L}\\p{N}])`, 'giu')
@@ -113,5 +127,5 @@ export function glossaryParts(lang: Lang, c: Content, g: Localized<GlossaryEntit
   const more = guides.length > USED_IN_SHOWN.guides || fish.length > USED_IN_SHOWN.fish || plants.length > USED_IN_SHOWN.plants
   const m = lang === 'vi' ? c.materials.find(m => m.id === g.id) : undefined
   const material = m ? { href: materialPath(m), text: `Xem trang ${m.t.name}: cách chọn, xử lý${m.parent ? '' : ` và các loại ${m.t.name.toLocaleLowerCase('vi')}`} →` } : undefined
-  return { otherNames, definition, material, photo: g.photos?.[0], body, related, refs: g.refs ?? [], guides, fish, plants, total: guides.length + fish.length + plants.length, more }
+  return { otherNames, definition, material, photo: g.photos?.[0], body, related, refs: g.refs ?? [], guides, fish, plants, total: usedCount(uses), more }
 }

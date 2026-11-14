@@ -946,6 +946,7 @@ final class LightFlowTests: XCTestCase {
   func testTheOwnersLoveEcologyLightTakesOffThenAColour() {
     let app = launch("-fake-accounts", "on", "-reset-fake-server", "-fake-owner", "ui-apple")
     XCTAssertFalse(element(app, "lamp-off").waitForExistence(timeout: 2), "the light's card before the owner signed in")
+    XCTAssertFalse(element(app, "lamp-trial-off").exists, "the trial row before the owner signed in")
     app.openAccount()
     app.signInWithStandInApple()
     app.openTab("Đèn")
@@ -959,6 +960,16 @@ final class LightFlowTests: XCTestCase {
     tap(app, "lamp-blue")
     expect(app, "lamp-sent", contains: "off blue")
     expect(app, "lamp-status", contains: "Đã gửi “Xanh dương”")
+    // The owner's trial of commands built anew (14 Nov): each broadcast as the recorded ones are, green last to put it back.
+    // The other buttons wait while one sends (3 s), so each is sent before the next tap.
+    let trials = [("trial-white-half", "Trắng 50% (tự tạo)"), ("trial-off", "Tắt (tự tạo 1)"), ("trial-on", "Bật (tự tạo 1)"),
+                  ("trial-off-recorded", "Tắt (tự tạo 2)"), ("trial-on-recorded", "Bật (tự tạo 2)"), ("trial-green", "Xanh lá (ghi sẵn)")]
+    for (id, name) in trials {
+      tap(app, "lamp-" + id)
+      expect(app, "lamp-sent", contains: id)
+      expect(app, "lamp-status", contains: "Đã gửi “\(name)”")
+      expect(app, "lamp-status", contains: "Đợi 10 giây rồi bấm tiếp.")
+    }
   }
 
   // MARK: Helpers

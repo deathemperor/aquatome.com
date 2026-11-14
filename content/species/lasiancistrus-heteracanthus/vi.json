@@ -14,14 +14,20 @@
     "reproduction:glaser": "<p>Như gần hết các loài cá lau kiếng nhóm ancistrine, loài này đẻ trong hang. Người ta từng tìm thấy ngoài tự nhiên một ổ khoảng 200 trứng, đẻ trong hốc của một thân cây chìm dưới nước. Cá đực là con canh trứng.</p>",
     "notes:glaser": "<p>Lasiancistrus: tiếng Latin, nghĩa là \"ancistrus xù xì\", ý nói các gai nhỏ trên da (odontode). heteracanthus: tiếng Hy Lạp cổ, nghĩa là \"có gai khác thường\".</p>",
     "beforeYouBuy:glaser": "<p>Lasiancistrus heteracanthus, cá lau kiếng mắt đỏ, là loài hiếm và chỉ được nhập về từ Peru với số lượng ít. Ngoài đôi mắt đỏ tươi, điểm bắt mắt nhất của loài này là thùy dưới vây đuôi màu nâu đỏ rất đẹp.</p>",
-    "habitat:glaser": "<p>Ngoài tự nhiên, nước nơi chúng sống chỉ hơi chua, có chỗ còn hơi kiềm.</p>"
+    "habitat:glaser": "<p>Ngoài tự nhiên, nước nơi chúng sống chỉ hơi chua, có chỗ còn hơi kiềm.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: thượng nguồn sông Napo ở Ecuador và hạ lưu sông Napo ở Peru. Nơi thu mẫu chuẩn: thượng nguồn Amazon, vùng Amazon thuộc Peru.</p>",
+    "maintenance:scotcat": "<p>Loài này khá dễ nuôi, nhưng con đực lớn có thể hay giành chỗ.</p>",
+    "diet:scotcat": "<p>Đây là loài ăn thực vật. Có thể cho ăn thức ăn có rau, viên chìm và viên nén, ấu trùng côn trùng, động vật phù du và gỗ mềm.</p>",
+    "dimorphism:scotcat": "<p>Con đực có vây ngực dài hơn con cái. Gai nhỏ (odontode) phía sau nắp mang và dọc mép mõm của nó cũng mọc dày hơn.</p>",
+    "notes:scotcat": "<p>Loài này khác L. caucanus, L. saetiger và L. tentaculatus ở chỗ bụng có các tấm xương, còn ba loài kia thì không. Nó khác L. schomburgkii và L. saetiger vì vây lưng và vây đuôi có đốm sẫm, trong khi hai loài kia có đốm trắng hoặc vây sẫm toàn bộ. Còn với L. guacharote, điểm khác là các tấm xương bụng của loài này không chỉ nằm gọn ở vùng gần gốc gai vây ngực. Các loài Lasiancistrus trông khá giống chi Ancistrus, nhưng thân dẹt hơn và miệng không có các xúc tu như Ancistrus.</p><p>Nguồn gốc tên: tên loài heteracanthus ghép từ héteros nghĩa là khác nhau và acanthus (từ ákantha) nghĩa là gai. Tên này chỉ hai kiểu gai trên xương gian nắp mang. Ở giữa là một nhóm khoảng 12 gai mảnh nhưng cứng, đầu hơi cong móc, và bao quanh nhóm này là một vòng gai dài như sợi lông.</p><p>Sách đỏ IUCN: xếp mức Ít quan tâm (Least Concern) vì loài này phân bố rộng và không gặp mối đe dọa lớn nào (IUCN 2016).</p>",
+    "references:scotcat": "<p>Armbruster, J.W., 2005. The loricariid catfish genus Lasiancistrus (Siluriformes) with descriptions of two new species. Neotrop. Ichthyol. 3(4):549-569. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2011. FishBase. www.fishbase.org. Hidalgo del Aguila, M., Chocano, L., Velasquez, M., Arguello, P. &amp; Jimenez-Prado, P. 2016. Lasiancistrus heteracanthus. The IUCN Red List of Threatened Species 2016. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
     "score": 0.8,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.8
-    },
-    "reason": "thin"
+      "glaser": 0.8,
+      "scotcat": 0.85
+    }
   }
 }

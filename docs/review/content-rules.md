@@ -5,7 +5,7 @@ the site serves (`packages/engine/src/content-rules.ts`, docs/governance.md). A 
 a rule can fix safely is fixed whenever the engine writes a page, and on every page each cycle before the build
 (`pnpm engine sweep`; the real-content test holds those rules at zero); the rest is listed here, each page once per rule.
 
-Pages checked: 7467 (Vietnamese 4313, Indonesian 1434, Thai 1409, Malay 311). Imperial units
+Pages checked: 7498 (Vietnamese 4313, Indonesian 1439, Thai 1419, Malay 327). Imperial units
 beside a metric figure: feet 1, gallon 15.
 
 ## Numbered headings broken or miscounted (2)
@@ -87,10 +87,11 @@ A product page saying AquaTome controls it, when the code doesn't (@aq/schema co
 
 - none
 
-## Markdown, HTML or entities left in the text (1)
+## Markdown, HTML or entities left in the text (2)
 
 **bold**, "## heading", [link](…), `code` or a tag written out as text; "&amp;" in a title, summary or FAQ, or an entity escaped twice in the text (both fixed when the engine writes the page, listed until then).
 
+- [id · Akuarium Saat Panas, Dingin, Hujan & Mati Listrik: Jaga Suhu dan Oksigen](https://aquatome.com/id/panduan/akuarium-kepanasan-kedinginan-mati-listrik/) — "\<h3\>"; "\</h3\>"; "\<p\>"; "\</p\>"; "\<p\>"; "\</p\>"; "\<p\>"; "\</p\>"; "\<p\>"; "\</p\>"; "\<h3\>"; "\</h3\>"; "\<ul\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\</ul\>"; "\<h3\>"; "\</h3\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<h3\>"; "\</h3\>"; "\<ul\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\</ul\>"; "\<h3\>"; "\</h3\>"; "\<p\>"; "\</p\>"; "\<h3\>"; "\</h3\>"; "\<ul\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\</ul\>"; "\<h3\>"; "\</h3\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<p\>"; "\</p\>"; "\<h3\>"; "\</h3\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<h3\>"; "\</h3\>"; "\<ul\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\</ul\>"; "\<h3\>"; "\</h3\>"; "\<p\>"; "\</p\>"
 - [id · Warna Ikan Hias Pudar: Pakan Penambah Warna, Vitamin C & Cara Memberi Pakan](https://aquatome.com/id/panduan/warna-ikan-hias-pudar/) — "\<h3\>"; "\</h3\>"; "\<p\>"; "\</p\>"; "\<p\>"; "\</p\>"; "\<p\>"; "\</p\>"; "\<h3\>"; "\</h3\>"; "\<ul\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\<em\>"; "\</em\>"; "\</li\>"; "\</ul\>"; "\<p\>"; "\<em\>"; "\</em\>"; "\</p\>"; "\<h3\>"; "\</h3\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<h3\>"; "\</h3\>"; "\<p\>"; "\</p\>"; "\<p\>"; "\<em\>"; "\</em\>"; "\</p\>"; "\<p\>"; "\<em\>"; "\</em\>"; "\</p\>"; "\<h3\>"; "\</h3\>"; "\<ul\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\</ul\>"; "\<h3\>"; "\</h3\>"; "\<p\>"; "\</p\>"; "\<p\>"; "\</p\>"; "\<ul\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\</ul\>"; "\<p\>"; "\</p\>"; "\<p\>"; "\</p\>"; "\<h3\>"; "\</h3\>"; "\<p\>"; "\</p\>"; "\<ul\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\</ul\>"; "\<p\>"; "\<em\>"; "\</em\>"; "\</p\>"; "\<h3\>"; "\</h3\>"; "\<ul\>"; "\<li\>"; "\<em\>"; "\</em\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\</ul\>"
 
 ## A paragraph repeated on the page (0)
@@ -139,10 +140,10 @@ Words and turns the engine writes far more often than the language's hobbyists d
 - vi · "ghi nhận" → "có ở", "gặp ở", "thấy ở" (nguồn nói chưa ai thấy thì giữ ý đó): 1122 pages, 2184 times
 - vi · "nhiều khả năng" → "chắc là", "có lẽ" (giữ đúng mức chắc chắn của nguồn): 1024 pages, 1627 times
 - vi · "thức ăn sống" → "thức ăn tươi sống", "đồ tươi": 966 pages, 1476 times
-- vi · "bể cộng đồng" → "nuôi chung", "thả chung với cá hiền": 863 pages, 1331 times
+- vi · "bể cộng đồng" → "nuôi chung", "thả chung với cá hiền": 862 pages, 1329 times
 - vi · "bạn cùng bể" → "cá nuôi chung", "nuôi chung với…": 579 pages, 773 times
 - vi · "gần như không" → "hầu như không", "ít khi", hoặc nói thẳng: 577 pages, 795 times
-- vi · "lý tưởng" → "hợp nhất", "tốt nhất", hoặc nói thẳng con số ("nên giữ 24–26 °C"): 563 pages, 771 times
+- vi · "lý tưởng" → "hợp nhất", "tốt nhất", hoặc nói thẳng con số ("nên giữ 24–26 °C"): 562 pages, 770 times
 - vi · "giới chơi" → "người chơi", hoặc bỏ: 547 pages, 800 times
 - vi · "không xương sống" → gọi tên con: "tép, ốc": 531 pages, 619 times
 - vi · "nhờ vậy" → để câu sau tự nói; "thế là" chỉ khi đúng là chuyện xảy ra tiếp: 503 pages, 616 times
@@ -151,14 +152,14 @@ Words and turns the engine writes far more often than the language's hobbyists d
 - vi · "hung hăng" → "dữ", "hung dữ": 397 pages, 630 times
 - vi · "dân chơi" → thường bỏ được ("gọi là…", "hay nuôi…"); "người chơi" khi cần nói ai: 379 pages, 495 times
 - vi · "bơi tự do" → "tự bơi được", "bơi được": 347 pages, 409 times
-- vi · "khẩu phần" → "thức ăn", "cho ăn…": 335 pages, 414 times
+- vi · "khẩu phần" → "thức ăn", "cho ăn…": 334 pages, 413 times
 - vi · "giữ lãnh thổ" → "hay đuổi cá khác khỏi chỗ của nó", "hay giành chỗ": 331 pages, 446 times
 - vi · "thị trường cá cảnh" → "tiệm cá", "trên thị trường": 323 pages, 447 times
 - vi · "bắt buộc phải" → "phải": 319 pages, 361 times
 - vi · "được xem là" → nói thẳng ("CO2 coi như bắt buộc", "cây khó giữ lâu"), đừng đổi sang "được coi là": 317 pages, 402 times
 - vi · "chỗ trú" → "chỗ trốn": 306 pages, 361 times
 - vi · "được cho là" → đúng mức chắc của nguồn: chắc thì nói thẳng, nguồn còn ngờ thì "có lẽ", "nghe nói": 261 pages, 318 times
-- vi · "bể trồng cây" → "bể thủy sinh", "đèn thủy sinh": 195 pages, 267 times
+- vi · "bể trồng cây" → "bể thủy sinh", "đèn thủy sinh": 194 pages, 266 times
 - vi · "thủ phạm" → "nguyên nhân", "là do": 174 pages, 206 times
 - vi · "cá mê cung" → gọi tên con: "cá sặc, cá betta": 140 pages, 189 times
 - vi · "loricariid" → "cá lau kiếng", "cá tỳ bà", "pleco": 138 pages, 161 times
@@ -231,7 +232,7 @@ A caption naming a Latin name in a genus the site has, that no page has, or anot
 
 - [vi · Cá anh đào](https://aquatome.com/ca/ca-anh-dao/) — Rasboroides vaterifloris: "Putative wild-collected adult male imported to Singapore among a shipment of Ra…"
 - [vi · Cá chì sọc xanh](https://aquatome.com/ca/ca-chi-soc-xanh/) — Paracheirodon axelrodi: "...but is sometimes exported as bycatch among shipments of the cardinal tetra,…"
-- [vi · Cá chuột sọc nói](https://aquatome.com/ca/ca-chuot-soc-noi/) — Platydoras costatus: "Young specimen of Platydoras costatus"; Platydoras costatus: "Platydoras costatus"
+- [vi · Cá chuột sọc nói](https://aquatome.com/ca/ca-chuot-soc-noi/) — Platydoras costatus: "Young specimen of Platydoras costatus"
 - [vi · Cá đầu chúc sọc](https://aquatome.com/ca/ca-dau-chuc-soc/) — Anostomus brevior: "Anostomus brevior in French Guiana"
 - [vi · Cá Garra rakhinica](https://aquatome.com/ca/ca-garra-rakhinica/) — Garra flavatra: "Specimen from the Thai aquarium trade, imported as a contaminant in a batch of…"
 - [vi · Cá hàm răng Salda](https://aquatome.com/ca/ca-ham-rang-salda/) — Aphanius splendens: "Male of Aphanius splendens."

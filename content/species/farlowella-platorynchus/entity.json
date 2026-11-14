@@ -208,6 +208,10 @@
       {
         "source": "scotcat",
         "value": 19.5
+      },
+      {
+        "source": "glaser",
+        "value": 18
       }
     ],
     "ph": [
@@ -240,6 +244,12 @@
       "html": "<ul><li>IUCN Red List: Not Evaluated</li></ul><p>This species of Farlowella has a long broad rostrum with a reticulated pattern above and a circular pattern on the ventral side.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/farlowella_platorhynchus_en/",
+      "html": "<p>The needle suckers (Farlowella) belong to the most specialized Loricariids at all. Their whole life is dedicated to the trick to look like a stick.</p><p>Farlowella: dedication name for W. G. Farlow, former professor at Harvard University, USA. platorhynchus: from ancient Greek, means \"with a broad snout\".</p><p>Suggestion of a common name: Broadsnouted Needle Sucker</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_platorynchus.htm",
@@ -258,16 +268,34 @@
       "html": "<p>South America: Upper and lower Amazon River basin. Type locality: Peru, Ucayali Department, Pucallpa, Yari-nachocha, Río Ucayali drainage, 8º23'S, 74º32'W.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/farlowella_platorhynchus_en/",
+      "html": "<p>Peru.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_platorynchus.htm",
       "html": "<p>Needs a high oxygen content in the aquarium with regular water changes to keep the water in pristine condition. Prefers a dark substrate with dense vegetation, floating and long-leaved plants which they will hang on to.</p>"
     },
     {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/farlowella_platorhynchus_en/",
+      "html": "<p>The gravel should be fine, best sand, for otherwise the fine food particles vanish too fast in the ground. Farlowella are very bad swimmers, so they can become entangled easily in dense plants etc. So furnish the tank for Farlowella only neatly arranged.</p>"
+    },
+    {
       "key": "diet",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_platorynchus.htm",
       "html": "<p>They are mostly vegetarian, with algae being the main food source for adults and young fry, so vegetable-laden tablets should suffice.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/farlowella_platorhynchus_en/",
+      "html": "<p>Farlowella are slow feeders. They are used to feed on Aufwuchs in the wild, and so the keeper has to make sure that the needle suckers get enough food. Tablet food and frozen Cyclops do very well.</p>"
     },
     {
       "key": "behaviour",
@@ -282,6 +310,12 @@
       "html": "<p>This is a very timid species. If housed with other inhabitants, avoid boisterous fish such as some of the Barb species (such as tigers) and definitely Cichlids. Better companions would be the unobtrusive Corydoras species and small Characins or Rasboras.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/farlowella_platorhynchus_en/",
+      "html": "<p>Males and females can be distinguished best by a look from the top: males have a much broader head.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1190",
@@ -294,6 +328,12 @@
       "html": "<p>Eggs are placed on the aquarium glass or on a leaf and cared for by the male, which can be recognised by its nose odontodes.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/farlowella_platorhynchus_en/",
+      "html": "<p>In contrast to many other Loricariids, Farlowella are not cave brooding, but spawn open on the surface of things, quite often on the glass of the tank. Here the male guards the eggs until the fry hatch.</p>"
+    },
+    {
       "key": "notes",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1190",
@@ -304,6 +344,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_platorynchus.htm",
       "html": "<p>Etymology: The specific name platorynchus refers to its broad (platys = broad) snout (rhynchos = snout).</p><p>In Eschmeyer's Catalog of Fishes, Farlowella platorynchus is now considered a synonym of F. amazonum.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/farlowella_platorhynchus_en/",
+      "html": "<p>There is a lot of variation observable regarding coloration. Keeping Farlowella is not difficult, but one has to note some essential things.</p>"
     },
     {
       "key": "references",
@@ -361,5 +407,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-14"
 }

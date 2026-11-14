@@ -1,0 +1,61 @@
+{
+  "id": "schistura-aizawlensis",
+  "native": {
+    "input": "10988c1d28b881c4",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Schistura aizawlensis is a nemacheilid loach known only from the Muthi River, a tributary of the Tuirial in Mizoram state, India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Muthi River",
+        "source": "seriouslyfish",
+        "quote": "Schistura aizawlensis is a nemacheilid loach known only from the Muthi River, a tributary of the Tuirial in Mizoram state, India.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Tuirial",
+        "source": "seriouslyfish",
+        "quote": "Schistura aizawlensis is a nemacheilid loach known only from the Muthi River, a tributary of the Tuirial in Mizoram state, India.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Barak",
+        "source": "seriouslyfish",
+        "quote": "The Muthi is an affluent of the Tuirial River which is itself a tributary of the Barak watershed.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Schistura aizawlensis",
+    "status": "ACCEPTED",
+    "taxonKey": 7818847,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

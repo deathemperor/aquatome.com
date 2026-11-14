@@ -1,0 +1,93 @@
+{
+  "id": "schistura-balteata",
+  "native": {
+    "input": "ddc0d8bc882fcbc6",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The sumo loach II, Schistura cf. balteata, is an apparently undescribed nemacheilid loach from the Ataran River drainage in Myanmar and Thailand.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The sumo loach II, Schistura cf. balteata, is an apparently undescribed nemacheilid loach from the Ataran River drainage in Myanmar and Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This apparently undescribed species has been collected from the Ataran River drainage, a tributary of the Salween River flowing through the states of Kayin and Mon, Myanmar, and the fish available in the trade are apparently sourced from the rivers' headwaters in Kayin.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in Sangkhla Buri district, Kanchanaburi province, western Thailand, where the Ataran is known as the Kasat.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ataran River",
+        "source": "seriouslyfish",
+        "quote": "The sumo loach II, Schistura cf. balteata, is an apparently undescribed nemacheilid loach from the Ataran River drainage in Myanmar and Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "This apparently undescribed species has been collected from the Ataran River drainage, a tributary of the Salween River flowing through the states of Kayin and Mon, Myanmar, and the fish available in the trade are apparently sourced from the rivers' headwaters in Kayin.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Tenasserim Mountain range",
+        "source": "seriouslyfish",
+        "quote": "There actually exist various populations of similarly-patterned fishes on both the Thai and Myanmar sides of the Tenasserim Mountain range, of which a handful have been described as S. aurantiaca, S. cincticauda, S. paucifasciata, and S. robertsi, respectively.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Schistura balteata",
+    "status": "ACCEPTED",
+    "taxonKey": 5204974,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "b9afe2d0-b264-4422-bf8c-096b2a53c18f",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "MM",
+      "TH"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

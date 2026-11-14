@@ -6,6 +6,7 @@ import { albumOf, hasPhotoPage } from './photo-page'
 import { isVietnamese, type Lang } from './i18n'
 import { guideImages, guidesMentioning, mentionIndex } from './mentions'
 import { pagePictures, takeEach } from './pictures'
+import { sciBeside } from './sci'
 
 /**
  * A hybrid's parent as its page names it: the species page when there is one, else the name the sources give. `vi`: that
@@ -15,6 +16,22 @@ import { pagePictures, takeEach } from './pictures'
 export type BreedParent = { name: string; sci?: string; path?: string; certain: boolean; vi?: boolean }
 
 /**
+ * A hybrid's parents: the species' own name and page when the handbook has it, with its scientific name beside the name
+ * only when the name doesn't say it (lib/sci.ts); otherwise the name the sources give.
+ */
+export function breedParents(lang: Lang, c: Pick<Content, 'species'>, b: Breed): BreedParent[] {
+  const species = new Map(c.species.map(s => [s.id, s]))
+  return b.parents.map((p, i) => {
+    // A parent the breed's sources name only by its scientific name in brackets is still that species.
+    const sci = /\(([A-Z][a-z]+ [a-z]+)\)\s*$/.exec(p.name)?.[1]
+    const s = species.get(p.species ?? (sci ? slugify(sci) : ''))
+    if (s) return { name: s.t.name, sci: sciBeside(s.t.name, s.scientificName), path: `/vi/ca/${s.t.slug}/`, certain: p.certain }
+    const name = b.t.parents?.[i] ?? ((lang !== 'vi' && isVietnamese(p.name) && sci) || p.name)
+    return { name, certain: p.certain, ...(lang !== 'vi' && isVietnamese(name) ? { vi: true } : {}) }
+  })
+}
+
+/**
  * What a breed's page shows, put together once for the page (pages/ca/[breed].astro) and for the app's copy of it
  * (lib/app-page.ts): what it's a form of, a hybrid's parents, its data card, its gallery strip, its own text with the
  * pages it names linked, its lines and the guides that name it. Every picture once, in page order (lib/pictures.ts):
@@ -22,15 +39,7 @@ export type BreedParent = { name: string; sci?: string; path?: string; certain: 
  */
 export function breedParts(lang: Lang, c: Content, b: Breed) {
   const key = `breed:${b.id}`
-  const species = new Map(c.species.map(s => [s.id, s]))
-  const parents: BreedParent[] = b.parents.map((p, i) => {
-    // A parent the breed's sources name only by its scientific name in brackets is still that species.
-    const sci = /\(([A-Z][a-z]+ [a-z]+)\)\s*$/.exec(p.name)?.[1]
-    const s = species.get(p.species ?? (sci ? slugify(sci) : ''))
-    if (s) return { name: s.t.name, sci: s.scientificName, path: `/vi/ca/${s.t.slug}/`, certain: p.certain }
-    const name = b.t.parents?.[i] ?? ((lang !== 'vi' && isVietnamese(p.name) && sci) || p.name)
-    return { name, certain: p.certain, ...(lang !== 'vi' && isVietnamese(name) ? { vi: true } : {}) }
-  })
+  const parents = breedParents(lang, c, b)
   const pics = pagePictures(c)
   pics.add(b.photos[0]?.url)
   const gallery = albumOf(c, 'breeds', b)

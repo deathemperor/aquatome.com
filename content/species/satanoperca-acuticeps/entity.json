@@ -11,6 +11,304 @@
     "rio-negro",
     "amazon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Rio Negro",
+        "Rio Branco",
+        "Solimões"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The sharphead eartheater, Satanoperca acuticeps, is a cichlid from the central Amazon basin in Brazil, including the lower rio Negro and rio Branco.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the central Amazon basin in Brazil where it occurs in the Amazon main channel and lower basins of tributary drainages between the rios Tapajós and Tefé, including the lower rio Negro and its principal affluent the rio Branco, plus the rios Arapiuns, Trombetas, Mamuru, Curuçá, Urubu, and Purus.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Rio Negro",
+            "Rio Branco"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Brazil: Rio Branco, Negro, Solimões.",
+          "countries": [],
+          "regions": [
+            "Solimões"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208452,
+      "total": 262,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "BR",
+          258
+        ],
+        [
+          "BO",
+          2
+        ],
+        [
+          "CO",
+          1
+        ],
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -71.71875,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          -11.25,
+          2,
+          0
+        ],
+        [
+          -68.90625,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -66.09375,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -2.8125,
+          5,
+          5
+        ],
+        [
+          -63.28125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          6,
+          6
+        ],
+        [
+          -61.875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          153,
+          153
+        ],
+        [
+          -59.0625,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          9,
+          9
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          -56.25,
+          -12.65625,
+          5,
+          5
+        ],
+        [
+          -56.25,
+          -11.25,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -4.21875,
+          6,
+          6
+        ],
+        [
+          -56.25,
+          -2.8125,
+          21,
+          21
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          8,
+          8
+        ],
+        [
+          -53.4375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          0,
+          3,
+          3
+        ],
+        [
+          -49.21875,
+          -26.71875,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -46.40625,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -46.40625,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

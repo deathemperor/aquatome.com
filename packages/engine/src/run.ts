@@ -7,6 +7,7 @@ import type { z } from 'zod'
 import { across, LARGE_PX } from './curation'
 import { cardGaps } from './card-fill'
 import { appendChangelog } from './changelog'
+import { applyCreditReads, CREDIT_HOLDS, creditPagesWaiting, pageCredits, readCreditReads, recordCredits, releaseCreditHolds, writeCreditReads } from './credit-reads'
 import { LlmError, type Llm } from './claude'
 import { deeperPages, depthReport, popularityOrder, readSearchCache, runOrder, saveSearchCache, searchThin, thinSpecies, type DepthReport } from './depth'
 import { discover } from './discover'
@@ -265,6 +266,17 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   const keeps = (page: string, scientificName: string): ReadKeeps => readKeeps(page, scientificName, blocked, sourceNames, screen)
   // A re-read that would leave a page with no photo keeps the old ones, each held for a person's second look (mergeRead).
   const holdLast = (held: Photo[], page: string) => holdForSecondLook(root, new Map(held.map(p => [p.url, { why: "rejected: the source's page no longer shows it", pages: [page] }])), 'the pages rewrite', today())
+  // Source pages whose credits a read still has to learn (credit-reads.ts): read only on their own turn, like any page.
+  const creditWaiting = await soft('credit reads', () => creditPagesWaiting(root), new Set<string>())
+  const creditRead = async (source: SourceId, url: string, images: PageImage[]) => {
+    const credits = pageCredits(images, url, source, sourceNames[source]?.name ?? source, sourceNames[source]?.permission ?? {}, deps.media, today())
+    await recordCredits(root, credits)
+    const { stuck } = await releaseCreditHolds(root, credits)
+    if (stuck.length) report.errors.push(`${url}: ${stuck.length} held photo${stuck.length > 1 ? 's' : ''} of the site's own couldn't go back to every place (a file or list is gone): still held (${CREDIT_HOLDS})`)
+    await applyCreditReads(root)
+    const reads = await readCreditReads(root)
+    if (url in reads) { delete reads[url]; await writeCreditReads(root, reads) }
+  }
 
   // Species our pages name but don't have yet: their source pages are fetched first (see wanted.ts); the audit lists the rest.
   const gbifNamesFile = join(root, 'engine-state/_gbif-names.json')
@@ -520,6 +532,9 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
         if (r.status >= 400) throw new Error(`HTTP ${r.status}`)
         const hash = snapshotHash(o)
         if (hash !== prev?.hash || r.capturedAt) await writeSnapshot(root, id, url, o, deps.now(), r.capturedAt)
+        // A page whose credits are still to learn, read now on its own turn: what this read shows decides (credit-reads.ts).
+        // Its own try: a failure here is ours, not the page's, so the page keeps its read and its turn, and its credits wait for the next one.
+        if (creditWaiting.has(url)) await creditRead(id, url, o.images).catch((e: unknown) => { report.errors.push(`${url}: credits not read, the page waits for its next turn: ${(e as Error).message.slice(0, 200)}`) })
         if (prev?.processedHash === hash && !forced(url)) {
           counts.skipped++
           const { error: _stale, ...rest } = prev
