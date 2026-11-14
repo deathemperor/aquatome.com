@@ -709,40 +709,61 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   report.agreed.push(...await listAgreed(root))
   const credit = await refusedByCredit(root, content)
   const already = (await neverAgain(root)).listed
-  const before = new Set([...maps.keys(), ...credit.keys()])
-  const going = (url: string) => before.has(url) || already(url)
-  // A fish its source's caption calls unwell (dead, thin, wounded, sick: content-rules.ts captionFlaw) is not shown where
-  // its page has another photo of its own: off the page and its gallery, and never picked again. A page's only photo
-  // stays, off every card (curation.ts cardWorthy), and is listed for a person.
-  const everyPage = new Set<string>() // the photos this rule alone would take off every page
-  for (const p of all) {
-    const key = `${p.kind}/${p.id}`
-    const leaving = [...(p.own ?? []), ...(p.album ?? []).map(c => c.url)].filter(going)
-    const { off: gone, kept, picked } = unwellOff(p, new Set([...(off.get(key)?.keys() ?? []), ...leaving]))
-    if (kept) report.unwell.push(`${key}: ${kept.url} (${kept.word}; the page's only photo)`)
-    // A head a person picked stays until a person says it goes: listed each run with its caption, at the size readers see.
-    if (picked) report.unwell.push(`${key}: ${picked.url} (${picked.word}; a head a person picked. Its caption: "${p.captions.find(c => c.url === picked.url)?.caption ?? ''}")`)
-    for (const x of gone) {
-      if (going(x.url)) continue // off in this pass on another rule's word
-      const why = `unwell: its source's caption says "${x.word}"`
-      const drop = off.get(key) ?? new Map<string, string>()
-      if (!drop.has(x.url)) off.set(key, drop.set(x.url, why))
-      if (!maps.has(x.url)) { maps.set(x.url, `${why} (${key})`); everyPage.add(x.url) }
+  const captionOff = new Map([...off].map(([k, v]) => [k, new Map(v)]))
+  const captionMaps = new Map(maps)
+  const unwellAt = report.unwell.length
+  // `going`: what leaves in this pass whatever this rule says. `back`: what the cap keeps of the rules above.
+  const unwellPass = (going: (url: string) => boolean, back: (url: string) => boolean) => {
+    // A fish its source's caption calls unwell (dead, thin, wounded, sick: content-rules.ts captionFlaw) is not shown
+    // where its page has another photo of its own: off the page and its gallery, and never picked again. A page's only
+    // photo stays, off every card (curation.ts cardWorthy), and is listed for a person; on a page with none of its own,
+    // which shows its gallery, so does the gallery's last.
+    const everyPage = new Set<string>() // the photos this rule alone would take off every page
+    const gone = (p: (typeof all)[number]) => [...(off.get(`${p.kind}/${p.id}`)?.keys() ?? [])].filter(u => !back(u))
+    for (const p of all) {
+      const key = `${p.kind}/${p.id}`
+      const leaving = [...(p.own ?? []), ...(p.gallery ?? [])].filter(going)
+      const { off: unwell, kept, picked } = unwellOff(p, new Set([...gone(p), ...leaving]))
+      if (kept) report.unwell.push(`${key}: ${kept.url} (${kept.word}; the page's only photo)`)
+      // A head a person picked stays until a person says it goes: listed each run with its caption, at the size readers see.
+      if (picked) report.unwell.push(`${key}: ${picked.url} (${picked.word}; a head a person picked. Its caption: "${p.captions.find(c => c.url === picked.url)?.caption ?? ''}")`)
+      for (const x of unwell) {
+        if (going(x.url)) continue // off in this pass on another rule's word
+        const why = `unwell: its source's caption says "${x.word}"`
+        const drop = off.get(key) ?? new Map<string, string>()
+        if (!drop.has(x.url)) off.set(key, drop.set(x.url, why))
+        if (!maps.has(x.url)) { maps.set(x.url, `${why} (${key})`); everyPage.add(x.url) }
+      }
     }
+    // A photo that is left as some page's only one (its own, or its gallery's where it has none of its own), or is a head
+    // a person picked there, is not taken off every page on this rule's word: it leaves the page whose caption calls it
+    // unwell and stays on the other, whatever that page's own caption says of it. Another rule's word (a map, a plate)
+    // still takes it off every page.
+    for (const p of all) {
+      const drop = off.get(`${p.kind}/${p.id}`)
+      const stays = (u: string) => !(drop?.has(u) && !back(u)) && !going(u)
+      // Distinct photos: two pages today list one address twice among their own.
+      const own = [...new Set((p.own ?? []).filter(stays))]
+      const left = own.length ? own : [...new Set((p.gallery ?? []).filter(stays))]
+      for (const url of [...(left.length === 1 ? left : []), ...(p.picked && left.includes(p.picked) ? [p.picked] : [])]) if (everyPage.has(url)) maps.delete(url)
+    }
+    // A photo credited to someone its source's permission doesn't cover (a picture agency's) leaves every page and album
+    // for good, under the same cap (the chief of staff, 2026-11-13: a picture agency's photos are never ours).
+    for (const [url, why] of credit) if (!maps.has(url)) maps.set(url, why)
   }
-  // A photo that is left as some page's only one, or is a head a person picked there, is not taken off every page on
-  // this rule's word: it leaves the page whose caption calls it unwell and stays on the other, whatever that page's own
-  // caption says of it. Another rule's word (a map, a plate) still takes it off every page.
-  for (const p of all) {
-    const drop = off.get(`${p.kind}/${p.id}`)
-    // Distinct photos: two pages today list one address twice among their own.
-    const left = [...new Set((p.own ?? []).filter(u => !drop?.has(u) && !going(u)))]
-    for (const url of [...(left.length === 1 ? left : []), ...(p.picked && left.includes(p.picked) ? [p.picked] : [])]) if (everyPage.has(url)) maps.delete(url)
+  const before = new Set([...maps.keys(), ...credit.keys()])
+  unwellPass(url => before.has(url) || already(url), () => false)
+  const over = maps.size > cap
+  if (over && before.size) {
+    // Over the cap, nothing the rules above list for every page goes: the unwell rule counts again what each page keeps.
+    off.clear()
+    for (const [k, v] of captionOff) off.set(k, new Map(v))
+    maps.clear()
+    for (const [k, v] of captionMaps) maps.set(k, v)
+    report.unwell.length = unwellAt
+    unwellPass(already, url => before.has(url))
   }
-  // A photo credited to someone its source's permission doesn't cover (a picture agency's) leaves every page and album
-  // for good, under the same cap (the chief of staff, 2026-11-13: a picture agency's photos are never ours).
-  for (const [url, why] of credit) if (!maps.has(url)) maps.set(url, why)
-  if (maps.size > cap) {
+  if (over) {
     // Too many to take off for good with nobody looking: they stay where they are, and a person is told (PHOTO_CAP).
     report.held = [...maps].map(([url, why]) => `${url} (${why})`)
     for (const drop of off.values()) for (const url of maps.keys()) drop.delete(url)

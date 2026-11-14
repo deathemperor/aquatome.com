@@ -333,6 +333,47 @@ test("the unwell rule keeps a page's last photo when the never-again list takes 
   ])
   expect(Object.keys(await json(root, 'engine-state/_photo-rejected.json'))).toEqual([person.url])
   expect(ratcheted(checkPages(await loadPages(c), RULES.filter(x => x.id in RATCHETED)).findings).filter(f => f.rule === 'unwell')).toEqual([])
+  // A gallery's photo the never-again list takes in the same sweep, on a page with none of its own: the other stays.
+  const plain = sf('plain-g', 'Adult male.'), dying = sf('dying', 'Recently-deceased specimen.')
+  await put('species/nnn-gallery/entity.json', species('nnn-gallery', 'Nnn gallery', { photos: [] }))
+  await put('species/nnn-gallery/vi.json', vi('Cá chạch suối sáu', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  await put('gallery/nnn-gallery.json', { id: 'nnn-gallery', photos: [plain, dying], seen: 1, updatedAt: '2026-10-01' })
+  // The same unwell photo as one page's only gallery photo and beside another photo on a second page: it leaves the
+  // second page only.
+  const shared = sf('shared-g', 'Recently-deceased specimen.')
+  await put('species/ooo-alone/entity.json', species('ooo-alone', 'Ooo alone', { photos: [] }))
+  await put('species/ooo-alone/vi.json', vi('Cá chạch suối bảy', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  await put('gallery/ooo-alone.json', { id: 'ooo-alone', photos: [shared], seen: 1, updatedAt: '2026-10-01' })
+  await put('species/ppp-two/entity.json', species('ppp-two', 'Ppp two', { photos: [sf('fine-p', 'Adult male.'), shared] }))
+  await put('species/ppp-two/vi.json', vi('Cá chạch suối tám', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  await writeFile(join(root, 'engine-state/_photo-rejected.json'), JSON.stringify({ [person.url]: 'people', [plain.url]: 'people' }))
+  const g = await sweep(root)
+  expect((await json(root, 'content/gallery/nnn-gallery.json')).photos).toEqual([dying])
+  expect((await json(root, 'content/gallery/ooo-alone.json')).photos).toEqual([shared])
+  expect((await json(root, 'content/species/ppp-two/entity.json')).photos.map((x: { url: string }) => x.url)).toEqual(['https://media.aquatome.com/seriouslyfish/fine-p.webp'])
+  expect(g.unwell).toContain(`species/nnn-gallery: ${dying.url} (deceased; the page's only photo)`)
+  expect(g.unwell).toContain(`species/ooo-alone: ${shared.url} (deceased; the page's only photo)`)
+  expect(Object.keys(await json(root, 'engine-state/_photo-rejected.json')).sort()).toEqual([person.url, plain.url].sort())
+})
+
+test("over the cap, the unwell rule counts the photos the cap keeps: none is reported as a page's only photo while another stays beside it (the guard's read, 14 Nov)", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'sweep-'))
+  const c = join(root, 'content')
+  const put = async (path: string, data: unknown) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, 2)}\n`) }
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await mkdir(c, { recursive: true })
+  await copyFile(new URL('../../../content/sources.json', import.meta.url), join(c, 'sources.json'))
+  const plate = (n: number) => ({ ...photo(`https://media.aquatome.com/commons/cap-plate-${n}.webp`, `Figure ${n}; (a) the whole fish, (b) its scales`), sourceUrl: `https://commons.wikimedia.org/wiki/File:Paper_Figure_${n}.jpg` })
+  const dying = { ...photo('https://media.aquatome.com/seriouslyfish/cap-dying.webp', 'Recently-deceased specimen.'), sourceUrl: 'https://www.seriouslyfish.com/species/x/' }
+  await put('species/qqq-plate/entity.json', species('qqq-plate', 'Qqq plate', { photos: [plate(1), dying] }))
+  await put('species/qqq-plate/vi.json', vi('Cá chạch suối chín', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  await put('species/rrr-plate/entity.json', species('rrr-plate', 'Rrr plate', { photos: [photo('https://media.aquatome.com/commons/cap-fine.webp', 'Adult male.'), plate(2)] }))
+  await put('species/rrr-plate/vi.json', vi('Cá chạch suối mười', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  const r = await sweep(root, { photoCap: 1 })
+  expect((await json(root, 'content/species/qqq-plate/entity.json')).photos.map((x: { url: string }) => x.url)).toEqual([plate(1).url, dying.url])
+  expect(r.unwell.filter(l => l.includes(dying.url))).toEqual([])
+  expect(r.held.some(l => l.startsWith(`${dying.url} (unwell`))).toBe(true)
+  expect(r.held).toHaveLength(3)
 })
 
 test("a run that would take more photos off every page than its cap takes none off, lists them, and leaves the check failing for a person; with the cap raised they go", async () => {
