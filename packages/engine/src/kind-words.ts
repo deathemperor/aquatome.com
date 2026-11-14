@@ -1,3 +1,6 @@
+import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { dirname, join } from 'node:path'
+
 /**
  * The words Vietnamese keepers use for one kind of animal (the Writing Lead's naming plan, 14 Nov 2026): "cá trê" is a
  * Clarias, never a glass catfish or a Malawi cichlid; "tép" is a Caridina or a Neocaridina, never a sea shrimp. Each word
@@ -77,4 +80,29 @@ export function headWord(t: Taxon): string | undefined {
   if (t.order && isFish(t.order)) return 'Cá'
   const k = KIND_WORDS.find(w => w.head && fits(w, t))
   return k ? k.word[0]!.toUpperCase() + k.word.slice(1) : undefined
+}
+
+/** A name whose word from the table doesn't fit its animal: a new page doesn't go live with it. */
+export const wrongKind = (name: string, t: Taxon) => kindWord(name, t)?.fits === false
+
+/**
+ * A page's plain scientific form, the name it takes when no name of its own passes: its head word and the scientific
+ * name ("Cá Champsochromis caeruleus", "Tôm Lysmata debelius"). An animal of no known order keeps the "Cá" it always had.
+ */
+export const plainName = (sci: string, t: Taxon) => {
+  const head = headWord(t) ?? (t.order ? undefined : 'Cá')
+  return head ? `${head} ${sci}` : sci
+}
+
+/** The names that fell back, for the Writing Lead, not the owner (the chief of staff, 14 Nov): one per page, the latest. */
+export const KIND_FALLBACKS = 'engine-state/_kind-fallbacks.json'
+export type KindFallback = { name: string; word: string; took: string; at: string }
+
+export async function recordKindFallback(root: string, id: string, f: KindFallback) {
+  const file = join(root, KIND_FALLBACKS)
+  const all = JSON.parse(await readFile(file, 'utf8').catch(() => '{}')) as Record<string, KindFallback>
+  if (JSON.stringify(all[id] && { ...all[id], at: f.at }) === JSON.stringify(f)) return
+  all[id] = f
+  await mkdir(dirname(file), { recursive: true })
+  await writeFile(file, `${JSON.stringify(Object.fromEntries(Object.entries(all).sort(([a], [b]) => a.localeCompare(b))), null, 2)}\n`)
 }

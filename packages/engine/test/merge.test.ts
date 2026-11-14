@@ -60,6 +60,32 @@ test('a translated guide that fixes a problem is written with the fix first', ()
   expect(g?.vi.body).toBe('<h3>Cách xử lý tảo râu đen</h3><p>b</p><h3>Nguyên nhân</h3><p>a</p>')
 })
 
+test('a new page whose source names it with another kind\'s word takes its plain scientific form, and the name is no other name of it', () => {
+  const cichlid = { canonicalName: 'Champsochromis caeruleus', order: 'Cichliformes', family: 'Cichlidae', genus: 'Champsochromis', matchType: 'EXACT' }
+  const fresh = mergeSpecies({}, page({ scientificName: 'Champsochromis caeruleus', viName: 'Cá trê Malawi', viAltNames: ['Cá trê xanh', 'Cá hồi Malawi'], enCommonNames: ['Malawi trout'] }), { ...ctx('glaser'), taxon: cichlid })
+  expect(fresh.vi.name).toBe('Cá Champsochromis caeruleus')
+  expect(fresh.vi.slug).toBe('ca-champsochromis-caeruleus')
+  expect(fresh.vi.altNames).toEqual(['Cá hồi Malawi', 'Malawi trout'])
+  expect(fresh.fellBack).toEqual({ name: 'Cá trê Malawi', word: 'trê' })
+  // A page already live keeps its name: Seriously Fish's name with the wrong word doesn't replace it.
+  const live = mergeSpecies({ entity: fresh.entity, vi: { ...fresh.vi, name: 'Cá ali Champsochromis caeruleus' } }, page({ scientificName: 'Champsochromis caeruleus', viName: 'Cá trê Malawi' }), { ...ctx('seriouslyfish'), taxon: cichlid })
+  expect(live.vi.name).toBe('Cá ali Champsochromis caeruleus')
+  // A name that fits is taken as before, and nothing fell back.
+  const tetra = mergeSpecies({}, page(), ctx('seriouslyfish'))
+  expect(tetra.vi.name).toBe('Cá neon vua')
+  expect(tetra.fellBack).toBeUndefined()
+})
+
+test('a page with no name of its own: "Cá" for a fish, the shrimp\'s or snail\'s word for the rest, the scientific name alone for a coral', () => {
+  const as = (canonicalName: string, order: string, family: string) => mergeSpecies({}, page({ scientificName: canonicalName, viName: '', viAltNames: [], enCommonNames: [] }), { ...ctx('glaser'), taxon: { canonicalName, order, family, genus: canonicalName.split(' ')[0], matchType: 'EXACT' } }).vi.name
+  expect(as('Paracheirodon simulans', 'Characiformes', 'Characidae')).toBe('Cá Paracheirodon simulans')
+  expect(as('Caridina logemanni', 'Decapoda', 'Atyidae')).toBe('Tép Caridina logemanni')
+  expect(as('Lysmata debelius', 'Decapoda', 'Lysmatidae')).toBe('Tôm Lysmata debelius')
+  expect(as('Clithon corona', 'Cycloneritida', 'Neritidae')).toBe('Ốc Clithon corona')
+  expect(as('Duncanopsammia axifuga', 'Scleractinia', 'Dendrophylliidae')).toBe('Duncanopsammia axifuga')
+  expect(mergeSpecies({}, page({ viName: '' }), { ...ctx('glaser'), taxon: { canonicalName: 'Paracheirodon axelrodi', matchType: 'EXACT' } }).vi.name).toBe('Cá Paracheirodon axelrodi')
+})
+
 test('long names give slugs of at most 60 chars cut at a word boundary', () => {
   const r = mergeSpecies({}, page({ viName: 'HMF là gì? Hướng dẫn cơ bản về lọc vách xốp Hamburger (Hamburger Matten Filter)' }), ctx('seriouslyfish'))
   expect(r.vi.slug).toBe('hmf-la-gi-huong-dan-co-ban-ve-loc-vach-xop-hamburger')

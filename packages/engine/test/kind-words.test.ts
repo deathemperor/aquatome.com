@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { headWord, kindWord } from '../src/kind-words'
+import { headWord, KIND_FALLBACKS, kindWord, plainName, recordKindFallback, wrongKind } from '../src/kind-words'
 
 const cichlid = { family: 'Cichlidae', order: 'Cichliformes' }
 
@@ -62,4 +62,22 @@ test('the plain scientific form\'s head word', () => {
   expect(headWord({ family: 'Coenobitidae', order: 'Decapoda' })).toBe('Cua')
   expect(headWord({ family: 'Dendrophylliidae', order: 'Scleractinia' })).toBeUndefined()
   expect(headWord({})).toBeUndefined()
+})
+
+test('a name that fell back is listed once a page, the latest, and the same one again rewrites nothing', async () => {
+  const { mkdtemp, readFile, stat } = await import('node:fs/promises')
+  const { tmpdir } = await import('node:os')
+  const { join } = await import('node:path')
+  const root = await mkdtemp(join(tmpdir(), 'aq-kind-'))
+  await recordKindFallback(root, 'species/x', { name: 'Cá trê X', word: 'trê', took: 'Cá X y', at: '2026-11-15T01:00:00.000Z' })
+  await recordKindFallback(root, 'species/a', { name: 'Tép A', word: 'tép', took: 'Tôm A b', at: '2026-11-15T01:00:00.000Z' })
+  const file = join(root, KIND_FALLBACKS)
+  const first = (await stat(file)).mtimeMs
+  await new Promise(r => setTimeout(r, 20))
+  await recordKindFallback(root, 'species/x', { name: 'Cá trê X', word: 'trê', took: 'Cá X y', at: '2026-11-16T01:00:00.000Z' })
+  expect((await stat(file)).mtimeMs).toBe(first)
+  expect(Object.keys(JSON.parse(await readFile(file, 'utf8')))).toEqual(['species/a', 'species/x'])
+  expect(wrongKind('Cá trê X', { family: 'Cichlidae' })).toBe(true)
+  expect(plainName('Xenia elongata', { order: 'Malacalcyonacea', family: 'Xeniidae' })).toBe('Xenia elongata')
+  expect(plainName('Xyz abc', {})).toBe('Cá Xyz abc')
 })
