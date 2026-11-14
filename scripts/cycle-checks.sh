@@ -185,8 +185,10 @@ failed_tests() { tail -c +"$(($1 + 1))" "$TEST_LOG" | sed -E "s/$(printf '\033')
 # (beforeAll and the like) or a worker that didn't start in time, "Error: Test timed out in 30000ms.", at the start of a
 # line after pnpm's prefix, colours off. Only those: a failing test that quotes one, in its assertion, a diff, its title,
 # a stack line or its source, ran out of nothing (at 22:36 and 23:35 on 2026-11-13 one did, and its run's work was kept,
-# to be tried for ever, instead of held). grep reads it all (-c, not -q): under pipefail, tail cut off by grep's early
-# exit would make a match read as none.
+# to be tried for ever, instead of held). Its limit: a test that itself prints vitest's line at the start of a line (a
+# console.log, a later line of a many-line message) still reads as out of time, which keeps the work and loses nothing;
+# a stricter pattern risks the other way, a real time-out held, its retries lost (the chief of staff, 14 Nov). grep reads
+# it all (-c, not -q): under pipefail, tail cut off by grep's early exit would make a match read as none.
 ran_out() { tail -c +"$(($1 + 1))" "$TEST_LOG" | sed -E "s/$(printf '\033')\[[0-9;]*m//g" | grep -cE '^([^[:space:]]+ test: )?Error: ((Test|Hook) timed out in [0-9]+ms\.|\[vitest-pool[^]]*\]: Timeout (waiting for worker to respond|starting [a-z]+ runner))' >/dev/null; }
 
 # A run whose tests ran out of time even on their second try (TIMED_OUT) ran on a Mac too busy for them, not on broken

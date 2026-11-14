@@ -184,15 +184,23 @@ function stuckHome() {
 }
 /** The command of process `parent`'s child as ps shows it, once it's `command`, waiting up to 10 s; else it throws, so a
  * slow machine fails plainly instead of classifying a cycle before it's in place. Its pid. */
-// Up to 10 s by the clock, however long each ps takes, and each ps stopped after 2 s.
+// Up to 10 s by the clock, however long each ps takes; each ps stopped after 2 s, and one stopped is a try that saw
+// nothing, not the end of the wait: on a loaded Mac or runner ps is slow, and the engine isn't wrong. Both times the
+// test time scale (AQ_TEST_TIME_SCALE), as a second try runs.
 async function seen(parent: number | undefined, command: string) {
-  const until = Date.now() + 10_000
+  const until = Date.now() + slow(10_000)
   while (Date.now() < until) {
-    const c = execFileSync('ps', ['-A', '-o', 'pid=,ppid=,command='], { encoding: 'utf8', timeout: 2_000 }).split('\n').map(l => l.trim().split(/\s+/)).find(([, ppid]) => ppid === String(parent))
+    let table = ''
+    try {
+      table = execFileSync('ps', ['-A', '-o', 'pid=,ppid=,command='], { encoding: 'utf8', timeout: slow(2_000) })
+    } catch (e) {
+      if ((e as { code?: string }).code !== 'ETIMEDOUT') throw e
+    }
+    const c = table.split('\n').map(l => l.trim().split(/\s+/)).find(([, ppid]) => ppid === String(parent))
     if (c?.slice(2).join(' ') === command) return c[0]!
     await new Promise(r => setTimeout(r, 100))
   }
-  throw new Error(`the fake cycle never showed "${command}" in 10 s`)
+  throw new Error(`the fake cycle never showed "${command}" in ${slow(10_000) / 1000} s`)
 }
 const pattern = (line: string) => new RegExp(`Z ${line.replace(/[().]/g, '\\$&').replace('HH:MM', '\\d\\d:\\d\\d')}$`)
 
