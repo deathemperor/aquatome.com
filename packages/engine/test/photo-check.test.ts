@@ -554,31 +554,35 @@ test('a dead fish at a market leaves every page, gallery and guide that shows it
 })
 
 test('a logo the text reader missed is a watermark: off every page, onto the blocklist; the same photographer\'s other photos are asked again', async () => {
-  // Released by a person who has looked: a page's last photo doesn't come off on the check's word alone (EMPTY_CAP).
-  const r = await root([
-    { id: 'cichla-temensis', sci: 'Cichla temensis', photos: ['stamped'], gallery: ['clean'] },
-    { id: 'phractocephalus-hemioliopterus', sci: 'Phractocephalus hemioliopterus', photos: ['redtail', 'other-author'] },
-  ])
-  for (const [f, photos] of [['content/species/cichla-temensis/entity.json', [photo('stamped', undefined, 'Fixture contributor')]], ['content/species/phractocephalus-hemioliopterus/entity.json', [photo('redtail', undefined, 'Fixture contributor'), photo('other-author')]]] as const) {
-    await writeFile(join(r, f), JSON.stringify({ ...(await json(r, f)), photos }))
-  }
-  // Both pages judged before the check asked about logos: only the stamped photo's page is asked again (as `recheck` does)…
-  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({
-    [url('redtail')]: { 'phractocephalus-hemioliopterus': { ok: 'yes', typical: true, note: 'redtail catfish' } },
-    [url('other-author')]: { 'phractocephalus-hemioliopterus': { ok: 'yes', typical: true, note: 'redtail catfish' } },
-  }))
-  const d = model({ stamped: { logo: true, note: 'peacock bass; round added logo bottom left' }, redtail: { logo: true, note: 'redtail catfish; round logo bottom left' } })
-  await checkPagePhotos(r, d, { limit: 10, emptyCap: 99, recheck: new Set([url('stamped')]) })
-  expect(d.seen[0]!.prompt).toContain('- logo: true if a logo, stamp, watermark, signature or text was added on top of the photo after it was taken, even small or faint, round, in a corner')
-  // …then the same photographer's: their redtail photo on another page, not the other author's photo there.
-  expect(d.seen.map(s => s.photos)).toEqual([['stamped'], ['redtail']])
-  expect(await urls(r, 'content/species/cichla-temensis/entity.json')).toEqual([])
-  expect(await urls(r, 'content/species/phractocephalus-hemioliopterus/entity.json')).toEqual(['other-author'])
-  expect(await urls(r, 'content/gallery/cichla-temensis.json')).toEqual(['clean'])
-  expectControlledRejections(await json(r, 'engine-state/_photo-rejected.json'), {
-    [url('stamped')]: "watermark",
-    [url('redtail')]: "watermark",
-  })
+  // Off the calendar: the re-check as it runs once the switch is on.
+  REASK_PAST_CALENDAR.on = true
+  try {
+    // Released by a person who has looked: a page's last photo doesn't come off on the check's word alone (EMPTY_CAP).
+    const r = await root([
+      { id: 'cichla-temensis', sci: 'Cichla temensis', photos: ['stamped'], gallery: ['clean'] },
+      { id: 'phractocephalus-hemioliopterus', sci: 'Phractocephalus hemioliopterus', photos: ['redtail', 'other-author'] },
+    ])
+    for (const [f, photos] of [['content/species/cichla-temensis/entity.json', [photo('stamped', undefined, 'Fixture contributor')]], ['content/species/phractocephalus-hemioliopterus/entity.json', [photo('redtail', undefined, 'Fixture contributor'), photo('other-author')]]] as const) {
+      await writeFile(join(r, f), JSON.stringify({ ...(await json(r, f)), photos }))
+    }
+    // Both pages judged before the check asked about logos: only the stamped photo's page is asked again (as `recheck` does)…
+    await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({
+      [url('redtail')]: { 'phractocephalus-hemioliopterus': { ok: 'yes', typical: true, note: 'redtail catfish' } },
+      [url('other-author')]: { 'phractocephalus-hemioliopterus': { ok: 'yes', typical: true, note: 'redtail catfish' } },
+    }))
+    const d = model({ stamped: { logo: true, note: 'peacock bass; round added logo bottom left' }, redtail: { logo: true, note: 'redtail catfish; round logo bottom left' } })
+    await checkPagePhotos(r, d, { limit: 10, emptyCap: 99, recheck: new Set([url('stamped')]) })
+    expect(d.seen[0]!.prompt).toContain('- logo: true if a logo, stamp, watermark, signature or text was added on top of the photo after it was taken, even small or faint, round, in a corner')
+    // …then the same photographer's: their redtail photo on another page, not the other author's photo there.
+    expect(d.seen.map(s => s.photos)).toEqual([['stamped'], ['redtail']])
+    expect(await urls(r, 'content/species/cichla-temensis/entity.json')).toEqual([])
+    expect(await urls(r, 'content/species/phractocephalus-hemioliopterus/entity.json')).toEqual(['other-author'])
+    expect(await urls(r, 'content/gallery/cichla-temensis.json')).toEqual(['clean'])
+    expectControlledRejections(await json(r, 'engine-state/_photo-rejected.json'), {
+      [url('stamped')]: "watermark",
+      [url('redtail')]: "watermark",
+    })
+  } finally { REASK_PAST_CALENDAR.on = false }
 })
 
 test('an engraved plate or an old drawing is "not a photo of it" as before, not "dead": it leaves its page with that reason', async () => {
@@ -596,54 +600,62 @@ test('an engraved plate or an old drawing is "not a photo of it" as before, not 
 })
 
 test('photos to judge again are picked from the notes of earlier looks: the checks\', the watermark step\'s and the gallery\'s captions', async () => {
-  const r = await root([
-    { id: 'cichla-temensis', sci: 'Cichla temensis', photos: ['market', 'leaves', 'drawing', 'new', 'gone', 'tag', 'never', 'landed'], gallery: ['cho', 'swim'] },
-    { id: 'sulcospira-testudinaria', sci: 'Sulcospira testudinaria', photos: ['shell'] },
-  ])
-  const v = (note: string, extra: Partial<PhotoVerdict> = {}): PhotoVerdict => ({ ok: 'yes', typical: true, note, ...extra })
-  await writeFile(join(r, 'engine-state/_photo-check.json'), JSON.stringify({
-    [url('market')]: v('Several dead speckled-phase peacock bass in a market'),
-    [url('leaves')]: v('Adult among dead leaves'),
-    [url('drawing')]: v('Old book drawing of the fish, from a museum library'),
-    [url('gone')]: v('Dead fish on a tray'),
-    [url('landed')]: v('Large adult just caught, landed on a boat deck'),
-  }))
-  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({
-    [url('shell')]: { 'sulcospira-testudinaria': v('Naturalis museum shell specimens labelled Brotia testudinaria') },
-    // Judged since the check asks about dead fish, logos and people: not asked again.
-    [url('new')]: { 'cichla-temensis': v('dead fish on ice', { ok: 'dead', logo: false, person: false }) },
-  }))
-  await writeFile(join(r, 'engine-state/_photo-watermarks.json'), JSON.stringify({ [url('tag')]: { ocr: [], watermark: false, kind: 'none', what: 'preserved specimen photo, no text' } }))
-  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [url('gone')]: 'dead: already off' }))
-  const g = join(r, 'content/gallery/cichla-temensis.json')
-  await writeFile(g, JSON.stringify({ ...(await json(r, 'content/gallery/cichla-temensis.json')), photos: [photo('cho', 'Cá hoàng đế sao chết bày bán ở chợ'), photo('swim', 'Cá hoàng đế sao bơi trong bể')] }))
-  expect(Object.fromEntries([...await recheckCandidates(r)].map(([u, n]) => [name(u), n]))).toEqual({
-    market: 'possible dead subject',
-    tag: 'possible dead subject',
-    cho: 'possible dead subject',
-    shell: 'possible dead subject',
-    landed: 'possible dead subject',
-  })
+  // Off the calendar: the re-check as it runs once the switch is on.
+  REASK_PAST_CALENDAR.on = true
+  try {
+    const r = await root([
+      { id: 'cichla-temensis', sci: 'Cichla temensis', photos: ['market', 'leaves', 'drawing', 'new', 'gone', 'tag', 'never', 'landed'], gallery: ['cho', 'swim'] },
+      { id: 'sulcospira-testudinaria', sci: 'Sulcospira testudinaria', photos: ['shell'] },
+    ])
+    const v = (note: string, extra: Partial<PhotoVerdict> = {}): PhotoVerdict => ({ ok: 'yes', typical: true, note, ...extra })
+    await writeFile(join(r, 'engine-state/_photo-check.json'), JSON.stringify({
+      [url('market')]: v('Several dead speckled-phase peacock bass in a market'),
+      [url('leaves')]: v('Adult among dead leaves'),
+      [url('drawing')]: v('Old book drawing of the fish, from a museum library'),
+      [url('gone')]: v('Dead fish on a tray'),
+      [url('landed')]: v('Large adult just caught, landed on a boat deck'),
+    }))
+    await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({
+      [url('shell')]: { 'sulcospira-testudinaria': v('Naturalis museum shell specimens labelled Brotia testudinaria') },
+      // Judged since the check asks about dead fish, logos and people: not asked again.
+      [url('new')]: { 'cichla-temensis': v('dead fish on ice', { ok: 'dead', logo: false, person: false }) },
+    }))
+    await writeFile(join(r, 'engine-state/_photo-watermarks.json'), JSON.stringify({ [url('tag')]: { ocr: [], watermark: false, kind: 'none', what: 'preserved specimen photo, no text' } }))
+    await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [url('gone')]: 'dead: already off' }))
+    const g = join(r, 'content/gallery/cichla-temensis.json')
+    await writeFile(g, JSON.stringify({ ...(await json(r, 'content/gallery/cichla-temensis.json')), photos: [photo('cho', 'Cá hoàng đế sao chết bày bán ở chợ'), photo('swim', 'Cá hoàng đế sao bơi trong bể')] }))
+    expect(Object.fromEntries([...await recheckCandidates(r)].map(([u, n]) => [name(u), n]))).toEqual({
+      market: 'possible dead subject',
+      tag: 'possible dead subject',
+      cho: 'possible dead subject',
+      shell: 'possible dead subject',
+      landed: 'possible dead subject',
+    })
+  } finally { REASK_PAST_CALENDAR.on = false }
 })
 
 test('the repair judges each photo once: a second run finds nothing to ask and changes nothing', async () => {
-  const r = await root([{ id: 'cichla-temensis', sci: 'Cichla temensis', photos: ['market', 'aquarium'] }])
-  await writeFile(join(r, 'engine-state/_photo-check.json'), JSON.stringify({
-    [url('market')]: { ok: 'yes', typical: true, note: 'Several dead peacock bass in a market' },
-    [url('aquarium')]: { ok: 'yes', typical: true, note: 'Adult in a public aquarium' },
-  }))
-  const d = model({ market: { ok: 'dead', note: 'dead fish at a market' } })
-  const first = await checkPagePhotos(r, d, { limit: 10, recheck: new Set((await recheckCandidates(r)).keys()) })
-  // The sheet's room takes the page's other photo asked before the question had "too poor" and "unwell": no extra call.
-  expect(d.seen.map(s => s.photos)).toEqual([['market', 'aquarium']])
-  expect(first.blocked).toHaveLength(1)
-  const files = async () => Promise.all(['content/species/cichla-temensis/entity.json', 'engine-state/_photo-rejected.json', 'engine-state/_photo-subjects.json'].map(f => readFile(join(r, f), 'utf8')))
-  const before = await files()
-  expect((await recheckCandidates(r)).size).toBe(0)
-  // Even given the first run's photos again.
-  const again = await checkPagePhotos(r, { ...d, look: async () => { throw new Error('judged twice') } }, { limit: 10, recheck: new Set([url('market')]) })
-  expect(again).toMatchObject({ sheets: 0, blocked: [], rejected: 0, removed: [] })
-  expect(await files()).toEqual(before)
+  // Off the calendar: the re-check as it runs once the switch is on.
+  REASK_PAST_CALENDAR.on = true
+  try {
+    const r = await root([{ id: 'cichla-temensis', sci: 'Cichla temensis', photos: ['market', 'aquarium'] }])
+    await writeFile(join(r, 'engine-state/_photo-check.json'), JSON.stringify({
+      [url('market')]: { ok: 'yes', typical: true, note: 'Several dead peacock bass in a market' },
+      [url('aquarium')]: { ok: 'yes', typical: true, note: 'Adult in a public aquarium' },
+    }))
+    const d = model({ market: { ok: 'dead', note: 'dead fish at a market' } })
+    const first = await checkPagePhotos(r, d, { limit: 10, recheck: new Set((await recheckCandidates(r)).keys()) })
+    // The sheet's room takes the page's other photo asked before the question had "too poor" and "unwell": no extra call.
+    expect(d.seen.map(s => s.photos)).toEqual([['market', 'aquarium']])
+    expect(first.blocked).toHaveLength(1)
+    const files = async () => Promise.all(['content/species/cichla-temensis/entity.json', 'engine-state/_photo-rejected.json', 'engine-state/_photo-subjects.json'].map(f => readFile(join(r, f), 'utf8')))
+    const before = await files()
+    expect((await recheckCandidates(r)).size).toBe(0)
+    // Even given the first run's photos again.
+    const again = await checkPagePhotos(r, { ...d, look: async () => { throw new Error('judged twice') } }, { limit: 10, recheck: new Set([url('market')]) })
+    expect(again).toMatchObject({ sheets: 0, blocked: [], rejected: 0, removed: [] })
+    expect(await files()).toEqual(before)
+  } finally { REASK_PAST_CALENDAR.on = false }
 })
 
 test('a page that loses its last photo keeps a valid page file, with no photo, and is listed', async () => {
@@ -710,23 +722,27 @@ test('a photo only the first check judged, before it asked about logos, is asked
 })
 
 test('photos to judge first also come from notes saying a hand or a person, and from the old "habitat" verdict', async () => {
-  const r = await root([{ id: 'hypostomus-plecostomus', sci: 'Hypostomus plecostomus', photos: ['hand', 'river', 'tank', 'asked'], gallery: ['tay'] }])
-  await writeFile(join(r, 'engine-state/_photo-check.json'), JSON.stringify({
-    [url('hand')]: { ok: 'yes', typical: true, note: 'Adult held in a hand by a river' },
-    [url('river')]: { ok: 'habitat', typical: false, note: 'Wide brown river, no fish' },
-  }))
-  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({
-    [url('tank')]: { 'hypostomus-plecostomus': { ok: 'yes', typical: true, note: 'adult on driftwood in a tank', logo: false } },
-    [url('asked')]: { 'hypostomus-plecostomus': { ok: 'yes', typical: true, note: 'adult held in a hand', logo: false, person: false } },
-  }))
-  const g = join(r, 'content/gallery/hypostomus-plecostomus.json')
-  await writeFile(g, JSON.stringify({ ...(await json(r, 'content/gallery/hypostomus-plecostomus.json')), photos: [photo('tay', 'Cá tỳ bà cầm trên tay')] }))
-  expect(Object.fromEntries([...await recheckCandidates(r)].map(([u, n]) => [name(u), n]))).toEqual({
-    hand: 'possible person',
-    river: 'habitat needs recheck',
-    tay: 'possible person',
-  })
-  expect(peopleNote('Adult among dead leaves on the bottom')).toBe(false)
+  // Off the calendar: the re-check as it runs once the switch is on.
+  REASK_PAST_CALENDAR.on = true
+  try {
+    const r = await root([{ id: 'hypostomus-plecostomus', sci: 'Hypostomus plecostomus', photos: ['hand', 'river', 'tank', 'asked'], gallery: ['tay'] }])
+    await writeFile(join(r, 'engine-state/_photo-check.json'), JSON.stringify({
+      [url('hand')]: { ok: 'yes', typical: true, note: 'Adult held in a hand by a river' },
+      [url('river')]: { ok: 'habitat', typical: false, note: 'Wide brown river, no fish' },
+    }))
+    await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({
+      [url('tank')]: { 'hypostomus-plecostomus': { ok: 'yes', typical: true, note: 'adult on driftwood in a tank', logo: false } },
+      [url('asked')]: { 'hypostomus-plecostomus': { ok: 'yes', typical: true, note: 'adult held in a hand', logo: false, person: false } },
+    }))
+    const g = join(r, 'content/gallery/hypostomus-plecostomus.json')
+    await writeFile(g, JSON.stringify({ ...(await json(r, 'content/gallery/hypostomus-plecostomus.json')), photos: [photo('tay', 'Cá tỳ bà cầm trên tay')] }))
+    expect(Object.fromEntries([...await recheckCandidates(r)].map(([u, n]) => [name(u), n]))).toEqual({
+      hand: 'possible person',
+      river: 'habitat needs recheck',
+      tay: 'possible person',
+    })
+    expect(peopleNote('Adult among dead leaves on the bottom')).toBe(false)
+  } finally { REASK_PAST_CALENDAR.on = false }
 })
 
 // The v2 Lab (2026-11-08): the model took a Dario dario male for a Badis badis, and a Channa andrao was "can't tell" on
@@ -1014,4 +1030,26 @@ test("the heads asked again are the calendar's pages' alone while the switch is 
   await checkPagePhotos(r, d, { limit: 5, recheck: new Set((await recheckCandidates(r)).keys()), first: await calendarPages(r) })
   expect(d.seen.map(x => x.photos)).toEqual([['z1']])
   expect((await recheckCandidates(r)).size).toBe(0)
+})
+
+// The independent reader, 14 Nov: the switch holds on every way into a re-check, not only the heads' list.
+test("while the switch is off, a re-check asks nothing off the calendar: not a shared head on its other page, not an old note's photo, not the photographer's follow-up; a language's own fish of the day counts", async () => {
+  const r = await root([{ id: 'aaa-fish', sci: 'Aaa fish', photos: ['s1', 'h1', 'a9'] }, { id: 'zzz-fish', sci: 'Zzz fish', photos: ['s1'] }, { id: 'yyy-fish', sci: 'Yyy fish', photos: ['y1'] }])
+  const old = { ok: 'yes', typical: true, note: 'x', person: false, logo: false }
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({
+    [url('s1')]: { 'aaa-fish': old, 'zzz-fish': old }, [url('h1')]: { 'aaa-fish': { ok: 'habitat', typical: false, note: 'x' } }, [url('y1')]: { 'yyy-fish': old },
+  }))
+  await writeFile(join(r, 'content/curation.json'), JSON.stringify({ days: [{ date: '2026-11-20', fish: 'species/zzz-fish' }, { date: '2026-11-21', fish: 'species/qqq', by: { id: { fish: 'species/yyy-fish' } } }] }))
+  expect([...await calendarPages(r)].sort()).toEqual(['qqq', 'yyy-fish', 'zzz-fish'])
+  expect([...(await recheckCandidates(r)).keys()].map(name).sort()).toEqual(['s1', 'y1'])
+  // The calendar's head carries a logo, which on its own would send the check to the same photographer's photos elsewhere.
+  const d = model({ s1: { typical: true, logo: true } })
+  await checkPagePhotos(r, d, { limit: 10, recheck: new Set((await recheckCandidates(r)).keys()), first: await calendarPages(r) })
+  expect(d.seen.map(x => x.photos).sort()).toEqual([['s1'], ['y1']])
+  expect(d.seen.every(x => !x.prompt.includes('Aaa fish'))).toBe(true)
+  // The other page's verdict on the shared head is the old one still.
+  expect((await json(r, 'engine-state/_photo-subjects.json'))[url('s1')]['aaa-fish'].q).toBeUndefined()
+  // The switch was the cause: on, the old note's photo is a candidate again.
+  REASK_PAST_CALENDAR.on = true
+  try { expect([...(await recheckCandidates(r)).keys()].map(name).sort()).toEqual(['h1', 's1']) } finally { REASK_PAST_CALENDAR.on = false }
 })

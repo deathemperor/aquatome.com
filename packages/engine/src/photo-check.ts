@@ -300,18 +300,24 @@ export async function recheckCandidates(root: string): Promise<Map<string, strin
   const content = join(root, 'content')
   const notes = new Map<string, (string | undefined)[]>()
   const heads: [string, string][] = [] // page → its head, the page's first photo of its own
+  const pagesOf = new Map<string, Set<string>>() // photo → the pages that show it
   for (const s of await subjects(content)) {
     for (const file of [join(content, s.kind, s.id, 'entity.json'), join(content, 'gallery', `${s.id}.json`)]) {
       const photos = (await readJson<{ photos?: Photo[] }>(file))?.photos ?? []
       const head = file.endsWith('entity.json') ? photos.find(p => !p.generated) : undefined
       if (head) heads.push([s.id, head.url])
       for (const p of photos) {
+        pagesOf.set(p.url, (pagesOf.get(p.url) ?? new Set()).add(s.id))
         notes.set(p.url, [...(notes.get(p.url) ?? []), ...(file.includes('/gallery/') ? [p.caption] : [])])
       }
     }
   }
   const out = new Map<string, string>()
+  // While REASK_PAST_CALENDAR is off, a photo none of the calendar's pages shows is no candidate, for any reason.
+  const calendar = REASK_PAST_CALENDAR.on ? undefined : await calendarPages(root)
+  const onCalendar = (url: string) => !calendar || [...(pagesOf.get(url) ?? [])].some(id => calendar.has(id))
   for (const [url, captions] of notes) {
+    if (!onCalendar(url)) continue
     const by = Object.values(cache[url] ?? {})
     if (url in rejected || by.some(v => v.person !== undefined)) continue
     const cues=[legacy[url],...by,marks[url]].filter(Boolean).map(v=>photoHints(v!))
@@ -322,7 +328,6 @@ export async function recheckCandidates(root: string): Promise<Map<string, strin
   }
   // A head judged before the question asked whether a photo is too poor to show or the fish unwell (QUESTION): the
   // calendar's pages' alone until REASK_PAST_CALENDAR is on.
-  const calendar = REASK_PAST_CALENDAR.on ? undefined : await calendarPages(root)
   for (const [page, url] of heads) {
     if (calendar && !calendar.has(page)) continue
     const v = cache[url]?.[page] ?? (legacy[url]?.ok !== 'unsure' ? legacy[url] : undefined)
@@ -333,8 +338,10 @@ export async function recheckCandidates(root: string): Promise<Map<string, strin
 
 /** The pages on the calendar (content/curation.json: its days' fish and its weeks' lists), whose heads are asked again first. */
 export async function calendarPages(root: string): Promise<Set<string>> {
-  const c = (await readJson<{ days?: { fish?: string }[]; weeks?: { fish?: string[] }[] }>(join(root, 'content/curation.json'))) ?? {}
-  return new Set([...(c.days ?? []).map(d => d.fish), ...(c.weeks ?? []).flatMap(w => w.fish ?? [])].filter((f): f is string => !!f).map(f => f.split('/').at(-1)!))
+  const c = (await readJson<{ days?: { fish?: string; by?: Record<string, { fish?: string } | undefined> }[]; weeks?: { fish?: string[] }[] }>(join(root, 'content/curation.json'))) ?? {}
+  // A day's fish, each language's own fish that day (`by`, as the site shows it), and the weeks' lists.
+  const days = (c.days ?? []).flatMap(d => [d.fish, ...Object.values(d.by ?? {}).map(b => b?.fish)])
+  return new Set([...days, ...(c.weeks ?? []).flatMap(w => w.fish ?? [])].filter((f): f is string => !!f).map(f => f.split('/').at(-1)!))
 }
 
 /** Where a photo is shown: a page's own photos or gallery (`page`), or a guide (`page`: the fish its caption names, if any). */
@@ -498,6 +505,10 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const queued = new Set<string>()
   // `only`: one page id, or several, comma-separated.
   const only = o.only ? new Set(o.only.split(',').map(x => x.trim()).filter(Boolean)) : undefined
+  // A re-check asks the calendar's pages and nothing else while REASK_PAST_CALENDAR is off (the chief of staff,
+  // 2026-11-14): each sheet, a photographer's follow-up included, and a photo another page shows too only on the
+  // calendar's page.
+  const calendarOnly = o.recheck && !REASK_PAST_CALENDAR.on ? await calendarPages(root) : undefined
   const onPage = new Map<string, Shown[]>()
   for (const x of shown) if (x.page) onPage.set(x.page, [...(onPage.get(x.page) ?? []), x])
   const queue = (want: (x: Shown) => boolean, fill = 0, filler?: (x: Shown) => boolean) => {
@@ -521,7 +532,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     for (const { now, order } of plan) for (const later of [false, true]) for (const s of order) {
       if (now === 'first') firstAt ??= sheets.length
       if (sheets.length >= o.limit || (now === 'first' && sheets.length - firstAt! >= fill)) break
-      if (only && !only.has(s.id)) continue
+      if ((only && !only.has(s.id)) || (calendarOnly && !calendarOnly.has(s.id))) continue
       const open = (onPage.get(s.id) ?? []).filter(x => !(x.url in rejected) && want(x) && !queued.has(`${s.id}\n${x.url}`))
       const mine = [...new Set(open.filter(x => phase(x, now) && !!x.galleryOnly === later).map(x => x.url))]
       if (!mine.length) continue
