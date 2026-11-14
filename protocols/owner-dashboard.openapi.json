@@ -1291,6 +1291,10 @@
               }
             ],
             "description": "The owner's newest decision on record (a comment shown or hidden, a reader photo approved or removed, a page hidden), for under the all clear when `needs` is empty; the web page shows it there too. null: none on record, or the records couldn't be read."
+          },
+          "publishing": {
+            "$ref": "#/components/schemas/Publishing",
+            "description": "New pages by kind and day: the overview's \"New pages\" card. Absent while the build's figures or the nightly saves can't be read, or none is saved yet; an app without it draws the overview as before."
           }
         }
       },
@@ -3076,6 +3080,97 @@
           "push": {
             "type": "boolean",
             "description": "The phones' notifications (the server's switch)."
+          }
+        }
+      },
+      "Stall": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "since",
+          "text"
+        ],
+        "description": "Pages that stopped coming: since when, and the line that says it.",
+        "properties": {
+          "since": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The last time the count was seen higher than the time before: a night's save (20:17 UTC) or a build."
+          },
+          "text": {
+            "type": "string",
+            "description": "\"No new species pages since Fri 13 Nov, 3:17\", \"Nothing new since Thu 12 Nov, 3:17\"."
+          }
+        }
+      },
+      "PublishingKind": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "label",
+          "total",
+          "bars"
+        ],
+        "description": "One kind's pages: its total now, and what each night added.",
+        "properties": {
+          "key": {
+            "type": "string",
+            "enum": [
+              "fish",
+              "guide",
+              "videoGuide",
+              "plant"
+            ],
+            "description": "fish: species pages (fish, shrimp, snails); guide: written guides; videoGuide: guides written from a video; plant: plant pages."
+          },
+          "label": {
+            "type": "string",
+            "description": "\"Species pages\", \"Guides\", \"Video guides\", \"Plant pages\"."
+          },
+          "total": {
+            "type": "string",
+            "description": "Its pages now in Vietnamese, written as a tile's value: \"2,503\"."
+          },
+          "bars": {
+            "$ref": "#/components/schemas/Bars",
+            "description": "One bar a day, oldest first: what that night's save added less the save before it (a loss draws none; its readout says \"2 fewer\"), null for a night not saved. `today` is the last, so far: this build's count less the last save."
+          },
+          "stalled": {
+            "$ref": "#/components/schemas/Stall",
+            "description": "Only when it has added nothing for 24 hours while it has work waiting (a page source of its kind with pages waiting; for video guides, the video queue), and the other kinds haven't all stopped too. The same line is in `needs` as kind `engine`."
+          }
+        }
+      },
+      "Publishing": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "title",
+          "kinds"
+        ],
+        "description": "New pages by kind and day (apps/site/worker/admin/publishing.ts).",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "\"New pages\"."
+          },
+          "kinds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PublishingKind"
+            },
+            "minItems": 4,
+            "maxItems": 4,
+            "description": "Species pages, guides, video guides, plant pages: always these four, in this order."
+          },
+          "missing": {
+            "type": "string",
+            "description": "Why a bar is missing, when one is: \"No count was kept that night.\""
+          },
+          "quiet": {
+            "$ref": "#/components/schemas/Stall",
+            "description": "Every kind has added nothing for 24 hours: the engine's, one line (also in `needs`, kind `engine`), and no kind has its own `stalled`."
           }
         }
       }
