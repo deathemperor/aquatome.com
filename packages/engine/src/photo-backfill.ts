@@ -2,7 +2,7 @@ import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import type { Photo, SourceId } from '@aq/schema'
 import { htmlToOutline, isChallenge } from './outline'
-import { approvedCrop, mergePhotos } from './run'
+import { mergePhotos, readKeeps } from './run'
 import { SOURCES, sourceById } from './sources'
 import { sourcesOnArchive } from './state'
 import { linkedPhotos, mayTake, pickSourcePhotos, storeSourcePhotos, type CreditTerms, type Media } from './source-photos'
@@ -51,7 +51,7 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
   // within this step's existing limit. Ordinary failed monthly reads remain due by the existing rules.
   const intakeFile = join(root, 'engine-state/_photo-intake-retry.json')
   const intake: Record<string, string> = JSON.parse(await readFile(intakeFile, 'utf8').catch(() => '{}'))
-  const names: Record<string, { name?: string; permission?: CreditTerms }> = JSON.parse(await readFile(join(root, 'content/sources.json'), 'utf8').catch(() => '{}'))
+  const names: Record<string, { name?: string; publish?: boolean | 'photos'; permission?: CreditTerms & { markRemoval?: { allowed?: boolean } } }> = JSON.parse(await readFile(join(root, 'content/sources.json'), 'utf8').catch(() => '{}'))
   const blocked: Record<string, string> = JSON.parse(await readFile(join(root, 'engine-state/_photo-rejected.json'), 'utf8').catch(() => '{}'))
   const last = new Map<SourceId, number>()
   // Every request to a source (its page, photo pages, images) at the engine's pace for it.
@@ -103,7 +103,7 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
           if (stored.length && kind === 'guides') {
             const body = async (l: string) => (JSON.parse(await readFile(join(root, 'content', kind, id, `${l}.json`), 'utf8').catch(() => '{}')) as { body?: string }).body
             e.photos = [...withSections(stored, { vi: (await body('vi')) ?? '', ...Object.fromEntries(await Promise.all(WRITTEN_OTHER_LANGS.map(async l => [l, await body(l)]))) }), ...e.photos.filter(p => p.sourceUrl !== url)]
-          } else if (stored.length) e.photos = mergePhotos(e.photos, source, url, stored.map(({ heading: _, ...p }) => p), { owned: approvedCrop(`${kind}/${id}`, e.scientificName ?? '') })
+          } else if (stored.length) e.photos = mergePhotos(e.photos, source, url, stored.map(({ heading: _, ...p }) => p), readKeeps(`${kind}/${id}`, e.scientificName ?? '', blocked, names))
           tried[url] = d.now().toISOString()
         } catch (err) {
           errors.push(`${kind}/${id} ${url}: ${(err as Error).message.slice(0, 120)}`)

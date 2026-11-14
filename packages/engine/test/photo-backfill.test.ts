@@ -16,7 +16,7 @@ test('re-reads the source page of a photo-less species once, adds the photos, th
   const dir = join(root, 'content', 'species', 'acanthopsoides-robertsi')
   await mkdir(dir, { recursive: true })
   await mkdir(join(root, 'engine-state'), { recursive: true })
-  await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ seriouslyfish: { name: 'Seriously Fish' } }))
+  await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ seriouslyfish: { publish: true, name: 'Seriously Fish' } }))
   await writeFile(join(dir, 'entity.json'), JSON.stringify({ scientificName: 'Acanthopsoides robertsi', photos: [], sections: [{ source: 'seriouslyfish', sourceUrl: URL_ }, { source: 'seriouslyfish', sourceUrl: URL_ }] }))
   // A video guide has no web page with photos: skipped, not a crash on the unknown source.
   await mkdir(join(root, 'content', 'guides', 'youtube-abc'), { recursive: true })
@@ -43,7 +43,7 @@ test('--only reads those pages alone, now, though one was read a week ago (first
   const root = await mkdtemp(join(tmpdir(), 'pb-'))
   await mkdir(join(root, 'engine-state'), { recursive: true })
   await mkdir(join(root, 'content'), { recursive: true })
-  await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ seriouslyfish: { name: 'Seriously Fish' } }))
+  await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ seriouslyfish: { publish: true, name: 'Seriously Fish' } }))
   const other = 'https://www.seriouslyfish.com/species/aaa-other/'
   for (const [id, url] of [['acanthopsoides-robertsi', URL_], ['aaa-other', other]] as const) {
     await mkdir(join(root, 'content', 'species', id), { recursive: true })
@@ -75,7 +75,7 @@ test('archive-read sources are left out; ScotCat photos come from their own page
   await sp('pc', [{ source: 'planetcatfish', sourceUrl: 'https://www.planetcatfish.com/common/species.php?species_id=1' }])
   const SC = 'https://www.scotcat.com/callichthyidae/hoplisoma_sterbai.htm'
   await sp('hoplisoma-sterbai', [{ source: 'scotcat', sourceUrl: SC }])
-  await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ scotcat: { name: 'ScotCat' } }))
+  await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ scotcat: { publish: true, name: 'ScotCat' } }))
   const gets: string[] = []
   const r = await backfillPhotos(root, {
     get: async (u: string) => {
@@ -101,7 +101,7 @@ test('catfish from other sources get ScotCat photos at its guessed factsheet add
   await sp('hoplisoma-sterbai', 'Hoplisoma sterbai', 'Callichthyidae')
   await sp('hoplisoma-paleatum', 'Hoplisoma paleatum', 'Callichthyidae')
   await sp('apistogramma-borellii', 'Apistogramma borellii', 'Cichlidae') // not a catfish: no guess
-  await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ scotcat: { name: 'ScotCat' } }))
+  await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ scotcat: { publish: true, name: 'ScotCat' } }))
   const SC = 'https://www.scotcat.com/callichthyidae/hoplisoma_sterbai.htm'
   let clock = Date.parse('2026-10-29T12:00:00Z')
   const gets: [string, number][] = []
@@ -265,7 +265,7 @@ test("a re-read doesn't take a photo whose credit the source's permission record
   const dir = join(root, 'content', 'species', 'imaginichthys-testi')
   await mkdir(dir, { recursive: true })
   await mkdir(join(root, 'engine-state'), { recursive: true })
-  await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ seriouslyfish: { name: 'Seriously Fish', permission: { refusedCredits: ['Example Picture Agency'] } } }))
+  await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ seriouslyfish: { publish: true, name: 'Seriously Fish', permission: { refusedCredits: ['Example Picture Agency'] } } }))
   await writeFile(join(dir, 'entity.json'), JSON.stringify({ scientificName: 'Imaginichthys testi', photos: [], sections: [{ source: 'seriouslyfish', sourceUrl: url }] }))
   const fig = (n: number, credit: string) => `<figure><a href="/images/testi-${n}.jpg"><img src="/images/testi-${n}.jpg" alt="Imaginichthys testi, view ${n}." width="800" height="600"></a><figcaption>Imaginichthys testi, view ${n}.<span class="_credit_x"><b>${credit}</b></span></figcaption></figure>`
   const html = `<html><head><title>Imaginichthys testi</title></head><body><main><h1>Imaginichthys testi</h1><p>${'A made-up fish. '.repeat(20)}</p>${fig(1, 'Example Picture Agency')}${fig(2, 'Imaginary Person')}</main></body></html>`
@@ -292,7 +292,7 @@ test("photos taken off the site before don't hold a page's places: the source pa
   const dir = join(root, 'content', 'species', 'imaginichthys-testi')
   await mkdir(dir, { recursive: true })
   await mkdir(join(root, 'engine-state'), { recursive: true })
-  await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ seriouslyfish: { name: 'Seriously Fish' } }))
+  await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ seriouslyfish: { publish: true, name: 'Seriously Fish' } }))
   await writeFile(join(dir, 'entity.json'), JSON.stringify({ scientificName: 'Imaginichthys testi', photos: [], sections: [{ source: 'seriouslyfish', sourceUrl: url }] }))
   await writeFile(join(root, 'engine-state', '_photo-rejected.json'), JSON.stringify(Object.fromEntries([1, 2, 3, 4].map(n => [key(n), 'watermark: withheld']))))
   const html = `<html><head><title>Imaginichthys testi</title></head><body><main><h1>Imaginichthys testi</h1><p>${'A made-up fish. '.repeat(20)}</p>${[1, 2, 3, 4, 5, 6].map(n => `<img src="/images/testi-${n}.jpg" alt="Imaginichthys testi, view ${n}" width="800" height="600">`).join('')}</main></body></html>`
@@ -321,7 +321,7 @@ test("a re-read keeps a photo already on the page whose credit's kind the permis
   const dir = join(root, 'content', 'species', 'imaginichthys-testi')
   await mkdir(dir, { recursive: true })
   await mkdir(join(root, 'engine-state'), { recursive: true })
-  await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ seriouslyfish: { name: 'Seriously Fish' } }))
+  await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ seriouslyfish: { publish: true, name: 'Seriously Fish' } }))
   const shown = { url: key(1), width: 800, height: 600, licence: 'dùng với sự cho phép', author: 'Seriously Fish', sourceUrl: url, source: 'seriouslyfish' }
   await writeFile(join(dir, 'entity.json'), JSON.stringify({ scientificName: 'Imaginichthys testi', photos: [shown], sections: [{ source: 'seriouslyfish', sourceUrl: url }] }))
   const fig = (n: number, credit: string) => `<figure><a href="/images/testi-${n}.jpg"><img src="/images/testi-${n}.jpg" alt="Imaginichthys testi, view ${n}." width="800" height="600"></a><figcaption>Imaginichthys testi, view ${n}.<span class="_credit_x"><b>${credit}</b></span></figcaption></figure>`
@@ -351,7 +351,7 @@ test("a re-read keeps a photo the page shows under a credit we take no more, tho
   const dir = join(root, 'content', 'species', 'imaginichthys-testi')
   await mkdir(dir, { recursive: true })
   await mkdir(join(root, 'engine-state'), { recursive: true })
-  await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ seriouslyfish: { name: 'Seriously Fish' } }))
+  await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ seriouslyfish: { publish: true, name: 'Seriously Fish' } }))
   const shown = { url: key(5), width: 800, height: 600, licence: 'dùng với sự cho phép', author: 'Example Aquatics / Seriously Fish', sourceUrl: url, source: 'seriouslyfish' }
   await writeFile(join(dir, 'entity.json'), JSON.stringify({ scientificName: 'Imaginichthys testi', photos: [shown], sections: [{ source: 'seriouslyfish', sourceUrl: url }] }))
   const fig = (n: number, credit: string) => `<figure><a href="/images/testi-${n}.jpg"><img src="/images/testi-${n}.jpg" alt="Imaginichthys testi, view ${n}." width="800" height="600"></a><figcaption>Imaginichthys testi, view ${n}.<span class="_credit_x"><b>${credit}</b></span></figcaption></figure>`
@@ -385,7 +385,7 @@ test("a re-read keeps a shown photo the page lays out small, on a fish's page an
     const dir = join(root, 'content', 'species', 'imaginichthys-testi')
     await mkdir(dir, { recursive: true })
     await mkdir(join(root, 'engine-state'), { recursive: true })
-    await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ seriouslyfish: { name: 'Seriously Fish' } }))
+    await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ seriouslyfish: { publish: true, name: 'Seriously Fish' } }))
     const shown = { url: key(src(5)), width: 800, height: 600, licence: 'dùng với sự cho phép', author: 'Example Aquatics / Seriously Fish', sourceUrl: url, source: 'seriouslyfish' }
     await writeFile(join(dir, 'entity.json'), JSON.stringify({ scientificName: 'Imaginichthys testi', photos: [shown], sections: [{ source: 'seriouslyfish', sourceUrl: url }] }))
     const fig = (n: number, credit: string, size: string) => `<figure><img src="/images/testi-${n}.jpg" alt="Imaginichthys testi, view ${n}." ${size}><figcaption>Imaginichthys testi, view ${n}.<span class="_credit_x"><b>${credit}</b></span></figcaption></figure>`
@@ -410,7 +410,7 @@ test("a re-read keeps a shown photo the page lays out small, on a fish's page an
     const dir = join(root, 'content/guides/a')
     await mkdir(dir, { recursive: true })
     await mkdir(join(root, 'engine-state'), { recursive: true })
-    await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ glaser: { name: 'Aquarium Glaser' } }))
+    await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ glaser: { publish: true, name: 'Aquarium Glaser' } }))
     const old = 'https://www.aquariumglaser.de/old/fish.jpg'
     const shown = { url: key(old, 'glaser'), width: 800, height: 600, licence: 'dùng với sự cho phép', author: 'Example Aquatics / Aquarium Glaser', sourceUrl: url, source: 'glaser' }
     await writeFile(join(dir, 'entity.json'), JSON.stringify({ photos: [shown], source: 'glaser', sourceUrl: url }))

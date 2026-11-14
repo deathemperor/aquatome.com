@@ -68,6 +68,9 @@ test("a crop the owner approved one by one is never dropped by a re-read of its 
   expect(owned(crop)).toBe(true)
   // Approved for another page, or changed since its approval: not the owner's crop here.
   expect(approvedCrop('species/other', sci, [approval])(crop)).toBe(false)
+  // A plant's crop never passes, even with an approval for its page: the build checks a plant's crop with no page or name.
+  const plant = 'plants/plant-x', plantApproval = { ...approval, page: plant, recordHash: createHash('sha256').update(ownerCropCanonical(crop, plant, sci)).digest('hex') }
+  expect(approvedCrop(plant, sci, [plantApproval])(crop)).toBe(false)
   expect(owned({ ...crop, ownerCrop: { id: 'owner-crop-x', pixelHash: 'c'.repeat(64) } })).toBe(false)
   const old = { ...photo('old'), source: 'bwaquatics' as const, sourceUrl: page }
   const fresh = (n: string) => ({ ...photo(n), source: 'bwaquatics' as const, sourceUrl: page })
@@ -124,6 +127,36 @@ test("an owner's crop whose source has since refused mark removal stays on its p
   const owned = (p: Photo) => p.url === crop.url
   expect(mergeRead([mine, crop], 'bwaquatics', page, [], { owned, gone: hiddenFromReaders({}, refused) })).toEqual({ photos: [crop, mine], held: [mine] })
   expect(mergeRead([mine, crop], 'bwaquatics', page, [], { owned, gone: hiddenFromReaders({}, allowed) })).toEqual({ photos: [crop], held: [] })
+})
+
+test("a photo still on a host that sets cookies, or one with no source and no open licence, counts for nothing: the build hides both", () => {
+  const sources = { bwaquatics: { publish: true } }
+  const shown = { ...photo('shown'), licence: 'CC BY-SA 4.0' }
+  expect(hiddenFromReaders({}, sources)(shown)).toBe(false)
+  expect(hiddenFromReaders({}, sources)({ ...shown, url: 'https://upload.wikimedia.org/x/fish.jpg' })).toBe(true)
+  expect(hiddenFromReaders({}, sources)({ ...shown, licence: 'All rights reserved' })).toBe(true)
+  expect(hiddenFromReaders({}, sources)({ ...shown, licence: 'All rights reserved', source: 'bwaquatics' })).toBe(false)
+})
+
+test("under the photo cap a photo a reader sees takes a seat before one no reader sees, and a page's last photos kept come to eight at most", () => {
+  const page = 'https://x/fish'
+  // Eight hidden photos ranked ahead of a fresh one a reader sees: the fresh one has its seat, and Commons isn't asked.
+  const hidden = [1, 2, 3, 4, 5, 6, 7, 8].map(i => ({ ...big(`hidden-${i}`), source: 'seriouslyfish' as const, sourceUrl: 'https://y/fish' }))
+  const fresh = { ...photo('fresh'), source: 'bwaquatics' as const, sourceUrl: page }
+  const gone = (p: Photo) => p.url.includes('hidden-')
+  const read = mergeRead(hidden, 'bwaquatics', page, [fresh], { gone })
+  expect(read.photos).toHaveLength(8)
+  expect(read.photos.map(p => name(p.url))).toContain('fresh')
+  expect(read.held).toEqual([])
+  // Seven seen photos the read replaced, two crops the build hides and a generated photo: the page keeps eight, the crops
+  // first, and only the seen ones it keeps are held.
+  const mine = [1, 2, 3, 4, 5, 6, 7].map(i => ({ ...photo(`mine-${i}`), source: 'bwaquatics' as const, sourceUrl: page }))
+  const crops: Photo[] = [1, 2].map(i => ({ ...photo(`crop-${i}`), source: 'bwaquatics', sourceUrl: 'https://x/other', ownerCrop: { id: `c${i}`, pixelHash: 'a'.repeat(64) } }))
+  const gen: Photo = { ...photo('generated'), source: 'seriouslyfish', sourceUrl: 'https://y/fish', generated: { model: 'gpt-image-2', driverModel: 'gpt-5.6-sol', date: '2026-11-10', prompt: 'fish', referenceHash: 'a'.repeat(64) } }
+  const refused = { bwaquatics: { publish: true, permission: { markRemoval: { allowed: false } } }, seriouslyfish: { publish: true } }
+  const last = mergeRead([...mine, ...crops, gen], 'bwaquatics', page, [], { owned: p => !!p.ownerCrop, gone: hiddenFromReaders({}, refused) })
+  expect(last.photos.map(p => name(p.url))).toEqual(['crop-1', 'crop-2', 'mine-1', 'mine-2', 'mine-3', 'mine-4', 'mine-5', 'mine-6'])
+  expect(last.held.map(p => name(p.url))).toEqual(['mine-1', 'mine-2', 'mine-3', 'mine-4', 'mine-5', 'mine-6'])
 })
 
 test('at most a few photos a fish are asked about', () => {
