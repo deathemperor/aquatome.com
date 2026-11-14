@@ -174,6 +174,11 @@ test('a text put back is kept, with its checks and their quotes: the text before
   await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Đặt hàng ở Petco.</p>` })
   expect((await gate(root, { llm: reader(), now, mend: async () => false })).report.revert).toHaveLength(1)
   expect((await readJson(root, PUT_BACK)).text.body).toContain('Đặt hàng ở Petco')
+  // A mend refused with why: put back the same, and the run lists the page and the reason (the chief of staff, 14 Nov 2026).
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Đặt hàng ở Petco nữa.</p>` })
+  const refused = await gate(root, { llm: reader(), now, mend: async () => ({ refused: 'a sentence no finding names was changed or left out: "x"' }) })
+  expect(refused.report.revert).toHaveLength(1)
+  expect(refused.report.refused).toEqual([expect.stringMatching(/^\/vi\/huong-dan\/.+\/: a sentence no finding names was changed or left out: "x"$/)])
 })
 
 test('advice that would hurt is never the mender\'s to reword, and it mends so many pages a run', async () => {
