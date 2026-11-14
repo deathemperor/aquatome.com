@@ -261,6 +261,9 @@ export async function makeSpecies(root: string, d: SpeciesDeps, a: SpeciesAsk, o
   const prev = await read<Translation>(join(dir, 'vi.json'))
   const kin = { order: taxon.order, family: taxon.family, genus: entity.genus }
   const viNames = c.viNames.filter(n => !wrongKind(n, kin))
+  // A live page's own names stay among its other names, whatever the table says: they go to the owner's sheet, not away.
+  const had = new Set([...(prev?.altNames ?? []), ...(prev?.name ? [prev.name] : [])])
+  const passes = (n: string) => !wrongKind(n, kin) || had.has(n)
   const firstFails = !!c.viNames[0] && wrongKind(c.viNames[0], kin)
   const name = prev?.nameFixed ? prev.name : (!firstFails && viNames[0]) || prev?.name || (viNames[0] ?? plainName(sci, kin))
   if (firstFails && !prev?.nameFixed && name !== prev?.name) await recordKindFallback(root, `species/${id}`, { name: c.viNames[0]!, word: kindWord(c.viNames[0]!, kin)!.word, took: name, at: d.now().toISOString() })
@@ -274,7 +277,7 @@ export async function makeSpecies(root: string, d: SpeciesDeps, a: SpeciesAsk, o
   const vi: Translation = TranslationSchema.parse(metricPage({
     slug: prev?.slug ?? pickSlug(name, entity.genus, taken), name,
     // A guarded name keeps the other names it came with (names.ts FISH_NAMES), as merge.ts keeps them.
-    altNames: cleanAltNames({ name, sci, altNames: [...new Set([...(prev?.nameFixed ? prev.altNames : []), ...(prev?.nameFixed ? viNames.slice(1) : viNames), ...c.enNames.filter(n => !wrongKind(n, kin))])].filter(n => n !== name) }).altNames,
+    altNames: cleanAltNames({ name, sci, altNames: [...new Set([...(prev?.nameFixed ? prev.altNames : []), ...(prev?.nameFixed ? c.viNames.slice(1) : c.viNames).filter(passes), ...c.enNames.filter(passes)])].filter(n => n !== name) }).altNames,
     sections: Object.fromEntries(sections.map(s => [`${s.key}:aquatome`, s.html])),
     quality: judgeQuality({ score: review.score, indexable: false, bySource: { aquatome: review.score } }, review.score >= QUALITY_THRESHOLD, deep),
     ...(prev?.nameFixed ? { nameFixed: true } : {}), ...(prev?.redirectFrom ? { redirectFrom: prev.redirectFrom } : {}),
