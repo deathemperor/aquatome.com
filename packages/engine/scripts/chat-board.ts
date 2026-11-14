@@ -9,6 +9,8 @@
  * Steps, each writing <dir>/<arm>/turns.json (or judge-<a>-vs-<b>.json), so a step run again keeps what's done:
  *
  *   tsx scripts/chat-board.ts answer --chat <checkout> --arm main [--given <dir>]   our chat as that checkout has it
+ *   tsx scripts/chat-board.ts cli --chat <checkout> --site <folder> --model claude-sonnet-5-5 --arm cli-sonnet
+ *                                                                                   our prompt and tools, through the CLI
  *   tsx scripts/chat-board.ts plain --model claude-opus-5-5 --arm plain-opus         no handbook, no tools
  *   tsx scripts/chat-board.ts judge --ours main --plain plain-opus                  both orders, a side wins on both
  *   tsx scripts/chat-board.ts report --pairs main:plain-opus,mainB:main,…           the board, by subject and form
@@ -20,6 +22,19 @@
  * through the API (claude-haiku-5-5, the chat's own model, as chat-vs-plain.ts asked on 8 Nov) it is billed. The judge
  * is Opus through the CLI, with chat-vs-plain's rubric.
  *
+ * `cli` is a copy of our chat, not the Worker: the checkout's own system prompt, first message, handover, answer schema
+ * and four tools (served by chat-mcp.ts) on the owner's subscription, so any model can write it with no billed money. What
+ * differs from the Worker: the CLI runs its own loop (no time rule, no forced last call, no pace: only the tool limit,
+ * 16, holds), the tools carry the CLI's mcp__chat__ names, and its time to the first words (the first piece of the last
+ * message, from the CLI's stream) is approximate. Its cost is what the CLI reports the same tokens would cost on the API.
+ *
+ * `--question` asks every post that one question instead (the tank review: "Bể của mình ổn không?"); `--notank` asks
+ * the general chatbot without the tank's facts, as someone who hasn't typed them would; `--held` keeps to the held-out
+ * posts.
+ *
+ * The board runs only with main's ceilings (`ceilingsAsMain`): on 15 Nov its checkout, 178 commits behind, read an old
+ * table and took $34 that main had given the engine.
+ *
  * The posts (--posts, one or more files) are readers' public forum posts, kept out of the repository; the report says
  * counts only. A third of them, by a hash of the id, may be tuned on (`dev`); the rest are held out, and a change
  * merges only on what it does there.
@@ -29,9 +44,10 @@ import { existsSync } from 'node:fs'
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { homedir } from 'node:os'
 import { join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { parseArgs } from 'node:util'
-import { costLog, leftYielding } from '../src/ceiling'
-import { claudeCli } from '../src/claude'
+import { ceilingsAsMain, costLog, leftYielding, nameStep, stepName } from '../src/ceiling'
+import { claudeCli, claudeTools } from '../src/claude'
 import { pool, retry } from './eval-lib'
 import { JUDGE_SCHEMA, JUDGE_SYSTEM, judgePrompt, outcome, type PairOutcome, type PostTank, savedTank, seenOurs, tankFacts, unbrand, type Verdict } from './chat-vs-plain-lib'
 
@@ -56,12 +72,18 @@ const { positionals, values: args } = parseArgs({
     out: { type: 'string' },
     // The cards under our answer count too. The owner's build shows text and suggestions only until the cards (#766) ship.
     cards: { type: 'boolean', default: false },
+    question: { type: 'string' },
+    notank: { type: 'boolean', default: false },
+    held: { type: 'boolean', default: false },
+    // The name its calls are counted under and yield by (`chat-board` unless said): a test of the board's own, kept apart.
+    step: { type: 'string' },
   },
 })
+if (args.step) nameStep(args.step)
 
 type Post = { id: string; topic: string; post: string; short: string; tank: PostTank }
 type Form = 'post' | 'posttank' | 'tank'
-type Turn = { id: string; post: string; topic: string; form: Form; text?: string; blocks?: unknown[]; suggestions?: string[]; stopped?: string; calls?: number; asked?: string[]; timing?: { call: number; at: number; ms: number; out?: number; tools?: number; failed?: boolean }[]; ms: number; usd: number; failed?: string }
+type Turn = { wordsAt?: number; id: string; post: string; topic: string; form: Form; text?: string; blocks?: unknown[]; suggestions?: string[]; stopped?: string; calls?: number; asked?: string[]; timing?: { call: number; at: number; ms: number; out?: number; tools?: number; failed?: boolean }[]; ms: number; usd: number; failed?: string }
 const SUBJECTS = ['dying', 'sick', 'algae', 'cycling', 'stocking'] as const
 const FORMS = args.forms!.split(',') as Form[]
 const hash = (...xs: unknown[]) => createHash('sha256').update(JSON.stringify(xs)).digest('hex').slice(0, 16)
@@ -71,9 +93,9 @@ export const dev = (id: string) => parseInt(createHash('sha256').update(id).dige
 async function postsOf(): Promise<Post[]> {
   const all = (await Promise.all(args.posts!.split(',').map(async f => JSON.parse(await readFile(f, 'utf8')) as Post[]))).flat()
   const only = args.only?.split(',')
-  return all.filter(p => (SUBJECTS as readonly string[]).includes(p.topic) && (!only || only.includes(p.id)))
+  return all.filter(p => (SUBJECTS as readonly string[]).includes(p.topic) && (!only || only.includes(p.id)) && (!args.held || !dev(p.id)))
 }
-const asked = (p: Post, f: Form) => (f === 'tank' ? p.short : p.post)
+const asked = (p: Post, f: Form) => args.question ?? (f === 'tank' ? p.short : p.post)
 
 /** The tank in the reader's own words, for a general chatbot that can't read the app. */
 function tankWords(t: PostTank): string {
@@ -90,7 +112,7 @@ function tankWords(t: PostTank): string {
     t.notes ? t.notes : null,
   ].filter(Boolean).join('; ')
 }
-const plainQuestion = (p: Post, f: Form) => (f === 'post' ? p.post : `${asked(p, f)}\n\nThông tin bể của mình: ${tankWords(p.tank)}.`)
+const plainQuestion = (p: Post, f: Form) => (f === 'post' || args.notank ? asked(p, f) : `${asked(p, f)}\n\nThông tin bể của mình: ${tankWords(p.tank)}.`)
 
 async function readTurns(arm: string): Promise<Map<string, Turn>> {
   try { return new Map((JSON.parse(await readFile(join(args.dir!, arm, 'turns.json'), 'utf8')) as Turn[]).map(t => [t.id, t])) } catch { return new Map() }
@@ -191,8 +213,69 @@ const SPARE = 10, CALL = 0.3
 class Yielded extends Error {}
 function mayCall() {
   const log = costLog()
-  const left = log ? leftYielding('chat-board', log, SPARE) : null
+  const left = log ? leftYielding(stepName(), log, SPARE) : null
   if (left !== null && left < CALL) throw new Yielded(`the board yields to the engine: $${left.toFixed(2)} of its share left today`)
+}
+
+/** Our prompt and tools through the CLI, on the owner's subscription (the header says what differs from the Worker). */
+async function cli() {
+  if (!args.chat || !args.arm || /^https?:/.test(args.site!)) throw new Error('cli: --chat <checkout> --arm <name> --site <folder> [--model]')
+  const W = args.chat
+  const { SYSTEM, firstMessage } = await import(`${W}/apps/site/worker/chat/agent.ts`)
+  const { ANSWER_SCHEMA } = await import(`${W}/apps/site/worker/chat/answer.ts`)
+  const { handbookOf } = await import(`${W}/apps/site/worker/chat/handbook.ts`)
+  const { handoverFor } = await import(`${W}/apps/site/worker/chat/handover.ts`)
+  const get = async (path: string) => { try { return JSON.parse(await readFile(join(args.site!, path.replace(/^\//, '').replace(/\//g, '_')), 'utf8')) } catch { return null } }
+  const hb = await handbookOf({ index: (l: string) => get(`/app/${l}.json`), shard: (l: string, k: string, n: number) => get(`/app/pages/${l}/${k}-${n}.json`), topics: (l: string) => get(`/app/chat/${l}.json`) }, 'vi')
+  if (!hb) throw new Error(`cli: no handbook in ${args.site}`)
+  const given = new Map<string, { path: string; heading: string | null }[]>()
+  if (args.given) for (const g of JSON.parse(await readFile(join(args.given, 'turns.json'), 'utf8')) as { id: string; calls: { asked: string[] }[] }[])
+    given.set(g.id, g.calls.flatMap(c => c.asked).map(a => JSON.parse(a.slice('read_page '.length))))
+  const engine = fileURLToPath(new URL('..', import.meta.url))
+  const tsx = join(engine, 'node_modules/.bin/tsx'), server = join(engine, 'scripts/chat-mcp.ts')
+  const allow = ['search_handbook', 'read_page', 'check_tank_mates', 'read_tanks'].map(n => `mcp__chat__${n}`).join(',')
+  const work = join(args.dir!, '..', 'cli-work', args.arm)
+  const { done, jobs } = await todo(args.arm)
+  console.log(`${args.arm}: ${jobs.length} to answer, ${done.size} kept`)
+  let n = 0
+  await pool(jobs.map(({ p, f, id }) => async () => {
+    const began = Date.now()
+    const dir = join(work, id)
+    await mkdir(dir, { recursive: true })
+    const tanks = f === 'post' ? [] : [savedTank(p.tank)]
+    const tankFile = join(dir, 'tank.json'), log = join(dir, 'tools.jsonl'), mcp = join(dir, 'mcp.json')
+    if (tanks.length) await writeFile(tankFile, JSON.stringify(tanks[0]))
+    await writeFile(log, '')
+    await writeFile(mcp, JSON.stringify({ mcpServers: { chat: { command: tsx, args: [server, '--chat', W, '--site', args.site!, ...(tanks.length ? ['--tank', tankFile] : []), '--log', log] } } }))
+    const question = asked(p, f)
+    const found = given.get(`${p.id}-${f === 'tank' ? 'tank' : 'post'}`)
+    // The Worker's first message, then what its handover would give (the owner's first question with a saved tank).
+    const first = firstMessage('vi', question, [], {}, hb) as { content: { text?: string }[] }
+    const handed = tanks.length ? await handoverFor({ question, start: {}, tanks, hb, lang: 'vi', search: async () => found ?? [] }) : undefined
+    const prompt = [...first.content.map(b => b.text ?? ''), ...(handed ? [handed.text] : [])].filter(Boolean).join('\n\n')
+    // The first piece of each message as it streams; the last message's is when the answer's first words would show.
+    let piece: number | undefined, wordsAt: number | undefined, report: Record<string, unknown> | undefined
+    try {
+      mayCall()
+      const a = await claudeTools<{ text: string; suggestions?: string[] }>({
+        system: SYSTEM, prompt, schema: ANSWER_SCHEMA, model: args.model, mcp, allow, effort: 'medium',
+        onEvent: (e, ms) => {
+          const ev = e.type === 'stream_event' ? (e.event as { type?: string; delta?: { type?: string } }) : undefined
+          if (ev?.type === 'message_start') piece = undefined
+          else if (ev?.type === 'content_block_delta' && (ev.delta?.type === 'text_delta' || ev.delta?.type === 'input_json_delta') && piece === undefined) wordsAt = piece = ms
+        },
+        onResult: r => { report = r },
+      })
+      const calls = (await readFile(log, 'utf8')).split('\n').filter(Boolean).map(l => JSON.parse(l) as { name: string; input: unknown })
+      done.set(id, { id, post: p.id, topic: p.topic, form: f, text: a.text, suggestions: a.suggestions ?? [], blocks: [], calls: Number(report?.num_turns ?? 0), asked: calls.map(c => `${c.name} ${JSON.stringify(c.input)}`), ...(wordsAt !== undefined ? { wordsAt } : {}), ms: Date.now() - began, usd: Number(report?.total_cost_usd ?? 0) })
+    } catch (e: any) {
+      done.set(id, { id, post: p.id, topic: p.topic, form: f, ms: Date.now() - began, usd: 0, failed: String(e?.message ?? e).slice(0, 160) })
+      if (e instanceof Yielded) throw e
+    }
+    if (++n % 10 === 0) await writeTurns(args.arm!, done)
+  }), Number(args.concurrency)).catch(e => console.log(String(e?.message ?? e)))
+  await writeTurns(args.arm, done)
+  summary(args.arm, done)
 }
 
 async function plain() {
@@ -326,7 +409,9 @@ async function report() {
   if (args.out) await writeFile(args.out, text)
 }
 
-const steps: Record<string, () => Promise<void>> = { answer, plain, judge, report }
+const steps: Record<string, () => Promise<void>> = { answer, cli, plain, judge, report }
 const step = steps[positionals[0] ?? '']
 if (!step) throw new Error(`a step: ${Object.keys(steps).join(', ')}`)
+// Every step that calls a model yields by main's ceilings, so it runs only from a checkout that has them.
+if (positionals[0] !== 'report') ceilingsAsMain(fileURLToPath(new URL('..', import.meta.url)))
 await step()

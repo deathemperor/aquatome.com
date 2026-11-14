@@ -1,8 +1,10 @@
+import { execFileSync } from 'node:child_process'
+import { readFileSync } from 'node:fs'
 import { chmod, mkdir, mkdtemp, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { CEILINGS, ceilingMessage, costLog, handLog, leftYielding, machine, nameStep, spentToday, stepName, tableInForce, type CeilingTable, type Ceilings, type Place } from '../src/ceiling'
+import { CEILINGS, ceilingMessage, ceilingsAsMain, costLog, handLog, leftYielding, machine, nameStep, spentToday, stepName, tableInForce, type CeilingTable, type Ceilings, type Place } from '../src/ceiling'
 import { LlmError } from '../src/claude'
 import { accountsOut } from '../src/gate'
 import { errorKind } from '../src/state'
@@ -327,4 +329,32 @@ test('ceilings.json: the quota road test has its $1 after the board\'s $33.87 on
   const none = await at([])
   expect(yielding('chat-board', none, '2026-11-16T00:00:00+07:00')).toBe(37)
   expect(yielding('chat-board', none, '2026-11-17T00:00:00+07:00')).toBe(0)
+})
+
+test('whatever yields to the engine runs only with main\'s ceilings: a checkout behind main, or with a change of its own, is refused', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'ceil-main-'))
+  const git = (cwd: string, ...a: string[]) => execFileSync('git', ['-c', 'user.name=t', '-c', 'user.email=t@example.com', ...a], { cwd, stdio: 'pipe' })
+  const main = join(root, 'main')
+  await mkdir(join(main, 'packages/engine/src'), { recursive: true })
+  git(main, 'init', '-q', '-b', 'main')
+  await writeFile(join(main, 'packages/engine/src/ceilings.json'), '{"tables":[{"from":"a"}]}')
+  git(main, 'add', '-A')
+  git(main, 'commit', '-q', '-m', 'one')
+  git(root, 'clone', '-q', main, 'board')
+  const engine = join(root, 'board/packages/engine')
+  // The same table: it runs.
+  expect(() => ceilingsAsMain(engine)).not.toThrow()
+  // Main moves on (a lead gives the engine a new line): the checkout behind it is refused once it has fetched.
+  await writeFile(join(main, 'packages/engine/src/ceilings.json'), '{"tables":[{"from":"b"}]}')
+  git(main, 'commit', '-q', '-am', 'two')
+  expect(() => ceilingsAsMain(engine)).toThrow('not main\'s')
+  // Rebased: it runs again; a table changed here and not on main is refused too.
+  git(join(root, 'board'), 'pull', '-q', '--rebase')
+  expect(() => ceilingsAsMain(engine)).not.toThrow()
+  await writeFile(join(engine, 'src/ceilings.json'), '{"tables":[{"from":"c"}]}')
+  expect(() => ceilingsAsMain(engine)).toThrow('not main\'s')
+  // The board asks before any step that calls a model.
+  const board = readFileSync(new URL('../scripts/chat-board.ts', import.meta.url), 'utf8')
+  expect(board).toContain("if (positionals[0] !== 'report') ceilingsAsMain(")
+  expect(board.indexOf("ceilingsAsMain(fileURLToPath")).toBeLessThan(board.indexOf('await step()'))
 })
