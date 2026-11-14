@@ -153,8 +153,12 @@ test('a page the app index leaves out is in no "pages" block; a link to it in th
   expect(pagesOf(d)).not.toContain(fish)
   expect(hrefsOf(d)).toContain(fish)
   // A fish and a guide whose translations scored low (Cá boraras đỏ, Thay nước đúng cách) are on the site's lists, so in
-  // the index and in the blocks that name them.
-  const block = (id: string) => pagesOf(guideDoc('vi', c, appGuides('vi', c).find(x => x.id === id)!, listed))
+  // the index and in the blocks that name them. A guide with no picture is on no list of guides to read next (leadGuides),
+  // and since 15 Nov one borrows a fish only when its title names it (mentions.ts): the fixture's "Thay nước đúng cách"
+  // names none, so here it has a photo of its own.
+  const own = c.species.find(s => s.id === 'boraras-brigittae')!.photos[0]!
+  const withPhoto = { ...c, guides: c.guides.map(x => (x.id === g.id ? { ...x, photos: [own] } : x)) }
+  const block = (id: string) => pagesOf(guideDoc('vi', withPhoto, appGuides('vi', withPhoto).find(x => x.id === id)!, listed))
   expect(block('sprucepets-low-maintenance-freshwater-fish-4770223')).toContain('/vi/ca/ca-boraras-do/')
   expect(block('loc-cho-be-nano')).toContain('/vi/huong-dan/thay-nuoc-dung-cach/')
 })
