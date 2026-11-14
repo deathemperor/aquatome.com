@@ -44,6 +44,22 @@ test('research never reads a source the engine reads only through the Archive, o
   expect(researchDeny(now)).toEqual(expect.arrayContaining(['WebFetch(domain:shopee.vn)', 'WebFetch(domain:thesprucepets.com)', 'WebFetch(domain:*.thesprucepets.com)', 'WebFetch(domain:*.archive.org)', 'WebFetch(domain:*.aquariumcoop.com)']))
 })
 
+// The chief of staff, 14 Nov 2026: research doesn't open the magazine read for ideas at all, since nothing records what it
+// opens; and a site read for ideas that refused us its listing is kept off as the cycle's are (ideas.ts).
+test('research never opens the magazine read for ideas, nor a site read for ideas that refused us its listing', async () => {
+  const bare = await cycleOnlyHosts(await checkout('{}'))
+  for (const u of ['https://www.practicalfishkeeping.co.uk/features/x/', 'https://practicalfishkeeping.co.uk/x', 'https://PRACTICALFISHKEEPING.co.uk./x'])
+    expect(refused(bare, u), u).toBe(true)
+  expect(researchDeny(bare)).toEqual(expect.arrayContaining(['WebFetch(domain:practicalfishkeeping.co.uk)', 'WebFetch(domain:*.practicalfishkeeping.co.uk)']))
+  // The shops read for ideas stay open to research, which may cite one for a Vietnamese name, until one refuses its listing.
+  for (const u of ['https://aquazonefish.vn/blogs/kien-thuc/x', 'https://aquahouse.vn/x', 'https://cacanhtailoc.com/blogs/tin-tuc/x'])
+    expect(refused(bare, u), u).toBe(false)
+  const marked = await cycleOnlyHosts(await checkout(JSON.stringify({ aquazonefish: { blockedAt: '2026-11-14T01:00:00.000Z' } })))
+  expect(refused(marked, 'https://aquazonefish.vn/blogs/kien-thuc/x')).toBe(true)
+  expect(refused(marked, 'https://www.aquazonefish.vn/x')).toBe(true)
+  expect(refused(marked, 'https://aquahouse.vn/x')).toBe(false)
+})
+
 test('with no record of the sources, or one not of its shape, there is no list to keep to, and research has none (Astra\'s read)', async () => {
   const missing = await mkdtemp(join(tmpdir(), 'aq-cycle-only-'))
   await expect(cycleOnlyHosts(missing)).rejects.toThrow()

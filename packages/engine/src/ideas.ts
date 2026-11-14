@@ -2,8 +2,13 @@ import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { slugify, type GuideEntity, type SourceId } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
+import { IDEA_SOURCES, type Drop, type Listing } from './idea-sources'
+import { isChallenge } from './outline'
 import { piece } from './pieces'
+import { setSourceBlock, sourceBlockedSince } from './state'
 import { makeTopic, topicId } from './topics'
+
+export { IDEA_SOURCES } from './idea-sources'
 
 /**
  * Vietnamese shops' blogs, read for ideas (content/sources.json: orientation only, the owner's word of 2026-11-03): their
@@ -11,15 +16,9 @@ import { makeTopic, topicId } from './topics'
  * no guide on becomes one of AquaTome's own guides, researched like any other (topics.ts), with the shops' posts on it
  * as leads. engine-state/_ideas.json. And a British magazine's features, readers' questions and beginners' pages
  * (`magazine`, the owner's word through the chief of staff, 13 Nov 2026), what keepers anywhere ask, its UK-only topics
- * left out; never its readers' tank visits, whose photos a page of ours couldn't show (the chief of staff, 14 Nov).
+ * left out; never its readers' tank visits, whose photos a page of ours couldn't show (the chief of staff, 14 Nov). The
+ * sites are listed in idea-sources.ts.
  */
-type Listing = { kind: 'sitemap'; url: string; prefix: string | string[] } | { kind: 'wordpress'; base: string; category: string }
-export const IDEA_SOURCES: { id: SourceId; name: string; list: Listing; magazine?: true }[] = [
-  { id: 'aquazonefish', name: 'AquaZone', list: { kind: 'sitemap', url: 'https://aquazonefish.vn/sitemap_blogs_1.xml', prefix: 'https://aquazonefish.vn/blogs/kien-thuc/' } },
-  { id: 'aquahouse', name: 'Aqua House', list: { kind: 'wordpress', base: 'https://aquahouse.vn', category: 'tin-tuc-aqua' } },
-  { id: 'cacanhtailoc', name: 'Cá Cảnh Tài Lộc', list: { kind: 'sitemap', url: 'https://cacanhtailoc.com/sitemap_blogs_1.xml', prefix: 'https://cacanhtailoc.com/blogs/tin-tuc/' } },
-  { id: 'practicalfishkeeping', name: 'Practical Fishkeeping', magazine: true, list: { kind: 'sitemap', url: 'https://www.practicalfishkeeping.co.uk/sitemap-1.xml', prefix: ['features/', 'fishkeeping-answers/', 'beginners-hub/'].map(s => `https://www.practicalfishkeeping.co.uk/${s}`) } },
-]
 const MAGAZINES = new Set<SourceId>(IDEA_SOURCES.filter(s => s.magazine).map(s => s.id))
 const DELAY = 5_000
 /** The titles are read again a week on. */
@@ -29,8 +28,11 @@ type GuideKind = GuideEntity['kind']
 const KINDS: GuideKind[] = ['setup', 'care', 'breeding', 'disease', 'aquascaping', 'plantCare', 'discovery']
 /** A post: its title as the shop gives it (the address's words, for a sitemap), and its date. */
 export type Post = { url: string; title: string; date?: string }
-/** `guide`: the guide written on it; `skipped`: why none was (research found nothing reliable). */
-export type Idea = { topic: string; kind: GuideKind; posts: string[]; sites: number; latest?: string; guide?: string; skipped?: string }
+/**
+ * `guide`: the guide written on it; `skipped`: why none was (research found nothing reliable). `fromMagazine`: every post
+ * on it is the magazine's, none a shop's.
+ */
+export type Idea = { topic: string; kind: GuideKind; posts: string[]; sites: number; latest?: string; guide?: string; skipped?: string; fromMagazine?: true }
 export type IdeasState = {
   readAt?: string
   posts: Partial<Record<SourceId, Post[]>>
@@ -38,21 +40,46 @@ export type IdeasState = {
   ideas: Idea[]
   /** Guides written from ideas, per day (UTC): the day's cap. */
   written: Record<string, number>
+  /** Of those, the guides on the magazine's ideas, per day (UTC): their own cap (MAGAZINE_PER_DAY). */
+  magazine: Record<string, number>
 }
 export type IdeasDeps = { get: (url: string) => Promise<string>; llm: Llm; sleep: (ms: number) => Promise<void>; now: () => Date }
 
 const file = (root: string) => join(root, 'engine-state/_ideas.json')
 export const readIdeas = async (root: string): Promise<IdeasState> =>
-  ({ posts: {}, ideas: [], written: {}, ...JSON.parse(await readFile(file(root), 'utf8').catch(() => '{}')) as Partial<IdeasState> })
+  ({ posts: {}, ideas: [], written: {}, magazine: {}, ...JSON.parse(await readFile(file(root), 'utf8').catch(() => '{}')) as Partial<IdeasState> })
 const save = (root: string, s: IdeasState) => writeFile(file(root), `${JSON.stringify(s, null, 2)}\n`)
 
 const unescape = (s: string) => s.replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n))).replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)))
   .replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&')
 
-/** A site's posts: a sitemap's addresses under the blog's prefix or prefixes (titled by their words), or a WordPress category's posts (100 a page). */
+/**
+ * A site that refused us its listing: a browser check (Cloudflare, Turnstile), or a 403 or a 429. The source then needs the
+ * owner, and its listing isn't fetched again until they've looked (refreshIdeas, `retryBlocked`).
+ */
+export class ListingRefused extends Error {}
+/** A listing's text from the site's answer: a refusal (above) as a ListingRefused, any other failure as an error. */
+export async function listingText(res: Response): Promise<string> {
+  const text = await res.text().catch(() => '')
+  if (res.ok) return text
+  if (res.status === 403 || res.status === 429 || isChallenge('', text)) throw new ListingRefused(`refused, HTTP ${res.status}`)
+  throw new Error(`HTTP ${res.status}`)
+}
+/** An answer that isn't the listing asked for: a browser check is a refusal; anything else an error. */
+const notA = (what: string, body: string) => (isChallenge('', body) ? new ListingRefused('refused, a browser check') : new Error(`not ${what}`))
+function json<T>(body: string): T {
+  try { return JSON.parse(body) as T } catch { throw notA('JSON', body) }
+}
+
+/**
+ * A site's posts: a sitemap's addresses under the blog's prefix or prefixes (titled by their words), or a WordPress
+ * category's posts (100 a page). A page that isn't a sitemap, or isn't JSON, throws, so it never stands for the site's
+ * posts.
+ */
 export async function listPosts(list: Listing, get: (url: string) => Promise<string>): Promise<Post[]> {
   if (list.kind === 'sitemap') {
     const xml = await get(list.url)
+    if (!/<urlset[\s>]/.test(xml)) throw notA('a sitemap', xml)
     return [...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)].flatMap(([, u]) => {
       const loc = unescape(/<loc>\s*([^<]+?)\s*<\/loc>/.exec(u!)?.[1] ?? '')
       const under = [list.prefix].flat().find(p => loc.startsWith(p))
@@ -62,15 +89,28 @@ export async function listPosts(list: Listing, get: (url: string) => Promise<str
       return [{ url: loc, title: slug.replace(/-/g, ' '), ...(date ? { date } : {}) }]
     })
   }
-  const cats = JSON.parse(await get(`${list.base}/wp-json/wp/v2/categories?slug=${list.category}&_fields=id`)) as { id: number }[]
-  if (!cats[0]) throw new Error(`no category ${list.category}`)
+  const cats = json<{ id: number }[]>(await get(`${list.base}/wp-json/wp/v2/categories?slug=${list.category}&_fields=id`))
+  if (!Array.isArray(cats) || !cats[0]) throw new Error(`no category ${list.category}`)
   const out: Post[] = []
   for (let page = 1; page <= 20; page++) {
-    const rows = JSON.parse(await get(`${list.base}/wp-json/wp/v2/posts?categories=${cats[0].id}&per_page=100&page=${page}&_fields=link,title,date`)) as { link: string; title: { rendered: string }; date: string }[]
+    const rows = json<{ link: string; title: { rendered: string }; date: string }[]>(await get(`${list.base}/wp-json/wp/v2/posts?categories=${cats[0].id}&per_page=100&page=${page}&_fields=link,title,date`))
+    if (!Array.isArray(rows)) throw new Error('not a list of posts')
     out.push(...rows.map(r => ({ url: r.link, title: unescape(r.title.rendered).replace(/<[^>]+>/g, '').trim(), date: r.date.slice(0, 10) })))
     if (rows.length < 100) break
   }
   return out
+}
+
+/** A source's posts its rules leave out (idea-sources.ts), each by the first rule its address's last part matches. */
+export function dropPosts(posts: Post[], rules: readonly Drop[]): { kept: Post[]; dropped: Record<string, number> } {
+  const dropped: Record<string, number> = Object.fromEntries(rules.map(([name]) => [name, 0]))
+  const kept = posts.filter(p => {
+    const words = new URL(p.url).pathname.split('/').filter(Boolean).at(-1)?.toLowerCase() ?? ''
+    const rule = rules.find(([, re]) => re.test(words))
+    if (rule) dropped[rule[0]] = (dropped[rule[0]] ?? 0) + 1
+    return !rule
+  })
+  return { kept, dropped }
 }
 
 const PROMPT = `Below are the titles of posts, numbered: on Vietnamese aquarium shops' blogs (a title may be the post's address, without accents) and, marked (UK), a British fishkeeping magazine's features and readers' questions (each its address's words). Then the guides a Vietnamese freshwater aquarium handbook already has. The shops write what Vietnamese keepers search for; the magazine, what keepers anywhere ask. List the topics these posts are about that the handbook should have a guide on and has none.
@@ -99,16 +139,31 @@ async function guideNames(root: string): Promise<string[]> {
 
 /**
  * The shops' titles read again (a week on, or `force`), and the ideas made from them afresh. An idea already written or
- * skipped keeps that, so it never comes back; a site that fails keeps its last titles.
+ * skipped keeps that, so it never comes back. A site's last titles stand unless its new listing has posts: one that fails,
+ * is empty, or isn't a listing at all changes nothing (the chief of staff, 14 Nov 2026). A site that refuses us (a browser
+ * check, a 403 or a 429) is marked as needing the owner (engine-state/_sources.json, which the dashboard shows and
+ * research keeps off, cycle-only.ts), and isn't fetched again until a run with `retryBlocked`; `force` doesn't pass it.
+ * `listed`: each site's posts kept and how many each of its rules left out.
  */
-export async function refreshIdeas(root: string, d: IdeasDeps, o: { force?: boolean } = {}) {
+export async function refreshIdeas(root: string, d: IdeasDeps, o: { force?: boolean; retryBlocked?: boolean } = {}) {
   const state = await readIdeas(root)
-  const report = { fresh: false, posts: 0, ideas: 0, failed: [] as string[] }
+  const report = { fresh: false, posts: 0, ideas: 0, failed: [] as string[], needsHuman: [] as SourceId[], blocked: [] as SourceId[], listed: {} as Partial<Record<SourceId, { kept: number; dropped: Record<string, number> }>> }
   if (!o.force && state.readAt && d.now().getTime() - Date.parse(state.readAt) < FRESH_DAYS * 86_400_000) return { ...report, fresh: true }
   let first = true
   const get = async (url: string) => { if (!first) await d.sleep(DELAY); first = false; return d.get(url) }
   for (const s of IDEA_SOURCES) {
-    try { state.posts[s.id] = await listPosts(s.list, get) } catch (err) { report.failed.push(`${s.id}: ${(err as Error).message.slice(0, 120)}`) }
+    const since = await sourceBlockedSince(root, s.id)
+    if (since && !o.retryBlocked) { report.blocked.push(s.id); continue }
+    try {
+      const { kept, dropped } = dropPosts(await listPosts(s.list, get), s.drop ?? [])
+      report.listed[s.id] = { kept: kept.length, dropped }
+      if (!kept.length) throw new Error('an empty listing')
+      state.posts[s.id] = kept
+      if (since) await setSourceBlock(root, s.id, undefined)
+    } catch (err) {
+      if (err instanceof ListingRefused) { await setSourceBlock(root, s.id, since ?? d.now().toISOString()); report.needsHuman.push(s.id) }
+      report.failed.push(`${s.id}: ${(err as Error).message.slice(0, 120)}, its last titles kept`)
+    }
   }
   const posts = IDEA_SOURCES.flatMap(s => (state.posts[s.id] ?? []).map(p => ({ ...p, site: s.id })))
   if (!posts.length) return report
@@ -119,58 +174,80 @@ export async function refreshIdeas(root: string, d: IdeasDeps, o: { force?: bool
   })
   const done = new Map(state.ideas.filter(i => i.guide || i.skipped).map(i => [slugify(i.topic), i]))
   const made = new Map<string, Idea>()
+  const site = new Map(posts.map(p => [p.url, p.site]))
+  const shops = (i: Idea) => i.posts.filter(u => !MAGAZINES.has(site.get(u)!))
   for (const x of r.ideas ?? []) {
     const topic = String(x.topic ?? '').trim().slice(0, 140)
     const mine = [...new Set((x.posts ?? []).map(n => posts[Math.round(n) - 1]).filter(p => p !== undefined))]
     if (!topic || !KINDS.includes(x.kind) || !mine.length || done.has(slugify(topic)) || made.has(slugify(topic))) continue
     const latest = mine.map(p => p.date ?? '').sort().at(-1)
-    made.set(slugify(topic), { topic, kind: x.kind, posts: mine.map(p => p.url), sites: new Set(mine.map(p => p.site)).size, ...(latest ? { latest } : {}) })
+    const fromMagazine = mine.every(p => MAGAZINES.has(p.site))
+    made.set(slugify(topic), { topic, kind: x.kind, posts: mine.map(p => p.url), sites: new Set(mine.map(p => p.site)).size, ...(latest ? { latest } : {}), ...(fromMagazine ? { fromMagazine } : {}) })
   }
-  state.ideas = [...[...made.values()].sort((a, b) => b.sites - a.sites || b.posts.length - a.posts.length || (b.latest ?? '').localeCompare(a.latest ?? '')), ...done.values()]
+  // The magazine's ideas behind every shop's, and a shop's idea ranked by the shops alone (the chief of staff, 14 Nov 2026):
+  // the magazine adds ideas to the work pending, never ahead of it.
+  const shopSites = (i: Idea) => new Set(shops(i).map(u => site.get(u))).size
+  state.ideas = [...[...made.values()].sort((a, b) => Number(!!a.fromMagazine) - Number(!!b.fromMagazine) || shopSites(b) - shopSites(a) || shops(b).length - shops(a).length
+    || b.posts.length - a.posts.length || (b.latest ?? '').localeCompare(a.latest ?? '')), ...done.values()]
   state.readAt = d.now().toISOString()
   await save(root, state)
   return { ...report, posts: posts.length, ideas: made.size }
 }
 
-/** The lines a guide's research gets from the shops' posts on its topic, and the magazine's. */
+/**
+ * The lines a guide's research gets from the shops' posts on its topic. Never the magazine's: research doesn't open it
+ * (idea-sources.ts NEVER_RESEARCHED), so its addresses aren't given.
+ */
 export function ideaLeads(idea: Idea, state: IdeasState): string {
   const titles = new Map(Object.values(state.posts).flat().map(p => [p!.url, p!.title]))
   const fromMagazine = new Set((Object.entries(state.posts) as [SourceId, Post[]][]).filter(([id]) => MAGAZINES.has(id)).flatMap(([, ps]) => ps.map(p => p.url)))
-  const line = (u: string) => `- ${u} (${titles.get(u) ?? ''})`
   const shops = idea.posts.filter(u => !fromMagazine.has(u)).slice(0, 6)
-  const magazine = idea.posts.filter(u => fromMagazine.has(u)).slice(0, 4)
-  return (shops.length ? `\n\nWhat Vietnamese keepers read on this, from aquarium shops' blogs (orientation only: never copy or translate their text; they sell what they write about, so check every fact elsewhere, and cite one of them only for a Vietnamese name or what is sold in Vietnam):\n${shops.map(line).join('\n')}` : '')
-    + (magazine.length ? `\n\nWhat a British fishkeeping magazine wrote on this (you may open these posts: never copy or translate their text and never use their photos; cite each post you read; leave out what only fits the UK):\n${magazine.map(line).join('\n')}` : '')
+  return shops.length ? `\n\nWhat Vietnamese keepers read on this, from aquarium shops' blogs (orientation only: never copy or translate their text; they sell what they write about, so check every fact elsewhere, and cite one of them only for a Vietnamese name or what is sold in Vietnam):\n${shops.map(u => `- ${u} (${titles.get(u) ?? ''})`).join('\n')}` : ''
 }
 
 /**
- * Guides on the most asked ideas, `perDay` at most a day (UTC). A model that stops (quota) stops it, the idea left for
- * the next run; any other failure counts, and is kept as the idea's reason.
+ * Guides on the magazine's ideas a day, at most: one of the day's two until the chief of staff has read its first three
+ * (14 Nov 2026). Raising it is a change here.
+ */
+export const MAGAZINE_PER_DAY = 1
+
+/**
+ * Guides on the most asked ideas, `perDay` at most a day (UTC), of them MAGAZINE_PER_DAY at most on the magazine's. A model
+ * that stops (quota) stops it, the idea left for the next run; any other failure counts, and is kept as the idea's reason.
+ * `magazine`: the ideas of the magazine's it wrote on, written or skipped.
  */
 export async function writeIdeas(root: string, d: { research: Llm; llm: Llm; now: () => Date }, o: { perDay: number; researchModel?: string }) {
   const state = await readIdeas(root)
   const today = d.now().toISOString().slice(0, 10)
-  const report = { written: [] as string[], skipped: [] as string[], failed: [] as string[], stopped: '' }
+  const report = { written: [] as string[], skipped: [] as string[], failed: [] as string[], stopped: '', magazine: [] as string[] }
+  // Research was spent on it: it counts.
+  const spent = (idea: Idea) => {
+    state.written[today] = (state.written[today] ?? 0) + 1
+    if (idea.fromMagazine) { state.magazine[today] = (state.magazine[today] ?? 0) + 1; report.magazine.push(idea.topic) }
+  }
   for (const idea of state.ideas) {
     if ((state.written[today] ?? 0) >= o.perDay) break
     if (idea.guide || idea.skipped) continue
+    if (idea.fromMagazine && (state.magazine[today] ?? 0) >= MAGAZINE_PER_DAY) continue
     const id = topicId(idea.topic)
     // A guide of that name already (the ideas missed it): taken as written, never rewritten from here.
     if (await readFile(join(root, 'content/guides', id, 'vi.json'), 'utf8').then(() => true, () => false)) { idea.guide = id; continue }
     try {
       // A guide is one piece: started only when what's left of the day's line covers a typical one (pieces.ts).
       const r = await piece(id, () => makeTopic(root, { research: d.research, llm: d.llm }, { topic: idea.topic, kind: idea.kind }, { leads: ideaLeads(idea, state), now: d.now, ...(o.researchModel ? { researchModel: o.researchModel } : {}) }), { now: d.now })
-      state.written[today] = (state.written[today] ?? 0) + 1
+      spent(idea)
       if ('skipped' in r && r.skipped) { idea.skipped = r.skipped; report.skipped.push(r.skipped) } else { idea.guide = r.id; report.written.push(r.id) }
     } catch (err) {
       if (err instanceof LlmError) { report.stopped = err.message; break }
-      // Research was spent on it: it counts, and is not tried again (the reason is kept).
-      state.written[today] = (state.written[today] ?? 0) + 1
+      // It counts, and is not tried again (the reason is kept).
+      spent(idea)
       idea.skipped = `failed: ${(err as Error).message.slice(0, 120)}`
       report.failed.push(`${idea.topic}: ${idea.skipped}`)
     }
   }
-  state.written = Object.fromEntries(Object.entries(state.written).filter(([day]) => d.now().getTime() - Date.parse(day) < 30 * 86_400_000))
+  const recent = (days: Record<string, number>) => Object.fromEntries(Object.entries(days).filter(([day]) => d.now().getTime() - Date.parse(day) < 30 * 86_400_000))
+  state.written = recent(state.written)
+  state.magazine = recent(state.magazine)
   await save(root, state)
   return report
 }

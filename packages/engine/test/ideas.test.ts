@@ -4,7 +4,9 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { nameStep } from '../src/ceiling'
 import { LlmError, type Llm } from '../src/claude'
-import { IDEA_SOURCES, listPosts, readIdeas, refreshIdeas, writeIdeas, type IdeasState } from '../src/ideas'
+import { cycleOnlyHosts } from '../src/cycle-only'
+import { dropPosts, IDEA_SOURCES, ListingRefused, listingText, listPosts, MAGAZINE_PER_DAY, readIdeas, refreshIdeas, writeIdeas, type IdeasState } from '../src/ideas'
+import { sourceBlockedSince } from '../src/state'
 
 // Shaped like the shops' own sitemaps and WordPress answers: placeholder titles, never the shops' text.
 const sitemap = (urls: [string, string?][]) => `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map(([u, d]) => `<url><loc>${u}</loc>${d ? `<lastmod>${d}T08:00:00+07:00</lastmod>` : ''}</url>`).join('')}</urlset>`
@@ -114,7 +116,7 @@ test('ideas: the shops\' titles and the handbook\'s guides go to the model; its 
   expect(again.asked).toEqual([])
   const down = web(Object.fromEntries(Object.entries(PAGES).filter(([u]) => !u.includes('cacanhtailoc'))))
   const later = await refreshIdeas(root, deps(down.get, llm, '2026-11-11T00:00:00Z').d)
-  expect(later.failed).toEqual(['cacanhtailoc: HTTP 404'])
+  expect(later.failed).toEqual(['cacanhtailoc: HTTP 404, its last titles kept'])
   expect(later.posts).toBe(8)
 })
 
@@ -129,6 +131,7 @@ test('writing: the most asked idea first, its shops\' posts as leads that say ne
       { topic: 'Cá thiếu oxy', kind: 'care', posts: [], sites: 1 },
     ],
     written: { '2026-09-01': 3 },
+    magazine: {},
   }
   await writeFile(join(root, 'engine-state/_ideas.json'), JSON.stringify(state))
   const asked: string[] = []
@@ -140,9 +143,9 @@ test('writing: the most asked idea first, its shops\' posts as leads that say ne
   expect(asked[0]).toContain('"Nước bể cá bị đục trắng"')
   expect(asked[0]).toContain(`- ${AZ}nuoc-be-ca-bi-duc (nuoc be ca bi duc)`)
   expect(asked[0]).toContain('never copy or translate their text')
-  // The magazine's post apart, with its own words: it may be opened; never copied or translated, no photos; cited when read.
-  expect(asked[0]).toContain(`British fishkeeping magazine wrote on this (you may open these posts: never copy or translate their text and never use their photos; cite each post you read; leave out what only fits the UK):\n- ${PF}features/cloudy-water-explained/ (cloudy water explained)`)
-  expect(asked[0]!.indexOf(`${PF}features/`)).toBeGreaterThan(asked[0]!.indexOf('British fishkeeping magazine'))
+  // Research never opens the magazine (the chief of staff, 14 Nov 2026), so its posts aren't given, on an idea of a shop's too.
+  expect(asked[0]).not.toContain(PF)
+  expect(asked[0]).not.toContain('British fishkeeping magazine')
   let s = await readIdeas(root)
   expect(s.ideas.map(i => i.guide ?? i.skipped ?? '')).toEqual(['aquatome-ca-bi-tuot-nhot', 'Nước bể cá bị đục trắng: nothing reliable found', ''])
   // Old days are dropped; today's count stops a second run.
@@ -162,7 +165,7 @@ test('a guide is started only when what\'s left of the day\'s line covers its la
   // The chief of staff, 2026-11-12: on 12 Nov the step spent its $1 line on 7 of a guide's 9 calls and wrote nothing.
   // A guide costs $1.28 to $1.37; the cloud's line is $3 (two guides). The Mac's stays $0: the step runs in the cloud.
   const root = await site({})
-  const state: IdeasState = { readAt: '2026-11-13T00:00:00Z', posts: {}, ideas: [{ topic: 'Cá thiếu oxy', kind: 'care', posts: [], sites: 1 }], written: {} }
+  const state: IdeasState = { readAt: '2026-11-13T00:00:00Z', posts: {}, ideas: [{ topic: 'Cá thiếu oxy', kind: 'care', posts: [], sites: 1 }], written: {}, magazine: {} }
   await writeFile(join(root, 'engine-state/_ideas.json'), JSON.stringify(state))
   const log = join(root, 'aquatome-cost-rewrite.jsonl')
   const piece = (at: string, usd: number) => JSON.stringify({ at, step: 'write-ideas', piece: `x ${at}`, pieceUsd: usd, finished: true })
@@ -189,4 +192,132 @@ test('a guide is started only when what\'s left of the day\'s line covers its la
     if (github === undefined) delete process.env.GITHUB_ACTIONS
     else process.env.GITHUB_ACTIONS = github
   }
+})
+
+// The chief of staff, 14 Nov 2026: a challenge page answered with 200 became an empty listing and replaced the saved titles,
+// and a 403 or a 429 marked nothing. For every site read for ideas: a listing that comes back empty, or isn't a listing,
+// never replaces its saved titles; a browser check or a refusal marks the site as needing the owner, and its fetches stop.
+const CHALLENGE = '<!DOCTYPE html><html><head><title>Just a moment...</title></head><body>Checking your browser before accessing.</body></html>'
+/** The engine's own fetch (cli.ts): each address's status and body, through listingText. */
+function answers(pages: Record<string, [number, string]>) {
+  const asked: string[] = []
+  const get = async (u: string) => { asked.push(u); const [status, body] = pages[u] ?? [404, 'Not found']; return listingText(new Response(body, { status })) }
+  return { get, asked }
+}
+
+test('a refusal is told from a failure: a 403, a 429 or a browser check needs the owner; a 404 or a 500 is a failure only', async () => {
+  expect(await listingText(new Response('<urlset></urlset>', { status: 200 }))).toBe('<urlset></urlset>')
+  for (const [status, body] of [[403, 'Forbidden'], [429, ''], [503, CHALLENGE]] as const)
+    await expect(listingText(new Response(body, { status })), String(status)).rejects.toBeInstanceOf(ListingRefused)
+  for (const [status, body] of [[404, 'Not found'], [500, 'Server error']] as const) {
+    const e = await listingText(new Response(body, { status })).catch((x: unknown) => x)
+    expect(e, String(status)).toBeInstanceOf(Error)
+    expect(e, String(status)).not.toBeInstanceOf(ListingRefused)
+  }
+  // Answered with 200: a browser check is a refusal, before any reading of it as a sitemap or as JSON; another page, a failure.
+  const page = (body: string) => async () => body
+  await expect(listPosts({ kind: 'sitemap', url: `${AZ}x.xml`, prefix: AZ }, page(CHALLENGE))).rejects.toBeInstanceOf(ListingRefused)
+  await expect(listPosts({ kind: 'wordpress', base: AH, category: 'tin-tuc-aqua' }, page(CHALLENGE))).rejects.toBeInstanceOf(ListingRefused)
+  await expect(listPosts({ kind: 'sitemap', url: `${AZ}x.xml`, prefix: AZ }, page('<html><body>A shop</body></html>'))).rejects.toThrow('not a sitemap')
+  await expect(listPosts({ kind: 'wordpress', base: AH, category: 'tin-tuc-aqua' }, page('<html><body>A shop</body></html>'))).rejects.toThrow('not JSON')
+})
+
+test('a listing that is empty or not a listing keeps the saved titles; a refused one marks its site, which is not fetched again until a retry', async () => {
+  const root = await site()
+  const saved: IdeasState['posts'] = {
+    aquazonefish: [{ url: `${AZ}nuoc-be-ca-bi-duc`, title: 'nuoc be ca bi duc' }],
+    aquahouse: [{ url: `${AH}/ca-bi-tuot-nhot/`, title: 'Cá Bị Tuột Nhớt' }],
+    cacanhtailoc: [{ url: `${TL}nuoc-be-ca-bi-duc-trang`, title: 'nuoc be ca bi duc trang' }],
+    practicalfishkeeping: [{ url: `${PF}features/cloudy-water-explained/`, title: 'cloudy water explained' }],
+  }
+  await writeFile(join(root, 'engine-state/_ideas.json'), JSON.stringify({ readAt: '2026-11-01T00:00:00Z', posts: saved, ideas: [], written: {} }))
+  await writeFile(join(root, 'engine-state/_sources.json'), '{}')
+  const llm: Llm = async <T>() => ({ ideas: [] }) as T
+  const web1 = answers({
+    'https://aquazonefish.vn/sitemap_blogs_1.xml': [200, CHALLENGE], // a browser check answered with 200
+    [`${AH}/wp-json/wp/v2/categories?slug=tin-tuc-aqua&_fields=id`]: [200, '<html><body>Maintenance</body></html>'], // not a listing
+    'https://cacanhtailoc.com/sitemap_blogs_1.xml': [200, sitemap([['https://cacanhtailoc.com/blogs/bao-gia/bao-gia']])], // nothing under its blog
+    [`${PF}sitemap-1.xml`]: [403, 'Forbidden'],
+  })
+  const r = await refreshIdeas(root, deps(web1.get, llm, '2026-11-14T00:00:00Z').d)
+  expect(r.needsHuman).toEqual(['aquazonefish', 'practicalfishkeeping'])
+  expect(r.failed).toEqual([
+    'aquazonefish: refused, a browser check, its last titles kept',
+    'aquahouse: not JSON, its last titles kept',
+    'cacanhtailoc: an empty listing, its last titles kept',
+    'practicalfishkeeping: refused, HTTP 403, its last titles kept',
+  ])
+  expect((await readIdeas(root)).posts).toEqual(saved)
+  expect(await sourceBlockedSince(root, 'aquazonefish')).toBe('2026-11-14T00:00:00.000Z')
+  expect(await sourceBlockedSince(root, 'practicalfishkeeping')).toBe('2026-11-14T00:00:00.000Z')
+  expect(await sourceBlockedSince(root, 'cacanhtailoc')).toBeUndefined()
+  // The dashboard's "needs you" reads that record; research keeps off a shop that refused us as it does off the cycle's.
+  expect(await cycleOnlyHosts(root)).toEqual(expect.arrayContaining(['aquazonefish.vn', '*.aquazonefish.vn']))
+  // Forced a day on: the refused sites aren't fetched, nor marked again.
+  const web2 = answers(Object.fromEntries(Object.entries(PAGES).map(([u, b]) => [u, [200, b] as [number, string]])))
+  const again = await refreshIdeas(root, deps(web2.get, llm, '2026-11-15T00:00:00Z').d, { force: true })
+  expect(again.blocked).toEqual(['aquazonefish', 'practicalfishkeeping'])
+  expect(web2.asked.filter(u => u.includes('aquazonefish') || u.includes('practicalfishkeeping'))).toEqual([])
+  expect((await readIdeas(root)).posts.aquazonefish).toEqual(saved.aquazonefish)
+  expect(await sourceBlockedSince(root, 'aquazonefish')).toBe('2026-11-14T00:00:00.000Z')
+  // Once the owner has looked, a retry reads them; a good listing clears the mark, and research may open the shop again.
+  const web3 = answers(Object.fromEntries(Object.entries(PAGES).map(([u, b]) => [u, [200, b] as [number, string]])))
+  const retried = await refreshIdeas(root, deps(web3.get, llm, '2026-11-16T00:00:00Z').d, { force: true, retryBlocked: true })
+  expect(retried).toMatchObject({ needsHuman: [], blocked: [], failed: [] })
+  expect(await sourceBlockedSince(root, 'aquazonefish')).toBeUndefined()
+  expect(await sourceBlockedSince(root, 'practicalfishkeeping')).toBeUndefined()
+  expect((await readIdeas(root)).posts.aquazonefish!.map(p => p.url)).toEqual([`${AZ}nuoc-be-ca-bi-duc`, `${AZ}cach-xu-ly-tao`])
+  expect(await cycleOnlyHosts(root)).not.toContain('aquazonefish.vn')
+})
+
+// The chief of staff, 14 Nov 2026: a plain word filter on the magazine's addresses for the clear cases, each rule's count
+// printed with the posts that survive (the owner's figure). Placeholder addresses, never the magazine's own.
+test("the magazine's word rules leave out posts about someone, not a topic, and count each rule", async () => {
+  const rules = IDEA_SOURCES.find(s => s.id === 'practicalfishkeeping')!.drop!
+  const post = (slug: string) => ({ url: `${PF}features/${slug}/`, title: slug.replace(/-/g, ' ') })
+  const out = ['a-visit-to-a-planted-tank', 'visiting-a-breeder', 'inside-a-keepers-fish-room', 'a-day-in-the-fishhouse', 'readers-tank-a-planted-60',
+    'tank-of-the-month-a-reef', 'an-interview-with-a-breeder', 'a-day-in-the-life-of-a-keeper', 'a-breeder-shares-her-way', 'profile-a-tetra',
+    'obituary-a-keeper', 'a-tribute-to-a-keeper', 'a-filter-review', 'reviewed-a-light', 'a-light-on-test', 'win-a-tank', 'readers-poll-the-winners',
+    'news-a-show-this-weekend', 'a-shop-tour', 'shop-of-the-month-a-store']
+  const kept = ['how-to-set-up-a-fish-room', 'meet-the-rainbowfish', 'how-to-win-against-algae', 'contest-style-aquascapes', 'winter-care', 'reviewing-your-water-changes',
+    'how-often-should-water-be-tested', 'the-water-profile-of-a-river']
+  const r = dropPosts([...out, ...kept].map(post), rules)
+  expect(r.kept.map(p => p.title)).toEqual(kept.map(k => k.replace(/-/g, ' ')))
+  expect(r.dropped).toEqual({ 'a visit': 2, 'a fish room': 2, "a reader's tank": 2, 'an interview': 3, 'a profile': 1, 'an obituary': 2, 'a review': 3, 'a competition': 2, news: 1, 'a shop tour': 2 })
+  // The shops have no rules. A refresh keeps what's left and reports each rule's count.
+  expect(IDEA_SOURCES.filter(s => s.drop).map(s => s.id)).toEqual(['practicalfishkeeping'])
+  const root = await site()
+  const pages = { ...PAGES, [`${PF}sitemap-1.xml`]: sitemap([[`${PF}features/cloudy-water-explained/`], [`${PF}features/a-visit-to-a-planted-tank/`], [`${PF}fishkeeping-answers/a-filter-review/`], [`${PF}beginners-hub/your-first-tank/`]]) }
+  const report = await refreshIdeas(root, deps(web(pages).get, async <T>() => ({ ideas: [] }) as T).d)
+  expect(report.listed.practicalfishkeeping).toEqual({ kept: 2, dropped: { ...Object.fromEntries(rules.map(([n]) => [n, 0])), 'a visit': 1, 'a review': 1 } })
+  expect((await readIdeas(root)).posts.practicalfishkeeping!.map(p => p.title)).toEqual(['cloudy water explained', 'your first tank'])
+  expect(report.listed.aquazonefish).toEqual({ kept: 2, dropped: {} })
+})
+
+// The chief of staff, 14 Nov 2026: the magazine's ideas go behind the work already pending, and at most one of a day's two
+// guides comes from them until the chief of staff has read the first three.
+test("the magazine's ideas queue behind the shops', a shop's idea ranks by the shops alone, and one a day at most is written", async () => {
+  const root = await site({})
+  const llm: Llm = async <T>() => ({ ideas: [
+    { topic: 'Ba bài của tạp chí', kind: 'care', posts: [6, 7, 8] }, // the magazine's only: last, whatever its count
+    { topic: 'Một cửa hàng và tạp chí', kind: 'care', posts: [3, 6, 7] }, // one shop's post, and the magazine's
+    { topic: 'Hai cửa hàng', kind: 'disease', posts: [1, 5] }, // two shops
+  ] }) as T
+  await refreshIdeas(root, deps(web(PAGES).get, llm).d)
+  const s = await readIdeas(root)
+  expect(s.ideas.map(i => [i.topic, i.fromMagazine ?? false])).toEqual([['Hai cửa hàng', false], ['Một cửa hàng và tạp chí', false], ['Ba bài của tạp chí', true]])
+  expect(MAGAZINE_PER_DAY).toBe(1)
+  await writeFile(join(root, 'engine-state/_ideas.json'), JSON.stringify({ ...s, ideas: [
+    { topic: 'Tạp chí một', kind: 'care', posts: [`${PF}features/cloudy-water-explained/`], sites: 1, fromMagazine: true },
+    { topic: 'Tạp chí hai', kind: 'care', posts: [`${PF}fishkeeping-answers/why-is-my-water-cloudy/`], sites: 1, fromMagazine: true },
+    { topic: 'Cửa hàng một', kind: 'care', posts: [`${AZ}nuoc-be-ca-bi-duc`], sites: 1 },
+  ] }))
+  const asked: string[] = []
+  const research: Llm = async <T>({ prompt }: { prompt: string }) => { asked.push(prompt); return { found: false, facts: [], species: [], sources: [] } as T }
+  const day1 = await writeIdeas(root, { research, llm: research, now: () => new Date('2026-11-14T05:00:00Z') }, { perDay: 2 })
+  expect(day1.magazine).toEqual(['Tạp chí một'])
+  expect(asked.map(a => /"(Tạp chí một|Tạp chí hai|Cửa hàng một)"/.exec(a)?.[1])).toEqual(['Tạp chí một', 'Cửa hàng một'])
+  expect((await readIdeas(root)).magazine).toEqual({ '2026-11-14': 1 })
+  const day2 = await writeIdeas(root, { research, llm: research, now: () => new Date('2026-11-15T05:00:00Z') }, { perDay: 2 })
+  expect(day2.magazine).toEqual(['Tạp chí hai'])
 })
