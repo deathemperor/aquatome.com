@@ -538,11 +538,13 @@ test('a dealer\'s own current batch or stock is the source check\'s; trade histo
 })
 
 // The Writing Lead, 14 Nov 2026: the glowlight tetra's "Lá dẻ gai hay lá sồi đều dùng được" passed the read.
-test('the elsewhere check names leaves and wood keepers here don\'t buy or gather, and what they use instead', () => {
-  expect(fitPrompt('vi')).toMatch(/- elsewhere: [^\n]*Leaves, wood and other things for the tank that keepers in Vietnam don't buy or gather, such as beech or oak leaves and wood from European trees: an elsewhere finding\. Quote the words, and name what keepers here use instead: lá bàng for leaves, lũa for wood\. Not:/)
+test('the elsewhere check names leaves and wood keepers here don\'t buy or gather, and nothing to use instead', () => {
+  expect(fitPrompt('vi')).toMatch(/- elsewhere: [^\n]*Leaves, wood and other things for the tank that keepers in Vietnam don't buy or gather, such as beech or oak leaves and wood from European trees: an elsewhere finding\. Quote the words\. Not:/)
+  // Nothing to use instead: a writer given "lá bàng" would say what the source didn't (the Writing Lead).
+  expect(fitPrompt('vi')).not.toContain('lá bàng')
   // It names Vietnam and what keepers there use: no other language's reader is judged by it (Astra's read).
   for (const lang of ['id', 'th', 'ms'] as const) {
-    expect(fitPrompt(lang), lang).not.toContain('lá bàng')
+    expect(fitPrompt(lang), lang).not.toContain('Leaves, wood and other things')
     expect(fitPrompt(lang), lang).not.toContain('{{LEAVES_NOTE}}')
   }
 })
