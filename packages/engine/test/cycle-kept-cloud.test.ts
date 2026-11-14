@@ -134,16 +134,19 @@ test('a publish whose branch GitHub won\'t delete doesn\'t land on main either, 
   g.refusingDeletes(true)
   expect(g.nextRun()).toContain(`LOG ${kept} isn't published yet (the push didn't land): it stays kept for the next run`)
   expect(g.onMain('content/b.json')).toBe('')
-  expect(g.onGitHub()).toEqual([kept])
+  // Its checks passed, and the rename that ends its row was refused too: its name with no count is beside it.
+  const bare = kept.replace(/-out1$/, '')
+  expect(g.onGitHub()).toEqual([bare, kept])
   g.refusingDeletes(false)
-  expect(g.nextRun()).toContain(`LOG published ${kept}`)
+  expect(g.nextRun()).toContain(`LOG published ${bare}`)
   expect(g.onMain('content/b.json')).toBe('rewrite')
   expect(g.onGitHub()).toEqual([])
   // And once published, a later run finds nothing to publish.
   g.land('content/b.json', 'newer')
   expect(g.nextRun()).toBe('')
   expect(g.onMain('content/b.json')).toBe('newer')
-})
+  // Its own limit: since 14 Nov a name added and one dropped too, 4.8 s alone, past the test above that ran 30.6 s.
+}, slow(60_000))
 
 test('a move GitHub won\'t finish leaves the branch where it was, never in two places', () => {
   const g = github()
@@ -248,4 +251,48 @@ test("a rename on GitHub never moves a branch already there; a count GitHub won'
   const log = g.cycle(g.runner(), 'publish_kept rewrite; echo "FAULT=${FAULT:-}"', { CHECK: TIMEOUT })
   expect(log).toContain(`FAULT=${kept} ran out of time again and couldn't be renamed ${out2}: it stays as ${kept}, its count not moved on`)
   expect(g.onGitHub()).toEqual([kept])
+}, slow(60_000))
+
+// Codex's read of 6d2aea2bd: a pass whose rename GitHub refused was known to that run only, and the next runner, out of
+// time, held the work at -out3. The pass goes on GitHub as the name with no count, beside the counted one.
+test("a pass whose rename GitHub refuses is still known to the next runner, which counts from there", () => {
+  const g = github()
+  g.failedRun(TIMEOUT)
+  const [kept = ''] = g.onGitHub()
+  const base = kept.replace(/-out1$/, '')
+  g.nextRun({ CHECK: TIMEOUT })
+  expect(g.onGitHub()).toEqual([`${base}-out2`])
+  // GitHub refusing deletes: the pass's rename and the publish are refused; a name added isn't.
+  g.refusingDeletes(true)
+  const passed = g.cycle(g.runner(), 'publish_kept rewrite; echo "FAULT=${FAULT:-}"')
+  expect(passed).toContain(`FAULT=${base}-out2 passed its checks and couldn't be renamed ${base}`)
+  g.refusingDeletes(false)
+  const next = g.nextRun({ CHECK: TIMEOUT })
+  expect(g.onGitHub()).toEqual([`${base}-out1`])
+  expect(next).toContain(`LOG ${base} isn't published yet (tests out of time again: 1 of 3 cycles in a row): it stays kept for the next run, as ${base}-out1`)
+  expect(passed).toContain(`LOG ${base}-out2 passed and couldn't lose its count: ${base} is beside it on the same work, the name the next run takes`)
+  expect(g.onMain('content/b.json')).toBe('')
+}, slow(60_000))
+
+// Codex's read of 6d2aea2bd: one_name deleted the old name here before GitHub refused to delete it there, so the batch's
+// other name was this run's only one and was published, and the old name, still on GitHub, was published again next run.
+test("a batch under two names whose old name GitHub won't delete is left whole: neither is published until it can be", () => {
+  const g = github()
+  g.failedRun(TIMEOUT)
+  const [kept = ''] = g.onGitHub()
+  const out2 = kept.replace(/-out1$/, '-out2')
+  g.cycle(g.runner(), `git fetch -q origin "+refs/heads/${kept}:refs/heads/${kept}" && git push -q origin "refs/heads/${kept}:refs/heads/${out2}"`)
+  // GitHub refusing to delete the old name only: the other's publish deletes it.
+  g.cycle(g.runner(), `printf '#!/bin/sh\\n[ "$1" = refs/heads/${kept} ] && [ "$3" = 0000000000000000000000000000000000000000 ] && exit 1\\nexit 0\\n' > "$HOME/origin.git/hooks/update" && chmod 755 "$HOME/origin.git/hooks/update"`)
+  const log = g.nextRun()
+  expect(log).toContain(`LOG ${kept} is the same work as ${out2} and couldn't be dropped: neither is processed this run`)
+  expect(log).not.toContain('publishing')
+  expect(g.onMain('content/b.json')).toBe('')
+  expect(g.onGitHub()).toEqual([kept, out2])
+  g.refusingDeletes(false)
+  const next = g.nextRun()
+  expect(next).toContain(`LOG published ${out2}`)
+  expect(next).not.toContain(`publishing ${kept}`)
+  expect(g.onMain('content/b.json')).toBe('rewrite')
+  expect(g.onGitHub()).toEqual([])
 }, slow(60_000))

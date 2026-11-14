@@ -231,11 +231,15 @@ keep_branch() {
   engine_cloud || return 0
   net git push -q origin "refs/heads/$1:refs/heads/$1" || { log "$1 couldn't be pushed to GitHub: this run's work is lost with the runner"; return 1; }
 }
-# Branch $1 deleted, and in the cloud GitHub's of that exact name.
+# Branch $1 deleted, and in the cloud GitHub's of that exact name, GitHub's first. Until 14 Nov this clone's went first:
+# when GitHub then refused, a batch under two names (one_name) had one name left here, which was published, while GitHub
+# kept the other for the next run to publish again (Codex's read, that day). Now a refusal leaves both names here, and
+# the batch's other name is left this run too.
 drop_branch() {
-  git branch -q -D "$1" || return 1
-  engine_cloud || return 0
-  net git push -q origin --delete "refs/heads/$1"
+  if engine_cloud; then
+    net git push -q origin --delete "refs/heads/$1"
+  fi || return 1
+  git branch -q -D "$1"
 }
 # `move_branch <from> <to>`, once its work failed its tests (push_kept): <to> is the work as it was last checked, on the
 # main it failed on, so its one more try waits for a main newer than that (retry_held). On the Mac too since 14 Nov: a
@@ -255,6 +259,12 @@ rename_branch() {
   if engine_cloud; then net git push -q --atomic --force-with-lease="refs/heads/$2:" origin "refs/heads/$1:refs/heads/$2" ":refs/heads/$1" || return 1; fi
   git branch -q -m "$1" "$2"
 }
+# `copy_branch <from> <to>`: <from>'s work under a second name as well, and in the cloud on GitHub too; never over a branch
+# that exists.
+copy_branch() {
+  if engine_cloud; then net git push -q --force-with-lease="refs/heads/$2:" origin "refs/heads/$1:refs/heads/$2" || return 1; fi
+  git branch -q "$2" "$1"
+}
 # The same work out of time OUT_CYCLES cycles in a row is no longer put down to a busy Mac (the chief of staff, 14 Nov): it
 # fails as work whose tests failed does, its output kept and the run failed with a notice. A branch's count is in its name,
 # the one thing a cloud runner and the Mac's clone share: kept/<job>/<when>-out1 is work out of time in its own run, and
@@ -272,9 +282,20 @@ uncounted() { echo "${1%-out[0-9]}"; }
 count_outs() {
   local n to
   BRANCH=$1 OUT_FAILED=
-  [ "$KEPT_WHY" = "tests out of time again" ] || return 0
   # A pass this run couldn't record (ended_row) left a count that's wrong: nothing is counted on it, nothing held on it.
-  [ -z "${PASS_UNRECORDED:-}" ] || return 0
+  # Left for the next run, the work gets its name with no count beside the counted one, on its own commit (HEAD is the
+  # work rebased, and a batch on two commits is touched by no run). one_name reads the two as a pass's rename half-done:
+  # the next run drops the counted name by its exact name and goes on from the other, or processes neither until it can.
+  # Until 14 Nov the next run knew nothing of the pass, and out of time it held the work at -out3 (Codex's read, that
+  # day). Not earlier in the run: a publish would delete one name and leave the other for the next run to publish again.
+  if [ -n "${PASS_UNRECORDED:-}" ]; then
+    [ -z "$KEPT_FAILED" ] || return 0
+    to=$(uncounted "$1")
+    if copy_branch "$1" "$to"; then log "$1 passed and couldn't lose its count: $to is beside it on the same work, the name the next run takes"
+    else log "$1 passed and couldn't lose its count, nor have $to beside it: only this run's FAULT line records the pass"; fi
+    return 0
+  fi
+  [ "$KEPT_WHY" = "tests out of time again" ] || return 0
   n=$(($(outs "$1") + 1))
   if [ "$n" -ge "$OUT_CYCLES" ]; then
     OUT_FAILED=$n KEPT_FAILED=1
@@ -291,10 +312,11 @@ count_outs() {
 # 14 Nov): a batch at -out2 that passed, lost its push to another job's and ran out of time on main's newer commit was
 # held as three cycles in a row with a pass between them, and one whose pass a clash followed kept its count. BRANCH
 # loses its count. A rename refused leaves a count that's wrong: this run counts nothing on it and holds nothing on it
-# (PASS_UNRECORDED, count_outs), and says so in a FAULT line. A later run can't tell. On the Mac only a fault of the clone
-# itself (a lock left behind, a full disk) refuses a rename one_name has cleared the way for: a branch already at the name
-# is one batch under two names. In the cloud, GitHub's refusal is recorded nowhere but that line, so the name is put
-# right by hand before a later run counts on it.
+# (PASS_UNRECORDED, count_outs), and says so in a FAULT line. A later run reads it only from the name with no count that
+# count_outs puts beside the counted one, the one record a cloud runner and the Mac's clone share. On the Mac only a fault
+# of the clone itself (a lock left behind, a full disk) refuses a rename one_name has cleared the way for: a branch
+# already at the name is one batch under two names. That name refused too, here or on GitHub, the pass is recorded
+# nowhere but the FAULT line, and the name is put right by hand before a later run counts on it.
 ended_row() {
   local to
   to=$(uncounted "$BRANCH")
@@ -477,14 +499,16 @@ retry_held() {
 # the kept work's translation of another draft, half one page and half another (the chief of staff, that day). Any other
 # file both added (one in a folder that was there, a page of one file such as content/gallery/<id>.json) goes back to
 # main's. Added is absent where <branch> was cut, renames not followed: git's rename detection read a page main moved to
-# a path the kept work also wrote as moved, not added, and the kept version won (that day too). All in a commit of its
-# own. `main_pages <branch>`, after the pull.
+# a path the kept work also wrote as moved, not added, and the kept version won (that day too). The kept work's are what
+# any of its commits added, not only what its last one has: the rebase replays each commit, and a page it added and a
+# later commit deleted was added on main's and then deleted, main's page with it (Codex's read, 14 Nov). All in a commit
+# of its own. `main_pages <branch>`, after the pull.
 main_pages() {
   local base pages files
   base=$(git merge-base "$1" origin/main) || return 0
-  pages=$(comm -12 <(added "$base" "$1" | sed -nE 's#^(content/[^/]+/[^/]+)/[^/]+$#\1#p' | sort -u) <(added "$base" origin/main | sed -nE 's#^(content/[^/]+/[^/]+)/[^/]+$#\1#p' | sort -u) |
+  pages=$(comm -12 <(ever_added "$base" "$1" | sed -nE 's#^(content/[^/]+/[^/]+)/[^/]+$#\1#p' | sort -u) <(added "$base" origin/main | sed -nE 's#^(content/[^/]+/[^/]+)/[^/]+$#\1#p' | sort -u) |
     while read -r page; do git cat-file -e "$base:$page" 2>/dev/null || echo "$page"; done)
-  files=$(comm -12 <(added "$base" "$1") <(added "$base" origin/main) | while read -r file; do grep -qxF "${file%/*}" <<<"$pages" || echo "$file"; done)
+  files=$(comm -12 <(ever_added "$base" "$1") <(added "$base" origin/main) | while read -r file; do grep -qxF "${file%/*}" <<<"$pages" || echo "$file"; done)
   [ -n "$pages$files" ] || return 0
   # shellcheck disable=SC2086 # content paths have no spaces
   git checkout --no-overlay origin/main -- $pages $files
@@ -494,6 +518,8 @@ main_pages() {
 }
 # The content files added between commits $1 and $2, renames not followed, sorted.
 added() { git diff --name-only --no-renames --diff-filter=A "$1" "$2" -- content | sort; }
+# The content files any commit after $1 up to $2 added, renames not followed, sorted: one a later commit deleted too.
+ever_added() { git log --format= --name-only --no-renames --diff-filter=A "$1..$2" -- content | sed '/^$/d' | sort -u; }
 # The checked-out kept work on top of main, swept and checked, pushed. As push() does, lines both changed give way to the
 # kept work's, a clash in the calendar plans it again, and after any merge it's swept and checked again. KEPT_FAILED
 # when its tests failed for real; KEPT_WHY says why it isn't published; BRANCH, the branch's name now (a check that

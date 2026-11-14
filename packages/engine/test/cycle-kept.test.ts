@@ -244,7 +244,14 @@ test('a pass whose rename fails is never held on the count it leaves', () => {
   const log = c.cycle(`${racing('echo sf > content/c.json && git add .')}; rename_branch() { return 1; }; publish_kept photos; echo "FAULT=\${FAULT:-}"`)
   expect(log).toContain(`LOG ${base}-out2 isn't published yet (tests out of time again): it stays kept for the next run`)
   expect(log).toContain(`FAULT=${base}-out2 passed its checks and couldn't be renamed ${base}: it stays as ${base}-out2, and its count is wrong until it is`)
-  expect(c.branches()).toEqual([`${base}-out2`])
+  // Codex's read of 6d2aea2bd: the next run knew nothing of the pass, and out of time it held the work at -out3. The
+  // pass is left as its name with no count, beside the counted one on the same work, which the next run takes.
+  const names = c.branches()
+  const next = c.cycle('publish_kept photos', { CHECK: 'Error: Test timed out in 30000ms.' })
+  expect(c.branches()).toEqual([`${base}-out1`])
+  expect(next).toContain(`LOG ${base} isn't published yet (tests out of time again: 1 of 3 cycles in a row): it stays kept for the next run, as ${base}-out1`)
+  expect(names).toEqual([base, `${base}-out2`])
+  expect(log).toContain(`LOG ${base}-out2 passed and couldn't lose its count: ${base} is beside it on the same work, the name the next run takes`)
 }, slow(60_000))
 
 test('a batch under two names on one commit loses its old name and is published once; on two commits neither is touched', () => {
@@ -362,6 +369,24 @@ test('a page main moved to where the kept work wrote one stays as main has it', 
   expect(c.onMain('content/species/x/vi.json')).toBe('main-name')
   expect(c.onMain('content/species/x/th.json')).toBe('')
   expect(c.onMain('content/species/old/vi.json')).toBe('')
+}, slow(60_000))
+
+// Codex's read of 6d2aea2bd: a rebase replays each commit of the kept work, so a page it added and a later commit deleted
+// was added on main's and then deleted, main's page with it, though the kept work's last commit has no such page.
+test('kept work that added a page and deleted it again leaves the page main published meanwhile as main has it', () => {
+  const c = clone()
+  c.sh('mkdir -p content/species/x content/gallery && echo kept-name > content/species/x/vi.json && echo kept-gallery > content/gallery/g.json && git add . && git commit -qm "content: engine pages" && git rm -rq content/species/x content/gallery/g.json && echo photos > content/b.json && git add . && git commit -qm "content: engine photos"')
+  c.cycle("verify 'pnpm test' || keep_unpublished photos", { CHECK: 'Error: Test timed out in 30000ms.' })
+  c.sh('git fetch -q origin && git reset -q --hard origin/main')
+  const [kept = ''] = c.branches()
+  c.elsewhere('content/species/x/vi.json', 'main-name')
+  c.elsewhere('content/gallery/g.json', 'main-gallery')
+  const log = c.cycle('publish_kept photos')
+  expect(c.onMain('content/species/x/vi.json')).toBe('main-name')
+  expect(c.onMain('content/gallery/g.json')).toBe('main-gallery')
+  expect(c.onMain('content/b.json')).toBe('photos')
+  expect(log).toContain(`LOG ${kept}: 1 pages and 1 other files a later run published first stay as main has them`)
+  expect(log).toContain(`LOG published ${kept}`)
 }, slow(60_000))
 
 // As the jobs' scripts end: a commit, its checks, then the push (or giving up).
