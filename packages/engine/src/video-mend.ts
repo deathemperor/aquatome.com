@@ -26,10 +26,14 @@ function sentenceOf(paragraphs: string[], quote: string): string {
   for (const p of paragraphs) {
     const i = p.indexOf(quote)
     if (i < 0) continue
-    const start = Math.max(p.lastIndexOf('. ', i), p.lastIndexOf('? ', i), p.lastIndexOf('! ', i)) + 1
-    const from = i + Math.max(0, quote.length - 1)
-    const end = p.slice(from).search(/[.?!](?:\s|$)/)
-    return p.slice(start, end < 0 ? p.length : from + end + 1)
+    // The quote's own last mark, past a closing quote mark: a stop there ends the sentence; one inside the quote doesn't.
+    const last = i + Math.max(1, quote.replace(/["'”’»)]+$/u, '').length) - 1
+    let start = 0, end = p.length
+    for (const m of p.matchAll(STOP)) {
+      if (m.index + m[0].length <= i) start = m.index + m[0].length
+      else if (m.index >= last) { end = m.index + m[0].length; break }
+    }
+    return p.slice(start, end).trim()
   }
   return quote
 }
@@ -105,7 +109,13 @@ function figures(text: string): Map<string, number> {
 }
 /** A figure's dose unit, when its key has one ("hai mươi nắp" is in nắp, "20 mg trênl" in mg). */
 const unit = (k: string) => k.split(' ').slice(1).find(p => DOSE_UNIT.test(p)) ?? ''
-const split = (t: string) => t.split(/\n|(?<=[.?!])\s+/).map(x => x.trim()).filter(Boolean)
+/**
+ * A sentence's stop: ".", "?", "!" or "…", with any closing quote mark, before a space or the end. Not a genus's initial
+ * ("p. aethiopicus", the text as `norm` gives it) (Grok's read).
+ */
+const STOP_MARK = `(?<!(?:^|[\\s(])[a-z])[.?!…]["'”’»)]*`
+const STOP = new RegExp(`${STOP_MARK}(?=\\s|$)`, 'giu')
+const split = (t: string) => t.split(new RegExp(`\\n|(?<=${STOP_MARK})\\s+`, 'iu')).map(x => x.trim()).filter(Boolean)
 /** What `a` has more of than `b`. */
 const more = (a: Map<string, number>, b: Map<string, number>) => [...a].flatMap(([k, n]) => (n > (b.get(k) ?? 0) ? [k] : []))
 const less = (a: Map<string, number>, gone: Map<string, number>) => new Map([...a].map(([k, n]) => [k, Math.max(0, n - (gone.get(k) ?? 0))]))
