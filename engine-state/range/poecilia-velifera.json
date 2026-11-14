@@ -1,0 +1,180 @@
+{
+  "id": "poecilia-velifera",
+  "native": {
+    "input": "a775ea479bafca29",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The giant sailfin molly, Poecilia velifera, is a livebearer endemic to southeastern Mexico, with introduced populations in several other countries.",
+        "words": "Mexico",
+        "ok": true
+      },
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to southeastern Mexico but has been introduced into several other countries, including Colombia, Israel, Singapore and Taiwan.",
+        "words": "Mexico",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Endemic to southeastern Mexico but has been introduced into several other countries, including Colombia, Israel, Singapore and Taiwan.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "IL",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Endemic to southeastern Mexico but has been introduced into several other countries, including Colombia, Israel, Singapore and Taiwan.",
+        "words": "Israel",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Endemic to southeastern Mexico but has been introduced into several other countries, including Colombia, Israel, Singapore and Taiwan.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "TW",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Endemic to southeastern Mexico but has been introduced into several other countries, including Colombia, Israel, Singapore and Taiwan.",
+        "words": "Taiwan",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Poecilia velifera",
+    "status": "ACCEPTED",
+    "taxonKey": 5203757,
+    "datasets": [
+      [
+        "803fc628-f762-11e1-a439-00145eb45e9a",
+        104
+      ],
+      [
+        "4ec633b0-8b1f-405e-86cf-7f782a3ced53",
+        35
+      ],
+      [
+        "805bbcde-f762-11e1-a439-00145eb45e9a",
+        32
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        31
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        31
+      ],
+      [
+        "ec79bfca-83fc-4f89-baad-9a76d320953b",
+        26
+      ],
+      [
+        "803e8402-f762-11e1-a439-00145eb45e9a",
+        11
+      ],
+      [
+        "5fab027d-14b6-4659-9a7e-8a0d4bd3e12b",
+        10
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        4
+      ],
+      [
+        "8a397061-e613-46a8-bcbd-52195a7695b4",
+        3
+      ],
+      [
+        "b7dd8170-98a0-11de-b4d9-b8a03c50a862",
+        2
+      ],
+      [
+        "f6cc0fcc-1605-4bd4-bbea-dd12f697a2ba",
+        2
+      ],
+      [
+        "52ff7a75-4354-464c-9765-eca68cf90859",
+        1
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        1
+      ],
+      [
+        "6a901195-ee9a-43ad-a43d-9095fd2aab0c",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "727b83c1-e8a7-4dd9-a9a2-4c4a9ea9636c",
+        1
+      ],
+      [
+        "7c95ae39-b477-4863-8dda-2d74dc48b067",
+        1
+      ],
+      [
+        "83cbdde7-998f-4354-95de-72d885cc5863",
+        1
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ],
+      [
+        "9a0983a1-55dc-4492-bd6c-4085a36dcddc",
+        1
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        1
+      ]
+    ],
+    "native": [
+      "MX"
+    ],
+    "requests": 16,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

@@ -2,6 +2,18 @@
   "id": "poecilia-velifera",
   "photos": [
     {
+      "url": "https://media.aquatome.com/commons/816ffa0c2ae23016.webp",
+      "thumb": "https://media.aquatome.com/commons/816ffa0c2ae23016-480.webp",
+      "width": 1200,
+      "height": 869,
+      "licence": "CC BY-SA 4.0",
+      "author": "Matteo Cassella",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Poecilia_velifera_-_Matteo_Cassella_-_60110836.jpeg",
+      "caption": "Cá molly buồm đực màu xanh ánh kim trong tự nhiên",
+      "best": true,
+      "kind": "male"
+    },
+    {
       "url": "https://media.aquatome.com/commons/6f2cf970cabece3e.webp",
       "thumb": "https://media.aquatome.com/commons/6f2cf970cabece3e-480.webp",
       "width": 1200,
@@ -38,16 +50,17 @@
       "kind": "group"
     },
     {
-      "url": "https://media.aquatome.com/commons/816ffa0c2ae23016.webp",
-      "thumb": "https://media.aquatome.com/commons/816ffa0c2ae23016-480.webp",
-      "width": 1200,
-      "height": 869,
-      "licence": "CC BY-SA 4.0",
-      "author": "Matteo Cassella",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Poecilia_velifera_-_Matteo_Cassella_-_60110836.jpeg",
-      "caption": "Cá molly buồm đực màu xanh ánh kim trong tự nhiên",
+      "url": "https://media.aquatome.com/inaturalist/606799616.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/606799616-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA",
+      "author": "Nick T.",
+      "sourceUrl": "https://www.inaturalist.org/photos/606799616",
+      "caption": "Cá molly buồm màu vàng ánh xanh bơi giữa rong tảo",
       "best": true,
-      "kind": "male"
+      "kind": "habitat",
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/commons/2a026fea81dabb35.webp",
@@ -60,6 +73,84 @@
       "caption": "Cá molly buồm khổng lồ đực với vây lưng lớn trong bể nuôi",
       "best": true,
       "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/64579061.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/64579061-480.webp",
+      "width": 1024,
+      "height": 625,
+      "licence": "CC BY-SA",
+      "author": "Matteo Cassella",
+      "sourceUrl": "https://www.inaturalist.org/photos/64579061",
+      "caption": "Hai cá molly buồm đực vây lưng lớn đối đầu trong bể",
+      "best": true,
+      "kind": "pair",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/606800449.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/606800449-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA",
+      "author": "Nick T.",
+      "sourceUrl": "https://www.inaturalist.org/photos/606800449",
+      "caption": "Cá molly buồm thân ánh xanh bơi trong nước có rong",
+      "best": true,
+      "kind": "habitat",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/40662034.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/40662034-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Christine Loew",
+      "sourceUrl": "https://www.inaturalist.org/photos/40662034",
+      "caption": "Cá molly buồm đực vây lưng cao, họng vàng, giữa rong tảo",
+      "best": true,
+      "kind": "male",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/332430669.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/332430669-480.webp",
+      "width": 1024,
+      "height": 702,
+      "licence": "CC BY",
+      "author": "zm77",
+      "sourceUrl": "https://www.inaturalist.org/photos/332430669",
+      "caption": "Cá molly buồm đốm trong môi trường tự nhiên dưới nước",
+      "best": true,
+      "kind": "habitat",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/58951538.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/58951538-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-SA",
+      "author": "Juan Cruzado Cortés",
+      "sourceUrl": "https://www.inaturalist.org/photos/58951538",
+      "caption": "Cá molly buồm đực bơi giữa rong trong tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/418212779.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/418212779-480.webp",
+      "width": 800,
+      "height": 391,
+      "licence": "CC0",
+      "author": "Jim",
+      "sourceUrl": "https://www.inaturalist.org/photos/418212779",
+      "caption": "Nhóm cá molly buồm có đốm vàng trong bụi thực vật tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/commons/29f362d13a1a1e25.webp",
@@ -110,6 +201,19 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/472580787.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/472580787-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC0",
+      "author": "Carter Dorscht",
+      "sourceUrl": "https://www.inaturalist.org/photos/472580787",
+      "caption": "Cá molly buồm đực đầu cam bơi trong nước nông",
+      "best": false,
+      "kind": "male",
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/35cf006ea196a030.webp",
       "thumb": "https://media.aquatome.com/commons/35cf006ea196a030-480.webp",
       "width": 1200,
@@ -132,9 +236,35 @@
       "caption": "Cá molly buồm bơi trên thảm tảo ở nơi sống tự nhiên",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/62811037.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/62811037-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA",
+      "author": "Juan Cruzado Cortés",
+      "sourceUrl": "https://www.inaturalist.org/photos/62811037",
+      "caption": "Cá molly buồm bơi giữa cành rong trong tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/58951530.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/58951530-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-SA",
+      "author": "Juan Cruzado Cortés",
+      "sourceUrl": "https://www.inaturalist.org/photos/58951530",
+      "caption": "Cá molly buồm trong môi trường tự nhiên, bụng cam",
+      "best": false,
+      "kind": "habitat",
+      "unchecked": true
     }
   ],
-  "seen": 34,
-  "updatedAt": "2026-11-09",
-  "builtAt": "2026-11-09"
+  "seen": 107,
+  "updatedAt": "2026-11-13",
+  "builtAt": "2026-11-13"
 }

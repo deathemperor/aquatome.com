@@ -11,6 +11,116 @@
     "el-salvador",
     "honduras"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GT",
+        "SV",
+        "HN"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Pseudoxiphophorus anzuetoi originates from Guatemala, El Salvador, and Honduras.",
+          "countries": [
+            "GT",
+            "SV",
+            "HN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9736974,
+      "total": 107,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "HN",
+          75
+        ],
+        [
+          "GT",
+          27
+        ],
+        [
+          "SV",
+          4
+        ],
+        [
+          "NI",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -91.40625,
+          14.0625,
+          3,
+          3
+        ],
+        [
+          -90,
+          12.65625,
+          4,
+          4
+        ],
+        [
+          -90,
+          14.0625,
+          27,
+          27
+        ],
+        [
+          -90,
+          15.46875,
+          2,
+          2
+        ],
+        [
+          -88.59375,
+          14.0625,
+          9,
+          9
+        ],
+        [
+          -88.59375,
+          15.46875,
+          30,
+          30
+        ],
+        [
+          -87.1875,
+          14.0625,
+          7,
+          7
+        ],
+        [
+          -87.1875,
+          15.46875,
+          21,
+          21
+        ],
+        [
+          -85.78125,
+          14.0625,
+          2,
+          2
+        ],
+        [
+          -84.375,
+          14.0625,
+          2,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

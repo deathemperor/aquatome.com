@@ -17,6 +17,245 @@
     "peru",
     "ucayali"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "CO",
+        "EC",
+        "PE"
+      ],
+      "regions": [
+        "Amazon",
+        "Solimões",
+        "Purus",
+        "Juruá",
+        "Ucayali",
+        "Marañón"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The bola pleco, Peckoltichthys bachi, is a loricariid catfish from the upper Amazon region in Brazil, Colombia, Ecuador and Peru.",
+          "countries": [
+            "BR",
+            "CO",
+            "EC",
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This species occurs throughout the upper Amazon region with records existing from various tributary drainages in Brazil, Colombia, Ecuador, and Peru including the Solimões, Purus, Japurá/Caquetá, Juruá, Putumayo/Içá, Napo, Itaya, Ampiyacu, Ucayali, Marañón and Huallaga.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Solimões",
+            "Purus",
+            "Ucayali",
+            "Marañón"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Rio Juruá, Brazil'.",
+          "countries": [],
+          "regions": [
+            "Juruá"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202091,
+      "total": 51,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "BR",
+          25
+        ],
+        [
+          "PE",
+          21
+        ],
+        [
+          "BO",
+          2
+        ],
+        [
+          "EC",
+          2
+        ],
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -78.75,
+          -4.21875,
+          12,
+          12
+        ],
+        [
+          -77.34375,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -73.125,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          -73.125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          -12.65625,
+          2,
+          0
+        ],
+        [
+          -68.90625,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          -64.6875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -26.71875,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

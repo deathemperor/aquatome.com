@@ -1,13 +1,16 @@
+import { denied } from './piece-admission'
 import { readFileSync } from 'node:fs'
 import { copyFile, mkdir, mkdtemp, readdir, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
+import sharp from 'sharp'
 import { ArchiveRefused } from '../src/archive'
 import { LlmError } from '../src/claude'
 import { ChallengeError } from '../src/fetch'
-import { runEngine } from '../src/run'
+import { runEngine, soft } from '../src/run'
 import { moveToArchive } from '../src/state'
+import { WikimediaRefused } from '../src/wikimedia-rest'
 
 const fx = (p: string) => readFileSync(new URL(`./fixtures/${p}`, import.meta.url), 'utf8')
 const SF = 'https://www.seriouslyfish.com/species/'
@@ -28,7 +31,7 @@ function deps(root: string, opts: { urls?: string[]; score?: number; /** The rev
       if (url.endsWith('broken-fish')) throw new Error('net::ERR_CONNECTION_RESET')
       return { status: 200, html: fx(url.endsWith('blocked-fish') ? 'pages/challenge.html' : 'pages/seriouslyfish-cardinal.html'), finalUrl: url }
     },
-    bytes: async (url: string) => { calls.images++; return new TextEncoder().encode(url) },
+    bytes: async () => { calls.images++; return sharp({ create: { width: 800, height: 600, channels: 3, background: 'gray' } }).jpeg().toBuffer() },
   }
   const media = { urlFor: (k: string) => `https://media.test/${k}`, put: async (k: string) => ({ url: `https://media.test/${k}`, width: 800, height: 600 }) }
   const llm = async <T,>(a: { prompt: string; schema: object }): Promise<T> => {
@@ -179,6 +182,21 @@ test('the archive refusing this Mac: the source stops, no page is marked, and th
   expect(r.errors.join('\n')).toMatch(/planetcatfish: not read: the archive refused this Mac: no request before 2026-11-10T12:00:00.000Z/)
   expect(r.perSource.seriouslyfish).toMatchObject({ processed: 1 })
   expect(JSON.parse(await readFile(join(root, 'engine-state/planetcatfish.json'), 'utf8').catch(() => '{}'))).toEqual({})
+})
+
+test('Wikimedia resting: a page that needs it waits, unmarked and with its attempts, and the source goes on; a refusal is no "nothing found"', async () => {
+  const root = await fresh()
+  const { d } = deps(root)
+  const get = d.fetcher.get
+  const fetcher = { ...d.fetcher, get: async (url: string) => { if (url.endsWith('broken-fish')) throw new WikimediaRefused('2026-10-28T22:00:00.000Z'); return get(url) } }
+  const r = await runEngine({ ...d, fetcher }, { sources: ['seriouslyfish'] })
+  expect(r.errors).toContain(`${SF}broken-fish: waits for Wikimedia: Wikimedia refused this Mac: no request before 2026-10-28T22:00:00.000Z`)
+  const state = JSON.parse(await readFile(join(root, 'engine-state/seriouslyfish.json'), 'utf8'))
+  expect(state[`${SF}broken-fish`]).toBeUndefined()
+  expect(state[`${SF}paracheirodon-axelrodi`]).toMatchObject({ status: 'processed' })
+  // The Commons photo lookup (soft) passes a rest on, so a page isn't saved as having found none.
+  await expect(soft('commons photos', async () => { throw new WikimediaRefused('t') }, [])).rejects.toBeInstanceOf(WikimediaRefused)
+  expect(await soft('commons photos', async () => { throw new Error('HTTP 500') }, ['fallback'])).toEqual(['fallback'])
 })
 
 test('the archive refusing this Mac at its index: no fallback on the last list, so no page is asked for', async () => {
@@ -550,4 +568,57 @@ test('a refusal during an archived source search stops that source, not the run,
   expect(asked).toBe(1)
   expect(pages).toBe(0)
   expect(JSON.parse(await readFile(join(root, 'engine-state/seriouslyfish.json'), 'utf8').catch(() => '{}'))).toEqual({})
+})
+
+// The run's own read of a page (run.ts apply) refuses a credit its source's permission record refuses, before any request.
+test("a run's read of a page doesn't take a photo whose credit the source's permission record refuses", async () => {
+  const { createHash } = await import('node:crypto')
+  const { htmlToOutline } = await import('../src/outline')
+  const { pickSourcePhotos } = await import('../src/source-photos')
+  const url = `${SF}paracheirodon-axelrodi`
+  const picks = pickSourcePhotos(htmlToOutline(fx('pages/seriouslyfish-cardinal.html'), 'main').images, url, ['Paracheirodon axelrodi'])
+  const keyOf = (src: string) => `https://media.test/seriouslyfish/${createHash('sha256').update(src).digest('hex').slice(0, 16)}.webp`
+  const refused = picks[0]!.credit!
+  const root = await fresh()
+  const sources = JSON.parse(await readFile(join(root, 'content/sources.json'), 'utf8'))
+  sources.seriouslyfish.permission.refusedCredits = [refused]
+  await writeFile(join(root, 'content/sources.json'), JSON.stringify(sources))
+  const { d, calls } = deps(root, { urls: ['paracheirodon-axelrodi'] })
+  await runEngine(d, { sources: ['seriouslyfish'] })
+  const entity = JSON.parse(await readFile(join(root, 'content/species/paracheirodon-axelrodi/entity.json'), 'utf8'))
+  const gone = picks.filter(p => p.credit === refused).map(p => keyOf(p.src))
+  expect(gone.length).toBeGreaterThan(0)
+  expect(entity.photos.length).toBeGreaterThan(0)
+  for (const p of entity.photos) expect(gone).not.toContain(p.url)
+  expect(calls.images).toBe(picks.filter(p => p.credit !== refused).length)
+})
+
+// The run's own read of a source page (run.ts apply) picks as the backfill does: photos on the never-again list
+// (engine-state/_photo-rejected.json) take none of the page's four places, so the next four are tried.
+test("a run's read of a page: photos taken off the site before don't hold its four places", async () => {
+  const { createHash } = await import('node:crypto')
+  const { htmlToOutline } = await import('../src/outline')
+  const { pickSourcePhotos } = await import('../src/source-photos')
+  const url = `${SF}paracheirodon-axelrodi`
+  const order = pickSourcePhotos(htmlToOutline(fx('pages/seriouslyfish-cardinal.html'), 'main').images, url, ['Paracheirodon axelrodi'], Infinity).map(p => `https://media.test/seriouslyfish/${createHash('sha256').update(p.src).digest('hex').slice(0, 16)}.webp`)
+  const root = await fresh()
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await writeFile(join(root, 'engine-state/_photo-rejected.json'), JSON.stringify(Object.fromEntries(order.slice(0, 4).map(u => [u, 'watermark: withheld']))))
+  const { d, calls } = deps(root, { urls: ['paracheirodon-axelrodi'] })
+  await runEngine(d, { sources: ['seriouslyfish'] })
+  const entity = JSON.parse(await readFile(join(root, 'content/species/paracheirodon-axelrodi/entity.json'), 'utf8'))
+  expect(entity.photos.map((p: { url: string }) => p.url)).toEqual(order.slice(4, 8))
+  expect(calls.images).toBe(4)
+})
+
+test('last item cost refuses admission without calls or content writes', async () => {
+  const root = await fresh()
+  const { d, calls } = deps(root, { urls: ['paracheirodon-axelrodi'] })
+  await denied('run', root, async () => {
+    const r = await runEngine(d, { sources: ['seriouslyfish'], limit: 1 })
+    expect(r.stopped).toContain('not started')
+    expect(r.errors).toEqual([])
+    expect(r.perSource.seriouslyfish?.errors).toBe(0)
+    expect(calls.llm).toBe(0)
+  })
 })

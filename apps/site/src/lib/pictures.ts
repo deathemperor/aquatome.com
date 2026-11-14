@@ -1,4 +1,4 @@
-import { PictureSet, type Content, type Photo } from '@aq/schema'
+import { PictureSet, unmarked, type Content, type Photo } from '@aq/schema'
 import { cleanPhoto } from './home'
 
 /**
@@ -13,6 +13,20 @@ export function photosOf(photos: Photo[]): Photo[] {
   photos = photos.filter(p => !p.generated)
   const first = cleanPhoto(photos)
   return first ? [first, ...photos.filter(p => p !== first)] : []
+}
+
+/**
+ * A fish tile's photos (SpeciesCard: the fish lists, their data files, a guide's fish cards, the home page's): its page's
+ * head, which the tile shows whole where no frame may fill with it (img.ts tileFrame), then photosOf's for a tile whose
+ * page already shows the head. A tile and the page it opens show one photo (the chief of staff and the Design Lead, 13 Nov).
+ * A photo carrying a source's banner is never a tile's next photo (the Design Lead, 13 Nov): where the head is shown
+ * already and the page's only other photo has a banner, the tile has none. A banner head gives way to a person's pick
+ * where the page has another photo (engine-state/_photo-head-picks.json); with none, it leads until one is found. Not for
+ * what crops a photo as it is: a fish's round chip on an equipment page.
+ */
+export const tilePhotos = (photos: Photo[]): Photo[] => {
+  const head = photos.find(p => !p.generated)
+  return head ? [head, ...photosOf(photos).filter(p => p !== head && unmarked(p))] : []
 }
 
 /** Each item's picture, in order: the first of its photos the page doesn't show yet, else none (null). */
@@ -52,7 +66,7 @@ export function morePhotos(pics: PictureSet, gallery: Photo[], strip: (Photo | n
 }
 
 /** A grid of fish cards' pictures, none twice (a fish and its colour form often share a photo): what SpeciesGrid shows. */
-export const gridPhotos = (c: Content, species: { photos: Photo[] }[], pics = pagePictures(c)) => takeEach(pics, species, s => photosOf(s.photos))
+export const gridPhotos = (c: Content, species: { photos: Photo[] }[], pics = pagePictures(c)) => takeEach(pics, species, s => tilePhotos(s.photos))
 
 /** Photos with each picture once (a gallery that kept two files of one photo): the gallery page and its strip alike. */
 export function distinctPhotos<P extends Photo>(c: Content, photos: P[]): P[] {

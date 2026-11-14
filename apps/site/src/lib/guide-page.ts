@@ -7,7 +7,7 @@ import { placeFigures, type Figure, type HeadedFigure } from './figures'
 import { readingMinutes, withToc } from './toc'
 import { nextGuides } from './home'
 import { illustrate, seriesGuides, seriesOf, videoPhoto } from './video'
-import { pagePictures, photosOf } from './pictures'
+import { pagePictures, photosOf, tilePhotos } from './pictures'
 import { PAGE } from '../scripts/filter-list'
 
 /** A guide's photos that name their section, each under the heading this language's text gives it (else Vietnamese's). */
@@ -73,8 +73,10 @@ export function guideParts(lang: Lang, c: Content, g: Localized<GuideEntity>) {
   const plants = [...new Set([...m.plants, ...c.plants.filter(p => g.mentions.includes(p.id))])]
   const ph = guideImage(c, g)
   const gear = g.video ? gearRows(lang, c, g.video) : []
-  // A section's picture is never the lead. A video guide shows its video's thumbnail instead.
-  const lead = ph && !g.photos.find(p => p.url === ph.url)?.section ? ph : undefined
+  // An article leads with its card's picture, so a card and the page it opens show one picture, a section's picture too,
+  // which its section then doesn't show again (the Design Lead, 13 Nov). A video guide shows its video's thumbnail instead,
+  // and a section's picture stays in its section.
+  const lead = ph && (!g.video || !g.photos.find(p => p.url === ph.url)?.section) ? ph : undefined
   const top = g.video ? videoPhoto(g.video) : lead
   const pics = pagePictures(c)
   pics.add(top?.url)
@@ -121,7 +123,7 @@ export function guideParts(lang: Lang, c: Content, g: Localized<GuideEntity>) {
   // listicle names a hundred or more), each with a picture the page doesn't show yet, or none.
   const covers = next.map(x => shown.take(guideImages(c, x)) ?? null)
   const cardSpecies = species.slice(0, PAGE), cardPlants = plants.slice(0, PAGE - cardSpecies.length)
-  const speciesPhotos = cardSpecies.map(s => shown.take(photosOf(s.photos)) ?? null)
+  const speciesPhotos = cardSpecies.map(s => shown.take(tilePhotos(s.photos)) ?? null)
   const plantPhotos = cardPlants.map(p => shown.take(photosOf(p.photos)) ?? null)
   // A guide in another language cites only the sources its own facts come from.
   const own = g.t.refs ?? g.refs

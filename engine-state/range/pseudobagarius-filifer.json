@@ -1,0 +1,48 @@
+{
+  "id": "pseudobagarius-filifer",
+  "native": {
+    "input": "422b8471cf9ad16f",
+    "at": "2026-11-13T05:31:31.275Z",
+    "claims": [
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Great Lake in Tonlé Sap drainage in Cambodia.",
+        "words": "Cambodia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Tonlé Sap",
+        "source": "scotcat",
+        "quote": "Asia: Great Lake in Tonlé Sap drainage in Cambodia.",
+        "country": "KH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudobagarius filifer",
+    "status": "ACCEPTED",
+    "taxonKey": 2340948,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "KH"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T05:31:31.275Z"
+  }
+}

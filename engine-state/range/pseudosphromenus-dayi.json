@@ -1,0 +1,77 @@
+{
+  "id": "pseudosphromenus-dayi",
+  "native": {
+    "input": "263ff6e382ab9e01",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from coastal drainages of the Western Ghats mountains in southern Kerala state, India, specifically the Chalakkudy, Muvattupuzha, and Periyar rivers, although it may be more widely distributed.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Western Ghats",
+        "source": "seriouslyfish",
+        "quote": "Known only from coastal drainages of the Western Ghats mountains in southern Kerala state, India, specifically the Chalakkudy, Muvattupuzha, and Periyar rivers, although it may be more widely distributed.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Chalakkudy",
+        "source": "seriouslyfish",
+        "quote": "Known only from coastal drainages of the Western Ghats mountains in southern Kerala state, India, specifically the Chalakkudy, Muvattupuzha, and Periyar rivers, although it may be more widely distributed.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Muvattupuzha",
+        "source": "seriouslyfish",
+        "quote": "Known only from coastal drainages of the Western Ghats mountains in southern Kerala state, India, specifically the Chalakkudy, Muvattupuzha, and Periyar rivers, although it may be more widely distributed.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Periyar",
+        "source": "seriouslyfish",
+        "quote": "Known only from coastal drainages of the Western Ghats mountains in southern Kerala state, India, specifically the Chalakkudy, Muvattupuzha, and Periyar rivers, although it may be more widely distributed.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudosphromenus dayi",
+    "status": "ACCEPTED",
+    "taxonKey": 2394090,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        4
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}

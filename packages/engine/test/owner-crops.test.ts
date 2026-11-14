@@ -7,7 +7,7 @@ import sharp from 'sharp'
 import { createHash } from 'node:crypto'
 const { approvals }=vi.hoisted(()=>({approvals:[] as import('@aq/schema').OwnerCropApproval[]}))
 vi.mock('../../schema/src/owner-crops.json',()=>({default:approvals}))
-import { IMAGE_SWITCHES, loadAll, ownerCropCanonical, ownerCropApproved, PhotoSchema, type Photo, type OwnerCropApproval } from '@aq/schema'
+import { IMAGE_SWITCHES, LANGS, loadAll, ownerCropCanonical, ownerCropApproved, PhotoSchema, type Photo, type OwnerCropApproval } from '@aq/schema'
 import { imageSteps, type ImageStepDeps } from '../src/image-steps'
 import { pixelHash } from '../src/image-transforms'
 import { cropOriginal } from '../src/image-crop'
@@ -16,6 +16,9 @@ import { fixtureJudgments } from './image-fixtures'
 import { judgmentHashes } from '../src/image-judgments'
 import { photosFor, headOf, cardsOf } from '../src/curation'
 import { validOwnerCropRecord } from '../src/owner-crops'
+import { photoCredit } from '../../../apps/site/src/lib/cite'
+import { licenceUrl } from '../../../apps/site/src/lib/gallery'
+import { translator } from '../../../apps/site/src/lib/i18n'
 import { checkPagePhotos } from '../src/photo-check'
 const dirs:string[]=[]
 afterEach(async()=>{approvals.splice(0);await Promise.all(dirs.splice(0).map(d=>rm(d,{recursive:true,force:true})))})
@@ -47,7 +50,7 @@ test('all-off whole step publishes only individually approved crop, records cred
  expect(report).toMatchObject({off:false,published:1,repaired:1,generated:0,upscaled:0,failed:[]});expect(f.forbidden).not.toHaveBeenCalled();expect(f.store).toHaveBeenCalledTimes(2)
  const entity=JSON.parse(await readFile(f.file,'utf8')),gallery=JSON.parse(await readFile(join(f.root,'content/gallery/alpha.json'),'utf8'))
  expect(entity.photos).toEqual([f.p]);expect(gallery.photos).toEqual([f.p]);expect(entity.photos[0].headFit).toBeUndefined();expect(await readFile(join(f.dir,'original'))).toEqual(before)
- const c=await loadAll({root:join(f.root,'content'),lang:'vi',publicBuild:true});expect(c.species.find(s=>s.id==='alpha')!.photos[0]).toEqual(f.p)
+ const c=await loadAll({root:join(f.root,'content'),lang:'vi',publicBuild:true,wholeBoxes:false});expect(c.species.find(s=>s.id==='alpha')!.photos[0]).toEqual(f.p)
  const check=await checkPagePhotos(f.root,{get:f.forbidden,look:f.forbidden},{limit:1,only:'alpha'});expect(check.judged).toBe(0);expect(f.forbidden).not.toHaveBeenCalled()
  f.store.mockClear();expect((await imageSteps(f.root,async()=>f.d)).off).toBe(true);expect(f.store).not.toHaveBeenCalled()
  // Later ordinary removal is not resurrected by the approval publisher.
@@ -204,11 +207,11 @@ async function stageScreen(f:Awaited<ReturnType<typeof setup>>) {
  return {state,old,oldRecord}
 }
 
-test('the stage-owned empty screen record lands before content admission and preserves every older screen record',async()=>{
+test('the stage-owned empty screen record lands before content admission and preserves every older screen decision',async()=>{
  const f=await setup(),s=await stageScreen(f);let added=0
  const result=await publishOwnerCrops(f.root,f.cache,f.store,async(_page,p)=>{
   const records=JSON.parse(await readFile(s.state,'utf8'))
-  expect(records[p.url]).toEqual({ocr:[]});expect(records[s.old.url]).toEqual(s.oldRecord)
+  expect(records[p.url]).toEqual({ocr:[]});expect(records[s.old.url]).toMatchObject({ocr:[],watermark:false,kind:'none',observationHash:expect.stringMatching(/^[a-f0-9]{64}$/)});expect(records[s.old.url]).not.toHaveProperty('what')
   expect(JSON.parse(await readFile(f.file,'utf8')).photos[0].url).toBe(s.old.url)
   await writeFile(f.file,JSON.stringify({...f.e,photos:[p,s.old]}));added++
  },new AbortController().signal,approvals)
@@ -295,4 +298,56 @@ test('private publisher diagnostics retain external error identity without arbit
  const raw=await readFile(join(f.cache,'owner-crop-failures',f.a.id+'.json'),'utf8'),diagnostic=JSON.parse(raw)
  expect(diagnostic).toMatchObject({stage:'media variants',cause:{message:'External error detail withheld',messageHash:hash('PRIVATE_EXTERNAL_DETAIL'),code:'ECONNRESET'}})
  expect(raw).not.toContain('PRIVATE_EXTERNAL_DETAIL');expect(f.forbidden).not.toHaveBeenCalled()
+})
+
+
+test('the finite publisher compacts inherited screen and subject observations at its real write boundary',async()=>{
+ const f=await setup(),s=await stageScreen(f),trip=['PRIVACY','OWNER','TEST','ONLY'].join('_')
+ await writeFile(s.state,JSON.stringify({[s.old.url]:{ocr:[{t:trip,c:1,at:'bottom left'}],watermark:false,kind:'none',what:trip}}))
+ await state(f,'_photo-subjects.json',{'https://example.org/older':{alpha:{ok:'yes',typical:true,person:false,logo:false,note:trip}}})
+ expect((await imageSteps(f.root,async()=>f.d)).published).toBe(1)
+ for(const file of ['_photo-watermarks.json','_photo-subjects.json'])expect(await readFile(join(f.root,'engine-state',file),'utf8')).not.toContain(trip)
+ expect(f.forbidden).not.toHaveBeenCalled()
+})
+
+
+async function openLicensedFixture(licence='CC BY-SA 2.5') {
+ const f=await setup()
+ f.p=PhotoSchema.parse({...f.p,source:undefined,sourceUrl:'https://commons.wikimedia.org/wiki/File:Fixture_photo.jpg',licence})
+ f.a.recordHash=hash(ownerCropCanonical(f.p,f.a.page,f.a.scientificName))
+ await writeFile(join(f.dir,'photo.json'),JSON.stringify(f.p))
+ return f
+}
+
+test('an individually approved open-licence crop publishes without a source grant, keeps its licence and needs no model',async()=>{
+ const f=await openLicensedFixture(),before=await readFile(join(f.dir,'original'))
+ const r=await imageSteps(f.root,async()=>f.d)
+ expect(r).toMatchObject({published:1,repaired:1,generated:0,upscaled:0,failed:[],waiting:[]})
+ expect(f.store).toHaveBeenCalledTimes(2);expect(f.forbidden).not.toHaveBeenCalled()
+ expect(await readFile(join(f.dir,'original'))).toEqual(before)
+ const c=await loadAll({root:join(f.root,'content'),lang:'vi',publicBuild:true,wholeBoxes:false})
+ expect(c.species.find(s=>s.id==='alpha')!.photos[0]).toEqual(f.p)
+ expect(f.p.licence).toBe('CC BY-SA 2.5')
+ expect(licenceUrl(f.p.licence)).toBe('https://creativecommons.org/licenses/by-sa/2.5/')
+ for(const lang of LANGS){
+  const credit=photoCredit(lang,f.p)
+  expect(credit.licence).toBe('CC BY-SA 2.5')
+  expect(credit.url).toBe(f.p.sourceUrl)
+  expect(credit.text).toContain(f.p.author)
+  expect(credit.text).toContain(translator(lang)('Ảnh đã chỉnh sửa'))
+ }
+ f.store.mockClear()
+ expect((await imageSteps(f.root,async()=>f.d)).published).toBe(0)
+ expect(f.store).not.toHaveBeenCalled()
+})
+
+test('a registered crop cannot replace its bound open licence or use an unknown or restrictive licence',async()=>{
+ const f=await openLicensedFixture()
+ await writeFile(join(f.dir,'photo.json'),JSON.stringify({...f.p,licence:'CC0'}))
+ expect((await imageSteps(f.root,async()=>f.d)).published).toBe(0);expect(f.store).not.toHaveBeenCalled()
+ for(const licence of ['unknown','CC BY-ND 4.0','CC BY-NC 4.0']){
+  const held=await openLicensedFixture(licence)
+  expect((await imageSteps(held.root,async()=>held.d)).published).toBe(0)
+  expect(held.store).not.toHaveBeenCalled();expect(held.forbidden).not.toHaveBeenCalled()
+ }
 })

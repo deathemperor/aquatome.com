@@ -1044,13 +1044,15 @@ final class V2FlowTests: XCTestCase {
       XCTAssertTrue(close.exists, "no ✕ on a page inside the post")
       // Past its colour, as the bar turns to glass, the ✕ keeps a circle of its own after the bookmark and share's capsule
       // (Design's parity, 13 Nov: iOS drew the three in one capsule there). Just before the ✕: the capsule's end, the page
-      // and the circle's edge, not one glass all through.
+      // and the circle's edge, not one glass all through. One glass all through: 253 at all 21 points on 27.2 (before the
+      // fix, 13 Nov), a spread of 0. On 26.5 in light the glass reads 247 to 248, a spread of 1, on the page's 255, so the
+      // gap is a step of 8 there (GitHub's run on a21577eac, 13 Nov). More than 4 tells them apart on both.
       for _ in 0..<4 { app.swipeUp() }
       Thread.sleep(forTimeInterval: 1.5)
       let shot = Pixels(XCUIScreen.main.screenshot()), y = close.frame.midY
       let before = stride(from: close.frame.minX - 24, through: close.frame.minX - 4, by: 1).map { shot.at($0, y) }
       let tones = before.map { ($0.r + $0.g + $0.b) / 3 }
-      XCTAssertGreaterThan(tones.max()! - tones.min()!, 20, "the ✕ in one glass with the bookmark and share: \(before)")
+      XCTAssertGreaterThan(tones.max()! - tones.min()!, 4, "the ✕ in one glass with the bookmark and share: \(before)")
       close.tap()
       XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 5), "the ✕ didn't close the whole post")
       XCTAssertFalse(app.descendants(matching: .any)["native-page"].exists, "the post still open under Hôm nay")
@@ -1257,8 +1259,8 @@ final class V2FlowTests: XCTestCase {
   }
 
   /// What's on the bar reads, on the page's colour and after it, and the name, once it has left the page, stays in the bar's
-  /// middle as the colour goes. On the colour iOS 26's glass goes pale under white symbols, so it's the page's own round
-  /// buttons there; after it iOS can keep the dark scheme, white on the white band.
+  /// middle as the colour goes. On the colour the back and the ⋯ are in iOS's glass alike; after it iOS can keep the dark
+  /// scheme, white on the white band.
   func testAFishsPageBarReadsOnItsColourAndAfterIt() {
     let app = launch("-v2", "YES")
     app.launchForFlow()
@@ -1288,6 +1290,13 @@ final class V2FlowTests: XCTestCase {
     } else {
       chevronReads()
     }
+    // The ⋯ in iOS's glass on the colour, as the back is (Design's parity, 13 Nov: bare dots beside the back in its glass).
+    // Under each symbol, inside its circle, the ground stands apart from the colour at the screen's edge on that line.
+    let more = app.buttons["page-more"], seen = Pixels(XCUIScreen.main.screenshot())
+    func glass(_ b: XCUIElement, edge: CGFloat) -> Double { seen.at(b.frame.midX, b.frame.midY + 15).distance(to: seen.at(edge, b.frame.midY + 15)) }
+    let backGlass = glass(back, edge: 2), moreGlass = glass(more, edge: app.frame.width - 2)
+    XCTAssertGreaterThan(backGlass, 4, "iOS's glass behind the back doesn't show on the colour")
+    XCTAssertGreaterThan(moreGlass, backGlass / 2, "the ⋯ bare on the colour, the back in its glass: \(moreGlass) against \(backGlass)")
     // The name in the bar from then on, the colour still under it, in the bar's middle.
     XCTAssertTrue(title.waitForExistence(timeout: 2), "no name in the bar once it has left the page")
     let onColour = title.frame

@@ -1,0 +1,558 @@
+{
+  "id": "peregriana-peregra",
+  "native": {
+    "input": "56a1c009fb6cae7c",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [
+      {
+        "code": "GB",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Its native range includes countries in Western, Central and Eastern Europe, such as the United Kingdom, France, Germany, Italy, Russia, Poland and Ukraine.",
+        "words": "United Kingdom",
+        "ok": true
+      },
+      {
+        "code": "FR",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Its native range includes countries in Western, Central and Eastern Europe, such as the United Kingdom, France, Germany, Italy, Russia, Poland and Ukraine.",
+        "words": "France",
+        "ok": true
+      },
+      {
+        "code": "DE",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Its native range includes countries in Western, Central and Eastern Europe, such as the United Kingdom, France, Germany, Italy, Russia, Poland and Ukraine.",
+        "words": "Germany",
+        "ok": true
+      },
+      {
+        "code": "IT",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Its native range includes countries in Western, Central and Eastern Europe, such as the United Kingdom, France, Germany, Italy, Russia, Poland and Ukraine.",
+        "words": "Italy",
+        "ok": true
+      },
+      {
+        "code": "RU",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Its native range includes countries in Western, Central and Eastern Europe, such as the United Kingdom, France, Germany, Italy, Russia, Poland and Ukraine.",
+        "words": "Russia",
+        "ok": true
+      },
+      {
+        "code": "PL",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Its native range includes countries in Western, Central and Eastern Europe, such as the United Kingdom, France, Germany, Italy, Russia, Poland and Ukraine.",
+        "words": "Poland",
+        "ok": true
+      },
+      {
+        "code": "UA",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Its native range includes countries in Western, Central and Eastern Europe, such as the United Kingdom, France, Germany, Italy, Russia, Poland and Ukraine.",
+        "words": "Ukraine",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Peregriana peregra",
+    "status": "ACCEPTED",
+    "taxonKey": 9842003,
+    "datasets": [
+      [
+        "2c28a663-db16-48d3-9cd0-3c7ec8d8d873",
+        1788
+      ],
+      [
+        "ce8530a2-cd4b-4e51-9927-76bf49b5a9a6",
+        616
+      ],
+      [
+        "33591b80-0e31-480c-82ce-2f57211b10e6",
+        512
+      ],
+      [
+        "e5d2aed2-a177-46ba-9ea8-c349160a4c2d",
+        450
+      ],
+      [
+        "d70c169f-fd9e-4355-8431-8d1fba91370f",
+        309
+      ],
+      [
+        "1bec5de3-758c-4ed2-ab13-1597601ad07a",
+        260
+      ],
+      [
+        "594e1181-c38a-4f44-b78c-ceab50351cca",
+        200
+      ],
+      [
+        "84b18cce-083a-4464-bee8-25b2083a17cd",
+        183
+      ],
+      [
+        "98af357b-541e-4f16-b35c-8ca68767be99",
+        118
+      ],
+      [
+        "70b7c7b1-fbea-4771-8b63-ee1c7fae393d",
+        116
+      ],
+      [
+        "857bce66-f762-11e1-a439-00145eb45e9a",
+        108
+      ],
+      [
+        "46293000-ddd1-4c32-a1e7-b5e793223ecd",
+        83
+      ],
+      [
+        "8359171b-9432-421e-88fc-56a55f1c098c",
+        63
+      ],
+      [
+        "b124e1e0-4755-430f-9eab-894f25a9b59c",
+        56
+      ],
+      [
+        "7d3fbc21-38f9-43b5-98d4-1ed7c65f7103",
+        43
+      ],
+      [
+        "daae5a66-7bb4-4431-ac3c-a1bf70ca3407",
+        33
+      ],
+      [
+        "d18935d7-260c-4633-af39-7eb7ee6f1e14",
+        30
+      ],
+      [
+        "3236cdc4-2f4d-4bd6-b53f-54fd8d8a0aa8",
+        28
+      ],
+      [
+        "71d46a30-f762-11e1-a439-00145eb45e9a",
+        28
+      ],
+      [
+        "73393ec0-632e-4878-8077-76426fbeb9f1",
+        28
+      ],
+      [
+        "a67ec884-e895-4e14-a3c7-fc39795ee749",
+        24
+      ],
+      [
+        "24baf0da-60a9-4a13-99d7-a8c860c3cb30",
+        22
+      ],
+      [
+        "f9bd9487-2e85-4e4c-8581-3aab3c6db5ee",
+        19
+      ],
+      [
+        "51de9c85-0337-4c68-9783-f13bc0aac15f",
+        17
+      ],
+      [
+        "2af0d55b-a0fc-475c-a32f-d68282b6cc67",
+        16
+      ],
+      [
+        "07ae2aa8-5031-4312-b26e-84a5c753daac",
+        15
+      ],
+      [
+        "25e3e8f1-86ee-440c-adfc-8e63759a6505",
+        14
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        14
+      ],
+      [
+        "72e23311-b65a-46d0-bc07-ff0a251b47e1",
+        14
+      ],
+      [
+        "e2413993-3e6c-4519-abe5-02b75cb645c6",
+        13
+      ],
+      [
+        "f6b72f89-09c9-4805-be09-96198ab19050",
+        13
+      ],
+      [
+        "a46ef430-15e2-11dd-b4e8-b8a03c50a862",
+        12
+      ],
+      [
+        "cd931400-7adf-4046-9333-b29c43c4f68f",
+        12
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        11
+      ],
+      [
+        "ad7e99e7-1214-4636-a293-0118bbb877b5",
+        10
+      ],
+      [
+        "50804764-9c66-4448-8537-6767167e83c5",
+        9
+      ],
+      [
+        "6b3f90ff-fc9a-4962-9605-8a79b81193e7",
+        9
+      ],
+      [
+        "6ec0db76-23c5-44b5-80f8-ad7e2aa17773",
+        9
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        9
+      ],
+      [
+        "abd3521c-f459-468e-9039-f989786147d4",
+        9
+      ],
+      [
+        "1560f099-f48d-43ac-8d88-ce329a53aa7e",
+        8
+      ],
+      [
+        "6388f283-7569-40c8-8e94-7e449fe0e966",
+        8
+      ],
+      [
+        "b201c8fb-0502-437f-ba77-8e092273328b",
+        8
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        7
+      ],
+      [
+        "1566bc1a-9a9b-44fd-b755-1279a25c9b17",
+        7
+      ],
+      [
+        "789d286b-73b7-4d8c-a8c6-7a2cfe84a576",
+        7
+      ],
+      [
+        "3ee66eb3-4786-4bda-b7f1-c145b1a57a6b",
+        6
+      ],
+      [
+        "1196c919-404e-44ae-8191-a583f0d0167e",
+        5
+      ],
+      [
+        "25d4f82b-b2bc-4197-bc11-27c8e9a25439",
+        5
+      ],
+      [
+        "312bb844-4980-4b1a-a64b-e79f9ac083a4",
+        5
+      ],
+      [
+        "7a9ad56e-7452-4f24-a1b4-3be3400c9a9d",
+        5
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        5
+      ],
+      [
+        "00c913d4-7148-46b3-9aa6-b2a158fa721b",
+        4
+      ],
+      [
+        "0361d3c0-a467-48f1-a2a0-2a7c1f1f1b54",
+        4
+      ],
+      [
+        "0b94e07b-898e-47fc-b95f-31a5538f326b",
+        4
+      ],
+      [
+        "b1516892-b9ba-4a5d-8aca-a2c6b28355fd",
+        4
+      ],
+      [
+        "df12ca07-f133-4550-ab3b-fde13f0e76ba",
+        4
+      ],
+      [
+        "efb3f1a0-43d5-4ae6-a58f-4fd61043756a",
+        4
+      ],
+      [
+        "38670987-c8d6-4666-8b42-c263b7c80310",
+        3
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        3
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        3
+      ],
+      [
+        "1cd10854-e401-4822-ae48-adaeeedc647d",
+        2
+      ],
+      [
+        "2b2558f1-6999-4e31-80e4-776e0a359587",
+        2
+      ],
+      [
+        "575a1350-405a-4f5c-bf59-6c241fa30fb0",
+        2
+      ],
+      [
+        "769539e1-b8d3-4e85-8d15-ff2e579364d5",
+        2
+      ],
+      [
+        "a307e4d7-1de2-4adc-95d5-a0a8d5f57236",
+        2
+      ],
+      [
+        "b9afe2d0-b264-4422-bf8c-096b2a53c18f",
+        2
+      ],
+      [
+        "fae37d1f-5b7a-4fe2-8cfa-8948aefbcac2",
+        2
+      ],
+      [
+        "00c04f6d-dac2-4ba6-9a69-db3072637160",
+        1
+      ],
+      [
+        "19841134-3010-4cdf-8be5-24e0e21c0b76",
+        1
+      ],
+      [
+        "1ba9fcec-441b-44ad-97fc-896240427039",
+        1
+      ],
+      [
+        "1f127865-0ff5-4008-95e7-508a6e77f53d",
+        1
+      ],
+      [
+        "27209824-d4ee-4a92-bd19-9215f980f34e",
+        1
+      ],
+      [
+        "3eb94dd5-c5d2-4a55-947c-7a4d3535ced8",
+        1
+      ],
+      [
+        "47c1f414-e3d6-4035-a522-bde274d2afcd",
+        1
+      ],
+      [
+        "59b549c0-7da9-4095-98c1-56da90837723",
+        1
+      ],
+      [
+        "619b7e4c-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "619e1184-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "61a4f6b6-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "61be0dc2-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "620d97e8-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "62211e32-fa72-4b4c-b3f1-04ea78f2485d",
+        1
+      ],
+      [
+        "62553bfc-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "62a7764c-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "62ab2fb2-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "62e99340-528c-4baf-bbd7-bf0df2f186b9",
+        1
+      ],
+      [
+        "6328b2a2-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "632b49ae-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "638110a0-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "6403d346-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "7137f448-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "71655776-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "84d4a910-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "854e35e6-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "8998952e-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "89a5e170-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "89b797e4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "89dd9c32-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "8a00478c-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "8a294452-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "8a2c019c-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "8a2ec59e-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "8a5e6484-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "8a916226-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "8c3e7db0-5c1a-49df-af56-9cb84d8511ff",
+        1
+      ],
+      [
+        "942c4e36-624d-4054-a6cd-b7db0b24926a",
+        1
+      ],
+      [
+        "95d672e8-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "bd067a4c-05b8-4def-925c-60ce83c01891",
+        1
+      ],
+      [
+        "c8908f9c-241c-4569-8874-3b24e56dd92e",
+        1
+      ],
+      [
+        "cfa7bdfb-4b6d-47cd-9a42-55ab7d2e5dac",
+        1
+      ],
+      [
+        "d185ab72-3518-4cb8-b9ad-79010d6eef70",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ],
+      [
+        "da076629-fb18-4558-a9c1-6eaa55d69056",
+        1
+      ],
+      [
+        "e2b9a599-b5b4-4196-8c2a-d57f678208be",
+        1
+      ],
+      [
+        "e62f2cae-96f0-4870-b1aa-00f3c7378c51",
+        1
+      ],
+      [
+        "f7afff43-5d4c-40e1-b75d-51f550f02c71",
+        1
+      ],
+      [
+        "fd913235-f33c-4eca-83b2-0a24f8e853fa",
+        1
+      ]
+    ],
+    "native": [
+      "GB",
+      "FR",
+      "DE",
+      "IT",
+      "RU",
+      "PL",
+      "UA"
+    ],
+    "requests": 14,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

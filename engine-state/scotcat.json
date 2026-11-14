@@ -463,7 +463,7 @@
   },
   "https://www.scotcat.com/amblycipitidae/liobagrus_chengduensis.htm": {
     "entityIds": [
-      "species/liobagrus-chenghaiensis"
+      "species/liobagrus-chengduensis"
     ],
     "updatedAt": "2026-10-31T12:16:27.267Z",
     "hash": "ed1d65c72b0ae8647cbeaa8f856efc6c054183e9e2421343fcc85e5186425b76",
@@ -578,11 +578,44 @@
     "attempts": 0
   },
   "https://www.scotcat.com/amblycipitidae/xiurenbagrus_xiurenensis.htm": {
-    "entityIds": [],
-    "updatedAt": "2026-11-11T20:39:50.280Z",
-    "status": "error",
-    "attempts": 0,
-    "error": "claude failed: the engine's daily limit reached for run ($0.00 of $0 today)"
+    "entityIds": [
+      "species/xiurenbagrus-xiurenensis"
+    ],
+    "updatedAt": "2026-11-13T04:47:07.067Z",
+    "hash": "b63a0e2b8b69aae61e80280544804d860ad1a601a7fde6169c9d6e756ab7ffd4",
+    "processedHash": "b63a0e2b8b69aae61e80280544804d860ad1a601a7fde6169c9d6e756ab7ffd4",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amphiliidae/amphilius_atesuensis.htm": {
+    "entityIds": [
+      "species/amphilius-atesuensis"
+    ],
+    "updatedAt": "2026-11-13T04:50:30.279Z",
+    "hash": "812ce4418542d7a965de764ac985b122bedd022358925b086626d92df8c6f83e",
+    "processedHash": "812ce4418542d7a965de764ac985b122bedd022358925b086626d92df8c6f83e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amphiliidae/amphilius_cryptobullatus.htm": {
+    "entityIds": [
+      "species/amphilius-cryptobullatus"
+    ],
+    "updatedAt": "2026-11-13T04:53:17.590Z",
+    "hash": "eb165426589a4193b4efb593a76242f6f208116b5c5efb65dc4ae8432a67b38c",
+    "processedHash": "eb165426589a4193b4efb593a76242f6f208116b5c5efb65dc4ae8432a67b38c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amphiliidae/amphilius_frieli.htm": {
+    "entityIds": [
+      "species/amphilius-frieli"
+    ],
+    "updatedAt": "2026-11-13T04:55:52.932Z",
+    "hash": "cb3d118571f663f7c0a07c522b0af9568a48223b1d0dd7a079d9887664dc7837",
+    "processedHash": "cb3d118571f663f7c0a07c522b0af9568a48223b1d0dd7a079d9887664dc7837",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.scotcat.com/anchariidae/ancharius_fuscus.htm": {
     "entityIds": [
@@ -735,11 +768,14 @@
     "attempts": 0
   },
   "https://www.scotcat.com/auchenipteridae/tetranematichthys_wallacei.htm": {
-    "entityIds": [],
-    "updatedAt": "2026-11-11T20:39:38.071Z",
-    "status": "error",
-    "attempts": 0,
-    "error": "claude failed: the engine's daily limit reached for run ($0.00 of $0 today)"
+    "entityIds": [
+      "species/tetranematichthys-wallacei"
+    ],
+    "updatedAt": "2026-11-13T04:44:24.299Z",
+    "hash": "05860a04a11b220f5a1b0d9df72001b028fa50978e9f8d45e94aab4606fd6138",
+    "processedHash": "05860a04a11b220f5a1b0d9df72001b028fa50978e9f8d45e94aab4606fd6138",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.scotcat.com/auchenipteridae/trachelyopterus_insignis.htm": {
     "entityIds": [

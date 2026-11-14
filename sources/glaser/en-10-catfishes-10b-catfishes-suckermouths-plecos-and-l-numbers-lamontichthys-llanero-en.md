@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/lamontichthys_llanero_en/
 title: Lamontichthys llanero - Aquarium Glaser GmbH
-fetchedAt: 2026-11-11T09:55:55.189Z
+fetchedAt: 2026-11-13T05:39:38.877Z
 hash: e28f183eead4b6436a3c9a9c59c26f58a9423c61ad0eb366c278e9a313a67cef
 ---
 

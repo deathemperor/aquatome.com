@@ -2,6 +2,32 @@
   "id": "toxotes-chatareus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/561791529.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/561791529-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "themaskedlapwing",
+      "sourceUrl": "https://www.inaturalist.org/photos/561791529",
+      "caption": "Cá bắn nước vảy to với các đốm đen bơi trong nước đục",
+      "best": true,
+      "kind": "other",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/406412705.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/406412705-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "pimelea",
+      "sourceUrl": "https://www.inaturalist.org/photos/406412705",
+      "caption": "Cá bắn nước vảy to thân sáng với đốm đen bơi trong nước",
+      "best": true,
+      "kind": "other",
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/38863309d607cd10.webp",
       "thumb": "https://media.aquatome.com/commons/38863309d607cd10-480.webp",
       "width": 1000,
@@ -26,7 +52,7 @@
       "kind": "other"
     }
   ],
-  "seen": 6,
-  "updatedAt": "2026-11-10",
-  "builtAt": "2026-11-10"
+  "seen": 8,
+  "updatedAt": "2026-11-13",
+  "builtAt": "2026-11-13"
 }

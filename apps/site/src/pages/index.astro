@@ -12,7 +12,7 @@ import { smallSrc } from '../lib/img'
 import { homeVideos } from '../lib/video'
 import { easyPlants, featuredSpecies, groupTiles, leadGuides, nativeCards, nativeSpecies, STEP_GUIDES } from '../lib/home'
 import { i18n } from '../lib/i18n'
-import { pagePictures, photosOf, takeEach } from '../lib/pictures'
+import { pagePictures, photosOf, takeEach, tilePhotos } from '../lib/pictures'
 import { toolCards } from '../lib/tools'
 import { categoryRank, fmt } from '../lib/format'
 import { categoriesIn, shownTypes } from '../lib/equipment'
@@ -44,8 +44,8 @@ const nativeShown = nativeCards(lang, c, featured)
 // cards above show its best one.
 const pics = pagePictures(c)
 pics.add(HERO.url)
-const featuredPhotos = takeEach(pics, featured, s => photosOf(s.photos))
-const nativePhotos = native.place?.parent && nativeShown.length === 4 ? takeEach(pics, nativeShown, s => photosOf(s.photos)) : []
+const featuredPhotos = takeEach(pics, featured, s => tilePhotos(s.photos))
+const nativePhotos = native.place?.parent && nativeShown.length === 4 ? takeEach(pics, nativeShown, s => tilePhotos(s.photos)) : []
 const groups = groupTiles(lang, c, pics)
 const guidePhotos = takeEach(pics, guides, g => guideImages(c, g))
 const videoPhotos = takeEach(pics, videos, g => guideImages(c, g))

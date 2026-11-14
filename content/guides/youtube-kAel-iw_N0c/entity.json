@@ -100,7 +100,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh nhỏ với lũ lụt gỗ lũa và lớp nền phủ cây.",
-            "sharpness": 1483.7
+            "sharpness": 1483.7,
+            "person": false
           }
         ]
       },
@@ -108,43 +109,19 @@
         "heading": "Sắp lũa và đá thế nào",
         "moments": [
           {
-            "t": 330,
-            "url": "https://media.aquatome.com/video/kAel-iw_N0c/at330-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khúc lũa lớn đặt lệch tâm bể, bố cục cân đối.",
-            "sharpness": 1275.7
-          },
-          {
             "t": 350,
             "url": "https://media.aquatome.com/video/kAel-iw_N0c/at350-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh lũa và hai viên đá lớn được đặt vào nền bể.",
-            "sharpness": 1113.5
+            "sharpness": 1113.5,
+            "person": false
           }
         ]
       },
       {
         "heading": "Trồng cây tiền cảnh Lilaeopsis brasiliensis",
-        "moments": [
-          {
-            "t": 400,
-            "url": "https://media.aquatome.com/video/kAel-iw_N0c/at400-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tách vỉ Lilaeopsis brasiliensis thành từng bụi nhỏ trong chậu nước.",
-            "sharpness": 280.6
-          },
-          {
-            "t": 440,
-            "url": "https://media.aquatome.com/video/kAel-iw_N0c/at440-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Trồng từng bụi cây vào nền hồ bên cạnh lũa và đá.",
-            "sharpness": 1806.5
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/kAel-iw_N0c/p3-RFNDMDAyNjEuSlBH.webp",
           "thumb": "https://media.aquatome.com/video/kAel-iw_N0c/p3-RFNDMDAyNjEuSlBH-480.webp",
@@ -157,27 +134,6 @@
         }
       },
       {
-        "heading": "Trồng crypt và tránh crypt bị nhũn",
-        "moments": [
-          {
-            "t": 470,
-            "url": "https://media.aquatome.com/video/kAel-iw_N0c/at470-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai chậu crypt còn trong chậu nhựa, chuẩn bị gỡ ra để trồng.",
-            "sharpness": 1914.5
-          },
-          {
-            "t": 570,
-            "url": "https://media.aquatome.com/video/kAel-iw_N0c/at570-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng nhíp trồng cây vào nền, bể mới lên cảnh với đá và lũa.",
-            "sharpness": 1729.6
-          }
-        ]
-      },
-      {
         "heading": "Châm phân nước cho cây",
         "moments": [
           {
@@ -186,7 +142,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây thủy sinh xanh tốt mọc quanh lũa và đá trong hồ.",
-            "sharpness": 1731.8
+            "sharpness": 1731.8,
+            "person": false
           }
         ]
       },
@@ -194,20 +151,13 @@
         "heading": "Gắn ráy lên lũa đá",
         "moments": [
           {
-            "t": 750,
-            "url": "https://media.aquatome.com/video/kAel-iw_N0c/at750-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đang nhét ráy petite vào khe giữa lũa và đá.",
-            "sharpness": 1413.9
-          },
-          {
             "t": 770,
             "url": "https://media.aquatome.com/video/kAel-iw_N0c/at770-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Ráy đã được gắn trên lũa và đá, xung quanh có cỏ xanh.",
-            "sharpness": 1611
+            "sharpness": 1611,
+            "person": false
           }
         ]
       },
@@ -220,7 +170,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bèo nổi phủ kín mặt nước bể thủy sinh nhỏ có lũa.",
-            "sharpness": 1672.4
+            "sharpness": 1672.4,
+            "person": false
           },
           {
             "t": 900,
@@ -228,7 +179,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh bèo nổi xanh mướt trôi trên mặt nước, che bớt sáng cho cây.",
-            "sharpness": 462.6
+            "sharpness": 462.6,
+            "person": false
           }
         ],
         "photo": {

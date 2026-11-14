@@ -1,3 +1,4 @@
+import { expectControlledRejections } from './photo-privacy-assertions'
 import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -54,13 +55,13 @@ test('dead-screen: video thumbnails, then main photos the photo check never aske
   const r = await screenDead(root, d, { limit: 48 })
   expect(asked).toEqual([...videoFrames('deadthumb01'), ...videoFrames('alivethumb1'), 'https://m/a-dead.webp', 'https://m/c-alive.webp'])
   expect(r).toMatchObject({ sheets: 1, judged: 4, left: 0, failed: [], stopped: '' })
-  expect(r.dead).toEqual(['youtube:deadthumb01: fish on a tape measure', 'https://m/a-dead.webp: fish on a tape measure'])
+  expect(r.dead).toEqual(['youtube:deadthumb01: dead screen dead', 'https://m/a-dead.webp: dead screen dead'])
   const a = await json(root, 'content/species/a/entity.json')
   expect(a.videos.map((v: { youtubeId: string }) => v.youtubeId)).toEqual(['alivethumb1'])
   expect(a.photos.map((p: { url: string }) => p.url)).toEqual(['https://m/a-2.webp'])
   expect((await json(root, 'content/species/b/entity.json')).videos).toEqual([])
-  expect(await json(root, 'engine-state/_video-rejected.json')).toEqual({ deadthumb01: 'dead: fish on a tape measure (the dead-fish screen)' })
-  expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual({ 'https://m/a-dead.webp': 'dead: fish on a tape measure (the dead-fish screen)' })
+  expectControlledRejections(await json(root, 'engine-state/_video-rejected.json'), { deadthumb01: 'dead' })
+  expectControlledRejections(await json(root, 'engine-state/_photo-rejected.json'), { 'https://m/a-dead.webp': "dead" })
   // A second run finds nothing to judge: a-2 is a's main photo now, and is judged once.
   const again = deps()
   expect(await screenDead(root, again.d, { limit: 48 })).toMatchObject({ judged: 1, dead: [] })
@@ -73,7 +74,7 @@ test('dead-screen: video thumbnails, then main photos the photo check never aske
 test('dead-screen: --limit pictures a run, the rest left for later; a picture not fetched is tried again; a model failure stops with nothing marked', async () => {
   const root = await store()
   const first = deps({ fail: new Set(videoFrames('alivethumb1')) })
-  expect(await screenDead(root, first.d, { limit: 2 })).toMatchObject({ judged: 1, left: 2, failed: [`youtube:alivethumb1: HTTP 404`] })
+  expect(await screenDead(root, first.d, { limit: 2 })).toMatchObject({ judged: 1, left: 2, failed: [expect.stringMatching(/^youtube:alivethumb1: photo operation unavailable \[sha256:[a-f0-9]{64}\]$/)] })
   const stopped = deps({ stop: true })
   expect(await screenDead(root, stopped.d, { limit: 48 })).toMatchObject({ judged: 0, stopped: 'usage limit', dead: [] })
   expect((await json(root, 'content/species/a/entity.json')).photos).toHaveLength(2)
@@ -88,7 +89,7 @@ test('dead-screen: a live thumbnail does not clear a video: dead fish in a frame
   await writeFile(join(root, 'content/species/d/entity.json'), `${JSON.stringify({ id: 'd', photos: [], videos: [video('deadframe01')] }, null, 2)}\n`)
   const { d } = deps()
   const r = await screenDead(root, d, { limit: 48 })
-  expect(r.dead).toContain('youtube:deadframe01: fish on a tape measure')
+  expect(r.dead).toContain('youtube:deadframe01: dead screen dead')
   expect((await json(root, 'content/species/d/entity.json')).videos).toEqual([])
   expect((await json(root, 'engine-state/_video-rejected.json')).deadframe01).toBeDefined()
   expect((await json(root, 'engine-state/_dead-screen.json'))['youtube:deadframe01']).toMatchObject({ dead: true, frames: true })
@@ -108,7 +109,7 @@ test('dead-screen: a frame YouTube does not have is passed over, and a verdict f
   const back = deps()
   const again = await screenDead(root, back.d, { limit: 48, backCheck: true })
   expect(back.asked).toEqual([...videoFrames('deadframe01'), 'https://m/a-2.webp']) // a-2 is a's main photo since a-dead left
-  expect(again.dead).toEqual(['youtube:deadframe01: fish on a tape measure'])
+  expect(again.dead).toEqual(['youtube:deadframe01: dead screen dead'])
   expect((await json(root, 'content/species/d/entity.json')).videos).toEqual([])
   const third = deps()
   expect(await screenDead(root, third.d, { limit: 48, backCheck: true })).toMatchObject({ sheets: 0, judged: 0 })

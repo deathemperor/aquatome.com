@@ -1,0 +1,20 @@
+{
+  "slug": "ca-lau-kieng-hypostomus-pyrineusi",
+  "name": "Cá lau kiếng Hypostomus pyrineusi",
+  "altNames": [],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Hypostomus pyrineusi (Miranda Ribeiro, 1920)</li><li>Nơi thu mẫu chuẩn: Jamary, sông Madeira, hệ sông Amazon, Brazil.</li></ul>",
+    "distribution:planetcatfish": "<p>Nam Mỹ: lưu vực sông Madeira (?). Amazon, trung lưu Amazon (Solimoes), Madeira.</p>",
+    "reproduction:planetcatfish": "<p>Sinh sản: chưa thấy ai cho đẻ được.</p>",
+    "notes:planetcatfish": "<p>Loài này trước đây nằm trong chi Cochliodon. Giờ nó được gộp vào chi Hypostomus, một chi lớn hơn, và thuộc nhóm Hypostomus Cochliodon. Các loài trong nhóm này đều có lưng cao hơn những loài Hypostomus khác, răng lại hình thìa (giống Panaque).</p>",
+    "references:planetcatfish": "<p>Peixes (excl. Characinidae) No. 58 (Annexo 5), pp 9, Unnum. Pls. 3-4.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.8
+    },
+    "reason": "thin"
+  }
+}

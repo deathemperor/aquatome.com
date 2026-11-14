@@ -13,6 +13,79 @@
     "essequibo",
     "peru"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "GY"
+      ],
+      "regions": [
+        "Rio Negro",
+        "Essequibo",
+        "Rupununi"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Roman Nose Angelfish is native to the lower Rio Negro at the Solimoes confluence of Brazil and the Rupununi and Essequibo basins of Guyana.",
+          "countries": [
+            "BR",
+            "GY"
+          ],
+          "regions": [
+            "Rio Negro",
+            "Essequibo",
+            "Rupununi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208523,
+      "total": 6,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "BR",
+          4
+        ],
+        [
+          "GY",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -63.28125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

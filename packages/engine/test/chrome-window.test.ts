@@ -4,6 +4,7 @@ import { tmpdir } from 'node:os'
 import { join, resolve } from 'node:path'
 import { afterEach, expect, test, vi } from 'vitest'
 import { holdFocus, minimize } from '../src/chrome-window'
+import { slow } from '@aq/schema/test-time'
 
 const ROOT = resolve(__dirname, '../../..')
 
@@ -55,13 +56,13 @@ test('on the Mac a headed Chrome is minimized, and a Chrome that cannot be still
   expect(await open(undefined, 'darwin', true)).toEqual(['Browser.getWindowForTarget']) // it tried, and open() didn't throw
   expect(launched.options).toMatchObject({ channel: 'chrome', headless: false, locale: 'en-US', viewport: { width: 1280, height: 900 } })
   expect(launched.options).not.toHaveProperty('args') // the browser's launch is as it was: nothing a site could read changes
-}, 30_000)
+}, slow(30_000))
 
 test.skipIf(platform !== 'darwin')('the focus keeper starts and stops', async () => {
   const keeper = await holdFocus()
   expect(keeper).toBeDefined()
   keeper?.stop()
-}, 30_000)
+}, slow(30_000))
 
 test('nothing else opens a window: a launcher outside the fetcher is headless', () => {
   const launchers = execFileSync('git', ['grep', '-lE', 'launchPersistentContext\\(|chromium\\.launch\\(', '--', 'packages/engine/src', 'scripts', 'packages/engine/scripts'], { cwd: ROOT, encoding: 'utf8' }).trim().split('\n').sort()
@@ -95,4 +96,4 @@ test('chrome-windows says which of the engine\'s Chromes are on the screen, and 
   expect(one.stdout).toContain('chrome-profile-sf')
   expect(fakeMac([11, 12])('--count').stdout.trim()).toBe('2')
   expect(fakeMac([])('--count').status).toBe(0)
-}, 60_000)
+}, slow(60_000))

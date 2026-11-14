@@ -141,17 +141,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/090d43a1e50206c1.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/090d43a1e50206c1-480.webp",
-      "width": 609,
-      "height": 300,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-angelicus",
-      "caption": "Polka Dot Synodontis (Synodontis angelicus)",
-      "source": "seriouslyfish"
-    },
-    {
       "url": "https://media.aquatome.com/commons/97136e5e9b861931.webp",
       "thumb": "https://media.aquatome.com/commons/97136e5e9b861931-480.webp",
       "width": 960,
@@ -159,7 +148,12 @@
       "licence": "CC BY-SA 3.0",
       "author": "Haps",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Synodontis_angelica.jpg",
-      "caption": "Synodontis angelica"
+      "caption": "Synodontis angelica",
+      "large": {
+        "url": "https://media.aquatome.com/commons/97136e5e9b861931-large.webp",
+        "width": 1033,
+        "height": 490
+      }
     }
   ],
   "videos": [],

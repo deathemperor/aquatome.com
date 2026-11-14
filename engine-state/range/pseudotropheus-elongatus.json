@@ -1,0 +1,65 @@
+{
+  "id": "pseudotropheus-elongatus",
+  "native": {
+    "input": "3b09d4f0d53882d4",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Chindongo elongatus was described in 1956 on the basis of specimens from Mbamba Bay (Tanzania).",
+        "words": "Tanzania",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Malawi",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Malawi.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MW"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudotropheus elongatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2373066,
+    "datasets": [
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        34
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        4
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        3
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ]
+    ],
+    "native": [
+      "TZ"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}

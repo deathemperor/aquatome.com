@@ -1,9 +1,13 @@
+import { existsSync } from 'node:fs'
+import { join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { fitKey } from '../src/fit'
 import { firstRun, frontEarly, frontHeld, orderFront } from '../src/fit-front'
 import list from '../src/fit-front.json'
 import type { Page } from '../src/pages'
 
+const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 const page = (kind: Page['kind'], id: string) => ({ lang: 'vi' as const, kind, id })
 const key = (p: { lang: Page['lang']; kind: Page['kind']; id: string }) => fitKey(p as Page)
 
@@ -45,9 +49,30 @@ test('the first run is kept as its command printed it, and holds the next until 
 test('the front list file parses and names each page once', () => {
   expect(typeof list.cleared).toBe('boolean')
   expect(Number.isNaN(Date.parse(list.first))).toBe(false)
-  expect(list.front.every(k => /^vi\/(species|plants|guides)\/[^/]+$/.test(k))).toBe(true)
+  expect(list.front.every(k => /^vi\/(species|plants|guides|breeds)\/[^/]+$/.test(k))).toBe(true)
   expect(new Set(list.front).size).toBe(list.front.length)
   expect(list.about).toMatch(/cleared/)
   expect(list.about).toMatch(/first/)
   expect(list.about).toMatch(/front/)
+})
+
+test('the four Tết breed pages come last, after the 24 the first run was ruled on', () => {
+  // The chief of staff, 2026-11-12: Hôm nay's red and gold fish before Tết (cards by 18 Jan) need these passing by
+  // 11 Jan, so they go at the end of the list, leaving the first run's pages as they were.
+  expect(list.front).toHaveLength(32)
+  expect(list.front.slice(0, 24).every(k => !k.startsWith('vi/breeds/'))).toBe(true)
+  expect(list.front.slice(24, 28)).toEqual(['vi/breeds/koi', 'vi/breeds/ranchu-goldfish', 'vi/breeds/ryukin-goldfish', 'vi/breeds/butterfly-koi'])
+})
+
+test("the Khám phá shelves' four guides come after them: three for keeping the tank warm, and feeding over Tết", () => {
+  // The Curation Lead and the chief of staff, 2026-11-13: guides for the 21–27 Dec winter shelf and the Tết shelf
+  // (25 Jan–7 Feb) that fail reader fit for real. The seasons guide's winter night in a cold room was the check's
+  // mistake, mended first (fit.ts, CLIMATE_NOTE); its gallon rule and unnamed shop are real.
+  expect(list.front.slice(28)).toEqual([
+    'vi/guides/seriouslyfish-articles-heating-the-aquarium',
+    'vi/guides/aquariumcoop-blogs-aquarium-how-to-choose-the-right-aquarium-heater',
+    'vi/guides/aquatome-cham-soc-ca-canh-mua-he-va-mua-dong-mua-mua',
+    'vi/guides/aquatome-cho-ca-an-khi-vang-nha-di-xa-va-dip-tet',
+  ])
+  for (const k of list.front.slice(28)) expect(existsSync(join(ROOT, 'content/guides', k.split('/')[2]!, 'vi.json')), k).toBe(true)
 })

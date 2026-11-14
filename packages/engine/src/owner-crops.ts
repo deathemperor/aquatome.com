@@ -1,13 +1,14 @@
 import { mkdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { createHash } from 'node:crypto'
-import { OWNER_CROPS, ownerCropApproved, ownerCropCanonical, PhotoSchema, SourcesSchema, mayPublish, validCropGeometry, markOutsideCrop, validImageJudgmentHashes, awaitsScreen, type PhotoScreenEntry, type Photo, type OwnerCropApproval } from '@aq/schema'
+import { OWNER_CROPS, ownerCropApproved, ownerCropCanonical, PhotoSchema, SourcesSchema, mayPublish, isAllowedLicence, validCropGeometry, markOutsideCrop, validImageJudgmentHashes, awaitsScreen, validOcrSummary, type PhotoScreenEntry, type Photo, type OwnerCropApproval } from '@aq/schema'
 import { validJudgmentPair, judgmentHashes } from './image-judgments'
 import type { PhotoVerdict } from './photo-check'
 import { pixelHash } from './image-transforms'
 import { retainedPixelProof } from './image-crop'
 import { storeImageVariants, type ImageStore } from './image-publication'
 import { writeImageCache } from './image-cache-write'
+import { writePhotoState } from './photo-state'
 
 const hash = (s: string | Uint8Array) => createHash('sha256').update(s).digest('hex')
 const read = async (file: string) => JSON.parse(await readFile(file,'utf8'))
@@ -25,7 +26,9 @@ async function permitted(root:string,p:Photo,page:string) {
   const subjects=await decisions(join(root,'engine-state/_photo-subjects.json')),previous=subjects[p.url]?.[page]
   if(previous&&(previous.ok!=='yes'||previous.person!==false||previous.logo||previous.guide))throw new PhotoVeto('crop refused')
   const sources=SourcesSchema.parse(await read(join(root,'content/sources.json'))),source=p.source&&sources[p.source]
-  if(!p.source||!mayPublish(source,'photos')||source?.permission?.markRemoval?.allowed===false)throw new PhotoVeto('source withdrawn')
+  if(p.source){
+    if(!mayPublish(source,'photos')||source?.permission?.markRemoval?.allowed===false)throw new PhotoVeto('source withdrawn')
+  }else if(!isAllowedLicence(p.licence))throw new PhotoVeto('open licence unavailable')
   return subjects
 }
 /** Withdraw only this approved address, including an entity left behind by an interrupted gallery/receipt write. */
@@ -61,7 +64,7 @@ async function screenState(root:string):Promise<Record<string,PhotoScreenEntry>>
 function screenAllows(cache:Record<string,PhotoScreenEntry>,url:string,required:boolean) {
   if(!Object.hasOwn(cache,url)) { if(required)throw new PhotoVeto('crop awaits watermark record');return }
   const r=cache[url]
-  if(!r||!Array.isArray(r.ocr)||r.ocr.some(l=>!l||typeof l.t!=='string'||!Number.isFinite(l.c)||l.c<0||l.c>1)
+  if(!r||!Array.isArray(r.ocr)||r.ocr.some(l=>!validOcrSummary(l))
     ||(r.watermark!==undefined&&typeof r.watermark!=='boolean'))throw new PhotoVeto('crop screen record invalid')
   if(r.watermark===true||awaitsScreen(url,r))throw new PhotoVeto('crop watermark refused or pending')
 }
@@ -71,7 +74,7 @@ async function installScreen(root:string,r:CropScreenReceipt) {
   screenAllows(cache,r.url,false)
   if(!Object.hasOwn(cache,r.url)) {
     cache[r.url]=r.record
-    await writeImageCache(join(root,'engine-state/_photo-watermarks.json'),JSON.stringify(cache,null,2)+'\n')
+    await writePhotoState(join(root,'engine-state/_photo-watermarks.json'),cache)
   }
 }
 /** The credit is already in the bound photo. Keep only the fact of disagreement in its audit list. */
@@ -178,7 +181,7 @@ export async function publishOwnerCrops(root:string,cache:string,store:ImageStor
       await mkdir(join(root,'engine-state'),{recursive:true})
       if(!subjects[actual.url]?.[pageId]) {
         subjects[actual.url]={...subjects[actual.url],[pageId]:{ok:'yes',person:false,logo:false,typical:species.verdicts.every((v:PhotoVerdict)=>v.typical===true),note:'Two independent original species passes; crop preserves all retained pixels.'}}
-        await writeImageCache(join(root,'engine-state/_photo-subjects.json'),JSON.stringify(subjects,null,2)+'\n')
+        await writePhotoState(join(root,'engine-state/_photo-subjects.json'),subjects)
       }
       await check(!!screen)
       stage='content writes'

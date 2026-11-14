@@ -84,7 +84,7 @@ const alternates = await alternatesOf('species', s.id)
     {vn && summary && <QuickSummary summary={summary} inside />}
     {s.photos.length > 0 && (
       <div class="side">
-        <div class="photo" id="anh"><PhotoGallery photos={s.photos} alt={`${s.t.name}, ${s.scientificName}`} /></div>
+        <div class="photo" id="anh"><PhotoGallery photos={s.photos} alt={`${s.t.name}, ${s.scientificName}`} fish phone /></div>
         {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} more={more} href={galleryPath} name={s.t.name} column readers />}
       </div>
     )}
@@ -143,8 +143,11 @@ const alternates = await alternatesOf('species', s.id)
   :global(nav.jump ~ .body > section:first-child) { border-top: 0; }
   /* The photo column stays in view while the facts beside it scroll by: all of it where the screen is tall enough to
      show it whole, else its last part (the thumbnails, or the photo alone). On a tall screen a column with thumbnails is
-     as tall as its room: the window under its pinned top, or its grid area (100%) when the facts beside it end first.
-     The thumbnails fill what the photo leaves (GalleryStrip.astro). */
+     at least as tall as its room: the window under its pinned top, or its grid area (100%) when the facts beside it end
+     first. The thumbnails fill what the photo leaves (GalleryStrip.astro). A tall photo and the strip's own rows can
+     need more than the window: the column is then as tall as they are, its last row under the window's edge until the
+     facts end. Held to the window's height instead, its box ended there and the rows ran on past it: pinned to the page's
+     top's end, they lay over the jump chips and the first section's heading (the owner, 13 November). */
   @media (min-width: 861px) {
     .full > summary { display: none; }
     .side { align-self: stretch; }
@@ -153,7 +156,7 @@ const alternates = await alternatesOf('species', s.id)
   @media (min-width: 861px) and (min-height: 50rem) {
     .side { align-self: start; position: sticky; top: calc(var(--sticky-top, 0px) + var(--space-4)); }
     .side > :global(:last-child) { position: static; }
-    .side:has(> :global(.strip)) { display: flex; flex-direction: column; height: min(100%, calc(100dvh - var(--sticky-top, 0px) - var(--space-4))); }
+    .side:has(> :global(.strip)) { display: flex; flex-direction: column; min-height: min(100%, calc(100dvh - var(--sticky-top, 0px) - var(--space-4))); }
     .side > :global(.strip) { flex: 1; }
   }
   @media (max-width: 860px) {
@@ -168,6 +171,5 @@ const alternates = await alternatesOf('species', s.id)
     .facts:has(> .full:not([open])) > .srcline { display: none; }
     .top > :global(.qs) { margin-top: var(--space-3); }
     .photo { margin-top: var(--space-5); }
-    .photo :global(.plate img) { aspect-ratio: 16 / 9; }
   }
 </style>

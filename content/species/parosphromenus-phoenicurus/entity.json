@@ -10,6 +10,38 @@
     "indonesia",
     "sumatra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Sumatra"
+      ],
+      "sources": [
+        "bwaquatics"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "Found only in the blackwater swamps near Kota Kerincikiri, on the Indonesian island of Sumatra.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Sumatra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8243786,
+      "total": 0,
+      "fetched": "2026-11-12",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

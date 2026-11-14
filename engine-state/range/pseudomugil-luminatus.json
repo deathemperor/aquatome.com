@@ -1,0 +1,42 @@
+{
+  "id": "pseudomugil-luminatus",
+  "native": {
+    "input": "3e7deb4b26cf2d87",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Native to a limited region near Timika, Papua, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PG"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudomugil luminatus",
+    "status": "ACCEPTED",
+    "taxonKey": 9073038,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}

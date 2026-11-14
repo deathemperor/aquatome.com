@@ -40,6 +40,19 @@
       "unchecked": true
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/293876354.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/293876354-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Robin White",
+      "sourceUrl": "https://www.inaturalist.org/photos/293876354",
+      "caption": "Tép hải quỳ đốm trên hải quỳ bóng nước ngoài rạn",
+      "best": true,
+      "kind": "habitat",
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/100463487.webp",
       "thumb": "https://media.aquatome.com/inaturalist/100463487-480.webp",
       "width": 803,
@@ -141,6 +154,19 @@
       "unchecked": true
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/188303409.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/188303409-480.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY",
+      "author": "Pauline Walsh Jacobson",
+      "sourceUrl": "https://www.inaturalist.org/photos/188303409",
+      "caption": "Tép hải quỳ đốm với chấm tím trong hốc tối",
+      "best": false,
+      "kind": "other",
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/129013028.webp",
       "thumb": "https://media.aquatome.com/inaturalist/129013028-480.webp",
       "width": 1014,
@@ -149,6 +175,19 @@
       "author": "Jean-Paul Boerekamps",
       "sourceUrl": "https://www.inaturalist.org/photos/129013028",
       "caption": "Tép hải quỳ đốm với chân sọc tím trên hải quỳ",
+      "best": false,
+      "kind": "habitat",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/254060284.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/254060284-480.webp",
+      "width": 1024,
+      "height": 769,
+      "licence": "CC BY",
+      "author": "Dan Schofield",
+      "sourceUrl": "https://www.inaturalist.org/photos/254060284",
+      "caption": "Tép hải quỳ đốm trong xúc tu hải quỳ trên rạn san hô",
       "best": false,
       "kind": "habitat",
       "unchecked": true
@@ -167,6 +206,19 @@
       "unchecked": true
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/300374537.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/300374537-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Dan Schofield",
+      "sourceUrl": "https://www.inaturalist.org/photos/300374537",
+      "caption": "Tép hải quỳ đốm với chân sọc tím trên đá phủ tảo",
+      "best": false,
+      "kind": "habitat",
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/18229409443bc12b.webp",
       "thumb": "https://media.aquatome.com/commons/18229409443bc12b-480.webp",
       "width": 960,
@@ -179,6 +231,32 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/247102829.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/247102829-480.webp",
+      "width": 640,
+      "height": 960,
+      "licence": "CC BY",
+      "author": "Pauline Walsh Jacobson",
+      "sourceUrl": "https://www.inaturalist.org/photos/247102829",
+      "caption": "Tép hải quỳ đốm sống giữa xúc tu hải quỳ vàng",
+      "best": false,
+      "kind": "habitat",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/247993284.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/247993284-480.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY",
+      "author": "Pauline Walsh Jacobson",
+      "sourceUrl": "https://www.inaturalist.org/photos/247993284",
+      "caption": "Tép hải quỳ đốm bên vách đá rạn san hô",
+      "best": false,
+      "kind": "habitat",
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/b1f19a42061ac83b.webp",
       "thumb": "https://media.aquatome.com/commons/b1f19a42061ac83b-480.webp",
       "width": 941,
@@ -189,22 +267,9 @@
       "caption": "Tép hải quỳ đốm trên hải quỳ đầu xúc tu hồng",
       "best": false,
       "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/188303409.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/188303409-480.webp",
-      "width": 960,
-      "height": 640,
-      "licence": "CC BY",
-      "author": "Pauline Walsh Jacobson",
-      "sourceUrl": "https://www.inaturalist.org/photos/188303409",
-      "caption": "Tép hải quỳ đốm với chấm tím trong hốc tối",
-      "best": false,
-      "kind": "other",
-      "unchecked": true
     }
   ],
-  "seen": 71,
-  "updatedAt": "2026-11-11",
-  "builtAt": "2026-11-11"
+  "seen": 111,
+  "updatedAt": "2026-11-13",
+  "builtAt": "2026-11-13"
 }

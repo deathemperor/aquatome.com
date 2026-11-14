@@ -1,0 +1,103 @@
+{
+  "id": "chrysichthys-auratus",
+  "scientificName": "Chrysichthys auratus",
+  "order": "Siluriformes",
+  "family": "Claroteidae",
+  "genus": "Chrysichthys",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "mauritania",
+    "ghana",
+    "nigeria",
+    "cameroon",
+    "egypt",
+    "nile",
+    "kenya",
+    "lake-turkana"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 26,
+          "max": 31
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 35
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1355",
+      "html": "<ul><li>Scientific name: Chrysichthys auratus (Geoffroy St. Hilaire, 1809)</li><li>Common name: Spiny Catfish</li><li>Type locality: Nile River</li><li>Etymology: Chrysichthys, from the Greek chrysos, meaning golden, and ichthys, meaning fish; in reference to the golden-yellow colour of the type species, C. auratus.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1355",
+      "html": "<p>West Africa: from Mauritania to Ghana, except in coastal basins from Gambia to Liberia, where it is replaced by C. maurus. Also reported from Nigeria and Cameroon. Questionably reported from the Nile River and Lake Turkana.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1355",
+      "html": "<p>Occurs in lakes.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1355",
+      "html": "<p>Feeds on mollusks and small crustaceans (Branchiopods, Copepods, Ostracoda) which it digs from the substrate. It also feeds on fish and insects.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1355",
+      "html": "<p>Unreported.</p><p>There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1355",
+      "html": "<p>Poissons du Nil v. 1 (part 1), pp [322], Pl. 14 (figs. 3-4).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "Y0OWdKH6Nzs",
+      "title": "Chrysichthys Auratus  classification and commentary",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "R-_3NuO1sA8",
+      "title": "Golden Nile Catfish- Chrysichthys auratus",
+      "durationSec": 51,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "TpH4SYra654",
+      "title": "Chrysichthys spp",
+      "durationSec": 41,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "h3AiWcKeoq8",
+      "title": "Synodontis contractus and others",
+      "durationSec": 139,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-13"
+}

@@ -181,6 +181,25 @@ final class PhotoViewerFlowTests: XCTestCase {
     XCTAssertTrue(close.isHittable, "the ✕ went with a second tap")
   }
 
+  /// At the largest text the caption still stands on its fade, on the whitest photo: drawn over the whole box, the fade
+  /// left the first line above it, white on a pale photo at 1.6:1 (Design's parity, 13 Nov). Zoomed, so the photo is
+  /// under the line; beside it, in the words' margin, the photo is held to 45% or darker (black at 55% or more).
+  func testAtTheLargestTextTheCaptionStandsOnItsFade() {
+    let app = launch("-white-pictures", "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
+    rowPhoto(app, "Đàn cá neon trong bể").tap()
+    XCTAssertTrue(app.buttons["viewer-close"].waitForExistence(timeout: 5), "no viewer")
+    middle(app).doubleTap()
+    settle(0.6)
+    let bare = XCUIScreen.main.screenshot()
+    app.showViewerWords()
+    let caption = app.staticTexts["Đàn cá neon trong bể"]
+    XCTAssertTrue(caption.waitForExistence(timeout: 3), "the caption didn't come")
+    settle(0.4)
+    let line = CGRect(x: 3, y: caption.frame.minY + 4, width: 8, height: 10)
+    XCTAssertGreaterThan(lightness(bare, in: line), 0.85, "the caption's first line isn't over the photo: \(caption.frame)")
+    XCTAssertLessThan(lightness(XCUIScreen.main.screenshot(), in: line), 0.6, "the caption's first line is above its fade: \(caption.frame)")
+  }
+
   /// A short pull down springs back: the viewer stays, its ✕ with it.
   func testAShortPullDownSpringsBack() {
     let app = openViewer()
@@ -368,6 +387,19 @@ final class PhotoViewerFlowTests: XCTestCase {
       let ctx = CGContext(data: &px, width: n, height: n, bitsPerComponent: 8, bytesPerRow: n * 4, space: CGColorSpaceCreateDeviceRGB(),
                           bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else { return -1 }
     ctx.draw(patch, in: CGRect(x: 0, y: 0, width: n, height: n))
+    var sum = 0
+    for i in stride(from: 0, to: px.count, by: 4) { sum += Int(px[i]) + Int(px[i + 1]) + Int(px[i + 2]) }
+    return CGFloat(sum) / CGFloat(n * n * 3 * 255)
+  }
+
+  /// How light the screen is over `area`, in points, from 0 (black) to 1 (white).
+  private func lightness(_ shot: XCUIScreenshot, in area: CGRect) -> CGFloat {
+    let n = 4, s = shot.image.scale
+    var px = [UInt8](repeating: 0, count: n * n * 4)
+    guard let cg = shot.image.cgImage?.cropping(to: CGRect(x: area.minX * s, y: area.minY * s, width: area.width * s, height: area.height * s)),
+      let ctx = CGContext(data: &px, width: n, height: n, bitsPerComponent: 8, bytesPerRow: n * 4, space: CGColorSpaceCreateDeviceRGB(),
+                          bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else { return -1 }
+    ctx.draw(cg, in: CGRect(x: 0, y: 0, width: n, height: n))
     var sum = 0
     for i in stride(from: 0, to: px.count, by: 4) { sum += Int(px[i]) + Int(px[i + 1]) + Int(px[i + 2]) }
     return CGFloat(sum) / CGFloat(n * n * 3 * 255)

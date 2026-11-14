@@ -10,6 +10,68 @@
     "malawi",
     "lake-malawi"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi",
+        "Likoma Island"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It is found in only one locality around the northeastern shore of Likoma Island between the points of Mbako and Membe.",
+          "countries": [],
+          "regions": [
+            "Likoma Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7782809,
+      "total": 5,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "MW",
+          4
+        ],
+        [
+          "AT",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          12.65625,
+          46.40625,
+          1
+        ],
+        [
+          33.75,
+          -14.0625,
+          1
+        ],
+        [
+          33.75,
+          -12.65625,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

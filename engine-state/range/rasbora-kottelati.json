@@ -1,0 +1,65 @@
+{
+  "id": "rasbora-kottelati",
+  "native": {
+    "input": "29dbf809831b76d1",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "BN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is endemic to Borneo where it is restricted to Brunei Darussalam and northern parts of the Malaysian state of Sarawak.",
+        "words": "Brunei Darussalam",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is endemic to Borneo where it is restricted to Brunei Darussalam and northern parts of the Malaysian state of Sarawak.",
+        "words": "Malaysian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "This species is endemic to Borneo where it is restricted to Brunei Darussalam and northern parts of the Malaysian state of Sarawak.",
+        "ok": true
+      },
+      {
+        "name": "Rajang",
+        "source": "seriouslyfish",
+        "quote": "In Sarawak it ranges from the Rajang river basin near the town of Sibu to the Baram drainage at the border town of Marudi.",
+        "ok": true
+      },
+      {
+        "name": "Baram",
+        "source": "seriouslyfish",
+        "quote": "In Sarawak it ranges from the Rajang river basin near the town of Sibu to the Baram drainage at the border town of Marudi.",
+        "ok": true
+      },
+      {
+        "name": "Belait",
+        "source": "seriouslyfish",
+        "quote": "In Brunei Darussalam it has been collected from tributaries of the Belait and Ingei rivers.",
+        "country": "BN",
+        "ok": true
+      },
+      {
+        "name": "Ingei",
+        "source": "seriouslyfish",
+        "quote": "In Brunei Darussalam it has been collected from tributaries of the Belait and Ingei rivers.",
+        "country": "BN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  }
+}

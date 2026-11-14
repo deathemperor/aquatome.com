@@ -21,6 +21,8 @@ test("candidates found by hand go to the front of a page's gallery queue; known,
   expect(r).toEqual({ pages: 2, added: 3, skipped: 6, unknown: ['no-such-page'], invalid: 1 })
   const st = JSON.parse(await readFile(join(root, 'engine-state/gallery/a-fish.json'), 'utf8'))
   expect(st.queue.map((c: { key: string }) => c.key)).toEqual(['inat:2', 'File:A.jpg', 'inat:9'])
+  // Marked as a person's finds, so a full album is read again for these alone.
+  expect(st.seeded).toEqual(['inat:2', 'File:A.jpg'])
   // Its sources ran dry before: tried again now it has something to screen.
   expect(st.exhausted).toBeUndefined()
   expect(JSON.parse(await readFile(join(root, 'engine-state/gallery/a-breed.json'), 'utf8'))).toMatchObject({ queue: [{ key: 'File:B.jpg' }], judged: [] })

@@ -1,7 +1,21 @@
 {
   "id": "trigonopoma-gracile",
-  "photos": [],
-  "seen": 3,
-  "updatedAt": "2026-11-10",
-  "builtAt": "2026-11-10"
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/445274367.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/445274367-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC0",
+      "author": "Justin Philbois",
+      "sourceUrl": "https://www.inaturalist.org/photos/445274367",
+      "caption": "Cá rasbora gracile bơi nghiêng trong bể chụp ảnh nền sáng",
+      "best": true,
+      "kind": "other",
+      "unchecked": true
+    }
+  ],
+  "seen": 7,
+  "updatedAt": "2026-11-13",
+  "builtAt": "2026-11-13"
 }

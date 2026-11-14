@@ -26,6 +26,20 @@
       "kept": true
     }
   ],
+  "vi/guides/aquariumbreeder-breeding-and-life-cycle-of-crayfish#body": [
+    {
+      "at": "2026-11-13T16:48:08Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "Added \"quạt liên tục\" (continuous fanning) – a new detail about the behaviour and its frequency that BEFORE does not state."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/aquariumbreeder-how-to-choose-aquarium-plants-for-beginners#body": [
     {
       "at": "2026-11-09T13:57:24Z",
@@ -348,6 +362,20 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-SRQp4aZJv1g#body": [
+    {
+      "at": "2026-11-13T05:46:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "Said more surely than before: \"Lớp phủ này dùng luôn làm lớp trang trí tiền cảnh cũng được.\" (was: \"Lớp phủ này cũng có thể dùng luôn làm lớp trang trí tiền cảnh.\")"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-SVgc_g2T47Y#body": [
     {
       "at": "2026-11-08T19:31:49Z",
@@ -413,6 +441,21 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/guides/youtube-Z2zNU9D9OWE#body": [
+    {
+      "at": "2026-11-13T05:48:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.68,
+      "notes": [
+        "Added claim: \"mà chỉ dùng nắng trời\" (only natural sunlight) is not in BEFORE, which only says the tank has no light.",
+        "\"bể thấp 4 tấc Anh\" became \"cỡ 1,2 m\": the 4-foot naming is dropped and \"cỡ\" makes the size approximate, though it is consistent with 120 cm."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/guides/youtube-aXWDAuISGKs#body": [
@@ -512,6 +555,21 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/guides/youtube-rWaSv_jw6Rs#body": [
+    {
+      "at": "2026-11-13T11:34:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [
+        "\"Chừa sẵn một khoảng phía sau\": 'một khoảng' is a trivial addition, no meaning change.",
+        "\"bể sẽ trông sâu hơn\": the 'sẽ' of the original is kept; the 'cảm giác' (impression) nuance is slightly flattened, since AFTER says the tank looks deeper."
+      ],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/guides/youtube-rh8iBySuUpE#body": [

@@ -370,3 +370,16 @@ test('a source that moved to the Internet Archive gets one line for a week, and 
   expect(fresh.care).toBe(0)
   expect(compose(moved(new Date(NOW.getTime() - 8 * 86_400_000).toISOString())).text).not.toContain('Internet Archive')
 })
+
+test('needs care: head photos with no animal in them and no "yes" from the photo check, those new today by name, with the list\'s link', () => {
+  const heads = { total: 3, items: [{ page: 'species/a', name: 'Cá a', since: '2026-11-06' }, { page: 'species/b', name: 'Cá b', since: '2026-11-06' }, { page: 'breeds/c', name: 'Cá c', since: '2026-11-01' }] }
+  const care = needsCare(input({ gh: gh({ noAnimal: heads }) })).find(c => c.title.startsWith('Head photos'))!
+  expect(care).toEqual({
+    title: 'Head photos with no animal in them: 3 pages',
+    text: 'New today: Cá a, Cá b. The photo check judges them first; one it finds no fish in comes off its page.',
+    href: `${REPO}/blob/main/engine-state/_photo-no-animal-heads.json`, n: 3,
+  })
+  expect(needsCare(input({ gh: gh({ noAnimal: { total: 1, items: [heads.items[2]!] } }) })).find(c => c.title.startsWith('Head photos'))?.text).toBe('The photo check judges them first; one it finds no fish in comes off its page.')
+  expect(titles(input({ gh: gh({ noAnimal: { total: 0, items: [] } }) }))).toEqual([])
+  expect(parseGitHubSide(JSON.stringify(gh({ noAnimal: heads })))?.noAnimal).toEqual(heads)
+})

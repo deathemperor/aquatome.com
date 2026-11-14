@@ -1,0 +1,19 @@
+{
+  "slug": "ca-da-tron-bien-cryptarius-truncatus",
+  "name": "Cá da trơn biển Cryptarius truncatus",
+  "altNames": [],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Cryptarius truncatus (Valenciennes, 1840)</li><li>Nơi thu mẫu định danh (type locality): Java, Indonesia.</li><li>Kích thước: 420 mm SL (chiều dài chuẩn, không tính vây đuôi)</li><li>Danh sách Đỏ IUCN: chưa đánh giá</li></ul>",
+    "distribution:planetcatfish": "<p>Loài này sống ở vùng trung tây Thái Bình Dương. Chúng có ở các cửa sông và vùng hạ lưu, từ sông Chao Phraya xuống tới Sumatra và Java, kể cả hạ lưu sông Mê Kông.</p>",
+    "reproduction:planetcatfish": "<p>Chưa có thông tin. Đến nay chưa có báo cáo nào về chuyện cho loài này đẻ.</p>",
+    "references:planetcatfish": "<p>Histoire naturelle des poissons v. 15, pp 64.</p>"
+  },
+  "quality": {
+    "score": 0.6,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.6
+    },
+    "reason": "thin"
+  }
+}

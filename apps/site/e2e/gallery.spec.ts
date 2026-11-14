@@ -1,5 +1,5 @@
 import type { Page } from '@playwright/test'
-import { expect, test } from './fixtures'
+import { expect, photosMissing, sideways, test } from './fixtures'
 import { doubleTap, pinchOut, swipe } from './gestures'
 import { sourcePages } from './pages'
 
@@ -39,6 +39,20 @@ for (const [what, section] of [['fish', 'ca'], ['plant', 'cay']] as const) {
     await page.goBack()
     await expect(page).toHaveURL(new RegExp(`${gallery!.replace(/anh\/$/, '')}$`))
     expect(errors).toEqual([])
+  })
+
+  // Each thumbnail keeps its share of the strip when its photo doesn't load: its alt text, a caption or the page's name,
+  // shows in its place, and on 13 November a long word in it (the Malay Bucephalandra page's, checked live with no photo
+  // loaded) widened the strip's columns past a phone's edge. That page's word stands in for the build's own captions,
+  // which are shorter: any caption or name can be.
+  test(`${what} page: the photo strip fits the screen when its photos don't load`, async ({ page }) => {
+    const gallery = galleryOf(section)
+    test.skip(!gallery, `no ${what} gallery in this build`)
+    await page.goto(gallery!.replace(/anh\/$/, ''))
+    await expect(page.locator('section.strip img').first()).toBeAttached()
+    await page.locator('section.strip img').evaluateAll(imgs => imgs.forEach(i => { (i as HTMLImageElement).alt = 'Bucephalandra' }))
+    await photosMissing(page)
+    expect(await sideways(page), 'sideways scroll').toBeNull()
   })
 }
 

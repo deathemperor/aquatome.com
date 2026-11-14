@@ -113,8 +113,9 @@ test('pnpm reads the one-at-a-time setting the second try sets, so its packages 
 test('the engine cycle checks through verify before every publish, with the steps its commit needs', () => {
   const cycle = readFileSync(join(ROOT, 'scripts/engine-cycle.sh'), 'utf8')
   expect(cycle).toContain('source "$REPO/scripts/cycle-checks.sh"')
-  // Its content, and again after a merge in push(): the same steps (verify_cycle), and no build of the real site.
-  expect(cycle.match(/^\s*(if ! )?verify_cycle\b/gm)).toHaveLength(2)
+  // Its content, again after a merge in push(), and after a sweep on a clean pull that changed something: the same steps
+  // (verify_cycle), and no build of the real site.
+  expect(cycle.match(/^\s*(if ! )?verify_cycle\b/gm)).toHaveLength(3)
   expect(cycle).not.toMatch(/\bverify '|\bchecks '|pnpm build/)
 })
 
@@ -122,14 +123,14 @@ test('the video job checks as the engine cycle does: it waits for a calmer Mac, 
   // 2026-11-07: its own checks, without either, failed twice at a load of 667 on 16 cores and held back the videos.
   const cycle = readFileSync(join(ROOT, 'scripts/video-cycle.sh'), 'utf8')
   expect(cycle).toContain('source scripts/cycle-checks.sh')
-  expect(cycle.match(/\bverify '/g)).toHaveLength(2)
+  expect(cycle.match(/\bverify '/g)).toHaveLength(3) // its work, after a merge on push, after a sweep on a clean pull
   expect(cycle).not.toMatch(/\bchecks '|^checks\(\)/m)
 })
 
 test('video guides are checked again by their own job alone, recheck then redo, with the video job\'s checks', () => {
   const recheck = readFileSync(join(ROOT, 'scripts/video-recheck.sh'), 'utf8')
   expect(recheck).toContain('source scripts/cycle-checks.sh')
-  expect(recheck.match(/\bverify '/g)).toHaveLength(2)
+  expect(recheck.match(/\bverify '/g)).toHaveLength(3) // as the video job
   expect(recheck).toMatch(/^pnpm engine review-backfill --kind video-guide --reviewed-before .*\n(#.*\n)*pnpm engine videos --redo --rechecked-since /m)
   // The low guides in search get their two more reads first, under their own command's ceiling (2026-11-11).
   expect(recheck).toMatch(/^pnpm engine review-backfill-97 .*\n(#.*\n)*pnpm engine review-backfill --kind video-guide /m)

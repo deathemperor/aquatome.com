@@ -1,0 +1,181 @@
+{
+  "id": "puntigrus-partipentazona",
+  "native": {
+    "input": "8a1f63935e66aa53",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Puntigrus partipentazona is a small cyprinid recorded from numerous river basins in Vietnam, Cambodia, Laos, Thailand and Peninsular Malaysia.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Puntigrus partipentazona is a small cyprinid recorded from numerous river basins in Vietnam, Cambodia, Laos, Thailand and Peninsular Malaysia.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Puntigrus partipentazona is a small cyprinid recorded from numerous river basins in Vietnam, Cambodia, Laos, Thailand and Peninsular Malaysia.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Puntigrus partipentazona is a small cyprinid recorded from numerous river basins in Vietnam, Cambodia, Laos, Thailand and Peninsular Malaysia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Puntigrus partipentazona is a small cyprinid recorded from numerous river basins in Vietnam, Cambodia, Laos, Thailand and Peninsular Malaysia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Barbus partipentazona originates from the south of Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Recorded from numerous river basins in Vietnam, Cambodia, Laos, Thailand, and Peninsular Malaysia, including the Mekong, Chao Phraya, Mae Khlong, Chanthaburi, Tapi, Golok, Terengganu, Pahang, Endau, and Muar.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Recorded from numerous river basins in Vietnam, Cambodia, Laos, Thailand, and Peninsular Malaysia, including the Mekong, Chao Phraya, Mae Khlong, Chanthaburi, Tapi, Golok, Terengganu, Pahang, Endau, and Muar.",
+        "ok": true
+      },
+      {
+        "name": "Mae Khlong",
+        "source": "seriouslyfish",
+        "quote": "Recorded from numerous river basins in Vietnam, Cambodia, Laos, Thailand, and Peninsular Malaysia, including the Mekong, Chao Phraya, Mae Khlong, Chanthaburi, Tapi, Golok, Terengganu, Pahang, Endau, and Muar.",
+        "ok": true
+      },
+      {
+        "name": "Tapi",
+        "source": "seriouslyfish",
+        "quote": "Recorded from numerous river basins in Vietnam, Cambodia, Laos, Thailand, and Peninsular Malaysia, including the Mekong, Chao Phraya, Mae Khlong, Chanthaburi, Tapi, Golok, Terengganu, Pahang, Endau, and Muar.",
+        "ok": true
+      },
+      {
+        "name": "Pahang",
+        "source": "seriouslyfish",
+        "quote": "Recorded from numerous river basins in Vietnam, Cambodia, Laos, Thailand, and Peninsular Malaysia, including the Mekong, Chao Phraya, Mae Khlong, Chanthaburi, Tapi, Golok, Terengganu, Pahang, Endau, and Muar.",
+        "ok": true
+      },
+      {
+        "name": "Endau",
+        "source": "seriouslyfish",
+        "quote": "Recorded from numerous river basins in Vietnam, Cambodia, Laos, Thailand, and Peninsular Malaysia, including the Mekong, Chao Phraya, Mae Khlong, Chanthaburi, Tapi, Golok, Terengganu, Pahang, Endau, and Muar.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Puntigrus partipentazona",
+    "status": "ACCEPTED",
+    "taxonKey": 8015152,
+    "datasets": [
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        66
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        22
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        17
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        12
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        4
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        4
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "90cbc357-530d-40f2-8000-331f6b575dd4",
+        2
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "VN",
+      "KH",
+      "LA",
+      "TH",
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}

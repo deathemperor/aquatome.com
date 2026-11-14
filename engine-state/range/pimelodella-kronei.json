@@ -1,0 +1,75 @@
+{
+  "id": "pimelodella-kronei",
+  "native": {
+    "input": "cd4d822cec75aafc",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Cavernas das Areieas, Iporanga, upper River Ribeira basin, São Paulo state, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ribeira de Iguape",
+        "source": "planetcatfish",
+        "quote": "South America: São Paulo State rivers, Iguape and Ribeira de Iguape, Iporanga.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pimelodella kronei",
+    "status": "ACCEPTED",
+    "taxonKey": 2343464,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        18
+      ],
+      [
+        "9343010e-8261-4bd9-9314-bf2faf34f4e7",
+        6
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        4
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ],
+      [
+        "71d58564-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

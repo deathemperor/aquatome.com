@@ -193,7 +193,12 @@
       "author": "Alexander Prokoshev",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Marmoratus.jpg",
       "caption": "Fundulopanchax marmoratus, two juvenile adult males",
-      "thumb": "https://media.aquatome.com/commons/c2b8ba410b684f26-480.webp"
+      "thumb": "https://media.aquatome.com/commons/c2b8ba410b684f26-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/c2b8ba410b684f26-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     }
   ],
   "videos": [

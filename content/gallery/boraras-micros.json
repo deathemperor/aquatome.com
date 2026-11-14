@@ -1,0 +1,70 @@
+{
+  "id": "boraras-micros",
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/5dda68837433b0737213da025035a3be.webp",
+      "thumb": "https://media.aquatome.com/processed/5dda68837433b0737213da025035a3be-480.webp",
+      "width": 640,
+      "height": 300,
+      "licence": "dùng với sự cho phép",
+      "author": "Nonn Panitwong / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boraras-micros",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261112-boraras-micros-sf-4",
+        "pixelHash": "388c7fe47e2c311153a581410fd44dca91ef326794510e5bc890035cb25d411b"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-12T11:19:12.680Z",
+          "originalHash": "65a416eddb84c5e9ac51ac98bba8a93a4122442fdfdbc4858209b28ede1604f1",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 640,
+            "originalHeight": 361,
+            "window": {
+              "x0": 0,
+              "y0": 0,
+              "x1": 640,
+              "y1": 300
+            },
+            "subject": {
+              "x0": 142,
+              "y0": 76,
+              "x1": 599,
+              "y1": 255
+            },
+            "margin": 10
+          },
+          "excludedMarks": [
+            {
+              "x0": 433,
+              "y0": 304,
+              "x1": 604,
+              "y1": 323
+            }
+          ],
+          "checks": {
+            "species": [
+              "fa6bc6e1326d81f15b10e8971958a330b13afee4d14ea0556345fb09c661cf87",
+              "ce260f9580045c7c8a439bfa12903ca8e8f9db626071899c3dc37190961356b9"
+            ],
+            "ownership": [
+              "dfca3103242e5466c0e2744abe564139f4d359821a176b94a6628330110e9223",
+              "37b3df9ebc40a586da42527f347ee846345ddca117798614c958b603314a7ed3"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://www.seriouslyfish.com/images/2012/03/Boraras-micros.jpg",
+        "width": 640,
+        "height": 361
+      }
+    }
+  ],
+  "seen": 0,
+  "updatedAt": "2026-11-12"
+}

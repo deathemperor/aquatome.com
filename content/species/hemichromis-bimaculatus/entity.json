@@ -932,7 +932,12 @@
       "author": "Wikimedia Commons",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hemichromis_bimaculatus1.jpg",
       "caption": "Hemichromis bimaculatus1.jpg",
-      "thumb": "https://media.aquatome.com/commons/3084eae53bbfefa5-480.webp"
+      "thumb": "https://media.aquatome.com/commons/3084eae53bbfefa5-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/3084eae53bbfefa5-large.webp",
+        "width": 1124,
+        "height": 666
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/a48f06cc2dbd0f2f.webp",

@@ -10,6 +10,46 @@
     "malaysia",
     "johor"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Parosphromenus alfredi is a liquorice gourami endemic to a small part of eastern Johor, Peninsular Malaysia, around Kota Tinggi, Mawai and Desaru.",
+          "countries": [
+            "MY"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394172,
+      "total": 1,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "MY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

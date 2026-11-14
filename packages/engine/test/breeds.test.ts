@@ -5,6 +5,7 @@ import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
 import { breedCare, breedPhotos, localizeBreed, makeBreed, type BreedFacts } from '../src/breeds'
+import { WikimediaRefused } from '../src/wikimedia-rest'
 import type { GalleryDeps } from '../src/gallery'
 
 const facts: BreedFacts = {
@@ -186,6 +187,12 @@ test('breed-photos: a page with no photo gets them from a word search on Commons
   await writeFile(join(r, 'content/breeds/crowntail-betta/entity.json'), JSON.stringify({ id: 'crowntail-betta', kind: 'variety', photos: [] }))
   await breedPhotos(r, d, {})
   expect(searches).toEqual([]) // tried today
+  // While Wikimedia rests, a breed isn't tried: its month starts once a screening has run.
+  await writeFile(join(r, 'engine-state/_breed-photos.json'), '{}')
+  await writeFile(join(r, 'content/breeds/crowntail-betta/entity.json'), JSON.stringify({ id: 'crowntail-betta', kind: 'variety', photos: [] }))
+  const resting = await breedPhotos(r, { ...d, get: async () => { throw new WikimediaRefused('2026-11-13T00:30:00.000Z') } }, {})
+  expect(resting.failed).toEqual(['crowntail-betta: Wikimedia refused this Mac: no request before 2026-11-13T00:30:00.000Z'])
+  expect(JSON.parse(await readFile(join(r, 'engine-state/_breed-photos.json'), 'utf8'))).toEqual({})
 })
 
 test('localizeBreed: the page in Thai written afresh from the same facts, without the Vietnamese names; parents named in Thai; skipped once done', async () => {

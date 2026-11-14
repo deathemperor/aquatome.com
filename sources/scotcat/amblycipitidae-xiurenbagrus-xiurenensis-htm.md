@@ -1,7 +1,7 @@
 ---
 url: https://www.scotcat.com/amblycipitidae/xiurenbagrus_xiurenensis.htm
 title: Xiurenbagrus xiurenensis (Yue, 1981)
-fetchedAt: 2026-11-11T20:40:03.830Z
+fetchedAt: 2026-11-13T04:47:18.257Z
 hash: b63a0e2b8b69aae61e80280544804d860ad1a601a7fde6169c9d6e756ab7ffd4
 ---
 

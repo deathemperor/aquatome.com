@@ -72,18 +72,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/39291892.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/39291892-480.webp",
-      "width": 576,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Douglas",
-      "sourceUrl": "https://www.inaturalist.org/photos/39291892",
-      "caption": "Cá sặc bướm bơi trong nước, thấy rõ chấm đen bên thân",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/commons/8d51e38b9432c83c.webp",
       "thumb": "https://media.aquatome.com/commons/8d51e38b9432c83c-480.webp",
       "width": 1200,
@@ -314,16 +302,6 @@
       "caption": "Cá sặc bướm xanh lam trong bể nuôi, thấy rõ vây và tua"
     },
     {
-      "url": "https://media.aquatome.com/commons/dfef640d200ab3d2.webp",
-      "thumb": "https://media.aquatome.com/commons/dfef640d200ab3d2-480.webp",
-      "width": 1200,
-      "height": 773,
-      "licence": "CC BY-SA 3.0",
-      "author": "Ewkaa",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gurami_z%C5%82oty_-_Trichogaster_trichopterus.jpg",
-      "caption": "Cá sặc bướm màu vàng cam bơi trong bể sỏi tối"
-    },
-    {
       "url": "https://media.aquatome.com/commons/7f45b4529b167e15.webp",
       "thumb": "https://media.aquatome.com/commons/7f45b4529b167e15-480.webp",
       "width": 1200,
@@ -364,16 +342,6 @@
       "caption": "Cá sặc bướm opaline vân xám bơi trong bể nền xanh"
     },
     {
-      "url": "https://media.aquatome.com/commons/5e7f2abe75ef9aab.webp",
-      "thumb": "https://media.aquatome.com/commons/5e7f2abe75ef9aab-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 3.0",
-      "author": "Sivahari",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Guara_fish.jpg",
-      "caption": "Cá sặc bướm màu bạc bơi trong bể sỏi cam"
-    },
-    {
       "url": "https://media.aquatome.com/commons/cd3a523b1e2808c5.webp",
       "thumb": "https://media.aquatome.com/commons/cd3a523b1e2808c5-480.webp",
       "width": 1200,
@@ -392,16 +360,6 @@
       "author": "Christopher",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trichopodus_trichopterus_65356688.jpg",
       "caption": "Cá sặc bướm có hai đốm đen, bụng cam, chụp cận cảnh"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/ae0e328a6830f1c5.webp",
-      "thumb": "https://media.aquatome.com/commons/ae0e328a6830f1c5-480.webp",
-      "width": 1200,
-      "height": 675,
-      "licence": "CC BY-SA 4.0",
-      "author": "R.workoran",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%94%E0%B8%B5%E0%B9%88%E0%B8%AB%E0%B8%A1%E0%B9%89%E0%B8%AD2.jpg",
-      "caption": "Cá sặc bướm trưởng thành màu bạc với đốm đen bên thân"
     },
     {
       "url": "https://media.aquatome.com/commons/76a08898d6858f2f.webp",
@@ -469,6 +427,38 @@
       "caption": "Cá sặc bướm màu hồng vàng trong bể nuôi"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/39291892.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/39291892-480.webp",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Douglas",
+      "sourceUrl": "https://www.inaturalist.org/photos/39291892",
+      "caption": "Cá sặc bướm bơi trong nước, thấy rõ chấm đen bên thân",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/dfef640d200ab3d2.webp",
+      "thumb": "https://media.aquatome.com/commons/dfef640d200ab3d2-480.webp",
+      "width": 1200,
+      "height": 773,
+      "licence": "CC BY-SA 3.0",
+      "author": "Ewkaa",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gurami_z%C5%82oty_-_Trichogaster_trichopterus.jpg",
+      "caption": "Cá sặc bướm màu vàng cam bơi trong bể sỏi tối"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/5e7f2abe75ef9aab.webp",
+      "thumb": "https://media.aquatome.com/commons/5e7f2abe75ef9aab-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 3.0",
+      "author": "Sivahari",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Guara_fish.jpg",
+      "caption": "Cá sặc bướm màu bạc bơi trong bể sỏi cam"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/504514588.webp",
       "thumb": "https://media.aquatome.com/inaturalist/504514588-480.webp",
       "width": 1024,
@@ -487,16 +477,6 @@
       "author": "Christopher",
       "sourceUrl": "https://www.inaturalist.org/photos/65035808",
       "caption": "Cận cảnh đầu cá sặc bướm mắt cam giữa cây thủy sinh"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/554052775.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/554052775-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Wang J.P.",
-      "sourceUrl": "https://www.inaturalist.org/photos/554052775",
-      "caption": "Cá sặc bướm có hai đốm đen trong chậu màu vàng"
     },
     {
       "url": "https://images.unsplash.com/photo-1702033176566-c72ec3f400f2?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MTB8fFRocmVlJTIwc3BvdCUyMGdvdXJhbWl8ZW58MXx8fHwxNzkzNDU5NjQxfDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max",

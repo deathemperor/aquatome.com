@@ -276,7 +276,71 @@
       "html": "<ul><li>Fowler, H. W. (1935). Zoological results of the third De Schauensee Siamese Expedition, Part VI - Fishes obtained in 1934. Proceedings of the Academy of Natural Sciences of Philadelphia v. 87, 89-163</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Kottelat, M. (1998). Fishes of the Nam Theun and Xe Bangfai basins, Laos, with diagnoses of twenty-two new species (Teleostei: Cyprinidae, Balitoridae, Cobitidae, Coiidae and Odontobutidae). Ichthyological Exploration of Freshwaters 9(1), 1-128</li><li>Rainboth, W. J. (1996). FAO species identification field guide for fishery purposes. Fishes of the Cambodian Mekong. Rome, FAO, 1-265</li><li>Freyhof, J., D. V. Serov and T. N. Nguyen (2000). A preliminary checklist of the freshwater fishes of the River Dong Nai, South Vietnam. Bonner Zoologische Beiträge 49(1-4), 93-99</li><li>Yang, L., M. Arunachalam, T. Sado, B. A. Levin, A. S. Golubtsov, J. Freyhof, J. P. Friel, W-J. Chen, M. V. Hirt, R. Manickam, M. K. Agnew, A. M. Simons, K. Saitoh, M. Miya, R. L. Mayden, and S. He (2012). Molecular phylogeny of the cyprinid tribe Labeonini (Teleostei: Cypriniformes). Molecular Phylogenetics and Evolution 65(2), 362-379</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/97c60e2b16850dee87a39d3e91775c96.webp",
+      "thumb": "https://media.aquatome.com/processed/97c60e2b16850dee87a39d3e91775c96-480.webp",
+      "width": 700,
+      "height": 382,
+      "licence": "dùng với sự cho phép",
+      "author": "Nonn Panitvong / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lobocheilos-melanotaenia",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261112-lobocheilos-melanotaenia-sf-1",
+        "pixelHash": "59744871a947898da4ead27561dd19e3db70e3eb869ceed2da1c26ff710c1eb4"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-12T11:13:25.402Z",
+          "originalHash": "986f996dca8f3f68f354f069ef7fadbe74a0ea088338518b5c9b76b6aec6cf1f",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 700,
+            "originalHeight": 397,
+            "window": {
+              "x0": 0,
+              "y0": 0,
+              "x1": 700,
+              "y1": 382
+            },
+            "subject": {
+              "x0": 100,
+              "y0": 124,
+              "x1": 657,
+              "y1": 325
+            },
+            "margin": 10
+          },
+          "excludedMarks": [
+            {
+              "x0": 30,
+              "y0": 386,
+              "x1": 118,
+              "y1": 397
+            }
+          ],
+          "checks": {
+            "species": [
+              "f1e80a5c7f841149c86a5ccffd147a88de4985e4502a01f036838bc431cf42ba",
+              "fad2a7890e1c8636a8890d399eb134b2d316c47f8b94c791d295fe4f4be468ad"
+            ],
+            "ownership": [
+              "5eef09fe117ee66fdb77c07898c8476b8a4aea129221ce5d3d565810a69a6d93",
+              "f3d3c9162787d9db2b93e49bfc74e579f0a6e0ded471d5b0c25cbe0e29122c6b"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://www.seriouslyfish.com/images/2014/11/lobocheilus_melanotaenia_12.jpg",
+        "width": 700,
+        "height": 397
+      }
+    }
+  ],
   "videos": [
     {
       "youtubeId": "trmGOHXK3iA",

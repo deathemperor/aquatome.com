@@ -2,16 +2,17 @@
   "id": "poecilia-mexicana",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/85939a6a946cde8c.webp",
-      "thumb": "https://media.aquatome.com/commons/85939a6a946cde8c-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY-SA 4.0",
-      "author": "Diego Delso",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Po%C3%A9cilo_(Poecilia_mexicana),_cenote_Dos_Ojos,_Yucat%C3%A1n,_M%C3%A9xico,_2025-12-23,_DD_47.jpg",
-      "caption": "Cá molly Mexico đực vây đuôi lớn, thân vàng ánh chấm",
+      "url": "https://media.aquatome.com/inaturalist/92648665.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/92648665-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Bill Levine",
+      "sourceUrl": "https://www.inaturalist.org/photos/92648665",
+      "caption": "Cá molly Mexico đực đuôi viền vàng trên nền cát ngoài tự nhiên",
       "best": true,
-      "kind": "male"
+      "kind": "male",
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/commons/9ed6ea328c5d8cd4.webp",
@@ -50,6 +51,31 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/244644483.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/244644483-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Roger A. Morales-Flores",
+      "sourceUrl": "https://www.inaturalist.org/photos/244644483",
+      "caption": "Cá molly Mexico trên nền trắng, thấy rõ thân và vây",
+      "best": true,
+      "kind": "other",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/commons/85939a6a946cde8c.webp",
+      "thumb": "https://media.aquatome.com/commons/85939a6a946cde8c-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY-SA 4.0",
+      "author": "Diego Delso",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Po%C3%A9cilo_(Poecilia_mexicana),_cenote_Dos_Ojos,_Yucat%C3%A1n,_M%C3%A9xico,_2025-12-23,_DD_47.jpg",
+      "caption": "Cá molly Mexico đực vây đuôi lớn, thân vàng ánh chấm",
+      "best": true,
+      "kind": "male"
+    },
+    {
       "url": "https://media.aquatome.com/commons/02d57173d670f23c.webp",
       "thumb": "https://media.aquatome.com/commons/02d57173d670f23c-480.webp",
       "width": 1200,
@@ -72,6 +98,97 @@
       "caption": "Cá molly Mexico ngoài tự nhiên trên nền đá",
       "best": true,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/6487295.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/6487295-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Claudio Cantú Muñiz",
+      "sourceUrl": "https://www.inaturalist.org/photos/6487295",
+      "caption": "Hai cá molly Mexico, con trên có vây vàng, chụp trong bể",
+      "best": true,
+      "kind": "pair",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/142803381.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/142803381-480.webp",
+      "width": 1005,
+      "height": 1005,
+      "licence": "CC BY-SA",
+      "author": "José Francisco Colorado-Dapa",
+      "sourceUrl": "https://www.inaturalist.org/photos/142803381",
+      "caption": "Cá molly Mexico đực đuôi cam bơi trên nền cát ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/108659986.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/108659986-480.webp",
+      "width": 1024,
+      "height": 681,
+      "licence": "CC BY",
+      "author": "Carlos Domínguez-Rodríguez",
+      "sourceUrl": "https://www.inaturalist.org/photos/108659986",
+      "caption": "Cá molly Mexico sẫm màu bơi trên đáy suối đầy tảo",
+      "best": true,
+      "kind": "habitat",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/108660520.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/108660520-480.webp",
+      "width": 1024,
+      "height": 681,
+      "licence": "CC BY",
+      "author": "Carlos Domínguez-Rodríguez",
+      "sourceUrl": "https://www.inaturalist.org/photos/108660520",
+      "caption": "Cá molly Mexico trưởng thành bơi trên nền đá tảo ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/108660527.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/108660527-480.webp",
+      "width": 1024,
+      "height": 681,
+      "licence": "CC BY",
+      "author": "Carlos Domínguez-Rodríguez",
+      "sourceUrl": "https://www.inaturalist.org/photos/108660527",
+      "caption": "Cá molly Mexico bơi giữa đá phủ tảo trong suối tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/5719140.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/5719140-480.webp",
+      "width": 1024,
+      "height": 677,
+      "licence": "CC0",
+      "author": "Wouter Koch",
+      "sourceUrl": "https://www.inaturalist.org/photos/5719140",
+      "caption": "Cá molly Mexico trưởng thành bơi trên đáy có rêu ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/355815861.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/355815861-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Alina Martin",
+      "sourceUrl": "https://www.inaturalist.org/photos/355815861",
+      "caption": "Cá molly Mexico bơi trên đáy rêu trong suối tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/commons/f4908a2e922fcaf7.webp",
@@ -98,6 +215,32 @@
       "kind": "pair"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/49263887.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/49263887-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Bill Levine",
+      "sourceUrl": "https://www.inaturalist.org/photos/49263887",
+      "caption": "Ba cá molly Mexico bơi trên nền cát rêu ngoài tự nhiên",
+      "best": false,
+      "kind": "group",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/5719139.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/5719139-480.webp",
+      "width": 1024,
+      "height": 660,
+      "licence": "CC0",
+      "author": "Wouter Koch",
+      "sourceUrl": "https://www.inaturalist.org/photos/5719139",
+      "caption": "Cá molly Mexico nhìn từ trên xuống trong nước nông ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/ac395beff659547b.webp",
       "thumb": "https://media.aquatome.com/commons/ac395beff659547b-480.webp",
       "width": 1200,
@@ -108,9 +251,35 @@
       "caption": "Cá molly Mexico trong bể nền sỏi, cây thủy sinh",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/355815882.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/355815882-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Alina Martin",
+      "sourceUrl": "https://www.inaturalist.org/photos/355815882",
+      "caption": "Cá molly Mexico giữa lá rụng và rêu ở suối",
+      "best": false,
+      "kind": "habitat",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/355839474.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/355839474-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Alina Martin",
+      "sourceUrl": "https://www.inaturalist.org/photos/355839474",
+      "caption": "Cá molly Mexico bơi gần đá phủ rêu trong suối",
+      "best": false,
+      "kind": "habitat",
+      "unchecked": true
     }
   ],
-  "seen": 32,
-  "updatedAt": "2026-11-09",
-  "builtAt": "2026-11-09"
+  "seen": 92,
+  "updatedAt": "2026-11-13",
+  "builtAt": "2026-11-13"
 }

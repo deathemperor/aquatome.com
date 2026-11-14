@@ -16,14 +16,18 @@ import { readReviews, type Trace } from './review-log'
 
 export type SourcePair = { id: string; en: string; vi: string }
 
-/** The pairs a translation recheck sends the reviewer (review-backfill.ts): one source, references aside, both languages. */
+/**
+ * The pairs a translation recheck sends the reviewer (review-backfill.ts): one source, references aside, both languages,
+ * each with text. The listing, the check and the score's update all read these, so the text a check hashed is the text
+ * its score is applied to.
+ */
 export function sourcePairs(sections: Pick<Section, 'key' | 'source' | 'html'>[], translated: Record<string, string>, source: string): SourcePair[] {
   const out: SourcePair[] = []
   for (const s of sections) {
     if (s.source !== source || s.key === 'references' || !s.html.trim()) continue
     const id = `${s.key}:${s.source}`
     const vi = translated[id]
-    if (vi === undefined) continue
+    if (!vi?.trim()) continue
     out.push({ id, en: s.html, vi })
   }
   return out

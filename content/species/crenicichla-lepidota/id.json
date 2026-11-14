@@ -1,0 +1,27 @@
+{
+  "slug": "pike-cichlid-lepidota",
+  "name": "Pike cichlid lepidota",
+  "altNames": [
+    "Saxatilia lepidota",
+    "Pike cichlid"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Pike cichlid berukuran sedang (sekitar 15 cm) dari Paraguay. Ikan yang masuk merupakan bentuk yang ditampilkan sebagai Crenicichla cf. edithae dalam Stawikowski &amp; Werner (2004: 140). Kadang-kadang Crenicichla edithae dianggap sebagai sinonim dari C. lepidota.</p>",
+    "distribution:glaser": "<p>Paraguay.</p>",
+    "notes:glaser": "<p>C. edithae dideskripsikan secara ilmiah pada tahun 1991 oleh Alex Ploeg dan dinamai untuk istrinya, Edith; tanpa bantuan Edith, ia tidak akan bisa menyelesaikan penelitiannya tentang Crenicichla. Alex dan Edith meninggal pada 18 Juli 2014 ketika pesawat MH17 ditembak jatuh di atas Ukraina.</p>",
+    "references:glaser": "<p>Stawikowski, R. &amp; U. Werner (2004): Die Buntbarsche Amerikas. Band 3: Erdfresser, Hecht- und Kammbuntbarsche. Verlag Eugen Ulmer, Stuttgart.</p>"
+  },
+  "quality": {
+    "score": 0.95,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.95
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-13"
+  }
+}

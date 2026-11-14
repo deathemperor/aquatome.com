@@ -9,6 +9,59 @@
     "africa",
     "lake-tanganyika"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Lake Tanganyika, Africa.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5790708,
+      "total": 7,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "ZM",
+          4
+        ],
+        [
+          "TZ",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          1
+        ],
+        [
+          29.53125,
+          -9.84375,
+          4
+        ],
+        [
+          29.53125,
+          -5.625,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

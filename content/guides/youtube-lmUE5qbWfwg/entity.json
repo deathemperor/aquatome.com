@@ -83,7 +83,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh với crypt đỏ nâu mọc quanh lũa ở trung cảnh.",
-            "sharpness": 932.1
+            "sharpness": 932.1,
+            "person": false
           }
         ],
         "photo": {
@@ -100,14 +101,6 @@
       {
         "heading": "Cây cấy mô hay cây rọ",
         "moments": [
-          {
-            "t": 590,
-            "url": "https://media.aquatome.com/video/lmUE5qbWfwg/at590-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cốc cấy mô 1-2-Grow của Tropica với cây Cryptocoryne bên trong.",
-            "sharpness": 432.9
-          },
           {
             "t": 600,
             "url": "https://media.aquatome.com/video/lmUE5qbWfwg/at600-hd.webp",
@@ -127,7 +120,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh lá cây thủy sinh và hoa tím trong bể trồng.",
-            "sharpness": 221.6
+            "sharpness": 221.6,
+            "person": false
           },
           {
             "t": 420,
@@ -179,15 +173,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh có lũa lớn, cây nền thấp và cây lá dài phía sau.",
-            "sharpness": 1054.8
-          },
-          {
-            "t": 1150,
-            "url": "https://media.aquatome.com/video/lmUE5qbWfwg/at1150-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Toàn cảnh bể với bụi cây mọc cao phía sau và cây thấp phía trước.",
-            "sharpness": 1111.1
+            "sharpness": 1054.8,
+            "person": false
           }
         ]
       }

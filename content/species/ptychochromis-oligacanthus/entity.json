@@ -10,6 +10,98 @@
     "madagascar",
     "nosy-be"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MG"
+      ],
+      "regions": [
+        "Nosy Be"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Ptychochromis oligacanthus is a cichlid endemic to Madagascar.",
+          "countries": [
+            "MG"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "The actual Ptychochromis oligacanthus is restricted to the northwest of the island of Madagascar and the small offshore island Nosy Be.",
+          "countries": [],
+          "regions": [
+            "Nosy Be"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5852352,
+      "total": 170,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "MG",
+          170
+        ]
+      ],
+      "cells": [
+        [
+          42.1875,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          43.59375,
+          -23.90625,
+          4,
+          4
+        ],
+        [
+          45,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          46.40625,
+          -23.90625,
+          2,
+          2
+        ],
+        [
+          47.8125,
+          -21.09375,
+          5,
+          5
+        ],
+        [
+          47.8125,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          47.8125,
+          -14.0625,
+          154,
+          154
+        ],
+        [
+          49.21875,
+          -18.28125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
