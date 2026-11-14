@@ -134,6 +134,7 @@ The calendar's nine new weeks (`content/curation.json`). These aren't in the tal
 | 7 | Anthropic, xAI | 9, 9 | 9, 9 | 9, 9 | 9, 8 |
 | 8 | Anthropic, xAI | 9, 10 | 9, 9 | 9, 9 | 9, 8 |
 | 9 | Anthropic, xAI | 9, 9 | 9, 9 | 9, 9 | 9, 8 |
+| 10 | Anthropic, xAI | 9, 9 | 9, 9 | 9, 9 | 9, 9 |
 
 Round 1 had the xAI seat alone: Cursor refused OpenAI and Google (not in that week's usage), and no Claude helper ran
 before 14 Nov.
@@ -214,6 +215,11 @@ own round-7 rewrite ("Ikan angel koi"), asking now for the page's title; held on
 its page does ("Koi angelfish"). Held, one seat over two rounds and the dictionary: Indonesian and Malay "tahan air"
 reads as waterproof, so the cold shelf says "tahan dingin" / "tahan sejuk". Open, one seat each: Thai "ปลาฝูง" as one
 school (xAI), the Thai flowerhorn label against its page (Anthropic; the Writing Lead's names change renames the page).
+
+Round 10 (14 Nov): both seats held 9 in all four languages. Raised by both and left for later: the Vietnamese
+corydoras-and-plecos shelf naming the otocinclus too, whose spelling the pages ("cá oto", 1.5 a million words) and the
+style guide and references ("cá otto": forum 2.0, shop blogs 47.1) don't agree on. Dropped: Malay "berkumpulan" without
+"hidup" (xAI, reversing round 8's change both seats asked for).
 
 ## Vietnamese
 
