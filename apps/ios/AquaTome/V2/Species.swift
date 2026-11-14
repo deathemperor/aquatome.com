@@ -306,7 +306,7 @@ struct SpeciesPage: View {
   private var top: some View {
     VStack(spacing: 0) {
       if let hero {
-        let banner = V2Photo(src: hero, box: heroBox, ground: colour) { colour = $0 }
+        let banner = V2Photo(src: hero, box: heroBox, ground: colour, onGround: true) { colour = $0 }
           // Less on a small phone, so the name and figures still show under it; less again at the accessibility sizes, so
           // "Thêm vào bể" opens above the fade over the tab bar, white, not in it.
           .containerRelativeFrame(.vertical) { h, _ in min(420, h * (size.isAccessibilitySize ? 0.34 : 0.46)) }

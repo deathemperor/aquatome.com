@@ -18,6 +18,8 @@ struct V2Photo: View {
   var colourKey: String?
   /// The colour of the card or page around it, for its place when it doesn't come: that colour, not a grey band in it.
   var ground: Color?
+  /// A page's head: whole on `ground`, never on its own blur (the frames spec's page head, approved 11 Nov).
+  var onGround = false
   var colour: ((Color) -> Void)?
   @State private var picture: (src: String, image: UIImage)?
   /// The address that didn't come (offline, not kept).
@@ -93,7 +95,7 @@ struct V2Photo: View {
         .offset(x: (0.5 - x) * (image.size.width * s - points.width), y: (0.5 - y) * (image.size.height * s - points.height))
     case .whole:
       ZStack {
-        switch PhotoFrame.ground(aspect: aspect, ratio: ratio) {
+        switch onGround ? .mat : PhotoFrame.ground(aspect: aspect, ratio: ratio) {
         case .mat: if let ground { ground }
         case .blur:
           Image(uiImage: image).resizable().scaledToFill().scaleEffect(PhotoFrame.blurScale)
