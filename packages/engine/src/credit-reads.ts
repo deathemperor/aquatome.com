@@ -164,7 +164,9 @@ const at = (data: unknown, path: string[]) => path.reduce<unknown>((n, k) => {
   if (Array.isArray(n)) {
     if (!k.startsWith('@')) return n[Number(k)]
     const name = JSON.parse(k.slice(1)) as Record<string, string>
-    return n.find(v => isNode(v) && Object.entries(name).every(([f, s]) => v[f] === s))
+    // Two items with the same name: no telling which it was, so the photo stays held.
+    const named = n.filter(v => isNode(v) && Object.entries(name).every(([f, s]) => v[f] === s))
+    return named.length === 1 ? named[0] : undefined
   }
   return isNode(n) ? n[k] : undefined
 }, data)
@@ -219,8 +221,8 @@ export async function holdForCreditRead(root: string, urls: readonly string[], b
  * A credit read's answer for held photos. The site's own photographer's or illustrator's go back to every place they
  * held: after the photo each followed, else before the one it preceded, else its old place. They leave the never-again list.
  * One that list now holds for another reason stays off, as does every other kind. A held photo the read didn't find stays
- * held for the page's next turn, and so does any place of a returning photo that is gone (its file, or its list): it is
- * `stuck`, to be said. The never-again list is written before the holds, so a failure between the two leaves a state the
+ * held for the page's next turn, and so does any place of a returning photo that is gone (its file, or its list), no longer
+ * told apart (two lists of the same name) or taken (its calendar card shows another picture): it is `stuck`, to be said. The never-again list is written before the holds, so a failure between the two leaves a state the
  * next read's release finishes.
  */
 export async function releaseCreditHolds(root: string, credits: Record<string, PhotoCredit>): Promise<{ back: string[]; off: string[]; stuck: string[] }> {
@@ -249,8 +251,8 @@ export async function releaseCreditHolds(root: string, credits: Record<string, P
     const calendarDays = isNode(data) && Array.isArray(data.days) ? (data.days as { date: string; guide?: string; guideImg?: string }[]) : []
     for (const { url, c } of days) {
       const d = calendarDays.find(d => d.date === c.date && d.guide === c.guide)
-      if (!d) stay(url).calendar.push(c)
-      else if (!d.guideImg) d.guideImg = url
+      if (!d || (d.guideImg && d.guideImg !== url)) stay(url).calendar.push(c)
+      else d.guideImg = url
     }
     await writeJson(f, raw, data)
   }

@@ -1,9 +1,16 @@
 import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { expect, test } from 'vitest'
+import { expect, test, vi } from 'vitest'
 import { applyCreditReads, CREDIT_HOLDS, creditReadKind, HOLD_NOTE, holdForCreditRead, pageCredits, PHOTO_CREDITS, recordCredits, releaseCreditHolds, type PhotoCredit } from '../src/credit-reads'
+import { writePhotoState } from '../src/photo-state'
 import { photoKey } from '../src/source-photos'
+
+// The real write, which a test can make fail once.
+vi.mock('../src/photo-state', async importOriginal => {
+  const m = await importOriginal<typeof import('../src/photo-state')>()
+  return { ...m, writePhotoState: vi.fn(m.writePhotoState) }
+})
 
 // Invented names throughout: no real person or agency.
 const SITE = 'The Example Pets'
@@ -127,7 +134,7 @@ test("a hold takes a photo only from where it can put it back: one shown in a fi
 })
 
 test("a returning photo finds its place by its neighbours and its list by what names it, whatever moved while it was held; a place that's gone keeps it held; a release repeated changes nothing more", async () => {
-  const [a, b, c, d, x, y] = ['a', 'b', 'c', 'd', 'x', 'y'].map(n => photo(n))
+  const a = photo('a'), b = photo('b'), c = photo('c'), d = photo('d'), x = photo('x'), y = photo('y')
   const r = await root({
     'content/guides/list/entity.json': { id: 'list', photos: [a, b, c, d], sections: [{ key: 'one', source: 's', photos: [x] }, { key: 'two', source: 's', photos: [y] }] },
     'content/guides/gone/entity.json': { id: 'gone', sections: [{ key: 'three', source: 's', photos: [x] }] },
@@ -155,4 +162,35 @@ test("a returning photo finds its place by its neighbours and its list by what n
   expect((await json(file)).photos).toEqual([b, c, d])
   expect((await json(file)).sections[1].photos).toEqual([x])
   expect(await json(join(r, 'engine-state/_photo-rejected.json'))).toEqual({})
+})
+
+test("a place no longer told apart, or taken, keeps its photo held: two lists of the same name, a calendar card now showing another picture", async () => {
+  const x = photo('x'), y = photo('y'), b = photo('b'), other = photo('other')
+  const r = await root({
+    'content/guides/dup/entity.json': { id: 'dup', sections: [{ key: 'same', source: 's', photos: [x] }, { key: 'same', source: 's', photos: [y] }] },
+    'content/curation.json': { days: [{ date: '2026-11-27', guide: 'guides/dup', guideImg: b.url }] },
+  })
+  await holdForCreditRead(r, [y.url, b.url], 'the chief of staff', '2026-11-14', 'credits unread')
+  const cal = join(r, 'content/curation.json')
+  await writeFile(cal, JSON.stringify({ days: [{ date: '2026-11-27', guide: 'guides/dup', guideImg: other.url }] }))
+  const own = (): PhotoCredit => ({ page: PAGE, kind: 'own', line: 'sha256:x', at: '2026-11-28' })
+  expect(await releaseCreditHolds(r, { [y.url]: own(), [b.url]: own() })).toEqual({ back: [b.url, y.url], off: [], stuck: [y.url, b.url] })
+  expect((await json(join(r, 'content/guides/dup/entity.json'))).sections).toEqual([{ key: 'same', source: 's', photos: [x] }, { key: 'same', source: 's', photos: [] }])
+  expect((await json(cal)).days).toEqual([{ date: '2026-11-27', guide: 'guides/dup', guideImg: other.url }])
+  const holds = await json(join(r, CREDIT_HOLDS))
+  expect(holds[y.url].places).toHaveLength(1)
+  expect(holds[b.url].calendar).toEqual([{ file: 'content/curation.json', date: '2026-11-27', guide: 'guides/dup' }])
+})
+
+test("a release that fails while writing the never-again list is finished by the next: the photo back once, off the list, its hold gone", async () => {
+  const a = photo('a'), b = photo('b')
+  const r = await root({ 'content/species/fish-e/entity.json': { id: 'fish-e', photos: [a, b] } })
+  await holdForCreditRead(r, [b.url], 'the chief of staff', '2026-11-14', 'credits unread')
+  const read = { [b.url]: { page: PAGE, kind: 'own', line: 'sha256:x', at: '2026-11-28' } satisfies PhotoCredit }
+  vi.mocked(writePhotoState).mockRejectedValueOnce(new Error('the disk is full'))
+  await expect(releaseCreditHolds(r, read)).rejects.toThrow('the disk is full')
+  await releaseCreditHolds(r, read)
+  expect((await json(join(r, 'content/species/fish-e/entity.json'))).photos).toEqual([a, b])
+  expect(await json(join(r, 'engine-state/_photo-rejected.json'))).toEqual({})
+  expect(await json(join(r, CREDIT_HOLDS))).toEqual({})
 })
