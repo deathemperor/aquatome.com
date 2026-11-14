@@ -251,8 +251,8 @@ struct LoveEcologyCard: View {
     case .ready: String(localized: "Chưa gửi lệnh nào")
     case .sending(let id): String(localized: "Đang gửi “\(Self.name(id))”…")
     case .sent(let id, let at):
-      // A trial's line asks for ten seconds before the next tap: on 14 Nov the light didn't answer a command sent a second
-      // after one it took, so the owner's eyes judge one command at a time.
+      // A trial's line asks for ten seconds before the next tap, so the owner's eyes judge one command at a time: on 14 Nov
+      // the light didn't answer a colour the phone began under a second after it stopped sending one the light took.
       String(localized: "Đã gửi “\(Self.name(id))” lúc \(Self.clock(at)).") + (id.hasPrefix("trial-") ? " Đợi 10 giây rồi bấm tiếp." : "")
     case .problem(.off): String(localized: "Bật Bluetooth để gửi lệnh tới đèn.")
     case .problem(.refused): String(localized: "AquaTome chưa được dùng Bluetooth. Bật trong Cài đặt → AquaTome → Bluetooth.")
