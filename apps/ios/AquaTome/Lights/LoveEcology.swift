@@ -1,14 +1,15 @@
 @preconcurrency import CoreBluetooth
 import FishLamp
 import SwiftUI
+import Tanks
 
 /// The owner's Love Ecology light ("Aquarium Light III" in the Fish lamp app). It takes commands by broadcast, as Fish lamp
-/// sends them, never over a connection: there's nothing to find or connect, and the light says nothing back. The phone
-/// plays back the owner's own recordings (`FishLamp.loveEcology`) for three seconds each,
-/// as the Mac's replays did that the owner watched work (31 Oct, 6 Nov; docs/research/aquarium-device-control.md); a
-/// built colour was taken from the Mac on 14 Nov, and the owner's trial row tries built ones from the phone. iOS
-/// broadcasts only while the app is in front. The owner's account alone sees it: whether the recordings work on anyone
-/// else's light is untested.
+/// sends them, never over a connection: there's nothing to find or connect, and the light says nothing back. Each command
+/// is broadcast for three seconds: on and off play back the owner's own recordings (`FishLamp.loveEcology`), as the Mac's
+/// replays did that the owner watched work (31 Oct, 6 Nov; docs/research/aquarium-device-control.md); colours are built
+/// anew at the card's brightness, as a white was that the light took from the Mac on 14 Nov, and the owner's trial row
+/// tries a built on and off. iOS broadcasts only while the app is in front. The owner's account alone sees it: whether
+/// the recordings work on anyone else's light is untested.
 @MainActor
 protocol LampAir: AnyObject {
   /// Broadcasts the 16-bit service UUIDs (4 hex digits each), in order, until `stop`. `done` says whether it started.
@@ -105,185 +106,365 @@ final class FakeLampAir: LampAir {
 @MainActor
 @Observable
 final class LoveEcologyModel {
-  enum Status: Equatable {
-    case ready
-    case sending(String)
-    case sent(String, Date)
+  /// What goes out: Bật, Tắt or a trial as recorded, or a colour built anew at the slider's level, a swatch's (at the hue
+  /// and saturation Fish lamp sent for it) or the wheel's.
+  enum Choice: Equatable, Codable {
+    case recording(String)
+    case swatch(String)
+    case wheel(Wheel)
+  }
+
+  /// A colour from the wheel: hue in degrees, saturation from 0 (white) to 1.
+  struct Wheel: Equatable, Codable {
+    var hue: Double
+    var saturation: Double
+    var colour: Color { Color(hue: hue / 360, saturation: saturation, brightness: 1) }
+  }
+
+  /// A choice at a level, 1–100% (a recording's level isn't used).
+  struct Send: Equatable, Codable {
+    var choice: Choice
+    var level: Int
+    var isRecording: Bool { if case .recording = choice { true } else { false } }
+  }
+
+  struct Sent: Equatable, Codable {
+    var send: Send
+    var at: Date
+  }
+
+  /// The card's line: what this phone sent or is sending, never what the light shows (it says nothing back).
+  enum Line: Equatable {
+    case never
+    /// A drag not yet paused or lifted.
+    case moving(Send)
+    /// Waiting its turn, or on air; `tap`: its button shows the spinner.
+    case going(Send, tap: Bool)
+    case sent(Sent)
+    /// The last sent, once the app has left the front since.
+    case last(Sent)
+    /// Going or waiting when the app left the front, which stops iOS's broadcast: "Gửi lại" sends it again.
+    case cut(Send)
     case problem(LampAirError)
+  }
+
+  /// Kept on the phone, so the line, the slider's place and Khác's colour come back after a relaunch. A JSON string, so a
+  /// launch argument can stand in for it (`-loveEcology.sent '{…}'`) to draw a state such as the day after.
+  struct Kept: Codable {
+    var last: Sent?
+    /// The last colour sent, which the slider sends at its new level (white before any).
+    var colour: Choice?
+    /// The last colour sent from the wheel: Khác's centre.
+    var wheel: Wheel?
+    /// The last level a colour was sent at: the slider's place.
+    var level = 100
+    /// Byte 0 of the last colour built, so a relaunch goes on from it.
+    var byte0: UInt8?
   }
 
   /// Off, on, then the colours, as recorded.
   static let commands = FishLamp.loveEcology
-  /// The owner's trial of commands built anew, then the recorded green that puts the light back.
-  static let trials = FishLamp.trials + FishLamp.loveEcology.filter { $0.id == "green" }.map { FishLamp.Command(id: "trial-green", sent: $0.sent) }
+  /// The owner's trial of on and off built anew (14 Nov), until they have tried them.
+  static let trials = FishLamp.trials.filter { ["trial-off", "trial-on", "trial-off-recorded", "trial-on-recorded"].contains($0.id) }
+  /// How long each command is broadcast, and the wait after one ends before the next starts: on 14 Nov the light didn't
+  /// take an orange begun 0.9 s after a yellow it took had ended. A drag sends once the finger pauses this long, or lifts.
   static let seconds: Duration = .seconds(3)
+  static let pacer = FishLamp.Pacer(pause: .milliseconds(500), gap: .seconds(2))
+  private static let key = "loveEcology.sent"
 
-  private(set) var status = Status.ready
-  /// The commands broadcast, by id, for the UI tests.
+  private(set) var line: Line
+  /// The slider's place.
+  private(set) var level: Int
+  /// The wheel's newest colour: where its thumb is when the sheet opens again.
+  private(set) var wheel: Wheel?
+  private(set) var kept: Kept {
+    didSet { if let data = try? JSONEncoder().encode(kept) { UserDefaults.standard.set(String(decoding: data, as: UTF8.self), forKey: Self.key) } }
+  }
+  /// The commands broadcast (`cyan@35`, `wheel@35`, `off`), for the UI tests.
   private(set) var sent: [String] = []
+
+  /// A send in line, numbered so the line follows the one it names.
+  private struct Queued { let n: Int; let send: Send; let tap: Bool }
+  /// The colour the slider sends: the newest chosen, so a drag after a tap that is still waiting sends that colour.
+  @ObservationIgnored private var colour: Choice
+  @ObservationIgnored private var count = 0
+  @ObservationIgnored private var named: Int?
+  @ObservationIgnored private var dragging: Send?
+  @ObservationIgnored private var waiting: Queued?
+  @ObservationIgnored private var onAir: Queued?
+  @ObservationIgnored private var lastEnded: ContinuousClock.Instant?
+  @ObservationIgnored private var pause: Task<Void, Never>?
+  @ObservationIgnored private var gap: Task<Void, Never>?
   @ObservationIgnored private var ending: Task<Void, Never>?
-  /// Which send is the latest: a repeat tap on the same command replaces the first, whose answer is then ignored.
+  /// Which broadcast is the latest: the answer to one before it (replaced, or stopped) is ignored, so a repeat tap on the
+  /// same command keeps its send.
   @ObservationIgnored private var latest = 0
 
-  /// Broadcasts a command for three seconds. Another tap meanwhile replaces it.
-  func send(_ command: FishLamp.Command) {
-    ending?.cancel()
+  init() {
+    let kept = UserDefaults.standard.string(forKey: Self.key).flatMap { try? JSONDecoder().decode(Kept.self, from: Data($0.utf8)) } ?? Kept()
+    self.kept = kept
+    level = kept.level
+    wheel = kept.wheel
+    colour = kept.colour ?? .swatch("white")
+    line = kept.last.map { .last($0) } ?? .never
+  }
+
+  /// Bật, Tắt, a trial or a swatch: goes at once unless one is on air or just ended.
+  func tap(_ choice: Choice) {
+    if case .recording = choice {} else { colour = choice }
+    stopDragging()
+    queue(Send(choice: choice, level: level), tap: true)
+  }
+
+  /// The slider moved: the card's colour at the new level, sent once the finger pauses or lifts.
+  func slide(to level: Int) {
+    self.level = level
+    move(Send(choice: colour, level: level))
+  }
+
+  /// The wheel moved: its colour at the slider's level, sent the same way.
+  func turn(to wheel: Wheel) {
+    self.wheel = wheel
+    colour = .wheel(wheel)
+    move(Send(choice: .wheel(wheel), level: level))
+  }
+
+  /// The finger lifted from the slider or the wheel: what it moved to goes now, if the pause hasn't sent it already.
+  func lift() {
+    guard let s = dragging else { return }
+    stopDragging()
+    queue(s, tap: false)
+  }
+
+  /// "Gửi lại": the one cut off when the app left the front.
+  func again() {
+    guard case .cut(let s) = line else { return }
+    queue(s, tap: false)
+  }
+
+  /// The app went to the background, where iOS stops the broadcast: it stops here too, nothing waiting goes, and the line
+  /// says which was cut off. A line that said "Đã gửi" reads as the last sent when the app is back.
+  func leave() {
+    let cut = dragging ?? waiting?.send ?? onAir?.send
+    stopDragging()
+    gap?.cancel()
+    waiting = nil
+    if onAir != nil {
+      ending?.cancel()
+      // Its answer, if it hasn't come, is ignored: the phone's broadcaster answers a stopped start at once.
+      latest += 1
+      onAir = nil
+      lastEnded = .now
+      LampRadio.stop(by: self)
+    }
+    named = nil
+    if let cut { line = .cut(cut) } else if case .sent(let s) = line { line = .last(s) }
+  }
+
+  private func move(_ s: Send) {
+    dragging = s
+    // A newer choice: the one waiting doesn't go.
+    gap?.cancel()
+    waiting = nil
+    named = nil
+    line = .moving(s)
+    pause?.cancel()
+    pause = Task { [weak self] in
+      try? await Task.sleep(for: Self.pacer.pause)
+      guard !Task.isCancelled else { return }
+      self?.lift()
+    }
+  }
+
+  private func stopDragging() {
+    pause?.cancel()
+    dragging = nil
+  }
+
+  /// In line after the one on air, replacing any waiting.
+  private func queue(_ s: Send, tap: Bool) {
+    count += 1
+    waiting = Queued(n: count, send: s, tap: tap)
+    named = count
+    line = .going(s, tap: tap)
+    next()
+  }
+
+  /// The one waiting goes once nothing is on air and the gap after the last has passed.
+  private func next() {
+    gap?.cancel()
+    guard onAir == nil, let q = waiting else { return }
+    let due = Self.pacer.due(moved: .now, lifted: true, lastEnded: lastEnded)
+    if due <= .now { return broadcast(q) }
+    gap = Task { [weak self] in
+      try? await Task.sleep(until: due, clock: .continuous)
+      guard !Task.isCancelled else { return }
+      self?.next()
+    }
+  }
+
+  private func broadcast(_ q: Queued) {
+    waiting = nil
+    guard let command = command(q.send) else {
+      if named == q.n { line = .problem(.failed) }
+      return
+    }
+    onAir = q
     latest += 1
     let mine = latest
-    status = .sending(command.id)
+    // The phone's one broadcaster, shared with the master button.
     LampRadio.start(command.uuids, by: self) { [weak self] e in
-      guard let self, self.latest == mine, self.status == .sending(command.id) else { return }
-      if let e { self.status = .problem(e); return }
-      self.sent.append(command.id)
-      LampMemory.sent(command.id)
+      guard let self, self.latest == mine, self.onAir?.n == q.n else { return }
+      if let e {
+        self.onAir = nil
+        if self.named == q.n { self.line = .problem(e) }
+        self.next()
+        return
+      }
+      self.sent.append(Self.entry(q.send))
+      Self.remember(q.send)
       self.ending = Task { [weak self] in
-        try? await Task.sleep(for: LoveEcologyModel.seconds)
+        try? await Task.sleep(for: Self.seconds)
         guard !Task.isCancelled, let self else { return }
         LampRadio.stop(by: self)
-        self.status = .sent(command.id, Date())
+        self.onAir = nil
+        self.lastEnded = .now
+        self.ended(q)
+        self.next()
       }
     }
   }
 
-  /// Leaving the screen ends its broadcast at once (not the master button's: the two share the phone's).
-  func stop() {
-    ending?.cancel()
-    if case .sending = status {
-      LampRadio.stop(by: self)
-      status = .ready
+  private func ended(_ q: Queued) {
+    let done = Sent(send: q.send, at: Date())
+    kept.last = done
+    if !q.send.isRecording {
+      kept.colour = q.send.choice
+      kept.level = q.send.level
+    }
+    if case .wheel(let w) = q.send.choice { kept.wheel = w }
+    if named == q.n { line = .sent(done) }
+  }
+
+  /// A recording as it is, or a colour built with the next byte 0.
+  private func command(_ s: Send) -> FishLamp.Command? {
+    let brightness = Double(s.level) / 100
+    switch s.choice {
+    case .recording(let id): return (Self.commands + Self.trials).first { $0.id == id }
+    case .swatch(let id):
+      guard let recording = Self.commands.first(where: { $0.id == id }) else { return nil }
+      return FishLamp.colour(like: recording, brightness: brightness, sequence: nextByte0())
+    case .wheel(let w): return FishLamp.colour(hue: w.hue, saturation: w.saturation, brightness: brightness, sequence: nextByte0())
+    }
+  }
+
+  private func nextByte0() -> UInt8 {
+    let b = FishLamp.sequence(after: kept.byte0 ?? 0)
+    kept.byte0 = b
+    return b
+  }
+
+  private static func entry(_ s: Send) -> String {
+    switch s.choice {
+    case .recording(let id): id
+    case .swatch(let id): "\(id)@\(s.level)"
+    case .wheel: "wheel@\(s.level)"
+    }
+  }
+
+  /// What the master button puts the lamp back to (`LampMemory`): Bật, Tắt or a swatch by its recording, at the
+  /// recording's own brightness; a wheel colour as the lamp on in a colour no recording has. Trials say nothing of it.
+  private static func remember(_ s: Send) {
+    switch s.choice {
+    case .recording(let id), .swatch(let id): LampMemory.sent(id)
+    case .wheel: LampMemory.remember(DeviceCommand(device: "", on: true))
     }
   }
 }
 
-/// The light's card on the Đèn tab: on, off and the recorded colours. The owner's account alone.
-struct LoveEcologyCard: View {
-  @Environment(AccountModel.self) private var account
-  @Environment(MasterModel.self) private var master
-  @Environment(\.dynamicTypeSize) private var size
-  @Environment(\.colorScheme) private var scheme
-  /// The colour dots grow with their names, up to about a large tap target.
-  @ScaledMetric(relativeTo: .caption) private var dot: CGFloat = 32
-  @State private var lamp = LoveEcologyModel()
-
-  var body: some View {
-    if account.owner.isOwner == true, account.user != nil, !LoveEcologyModel.commands.isEmpty {
-      VStack(alignment: .leading, spacing: 12) {
-        Text("Đèn Love Ecology").font(.title3.weight(.semibold))
-        Text("Đứng gần đèn và giữ ứng dụng mở khi bấm. Đèn không báo lại trạng thái. Hẹn giờ của đèn vẫn đặt trong ứng dụng Fish lamp.")
-          .font(.subheadline).foregroundStyle(.secondary)
-        HStack(spacing: 12) {
-          ForEach(["on", "off"].compactMap { id in LoveEcologyModel.commands.first { $0.id == id } }) { c in
-            Button { lamp.send(c) } label: {
-              // The word keeps its room while a spinner stands in for it, so the button doesn't change size.
-              Text(Self.name(c.id)).opacity(sending(c) ? 0 : 1).overlay { if sending(c) { ProgressView() } }.frame(maxWidth: .infinity)
-            }
-            .buttonStyle(.bordered).controlSize(.large)
-            .disabled(waits(c))
-            .accessibilityLabel(Self.name(c.id))
-            .accessibilityIdentifier("lamp-\(c.id)")
-          }
-        }
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: size.isAccessibilitySize ? 150 : 72), alignment: .top)], spacing: 12) {
-          ForEach(LoveEcologyModel.commands.filter { Self.looks[$0.id] != nil }) { c in
-            Button { lamp.send(c) } label: {
-              VStack(spacing: 4) {
-                // A hairline ring in both looks: a deep blue dot is faint on the dark card without one.
-                Circle().fill(Self.looks[c.id] ?? .clear).frame(width: min(dot, 44), height: min(dot, 44))
-                  .overlay { Circle().strokeBorder(.primary.opacity(scheme == .dark ? 0.5 : 0.25)) }
-                Text(Self.name(c.id)).font(.caption).foregroundStyle(.primary).multilineTextAlignment(.center)
-                  .opacity(sending(c) ? 0 : 1).overlay { if sending(c) { ProgressView().controlSize(.small) } }
-              }
-              .frame(maxWidth: .infinity, minHeight: 44)
-              .contentShape(Rectangle())
-            }
-            .buttonStyle(.plain)
-            .disabled(waits(c))
-            .opacity(waits(c) ? 0.4 : 1)
-            .accessibilityLabel(Self.name(c.id))
-            .accessibilityIdentifier("lamp-\(c.id)")
-          }
-        }
-        // The owner's trial of commands built anew (14 Nov), the light's answer seen by eye: it says nothing back. Taken
-        // out, or turned into a brightness slider and a free colour, once it has been tried. Not translated: the owner's.
-        VStack(alignment: .leading, spacing: 8) {
-          Text(verbatim: "Thử lệnh tự tạo").font(.subheadline.weight(.semibold))
-          LazyVGrid(columns: [GridItem(.adaptive(minimum: size.isAccessibilitySize ? 220 : 140), alignment: .top)], spacing: 8) {
-            ForEach(LoveEcologyModel.trials) { c in
-              Button { lamp.send(c) } label: {
-                Text(verbatim: Self.name(c.id)).opacity(sending(c) ? 0 : 1).overlay { if sending(c) { ProgressView() } }
-                  .frame(maxWidth: .infinity)
-              }
-              .buttonStyle(.bordered)
-              .disabled(waits(c))
-              .accessibilityIdentifier("lamp-\(c.id)")
-            }
-          }
-        }
-        // Always one line, so the first send doesn't push the cards below down. A problem reads as one.
-        Group {
-          if case .problem = lamp.status {
-            Label { Text(verbatim: statusLine) } icon: { Image(systemName: "exclamationmark.triangle.fill") }
-              .foregroundStyle(.primary)
-          } else {
-            Text(verbatim: statusLine).foregroundStyle(lamp.status == .ready ? HierarchicalShapeStyle.tertiary : .secondary)
-          }
-        }
-        .font(.footnote)
-        .accessibilityIdentifier("lamp-status")
-      }
-      .padding()
-      .frame(maxWidth: .infinity, alignment: .leading)
-      .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 12))
-      .onDisappear { lamp.stop() }
-      .onChange(of: lamp.status) { if lamp.status != .ready { AccessibilityNotification.Announcement(statusLine).post() } }
-      #if DEBUG
-      .background {
-        // The commands broadcast, for the UI tests to read (debug builds only).
-        Text(verbatim: lamp.sent.joined(separator: " ")).font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("lamp-sent")
-      }
-      #endif
+extension LoveEcologyModel {
+  /// The line's words. "Đã gửi" (sent), never that the light took it: it may not have.
+  var words: String {
+    switch line {
+    case .never: return String(localized: "Chưa gửi lệnh nào từ máy này")
+    case .moving(let s): return String(localized: "Ngừng kéo để gửi \(Self.subject(s.choice)), \(s.level)%")
+    case .going(let s, _):
+      return s.isRecording ? String(localized: "Đang gửi \(Self.subject(s.choice))…")
+        : String(localized: "Đang gửi \(Self.subject(s.choice)), \(s.level)%…")
+    case .sent(let t):
+      let what = Self.subject(t.send.choice), at = Self.clock(t.at)
+      guard t.send.isRecording else { return String(localized: "Đã gửi \(what), \(t.send.level)% lúc \(at).") }
+      // A trial's line asks for ten seconds before the next tap, so the owner's eyes judge one command at a time.
+      let trial = if case .recording(let id) = t.send.choice, id.hasPrefix("trial-") { " Đợi 10 giây rồi bấm tiếp." } else { "" }
+      return String(localized: "Đã gửi \(what) lúc \(at).") + trial
+    case .last(let t):
+      let what = Self.subject(t.send.choice), at = Self.day(t.at)
+      return t.send.isRecording ? String(localized: "Lần cuối máy này gửi: \(what) · \(at)")
+        : String(localized: "Lần cuối máy này gửi: \(what), \(t.send.level)% · \(at)")
+    case .cut(let s):
+      return s.isRecording ? String(localized: "Gửi \(Self.subject(s.choice)) bị ngắt vì bạn rời ứng dụng.")
+        : String(localized: "Gửi \(Self.subject(s.choice)), \(s.level)% bị ngắt vì bạn rời ứng dụng.")
+    case .problem(.off): return String(localized: "Bật Bluetooth để gửi lệnh tới đèn.")
+    case .problem(.refused): return String(localized: "AquaTome chưa được dùng Bluetooth. Bật trong Cài đặt → AquaTome → Bluetooth.")
+    case .problem(.unsupported): return String(localized: "Máy này không có Bluetooth.")
+    case .problem(.failed): return String(localized: "Không gửi được lệnh tới đèn. Thử lại.")
     }
   }
 
-  private func sending(_ c: FishLamp.Command) -> Bool { lamp.status == .sending(c.id) }
-  /// While a command goes out, the other buttons wait.
-  private func othersWait(_ c: FishLamp.Command) -> Bool {
-    if case .sending(let id) = lamp.status { id != c.id } else { false }
+  /// The colour the line's dot shows: none for Bật, Tắt or a problem.
+  var dot: Color? {
+    let s: Send? = switch line {
+    case .moving(let s), .going(let s, _), .cut(let s): s
+    case .sent(let t), .last(let t): t.send
+    case .never, .problem: nil
+    }
+    guard let s, !s.isRecording, !isCut else { return nil }
+    return Self.look(s.choice)
   }
 
-  /// And all of them while the master button's steps go out: the two share the phone's one broadcast.
-  private func waits(_ c: FishLamp.Command) -> Bool { othersWait(c) || master.sending }
+  var isCut: Bool { if case .cut = line { true } else { false } }
 
-  private var statusLine: String {
-    switch lamp.status {
-    case .ready: String(localized: "Chưa gửi lệnh nào")
-    case .sending(let id): String(localized: "Đang gửi “\(Self.name(id))”…")
-    case .sent(let id, let at):
-      // A trial's line asks for ten seconds before the next tap, so the owner's eyes judge one command at a time: on 14 Nov
-      // the light didn't answer a colour the phone began 8.5 s after starting one the light took, 0.9 s after that one ended.
-      String(localized: "Đã gửi “\(Self.name(id))” lúc \(Self.clock(at)).") + (id.hasPrefix("trial-") ? " Đợi 10 giây rồi bấm tiếp." : "")
-    case .problem(.off): String(localized: "Bật Bluetooth để gửi lệnh tới đèn.")
-    case .problem(.refused): String(localized: "AquaTome chưa được dùng Bluetooth. Bật trong Cài đặt → AquaTome → Bluetooth.")
-    case .problem(.unsupported): String(localized: "Máy này không có Bluetooth.")
-    case .problem(.failed): String(localized: "Không gửi được lệnh tới đèn. Thử lại.")
+  /// A tapped button sending, or waiting its turn: its name gives way to a spinner.
+  func spinning(_ choice: Choice) -> Bool {
+    if case .going(let s, tap: true) = line { s.choice == choice } else { false }
+  }
+
+  /// A colour's dot: the hue and saturation it is sent at, at full brightness.
+  static func look(_ choice: Choice) -> Color? {
+    switch choice {
+    case .recording: return nil
+    case .wheel(let w): return w.colour
+    case .swatch(let id):
+      guard let p = commands.first(where: { $0.id == id })?.plain, p.count >= 14 else { return nil }
+      let hue = Double(UInt16(p[10]) << 8 | UInt16(p[11])) / 65535, saturation = Double(UInt16(p[12]) << 8 | UInt16(p[13])) / 65535
+      return Color(hue: hue, saturation: saturation, brightness: 1)
     }
   }
 
-  /// Each colour's swatch, from the hue the light was sent (docs/research/aquarium-device-control.md).
-  private static let looks: [String: Color] = [
-    "white": .white, "red": Color(hue: 0, saturation: 1, brightness: 1), "orange": Color(hue: 30 / 360, saturation: 1, brightness: 1),
-    "yellow": Color(hue: 60 / 360, saturation: 1, brightness: 1), "green": Color(hue: 120 / 360, saturation: 1, brightness: 1),
-    "cyan": Color(hue: 180 / 360, saturation: 1, brightness: 1), "blue": Color(hue: 240 / 360, saturation: 1, brightness: 1),
-    "magenta": Color(hue: 300 / 360, saturation: 1, brightness: 1),
-  ]
+  /// A swatch or button by its name in quotes; a wheel colour as "màu tự chọn".
+  private static func subject(_ choice: Choice) -> String {
+    switch choice {
+    case .recording(let id), .swatch(let id): "“\(name(id))”"
+    case .wheel: String(localized: "màu tự chọn")
+    }
+  }
 
   /// "19:23", as the schedule beside it writes times, whatever the phone's 12- or 24-hour setting.
-  private static func clock(_ at: Date) -> String {
+  static func clock(_ at: Date) -> String {
     let t = Calendar.current.dateComponents([.hour, .minute], from: at)
     return String(format: "%02d:%02d", t.hour ?? 0, t.minute ?? 0)
   }
 
-  private static func name(_ id: String) -> String {
+  /// "19:23" today, "hôm qua 19:23", or "12/11 19:23".
+  private static func day(_ at: Date) -> String {
+    let calendar = Calendar.current
+    if calendar.isDateInToday(at) { return clock(at) }
+    if calendar.isDateInYesterday(at) { return String(localized: "hôm qua \(clock(at))") }
+    let d = calendar.dateComponents([.day, .month], from: at)
+    return String(format: "%02d/%02d ", d.day ?? 0, d.month ?? 0) + clock(at)
+  }
+
+  static func name(_ id: String) -> String {
     switch id {
     case "on": String(localized: "Bật")
     case "off": String(localized: "Tắt")
@@ -296,13 +477,199 @@ struct LoveEcologyCard: View {
     case "blue": String(localized: "Xanh dương")
     case "magenta": String(localized: "Hồng tím")
     // The owner's trial row, not translated.
-    case "trial-white-half": "Trắng 50% (tự tạo)"
     case "trial-off": "Tắt (tự tạo 1)"
     case "trial-on": "Bật (tự tạo 1)"
     case "trial-off-recorded": "Tắt (tự tạo 2)"
     case "trial-on-recorded": "Bật (tự tạo 2)"
-    case "trial-green": "Xanh lá (ghi sẵn)"
     default: id
     }
+  }
+}
+
+/// The light's card on the Đèn tab: on and off as recorded, the eight colours and any other from a wheel, built at the
+/// slider's level. It says what this phone sent, never what the light shows. The owner's account alone.
+struct LoveEcologyCard: View {
+  @Environment(AccountModel.self) private var account
+  @Environment(MasterModel.self) private var master
+  @Environment(\.dynamicTypeSize) private var size
+  @Environment(\.colorScheme) private var scheme
+  @Environment(\.scenePhase) private var phase
+  /// The colour dots grow with their names, up to about a large tap target.
+  @ScaledMetric(relativeTo: .caption) private var dot: CGFloat = 32
+  /// Five swatches a row at the default size and four from XL, so no name wraps below the accessibility sizes.
+  @ScaledMetric(relativeTo: .caption) private var cell: CGFloat = 66
+  @State private var lamp = LoveEcologyModel()
+  @State private var wheel = false
+
+  var body: some View {
+    if account.owner.isOwner == true, account.user != nil, !LoveEcologyModel.commands.isEmpty {
+      VStack(alignment: .leading, spacing: 12) {
+        Text("Đèn Love Ecology").font(.title3.weight(.semibold))
+        Text("Đứng gần đèn, giữ ứng dụng mở khi gửi. Đèn không báo lại, nên AquaTome chỉ biết những gì máy này đã gửi. Hẹn giờ vẫn đặt trong ứng dụng Fish lamp.")
+          .font(.subheadline).foregroundStyle(.secondary)
+        HStack(spacing: 12) {
+          ForEach(["on", "off"], id: \.self) { id in
+            let c = LoveEcologyModel.Choice.recording(id)
+            Button { lamp.tap(c) } label: {
+              // The word keeps its room while a spinner stands in for it, so the button doesn't change size.
+              Text(LoveEcologyModel.name(id)).opacity(lamp.spinning(c) ? 0 : 1).overlay { if lamp.spinning(c) { ProgressView() } }
+                .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.bordered).controlSize(.large)
+            .disabled(master.sending)
+            .accessibilityLabel(LoveEcologyModel.name(id))
+            .accessibilityIdentifier("lamp-\(id)")
+          }
+        }
+        // No swatch is marked as chosen: a ring would read as the light's colour the morning after Fish lamp changed it.
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: size.isAccessibilitySize ? 150 : cell), spacing: 4, alignment: .top)], spacing: 12) {
+          ForEach(LoveEcologyModel.commands.filter { LoveEcologyModel.look(.swatch($0.id)) != nil }) { c in
+            let choice = LoveEcologyModel.Choice.swatch(c.id)
+            Button { lamp.tap(choice) } label: {
+              swatch(LoveEcologyModel.name(c.id), spinning: lamp.spinning(choice)) {
+                // A hairline ring in both looks: a deep blue dot is faint on the dark card without one.
+                Circle().fill(LoveEcologyModel.look(choice) ?? .clear).overlay { Circle().strokeBorder(ring) }
+              }
+            }
+            .buttonStyle(.plain)
+            .disabled(master.sending)
+            .opacity(master.sending ? 0.4 : 1)
+            .accessibilityLabel(LoveEcologyModel.name(c.id))
+            .accessibilityIdentifier("lamp-\(c.id)")
+          }
+          Button { wheel = true } label: {
+            swatch(String(localized: "Khác"), spinning: false) { OtherWell(colour: lamp.kept.wheel?.colour, ring: ring) }
+          }
+          .buttonStyle(.plain)
+          .disabled(master.sending)
+          .opacity(master.sending ? 0.4 : 1)
+          .accessibilityIdentifier("lamp-other")
+        }
+        ChannelSlider(id: "lamp-level", title: String(localized: "Độ sáng"), swatch: nil, value: lamp.level, range: 1...100) {
+          lamp.slide(to: $0)
+        } onLift: { lamp.lift() }
+        .disabled(master.sending)
+        LampLine(lamp: lamp)
+        // The owner's trial of on and off built anew (14 Nov), the light's answer seen by eye: it says nothing back. Taken
+        // out once they have been tried. Not translated: the owner's.
+        VStack(alignment: .leading, spacing: 8) {
+          Text(verbatim: "Thử lệnh tự tạo").font(.subheadline.weight(.semibold))
+          LazyVGrid(columns: [GridItem(.adaptive(minimum: size.isAccessibilitySize ? 220 : 140), alignment: .top)], spacing: 8) {
+            ForEach(LoveEcologyModel.trials) { c in
+              let choice = LoveEcologyModel.Choice.recording(c.id)
+              Button { lamp.tap(choice) } label: {
+                Text(verbatim: LoveEcologyModel.name(c.id)).opacity(lamp.spinning(choice) ? 0 : 1)
+                  .overlay { if lamp.spinning(choice) { ProgressView() } }
+                  .frame(maxWidth: .infinity)
+              }
+              .buttonStyle(.bordered)
+              .disabled(master.sending)
+              .accessibilityIdentifier("lamp-\(c.id)")
+            }
+          }
+        }
+      }
+      .padding()
+      .frame(maxWidth: .infinity, alignment: .leading)
+      .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 12))
+      .sheet(isPresented: $wheel) { ColourWheelSheet(lamp: lamp) }
+      // The background, not a pulled-down Control Center or a banner, which leave iOS's broadcast going.
+      .onChange(of: phase) { if phase == .background { lamp.leave() } }
+      .onChange(of: lamp.line) {
+        switch lamp.line {
+        case .never, .moving: break
+        default: AccessibilityNotification.Announcement(lamp.words).post()
+        }
+      }
+      #if DEBUG
+      .background {
+        // The commands broadcast, for the UI tests to read (debug builds only).
+        Text(verbatim: lamp.sent.joined(separator: " ")).font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("lamp-sent")
+      }
+      #endif
+    }
+  }
+
+  private var ring: Color { .primary.opacity(scheme == .dark ? 0.5 : 0.25) }
+
+  private func swatch(_ name: String, spinning: Bool, @ViewBuilder face: () -> some View) -> some View {
+    VStack(spacing: 4) {
+      face().frame(width: min(dot, 44), height: min(dot, 44))
+      Text(name).font(.caption).foregroundStyle(.primary).multilineTextAlignment(.center)
+        .opacity(spinning ? 0 : 1).overlay { if spinning { ProgressView().controlSize(.small) } }
+    }
+    .frame(maxWidth: .infinity, minHeight: 44)
+    .contentShape(Rectangle())
+  }
+}
+
+/// Khác's swatch: iOS's colour-well look, a ring through the hues, its centre the last colour sent from the wheel.
+private struct OtherWell: View {
+  let colour: Color?
+  let ring: Color
+
+  var body: some View {
+    GeometryReader { g in
+      let d = g.size.width
+      ZStack {
+        Circle().strokeBorder(AngularGradient(colors: ColourWheel.hues, center: .center, startAngle: .degrees(-90), endAngle: .degrees(270)),
+                              lineWidth: d * 3 / 32)
+        if let colour { Circle().fill(colour).overlay { Circle().strokeBorder(ring) }.padding(d * 6 / 32) }
+      }
+    }
+  }
+}
+
+/// The line: a row two lines high from the first frame, so a wrap or "Gửi lại" moves nothing below. On the card, and
+/// under the wheel, which covers the card's.
+struct LampLine: View {
+  let lamp: LoveEcologyModel
+  @Environment(\.dynamicTypeSize) private var size
+  @Environment(\.colorScheme) private var scheme
+  @ScaledMetric(relativeTo: .footnote) private var dot: CGFloat = 10
+
+  var body: some View {
+    let problem: Bool = switch lamp.line { case .cut, .problem: true; default: false }
+    // Centred: on its words' baseline, "Gửi lại" would reach above two lines of them and make the row taller. At the
+    // accessibility sizes the dot or triangle stays by the first line, and Gửi lại has its own row.
+    let row = HStack(alignment: size.isAccessibilitySize ? .firstTextBaseline : .center, spacing: size.isAccessibilitySize ? 12 : 6) {
+      if problem {
+        Image(systemName: "exclamationmark.triangle.fill").accessibilityHidden(true)
+      } else if let c = lamp.dot {
+        Circle().fill(c).overlay { Circle().strokeBorder(.primary.opacity(scheme == .dark ? 0.5 : 0.25)) }
+          .frame(width: min(dot, 24), height: min(dot, 24))
+          .accessibilityHidden(true)
+      }
+      Text(verbatim: lamp.words)
+        .foregroundStyle(problem ? HierarchicalShapeStyle.primary : lamp.line == .never ? .tertiary : .secondary)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .accessibilityIdentifier("lamp-status")
+      if lamp.isCut, !size.isAccessibilitySize { again }
+    }
+    VStack(alignment: .leading, spacing: 8) {
+      // Two lines' room, measured off two lines of the same words' style: Vietnamese lines are taller than the font's
+      // size alone says (two footnote lines are 37.7 pt at L, not 36).
+      ZStack(alignment: .leading) {
+        Text(verbatim: "Đ\nĐ").hidden().accessibilityHidden(true)
+        row
+      }
+      if lamp.isCut, size.isAccessibilitySize { again }
+    }
+    .font(.footnote)
+  }
+
+  /// A small bordered button whose tap target reaches 44 pt past the row's height; full width at the accessibility sizes.
+  private var again: some View {
+    Button { lamp.again() } label: {
+      Text("Gửi lại").font(.subheadline)
+        .padding(.horizontal, 12).frame(minHeight: 28)
+        .frame(maxWidth: size.isAccessibilitySize ? .infinity : nil)
+        .background(Color(.secondarySystemFill), in: Capsule())
+        .padding(.vertical, 8).contentShape(Rectangle())
+    }
+    .buttonStyle(.plain)
+    .foregroundStyle(.tint)
+    .padding(.vertical, -8)
+    .accessibilityIdentifier("lamp-again")
   }
 }
