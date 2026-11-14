@@ -21,9 +21,12 @@ export const isViPage = (path: string) => {
   return p === '/' || (VI_SECTIONS as readonly string[]).includes(p.split('/')[1]!)
 }
 
-/** A Vietnamese, Indonesian or Thai photo page forwards to its parent while its album has fewer than six photos. */
+/**
+ * A fish's or plant's photo page the build didn't make (its album a picture short of six) forwards to its page, in every
+ * language (test/photo-pages.test.ts holds each served one, and its line in wrangler.jsonc's run_worker_first).
+ */
 export const galleryParent = (path: string) => {
-  const match = /^(\/(?:ca|cay)\/[^/]+\/)anh\/?$|^(\/id\/(?:ikan|tanaman)\/[^/]+\/)foto\/?$|^(\/th\/(?:fish|plants)\/[^/]+\/)photos\/?$/.exec(path)
+  const match = /^(\/(?:ca|cay)\/[^/]+\/)anh\/?$|^(\/(?:id|ms)\/(?:ikan|tanaman|tumbuhan)\/[^/]+\/)foto\/?$|^(\/th\/(?:fish|plants)\/[^/]+\/)photos\/?$/.exec(path)
   return match?.[1] ?? match?.[2] ?? match?.[3]
 }
 
