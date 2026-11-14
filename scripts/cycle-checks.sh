@@ -181,11 +181,13 @@ verify() {
 }
 # The tests that failed in $TEST_LOG since byte $1, one a line: vitest's FAIL lines, with pnpm's prefix and the colours off.
 failed_tests() { tail -c +"$(($1 + 1))" "$TEST_LOG" | sed -E "s/$(printf '\033')\[[0-9;]*m//g" | sed -nE 's/^([^[:space:]]+ test:)?[[:space:]]*FAIL[[:space:]]+//p' | sort -u; }
-# Whether the tests' output since byte $1 of $TEST_LOG has one that ran out of time: a test, a hook (beforeAll and the
-# like), or a vitest worker that didn't start in time. grep reads it all (-c, not -q): under pipefail, tail cut off by
-# grep's early exit would make a match read as none. Not in the source lines vitest prints under a failure ("  41| …"),
-# colours off: on 2026-11-13 a test quoting "Test timed out in" failed on its own, and its work was kept, not held.
-ran_out() { tail -c +"$(($1 + 1))" "$TEST_LOG" | sed -E "s/$(printf '\033')\[[0-9;]*m//g" | grep -vE '^([^[:space:]]+ test:)?[[:space:]]*[0-9]+[[:space:]]*\|' | grep -cE '(Test|Hook) timed out in|Timeout waiting for worker to respond|Timeout starting .* runner' >/dev/null; }
+# Whether the tests' output since byte $1 of $TEST_LOG has one that ran out of time: vitest's own line for a test, a hook
+# (beforeAll and the like) or a worker that didn't start in time, "Error: Test timed out in 30000ms.", at the start of a
+# line after pnpm's prefix, colours off. Only those: a failing test that quotes one, in its assertion, a diff, its title,
+# a stack line or its source, ran out of nothing (at 22:36 and 23:35 on 2026-11-13 one did, and its run's work was kept,
+# to be tried for ever, instead of held). grep reads it all (-c, not -q): under pipefail, tail cut off by grep's early
+# exit would make a match read as none.
+ran_out() { tail -c +"$(($1 + 1))" "$TEST_LOG" | sed -E "s/$(printf '\033')\[[0-9;]*m//g" | grep -cE '^([^[:space:]]+ test: )?Error: ((Test|Hook) timed out in [0-9]+ms\.|\[vitest-pool[^]]*\]: Timeout (waiting for worker to respond|starting [a-z]+ runner))' >/dev/null; }
 
 # A run whose tests ran out of time even on their second try (TIMED_OUT) ran on a Mac too busy for them, not on broken
 # work: its commit goes on a branch of its own, kept/<job>/<when>, which the next run's start from main (from_main)

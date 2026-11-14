@@ -75,22 +75,31 @@ function ranOut(output: string) {
 }
 
 // 13 November, 22:36 and 23:35: a test that failed on its own quoted "Test timed out in" in its source, which vitest
-// prints under the failure, and the run's work was kept for ever as out of time instead of held. The source lines come
-// numbered, coloured, and under pnpm's prefix; a real time-out's line is never one of them.
-test("a failing test's source that quotes a time-out isn't a time-out; a real one, with the same prefix and colours, is", () => {
+// prints under the failure, and the run's work was kept for ever as out of time instead of held. Only vitest's own line
+// counts, at the start of a line after pnpm's prefix, colours off: never a quote of one in an assertion, a diff, a test's
+// title, a stack line or the source.
+test("only vitest's own time-out line is a time-out: a failing test that quotes one, anywhere, isn't", () => {
   const grey = (x: string) => `\u001b[90m${x}\u001b[39m`
-  const frame = [
-    'packages/engine test:  FAIL  test/cycle-timeouts.test.ts > tests that ran out of time on a busy Mac run once more',
-    'packages/engine test: AssertionError: expected { code: 1, runs: 2 } to match object { code: 0, runs: 2 }',
-    'packages/engine test:  ❯ test/cycle-timeouts.test.ts:41:17',
-    `packages/engine test:     ${grey('39|')} test('tests that ran out of time on a busy Mac run once more', () => {`,
+  const red = (x: string) => `\u001b[31m${x}\u001b[39m`
+  const quoted = [
+    'packages/engine test:  FAIL  test/cycle-timeouts.test.ts > Error: Test timed out in 30000ms. runs once more',
+    'packages/engine test:    × test/cycle-timeouts.test.ts > Error: Hook timed out in 120000ms. is a time-out 12ms',
+    "packages/engine test: AssertionError: expected 'Error: Test timed out in 30000ms.' to equal 'ok'",
+    'packages/engine test: - Error: Test timed out in 30000ms.',
+    'packages/engine test: + Error: [vitest-pool]: Timeout starting forks runner.',
+    'packages/engine test:   Error: Test timed out in 30000ms.',
+    'packages/engine test:     at Object.<anonymous> (Error: Test timed out in 30000ms.)',
     `packages/engine test:     ${grey('40|')}   const again = verify(['Error: Test timed out in 30000ms.', 'ok'])`,
-    `packages/engine test:     ${grey('41|')}   expect(again).toMatchObject({ code: 0, runs: 2 })`,
     `packages/engine test:       ${grey('|')}                 ^`,
     `    42|   expect(verify(['Error: Hook timed out in 120000ms.'])).toBe(1)`,
-  ].join('\n')
-  expect(ranOut(frame)).toBe(false)
-  expect(ranOut(`${frame}\npackages/engine test: Error: Test timed out in 30000ms.`)).toBe(true)
-  expect(ranOut(`packages/engine test: ${grey('Error: Hook timed out in 120000ms.')}`)).toBe(true)
-  expect(ranOut('Error: [vitest-pool]: Timeout starting forks runner.')).toBe(true)
+    "Error: expected 'Error: Test timed out in 30000ms.' to be 'ok'",
+  ]
+  for (const line of quoted) expect(ranOut(line), line).toBe(false)
+  expect(ranOut(quoted.join('\n'))).toBe(false)
+  // vitest's own, as the Mac's logs have them, alone or after a failure that quotes one.
+  for (const line of ['packages/engine test: Error: Test timed out in 30000ms.', `packages/engine test: ${red('Error')}: Hook timed out in 120000ms.`,
+    'Error: Test timed out in 30000ms.', 'Error: [vitest-pool-runner]: Timeout waiting for worker to respond', 'Error: [vitest-pool]: Timeout starting forks runner.']) {
+    expect(ranOut(line), line).toBe(true)
+    expect(ranOut(`${quoted.join('\n')}\n${line}`), line).toBe(true)
+  }
 })

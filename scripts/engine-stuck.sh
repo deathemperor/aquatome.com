@@ -49,7 +49,9 @@ for part in pages sf photos; do
   echo "$pid $cpu $(date +%H:%M) $pids" > "$gitdir/aquatome-engine.moving"
   [ "$secs" -ge $((HOURS * 3600)) ] || continue
   ran="has run $((secs / 3600)) h $((secs % 3600 / 60)) min"
-  if [ "$was_pid" = "$pid" ] && [ "$was_pids" = "$pids" ] && [ "$cpu" -le "${was_cpu:-0}" ] && ! [[ "${bottom#* }" == lockf\ * ]]; then
+  if [[ "${bottom#* }" == lockf\ * ]]; then
+    state='past its hours'; why="the $part cycle (pid $pid) $ran: $(step <<<"$chain"), now in $(echo "${bottom#* }" | cut -c1-120)"
+  elif [ "$was_pid" = "$pid" ] && [ "$was_pids" = "$pids" ] && [ "$cpu" -le "${was_cpu:-0}" ]; then
     state=stuck; why="the $part cycle (pid $pid) $ran and hasn't moved since the check at $was_at: $(step <<<"$chain"), in $(echo "${bottom#* }" | cut -c1-120)"
   elif [ "$was_pid" = "$pid" ]; then
     state='past its hours'; why="the $part cycle (pid $pid) $ran, still moving: $(step <<<"$chain"), now in $(echo "${bottom#* }" | cut -c1-120)"
