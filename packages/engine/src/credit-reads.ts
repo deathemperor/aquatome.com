@@ -27,8 +27,12 @@ export const CREDIT_HOLDS = 'engine-state/_credit-holds.json'
 export type CreditRead = { source: SourceId; at: string; by: string }
 export type CreditReadKind = 'own' | 'agency' | 'other' | 'none'
 export type PhotoCredit = { page: string; kind: CreditReadKind; line?: string; at: string }
-/** Where a held photo was: its file, the way to the `photos` list it sat in, its place there, and the photo as it was. */
-export type HeldPlace = { file: string; path: string[]; at: number; photo: Photo }
+/**
+ * Where a held photo was: its file, the way to the `photos` list it sat in (a list's items by what names them, a section's
+ * key and source, not by their place), its place there, the photo just before it and the first one after it that wasn't
+ * held with it, and the photo as it was.
+ */
+export type HeldPlace = { file: string; path: string[]; at: number; prev?: string; next?: string; photo: Photo }
 /** A calendar day whose guide card showed a held photo. */
 export type CalendarPlace = { file: string; date: string; guide?: string }
 /** A photo a person took off readers' pages until its source page's credit read: who, when, why, and where it was. */
@@ -129,14 +133,23 @@ const writeJson = (f: string, raw: string, data: unknown) => writeFile(f, `${JSO
 type Node = Record<string, unknown>
 const isNode = (x: unknown): x is Node => !!x && typeof x === 'object' && !Array.isArray(x)
 
+/** An item of a list by what names it (its id, or its key and source), so a list put in another order still finds it; else its place. */
+const step = (v: unknown, i: number) => {
+  const name = isNode(v) ? Object.fromEntries((['id', 'key', 'source'] as const).filter(k => typeof v[k] === 'string').map(k => [k, v[k] as string])) : {}
+  return Object.keys(name).length ? `@${JSON.stringify(name)}` : String(i)
+}
 /** Takes the wanted photos out of every `photos` list in a content file, at any depth, noting where each was. */
 function takeOut(x: unknown, want: Set<string>, file: string, path: string[], out: HeldPlace[]) {
-  if (Array.isArray(x)) { x.forEach((v, i) => takeOut(v, want, file, [...path, String(i)], out)); return }
+  if (Array.isArray(x)) { x.forEach((v, i) => takeOut(v, want, file, [...path, step(v, i)], out)); return }
   if (!isNode(x)) return
   if (Array.isArray(x.photos)) {
-    const list = x.photos as Photo[]
-    list.forEach((p, at) => { if (isNode(p) && want.has(p.url)) out.push({ file, path: [...path, 'photos'], at, photo: p }) })
-    x.photos = list.filter(p => !(isNode(p) && want.has(p.url)))
+    const list = x.photos as Photo[], held = (p: unknown) => isNode(p) && want.has((p as Photo).url)
+    list.forEach((p, at) => {
+      if (!held(p)) return
+      const prev = list[at - 1]?.url, next = list.slice(at + 1).find(q => !held(q))?.url
+      out.push({ file, path: [...path, 'photos'], at, ...(prev ? { prev } : {}), ...(next ? { next } : {}), photo: p })
+    })
+    x.photos = list.filter(p => !held(p))
   }
   for (const [k, v] of Object.entries(x)) if (k !== 'photos') takeOut(v, want, file, [...path, k], out)
 }
@@ -147,7 +160,20 @@ function leftOver(x: unknown, want: Set<string>): boolean {
   if (typeof x.url === 'string' && want.has(x.url)) return true
   return Object.values(x).some(v => leftOver(v, want))
 }
-const at = (data: unknown, path: string[]) => path.reduce<unknown>((n, k) => (isNode(n) || Array.isArray(n) ? (n as Record<string, unknown>)[k] : undefined), data)
+const at = (data: unknown, path: string[]) => path.reduce<unknown>((n, k) => {
+  if (Array.isArray(n)) {
+    if (!k.startsWith('@')) return n[Number(k)]
+    const name = JSON.parse(k.slice(1)) as Record<string, string>
+    return n.find(v => isNode(v) && Object.entries(name).every(([f, s]) => v[f] === s))
+  }
+  return isNode(n) ? n[k] : undefined
+}, data)
+/** Where a returning photo goes in its list: after the photo it followed, else before the one it preceded, else its old place. */
+const placeIn = (list: unknown[], p: HeldPlace) => {
+  const find = (u?: string) => (u === undefined ? -1 : list.findIndex(x => isNode(x) && x.url === u))
+  const prev = find(p.prev), next = find(p.next)
+  return prev >= 0 ? prev + 1 : next >= 0 ? next : Math.min(p.at, list.length)
+}
 
 /**
  * A rights hold (the chief of staff, 14 Nov 2026): photos a person takes off readers' pages until their source page's
@@ -174,55 +200,70 @@ export async function holdForCreditRead(root: string, urls: readonly string[], b
     if (leftOver(data, want)) throw new Error(`a held photo is shown in ${file} where a hold can't put it back: nothing held`)
     if (places.length > before || cards) edits.push({ f, raw, data })
   }
-  for (const e of edits) await writeJson(e.f, e.raw, e.data)
   for (const u of want) {
-    const mine = places.filter(p => p.photo.url === u)
-    if (!mine.length && !calendar.has(u)) continue
-    holds[u] = { page: mine[0]?.photo.sourceUrl ?? '', by, on, why, places: mine, ...(calendar.has(u) ? { calendar: calendar.get(u) } : {}) }
+    const mine = places.filter(p => p.photo.url === u), cards = calendar.get(u) ?? [], had = holds[u]
+    if (!mine.length && !cards.length) continue
+    // A hold run again (after a failure halfway) adds to what it recorded the first time.
+    const all = [...(had?.places ?? []), ...mine], days = [...(had?.calendar ?? []), ...cards]
+    holds[u] = { page: all[0]?.photo.sourceUrl ?? had?.page ?? '', by, on, why, places: all, ...(days.length ? { calendar: days } : {}) }
     rejected[u] ??= HOLD_NOTE
   }
+  // Recorded first, then barred, then taken off: a failure at any point leaves nothing shown that isn't recorded.
   await writeMap(join(root, CREDIT_HOLDS), holds)
   await writePhotoState(join(root, REJECTED), rejected)
+  for (const e of edits) await writeJson(e.f, e.raw, e.data)
   return { held: [...want].filter(u => holds[u]), places: places.length, calendar: [...calendar.values()].reduce((n, c) => n + c.length, 0) }
 }
 
 /**
  * A credit read's answer for held photos. The site's own photographer's or illustrator's go back to every place they
- * held, each file's in the order they first stood, and leave the never-again list. One that list now holds for another
- * reason stays off, as does every other kind. A held photo the read didn't find stays held for the page's next turn.
+ * held: after the photo each followed, else before the one it preceded, else its old place. They leave the never-again list.
+ * One that list now holds for another reason stays off, as does every other kind. A held photo the read didn't find stays
+ * held for the page's next turn, and so does any place of a returning photo that is gone (its file, or its list): it is
+ * `stuck`, to be said. The never-again list is written before the holds, so a failure between the two leaves a state the
+ * next read's release finishes.
  */
-export async function releaseCreditHolds(root: string, credits: Record<string, PhotoCredit>): Promise<{ back: string[]; off: string[] }> {
+export async function releaseCreditHolds(root: string, credits: Record<string, PhotoCredit>): Promise<{ back: string[]; off: string[]; stuck: string[] }> {
   const holds = await readMap<CreditHold>(join(root, CREDIT_HOLDS)), rejected = await readMap<string>(join(root, REJECTED))
   const back: string[] = [], off: string[] = [], places: HeldPlace[] = [], cards: { url: string; c: CalendarPlace }[] = []
+  const left = new Map<string, { places: HeldPlace[]; calendar: CalendarPlace[] }>()
   for (const [u, h] of Object.entries(holds)) {
     const c = credits[u]
     if (!c) continue
-    delete holds[u]
     if (c.kind !== 'own' || (u in rejected && rejected[u] !== HOLD_NOTE)) { off.push(u); continue }
     back.push(u)
-    delete rejected[u]
     places.push(...h.places)
     cards.push(...(h.calendar ?? []).map(c => ({ url: u, c })))
   }
+  const stay = (u: string) => left.get(u) ?? (left.set(u, { places: [], calendar: [] }), left.get(u)!)
   for (const file of new Set([...places.map(p => p.file), ...cards.map(x => x.c.file)])) {
     const f = join(root, file), raw = await readFile(f, 'utf8').catch(() => undefined)
-    if (!raw) continue
+    const mine = places.filter(p => p.file === file).sort((a, b) => a.at - b.at), days = cards.filter(x => x.c.file === file)
+    if (!raw) { for (const p of mine) stay(p.photo.url).places.push(p); for (const x of days) stay(x.url).calendar.push(x.c); continue }
     const data = JSON.parse(raw) as unknown
-    // Each list's photos go back lowest place first, so a list that gets them all back is as it was.
-    for (const p of places.filter(p => p.file === file).sort((a, b) => a.at - b.at)) {
+    for (const p of mine) {
       const list = at(data, p.path)
-      if (Array.isArray(list) && !list.some(x => isNode(x) && x.url === p.photo.url)) list.splice(Math.min(p.at, list.length), 0, p.photo)
+      if (!Array.isArray(list)) { stay(p.photo.url).places.push(p); continue }
+      if (!list.some(x => isNode(x) && x.url === p.photo.url)) list.splice(placeIn(list, p), 0, p.photo)
     }
-    const days = isNode(data) && Array.isArray(data.days) ? (data.days as { date: string; guide?: string; guideImg?: string }[]) : []
-    for (const { url, c } of cards.filter(x => x.c.file === file)) {
-      const d = days.find(d => d.date === c.date && d.guide === c.guide)
-      if (d && !d.guideImg) d.guideImg = url
+    const calendarDays = isNode(data) && Array.isArray(data.days) ? (data.days as { date: string; guide?: string; guideImg?: string }[]) : []
+    for (const { url, c } of days) {
+      const d = calendarDays.find(d => d.date === c.date && d.guide === c.guide)
+      if (!d) stay(url).calendar.push(c)
+      else if (!d.guideImg) d.guideImg = url
     }
     await writeJson(f, raw, data)
   }
-  await writeMap(join(root, CREDIT_HOLDS), holds)
+  for (const u of back) if (rejected[u] === HOLD_NOTE) delete rejected[u]
   await writePhotoState(join(root, REJECTED), rejected)
-  return { back, off }
+  for (const u of [...off, ...back]) {
+    const l = left.get(u)
+    if (!l || (!l.places.length && !l.calendar.length)) { delete holds[u]; continue }
+    const { calendar: _, ...h } = holds[u]!
+    holds[u] = { ...h, places: l.places, ...(l.calendar.length ? { calendar: l.calendar } : {}) }
+  }
+  await writeMap(join(root, CREDIT_HOLDS), holds)
+  return { back, off, stuck: [...left.keys()] }
 }
 
 /** The source pages a credit read still has to read: on the list, or with a photo still held for it. */

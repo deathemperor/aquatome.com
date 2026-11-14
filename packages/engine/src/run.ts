@@ -6,7 +6,7 @@ import type { z } from 'zod'
 import { across, LARGE_PX } from './curation'
 import { cardGaps } from './card-fill'
 import { appendChangelog } from './changelog'
-import { applyCreditReads, creditPagesWaiting, pageCredits, readCreditReads, recordCredits, releaseCreditHolds, writeCreditReads } from './credit-reads'
+import { applyCreditReads, CREDIT_HOLDS, creditPagesWaiting, pageCredits, readCreditReads, recordCredits, releaseCreditHolds, writeCreditReads } from './credit-reads'
 import { LlmError, type Llm } from './claude'
 import { deeperPages, depthReport, popularityOrder, readSearchCache, runOrder, saveSearchCache, searchThin, thinSpecies, type DepthReport } from './depth'
 import { discover } from './discover'
@@ -199,7 +199,8 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   const creditRead = async (source: SourceId, url: string, images: PageImage[]) => {
     const credits = pageCredits(images, url, source, sourceNames[source]?.name ?? source, sourceNames[source]?.permission ?? {}, deps.media, today())
     await recordCredits(root, credits)
-    await releaseCreditHolds(root, credits)
+    const { stuck } = await releaseCreditHolds(root, credits)
+    if (stuck.length) report.errors.push(`${url}: ${stuck.length} held photo${stuck.length > 1 ? 's' : ''} of the site's own couldn't go back to every place (a file or list is gone): still held (${CREDIT_HOLDS})`)
     await applyCreditReads(root)
     const reads = await readCreditReads(root)
     if (url in reads) { delete reads[url]; await writeCreditReads(root, reads) }
