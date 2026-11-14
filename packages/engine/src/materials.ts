@@ -7,6 +7,7 @@ import type { Llm } from './claude'
 import { VI_STYLE as STYLE } from './phrases'
 import { steadyRead } from './quality'
 import { isMarketplace } from './marketplaces'
+import { piece } from './pieces'
 import { logReviews, type Review } from './review-log'
 import { sanitizeHtml } from './sanitize'
 
@@ -124,7 +125,9 @@ const SUM = String.raw`(?<![\p{L}\d])(?:\d{1,3}(?:[.,]\d{3})+|\d{5,})`
 const SCALE = String.raw`(?:nghìn|ngàn|triệu|tỷ|tỉ)${END}`
 /** A sum in words: "vài trăm", "hai chục", "nửa". */
 const WORDS = String.raw`(?:(?:vài|mấy|một|hai|ba|bốn|năm|lăm|sáu|bảy|tám|chín|mười|mươi|chục|trăm|nửa)\s+)+`
-const MONEY = String.raw`(?:₫|vnđ|vnd|đồng|đ)${END}`
+/** "đồng" as money, not "đồng thời" ("at the same time"): "vài triệu đồng thời" is a count. */
+const DONG = String.raw`đồng${END}(?!\s+thời${END})`
+const MONEY = String.raw`(?:(?:₫|vnđ|vnd|đ)${END}|${DONG})`
 /** An amount after "giá": a sum, or a number or a range in digits or words with its "nghìn" or "triệu". */
 const AMOUNT = String.raw`(?:${SUM}|${N}(?:\s*(?:đến|tới|[-–~])\s*${N})?\s*${SCALE}|${WORDS}${SCALE})`
 const AROUND = String.raw`(?:\s+(?:chỉ|từ|khoảng|tầm|chừng|cỡ|dao\s+động|rơi\s+vào))*`
@@ -134,17 +137,17 @@ const AROUND = String.raw`(?:\s+(?:chỉ|từ|khoảng|tầm|chừng|cỡ|dao\s+
  * triệu đồng", "vài trăm nghìn đồng"), "k" ("150k", "150K/khúc"), and "giá" before an amount ("giá 150.000", "giá từ 5
  * triệu", "có giá vài trăm nghìn"), or after a word of selling or a colon before any number ("Giá bán: 99"). Never a
  * quantity: "2 triệu năm", "lên tới vài triệu, tùy loại nền", "6500 K", "giá thể 2 lớp", "đánh giá 2 khúc", "trên giá
- * khoảng 2 ngày", "ngày 7 đồng thời". A sum written any other way ("mỗi khúc 200 nghìn", "giá từ 90") is the grounded
- * reader's to note (GROUNDED): what follows a "nghìn" can be a count as well as a price, and a mark that could be a
- * quantity would refuse good drafts unread.
+ * khoảng 2 ngày", "ngày 7 đồng thời", "vài triệu đồng thời". A sum written any other way ("mỗi khúc 200 nghìn", "giá
+ * từ 90") is the grounded reader's to note (GROUNDED): what follows a "nghìn" can be a count as well as a price, and a
+ * mark that could be a quantity would refuse good drafts unread.
  */
 const PRICE = [
-  new RegExp(String.raw`${N}\s*(?:₫|vnđ|vnd|đ)${END}|${SUM}\s*đồng${END}`, 'iu'),
+  new RegExp(String.raw`${N}\s*(?:₫|vnđ|vnd|đ)${END}|${SUM}\s*${DONG}`, 'iu'),
   new RegExp(String.raw`(?:${N}\s*|(?<![\p{L}])${WORDS})${SCALE}(?:\s+rưỡi)?\s*${MONEY}`, 'iu'),
   new RegExp(String.raw`${N}\s*k${END}`, 'u'),
   // A capital K after three digits at most: a lamp's 6500 K is a colour.
   new RegExp(String.raw`(?<![\p{L}\d.,])\d{1,3}\s*K${END}`, 'u'),
-  new RegExp(String.raw`(?<![\p{L}])(?<!đánh\s+)giá(?:(?:\s+(?:bán|lẻ|sỉ|mua|niêm\s+yết|tham\s+khảo))+${AROUND}\s*:?|\s*:${AROUND})\s*(?:${AMOUNT}|\d)|(?<![\p{L}])(?<!đánh\s+)giá${AROUND}\s+${AMOUNT}`, 'iu'),
+  new RegExp(String.raw`(?<![\p{L}])(?<!đánh\s+)giá(?:(?:\s+(?:bán|lẻ|sỉ|mua|niêm\s+yết|tham\s+khảo))+${AROUND}\s*:?${AROUND}|\s*:${AROUND})\s*(?:${AMOUNT}|\d)|(?<![\p{L}])(?<!đánh\s+)giá${AROUND}\s+${AMOUNT}`, 'iu'),
 ]
 const chars = (s: string) => [...s.normalize('NFC')].length
 /** Every entity undone, named ones too ("&ndash;", "&deg;"), until none is left. */
@@ -155,10 +158,11 @@ const decode = (s: string) => {
 }
 const visible = (html: string) => decode(html.replace(/<[^>]*>/g, ' ')).replace(/\s+/g, ' ').trim()
 /**
- * A tag, its quoted values read whole, or a comment; not a comparison: "<" then a letter, "/" or "!" ("pH < 7" stays,
- * and so does nothing of `<em title="pH < 7">`). A block's edge leaves a space.
+ * A tag, its quoted values read whole, or a comment; not a comparison: "<" then an HTML element's name ("pH < 7",
+ * "6<pH và KH>2" stay, and so does nothing of `<em title="pH < 7">`). A block's edge leaves a space.
  */
-const TAG = new RegExp(String.raw`<!--[\s\S]*?-->|<\/?[a-z][a-z0-9-]*(?:\s+[^\s"'<>/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s"'<>]+))?)*\s*\/?>`, 'gi')
+const ELEMENTS = 'a|abbr|article|aside|audio|b|big|blockquote|body|br|button|canvas|caption|center|cite|code|col|colgroup|dd|del|details|dfn|div|dl|dt|em|embed|figcaption|figure|font|footer|form|h[1-6]|head|header|hr|html|i|iframe|img|input|ins|kbd|label|li|link|main|mark|math|meta|nav|nobr|noscript|object|ol|option|p|picture|pre|q|s|samp|script|section|select|small|source|span|strike|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|tt|u|ul|var|video|wbr'
+const TAG = new RegExp(String.raw`<!--[\s\S]*?-->|<\/?(?:${ELEMENTS})(?![a-z0-9-])(?:\s+[^\s"'<>/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s"'<>]+))?)*\s*\/?>`, 'gi')
 const untag = (s: string) => s.replace(TAG, t => (/^<\/?(?:p|br|div|li|ul|ol|h\d)\b/i.test(t) ? ' ' : ''))
 /**
  * A summary line or a question as the page shows it: plain text, entities undone, no markup and no source's mark. One
@@ -232,10 +236,18 @@ const readJson = async <T>(file: string) => JSON.parse(await readFile(file, 'utf
  * Vietnamese page written from its facts, checked, and written once more on the check's or the form's notes. A page whose
  * every draft fails its form is not saved. Photos put on the page since stay. Files: content/materials/<id>/{entity,vi}.json.
  */
-export async function makeMaterial(root: string, d: { research: Llm; llm: Llm }, a: MaterialAsk, o: { reuse?: boolean; now?: () => Date; researchModel?: string; writeModel?: string } = {}) {
-  const now = o.now?.() ?? new Date()
+export async function makeMaterial(root: string, d: { research: Llm; llm: Llm }, a: MaterialAsk, o: MaterialOptions = {}) {
   // The site's loader refuses a page whose parent has none: checked before anything is asked or written.
   if (a.parent && !(await readJson(join(root, 'content/materials', a.parent, 'entity.json')))) throw new Error(`${a.id}: its parent "${a.parent}" has no page yet: write it first`)
+  // A page is one piece of the step's day (pieces.ts): it starts only if what's left covers a page as the last one cost,
+  // and its whole cost goes on record for the next.
+  return piece(a.id, () => writeMaterial(root, d, a, o), { now: o.now })
+}
+
+type MaterialOptions = { reuse?: boolean; now?: () => Date; researchModel?: string; writeModel?: string }
+
+async function writeMaterial(root: string, d: { research: Llm; llm: Llm }, a: MaterialAsk, o: MaterialOptions) {
+  const now = o.now?.() ?? new Date()
   const factsFile = join(root, 'engine-state/materials', `${a.id}.json`)
   const kept = o.reuse ? await readJson<MaterialFacts>(factsFile) : null
   if (o.reuse && !kept) throw new Error(`${a.id}: no research kept in ${factsFile}`)

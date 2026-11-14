@@ -3,6 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { MaterialSchema, TranslationSchema } from '@aq/schema'
 import { expect, test } from 'vitest'
+import { nameStep } from '../src/ceiling'
 import type { Llm } from '../src/claude'
 import { asSaved, checkMaterial, formNotes, keptFacts, makeMaterial, MATERIALS, type MaterialFacts } from '../src/materials'
 
@@ -81,7 +82,9 @@ test('a price by the marks that can\'t be a quantity, and never a quantity; any 
     'Giá bán: 150.000', 'Giá: 99', 'Ngâm 7 ngày, khúc này 90 đ', 'Một khúc lũa 150.000đ màu nâu sẫm', 'Một khúc lũa 150.000₫ màu nâu sẫm',
     'Một khúc lũa 150.000 VND màu nâu sẫm', 'Khúc to giá 1.200.000', 'Một khúc lũa 150.000 đồng màu nâu sẫm', 'Một khúc lũa 150000 đồng màu nâu sẫm',
     'Khúc to 2 triệu đến 3 triệu đồng', 'Một khúc lũa thường có giá vài trăm nghìn đồng', 'Lũa nhỏ chỉ vài chục nghìn đồng', 'Lũa có giá vài trăm nghìn',
-    'Lũa khủng giá từ 5 triệu trở lên', 'Khúc lớn nửa triệu đồng', 'Giá bán: vài trăm nghìn tùy kích thước', 'Giá dao động 100 đến 500 nghìn tùy khúc'])
+    'Lũa khủng giá từ 5 triệu trở lên', 'Khúc lớn nửa triệu đồng', 'Giá bán: vài trăm nghìn tùy kích thước', 'Giá dao động 100 đến 500 nghìn tùy khúc',
+    // Astra's seventh read: a selling word, its colon, then "khoảng" or "từ".
+    'Giá bán: khoảng 200 nghìn tùy kích thước', 'Giá bán: từ vài trăm nghìn'])
     expect(formNotes(asSaved(page(p)), 1).filter(n => n.startsWith('a price')), p).toHaveLength(1)
   for (const q of ['Đá hình thành cách đây 2 triệu năm', 'Đèn 6500 K', 'Đèn 6500K', 'Ngâm 10 đến 14 ngày', 'Khúc nặng 5 kg', 'Giá thể 2 lớp', 'Giá trị pH 6,5',
     'Ngâm đến ngày 7, đồng thời thay nước hằng ngày', 'Giữ pH ở 6,5, đồng thời theo dõi KH', 'Đánh giá 2 khúc lũa qua độ cứng và mùi',
@@ -92,6 +95,9 @@ test('a price by the marks that can\'t be a quantity, and never a quantity; any 
     'Lũa đã nằm dưới bùn hàng nghìn năm', 'Mất vài trăm năm để gỗ thành lũa', 'Giá thể chứa hàng triệu vi sinh',
     // Astra's sixth read
     'Phơi lũa trên giá khoảng 2 ngày cho ráo nước', 'Số vi khuẩn trong một gam nền có thể lên tới vài triệu, tùy loại nền',
+    // Astra's seventh read: a count, then "đồng thời" ("at the same time").
+    'Số lượng vi sinh tăng lên vài triệu đồng thời nhu cầu oxy cũng tăng', 'Vi sinh tăng thêm 2 triệu đồng thời ăn bớt oxy',
+    'Số vi sinh tăng lên 100.000 đồng thời nhu cầu oxy cũng tăng',
     // A sum by no closed mark: what follows a "nghìn" can be a count as well as a price, so it's the grounded reader's to note.
     'Mỗi khúc 200 nghìn', 'Mỗi khúc 1,5 triệu', 'Mua theo ký, khoảng 120 nghìn/kg', 'Khúc to 2 triệu rưỡi', 'Giá từ 90 một khúc',
     'Mỗi khúc 200 nghìn tùy kích thước', 'Lũa khoảng 100–200 nghìn tùy dáng', 'Một túi nền tốn 150 nghìn cho bể nhỏ', 'Mỗi khúc 200 nghìn (đã xử lý)'])
@@ -124,6 +130,10 @@ test('plain text keeps a comparison and a space between blocks (Astra\'s second 
   // Astra's sixth read: a comparison with no spaces is no tag, and a tag written encoded twice, its value's quotes too, goes.
   const s6 = asSaved({ summary: ['Giữ 6<pH<7 và KH>2 khi dùng nền này.', 'Ngâm &lt;em title=&quot;còn gọi là &amp;quot;lũa rễ&amp;quot;&quot;&gt;lũa&lt;/em&gt; trước khi dùng.'], sections: { about: '<p>A [1].</p>' }, faq: [] })
   expect(s6.summary).toEqual(['Giữ 6<pH<7 và KH>2 khi dùng nền này.', 'Ngâm lũa trước khi dùng.'])
+  // Astra's seventh read: "<" then a word that names no HTML element is a comparison, written or encoded.
+  const s7 = asSaved({ summary: ['Chỉ dùng khi 6<pH và KH>2.', 'Chỉ dùng khi 6&lt;pH và KH&gt;2.'], sections: { about: '<p>A [1].</p>' }, faq: [{ q: 'Khi nào?', a: '<p>Khi 6<pH và KH>2 [1].</p><pre>Ngâm</pre> trước.' }] })
+  expect(s7.summary).toEqual(['Chỉ dùng khi 6<pH và KH>2.', 'Chỉ dùng khi 6<pH và KH>2.'])
+  expect(s7.faq).toEqual([{ q: 'Khi nào?', a: 'Khi 6<pH và KH>2. Ngâm trước.' }])
 })
 
 async function site() {
@@ -206,6 +216,28 @@ test('a page whose parent has no page yet is refused before anything is asked (A
   const root = await mkdtemp(join(tmpdir(), 'aq-material-'))
   const none: Llm = async () => { throw new Error('called') }
   await expect(makeMaterial(root, { research: none, llm: none }, satung)).rejects.toThrow('lua-sa-tung: its parent "lua" has no page yet: write it first')
+})
+
+// The chief of staff, 14 Nov 2026: the second page runs the same day only if what's left of the step's day covers a page.
+test('a page starts only when what\'s left of the day covers one as the last cost: nothing asked, nothing written (Astra\'s seventh read)', async () => {
+  const { root } = await site()
+  const entity = await readFile(join(root, 'content/materials/lua-sa-tung/entity.json'), 'utf8')
+  const log = join(root, 'cost.jsonl')
+  const now = () => new Date('2026-11-15T03:00:00.000Z')
+  await writeFile(log, `${JSON.stringify({ at: '2026-11-15T01:00:00.000Z', step: 'material', piece: 'lua 2026-11-15T01:00:00.000Z', pieceUsd: 10000, finished: true })}\n`)
+  let calls = 0
+  const none: Llm = async () => { calls++; throw new Error('called') }
+  process.env.ENGINE_COST_LOG = log
+  nameStep('material')
+  try {
+    await expect(makeMaterial(root, { research: none, llm: none }, satung, { now })).rejects.toThrow(/lua-sa-tung not started/)
+  } finally {
+    process.env.ENGINE_COST_LOG = 'off'
+    nameStep(undefined)
+  }
+  expect(calls).toBe(0)
+  expect(await readFile(join(root, 'content/materials/lua-sa-tung/entity.json'), 'utf8')).toBe(entity)
+  await expect(readFile(join(root, 'engine-state/materials/lua-sa-tung.json'), 'utf8')).rejects.toThrow()
 })
 
 const good = { summary: ['Lũa sa tùng là lũa rễ mảnh.', 'Nước ngả vàng.'], sections: { about: '<p>Rễ mảnh [1].</p>' }, faq: [] }
