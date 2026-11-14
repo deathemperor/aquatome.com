@@ -791,7 +791,12 @@
       "author": "Carlos Ruiz",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Potamotrygon_orbignyi_28658424.jpg",
       "caption": "Smooth-back River Ray (Potamotrygon orbignyi)",
-      "thumb": "https://media.aquatome.com/commons/1fee89c1528c920b-480.webp"
+      "thumb": "https://media.aquatome.com/commons/1fee89c1528c920b-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/1fee89c1528c920b-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/22def4f503107bd5.webp",

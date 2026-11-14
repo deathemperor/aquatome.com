@@ -3,11 +3,43 @@
  "judged": [
   "File:Fish species from streams of the lower Iguatemi River.png",
   "File:Stream fish from Araguaia and Rio da Mortes basin.png",
-  "File:Fish fauna from Río Pilcomayo National Park (1 of 7).png"
+  "File:Fish fauna from Río Pilcomayo National Park (1 of 7).png",
+  "inat:6898225",
+  "inat:33489845",
+  "inat:33489858",
+  "inat:33489854",
+  "inat:61166490",
+  "inat:63953458",
+  "inat:63954920",
+  "inat:130766343",
+  "inat:130813660",
+  "inat:311354454",
+  "inat:311354497",
+  "inat:578632836",
+  "inat:718847271",
+  "inat:718847291",
+  "inat:718847319",
+  "inat:733328525",
+  "inat:733328531",
+  "inat:733328556"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/cfeef6eac35b1b07.webp": "804060701b890484",
-  "https://media.aquatome.com/commons/9a6d8a331b0af031.webp": "2e6dc9d3e250c903"
+  "https://media.aquatome.com/commons/9a6d8a331b0af031.webp": "2e6dc9d3e250c903",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/61166490/large.jpeg": "266dc9cbd270e993",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/311354454/large.jpeg": "2665d073f37f3b3b",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/311354497/large.jpeg": "8f47162ff9dc6491",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/718847271/large.jpg": "33668cfcec496334",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/733328525/large.jpg": "dbcbe9f3f363363b",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/733328531/large.jpg": "133320d81c082900"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 615695,
+  "pass": "done",
+  "after": {
+   "research": 399690039,
+   "agree": 314584800
+  }
+ }
 }

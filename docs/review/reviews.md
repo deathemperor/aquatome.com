@@ -10,17 +10,17 @@ under `<lang>/<path>`.
 | --- | --- | --- | --- |
 | video-guide | 883 | 639 (vi 639) | 639 |
 | translation | 1593 | 252 (vi 252) | 252 |
-| vi-rewrite | 313 | 17 (vi 17) | 17 |
-| reader-rewrite | 25 | 0 | 0 |
+| vi-rewrite | 318 | 18 (vi 18) | 18 |
+| reader-rewrite | 26 | 0 | 0 |
 | title | 25 | 0 | 0 |
-| breed | 20 | 3 (ms 3) | 3 |
-| topic | 84 | 5 (ms 1, th 4) | 5 |
+| breed | 22 | 3 (ms 3) | 3 |
+| topic | 86 | 5 (ms 1, th 4) | 5 |
 | product | 14 | 1 (vi 1) | 1 |
 | product-reviews | 14 | 0 | 0 |
 | summary | 1916 | 91 (vi 91) | 91 |
-| localize | 1830 | 779 (id 352, ms 43, th 384) | 779 |
+| localize | 1873 | 784 (id 354, ms 43, th 387) | 784 |
 | glossary | 1 | 0 | 0 |
-| places | 5955 | 3551 (id 1206, ms 1203, th 1043, vi 99) | 814 |
+| places | 6135 | 3686 (id 1251, ms 1248, th 1088, vi 99) | 858 |
 | equipment | 5 | 0 | 0 |
 | planting | 31 | 0 | 0 |
 | species | 11 | 0 | 0 |
@@ -216,20 +216,20 @@ under `<lang>/<path>`.
 
 ## vi-rewrite: older Vietnamese rewritten in the site's style
 
-17 of 313 pages under the bar.
+18 of 318 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 17 | 44 |
-| Wording: unnatural, literal, stiff or chatty | 15 | 28 |
+| Other | 18 | 48 |
+| Wording: unnatural, literal, stiff or chatty | 16 | 31 |
 | Says what the source doesn't (invented, added) | 14 | 35 |
-| Meaning changed or wrong | 13 | 22 |
+| Meaning changed or wrong | 14 | 24 |
 | A number, unit, dose or price | 10 | 12 |
 | Hobby terms and names | 9 | 14 |
+| Repeats itself (intro, summary, steps and FAQ) | 7 | 8 |
+| Leaves out what the source says | 6 | 9 |
 | States as certain what the source hedges, or what garbled captions only hint at | 6 | 7 |
-| Repeats itself (intro, summary, steps and FAQ) | 6 | 7 |
 | Text left in another language | 6 | 6 |
-| Leaves out what the source says | 5 | 8 |
 | Names or points to the video, channel, creator or source | 1 | 1 |
 
 ### Other
@@ -268,23 +268,11 @@ under `<lang>/<path>`.
 - Item 5: 'Quả tống quán sủ (alder cone)' is a doubtful name and leaves English in brackets. Use 'quả cây alder (tống quán sủ)' or a clearer common name. — vi/species/apistogramma-baenschi (seriouslyfish), 0.70
 - Item 4: "Cá sấu hỏa tiễn (Alligator gar)" is wrong. Alligator gars are Atractosteus spp. (cá sấu hỏa tiễn is fine for them), but "gars" in general are Lepisosteidae. The text uses the same Vietnamese term for both, which blurs the distinct… — vi/species/atractosteus-tristoechus (glaser), 0.70
 
-### States as certain what the source hedges, or what garbled captions only hint at
-
-- "Khay sâu ít nhất 8–10 cm": the English reads '3 – 4 inches' (garbled with 'niches'). 3–4 in = 7.5–10 cm. Rounding to 8–10 cm is acceptable. — vi/guides/aquariumbreeder-fiddler-crab-tank-setup (aquariumbreeder), 0.70
-- Item 4: "nghe nói trước đây còn tới 3 m" - the first "formerly" is garbled. Say "nghe nói trước đây có con dài tới 3 m". "ngày xưa cái gì cũng hơn" is clumsy; use "ngày xưa cái gì cũng tốt hơn". — vi/species/atractosteus-tristoechus (glaser), 0.70
-- Item 5: "vật dựng" for "structure" is unclear; use "vật cản/chỗ ẩn nấp" or "cấu trúc trang trí". — vi/species/apistogramma-panduro (seriouslyfish), 0.72
-
 ### Repeats itself (intro, summary, steps and FAQ)
 
 - Item 10: 'Cá đẻ giống nhiều loài cichlid khác ... Cứ thế, có thể có tới 500 trứng' OK; but 'Trứng nở sau 2–3 ngày' repeats; fine. 'ống đẻ' should be 'ống đẻ trứng (ovipositor)' - acceptable. — vi/species/cincelichthys-bocourti (seriouslyfish), 0.62
 - Item 9: "Có cá mục tiêu thì chúng còn kỹ hơn nữa, vì..." – adds a redundant causal clause; the English only restates it. Also "thay đổi thời gian" is OK, but "cá mục tiêu là những con để cichlid trút cơn dữ vào" is colloquial/awkward. — vi/species/crenicichla-compressiceps (seriouslyfish), 0.68
 - Item 1: "có thể bắt chước (nhại)" has a redundant bracketed synonym. Use "có thể nhại hình" (mimic) only. Also "các loài cá Pimelodella spp." is redundant: either "các loài Pimelodella" or "Pimelodella spp.". — vi/species/brachyrhamdia-heteropleura (scotcat), 0.70
-
-### Text left in another language
-
-- Item 5: 'bể càng tự nhiên' added; 'could also add to the effect' is not stated that way. Item 11: Latin 'Chisel-toothed' left in English in quotes - acceptable but unnecessary. — vi/species/cincelichthys-bocourti (seriouslyfish), 0.62
-- Untranslated English left in place: "needle sucker" — use a Vietnamese description or an established name (e.g. "cá hút đá mũi kim") instead of leaving the English term, optionally with the Latin/trade name in parentheses. — vi/species/farlowella-oxyrryncha (glaser), 0.70
-- Item 5: "Để làm nước giống tự nhiên, cũng có thể dùng nón alder (quả cây alder, Alnus)" leaves "alder" untranslated. Use the Vietnamese name "cây tống quán sủi" or just "nón/quả cây Alnus (alder)". Also "giống tự nhiên" is repeated in the … — vi/species/apistogramma-viejita (seriouslyfish), 0.72
 
 ### Leaves out what the source says
 
@@ -292,13 +280,25 @@ under `<lang>/<path>`.
 - Item 7: 'Hầu hết các loài rồi cũng tập ăn' - 'although' contrast lost; 'bo bo' for Daphnia is acceptable but 'mồi nhỏ sống ở đáy' ok. 'đồ tươi sống' ok. — vi/species/apistogramma-alacrina (seriouslyfish), 0.72
 - Item 2: 'cá tỳ bà bướm' for a hillstream loach is a non-standard name; also 'sông Qing, Wu và Da Ning He' mixes forms (Da Ning He already means river) and omits 'Ming' that other entries use. — vi/species/beaufortia-szechuanensis (seriouslyfish), 0.72
 
+### States as certain what the source hedges, or what garbled captions only hint at
+
+- "Khay sâu ít nhất 8–10 cm": the English reads '3 – 4 inches' (garbled with 'niches'). 3–4 in = 7.5–10 cm. Rounding to 8–10 cm is acceptable. — vi/guides/aquariumbreeder-fiddler-crab-tank-setup (aquariumbreeder), 0.70
+- Item 4: "nghe nói trước đây còn tới 3 m" - the first "formerly" is garbled. Say "nghe nói trước đây có con dài tới 3 m". "ngày xưa cái gì cũng hơn" is clumsy; use "ngày xưa cái gì cũng tốt hơn". — vi/species/atractosteus-tristoechus (glaser), 0.70
+- Item 5: "vật dựng" for "structure" is unclear; use "vật cản/chỗ ẩn nấp" or "cấu trúc trang trí". — vi/species/apistogramma-panduro (seriouslyfish), 0.72
+
+### Text left in another language
+
+- Item 5: 'bể càng tự nhiên' added; 'could also add to the effect' is not stated that way. Item 11: Latin 'Chisel-toothed' left in English in quotes - acceptable but unnecessary. — vi/species/cincelichthys-bocourti (seriouslyfish), 0.62
+- Untranslated English left in place: "needle sucker" — use a Vietnamese description or an established name (e.g. "cá hút đá mũi kim") instead of leaving the English term, optionally with the Latin/trade name in parentheses. — vi/species/farlowella-oxyrryncha (glaser), 0.70
+- Item 5: "Để làm nước giống tự nhiên, cũng có thể dùng nón alder (quả cây alder, Alnus)" leaves "alder" untranslated. Use the Vietnamese name "cây tống quán sủi" or just "nón/quả cây Alnus (alder)". Also "giống tự nhiên" is repeated in the … — vi/species/apistogramma-viejita (seriouslyfish), 0.72
+
 ### Names or points to the video, channel, creator or source
 
 - Item 11: 'López-Fernández và cộng sự (2005) cũng ra kết quả này. Các tác giả này' – ambiguous; 'Farias et al.' and 'López-Fernández' both become 'các tác giả này', but only López-Fernández did the detailed analysis. Fix to attribute the an… — vi/species/apistogramma-steindachneri (seriouslyfish), 0.72
 
 ## reader-rewrite: parts the reader step rewrote with its findings
 
-0 of 25 pages under the bar.
+0 of 26 pages under the bar.
 
 ## title: titles rewritten to promise only what the text has
 
@@ -306,7 +306,7 @@ under `<lang>/<path>`.
 
 ## breed: breed pages, against their research
 
-3 of 20 pages under the bar.
+3 of 22 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -333,7 +333,7 @@ under `<lang>/<path>`.
 
 ## topic: AquaTome's own guides, against their research
 
-5 of 84 pages under the bar.
+5 of 86 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -455,20 +455,20 @@ under `<lang>/<path>`.
 
 ## localize: species and plant pages in Indonesian and Thai, against the English
 
-779 of 1830 pages under the bar.
+784 of 1873 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 730 | 2096 |
-| Wording: unnatural, literal, stiff or chatty | 680 | 1449 |
-| Says what the source doesn't (invented, added) | 474 | 689 |
-| Hobby terms and names | 442 | 586 |
-| Meaning changed or wrong | 428 | 667 |
-| A number, unit, dose or price | 400 | 517 |
-| Text left in another language | 289 | 372 |
-| Leaves out what the source says | 257 | 299 |
-| Repeats itself (intro, summary, steps and FAQ) | 224 | 251 |
-| States as certain what the source hedges, or what garbled captions only hint at | 165 | 183 |
+| Other | 731 | 2100 |
+| Wording: unnatural, literal, stiff or chatty | 684 | 1456 |
+| Says what the source doesn't (invented, added) | 475 | 689 |
+| Hobby terms and names | 441 | 584 |
+| Meaning changed or wrong | 428 | 670 |
+| A number, unit, dose or price | 402 | 513 |
+| Text left in another language | 289 | 373 |
+| Leaves out what the source says | 253 | 294 |
+| Repeats itself (intro, summary, steps and FAQ) | 228 | 255 |
+| States as certain what the source hedges, or what garbled captions only hint at | 167 | 185 |
 | Copied from the transcript or source | 26 | 26 |
 | Off the title's topic | 1 | 1 |
 
@@ -548,15 +548,15 @@ under `<lang>/<path>`.
 
 ## places: place names in Indonesian and Thai (reviewed in batches)
 
-3551 of 5955 pages under the bar.
+3686 of 6135 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 711 | 777 |
+| Other | 753 | 819 |
 | Meaning changed or wrong | 60 | 60 |
-| Leaves out what the source says | 42 | 42 |
+| Leaves out what the source says | 43 | 43 |
 | Wording: unnatural, literal, stiff or chatty | 20 | 20 |
-| States as certain what the source hedges, or what garbled captions only hint at | 8 | 8 |
+| States as certain what the source hedges, or what garbled captions only hint at | 9 | 9 |
 | Hobby terms and names | 8 | 8 |
 | Text left in another language | 6 | 6 |
 | Repeats itself (intro, summary, steps and FAQ) | 4 | 4 |

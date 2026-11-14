@@ -9,7 +9,13 @@
   "File:Pygocentrus cariba 203386241.jpg",
   "File:Pygocentrus cariba 29994507.jpg",
   "File:Close-up of a piranha at Georgia Aquarium (cropped).jpg",
-  "File:Pygocentrus Cariba at the Georgia Aquarium.jpg"
+  "File:Pygocentrus Cariba at the Georgia Aquarium.jpg",
+  "inat:29994507",
+  "inat:29994496",
+  "inat:109678819",
+  "inat:203386241",
+  "inat:203422371",
+  "inat:445129420"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/bbd8fae6937ca9b7.webp": "bfbf8b9f1f1fa3ce",
@@ -21,5 +27,13 @@
   "https://media.aquatome.com/commons/1be553c52016d5c3.webp": "25010303d1291949",
   "https://media.aquatome.com/commons/8b899803fd76c154.webp": "63250f0f0f053537"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 620752,
+  "pass": "done",
+  "after": {
+   "research": 249053650,
+   "agree": 383425312
+  }
+ }
 }

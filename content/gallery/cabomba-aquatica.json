@@ -14,18 +14,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/commons/0aac794b9073a34e.webp",
-      "thumb": "https://media.aquatome.com/commons/0aac794b9073a34e-480.webp",
-      "width": 1200,
-      "height": 860,
-      "licence": "CC BY-SA 4.0",
-      "author": "Ityadi22",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cabomba_aquatica.jpg",
-      "caption": "Cabomba nước nhìn từ trên xuống, lá xòe hình quạt",
-      "best": true,
-      "kind": "submersed"
-    },
-    {
       "url": "https://media.aquatome.com/commons/be3c75fb95fb2cf5.webp",
       "thumb": "https://media.aquatome.com/commons/be3c75fb95fb2cf5-480.webp",
       "width": 1200,
@@ -99,6 +87,18 @@
       "caption": "Hoa vàng và lá nổi của Cabomba nước trên mặt nước",
       "best": false,
       "kind": "flower"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/0aac794b9073a34e.webp",
+      "thumb": "https://media.aquatome.com/commons/0aac794b9073a34e-480.webp",
+      "width": 1200,
+      "height": 860,
+      "licence": "CC BY-SA 4.0",
+      "author": "Ityadi22",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cabomba_aquatica.jpg",
+      "caption": "Cabomba nước nhìn từ trên xuống, lá xòe hình quạt",
+      "best": true,
+      "kind": "submersed"
     }
   ],
   "seen": 14,

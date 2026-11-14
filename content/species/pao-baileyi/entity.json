@@ -204,7 +204,12 @@
       "author": "M.S.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Baileyi.jpg",
       "caption": "Tetraodon baileyi",
-      "thumb": "https://media.aquatome.com/commons/a6c38237647ef575-480.webp"
+      "thumb": "https://media.aquatome.com/commons/a6c38237647ef575-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/a6c38237647ef575-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

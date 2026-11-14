@@ -26433,16 +26433,23 @@
     ]
   },
   "th/plants/nymphoides-aquatica": {
-    "at": "2026-11-08",
-    "hash": "0db747037cd1ef6d",
+    "at": "2026-11-14",
+    "hash": "0b1ec7385eabdd0a",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P3",
+        "quote": "ตู้นาโนขนาดประมาณ 19 ลิตร",
+        "why": "19 litres is a converted 5-gallon tank size, not one a keeper in Thailand would name.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P3",
         "quote": "ฝังลงไปในวัสดุปลูกเพียงประมาณ 0.6 ซม.",
-        "why": "0.6 cm is a converted quarter inch; no Thai keeper would give this figure.",
+        "why": "0.6 cm is a converted quarter inch, an unnatural metric figure.",
         "by": "model"
       }
     ],
@@ -28149,23 +28156,30 @@
     "products": []
   },
   "th/species/anatolichthys-transgrediens": {
-    "at": "2026-11-08",
-    "hash": "8c01edb0757028d3",
+    "at": "2026-11-14",
+    "hash": "3bf604cb38acc76a",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "elsewhere",
-        "part": "P6",
-        "quote": "ควรให้มี \"ช่วงฤดูหนาว\" นานหลายเดือนที่เลี้ยงในอุณหภูมิต่ำ",
-        "why": "Assumes the reader has a cold winter season; Thailand has none.",
+        "check": "units",
+        "part": "P4",
+        "quote": "ตู้ขนาดประมาณ 60 x 30 x 30 ซม. (57 ลิตร)",
+        "why": "57 litres is a converted 15-gallon tank, not the 54 litres those sides give.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "ตู้ขนาดตั้งแต่ 120 x 30 x 30 ซม. (113 ลิตร) ขึ้นไป",
+        "why": "113 litres is a converted 30-gallon tank, not the 108 litres those sides give.",
         "by": "model"
       },
       {
         "check": "elsewhere",
-        "part": "P7",
-        "quote": "ซึ่งสำคัญเป็นพิเศษในช่วงฤดูใบไม้ผลิและฤดูร้อน",
-        "why": "Feeding advice tied to temperate spring and summer seasons that a Thai keeper doesn't have.",
+        "part": "P6",
+        "quote": "ควรให้มี \"ช่วงฤดูหนาว\" นานหลายเดือนที่เลี้ยงในอุณหภูมิต่ำ",
+        "why": "Assumes a temperate climate with a cold winter, which a keeper in Thailand doesn't have.",
         "by": "model"
       }
     ],
@@ -29258,8 +29272,8 @@
     "products": []
   },
   "th/species/apistogramma-steindachneri": {
-    "at": "2026-11-08",
-    "hash": "96cfb4981644dd86",
+    "at": "2026-11-14",
+    "hash": "2eb195b1aeac95a1",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -29538,37 +29552,37 @@
     "sourceRead": true
   },
   "th/species/apteronotus-albifrons": {
-    "at": "2026-11-08",
-    "hash": "e9cfe2609b816283",
+    "at": "2026-11-14",
+    "hash": "025d3fa57d3d556e",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P6",
-        "quote": "ตู้ 208 ลิตรอาจพอใช้ได้ในปีแรก",
-        "why": "208 litres is a converted 55-gallon tank, not a size used in Thailand.",
+        "quote": "ตู้ 208 ลิตรอาจพอใช้ได้ในปีแรก แต่เล็กเกินไปสำหรับการเลี้ยงระยะยาว ขั้นต่อไปคือตู้ 284 ลิตร",
+        "why": "208 and 284 litres are converted US 55 and 75 gallon tanks, not sizes used in Thailand.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P6",
         "quote": "แนะนำให้ใช้ตู้ 454 หรือ 681 ลิตรสำหรับปลาแบล็คโกสต์ตัวเต็มวัย",
-        "why": "454 and 681 litres are converted 120 and 180 gallon tanks.",
+        "why": "454 and 681 litres are converted US 120 and 180 gallon tanks.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
         "quote": "จากประสบการณ์ที่ผ่านมา ปีแรกจะโตได้ถึง 20 ซม.",
-        "why": "The source writer's own experience, in their voice, which the reader does not know.",
+        "why": "The source writer's own first-hand experience is presented to a reader who doesn't know them.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P18",
         "quote": "แต่จากประสบการณ์ที่ผ่านมาไม่เป็นเช่นนั้น",
-        "why": "The source writer's own experience, in their voice.",
+        "why": "The source writer's personal experience is used as if the reader knew who is speaking.",
         "by": "model"
       }
     ],
@@ -31053,8 +31067,8 @@
     "products": []
   },
   "th/species/betadevario-ramachandrani": {
-    "at": "2026-11-08",
-    "hash": "059567fdd847e8e8",
+    "at": "2026-11-14",
+    "hash": "453b854ce1989182",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -31150,32 +31164,55 @@
     "products": []
   },
   "th/species/betta-breviobesus": {
-    "at": "2026-11-08",
-    "hash": "fdba87a4ad9e802d",
-    "model": "opus",
-    "checklist": 3,
-    "findings": [],
-    "products": []
-  },
-  "th/species/betta-brownorum": {
-    "at": "2026-11-08",
-    "hash": "56db18a2ba1c8307",
-    "model": "opus",
-    "checklist": 3,
-    "findings": [],
-    "products": []
-  },
-  "th/species/betta-burdigala": {
-    "at": "2026-11-08",
-    "hash": "4b63602eb289e542",
+    "at": "2026-11-14",
+    "hash": "1dfe5f7bc379dccc",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "source",
-        "part": "P1",
-        "quote": "Betta burdigala จับจากธรรมชาติบนเกาะบังกา",
-        "why": "Describes the source shop's own wild-caught stock as if it were on offer to the reader.",
+        "check": "units",
+        "part": "P4",
+        "quote": "แนะนำ 1 คู่ต่อตู้ขนาด 19 ลิตร",
+        "why": "19 litres is a converted 5-gallon tank, a size nobody in Thailand would give.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/betta-brownorum": {
+    "at": "2026-11-14",
+    "hash": "1080a972da953136",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P6",
+        "quote": "แนะนำให้เลี้ยง 1 คู่ต่อน้ำประมาณ 19 ลิตร",
+        "why": "19 litres is a converted 5-gallon figure nobody in Thailand would use.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/betta-burdigala": {
+    "at": "2026-11-14",
+    "hash": "5c02e75413295bdd",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P5",
+        "quote": "แนะนำให้เลี้ยง 1 คู่ ต่อน้ำประมาณ 19 ลิตร",
+        "why": "19 litres is a converted 5 US gallons, not a volume a Thai keeper would use.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P11",
+        "quote": "แนะนำ: 1 คู่ ต่อน้ำประมาณ 19 ลิตร",
+        "why": "19 litres is a converted 5 US gallons, not a volume a Thai keeper would use.",
         "by": "model"
       }
     ],
@@ -31378,16 +31415,16 @@
     "products": []
   },
   "th/species/betta-hipposideros": {
-    "at": "2026-11-08",
-    "hash": "82146b634d5e6f56",
+    "at": "2026-11-14",
+    "hash": "4440228b5c503214",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "elsewhere",
-        "part": "P6",
-        "quote": "หากหาขอนไม้รูปทรงที่ต้องการไม่ได้ สามารถใช้ไม้บีชหรือไม้โอ๊กทั่วไปแทนได้อย่างปลอดภัย",
-        "why": "Beech and oak wood are presented as common, easy-to-get substitutes, which is true in Europe, not in Thailand.",
+        "check": "units",
+        "part": "P11",
+        "quote": "แนะนำให้เลี้ยงหนึ่งคู่ต่อตู้ขนาด 19 ลิตร",
+        "why": "19 litres is a converted 5-gallon tank size, not a size keepers in Thailand use.",
         "by": "model"
       }
     ],
@@ -31473,16 +31510,16 @@
     "products": []
   },
   "th/species/betta-livida": {
-    "at": "2026-11-08",
-    "hash": "0c59c0b1a91e3e53",
+    "at": "2026-11-14",
+    "hash": "865bd41fb350f43f",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "source",
-        "part": "P1",
-        "quote": "Betta livida ที่จับจากธรรมชาติ มาจากอินโดนีเซีย",
-        "why": "Describes the source shop's own wild-caught stock as if the reader knew it, and contradicts the Malaysian range.",
+        "check": "units",
+        "part": "P6",
+        "quote": "1 คู่ต่อน้ำประมาณ 19 ลิตร",
+        "why": "19 litres is a converted 5-gallon figure, not a size anyone in Thailand would use.",
         "by": "model"
       }
     ],
@@ -31543,11 +31580,19 @@
     "products": []
   },
   "th/species/betta-miniopinna": {
-    "at": "2026-11-08",
-    "hash": "755912263d0892e7",
+    "at": "2026-11-14",
+    "hash": "74320b04c79fd9f2",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P11",
+        "quote": "แนะนำ 1 คู่ต่อน้ำประมาณ 19 ลิตร",
+        "why": "19 litres is a converted 5-gallon figure nobody in Thailand would use.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "th/species/betta-ocellata": {
@@ -32718,19 +32763,27 @@
     "products": []
   },
   "th/species/camposcia-retusa": {
-    "at": "2026-11-08",
-    "hash": "ab7446e4f38a77c8",
+    "at": "2026-11-14",
+    "hash": "aad21775a54a13d1",
     "model": "opus",
     "checklist": 3,
     "findings": [],
     "products": []
   },
   "th/species/carassius-auratus": {
-    "at": "2026-11-08",
-    "hash": "5b588d962d69739d",
+    "at": "2026-11-14",
+    "hash": "3acc3a65716c6494",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P2",
+        "quote": "ขนาดตู้ขั้นต่ำ: 76 ลิตร",
+        "why": "76 litres is a converted 20-gallon tank size, not one used in Thailand.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "th/species/caridina-dennerli": {
@@ -32742,11 +32795,19 @@
     "products": []
   },
   "th/species/caridina-multidentata": {
-    "at": "2026-11-09",
-    "hash": "164da162df7ab573",
+    "at": "2026-11-14",
+    "hash": "fa3771d2f4121509",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P2",
+        "quote": "ขนาดตู้ปลาขั้นต่ำ: 38 ลิตร",
+        "why": "38 litres is a converted 10-gallon tank size, not a size anyone in Thailand would give.",
+        "by": "model"
+      }
+    ],
     "products": [
       "Wonder Shell",
       "Seachem Equilibrium",
@@ -32785,37 +32846,30 @@
     "products": []
   },
   "th/species/carinotetraodon-travancoricus": {
-    "at": "2026-11-08",
-    "hash": "6f57f8d1de8b171e",
+    "at": "2026-11-14",
+    "hash": "0f07c08a83c0bb5d",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P14",
-        "quote": "น้ำ 19 ลิตรสำหรับตัวแรก และเพิ่ม 11 ลิตรต่อปลาแต่ละตัวที่เพิ่มขึ้น",
-        "why": "19 and 11 litres are 5 and 3 gallons converted; a Thai keeper would not size it this way.",
+        "quote": "หลายคนจึงเลี้ยงเพียงตัวเดียวในตู้ขนาดราว 19 ลิตร",
+        "why": "19 litres is a converted 5-gallon US tank size, not a size a keeper in Thailand would use.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P14",
-        "quote": "6–7 ตัวในตู้ 76 ลิตรได้",
-        "why": "76 litres is a converted 20-gallon tank size.",
+        "quote": "สามารถเลี้ยง 3 ตัวในตู้ 38 ลิตร และ 6–7 ตัวในตู้ 76 ลิตรได้",
+        "why": "38 and 76 litres are converted 10- and 20-gallon US tank sizes.",
         "by": "model"
       },
       {
-        "check": "units",
-        "part": "P14",
-        "quote": "รองรับปลาปักเป้า 3 ตัวในตู้ 38 ลิตรได้",
-        "why": "38 litres is a converted 10-gallon tank size.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
+        "check": "source",
         "part": "P6",
-        "quote": "(ส่วนใหญ่ไม่มีในร้านสัตว์เลี้ยงแบบเครือข่าย)",
-        "why": "Refers to US chain pet store habits as if they were the reader's shops.",
+        "quote": "ชุดยากักโรคสามตัวเคยถูกใช้ป้องกันโรคกับปลาปักเป้าแคระหลายพันตัวโดยไม่พบผลเสีย",
+        "why": "Refers to the source shop's own unnamed three-medicine quarantine set and its own stock, which the reader doesn't know.",
         "by": "model"
       }
     ],
@@ -33546,26 +33600,17 @@
     "products": []
   },
   "th/species/chromobotia-macracanthus": {
-    "at": "2026-11-11",
-    "hash": "71979a0bd92cef20",
+    "at": "2026-11-14",
+    "hash": "3063f3314c244550",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "words",
-        "part": "P14",
-        "quote": "พึงระลึกว่าปลาหมูก็เหมือนปลาแมว คือไวต่อยาบางชนิดมาก",
-        "why": "\"ปลาแมว\" is a literal calque of English \"catfish\"; Thai keepers don't use it.",
-        "by": "model",
-        "fix": "ปลาแคทฟิช / ปลาหนัง"
-      },
-      {
-        "check": "words",
-        "part": "P20",
-        "quote": "และปลาแมวอีกหลายชนิด",
-        "why": "\"ปลาแมว\" is a literal calque of English \"catfish\".",
-        "by": "model",
-        "fix": "ปลาแคทฟิช / ปลาหนัง"
+        "check": "units",
+        "part": "P3",
+        "quote": "ขนาดตู้ขั้นต่ำ: ประมาณ 380 ลิตร",
+        "why": "380 litres is a conversion of 100 US gallons, not a tank size used in Thailand.",
+        "by": "model"
       }
     ],
     "products": [
@@ -33934,25 +33979,17 @@
     "products": []
   },
   "th/species/colomesus-asellus": {
-    "at": "2026-11-10",
-    "hash": "ec8a0f19830b53ef",
+    "at": "2026-11-14",
+    "hash": "c2c85cbeadc7a9a3",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P10",
-        "quote": "หากเป็น 208 ลิตรจะยิ่งดี",
-        "why": "208 litres is a converted 55-gallon tank size, not one a Thai keeper would name.",
+        "quote": "ควรเลี้ยงในตู้ปลาขนาดอย่างน้อย 114 ลิตร หากเป็น 208 ลิตรจะยิ่งดี",
+        "why": "114 and 208 litres are converted 30 and 55 US gallon tank sizes, not how a keeper in Thailand sizes a tank.",
         "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P16",
-        "quote": "หอยเชอรี่จิ๋ว (bladder snail)",
-        "why": "หอยเชอรี่ is the apple snail; Thai keepers call bladder snails something else.",
-        "by": "model",
-        "fix": "หอยฟิสซ่า (หอยเล็ก)"
       }
     ],
     "products": [
@@ -34073,11 +34110,19 @@
     "products": []
   },
   "th/species/copadichromis-ilesi": {
-    "at": "2026-11-10",
-    "hash": "a5d664d1981a6ff5",
+    "at": "2026-11-14",
+    "hash": "47766460523850f7",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P10",
+        "quote": "ตู้ขนาด 122 ซม. เป็นขนาดที่เหมาะสำหรับการเพาะพันธุ์",
+        "why": "A 122 cm tank is a converted 4-foot tank, a size no keeper in Thailand would give.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "th/species/copadichromis-virginalis": {
@@ -36121,11 +36166,33 @@
     "products": []
   },
   "th/species/danio-rerio": {
-    "at": "2026-11-09",
-    "hash": "8b5411d55a552a9c",
+    "at": "2026-11-14",
+    "hash": "1bc7a0ef23d1e78b",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "ขนาดตู้ขั้นต่ำ: 38 ลิตร",
+        "why": "38 litres is a converted 10-gallon tank, not a size used in Thailand.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P17",
+        "quote": "ขนาดตู้ขั้นต่ำ: 38 ลิตร",
+        "why": "38 litres is a converted 10-gallon tank, not a size used in Thailand.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P40",
+        "quote": "ใช้ตาข่ายขึงบนกรอบสูงจากพื้น 2.5 ซม.",
+        "why": "2.5 cm is a converted 1 inch.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "th/species/danio-tinwini": {
@@ -36829,23 +36896,30 @@
     "products": []
   },
   "th/species/hyphessobrycon-amandae": {
-    "at": "2026-11-09",
-    "hash": "f3a56e6642c01425",
+    "at": "2026-11-14",
+    "hash": "16702d5e5f265f7e",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
+        "part": "P4",
+        "quote": "ขนาดตู้ปลาขั้นต่ำ: ประมาณ 38 ลิตร",
+        "why": "38 litres is a converted 10-gallon tank size, not a size used in Thailand.",
+        "by": "model"
+      },
+      {
+        "check": "units",
         "part": "P10",
         "quote": "ตู้นาโนขนาด 19 ลิตร",
-        "why": "19 litres is a converted 5-gallon tank size, not one used in Thailand.",
+        "why": "19 litres is a converted 5-gallon tank size.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P14",
         "quote": "แต่ดังที่กล่าวไว้ข้างต้น ฝูงนี้อาจเป็นปลาต่างชนิดที่มีขนาดใกล้เคียงกันผสมกันได้",
-        "why": "Refers back to an earlier passage of the source article that this page does not contain.",
+        "why": "Refers to an earlier passage of the source article that this page does not contain.",
         "by": "model"
       }
     ],
@@ -36869,23 +36943,30 @@
     "products": []
   },
   "th/species/hyphessobrycon-herbertaxelrodi": {
-    "at": "2026-11-08",
-    "hash": "ee1f1ad8cfa2bac0",
+    "at": "2026-11-14",
+    "hash": "5aee484d6d005fdd",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
+        "part": "P14",
+        "quote": "อย่างน้อยที่สุดควรเลี้ยง 6 ตัวในตู้ขนาด 38 ลิตร แต่ 10–15 ตัวในตู้ขนาด 75 ลิตรขึ้นไป",
+        "why": "38 and 75 litres are converted 10- and 20-gallon tank sizes, not tank sizes used in Thailand.",
+        "by": "model"
+      },
+      {
+        "check": "units",
         "part": "P17",
         "quote": "ใส่ใบหูกวางหลาย ๆ ใบลงในตู้ขนาด 38 ลิตรที่ไม่มีสัตว์อื่นอยู่",
-        "why": "38 litres is a converted 10-gallon tank size that no keeper in Thailand would quote.",
+        "why": "A 38-litre tank is a converted 10-gallon size.",
         "by": "model"
       },
       {
         "check": "elsewhere",
         "part": "P17",
         "quote": "หญ้าพลาสติกฝอยแบบที่ใช้รองตะกร้าอีสเตอร์",
-        "why": "Easter basket grass is a Western seasonal item that a reader in Thailand would not know or find easily.",
+        "why": "Easter basket grass is a Western household item, not something a Thai reader has on hand.",
         "by": "model"
       }
     ],
@@ -37518,16 +37599,16 @@
     "products": []
   },
   "th/species/melanotaenia-praecox": {
-    "at": "2026-11-08",
-    "hash": "d6ac2e4a0305c39a",
+    "at": "2026-11-14",
+    "hash": "8e4693e3426dc37f",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P7",
-        "quote": "หรืออย่างน้อยเป็นตู้ขนาดประมาณ 110 ลิตร",
-        "why": "110 litres is a converted 29-gallon tank size, not a size used in Thailand.",
+        "quote": "ตู้ยาวขนาดประมาณ 76 ลิตร หรืออย่างน้อยเป็นตู้ขนาดประมาณ 110 ลิตร",
+        "why": "76 and 110 litres are converted US 20- and 29-gallon tanks, not sizes used in Thailand.",
         "by": "model"
       },
       {
@@ -37541,7 +37622,7 @@
         "check": "words",
         "part": "P19",
         "quote": "มอสริคซีย์ชวา (java moss)",
-        "why": "Mistranslated name mixing riccia with java moss; Thai keepers call it มอสชวา.",
+        "why": "Mixes up Riccia with java moss; Thai keepers call java moss by another name.",
         "by": "model",
         "fix": "มอสชวา"
       }
@@ -37994,8 +38075,8 @@
     "products": []
   },
   "th/species/oryzias-sarasinorum": {
-    "at": "2026-11-08",
-    "hash": "563a159973df8eaa",
+    "at": "2026-11-14",
+    "hash": "ed78ec990fe31954",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -38145,8 +38226,8 @@
     "products": []
   },
   "th/species/pangio-oblonga": {
-    "at": "2026-11-08",
-    "hash": "b1e33f58f46d30ef",
+    "at": "2026-11-14",
+    "hash": "02a25234e9909c62",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -38193,11 +38274,19 @@
     ]
   },
   "th/species/paracheirodon-innesi": {
-    "at": "2026-11-08",
-    "hash": "b726f385a9e4411c",
+    "at": "2026-11-14",
+    "hash": "c936c34b86e43d6c",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P2",
+        "quote": "ขนาดตู้ขั้นต่ำ: ประมาณ 38 ลิตร",
+        "why": "38 litres is a converted 10-gallon tank, not a size a Thai keeper would give.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "th/species/paracheirodon-simulans": {
@@ -38443,30 +38532,44 @@
     "products": []
   },
   "th/species/phenacogrammus-interruptus": {
-    "at": "2026-11-08",
-    "hash": "4390a79726ebdf0f",
+    "at": "2026-11-14",
+    "hash": "444ff6c33ded4d80",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
+        "part": "P2",
+        "quote": "ขนาดตู้ขั้นต่ำ: ประมาณ 114 ลิตร",
+        "why": "114 litres is a converted 30-gallon US tank size.",
+        "by": "model"
+      },
+      {
+        "check": "units",
         "part": "P7",
-        "quote": "ตู้ปลาขนาดประมาณ 114 ลิตรจึงเป็นขนาดขั้นต่ำสำหรับปลาคองโกเตตร้า 6–8 ตัว",
-        "why": "114 litres is a converted 30-gallon tank, not a size used in Thailand.",
+        "quote": "ตู้ปลาขนาดประมาณ 114 ลิตรจึงเป็นขนาดขั้นต่ำ",
+        "why": "114 litres is a converted 30-gallon US tank size.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P7",
+        "quote": "ควรพิจารณาใช้ตู้ขนาดประมาณ 208 ลิตร",
+        "why": "208 litres is a converted 55-gallon US tank size.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P19",
         "quote": "ให้ใช้ตู้ทรงยาวขนาด 57–76 ลิตรสำหรับเพาะพันธุ์",
-        "why": "57–76 litres are converted 15–20 gallon tanks.",
+        "why": "57–76 litres are converted 15–20-gallon US tank sizes.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P19",
-        "quote": "ปูพื้นตู้แบบหลวม ๆ หนา 2.5 ซม. (ประมาณ 14 ลิตรสำหรับตู้ขนาด 80 ลิตร)",
-        "why": "A 2.5 cm layer and 14 litres for an 80-litre tank are converted from 1 inch and gallons.",
+        "quote": "ปูพื้นตู้แบบหลวม ๆ หนา 2.5 ซม.",
+        "why": "2.5 cm is a converted one-inch layer.",
         "by": "model"
       }
     ],
@@ -38580,11 +38683,26 @@
     "products": []
   },
   "th/species/poecilia-wingei": {
-    "at": "2026-11-08",
-    "hash": "26dc98fc7245d715",
+    "at": "2026-11-14",
+    "hash": "b14bdb27d1eb0ec2",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P7",
+        "quote": "ตู้ปลาขนาดเล็กสุดคือ 19–38 ลิตร",
+        "why": "19–38 litres are converted 5–10 US gallon tank sizes, not how Thai keepers size tanks.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P7",
+        "quote": "ส่วนตู้ 76 ลิตร ให้ซื้อ 6–9 ตัว",
+        "why": "76 litres is a converted 20-gallon tank size.",
+        "by": "model"
+      }
+    ],
     "products": [
       "Repashy"
     ]
@@ -38858,16 +38976,23 @@
     ]
   },
   "th/species/puntius-titteya": {
-    "at": "2026-11-08",
-    "hash": "13b40bbafb1c3451",
+    "at": "2026-11-14",
+    "hash": "ac404fbdb61adb16",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
+        "part": "P3",
+        "quote": "ขนาดตู้ขั้นต่ำ: ประมาณ 95 ลิตร",
+        "why": "95 litres is a converted 25-gallon tank, not a size used in Thailand.",
+        "by": "model"
+      },
+      {
+        "check": "units",
         "part": "P9",
         "quote": "ฝูงละหกตัวสามารถเลี้ยงในตู้ขนาด 38 ลิตรขึ้นไปได้",
-        "why": "38 litres is a converted 10-gallon tank size, not one a keeper in Thailand would name.",
+        "why": "38 litres is a converted 10-gallon tank, not a size used in Thailand.",
         "by": "model"
       }
     ],
@@ -38945,11 +39070,19 @@
     "products": []
   },
   "th/species/rasbora-elegans": {
-    "at": "2026-11-08",
-    "hash": "4fcd82502eb07ac3",
+    "at": "2026-11-14",
+    "hash": "0510c7adea81c84d",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P10",
+        "quote": "ขนาด 120 × 30 × 30 ซม. (113 ลิตร)",
+        "why": "113 L does not match 120×30×30 cm (≈108 L); it is a converted 30-gallon US tank figure.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "th/species/rasbora-kalochroma": {
@@ -38976,8 +39109,8 @@
     "products": []
   },
   "th/species/rasbora-lacrimula": {
-    "at": "2026-11-09",
-    "hash": "fd87d5f71b27a36c",
+    "at": "2026-11-14",
+    "hash": "70795d46a548f0bf",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -39355,11 +39488,19 @@
     "products": []
   },
   "th/species/symphysodon-discus": {
-    "at": "2026-11-08",
-    "hash": "3cce5eee64439318",
+    "at": "2026-11-14",
+    "hash": "0ff83842b0ac2488",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "หรือขนาดอย่างน้อยประมาณ 285 ลิตร",
+        "why": "285 litres is a converted 75-gallon tank size that nobody in Thailand would use as a tank size.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "th/species/syncrossus-hymenophysa": {
@@ -39515,32 +39656,46 @@
     "products": []
   },
   "th/species/trichogaster-lalius": {
-    "at": "2026-11-08",
-    "hash": "f4c5a39e7ee8ccb3",
+    "at": "2026-11-14",
+    "hash": "46eab2b55d514d46",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P3",
+        "quote": "ขนาดตู้ขั้นต่ำ: ประมาณ 19 ลิตร",
+        "why": "19 litres is a converted 5-gallon tank size nobody in Thailand would quote.",
+        "by": "model"
+      },
+      {
         "check": "elsewhere",
         "part": "P31",
-        "quote": "เพราะไม่สามารถหาปลาปลอดโรคจากผู้เพาะในตะวันออกไกล (ส่วนใหญ่คือสิงคโปร์) ได้",
-        "why": "Written for a Western reader whose shops import from 'the Far East'; for a Thai keeper these fish are bred in the region, not imported from afar.",
+        "quote": "ผู้เพาะในตะวันออกไกล (ส่วนใหญ่คือสิงคโปร์)",
+        "why": "Calling Singapore's breeders the 'Far East' is a Western reader's viewpoint, not a Thai keeper's.",
         "by": "model"
       }
     ],
     "products": []
   },
   "th/species/trichopodus-leerii": {
-    "at": "2026-11-08",
-    "hash": "9d3cc7a1e1eb48b6",
+    "at": "2026-11-14",
+    "hash": "d6214f970dbb3ef2",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P8",
-        "quote": "ตู้ขนาด 76 ลิตรเหมาะสำหรับปลากระดี่มุก 1 ตัว",
-        "why": "76 litres is a 20-gallon tank converted from US units, not a size anyone in Thailand would give.",
+        "quote": "ขนาดตู้ขั้นต่ำ: ประมาณ 76 ลิตร",
+        "why": "76 litres is a converted 20-gallon tank, not a size used in Thailand.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P8",
+        "quote": "ไม่แนะนำให้เลี้ยงปลากระดี่มุกในตู้ขนาดประมาณ 38 ลิตร",
+        "why": "38 litres is a converted 10-gallon tank, not a size used in Thailand.",
         "by": "model"
       }
     ],
@@ -39587,27 +39742,30 @@
     "products": []
   },
   "th/species/trigonostigma-heteromorpha": {
-    "at": "2026-11-08",
-    "hash": "1da65a49ba1f04ce",
+    "at": "2026-11-14",
+    "hash": "4177944d4144d9ba",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
-        "part": "P8",
-        "quote": "โดยทั่วไปสามารถเลี้ยงปลาซิวข้างขวานใหญ่ได้ถึง 10 ตัวในตู้ประมาณ 75 ลิตร",
-        "why": "A 75-litre tank is a converted 20-gallon tank, a size nobody in Thailand would give.",
+        "part": "P12",
+        "quote": "ขนาดตู้ขั้นต่ำ: 38 ลิตร",
+        "why": "38 litres is a converted 10-gallon tank size, not one a keeper in Thailand would use.",
         "by": "model"
       },
       {
         "check": "source",
-        "part": "P21",
-        "quote": "และในภาพประกอบระบุชื่อเป็น T. cf. heteromorpha",
-        "why": "It points to an illustration from the original source that this page doesn't have.",
+        "part": "P33",
+        "quote": "และในภาพประกอบระบุเป็น T. cf. heteromorpha",
+        "why": "Refers to an illustration from the source that this page does not have.",
         "by": "model"
       }
     ],
-    "products": []
+    "products": [
+      "ADA Amazonia aqua soil",
+      "Fluval Plant and Shrimp Stratum"
+    ]
   },
   "th/species/tropheus-duboisi": {
     "at": "2026-11-07",
@@ -90652,16 +90810,23 @@
     "products": []
   },
   "vi/plants/cryptocoryne-parva": {
-    "at": "2026-11-08",
-    "hash": "2559c58bf9986117",
+    "at": "2026-11-14",
+    "hash": "9f1deecd2c9b60ec",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P4",
+        "quote": "Bể tối thiểu cho loài này là khoảng 19 lít.",
+        "why": "19 litres is a converted 5-gallon tank, a size nobody in Vietnam uses.",
+        "by": "model"
+      },
+      {
         "check": "price",
         "part": "P10",
         "quote": "Một chậu cây giá chỉ vài đô la.",
-        "why": "Price given in US dollars, meaningful only to a reader abroad.",
+        "why": "The price is in US dollars, not the reader's currency.",
         "by": "model"
       }
     ],
@@ -91653,33 +91818,24 @@
     ]
   },
   "vi/plants/nymphoides-aquatica": {
-    "at": "2026-11-08",
-    "hash": "075290de1ebe1517",
+    "at": "2026-11-14",
+    "hash": "434510063305098c",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P3",
-        "quote": "trồng củ sâu khoảng 0,6 cm vào nền",
-        "why": "0.6 cm is a converted quarter inch; nobody in Vietnam would measure it like that.",
+        "quote": "thậm chí làm cây hậu cảnh trong bể nano 19 lít",
+        "why": "19 litres is a converted 5-gallon tank, not a size used in Vietnam.",
         "by": "model"
       },
       {
-        "check": "words",
-        "part": "P2",
-        "quote": "cây sẽ đón nhận phân nước tổng hợp tốt",
-        "why": "This is a calque of the English 'will appreciate'. Vietnamese keepers don't say it this way.",
-        "by": "model",
-        "fix": "cây sẽ lên tốt hơn nếu châm phân nước"
-      },
-      {
-        "check": "words",
-        "part": "P2",
-        "quote": "một viên phân gốc đặt ngay dưới cây",
-        "why": "'Phân gốc' is a translated term for 'root tab'. Vietnamese keepers call it 'phân nhét'.",
-        "by": "model",
-        "fix": "viên phân nhét"
+        "check": "units",
+        "part": "P3",
+        "quote": "trồng củ sâu khoảng 0,6 cm vào nền",
+        "why": "0.6 cm is a converted quarter inch.",
+        "by": "model"
       }
     ],
     "products": []
@@ -93515,8 +93671,8 @@
     ]
   },
   "vi/species/ambastaia-sidthimunki": {
-    "at": "2026-11-11",
-    "hash": "ac7507d4b1751256",
+    "at": "2026-11-14",
+    "hash": "e4b2ad86f7e9429e",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -93524,7 +93680,7 @@
         "check": "source",
         "part": "P6",
         "quote": "Cảm ơn Kamphol Udomritthiruj.",
-        "why": "Thanks a person from the source article whom the reader doesn't know.",
+        "why": "Thanks a person from the source article's own acknowledgements.",
         "by": "model"
       },
       {
@@ -93545,47 +93701,31 @@
         "check": "source",
         "part": "P24",
         "quote": "Báo cáo đầy đủ của Mark ghi lại thành công này có tại đây.",
-        "why": "Points to a link to a report that isn't on the page.",
+        "why": "Points to a link that isn't on the page.",
         "by": "model"
       },
       {
         "check": "units",
-        "part": "P9",
-        "quote": "Bạn nên nuôi chúng trong bể từ khoảng 75 lít trở lên.",
-        "why": "Tank volume converted from 20 US gallons.",
+        "part": "P24",
+        "quote": "cá được nuôi trong bể 284 lít",
+        "why": "284 litres is a converted 75-gallon tank.",
         "by": "model"
       },
       {
         "check": "words",
         "part": "P4",
-        "quote": "Cá chuột lùn sọc xích, Ambastaia sidthimunki, là một loài cá chuột họ Botiidae nhỏ bé",
-        "why": "In Vietnam 'cá chuột' means corydoras; botiid loaches are called 'cá heo'.",
+        "quote": "là một loài cá chuột họ Botiidae nhỏ bé",
+        "why": "'Cá chuột' translates 'loach'; Vietnamese keepers call Botia 'cá heo' and use 'cá chuột' for Corydoras.",
         "by": "model",
-        "fix": "cá heo lùn"
+        "fix": "cá heo"
       },
       {
         "check": "words",
         "part": "P11",
         "quote": "tuyệt đối không nên thả chúng vào bể chưa trưởng thành về mặt sinh học",
-        "why": "Literal rendering of 'biologically immature'; keepers speak of cycling.",
+        "why": "Calque of 'biologically immature tank'.",
         "by": "model",
-        "fix": "bể chưa chạy vi sinh / bể chưa ổn định"
-      },
-      {
-        "check": "words",
-        "part": "P18",
-        "quote": "ấu trùng muỗi lắc chironomid (trùn chỉ đỏ/trùn huyết)",
-        "why": "Dictionary term for bloodworms; keepers just say trùng huyết.",
-        "by": "model",
-        "fix": "trùng huyết"
-      },
-      {
-        "check": "words",
-        "part": "P18",
-        "quote": "rau chân vịt chần",
-        "why": "Dictionary word for spinach; keepers say cải bó xôi.",
-        "by": "model",
-        "fix": "cải bó xôi chần"
+        "fix": "bể mới chưa chạy vi sinh / chưa ổn định"
       }
     ],
     "products": [
@@ -94027,23 +94167,23 @@
     "products": []
   },
   "vi/species/anatolichthys-transgrediens": {
-    "at": "2026-11-08",
-    "hash": "bab629d804dd09b3",
+    "at": "2026-11-14",
+    "hash": "a85f3798a20a8481",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "elsewhere",
-        "part": "P6",
-        "quote": "Bạn nên cho cá trải qua một 'mùa đông' kéo dài vài tháng ở nhiệt độ thấp.",
-        "why": "This assumes a temperate climate with a cold winter, which a keeper in Vietnam doesn't have without chilling the water.",
+        "check": "units",
+        "part": "P4",
+        "quote": "60 cm x 30 cm x 30 cm (57 lít)",
+        "why": "57 litres is a converted 15-gallon tank; the stated sides give about 54 litres.",
         "by": "model"
       },
       {
-        "check": "source",
-        "part": "P11",
-        "quote": "Ở đây các loài được liệt kê riêng để khỏi phải dùng tên phân loài.",
-        "why": "This is the source database talking about how it lists its own species.",
+        "check": "units",
+        "part": "P4",
+        "quote": "120 cm x 30 cm x 30 cm (113 lít)",
+        "why": "113 litres is a converted 30-gallon tank; the stated sides give about 108 litres.",
         "by": "model"
       }
     ],
@@ -95744,11 +95884,20 @@
     "products": []
   },
   "vi/species/apistogramma-steindachneri": {
-    "at": "2026-11-10",
-    "hash": "d4be29059fa1bd4a",
+    "at": "2026-11-14",
+    "hash": "1663ebf75f227041",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "words",
+        "part": "P8",
+        "quote": "như cá chì Nannostomus",
+        "why": "Pencilfish are called 'cá bút chì' by Vietnamese keepers; 'cá chì' means lead fish.",
+        "by": "model",
+        "fix": "cá bút chì"
+      }
+    ],
     "products": []
   },
   "vi/species/apistogramma-trifasciata": {
@@ -96353,8 +96502,8 @@
     "products": []
   },
   "vi/species/astronotus-ocellatus": {
-    "at": "2026-11-09",
-    "hash": "399098b6bec65d35",
+    "at": "2026-11-14",
+    "hash": "1fc3b5ed6cc34d5e",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -96362,28 +96511,43 @@
         "check": "elsewhere",
         "part": "P1",
         "quote": "Con trưởng thành dài cỡ quả bóng bầu dục Mỹ",
-        "why": "Compares size to an American football, a reference for a US reader.",
+        "why": "An American football is a size reference for a US reader, not a reader in Vietnam.",
         "by": "model"
       },
       {
-        "check": "units",
-        "part": "P12",
-        "quote": "nuôi ba con oscar trong bể 470 L",
-        "why": "470 L is a converted 125-gallon tank, not a size anyone in Vietnam names.",
-        "by": "model"
+        "check": "words",
+        "part": "P1",
+        "quote": "một trong những loài cá bán chạy nhất ở cửa hàng thú cưng",
+        "why": "A translation of 'pet store'; keepers in Vietnam buy fish at a fish shop.",
+        "by": "model",
+        "fix": "tiệm cá cảnh"
       },
       {
         "check": "source",
         "part": "P7",
         "quote": "Hiện trên thị trường có cá oscar hoang dã cỡ lớn, bắt từ Colombia về.",
-        "why": "The source wholesaler's own stock news presented to the reader.",
+        "why": "Stock news from the source shop.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P30",
         "quote": "Chúng tôi không tìm được dữ liệu xác nhận lý do chính xác",
-        "why": "The source writers' own 'we' voice.",
+        "why": "The source writers' own voice ('we').",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P12",
+        "quote": "một con oscar cần bể tối thiểu 210 L, nhưng 280 L thì tốt hơn",
+        "why": "Converted from 55 and 75 US gallons.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P31",
+        "quote": "dung tích từ khoảng 380 lít trở lên",
+        "why": "Converted from 100 US gallons.",
         "by": "model"
       }
     ],
@@ -97820,8 +97984,8 @@
     "products": []
   },
   "vi/species/betadevario-ramachandrani": {
-    "at": "2026-11-08",
-    "hash": "01d7f7d329389f46",
+    "at": "2026-11-14",
+    "hash": "eb78bae287bd75b6",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -98201,17 +98365,32 @@
     "products": []
   },
   "vi/species/betta-hipposideros": {
-    "at": "2026-11-08",
-    "hash": "d2c98e489cf148fb",
+    "at": "2026-11-14",
+    "hash": "eaeaf4751252c528",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P11",
+        "quote": "Mỗi bể 19 lít nên nuôi một cặp.",
+        "why": "19 litres is a converted 5-gallon tank size nobody in Vietnam would use.",
+        "by": "model"
+      },
+      {
         "check": "elsewhere",
         "part": "P6",
         "quote": "bạn có thể dùng cành sồi beech hoặc sồi oak thông thường",
-        "why": "Beech and oak are common European trees, not something a keeper in Vietnam can easily collect.",
+        "why": "Beech and oak branches are 'ordinary' only for a European reader, not in Vietnam.",
         "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P15",
+        "quote": "giun vi tế (microworm)",
+        "why": "Not the term keepers in Vietnam use for microworms.",
+        "by": "model",
+        "fix": "trùn vi sinh"
       }
     ],
     "products": []
@@ -98319,25 +98498,32 @@
     "products": []
   },
   "vi/species/betta-livida": {
-    "at": "2026-11-08",
-    "hash": "da5b7bc295c05fbc",
+    "at": "2026-11-14",
+    "hash": "2b69c066610cde68",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Đây là cá Betta livida bắt từ tự nhiên ở Indonesia, thuộc nhóm Betta coccina.",
-        "why": "This is the source shop describing its own wild-caught stock as if the reader were looking at its listing, and it even contradicts the Malaysian range given elsewhere on the page.",
+        "quote": "Đây là cá Betta livida bắt từ tự nhiên ở Indonesia",
+        "why": "Describes the source shop's own wild-caught stock as if the reader were looking at it.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P6",
+        "quote": "Mỗi cặp nên có khoảng 19 lít nước.",
+        "why": "19 litres is a converted 5 US gallons, not a figure a Vietnamese keeper would use.",
         "by": "model"
       },
       {
         "check": "words",
         "part": "P17",
         "quote": "giun vi tế (microworm)",
-        "why": "'Giun vi tế' is a literal translation of 'microworm'; keepers in Vietnam don't call it that.",
+        "why": "Dictionary-style term; Vietnamese keepers call microworms by a different name.",
         "by": "model",
-        "fix": "giun vi sinh"
+        "fix": "trùn vi sinh"
       }
     ],
     "products": []
@@ -100308,18 +100494,17 @@
     "products": []
   },
   "vi/species/camposcia-retusa": {
-    "at": "2026-11-08",
-    "hash": "79299a6fc3142dd0",
+    "at": "2026-11-14",
+    "hash": "ccbfe745e798903a",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "words",
-        "part": "P7",
-        "quote": "Khoảng lý tưởng là 1,0264–1,0279 (35–37 ppm)",
-        "why": "Salinity of 35–37 is parts per thousand, not ppm; the unit is wrong.",
-        "by": "model",
-        "fix": "35–37 ppt (‰)"
+        "check": "harm",
+        "part": "P12",
+        "quote": "Sáng hôm trứng nở, người nuôi tắt sục khí trước, sau đó tắt đèn phòng",
+        "why": "Turning off aeration to gather larvae can starve them and the tank of oxygen, and the page gives no warning to keep the stop short.",
+        "by": "model"
       }
     ],
     "products": []
@@ -100382,18 +100567,17 @@
     "products": []
   },
   "vi/species/carassius-auratus": {
-    "at": "2026-11-08",
-    "hash": "59782d29ea473bda",
+    "at": "2026-11-14",
+    "hash": "11fa1ba42b6c9d2c",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "words",
-        "part": "P13",
-        "quote": "Với những con dễ bị rối loạn độ nổi, nên cho ăn thức ăn chìm.",
-        "why": "Calque of 'buoyancy disorder'; keepers in Vietnam call this swim bladder trouble 'mất thăng bằng'.",
-        "by": "model",
-        "fix": "bệnh mất thăng bằng"
+        "check": "units",
+        "part": "P2",
+        "quote": "Bể tối thiểu: 76 lít",
+        "why": "76 litres is a converted 20-gallon tank size, not a size a Vietnamese keeper would name.",
+        "by": "model"
       }
     ],
     "products": []
@@ -100423,11 +100607,19 @@
     "products": []
   },
   "vi/species/caridina-multidentata": {
-    "at": "2026-11-09",
-    "hash": "32503aadfa1a97ed",
+    "at": "2026-11-14",
+    "hash": "5b1b0f00f26faf9f",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Bể tối thiểu: 38 lít",
+        "why": "38 litres is a converted 10-gallon tank size, not a figure a Vietnamese keeper would use.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "vi/species/caridina-pareparensis-parvidentata": {
@@ -100491,32 +100683,54 @@
     "products": []
   },
   "vi/species/carinotetraodon-travancoricus": {
-    "at": "2026-11-08",
-    "hash": "d0b1195ff5250c81",
+    "at": "2026-11-14",
+    "hash": "dc25eeec234975fb",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "elsewhere",
-        "part": "P6",
-        "quote": "còn chuỗi cửa hàng thú cưng thì thường không có",
-        "why": "Refers to the source country's chain pet stores as the reader's shopping landscape.",
+        "check": "units",
+        "part": "P14",
+        "quote": "Bể 38 lít có thể nuôi ba con, bể 76 lít có thể nuôi sáu đến bảy con",
+        "why": "38 and 76 litres are 10 and 20 US gallon tanks converted.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P14",
+        "quote": "nhiều người chỉ nuôi một con trong bể khoảng 19 lít",
+        "why": "19 litres is a converted 5-gallon tank.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P6",
         "quote": "Bộ ba thuốc cách ly đã được dùng để phòng bệnh cho hàng nghìn con cá nóc đậu",
-        "why": "Refers to the source shop's own quarantine medication trio as if the reader knew it.",
+        "why": "Refers to the source shop's own quarantine medicine trio as if the reader knew it.",
         "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P6",
+        "quote": "còn chuỗi cửa hàng thú cưng thì thường không có",
+        "why": "Refers to US pet store chains as the reader's own shops.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P29",
+        "quote": "bể không có cá ăn rêu hay đội dọn bể",
+        "why": "Calque of English 'cleanup crew'.",
+        "by": "model",
+        "fix": "cá, ốc dọn bể"
       },
       {
         "check": "words",
         "part": "P36",
         "quote": "giun vi mô (microworm)",
-        "why": "Literal translation; Vietnamese keepers call it giun vi sinh.",
+        "why": "Dictionary rendering; keepers say giun vi sinh.",
         "by": "model",
-        "fix": "giun vi sinh (microworm)"
+        "fix": "giun vi sinh"
       }
     ],
     "products": [
@@ -101462,11 +101676,27 @@
     "products": []
   },
   "vi/species/chromobotia-macracanthus": {
-    "at": "2026-11-10",
-    "hash": "effe9e21725f0d7b",
+    "at": "2026-11-14",
+    "hash": "d35c7a1e1b87d409",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P3",
+        "quote": "Bể tối thiểu: khoảng 380 lít",
+        "why": "380 litres is a converted 100 US gallons, not a tank size anyone in Vietnam would name.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P3",
+        "quote": "Tên thường gọi: Cá chuột hề (clown loach)",
+        "why": "A literal rendering of 'clown loach'; in Vietnam 'cá chuột' means Corydoras, and this fish is called cá heo hề.",
+        "by": "model",
+        "fix": "cá heo hề"
+      }
+    ],
     "products": [
       "Panacur"
     ]
@@ -101989,16 +102219,16 @@
     "products": []
   },
   "vi/species/colomesus-asellus": {
-    "at": "2026-11-08",
-    "hash": "4fe0ab471fb5db92",
+    "at": "2026-11-14",
+    "hash": "6a976d51c9127856",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "source",
-        "part": "P4",
-        "quote": "Bạn nên chủ động trị phòng bằng bộ ba thuốc cách ly để dọn sạch các bệnh",
-        "why": "\"The quarantine trio\" is a medicine set the source shop sells, and the page mentions it as if the reader already knew which three medicines it means.",
+        "check": "units",
+        "part": "P10",
+        "quote": "bể tối thiểu phải 114 lít. Nếu được 208 lít thì càng tốt",
+        "why": "30 and 55 US gallon tanks converted to litres; no Vietnamese keeper sizes tanks this way.",
         "by": "model"
       }
     ],
@@ -102168,17 +102398,25 @@
     "products": []
   },
   "vi/species/copadichromis-ilesi": {
-    "at": "2026-11-08",
-    "hash": "17f4cb1e28552ca7",
+    "at": "2026-11-14",
+    "hash": "4a470af262edd8d3",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "elsewhere",
+        "check": "units",
+        "part": "P10",
+        "quote": "Bể dài 122 cm là cỡ vừa đẹp để cho cá sinh sản",
+        "why": "122 cm is a converted 4-foot tank length that no keeper in Vietnam would use.",
+        "by": "model"
+      },
+      {
+        "check": "words",
         "part": "P11",
         "quote": "(đọc là \"ooh-taw-kuh\")",
-        "why": "A pronunciation guide spelled for English speakers, not for a Vietnamese reader.",
-        "by": "model"
+        "why": "An English-reader pronunciation guide; a Vietnamese reader would just read it as u-ta-ca.",
+        "by": "model",
+        "fix": "đọc là \"u-ta-ca\""
       }
     ],
     "products": []
@@ -104162,8 +104400,8 @@
     "products": []
   },
   "vi/species/ctenochromis-polli": {
-    "at": "2026-11-09",
-    "hash": "ad1918ea66bec5a6",
+    "at": "2026-11-14",
+    "hash": "5f46112ee71f7370",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -104782,16 +105020,30 @@
     "products": []
   },
   "vi/species/danio-rerio": {
-    "at": "2026-11-09",
-    "hash": "2b7f96eb474bd4ed",
+    "at": "2026-11-14",
+    "hash": "7f8af52eaa59d890",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
+        "part": "P4",
+        "quote": "Bể tối thiểu: khoảng 38 lít",
+        "why": "38 litres is a converted 10-gallon tank, a size nobody in Vietnam would give.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P17",
+        "quote": "Bể cho cá ngựa vằn nên có dung tích tối thiểu khoảng 38 lít.",
+        "why": "38 litres is a converted 10-gallon tank, a size nobody in Vietnam would give.",
+        "by": "model"
+      },
+      {
+        "check": "units",
         "part": "P40",
-        "quote": "Một số người nuôi căng lưới lên khung, đặt cách đáy 2,5 cm để làm đáy đôi che chắn cho trứng.",
-        "why": "2,5 cm is a straight conversion of 1 inch, a figure taken from an imperial-unit source.",
+        "quote": "đặt cách đáy 2,5 cm để làm đáy đôi che chắn cho trứng",
+        "why": "2.5 cm is a converted 1 inch.",
         "by": "model"
       }
     ],
@@ -105341,8 +105593,8 @@
     "products": []
   },
   "vi/species/devario-acrostomus": {
-    "at": "2026-11-08",
-    "hash": "f1e1730a4afdfe67",
+    "at": "2026-11-14",
+    "hash": "7c85b77c6ec4ee5a",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -105927,16 +106179,30 @@
     "products": []
   },
   "vi/species/elacatinus-oceanops": {
-    "at": "2026-11-08",
-    "hash": "1594dc3728c38791",
+    "at": "2026-11-14",
+    "hash": "08669df2f747210c",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P1",
+        "quote": "Bể tối thiểu: 38 lít",
+        "why": "38 litres is a converted 10-gallon tank size nobody in Vietnam would use.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "Bể tối thiểu là 38 lít.",
+        "why": "38 litres is a converted 10-gallon tank size.",
+        "by": "model"
+      },
+      {
         "check": "words",
         "part": "P7",
         "quote": "tôm ăn thường ngày cắt nhỏ",
-        "why": "Calque of English 'table shrimp'; keepers in Vietnam don't phrase it this way.",
+        "why": "Calque of English 'table shrimp'; keepers say fresh shrimp.",
         "by": "model",
         "fix": "tôm tươi cắt nhỏ"
       }
@@ -106297,25 +106563,17 @@
     "products": []
   },
   "vi/species/epiplatys-annulatus": {
-    "at": "2026-11-09",
-    "hash": "a4cd675164307958",
+    "at": "2026-11-14",
+    "hash": "cc5164aa8e9e5567",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "source",
-        "part": "P7",
-        "quote": "Đây là cá bắt ngoài tự nhiên, thuộc dạng người chơi gọi là 'biến thể Conakry'.",
-        "why": "Describes the source shop's own stock as if the reader were buying it.",
+        "check": "units",
+        "part": "P14",
+        "quote": "bể nano 19 lít hoặc lớn hơn",
+        "why": "19 litres is a converted 5-gallon tank size, not one used in Vietnam.",
         "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P18",
-        "quote": "Nón cây alder cũng có tác dụng tương tự.",
-        "why": "Calque of 'alder cone'; keepers in Vietnam call them alder fruits.",
-        "by": "model",
-        "fix": "quả alder"
       }
     ],
     "products": [
@@ -106601,11 +106859,20 @@
     "products": []
   },
   "vi/species/etroplus-canarensis": {
-    "at": "2026-11-10",
-    "hash": "d4af2bfe3dc2e808",
+    "at": "2026-11-14",
+    "hash": "376c6ff585556008",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "words",
+        "part": "P7",
+        "quote": "bạn có thể cho cá ăn thức ăn chế biến loại tốt",
+        "why": "Calque of English 'prepared foods'; Vietnamese keepers speak of pellets/flakes.",
+        "by": "model",
+        "fix": "thức ăn viên/cám chất lượng tốt"
+      }
+    ],
     "products": []
   },
   "vi/species/etroplus-maculatus": {
@@ -109962,25 +110229,47 @@
     "products": []
   },
   "vi/species/hyphessobrycon-amandae": {
-    "at": "2026-11-09",
-    "hash": "0b1ee7911ea81e13",
+    "at": "2026-11-14",
+    "hash": "c4dba143f74067ee",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P4",
+        "quote": "Bể tối thiểu: 38 lít",
+        "why": "38 litres is a converted 10-gallon tank, not a size used in Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P10",
+        "quote": "bể nano 19 lít",
+        "why": "19 litres is a converted 5-gallon tank.",
+        "by": "model"
+      },
+      {
         "check": "source",
         "part": "P14",
         "quote": "như đã nêu ở trên, đàn này có thể gồm nhiều loài cá có kích thước tương tự",
-        "why": "Refers to something said earlier in the original article that this page does not contain.",
+        "why": "Refers back to text from the original article that this page does not contain.",
         "by": "model"
       },
       {
         "check": "words",
-        "part": "P25",
-        "quote": "những loài sống ở tầng mặt điềm tĩnh như cá hatchetfish",
-        "why": "English name left untranslated; keepers in Vietnam call hatchetfish cá rìu.",
+        "part": "P14",
+        "quote": "Khi xây dựng môi trường sống lý tưởng cho cá tetra Ember",
+        "why": "Calque of 'building the ideal habitat'; keepers say they set up the tank.",
         "by": "model",
-        "fix": "cá rìu"
+        "fix": "Khi set bể cho cá tetra Ember"
+      },
+      {
+        "check": "words",
+        "part": "P30",
+        "quote": "lưới nhựa thủ công",
+        "why": "Literal translation of 'plastic craft mesh'; keepers just say plastic mesh.",
+        "by": "model",
+        "fix": "lưới nhựa"
       }
     ],
     "products": [
@@ -112043,23 +112332,16 @@
     "products": []
   },
   "vi/species/leptobotia-elongata": {
-    "at": "2026-11-08",
-    "hash": "1a154dbc8856d1e2",
+    "at": "2026-11-14",
+    "hash": "c4da4c7f030fdc28",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Lần đầu tiên có được cá chạch hoàng đế (Leptobotia elongata) cỡ 14-18 cm.",
-        "why": "This is the source shop announcing its own new stock to its customers.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P14",
-        "quote": "Hệ thống mới và đơn giản hơn này là hệ thống đang được áp dụng ở đây.",
-        "why": "'Ở đây' means the source website, which the reader doesn't know.",
+        "quote": "Lần đầu tiên có được cá chạch hoàng đế (Leptobotia elongata) cỡ 14-18 cm",
+        "why": "This is the source shop's own news about stock it just received.",
         "by": "model"
       }
     ],
@@ -126309,6 +126591,14 @@
   "vi/species/skiffia-multipunctata": {
     "at": "2026-11-14",
     "hash": "d7631f0afbb95211",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/hypoptopoma-incognitum": {
+    "at": "2026-11-14",
+    "hash": "9e523329d1540f28",
     "model": "opus",
     "checklist": 3,
     "findings": [],

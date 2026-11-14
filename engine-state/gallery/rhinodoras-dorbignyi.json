@@ -1,9 +1,39 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "inat:1130748",
+  "inat:61962075",
+  "inat:61962092",
+  "inat:106753384",
+  "inat:106755592",
+  "inat:112479948",
+  "inat:119051105",
+  "inat:119051133",
+  "inat:119051160",
+  "inat:130135576",
+  "inat:130135639",
+  "inat:180009277",
+  "inat:180009288",
+  "inat:405957751",
+  "inat:405957793",
+  "inat:410797031",
+  "inat:410797059",
+  "inat:413991181",
+  "inat:439603599",
+  "inat:467712417",
+  "inat:467712452"
+ ],
  "hashes": {
   "https://media.aquatome.com/scotcat/eb69cb093e435ac9.webp": "fcf843fcc39878c8",
   "https://media.aquatome.com/scotcat/792c31ea1afd1f9c.webp": "63cf87b18ca629ee"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 371595,
+  "pass": "done",
+  "after": {
+   "research": 260441554,
+   "agree": 0
+  }
+ }
 }

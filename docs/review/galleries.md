@@ -8,9 +8,9 @@ Written by `pnpm engine gallery` (2026-11-14). Targets: packages/engine/src/gall
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
 | covered | 30 | 612 | 30 | 9 | 21 | 630 |
-| rest | 20 | 1728 | 74 | 0 | 60 | 1742 |
+| rest | 20 | 1728 | 74 | 0 | 59 | 1743 |
 
-## Short of target: every source read (344)
+## Short of target: every source read (348)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -333,6 +333,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/apistogramma-panduro | covered | 3 | 30 |
 | species/apistogramma-paulmuelleri | covered | 0 | 30 |
 | species/apistogramma-trifasciata | covered | 3 | 30 |
+| species/ariopsis-felis | covered | 26 | 30 |
 | species/aspidoras-pauciradiatus | covered | 4 | 30 |
 | species/aspidoras-taurus | covered | 3 | 30 |
 | species/asterophysus-batrachus | covered | 1 | 30 |
@@ -348,6 +349,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/barbodes-semifasciolatus | covered | 29 | 30 |
 | species/barboides-gracilis | covered | 0 | 30 |
 | species/barilius-ardens | covered | 0 | 30 |
+| species/barilius-bakeri | covered | 1 | 30 |
 | species/baryancistrus-demantoides | covered | 1 | 30 |
 | species/baryancistrus-xanthellus | covered | 3 | 30 |
 | species/batasio-fasciolatus | covered | 0 | 30 |
@@ -359,4 +361,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/betta-bellica | covered | 0 | 30 |
 | species/betta-brownorum | covered | 0 | 30 |
 | species/betta-burdigala | covered | 0 | 30 |
+| species/betta-channoides | covered | 0 | 30 |
+| species/betta-dennisyongi | covered | 0 | 30 |
 | species/betta-macrostoma | covered | 0 | 30 |

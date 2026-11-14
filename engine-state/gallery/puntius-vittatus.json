@@ -1,9 +1,27 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "inat:424124594",
+  "inat:600042152",
+  "inat:602030643",
+  "inat:624164123",
+  "inat:631414938",
+  "inat:631414935"
+ ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/33cb24e8a2ddcce4.webp": "0d938f8e2f534c68",
-  "https://media.aquatome.com/seriouslyfish/d163b313a189e81d.webp": "3b1b0e13e4f00831"
+  "https://media.aquatome.com/seriouslyfish/d163b313a189e81d.webp": "3b1b0e13e4f00831",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/600042152/large.jpg": "0a0e161f19031312",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/624164123/large.jpg": "0c082048291e4ecc",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/631414938/large.jpg": "0104000ca4113080"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 1508357,
+  "pass": "done",
+  "after": {
+   "research": 346393934,
+   "agree": 407797363
+  }
+ }
 }
