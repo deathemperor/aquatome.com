@@ -1,6 +1,7 @@
 import { artworkObservation } from './photo-artwork'
 import { createHash } from 'node:crypto'
 import { ocrHit, validOcrSummary, type OcrSummary } from '@aq/schema'
+import { isOwnMarkShop, type OwnMarkShop } from './own-mark'
 
 export const observationHash = (s:string) => createHash('sha256').update(s).digest('hex')
 const digest = (x:unknown):x is string => typeof x==='string' && /^[a-f0-9]{64}$/.test(x)
@@ -9,7 +10,7 @@ const position = (s:unknown) => typeof s==='string' && (PHOTO_POSITIONS as reado
 export const PHOTO_MARK_KINDS = ['credit','logo','url','name','caption','stamp','none'] as const
 export type PhotoMarkKind = typeof PHOTO_MARK_KINDS[number]
 export type PhotoHints = { dead:boolean; people:boolean; artwork?:boolean }
-export type CompactScreen = { ocr:OcrSummary[];watermark?:boolean;kind?:PhotoMarkKind;locations?:string[];observationHash?:string;hints?:PhotoHints;retainedOwnMark?:{source:'glaser';sourceUrl:string;owner:'source'} }
+export type CompactScreen = { ocr:OcrSummary[];watermark?:boolean;kind?:PhotoMarkKind;locations?:string[];observationHash?:string;hints?:PhotoHints;retainedOwnMark?:{source:OwnMarkShop;sourceUrl:string;owner:'source'} }
 const DEAD_NOTE = /\b(?:dead(?! (?:leaf|leaves|wood|plants?|twigs?|branch(?:es)?|stems?|vegetation|grass|reeds?|algae|coral|trees?|logs?))|died|carcass(?:es)?|markets?|fishmonger|preserved|museum|mounted|taxiderm\w*|fillets?|cooked|fried|grilled|on ice|on a plate|catch(?:es)?|caught|landed|trays?|nets?|formalin|pickled|herbarium|pressed)\b|(?<!(?:lá|cành|gỗ|cây) )chết|chợ|bày bán|mẫu ngâm|mẫu vật|bảo tàng|tiêu bản|phi lê/i
 const ARTWORK = /drawing|illustrat|engrav|painting|lithograph|watercolou?r/i
 export const deadNote = (note: string) => DEAD_NOTE.test(note) && !ARTWORK.test(note)
@@ -41,7 +42,7 @@ export function compactScreen(v:any):CompactScreen {
     ...((PHOTO_MARK_KINDS as readonly unknown[]).includes(v.kind)?{kind:v.kind as PhotoMarkKind}:{}),
     ...(locations.length?{locations}:{}),
     ...(typeof v.what==='string'?{observationHash:observationHash(v.what),hints:photoHints(v)}:digest(v.observationHash)?{observationHash:v.observationHash,hints:photoHints(v)}:{}),
-    ...(v.retainedOwnMark?.source==='glaser'&&v.retainedOwnMark.owner==='source'&&typeof v.retainedOwnMark.sourceUrl==='string'?{retainedOwnMark:{source:'glaser' as const,sourceUrl:v.retainedOwnMark.sourceUrl,owner:'source' as const}}:{})}
+    ...(isOwnMarkShop(v.retainedOwnMark?.source)&&v.retainedOwnMark.owner==='source'&&typeof v.retainedOwnMark.sourceUrl==='string'?{retainedOwnMark:{source:v.retainedOwnMark.source as OwnMarkShop,sourceUrl:v.retainedOwnMark.sourceUrl,owner:'source' as const}}:{})}
 }
 
 /** Only controlled verdict labels are publishable. The explanatory answer never leaves memory. */

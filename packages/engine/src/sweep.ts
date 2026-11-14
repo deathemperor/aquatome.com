@@ -898,8 +898,8 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     for (const [url, why] of maps) if (!rejected[url]) { rejected[url] = why; report.rejected++ }
     if (report.rejected) await writePhotoState(rejectedFile, rejected)
   }
-  // Every photo on the never-again list leaves the pages and albums the photo check strips, by the check's own rule (an
-  // Aquarium Glaser photo with the shop's own mark kept stays: watermarks.ts keptOwnMark). The check strips them only
+  // Every photo on the never-again list leaves the pages and albums the photo check strips, by the check's own rule (a
+  // cleared shop's photo with the shop's own mark kept stays: watermarks.ts keptOwnMark). The check strips them only
   // in the tree its run started from. The cycle's push keeps its own lines where they clash with main's, so a photo a
   // person took off while a run was under way came back in its album (three on 2026-11-11). The cycle sweeps after it
   // catches up with main, after a clash at its push and after a clean pull there that brought main's commits in

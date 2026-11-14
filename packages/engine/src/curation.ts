@@ -3,6 +3,7 @@ import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { addDays, boxFractions, cardShownIn, CardSchema, CurationSchema, frameOf, isAllowedLicence, LANGS, loadAll, resolveDataCard, STAPLE_SPECIES, POPULAR, POPULAR_BREEDS, type CardEntity, type Content, type Curation, type CurationDay, type CurationWeek, type Lang, type Photo, photoFitsCard } from '@aq/schema'
 import { captionFlaw } from './content-rules'
+import { keptMarks, OWN_MARK_SHOPS } from './own-mark'
 import { fitKey, type FitState } from './fit'
 import { gateChecks } from './gate'
 import { loadPages, type Page } from './pages'
@@ -100,7 +101,7 @@ export type Candidate = {
 /** Goldfish and koi lines: cold-water fish whatever their pages' figures say. */
 const COLDWATER_OF = ['carassius-auratus', 'cyprinus-rubrofuscus', 'cyprinus-carpio']
 
-export type Verdicts = { subjects: Record<string, Record<string, PhotoVerdict>>; legacy: Record<string, PhotoVerdict>; rejected: Record<string, string>; faces: Record<string, number>; personYes?: Record<string, Record<string, PersonYes>> }
+export type Verdicts = { subjects: Record<string, Record<string, PhotoVerdict>>; legacy: Record<string, PhotoVerdict>; rejected: Record<string, string>; faces: Record<string, number>; personYes?: Record<string, Record<string, PersonYes>>; kept?: (url: string) => boolean }
 
 /** The photo checks' verdicts (engine-state), as cardWorthy reads them. */
 export const readVerdicts = async (root: string): Promise<Verdicts> => {
@@ -111,6 +112,7 @@ export const readVerdicts = async (root: string): Promise<Verdicts> => {
     rejected: await json(join(state, '_photo-rejected.json'), {}),
     faces: await json(join(state, '_photo-faces.json'), {}),
     personYes: (await readPersonYes(root)).counted,
+    kept: await keptMarks(root),
   }
 }
 
@@ -120,7 +122,8 @@ export const readVerdicts = async (root: string): Promise<Verdicts> => {
  */
 export function cardWorthy(photo: { url: string; caption?: string }, page: string, v: Verdicts, avoid: Record<string, string>, guide = false): boolean {
   const url = photo.url
-  if (url in v.rejected || url in avoid || (v.faces[url] ?? 0) > 0) return false
+  // A photo with a shop's own mark, kept (own-mark.ts), whatever its verdict says of a logo: never a card.
+  if (url in v.rejected || url in avoid || (v.faces[url] ?? 0) > 0 || v.kept?.(url)) return false
   if (!guide && captionFlaw(photo.caption)) return false
   const own = v.subjects[url]?.[page]
   const verdict = own && !own.guide ? own : v.legacy[url]?.ok !== 'unsure' ? v.legacy[url] : undefined
@@ -132,8 +135,13 @@ export function cardWorthy(photo: { url: string; caption?: string }, page: strin
   return !!verdict && (verdict.ok === 'yes' || yes) && verdict.typical && !verdict.person && !verdict.logo
 }
 
-/** Sites whose own mark on their photos the owner allows (the chief of staff, 2026-11-10: Aquarium Glaser's logo). */
-const OWN_MARK = /^https?:\/\/(www\.)?aquariumglaser\.de\//
+/**
+ * Sites whose own mark on their photos may lead a page where nothing else passes (the chief of staff, 2026-11-10: Aquarium
+ * Glaser's logo). Glaser's alone of the cleared shops (own-mark.ts): the site's cards know only Glaser's banner (@aq/schema
+ * `unmarked`), so another shop's marked photo leading would reach a card. Another shop's is kept in an album only, after
+ * the unmarked photos (the chief of staff, 15 Nov: never head or card).
+ */
+const OWN_MARK = OWN_MARK_SHOPS.glaser
 
 /**
  * A photo that passes in every way but for a mark its own source may keep. It ranks below every unmarked photo, leads a page
