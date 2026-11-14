@@ -8,7 +8,7 @@ import { checkPagePhotos, type PhotoCheckDeps, type PhotoVerdict } from '../src/
 import { PRIORITY_UNTIL, priorityFish } from '../src/priority-fish'
 
 const url = (n: string) => `https://media.example/${n}.webp`
-const photo = (n: string, o: object = {}) => ({ url: url(n), thumb: url(`${n}-480`), width: 960, height: 720, licence: 'x', author: 'x', sourceUrl: 'x', ...o })
+const photo = (n: string, o: object = {}) => ({ url: url(n), thumb: url(`${n}-480`), width: 960, height: 720, licence: 'CC BY 4.0', author: 'x', sourceUrl: 'x', ...o })
 
 /** Two staples and a fish no list names, each with one photo of its own; `album` photos for the last. */
 async function root(album: object[] = [], list: Record<string, unknown> = { 'species/zzz-liked': '2026-11-14' }) {
@@ -37,6 +37,33 @@ test('the album step takes a priority fish first, ahead of the staples, until it
   expect(await ids(await root(checked(PRIORITY_UNTIL)))).toEqual(['betta-splendens', 'danio-rerio', 'zzz-liked'])
 })
 
+test('the count is the album row\'s: each picture once, nothing the build still holds back, a breed\'s own photos after its first', async () => {
+  // Six files of five pictures: two files of one photo.
+  const r = await root(checked(PRIORITY_UNTIL))
+  await writeFile(join(r, 'content/picture-hashes.json'), JSON.stringify({ [url('a0')]: 'ffffffffffffffff', [url('a1')]: 'fffffffffffffffe' }))
+  expect(await priorityFish(r)).toEqual(['species/zzz-liked'])
+  // Six pictures, one the watermark screen still owes a look (its text read, no verdict yet): five on the row.
+  const s = await root(checked(PRIORITY_UNTIL))
+  await writeFile(join(s, 'engine-state/_photo-watermarks.json'), JSON.stringify(Object.fromEntries(checked(PRIORITY_UNTIL).map((p, i) => [p.url, i ? { ocr: [], watermark: false } : { ocr: [{ t: 'www.shop.example', c: 1 }] }]))))
+  expect(await priorityFish(s)).toEqual(['species/zzz-liked'])
+  await writeFile(join(s, 'engine-state/_photo-watermarks.json'), JSON.stringify(Object.fromEntries(checked(PRIORITY_UNTIL).map(p => [p.url, { ocr: [], watermark: false }]))))
+  expect(await priorityFish(s)).toEqual([])
+  // A breed: its own photos after the first count, as its album row counts them. Two of its own and five in the album: six.
+  const b = await root([], { 'breeds/blue-fish': '2026-11-14' })
+  await mkdir(join(b, 'content/breeds/blue-fish'), { recursive: true })
+  await writeFile(join(b, 'content/breeds/blue-fish/entity.json'), JSON.stringify({ id: 'blue-fish', kind: 'variety', photos: [photo('b0'), photo('b1')], sources: [] }))
+  await writeFile(join(b, 'content/gallery/blue-fish.json'), JSON.stringify({ id: 'blue-fish', photos: checked(PRIORITY_UNTIL - 1), seen: 0, updatedAt: '' }))
+  expect(await priorityFish(b)).toEqual([])
+  await writeFile(join(b, 'content/gallery/blue-fish.json'), JSON.stringify({ id: 'blue-fish', photos: checked(PRIORITY_UNTIL - 2), seen: 0, updatedAt: '' }))
+  expect(await priorityFish(b)).toEqual(['breeds/blue-fish'])
+})
+
+test('a list that isn\'t JSON reads as no list: the album step and the photo check go on as before', async () => {
+  const r = await root()
+  await writeFile(join(r, 'engine-state/_priority-fish.json'), '{ "species/zzz-liked": "2026-11-14", }')
+  expect(await ids(r)).toEqual(['betta-splendens', 'danio-rerio', 'zzz-liked'])
+})
+
 test('oldest day first; a malformed line is left out; no list, no change', async () => {
   const r = await root([], { 'species/zzz-liked': '2026-11-14', 'species/danio-rerio': '2026-11-10', 'species/Bad Id': '2026-11-01', 'species/betta-splendens': 'yesterday' })
   expect(await priorityFish(r)).toEqual(['species/danio-rerio', 'species/zzz-liked'])
@@ -44,8 +71,11 @@ test('oldest day first; a malformed line is left out; no list, no change', async
   expect(await ids(await root([], {}))).toEqual(['betta-splendens', 'danio-rerio', 'zzz-liked'])
 })
 
-test('the photo check judges a priority fish first', async () => {
+test('the photo check judges a priority fish first, ahead of the breeds', async () => {
   const r = await root()
+  await mkdir(join(r, 'content/breeds/blue-fish'), { recursive: true })
+  await writeFile(join(r, 'content/breeds/blue-fish/entity.json'), JSON.stringify({ id: 'blue-fish', kind: 'variety', photos: [photo('blue-fish')], sources: [] }))
+  await writeFile(join(r, 'content/breeds/blue-fish/vi.json'), JSON.stringify({ name: 'Blue fish' }))
   const jpeg = await sharp({ create: { width: 64, height: 48, channels: 3, background: '#e83' } }).jpeg().toBuffer()
   const sheets: string[][] = []
   let fetched: string[] = []
