@@ -116,7 +116,8 @@ export const mergeRead = (prev: Photo[], source: SourceId, url: string, fresh: P
   const others = new Set(all.filter(p => !owned(p)).slice(0, room))
   const photos = all.filter(p => crops.includes(p) || others.has(p))
   const left = prev.filter(seen)
-  return photos.some(seen) || !left.length ? { photos, held: [] } : { photos: left, held: left.filter(replaced) }
+  // Nothing a reader could see left: the seen ones from before stay, held; none at all, and the caller looks to Commons.
+  return photos.some(seen) ? { photos, held: [] } : { photos: left, held: left.filter(replaced) }
 }
 export const mergePhotos = (prev: Photo[], source: SourceId, url: string, fresh: Photo[], o: ReadKeeps = {}) => mergeRead(prev, source, url, fresh, o).photos
 

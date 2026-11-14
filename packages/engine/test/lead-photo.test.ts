@@ -98,6 +98,11 @@ test("a re-read never leaves a page with none of the photos a reader could see; 
   const unapproved: Photo = { ...photo('unapproved-crop'), source: 'bwaquatics', sourceUrl: page, ownerCrop: { id: 'none', pixelHash: 'e'.repeat(64) } }
   expect(mergeRead([unapproved], 'bwaquatics', page, [], { owned: () => false })).toEqual({ photos: [], held: [] })
   expect(mergeRead([unapproved, mine], 'bwaquatics', page, [], { owned: () => false })).toEqual({ photos: [mine], held: [mine] })
+  // Only hidden photos from other sources left, and nothing of this page's to keep: none at all, so the caller looks to Commons.
+  expect(mergeRead([bannedElsewhere, mine], 'bwaquatics', page, [], { gone: p => p.url === bannedElsewhere.url || p.url === mine.url })).toEqual({ photos: [], held: [] })
+  const unapprovedElsewhere: Photo = { ...photo('unapproved-elsewhere'), source: 'seriouslyfish', sourceUrl: 'https://y/fish', ownerCrop: { id: 'none', pixelHash: 'f'.repeat(64) } }
+  expect(mergeRead([unapprovedElsewhere], 'bwaquatics', page, [], { owned: () => false })).toEqual({ photos: [], held: [] })
+  expect(mergeRead([bannedElsewhere], 'bwaquatics', page, [], { gone: p => p.url === bannedElsewhere.url })).toEqual({ photos: [], held: [] })
 })
 
 test('at most a few photos a fish are asked about', () => {
