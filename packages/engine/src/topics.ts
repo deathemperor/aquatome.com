@@ -4,6 +4,8 @@ import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { GuideSchema, metricPage, QUALITY_THRESHOLD, slugify, TranslationSchema, type GuideEntity, type Translation } from '@aq/schema'
 import type { Llm } from './claude'
+import { cycleOnlyHosts, refused } from './cycle-only'
+import { isMarketplace } from './marketplaces'
 import { lastKept, logReviews } from './review-log'
 import { TARGETS, type TargetLang } from './localize'
 import { pickSlug } from './merge'
@@ -232,6 +234,17 @@ export function viFacts(researched: TopicFacts) {
   return { facts, refs, sources: kindsOf(researched, refs) }
 }
 
+/**
+ * viFacts with every source research may not read cited by no address, so it goes, and the facts resting on it alone with
+ * it: a marketplace's page, or one on a host the engine reads only at its own pace (cycle-only.ts, the magazine read for
+ * ideas among them). Research is denied those hosts, but may still name a page it found through search (the chief of
+ * staff, 14 Nov 2026).
+ */
+async function citedFacts(root: string, researched: TopicFacts) {
+  const off = await cycleOnlyHosts(root)
+  return viFacts({ ...researched, sources: researched.sources.map(x => (isMarketplace(x.url) || refused(off, x.url) ? { ...x, url: '' } : x)) })
+}
+
 /** Each reference's kind, numbered as the facts cite them: what the writer names each source as. */
 const kindsOf = (researched: TopicFacts, refs: { url: string }[]) => refs.map((r, i) => ({ source: i, kind: researched.sources.find(s => s.url === r.url)?.kind ?? 'other' }))
 
@@ -314,7 +327,7 @@ export async function makeTopic(root: string, d: { research: Llm; llm: Llm }, a:
   if (!kept) { await mkdir(join(root, 'engine-state/topics'), { recursive: true }); await writeFile(factsFile, `${JSON.stringify(researched, null, 2)}\n`) }
   if (!researched.found) return { id, skipped: `${a.topic}: nothing reliable found` }
 
-  const { facts, refs, sources } = viFacts(researched)
+  const { facts, refs, sources } = await citedFacts(root, researched)
   if (!facts.length) return { id, skipped: `${a.topic}: no cited facts` }
 
   const forWriter = { topic: a.topic, kind: a.kind, sources, facts }

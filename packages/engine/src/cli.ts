@@ -1051,17 +1051,22 @@ if (cmd === 'photo-privacy') {
   // Vietnamese shops' blogs, read for ideas (their posts' titles, never their text), a week apart unless --force: the
   // topics the handbook has no guide on, most asked first, in engine-state/_ideas.json. pnpm engine ideas [--force]
   // [--retry-blocked]: a site that refused us its listing is fetched again only with --retry-blocked.
-  const get = async (u: string) => listingText(await fetch(u, { headers: { 'user-agent': UA } }))
+  const get = async (u: string) => listingText(await fetch(u, { headers: { 'user-agent': UA }, signal: AbortSignal.timeout(60_000) }))
   const r = await refreshIdeas(ROOT, { get, llm: claudeCli, sleep: ms => new Promise(res => setTimeout(res, ms)), now: () => new Date() }, { force: values.force, retryBlocked: values['retry-blocked'] })
   const s = await readIdeas(ROOT)
   console.log(r.fresh ? `ideas: read ${s.readAt}, still fresh` : `ideas: ${r.posts} posts, ${r.ideas} new ideas${r.failed.length ? `; failed: ${r.failed.join('; ')}` : ''}`)
-  // Each rule's count and the posts kept: the owner's figure for the magazine (the chief of staff, 14 Nov 2026).
-  for (const [id, l] of Object.entries(r.listed)) if (Object.keys(l.dropped).length) console.log(`ideas: ${id}: ${l.kept} posts kept; left out: ${Object.entries(l.dropped).map(([rule, n]) => `${rule} ${n}`).join(', ')}`)
+  // Each rule's count and the posts kept: the owner's figure for the magazine; and each title a rule left out (the chief of
+  // staff, 14 Nov 2026).
+  for (const [id, l] of Object.entries(r.listed)) {
+    if (!Object.keys(l.dropped).length) continue
+    console.log(`ideas: ${id}: ${l.kept} posts kept; left out: ${Object.entries(l.dropped).map(([rule, n]) => `${rule} ${n}`).join(', ')}`)
+    for (const [rule, titles] of Object.entries(l.titles)) for (const t of titles) console.log(`ideas: ${id}: left out (${rule}): ${t}`)
+  }
   const refused = [...r.needsHuman, ...r.blocked]
-  if (refused.length) console.log(`ideas: needs-human: ${refused.join(', ')} refused us its listing (a browser check, a 403 or a 429); its last titles stand and it isn't fetched again. Once the owner has looked: pnpm engine ideas --force --retry-blocked`)
+  if (refused.length) console.log(`ideas: needs-human: ${refused.join(', ')} refused us its listing (a 403 or a 429, or an answer that isn't its listing); its last titles stand and it isn't fetched again. Once the owner has looked: pnpm engine ideas --force --retry-blocked`)
   for (const i of s.ideas.filter(x => !x.guide && !x.skipped).slice(0, 15)) console.log(`${i.sites} sites, ${i.posts.length} posts: ${i.topic} (${i.kind})`)
 } else if (cmd === 'write-ideas') {
-  // AquaTome's own guides on the most asked ideas (engine ideas), researched as pnpm engine topic is: --limit a day (UTC).
+  // AquaTome's own guides on the most asked ideas (engine ideas), researched as pnpm engine topic is: --limit a day (Vietnam's).
   const r = await writeIdeas(ROOT, { research: claudeResearch, llm: claudeCli, now: () => new Date() }, { perDay: Number(values.limit ?? 2), researchModel: process.env.RESEARCH_MODEL ?? 'opus' })
   console.log(`write-ideas: ${r.written.length} written, ${r.skipped.length} skipped, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}\n${[...r.written, ...r.skipped, ...r.failed].join('\n')}`)
   if (r.magazine.length) console.log(`write-ideas: on the magazine's ideas: ${r.magazine.join('; ')}`)
