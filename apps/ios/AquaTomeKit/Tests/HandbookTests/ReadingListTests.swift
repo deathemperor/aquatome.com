@@ -12,11 +12,12 @@ import Testing
 
 /// A list kept when the app kept 20 comes back whole and grows past 20: nobody's pages read last are lost.
 @Test func aListKeptAtTwentyComesBackWholeAndGrows() throws {
-  let old = (0..<20).map { "/p\($0)/" }
+  // Newest first, as it's kept: /old0/ read last, /old19/ longest ago.
+  let old = (0..<20).map { "/old\($0)/" }
   var r = try JSONDecoder().decode(ReadingList.self, from: JSONSerialization.data(withJSONObject: ["saved": [String](), "recent": old]))
   #expect(r.recent == old)
-  for n in 20..<60 { r.read("/p\(n)/") }
-  #expect(r.recent.count == 60 && r.recent.last == "/p0/")
+  for n in 0..<40 { r.read("/new\(n)/") }
+  #expect(r.recent.count == 60 && r.recent.first == "/new39/" && r.recent.last == "/old19/")
 }
 
 @Test func savingTogglesNewestFirst() throws {
