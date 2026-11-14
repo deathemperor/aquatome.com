@@ -35,7 +35,7 @@ import { fitRewrite } from './fit-rewrite'
 import { unitsMend } from './units-mend'
 import { recordSourceFigures, sourceFigures } from './source-figures'
 import fitFront from './fit-front.json'
-import { firstRun, frontEarly, frontHeld, orderFront, type FirstRun } from './fit-front'
+import { firstRun, frontEarly, frontHeld, frontPlan, offLane, orderFront, type FirstRun, type HeldMark } from './fit-front'
 import { candidates, cardsOf, checkCalendar, demandByPath, plan, readCalendar, readVerdicts, writeCalendar } from './curation'
 import { phraseMatch } from './phrases'
 import { readerReport, readPages } from './reader'
@@ -655,14 +655,18 @@ if (cmd === 'photo-privacy') {
   // The collection rewrite (fit-rewrite.ts): Vietnamese pages the reader-fit read found wrong for their reader, written
   // again and kept only when their reviewers pass them; the most-read fish and plants first, then breeds, then guides.
   // pnpm engine fit-rewrite [--limit N: pages] [--only vi/species/<id>,vi/guides/<id>: these, in this order, tried before or not] [--kind species,guides]
-  // [--front: that order, with the front list's pages first (fit-front.json). Nothing before the list's `first`. Its
-  // first run is written to engine-state/_fit-front.json, and holds the next until the list is cleared.]
-  const firstFile = join(ROOT, 'engine-state/_fit-front.json')
-  const first = values.front ? (JSON.parse(await readFile(firstFile, 'utf8').catch(() => 'null')) as FirstRun | null) ?? undefined : undefined
+  // [--front: the lane first (pages the gate held new, newest first, when fit-front.json's lane is on), then the front
+  // list's pages in its order, then the rest. Nothing before the list's `first`. A run that gets a front-list or other
+  // live page to an outcome is written to engine-state/_fit-front.json, and holds those pages in the next until cleared
+  // names its `at` (one-shot: fit-front.ts frontHeld); the lane goes on meanwhile.]
+  const lastFile = join(ROOT, 'engine-state/_fit-front.json')
+  const last = values.front ? (JSON.parse(await readFile(lastFile, 'utf8').catch(() => 'null')) as FirstRun | null) ?? undefined : undefined
+  const held = values.front && frontHeld(fitFront, last)
+  if (held) console.log(`fit-rewrite: front list held: the run of ${last!.at} is with the chief of staff (engine-state/_fit-front.json); to let one more run go, set cleared to "${last!.at}" in packages/engine/src/fit-front.json${fitFront.lane ? '. The lane and the pages off the list go on.' : ''}`)
   if (values.front && frontEarly(fitFront, new Date())) {
     console.log(`fit-rewrite: waits until ${fitFront.first}`)
-  } else if (values.front && frontHeld(fitFront, first)) {
-    console.log('fit-rewrite: held: the first run\'s pages are with the chief of staff (engine-state/_fit-front.json; packages/engine/src/fit-front.json, cleared)')
+  } else if (held && !fitFront.lane) {
+    // Held, and the lane shut: nothing to do.
   } else {
     const pages = (await loadPages(join(ROOT, 'content'), ['vi'])).filter(p => ['guides', 'species', 'plants', 'breeds'].includes(p.kind) && (!values.kind || values.kind.split(',').includes(p.kind)))
     const state = JSON.parse(await readFile(join(ROOT, 'engine-state/_fit.json'), 'utf8')) as FitState
@@ -670,12 +674,22 @@ if (cmd === 'photo-privacy') {
     const rank = (p: (typeof pages)[number]) => { const i = popular.indexOf(p.id); return p.kind === 'guides' ? 2 * popular.length : i >= 0 && p.kind !== 'breeds' ? i : popular.length }
     const only = values.only?.split(',')
     const ranked = only ? only.flatMap(k => pages.filter(p => fitKey(p) === k)) : [...pages].sort((a, b) => rank(a) - rank(b))
-    const order = values.front && !only ? orderFront(fitFront, ranked) : ranked
-    const r = await fitRewrite(ROOT, order, state, { llm: claudeCli, now: () => new Date() }, { limit: Number(values.limit ?? 10), retry: !!only })
+    // Each page's mark from the gate (gate.ts Held), for the lane.
+    const marks = new Map<string, HeldMark>()
+    if (values.front && !only && fitFront.lane) {
+      for (const p of ranked) {
+        const h = (JSON.parse(await readFile(join(ROOT, 'content', p.kind, p.id, 'vi.json'), 'utf8').catch(() => '{}')) as { held?: HeldMark }).held
+        if (h) marks.set(fitKey(p), h)
+      }
+    }
+    const plan = values.front && !only ? frontPlan(fitFront, last, ranked, marks) : { held: false, order: ranked, lane: new Set<string>() }
+    if (values.front && !only) console.log(`fit-rewrite: lane ${plan.lane.size} page${plan.lane.size === 1 ? '' : 's'} first${plan.held ? ', front list held' : ''}`)
+    const r = await fitRewrite(ROOT, plan.order, state, { llm: claudeCli, now: () => new Date() }, { limit: Number(values.limit ?? 10), retry: !!only, mend: plan.lane })
     for (const x of [...r.rewritten.map(x => `rewritten: ${x}`), ...r.notKept.map(x => `not kept: ${x}`), ...r.skipped.map(x => `skipped: ${x}`), ...r.failed.map(x => `failed: ${x}`)]) console.log(x)
     console.log(`fit-rewrite: ${r.rewritten.length} rewritten, ${r.notKept.length} not kept, ${r.skipped.length} skipped, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
-    const ran = values.front && !first ? firstRun(r, new Date().toISOString()) : undefined
-    if (ran) await writeFile(firstFile, `${JSON.stringify(ran, null, 1)}\n`)
+    // The run on file: the front list's and live pages' outcomes, never the lane's alone (fit-front.ts offLane).
+    const ran = values.front && !only && !plan.held ? firstRun(offLane(r, plan.lane), new Date().toISOString()) : undefined
+    if (ran) await writeFile(lastFile, `${JSON.stringify(ran, null, 1)}\n`)
   }
 } else if (cmd === 'units-mend') {
   // A page held for units alone gets a tank converted from US gallons as the size a keeper here names ("115 lít" → "120

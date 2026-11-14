@@ -23,6 +23,11 @@ import { blockOf, plain, quoted, sentences, splice } from './sentences'
  *   asks for it to go, or only joins or frames it (JOINING, FRAMES); a word lost and listed by no one isn't kept (Astra's read: a
  *   writer that also dropped "độc với tép" from a sentence asked only for its price passed when its reviewer said
  *   nothing).
+ * - A sentence a finding flags is cut, never said another way (the chief of staff, 14 Nov 2026): every sentence that
+ *   changed is the one it was with words taken out, in their order, and only joining words put in (GLUE), or what a
+ *   wording finding asks for (`adds`); a units conversion has its own check (breed-units.ts keepsFigures). On 14 Nov a
+ *   dealer's "Còn ở đợt cá mới nhập về thì có vẻ cả đực lẫn cái đều mang màu của B. merah" was kept as "Cũng có quần thể
+ *   mà cả đực lẫn cái đều có vẻ mang màu của B. merah": a claim about wild fish no source makes (addedWords).
  * The writer's and the reviewer's words are prompts/fit-mend.md and prompts/fit-mend-review.md.
  */
 const WRITE = readFileSync(new URL('./prompts/fit-mend.md', import.meta.url), 'utf8').trim()
@@ -88,10 +93,40 @@ export function lostWords(before: string, after: string, covered: readonly strin
   return lostFrom(was, words(after), covered.map(c => firstAt(was, words(c))))
 }
 
-/** A finding to mend: what it quotes, the writer's note, and (`covers`) the other text its change replaces, as a breed page's units the old figure ("38 lít mỗi 2,5 cm" for a quote of "38 lít"). */
-export type MendFinding = { check: FitCheck; quote: string; note: string; covers?: readonly string[] }
+/**
+ * What a sentence cut may put in to join what's left: only these, not a pointer ("này", "đó") or "bạn", which say who or
+ * which (the chief of staff, 14 Nov 2026: "The rewrite may mend the grammar round a deletion and nothing else").
+ */
+const GLUE = new Set('và hoặc thì là mà rằng nhưng của'.split(' '))
+/**
+ * The words `after` has that `before` hasn't, in its order: each of its words is the next of `before`'s that is still to
+ * come, or a joining word (GLUE), or one of `allowed` (each once). Words only taken out, and joined again, add none.
+ */
+export function addedWords(before: string, after: string, allowed: readonly string[] = []): string[] {
+  const was: string[] = [...words(before)]
+  const may = new Map<string, number>()
+  for (const w of allowed.flatMap(a => words(a))) may.set(w, (may.get(w) ?? 0) + 1)
+  const out: string[] = []
+  let at = 0
+  for (const w of words(after)) {
+    const i = was.indexOf(w, at)
+    if (i >= 0) { at = i + 1; continue }
+    if (GLUE.has(w)) continue
+    if (may.get(w)) { may.set(w, may.get(w)! - 1); continue }
+    out.push(w)
+  }
+  return out
+}
+
+/**
+ * A finding to mend: what it quotes, the writer's note, (`covers`) the other text its change replaces, as a breed page's
+ * units the old figure ("38 lít mỗi 2,5 cm" for a quote of "38 lít"), and (`adds`) what it asks to be put in: a wording
+ * finding's keepers' word.
+ */
+export type MendFinding = { check: FitCheck; quote: string; note: string; covers?: readonly string[]; adds?: readonly string[] }
 export type Dropped = { sentence: number; finding: number; text: string }
-export type Mended = { html: string; score: number; notes: string[]; lost: HedgePair[]; unasked: string[] }
+/** `added`: each changed sentence that says what it didn't (addedWords): the part isn't kept with any. */
+export type Mended = { html: string; score: number; notes: string[]; lost: HedgePair[]; unasked: string[]; added: string[] }
 
 const WRITER_SCHEMA = {
   type: 'object', required: ['sentences'],
@@ -163,7 +198,7 @@ export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { e
   }
   for (const [i, t] of [...changes]) if (t === texts[i]) changes.delete(i)
   const after = splice(pieces, changes)
-  if (!changes.size) return { html, score: 1, notes: [], lost: [], unasked: [] }
+  if (!changes.size) return { html, score: 1, notes: [], lost: [], unasked: [], added: [] }
   if (texts.every((t, i) => changes.get(i) === '')) return 'every sentence would go, so the part is the dealer check\'s to settle'
   const shown = [...changes.keys()].sort((a, b) => a - b)
   const body = [
@@ -190,9 +225,18 @@ export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { e
     }),
     ...dropped.filter(d => !asked(d, named)).map(d => `Left out, and no finding asks for it to go: "${d.text}"`),
   ]
+  // Every changed sentence is the one it was, cut: what the writer wrote, before metric, as the words lost are counted. A
+  // sentence a units finding converts is checked by its figures instead (fit-rewrite.ts keepsFigures).
+  const added = shown.flatMap(i => {
+    const now = raw.get(i) ?? changes.get(i)!
+    const mine = named.filter(f => f.sentences.includes(i + 1))
+    if (!now || mine.some(f => f.check === 'units')) return []
+    const extra = addedWords(texts[i]!, now, mine.flatMap(f => f.adds ?? []))
+    return extra.length ? [`Sentence ${i + 1} says what it didn't: "${extra.join(' ')}"`] : []
+  })
   const lost = hedgesLost(r.hedges ?? [], shown.map(i => texts[i]).join('\n'), shown.map(i => changes.get(i)).join('\n'))
   return {
-    html: after, score: Math.min(1, Math.max(0, Number(r.score) || 0)), lost, unasked,
-    notes: [...unasked, ...lost.map(h => `Said more surely than before: "${h.to}" (was: "${h.from}")`), ...(r.notes ?? []).slice(0, 10)],
+    html: after, score: Math.min(1, Math.max(0, Number(r.score) || 0)), lost, unasked, added,
+    notes: [...unasked, ...added, ...lost.map(h => `Said more surely than before: "${h.to}" (was: "${h.from}")`), ...(r.notes ?? []).slice(0, 10)],
   }
 }

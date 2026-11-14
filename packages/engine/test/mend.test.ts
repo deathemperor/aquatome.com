@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
 import type { FitCheck } from '../src/fit'
-import { asked, mendPart, type Dropped } from '../src/mend'
+import { addedWords, asked, mendPart, type Dropped } from '../src/mend'
 import { sentences } from '../src/sentences'
 
 /**
@@ -187,4 +187,47 @@ test('a neighbour in the next paragraph or list item stays as it was, though the
   const same = await mendPart(llm, '<p>Cây mọc nhanh, giá 5 đô la. Chúng ưa sáng.</p>', price)
   if (typeof same === 'string') throw new Error(same)
   expect(same.html).toBe('<p>Cây mọc nhanh. Cây ưa sáng.</p>')
+})
+
+// The chief of staff, 14 Nov 2026: what stops a mend from changing a figure the page had. Every word a changed sentence
+// loses, a number too, must be quoted by a finding that asks for it to go, so a figure changed beside the asked drop fails.
+test('a mend that changes a figure beside the asked drop fails, though its reviewer lists nothing', async () => {
+  const llm = (async ({ schema }: { schema: { required: string[] } }) => (schema.required.includes('sentences')
+    ? { sentences: [{ n: 1, vi: 'Bể tối thiểu 40 lít.' }] }
+    : { score: 1, notes: [], dropped: [], hedges: [] })) as Llm
+  const r = await mendPart(llm, '<p>Bể tối thiểu 38 lít, giá 5 đô la. Cá sống theo đàn.</p>', [{ check: 'price', quote: 'giá 5 đô la', note: 'Bỏ giá nước ngoài.' }])
+  if (typeof r === 'string') throw new Error(r)
+  expect(r.unasked).toEqual(['Left out of sentence 1, and no finding asks for it to go: "38"'])
+})
+
+// The chief of staff, 14 Nov 2026, on the front list's second run: a sentence a finding flags is cut, never said another
+// way. Last night's nine kept parts: the two restated are refused, the plain cuts pass.
+test('a sentence that changed is the one it was with words taken out: one that says anything new is caught', () => {
+  // Boraras merah: a dealer's shipment turned into wild populations.
+  expect(addedWords('Còn ở đợt cá mới nhập về thì có vẻ cả đực lẫn cái đều mang màu của B. merah.', 'Cũng có quần thể mà cả đực lẫn cái đều có vẻ mang màu của B. merah.')).toEqual(['cũng', 'quần', 'thể', 'có', 'vẻ'])
+  // The ram: "được cho là" said as hearsay.
+  expect(addedWords('Tuy vậy, một trong các mẫu cá trong ảnh được cho là bắt ở sông Purus, Brazil.', 'Tuy vậy, nghe nói có một mẫu cá bắt được ở sông Purus, Brazil.')).toEqual(['nghe', 'nói', 'có', 'được'])
+  // Vallisneria's price and its fertiliser, cut.
+  expect(addedWords('Cây rẻ và thường có ở các cửa hàng cá với giá dưới 10 đô la.', 'Cây rẻ và thường có ở các cửa hàng cá.')).toEqual([])
+  expect(addedWords('Phân nước tổng hợp Easy Green được khuyên dùng, nhưng các loại phân khác hoặc mật độ cá cao cũng có thể đáp ứng.', 'Phân nước tổng hợp được khuyên dùng, nhưng các loại phân khác hoặc mật độ cá cao cũng có thể đáp ứng.')).toEqual([])
+  // A cut joined again with a joining word passes; a pointer or "bạn" put in is something new; a word moved is too.
+  expect(addedWords('Cá đẹp, giá 5 đô la ở Mỹ, dễ nuôi.', 'Cá đẹp và dễ nuôi.')).toEqual([])
+  expect(addedWords('Cá dễ nuôi.', 'Bạn thấy cá này dễ nuôi.')).toEqual(['bạn', 'thấy', 'này'])
+  expect(addedWords('Cá ăn tạp, dễ nuôi.', 'Dễ nuôi, cá ăn tạp.')).toEqual(['cá', 'ăn', 'tạp'])
+  // What a wording finding asks for is no addition.
+  expect(addedWords('Cá ăn tạp.', 'Cá ăn đủ thứ.', ['đủ thứ'])).toEqual([])
+})
+
+test('a mend that says a sentence another way isn\'t kept, whatever its reviewer scores', async () => {
+  const html = '<p>Loài này rất gần với B. brigittae. Còn ở đợt cá mới nhập về thì có vẻ cả đực lẫn cái đều mang màu của B. merah.</p>'
+  const f = [{ check: 'source' as FitCheck, quote: 'Còn ở đợt cá mới nhập về', note: 'A dealer\'s batch.' }]
+  const llm = (said: string) => (async ({ schema }: { schema: { required: string[] } }) => (schema.required.includes('sentences')
+    ? { sentences: [{ n: 2, vi: said }] }
+    : { score: 1, notes: [], dropped: [], hedges: [] })) as Llm
+  const restated = await mendPart(llm('Cũng có quần thể mà cả đực lẫn cái đều có vẻ mang màu của B. merah.'), html, f)
+  if (typeof restated === 'string') throw new Error(restated)
+  expect(restated.added).toEqual(['Sentence 2 says what it didn\'t: "cũng quần thể có vẻ"'])
+  const cut = await mendPart(llm('Có vẻ cả đực lẫn cái đều mang màu của B. merah.'), html, f)
+  if (typeof cut === 'string') throw new Error(cut)
+  expect(cut.added).toEqual([])
 })

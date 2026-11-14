@@ -45,7 +45,7 @@ const fakeLlm = (rewrite: (vi: string) => string, score: number, o: { outAfter?:
       calls.push('rewrite')
       const part = new Map([...prompt.split('--- PART ---\n')[1]!.split('\n\n')[0]!.matchAll(/^\[(\d+)\] (.*)$/gm)].map(m => [Number(m[1]), m[2]!]))
       const fix = [...prompt.split('--- FIX ---\n')[1]!.matchAll(/^\[(\d+)\]/gm)].map(m => Number(m[1]))
-      return { sentences: [...part].filter(([n]) => o.every || fix.includes(n)).map(([n, vi]) => ({ n, vi: o.every && !fix.includes(n) ? `Đã sửa: ${vi}` : rewrite(vi), ...(o.every?.why ? { why: o.every.why } : {}) })) }
+      return { sentences: [...part].filter(([n]) => o.every || fix.includes(n)).map(([n, vi]) => ({ n, vi: o.every && !fix.includes(n) ? vi.replace(/ (và|là) /, ' ') : rewrite(vi), ...(o.every?.why ? { why: o.every.why } : {}) })) }
     }
     calls.push('review')
     return { score, notes: [], dropped: o.dropped ?? [], hedges: o.hedges ?? [] }
@@ -76,7 +76,7 @@ test('a part its reviewer passes is written and recorded with the page\'s new ha
   const root = await content()
   const file = join(root, 'content/species', ID, 'vi.json')
   const p = await danio(root)
-  const failing = fakeLlm(vi => vi.replace('Ao cạn nhiều cỏ', 'Vũng nước cạn, nhiều cỏ'), 0.5)
+  const failing = fakeLlm(vi => vi.replace('Ao cạn nhiều cỏ', 'Nhiều cỏ'), 0.5)
   const before = await readFile(file, 'utf8')
   let r = await fitRewrite(root, [p], reading(p, found(p)), { llm: failing.llm, now: () => new Date('2026-11-08T09:00:00Z') }, { limit: 5 })
   expect(r.notKept).toHaveLength(1)
@@ -87,11 +87,11 @@ test('a part its reviewer passes is written and recorded with the page\'s new ha
   expect((await fitRewrite(root, [p], reading(p, found(p)), { llm: again.llm, now: () => new Date() }, { limit: 5 })).notKept).toEqual([])
   expect(again.calls).toEqual([])
 
-  const passing = fakeLlm(vi => vi.replace('Ao cạn nhiều cỏ', 'Vũng nước cạn, nhiều cỏ'), 0.9)
+  const passing = fakeLlm(vi => vi.replace('Ao cạn nhiều cỏ', 'Nhiều cỏ'), 0.9)
   r = await fitRewrite(root, [p], reading(p, found(p)), { llm: passing.llm, now: () => new Date('2026-11-08T09:00:00Z') }, { limit: 5, retry: true })
   expect(r.rewritten).toEqual(['vi/species/danio-margaritatus sections.habitat:seriouslyfish (0.90)'])
   expect(passing.calls).toEqual(['rewrite', 'review'])
-  expect(JSON.parse(await readFile(file, 'utf8')).sections['habitat:seriouslyfish']).toContain('Vũng nước cạn, nhiều cỏ')
+  expect(JSON.parse(await readFile(file, 'utf8')).sections['habitat:seriouslyfish']).toContain('Nhiều cỏ')
   const now = await danio(root)
   expect(JSON.parse(await readFile(join(root, 'engine-state/rewritten.json'), 'utf8'))).toEqual({ 'vi/species/danio-margaritatus': { at: '2026-11-08T09:00:00.000Z', hash: fitText(now).hash } })
 })
@@ -140,7 +140,7 @@ test('a page is tried twice at most on any of its texts, unless named; a usage l
   const out = fakeLlm(vi => vi, 0.9, { outAfter: 0 })
   expect((await fitRewrite(root, [p], state, { llm: out.llm, now: () => new Date() }, { limit: 5 })).stopped).toContain('usage limit')
   expect(JSON.parse(await readFile(triedFile, 'utf8'))).toEqual({ [fitKey(p)]: { at: '2026-11-08', hash: 'older' } })
-  const second = fakeLlm(vi => vi.replace('Ao cạn nhiều cỏ', 'Vũng nước cạn, nhiều cỏ'), 0.5)
+  const second = fakeLlm(vi => vi.replace('Ao cạn nhiều cỏ', 'Nhiều cỏ'), 0.5)
   expect((await fitRewrite(root, [p], state, { llm: second.llm, now: () => new Date('2026-11-13T02:00:00Z') }, { limit: 5 })).notKept).toHaveLength(1)
   expect(JSON.parse(await readFile(triedFile, 'utf8'))[fitKey(p)]).toMatchObject({ hash: fitText(p).hash, n: 2 })
   // Its text changes and the read still faults it: twice is enough, until a person names it.
@@ -184,7 +184,7 @@ test('a part a person fixed is not rewritten, whatever the reading finds in it',
   await writeFile(join(dir, 'entity.json'), JSON.stringify(e))
   const p = await danio(root)
   const before = await readFile(join(dir, 'vi.json'), 'utf8')
-  const passing = fakeLlm(vi => vi.replace('Ao cạn nhiều cỏ', 'Vũng nước cạn, nhiều cỏ'), 0.9)
+  const passing = fakeLlm(vi => vi.replace('Ao cạn nhiều cỏ', 'Nhiều cỏ'), 0.9)
   const r = await fitRewrite(root, [p], reading(p, found(p)), { llm: passing.llm, now: () => new Date('2026-11-08T09:00:00Z') }, { limit: 5 })
   expect(r.rewritten).toEqual([])
   expect(r.skipped).toEqual(['vi/species/danio-margaritatus sections.habitat:seriouslyfish: a person fixed its text'])
@@ -197,10 +197,10 @@ test('stopped part way, a page keeps the parts already kept, and is tried again 
   const file = join(root, 'content/species', ID, 'vi.json')
   const p = await danio(root)
   const two = reading(p, [...found(p), { check: 'source', part: part(p, 'sections.aquariumSize:sprucepets'), quote: 'Dung tích bể tối thiểu', why: 'v' }])
-  const out = fakeLlm(vi => vi.replace('Ao cạn nhiều cỏ', 'Vũng nước cạn, nhiều cỏ'), 0.9, { outAfter: 1 })
+  const out = fakeLlm(vi => vi.replace('Ao cạn nhiều cỏ', 'Nhiều cỏ'), 0.9, { outAfter: 1 })
   const r = await fitRewrite(root, [p], two, { llm: out.llm, now: () => new Date('2026-11-08T09:00:00Z') }, { limit: 5 })
   expect(r.stopped).toContain('usage limit')
-  expect(JSON.parse(await readFile(file, 'utf8')).sections['habitat:seriouslyfish']).toContain('Vũng nước cạn, nhiều cỏ')
+  expect(JSON.parse(await readFile(file, 'utf8')).sections['habitat:seriouslyfish']).toContain('Nhiều cỏ')
   expect(Object.keys(JSON.parse(await readFile(join(root, 'engine-state/rewritten.json'), 'utf8')))).toEqual(['vi/species/danio-margaritatus'])
   expect(JSON.parse(await readFile(join(root, 'engine-state/_fit-rewrite.json'), 'utf8').catch(() => '{}'))).toEqual({})
 })
@@ -212,11 +212,11 @@ test('a part said more surely than before is not kept, however well its reviewer
   await writeFile(file, (await readFile(file, 'utf8')).replace('Ao cạn nhiều cỏ ở cao nguyên Shan, Myanmar.', 'Ao cạn nhiều cỏ ở cao nguyên Shan, Myanmar, có thể cả ruộng lúa.'))
   const p = await danio(root)
   const before = await readFile(file, 'utf8')
-  const pair = { from: 'Ao cạn nhiều cỏ ở cao nguyên Shan, Myanmar, có thể cả ruộng lúa.', to: 'Vũng nước cạn, nhiều cỏ ở cao nguyên Shan, Myanmar, cả ruộng lúa.' }
-  const surer = (vi: string) => vi.replace('Ao cạn nhiều cỏ', 'Vũng nước cạn, nhiều cỏ').replace('có thể ', '')
+  const pair = { from: 'Ao cạn nhiều cỏ ở cao nguyên Shan, Myanmar, có thể cả ruộng lúa.', to: 'Nhiều cỏ ở cao nguyên Shan, Myanmar, cả ruộng lúa.' }
+  const surer = (vi: string) => vi.replace('Ao cạn nhiều cỏ', 'Nhiều cỏ').replace('có thể ', '')
   // A rewrite that keeps the hedge, with a pair made from nothing on the page: kept. (Dropping "có thể" is a word lost too,
   // which mend.ts's count says on its own.)
-  const made = fakeLlm(vi => vi.replace('Ao cạn nhiều cỏ', 'Vũng nước cạn, nhiều cỏ'), 0.95, { hedges: [{ ...pair, from: 'Ponds, always.' }] })
+  const made = fakeLlm(vi => vi.replace('Ao cạn nhiều cỏ', 'Nhiều cỏ'), 0.95, { hedges: [{ ...pair, from: 'Ponds, always.' }] })
   expect((await fitRewrite(root, [p], reading(p, found(p)), { llm: made.llm, now: () => new Date() }, { limit: 5 })).rewritten).toHaveLength(1)
   await writeFile(file, before)
   const lost = fakeLlm(surer, 0.95, { hedges: [pair] })
@@ -245,7 +245,7 @@ test('a directed rewrite changes only the sentence its finding quotes: every oth
   const root = await content()
   const { p, file, beech } = await tetra(root)
   // The writer changes every sentence it's shown, and says no why: only the beech sentence is taken.
-  const llm = fakeLlm(vi => vi.replace('bạn có thể dùng cành dẻ gai (beech) thông thường', 'bạn có thể dùng cành cây gỗ cứng thông thường'), 0.9, { every: {} })
+  const llm = fakeLlm(vi => vi.replace('dẻ gai (beech) ', ''), 0.9, { every: {} })
   const r = await fitRewrite(root, [p], reading(p, beech), { llm: llm.llm, now: () => new Date('2026-11-13T09:00:00Z') }, { limit: 5 })
   expect(r.rewritten).toEqual(['vi/species/danio-margaritatus sections.habitat:seriouslyfish (0.90)'])
   const before = said(TETRA_VI)
@@ -253,30 +253,36 @@ test('a directed rewrite changes only the sentence its finding quotes: every oth
   expect(after).toHaveLength(before.length)
   const changed = before.map((s, i) => (s === after[i] ? -1 : i)).filter(i => i >= 0)
   expect(changed).toEqual([5])
-  expect(after[5]).toContain('cành cây gỗ cứng')
+  expect(after[5]).toContain('dùng cành thông thường')
   expect(after).toContain('Đèn nên để khá dịu.')
 })
 
 test('a changed sentence is written in metric, and nothing else on the page is touched', async () => {
   const root = await content()
-  const { p, file, beech } = await tetra(root)
-  // Another part the reading didn't fault, with a size in inches beside its centimetres (Astra's read).
+  const { file, beech } = await tetra(root)
+  // The sentence the finding quotes gives a length in inches: cut, it's written in metric.
   const vi = JSON.parse(await readFile(file, 'utf8'))
+  vi.sections['habitat:seriouslyfish'] = TETRA_VI.replace('cành dẻ gai (beech) thông thường', 'cành dẻ gai (beech) dài 12 inch thông thường')
+  await writeFile(file, JSON.stringify(vi, null, 2))
+  const q = await danio(root)
+  const inch = [{ ...beech[0]!, part: part(q, 'sections.habitat:seriouslyfish'), quote: 'cành dẻ gai (beech) dài 12 inch' }]
+  // Another part the reading didn't fault, with a size in inches beside its centimetres (Astra's read).
   const other = Object.keys(vi.sections).find(k => k !== 'habitat:seriouslyfish' && !k.startsWith('references'))!
   vi.sections[other] = '<p>Kích thước trưởng thành: 6 inch/15 cm.</p>'
   await writeFile(file, JSON.stringify(vi, null, 2))
-  const llm = fakeLlm(vi => vi.replace('bạn có thể dùng cành dẻ gai (beech) thông thường', 'bạn có thể dùng cành cây gỗ cứng dài 12 inch thông thường'), 0.9)
-  const r = await fitRewrite(root, [p], reading(p, beech), { llm: llm.llm, now: () => new Date('2026-11-13T09:00:00Z') }, { limit: 5 })
+  const llm = fakeLlm(vi => vi.replace('dẻ gai (beech) ', ''), 0.9)
+  const r = await fitRewrite(root, [q], reading(q, inch), { llm: llm.llm, now: () => new Date('2026-11-13T09:00:00Z') }, { limit: 5 })
   expect(r.rewritten).toHaveLength(1)
   const saved = JSON.parse(await readFile(file, 'utf8'))
   expect(saved.sections[other]).toBe('<p>Kích thước trưởng thành: 6 inch/15 cm.</p>')
   expect(said(saved.sections['habitat:seriouslyfish'])[5]).not.toMatch(/inch/)
+  expect(said(saved.sections['habitat:seriouslyfish'])[5]).toMatch(/dùng cành dài 30 cm thông thường/)
 })
 
 test('a sentence beside the changed one changes too only when the writer says why; one further off never does', async () => {
   const root = await content()
   const { p, file, beech } = await tetra(root)
-  const llm = fakeLlm(vi => vi.replace('bạn có thể dùng cành dẻ gai (beech) thông thường', 'bạn có thể dùng cành cây gỗ cứng thông thường'), 0.9, { every: { why: 'its subject changed' } })
+  const llm = fakeLlm(vi => vi.replace('dẻ gai (beech) ', ''), 0.9, { every: { why: 'its subject changed' } })
   await fitRewrite(root, [p], reading(p, beech), { llm: llm.llm, now: () => new Date('2026-11-13T09:00:00Z') }, { limit: 5 })
   const before = said(TETRA_VI)
   const after = said(JSON.parse(await readFile(file, 'utf8')).sections['habitat:seriouslyfish'])
@@ -325,7 +331,7 @@ const notesLlm = (o: { figures?: (vi: string) => string; other?: (vi: string) =>
     if ((schema as { required: string[] }).required.includes('sentences')) {
       prompts.push({ kind: 'rewrite', prompt })
       const told = prompt.includes('Write exactly these figures')
-      const fix = told ? (o.figures ?? ((vi: string) => vi.replace('132 lít', '130 lít').replace('110 lít', '120 lít'))) : (o.other ?? ((vi: string) => vi.replace('Một người chơi ở Anh kể rằng', 'Theo một nguồn,')))
+      const fix = told ? (o.figures ?? ((vi: string) => vi.replace('132 lít', '130 lít').replace('110 lít', '120 lít'))) : (o.other ?? ((vi: string) => vi.replace(' ở Anh', '')))
       const part = new Map([...prompt.split('--- PART ---\n')[1]!.split('\n\n')[0]!.matchAll(/^\[(\d+)\] (.*)$/gm)].map(m => [Number(m[1]), m[2]!]))
       const asked = [...prompt.split('--- FIX ---\n')[1]!.matchAll(/^\[(\d+)\]/gm)].map(m => Number(m[1]))
       return { sentences: [...part].filter(([n]) => asked.includes(n)).map(([n, vi]) => ({ n, vi: fix(vi) })) }
@@ -569,7 +575,7 @@ test('a breed page\'s units are mended, in an FAQ answer too, after the part\'s 
   const r = await fitRewrite(root, [p], state, { llm, now: () => new Date('2026-11-12T12:00:00Z') }, { limit: 5 })
   expect(r.rewritten).toEqual(['vi/breeds/pigeon-blood-discus body (0.90)', 'vi/breeds/pigeon-blood-discus body units (0.90)', 'vi/breeds/pigeon-blood-discus faq.0.a (0.90)'])
   const t = JSON.parse(await readFile(file, 'utf8'))
-  expect(t.body).toContain('<p>Theo một nguồn, cá cần nhiều chỗ. Một nguồn coi 130 lít là mức tối thiểu cho một con lớn.</p>')
+  expect(t.body).toContain('<p>Một người chơi kể rằng cá cần nhiều chỗ. Một nguồn coi 130 lít là mức tối thiểu cho một con lớn.</p>')
   expect(t.faq[0].a).toBe('Cá con có thể bắt đầu trong bể 120 lít.')
   // The rewriter is told each figure, a per-fish allowance isn't a dose, and its reviewer is told the same.
   const [, units, faqRewrite] = prompts.filter(x => x.kind === 'rewrite')
@@ -583,27 +589,27 @@ test('a breed page\'s units quote the other mend reworded is found again by its 
   // The other finding quotes both sentences, so its mend (mend.ts: only the sentences a finding quotes) rewords the tank's.
   const both = 'Một người chơi ở Anh kể rằng cá cần nhiều chỗ. Một nguồn coi 132 lít là mức tối thiểu cho một con lớn.'
   const { root, file, p, source, tank } = await breed()
-  const { llm, prompts } = notesLlm({ other: vi => vi.replace('Một người chơi ở Anh kể rằng', 'Theo một nguồn,').replace('Một nguồn coi 132 lít', 'Có nguồn xem 132 lít') })
+  const { llm, prompts } = notesLlm({ other: vi => vi.replace(' ở Anh', '').replace(' cho một con lớn', '') })
   const r = await fitRewrite(root, [p], reading(p, [{ ...source, quote: both }, tank]), { llm, now: () => new Date('2026-11-12T12:00:00Z') }, { limit: 5 })
   expect(r.rewritten).toEqual(['vi/breeds/pigeon-blood-discus body (0.90)', 'vi/breeds/pigeon-blood-discus body units (0.90)'])
-  expect(JSON.parse(await readFile(file, 'utf8')).body).toContain('Theo một nguồn, cá cần nhiều chỗ. Có nguồn xem 130 lít là mức tối thiểu cho một con lớn.')
+  expect(JSON.parse(await readFile(file, 'utf8')).body).toContain('Một người chơi kể rằng cá cần nhiều chỗ. Một nguồn coi 130 lít là mức tối thiểu.')
   // The units pass mends the tank's sentence as the other mend left it.
   const units = prompts.filter(x => x.kind === 'rewrite')[1]!.prompt
-  expect(units).toContain('] Có nguồn xem 132 lít là mức tối thiểu cho một con lớn.')
+  expect(units).toContain('] Một nguồn coi 132 lít là mức tối thiểu.')
   expect(units.split('--- FIX ---\n')[1]).toContain('Write exactly these figures: "132 lít" → "130 lít"')
   // The reviewer holds the guard too, not the figures alone.
   expect(prompts.filter(x => x.kind === 'review')[1]!.prompt).toContain('a minimum never more than a twentieth under it')
 
   // A spare tank of the same size: in another paragraph it stays, the minimum found in its own; in the same one, which is which is for a person.
-  const reword = { other: (vi: string) => vi.replace('Một người chơi ở Anh kể rằng', 'Theo một nguồn,').replace('Một nguồn coi 132 lít', 'Có nguồn xem 132 lít') }
+  const reword = { other: (vi: string) => vi.replace(' ở Anh', '').replace(' cho một con lớn', '') }
   const apart = await breed({ body: '<p>Bể dự phòng có 132 lít nước.</p><p>Một người chơi ở Anh kể rằng cá cần nhiều chỗ. Một nguồn coi 132 lít là mức tối thiểu cho một con lớn.</p>' })
   await fitRewrite(apart.root, [apart.p], reading(apart.p, [{ ...apart.source, quote: both }, apart.tank]), { llm: notesLlm(reword).llm, now: () => new Date('2026-11-12T12:00:00Z') }, { limit: 5 })
-  expect(JSON.parse(await readFile(apart.file, 'utf8')).body).toContain('<p>Bể dự phòng có 132 lít nước.</p><p>Theo một nguồn, cá cần nhiều chỗ. Có nguồn xem 130 lít là mức tối thiểu cho một con lớn.</p>')
+  expect(JSON.parse(await readFile(apart.file, 'utf8')).body).toContain('<p>Bể dự phòng có 132 lít nước.</p><p>Một người chơi kể rằng cá cần nhiều chỗ. Một nguồn coi 130 lít là mức tối thiểu.</p>')
   const together = await breed({ body: '<p>Bể dự phòng có 132 lít nước. Một người chơi ở Anh kể rằng cá cần nhiều chỗ. Một nguồn coi 132 lít là mức tối thiểu cho một con lớn.</p>' })
   const t2 = await fitRewrite(together.root, [together.p], reading(together.p, [{ ...together.source, quote: both }, together.tank]), { llm: notesLlm(reword).llm, now: () => new Date('2026-11-12T12:00:00Z') }, { limit: 5 })
   expect(t2.rewritten).toEqual(['vi/breeds/pigeon-blood-discus body (0.90)'])
   expect(t2.skipped).toContain('vi/breeds/pigeon-blood-discus body units: the other mend reworded it, and its figure can\'t be told apart ("Một nguồn coi 132 lít là mức tối thiểu cho một con lớn.")')
-  expect(JSON.parse(await readFile(together.file, 'utf8')).body).toContain('Bể dự phòng có 132 lít nước. Theo một nguồn, cá cần nhiều chỗ. Có nguồn xem 132 lít')
+  expect(JSON.parse(await readFile(together.file, 'utf8')).body).toContain('Bể dự phòng có 132 lít nước. Một người chơi kể rằng cá cần nhiều chỗ. Một nguồn coi 132 lít là mức tối thiểu.')
 
   const dose = await breed({ faq: 'Khi cá bệnh, dùng 1 ml thuốc trong 38 lít nước.', faqQuote: '38 lít nước' })
   const none = notesLlm()
@@ -731,7 +737,7 @@ test('a breed page\'s units rewrite that names another figure isn\'t kept, and t
   const r = await fitRewrite(root, [p], reading(p, [source, tank]), { llm, now: () => new Date('2026-11-12T12:00:00Z') }, { limit: 5 })
   expect(r.rewritten).toEqual(['vi/breeds/pigeon-blood-discus body (0.90)'])
   expect(r.notKept).toEqual(['vi/breeds/pigeon-blood-discus body (0.90: the figures as keepers say them aren\'t there: 130 lít)'])
-  expect(JSON.parse(await readFile(file, 'utf8')).body).toContain('Theo một nguồn, cá cần nhiều chỗ. Một nguồn coi 132 lít')
+  expect(JSON.parse(await readFile(file, 'utf8')).body).toContain('Một người chơi kể rằng cá cần nhiều chỗ. Một nguồn coi 132 lít')
 })
 for (const kind of ['species', 'guides']) test(`admission stops a ${kind} rewrite before calls, content writes or retry records`, async () => {
   const root = await content()
@@ -758,4 +764,55 @@ for (const kind of ['species', 'guides']) test(`admission stops a ${kind} rewrit
     nameStep(undefined)
     await rm(root, { recursive: true, force: true })
   }
+})
+
+// The chief of staff, 14 Nov 2026: "A part left with one line, or with only what a dealer's list gave it, is dropped, not
+// kept" (the angelfish's quick facts, down to "Xuất xứ: Brazil").
+test('a part a cut leaves with one line goes off the page in every language when its heading has another source\'s text; with none, it isn\'t kept', async () => {
+  const root = await content()
+  const dir = join(root, 'content/species', ID)
+  const p = await danio(root)
+  await writeFile(join(dir, 'id.json'), JSON.stringify({ sections: { 'quickFacts:sprucepets': '<ul><li>Akuarium minimal: 8 liter</li><li>Pakan: omnivora</li></ul>', 'habitat:seriouslyfish': '<p>Kolam.</p>' } }, null, 2))
+  const stock = { check: 'source' as const, part: part(p, 'sections.quickFacts:sprucepets'), quote: 'Bể tối thiểu: 8 lít', why: 'a dealer\'s list' }
+  const r = await fitRewrite(root, [p], reading(p, [stock]), { llm: fakeLlm(vi => (vi.includes('Bể tối thiểu') ? '' : vi), 0.9).llm, now: () => new Date('2026-11-14T09:00:00Z') }, { limit: 5 })
+  expect(r.rewritten).toEqual(['vi/species/danio-margaritatus sections.quickFacts:sprucepets off the page (one line left)'])
+  const entity = JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8'))
+  expect(entity.sections.map((s: { key: string; source: string }) => `${s.key}:${s.source}`)).not.toContain('quickFacts:sprucepets')
+  expect(entity.sections.map((s: { key: string; source: string }) => `${s.key}:${s.source}`)).toContain('quickFacts:seriouslyfish')
+  expect(Object.keys(JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8')).sections)).not.toContain('quickFacts:sprucepets')
+  expect(JSON.parse(await readFile(join(dir, 'id.json'), 'utf8')).sections).toEqual({ 'habitat:seriouslyfish': '<p>Kolam.</p>' })
+
+  // A heading with no other source's text: the part stays as it was.
+  const lone = await content()
+  const file = join(lone, 'content/species', ID, 'vi.json')
+  const vi = JSON.parse(await readFile(file, 'utf8'))
+  vi.sections['habitat:seriouslyfish'] = '<p>Ao cạn nhiều cỏ ở cao nguyên Shan, Myanmar. Một cửa hàng ở Đức có bán.</p>'
+  await writeFile(file, JSON.stringify(vi, null, 2))
+  const q = await danio(lone)
+  const before = await readFile(file, 'utf8')
+  const shop = { check: 'shop' as const, part: part(q, 'sections.habitat:seriouslyfish'), quote: 'Một cửa hàng ở Đức có bán.', why: 'a shop' }
+  const s = await fitRewrite(lone, [q], reading(q, [shop]), { llm: fakeLlm(vi => (vi.includes('cửa hàng') ? '' : vi), 0.9).llm, now: () => new Date() }, { limit: 5 })
+  expect(s.notKept).toEqual(['vi/species/danio-margaritatus sections.habitat:seriouslyfish (0.90: one line would be left, and it\'s its heading\'s only text: for the chief of staff)'])
+  expect(await readFile(file, 'utf8')).toBe(before)
+})
+
+// The lane's guides (fit-front.ts): no reader has read them, so they're cut sentence by sentence, not written whole.
+test('a guide in the lane is mended sentence by sentence, not written whole from its facts', async () => {
+  const root = await content()
+  // The fixture's guide source shown, as content() shows its fish sources.
+  const sourcesFile = join(root, 'content/sources.json')
+  const sources = JSON.parse(await readFile(sourcesFile, 'utf8')) as Record<string, object>
+  Object.assign(sources.aquariumcoop!, { publish: true, permission: { date: '2026-11-08', file: 'test', scope: ['text'] } })
+  await writeFile(sourcesFile, JSON.stringify(sources))
+  const file = join(root, 'content/guides/loc-cho-be-nano/vi.json')
+  const t = JSON.parse(await readFile(file, 'utf8'))
+  t.body = '<p>Lọc bio (lọc vi sinh bằng mút) rẻ, an toàn cho tép con và đủ cho bể dưới 40 lít. Một cửa hàng ở Mỹ bán loại này giá 5 đô la, rất đáng tiền.</p>'
+  await writeFile(file, JSON.stringify(t, null, 2))
+  const g = (await loadPages(join(root, 'content'), ['vi'])).find(x => x.id === 'loc-cho-be-nano')!
+  const price = { check: 'price' as const, part: part(g, 'body'), quote: 'Một cửa hàng ở Mỹ bán loại này giá 5 đô la, rất đáng tiền.', why: 'a US shop and price' }
+  const lane = fakeLlm(vi => vi.replace('Một cửa hàng ở Mỹ bán loại này giá 5 đô la, rất đáng tiền.', ''), 0.9)
+  const r = await fitRewrite(root, [g], reading(g, [price]), { llm: lane.llm, now: () => new Date() }, { limit: 5, mend: new Set([fitKey(g)]) })
+  expect(r.rewritten).toEqual(['vi/guides/loc-cho-be-nano body (0.90)'])
+  expect(lane.calls).toEqual(['rewrite', 'review'])
+  expect(JSON.parse(await readFile(file, 'utf8')).body).toBe('<p>Lọc bio (lọc vi sinh bằng mút) rẻ, an toàn cho tép con và đủ cho bể dưới 40 lít.</p>')
 })
