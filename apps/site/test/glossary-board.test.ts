@@ -15,6 +15,9 @@ test('a related term reads as its tip begins: its meaning to the first full stop
   expect(tipLine(th, 'แทนนิน')).toBe('สารประกอบธรรมชาติที่ปล่อยออกมาจากใบไม้แห้ง ขอนไม้ และเปลือกไม้…')
   const kh = 'ปริมาณคาร์บอเนตและไบคาร์บอเนตในน้ำ ซึ่งเป็นตัวกำหนดความสามารถในการบัฟเฟอร์ (รักษาค่า pH ให้คงที่) KH ต่ำทำให้ค่า pH แกว่ง'
   expect(tipLine(kh, 'ความกระด้างคาร์บอเนต (KH)')).toBe('ปริมาณคาร์บอเนตและไบคาร์บอเนตในน้ำ…')
+  // Never at a space beside a figure, or before "ๆ": both sit inside a phrase.
+  expect(tipLine('มาตรวัดความเป็นกรด–ด่างของน้ำ มีค่าตั้งแต่ 0 ถึง 14 โดย 7 คือเป็นกลาง ต่ำกว่า 7 เป็นกรด และสูงกว่า 7 เป็นด่าง', 'ค่า pH')).toBe('มาตรวัดความเป็นกรด–ด่างของน้ำ…')
+  expect(tipLine(`ปลา ${'ก'.repeat(56)} ๆ ${'ข'.repeat(20)}`)).toBe('ปลา…')
   // Vowel and tone marks take no width; with no space in its room, a line is cut at the room.
   expect(tipLine('ก'.repeat(TIP_ROOM + 5))).toBe(`${'ก'.repeat(TIP_ROOM - 3)}…`)
   expect(tipLine('กิ'.repeat(30), 'ก')).toBe('กิ'.repeat(30))

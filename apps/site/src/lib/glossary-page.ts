@@ -167,7 +167,8 @@ export function usedRows<G, U>(p: { guides: G[]; fish: U[]; plants: U[]; total: 
  * writes no full stops, and its spaces part list items as well as sentences (Grok's read, 15 Nov 2026): a meaning with no
  * stop ends at its last space where the name, ": ", the line and "…" fit in TIP_ROOM letters, two lines on a phone (the
  * Design Lead, 15 Nov 2026: 120 characters ran to three at 428 px, which holds about 37 Thai letters a line); a shorter one
- * is its whole line. A letter is what takes width: Thai's vowel and tone marks above and below one take none.
+ * is its whole line. A letter is what takes width: Thai's vowel and tone marks above and below one take none. A space next
+ * to a figure ("ตั้งแต่ 0 ถึง 14 โดย 7 คือเป็นกลาง") or before "ๆ" (a word said twice) sits inside a phrase: no cut there.
  */
 export const TIP_ROOM = 64
 const width = (s: string) => s.replace(/\p{Mn}/gu, '').length
@@ -177,7 +178,7 @@ export const tipLine = (definition: string, name = '') => {
   const room = TIP_ROOM - width(`${name}: …`)
   if (width(d) <= room + 1) return d
   let cut = -1
-  for (let i = d.indexOf(' '); i > 0 && width(d.slice(0, i)) <= room; i = d.indexOf(' ', i + 1)) cut = i
+  for (let i = d.indexOf(' '); i > 0 && width(d.slice(0, i)) <= room; i = d.indexOf(' ', i + 1)) if (!/\d/.test(d[i - 1]!) && !/[\dๆ]/.test(d[i + 1] ?? '')) cut = i
   if (cut < 0) for (cut = 0; cut < d.length && width(d.slice(0, cut + 1)) <= room; cut++);
   return `${d.slice(0, cut).trimEnd()}…`
 }
