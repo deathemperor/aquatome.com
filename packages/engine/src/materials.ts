@@ -115,20 +115,31 @@ const prompt = (a: MaterialAsk, parent?: string) => WRITE.replace('{{PARENT_LINE
   ? `Trang này là một loại ${parent.toLowerCase()}: câu đầu nói ${a.name} là loại ${parent.toLowerCase()} gì, theo dữ kiện.`
   : `Đây là trang chung: câu đầu nói ${a.name.toLowerCase()} là gì.`)
 
+/** A number that starts and ends with a digit, so "ngày 7, đồng thời" is not "7, đồng". */
+const N = String.raw`(?<![\p{L}\d])\d(?:[\d.,]*\d)?`
+const END = String.raw`(?![\p{L}\d])`
 /**
- * A price in Vietnamese money, in the text a reader sees: "150.000 ₫", "150.000 đồng", "200 nghìn đồng", "150k", "giá 90".
- * Not a quantity: "2 triệu năm", "6500 K", "10 đến 14 ngày", "5 kg", "giá thể 2 lớp". The pilot's pages give none.
+ * A price in Vietnamese money, in the text a reader sees: "150.000 ₫", "150.000 đồng", "200 nghìn đồng", "mỗi khúc 200
+ * nghìn", "1,5 triệu", "150k", "150K/khúc", "giá từ 90", "giá bán: 150.000". Not a quantity or another word: "2 triệu
+ * năm", "6500 K", "10 đến 14 ngày", "5 kg", "giá thể 2 lớp", "giá trị pH 6,5", "đồng thời", "đánh giá 2 khúc". The
+ * pilot's pages give none.
  */
 const PRICE = [
-  /\d[\d.,]*\s*(?:₫|vnđ|vnd|đồng|đ)(?![\p{L}])/iu,
-  /\d[\d.,]*\s*(?:nghìn|ngàn|triệu)\s*(?:₫|đồng|đ)(?![\p{L}])/iu,
-  /\d[\d.,]*\s*k(?![\p{L}\d])/u,
-  /(?<![\p{L}])giá\s+(?:(?:chỉ|từ|khoảng|tầm|chừng)\s+)?\d/iu,
+  new RegExp(String.raw`${N}\s*(?:₫|vnđ|vnd|đồng|đ)${END}(?!\s+(?:thời|nghĩa|đều|loạt|bộ|màu|dạng|nhất|hồ|ý|cỏ|ruộng|bằng)${END})`, 'iu'),
+  // "nghìn", "triệu" as money: a sign, "một" or "mỗi" after it, or nothing ("mỗi khúc 200 nghìn."), not a noun ("năm").
+  new RegExp(String.raw`${N}\s*(?:nghìn|ngàn|triệu|tỷ|tỉ)(?=\s*(?:$|[.,;:!?)/\n]|(?:₫|vnđ|vnd|đồng|đ|một|mỗi)${END}))`, 'iu'),
+  new RegExp(String.raw`${N}\s*k${END}`, 'u'),
+  // A capital K after three digits at most: a lamp's 6500 K is a colour.
+  new RegExp(String.raw`(?<![\p{L}\d.,])\d{1,3}\s*K${END}`, 'u'),
+  new RegExp(String.raw`(?<![\p{L}])(?<!đánh\s+)giá(?:\s+(?:bán|chỉ|từ|khoảng|tầm|chừng|lẻ|sỉ|mua|niêm yết|tham khảo|dao động|rơi vào))*\s*:?\s*\d`, 'iu'),
 ]
 const chars = (s: string) => [...s.normalize('NFC')].length
 const visible = (html: string) => unescapePlain(html.replace(/<[^>]*>/g, ' ')).replace(/\s+/g, ' ').trim()
+/** A tag or a comment, not a comparison: "<" then a letter, "/" or "!" ("pH < 7" stays). A block's edge leaves a space. */
+const TAG = /<!--[\s\S]*?-->|<\/?[a-z][^<>]*>/gi
+const untag = (s: string) => s.replace(TAG, t => (/^<\/?(?:p|br|div|li|ul|ol|h\d)\b/i.test(t) ? ' ' : ''))
 /** A summary line or a question as the page shows it: plain text, entities undone, no markup and no source's mark. */
-const plain = (s: string) => unescapePlain(unescapePlain(s ?? '').replace(/<[^>]*>/g, '')).replace(/\s*\[\d+\]/g, '').replace(/\s+/g, ' ').trim()
+const plain = (s: string) => untag(unescapePlain(s ?? '')).replace(/\s*\[\d+\]/g, '').replace(/\s+/g, ' ').trim()
 
 /**
  * A draft as it will be saved, which is what is checked, read and saved: its summary and questions plain, each part
@@ -165,7 +176,7 @@ export function formNotes(w: Written, sourceCount: number): string[] {
     if (!/\[\d+\]/.test(html)) notes.push(`${k}: cites no source`)
     if (/<(?:h\d|a)[\s>]/i.test(html)) notes.push(`${k}: has a heading or a link`)
   }
-  const text = [...summary, ...parts.map(k => visible(w.sections[k]!)), ...(w.faq ?? []).flatMap(f => [f.q, f.a])].join('\n')
+  const text = [...summary, ...parts.map(k => visible(w.sections[k]!)), ...(w.faq ?? []).flatMap(f => [f.q, f.a])].join('\n').replace(/\s*\[\d+\]/g, '').normalize('NFC')
   const price = PRICE.map(r => text.match(r)?.[0]).find(Boolean)
   if (price) notes.push(`a price ("${price}"): the page gives none`)
   return notes
