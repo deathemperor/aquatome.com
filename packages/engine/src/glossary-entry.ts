@@ -364,6 +364,7 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
       review.notes = [...m.stops.map(stopNote), ...m.log, ...review.notes, ...over]
       review.stops = stopping(review) + m.stops.length + over.length
       review.broken += over.length
+      if (m.score !== undefined) review.score = m.score
     }
     // Kept for a reader to judge (the chief of staff, 14 Nov 2026): the draft that came closest, and why it wasn't saved.
     // A revision that came no closer leaves the draft it revised as it was.

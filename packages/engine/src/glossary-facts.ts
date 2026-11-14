@@ -17,8 +17,11 @@ export type Verdict = 'supported' | 'loose' | 'unsupported' | 'contradicts' | 'n
  */
 export type Sentence = { text: string; block: string; heading?: string; item?: string }
 type Read = { verdict: Verdict; why?: string }
-/** A sentence the reads call loose, unsupported or contradicted, with what they said. */
-export type Flagged = Sentence & { verdicts: Verdict[]; why: string[]; unjudged?: true }
+/**
+ * A sentence the reads call loose, unsupported or contradicted, with what they said. `unjudged`: how many reads it had, when
+ * too few gave it a verdict. `unscored`: a stop on a sentence most reads call "not a claim", which the score leaves out.
+ */
+export type Flagged = Sentence & { verdicts: Verdict[]; why: string[]; unjudged?: number; unscored?: true }
 export type FactCheck = {
   /** The share of its claims (sentences most reads don't call "not a claim") no stop falls on. */
   score: number
@@ -26,6 +29,8 @@ export type FactCheck = {
   stops: Flagged[]
   /** Two reads of three call it loose and it doesn't stop: advice, for the middle path. */
   loose: Flagged[]
+  /** How many sentences the score counts as claims. */
+  claims: number
 }
 
 const plain = (html: string) => unescapePlain(html.replace(/<[^>]+>/g, '')).replace(/\s+/g, ' ').trim()
@@ -107,31 +112,34 @@ const flagged = (s: Sentence, rs: (Read | null)[]): Flagged => ({ ...s, verdicts
  */
 export async function checkSentences(llm: Llm, facts: object, e: { definition: string; body: string }): Promise<FactCheck> {
   const list = sentences(e)
-  if (!list.length) return { score: 1, stops: [], loose: [] }
+  if (!list.length) return { score: 1, claims: 0, stops: [], loose: [] }
   const reads = await readAll(llm, facts, numbered(list), list.length)
   const stops: Flagged[] = []
   const loose: Flagged[] = []
   let [claims, stopped] = [0, 0]
   for (const [i, s] of list.entries()) {
     const rs = reads[i]!
-    if (rs.filter(Boolean).length < 2) { claims++; stopped++; stops.push({ ...flagged(s, rs), unjudged: true }); continue }
+    if (rs.filter(Boolean).length < 2) { claims++; stopped++; stops.push({ ...flagged(s, rs), unjudged: rs.length }); continue }
     const claim = count(rs, NOT_A_CLAIM) < 2
     if (claim) claims++
     let all = count(rs, STOP) >= 2 ? rs : null
     if (!all && count(rs, STOP) === 1) {
       const again: (Read | null)[] = []
       for (let k = 0; k < 3; k++) again.push(asRead(await llm<{ verdict?: string; why?: string }>({ system: SYSTEM, schema: SINGLE, prompt: `${ONE}\n\nFACTS:\n${JSON.stringify(facts)}\n\nHEADING:\n${under(s) || '(the definition)'}\n\nPARAGRAPH:\n${s.block}\n\nSENTENCE:\n${s.text}` })))
+      // Re-reads too few of which give a verdict don't settle it: it stops, unjudged (Codex, 14 Nov 2026).
+      if (again.filter(Boolean).length < 2) { stops.push({ ...flagged(s, [...rs, ...again]), unjudged: 6, ...(claim ? {} : { unscored: true as const }) }); if (claim) stopped++; continue }
       if (count(again, STOP) >= 2) all = [...rs, ...again]
     }
-    if (all) { stops.push(flagged(s, all)); if (claim) stopped++; continue }
+    if (all) { stops.push({ ...flagged(s, all), ...(claim ? {} : { unscored: true as const }) }); if (claim) stopped++; continue }
     if (count(rs, LOOSE) >= 2) loose.push(flagged(s, rs))
   }
-  return { score: claims ? Math.round(((claims - stopped) / claims) * 100) / 100 : 1, stops, loose }
+  return { score: scoreOf(claims, stopped), claims, stops, loose }
 }
+const scoreOf = (claims: number, stopped: number) => (claims ? Math.round(((claims - stopped) / claims) * 100) / 100 : 1)
 
 /** A stop as a note for the rewrite and the log: the sentence, how the reads judged it, and why. */
 export const stopNote = (s: Flagged) => s.unjudged
-  ? `"${s.text}": the reads left it unjudged (${s.verdicts.length} of 3 gave a verdict)`
+  ? `"${s.text}": the reads left it unjudged (${s.verdicts.length} of ${s.unjudged} gave a verdict)`
   : `"${s.text}": the facts don't carry it (${s.verdicts.join(', ')}): ${[...new Set(s.why)].join(' / ') || 'no reason given'}`
 
 const REWORD = `Dưới đây là DỮ KIỆN (JSON) đã thu thập về một thuật ngữ cá cảnh, và vài CÂU trong mục thuật ngữ tiếng Việt viết từ đó, mỗi câu trong đoạn của nó, kèm lý do người kiểm tra cho là câu ấy nói rộng hơn, mạnh hơn hoặc gộp hơn dữ kiện. Viết lại từng câu cho đúng điều dữ kiện ghi: giữ ý và giọng văn, vừa với đoạn, chỉ nói điều dữ kiện chịu được. Không thêm ý mới. Không thêm câu hay vế nói các nguồn khác nhau, và không rào đón ("có nguồn cho rằng", "nhiều nguồn", "có tiệm ghi"): nói thẳng điều dữ kiện chịu được, hẹp lại nếu cần. Trả lời {"sentences": [{"n": 1, "text": "..."}]}, mỗi câu một mục, theo thứ tự.`
@@ -156,14 +164,15 @@ function placed<E extends { definition: string; body: string }>(e: E, text: stri
  * times, as the first check read it: a sentence's verdict moves with what stands around it (Codex, 14 Nov 2026), so the
  * text that ships is the text judged. A new wording that read stops goes back to the old one, logged for the reader;
  * one still loose stays, logged. Any other sentence that read stops is returned in `stops`, and the entry isn't saved. No
- * loop. A sentence written across tags (a bold kind's name, a link) can't be placed and is logged as it was.
+ * loop. A sentence written across tags (a bold kind's name, a link) can't be placed and is logged as it was. When the
+ * entry was read again, `score` is the score of the entry as returned (Codex, 14 Nov 2026: the first check's was kept).
  *
  * A sentence is known by where it stands, never by its text alone (Codex, 14 Nov 2026: a rewording that matched the
  * definition word for word took the definition's stop away with it). So a loose sentence is placed only when it stands
  * once in the entry, and its new wording only when that wording stood nowhere before and the entry then reads as it did
  * but for that one sentence, which stands once: the final read's verdict on it is its own, and going back finds it.
  */
-export async function rewordLoose<E extends { definition: string; body: string }>(llm: Llm, model: string, facts: object, e: E, loose: Flagged[]): Promise<{ entry: E; log: string[]; stops: Flagged[] }> {
+export async function rewordLoose<E extends { definition: string; body: string }>(llm: Llm, model: string, facts: object, e: E, loose: Flagged[]): Promise<{ entry: E; log: string[]; stops: Flagged[]; score?: number }> {
   const log: string[] = []
   const texts = sentences(e).map(s => s.text)
   const here = loose.filter(s => (occurrences(e, s.text) === 1 && texts.filter(t => t === s.text).length === 1 && placed(e, s.text)) || (log.push(`Loose, left as written (not placeable): "${s.text}"`), false))
@@ -190,5 +199,7 @@ export async function rewordLoose<E extends { definition: string; body: string }
       log.push(`Loose, rewording read as unsupported, old wording kept for the reader: "${x.s.text}" (not "${x.to}": ${verdictsOf(x.to)})`)
     } else log.push(`${final.loose.some(f => f.text === x.to) ? 'Loose, reworded and still loose' : 'Loose, reworded'}: "${x.s.text}" → "${x.to}" (${verdictsOf(x.to)})`)
   }
-  return { entry, log, stops: final.stops.filter(f => !changed.some(x => x.to === f.text)) }
+  const stops = final.stops.filter(f => !changed.some(x => x.to === f.text))
+  // The score of the entry as saved: a reworded sentence that stopped is back in its old wording, which read loose.
+  return { entry, log, stops, score: scoreOf(final.claims, stops.filter(f => !f.unscored).length) }
 }

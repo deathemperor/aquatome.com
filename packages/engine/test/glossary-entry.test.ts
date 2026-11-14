@@ -524,6 +524,8 @@ test('a sentence the whole entry\'s final read stops after the rewording keeps i
   expect((r as { notes: string[] }).notes[0]).toBe(`"${written.definition}": the facts don't carry it (unsupported, unsupported, supported): y`)
   expect(await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8')).toBe(before)
   expect(JSON.parse(await readFile(draftPath(root), 'utf8')).entry.body).toContain('Ngâm lũa mới khoảng 1–2 tuần.')
+  // The draft's score is the entry's as kept, after the final read (Codex, 14 Nov 2026: the first check's 1 was kept).
+  expect(JSON.parse(await readFile(draftPath(root), 'utf8')).score).toBe(0.67)
 })
 
 // Codex, 14 Nov 2026: a rewording that ran the entry past its cap was saved, since its length wasn't counted again.

@@ -94,6 +94,11 @@ test('a read that leaves a sentence out, or gives a verdict not on the list, giv
   }
   const r = await checkSentences(llm, facts, entry)
   expect(r.stops.map(stopNote)).toEqual(['"Nên thả lá từ từ rồi đo pH.": the reads left it unjudged (1 of 3 gave a verdict)'])
+  // Re-reads that give no verdict leave a lone stop unsettled: it stops too (Codex, 14 Nov 2026).
+  const lone = model([{ 'Lá bàng làm pH xuống.': 'unsupported: x' }, {}, {}], ['', '', ''])
+  const unsettled = await checkSentences(lone.llm, facts, entry)
+  expect(unsettled.stops.map(stopNote)).toEqual(['"Lá bàng làm pH xuống.": the reads left it unjudged (3 of 6 gave a verdict)'])
+  expect(unsettled.score).toBe(0.83)
   expect(r).toMatchObject({ score: 0.83, loose: [] })
   const none: Llm = async () => ({}) as never
   const blank = await checkSentences(none, facts, entry)
@@ -128,6 +133,7 @@ test('the middle path rewords loose sentences once, no hedge, then reads the who
   expect(r.entry.body).toBe('<h3>Trong bể</h3><p>Lá bàng làm pH xuống chút ít. Nên thả lá từ từ rồi đo pH.</p><ul><li><strong>Làm pH lên:</strong> san hô.</li></ul>')
   expect(r.entry.definition).toBe(entry.definition)
   expect(r.stops).toEqual([])
+  expect(r.score).toBe(1)
   expect(r.log).toEqual([
     'Loose, left as written (not placeable): "Làm pH lên: san hô."',
     'Loose, reworded: "Lá bàng làm pH xuống." → "Lá bàng làm pH xuống chút ít." (supported)',
@@ -135,7 +141,9 @@ test('the middle path rewords loose sentences once, no hedge, then reads the who
   ])
   // A sentence the rewording didn't touch, read as a stop in the whole entry: returned, so the entry isn't saved.
   const other = model([{ 'Nên thả lá từ từ rồi đo pH.': 'unsupported: advice' }, { 'Nên thả lá từ từ rồi đo pH.': 'unsupported: advice' }, {}], [], reword)
-  expect((await rewordLoose(other.llm, 'opus', facts, entry, loose.slice(0, 1))).stops.map(x => x.text)).toEqual(['Nên thả lá từ từ rồi đo pH.'])
+  const kept = await rewordLoose(other.llm, 'opus', facts, entry, loose.slice(0, 1))
+  expect(kept.stops.map(x => x.text)).toEqual(['Nên thả lá từ từ rồi đo pH.'])
+  expect(kept.score).toBe(0.83)
 })
 
 test('a reworded sentence in the body is written back escaped, and one still loose stays, logged; a rewording of two sentences isn\'t placed', async () => {
