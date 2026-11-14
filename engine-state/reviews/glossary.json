@@ -125,6 +125,38 @@
   ],
   "vi/glossary/ph": [
     {
+      "at": "2026-11-14T21:49:51Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (not placeable): \"Làm pH lên: san hô, đá vôi, vỏ ốc, sỏi ba màu trộn vỏ ốc, cát muối tiêu, đá trắng như đá tai mèo, sục khí mạnh, baking soda.\"",
+        "Loose, reworded: \"Bể đã ổn định thì giữ pH đều quan trọng hơn chạy theo một con số chính xác.\" → \"Bể đã ổn định thì không cần quá bận tâm đến con số pH chính xác.\" (supported)",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Trước khi set bể, đo pH nước máy hoặc nước giếng xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\" (not \"Trước khi set bể, đo pH nước máy xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\": Rule 12: \"Trước khi set bể, đo pH…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Nước nguồn pH 8 thì mới đáng chỉnh.\" (not \"Nếu nước nguồn pH 8 thì dùng axit có thể giúp được.\": Rule 12: \"Nếu nước nguồn pH 8 thì dùng axit có thể giúp được.\" Under THIS TERM, the entry must not mention acid anywhere, and this line should read \"Nước nguồn pH 8 thì mới đáng chỉnh.\" as it was. The word \"ax…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-14T21:49:51Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Nước nguồn pH 8 thì dùng axit có thể giúp được.\" brings in acid. The term line says no acid anywhere in the entry and asks for the sentence as it was: \"Nước nguồn pH 8 thì mới đáng chỉnh.\"",
+        "Rule 12: \"axit humic\" in \"Làm pH xuống: than bùn (peat), axit humic, CO2, ...\" names an acid as a way to lower pH, but the term line says no acid anywhere in this entry.",
+        "Rule 12: the definition never says that keeping pH steady matters more than the exact number. The term line asks for this in the meaning.",
+        "Rule 12: \"Có loài cá cần pH khá đúng khoảng, có loài chịu được khoảng rộng\" uses the banned \"có loài… có loài…\" pattern. It should give the examples from the facts: cá neon vua (cardinal tetra) lives in water below pH 5.5, and the Rift Lake cichlids prefer pH 8.0–9.0.",
+        "Rule 12: \"đo pH nước máy xem có hợp với loài định nuôi không\" names only tap water. The term line asks for \"nước máy hoặc nước giếng\".",
+        "Rule 12: \"Thay nước một phần đều đặn để bổ sung khoáng đệm pH\" is less specific than the facts. The term line asks for about 20–30% of the water changed weekly with treated, tested water.",
+        "Rule 12: \"Dưới 7,3 thì phần nhiều hơn của nó ở dạng amoni NH4+ ít hại hơn\" uses the banned \"phần nhiều hơn của nó\". It should read \"Dưới 7,3 thì dạng amoni NH4+ ít hại hơn chiếm nhiều hơn\".",
+        "Rule 1: \"thêm baking soda, đá vôi, san hô vụn hoặc vỏ sò\" advises coral, but the same item then warns \"San hô làm tăng cả GH và TDS, sau này khó kiểm soát\", which the facts list as a mistake. The two statements contradict each other."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-14T18:52:20Z",
       "model": "sonnet",
       "cli": "2.1.323",
@@ -180,39 +212,6 @@
       "attempt": "rewrite",
       "kept": false,
       "draft": "881b7dd4615bbdbace30e780201e4d9f92225ee59ed2de3ad64a81a5ab3d8841"
-    },
-    {
-      "at": "2026-11-14T01:18:36Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.323",
-      "score": 0.92,
-      "notes": [
-        "\"Nên thả từ từ rồi đo lại pH\" (about Indian almond leaves): the facts don't give this specific advice. It is a small generality.",
-        "\"Cá neon vua\" as the Vietnamese name for the cardinal tetra isn't in the facts. It is a minor naming addition.",
-        "Rule 6: \"tép Caridina ưa pH thấp hơn đa số con khác trong bể\" uses a name the writer made up for a group that has no line in PAGES. The FACTS write the genus as \"Caridina\", so it should be called just \"Caridina\". The FACTS also say this about bee shrimp (Caridina), but \"tép Caridina\" makes it sound like it covers the whole genus."
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-14T01:18:36Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.323",
-      "score": 0.85,
-      "notes": [
-        "\"Các tiệm ghi mức hạ khác nhau\" calls the sources shops. The facts list them as fishkeeping guides (kind \"shop\"), so this names the wrong kind of source.",
-        "Rule 11: \"Tránh phosphat vì nó nuôi rêu\" uses \"rêu\" (moss) for algae. The TERMS call algae \"tảo\", so it should read \"nuôi tảo\".",
-        "Rule 4: \"Các tiệm ghi mức hạ khác nhau: nơi nói 1–2 đơn vị, nơi nói chỉ hạ nhẹ và chậm\" says the shops disagree but doesn't tell the keeper what to do about it (for example, add the leaves slowly and test pH).",
-        "Rule 4: Indian almond leaves and driftwood lowering pH comes up twice: in the list \"Làm pH xuống: ... Lá bàng, lũa\" and again in step 4, \"Lá bàng và lũa cũng hạ pH\". It should be said in one place.",
-        "Rule 4: Peat appears twice: in the list \"than bùn (peat)\" under \"Làm pH xuống\" and again in step 4, \"Lọc qua than bùn là cách tự nhiên. Than bùn phải ngâm hoặc luộc...\". It should be said in one place.",
-        "Rule 4: Coral, limestone, shells and baking soda raising pH are listed under \"Làm pH lên: san hô, đá vôi, vỏ ốc, ... baking soda\" and repeated in step 5, \"thêm baking soda, đá vôi, san hô vụn hoặc vỏ ốc\". It should be said in one place.",
-        "Rule 4: pH falling in old tanks is said twice: \"Bể càng lâu năm, pH càng tụt dần...\" in the body and again under mistakes as \"Để pH bể cũ trôi dần xuống\".",
-        "An item is 126 words, at most about 60: \"Nếu pH cao, tìm và bỏ thứ làm pH lên ra trước. Nướ…\". Keep what it is, how it looks, whether it sinks and colours the water and what it is for."
-      ],
-      "attempt": "first",
-      "kept": false
     }
   ]
 }

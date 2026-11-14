@@ -270,7 +270,7 @@ describe('the last try', () => {
 
   test('a call still not writing with its time gone is given up for one that can only answer, with no thinking, short, and that answer stands', async () => {
     const c = silent([() => answers()])
-    const r = await runAgent(input(c.send, { clock: c.clock, effort: 'medium', lastEffort: 'low', limits, thinking: { type: 'adaptive' }, lastTry: lastTry() }))
+    const r = await runAgent(input(c.send, { clock: c.clock, effort: 'medium', lastEffort: 'low', limits, thinking: { type: 'adaptive' }, lastTry: { ...lastTry(), thinking: { type: 'disabled' } } }))
     expect(c.calls.map(x => [x.timeoutMs, x.writingMs])).toEqual([[23_500, 30_000], [6_500, 6_500]])
     expect(c.calls[0]!.body.thinking).toEqual({ type: 'adaptive' })
     const last = c.calls[1]!.body
@@ -279,6 +279,11 @@ describe('the last try', () => {
     expect(r).toMatchObject({ stopped: 'time', calls: 2 })
     expect(r.error).toBeUndefined()
     expect(r.message?.content).toEqual([{ type: 'text', text: '{"verdict":"fish","guesses":[]}' }])
+    // The switch is the model's own (Opus 5.5 refuses every one): with none given, none is sent, not the run's either.
+    const none = silent([() => answers()])
+    await runAgent(input(none.send, { clock: none.clock, limits, thinking: { type: 'adaptive' }, lastTry: lastTry() }))
+    expect(none.calls[0]!.body.thinking).toEqual({ type: 'adaptive' })
+    expect(none.calls[1]!.body).not.toHaveProperty('thinking')
   })
 
   test('a key that fails in the last second of a call\'s time counts as that time gone: rotation has no room for another', async () => {
