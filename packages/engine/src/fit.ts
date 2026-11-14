@@ -126,8 +126,12 @@ export function fitText(p: Page): { parts: { id: string; field: string; text: st
 }
 
 const WORD = (s: string) => `(?<![\\p{L}\\p{N}])(?:${s})(?![\\p{L}\\p{N}])`
-/** What a lot's own fish are like, straight after "trong lô": their size, colour, what they all are (Grok's read). */
-const LOT_SAYS = '(?:còn|dài|đều|gần như|có|chỉ|là|đang|thì|rất|khá|hơi|to|nhỏ|lớn|khác nhau|khác biệt|trông|nhìn|hầu|phần lớn|đa số|toàn|cũng|không|chưa|vẫn|dường|giống|cỡ|chừng|khoảng|tầm|được|bị|mang)'
+/**
+ * What a lot's own fish are like, straight after "trong lô": only the words the site's lines use for their size and
+ * how alike they are. A word as often the start of something else ("còn lại", "có thể", "là cá của đợt trước", "giống
+ * khác", "mang về") isn't on it (Grok's reads).
+ */
+const LOT_SAYS = '(?:dài(?! hạn)|gần như|còn (?:nhỏ|non|bé)|khác nhau|khác biệt|(?:nhỏ|lớn|to) hơn|đều khỏe|(?:cỡ|chừng|khoảng|tầm) \\d[\\d.,–-]*)'
 /**
  * After a lot or a round just in: "này", "hiện nay", what its fish are like, or the sentence's mark. Anything else may
  * be another, an earlier or a later one ("nhập về năm ngoái", "đợt tới"), so the line stays (Grok's reads).

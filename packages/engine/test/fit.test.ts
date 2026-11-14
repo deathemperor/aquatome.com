@@ -567,6 +567,24 @@ test('a dealer\'s own current batch or stock is the source check\'s; trade histo
     'Những con trong lô nhập về đã lâu không còn.',
     'Những con trong đợt mới nhập năm ngoái nhỏ hơn.',
     'Những con trong lô nhập về đợt tới nhỏ hơn.',
+    // Words as often the start of something else: a time, leftovers, a maybe, another round, a breed, brought back
+    // (Grok's fifth read).
+    'Những con trong lô nhập về khá lâu rồi.',
+    'Những con trong lô nhập về rất lâu không còn.',
+    'Những con trong lô nhập về hơi lâu rồi.',
+    'Những con trong lô nhập về được vài năm.',
+    'Những con trong lô nhập về còn lại từ năm ngoái.',
+    'Những con trong lô không phải của đợt này.',
+    'Những con trong lô chưa được nhập về.',
+    'Những con trong lô nhập về không phải hàng mới.',
+    'Những con trong lô nhập về có thể là cá của đợt trước.',
+    'Những con trong lô là cá của đợt trước.',
+    'Những con trong lô là mẫu vật bảo tàng.',
+    'Những con trong lô chỉ là cá của đợt trước.',
+    'Những con trong lô thì thuộc đợt nhập trước.',
+    'Những con trong lô cũng là cá của năm ngoái.',
+    'Đôi khi có vài con trong lô giống khác.',
+    'Những con trong lô mang về từ năm ngoái.',
   ]
   const dealer = (text: string) => fitRules(page(`<p>${text}</p>`, { kind: 'species' })).filter(f => f.check === 'source' && f.why.startsWith('a dealer'))
   for (const t of news) expect(dealer(t).length, t).toBeGreaterThan(0)
