@@ -119,7 +119,6 @@ else
   if [ -n "$(git status --porcelain -- content sources)" ]; then log "uncommitted content in this checkout: commit or drop it first"; exit 1; fi
   git checkout -q main && net git pull -q --ff-only
 fi
-cool
 # content/changelog.json gets entries from here and from the Mac's video job (video-cycle.sh): merge, don't conflict.
 git config merge.changelog.driver 'node scripts/merge-changelog.mjs %O %A %B'
 # The parts all add to the photo caches and the run records in engine-state.
@@ -182,6 +181,11 @@ if part photos; then
   # yet: 60 pages a cycle at five seconds a request, so its 152 pages take three cycles.
   pnpm engine tropica-photos --limit 60 || log "tropica-photos: failed"
 fi
+# The wait for a cooler Mac (cool) comes here, after the writing, not at the start (the chief of staff, 14 Nov). Before it:
+# kept and held work published (a build, the tests and a push, no writing) and the steps that write, whose model calls and
+# fetches are the network's, not this Mac's. After it: the Mac's own work on photos, the gate and the checks. On 13 Nov
+# the 18:10 run sat in the wait until 20:16 before it did anything.
+cool
 if part pages sf photos; then
   # No people in photos: drop any with a human face (before thumbs, so none are made for dropped photos).
   pnpm engine faces || log "faces: failed (unscreened photos may publish)"
