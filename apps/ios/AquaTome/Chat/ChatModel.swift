@@ -34,7 +34,7 @@ extension ChatRoute {
   init?(about item: HandbookIndex.Item) {
     guard [.fish, .plant].contains(item.kind), let id = item.contentId else { return nil }
     self.init(start: Chat.Start(from: .species, about: id),
-              subject: ChatSubject(plant: item.kind == .plant, name: item.name, sci: item.sub, img: item.img.flatMap(URL.init(string:)), guesses: nil, second: nil))
+              subject: ChatSubject(plant: item.kind == .plant, name: item.name, sci: item.subUnderName, img: item.img.flatMap(URL.init(string:)), guesses: nil, second: nil))
   }
 }
 

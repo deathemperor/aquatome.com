@@ -43,7 +43,8 @@ private func found(_ pattern: String, in code: [(file: String, lines: [Substring
 @Test func everyListsPhotoIsDrawnByTheFrameRule() throws {
   let code = try appCode()
   #expect(code.count > 50, "the app's code wasn't found")
-  // AsyncImage draws a photo cut to its frame, wherever the fish is: none, but the chat's header, a reader's own photo.
+  // AsyncImage draws a photo cut to its frame, wherever the fish is: none, but the chat's about card ("Về: …"), which
+  // the iOS Content Lead moves to V2Photo with the chat cards (#766, 17 Nov).
   #expect(try found(#"AsyncImage\("#, in: code, except: ["Chat/ChatView.swift"]) == [])
   // V2Photo without its box crops centred: none, but the guide navigator's marks (three 26-pt squares of a part's
   // pictures, overlapping, not a page's photo).
