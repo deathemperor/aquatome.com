@@ -37,8 +37,8 @@ test('the album step takes a priority fish first, ahead of the staples, until it
   expect(await ids(await root(checked(PRIORITY_UNTIL)))).toEqual(['betta-splendens', 'danio-rerio', 'zzz-liked'])
 })
 
-test('the count is the album row\'s or under it: each picture once, nothing the build still holds back, a breed\'s album alone', async () => {
-  // Six files of five pictures: two files of one photo.
+test('the count is under the album row\'s or equal: a picture with a copy doesn\'t count, nor anything the build still holds back, and a breed counts its album alone', async () => {
+  // Two files of one photo (hashes a bit apart): neither counts, so four.
   const r = await root(checked(PRIORITY_UNTIL))
   await writeFile(join(r, 'content/picture-hashes.json'), JSON.stringify({ [url('a0')]: 'ffffffffffffffff', [url('a1')]: 'fffffffffffffffe' }))
   expect(await priorityFish(r)).toEqual(['species/zzz-liked'])
@@ -48,7 +48,8 @@ test('the count is the album row\'s or under it: each picture once, nothing the 
   expect(await priorityFish(s)).toEqual(['species/zzz-liked'])
   await writeFile(join(s, 'engine-state/_photo-watermarks.json'), JSON.stringify(Object.fromEntries(checked(PRIORITY_UNTIL).map(p => [p.url, { ocr: [], watermark: false }]))))
   expect(await priorityFish(s)).toEqual([])
-  // A video's two thumbnails are one picture on the row, and a photo and its thumb are one, its hash stored under the photo.
+  // A video's two thumbnails are copies of one picture, and so are a photo and its thumb (its hash stored under the photo):
+  // neither copy counts.
   const yt = (q: string) => ({ ...photo('x'), url: `https://i.ytimg.com/vi/abcdefghijk/${q}.jpg`, thumb: `https://i.ytimg.com/vi/abcdefghijk/${q}.jpg` })
   const v = await root([yt('hqdefault'), yt('maxresdefault'), ...checked(PRIORITY_UNTIL - 2)])
   expect(await priorityFish(v)).toEqual(['species/zzz-liked'])

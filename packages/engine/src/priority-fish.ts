@@ -41,7 +41,7 @@ export async function readPriorityFish(root: string): Promise<Record<string, str
  * the count can fall short of the row's, never over it, and a fish never leaves the list before its row shows six photos
  * with no mark. A picture shown twice counts for neither copy: the fish stays first in line a little longer.
  */
-async function shownPictures(root: string, kind: string, id: string): Promise<number> {
+export async function shownPictures(root: string, kind: string, id: string): Promise<number> {
   const page = await readJson<{ photos?: Photo[] }>(join(root, 'content', kind, id, 'entity.json'), {})
   const album = await readJson<{ photos?: (Photo & { unchecked?: boolean })[] }>(join(root, 'content/gallery', `${id}.json`), {})
   // No screen record, nothing waits, as in a build that has none (run.ts readKeeps).
