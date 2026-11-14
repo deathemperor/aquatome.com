@@ -1030,9 +1030,13 @@ final class V2FlowTests: XCTestCase {
       card.tap()
       XCTAssertTrue(close.waitForExistence(timeout: 8), "no ✕ on the post")
       XCTAssertFalse(app.pageBack.exists, "a back button on the post")
-      // At the bar's end, after the bookmark (Design's parity, 12 Nov: it sat before it).
-      let save = app.buttons["save-for-later"].firstMatch
-      XCTAssertGreaterThan(close.frame.minX, save.frame.maxX, "the ✕ isn't after the bookmark: \(close.frame) \(save.frame)")
+      // The bar's last item, right of every other, whatever they are (Design, 14 Nov: a fish's ⋯ now, a guide's soon; its
+      // parity of 12 Nov had it before the bookmark).
+      let others = app.navigationBars.containing(.button, identifier: "v2-close-post").firstMatch.buttons.allElementsBoundByIndex
+        .filter { $0.identifier != "v2-close-post" }
+      XCTAssertFalse(others.isEmpty, "the ✕ alone on the bar")
+      XCTAssertGreaterThan(close.frame.minX, others.map { $0.frame.maxX }.max() ?? .infinity,
+                           "the ✕ isn't the bar's last item: \(close.frame) \(others.map { $0.frame })")
       XCTAssertGreaterThan(close.frame.maxX, app.frame.width - 40, "the ✕ isn't at the bar's end: \(close.frame)")
       if fish { close.tap(); XCTAssertTrue(close.waitForNonExistence(timeout: 5), "the ✕ didn't close the post"); continue }
       // Inside the story's page, its link to the neon.
@@ -1042,9 +1046,9 @@ final class V2FlowTests: XCTestCase {
       XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the link didn't open the fish inside the post")
       XCTAssertTrue(app.pageBack.waitForExistence(timeout: 5), "no back button on a page inside the post")
       XCTAssertTrue(close.exists, "no ✕ on a page inside the post")
-      // Past its colour, as the bar turns to glass, the ✕ keeps a circle of its own after the bookmark and share's capsule
-      // (Design's parity, 13 Nov: iOS drew the three in one capsule there). Just before the ✕: the capsule's end, the page
-      // and the circle's edge, not one glass all through. One glass all through: 253 at all 21 points on 27.2 (before the
+      // Past its colour, as the bar turns to glass, the ✕ keeps a circle of its own after the bar's other items (Design's
+      // parity, 13 Nov: iOS drew the bookmark, share and ✕ in one capsule there). Just before the ✕: the other items' edge,
+      // the page and the circle's edge, not one glass all through. One glass all through: 253 at all 21 points on 27.2 (before the
       // fix, 13 Nov), a spread of 0. On 26.5 in light the glass reads 247 to 248, a spread of 1, on the page's 255, so the
       // gap is a step of 8 there (GitHub's run on a21577eac, 13 Nov). More than 4 tells them apart on both.
       for _ in 0..<4 { app.swipeUp() }
