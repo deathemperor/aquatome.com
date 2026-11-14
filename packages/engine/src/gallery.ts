@@ -303,7 +303,7 @@ export function rankGallery(photos: GalleryPhoto[], cantTell: (url: string) => b
   const poor = (p: GalleryPhoto) => isPoor(p, looks(p.url))
   const back = sure.filter(p => !poor(p) && !p.unchecked).length >= SETUP_ROOM ? poor : () => false
   // Where six typical show: typical, then not judged yet, then not typical.
-  const typed = sure.filter(p => looks(p.url).typical === true).length >= SETUP_ROOM
+  const typed = sure.filter(p => !p.unchecked && looks(p.url).typical === true).length >= SETUP_ROOM
   const step = (p: GalleryPhoto) => { const t = looks(p.url).typical; return !typed || t === true ? 0 : t === undefined ? 1 : 2 }
   const front = sure.filter(p => !back(p))
   const parts = [...[0, 1, 2].map(k => front.filter(p => step(p) === k)), sure.filter(back), unsure]

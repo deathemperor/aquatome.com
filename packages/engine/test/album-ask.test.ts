@@ -4,6 +4,7 @@ import { join } from 'node:path'
 import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import { askAlbums, askSchema, type AskTile } from '../src/album-ask'
+import { nameStep } from '../src/ceiling'
 import { LlmError } from '../src/claude'
 import { albumLooks } from '../src/gallery'
 
@@ -86,4 +87,42 @@ test('the album ask: a photo passed over or not fetched is tried on one more she
   const stop = await askAlbums(r2, { get: async u => new Uint8Array(await picture(u)), ask: async () => { throw new LlmError('usage limit') } }, { sheets: 5 })
   expect(stop).toMatchObject({ sheets: 0, stopped: 'usage limit' })
   expect(Object.keys(await state(r2))).toEqual([photo(5).url])
+})
+
+test("the album ask: a photo that can't be read counts a try against itself alone; the others on its sheet are asked", async () => {
+  const r = await root()
+  let tiles = 0
+  const ask = async (_s: string, prompt: string, plant: boolean) => {
+    const n = (prompt.match(/^\d+: /gm) ?? []).length
+    if (!plant) tiles = n
+    return { tiles: Array.from({ length: n }, (_, i): AskTile => ({ n: i + 1, setup: false, whole: true, small: false })) }
+  }
+  const get = async (u: string) => (u.includes('/2-480') ? new Uint8Array([1, 2, 3]) : new Uint8Array(await picture(u)))
+  const report = await askAlbums(r, { get, ask }, { sheets: 5 })
+  expect(tiles).toBe(2)
+  expect(report).toMatchObject({ sheets: 2, answered: 4 })
+  const s = await state(r)
+  expect(s[photo(2).url]).toEqual({ tries: 1 })
+  expect(s[photo(1).url]).toEqual({ setup: false, whole: true, small: false })
+  expect(s[photo(3).url]).toEqual({ setup: false, whole: true, small: false })
+})
+
+test("the album ask: with the day's line spent, no sheet starts: nothing fetched, asked or marked", async () => {
+  const r = await root()
+  const before = await state(r)
+  const log = join(r, 'cost.jsonl')
+  await writeFile(log, `${JSON.stringify({ at: new Date().toISOString(), step: 'album-ask', usd: 50 })}\n`)
+  const was = process.env.ENGINE_COST_LOG
+  process.env.ENGINE_COST_LOG = log
+  nameStep('album-ask')
+  try {
+    let fetched = 0, asked = 0
+    const report = await askAlbums(r, { get: async u => { fetched++; return new Uint8Array(await picture(u)) }, ask: async () => { asked++; return { tiles: [] } } }, { sheets: 5 })
+    expect(report.stopped).toContain('not started')
+    expect([fetched, asked, report.sheets]).toEqual([0, 0, 0])
+    expect(await state(r)).toEqual(before)
+  } finally {
+    process.env.ENGINE_COST_LOG = was
+    nameStep(undefined)
+  }
 })

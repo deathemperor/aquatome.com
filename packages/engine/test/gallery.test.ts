@@ -474,6 +474,12 @@ test('gallery order: a second pass over an album changes nothing', () => {
   const once = rankGallery(photos, cantTell, at)
   expect(rankGallery(once, cantTell, at)).toEqual(once)
   expect(rankGallery([...once].reverse(), cantTell, at).filter(p => at(p) !== undefined)).toEqual(once.filter(p => at(p) !== undefined))
+  // With the photo check's, the box step's and the album ask's answers too.
+  const looks = (url: string): Look => { const k = Number(/(\d+)\.webp$/.exec(url)?.[1] ?? 0); return { ...(k % 3 ? { typical: k % 3 === 1 } : {}), share: k % 7 ? 0.3 : 0.02, whole: k % 5 !== 0, small: k % 11 === 0 } }
+  const seen = rankGallery(photos, cantTell, at, looks)
+  expect(seen).not.toEqual(once)
+  expect(rankGallery(seen, cantTell, at, looks)).toEqual(seen)
+  expect(rankGallery([...seen].reverse(), cantTell, at, looks).filter(p => at(p) !== undefined)).toEqual(seen.filter(p => at(p) !== undefined))
 })
 
 test('orderAlbums: every album in the album order, the leads that changed listed, a second run writing nothing', async () => {
@@ -500,8 +506,10 @@ test('gallery order: where six photos the photo check called typical show, they 
   const verdicts = (n: number) => (url: string): Look => { const k = num({ url }); return k === 1 ? { typical: false } : k === 2 || k > n + 2 ? {} : { typical: true } }
   expect(rankGallery(photos, () => false, num).map(num)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9])
   expect(rankGallery(photos, () => false, num, verdicts(6)).map(num)).toEqual([3, 4, 5, 6, 7, 8, 2, 9, 1])
-  // Five typical: the album keeps its order.
+  // Five typical: the album keeps its order. A sixth waiting for the photo check (shown nowhere yet) doesn't count.
   expect(rankGallery(photos, () => false, num, verdicts(5)).map(num)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9])
+  const waitingSixth = photos.map(p => (num(p) === 8 ? { ...p, unchecked: true } : p))
+  expect(rankGallery(waitingSixth, () => false, num, url => (num({ url }) === 8 ? { typical: true } : verdicts(5)(url))).map(num)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9])
 })
 
 test('gallery order: a lone fish under a twentieth of the frame goes behind where six others show; a group or a wild place stays (the cherry barb led with a fish 2% of its frame, 14 Nov)', () => {
@@ -525,22 +533,25 @@ test("gallery order: the album ask's answers: a fish cut by the frame or filling
 
 test('the album step and the sweep order an album alike, from the saved verdicts, boxes and answers: the sweep moves nothing after the step', async () => {
   const r = await root()
-  const album = Array.from({ length: 8 }, (_, i) => inatPhoto(101 + i, 1024, 768))
+  // 101 cut by the frame (the album ask), 102 a fish 2% of the frame (its box), 103 not typical and 104 to 109 typical (the photo check).
+  const album = Array.from({ length: 9 }, (_, i) => inatPhoto(101 + i, 1024, 768))
   await mkdir(join(r, 'content/gallery'), { recursive: true })
-  await writeFile(join(r, 'content/gallery/betta-splendens.json'), JSON.stringify({ id: 'betta-splendens', photos: album, seen: 8, updatedAt: '2026-10-29' }))
+  await writeFile(join(r, 'content/gallery/betta-splendens.json'), JSON.stringify({ id: 'betta-splendens', photos: album, seen: 9, updatedAt: '2026-10-29' }))
+  const subjects = Object.fromEntries(album.slice(2).map((p, i) => [p.url, { 'betta-splendens': { ok: 'yes' as const, typical: i > 0, note: '' } }]))
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify(subjects))
   await mkdir(join(r, 'engine-state/gallery'), { recursive: true })
   await writeFile(join(r, 'engine-state/gallery/betta-splendens.json'), JSON.stringify({ queue: [], judged: album.map(p => `inat:${num(p)}`), hashes: {} }))
   await writeFile(join(r, 'engine-state/_album-ask.json'), JSON.stringify({ [album[0]!.url]: { setup: false, whole: false, small: false } }))
   await writeFile(join(r, 'engine-state/_photo-boxes.json'), JSON.stringify({ [album[1]!.url]: { x: 0.4, y: 0.4, w: 0.1, h: 0.2 } }))
   await galleries(r, deps(), { sheets: 1 })
   const g = GallerySchema.parse(await read(r, 'content/gallery/betta-splendens.json'))
-  expect(g.photos.length).toBeGreaterThan(8)
-  expect(g.photos.filter(p => !p.unchecked).slice(-2).map(num)).toEqual([101, 102])
-  expect(await orderAlbums(r, {})).toEqual({ files: [], leads: [] })
+  expect(g.photos.length).toBeGreaterThan(9)
+  expect(g.photos.filter(p => !p.unchecked).map(num)).toEqual([104, 105, 106, 107, 108, 109, 103, 101, 102])
+  expect(await orderAlbums(r, subjects)).toEqual({ files: [], leads: [] })
   // The sweep reads the same: with the answers gone, it moves them back.
   await writeFile(join(r, 'engine-state/_album-ask.json'), '{}')
   await writeFile(join(r, 'engine-state/_photo-boxes.json'), '{}')
-  expect((await orderAlbums(r, {})).files).toEqual(['gallery/betta-splendens.json'])
+  expect((await orderAlbums(r, subjects)).files).toEqual(['gallery/betta-splendens.json'])
 })
 
 test('the album check says which photos are in a photo tank or beside a ruler, and the album keeps its word', async () => {

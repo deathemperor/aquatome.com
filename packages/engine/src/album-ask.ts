@@ -2,9 +2,11 @@ import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { isGenerated } from '@aq/schema'
+import sharp from 'sharp'
 import { LlmError } from './claude'
 import { ALBUM_ASK_FILE, SHEET, type AlbumAnswer, type GalleryPhoto } from './gallery'
 import { galleryPlan } from './gallery-plan'
+import { piece } from './pieces'
 import { contactSheet } from './video-images'
 
 /**
@@ -22,7 +24,8 @@ import { contactSheet } from './video-images'
  * and breed albums are asked all three, plant albums `setup`; most popular albums first, twenty photos from any albums to
  * a sheet, each tile's fish named in the prompt. A photo waiting for the photo check is asked once it shows. Answers by
  * photo address in engine-state/_album-ask.json (mirror-photos.ts carries them to a mirrored address); a photo the model
- * passes over or that can't be fetched is tried on one more sheet, then left as it is. Its own step (cli.ts
+ * passes over, or that can't be fetched or read, is tried on one more sheet, then left as it is; a sheet starts only
+ * where the day's line covers one (pieces.ts). Its own step (cli.ts
  * `album-ask`), under its own line in ceilings.json: $2 a day on the Mac from 16 Nov, out of the room under
  * the backstop (the chief of staff, 14 Nov). About $0.02 a sheet, 513 sheets on 14 Nov: about five days.
  */
@@ -80,41 +83,55 @@ export async function askAlbums(root: string, d: AlbumAskDeps, o: { sheets: numb
   const tried = (it: Item) => { const a = state[it.url] ?? {}; state[it.url] = { ...a, tries: (a.tries ?? 0) + 1 } }
 
   const dir = await mkdtemp(join(tmpdir(), 'album-ask-'))
+  const save = () => writeFile(file, `${JSON.stringify(state, null, 1)}\n`)
   try {
     for (const [i, items] of now.entries()) {
-      const got: { it: Item; b: Buffer }[] = []
-      for (const it of items) {
-        try { got.push({ it, b: Buffer.from(await d.get(it.img)) }) } catch (err) { tried(it); report.failed.push(`${it.url}: ${(err as Error).message.slice(0, 80)}`) }
+      try {
+        // A sheet starts only where the day's line covers one (pieces.ts): with none left, nothing is fetched or marked.
+        await piece(`album-ask/${items[0]!.url}`, async () => {
+          // Each photo drawn as its tile on its own: one that can't be fetched or read counts a try against itself alone.
+          const got: { it: Item; tile: Buffer }[] = []
+          for (const it of items) {
+            try {
+              const tile = await sharp(Buffer.from(await d.get(it.img))).resize(240, 180, { fit: 'contain', background: '#888' }).jpeg().toBuffer()
+              got.push({ it, tile })
+            } catch (err) { tried(it); report.failed.push(`${it.url}: ${(err as Error).message.slice(0, 80)}`) }
+          }
+          if (!got.length) return
+          const plant = got[0]!.it.plant
+          const sheet = join(dir, `sheet-${i}.jpg`)
+          await writeFile(sheet, await contactSheet(got.map(g => g.tile), 240, 180, 5, 'contain'))
+          let v: { tiles: AskTile[] }
+          try {
+            v = await d.ask(sheet, askPrompt(got.map(g => g.it.name), plant), plant)
+          } catch (err) {
+            if (err instanceof LlmError) throw err
+            // A call that came back with no answer (it may have been paid for): a try for each photo on the sheet.
+            got.forEach(g => tried(g.it))
+            report.failed.push(`sheet ${i}: ${(err as Error).message.slice(0, 120)}`)
+            return
+          }
+          report.sheets++
+          const done = new Set<string>()
+          for (const t of v.tiles ?? []) {
+            const g = got[t.n - 1]
+            if (!g || done.has(g.it.url) || typeof t.setup !== 'boolean' || (!plant && (typeof t.whole !== 'boolean' || typeof t.small !== 'boolean'))) continue
+            done.add(g.it.url)
+            state[g.it.url] = plant ? { setup: t.setup } : { setup: t.setup, whole: t.whole, small: t.small }
+            report.answered++
+            if (t.setup) report.setup++
+            if (t.whole === false) report.cut++
+            if (t.small === true) report.small++
+          }
+          got.filter(g => !done.has(g.it.url)).forEach(g => tried(g.it))
+        })
+      } catch (err) {
+        if (err instanceof LlmError) { report.stopped = err.message.slice(0, 160); break }
+        // The sheet itself couldn't be drawn: no photo's fault, none marked; tried again next run.
+        report.failed.push(`sheet ${i}: ${(err as Error).message.slice(0, 120)}`)
+      } finally {
+        await save()
       }
-      if (got.length) {
-        const plant = got[0]!.it.plant
-        const sheet = join(dir, `sheet-${i}.jpg`)
-        let v: { tiles: AskTile[] }
-        try {
-          await writeFile(sheet, await contactSheet(got.map(g => g.b), 240, 180, 5, 'contain'))
-          v = await d.ask(sheet, askPrompt(got.map(g => g.it.name), plant), plant)
-        } catch (err) {
-          if (err instanceof LlmError) { report.stopped = err.message.slice(0, 160); break }
-          got.forEach(g => tried(g.it))
-          report.failed.push(`sheet ${i}: ${(err as Error).message.slice(0, 120)}`)
-          await writeFile(file, `${JSON.stringify(state, null, 1)}\n`)
-          continue
-        }
-        report.sheets++
-        const done = new Set<string>()
-        for (const t of v.tiles ?? []) {
-          const g = got[t.n - 1]
-          if (!g || done.has(g.it.url) || typeof t.setup !== 'boolean' || (!plant && (typeof t.whole !== 'boolean' || typeof t.small !== 'boolean'))) continue
-          done.add(g.it.url)
-          state[g.it.url] = plant ? { setup: t.setup } : { setup: t.setup, whole: t.whole, small: t.small }
-          report.answered++
-          if (t.setup) report.setup++
-          if (t.whole === false) report.cut++
-          if (t.small === true) report.small++
-        }
-        got.filter(g => !done.has(g.it.url)).forEach(g => tried(g.it))
-      }
-      await writeFile(file, `${JSON.stringify(state, null, 1)}\n`)
     }
   } finally {
     await rm(dir, { recursive: true, force: true })
