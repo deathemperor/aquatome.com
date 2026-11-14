@@ -119,6 +119,108 @@ hatching, which Anthropic also stopped on) was taken after both scored 9. Not in
 - **Split:** "tạp chí" before a journal's name (Anthropic: always; xAI: never before "Journal of…", which stutters).
   It stays before a name that doesn't say it's a journal.
 
+## The weeks' themes and shelf titles, 7 Dec 2026 – 7 Feb 2027 (2026-11-13)
+
+The calendar's nine new weeks (`content/curation.json`). These aren't in the tallies below, which count pages.
+
+| Round | Seats | Vietnamese | Indonesian | Thai | Malay |
+|---|---|---|---|---|---|
+| 1 | xAI alone | 8 | 7 | 7 | 7 |
+| 2 | Anthropic, xAI | 8, 8 | 8, 9 | 8, 8 | 8, 8 |
+| 3 | Anthropic, xAI | 9, 9 | 8, 8 | 8, 8 | 9, 8 |
+| 4 | Anthropic, xAI | 9, 9 | 9, 9 | 8, 8 | 8, 9 |
+| 5 | Anthropic, xAI | 9, 9 | 9, 9 | 8, 8 | 9, 8 |
+| 6 | Anthropic, xAI | 9, 9 | 8, 8 | 9, 9 | 8, 8 |
+| 7 | Anthropic, xAI | 9, 9 | 9, 9 | 9, 9 | 9, 8 |
+| 8 | Anthropic, xAI | 9, 10 | 9, 9 | 9, 9 | 9, 8 |
+| 9 | Anthropic, xAI | 9, 9 | 9, 9 | 9, 9 | 9, 8 |
+| 10 | Anthropic, xAI | 9, 9 | 9, 9 | 9, 9 | 9, 9 |
+
+Round 1 had the xAI seat alone: Cursor refused OpenAI and Google (not in that week's usage), and no Claude helper ran
+before 14 Nov.
+- **Vietnamese, held by the references:**
+  - "ăn rêu" for "đội dọn bể": 110.7 a million words in the videos and 20.4 in the forum, against 0 in both (the site's
+    guides have it at 30);
+  - "rêu hại" for "rêu tảo": 579 in the videos and 10.6 in the forum, against 7.4 and 2.6. The verb stays "xử lý",
+    which the videos use for it (22.1).
+- **Indonesian, Thai and Malay** have no hobbyist corpus yet. Changed only where the source or the site's own pages bear
+  the finding out:
+  - the season themes had lost the fish the Vietnamese names;
+  - Thai: the red-fish shelf takes the names its pages give, หลอฮั่น and ปลาหมอนกแก้ว, since หมอสี alone is the cichlids as a group;
+  - Indonesian "air dingin" for "air sejuk", which is the Malay word; "alga" in the algae eaters' row, as the next
+    shelf says;
+  - "crew" carried over word for word in all four (Tim pembersih, ทีมทำความสะอาดตู้, Pasukan pembersih): the finding the
+    Vietnamese references hold.
+- **Open after round 1, answered in round 2:** Malay "saudaranya" (both seats: it reads as a sibling; changed) and
+  "sempena" (one seat would change it, the other kept it; kept).
+
+Round 2 (14 Nov): Anthropic and xAI. OpenAI and Google sat out again (not in Cursor's weekly usage).
+- **Vietnamese, by the references:**
+  - held: "set bể" for "dựng bể" (videos 29.5 a million words and forum 3.3, against 0 and 0);
+  - held, both seats: the corydoras-and-plecos shelf drops "và họ hàng". xAI's "loài cùng họ" was as rare in the
+    forum (0.7) as the old words, so the shelf names its two groups and nothing more;
+  - held, xAI: "cá vàng" in the 1–7 Feb theme reads as the goldfish, which that week doesn't hold. "Cá màu đỏ"
+    (forum 4.6) and "đỏ và vàng" (4.0) over xAI's "sắc đỏ" (5.9 against "màu đỏ" 152.3);
+  - dropped, Anthropic: "những con cá" (forum 133.2, as on the site) and "những chú cá" (forum 61.3, against 23.7 in the
+    site's guides); "cá thả đầu tiên" is in no forum or video.
+- **Indonesian, Thai and Malay**, changed where both seats raised it or the site's own pages bear it out: Thai
+  "สัตว์กินตะไคร่: …" (both), "กำจัดตะไคร่" (the site's guides 31.3 against 2.6), "ปลาคาร์ป" (the koi page's name); Malay
+  "ikan bandaraya" (both seats on "saudaranya") and "musim tengkujuh" on the heater shelf. Dropped: "lumut" for "alga"
+  (Indonesian pages say "pemakan alga" 39.2, "pemakan lumut" 0; the Malay interface writes "alga perosak"),
+  Indonesian "heater" (the site uses "pemanas" as much), Malay "berkelompok" (the site's "berkumpulan" 589.8 against
+  13.6), and "sempena" and "menyambut" (the seats split).
+
+Round 3 (14 Nov): Vietnamese held 9 with both seats, no finding. Held: the Indonesian and Thai Tết themes, identical
+across the two weeks where the Vietnamese differs (both seats; 25–31 Jan now names the goldfish by its page's name, 1–7
+Feb the colours, with "berwarna" from the Indonesian pages, 174 uses of "berwarna merah"); one shape for both halves of
+the Indonesian and Malay cold-season themes; the Thai super red arowana by its page's name. Dropped: Malay "Kelisa" for
+the arowana shelf (it holds the silver arowana too); Thai "ปลาหมอสี" for the flowerhorn (the word for every cichlid);
+"ikan merah" as red snapper (raised as unsure).
+
+Round 4 (14 Nov): Vietnamese and Indonesian held 9 with both seats. Held: Thai "อะโรวาน่า" for the arowana shelf (both;
+the Thai pages 94 against ปลามังกร 3), Thai algae eaters without a heading and colon (both), Vietnamese "Cá koi và cá đỏ cỡ
+nhỏ" (both seats over two rounds, though the forum writes "những chú cá" at 61.3 a million words: a heading's padding,
+not a word keepers avoid). The Thai flowerhorn became "ฟลาวเวอร์ฮอร์น" on the Writing Lead's word (the Thai pages 16,
+against 3 and 2). Dropped: Malay "tangki" for "akuarium" (one seat; both read a bare "tangki" as a water tank in that
+morning's video titles), Malay "menyambut" for "sempena" (split again), Thai "บลัดพารอท" (the page says ปลาหมอนกแก้ว),
+Vietnamese "Cá thả trước" (one seat; "cá thả đầu tiên" is in no forum or video).
+
+Round 5 (14 Nov): Vietnamese and Indonesian held 9 with both seats again. Held, by the shelf itself: the 1–7 Feb koi
+shelf holds the koi betta and koi angelfish, not the koi carp (both seats on the Thai "ปลาคาร์ป"; round 4's Vietnamese
+"Cá koi" had the same fault), now named by their pages; the Vietnamese cold-season theme, whose week holds no guides
+for "giữ ấm cho bể". Dropped: Malay "musim tengkujuh" off the heater shelf (one seat; the week is for the rainy season's
+cool nights, and the other seat asked for it in round 2), "menyambut" again, the otocinclus and twig catfish named on
+the corydoras-and-plecos shelf (scored at 9; "lau kiếng" is the whole family on this site).
+
+Round 6 (14 Nov): Vietnamese and Thai held 9 with both seats. Held, both seats: the Indonesian and Malay koi shelf's bare
+"Koi" read as the koi carp, which it doesn't hold; Indonesian now names the koi betta and koi angelfish, Malay the
+angelfish alone (no Malay koi betta page). Held, both in some form: the Vietnamese "Những con cá đầu tiên cho bể mới"
+shortened to "Cá đầu tiên cho bể mới" (neither form is in the forum or the videos; a heading's padding). Dropped: Malay
+"Kelisa" again (the arowana shelf doesn't show in Malay yet, and holds the silver arowana).
+
+Round 7 (14 Nov): Vietnamese, Indonesian and Thai held 9 with both seats; Malay 9 and 8. Held, both seats: the Malay koi
+shelf takes "ikan" before "angel", as the angelfish page's name does ("Ikan Angel"). Dropped: the Thai koi spelt one way
+(one seat, unsure which; each half is its page's own name), Vietnamese "Cá thả đầu tiên" (one seat; in no forum or video),
+Malay "musim hujan" for "musim tengkujuh" (split), Indonesian and Malay "ikan schooling" (one seat, unsure).
+
+Round 8 (14 Nov): Vietnamese, Indonesian and Thai held 9 with both seats; Malay 9 and 8. Held, both seats in some form: a
+bare "Ikan berkumpulan" reads off, so the Malay schooling labels say "yang hidup berkumpulan" (the site's Malay pages
+230.5 a million words). Dropped: Malay "berkelompok" (xAI; the site 13.6 against "berkumpulan" 589.8, the Indonesian
+word, as in round 4 of the short questions), Thai "บลัดพารอท" (the page says ปลาหมอนกแก้ว), Malay "kuning" for "emas"
+(Anthropic). Open, one seat: Indonesian and Malay "tahan air dingin/sejuk" read as waterproof (xAI); Indonesian and
+Malay cold themes naming "ikan" twice (Anthropic).
+
+Round 9 (14 Nov): Vietnamese, Indonesian and Thai held 9 with both seats; Malay 9 and 8. xAI's Malay finding reversed its
+own round-7 rewrite ("Ikan angel koi"), asking now for the page's title; held on the rule that a label names a fish as
+its page does ("Koi angelfish"). Held, one seat over two rounds and the dictionary: Indonesian and Malay "tahan air"
+reads as waterproof, so the cold shelf says "tahan dingin" / "tahan sejuk". Open, one seat each: Thai "ปลาฝูง" as one
+school (xAI), the Thai flowerhorn label against its page (Anthropic; the Writing Lead's names change renames the page).
+
+Round 10 (14 Nov): both seats held 9 in all four languages. Held, both seats: the Vietnamese corydoras-and-plecos
+shelf names the otocinclus too, "Cá chuột, cá otto và cá lau kiếng", in the style guide's spelling, which the Writing
+Lead settled (references: "cá otto" forum 2.0 a million words, shop blogs 47.1; "cá oto" 0 in both). Dropped: Malay "berkumpulan" without
+"hidup" (xAI, reversing round 8's change both seats asked for).
+
 ## Vietnamese
 
 Rounds 1 and 2 (2026-11-07) had the Anthropic seat alone, and weren't tallied.
