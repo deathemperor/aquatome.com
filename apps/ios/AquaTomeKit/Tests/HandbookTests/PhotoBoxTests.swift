@@ -36,7 +36,7 @@ private func index(_ json: String) throws -> HandbookIndex { try JSONDecoder().d
 
 @Test func aGroupsADaysAndAStorysPhotoBoxesAreRead() throws {
   let read = try index(#"""
-  {"version":1,"lang":"vi","items":[],"home":{"groups":[{"id":"tetras","img":"t.webp","imgBox":{"x":0.2,"y":0.3,"w":0.6,"h":0.4}},{"id":"other","img":"o.webp","imgBox":{"x":1}}],
+  {"version":1,"lang":"vi","items":[{"kind":"fish","id":"a","name":"A","path":"/ca/a/"},{"kind":"guide","name":"E","path":"/huong-dan/e/"}],"home":{"groups":[{"id":"tetras","img":"t.webp","imgBox":{"x":0.2,"y":0.3,"w":0.6,"h":0.4}},{"id":"other","img":"o.webp","imgBox":{"x":1}}],
    "fish":[],"plants":[],"guides":[],
    "days":[{"date":"2026-11-14","fish":"/ca/a/","img":"a.webp","imgBox":{"x":0,"y":0.1,"w":1,"h":0.8},"guide":"/huong-dan/e/","guideImg":"e.webp","guideImgBox":{"x":0.1,"y":0.1,"w":0.2,"h":0.2},
             "story":{"path":"/s/","img":"s.webp","imgBox":{"x":0,"y":0,"w":1,"h":1}}},
@@ -47,6 +47,9 @@ private func index(_ json: String) throws -> HandbookIndex { try JSONDecoder().d
   #expect(home.days.map { $0.imgBox?.h } == [0.8, nil])
   #expect(home.days.first?.guideImgBox?.x == 0.1)
   #expect(home.days.first?.story?.imgBox == PhotoBox(x: 0, y: 0, w: 1, h: 1))
+  // Hôm nay's plan carries them to its cards.
+  let plan = HandbookShelves(read).plan["2026-11-14"]
+  #expect(plan?.imgBox?.h == 0.8 && plan?.guideImgBox?.x == 0.1)
 }
 
 @Test func aVideoGuidesPosterIsItsCardsPhoto() throws {

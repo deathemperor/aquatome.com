@@ -61,8 +61,10 @@ public struct HandbookShelves: Sendable {
   public struct Planned: Sendable {
     public let fish: HandbookIndex.Item?
     public let img: String?
+    public let imgBox: PhotoBox?
     public let guide: HandbookIndex.Item?
     public let guideImg: String?
+    public let guideImgBox: PhotoBox?
     public let story: HandbookIndex.Item?
     public let words: HandbookIndex.Home.Day.Story?
   }
@@ -126,7 +128,8 @@ public struct HandbookShelves: Sendable {
     browseGuides = home.browse?.guides.map { $0.compactMap { byPath[$0] } } ?? firstGuides
     plan = Dictionary(home.days.map { d in
       let fish = d.fish.flatMap { byPath[$0] }, guide = d.guide.flatMap { byPath[$0] }, story = d.story.flatMap { byPath[$0.path] }
-      return (d.date, Planned(fish: fish, img: fish == nil ? nil : d.img, guide: guide, guideImg: guide == nil ? nil : d.guideImg,
+      return (d.date, Planned(fish: fish, img: fish == nil ? nil : d.img, imgBox: fish == nil ? nil : d.imgBox, guide: guide,
+                              guideImg: guide == nil ? nil : d.guideImg, guideImgBox: guide == nil ? nil : d.guideImgBox,
                               story: story, words: story == nil ? nil : d.story))
     }, uniquingKeysWith: { a, _ in a })
   }
