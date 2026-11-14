@@ -88,6 +88,15 @@ private let lightOn = DeviceCommand(device: plug, outlet: "switch_1", on: true)
 private let lampWhite = DeviceCommand(device: lampId, on: true, colour: "white")
 private let button = MasterButton(name: "Ngắm bể", steps: [lampWhite, co2On, fanOff, lightOn], minutes: 120)
 
+@Test("A step may switch CO2 off, never on, and never a heater; anything else either way")
+func whatAStepMayDo() {
+  #expect(MasterButton.allows(fanOff, role: "fan") && MasterButton.allows(lightOn, role: "light") && MasterButton.allows(lampWhite, role: nil))
+  #expect(MasterButton.allows(DeviceCommand(device: plug, outlet: "switch_2", on: false), role: "co2"))
+  #expect(!MasterButton.allows(co2On, role: "co2"))
+  #expect(!MasterButton.allows(DeviceCommand(device: plug, outlet: "switch_4", on: false), role: "heater"))
+  #expect(!MasterButton.allows(DeviceCommand(device: plug, outlet: "switch_4", on: true), role: "heater"))
+}
+
 @Test("At the end each outlet goes back to how it was; one already as asked, nowhere; one not known, the other way")
 func whatGoesBack() {
   let before: [String: Bool] = ["switch_2": false, "switch_3": true, "switch_1": true]

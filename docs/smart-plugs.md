@@ -92,8 +92,15 @@ A plug switches mains power to a CO2 solenoid, a heater or a filter. So:
 ## The master button
 
 "Nút tổng" on the iOS app's Đèn tab (the owner's account; Design Lead's drawing of 14 Nov): one tap sets the devices the
-reader chose (the Love Ecology lamp, and any outlet of the Tuya plugs on their tanks: CO2 on, a fan off…), and the phone
-puts back what it changed at the end, after 1 or 2 hours or when the reader taps Kết thúc. Kept on the phone, not synced.
+reader chose (the Love Ecology lamp, and the outlets of the Tuya plugs on their tanks: a fan off, CO2 off…), and the
+phone puts back what it changed at the end, after 1 or 2 hours or when the reader taps Kết thúc. Kept on the phone, not
+synced.
+
+- **Never CO2 on, never a heater** (the chief, 15 Nov; `MasterButton.allows`): the phone puts things back only while the
+  app is open, so CO2 switched on would run all night if the phone were locked at the end, as would a heater left off.
+  CO2's row offers off only and says why; a heater isn't offered. CO2 on comes only once the owner's test (below) shows
+  the strip switches off at 0, the strip's own countdown is what switches CO2 off at the end with the phone as the
+  second line, no Smart Life timer changes that outlet before the end, and the owner has asked for it in their own words.
 
 - **A press** reads the list once (how each outlet is now), then sends each step once, as a tap would: an outlet already
   as asked has nothing to put back. A step that fails says why under the button; the others stay done.
@@ -106,13 +113,13 @@ puts back what it changed at the end, after 1 or 2 hours or when the reader taps
   left as it is, and the card says so. CO2 is never switched on by the phone at the end: its schedule may mean it off by
   then, and CO2 with the lights out can kill fish; the card says to turn it on by hand if wanted.
 - **No countdown is written to a plug by the button** (the chief, 15 Nov). A Tuya countdown switches the outlet the
-  other way at 0 whatever it is then, and some plugs' only switch off. First the owner tries one: an owner-only row on
-  the card switches an outlet that is on (never CO2 or a heater) off with a one-minute countdown, the app open, and
-  keeps whether it came back on (`PlugSource.countdown`, read back once; the phone switches it back on if not). The
-  button may use countdowns only after that, and for CO2 only on the owner's word; the strips' Smart Life timers, which
-  the app can read, would then rule out an outlet a timer switches before the run ends.
-- **Turning off a filter, a heater or an air pump** asks a second time when the button is set up. CO2 set on warns that
-  outside the light's hours the plants don't use it.
+  other way at 0 whatever it is then, and some plugs' only switch off. First the owner tries one, both ways, on an outlet
+  they pick that is on (never CO2 or a heater), with the app open: an owner-only row on the card switches it off with a
+  one-minute countdown (does it come back on at 0?), then on with another (does it switch off at 0, the way CO2 will
+  need?), then leaves it on as it was found, and keeps what each did (`PlugSource.countdown`, read back once; the outlet
+  read 10 seconds after each end). The strips' Smart Life timers, which the app can read, will then rule out an outlet a
+  timer switches before the run ends.
+- **Turning off a filter or an air pump** asks a second time when the button is set up.
 - Its steps are `DeviceCommand`s (protocols/device-command.schema.json), the shape the chat's commands will take: the
   device record's id, the outlet's code, on, and for the lamp one of its recorded colours. `DeviceCommand.offerable`
   is what the chat may switch: the lamp, and outlets whose role is CO2 or a fan, never a heater, filter or air pump.

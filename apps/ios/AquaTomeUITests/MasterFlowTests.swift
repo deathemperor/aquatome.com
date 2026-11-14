@@ -1,10 +1,10 @@
 import XCTest
 
-/// The master button on Đèn (Design Lead's master/spec.md): made in its sheet, pressed, ended by a tap or by the clock,
-/// and what it changed put back; on the stand-in Tuya cloud's strips (the CO2 outlet has a countdown) and the simulator's
-/// stand-in lamp, as the owner's account. And its states for the Design Lead's parity check, kept with the run
-/// (`shot-master-…`): none yet, ready, running, ended on a tap, a step that failed, the sheet and the second ask, light and
-/// dark, at the default and the largest text.
+/// The master button on Đèn (Design Lead's master/spec.md): made in its sheet (CO2 off only, no heater), pressed, ended
+/// by a tap or by the clock, and what it changed put back by the phone; the owner's test of a plug's countdown, both ways;
+/// on the stand-in Tuya cloud's strips (the light's outlet has a countdown) and the simulator's stand-in lamp, as the
+/// owner's account. And its states for the Design Lead's parity check, kept with the run (`shot-master-…`): none yet, the
+/// sheet, CO2's screen, ready, running, running until Kết thúc, light and dark, at the default and the largest text.
 final class MasterFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -12,14 +12,13 @@ final class MasterFlowTests: XCTestCase {
     let app = launch(signIn: false)
     XCTAssertFalse(element(app, "master-create").waitForExistence(timeout: 2), "the master button before the owner signed in")
     signIn(app)
-    make(app, end: "60")
+    make(app, end: "60", light: true)
     expect(app, "master-name", contains: "Ngắm bể")
-    expect(app, "master-summary", contains: "Đèn sáng, CO2 bật, đèn tắt · 1 giờ")
+    expect(app, "master-summary", contains: "Đèn sáng, CO2 tắt, quạt tắt, đèn tắt · 1 giờ")
     tap(app, "master-start")
-    // The lamp on in white, CO2 on, the light's outlet off; no countdown written to a plug.
+    // The lamp on in white, CO2 and the fan off (both off already), the light's outlet off; no countdown written.
     expect(app, "master-log", contains: "lamp on+white", timeout: 20)
-    expect(app, "master-log", contains: "switch_2 on")
-    expect(app, "master-log", contains: "switch_1 off")
+    expect(app, "master-log", contains: "switch_2 off | switch_3 off | switch_1 off")
     expect(app, "master-log", lacks: "countdown")
     expect(app, "master-left", contains: "1:00")
     expect(app, "master-summary", contains: "· kết thúc lúc ")
@@ -28,10 +27,11 @@ final class MasterFlowTests: XCTestCase {
     let again = launch(signIn: false, reset: false)
     XCTAssertTrue(element(again, "master-left").waitForExistence(timeout: 10), "not running after a relaunch")
     tap(again, "master-end")
-    // Each put back by the phone; the lamp the other way (nothing was sent to it before).
-    expect(again, "master-log", contains: "switch_2 back off", timeout: 20)
-    expect(again, "master-log", contains: "switch_1 back on")
+    // What it changed put back by the phone: the light's outlet, and the lamp the other way (nothing was sent to it
+    // before). CO2 and the fan were off already: nothing to put back.
+    expect(again, "master-log", contains: "switch_1 back on", timeout: 20)
     expect(again, "master-log", contains: "lamp back off")
+    expect(again, "master-log", lacks: "switch_2 back")
     XCTAssertTrue(element(again, "master-start").waitForExistence(timeout: 20), "not ready again")
     XCTAssertFalse(element(again, "master-problems").exists, element(again, "master-problems").label)
   }
@@ -41,13 +41,13 @@ final class MasterFlowTests: XCTestCase {
     // The card's yellow, sent before: what the lamp goes back to.
     tap(app, "lamp-yellow")
     expect(app, "lamp-status", contains: "Đã gửi “Vàng”")
-    make(app, end: "tap")
+    make(app, end: "tap", light: true)
     expect(app, "master-summary", contains: "· đến khi bạn bấm Kết thúc")
     tap(app, "master-start")
     expect(app, "master-log", contains: "lamp on+white", timeout: 20)
     // Ended by the clock (six seconds here), the app open: everything back from the phone.
     expect(app, "master-log", contains: "lamp back on+yellow", timeout: 30)
-    expect(app, "master-log", contains: "switch_2 back off")
+    expect(app, "master-log", contains: "switch_1 back on")
     expect(app, "master-log", lacks: "countdown")
     XCTAssertTrue(element(app, "master-start").waitForExistence(timeout: 10), "not ready again")
   }
@@ -63,7 +63,7 @@ final class MasterFlowTests: XCTestCase {
     XCTAssertTrue(element(app, "master-start").waitForExistence(timeout: 20), "not ready again")
   }
 
-  func testTheOwnersCountdownTrialSwitchesAnOutletOffAndSeesItComeBackOn() {
+  func testTheOwnersCountdownTrialTriesBothWaysAndLeavesTheOutletOn() {
     let app = launch(["-countdown-trial-seconds", "3"])
     // The stand-in strip's light outlet is on and has a countdown; CO2 is never offered.
     tap(app, "trial-pick")
@@ -73,7 +73,9 @@ final class MasterFlowTests: XCTestCase {
     light.tap()
     tap(app, "trial-run")
     XCTAssertTrue(element(app, "trial-running").waitForExistence(timeout: 10), "not counting down")
-    expect(app, "trial-result", contains: "ổ Đèn bật lại khi đếm về 0.", timeout: 40)
+    expect(app, "trial-result", contains: "Tắt rồi đếm ngược: bật lại khi về 0.", timeout: 60)
+    expect(app, "trial-result", contains: "Bật rồi đếm ngược: tắt khi về 0.")
+    expect(app, "trial-result", contains: "Điện thoại đã bật lại như lúc đầu.")
   }
 
   func testWithBluetoothOffTheLampSaysSoAndThePlugsStillGo() {
@@ -81,12 +83,16 @@ final class MasterFlowTests: XCTestCase {
     make(app, end: "120")
     tap(app, "master-start")
     expect(app, "master-problems", contains: "Bật Bluetooth để gửi lệnh tới đèn.", timeout: 20)
-    expect(app, "master-log", contains: "switch_2 on")
+    expect(app, "master-log", contains: "switch_3 off")
   }
 
-  func testTurningOffAFilterAsksAgainAndDeletingTheButtonAsksOnce() {
+  func testTurningOffAFilterAsksAgainNoHeaterAndDeletingTheButtonAsksOnce() {
     let app = launch()
     tap(app, "master-create")
+    tap(app, "master-add")
+    XCTAssertTrue(element(app, "master-add-Quạt").waitForExistence(timeout: 5), "no outlets offered")
+    XCTAssertFalse(element(app, "master-add-Sưởi").exists, "a heater offered")
+    app.navigationBars.buttons.element(boundBy: 0).tap()
     add(app, "master-add-Lọc")
     tap(app, "master-step-Lọc")
     tap(app, "master-choice-Tắt")
@@ -154,16 +160,27 @@ final class MasterFlowTests: XCTestCase {
     app.openTab("Đèn")
   }
 
-  /// "Tạo nút tổng": the lamp (in white), CO2 on and the light's outlet off, ending as `end` says ("60", "120", "tap").
-  private func make(_ app: XCUIApplication, end: String, shots: String? = nil) {
+  /// "Tạo nút tổng" as the board draws it: the lamp in white, CO2 off (all it offers), the fan off; and the light's
+  /// outlet off too (`light`: the stand-in strip has it on, so there is something to put back). Ending as `end` says
+  /// ("60", "120", "tap").
+  private func make(_ app: XCUIApplication, end: String, light: Bool = false, shots: String? = nil) {
     tap(app, "master-create")
     add(app, "master-add-lamp")
     add(app, "master-add-CO2")
-    add(app, "master-add-Đèn")
-    tap(app, "master-step-Đèn")
-    tap(app, "master-choice-Tắt")
+    expect(app, "master-step-CO2", contains: "Ổ cắm · Tắt")
+    tap(app, "master-step-CO2")
+    expect(app, "master-co2-off-only", contains: "Nút chỉ tắt được CO2, chưa bật được")
+    XCTAssertFalse(element(app, "master-choice-Bật").exists, "CO2 can be set on")
+    if let shots { shoot("co2-\(shots)") }
     app.navigationBars.buttons.element(boundBy: 0).tap()
-    expect(app, "master-co2-warning", contains: "CO2 bật ngoài giờ đèn sáng (12:00–20:00)")
+    add(app, "master-add-Quạt")
+    expect(app, "master-step-Quạt", contains: "Ổ cắm · Tắt")
+    if light {
+      add(app, "master-add-Đèn")
+      tap(app, "master-step-Đèn")
+      tap(app, "master-choice-Tắt")
+      app.navigationBars.buttons.element(boundBy: 0).tap()
+    }
     tap(app, "master-end-\(end)")
     if let shots { shoot("sheet-\(shots)") }
     tap(app, "master-done")

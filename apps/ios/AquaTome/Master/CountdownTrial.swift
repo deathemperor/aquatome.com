@@ -4,10 +4,11 @@ import Plugs
 import SwiftUI
 import Tanks
 
-/// The owner's test of a plug's own countdown (the chief, 15 Nov), before the master button may write one: an outlet the
-/// owner picks, on now (never CO2 or a heater), is switched off and given a one-minute countdown with the app open, then
-/// read. Whether the plug switched it back on at 0 is kept on the phone and shown; if it didn't, the phone switches it
-/// back on. The first countdown the strip ever gets, with the owner watching. The owner's; goes once they've tried it.
+/// The owner's test of a plug's own countdown (the chief, 15 Nov), before the master button may write one, on an outlet
+/// the owner picks that is on now (never CO2 or a heater), with the app open: switched off with a one-minute countdown
+/// (does it come back on at 0?), then on with another (does it switch off at 0, the way CO2 will need?), then left on,
+/// as it was found. What each did is kept on the phone and shown. The first countdowns the strip ever gets, with the owner
+/// watching. The owner's; goes once they've tried it.
 @MainActor
 @Observable
 final class CountdownTrial {
@@ -45,32 +46,49 @@ final class CountdownTrial {
     }
   }
 
+  /// Both ways on the one outlet: off, then a countdown (does it come back on at 0?); on, then a countdown (does it switch
+  /// off at 0, as CO2 will need?); then on, as it was found.
   func run(_ target: DeviceTarget) async {
     guard state == .idle else { return }
     let off = DeviceCommand(device: target.device, outlet: target.outlet, on: false)
     let on = DeviceCommand(device: target.device, outlet: target.outlet, on: true)
     guard let o = switcher.outlet(off) else { return }
     let (key, name) = (o.key, o.name)
-    let started = Date()
-    state = .running(name: name, until: started.addingTimeInterval(TimeInterval(Self.seconds)))
+    let at = MasterCard.time(Date())
     defer { state = .idle }
-    if case .failed(let line) = await switcher.set(off) { return keep("Không thử được: \(line)") }
     let board = switcher.plugs.board
-    guard await board.countdown(key, seconds: Self.seconds) else {
-      return keep("Ổ \(name) không báo đã nhận đếm ngược." + (await back(on)))
+    state = .running(name: name, until: Date().addingTimeInterval(TimeInterval(Self.seconds)))
+    if case .failed(let line) = await switcher.set(off) { return keep("Không thử được: \(line)") }
+    // Off, then a countdown.
+    guard let cameOn = await countdown(key, name) else {
+      return keep("Thử lúc \(at): ổ \(name) không báo đã nhận đếm ngược." + (await back(on)))
     }
+    let first = "Tắt rồi đếm ngược: " + (cameOn ? "bật lại khi về 0." : "vẫn tắt khi về 0.")
+    if !cameOn, case .failed(let line) = await switcher.set(on) { return keep("Thử lúc \(at), ổ \(name):\n\(first)\nChưa bật lại được: \(line)") }
+    // On, then a countdown.
+    guard let stayedOn = await countdown(key, name) else {
+      return keep("Thử lúc \(at), ổ \(name):\n\(first)\nLần hai: ổ không báo đã nhận đếm ngược." + (await back(on)))
+    }
+    let second = "Bật rồi đếm ngược: " + (stayedOn ? "vẫn bật khi về 0." : "tắt khi về 0.")
+    // As it was found: on.
+    keep("Thử lúc \(at), ổ \(name):\n\(first)\n\(second)" + (stayedOn ? "" : await back(on)))
+  }
+
+  /// A countdown on the outlet, then the outlet read 10 seconds after it ends: whether it is on then; nil when the plug
+  /// didn't report the countdown.
+  private func countdown(_ key: PlugBoard.Outlet, _ name: String) async -> Bool? {
+    let board = switcher.plugs.board
+    guard await board.countdown(key, seconds: Self.seconds) else { return nil }
     state = .running(name: name, until: Date().addingTimeInterval(TimeInterval(Self.seconds)))
     try? await Task.sleep(for: .seconds(Self.seconds + 10))
     await switcher.plugs.refresh()
-    let at = MasterCard.time(started)
-    if board.on(key) == true { return keep("Thử lúc \(at): ổ \(name) bật lại khi đếm về 0.") }
-    keep("Thử lúc \(at): ổ \(name) vẫn tắt khi đếm về 0." + (await back(on)))
+    return board.on(key) == true
   }
 
-  /// Switched back on from the phone, and said so.
+  /// Switched back on from the phone, as it was found, and said so.
   private func back(_ on: DeviceCommand) async -> String {
-    if case .failed(let line) = await switcher.set(on) { return " Chưa bật lại được: \(line)" }
-    return " Điện thoại đã bật lại."
+    if case .failed(let line) = await switcher.set(on) { return "\nChưa bật lại được: \(line)" }
+    return "\nĐiện thoại đã bật lại như lúc đầu."
   }
 
   private func keep(_ s: String) {
@@ -92,7 +110,7 @@ struct CountdownTrialRow: View {
     VStack(alignment: .leading, spacing: 8) {
       Divider()
       Text(verbatim: "Thử đếm ngược của ổ cắm").font(.subheadline.weight(.semibold))
-      Text(verbatim: "Tắt một ổ đang bật rồi để ổ cắm tự bật lại sau 1 phút. Giữ ứng dụng mở.").font(.footnote).foregroundStyle(.secondary)
+      Text(verbatim: "Tắt một ổ đang bật rồi để ổ cắm tự bật lại sau 1 phút, rồi tự tắt sau 1 phút nữa; xong thì bật lại như cũ. Giữ ứng dụng mở khoảng 3 phút.").font(.footnote).foregroundStyle(.secondary)
       if case .running(let name, let until) = trial.state {
         TimelineView(.periodic(from: .now, by: 1)) { context in
           Text(verbatim: "Ổ \(name) đang đếm ngược: còn \(max(0, Int(until.timeIntervalSince(context.date).rounded(.up)))) giây.")

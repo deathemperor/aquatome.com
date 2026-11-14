@@ -15,6 +15,13 @@ public struct MasterButton: Sendable, Equatable, Codable {
     self.steps = steps
     self.minutes = minutes
   }
+
+  /// What a step may do, by the outlet's role (the chief, 15 Nov): never switch CO2 on, and never a heater, either way.
+  /// The phone puts things back only while the app is open: CO2 left on, or a heater left off, all night could kill fish.
+  /// CO2 on comes once a plug's own countdown can switch it off at the end.
+  public static func allows(_ step: DeviceCommand, role: String?) -> Bool {
+    role != "heater" && !(role == "co2" && step.on)
+  }
 }
 
 /// One press of the button, kept on the phone until what it changed is back.

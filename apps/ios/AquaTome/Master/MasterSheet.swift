@@ -8,7 +8,6 @@ struct MasterSheet: View {
   @Environment(MasterModel.self) private var master
   @Environment(TanksModel.self) private var tanks
   @Environment(PlugsModel.self) private var plugs
-  @Environment(LightsModel.self) private var lights
   @Environment(\.dismiss) private var dismiss
   @State private var draft: MasterButton
   @State private var path: [Screen] = []
@@ -43,13 +42,6 @@ struct MasterSheet: View {
           .accessibilityIdentifier("master-add")
         } header: {
           Text("Khi bấm")
-        } footer: {
-          if co2On {
-            Label { Text("CO2 bật ngoài giờ đèn sáng (\(lights.on.description)–\(lights.off.description)): cây không dùng hết, cá có thể thiếu khí.") }
-              icon: { Image(systemName: "exclamationmark.triangle.fill") }
-              .foregroundStyle(.orange)
-              .accessibilityIdentifier("master-co2-warning")
-          }
         }
         Section {
           ForEach([60, 120, nil] as [Int?], id: \.self) { m in
@@ -107,11 +99,6 @@ struct MasterSheet: View {
     }
     .task { await plugs.refresh() }
   }
-
-  /// A step turns on an outlet that powers CO2.
-  private var co2On: Bool {
-    draft.steps.contains { s in s.on && s.outlet != nil && master.role(s) == "co2" }
-  }
 }
 
 /// A step in the list: the device's square, its name, and what it does.
@@ -160,15 +147,24 @@ private struct StepChoice: View {
     if let i = draft.steps.firstIndex(where: { $0.target == target }) {
       let s = draft.steps[i]
       Form {
-        Section(master.switcher.name(s)) {
+        Section {
           if s.isLamp {
             row(String(localized: "Bật"), chosen: s.on && s.colour == nil) { set(on: true, colour: nil) }
             row(String(localized: "Tắt"), chosen: !s.on) { set(on: false, colour: nil) }
           } else {
-            row(String(localized: "Bật"), chosen: s.on) { set(on: true, colour: nil) }
+            // CO2 off only (MasterButton.allows): on comes after the owner's test of a plug's countdown.
+            if MasterButton.allows(DeviceCommand(device: s.device, outlet: s.outlet, on: true), role: master.role(s)) {
+              row(String(localized: "Bật"), chosen: s.on) { set(on: true, colour: nil) }
+            }
             row(String(localized: "Tắt"), chosen: !s.on) {
               if MasterModel.asksAgain.contains(master.role(s) ?? "") { asking = true } else { set(on: false, colour: nil) }
             }
+          }
+        } header: {
+          Text(verbatim: master.switcher.name(s))
+        } footer: {
+          if master.role(s) == "co2" {
+            Text("Nút chỉ tắt được CO2, chưa bật được: lỡ điện thoại khóa lúc hết giờ thì CO2 sẽ chạy cả đêm.").accessibilityIdentifier("master-co2-off-only")
           }
         }
         if s.isLamp {
@@ -221,7 +217,8 @@ private struct AddDevice: View {
   var body: some View {
     let taken = Set(draft.steps.map(\.target))
     let lampFree = tanks.store.loveEcology.map { !taken.contains(DeviceTarget(device: $0.id, outlet: nil)) } ?? true
-    let outlets = master.outlets().filter { !taken.contains($0.target) }
+    // Never a heater (MasterButton.allows).
+    let outlets = master.outlets().filter { !taken.contains($0.target) && $0.role != "heater" }
     Form {
       if lampFree {
         Section("Đèn") {
@@ -233,7 +230,8 @@ private struct AddDevice: View {
       }
       Section {
         ForEach(outlets, id: \.target) { o in
-          Button { add(DeviceCommand(device: o.target.device, outlet: o.target.outlet, on: o.role != "fan")) } label: {
+          // A fan and CO2 go in off (CO2 can't be on: MasterButton.allows); the rest on.
+          Button { add(DeviceCommand(device: o.target.device, outlet: o.target.outlet, on: o.role != "fan" && o.role != "co2")) } label: {
             HStack(spacing: 12) {
               DeviceSquare(lamp: false)
               VStack(alignment: .leading, spacing: 2) {
@@ -288,8 +286,9 @@ enum LampColour {
 }
 
 extension MasterModel {
-  /// Turning these off asks a second time: a filter, a heater or an air pump off for long can harm the fish.
-  static let asksAgain: Set = ["filter", "heater", "air"]
+  /// Turning these off asks a second time: a filter or an air pump off for long can harm the fish. (A heater isn't
+  /// offered at all.)
+  static let asksAgain: Set = ["filter", "air"]
 
   /// The outlet's role, from its record.
   func role(_ c: DeviceCommand) -> String? {
@@ -299,9 +298,6 @@ extension MasterModel {
 
   static func secondAsk(_ role: String?) -> (title: String, why: String, yes: String) {
     switch role {
-    case "heater": (String(localized: "Tắt sưởi trong lúc chạy nút?"),
-                    String(localized: "Nước có thể lạnh đi khi sưởi tắt lâu. Nút sẽ bật lại sưởi khi kết thúc."),
-                    String(localized: "Vẫn tắt sưởi"))
     case "air": (String(localized: "Tắt sủi khí trong lúc chạy nút?"),
                  String(localized: "Nước có thể thiếu khí, nhất là ban đêm. Nút sẽ bật lại sủi khí khi kết thúc."),
                  String(localized: "Vẫn tắt sủi khí"))

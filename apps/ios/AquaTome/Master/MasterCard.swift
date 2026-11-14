@@ -33,7 +33,7 @@ struct MasterCard: View {
     } else {
       VStack(alignment: .leading, spacing: 12) {
         Text("Nút tổng").font(.title3.weight(.semibold))
-        Text("Một chạm bật đèn và CO2, tắt quạt… cùng lúc, rồi tự trả lại khi hết giờ. Bạn chọn nút làm gì.")
+        Text("Một chạm bật đèn, tắt quạt và CO2… cùng lúc, rồi trả lại như cũ khi hết giờ. Bạn chọn nút làm gì.")
           .font(.subheadline).foregroundStyle(.secondary)
         Button { editing = true } label: { Text("Tạo nút tổng").frame(maxWidth: .infinity) }
           .buttonStyle(.bordered).controlSize(.large)

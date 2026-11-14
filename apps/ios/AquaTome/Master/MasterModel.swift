@@ -58,10 +58,13 @@ final class MasterModel {
   /// (its two recordings take about eight seconds). No countdown is written to a plug (the chief, 15 Nov: not before the
   /// owner's own test of one).
   func start() async {
-    guard let button, !sending, run?.isRunning != true else { return }
+    guard var button, !sending, run?.isRunning != true else { return }
     sending = true
     defer { sending = false; watch() }
     notes = []
+    // Never CO2 on, never a heater (MasterButton.allows): the sheet offers neither; a step that does is not sent.
+    let refused = button.steps.filter { !MasterButton.allows($0, role: role($0)) }
+    button.steps.removeAll { refused.contains($0) }
     await switcher.plugs.refresh()
     let board = switcher.plugs.board
     var states: [DeviceTarget: Bool] = [:]
@@ -82,9 +85,10 @@ final class MasterModel {
         note("\(step.outlet ?? "") \(step.on ? "on" : "off")")
       }
     }
-    r.failed = failed + (await lampFailed)
+    failed += await lampFailed
+    r.failed = refused.map { .init(target: $0.target, line: String(localized: "Nút không bật tắt ổ \(switcher.name($0)) được trong bản này.")) } + failed
     // Nothing went: nothing to put back.
-    if r.failed.count == r.steps.count {
+    if failed.count == r.steps.count {
       r.ended = now()
       r.back = []
     }
@@ -137,7 +141,7 @@ final class MasterModel {
         if c.on && role(c) == "co2" {
           r.back[i].done = true
           r.back[i].problem = nil
-          notes.append(String(localized: "AquaTome không tự bật lại CO2: bật ổ \(name) trong Bể của tôi nếu cần."))
+          notes.append(String(localized: "AquaTome không tự bật lại CO2. Cần thì bật ổ CO2 trong Bể của tôi."))
           continue
         }
       }
