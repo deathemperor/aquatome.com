@@ -226,8 +226,8 @@ test('gallery viewer: a zoomed photo pans rather than swiping; a double tap zoom
   const viewer = page.locator('dialog.lb')
   const photo = viewer.locator('.pv-slide:not([inert]) .pv-pic')
   const stage = viewer.locator('.pv-stage') // its middle is on the photo, panned or not
-  const by = viewer.locator('.by')
-  await expect(by).toContainText(`${k}/${n}`)
+  const count = viewer.getByRole('status') // the photo's number alone: "1/11" is inside "11/11"
+  await expect(count).toHaveText(`${k}/${n}`)
   await expect(viewer).toHaveAttribute('data-zoom', 'out')
   if (touch) await pinchOut(page, stage)
   else {
@@ -237,7 +237,7 @@ test('gallery viewer: a zoomed photo pans rather than swiping; a double tap zoom
   }
   await expect(viewer).toHaveAttribute('data-zoom', 'in')
   await swipe(page, stage, -0.6, touch)
-  await expect(by).toContainText(`${k}/${n}`)
+  await expect(count).toHaveText(`${k}/${n}`)
   expect(await photo.evaluate(p => new DOMMatrix(getComputedStyle(p).transform).m41), 'panned to the left').toBeLessThan(0)
   await doubleTap(page, stage, touch)
   await expect(viewer).toHaveAttribute('data-zoom', 'out')
@@ -246,7 +246,7 @@ test('gallery viewer: a zoomed photo pans rather than swiping; a double tap zoom
   await doubleTap(page, stage, touch)
   await expect(viewer).toHaveAttribute('data-zoom', 'out')
   await swipe(page, stage, -0.6, touch)
-  await expect(by).toContainText(`${(k % n) + 1}/${n}`) // after the last comes the first
+  await expect(count).toHaveText(`${(k % n) + 1}/${n}`) // after the last comes the first
   expect(errors).toEqual([])
 })
 
