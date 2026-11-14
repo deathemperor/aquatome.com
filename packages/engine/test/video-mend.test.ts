@@ -6,7 +6,7 @@ import type { Llm } from '../src/claude'
 import type { FitFinding } from '../src/fit'
 import type { Page } from '../src/pages'
 import { readReviews } from '../src/review-log'
-import { videoMend } from '../src/video-mend'
+import { ownTankDose, videoMend } from '../src/video-mend'
 
 const LONG = 'Cây khỏe và mọc nhanh thì rêu hại khó chen vào. '.repeat(6).trim()
 const BODY = `<p>Bể nhỏ dễ dựng.</p><h3>Mua đồ</h3><p>Mua lọc ở Petco, giá khoảng 5 USD.</p><p>${LONG}</p>`
@@ -161,6 +161,10 @@ test('a figure the editor changes, drops or adds beside units or a dose leaves t
     ['a dose figure of its own', `<p>Bể 10 gallon là đủ cho một đàn nhỏ.</p><p>Châm vi sinh ngay, khoảng 5 ml, liều theo hướng dẫn trên bao bì.</p><p>${LONG}</p>`, [own, gallons, caps]],
     ['the dose kept', `<p>Bể 10 gallon là đủ cho một đàn nhỏ.</p><p>Châm vi sinh ngay, bể này dùng khoảng 4 nắp.</p><p>${LONG}</p>`, [own, gallons, caps]],
     ['a dose figure in a shop\'s mend', `<p>Bể nhỏ dễ dựng.</p><p>Lọc mua ở tiệm cá cảnh. Châm 5 ml vi sinh.</p><p>${LONG}</p>`, [shop, price]],
+    // The video's own dose kept in a reworded sentence, or written in words (Grok's read).
+    ['the dose reworded and kept', `<p>Bể 10 gallon là đủ cho một đàn nhỏ.</p><p>Châm vi sinh ngay, khoảng 4 nắp, liều theo hướng dẫn trên bao bì.</p><p>${LONG}</p>`, [own, gallons, caps]],
+    ['a dose in words', `<p>Bể 10 gallon là đủ cho một đàn nhỏ.</p><p>Châm vi sinh ngay, năm nắp, liều theo hướng dẫn trên bao bì.</p><p>${LONG}</p>`, [own, gallons, caps]],
+    ['a dose in another unit', `<p>Bể 10 gallon là đủ cho một đàn nhỏ.</p><p>Châm vi sinh ngay, 4 cái nắp, liều theo hướng dẫn trên bao bì.</p><p>${LONG}</p>`, [own, gallons, caps]],
   ]
   for (const [name, body, findings] of cases) {
     const { root, file, was } = await setup(findings.includes(shop) ? {} : { body: OWN, faq: [] })
@@ -177,4 +181,26 @@ test('a dose given as advice, or with nothing naming the video\'s tank, waits fo
     expect(prompts, line).toEqual([])
     expect(await readFile(file, 'utf8'), line).toBe(was)
   }
+})
+
+test('a figure keeps its percent, a units quote keeps its figure beside another finding, and a sentence two findings quote is taken once (Grok\'s read)', async () => {
+  const units = (quote: string): FitFinding => ({ ...gallons, quote })
+  const cases: [string, string, string, FitFinding[]][] = [
+    ['a percent sign dropped', '<p>Thay 30% nước mỗi tuần. Bể 10 gallon là đủ.</p>', '<p>Thay 30 nước mỗi tuần. Bể 10 gallon là đủ.</p>', [units('Bể 10 gallon')]],
+    ['a units figure dropped beside a shop', '<p>Bể 10 gallon mua ở Petco.</p>', '<p>Bể mua ở tiệm cá cảnh.</p>', [units('Bể 10 gallon'), { ...shop, quote: 'mua ở Petco' }]],
+    ['a figure lost after a sentence two findings quote', '<p>Bể mẫu dài 30 cm, mua ở Petco. Đèn cách mặt nước 30 cm.</p><p>Bể 10 gallon là đủ.</p>', '<p>Bể mua ở tiệm cá cảnh. Đèn cách mặt nước.</p><p>Bể 10 gallon là đủ.</p>', [{ ...own, quote: 'Bể mẫu dài 30 cm' }, { ...shop, quote: 'mua ở Petco' }, units('Bể 10 gallon')]],
+  ]
+  for (const [name, before, after, findings] of cases) {
+    const { root, file, was } = await setup({ body: `${before}<p>${LONG}</p>`, faq: [] })
+    expect(await deps(root, kept(`${after}<p>${LONG}</p>`)).mend(page(), findings), name).toBe(false)
+    expect(await readFile(file, 'utf8'), name).toBe(was)
+  }
+  // "60 x 38 x 30 cm" written "60 × 38 × 30 cm" is the same figures.
+  const { root } = await setup({ body: `<p>Bể 10 gallon là đủ.</p><p>Kích thước 60 x 38 x 30 cm là vừa.</p><p>${LONG}</p>`, faq: [] })
+  expect(await deps(root, kept(`<p>Bể 10 gallon là đủ.</p><p>Kích thước 60 × 38 × 30 cm là vừa.</p><p>${LONG}</p>`)).mend(page(), [units('Bể 10 gallon')])).toBe(true)
+})
+
+test('the video\'s own dose is one that names its tank and gives no rate; a rate per volume or per tank, a CO2 rate, or a bare "ở đây" waits (Grok\'s read)', () => {
+  for (const s of ['Châm phân nước mỗi ngày, ở bể 60 lít này là khoảng 3 ml.', 'Ở bể này châm phân nước khoảng 3 ml mỗi ngày.', 'Bể này dùng hai nắp.', 'Bể mẫu dùng vi sinh Multibio, bể 1,2 m châm 2 nắp.', 'Bể này châm 4 nắp, nitrat khoảng 20 mg/l.']) expect(ownTankDose(s), s).toBe(true)
+  for (const s of ['Một cách xử lý là tăng phân nước, ở đây là 20 ml mỗi ngày cho bể 60 cm.', 'Bể này 100 lít thì châm 10 ml.', 'Bể này dùng 10 ml cho một lít.', 'Với sủi inline cho sương mịn, khoảng 5–6 giọt mỗi giây cho mức chừng 30 ppm ở bể này.', 'Châm 5 ml cho mỗi 50 lít.', 'Ở đây châm 3 ml.']) expect(ownTankDose(s), s).toBe(false)
 })
