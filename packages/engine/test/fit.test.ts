@@ -495,6 +495,8 @@ test('a dealer\'s own current batch or stock is the source check\'s; trade histo
     // A lot's own fish that differ among themselves (Grok's read).
     'Những con trong lô khác nhau về kích cỡ.',
     'Những con trong lô khác biệt hẳn về màu.',
+    'Màu của mấy con trong lô gần như không khác gì cá đã ghi nhận trước đây.',
+    'Cá trong lô vừa nhập về dài 6 cm.',
   ]
   const history = [
     'Cũng có con có thêm những đốm trắng nhỏ. Hai dạng màu này có thể lẫn chung trong cùng một lô nhập.',
@@ -553,6 +555,12 @@ test('a dealer\'s own current batch or stock is the source check\'s; trade histo
     'Những con trong đợt này đều là cá bột.',
     'Các con trong đợt này đều khỏe lại sau khi tắm muối.',
     'Những con trong đợt lần này dài khoảng 5 cm.',
+    // Just in, but another, an earlier or a later one, a migration, or a lot nearby (Grok's third read).
+    'Những con trong lô nhập về lần trước nhỏ hơn.',
+    'Những con trong đợt mới nhập về khác thường nhỏ hơn.',
+    'Những con trong đợt mới nhập đầu tiên chỉ toàn cá bệnh.',
+    'Những con trong đợt vừa về sau lớn hơn hẳn.',
+    'Những con trong lô gần đó nhỏ hơn hẳn.',
   ]
   const dealer = (text: string) => fitRules(page(`<p>${text}</p>`, { kind: 'species' })).filter(f => f.check === 'source' && f.why.startsWith('a dealer'))
   for (const t of news) expect(dealer(t).length, t).toBeGreaterThan(0)
