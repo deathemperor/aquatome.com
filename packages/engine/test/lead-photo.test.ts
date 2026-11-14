@@ -103,6 +103,13 @@ test("a re-read never leaves a page with none of the photos a reader could see; 
   const unapprovedElsewhere: Photo = { ...photo('unapproved-elsewhere'), source: 'seriouslyfish', sourceUrl: 'https://y/fish', ownerCrop: { id: 'none', pixelHash: 'f'.repeat(64) } }
   expect(mergeRead([unapprovedElsewhere], 'bwaquatics', page, [], { owned: () => false })).toEqual({ photos: [], held: [] })
   expect(mergeRead([bannedElsewhere], 'bwaquatics', page, [], { gone: p => p.url === bannedElsewhere.url })).toEqual({ photos: [], held: [] })
+  // A generated photo is nothing a reader sees as the fish: the page keeps its last real one, held, and the generated one
+  // stays behind it; one the read replaced is never held.
+  const gen = { model: 'gpt-image-2', date: '2026-11-10', prompt: 'fish' }
+  const generatedElsewhere: Photo = { ...photo('generated-elsewhere'), source: 'seriouslyfish', sourceUrl: 'https://y/fish', generated: gen }
+  expect(mergeRead([generatedElsewhere, mine], 'bwaquatics', page, [])).toEqual({ photos: [mine, generatedElsewhere], held: [mine] })
+  const generatedHere: Photo = { ...photo('generated-here'), source: 'bwaquatics', sourceUrl: page, generated: gen }
+  expect(mergeRead([generatedHere, mine], 'bwaquatics', page, [])).toEqual({ photos: [mine], held: [mine] })
 })
 
 test('at most a few photos a fish are asked about', () => {

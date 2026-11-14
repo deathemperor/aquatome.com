@@ -101,12 +101,13 @@ export type ReadKeeps = { owned?: (p: Photo) => boolean; gone?: (p: Photo) => bo
  *   MAX_PHOTOS (none has more than three today);
  * - leave a page that had a photo a reader could see with none such: those stay, `held` for a person's second look
  *   (last-photo.ts). A reader sees neither a photo `gone` names (never-again, or a source that no longer lets us show
- *   photos) nor a crop that fails its approval (the build hides it), so neither counts either way: a page left with only
- *   those takes what Commons has instead, and one whose last such photo the read replaced keeps that one.
+ *   photos), a crop that fails its approval, nor a generated photo (the build hides both: a generated one shows only with
+ *   its approval and a switch that is off, and never stands for the fish), so none counts either way: a page left with
+ *   only the first two takes what Commons has instead, and one whose last such photo the read replaced keeps that one.
  */
 export const mergeRead = (prev: Photo[], source: SourceId, url: string, fresh: Photo[], o: ReadKeeps = {}): { photos: Photo[]; held: Photo[] } => {
   const owned = o.owned ?? (() => false)
-  const seen = (p: Photo) => !o.gone?.(p) && (!isOwnerCrop(p) || owned(p))
+  const seen = (p: Photo) => !p.generated && !o.gone?.(p) && (!isOwnerCrop(p) || owned(p))
   const replaced = (p: Photo) => p.source === source && p.sourceUrl === url && !owned(p)
   const merged = [...fresh, ...prev.filter(p => !replaced(p))].map((p, i) => ({ p, i })).sort((a, b) => rank(a.p) - rank(b.p) || a.i - b.i).map(x => x.p)
   const head = prev[0] && !replaced(prev[0]) && across(prev[0].large ?? prev[0], 'square') >= LARGE_PX ? prev[0] : undefined
@@ -116,8 +117,9 @@ export const mergeRead = (prev: Photo[], source: SourceId, url: string, fresh: P
   const others = new Set(all.filter(p => !owned(p)).slice(0, room))
   const photos = all.filter(p => crops.includes(p) || others.has(p))
   const left = prev.filter(seen)
-  // Nothing a reader could see left: the seen ones from before stay, held; none at all, and the caller looks to Commons.
-  return photos.some(seen) ? { photos, held: [] } : { photos: left, held: left.filter(replaced) }
+  // Nothing a reader could see left: the seen ones from before stay, held, and a generated photo the read kept stays
+  // behind them, as it would without this rule; with neither, none at all, and the caller looks to Commons.
+  return photos.some(seen) ? { photos, held: [] } : { photos: [...left, ...photos.filter(p => p.generated)], held: left.filter(replaced) }
 }
 export const mergePhotos = (prev: Photo[], source: SourceId, url: string, fresh: Photo[], o: ReadKeeps = {}) => mergeRead(prev, source, url, fresh, o).photos
 
