@@ -492,6 +492,9 @@ test('a dealer\'s own current batch or stock is the source check\'s; trade histo
     'Các cá thể của đợt nhập này đều còn nhỏ.',
     'Cá trong đợt nhập hiện nay có hoa văn rất đồng đều.',
     'Những con trong đợt cá mới nhập về đều khỏe.',
+    // A lot's own fish that differ among themselves (Grok's read).
+    'Những con trong lô khác nhau về kích cỡ.',
+    'Những con trong lô khác biệt hẳn về màu.',
   ]
   const history = [
     'Cũng có con có thêm những đốm trắng nhỏ. Hai dạng màu này có thể lẫn chung trong cùng một lô nhập.',
@@ -534,6 +537,22 @@ test('a dealer\'s own current batch or stock is the source check\'s; trade histo
     'Cá trong đợt vừa đẻ đang bơi.',
     'Những con trong đợt nhập cư bơi ngược sông.',
     'Có vài con trong lô nhập khác.',
+    // Another import, a mixed one, the first, a calendar round, a wave, a later or earlier round, another lot (Grok's
+    // second read); a bare "đợt (lần) này", as often a spawning or a treatment.
+    'Có vài con trong đợt nhập khác.',
+    'Những con trong đợt hàng trộn thường nhỏ hơn.',
+    'Những con trong đợt nhập đầu tiên chỉ toàn cá bệnh.',
+    'Những con trong đợt hàng tháng thường nhỏ.',
+    'Những con trong đợt hàng loạt đều chết.',
+    'Cá trong đợt về sau lớn hơn hẳn.',
+    'Cá trong đợt về trước nhỏ hơn.',
+    'Đôi khi có vài con trong lô cá hoang dã khác.',
+    'Những con trong lô trước nhỏ hơn.',
+    'Có vài con trong lô loài khác.',
+    'Những con trong lô cá nhập về khác.',
+    'Những con trong đợt này đều là cá bột.',
+    'Các con trong đợt này đều khỏe lại sau khi tắm muối.',
+    'Những con trong đợt lần này dài khoảng 5 cm.',
   ]
   const dealer = (text: string) => fitRules(page(`<p>${text}</p>`, { kind: 'species' })).filter(f => f.check === 'source' && f.why.startsWith('a dealer'))
   for (const t of news) expect(dealer(t).length, t).toBeGreaterThan(0)

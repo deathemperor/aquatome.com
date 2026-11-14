@@ -126,6 +126,10 @@ export function fitText(p: Page): { parts: { id: string; field: string; text: st
 }
 
 const WORD = (s: string) => `(?<![\\p{L}\\p{N}])(?:${s})(?![\\p{L}\\p{N}])`
+/** A lot told as this one or as just in (fit.ts's batch line). Not one "nhập về khác", "trước" or "cũ". */
+const LOT_NOW = '(?:(?:cá |hàng )?(?:lần )?này|(?:cá |hàng )?(?:(?:mới|vừa) )?nhập về(?! (?:khác|trộn|đầu|trước|cũ|sau|kia|cuối)(?![\\p{L}]))|(?:mới|vừa) (?:nhập|về)|nhập (?:này|lần này|hiện nay|gần đây))'
+/** What a lot's own fish are like, straight after "trong lô": their size, colour, what they all are (Grok's read). */
+const LOT_SAYS = '(?:còn|dài|đều|gần|có|chỉ|là|đã|đang|thì|rất|khá|hơi|to|nhỏ|lớn|khác nhau|khác biệt|trông|nhìn|hầu|phần lớn|đa số|toàn|cũng|không|chưa|vẫn|dường|giống|cỡ|chừng|khoảng|tầm|được|bị|mang)'
 const re = (s: string) => new RegExp(s, 'giu')
 const AMOUNT = '\\d[\\d.,–-]*\\s*'
 /** Amazon the shop, not the river: a sentence buying from it, or its address. */
@@ -172,9 +176,11 @@ const DEALER_VI = re([
   WORD('lứa(?: cá(?: hoang dã)?)? (?:mới|vừa) (?:nhập|về)(?: về)? (?:này|lần này)'),
   '(?<![\\p{L}\\p{N}])trong lô(?=[,:])',
   // The batch's own fish: "Những con trong lô dài khoảng 5 cm" (the Crenuchus guide, which the read passed; the chief of
-  // staff, 14 Nov 2026). Not fish that come in other batches or mixed ones, a museum's lots, a round of treatment, a
-  // spawning or a migration: "đợt" only as this batch or one just in (Grok's read).
-  WORD('(?:những |các |mấy )?(?:con|cá thể|cá)(?: cá)? (?:trong|của) (?:lô(?! (?:(?:cá|hàng|nhập|về) ){0,2}(?:khác|trộn|đầu|mẫu)(?![\\p{L}\\p{N}]))|đợt(?= (?:này|hàng)(?![\\p{L}\\p{N}])| (?:cá )?(?:mới |vừa )?(?:nhập(?! cư)|về)(?![\\p{L}\\p{N}])))'),
+  // staff, 14 Nov 2026). Only a lot told as this one, just in, or followed straight by what its fish are like; not other
+  // lots ("lô trước", "lô cá hoang dã khác", "lô nhập về khác"), mixed ones, a museum's, a round of treatment, a spawning,
+  // a migration, a calendar round ("đợt hàng tháng") or a later one ("đợt về sau"). A bare "đợt (lần) này" is as often a
+  // round of treatment or a spawning, as above (Grok's reads). Unsure, a line stays.
+  WORD(`(?:những |các |mấy )?(?:con|cá thể|cá)(?: cá)? (?:trong|của) (?:lô (?:${LOT_NOW}|${LOT_SAYS})|lô(?=\\s*[,.:;!?)])|đợt (?:cá |hàng )?(?:(?:mới|vừa) (?:nhập|về)(?: về)?|nhập(?: về)? (?:này|lần này|hiện nay|gần đây)))`),
   WORD('(?:(?<!ngày )nay|hiện nay|hiện|bây giờ|giờ đây)(?: thì)? (?:đã |đang |cũng )?(?:được )?(?:nhập về|có hàng)'),
   WORD('(?:đã |lại )?có hàng (?:trở )?lại'),
   // Stock back: "Hiện nay lại có cá thể hoang dã mới trưởng thành"; not "hiện nay lại có ý kiến".
