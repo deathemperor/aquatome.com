@@ -1,0 +1,87 @@
+{
+  "id": "pseudomugil-cyanodorsalis",
+  "native": {
+    "input": "3bde3d880c620a91",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Crab Creek, about 15 kilometers east of Broome, Western Australia, about 17°59'S, 122°23'E', but this species appears to be widely-distributed in coastal waters of northern Australia and possibly southern New Guinea.",
+        "words": "Australia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Melville Island",
+        "source": "seriouslyfish",
+        "quote": "In Western Australia it's been recorded from close to Broome and Wyndham, in the Northern Territory around Darwin, the Mary River National Park and on Melville Island, and in Queensland the Norman River.",
+        "ok": true
+      },
+      {
+        "name": "Norman River",
+        "source": "seriouslyfish",
+        "quote": "In Western Australia it's been recorded from close to Broome and Wyndham, in the Northern Territory around Darwin, the Mary River National Park and on Melville Island, and in Queensland the Norman River.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PG"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudomugil cyanodorsalis",
+    "status": "ACCEPTED",
+    "taxonKey": 2411755,
+    "datasets": [
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        74
+      ],
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        5
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        4
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        3
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        3
+      ],
+      [
+        "39905320-6c8a-11de-8226-b8a03c50a862",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "AU"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}

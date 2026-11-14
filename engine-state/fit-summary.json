@@ -1,5 +1,5 @@
 {
- "day": "2026-11-11",
+ "day": "2026-11-14",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -11,32 +11,32 @@
  },
  "langs": {
   "vi": {
-   "pages": 4053,
-   "read": 3590,
-   "wrong": 1620,
-   "pct": 45,
-   "held": 407
+   "pages": 4227,
+   "read": 3664,
+   "wrong": 1634,
+   "pct": 44,
+   "held": 459
   },
   "id": {
-   "pages": 1287,
-   "read": 1106,
-   "wrong": 329,
-   "pct": 30,
-   "held": 67
+   "pages": 1364,
+   "read": 1194,
+   "wrong": 350,
+   "pct": 29,
+   "held": 89
   },
   "th": {
-   "pages": 1281,
-   "read": 1079,
-   "wrong": 305,
+   "pages": 1339,
+   "read": 1147,
+   "wrong": 317,
    "pct": 28,
-   "held": 69
+   "held": 81
   },
   "ms": {
-   "pages": 180,
-   "read": 137,
-   "wrong": 55,
-   "pct": 41,
-   "held": 12
+   "pages": 229,
+   "read": 184,
+   "wrong": 62,
+   "pct": 34,
+   "held": 24
   }
  },
  "labels": {
@@ -59,37 +59,37 @@
  "sample": [
   {
    "lang": "id",
-   "path": "/id/tanaman/creeping-jenny/",
-   "url": "https://aquatome.com/id/tanaman/creeping-jenny/",
-   "title": "Creeping Jenny",
+   "path": "/id/ikan/rainbow-robber-tetra/",
+   "url": "https://aquatome.com/id/ikan/rainbow-robber-tetra/",
+   "title": "Rainbow Robber Tetra",
+   "wrong": []
+  },
+  {
+   "lang": "th",
+   "path": "/th/fish/alcolapia-grahami/",
+   "url": "https://aquatome.com/th/fish/alcolapia-grahami/",
+   "title": "เกรแฮมส์โซดาซิคลิด",
    "wrong": []
   },
   {
    "lang": "vi",
-   "path": "/vi/ca/ca-hoang-hau-vang/",
-   "url": "https://aquatome.com/ca/ca-hoang-hau-vang/",
-   "title": "Cá hoàng hậu vàng",
+   "path": "/vi/ca/ca-tren-bau/",
+   "url": "https://aquatome.com/ca/ca-tren-bau/",
+   "title": "Cá trèn bầu",
    "wrong": [
     {
      "check": "words",
-     "quote": "phần lớn"
+     "quote": "nhiều khả năng"
     },
     {
      "check": "words",
-     "quote": "dân chơi"
+     "quote": "ghi nhận"
     },
     {
      "check": "words",
-     "quote": "cá nhân giống"
+     "quote": "thức ăn sống"
     }
    ]
-  },
-  {
-   "lang": "vi",
-   "path": "/vi/ca/ca-lau-kieng-violet-red-bruno/",
-   "url": "https://aquatome.com/ca/ca-lau-kieng-violet-red-bruno/",
-   "title": "Cá lau kiếng Violet Red Bruno",
-   "wrong": []
   }
  ]
 }

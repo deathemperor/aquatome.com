@@ -1,0 +1,176 @@
+{
+  "id": "pseudoplatystoma-corruscans",
+  "native": {
+    "input": "b5ec58080373aaca",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Brazil (Rio Sao Francisco).",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: In flumine S. Francisci, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "introduced",
+        "source": "scotcat",
+        "quote": "It is now also found in Thailand, Asia, where this large South American pim has been introduced to large ponds and fishing lakes for sport fishing, along with other similar-sized members of the Pimelodidae such as Pseudoplatystoma fasciatum, Sorubimichthys planiceps and the red tail catfish Phractocephalus hemioliopterus.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Contributions from the subpopulations of Argentina and Paraguay are expected to the Pantanal, where the subpopulations are still in the best state of conservation, but not for the subpopulations in the upper Paraná and São Francisco, which are more affected by fragmentation caused by successive dams.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Contributions from the subpopulations of Argentina and Paraguay are expected to the Pantanal, where the subpopulations are still in the best state of conservation, but not for the subpopulations in the upper Paraná and São Francisco, which are more affected by fragmentation caused by successive dams.",
+        "words": "Paraguay",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Sao Francisco",
+        "source": "glaser",
+        "quote": "Origin: Brazil (Rio Sao Francisco).",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "São Francisco",
+        "source": "scotcat",
+        "quote": "South America: São Francisco and Paraná River basins.",
+        "ok": true
+      },
+      {
+        "name": "Paraná",
+        "source": "scotcat",
+        "quote": "South America: São Francisco and Paraná River basins.",
+        "ok": true
+      },
+      {
+        "name": "La Plata",
+        "source": "scotcat",
+        "quote": "The IUCN notes that P. corruscans occurs in the San Francisco and La Plata river basins.",
+        "ok": true
+      },
+      {
+        "name": "Pantanal",
+        "source": "scotcat",
+        "quote": "Contributions from the subpopulations of Argentina and Paraguay are expected to the Pantanal, where the subpopulations are still in the best state of conservation, but not for the subpopulations in the upper Paraná and São Francisco, which are more affected by fragmentation caused by successive dams.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "TH"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudoplatystoma corruscans",
+    "status": "ACCEPTED",
+    "taxonKey": 2338660,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        279
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        168
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        46
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        20
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        17
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        12
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        6
+      ],
+      [
+        "559d3326-742b-4d51-a2a5-3a17be2aadd1",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        4
+      ],
+      [
+        "d4b3cce1-4594-47bb-b1e2-1ace65458a11",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "AR",
+      "PY"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}

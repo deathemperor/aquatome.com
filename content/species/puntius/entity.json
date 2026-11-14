@@ -10,6 +10,27 @@
     "taiwan",
     "china"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TW"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Rigyokutsu, Nanto, Taiwan' and this species is distributed in central and northern Taiwan, being replaced by the closely-related 'P.' semifasciolatus in the south of the island.",
+          "countries": [
+            "TW"
+          ],
+          "regions": []
+        }
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -140,7 +161,12 @@
       "licence": "CC BY-SA 2.5",
       "author": "André Karwath aka Aka",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puntius_semifasciolatus_(aka).jpg",
-      "caption": "Cá barb thân vàng ánh kim có đốm đen ở đuôi"
+      "caption": "Cá barb thân vàng ánh kim có đốm đen ở đuôi",
+      "large": {
+        "url": "https://media.aquatome.com/commons/3e141ae373bb0030-large.webp",
+        "width": 2000,
+        "height": 1007
+      }
     }
   ],
   "videos": [],

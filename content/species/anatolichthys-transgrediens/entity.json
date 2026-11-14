@@ -180,7 +180,71 @@
       "html": "<ul><li>Hrbek, T. and A. Meyer (2003). Closing of the Tethys Sea and the phylogeny of Eurasian killifishes (Cyprinodontiformes: Cyprinodontidae). Journal of Evolutionary Biology 16(1), 17-36</li><li>Wildekamp, R.H., F. Küçük, M. Ünlüsayin, and W. V. Neer (1999). Species and Subspecies of the Genus Aphanius Nardo 1897 (Pisces: Cyprinodontidae) in Turkey. Turkish Journal of Zoology 23, 23-44</li><li>Bardakci, F., N. Tatar and T. Hrbek (2004). Genetic relationships between Anatolian species and subspecies of Aphanius Nardo, 1827 (Pisces, Cyprinodontiformes) based on RAPD markers. Biologia, Bratislava 59(5), 559—566</li><li>Schulz-Mirbach, T. and B. Reichenbacher (2008). Fossil Aphanius (Teleostei, Cyprinodontiformes) from southwestern Anatolia (Turkey): a contribution to the evolutionary history of a hotspot of freshwater biodiversity. Geodiversitas 30(3), 577-592</li><li>Hrbek, T., F. Küçük, T. Frickey,K. N. Stölting, R. H. Wildekamp and A. Meyer (2002). Molecular phylogeny and historical biogeography of the Aphanius (Pisces, Cyprinodontiformes) species complex of central Anatolia, Turkey. Molecular Phylogenetics and Evolution 25(1), 125-137</li><li>Hrbek, T., K. N. Stölting, F. Bardakci, F. Küçük, R. H. Wildekamp, and A. Meyer (2004). Plate tectonics and biogeographical patterns of the Pseudophoxinus (Pisces: Cypriniformes) species complex of central Anatolia, Turkey. Molecular Phylogenetics and Evolution 32, 297–308.</li><li>Zapater, M. (2005). Aphanius anatoliae transgrediens (Ermin, 1946). SEI/GEVA Ficha.</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/d93220f4a6c0e9786ef954eeb41d58d1.webp",
+      "thumb": "https://media.aquatome.com/processed/d93220f4a6c0e9786ef954eeb41d58d1-480.webp",
+      "width": 800,
+      "height": 453,
+      "licence": "dùng với sự cho phép",
+      "author": "Barbara Nicca / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphanius-transgrediens",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261113-anatolichthys-transgrediens-recovery-1",
+        "pixelHash": "1c17b27f02a8d6a4c69b726ba0f56a81ccdcf77b9503e7888f46e55c56b5a960"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-13T07:38:14.539Z",
+          "originalHash": "cd6bace5510fc3a2a6fdfcd22eb09165d5e759d421ac5e09d481f1f8aea1d42c",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 800,
+            "originalHeight": 534,
+            "window": {
+              "x0": 0,
+              "y0": 0,
+              "x1": 800,
+              "y1": 453
+            },
+            "subject": {
+              "x0": 91,
+              "y0": 170,
+              "x1": 713,
+              "y1": 405
+            },
+            "margin": 14
+          },
+          "excludedMarks": [
+            {
+              "x0": 71,
+              "y0": 459,
+              "x1": 233,
+              "y1": 481
+            }
+          ],
+          "checks": {
+            "species": [
+              "fb4693194d2727bb4ca4736aacd713fab1892548e5097b0f0359a9b1fe98e11d",
+              "f16c93be35d608c8b133e2fbb45652a26640757673198e7928d38911c7213d5d"
+            ],
+            "ownership": [
+              "e123349350da3be64d3b6eff4954c55d8f517949d0a3d26b381e61b92a23c0e4",
+              "eb787edd93454082b8f362ea5b7716f24b8e244a154f1f09f09655e5173e3314"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/3f19fdbf7ca24d88.webp",
+        "width": 800,
+        "height": 534
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

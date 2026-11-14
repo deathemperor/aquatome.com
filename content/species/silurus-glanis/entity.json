@@ -55,6 +55,15 @@
         "source": "seriouslyfish",
         "value": 6
       }
+    ],
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 25,
+          "max": 27
+        }
+      }
     ]
   },
   "sections": [
@@ -65,10 +74,28 @@
       "html": "<p>The wels catfish, Silurus glanis, is a sheatfish native to rivers draining into the North, Baltic, Black, Caspian and Aral seas. It has been introduced across western and southern Europe, where populations in Italy and Spain grow very large. Juveniles are occasionally available in the aquarium trade, but this species is clearly not a viable subject for the vast majority of private aquarists.</p><ul><li>Max size: 500 cm SL</li><li>Temperature: 3.9–20°C</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10f-catfishes-from-europe-and-north-america/silurus_glanis_en/",
+      "html": "<ul><li>Common names: Wels catfish, Sheatfish</li><li>Original range: eastern Europe and central Asia</li><li>Available size: 6–8 cm</li><li>Origin: captive bred</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10f-catfishes-from-europe-and-north-america/silurus_glanis_en/",
+      "html": "<p>The species belongs to the largest species of freshwater fish known so far. Current records mention up to 3 m long fish that are as heavy as 150 to 250 kg. Of course most Wels catfish stay much smaller; nevertheless these fish are wonderful eyecatchers for public aquaria or ponds. All Sheatfish in the trade are artificially bred ones.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/silurus-glanis",
       "html": "<p>Native to river systems draining into the North, Baltic, Black, Caspian and Aral seas and was thus originally distributed throughout the majority of eastern Europe from Germany eastwards through Poland, Finland, up to southern Sweden, down to Southern Turkey and northern Iran through the Baltic States to Russia, Kazakhstan and Uzbekistan. It also occurs in the rivers Maritsa, Struma and Sperchios in Bulgaria, Greece and Turkey, all of which drain into the Aegean Sea, but these represent the only natural part of its Mediterranean range. It was introduced into the Rhône River, southeastern France and southern Great Britain during the 19th century and has since become widely-established throughout western and southern Europe. While these introductions were for purposes of sport fishing or aquaculture, fossil records suggest that in some cases (The Netherlands, Belgium, France) the species has been returned to parts of its former range. Populations in Italy (Po river) and Spain (Ebro river), in particular, grow very large with sport anglers regularly landing specimens weighing in excess of 75kg. It has also been introduced and become established in endorheic Lake Balkhash, and presumably its inflowing rivers, Kazakhstan.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10f-catfishes-from-europe-and-north-america/silurus_glanis_en/",
+      "html": "<p>The Wels catfish or Sheatfish (Silurus glanis) lived initially in eastern Europe and central Asia, but was spread as a food fish over large regions by humans.</p>"
     },
     {
       "key": "habitat",
@@ -95,10 +122,22 @@
       "html": "<ul><li>Temperature: 3.9–20°C</li><li>pH: 6.0–8.0</li><li>Hardness: 3–25 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10f-catfishes-from-europe-and-north-america/silurus_glanis_en/",
+      "html": "<p>Wels catfish are completely frost resistant, but interestingly the physiological temperature optimum of the species is between 25 and 27°C – pretty much for a so-called \"coldwater fish\"! However, this makes young Wels catfish easy to maintain aquarium inhabitants, their tank does not have to be cooled at all.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/silurus-glanis",
       "html": "<p>A primarily nocturnal, opportunistic carnivore preying mostly on other fishes and crustaceans in nature with amphibians, insects, birds (usually young waterfowl) and, exceptionally, small mammals also taken. In aquaria most specimens readily adapt to dead alternatives such as prawn/shrimp, mussel, squid, whitebait, strips of larger white fish, etc..</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10f-catfishes-from-europe-and-north-america/silurus_glanis_en/",
+      "html": "<p>Wels catfish are predators; juveniles feed on all type of frozen and live fishfood and accept also readily granulated food. Larger specimens feed on fish and amphibians, adult ones also catch waterfowl and rats etc.</p>"
     },
     {
       "key": "behaviour",
@@ -119,10 +158,22 @@
       "html": "<p>Has never been bred in aquaria as far as is known but is farmed on a commercial basis, often using high-protein, artificial feed and artificial methods of propagation. In nature S. glanis overwinters in deeper river channels and undertakes short migrations to upstream spawning grounds from February to April depending on locality. Pairing of males and females occurs during the migration and spawning subsequently occurs from May to August in vegetated, marshy, marginal zones of lakes, flood plains and river deltas. The eggs are coated in an adhesive, jelly-like membrane and ~10 - 350,000 may be deposited during a single spawning event. Spawning usually takes place on warm evenings characterised by a drop in barometric pressure, e.g. before a thunderstorm. Males exhibit an increase in aggression and compete for spawning sites in shallow water around 40 – 60 cm deep. Once a space is established an individual male proceeds to construct a \"nest\", which may be a depression in the substrate, flattened area of vegetation or among hanging/submergent plant roots. The event itself is preceeded by the male chasing his partner, nudging her ventral region before wrapping himself around her at which point the pair sinks to the substrate and the female releases a batch of eggs with the male following to fertilise them. This process is then repeated for a variable period of time at the conclusion of which the female leaves the site. The male guards and tends the eggs during incubation which may last for 2-10 days depending on temperature. Post-hatching the fry are left to fend for themselves with the adults moving back to deeper water. Sexual maturity is generally reached at 3-4 years of age, exceptionally 2 years.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10f-catfishes-from-europe-and-north-america/silurus_glanis_en/",
+      "html": "<p>In the wild, the male guards the eggs (up to 20,000 per kg of female spawner) and the small offspring that reminds one of tadpoles.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/silurus-glanis",
       "html": "<p>Juvenile specimens are occasionally available in the aquarium trade but this species is clearly not a viable subject for the vast majority of private aquarists. While it's considered a sport fish in some countries (France, Italy, Spain, UK) its flesh and eggs are considered a delicacy in others (Hungary, Poland, Slovakia, Lithuania) and its skin is also used in the manufacture of leather and glue.</p><p>The family Siluridae comprises those catfish species commonly referred to as freshwater sheatfishes and glass catfishes, these being most diverse in South and Southeast Asia but also ranging into temperate Asia and Europe. Although the family itself is considered to represent a monophyletic assemblage recent phylogenetic analyses have thus far been unable to diagnose its precise position of relatedness in respect of other siluroid families.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10f-catfishes-from-europe-and-north-america/silurus_glanis_en/",
+      "html": "<p>It is strictly forbidden to release any type of aquarium fish (even native species!) in the wild if the fish is not wanted anymore. This can have a serious impact on the ecology!</p><p>The largest Wels catfish described in a scientific publication was 4.875 m long and weighed 295 kg. This giant was caught in the River Dnieper near the city of Kremenchuk.</p><p>Lexicon: Silurus: after the name for catfish used in ancient Greece. glanis: this word also means \"catfish\" in Neo-Latin (the Latin of the scientists used between 1500 and 1900).</p>"
     },
     {
       "key": "references",
@@ -133,29 +184,42 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/6996deeb27fe5875.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/6996deeb27fe5875-480.webp",
-      "width": 895,
-      "height": 595,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/silurus-glanis",
-      "caption": "Habitat in the lower Río Ebro.",
-      "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/f809ff5bf55b1dd2.webp",
-      "thumb": "https://media.aquatome.com/scotcat/f809ff5bf55b1dd2-480.webp",
-      "width": 500,
-      "height": 267,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/siluridae/silurus_glanis.htm",
-      "caption": "Silurus glanis",
-      "source": "scotcat"
+      "url": "https://media.aquatome.com/commons/8d5ac39c55172f71.webp",
+      "thumb": "https://media.aquatome.com/commons/8d5ac39c55172f71-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 2.0",
+      "author": "Bernard DUPONT from FRANCE",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:European_Catfish_(Silurus_glanis)_(13532570755).jpg",
+      "caption": "Cá nheo châu Âu bơi cạnh công trình chìm dưới nước"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "utfzMkweE4w",
+      "title": "Only wels catfish S. glanis is sickened by fenbendazole out of 1000 fish of 200 different species",
+      "durationSec": 661,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "pBLG6FJNhSk",
+      "title": "Silurus glanis aka wels catfish, 5 years, 3.5' or 1 meter, finally gets a 100x upgrade to 25,000 gal",
+      "durationSec": 938,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "m69PZlHPTF4",
+      "title": "Silurus glanis Albino. Wels catfish 30/12/21",
+      "durationSec": 49,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "UnL0yfBKSqg",
+      "title": "albino meerval in aquarium (albino silurus glanis,wels,european catfish,europese meerval)",
+      "durationSec": 61,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "loc",
@@ -178,5 +242,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-13"
 }

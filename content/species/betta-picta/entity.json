@@ -208,7 +208,12 @@
       "author": "Ganjar Cahyadi",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Betta_picta.jpg",
       "caption": "A specimen of Betta picta, or the Spotted Betta, from West Java, Indonesia.",
-      "thumb": "https://media.aquatome.com/commons/f13afd8a0cd3649e-480.webp"
+      "thumb": "https://media.aquatome.com/commons/f13afd8a0cd3649e-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/f13afd8a0cd3649e-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

@@ -10,6 +10,261 @@
     "brazil",
     "sao-francisco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "São Francisco"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Pygocentrus piraya is restricted to the river system of the Sao Francisco in southern Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Restricted to the rio São Francisco watershed in eastern Brazil, where it has been recorded throughout the system including major tributaries such as the rios das Velhas and Grande.",
+          "countries": [],
+          "regions": [
+            "São Francisco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2352472,
+      "total": 242,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "BR",
+          231
+        ],
+        [
+          "SR",
+          6
+        ],
+        [
+          "GY",
+          4
+        ],
+        [
+          "AR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -60.46875,
+          -32.34375,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          2.8125,
+          4,
+          0
+        ],
+        [
+          -57.65625,
+          2.8125,
+          3,
+          0
+        ],
+        [
+          -54.84375,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          4.21875,
+          3,
+          0
+        ],
+        [
+          -53.4375,
+          -32.34375,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          -46.40625,
+          -21.09375,
+          8,
+          8
+        ],
+        [
+          -46.40625,
+          -19.6875,
+          10,
+          10
+        ],
+        [
+          -46.40625,
+          -18.28125,
+          17,
+          17
+        ],
+        [
+          -46.40625,
+          -16.875,
+          29,
+          29
+        ],
+        [
+          -46.40625,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          -45,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -45,
+          -19.6875,
+          7,
+          7
+        ],
+        [
+          -45,
+          -18.28125,
+          21,
+          21
+        ],
+        [
+          -45,
+          -16.875,
+          21,
+          21
+        ],
+        [
+          -45,
+          -15.46875,
+          36,
+          36
+        ],
+        [
+          -45,
+          -12.65625,
+          4,
+          4
+        ],
+        [
+          -43.59375,
+          -14.0625,
+          7,
+          7
+        ],
+        [
+          -43.59375,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -19.6875,
+          3,
+          3
+        ],
+        [
+          -42.1875,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          -40.78125,
+          -19.6875,
+          14,
+          14
+        ],
+        [
+          -40.78125,
+          -9.84375,
+          5,
+          5
+        ],
+        [
+          -40.78125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -39.375,
+          -9.84375,
+          11,
+          11
+        ],
+        [
+          -37.96875,
+          -11.25,
+          18,
+          18
+        ],
+        [
+          -37.96875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -36.5625,
+          -11.25,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -175,17 +430,6 @@
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pygocentrus-piraya",
       "caption": "Adult individual from the U.S. aquarium trade.",
-      "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/6d7a554669c5a6d3.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/6d7a554669c5a6d3-480.webp",
-      "width": 800,
-      "height": 600,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/pygocentrus-piraya",
-      "caption": "Individual missing an eye due to conspecific aggression in the confines of an aquarium.",
       "source": "seriouslyfish"
     }
   ],

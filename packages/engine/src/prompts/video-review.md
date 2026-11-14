@@ -4,7 +4,7 @@ Captions confuse "nitrite" and "nitrate". Read which one the creator meant from 
 
 A note for local readers ("Ở Việt Nam…") is AquaTome's own, kept apart from this text, and isn't judged here.
 
-The writer was told to write an original guide on the video's core ideas, not a translation: restructuring, summarising, metric units, and dropping sponsor or channel promotion are all correct. The guide sits under the video, so it must not mention the creator, the channel or the video ("theo tác giả", "tác giả cho rằng", "Theo MJ Aquascaping", "trong video này"): opinions keep their hedge in the wording instead.
+The writer was told to write an original guide on the video's core ideas, not a translation: restructuring, summarising, metric units (a tank the video gives in US gallons is right named as this table names it: {{TANKS_EN}}), and dropping sponsor or channel promotion are all correct. The guide sits under the video, so it must not mention the creator, the channel or the video ("theo tác giả", "tác giả cho rằng", "Theo MJ Aquascaping", "trong video này"): opinions keep their hedge in the wording instead.
 
 Score 0–1:
 - 1.0: every fact and piece of advice is in the video (general knowledge only explains a word or a thing the video mentions); the video's main teaching points are covered; organised as a guide in the writer's own words; natural Vietnamese with the usual hobby terms.

@@ -64,7 +64,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bộ lọc nửa chai nhồi bông gắn vào máy bơm, thả trong bể.",
-            "sharpness": 1439.8
+            "sharpness": 1439.8,
+            "person": false
           }
         ]
       },
@@ -77,7 +78,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bộ lọc tinh gắn bông lọc đang chạy trong bể, nước còn vẩn cặn.",
-            "sharpness": 1470.8
+            "sharpness": 1470.8,
+            "person": false
           }
         ]
       },
@@ -98,7 +100,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Chai nhồi bông lọc gắn vào máy bơm trong hồ làm bộ hút váng.",
-            "sharpness": 270.7
+            "sharpness": 270.7,
+            "person": false
           }
         ]
       },
@@ -119,7 +122,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bộ hút váng làm từ chai nhựa, răng cưa nằm sát mặt nước.",
-            "sharpness": 285.8
+            "sharpness": 285.8,
+            "person": false
           }
         ]
       },
@@ -139,14 +143,6 @@
       {
         "heading": "Các bước khoan và lắp lọc sủi chai",
         "moments": [
-          {
-            "t": 360,
-            "url": "https://media.aquatome.com/video/kiDrZPqHKTs/at360-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đầu chai khoan nhiều lỗ để nước đã lọc thoát ra.",
-            "sharpness": 365.6
-          },
           {
             "t": 370,
             "url": "https://media.aquatome.com/video/kiDrZPqHKTs/at370-hd.webp",
@@ -174,7 +170,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Vật liệu lọc K1 chuyển động trong ngăn lọc tầng sôi bên hông bể.",
-            "sharpness": 953
+            "sharpness": 953,
+            "person": false
           }
         ]
       }

@@ -224,7 +224,9 @@ export function computeContentStats(o: StatsInput): ContentStats {
 
   // ——— Gaps ———
   const hidden = o.hidden ?? new Set<string>()
-  const engineHere = !!o.engineState && existsSync(o.engineState)
+  // The loader's record of where the fish is in each photo (load.ts PHOTO_BOXES_FILE) is no engine run: the fixture keeps
+  // one beside its content for its fish frames, and has no engine state.
+  const engineHere = !!o.engineState && existsSync(o.engineState) && readdirSync(o.engineState).some(f => f !== '_photo-boxes.json')
   // The rewrite's record (none yet: nothing rewritten); without engine state at all, the oldVi gaps are left out.
   const rewrite = engineHere ? (read(join(o.engineState!, 'vi-rewrite.json')) ?? {}) : undefined
   const staple = new Map(STAPLE_SPECIES.map((id, i) => [id, i]))

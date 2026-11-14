@@ -28,9 +28,9 @@
         "VE"
       ],
       "regions": [
-        "Amazon River",
+        "Amazon",
         "Paraná-Paraguay",
-        "Rio São Francisco",
+        "São Francisco",
         "Orinoco",
         "Río Magdalena"
       ],
@@ -47,9 +47,9 @@
             "PY"
           ],
           "regions": [
-            "Amazon River",
+            "Amazon",
             "Paraná-Paraguay",
-            "Rio São Francisco"
+            "São Francisco"
           ]
         },
         {
@@ -788,6 +788,10 @@
       {
         "source": "seriouslyfish",
         "value": 30
+      },
+      {
+        "source": "glaser",
+        "value": 25
       }
     ],
     "tankCm": [
@@ -811,16 +815,34 @@
       "html": "<ul><li>Difficulty: Difficult (6 of 8), because it needs a tank at least 2 m long.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporellus_vittatus_en-2/",
+      "html": "<p>Leporellus vittatus attains a length of approximately 25 cm and belongs to the headstander tetra relationship.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/leporellus-vittatus",
       "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump. A tightly-fitting cover is also essential as anostomids tend to be prodigious jumpers.</li></ul><p>Leporellus vittatus is an anostomid with a huge natural range across the Amazon, Paraná-Paraguay, São Francisco and Orinoco river systems. Unlike most anostomids it is adapted to a benthic existence in flowing water and spends most of its time on or around the substrate. Occasionally exported, it requires quite specialised conditions, an aquarium of at least 210 by 60 cm and ideally a group of six or more.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporellus_vittatus_en-2/",
+      "html": "<p>Leporellus vittatus is very rarely offered. The animals are currently 10-12 cm long.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/leporellus-vittatus",
       "html": "<p>Type locality is given simply as 'Amazon River, Brazil' and according to current thinking this species has a huge natural range encompassing the Amazon River system in Brazil and Peru plus the Paraná-Paraguay drainage in southern Brazil and Paraguay and rio São Francisco basin in southern Brazil.</p><p>Specimens in the images were collected from the Río Casanare in Colombia, a tributary of the Río Meta, meaning it also occurs in the Orinoco system where it's also known from the Río Apure in Venezuela, and the Río Samaná Sur, a tributary of the Río Magdalena, Colombia.</p><p>It exhibits certain differences in colour pattern depending on population, although these have yet to be recorded in detail.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporellus_vittatus_en-2/",
+      "html": "<p>Brazil.</p>"
     },
     {
       "key": "aquariumSize",
@@ -841,16 +863,34 @@
       "html": "<ul><li>Temperature: 18–26°C</li><li>pH: 5.5–7.5</li><li>Hardness: 1–12 dGH</li></ul>"
     },
     {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporellus_vittatus_en-2/",
+      "html": "<p>They look most beautiful in strongly lightened aquaria with a good current.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/leporellus-vittatus",
       "html": "<p>Said to be predominantly herbivorous by nature but quite unfussy in the aquarium and will accept most things offered, although products high in protein are best avoided.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporellus_vittatus_en-2/",
+      "html": "<p>Leporellus feed readily on any type of fishfood, but all headstanders have a type of teeth that are specialized for feeding on plant material. So one should offer the fish a great variety of plant material for proper feeding.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/leporellus-vittatus",
       "html": "<p>Not recommended for the general community aquarium given its adult size but can be maintained alongside comparably-sized cichlids, catfishes and other species which enjoy similar conditions.</p><p>It should ideally be maintained in a group of 6 or more specimens and although a degree of squabbling is natural as the fish form a pecking order individuals are normally quite peaceful towards one another once this is established.</p><p>Single specimens can become aggressive, particularly towards similarly-shaped tankmates.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporellus_vittatus_en-2/",
+      "html": "<p>In Leporellus the air bladder is mostly reduced and so the fish live strictly bottom orientated. Like all headstanders, these fish establish a hierarchy among themselves.</p>"
     },
     {
       "key": "reproduction",
@@ -863,6 +903,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/leporellus-vittatus",
       "html": "<p>This species is occasionally exported for the aquarium fish trade although it requires quite specialised conditions for proper long-term care.</p><p>Unlike the majority of anostomids it possesses morphology adapted to a benthic existence in flowing water, and as such tends to spend the majority of its time on or around the substrate.</p><p>Etymology: Leporellus is a diminutive of the generic name Leporinus, of which it was originally a subgenus. vittatus comes from the Latin vittatus, meaning 'striped, banded', in reference to this species' colour pattern.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporellus_vittatus_en-2/",
+      "html": "<p>Lexicon: Leporellus: diminutive of Leporinus, e.g. \"small Leporinus\"; Leporinus is another genus of tetra. vittatus: Latin, means \"striped\".</p>"
     },
     {
       "key": "references",
@@ -917,7 +963,26 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "a8ta8Oc4aYk",
+      "title": "Leporellus vittatus 維塔圖斯大鉛筆",
+      "durationSec": 61,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "i6F6lsGKsBM",
+      "title": "Descoberto novo peixe no RIO PARDO-SP  Leporellus Vittatus",
+      "durationSec": 129,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "dSLrKXTpQw0",
+      "title": "Leporellus vittatus",
+      "durationSec": 15,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -948,5 +1013,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-13"
 }

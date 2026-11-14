@@ -9,25 +9,429 @@
     "south-america",
     "peru"
   ],
-  "dataCard": {},
+  "range": {
+    "records": {
+      "taxonKey": 2355681,
+      "total": 871,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "BR",
+          776
+        ],
+        [
+          "PE",
+          71
+        ],
+        [
+          "BO",
+          9
+        ],
+        [
+          "CO",
+          6
+        ],
+        [
+          "PY",
+          5
+        ],
+        [
+          "VE",
+          3
+        ],
+        [
+          "GF",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -4.21875,
+          2
+        ],
+        [
+          -75.9375,
+          -2.8125,
+          1
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          3
+        ],
+        [
+          -74.53125,
+          -8.4375,
+          2
+        ],
+        [
+          -74.53125,
+          -7.03125,
+          6
+        ],
+        [
+          -74.53125,
+          -5.625,
+          17
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          15
+        ],
+        [
+          -74.53125,
+          -2.8125,
+          2
+        ],
+        [
+          -73.125,
+          -5.625,
+          8
+        ],
+        [
+          -73.125,
+          -4.21875,
+          8
+        ],
+        [
+          -73.125,
+          -2.8125,
+          2
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          7
+        ],
+        [
+          -71.71875,
+          -2.8125,
+          2
+        ],
+        [
+          -70.3125,
+          -5.625,
+          1
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          2
+        ],
+        [
+          -68.90625,
+          -9.84375,
+          2
+        ],
+        [
+          -68.90625,
+          8.4375,
+          1
+        ],
+        [
+          -67.5,
+          -15.46875,
+          1
+        ],
+        [
+          -67.5,
+          -14.0625,
+          4
+        ],
+        [
+          -67.5,
+          -5.625,
+          1
+        ],
+        [
+          -67.5,
+          8.4375,
+          1
+        ],
+        [
+          -66.09375,
+          -7.03125,
+          1
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          6
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          6
+        ],
+        [
+          -64.6875,
+          -8.4375,
+          1
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          2
+        ],
+        [
+          -64.6875,
+          -2.8125,
+          2
+        ],
+        [
+          -64.6875,
+          7.03125,
+          1
+        ],
+        [
+          -63.28125,
+          -11.25,
+          3
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          8
+        ],
+        [
+          -63.28125,
+          -7.03125,
+          1
+        ],
+        [
+          -63.28125,
+          -5.625,
+          2
+        ],
+        [
+          -63.28125,
+          -2.8125,
+          2
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          2
+        ],
+        [
+          -61.875,
+          -14.0625,
+          4
+        ],
+        [
+          -61.875,
+          -9.84375,
+          4
+        ],
+        [
+          -61.875,
+          -8.4375,
+          2
+        ],
+        [
+          -61.875,
+          -7.03125,
+          1
+        ],
+        [
+          -61.875,
+          -5.625,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          2
+        ],
+        [
+          -61.875,
+          -2.8125,
+          3
+        ],
+        [
+          -61.875,
+          2.8125,
+          1
+        ],
+        [
+          -60.46875,
+          -8.4375,
+          4
+        ],
+        [
+          -60.46875,
+          -7.03125,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          657
+        ],
+        [
+          -60.46875,
+          -2.8125,
+          14
+        ],
+        [
+          -60.46875,
+          -1.40625,
+          1
+        ],
+        [
+          -59.0625,
+          -25.3125,
+          1
+        ],
+        [
+          -59.0625,
+          -5.625,
+          1
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          6
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          1
+        ],
+        [
+          -57.65625,
+          -23.90625,
+          4
+        ],
+        [
+          -57.65625,
+          -5.625,
+          1
+        ],
+        [
+          -57.65625,
+          -4.21875,
+          1
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          4
+        ],
+        [
+          -56.25,
+          -4.21875,
+          5
+        ],
+        [
+          -56.25,
+          -2.8125,
+          1
+        ],
+        [
+          -54.84375,
+          -12.65625,
+          1
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          2
+        ],
+        [
+          -53.4375,
+          -7.03125,
+          1
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          4
+        ],
+        [
+          -53.4375,
+          4.21875,
+          1
+        ],
+        [
+          -52.03125,
+          -7.03125,
+          1
+        ],
+        [
+          -49.21875,
+          -11.25,
+          11
+        ],
+        [
+          -49.21875,
+          -7.03125,
+          2
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          1
+        ],
+        [
+          -46.40625,
+          -2.8125,
+          1
+        ],
+        [
+          -43.59375,
+          -4.21875,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 6
+      }
+    ]
+  },
   "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina_cf_brevis_en/",
+      "html": "<p>This gem from Peru is without any doubt the most colorful species in the genus Pyrrhulina. In breeding mood the males get red-orange fins and on each scale appears a cherry-red spot. The species grows up to 6 cm long.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina_cf_brevis_en/",
+      "html": "<p>Peru.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina_cf_brevis_en/",
+      "html": "<p>One should keep this species in larger tanks. Under these conditions it is possible to keep more than one territorial male.</p>"
+    },
     {
       "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina_cf_brevis_red_spots_en/",
-      "html": "<p>Despite the fact that the males are quarrelling quite a lot, these quarrels are harmless and don't even lead to fin damage.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina_cf_brevis_en/",
+      "html": "<p>The tank becomes the scene of neverending (but harmless) quarrels – it is simply amazing to observe the behaviour of this beautiful fish.</p>"
     },
     {
-      "key": "dimorphism",
+      "key": "reproduction",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina_cf_brevis_red_spots_en/",
-      "html": "<p>When the males came into breeding mood in the photo tank and started to quarrel, they became even more colourful. At a glance, deep red spots developed on the scales, which were hardly visible before. Females don't get these spots at all.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina_cf_brevis_en/",
+      "html": "<p>Keeping and breeding is equal to that of P. laeta.</p>"
     },
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina_cf_brevis_red_spots_en/",
-      "html": "<p>Lexicon: Pyrrhulina means \"little bullfinch\". brevis: Latin, means \"short\".</p><p>Suggestion of a common name: Red Spotted Pyrrhulina.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina_cf_brevis_en/",
+      "html": "<p>Pyrrhulina means \"small bullfinch\", because the males develop much red coloration during courtship, exactly as the bullfinch male (Pyrrhula pyrrhula) does. brevis is Latin and means \"short\".</p>"
     }
   ],
   "photos": [
@@ -90,5 +494,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-11"
+  "updatedAt": "2026-11-13"
 }

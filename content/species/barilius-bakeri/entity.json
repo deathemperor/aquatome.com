@@ -243,7 +243,72 @@
       "html": "<ul><li>Raju Thomas, K., M. J. George, and C. R. Biju (2002). Freshwater fishes of southern Kerala with notes on the distribution of endemic and endangered species. Journal of the Bombay Natural History Society 99(1), 47-53</li><li>Collins R. A., K. F. Armstrong, R. Meier, Y. Yi, S. D. J. Brown, R. H. Cruickshank, S. Keeling, and C. Johnston (2012). Barcoding and border biosecurity: identifying cyprinid fishes in the aquarium trade. PLoS ONE 7(1), e28381</li><li>Tang, K. L., M. K. Agnew, W. J. Chen., M. V. Hirt, T. Sado, L. M. Schneider, J. Freyhof, Z. Sulaiman, E. Swartz, C. Vidthayanon, M. Miya, K. Saitoh, A. M. Simons, R. M. Wood and R. L. Mayden (2010). Systematics of the subfamily Danioninae (Teleostei: Cypriniformes: Cyprinidae). Molecular Phylogenetics and Evolution 57(1), 189-214</li><li>Liao, T-Y, S. O. Kullander, and F. Fang (2011). Phylogenetic position of rasborin cyprinids and monophyly of major lineages among the Danioninae, based on morphological characters (Cypriniformes: Cyprinidae). Journal of Zoological Systematics and Evolutionary Research 49(3), 224-232</li><li>Howes, G. J. (1980). The anatomy, phylogeny and classification of bariliine cyprinid fishes. Bulletin of the British Museum (Natural History) : Zoology series 37(3), 129-198</li><li>Day, F. (1865). On the fishes of Cochin, on the Malabar Coast of India. Part II. Anacanthini. Proceedings of the Zoological Society of London 1865 (pt 1), 286-318</li><li>Nath, P., D. Dam, and A. Kumar (2010). A New Fish Species of the Genus Barilius (Cyprinidae: Rasborinae) from River Siang, D'Ering Memorial Wildlife Sanctuary, Arunachal Pradesh, India. Records of the Zoological Survey of India 110(3), 19-33</li><li>Knight, J. D. M., A. Rai, R. K. P. d'Souza and B. Vijaykrishnan (2015). Barilius ardens (Teleostei: Cyprinidae), a new species from the Western Ghats, India, with redescription of B. malabaricus and B. canarensis. Zootaxa 3926(3), 396-412</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/cf1d66f308c4d2dc4184961ebfeae360.webp",
+      "thumb": "https://media.aquatome.com/processed/cf1d66f308c4d2dc4184961ebfeae360-480.webp",
+      "width": 850,
+      "height": 419,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barilius_bakeri_en/",
+      "source": "glaser",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-barilius-bakeri",
+        "pixelHash": "112a1bb35d43c69071863ba96f0c14fd2400acc6584363d07e0afd3ed4cb9a36"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T10:01:09.058Z",
+          "originalHash": "d30d2ecf4694ae6d5f19c69bab9bb8e8b02bb9b4cbf732590011fdd05c6ab1bc",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 850,
+            "originalHeight": 567,
+            "window": {
+              "x0": 0,
+              "y0": 148,
+              "x1": 850,
+              "y1": 567
+            },
+            "subject": {
+              "x0": 45,
+              "y0": 163,
+              "x1": 802,
+              "y1": 515
+            },
+            "margin": 15
+          },
+          "excludedMarks": [
+            {
+              "x0": 27,
+              "y0": 27,
+              "x1": 831,
+              "y1": 142
+            }
+          ],
+          "checks": {
+            "species": [
+              "7d4e76a2f4a9c148c246fa13884cdd7c7bfae02dfe91cad6af4a0704b1c90018",
+              "61246207cd0b80b23c826953bce1d51126d2a7b4f4312a43179a45dd2522468d"
+            ],
+            "ownership": [
+              "405ad6a3b6a5792b1d0ff1bffef32c0f436a22e910dbd141c58f41abe3502be4",
+              "69ac38dbbc46828a5724e9936d901b7b082da57a698e455ed5e1d13312293358"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/glaser/24ec1921b6b00c2f.webp",
+        "width": 850,
+        "height": 567,
+        "thumb": "https://media.aquatome.com/glaser/24ec1921b6b00c2f-480.webp"
+      }
+    }
+  ],
   "videos": [
     {
       "youtubeId": "5NeYDZIzCGo",

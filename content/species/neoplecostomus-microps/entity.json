@@ -1,0 +1,205 @@
+{
+  "id": "neoplecostomus-microps",
+  "scientificName": "Neoplecostomus microps",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Neoplecostomus",
+  "group": "catfish",
+  "lNumber": "LDA34",
+  "places": [
+    "south-america",
+    "brazil",
+    "paraiba-do-sul"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Paraíba do Sul",
+        "Macaé"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio de Janeiro (possibly Rio Parahyba), Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Paraíba do Sul River basin.",
+          "countries": [],
+          "regions": [
+            "Paraíba do Sul"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Rio de Janeiro State rivers, Paraíba do Sul and Macaé.",
+          "countries": [],
+          "regions": [
+            "Macaé"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339401,
+      "total": 326,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "BR",
+          326
+        ]
+      ],
+      "cells": [
+        [
+          -54.84375,
+          -12.65625,
+          4,
+          4
+        ],
+        [
+          -46.40625,
+          -23.90625,
+          93,
+          93
+        ],
+        [
+          -45,
+          -23.90625,
+          56,
+          56
+        ],
+        [
+          -45,
+          -22.5,
+          36,
+          36
+        ],
+        [
+          -43.59375,
+          -23.90625,
+          3,
+          3
+        ],
+        [
+          -43.59375,
+          -22.5,
+          43,
+          43
+        ],
+        [
+          -43.59375,
+          -21.09375,
+          4,
+          4
+        ],
+        [
+          -42.1875,
+          -22.5,
+          10,
+          10
+        ],
+        [
+          -42.1875,
+          -21.09375,
+          75,
+          75
+        ],
+        [
+          -40.78125,
+          -21.09375,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 10.2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1336",
+      "html": "<ul><li>Scientific name: Neoplecostomus microps (Steindachner, 1877)</li><li>Common names: LDA034, Microps-Neoplecostomus (Germany), Small Eyed Lobe Pleco, Småøjet Kvastsugemalle (Denmark)</li><li>Type locality: Rio de Janeiro (possibly Rio Parahyba), Brazil.</li><li>Etymology: Genus: Greek, neos = new + Greek, plekos,-eos = twisted. The specific epithet refers to its small (micro = small) eyes (-ops = eyes).</li><li>IUCN Red List: Least Concern (last assessed 2021).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1336",
+      "html": "<p>South America: Paraíba do Sul River basin. Rio de Janeiro State rivers, Paraíba do Sul and Macaé.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1336",
+      "html": "<p>In nature, adults and subadults are found in rapids flowing over stones on sandy or muddy substrates. Juveniles below 32 mm SL are found almost exclusively in planted stream margins (in nature, mostly Zingiberaceae) with slower currents.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1336",
+      "html": "<p>Temperature in the wild: 11.5–25.5°C. From Brito et al. (2016, Biota Neotrop. vol.16, no.2): at the capture sites, water temperature ranged from 11.6 to 25.3°C, electrical conductivity from 12.2 to 73.2 µS/cm and dissolved oxygen from 7.45 to 10.78 mg/L.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1336",
+      "html": "<p>Male N. microps show an epidermal growth along the pelvic-fin spine, forming a flap that projects toward the side of the body; this flap was observed in juvenile males 32 mm SL and larger. No females showed this epidermal expansion. Another difference observed between the sexes was in the genital area. In females, the anal and urogenital pores were very close, with the middle of the papillae merged, giving the appearance of a single opening. The males showed a separation between the anal and urogenital pores, featuring two distinct and defined openings. Males are generally larger than females. In a survey of sexually mature wild adults, the smallest female and smallest male found were 58.0 mm and 64.0 mm, respectively.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1336",
+      "html": "<p>From Brito et al. (2016, Biota Neotrop. vol.16, no.2): in nature, spawns were found at two sites in the Macaé River basin in November and January, during the rainy season, exclusively in rapid stretches. Of the total of eight spawns found, six were in the upper Macaé River and two in the Boa Esperança River, a left tributary of the middle Macaé River. The characteristics of the sites were similar, with the fast-flowing portion associated with stones and boulders (i.e., headwaters). Eggs were found attached to the undersides of stones, in cavities formed in the river bottom. Brito et al. (2016) suggest that adults choose stones as spawning sites based upon the presence of cavities or gaps (formed between the stone and riverbed) appropriate for the surface, size and position relative to the current. Adults seem to prefer large, flat stones over smaller rounder stones. The number of eggs per stone ranged from 62 to 375. Eggs in different stages of development were found on the same stone. The egg colours ranged from yellow-gold, in eggs full of yolk in early development, to brown, in eggs with pigmented embryos in an advanced stage of development.</p><p>There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1336",
+      "html": "<p>Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften. Mathematisch-Naturwissenschaftliche Classe v. 74 (1. Abth.), pp 688 [130], Pl. 13.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc thùng cho bể cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho bể cá",
+        "đá cuội thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá lau kiếng",
+        "thức ăn viên chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

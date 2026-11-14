@@ -10,6 +10,87 @@
     "suriname",
     "tapanahoni"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "SR"
+      ],
+      "regions": [
+        "Tapanahoni",
+        "Maroni"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The parents originate from Suriname (the Tapanahoni river).",
+          "countries": [
+            "SR"
+          ],
+          "regions": [
+            "Tapanahoni"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The species also occurs in other rivers of Suriname, for example the Maroni river.",
+          "countries": [],
+          "regions": [
+            "Maroni"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208428,
+      "total": 168,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "GF",
+          125
+        ],
+        [
+          "SR",
+          43
+        ]
+      ],
+      "cells": [
+        [
+          -56.25,
+          2.8125,
+          14,
+          14
+        ],
+        [
+          -54.84375,
+          1.40625,
+          4,
+          0
+        ],
+        [
+          -54.84375,
+          2.8125,
+          83,
+          8
+        ],
+        [
+          -54.84375,
+          4.21875,
+          63,
+          21
+        ],
+        [
+          -53.4375,
+          2.8125,
+          4,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -74,19 +155,7 @@
       "html": "<p>The species belongs to the open brooders and uses roots or stones for spawning. Up to 150 fry have been obtained so far, but a good pair may produce around 400 young.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/glaser/3973239915faf3b3.webp",
-      "thumb": "https://media.aquatome.com/glaser/3973239915faf3b3-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_harreri_en/",
-      "caption": "Geophagus harreri",
-      "source": "glaser"
-    }
-  ],
+  "photos": [],
   "videos": [
     {
       "youtubeId": "iH3NJhu4peo",

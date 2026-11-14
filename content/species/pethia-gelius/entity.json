@@ -15,6 +15,184 @@
     "myanmar",
     "ayeyarwady"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "NP",
+        "BD",
+        "MM"
+      ],
+      "regions": [
+        "Ganges",
+        "Brahmaputra",
+        "Ayeyarwaddy"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from 'Ponds and ditches of northeastern Bengal', and generally considered native to the Ganges and Brahmaputra river drainages in northern India, Nepal, and Bangladesh.",
+          "countries": [
+            "IN",
+            "NP",
+            "BD"
+          ],
+          "regions": [
+            "Ganges",
+            "Brahmaputra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Records from this century suggest a much wider range, however, with confirmed occurrences in Tamil Nadu state, southern India, and the Ayeyarwaddy River delta region, Myanmar although the latter records may warrant investigation.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Ayeyarwaddy"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7554524,
+      "total": 73,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "IN",
+          44
+        ],
+        [
+          "BD",
+          27
+        ],
+        [
+          "NP",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          78.75,
+          16.875,
+          4,
+          4
+        ],
+        [
+          80.15625,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          80.15625,
+          22.5,
+          1,
+          1
+        ],
+        [
+          81.5625,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          82.96875,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          87.1875,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          87.1875,
+          22.5,
+          1,
+          1
+        ],
+        [
+          87.1875,
+          25.3125,
+          3,
+          3
+        ],
+        [
+          87.1875,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          88.59375,
+          22.5,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          23.90625,
+          3,
+          3
+        ],
+        [
+          88.59375,
+          25.3125,
+          6,
+          6
+        ],
+        [
+          90,
+          22.5,
+          11,
+          11
+        ],
+        [
+          90,
+          23.90625,
+          3,
+          3
+        ],
+        [
+          91.40625,
+          23.90625,
+          5,
+          5
+        ],
+        [
+          91.40625,
+          25.3125,
+          13,
+          13
+        ],
+        [
+          94.21875,
+          26.71875,
+          4,
+          4
+        ],
+        [
+          94.21875,
+          28.125,
+          10,
+          10
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

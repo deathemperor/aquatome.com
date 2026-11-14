@@ -38,7 +38,10 @@
     }
   },
   "held": {
-    "checks": [],
+    "checks": [
+      "price",
+      "source"
+    ],
     "at": "2026-11-11"
   }
 }

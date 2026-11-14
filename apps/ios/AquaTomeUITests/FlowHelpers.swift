@@ -17,6 +17,15 @@ extension XCUIApplication {
     launch()
   }
 
+  /// iOS's own back button (`BackButton`, iOS's name for it). A fish's page has iOS's, not one of its own: iOS's swipe
+  /// from the left edge goes with it (the owner, 12 Nov).
+  var pageBack: XCUIElement { navigationBars.buttons["BackButton"].firstMatch }
+
+  /// Off a page: iOS's back button, or a Hôm nay post's ✕ (a page a Hôm nay card opens has no back button).
+  func leavePage() {
+    if pageBack.exists { pageBack.tap() } else { buttons["v2-close-post"].firstMatch.tap() }
+  }
+
   /// Tìm's home has the handbook: its first shelf's chips, on the first screen under the tools.
   func handbookShown(timeout: TimeInterval = 5) -> Bool {
     descendants(matching: .any)["shelf"].firstMatch.waitForExistence(timeout: timeout)

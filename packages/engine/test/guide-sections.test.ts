@@ -2,6 +2,7 @@ import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
+import sharp from 'sharp'
 import { fixFirst, guideHeading, guideHeadings, withSections } from '../src/guide-sections'
 import { htmlToOutline } from '../src/outline'
 import { backfillPhotos } from '../src/photo-backfill'
@@ -49,7 +50,7 @@ test('a published guide is read once more for every photo of its source, each in
   const html = `<main><h1>11 Easiest Fish</h1>${fish.map((h, i) => `<h2>${h}</h2><img src="/f${i}.jpg" alt="fish ${i}" width="1200" height="800"><p>${'text '.repeat(30)}</p>`).join('')}</main>`
   const deps = {
     get: async () => ({ status: 200, html }),
-    bytes: async (u: string) => new TextEncoder().encode(u),
+    bytes: async () => sharp({ create: { width: 1200, height: 800, channels: 3, background: 'gray' } }).jpeg().toBuffer(),
     media: { urlFor: (k: string) => `https://m/${k}`, put: async (k: string) => ({ url: `https://m/${k}`, width: 1200, height: 800 }) },
     now: () => new Date('2026-11-02T00:00:00Z'),
     sleep: async () => {},

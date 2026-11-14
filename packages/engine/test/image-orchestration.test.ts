@@ -1,15 +1,15 @@
 import { fixtureGeneratedCalibration, fixtureMarkCalibration, fixtureJudgments } from './image-fixtures'
 import { afterEach, expect, test, vi } from 'vitest'
 import { cp, mkdir, mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises'
-import { homedir } from 'node:os'
+import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
-import { IMAGE_SWITCHES, loadAll, type Photo } from '@aq/schema'
+import { IMAGE_SWITCHES, loadAll, PHOTO_SCREEN_FILE, type Photo, type PhotoScreenEntry } from '@aq/schema'
 import generatedResults from '../../../docs/image-calibration-results.json'
 import markResults from '../../../docs/mark-calibration-results.json'
 import reviewed from '../src/image-controls.json'
-import { imagePlan, imageSteps, type ImageStepDeps } from '../src/image-steps'
+import { generationPurpose, imagePlan, imageSteps, type ImageStepDeps } from '../src/image-steps'
 import { sha256 } from '../src/image-reference'
 import { noTraceVersion } from '../src/image-transforms'
 const dirs: string[] = []
@@ -21,8 +21,7 @@ const facts = [{ source: 'seriouslyfish', sourceUrl: 'https://www.seriouslyfish.
 const passed = { verdict: 'pass', identity: 'pass', anatomy: 'pass', referenceImages: 'pass', person: false, text: false, logo: false, features: [{ n: 1, verdict: 'pass', note: 'visible' }], conflicts: [], note: 'visible' }
 const on = { ...IMAGE_SWITCHES, generateMissing: true, publishGenerated: true }
 async function fixture() {
- await mkdir(join(homedir(),'.cache/aquatome'),{recursive:true})
- const root = await mkdtemp(join(homedir(), '.cache/aquatome/image-test-')); dirs.push(root)
+ const root = await mkdtemp(join(tmpdir(), 'image-test-')); dirs.push(root)
  await cp(fileURLToPath(new URL('../../schema/test/fixtures/store', import.meta.url)), join(root, 'content'), { recursive: true })
  const cache = join(root, 'private'); await mkdir(join(cache, 'candidates'), { recursive: true }); await mkdir(join(root, 'engine-state'))
  const file = join(root, 'content/species/alpha/entity.json'), e = await read(file)
@@ -58,10 +57,45 @@ test.each(['name', 'quote', 'manifest', 'reference-bytes', 'calibration', 'revie
 })
 test('planner defers unjudged real entity and album photos, popular too', async () => {
  const f = await fixture(); f.e.photos = [real]; await save(f.file, f.e)
+ await save(join(f.root, 'engine-state', PHOTO_SCREEN_FILE), { [real.url]: { ocr: [], watermark: false } })
  expect((await imagePlan(f.root))[0]).toMatchObject({ waitingReal: true, popular: true })
  await imageSteps(f.root, async () => f.d, { ...on, generatePopular: true }); expect(f.d.native).not.toHaveBeenCalled()
  await save(join(f.root, 'engine-state/_photo-subjects.json'), { [real.url]: { alpha: { ok: 'yes', person: false, logo: false } } }); expect((await imagePlan(f.root))[0]!.waitingReal).toBe(false)
  f.e.photos = []; await save(f.file, f.e); await mkdir(join(f.root, 'content/gallery'), { recursive: true }); await save(join(f.root, 'content/gallery/alpha.json'), { id: 'alpha', seen: 1, updatedAt: '2026-11-10', photos: [{ ...real, url: real.url + '?second' }] }); expect((await imagePlan(f.root))[0]!.waitingReal).toBe(true)
+})
+test.each(['entity', 'album'] as const)('a subject-approved %s photo awaiting the watermark screen defers the enabled image step', async placement => {
+ for (const pending of ['no-record', 'text-awaits-verdict', 'source-awaits-verdict'] as const) {
+  const f = await fixture()
+  const photo = { ...real, url: pending === 'source-awaits-verdict' ? 'https://media.aquatome.com/seriouslyfish/waiting.webp' : real.url }
+  if (placement === 'entity') { f.e.photos = [photo]; await save(f.file, f.e) }
+  else { await mkdir(join(f.root, 'content/gallery'), { recursive: true }); await save(join(f.root, 'content/gallery/alpha.json'), { id: 'alpha', seen: 1, updatedAt: '2026-11-11', photos: [photo] }) }
+  // Isolate the watermark wait: the ordinary species check is already positive and there is no unchecked flag.
+  await save(join(f.root, 'engine-state/_photo-subjects.json'), { [photo.url]: { alpha: { ok: 'yes', person: false, logo: false } } })
+  const screen: Record<string, PhotoScreenEntry> = pending === 'no-record' ? {} : { [photo.url]: { ocr: pending === 'text-awaits-verdict' ? [{ t: 'Synthetic fixture', c: 1 }] : [] } }
+  const screenFile = join(f.root, 'engine-state', PHOTO_SCREEN_FILE)
+  await save(screenFile, screen)
+  const page = (await imagePlan(f.root, on))[0]!
+  expect(page, pending).toMatchObject({ empty: true, waitingReal: true, popular: true })
+  for (const flags of [on, { ...IMAGE_SWITCHES, generatePopular: true, publishGenerated: true }]) {
+   expect(generationPurpose(page, flags), pending).toBeUndefined()
+   const result = await imageSteps(f.root, async () => f.d, flags)
+   expect(result, pending).toMatchObject({ generated: 0, published: 0, failed: [] })
+  }
+  for (const call of [f.d.native, f.d.extract, f.d.judge, f.d.store, f.d.quota]) expect(call, pending).not.toHaveBeenCalled()
+  // A real screen verdict releases the wait; an already visible real photo may then be supplemented for popularity.
+  await save(screenFile, { [photo.url]: { ocr: [], watermark: false } })
+  const cleared = (await imagePlan(f.root, on))[0]!
+  expect(cleared, pending).toMatchObject({ empty: false, waitingReal: false })
+  expect(generationPurpose(cleared, on)).toBeUndefined()
+  expect(generationPurpose(cleared, { ...IMAGE_SWITCHES, generatePopular: true })).toBe('popular')
+ }
+})
+test('a missing screen file still defers a subject-approved real photo', async () => {
+ const f = await fixture(); f.e.photos = [real]; await save(f.file, f.e)
+ await save(join(f.root, 'engine-state/_photo-subjects.json'), { [real.url]: { alpha: { ok: 'yes', person: false, logo: false } } })
+ expect((await imagePlan(f.root))[0]).toMatchObject({ waitingReal: true })
+ await imageSteps(f.root, async () => f.d, { ...on, generatePopular: true })
+ expect(f.d.native).not.toHaveBeenCalled(); expect(f.d.quota).not.toHaveBeenCalled()
 })
 test('absent mark calibration preserves real recovery pending before generation', async () => {
  const f = await fixture(), file = join(f.root, 'content/sources.json'), sources = await read(file)
@@ -141,10 +175,13 @@ test('the enabled whole crop step publishes a credited real original with zero r
  await mkdir(join(f.cache,'marked'));await save(join(f.cache,'marked/real.json'),{page:{kind:'species',id:'alpha'},photo})
  f.d.locateMark=vi.fn(async()=>({owner:'photographer' as const,text:'Fixture contributor',credit:'Fixture contributor',sourceUrl:photo.sourceUrl,box:{x0:0,y0:65,x1:100,y1:78},subjectBox:{x0:20,y0:20,x1:60,y1:45},wholeSubject:true}))
  f.d.judge=vi.fn(async(_file,_prompt,schema)=>{if(!('photos'in(schema as {properties:object}).properties))throw Error('A crop must not call a repaint judge');return{photos:[{n:1,ok:'yes',typical:true,person:false,logo:true,note:'Original fixture.'}]}}) as ImageStepDeps['judge']
+ const trip=['TEST','ONLY','INHERITED','PHOTO','WORDS'].join('_')
+ await save(join(f.root,'engine-state/_photo-subjects.json'),{'https://example.org/legacy.webp':{alpha:{ok:'none',person:false,logo:false,typical:false,note:trip}}})
  const flags={...on,removeMarks:true,publishAltered:true},result=await imageSteps(f.root,async()=>f.d,flags)
  expect(result).toMatchObject({repaired:1,published:1,generated:0,failed:[]});expect(f.d.native).not.toHaveBeenCalled();expect(f.d.judge).toHaveBeenCalledTimes(2);expect(f.d.locateMark).toHaveBeenCalledTimes(2)
  const p=(await read(f.file)).photos[0];expect(p).toMatchObject({author:'Fixture contributor',licence:photo.licence,altered:[{method:'mark-crop',retainedChanged:0}]});expect(p.authorUrl).toBeUndefined();expect(p.large).toBeUndefined();expect(p.original.large.url).toBe(photo.large.url);expect(p.altered[0].noTrace).toBeUndefined();expect(p.altered[0].residue).toBeUndefined()
  expect(await read(join(f.root,'content/photo-credit-mismatches.json'))).toEqual([{source:'seriouslyfish',photo:photo.url,differs:true,page:'species/alpha'}])
+ const savedSubjects=await read(join(f.root,'engine-state/_photo-subjects.json'));expect(JSON.stringify(savedSubjects)).not.toContain(trip);expect(savedSubjects['https://example.org/legacy.webp'].alpha).toMatchObject({ok:'none',person:false,logo:false,typical:false,note:'subject none'})
  const shown=await loadAll({root:join(f.root,'content'),lang:'vi',publicBuild:true,imageSwitches:flags});expect(shown.species[0]!.photos[0]!.url).toBe(p.url)
  sources.seriouslyfish.permission.markRemoval.allowed=false;await save(sourcesFile,sources);const revoked=await loadAll({root:join(f.root,'content'),lang:'vi',publicBuild:true,imageSwitches:flags});expect(revoked.species[0]!.photos).toHaveLength(0);expect(revoked.galleries.alpha).toBeUndefined()
 })
@@ -182,4 +219,18 @@ test.each(['species-error','species-missing','ownership-error'] as const)('an in
  const flags={...on,removeMarks:true},r=await imageSteps(f.root,async()=>f.d,flags)
  expect(r.waiting.join()).toContain('real recovery pending');expect(f.d.native).not.toHaveBeenCalled();expect(r.generated).toBe(0)
  await imageSteps(f.root,async()=>f.d,flags);expect(f.d.native).not.toHaveBeenCalled();await expect(readFile(join(f.cache,'marked/real.json.work'))).rejects.toThrow()
+})
+
+test.each(['mark','generated'] as const)('an enabled %s failure report cannot echo an upstream answer',async kind=>{
+ const f=await fixture(),trip=['TEST','ONLY','IMAGE','FAILURE','WORDS'].join('_')
+ if(kind==='mark'){
+  const file=join(f.root,'content/sources.json'),sources=await read(file)
+  sources.seriouslyfish={name:'Seriously Fish',homepage:'https://www.seriouslyfish.com/',publish:true,permission:{date:'2026-11-10',file:'fixture authority',scope:['photos'],markRemoval:{allowed:true,date:'2026-11-10'}}};await save(file,sources)
+  await mkdir(join(f.cache,'marked'));await save(join(f.cache,'marked/real.json'),{page:{kind:'species',id:'alpha'},photo:{...real,source:'seriouslyfish',sourceUrl:facts[0]!.sourceUrl}})
+  f.d.get=async()=>{throw Error(trip)}
+ }else f.d.extract=async()=>{throw Error(trip)}
+ const report=await imageSteps(f.root,async()=>f.d,kind==='mark'?{...IMAGE_SWITCHES,removeMarks:true,publishAltered:true}:on)
+ expect(report.failed).toHaveLength(1);expect(JSON.stringify(report)).not.toContain(trip)
+ expect(report.failed[0]).toMatch(/photo operation unavailable \[sha256:[a-f0-9]{64}\]$/)
+ expect(report.published).toBe(0);expect(f.d.native).not.toHaveBeenCalled()
 })

@@ -1,11 +1,9 @@
 ---
-url: https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/procambarus_clarkii_white_en/
-title: Procambarus clarkii White - Aquarium Glaser GmbH
-fetchedAt: 2026-11-10T16:08:27.966Z
-hash: d2914a65d41997bcd7d5410bdb24f475608e88ee4498ab157c1d282f42e9a686
+url: https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/procambarus_clarkii_white__en/
+title: Procambarus clarkii „WHITE“ - Aquarium Glaser GmbH
+fetchedAt: 2026-11-13T22:30:40.488Z
+hash: db94b51a1acf02642a41329b15530d89a47d24461d5415e0a9f7ef95ea41448b
 ---
 
-The Louisiana crayfish (Procambarus clarkii) has become a real domesticated pet. Quite a lot of colour sports have been developed by breeders. These sports do not exist in the wild. One of these sports is plain white. In case the female bears eggs it looks like Snow White playing with snowballs…
-Sadly the species P. clarkii has been proven to be one of the most aggressive invasive species. Released animals – by accident or intentionally – have become a plague in many countries and are the cause for the extinction of many native species. So please keep this in mind. Never abandon an aquarium animal in nature, no matter what species! Thank you.
-For our customers: the crayfish has code 486982 on our stocklist. Please note that we exclusively supply the wholesale trade.
-Text & photos: Frank Schäfer
+Under the numerous color forms of the Red Swamp Crayfish is Procambaris clarkii „White ” at present very popular. They are tough tank inhabitants, easily to reproduct and possess a high reproduction rate. Procambarus clarkii does not place large requirements towards the water chemistry, a strong filtering is however necessary, since they have a strong metabolism. As expressed omnivores they can be fed with diverse kinds of food, the vegetable portion should be kept as high as possible. Since they are great climbers the tank should be structured by bogwood and stones which allow them to climb. Because of their origin (Northern Mexiko to Southern USA) they should be kept not to warm, an unheated tank is sufficient for them.(Photo F. Schäfer, Text K. Diehl)
+Angaben zum Tier Herkunft Mexiko,USA

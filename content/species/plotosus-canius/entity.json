@@ -1,0 +1,572 @@
+{
+  "id": "plotosus-canius",
+  "scientificName": "Plotosus canius",
+  "order": "Siluriformes",
+  "family": "Plotosidae",
+  "genus": "Plotosus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "sri-lanka",
+    "bangladesh",
+    "myanmar",
+    "philippines",
+    "oceania",
+    "papua-new-guinea"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 150
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1356",
+      "html": "<ul><li>Scientific name: Plotosus canius Hamilton, 1822</li><li>Type locality: Southern Bengal, India.</li><li>Identification: a plain dusky-brown species with a black dorsal fin tip. It shows a banded pattern at night. It is distinguished from adult Plotosus lineatus by its long nostril barbels, which can reach past the eyes.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1356",
+      "html": "<p>Indo-West Pacific: west and south coasts of India and off Sri Lanka, eastward along the coasts of Bangladesh and Myanmar, through the Indo-Australian Archipelago and the Philippines as far as Papua New Guinea.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1356",
+      "html": "<p>A brackish water to marine species.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1356",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1356",
+      "html": "<p>The spines associated with the anterior fins have potent venom.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1356",
+      "html": "<p>An account of the fishes found in the river Ganges, pp 142, 374, Pl. 15 (fig. 44).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/ff4d4d0357ebdc5d.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY 4.0",
+      "author": "Wich’yanan L",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Plotosus_canius_166132053.jpg",
+      "caption": "Eel Catfish (Plotosus canius) in Thailand",
+      "thumb": "https://media.aquatome.com/commons/ff4d4d0357ebdc5d-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "s54y1tgRAWQ",
+      "title": "Two eel tail catfish, Plotosus canius, ~1.5 years old, ~2', 4500 gal, 12-21-2017",
+      "durationSec": 43,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ziAHJLDPMGg",
+      "title": "Eel Tail Catfish (Plotosus canius) – A Unique Estuary Giant ",
+      "durationSec": 167,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "SF-YaKA7Rdw",
+      "title": "Black eeltail catfish | Plotosus canius #shorts",
+      "durationSec": 16,
+      "lang": "bn"
+    },
+    {
+      "youtubeId": "VGi8rGaoV9Y",
+      "title": "Two eeltail catfish Plotosus canius, 2.5', clip",
+      "durationSec": 26,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-13",
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "LK",
+        "BD",
+        "MM",
+        "PH",
+        "PG"
+      ],
+      "regions": [],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Southern Bengal, India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Indo-West Pacific: west and south coasts of India and off Sri Lanka, eastward along the coasts of Bangladesh and Myanmar, through the Indo-Australian Archipelago and the Philippines as far as Papua New Guinea.",
+          "countries": [
+            "LK",
+            "BD",
+            "MM",
+            "PH",
+            "PG"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341920,
+      "total": 204,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "BD",
+          42
+        ],
+        [
+          "ID",
+          26
+        ],
+        [
+          "AU",
+          25
+        ],
+        [
+          "MY",
+          24
+        ],
+        [
+          "TH",
+          20
+        ],
+        [
+          "IN",
+          19
+        ],
+        [
+          "VN",
+          15
+        ],
+        [
+          "PH",
+          10
+        ],
+        [
+          "SG",
+          8
+        ],
+        [
+          "PG",
+          6
+        ],
+        [
+          "KH",
+          4
+        ],
+        [
+          "BN",
+          2
+        ],
+        [
+          "MM",
+          2
+        ],
+        [
+          "JP",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          74.53125,
+          11.25,
+          1,
+          1
+        ],
+        [
+          80.15625,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          82.96875,
+          16.875,
+          1,
+          1
+        ],
+        [
+          84.375,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          84.375,
+          19.6875,
+          2,
+          2
+        ],
+        [
+          85.78125,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          87.1875,
+          21.09375,
+          6,
+          6
+        ],
+        [
+          88.59375,
+          21.09375,
+          43,
+          43
+        ],
+        [
+          88.59375,
+          22.5,
+          1,
+          1
+        ],
+        [
+          90,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          91.40625,
+          11.25,
+          1,
+          1
+        ],
+        [
+          95.625,
+          15.46875,
+          2,
+          2
+        ],
+        [
+          97.03125,
+          7.03125,
+          2,
+          0
+        ],
+        [
+          98.4375,
+          2.8125,
+          4,
+          0
+        ],
+        [
+          98.4375,
+          11.25,
+          4,
+          0
+        ],
+        [
+          99.84375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          99.84375,
+          7.03125,
+          3,
+          0
+        ],
+        [
+          99.84375,
+          12.65625,
+          4,
+          0
+        ],
+        [
+          101.25,
+          1.40625,
+          3,
+          0
+        ],
+        [
+          101.25,
+          11.25,
+          7,
+          0
+        ],
+        [
+          102.65625,
+          0,
+          5,
+          0
+        ],
+        [
+          102.65625,
+          1.40625,
+          4,
+          0
+        ],
+        [
+          102.65625,
+          5.625,
+          7,
+          0
+        ],
+        [
+          102.65625,
+          9.84375,
+          4,
+          0
+        ],
+        [
+          104.0625,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          105.46875,
+          -7.03125,
+          7,
+          0
+        ],
+        [
+          105.46875,
+          8.4375,
+          3,
+          0
+        ],
+        [
+          105.46875,
+          9.84375,
+          7,
+          0
+        ],
+        [
+          106.875,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          108.28125,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          108.28125,
+          -1.40625,
+          3,
+          0
+        ],
+        [
+          108.28125,
+          11.25,
+          1,
+          0
+        ],
+        [
+          109.6875,
+          -7.03125,
+          2,
+          0
+        ],
+        [
+          112.5,
+          11.25,
+          2,
+          0
+        ],
+        [
+          113.90625,
+          0,
+          2,
+          0
+        ],
+        [
+          113.90625,
+          2.8125,
+          9,
+          0
+        ],
+        [
+          113.90625,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          118.125,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          118.125,
+          5.625,
+          1,
+          0
+        ],
+        [
+          119.53125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          119.53125,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          122.34375,
+          9.84375,
+          8,
+          8
+        ],
+        [
+          123.75,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          125.15625,
+          -15.46875,
+          1,
+          0
+        ],
+        [
+          127.96875,
+          25.3125,
+          1,
+          0
+        ],
+        [
+          130.78125,
+          -12.65625,
+          8,
+          0
+        ],
+        [
+          132.1875,
+          -12.65625,
+          6,
+          0
+        ],
+        [
+          132.1875,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          133.59375,
+          -12.65625,
+          3,
+          0
+        ],
+        [
+          133.59375,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          133.59375,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          136.40625,
+          -16.875,
+          2,
+          0
+        ],
+        [
+          140.625,
+          -12.65625,
+          3,
+          0
+        ],
+        [
+          142.03125,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          142.03125,
+          -11.25,
+          1,
+          0
+        ],
+        [
+          143.4375,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          144.84375,
+          -8.4375,
+          4,
+          4
+        ],
+        [
+          146.25,
+          -9.84375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "brackish",
+    "source": "planetcatfish",
+    "quote": "A brackish water to marine species."
+  }
+}

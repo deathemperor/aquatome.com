@@ -1,9 +1,10 @@
 {
   "slug": "ca-an-dat-neambi",
-  "name": "Cá ăn đất neambi",
+  "name": "Cá hải hồ neambi",
   "altNames": [
     "Cá ăn đất Tocantins",
-    "Eartheater"
+    "Eartheater",
+    "Cá ăn đất neambi"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<ul><li>Kích thước tối đa: 200 mm SL (khoảng 20 cm)</li><li>Kích thước bể: 180 × 60 cm</li><li>Nhiệt độ: 24–32°C</li><li>pH: 5,5–7,5</li><li>Độ cứng: 1–8 dGH</li><li>Độ khó: trung bình, cần bể rất lớn và đã chạy ổn định</li></ul>",
@@ -26,5 +27,6 @@
     "bySource": {
       "seriouslyfish": 0.82
     }
-  }
+  },
+  "nameFixed": true
 }

@@ -11,6 +11,143 @@
     "nepal",
     "bhutan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "NP",
+        "BT"
+      ],
+      "regions": [
+        "Ganges",
+        "Brahmaputra",
+        "Himalaya",
+        "Sankosh",
+        "Torsa"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species originates from the north of India, Nepal and Bhutan.",
+          "countries": [
+            "IN",
+            "NP",
+            "BT"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "This unique carp lives exclusively in clear mountain streams in the Himalaya, which flow to the Ganges and the Brahmaputra.",
+          "countries": [],
+          "regions": [
+            "Ganges",
+            "Brahmaputra",
+            "Himalaya"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The specimens currently traded are said to originate from the Sankosh and Torsa rivers in North Bengal.",
+          "countries": [],
+          "regions": [
+            "Sankosh",
+            "Torsa"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2363439,
+      "total": 28,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "IN",
+          21
+        ],
+        [
+          "NP",
+          5
+        ],
+        [
+          "BT",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          82.96875,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          82.96875,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          84.375,
+          26.71875,
+          4,
+          4
+        ],
+        [
+          87.1875,
+          26.71875,
+          3,
+          3
+        ],
+        [
+          88.59375,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          90,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          91.40625,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          92.8125,
+          26.71875,
+          2,
+          2
+        ],
+        [
+          94.21875,
+          28.125,
+          10,
+          10
+        ],
+        [
+          95.625,
+          26.71875,
+          2,
+          2
+        ],
+        [
+          95.625,
+          28.125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -78,19 +215,7 @@
       "html": "<p>The IUCN Red List lists the species as vulnerable. The population has declined by 30% in the last decade and is presumed to shrink by another 30–50% in the coming decade. The reasons are overfishing, deforestation and pollution of the habitats. Collecting young specimens for the aquarium trade has no effect on the population, but due to the declining populations it is not very likely that the fish will appear on the ornamental fish market again.</p><p>Lexicon: Cyprinion refers to the relationship to the common carp (Cyprinus); semiplotum means \"half swimming\".</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/glaser/c1528fae86d8a6db.webp",
-      "thumb": "https://media.aquatome.com/glaser/c1528fae86d8a6db-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/cyprinion_semiplotum_en/",
-      "caption": "Cyprinion semiplotum",
-      "source": "glaser"
-    }
-  ],
+  "photos": [],
   "videos": [
     {
       "youtubeId": "3hcxIcdNpoA",

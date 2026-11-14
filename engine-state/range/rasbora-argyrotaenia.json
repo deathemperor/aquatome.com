@@ -1,0 +1,190 @@
+{
+  "id": "rasbora-argyrotaenia",
+  "native": {
+    "input": "a4fbd7bf540fef0d",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "SG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Peninsular Malaysia and Singapore, the Philippines (Palawan group of islands), and the islands of Sumatra, Borneo and Java.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Peninsular Malaysia and Singapore, the Philippines (Palawan group of islands), and the islands of Sumatra, Borneo and Java.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "PH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Peninsular Malaysia and Singapore, the Philippines (Palawan group of islands), and the islands of Sumatra, Borneo and Java.",
+        "words": "Philippines",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type localities are given as Banyumas, Gombong, Purworejo and Surabaya, all on Java, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Records from the Chao Phraya, Mae Klong and Mekong river systems in Thailand, Cambodia, China and Vietnam are now considered misidentifications of other species, although FishBase still includes them.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Records from the Chao Phraya, Mae Klong and Mekong river systems in Thailand, Cambodia, China and Vietnam are now considered misidentifications of other species, although FishBase still includes them.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Records from the Chao Phraya, Mae Klong and Mekong river systems in Thailand, Cambodia, China and Vietnam are now considered misidentifications of other species, although FishBase still includes them.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Records from the Chao Phraya, Mae Klong and Mekong river systems in Thailand, Cambodia, China and Vietnam are now considered misidentifications of other species, although FishBase still includes them.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "BN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "A study in Brunei Darussalam reported that it's mainly found swimming just below the surface in slower-moving sections and pools of forest streams containing clear water.",
+        "words": "Brunei Darussalam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Peninsular Malaysia and Singapore, the Philippines (Palawan group of islands), and the islands of Sumatra, Borneo and Java.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Peninsular Malaysia and Singapore, the Philippines (Palawan group of islands), and the islands of Sumatra, Borneo and Java.",
+        "ok": true
+      },
+      {
+        "name": "Java",
+        "source": "seriouslyfish",
+        "quote": "Peninsular Malaysia and Singapore, the Philippines (Palawan group of islands), and the islands of Sumatra, Borneo and Java.",
+        "ok": true
+      },
+      {
+        "name": "Palawan",
+        "source": "seriouslyfish",
+        "quote": "Peninsular Malaysia and Singapore, the Philippines (Palawan group of islands), and the islands of Sumatra, Borneo and Java.",
+        "country": "PH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rasbora argyrotaenia",
+    "status": "ACCEPTED",
+    "taxonKey": 2359538,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        43
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        37
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        19
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        15
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        15
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        14
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        12
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        10
+      ],
+      [
+        "18896efa-22df-4fbd-9782-42f47257e753",
+        4
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        4
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "SG",
+      "MY",
+      "PH",
+      "ID",
+      "BN"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T00:09:29.977Z"
+  }
+}

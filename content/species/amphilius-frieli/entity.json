@@ -1,0 +1,213 @@
+{
+  "id": "amphilius-frieli",
+  "scientificName": "Amphilius frieli",
+  "order": "Siluriformes",
+  "family": "Amphiliidae",
+  "genus": "Amphilius",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "upper-congo",
+    "zambia",
+    "luapula"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD",
+        "ZM"
+      ],
+      "regions": [
+        "Congo River",
+        "Lufira River",
+        "Luapula River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Africa: Upper Congo River basin upstream of Kabalo in Democratic Republic of Congo and Zambia, including the Lufira River drainage and Luapula River drainage.",
+          "countries": [
+            "CD",
+            "ZM"
+          ],
+          "regions": [
+            "Congo River",
+            "Lufira River",
+            "Luapula River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8617296,
+      "total": 16,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "ZM",
+          11
+        ],
+        [
+          "CD",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          26.71875,
+          -12.65625,
+          4,
+          4
+        ],
+        [
+          26.71875,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          28.125,
+          -12.65625,
+          6,
+          6
+        ],
+        [
+          28.125,
+          -11.25,
+          4,
+          4
+        ],
+        [
+          30.9375,
+          -12.65625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 13.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_frieli.htm",
+      "html": "<p>Family: Amphiliidae. Size: 13.5 cm. Temperature: 18–22°C. pH: 6.5–7.5. Described by Thomson &amp; Page, 2015. Named for John P. Friel in recognition of his excellent contributions to the study of African fishes.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_frieli.htm",
+      "html": "<p>Africa: Upper Congo River basin upstream of Kabalo in Democratic Republic of Congo and Zambia, including the Lufira River drainage and Luapula River drainage.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_frieli.htm",
+      "html": "<p>Can be kept in aquaria with a small-grained gravel or sand substrate, well planted, with a slight current to mimic their natural habitat. Provide rockwork and caves. This genus prefers cooler temperatures in the aquarium.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_frieli.htm",
+      "html": "<p>Mosquito larvae, Tubifex worms, Cyclops, Daphnia, grindal worms, vegetable food, tablet and flake foods.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/824e09d38a913277.webp",
+      "thumb": "https://media.aquatome.com/scotcat/824e09d38a913277-480.webp",
+      "width": 500,
+      "height": 229,
+      "licence": "dùng với sự cho phép",
+      "author": "Abwe, E. et al / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_frieli.htm",
+      "caption": "Amphilius frieli: From the Lutshipuka River, below the falls",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/5c1c2c44e80b7d1a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/5c1c2c44e80b7d1a-480.webp",
+      "width": 500,
+      "height": 208,
+      "licence": "dùng với sự cho phép",
+      "author": "Abwe, E. et al / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_frieli.htm",
+      "caption": "Amphilius frieli: From the Lofoi River, below the falls (middle Lufira basin)",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/c7aed417e6d5f153.webp",
+      "thumb": "https://media.aquatome.com/scotcat/c7aed417e6d5f153-480.webp",
+      "width": 500,
+      "height": 151,
+      "licence": "dùng với sự cho phép",
+      "author": "Rob Palmer / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_frieli.htm",
+      "caption": "Amphilius frieli: Upper Congo Basin",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "suoi",
+      "keywords": [
+        "quạt làm mát bể cá",
+        "máy làm lạnh nước bể cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc bể cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát bể cá",
+        "sỏi hạt nhỏ",
+        "cát nền bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá da trơn",
+        "bo bo đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

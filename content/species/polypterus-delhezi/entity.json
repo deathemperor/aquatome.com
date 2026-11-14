@@ -11,6 +11,143 @@
     "republic-of-the-congo",
     "congo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD",
+        "CG"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Democratic Republic of Congo and Republic of the Congo.",
+          "countries": [
+            "CD",
+            "CG"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2346575,
+      "total": 57,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "CD",
+          46
+        ],
+        [
+          "CG",
+          11
+        ]
+      ],
+      "cells": [
+        [
+          12.65625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          14.0625,
+          -5.625,
+          19,
+          19
+        ],
+        [
+          14.0625,
+          -4.21875,
+          9,
+          9
+        ],
+        [
+          15.46875,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          15.46875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          15.46875,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          16.875,
+          -4.21875,
+          7,
+          7
+        ],
+        [
+          16.875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          16.875,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          16.875,
+          0,
+          1,
+          1
+        ],
+        [
+          18.28125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          19.6875,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          21.09375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          22.5,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          22.5,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          23.90625,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -67,13 +204,19 @@
       "key": "quickFacts",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus-delhezi-en/",
-      "html": "<p>Polypterus delhezi attains a maximum length of 30-35 cm. The species has a quite pretty pattern. Suggested common name: Barred Bichir.</p>"
+      "html": "<p>Bichirs (Polypterus) are animals of ancient ages that already existed 60 million years ago. They breathe with a lung, and the pectoral fins sit at the end of muscular stalks that can be moved like little arms.</p><p>Polypterus delhezi, from the Congo, attains a maximum length of 30-35 cm. The species has a quite pretty pattern.</p>"
     },
     {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-delhezi",
       "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump. The aquarium should have a tight-fitting cover as it is an excellent escape artist.</li></ul><p>The armoured bichir, Polypterus delhezi, is a bichir from the Democratic Republic of Congo, found in lakes, streams and flooded areas. Also known as the banded bichir, it is hardy and nocturnal with very poor vision, and relies on its sense of smell to find food. Like other bichirs it can drown if denied access to atmospheric air, and it will eat any tankmate small enough to fit in its mouth.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus-delhezi-en/",
+      "html": "<p>P. delhezi is bred in large numbers in Indonesia, where these ancient fish remind aquarists of dragons. Wild-collected animals are only rarely available.</p>"
     },
     {
       "key": "distribution",
@@ -85,7 +228,7 @@
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus-delhezi-en/",
-      "html": "<p>Origin: DR Congo. The species comes from the Congo.</p>"
+      "html": "<p>Origin: DR Congo.</p>"
     },
     {
       "key": "habitat",
@@ -145,46 +288,20 @@
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus-delhezi-en/",
-      "html": "<p>The bichir fishes – Polypterus – are animals of ancient ages. They already existed 60 million years ago. Among the particularities of the bichirs is the fact that they breathe with a lung and that the pectoral fins are placed at the end of muscular stalks that can be moved like little arms.</p><p>Some species of bichir become quite large: 80-90 cm. But others stay much smaller. Among the latter is Polypterus delhezi.</p><p>P. delhezi is bred in large numbers in Indonesia, where these ancient fish remind aquarists of dragons. Wild-collected animals are only rarely available.</p><p>Polypterus means \"with many fins\" (referring to the numerous finlets on the back). delhezi is a dedication name for M. Delhez.</p>"
+      "html": "<p>Polypterus means \"with many fins\" (referring to the numerous finlets on the back). delhezi is a dedication name for M. Delhez.</p>"
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/glaser/b67a823455ea1761.webp",
-      "thumb": "https://media.aquatome.com/glaser/b67a823455ea1761-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus-delhezi-en/",
-      "caption": "Polypterus delhezi",
-      "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/glaser/962d3d2921963397.webp",
-      "thumb": "https://media.aquatome.com/glaser/962d3d2921963397-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus-delhezi-en/",
-      "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/16ccb664be87dd4a.webp",
-      "thumb": "https://media.aquatome.com/commons/16ccb664be87dd4a-480.webp",
-      "width": 960,
-      "height": 638,
-      "licence": "CC BY-SA 3.0",
-      "author": "Steven G. Johnson",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ornate_bichir,_Boston_Aquarium.JPG",
-      "caption": "Barred bichir (Polypterus delhezi) at the New England Aquarium, Boston MA. (Initially mislabelled, hence the file name.)"
-    },
     {
       "url": "https://media.aquatome.com/commons/abb58612f41be8b3.webp",
       "thumb": "https://media.aquatome.com/commons/abb58612f41be8b3-480.webp",
       "width": 960,
       "height": 720,
+      "large": {
+        "url": "https://media.aquatome.com/commons/abb58612f41be8b3-large.webp",
+        "width": 1600,
+        "height": 1200
+      },
       "licence": "CC BY-SA 4.0",
       "author": "ばぶじ～",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Polypterus_delhezi_3.jpg",
@@ -201,14 +318,14 @@
       "caption": "Barred bichir"
     },
     {
-      "url": "https://media.aquatome.com/commons/300984b7c86d0f71.webp",
-      "thumb": "https://media.aquatome.com/commons/300984b7c86d0f71-480.webp",
+      "url": "https://media.aquatome.com/commons/16ccb664be87dd4a.webp",
+      "thumb": "https://media.aquatome.com/commons/16ccb664be87dd4a-480.webp",
       "width": 960,
-      "height": 720,
+      "height": 638,
       "licence": "CC BY-SA 3.0",
-      "author": "ばぶじ～",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Delhezi.JPG",
-      "caption": "Polypterus delhezi"
+      "author": "Steven G. Johnson",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ornate_bichir,_Boston_Aquarium.JPG",
+      "caption": "Barred bichir (Polypterus delhezi) at the New England Aquarium, Boston MA. (Initially mislabelled, hence the file name.)"
     }
   ],
   "videos": [
@@ -264,5 +381,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-11"
+  "updatedAt": "2026-11-13"
 }

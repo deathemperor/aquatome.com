@@ -1,0 +1,94 @@
+{
+  "id": "puntius-mahecola",
+  "native": {
+    "input": "232f6fd5e0fce34b",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Puntius mahecola is a cyprinid from rivers draining much of the Western Ghats mountains in Kerala, Karnataka and Tamil Nadu states, southern India.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Mahé, Kerala, India', but currently considered to occur in rivers draining much of the Western Ghats mountains in Kerala, Karnataka, and Tamil Nadu states.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Western Ghats",
+        "source": "seriouslyfish",
+        "quote": "Puntius mahecola is a cyprinid from rivers draining much of the Western Ghats mountains in Kerala, Karnataka and Tamil Nadu states, southern India.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Meenachil River",
+        "source": "seriouslyfish",
+        "quote": "In Kerala records exist from the Meenachil River in Kottayam district, the Achankovil and Periyar Rivers in Pathanamthitta district, the Kallada River in Kollam District, and the Chalakudy River.",
+        "ok": true
+      },
+      {
+        "name": "Periyar",
+        "source": "seriouslyfish",
+        "quote": "In Kerala records exist from the Meenachil River in Kottayam district, the Achankovil and Periyar Rivers in Pathanamthitta district, the Kallada River in Kollam District, and the Chalakudy River.",
+        "ok": true
+      },
+      {
+        "name": "Kali River",
+        "source": "seriouslyfish",
+        "quote": "In Karnataka it's been collected close to Chikmagalur and from the Kali River, while in Tamil Nadu it's known from the Thamirabarani River system and waters around the city of Chennai.",
+        "ok": true
+      },
+      {
+        "name": "Thamirabarani",
+        "source": "seriouslyfish",
+        "quote": "In Karnataka it's been collected close to Chikmagalur and from the Kali River, while in Tamil Nadu it's known from the Thamirabarani River system and waters around the city of Chennai.",
+        "ok": true
+      },
+      {
+        "name": "Chalakudy River",
+        "source": "seriouslyfish",
+        "quote": "In Kerala records exist from the Meenachil River in Kottayam district, the Achankovil and Periyar Rivers in Pathanamthitta district, the Kallada River in Kollam District, and the Chalakudy River.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Puntius mahecola",
+    "status": "ACCEPTED",
+    "taxonKey": 2364162,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        8
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        7
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}

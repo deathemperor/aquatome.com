@@ -12,6 +12,83 @@
     "malawi",
     "lake-malawi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TZ"
+      ],
+      "regions": [
+        "Lake Malawi"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Chindongo elongatus was described in 1956 on the basis of specimens from Mbamba Bay (Tanzania).",
+          "countries": [
+            "TZ"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2373066,
+      "total": 44,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "MW",
+          41
+        ],
+        [
+          "MZ",
+          2
+        ],
+        [
+          "TZ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -15.46875,
+          10,
+          0
+        ],
+        [
+          33.75,
+          -14.0625,
+          30,
+          0
+        ],
+        [
+          33.75,
+          -12.65625,
+          3,
+          1
+        ],
+        [
+          33.75,
+          -11.25,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -200,7 +277,12 @@
       "licence": "Public domain",
       "author": "Mikko Stenberg",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudotropheus_elongatus1.jpg",
-      "caption": "Cá mbuna elongatus đực màu xanh lam sọc đen trong bể"
+      "caption": "Cá mbuna elongatus đực màu xanh lam sọc đen trong bể",
+      "large": {
+        "url": "https://media.aquatome.com/commons/36de2dbce85cc4f1-large.webp",
+        "width": 1280,
+        "height": 960
+      }
     }
   ],
   "videos": [

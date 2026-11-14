@@ -39,12 +39,19 @@ export const Text = z.array(Inline)
  * the name as the line shows it (an Unsplash photo's), so a reader links that text without parsing each language's words.
  */
 export const Credit = z.object({ text: z.string(), licence: z.string(), url: z.string().optional(), authorUrl: z.string().optional(), author: z.string().optional() })
+/**
+ * Where the fish is in a photo: fractions of it from its top-left corner, right for every resized copy (the engine's box,
+ * from the Mac's Vision). A frame keeps the fish by it (protocols/photo-crop-vectors.json); none draws as today.
+ */
+export const Box = z.object({ x: z.number().min(0).max(1), y: z.number().min(0).max(1), w: z.number().gt(0).max(1), h: z.number().gt(0).max(1) })
+/** `box`: where the fish is, on a fish's or a breed's lead photo, once the site's switch for it is on (image-geometry.ts). */
 export const Image = z.object({
   src: z.string(),
   w: z.number().int().positive(),
   h: z.number().int().positive(),
   alt: z.string().optional(),
   credit: Credit.optional(),
+  box: Box.optional(),
 })
 
 export const Heading = z.object({ t: z.literal('h'), text: z.string(), id: z.string().optional() })
@@ -193,6 +200,13 @@ export const Video = z.object({
   /** The badge when the video has Vietnamese subtitles (the site's "Phụ đề tiếng Việt"); none when it's in the page's language. */
   subtitles: z.string().optional(),
   chapters: z.array(z.object({ at: z.number().int().nonnegative(), title: z.string() })).optional(),
+  /**
+   * The picture the guide's head shows before the video plays: the same photo as its card in the app index (`img`), at
+   * full size, with where the fish is (`box`) where the photo has one, so a card and the page it opens show one picture
+   * (the Design Lead, 13 Nov). None where the card has no photo: the app draws the page's colour with the play button.
+   * An app that doesn't know it draws the head as before.
+   */
+  poster: Image.optional(),
 })
 
 export const PageDoc = z.object({
@@ -214,6 +228,12 @@ export const PageDoc = z.object({
    * counts then the playlist and channel it follows), linked as on the site.
    */
   credit: Text.optional(),
+  /**
+   * The page's photo: the same photo as its card in the app index (`img`), for every kind with one; a video guide's is its
+   * `video.poster` (the Design Lead's line, accepted by the chief of staff, 13 Nov: a card and the page it opens show one
+   * photo). Its `box` decides fill or whole by the frames rule (protocols/photo-crop-vectors.json); a photo no card's frame
+   * may fill comes with its whole area.
+   */
   lead: Image.optional(),
   video: Video.optional(),
   /**
@@ -227,6 +247,7 @@ export const PageDoc = z.object({
 export type Inline = z.infer<typeof Inline>
 export type Run = z.infer<typeof Run>
 export type Image = z.infer<typeof Image>
+export type Box = z.infer<typeof Box>
 export type Block = BlockT
 export type PageDoc = z.infer<typeof PageDoc>
 

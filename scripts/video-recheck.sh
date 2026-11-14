@@ -20,7 +20,7 @@ PIDFILE="$(git rev-parse --absolute-git-dir)/aquatome-engine.pid"
 # Not this run's own number: from_main starts it again as the same process.
 if [ -f "$PIDFILE" ] && [ "$(cat "$PIDFILE")" != $$ ] && ps -p "$(cat "$PIDFILE")" -o command= 2>/dev/null | grep -q 'video-recheck\.sh'; then log "the last run (pid $(cat "$PIDFILE")) is still going"; exit 0; fi
 echo $$ > "$PIDFILE"
-trap 'rm -f "$PIDFILE"' EXIT
+trap 'status=$?; rm -f "$PIDFILE"; fault_exit "$status" video-recheck' EXIT
 # shellcheck disable=SC1091
 . "$HOME/.nvm/nvm.sh" && nvm use --silent "$(cat .nvmrc)"
 # Transcripts come from the Mac's cache (473 of the 496 guides'); the rest ask YouTube, one at a time.
@@ -85,6 +85,7 @@ if ! verify 'pnpm test'; then keep_unpublished video-recheck; log "tests failed,
 # The video job and the GitHub engine push too; the files merge through their drivers. Lines both changed give way to
 # this run's, as video-cycle.sh does; then the tests run again on the merge.
 for _ in 1 2 3; do
+  main=$(git rev-parse '@{u}' 2>/dev/null || true)
   if ! git pull -q --rebase; then
     log "another job changed the same files: $(git diff --name-only --diff-filter=U | tr '\n' ' ')"
     git rebase --abort 2>/dev/null || true
@@ -94,6 +95,8 @@ for _ in 1 2 3; do
     else
       git rebase --abort 2>/dev/null || true
     fi
+  elif ! swept_pull "$main"; then
+    verify 'pnpm test' || { keep_unpublished video-recheck; log "tests failed after the sweep on main's changes, not publishing"; exit 1; }
   fi
   if git push -q; then log "pushed (GitHub deploys it)"; exit 0; fi
   sleep 30

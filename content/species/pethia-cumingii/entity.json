@@ -10,6 +10,76 @@
     "sri-lanka",
     "bentara"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LK"
+      ],
+      "regions": [
+        "Bentara",
+        "Gin"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Cuming's barb, Pethia cumingii, is a small cyprinid endemic to southwestern Sri Lanka, apparently only in the Bentara and Gin river drainages.",
+          "countries": [
+            "LK"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to southwestern Sri Lanka where it appears to occur only in the Bentara and Gin river drainages.",
+          "countries": [],
+          "regions": [
+            "Bentara",
+            "Gin"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7940244,
+      "total": 24,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "LK",
+          24
+        ]
+      ],
+      "cells": [
+        [
+          78.75,
+          5.625,
+          2,
+          2
+        ],
+        [
+          78.75,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          80.15625,
+          5.625,
+          17,
+          17
+        ],
+        [
+          80.15625,
+          7.03125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -13,6 +13,64 @@
 # A simulator run takes its turn in its own queue instead (apps/ios/scripts/sim-run.py). A build that only compiles
 # (xcodebuild build, a site build) has no timeouts and doesn't need either: in the queue, it only holds up the tests
 # behind it. The engine takes it only for its tests too (verify_cycle).
+
+# The wall clock and the seconds the Mac has slept since it started, "1794527337 31355": the clock that counts sleep less
+# the one that doesn't, 0 where they can't be told apart (GitHub's runners, which don't sleep). AQ_CLOCK stands in for it
+# in tests.
+clock() {
+  if [ -n "${AQ_CLOCK:-}" ]; then "$AQ_CLOCK"; return; fi
+  perl -MTime::HiRes -e 'my $s = eval { Time::HiRes::clock_gettime(Time::HiRes::CLOCK_MONOTONIC()) - Time::HiRes::clock_gettime(Time::HiRes::CLOCK_UPTIME_RAW()) }; printf "%d %d\n", time, $s // 0'
+}
+# `net git <fetch|pull|push> …`: a call to GitHub given GIT_NET_SECONDS (600) at most. On 12 Nov 2026 the Mac's 23:10
+# photos cycle began its opening fetch as the Mac fell asleep with its lid shut; the connection died on GitHub's side, ours
+# never learned, and launchd starts no run of a part while the last one lives, so no photos run started behind it. Past
+# the limit the call is stopped, the log says so (and how long the Mac slept in it), and it fails as a refused fetch or
+# push does: the opening fetch ends the cycle, which frees the next run (finish reports it to GitHub, engine-mac.yml).
+net() {
+  local limit="${GIT_NET_SECONDS:-600}" status=0 t0 z0 t1 z1 slept why
+  read -r t0 z0 < <(clock)
+  # The call runs in a process group of its own, so the stop reaches what it started too (git pull's fetch, ssh, a merge
+  # driver), and that group is led by a keeper, not by the call: the keeper makes the group before the call starts, and its
+  # number, which is the group's, stays taken until the supervisor below has sent its last signal and reaped it, so no
+  # other program can have that group and nothing but the call's is ever signalled. A watchdog that found the call by its
+  # number through ps could stop another program that had the number, and a ps that failed left the call with no limit
+  # (Astra's read, 13 Nov). The keeper outlives a TERM and writes how the call ended to the supervisor, which waits for
+  # that word and reads the clock each second, by the clock and not by how many waits it took (a Mac asleep or busy
+  # stretches them). At the limit it sends TERM to the group, and KILL to what's left once the call has ended or 10 s on,
+  # so a call that exits 0 on TERM is still stopped, children and all, and ends with 124. A call that ends in time is let
+  # go at once with its own status; what it left running in its group runs on without the limit, as git's own leftovers
+  # (gc, an ssh master) leave the group anyway. Its input is /dev/null, as a call run in the background had.
+  perl -e '
+    use POSIX ();
+    my ($limit, $t0) = splice @ARGV, 0, 2;
+    pipe my $r, my $w or die "pipe: $!\n";
+    my $keeper = fork // die "fork: $!\n";
+    unless ($keeper) {
+      close $r; setpgrp 0, 0;
+      my $call = fork // die "fork: $!\n";
+      unless ($call) { exec { $ARGV[0] } @ARGV; die "$ARGV[0]: $!\n" }
+      $SIG{TERM} = "IGNORE";
+      waitpid $call, 0;
+      my $s = $? & 127 ? 128 + ($? & 127) : $? >> 8;
+      print $w "$s\n"; exit 0;
+    }
+    close $w; POSIX::setpgid($keeper, $keeper);
+    my $ended = sub { my $in = ""; vec($in, fileno $r, 1) = 1; select($in, undef, undef, shift) > 0 };
+    my $now = sub { my $t = $ENV{AQ_CLOCK} ? (split " ", qx{"$ENV{AQ_CLOCK}"})[0] : time; $t // time };
+    until ($ended->(1)) {
+      next if $now->() - $t0 < $limit;
+      kill TERM => -$keeper; $ended->(10); kill KILL => -$keeper; waitpid $keeper, 0; exit 124;
+    }
+    my $s = <$r>; waitpid $keeper, 0; exit($s // 1);
+  ' -- "$limit" "$t0" "$@" </dev/null || status=$?
+  [ "$status" -eq 124 ] || return "$status"
+  read -r t1 z1 < <(clock)
+  # A call that exits 124 itself, inside its limit, wasn't stopped.
+  [ $((t1 - t0)) -ge "$limit" ] || return 124
+  slept=$((z1 - z0)); why="$*: no answer from GitHub in $((t1 - t0)) s, stopped"
+  [ "$slept" -lt 60 ] || why="$why; the Mac slept $((slept / 60)) min of that, and a connection doesn't outlive a sleep"
+  log "$why"; return 124
+}
 calm() { [ -z "${GITHUB_ACTIONS:-}" ] || return 0; local cores; cores=$(sysctl -n hw.ncpu); for _ in $(seq 90); do [ "$(sysctl -n vm.loadavg | awk '{print int($3)}')" -lt $((cores * 4)) ] && return; sleep 30; done; log "load still high after 45 min: checking anyway"; }
 # Engine work waits for cooler hours: under heat macOS takes cores away from work, and on 2026-11-08 it ran work on 6-8 of
 # its 16 while every lead's work slowed, a 0.4 s job taking up to 54 s. A run waits while any core is taken away, up to 2 h,
@@ -33,6 +91,22 @@ cool() {
   done
   log "still hot after the wait: going ahead"
 }
+# Before a check's second try: the first try's own load gone. calm alone didn't wait for it: at 02:28 on 2026-11-12 the
+# photos part's second try began the moment its first ended, at a 5-minute load far under calm's 4 a core, and ran two
+# to four times slower than the first, its site tests out of time. The first try's workers (two packages' side by side)
+# leave the 1-minute load as they end: the second try waits a minute, then until that load is under one a core, up to
+# 10 more minutes, then goes ahead. GitHub's runners run one part each, so there it doesn't wait.
+settled() {
+  [ -z "${GITHUB_ACTIONS:-}" ] || return 0
+  local cores
+  cores=$(sysctl -n hw.ncpu)
+  sleep "${SETTLE_FIRST:-60}"
+  for _ in $(seq "${SETTLE_TRIES:-20}"); do
+    [ "$(sysctl -n vm.loadavg | awk '{print int($2)}')" -lt "$cores" ] && return 0
+    sleep "${SETTLE_PAUSE:-30}"
+  done
+  log "the load stayed high after the first try: trying again anyway"
+}
 # One step, under the lock on the Mac (GitHub: a runner of its own). Through checks.sh, which steps back while the chief of
 # staff keeps the next turn for another run: a content update can wait, the owner's builds can't (2026-11-09).
 CHECKS_SH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/checks.sh"
@@ -45,21 +119,43 @@ checks() { if [ -n "${GITHUB_ACTIONS:-}" ]; then bash -c "$1"; else turn bash -c
 # one flaky test cost the sf cycle of 2026-11-10 its 207 files. It's the whole step, not the failed tests' files, because
 # the root `pnpm test` gives up at a package's first failure, so the others may not have finished, and a package can fail
 # with no test named. A step that passes the second time goes on, and its failed tests are logged as "flaky:" to be
-# fixed. If it fails again: TIMED_OUT when
-# tests ran out of time on that run, and the run's work is kept (keep_unpublished).
+# fixed. The second try starts once the first's own load has gone (settled), and runs the packages one at a time
+# (pnpm's workspace-concurrency, set for the whole step): the same tests and the same limits, on half the load of
+# its own. If it fails again: TIMED_OUT when tests ran out of time on that run, and the run's work is kept
+# (keep_unpublished).
+# Each test's time limits, times AQ_TEST_TIME_SCALE (the vitest configs and @aq/schema/test-time read it): 1 on a Mac at
+# full strength, HOT_TIME_SCALE while heat has taken cores away and on a check's second try on the Mac. Waiting for cool
+# hours (cool) and calm (calm, settled) wasn't enough on 2026-11-13: with cores cut to 8, three cycles in a day lost
+# their checks to the clock, tests with a 30 s limit running 100–180 s (the sf cycle's at 15:43, its slowest 182 s),
+# hooks past their 120 s and 300 s (the photos run that started 11:10, still unpublished at 16:28). Not a hung test:
+# those ran to the end. A limit 6 times as long holds those; a test that really hangs still fails, later.
+# The second try also starts SECOND_TRY_WORKERS of vitest's workers at a time, not one a core: vitest gives a worker
+# 60 s to start, a limit of its own that nothing raises, and that photos run's second try (16:25) lost 25 of the
+# schema's 28 test files to workers that hadn't started in time.
+HOT_TIME_SCALE=6
+SECOND_TRY_WORKERS=2
+time_scale() { [ "$(cores_taken)" -gt 0 ] && echo "$HOT_TIME_SCALE" || echo 1; }
 verify() {
-  local step from first name names
+  local step from first name names workers
   : >"$TEST_LOG"
   TIMED_OUT=
+  if [ -n "${MIGRATE_FAILED:-}" ]; then log "photo records not migrated: not tested, not published"; return 1; fi
   calm
+  export AQ_TEST_TIME_SCALE
   for step in "$@"; do
     from=$(wc -c <"$TEST_LOG")
+    AQ_TEST_TIME_SCALE=$(time_scale)
+    [ "$AQ_TEST_TIME_SCALE" = 1 ] || log "cores taken away by heat: tests get $AQ_TEST_TIME_SCALE times their time"
     checks "$step" >>"$TEST_LOG" 2>&1 && continue
     first=$from
     if ran_out "$first"; then log "tests ran out of time on a busy Mac: checking again once it is calmer"; else log "a check failed: running it once more once the Mac is calmer"; fi
+    settled
     calm
     from=$(wc -c <"$TEST_LOG")
-    if checks "$step" >>"$TEST_LOG" 2>&1; then
+    # On the Mac only: GitHub's runner is a machine of its own, with no heat, and its second try keeps the first's.
+    workers=
+    [ -n "${GITHUB_ACTIONS:-}" ] || { AQ_TEST_TIME_SCALE=$HOT_TIME_SCALE; workers=$SECOND_TRY_WORKERS; }
+    if VITEST_MAX_WORKERS=$workers checks "export pnpm_config_workspace_concurrency=1; $step" >>"$TEST_LOG" 2>&1; then
       names=$(failed_tests "$first")
       [ -n "$names" ] || log "flaky: $step failed once and passed the second time, no test named"
       while IFS= read -r name; do [ -z "$name" ] || log "flaky: $name"; done <<<"$names"
@@ -71,29 +167,62 @@ verify() {
 }
 # The tests that failed in $TEST_LOG since byte $1, one a line: vitest's FAIL lines, with pnpm's prefix and the colours off.
 failed_tests() { tail -c +"$(($1 + 1))" "$TEST_LOG" | sed -E "s/$(printf '\033')\[[0-9;]*m//g" | sed -nE 's/^([^[:space:]]+ test:)?[[:space:]]*FAIL[[:space:]]+//p' | sort -u; }
-# Whether the tests' output since byte $1 of $TEST_LOG has one that ran out of time. grep reads it all (-c, not -q): under
-# pipefail, tail cut off by grep's early exit would make a match read as none.
-ran_out() { tail -c +"$(($1 + 1))" "$TEST_LOG" | grep -c 'Test timed out in' >/dev/null; }
+# Whether the tests' output since byte $1 of $TEST_LOG has one that ran out of time: a test, a hook (beforeAll and the
+# like), or a vitest worker that didn't start in time. grep reads it all (-c, not -q): under pipefail, tail cut off by
+# grep's early exit would make a match read as none.
+ran_out() { tail -c +"$(($1 + 1))" "$TEST_LOG" | grep -cE '(Test|Hook) timed out in|Timeout waiting for worker to respond|Timeout starting .* runner' >/dev/null; }
 
 # A run whose tests ran out of time even on their second try (TIMED_OUT) ran on a Mac too busy for them, not on broken
 # work: its commit goes on a branch of its own, kept/<job>/<when>, which the next run's start from main (from_main)
 # leaves alone, and that run publishes it before its own work (publish_kept). Until 2026-11-08 the next run dropped it:
 # that day a videos run and a photos run lost their work to load, redone from nothing. Only in the Mac's engine clones,
-# which a run resets as it starts: GitHub's runners keep nothing past a run, and any other checkout is someone's own.
+# which a run resets as it starts, and in the cloud's cycle (engine_cloud); any other checkout is someone's own.
 # A run whose checks failed twice for another reason goes on held/<job>/<when>, which nothing publishes: the Machine Load
 # Lead looks at those, never the owner, and a run drops its job's after 14 days (drop_old_held).
 # `keep_unpublished <job>`, where a run gives up publishing.
 engine_clone() { [ -z "${GITHUB_ACTIONS:-}" ] && case "$PWD/" in "$HOME/.local/share/aquatome/"*) true ;; *) false ;; esac; }
+# The cloud's cycle (engine.yml) keeps its work the same way, but a runner keeps nothing past its run, so each of those
+# branches is on GitHub too, pushed over the key the cycle pushes main with: on 2026-11-12 a cloud cycle lost 682 model
+# calls ($39) to one failed test (the chief of staff, that day). One engine.yml run at a time (its concurrency group), and
+# only it makes, publishes and deletes its job's branches there, each by its exact name. A held one there gets one more
+# try once main's code has changed since it was held (retry_held). Not another workflow's checkout, as ci.yml's tests.
+engine_cloud() { [ -n "${GITHUB_ACTIONS:-}" ] && case "${GITHUB_WORKFLOW_REF:-}" in */.github/workflows/engine.yml@*) true ;; *) false ;; esac; }
 keep_unpublished() {
-  engine_clone || return 0
+  engine_clone || engine_cloud || return 0
   local when
   when=$(date -u +%Y%m%dT%H%M%S)
   if [ -n "${TIMED_OUT:-}" ]; then
-    git branch -q -f "kept/$1/$when" HEAD && log "tests ran out of time: this run's work is kept on kept/$1/$when for the next run"
+    keep_branch "kept/$1/$when" && log "tests ran out of time: this run's work is kept on kept/$1/$when for the next run"
+  elif [ -n "${MIGRATE_FAILED:-}" ]; then
+    # The line the run's failure is reported with (engine-cycle.sh finish), as its callers then stop the run.
+    FAILED="photo records not migrated: this run's work is kept on kept/$1/$when for the next run"
+    keep_branch "kept/$1/$when" && log "$FAILED"
   else
     # Off main at once: a next run that couldn't fetch would carry on from this commit, and could publish it.
-    git branch -q -f "held/$1/$when" HEAD && git reset -q --hard origin/main && log "checks failed twice: this run's work is on held/$1/$when, not published"
+    keep_branch "held/$1/$when" && git reset -q --hard origin/main && log "checks failed twice: this run's work is on held/$1/$when, not published"
   fi
+  # Its callers go on to say they aren't publishing, under set -e.
+  return 0
+}
+# HEAD on branch $1, and in the cloud on GitHub's branch of that name.
+keep_branch() {
+  git branch -q -f "$1" HEAD || return 1
+  engine_cloud || return 0
+  net git push -q origin "refs/heads/$1:refs/heads/$1" || { log "$1 couldn't be pushed to GitHub: this run's work is lost with the runner"; return 1; }
+}
+# Branch $1 deleted, and in the cloud GitHub's of that exact name.
+drop_branch() {
+  git branch -q -D "$1" || return 1
+  engine_cloud || return 0
+  net git push -q origin --delete "refs/heads/$1"
+}
+# `move_branch <from> <to>`, once its work failed its tests (push_kept): on the Mac the branch renamed. In the cloud, <to>
+# is the work as it was last checked, on the main it failed on, so its one more try waits for a main newer than that
+# (retry_held); and GitHub's <to> made and <from> deleted in one push, both or neither, so no branch is ever in two places.
+move_branch() {
+  if ! engine_cloud; then git branch -q -M "$1" "$2"; return; fi
+  net git push -q --atomic origin "HEAD:refs/heads/$2" ":refs/heads/$1" || return 1
+  git branch -q -f "$2" HEAD && git branch -q -D "$1"
 }
 HELD_DAYS=14
 drop_old_held() {
@@ -102,57 +231,121 @@ drop_old_held() {
   for branch in $(git for-each-ref --format='%(refname:short)' "refs/heads/held/$1/"); do
     [[ "${branch##*/}" < "$cutoff" ]] || continue
     # One that can't go (a worktree someone is reading it in) mustn't stop the run.
-    if git branch -q -D "$branch"; then log "$branch was held $HELD_DAYS days: dropped"; else log "$branch is past $HELD_DAYS days and couldn't be dropped"; fi
+    if drop_branch "$branch"; then log "$branch was held $HELD_DAYS days: dropped"; else log "$branch is past $HELD_DAYS days and couldn't be dropped"; fi
   done
 }
 # The work earlier runs of <job> kept, oldest first: each on main as it is now, swept and checked as any run's commit is,
 # then pushed. Only tests that fail twice for real move it to held/<job>/<when>, never pushed, as the gate's crash keeps
 # its work (gate_or_keep); anything else (tests out of time again, a push that didn't land, a clash it couldn't settle)
 # keeps it for the run after. Then this run's own work starts from main. `publish_kept <job>`, after the run's install
-# and merge drivers.
+# and merge drivers. In the cloud, the job's branches come from GitHub first.
 publish_kept() {
   local branch
-  engine_clone || return 0
+  engine_clone || engine_cloud || return 0
+  if engine_cloud; then
+    net git fetch -q origin "+refs/heads/kept/$1/*:refs/heads/kept/$1/*" "+refs/heads/held/$1/*:refs/heads/held/$1/*" || log "the kept work on GitHub couldn't be fetched: left for the next run"
+  fi
   drop_old_held "$1"
   for branch in $(git for-each-ref --sort=refname --format='%(refname:short)' "refs/heads/kept/$1/"); do
-    log "publishing $branch, kept when its tests ran out of time"
+    log "publishing $branch, kept by an earlier run"
     git reset -q --hard "$branch"
-    if push_kept; then
+    if push_kept "$branch"; then
       git branch -q -D "$branch"
       log "published $branch"
     elif [ -n "$KEPT_FAILED" ]; then
-      git branch -q -M "$branch" "held/${branch#kept/}"
-      log "$branch failed its tests twice: on held/${branch#kept/}, not published"
+      if move_branch "$branch" "held/${branch#kept/}"; then
+        log "$branch failed its tests twice: on held/${branch#kept/}, not published"
+      else
+        log "$branch failed its tests twice and couldn't be moved to held/${branch#kept/}: it stays kept for the next run"
+      fi
     else
       log "$branch isn't published yet ($KEPT_WHY): it stays kept for the next run"
+      # Kept work held back by its records goes on to the next run, never silently: the run reports it when it ends, as
+      # a failed run is reported (FAULT, engine-cycle.sh finish; the chief of staff, 13 Nov).
+      [ -z "${MIGRATE_FAILED:-}" ] || FAULT="${FAULT:+$FAULT; }$branch isn't published: its photo records couldn't be migrated, and it stays kept"
     fi
-    git fetch -q origin || true
+    net git fetch -q origin || true
+    git reset -q --hard origin/main
+  done
+  if engine_cloud; then retry_held "$1"; fi
+  # Kept work's failed migration is that work's: the run's own goes on to its own (video-cycle.sh tests with no merge).
+  MIGRATE_FAILED=
+}
+# A video job's EXIT trap, last: a fault the job went on past (FAULT: kept work its photo records held back) fails the
+# job and is reported on GitHub as a part's failed cycle is (engine-mac.yml), as engine-cycle.sh's finish does for the
+# parts. Without it a video job that kept work back exited 0 and said nothing (Astra's read, 13 Nov). A job that failed
+# already keeps its own status. `fault_exit <status> <job>`.
+fault_exit() {
+  local status=$1
+  if [ -n "${FAULT:-}" ]; then
+    log "$FAULT"
+    [ "$status" != 0 ] || status=1
+    [ -n "${GITHUB_ACTIONS:-}" ] || gh workflow run engine-mac.yml -R deathemperor/aquatome.com -f part="$2" -f why="exit $status: $FAULT" || true
+  fi
+  exit "$status"
+}
+# In the cloud, each held branch of <job> not yet tried again, once main's code (anything but the engine's output and the
+# docs) has changed since the main it was checked on: published as kept work is, or, failing its tests for real again,
+# moved to <branch>-tried, which nothing tries again. Out of time or not pushed, it stays held for the next run's try.
+retry_held() {
+  local branch base
+  for branch in $(git for-each-ref --sort=refname --format='%(refname:short)' "refs/heads/held/$1/"); do
+    case "$branch" in *-tried) continue ;; esac
+    base=$(git merge-base "$branch" origin/main) || continue
+    git diff --quiet "$base" origin/main -- . ':!content' ':!sources' ':!engine-state' ':!docs' ':!*.md' && continue
+    log "trying $branch once more: main's code has changed since it was held"
+    git reset -q --hard "$branch"
+    if push_kept "$branch"; then
+      git branch -q -D "$branch"
+      log "published $branch"
+    elif [ -n "$KEPT_FAILED" ]; then
+      if move_branch "$branch" "$branch-tried"; then
+        log "$branch failed its tests again: on $branch-tried, not tried again"
+      else
+        log "$branch failed its tests again and couldn't be moved to $branch-tried: it stays held"
+      fi
+    else
+      log "$branch isn't published yet ($KEPT_WHY): it stays held for the next run's try"
+    fi
+    net git fetch -q origin || true
     git reset -q --hard origin/main
   done
 }
 # The checked-out kept work on top of main, swept and checked, pushed. As push() does, lines both changed give way to the
 # kept work's, a clash in the calendar plans it again, and after any merge it's swept and checked again. KEPT_FAILED
-# when its tests failed for real; KEPT_WHY says why it isn't published.
+# when its tests failed for real; KEPT_WHY says why it isn't published. `push_kept [<branch>]`: in the cloud, GitHub's
+# branch of that exact name is deleted in the same push as main's, both or neither, so work published is never published
+# again from a branch left behind.
 push_kept() {
-  local check=1 clash
-  KEPT_FAILED= KEPT_WHY=
+  local check=1 clash main
+  # Each branch's own: an earlier branch's failed migration says nothing of this one (Astra's read, 13 Nov).
+  KEPT_FAILED= KEPT_WHY= MIGRATE_FAILED=
   for _ in 1 2 3; do
-    if ! git pull -q --rebase origin main; then
+    main=$(git rev-parse origin/main 2>/dev/null || true)
+    if ! net git pull -q --rebase origin main; then
       clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
       git rebase --abort 2>/dev/null || true
-      git pull -q --rebase -X theirs origin main || { git rebase --abort 2>/dev/null || true; KEPT_WHY="a clash with main"; return 1; }
+      net git pull -q --rebase -X theirs origin main || { git rebase --abort 2>/dev/null || true; KEPT_WHY="a clash with main"; return 1; }
       replan_merged "$clash"
       check=1
     fi
+    # A clean pull that brought main's commits in is swept and checked too, as swept_pull says why.
+    [ "$(git rev-parse origin/main 2>/dev/null)" = "$main" ] || check=1
     if [ -n "$check" ]; then
       sweep_merged
       if ! verify 'pnpm test'; then
-        if [ -n "$TIMED_OUT" ]; then KEPT_WHY="tests out of time again"; else KEPT_FAILED=1; fi
+        if [ -n "$TIMED_OUT" ]; then KEPT_WHY="tests out of time again"
+        elif [ -n "${MIGRATE_FAILED:-}" ]; then KEPT_WHY="its photo records couldn't be migrated"
+        else KEPT_FAILED=1; fi
         return 1
       fi
       check=
     fi
-    git push -q origin HEAD:main && return 0
+    if engine_cloud && [ -n "${1:-}" ]; then
+      net git push -q --atomic origin HEAD:main ":refs/heads/$1" && return 0
+    else
+      net git push -q origin HEAD:main && return 0
+    fi
     sleep "${PUSH_PAUSE:-30}"
   done
   KEPT_WHY="the push didn't land"
@@ -172,10 +365,28 @@ verify_cycle() { verify 'pnpm test'; }
 # Main's changes and this run's meet only at a merge: a card from main and a summary from this run can then disagree, which
 # the sweep fixes and the tests fail on (the sf and pages runs of 2026-11-07 didn't publish over 30 such pages). So it runs
 # again before those tests.
+# Photo records in the format before 13 Nov 2026, which kept lettering read off a photo, fail the privacy test
+# (photo-privacy.ts). A run on older code writes them, and they come in at a merge: on 13 Nov two engine pushes made on
+# older code turned main red. So they're rewritten here first, with no model and no decision changed, before the sweep and
+# the tests see them. A migration that fails publishes nothing, and the work is kept for the next run, which migrates and
+# tests it again, never held for it (MIGRATE_FAILED; the Image Lead and the chief of staff, 13 Nov).
 sweep_merged() {
+  MIGRATE_FAILED=
+  pnpm engine photo-privacy --write || { MIGRATE_FAILED=1; log "photo records: the migration failed, so nothing is published"; }
   pnpm engine sweep || log "sweep: failed"
   git add content sources engine-state docs/review
   git diff --cached --quiet || git commit -q -m "content: sweep on main as it is now"
+}
+# A clean pull at a push brings main's changes in as well: a photo put on the never-again list, a head picked. A page file
+# merges item by item (merge-entity.mjs keeps an item one side changed), so a photo removed on main could come back on a
+# page this run also changed, and stay for a cycle, until the next sweep (the chief of staff, 2026-11-12). So after a pull
+# that brought main's commits in, the sweep runs on the merge, as after a clash. `swept_pull <main before the pull>` is
+# true when the sweep had nothing to do, so the push goes ahead, and false when it committed, so the tests run again.
+swept_pull() {
+  [ "$(git rev-parse '@{u}' 2>/dev/null)" = "$1" ] && return 0
+  local head; head=$(git rev-parse HEAD)
+  sweep_merged
+  [ -z "${MIGRATE_FAILED:-}" ] && [ "$(git rev-parse HEAD)" = "$head" ]
 }
 # The calendar (content/curation.json) is one plan, not lines to blend. After a clash with a change on main, push()'s
 # line-by-line merge kept some of each plan's days, and named one guide on two days running (the photos part of
@@ -189,7 +400,7 @@ replan_merged() {
   git diff --cached --quiet || git commit -q -m "content: the calendar planned again on main's"
 }
 catch_up() {
-  git pull -q --rebase && return 0
+  net git pull -q --rebase && return 0
   git rebase --abort 2>/dev/null || true
   log "main changed this cycle's files meanwhile: checking as it started, push() settles the clash"
 }
@@ -220,9 +431,10 @@ gate_or_keep() {
   return 1
 }
 
-# `from_main "$@"`.
+# `from_main "$@"`. A fetch that fails ends the run, its last line saying why: until 13 Nov 2026 the run went on from the
+# clone's old checkout, its old code included (an && list that fails doesn't stop a script under set -e).
 from_main() {
-  git fetch -q origin && git checkout -q main && git reset -q --hard origin/main
+  net git fetch -q origin && git checkout -q main && git reset -q --hard origin/main || exit
   [ "${AQ_SCRIPT_HEAD:-}" != "$(git rev-parse HEAD)" ] || return 0
   AQ_SCRIPT_HEAD="$(git rev-parse HEAD)"; export AQ_SCRIPT_HEAD
   exec bash "$0" "$@"

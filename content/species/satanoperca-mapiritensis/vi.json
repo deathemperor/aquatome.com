@@ -1,9 +1,10 @@
 {
   "slug": "ca-an-dat-satanoperca-mapiritensis",
-  "name": "Cá ăn đất Satanoperca mapiritensis",
+  "name": "Cá hải hồ mapiritensis",
   "altNames": [
     "Cá thầy chùa mapiritensis",
-    "Eartheater cichlid"
+    "Eartheater cichlid",
+    "Cá ăn đất Satanoperca mapiritensis"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<ul><li>Cần bể rất lớn và đã chạy ổn định. Nền phải là cát mềm.</li></ul>",
@@ -26,5 +27,6 @@
     "bySource": {
       "seriouslyfish": 0.86
     }
-  }
+  },
+  "nameFixed": true
 }

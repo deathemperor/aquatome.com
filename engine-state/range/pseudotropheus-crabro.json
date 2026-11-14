@@ -1,0 +1,29 @@
+{
+  "id": "pseudotropheus-crabro",
+  "native": {
+    "input": "5f1afdc9aa323470",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudotropheus crabro",
+    "status": "ACCEPTED",
+    "taxonKey": 2373078,
+    "datasets": [
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}

@@ -129,14 +129,66 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/923375d0c0e161e3.webp",
+      "url": "https://media.aquatome.com/processed/2c309dd647402400dab743742f250f7a.webp",
+      "thumb": "https://media.aquatome.com/processed/2c309dd647402400dab743742f250f7a-480.webp",
       "width": 960,
-      "height": 642,
+      "height": 607,
       "licence": "CC BY-SA 4.0",
       "author": "Klaus Rudloff",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Champsochromis_caeruleus_A.jpg",
-      "caption": "Champsochromis caeruleus",
-      "thumb": "https://media.aquatome.com/commons/923375d0c0e161e3-480.webp"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Champsochromis_caeruleus2.jpg",
+      "ownerCrop": {
+        "id": "owner-crop-20261113-champsochromis-caeruleus-recovery-1",
+        "pixelHash": "1bf55cb641bd0c09743f01f0cba5bc2e5a3ba97c2f40f9636d6e5c57a72f8ba8"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-13T08:36:31.879Z",
+          "originalHash": "81afdb36f86bab0ac561a872dc5d7080291eca501ef7597469528c293155734c",
+          "permissionDate": "2026-11-13",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 960,
+            "originalHeight": 641,
+            "window": {
+              "x0": 0,
+              "y0": 0,
+              "x1": 960,
+              "y1": 607
+            },
+            "subject": {
+              "x0": 152,
+              "y0": 174,
+              "x1": 885,
+              "y1": 526
+            },
+            "margin": 17
+          },
+          "excludedMarks": [
+            {
+              "x0": 2,
+              "y0": 614,
+              "x1": 166,
+              "y1": 638
+            }
+          ],
+          "checks": {
+            "species": [
+              "6a91bcad291efff5fc02354981f5da9c0b259b90501f2b1ac826e86fcbe1284f",
+              "1dbf3a10c12861bba006b6fd1dd981fd7d87e20b1b3b478bb742861c7dba8bb9"
+            ],
+            "ownership": [
+              "68638e001e9e55c88df103d423a22cf641291100b0bdf5564cb21eae3347d060",
+              "3f8efec0cdb6f1893206d7e11063d9fe937a9fce47f610e1069f987f1d888c85"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/commons/84cf02e5e1d01af7.webp",
+        "width": 960,
+        "height": 641
+      }
     }
   ],
   "videos": [

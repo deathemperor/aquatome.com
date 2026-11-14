@@ -10,6 +10,76 @@
     "laos",
     "xe-kong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA"
+      ],
+      "regions": [
+        "Mekong",
+        "Xe Kong",
+        "Xe Banghiang"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: Xe Banghiang and Xe Kong drainages of the Mekong River drainages in southern Laos.",
+          "countries": [
+            "LA"
+          ],
+          "regions": [
+            "Mekong",
+            "Xe Kong",
+            "Xe Banghiang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340943,
+      "total": 7,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "LA",
+          6
+        ],
+        [
+          "KH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          101.25,
+          19.6875,
+          2,
+          2
+        ],
+        [
+          105.46875,
+          12.65625,
+          2,
+          1
+        ],
+        [
+          106.875,
+          14.0625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -78,28 +148,6 @@
       "author": "Kamphol Udomritthiruj / ScotCat",
       "sourceUrl": "https://www.scotcat.com/akysidae/pseudobagarius_inermis.htm",
       "caption": "Pseudobagarius inermis",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/b8e034da070256ee.webp",
-      "thumb": "https://media.aquatome.com/scotcat/b8e034da070256ee-480.webp",
-      "width": 500,
-      "height": 198,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/akysidae/pseudobagarius_inermis.htm",
-      "caption": "Pseudobagarius inermis",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/93c295858ef278ff.webp",
-      "thumb": "https://media.aquatome.com/scotcat/93c295858ef278ff-480.webp",
-      "width": 500,
-      "height": 243,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/akysidae/pseudobagarius_inermis.htm",
-      "caption": "Pseudobagarius inermis: dorsal view",
       "source": "scotcat"
     }
   ],

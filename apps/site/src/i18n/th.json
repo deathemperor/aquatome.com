@@ -526,6 +526,7 @@
   "Dùng kích thước bể ở trên. Nhiệt độ phòng mặc định là nước bể mùa đông miền Bắc (khoảng {c}°C).": "ใช้ขนาดตู้จากด้านบน อุณหภูมิห้องเริ่มต้นคืออุณหภูมิน้ำในตู้ช่วงฤดูหนาวทางภาคเหนือของเวียดนาม (ประมาณ {c}°C)",
   "Dùng lại": "ใช้ซ้ำ",
   "Dùng thể tích nước của bể ở trên. Chọn muối phân và số gam mỗi lần châm; nếu pha thành dung dịch, nhập thêm lượng nước pha và số ml mỗi lần châm.": "ใช้ปริมาตรน้ำของตู้ปลาด้านบน เลือกเกลือปุ๋ยและจำนวนกรัมที่เติมแต่ละครั้ง หากผสมเป็นสารละลาย ให้กรอกปริมาณน้ำที่ใช้ผสมและจำนวนมล. ที่เติมแต่ละครั้งเพิ่มเติม",
+  "Dùng trong {n} trang": "ใช้ใน {n} หน้า",
   "Được. Trang này gửi qua Bluetooth các lệnh giống ứng dụng My Chihiros, chạy trên Chrome hoặc Edge (Android, Windows, macOS, Linux). iPhone và iPad cần trình duyệt Bluefy, vì Safari không hỗ trợ Bluetooth trên web.": "ได้ หน้านี้ส่งคำสั่งแบบเดียวกับแอป My Chihiros ผ่าน Bluetooth ใช้งานได้บน Chrome หรือ Edge (Android, Windows, macOS, Linux) ส่วน iPhone และ iPad ต้องใช้เบราว์เซอร์ Bluefy เพราะ Safari ไม่รองรับ Bluetooth บนเว็บ",
   "Dưới 5 tiếng, cây trồng lớn chậm.": "ต่ำกว่า 5 ชั่วโมง ไม้น้ำจะโตช้า",
   "Đường dẫn": "ลิงก์",
@@ -974,6 +975,7 @@
   "Tìm hiểu thêm:": "ข้อมูลเพิ่มเติม:",
   "Tìm kiếm": "ค้นหา",
   "Tìm loài cá, cây, hướng dẫn": "ค้นหาชนิดปลา ไม้น้ำ คู่มือ",
+  "Tìm mọi trang nhắc đến {name} →": "ค้นหาทุกหน้าที่กล่าวถึง {name} →",
   "Tính cách": "นิสัย",
   "Tính thể tích bể cá 12 kiểu (chữ nhật, lục giác, trụ tròn, bể góc, chữ L) ra lít và gallon, kèm lượng nước thực tế, cân nặng và độ dày kính nên dùng.": "คำนวณปริมาตรตู้ปลา 12 แบบ (สี่เหลี่ยม หกเหลี่ยม ทรงกระบอก ตู้เข้ามุม ตัว L) เป็นลิตรและแกลลอน พร้อมปริมาณน้ำจริง น้ำหนัก และความหนากระจกที่แนะนำ",
   "Tính thể tích bể cá thế nào?": "คำนวณปริมาตรตู้ปลาอย่างไร",
@@ -1328,6 +1330,5 @@
   "Để biết trang nào hữu ích và người đọc có quay lại không, trang gửi các sự kiện: đường dẫn trang, trang dẫn bạn tới (nếu có), quốc gia, loại thiết bị (điện thoại, máy tính bảng hay máy tính), mức cuộn, thời gian đọc, lượt bấm liên kết mua hàng, lượt bấm “thêm vào bể” và liên kết nguồn, lượt chạm mở thẻ giải thích một thuật ngữ hoặc bấm “Đọc thêm” trên thẻ đó (kèm thuật ngữ đó), một mã phiên và một mã khách ngẫu nhiên. Loại thiết bị do trình duyệt tự xác định; trong thống kê này, chúng tôi chỉ lưu một từ đó, không lưu thông tin trình duyệt hay kích thước màn hình. Mã khách do trình duyệt tự tạo ở lần ghé đầu, nằm trong bộ nhớ của trình duyệt (không phải cookie) và tự đổi mới sau 13 tháng. Nó chỉ cho biết cùng một trình duyệt đã quay lại. Chúng tôi không bao giờ ghép nó với tên, email, tài khoản hay địa chỉ IP của bạn. Sự kiện lưu tối đa 3 tháng. Trình duyệt bật Global Privacy Control hoặc Do Not Track thì không có mã khách; các sự kiện khác, gồm quốc gia và loại thiết bị, vẫn được ghi. Muốn không bị đếm nữa, bấm “Không đếm tôi” ở mục 3.": "เพื่อให้ทราบว่าหน้าใดมีประโยชน์และผู้อ่านกลับมาอีกหรือไม่ เว็บไซต์จะส่งเหตุการณ์ ได้แก่ ลิงก์หน้า เว็บไซต์ที่พาคุณมา (ถ้ามี) ประเทศ ประเภทอุปกรณ์ (โทรศัพท์ แท็บเล็ต หรือคอมพิวเตอร์) ระดับการเลื่อนหน้า เวลาอ่าน การคลิกลิงก์ซื้อสินค้า การคลิก “เพิ่มลงตู้” และลิงก์แหล่งที่มา การแตะเปิดการ์ดอธิบายคำศัพท์หรือแตะลิงก์ “อ่านเพิ่มเติม” บนการ์ดนั้น (พร้อมคำศัพท์นั้น) รหัสเซสชัน และรหัสผู้เข้าชมแบบสุ่ม ประเภทอุปกรณ์มาจากเบราว์เซอร์ของคุณ ในสถิตินี้เราเก็บเพียงคำเดียวนั้น ไม่เก็บรายละเอียดของเบราว์เซอร์หรือขนาดหน้าจอ เบราว์เซอร์ของคุณสร้างรหัสผู้เข้าชมเองในการเข้าชมครั้งแรก และเก็บไว้ในหน่วยความจำของเบราว์เซอร์เอง (ไม่ใช่คุกกี้) รหัสนี้จะถูกแทนที่ด้วยรหัสใหม่หลังจาก 13 เดือน และบอกเราได้เพียงว่าเบราว์เซอร์เดิมกลับมาอีก เราจะไม่นำรหัสนี้ไปรวมกับชื่อ อีเมล บัญชี หรือที่อยู่ IP ของคุณไม่ว่ากรณีใด เหตุการณ์เก็บไว้ไม่เกิน 3 เดือน เบราว์เซอร์ที่เปิด Global Privacy Control หรือ Do Not Track จะไม่ได้รับรหัสผู้เข้าชม ส่วนเหตุการณ์อื่น รวมถึงประเทศและประเภทอุปกรณ์ ยังคงถูกบันทึก หากไม่ต้องการให้นับอีก กด “ไม่ต้องนับฉัน” ในหัวข้อ 3",
   "Thống kê (trang web và ứng dụng): tối đa 3 tháng.": "สถิติ (เว็บไซต์และแอป): เก็บไว้ไม่เกิน 3 เดือน",
   "Thống kê từ ứng dụng": "สถิติจากแอป",
-  "characins": "ปลาคาราซิน",
-  "Đã cắt bỏ dấu của nguồn ảnh": "ครอบตัดเพื่อลบเครื่องหมายของแหล่งภาพ"
+  "characins": "ปลาคาราซิน"
 }

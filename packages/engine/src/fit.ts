@@ -10,7 +10,7 @@ import { mentions, PRODUCTS } from './market'
 import { LANG_NAME, type Page, type PageKind } from './pages'
 import { PHRASES, phraseQuotes } from './phrases'
 import { label, norm, readable, render, RETRACTED } from './reader'
-import { CONVERTED_LITRES } from './round'
+import { CONVERTED_LITRES, sourceGives } from './round'
 import { snapshotName } from './snapshot'
 
 /**
@@ -84,8 +84,18 @@ const TEMPLATE = readFileSync(new URL('./prompts/fit.md', import.meta.url), 'utf
  */
 const CARD_NOTE = `
 - card: this one is a short card for the app's home screen, not a page, and it names its dated sources by design: a paper, a publisher or the source of a count named as the authority for a claim ("theo …, 2026") is expected here, not \`source\`. Report instead: a newly described species called discovered ("phát hiện", "ditemukan", "ditemui", "ค้นพบ") when it was described; a new species without the year or date of the paper that described it; a trend without its figures (views, searches, upvotes) or without where they come from.`
+/**
+ * A reader's own climate, where the checklist's examples ("a room at 12 °C") would call it elsewhere. On 13 Nov 2026
+ * AquaTome's own guide to the seasons was faulted for a room at 12–14 °C on a winter night with the heater on all night,
+ * which is a winter in Hà Nội, and was kept off a winter shelf for it. A page takes it at its next read, when its text
+ * changes: a guide's rewrite works from its source's facts, not from what an older read found (for-reader.ts).
+ */
+const CLIMATE_NOTE: Partial<Record<Lang, string>> = {
+  vi: ' For this reader the North\'s winter is their own (December to February: rooms at 10–15 °C at night, a heater in the tank), and so is the South\'s rainy season: a cold room in winter, or heating the tank against it, doesn\'t count. A home warmed by a furnace, radiators or central heating, a basement, snow or a frozen pond still does.',
+}
 export const fitPrompt = (lang: Lang, kind?: PageKind) => TEMPLATE
   .replace('{{CARD_NOTE}}', kind === 'cards' ? CARD_NOTE : '')
+  .replace('{{CLIMATE_NOTE}}', CLIMATE_NOTE[lang] ?? '')
   .replaceAll('{{COUNTRY}}', COUNTRY[lang]).replaceAll('{{LANG}}', LANG_NAME[lang])
   .replace('{{SHOP_NOTE}}', lang === 'vi' ? '' : ' A Vietnamese chain (Pharmacity) counts too: this reader isn\'t in Vietnam.')
   .replace('{{PRICE_NOTE}}', lang === 'vi' ? '' : ' Vietnamese đồng counts too.')
@@ -129,6 +139,74 @@ const SOURCE_NO = [
   re(`\\((?:sumber|nguồn|source|แหล่ง(?:ข้อมูล)?(?:ที่)?)\\s*\\d+(?:\\s*(?:,|dan|và|และ|and)\\s*\\d+)*\\)`),
   new RegExp('(?<![\\p{L}\\p{N}])(?:[Ss]umber|Nguồn|Source)\\s+\\d+(?=:|\\s+\\p{Ll})|แหล่ง(?:ข้อมูล)?ที่\\s*\\d+(?=\\s*[\\u0E00-\\u0E7F])', 'gu'),
 ]
+/**
+ * A dealer's own current batch or stock, in Vietnamese: news to no reader here, and the source check's (the chief of
+ * staff, 13 Nov 2026). On that day 245 Vietnamese pages had text from a dealer's bulletins (Glaser's most of it), and a
+ * hand check of 16 found half of it was the dealer's news ("lô cá này", "nay đã được nhập về", "đã có hàng trở lại", "mã
+ * 454900" for "khách hàng của chúng tôi") and half trade history a reader keeps ("các đợt nhập đầu tiên vào thập niên
+ * 1970", "thường được nhập về lẫn lộn", "lẫn vào lô cá khác"). So only what says now, this batch or our customers: a
+ * batch named as this one or just in, an arrival dated now, stock back, the shop's own stock, a catalogue code.
+ */
+const DEALER_VI = re([
+  WORD('khách hàng của chúng tôi|trong danh mục hàng(?: của chúng tôi)?|mã(?: số| hàng)? \\d{5,6}'),
+  // An arrival dated now: "gần đây có một lô", "cuối cùng cũng lại có một lô"; not "thỉnh thoảng mới có một đợt".
+  WORD('(?:gần đây|mới đây|vừa|cuối cùng(?: cũng)?)(?: lại)? có (?:thêm )?(?:một |vài )?(?:lô|đợt)'),
+  // This one batch: not "những lô này" (the mixed batches a fish comes in) or "hai lô mẫu" (a museum's), nor a bare
+  // "đợt này", which is as often a round of treatment or a migration.
+  `(?<!(?:những|các|hai|ba|mấy|vài|lô) )${WORD('lô(?: cá(?: hoang dã)?| hàng| nhập)? (?:này|lần này|(?:mới|vừa) (?:nhập|về)(?: về)?)')}`,
+  WORD('đợt (?:cá(?: hoang dã)?|hàng|nhập)(?: về)? (?:này|lần này|(?:mới|vừa) (?:nhập|về)(?: về)?)|đợt (?:này|lần này) về|(?:mới|vừa) về (?:trong )?(?:đợt|lô) này'),
+  // This brood just in: "lứa cá mới nhập này lại khá khỏe" (Astra's read); not a shop's "thả lứa mới về chung với đàn cũ".
+  WORD('lứa(?: cá(?: hoang dã)?)? (?:mới|vừa) (?:nhập|về)(?: về)? (?:này|lần này)'),
+  '(?<![\\p{L}\\p{N}])trong lô(?=[,:])',
+  WORD('(?:(?<!ngày )nay|hiện nay|hiện|bây giờ|giờ đây)(?: thì)? (?:đã |đang |cũng )?(?:được )?(?:nhập về|có hàng)'),
+  WORD('(?:đã |lại )?có hàng (?:trở )?lại'),
+  // Stock back: "Hiện nay lại có cá thể hoang dã mới trưởng thành"; not "hiện nay lại có ý kiến".
+  WORD('(?:hiện nay|hiện|bây giờ|giờ đây) lại có (?:thêm )?(?:cá thể|cá|hàng|con)'),
+  WORD('hiện (?:ngoài|tại|ở|trong) tiệm (?:đang )?(?:có bán|bán|có)'),
+].join('|'))
+/**
+ * A batch told with its year, or as where a species' type specimens came from, in the same sentence or the one before:
+ * trade history, not a notice ("Tháng 4/2002, nhà cung cấp nhận một lô… Cá trong lô này to hơn", "Bộ mẫu chuẩn… lấy từ
+ * một lô cá hoang dã… công ty nhập lô cá này").
+ */
+const HISTORY_VI = /(?<!\d)(?:1[89]|20)\d\d(?!\d)|mẫu chuẩn|mẫu định danh|holotype|type series/iu
+// Two cuts into sentences, each erring the safe way for its use (Astra's reads, 13 Nov):
+// - CUT, for the context a match is read in (history(), the plant check): a stop (an ellipsis among them, and any closing
+//   quote or bracket after it) ends a sentence only before a capital or a figure, and never after a lone initial ("ông
+//   A. Werner", "P. dolloi"). Unsure, it reads more, so a dated batch is less often taken for news.
+// - EVERY_STOP, for whether a part is wholly a notice (dealerNotice), which takes the part off the page: every stop,
+//   semicolon and comma ends a clause, and each must hold a notice. Unsure, a fact stands apart from the notice ("Lô này
+//   chỉ có 7 con. pH phù hợp là 6–7.", "…; loài này cần nước mềm", "…, chúng cần nước mềm và chua") and the part stays,
+//   to be rewritten (Astra's reads, 13 Nov).
+const CUT = /(?<=[.!?…]["'”’»)]*)(?<!(?:^|[^\p{L}])\p{L}\.["'”’»)]*)\s+(?=["'“‘(«]*[\p{Lu}\p{N}])|\n/u
+const EVERY_STOP = /(?<=[.!?…]["'”’»)]*)\s+|[;,]\s*|\n/gu
+const history = (text: string, at: number) => HISTORY_VI.test([...text.slice(0, at).split(CUT).slice(-2), text.slice(at).split(CUT)[0]].join(' '))
+/**
+ * A bare "lô này" in a sentence about plants is a keeper's own plants, not a dealer's batch: a video's "Cây ở lô này nằm
+ * ngoài nước khá lâu và được cất trong tủ lạnh trước khi trồng" (Astra's read).
+ */
+const BARE_LOT = /^lô (?:lần )?này$/iu
+const PLANTS = /(?<![\p{L}\p{N}])(?:cây|bó)(?![\p{L}\p{N}])/iu
+const notice = (text: string, m: RegExpMatchArray) => !history(text, m.index!) && !(BARE_LOT.test(m[0]) && PLANTS.test(text.slice(0, m.index).split(CUT).at(-1)! + text.slice(m.index).split(CUT)[0]))
+
+/**
+ * Whether a Vietnamese part is wholly a dealer's notice: every sentence of it names the dealer's own current batch or
+ * stock (DEALER_VI, history aside). Such a part isn't rewritten: it comes off the page when its heading has another
+ * source's text, and is listed for the chief of staff when it's that heading's only text (13 Nov 2026, sweep.ts). On
+ * 13 Nov four were: the ram's range ("Hiện ngoài tiệm có bán cá phượng hoàng bắt ngoài tự nhiên ở Venezuela") among them.
+ */
+export function dealerNotice(html: string): boolean {
+  const text = render(html)
+  const at = [...text.matchAll(DEALER_VI)].filter(m => notice(text, m)).map(m => m.index)
+  // Its sentences, as the history test cuts them: each must hold a notice.
+  const spans: [number, number][] = []
+  let from = 0
+  for (const m of text.matchAll(EVERY_STOP)) { spans.push([from, m.index]); from = m.index + m[0].length }
+  spans.push([from, text.length])
+  const said = spans.filter(([a, b]) => /[\p{L}\p{N}]/u.test(text.slice(a, b)))
+  return said.length > 0 && said.every(([a, b]) => at.some(i => i >= a && i < b))
+}
+
 const IMPERIAL = [
   re(WORD(`${AMOUNT}(?:gal|inch(?:es)?|inci|feet|ft|foot|pounds?|lbs?|ounces?|oz|độ F)`)),
   re(`${WORD('gallons?|galon|ga-?\\s?lông')}|แกลลอน|°\\s?F|\\d\\s*นิ้ว`),
@@ -377,6 +455,7 @@ export function fitRules(p: Page): FitFinding[] {
     for (const r of PRICE) each('price', r, 'a foreign price or shipping cost')
     if (p.lang !== 'vi') each('price', PRICE_OTHER, 'a price in Vietnamese đồng')
     each('source', SOURCE[p.lang], 'talks about the source or in its voice')
+    if (p.lang === 'vi') for (const m of text.matchAll(DEALER_VI)) if (notice(text, m)) say('source', id, m[0], 'a dealer\'s own batch or stock: news to no reader here')
     for (const r of SOURCE_NO) each('source', r, 'a source\'s number from the facts, which the reader never sees')
     for (const r of IMPERIAL) each('units', r, 'an imperial unit')
     for (const m of text.matchAll(CONVERTED)) if (!PER.test(text.slice(Math.max(0, m.index - 24), m.index))) say('units', id, m[0], 'a volume that shows it was converted from gallons')
@@ -536,7 +615,24 @@ export function fitFindings(p: Page, entry?: FitEntry): FitFinding[] {
   })
   // What it's for, not how: two readers agree on the first and not on the second, which is only for comparing doses.
   const unsaid = (entry?.doses ?? []).filter(d => !d.use).map(d => ({ check: 'dose-purpose' as const, part: '', quote: clip(d.quote), why: 'doesn\'t say what this dose is for', by: 'model' as const }))
-  return dedupe([...fitRules(p), ...(entry?.findings ?? []), ...named, ...unsaid])
+  const all = dedupe([...fitRules(p), ...(entry?.findings ?? []), ...named, ...unsaid])
+  if (!p.en || !all.some(f => f.check === 'units')) return all
+  const { parts } = fitText(p)
+  return all.filter(f => !givenBySource(p, f, parts))
+}
+
+/**
+ * A units finding whose figures the page's English gives in metric itself (sourceGives), in every part that has its
+ * quote: a part's own English, or all of it for a part with none (a summary line, a question). The part a finding names
+ * isn't trusted, and the same words in two parts are one finding (dedupe). A section AquaTome wrote from many sources'
+ * facts (`:aquatome`) has no English of its own, and a guide keeps its source elsewhere (fitSource): their figures still
+ * count, and so does a quote no part has.
+ */
+function givenBySource(p: Page, f: FitFinding, parts: { field: string; text: string }[]): boolean {
+  if (f.check !== 'units' || !p.en) return false
+  const q = norm(f.quote), at = parts.filter(x => norm(x.text).includes(q))
+  const all = Object.entries(p.en).filter(([k]) => !k.endsWith(':aquatome')).map(([, v]) => v).join('\n')
+  return at.length > 0 && at.every(x => !x.field.endsWith(':aquatome') && sourceGives(f.quote, render(p.en![x.field] ?? (x.field.startsWith('sections.') ? '' : all)), p.lang))
 }
 
 /** Product names the table has no row for: what to look up next, with how many pages name each. */

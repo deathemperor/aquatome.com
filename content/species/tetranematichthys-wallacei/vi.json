@@ -12,18 +12,29 @@
     "diet:glaser": "<p>Đây là loài ăn thịt, thích ăn cá nhỏ.</p>",
     "behaviour:glaser": "<p>Ban ngày cá hay nằm nghiêng ngủ. Chuyện này hoàn toàn bình thường, không có gì phải lo. Với đồng loại, Tetranematichthys rất hiền, không hề gây sự.</p>",
     "reproduction:glaser": "<p>Cũng như ở giống Ageinosus, họ hàng gần của nó, cá đực Tetranematichthys mọc vây lưng rất to vào mùa sinh sản. Tia gai của vây này mọc đầy gai nhọn. Lúc giao phối, con đực dùng tia gai đó bám vào con cái. Trứng thụ tinh trong bụng con cái, qua một cơ quan giống dương vật do các tia vây hậu môn biến đổi thành. Nghe nói hết mùa sinh sản, vây lưng con đực sẽ nhỏ lại, chỉ còn bằng vây con cái.</p>",
-    "notes:glaser": "<p>Tetranematichthys nghĩa là \"cá có bốn sợi\", ý chỉ mấy sợi râu của nó. Tên wallacei đặt để vinh danh Alfred Russel Wallace (1823-1913).</p>"
+    "notes:glaser": "<p>Tetranematichthys nghĩa là \"cá có bốn sợi\", ý chỉ mấy sợi râu của nó. Tên wallacei đặt để vinh danh Alfred Russel Wallace (1823-1913).</p>",
+    "quickFacts:scotcat": "<ul><li>Danh sách đỏ IUCN: Ít quan tâm (IUCN 2023). Loài này phân bố rộng và không gặp mối đe dọa trực tiếp nào.</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ. Loài này sống ở lưu vực Amazon, trong hệ thống thượng nguồn sông Negro ở Brazil và Venezuela, và ở lưu vực thượng nguồn sông Orinoco miền nam Venezuela.</p>",
+    "equipment:scotcat": "",
+    "behaviour:scotcat": "<p>Tetranematichthys sống hiền hòa với đồng loại.</p>",
+    "diet:scotcat": "<p>Đây là loài ăn thịt, thích ăn cá nhỏ. Chúng ưa đồ tươi sống hơn, cho ăn lúc tắt đèn. Loài này có thể kén ăn, cứ thử nhiều loại thức ăn đông lạnh khác nhau để xem chúng chịu loại nào.</p>",
+    "dimorphism:scotcat": "<p>Cá đực có vây lưng dài ra và có gai.</p>",
+    "notes:scotcat": "<p>Mô tả: Loài này khác T. quadrifilis ở bốn điểm. Thứ nhất, nhìn từ mặt bụng, hai mép bên của đầu, đoạn từ mép trước hốc mắt đến mép sau nắp mang, chạy gần song song, còn ở T. quadrifilis thì chúng loe ra hai bên. Thứ hai, chiều rộng thân tại gốc vây ngực bằng 0,99–1,10 lần chiều rộng đầu tại mép sau hốc mắt, so với 1,17–1,25 lần ở T. quadrifilis. Thứ ba, khoảng cách từ chóp mõm đến gốc vây hậu môn bằng 0,29–0,32 SL (chiều dài chuẩn), so với 0,33–0,36 SL. Thứ tư, đầu trước của khe mang nằm lùi về sau mặt phẳng ngang đi qua mép sau hốc mắt một khoảng bằng đường kính hốc mắt, còn ở T. quadrifilis thì nó nằm ngay trên mặt phẳng ngang đi qua tâm hốc mắt.</p><p>Nguồn gốc tên: Tên giống Tetranematichthys nghĩa là \"cá có bốn sợi\", ý chỉ các sợi râu. Tên loài wallacei đặt theo Alfred Russel Wallace, người từ năm 1848 đã thu thập nhiều mẫu động vật và thực vật ở lưu vực Amazon.</p>",
+    "references:scotcat": "<p>Frederico, R.G. 2023. Tetranematichthys wallacei. The IUCN Red List of Threatened Species 2023. Vari, R.P. and C. Ferraris, Jr. 2006 The catfish genus Tetranematichthys (Aucheniptridae). Copeia 2006(2):168-180.</p>",
+    "maintenance:scotcat": "<p>Bể nuôi Tetranematichthys nên trải nền cát mịn, để đèn dịu và bày thật nhiều lũa. Ban ngày cá hay nằm nghiêng ngủ. Chuyện này hoàn toàn bình thường, người nuôi không có gì phải lo.</p>"
   },
   "quality": {
     "score": 0.85,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.85
-    },
-    "reason": "thin"
+      "glaser": 0.85,
+      "scotcat": 0.9
+    }
   },
   "held": {
-    "checks": [],
-    "at": "2026-11-11"
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-14"
   }
 }

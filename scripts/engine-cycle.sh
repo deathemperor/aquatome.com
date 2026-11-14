@@ -28,22 +28,26 @@ if [ "$PART" = sf ] && [ -n "${ENGINE_ARGS:-}" ]; then log "targeted run: the pa
 deploy() { gh workflow run deploy.yml -R "${GITHUB_REPOSITORY:-deathemperor/aquatome.com}" --ref main; }
 # Push this part's commit on top of whatever landed during the run (code, the other parts' content).
 push() {
+  local main
   for _ in 1 2 3; do
-    if ! git pull -q --rebase; then
+    main=$(git rev-parse '@{u}' 2>/dev/null || true)
+    if ! net git pull -q --rebase; then
       local clash; clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
       log "another part changed the same files: $clash"
       git rebase --abort 2>/dev/null || true
       # Its clashing lines give way to this part's (photo verdicts are re-applied every cycle); then checked again
       # (verify_cycle: the tests).
-      if git pull -q --rebase -X theirs; then
+      if net git pull -q --rebase -X theirs; then
         replan_merged "$clash"
         sweep_merged
         verify_cycle || { keep_unpublished "$PART"; log "build/tests failed after that merge, not publishing"; return 1; }
       else
         git rebase --abort 2>/dev/null || true
       fi
+    elif ! swept_pull "$main"; then
+      verify_cycle || { keep_unpublished "$PART"; log "build/tests failed after the sweep on main's changes, not publishing"; return 1; }
     fi
-    git push -q && return 0
+    net git push -q && return 0
     sleep 30
   done
   log "push failed three times"; return 1
@@ -54,14 +58,37 @@ push() {
 # Its process must still be a cycle script: the file outlives a restart, and its number can go to another process.
 PIDFILE="$(git rev-parse --absolute-git-dir)/aquatome-engine.pid"
 # Not this run's own number: from_main starts it again as the same process.
-if [ -f "$PIDFILE" ] && [ "$(cat "$PIDFILE")" != $$ ] && ps -p "$(cat "$PIDFILE")" -o command= 2>/dev/null | grep -q 'cycle\.sh'; then log "previous cycle (pid $(cat "$PIDFILE")) still running"; exit 0; fi
+# How long ago the part's cycle last wrote a line of its own to its log (not these notices). Hours means it's hung, not
+# working: on 12 Nov 2026 a fetch begun as the Mac fell asleep never ended.
+quiet_for() {
+  local line at
+  line=$(grep -E '^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z ' "$HOME/Library/Logs/aquatome-engine-$PART.log" 2>/dev/null | grep -v -E '^[^ ]+ (stuck:|previous cycle)' | tail -1)
+  [ -n "$line" ] || return 0
+  at=$(date -j -u -f %Y-%m-%dT%H:%M:%SZ "${line%% *}" +%s 2>/dev/null || date -u -d "${line%% *}" +%s 2>/dev/null) || return 0
+  echo $(( $(date +%s) - at ))
+}
+if [ -f "$PIDFILE" ] && [ "$(cat "$PIDFILE")" != $$ ] && ps -p "$(cat "$PIDFILE")" -o command= 2>/dev/null | grep -q 'cycle\.sh'; then
+  quiet=$(quiet_for)
+  if [ "${quiet:-0}" -ge 7200 ]; then log "previous cycle (pid $(cat "$PIDFILE")) still running, its last line $((quiet / 3600)) h $((quiet % 3600 / 60)) min ago: likely hung, and nothing here stops it"
+  else log "previous cycle (pid $(cat "$PIDFILE")) still running"; fi
+  exit 0
+fi
 echo $$ > "$PIDFILE"
+# How long the Mac had slept when the cycle began, kept across from_main's start again.
+[ -n "${AQ_ASLEEP0:-}" ] || { read -r _ AQ_ASLEEP0 < <(clock); export AQ_ASLEEP0; }
 # On the Mac, a failed cycle is reported on GitHub: engine-mac.yml fails, naming the step or the log line it stopped at.
 trap 'FAILED="$BASH_COMMAND"' ERR
 finish() {
-  local status=$?
+  local status=$? now
   rm -f "$PIDFILE"
+  # A fault the run went on past (FAULT, cycle-checks.sh: kept work its photo records held back) fails the run when it
+  # ends, so it's reported as any failed run is: engine-mac.yml on the Mac, the run itself on GitHub.
+  [ "$status" != 0 ] || [ -z "${FAULT:-}" ] || { status=1; FAILED="$FAULT"; }
   [ "$status" = 0 ] || [ -n "${GITHUB_ACTIONS:-}" ] || gh workflow run engine-mac.yml -R deathemperor/aquatome.com -f part="$PART" -f why="exit $status: ${FAILED:-$LAST}" || true
+  # A night the lid was shut shows in the cycle's last line (12 to 13 Nov 2026: asleep from 22:36, waking 45 s every 15 min).
+  read -r _ now < <(clock)
+  [ $((now - ${AQ_ASLEEP0:-$now})) -lt 60 ] || log "the Mac slept $(((now - AQ_ASLEEP0) / 60)) min during this cycle"
+  exit "$status"
 }
 trap finish EXIT
 
@@ -90,7 +117,7 @@ if [ -n "${GITHUB_ACTIONS:-}" ] || [[ "$REPO" == "$HOME/.local/share/aquatome/"*
 else
   # Any other checkout: nothing in it is dropped.
   if [ -n "$(git status --porcelain -- content sources)" ]; then log "uncommitted content in this checkout: commit or drop it first"; exit 1; fi
-  git checkout -q main && git pull -q --ff-only
+  git checkout -q main && net git pull -q --ff-only
 fi
 cool
 # content/changelog.json gets entries from here and from the Mac's video job (video-cycle.sh): merge, don't conflict.
@@ -110,6 +137,8 @@ if part pages; then
   pnpm engine run --max-minutes "${ENGINE_MAX_MINUTES:-300}" ${ENGINE_ARGS:---except seriouslyfish}
   # Plants' other scientific names (sources' "previously named …", GBIF, a few hobby names): linked, checked, searched.
   pnpm engine plant-synonyms || log "plant-synonyms: failed"
+  # Fish's older scientific names from GBIF (fish-synonyms.ts), 300 a cycle, each asked once: Commons files some fish under them.
+  pnpm engine fish-synonyms --limit "${FISH_SYNONYMS_LIMIT:-300}" || log "fish-synonyms: failed"
   # What YouTube reviews found, on PRODUCT_REVIEW_LIMIT product pages a cycle (candidates: product-reviews.ts): a vet, an
   # extraction a review and a writing call, on top of a research call and a page for a product with none. So only with time
   # left for that. Not behind SKIP_VIDEOS, which the Mac's parts set for video-cycle.sh's bursts: this is a few requests and
@@ -203,6 +232,12 @@ if part pages sf photos; then
   # No watermarks (credits, dealer logos, site names): text on a photo is judged once by the model, a marked photo leaves
   # every page and stays blocked. After mirroring, so a gallery's Commons photo is screened under the URL pages use.
   pnpm engine watermarks --limit "${WATERMARK_LIMIT:-40}" || log "watermarks: failed (the photos it has not judged wait, unshown: packages/schema/src/photo-screen.ts)"
+  # Where the fish is in each fish and breed photo (photo-boxes.ts: macOS Vision, no model call), heads first, each photo
+  # once: what keeps a tile, a banner or a card from cutting the fish. After mirroring, so it reads the addresses pages use.
+  # The photos part alone, or each part would box the same photos: the others' new photos wait for its next run, as
+  # nothing waits on a box. 400 a run: the albums were boxed by 12 Nov (2,000 a run until then, the chief of staff,
+  # 2026-11-12), and a run now boxes only the photos new since the last.
+  if part photos; then pnpm engine photo-boxes --limit "${PHOTO_BOXES_LIMIT:-400}" || log "photo-boxes: failed (new photos carry no box: drawn as today)"; fi
   # Card thumbs for photos stored before thumbs existed; a failure only means full-size photos on cards.
   pnpm engine thumbs || log "thumbs: some failed (cards fall back to full photos)"
   # Wikimedia photos credited before Commons' placeholder authors were tidied on import: "RuthJM", not its sentence.
@@ -309,6 +344,18 @@ if part rewrite; then
   # a rubric; Vietnamese wording it flags is rewritten, reviewer-gated, READER_REWRITES parts at most; the rest goes to
   # docs/review/reader.md.
   pnpm engine reader --limit "${READER_LIMIT:-20}" --rewrites "${READER_REWRITES:-3}" || log "reader: failed"
+  # Reader fit, from the front list's start (fit-front.json, first) and, like the guides below, only with time left of
+  # the job's 355 minutes: a rewrite is a writer's and a reviewer's call for each part it mends.
+  if [ "$SECONDS" -lt $(( ${FIT_BEFORE_MINUTES:-260} * 60 )) ]; then
+    # The front list's pages whose saved reader-fit read is of older text are read again first, so the rewrite can
+    # take them.
+    pnpm engine fit --front --limit "${FIT_FRONT_LIMIT:-6}" || log "fit: failed"
+    # The reader-fit rewrite (fit-rewrite.ts): pages on the site that fail reader fit, the front list first, then the
+    # most read. Held after its first run until its pages have been looked at (fit-front.json, cleared).
+    pnpm engine fit-rewrite --front --limit "${FIT_REWRITE_LIMIT:-12}" || log "fit-rewrite: failed"
+  else
+    log "fit-rewrite: skipped, the cycle has run $(( SECONDS / 60 )) min"
+  fi
   # AquaTome's own guides on the most asked ideas, IDEAS_PER_DAY a day, last: each is a full research run (up to ~25
   # min), so only with an hour and a half left of the job's 355 minutes (a rewrite job has taken 266).
   if [ "$SECONDS" -lt $(( ${IDEAS_BEFORE_MINUTES:-260} * 60 )) ]; then
@@ -322,17 +369,36 @@ fi
 pnpm engine ungarble || log "ungarble: failed"
 # Fish, plant, breed and guide pages in metric only (°C, cm, litres): a °F, inch or gallon figure a writer left (the tests fail on one).
 pnpm engine metric || log "metric: failed"
+# A figure a fish or plant page's English gives in metric itself, which the rounding rounded until 12 Nov 2026 ("60 × 40 ×
+# 30 cm" for Seriously Fish's "60 × 38 × 30 cm"), goes back to the English's: code, no model, at the pace the chief of
+# staff sets (source-figures.ts), the porthole catfish, Ophthalmotilapia and Cichla monoculus first; the gate reads each.
+# In the Mac's photos part alone (the chief of staff, 2026-11-12: the Mac only): the Mac's parts overlap, and each would
+# mend the same pages from its own clone and its gate read them again. So a cycle is one batch, and one record of it.
+if part photos; then
+  pnpm engine source-figures --first vi/species/dianema-longibarbis,vi/species/ophthalmotilapia-ventralis,vi/species/cichla-monoculus,id/species/cichla-monoculus || log "source-figures: failed"
+fi
 # The content rules' safe fixes on every page (sweep.ts; the tests fail on a page left with one): the source site's
 # comments and related posts cut, empty headings, repeated paragraphs and labels out of order fixed, photos of another
 # fish or a map taken off their page, card figures out of bounds hidden, titles promising a count their text lacks
 # rewritten (reviewer-gated) or their number dropped.
 pnpm engine sweep || log "sweep: failed"
+# A page held for units alone: a tank converted from US gallons some other way ("115 lít") becomes the size a keeper here
+# names ("120 lít"), by code with no model, six pages a run; the gate reads each next and lets it out if it passes. It
+# starts on 13 Nov 2026 08:00, the easy-fish guide first (the chief of staff, 2026-11-11; units-mend.ts). In the Mac's
+# photos part alone (the chief of staff, 2026-11-12: the Mac only): a cloud cycle, or another of the Mac's parts, running
+# beside it would mend the same pages from its own clone, and its gate read them again, at twice the cost and with
+# verdicts that can differ.
+if part photos; then
+  pnpm engine units-mend --first vi/guides/youtube-mGmIvhtIM9k || log "units-mend: failed"
+fi
 # Last of the steps that write pages: what this run changed is read against the reader-fit checklist (gate.ts). A new page
 # that fails is held, a live page that got worse keeps its committed text, a page built on a foreign shop's kit is held,
 # and a held page that now passes is let out. A page it can't read stays as readers have it; only a crash stops the run,
 # and keeps its work on a branch (gate_or_keep).
 gate_or_keep "content: engine $PART" content sources engine-state docs/review apps/site/src/i18n || exit 1
 if part photos; then
+  # What the gate made of each page the source figures mended, recorded once, and the stop when a batch went wrong.
+  pnpm engine source-figures --record || log "source-figures --record: failed"
   # Reports, nothing hidden: pictures (docs/review/content-audit.md: pages without a photo, a card thumb, or pictures
   # inside the text) and every published page, in each language, against the content rules (docs/review/content-rules.md).
   pnpm engine audit || log "audit: failed"

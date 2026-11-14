@@ -12,6 +12,51 @@
     "thailand",
     "cambodia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "TH",
+        "KH"
+      ],
+      "regions": [
+        "Mekong",
+        "Tonlé Sap"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The natural distribution of the species is the lower Mekong basin of Laos, Thailand and Cambodia.",
+          "countries": [
+            "LA",
+            "TH",
+            "KH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the Lower Mekong River basin in Laos, Thailand and Cambodia.",
+          "countries": [],
+          "regions": [
+            "Mekong"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "A major population in Cambodia can be found in the great lake of Tonlé Sap and surrounding swamps.",
+          "countries": [],
+          "regions": [
+            "Tonlé Sap"
+          ]
+        }
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -191,7 +236,72 @@
       "html": "<ul><li>Mayden, R. L., K. L. Tang, K. W. Conway, J. Freyhof, S. Chamberlain, M. Haskins, L. Schneider, M. Sudkamp, R. M. Wood, M. Agnew, A. Bufalino, Z. Sulaiman, M. Miya, K. Saitoh, S. He (2007). Phylogenetic relationships of Danio within the order Cypriniformes: a framework for comparative and evolutionary studies of a model species. Journal of Experimental Zoology, Molecular Development and Evolution 308B, 642-654</li><li>Kottelat, M. (1999). Nomenclature of the genera Barbodes, Cyclocheilichthys, Rasbora and Chonerhinos (Teleostei: Cyprinidae and Tetraodontidae), with comments on the definition of the first reviser. Raffles Bulletin of Zoology Supplement 47(2), 591-600</li><li>Rainboth, W. J. (1996). Fishes of the Cambodian Mekong. FAO Species Identification Field Guide for Fishery Purposes. FAO, Rome, 1-265</li><li>Liao, T. Y., Kullander, S. O. and F. Fang (2010). Phylogenetic analysis of the genus Rasbora (Teleostei: Cyprinidae). Zoologica Scripta 39(2), 155-176</li><li>Tang, K. L., M. K. Agnew, W. J. Chen., M. V. Hirt, T. Sado, L. M. Schneider, J. Freyhof, Z. Sulaiman, E. Swartz, C. Vidthayanon, M. Miya, K. Saitoh, A. M. Simons, R. M. Wood and R. L. Mayden (2010). Systematics of the subfamily Danioninae (Teleostei: Cypriniformes: Cyprinidae). Molecular Phylogenetics and Evolution 57(1), 189-214</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/1a255f2a6d75d374bca6479aa52cc4b5.webp",
+      "thumb": "https://media.aquatome.com/processed/1a255f2a6d75d374bca6479aa52cc4b5-480.webp",
+      "width": 850,
+      "height": 432,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbosoma_spilocerca_en/",
+      "source": "glaser",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-rasbosoma-spilocerca",
+        "pixelHash": "dafd1d19639a517f3d0dc750c888f4df88f9a665090194bc61ab21f5bb24e14d"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T11:00:23.996Z",
+          "originalHash": "b73e86f106775e979139096b89b9e2b54eb01248b0f119e9f60fa23e347e8fa7",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 850,
+            "originalHeight": 567,
+            "window": {
+              "x0": 0,
+              "y0": 135,
+              "x1": 850,
+              "y1": 567
+            },
+            "subject": {
+              "x0": 101,
+              "y0": 168,
+              "x1": 743,
+              "y1": 456
+            },
+            "margin": 15
+          },
+          "excludedMarks": [
+            {
+              "x0": 23,
+              "y0": 16,
+              "x1": 827,
+              "y1": 129
+            }
+          ],
+          "checks": {
+            "species": [
+              "737d72e4ed98ff33d4341703443c94d360ee7ffbd421d2f479e915160003028f",
+              "d8d10f35cc34c2a8a4b663df03e799d00be2c56a3905ce20f73cc4d55f5f834c"
+            ],
+            "ownership": [
+              "092774f5802e7a9f3881f7ca1b9937127c385f69e3667d650d5fa73d5694b6f6",
+              "b54f1796961db3a8a136bee6ab576506a02e394834dccc6f2e0b384fc5295c0d"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/glaser/10958ed748c644a8.webp",
+        "width": 850,
+        "height": 567,
+        "thumb": "https://media.aquatome.com/glaser/10958ed748c644a8-480.webp"
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

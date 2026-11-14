@@ -27,14 +27,17 @@ const DataCardField = z.enum(['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'difficul
 
 /**
  * `refs`: text AquaTome wrote from web research (source 'aquatome'), the pages in the species' `refs` its facts come from.
- * `fixed`: a person rewrote this part, in English and in the Vietnamese beside it, and reading its source again never
- * replaces it, as `nameFixed` holds a name.
+ * `fixed`: a person rewrote this part, in English and in each language beside it, and neither reading its source again
+ * nor translating the page replaces it, as `nameFixed` holds a name.
  */
 const Section = z.object({ key: z.enum(SECTION_ORDER), source: SourceId, sourceUrl: z.string(), html: z.string(), refs: z.array(z.number().int().nonnegative()).optional(), fixed: z.literal(true).optional() })
 /** `authorUrl`: the photographer's own page (an Unsplash profile), which their credit links. */
 /**
  * `large`: a copy for the app's large cards, 1,200 px on its short side (the engine's large-photos.ts); the site's pages
  * show `url`, at most 1,200 wide.
+ * `subject`: where the fish is, in the photo's pixels, from the engine's box record (engine-state/_photo-boxes.json). The
+ * engine never writes one into content: the loader adds it from the record alone, behind its switch (image-geometry.ts
+ * SUBJECT_FRAMES), to the photos it clears (pages', albums', guides', breeds' and cards'), dropping any other.
  */
 const Hash = z.string().regex(/^[a-f0-9]{64}$/)
 const PixelBox = z.object({ x0:z.number().int().nonnegative(),y0:z.number().int().nonnegative(),x1:z.number().int().positive(),y1:z.number().int().positive() })
@@ -52,7 +55,7 @@ const Alteration = z.object({
   checks:z.object({species:HashPair,ownership:HashPair,noTrace:HashPair.optional(),preservation:HashPair.optional()}).optional(),
 })
 const OriginalPicture = z.object({ url: z.string(), width: z.number(), height: z.number(), thumb: z.string().optional(), large: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional() })
-const Photo = z.object({ url: z.string(), thumb: z.string().optional(), width: z.number(), height: z.number(), large: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional(), licence: z.string(), author: z.string(), authorUrl: z.string().optional(), sourceUrl: z.string(), caption: z.string().optional(), source: SourceId.optional(), ownerCrop: z.object({ id: z.string(), pixelHash: Hash }).optional(), headFit: z.literal("contain").optional(), generated: Generated.optional(), altered: z.array(Alteration).optional(), original: OriginalPicture.optional() })
+const Photo = z.object({ url: z.string(), thumb: z.string().optional(), width: z.number(), height: z.number(), large: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional(), licence: z.string(), author: z.string(), authorUrl: z.string().optional(), sourceUrl: z.string(), caption: z.string().optional(), source: SourceId.optional(), ownerCrop: z.object({ id: z.string(), pixelHash: Hash }).optional(), headFit: z.literal("contain").optional(), generated: Generated.optional(), altered: z.array(Alteration).optional(), original: OriginalPicture.optional(), subject: PixelBox.optional() })
 export const PhotoSchema = Photo
 const Video = z.object({ youtubeId: z.string(), title: z.string(), durationSec: z.number(), lang: z.string() })
 const ProductSlot = z.object({ category: z.string(), keywords: z.array(z.string()) })
@@ -224,7 +227,17 @@ export const SeriesSchema = z.object({
   vi: z.object({ slug: z.string(), name: z.string(), intro: z.string() }),
 })
 
-export const GlossarySchema = z.object({ id: z.string(), en: z.string(), latin: z.string().optional() })
+/**
+ * A glossary term. `refs`: the pages AquaTome's fuller entry was researched from (engine glossary-entry.ts), listed under
+ * it as a guide's are. `related`: other terms' ids, the ones a reader of this entry should see next. `photos`: as a
+ * species' (Curation's records), kept by the engine's rewrites of the entry.
+ */
+export const GlossarySchema = z.object({
+  id: z.string(), en: z.string(), latin: z.string().optional(),
+  refs: z.array(z.object({ url: WebUrl, title: z.string().min(1) })).optional(), related: z.array(z.string()).optional(),
+  /** Only where seeing it explains the term (driftwood, white spot): the first is shown under its meaning. */
+  photos: z.array(Photo).optional(),
+})
 export const PlaceSchema = z.object({
   id: z.string(), kind: z.enum(['continent', 'country', 'region', 'river']), parent: z.string().optional(),
   /** The countries (ISO codes) of the sentence that names a river or region only a species' range names, for whoever names it. A `parent` would list it on the country's page and link its name in guides. */
@@ -399,10 +412,15 @@ export const ChangelogSchema = z.array(ChangelogEntrySchema)
 /**
  * `publish`: true once the written permission covers the source's text and photos; `'photos'` when it covers only photos
  * (Diễn Đàn Cá Cảnh): a public build shows its photos, and nothing written from its text (sections, guides, card values).
+ * `permission.refusedCredits`: credits the permission doesn't cover, whatever the source allows (a picture agency's): the
+ * intake takes no photo it credits so, and the sweep takes those already shown off for good (engine source-photos.ts, sweep.ts).
+ * `permission.coveredCredits`: the kinds of credit, besides a person or a one-word handle, the permission covers. The intake
+ * takes no new photo credited to a business, an organisation or a person with an organisation unless its kind is listed
+ * (engine source-photos.ts `creditCovered`); a picture agency can't be.
  */
 export const SourceInfoSchema = z.object({
   name: z.string(), homepage: z.string(), publish: z.union([z.boolean(), z.literal('photos')]),
-  permission: z.object({ date: z.string(), file: z.string(), scope: z.array(z.string()), markRemoval: z.discriminatedUnion('allowed', [z.object({ allowed: z.literal(false) }), z.object({ allowed: z.literal(true), date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/), basis: z.string().optional() })]).optional() }).optional(),
+  permission: z.object({ date: z.string(), file: z.string(), scope: z.array(z.string()), refusedCredits: z.array(z.string().min(1)).optional(), coveredCredits: z.array(z.enum(['organisation', 'business', 'person-with-organisation'])).optional(), markRemoval: z.discriminatedUnion('allowed', [z.object({ allowed: z.literal(false) }), z.object({ allowed: z.literal(true), date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/), basis: z.string().optional() })]).optional() }).optional(),
 }).refine(s => !s.publish || s.permission !== undefined, { message: 'publish requires a permission record', path: ['permission'] })
 /** What a public build may show from a source: its text (and what is written from it), or its photos. */
 export const mayPublish = (info: { publish?: boolean | 'photos' } | undefined, what: 'text' | 'photos') =>

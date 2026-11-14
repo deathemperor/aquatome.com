@@ -39,7 +39,10 @@
     }
   },
   "held": {
-    "checks": [],
+    "checks": [
+      "product",
+      "source"
+    ],
     "at": "2026-11-11"
   }
 }

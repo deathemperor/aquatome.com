@@ -1,3 +1,6 @@
+import { LlmError } from './claude'
+import { errorKind } from './state'
+import { piece } from './pieces'
 import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
@@ -39,7 +42,7 @@ export async function readTraits(contentRoot: string): Promise<Traits[]> {
  * Extract traits for published species that have none or whose page changed, then the fields read with an older rule
  * (dueFields); at most `limit` per call. `only`: just these species, their fields due, or all when none is.
  */
-export async function extractTraits(contentRoot: string, llm: Llm, opts: { limit: number; now: () => Date; publicBuild?: boolean; only?: string[] }): Promise<{ done: string[]; failed: string[] }> {
+export async function extractTraits(contentRoot: string, llm: Llm, opts: { limit: number; now: () => Date; publicBuild?: boolean; only?: string[] }): Promise<{ done: string[]; failed: string[]; stopped?: string }> {
   const c = await loadAll({ root: contentRoot, lang: 'vi', publicBuild: opts.publicBuild ?? true })
   const have = new Map((await readTraits(contentRoot)).map(t => [t.id, t]))
   // The fields each species is read for: all of them when it has no traits or its page changed.
@@ -54,15 +57,20 @@ export async function extractTraits(contentRoot: string, llm: Llm, opts: { limit
   const done: string[] = []
   const failed: string[] = []
   for (const s of todo) {
-    const out = Output.safeParse(await llm({ system: 'Reply only with JSON.', prompt: `${TEMPLATE}\n\n---\n\n${profile(s)}`, schema: SCHEMA }).catch(() => null))
-    if (!out.success) { failed.push(s.id); continue }
-    const fields = due(s.id, s.updatedAt)
-    const old = have.get(s.id)
-    const read = fields.length ? fields : FIELDS
-    const values = Object.fromEntries(FIELDS.map(f => [f, read.includes(f) || !old ? out.data[f] : old[f]])) as Pick<Traits, Field>
-    const t: Traits = { id: s.id, ...values, speciesUpdatedAt: s.updatedAt, rules: RULES, generatedAt: opts.now().toISOString() }
-    await writeFile(join(dir(contentRoot), `${s.id}.json`), `${JSON.stringify(t, null, 2)}\n`)
-    done.push(s.id)
+    try {
+      const out = Output.safeParse(await piece(s.id, () => llm({ system: 'Reply only with JSON.', prompt: `${TEMPLATE}\n\n---\n\n${profile(s)}`, schema: SCHEMA })).catch(err => { if (err instanceof LlmError && errorKind(err.message) === 'usage') throw err; return null }))
+      if (!out.success) { failed.push(s.id); continue }
+      const fields = due(s.id, s.updatedAt)
+      const old = have.get(s.id)
+      const read = fields.length ? fields : FIELDS
+      const values = Object.fromEntries(FIELDS.map(f => [f, read.includes(f) || !old ? out.data[f] : old[f]])) as Pick<Traits, Field>
+      const t: Traits = { id: s.id, ...values, speciesUpdatedAt: s.updatedAt, rules: RULES, generatedAt: opts.now().toISOString() }
+      await writeFile(join(dir(contentRoot), `${s.id}.json`), `${JSON.stringify(t, null, 2)}\n`)
+      done.push(s.id)
+    } catch (err) {
+      if (err instanceof LlmError && errorKind(err.message) === 'usage') return { done, failed, stopped: err.message }
+      throw err
+    }
   }
   return { done, failed }
 }

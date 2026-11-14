@@ -1,3 +1,5 @@
+import { denied } from './piece-admission'
+import { expectControlledRejections } from './photo-privacy-assertions'
 import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -63,14 +65,14 @@ test('another fish and no photo of it leave the page and are rejected; can\'t te
   // "pale" led the page and the check passed it, though not as typical: the typical photo leads.
   expect(await urls(r, 'content/species/trigonostigma-heteromorpha/entity.json')).toEqual(['typical', 'pale', 'river', 'rare'])
   // Added to the blocklist; what was there stays.
-  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({
-    [url('old')]: 'watermark: a logo',
-    [url('platy')]: 'not Trigonostigma heteromorpha: a platy, Xiphophorus maculatus',
-    [url('map')]: 'not Trigonostigma heteromorpha: a range map',
+  expectControlledRejections(await json(r, 'engine-state/_photo-rejected.json'), {
+    [url('old')]: "watermark",
+    [url('platy')]: "rejected",
+    [url('map')]: "rejected",
   })
   const doc = await readFile(join(r, 'docs/review/photo-subjects.md'), 'utf8')
-  expect(doc).toMatch(/## Can't tell: still shown \(1\)\n[\s\S]*species\/trigonostigma-heteromorpha \| \[photo\]\(https:\/\/media\.example\/rare\.webp\) \| too small to tell/)
-  expect(doc).toMatch(/## Removed \(2\)[\s\S]*a range map[\s\S]*a platy, Xiphophorus maculatus/)
+  expect(doc).toMatch(/## Can't tell: still shown \(1\)\n[\s\S]*species\/trigonostigma-heteromorpha \| \[photo\]\(https:\/\/media\.example\/rare\.webp\) \| subject unsure/)
+  expect(doc).toMatch(/## Removed \(2\)[\s\S]*subject none[\s\S]*subject other/)
   expect(out.unsure).toBe(1)
 })
 
@@ -201,6 +203,27 @@ test("the photos a page shows itself are the first eight of its gallery that rea
   await checkPagePhotos(r, d, { limit: 10 })
   expect(d.seen.map(s => s.photos).slice(3)).toEqual([['w2', 'w3']])
   expect(await urls(r, 'content/species/aaa-fish/entity.json')).toEqual(['lead', 'o1'])
+})
+
+test("a fish whose source's caption names a split fin counts as not typical, whatever the model said: a typical photo leads; a plant's caption is not asked", async () => {
+  const split = (n: string) => photo(n, 'Adult specimen with slight caudal-fin damage.')
+  const r = await root([
+    { id: 'aaa-fish', sci: 'Aaa fish', extra: { photos: [split('a-split'), photo('a-typical')] } },
+    // Nothing typical to lead instead: it stays the lead.
+    { id: 'bbb-fish', sci: 'Bbb fish', extra: { photos: [split('b-split'), photo('b-plain')] } },
+    { kind: 'plants', id: 'ccc-plant', sci: 'Ccc plant', extra: { photos: [split('c-split'), photo('c-typical')] } },
+    // Behind a lead the check can't tell, the first photo it passed goes ahead, not the one with the split fin.
+    { id: 'ddd-fish', sci: 'Ddd fish', extra: { photos: [photo('d-hazy'), photo('d-plain'), split('d-split')] } },
+    // A breed's page too, the one place the check orders a breed's photos.
+    { kind: 'breeds', id: 'eee-breed', vi: { name: 'Eee' }, extra: { photos: [photo('e-hazy'), photo('e-plain'), split('e-split')] } },
+  ])
+  const d = model({ 'a-split': { typical: true }, 'a-typical': { typical: true }, 'b-split': { typical: true }, 'c-split': { typical: true }, 'c-typical': { typical: true }, 'd-hazy': { ok: 'unsure', note: 'too small to tell' }, 'd-split': { typical: true }, 'e-hazy': { ok: 'unsure', note: 'too small to tell' }, 'e-split': { typical: true } })
+  await checkPagePhotos(r, d, { limit: 10 })
+  expect(await urls(r, 'content/species/aaa-fish/entity.json')).toEqual(['a-typical', 'a-split'])
+  expect(await urls(r, 'content/species/bbb-fish/entity.json')).toEqual(['b-split', 'b-plain'])
+  expect(await urls(r, 'content/plants/ccc-plant/entity.json')).toEqual(['c-split', 'c-typical'])
+  expect(await urls(r, 'content/species/ddd-fish/entity.json')).toEqual(['d-plain', 'd-hazy', 'd-split'])
+  expect(await urls(r, 'content/breeds/eee-breed/entity.json')).toEqual(['e-plain', 'e-hazy', 'e-split'])
 })
 
 test("a lead nothing has looked at is judged first, Flickr's and Commons' before the rest; then the page with no photo of its own; then each photo in its turn (the chief of staff, 2026-11-11)", async () => {
@@ -405,7 +428,7 @@ test('a photo shown on two pages leaves only the page it is wrong for, and is no
   await checkPagePhotos(r, d, { limit: 10 })
   expect(await urls(r, 'content/species/corydoras-adolfoi/entity.json')).toEqual(['cory'])
   expect(await urls(r, 'content/species/gymnocorymbus-ternetzi/entity.json')).toEqual(['tetra'])
-  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({})
+  expectControlledRejections(await json(r, 'engine-state/_photo-rejected.json'), {})
 })
 
 test('guides: a photo captioned with a fish is judged against it; one that is a page\'s photo goes with that page\'s verdict', async () => {
@@ -517,11 +540,11 @@ test('a dead fish at a market leaves every page, gallery and guide that shows it
   expect(await urls(r, 'content/gallery/cichla-temensis.json')).toEqual([])
   expect(await urls(r, 'content/species/cichla-ocellaris/entity.json')).toEqual([])
   expect(await urls(r, 'content/guides/peacocks/entity.json')).toEqual([])
-  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [url('market')]: 'dead: dead peacock bass piled at a market' })
-  expect(out.blocked).toEqual([`${url('market')}: dead: dead peacock bass piled at a market`])
+  expectControlledRejections(await json(r, 'engine-state/_photo-rejected.json'), { [url('market')]: "dead" })
+  expect(out.blocked).toEqual([`${url('market')}: dead: subject dead`])
   // A dead fish is never the page's typical photo, and the review lists it.
   expect((await json(r, 'engine-state/_photo-subjects.json'))[url('market')]['cichla-temensis']).toMatchObject({ ok: 'dead', typical: false, logo: false })
-  expect(await readFile(join(r, 'docs/review/photo-subjects.md'), 'utf8')).toMatch(/dead or as food: 1;[\s\S]*species\/cichla-temensis \| \[photo\]\(https:\/\/media\.example\/market\.webp\) \| dead: dead peacock bass piled at a market/)
+  expect(await readFile(join(r, 'docs/review/photo-subjects.md'), 'utf8')).toMatch(/dead or as food: 1;[\s\S]*species\/cichla-temensis \| \[photo\]\(https:\/\/media\.example\/market\.webp\) \| subject dead/)
 })
 
 test('a logo the text reader missed is a watermark: off every page, onto the blocklist; the same photographer\'s other photos are asked again', async () => {
@@ -529,7 +552,7 @@ test('a logo the text reader missed is a watermark: off every page, onto the blo
     { id: 'cichla-temensis', sci: 'Cichla temensis', photos: ['stamped'], gallery: ['clean'] },
     { id: 'phractocephalus-hemioliopterus', sci: 'Phractocephalus hemioliopterus', photos: ['redtail', 'other-author'] },
   ])
-  for (const [f, photos] of [['content/species/cichla-temensis/entity.json', [photo('stamped', undefined, 'Diogo Luiz')]], ['content/species/phractocephalus-hemioliopterus/entity.json', [photo('redtail', undefined, 'Diogo Luiz'), photo('other-author')]]] as const) {
+  for (const [f, photos] of [['content/species/cichla-temensis/entity.json', [photo('stamped', undefined, 'Fixture contributor')]], ['content/species/phractocephalus-hemioliopterus/entity.json', [photo('redtail', undefined, 'Fixture contributor'), photo('other-author')]]] as const) {
     await writeFile(join(r, f), JSON.stringify({ ...(await json(r, f)), photos }))
   }
   // Both pages judged before the check asked about logos: only the stamped photo's page is asked again (as `recheck` does)…
@@ -537,7 +560,7 @@ test('a logo the text reader missed is a watermark: off every page, onto the blo
     [url('redtail')]: { 'phractocephalus-hemioliopterus': { ok: 'yes', typical: true, note: 'redtail catfish' } },
     [url('other-author')]: { 'phractocephalus-hemioliopterus': { ok: 'yes', typical: true, note: 'redtail catfish' } },
   }))
-  const d = model({ stamped: { logo: true, note: 'peacock bass; round "Repertório Animal" logo bottom left' }, redtail: { logo: true, note: 'redtail catfish; round logo bottom left' } })
+  const d = model({ stamped: { logo: true, note: 'peacock bass; round added logo bottom left' }, redtail: { logo: true, note: 'redtail catfish; round logo bottom left' } })
   await checkPagePhotos(r, d, { limit: 10, recheck: new Set([url('stamped')]) })
   expect(d.seen[0]!.prompt).toContain('- logo: true if a logo, stamp, watermark, signature or text was added on top of the photo after it was taken, even small or faint, round, in a corner')
   // …then the same photographer's: their redtail photo on another page, not the other author's photo there.
@@ -545,9 +568,9 @@ test('a logo the text reader missed is a watermark: off every page, onto the blo
   expect(await urls(r, 'content/species/cichla-temensis/entity.json')).toEqual([])
   expect(await urls(r, 'content/species/phractocephalus-hemioliopterus/entity.json')).toEqual(['other-author'])
   expect(await urls(r, 'content/gallery/cichla-temensis.json')).toEqual(['clean'])
-  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({
-    [url('stamped')]: 'watermark: peacock bass; round "Repertório Animal" logo bottom left',
-    [url('redtail')]: 'watermark: redtail catfish; round logo bottom left',
+  expectControlledRejections(await json(r, 'engine-state/_photo-rejected.json'), {
+    [url('stamped')]: "watermark",
+    [url('redtail')]: "watermark",
   })
 })
 
@@ -558,7 +581,7 @@ test('an engraved plate or an old drawing is "not a photo of it" as before, not 
   expect(d.seen[0]!.prompt).toContain('Not "dead": a drawing, painting or engraved plate (that is "none"; a photo of a preserved specimen is "dead", however old); a live fish held briefly in a net or a bag.')
   expect(d.seen[0]!.prompt).toContain('"none" if it is not a photo of the subject at all: a map, chart, diagram or drawing, hands or people')
   expect(await urls(r, 'content/species/bagrus-bajad/entity.json')).toEqual([])
-  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [url('plate')]: 'not Bagrus bajad: old engraved plate of two Bagrus catfish' })
+  expectControlledRejections(await json(r, 'engine-state/_photo-rejected.json'), { [url('plate')]: "rejected" })
   // Nor is a note about one a reason to ask again.
   expect(deadNote('Old plate showing two Bagrus catfish from a museum collection, engraved')).toBe(false)
   expect(deadNote('Old black-and-white plate of a preserved specimen and head close-up')).toBe(true)
@@ -587,11 +610,11 @@ test('photos to judge again are picked from the notes of earlier looks: the chec
   const g = join(r, 'content/gallery/cichla-temensis.json')
   await writeFile(g, JSON.stringify({ ...(await json(r, 'content/gallery/cichla-temensis.json')), photos: [photo('cho', 'Cá hoàng đế sao chết bày bán ở chợ'), photo('swim', 'Cá hoàng đế sao bơi trong bể')] }))
   expect(Object.fromEntries([...await recheckCandidates(r)].map(([u, n]) => [name(u), n]))).toEqual({
-    market: 'Several dead speckled-phase peacock bass in a market',
-    tag: 'preserved specimen photo, no text',
-    cho: 'Cá hoàng đế sao chết bày bán ở chợ',
-    shell: 'Naturalis museum shell specimens labelled Brotia testudinaria',
-    landed: 'Large adult just caught, landed on a boat deck',
+    market: 'possible dead subject',
+    tag: 'possible dead subject',
+    cho: 'possible dead subject',
+    shell: 'possible dead subject',
+    landed: 'possible dead subject',
   })
 })
 
@@ -643,7 +666,7 @@ test('a lake with no fish is "not a photo of it": an old "habitat" verdict is as
   expect(d.seen[0]!.prompt).not.toContain('"habitat"')
   expect(await urls(r, 'content/species/thorichthys-meeki/entity.json')).toEqual([])
   expect(await urls(r, 'content/gallery/thorichthys-meeki.json')).toEqual(['wild'])
-  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [url('lake')]: 'not Thorichthys meeki: lake with a park and a tower, no fish' })
+  expectControlledRejections(await json(r, 'engine-state/_photo-rejected.json'), { [url('lake')]: "rejected" })
 })
 
 test('a person or a hand in the shot takes a photo off every page, gallery and guide, though the fish is what it shows', async () => {
@@ -656,10 +679,10 @@ test('a person or a hand in the shot takes a photo off every page, gallery and g
   expect(await urls(r, 'content/species/hypancistrus-zebra/entity.json')).toEqual(['tank'])
   expect(await urls(r, 'content/gallery/hypancistrus-zebra.json')).toEqual([])
   expect(await urls(r, 'content/guides/plecos/entity.json')).toEqual([])
-  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [url('inhand')]: 'people: adult held in a hand over a river' })
-  expect(out.blocked).toEqual([`${url('inhand')}: people: adult held in a hand over a river`])
+  expectControlledRejections(await json(r, 'engine-state/_photo-rejected.json'), { [url('inhand')]: "people" })
+  expect(out.blocked).toEqual([`${url('inhand')}: people: subject yes; person`])
   expect((await json(r, 'engine-state/_photo-subjects.json'))[url('tank')]['hypancistrus-zebra']).toMatchObject({ ok: 'yes', person: false, logo: false })
-  expect(await readFile(join(r, 'docs/review/photo-subjects.md'), 'utf8')).toMatch(/a person in it: 1;[\s\S]*species\/hypancistrus-zebra \| \[photo\]\(https:\/\/media\.example\/inhand\.webp\) \| people: adult held in a hand over a river/)
+  expect(await readFile(join(r, 'docs/review/photo-subjects.md'), 'utf8')).toMatch(/a person in it: 1;[\s\S]*species\/hypancistrus-zebra \| \[photo\]\(https:\/\/media\.example\/inhand\.webp\) \| subject yes; person/)
 })
 
 test('a photo only the first check judged, before it asked about logos, is asked again: a faint signature the text reader missed takes it off', async () => {
@@ -672,7 +695,7 @@ test('a photo only the first check judged, before it asked about logos, is asked
   expect(d.seen.map(s => s.photos)).toEqual([['signed', 'clean']])
   expect(d.seen[0]!.prompt).toContain('in any script, with or without readable letters')
   expect(await urls(r, 'content/species/boraras-urophthalmoides/entity.json')).toEqual(['clean'])
-  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [url('signed')]: 'watermark: adult among plants; faint Thai signature, bottom centre' })
+  expectControlledRejections(await json(r, 'engine-state/_photo-rejected.json'), { [url('signed')]: "watermark" })
 })
 
 test('photos to judge first also come from notes saying a hand or a person, and from the old "habitat" verdict', async () => {
@@ -688,9 +711,9 @@ test('photos to judge first also come from notes saying a hand or a person, and 
   const g = join(r, 'content/gallery/hypostomus-plecostomus.json')
   await writeFile(g, JSON.stringify({ ...(await json(r, 'content/gallery/hypostomus-plecostomus.json')), photos: [photo('tay', 'Cá tỳ bà cầm trên tay')] }))
   expect(Object.fromEntries([...await recheckCandidates(r)].map(([u, n]) => [name(u), n]))).toEqual({
-    hand: 'Adult held in a hand by a river',
-    river: 'Wide brown river, no fish',
-    tay: 'Cá tỳ bà cầm trên tay',
+    hand: 'possible person',
+    river: 'habitat needs recheck',
+    tay: 'possible person',
   })
   expect(peopleNote('Adult among dead leaves on the bottom')).toBe(false)
 })
@@ -729,10 +752,10 @@ test('a Commons photo whose file name names another species with a page leaves t
   // A variety's photo filed under its species, a synonym with another fish in the shot, and a plant in the tank, stay.
   expect(await urls(r, 'content/gallery/anubias-barteri-var-glabra.json')).toEqual(['glabra'])
   expect(await urls(r, 'content/gallery/neocaridina-davidi.json')).toEqual(['cherry', 'tenellus'])
-  expect((await json(r, 'engine-state/_photo-subjects.json'))[url('dario')]['badis-badis']).toEqual({ ok: 'other', typical: false, note: 'its Commons file names Dario dario', logo: false, person: false, file: true })
+  expect((await json(r, 'engine-state/_photo-subjects.json'))[url('dario')]['badis-badis']).toMatchObject({ ok: 'other', typical: false, note: 'subject other', noteHash: expect.stringMatching(/^[a-f0-9]{64}$/), logo: false, person: false, file: true })
   // Not sent to the model for Badis badis, and not rejected for good: Dario dario's page keeps it, and Channa andrao's may take it.
   expect(d.seen.filter(s => s.prompt.includes('Badis badis')).flatMap(s => s.photos)).toEqual(['blue', 'both'])
-  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({})
+  expectControlledRejections(await json(r, 'engine-state/_photo-rejected.json'), {})
 })
 
 test('--only takes several pages, comma-separated, and judges those alone', async () => {
@@ -741,4 +764,49 @@ test('--only takes several pages, comma-separated, and judges those alone', asyn
   const d = model({})
   await checkPagePhotos(r, d, { limit: 10, only: 'a-fish, b-fish', today: '2026-11-08' })
   expect(d.seen.flatMap(x => x.photos).sort()).toEqual(['a1', 'b1'])
+})
+
+test.each(['usage limit', 'invalid model answer'])('a species-check failure retains only the controlled stop kind: %s',async kind=>{
+ const r=await root([{id:'danio-rerio',sci:'Danio rerio',photos:['a','b']}]),trip=['TEST','ONLY','FAILED','MODEL','WORDS'].join('_')
+ const report=await checkPagePhotos(r,{get:async()=>new Uint8Array(await jpeg),look:async()=>{throw new LlmError(kind+' '+trip)}},{limit:10})
+ expect(report.stopped).toBe('danio-rerio: '+(kind==='usage limit'?'usage limit':'photo model unavailable'))
+ expect(JSON.stringify(report)).not.toContain(trip)
+ expect(await urls(r,'content/species/danio-rerio/entity.json')).toEqual(['a','b'])
+})
+
+test("a head a person picked stays first though the check can't tell it and passed another photo, so the steps before the sweep see the head a person chose", async () => {
+  const r = await root([{ id: 'channa-maculata', sci: 'Channa maculata', photos: ['night', 'pond'] }])
+  await writeFile(join(r, 'engine-state/_photo-head-picks.json'), JSON.stringify({ 'species/channa-maculata': url('pond') }))
+  const d = model({ night: { typical: true }, pond: { ok: 'unsure', typical: true, note: 'could be C. maculata or C. argus' } })
+  await checkPagePhotos(r, d, { limit: 5 })
+  expect(await urls(r, 'content/species/channa-maculata/entity.json')).toEqual(['pond', 'night'])
+  // With no pick, the photo the check can't tell goes behind the one it passed, as before.
+  const r2 = await root([{ id: 'channa-maculata', sci: 'Channa maculata', photos: ['pond', 'night'] }])
+  await checkPagePhotos(r2, model({ night: { typical: true }, pond: { ok: 'unsure', typical: true } }), { limit: 5 })
+  expect(await urls(r2, 'content/species/channa-maculata/entity.json')).toEqual(['night', 'pond'])
+})
+
+test("a pick that rests on a person's yes lapses with it in the same pass: once the check says anything but \"can't tell\", or the yes doesn't count, the order above holds", async () => {
+  const yes = { proposer: 'Photo Sourcing', approvers: ['the chief of staff', 'Curation'], on: '2026-11-19', lookAlike: 'Channa argus', mark: 'the rows of round dark blotches along the flank' }
+  const page = async (pond: object, y: object = yes) => {
+    const r = await root([{ id: 'channa-maculata', sci: 'Channa maculata', photos: ['night', 'pond'] }])
+    await writeFile(join(r, 'engine-state/_photo-head-picks.json'), JSON.stringify({ 'species/channa-maculata': url('pond') }))
+    await writeFile(join(r, 'engine-state/_photo-person-yes.json'), JSON.stringify({ [url('pond')]: { 'channa-maculata': y } }))
+    await checkPagePhotos(r, model({ night: { typical: true }, pond }), { limit: 5 })
+    return urls(r, 'content/species/channa-maculata/entity.json')
+  }
+  expect(await page({ ok: 'unsure', typical: true })).toEqual(['pond', 'night']) // the yes stands, and its pick with it
+  expect(await page({ typical: false })).toEqual(['night', 'pond']) // the right fish, not typical: the typical one leads
+  expect(await page({ ok: 'unsure', typical: true }, { ...yes, approvers: ['Curation'] })).toEqual(['night', 'pond']) // a yes that doesn't count
+})
+
+test('item admission stops without model calls or content changes', async () => {
+  const r = await root([{ id: 'betta', sci: 'Betta splendens', photos: ['fish'] }])
+  const d = model({})
+  await denied('check-photos', r, async () => {
+    const out = await checkPagePhotos(r, d, { limit: 10, today: '2026-11-13' })
+    expect(out.stopped).toBeTruthy()
+    expect(out.failed).toEqual([])
+    expect(d.seen).toEqual([])
+  })
 })

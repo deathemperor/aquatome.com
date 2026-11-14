@@ -11,6 +11,96 @@
     "tocantins",
     "tapajos"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Tocantins",
+        "Rio Tapajós"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Probably endemic to the Rio Tocantins basin, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Tocantins"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The small spotted variety discussed here comes from the Rio Tapajós, near the city of Itaituba.",
+          "countries": [],
+          "regions": [
+            "Rio Tapajós"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2419331,
+      "total": 20,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "BR",
+          20
+        ]
+      ],
+      "cells": [
+        [
+          -66.09375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          -49.21875,
+          -11.25,
+          4,
+          4
+        ],
+        [
+          -49.21875,
+          -5.625,
+          9,
+          9
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -165,7 +255,12 @@
       "licence": "CC BY 2.0",
       "author": "Christine Schmidt from Laurel, USA",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Potamotrygon_national_aquarium.jpg",
-      "caption": "Bigtooth river stingray (Potamotrygon henlei) at the National Aquarium"
+      "caption": "Bigtooth river stingray (Potamotrygon henlei) at the National Aquarium",
+      "large": {
+        "url": "https://media.aquatome.com/commons/75e068acf0e4de34-large.webp",
+        "width": 1807,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/63c82a3828885a24.webp",

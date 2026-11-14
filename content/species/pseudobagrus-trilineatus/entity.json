@@ -10,6 +10,44 @@
     "china",
     "dong-jiang"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Dong Jiang"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This catfish originates from China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Endemic to the Dong Jiang in Guangdong province, China.",
+          "countries": [],
+          "regions": [
+            "Dong Jiang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338341,
+      "total": 0,
+      "fetched": "2026-11-13",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -71,7 +109,12 @@
       "licence": "CC BY",
       "author": "Lawrence Hylton",
       "sourceUrl": "https://www.inaturalist.org/photos/201844546",
-      "caption": "Cá trê suối vàng Trung Quốc với ba sọc vàng trong bể nuôi"
+      "caption": "Cá trê suối vàng Trung Quốc với ba sọc vàng trong bể nuôi",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/201844546-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

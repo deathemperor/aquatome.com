@@ -14,9 +14,10 @@ import { isMarketplace } from './marketplaces'
 import { BOUNDS } from './process'
 import { VI_STYLE as STYLE } from './phrases'
 import { steadyRead } from './quality'
+import { TANK_RULE, withTanks } from './round'
 
-const WRITE = readFileSync(new URL('./prompts/breed.md', import.meta.url), 'utf8')
-const INTL = readFileSync(new URL('./prompts/breed-intl.md', import.meta.url), 'utf8')
+const WRITE = withTanks(readFileSync(new URL('./prompts/breed.md', import.meta.url), 'utf8'))
+const INTL = withTanks(readFileSync(new URL('./prompts/breed-intl.md', import.meta.url), 'utf8'))
 
 type Sourced = { fact: string; source: number }
 export const CARE_FIELDS = ['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'difficulty', 'lifeYears'] as const
@@ -91,7 +92,7 @@ const WRITE_SCHEMA = {
 type Written = { name: string; altNames: string[]; parentNames?: string[]; summary: string[]; body: string; faq: { q: string; a: string }[] }
 const INTL_SCHEMA = { ...WRITE_SCHEMA, required: [...WRITE_SCHEMA.required, 'slug'], properties: { ...WRITE_SCHEMA.properties, slug: { type: 'string' } } }
 
-const GROUNDED = `Below are FACTS gathered about a man-made aquarium fish and a Vietnamese PAGE written from them. Score 0–1 how well the PAGE sticks to the FACTS: 1.0 = every claim, number, origin, name and recommendation in the page is supported by the facts; 0.75 = small unsupported generalities; below 0.75 = an invented number, origin, parent, line, scientific name or claim, or a fact turned around. A fact's figure converted to metric (°F → °C, inches → cm, gallons → litres, sensibly rounded) is that fact's figure.
+const GROUNDED = `Below are FACTS gathered about a man-made aquarium fish and a Vietnamese PAGE written from them. Score 0–1 how well the PAGE sticks to the FACTS: 1.0 = every claim, number, origin, name and recommendation in the page is supported by the facts; 0.75 = small unsupported generalities; below 0.75 = an invented number, origin, parent, line, scientific name or claim, or a fact turned around. A fact's figure converted to metric (°F → °C, inches → cm, gallons → litres, sensibly rounded; ${TANK_RULE.en}) is that fact's figure.
 notes: up to 10 unsupported or wrong claims (in English), quoting the phrase. Empty if none.`
 
 /**

@@ -90,6 +90,22 @@ export const spawnSync: typeof nodeSpawnSync = ((command: unknown, ...args: unkn
   }
 }) as typeof nodeSpawnSync
 
+/** A stand-in that nobody else's scan has lowered yet. A live simulator run on this Mac (a lead's, or the runner's) lowers
+ *  every simulator analysis daemon it can see every 20 s, a test's stand-in too, and the turn here keeps out only the other
+ *  test file: on 2026-11-12 one lowered the stand-in 0.2 s after it started, before its priority had been read, and the
+ *  photos part's tests failed. So it is started, read after `settle` ms, and started afresh while its priority isn't
+ *  `base`, `tries` times at most: a fresh one stays unlowered until that scan's next pass. The last one is handed back as
+ *  it is, for the caller's own check to fail on. */
+export async function unlowered<C extends { pid?: number; kill: () => unknown }>(start: () => C, nice: (pid?: number) => number, base: number, o: { tries?: number; settle?: number } = {}): Promise<C> {
+  const tries = o.tries ?? 3
+  for (let i = 1; ; i++) {
+    const child = start()
+    await new Promise(r => setTimeout(r, o.settle ?? 200))
+    if (i >= tries || nice(child.pid) === base) return child
+    child.kill()
+  }
+}
+
 /** Holds the turn around stand-ins as well as the scan: the other file's scan must not see them.
  *  `lock` is for the overlap check's own file, so that check does not wait out the suite's turn. */
 export async function withSimRunTurn<T>(fn: () => T | Promise<T>, lock = DEFAULT_LOCK): Promise<T> {

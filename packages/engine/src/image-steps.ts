@@ -1,9 +1,11 @@
+import { photoFailure } from './photo-observations'
+import { writePhotoState } from './photo-state'
 import { pendingOwnerCrops, publishOwnerCrops } from './owner-crops'
 import { beforeDeadline } from './image-deadline'
 import { mkdir, readdir, readFile, writeFile, rename } from 'node:fs/promises'
 import { join } from 'node:path'
 import sharp from 'sharp'
-import { IMAGE_SWITCHES, loadAll, mayPublish, POPULAR, realPhotosFirst, slugify, SourcesSchema, STAPLE_SPECIES, type GeneratedRecord, type ImageSwitches, type Photo, type SourceId } from '@aq/schema'
+import { awaitsScreen, IMAGE_SWITCHES, loadAll, mayPublish, PHOTO_SCREEN_FILE, POPULAR, realPhotosFirst, slugify, SourcesSchema, STAPLE_SPECIES, type GeneratedRecord, type ImageSwitches, type Photo, type PhotoScreenEntry, type SourceId } from '@aq/schema'
 import type { NativeAttemptObserver } from './codex-images'
 import { imageCache, meteredImage, type NativeImage, type QuotaReading } from './codex-images'
 import { activeSourceConflicts, appearanceReference, calibrationReady, GENERATED_CHECK_MODEL, GENERATED_CHECK_SCHEMA, generatedCheckPrompt, generatedGateVersion, hasGenerationReference, positiveGeneratedVerdict, REFERENCE_CHECK_SCHEMA, referenceCheckPrompt, type ReferenceVerdict, referenceHash, referenceText, sourceConflicts, sha256, verifyCheckingImages, type AppearanceFact, type Calibration, type GeneratedVerdict, type ImageReference, type ImageConflict, type ReferenceEntity } from './image-reference'
@@ -19,16 +21,17 @@ import { permittedCheckingImages } from './image-reference'
 import { IMAGE_PAIR_POLICY, pairedJudgments, judgmentReceipt, judgmentHashes, validJudgmentPair, type JudgmentPairReceipt } from './image-judgments'
 
 export type ImagePage = { kind: 'species' | 'plants'; id: string; empty: boolean; popular: boolean; waitingReal: boolean }
-/** An unjudged real image is work for the real-photo check, never justification for manufacturing its replacement. */
+/** A real image awaiting its species or watermark check defers generation, even while hidden from readers. */
 export async function imagePlan(root: string, switches: Readonly<ImageSwitches> = IMAGE_SWITCHES): Promise<ImagePage[]> {
   const c = await loadAll({ root: join(root, 'content'), lang: 'vi', publicBuild: true, leaveOutHeld: true, imageSwitches: switches })
   const judged = await json<Record<string, Record<string, PhotoVerdict>>>(join(root, 'engine-state/_photo-subjects.json'), {})
+  const screen = await json<Record<string, PhotoScreenEntry>>(join(root, 'engine-state', PHOTO_SCREEN_FILE), {})
   const popular = new Set([...STAPLE_SPECIES, ...POPULAR.map(slugify)])
   const out: ImagePage[] = []
   for (const kind of ['species', 'plants'] as const) for (const p of c[kind]) {
     const gallery = JSON.parse(await readFile(join(root, 'content/gallery', `${p.id}.json`), 'utf8').catch(() => '{"photos":[]}')) as { photos: (Photo & { unchecked?: boolean })[] }
     const raw = await json<{ photos: Photo[] }>(join(root, 'content', kind, p.id, 'entity.json'), { photos: [] })
-    const waitingReal = [...raw.photos, ...gallery.photos].some(photo => !photo.generated && (('unchecked' in photo && photo.unchecked) || !judged[photo.url]?.[p.id]?.ok || judged[photo.url]?.[p.id]?.person === undefined || judged[photo.url]?.[p.id]?.guide === true))
+    const waitingReal = [...raw.photos, ...gallery.photos].some(photo => !photo.generated && (awaitsScreen(photo.url, screen[photo.url]) || ('unchecked' in photo && photo.unchecked) || !judged[photo.url]?.[p.id]?.ok || judged[photo.url]?.[p.id]?.person === undefined || judged[photo.url]?.[p.id]?.guide === true))
     const real = [...p.photos, ...(c.galleries[p.id] ?? [])].filter(p => !p.generated)
     out.push({ kind, id: p.id, empty: !real.length, popular: kind === 'species' && [p.id, slugify(p.scientificName), ...('synonyms' in p ? p.synonyms ?? [] : []).map(slugify)].some(id => popular.has(id)), waitingReal })
   }
@@ -186,7 +189,7 @@ export async function imageSteps(root: string, makeDeps: () => Promise<ImageStep
       if (!result) {
         if (c.photo.source === 'glaser' && marks.every(m=>m.owner === 'source')) {
           const file = join(root, 'engine-state/_photo-watermarks.json'), cache = await json<Record<string, object>>(file, {})
-          cache[c.photo.url] = { ...cache[c.photo.url], retainedOwnMark: { source: 'glaser', sourceUrl: c.photo.sourceUrl, owner: 'source' } }; await save(file, cache)
+          cache[c.photo.url] = { ...cache[c.photo.url], retainedOwnMark: { source: 'glaser', sourceUrl: c.photo.sourceUrl, owner: 'source' } }; await writePhotoState(file, cache)
         }
         await save(workFile, { key, status: 'refused', reason: 'no-trace check' }); finishRealCandidate(name,pageKey)
         report.waiting.push(`${pageKey}: no clean removal; original retained`); continue
@@ -222,10 +225,10 @@ export async function imageSteps(root: string, makeDeps: () => Promise<ImageStep
         await save(mismatchFile,mismatches)
       }
       const verdictFile = join(root, 'engine-state/_photo-subjects.json'), verdicts = await json<Record<string, Record<string, PhotoVerdict>>>(verdictFile, {})
-      verdicts[stored.url] = { ...verdicts[stored.url], [c.page.id]: verdict }; await save(verdictFile, verdicts)
+      verdicts[stored.url] = { ...verdicts[stored.url], [c.page.id]: verdict }; await writePhotoState(verdictFile, verdicts)
       await save(workFile, { key, status: 'published' }); finishRealCandidate(name,pageKey)
       report.published++
-    } catch (e) { report.failed.push(`mark candidate: ${(e as Error).message}`) }
+    } catch (e) { report.failed.push(`mark candidate: ${signal.aborted?'deadline or cancellation; ':''}${photoFailure(e)}`) }
   }
 
   if (switches.upscaleReal) for (const page of await imagePlan(root, switches)) {
@@ -368,7 +371,7 @@ export async function imageSteps(root: string, makeDeps: () => Promise<ImageStep
       const approvalsFile = join(root, 'content/image-approvals.json'), approvals = await json<Approvals>(approvalsFile, { photos: {} })
       approvals.calibrationHash = sha256(JSON.stringify(calibration)); approvals.photos[stored.url] = { page: `${page.kind}/${page.id}`, recordHash: recordHash(entity), check: candidate.generated.check }; await save(approvalsFile, approvals)
       report.published++
-    } catch (e) { await withdrawGenerated(root, page); report.failed.push(`${page.id}: ${(e as Error).message}`) }
+    } catch (e) { await withdrawGenerated(root, page); report.failed.push(`${page.id}: ${signal.aborted?'deadline or cancellation; ':''}${photoFailure(e)}`) }
   }
   return report
 }

@@ -17,10 +17,12 @@
         "VE"
       ],
       "regions": [
-        "Orinoco"
+        "Orinoco",
+        "Llanos"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -31,6 +33,14 @@
           ],
           "regions": [
             "Orinoco"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Venezuela. The species is named after the Llanos in Venezuela, where it occurs.",
+          "countries": [],
+          "regions": [
+            "Llanos"
           ]
         }
       ]
@@ -175,7 +185,13 @@
       "key": "quickFacts",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/lamontichthys_llanero_en/",
-      "html": "<ul><li>Origin: Venezuela</li><li>Size: about 15 cm in length (without the caudal filaments, which are sometimes even longer than the body)</li></ul>"
+      "html": "<p>This beautiful catfish comes from Venezuela. Lamontichthys llanero reaches about 15 cm in length (without the caudal filaments, which are sometimes even longer than the body).</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/lamontichthys_llanero_en/",
+      "html": "<p>Lamontichthys are very sensitive and need extremely clean water. Another problem is that they often refuse food. This is obviously a problem due to the shyness of the fish. Even relatively small disturbances make them stop feeding for hours. This is the reason why Lamontichthys are best kept in single-species tanks.</p>"
     },
     {
       "key": "distribution",
@@ -187,7 +203,7 @@
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/lamontichthys_llanero_en/",
-      "html": "<p>This catfish comes from Venezuela. The species is named after the Llanos in Venezuela, where it occurs.</p>"
+      "html": "<p>Venezuela. The species is named after the Llanos in Venezuela, where it occurs.</p>"
     },
     {
       "key": "habitat",
@@ -226,12 +242,6 @@
       "html": "<p>Unaggressive but perhaps not the best choice for a general community tank, due to its rather specialised requirements. Possible tankmates include peaceful characins that can tolerate water movement, reophilic cichlids such as Retroculus or the African Steatocranus and other Loricariids requiring similar conditions. It's peaceful enough with conspecifics and can be kept in groups.</p>"
     },
     {
-      "key": "behaviour",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/lamontichthys_llanero_en/",
-      "html": "<p>Lamontichthys are very sensitive and need extremely clean water. Another problem is that they often refuse food, obviously due to the shyness of the fish. Even relatively small disturbances make them stop feeding for hours. For this reason Lamontichthys are best kept in single-species tanks.</p>"
-    },
-    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/lamontichthys-llanero",
@@ -247,7 +257,7 @@
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/lamontichthys_llanero_en/",
-      "html": "<p>In a single-species tank breeding can be successful. Roughly speaking, breeding behaviour is similar to that of the closely related genus Sturisoma.</p>"
+      "html": "<p>Breeding can be successful in a single-species tank. Roughly speaking, breeding behaviour is similar to that of the closely related genus Sturisoma.</p>"
     },
     {
       "key": "notes",
@@ -262,63 +272,7 @@
       "html": "<p>Lamontichthys: dedication name (ichthys is ancient Greek and means \"fish\") for Francesca La Monte. llanero: after the Llanos in Venezuela where the species occurs.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/glaser/25441ac9e1bc0f92.webp",
-      "thumb": "https://media.aquatome.com/glaser/25441ac9e1bc0f92-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/lamontichthys_llanero_en/",
-      "caption": "Lamontichthys llanero",
-      "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/f00ee62d572c23d8.webp",
-      "thumb": "https://media.aquatome.com/scotcat/f00ee62d572c23d8-480.webp",
-      "width": 500,
-      "height": 333,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/lamontichthys_llanero.htm",
-      "caption": "Lamontichthys llanero",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/ddc3d614f96dd19f.webp",
-      "thumb": "https://media.aquatome.com/scotcat/ddc3d614f96dd19f-480.webp",
-      "width": 500,
-      "height": 338,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/lamontichthys_llanero.htm",
-      "caption": "Lamontichthys llanero: head view",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/177b560e7dacad9c.webp",
-      "thumb": "https://media.aquatome.com/scotcat/177b560e7dacad9c-480.webp",
-      "width": 500,
-      "height": 333,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/lamontichthys_llanero.htm",
-      "caption": "Lamontichthys llanero",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/71bd7234847c1901.webp",
-      "thumb": "https://media.aquatome.com/scotcat/71bd7234847c1901-480.webp",
-      "width": 500,
-      "height": 344,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/lamontichthys_llanero.htm",
-      "caption": "Lamontichthys llanero: dorsal view",
-      "source": "scotcat"
-    }
-  ],
+  "photos": [],
   "videos": [
     {
       "youtubeId": "4sMbyJ5ymLQ",
@@ -368,5 +322,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-11"
+  "updatedAt": "2026-11-13"
 }

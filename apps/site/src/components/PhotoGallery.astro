@@ -2,24 +2,39 @@
 import type { Photo } from '@aq/schema'
 import { i18n } from '../lib/i18n'
 import { photoMark } from '../lib/cite'
-interface Props { photos: Photo[]; alt: string }
-const { photos, alt } = Astro.props
+import { fishFrame } from '../lib/img'
+/**
+ * `fish`: a fish's or a breed's page, whose head is framed by the fish's box (fishFrame): at 4:3, and on a phone at 16:9
+ * too when `phone` (the species page draws its head wider there).
+ */
+interface Props { photos: Photo[]; alt: string; fish?: boolean; phone?: boolean }
+const { photos, alt, fish = false, phone = false } = Astro.props
 const [main] = photos // the rest are placed between sections (Sections.astro)
 const { lang } = i18n(Astro.url)
 // A head no crop can frame without cutting the fish (`headFit: "contain"`) keeps its own shape, whole, at any width.
 const whole = main?.headFit === 'contain'
+// Where a frame would cut the fish: its crop moved onto it (`--pos`), or the photo whole in its own shape (`--ar`).
+const wide = fish && main && !whole ? fishFrame(main, 4 / 3) : {}
+const narrow = fish && main && !whole && phone ? fishFrame(main, 16 / 9) : {}
+const framed = [wide.pos && `--pos: ${wide.pos}`, narrow.pos && `--pos-phone: ${narrow.pos}`, (wide.whole || narrow.whole) && main && `--ar: ${main.width} / ${main.height}`].filter(Boolean).join('; ')
 ---
 {main && (
   <figure class="gallery">
-    <div class="plate"><img src={main.url} width={main.width} height={main.height} alt={alt} fetchpriority="high" data-fit={whole ? 'contain' : undefined} style={whole ? `aspect-ratio: ${main.width} / ${main.height}` : undefined} /></div>
+    <div class:list={['plate', { phone }]}><img src={main.url} width={main.width} height={main.height} alt={alt} fetchpriority="high" data-fit={whole ? 'contain' : undefined} data-wide={wide.whole && 'whole'} data-phone={narrow.whole && 'whole'} style={whole ? `aspect-ratio: ${main.width} / ${main.height}` : framed || undefined} /></div>
     <figcaption><Fragment set:html={photoMark(lang, main)} /></figcaption>
   </figure>
 )}
 <style>
   .gallery { margin: 0; }
   .plate { background: var(--c-plate); padding: 8px; border-radius: var(--radius-plate); box-shadow: 0 1px 0 var(--c-rule); }
-  .plate img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .plate img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: var(--pos, 50% 50%); }
   /* Its own shape, and never taller than most of the screen: past that it sits whole on the plate. */
-  .plate img[data-fit='contain'] { max-height: 75vh; object-fit: contain; }
+  .plate img[data-fit='contain'], .plate img[data-wide='whole'] { max-height: 75vh; object-fit: contain; }
+  .plate img[data-wide='whole'] { aspect-ratio: var(--ar); }
+  /* The species page's head is 16:9 on a phone, and framed again at that shape. */
+  @media (max-width: 860px) {
+    .phone img:not([data-fit]) { aspect-ratio: 16 / 9; max-height: none; object-fit: cover; object-position: var(--pos-phone, 50% 50%); }
+    .phone img[data-phone='whole'] { aspect-ratio: var(--ar); max-height: 75vh; object-fit: contain; }
+  }
   figcaption { font-size: 0.75rem; color: var(--c-ink-faint); margin-top: var(--space-1); text-align: right; }
 </style>

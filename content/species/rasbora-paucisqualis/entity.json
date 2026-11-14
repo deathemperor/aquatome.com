@@ -10,6 +10,132 @@
     "thailand",
     "malaysia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MY"
+      ],
+      "regions": [
+        "Malay Peninsula"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described on the basis of a single specimen from the aquarium trade which was supposedly imported from the Malay Peninsula, and currently accepted to occur throughout much of Peninsular Malaysia with records existing from the states of Johor, Pahang, Selangor, Kelantan and Terengganu.",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Malay Peninsula"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2359583,
+      "total": 40,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "ID",
+          17
+        ],
+        [
+          "MY",
+          15
+        ],
+        [
+          "KH",
+          6
+        ],
+        [
+          "SG",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          101.25,
+          5.625,
+          4,
+          4
+        ],
+        [
+          102.65625,
+          -2.8125,
+          4,
+          0
+        ],
+        [
+          102.65625,
+          0,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          1.40625,
+          3,
+          2
+        ],
+        [
+          102.65625,
+          4.21875,
+          8,
+          8
+        ],
+        [
+          102.65625,
+          9.84375,
+          6,
+          0
+        ],
+        [
+          109.6875,
+          -1.40625,
+          8,
+          0
+        ],
+        [
+          109.6875,
+          0,
+          2,
+          0
+        ],
+        [
+          111.09375,
+          -1.40625,
+          2,
+          0
+        ],
+        [
+          111.09375,
+          0,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

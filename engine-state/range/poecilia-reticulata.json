@@ -1,22 +1,14 @@
 {
   "id": "poecilia-reticulata",
   "native": {
-    "input": "b514dc191b83ea70",
-    "at": "2026-11-08T18:57:48.756Z",
+    "input": "b663696a94766386",
+    "at": "2026-11-14T00:09:29.977Z",
     "claims": [
       {
         "code": "VE",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "The guppy, Poecilia reticulata, is a livebearer native to northeastern South America and the southern Caribbean, including Venezuela and Trinidad.",
-        "words": "Venezuela",
-        "ok": true
-      },
-      {
-        "code": "VE",
-        "status": "native",
-        "source": "sprucepets",
-        "quote": "They are native to freshwater streams in the north of South America, including Suriname, Guyana, and Venezuela, and the Caribbean islands, including Barbados and Trinidad and Tobago.",
         "words": "Venezuela",
         "ok": true
       },
@@ -34,6 +26,14 @@
         "source": "sprucepets",
         "quote": "They are native to freshwater streams in the north of South America, including Suriname, Guyana, and Venezuela, and the Caribbean islands, including Barbados and Trinidad and Tobago.",
         "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "They are native to freshwater streams in the north of South America, including Suriname, Guyana, and Venezuela, and the Caribbean islands, including Barbados and Trinidad and Tobago.",
+        "words": "Venezuela",
         "ok": true
       },
       {
@@ -53,13 +53,12 @@
         "ok": true
       },
       {
-        "code": "TT",
+        "code": "VE",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The guppy, Poecilia reticulata, is a livebearer native to northeastern South America and the southern Caribbean, including Venezuela and Trinidad.",
-        "words": "Trinidad",
-        "ok": false,
-        "why": "\"Trinidad\" is not TT"
+        "quote": "Native to northeastern South America and the southern Caribbean with its original range considered to cover Venezuela, Guyana, Suriname, French Guiana plus the islands of Trinidad and Tobago, Barbados, Antigua and Barbuda and the Netherlands Antilles.",
+        "words": "Venezuela",
+        "ok": true
       },
       {
         "code": "GY",
@@ -78,11 +77,11 @@
         "ok": true
       },
       {
-        "code": "GF",
+        "code": "TT",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Native to northeastern South America and the southern Caribbean with its original range considered to cover Venezuela, Guyana, Suriname, French Guiana plus the islands of Trinidad and Tobago, Barbados, Antigua and Barbuda and the Netherlands Antilles.",
-        "words": "French Guiana",
+        "words": "Trinidad and Tobago",
         "ok": true
       },
       {
@@ -108,27 +107,50 @@
         "quote": "Introduced or feral populations also exist in around fifty other countries across the globe, including the UK.",
         "words": "UK",
         "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This wild guppy comes from the Rio Morichal in Venezuela.",
+        "words": "Venezuela",
+        "ok": true
       }
     ],
     "regions": [
+      {
+        "name": "Rio Morichal",
+        "source": "glaser",
+        "quote": "This wild guppy comes from the Rio Morichal in Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Guayre River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Guayre River, Caracas, Venezuela'.",
+        "country": "VE",
+        "ok": true
+      },
       {
         "name": "Trinidad",
         "source": "sprucepets",
         "quote": "They are named for Robert John Lechmere Guppy who collected these fish on the island of Trinidad in 1866.",
         "ok": true
+      },
+      {
+        "name": "Barbados",
+        "source": "sprucepets",
+        "quote": "They are native to freshwater streams in the north of South America, including Suriname, Guyana, and Venezuela, and the Caribbean islands, including Barbados and Trinidad and Tobago.",
+        "ok": false,
+        "why": "a country"
       }
     ],
     "disputed": [],
-    "outranked": [
-      {
-        "code": "TT",
-        "source": "sprucepets",
-        "quote": "They are native to freshwater streams in the north of South America, including Suriname, Guyana, and Venezuela, and the Caribbean islands, including Barbados and Trinidad and Tobago."
-      }
-    ],
+    "outranked": [],
     "origin": {
       "pagesOnly": [
-        "TT"
+        "GF"
       ],
       "sourcesOnly": []
     }
@@ -155,12 +177,12 @@
         542
       ],
       [
-        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
         360
       ],
       [
-        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
-        360
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        351
       ],
       [
         "a9317b52-6c43-452c-87d5-ea43e4773058",
@@ -265,10 +287,6 @@
       [
         "3ea542dc-885d-4c8a-91a3-64d0a5d78301",
         43
-      ],
-      [
-        "640ae8b7-14b9-4188-894a-a2bc3821c752",
-        42
       ],
       [
         "5b7d4716-3ee7-4abb-a770-365e33c8b82c",
@@ -427,6 +445,10 @@
         9
       ],
       [
+        "2a79f202-3f3a-4d54-88fa-09aa8de1ac73",
+        8
+      ],
+      [
         "6ed43f52-25d1-4d56-a821-63a8564b81f6",
         8
       ],
@@ -497,6 +519,10 @@
       [
         "f58922e2-93ed-4703-ba22-12a0674d1b54",
         4
+      ],
+      [
+        "2a76ea98-411c-4c17-ad1e-9dfe3595ca8d",
+        3
       ],
       [
         "8b8c78fb-53d7-434c-b800-61f38b30d0c9",
@@ -576,10 +602,6 @@
       ],
       [
         "28965184-3e9f-432f-8898-780e9183d526",
-        1
-      ],
-      [
-        "2a79f202-3f3a-4d54-88fa-09aa8de1ac73",
         1
       ],
       [
@@ -703,11 +725,11 @@
       "VE",
       "GY",
       "SR",
-      "GF",
+      "TT",
       "BB",
       "AG"
     ],
     "requests": 18,
-    "at": "2026-11-08T18:57:48.756Z"
+    "at": "2026-11-14T00:09:29.977Z"
   }
 }

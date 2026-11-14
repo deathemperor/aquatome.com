@@ -66,14 +66,6 @@
             "height": 675,
             "caption": "Đang trải bạt lót hồ màu đen lên khung lọc.",
             "sharpness": 152.8
-          },
-          {
-            "t": 65,
-            "url": "https://media.aquatome.com/video/l_lPQ-xBC1Q/at65-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dán xơ dừa lên phông nền bằng silicone.",
-            "sharpness": 435.3
           }
         ]
       },
@@ -87,35 +79,6 @@
             "height": 675,
             "caption": "Nền bể và lớp lá, nơi vi sinh bám sinh sống.",
             "sharpness": 151.2
-          },
-          {
-            "t": 270,
-            "url": "https://media.aquatome.com/video/l_lPQ-xBC1Q/at270-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhấc cụm lọc ra khỏi khe đá để vệ sinh.",
-            "sharpness": 496.7
-          }
-        ]
-      },
-      {
-        "heading": "Một đợt chăm bể gồm những việc gì",
-        "moments": [
-          {
-            "t": 130,
-            "url": "https://media.aquatome.com/video/l_lPQ-xBC1Q/at130-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây mọc um tùm, đã bắt đầu che kín ánh sáng đèn.",
-            "sharpness": 1030.9
-          },
-          {
-            "t": 150,
-            "url": "https://media.aquatome.com/video/l_lPQ-xBC1Q/at150-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Xô nước mới đang được chuẩn bị để thay vào bể.",
-            "sharpness": 1585.2
           }
         ]
       },
@@ -128,7 +91,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể đèn tối, tán lá dày rậm như một góc rừng cạnh nguồn nước.",
-            "sharpness": 1466.9
+            "sharpness": 1466.9,
+            "person": false
           },
           {
             "t": 225,
@@ -136,7 +100,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh lá cây và botanical trong ánh sáng dịu, tối, tạo không khí rừng.",
-            "sharpness": 889
+            "sharpness": 889,
+            "person": false
           }
         ]
       },
@@ -157,7 +122,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cóc bụng lửa đậm màu nằm trên nền đất giữa đám cây.",
-            "sharpness": 825.7
+            "sharpness": 825.7,
+            "person": false
           }
         ],
         "photo": {
@@ -180,7 +146,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể trồng cây xanh rậm rạp dưới đèn.",
-            "sharpness": 2637.6
+            "sharpness": 2637.6,
+            "person": false
           },
           {
             "t": 515,
@@ -188,7 +155,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thác nước nhiều bậc có các vũng nước đọng trong bể cóc.",
-            "sharpness": 818
+            "sharpness": 818,
+            "person": false
           }
         ]
       }

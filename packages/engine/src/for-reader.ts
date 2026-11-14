@@ -8,6 +8,7 @@ import { hedged, hedgesLost, text } from './hedges'
 import { marketFor, type ProblemId } from './market'
 import type { Page } from './pages'
 import { VI_STYLE } from './phrases'
+import { givesDose, GALLON, US_TANKS, withTanks } from './round'
 import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
 
 /**
@@ -17,7 +18,7 @@ import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
  * (fit.ts) and says nothing more surely than its facts (hedgesLost), one more try with their notes, or it isn't kept.
  */
 const FACTS = readFileSync(new URL('./prompts/guide-facts.md', import.meta.url), 'utf8')
-const WRITE = readFileSync(new URL('./prompts/guide-write.md', import.meta.url), 'utf8')
+const WRITE = withTanks(readFileSync(new URL('./prompts/guide-write.md', import.meta.url), 'utf8'))
 const PROBLEM_IDS = ['ich', 'fungus', 'finRot', 'quarantine', 'cyanobacteria', 'parasites'] as const
 const SECTIONS = ['what', 'signs', 'causes', 'firstAid', 'treatment', 'steps', 'prevention', 'mistakes', 'myths', 'other'] as const
 
@@ -56,16 +57,26 @@ const amounts = (s: string) => [...s.matchAll(AMOUNTS)].map(m => `${m[1]!.replac
 const WORDS = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve']
 /**
  * Amounts with a figure neither the facts nor the market table has. A source's "three days" is the guide's "3 ngày", and
- * its "10 gallons" a tank of 40 litres, so a volume within 10% of a gallon figure passes. A dose has no such room: it comes
- * with its source's own figure, or it reads "theo hướng dẫn trên nhãn", and the reviewer sees it.
+ * its "10 gallons" a tank of 40 litres: a US tank in the table passes only as the size it names (round.ts US_TANKS, so
+ * "115 lít" for 30 gallons is outside), any other gallon figure as a volume within 10% of it, and the water a dose goes
+ * into ("Pha 5 ml vào 38 lít" for 10 gallons) at its exact conversion. A dose's amount has no such room: it
+ * comes with its source's own figure, or it reads "theo hướng dẫn trên nhãn", and the reviewer sees it.
  */
 export function amountsOutside(text: string, allowed: string): string[] {
   const figures = new Set([...allowed.matchAll(/\d+(?:[.,]\d+)?/g)].map(m => m[0].replace(',', '.')))
   for (const [i, w] of WORDS.entries()) if (new RegExp(`\\b${w}\\b`, 'i').test(allowed)) figures.add(String(i))
-  const gallons = [...allowed.matchAll(/(\d+(?:[.,]\d+)?)[\s-]*gal/gi)].map(m => Number(m[1]!.replace(',', '.')) * 3.785)
+  const given = [...allowed.matchAll(/(\d+(?:[.,]\d+)?)[\s-]*gal/gi)].map(m => Number(m[1]!.replace(',', '.')))
+  const tanks = new Set(given.flatMap(g => US_TANKS.filter(([x]) => x === g).map(([, l]) => l)))
+  const gallons = given.filter(g => !US_TANKS.some(([x]) => x === g)).map(g => g * 3.785)
   if (/\bper gallon\b|\ba gallon\b/i.test(allowed)) gallons.push(3.785)
-  const near = (l: number) => gallons.some(g => Math.abs(g - l) <= g * 0.1)
-  return [...new Set(amounts(text))].filter(a => { const [n, u] = a.split(' '); return !figures.has(n!) && !(u === 'l' && near(Number(n))) })
+  const near = (l: number) => tanks.has(l) || gallons.some(g => Math.abs(g - l) <= g * 0.1)
+  // A dose's water ("Pha 5 ml vào 38 lít" for 10 gallons) keeps the exact conversion, to the litre.
+  const exact = [...given.map(g => g * GALLON), ...(/\bper gallon\b|\ba gallon\b/i.test(allowed) ? [GALLON] : [])]
+  const water = (l: number) => givesDose(text) && exact.some(g => Math.abs(g - l) <= 1)
+  return [...new Set([...text.matchAll(AMOUNTS)].flatMap(m => {
+    const n = m[1]!.replace(',', '.'), u = m[2]!.toLowerCase().replace(/^lít$/, 'l')
+    return figures.has(n) || (u === 'l' && (near(Number(n)) || water(Number(n)))) ? [] : [`${n} ${u}`]
+  }))]
 }
 
 /** As the reviewer reads it: the body as hedgesLost reads it too, so a quote of it is found. */

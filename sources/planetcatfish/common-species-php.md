@@ -1,38 +1,39 @@
 ---
-url: https://www.planetcatfish.com/common/species.php?species_id=1328
-title: PlanetCatfish.com - Hypostomus pagei (Loricariidae) Cat-eLog
-fetchedAt: 2026-11-08T19:20:02.633Z
-capturedAt: 2024-10-13T00:57:09.000Z
-hash: c5be8f550250880c52f9e6384c80d6e99a8f17bef1d560caf43c22096016b46f
+url: https://www.planetcatfish.com/common/species.php?species_id=1381
+title: PlanetCatfish.com - Synodontis multimaculatus (Mochokidae) Cat-eLog
+fetchedAt: 2026-11-13T22:17:07.124Z
+capturedAt: 2024-12-14T09:40:53.000Z
+hash: 3c0b6c1d1e25e88de2cab5e47a8f81f9a8e82f00836caa557b2f2d3a48f2e427
 ---
 
-- Dorsal view
-- Ventral view
+- Stamp
 | Cat-eLog Data Sheet |
-| Scientific Name | Hypostomus pagei Armbruster, 2003 |
-| Common Name | |
-| Type Locality | About 12 kilometers north of Aroa on highway 3, 10°30'31"N, 68°52'55"W, Río Arao drainage, Río Tupe, Yaracuy, Venezuela. |
-| Pronunciation | hi POSS tow muss - page eye |
-| Etymology | Greek, hypo = under + Greek, stoma = mouth. Named for Dr. Lawrence M. Page not least becuase he helped to collect the majority of the specimens of this species that lead to its description. |
+| Scientific Name | Synodontis multimaculatus Boulenger, 1902 |
+| Common Name | Dotted Synodontis |
+| Type Locality | Ubangi River at Banzyville, Democratic Republic of Congo, about 4°18'N, 21°11'E. |
+| Synonym(s) | Synodontis multimaculata |
+| Pronunciation | sin oh don tiss |
+| Etymology | According to Cuvier, Synodontis is an "ancient name for an undetermined fish from the Nile". It is not derived, as often reported, from syn-, together and odous, tooth, presumed etymology of the lizardfish genus Synodus and refers to the closely-spaced lower jaw teeth of both genera. This specific epithet refers to its many (multi=many) spots (maculatus,-a=spots). |
 | Species Information |
-| Size | 188mm or 7.4" SL. Find near, nearer or same sized spp. |
-| Identification | Light, gray brown color with the spots considerably faded or absent. Juveniles have caudal fin darkest along both spines and at the base, clear medially, a color pattern not found in any other members of the Hypostomus cochliodon group. Most similar to H. hondae and H. plecostomoides but differs by the general absence of spots on the caudal fin and/or caudal-fin spines (H. pagei may have very faint spots on the caudal-fin spines; some H. plecostomoides lack spots on the caudal-fin spines, but the spines are almost black instead of light gray-brown) and by having shorter pectoral-fin spine (reaching 0-1 plates beyond pelvic fin when depressed below the pelvic fin vs. 2-3 plates with the exception of one specimen of H. pagei that has pectoral-fin spines reaching two plates beyond the pelvic fin and the one specimen of H. plecostomoides examined from the Lago Valencia drainage that has pectoral-fin spines that do not reach beyond the pelvic fin) |
+| Size | 85mm or 3.3" SL. Find near, nearer or same sized spp. |
+| Identification | All species in the genus Synodontis have a hardened head cap that has attached a process (humeral process) which is situated behind the gill opening and pointed towards the posterior. The dorsal fin and pectoral fins have a hardened first ray which is serrated. Caudal fin is always forked. There is one pair of maxillary barbels, sometimes having membranes and occasionally branched. The two pairs of mandibular barbels are often branched and can have nodes attached. The cone-shaped teeth in the upper jaw are short. S-shaped and movable in the lower jaw. These fish produce audible sounds when disturbed rubbing the base of the pectoral spine against the pectoral girdle. |
+| Sexing | First lay the fish in your hand with its head toward your palm and the tail toward your fingers. Hold the dorsal spine between your middle and ring finger so the fish is belly up and you won't get punctured by the sharp fin spines (which hurts - be careful). The genital pore is in a small furrow of tissue (in healthy fish) and will be obstructed by the pelvic fins. Pull down on the tail gently to arch the fish's spine and the pelvic fins will stand and the furrow open to display the genital pore and the anus of the fish. The male has a somewhat ridged genital papillae on which the spermatoduct is on the back side, facing the tail fin. A gravid female will also show an extended papillae but the oviduct is on the ventral side of the papillae. It may also show a little redness if gravid. A thin or emaciated female will have just two pink pores, the oviduct and the anus. |
 | Habitat Information |
-| Distribution | South America: Venezuela in the Rio Aroa, Rio Tocuyo and Rio Yaracuy basins. Venezuela Caribbean Waters, Aroa (click on these areas to find other species found there) Venezuela Caribbean Waters, Yaracuy (click on these areas to find other species found there) Venezuela Caribbean Waters, Tocuyo (click on these areas to find other species found there) Login to view the map. |
-| IUCN Red List Category | Vulnerable, range map and more is available on the IUCN species page. Last assessed 2021. |
+| Distribution | Africa: Ubangi, Congo basin. African Waters, Congo, Ubangi (click on these areas to find other species found there) African Waters, Congo (click on these areas to find other species found there) Login to view the map. |
+| IUCN Red List Category | Data Deficient, range map and more is available on the IUCN species page. Last assessed 2009. |
 | Husbandry Information |
 | Breeding | Unreported. |
 | Breeding Reports | There is no breeding report. |
 | Further Information |
-| Reference | Zootaxa No. 249, pp 39. |
-| Registered Keepers | There is but a single registered keeper, view all "my cats" data. |
+| Reference | Annales du Musee du Congo (Ser. Zoology) v. 2 (fasc. 2), pp 43, Pl. 12 (fig. 1). |
+| Registered Keepers | There are 6 registered keepers, view all "my cats" data. |
 | Wishlists | Love this species? Click the heart to add it to your wish list. There is but a single wish to keep this species, see who wants what. |
-| Spotters | Spotted this species somewhere? Click the binoculars! There are 2 records of this fish being seen, view them all. |
+| Spotters | Spotted this species somewhere? Click the binoculars! There are 6 records of this fish being seen, view them all. |
 | Forum BBCode | |
-| | Search for H. pagei |
-| | Look up H. pagei on AquaticRepublic.com |
-| | Look up H. pagei on Fishbase |
-| | Look up H. pagei on Encyclopedia of Life |
-| | Look up H. pagei on Global Biodiversity Information Facility |
-| | LFS label creator ARN ref:1.4.17.1328 |
-| Last Update | 2020 Nov 08 14:43 (species record created: 2006 Dec 24 11:40) |
+| | Search for S. multimaculatus |
+| | Look up S. multimaculatus on AquaticRepublic.com |
+| | Look up S. multimaculatus on Fishbase |
+| | Look up S. multimaculatus on Encyclopedia of Life |
+| | Look up S. multimaculatus on Global Biodiversity Information Facility |
+| | LFS label creator ARN ref:1.13.29.1381 |
+| Last Update | 2020 Sep 20 02:10 (species record created: 2004 Oct 29 00:00) |

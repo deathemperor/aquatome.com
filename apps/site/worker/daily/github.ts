@@ -25,6 +25,8 @@ export type Failing = { workflow: string; url: string; since: string; failures: 
  * weeks they touch, with the Vietnamese theme and the curator's note for the owner, and each day's fish by its name.
  */
 export type Calendar = { weeks: { from: string; to: string; theme: string; why?: string }[]; days: { date: string; fish?: string; why?: string }[] }
+/** Fish and breed pages whose head has no animal in it and no "yes" from the photo check (engine-state/_photo-no-animal-heads.json): newest first. */
+export type NoAnimal = { total: number; items: { page: string; name: string; since: string }[] }
 export type GitHubSide = {
   runId: string
   runUrl: string
@@ -48,6 +50,7 @@ export type GitHubSide = {
   notes: number
   prs: { ready: Listed; draft: Listed }
   calendar?: Calendar
+  noAnimal?: NoAnimal
 }
 
 class Refused extends Error {}
@@ -84,6 +87,10 @@ const calendar = (x: unknown): Calendar => {
       return { date: date(d.date), ...(d.fish === undefined ? {} : { fish: text(d.fish) }), ...(d.why === undefined ? {} : { why: text(d.why, MAX_CHANGE) }) }
     }, 14),
   }
+}
+const noAnimal = (x: unknown): NoAnimal => {
+  const r = record(x)
+  return { total: count(r.total), items: list(r.items, y => { const i = record(y); return { page: text(i.page), name: text(i.name), since: date(i.since) } }) }
 }
 const runs = (x: unknown): Runs => {
   const r = record(x)
@@ -140,6 +147,7 @@ export function parseGitHubSide(body: string): GitHubSide | null {
       notes: count(r.notes),
       prs: { ready: listed(prs.ready), draft: listed(prs.draft) },
       ...(r.calendar === undefined ? {} : { calendar: calendar(r.calendar) }),
+      ...(r.noAnimal === undefined ? {} : { noAnimal: noAnimal(r.noAnimal) }),
     }
   } catch {
     return null

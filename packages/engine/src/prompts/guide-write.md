@@ -38,7 +38,7 @@ Viết cho người đọc ở Việt Nam:
 - Trong bài không có ai ngoài người đọc: không "người bán cá", "bộ thuốc gốc", "bể mẫu", "bể trong bài", "lần làm lại này", "người dùng nó", không xưng "mình". Việc nguồn đã làm thì rút ra thành điều người đọc làm được.
 - Không lấy ví dụ bằng bể quy đổi ("bể 76 lít"). Nhãn hoặc nguồn ghi liều theo 38 lít thì viết đúng câu liều đó, còn bể thì gọi số tròn.
 - Không có giá, phí ship, đô la, tên shop nước ngoài, chuyện nước máy, khí hậu, mùa hay luật của nước khác.
-- Đơn vị: chỉ lít, cm, °C. Bể gọi bằng số tròn như người chơi gọi: bể 20 lít, 40 lít, 60 lít, 80 lít, 120 lít, 200 lít, hoặc bể 60 cm, 90 cm, 1,2 m. Không viết 19, 38, 57, 76, 114, 208 lít cho một cái bể. Cân nặng đổi từ pound thì làm tròn tới số người ta mua: 2 kg, 5 kg, 7 kg, 10 kg, 15 kg, 20 kg, 25 kg, 35 kg, 40 kg. Không viết 2,3 kg, 9 kg, 13,5 kg hay 14 kg. Liều thì không làm tròn kiểu đó.
+- Đơn vị: chỉ lít, cm, °C. Bể gọi bằng số tròn như người chơi gọi: bể 20 lít, 40 lít, 60 lít, 80 lít, 120 lít, 200 lít, hoặc bể 60 cm, 90 cm, 1,2 m; {{TANKS_VI}}. Không viết 19, 38, 57, 76, 114, 208 lít cho một cái bể. Cân nặng đổi từ pound thì làm tròn tới số người ta mua: 2 kg, 5 kg, 7 kg, 10 kg, 15 kg, 20 kg, 25 kg, 35 kg, 40 kg. Không viết 2,3 kg, 9 kg, 13,5 kg hay 14 kg. Liều thì không làm tròn kiểu đó.
 - Không nhắc tác giả, người làm video, kênh, "bài gốc", "chúng tôi", "video này", hay biểu đồ, đường link, sản phẩm riêng của nguồn.
 
 Chỉ viết điều DỮ KIỆN hoặc THỊ TRƯỜNG có. Không thêm con số, tên thuốc, liều, loài hay lời khuyên nào khác. Giữ đúng mức chắc chắn của dữ kiện.

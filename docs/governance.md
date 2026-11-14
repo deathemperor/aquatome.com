@@ -487,10 +487,35 @@ The layers above still check the result.
   cost log that can't be written stops a step that has a ceiling. Found with: on 11 Nov 2026 the engine's sign-ins
   ran out of their week four days early, at $542 a day where one sign-in's week allows $140.
   - It covers every call the engine makes to Claude (`claude.ts`), whatever started it: a call with no log named is
-    written to the hand runs' log and counted from there. Not covered: the AI page review on pull requests, the
-    auto-fix and the nightly AI review, which call Claude on the same accounts by another road, with no log and no
-    ceiling (`CLAUDE_ON_CI=off` pauses them, and `ENGINE_ON_CI=on` runs the rewrite while they stay paused); and
-    picture generation, which goes to Codex on its own sign-in and quota (`codex-images.ts`).
+    written to the hand runs' log and counted from there. Not covered: picture generation, which goes to Codex on
+    its own sign-in and quota (`codex-images.ts`).
+  - A measurement yields to the engine: the chat's board spends only what leaves every other step its whole line and
+    some room for the gate (`leftYielding`), so the backstop never stops a step on its account (the chief of staff,
+    13 Nov 2026).
+  - The AI page review on pull requests, the nightly AI review and the auto-fix call Claude on the same accounts by
+    another road, and each has a line on GitHub's side (`page-review`, `nightly-review`, `autofix`). A call writes a
+    cost line: the time, the step, the account's hash, the model, dollars and tokens, and nothing of a page, a prompt
+    or an answer, since a run's artifact is public. A run keeps its lines as an artifact named by its attempt, and
+    the next run counts the day from those before it starts (`scripts/claude-spend.mjs`; only this repository's own
+    runs' artifacts count). A review stops calling once its run has spent what was left, a call late for each of its
+    workers at most, and the pull request's comment says the pages were not reviewed and that this is not a pass
+    (`claude-accounts.ts`, `site-watch.mjs`). The auto-fix is one session of up to 50 minutes, so it runs under the
+    CLI's own cap (`--max-budget-usd`, what is left of its day): the CLI ends the session once its estimate of the
+    spend reaches it, a response late at most. That response is cents as a rule, and on paper as much as $10.56 (the
+    model's 1M context new to the cache and a 128K answer, at Opus 5.5's list price): the session keeps the model's
+    whole context, and stopped by money, a response late, is the bound (the chief of staff, 11 Nov). The CLI keeps
+    its sign-in out of what it hands the commands the agent runs. Its agent has Bash and works from an issue's text,
+    so its line is made and kept by a job the agent never ran in (`cost`, in `fix.yml`): one plain number of dollars
+    crosses from the agent's job, kept to the cent. It crosses as a file in the artifact that job hands on anyway,
+    read and never printed, and not as one of the `cost` job's inputs: a step's inputs are printed in its public log
+    before it runs. A session that left no such number is counted at the whole of what it was allowed, a lost
+    runner's too. Only a job that said its runner was there and never said a session was about to start writes no
+    line (`claude-spend.test.ts` runs the workflow's own script). A day that can't be counted stops all three. The
+    rewrite's cycle brings their lines beside its own log, so GitHub's day total has them. What it doesn't hold:
+    runs that start together each count the same day, so together they can pass a line by a run each; a job run
+    again by itself runs on the allowance its first attempt was given; the dollars are the agent's job's own word,
+    so an agent set on it could report fewer than it spent (its own run is still held to the cap); and keeping the
+    sign-in out of the agent's commands is not a wall, since they run as the same user as the CLI that holds it.
 - **On topic.** A guide covers what its title promises. The guide writer and its reviewer are told to leave out a
   video's detours (`prompts/video-guide.md`, `video-review.md`). `pnpm engine topic-check` reads every new or changed
   guide and drops sections about another subject, with their FAQ and summary lines. It never drops more than half a
@@ -549,6 +574,12 @@ The layers above still check the result.
   doesn't), open licences or permission only.
   Pages show photos from our own media host: a Commons or iNaturalist photo waits for `pnpm engine mirror-photos` (every
   cycle), and a public build leaves it out until then (`setsCookies`), since those hosts set third-party cookies.
+  Every request the engine sends to Wikimedia (Commons' API, its pictures, their thumbnails) asks under the engine's own
+  name, and a refusal puts every one to rest, as the Internet Archive's does: for the time the refusal names, else 12
+  hours, doubling to a day if the first request after it is refused too (`packages/engine/src/wikimedia-rest.ts`, the
+  rest kept in `~/.cache/aquatome/wikimedia-rest.json`). On 12 Nov 2026 Commons refused this Mac and the steps asked
+  again page after page and photo after photo. A rest is no verdict on a photo: a screening that meets it stops, and its
+  candidates stay queued and unjudged, as does a breed's month, until the rest ends.
   - **Galleries and their targets.** Every species, plant and breed has a gallery, topped up each cycle to a target set
     by how much readers want it (`packages/engine/src/gallery-plan.ts`, the reason beside each number): the 12 staples
     100, what shops in Vietnam, Indonesia and Thailand sell 60 (fish lists and plant lists, `engine-state/shop-lists/`)
@@ -556,7 +587,12 @@ The layers above still check the result.
     the most-kept fish 40, pages two or more sources write about 30 (a breed: two or more sites), every other page 20.
     The most popular pages go first, `GALLERY_SHEETS` model calls a cycle (`scripts/engine-cycle.sh`). A gallery is
     never padded: a page whose sources run dry stays short and is listed in `docs/review/galleries.md`, then read again
-    a month later.
+    a month later. Candidates a person found (`pnpm engine gallery-seed --from <file>`, by pull request) go to the front
+    of the page's queue and are screened like the step's own. A page whose sources ran dry is tried again, and a full
+    album is read for those candidates alone, never its sources' finds, growing at most 3 past its target (the chief of
+    staff, 2026-11-12: the weather loach's album was full and its head can't reach the card's size, so a card-size
+    photo found by hand had no way in). It screens no more of them than it has spaces: the rest wait in the queue for a
+    photo the check takes off.
   - **Sources.** iNaturalist first: every observation of the taxon (found by its name or a synonym) with a CC0, CC BY or
     CC BY-SA photo, research grade first, then those whose community ID agrees; aquarium and garden observations count.
     Then Wikimedia Commons, GBIF occurrence photos (observations and living collections, not preserved specimens, not
@@ -568,6 +604,11 @@ The layers above still check the result.
     their own steps. Each source is read at the pace it asks for (iNaturalist about one request a second; Openverse 200
     a day without a key), and each page keeps its place in `engine-state/gallery/<id>.json`, so the next cycle continues
     there.
+    Each fish's older scientific names from GBIF are kept as well (`pnpm engine fish-synonyms`, 300 fish a cycle, each
+    asked once, in `engine-state/_gbif-synonyms.json` beside the plants'). `fishOlderNames` (`fish-synonyms.ts`) leaves
+    out a name any page has as its own (a fish's or a plant's, or a plant's synonym) and one GBIF gives two of our fish:
+    such a name can't point at one fish. Commons files some fish under an older name (Acheilognathus macropterus), and
+    search and the name checks could use them too (the chief of staff, 2026-11-12). Nothing searches or shows them yet.
   - **Checks every photo passes,** through one shared step (`screenTagged` in `gallery.ts`): at least 800 px; not a photo
     the owner rejected (`engine-state/_photo-rejected.json`); not a near-copy of a photo already shown (an image hash,
     as when Commons holds a copy of an iNaturalist or Flickr photo); no human face (Apple Vision); then Claude, on contact
@@ -635,7 +676,9 @@ The layers above still check the result.
     staff). A lead the check passes as typical stays the lead. One that passes but isn't typical gives way to a
     typical photo in the run that judges that photo, as before this order: no pair is compared and no call added
     (the chief of staff, 2026-11-11). What follows a move is as it was: a head a person picked comes back first in
-    the sweep, which has the last word each cycle (`_photo-head-picks.json`). Any other head can move, a card's
+    the sweep, which has the last word each cycle (`_photo-head-picks.json`), and the check itself keeps it first in
+    the run, so a "can't tell" head a person picked still leads: the one stated exception to the owner's rule, for a
+    person's yes (below). Any other head can move, a card's
     fish too: the cycle's planner then points the day's card at the new head, and no cycle runs `curate --check`,
     which would name a card and a head that differ. A
     lead's sheet is filled with its page's own photos before its gallery's, so a photo that takes a removed lead's
@@ -645,6 +688,19 @@ The layers above still check the result.
     Until 2026-11-07 a fourth verdict, "its wild habitat, with or without it", stayed on the page and only went last:
     the firemouth's and the flame tetra's only photos, a lake and a stream with no fish, led their pages, their index
     cards and the tank-mates blocks (a design review's find). Such a verdict is asked again (below).
+    Before everything else, since 2026-11-12: a fish's or a breed's head the box step found no animal in
+    (`_photo-boxes.json`: null), on a sheet filled from its page. On 12 Nov 34 heads were a river, a lake or open water,
+    and none had been judged (the chief of staff). Such a head is "not a photo of it", as above: it leaves the page, and
+    a page with nothing else shows no photo, its tile "Chưa có ảnh" (no photo yet), until a photo of the fish arrives. A
+    run that would leave more than `EMPTY_CAP` (10) pages with no photo of their own takes none of their photos off, and
+    none onto `_photo-rejected.json`: it lists them (`held:`) and holds, so a check gone wrong can't blank pages;
+    `--empty-cap <n>` releases them once a person has looked. Each run's line counts the heads moved (another photo
+    took the lead) and removed (the page left with no photo). The sweep lists every such head the check hasn't passed
+    as the fish, from the day it first leads (`_photo-no-animal-heads.json`), in the cycle's log and the owner's daily
+    report, so a person sees one the day it appears. A head a person picked (`_photo-head-picks.json`, by pull request
+    with both names and where in the photo the fish is) that the check calls "not a photo of it" stays first on its page
+    and off `_photo-rejected.json`, and each run lists it (`picked head:`): two people read it as the fish plainly seen,
+    and the lasting fix is the check's question, not the verdict (the chief of staff, 2026-11-12).
     - **Dead fish, people and logos.** The check also answers "dead" (a dead fish or fish as food: a market, ice, a
       plate, a catch landed or held, a fish on a tray or the floor, a preserved, mounted, museum or lab specimen, a
       museum shell; when it can't tell, dead), whether a person or any part of one is in the photo (a hand holding the
@@ -662,6 +718,8 @@ The layers above still check the result.
       model. Found by the owner (2026-11-05): dead peacock bass piled at a market, with a round logo, leading their
       page; its note said so and the verdict was "yes".
   - **A fish's head photo.** A card shows its page's head photo or none, never another (`curation.ts`). A person picks a page's head in `engine-state/_photo-head-picks.json`, and the sweep puts it first on its page every cycle. `pnpm engine lead-photos` gives way a head under the card's 1,140 px to a photo that passes the checks, once the model, shown the two side by side, says it shows the fish as well and that the second photo, as the card crops it, holds the fish's whole head, snout tip to gill cover with a little room (an eye inside isn't enough); no answer is no change, and each pair is asked once (`engine-state/_photo-leads.json`). Neither the site's cards nor the app's place a crop, so a photo whose crop leaves the head out doesn't lead and the old head stays (the chief of staff, 2026-11-10: five of 43 replacements looked at had it out). A change of head goes back with no model call when the old head now fills the card or a look has since said no. Where a head is under the card's size and its source holds a larger original (Commons, iNaturalist, Unsplash), `pnpm engine large-photos --heads` (each photos cycle, before `lead-photos`) keeps a copy large enough: the same picture larger, so it needs no look, and only the head, since another photo growing large enough could change what leads. A fish whose head doesn't pass stays off the calendar, and `pnpm engine curate --check` fails on a card whose photo isn't the head. Found by the owner (2026-11-10): the Altum on Hôm nay was a different photo from its page's, which flashed as one replaced the other. A page with no photo takes the best that passes, whatever its size, plants too, so no page shows nothing while a passed photo of it exists; a photo carrying a mark its source may keep leads only where nothing else passes, and is never a card.
+  - **A person's yes for a card.** A photo the check can't tell is never a card on the model's word alone, and two people may say it is the right fish (the chief of staff, 2026-11-12, for the spotted snakehead, whose best photo the check can't tell from the northern snakehead). The record is `engine-state/_photo-person-yes.json` (`person-yes.ts`), photo → page → the lead who proposed it, the two who said yes, the day, the look-alike the check named and the mark on the fish's body that rules it out. The engine only reads it: a pull request changes it, with the sheet the two looked at. Two of the chief of staff, Curation and the owner say yes, never the one who proposed the photo; the owner's yes counts alone ("the owner may always", the approved rule). Names compare trimmed and in any case. They look at the photo at full size, the page's own description of how to tell the fish, a photo the check passed of each of the two species, and the photo beside the page's current head as the page and the card draw it (Curation, 2026-11-12: that look is their side-by-side guard, for a yes only). The mark names the fish's body only: no lettering read off a photo goes into the record or its pull request, and an entry whose mark speaks of lettering, a word or a sign doesn't count. Nor does one missing a field or of another shape, on a day the calendar doesn't have (2026-02-30), with one yes other than the owner's, the same person twice or the proposer among the two, or past five yeses in a week. A malformed entry stops no reader, and a pick on a photo with any entry for its page lapses unless that entry counts. A yes counts as the check's "the right fish" for a card (`cardWorthy`) and for the large copy of a head, only over the check's "can't tell" on that page: another fish, no fish, dead, a person or a mark stand, and so do "typical" and a caption's flaw. The head pick that goes with it lapses with it: once the yes doesn't count, or the check says anything but "can't tell" for that photo on that page, the sweep and the check stop putting it first in the same pass, so a pick never outlives its yes. `pnpm engine curate` lists every card from today that rests on a yes.
+  - **A fish its source calls unwell.** No model reads a caption, so the sweep does (`captionFlaw`, `content-rules.ts`), on fish and breed pages and their galleries, in the source's own English captions only: not plants, not guides (a guide on a disease shows a sick fish), and not a caption we wrote. Dead, thin, wounded, sick or deformed, or damaged in a fight: the photo comes off a page that has another photo of its own and onto `_photo-rejected.json`, and the content rule `unwell` holds that at zero. Where it is the page's only photo it stays, never on a card, and the sweep lists it. A split or damaged fin said in passing of an ordinary specimen is a blemish: the photo stays, counts as not typical in the photo check's order, so a typical photo leads, and is never on a card (`cardWorthy`). Found by the owner (2026-11-11): a sick betta on its page, then three fish whose captions said so. A first, wider word list hit 21 of 14,615 captions, 7 of them wrongly (a shipwreck ornament, "dead corals", "physical damage is rare", breeding tubercules twice, an owner's story of a fish that died years later, a caption of ours); the list kept finds the other 14 and none of those. "Unwell" takes a photo off for good with nobody looking, so the lists lean to missing one (two readers' probes, 2026-11-11): damage or injuries said to be rare are none, and nothing a sentence denies; damage is weighed in its own sentence, so a later one about how the fish behaves doesn't make it a fight's, a fight or a degree counts only where it is said of the damage, so a fighting fish's name or a heavily planted tank is none, and only another fish causes a fight's damage, not transport; a place named before the damage is what was damaged; an infection, fin rot or a fungus counts only where the caption says the fish has it; and on a breed's page a deformity or a growth is not asked, since it can be the breed's own shape. A fish "feeding on a dead fish" is kept on the list on purpose: a dead fish is in the picture. A photo that is a page's own and in its gallery too (a head picked from the gallery keeps its copy there) is one photo, kept or taken off as one. A photo left as some page's only one, or picked as its head there, is not taken off every page on this rule's word: it leaves the page whose caption calls it unwell and stays on the other, whatever that page's own caption says of it. Another rule's word (a map, a plate) still takes it off every page, and a pick another rule takes off shields nothing. What the lists still miss or misread is for the photo check's own question, where a model reads the caption beside the picture. A head a person picked is put first before these rules read the pages, so an unwell photo beside a head picked from the gallery goes in the same sweep and the rule is at zero when the cycle tests. The head-photo step asks the caption too, of its one photo with a source's own mark as well, and never of a plant. A head a person picked (`_photo-head-picks.json`) is not taken off by a caption's words (the chief of staff, 2026-11-11: a pick is a person's look at the photo, a caption word a guess): it stays the head, off every card, off the never-again list, and the sweep lists it with its caption each run until a person says it goes.
   - **A source's "read next" cards.** The picker leaves out an image wrapped in a link to another page of the same site (`pickSourcePhotos`): that's the card of another article, not a picture of this one. The sweep takes any already stored off (the unplaced photos at exactly the source's `cardWidth`, `sources.ts`, that end a guide's list, never its lead) and onto `_photo-rejected.json`, so a re-read can't bring it back. Found by the owner (2026-11-10): arowanas and a corydoras on the platy guide; 23 card images sat in 107 places on 25 of The Spruce Pets' 26 guides.
   - **Guides' photos.** `pnpm engine guide-photos` (each photos cycle and the Mac's video job, 20 model calls each, 6
     photos a call, leads first) looks at what the subject check doesn't: every guide's photos (its lead and those under
@@ -851,7 +909,39 @@ The layers above still check the result.
   reader-fit gate with no `metric` step between, and the gate put 26 guides back for such a figure (8 to 10 Nov 2026).
   Reference lists, titles, quoted labels and a bottle's size in ounces stay as published. Found on 263 fish,
   plant and breed pages, then on 136 guide pages and 9 more fish pages whose sizes were written in inch marks (48" x
-  15") (2026-11-01).
+  15") (2026-11-01). A metric figure a fish or plant page's English gives itself stays as given, and the reader-fit check
+  doesn't count it ("tanks as small as 11 litres", "120 × 45 × 37,5 cm – 212 lít"; `sourceGives`, round.ts): numbers
+  stay as the source gives them (the chief of staff, 2026-11-11). It let 19 held pages out and 75 live ones pass, in
+  three languages of four. A section AquaTome wrote from many sources' facts, and a guide, have no English beside them:
+  their figures still count. The rounding reads the English the same way, with the same `sourceGives`, so the two never
+  disagree: a figure a part's English gives in metric itself, a source's own conversion too (Seriously Fish's "60 × 38 ×
+  30 cm (24 × 15 × 12 in)"), stays, sides, lengths, litres and °C; it rounds a figure our own conversion made and text
+  with no English beside it (`roundPage` given `englishOf`, metric.ts). Until 12 Nov 2026 it rounded both, which left
+  299 parts on 159 fish pages with a tank the source didn't give: 79 whose litres no longer fit their sides, minimum tanks
+  made smaller, a line with two lengths (the chief of staff, 2026-11-12). `pnpm engine source-figures` puts them back
+  from the English by code, no model, and litres, lengths and °C the same way: 371 language pages on 223 fish and plant
+  pages, a page whole in one pass, those with a tank's sides first, a held page left as it is, and so are litres in a part that gives a dose and a length that isn't plainly a tank's. It goes at the pace the
+  chief sets (`SOURCE_FIGURES_PACE`, source-figures.ts), in the Mac's photos part alone: the first 30 language pages;
+  once a cycle has published them (30 marks on GitHub's main), 60 a cycle, without asking, marks not yet published
+  counting against the run; and it stops by itself, and says so in its log, when in any batch more than one page in ten
+  is held or given its old text back for something other than its figures (the chief of staff, 2026-11-12). The gate
+  reads each as any changed page, and what it made of each is recorded once, right after it (`engine-state/_source-figures-batches.json`),
+  or before the next run mends if that didn't run, so a later hold for something else doesn't count; the stop stays
+  there until the chief's word takes it out, and a limit by hand doesn't pass it. A page
+  the gate gives its old text back isn't mended again: it is listed with the checks it failed and waits for the chief's
+  word; one the gate couldn't read is tried again, in its own batch, and isn't counted, even when the gate holds it then
+  (for its old text's own fault, or harm found in another language). A cycle whose gate can't read mends nothing: the
+  run asks the gate's model one short question first, and mends nothing without an answer (the chief of staff,
+  2026-11-12: an unread page is not a held page).
+- **One size for a US tank.** A tank a source gives in US gallons is named by the size keepers here say, one table for
+  every writer, reviewer and the rounding (`US_TANKS`, round.ts: 10 gallons 40 litres, 20 gallons 80, 30 gallons 120):
+  the video writer had no rule and the others rounded to the nearest 5 litres, which gave 75, 115 and 210 litres, and
+  from 9 to 11 Nov 2026 every new guide with gallons arrived held. The table agrees with the site's ready-made tank
+  table (the same tank for a size as for its exact volume) but for 25 gallons, where 100 litres stands as the roomier
+  tank. A page held for units alone has such a figure mended by code (`pnpm engine units-mend`, units-mend.ts, from 13
+  Nov 2026 08:00, six a run, before the gate): only a volume that maps back to the table exactly, every place the page
+  gives it, each part changed in its figures alone and within a tenth; a range, a size in between, inches or degrees
+  stay held and are listed (the chief of staff, 2026-11-11).
 - **One copy of each figure.** The data card holds a species' figures. Quick facts drop the items the card already has
   for that source, and the family (merge, and the page for older content); a block that states a figure the card shows
   otherwise says above itself which source it follows (`@aq/schema` card-facts). Found in a review: Cá neon vua's text
@@ -904,6 +994,14 @@ The layers above still check the result.
       `pnpm engine sweep --photo-cap <N>` (the chief of staff, 2026-11-11). A photo of another fish leaves only that page, so it may still join its own fish's
       (taken off again if a later run brings it back). A Latin name no page has is listed for a person ("may name
       another fish"), not removed.
+    - a photo on the never-again list (`engine-state/_photo-rejected.json`): off every fish's, plant's, breed's and
+      guide's page and every album, by the photo check's own rule (an Aquarium Glaser photo with the shop's own mark
+      kept stays). The check takes them off only in the tree its run started from, and the cycle's push keeps its own
+      lines where they clash with main's: on 2026-11-11 three photos a person took off came back in their albums that
+      way. The cycle sweeps after it catches up with main, after a clash at its push, and after a clean pull at its push
+      that brought main's commits in, so one that comes back then leaves before the push. The calendar's pictures go
+      too: a day's, a language's own day's, a guide's, a story's or a week's hero's that is a listed photo or its large
+      copy is dropped, and the app shows the page's own; a loop whose poster is listed goes whole
     - a card figure out of bounds, upside down, or a minimum tank shorter than twice the fish: hidden from the card
       (`hidden` with why, kept in the file; worked out again each run), and the species' approved summary sent back to be
       written again against the new card
@@ -1009,6 +1107,13 @@ The layers above still check the result.
   written again keeps them (`packages/engine/test/video-fixes.test.ts` holds each such fix to its lines). Found
   by the owner on the blue-green algae guide, which sent readers to a foreign product when a pharmacy's 3% hydrogen
   peroxide does the job (`merge.test.ts`, `real-content.test.ts`).
+  A source is never credited with words it did not say (the chief of staff, 2026-11-12). A ruling of the owner's or the
+  chief of staff's that changes what a sourced page says goes in the same way, in our own voice: a guide's `localNote`,
+  or on a species or plant page a part of its own (source `aquatome`, labelled "Ghi chú của AquaTome", marked `fixed`,
+  citing the pages it rests on), in every language the page has. The source's part keeps what the source says, and the
+  note doesn't repeat it. A part's marks name the pages its facts come from, as on a page AquaTome researched: each fact
+  is in at least one page it cites, and no page it cites says otherwise; what the ruling makes of them (whom the
+  advice is for) is ours, by the label. First done on the lucky bamboo page's water.
 
 - **Written for the reader** (`packages/engine/src/fit.ts`, `gate.ts`). One fixed checklist (`prompts/fit.md`) reads
   every served guide, species, plant and breed page for what shows it was written for a reader somewhere else: the
@@ -1047,10 +1152,36 @@ The layers above still check the result.
   - The rewrite (`pnpm engine fit-rewrite`, in small batches, the most-read pages first) writes a failing Vietnamese
     page again: a guide whole, from its source's facts and the market table; a fish, plant or breed page part by part,
     each part a finding quotes, kept only when its reviewer passes it and it says nothing more surely than what it was
-    written from (`hedges.ts`, which holds the guide writer too). Units, words and a kit are left to the rounding,
-    the phrase list and the gate, and harm on a fish, plant or breed page to the gate and a person. `engine-state/rewritten.json` has each page it rewrote, by its new text's hash; a page
+    written from (`hedges.ts`, which holds the guide writer too). It mends units where the part's English gives a US
+    figure, and on a breed page, which has no English to keep a figure from, from the source's own US figure in its
+    facts (`breed-units.ts`; the chief of staff, 2026-11-12): a US tank in the table its size, another the round figure
+    keepers here say, a minimum never more than a twentieth under it (35 gallons 130 lít, 1,000 gallons 4.000, 3
+    gallons a fish 12, 10 gallons an inch 15 lít mỗi cm), in its FAQ answers too, and after any other mend of the same
+    part in the same try. Its reviewer is told the same. A figure is read whole in its quote's paragraph ("38 lít" there
+    followed by "mỗi 2,5 cm", "trên mỗi 2,5 cm", "mỗi 2,54 cm", "mỗi inch" or "cho 2,5 cm chiều dài cá" is per inch;
+    a tank "đặt trên 2,5 cm xốp" is not; any other length after a volume in its clause, "mỗi 2,5 cm mực nước", "cho
+    2,5 cm" alone, "ứng với 2,5 cm", a range of lengths or the fish's own length ("chiều dài 2,5 cm của cá"), is for a person, but for
+    the tank's own size, "dài 60 cm" or "dài khoảng 90 cm"), and a rewrite is kept only with
+    each paragraph's litres as they were, in their order, each figure as keepers say it in place of its old one and no
+    other moved (15 lít mỗi cm, not mỗi 2,5 cm; not the same litres left in another paragraph; not two figures trading
+    places; with two figures or more in a paragraph, each mended one stays with the same words around it as before, its sentence back to a label before a colon, or a
+    tank's number, and a figure per cm with the words before it, so one of two like figures may be mended alone), and with its paragraphs as many as before. A figure with a dose near it (in its paragraph, the one before
+    or after, or the rest of its section between the headings either side, where a reading of the water such as koi's
+    dissolved oxygen in mg/l (the substance, then only the words a reading is said with) isn't a dose but a treatment's
+    rate in mg/l, a substance beside its treatment ("khử nitrit bằng muối 1 g/l") or after a dose's word anywhere before it in
+    its sentence ("liều CO2", "Liều dùng: ammonia", "Cho ammonia", "Cho vào bể…", "phân nitrat", but not "cho koi:" or waste's "phân
+    hủy"), is; in an FAQ answer, its question too), whose
+    water stays exact, a figure per another length ("mỗi 5 cm"), or a litre figure with no US figure in the
+    facts to work from, is left to a person, and so is a finding code works out no figure for (gallons or a length in
+    it, or a figure already the size keepers say) and a quote another mend reworded past telling which figure it was. Other units,
+    words and a kit are left to the rounding, the phrase list and the gate, and harm on a fish, plant or breed page to the gate and a person. `engine-state/rewritten.json` has each page it rewrote, by its new text's hash; a page
     tried and not kept waits until its text changes (`engine-state/_fit-rewrite.json`), and a title the owner fixed stays
-    (`fit-rewrite.test.ts`).
+    (`fit-rewrite.test.ts`). It runs in GitHub's rewrite cycle before the gate, from 13 Nov 2026 08:00: the front list
+    first (`packages/engine/src/fit-front.json`: pages kept off Khám phá's cards and the Hôm nay card, then the
+    staples, then the four breed pages Hôm nay's Tết cards lead with), then the most read, after a fresh read of the
+    front list's pages whose read is of older text. After its
+    first run (`engine-state/_fit-front.json` has what it did) it waits until the chief of staff has looked at that
+    run's pages and `cleared` is set in the list's file (`fit-front.test.ts`).
   - The app's short cards (`content/cards`, the Curation Lead's) pass the same gate, read with lines of their own: a
     dated source is expected on a card; a new species is "described", with its paper's date, never "discovered" unless
     the source says so; a trend names its figures and where they come from. A held card stays out of the app, and the

@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { join, resolve } from 'node:path'
 import { addDays, CurationSchema, type Card, type Curation, type CurationCopy, type Loop } from '@aq/schema'
+import type { Box } from '@aq/schema/app-page'
 import type { Lang } from './i18n'
 
 /**
@@ -11,9 +12,14 @@ export type AppDay = {
   date: string
   fish?: string
   img?: string
+  /** Where the fish is in `img`, once the site's switch for it is on: protocols/photo-crop-vectors.json. */
+  imgBox?: Box
   guide?: string
   guideImg?: string
-  story?: { path: string; img?: string; eyebrow?: string; title?: string; dek?: string }
+  /** Where the fish is in `guideImg`, where that photo has a box, as `imgBox` for `img`. */
+  guideImgBox?: Box
+  /** `imgBox`: where the fish is in the story's `img`, where that photo has a box. */
+  story?: { path: string; img?: string; imgBox?: Box; eyebrow?: string; title?: string; dek?: string }
   card?: AppCard
 }
 /** One of the app's short cards (content/cards), in this index's language: the eyebrow, title and photo on Hôm nay, and
@@ -26,8 +32,10 @@ export type AppCard = Pick<Card, 'id' | 'type' | 'event'> & Pick<Card['t'], 'eye
 export type AppCuration = {
   days?: AppDay[]
   week?: { from: string; to: string; theme?: string }
-  hero?: { path: string; img?: string; eyebrow?: string; title?: string }[]
+  hero?: { path: string; img?: string; imgBox?: Box; eyebrow?: string; title?: string }[]
   shelves?: { id: string; title: string; paths: string[] }[]
+  /** Tìm's suggested searches in this language, in order; none, and the app shows no section. */
+  searches?: string[]
 }
 
 let cached: Curation | null | undefined
@@ -55,9 +63,11 @@ const SHELF_MIN = 3
  * the gate holds back already left out: a day's card shows only where it's written, and only within its `show` days.
  * `waits`: whether the build holds a picture back until the watermark screen has judged it (the content's
  * `photoWaits`, which asks the screen's record whatever this language's build loaded). The calendar names a picture by
- * its address, so one that waits is left off here, and the app shows the page's own.
+ * its address, so one that waits is left off here, and the app shows the page's own. `boxAt`: where the fish is in a
+ * picture, by its address (a day's fish, guide and story pictures and a pick's, beside each as its box), where the content
+ * has a box for it.
  */
-export function curationFor(cur: Curation, lang: Lang, today: string, pathOf: (ref: string) => string | undefined, cards: Card[] = [], waits: (address: string) => boolean = () => false): AppCuration {
+export function curationFor(cur: Curation, lang: Lang, today: string, pathOf: (ref: string) => string | undefined, cards: Card[] = [], waits: (address: string) => boolean = () => false, boxAt: (address: string) => Box | undefined = () => undefined): AppCuration {
   const word = (c?: CurationCopy) => c?.[lang]
   const shown = (img?: string) => (img && !waits(img) ? img : undefined)
   // A page the planner found failing reader fit (`off`) is left out, as one this language has no page for.
@@ -74,7 +84,8 @@ export function curationFor(cur: Curation, lang: Lang, today: string, pathOf: (r
     // Likewise the guide's photo is of the day's guide, or of the language's own.
     const guideImg = shown(guide && (own?.guide ? own.guideImg : d.guideImg))
     const sp = page(d.story?.page)
-    const story = sp && d.story ? clean({ path: sp, img: shown(d.story.img), eyebrow: word(d.story.eyebrow), title: word(d.story.title), dek: word(d.story.dek) }) : undefined
+    const storyImg = sp && d.story ? shown(d.story.img) : undefined
+    const story = sp && d.story ? clean({ path: sp, img: storyImg, imgBox: storyImg ? boxAt(storyImg) : undefined, eyebrow: word(d.story.eyebrow), title: word(d.story.title), dek: word(d.story.dek) }) : undefined
     const c = d.card && cards.find(x => `cards/${x.id}` === d.card && x.show.from <= d.date && d.date <= x.show.until)
     const card: AppCard | undefined = c ? clean({
       id: c.id, type: c.type, eyebrow: c.t.eyebrow, title: c.t.title, body: c.t.body,
@@ -83,15 +94,18 @@ export function curationFor(cur: Curation, lang: Lang, today: string, pathOf: (r
       photo: c.photo && clean({ url: c.photo.url, width: c.photo.width, height: c.photo.height, licence: c.photo.licence, author: c.photo.author, authorUrl: c.photo.authorUrl, sourceUrl: c.photo.sourceUrl }),
       event: c.event,
     }) : undefined
-    if (fish || guide || story || card) days.push(clean({ date: d.date, fish, img, guide, guideImg, story, card }))
+    if (fish || guide || story || card) days.push(clean({ date: d.date, fish, img, imgBox: img ? boxAt(img) : undefined, guide, guideImg, guideImgBox: guideImg ? boxAt(guideImg) : undefined, story, card }))
   }
   const w = cur.weeks.find(w => w.from <= today && today <= w.to)
   const out: AppCuration = days.length ? { days } : {}
+  const searches = cur.searches[lang]
+  if (searches) out.searches = searches
   if (!w) return out
   out.week = clean({ from: w.from, to: w.to, theme: word(w.theme) })
   const hero = w.hero.flatMap(h => {
     const path = page(h.page)
-    return path ? [clean({ path, img: shown(h.img), eyebrow: word(h.eyebrow), title: word(h.title) })] : []
+    const img = shown(h.img)
+    return path ? [clean({ path, img, imgBox: img ? boxAt(img) : undefined, eyebrow: word(h.eyebrow), title: word(h.title) })] : []
   })
   if (hero.length) out.hero = hero
   const shelves = w.shelves.flatMap(s => {

@@ -231,7 +231,72 @@
       "html": "<ul><li>Tan, H. H. and P. K. L. Ng (2005). The fighting fishes (Teleostei: Osphronemidae: Genus Betta) of Singapore, Malaysia and Brunei. Raffles Bulletin of Zoology Supplement 13, 43-99</li><li>Kottelat, M. (1991). Notes on the taxonomy and distribution of some western Indonesian freshwater fishes, with diagnoses of a new genus and six new species (Pisces: Cyprinidae, Belontiidae, and Chaudhuriidae). Ichthyological Exploration of Freshwaters 2(3), 273-287</li><li>Schindler, I. and J. Schmidt (2006). Review of the mouthbrooding Betta (Teleostei, Osphronemidae) from Thailand, with descriptions of two new species. Zeitschrift für Fischkunde 8(1/2), 47-69</li><li>Witte, K.-E. and J. Schmidt (1992). Betta brownorum, a new species of anabantoids (Teleostei: Belontiidae) from northwestern Borneo, with a key to the genus. Ichthyological Exploration of Freshwaters 2(4), 305-330</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/3780566dfd8fbd6dfebcbc8e3718c5ab.webp",
+      "thumb": "https://media.aquatome.com/processed/3780566dfd8fbd6dfebcbc8e3718c5ab-480.webp",
+      "width": 1200,
+      "height": 833,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-rutilans-green",
+      "source": "bwaquatics",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-betta-rutilans",
+        "pixelHash": "9afc26222cf7fca2a82f9545ce65479cebd399b8e7478f90e71f6b3a93923295"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T10:13:55.606Z",
+          "originalHash": "bb8f827632ef4a6f1318eaa199a2474c8bf9a8b858ee380a36ed387639a1c7bd",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 1200,
+            "originalHeight": 960,
+            "window": {
+              "x0": 0,
+              "y0": 0,
+              "x1": 1200,
+              "y1": 833
+            },
+            "subject": {
+              "x0": 101,
+              "y0": 76,
+              "x1": 1173,
+              "y1": 571
+            },
+            "margin": 24
+          },
+          "excludedMarks": [
+            {
+              "x0": 420,
+              "y0": 843,
+              "x1": 782,
+              "y1": 873
+            }
+          ],
+          "checks": {
+            "species": [
+              "b10c04c4a18a90a69632f2a8178585e2e7fbdab9fcfbe57f9d4e5738b4e0e9d1",
+              "8fad7c7288d6c80a0b98c81e999907e9d2e7dfcfbf3f478cb38c70d75968e793"
+            ],
+            "ownership": [
+              "359678b3014025c09914e35568ac7d9d5602d9e9cd9bd19008a46918244b4ce3",
+              "99a7756d2994faba0bb6996b568128d7ab6b955085c21d29c584527dcc33419d"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/bwaquatics/0ac3f2803d223256.webp",
+        "width": 1200,
+        "height": 960,
+        "thumb": "https://media.aquatome.com/bwaquatics/0ac3f2803d223256-480.webp"
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

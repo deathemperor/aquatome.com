@@ -1,3 +1,5 @@
+import { videoBudgetStopped } from '../src/youtube'
+import { denied } from './piece-admission'
 import { existsSync } from 'node:fs'
 import { mkdir, mkdtemp, readdir, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
@@ -380,13 +382,15 @@ test('redo rewrites only guides already written: a video not done yet waits for 
   expect(await read(root, 'content/guides/youtube-a1/entity.json')).toMatchObject({ video: { series: { id: 'PL1', position: 0 } } })
 })
 
-test('redo keeps a body fixed by hand; the rest of the guide is the new version', async () => {
+// The summary is the body's in short, so it stays with a body fixed by hand: a new draft's, from the transcript, would bring
+// back the line the fix took out (the stand-tap-water guide's "chỉ phí tiền", the independent read of 2026-11-12).
+test('redo keeps a body fixed by hand and its summary; the rest of the guide is the new version', async () => {
   const root = await mkdtemp(join(tmpdir(), 'yt-'))
   await videoGuides(deps(root).d, { playlists: ['PL1'] })
   const file = join(root, 'content/guides/youtube-a1/vi.json')
-  await writeFile(file, JSON.stringify({ ...(await read(root, 'content/guides/youtube-a1/vi.json')), body: '<p>người sửa</p>', bodyFixed: true }))
+  await writeFile(file, JSON.stringify({ ...(await read(root, 'content/guides/youtube-a1/vi.json')), body: '<p>người sửa</p>', summary: ['Tóm tắt người sửa.'], bodyFixed: true }))
   await videoGuides(deps(root, { drafts: [draft('Tiêu đề mới')] }).d, { playlists: ['PL1'], redo: true, write: { style: true, model: 'opus' } })
-  expect(await read(root, 'content/guides/youtube-a1/vi.json')).toMatchObject({ name: 'Tiêu đề mới', body: '<p>người sửa</p>', bodyFixed: true })
+  expect(await read(root, 'content/guides/youtube-a1/vi.json')).toMatchObject({ name: 'Tiêu đề mới', body: '<p>người sửa</p>', summary: ['Tóm tắt người sửa.'], bodyFixed: true, faq: [{ q: 'Bao lâu thay nước?', a: 'Mỗi tuần, khoảng 20 lít.' }] })
 })
 
 // Two guides from one channel had one title (the owner's "Duplicated", 2026-11-11); the titles picked by hand stay.
@@ -569,4 +573,24 @@ test('chapters: only when the description lists at least three, from 0:00, in or
   expect(chaptersFrom('0:00 a\n2:00 b')).toEqual([])
   expect(chaptersFrom('Intro text\n0:00 - Start\n1:02:03 End part\n59:00 back')).toEqual([])
   expect(chaptersFrom('0:00 - Start\n10:00 | Middle\n1:02:03 End')).toEqual([{ start: 0, title: 'Start' }, { start: 600, title: 'Middle' }, { start: 3723, title: 'End' }])
+})
+
+test('last item cost refuses admission without calls or content writes', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-admission-'))
+  const { d, calls } = deps(root)
+  await denied('videos', root, async () => {
+    const r = await videoGuides(d, { playlists: [], singles: ['a1'] })
+    expect(r.stoppedEarly).toBe(true)
+    expect(r.written).toEqual([])
+    expect(r.errors).toEqual([])
+    expect(r.stopped).toContain('not started')
+    expect(calls.prompts).toEqual([])
+  })
+})
+
+test('videos follow-up pictures stop on admission or usage, but can follow the writing limit', () => {
+  const r = { written: [], skipped: [], errors: [], stoppedEarly: true }
+  expect(videoBudgetStopped(r)).toBe(false)
+  expect(videoBudgetStopped({ ...r, stopped: 'not started' })).toBe(true)
+  expect(videoBudgetStopped({ ...r, errors: ["claude failed: the engine's daily limit reached for videos"] })).toBe(true)
 })

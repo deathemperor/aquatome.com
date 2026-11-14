@@ -38,7 +38,9 @@ const shown = Astro.props.shown ?? photos.slice(0, GALLERY_STRIP)
   h2 { font-size: var(--step-2); }
   /* On one line beside the heading or under it; wrapped only where it can't fit on one (a phone 320 px wide). */
   .head a { text-wrap: balance; font-size: 0.95rem; display: inline-block; padding-block: 10px; margin-block: -10px; }
-  ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-2); }
+  /* Each column its share (minmax(0, 1fr)), never its content's width: a photo that doesn't load shows its alt text in its
+     place, and a long word in it widened the row past a phone's edge (13 November). */
+  ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-2); }
   li a { position: relative; display: block; aspect-ratio: 4 / 3; overflow: hidden; background: var(--c-plate); }
   img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
   li a:hover img { transform: scale(1.04); }
@@ -65,7 +67,7 @@ const shown = Astro.props.shown ?? photos.slice(0, GALLERY_STRIP)
     .column li { align-self: end; }
     .column .more { display: block; }
   }
-  @media (max-width: 640px) { .wrap ul { grid-template-columns: repeat(3, 1fr); } .wrap li:nth-child(n + 7) { display: none; } }
+  @media (max-width: 640px) { .wrap ul { grid-template-columns: repeat(3, minmax(0, 1fr)); } .wrap li:nth-child(n + 7) { display: none; } }
   /* The fish page's row on a phone: thumbnails 4.5rem high, cut at the screen's edge so it shows they go on, and the
      gallery's link at the row's end, never taller than they are (contain: size), its longest words (Malay's "Lihat
      kesemua 145 foto →") in four lines at most. Its heading is for screen readers. */

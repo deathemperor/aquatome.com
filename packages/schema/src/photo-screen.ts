@@ -1,8 +1,10 @@
 /**
- * The watermark screen's record of one photo (engine-state/_photo-watermarks.json, by URL): the text macOS Vision read on
- * it, then the model's verdict once it has looked.
+ * The public screen record keeps measurements and a fingerprint, never the lettering itself.
+ * Legacy lines are readable during the engine-owned migration, but are never written again.
  */
-export type PhotoScreenEntry = { ocr: { t: string; c: number }[]; watermark?: boolean }
+export type OcrSummary = { c: number; at?: string; alnum: number; mark: boolean; hash: string }
+export type LegacyOcrLine = { t: string; c: number; at?: string }
+export type PhotoScreenEntry = { ocr: (OcrSummary | LegacyOcrLine)[]; watermark?: boolean }
 
 const MARK = /©|\(c\)|copyright|www\.|https?:|\.(com|net|org|de|co|vn|th|id|uk)\b/i
 
@@ -10,8 +12,18 @@ const MARK = /©|\(c\)|copyright|www\.|https?:|\.(com|net|org|de|co|vn|th|id|uk)
  * The intake rule: text on a photo worth a model's look. A credit sign or a web address always; otherwise a line Vision
  * is sure of with at least 3 letters or digits (fish scales and plant stems read as stray "I", "ll" or "W").
  */
-export function ocrHit(lines: { t: string; c: number }[]): boolean {
-  return lines.some(l => MARK.test(l.t) || (l.c >= 0.5 && (l.t.match(/[\p{L}\p{N}]/gu)?.length ?? 0) >= 3))
+export const validOcrSummary = (x: unknown): x is OcrSummary => {
+  const l=x as OcrSummary|undefined
+  return !!l && Number.isFinite(l.c) && l.c>=0 && l.c<=1 && Number.isSafeInteger(l.alnum) && l.alnum>=0
+    && typeof l.mark==='boolean' && typeof l.hash==='string' && /^[a-f0-9]{64}$/.test(l.hash)
+    && (l.at===undefined || /^(?:(?:top|middle|bottom) (?:left|centre|right)|unknown)$/.test(l.at))
+}
+export function ocrHit(lines: (OcrSummary | LegacyOcrLine)[]): boolean {
+  if(!Array.isArray(lines))return true
+  return lines.some(l => {
+    if(l && 't' in l && typeof l.t==='string')return MARK.test(l.t) || (l.c>=0.5 && (l.t.match(/[\p{L}\p{N}]/gu)?.length??0)>=3)
+    return !validOcrSummary(l) || l.mark || (l.c>=0.5 && l.alnum>=3)
+  })
 }
 
 /**

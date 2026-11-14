@@ -134,3 +134,13 @@ test("a picture the build holds back for the watermark screen is left off the ca
   expect(ix.home.days?.length).toBe(2)
   expect([...ix.home.days!, ...ix.home.hero!].filter(x => x.img)).toEqual([])
 })
+
+test('Tìm\'s suggested searches reach each language\'s index as written; a language with none gets no section', async () => {
+  const vi = ['betta', 'cá vàng', 'bảy màu', 'tép', 'rêu java', 'bệnh đốm trắng', 'rêu hại', 'chu trình nitơ']
+  const ms = ['laga', 'guppy', 'udang', 'louhan', 'arowana', 'molly', 'discus', 'penapis']
+  const cur = CurationSchema.parse({ version: 1, weeks: [], days: [], searches: { vi, ms } })
+  expect(curationFor(cur, 'vi', '2026-11-12', ref => `/${ref}/`).searches).toEqual(vi)
+  expect('searches' in curationFor(cur, 'th', '2026-11-12', ref => `/${ref}/`)).toBe(false)
+  const ix = appIndex('ms', await getContent('ms'), new Map(), (await getContent('vi')).species, { calendar: { ...calendar, searches: { vi, ms } }, today: '2026-11-10' })
+  expect(ix.home.searches).toEqual(ms)
+})

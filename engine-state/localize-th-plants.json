@@ -1904,12 +1904,31 @@
     ]
   },
   "riccia-fluitans": {
-    "at": "2026-11-06",
-    "from": "2026-10-31",
+    "at": "2026-11-13",
+    "from": "2026-11-13",
     "name": "ริคเซีย",
     "confidence": "high",
-    "score": 0.9,
-    "notes": []
+    "score": 0.85,
+    "notes": [
+      "Item 3: \"ไม่กี่ดอลลาร์\" leaves the US currency in place. Use a neutral phrase such as \"ราคาไม่กี่สิบบาท\" or \"ราคาถูก\".",
+      "Item 12: \"ปลาซิบร้า/ม้าลาย (Zebra Danio)\" and \"เครย์ฟิช/ล็อบสเตอร์น้ำจืด\" use slashes and alternatives. Pick one common Thai name, such as \"ปลาซิบร้าดานิโอ\" and \"กุ้งเครย์ฟิช\".",
+      "Item 12: Several snail names are left in English (Japanese trapdoor snail, Malaysian trumpet snail, Black Devil snail, Rabbit snail). The Thai names are หอยฝาปิดญี่ปุ่น, หอยเจดีย์/หอยมลายู, and หอยกระต่าย.",
+      "Item 8: \"ให้ผลที่ไม่น่าพอใจ\" is stiff for \"the result is undesirable\". Use something like \"ซึ่งดูไม่สวย\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "e06a3a7b771e",
+      "quickFacts:aquariumbreeder": "ec0d038e5db9",
+      "beforeYouBuy:aquariumbreeder": "3603ce7f9742",
+      "distribution:aquariumbreeder": "d41142d175a2",
+      "habitat:aquariumbreeder": "533f6ad90bb5",
+      "aquariumSize:aquariumbreeder": "fc0afd57b405",
+      "maintenance:tropica": "7101bcab8cdc",
+      "maintenance:aquariumbreeder": "ec07f6d22630",
+      "waterConditions:aquariumbreeder": "4c924e786b5c",
+      "equipment:aquariumbreeder": "229a7977c638",
+      "notes:tropica": "d021ce008122",
+      "notes:aquariumbreeder": "a825ccc8c3f4"
+    }
   },
   "rotala-indica": {
     "at": "2026-11-10",
@@ -2024,12 +2043,26 @@
     "notes": []
   },
   "salvinia-minima": {
-    "at": "2026-11-06",
-    "from": "2026-10-31",
+    "at": "2026-11-12",
+    "from": "2026-11-11",
     "name": "จอกหูหนูจิ๋ว",
     "confidence": "medium",
-    "score": 0.93,
-    "notes": []
+    "score": 0.9,
+    "notes": [
+      "\"ปลากลุ่ม Anabantids\" leaves English untranslated; use \"ปลากลุ่มลาบรินท์ (ปลากัด ปลากระดี่)\" or put the English in brackets after the Thai.",
+      "\"เอ็นด์เลอร์\" and \"โอโตซินครัส\" are transliterations that hobbyists rarely use; write \"กัปปี้เอนด์เลอร์\" or add the English in brackets, and write \"ปลาอ็อตโต\" or \"โอโตซินคลัส\" in a more common form."
+    ],
+    "parts": {
+      "quickFacts:tropica": "80039c344aff",
+      "quickFacts:aquariumbreeder": "4b2d572500f9",
+      "distribution:aquariumbreeder": "f69f64b46963",
+      "habitat:aquariumbreeder": "5f817f7b47bd",
+      "aquariumSize:aquariumbreeder": "e0f56a6b4b7b",
+      "maintenance:aquariumbreeder": "acd511749648",
+      "waterConditions:aquariumbreeder": "d24c8ba5ca4f",
+      "notes:tropica": "0272a26d026f",
+      "notes:aquariumbreeder": "243fcddce1a4"
+    }
   },
   "schismatoglottis-prietoi": {
     "at": "2026-11-06",
@@ -2160,15 +2193,20 @@
     ]
   },
   "utricularia-graminifolia": {
-    "at": "2026-11-11",
+    "at": "2026-11-12",
     "from": "2026-11-09",
     "name": "ยูจี (Utricularia graminifolia)",
     "confidence": "medium",
-    "score": 0.95,
-    "notes": [],
+    "score": 0.85,
+    "notes": [
+      "\"ไม่มีราก\" is a faithful rendering but the plant (UG, Utricularia graminifolia) is not named in full; fine as in source, though \"แค่โดนกระทบเบา ๆ ก็หลุด...แล้ว\" has a slightly awkward \"แล้ว\"; consider \"แค่สัมผัสเบา ๆ ก็หลุดจากวัสดุปลูก\".",
+      "\"ปลูกต้นใหม่ซ่อมแทน\" is slightly clumsy; consider \"ปลูกต้นใหม่ซ่อมแทนจุดนั้น\" or \"ปลูกเสริม\".",
+      "\"หน้าตู้\" for \"tiền cảnh\" is acceptable but \"ด้านหน้าตู้\" or \"ฉากหน้า\" reads more natural."
+    ],
     "parts": {
       "quickFacts:tropica": "45d7e205dfe7",
-      "notes:tropica": "7ae068c36b4a"
+      "notes:tropica": "7ae068c36b4a",
+      "maintenance:aquatome": "36fb817a8ba0"
     }
   },
   "vallisneria": {

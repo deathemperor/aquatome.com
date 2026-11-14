@@ -1,0 +1,31 @@
+{
+  "slug": "marbled-knifefish",
+  "name": "Marbled Knifefish",
+  "altNames": [
+    "ikan pisau marmar",
+    "knifefish"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Sejenis ikan pisau (knifefish) bersaiz kecil (panjang maksimum sehingga 20 cm) dari Venezuela. Ia spesies yang sangat cantik dan tidak agresif. Nama umum yang dicadangkan: Marbled Knifefish.</p>",
+    "beforeYouBuy:glaser": "<p>Spesies ini jarang sekali diimport, dan hanya beberapa ekor sahaja yang dapat diperoleh. Saiz yang ada: 8–10 cm.</p>",
+    "distribution:glaser": "<p>Venezuela.</p>",
+    "waterConditions:glaser": "<p>Dari segi kimia air, ikan ini nampaknya tidak cerewet. Namun, air lembut dan berasid lebih sesuai daripada air keras dan beralkali. Suhu air patut sedikit lebih tinggi daripada biasa, iaitu sekitar 26–28 °C.</p>",
+    "equipment:glaser": "<p>Ikan pisau paling aktif pada waktu fajar, jadi tangki tidak patut terlalu terang dan perlu ada banyak tempat bersembunyi.</p>",
+    "diet:glaser": "<p>Ikan ini pada dasarnya diberi makan cacing tubifex dan makanan ikan beku.</p>",
+    "behaviour:glaser": "<p>Seperti semua ikan pisau Amerika Selatan, spesies ini berelektrik lemah dan berkomunikasi dengan ikan sespesies melalui impuls elektrik. Impuls ini juga digunakan untuk orientasi.</p>",
+    "notes:glaser": "<p>Genus Adontosternarchus kini terdiri daripada empat spesies yang diterima, dan paling mudah dibezakan melalui perbezaan profil kepala berserta bentuk mulut.</p><p>Adontosternarchus: daripada bahasa Yunani purba, bermaksud \"Sternarchus tanpa gigi\"; Sternarchus ialah satu lagi genus ikan pisau. clarkae: nama penghormatan untuk Cik Kate Clark, pengumpul pertama spesies ini.</p>"
+  },
+  "quality": {
+    "score": 0.75,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.75
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-13"
+  }
+}

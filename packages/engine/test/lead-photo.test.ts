@@ -140,14 +140,22 @@ test("a photo on the calendar's avoid list doesn't lead; --calendar touches only
 })
 
 test("--calendar fills an empty page with no model call; a plant is given a first photo and otherwise left alone", async () => {
-  const root = await store({ aaa: { photos: [photo('a-head')], gallery: [big('a-gal')] }, empty: { photos: [], gallery: [photo('e-gal', 500, 400)] } })
+  const root = await store({
+    aaa: { photos: [photo('a-head')], gallery: [big('a-gal')] }, empty: { photos: [], gallery: [photo('e-gal', 500, 400)] },
+    // A fish its source's caption calls unwell, or names a damaged fin of, is no page's first photo: not by the card's
+    // checks, and not as the one photo with its source's own mark.
+    sickly: { photos: [], gallery: [{ ...photo('s-gal', 500, 400), caption: 'Recently-deceased specimen.' }] },
+    marked: { photos: [], gallery: [{ ...photo('m-gal', 500, 400), sourceUrl: 'https://www.aquariumglaser.de/en/x/', caption: 'Adult with a slightly damaged caudal fin.' }] },
+  })
   const subjects = JSON.parse(await readFile(join(root, 'engine-state/_photo-subjects.json'), 'utf8'))
+  subjects[url('m-gal')].marked.logo = true
   const ok = { ok: 'yes', typical: true, note: '', person: false, logo: false }
   await mkdir(join(root, 'content/plants/bare'), { recursive: true })
   await mkdir(join(root, 'content/plants/full'), { recursive: true })
   await writeFile(join(root, 'content/plants/bare/entity.json'), JSON.stringify({ id: 'bare', photos: [] }))
   await writeFile(join(root, 'content/plants/full/entity.json'), JSON.stringify({ id: 'full', photos: [photo('p-head')] }))
-  await writeFile(join(root, 'content/gallery/bare.json'), JSON.stringify({ id: 'bare', photos: [photo('p-gal')] }))
+  // A plant's caption is not asked: a damaged leaf is no unwell fish.
+  await writeFile(join(root, 'content/gallery/bare.json'), JSON.stringify({ id: 'bare', photos: [{ ...photo('p-gal'), caption: 'A slightly damaged leaf.' }] }))
   await writeFile(join(root, 'content/gallery/full.json'), JSON.stringify({ id: 'full', photos: [big('p-big')] }))
   for (const [u, id] of [[url('p-gal'), 'bare'], [url('p-head'), 'full'], [url('p-big'), 'full']] as const) (subjects[u] ??= {})[id] = ok
   await writeFile(join(root, 'engine-state/_photo-subjects.json'), JSON.stringify(subjects))
@@ -157,6 +165,8 @@ test("--calendar fills an empty page with no model call; a plant is given a firs
   expect(r.gained).toHaveLength(2)
   expect((await entity(root, 'empty')).photos.map(p => name(p.url))).toEqual(['e-gal'])
   expect((await entity(root, 'aaa')).photos.map(p => name(p.url))).toEqual(['a-head'])
+  expect((await entity(root, 'sickly')).photos).toEqual([])
+  expect((await entity(root, 'marked')).photos).toEqual([])
   const plant = async (id: string) => (JSON.parse(await readFile(join(root, 'content/plants', id, 'entity.json'), 'utf8')) as { photos: Photo[] }).photos.map(p => name(p.url))
   expect(await plant('bare')).toEqual(['p-gal'])
   expect(await plant('full')).toEqual(['p-head'])

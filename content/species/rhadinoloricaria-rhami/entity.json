@@ -11,6 +11,47 @@
     "huacamayo",
     "ucayali"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Amazon",
+        "Río Huacamayo",
+        "Rio Ucayali",
+        "Rio Yuruá",
+        "Rio Chio"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Upper Amazon River basin. Type locality: Río Huacamayo, about 9°S, 75°29'W, about 8 kilometres northeast of Aguaytia village, Coronel Portillo Province, Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Amazon",
+            "Río Huacamayo"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Peru: Rio Chio, Rio Yuruá, Rio Ucayali.",
+          "countries": [],
+          "regions": [
+            "Rio Ucayali",
+            "Rio Yuruá",
+            "Rio Chio"
+          ]
+        }
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -122,30 +163,7 @@
       "html": "<p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Chuctaya, J., Arguello, P. &amp; Sanchez-Duarte, P. 2016. Crossoloricaria rhami. The IUCN Red List of Threatened Species 2016.</p><p>Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944.</p><p>Froese, R. and D. Pauly. Editors. 2026. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 02/2026 ).</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/c81fe22b9d54b0d6.webp",
-      "thumb": "https://media.aquatome.com/scotcat/c81fe22b9d54b0d6-480.webp",
-      "width": 500,
-      "height": 318,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/rhadinoloricaria_rhami.htm",
-      "caption": "Rhadinoloricaria rhami",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/a4be48f9c9b614fe.webp",
-      "thumb": "https://media.aquatome.com/scotcat/a4be48f9c9b614fe-480.webp",
-      "width": 500,
-      "height": 333,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/rhadinoloricaria_rhami.htm",
-      "caption": "Rhadinoloricaria rhami: Ventral view of mouth",
-      "source": "scotcat"
-    }
-  ],
+  "photos": [],
   "videos": [],
   "productSlots": [
     {

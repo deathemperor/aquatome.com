@@ -1,0 +1,42 @@
+{
+  "id": "potamocypoda-pugil",
+  "native": {
+    "input": "6d7a78a762594fb1",
+    "at": "2026-11-13T05:31:31.275Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "This species is endemic to Malaysia.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sedili",
+        "source": "aquariumbreeder",
+        "quote": "It is a tributary of the River Sedili.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Potamocypoda pugil",
+    "status": "ACCEPTED",
+    "taxonKey": 5974211,
+    "datasets": [],
+    "native": [
+      "MY"
+    ],
+    "requests": 2,
+    "at": "2026-11-13T05:31:31.275Z"
+  }
+}

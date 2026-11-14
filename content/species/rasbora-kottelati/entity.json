@@ -11,6 +11,100 @@
     "malaysia",
     "sarawak"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BN",
+        "MY"
+      ],
+      "regions": [
+        "Borneo",
+        "Rajang",
+        "Baram",
+        "Belait",
+        "Ingei"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is endemic to Borneo where it is restricted to Brunei Darussalam and northern parts of the Malaysian state of Sarawak.",
+          "countries": [
+            "BN",
+            "MY"
+          ],
+          "regions": [
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Sarawak it ranges from the Rajang river basin near the town of Sibu to the Baram drainage at the border town of Marudi.",
+          "countries": [],
+          "regions": [
+            "Rajang",
+            "Baram"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Brunei Darussalam it has been collected from tributaries of the Belait and Ingei rivers.",
+          "countries": [],
+          "regions": [
+            "Belait",
+            "Ingei"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2359630,
+      "total": 25,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "MY",
+          16
+        ],
+        [
+          "ID",
+          8
+        ],
+        [
+          "BN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          111.09375,
+          0,
+          8,
+          0
+        ],
+        [
+          111.09375,
+          1.40625,
+          12,
+          12
+        ],
+        [
+          112.5,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          113.90625,
+          4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

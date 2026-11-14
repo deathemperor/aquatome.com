@@ -25,7 +25,7 @@
       "quotes": [
         {
           "source": "glaser",
-          "quote": "A very pretty tetra from Peru that is only occasionally available.",
+          "quote": "Origin: Peru.",
           "countries": [
             "PE"
           ],
@@ -122,6 +122,10 @@
       {
         "source": "seriouslyfish",
         "value": 3.2
+      },
+      {
+        "source": "glaser",
+        "value": 4
       }
     ],
     "difficulty": [
@@ -129,14 +133,23 @@
         "source": "seriouslyfish",
         "value": 2
       }
+    ],
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
     ]
   },
   "sections": [
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_eschwartzae_hyphessobrycon_cf_agulha__en-2/",
-      "html": "<p>A very pretty tetra from Peru that is only occasionally available.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_eschwartzae_hyphessobrycon_cf_agulha__en/",
+      "html": "<p>The Flag Tetra (Hyphessobrycon heterorhabdus) is one of the most beautiful small tetras of Amazonia. A sister species, H. amapaensis, occurs in Brazil. It has a similar coloration, but can be recognized by the broad, red stripe. Both species are much sought after. Another species of Flag Tetra was imported from Peru, probably a species not yet recognized by science. It looks most similar to the described species Hyphessobrycon agulha, so it was listed as Hyphessobrycon cf. agulha. In the meantime the species has been described scientifically under the name Hyphessobrycon eschwartzae.</p><p>Suggested common name: Red-Eyed Flag Tetra.</p>"
     },
     {
       "key": "quickFacts",
@@ -151,6 +164,30 @@
       "html": "<p>This species is currently known only from the Río Madre de Dios watershed in Madre de Dios region, southeastern Peru, where it has been collected from the Tambopata National Reserve plus areas north of the nearby city Puerto Maldonado.</p><p>Type locality is 'La Cachuela, Río Madre de Dios, Tambopata, Madre de Dios, 12°16'38.2\"S, 69°09'8.12\"W'.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_eschwartzae_hyphessobrycon_cf_agulha__en/",
+      "html": "<p>Origin: Peru.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_eschwartzae_hyphessobrycon_cf_agulha__en/",
+      "html": "<p>Soft and slightly acidic water is much liked by the fish, but they also adapt very well to other water conditions. The water temperature may lie between 22 and 28°C.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_eschwartzae_hyphessobrycon_cf_agulha__en/",
+      "html": "<p>It feeds readily on any usual type of food for ornamental fish.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_eschwartzae_hyphessobrycon_cf_agulha__en/",
+      "html": "<p>This very pretty species looks a bit like a cross of Hyphessobrycon herbertaxelrodi (Black Neon Tetra) and Hemigrammus erythrozonus (Glowlight Tetra). The bright red eye is very striking. Its behaviour is comparable to that of other small tetras. It prefers to swim in schools and looks best in well planted aquaria with other quiet tankmates. Plants are not bothered and tankmates are completely left in peace.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-eschwartzae",
@@ -159,8 +196,8 @@
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_eschwartzae_hyphessobrycon_cf_agulha__en-2/",
-      "html": "<p>Keeping this fish is comparable to the popular Black Neon (Hyphessobrycon herbertaxelrodi), which also looks somewhat similar.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_eschwartzae_hyphessobrycon_cf_agulha__en/",
+      "html": "<p>Maximum length 3-4 cm.</p><p>Lexicon: Hyphessobrycon: ancient Greek, means \"small Brycon\". Brycon is another genus of tetras. heterorhabdus: ancient Greek, means \"with different stripe\", which refers to the coloration. amapaensis: Latin, means \"originating from Amapa\". agulha: after a popular name given to the species in the region of the Rio Madeira, the type locality.</p>"
     },
     {
       "key": "notes",
@@ -200,5 +237,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-13"
 }

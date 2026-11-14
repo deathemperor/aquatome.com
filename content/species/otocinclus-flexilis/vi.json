@@ -1,0 +1,24 @@
+{
+  "slug": "ca-otocinclus-flexilis",
+  "name": "Cá otocinclus flexilis",
+  "altNames": [
+    "Cá oto xám",
+    "Peppered Oto"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Otocinclus flexilis Cope, 1894</li><li>Tên thường gọi: Peppered Oto</li><li>Tên đồng nghĩa: Macrotocinclus flexilis, Otocinclus fimbriatus</li><li>Danh sách đỏ IUCN: Ít quan tâm (đánh giá lần cuối năm 2018)</li></ul>",
+    "distribution:planetcatfish": "<p>Nam Mỹ: lưu vực La Plata, gồm Uruguay, Paraná (trung và hạ lưu sông Paraná) và Paraguay. Nơi thu mẫu chuẩn: Rio Jacuhy [Jacuí], Rio Grande do Sul, Brazil.</p>",
+    "waterConditions:planetcatfish": "<ul><li>Nhiệt độ: 20–25°C</li><li>pH: 6,5–7,8</li><li>Độ cứng: 2–25 dGH</li></ul>",
+    "dimorphism:planetcatfish": "<p>Con cái to hơn và bầu hơn con đực. Nhìn từ trên xuống thì thấy rõ nhất.</p>",
+    "reproduction:planetcatfish": "<p>Chưa thấy ai ghi lại chuyện loài này đẻ.</p>",
+    "references:planetcatfish": "<p>Proceedings of the American Philosophical Society v. 33, pp 97, Pl. 8 [7] (figs. 13, 13a-b).</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.85
+    },
+    "reason": "thin"
+  }
+}

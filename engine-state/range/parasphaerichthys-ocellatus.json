@@ -1,0 +1,71 @@
+{
+  "id": "parasphaerichthys-ocellatus",
+  "native": {
+    "input": "a0ef822e75862825",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This extremely rarely imported species originates from Burma.",
+        "words": "Burma",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The eyespot gourami, Parasphaerichthys ocellatus, is a small anabantoid from the upper Ayeyarwady basin in northern Myanmar, including Lake Indawgyi.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ayeyarwady",
+        "source": "seriouslyfish",
+        "quote": "The eyespot gourami, Parasphaerichthys ocellatus, is a small anabantoid from the upper Ayeyarwady basin in northern Myanmar, including Lake Indawgyi.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Lake Indawgyi",
+        "source": "seriouslyfish",
+        "quote": "The eyespot gourami, Parasphaerichthys ocellatus, is a small anabantoid from the upper Ayeyarwady basin in northern Myanmar, including Lake Indawgyi.",
+        "country": "MM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parasphaerichthys ocellatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2393953,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        5
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-12T13:29:05.219Z"
+  }
+}

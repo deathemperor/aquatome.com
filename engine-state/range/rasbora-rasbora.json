@@ -1,0 +1,163 @@
+{
+  "id": "rasbora-rasbora",
+  "native": {
+    "input": "291477dac2165153",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "PK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Apparently native to Pakistan, India, Bangladesh, Myanmar and Thailand, which is a potentially enormous natural range.",
+        "words": "Pakistan",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Apparently native to Pakistan, India, Bangladesh, Myanmar and Thailand, which is a potentially enormous natural range.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Apparently native to Pakistan, India, Bangladesh, Myanmar and Thailand, which is a potentially enormous natural range.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Apparently native to Pakistan, India, Bangladesh, Myanmar and Thailand, which is a potentially enormous natural range.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Apparently native to Pakistan, India, Bangladesh, Myanmar and Thailand, which is a potentially enormous natural range.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Many of the older occurrence records are probably cases of mistaken identity as this species certainly does not occur in Singapore or the Greater Sunda Islands of Borneo and Sumatra.",
+        "words": "Singapore",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Brahmaputra",
+        "source": "seriouslyfish",
+        "quote": "More recent records have tended to be from the Brahmaputra river basin in northeastern India and Bangladesh or various parts of Myanmar including Lake Indawgyi as well as the Salween, Thandwe and Ayeyarwady river drainages.",
+        "ok": true
+      },
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "More recent records have tended to be from the Brahmaputra river basin in northeastern India and Bangladesh or various parts of Myanmar including Lake Indawgyi as well as the Salween, Thandwe and Ayeyarwady river drainages.",
+        "ok": true
+      },
+      {
+        "name": "Ayeyarwady",
+        "source": "seriouslyfish",
+        "quote": "More recent records have tended to be from the Brahmaputra river basin in northeastern India and Bangladesh or various parts of Myanmar including Lake Indawgyi as well as the Salween, Thandwe and Ayeyarwady river drainages.",
+        "ok": true
+      },
+      {
+        "name": "Lake Indawgyi",
+        "source": "seriouslyfish",
+        "quote": "More recent records have tended to be from the Brahmaputra river basin in northeastern India and Bangladesh or various parts of Myanmar including Lake Indawgyi as well as the Salween, Thandwe and Ayeyarwady river drainages.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Thandwe",
+        "source": "seriouslyfish",
+        "quote": "More recent records have tended to be from the Brahmaputra river basin in northeastern India and Bangladesh or various parts of Myanmar including Lake Indawgyi as well as the Salween, Thandwe and Ayeyarwady river drainages.",
+        "ok": true
+      },
+      {
+        "name": "Khwae Noi",
+        "source": "seriouslyfish",
+        "quote": "In Thailand it may be restricted to border rivers close to Myanmar such as the Songgaria, a tributary of the Khwae Noi (River Kwai).",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rasbora rasbora",
+    "status": "ACCEPTED",
+    "taxonKey": 2359570,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        20
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        16
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        14
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "9f2af0c5-2ff7-42fe-aad6-c0b5af96535a",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "PK",
+      "IN",
+      "BD",
+      "MM",
+      "TH"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T00:09:29.977Z"
+  }
+}

@@ -1,8 +1,8 @@
 {
   "id": "corydoras-amandajanea",
   "native": {
-    "input": "d9c4dd81879d8953",
-    "at": "2026-11-07T09:20:22.982Z",
+    "input": "ddd4c0a84c421a7d",
+    "at": "2026-11-14T00:09:29.977Z",
     "claims": [
       {
         "code": "BR",
@@ -15,10 +15,11 @@
       {
         "code": "BR",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Type locality is 'Rio Miuã system of streams, possibly the Uarinabe stream, 10-12 km from its confluence of the Upper Negro R., Brazil'.",
+        "source": "glaser",
+        "quote": "Brazil.",
         "words": "Brazil",
-        "ok": true
+        "ok": false,
+        "why": "no sentence"
       }
     ],
     "regions": [

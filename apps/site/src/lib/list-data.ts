@@ -2,11 +2,12 @@ import { POPULAR, slugify, STAPLE_SPECIES, type Content, type GuideEntity, type 
 import type { PlantIndexItem, SpeciesIndexItem } from '../scripts/filter'
 import { typeUses } from './equipment'
 import { GUIDE_KIND_LABELS } from './format'
+import { alterationNotice } from './gallery'
 import { cleanPhoto, leadGuides, listOrder } from './home'
 import { licenceLabel, type Lang, type T } from './i18n'
-import { smallSrc } from './img'
+import { smallSrc, tileFrame, tilePhoto } from './img'
 import { guideImages } from './mentions'
-import { listPictures, pagePictures, photosOf, takeEach } from './pictures'
+import { listPictures, pagePictures, photosOf, takeEach, tilePhotos } from './pictures'
 import { PAGE } from '../scripts/filter-list'
 import type { MateItem } from '../scripts/tankmates'
 import { toIndexItem } from './species-index'
@@ -23,20 +24,21 @@ import { taxonKeys } from './taxa-places'
  */
 
 /** The photo a card shows: its small picture, and its credit (author, licence as shown, its page on the source; an Unsplash photographer's page). */
-export type CardPhoto = { src: string; w: number; h: number; author: string; authorUrl?: string; licence: string; url: string; altered?: true; cropped?: true }
+export type CardPhoto = { src: string; w: number; h: number; author: string; authorUrl?: string; licence: string; url: string; altered?: true }
 /** Only what the filter reads (no gh, sizeCm), and the card's photo. */
 /** `water`: kept in brackish or sea water (the card says so under its name). */
-export type SpeciesListItem = Omit<SpeciesIndexItem, 'gh' | 'sizeCm'> & { photo?: CardPhoto; water?: 'brackish' | 'marine' }
+/** A fish card's photo also says how its tile frames it (tileFrame): `pos`, the crop moved onto the fish; `whole`, the photo whole; `mat`, on the mat, not blurred. */
+export type SpeciesListItem = Omit<SpeciesIndexItem, 'gh' | 'sizeCm'> & { photo?: CardPhoto & { pos?: string; whole?: true; mat?: true }; water?: 'brackish' | 'marine' }
 /** The filter's figures, and the card's name, line about light and CO₂ (in the page's language) and photo. */
 export type PlantListItem = PlantIndexItem & { name: string; scientificName: string; meta: string; photo?: CardPhoto }
 
-export const cardPhoto = (p: Photo): CardPhoto => ({ src: smallSrc(p), w: p.width, h: p.height, author: p.author, ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), licence: licenceLabel(p.licence), url: p.sourceUrl, ...(p.altered?.length ? { altered: true as const } : {}), ...(p.altered?.some(a=>a.method==='mark-crop') ? {cropped:true as const} : {}) })
+export const cardPhoto = (p: Photo): CardPhoto => ({ src: smallSrc(p), w: p.width, h: p.height, author: p.author, ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), licence: licenceLabel(p.licence), url: p.sourceUrl, ...(alterationNotice(p) ? { altered: true as const } : {}) })
 
 /** Species as a list's data file has them, with the photo each card shows (`photos`, the list's: lib/pictures.ts listPictures). */
 export const speciesItems = (species: Localized<SpeciesEntity>[], photos: (Photo | null)[]): SpeciesListItem[] => species.map((s, n) => {
   const { gh, sizeCm, ...i } = toIndexItem(s)
-  const p = photos[n]
-  return { ...i, ...(s.water ? { water: s.water.kind } : {}), ...(p ? { photo: cardPhoto(p) } : {}) }
+  const p = tilePhoto(photos[n])
+  return { ...i, ...(s.water ? { water: s.water.kind } : {}), ...(p ? { photo: { ...cardPhoto(p), ...tileFrame(p) } } : {}) }
 })
 
 /**
@@ -47,7 +49,7 @@ export function fishList(lang: Lang, c: Content) {
   const breeds = [...c.breeds].sort((a, b) => Number(!a.photos.length) - Number(!b.photos.length) || a.t.name.localeCompare(b.t.name, lang))
   const breedPhotos = takeEach(pagePictures(c), breeds, b => b.photos)
   const species = listOrder(lang, c)
-  return { breeds, breedPhotos, species, photos: listPictures(c, 'ca', species, s => photosOf(s.photos), breedPhotos) }
+  return { breeds, breedPhotos, species, photos: listPictures(c, 'ca', species, s => tilePhotos(s.photos), breedPhotos) }
 }
 
 /** Every species in the fish list's order. */
@@ -72,7 +74,7 @@ export function kitPictures(lang: Lang, c: Content, category: string) {
 
 /** The card pictures of one of `speciesLists`, by its address (lib/pictures.ts listPictures), after what its page shows above it. */
 export const speciesListPhotos = (lang: Lang, c: Content, list: string, species: Localized<SpeciesEntity>[]) =>
-  listPictures(c, list, species, s => photosOf(s.photos), list.startsWith('thiet-bi/') ? kitPictures(lang, c, list.slice('thiet-bi/'.length)).above : [])
+  listPictures(c, list, species, s => tilePhotos(s.photos), list.startsWith('thiet-bi/') ? kitPictures(lang, c, list.slice('thiet-bi/'.length)).above : [])
 
 /**
  * The species lists of the group, taxon, origin and equipment pages, by the page's address under /vi/ ("nhom/catfish",

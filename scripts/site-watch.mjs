@@ -114,7 +114,11 @@ export function prComment(results, runUrl) {
   const lines = reviewed.flatMap(c => [...c.highs.map(h => `- **high**, ${c.title.replace(/ @\w+$/, '')}: ${h}`), ...c.notes.map(n => `- medium, ${c.title.replace(/ @\w+$/, '')}: ${n}`)])
   const head = reviewed.length ? `${reviewed.length} pages reviewed on the fixture build.` : reviews.length ? 'No page was reviewed.' : 'The review did not run.'
   const why = [...unrun].map(([reason, cs]) => `${cs.length} ${cs.length === 1 ? 'review' : 'reviews'} did not run: ${reason}`)
-  return [`### AI page review (advisory)`, '', head, ...why, '', ...(reviewed.length ? [...(lines.length ? lines : ['Nothing serious found.']), ''] : []), `[run](${runUrl}) · docs/governance.md, layer 3`].join('\n')
+  // A page not reviewed (a usage limit, the review's daily ceiling, a failure) is never to be taken for a clean one.
+  const missed = reviews.length - reviewed.length
+  const notAPass = missed ? [`**This is not a pass: ${missed} of ${reviews.length} pages ${missed === 1 ? 'was' : 'were'} not reviewed.**`] : []
+  const clean = missed ? `Nothing serious found on the ${reviewed.length} reviewed.` : 'Nothing serious found.'
+  return [`### AI page review (advisory)`, '', head, ...why, ...notAPass, '', ...(reviewed.length ? [...(lines.length ? lines : [clean]), ''] : []), `[run](${runUrl}) · docs/governance.md, layer 3`].join('\n')
 }
 
 const locs = xml => [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1])
@@ -133,14 +137,31 @@ export function lateDeploy(commitDates, now) {
   const hours = Math.floor((now - Math.min(...commitDates.map(d => Date.parse(d)))) / 3_600_000)
   return hours >= LATE_HOURS ? { hours, changes: commitDates.length } : null
 }
+/** deploy.yml's paths (its test holds them to it). */
+export const DEPLOY_PATHS = ['apps/', 'packages/schema/', 'content/', 'pnpm-lock.yaml']
+/** Whether changes taken together (main against the last deploy) touch what deploy.yml deploys. GitHub starts a deploy
+ *  from a push's changes taken together: an engine push that changes a file and changes it back starts none, and
+ *  leaves nothing waiting. A folder matches what is under it; a file matches that file only. */
+export const goesLive = files => files.some(f => DEPLOY_PATHS.some(p => p.endsWith('/') ? f.startsWith(p) : f === p))
 /** The commits on main a deploy would carry (deploy.yml's paths) that came after the last deploy to finish. */
-function waitingCommits() {
+export function waitingCommits(call = gh) {
   const repo = process.env.GITHUB_REPOSITORY ?? 'deathemperor/aquatome.com'
-  const sha = gh('run', 'list', '-R', repo, '--workflow', 'deploy.yml', '--status', 'success', '--limit', '1', '--json', 'headSha', '--jq', '.[0].headSha').trim()
-  const since = gh('api', `repos/${repo}/commits/${sha}`, '--jq', '.commit.committer.date').trim()
+  const sha = call('run', 'list', '-R', repo, '--workflow', 'deploy.yml', '--status', 'success', '--limit', '1', '--json', 'headSha', '--jq', '.[0].headSha').trim()
+  // At 300 files the list is cut off, and only an ancestor of main (ahead or identical) is the diff since the deploy.
+  // A rename's old path is previous_filename. Otherwise the compare can't say none goes live.
+  let compared = null
+  try {
+    compared = JSON.parse(call('api', `repos/${repo}/compare/${sha}...main`, '--jq', '{status,files:[.files[]?|{filename,previous_filename}]}'))
+  } catch { /* a compare that cannot be read: count the commits */ }
+  const files = Array.isArray(compared?.files) ? compared.files : null
+  if (files && (compared?.status === 'ahead' || compared?.status === 'identical') && files.length < 300) {
+    const names = files.flatMap(f => [f?.filename, f?.previous_filename].filter(n => typeof n === 'string'))
+    if (!goesLive(names)) return []
+  }
+  const since = call('api', `repos/${repo}/commits/${sha}`, '--jq', '.commit.committer.date').trim()
   const seen = new Map()
-  for (const path of ['apps', 'packages/schema', 'content', 'pnpm-lock.yaml']) {
-    const list = JSON.parse(gh('api', '-X', 'GET', `repos/${repo}/commits`, '-f', 'sha=main', '-f', `since=${since}`, '-f', `path=${path}`, '-f', 'per_page=100'))
+  for (const path of DEPLOY_PATHS.map(p => p.replace(/\/$/, ''))) {
+    const list = JSON.parse(call('api', '-X', 'GET', `repos/${repo}/commits`, '-f', 'sha=main', '-f', `since=${since}`, '-f', `path=${path}`, '-f', 'per_page=100'))
     for (const c of list) if (c.sha !== sha) seen.set(c.sha, c.commit.committer.date)
   }
   return [...seen.values()]

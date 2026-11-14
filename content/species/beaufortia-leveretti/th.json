@@ -23,7 +23,10 @@
     }
   },
   "held": {
-    "checks": [],
+    "checks": [
+      "elsewhere",
+      "harm"
+    ],
     "at": "2026-11-11"
   }
 }

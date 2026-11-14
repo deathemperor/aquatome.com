@@ -128,7 +128,12 @@
       "author": "KENPEI",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pachytriton_labiatus1.jpg",
       "caption": "Pachytriton labiatus, the paddletail newt",
-      "thumb": "https://media.aquatome.com/commons/53449d65489928f7-480.webp"
+      "thumb": "https://media.aquatome.com/commons/53449d65489928f7-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/53449d65489928f7-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "videos": [
