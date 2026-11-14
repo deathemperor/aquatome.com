@@ -233,22 +233,34 @@ test('web research refuses every page of a source the engine reads only through 
     const a = spawned.at(-1)!.args!
     return a[a.indexOf('--disallowedTools') + 1]!.split(',')
   }
-  // The one every step is handed: this checkout's sources. Planet Catfish, 2Hr Aquarist and Spruce are read through the Archive by their config.
+  // The one every step is handed: this checkout's sources. Planet Catfish, 2Hr Aquarist and Spruce are read through the
+  // Archive by their config: each host and every host under it ("www.", a forum), the Archive, Translate's proxy.
   spawned.length = 0
   await claudeResearch<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {} })
-  expect(refused()).toEqual(expect.arrayContaining(['shopee.vn', 'planetcatfish.com', 'www.planetcatfish.com', '2hraquarist.com', 'www.2hraquarist.com', 'thesprucepets.com', 'www.thesprucepets.com', 'www-thesprucepets-com.translate.goog', 'web.archive.org', 'archive.ph'].map(d => `WebFetch(domain:${d})`)))
+  expect(refused()).toEqual(expect.arrayContaining(['shopee.vn', 'planetcatfish.com', '*.planetcatfish.com', '2hraquarist.com', '*.2hraquarist.com', 'thesprucepets.com', '*.thesprucepets.com', '*.translate.goog', 'archive.org', '*.archive.org', 'archive.ph'].map(d => `WebFetch(domain:${d})`)))
   // A source the engine finds blocked is off on the next call, with no list of its own to update; and back once cleared.
   const root = await mkdtemp(join(tmpdir(), 'aq-research-'))
   const research = researchFor(root)
+  const { mkdir, rm, writeFile } = await import('node:fs/promises')
+  const record = (s: string) => writeFile(join(root, 'engine-state', '_sources.json'), s)
+  // No record to keep to (Astra's read): research doesn't run at all.
+  const before = spawned.length
+  await expect(research<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {} })).rejects.toThrow()
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  for (const bad of ['[]', '{"loachesonline":true}', 'not json']) {
+    await record(bad)
+    await expect(research<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {} }), bad).rejects.toThrow()
+  }
+  expect(spawned.length).toBe(before)
+  await record('{}')
   await research<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {} })
   expect(refused()).not.toContain('WebFetch(domain:loaches.com)')
-  const { mkdir, writeFile } = await import('node:fs/promises')
-  await mkdir(join(root, 'engine-state'), { recursive: true })
-  await writeFile(join(root, 'engine-state', '_sources.json'), JSON.stringify({ loachesonline: { blockedAt: '2026-11-14T01:00:00.000Z' } }))
+  await record(JSON.stringify({ loachesonline: { blockedAt: '2026-11-14T01:00:00.000Z' } }))
   await research<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {} })
-  expect(refused()).toEqual(expect.arrayContaining(['WebFetch(domain:loaches.com)', 'WebFetch(domain:www.loaches.com)']))
-  await writeFile(join(root, 'engine-state', '_sources.json'), '{}')
+  expect(refused()).toEqual(expect.arrayContaining(['WebFetch(domain:loaches.com)', 'WebFetch(domain:*.loaches.com)']))
+  await record('{}')
   await research<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {} })
   expect(refused()).not.toContain('WebFetch(domain:loaches.com)')
   expect(spawned.at(-1)!.args).toEqual(expect.arrayContaining(['--tools', 'WebSearch,WebFetch']))
+  await rm(root, { recursive: true, force: true })
 })

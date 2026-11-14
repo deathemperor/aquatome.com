@@ -104,7 +104,6 @@ import { CLASSIFICATION_THREAD, FORUM_SECTIONS, readForum } from './forum'
 import { readIdeas, refreshIdeas, writeIdeas } from './ideas'
 import { backfillVideoItems } from './video-items'
 import { throttled, VIDEO_GAP_MS, videoGuides, ytApi, ytDlp, ytFinder, ytFrames, ytGrab } from './youtube'
-import { isMarketplace } from './marketplaces'
 import { checkPagePhotos, EMPTY_CAP, PHOTO_CHECK_SCHEMA, recheckCandidates } from './photo-check'
 import { DEAD_SCREEN_SCHEMA, screenDead } from './dead-screen'
 import { GUIDE_PHOTO_SCHEMA, screenGuidePhotos, type GuidePhotoDeps } from './guide-photos'
@@ -117,6 +116,7 @@ import { NO_TRACE_SCHEMA, NO_TRACE_MODEL } from './image-transforms'
 import { APPEARANCE_SCHEMA, GENERATED_CHECK_MODEL, GENERATED_CHECK_SCHEMA, REFERENCE_CHECK_SCHEMA } from './image-reference'
 import { MARK_INSPECTION_SCHEMA, markInspectionPrompt, REAL_IMAGE_MODEL, type MarkInspection } from './image-real-checks'
 import { ArchiveFetcher } from './archive'
+import { researchedPage } from './cycle-only'
 import { localizeCards } from './cards-intl'
 import { heroesWithout, localizeGlossary, localizePlaces, localizeSpecies, speciesOrder, TARGETS, type TargetLang } from './localize'
 import { addShopNames, makeShopList, popularFirst, type ShopLang } from './shops'
@@ -883,18 +883,8 @@ if (cmd === 'photo-privacy') {
   const kit = (await readKit(join(ROOT, 'content'))).find(k => k.category === values.category)
   if (!brand || !model || !kit) throw new Error('usage: pnpm engine product <brand> <model> --category <equipment id> [--type <type id>]')
   const type = kit.types.find(t => t.id === values.type)
-  // Redirects are followed one hop at a time, never to a marketplace.
-  const get = async (u: string) => {
-    for (let hop = 0, url = u; hop < 4; hop++) {
-      if (isMarketplace(url)) throw new Error(`marketplace: ${url}`)
-      const res = await fetch(url, { redirect: 'manual', headers: { 'user-agent': 'Mozilla/5.0 (compatible; AquaTome/1.0; +https://aquatome.com)' }, signal: AbortSignal.timeout(20_000) })
-      const next = res.headers.get('location')
-      if (res.status >= 300 && res.status < 400 && next) { url = new URL(next, url).href; continue }
-      if (!res.ok) throw new Error(`HTTP ${res.status}`)
-      return res.text()
-    }
-    throw new Error('too many redirects')
-  }
+  // Redirects are followed one hop at a time, never to a marketplace nor a source read only at the engine's pace.
+  const get = researchedPage(ROOT)
   const r = await makeProduct(join(ROOT, 'content'), { research: claudeResearch, llm: claudeCli, get, now: () => new Date() }, { brand, model, category: kit.category, ...(type ? { type: type.id } : {}), kind: type?.name ?? kit.name }, { researchModel: process.env.RESEARCH_MODEL ?? 'opus', factsDir: join(ROOT, 'engine-state/products'), reuse: values.redo })
   console.log(JSON.stringify(r, null, 1))
 } else if (cmd === 'product-candidates') {
@@ -903,17 +893,7 @@ if (cmd === 'photo-privacy') {
 } else if (cmd === 'product-reviews') {
   // What YouTube reviews found, on product pages: the next --limit products of the candidates (a page first when one has none).
   // --only id,id: these; --no-new-pages: no long research call now; --dry-run: print, write nothing.
-  const get = async (u: string) => {
-    for (let hop = 0, url = u; hop < 4; hop++) {
-      if (isMarketplace(url)) throw new Error(`marketplace: ${url}`)
-      const res = await fetch(url, { redirect: 'manual', headers: { 'user-agent': 'Mozilla/5.0 (compatible; AquaTome/1.0; +https://aquatome.com)' }, signal: AbortSignal.timeout(20_000) })
-      const next = res.headers.get('location')
-      if (res.status >= 300 && res.status < 400 && next) { url = new URL(next, url).href; continue }
-      if (!res.ok) throw new Error(`HTTP ${res.status}`)
-      return res.text()
-    }
-    throw new Error('too many redirects')
-  }
+  const get = researchedPage(ROOT)
   const r = await productReviews(ROOT, { find: ytFinder, yt: youtube(), llm: claudeCli, research: claudeResearch, get, sleep: ms => new Promise(res => setTimeout(res, ms)), now: () => new Date() }, {
     limit: Number(values.limit ?? 1), ...(values.only ? { only: values.only.split(',') } : {}), ...(values['no-new-pages'] ? { noNewPages: true } : {}), ...(values['dry-run'] ? { dryRun: true } : {}),
     researchModel: process.env.RESEARCH_MODEL ?? 'opus', ...(process.env.REVIEW_EXTRACT_MODEL ? { extractModel: process.env.REVIEW_EXTRACT_MODEL } : {}), ...(process.env.REVIEW_WRITE_MODEL ? { writeModel: process.env.REVIEW_WRITE_MODEL } : {}),
