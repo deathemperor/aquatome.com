@@ -90,6 +90,12 @@ export const approvedCrop = (page: string, scientificName: string, approvals?: P
   isOwnerCrop(p) && ownerCropApproved(p, page, scientificName, createHash('sha256').update(ownerCropCanonical(p, page, scientificName)).digest('hex'), approvals)
 
 /** What a read keeps whatever its page shows (`owned`: the owner's approved crops), and what may never stay (`gone`: never-again, or a source that no longer lets us show photos). */
+/**
+ * A photo no reader sees, whatever its page: a never-again one, one whose source no longer lets us show photos, or an
+ * owner's crop whose source has since refused mark removal (the build hides it: load.ts cleanPhotos).
+ */
+export const hiddenFromReaders = (blocked: Record<string, unknown>, sources: Partial<Record<SourceId, { publish?: boolean | 'photos'; permission?: { markRemoval?: { allowed?: boolean } } }>>) => (p: Photo) =>
+  p.url in blocked || (!!p.source && (!mayPublish(sources[p.source], 'photos') || (isOwnerCrop(p) && sources[p.source]?.permission?.markRemoval?.allowed === false)))
 export type ReadKeeps = { owned?: (p: Photo) => boolean; gone?: (p: Photo) => boolean }
 
 /**
@@ -100,8 +106,8 @@ export type ReadKeeps = { owned?: (p: Photo) => boolean; gone?: (p: Photo) => bo
  *   its MAX_PHOTOS, ahead of every other photo, its head too; a page with more than MAX_PHOTOS crops keeps its first
  *   MAX_PHOTOS (none has more than three today);
  * - leave a page that had a photo a reader could see with none such: those stay, `held` for a person's second look
- *   (last-photo.ts). A reader sees neither a photo `gone` names (never-again, or a source that no longer lets us show
- *   photos), a crop that fails its approval, nor a generated photo (the build hides both: a generated one shows only with
+ *   (last-photo.ts). A reader sees neither a photo `gone` names (never-again, a source that no longer lets us show
+ *   photos, or a crop whose source has since refused mark removal: `hiddenFromReaders`), a crop that fails its approval, nor a generated photo (the build hides both: a generated one shows only with
  *   its approval and a switch that is off, and never stands for the fish), so none counts either way: a page left with
  *   only the first two takes what Commons has instead, and one whose last such photo the read replaced keeps that one.
  */
@@ -117,9 +123,12 @@ export const mergeRead = (prev: Photo[], source: SourceId, url: string, fresh: P
   const others = new Set(all.filter(p => !owned(p)).slice(0, room))
   const photos = all.filter(p => crops.includes(p) || others.has(p))
   const left = prev.filter(seen)
-  // Nothing a reader could see left: the seen ones from before stay, held, and a generated photo the read kept stays
-  // behind them, as it would without this rule; with neither, none at all, and the caller looks to Commons.
-  return photos.some(seen) ? { photos, held: [] } : { photos: [...left, ...photos.filter(p => p.generated)], held: left.filter(replaced) }
+  // Nothing a reader could see left: the seen ones from before stay, held, behind the owner's crops (kept even when the
+  // build hides them), and a generated photo the read kept stays behind them, as it would without this rule; with none of
+  // these, none at all, and the caller looks to Commons.
+  if (photos.some(seen)) return { photos, held: [] }
+  const kept = [...photos.filter(owned), ...left.filter(p => !owned(p)), ...photos.filter(p => p.generated)]
+  return { photos: kept.filter((p, i) => kept.findIndex(q => q.url === p.url) === i), held: left.filter(replaced) }
 }
 export const mergePhotos = (prev: Photo[], source: SourceId, url: string, fresh: Photo[], o: ReadKeeps = {}) => mergeRead(prev, source, url, fresh, o).photos
 
@@ -220,14 +229,14 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   const contentRoot = join(root, 'content')
   const s = store(contentRoot)
   const glossary = await glossaryTerms(s)
-  const sourceNames = (await readJson<Partial<Record<SourceId, { name: string; publish?: boolean | 'photos'; permission?: CreditTerms }>>>(join(contentRoot, 'sources.json'))) ?? {}
+  const sourceNames = (await readJson<Partial<Record<SourceId, { name: string; publish?: boolean | 'photos'; permission?: CreditTerms & { markRemoval?: { allowed?: boolean } } }>>>(join(contentRoot, 'sources.json'))) ?? {}
   const gbifCache: Record<string, Taxon | null> = {}
   const blocked = (await readJson<Record<string, string>>(join(root, 'engine-state/_photo-rejected.json'))) ?? {}
   const deadline = opts.maxMinutes ? deps.now().getTime() + opts.maxMinutes * 60_000 : Infinity
   const report: RunReport = { perSource: {}, needsHuman: [], movedToArchive: [], changed: [], errors: [] }
   const today = () => deps.now().toISOString().slice(0, 10)
   // What a re-read keeps of a page's photos (mergeRead): the owner's approved crops; never a never-again photo, or one whose source no longer lets us show photos.
-  const keeps = (page: string, scientificName: string): ReadKeeps => ({ owned: approvedCrop(page, scientificName), gone: p => p.url in blocked || (!!p.source && !mayPublish(sourceNames[p.source], 'photos')) })
+  const keeps = (page: string, scientificName: string): ReadKeeps => ({ owned: approvedCrop(page, scientificName), gone: hiddenFromReaders(blocked, sourceNames) })
   // A re-read that would leave a page with no photo keeps the old ones, each held for a person's second look (mergeRead).
   const holdLast = (held: Photo[], page: string) => holdForSecondLook(root, new Map(held.map(p => [p.url, { why: "rejected: the source's page no longer shows it", pages: [page] }])), 'the pages rewrite', today())
 

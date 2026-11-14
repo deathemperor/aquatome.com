@@ -6,7 +6,7 @@ import { expect, test } from 'vitest'
 import { createHash } from 'node:crypto'
 import { ownerCropCanonical, type OwnerCropApproval, type Photo } from '@aq/schema'
 import { cardCrop, HEAD_IN_CROP, leadChoice, screenLeads, TRIES, type LeadDeps } from '../src/lead-photo'
-import { approvedCrop, mergePhotos, mergeRead } from '../src/run'
+import { approvedCrop, hiddenFromReaders, mergePhotos, mergeRead } from '../src/run'
 
 const jpeg = sharp({ create: { width: 64, height: 48, channels: 3, background: '#468' } }).jpeg().toBuffer()
 const url = (n: string) => `https://media.example/${n}.webp`
@@ -110,6 +110,20 @@ test("a re-read never leaves a page with none of the photos a reader could see; 
   expect(mergeRead([generatedElsewhere, mine], 'bwaquatics', page, [])).toEqual({ photos: [mine, generatedElsewhere], held: [mine] })
   const generatedHere: Photo = { ...photo('generated-here'), source: 'bwaquatics', sourceUrl: page, generated: gen }
   expect(mergeRead([generatedHere, mine], 'bwaquatics', page, [])).toEqual({ photos: [mine], held: [mine] })
+})
+
+test("an owner's crop whose source has since refused mark removal stays on its page but counts for nothing: the build hides it, so the page's last real photo stays, held", () => {
+  const page = 'https://x/fish'
+  const mine = { ...photo('mine'), source: 'bwaquatics' as const, sourceUrl: page }
+  const crop: Photo = { ...photo('crop'), source: 'bwaquatics', sourceUrl: 'https://x/other', ownerCrop: { id: 'c1', pixelHash: 'a'.repeat(64) } }
+  const refused = { bwaquatics: { publish: true, permission: { markRemoval: { allowed: false } } } }
+  const allowed = { bwaquatics: { publish: true, permission: { markRemoval: { allowed: true } } } }
+  expect(hiddenFromReaders({}, refused)(crop)).toBe(true)
+  expect(hiddenFromReaders({}, allowed)(crop)).toBe(false)
+  expect(hiddenFromReaders({}, refused)(mine)).toBe(false)
+  const owned = (p: Photo) => p.url === crop.url
+  expect(mergeRead([mine, crop], 'bwaquatics', page, [], { owned, gone: hiddenFromReaders({}, refused) })).toEqual({ photos: [crop, mine], held: [mine] })
+  expect(mergeRead([mine, crop], 'bwaquatics', page, [], { owned, gone: hiddenFromReaders({}, allowed) })).toEqual({ photos: [crop], held: [] })
 })
 
 test('at most a few photos a fish are asked about', () => {
