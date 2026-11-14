@@ -25,6 +25,7 @@ import { getContent } from '../../lib/content'
 import { creditsFor } from '../../lib/credits'
 import { searchAliases } from '../../lib/search'
 import { speciesDescription, speciesTitle } from '../../lib/meta'
+import { nameAndSci, sciBeside } from '../../lib/sci'
 import { i18n, langOf, served } from '../../lib/i18n'
 import { alternatesOf } from '../../lib/alternates'
 import { taxonHref } from '../../lib/taxa-places'
@@ -38,7 +39,7 @@ const { lang, t } = i18n(Astro.url)
 const c = await getContent(lang)
 const url = new URL(Astro.url.pathname, Astro.site).href
 const jsonld = [
-  { '@context': 'https://schema.org', '@type': 'Article', headline: s.t.name, alternativeHeadline: s.scientificName, inLanguage: lang, dateModified: s.updatedAt, image: s.photos[0]?.url, mainEntityOfPage: url,
+  { '@context': 'https://schema.org', '@type': 'Article', headline: s.t.name, ...(sciBeside(s.t.name, s.scientificName) ? { alternativeHeadline: s.scientificName } : {}), inLanguage: lang, dateModified: s.updatedAt, image: s.photos[0]?.url, mainEntityOfPage: url,
     about: { '@type': 'Taxon', name: s.scientificName, taxonRank: 'species', alternateName: [s.t.name, ...s.t.altNames] } },
   { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
     { '@type': 'ListItem', position: 1, name: t('Loài cá'), item: new URL('/vi/ca/', Astro.site).href },
@@ -64,7 +65,7 @@ const alternates = await alternatesOf('species', s.id)
       <p class="where">{s.family}{country && <>, <a href={`/vi/nguon-goc/${country.parent}/${country.id}/`}>{country.t.name}</a></>}</p>
       <h1 data-pagefind-meta="aka[data-aka]" data-aka={searchAliases(s.t, s.scientificName)}>{s.t.name}</h1>
       <RedirectNote from={s.t.redirectFrom} />
-      <p class="sci binomial">{s.scientificName}</p>
+      {sciBeside(s.t.name, s.scientificName) && <p class="sci binomial">{s.scientificName}</p>}
       {s.water && <p class="water">{t(s.water.kind === 'marine' ? 'Cần nước mặn, nuôi trong bể nước biển.' : 'Cần nước lợ: nước ngọt có pha muối biển.')}</p>}
       {s.t.altNames.length > 0 && <p class="alt" data-pagefind-ignore>{t('Tên khác: {names}', { names: s.t.altNames.join(', ') })}</p>}
       <KeyFacts card={s.dataCard} />
@@ -84,7 +85,7 @@ const alternates = await alternatesOf('species', s.id)
     {vn && summary && <QuickSummary summary={summary} inside />}
     {s.photos.length > 0 && (
       <div class="side">
-        <div class="photo" id="anh"><PhotoGallery photos={s.photos} alt={`${s.t.name}, ${s.scientificName}`} fish phone /></div>
+        <div class="photo" id="anh"><PhotoGallery photos={s.photos} alt={nameAndSci(s.t.name, s.scientificName)} fish phone /></div>
         {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} more={more} href={galleryPath} name={s.t.name} column readers />}
       </div>
     )}
