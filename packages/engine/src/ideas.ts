@@ -140,7 +140,7 @@ export function ideaLeads(idea: Idea, state: IdeasState): string {
   const shops = idea.posts.filter(u => !fromMagazine.has(u)).slice(0, 6)
   const magazine = idea.posts.filter(u => fromMagazine.has(u)).slice(0, 4)
   return (shops.length ? `\n\nWhat Vietnamese keepers read on this, from aquarium shops' blogs (orientation only: never copy or translate their text; they sell what they write about, so check every fact elsewhere, and cite one of them only for a Vietnamese name or what is sold in Vietnam):\n${shops.map(line).join('\n')}` : '')
-    + (magazine.length ? `\n\nWhat a British fishkeeping magazine wrote on this (orientation only: never copy or translate its text, check every fact elsewhere and cite the sources you checked, not the magazine; leave out what only fits the UK):\n${magazine.map(line).join('\n')}` : '')
+    + (magazine.length ? `\n\nWhat a British fishkeeping magazine wrote on this (you may open these posts: never copy or translate their text and never use their photos; cite each post you read; leave out what only fits the UK):\n${magazine.map(line).join('\n')}` : '')
 }
 
 /**

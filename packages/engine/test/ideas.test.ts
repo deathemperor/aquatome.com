@@ -140,9 +140,9 @@ test('writing: the most asked idea first, its shops\' posts as leads that say ne
   expect(asked[0]).toContain('"Nước bể cá bị đục trắng"')
   expect(asked[0]).toContain(`- ${AZ}nuoc-be-ca-bi-duc (nuoc be ca bi duc)`)
   expect(asked[0]).toContain('never copy or translate their text')
-  // The magazine's post apart, with its own words: never copied, the facts checked elsewhere, not cited.
-  expect(asked[0]).toContain(`British fishkeeping magazine wrote on this (orientation only: never copy or translate its text, check every fact elsewhere and cite the sources you checked, not the magazine; leave out what only fits the UK):\n- ${PF}features/cloudy-water-explained/ (cloudy water explained)`)
-  expect(asked[0].indexOf(`${PF}features/`)).toBeGreaterThan(asked[0].indexOf('British fishkeeping magazine'))
+  // The magazine's post apart, with its own words: it may be opened; never copied or translated, no photos; cited when read.
+  expect(asked[0]).toContain(`British fishkeeping magazine wrote on this (you may open these posts: never copy or translate their text and never use their photos; cite each post you read; leave out what only fits the UK):\n- ${PF}features/cloudy-water-explained/ (cloudy water explained)`)
+  expect(asked[0]!.indexOf(`${PF}features/`)).toBeGreaterThan(asked[0]!.indexOf('British fishkeeping magazine'))
   let s = await readIdeas(root)
   expect(s.ideas.map(i => i.guide ?? i.skipped ?? '')).toEqual(['aquatome-ca-bi-tuot-nhot', 'Nước bể cá bị đục trắng: nothing reliable found', ''])
   // Old days are dropped; today's count stops a second run.
