@@ -58,6 +58,16 @@ test("a re-read of a source doesn't push down a head that fills the card, galler
   expect(mergePhotos([ownBig, old], 'seriouslyfish', 'https://x/fish', [fresh]).map(p => name(p.url))).toEqual(['fresh'])
 })
 
+test("a crop the owner approved one by one is never dropped by a re-read of its source, whatever that page now shows", () => {
+  // 14 Nov 2026: a pages rewrite took Betta rutilans' only photo, the owner's 11 Nov crop of the shop's photo.
+  const page = 'https://x/fish'
+  const crop: Photo = { ...photo('owner-crop'), source: 'bwaquatics', sourceUrl: page, ownerCrop: { id: 'owner-crop-x', pixelHash: 'a'.repeat(64) } }
+  const old = { ...photo('old'), source: 'bwaquatics' as const, sourceUrl: page }
+  const fresh = { ...photo('fresh'), source: 'bwaquatics' as const, sourceUrl: page }
+  expect(mergePhotos([crop, old], 'bwaquatics', page, [fresh]).map(p => name(p.url)).sort()).toEqual(['fresh', 'owner-crop'])
+  expect(mergePhotos([crop], 'bwaquatics', page, []).map(p => name(p.url))).toEqual(['owner-crop'])
+})
+
 test('at most a few photos a fish are asked about', () => {
   const head = photo('head')
   const many = Array.from({ length: TRIES + 2 }, (_, i) => big(`g${i}`))

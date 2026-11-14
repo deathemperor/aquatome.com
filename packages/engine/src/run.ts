@@ -1,7 +1,7 @@
 import { piece, PieceAdmissionError } from './pieces'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { GuideSchema, mayPublish, metricPage, PlaceSchema, PlantSchema, SOURCE_IDS, SpeciesSchema, TranslationSchema, judgeQuality, nameKey, slugify, speciesDepth, type ChangelogEntry, type Photo, type Section, type SourceId, type Translation } from '@aq/schema'
+import { GuideSchema, isOwnerCrop, mayPublish, metricPage, PlaceSchema, PlantSchema, SOURCE_IDS, SpeciesSchema, TranslationSchema, judgeQuality, nameKey, slugify, speciesDepth, type ChangelogEntry, type Photo, type Section, type SourceId, type Translation } from '@aq/schema'
 import type { z } from 'zod'
 import { across, LARGE_PX } from './curation'
 import { cardGaps } from './card-fill'
@@ -23,6 +23,7 @@ import { readVarietyPages, recordVarietyPage } from './species-sources'
 import { rewriteVi, VI_WRITE } from './vi-rewrite'
 import { QUALITY_THRESHOLD, gate, reviewTranslation, steadyRead, WRITER_BAND } from './quality'
 import { logReviews, type Review } from './review-log'
+import { holdForSecondLook } from './last-photo'
 import { linkedPhotos, mayTake, pickSourcePhotos, storeSourcePhotos, type CreditTerms, type Media } from './source-photos'
 import { snapshotHash, writeSnapshot } from './snapshot'
 import { ARCHIVE_POLITE, ArchiveRefused } from './archive'
@@ -86,21 +87,31 @@ async function archiveHolds(archive: Reader | undefined, src: SourceConfig, read
 /**
  * This page's fresh photos replace its old ones; source photos first (registry order), open-licence photos after. A head
  * that fills the card stays first, unless this read replaced it: it's what the fish's cards show (lead-photo.ts).
+ * Two things a read never does (14 Nov 2026: a pages rewrite took Betta rutilans' only photo, the owner's crop):
+ * - replace a crop the owner approved one by one (`ownerCrop`, checked against schema's owner-crops.json): it's the
+ *   owner's, whatever the source's page now shows;
+ * - leave a page that had a photo with none: its old ones stay, `held` for a person's second look (last-photo.ts).
  */
-export const mergePhotos = (prev: Photo[], source: SourceId, url: string, fresh: Photo[]) => {
-  const replaced = (p: Photo) => p.source === source && p.sourceUrl === url
+export const mergeRead = (prev: Photo[], source: SourceId, url: string, fresh: Photo[]): { photos: Photo[]; held: Photo[] } => {
+  const replaced = (p: Photo) => p.source === source && p.sourceUrl === url && !isOwnerCrop(p)
   const merged = [...fresh, ...prev.filter(p => !replaced(p))].map((p, i) => ({ p, i })).sort((a, b) => rank(a.p) - rank(b.p) || a.i - b.i).map(x => x.p)
   const head = prev[0] && !replaced(prev[0]) && across(prev[0].large ?? prev[0], 'square') >= LARGE_PX ? prev[0] : undefined
-  return (head ? [head, ...merged.filter(p => p.url !== head.url)] : merged).slice(0, MAX_PHOTOS)
+  const photos = (head ? [head, ...merged.filter(p => p.url !== head.url)] : merged).slice(0, MAX_PHOTOS)
+  return photos.length || !prev.length ? { photos, held: [] } : { photos: prev, held: prev.filter(replaced) }
 }
+export const mergePhotos = (prev: Photo[], source: SourceId, url: string, fresh: Photo[]) => mergeRead(prev, source, url, fresh).photos
 
 /**
- * A page's photos once one of its source pages is read: that page's photos as they are now (mergePhotos), but for a
+ * A page's photos once one of its source pages is read: that page's photos as they are now (mergeRead), but for a
  * source whose photos a step of its own takes (sources.ts `photoStep`: Tropica). Its page's pictures aren't the picker's
- * to find, so a read brings none, and the ones its step stored stay.
+ * to find, so a read brings none, and the ones its step stored stay. Photos kept as a page's last go into `held`.
  */
-export const photosAfterRead = async (prev: Photo[], source: SourceId, url: string, fresh: () => Promise<Photo[]>) =>
-  sourceById(source).photoStep ? prev : mergePhotos(prev, source, url, await fresh())
+export const photosAfterRead = async (prev: Photo[], source: SourceId, url: string, fresh: () => Promise<Photo[]>, held: Photo[] = []) => {
+  if (sourceById(source).photoStep) return prev
+  const r = mergeRead(prev, source, url, await fresh())
+  held.push(...r.held)
+  return r.photos
+}
 
 /** content/ access for one run: existing items, taken slugs, validated writes. */
 function store(contentRoot: string) {
@@ -193,6 +204,8 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   const deadline = opts.maxMinutes ? deps.now().getTime() + opts.maxMinutes * 60_000 : Infinity
   const report: RunReport = { perSource: {}, needsHuman: [], movedToArchive: [], changed: [], errors: [] }
   const today = () => deps.now().toISOString().slice(0, 10)
+  // A re-read that would leave a page with no photo keeps the old ones, each held for a person's second look (mergeRead).
+  const holdLast = (held: Photo[], page: string) => holdForSecondLook(root, new Map(held.map(p => [p.url, { why: "rejected: the source's page no longer shows it", pages: [page] }])), 'the pages rewrite', today())
 
   // Species our pages name but don't have yet: their source pages are fetched first (see wanted.ts); the audit lists the rest.
   const gbifNamesFile = join(root, 'engine-state/_gbif-names.json')
@@ -287,7 +300,9 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       const item = mergeSpecies(existing, page, { source, url, taxon, now, takenSlugs: new Set([...await s.taken('species', existing.vi?.slug), ...await s.taken('breeds')]), takenNames: new Set([...await s.takenNames('species', slugify(taxon.canonicalName)), ...await s.takenNames('breeds')]), quality: combineQuality(existing.vi?.quality, source, score) })
       // Judged on depth at every merge too, as the public build shows it (published sources): a thin page is out of search.
       item.vi.quality = judgeQuality(item.vi.quality, item.vi.quality.indexable, speciesDepth(item.entity.sections.filter(x => mayPublish(sourceNames[x.source], 'text'))).deep)
-      item.entity.photos = await photosAfterRead(item.entity.photos, source, url, () => sourcePhotos([taxon.canonicalName, page.scientificName!, ...page.enCommonNames], item.entity.photos))
+      const held: Photo[] = []
+      item.entity.photos = await photosAfterRead(item.entity.photos, source, url, () => sourcePhotos([taxon.canonicalName, page.scientificName!, ...page.enCommonNames], item.entity.photos), held)
+      await holdLast(held, `species/${item.entity.id}`)
       if (!item.entity.photos.length) item.entity.photos = await soft('commons photos', () => findPhotos(taxon.canonicalName, http, 4, blocked), [])
       if (!item.entity.videos.length) item.entity.videos = await soft('videos', () => findVideos([taxon.canonicalName, ...page.enCommonNames], llm, http, { skip: videoRejected }), [])
       const known = new Set(await s.ids('places'))
@@ -304,7 +319,9 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       if (outranked(existing.entity?.sections, source, url, page.sections.length)) return [`plants/${slugify(page.scientificName)}`]
       const item = mergePlant(existing, page, { source, url, now, takenSlugs: await s.taken('plants', existing.vi?.slug), takenNames: await s.takenNames('plants', slugify(page.scientificName)), quality: combineQuality(existing.vi?.quality, source, score) })
       if (!item) return null
-      item.entity.photos = await photosAfterRead(item.entity.photos, source, url, () => sourcePhotos([item.entity.scientificName, ...page.enCommonNames], item.entity.photos))
+      const held: Photo[] = []
+      item.entity.photos = await photosAfterRead(item.entity.photos, source, url, () => sourcePhotos([item.entity.scientificName, ...page.enCommonNames], item.entity.photos), held)
+      await holdLast(held, `plants/${item.entity.id}`)
       if (!item.entity.photos.length) item.entity.photos = await soft('commons photos', () => findPhotos(item.entity.scientificName, http, 4, blocked), [])
       await s.write('plants', PlantSchema, item)
       await appendChangelog(contentRoot, [log('plant', item.entity.id, !!existing.entity)])
