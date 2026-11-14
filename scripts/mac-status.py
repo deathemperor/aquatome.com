@@ -3,7 +3,10 @@
 
   scripts/mac-status.py            a line each; exits 0 if it's quiet enough to record, 1 if it's too loaded
   scripts/mac-status.py --wait 3   waits up to that many minutes for it to be quiet, then the same
-  scripts/mac-status.py --cap ID   exits 2, saying who's up, if booting that simulator (its id or name) would pass the cap
+  scripts/mac-status.py --cap ID   exits 2, saying who's up, if booting that simulator (its id or name) would pass the cap,
+                                   or saying so if there's too little free space to start one
+  scripts/mac-status.py --space    exits 3 if free space is under the floor (20 GB); warns under 30 GB, saying where it is
+  scripts/mac-status.py --where    where the disk is: simulators, Xcode's build folders, worktrees (the status says it under 30 GB)
   scripts/mac-status.py --hook     the same, for a session's device_open (.claude/settings.json)
 """
 import glob
@@ -26,6 +29,11 @@ CAP_HOT = 2
 # Past about 1,000 the counter wraps to near nothing (AGENTS.md), and a 1-minute load can't be under the limit with the
 # 5-minute one this high: at 12:31 that day, the fastest fall seen, they read 214 and 474.
 WRAPPED = 600
+# Free space. At 23:45 on 2026-11-13 a TestFlight upload stopped at 12 GB free, and no one was watching. Under 30 GB the
+# sweep tells the chief of staff (machine-sweep.mjs); under 20, what an upload needs, no simulator starts here, and
+# `--space` says no to whatever asks.
+SPACE_WARN = 30
+SPACE_STOP = 20
 PAUSE = float(os.environ.get("MAC_STATUS_PAUSE", 15))
 
 
@@ -46,6 +54,46 @@ def cores():
         return bin(int(run("sysctl", "-n", "kern.sched_recommended_cores"))).count("1"), everyone
     except (OSError, ValueError):
         return None
+
+
+def free_gb():
+    """Free space on the disk the home folder is on, in GB (10^9 bytes). None where df can't say."""
+    try:
+        return int(run("df", "-Pk", os.path.expanduser("~")).strip().splitlines()[-1].split()[3]) * 1024 / 1e9
+    except (OSError, ValueError, IndexError):
+        return None
+
+
+def short_of_space():
+    """Why nothing big should start for want of space, or None. What can't be read doesn't stop anything."""
+    free = free_gb()
+    if free is None or free >= SPACE_STOP:
+        return None
+    return (f"{free:.0f} GB free on this Mac, under the {SPACE_STOP} GB floor (AGENTS.md, This Mac): nothing big starts until "
+            "there's more. Ask the chief of staff who clears what; simulators are most of it.")
+
+
+def size_gb(path):
+    """A folder's size in GB, or None where it isn't there or du can't say in time."""
+    if not os.path.isdir(path):
+        return None
+    try:
+        return int(run("du", "-sk", path).split()[0]) * 1024 / 1e9
+    except (OSError, ValueError, IndexError, subprocess.TimeoutExpired):
+        return None
+
+
+def where_space():
+    """Where the disk has gone, a line each, for under the warning: so whoever reads it sees where without asking."""
+    home = os.path.expanduser("~")
+    known = simulators()
+    worktrees = os.path.join(home, ".infinitus/worktrees/aquatome.com")
+    found = [
+        ("simulators", size_gb(os.path.join(home, "Library/Developer/CoreSimulator/Devices")), f", {len(known)} of them, {len(booted(known))} up"),
+        ("Xcode's build folders", size_gb(os.path.join(home, "Library/Developer/Xcode/DerivedData")), ""),
+        ("worktrees", size_gb(worktrees), f" in {len(os.listdir(worktrees))} folders (the sweep takes merged ones at 03:35)" if os.path.isdir(worktrees) else ""),
+    ]
+    return [f"  {what}: {gb:.0f} GB{more}" for what, gb, more in found if gb is not None]
 
 
 def cap(now):
@@ -132,6 +180,14 @@ def status():
         print("cores at work unknown")
     print(f"simulators up {len(up)}, at most {cap(now)}: {named(up)}")
     print(f"simulator turn: {turn()}")
+    free = free_gb()
+    if free is None:
+        print("free space unknown")
+    else:
+        print(f"free space {free:.0f} GB" + (f": under {SPACE_STOP} GB, no simulator or upload starts" if free < SPACE_STOP
+                                             else f": under {SPACE_WARN} GB, the sweep tells the chief of staff" if free < SPACE_WARN else ""))
+        if free < SPACE_WARN:
+            print("\n".join(where_space()))
     reason = too_loaded()
     print(f"too loaded to record: {reason}" if reason else "quiet enough to record")
     return 1 if reason else 0
@@ -144,8 +200,13 @@ def over_cap(device):
     if not any(device in (d["udid"], d["name"]) for d in known):
         return None
     up = booted(known)
+    if device in up or device in up.values():
+        return None
+    short = short_of_space()
+    if short:
+        return short
     limit = cap(cores())
-    if device in up or device in up.values() or len(up) < limit:
+    if len(up) < limit:
         return None
     return (f"At most {limit} simulators up on this Mac (AGENTS.md, This Mac), and {len(up)} are: {named(up)}. Close yours with "
             "`agent-device close --shutdown`, or ask its lead; scripts/mac-status.py shows them.")
@@ -162,6 +223,18 @@ def main():
         if reason:
             print(reason, file=sys.stderr)
             sys.exit(2)
+        return
+    elif args[:1] == ["--space"]:
+        short = short_of_space()
+        if short:
+            print("\n".join([short, *where_space()]), file=sys.stderr)
+            sys.exit(3)
+        free = free_gb()
+        if free is not None and free < SPACE_WARN:
+            print("\n".join([f"{free:.0f} GB free on this Mac, under {SPACE_WARN} GB: the sweep tells the chief of staff", *where_space()]), file=sys.stderr)
+        return
+    elif args[:1] == ["--where"]:
+        print("\n".join(where_space()))
         return
     elif args[:1] == ["--hook"]:
         # Whatever goes wrong here, the session's call goes on: this is a limit, not a lock.
