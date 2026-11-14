@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
 import type { FitCheck } from '../src/fit'
-import { addedWords, asked, mendPart, type Dropped } from '../src/mend'
+import { addedWords, asked, cutWhole, mendPart, type Dropped } from '../src/mend'
 import { sentences } from '../src/sentences'
 
 /**
@@ -397,4 +397,19 @@ test('the writer is told to cut, join with a listed word only, and add nothing e
   const llm = (async ({ prompt, schema }: { prompt: string; schema: { required: string[] } }) => { prompts.push(prompt); return schema.required.includes('sentences') ? { sentences: [{ n: 1, vi: 'Cây mọc nhanh.' }] } : { score: 1, notes: [], dropped: [], hedges: [] } }) as Llm
   await mendPart(llm, '<p>Cây mọc nhanh, giá 5 đô la.</p>', [{ check: 'price', quote: 'giá 5 đô la', note: 'Bỏ giá.' }])
   expect(prompts[0]).toContain('Changing a sentence means cutting it: take out what the note names, and if what\'s left needs joining, join it with one of these words: và, thì, là, mà, nhưng, của. Add no other word the sentence didn\'t have, except the words a wording note gives ("Nên viết"), and never say it another way.')
+})
+
+// The chief of staff, 14 Nov 2026: a flagged sentence "is deleted or its foreign detail is deleted"; by code, whole.
+test('a plain cut takes out whole each sentence a product, shop or price finding quotes, and nothing a read may have misread', () => {
+  const html = '<p>Cây lớn nhanh. Phân nước Easy Green được khuyên dùng. Nền dùng cát sông.</p><ul><li>Giá dưới 10 đô la.</li><li>Ánh sáng vừa.</li></ul>'
+  expect(cutWhole(html, [{ check: 'product', quote: 'Easy Green' }, { check: 'price', quote: '10 đô la' }])).toEqual({
+    html: '<p>Cây lớn nhanh. Nền dùng cát sông.</p><ul><li>Ánh sáng vừa.</li></ul>',
+    gone: ['sentence 2 went whole: "Phân nước Easy Green được khuyên dùng."', 'sentence 4 went whole: "Giá dưới 10 đô la."'],
+  })
+  // Advice for elsewhere, the source talking, a wording: the writer's to cut, never the code's.
+  expect(cutWhole(html, [{ check: 'elsewhere', quote: 'cát sông' }, { check: 'source', quote: 'Cây lớn nhanh' }, { check: 'words', quote: 'Ánh sáng' }])).toBeUndefined()
+  // Every sentence would go: the dealer check's.
+  expect(cutWhole('<p>Mua ở Petco, giá 5 đô la.</p>', [{ check: 'shop', quote: 'Petco' }])).toBeUndefined()
+  // Whole words only, and every sentence that names it (Astra's read: "ADA" in "Canada").
+  expect(cutWhole('<p>Cá được nuôi ở Canada. Dùng phân ADA. Cá cần ánh sáng vừa. Thêm ADA mỗi tuần.</p>', [{ check: 'product', quote: 'ADA' }])?.html).toBe('<p>Cá được nuôi ở Canada. Cá cần ánh sáng vừa.</p>')
 })

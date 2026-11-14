@@ -28,7 +28,7 @@ import { metricPages } from './metric'
 import { checkPages, fixStored, rulesReport } from './content-rules'
 import { loadPages } from './pages'
 import { copiesToRedo, redoCopies, type Redone } from './seasons'
-import { FIT_KINDS, fitDue, fitKey, fitReport, runFit, type FitState } from './fit'
+import { FIT_KINDS, fitDue, fitFindings, fitKey, fitReport, runFit, type FitState } from './fit'
 import { gate, writeFitSummary } from './gate'
 import { restingFetch } from './wikimedia-rest'
 import { fitRewrite } from './fit-rewrite'
@@ -689,9 +689,11 @@ if (cmd === 'photo-privacy') {
         if (h) marks.set(fitKey(p), h)
       }
     }
-    const plan = values.front && !only ? frontPlan(fitFront, last, ranked, marks) : { held: false, order: ranked, lane: new Set<string>() }
-    if (values.front && !only) console.log(`fit-rewrite: lane ${plan.lane.size} page${plan.lane.size === 1 ? '' : 's'} first${plan.held ? ', front list held' : ''}`)
-    const r = await fitRewrite(ROOT, plan.order, state, { llm: claudeCli, now: () => new Date() }, { limit: Number(values.limit ?? 10), retry: !!only, mend: plan.lane })
+    // A page with a foreign product or medicine on it, as its saved read found (the owner's complaint): first, with the lane.
+    const product = (p: (typeof ranked)[number]) => fitFindings(p, state[fitKey(p)]).some(f => f.check === 'product')
+    const plan = values.front && !only ? frontPlan(fitFront, last, ranked, marks, product) : { held: false, order: ranked, lane: new Set<string>(), mend: new Set<string>() }
+    if (values.front && !only) console.log(`fit-rewrite: lane ${plan.lane.size} page${plan.lane.size === 1 ? '' : 's'}${plan.mend.size > plan.lane.size ? ` and ${plan.mend.size - plan.lane.size} with a foreign product` : ''} first${plan.held ? ', front list held' : ''}`)
+    const r = await fitRewrite(ROOT, plan.order, state, { llm: claudeCli, now: () => new Date() }, { limit: Number(values.limit ?? 10), retry: !!only, mend: plan.mend })
     for (const x of [...r.rewritten.map(x => `rewritten: ${x}`), ...r.gone.map(x => `gone: ${x}`), ...r.notKept.map(x => `not kept: ${x}`), ...r.skipped.map(x => `skipped: ${x}`), ...r.failed.map(x => `failed: ${x}`)]) console.log(x)
     console.log(`fit-rewrite: ${r.rewritten.length} rewritten, ${r.notKept.length} not kept, ${r.skipped.length} skipped, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
     // The run on file: the front list's and live pages' outcomes, never the lane's alone (fit-front.ts offLane).

@@ -102,6 +102,32 @@ export function lostWords(before: string, after: string, covered: readonly strin
 }
 
 /**
+ * What may go whole by code: a foreign product or medicine, a shop or a price, the owner's complaint. Not a sentence a read
+ * calls advice for elsewhere or the source talking, which can be a fact misread (a fish's wild habitat): its writer cuts it.
+ */
+const CUTTABLE: readonly FitCheck[] = ['product', 'shop', 'price']
+/**
+ * The part with each sentence a `CUTTABLE` finding quotes cut whole, by code: no model and no new word (the chief of staff,
+ * 14 Nov 2026: a sentence a finding flags is deleted, or its foreign detail is). What a writer's cut the guard refused gets
+ * instead (fit-rewrite.ts). Nothing when no such sentence is in the part, or every sentence would go (the dealer check's).
+ * `gone`: each sentence it took, as `Mended.gone` lists a writer's, for the run's list to the chief of staff.
+ */
+export function cutWhole(html: string, fs: readonly { check: FitCheck; quote?: string }[]): { html: string; gone: string[] } | undefined {
+  const pieces = sentences(html)
+  const n = pieces.filter(p => p.sentence).length
+  // Each sentence that holds the quote's words in a row, whole words (Astra's read: "ADA" matched in "Canada" cut the
+  // wrong sentence and left the product); a quote across two sentences is the writer's, not cut here.
+  const holds = (quote: string) => {
+    const x = words(quote)
+    return x.length ? pieces.filter(p => p.sentence).flatMap((p, i) => { const w = words(p.html); return w.some((_, k) => x.every((y, j) => w[k + j] === y)) ? [i] : [] }) : []
+  }
+  const gone = new Set(fs.filter(f => CUTTABLE.includes(f.check) && f.quote).flatMap(f => holds(f.quote!)))
+  if (!gone.size || gone.size >= n) return undefined
+  const texts = pieces.filter(p => p.sentence).map(p => p.html)
+  return { html: splice(pieces, new Map([...gone].map(i => [i, '']))), gone: [...gone].sort((a, b) => a - b).map(i => `sentence ${i + 1} went whole: "${plain(texts[i]!)}"`) }
+}
+
+/**
  * What a sentence cut may put in to join what's left: only these, the six the writer is told (prompts/fit-mend.md), not a
  * pointer ("này", "đó") or "bạn", which say who or which, nor "hoặc", which can make "both" "either" (the chief of staff,
  * 14 Nov 2026: "The rewrite may mend the grammar round a deletion and nothing else").

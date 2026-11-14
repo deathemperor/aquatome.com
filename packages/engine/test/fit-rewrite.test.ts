@@ -864,3 +864,59 @@ test('a guide in the lane is mended sentence by sentence, not written whole from
   expect(lane.calls).toEqual(['rewrite', 'review'])
   expect(JSON.parse(await readFile(file, 'utf8')).body).toBe('<p>Lọc bio (lọc vi sinh bằng mút) rẻ, an toàn cho tép con và đủ cho bể dưới 40 lít.</p>')
 })
+
+// The chief of staff, 14 Nov 2026: a flagged sentence "is deleted or its foreign detail is deleted". Where the writer's cut
+// is refused, a foreign product's sentence goes whole, by code; a part flagged only for advice elsewhere stays not kept
+// (the first test above).
+test('a refused cut of a foreign product falls back to the sentence cut whole by code', async () => {
+  const root = await content()
+  const file = join(root, 'content/species', ID, 'vi.json')
+  const vi = JSON.parse(await readFile(file, 'utf8'))
+  vi.sections['habitat:seriouslyfish'] = '<p>Ao cạn nhiều cỏ ở cao nguyên Shan, Myanmar. Trị nấm bằng Seachem Paraguard theo nhãn. Cá sống theo đàn.</p>'
+  await writeFile(file, JSON.stringify(vi, null, 2))
+  const p = await danio(root)
+  const med = { check: 'product' as const, part: part(p, 'sections.habitat:seriouslyfish'), quote: 'Seachem Paraguard', why: 'a US medicine' }
+  // The writer says it another way: refused, and cut whole instead.
+  const r = await fitRewrite(root, [p], reading(p, [med]), { llm: fakeLlm(v => v.replace('Trị nấm bằng Seachem Paraguard theo nhãn.', 'Trị nấm bằng thuốc bán ở tiệm.'), 0.9).llm, now: () => new Date() }, { limit: 5 })
+  expect(r.notKept).toEqual([])
+  expect(r.rewritten).toHaveLength(1)
+  expect(r.rewritten[0]).toMatch(/^vi\/species\/danio-margaritatus sections\.habitat:seriouslyfish \(cut whole by code; the writer's cut refused \(0\.90: .*Sentence 2 says what it didn't: "thuốc bán ở tiệm"/)
+  expect(JSON.parse(await readFile(file, 'utf8')).sections['habitat:seriouslyfish']).toBe('<p>Ao cạn nhiều cỏ ở cao nguyên Shan, Myanmar. Cá sống theo đàn.</p>')
+  // The run lists what code took, not what the refused writer had.
+  expect(r.gone).toEqual(['vi/species/danio-margaritatus sections.habitat:seriouslyfish sentence 2 went whole: "Trị nấm bằng Seachem Paraguard theo nhãn."'])
+})
+
+// Astra's read of da83e53d1: code cut the product's sentence and kept the dealer's, which was to go whole.
+test('code doesn\'t cut a part where a sentence is to go whole for another finding, or where the writer named a line that no longer reads', async () => {
+  const setUp = async (html: string, fs: (p: Page) => Omit<FitFinding, 'by'>[]) => {
+    const root = await content()
+    const file = join(root, 'content/species', ID, 'vi.json')
+    const vi = JSON.parse(await readFile(file, 'utf8'))
+    vi.sections['habitat:seriouslyfish'] = html
+    await writeFile(file, JSON.stringify(vi, null, 2))
+    const p = await danio(root)
+    return { root, file, p, state: reading(p, fs(p)), before: await readFile(file, 'utf8') }
+  }
+  const writer = (sentences: { n: number; vi: string; why?: string }[]) => (async ({ schema }: { schema: object }) => ((schema as { required: string[] }).required.includes('sentences')
+    ? { sentences }
+    : { score: 0.9, notes: [], dropped: [], hedges: [], follows: [] })) as Llm
+  // The dealer's sentence kept by the writer, or gone while the product's is said another way: neither is cut by code.
+  const dealer = await setUp('<p>Chúng tôi bán cá tại Mỹ. Dùng phân ADA. Cá sống theo đàn.</p>', p => [
+    { check: 'source', part: part(p, 'sections.habitat:seriouslyfish'), quote: 'Chúng tôi bán cá tại Mỹ.', why: 'the shop\'s own' },
+    { check: 'product', part: part(p, 'sections.habitat:seriouslyfish'), quote: 'ADA', why: 'a brand sold abroad' },
+  ])
+  for (const said of [[{ n: 1, vi: 'Chúng tôi bán cá tại Mỹ.' }, { n: 2, vi: 'Dùng phân ADA.' }], [{ n: 1, vi: '' }, { n: 2, vi: 'Dùng phân bón.' }]]) {
+    const r = await fitRewrite(dealer.root, [dealer.p], dealer.state, { llm: writer(said), now: () => new Date() }, { limit: 5, retry: true })
+    expect([r.rewritten, r.gone], JSON.stringify(said)).toEqual([[], []])
+    expect(r.notKept, JSON.stringify(said)).toHaveLength(1)
+    expect(await readFile(dealer.file, 'utf8')).toBe(dealer.before)
+  }
+  // The product's sentence gone and the line after it, which the writer says no longer reads: code would keep that line.
+  const med = await setUp('<p>Trị nấm bằng Seachem Paraguard theo nhãn. Thuốc này rất mạnh. Cá sống theo đàn.</p>', p => [
+    { check: 'product', part: part(p, 'sections.habitat:seriouslyfish'), quote: 'Seachem Paraguard', why: 'a US medicine' },
+  ])
+  const r = await fitRewrite(med.root, [med.p], med.state, { llm: writer([{ n: 1, vi: '' }, { n: 2, vi: '', why: 'it names the medicine that went' }]), now: () => new Date() }, { limit: 5 })
+  expect([r.rewritten, r.gone]).toEqual([[], []])
+  expect(r.notKept.join(' ')).toContain('Sentence 2 no longer reads without what went')
+  expect(await readFile(med.file, 'utf8')).toBe(med.before)
+})
