@@ -133,6 +133,7 @@ The calendar's nine new weeks (`content/curation.json`). These aren't in the tal
 | 6 | Anthropic, xAI | 9, 9 | 8, 8 | 9, 9 | 8, 8 |
 | 7 | Anthropic, xAI | 9, 9 | 9, 9 | 9, 9 | 9, 8 |
 | 8 | Anthropic, xAI | 9, 10 | 9, 9 | 9, 9 | 9, 8 |
+| 9 | Anthropic, xAI | 9, 9 | 9, 9 | 9, 9 | 9, 8 |
 
 Round 1 had the xAI seat alone: Cursor refused OpenAI and Google (not in that week's usage), and no Claude helper ran
 before 14 Nov.
@@ -207,6 +208,12 @@ bare "Ikan berkumpulan" reads off, so the Malay schooling labels say "yang hidup
 word, as in round 4 of the short questions), Thai "บลัดพารอท" (the page says ปลาหมอนกแก้ว), Malay "kuning" for "emas"
 (Anthropic). Open, one seat: Indonesian and Malay "tahan air dingin/sejuk" read as waterproof (xAI); Indonesian and
 Malay cold themes naming "ikan" twice (Anthropic).
+
+Round 9 (14 Nov): Vietnamese, Indonesian and Thai held 9 with both seats; Malay 9 and 8. xAI's Malay finding reversed its
+own round-7 rewrite ("Ikan angel koi"), asking now for the page's title; held on the rule that a label names a fish as
+its page does ("Koi angelfish"). Held, one seat over two rounds and the dictionary: Indonesian and Malay "tahan air"
+reads as waterproof, so the cold shelf says "tahan dingin" / "tahan sejuk". Open, one seat each: Thai "ปลาฝูง" as one
+school (xAI), the Thai flowerhorn label against its page (Anthropic; the Writing Lead's names change renames the page).
 
 ## Vietnamese
 
