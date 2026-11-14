@@ -943,3 +943,42 @@ test('a video guide held already goes to its editor only within the run\'s held 
   expect((await readJson(root, GUIDE)).held).toBeUndefined()
   expect((await readJson(root, GUIDE)).body).not.toContain('Petco')
 })
+
+// Astra's read of 14 Nov 2026: a guide held for harm, read now with a shop only, went to its editor and out.
+test('a guide held for harm, a kit or a dose never goes to its editor, and stays held for it, though its read now finds only a shop', async () => {
+  const root = await repo()
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Mua ở Petco.</p>`; t.held = { checks: ['harm'], at: '2026-11-08' } })
+  save(root, 'held')
+  const sent: string[] = []
+  const r = await gate(root, { llm: reader(), now, mend: editor(root, sent), heldMends: 1 })
+  expect(sent).toEqual([])
+  expect(r.report.mended).toEqual([])
+  expect(r.report.release).toEqual([])
+  expect((await readJson(root, GUIDE)).held).toEqual({ checks: ['harm', 'shop'], at: '2026-11-09' })
+  expect((await readJson(root, GUIDE)).body).toContain('Petco')
+  // Its read clean, it goes out as before.
+  await edit(root, GUIDE, t => { t.body = (t.body as string).replace('<p>Mua ở Petco.</p>', '') })
+  expect((await gate(root, { llm: reader(), now, mend: editor(root, sent), heldMends: 1 })).report.release).toHaveLength(1)
+  expect(sent).toEqual([])
+})
+
+// Astra's read of 14 Nov 2026: a mend whose text couldn't be read again stayed in the file, beside the old text's read.
+test('a mended text that can\'t be read again is put back, so the file and the run\'s read are of one text', async () => {
+  const root = await repo()
+  await cp(join(root, 'content/guides/youtube-r53ZQW0m8VM'), join(root, 'content/guides/youtube-new-shop'), { recursive: true })
+  await edit(root, 'content/guides/youtube-new-shop/entity.json', e => { e.id = 'youtube-new-shop' })
+  const body = '<p>Mua lọc ở Petco.</p><p>Lọc vi sinh hợp bể nhỏ.</p>'
+  await edit(root, 'content/guides/youtube-new-shop/vi.json', t => { t.slug = 'new-shop'; t.body = body })
+  // The read after the mend fails.
+  const llm = (async (a: { prompt: string }) => {
+    if (a.prompt.includes('Lọc vi sinh hợp bể nhỏ') && !a.prompt.includes('Petco')) throw new Error('read failed')
+    return reader()(a as Parameters<Llm>[0])
+  }) as Llm
+  const sent: string[] = []
+  const r = await gate(root, { llm, now, mend: editor(root, sent), jobs: 1 })
+  expect(sent).toEqual(['youtube-new-shop: shop'])
+  expect(r.report.mended).toEqual([])
+  const t = await readJson(root, 'content/guides/youtube-new-shop/vi.json')
+  expect(t.body).toBe(body)
+  expect(t.held).toEqual({ checks: ['shop'], at: '2026-11-09' })
+})

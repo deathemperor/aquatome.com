@@ -47,6 +47,8 @@ export const HOLD_ALWAYS: readonly FitCheck[] = ['kit', 'harm']
  * isn't a sentence, and units are rounded where the text is written (round.ts).
  */
 export const MENDABLE: readonly FitCheck[] = ['shop', 'price', 'source', 'elsewhere', 'product']
+/** What a page held for waits for a person, and no editor gets: harm, a kit, a dose and what a dose lacks. */
+export const WAITS: readonly FitCheck[] = ['harm', 'kit', 'lethal', 'dose', 'dose-caution', 'dose-purpose', 'dose-conflict']
 /**
  * Fixes the sentences `findings` quote in a page's file, when it can: true once the file has the mended text, which the
  * gate then reads again. False for a mend that didn't hold (a broken edit, one its own reviewer didn't pass), and nothing
@@ -260,6 +262,12 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
   // The texts put back for a check, as they were before any mend, to keep once they do go back.
   const thrown = new Map<string, PutBack>()
   /**
+   * What a held page was held for that waits for a person (`WAITS`), harm in another language's text too: no editor gets
+   * it, whatever its read finds now, and it stays held for it (the chief of staff, 14 Nov 2026; Astra's read: a guide held
+   * for harm, read now with a shop only, was mended and let out).
+   */
+  const waitsFor = (f: string) => [...new Set([held.get(f), head.held.get(f)].flatMap(h => (h?.checks ?? []) as FitCheck[]).filter(c => WAITS.includes(c)))].sort()
+  /**
    * A page worse only on sentences a mender may fix: they are sent to it (the faults of the checks it is worse on, not
    * the ones the old text has too), and the mended text is read and decided on again, against what the old text's reads
    * found. The call it gets then, or nothing: not mendable, the cap spent, no mend, or still worse.
@@ -268,24 +276,29 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
     // A page held already takes one of the run's `heldMends`; a new one, or a live one going back, one of its `mends`.
     const fromHeld = o.wasHeld && !o.isNew
     if (!d.mend || (fromHeld ? heldMends : mends) <= 0 || !worse.length || !worse.every(c => MENDABLE.includes(c))) return undefined
+    if (o.wasHeld && waitsFor(f).length) return undefined
     if (fromHeld) heldMends--
     else mends--
+    // The text as it was, put back if the mended one can't be read and decided on: the file and the run's record of the
+    // page stay one text (Astra's read: a mend whose reread failed left its text, unread, beside the old read).
+    const was = await readFile(join(root, f), 'utf8')
+    const undo = async () => { await writeFile(join(root, f), was); return undefined }
     try {
       const done = await d.mend(p, gateFindings(p, entry).filter(x => worse.includes(x.check)))
       // A page turned away with no editor called isn't one of the run's mends: to the video guides' mender, every fish page.
       if (done === undefined) { if (fromHeld) heldMends++; else mends++ }
-      if (!done) return undefined
+      if (!done) return await undo()
     } catch (e) {
       if (accountsOut(e)) report.stopped = e.message.slice(0, 200)
       else report.failed.push(`${fitKey(p)}: mend: ${(e as Error).message.slice(0, 200)}`)
-      return undefined
+      return await undo()
     }
     // As a build reads it now.
     const next = (p.kind === 'cards' ? await loadCards(join(root, 'content'), [p.lang]) : await loadPages(join(root, 'content'), [p.lang])).find(x => fileOf(x) === f)
     const read2 = next && await read(next)
-    if (!next || !read2) return undefined
+    if (!next || !read2) return await undo()
     const call = gateCall(gateChecks(next, read2), { isNew: o.isNew, wasHeld: o.wasHeld, ...(old ? { before: new Set([...o.oldChecks, ...carried(next, read2, old)]) } : {}) })
-    if (call.action === 'revert') return undefined
+    if (call.action === 'revert') return await undo()
     // The mended text is the page's from here on: its read, and what the steps below and the report count.
     state[fitKey(p)] = read2
     byFile.set(f, next)
@@ -360,8 +373,11 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
             }
           }
         }
-        // New, or held already, and held only for what its editor fixes: to the editor, and decided on again.
-        if (call.action === 'hold' && entry && (isNew || wasHeld)) {
+        // New, or held already, and held only for what its editor fixes: to the editor, and decided on again. Held already
+        // for what waits for a person: held for that still, and not sent.
+        const waits = wasHeld ? waitsFor(f) : []
+        if (call.action === 'hold' && waits.length) call = { action: 'hold', checks: [...new Set([...call.checks, ...waits])].sort() }
+        else if (call.action === 'hold' && entry && (isNew || wasHeld)) {
           const fixed = await mended(f, p, entry, call.checks, old, { isNew, wasHeld, oldChecks: old && oldSaved ? [...gateChecks(old, oldSaved)] : [] })
           if (fixed) call = fixed
         }
