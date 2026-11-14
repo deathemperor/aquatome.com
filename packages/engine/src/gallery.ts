@@ -60,9 +60,12 @@ export async function commonsCandidates(name: string, http: Http, max = 450, loo
       // Its own description and categories: a drawing, a dead or measured specimen, food, another species (photos.ts).
       if (unfitCommons({ title: p.title, description: ii.extmetadata?.ImageDescription?.value, categories: ii.extmetadata?.Categories?.value })) continue
       const url = ii.thumburl.replace(/\?.*$/, '') // without Commons' utm tracking query
+      // Its description, kept beside the caption the album step writes, for the genus rule (photo-named.ts): the chief of
+      // staff, 2026-11-14, after the Pseudoplatystoma album's Commons file was described as our fish in words our caption lost.
+      const said = text(ii.extmetadata?.ImageDescription?.value).slice(0, 300)
       out.push({
         key: p.title, url, thumb: thumbOf(url) ?? url, width: ii.thumbwidth, height: ii.thumbheight, licence,
-        author: authorText(ii.extmetadata?.Artist?.value) || 'Wikimedia Commons', sourceUrl: ii.descriptionurl,
+        author: authorText(ii.extmetadata?.Artist?.value) || 'Wikimedia Commons', sourceUrl: ii.descriptionurl, ...(said ? { sourceCaption: said } : {}),
       })
     }
   }

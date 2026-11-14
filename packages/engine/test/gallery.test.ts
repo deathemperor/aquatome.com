@@ -59,6 +59,24 @@ test("commons: a file whose own categories or description say it is a drawing, f
   expect(c.map(x => x.key)).toEqual(['File:A.jpg'])
 })
 
+test("commons: a candidate keeps its file's own description beside the caption the album step writes, for the genus rule (the chief of staff, 2026-11-14)", async () => {
+  const withMeta = (title: string, extra: Record<string, { value: string }>) => { const x = info(title, 'CC BY 4.0'); Object.assign(x.imageinfo[0]!.extmetadata, extra); return x }
+  const all: Record<string, unknown> = {
+    'File:Pseudoplatystoma tigrinum1.jpg': withMeta('File:Pseudoplatystoma tigrinum1.jpg', { ImageDescription: { value: 'Tiger sorubim <i>Pseudoplatystoma fasciatum</i>' } }),
+    'File:B.jpg': info('File:B.jpg', 'CC BY 4.0'),
+  }
+  const c = await commonsCandidates('Pseudoplatystoma fasciatum', async (u: string) => {
+    const q = new URL(u).searchParams
+    if (q.get('list') === 'categorymembers') return { query: { categorymembers: Object.keys(all).map(title => ({ ns: 6, title })) } }
+    if (q.get('list') === 'search') return { query: { search: [] } }
+    return { query: { pages: Object.fromEntries(q.get('titles')!.split('|').map((t, i) => [String(i), all[t]])) } }
+  })
+  expect(c.map(x => [x.key, x.sourceCaption])).toEqual([['File:Pseudoplatystoma tigrinum1.jpg', 'Tiger sorubim Pseudoplatystoma fasciatum'], ['File:B.jpg', undefined]])
+  // The album step writes our caption and keeps the source's words beside it.
+  const { kept } = await screenTagged([c[0]!], 'Pseudoplatystoma fasciatum', 'Cá da trơn mũi xẻng', deps({ look: async (f, p) => keepAll(f, p, 1) }))
+  expect(kept[0]!.photo).toMatchObject({ caption: 'ảnh 1', sourceCaption: 'Tiger sorubim Pseudoplatystoma fasciatum' })
+})
+
 test('commons: files with long names are asked for in addresses the server takes, each file once', async () => {
   // Found 2026-11-10 in the photos log: "vittina-waigiensis commons: HTTP 414" every cycle (72 times on 6 pages), so those
   // pages' Commons photos were never read. Museum shell series name each file in a sentence.
