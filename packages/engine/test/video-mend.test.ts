@@ -281,7 +281,9 @@ test('a mend takes out only a sentence a finding names: one that drops or reword
   // So does one inside a quote mark; and a sentence after a dose that ends on an initial still has to survive.
   // A rate after an abbreviation, however it's marked, is read too: the next sentence starts with no capital (Grok's
   // fourth read).
-  for (const line of ['Bể này dùng khoảng 4 nắp, loài "P. aethiopicus", mỗi 10 lít.', 'Bể này dùng khoảng 4 nắp v.v. mỗi 10 lít.', 'Bể này dùng khoảng 4 nắp, vd. mỗi 10 lít.', 'Bể này dùng khoảng 4 nắp, loài sp. aethiopicus, mỗi 10 lít.', 'Bể này dùng khoảng 4 nắp, loài «P. aethiopicus», mỗi 10 lít.']) {
+  for (const line of ['Bể này dùng khoảng 4 nắp, loài "P. aethiopicus", mỗi 10 lít.', 'Bể này dùng khoảng 4 nắp v.v. mỗi 10 lít.', 'Bể này dùng khoảng 4 nắp, vd. mỗi 10 lít.', 'Bể này dùng khoảng 4 nắp, loài sp. aethiopicus, mỗi 10 lít.', 'Bể này dùng khoảng 4 nắp, loài «P. aethiopicus», mỗi 10 lít.',
+    // A capital or a figure after an abbreviation is no sentence start (Grok's fifth read).
+    'Bể này dùng khoảng 4 nắp, loài P. Scalare, mỗi 10 lít.', 'Bể này dùng khoảng 4 nắp, vd. 5 ml cho mỗi 10 lít.', 'Bể này dùng khoảng 4 nắp v.v. 5 ml mỗi 10 lít.', "Bể này dùng khoảng 4 nắp, loài sp. 'Pygmy', mỗi 10 lít."]) {
     const quoted = await setup({ body: `<p>${line}</p><p>${LONG}</p>`, faq: [] })
     expect(await deps(quoted.root).mend(page(), [{ ...caps, quote: '4 nắp' }]), line).toBeUndefined()
   }

@@ -22,9 +22,10 @@ const REVIEW_NOTE = readFileSync(new URL('./prompts/video-mend-review.md', impor
  * whole. A quote that ends its sentence ("…4 nắp.", as the reader stores one) ends there, not at the next sentence's stop
  * (Grok's read).
  *
- * `cased`, the same paragraphs with their capitals: then only a stop the next sentence starts after with a capital or a
- * figure ends it, so a dose's sentence reads on past "v.v.", "vd.", "sp." or "P. aethiopicus" to a rate after them
- * (Grok's reads). A paragraph whose two forms don't line up is read whole: unsure, more is read, and a dose waits.
+ * `cased`, the same paragraphs with their capitals: then only a stop after a word of three letters or more (not "P.",
+ * "vd.", "v.v.", "sp.", "spp.") that the next sentence starts after with a capital or a figure ends it, so a dose's
+ * sentence reads on to a rate after an abbreviation (Grok's reads). A paragraph whose two forms don't line up is read
+ * whole: unsure, more is read, and a dose waits.
  */
 function sentenceOf(paragraphs: string[], quote: string, cased?: string[]): string {
   for (const [k, p] of paragraphs.entries()) {
@@ -32,7 +33,12 @@ function sentenceOf(paragraphs: string[], quote: string, cased?: string[]): stri
     if (i < 0) continue
     const c = cased?.[k]
     if (cased && c?.length !== p.length) return p
-    const ends = (m: RegExpMatchArray) => !c || /^\s*["'“‘«(]*(?:[\p{Lu}\d]|$)/u.test(c.slice(m.index! + m[0].length))
+    const ends = (m: RegExpMatchArray) => {
+      if (!c) return true
+      const word = /[\p{L}\d]+$/u.exec(c.slice(0, m.index))?.[0] ?? ''
+      if (/^\p{L}{1,2}$/u.test(word) || /^(?:spp|ssp|var|aff|etc|cf)$/iu.test(word)) return false
+      return /^\s*["'“‘«(]*(?:[\p{Lu}\d]|$)/u.test(c.slice(m.index! + m[0].length))
+    }
     // The quote's own last mark, past a closing quote mark: a stop there ends the sentence; one inside the quote doesn't.
     const last = i + Math.max(1, quote.replace(CLOSING, '').length) - 1
     let start = 0, end = p.length
