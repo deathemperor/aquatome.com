@@ -138,9 +138,10 @@ test('every writer and reviewer converting a tank gets the one table: no prompt 
   }
   // The video guide's writer had no rule at all, and wrote "115 lít" for 30 gallons (8 to 11 Nov 2026).
   expect(withTable).toEqual(expect.arrayContaining(['video-guide.md', 'video-review.md', 'vi-rewrite.md', 'localize.md', 'localize-review.md', 'review.md', 'process.md', 'guide-write.md', 'breed.md', 'breed-intl.md', 'species.md', 'species-video.md', 'topic.md']))
-  // Every prompt with a rule on units has the table, but those that write no tank of their own: the checkers, the fact
-  // finder, and the writers told to keep each figure as their record gives it.
-  const KEEP_FIGURES = ['fit.md', 'reader.md', 'guide-facts.md', 'summary.md', 'review-write.md']
+  // Every prompt with a rule on units has the table, but those that write no tank of their own: the checkers (the video
+  // editor's reviewer, told units are left for code), the fact finder, and the writers told to keep each figure as their
+  // record gives it.
+  const KEEP_FIGURES = ['fit.md', 'reader.md', 'guide-facts.md', 'summary.md', 'review-write.md', 'video-mend-review.md']
   for (const f of await readdir(dir)) {
     const text = await readFile(join(dir, f), 'utf8')
     if (/hệ mét|metric|gallon|°F|\binch|imperial|đổi đơn vị/i.test(text) && !KEEP_FIGURES.includes(f)) expect(withTable, f).toContain(f)
