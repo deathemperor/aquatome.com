@@ -2,83 +2,6 @@
   "id": "corydoras-paleatus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/82b2febde4974391.webp",
-      "thumb": "https://media.aquatome.com/commons/82b2febde4974391-480.webp",
-      "width": 1200,
-      "height": 798,
-      "licence": "CC BY-SA 3.0",
-      "author": "Sychriscar",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:19septe_(4).JPG",
-      "caption": "Cá chuột paleatus dạng màu hồng cam trong bể",
-      "best": true,
-      "kind": "form"
-    },
-    {
-      "url": "https://media.aquatome.com/flickr/2709294861.webp",
-      "thumb": "https://media.aquatome.com/flickr/2709294861-480.webp",
-      "width": 1024,
-      "height": 686,
-      "licence": "CC BY 2.0",
-      "author": "i-saint",
-      "sourceUrl": "https://www.flickr.com/photos/25410218@N05/2709294861",
-      "caption": "Hai cá chuột pepper bên nền sỏi trong bể thủy sinh",
-      "best": true,
-      "kind": "pair"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/84869641.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/84869641-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Guillermo Debandi",
-      "sourceUrl": "https://www.inaturalist.org/photos/84869641",
-      "caption": "Cá chuột paleatus bơi sát đáy bể kính",
-      "best": true,
-      "kind": "other",
-      "large": {
-        "url": "https://media.aquatome.com/inaturalist/84869641-large.webp",
-        "width": 1600,
-        "height": 1200
-      }
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/84869649.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/84869649-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Guillermo Debandi",
-      "sourceUrl": "https://www.inaturalist.org/photos/84869649",
-      "caption": "Cá chuột paleatus nhìn nghiêng trong bể kính",
-      "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/218595288.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/218595288-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Luciano Massa",
-      "sourceUrl": "https://www.inaturalist.org/photos/218595288",
-      "caption": "Cá chuột paleatus bơi giữa nước trong bể",
-      "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/363020280.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/363020280-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Lauu",
-      "sourceUrl": "https://www.inaturalist.org/photos/363020280",
-      "caption": "Cá chuột paleatus trong chậu nhựa vàng, nhìn từ trên xuống",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/commons/52e28f524a1e37fb.webp",
       "thumb": "https://media.aquatome.com/commons/52e28f524a1e37fb-480.webp",
       "width": 800,
@@ -159,6 +82,47 @@
       }
     },
     {
+      "url": "https://media.aquatome.com/commons/ca2a8705dff4e31e.webp",
+      "thumb": "https://media.aquatome.com/commons/ca2a8705dff4e31e-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY-SA 4.0",
+      "author": "Nate Wessel",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_pair_with_eggs.jpg",
+      "caption": "Hai cá chuột paleatus trong bể thủy sinh",
+      "best": false,
+      "kind": "pair",
+      "large": {
+        "url": "https://media.aquatome.com/commons/ca2a8705dff4e31e-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/84869649.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/84869649-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Guillermo Debandi",
+      "sourceUrl": "https://www.inaturalist.org/photos/84869649",
+      "caption": "Cá chuột paleatus nhìn nghiêng trong bể kính",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/218595288.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/218595288-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Luciano Massa",
+      "sourceUrl": "https://www.inaturalist.org/photos/218595288",
+      "caption": "Cá chuột paleatus bơi giữa nước trong bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/6c0820e836ac5f3e.webp",
       "thumb": "https://media.aquatome.com/commons/6c0820e836ac5f3e-480.webp",
       "width": 1200,
@@ -205,23 +169,6 @@
       "caption": "Cá chuột paleatus vàng ánh xanh trong vợt bắt cá",
       "best": false,
       "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/ca2a8705dff4e31e.webp",
-      "thumb": "https://media.aquatome.com/commons/ca2a8705dff4e31e-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY-SA 4.0",
-      "author": "Nate Wessel",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_pair_with_eggs.jpg",
-      "caption": "Hai cá chuột paleatus trong bể thủy sinh",
-      "best": false,
-      "kind": "pair",
-      "large": {
-        "url": "https://media.aquatome.com/commons/ca2a8705dff4e31e-large.webp",
-        "width": 1800,
-        "height": 1200
-      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/472327008.webp",
@@ -341,6 +288,59 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Marmorierter_Panzerwels_1.jpg",
       "caption": "Cá chuột paleatus bên đá đen trong bể",
       "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/82b2febde4974391.webp",
+      "thumb": "https://media.aquatome.com/commons/82b2febde4974391-480.webp",
+      "width": 1200,
+      "height": 798,
+      "licence": "CC BY-SA 3.0",
+      "author": "Sychriscar",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:19septe_(4).JPG",
+      "caption": "Cá chuột paleatus dạng màu hồng cam trong bể",
+      "best": true,
+      "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/2709294861.webp",
+      "thumb": "https://media.aquatome.com/flickr/2709294861-480.webp",
+      "width": 1024,
+      "height": 686,
+      "licence": "CC BY 2.0",
+      "author": "i-saint",
+      "sourceUrl": "https://www.flickr.com/photos/25410218@N05/2709294861",
+      "caption": "Hai cá chuột pepper bên nền sỏi trong bể thủy sinh",
+      "best": true,
+      "kind": "pair"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/84869641.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/84869641-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Guillermo Debandi",
+      "sourceUrl": "https://www.inaturalist.org/photos/84869641",
+      "caption": "Cá chuột paleatus bơi sát đáy bể kính",
+      "best": true,
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/84869641-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/363020280.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/363020280-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Lauu",
+      "sourceUrl": "https://www.inaturalist.org/photos/363020280",
+      "caption": "Cá chuột paleatus trong chậu nhựa vàng, nhìn từ trên xuống",
+      "best": true,
       "kind": "other"
     }
   ],

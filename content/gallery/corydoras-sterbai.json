@@ -2,18 +2,6 @@
   "id": "corydoras-sterbai",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/617423382.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/617423382-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Gabriel",
-      "sourceUrl": "https://www.inaturalist.org/photos/617423382",
-      "caption": "Đàn cá chuột Sterba kiếm ăn trên nền sỏi màu trong bể",
-      "best": true,
-      "kind": "group"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/339901810.webp",
       "thumb": "https://media.aquatome.com/inaturalist/339901810-480.webp",
       "width": 1024,
@@ -93,16 +81,6 @@
       }
     },
     {
-      "url": "https://media.aquatome.com/commons/73d4e30e2561b176.webp",
-      "thumb": "https://media.aquatome.com/commons/73d4e30e2561b176-480.webp",
-      "width": 1200,
-      "height": 651,
-      "licence": "CC BY-SA 3.0",
-      "author": "Xocolatl",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Engelantennenwelse.jpg",
-      "caption": "Cá chuột Sterba trong bể thủy sinh có rêu xanh"
-    },
-    {
       "url": "https://media.aquatome.com/commons/d19df063cf5eeaa1.webp",
       "thumb": "https://media.aquatome.com/commons/d19df063cf5eeaa1-480.webp",
       "width": 1200,
@@ -116,6 +94,16 @@
         "width": 1803,
         "height": 1200
       }
+    },
+    {
+      "url": "https://media.aquatome.com/commons/73d4e30e2561b176.webp",
+      "thumb": "https://media.aquatome.com/commons/73d4e30e2561b176-480.webp",
+      "width": 1200,
+      "height": 651,
+      "licence": "CC BY-SA 3.0",
+      "author": "Xocolatl",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Engelantennenwelse.jpg",
+      "caption": "Cá chuột Sterba trong bể thủy sinh có rêu xanh"
     },
     {
       "url": "https://media.aquatome.com/commons/5d45cb02727f0f22.webp",
@@ -169,6 +157,18 @@
       "caption": "Cá chuột Sterba thân đốm sẫm bơi trong bể kính",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/617423382.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/617423382-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Gabriel",
+      "sourceUrl": "https://www.inaturalist.org/photos/617423382",
+      "caption": "Đàn cá chuột Sterba kiếm ăn trên nền sỏi màu trong bể",
+      "best": true,
+      "kind": "group"
     }
   ],
   "seen": 20,

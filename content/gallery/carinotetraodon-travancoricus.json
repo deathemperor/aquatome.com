@@ -14,30 +14,6 @@
       "kind": "male"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/68022680.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/68022680-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Christopher",
-      "sourceUrl": "https://www.inaturalist.org/photos/68022680",
-      "caption": "Đàn cá nóc đậu nhỏ bơi cùng nhau ngoài tự nhiên",
-      "best": true,
-      "kind": "group"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/68022620.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/68022620-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Christopher",
-      "sourceUrl": "https://www.inaturalist.org/photos/68022620",
-      "caption": "Cá nóc đậu bơi trong môi trường tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/flickr/16782280862.webp",
       "thumb": "https://media.aquatome.com/flickr/16782280862-480.webp",
       "width": 1024,
@@ -48,26 +24,6 @@
       "caption": "Cá nóc lùn nhìn chính diện trong bể thủy sinh",
       "best": true,
       "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/7b991ef5fd891cca.webp",
-      "thumb": "https://media.aquatome.com/commons/7b991ef5fd891cca-480.webp",
-      "width": 1000,
-      "height": 491,
-      "licence": "CC BY-SA 2.5",
-      "author": "Wikimedia Commons",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carinotetraodon_travancoricus_by_OpenCage.jpg",
-      "caption": "Cá nóc đậu cái bơi trong bể, nền sáng"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/fdbdc89baf654198.webp",
-      "thumb": "https://media.aquatome.com/commons/fdbdc89baf654198-480.webp",
-      "width": 1065,
-      "height": 710,
-      "licence": "CC BY-SA 3.0",
-      "author": "Haplochromis",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carinotetraodon_travancoricus_1.JPG",
-      "caption": "Cá nóc đậu con nhìn thẳng trong bể thủy sinh"
     },
     {
       "url": "https://media.aquatome.com/commons/a935c0e316a0c435.webp",
@@ -160,6 +116,50 @@
       "authorUrl": "https://unsplash.com/@shot_by_cooper?utm_source=aquatome&utm_medium=referral",
       "sourceUrl": "https://unsplash.com/photos/a-yellow-pufferfish-swims-in-murky-water-f5gJ2ASEljk?utm_source=aquatome&utm_medium=referral",
       "caption": "Cá nóc lùn màu vàng xanh trong bể thủy sinh"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/68022680.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/68022680-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Christopher",
+      "sourceUrl": "https://www.inaturalist.org/photos/68022680",
+      "caption": "Đàn cá nóc đậu nhỏ bơi cùng nhau ngoài tự nhiên",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/68022620.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/68022620-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Christopher",
+      "sourceUrl": "https://www.inaturalist.org/photos/68022620",
+      "caption": "Cá nóc đậu bơi trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/7b991ef5fd891cca.webp",
+      "thumb": "https://media.aquatome.com/commons/7b991ef5fd891cca-480.webp",
+      "width": 1000,
+      "height": 491,
+      "licence": "CC BY-SA 2.5",
+      "author": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carinotetraodon_travancoricus_by_OpenCage.jpg",
+      "caption": "Cá nóc đậu cái bơi trong bể, nền sáng"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/fdbdc89baf654198.webp",
+      "thumb": "https://media.aquatome.com/commons/fdbdc89baf654198-480.webp",
+      "width": 1065,
+      "height": 710,
+      "licence": "CC BY-SA 3.0",
+      "author": "Haplochromis",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carinotetraodon_travancoricus_1.JPG",
+      "caption": "Cá nóc đậu con nhìn thẳng trong bể thủy sinh"
     }
   ],
   "seen": 71,

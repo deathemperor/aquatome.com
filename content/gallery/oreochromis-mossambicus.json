@@ -2,18 +2,6 @@
   "id": "oreochromis-mossambicus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/b04508b4c7671ade.webp",
-      "thumb": "https://media.aquatome.com/commons/b04508b4c7671ade-480.webp",
-      "width": 1200,
-      "height": 1200,
-      "licence": "CC BY-SA 4.0",
-      "author": "John Robert McPherson",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oreochromis_mossambicus_and_display_pit_Downfall_Creek_7th_Brigade_Park_Chermside_P1120381.jpg",
-      "caption": "Cá rô phi Mozambique đực trên ổ sinh sản trong suối",
-      "best": true,
-      "kind": "male"
-    },
-    {
       "url": "https://media.aquatome.com/commons/a6b77e8f0b51f4ed.webp",
       "thumb": "https://media.aquatome.com/commons/a6b77e8f0b51f4ed-480.webp",
       "width": 1200,
@@ -277,6 +265,18 @@
       "caption": "Cá đực bơi trên ổ sinh sản hình tròn dưới nước nông",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/b04508b4c7671ade.webp",
+      "thumb": "https://media.aquatome.com/commons/b04508b4c7671ade-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "CC BY-SA 4.0",
+      "author": "John Robert McPherson",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oreochromis_mossambicus_and_display_pit_Downfall_Creek_7th_Brigade_Park_Chermside_P1120381.jpg",
+      "caption": "Cá rô phi Mozambique đực trên ổ sinh sản trong suối",
+      "best": true,
+      "kind": "male"
     }
   ],
   "seen": 121,
