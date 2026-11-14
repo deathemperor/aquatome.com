@@ -49,7 +49,9 @@ const sections = materialSections(m)
   <GlossaryTip />
 </Browse>
 <style>
-  .material { max-width: var(--measure); }
+  /* Never wider than the screen, whatever the text holds: a long word breaks, and anything else that reaches past the
+     text's edge (a source mark's 44 px target, global.css) is cut at the page's gutter, where the screen ends on a phone. */
+  .material { max-width: var(--measure); overflow-wrap: break-word; overflow: clip; overflow-clip-margin: var(--space-5); }
   .alt { font-size: 0.85rem; color: var(--c-ink-soft); margin: 0 0 var(--space-4); }
   .intro { margin-bottom: var(--space-5); }
   h2 { font-size: var(--step-2); margin: var(--space-6) 0 var(--space-3); }
