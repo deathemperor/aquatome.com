@@ -91,6 +91,51 @@
       "kept": false
     }
   ],
+  "id/guides/aquatome-benh-nam-mieng-nam-lung-columnaris-o-ca-canh-nhan-biet-cach-chua-va-phong": [
+    {
+      "at": "2026-11-13T23:36:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "The mistake \"Menganggapnya jamur lalu mengobatinya dengan obat jamur\" is not in the facts. The facts only say that calling it a fungus is wrong. They say nothing about people treating it with antifungals.",
+        "\"Wabah di kolam paling banyak saat air hangat\" loosely restates the fact that pond outbreaks peak in summer. The fact does not say \"warm water\" in general."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.86,
+        0.85,
+        0.85
+      ]
+    },
+    {
+      "at": "2026-11-13T23:36:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.82,
+      "notes": [
+        "\"Ciprofloxacin sesuai label produk\" is fine, but the table presents the hobby protocol as 'Ciprofloxacin + garam' and omits Furan-2. This is a minor omission, not an error.",
+        "\"pada bentuk akut bisa membunuh dalam hitungan jam sampai beberapa hari\" in the intro is a loose blend of facts. It is acceptable.",
+        "\"Ikan bernapas cepat, artinya insang kemungkinan sudah rusak\" and \"Akuarium berisi ikan muda\" under 'Kapan harus khawatir' are guide-added inferences, only loosely supported.",
+        "\"Soal garam, sumber-sumber berbeda pendapat\" is the guide's own framing. The facts do not present the sources as disagreeing.",
+        "\"Oles borok seperti dijelaskan di atas\" is placed after the 4-5 day bath. This is fine.",
+        "\"Pakan obat ... Dosis sesuai label produk\" and the tea-tree oil \"Pakai sesuai label produk\" are label-based dosing and count as supported.",
+        "\"Panduan akuarium tentang koi\" for the Aeromonas claim: the source is a shop, so calling it an aquarium guide is correct.",
+        "\"Menurut dokter hewan, tes PCR lebih cepat\" is correct, since source 1 is a vet.",
+        "\"Situs referensi menyarankan menurunkan suhu ... karena bakteri ini lebih ganas dan menyebar lebih cepat di air hangat\" attributes the reasoning to the reference site. The reference only says the bacteria are more virulent at 85–90 °F, and the faster spread in warm water comes from a different source."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.8,
+        0.82,
+        0.9
+      ]
+    }
+  ],
   "id/guides/aquatome-benh-nhung-velvet-benh-bui-vang-o-ca-canh-nhan-biet-va-cach-chua": [
     {
       "at": "2026-11-08T20:30:13Z",
@@ -403,6 +448,52 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "id/guides/aquatome-ca-ngoi-len-mat-nuoc-tho-gap-nguyen-nhan-va-cach-xu-ly": [
+    {
+      "at": "2026-11-13T23:38:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"Menurut dokter hewan, kekurangan oksigen paling mungkin terjadi saat cuaca panas dan sering muncul menjelang pagi\" is attributed to a vet. The facts give it as source 1, which is also a vet, so this is fine. It does add \"cuaca panas\" for summer, which is a small stretch.",
+        "\"Gas lewat jenuh... menurut dokter hewan\" is supported by Merck, a vet source. No problem.",
+        "\"Ini terutama berlaku di kolam\" for heavy rain and overcast weather is not in the facts. The source only mentions reduced algal photosynthesis.",
+        "\"di akuarium aquascape\" for CO2 is not in the facts. They say \"planted tank\".",
+        "\"Ikan juga lesu dan berkumpul di dekat aliran air balik dari filter\" is attributed to a vet. The facts support this from source 1, a vet, so it is fine.",
+        "\"Segera minta bantuan dokter hewan ikan\" for gasping with normal oxygen is not supported as stated. The facts say to consult a specialist dealer or an experienced fish vet.",
+        "\"Ada juga pompa udara baterai yang menyala otomatis begitu listrik padam\" is supported by the Aquarium Co-Op fact. The guide leaves out the maker, which is fine.",
+        "The \"Batas bahaya (menurut dokter hewan)\" table puts the DO threshold of 5–6 ppm under the vet label. In the facts it comes from source 1, which is a vet, so it is fine.",
+        "\"Kebanyakan ikan tahan sekitar seminggu tanpa makan, jadi melewatkan jadwal makan... aman\" is in the facts, from a shop guide. The guide gives it with no source label, so this is acceptable.",
+        "\"Menurut sebuah penelitian, cupang... bisa menghirup udara\" is supported. It comes from a paper, so it is correct."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.88,
+        0.6,
+        0.6
+      ]
+    },
+    {
+      "at": "2026-11-13T23:38:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "\"Pada malam hari tanaman air dan alga memakai oksigen\": the facts say only that submerged plants use oxygen at night. They don't say this about algae.",
+        "\"Tetap waspada kalau muncul tanda lain seperti lesu, insang mengembang, atau tidak mau makan\": this advice for bettas is the guide's own generalisation. The facts don't give it for bettas."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.9,
+        0.9,
+        0.88
+      ]
     }
   ],
   "id/guides/aquatome-cac-loai-thuc-an-cho-ca-thuc-an-song-trun-chi-trung-huyet-artemia-bobo": [
@@ -2680,6 +2771,51 @@
       ]
     }
   ],
+  "th/guides/aquatome-cham-soc-ca-canh-mua-he-va-mua-dong-mua-mua": [
+    {
+      "at": "2026-11-13T23:46:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "\"จึงควรใช้น้ำที่กำจัดคลอรีนแล้วทุกครั้งที่เติมน้ำ\" (so always use dechlorinated water whenever topping up). The facts only list chlorine's effects, and only mention dechlorinated water for the warm-water top-up in a cold power cut. The general advice is a small extrapolation."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.9,
+        0.85,
+        0.9
+      ]
+    },
+    {
+      "at": "2026-11-13T23:46:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.72,
+      "notes": [
+        "\"จะอันตรายจริงก็ต่อเมื่อร้อนต่อเนื่องเป็นสัปดาห์\" is a slight shift: the facts say it becomes dangerous when it lasts \"for weeks\". This is roughly consistent, so it is minor.",
+        "\"ผู้ผลิตบอกว่าให้น้ำต่ำกว่าช่วงที่อากาศร้อนได้ราว 3 °C\" is supported by source 1 (maker). It is fine.",
+        "\"ถ้าไฟดับ ... คุมอุณหภูมิไม่ให้เปลี่ยนเร็วเกินไป\" in the summary is a general claim. It is loosely supported.",
+        "\"ปลาส่วนใหญ่อดอาหารได้หลายวันหรือเป็นสัปดาห์\" changes \"days or even weeks\". It is acceptable.",
+        "\"ถ้าอุณหภูมิเปลี่ยนราว 10% ทุก 1–2 ชั่วโมง\" is supported.",
+        "\"ช่วงต้น 60 °F ... ช่วงปลาย 50 °F\", \"ปลาย 80 °F ถึงต้น 90 °F\" and \"5 นิ้วต่อน้ำ 1 แกลลอน\" keep the original units instead of converting. They are supported.",
+        "\"ถ้าไฟดับนานแล้วกรองถังจะเป็นอะไรไหม\" and \"ควรเพิ่มการเติมอากาศ\" in the FAQ: \"เพิ่มการเติมอากาศ\" for a 30 °C tank is not directly stated. It is a minor generalisation.",
+        "\"ตู้เล็กจะเสียความร้อนเร็วกว่าตู้ใหญ่\" is supported. \"ห้องจะต้องอุ่นกว่าราว 20 °C ตลอด\" is supported.",
+        "\"ถ้าอากาศร้อน ให้กันแดดไม่ให้ส่องตู้\" is placed under power-cut steps. It is supported.",
+        "\"ใช้ถุงหนา\" and \"ถ้าอากาศอุ่นพอ\" are supported."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.95,
+        0.72,
+        0.72
+      ]
+    }
+  ],
   "th/guides/aquatome-cho-ca-an-khi-vang-nha-di-xa-va-dip-tet": [
     {
       "at": "2026-11-08T08:59:52Z",
@@ -2787,6 +2923,52 @@
         0.6,
         0.6,
         0.68
+      ]
+    }
+  ],
+  "th/guides/aquatome-giu-be-ca-mat-trong-mua-nong": [
+    {
+      "at": "2026-11-13T23:50:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "\"เมื่อไฟดับ\" (battery-backup air pump): the facts only say a battery backup keeps aeration running. They don't mention power cuts.",
+        "\"ส่วนปลาทองและปลานีออนเสี่ยงกว่า\" (FAQ line): the facts say neon tetras struggle before rams do and goldfish are cool-water fish. They don't put neons in a higher-risk group than bettas and gouramis."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.95,
+        0.92
+      ]
+    },
+    {
+      "at": "2026-11-13T23:50:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"ปลาเขตร้อนโดยทั่วไปต้องการออกซิเจน...\" is a small change: the fact says warm-water fish, not tropical fish.",
+        "\"มหาวิทยาลัยอีกแห่งระบุว่า\" for the 2–4 mg/L figure: the facts give this to source 7, which is a university, so the attribution is fine. The claim is not unsupported.",
+        "\"ผู้ผลิตรายหนึ่งแนะนำว่าไม่ควรใช้น้ำแข็งหรือเจลเย็นเลย\" is presented as a source disagreement over frozen bottles. The facts do not frame it that way. They list the frozen-bottle advice and the ice advice separately.",
+        "\"นิตยสารปลาสวยงามฉบับหนึ่งบอกว่า...ไม่ควรลดอุณหภูมิเกิน 5°C/9°F\" and \"เปลี่ยนน้ำ 25% เท่ากับปริมาณที่เปลี่ยนตามปกติ\" are supported. The note is that the 3–4°C in 4 hours advice from source 8 is omitted. That is an omission, not an error.",
+        "\"ทั้งผู้ผลิตและนิตยสารปลาสวยงามต่างไม่แนะนำให้ทิ้งน้ำแข็งลงตู้\" names the maker and a magazine, but the facts say Aquarium Co-Op, JBL and Practical Fishkeeping all advise against ice. This is roughly supported.",
+        "The FAQ \"แต่ควรตรวจดูว่าฮีตเตอร์ไม่ได้ค้างอยู่ในสถานะเปิด\" is supported, but \"นิตยสารปลาสวยงามฉบับหนึ่งแนะนำไม่ให้ถอดปลั๊ก...\" is fine.",
+        "The section \"สิ่งที่ต้องคอยดูหลังลดอุณหภูมิ\" is invented. It includes \"เหงือกกลับมาขยับปกติ และกลับมากินอาหาร\" and \"ถ้ากลับมาเปิดไฟตู้หรือปิดฝาอีกครั้ง ให้คอยดู...\". These are not in the facts, though they are generalities built from the signs.",
+        "\"แบคทีเรียไนตริฟายอิ้งในวงจรไนโตรเจน\" adds the nitrogen cycle, which is minor.",
+        "\"ปลานีออนจะเริ่มแย่ก่อนปลาแรม\" and the \"ปลาออกลูกเป็นตัวกลุ่ม goodeid\" wording are supported.",
+        "\"ตู้ชั้นบนกับชั้นล่างจึงอาจต่างกันหลายองศา\" is supported."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.6,
+        0.6,
+        0.8
       ]
     }
   ],
@@ -3568,6 +3750,45 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/guides/aquatome-cach-chon-va-lap-may-loc-cho-be-ca-loc-thung-loc-treo-loc-tran-loc-day": [
+    {
+      "at": "2026-11-14T00:38:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "\"nhưng lắp phức tạp hơn\" (for the sump): the facts never say a sump is more complicated to install.",
+        "\"Lọc mút chạy sủi hợp nhất\": the facts never rank the sponge filter as the best fit for small tanks. They only say it suits tanks up to about 60 cm.",
+        "\"Làm tốt nhất trong các lần đo\" (for the sump): the facts say only that sumps \"did well\", not that they did best."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.88,
+        0.8,
+        0.8
+      ]
+    },
+    {
+      "at": "2026-11-14T00:38:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "Table row for lọc thác says it suits \"Bể nhỏ và vừa\". The facts give no tank size for hang-on-back filters.",
+        "\"Sump có đủ chỗ chứa phần nước chảy ngược xuống khi mất điện không?\" is a checklist item the facts don't give. They only say water can back-siphon into the sump after a power cut."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.72,
+        0.82,
+        0.8
+      ]
     }
   ],
   "vi/guides/aquatome-cach-lam-be-thuy-sinh-mini-be-don-gian": [

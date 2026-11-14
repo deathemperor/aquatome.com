@@ -10,6 +10,238 @@
     "venezuela",
     "ventuari"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "BR"
+      ],
+      "regions": [
+        "Ventuari",
+        "Rio Tapajos",
+        "Rio Xingu"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "A striped Leporinus from the Ventuari river in Venezuela, possibly a still undescribed species.",
+          "countries": [
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Leporinus with a similar coloration are known so far only from the Rio Tapajos and Rio Xingu in Brazil; these were described in 1929 as Leporinus fasciatus tigrinus.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Tapajos",
+            "Rio Xingu"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "This Leporinus originates from the Ventuari river in Venezuela.",
+          "countries": [],
+          "regions": [
+            "Ventuari"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355391,
+      "total": 144,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "BR",
+          144
+        ]
+      ],
+      "cells": [
+        [
+          -63.28125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -9.84375,
+          8,
+          8
+        ],
+        [
+          -57.65625,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -26.71875,
+          7,
+          7
+        ],
+        [
+          -54.84375,
+          -25.3125,
+          5,
+          5
+        ],
+        [
+          -54.84375,
+          -23.90625,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -23.90625,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -22.5,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          -21.09375,
+          11,
+          11
+        ],
+        [
+          -53.4375,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -16.875,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -52.03125,
+          -19.6875,
+          5,
+          5
+        ],
+        [
+          -52.03125,
+          -16.875,
+          3,
+          3
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -19.6875,
+          36,
+          36
+        ],
+        [
+          -50.625,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -19.6875,
+          25,
+          25
+        ],
+        [
+          -49.21875,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -14.0625,
+          3,
+          3
+        ],
+        [
+          -49.21875,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -9.84375,
+          7,
+          7
+        ],
+        [
+          -49.21875,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -12.65625,
+          3,
+          3
+        ],
+        [
+          -47.8125,
+          -5.625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

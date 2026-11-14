@@ -1,0 +1,94 @@
+{
+  "id": "leptoancistrus-canensis",
+  "native": {
+    "input": "4c74c811ddd21027",
+    "at": "2026-11-14T00:09:29.977Z",
+    "claims": [
+      {
+        "code": "PA",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Río Cana, Cana, Darien, Panama.",
+        "words": "Panama",
+        "ok": true
+      },
+      {
+        "code": "PA",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Central America: Pacific drainages of eastern Panama and Armila River on the Atlantic slope.",
+        "words": "Panama",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Cana",
+        "source": "planetcatfish",
+        "quote": "Type locality: Río Cana, Cana, Darien, Panama.",
+        "country": "PA",
+        "ok": true
+      },
+      {
+        "name": "Armila River",
+        "source": "planetcatfish",
+        "quote": "Central America: Pacific drainages of eastern Panama and Armila River on the Atlantic slope.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Leptoancistrus canensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2339306,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        32
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        11
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        9
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ]
+    ],
+    "native": [
+      "PA"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T00:09:29.977Z"
+  }
+}

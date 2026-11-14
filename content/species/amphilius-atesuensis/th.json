@@ -1,0 +1,33 @@
+{
+  "slug": "amphilius-atesuensis",
+  "name": "แอมฟิเลียส อะเตซูเอนซิส",
+  "altNames": [
+    "แอมฟิเลียส",
+    "African hillstream catfish",
+    "แคทฟิชภูเขาแอฟริกา"
+  ],
+  "sections": {
+    "quickFacts:scotcat": "<p>วงศ์: Amphiliidae ขนาด: 6 ซม. อุณหภูมิ: 18–22 °C ค่า pH: 6.5–7.5</p>",
+    "beforeYouBuy:scotcat": "<p>ปลาชนิดนี้ และน่าจะรวมถึงปลาส่วนใหญ่ในสกุลเดียวกัน มักถูกระบุชนิดผิดได้ง่าย ภาพตัวอย่างอาจเป็นปลาชนิดนี้ หรือชนิดที่ใกล้เคียงกัน เช่น A. platychir หรือ A. uranoscopus ซึ่งเมื่อเลี้ยงในตู้ปลาแล้วแทบไม่ต่างกัน ปลากลุ่มนี้ไม่ค่อยมีการนำเข้ามากนัก แต่หากเลี้ยงในสภาพที่เหมาะสมที่สุด ก็เป็นปลาที่เหมาะเพิ่มเข้าตู้</p>",
+    "distribution:scotcat": "<p>แอฟริกา: แม่น้ำ Gbin ในกินี และแม่น้ำ Pra ตั้งแต่เซียร์ราลีโอนถึงกานา แหล่งที่พบตัวอย่างต้นแบบ: แม่น้ำ Atesu โกลด์โคสต์ นอกจากนี้ยังพบในไลบีเรียและโกตดิวัวร์ ปลาชนิดนี้กระจายพันธุ์กว้าง ตั้งแต่แม่น้ำ St. John (ไลบีเรีย) ถึงแม่น้ำ Mono (โตโก) และในลุ่มน้ำไนเจอร์ตอนบน</p>",
+    "habitat:scotcat": "<p>ในธรรมชาติอาศัยอยู่ในแหล่งน้ำไหล</p>",
+    "maintenance:scotcat": "<p>เลี้ยงในตู้ปลาได้ โดยปูพื้นด้วยกรวดเม็ดเล็กหรือทราย ลงไม้น้ำให้หนาแน่น และให้มีกระแสน้ำอ่อน ๆ เลียนแบบแหล่งอาศัยในธรรมชาติ ควรจัดหินและโพรงให้ด้วย และควรรักษาน้ำให้ค่อนข้างเย็น</p>",
+    "waterConditions:scotcat": "<p>อุณหภูมิ: 18–22 °C ค่า pH: 6.5–7.5</p>",
+    "diet:scotcat": "<p>ลูกน้ำ ไส้เดือนน้ำ (ทูบิเฟ็กซ์) ไซคลอปส์ ไรแดง หนอนกรินดัล อาหารพืช อาหารเม็ดจม และอาหารแผ่น</p>",
+    "notes:scotcat": "<p>ที่มาของชื่อ: ชื่อชนิด atesuensis มาจาก –ensis ซึ่งเป็นปัจจัยท้ายที่บอกถึงสถานที่ หมายถึงแม่น้ำ Atesu ประเทศกานา อันเป็นแหล่งที่พบตัวอย่างต้นแบบ บัญชีแดงของ IUCN: ไม่พบภัยคุกคามที่แพร่หลาย ได้รับการประเมินให้อยู่ในสถานะเป็นกังวลน้อยที่สุด (Least Concern) (IUCN 2020) หมายเหตุ: ภาพตัวอย่างสองภาพสุดท้ายถ่ายที่อุทยานแห่งชาติไท (Tai National Park) ทางตะวันตกเฉียงใต้ของโกตดิวัวร์ ใกล้พรมแดนไลบีเรีย</p>",
+    "references:scotcat": "<p>Baensch, H.A. and R. Riehl 1991 Aquarien atlas. Bd. 3. Melle: Mergus, Verlag für Natur- und Heimtierkunde, Germany. 1104 p.</p><p>Dankwa, H. &amp; Olaosebikan, B.D. 2020. Amphilius atesuensis. The IUCN Red List of Threatened Species 2020.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+  },
+  "quality": {
+    "score": 0.72,
+    "indexable": false,
+    "bySource": {
+      "scotcat": 0.72
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-14"
+  }
+}

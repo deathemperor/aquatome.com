@@ -216,5 +216,116 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13"
+  "updatedAt": "2026-11-13",
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Miriñay",
+        "Rio Pelotas"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio Pelotas at road from Esmeralda to Anita Garibaldi, Rio Grande do Sul, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Pelotas"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Recorded from the Uruguay, Miriñay and Upper Uruguay (Pelotas) areas.",
+          "countries": [],
+          "regions": [
+            "Miriñay"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202132,
+      "total": 55,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "BR",
+          54
+        ],
+        [
+          "AR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -57.65625,
+          -30.9375,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          -29.53125,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -30.9375,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -29.53125,
+          3,
+          3
+        ],
+        [
+          -56.25,
+          -28.125,
+          16,
+          16
+        ],
+        [
+          -54.84375,
+          -32.34375,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -29.53125,
+          5,
+          5
+        ],
+        [
+          -54.84375,
+          -28.125,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -28.125,
+          15,
+          15
+        ],
+        [
+          -52.03125,
+          -28.125,
+          10,
+          10
+        ]
+      ]
+    }
+  }
 }

@@ -722,6 +722,133 @@
     "findings": [],
     "ruled": "e9a0b5c99a8ab1d3"
   },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-george-farmer-1": {
+    "at": "2026-11-14",
+    "hash": "b074bee5cfc81eb6",
+    "findings": [],
+    "ruled": "b074bee5cfc81eb6"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-george-farmer-2": {
+    "at": "2026-11-14",
+    "hash": "4404b38a749d563f",
+    "findings": [],
+    "ruled": "4404b38a749d563f"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-haiqal-rosli": {
+    "at": "2026-11-14",
+    "hash": "aa190124946c47e7",
+    "findings": [],
+    "ruled": "aa190124946c47e7"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-herry-rasio-4": {
+    "at": "2026-11-14",
+    "hash": "f2f0a4fcfba2e26a",
+    "findings": [],
+    "ruled": "f2f0a4fcfba2e26a"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-herry-rasio-5": {
+    "at": "2026-11-14",
+    "hash": "ac500799a2b078eb",
+    "findings": [],
+    "ruled": "ac500799a2b078eb"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-herry-rasio-7": {
+    "at": "2026-11-14",
+    "hash": "c273f125ee3a556b",
+    "findings": [],
+    "ruled": "c273f125ee3a556b"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-hiep-hong": {
+    "at": "2026-11-14",
+    "hash": "2bfe5298bf6c78bd",
+    "findings": [],
+    "ruled": "2bfe5298bf6c78bd"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-hiep-hong-1": {
+    "at": "2026-11-14",
+    "hash": "8493a04a155ee5e4",
+    "findings": [],
+    "ruled": "8493a04a155ee5e4"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-hiep-hong-natural-biotope": {
+    "at": "2026-11-14",
+    "hash": "7a1ba064ba3910c7",
+    "findings": [],
+    "ruled": "7a1ba064ba3910c7"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-indra-bob-wijaya-1": {
+    "at": "2026-11-14",
+    "hash": "c6398f1fa1d9e719",
+    "findings": [],
+    "ruled": "c6398f1fa1d9e719"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-jeff-miotke": {
+    "at": "2026-11-14",
+    "hash": "9a280441897f5d1b",
+    "findings": [],
+    "ruled": "9a280441897f5d1b"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-jeff-miotke-1": {
+    "at": "2026-11-14",
+    "hash": "a058ab899ccc1295",
+    "findings": [],
+    "ruled": "a058ab899ccc1295"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-jeff-miotke-2": {
+    "at": "2026-11-14",
+    "hash": "f8e11fcb89a345d7",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Khung cảnh cuốn hút này do những vách đá lởm chởm và các đỉnh núi dựng đứng làm chủ.",
+        "problem": "The phrase \"do … làm chủ\" is a word-for-word copy of English \"dominated by\" and reads as machine translation.",
+        "fix": "Vách đá lởm chởm và những đỉnh núi dựng đứng chiếm trọn khung cảnh cuốn hút này.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cảnh đá trơ trọi được những thảm cây xanh làm cho mềm lại.",
+        "problem": "This passive \"được … làm cho mềm lại\" copies the English passive even though the agent is named, so it sounds unnatural in Vietnamese.",
+        "fix": "Những thảm cây xanh làm dịu đi vẻ trơ trọi của đá.",
+        "field": "body"
+      }
+    ],
+    "ruled": "f8e11fcb89a345d7"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-joe-harvey": {
+    "at": "2026-11-14",
+    "hash": "8703252e4383258d",
+    "findings": [],
+    "ruled": "8703252e4383258d"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-joe-harvey-1": {
+    "at": "2026-11-14",
+    "hash": "a918fc89ccef8e5f",
+    "findings": [],
+    "ruled": "a918fc89ccef8e5f"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-joe-harvey-8": {
+    "at": "2026-11-14",
+    "hash": "9e4fb880b884ae47",
+    "findings": [],
+    "ruled": "9e4fb880b884ae47"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-josh-sim": {
+    "at": "2026-11-14",
+    "hash": "9f0f33f72b1527df",
+    "findings": [],
+    "ruled": "9f0f33f72b1527df"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-josh-sim-1": {
+    "at": "2026-11-14",
+    "hash": "37d34ebe039019b0",
+    "findings": [],
+    "ruled": "37d34ebe039019b0"
+  },
   "vi/guides/aquariumbreeder-10-slow-growing-plants-in-the-tank": {
     "at": "2026-11-01",
     "hash": "7d8ace662d61562a",
@@ -1462,6 +1589,41 @@
       }
     ],
     "ruled": "8c4c1613a2322bce"
+  },
+  "vi/guides/aquariumbreeder-fast-growing-plants-in-the-tank": {
+    "at": "2026-11-14",
+    "hash": "1c7e30a730047bb6",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Cả bảy cây trong danh sách đều thường lên nhanh khi bể có điều kiện tốt, và chỉ cần chăm rất ít.",
+        "problem": "The conclusion says all seven plants need very little care, but the sections say hornwort needs constant pruning, red tiger lotus needs regular trimming and watching, and Sagittaria needs regular trimming.",
+        "fix": "Cả bảy cây trong danh sách đều thường lên nhanh khi bể có điều kiện tốt, nhưng phải tỉa thường xuyên để cây không tràn kín bể.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Châm phân đều, đèn mạnh và giữ thông số nước phù hợp",
+        "problem": "The conclusion recommends strong light for every plant, but Sagittaria is listed for low to medium light and hornwort and water wisteria for medium light.",
+        "fix": "Châm phân đều, cho đủ đèn theo từng cây và giữ thông số nước phù hợp",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "P1",
+        "quote": "pH: hơi chua đến trung tính (thường 6,0 – 8,0)",
+        "problem": "A pH of 8.0 is alkaline, so the hornwort range does not match the words \"slightly acidic to neutral\".",
+        "fix": "pH: hơi chua đến hơi kiềm (thường 6,0 – 8,0)",
+        "rule": "a pH range labelled acidic to neutral whose upper value is above 7.5",
+        "field": "body"
+      }
+    ],
+    "ruled": "1c7e30a730047bb6"
   },
   "vi/guides/aquariumbreeder-fiddler-crab-tank-setup": {
     "at": "2026-11-10",
@@ -21025,6 +21187,32 @@
       }
     ],
     "ruled": "6ed8265c85bd1574"
+  },
+  "vi/guides/youtube-SZMCesATJ-8": {
+    "at": "2026-11-14",
+    "hash": "ec6fc276aa845aa7",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## Đội dọn rêu: cá tỳ bà râu",
+        "problem": "'Đội dọn rêu' is a word-for-word translation of 'clean-up crew'. Vietnamese hobbyists say 'cá ăn rêu'.",
+        "fix": "## Cá ăn rêu: cá tỳ bà râu",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bể trồng cây mà nitrat thấp quá thì cây yếu.",
+        "problem": "'Bể trồng cây' is a calque. The hobby term is 'bể thủy sinh'.",
+        "fix": "Bể thủy sinh mà nitrat thấp quá thì cây yếu.",
+        "rule": "Flag the phrase 'bể trồng cây' on any Vietnamese page.",
+        "field": "body"
+      }
+    ],
+    "ruled": "ec6fc276aa845aa7"
   },
   "vi/guides/youtube-t-QbuMlXLIg": {
     "at": "2026-11-02",

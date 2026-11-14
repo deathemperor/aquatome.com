@@ -1,6 +1,6 @@
 {
   "slug": "zhujiang-river",
-  "name": "sông Zhujiang",
+  "name": "sông Châu Giang",
   "altNames": [
     "Zhujiang River"
   ],
@@ -8,5 +8,6 @@
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

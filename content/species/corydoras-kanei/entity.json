@@ -18,11 +18,13 @@
         "BR"
       ],
       "regions": [
-        "rio Negro",
-        "rio Branco"
+        "Rio Negro",
+        "Rio Branco",
+        "Rio Tapajos"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -32,8 +34,16 @@
             "BR"
           ],
           "regions": [
-            "rio Negro",
-            "rio Branco"
+            "Rio Negro",
+            "Rio Branco"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "It is said that C142 originates from the Rio Tapajos in Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Tapajos"
           ]
         }
       ]
