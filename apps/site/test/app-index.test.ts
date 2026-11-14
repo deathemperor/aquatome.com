@@ -4,6 +4,7 @@ import { FIRST_GUIDES, FIRST_PLANTS, POPULAR, slugify, STAPLE_SPECIES, type Cont
 import { pageShard, PageShard } from '@aq/schema/app-page'
 import { isVietnamese } from '@aq/schema/text'
 import { appBreeds, appIndex, appPlants, appSpecies, breedGroup, type AppIndex, type AppItem } from '../src/lib/app-index'
+import { glossaryParts } from '../src/lib/glossary-page'
 import { easyPlants, leadGuides } from '../src/lib/home'
 import { getContent } from '../src/lib/content'
 import { appPath, LANGS, localizePath, OTHER_LANGS } from '../src/lib/i18n'
@@ -150,14 +151,32 @@ test('a glossary term carries its meaning and the number of pages that use it, a
     for (const i of index(lang).items.filter(x => x.kind === 'glossary')) {
       const { dom } = appPage(i.path)
       expect(i.def, `${lang} ${i.path}`).toBe(dom.querySelector('p.def')?.text.trim())
-      // Plain text: the page's links and markup are not in it.
-      expect(i.def ?? '', `${lang} ${i.path}`).not.toMatch(/[<>]/)
       const heading = dom.querySelector('#dung-trong')?.text
       expect(i.uses, `${lang} ${i.path}`).toBe(heading ? Number(heading.replace(/\D/g, '')) : undefined)
       if (i.uses) used++
     }
   }
   expect(used, 'the fixture has terms other pages use').toBeGreaterThan(0)
+})
+
+// Codex, 14 Nov 2026: the fixture's Indonesian and Thai indexes hold no glossary term, so the test above can't see theirs.
+// Each language's index takes a term's meaning from its own text, as it stands (a "<" or "&" in it too), and its count
+// from the page's own code.
+test('in every language, a glossary term\'s meaning is its own text and its count is its page\'s', async () => {
+  const vi = await getContent('vi')
+  const own = 'Nước có pH < 7 & mềm, theo bản dịch.'
+  const c: Content = { ...vi, glossary: vi.glossary.map((g, i) => (i ? g : { ...g, t: { ...g.t, definition: own } })) }
+  for (const lang of LANGS) {
+    const items = appIndex(lang, c).items.filter(i => i.kind === 'glossary')
+    expect(items.length, lang).toBe(c.glossary.length)
+    expect(items.find(i => slugOf(i) === c.glossary[0]!.t.slug)?.def, lang).toBe(own)
+    for (const g of c.glossary) {
+      const item = items.find(i => slugOf(i) === g.t.slug)!
+      expect(item.def, `${lang} ${g.t.slug}`).toBe(g.t.definition?.trim() || undefined)
+      expect(item.uses, `${lang} ${g.t.slug}`).toBe(glossaryParts(lang, c, g).total || undefined)
+    }
+    expect(items.some(i => i.uses), `${lang}: the fixture has terms other pages use`).toBe(true)
+  }
 })
 
 test('a plant or a species whose translation scored low is still listed, as the site\'s lists show it', async () => {
