@@ -250,8 +250,9 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
     { from: '2026-11-14T03:00:00+07:00', to: '2026-11-14T07:59:00+07:00', steps: 303, backstop: 300, small: 2, run: 70, localize: 50, second: 18, fit: 10, vi: 12, crops: 4, board: 2, glossary: 25 },
     { from: '2026-11-14T08:00:00+07:00', to: '2026-11-14T23:59:00+07:00', steps: 466, backstop: 450, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 40, glossary: 40, ask: 0 },
     { from: '2026-11-15T00:00:00+07:00', to: '2026-11-15T23:59:00+07:00', steps: 470, backstop: 497, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 34, quota: 1, glossary: 40, material: 8, ask: 0, ideas: 4 },
-    { from: '2026-11-16T00:00:00+07:00', to: '2026-11-16T23:59:00+07:00', steps: 474, backstop: 498, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 37, glossary: 40, material: 8, ask: 2, ideas: 4 },
-    { from: '2026-11-17T00:00:00+07:00', to: '2026-12-31T00:00:00+07:00', steps: 437, backstop: 453, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 8, ask: 2, ideas: 4 },
+    { from: '2026-11-16T00:00:00+07:00', to: '2026-11-16T23:59:00+07:00', steps: 488, backstop: 498, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 37, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24 },
+    { from: '2026-11-17T00:00:00+07:00', to: '2026-11-19T23:59:00+07:00', steps: 451, backstop: 453, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24 },
+    { from: '2026-11-20T00:00:00+07:00', to: '2026-12-31T00:00:00+07:00', steps: 437, backstop: 453, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 8, ask: 2, ideas: 4 },
   ]
   for (const p of periods) for (const when of [p.from, p.to]) {
     const t = tableInForce(CEILINGS.tables, new Date(when))!
@@ -284,6 +285,11 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
     // The album ask: $2 a day on the Mac from 16 Nov, the first day with room under the backstop, and none before (the chief
     // of staff, 14 Nov 2026).
     expect(cap(when, 'mac', 'album-ask')).toBe(p.ask ?? p.small)
+    // The place-name judge: $24 a day on GitHub from 16 Nov to 19 Nov, about 1,200 names a day, with the translations at
+    // $65 in place of $75 so the named lines stay inside GitHub's $180; the default line before and after (the chief of
+    // staff, 15 Nov 2026).
+    expect(cap(when, 'github', 'judge-places')).toBe(p.judge ?? p.small)
+    expect(cap(when, 'mac', 'judge-places')).toBe(p.small)
     // The ideas step: on 12 Nov its $1 line stopped it part way through its first guide, which costs about $1.30 (9
     // calls), and it wrote nothing. Now a guide starts only when its line covers one (pieces.ts), and the line is $3, two
     // guides, in the cloud, where the step runs; the Mac's is $0 (the chief of staff, 12 Nov 2026). A guide came to $1.51 on

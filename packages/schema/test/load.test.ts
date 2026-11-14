@@ -154,6 +154,32 @@ test('another language has only the places one of its fish comes from; Vietnames
   expect(id.placeNames).toEqual({ asia: 'asia', europe: 'europe' })
 })
 
+// The chief of staff, 14 Nov 2026: a place's name that fails when judged alone shows the source's name until it passes;
+// one a batch scored low but no one judged alone shows as it is (no blanket step back: most of them are right). "Hue"
+// for the Hue River on an Indonesian fish page is the case.
+test("a place name judged alone and failed is no name in that language; one a batch scored low and no one judged alone stays", async () => {
+  const { cp, mkdir, readFile, writeFile } = await import('node:fs/promises')
+  const dir = await mkdtemp(join(tmpdir(), 'aq-place-judged-'))
+  await cp(root, dir, { recursive: true })
+  const alpha = JSON.parse(await readFile(join(dir, 'species/alpha/entity.json'), 'utf8'))
+  await writeFile(join(dir, 'species/alpha/entity.json'), JSON.stringify({ ...alpha, places: ['hue-river', 'kayan-river', 'borneo'] }))
+  await writeFile(join(dir, 'species/alpha/id.json'), await readFile(join(dir, 'species/alpha/vi.json'), 'utf8'))
+  const names: Record<string, [string, object]> = {
+    'hue-river': ['Hue', { nameCheck: { ok: false, score: 0.1, at: '2026-11-16T05:00:00Z', why: 'a river cut to its city' } }],
+    'kayan-river': ['Kayan', {}],
+    borneo: ['Kalimantan', { nameCheck: { ok: true, score: 0.95, at: '2026-11-16T05:00:00Z' } }],
+  }
+  for (const [id, [name, more]] of Object.entries(names)) {
+    await mkdir(join(dir, 'places', id), { recursive: true })
+    await writeFile(join(dir, 'places', id, 'entity.json'), JSON.stringify({ id, kind: id === 'borneo' ? 'region' : 'river' }))
+    await writeFile(join(dir, 'places', id, 'vi.json'), JSON.stringify({ slug: id, name: id, altNames: [], sections: {}, quality: { score: 1, indexable: true } }))
+    await writeFile(join(dir, 'places', id, 'id.json'), JSON.stringify({ slug: id, name, altNames: [], sections: {}, quality: { score: 0.05, indexable: false }, ...more }))
+  }
+  const id = await loadAll({ root: dir, lang: 'id', publicBuild: false })
+  expect(id.placeNames).toEqual({ 'kayan-river': 'Kayan', borneo: 'Kalimantan' })
+  expect(id.places.map(p => p.id).sort()).toEqual(['borneo', 'kayan-river'])
+})
+
 test('a page the reader-fit gate holds back in a language is no page there where the site asks, and the engine still reads it', async () => {
   const { cp, mkdir, readFile, writeFile } = await import('node:fs/promises')
   const dir = await mkdtemp(join(tmpdir(), 'aq-held-'))
