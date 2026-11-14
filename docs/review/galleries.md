@@ -1,16 +1,16 @@
 # Photo galleries
 
-Written by `pnpm engine gallery` (2026-11-13). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
+Written by `pnpm engine gallery` (2026-11-14). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
 
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 599 | 30 | 9 | 20 | 618 |
-| rest | 20 | 1711 | 74 | 0 | 58 | 1727 |
+| covered | 30 | 612 | 30 | 9 | 21 | 630 |
+| rest | 20 | 1728 | 74 | 0 | 60 | 1742 |
 
-## Short of target: every source read (329)
+## Short of target: every source read (344)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -290,6 +290,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/nothobranchius-rachovii | covered | 4 | 30 |
 | species/pterophyllum-altum | covered | 13 | 30 |
 | species/sphaerichthys-osphromenoides | covered | 1 | 30 |
+| species/sphaerichthys-selatanensis | covered | 0 | 30 |
 | species/sphaerichthys-vaillanti | covered | 3 | 30 |
 | species/stiphodon-atropurpureus | covered | 3 | 30 |
 | species/stiphodon-ornatus | covered | 0 | 30 |
@@ -335,6 +336,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/aspidoras-pauciradiatus | covered | 4 | 30 |
 | species/aspidoras-taurus | covered | 3 | 30 |
 | species/asterophysus-batrachus | covered | 1 | 30 |
+| species/astyanax-leopoldi | covered | 0 | 30 |
 | species/atractosteus-tristoechus | covered | 2 | 30 |
 | species/auchenipterus-nigripinnis | covered | 0 | 30 |
 | species/auchenoglanis-occidentalis | covered | 5 | 30 |
@@ -344,4 +346,17 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/bagrichthys-obscurus | covered | 0 | 30 |
 | species/bangana-behri | covered | 0 | 30 |
 | species/barbodes-semifasciolatus | covered | 29 | 30 |
+| species/barboides-gracilis | covered | 0 | 30 |
+| species/barilius-ardens | covered | 0 | 30 |
+| species/baryancistrus-demantoides | covered | 1 | 30 |
+| species/baryancistrus-xanthellus | covered | 3 | 30 |
+| species/batasio-fasciolatus | covered | 0 | 30 |
+| species/batrochoglanis-raninus | covered | 0 | 30 |
+| species/batrochoglanis-villosus | covered | 0 | 30 |
+| species/betta-albimarginata | covered | 4 | 30 |
+| species/betta-antoni | covered | 0 | 30 |
+| species/betta-balunga | covered | 0 | 30 |
+| species/betta-bellica | covered | 0 | 30 |
+| species/betta-brownorum | covered | 0 | 30 |
+| species/betta-burdigala | covered | 0 | 30 |
 | species/betta-macrostoma | covered | 0 | 30 |
