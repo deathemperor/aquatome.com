@@ -428,6 +428,11 @@ test('gallery order: each kind in the order the check screened it, not by stored
   const other = (url: string, sourceUrl: string): GalleryPhoto => ({ url, width: 1200, height: 900, licence: 'CC BY', author: 'a', sourceUrl, kind: 'male' })
   const ranked = rankGallery([other('shop', 'https://shop.example/x'), other('a', 'https://commons.wikimedia.org/wiki/File:A_a.jpg'), other('g', 'https://www.gbif.org/occurrence/5'), other('f', 'https://www.flickr.com/photos/someone/7'), other('b', 'https://commons.wikimedia.org/wiki/File:B_b.jpg')], () => false, at)
   expect(ranked.map(x => x.url)).toEqual(['b', 'f', 'g', 'a', 'shop'])
+  // Two photos of one GBIF occurrence share its place and keep their order between them, a second pass too.
+  const g2 = [other('g-second', 'https://www.gbif.org/occurrence/5'), other('b', 'https://commons.wikimedia.org/wiki/File:B_b.jpg'), other('g-first', 'https://www.gbif.org/occurrence/5')]
+  const once = rankGallery(g2, () => false, at)
+  expect(once.map(x => x.url)).toEqual(['b', 'g-second', 'g-first'])
+  expect(rankGallery(once, () => false, at)).toEqual(once)
 })
 
 test('gallery order: photo-tank, ruler and printed-board photos go after all the others where six others show, and stay', () => {
@@ -445,6 +450,12 @@ test('gallery order: photo-tank, ruler and printed-board photos go after all the
   // The check's own word wins over the caption's: false keeps a "bể chụp" photo in its place, true moves one whose caption doesn't say.
   expect(isSetup({ ...photos[0]!, setup: false })).toBe(false)
   expect(isSetup({ ...photos[3]!, setup: true })).toBe(true)
+  // A small glass tank that is planted is an aquarium, not a photo tank; a bare small glass tank, a box or a cup is one.
+  expect(isSetup({ ...photos[3]!, caption: 'Cá betta trong bể kính nhỏ trồng cây thủy sinh' })).toBe(false)
+  expect(isSetup({ ...photos[3]!, caption: 'Cá bảy màu lùn bơi trong hộp nhỏ có cây thủy sinh' })).toBe(false)
+  expect(isSetup({ ...photos[3]!, caption: 'Cá nheo madtom vằn sống trong bể kính nhỏ chụp ngoài tự nhiên' })).toBe(true)
+  expect(isSetup({ ...photos[3]!, caption: 'Cá betta đực đuôi vương miện màu tối trong cốc nước' })).toBe(true)
+  expect(isSetup({ ...photos[3]!, caption: 'Đàn cá mè vinh đang xô nhau đớp mồi trong ao' })).toBe(false)
   // Photos waiting for the photo check, AI pictures and photos it can't tell don't count among the six; those it can't tell stay last.
   const waitingOnes = photos.map((p, i) => (i === 3 ? { ...p, unchecked: true } : p))
   expect(rankGallery(waitingOnes, () => false, at)[0]!.caption).toBe(tank[0])

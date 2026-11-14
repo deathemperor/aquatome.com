@@ -198,7 +198,9 @@ export type ScreenedAt = (p: Photo) => number | undefined
 
 /**
  * The candidate key the album check knew a photo by, read off its source's address: an iNaturalist photo, a Commons file,
- * a Flickr photo, a GBIF occurrence (one occurrence may hold a few photos: they share its place).
+ * a Flickr photo, a GBIF occurrence. A GBIF candidate's key names its photo by the end of GBIF's address and its stored
+ * copy by the start, and the photo keeps only the occurrence's page: an occurrence's photos (two albums hold two each on
+ * 14 Nov) share its place and keep the order they have among themselves.
  */
 function sourceKey(sourceUrl: string): string | undefined {
   let m: RegExpExecArray | null
@@ -245,11 +247,13 @@ function mix(photos: GalleryPhoto[], at: ScreenedAt): GalleryPhoto[] {
 
 /**
  * The album check's words for a fish in a photo tank, box, tray, cup or bucket, or beside a ruler (its captions), for a
- * photo it judged before it was asked (`setup`): 266 photos on 14 Nov.
+ * photo it judged before it was asked (`setup`): 291 photos on 14 Nov.
  */
 const SETUP_WORDS = /bể chụp|bể đo|trong hộp|hộp chụp|hộp quan sát|hộp đo|hộp nhựa|hộp acrylic|hộp nhỏ|hộp trong suốt|bể kính nhỏ|khay|thước đo|có thước|cạnh thước|bên thước|đo kích thước|lưới ô|trong cốc|cốc nhựa|trong xô|túi nước/i
+/** A planted or aquascaped tank, which "bể kính nhỏ" (a small glass tank) can be too: not a photo tank, whatever else the caption says (the independent reader, 14 Nov). */
+const PLANTED_WORDS = /thủy sinh|trồng cây|có cây|cây thủy/i
 /** A photo of the fish in a photo tank, box, tray or cup, or beside a ruler or a printed board: the album check's own word, else its caption's. */
-export const isSetup = (p: GalleryPhoto) => p.setup ?? SETUP_WORDS.test(p.caption ?? '')
+export const isSetup = (p: GalleryPhoto) => p.setup ?? (SETUP_WORDS.test(p.caption ?? '') && !PLANTED_WORDS.test(p.caption ?? ''))
 /** How many other photos an album shows before such a photo can be left behind them: a screen's worth (the strip). */
 export const SETUP_ROOM = 6
 
