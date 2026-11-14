@@ -48,6 +48,8 @@ const DOSE_AMOUNT = new RegExp(`(?<![\\p{L}\\p{N}])(?:\\d[\\d.,–-]*|${NUMBER_W
 const SIZE_WORD = new RegExp(`(?<![\\p{L}])${SIZE_UNIT}(?![\\p{L}])`, 'iu')
 const NUMBER_WORD = new RegExp(`^(?:${NUMBER_WORDS})$`, 'u')
 const DOSE_UNIT = new RegExp(`^(?:${DOSE_WORDS})$`, 'u')
+/** A size's unit, as a word on its own: what a number in words before it is a figure of ("mười lít"). */
+const SIZE_UNIT_WORD = new RegExp(`^${SIZE_UNIT}$`, 'iu')
 /** An amount written in words in a dose's unit ("hai nắp"), which `givesDose` (digits only) doesn't see. */
 const WORD_DOSE = (s: string) => words(s).some((w, i, all) => NUMBER_WORD.test(w) && DOSE_UNIT.test((all[i + 1] === 'cái' ? all[i + 2] : all[i + 1]) ?? ''))
 export const ownTankDose = (sentence: string) => {
@@ -62,11 +64,11 @@ export const LABEL_DOSE = 'liều theo hướng dẫn trên bao bì'
 const isFigure = (w: string) => /^[.,-]?[\d½¼¾⅓⅔⅛]/u.test(w)
 /**
  * Each figure with the word after it, its unit, as often as the text has it. A percent is its figure's ("30%"), "60 x
- * 38" is "60 × 38", "4 cái nắp" is "4 nắp", "½" is a figure, and an amount in words, one word or several ("hai mươi
- * nắp"), counts in a dose's unit (Grok's reads).
+ * 38" is "60 × 38", "4 cái nắp" is "4 nắp", "½" is a figure ("½nắp" too), and a number in words, one word or several,
+ * counts before a dose's or a size's unit ("hai mươi nắp", "mười lít") (Grok's reads).
  */
 function figures(text: string): Map<string, number> {
-  const w = words(text.replace(/(\d)\s*%/gu, '$1 phầntrăm').replace(/(\d)\s*[×xX*]\s*(?=\d)/gu, '$1 '))
+  const w = words(text.replace(/(\d)\s*%/gu, '$1 phầntrăm').replace(/(\d)\s*[×xX*]\s*(?=\d)/gu, '$1 ').replace(/([½¼¾⅓⅔⅛])(?=\p{L})/gu, '$1 '))
   const m = new Map<string, number>()
   const add = (k: string) => m.set(k, (m.get(k) ?? 0) + 1)
   const after = (j: number) => (w[j] === 'cái' ? w[j + 1] : w[j])
@@ -76,7 +78,7 @@ function figures(text: string): Map<string, number> {
       let j = i
       while (NUMBER_WORD.test(w[j] ?? '')) j++
       const u = after(j)
-      if (u && DOSE_UNIT.test(u)) add(`${w.slice(i, j).join(' ')} ${u}`)
+      if (u && (DOSE_UNIT.test(u) || SIZE_UNIT_WORD.test(u))) add(`${w.slice(i, j).join(' ')} ${u}`)
       return
     }
     if (!isFigure(x)) return
@@ -85,7 +87,8 @@ function figures(text: string): Map<string, number> {
   })
   return m
 }
-const unit = (k: string) => k.split(' ')[1] ?? ''
+/** A figure's unit: its key's last word, when it has one ("hai mươi nắp" is in nắp). */
+const unit = (k: string) => { const p = k.split(' '); return p.length > 1 ? p[p.length - 1]! : '' }
 const split = (t: string) => t.split(/\n|(?<=[.?!])\s+/).map(x => x.trim()).filter(Boolean)
 /** What `a` has more of than `b`. */
 const more = (a: Map<string, number>, b: Map<string, number>) => [...a].flatMap(([k, n]) => (n > (b.get(k) ?? 0) ? [k] : []))

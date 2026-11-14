@@ -169,6 +169,9 @@ test('a figure the editor changes, drops or adds beside units or a dose leaves t
     ['a dose in compound words', `<p>Bể 10 gallon là đủ cho một đàn nhỏ.</p><p>Châm vi sinh ngay, hai mươi nắp, liều theo hướng dẫn trên bao bì.</p><p>${LONG}</p>`, [own, gallons, caps]],
     ['a dose as a fraction sign', `<p>Bể 10 gallon là đủ cho một đàn nhỏ.</p><p>Châm vi sinh ngay, ½ nắp, liều theo hướng dẫn trên bao bì.</p><p>${LONG}</p>`, [own, gallons, caps]],
     ['caps in a shop\'s mend', `<p>Bể nhỏ dễ dựng.</p><p>Lọc mua ở tiệm cá cảnh. Châm 5 caps vi sinh.</p><p>${LONG}</p>`, [shop, price]],
+    // A dose in several words added to a shop's mend, or a fraction sign written against its unit (Grok's fifth read).
+    ['a dose in several words in a shop\'s mend', `<p>Bể nhỏ dễ dựng.</p><p>Lọc mua ở tiệm cá cảnh. Châm hai mươi nắp.</p><p>${LONG}</p>`, [shop, price]],
+    ['½ against its unit in a shop\'s mend', `<p>Bể nhỏ dễ dựng.</p><p>Lọc mua ở tiệm cá cảnh. Châm ½nắp.</p><p>${LONG}</p>`, [shop, price]],
   ]
   for (const [name, body, findings] of cases) {
     const { root, file, was } = await setup(findings.includes(shop) ? {} : { body: OWN, faq: [] })
@@ -191,6 +194,8 @@ test('a figure keeps its percent, a units quote keeps its figure beside another 
   const units = (quote: string): FitFinding => ({ ...gallons, quote })
   const cases: [string, string, string, FitFinding[]][] = [
     ['a percent sign dropped', '<p>Thay 30% nước mỗi tuần. Bể 10 gallon là đủ.</p>', '<p>Thay 30 nước mỗi tuần. Bể 10 gallon là đủ.</p>', [units('Bể 10 gallon')]],
+    // A size in words changed beside a units finding (Grok's fifth read).
+    ['a size in words changed', '<p>Bể mười lít là đủ cho một đàn nhỏ. Bể 10 gallon là đủ.</p>', '<p>Bể năm mươi lít là đủ cho một đàn nhỏ. Bể 10 gallon là đủ.</p>', [units('Bể 10 gallon')]],
     ['a units figure dropped beside a shop', '<p>Bể 10 gallon mua ở Petco.</p>', '<p>Bể mua ở tiệm cá cảnh.</p>', [units('Bể 10 gallon'), { ...shop, quote: 'mua ở Petco' }]],
     ['a figure lost after a sentence two findings quote', '<p>Bể mẫu dài 30 cm, mua ở Petco. Đèn cách mặt nước 30 cm.</p><p>Bể 10 gallon là đủ.</p>', '<p>Bể mua ở tiệm cá cảnh. Đèn cách mặt nước.</p><p>Bể 10 gallon là đủ.</p>', [{ ...own, quote: 'Bể mẫu dài 30 cm' }, { ...shop, quote: 'mua ở Petco' }, units('Bể 10 gallon')]],
   ]
