@@ -1,7 +1,8 @@
 import { piece, PieceAdmissionError } from './pieces'
+import { createHash } from 'node:crypto'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { GuideSchema, isOwnerCrop, mayPublish, metricPage, PlaceSchema, PlantSchema, SOURCE_IDS, SpeciesSchema, TranslationSchema, judgeQuality, nameKey, slugify, speciesDepth, type ChangelogEntry, type Photo, type Section, type SourceId, type Translation } from '@aq/schema'
+import { GuideSchema, isOwnerCrop, mayPublish, ownerCropApproved, ownerCropCanonical, metricPage, PlaceSchema, PlantSchema, SOURCE_IDS, SpeciesSchema, TranslationSchema, judgeQuality, nameKey, slugify, speciesDepth, type ChangelogEntry, type Photo, type Section, type SourceId, type Translation } from '@aq/schema'
 import type { z } from 'zod'
 import { across, LARGE_PX } from './curation'
 import { cardGaps } from './card-fill'
@@ -84,31 +85,45 @@ async function archiveHolds(archive: Reader | undefined, src: SourceConfig, read
   return false
 }
 
+/** A crop the owner approved one by one for this page (schema's owner-crops.json), checked as the build checks it (load.ts). */
+export const approvedCrop = (page: string, scientificName: string, approvals?: Parameters<typeof ownerCropApproved>[4]) => (p: Photo) =>
+  isOwnerCrop(p) && ownerCropApproved(p, page, scientificName, createHash('sha256').update(ownerCropCanonical(p, page, scientificName)).digest('hex'), approvals)
+
+/** What a read keeps whatever its page shows (`owned`: the owner's approved crops), and what may never stay (`gone`: never-again, or a source that no longer lets us show photos). */
+export type ReadKeeps = { owned?: (p: Photo) => boolean; gone?: (p: Photo) => boolean }
+
 /**
  * This page's fresh photos replace its old ones; source photos first (registry order), open-licence photos after. A head
  * that fills the card stays first, unless this read replaced it: it's what the fish's cards show (lead-photo.ts).
  * Two things a read never does (14 Nov 2026: a pages rewrite took Betta rutilans' only photo, the owner's crop):
- * - replace a crop the owner approved one by one (`ownerCrop`, checked against schema's owner-crops.json): it's the
- *   owner's, whatever the source's page now shows;
- * - leave a page that had a photo with none: its old ones stay, `held` for a person's second look (last-photo.ts).
+ * - drop a crop the owner approved (`owned`): it's the owner's, whatever the source's page now shows, and it keeps its
+ *   place inside the page's MAX_PHOTOS;
+ * - leave a page that had a photo it may show with none: those stay, `held` for a person's second look (last-photo.ts).
+ *   A photo `gone` says may never stay doesn't count, so a page left with only those takes what Commons has instead.
  */
-export const mergeRead = (prev: Photo[], source: SourceId, url: string, fresh: Photo[]): { photos: Photo[]; held: Photo[] } => {
-  const replaced = (p: Photo) => p.source === source && p.sourceUrl === url && !isOwnerCrop(p)
+export const mergeRead = (prev: Photo[], source: SourceId, url: string, fresh: Photo[], o: ReadKeeps = {}): { photos: Photo[]; held: Photo[] } => {
+  const owned = o.owned ?? (() => false)
+  const replaced = (p: Photo) => p.source === source && p.sourceUrl === url && !owned(p)
   const merged = [...fresh, ...prev.filter(p => !replaced(p))].map((p, i) => ({ p, i })).sort((a, b) => rank(a.p) - rank(b.p) || a.i - b.i).map(x => x.p)
   const head = prev[0] && !replaced(prev[0]) && across(prev[0].large ?? prev[0], 'square') >= LARGE_PX ? prev[0] : undefined
-  const photos = (head ? [head, ...merged.filter(p => p.url !== head.url)] : merged).slice(0, MAX_PHOTOS)
-  return photos.length || !prev.length ? { photos, held: [] } : { photos: prev, held: prev.filter(replaced) }
+  const all = head ? [head, ...merged.filter(p => p.url !== head.url)] : merged
+  // The owner's crops first inside the cap, every other photo in its order after them.
+  const crops = all.filter(owned).slice(0, MAX_PHOTOS), room = MAX_PHOTOS - crops.length
+  const others = new Set(all.filter(p => !owned(p)).slice(0, room))
+  const photos = all.filter(p => crops.includes(p) || others.has(p))
+  const left = prev.filter(p => !o.gone?.(p))
+  return photos.length || !left.length ? { photos, held: [] } : { photos: left, held: left.filter(replaced) }
 }
-export const mergePhotos = (prev: Photo[], source: SourceId, url: string, fresh: Photo[]) => mergeRead(prev, source, url, fresh).photos
+export const mergePhotos = (prev: Photo[], source: SourceId, url: string, fresh: Photo[], o: ReadKeeps = {}) => mergeRead(prev, source, url, fresh, o).photos
 
 /**
  * A page's photos once one of its source pages is read: that page's photos as they are now (mergeRead), but for a
  * source whose photos a step of its own takes (sources.ts `photoStep`: Tropica). Its page's pictures aren't the picker's
  * to find, so a read brings none, and the ones its step stored stay. Photos kept as a page's last go into `held`.
  */
-export const photosAfterRead = async (prev: Photo[], source: SourceId, url: string, fresh: () => Promise<Photo[]>, held: Photo[] = []) => {
+export const photosAfterRead = async (prev: Photo[], source: SourceId, url: string, fresh: () => Promise<Photo[]>, held: Photo[] = [], o: ReadKeeps = {}) => {
   if (sourceById(source).photoStep) return prev
-  const r = mergeRead(prev, source, url, await fresh())
+  const r = mergeRead(prev, source, url, await fresh(), o)
   held.push(...r.held)
   return r.photos
 }
@@ -204,6 +219,8 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   const deadline = opts.maxMinutes ? deps.now().getTime() + opts.maxMinutes * 60_000 : Infinity
   const report: RunReport = { perSource: {}, needsHuman: [], movedToArchive: [], changed: [], errors: [] }
   const today = () => deps.now().toISOString().slice(0, 10)
+  // What a re-read keeps of a page's photos (mergeRead): the owner's approved crops; never a never-again photo, or one whose source no longer lets us show photos.
+  const keeps = (page: string, scientificName: string): ReadKeeps => ({ owned: approvedCrop(page, scientificName), gone: p => p.url in blocked || (!!p.source && !mayPublish(sourceNames[p.source], 'photos')) })
   // A re-read that would leave a page with no photo keeps the old ones, each held for a person's second look (mergeRead).
   const holdLast = (held: Photo[], page: string) => holdForSecondLook(root, new Map(held.map(p => [p.url, { why: "rejected: the source's page no longer shows it", pages: [page] }])), 'the pages rewrite', today())
 
@@ -301,7 +318,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       // Judged on depth at every merge too, as the public build shows it (published sources): a thin page is out of search.
       item.vi.quality = judgeQuality(item.vi.quality, item.vi.quality.indexable, speciesDepth(item.entity.sections.filter(x => mayPublish(sourceNames[x.source], 'text'))).deep)
       const held: Photo[] = []
-      item.entity.photos = await photosAfterRead(item.entity.photos, source, url, () => sourcePhotos([taxon.canonicalName, page.scientificName!, ...page.enCommonNames], item.entity.photos), held)
+      item.entity.photos = await photosAfterRead(item.entity.photos, source, url, () => sourcePhotos([taxon.canonicalName, page.scientificName!, ...page.enCommonNames], item.entity.photos), held, keeps(`species/${item.entity.id}`, item.entity.scientificName))
       await holdLast(held, `species/${item.entity.id}`)
       if (!item.entity.photos.length) item.entity.photos = await soft('commons photos', () => findPhotos(taxon.canonicalName, http, 4, blocked), [])
       if (!item.entity.videos.length) item.entity.videos = await soft('videos', () => findVideos([taxon.canonicalName, ...page.enCommonNames], llm, http, { skip: videoRejected }), [])
@@ -320,7 +337,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       const item = mergePlant(existing, page, { source, url, now, takenSlugs: await s.taken('plants', existing.vi?.slug), takenNames: await s.takenNames('plants', slugify(page.scientificName)), quality: combineQuality(existing.vi?.quality, source, score) })
       if (!item) return null
       const held: Photo[] = []
-      item.entity.photos = await photosAfterRead(item.entity.photos, source, url, () => sourcePhotos([item.entity.scientificName, ...page.enCommonNames], item.entity.photos), held)
+      item.entity.photos = await photosAfterRead(item.entity.photos, source, url, () => sourcePhotos([item.entity.scientificName, ...page.enCommonNames], item.entity.photos), held, keeps(`plants/${item.entity.id}`, item.entity.scientificName))
       await holdLast(held, `plants/${item.entity.id}`)
       if (!item.entity.photos.length) item.entity.photos = await soft('commons photos', () => findPhotos(item.entity.scientificName, http, 4, blocked), [])
       await s.write('plants', PlantSchema, item)

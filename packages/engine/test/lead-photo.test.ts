@@ -3,9 +3,10 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
 import { expect, test } from 'vitest'
-import type { Photo } from '@aq/schema'
+import { createHash } from 'node:crypto'
+import { ownerCropCanonical, type OwnerCropApproval, type Photo } from '@aq/schema'
 import { cardCrop, HEAD_IN_CROP, leadChoice, screenLeads, TRIES, type LeadDeps } from '../src/lead-photo'
-import { mergePhotos } from '../src/run'
+import { approvedCrop, mergePhotos, mergeRead } from '../src/run'
 
 const jpeg = sharp({ create: { width: 64, height: 48, channels: 3, background: '#468' } }).jpeg().toBuffer()
 const url = (n: string) => `https://media.example/${n}.webp`
@@ -58,14 +59,38 @@ test("a re-read of a source doesn't push down a head that fills the card, galler
   expect(mergePhotos([ownBig, old], 'seriouslyfish', 'https://x/fish', [fresh]).map(p => name(p.url))).toEqual(['fresh'])
 })
 
-test("a crop the owner approved one by one is never dropped by a re-read of its source, whatever that page now shows", () => {
-  // 14 Nov 2026: a pages rewrite took Betta rutilans' only photo, the owner's 11 Nov crop of the shop's photo.
-  const page = 'https://x/fish'
-  const crop: Photo = { ...photo('owner-crop'), source: 'bwaquatics', sourceUrl: page, ownerCrop: { id: 'owner-crop-x', pixelHash: 'a'.repeat(64) } }
+test("a crop the owner approved one by one is never dropped by a re-read of its source, whatever that page now shows, nor pushed out by the photo cap; one that fails its approval is the source's like any other", () => {
+  // 14 Nov 2026: a pages rewrite took Betta rutilans' only photo, the owner's crop of the shop's photo.
+  const page = 'https://x/fish', at = 'species/fish-x', sci = 'Fish x'
+  const crop: Photo = { ...photo('owner-crop'), source: 'bwaquatics', sourceUrl: page, ownerCrop: { id: 'owner-crop-x', pixelHash: 'a'.repeat(64) }, altered: [{ method: 'mark-crop', date: '2026-11-11T00:00:00.000Z', originalHash: 'b'.repeat(64) } as never], original: { url: url('original'), width: 1200, height: 960 } }
+  const approval = { id: 'owner-crop-x', approved: true, page: at, scientificName: sci, originalHash: 'b'.repeat(64), pixelHash: 'a'.repeat(64), recordHash: createHash('sha256').update(ownerCropCanonical(crop, at, sci)).digest('hex') } as OwnerCropApproval
+  const owned = approvedCrop(at, sci, [approval])
+  expect(owned(crop)).toBe(true)
+  // Approved for another page, or changed since its approval: not the owner's crop here.
+  expect(approvedCrop('species/other', sci, [approval])(crop)).toBe(false)
+  expect(owned({ ...crop, ownerCrop: { id: 'owner-crop-x', pixelHash: 'c'.repeat(64) } })).toBe(false)
   const old = { ...photo('old'), source: 'bwaquatics' as const, sourceUrl: page }
-  const fresh = { ...photo('fresh'), source: 'bwaquatics' as const, sourceUrl: page }
-  expect(mergePhotos([crop, old], 'bwaquatics', page, [fresh]).map(p => name(p.url)).sort()).toEqual(['fresh', 'owner-crop'])
-  expect(mergePhotos([crop], 'bwaquatics', page, []).map(p => name(p.url))).toEqual(['owner-crop'])
+  const fresh = (n: string) => ({ ...photo(n), source: 'bwaquatics' as const, sourceUrl: page })
+  expect(mergePhotos([crop, old], 'bwaquatics', page, [fresh('fresh')], { owned }).map(p => name(p.url)).sort()).toEqual(['fresh', 'owner-crop'])
+  expect(mergePhotos([crop], 'bwaquatics', page, [], { owned }).map(p => name(p.url))).toEqual(['owner-crop'])
+  // The cap: eight fresh photos and four kept from elsewhere still leave the crop its place.
+  const elsewhere = [1, 2, 3, 4].map(i => ({ ...big(`sf-${i}`), source: 'seriouslyfish' as const, sourceUrl: 'https://y/fish' }))
+  const many = [1, 2, 3, 4, 5, 6, 7, 8].map(i => fresh(`fresh-${i}`))
+  const capped = mergePhotos([...elsewhere, crop], 'bwaquatics', page, many, { owned })
+  expect(capped).toHaveLength(8)
+  expect(capped.map(p => name(p.url))).toContain('owner-crop')
+  // A crop that fails its approval is the source page's photo like any other: the read replaces it.
+  expect(mergePhotos([crop, old], 'bwaquatics', page, [fresh('fresh')], { owned: approvedCrop(at, sci, []) }).map(p => name(p.url))).toEqual(['fresh'])
+})
+
+test("a re-read never leaves a page with none of the photos it may show, but a never-again photo, or one whose source no longer lets us show photos, isn't kept for that", () => {
+  const page = 'https://x/fish'
+  const mine = { ...photo('mine'), source: 'bwaquatics' as const, sourceUrl: page }
+  const banned = { ...photo('banned'), source: 'bwaquatics' as const, sourceUrl: page }
+  expect(mergeRead([mine], 'bwaquatics', page, [])).toEqual({ photos: [mine], held: [mine] })
+  // Only photos that may never stay: nothing is kept, so the caller looks for Commons photos.
+  expect(mergeRead([banned], 'bwaquatics', page, [], { gone: p => p.url === banned.url })).toEqual({ photos: [], held: [] })
+  expect(mergeRead([mine, banned], 'bwaquatics', page, [], { gone: p => p.url === banned.url })).toEqual({ photos: [mine], held: [mine] })
 })
 
 test('at most a few photos a fish are asked about', () => {
