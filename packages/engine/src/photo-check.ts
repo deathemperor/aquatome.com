@@ -14,6 +14,7 @@ import { pickStands, readPersonYes } from './person-yes'
 import { holdForSecondLook, looks, readSecondLook } from './last-photo'
 import { contactSheet } from './video-images'
 import { keptOwnMark, LOGO_FOLDERS, retainedOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
+import { keptLast } from './own-mark'
 import { CF, namedOn, namedOrder, passesHead, SPECIES } from './photo-named'
 
 type Photo = { url: string; caption?: string; author?: string; sourceUrl?: string; generated?: unknown }
@@ -667,6 +668,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       // and the sweep rank the same way, so none undoes another.
       const cls = namedHere(s.id)
       data.photos = namedOrder(data.photos, cls, x => asHead(x, s.id))
+      // A photo with a cleared shop's own mark kept goes after every unmarked one, on a breed's page too (own-mark.ts).
+      data.photos = keptLast(data.photos, kept)
       const ref = `${s.kind}/${s.id}`, pick = headPicks[ref]
       const at = data.photos.findIndex(x => x.url === pick)
       if (at > 0 && pickStands(ref, pick!, cache, yes)) data.photos.unshift(...data.photos.splice(at, 1))

@@ -178,3 +178,23 @@ test.each(SHOPS)('%s: a kept-mark photo among a page\'s own photos goes after th
   const head = photo(marked, shop, PAGE[shop]) as GalleryPhoto, other = photo(OWN) as GalleryPhoto
   expect(leadChoice([head, other], [], p => cardWorthy(p, ID, v, {}), {}, p => ownMarkOnly(p, ID, v, {}), () => 0, p => !!v.kept?.(p.url))).toEqual({ lead: other })
 })
+
+test.each(SHOPS)('%s: after the photo check, a kept-mark photo named to the species goes after an unmarked one its source names only to the genus', async shop => {
+  const marked = `https://media.aquatome.com/${shop}/marked.webp`
+  const r = await site({ url: marked, source: shop, sourceUrl: PAGE[shop] }, { source: shop, sourceUrl: PAGE[shop], owner: 'source' })
+  const genus = { ...photo('https://media.example/genus.webp', undefined, 'https://commons.wikimedia.org/wiki/File:Betta_sp.jpg'), caption: 'Betta sp.' }
+  await writeFile(join(r, 'engine-state/_photo-watermarks.json'), JSON.stringify({ ...(await json(r, 'engine-state/_photo-watermarks.json')), [genus.url]: { ocr: [], watermark: false, kind: 'none' } }))
+  await writeFile(join(r, 'content/species', ID, 'entity.json'), JSON.stringify({ id: ID, scientificName: 'Betta x', photos: [photo(OWN), genus, { ...photo(marked, shop, PAGE[shop]), caption: 'Betta x' }] }))
+  await checkPagePhotos(r, model(marked), { limit: 10, only: ID, emptyCap: 99 })
+  expect(((await json(r, `content/species/${ID}/entity.json`)).photos as { url: string }[]).map(p => p.url)).toEqual([OWN, genus.url, marked])
+})
+
+test.each(SHOPS)('%s: on a breed\'s page, the photo check puts a kept-mark head after an unmarked photo', async shop => {
+  const marked = `https://media.aquatome.com/${shop}/marked.webp`
+  const r = await site({ url: marked, source: shop, sourceUrl: PAGE[shop] }, { source: shop, sourceUrl: PAGE[shop], owner: 'source' })
+  await mkdir(join(r, 'content/breeds/betta-x-blue'), { recursive: true })
+  await writeFile(join(r, 'content/breeds/betta-x-blue/entity.json'), JSON.stringify({ id: 'betta-x-blue', kind: 'variety', photos: [photo(marked, shop, PAGE[shop]), photo(OWN)], sources: [] }))
+  await writeFile(join(r, 'content/breeds/betta-x-blue/vi.json'), JSON.stringify({ name: 'Cá x xanh' }))
+  await checkPagePhotos(r, model(marked), { limit: 10, only: 'betta-x-blue', emptyCap: 99 })
+  expect(((await json(r, 'content/breeds/betta-x-blue/entity.json')).photos as { url: string }[]).map(p => p.url)).toEqual([OWN, marked])
+})

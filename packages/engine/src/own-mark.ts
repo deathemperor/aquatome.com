@@ -35,3 +35,17 @@ export async function keptMarks(root: string): Promise<(url: string) => boolean>
   const marks = JSON.parse(await readFile(join(root, 'engine-state', '_photo-watermarks.json'), 'utf8').catch(() => '{}')) as Record<string, CompactScreen>
   return url => retainedOwnMark(url, marks[url])
 }
+
+/**
+ * A page's own photos with the kept-mark ones (`kept`) after every other real photo and before the AI pictures that
+ * follow it; the rest as they were. Run after any step that orders a page's photos (the photo check's, the sweep's), so a
+ * kept-mark photo goes after the unmarked ones whatever their naming class (the chief of staff, 15 Nov). Where it is the
+ * only real photo, it stays first.
+ */
+export function keptLast<P extends { url: string; generated?: unknown }>(photos: P[], kept: (url: string) => boolean): P[] {
+  const marked = photos.filter(p => !p.generated && kept(p.url))
+  if (!marked.length) return photos
+  const rest = photos.filter(p => !marked.includes(p))
+  const at = rest.reduce((end, p, i) => (p.generated ? end : i + 1), 0)
+  return [...rest.slice(0, at), ...marked, ...rest.slice(at)]
+}
