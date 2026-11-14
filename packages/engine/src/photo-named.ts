@@ -34,7 +34,7 @@ export type Named = typeof SPECIES | typeof CF | typeof GENUS
  * anabatoides"; knownNames), for a file named as another. `codes`: the fish's own L, LDA, C or CW numbers (`lNumber`).
  */
 export type NamedPage = { sci: string; latin?: string[]; known?: Set<string>; codes?: string[] }
-export type NamedPhoto = { sourceUrl?: string; caption?: string; source?: string }
+export type NamedPhoto = { sourceUrl?: string; caption?: string; sourceCaption?: string; source?: string }
 
 /** The source's name for the photo: a Commons file's name, or the last part of the source page's address. */
 export function sourceTitle(sourceUrl: string | undefined): string {
@@ -242,7 +242,9 @@ function plainlyThis(caption: string, page: NamedPage): boolean {
  * (Colossoma macropomum), Tierpark Hellabrunn", in a file whose name says Piaractus).
  */
 export function namedAs(p: NamedPhoto, page: NamedPage, stored?: string): Named {
-  const caption = OURS.test(p.caption ?? '') ? '' : (p.caption ?? '')
+  // The source's own description where we keep it beside our caption (`sourceCaption`, from the album step's intake), else
+  // the caption unless it's ours.
+  const caption = p.sourceCaption ?? (OURS.test(p.caption ?? '') ? '' : (p.caption ?? ''))
   const said = classOf(caption, page, true)
   if (said === SPECIES && plainlyThis(caption, page)) return SPECIES
   // The source page's own title stands for its address where it says which fish it is: this one, another the site has a

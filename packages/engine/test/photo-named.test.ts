@@ -191,3 +191,14 @@ test("the second and third reads' captions that don't plainly say the photo show
   expect(at('Clarias batrachus', '小丑武士_CIarias_sp._-_panoramio', '')).toBe(GENUS)
 })
 
+test("the source's own description, kept beside our caption from the album step's intake, is read before our caption (the chief of staff, 2026-11-14)", () => {
+  const known = knownNames(['Pseudoplatystoma fasciatum', 'Pseudoplatystoma tigrinum'].map(scientificName => ({ scientificName })))
+  const photo = { sourceUrl: 'https://commons.wikimedia.org/wiki/File:Pseudoplatystoma_tigrinum1.jpg', caption: 'Cá da trơn mũi xẻng sọc bơi trong nước, râu dài' }
+  const page = { sci: 'Pseudoplatystoma fasciatum', known }
+  // Without it, our Vietnamese caption says nothing and the file's name names another fish.
+  expect(namedAs(photo, page)).toBe(GENUS)
+  expect(namedAs({ ...photo, sourceCaption: 'Tiger sorubim Pseudoplatystoma fasciatum' }, page)).toBe(SPECIES)
+  // It counts as the source's words, hedges and all.
+  expect(namedAs({ ...photo, sourceCaption: 'Possibly Pseudoplatystoma fasciatum' }, page)).toBe(GENUS)
+})
+
