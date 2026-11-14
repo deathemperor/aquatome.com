@@ -105,7 +105,7 @@ test("a re-read never leaves a page with none of the photos a reader could see; 
   expect(mergeRead([bannedElsewhere], 'bwaquatics', page, [], { gone: p => p.url === bannedElsewhere.url })).toEqual({ photos: [], held: [] })
   // A generated photo is nothing a reader sees as the fish: the page keeps its last real one, held, and the generated one
   // stays behind it; one the read replaced is never held.
-  const gen = { model: 'gpt-image-2', date: '2026-11-10', prompt: 'fish' }
+  const gen = { model: 'gpt-image-2', driverModel: 'gpt-5.6-sol', date: '2026-11-10', prompt: 'fish', referenceHash: 'a'.repeat(64) }
   const generatedElsewhere: Photo = { ...photo('generated-elsewhere'), source: 'seriouslyfish', sourceUrl: 'https://y/fish', generated: gen }
   expect(mergeRead([generatedElsewhere, mine], 'bwaquatics', page, [])).toEqual({ photos: [mine, generatedElsewhere], held: [mine] })
   const generatedHere: Photo = { ...photo('generated-here'), source: 'bwaquatics', sourceUrl: page, generated: gen }
