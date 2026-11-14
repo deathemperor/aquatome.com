@@ -131,6 +131,14 @@ test('the list\'s search keeps only the terms that match, and says when none do;
   }
   const name = (await rows.first().locator('dt a').textContent())!.trim()
   const find = page.locator('#tm-find')
+  // The board's magnifier sits inside the field, before its words.
+  const field = (await find.boundingBox())!
+  const glass = (await page.locator('.find:has(#tm-find) > svg').boundingBox())!
+  const pad = parseFloat(await find.evaluate(e => getComputedStyle(e).paddingLeft))
+  expect(glass.x).toBeGreaterThan(field.x)
+  expect(glass.x + glass.width).toBeLessThanOrEqual(field.x + pad)
+  expect(glass.y).toBeGreaterThan(field.y)
+  expect(glass.y + glass.height).toBeLessThan(field.y + field.height)
   await find.fill(name)
   await expect(rows.first()).toBeVisible()
   expect(await page.locator('[data-find]:visible').count()).toBeLessThan(all)
