@@ -114,6 +114,15 @@ export function oneVoice<S extends { sections: Section[]; t: Translation }>(x: S
   return { ...x, sections: x.sections.filter(s => { const k = keep[s.key]; return !k || s.source === k || !written(s.key, k) }) }
 }
 
+/**
+ * Whether a place's name is this language's: not one judged alone and failed (the engine's place-judge.ts). A failed one
+ * leaves the place with no name here, as before it was translated, so the site shows what the source wrote: a river's
+ * or a region's name as the fish's range gives it (the site's range.ts regionNames), a country's own name in this
+ * language (countryNames), until a name passes. A name only a batch scored, low or not, shows as it is (the chief of
+ * staff, 14 Nov 2026: no blanket step back, as most of them are right).
+ */
+export const placeNamed = (t: Translation) => t.nameCheck?.ok !== false
+
 async function loadKind<S extends z.ZodType>(root: string, dir: string, schema: S, lang: Lang, leaveOutHeld = false): Promise<Localized<z.infer<S>>[]> {
   const base = join(root, dir)
   const ids = await readdir(base).catch(() => [] as string[])
@@ -432,7 +441,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     materialSlugs.add(m.t.slug)
   }
 
-  const allPlaces = await loadKind(root, 'places', PlaceSchema, lang)
+  const allPlaces = (await loadKind(root, 'places', PlaceSchema, lang)).filter(p => placeNamed(p.t))
   return {
     lang, species, plants, guides, changelog, equipment, series, galleries, products, breeds, materials, cards,
     ...(screen ? { photoWaits } : {}),
