@@ -51,21 +51,17 @@ struct V2Root: View {
           }
           .v2ClearUnderTabBar()
       }
-      // v1's screens: a fade of a set height, as their ends have no room for one that grows with the text.
       Tab("Bể của tôi", systemImage: "fish", value: Pick.tanks) {
-        TanksView(path: $tanksPath).v2ClearUnderTabBar(on: Color(.systemGroupedBackground), fade: V2Fade.height)
+        TanksView(path: $tanksPath).v2ClearUnderTabBar(on: Color(.systemGroupedBackground))
       }
-      Tab("Đèn", systemImage: "lightbulb", value: Pick.lights) { LightsView().v2ClearUnderTabBar(on: Color(.systemGroupedBackground), fade: 10) }
+      Tab("Đèn", systemImage: "lightbulb", value: Pick.lights) { LightsView().v2ClearUnderTabBar(on: Color(.systemGroupedBackground)) }
       Tab(value: Pick.search, role: .search) {
         HandbookView(path: $searchPath).v2StackLinks($searchPath)
           .environment(\.v2Pages, true)
           .environment(\.v2OpenFull) { item, at in searchPath.append(FullPage(item: item, at: at)) }
-          .v2ClearUnderTabBar(on: Color(.systemGroupedBackground), fade: V2Fade.height)
+          .v2ClearUnderTabBar(on: Color(.systemGroupedBackground))
       }
     }
-    // The owner's: no band behind the tab bar, and nothing through its glass (ClearUnderTabBar on each tab), unless the
-    // owner is trying the page through it (TabBarGlass).
-    .v2NoBottomEdge()
     // A link opening a tab or a page (AquaTomeApp.open): its tab here. A page pushed on the handbook's stack shows on
     // Khám phá, whichever tab was in front; one on the tanks' stack, on Bể của tôi.
     .onChange(of: tab) { follow(tab) }
@@ -148,16 +144,9 @@ extension View {
 }
 
 private extension View {
-  /// iOS's own edge off, for the fade (ClearUnderTabBar). The bar stays whole by the app's Group (`tabBarNeverMinimizes`).
-  @ViewBuilder func v2NoBottomEdge() -> some View {
-    if #available(iOS 26, *) { scrollEdgeEffectHidden(true, for: .bottom) } else { self }
-  }
-
-  /// `ground`: what the tab's pages stand on, if it isn't the screen's own (a grouped list's grey), so the fade doesn't
-  /// show a lighter band.
-  /// `fade` shorter where a pinned footer of v1's ends just above the bar; otherwise it grows with the text.
-  func v2ClearUnderTabBar(on ground: Color = .clear, fade: CGFloat? = nil) -> some View {
-    modifier(ClearUnderTabBar(ground: ground, fade: fade))
+  /// `ground`: what the tab's pages stand on, if it isn't the screen's own (a grouped list's grey).
+  func v2ClearUnderTabBar(on ground: Color = .clear) -> some View {
+    modifier(ClearUnderTabBar(ground: ground))
   }
 }
 
@@ -191,66 +180,21 @@ private struct ClearOfTheFade: ViewModifier {
   func body(content: Content) -> some View { content.safeAreaPadding(.bottom, fade) }
 }
 
-/// The owner's trial of the tab bar as the App Store's (11 Nov: "Try bottom bar glass effect like Appstore's"): the page
-/// runs under the bar and shows through its glass, with no edge and no fade. Theirs alone, on from the build it came in;
-/// off in Tài khoản → Ứng dụng brings the fade back at once. Everyone else keeps the fade.
-enum TabBarGlass {
-  static let key = "tabBarGlassTrial"
-}
-
-/// A tab's screens fade out just above the tab bar, so nothing shows through its glass or around it (the owner: words
-/// through the bar). For the owner trying it (TabBarGlass), the page passes under the bar instead, on its ground. iOS's own edges can't do it: the soft one leaves the words legible in the glass, and the hard one cuts
-/// them on a line with a band under it. A tab's own, not each page's: it holds for every page of the tab, v1's too.
+/// The tab bar as the App Store's (the owner, 14 Nov, of their trial since 11 Nov: "It works. Remove the option to enable
+/// it, make it default"): a tab's pages run on under the bar, on the tab's ground, and iOS's own soft edge blurs them into
+/// colour under its glass, so words there don't stay sharp against the tab names (Design, 15 Nov). A tab's own, not each
+/// page's: it holds for every page of the tab, v1's too.
 private struct ClearUnderTabBar: ViewModifier {
   let ground: Color
-  /// The fade's height, if it's a set one. Short: v1's pinned controls end just above it. v2's own pages end above it
-  /// (`v2ClearOfTheFade`); an inset out here doesn't reach inside a navigation stack.
-  let fade: CGFloat?
-  /// Otherwise as tall as a line of the text, near enough: a line at the largest size is gone before the glass.
-  @ScaledMetric(relativeTo: .body) private var scaled = V2Fade.height
   /// What a page asks to stand on while its colour reaches the bar (`v2FootGround`): the colour runs on under the bar,
   /// with no white fog between.
   @State private var footGround: FootGround?
-  /// The bar's height with what's under it. Not the keyboard's: above that, nothing is under a bar.
-  @State private var bar: CGFloat = 0
-  @AppStorage(TabBarGlass.key) private var trial = true
-  @Environment(AccountModel.self) private var account
 
   func body(content: Content) -> some View {
-    if #available(iOS 26, *), trial, account.owner.isOwner == true, account.user != nil {
-      // Through the glass: no mask and nothing over the bar's place, the ground still behind it all.
+    if #available(iOS 26, *) {
       content
         .environment(\.v2FootGround, $footGround)
         .background { (footGround?.colour ?? ground).ignoresSafeArea().animation(.easeInOut(duration: 0.2), value: footGround) }
-    } else if #available(iOS 26, *) {
-      content
-        .environment(\.v2FootGround, $footGround)
-        .background {
-          Color.clear.ignoresSafeArea(.keyboard).onGeometryChange(for: CGFloat.self) { $0.safeAreaInsets.bottom } action: { bar = $0 }
-        }
-        .mask {
-          VStack(spacing: 0) {
-            Color.black
-            // A bar at the foot of the screen; an iPad's is at the top, with only the home indicator's inset here.
-            if bar >= 49 {
-              LinearGradient(colors: [.black, .clear], startPoint: .top, endPoint: .bottom).frame(height: fade ?? scaled)
-              Color.clear.frame(height: bar)
-            }
-          }
-          .ignoresSafeArea()
-        }
-        .background { (footGround?.colour ?? ground).ignoresSafeArea().animation(.easeInOut(duration: 0.2), value: footGround) }
-        // A mask hides what's under it but leaves it live: a tap beside or under the bar stops here, not on a card that
-        // can't be seen. VoiceOver still reaches what's hidden, and scrolls it into view.
-        .overlay {
-          if bar >= 49 {
-            VStack(spacing: 0) {
-              Spacer(minLength: 0)
-              Color.clear.contentShape(.rect).frame(height: bar).onTapGesture {}.accessibilityHidden(true)
-            }
-            .ignoresSafeArea()
-          }
-        }
     } else {
       content
     }
