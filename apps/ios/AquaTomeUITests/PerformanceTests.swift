@@ -16,7 +16,8 @@ final class PerformanceTests: XCTestCase {
   /// The handbook's fish, more than the site has: the app's CPU time and its memory while flinging down through them.
   /// The simulator reports no scroll hitches, only the length of the deceleration animation, which the app doesn't
   /// set; the hosted runners' virtual Macs read CPU instructions and cycles as 0, so the budget is on CPU time.
-  /// On the old look, whose "Tất cả loài" lists every fish on one long list.
+  /// On the old look, whose "Tất cả loài" lists every fish on one long list. Job `perf` runs it in three launches and
+  /// checks the median of theirs: one launch's peak memory reads about 72 MB or about 82 MB by chance (2026-11-14).
   func testFlingingThroughTheFish() {
     let app = XCUIApplication()
     app.launchArguments = args + ["-v2", Look.old.rawValue]

@@ -242,7 +242,8 @@ comes), and `-telemetry-down` makes the stand-in answer 503.
 
 `AquaTomeUITests/PerformanceTests` measures launch (to the first screen answering touches) and flinging through 800 fish
 (`-large-handbook`: the app's CPU time and peak memory). Job `perf` runs them on a GitHub-hosted Mac's simulator, archives the app
-unsigned for its size, and `scripts/check-perf.py` checks each median against `perf-budgets.json`; a budgeted measurement
+unsigned for its size, and `scripts/check-perf.py` checks each median against `perf-budgets.json` (the fling's in three launches,
+the median of theirs: one launch's peak memory reads about 72 or about 82 MB by chance); a budgeted measurement
 that's missing or reads 0 fails. The simulator reports no scroll hitches, so the list is budgeted by the CPU time it
 costs (1.7% apart run to run on CI); the runners' virtual Macs read CPU instructions as 0.
 Budgets only tighten (`docs/governance.md`, Mobile apps rule 5). They're kept in that file rather than an Xcode

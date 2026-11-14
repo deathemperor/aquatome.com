@@ -1,5 +1,5 @@
 {
-  "$comment": "What the app may cost a reader, measured by AquaTomeUITests/PerformanceTests and checked by scripts/check-perf.py (ios.yml, job app) against the median of each test's runs, on the CI simulator (iPhone 17, iOS 26.5, Debug build). A budget only tightens: one raised says why in its reason (docs/governance.md, Mobile apps rule 5). Each first value is the first CI run's median plus headroom, rounded.",
+  "$comment": "What the app may cost a reader, measured by AquaTomeUITests/PerformanceTests and checked by scripts/check-perf.py (ios.yml, job perf) against the median of each test's runs (the fling's in three launches, the median of theirs), on the CI simulator (iPhone 17, iOS 26.5, Debug build). A budget only tightens: one raised says why in its reason (docs/governance.md, Mobile apps rule 5). Each first value is the first CI run's median plus headroom, rounded.",
   "budgets": [
     {
       "name": "Launch to the first screen answering touches",

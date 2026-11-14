@@ -248,7 +248,8 @@ jobs:
     # A pull request's change to none of what it builds or checks (flows-to-run.py's `perf`) skips it.
     if: needs.changes.outputs.ready == 'true' && github.event_name != 'schedule' && needs.changes.outputs.perf != 'false'
     runs-on: macos-26
-    timeout-minutes: 40
+    # About 31 minutes with one launch of the fling, and 6 more for its two more launches.
+    timeout-minutes: 50
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       # The kit's unit tests, as job `kit` runs them nightly: first, so a broken kit fails in a minute and a half,
@@ -263,6 +264,17 @@ jobs:
           -destination "${AQ_CI_DEST:-platform=iOS Simulator,name=iPhone 17,OS=26.5}"
           -derivedDataPath build/dd -resultBundlePath build/perf.xcresult CODE_SIGNING_ALLOWED=NO
           -only-testing:AquaTomeUITests/PerformanceTests
+      # The fling twice more, each in its own launch, so its budgets judge the median of three launches (check-perf.py).
+      # Its peak memory reads about 72 MB in some launches and about 82 MB in others, the same app on the same runner,
+      # and one launch's luck decided whether a change passed (2026-11-14).
+      - name: The fling, two more launches
+        run: |
+          for n in 2 3; do
+            xcodebuild test-without-building -project apps/ios/AquaTome.xcodeproj -scheme AquaTome \
+              -destination "${AQ_CI_DEST:-platform=iOS Simulator,name=iPhone 17,OS=26.5}" \
+              -derivedDataPath build/dd -resultBundlePath "build/fling-$n.xcresult" \
+              -only-testing:AquaTomeUITests/PerformanceTests/testFlingingThroughTheFish
+          done
       # Every string the app shows is translated into Indonesian and Thai.
       - name: Translations
         run: python3 apps/ios/scripts/check-strings.py build/dd
@@ -273,7 +285,9 @@ jobs:
           -destination 'generic/platform=iOS' -archivePath build/AquaTome.xcarchive -derivedDataPath build/release
           CODE_SIGNING_ALLOWED=NO
       - name: Performance budgets
-        run: python3 apps/ios/scripts/check-perf.py build/perf.xcresult build/AquaTome.xcarchive/Products/Applications/AquaTome.app
+        run: >-
+          python3 apps/ios/scripts/check-perf.py build/perf.xcresult build/fling-2.xcresult build/fling-3.xcresult
+          build/AquaTome.xcarchive/Products/Applications/AquaTome.app
       # A budget only tightens: this pull request's budgets against main's.
       - name: Budgets only tighten
         if: github.event_name == 'pull_request'
@@ -289,7 +303,9 @@ jobs:
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: ios-perf
-          path: build/perf.xcresult
+          path: |
+            build/perf.xcresult
+            build/fling-*.xcresult
           if-no-files-found: ignore
   # The handbook's flows (HANDBOOK in flow_lists.py): on their own runners, beside jobs `app` and `lights`. On 2026-11-01
   # `app` ran out of its hour on a slow runner, in the performance tests after 52 minutes of flows (15 of them the

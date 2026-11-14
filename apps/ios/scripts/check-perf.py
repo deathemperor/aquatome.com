@@ -2,11 +2,16 @@
 """The app's performance budgets (apps/ios/perf-budgets.json), checked after the performance tests run.
 
 Usage:
-  check-perf.py RESULT.xcresult APP_BUNDLE      each measurement's median, and the app's size, within its budget
+  check-perf.py RESULT.xcresult [MORE.xcresult ...] APP_BUNDLE
+                                                each measurement's median, and the app's size, within its budget
   check-perf.py --tightens-only OLD.json        no budget in perf-budgets.json looser than in OLD.json without a new
                                                 reason (governance, Mobile apps rule 5)
 
-Medians, not averages: a CI runner that stalls for one of the five runs shouldn't fail the check. A budgeted metric
+Medians, not averages: a CI runner that stalls for one of the five runs shouldn't fail the check. Nor should one
+launch's luck: a test measured in several launches (a result bundle each, or test runs in one) is checked on the median
+of its launches' medians. The fling's peak memory reads about 72 MB in some launches and about 82 MB in others, the same
+app on the same runner, and which one a launch reads doesn't depend on the change (GitHub's runs, 2026-11-10 to 14), so
+job `perf` flings in three launches. A budgeted metric
 the result doesn't have, or reads as 0, fails too (the test didn't run, Xcode renamed the metric, or the machine has
 no such counter): a budget never checks nothing.
 """
@@ -32,24 +37,32 @@ def app_size_kb(app):
     return total / 1000
 
 
-def measured(xcresult):
-    out = subprocess.run(['xcrun', 'xcresulttool', 'get', 'test-results', 'metrics', '--path', xcresult],
-                         check=True, capture_output=True, text=True).stdout
+def measured(xcresults):
+    """Each measurement's readings, a list per launch: per test run, in every result bundle."""
     found = {}
-    for test in json.loads(out):
-        for run in test.get('testRuns', []):
-            for m in run.get('metrics', []):
-                found[(test['testIdentifier'], m['identifier'])] = m['measurements']
+    for xcresult in xcresults:
+        out = subprocess.run(['xcrun', 'xcresulttool', 'get', 'test-results', 'metrics', '--path', xcresult],
+                             check=True, capture_output=True, text=True).stdout
+        for test in json.loads(out):
+            for run in test.get('testRuns', []):
+                for m in run.get('metrics', []):
+                    if m['measurements']:
+                        found.setdefault((test['testIdentifier'], m['identifier']), []).append(m['measurements'])
     return found
 
 
-def check(values, app):
+def number(v):
+    return f'{v:.3f}'.rstrip('0').rstrip('.')
+
+
+def check(launches, app):
     rows, failed = [], False
     for key, b in budgets().items():
+        each = [median(run) for run in launches.get(key, [])]
         if b['test'] == 'bundle':
             value = app_size_kb(app)
-        elif key in values and median(values[key]) > 0:
-            value = median(values[key])
+        elif each and median(each) > 0:
+            value = median(each)
         else:
             # Missing, or 0: a counter the machine doesn't have (CPU instructions read 0 on the hosted runners' VMs).
             rows.append((b['name'], 'not measured', b['max'], b['unit'], '✘'))
@@ -57,8 +70,9 @@ def check(values, app):
             continue
         over = value > b['max']
         failed |= over
-        rows.append((b['name'], f'{value:.3f}'.rstrip('0').rstrip('.'), b['max'], b['unit'], '✘' if over else '✔'))
-    table = ['| | measured | budget | |', '|---|---|---|---|'] + [f'| {n} | {v}{" " + u if v != "not measured" else ""} | {m} {u} | {ok} |' for n, v, m, u, ok in rows]
+        launched = f', the median of {len(each)} launches: {", ".join(number(v) for v in each)}' if len(each) > 1 else ''
+        rows.append((b['name'], number(value) + ' ' + b['unit'] + launched, b['max'], b['unit'], '✘' if over else '✔'))
+    table = ['| | measured | budget | |', '|---|---|---|---|'] + [f'| {n} | {v} | {m} {u} | {ok} |' for n, v, m, u, ok in rows]
     print('\n'.join(table))
     if os.environ.get('GITHUB_STEP_SUMMARY'):
         with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as f:
@@ -82,4 +96,4 @@ if __name__ == '__main__':
     if sys.argv[1:2] == ['--tightens-only']:
         tightens_only(sys.argv[2])
     else:
-        check(measured(sys.argv[1]), sys.argv[2])
+        check(measured(sys.argv[1:-1]), sys.argv[-1])
