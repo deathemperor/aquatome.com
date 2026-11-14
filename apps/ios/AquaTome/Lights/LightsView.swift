@@ -38,6 +38,7 @@ struct LightsView: View {
         }
         .padding()
       }
+      .scrollDisabled(lights.draggingHandle)
       .background(Color(.systemGroupedBackground))
       .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
       .navigationTitle("Đèn")

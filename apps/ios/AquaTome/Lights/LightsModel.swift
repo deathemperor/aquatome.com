@@ -60,6 +60,8 @@ final class LightsModel {
   private(set) var trying = false
   /// "Xem thử cả ngày": the minute of the day shown, while the day plays.
   private(set) var playMinute: Double?
+  /// A schedule handle is being dragged sideways: the page holds still under the finger until it lets go.
+  var draggingHandle = false
   private var playTask: Task<Void, Never>?
   /// The light the preview plays on (none: on screen only).
   private var playingOn: LightSession?
