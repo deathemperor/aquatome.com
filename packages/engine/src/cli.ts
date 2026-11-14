@@ -99,6 +99,7 @@ import { addPlantSynonyms } from './plant-synonyms'
 import { fetchFishSynonyms, fishOlderNames } from './fish-synonyms'
 import { writePlanting } from './planting'
 import { localizeTopic, makeTopic } from './topics'
+import { makeMaterial, MATERIALS } from './materials'
 import { makeGlossaryEntry } from './glossary-entry'
 import { CLASSIFICATION_THREAD, FORUM_SECTIONS, readForum } from './forum'
 import { readIdeas, refreshIdeas, writeIdeas } from './ideas'
@@ -1067,6 +1068,14 @@ if (cmd === 'photo-privacy') {
   const kind = values.kind as (typeof kinds)[number] | undefined
   if (!topic || !kind || !kinds.includes(kind)) throw new Error(`usage: pnpm engine topic "<chủ đề>" --kind ${kinds.join('|')} [--redo]`)
   const r = await makeTopic(ROOT, { research: claudeResearch, llm: claudeCli }, { topic, kind }, { researchModel: process.env.RESEARCH_MODEL ?? 'opus', reuse: values.redo })
+  console.log(JSON.stringify(r, null, 1))
+} else if (cmd === 'material') {
+  // A hobby material's page (lũa, đá, nền), written from web research and checked like a guide (materials.ts):
+  // pnpm engine material <id> [--redo]. Its id, address and names are in MATERIALS. --redo: write again from the research
+  // already kept (engine-state/materials), no new searching.
+  const a = MATERIALS.find(m => m.id === positionals[1])
+  if (!a) throw new Error(`usage: pnpm engine material ${MATERIALS.map(m => m.id).join('|')} [--redo]`)
+  const r = await makeMaterial(ROOT, { research: claudeResearch, llm: claudeCli }, a, { researchModel: process.env.RESEARCH_MODEL ?? 'opus', reuse: values.redo })
   console.log(JSON.stringify(r, null, 1))
 } else if (cmd === 'glossary-entry') {
   // A glossary term's fuller entry, written from web research and checked like a guide (glossary-entry.ts):
