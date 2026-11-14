@@ -1,6 +1,8 @@
 content/changelog.json merge=changelog
 engine-state/_photo-*.json merge=jsonmap
 engine-state/_wanted.json merge=jsonmap
+engine-state/_credit-reads.json merge=jsonmap
+engine-state/_credit-holds.json merge=jsonmap
 engine-state/_gbif-names.json merge=jsonmap
 engine-state/_gbif-synonyms.json merge=jsonmap
 engine-state/_wikidata-names.json merge=jsonmap
