@@ -2,12 +2,13 @@ import { readFileSync } from 'node:fs'
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { MATERIAL_SECTION_ORDER, MaterialSchema, metricPage, QUALITY_THRESHOLD, TranslationSchema, type MaterialEntity } from '@aq/schema'
+import { TextNode } from 'node-html-parser'
 import type { Llm } from './claude'
 import { VI_STYLE as STYLE } from './phrases'
 import { steadyRead } from './quality'
 import { isMarketplace } from './marketplaces'
 import { logReviews, type Review } from './review-log'
-import { sanitizeHtml, unescapePlain } from './sanitize'
+import { sanitizeHtml } from './sanitize'
 
 /**
  * A hobby material's page (content/materials/<id>/: lũa, đá, nền, lá khô), written in Vietnamese from web research and
@@ -122,7 +123,9 @@ const END = String.raw`(?![\p{L}\d])`
 const SUM = String.raw`(?<![\p{L}\d])(?:\d{1,3}(?:[.,]\d{3})+|\d{5,})`
 const SCALE = String.raw`(?:nghìn|ngàn|triệu|tỷ|tỉ)${END}`
 /** What a "nghìn" or "triệu" may count on a material's page, which makes it not money. */
-const COUNTED = String.raw`(?:năm|loài|con|cá\s+thể|người|lượt|lít|giờ|ngày|lần|hạt|tấn|km|mét|tế\s+bào|vi\s+khuẩn|vi\s+sinh\s+vật|sinh\s+vật|phân\s+tử|cây)${END}`
+const COUNTED = String.raw`(?:năm|loài|con|cá\s+thể|người|lượt|lít|giờ|ngày|lần|hạt|tấn|km|mét|tế\s+bào|vi\s+khuẩn|vi\s+sinh(?:\s+vật)?|sinh\s+vật|phân\s+tử|cây)${END}`
+/** A sum in words: "vài trăm", "hai chục", "năm". */
+const WORDS = String.raw`(?:(?:vài|mấy|một|hai|ba|bốn|năm|lăm|sáu|bảy|tám|chín|mười|mươi|chục|trăm)\s+)+`
 /**
  * A price in Vietnamese money, in the text a reader sees: "150.000 ₫", "150.000đ màu nâu", "150.000 đồng màu nâu", "200
  * nghìn đồng", "mỗi khúc 200 nghìn tùy kích thước", "1,5 triệu", "150k", "150K/khúc", "giá từ 90", "giá bán: 150.000",
@@ -133,8 +136,10 @@ const COUNTED = String.raw`(?:năm|loài|con|cá\s+thể|người|lượt|lít|g
 const PRICE = [
   // A sign is always money, and so is "đồng" after a sum; after a small number, not in a word of its own ("đồng thời").
   new RegExp(String.raw`${N}\s*(?:₫|vnđ|vnd|đ)${END}|${SUM}\s*đồng${END}|${N}\s*đồng${END}(?!\s+(?:thời|nghĩa|đều|loạt|bộ|màu|dạng|nhất|hồ|ý|cỏ|ruộng|bằng)${END})`, 'iu'),
-  // "nghìn", "triệu" are money unless what's counted follows, after a range too ("2 triệu đến 3 triệu năm").
-  new RegExp(String.raw`${N}\s*${SCALE}(?!(?:\s*(?:đến|tới|hoặc|[-–~])\s*${N}\s*${SCALE})?\s+${COUNTED})`, 'iu'),
+  // "nghìn", "triệu" are money unless what's counted follows, after "rưỡi" and a range too ("2 triệu rưỡi năm").
+  new RegExp(String.raw`${N}\s*${SCALE}(?!(?:\s+rưỡi)?(?:\s*(?:đến|tới|hoặc|[-–~])\s*${N}\s*${SCALE}(?:\s+rưỡi)?)?\s+${COUNTED})`, 'iu'),
+  // A sum in words, with money's word after it or "giá", "tốn" before it: "vài trăm nghìn đồng", "giá vài chục nghìn".
+  new RegExp(String.raw`(?<![\p{L}])${WORDS}${SCALE}(?:\s+rưỡi)?\s*(?:₫|vnđ|vnd|đồng|đ)${END}|(?<![\p{L}])(?<!đánh\s+)(?:giá|tốn)\s+(?:(?:từ|khoảng|chỉ|tầm|chừng|cỡ)\s+)*${WORDS}${SCALE}`, 'iu'),
   new RegExp(String.raw`${N}\s*k${END}`, 'u'),
   // A capital K after three digits at most: a lamp's 6500 K is a colour.
   new RegExp(String.raw`(?<![\p{L}\d.,])\d{1,3}\s*K${END}`, 'u'),
@@ -142,7 +147,13 @@ const PRICE = [
   new RegExp(String.raw`(?<![\p{L}])(?<!đánh\s+)giá(?:(?:\s+(?:bán|chỉ|từ|khoảng|tầm|chừng|lẻ|sỉ|mua|niêm yết|tham khảo|dao động|rơi vào))+\s*:?\s*\d|\s*:\s*\d|\s+(?:\d{1,3}(?:[.,]\d{3})+|\d{4,})${END})`, 'iu'),
 ]
 const chars = (s: string) => [...s.normalize('NFC')].length
-const visible = (html: string) => unescapePlain(html.replace(/<[^>]*>/g, ' ')).replace(/\s+/g, ' ').trim()
+/** Every entity undone, named ones too ("&ndash;", "&deg;"), until none is left. */
+const decode = (s: string) => {
+  let out = s
+  for (let prev = ''; prev !== out;) { prev = out; out = new TextNode(out, null as never).text }
+  return out
+}
+const visible = (html: string) => decode(html.replace(/<[^>]*>/g, ' ')).replace(/\s+/g, ' ').trim()
 /**
  * A tag, its quoted values read whole, or a comment; not a comparison: "<" then a letter, "/" or "!" ("pH < 7" stays,
  * and so does nothing of `<em title="pH < 7">`). A block's edge leaves a space.
@@ -153,7 +164,7 @@ const untag = (s: string) => s.replace(TAG, t => (/^<\/?(?:p|br|div|li|ul|ol|h\d
  * A summary line or a question as the page shows it: plain text, entities undone, no markup and no source's mark. Tags
  * as written go first, their values still encoded (`title="&quot;lũa rễ&quot;"`), then tags that were written encoded.
  */
-const plain = (s: string) => untag(unescapePlain(untag(s ?? ''))).replace(/\s*\[\d+\]/g, '').replace(/\s+/g, ' ').trim()
+const plain = (s: string) => untag(decode(untag(s ?? ''))).replace(/\s*\[\d+\]/g, '').replace(/\s+/g, ' ').trim()
 
 /**
  * A draft as it will be saved, which is what is checked, read and saved: its summary and questions plain, each part
