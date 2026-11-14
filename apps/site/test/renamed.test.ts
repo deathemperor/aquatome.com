@@ -71,6 +71,19 @@ test('the paradise fish keeps its other names, and only it is called "Cá cờ"'
   expect(c.species.filter(s => s.t.name === 'Cá cờ' || s.t.altNames.includes('Cá cờ')).map(s => s.scientificName)).toEqual(['Macropodus opercularis'])
 })
 
+// The chief of staff, 2026-11-14: four fish pages went live at 03:26 under one run's names, and a kept batch renamed them
+// at 03:45. Each first address leads to the page as it is named now, so a later rename (Corbicula's, on the way) keeps it.
+test.each([
+  ['amphilius-cryptobullatus', 'ca-amphilius-cryptobullatus'],
+  ['amphilius-frieli', 'ca-da-tron-amphilius-frieli'],
+  ['corbicula-fluminea', 'hen-nuoc-ngot'],
+  ['nothobranchius-pienaari', 'ca-nothobranchius-pienaari'],
+])('%s: its first address, /ca/%s/, leads to its page', (id, first) => {
+  const slug = c.species.find(s => s.id === id)!.t.slug
+  expect(slug).not.toBe(first)
+  expect(renamedPages(c)[`/ca/${first}/`]).toBe(`/ca/${slug}/?tu=${first}`)
+})
+
 test('the pencilfish guide took "cá chì" and its old address 301s to it', () => {
   const old = 'huong-dan-nuoi-ca-but-chi-nhom-ca-dan-song-o-tang-mat'
   expect(renamedPages(c)[`/huong-dan/${old}/`]).toBe(`/huong-dan/huong-dan-nuoi-ca-chi-nhom-ca-dan-song-o-tang-mat/?tu=${old}`)
