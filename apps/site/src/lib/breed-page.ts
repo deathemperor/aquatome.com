@@ -1,10 +1,11 @@
 import { linkTerms, type Content } from '@aq/schema'
 import { slugify } from '@aq/schema/slug'
-import { basedOn, breedGallery, breedsOf, careCard, type Breed } from './breeds'
-import { GALLERY_MIN, GALLERY_STRIP } from './gallery'
+import { basedOn, breedsOf, careCard, type Breed } from './breeds'
+import { GALLERY_STRIP } from './gallery'
+import { albumOf, hasPhotoPage } from './photo-page'
 import { isVietnamese, type Lang } from './i18n'
 import { guideImages, guidesMentioning, mentionIndex } from './mentions'
-import { distinctPhotos, pagePictures, takeEach } from './pictures'
+import { pagePictures, takeEach } from './pictures'
 
 /**
  * A hybrid's parent as its page names it: the species page when there is one, else the name the sources give. `vi`: that
@@ -32,7 +33,7 @@ export function breedParts(lang: Lang, c: Content, b: Breed) {
   })
   const pics = pagePictures(c)
   pics.add(b.photos[0]?.url)
-  const gallery = distinctPhotos(c, breedGallery(c, b))
+  const gallery = albumOf(c, 'breeds', b)
   const strip = gallery.slice(0, GALLERY_STRIP).map(p => pics.take([p]) ?? null)
   const lines = breedsOf(lang, c, b.id)
   const linePhotos = takeEach(pics, lines, x => x.photos)
@@ -45,7 +46,7 @@ export function breedParts(lang: Lang, c: Content, b: Breed) {
   return {
     key, parent: basedOn(c, b), parents, ...careCard(b), gallery, strip,
     // Its gallery page, once there are enough photos for one.
-    galleryPath: gallery.length >= GALLERY_MIN ? `/vi/ca/${b.t.slug}/anh/` : undefined,
+    galleryPath: hasPhotoPage(gallery) ? `/vi/ca/${b.t.slug}/anh/` : undefined,
     lines, linePhotos, body, guides: mentioning.filter(g => !g.video), videoGuides, videoPhotos: takeEach(pics, videoGuides, g => guideImages(c, g)),
   }
 }
