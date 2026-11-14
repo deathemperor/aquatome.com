@@ -17,7 +17,7 @@ import { glossaryParts, USED_IN_SHOWN } from './glossary-page'
 import { guideParts } from './guide-page'
 import { cleanPhoto } from './home'
 import { appLinks, appPath, isVietnamese, served, translator, type Lang, type T } from './i18n'
-import { smallSrc } from './img'
+import { resizeOf, smallSrc } from './img'
 import { guideImage } from './mentions'
 import { htmlBlocks } from './page-blocks'
 import { plantParts } from './plant-page'
@@ -136,10 +136,13 @@ function galleryBlock(lang: Lang, sources: Partial<Record<SourceId, SourceInfo>>
   gallery = gallery.filter(p => !p.generated)
   strip = strip.map(p => p?.generated ? null : p)
   if (!strip.some(Boolean)) return []
+  // Each photo with where the fish is (`box`, photoBox), as a page's head has it, so the app frames the album's tiles by
+  // the fish. Its small copy only where that is the photo resized (resizeOf): another framing would move the fish off
+  // its box, so the row then loads the photo itself (the Design Lead, 13 Nov).
   const photos = gallery.flatMap(p => {
     const img = image(lang, p, p.caption ?? name)
-    const thumb = smallSrc(p)
-    return img ? [{ ...img, ...(thumb !== p.url ? { thumb } : {}) }] : []
+    const thumb = smallSrc(p), box = img && photoBox(p)
+    return img ? [{ ...img, ...(box ? { box } : {}), ...(thumb !== p.url && resizeOf(p, thumb) ? { thumb } : {}) }] : []
   })
   const at = new Map(photos.map((p, i) => [p.src, i]))
   return [{
