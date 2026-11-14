@@ -1,6 +1,7 @@
 import { chromium, expect, test } from '@playwright/test'
 import lighthouse from 'lighthouse'
 import desktopConfig from 'lighthouse/core/config/desktop-config.js'
+import { documentHeaders, monitorPolicy, onlyMonitorBreaks, scoreWith } from './lighthouse-edge'
 import { lighthouseFlags } from './lighthouse-flags'
 import { indexed, LIVE, onePerKind, sourcePages, templateOf } from './pages'
 
@@ -57,7 +58,12 @@ for (const path of pages) {
       await info.attach('lighthouse.json', { body: result!.report as string, contentType: 'application/json' })
       expect(lhr.runtimeError, 'Lighthouse measured the page').toBeUndefined()
 
-      const score = (k: string) => Math.round((lhr.categories[k]?.score ?? 0) * 100)
+      // A load Cloudflare's script monitor sampled: its report-only policy's breaks are logged as issues, and aren't the
+      // page's (lighthouse-edge.ts). Any other issue on that load still counts.
+      const policy = monitorPolicy(documentHeaders(result!.artifacts.DevtoolsLog, lhr.mainDocumentUrl ?? lhr.finalDisplayedUrl))
+      const excused = onlyMonitorBreaks(lhr, policy) ? ['inspector-issues'] : []
+      if (policy) console.log(`${form} ${path}: Cloudflare's script monitor sampled this response (${policy})${excused.length ? '; the issues logged are its policy\'s breaks, not counted' : ''}`)
+      const score = (k: string) => scoreWith(lhr, k, excused)
       const value = (k: string) => lhr.audits[k]?.numericValue ?? NaN
       const scripts = (lhr.audits['network-requests']?.details as { items?: { url: string; resourceType?: string; resourceSize?: number }[] } | undefined)?.items ?? []
       const got = {
@@ -71,7 +77,7 @@ for (const path of pages) {
       console.log(`${form} ${path} ${JSON.stringify(got)} (machine speed ${Math.round(lhr.environment.benchmarkIndex)})`)
 
       // Each miss with what Lighthouse found wrong in that category, so the failure says what to fix.
-      const failed = (k: string) => (lhr.categories[k]?.auditRefs ?? []).filter(r => r.weight > 0 && (lhr.audits[r.id]?.score ?? 1) < 0.9).map(r => `${r.id}: ${lhr.audits[r.id]!.title}`).join('; ')
+      const failed = (k: string) => (lhr.categories[k]?.auditRefs ?? []).filter(r => r.weight > 0 && !excused.includes(r.id) && (lhr.audits[r.id]?.score ?? 1) < 0.9).map(r => `${r.id}: ${lhr.audits[r.id]!.title}`).join('; ')
       for (const k of ['performance', 'accessibility', 'best-practices', 'seo'] as const) expect.soft(got[k], `${k} score on a ${form} (${failed(k)})`).toBeGreaterThanOrEqual(budget[k])
       expect.soft(got.lcp, `largest contentful paint on a ${form}, ms`).toBeLessThanOrEqual(budget.lcp)
       expect.soft(got.tbt, `total blocking time on a ${form}, ms`).toBeLessThanOrEqual(budget.tbt)
