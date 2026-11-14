@@ -3,7 +3,7 @@ import { categoriesIn } from './equipment'
 import { GROUP_LABELS } from './format'
 import { taxonHref } from './taxa-places'
 import awaiting from './guide-heads-awaiting.json' with { type: 'json' }
-import none from './guide-heads-none.json' with { type: 'json' }
+import picks from './guide-heads-picks.json' with { type: 'json' }
 
 /** Words in guide text that mean an equipment category (only categories that have a page are linked). */
 const EQUIPMENT_TERMS: Record<string, string[]> = {
@@ -215,16 +215,19 @@ export function titleNames(c: Content, g: Localized<GuideEntity>): Named[] {
  * no fish its title doesn't name, and one whose title names none, or only fish with no photo, starts at its title (the
  * chief of staff, 15 Nov, after the discus guide opened on an oscar its text names in passing; before that, on 13 Nov, a
  * guppy guide on a water louse). The guides that borrowed another fish before then keep it until Curation keeps or
- * drops each (guide-heads-awaiting.json). A guide whose title names an animal it isn't about borrows nothing until its
- * page is right (guide-heads-none.json): the owner was told a guide picturing the wrong animal shows no photo, and the
- * name goes to Writing as a naming fault ("cá rô phi lùn", the tilapia, for a dwarf cichlid). Never the video's thumbnail: it shows the people in the video, and a page's
+ * drops each (guide-heads-awaiting.json). A guide picked by hand (guide-heads-picks.json, by its id, so in every language)
+ * borrows that page instead, or nothing (null): one whose title names an animal it isn't about borrows nothing until its
+ * page is right, as the owner was told a guide picturing the wrong animal shows no photo, and the name goes to Writing as
+ * a naming fault ("cá rô phi lùn", the tilapia, for a dwarf cichlid); one whose translations don't name its fish as the
+ * Vietnamese does ("Ikan Discus", "ปลาปอมปาดัวร์ขี้ขาว") borrows the page the Vietnamese names. Never the video's thumbnail: it shows the people in the video, and a page's
  * photos show none (PRODUCT.md). A card takes the first one its page doesn't show yet (lib/pictures.ts).
  */
 export function guideImages(c: Content, g: Localized<GuideEntity>): Photo[] {
   // A section's photo can be a strip (a lamp, a tank's length) that a card's 16:9 would crop to a sliver.
   const sections = (g.video?.figures ?? []).flatMap(f => f.photo ?? []).filter(fitsCard)
-  const named = NONE.has(g.id) ? [] : titleNames(c, g)
-  const before = !NONE.has(g.id) && AWAITING.has(g.id) ? textNamed(c, g, named) : []
+  const pick = PICKS.get(g.id)
+  const named = pick === undefined ? titleNames(c, g) : pick ? [picked(c, pick)].filter(x => !!x) : []
+  const before = pick === undefined && AWAITING.has(g.id) ? textNamed(c, g, named) : []
   return [...g.photos, ...sections, ...[...named, ...before].flatMap(x => x.photos[0] ?? [])].filter(p => !p.generated)
 }
 /** Until Curation's keep or drop (Mon 16 Nov): the fish the text names, those the title names first, as it borrowed before. */
@@ -233,7 +236,14 @@ const textNamed = (c: Content, g: Localized<GuideEntity>, named: Named[]): Named
   return [...(m?.species ?? []), ...(m?.plants ?? [])].filter(x => !named.includes(x))
 }
 const AWAITING = new Set<string>(awaiting)
-const NONE = new Set<string>(none)
+const PICKS = new Map<string, string | null>(Object.entries(picks as Record<string, string | null>))
+/** A page picked by hand, as "species/<id>", "plant/<id>" or "breed/<id>", in this language; none if it has no page here. */
+const pages = new WeakMap<Content, Map<string, Named>>()
+function picked(c: Content, ref: string): Named | undefined {
+  let m = pages.get(c)
+  if (!m) pages.set(c, (m = new Map<string, Named>([...c.species.map(x => [`species/${x.id}`, x] as const), ...c.plants.map(x => [`plant/${x.id}`, x] as const), ...c.breeds.map(x => [`breed/${x.id}`, x] as const)])))
+  return m.get(ref)
+}
 
 /** A guide's picture: its own photo, else one from its video's sections, else the first fish, plant or breed its title names. */
 export const guideImage = (c: Content, g: Localized<GuideEntity>): Photo | undefined => guideImages(c, g)[0]

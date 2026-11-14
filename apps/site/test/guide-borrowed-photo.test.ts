@@ -2,7 +2,7 @@ import { expect, test } from 'vitest'
 import { getContent } from '../src/lib/content'
 import { guideImage, mentionIndex } from '../src/lib/mentions'
 import awaiting from '../src/lib/guide-heads-awaiting.json' with { type: 'json' }
-import none from '../src/lib/guide-heads-none.json' with { type: 'json' }
+import picks from '../src/lib/guide-heads-picks.json' with { type: 'json' }
 
 // 13 Nov, the Design Lead: the day's guide, on breeding guppies, opened in the app on a water louse. It has no photo of its
 // own, so it borrows the first photo of a fish it names, and its text names the louse ("bo bo (rận nước)") before the
@@ -96,12 +96,20 @@ test('a title naming a breed borrows the breed, not the fish whose name its own 
 
 // The chief of staff, 15 Nov 2026: the owner was told a guide picturing the wrong animal shows no photo until its page is
 // right. "Một loài cá rô phi lùn… Apistogramma sp." names the tilapia's "cá rô phi" for a dwarf cichlid: it borrows nothing.
-test('a guide whose title names an animal it is not about borrows nothing, whatever its title names', async () => {
+test('a guide picked to borrow nothing borrows nothing, and one picked a page borrows that page, whatever its title names', async () => {
   const vi = await getContent('vi')
-  const subject = vi.species.find(s => s.id === 'boraras-brigittae')!
+  const [subject, other] = [vi.species.find(s => s.id === 'boraras-brigittae')!, vi.species.find(s => s.id === 'paracheirodon-innesi')!]
   const was = vi.guides.find(g => g.id === 'aquariumcoop-thay-nuoc')!
-  const g = { ...was, id: none[0]!, photos: [], mentions: [subject.id], t: { ...was.t, name: `${subject.t.name} sắp đẻ`, body: '' } }
-  const c = { ...vi, guides: [...vi.guides, g] }
-  expect(guideImage(c, g)).toBeUndefined()
+  const ids = Object.entries(picks)
+  const as = (id: string) => ({ ...was, id, photos: [], mentions: [subject.id], t: { ...was.t, name: `${subject.t.name} sắp đẻ`, body: '' } })
+  const nothing = as(ids.find(([, p]) => p === null)![0])
+  const c = { ...vi, guides: [...vi.guides, nothing] }
+  expect(guideImage(c, nothing)).toBeUndefined()
+  // A pick names a page by kind and id; here the fixture's neon stands for the page picked.
+  const [pickedId, page] = ids.find(([, p]) => p?.startsWith('species/'))!
+  const fake = { ...other, id: page!.slice('species/'.length) }
+  const named = as(pickedId)
+  const c2 = { ...vi, species: [...vi.species, fake], guides: [...vi.guides, named] }
+  expect(guideImage(c2, named)?.url).toBe(other.photos[0]!.url)
 }, 120_000)
 

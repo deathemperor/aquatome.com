@@ -4,7 +4,7 @@ import { fitsCard, loadAll, type Content, type Photo } from '@aq/schema'
 import { slow } from '@aq/schema/test-time'
 import { guideImage, titleNames } from '../src/lib/mentions'
 import awaiting from '../src/lib/guide-heads-awaiting.json' with { type: 'json' }
-import none from '../src/lib/guide-heads-none.json' with { type: 'json' }
+import picks from '../src/lib/guide-heads-picks.json' with { type: 'json' }
 
 const CONTENT = fileURLToPath(new URL('../../../content', import.meta.url))
 const LANGS = ['vi', 'id', 'th', 'ms'] as const
@@ -31,12 +31,16 @@ test("every guide's head is its own photo, its video's, or what its title names;
 }, slow(300_000))
 
 // The chief of staff, 15 Nov 2026: a guide picturing the wrong animal shows no photo until its page is right, in no language.
-test('a guide on the borrow-nothing list shows only its own photos, in every language', () => {
-  for (const lang of LANGS) for (const id of none) {
+test('a guide picked by hand shows only its own photos and its pick, the same in every language', () => {
+  for (const lang of LANGS) for (const [id, pick] of Object.entries(picks as Record<string, string | null>)) {
     const g = all[lang].guides.find(x => x.id === id)
     if (!g) continue
     const head = guideImage(all[lang], g)
-    expect(head === undefined || own(g).includes(head), `${lang} ${id}`).toBe(true)
+    if (own(g).length) { expect(head, `${lang} ${id}`).toBe(own(g)[0]); continue }
+    if (pick === null) { expect(head, `${lang} ${id}`).toBeUndefined(); continue }
+    const [kind, page] = pick.split('/')
+    const x = (kind === 'species' ? all[lang].species : kind === 'plant' ? all[lang].plants : all[lang].breeds).find(p => p.id === page)
+    expect(head?.url, `${lang} ${id}`).toBe(x?.photos.find(p => !p.generated)?.url)
   }
 })
 
@@ -46,11 +50,13 @@ test('the waiting list only shrinks', () => {
   expect(new Set(awaiting).size).toBe(awaiting.length)
 })
 
-test("the discus guide opens on the discus, and the flowerhorn guide on the flowerhorn breed, not on fish their text names", () => {
-  const vi = all.vi
-  const head = (prefix: string) => { const g = vi.guides.find(g => g.id.startsWith(prefix))!; return { g, head: guideImage(vi, g) } }
-  const discus = head('aquatome-ca-di-phan-trang-')
-  expect(discus.head?.url).toBe(own(discus.g)[0]?.url ?? vi.species.find(s => s.id === 'symphysodon-aequifasciatus')!.photos[0]!.url)
-  const laHan = head('aquatome-nuoi-ca-la-han-')
-  expect(laHan.head?.url).toBe(own(laHan.g)[0]?.url ?? vi.breeds.find(b => b.id === 'flowerhorn-cichlid')!.photos[0]!.url)
+test("the discus guide opens on the discus, and the flowerhorn guide on the flowerhorn breed, in every language", () => {
+  for (const lang of LANGS) {
+    const c = all[lang]
+    const head = (prefix: string) => { const g = c.guides.find(g => g.id.startsWith(prefix)); return g && { g, head: guideImage(c, g) } }
+    const discus = head('aquatome-ca-di-phan-trang-')
+    if (discus) expect(discus.head?.url, lang).toBe(own(discus.g)[0]?.url ?? c.species.find(s => s.id === 'symphysodon-aequifasciatus')!.photos[0]!.url)
+    const laHan = head('aquatome-nuoi-ca-la-han-')
+    if (laHan) expect(laHan.head?.url, lang).toBe(own(laHan.g)[0]?.url ?? c.breeds.find(b => b.id === 'flowerhorn-cichlid')!.photos[0]!.url)
+  }
 }, slow(300_000))
