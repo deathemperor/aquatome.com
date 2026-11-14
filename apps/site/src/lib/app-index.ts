@@ -171,9 +171,34 @@ export type AppHome = {
 /**
  * One chip of Khám phá's row in this language, whole, so the app sorts and works out nothing (the Design Lead, 13 Nov):
  * its place in the row (`order`, from 1), its fish (`members`, this index's item ids, breeds included), how many, and
- * one photo of a member whose fish a 3:2 crop keeps (`img`, `imgBox`).
+ * one photo of a member whose fish a 3:2 crop keeps (`img`, `imgBox`). `guides` and `videos`: the paths of the guides
+ * about the group, written and on video, in the index's order (chipGuides); none where it has none.
  */
-export type AppChip = { id: string; name: string; order: number; count: number; members: string[]; img?: string; imgBox?: Box }
+export type AppChip = { id: string; name: string; order: number; count: number; members: string[]; img?: string; imgBox?: Box; guides?: string[]; videos?: string[] }
+/**
+ * The guides about a chip's group, by their titles (the chief of staff, 14 Nov): a guide whose title holds the chip's
+ * word or one of a member's names, as this index has them, whole words (Thai, written without spaces, anywhere in it).
+ * A guide that names the fish only in its text stays off: the guides' lists of the fish they mention are too loose (the
+ * arowana guide lists the flowerhorn). A name another fish has too doesn't count ("cá hổ" is a clown loach's and an
+ * American cichlid's), and another fish's name that holds the group's word is no mention of it ("cá ốc", the shell
+ * dwellers, isn't a snail). `hand`: the paths the curation file adds and takes off by hand (Chip.guides). Written guides
+ * go in `guides`, video guides in `videos`, in the index's order.
+ */
+export function chipGuides(lang: Lang, chip: AppChip, items: AppItem[], hand: { add: string[]; off: string[] } = { add: [], off: [] }): Pick<AppChip, 'guides' | 'videos'> {
+  const fold = (s: string) => s.normalize('NFC').toLocaleLowerCase()
+  const namesOf = (i: AppItem) => [i.name, ...(i.aka ?? [])].map(fold).filter(Boolean)
+  const inside = new Set(chip.members), fish = items.filter(i => i.kind === 'fish' && i.id)
+  const others = new Set(fish.filter(i => !inside.has(i.id!)).flatMap(namesOf))
+  const own = [...new Set([fold(chip.name), ...fish.filter(i => inside.has(i.id!)).flatMap(namesOf).filter(n => !others.has(n))])]
+  const words = (ns: string[]) => {
+    const any = [...ns].sort((a, b) => b.length - a.length).map(n => n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')
+    return new RegExp(lang === 'th' ? `(?:${any})` : `(?<![\\p{L}\\p{M}\\p{N}])(?:${any})(?![\\p{L}\\p{M}\\p{N}])`, 'gu')
+  }
+  const mention = words(own), shadows = [...others].filter(n => n.search(mention) >= 0), shadow = shadows.length ? words(shadows) : undefined
+  const about = items.filter(i => i.kind === 'guide' && !hand.off.includes(i.path) && (hand.add.includes(i.path) || (shadow ? fold(i.name).replace(shadow, ' ') : fold(i.name)).search(mention) >= 0))
+  const guides = about.filter(i => !i.video).map(i => i.path), videos = about.filter(i => i.video).map(i => i.path)
+  return { ...(guides.length ? { guides } : {}), ...(videos.length ? { videos } : {}) }
+}
 /**
  * The site's words, in this language, each entry a map of strings: for each key the items carry (fish groups, guide
  * subjects, plant care), and those of the taxon and origin pages (lib/taxa-places.ts), which the app draws as shelves.
@@ -444,7 +469,10 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
     const boxAt = (u: string) => (own.has(u) ? own.get(u) : copies.get(u) ?? undefined)
     Object.assign(home, curationFor(cur.calendar, lang, cur.today, ref => { const p = refs.get(ref); return p && paths.has(p) ? p : undefined }, c.cards, c.photoWaits, boxAt))
     const chips = chipsFor(lang, c, everySpecies, cur.calendar.chips, { species: appSpecies(lang, c), breeds: appBreeds(lang, c) })
-    if (chips.length) home.chips = chips
+    const guidePath = new Map(appGuides(lang, c).map(g => [g.id, at(`/vi/huong-dan/${g.t.slug}/`)]))
+    const hand = (ids: string[] = []) => ids.flatMap(id => guidePath.get(id) ?? [])
+    const byId = new Map(cur.calendar.chips.map(ch => [ch.id, ch.guides]))
+    if (chips.length) home.chips = chips.map(ch => ({ ...ch, ...chipGuides(lang, ch, items, { add: hand(byId.get(ch.id)?.add), off: hand(byId.get(ch.id)?.off) }) }))
   }
   const codes = [...new Set(items.flatMap(i => [...(i.range?.native ?? []), ...(i.range?.records?.outside ?? []).map(([code]) => code)]))].sort()
   const nameOf = countryNames(lang, c.places, paged)
