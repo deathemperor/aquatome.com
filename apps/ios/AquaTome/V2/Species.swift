@@ -368,7 +368,7 @@ struct SpeciesPage: View {
         .background((size.isAccessibilitySize ? AnyShape(RoundedRectangle(cornerRadius: 22, style: .continuous)) : AnyShape(Capsule())).fill(.white.opacity(0.18)))
     }
     .buttonStyle(.plain)
-    .accessibilityLabel(Text("Hỏi về \(ChatNames.inSentence(route.subject.name))"))
+    .accessibilityLabel(Text("Hỏi về \(ChatNames.inSentence(item.name))"))
     .accessibilityIdentifier("chat-entry")
   }
 
