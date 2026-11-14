@@ -512,7 +512,7 @@ test('the house rules are read again after the rewording, and a rewording they n
     return written as never
   }
   const r = await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'lua', { kind: 'aquascaping' })
-  expect(r).toMatchObject({ id: 'lua', score: 1, notes: ['Loose, rewording broke a house rule, old wording kept for the reader: "Ngâm lũa mới 1–2 tuần." (not "Ngâm lũa mới khoảng 1–2 tuần.": Rule 12: "Ngâm lũa mới khoảng 1–2 tuần." drops what THIS TERM asks for)'] })
+  expect(r).toMatchObject({ id: 'lua', score: 1, notes: ['Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: "Ngâm lũa mới 1–2 tuần." (not "Ngâm lũa mới khoảng 1–2 tuần.": Rule 12: "Ngâm lũa mới khoảng 1–2 tuần." drops what THIS TERM asks for)'] })
   expect(reads).toBe(2)
   expect(JSON.parse(await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8')).body).toBe('<h3>Nên làm gì</h3><p>Ngâm lũa mới 1–2 tuần.</p>')
 })

@@ -187,6 +187,18 @@ function placed<E extends { definition: string; body: string }>(e: E, text: stri
   return null
 }
 
+/** The figures in a text, a decimal comma read as a point (7,3 is 7.3): "20–30%" holds 20 and 30. */
+const figures = (text: string) => [...text.matchAll(/\d+(?:[.,]\d+)?/g)].map(m => m[0].replace(',', '.'))
+const has = (text: string, w: string) => new RegExp(`(?<![\\p{L}\\p{N}])${w}(?![\\p{L}\\p{N}])`, 'iu').test(text)
+/** The names a text holds: these (a page's, a kind's), and any Latin name (a genus and its species) the facts write, as whole words in any case. */
+const escapeRe = (n: string) => n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+const namesIn = (text: string, names: string[], facts = '') => [
+  ...names.filter(n => n.trim().length > 2 && has(text, escapeRe(n.trim()))),
+  ...[...text.matchAll(/(?<![\p{L}\p{N}])[A-Z][a-z]+ [a-z]{3,}(?![\p{L}\p{N}])/gu)].map(m => m[0]).filter(n => facts.includes(n)),
+]
+/** The words of a caution in Vietnamese: a warning, a must, a never. */
+const CAUTIONS = ['không được', 'không nên', 'đừng', 'chớ', 'tránh', 'phải', 'cẩn thận', 'lưu ý', 'coi chừng', 'cảnh báo', 'nguy hiểm', 'độc', 'hại', 'chết']
+
 /** The phrases a note quotes, "…" or “…”, of three characters or more. */
 const quotes = (note: string) => [...note.matchAll(/"([^"]+)"|“([^”]+)”/g)].map(m => (m[1] ?? m[2]!).trim()).filter(q => q.length >= 3)
 
@@ -205,7 +217,7 @@ const quotes = (note: string) => [...note.matchAll(/"([^"]+)"|“([^”]+)”/g)
  * once in the entry, and its new wording only when that wording stood nowhere before and the entry then reads as it did
  * but for that one sentence, which stands once: the final read's verdict on it is its own, and going back finds it.
  */
-export async function rewordLoose<E extends { definition: string; body: string }>(llm: Llm, model: string, facts: object, e: E, loose: Flagged[], rules?: (e: E) => Promise<string[]>): Promise<{ entry: E; log: string[]; stops: Flagged[]; score?: number }> {
+export async function rewordLoose<E extends { definition: string; body: string }>(llm: Llm, model: string, facts: object, e: E, loose: Flagged[], keep: { rules?: (e: E) => Promise<string[]>; names?: string[] } = {}): Promise<{ entry: E; log: string[]; stops: Flagged[]; score?: number }> {
   const log: string[] = []
   const texts = sentences(e).map(s => s.text)
   const here = loose.filter(s => (occurrences(e, s.text) === 1 && texts.filter(t => t === s.text).length === 1 && placed(e, s.text)) || (log.push(`Loose, left as written (not placeable): "${s.text}"`), false))
@@ -242,14 +254,23 @@ export async function rewordLoose<E extends { definition: string; body: string }
   // where a kind stood, and took out the fish deaths and "0 or near 0" its notes asked for). A note is about a rewording
   // when it quotes words the rewording put in or took out, or a passage that holds its new sentence whole; never by words
   // the sentence had either way, as a name a note on another sentence also quotes.
-  const ruled = rules && unstopped.done.length ? await rules(unstopped.entry) : []
+  const ruled = keep.rules && unstopped.done.length ? await keep.rules(unstopped.entry) : []
   const about = (n: string, x: Rewording) => quotes(n).some(q => x.to.includes(q) !== x.s.text.includes(q) || q.includes(x.to))
-  const broke = new Map(unstopped.done.map(x => [x, ruled.filter(n => about(n, x))]))
+  // Nor may it buy its fit by taking specifics out (the chief of staff, 15 Nov 2026: pH lost its weekly 20–30%, chu trình
+  // nitơ its fish deaths and its "0 or near 0", Lũa its "must soak"): a figure the facts carry, a named example (a page's
+  // name, a kind's, a Latin name) or a caution the old wording had and the new one hasn't keeps the old wording.
+  const said = JSON.stringify(facts), carried = new Set(figures(said))
+  const dropped = (x: Rewording) => [
+    ...figures(x.s.text).filter(f => carried.has(f) && !figures(x.to).includes(f)).map(f => `the figure ${f}`),
+    ...namesIn(x.s.text, keep.names ?? [], said).filter(n => !has(x.to, escapeRe(n))).map(n => `the name ${n}`),
+    ...CAUTIONS.filter(w => has(x.s.text, w) && !has(x.to, w)).map(w => `the caution "${w}"`),
+  ]
+  const broke = new Map(unstopped.done.map(x => [x, [...ruled.filter(n => about(n, x)), ...(dropped(x).length ? [`it drops ${dropped(x).join(', ')}`] : [])]]))
   const staying = unstopped.done.filter(x => !broke.get(x)!.length)
   const { entry, done } = staying.length === unstopped.done.length ? unstopped : place(staying)
   for (const x of changed) {
     if (stopped(x)) log.push(`Loose, rewording read as unsupported, old wording kept for the reader: "${x.s.text}" (not "${x.to}": ${verdictsOf(x.to)})`)
-    else if (broke.get(x)?.length) log.push(`Loose, rewording broke a house rule, old wording kept for the reader: "${x.s.text}" (not "${x.to}": ${broke.get(x)!.join(' / ')})`)
+    else if (broke.get(x)?.length) log.push(`Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: "${x.s.text}" (not "${x.to}": ${broke.get(x)!.join(' / ')})`)
     else if (!done.includes(x)) log.push(`Loose, rewording not placed once others went back, old wording kept for the reader: "${x.s.text}" (not "${x.to}")`)
     else log.push(`${final.loose.some(f => f.text === x.to) ? 'Loose, reworded and still loose' : 'Loose, reworded'}: "${x.s.text}" → "${x.to}" (${verdictsOf(x.to)})`)
   }

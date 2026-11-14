@@ -181,19 +181,19 @@ test('a rewording a house rules note quotes goes back to its old wording; one no
   const { llm } = model([{}, {}, {}], [], reword)
   const read: string[] = []
   const rules = async (x: typeof e) => { read.push(x.body); return ['Rule 8: "Seachem Prime" is a brand where "thuốc khử clo" is enough.', 'Rule 4: "nước máy" twice.'] }
-  const r = await rewordLoose(llm, 'opus', facts, e, [flag('Dùng thuốc khử clo.'), flag('Thay nước mỗi tuần.')], rules)
+  const r = await rewordLoose(llm, 'opus', facts, e, [flag('Dùng thuốc khử clo.'), flag('Thay nước mỗi tuần.')], { rules })
   // Read on the entry the rewording made, once.
   expect(read).toEqual(['<p>Dùng Seachem Prime. Thay khoảng 30% nước mỗi tuần.</p>'])
   expect(r.entry.body).toBe('<p>Dùng thuốc khử clo. Thay khoảng 30% nước mỗi tuần.</p>')
   expect(r.log).toEqual([
-    'Loose, rewording broke a house rule, old wording kept for the reader: "Dùng thuốc khử clo." (not "Dùng Seachem Prime.": Rule 8: "Seachem Prime" is a brand where "thuốc khử clo" is enough.)',
+    'Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: "Dùng thuốc khử clo." (not "Dùng Seachem Prime.": Rule 8: "Seachem Prime" is a brand where "thuốc khử clo" is enough.)',
     'Loose, reworded: "Thay nước mỗi tuần." → "Thay khoảng 30% nước mỗi tuần." (supported)',
   ])
   expect(r.score).toBe(1)
   // A note quoting a whole passage the rewording sits in counts too; a rewording that read stops isn't read for the rules.
   const two = model([{ 'Thay khoảng 30% nước mỗi tuần.': 'unsupported: x' }, { 'Thay khoảng 30% nước mỗi tuần.': 'unsupported: x' }, {}], [], reword)
   const passage = async () => ['Rule 12: "Khử clo cho nước máy. Dùng Seachem Prime. Thay" drops the kind.']
-  expect((await rewordLoose(two.llm, 'opus', facts, e, [flag('Dùng thuốc khử clo.'), flag('Thay nước mỗi tuần.')], passage)).entry.body).toBe(e.body)
+  expect((await rewordLoose(two.llm, 'opus', facts, e, [flag('Dùng thuốc khử clo.'), flag('Thay nước mỗi tuần.')], { rules: passage })).entry.body).toBe(e.body)
 })
 
 // Grok's read, 15 Nov 2026: a sentence put back by its words landed on another that read the same, and the entry was saved
@@ -204,7 +204,7 @@ test('going back puts in again only the rewordings that stay; a note is about a 
   const e = { definition: 'Dùng thuốc khử clo.', body: '<p>Rồi thả cá.</p>' }
   const one = model([{ 'Khử clo trước.': 'unsupported: x' }, { 'Khử clo trước.': 'unsupported: x' }, {}], [], { 'Dùng thuốc khử clo.': 'Khử clo trước.', 'Rồi thả cá.': 'Dùng thuốc khử clo.' })
   const quoting = async () => ['Rule 12: "Dùng thuốc khử clo." is not in THIS TERM.']
-  const r = await rewordLoose(one.llm, 'opus', facts, e, [flag('Dùng thuốc khử clo.', e.definition), flag('Rồi thả cá.', 'Rồi thả cá.')], quoting)
+  const r = await rewordLoose(one.llm, 'opus', facts, e, [flag('Dùng thuốc khử clo.', e.definition), flag('Rồi thả cá.', 'Rồi thả cá.')], { rules: quoting })
   expect(r.entry).toEqual(e)
   expect(r.stops).toEqual([])
   expect(r.log[1]).toBe('Loose, rewording not placed once others went back, old wording kept for the reader: "Rồi thả cá." (not "Dùng thuốc khử clo.")')
@@ -212,16 +212,45 @@ test('going back puts in again only the rewordings that stay; a note is about a 
   const b = { definition: 'Một câu.', body: '<p>Chu trình ổn khi TAN và nitrite về 0 hoặc gần 0. Nitrate tăng sau đó.</p>' }
   const block = 'Chu trình ổn khi TAN và nitrite về 0 hoặc gần 0. Nitrate tăng sau đó.'
   const two = model([{}, {}, {}], [], { 'Chu trình ổn khi TAN và nitrite về 0 hoặc gần 0.': 'Chu trình ổn khi TAN và nitrite giảm.', 'Nitrate tăng sau đó.': '0 hoặc gần 0.' })
-  const r2 = await rewordLoose(two.llm, 'opus', facts, b, [flag('Chu trình ổn khi TAN và nitrite về 0 hoặc gần 0.', block), flag('Nitrate tăng sau đó.', block)], async () => ['Rule 12: the line never gives "0 hoặc gần 0" when the filter is mature.'])
+  const r2 = await rewordLoose(two.llm, 'opus', facts, b, [flag('Chu trình ổn khi TAN và nitrite về 0 hoặc gần 0.', block), flag('Nitrate tăng sau đó.', block)], { rules: async () => ['Rule 12: the line never gives "0 hoặc gần 0" when the filter is mature.'] })
   expect(r2.entry).toEqual(b)
   // A name a note on another sentence quotes, which the rewording kept: not about it. Words it took out: about it.
   const l = { definition: 'Một câu.', body: '<p>Lũa chìm khi ngâm.</p><p>Ngâm lũa mới.</p>' }
   const three = model([{}, {}, {}], [], { 'Lũa chìm khi ngâm.': 'Lũa chìm sau khi ngâm lâu.' })
-  const kept = await rewordLoose(three.llm, 'opus', facts, l, [flag('Lũa chìm khi ngâm.', 'Lũa chìm khi ngâm.')], async () => ['Rule 6: "Lũa" in "Ngâm lũa mới." is not its page\'s name.'])
+  const kept = await rewordLoose(three.llm, 'opus', facts, l, [flag('Lũa chìm khi ngâm.', 'Lũa chìm khi ngâm.')], { rules: async () => ['Rule 6: "Lũa" in "Ngâm lũa mới." is not its page\'s name.'] })
   expect(kept.entry.body).toBe('<p>Lũa chìm sau khi ngâm lâu.</p><p>Ngâm lũa mới.</p>')
   const four = model([{}, {}, {}], [], { 'Lũa chìm khi ngâm.': 'Lũa chìm sau khi ngâm lâu.' })
-  const back = await rewordLoose(four.llm, 'opus', facts, l, [flag('Lũa chìm khi ngâm.', 'Lũa chìm khi ngâm.')], async () => ['Rule 12: THIS TERM asks for "khi ngâm." as it was.'])
+  const back = await rewordLoose(four.llm, 'opus', facts, l, [flag('Lũa chìm khi ngâm.', 'Lũa chìm khi ngâm.')], { rules: async () => ['Rule 12: THIS TERM asks for "khi ngâm." as it was.'] })
   expect(back.entry).toEqual(l)
+})
+
+// The chief of staff, 15 Nov 2026: the rewording bought its fit by taking specifics out (pH's weekly 20–30%, chu trình
+// nitơ's fish deaths and "0 or near 0", Lũa's "must soak"). A rewording that drops one the facts carry keeps the old wording.
+const told = { ...facts, facts: [{ section: 'do', fact: 'Replace about 20–30% of the water weekly. Cardinal tetras (Paracheirodon axelrodi) live below pH 5.5.', source: 0 }] }
+async function reworded(before: string, after: string, names: string[] = []) {
+  const e = { definition: 'Một câu.', body: `<p>${before}</p>` }
+  const { llm } = model([{}, {}, {}], [], { [before]: after })
+  return rewordLoose(llm, 'opus', told, e, [{ text: before, block: before, verdicts: ['loose', 'loose'], why: ['x'] }], { rules: async () => [], names })
+}
+
+test('a rewording that drops a figure the facts carry keeps the old wording; a figure they don\'t carry may go', async () => {
+  const r = await reworded('Thay 20–30% nước mỗi tuần.', 'Thay nước một phần đều đặn.')
+  expect(r.entry.body).toBe('<p>Thay 20–30% nước mỗi tuần.</p>')
+  expect(r.log).toEqual(['Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: "Thay 20–30% nước mỗi tuần." (not "Thay nước một phần đều đặn.": it drops the figure 20, the figure 30)'])
+  expect((await reworded('Thay 40% nước mỗi tuần.', 'Thay nước một phần mỗi tuần.')).entry.body).toBe('<p>Thay nước một phần mỗi tuần.</p>')
+  expect((await reworded('Thay 20–30% nước mỗi tuần.', 'Thay khoảng 20–30% nước mỗi tuần.')).entry.body).toBe('<p>Thay khoảng 20–30% nước mỗi tuần.</p>')
+})
+
+test('a rewording that drops a named example, a page\'s name or a Latin name the facts write, keeps the old wording', async () => {
+  expect((await reworded('Cá neon vua ưa nước chua.', 'Có loài ưa nước chua.', ['Cá neon vua'])).entry.body).toBe('<p>Cá neon vua ưa nước chua.</p>')
+  expect((await reworded('Paracheirodon axelrodi sống ở pH dưới 5,5.', 'Có loài sống ở pH dưới 5,5.')).entry.body).toBe('<p>Paracheirodon axelrodi sống ở pH dưới 5,5.</p>')
+  expect((await reworded('Cá neon vua ưa nước chua.', 'Cá neon vua sống ở nước chua.', ['Cá neon vua'])).entry.body).toBe('<p>Cá neon vua sống ở nước chua.</p>')
+})
+
+test('a rewording that drops a caution, a death or a must, keeps the old wording', async () => {
+  expect((await reworded('Cá thả sớm rất dễ bệnh và chết.', 'Cá thả sớm rất dễ mắc bệnh.')).entry.body).toBe('<p>Cá thả sớm rất dễ bệnh và chết.</p>')
+  expect((await reworded('Lũa mới phải ngâm trước.', 'Lũa mới thường được ngâm trước.')).entry.body).toBe('<p>Lũa mới phải ngâm trước.</p>')
+  expect((await reworded('Lũa mới phải ngâm trước.', 'Lũa mới phải ngâm kỹ trước.')).entry.body).toBe('<p>Lũa mới phải ngâm kỹ trước.</p>')
 })
 
 test('a reworded sentence in the body is written back escaped, and one still loose stays, logged; a rewording of two sentences isn\'t placed', async () => {

@@ -370,9 +370,10 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     }
     // The middle path for loose, once, on the entry about to be saved; what it did is logged with the entry's notes. The
     // whole entry is read again after it, and a sentence that read stops keeps it from being saved, kept for a reader. The
-    // house rules are read again too, and a rewording one of their notes quotes goes back to its old wording.
+    // house rules are read again too, and a rewording one of their notes is about, or one that drops a figure, a named
+    // example (the pages' names, the kinds') or a caution, goes back to its old wording.
     if (passes(review) && review.loose?.length) {
-      const m = await rewordLoose(d.llm, o.writeModel ?? 'opus', forWriter, w, review.loose, rules)
+      const m = await rewordLoose(d.llm, o.writeModel ?? 'opus', forWriter, w, review.loose, { rules, names: [...pages.flatMap(l => l.split(' | ')), ...kindNames(w, taxa).fit.map(k => k.name)] })
       w = m.entry
       // The reworded entry is the one saved, so its length is counted again: past the cap, it stops (Codex, 14 Nov 2026).
       const long = lengthNotes(w.body, named, asks.length?.words)
