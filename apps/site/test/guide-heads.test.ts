@@ -4,6 +4,7 @@ import { fitsCard, loadAll, type Content, type Photo } from '@aq/schema'
 import { slow } from '@aq/schema/test-time'
 import { guideImage, titleNames } from '../src/lib/mentions'
 import awaiting from '../src/lib/guide-heads-awaiting.json' with { type: 'json' }
+import none from '../src/lib/guide-heads-none.json' with { type: 'json' }
 
 const CONTENT = fileURLToPath(new URL('../../../content', import.meta.url))
 const LANGS = ['vi', 'id', 'th', 'ms'] as const
@@ -28,6 +29,16 @@ test("every guide's head is its own photo, its video's, or what its title names;
   }
   expect(left).toEqual([])
 }, slow(300_000))
+
+// The chief of staff, 15 Nov 2026: a guide picturing the wrong animal shows no photo until its page is right, in no language.
+test('a guide on the borrow-nothing list shows only its own photos, in every language', () => {
+  for (const lang of LANGS) for (const id of none) {
+    const g = all[lang].guides.find(x => x.id === id)
+    if (!g) continue
+    const head = guideImage(all[lang], g)
+    expect(head === undefined || own(g).includes(head), `${lang} ${id}`).toBe(true)
+  }
+})
 
 // A listed guide that has since got its own photo, or a title name, is simply passed by: the engine's pushes can't break this.
 test('the waiting list only shrinks', () => {

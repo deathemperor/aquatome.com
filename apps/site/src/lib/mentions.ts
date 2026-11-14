@@ -3,6 +3,7 @@ import { categoriesIn } from './equipment'
 import { GROUP_LABELS } from './format'
 import { taxonHref } from './taxa-places'
 import awaiting from './guide-heads-awaiting.json' with { type: 'json' }
+import none from './guide-heads-none.json' with { type: 'json' }
 
 /** Words in guide text that mean an equipment category (only categories that have a page are linked). */
 const EQUIPMENT_TERMS: Record<string, string[]> = {
@@ -214,14 +215,16 @@ export function titleNames(c: Content, g: Localized<GuideEntity>): Named[] {
  * no fish its title doesn't name, and one whose title names none, or only fish with no photo, starts at its title (the
  * chief of staff, 15 Nov, after the discus guide opened on an oscar its text names in passing; before that, on 13 Nov, a
  * guppy guide on a water louse). The guides that borrowed another fish before then keep it until Curation keeps or
- * drops each (guide-heads-awaiting.json). Never the video's thumbnail: it shows the people in the video, and a page's
+ * drops each (guide-heads-awaiting.json). A guide whose title names an animal it isn't about borrows nothing until its
+ * page is right (guide-heads-none.json): the owner was told a guide picturing the wrong animal shows no photo, and the
+ * name goes to Writing as a naming fault ("cá rô phi lùn", the tilapia, for a dwarf cichlid). Never the video's thumbnail: it shows the people in the video, and a page's
  * photos show none (PRODUCT.md). A card takes the first one its page doesn't show yet (lib/pictures.ts).
  */
 export function guideImages(c: Content, g: Localized<GuideEntity>): Photo[] {
   // A section's photo can be a strip (a lamp, a tank's length) that a card's 16:9 would crop to a sliver.
   const sections = (g.video?.figures ?? []).flatMap(f => f.photo ?? []).filter(fitsCard)
-  const named = titleNames(c, g)
-  const before = AWAITING.has(g.id) ? textNamed(c, g, named) : []
+  const named = NONE.has(g.id) ? [] : titleNames(c, g)
+  const before = !NONE.has(g.id) && AWAITING.has(g.id) ? textNamed(c, g, named) : []
   return [...g.photos, ...sections, ...[...named, ...before].flatMap(x => x.photos[0] ?? [])].filter(p => !p.generated)
 }
 /** Until Curation's keep or drop (Mon 16 Nov): the fish the text names, those the title names first, as it borrowed before. */
@@ -230,6 +233,7 @@ const textNamed = (c: Content, g: Localized<GuideEntity>, named: Named[]): Named
   return [...(m?.species ?? []), ...(m?.plants ?? [])].filter(x => !named.includes(x))
 }
 const AWAITING = new Set<string>(awaiting)
+const NONE = new Set<string>(none)
 
 /** A guide's picture: its own photo, else one from its video's sections, else the first fish, plant or breed its title names. */
 export const guideImage = (c: Content, g: Localized<GuideEntity>): Photo | undefined => guideImages(c, g)[0]

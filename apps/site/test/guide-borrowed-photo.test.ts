@@ -2,6 +2,7 @@ import { expect, test } from 'vitest'
 import { getContent } from '../src/lib/content'
 import { guideImage, mentionIndex } from '../src/lib/mentions'
 import awaiting from '../src/lib/guide-heads-awaiting.json' with { type: 'json' }
+import none from '../src/lib/guide-heads-none.json' with { type: 'json' }
 
 // 13 Nov, the Design Lead: the day's guide, on breeding guppies, opened in the app on a water louse. It has no photo of its
 // own, so it borrows the first photo of a fish it names, and its text names the louse ("bo bo (rận nước)") before the
@@ -91,5 +92,16 @@ test('a title naming a breed borrows the breed, not the fish whose name its own 
   const g = { ...was, photos: [], mentions: [], t: { ...was.t, name: `${breed.t.name}: chọn cá và nuôi`, body: '' } }
   const c = { ...vi, guides: vi.guides.map(x => (x.id === g.id ? g : x)) }
   expect(guideImage(c, g)?.url).toBe(breed.photos[0]!.url)
+}, 120_000)
+
+// The chief of staff, 15 Nov 2026: the owner was told a guide picturing the wrong animal shows no photo until its page is
+// right. "Một loài cá rô phi lùn… Apistogramma sp." names the tilapia's "cá rô phi" for a dwarf cichlid: it borrows nothing.
+test('a guide whose title names an animal it is not about borrows nothing, whatever its title names', async () => {
+  const vi = await getContent('vi')
+  const subject = vi.species.find(s => s.id === 'boraras-brigittae')!
+  const was = vi.guides.find(g => g.id === 'aquariumcoop-thay-nuoc')!
+  const g = { ...was, id: none[0]!, photos: [], mentions: [subject.id], t: { ...was.t, name: `${subject.t.name} sắp đẻ`, body: '' } }
+  const c = { ...vi, guides: [...vi.guides, g] }
+  expect(guideImage(c, g)).toBeUndefined()
 }, 120_000)
 
