@@ -373,7 +373,7 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     // house rules are read again too, and a rewording one of their notes is about, or one that drops a figure, a named
     // example (the pages' names, the kinds') or a caution, goes back to its old wording.
     if (passes(review) && review.loose?.length) {
-      const m = await rewordLoose(d.llm, o.writeModel ?? 'opus', forWriter, w, review.loose, { rules, names: [...pages.flatMap(l => l.split(' | ')), ...kindNames(w, taxa).fit.map(k => k.name)] })
+      const m = await rewordLoose(d.llm, o.writeModel ?? 'opus', forWriter, w, review.loose, { rules, names: [...pages.flatMap(l => l.split(' | ').slice(0, 2)), ...kindNames(w, taxa).fit.map(k => k.name)] })
       w = m.entry
       // The reworded entry is the one saved, so its length is counted again: past the cap, it stops (Codex, 14 Nov 2026).
       const long = lengthNotes(w.body, named, asks.length?.words)

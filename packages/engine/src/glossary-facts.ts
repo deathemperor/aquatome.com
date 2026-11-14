@@ -187,17 +187,26 @@ function placed<E extends { definition: string; body: string }>(e: E, text: stri
   return null
 }
 
-/** The figures in a text, a decimal comma read as a point (7,3 is 7.3): "20–30%" holds 20 and 30. */
-const figures = (text: string) => [...text.matchAll(/\d+(?:[.,]\d+)?/g)].map(m => m[0].replace(',', '.'))
+/**
+ * The figures a text gives, as numbers: "20–30%" gives 20 and 30, "7,3" 7.3, "6.0" 6. Never a digit inside a word or a
+ * formula (CO2, NH4+, H3PO4): Grok's read, 15 Nov 2026, found a formula's digit taken for a figure.
+ */
+const figures = (text: string) => [...text.matchAll(/(?<![\p{L}\p{N}.,])\d+(?:[.,]\d+)?/gu)].map(m => String(Number(m[0].replace(',', '.'))))
 const has = (text: string, w: string) => new RegExp(`(?<![\\p{L}\\p{N}])${w}(?![\\p{L}\\p{N}])`, 'iu').test(text)
-/** The names a text holds: these (a page's, a kind's), and any Latin name (a genus and its species) the facts write, as whole words in any case. */
 const escapeRe = (n: string) => n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+/**
+ * The names a text holds: these (a page's name, a kind's) where they are two words or more, as whole words in any case,
+ * and any Latin name (a genus and its species) the facts write, in any case. A one-word name ("Mono", "Front") is an
+ * everyday word too.
+ */
 const namesIn = (text: string, names: string[], facts = '') => [
-  ...names.filter(n => n.trim().length > 2 && has(text, escapeRe(n.trim()))),
-  ...[...text.matchAll(/(?<![\p{L}\p{N}])[A-Z][a-z]+ [a-z]{3,}(?![\p{L}\p{N}])/gu)].map(m => m[0]).filter(n => facts.includes(n)),
+  ...names.filter(n => /\S\s+\S/.test(n.trim()) && has(text, escapeRe(n.trim()))),
+  ...[...text.matchAll(/(?<![\p{L}\p{N}])[A-Za-z][a-z]+ [A-Za-z][a-z]{2,}(?![\p{L}\p{N}])/gu)].map(m => m[0]).filter(n => /^[A-Z]/.test(n) && facts.toLowerCase().includes(n.toLowerCase())),
 ]
-/** The words of a caution in Vietnamese: a warning, a must, a never. */
+/** The words of a caution in Vietnamese: a warning, a must, a never; read on a text without the phrases where they mean something else. */
 const CAUTIONS = ['không được', 'không nên', 'đừng', 'chớ', 'tránh', 'phải', 'cẩn thận', 'lưu ý', 'coi chừng', 'cảnh báo', 'nguy hiểm', 'độc', 'hại', 'chết']
+const NOT_CAUTIONS = /(?<![\p{L}\p{N}])(?:độc đáo|độc lập|độc quyền|độc nhất|độc giả|đơn độc|bên phải|tay phải|phía phải|phải không|có phải|phải chăng|lẽ phải|phải trái)(?![\p{L}\p{N}])/giu
+const cautionsIn = (text: string) => { const t = text.replace(NOT_CAUTIONS, ' '); return CAUTIONS.filter(w => has(t, w)) }
 
 /** The phrases a note quotes, "…" or “…”, of three characters or more. */
 const quotes = (note: string) => [...note.matchAll(/"([^"]+)"|“([^”]+)”/g)].map(m => (m[1] ?? m[2]!).trim()).filter(q => q.length >= 3)
@@ -259,11 +268,12 @@ export async function rewordLoose<E extends { definition: string; body: string }
   // Nor may it buy its fit by taking specifics out (the chief of staff, 15 Nov 2026: pH lost its weekly 20–30%, chu trình
   // nitơ its fish deaths and its "0 or near 0", Lũa its "must soak"): a figure the facts carry, a named example (a page's
   // name, a kind's, a Latin name) or a caution the old wording had and the new one hasn't keeps the old wording.
-  const said = JSON.stringify(facts), carried = new Set(figures(said))
+  // The facts' own words, not their source numbers.
+  const said = ((facts as { facts?: { fact: string }[] }).facts ?? []).map(f => f.fact).join('\n'), carried = new Set(figures(said))
   const dropped = (x: Rewording) => [
     ...figures(x.s.text).filter(f => carried.has(f) && !figures(x.to).includes(f)).map(f => `the figure ${f}`),
     ...namesIn(x.s.text, keep.names ?? [], said).filter(n => !has(x.to, escapeRe(n))).map(n => `the name ${n}`),
-    ...CAUTIONS.filter(w => has(x.s.text, w) && !has(x.to, w)).map(w => `the caution "${w}"`),
+    ...cautionsIn(x.s.text).filter(w => !cautionsIn(x.to).includes(w)).map(w => `the caution "${w}"`),
   ]
   const broke = new Map(unstopped.done.map(x => [x, [...ruled.filter(n => about(n, x)), ...(dropped(x).length ? [`it drops ${dropped(x).join(', ')}`] : [])]]))
   const staying = unstopped.done.filter(x => !broke.get(x)!.length)
