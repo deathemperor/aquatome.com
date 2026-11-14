@@ -5,7 +5,7 @@ import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import { galleryPlan } from '../src/gallery-plan'
 import { checkPagePhotos, type PhotoCheckDeps, type PhotoVerdict } from '../src/photo-check'
-import { PRIORITY_UNTIL, priorityFish } from '../src/priority-fish'
+import { PRIORITY_UNTIL, priorityFish, shownPictures } from '../src/priority-fish'
 
 const url = (n: string) => `https://media.example/${n}.webp`
 const photo = (n: string, o: object = {}) => ({ url: url(n), thumb: url(`${n}-480`), width: 960, height: 720, licence: 'CC BY 4.0', author: 'x', sourceUrl: 'x', ...o })
@@ -27,6 +27,8 @@ async function root(album: object[] = [], list: Record<string, unknown> = { 'spe
 }
 const ids = async (r: string) => (await galleryPlan(r)).map(p => p.id)
 const checked = (n: number) => Array.from({ length: n }, (_, i) => photo(`a${i}`))
+/** The count itself, for a page on the list. */
+const count = (r: string, ref = 'species/zzz-liked') => shownPictures(r, ...(ref.split('/') as [string, string]))
 
 test('the album step takes a priority fish first, ahead of the staples, until its album holds six checked photos', async () => {
   expect(await ids(await root())).toEqual(['zzz-liked', 'betta-splendens', 'danio-rerio'])
@@ -41,28 +43,35 @@ test('the count is under the album row\'s or equal: a picture with a copy doesn\
   // Two files of one photo (hashes a bit apart): neither counts, so four.
   const r = await root(checked(PRIORITY_UNTIL))
   await writeFile(join(r, 'content/picture-hashes.json'), JSON.stringify({ [url('a0')]: 'ffffffffffffffff', [url('a1')]: 'fffffffffffffffe' }))
+  expect(await count(r)).toBe(4)
   expect(await priorityFish(r)).toEqual(['species/zzz-liked'])
   // Six pictures, one the watermark screen still owes a look (its text read, no verdict yet): five on the row.
   const s = await root(checked(PRIORITY_UNTIL))
   await writeFile(join(s, 'engine-state/_photo-watermarks.json'), JSON.stringify(Object.fromEntries(checked(PRIORITY_UNTIL).map((p, i) => [p.url, i ? { ocr: [], watermark: false } : { ocr: [{ t: 'www.shop.example', c: 1 }] }]))))
+  expect(await count(s)).toBe(5)
   expect(await priorityFish(s)).toEqual(['species/zzz-liked'])
   await writeFile(join(s, 'engine-state/_photo-watermarks.json'), JSON.stringify(Object.fromEntries(checked(PRIORITY_UNTIL).map(p => [p.url, { ocr: [], watermark: false }]))))
+  expect(await count(s)).toBe(6)
   expect(await priorityFish(s)).toEqual([])
   // A video's two thumbnails are copies of one picture, and so are a photo and its thumb (its hash stored under the photo):
   // neither copy counts.
   const yt = (q: string) => ({ ...photo('x'), url: `https://i.ytimg.com/vi/abcdefghijk/${q}.jpg`, thumb: `https://i.ytimg.com/vi/abcdefghijk/${q}.jpg` })
   const v = await root([yt('hqdefault'), yt('maxresdefault'), ...checked(PRIORITY_UNTIL - 2)])
+  expect(await count(v)).toBe(4)
   expect(await priorityFish(v)).toEqual(['species/zzz-liked'])
   const t = await root([photo('a0'), { ...photo('a0'), url: url('a0-480') }, ...checked(PRIORITY_UNTIL).slice(1, -1)])
   await writeFile(join(t, 'content/picture-hashes.json'), JSON.stringify({ [url('a0')]: 'ffffffffffffffff' }))
+  expect(await count(t)).toBe(4)
   expect(await priorityFish(t)).toEqual(['species/zzz-liked'])
   // A breed counts its album alone: which of its own photos the site leads with rests on the build's own steps. Here its
   // file leads with an AI picture the build leaves out, then six photos: the row shows five of them, and the breed stays.
   const b = await root([], { 'breeds/blue-fish': '2026-11-14' })
   await mkdir(join(b, 'content/breeds/blue-fish'), { recursive: true })
   await writeFile(join(b, 'content/breeds/blue-fish/entity.json'), JSON.stringify({ id: 'blue-fish', kind: 'variety', photos: [photo('ai', { generated: { by: 'x', on: '2026-11-15' } }), ...checked(PRIORITY_UNTIL)], sources: [] }))
+  expect(await count(b, 'breeds/blue-fish')).toBe(0)
   expect(await priorityFish(b)).toEqual(['breeds/blue-fish'])
   await writeFile(join(b, 'content/gallery/blue-fish.json'), JSON.stringify({ id: 'blue-fish', photos: checked(PRIORITY_UNTIL).map(p => photo(`g${p.url.slice(-6, -5)}`)), seen: 0, updatedAt: '' }))
+  expect(await count(b, 'breeds/blue-fish')).toBe(6)
   expect(await priorityFish(b)).toEqual([])
 })
 
@@ -77,13 +86,16 @@ test('a photo kept with a shop\'s mark doesn\'t count: the fish stays first unti
   await writeFile(join(r, 'content/sources.json'), JSON.stringify({ glaser: { publish: 'photos' }, bwaquatics: { publish: 'photos' } }))
   const screen = async (all: (readonly [{ url: string }, object])[]) => writeFile(join(r, 'engine-state/_photo-watermarks.json'), JSON.stringify(Object.fromEntries(all.map(([p, e]) => [p.url, e]))))
   await screen([...marked, ...clean(1)])
+  expect(await count(r)).toBe(1)
   expect(await priorityFish(r)).toEqual(['species/zzz-liked'])
   // Glaser's banner alone (the site's rule) keeps a photo out, with no record of a mark.
   await screen([[marked[0]![0], { ocr: [], watermark: false }], ...marked.slice(1), ...clean(1)])
+  expect(await count(r)).toBe(1)
   expect(await priorityFish(r)).toEqual(['species/zzz-liked'])
   // Six with no mark beside the six marked: it leaves the list.
   await writeFile(join(r, 'content/gallery/zzz-liked.json'), JSON.stringify({ id: 'zzz-liked', photos: [...marked, ...clean(PRIORITY_UNTIL)].map(([p]) => p), seen: 0, updatedAt: '' }))
   await screen([...marked, ...clean(PRIORITY_UNTIL)])
+  expect(await count(r)).toBe(6)
   expect(await priorityFish(r)).toEqual([])
 })
 
@@ -96,12 +108,14 @@ test('a picture with a copy anywhere on the page or in the album doesn\'t count:
   const near = ['f', 'f0', 'f00', 'f000', 'f0000', 'f00000'].map(x => x.padStart(16, '0'))
   await writeFile(join(b, 'content/gallery/blue-fish.json'), JSON.stringify({ id: 'blue-fish', photos: near.map((_, i) => photo(`n${i}`)), seen: 0, updatedAt: '' }))
   await writeFile(join(b, 'content/picture-hashes.json'), JSON.stringify({ [url('h')]: 'ffffffffffffffff', [url('o')]: '0000000000000000', ...Object.fromEntries(near.map((h, i) => [url(`n${i}`), h])) }))
+  expect(await count(b, 'breeds/blue-fish')).toBe(0)
   expect(await priorityFish(b)).toEqual(['breeds/blue-fish'])
   // A Glaser photo the build shows at its original's address (an upscale it falls back from), banner and all, and a clean
   // copy of that original: the copy doesn't count, and five clean photos are five.
   const g = await root([photo('up', { source: 'glaser', altered: [{ method: 'lanczos3-upscale' }], original: { url: url('orig'), width: 600, height: 450 } }), photo('copy'), ...checked(PRIORITY_UNTIL - 1)])
   await writeFile(join(g, 'content/sources.json'), JSON.stringify({ glaser: { publish: 'photos' } }))
   await writeFile(join(g, 'content/picture-hashes.json'), JSON.stringify({ [url('orig')]: '00000000000000ff', [url('copy')]: '00000000000000fe' }))
+  expect(await count(g)).toBe(5)
   expect(await priorityFish(g)).toEqual(['species/zzz-liked'])
 })
 
