@@ -351,7 +351,8 @@ if part rewrite; then
     # take them.
     pnpm engine fit --front --limit "${FIT_FRONT_LIMIT:-6}" || log "fit: failed"
     # The reader-fit rewrite (fit-rewrite.ts): pages on the site that fail reader fit, the front list first, then the
-    # most read. Held after its first run until its pages have been looked at (fit-front.json, cleared).
+    # most read; pages the gate held new before them (fit-front.json, lane). A run's front-list pages hold the next run's
+    # until the chief of staff has read them (fit-front.json, cleared, one run at a time).
     pnpm engine fit-rewrite --front --limit "${FIT_REWRITE_LIMIT:-12}" || log "fit-rewrite: failed"
   else
     log "fit-rewrite: skipped, the cycle has run $(( SECONDS / 60 )) min"
