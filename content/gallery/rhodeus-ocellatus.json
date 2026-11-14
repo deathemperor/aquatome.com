@@ -2,30 +2,6 @@
   "id": "rhodeus-ocellatus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/598340fc53950ff8.webp",
-      "thumb": "https://media.aquatome.com/commons/598340fc53950ff8-480.webp",
-      "width": 1200,
-      "height": 842,
-      "licence": "CC BY-SA 2.0",
-      "author": "AJC1",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rosy_bitterling_(Rhodeus_ocellatus)_-_16241287138.jpg",
-      "caption": "Cá bitterling đực ánh xanh lục trong bể thủy sinh",
-      "best": true,
-      "kind": "male"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/ed7a1fa688c5a5e1.webp",
-      "thumb": "https://media.aquatome.com/commons/ed7a1fa688c5a5e1-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY 4.0",
-      "author": "Σ64",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rhodeus_ocellatus_01.jpg",
-      "caption": "Đàn cá bitterling bơi trong bể thủy sinh",
-      "best": true,
-      "kind": "group"
-    },
-    {
       "url": "https://media.aquatome.com/commons/6dd1e6644b9e524c.webp",
       "thumb": "https://media.aquatome.com/commons/6dd1e6644b9e524c-480.webp",
       "width": 1200,
@@ -84,6 +60,30 @@
       "caption": "Cá bitterling vàng bơi trong bể kính",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/598340fc53950ff8.webp",
+      "thumb": "https://media.aquatome.com/commons/598340fc53950ff8-480.webp",
+      "width": 1200,
+      "height": 842,
+      "licence": "CC BY-SA 2.0",
+      "author": "AJC1",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rosy_bitterling_(Rhodeus_ocellatus)_-_16241287138.jpg",
+      "caption": "Cá bitterling đực ánh xanh lục trong bể thủy sinh",
+      "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/ed7a1fa688c5a5e1.webp",
+      "thumb": "https://media.aquatome.com/commons/ed7a1fa688c5a5e1-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY 4.0",
+      "author": "Σ64",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rhodeus_ocellatus_01.jpg",
+      "caption": "Đàn cá bitterling bơi trong bể thủy sinh",
+      "best": true,
+      "kind": "group"
     }
   ],
   "seen": 18,

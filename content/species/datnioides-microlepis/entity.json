@@ -14,7 +14,8 @@
     "thailand",
     "chao-phraya",
     "laos",
-    "mekong"
+    "mekong",
+    "vietnam"
   ],
   "range": {
     "native": {
@@ -24,8 +25,8 @@
       ],
       "regions": [
         "Kapuas",
-        "Musi",
         "Batang Hari",
+        "Musi",
         "Perak",
         "Selangor",
         "Malay Peninsula"
@@ -50,8 +51,8 @@
           "countries": [],
           "regions": [
             "Kapuas",
-            "Musi",
             "Batang Hari",
+            "Musi",
             "Perak",
             "Selangor",
             "Malay Peninsula"
@@ -217,7 +218,7 @@
       "key": "quickFacts",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/datnioides_microlepis_en/",
-      "html": "<p>Large predator reaching a maximum length of around 50 cm; a wonderful show fish for large aquaria. Available size: 4–6 cm. Origin: Indonesia.</p>"
+      "html": "<p>The Indonesian Tiger Fish is regarded as the most beautiful species of tiger perch. These large predators can reach a maximum length of around 50 cm and are wonderful show fish for large aquaria.</p>"
     },
     {
       "key": "distribution",
@@ -229,7 +230,7 @@
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/datnioides_microlepis_en/",
-      "html": "<p>There are two populations of this perch, one originating from the southeast Asian mainland (the Chao Phraya and Mekong basins, this population is sometimes regarded as a separate species, D. pulcher) which has invariably 5 bars, while specimens from Indonesia have an individually variable number of bars. Both have in common the double bar on the tail.</p>"
+      "html": "<p>There are two populations of this perch. One originates from the southeast Asian mainland (the Chao Phraya and Mekong basins); this population is sometimes regarded as a separate species, D. pulcher. It invariably has 5 bars, while specimens from Indonesia have an individually variable number of bars. Both have in common the double bar on the tail.</p>"
     },
     {
       "key": "habitat",
@@ -277,7 +278,7 @@
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/datnioides_microlepis_en/",
-      "html": "<p>It is fascinating to observe how fast the fish can change their coloration. When the fish are in a cool mood, they show the typical dark bars on a light ground. When the fish are upset – for example on hunt – they become very dark within a glimpse.</p>"
+      "html": "<p>It is fascinating to observe how fast the fish can change their coloration. When the fish are in a cool mood, they show the typical dark bars on a light ground. When the fish are upset, for example on the hunt, they become very dark within a glimpse.</p>"
     },
     {
       "key": "dimorphism",
@@ -301,7 +302,7 @@
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/datnioides_microlepis_en/",
-      "html": "<p>Lexicon: Datnioides means \"similar to Datnia\"; Datnia is another genus of fish. microlepis means \"with small scales\". pulcher means \"beautiful\".</p>"
+      "html": "<p>Datnioides means \"similar to Datnia\"; Datnia is another genus of fish. microlepis means \"with small scales\". pulcher means \"beautiful\".</p>"
     },
     {
       "key": "references",
@@ -376,5 +377,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-11"
+  "updatedAt": "2026-11-13"
 }

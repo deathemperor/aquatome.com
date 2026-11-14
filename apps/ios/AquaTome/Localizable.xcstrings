@@ -23,6 +23,28 @@
         }
       }
     },
+    "bật %@, tắt %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "nyala %@, mati %@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "hidup %@, mati %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิด %@ ปิด %@"
+          }
+        }
+      }
+    },
     "%@ (gợi ý)": {
       "localizations": {
         "id": {
@@ -683,6 +705,28 @@
         }
       }
     },
+    "%lld đèn đang kết nối": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld lampu terhubung"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld lampu bersambung"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เชื่อมต่อโคมไฟอยู่ %lld ดวง"
+          }
+        }
+      }
+    },
     "%lld ảnh bạn đọc gửi, ngoài %lld ảnh ở trên.": {
       "localizations": {
         "id": {
@@ -1079,6 +1123,72 @@
         }
       }
     },
+    "AquaTome chưa gửi gì tới các đèn này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome belum mengirim apa pun ke lampu-lampu ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome belum menghantar apa-apa kepada lampu-lampu ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome ยังไม่ได้ส่งอะไรไปยังโคมไฟเหล่านี้"
+          }
+        }
+      }
+    },
+    "AquaTome chưa gửi gì tới đèn này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome belum mengirim apa pun ke lampu ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome belum menghantar apa-apa kepada lampu ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome ยังไม่ได้ส่งอะไรไปยังโคมไฟนี้"
+          }
+        }
+      }
+    },
+    "AquaTome chỉ ghi vào đèn Week Aqua mã 5746. Đèn mã khác vẫn được liệt kê, nhưng không nhận gì từ ứng dụng. Đóng ứng dụng WEEK AQUA trước khi kết nối: mỗi đèn chỉ cho một máy kết nối.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome hanya menulis ke lampu Week Aqua berkode 5746. Lampu berkode lain tetap ditampilkan, tetapi tidak menerima apa pun dari aplikasi. Tutup aplikasi WEEK AQUA sebelum menghubungkan: setiap lampu hanya menerima satu perangkat."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome hanya menulis kepada lampu Week Aqua berkod 5746. Lampu berkod lain tetap disenaraikan, tetapi tidak menerima apa-apa daripada aplikasi. Tutup aplikasi WEEK AQUA sebelum menyambung: setiap lampu hanya menerima satu peranti."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome เขียนได้เฉพาะโคมไฟ Week Aqua รหัส 5746 โคมไฟรหัสอื่นยังแสดงในรายการ แต่จะไม่ได้รับอะไรจากแอป ปิดแอป WEEK AQUA ก่อนเชื่อมต่อ เพราะโคมไฟแต่ละดวงให้เชื่อมต่อได้ทีละเครื่อง"
+          }
+        }
+      }
+    },
     "AquaTome chưa được dùng Bluetooth. Bật trong Cài đặt → AquaTome → Bluetooth.": {
       "localizations": {
         "id": {
@@ -1141,6 +1251,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "AquaTome ไม่มีส่วนเกี่ยวข้องกับบริษัท Chihiros คำสั่ง Bluetooth อ้างอิงตามบันทึกโอเพนซอร์ส [chihiros-led-control](https://github.com/TheMicDiet/chihiros-led-control) (สัญญาอนุญาต MIT)"
+          }
+        }
+      }
+    },
+    "AquaTome không liên quan tới hãng Week Aqua. Các lệnh và màu có sẵn theo mã nguồn mở [ha-weekaqua](https://github.com/alokauz/ha-weekaqua) (giấy phép MIT) và những gì đèn đã nhận khi thử.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome tidak berafiliasi dengan Week Aqua. Perintah dan warna bawaan mengikuti kode sumber terbuka [ha-weekaqua](https://github.com/alokauz/ha-weekaqua) (lisensi MIT) dan apa yang diterima lampu saat diuji."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome tidak bergabung dengan Week Aqua. Arahan dan warna sedia ada mengikut kod sumber terbuka [ha-weekaqua](https://github.com/alokauz/ha-weekaqua) (lesen MIT) dan apa yang diterima lampu semasa diuji."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome ไม่มีส่วนเกี่ยวข้องกับบริษัท Week Aqua คำสั่งและสีสำเร็จรูปอ้างอิงตามโอเพนซอร์ส [ha-weekaqua](https://github.com/alokauz/ha-weekaqua) (สัญญาอนุญาต MIT) และสิ่งที่โคมไฟรับได้เมื่อทดลอง"
           }
         }
       }
@@ -1761,6 +1893,28 @@
         }
       }
     },
+    "Bật các đèn, rồi tìm. Chọn một đèn, hoặc mọi đèn của một nhóm: AquaTome ghi vào cả nhóm cùng lúc.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nyalakan lampu, lalu cari. Pilih satu lampu, atau semua lampu dalam satu grup: AquaTome menulis ke seluruh grup sekaligus."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hidupkan lampu, kemudian cari. Pilih satu lampu, atau semua lampu dalam satu kumpulan: AquaTome menulis kepada seluruh kumpulan serentak."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิดโคมไฟ แล้วค้นหา เลือกโคมไฟหนึ่งดวง หรือทุกดวงในกลุ่มเดียวกัน AquaTome จะเขียนไปยังทั้งกลุ่มพร้อมกัน"
+          }
+        }
+      }
+    },
     "Bật Bluetooth, đứng gần đèn.": {
       "localizations": {
         "id": {
@@ -1823,6 +1977,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "เปิดเวลา"
+          }
+        }
+      }
+    },
+    "Bật lúc, giờ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nyala pukul, jam"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hidup pada, jam"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิดเวลา, ชั่วโมง"
+          }
+        }
+      }
+    },
+    "Bật lúc, phút": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nyala pukul, menit"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hidup pada, minit"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิดเวลา, นาที"
           }
         }
       }
@@ -2949,6 +3147,28 @@
         }
       }
     },
+    "Chưa gửi lệnh nào": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum ada perintah yang dikirim"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum ada arahan dihantar"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังไม่ได้ส่งคำสั่ง"
+          }
+        }
+      }
+    },
     "Chưa gửi lệnh: %@": {
       "localizations": {
         "id": {
@@ -3451,6 +3671,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ใช้กับอุปกรณ์ของคุณเองเท่านั้น แพ็กเกจฟรีของ Tuya ไม่ได้มีไว้สำหรับใช้เชิงพาณิชย์ ปลั๊กไฟ eWeLink (Sonoff) จะตามมาภายหลัง"
+          }
+        }
+      }
+    },
+    "Chỉnh giờ lần cuối: %@.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jam terakhir disamakan: %@."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jam terakhir diselaraskan: %@."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตั้งเวลาครั้งล่าสุด: %@"
           }
         }
       }
@@ -4793,6 +5035,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ขั้นตอน ทำครั้งเดียวบนคอมพิวเตอร์"
+          }
+        }
+      }
+    },
+    "Các đèn trong nhóm không cùng lần gửi cuối. Lần ghi tới sẽ đặt chúng như nhau.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu-lampu dalam grup tidak menerima kiriman terakhir yang sama. Penulisan berikutnya akan menyamakannya."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu dalam kumpulan tidak menerima hantaran terakhir yang sama. Penulisan seterusnya akan menyamakannya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โคมไฟในกลุ่มได้รับการส่งครั้งล่าสุดไม่เหมือนกัน การเขียนครั้งถัดไปจะตั้งให้เหมือนกัน"
           }
         }
       }
@@ -6359,6 +6623,94 @@
         }
       }
     },
+    "Ghi màu và giờ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tulis warna dan jam"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tulis warna dan jam"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เขียนสีและเวลา"
+          }
+        }
+      }
+    },
+    "Ghi màu và hẹn giờ trước: đèn chỉ nhận giờ cùng màu và hẹn giờ, theo thứ tự nó nhận.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tulis warna dan timer dulu: lampu hanya menerima jam bersama warna dan timer, sesuai urutan yang diterimanya."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tulis warna dan pemasa dahulu: lampu hanya menerima jam bersama warna dan pemasa, mengikut urutan yang diterimanya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เขียนสีและการตั้งเวลาก่อน: โคมไฟรับเวลาได้พร้อมกับสีและการตั้งเวลาเท่านั้น ตามลำดับที่มันรับ"
+          }
+        }
+      }
+    },
+    "Ghi màu và hẹn giờ vào %lld đèn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tulis warna dan timer ke %lld lampu"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tulis warna dan pemasa kepada %lld lampu"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เขียนสีและการตั้งเวลาลงโคมไฟ %lld ดวง"
+          }
+        }
+      }
+    },
+    "Ghi vào đèn?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tulis ke lampu?"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tulis kepada lampu?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เขียนลงโคมไฟไหม"
+          }
+        }
+      }
+    },
     "Ghi lịch": {
       "localizations": {
         "id": {
@@ -6469,6 +6821,28 @@
         }
       }
     },
+    "Giờ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jam"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jam"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ชั่วโมง"
+          }
+        }
+      }
+    },
     "Giáng sinh": {
       "localizations": {
         "id": {
@@ -6513,6 +6887,28 @@
         }
       }
     },
+    "Giờ của đèn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jam lampu"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jam lampu"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เวลาของโคมไฟ"
+          }
+        }
+      }
+    },
     "Giờ trên điện thoại lệch quá nhiều: chỉnh lại giờ rồi thử lại.": {
       "localizations": {
         "id": {
@@ -6553,6 +6949,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "เวลาปิด"
+          }
+        }
+      }
+    },
+    "Giờ tắt có thể trước giờ bật: đèn sáng qua nửa đêm.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jam mati boleh lebih awal dari jam nyala: lampu menyala melewati tengah malam."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Waktu mati boleh lebih awal daripada waktu hidup: lampu menyala melepasi tengah malam."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เวลาปิดก่อนเวลาเปิดได้: โคมไฟจะสว่างข้ามเที่ยงคืน"
+          }
+        }
+      }
+    },
+    "Giờ tắt phải khác giờ bật.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jam mati harus berbeda dari jam nyala."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Waktu mati mesti berbeza daripada waktu hidup."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เวลาปิดต้องไม่ตรงกับเวลาเปิด"
           }
         }
       }
@@ -6993,6 +7433,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ฮาโลวีน"
+          }
+        }
+      }
+    },
+    "Hẹn giờ bật tắt": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Timer nyala dan mati"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pemasa hidup dan mati"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตั้งเวลาเปิดปิด"
           }
         }
       }
@@ -7459,6 +7921,28 @@
         }
       }
     },
+    "Hỏi về cá này": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tanya tentang ikan ini"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tanya tentang ikan ini"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ถามเกี่ยวกับปลาตัวนี้"
+          }
+        }
+      }
+    },
     "Hỏi về cá này…": {
       "localizations": {
         "id": {
@@ -7833,6 +8317,28 @@
         }
       }
     },
+    "Không rõ mã đèn: chưa hỗ trợ, AquaTome không gửi gì tới đèn này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kode lampu tidak diketahui: belum didukung, AquaTome tidak mengirim apa pun ke lampu ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kod lampu tidak diketahui: belum disokong, AquaTome tidak menghantar apa-apa kepada lampu ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่ทราบรหัสโคมไฟ: ยังไม่รองรับ AquaTome จะไม่ส่งอะไรไปยังโคมไฟนี้"
+          }
+        }
+      }
+    },
     "Không có kết quả trong “%@”": {
       "localizations": {
         "id": {
@@ -7851,6 +8357,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ไม่มีผลลัพธ์ใน “%@”"
+          }
+        }
+      }
+    },
+    "Không gửi hết được tới %@. Lại gần đèn rồi ghi lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak semua terkirim ke %@. Dekati lampu lalu tulis lagi."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak semua dapat dihantar kepada %@. Dekati lampu, kemudian tulis semula."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ส่งไปยัง %@ ได้ไม่ครบ ขยับเข้าใกล้โคมไฟแล้วเขียนอีกครั้ง"
           }
         }
       }
@@ -8097,6 +8625,28 @@
         }
       }
     },
+    "Không kết nối được. Lại gần đèn, đóng ứng dụng WEEK AQUA trên các máy khác rồi thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gagal terhubung. Dekati lampu, tutup aplikasi WEEK AQUA di perangkat lain, lalu coba lagi."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak dapat menyambung. Dekati lampu, tutup aplikasi WEEK AQUA pada peranti lain, kemudian cuba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เชื่อมต่อไม่ได้ เข้าใกล้โคมไฟ ปิดแอป WEEK AQUA บนเครื่องอื่น แล้วลองอีกครั้ง"
+          }
+        }
+      }
+    },
     "Không lấy lại được câu trả lời này": {
       "localizations": {
         "id": {
@@ -8225,6 +8775,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ไม่พบ %@ ในบริเวณนี้ เปิดโคมไฟ ขยับเข้าใกล้แล้วลองอีกครั้ง"
+          }
+        }
+      }
+    },
+    "Không thấy %lld đèn của nhóm quanh đây. Bật các đèn, lại gần rồi thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld lampu dari grup ini tidak ditemukan di sekitar. Nyalakan lampu, dekati, lalu coba lagi."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld lampu kumpulan ini tidak ditemui berdekatan. Hidupkan lampu, dekati, kemudian cuba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่พบโคมไฟของกลุ่ม %lld ดวงในบริเวณนี้ เปิดโคมไฟ เข้าใกล้ แล้วลองอีกครั้ง"
           }
         }
       }
@@ -8713,6 +9285,28 @@
         }
       }
     },
+    "Kết nối %lld đèn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hubungkan %lld lampu"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sambungkan %lld lampu"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เชื่อมต่อโคมไฟ %lld ดวง"
+          }
+        }
+      }
+    },
     "Kết nối lại": {
       "localizations": {
         "id": {
@@ -8753,6 +9347,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "เชื่อมต่อโคมไฟ"
+          }
+        }
+      }
+    },
+    "Kết nối đèn Week Aqua": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hubungkan lampu Week Aqua"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sambungkan lampu Week Aqua"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เชื่อมต่อโคมไฟ Week Aqua"
+          }
+        }
+      }
+    },
+    "Kết nối đèn để ghi": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hubungkan lampu untuk menulis"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sambungkan lampu untuk menulis"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เชื่อมต่อโคมไฟเพื่อเขียน"
           }
         }
       }
@@ -9131,6 +9769,50 @@
         }
       }
     },
+    "Lần ghi đầu từ AquaTome thay màu và hẹn giờ đang có trên đèn, kể cả đặt bằng ứng dụng WEEK AQUA.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Penulisan pertama dari AquaTome mengganti warna dan timer yang ada di lampu, termasuk yang diatur dengan aplikasi WEEK AQUA."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Penulisan pertama daripada AquaTome menggantikan warna dan pemasa yang ada pada lampu, termasuk yang ditetapkan dengan aplikasi WEEK AQUA."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "การเขียนครั้งแรกจาก AquaTome จะแทนที่สีและการตั้งเวลาที่อยู่บนโคมไฟ รวมถึงที่ตั้งด้วยแอป WEEK AQUA"
+          }
+        }
+      }
+    },
+    "Lần gửi cuối từ AquaTome: %@, %@.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kiriman terakhir dari AquaTome: %@, %@."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hantaran terakhir daripada AquaTome: %@, %@."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "การส่งครั้งล่าสุดจาก AquaTome: %@, %@"
+          }
+        }
+      }
+    },
     "Lập phương": {
       "localizations": {
         "id": {
@@ -9461,6 +10143,94 @@
         }
       }
     },
+    "Màu có sẵn của WEEK AQUA": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Warna bawaan WEEK AQUA"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Warna sedia ada WEEK AQUA"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สีสำเร็จรูปของ WEEK AQUA"
+          }
+        }
+      }
+    },
+    "Màu riêng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Warna sendiri"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Warna sendiri"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สีที่ตั้งเอง"
+          }
+        }
+      }
+    },
+    "Màu, hẹn giờ bật tắt và giờ đèn, cho đèn mã 5746": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Warna, timer nyala-mati, dan jam lampu, untuk lampu berkode 5746"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Warna, pemasa hidup-mati dan jam lampu, untuk lampu berkod 5746"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สี การตั้งเวลาเปิดปิด และเวลาของโคมไฟ สำหรับโคมไฟรหัส 5746"
+          }
+        }
+      }
+    },
+    "Mã %@: chưa hỗ trợ, AquaTome không gửi gì tới đèn này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kode %@: belum didukung, AquaTome tidak mengirim apa pun ke lampu ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kod %@: belum disokong, AquaTome tidak menghantar apa-apa kepada lampu ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รหัส %@: ยังไม่รองรับ AquaTome จะไม่ส่งอะไรไปยังโคมไฟนี้"
+          }
+        }
+      }
+    },
     "Muốn gỡ ảnh sau này? Lưu link riêng này (chỉ hiện một lần):": {
       "localizations": {
         "id": {
@@ -9721,6 +10491,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "ขาดการเชื่อมต่อกับ %@"
+          }
+        }
+      }
+    },
+    "Mất kết nối với %@ khi đang ghi: các đèn còn lại đã nhận đủ. Kết nối lại cả nhóm rồi ghi lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Koneksi ke %@ terputus saat menulis: lampu lainnya sudah menerima semuanya. Hubungkan ulang seluruh grup lalu tulis lagi."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sambungan dengan %@ terputus semasa menulis: lampu lain sudah menerima semuanya. Sambungkan semula seluruh kumpulan, kemudian tulis semula."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ขาดการเชื่อมต่อกับ %@ ระหว่างเขียน: โคมไฟดวงอื่นได้รับครบแล้ว เชื่อมต่อทั้งกลุ่มอีกครั้งแล้วเขียนใหม่"
+          }
+        }
+      }
+    },
+    "Mất kết nối với %@. Kết nối lại cả nhóm đèn.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Koneksi ke %@ terputus. Hubungkan ulang seluruh grup lampu."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sambungan dengan %@ terputus. Sambungkan semula seluruh kumpulan lampu."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ขาดการเชื่อมต่อกับ %@ เชื่อมต่อโคมไฟทั้งกลุ่มอีกครั้ง"
           }
         }
       }
@@ -10671,6 +11485,28 @@
         }
       }
     },
+    "Phút": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menit"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Minit"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "นาที"
+          }
+        }
+      }
+    },
     "Phiên đăng nhập đã hết: đăng nhập lại để xem bảng điều khiển.": {
       "localizations": {
         "id": {
@@ -10755,28 +11591,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "ดินปลูกไม้น้ำ (aqua soil)"
-          }
-        }
-      }
-    },
-    "Quay lại": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kembali"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kembali"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "กลับ"
           }
         }
       }
@@ -11195,6 +12009,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "จะส่งเฉพาะส่วนในกรอบ ลากใหม่เพื่อเลือกส่วนอื่น"
+          }
+        }
+      }
+    },
+    "Sẽ gửi: đỏ %lld, xanh lá %lld, xanh dương %lld, UV %lld, trên thang 235.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akan dikirim: merah %lld, hijau %lld, biru %lld, UV %lld, dari skala 235."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akan dihantar: merah %lld, hijau %lld, biru %lld, UV %lld, daripada skala 235."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "จะส่ง: แดง %lld เขียว %lld น้ำเงิน %lld UV %lld จากสเกล 235"
           }
         }
       }
@@ -12959,6 +13795,28 @@
         }
       }
     },
+    "Tìm đèn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cari lampu"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cari lampu"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ค้นหาโคมไฟ"
+          }
+        }
+      }
+    },
     "Tìm loài cá, cây, hướng dẫn": {
       "localizations": {
         "id": {
@@ -13355,6 +14213,50 @@
         }
       }
     },
+    "Tắt lúc, giờ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mati pukul, jam"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mati pada, jam"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปิดเวลา, ชั่วโมง"
+          }
+        }
+      }
+    },
+    "Tắt lúc, phút": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mati pukul, menit"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mati pada, minit"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปิดเวลา, นาที"
+          }
+        }
+      }
+    },
     "Tắt lúc %@": {
       "localizations": {
         "id": {
@@ -13549,6 +14451,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "อภิธานศัพท์"
+          }
+        }
+      }
+    },
+    "Từng màu, ở độ sáng hết cỡ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tiap warna, pada kecerahan penuh"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Setiap warna, pada kecerahan penuh"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แต่ละสี ที่ความสว่างเต็มที่"
           }
         }
       }
@@ -16039,6 +16963,28 @@
         }
       }
     },
+    "Đã chỉnh giờ %lld đèn theo máy này, cùng màu và hẹn giờ đã gửi lần cuối.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jam %lld lampu sudah disamakan dengan perangkat ini, bersama warna dan timer yang terakhir dikirim."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jam %lld lampu sudah diselaraskan dengan peranti ini, bersama warna dan pemasa yang terakhir dihantar."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตั้งเวลาโคมไฟ %lld ดวงตามเครื่องนี้แล้ว พร้อมสีและการตั้งเวลาที่ส่งครั้งล่าสุด"
+          }
+        }
+      }
+    },
     "Đã chỉnh giờ đèn: %@.": {
       "localizations": {
         "id": {
@@ -16079,6 +17025,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "บันทึกคำถามไว้ให้คู่มือเขียนเพิ่มแล้ว"
+          }
+        }
+      }
+    },
+    "Đã ghi vào %lld đèn: bật %@, tắt %@.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sudah ditulis ke %lld lampu: nyala %@, mati %@."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sudah ditulis kepada %lld lampu: hidup %@, mati %@."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เขียนลงโคมไฟ %lld ดวงแล้ว: เปิด %@ ปิด %@"
           }
         }
       }
@@ -16211,6 +17179,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "เชื่อมต่อ %1$@ แล้ว firmware %2$lld: เวอร์ชันนี้ยังตั้งเวลาจากแอปไม่ได้ ให้อัปเดต firmware ด้วยแอป My Chihiros"
+          }
+        }
+      }
+    },
+    "Đã kết nối %lld đèn Week Aqua.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld lampu Week Aqua terhubung."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld lampu Week Aqua bersambung."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เชื่อมต่อโคมไฟ Week Aqua %lld ดวงแล้ว"
           }
         }
       }
@@ -17007,6 +17997,94 @@
         }
       }
     },
+    "Đèn Week Aqua": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Week Aqua"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Week Aqua"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โคมไฟ Week Aqua"
+          }
+        }
+      }
+    },
+    "Đèn Week Aqua không báo lại gì: AquaTome không đọc được màu hay hẹn giờ đèn đang chạy, chỉ biết những gì nó đã gửi.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Week Aqua tidak melaporkan apa pun: AquaTome tidak bisa membaca warna atau timer yang sedang berjalan, hanya tahu apa yang sudah dikirimnya."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Week Aqua tidak melaporkan apa-apa: AquaTome tidak dapat membaca warna atau pemasa yang sedang berjalan, hanya tahu apa yang sudah dihantarnya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โคมไฟ Week Aqua ไม่รายงานอะไรกลับมา: AquaTome อ่านสีหรือการตั้งเวลาที่โคมไฟใช้อยู่ไม่ได้ รู้แค่สิ่งที่ตัวเองส่งไป"
+          }
+        }
+      }
+    },
+    "Đèn bật tắt theo đồng hồ của nó, mà nó không báo lại; mất điện có thể làm lệch. Mỗi lần ghi đều chỉnh đồng hồ đèn theo máy này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu menyala dan mati menurut jamnya sendiri, yang tidak dilaporkannya; listrik padam bisa membuatnya bergeser. Setiap penulisan juga menyamakan jam lampu dengan perangkat ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu hidup dan mati mengikut jamnya sendiri, yang tidak dilaporkannya; gangguan bekalan elektrik boleh menganjakkannya. Setiap penulisan juga menyelaraskan jam lampu dengan peranti ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โคมไฟเปิดปิดตามนาฬิกาของมันเอง ซึ่งมันไม่รายงานกลับมา ไฟดับอาจทำให้เวลาคลาดเคลื่อน การเขียนแต่ละครั้งจะตั้งนาฬิกาโคมไฟตามเครื่องนี้ด้วย"
+          }
+        }
+      }
+    },
+    "Đèn này chưa được hỗ trợ: AquaTome chỉ ghi vào đèn Week Aqua mã 5746.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu ini belum didukung: AquaTome hanya menulis ke lampu Week Aqua berkode 5746."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu ini belum disokong: AquaTome hanya menulis kepada lampu Week Aqua berkod 5746."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โคมไฟนี้ยังไม่รองรับ: AquaTome เขียนได้เฉพาะโคมไฟ Week Aqua รหัส 5746"
+          }
+        }
+      }
+    },
     "Đèn Love Ecology": {
       "localizations": {
         "id": {
@@ -17025,28 +18103,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "ไฟ Love Ecology"
-          }
-        }
-      }
-    },
-    "Đèn Chihiros": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lampu Chihiros"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lampu Chihiros"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "โคมไฟ Chihiros"
           }
         }
       }
@@ -17245,6 +18301,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "เปิดไฟวันละ %@ ชั่วโมง"
+          }
+        }
+      }
+    },
+    "Đèn sáng %lld tiếng %lld phút mỗi ngày.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu menyala %lld jam %lld menit setiap hari."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu menyala %lld jam %lld minit setiap hari."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โคมไฟสว่างวันละ %lld ชั่วโมง %lld นาที"
+          }
+        }
+      }
+    },
+    "Đèn sáng %lld tiếng mỗi ngày.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu menyala %lld jam setiap hari."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu menyala %lld jam setiap hari."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โคมไฟสว่างวันละ %lld ชั่วโมง"
           }
         }
       }

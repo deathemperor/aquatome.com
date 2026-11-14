@@ -1,3 +1,4 @@
+import { denied } from './piece-admission'
 import { expectControlledRejections } from './photo-privacy-assertions'
 import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
@@ -409,8 +410,9 @@ test('a transgenic line is judged by its own names, not as the species it was fi
 })
 
 test('gallery photos are judged with their page, and a page left with no photo shows none and is listed', async () => {
+  // Released by a person who has looked: a page's last photo doesn't come off on the check's word alone (EMPTY_CAP).
   const r = await root([{ id: 'paracheirodon-simulans', sci: 'Paracheirodon simulans', photos: ['p1'], gallery: ['g1'] }, { id: 'paracheirodon-innesi', sci: 'Paracheirodon innesi', photos: ['ok'] }])
-  await checkPagePhotos(r, model({ p1: { ok: 'other', note: 'neon tetra' }, g1: { ok: 'other', note: 'neon tetra' } }), { limit: 10 })
+  await checkPagePhotos(r, model({ p1: { ok: 'other', note: 'neon tetra' }, g1: { ok: 'other', note: 'neon tetra' } }), { limit: 10, emptyCap: 99 })
   expect(await urls(r, 'content/species/paracheirodon-simulans/entity.json')).toEqual([])
   expect(await urls(r, 'content/gallery/paracheirodon-simulans.json')).toEqual([])
   expect(await readFile(join(r, 'docs/review/photo-subjects.md'), 'utf8')).toMatch(/## Left with no photo \(1\)\n\n- species\/paracheirodon-simulans\n/)
@@ -474,11 +476,12 @@ test('names a guide caption resolves to: the longest name wins, plurals count, a
 })
 
 test('the blocklist is only added to: entries another step writes during the run stay', async () => {
+  // Released by a person who has looked: a page's last photo doesn't come off on the check's word alone (EMPTY_CAP).
   const r = await root([{ id: 'danio-rerio', sci: 'Danio rerio', photos: ['x'] }])
   const file = join(r, 'engine-state/_photo-rejected.json')
   await writeFile(file, JSON.stringify({ [url('a')]: 'by hand' }))
   const d = model({ x: { ok: 'other', note: 'a guppy' } })
-  await checkPagePhotos(r, { ...d, look: async (s, p) => { await writeFile(file, JSON.stringify({ [url('a')]: 'by hand', [url('b')]: 'watermark' })); return d.look(s, p) } }, { limit: 10 })
+  await checkPagePhotos(r, { ...d, look: async (s, p) => { await writeFile(file, JSON.stringify({ [url('a')]: 'by hand', [url('b')]: 'watermark' })); return d.look(s, p) } }, { limit: 10, emptyCap: 99 })
   expect(Object.keys(await json(r, 'engine-state/_photo-rejected.json')).map(name)).toEqual(['a', 'b', 'x'])
 })
 
@@ -499,8 +502,9 @@ test('a download that is not an image is left out, and the rest of its sheet is 
 })
 
 test('a guide keeps a page\'s photo that is not of the fish (a map, a tank), but not one of another fish', async () => {
+  // Released by a person who has looked: a page's last photo doesn't come off on the check's word alone (EMPTY_CAP).
   const r = await root([{ id: 'danio-rerio', sci: 'Danio rerio', photos: ['map', 'guppy'] }], { biotope: { photos: [photo('map'), photo('guppy')] } })
-  await checkPagePhotos(r, model({ map: { ok: 'none', note: 'a range map' }, guppy: { ok: 'other', note: 'a guppy' } }), { limit: 10 })
+  await checkPagePhotos(r, model({ map: { ok: 'none', note: 'a range map' }, guppy: { ok: 'other', note: 'a guppy' } }), { limit: 10, emptyCap: 99 })
   expect(await urls(r, 'content/species/danio-rerio/entity.json')).toEqual([])
   expect(await urls(r, 'content/guides/biotope/entity.json')).toEqual(['map'])
   expect(Object.keys(await json(r, 'engine-state/_photo-rejected.json')).map(name)).toEqual(['guppy'])
@@ -522,6 +526,7 @@ test('a verdict against a guide caption doesn\'t stand for the page: the same ph
 })
 
 test('a dead fish at a market leaves every page, gallery and guide that shows it and joins the blocklist, though another page passed it', async () => {
+  // Released by a person who has looked: a page's last photo doesn't come off on the check's word alone (EMPTY_CAP).
   // Found by the owner (2026-11-05): the speckled peacock bass page led with dead fish piled at a market, judged "yes".
   const r = await root([
     { id: 'cichla-temensis', sci: 'Cichla temensis', photos: ['market', 'live'], gallery: ['market'] },
@@ -533,7 +538,7 @@ test('a dead fish at a market leaves every page, gallery and guide that shows it
     const v = await look(s, prompt)
     return prompt.includes('Cichla temensis') ? { photos: v.photos.map(p => (p.note === 'market' ? { ...p, ok: 'dead', typical: true, note: 'dead peacock bass piled at a market' } : p)) } : v
   }
-  const out = await checkPagePhotos(r, d, { limit: 10 })
+  const out = await checkPagePhotos(r, d, { limit: 10, emptyCap: 99 })
   expect(d.seen[0]!.prompt).toMatch(/"dead" if it shows a dead fish or other animal, or fish as food, whatever the species: at a market or fishmonger's, on ice; on a plate, cooked, fillets; a catch landed or held up/)
   expect(await urls(r, 'content/species/cichla-temensis/entity.json')).toEqual(['live'])
   expect(await urls(r, 'content/gallery/cichla-temensis.json')).toEqual([])
@@ -547,6 +552,7 @@ test('a dead fish at a market leaves every page, gallery and guide that shows it
 })
 
 test('a logo the text reader missed is a watermark: off every page, onto the blocklist; the same photographer\'s other photos are asked again', async () => {
+  // Released by a person who has looked: a page's last photo doesn't come off on the check's word alone (EMPTY_CAP).
   const r = await root([
     { id: 'cichla-temensis', sci: 'Cichla temensis', photos: ['stamped'], gallery: ['clean'] },
     { id: 'phractocephalus-hemioliopterus', sci: 'Phractocephalus hemioliopterus', photos: ['redtail', 'other-author'] },
@@ -560,7 +566,7 @@ test('a logo the text reader missed is a watermark: off every page, onto the blo
     [url('other-author')]: { 'phractocephalus-hemioliopterus': { ok: 'yes', typical: true, note: 'redtail catfish' } },
   }))
   const d = model({ stamped: { logo: true, note: 'peacock bass; round added logo bottom left' }, redtail: { logo: true, note: 'redtail catfish; round logo bottom left' } })
-  await checkPagePhotos(r, d, { limit: 10, recheck: new Set([url('stamped')]) })
+  await checkPagePhotos(r, d, { limit: 10, emptyCap: 99, recheck: new Set([url('stamped')]) })
   expect(d.seen[0]!.prompt).toContain('- logo: true if a logo, stamp, watermark, signature or text was added on top of the photo after it was taken, even small or faint, round, in a corner')
   // …then the same photographer's: their redtail photo on another page, not the other author's photo there.
   expect(d.seen.map(s => s.photos)).toEqual([['stamped'], ['redtail']])
@@ -574,9 +580,10 @@ test('a logo the text reader missed is a watermark: off every page, onto the blo
 })
 
 test('an engraved plate or an old drawing is "not a photo of it" as before, not "dead": it leaves its page with that reason', async () => {
+  // Released by a person who has looked: a page's last photo doesn't come off on the check's word alone (EMPTY_CAP).
   const r = await root([{ id: 'bagrus-bajad', sci: 'Bagrus bajad', photos: ['plate'] }])
   const d = model({ plate: { ok: 'none', typical: false, note: 'old engraved plate of two Bagrus catfish' } })
-  await checkPagePhotos(r, d, { limit: 10 })
+  await checkPagePhotos(r, d, { limit: 10, emptyCap: 99 })
   expect(d.seen[0]!.prompt).toContain('Not "dead": a drawing, painting or engraved plate (that is "none"; a photo of a preserved specimen is "dead", however old); a live fish held briefly in a net or a bag.')
   expect(d.seen[0]!.prompt).toContain('"none" if it is not a photo of the subject at all: a map, chart, diagram or drawing, hands or people')
   expect(await urls(r, 'content/species/bagrus-bajad/entity.json')).toEqual([])
@@ -637,11 +644,12 @@ test('the repair judges each photo once: a second run finds nothing to ask and c
 })
 
 test('a page that loses its last photo keeps a valid page file, with no photo, and is listed', async () => {
+  // Released by a person who has looked: a page's last photo doesn't come off on the check's word alone (EMPTY_CAP).
   const r = await root([{ id: 'cichla-temensis', sci: 'Cichla temensis', photos: ['market'], gallery: ['market'] }])
   const file = join(r, 'content/species/cichla-temensis/entity.json')
   const real = JSON.parse(await readFile(new URL('../../../apps/site/test/fixture-content/species/paracheirodon-innesi/entity.json', import.meta.url), 'utf8'))
   await writeFile(file, `${JSON.stringify({ ...real, id: 'cichla-temensis', scientificName: 'Cichla temensis', photos: [photo('market')] }, null, 2)}\n`)
-  await checkPagePhotos(r, model({ market: { ok: 'dead', note: 'dead fish at a market' } }), { limit: 10 })
+  await checkPagePhotos(r, model({ market: { ok: 'dead', note: 'dead fish at a market' } }), { limit: 10, emptyCap: 99 })
   const e = await json(r, 'content/species/cichla-temensis/entity.json')
   expect(e.photos).toEqual([])
   expect(SpeciesSchema.safeParse(e).success).toBe(true)
@@ -650,6 +658,7 @@ test('a page that loses its last photo keeps a valid page file, with no photo, a
 })
 
 test('a lake with no fish is "not a photo of it": an old "habitat" verdict is asked again and the page loses it; the fish seen in the wild stays', async () => {
+  // Released by a person who has looked: a page's last photo doesn't come off on the check's word alone (EMPTY_CAP).
   // Found by a design review (2026-11-07): the firemouth's only photo, a lake with a park and a tower, was judged
   // "habitat" (its wild place, with or without it) and kept, so it led the page, its index card and tank-mates blocks.
   const r = await root([{ id: 'thorichthys-meeki', sci: 'Thorichthys meeki', photos: ['lake'], gallery: ['wild'] }])
@@ -658,7 +667,7 @@ test('a lake with no fish is "not a photo of it": an old "habitat" verdict is as
     [url('wild')]: { 'thorichthys-meeki': { ok: 'habitat', typical: false, note: 'two firemouths over sand in a clear river', logo: false } },
   }))
   const d = model({ lake: { ok: 'none', note: 'lake with a park and a tower, no fish' } })
-  await checkPagePhotos(r, d, { limit: 10 })
+  await checkPagePhotos(r, d, { limit: 10, emptyCap: 99 })
   expect(d.seen.map(s => s.photos)).toEqual([['lake', 'wild']])
   expect(d.seen[0]!.prompt).toContain('a landscape or wild place (a river, stream, lake, swamp or shore) where it can\'t be picked out')
   expect(d.seen[0]!.prompt).toContain('and so does it in the wild where it is clearly seen')
@@ -797,4 +806,15 @@ test("a pick that rests on a person's yes lapses with it in the same pass: once 
   expect(await page({ ok: 'unsure', typical: true })).toEqual(['pond', 'night']) // the yes stands, and its pick with it
   expect(await page({ typical: false })).toEqual(['night', 'pond']) // the right fish, not typical: the typical one leads
   expect(await page({ ok: 'unsure', typical: true }, { ...yes, approvers: ['Curation'] })).toEqual(['night', 'pond']) // a yes that doesn't count
+})
+
+test('item admission stops without model calls or content changes', async () => {
+  const r = await root([{ id: 'betta', sci: 'Betta splendens', photos: ['fish'] }])
+  const d = model({})
+  await denied('check-photos', r, async () => {
+    const out = await checkPagePhotos(r, d, { limit: 10, today: '2026-11-13' })
+    expect(out.stopped).toBeTruthy()
+    expect(out.failed).toEqual([])
+    expect(d.seen).toEqual([])
+  })
 })

@@ -1,3 +1,4 @@
+import { piece } from './pieces'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { QUALITY_THRESHOLD, judgeQuality, metricPage } from '@aq/schema'
@@ -94,57 +95,59 @@ export async function rewriteExisting(contentRoot: string, stateFile: string, d:
     const reviewed: { page: PageRef; tries: Review[]; kept?: Review }[] = []
     const log = (written: boolean) => Promise.all(reviewed.map(r => logReviews(root, 'vi-rewrite', r.page, r.tries, written ? r.kept : undefined, { now: d.now() })))
     try {
-      for (const g of job.groups) {
-        const opts = { ...d.opts, ...(g.source && names[g.source] ? { source: names[g.source]!.name } : {}) }
-        const hasEn = g.parts.every(p => p.en)
-        // Near the bar, read three times and the median read counts (steadyRead).
-        const review = (m: Map<string, string>) => steadyRead(() => hasEn
-          ? reviewTranslation(d.llm, g.parts.map(p => ({ en: p.en!, vi: m.get(p.id)! })))
-          : reviewRewrite(d.llm, g.parts.map(p => ({ before: p.vi, after: m.get(p.id)! }))))
-        // What the last review of this text on the site found, when it was under the bar, goes to the writer.
-        const page = { id: job.id, lang: 'vi', ...(g.source ? { part: g.source } : {}) }
-        const before = await lastKept(root, page, TEXT_KINDS)
-        let next = await rewriteVi(d.llm, g.parts, { ...opts, ...(before && before.score < QUALITY_THRESHOLD && before.notes.length ? { notes: before.notes } : {}) })
-        const first = await review(next)
-        let best = first
-        // Below the bar: one more try with the reviewer's notes (as for video guides); the better of the two counts.
-        const tries = [first]
-        if (first.score < QUALITY_THRESHOLD) {
-          const again = await rewriteVi(d.llm, g.parts, { ...opts, notes: first.notes })
-          const r = await review(again)
-          tries.push(r)
-          if (r.score > first.score) { next = again; best = r }
+      await piece(job.id, async () => {
+        for (const g of job.groups) {
+          const opts = { ...d.opts, ...(g.source && names[g.source] ? { source: names[g.source]!.name } : {}) }
+          const hasEn = g.parts.every(p => p.en)
+          // Near the bar, read three times and the median read counts (steadyRead).
+          const review = (m: Map<string, string>) => steadyRead(() => hasEn
+            ? reviewTranslation(d.llm, g.parts.map(p => ({ en: p.en!, vi: m.get(p.id)! })))
+            : reviewRewrite(d.llm, g.parts.map(p => ({ before: p.vi, after: m.get(p.id)! }))))
+          // What the last review of this text on the site found, when it was under the bar, goes to the writer.
+          const page = { id: job.id, lang: 'vi', ...(g.source ? { part: g.source } : {}) }
+          const before = await lastKept(root, page, TEXT_KINDS)
+          let next = await rewriteVi(d.llm, g.parts, { ...opts, ...(before && before.score < QUALITY_THRESHOLD && before.notes.length ? { notes: before.notes } : {}) })
+          const first = await review(next)
+          let best = first
+          // Below the bar: one more try with the reviewer's notes (as for video guides); the better of the two counts.
+          const tries = [first]
+          if (first.score < QUALITY_THRESHOLD) {
+            const again = await rewriteVi(d.llm, g.parts, { ...opts, notes: first.notes })
+            const r = await review(again)
+            tries.push(r)
+            if (r.score > first.score) { next = again; best = r }
+          }
+          const score = best.score
+          scores.push(score)
+          const k = kept.get(g.source ?? '') ?? { scores: [], all: true }
+          kept.set(g.source ?? '', k)
+          const keep = score >= QUALITY_THRESHOLD || (hasEn && score > orig(g.source))
+          reviewed.push({ page, tries, kept: keep ? best : undefined })
+          if (!keep) { k.all = false; continue }
+          if (hasEn) k.scores.push(score)
+          rewritten++
+          for (const p of g.parts) {
+            const [field, i, qa] = p.id.split(':') as [string, string?, string?]
+            if (p.id === 'body') vi.body = next.get(p.id)!
+            else if (p.id === 'definition') vi.definition = next.get(p.id)!
+            else if (field === 'summary') vi.summary![Number(i)] = next.get(p.id)!
+            else if (field === 'faq') vi.faq![Number(i)]![qa as 'q' | 'a'] = next.get(p.id)!
+            else vi.sections![p.id] = next.get(p.id)!
+          }
         }
-        const score = best.score
-        scores.push(score)
-        const k = kept.get(g.source ?? '') ?? { scores: [], all: true }
-        kept.set(g.source ?? '', k)
-        const keep = score >= QUALITY_THRESHOLD || (hasEn && score > orig(g.source))
-        reviewed.push({ page, tries, kept: keep ? best : undefined })
-        if (!keep) { k.all = false; continue }
-        if (hasEn) k.scores.push(score)
-        rewritten++
-        for (const p of g.parts) {
-          const [field, i, qa] = p.id.split(':') as [string, string?, string?]
-          if (p.id === 'body') vi.body = next.get(p.id)!
-          else if (p.id === 'definition') vi.definition = next.get(p.id)!
-          else if (field === 'summary') vi.summary![Number(i)] = next.get(p.id)!
-          else if (field === 'faq') vi.faq![Number(i)]![qa as 'q' | 'a'] = next.get(p.id)!
-          else vi.sections![p.id] = next.get(p.id)!
+        // A translation's score is per source: the weakest of its chunks, counting the old text where a chunk wasn't kept.
+        // A Vietnamese-only rewrite (no English) leaves the page's score as it was.
+        if (vi.quality) {
+          const bySource = { ...vi.quality.bySource }
+          for (const [src, k] of kept) if (src && k.scores.length) bySource[src] = Math.min(...k.scores, ...(k.all ? [] : [orig(src)]))
+          if (Object.keys(bySource).length) {
+            const min = Math.min(...Object.values(bySource))
+            // The depth verdict stays (a rewrite changes no section): a thin page stays out of search (@aq/schema depth.ts).
+            // The rest of it stays too: a video guide held out of the chat (video-hold.ts) is still held.
+            vi.quality = judgeQuality({ ...vi.quality, score: min, indexable: min >= QUALITY_THRESHOLD, bySource }, min >= QUALITY_THRESHOLD, vi.quality.reason !== 'thin')
+          }
         }
-      }
-      // A translation's score is per source: the weakest of its chunks, counting the old text where a chunk wasn't kept.
-      // A Vietnamese-only rewrite (no English) leaves the page's score as it was.
-      if (vi.quality) {
-        const bySource = { ...vi.quality.bySource }
-        for (const [src, k] of kept) if (src && k.scores.length) bySource[src] = Math.min(...k.scores, ...(k.all ? [] : [orig(src)]))
-        if (Object.keys(bySource).length) {
-          const min = Math.min(...Object.values(bySource))
-          // The depth verdict stays (a rewrite changes no section): a thin page stays out of search (@aq/schema depth.ts).
-          // The rest of it stays too: a video guide held out of the chat (video-hold.ts) is still held.
-          vi.quality = judgeQuality({ ...vi.quality, score: min, indexable: min >= QUALITY_THRESHOLD, bySource }, min >= QUALITY_THRESHOLD, vi.quality.reason !== 'thin')
-        }
-      }
+      })
     } catch (e) {
       // A usage limit, or the step's ceiling (ceiling.ts), stops a page part way: nothing written, so no review logged.
       if (!(e instanceof LlmError && errorKind(e.message) === 'usage')) await log(false)

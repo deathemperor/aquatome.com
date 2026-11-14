@@ -1,5 +1,5 @@
 {
- "day": "2026-11-13",
+ "day": "2026-11-14",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -11,32 +11,32 @@
  },
  "langs": {
   "vi": {
-   "pages": 4075,
-   "read": 3511,
-   "wrong": 1578,
+   "pages": 4228,
+   "read": 3667,
+   "wrong": 1629,
    "pct": 44,
-   "held": 404
+   "held": 460
   },
   "id": {
-   "pages": 1344,
-   "read": 1174,
-   "wrong": 348,
-   "pct": 30,
-   "held": 86
+   "pages": 1366,
+   "read": 1198,
+   "wrong": 349,
+   "pct": 29,
+   "held": 89
   },
   "th": {
-   "pages": 1333,
-   "read": 1134,
-   "wrong": 313,
+   "pages": 1341,
+   "read": 1150,
+   "wrong": 319,
    "pct": 28,
-   "held": 80
+   "held": 81
   },
   "ms": {
-   "pages": 229,
-   "read": 184,
-   "wrong": 62,
+   "pages": 243,
+   "read": 199,
+   "wrong": 67,
    "pct": 34,
-   "held": 24
+   "held": 28
   }
  },
  "labels": {
@@ -58,25 +58,38 @@
  },
  "sample": [
   {
+   "lang": "id",
+   "path": "/id/ikan/rainbow-robber-tetra/",
+   "url": "https://aquatome.com/id/ikan/rainbow-robber-tetra/",
+   "title": "Rainbow Robber Tetra",
+   "wrong": []
+  },
+  {
+   "lang": "th",
+   "path": "/th/fish/alcolapia-grahami/",
+   "url": "https://aquatome.com/th/fish/alcolapia-grahami/",
+   "title": "เกรแฮมส์โซดาซิคลิด",
+   "wrong": []
+  },
+  {
    "lang": "vi",
-   "path": "/vi/ca/ca-tetra-heterocharax-virgulatus/",
-   "url": "https://aquatome.com/ca/ca-tetra-heterocharax-virgulatus/",
-   "title": "Cá tetra Heterocharax virgulatus",
-   "wrong": []
-  },
-  {
-   "lang": "id",
-   "path": "/id/ikan/chalinochromis-brichardi/",
-   "url": "https://aquatome.com/id/ikan/chalinochromis-brichardi/",
-   "title": "Chalinochromis brichardi",
-   "wrong": []
-  },
-  {
-   "lang": "id",
-   "path": "/id/ikan/malabar-baril/",
-   "url": "https://aquatome.com/id/ikan/malabar-baril/",
-   "title": "Malabar Baril",
-   "wrong": []
+   "path": "/vi/ca/ca-tren-bau/",
+   "url": "https://aquatome.com/ca/ca-tren-bau/",
+   "title": "Cá trèn bầu",
+   "wrong": [
+    {
+     "check": "words",
+     "quote": "nhiều khả năng"
+    },
+    {
+     "check": "words",
+     "quote": "ghi nhận"
+    },
+    {
+     "check": "words",
+     "quote": "thức ăn sống"
+    }
+   ]
   }
  ]
 }

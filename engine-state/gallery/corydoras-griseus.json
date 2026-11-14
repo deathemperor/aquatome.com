@@ -3,10 +3,7 @@
  "judged": [
   "File:Corydoras griseus Armbruster.jpg"
  ],
- "hashes": {
-  "https://media.aquatome.com/seriouslyfish/68b632535b585cbd.webp": "af0e0e0e0e44f4e7",
-  "https://media.aquatome.com/commons/410acb748bf0e43a.webp": "0c4a181d933d9a18"
- },
+ "hashes": {},
  "inat": {
   "taxon": 1561461,
   "pass": "done",
@@ -15,5 +12,9 @@
    "agree": 0
   }
  },
- "commons": "2026-11-08"
+ "commons": "2026-11-08",
+ "gbif": {
+  "key": 2342767,
+  "next": null
+ }
 }

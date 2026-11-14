@@ -54,34 +54,19 @@
         "heading": "Lắp tấm acrylic vào thân bể ván ép",
         "moments": [
           {
-            "t": 35,
-            "url": "https://media.aquatome.com/video/uAglEdNX7UQ/at35-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bơm silicone quanh viền để dán tấm acrylic vào bể.",
-            "sharpness": 360.8
-          },
-          {
             "t": 75,
             "url": "https://media.aquatome.com/video/uAglEdNX7UQ/at75-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Tấm acrylic đã được lắp vào thân bể ván ép.",
-            "sharpness": 720.7
+            "sharpness": 720.7,
+            "person": false
           }
         ]
       },
       {
         "heading": "Bắt thanh giằng phía trên",
         "moments": [
-          {
-            "t": 110,
-            "url": "https://media.aquatome.com/video/uAglEdNX7UQ/at110-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thanh gỗ bắt vít ngang phía trên bể, có đèn LED gác lên.",
-            "sharpness": 346.2
-          },
           {
             "t": 120,
             "url": "https://media.aquatome.com/video/uAglEdNX7UQ/at120-hd.webp",
@@ -111,7 +96,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thanh giằng gỗ đặt trên khung bể kính, chưa quét chống thấm.",
-            "sharpness": 196.9
+            "sharpness": 196.9,
+            "person": false
           },
           {
             "t": 150,
@@ -119,7 +105,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể kính đã châm nước để thử rỉ, có ống dẫn bên trong.",
-            "sharpness": 1215.9
+            "sharpness": 1215.9,
+            "person": false
           }
         ]
       },
@@ -140,7 +127,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đáy bể với lớp nước nông và ống châm nước đang chạy.",
-            "sharpness": 525.9
+            "sharpness": 525.9,
+            "person": false
           }
         ]
       },
@@ -153,15 +141,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể đang được châm nước, mực nước lên khoảng nửa bể.",
-            "sharpness": 400.4
-          },
-          {
-            "t": 515,
-            "url": "https://media.aquatome.com/video/uAglEdNX7UQ/at515-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ống châm nước thả vào bể, nước đã lên quá nửa.",
-            "sharpness": 821.4
+            "sharpness": 400.4,
+            "person": false
           }
         ]
       }

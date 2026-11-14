@@ -3,9 +3,7 @@
  "judged": [
   "inat:63402655"
  ],
- "hashes": {
-  "https://media.aquatome.com/commons/22b52269a09de89e.webp": "1e1e46737d3f0d05"
- },
+ "hashes": {},
  "inat": {
   "taxon": 1561401,
   "pass": "done",
@@ -14,5 +12,9 @@
    "agree": 0
   }
  },
- "commons": "2026-11-08"
+ "commons": "2026-11-08",
+ "gbif": {
+  "key": 2342780,
+  "next": null
+ }
 }

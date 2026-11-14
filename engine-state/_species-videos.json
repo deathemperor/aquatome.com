@@ -1176,10 +1176,12 @@
     "reason": "multi-species science"
   },
   "bVLQnOUZnz4": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "title": "Discover the Extravagant Gold Laser Corydoras CW010",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "bx2VN17LLzg": {
     "at": "2026-11-07",
@@ -1206,10 +1208,15 @@
     "reason": "vague"
   },
   "c1siLU71MxI": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "title": "Denison Barb / Roseline shark ( Sahyadria denisonii) Species profile",
     "channel": "Team Detritus",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Sahyadria denisonii",
+    "page": "species/sahyadria-denisonii",
+    "done": "low",
+    "score": 0.4,
+    "reason": "Page already has the 1865 description? No, but notes repeat IUCN endangered/poaching facts partly; 'Sau khi loài này vào Sách đỏ IUCN... bắt trộm' is okay, yet 'cá trại đã có nhiều' overlaps page's mass captive production.; 'Bể 40 lít hay 60 lít' — video says 10 or 15 gallon; converted figures are invented, not stated."
   },
   "C39oa-DeWjQ": {
     "at": "2026-11-07",
@@ -1276,10 +1283,12 @@
     "reason": "species not named in title"
   },
   "cBhYmAOi22M": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "title": "Morse Code Tetra \"Hemigrammus sp. Morse Code\" (Species Spotlight)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "ceG1n3PAwQk": {
     "at": "2026-11-07",
@@ -1290,10 +1299,15 @@
     "reason": "fish room tour"
   },
   "Cg5gUTFbSyA": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "title": "Threadfin Acara Care Guide - Pros, Cons, and Care Tips",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Acarichthys heckelii",
+    "page": "species/acarichthys-heckelii",
+    "done": "low",
+    "score": 0.68,
+    "reason": "[waterConditions] '23–27 °C, thấp nhất là 23 °C' differs from the page's 24–30 °C, but NEW never says so plainly. The video gives about 74–80°F.; [maintenance] 'khá khỏe và sống ổn trong nhiều điều kiện' contradicts the page, which says the fish is sensitive to poor water. NEW doesn't point out the difference."
   },
   "chFN3OeynVI": {
     "at": "2026-11-07",
@@ -1376,10 +1390,15 @@
     "reason": "river exploration"
   },
   "CVc-EzMdCeY": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "title": "Corydoras pantanalensis  Species Presentation",
     "channel": "CHRIS LUKHAUP",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Corydoras pantanalensis",
+    "page": "species/corydoras-pantanalensis",
+    "done": "low",
+    "score": 0.6,
+    "reason": "[notes] \"Cá thường lớn tới 7–8 cm\" — the page card already gives sizeCm 8 / 80 mm SL, so the figure is repeated. The video says 7–8 cm (3–4 inch), so this does not really add anything.; [distribution] \"Ngoài phần thuộc Bolivia\" — the page already says the Bolivian part of Pantanal, so this repeats it. The video's new point is only the clear rivers and creeks, plus a possible presence in Brazil."
   },
   "cz99uyKFcKU": {
     "at": "2026-11-07",
@@ -1398,10 +1417,15 @@
     "reason": "industry news"
   },
   "d10WwCWVOoo": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "title": "Jellybean Tetra - Ladigesia roloffi - Rare Nano Aquarium Fish Species Spotlight & Care Guide",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Ladigesia roloffi",
+    "page": "species/ladigesia-roloffi",
+    "done": "low",
+    "score": 0.72,
+    "reason": "[behaviour] \"Nên nuôi từ 10 con trở lên\" differs from the page's \"ít nhất 8-10 con\", but the text doesn't say it differs.; [behaviour] \"Đàn cá bơi túm sát nhau\", the peaceful nature and the same-size tank mates mostly repeat what the page already says (nuôi theo đàn, hiền, cỡ tương đương)."
   },
   "D1vYUoJ46tQ": {
     "at": "2026-11-07",
@@ -1452,10 +1476,12 @@
     "reason": "two species"
   },
   "DE7xIeC_ONI": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "title": "Endler's Livebearer (TIGER ENDLERS, K Class)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "dG7Ic2CvpoI": {
     "at": "2026-11-07",
@@ -1466,10 +1492,14 @@
     "reason": "magazine exploration"
   },
   "dgzW8B32GO0": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "title": "Leopard Corydoras/Three stripe Corydoras - Corydoras trilineatus  Freshwater Aquarium Catfish",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Corydoras trilineatus",
+    "page": "species/corydoras-trilineatus",
+    "done": "added",
+    "score": 0.8
   },
   "dKEVHp8t6_w": {
     "at": "2026-11-07",
@@ -1488,10 +1518,12 @@
     "reason": "Light review"
   },
   "DkucrWx_JJM": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "title": "Why Myanmar Holds So Many NEW Fish Species! + ROSY Loach AKA 'MANGO' Loach, Care Guide DEEP DIVE!",
     "channel": "FISHTORY",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "DS6Kjc37myo": {
     "at": "2026-11-07",
@@ -1658,6 +1690,14 @@
     "kind": "other",
     "done": "skipped",
     "reason": "multiple GloFish, news"
+  },
+  "eXzcsob9Z4U": {
+    "at": "2026-11-13",
+    "title": "This Is My Kind of Aquarium Predator",
+    "channel": "Steenfott Aquatics",
+    "kind": "other",
+    "done": "skipped",
+    "reason": "Vague title, no species named; not clearly a single-species profile"
   },
   "EY13FDXeW3Q": {
     "at": "2026-11-07",

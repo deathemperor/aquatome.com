@@ -1,3 +1,4 @@
+import { denied } from './piece-admission'
 import { cp, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -250,4 +251,16 @@ test('the reader step keeps no part said more surely than its English, however w
   expect(report.rewritten).toEqual([])
   expect(report.notKept).toHaveLength(1)
   expect(await readFile(file, 'utf8')).toBe(before)
+})
+
+test('last item cost refuses admission without calls or content writes', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'reader-admission-'))
+  await mkdir(join(root, 'engine-state'))
+  const { llm, calls } = fakeLlm({})
+  await denied('reader', root, async () => {
+    const { report } = await readPages(root, [page({})], { llm, now: () => new Date() }, { limit: 1, rewrites: 1 })
+    expect(report.stopped).toContain('not started')
+    expect(report.failed).toEqual([])
+    expect(calls).toEqual([])
+  })
 })

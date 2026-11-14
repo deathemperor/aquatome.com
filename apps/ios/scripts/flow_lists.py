@@ -19,7 +19,9 @@ HANDBOOK = ['HandbookFlowTests', 'FactsCardFlowTests', 'ReadingFlowTests', 'Nati
 # What a class of flows takes on GitHub's Macs, in seconds, for packing a pull request's few flows into one job
 # (flows-to-run.py): the sum of each test's median in the logs of 2026-11-06's runs, the flows' animations off. A class
 # not named here counts FLOW_SECONDS a test; light flows are never packed (their halves already fill a job each).
+# The edge swipes' classes from #1171's run on 9fecd66 (2026-11-13): about 190 s a test.
 CLASS_SECONDS = {'FactsCardFlowTests': 280, 'FishIdFlowTests': 486, 'HandbookFlowTests': 632,
+                 'FishPageEdgeSwipeFlowTests': 570, 'GuideEdgeSwipeFlowTests': 570, 'PostEdgeSwipeFlowTests': 570,
                  'NativePageFlowTests': 648, 'OfflineFlowTests': 225, 'PageShotsFlowTests': 2100, 'PlugFlowTests': 744,
                  'ReadingFlowTests': 69, 'TankCheckFlowTests': 67, 'TankLifeFlowTests': 280, 'TelemetryFlowTests': 136,
                  'VideoFlowTests': 330}
@@ -57,7 +59,9 @@ SHOTS = {
                 'testTheTabBarOverPhotosInTheDark'],
     'fish-id': ['testFishId', 'testFishIdInTheDark'],
     'icons': ['testTheAppIcons', 'testTheAppIconsInTheDark'],
-    'light': ['testALightsCardWarningOfItsOutletsTimer'],
+    # The light's card warning of its outlet's timer; the tab top to bottom and the Week Aqua screen, in v2, light and dark.
+    'light': ['testALightsCardWarningOfItsOutletsTimer', 'testTheLightsTab', 'testTheLightsTabInTheDark',
+              'testTheWeekAquaScreen', 'testTheWeekAquaScreenInTheDark'],
     'tanks': ['testTheTanksList'],
     # The Tài khoản sheet signed out and signed in as the owner (whose row is on it).
     'account': ['testSigningIn', 'testSigningInInTheDark', 'testSigningInInTheLargestText', 'testTheAccountSignedIn',
@@ -103,7 +107,8 @@ LIGHT_OUTLET = ['LightFlowTests/' + t for t in (
 LIGHTS_ON_TANKS = ['LightFlowTests/' + t for t in (
     'testKeepsTheLightAndWhatWasWrittenOnATank', 'testALightOnATankOpensOnTheLightsTabAndConnects',
     'testALightOnATankOpensTheConnectedLightAsItIs',
-    'testASavedLightIsListedAfterARelaunchAndConnectsWithWhatWasWritten')] + LIGHT_OUTLET
+    'testASavedLightIsListedAfterARelaunchAndConnectsWithWhatWasWritten',
+    'testWeekAquaKeepsTheGroupOnATankAndConnectsItFromThere')] + LIGHT_OUTLET
 CONNECT_SENT = 'TelemetryFlowTests/testConnectingTheLightIsSentWithoutTheLightsNameOrTheAccount'
 LOVE_ECOLOGY = 'LightFlowTests/testTheOwnersLoveEcologyLightTakesOffThenAColour'
 # The tanks tab: a tank's own flows, its plugs section and its hint that opens the Tài khoản sheet (where the account and
@@ -201,6 +206,8 @@ REACH = {
     APP + 'Lights/LightsView.swift': ['LightFlowTests', CONNECT_SENT] + shots('light') + [
                                       'AccountFlowTests/testTheAccountIsInTheProfileSheetFromEveryTab'],
     APP + 'Lights/LightOutlet.swift': ['LightFlowTests', CONNECT_SENT] + shots('light'),
+    # The Week Aqua screen, which the page shots take too.
+    APP + 'Lights/WeekAquaView.swift': ['LightFlowTests', CONNECT_SENT] + shots('light'),
     APP + 'Plugs/': ['PlugFlowTests'] + LIGHT_OUTLET,
     # Fish ID sends as the reader's account (signed out, its sign-in comes first); the account also holds the owner's
     # dashboard (its session, and signing out on a 401).
@@ -246,6 +253,8 @@ REACH = {
                                    'OwnerFlowTests', 'ProfilePictureFlowTests', 'ChatFlowTests'],
     KIT + 'Sources/Plugs/': ['PlugFlowTests'] + LIGHT_OUTLET,
     KIT + 'Sources/Chihiros/': ['LightFlowTests', CONNECT_SENT],
+    # Week Aqua lights, on the lights tab beside the Chihiros ones.
+    KIT + 'Sources/WeekAqua/': ['LightFlowTests'],
     # A Mac command line, not in the app: the kit's step in job `perf` builds it (job `kit`, nightly).
     KIT + 'Sources/light-harness/': NONE,
     # The owner's Love Ecology light's card on the Đèn tab plays its recordings back.
@@ -286,6 +295,7 @@ def check(runs, left, reached):
                            ([APP + 'Handbook/PhotoGrid.swift'], ('viewer',)),
                            ([APP + 'Handbook/BrowseView.swift'], ('home',)), ([APP + 'Handbook/FishIdView.swift'], ('fish-id',)),
                            ([APP + 'Lights/LightsView.swift'], ('light',)), ([APP + 'Lights/LightOutlet.swift'], ('light',)),
+                           ([APP + 'Lights/WeekAquaView.swift'], ('light',)),
                            ([APP + 'AppIcon/AppIconPicker.swift'], ('icons',)), ([APP + 'Tanks/TanksView.swift'], ('tanks',)),
                            ([APP + 'Account/AccountSection.swift'], ('account',)),
                            ([APP + 'Owner/OwnerBlocks.swift'], ('owner',)), (['protocols/owner-dashboard-vectors.json'], ('owner',)),
@@ -341,7 +351,9 @@ def check(runs, left, reached):
     got = reached([KIT + 'Sources/Tanks/TankStore.swift'])
     assert 'HandbookFlowTests/testFiltersTheFishToMyTank' in got and set(LIGHTS_ON_TANKS) <= got, got
     assert reached([APP + 'Lights/Radio.swift']) == reached([KIT + 'Sources/Chihiros/Frames.swift']) == {'LightFlowTests', CONNECT_SENT}
-    assert reached([APP + 'Lights/LightOutlet.swift']) == {'LightFlowTests', CONNECT_SENT, *shots('light')}
+    assert reached([APP + 'Lights/LightOutlet.swift']) == reached([APP + 'Lights/WeekAquaView.swift']) == {
+        'LightFlowTests', CONNECT_SENT, *shots('light')}
+    assert reached([KIT + 'Sources/WeekAqua/WeekAquaSession.swift']) == {'LightFlowTests'}
     # The tab's first screen also has the profile button, which the account's flow opens the sheet from.
     assert reached([APP + 'Lights/LightsView.swift']) == {'LightFlowTests', CONNECT_SENT, *shots('light'),
                                                           'AccountFlowTests/testTheAccountIsInTheProfileSheetFromEveryTab'}

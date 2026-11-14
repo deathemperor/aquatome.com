@@ -332,6 +332,15 @@
       "html": "<p>Small tributaries, creeks, pools and areas of flooded forest.</p>"
     },
     {
+      "key": "habitat",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Nước ở những nơi chúng sống có tính axit, từ mềm tới hơi cứng.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-trilineatum",
@@ -356,10 +365,28 @@
       "html": "<p>Omnivorous and easy to feed. Use a good quality sinking pellet or tablet as the staple diet. Supplement this with live and frozen foods such as Daphnia, Artemia, bloodworm and similar.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Trong bể, cá dễ ăn hầu hết các loại thức ăn khô tốt, kể cả thức ăn dạng mảnh. Mỗi tuần có thể cho thêm đồ tươi, đông lạnh hoặc sấy khô một hai lần, như trùng huyết, bo bo hay trùn chỉ. Cá khỏe hơn nhờ phần ăn thêm này, nhưng không cho cũng không sao.</p><p>Trùng huyết chỉ nên cho thỉnh thoảng, không dùng làm thức ăn chính. Nó khó tiêu và có thể làm cá tắc ruột.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-trilineatum",
       "html": "<p>Very peaceful and suitable for many community tanks. Don't keep it with anything very large or aggressive. Good tankmates include small characins, cyprinids, anabantoids, dwarf cichlids and other peaceful catfish. Always try to maintain Corydoras in groups as they're far more confident and active in the presence of conspecifics. A group of at least six is best.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này dễ nuôi và rất khỏe, nhưng hơi nhút nhát. Nuôi càng đông thì cá càng yên tâm và bơi lội tự nhiên hơn.</p><p>Có thể nuôi chung với cá lòng tong (rasbora), cá chì, cá ông tiên và các loại barb nhỏ. Không nên thả chung với cá tầng đáy hay giành chỗ như cá họ Labeo, vì cá chuột ba sọc dễ bị chúng dọa và stress.</p>",
+      "refs": [
+        0
+      ]
     },
     {
       "key": "dimorphism",
@@ -374,10 +401,28 @@
       "html": "<p>Generally considered one of the easiest Corydoras to spawn and a good choice for the beginner. Set up the breeding tank (45 × 30 × 30 cm or similar is a good size), with either a bare bottom, sand or fine gravel substrate. Use air-powered sponge or box-type filtration as fry won't be sucked into these and provide some clumps of vegetation such as java moss. A temperature of around 24 °C and a pH of 6.5 should be fine. Filtering the water through peat is useful, as is the use of RO water. It's always better to have a higher ratio of males to females when breeding corys and 2 males per female is recommended. Condition the group on a varied diet of live, frozen and dried foods. When the females are visibly full of eggs perform a large (50-70%) water change with cooler water, and increase oxygenation and flow in the tank. Repeat this daily until the fish spawn.</p><p>It's worth observing a couple of notes on general cory breeding at this point. Many species are seasonal spawners, breeding during the wet season in their native countries. This occurs at the same time of year as the UK winter, so if summer breeding attempts are failing, it may be worth waiting until winter before trying again. Additionally, it can take several years for certain species to become sexually mature, so be patient. Finally, different tactics may sometimes be required, such as timing of water changes, oxygenation levels etc. It's also been suggested that the addition of water from a tank containing spawning or just spawned corys (this can be the same or a different species) may induce spawning behaviour in some of the more \"difficult\" species. It's likely that this can be attributed to hormones released by the spawning fish acting as a chemical trigger. Basically, if you aren't having any luck, don't be afraid of trying different approaches.</p><p>If the fish decide to spawn, they will usually lay their eggs on the tank glass, often in an area where water flow is quite high. Spawning behaviour is characterised by an initial increase in activity and excitement, before males begin to actively pursue females. A receptive female will allow a male to caress her with his barbels, before the pair take up the classic \"t-position\", in which the male grasps the females barbels between his pectoral fin and body. He then releases some sperm and it's thought that this passes through the mouth and gills of the female, being directed towards her pelvic fins. These she uses to form a 'basket', into which she deposits a single egg (although up to 4 may be released). Once this is fertilised, she swims away to find a suitable place to deposit the egg, before the cycle is repeated. If you spawn the fish in a group situation, you will often see multiple males chasing a female as she goes to deposit an egg, in an effort to be the next chosen to fertilise them.</p><p>The adults will eat the eggs given the opportunity, so once spawning is complete you have a couple of choices. Either remove the adults and raise the brood in the same tank, or move the eggs and raise the fry elsewhere. If you decide to move the eggs, you'll find they're quite robust, and can usually be gently rolled up the glass with a finger. The new container should contain the same water as the spawning tank and be similarly well-oxygenated. Wherever you decide to hatch the eggs, it's always best to add a few drops of methylene blue to the water to prevent fungussing. Even then, some eggs will probably fungus, and these should be removed as soon as they're spotted in order to prevent the fungus spreading. Other options include adding an alder cone to the hatching container (these release various beneficial chemicals). Some hobbyists even use certain species of freshwater shrimp to pick any fungal spores from healthy eggs. Cherry shrimp, Neocardina heteropoda work well. These will eat diseased eggs, but leave healthy ones unharmed.</p><p>The eggs hatch in 3-5 days and once the fry have used up their yolk sacs, they'll accept microworm and brine shrimp nauplii as first foods. They seem to be less susceptible to disease when kept over a thin layer of sand, rather than in a bare-bottomed setup.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Bể đẻ nên trồng dày cây, và có thể thả thêm một búi len đẻ (spawning mop) cho cá dán trứng. Nước đẻ nên mềm, pH từ hơi axit tới trung tính.</p><p>Trứng thường nở sau 2–3 ngày. Sau đó cho cá con ăn vi giun (microworm), trứng artemia đã bóc vỏ hoặc artemia mới nở.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-trilineatum",
       "html": "<p>There are currently over 180 described species of Corydoras (commonly shortened to \"cory\"), making it one of the most speciose of all South American fish genera. There are also loads of undescribed species, many of which have been assigned a \"C number\" for identification purposes. This is a very simple system of numbering and is similar to the L number scheme used to identify undescribed Loricariids. Both systems were implemented by the German aquarium magazine DATZ (Die Aquarien und Terrarienzeitschrift), but have proved to be invaluable tools and are now used widely by aquarists worldwide. It's partly this tremendous diversity (along with their undeniably cute looks) that puts corys among the most popular fish in the hobby. They're also very peaceful aquarium residents. Although they'll consume bite-sized items such as eggs or fry, aggression towards other species is virtually unheard of. Intraspecific hostility is similarly unusual, occurring in only a handful of species (mainly being confined to the \"long-nosed\" varieties). Provided space isn't an issue this rarely results in physical damage, though. In nature most species occur in large schools and as such do best when kept in a group in captivity.</p><p>Most corys are primarily benthic (bottom dwelling), although a handful of exceptions do spend the majority of their time in open water. Unfortunately this behaviour often means that they're purchased and sold as scavengers that will \"clean the bottom\" of your community tank. While they'll certainly polish off any uneaten morsels that reach the substrate, they won't keep the substrate \"clean\" as such. In fact, maintenance of the substrate becomes more of a primary concern if your tank contains a few corys, as they can develop nasty infections of the barbels if kept in dirty or otherwise unfavourable conditions. It should also be said that they won't do well if expected to survive on the scraps of food that escape the fish above. Always use sinking varieties to ensure your corys receive the right amount of food.</p><p>All corys are facultative air breathers, meaning they have the ability to breathe atmospheric air to a certain extent if necessary. They possess a modified, highly vascularised intestine to aid in the uptake of atmospheric oxygen. This adaptation allows them to survive if their habitat becomes oxygen-deprived for any reason. In the aquarium you'll see them darting to the surface to take in gulps of air on occasion. This is perfectly natural and no cause for concern unless water conditions are deteriorating, in which case the frequency of visits to the surface will usually rise correspondingly.</p><p>Corys are part of the \"armoured\" catfish group, and instead of scales possess two rows of bony plates running along the flanks. The genus name is composed of the Greek words cory, meaning helmet and doras, meaning skin (here used incorrectly to denote \"armour\"). They also have very sharp pectoral fin spines, which are easily caught in the mesh of aquarium nets and can also produce a painful \"sting\" if they penetrate the skin. Care should therefore be exercised when handling or moving corys for any reason.</p><p>You might also see this species for sale as \"leopard\" or more commonly \"julii\" cory. Most of the fish sold as C. julii are in fact Hoplisoma trilineatum. The \"true\" H. julii is quite rare in the hobby, as it's not present in very many of the commercially fished Amazonian waters. The two species do look very similar and correct identification can be very tricky without knowing the collection locality of the fish in question. According to most sources, H. julii is supposed to have a pattern of fine spotting on the head, this being replaced by a more reticulated pattern in H. trilineatum. However specimens of H. trilineatum exhibiting this spotted pattern have also been recorded, and the overall patterning of both species can be quite variable. For most hobbyists identification isn't so much of an issue, and it must be said that H. trilineatum ranks among the very best choices for the newcomer to catfish; being peaceful, hardy and attractive.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Muốn tách loài này khỏi C. julii thì nhìn vào đầu cá. C. julii có những chấm đen riêng lẻ, rõ từng chấm, còn ở cá chuột ba sọc các chấm này dồn sát vào nhau. Thân cá màu bạc, phủ nhiều chấm đen dính liền, dọc mỗi bên hông có thêm một dãy chấm nối nhau. Vây đuôi có một loạt chấm đen và chóp vây lưng có một vệt đen.</p><p>Gai ở vây lưng, vây ngực và vây mỡ dựng lên được, nên cá săn mồi khó nuốt nó.</p>",
+      "refs": [
+        0
+      ]
     }
   ],
   "photos": [
@@ -386,15 +431,15 @@
       "thumb": "https://media.aquatome.com/commons/d058ff951f35c04c-480.webp",
       "width": 1200,
       "height": 800,
-      "licence": "CC BY 2.0",
-      "author": "Bob Jenkins",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_trilineatus,_2010.jpg",
-      "caption": "Cá chuột ba sọc cận cảnh với hoa văn rõ nét",
       "large": {
         "url": "https://media.aquatome.com/commons/d058ff951f35c04c-large.webp",
         "width": 1800,
         "height": 1200
-      }
+      },
+      "licence": "CC BY 2.0",
+      "author": "Bob Jenkins",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_trilineatus,_2010.jpg",
+      "caption": "Cá chuột ba sọc cận cảnh với hoa văn rõ nét"
     }
   ],
   "videos": [
@@ -452,5 +497,11 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-13",
+  "refs": [
+    {
+      "url": "https://www.youtube.com/watch?v=dgzW8B32GO0",
+      "title": "Leopard Corydoras/Three stripe Corydoras - Corydoras trilineatus  Freshwater Aquarium Catfish"
+    }
+  ]
 }

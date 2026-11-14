@@ -1,3 +1,4 @@
+import { piece } from './pieces'
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -477,7 +478,7 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
         const chunk = pool.slice(0, full ? Math.min(SHEET, limit - gallery.length) : SHEET)
         // A breed's Vietnamese name without the English one in brackets ("Cá bình tích balloon (Balloon molly)").
         const viName = (breed ? vi.name?.replace(/\s*\(.*\)\s*$/, '') : vi.name) || sci
-        const r = await screenTagged(chunk, sci, viName, d, { plant: t.kind === 'plants', strict: line, hashes: [...Object.values(st.hashes).filter(Boolean), ...other.hashes] })
+        const r = await piece(`${t.id}/${chunk[0]?.key}`, () => screenTagged(chunk, sci, viName, d, { plant: t.kind === 'plants', strict: line, hashes: [...Object.values(st.hashes).filter(Boolean), ...other.hashes] }))
         st.queue = st.queue.filter(c => !chunk.includes(c))
         st.judged.push(...chunk.map(c => c.key))
         chunk.forEach(c => judged.add(c.key))

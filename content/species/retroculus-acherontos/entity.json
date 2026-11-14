@@ -10,6 +10,65 @@
     "brazil",
     "tocantins"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Tocantins",
+        "Rio das Almas"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Retroculus acherontos is a cichlid known only from tributaries of the upper rio Tocantins basin in Goiás state, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Tocantins"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Brazil, Goiás, Rio Tocantins basin, Rio das Almas, tributary of left margin of Rio Maranhão, 14˚37′51.2″S, 49˚1′56.6″W'.",
+          "countries": [],
+          "regions": [
+            "Rio das Almas"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8585208,
+      "total": 7,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "BR",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          -49.21875,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -15.46875,
+          6,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

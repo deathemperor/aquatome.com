@@ -224,16 +224,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/b765f264fdf9e6e0.webp",
-      "width": 960,
-      "height": 974,
-      "licence": "CC0",
-      "author": "5snake5",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hemiancistrus_subviridis_-_Gelber_Phantomwels_ventral.jpg",
-      "caption": "Die Bauchansicht eines jungen Gelben Phantomwelses (Hemiancistrus subviridis) im Aquarium.",
-      "thumb": "https://media.aquatome.com/commons/b765f264fdf9e6e0-480.webp"
-    },
-    {
       "url": "https://media.aquatome.com/commons/92e6118500267d84.webp",
       "width": 960,
       "height": 577,
@@ -241,7 +231,12 @@
       "author": "5snake5",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hemiancistrus_subviridis_-_Gelber_Phantomwels_(3).jpg",
       "caption": "Green Phantom Pleco, lateral view in the aquarium",
-      "thumb": "https://media.aquatome.com/commons/92e6118500267d84-480.webp"
+      "thumb": "https://media.aquatome.com/commons/92e6118500267d84-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/92e6118500267d84-large.webp",
+        "width": 1997,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/3de0fb2a6362b7ba.webp",
@@ -252,6 +247,16 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hemiancistrus_subviridis_-_Gelber_Phantomwels.jpg",
       "caption": "Hemiancistrus subviridis - Gelber Phantomwels im Aquarium",
       "thumb": "https://media.aquatome.com/commons/3de0fb2a6362b7ba-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/b765f264fdf9e6e0.webp",
+      "width": 960,
+      "height": 974,
+      "licence": "CC0",
+      "author": "5snake5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hemiancistrus_subviridis_-_Gelber_Phantomwels_ventral.jpg",
+      "caption": "Die Bauchansicht eines jungen Gelben Phantomwelses (Hemiancistrus subviridis) im Aquarium.",
+      "thumb": "https://media.aquatome.com/commons/b765f264fdf9e6e0-480.webp"
     }
   ],
   "videos": [],

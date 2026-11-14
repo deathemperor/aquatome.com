@@ -1,10 +1,21 @@
 import { readFileSync } from 'node:fs'
+import { loadAll } from '@aq/schema'
 import { expect, test } from 'vitest'
 import { searchAliases } from '../src/lib/search'
 import { namedFirst } from '../src/scripts/search-rank'
 
 const doc = (url: string, title: string, aka = '') => ({ url, meta: { title, aka } })
 const urls = (ds: { url: string }[]) => ds.map(d => d.url)
+
+test('sa tùng is first for its title and every other name, ahead of a guide that mentions it', async () => {
+  const c = await loadAll({ root: new URL('./fixture-content', import.meta.url).pathname, lang: 'vi', publicBuild: false })
+  const m = c.materials.find(m => m.id === 'lua-sa-tung')!
+  const aka = searchAliases(m.t, undefined, m.names)
+  const ds = [doc('guide', 'Chọn lũa sa tùng cho bể'), doc('material', m.t.name, aka)]
+  for (const query of [m.t.name, ...m.t.altNames, ...m.names, 'sa tung', 'lua sa tung', 'kim sa tung']) {
+    expect(namedFirst(query, ds)[0]!.url, query).toBe('material')
+  }
+})
 
 test('a page named exactly what was searched for comes first, by its title or another name; the rest keep their order', () => {
   // Pagefind's live order for "neon" and "bảy màu" on 2026-11-01.
@@ -19,6 +30,18 @@ test('accents, đ, a leading "cá" and a name in brackets are matched as readers
   expect(urls(namedFirst('cá dĩa', ds))[0]).toBe('dia')
   expect(urls(namedFirst('ca dia', ds))[0]).toBe('dia')
   expect(urls(namedFirst('Betta', ds))[0]).toBe('betta')
+})
+
+// The chief of staff, 2026-11-13: renamed for the owner, each lands on its own page; the apple snails' "ốc táo" and the
+// water hyacinth's "bèo tây" find no fish or frogbit first.
+test('the names keepers use come first, and words another page shares only in part move nothing', () => {
+  const ds = [doc('oc-mystery', 'Ốc mystery', 'Pomacea diffusa, Ốc táo gai, Mystery snail'), doc('ca-tao-do', 'Cá táo đỏ', 'Glossolepis incisus, Red rainbowfish, Cá cầu vồng đỏ, Cá cầu vồng táo đỏ'), doc('beo-nhat', 'Bèo Nhật', 'Limnobium laevigatum, Amazon frogbit')]
+  expect(urls(namedFirst('táo đỏ', ds))[0]).toBe('ca-tao-do')
+  expect(urls(namedFirst('cá cầu vồng táo đỏ', ds))[0]).toBe('ca-tao-do')
+  expect(urls(namedFirst('cầu vồng đỏ', ds))[0]).toBe('ca-tao-do')
+  expect(urls(namedFirst('bèo nhật', ds))[0]).toBe('beo-nhat')
+  expect(urls(namedFirst('ốc táo', ds))).toEqual(urls(ds))
+  expect(urls(namedFirst('bèo tây', ds))).toEqual(urls(ds))
 })
 
 test("a page's old name, kept as another name too, is one alias", () => {

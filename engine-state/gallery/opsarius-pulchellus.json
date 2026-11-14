@@ -4,7 +4,9 @@
   "inat:340998889",
   "inat:345469884"
  ],
- "hashes": {},
+ "hashes": {
+  "https://media.aquatome.com/processed/c8db88cb4bd24d28582277362591ec08.webp": "6360cf0987f7776e"
+ },
  "commons": "2026-11-02",
  "inat": {
   "taxon": 107740,
@@ -13,5 +15,9 @@
    "research": 196254091,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 5205417,
+  "next": null
  }
 }

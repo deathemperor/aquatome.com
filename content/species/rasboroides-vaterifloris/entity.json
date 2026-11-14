@@ -10,6 +10,62 @@
     "sri-lanka",
     "kalu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LK"
+      ],
+      "regions": [
+        "Kalu",
+        "Bentota",
+        "Gin",
+        "Nilwala"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The fire rasbora, Rasboroides vaterifloris, is a small cyprinid endemic to the Kalu, Bentota, Gin and Nilwala river basins of southwestern Sri Lanka.",
+          "countries": [
+            "LK"
+          ],
+          "regions": [
+            "Kalu",
+            "Bentota",
+            "Gin",
+            "Nilwala"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5851550,
+      "total": 5,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "LK",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          78.75,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          80.15625,
+          5.625,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

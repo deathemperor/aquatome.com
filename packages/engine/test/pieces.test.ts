@@ -5,7 +5,7 @@ import { join } from 'node:path'
 import { afterEach, expect, test } from 'vitest'
 import { inPiece, nameStep, type Ceilings, type Place } from '../src/ceiling'
 import { LlmError } from '../src/claude'
-import { piece, typicalPiece } from '../src/pieces'
+import { lastPiece, piece, typicalPiece } from '../src/pieces'
 import { errorKind } from '../src/state'
 
 // A step that works in pieces starts the next only when what's left of its day's line covers a typical one (pieces.ts).
@@ -41,6 +41,20 @@ test('12 Nov\'s case: a guide costs about $1.30, so with $1 left of the line the
   // To the step's loop it's a usage limit, which stops it with the idea left for the next run.
   expect(errorKind(err.message)).toBe('usage')
   expect(ran).toBe(false)
+})
+
+test('13 Nov\'s case: the middle piece was $1.49 but the last guide cost $1.63, so with $1.55 left the next isn\'t started', async () => {
+  const log = await logWith([done('2026-11-12T09:00:00Z', 1.3), done('2026-11-12T10:00:00Z', 1.49), done('2026-11-13T01:00:00Z', 1.49), done('2026-11-13T02:00:00Z', 1.63), spend(1.45)])
+  expect(typicalPiece('write-ideas', log)).toBe(1.49)
+  expect(lastPiece('write-ideas', log)).toBe(1.63)
+  let ran = false
+  const err = await piece('guide-b', async () => { ran = true }, o).catch(e => e)
+  expect(err).toBeInstanceOf(LlmError)
+  expect(err.message).toBe('claude failed: the engine\'s daily limit reached for write-ideas: guide-b not started: $1.55 left, a piece costs about $1.63')
+  expect(ran).toBe(false)
+  // With the last piece's cost left, it starts.
+  appendFileSync(log, `${JSON.stringify(done('2026-11-13T03:00:00Z', 1.2))}\n`)
+  expect(await piece('guide-c', async () => 'written', o)).toBe('written')
 })
 
 test('with enough left it runs, and the piece\'s own calls are its cost on record', async () => {

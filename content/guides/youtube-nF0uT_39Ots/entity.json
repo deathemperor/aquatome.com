@@ -65,33 +65,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khung gỗ chân bể đã dựng xong gần cửa sổ tầng hầm.",
-            "sharpness": 713
-          }
-        ]
-      },
-      {
-        "heading": "Cần chuẩn bị vật liệu gì",
-        "moments": [
-          {
-            "t": 30,
-            "url": "https://media.aquatome.com/video/nF0uT_39Ots/at30-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cắt thanh gỗ bằng máy cưa ngoài trời để khỏi bụi mùn cưa.",
-            "sharpness": 552.8
-          }
-        ]
-      },
-      {
-        "heading": "Đóng chân bể thế nào",
-        "moments": [
-          {
-            "t": 220,
-            "url": "https://media.aquatome.com/video/nF0uT_39Ots/at220-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khung chân bể hoàn chỉnh với các thanh dẫn và cột đứng.",
-            "sharpness": 749
+            "sharpness": 713,
+            "person": false
           }
         ]
       },
@@ -105,14 +80,6 @@
             "height": 675,
             "caption": "Chân bể bằng gỗ với các góc cắt chéo ở mặt trước.",
             "sharpness": 100.3
-          },
-          {
-            "t": 310,
-            "url": "https://media.aquatome.com/video/nF0uT_39Ots/at310-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khung vách dày đặc thanh đứng đang được nhấc lên để lắp vào bể.",
-            "sharpness": 624.2
           }
         ],
         "photo": {
@@ -127,40 +94,6 @@
         }
       },
       {
-        "heading": "Dung tích thật của bể là bao nhiêu",
-        "moments": [
-          {
-            "t": 480,
-            "url": "https://media.aquatome.com/video/nF0uT_39Ots/at480-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh lớn với đá, lũa và rêu phủ xanh, nhìn rõ lòng bể.",
-            "sharpness": 379.2
-          },
-          {
-            "t": 490,
-            "url": "https://media.aquatome.com/video/nF0uT_39Ots/at490-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay chỉ vào kính và lòng bể thủy sinh để thấy phần chứa nước thật.",
-            "sharpness": 423.1
-          }
-        ]
-      },
-      {
-        "heading": "Bể gỗ ép so với bể kính và acrylic",
-        "moments": [
-          {
-            "t": 720,
-            "url": "https://media.aquatome.com/video/nF0uT_39Ots/at720-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh dài trồng cây, lũa và rêu phủ, nhìn từ phía trước.",
-            "sharpness": 927.6
-          }
-        ]
-      },
-      {
         "heading": "Khi nào tự đóng thì đáng",
         "moments": [
           {
@@ -169,7 +102,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể lớn nuôi cá cảnh, đúng cỡ đáng để tự đóng.",
-            "sharpness": 652.7
+            "sharpness": 652.7,
+            "person": false
           },
           {
             "t": 970,
@@ -177,7 +111,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khung gỗ tự đóng làm chân đỡ cho bể cỡ lớn.",
-            "sharpness": 337.3
+            "sharpness": 337.3,
+            "person": false
           }
         ]
       }

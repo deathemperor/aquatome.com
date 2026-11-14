@@ -174,7 +174,12 @@
       "author": "Tylwyth Eldar",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_de_la_Porte_Dor%C3%A9e_-_Poisson_21.jpg",
       "caption": "Poisson à l'Aquarium du palais de la Porte Dorée.",
-      "thumb": "https://media.aquatome.com/commons/04a5b34acbbf1632-480.webp"
+      "thumb": "https://media.aquatome.com/commons/04a5b34acbbf1632-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/04a5b34acbbf1632-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/580b7d4e7eee77eb.webp",

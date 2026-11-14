@@ -1,0 +1,28 @@
+---
+import Browse from '../../layouts/Browse.astro'
+import MaterialCard from '../../components/MaterialCard.astro'
+import { getContent } from '../../lib/content'
+import { creditsFor } from '../../lib/credits'
+import { materialGroups } from '../../lib/materials'
+const c = await getContent('vi')
+const groups = materialGroups(c.materials)
+const photos = groups.flatMap(({ material, kinds }) => [material, ...kinds].map(m => m.photos[0]))
+---
+<Browse title="Vật liệu" heading="Vật liệu" intro="Lũa, đá, nền và lá khô cho bể thủy sinh: cách chọn và xử lý." crumbs={[["/vi/", "Trang chủ"]]} noindex credits={creditsFor(photos)}>
+  <div class="materials">
+    {groups.map(({ material, kinds }, i) => <section id={material.id} aria-labelledby={`nhom-${material.id}`}>
+      <h2 id={`nhom-${material.id}`}>{material.t.name} <span class="count">· {kinds.length}</span></h2>
+      <MaterialCard m={material} wide eager={i === 0} />
+      {kinds.length > 0 && <div class="grid">{kinds.map(m => <MaterialCard m={m} />)}</div>}
+    </section>)}
+  </div>
+</Browse>
+<style>
+  section + section { margin-top: var(--space-7); }
+  h2 { font-size: var(--step-2); margin-bottom: var(--space-3); }
+  .count { color: var(--c-ink-soft); font-variant-numeric: tabular-nums; }
+  .grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-6) var(--space-4); }
+  @media (min-width: 22.5em) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 48em) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (min-width: 64em) { .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+</style>

@@ -10,6 +10,170 @@
     "brazil",
     "xingu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Xingu",
+        "Tapajós",
+        "Iriri",
+        "Jamanxim",
+        "Arapiuns",
+        "Maués Açu"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Retroculus xinguensis is a rheophilic cichlid from the rio Xingu basin in Brazil, with a handful of records from the Tapajós drainage.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Xingu",
+            "Tapajós"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The majority of records pertain to the lower rio Xingu basin in the state of Pará, northern Brazil, including middle and lower reaches of its major tributary the rio Iriri, although the type locality is in Mato Grosso state several hundred kilometres upstream.",
+          "countries": [],
+          "regions": [
+            "Iriri"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "There also exist a handful of records from the rio Jamanxim (a major affluent of the rio Tapajós which drains the same mountain range as the rio Iriri), the rio Arapiuns, and the rio Maués Açu, another right bank tributary that enters the Amazon main channel upstream of the Tapajós and is connected to the rio Madeira.",
+          "countries": [],
+          "regions": [
+            "Jamanxim",
+            "Arapiuns",
+            "Maués Açu"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371331,
+      "total": 52,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "BR",
+          52
+        ]
+      ],
+      "cells": [
+        [
+          -59.0625,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -8.4375,
+          6,
+          6
+        ],
+        [
+          -56.25,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -16.875,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -11.25,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          20,
+          20
+        ],
+        [
+          -52.03125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

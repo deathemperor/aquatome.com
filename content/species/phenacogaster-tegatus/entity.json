@@ -20,11 +20,13 @@
         "AR"
       ],
       "regions": [
+        "Rio Paraguay",
         "Río Paraná",
         "Rio Jauru"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -35,13 +37,8 @@
             "PY",
             "AR"
           ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Recorded from the upper rio Paraguay basin in southwestern Brazil and Paraguay and the Río Paraná in Corrientes province, northeastern Argentina.",
-          "countries": [],
           "regions": [
+            "Rio Paraguay",
             "Río Paraná"
           ]
         },
@@ -231,6 +228,10 @@
       {
         "source": "seriouslyfish",
         "value": 4.5
+      },
+      {
+        "source": "glaser",
+        "value": 6
       }
     ],
     "tankCm": [
@@ -254,10 +255,22 @@
       "html": "<p>Phenacogaster tegatus is a small characid from the upper rio Paraguay basin in Brazil and Paraguay and the Río Paraná in northeastern Argentina. It has been traded as 'six-eyed tetra', in reference to the two dark spots on each flank plus the eye. Peaceful but somewhat unsuitable for the general community aquarium, it is best kept in a group of at least 8-10 alongside similarly-sized characids and other small, non-predatory fishes.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/phenacogaster_tegatus_en/",
+      "html": "<p>The Six eyed tetra (Phenacogaster tegatus, formerly Vesicatrus) is a rare, peaceful schooling fish about 6 cm long. Origin: Paraguay.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/phenacogaster-tegatus",
       "html": "<p>Recorded from the upper rio Paraguay basin in southwestern Brazil and Paraguay and the Río Paraná in Corrientes province, northeastern Argentina.</p><p>Type locality is given as 'Rio Jauru, upper Rio Paraguay basin, Brazil'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/phenacogaster_tegatus_en/",
+      "html": "<p>Paraguay.</p>"
     },
     {
       "key": "habitat",
@@ -296,6 +309,12 @@
       "html": "<p>Peaceful but somewhat unsuitable for the general community aquarium.</p><p>It's perhaps best-maintained alongside similarly-sized characids, gasteropelecids, lebiasinids, smaller callichthyid or loricariid catfishes and diminutive, non-predatory cichlids.</p><p>Try to buy a mixed-sex group of at least 8-10 specimens, include other schooling fishes to provide security, and you'll be rewarded with a more natural-looking spectacle.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/phenacogaster_tegatus_en/",
+      "html": "<p>A peaceful schooling fish. P. tegatus has eye-spots in the middle of the body and on the caudal peduncle, so it looks as if the fish has three eyes on each side of the body. Predatory fish always target the eye of their prey, so this unique \"six-eye pattern\" confuses them and offers the greatest safety one can think of.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/phenacogaster-tegatus",
@@ -321,7 +340,32 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "lRzMLD-N4lI",
+      "title": "Phenacogaster tegatus (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 56,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Z_AIj_sHOh4",
+      "title": "Phenacogaster tegatus,  un tetra poco habitual de ver #acuariofilia #aquariumhobby #aquariumfish",
+      "durationSec": 27,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "YR3b-Pldxcw",
+      "title": "Phenogaster tegatus in the wild",
+      "durationSec": 18,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "qz4wW-ZLHbI",
+      "title": "Phenacogaster tegatus figth",
+      "durationSec": 129,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -351,5 +395,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-13"
 }

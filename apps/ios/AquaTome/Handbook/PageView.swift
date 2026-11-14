@@ -17,6 +17,7 @@ struct PageView: View {
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
   @Environment(ChatStore.self) private var chat
+  @Environment(\.v2PostClose) private var closePost
   @State private var offline = false
   @State private var failed = false
   @State private var putting = false
@@ -73,6 +74,8 @@ struct PageView: View {
       .modifier(ClearUnderTopBar(shown: true))
       .navigationTitle(item.name)
       .navigationBarTitleDisplayMode(.inline)
+      // A Hôm nay post's ✕ (v2), after the page's buttons: a toolbar applied inside theirs comes after them.
+      .v2PostCloseButton(closePost)
       .toolbar {
         // The page the app draws shows its name under its photo: the bar's, once that has scrolled away.
         if native && pieces != nil {

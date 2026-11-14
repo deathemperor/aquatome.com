@@ -1,0 +1,184 @@
+{
+  "id": "liobagrus-formosanus",
+  "scientificName": "Liobagrus formosanus",
+  "order": "Siluriformes",
+  "family": "Amblycipitidae",
+  "genus": "Liobagrus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "taiwan"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "TW"
+      ],
+      "regions": [],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: endemic to Taiwan.",
+          "countries": [
+            "TW"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342841,
+      "total": 33,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "TW",
+          33
+        ]
+      ],
+      "cells": [
+        [
+          119.53125,
+          22.5,
+          1,
+          1
+        ],
+        [
+          119.53125,
+          23.90625,
+          9,
+          9
+        ],
+        [
+          120.9375,
+          23.90625,
+          23,
+          23
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 12,
+          "max": 20
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.6,
+          "max": 7.6
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 10
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=133",
+      "html": "<ul><li>Scientific name: Liobagrus formosanus Regan, 1908</li><li>Common name: Formosan Bullhead</li><li>Type locality: Lake Candidius, Taiwan</li><li>Synonym: Liobagrus nantoensis</li><li>Identification: distinguished from congeners in having 5 branched dorsal-fin rays</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=133",
+      "html": "<p>Asia: endemic to Taiwan.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=133",
+      "html": "<ul><li>pH: 6.6–7.6</li><li>Temperature: 12–20°C</li><li>Needs strong current.</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=133",
+      "html": "<p>Provide plenty of rocks as hiding places.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=133",
+      "html": "<p>Feeds on small invertebrates in the wild. May adapt to prepared foods in aquaria.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=133",
+      "html": "<p>Can be kept with other fishes in a temperate hillstream biotope. This typically includes loaches (e.g. Sinogastromyzon) and fast-water cyprinids (e.g. Barilius).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=133",
+      "html": "<p>Not reported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=133",
+      "html": "<p>Etymology: from the Greek leios, meaning smooth, and bagrus, a name usually used for catfishes, in reference to the smooth head. The specific epithet comes from Formosa, the former name of the island of Taiwan.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=133",
+      "html": "<p>Annals and Magazine of Natural History (Series 8) v. 2 (no. 10) (art. 40), pp 360.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "F4NMwbCU8x0",
+      "title": "20250716三角姑台灣瘋鱨P7160463",
+      "durationSec": 20,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ZModJNmGOyw",
+      "title": "20250716三角姑台灣瘋鱨P7160487",
+      "durationSec": 56,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy tạo dòng chảy bể cá",
+        "bơm sóng bể cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy làm lạnh nước bể cá",
+        "chiller bể cá"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể thủy sinh biotope suối"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

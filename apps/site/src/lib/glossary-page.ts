@@ -1,5 +1,6 @@
 import { FIRST_PLANTS, linkTerms, plainText, POPULAR, slugify, STAPLE_SPECIES, type Content, type GlossaryEntity, type GuideEntity, type Localized } from '@aq/schema'
 import { translator, type Lang } from './i18n'
+import { materialPath } from './materials'
 import { mentionIndex } from './mentions'
 import { sectionParts } from './section-parts'
 import { foldNearEmpty } from './sections'
@@ -82,9 +83,12 @@ export function termTitle(g: Localized<GlossaryEntity>): string {
 
 /**
  * What a term's page shows, put together once for the page (pages/thuat-ngu/[slug].astro) and for the app's copy of it
- * (lib/app-page.ts): its other names, its definition with the other terms, fish and plants it names linked (never its
- * own names), and the pages that link it. Guides that explain the term first: its name in their title, then the most
- * uses of its names in their text, then the most recently updated; fish and plants as termUses ranks them.
+ * (lib/app-page.ts): its other names; its definition, its photo where one explains it, and its fuller entry's text
+ * (engine glossary-entry.ts), under plain headings as a guide's, with the other terms, fish and plants they name linked
+ * once each (never its own names); the terms to see next; the pages that link it, guides that explain the term first
+ * (its name in their title, then the most uses of its names in their text, then the most recently updated) and fish and
+ * plants as termUses ranks them; and the pages its entry was researched from. On a Vietnamese page, the link to the
+ * material page of the same id (never localized into another language, where the material page isn't).
  */
 export function glossaryParts(lang: Lang, c: Content, g: Localized<GlossaryEntity>) {
   const key = `glossary:${g.id}`
@@ -92,7 +96,13 @@ export function glossaryParts(lang: Lang, c: Content, g: Localized<GlossaryEntit
   // Each once, as first written; never the name itself.
   const own = new Set([name])
   const otherNames = g.t.altNames.map(n => n.trim()).filter(n => n && !own.has(n.toLowerCase()) && own.add(n.toLowerCase()))
-  const definition = g.t.definition ? linkTerms(escapeText(g.t.definition), mentionIndex(c).targets, 'ml', new Set([key]), own).html : ''
+  const targets = mentionIndex(c).targets
+  const seen = new Set([key])
+  const definition = g.t.definition ? linkTerms(escapeText(g.t.definition), targets, 'ml', seen, own).html : ''
+  // The entry's sections are the page's first headings, under its title.
+  const body = g.t.body ? linkTerms(g.t.body.replace(/<(\/?)h3>/g, '<$1h2>'), targets, 'ml', seen, own).html : ''
+  const terms = new Map(c.glossary.map(x => [x.id, x]))
+  const related = (g.related ?? []).flatMap(id => terms.get(id) ?? [])
   const uses = termUses(lang, c).get(g.id) ?? { guides: [], fish: [], plants: [] }
   const count = nameCount([...own])
   const index = mentionIndex(c).guides
@@ -101,5 +111,7 @@ export function glossaryParts(lang: Lang, c: Content, g: Localized<GlossaryEntit
   const { fish, plants } = uses
   // More of a kind than its list shows: the page searches for the rest.
   const more = guides.length > USED_IN_SHOWN.guides || fish.length > USED_IN_SHOWN.fish || plants.length > USED_IN_SHOWN.plants
-  return { otherNames, definition, guides, fish, plants, total: guides.length + fish.length + plants.length, more }
+  const m = lang === 'vi' ? c.materials.find(m => m.id === g.id) : undefined
+  const material = m ? { href: materialPath(m), text: `Xem trang ${m.t.name}: cách chọn, xử lý${m.parent ? '' : ` và các loại ${m.t.name.toLocaleLowerCase('vi')}`} →` } : undefined
+  return { otherNames, definition, material, photo: g.photos?.[0], body, related, refs: g.refs ?? [], guides, fish, plants, total: guides.length + fish.length + plants.length, more }
 }

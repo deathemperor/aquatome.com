@@ -1,0 +1,53 @@
+{
+  "id": "pelvicachromis-kribensis",
+  "native": {
+    "input": "1c92afdf12c34c81",
+    "at": "2026-11-14T00:09:29.977Z",
+    "claims": [
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The beautiful Pelvicachromis kribensis occurs there in a special color variant known in the hobby as “Nyété.”",
+        "words": "Cameroon",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Currently, three species are distinguished within this narrower family complex, namely P. taeniatus (Nigeria), P. kribensis (Cameroon), and P. drachenfelsi (Cameroon, formerly P. taeniatus “Wouri”).",
+        "words": "Cameroon",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pelvicachromis kribensis",
+    "status": "ACCEPTED",
+    "taxonKey": 9365411,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "CM"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T00:09:29.977Z"
+  }
+}

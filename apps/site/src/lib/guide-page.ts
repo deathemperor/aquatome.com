@@ -73,8 +73,10 @@ export function guideParts(lang: Lang, c: Content, g: Localized<GuideEntity>) {
   const plants = [...new Set([...m.plants, ...c.plants.filter(p => g.mentions.includes(p.id))])]
   const ph = guideImage(c, g)
   const gear = g.video ? gearRows(lang, c, g.video) : []
-  // A section's picture is never the lead. A video guide shows its video's thumbnail instead.
-  const lead = ph && !g.photos.find(p => p.url === ph.url)?.section ? ph : undefined
+  // An article leads with its card's picture, so a card and the page it opens show one picture, a section's picture too,
+  // which its section then doesn't show again (the Design Lead, 13 Nov). A video guide shows its video's thumbnail instead,
+  // and a section's picture stays in its section.
+  const lead = ph && (!g.video || !g.photos.find(p => p.url === ph.url)?.section) ? ph : undefined
   const top = g.video ? videoPhoto(g.video) : lead
   const pics = pagePictures(c)
   pics.add(top?.url)

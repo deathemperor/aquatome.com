@@ -96,7 +96,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đá và cây thảm xanh mọc trên nền cát trong bể thủy sinh.",
-            "sharpness": 191.8
+            "sharpness": 191.8,
+            "person": false
           }
         ],
         "photo": {
@@ -119,7 +120,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh kiểu Nature xanh mướt, bố cục đá lũa và cây rất đẹp.",
-            "sharpness": 1150.4
+            "sharpness": 1150.4,
+            "person": false
           }
         ]
       },
@@ -132,15 +134,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các loại cây thủy sinh được chia sẵn để trồng thành từng cụm.",
-            "sharpness": 2193.4
-          },
-          {
-            "t": 750,
-            "url": "https://media.aquatome.com/video/nn20HPPwGRY/at750-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể Dutch không lũa đá, cây trồng thành từng mảng, đang được tỉa.",
-            "sharpness": 1008.1
+            "sharpness": 2193.4,
+            "person": false
           }
         ],
         "photo": {
@@ -163,7 +158,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh cây lá dài xanh tốt trong bể thủy sinh.",
-            "sharpness": 336.7
+            "sharpness": 336.7,
+            "person": false
           },
           {
             "t": 410,
@@ -171,7 +167,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thảm cây thân và cây lá rộng mọc dày trong bể.",
-            "sharpness": 1119.6
+            "sharpness": 1119.6,
+            "person": false
           }
         ],
         "photo": {
@@ -184,19 +181,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Black_beard_algae.png",
           "caption": "Rêu chùm đen bám thành từng búi xù trên lá cây trong bể."
         }
-      },
-      {
-        "heading": "Khi bể gặp sự cố",
-        "moments": [
-          {
-            "t": 630,
-            "url": "https://media.aquatome.com/video/nn20HPPwGRY/at630-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Người chơi cúi xuống kiểm tra hai bể thủy sinh có cây và đá lũa.",
-            "sharpness": 751.4
-          }
-        ]
       }
     ]
   }

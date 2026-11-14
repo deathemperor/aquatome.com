@@ -11,6 +11,69 @@
     "sumatra",
     "batang-si-joontour"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Sumatra"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "There have been rumours that the species name was chosen because the fish were originally found in the foothills of Gunung (Mount) Talang, an active volcano in West Sumatra province, Sumatra, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "This Rasbora originates from the west coast of Sumatra.",
+          "countries": [],
+          "regions": [
+            "Sumatra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2359626,
+      "total": 16,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "ID",
+          16
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          -4.21875,
+          10,
+          10
+        ],
+        [
+          102.65625,
+          -2.8125,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -1,10 +1,13 @@
 {
   "slug": "pombo-rocks",
-  "name": "Pombo Rocks",
-  "altNames": [],
+  "name": "bãi đá Pombo",
+  "altNames": [
+    "Pombo Rocks"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

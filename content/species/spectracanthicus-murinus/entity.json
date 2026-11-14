@@ -1,0 +1,116 @@
+{
+  "id": "spectracanthicus-murinus",
+  "scientificName": "Spectracanthicus murinus",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Spectracanthicus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "tapajos"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 5.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 6.4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1353",
+      "html": "<ul><li>Scientific name: Spectracanthicus murinus Nijssen &amp; Isbrücker, 1987</li><li>Type locality: Poça de Pedra, Rio Tapajós, eastern Pará, Brazil.</li><li>IUCN Red List: Least Concern (last assessed 2018).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1353",
+      "html": "<p>South America: Amazon, Lower Amazon, Tapajós.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1353",
+      "html": "<p>Photographed habitat: Itaituba, Middle Rio Tapajós.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1353",
+      "html": "<ul><li>pH: 5.5 - 7.5</li><li>Temperature: 26.0-30.0°C</li></ul>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1353",
+      "html": "<p>There is but a single breeding report for this species.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1353",
+      "html": "<p>Spectracanthicus can be separated from all other loricariids except some Baryancistrus, Parancistrus and an undescribed Hemiancistrus by the presence of the dorsal-fin membrane contacting the adipose-fin spine. It can be separated from Baryancistrus and the Hemiancistrus by having fewer teeth (less than 25 vs. greater than 25) and from Parancistrus by having restricted gill openings.</p><p>Etymology. Genus: Latin, spectrum = look, apparition + Greek, akantha = thorn.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1353",
+      "html": "<p>Revue française d'Aquariologie Herpétologie v. 13 (no. 4) [for 1986], pp 94, Figs. 1-3.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "_ELUxROBUck",
+      "title": "Spectracanthicus murinus Pleco Tapajos @Fantasy Aquatic)",
+      "durationSec": 39,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm tạo dòng"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "viên rau củ cho cá dọn bể"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

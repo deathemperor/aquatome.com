@@ -1,0 +1,132 @@
+{
+  "id": "pterygoplichthys-zuliaensis",
+  "scientificName": "Pterygoplichthys zuliaensis",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Pterygoplichthys",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "venezuela",
+    "lake-maracaibo"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Lake Maracaibo"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Pterygoplichthys zuliaensis Weber, 1991. Type locality: Río Santa Ana, Maracaibo basin, Hacienda Río Grande, Estado Zulia, Venezuela.",
+          "countries": [
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Lake Maracaibo basin.",
+          "countries": [],
+          "regions": [
+            "Lake Maracaibo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339961,
+      "total": 4,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "VE",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          8.4375,
+          4,
+          4
+        ]
+      ]
+    }
+  },
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1349",
+      "html": "<p>Pterygoplichthys zuliaensis Weber, 1991. Type locality: Río Santa Ana, Maracaibo basin, Hacienda Río Grande, Estado Zulia, Venezuela. Named after the state in Venezuela where the type locality is.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1349",
+      "html": "<p>South America: Lake Maracaibo basin.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1349",
+      "html": "<p>Omnivorous and a good algae eater, especially when young.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1349",
+      "html": "<p>Suggested tankmates: almost any medium sized community fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1349",
+      "html": "<p>Comparison of the genital papilla in mature fish shows the differences in the sexes to the trained eye. In males this is a small yet thick stump which noticeably protrudes from the fish's undercarriage. In females it is less obvious and is recessed or lies flat with the body.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1349",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1349",
+      "html": "<p>Pterygoplichthys can be identified by the number of rays in the dorsal fin. Ten or more dorsal rays (usually more than 10) indicates that it's a Pterygoplichthys. Most other plecos have 8 or fewer rays (in particular the larger Hypostomus species that are most likely to be confused with Pterygoplichthys).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1349",
+      "html": "<p>Revue Suisse de Zoologie v. 98 (no. 3), pp 638.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "rau củ cho cá lau kiếng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bể cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

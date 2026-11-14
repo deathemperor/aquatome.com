@@ -44,6 +44,22 @@ test('the guides that explain a term are found by its names as whole words, in a
   expect(nameCount(['chiều dài chuẩn (sl)'])('chiều dài chuẩn (SL) là')).toBe(1)
 })
 
+test('a fuller entry: its sections under plain headings, a term linked once across the meaning and the text, the terms to see next, its sources', async () => {
+  const c = await getContent('vi')
+  const cycle = c.glossary.find(x => x.id === 'chu-trinh-nito')!
+  const refs = [{ url: 'https://edis.ifas.ufl.edu/x', title: 'UF/IFAS' }]
+  const p = glossaryParts('vi', c, { ...term(cycle, { definition: 'Vi khuẩn đổi amoniac, nên pH quan trọng.', body: '<h3>Nên làm gì</h3><p>Đo pH mỗi tuần, đo GH khi thay nước.</p>' }), related: ['ph', 'nope', 'gh'], refs })
+  expect(p.body).toContain('<h2>Nên làm gì</h2>')
+  // pH is linked in the meaning, so not again in the text; GH is first named in the text.
+  expect(p.definition).toContain('/vi/thuat-ngu/ph/')
+  expect(p.body).not.toContain('/vi/thuat-ngu/ph/')
+  expect(p.body).toContain('/vi/thuat-ngu/gh/')
+  expect(p.related.map(x => x.id)).toEqual(['ph', 'gh'])
+  expect(p.refs).toEqual(refs)
+  // A term with no fuller entry has none of these.
+  expect(glossaryParts('vi', c, c.glossary.find(x => x.id === 'gh')!)).toMatchObject({ body: '', related: [], refs: [] })
+})
+
 /** The built pages of one kind (Vietnamese, at the root), each with the terms its text links: [path, slugs]. */
 function linking(dir: string): [string, Set<string>][] {
   if (!existsSync(`${DIST}/${dir}`)) return []
@@ -79,4 +95,17 @@ test('every term page lists, with its count, every built guide, fish and plant p
   }
   // The fixture's pages use its terms: the check above compared something.
   expect(shown).toBeGreaterThan(0)
+})
+
+// The built page of a term with a fuller entry (the fixture's "cá đàn"): its photo with its credit, its text under
+// headings, the terms to see next (one the content doesn't have is left out) and its sources, each a tap target.
+test('a term with a fuller entry shows its photo, its text under headings, the terms to see next and its sources', () => {
+  const { dom } = page('/thuat-ngu/ca-dan/')
+  const fig = dom.querySelector('main figure')
+  expect(fig?.querySelector('img')?.getAttribute('src')).toContain('Danio_Margaritatus')
+  expect(fig?.querySelector('figcaption')?.textContent).toContain('Cá trân châu đực')
+  expect(dom.querySelectorAll('.body h2').map(h => h.textContent.trim())).toEqual(['Trong bể của bạn', 'Các loại'])
+  expect(dom.querySelector('.body a[href="/thuat-ngu/ph/"]')).toBeTruthy()
+  expect(dom.querySelectorAll('.related a').map(a => a.getAttribute('href'))).toEqual(['/thuat-ngu/chu-trinh-nito/', '/thuat-ngu/ph/'])
+  expect(dom.querySelectorAll('.refs a').map(a => a.getAttribute('href'))).toEqual(['https://www.seriouslyfish.com/glossary/shoal'])
 })

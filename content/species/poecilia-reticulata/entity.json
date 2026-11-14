@@ -16,7 +16,8 @@
     "trinidad",
     "french-guiana",
     "antigua-and-barbuda",
-    "netherlands-antilles"
+    "netherlands-antilles",
+    "rio-morichal"
   ],
   "range": {
     "native": {
@@ -24,16 +25,19 @@
         "VE",
         "GY",
         "SR",
-        "GF",
+        "TT",
         "BB",
         "AG"
       ],
       "regions": [
+        "Rio Morichal",
+        "Guayre River",
         "Trinidad"
       ],
       "sources": [
         "sprucepets",
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -50,11 +54,27 @@
           "countries": [
             "GY",
             "SR",
-            "GF",
+            "TT",
             "BB",
             "AG"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "This wild guppy comes from the Rio Morichal in Venezuela.",
+          "countries": [],
+          "regions": [
+            "Rio Morichal"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Guayre River, Caracas, Venezuela'.",
+          "countries": [],
+          "regions": [
+            "Guayre River"
+          ]
         },
         {
           "source": "sprucepets",
@@ -68,12 +88,12 @@
     },
     "records": {
       "taxonKey": 2350050,
-      "total": 8248,
-      "fetched": "2026-11-08",
+      "total": 8207,
+      "fetched": "2026-11-14",
       "countries": [
         [
           "BR",
-          1698
+          1701
         ],
         [
           "JP",
@@ -105,11 +125,11 @@
         ],
         [
           "US",
-          251
+          252
         ],
         [
           "PR",
-          148
+          154
         ],
         [
           "KE",
@@ -117,15 +137,11 @@
         ],
         [
           "ZA",
-          113
+          111
         ],
         [
           "DE",
           105
-        ],
-        [
-          "TT",
-          90
         ],
         [
           "GP",
@@ -134,6 +150,10 @@
         [
           "ID",
           61
+        ],
+        [
+          "TT",
+          50
         ],
         [
           "FR",
@@ -205,7 +225,7 @@
         ],
         [
           "TZ",
-          11
+          10
         ],
         [
           "EC",
@@ -244,15 +264,7 @@
           7
         ],
         [
-          "MW",
-          6
-        ],
-        [
           "PH",
-          6
-        ],
-        [
-          "RW",
           6
         ],
         [
@@ -288,10 +300,6 @@
           3
         ],
         [
-          "CD",
-          3
-        ],
-        [
           "CK",
           3
         ],
@@ -312,7 +320,15 @@
           3
         ],
         [
+          "MW",
+          3
+        ],
+        [
           "PW",
+          3
+        ],
+        [
+          "RW",
           3
         ],
         [
@@ -368,6 +384,10 @@
           1
         ],
         [
+          "CD",
+          1
+        ],
+        [
           "CG",
           1
         ],
@@ -413,6 +433,10 @@
         ],
         [
           "TL",
+          1
+        ],
+        [
+          "VC",
           1
         ]
       ],
@@ -516,6 +540,12 @@
         [
           -118.125,
           33.75,
+          1,
+          0
+        ],
+        [
+          -116.71875,
+          35.15625,
           1,
           0
         ],
@@ -1206,7 +1236,7 @@
         [
           -67.5,
           16.875,
-          133,
+          138,
           0
         ],
         [
@@ -1248,7 +1278,7 @@
         [
           -66.09375,
           18.28125,
-          5,
+          6,
           0
         ],
         [
@@ -1326,13 +1356,19 @@
         [
           -61.875,
           9.84375,
-          88,
-          0
+          47,
+          47
         ],
         [
           -61.875,
           11.25,
-          2,
+          3,
+          3
+        ],
+        [
+          -61.875,
+          12.65625,
+          1,
           0
         ],
         [
@@ -1495,7 +1531,7 @@
           -53.4375,
           2.8125,
           3,
-          3
+          0
         ],
         [
           -52.03125,
@@ -1584,7 +1620,7 @@
         [
           -49.21875,
           -26.71875,
-          5,
+          8,
           0
         ],
         [
@@ -2177,14 +2213,8 @@
         ],
         [
           26.71875,
-          -12.65625,
-          1,
-          0
-        ],
-        [
-          26.71875,
           -11.25,
-          2,
+          1,
           0
         ],
         [
@@ -2202,13 +2232,7 @@
         [
           29.53125,
           -30.9375,
-          37,
-          0
-        ],
-        [
-          29.53125,
-          -2.8125,
-          3,
+          36,
           0
         ],
         [
@@ -2232,13 +2256,13 @@
         [
           30.9375,
           -30.9375,
-          38,
+          39,
           0
         ],
         [
           30.9375,
           -29.53125,
-          31,
+          30,
           0
         ],
         [
@@ -2250,18 +2274,12 @@
         [
           30.9375,
           -26.71875,
-          2,
-          0
-        ],
-        [
-          30.9375,
-          -2.8125,
           1,
           0
         ],
         [
           30.9375,
-          -1.40625,
+          -2.8125,
           1,
           0
         ],
@@ -2280,7 +2298,7 @@
         [
           33.75,
           -16.875,
-          4,
+          1,
           0
         ],
         [
@@ -2389,12 +2407,6 @@
           56.25,
           -21.09375,
           3,
-          0
-        ],
-        [
-          60.46875,
-          12.65625,
-          1,
           0
         ],
         [
@@ -3222,6 +3234,12 @@
       ]
     },
     {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/wild_guppy_rio_morichal_en/",
+      "html": "<p>Among specialists for wild forms of livebearers it is also known as \"orange line\". These fish are a very tiny and slender variety of wild guppy, but not an artificial sport. In contrast to other wild populations of the guppy, this one is known to be a bit sensitive. They are perfect nano fish for experienced hobbyists.</p>"
+    },
+    {
       "key": "distribution",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/guppy-fish-species-profile-5078901",
@@ -3232,6 +3250,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-reticulata",
       "html": "<p>Native to northeastern South America and the southern Caribbean with its original range considered to cover Venezuela, Guyana, Suriname, French Guiana plus the islands of Trinidad and Tobago, Barbados, Antigua and Barbuda and the Netherlands Antilles.</p><p>Type locality is 'Guayre River, Caracas, Venezuela'.</p><p>Wild examples are relatively rare in the aquarium hobby, most fish being commercially bred.</p><p>Introduced or feral populations also exist in around fifty other countries across the globe, including the UK.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/wild_guppy_rio_morichal_en/",
+      "html": "<p>This wild guppy comes from the Rio Morichal in Venezuela.</p>"
     },
     {
       "key": "habitat",
@@ -3271,6 +3295,12 @@
       "refs": [
         0
       ]
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/wild_guppy_rio_morichal_en/",
+      "html": "<p>Take care that the bacterial content of the water column is as low as possible. Orange lines get sick very fast if this basic rule is neglected.</p>"
     },
     {
       "key": "waterConditions",
@@ -3367,6 +3397,18 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-reticulata",
       "html": "<ul><li>Peters, W. (C. H.) (1859). Eine neue vom Herrn Jagor im atlantischen Meere gefangene Art der Gattung Leptocephalus, und über einige andere neue Fische des Zoologischen Museums. Monatsberichte der Königlichen Preussische Akademie des Wissenschaften zu Berlin, 411-413</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/wild_guppy_rio_morichal_en/",
+      "html": "<p>Origin: bred.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/wild_guppy_rio_morichal_en/",
+      "html": "<p>The wild guppy from the Rio Morichal in Venezuela is also known as \"orange line\" among the specialists for wild forms of livebearers. These fish are a very tiny and slender variety of wild guppy, but not an artificial sport.</p><p>In contrast to other wild populations of the guppy this one is known to be a bit sensitive. One should always take care that the bacterial content of the water column is as low as possible. Orange lines will get very fast very sick if this basic rule is neglected!</p><p>These little jewels are perfect nano fish for experienced hobbyists.</p>"
     }
   ],
   "photos": [
@@ -3454,7 +3496,7 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08",
+  "updatedAt": "2026-11-13",
   "refs": [
     {
       "url": "https://www.youtube.com/watch?v=-Ws7RudcQ4U",

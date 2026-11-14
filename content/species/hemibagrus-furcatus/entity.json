@@ -1,0 +1,167 @@
+{
+  "id": "hemibagrus-furcatus",
+  "scientificName": "Hemibagrus furcatus",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Hemibagrus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "malaysia",
+    "segama"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Segama River",
+        "Borneo"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Upper reaches of the Segama River drainage in Sabah, Borneo.",
+          "countries": [],
+          "regions": [
+            "Segama River",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338186,
+      "total": 2,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "MY",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          116.71875,
+          4.21875,
+          1
+        ],
+        [
+          118.125,
+          4.21875,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7.6
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 20
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1366",
+      "html": "<p>Scientific name: Hemibagrus furcatus Ng, Martin-Smith &amp; Ng, 2000. Type locality: Segama River, Sabah, Borneo. Maximum size: 20 cm SL.</p><p>Etymology: from the Greek hemi- meaning half and bagrus, the catfish genus. The specific epithet comes from the Latin furcatus, meaning forked, in reference to the bifurcate serrae on the pectoral spine.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1366",
+      "html": "<p>Upper reaches of the Segama River drainage in Sabah, Borneo.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1366",
+      "html": "<p>Inhabits deep pools in mountain streams. Feeds on small fish, frogs and crustaceans in the wild.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1366",
+      "html": "<p>pH: 6.0–7.6. Temperature: 20–26°C. As a species inhabiting the upper reaches of rivers, the water should be kept well oxygenated.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1366",
+      "html": "<p>Large rocks for the fish to hide among.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1366",
+      "html": "<p>Readily eats all manner of live and prepared foods. Will eat smaller fishes.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1366",
+      "html": "<p>Males have an elongate genital papilla in front of the anal fin.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1366",
+      "html": "<p>Not reported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1366",
+      "html": "<p>Members of the genus Hemibagrus are bagrid catfishes that can attain standard lengths of up to 800 mm and are found in large rivers throughout the Indian subcontinent, Southeast and East Asia. They have depressed heads, rugose head shields not covered by skin, a slender occipital process and moderately long adipose fins.</p><p>This species can be distinguished from its congeners by a unique combination of characters: head width 18.3–19.5% SL, length of caudal peduncle 18.8–20.7% SL, depth of caudal peduncle 9.4–10.3% SL, length of adipose-fin base 21.2–26.3% SL, dorsal to adipose distance 6.3–8.6% SL, absence of a dark midaxial streak, 4–7 serrations on the dorsal spine, bifurcate serrae on the pectoral spine, upper lobe of the caudal fin rounded posteriorly, and a dorsal fin without an extended second ray, with broader membranes allowing the fin to be spread wider to give a more rounded appearance.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 200 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá da trơn",
+        "thức ăn cá ăn thịt"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

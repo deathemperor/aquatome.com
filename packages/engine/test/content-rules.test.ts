@@ -5,7 +5,7 @@ import { expect, test } from 'vitest'
 import {
   blocks, cardSlips, checkPages, gluedSyllables, claimsControl, countMismatch, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, emptySections, englishSentences, fixStored, fixTranslation, furniture,
   imperialUnits, isPermissionNote, labelSlips, leftoverMarkup, longFurniture, namesSource, numberSlips, otherFish, plainEntities, ratcheted, renumberLabels, RULES, rulesReport, sfScoreFixed, sourcePagePhrases, stripCount,
-  renameStored, renameSwapped, swappedNames, titleCount, unwellOff, vietnameseLeft, wrongFish, captionFlaw, type Ctx,
+  renameStored, renameFishNames, renameSwapped, swappedNames, titleCount, unwellOff, vietnameseLeft, wrongFish, captionFlaw, type Ctx,
 } from '../src/content-rules'
 import { pagePath, pageUrl, type Page } from '../src/pages'
 import { phraseSlips } from '../src/phrases'
@@ -209,6 +209,15 @@ test("a photo of an unwell fish fails its page where the page has another photo 
   // A photo that is the page's own and in its gallery too is one photo: kept as the only one, not also taken off.
   expect(unwellOff(page({ kind: 'breeds', own: ['a'], captions: [dead], album: [dead] }))).toEqual({ off: [], kept: { url: 'a', word: 'deceased' } })
   expect(unwellOff(page({ kind: 'species', own: ['a'], captions: [dead, dead] }))).toEqual({ off: [], kept: { url: 'a', word: 'deceased' } })
+  // A page with none of its own shows its gallery: the gallery's last photo stays the same way, and goes beside a well one.
+  expect(unwellOff(page({ kind: 'species', own: [], captions: [album], gallery: ['g'] }))).toEqual({ off: [], kept: { url: 'g', word: 'dead specimens' } })
+  expect(found(page({ kind: 'species', own: [], captions: [album], gallery: ['g'] }), 'unwell')).toEqual([])
+  expect(unwellOff(page({ kind: 'breeds', own: [], album: [album], gallery: ['g'] }))).toEqual({ off: [], kept: { url: 'g', word: 'dead specimens' } })
+  // Beside a well one, captioned or not, it goes.
+  expect(unwellOff(page({ kind: 'species', own: [], captions: [album, well], gallery: ['g', 'b'] }))).toEqual({ off: [{ url: 'g', word: 'dead specimens' }] })
+  expect(unwellOff(page({ kind: 'species', own: [], captions: [album], gallery: ['g', 'n'] }))).toEqual({ off: [{ url: 'g', word: 'dead specimens' }] })
+  // Its own photos another rule takes off in the same run leave the gallery as what the page shows: its last stays.
+  expect(unwellOff(page({ kind: 'species', own: ['b'], captions: [well, album], gallery: ['g'] }), new Set(['b']))).toEqual({ off: [], kept: { url: 'g', word: 'dead specimens' } })
   expect(unwellOff(page({ kind: 'species', own: ['a', 'b'], captions: [dead, well, dead], picked: 'a' }))).toEqual({ off: [], picked: { url: 'a', word: 'deceased' } })
   // A head a person picked is not taken off by a caption's words, whatever else the page has; the rule finds nothing.
   expect(unwellOff(page({ kind: 'species', own: ['a', 'b'], captions: [dead, well], picked: 'a' }))).toEqual({ off: [], picked: { url: 'a', word: 'deceased' } })
@@ -634,6 +643,111 @@ test('a stored page: its name, text, summary, FAQ and reviews are renamed; its o
   expect(renameStored({ ...page, nameFixed: true }).name).toBe(page.name)
   const unchanged = { name: 'Cá vàng', sections: { 'quickFacts:glaser': '<p>Đẹp.</p>' } }
   expect(renameStored(unchanged)).toBe(unchanged)
+})
+
+// The chief of staff, 2026-11-13: a fish is called by its kind's word, never another fish's. "Cầu vồng" is the rainbowfish's
+// (Melanotaenia); Pseudomugil are "mắt xanh". The page's old name is the fish's alone, so it is renamed wherever it is.
+test.each([
+  // Its page's old name, with the fish or without it, and the name once, not "Cá mắt xanh neon đỏ mắt xanh".
+  ['Cá cầu vồng neon đỏ mắt xanh (Pseudomugil luminatus) hiền.', 'Cá mắt xanh neon đỏ (Pseudomugil luminatus) hiền.'],
+  ['Nuôi chung với cá cầu vồng neon đỏ mắt xanh và cá chuột lùn.', 'Nuôi chung với cá mắt xanh neon đỏ và cá chuột lùn.'],
+  ['<li><strong>Cá cầu vồng neon đỏ mắt xanh</strong></li>', '<li><strong>Cá mắt xanh neon đỏ</strong></li>'],
+  // The kind's word in a sentence that names the fish: its own words after the old one go with it (today's page).
+  ['Pseudomugil luminatus, tên thường gọi là cá cầu vồng mắt xanh đỏ neon, là một loài cá nhỏ.', 'Pseudomugil luminatus, tên thường gọi là cá mắt xanh đỏ neon, là một loài cá nhỏ.'],
+  // "P." ends a sentence for the rule, so the epithet names the fish (a guide's list).
+  ['Bạn thử xem có P. luminatus (cầu vồng neon đỏ), P. furcata hay P. gertrudae không.', 'Bạn thử xem có P. luminatus (mắt xanh neon đỏ), P. furcata hay P. gertrudae không.'],
+])('a fish the chief of staff named takes its name in the text: %s', (before, after) => {
+  expect(swappedNames(before.replace(/<[^>]+>/g, ' '))).not.toEqual([])
+  expect(renameSwapped(before)).toBe(after)
+  expect(swappedNames(after.replace(/<[^>]+>/g, ' '))).toEqual([])
+  expect(renameSwapped(after)).toBe(after)
+})
+test.each([
+  // A rainbowfish named beside it: "cầu vồng" may be that fish's.
+  'Pseudomugil luminatus nuôi chung được với cá cầu vồng (Melanotaenia praecox).',
+  // Its name is there too, so the rainbowfish are other fish.
+  'Cá mắt xanh neon đỏ (Pseudomugil luminatus) nuôi chung được với cá cầu vồng.',
+  // A sentence that doesn't name it: the page's tankmates.
+  'Những loài nuôi chung rất hợp gồm rasbora nhỏ, cá chuột lùn và các loài cá cầu vồng hiền khác.',
+])('a rainbowfish beside the blue-eye is neither listed nor renamed: %s', text => {
+  expect(swappedNames(text)).toEqual([])
+  expect(renameSwapped(text)).toBe(text)
+})
+// The owner, 2026-11-13: "is often táo đỏ" and "This is commonly called bèo nhật". A page's old name, and a name made by
+// translating an English one, are its name now wherever written, unless another species stands beside them.
+test.each([
+  ['Cá cầu vồng đỏ (Red rainbowfish, Glossolepis incisus): 5 năm', 'Cá táo đỏ (Red rainbowfish, Glossolepis incisus): 5 năm'],
+  // Its other names that begin with the old one stay whole (Astra's second read: "Cá táo đỏ Irian" was made up).
+  ['<h3>10. Cá cầu vồng đỏ Irian</h3><p>Cá cầu vồng đỏ, hay cá cầu vồng đỏ Irian, sống ở hồ Sentani.</p>', '<h3>10. Cá cầu vồng đỏ Irian</h3><p>Cá táo đỏ, hay cá cầu vồng đỏ Irian, sống ở hồ Sentani.</p>'],
+  ['Cho con cá cầu vồng đỏ ăn trùng huyết.', 'Cho con cá táo đỏ ăn trùng huyết.'],
+  ['Bèo tây Nam Mỹ (Limnobium laevigatum) nổi trên mặt nước.', 'Bèo Nhật (Limnobium laevigatum) nổi trên mặt nước.'],
+  ['Thả vài cây bèo nhím Nam Mỹ cho cá trốn.', 'Thả vài cây bèo Nhật cho cá trốn.'],
+  // The same species under its other ending.
+  ['Cá cầu vồng đỏ (Glossolepis incisa) sống ở hồ Sentani.', 'Cá táo đỏ (Glossolepis incisa) sống ở hồ Sentani.'],
+  // Its scientific name shortened.
+  ['Cá cầu vồng đỏ (G. incisus) sống ở hồ Sentani.', 'Cá táo đỏ (G. incisus) sống ở hồ Sentani.'],
+  // A longer name the row lists stays as written beside it (the sweep's "cá táo đỏ cá hồi", 13 Nov).
+  ['Cá cầu vồng đỏ, còn gọi là cá cầu vồng đỏ cá hồi hay cá cầu vồng New Guinea.', 'Cá táo đỏ, còn gọi là cá cầu vồng đỏ cá hồi hay cá cầu vồng New Guinea.'],
+])('a named fish or plant takes its name wherever written: %s', (before, after) => {
+  expect(swappedNames(before)).not.toEqual([])
+  expect(renameSwapped(before)).toBe(after)
+  expect(renameFishNames(before)).toBe(after)
+  expect(swappedNames(after)).toEqual([])
+  expect(renameSwapped(after)).toBe(after)
+})
+test.each([
+  // Another species beside the same words, and the water hyacinth's own "bèo tây".
+  'Cá cầu vồng đỏ (Glossolepis pseudoincisus) sống ở sông Tami.',
+  // The same with the other's scientific name shortened, after the words or before them (Astra's second read).
+  'Cá cầu vồng đỏ (G. pseudoincisus) sống ở sông Tami.',
+  'G. pseudoincisus (cá cầu vồng đỏ) sống ở sông Tami.',
+  'Cá cầu vồng neon đỏ mắt xanh (P. gertrudae) có đốm.',
+  // A capital that ends a sentence is no shortened genus: the next sentence's fish is its own (Astra's third read).
+  'Pseudomugil cần vitamin A. Ngoài ra, cá cầu vồng cần bể dài.',
+  'Bèo tây (Eichhornia crassipes) to hơn nhiều.',
+  'Cá táo đỏ và cá cầu vồng táo đỏ là một.',
+  'Người ta còn gọi nó là cá cầu vồng  đỏ cá hồi hay cá cầu vồng New Guinea.',
+  // A name the row takes off its page because it is another animal's: in the text it is that one's (Curation, 13 Nov).
+  'Cho cá bột ăn bo bo (rận nước) mỗi ngày.',
+])('a page\'s old name beside another species, or words that only begin it, stay: %s', text => {
+  expect(swappedNames(text)).toEqual([])
+  expect(renameSwapped(text)).toBe(text)
+})
+
+// Astra's read of 2026-11-13: the kind's word goes with the words that name the fish, not the whole sentence; every
+// Pseudomugil, not one; read across tags and however it's spaced.
+test.each([
+  // Only the name tied to the fish: the other rainbowfish after the clause's end stay.
+  ['Pseudomugil luminatus là cá cầu vồng mắt xanh; cá cầu vồng khác cần bể lớn hơn.', 'Pseudomugil luminatus là cá mắt xanh; cá cầu vồng khác cần bể lớn hơn.'],
+  // Another blue-eye, by its name and by its letter.
+  ['Pseudomugil furcatus, thường gọi là cá cầu vồng mắt xanh, sống ở Papua New Guinea.', 'Pseudomugil furcatus, thường gọi là cá mắt xanh, sống ở Papua New Guinea.'],
+  ['Cá cầu vồng P. gertrudae đẻ trứng trên rêu.', 'Cá mắt xanh P. gertrudae đẻ trứng trên rêu.'],
+  // A rainbowfish in the sentence too: right beside its fish, the kind's word is the blue-eye's.
+  ['Cá cầu vồng chi Pseudomugil nhỏ hơn cá cầu vồng Melanotaenia.', 'Cá mắt xanh chi Pseudomugil nhỏ hơn cá cầu vồng Melanotaenia.'],
+  // The page's old name across a tag, and spaced any way.
+  ['<p>Cá cầu vồng neon đỏ <em>mắt xanh</em> (Pseudomugil luminatus) hiền.</p>', '<p>Cá mắt xanh neon đỏ (Pseudomugil luminatus) hiền.</p>'],
+  ['Nuôi cá cầu vồng  neon đỏ   mắt xanh cùng cá chuột.', 'Nuôi cá mắt xanh neon đỏ cùng cá chuột.'],
+])('the blue-eye\'s name goes where it names the fish: %s', (before, after) => {
+  expect(swappedNames(before)).not.toEqual([])
+  expect(renameSwapped(before)).toBe(after)
+  expect(swappedNames(after)).toEqual([])
+  expect(renameSwapped(after)).toBe(after)
+})
+test.each([
+  // Said not to be one, likened to one, set beside one.
+  'Pseudomugil luminatus không phải cá cầu vồng thật.',
+  'Pseudomugil gertrudae bơi như cá cầu vồng.',
+  'Nuôi Pseudomugil furcatus với cá cầu vồng.',
+  'Pseudomugil luminatus và cá cầu vồng đều thích nước cứng.',
+  // Far from the fish: the rainbowfish where it lives.
+  'Pseudomugil luminatus sống ở Papua New Guinea, nơi có nhiều loài cá cầu vồng sinh sống.',
+  // The page's old name beside another fish's scientific name is that fish's, for a person to read.
+  'Cá cầu vồng neon đỏ mắt xanh (Pseudomugil gertrudae) cũng đẹp.',
+  // 2026-11-07's probe: the Siamese algae eater beside its genus, the pencilfish set apart.
+  'Nannostomus và cá bút chì Xiêm (Crossocheilus) đều ăn rêu.',
+])('a rainbowfish that isn\'t the blue-eye stays as written: %s', text => {
+  expect(swappedNames(text)).toEqual([])
+  expect(renameSwapped(text)).toBe(text)
 })
 
 // 2026-11-07, a design lab: "que thử đa chỉtiêu" in the tank-cycling guide, a translation's typo. A Vietnamese word is one

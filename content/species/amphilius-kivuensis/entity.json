@@ -1,0 +1,261 @@
+{
+  "id": "amphilius-kivuensis",
+  "scientificName": "Amphilius kivuensis",
+  "order": "Siluriformes",
+  "family": "Amphiliidae",
+  "genus": "Amphilius",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "lake-kivu"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD"
+      ],
+      "regions": [
+        "Lake Kivu",
+        "Ruzizi River",
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Etymology: The specific name kivuensis: –ensis, suffix denoting place: region of Kivu (west of Lake Kivu), Democratic Republic of the Congo, type locality.",
+          "countries": [
+            "CD"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Africa: Rivers to west of Lake Kivu; Ruzizi River and rivers entering Lake Tanganyika.",
+          "countries": [],
+          "regions": [
+            "Lake Kivu",
+            "Ruzizi River",
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340748,
+      "total": 57,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "CD",
+          31
+        ],
+        [
+          "BI",
+          14
+        ],
+        [
+          "UG",
+          6
+        ],
+        [
+          "RW",
+          4
+        ],
+        [
+          "ZM",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          26.71875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          26.71875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          28.125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          28.125,
+          -5.625,
+          4,
+          4
+        ],
+        [
+          28.125,
+          -4.21875,
+          20,
+          7
+        ],
+        [
+          28.125,
+          -2.8125,
+          20,
+          16
+        ],
+        [
+          29.53125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          29.53125,
+          -1.40625,
+          6,
+          0
+        ],
+        [
+          30.9375,
+          -9.84375,
+          2,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 10.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_kivuensis.htm",
+      "html": "<ul><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_kivuensis.htm",
+      "html": "<p>Africa: Rivers to west of Lake Kivu; Ruzizi River and rivers entering Lake Tanganyika. Type locality: Boulira, Kitembo (ouest du Kivu), ... Kilembo (ouest du Kivu, altitude 2000 mètres).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_kivuensis.htm",
+      "html": "<p>Amphilius kivuensis occurs in streams and small rivers with rocky bottoms.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_kivuensis.htm",
+      "html": "<p>Can be kept in aquaria with a small grained gravel or sand substrate, and well planted with a slight current to facilitate their natural habitat. Provide rockwork and caves. This genera prefer cooler temperatures in the aquarium.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_kivuensis.htm",
+      "html": "<p>Mosquito larvae, Tubifex, Cyclops, Daphnia, grindal worms, vegetable food, tablet and flake.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_kivuensis.htm",
+      "html": "<p>Colouration: Yellow brown, darker on the dorsum, with small round black dots.</p><p>Etymology: The specific name kivuensis: –ensis, suffix denoting place: region of Kivu (west of Lake Kivu), Democratic Republic of the Congo, type locality.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/1741f1c1de20ee95.webp",
+      "thumb": "https://media.aquatome.com/scotcat/1741f1c1de20ee95-480.webp",
+      "width": 500,
+      "height": 224,
+      "licence": "dùng với sự cho phép",
+      "author": "Nathan Lujan / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_kivuensis.htm",
+      "caption": "Amphilius kivuensis: Bwindi Impenetrable National Park, Uganda.",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/a0b3b1c461c59d7f.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a0b3b1c461c59d7f-480.webp",
+      "width": 500,
+      "height": 208,
+      "licence": "dùng với sự cho phép",
+      "author": "Nathan Lujan / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_kivuensis.htm",
+      "caption": "Amphilius kivuensis: Dorsal view-Bwindi Impenetrable National Park, Uganda",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/fcdf4c082d15299e.webp",
+      "thumb": "https://media.aquatome.com/scotcat/fcdf4c082d15299e-480.webp",
+      "width": 500,
+      "height": 188,
+      "licence": "dùng với sự cho phép",
+      "author": "Nathan Lujan / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_kivuensis.htm",
+      "caption": "Amphilius kivuensis: Ventral view-Bwindi Impenetrable National Park, Uganda",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc bể cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát bể cá",
+        "sỏi hạt nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá da trơn",
+        "trùng chỉ đông lạnh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "quạt làm mát bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

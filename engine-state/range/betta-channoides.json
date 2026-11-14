@@ -1,8 +1,8 @@
 {
   "id": "betta-channoides",
   "native": {
-    "input": "88e5d76c099c569a",
-    "at": "2026-11-06T15:17:52.851Z",
+    "input": "2770cf9e5a9aaadc",
+    "at": "2026-11-14T05:39:06.336Z",
     "claims": [
       {
         "code": "ID",
@@ -17,14 +17,6 @@
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Native to the Mahakam river basin in the province of Kalimantan Timur (eastern Kalimantan) on the island of Borneo, Indonesia, with type locality 'unnamed blackwater stream entering Mahakam River on the northern side near Mujub, 0°01'S, 115°43'E, Kalimantan Timur, Indonesia'.",
-        "words": "Indonesia",
-        "ok": true
-      },
-      {
-        "code": "ID",
-        "status": "native",
-        "source": "bwaquatics",
-        "quote": "Native to the Mahakam river basin in eastern Kalimantan, Indonesia.",
         "words": "Indonesia",
         "ok": true
       }
@@ -47,8 +39,13 @@
       {
         "name": "Mahakam",
         "source": "bwaquatics",
-        "quote": "Native to the Mahakam river basin in eastern Kalimantan, Indonesia.",
-        "country": "ID",
+        "quote": "Betta channoides \"Melak\" is a small mouthbrooding betta from the Mahakam River basin in East Kalimantan, Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "bwaquatics",
+        "quote": "Betta channoides \"Melak\" is a small mouthbrooding betta from the Mahakam River basin in East Kalimantan, Borneo.",
         "ok": true
       }
     ],

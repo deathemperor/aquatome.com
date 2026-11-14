@@ -1,22 +1,22 @@
 {
   "id": "hemibagrus-macropterus",
   "native": {
-    "input": "0d773339b9c88b0f",
-    "at": "2026-11-08T13:58:00.601Z",
+    "input": "97866af915d086f8",
+    "at": "2026-11-14T05:39:06.336Z",
     "claims": [
       {
         "code": "CN",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Hemibagrus macropterus is a bagrid catfish from the Zhujiang (Pearl River), Changjiang (Yangtze) and Qiantang Jiang in central and southern China.",
+        "quote": "This species has been recorded from the Zhujiang (Pearl River), Changjiang (Yangtze River) and Qiantang Jiang in central and southern China.",
         "words": "China",
         "ok": true
       },
       {
         "code": "CN",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "This species has been recorded from the Zhujiang (Pearl River), Changjiang (Yangtze River) and Qiantang Jiang in central and southern China.",
+        "source": "planetcatfish",
+        "quote": "Asia: Yangtze River, China.",
         "words": "China",
         "ok": true
       }
@@ -40,6 +40,13 @@
         "name": "Qiantang Jiang",
         "source": "seriouslyfish",
         "quote": "This species has been recorded from the Zhujiang (Pearl River), Changjiang (Yangtze River) and Qiantang Jiang in central and southern China.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Yangtze River",
+        "source": "planetcatfish",
+        "quote": "Asia: Yangtze River, China.",
         "country": "CN",
         "ok": true
       }

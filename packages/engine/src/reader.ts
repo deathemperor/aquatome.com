@@ -1,3 +1,4 @@
+import { piece } from './pieces'
 import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
 import { readFile, writeFile } from 'node:fs/promises'
@@ -223,69 +224,76 @@ export async function readPages(root: string, pages: Page[], d: ReaderDeps, o: {
   let rewrites = o.rewrites
   for (const p of due.slice(0, o.limit)) {
     const key = pageKey(p)
-    const { text, parts, hash } = readerText(p)
-    const sources = await sourcesText(root, p)
-    const prompt = [
-      RUBRIC.replaceAll('{{LANG}}', LANG_NAME[p.lang]), '',
-      ...(p.lang === 'vi' ? ['--- HOW THE SITE WRITES VIETNAMESE ---', VI_STYLE, ''] : []),
-      ...(sources ? ['--- SOURCES ---', sources, ''] : []),
-      '--- PAGE ---', text.length > PAGE_CHARS ? `${text.slice(0, PAGE_CHARS)}\n… (the rest of the page is cut here)` : text,
-    ].join('\n')
-    let found: ReaderFinding[]
     try {
-      found = (await d.llm<{ findings: ReaderFinding[] }>({ system: 'You are a careful reader checking an aquarium handbook page. Reply only with JSON.', prompt, schema: SCHEMA, ...(d.model ? { model: d.model } : {}) })).findings ?? []
+      await piece(key, async () => {
+        const { text, parts, hash } = readerText(p)
+        const sources = await sourcesText(root, p)
+        const prompt = [
+          RUBRIC.replaceAll('{{LANG}}', LANG_NAME[p.lang]), '',
+          ...(p.lang === 'vi' ? ['--- HOW THE SITE WRITES VIETNAMESE ---', VI_STYLE, ''] : []),
+          ...(sources ? ['--- SOURCES ---', sources, ''] : []),
+          '--- PAGE ---', text.length > PAGE_CHARS ? `${text.slice(0, PAGE_CHARS)}\n… (the rest of the page is cut here)` : text,
+        ].join('\n')
+        let found: ReaderFinding[]
+        try {
+          found = (await d.llm<{ findings: ReaderFinding[] }>({ system: 'You are a careful reader checking an aquarium handbook page. Reply only with JSON.', prompt, schema: SCHEMA, ...(d.model ? { model: d.model } : {}) })).findings ?? []
+        } catch (e) {
+          if (e instanceof LlmError) { report.stopped = `${key}: ${e.message}`; return }
+          report.failed.push(`${key}: ${(e as Error).message.slice(0, 200)}`)
+          return
+        }
+        // A content rule's findings the writer can fix go with the reader's own (a quote the model also gave counts once).
+        const own = keepFindings(found, text, parts)
+        const findings = [...own, ...ruleFindings(p, parts).filter(r => !own.some(f => f.field === r.field && norm(f.quote).includes(norm(r.quote))))]
+        const entry: ReaderEntry = { at: d.now().toISOString().slice(0, 10), hash, findings, ...(state[key]?.rewrites ? { rewrites: state[key]!.rewrites } : {}) }
+        state[key] = entry
+        report.read.push(`${key} (${entry.findings.length})`)
+        report.findings += entry.findings.length
+        // Rewrites, part by part, while the cycle's allowance lasts.
+        const byField = new Map<string, ReaderEntry['findings']>()
+        for (const f of entry.findings.filter(f => canRewrite(p, f))) byField.set(f.field!, [...(byField.get(f.field!) ?? []), f])
+        let now = p // the page as it is after this cycle's rewrites
+        let tried = true // every part with findings sent to the writer (else a rule's findings wait for the next read)
+        const fixed = await fixedParts(join(root, 'content', p.kind, p.id))
+        for (const [field, fs] of byField) {
+          if (rewrites <= 0) { tried = false; break }
+          rewrites--
+          const file = join(root, 'content', p.kind, p.id, 'vi.json')
+          try {
+            const t = JSON.parse(await readFile(file, 'utf8')) as { sections?: Record<string, string>; body?: string; definition?: string; bodyFixed?: boolean }
+            const html = fieldOf(t, field)
+            if (!html || (field === 'body' && t.bodyFixed) || fixed.has(field)) continue // a part a person fixed is theirs (schemas.ts bodyFixed, Section.fixed)
+            const source = field.startsWith('sections.') ? field.split(':')[1] : p.origin?.source
+            const r = await rewritePart(d.llm, html, fs, { en: p.en?.[field], source: source && names[source]?.name })
+            if (!r) continue
+            const kept = r.score >= QUALITY_THRESHOLD && !r.lost.length
+            entry.rewrites = [...(entry.rewrites ?? []), { at: entry.at, field, score: r.score, kept, problems: fs.map(f => f.problem) }]
+            const traced = { id: `${p.kind}/${p.id}`, lang: 'vi', part: field }
+            if (!kept) { await logReviews(root, 'reader-rewrite', traced, [r], undefined, { now: d.now() }); report.notKept.push(`${key} ${field} (${r.score.toFixed(2)}: ${r.notes.slice(0, 2).join('; ')})`); continue }
+            if (field === 'body') t.body = r.html
+            else if (field === 'definition') t.definition = r.html
+            else t.sections![field.replace(/^sections\./, '')] = r.html
+            // Fish, plant and breed pages are written in metric only, as by every other writer (metric.ts).
+            const out = METRIC_KINDS.includes(p.kind) ? metricPage(t, 'vi') : t
+            await writeFile(file, `${JSON.stringify(out, null, 2)}\n`)
+            await logReviews(root, 'reader-rewrite', traced, [r], r, { now: d.now() })
+            // What it fixed leaves the open list, and the page counts as read as it is now.
+            entry.findings = entry.findings.filter(f => !fs.includes(f))
+            now = { ...now, fields: now.fields.map(f => (f.field === field ? { ...f, html: fieldOf(out, field)! } : f)) }
+            entry.hash = readerText(now).hash
+            report.rewritten.push(`${key} ${field} (${r.score.toFixed(2)})`)
+          } catch (e) {
+            if (e instanceof LlmError) { report.stopped = `${key} ${field}: ${e.message}`; tried = false; break }
+            report.failed.push(`${key} ${field}: ${(e as Error).message.slice(0, 200)}`)
+          }
+        }
+        if (tried) entry.ruled = entry.hash
+        await save()
+      })
     } catch (e) {
-      if (e instanceof LlmError) { report.stopped = `${key}: ${e.message}`; break }
-      report.failed.push(`${key}: ${(e as Error).message.slice(0, 200)}`)
-      continue
+      if (!(e instanceof LlmError)) throw e
+      report.stopped = `${key}: ${e.message}`
     }
-    // A content rule's findings the writer can fix go with the reader's own (a quote the model also gave counts once).
-    const own = keepFindings(found, text, parts)
-    const findings = [...own, ...ruleFindings(p, parts).filter(r => !own.some(f => f.field === r.field && norm(f.quote).includes(norm(r.quote))))]
-    const entry: ReaderEntry = { at: d.now().toISOString().slice(0, 10), hash, findings, ...(state[key]?.rewrites ? { rewrites: state[key]!.rewrites } : {}) }
-    state[key] = entry
-    report.read.push(`${key} (${entry.findings.length})`)
-    report.findings += entry.findings.length
-    // Rewrites, part by part, while the cycle's allowance lasts.
-    const byField = new Map<string, ReaderEntry['findings']>()
-    for (const f of entry.findings.filter(f => canRewrite(p, f))) byField.set(f.field!, [...(byField.get(f.field!) ?? []), f])
-    let now = p // the page as it is after this cycle's rewrites
-    let tried = true // every part with findings sent to the writer (else a rule's findings wait for the next read)
-    const fixed = await fixedParts(join(root, 'content', p.kind, p.id))
-    for (const [field, fs] of byField) {
-      if (rewrites <= 0) { tried = false; break }
-      rewrites--
-      const file = join(root, 'content', p.kind, p.id, 'vi.json')
-      try {
-        const t = JSON.parse(await readFile(file, 'utf8')) as { sections?: Record<string, string>; body?: string; definition?: string; bodyFixed?: boolean }
-        const html = fieldOf(t, field)
-        if (!html || (field === 'body' && t.bodyFixed) || fixed.has(field)) continue // a part a person fixed is theirs (schemas.ts bodyFixed, Section.fixed)
-        const source = field.startsWith('sections.') ? field.split(':')[1] : p.origin?.source
-        const r = await rewritePart(d.llm, html, fs, { en: p.en?.[field], source: source && names[source]?.name })
-        if (!r) continue
-        const kept = r.score >= QUALITY_THRESHOLD && !r.lost.length
-        entry.rewrites = [...(entry.rewrites ?? []), { at: entry.at, field, score: r.score, kept, problems: fs.map(f => f.problem) }]
-        const traced = { id: `${p.kind}/${p.id}`, lang: 'vi', part: field }
-        if (!kept) { await logReviews(root, 'reader-rewrite', traced, [r], undefined, { now: d.now() }); report.notKept.push(`${key} ${field} (${r.score.toFixed(2)}: ${r.notes.slice(0, 2).join('; ')})`); continue }
-        if (field === 'body') t.body = r.html
-        else if (field === 'definition') t.definition = r.html
-        else t.sections![field.replace(/^sections\./, '')] = r.html
-        // Fish, plant and breed pages are written in metric only, as by every other writer (metric.ts).
-        const out = METRIC_KINDS.includes(p.kind) ? metricPage(t, 'vi') : t
-        await writeFile(file, `${JSON.stringify(out, null, 2)}\n`)
-        await logReviews(root, 'reader-rewrite', traced, [r], r, { now: d.now() })
-        // What it fixed leaves the open list, and the page counts as read as it is now.
-        entry.findings = entry.findings.filter(f => !fs.includes(f))
-        now = { ...now, fields: now.fields.map(f => (f.field === field ? { ...f, html: fieldOf(out, field)! } : f)) }
-        entry.hash = readerText(now).hash
-        report.rewritten.push(`${key} ${field} (${r.score.toFixed(2)})`)
-      } catch (e) {
-        if (e instanceof LlmError) { report.stopped = `${key} ${field}: ${e.message}`; tried = false; break }
-        report.failed.push(`${key} ${field}: ${(e as Error).message.slice(0, 200)}`)
-      }
-    }
-    if (tried) entry.ruled = entry.hash
-    await save()
     if (report.stopped) break
   }
   await save()

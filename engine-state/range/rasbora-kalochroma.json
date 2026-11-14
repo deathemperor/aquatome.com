@@ -1,0 +1,122 @@
+{
+  "id": "rasbora-kalochroma",
+  "native": {
+    "input": "ecd29bba5f5810e2",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to Peninsular Malaysia and the Greater Sunda Islands of Borneo and Sumatra.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "On Borneo its range extends southwards from Kuching city in the Malaysian state of Sarawak via the Kapuas River basin in the Indonesian province of West Kalimantan (Kalimantan Barat) as far as the Barito drainage in South Kalimantan (Kalimantan Selatan).",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Native to Peninsular Malaysia and the Greater Sunda Islands of Borneo and Sumatra.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Native to Peninsular Malaysia and the Greater Sunda Islands of Borneo and Sumatra.",
+        "ok": true
+      },
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "On Borneo its range extends southwards from Kuching city in the Malaysian state of Sarawak via the Kapuas River basin in the Indonesian province of West Kalimantan (Kalimantan Barat) as far as the Barito drainage in South Kalimantan (Kalimantan Selatan).",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Barito",
+        "source": "seriouslyfish",
+        "quote": "On Borneo its range extends southwards from Kuching city in the Malaysian state of Sarawak via the Kapuas River basin in the Indonesian province of West Kalimantan (Kalimantan Barat) as far as the Barito drainage in South Kalimantan (Kalimantan Selatan).",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Bintan Island",
+        "source": "seriouslyfish",
+        "quote": "The only information pertaining to Sumatra we have are accounts from Gunung Sahilan in Riau province, Bintan Island in the Riau Islands province and Bangka/Belitung Islands just off the southeastern coast.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rasbora kalochroma",
+    "status": "ACCEPTED",
+    "taxonKey": 2359525,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        21
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        6
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        4
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T00:09:29.977Z"
+  }
+}

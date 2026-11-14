@@ -1,0 +1,285 @@
+{
+  "id": "pterygoplichthys-etentaculatus",
+  "scientificName": "Pterygoplichthys etentaculatus",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Pterygoplichthys",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "sao-francisco"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.2,
+          "max": 7.8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1348",
+      "html": "<p>Pterygoplichthys etentaculatus (Spix &amp; Agassiz, 1829). Maximum size 30 cm SL. Type locality: Rio São Francisco, Januaria, Minas Gerais State, Brazil. IUCN Red List: Least Concern (last assessed 2018).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1348",
+      "html": "<p>South America: São Francisco River basin. Also recorded from the Rio Carinhanha.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1348",
+      "html": "<ul><li>pH: 6.2–7.8</li><li>Temperature: 22–30°C</li><li>Other parameters: dH 25</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1348",
+      "html": "<p>Omnivorous and a good algae eater, especially when young.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1348",
+      "html": "<p>Suggested tankmates: almost any medium sized community fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1348",
+      "html": "<p>Comparison of the genital papilla in mature fish shows the differences in the sexes to the trained eye. In males this is a small yet thick stump which noticeably protrudes from the fish's undercarriage. In females it is less obvious and is recessed or lies flat with the body.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1348",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1348",
+      "html": "<p>Pterygoplichthys can be identified by the number of rays in the dorsal fin. Ten or more dorsal rays (usually more than 10) indicates that it's a Pterygoplichthys. Most other plecos have 8 or fewer rays (in particular the larger Hypostomus species that are most likely to be confused with Pterygoplichthys).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1348",
+      "html": "<p>Selecta genera et species piscium quos in itinere per Brasiliam, pp 7, Pl. 4 (figs. 1-2).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 200 lít",
+        "bể cá lớn cho cá lau kiếng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "viên rau củ cho cá dọn bể"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13",
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio São Francisco",
+        "Rio Carinhanha"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio São Francisco, Januaria, Minas Gerais State, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio São Francisco"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Also recorded from the Rio Carinhanha.",
+          "countries": [],
+          "regions": [
+            "Rio Carinhanha"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339973,
+      "total": 56,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "BR",
+          55
+        ],
+        [
+          "BO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -64.6875,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          -49.21875,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -46.40625,
+          -18.28125,
+          3,
+          3
+        ],
+        [
+          -46.40625,
+          -16.875,
+          3,
+          3
+        ],
+        [
+          -46.40625,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          -45,
+          -21.09375,
+          2,
+          2
+        ],
+        [
+          -45,
+          -19.6875,
+          2,
+          2
+        ],
+        [
+          -45,
+          -18.28125,
+          5,
+          5
+        ],
+        [
+          -45,
+          -16.875,
+          11,
+          11
+        ],
+        [
+          -45,
+          -15.46875,
+          5,
+          5
+        ],
+        [
+          -43.59375,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          -43.59375,
+          -14.0625,
+          6,
+          6
+        ],
+        [
+          -43.59375,
+          -11.25,
+          3,
+          3
+        ],
+        [
+          -40.78125,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -40.78125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -39.375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -37.96875,
+          -11.25,
+          5,
+          5
+        ],
+        [
+          -37.96875,
+          -9.84375,
+          1,
+          1
+        ]
+      ]
+    }
+  }
+}

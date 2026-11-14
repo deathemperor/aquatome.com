@@ -207,7 +207,8 @@ export function demandByPath(rows: { keys: string[]; impressions: number }[]): M
 export async function candidates(root: string, o: { demand?: Map<string, number>; avoid?: Record<string, string> } = {}): Promise<Candidate[]> {
   const content = join(root, 'content')
   // With the fish's boxes whatever the site's switch (SUBJECT_FRAMES): the card's cut rule (headOf) reads them.
-  const c: Content = await loadAll({ root: content, lang: 'vi', publicBuild: true, subjectFrames: true })
+  // Where a fish really is: the record's boxes alone, never a photo's whole area (the Design Lead, 13 Nov).
+  const c: Content = await loadAll({ root: content, lang: 'vi', publicBuild: true, subjectFrames: true, wholeBoxes: false })
   const state = join(root, 'engine-state')
   const v = await readVerdicts(root)
   const fitState = await json<FitState>(join(state, '_fit.json'), {})

@@ -1,0 +1,271 @@
+{
+  "id": "pangasius-conchophilus",
+  "scientificName": "Pangasius conchophilus",
+  "order": "Siluriformes",
+  "family": "Pangasiidae",
+  "genus": "Pangasius",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "thailand",
+    "mekong"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 120
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1360",
+      "html": "<p>Size: 120 cm SL.</p><p>Identification: Dorsum dull grey with pale green iridescence; maxillary band of teeth forms a continuous row with no break in midline. Snout protruding with upper jaw tooth bands partly exposed when mouth is closed; large median vomerine tooth plate.</p><p>Type locality: Thabo, Mekong River basin, Nongkhai Province, Thailand.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1360",
+      "html": "<p>Asia: Mekong, Bangpakong and Chao Phraya basins. IUCN Red List: Least Concern (last assessed 2011).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1360",
+      "html": "<p>The ultimate size of this fish, particularly when combined with its active swimming behaviour, makes it unsuitable for home aquaria.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1360",
+      "html": "<p>Needs a large amount of open space for swimming room and some plants to help reduce the nervous nature of the fish.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1360",
+      "html": "<p>Juveniles feed on prawns and insects; sub-adults and adults on prawns, insects and particularly mollusks, which are more predominant in stomach contents than in any other Pangasius species, and on plants.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1360",
+      "html": "<p>Females are fuller-bodied.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1360",
+      "html": "<p>Unreported. Migrates into the middle Mekong along the Thai-Lao border as water levels and turbidity begin to increase. Reproduces early in the flood season and juveniles of 6 to 7 cm are taken by late June.</p><p>There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1360",
+      "html": "<p>Etymology: the name Pangasius comes from a local (Bengali) name of the fish (pungas). The name conchophilus, a combination of the Latin concho (shell) and philus (loving), refers to the pronounced molluscivory of this species. Described by Roberts &amp; Vidthayanon, 1991.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/panitvong/inat-724021567.webp",
+      "thumb": "https://media.aquatome.com/panitvong/inat-724021567-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "dùng với sự cho phép",
+      "author": "Nonn Panitvong",
+      "sourceUrl": "https://www.inaturalist.org/photos/724021567",
+      "source": "panitvong"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "rx4Q12z6jX4",
+      "title": "akula pangasius #pangasfish #pangasius  #aquarium #fish #fishtank",
+      "durationSec": 15,
+      "lang": "ru"
+    },
+    {
+      "youtubeId": "FEKKgoxP2pw",
+      "title": "lridescent shark.pangasius catfish. #aquariumsharkfish #ask #shorts #trending #aquarium #viralvideo",
+      "durationSec": 5,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "EqFCxKLzLuI",
+      "title": "Giant Pangasius Fish 🦈 #shorts #rarefish #aquarium #trending #viral",
+      "durationSec": 9,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "DpgiKvE37Uw",
+      "title": "Fish Breeding || Pangasius Fish Breeding Process  part 2",
+      "durationSec": 946,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-13",
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya",
+        "Bangpakong"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Thabo, Mekong River basin, Nongkhai Province, Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Mekong, Bangpakong and Chao Phraya basins.",
+          "countries": [],
+          "regions": [
+            "Mekong",
+            "Chao Phraya",
+            "Bangpakong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202481,
+      "total": 74,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "TH",
+          52
+        ],
+        [
+          "KH",
+          8
+        ],
+        [
+          "VN",
+          8
+        ],
+        [
+          "LA",
+          5
+        ],
+        [
+          "MY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          14.0625,
+          3,
+          3
+        ],
+        [
+          101.25,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          101.25,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          16.875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          11.25,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          9.84375,
+          4,
+          0
+        ],
+        [
+          104.0625,
+          11.25,
+          3,
+          0
+        ],
+        [
+          104.0625,
+          14.0625,
+          6,
+          6
+        ],
+        [
+          104.0625,
+          15.46875,
+          11,
+          11
+        ],
+        [
+          104.0625,
+          16.875,
+          7,
+          7
+        ],
+        [
+          105.46875,
+          9.84375,
+          4,
+          0
+        ],
+        [
+          105.46875,
+          12.65625,
+          4,
+          0
+        ],
+        [
+          105.46875,
+          14.0625,
+          25,
+          21
+        ],
+        [
+          106.875,
+          12.65625,
+          1,
+          0
+        ]
+      ]
+    }
+  }
+}

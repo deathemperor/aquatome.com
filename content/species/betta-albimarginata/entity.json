@@ -21,12 +21,13 @@
         "Borneo"
       ],
       "sources": [
+        "bwaquatics",
         "seriouslyfish"
       ],
       "quotes": [
         {
-          "source": "seriouslyfish",
-          "quote": "Betta albimarginata is a small mouthbrooding labyrinth fish that appears endemic to the Sebuku River drainage in East Kalimantan, Indonesian Borneo.",
+          "source": "bwaquatics",
+          "quote": "Described from the Sebuku River basin in northern Borneo, now North Kalimantan, Indonesia.",
           "countries": [
             "ID"
           ],
@@ -34,7 +35,7 @@
         },
         {
           "source": "seriouslyfish",
-          "quote": "Appears endemic to the Sebuku River drainage in Kalimantan Timur (East Kalimantan) province, Indonesia, Borneo.",
+          "quote": "Betta albimarginata is a small mouthbrooding labyrinth fish that appears endemic to the Sebuku River drainage in East Kalimantan, Indonesian Borneo.",
           "countries": [],
           "regions": [
             "Sebuku River",
@@ -72,30 +73,30 @@
   "dataCard": {
     "tempC": [
       {
-        "source": "bwaquatics",
-        "value": {
-          "min": 24,
-          "max": 29
-        }
-      },
-      {
         "source": "seriouslyfish",
         "value": {
           "min": 23,
           "max": 28
         }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 24,
+          "max": 29
+        }
       }
     ],
     "ph": [
       {
-        "source": "bwaquatics",
+        "source": "seriouslyfish",
         "value": {
-          "min": 6,
-          "max": 7
+          "min": 4,
+          "max": 6.5
         }
       },
       {
-        "source": "seriouslyfish",
+        "source": "bwaquatics",
         "value": {
           "min": 4,
           "max": 6.5
@@ -104,12 +105,12 @@
     ],
     "sizeCm": [
       {
-        "source": "bwaquatics",
-        "value": 5
-      },
-      {
         "source": "seriouslyfish",
         "value": 3
+      },
+      {
+        "source": "bwaquatics",
+        "value": 4
       }
     ],
     "gh": [
@@ -139,7 +140,7 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-albimarginata-sebuku",
-      "html": "<ul><li>Wild caught Betta albimarginata collected from Sebuku, from the Betta albimarginata complex.</li><li>Size: up to 5 cm (≈ 2″) in total length.</li><li>Temperature: 24–29 °C (75–85 °F).</li><li>pH 6.0–7.0; TDS 60–100 ppm.</li><li>IUCN Red List: Endangered.</li></ul>"
+      "html": "<p>Betta albimarginata, the white-seam betta, is a small mouthbrooding betta from northern Borneo. This is the Sebuku population, from the Betta albimarginata complex. IUCN Red List: Endangered (very high risk of extinction in the wild). Origin: wild caught (Sebuku, North Kalimantan).</p><p>Displaying males are brick red, and every fin except the pectorals has a broad white edge with a broad black band inside it. This population grows slightly larger than the Malinau form, and some individuals show a more orange tone. Males show their best colour when ready to breed. It is a great first fish for anyone getting into mouthbrooding bettas.</p>"
     },
     {
       "key": "quickFacts",
@@ -151,7 +152,7 @@
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-albimarginata-sebuku",
-      "html": "<p>Betta albimarginata from Sebuku is a rare mouthbrooding betta native to the forest streams of East Kalimantan, Borneo.</p>"
+      "html": "<p>Described from the Sebuku River basin in northern Borneo, now North Kalimantan, Indonesia.</p>"
     },
     {
       "key": "distribution",
@@ -163,7 +164,7 @@
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-albimarginata-sebuku",
-      "html": "<p>Prefers soft, clean, tannin-rich water with minimal current. Provide leaf litter, botanicals, and shaded areas to mimic their natural blackwater habitat.</p>"
+      "html": "<p>Lives in very shallow water (5 to 10 cm deep) along the edges of forest streams with moderate current, among plant roots and leaf litter.</p>"
     },
     {
       "key": "habitat",
@@ -175,7 +176,7 @@
       "key": "aquariumSize",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-albimarginata-sebuku",
-      "html": "<p>Recommend one pair per 5 gallons (about 19 litres). Best kept as pairs or small groups in spacious, heavily structured aquaria.</p>"
+      "html": "<p>One pair per 20 litres is recommended.</p>"
     },
     {
       "key": "aquariumSize",
@@ -193,7 +194,7 @@
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-albimarginata-sebuku",
-      "html": "<p>Soft, clean, tannin-rich water. pH 6.0–7.0; TDS 60–100 ppm. Though tolerant of higher TDS, they thrive best in softer water. Temperature: 24–29 °C (75–85 °F). Cooler water promotes longevity, while slightly warmer conditions encourage coloration and spawning behavior.</p>"
+      "html": "<ul><li>TDS: 60 to 100 (can tolerate higher TDS, but does best in soft water)</li><li>pH: 4.0 to 6.5</li><li>Temperature: 24 to 29°C. Cooler water promotes longevity, while warmer water brings out colour and breeding behaviour.</li></ul>"
     },
     {
       "key": "waterConditions",
@@ -202,16 +203,10 @@
       "html": "<ul><li>Temperature: 23–28°C</li><li>pH: 4.0–6.5</li><li>Hardness: 1–5 dGH</li></ul>"
     },
     {
-      "key": "equipment",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-albimarginata-sebuku",
-      "html": "<p>Provide stable, pristine water conditions and subdued lighting to minimize stress.</p>"
-    },
-    {
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-albimarginata-sebuku",
-      "html": "<p>Carnivorous. Currently feeding on live foods such as blackworms, and readily accepts frozen bloodworms and quality pellets once acclimated. Offer a varied, high-protein diet to maintain health and color.</p>"
+      "html": "<p>Carnivorous. Fed on live blackworms, frozen bloodworms and pellets.</p>"
     },
     {
       "key": "diet",
@@ -223,7 +218,7 @@
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-albimarginata-sebuku",
-      "html": "<p>Somewhat territorial, but can coexist peacefully if visual barriers and hiding spots are available. Avoid aggressive or fast-moving species as tankmates.</p>"
+      "html": "<p>Somewhat territorial, but can be kept as pairs or small groups with enough space, visual barriers and hiding spots. Avoid aggressive or fast-moving tankmates.</p>"
     },
     {
       "key": "behaviour",
@@ -235,7 +230,7 @@
       "key": "dimorphism",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-albimarginata-sebuku",
-      "html": "<p>Males develop their most vibrant colors when in breeding condition, displaying striking contrast and graceful fin extension.</p>"
+      "html": "<p>Males are brick red to orange. Females are mottled brown.</p>"
     },
     {
       "key": "dimorphism",
@@ -250,10 +245,16 @@
       "html": "<p>Paternal mouthbrooder. Organise a separate tank for breeding purposes unless the fish are already being maintained alone, setting this up as suggested above.</p><p>The tank should have the tightest-fitting cover you can find (some breeders use clingfilm instead to ensure no gaps) as the fry need access to a layer of warm, humid air without which development of the labyrinth organ can be impaired.</p><p>Following a protracted courtship, eggs and milt are released during an 'embrace' typical of anabantoids in which the male wraps his body around that of the female. Several 'dummy' embraces may be required before spawning commences.</p><p>Fertilised eggs are caught on the anal fin of the male then picked up in the mouth of the female before being spat out into the water for the male to catch. Once the male has all the eggs in his mouth the cycle is repeated until the female is spent of eggs, a process which can take some time.</p><p>Brood size is quite small, with even 10 eggs being considered a good number.</p><p>A brooding male may swallow or release the eggs prematurely if stressed or inexperienced, so it's preferable to leave the female and any other fishes in situ.</p><p>The incubation period is 10–21 days at the end of which the male will begin to release fully-formed, free-swimming fry. At this point they can be removed or left to be reared alongside the adults, which will not normally harm them.</p><p>The fry are large enough to accept motile foods such as microworm and Artemia nauplii immediately, though it should be noted that there exist reports of young Betta developing health issues if fed excessive amounts of the latter.</p><p>Offer small amounts of different foods 2–3 times per day for optimal growth rate, and don't change too much water at once, with regular, small changes preferable to intermittent larger ones.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-albimarginata-sebuku",
+      "html": "<p>Paternal mouthbrooder. The male catches the eggs on his anal fin, the female picks them up and spits them to him, and he holds them in his mouth for about 10 to 21 days. Leave the holding male undisturbed, since a stressed male may swallow the brood. The fry are large enough to eat baby brine shrimp and microworms right away.</p>"
+    },
+    {
       "key": "notes",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-albimarginata-sebuku",
-      "html": "<p>They have a maroon or burgundy colored body with black and white seams on their fins; depending on locality, some may have a more orange body. Their best colors come out when ready to breed. Wild populations are classified as Endangered on the IUCN Red List due to rapid habitat destruction from palm oil plantation development.</p>"
+      "html": "<p>Body shape: small and elongated, with large eyes and a broad mouth. Reaches about 3 to 4 cm total length. Fins: rounded caudal fin. Every fin except the pectorals is red with a broad black band and a broad white edge. On the tail, the black band runs across the full height of the fin, and the dorsal fin carries the same black and white band. Channoides have only a thin white edge on the dorsal and a tail band that stops short of the top.</p>"
     },
     {
       "key": "notes",
@@ -280,7 +281,32 @@
       "source": "bwaquatics"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "7FglRzLWZnk",
+      "title": "How to BREED Betta Albimarginata & Care | Serendib Aquatics",
+      "durationSec": 815,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "mEjcwBSnLKs",
+      "title": "the bestwild betta for begginer, betta albiemarginata and betta channoides.  #wildbetta #rarefish",
+      "durationSec": 59,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Wc-ISYmJHBs",
+      "title": "Aquarium biotope - Betta albimarginata",
+      "durationSec": 442,
+      "lang": "fr"
+    },
+    {
+      "youtubeId": "4M_iTiEcwEg",
+      "title": "Betta Albimarginata 🔥",
+      "durationSec": 21,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -312,5 +338,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-13"
 }

@@ -1,0 +1,50 @@
+{
+  "id": "renova-oscari",
+  "native": {
+    "input": "a0e2df735816c2e1",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "The type locality is the island \"Isla Raton\" in the Orinoco river.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "VE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Renova oscari",
+    "status": "ACCEPTED",
+    "taxonKey": 2349272,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        4
+      ],
+      [
+        "31fd4785-7ed4-422f-91fa-03b3833937a0",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-14T05:39:06.336Z"
+  }
+}

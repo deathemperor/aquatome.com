@@ -1,0 +1,207 @@
+{
+  "id": "lithoxus-lithoides",
+  "scientificName": "Lithoxus lithoides",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Lithoxus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "guyana",
+    "essequibo",
+    "suriname",
+    "corantijn"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "GY",
+        "SR"
+      ],
+      "regions": [
+        "Essequibo",
+        "Corantijn"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Amatuk, Guyana.",
+          "countries": [
+            "GY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Essequibo and upper Corantijn (Correntyne) River basins, Guyana and Suriname.",
+          "countries": [
+            "SR"
+          ],
+          "regions": [
+            "Essequibo",
+            "Corantijn"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339289,
+      "total": 36,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "GY",
+          35
+        ],
+        [
+          "SR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -60.46875,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -60.46875,
+          4.21875,
+          9,
+          9
+        ],
+        [
+          -59.0625,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          4.21875,
+          19,
+          19
+        ],
+        [
+          -57.65625,
+          4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 8.6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1334",
+      "html": "<ul><li>Scientific name: Lithoxus lithoides Eigenmann, 1912</li><li>Type locality: Amatuk, Guyana.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1334",
+      "html": "<p>South America: Essequibo and upper Corantijn (Correntyne) River basins, Guyana and Suriname.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1334",
+      "html": "<p>Inhabits stony rivulets; clings to rocks in the rapids.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1334",
+      "html": "<p>Insectivore.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1334",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1334",
+      "html": "<p>Lithoxus is a genus of small, rheophilic loricariids that are externally characterized by a strongly dorsoventrally depressed body, a large round oral disk, and small tooth cups with few teeth.</p><p>Etymology: Greek, lithos = stone + Greek, oxys = sharp.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1334",
+      "html": "<p>Memoirs of the Carnegie Museum v. 5 (no. 1), pp 242, Pl. 29 (figs. 1-4).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/85584df8b6160247.webp",
+      "thumb": "https://media.aquatome.com/scotcat/85584df8b6160247-480.webp",
+      "width": 500,
+      "height": 231,
+      "licence": "dùng với sự cho phép",
+      "author": "Nathan Lujan / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/lithoxus_lithoides.htm",
+      "caption": "Lithoxus lithoides",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/4811e898fe1dfb63.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4811e898fe1dfb63-480.webp",
+      "width": 500,
+      "height": 217,
+      "licence": "dùng với sự cho phép",
+      "author": "Mark Henry Sabaj / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/lithoxus_lithoides.htm",
+      "caption": "Lithoxus lithoides",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "bơm sóng bể cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "quạt làm mát bể cá",
+        "máy làm lạnh nước bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

@@ -1,0 +1,174 @@
+{
+  "id": "hyphessobrycon-loweae",
+  "scientificName": "Hyphessobrycon loweae",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Hyphessobrycon",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "mato-grosso"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Brazil (caught in Mato Grosso).",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354660,
+      "total": 47,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "BR",
+          47
+        ]
+      ],
+      "cells": [
+        [
+          -56.25,
+          -16.875,
+          4,
+          4
+        ],
+        [
+          -56.25,
+          -12.65625,
+          14,
+          14
+        ],
+        [
+          -56.25,
+          -11.25,
+          3,
+          3
+        ],
+        [
+          -54.84375,
+          -15.46875,
+          11,
+          11
+        ],
+        [
+          -53.4375,
+          -14.0625,
+          10,
+          10
+        ],
+        [
+          -53.4375,
+          -12.65625,
+          3,
+          3
+        ],
+        [
+          -52.03125,
+          -14.0625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 4.2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_cf_loweae_en/",
+      "html": "<p>Hyphessobrycon cf. loweae was shown on the homepage of the Canadian fish exporter \"Below Water\" and designated \"Kitty\" Tetra (\"a new Hemigrammus species, caught in Mato Grosso in November 2000\"). It was presented as Hyphessobrycon loweae in the February/March issue of \"Aquaristik Fachmagazin &amp; Aquarium heute\". According to Dr. Géry there are \"good correspondences\" with Hyphessobrycon loweae (Costa &amp; Géry).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_cf_loweae_en/",
+      "html": "<p>Origin: Brazil (caught in Mato Grosso).</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_cf_loweae_en/",
+      "html": "<p>According to first experiences, water of around 10° dGH, pH 7 and a temperature around 24°C is sufficient for keeping this fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_cf_loweae_en/",
+      "html": "<p>Similar to Hyphessobrycon elachys, the clearly lengthened pelvic fins of the males, a widely extended dorsal fin and a widened, bent anal fin are particularly remarkable. Caudal, dorsal, pelvic and anal fins are transparent yellowish to dark yellow-orange-red and edged in a deep shade of red.</p><p>The fish reach a total length of approx. 39 mm (females) and 42 mm (males); standard length 32 and 35 mm respectively.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "MGJbLhlSNng",
+      "title": "Hyphessobrycon loweae - Breeding once imported tetra ᴴᴰ",
+      "durationSec": 78,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "onTyS9DqIGg",
+      "title": "Hyphessobrycon loweae",
+      "durationSec": 26,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "HZt3wDni4X8",
+      "title": "凱蒂燈魚(Hyphessobrycon loweae)",
+      "durationSec": 26,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "2bkgkMU7tpc",
+      "title": "Hyphessobrycon heliacus",
+      "durationSec": 90,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 40 lít",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá tetra nhỏ",
+        "thức ăn cá cảnh dạng mảnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

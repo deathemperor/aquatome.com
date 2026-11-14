@@ -62,7 +62,7 @@ PIDFILE="$(git rev-parse --absolute-git-dir)/aquatome-engine.pid"
 # working: on 12 Nov 2026 a fetch begun as the Mac fell asleep never ended.
 quiet_for() {
   local line at
-  line=$(grep -E '^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z ' "$HOME/Library/Logs/aquatome-engine-$PART.log" 2>/dev/null | grep -v -E '^[^ ]+ (stuck:|previous cycle)' | tail -1)
+  line=$(grep -E '^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z ' "$HOME/Library/Logs/aquatome-engine-$PART.log" 2>/dev/null | grep -v -E '^[^ ]+ (stuck:|past its hours:|previous cycle)' | tail -1)
   [ -n "$line" ] || return 0
   at=$(date -j -u -f %Y-%m-%dT%H:%M:%SZ "${line%% *}" +%s 2>/dev/null || date -u -d "${line%% *}" +%s 2>/dev/null) || return 0
   echo $(( $(date +%s) - at ))
@@ -351,7 +351,8 @@ if part rewrite; then
     # take them.
     pnpm engine fit --front --limit "${FIT_FRONT_LIMIT:-6}" || log "fit: failed"
     # The reader-fit rewrite (fit-rewrite.ts): pages on the site that fail reader fit, the front list first, then the
-    # most read. Held after its first run until its pages have been looked at (fit-front.json, cleared).
+    # most read; pages the gate held new before them (fit-front.json, lane). A run's front-list pages hold the next run's
+    # until the chief of staff has read them (fit-front.json, cleared, one run at a time).
     pnpm engine fit-rewrite --front --limit "${FIT_REWRITE_LIMIT:-12}" || log "fit-rewrite: failed"
   else
     log "fit-rewrite: skipped, the cycle has run $(( SECONDS / 60 )) min"

@@ -1,0 +1,113 @@
+{
+  "id": "ammoglanis-multidentatus",
+  "scientificName": "Ammoglanis multidentatus",
+  "order": "Siluriformes",
+  "family": "Trichomycteridae",
+  "genus": "Ammoglanis",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "paraguacu"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Paraguaçu"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio Caldeirão, Rio Paraguaçu basin, Município de Lençóis, Estado da Bahia, Brazil, 12°39'33\"S, 41°22'13\"W, elevation about 340 metres.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Found in a single locality, the Rio Caldeirão, a tributary of the Rio São José, which is among the main tributaries of the upper Rio Paraguaçu River, Brazilian semiarid Caatinga, Bahia State.",
+          "countries": [],
+          "regions": [
+            "Rio Paraguaçu"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 11154055,
+      "total": 0,
+      "fetched": "2026-11-14",
+      "countries": [],
+      "cells": []
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1380",
+      "html": "<p>Scientific name: Ammoglanis multidentatus Costa, Mattos &amp; Santos, 2019.</p><p>Size: 20 mm SL.</p><p>Etymology: Latin multidentatus, meaning “with many teeth”, an allusion to the numerous opercular odontodes (15-16), unique among sarcoglanidines.</p><p>IUCN Red List: Not Evaluated.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1380",
+      "html": "<p>Found in a single locality, the Rio Caldeirão, a tributary of the Rio São José, which is among the main tributaries of the upper Rio Paraguaçu River, Brazilian semiarid Caatinga, Bahia State.</p><p>Type locality: Rio Caldeirão, Rio Paraguaçu basin, Município de Lençóis, Estado da Bahia, Brazil, 12°39'33\"S, 41°22'13\"W, elevation about 340 metres.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1380",
+      "html": "<p>In nature, found in a blackwater river, the bottom covered with sand and rocks, and scarce submerged riparian vegetation.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1380",
+      "html": "<p>Diet consists of molluscs, crustaceans, other aquatic creatures and plant detritus.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1380",
+      "html": "<p>In nature, found with Aspidoras psammatides and Geophagus diamantinensis, both psammophilic species.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1380",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1380",
+      "html": "<p>Ammoglanis is a genus of diminutive slender trichomycterids. Its original description identified three unique traits for the genus: 1) slender quadrate body, its maximum depth about 30% of length of its main axis; 2) expanded anterior tip of interopercle; and 3) premaxilla located posterior to mesethmoid cornu.</p><p>Ammoglanis multidentatus is distinguished from all other sarcoglanidines by the presence of a ventral process on the sesamoid supraorbital, in contact with the latero-posterior process of the autopalatine (vs. process absent), a prominent dorso-lateral process on the premaxilla (vs. process absent), more opercular odontodes (15-16, vs. 7-11), and a long anteroventral process of the opercle, its length about equal the length of the opercle main axis excluding the odontode patch (vs. about one third to half length). A. multidentatus is also distinguished from all congeners in having a long sesamoid supraorbital, its length about thrice the antorbital length (vs. only slightly longer than the antorbital in A. amapaensis and A. diaphanus, and rudimentary in A. pulex), a robust opercle, its depth excluding dorsal and anteroventral processes slightly larger than the width of the dorsal extremity of the hyomandibula (vs. narrower), and more pelvic-fin rays (total of 6, vs. 4 or 5).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1380",
+      "html": "<p>Vertebrate Zoology v. 70 (no. 1), pp 62, Figs. 1-2.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-13"
+}

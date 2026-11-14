@@ -22,8 +22,7 @@
         "Borneo"
       ],
       "sources": [
-        "seriouslyfish",
-        "bwaquatics"
+        "seriouslyfish"
       ],
       "quotes": [
         {
@@ -73,6 +72,13 @@
           "min": 23,
           "max": 30
         }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 24,
+          "max": 29
+        }
       }
     ],
     "ph": [
@@ -86,8 +92,8 @@
       {
         "source": "bwaquatics",
         "value": {
-          "min": 6,
-          "max": 7
+          "min": 4,
+          "max": 6.5
         }
       }
     ],
@@ -104,10 +110,6 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 4
-      },
-      {
-        "source": "bwaquatics",
         "value": 4
       }
     ],
@@ -137,8 +139,8 @@
     {
       "key": "quickFacts",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-channoides-melak-f1-wild-type-bettas",
-      "html": "<p>Betta channoides, often called the \"Snakehead Betta\" because its large mouth and head resemble the Channa fish, is a small but vibrant freshwater fish. It belongs to the Betta albimarginata complex. IUCN Red List: Endangered.</p><ul><li>Temperament: peaceful, can be kept in pairs or small groups</li><li>Breeding: mouthbrooder</li></ul>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-channoides-f1-kzg29",
+      "html": "<p>From the Betta albimarginata complex. IUCN Red List: Endangered (very high risk of extinction in the wild). Origin of the stock: wild caught (Melak, East Kalimantan).</p>"
     },
     {
       "key": "distribution",
@@ -149,8 +151,8 @@
     {
       "key": "distribution",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-channoides-melak-f1-wild-type-bettas",
-      "html": "<p>Native to the Mahakam river basin in eastern Kalimantan, Indonesia.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-channoides-f1-kzg29",
+      "html": "<p>Betta channoides \"Melak\" is a small mouthbrooding betta from the Mahakam River basin in East Kalimantan, Borneo.</p>"
     },
     {
       "key": "habitat",
@@ -161,14 +163,20 @@
     {
       "key": "habitat",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-channoides-melak-f1-wild-type-bettas",
-      "html": "<p>Slow-moving shallow streams and pools with soft, acidic water that is tea-colored from decaying leaves.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-channoides-f1-kzg29",
+      "html": "<p>Native to slow-moving, shallow streams and pools in the Mahakam River basin, East Kalimantan, with soft, acidic, tea-colored water from decaying leaves.</p>"
     },
     {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-channoides",
       "html": "<p>Standard length: 40 mm SL (1.6 in). Aquarium base: 45 × 30 cm (18 × 12 in). Volume: about 41 litres.</p><p>An aquarium with base measurements of 45 × 30 cm could house a pair or small group.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-channoides-f1-kzg29",
+      "html": "<p>One pair per 20 litres is recommended.</p>"
     },
     {
       "key": "maintenance",
@@ -185,8 +193,8 @@
     {
       "key": "waterConditions",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-channoides-melak-f1-wild-type-bettas",
-      "html": "<ul><li>TDS about 60–100 (can tolerate high TDS water but prefers low TDS)</li><li>pH about 6.0–7.0 (prefers softer water)</li></ul>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-channoides-f1-kzg29",
+      "html": "<ul><li>TDS: 60 to 100 (can tolerate higher TDS, but does best in soft water)</li><li>pH: 4.0 to 6.5</li><li>Temperature: 24 to 29°C. Prefers cooler water, but warmer water brings out color and breeding behavior.</li></ul>"
     },
     {
       "key": "diet",
@@ -197,8 +205,8 @@
     {
       "key": "diet",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-channoides-melak-f1-wild-type-bettas",
-      "html": "<p>Carnivorous. Eats live food such as bloodworms and blackworms, but can be trained to eat frozen and dried foods.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-channoides-f1-kzg29",
+      "html": "<p>Carnivorous. Fed on live blackworms, frozen bloodworms and pellets.</p>"
     },
     {
       "key": "behaviour",
@@ -209,8 +217,8 @@
     {
       "key": "behaviour",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-channoides-melak-f1-wild-type-bettas",
-      "html": "<p>They are peaceful compared to the more popular Betta splendens. Males establish territories, but typically do not flare or attack other fish on sight. This allows them to be kept in pairs or small groups, as long as there is enough space for each fish.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-channoides-f1-kzg29",
+      "html": "<p>Relatively peaceful for bettas, so they can be kept in pairs or small groups. Somewhat territorial, but males typically don't flare at or attack other fish on sight. Can be kept as pairs or small groups with enough space.</p>"
     },
     {
       "key": "dimorphism",
@@ -221,14 +229,20 @@
     {
       "key": "dimorphism",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-channoides-melak-f1-wild-type-bettas",
-      "html": "<p>Males are typically a vibrant red while females are brownish yellow. The dorsal fin is almost entirely red with a thin white tip. The caudal fin may have a dark sub-marginal band that does not extend into the uppermost portion of the fin.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-channoides-f1-kzg29",
+      "html": "<p>Males are vibrant red. Females are brownish yellow.</p>"
     },
     {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-channoides",
       "html": "<p>Paternal mouthbrooder. Organise a separate tank for breeding purposes unless the fish are already being maintained alone, setting this up as suggested above.</p><p>The tank should have the tightest-fitting cover you can find (some breeders use clingfilm instead to ensure no gaps) as the fry need access to a layer of warm, humid air without which development of the labyrinth organ can be impaired.</p><p>Following a protracted courtship, eggs and milt are released during an 'embrace' typical of anabantoids in which the male wraps his body around that of the female. Several 'dummy' embraces may be required before spawning commences.</p><p>Fertilised eggs are caught on the anal fin of the male then picked up in the mouth of the female before being spat out into the water for the male to catch. Once the male has all the eggs in his mouth the cycle is repeated until the female is spent of eggs, a process which can take some time.</p><p>Brood size is quite small, with even 10 eggs being considered a good number.</p><p>A brooding male may swallow or release the eggs prematurely if stressed or inexperienced, so it's preferable to leave the female and any other fishes in situ.</p><p>The incubation period is 10 - 21 days at the end of which the male will begin to release fully-formed, free-swimming fry. At this point they can be removed or left to be reared alongside the adults, which will not normally harm them.</p><p>The fry are large enough to accept motile foods such as microworm and Artemia nauplii immediately, though it should be noted that there exist reports of young Betta developing health issues if fed excessive amounts of the latter.</p><p>Offer small amounts of different foods 2 -3 times per day for optimal growth rate, and don't change too much water at once, with regular, small changes preferable to intermittent larger ones.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-channoides-f1-kzg29",
+      "html": "<p>Paternal mouthbrooder. After spawning, the male carries the eggs in his mouth until the fry are free-swimming. Leave the holding male undisturbed, since a stressed male may swallow the brood. Start the fry on baby brine shrimp once released.</p>"
     },
     {
       "key": "notes",
@@ -239,8 +253,8 @@
     {
       "key": "notes",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-channoides-melak-f1-wild-type-bettas",
-      "html": "<p>Compared with Betta albimarginata, B. channoides has a more robust body and is redder, whereas B. albimarginata can be more burgundy to orange. The easiest way to tell them apart is that the dorsal fin of B. channoides is all red with no black.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-channoides-f1-kzg29",
+      "html": "<p>Often called the \"snakehead betta\" because its large mouth and head resemble a Channa. Small but robust, with a large head and mouth, reaching about 5 cm. The caudal fin is rounded. The dorsal fin is almost entirely red with a thin white edge. On the tail, the black band near the edge stops before it reaches the top of the fin, unlike albimarginata. Channoides are more robust and redder than albimarginata, and the easiest way to tell them apart is the dorsal fin: on channoides it is all red with no black.</p>"
     },
     {
       "key": "references",
@@ -350,5 +364,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-13"
 }

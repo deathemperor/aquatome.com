@@ -66,7 +66,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đèn treo cao phía trên bể, có quạt làm mát gắn ở thành bể.",
-            "sharpness": 1093.6
+            "sharpness": 1093.6,
+            "person": false
           },
           {
             "t": 220,
@@ -74,7 +75,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cụm ba quạt gắn thành bể, hướng lên để tản hơi nóng.",
-            "sharpness": 448.6
+            "sharpness": 448.6,
+            "person": false
           }
         ]
       },
@@ -87,15 +89,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Chai nước đá nhỏ nổi trong bể thủy sinh có đá và rêu.",
-            "sharpness": 998.2
-          },
-          {
-            "t": 240,
-            "url": "https://media.aquatome.com/video/pY7e33xGcyQ/at240-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay thả chai nước đá vào bể thủy sinh.",
-            "sharpness": 420.8
+            "sharpness": 998.2,
+            "person": false
           }
         ]
       },
@@ -108,7 +103,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cục sủi nhả bọt khí trong bể thủy sinh đầy cây.",
-            "sharpness": 1030.1
+            "sharpness": 1030.1,
+            "person": false
           },
           {
             "t": 395,
@@ -116,7 +112,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dòng bọt oxy từ cục sủi làm mặt nước gợn sóng.",
-            "sharpness": 2020
+            "sharpness": 2020,
+            "person": false
           }
         ]
       },
@@ -129,7 +126,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lá súng nổi trên mặt nước, loại cây chịu nóng tốt.",
-            "sharpness": 1319.8
+            "sharpness": 1319.8,
+            "person": false
           },
           {
             "t": 425,
@@ -137,7 +135,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh nhiều cây xanh khỏe trên lũa và đá.",
-            "sharpness": 1392
+            "sharpness": 1392,
+            "person": false
           }
         ],
         "photo": {
@@ -150,27 +149,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nymphaea_zenkeri-3-veda_aquarium-bengaluru-India.jpg",
           "caption": "Lá súng đỏ nổi trên mặt nước trong bể thủy sinh."
         }
-      },
-      {
-        "heading": "Giảm phân nước, có thể dùng vitamin",
-        "moments": [
-          {
-            "t": 560,
-            "url": "https://media.aquatome.com/video/pY7e33xGcyQ/at560-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhỏ vitamin bằng lọ nhỏ giọt vào hồ cây thủy sinh.",
-            "sharpness": 350.5
-          },
-          {
-            "t": 570,
-            "url": "https://media.aquatome.com/video/pY7e33xGcyQ/at570-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lọ vitamin cho cây cầm trên tay, phía sau là hồ thủy sinh.",
-            "sharpness": 284.5
-          }
-        ]
       },
       {
         "heading": "Cho cá ăn ít lại",

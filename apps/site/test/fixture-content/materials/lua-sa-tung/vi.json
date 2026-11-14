@@ -1,0 +1,32 @@
+{
+  "slug": "lua-sa-tung",
+  "name": "Lũa sa tùng",
+  "altNames": [
+    "Gỗ sa tùng",
+    "Sa tùng",
+    "Kim sa tùng",
+    "Lũa kim sa tùng"
+  ],
+  "summary": [
+    "Một loại lũa để set bể thủy sinh.",
+    "Chọn khúc vừa bể và xử lý trước khi dùng."
+  ],
+  "sections": {
+    "about": "<p>Lũa sa tùng là tên bán một loại lũa để set bể. [1]</p>",
+    "water": "<p>Nước có thể ngả vàng khi mới cho lũa vào. [1]</p>",
+    "prepare": "<p>Rửa sạch và ngâm riêng trước khi dùng. [2]</p>",
+    "suits": "<p>Chọn khúc lũa còn chỗ cho cá bơi. [1]</p>",
+    "mistakes": "<p>Đừng ép khúc lũa quá to vào bể nhỏ. [2]</p>",
+    "buy": "<p>Hỏi kích thước khúc lũa trước khi mua. [3]</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": true
+  },
+  "faq": [
+    {
+      "q": "Có cần ngâm lũa trước không?",
+      "a": "Nên ngâm riêng để theo dõi màu nước."
+    }
+  ]
+}

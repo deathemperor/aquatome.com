@@ -1,0 +1,145 @@
+{
+  "id": "retroculus-lapidifer",
+  "native": {
+    "input": "c155e34e2b253e50",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Brazil (Rio Tocantins/Rio Araguaia).",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Retroculus lapidifer is a rheophilic cichlid from the rio Tocantins and Araguaia systems and nearby coastal drainages of northeastern Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Tocantins",
+        "source": "glaser",
+        "quote": "Brazil (Rio Tocantins/Rio Araguaia).",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Araguaia",
+        "source": "glaser",
+        "quote": "Brazil (Rio Tocantins/Rio Araguaia).",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Tocantins",
+        "source": "seriouslyfish",
+        "quote": "Retroculus lapidifer is a rheophilic cichlid from the rio Tocantins and Araguaia systems and nearby coastal drainages of northeastern Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Araguaia",
+        "source": "seriouslyfish",
+        "quote": "Retroculus lapidifer is a rheophilic cichlid from the rio Tocantins and Araguaia systems and nearby coastal drainages of northeastern Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Guamá",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in the rio Capim within the rio Guamá watershed and the rio Gurupi, a smaller coastal drainage.",
+        "ok": true
+      },
+      {
+        "name": "Rio Gurupi",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in the rio Capim within the rio Guamá watershed and the rio Gurupi, a smaller coastal drainage.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Retroculus lapidifer",
+    "status": "ACCEPTED",
+    "taxonKey": 2371333,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        49
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        44
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        30
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        13
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        10
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T05:39:06.336Z"
+  }
+}

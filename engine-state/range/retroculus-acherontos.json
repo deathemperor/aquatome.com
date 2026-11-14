@@ -1,0 +1,78 @@
+{
+  "id": "retroculus-acherontos",
+  "native": {
+    "input": "289be60090c349ce",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Retroculus acherontos is a cichlid known only from tributaries of the upper rio Tocantins basin in Goiás state, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from affluents within the upper rio Tocantins basin draining into the enormous Serra da Mesa hydroelectric reservoir in Goiás state, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Tocantins",
+        "source": "seriouslyfish",
+        "quote": "Retroculus acherontos is a cichlid known only from tributaries of the upper rio Tocantins basin in Goiás state, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Maranhão",
+        "source": "seriouslyfish",
+        "quote": "It has been collected from the rios Maranhão, das Almas, Traíras, and Palmerinha/Palmeira(?).",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Rio das Almas",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Brazil, Goiás, Rio Tocantins basin, Rio das Almas, tributary of left margin of Rio Maranhão, 14˚37′51.2″S, 49˚1′56.6″W'.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Retroculus acherontos",
+    "status": "ACCEPTED",
+    "taxonKey": 8585208,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        5
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T05:39:06.336Z"
+  }
+}

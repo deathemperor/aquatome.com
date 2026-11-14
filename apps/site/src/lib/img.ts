@@ -50,8 +50,17 @@ export const BLUR_STRIP = 0.08
  */
 export function tileFrame(p: Photo): { pos?: string; whole?: true; mat?: true } {
   const f = !photoFitsCard(p) ? { whole: true as const } : resizeOf(p, smallSrc(p)) ? fishFrame(p, 4 / 3) : {}
-  const r = p.width / p.height, strip = (1 - Math.min(r, 4 / 3) / Math.max(r, 4 / 3)) / 2
-  return f.whole && strip < BLUR_STRIP ? { ...f, mat: true } : f
+  return f.whole && wholeGround(p.width, p.height, 4 / 3) === 'mat' ? { ...f, mat: true } : f
+}
+
+/**
+ * What fills the rest of a frame of `ratio` (width over height) that shows a `w` by `h` photo whole: the mat where each
+ * strip is under BLUR_STRIP of the side it crosses, else the photo itself blurred. One rule for every whole frame, the
+ * site's tiles and the app's (protocols/whole-frame-vectors.json).
+ */
+export function wholeGround(w: number, h: number, ratio: number): 'mat' | 'blur' {
+  const r = w / h, strip = (1 - Math.min(r, ratio) / Math.max(r, ratio)) / 2
+  return strip < BLUR_STRIP ? 'mat' : 'blur'
 }
 
 /**

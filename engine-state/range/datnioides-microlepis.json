@@ -1,8 +1,8 @@
 {
   "id": "datnioides-microlepis",
   "native": {
-    "input": "afdabc179b629f36",
-    "at": "2026-11-12T13:29:05.219Z",
+    "input": "1cd5499866717d98",
+    "at": "2026-11-14T00:09:29.977Z",
     "claims": [
       {
         "code": "MY",
@@ -32,7 +32,7 @@
         "code": "ID",
         "status": "native",
         "source": "glaser",
-        "quote": "Origin: Indonesia.",
+        "quote": "It invariably has 5 bars, while specimens from Indonesia have an individually variable number of bars.",
         "words": "Indonesia",
         "ok": true
       }
@@ -46,15 +46,17 @@
         "ok": true
       },
       {
-        "name": "Musi",
-        "source": "seriouslyfish",
-        "quote": "Apparently restricted to the Malay Peninsula and western Indonesia, where it is known from the Perak and Selangor river systems in Peninsular Malaysia, Batang Hari and Musi watersheds in Sumatra, and Kapuas basin in Kalimantan (Indonesian Borneo).",
-        "ok": true
-      },
-      {
         "name": "Batang Hari",
         "source": "seriouslyfish",
         "quote": "Apparently restricted to the Malay Peninsula and western Indonesia, where it is known from the Perak and Selangor river systems in Peninsular Malaysia, Batang Hari and Musi watersheds in Sumatra, and Kapuas basin in Kalimantan (Indonesian Borneo).",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Musi",
+        "source": "seriouslyfish",
+        "quote": "Apparently restricted to the Malay Peninsula and western Indonesia, where it is known from the Perak and Selangor river systems in Peninsular Malaysia, Batang Hari and Musi watersheds in Sumatra, and Kapuas basin in Kalimantan (Indonesian Borneo).",
+        "country": "ID",
         "ok": true
       },
       {
@@ -83,7 +85,8 @@
     "origin": {
       "pagesOnly": [
         "TH",
-        "LA"
+        "LA",
+        "VN"
       ],
       "sourcesOnly": []
     }

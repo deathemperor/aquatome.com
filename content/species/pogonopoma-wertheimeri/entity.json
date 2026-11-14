@@ -1,0 +1,151 @@
+{
+  "id": "pogonopoma-wertheimeri",
+  "scientificName": "Pogonopoma wertheimeri",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Pogonopoma",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "mucuri"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Mucuri River",
+        "São Mateus River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio Mucuri District, Santa Clara, Bahia State, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Currently known from three coastal river drainages in southeastern Brazil: the Mucuri River in Bahia State and the São Mateus River in Espirito Santo State.",
+          "countries": [],
+          "regions": [
+            "Mucuri River",
+            "São Mateus River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339864,
+      "total": 68,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "BR",
+          68
+        ]
+      ],
+      "cells": [
+        [
+          -49.21875,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -19.6875,
+          8,
+          8
+        ],
+        [
+          -43.59375,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -19.6875,
+          14,
+          14
+        ],
+        [
+          -42.1875,
+          -18.28125,
+          6,
+          6
+        ],
+        [
+          -40.78125,
+          -19.6875,
+          19,
+          19
+        ],
+        [
+          -40.78125,
+          -18.28125,
+          19,
+          19
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 22.3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1341",
+      "html": "<p>Scientific name: Pogonopoma wertheimeri (Steindachner, 1867).</p><p>Type locality: Rio Mucuri District, Santa Clara, Bahia State, Brazil.</p><p>Maximum size: 223 mm SL.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1341",
+      "html": "<p>South America: Mucuri and São Mateus River basins. Currently known from three coastal river drainages in southeastern Brazil: the Mucuri River in Bahia State and the São Mateus River in Espirito Santo State.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1341",
+      "html": "<p>Usually found in stretches of river with mid to strong water current and rocky or sandy bottom, although some specimens were collected from a lentic habitat.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1341",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1341",
+      "html": "<p>Etymology: (Greek) Pogon = beard + (Greek) op = eye + (Greek) poma = lid, operculum. Pronunciation: pog ON oh poma.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1341",
+      "html": "<p>Anzeiger der Kaiserlichen Akademie der Wissenschaften, Wien, Mathematisch-Naturwissenschaftliche Classe v. 4 (no. 14) (for 16 May 1867), pp 119.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-13"
+}

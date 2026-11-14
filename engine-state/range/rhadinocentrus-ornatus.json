@@ -1,0 +1,116 @@
+{
+  "id": "rhadinocentrus-ornatus",
+  "native": {
+    "input": "41a4be39ddd45df4",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Australia: from Fraser Island (southern Queensland) southward to Evans Head (northern New South Wales).",
+        "words": "Australia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Fraser Island",
+        "source": "glaser",
+        "quote": "Australia: from Fraser Island (southern Queensland) southward to Evans Head (northern New South Wales).",
+        "country": "AU",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rhadinocentrus ornatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2411739,
+    "datasets": [
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        240
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        86
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        79
+      ],
+      [
+        "39905320-6c8a-11de-8226-b8a03c50a862",
+        12
+      ],
+      [
+        "56caf05f-1364-4f24-85f6-0c82520c2792",
+        10
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        6
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        6
+      ],
+      [
+        "18c93d12-34fb-4d3f-903c-b77215a1dcc9",
+        5
+      ],
+      [
+        "d51f93a6-a5b7-4025-83a9-3f7b8525755a",
+        5
+      ],
+      [
+        "84a649ce-ff81-420d-9c41-aa1de59e3766",
+        4
+      ],
+      [
+        "c7fcf26c-bd16-4b8e-9903-f871a03f424b",
+        4
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        3
+      ],
+      [
+        "0645ccdb-e001-4ab0-9729-51f1755e007e",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        1
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "AU"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T05:39:06.336Z"
+  }
+}

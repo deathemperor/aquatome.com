@@ -1088,7 +1088,12 @@
       "author": "Mitch Ames",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lates_calcarifer,_2014-09-19a.jpg",
       "caption": "Lates calcarifer (Barramundi) at the National Zoo & Aquarium in Canberra, Australia",
-      "thumb": "https://media.aquatome.com/commons/309a9fdfeb7f5e06-480.webp"
+      "thumb": "https://media.aquatome.com/commons/309a9fdfeb7f5e06-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/309a9fdfeb7f5e06-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/c65cef476781eb87.webp",
@@ -1109,16 +1114,6 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lates_calcarifer_01.JPG",
       "caption": "Lates calcarifer or \"Barramundi\", in the Siam Centre, Bangkok",
       "thumb": "https://media.aquatome.com/commons/1d9a5c4796157876-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/11d13f6f71704543.webp",
-      "width": 960,
-      "height": 540,
-      "licence": "CC BY-SA 4.0",
-      "author": "MD.ALTAF HOSSEN ALTAF",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E0%A6%AD%E0%A7%87%E0%A6%9F%E0%A6%95%E0%A6%BF_%E0%A6%AE%E0%A6%BE%E0%A6%9B.jpg",
-      "caption": "This is a photo of a natural heritage site in Bangladesh identified by the ID:",
-      "thumb": "https://media.aquatome.com/commons/11d13f6f71704543-480.webp"
     }
   ],
   "videos": [],

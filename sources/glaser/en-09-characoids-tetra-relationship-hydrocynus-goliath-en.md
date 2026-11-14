@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hydrocynus_goliath_en/
 title: Hydrocynus goliath - Aquarium Glaser GmbH
-fetchedAt: 2026-11-11T10:19:17.413Z
+fetchedAt: 2026-11-13T05:29:37.857Z
 hash: 78ce4a2a42ffc2e7d5f5042a4b650d66931213a2b494b7887da0357def451594
 ---
 

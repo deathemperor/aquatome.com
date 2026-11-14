@@ -17,6 +17,22 @@ extension XCUIApplication {
     launch()
   }
 
+  /// The photo viewer's words (its caption, who took it, its place and the strip), shown by a tap on the photo: it opens on
+  /// the photo alone (the owner, 11 Nov).
+  func showViewerWords() {
+    XCTAssertTrue(buttons["viewer-close"].waitForExistence(timeout: 5), "no viewer")
+    coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.45)).tap()
+  }
+
+  /// iOS's own back button (`BackButton`, iOS's name for it). A fish's page has iOS's, not one of its own: iOS's swipe
+  /// from the left edge goes with it (the owner, 12 Nov).
+  var pageBack: XCUIElement { navigationBars.buttons["BackButton"].firstMatch }
+
+  /// Off a page: iOS's back button, or a Hôm nay post's ✕ (a page a Hôm nay card opens has no back button).
+  func leavePage() {
+    if pageBack.exists { pageBack.tap() } else { buttons["v2-close-post"].firstMatch.tap() }
+  }
+
   /// Tìm's home has the handbook: its first shelf's chips, on the first screen under the tools.
   func handbookShown(timeout: TimeInterval = 5) -> Bool {
     descendants(matching: .any)["shelf"].firstMatch.waitForExistence(timeout: timeout)

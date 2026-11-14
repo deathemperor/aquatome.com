@@ -4,7 +4,9 @@
   "File:Corydoras arcuatus.jpg"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/4389e5a450a50e56.webp": "841c3e2c8d23053e"
+  "https://media.aquatome.com/commons/4389e5a450a50e56.webp": "841c3e2c8d23053e",
+  "https://media.aquatome.com/seriouslyfish/df72499a9847ce5d.webp": "f63e9c1c1e0c0bcc",
+  "https://media.aquatome.com/seriouslyfish/5f1ca4eda4c4c08b.webp": "008ccec743c2adc6"
  },
  "commons": "2026-11-07",
  "inat": {
@@ -17,6 +19,10 @@
  },
  "gbif": {
   "key": 2342688,
-  "next": 0
- }
+  "next": null
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-13"
 }

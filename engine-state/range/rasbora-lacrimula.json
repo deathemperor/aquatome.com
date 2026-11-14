@@ -1,0 +1,72 @@
+{
+  "id": "rasbora-lacrimula",
+  "native": {
+    "input": "ecf5dc089d27c7ef",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The red cherry rasbora, Rasbora lacrimula, is a small cyprinid confirmed only from the Belayan drainage in east Kalimantan, Indonesian Borneo.",
+        "words": "Indonesian",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The only confirmed record is from the type locality in the Ulu (river) Belayan drainage, part of the lower Mahakam drainage in Kalimantan Timur (east Kalimantan), Indonesian Borneo.",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Belayan",
+        "source": "seriouslyfish",
+        "quote": "The red cherry rasbora, Rasbora lacrimula, is a small cyprinid confirmed only from the Belayan drainage in east Kalimantan, Indonesian Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Mahakam",
+        "source": "seriouslyfish",
+        "quote": "The only confirmed record is from the type locality in the Ulu (river) Belayan drainage, part of the lower Mahakam drainage in Kalimantan Timur (east Kalimantan), Indonesian Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "The only confirmed record is from the type locality in the Ulu (river) Belayan drainage, part of the lower Mahakam drainage in Kalimantan Timur (east Kalimantan), Indonesian Borneo.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rasbora lacrimula",
+    "status": "ACCEPTED",
+    "taxonKey": 2359537,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T00:09:29.977Z"
+  }
+}

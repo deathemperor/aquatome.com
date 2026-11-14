@@ -682,6 +682,12 @@
     "findings": [],
     "ruled": "7e6a4a68f82a8da4"
   },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dutch-style-sp": {
+    "at": "2026-11-13",
+    "hash": "6806df37291c69ee",
+    "findings": [],
+    "ruled": "6806df37291c69ee"
+  },
   "vi/guides/2hraquarist-blogs-aquascaping-ideas-fernando-ferreira": {
     "at": "2026-11-09",
     "hash": "1e7d79ef8f11362a",
@@ -715,6 +721,322 @@
     "hash": "e9a0b5c99a8ab1d3",
     "findings": [],
     "ruled": "e9a0b5c99a8ab1d3"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-george-farmer-1": {
+    "at": "2026-11-14",
+    "hash": "b074bee5cfc81eb6",
+    "findings": [],
+    "ruled": "b074bee5cfc81eb6"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-george-farmer-2": {
+    "at": "2026-11-14",
+    "hash": "4404b38a749d563f",
+    "findings": [],
+    "ruled": "4404b38a749d563f"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-haiqal-rosli": {
+    "at": "2026-11-14",
+    "hash": "aa190124946c47e7",
+    "findings": [],
+    "ruled": "aa190124946c47e7"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-herry-rasio-4": {
+    "at": "2026-11-14",
+    "hash": "f2f0a4fcfba2e26a",
+    "findings": [],
+    "ruled": "f2f0a4fcfba2e26a"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-herry-rasio-5": {
+    "at": "2026-11-14",
+    "hash": "ac500799a2b078eb",
+    "findings": [],
+    "ruled": "ac500799a2b078eb"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-herry-rasio-7": {
+    "at": "2026-11-14",
+    "hash": "c273f125ee3a556b",
+    "findings": [],
+    "ruled": "c273f125ee3a556b"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-hiep-hong": {
+    "at": "2026-11-14",
+    "hash": "2bfe5298bf6c78bd",
+    "findings": [],
+    "ruled": "2bfe5298bf6c78bd"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-hiep-hong-1": {
+    "at": "2026-11-14",
+    "hash": "8493a04a155ee5e4",
+    "findings": [],
+    "ruled": "8493a04a155ee5e4"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-hiep-hong-natural-biotope": {
+    "at": "2026-11-14",
+    "hash": "7a1ba064ba3910c7",
+    "findings": [],
+    "ruled": "7a1ba064ba3910c7"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-indra-bob-wijaya-1": {
+    "at": "2026-11-14",
+    "hash": "c6398f1fa1d9e719",
+    "findings": [],
+    "ruled": "c6398f1fa1d9e719"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-jeff-miotke": {
+    "at": "2026-11-14",
+    "hash": "9a280441897f5d1b",
+    "findings": [],
+    "ruled": "9a280441897f5d1b"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-jeff-miotke-1": {
+    "at": "2026-11-14",
+    "hash": "a058ab899ccc1295",
+    "findings": [],
+    "ruled": "a058ab899ccc1295"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-jeff-miotke-2": {
+    "at": "2026-11-14",
+    "hash": "f8e11fcb89a345d7",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Khung cảnh cuốn hút này do những vách đá lởm chởm và các đỉnh núi dựng đứng làm chủ.",
+        "problem": "The phrase \"do … làm chủ\" is a word-for-word copy of English \"dominated by\" and reads as machine translation.",
+        "fix": "Vách đá lởm chởm và những đỉnh núi dựng đứng chiếm trọn khung cảnh cuốn hút này.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cảnh đá trơ trọi được những thảm cây xanh làm cho mềm lại.",
+        "problem": "This passive \"được … làm cho mềm lại\" copies the English passive even though the agent is named, so it sounds unnatural in Vietnamese.",
+        "fix": "Những thảm cây xanh làm dịu đi vẻ trơ trọi của đá.",
+        "field": "body"
+      }
+    ],
+    "ruled": "f8e11fcb89a345d7"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-joe-harvey": {
+    "at": "2026-11-14",
+    "hash": "8703252e4383258d",
+    "findings": [],
+    "ruled": "8703252e4383258d"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-joe-harvey-1": {
+    "at": "2026-11-14",
+    "hash": "a918fc89ccef8e5f",
+    "findings": [],
+    "ruled": "a918fc89ccef8e5f"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-joe-harvey-8": {
+    "at": "2026-11-14",
+    "hash": "9e4fb880b884ae47",
+    "findings": [],
+    "ruled": "9e4fb880b884ae47"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-josh-sim": {
+    "at": "2026-11-14",
+    "hash": "9f0f33f72b1527df",
+    "findings": [],
+    "ruled": "9f0f33f72b1527df"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-josh-sim-1": {
+    "at": "2026-11-14",
+    "hash": "37d34ebe039019b0",
+    "findings": [],
+    "ruled": "37d34ebe039019b0"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-josh-sim-2": {
+    "at": "2026-11-14",
+    "hash": "ac05c8c1cb38c651",
+    "findings": [],
+    "ruled": "ac05c8c1cb38c651"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-josh-sim-2019": {
+    "at": "2026-11-14",
+    "hash": "5652471c13a9dd4a",
+    "findings": [],
+    "ruled": "5652471c13a9dd4a"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-juan-puchades-rufino-2660": {
+    "at": "2026-11-14",
+    "hash": "03879ca605990786",
+    "findings": [
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "bắt đầu từ gần mặt trước bể rồi thu hẹp dần về phía sau",
+        "problem": "In the source, the tall rock sides 'taper' to the rear, meaning they get lower. 'Thu hẹp dần' means they get narrower, which changes the layout advice.",
+        "fix": "bắt đầu từ gần mặt trước bể rồi thấp dần về phía sau",
+        "field": "body"
+      }
+    ],
+    "ruled": "03879ca605990786"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-long-tranhoang-1": {
+    "at": "2026-11-14",
+    "hash": "22caaec6107ee57e",
+    "findings": [],
+    "ruled": "22caaec6107ee57e"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-luca-galarraga-2018-soul": {
+    "at": "2026-11-14",
+    "hash": "d53634c75ec489f9",
+    "findings": [],
+    "rewrites": [
+      {
+        "at": "2026-11-14",
+        "field": "body",
+        "score": 0.85,
+        "kept": true,
+        "problems": [
+          "The source's 'flow' means how the eye moves through the layout, but 'dòng chảy' reads as water current in the tank."
+        ]
+      }
+    ],
+    "ruled": "d53634c75ec489f9"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-marcelo-barros-2": {
+    "at": "2026-11-14",
+    "hash": "74b2c6ac4ad85316",
+    "findings": [],
+    "ruled": "74b2c6ac4ad85316"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-marcelo-tonon-chiovatto": {
+    "at": "2026-11-14",
+    "hash": "3beb36ada57892bd",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "với khoảng nền giữa được chiếu sáng và cảnh thác nước",
+        "problem": "The source means a lit background at the centre, but \"nền giữa\" reads like the midground, which the next sentence describes as dark.",
+        "fix": "với phần hậu cảnh ở giữa được chiếu sáng và cảnh thác nước",
+        "field": "body"
+      }
+    ],
+    "ruled": "3beb36ada57892bd"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-martial-hervy": {
+    "at": "2026-11-14",
+    "hash": "e00c9402c7614c26",
+    "findings": [],
+    "ruled": "e00c9402c7614c26"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-martial-hervy-1710": {
+    "at": "2026-11-14",
+    "hash": "e509950488a1ee3a",
+    "findings": [],
+    "ruled": "e509950488a1ee3a"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-paul-vitor-pacheco-2440": {
+    "at": "2026-11-14",
+    "hash": "cb533d8072e8f5f8",
+    "findings": [],
+    "ruled": "cb533d8072e8f5f8"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-roger-goh": {
+    "at": "2026-11-14",
+    "hash": "45e898d5bdb8e01c",
+    "findings": [],
+    "ruled": "45e898d5bdb8e01c"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-sumida-5": {
+    "at": "2026-11-14",
+    "hash": "a72b31826d53b09c",
+    "findings": [],
+    "ruled": "a72b31826d53b09c"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-takayuki-fukada": {
+    "at": "2026-11-14",
+    "hash": "4bf441c5a65865d5",
+    "findings": [],
+    "ruled": "4bf441c5a65865d5"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-tom-barr-1": {
+    "at": "2026-11-14",
+    "hash": "36ab1a20e5c2e8a3",
+    "findings": [],
+    "ruled": "36ab1a20e5c2e8a3"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-wang-chao": {
+    "at": "2026-11-14",
+    "hash": "0936be90a5378d7d",
+    "findings": [],
+    "ruled": "0936be90a5378d7d"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-wolinski-gregoire-5340": {
+    "at": "2026-11-14",
+    "hash": "01ce05c22ed11422",
+    "findings": [],
+    "ruled": "01ce05c22ed11422"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-xue-hai": {
+    "at": "2026-11-14",
+    "hash": "3300988ca7dbb06c",
+    "findings": [],
+    "ruled": "3300988ca7dbb06c"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-yoyo-prayogi": {
+    "at": "2026-11-14",
+    "hash": "1606a8b4ff2c97be",
+    "findings": [],
+    "ruled": "1606a8b4ff2c97be"
+  },
+  "vi/guides/2hraquarist-blogs-beginners-planted-tank-101-10-best-low-tech-plants": {
+    "at": "2026-11-14",
+    "hash": "ca81e614d641c587",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Bể tép không châm CO2 (low-tech) này dùng rêu fissidens.",
+        "problem": "This line is a photo caption from the source page left in the body text, and it points to a tank photo that isn't on the page.",
+        "rule": "A body line ending a section that uses a demonstrative ('này') to point at a tank or photo with no image attached.",
+        "field": "body"
+      },
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C3",
+        "quote": "How do you plant a Microsorum or Java Fern in an aquarium?",
+        "problem": "The caption is a question followed by cut-off care text and doesn't describe what the photo shows.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "ca81e614d641c587"
+  },
+  "vi/guides/aquariumbreeder-10-questions-to-ask-when-buying-aquarium-crustaceans": {
+    "at": "2026-11-14",
+    "hash": "5296103b90f0a7ca",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Chúng có thể phá yên ổn của bể nuôi chung, và chắc chắn sẽ phá.",
+        "problem": "The phrase 'phá yên ổn của bể' is missing a noun and reads like a word-for-word rendering of 'may and will disrupt the peace'.",
+        "fix": "Chúng sẽ phá sự yên ổn của bể nuôi chung, chuyện này gần như chắc chắn.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "đổi sang nước khác kiểu gì cũng có thể làm chúng bị sốc",
+        "problem": "The sentence uses both 'kiểu gì cũng' (bound to happen) and 'có thể' (may), so the hedge contradicts itself and reads awkwardly.",
+        "fix": "Lúc đó, đổi sang nước khác có thể làm chúng bị sốc.",
+        "rule": "Flag 'kiểu gì cũng có thể' in the same clause.",
+        "field": "body"
+      }
+    ],
+    "ruled": "5296103b90f0a7ca"
   },
   "vi/guides/aquariumbreeder-10-slow-growing-plants-in-the-tank": {
     "at": "2026-11-01",
@@ -1151,6 +1473,61 @@
     ],
     "ruled": "2b0502a994a2c676"
   },
+  "vi/guides/aquariumbreeder-breeding-and-life-cycle-of-crayfish": {
+    "at": "2026-11-13",
+    "hash": "2c1aed02b75dcbef",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Nó dùng chân bơi để giữ trứng sạch bẩn và đủ oxy.",
+        "problem": "\"giữ trứng sạch bẩn\" is garbled: it reads as \"keep the eggs clean-dirty\" rather than \"keep the eggs clean of dirt\".",
+        "fix": "Nó dùng chân bơi để giữ cho trứng sạch, không bám bẩn và đủ oxy.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Con đực có thêm một cặp chân bơi dùng để thụ tinh trong.",
+        "problem": "The page first says fertilisation is external (\"Thụ tinh diễn ra bên ngoài\"), then says the male's extra pleopods are used for internal fertilisation.",
+        "fix": "Con đực có thêm một cặp chân bơi dùng để gắn tinh vào con cái.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Chẳng hạn, Cherax destructor non có thể lột 5–7 ngày một lần, còn yabby non thường 3–4 tuần mới lột một lần.",
+        "problem": "The yabby is Cherax destructor, so the page gives two different moult intervals for the same animal as if they were different species.",
+        "fix": "Chẳng hạn, yabby (Cherax destructor) lúc còn rất nhỏ có thể lột 5–7 ngày một lần, lớn hơn thì thường 3–4 tuần mới lột một lần.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## 3.1. Lột xác",
+        "problem": "The subsection numbered 3.1 is a heading at the same level as \"Giai đoạn 3\", so it looks like a separate section and not part of stage 3.",
+        "fix": "### 3.1. Lột xác",
+        "rule": "A heading numbered like a sub-item (\"3.1.\") at the same level as its parent stage heading.",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-13",
+        "field": "body",
+        "score": 0.7,
+        "kept": false,
+        "problems": [
+          "\"giữ trứng sạch bẩn\" is garbled: it reads as \"keep the eggs clean-dirty\" rather than \"keep the eggs clean of dirt\"."
+        ]
+      }
+    ],
+    "ruled": "2c1aed02b75dcbef"
+  },
   "vi/guides/aquariumbreeder-can-i-put-snails-in-an-uncycled-tank": {
     "at": "2026-11-06",
     "hash": "03361a6f4f0e2c14",
@@ -1401,6 +1778,41 @@
       }
     ],
     "ruled": "8c4c1613a2322bce"
+  },
+  "vi/guides/aquariumbreeder-fast-growing-plants-in-the-tank": {
+    "at": "2026-11-14",
+    "hash": "1c7e30a730047bb6",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Cả bảy cây trong danh sách đều thường lên nhanh khi bể có điều kiện tốt, và chỉ cần chăm rất ít.",
+        "problem": "The conclusion says all seven plants need very little care, but the sections say hornwort needs constant pruning, red tiger lotus needs regular trimming and watching, and Sagittaria needs regular trimming.",
+        "fix": "Cả bảy cây trong danh sách đều thường lên nhanh khi bể có điều kiện tốt, nhưng phải tỉa thường xuyên để cây không tràn kín bể.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Châm phân đều, đèn mạnh và giữ thông số nước phù hợp",
+        "problem": "The conclusion recommends strong light for every plant, but Sagittaria is listed for low to medium light and hornwort and water wisteria for medium light.",
+        "fix": "Châm phân đều, cho đủ đèn theo từng cây và giữ thông số nước phù hợp",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "P1",
+        "quote": "pH: hơi chua đến trung tính (thường 6,0 – 8,0)",
+        "problem": "A pH of 8.0 is alkaline, so the hornwort range does not match the words \"slightly acidic to neutral\".",
+        "fix": "pH: hơi chua đến hơi kiềm (thường 6,0 – 8,0)",
+        "rule": "a pH range labelled acidic to neutral whose upper value is above 7.5",
+        "field": "body"
+      }
+    ],
+    "ruled": "1c7e30a730047bb6"
   },
   "vi/guides/aquariumbreeder-fiddler-crab-tank-setup": {
     "at": "2026-11-10",
@@ -1992,6 +2404,51 @@
     "hash": "9b75bfc1341a29f9",
     "findings": [],
     "ruled": "9b75bfc1341a29f9"
+  },
+  "vi/guides/aquariumbreeder-importance-of-surface-agitation-in-aquariums": {
+    "at": "2026-11-13",
+    "hash": "6431fde972d5ae15",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## 1. Lọc:",
+        "problem": "The numbered methods (1–6) are set as top-level headings, the same level as their parent section \"Các cách khuấy mặt nước\", so that section looks empty and the list items look like separate sections.",
+        "fix": "### 1. Lọc:",
+        "rule": "Numbered headings ('## 1.', '## 2.' …) sit at the same level as the heading directly before them.",
+        "field": "body"
+      },
+      {
+        "kind": "unsupported",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Trao đổi khí chỉ xảy ra khi sức căng bề mặt bị phá.",
+        "problem": "The source says gas exchange happens when surface tension is broken. Adding \"chỉ\" (only) wrongly claims there is no gas exchange at a still surface.",
+        "fix": "Trao đổi khí diễn ra mạnh khi sức căng bề mặt bị phá.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đây thêm một cái lợi của khuấy mặt nước",
+        "problem": "The verb \"là\" is missing, so the sentence reads as broken.",
+        "fix": "Đây là thêm một cái lợi của khuấy mặt nước",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "đẩy carbon dioxide do cây nhả ra ra ngoài",
+        "problem": "\"ra ra\" is an awkward doubled word that makes readers stumble. It appears twice on the page.",
+        "fix": "đẩy ra ngoài lượng carbon dioxide cây nhả ra",
+        "rule": "The same word repeated back to back, such as 'ra ra'.",
+        "field": "body"
+      }
+    ],
+    "ruled": "6431fde972d5ae15"
   },
   "vi/guides/aquariumbreeder-infusoria-profile-and-how-to-culture-as-live-food": {
     "at": "2026-11-05",
@@ -2772,6 +3229,32 @@
     ],
     "ruled": "ec830a20b8771ffb"
   },
+  "vi/guides/aquariumbreeder-tannins-in-aquarium": {
+    "at": "2026-11-13",
+    "hash": "415ef96ca7fad458",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "high",
+        "part": "P1",
+        "quote": "- rút ngắn thời gian mang thai,",
+        "problem": "The 'breeding rates in fish' item and its intro about Indian almond leaves and guppies are missing, so the pregnancy and fry effects appear under the antioxidant item with no context.",
+        "fix": "- Cá đẻ tốt hơn. Chẳng hạn, tanin từ lá bàng giúp cá bảy màu sinh sản tốt hơn. Tanin từ lá bàng giúp:",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## 1. Than hoạt tính",
+        "problem": "The five numbered removal methods are top-level headings, the same level as their parent section 'Làm sao để loại bỏ…', instead of sub-headings under it.",
+        "fix": "### 1. Than hoạt tính",
+        "rule": "Flag numbered headings that have the same heading level as the unnumbered heading just before them, which introduces them.",
+        "field": "body"
+      }
+    ],
+    "ruled": "415ef96ca7fad458"
+  },
   "vi/guides/aquariumbreeder-top-10-weirdly-beautiful-aquarium-plants": {
     "at": "2026-11-08",
     "hash": "af72146bd6889ece",
@@ -2964,6 +3447,22 @@
     "hash": "3e16e03a1864bfe8",
     "findings": [],
     "ruled": "3e16e03a1864bfe8"
+  },
+  "vi/guides/aquariumbreeder-why-do-crabs-bubble-at-the-mouth": {
+    "at": "2026-11-13",
+    "hash": "4ec66829f74a5967",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Thường thì bọt chỉ sinh ra vô hại từ cách mang hít vào và thải khí ra khi cua ở trên cạn",
+        "problem": "The sentence in the conclusion is awkward, translated word for word: 'sinh ra vô hại từ cách…' does not read naturally in Vietnamese.",
+        "fix": "Bọt thường chỉ là thứ sinh ra khi mang hút và thải khí lúc cua ở trên cạn. Nó vô hại, không có gì đáng lo.",
+        "field": "body"
+      }
+    ],
+    "ruled": "4ec66829f74a5967"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-10-best-aquarium-fish-for-beginners": {
     "at": "2026-11-01",
@@ -5916,6 +6415,12 @@
     ],
     "ruled": "e9e843bbdb80297e"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-tissue-culture-plants": {
+    "at": "2026-11-13",
+    "hash": "92d1e40382df2003",
+    "findings": [],
+    "ruled": "92d1e40382df2003"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-top-10-barbs": {
     "at": "2026-11-08",
     "hash": "08b16c1336548b41",
@@ -8637,6 +9142,22 @@
     "findings": [],
     "ruled": "052b483af239d0bd"
   },
+  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-new-names-for-goldseam-cichlid-and-green-terror-en": {
+    "at": "2026-11-13",
+    "hash": "88aacd18ffba7103",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "(xem chẳng hạn Aqualog Southamerican Cichlids III)",
+        "problem": "Word-for-word rendering of 'see for example' that reads awkwardly in Vietnamese.",
+        "fix": "(xem ví dụ trong Aqualog Southamerican Cichlids III)",
+        "field": "body"
+      }
+    ],
+    "ruled": "88aacd18ffba7103"
+  },
   "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-the-discus-season-has-started-2-en": {
     "at": "2026-11-10",
     "hash": "34eb827b52682942",
@@ -8707,6 +9228,12 @@
       }
     ],
     "ruled": "7501c80f246887ba"
+  },
+  "vi/guides/glaser-en-27-puffers-new-generic-names-for-freshwater-pufferfish-1-en": {
+    "at": "2026-11-13",
+    "hash": "f63e4e0ebb0f98ea",
+    "findings": [],
+    "ruled": "f63e4e0ebb0f98ea"
   },
   "vi/guides/glaser-en-29-lungfishes-lungfishes-from-the-congo": {
     "at": "2026-11-10",
@@ -15167,6 +15694,12 @@
     ],
     "ruled": "9cad6049bd0cabd1"
   },
+  "vi/guides/youtube-Ct6YVxp_mFc": {
+    "at": "2026-11-13",
+    "hash": "2ad86c91163f5f86",
+    "findings": [],
+    "ruled": "2ad86c91163f5f86"
+  },
   "vi/guides/youtube-CteRIdT1Ous": {
     "at": "2026-11-05",
     "hash": "6803a0bd77ac3435",
@@ -18257,6 +18790,43 @@
     "findings": [],
     "ruled": "af6fc87e3dd5f0c8"
   },
+  "vi/guides/youtube-lSVI3YTPLyc": {
+    "at": "2026-11-13",
+    "hash": "61dc9e1ec9f5f08c",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "| Vị trí\n| Cây\n| Tiền cảnh\n| Cryptocoryne parva chạy dọc phía trước",
+        "problem": "The planting-plan table is broken: each cell sits on its own line, so the reader cannot tell which plant goes with which position.",
+        "fix": "| Vị trí | Cây |\n|---|---|\n| Tiền cảnh | Cryptocoryne parva chạy dọc phía trước |\n| Sau parva, giữa các viên đá | Cryptocoryne albida brown |\n| Trung cảnh | Các bụi Cryptocoryne lớn (lucens hoặc loài tương tự) |\n| Góc sau bên trái | Cây trồng sẵn dạng thủy sinh, mọc cao |\n| Trên lũa và khe giữa lũa với đá | Ráy, Bucephalandra, dương xỉ Trident, rêu mini Christmas |",
+        "rule": "Table rows written as lines that each start with a single '|' cell and have no closing pipe or separator row.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "có vài đốm rêu râu đen (black beard algae, BBA)",
+        "problem": "Vietnamese hobbyists call BBA 'rêu chùm đen', not the literal translation 'rêu râu đen'. It also comes with an English gloss the reader doesn't need.",
+        "fix": "có vài đốm rêu chùm đen (BBA)",
+        "rule": "The phrase 'rêu râu đen' appears anywhere on a Vietnamese page.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L4",
+        "quote": "Lũa dính rêu râu đen (BBA)",
+        "problem": "This uses the literal translation 'rêu râu đen' instead of the hobby term 'rêu chùm đen'.",
+        "fix": "Lũa dính rêu chùm đen (BBA)",
+        "rule": "The phrase 'rêu râu đen' appears anywhere on a Vietnamese page.",
+        "field": "summary.3"
+      }
+    ],
+    "ruled": "61dc9e1ec9f5f08c"
+  },
   "vi/guides/youtube-lVFJKBML5Ws": {
     "at": "2026-11-07",
     "hash": "2db72c8dbd9e35b2",
@@ -18423,6 +18993,12 @@
       }
     ],
     "ruled": "4b87e78999aa9acb"
+  },
+  "vi/guides/youtube-MCII9KCy60M": {
+    "at": "2026-11-13",
+    "hash": "03f09655b3ee5edb",
+    "findings": [],
+    "ruled": "03f09655b3ee5edb"
   },
   "vi/guides/youtube-MCLyq24fzNM": {
     "at": "2026-11-13",
@@ -20800,6 +21376,32 @@
       }
     ],
     "ruled": "6ed8265c85bd1574"
+  },
+  "vi/guides/youtube-SZMCesATJ-8": {
+    "at": "2026-11-14",
+    "hash": "ec6fc276aa845aa7",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## Đội dọn rêu: cá tỳ bà râu",
+        "problem": "'Đội dọn rêu' is a word-for-word translation of 'clean-up crew'. Vietnamese hobbyists say 'cá ăn rêu'.",
+        "fix": "## Cá ăn rêu: cá tỳ bà râu",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bể trồng cây mà nitrat thấp quá thì cây yếu.",
+        "problem": "'Bể trồng cây' is a calque. The hobby term is 'bể thủy sinh'.",
+        "fix": "Bể thủy sinh mà nitrat thấp quá thì cây yếu.",
+        "rule": "Flag the phrase 'bể trồng cây' on any Vietnamese page.",
+        "field": "body"
+      }
+    ],
+    "ruled": "ec6fc276aa845aa7"
   },
   "vi/guides/youtube-t-QbuMlXLIg": {
     "at": "2026-11-02",

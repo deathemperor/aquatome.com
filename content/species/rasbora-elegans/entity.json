@@ -13,6 +13,178 @@
     "indonesia",
     "kalimantan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "SG"
+      ],
+      "regions": [
+        "Borneo",
+        "Sumatra",
+        "Kapuas",
+        "Marah River",
+        "Nias"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to Peninsular Malaysia, Singapore and the Greater Sunda Islands of Borneo and Sumatra.",
+          "countries": [
+            "MY",
+            "SG"
+          ],
+          "regions": [
+            "Borneo",
+            "Sumatra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "On Borneo there are occurrences from the Marah River basin, East Kalimantan (Kalimantan Timur) and parts of the lower Kapuas River basin in West Kalimantan (Kalimantan Barat).",
+          "countries": [],
+          "regions": [
+            "Kapuas",
+            "Marah River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The only record found from Sumatra is from the small island of Nias off the northwestern coast although presumably it also occurs on the main island.",
+          "countries": [],
+          "regions": [
+            "Nias"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2359506,
+      "total": 97,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "ID",
+          53
+        ],
+        [
+          "MY",
+          34
+        ],
+        [
+          "SG",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          -1.40625,
+          2,
+          0
+        ],
+        [
+          99.84375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          2.8125,
+          8,
+          8
+        ],
+        [
+          101.25,
+          4.21875,
+          6,
+          6
+        ],
+        [
+          102.65625,
+          0,
+          9,
+          9
+        ],
+        [
+          102.65625,
+          1.40625,
+          18,
+          18
+        ],
+        [
+          104.0625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          -1.40625,
+          6,
+          0
+        ],
+        [
+          112.5,
+          -1.40625,
+          6,
+          0
+        ],
+        [
+          113.90625,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          113.90625,
+          -1.40625,
+          6,
+          0
+        ],
+        [
+          115.3125,
+          -4.21875,
+          8,
+          0
+        ],
+        [
+          115.3125,
+          -2.8125,
+          5,
+          0
+        ],
+        [
+          115.3125,
+          2.8125,
+          12,
+          0
+        ],
+        [
+          116.71875,
+          -1.40625,
+          5,
+          0
+        ],
+        [
+          116.71875,
+          0,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

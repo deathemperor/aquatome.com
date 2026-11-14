@@ -22,7 +22,7 @@
       "quotes": [
         {
           "source": "glaser",
-          "quote": "The scientific description in 1971 gave \"Cuzco in Peru\" as the type locality, and several expeditions searched the region without success.",
+          "quote": "The scientific description of the species in 1971 gave \"Cuzco in Peru\" as type locality.",
           "countries": [
             "PE"
           ],
@@ -65,34 +65,34 @@
   "dataCard": {},
   "sections": [
     {
-      "key": "beforeYouBuy",
+      "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras-weitzmani-wild/",
-      "html": "<p>Wild-caught, fully grown Corydoras weitzmani from Peru have been received. The species is extremely rare in the trade.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_weitzmani_wild_en/",
+      "html": "<p>Wild-collected Corydoras weitzmani from Peru. The species is extremely rare in the trade.</p>"
     },
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras-weitzmani-wild/",
-      "html": "<p>Not long ago there were strong doubts that the species existed at all or that it had gone extinct. The scientific description in 1971 gave \"Cuzco in Peru\" as the type locality, and several expeditions searched the region without success. It is now known that the collecting site given to the describing scientist was wrong. Corydoras weitzmani originates from the Madre de Dios region, where it was rediscovered in 2004 by ornamental fish collectors.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_weitzmani_wild_en/",
+      "html": "<p>The scientific description of the species in 1971 gave \"Cuzco in Peru\" as type locality. Several expeditions searched the region for this cory, but all failed, and there were doubts that the species existed or that it had gone extinct. The information on the collecting site given to the scientist who described the species was wrong. Corydoras weitzmani originates from the Madre de Dios region, where it was rediscovered in 2004 by ornamental fish collectors.</p>"
     },
     {
-      "key": "maintenance",
+      "key": "waterConditions",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras-weitzmani-wild/",
-      "html": "<p>Keeping this species is fairly easy. Corydoras weitzmani is a social species that should always be kept in groups. Earlier speculation held that it probably had to be kept at low temperatures, because Cuzco in the Andes lies at an altitude of 3,400 m. This is completely wrong. Neither the water chemistry nor the water temperature is of great importance for successful keeping.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_weitzmani_wild_en/",
+      "html": "<p>Keeping the species is fairly easy. Former speculation said the fish probably has to be kept at low temperatures, since Cuzco in the Andes lies at an altitude of 3,400 m. This is completely wrong: neither the water chemistry nor the water temperature is of great importance for successful keeping.</p>"
     },
     {
       "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras-weitzmani-wild/",
-      "html": "<p>A social species that should always be kept in groups. It is a perfect tankmate for a community tank.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_weitzmani_wild_en/",
+      "html": "<p>Corydoras weitzmani is a social species that should always be kept in groups. It is a perfect tankmate for a community tank.</p>"
     },
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras-weitzmani-wild/",
-      "html": "<p>Corydoras: from ancient Greek, meaning \"with helmet and spear\", referring to the strong armor and fin spines. weitzmani: a dedication name for the ichthyologist Stanley H. Weitzman.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_weitzmani_wild_en/",
+      "html": "<p>Corydoras: from ancient Greek, meaning \"with helmet and spear\", referring to the strong armor and fin spines. weitzmani: dedication name for the ichthyologist Stanley H. Weitzman.</p>"
     }
   ],
   "photos": [
@@ -101,18 +101,55 @@
       "thumb": "https://media.aquatome.com/commons/df30288bdd49fccd-480.webp",
       "width": 1200,
       "height": 900,
-      "licence": "CC BY-SA 4.0",
-      "author": "NasserHalaweh",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Callichthyidae_Corydoras_weitzmani_1.jpg",
-      "caption": "Cặp cá chuột Corydoras weitzmani trên nền sỏi trong bể có cây thủy sinh",
       "large": {
         "url": "https://media.aquatome.com/commons/df30288bdd49fccd-large.webp",
         "width": 1600,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "NasserHalaweh",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Callichthyidae_Corydoras_weitzmani_1.jpg",
+      "caption": "Cặp cá chuột Corydoras weitzmani trên nền sỏi trong bể có cây thủy sinh"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "dNyjqoIHTXE",
+      "title": "Weitzmani Corydoras Breeding Setup",
+      "durationSec": 39,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "S78-iiFGpnU",
+      "title": "Сомик . Breeding Corydoras weitzmani. Corydoras  प्रजनन, Zucht Corydoras, la cría de Corydoras",
+      "durationSec": 187,
+      "lang": "ru"
+    },
+    {
+      "youtubeId": "7KXj3KlE1WQ",
+      "title": "Corydoras weitzmani. THE TWO SADDLES corys (Leopard Aquatic A012A)",
+      "durationSec": 54,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "aLMb-m5EOl4",
+      "title": "Corydoras weitzmani 🇩🇪 bred",
+      "durationSec": 37,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "19DiEkXPxpM",
+      "title": "Corydoras Weitzmani Spotlight",
+      "durationSec": 51,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "rUUvIbaZ9NE",
+      "title": "Corydoras Weitzmani Spawning",
+      "durationSec": 13,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -143,5 +180,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-13"
 }

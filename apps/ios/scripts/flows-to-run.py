@@ -61,8 +61,11 @@ LIGHT_FIRST = [
 # never reached at their class's average. Measured again with the flows' animations off (#549's run 42023734393, where
 # the whole job took 58 minutes): 1,488 s here and 1,591 s in the rest, each half about 33 minutes with its build.
 # Then (#677's run) 1,457 s here and 2,628 s in the rest: the tanks' flows moved here, 1,872 s, and two classes beside
-# the light flows (WITH_LIGHTS), 1,845 s left.
-APP_FIRST = ['ReaderPostFlowTests', 'AccountFlowTests', 'AppIconFlowTests', 'TanksFlowTests']
+# the light flows (WITH_LIGHTS), 1,845 s left. Main's full run of 2026-11-13 (43429328886): 3,283 s here, 67 minutes, and
+# 5,255 s in the rest, 101 minutes, 19 from GitHub's cap: ScrollEnd (639 s), ProfilePicture (195) and BrowseShelves (183)
+# moved here, about 4,300 s and 84 minutes a half.
+APP_FIRST = ['ReaderPostFlowTests', 'AccountFlowTests', 'AppIconFlowTests', 'TanksFlowTests', 'ScrollEndFlowTests',
+             'ProfilePictureFlowTests', 'BrowseShelvesFlowTests']
 # Classes a full run on GitHub's Macs puts beside each half of the light flows (832 s and 1,114 s in #677's run), out of
 # the others' jobs: about 1,900 s of flows in each of the six, 40 to 52 minutes a job with its build (#746's run on GitHub's Macs). A pull request's
 # light flows run without them, and so does the own Mac's full run: its light jobs run one simulator, and its light
@@ -70,7 +73,11 @@ APP_FIRST = ['ReaderPostFlowTests', 'AccountFlowTests', 'AppIconFlowTests', 'Tan
 # Then `app (2)` reached its 75 minutes on #890's run (2026-11-08) with 3,814 s of flows, all passed (ScrollEnd 924,
 # Owner 916, PhotoViewer 752, V2 571, Plug 521, ProfilePicture 129), while the light halves took 37 to 49 minutes on
 # the full runs of 2026-11-07 and 08: Plug and V2 went beside them, about 2,700 s left there.
-WITH_LIGHTS = {'1': ['TankVolumeFlowTests', 'TankLifeFlowTests', 'TankMatesFlowTests', 'TelemetryFlowTests', 'PlugFlowTests'],
+# Then `app (2)` took 101 minutes on main's full run of 2026-11-13 (43429328886), and the edge swipes' three classes,
+# about 190 s a test (#1171's run on 9fecd66, 2026-11-13), took it past its 120 on #1171's: they go beside the first
+# light half, 2,848 s and 58 minutes on that main run, about 4,560 s and 87 minutes with them.
+WITH_LIGHTS = {'1': ['TankVolumeFlowTests', 'TankLifeFlowTests', 'TankMatesFlowTests', 'TelemetryFlowTests', 'PlugFlowTests',
+                     'FishPageEdgeSwipeFlowTests', 'GuideEdgeSwipeFlowTests', 'PostEdgeSwipeFlowTests'],
                '2': ['FactsCardFlowTests', 'OfflineFlowTests', 'ViAtRootFlowTests', 'AppLinkFlowTests', 'V2FlowTests']}
 # Run elsewhere: the performance tests by job `perf`, the App Store's screenshots by app-store.yml.
 ELSEWHERE = ['PerformanceTests', 'StoreShotsFlowTests']

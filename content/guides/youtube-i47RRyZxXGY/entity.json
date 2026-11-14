@@ -43,7 +43,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Chai phân nước tổng hợp nắp xanh đặt trên nắp hồ thủy sinh.",
-            "sharpness": 1188
+            "sharpness": 1188,
+            "person": false
           }
         ]
       },
@@ -56,36 +57,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đọc hướng dẫn liều dùng ghi trên chai phân nước trước khi châm.",
-            "sharpness": 2028.9
-          },
-          {
-            "t": 48,
-            "url": "https://media.aquatome.com/video/i47RRyZxXGY/at48-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Mở nắp chai để đong liều phân cho bể.",
-            "sharpness": 459.6
-          }
-        ]
-      },
-      {
-        "heading": "Châm phân thế nào",
-        "moments": [
-          {
-            "t": 50,
-            "url": "https://media.aquatome.com/video/i47RRyZxXGY/at50-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rót phân từ chai vào nắp cho đủ liều.",
-            "sharpness": 382.6
-          },
-          {
-            "t": 56,
-            "url": "https://media.aquatome.com/video/i47RRyZxXGY/at56-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cầm nắp phân đưa lên trên mặt bể để rót vào nước.",
-            "sharpness": 398.9
+            "sharpness": 2028.9,
+            "person": false
           }
         ]
       },
@@ -98,7 +71,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh với lũa lớn và cây mọc xanh tốt.",
-            "sharpness": 2366.4
+            "sharpness": 2366.4,
+            "person": false
           },
           {
             "t": 106,
@@ -106,7 +80,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh cây xanh mướt mọc trên lũa trong bể.",
-            "sharpness": 1011.2
+            "sharpness": 1011.2,
+            "person": false
           }
         ]
       }

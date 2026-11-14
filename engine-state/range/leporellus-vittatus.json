@@ -1,8 +1,8 @@
 {
   "id": "leporellus-vittatus",
   "native": {
-    "input": "eb9eaf7e23ee76a2",
-    "at": "2026-11-10T07:58:31.896Z",
+    "input": "907b0781a3952d7e",
+    "at": "2026-11-14T00:09:29.977Z",
     "claims": [
       {
         "code": "BR",
@@ -43,11 +43,20 @@
         "quote": "Specimens in the images were collected from the Río Casanare in Colombia, a tributary of the Río Meta, meaning it also occurs in the Orinoco system where it's also known from the Río Apure in Venezuela, and the Río Samaná Sur, a tributary of the Río Magdalena, Colombia.",
         "words": "Venezuela",
         "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Brazil.",
+        "words": "Brazil",
+        "ok": false,
+        "why": "no sentence"
       }
     ],
     "regions": [
       {
-        "name": "Amazon River",
+        "name": "Amazon",
         "source": "seriouslyfish",
         "quote": "Type locality is given simply as 'Amazon River, Brazil' and according to current thinking this species has a huge natural range encompassing the Amazon River system in Brazil and Peru plus the Paraná-Paraguay drainage in southern Brazil and Paraguay and rio São Francisco basin in southern Brazil.",
         "country": "BR",
@@ -57,10 +66,11 @@
         "name": "Paraná-Paraguay",
         "source": "seriouslyfish",
         "quote": "Type locality is given simply as 'Amazon River, Brazil' and according to current thinking this species has a huge natural range encompassing the Amazon River system in Brazil and Peru plus the Paraná-Paraguay drainage in southern Brazil and Paraguay and rio São Francisco basin in southern Brazil.",
+        "country": "BR",
         "ok": true
       },
       {
-        "name": "Rio São Francisco",
+        "name": "São Francisco",
         "source": "seriouslyfish",
         "quote": "Type locality is given simply as 'Amazon River, Brazil' and according to current thinking this species has a huge natural range encompassing the Amazon River system in Brazil and Peru plus the Paraná-Paraguay drainage in southern Brazil and Paraguay and rio São Francisco basin in southern Brazil.",
         "country": "BR",

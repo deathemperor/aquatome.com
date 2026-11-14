@@ -20,10 +20,10 @@
         "EC"
       ],
       "regions": [
+        "Amazon",
         "Rio Napo",
-        "Rio Nanay",
         "Rio Aguarico",
-        "Amazon"
+        "Rio Nanay"
       ],
       "sources": [
         "seriouslyfish"
@@ -48,8 +48,8 @@
           ],
           "regions": [
             "Rio Napo",
-            "Rio Nanay",
-            "Rio Aguarico"
+            "Rio Aguarico",
+            "Rio Nanay"
           ]
         }
       ]
@@ -132,6 +132,10 @@
       {
         "source": "seriouslyfish",
         "value": 5
+      },
+      {
+        "source": "glaser",
+        "value": 4
       }
     ],
     "tankCm": [
@@ -155,10 +159,22 @@
       "html": "<p>The Napo cory, Gastrodermus napoensis, long known as Corydoras napoensis, is an armoured catfish from the upper Amazon in Peru and Colombia, including the Rio Napo and Rio Nanay. It belongs to the 'elegans group' of similar species with G. elegans, G. bilineatus and G. nanus. Males show a dark marking in the upper dorsal fin, but females are much harder to identify, especially as G. napoensis and G. elegans occur together and are often sold in mixed shipments.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_sp_san_juan_en-2/",
+      "html": "<p>The corys belonging to the Corydoras elegans complex are very variable in respect of coloration. Moreover they have a juvenile coloration that differs from the adult coloration, and the males have another coloration than the females. This makes them really difficult to apply to a described species. But the fish are very beautiful! One of the most beautiful species of all is Corydoras sp. \"San Juan\". Most probably these fish belong to the species C. napoensis. The specimens described here are fully grown. The males reach about 4 cm total length, females grow a bit larger.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-napoensis",
       "html": "<p>Fairly widespread. It's native to the Rio Napo, Rio Aguarico and Rio Nanay in Ecuador and Peru.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_sp_san_juan_en-2/",
+      "html": "<p>Peru.</p>"
     },
     {
       "key": "habitat",
@@ -218,23 +234,23 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/ce26222c0404666f.webp",
+      "thumb": "https://media.aquatome.com/commons/ce26222c0404666f-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC0",
       "author": "BRKOSLAV SEVERNÍ",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_napoensis2.jpg",
-      "caption": "Corydoras napoensis",
-      "thumb": "https://media.aquatome.com/commons/ce26222c0404666f-480.webp"
+      "caption": "Corydoras napoensis"
     },
     {
       "url": "https://media.aquatome.com/commons/b601af6211ddbca6.webp",
+      "thumb": "https://media.aquatome.com/commons/b601af6211ddbca6-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC0",
       "author": "BRKOSLAV SEVERNÍ",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_napoensis.jpg",
-      "caption": "Corydoras napoensis",
-      "thumb": "https://media.aquatome.com/commons/b601af6211ddbca6-480.webp"
+      "caption": "Corydoras napoensis"
     }
   ],
   "videos": [
@@ -292,5 +308,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-13"
 }

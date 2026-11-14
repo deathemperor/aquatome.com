@@ -1,0 +1,249 @@
+{
+  "id": "hypostomus-oculeus",
+  "scientificName": "Hypostomus oculeus",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hypostomus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "colombia",
+    "japura",
+    "brazil"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Japurá River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Río Orteguasa, Florencia, Caquetá, Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: upper Japurá River basin.",
+          "countries": [],
+          "regions": [
+            "Japurá River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202270,
+      "total": 32,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "PE",
+          15
+        ],
+        [
+          "CO",
+          8
+        ],
+        [
+          "EC",
+          5
+        ],
+        [
+          "BR",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -4.21875,
+          7,
+          0
+        ],
+        [
+          -78.75,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -78.75,
+          0,
+          1,
+          0
+        ],
+        [
+          -77.34375,
+          -9.84375,
+          3,
+          0
+        ],
+        [
+          -77.34375,
+          -8.4375,
+          3,
+          0
+        ],
+        [
+          -77.34375,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -77.34375,
+          -1.40625,
+          2,
+          0
+        ],
+        [
+          -77.34375,
+          0,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          0,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          1.40625,
+          4,
+          4
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          0,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          2,
+          0
+        ],
+        [
+          -47.8125,
+          -15.46875,
+          2,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 5.8,
+          "max": 6.8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 21.7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1329",
+      "html": "<ul><li>Scientific name: Hypostomus oculeus (Fowler, 1943)</li><li>Type locality: Río Orteguasa, Florencia, Caquetá, Colombia.</li><li>IUCN Red List: Data Deficient (last assessed 2014).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1329",
+      "html": "<p>South America: upper Japurá River basin.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1329",
+      "html": "<ul><li>pH: 5.8–6.8</li><li>Temperature: 18–24°C</li></ul>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1329",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1329",
+      "html": "<p>Previously placed in Cochliodon and now included in the larger genus Hypostomus as a member of the Hypostomus Cochliodon group. All these species have higher backs than other conspecifics and spoon-shaped teeth (like Panaque).</p><p>Etymology: Greek, hypo = under + Greek, stoma = mouth.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1329",
+      "html": "<p>Proceedings of the Academy of Natural Sciences of Philadelphia v. 95, pp 256, Figs. 48-51.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "viên chìm ăn rong tảo"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

@@ -19,7 +19,8 @@
         "Brahmaputra"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -146,6 +147,12 @@
       "html": "<p>The scarlet badis, Dario dario, is a tiny badid from tributaries of the Brahmaputra in West Bengal and Assam, India. Among the smallest percoid fishes known, it grows to 20 mm SL and is a popular choice for 'nano' aquaria. Males are the only Dario with seven iridescent blue vertical bars on the flanks, and rival males can be very aggressive towards one another in confined spaces.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/dario_dario_en/",
+      "html": "<p>This species, which became well-known as Badis sp. SCARLET, is still enjoying great popularity. It is quite easy to keep and to breed, which has been done successfully several times already.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/scarlet-badis-fish-breed-profile-6751678",
@@ -162,6 +169,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dario-dario",
       "html": "<p>Appears to be restricted to tributary systems draining into the Brahamaputra River in parts of West Bengal and Assam states, India although it may also range into Bhutan.</p><p>Kullander and Britz (2002) designated a neotype, for which the locality is 'Janali River, Raimana, 26°39'00\"N, 89°58'00\"E, Brahmaputra River drainage, Kokrajhar District, Assam, India'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/dario_dario_en/",
+      "html": "<p>Origin: India.</p>"
     },
     {
       "key": "habitat",
@@ -236,6 +249,12 @@
       "html": "<p>Slow-moving with a retiring nature, and easily intimidated or outcompeted for food by larger or more aggressive tankmates. It is best maintained alone or with small pelagic species.</p><p>Rival males can be very aggressive towards one another, especially in confined spaces. In small aquaria only a single pair or one male and several females should be purchased, but in roomier surroundings a group can coexist provided there is space for each male to establish a territory.</p><p>Well-planned placement of caves can help in this respect; do not be tempted to cluster all available spawning sites in one area, for example. If you do intend to house it in a community tankmates must be chosen with care.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/dario_dario_en/",
+      "html": "<p>This dwarf badis can be kept very well along with dwarf rasboras.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/scarlet-badis-fish-breed-profile-6751678",
@@ -273,17 +292,6 @@
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/sprucepets/57c235007029f643.webp",
-      "thumb": "https://media.aquatome.com/sprucepets/57c235007029f643-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "dùng với sự cho phép",
-      "author": "The Spruce Pets",
-      "sourceUrl": "https://www.thesprucepets.com/scarlet-badis-fish-breed-profile-6751678",
-      "caption": "Scarlet badis dario dario",
-      "source": "sprucepets"
-    },
     {
       "url": "https://media.aquatome.com/seriouslyfish/ede2911f6bdbdc7f.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/ede2911f6bdbdc7f-480.webp",
@@ -329,7 +337,32 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "k83K-OT8BoA",
+      "title": "Der Scharlachrote Zwergblaubarsch - Dario dario | ADVENTdicted! Adventskalender | Türchen 8",
+      "durationSec": 871,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "KtNrbUrNnV4",
+      "title": "SCARLET BADIS SPECIES PROFILE",
+      "durationSec": 524,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "cgi2mHxHCoU",
+      "title": "Revierkämpfe, Balztänze und Babyfische: Dario Dario Zucht Update",
+      "durationSec": 1068,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "o8pV8_pLcW4",
+      "title": "Scarlet Badis - Pretty Little Hate Machines | Fish Species Profile",
+      "durationSec": 521,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -359,5 +392,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-13"
 }

@@ -1,0 +1,89 @@
+{
+  "id": "rasboroides-vaterifloris",
+  "native": {
+    "input": "fea14f89ab4650eb",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The fire rasbora, Rasboroides vaterifloris, is a small cyprinid endemic to the Kalu, Bentota, Gin and Nilwala river basins of southwestern Sri Lanka.",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to southwestern Sri Lanka where it is restricted to the Kalu, Bentota, Gin, and Nilwala river basins in the southwestern 'wet zone' of the island, with type locality given as 'Kaluganga River, near Illukvattai ferry on Ratnapura to Gilimalé road, Sabaragamuwa Province'.",
+        "words": "Sri Lanka",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kalu",
+        "source": "seriouslyfish",
+        "quote": "The fire rasbora, Rasboroides vaterifloris, is a small cyprinid endemic to the Kalu, Bentota, Gin and Nilwala river basins of southwestern Sri Lanka.",
+        "country": "LK",
+        "ok": true
+      },
+      {
+        "name": "Bentota",
+        "source": "seriouslyfish",
+        "quote": "The fire rasbora, Rasboroides vaterifloris, is a small cyprinid endemic to the Kalu, Bentota, Gin and Nilwala river basins of southwestern Sri Lanka.",
+        "country": "LK",
+        "ok": true
+      },
+      {
+        "name": "Gin",
+        "source": "seriouslyfish",
+        "quote": "The fire rasbora, Rasboroides vaterifloris, is a small cyprinid endemic to the Kalu, Bentota, Gin and Nilwala river basins of southwestern Sri Lanka.",
+        "country": "LK",
+        "ok": true
+      },
+      {
+        "name": "Nilwala",
+        "source": "seriouslyfish",
+        "quote": "The fire rasbora, Rasboroides vaterifloris, is a small cyprinid endemic to the Kalu, Bentota, Gin and Nilwala river basins of southwestern Sri Lanka.",
+        "country": "LK",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rasboroides vaterifloris",
+    "status": "ACCEPTED",
+    "taxonKey": 5851550,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "LK"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T05:39:06.336Z"
+  }
+}

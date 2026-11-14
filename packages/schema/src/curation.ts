@@ -108,6 +108,38 @@ export const LoopSchema = z.object({
   if (l.snapshot && !new RegExp(`^https://web\\.archive\\.org/web/\\d{14}/https://www\\.youtube\\.com/watch\\?v=${id}$`).test(l.snapshot)) ctx.addIssue({ code: 'custom', message: "a YouTube loop's snapshot is a dated Internet Archive copy of its own video's page" })
 })
 
+/**
+ * A keepers' group on Khám phá's chips row (the Design Lead's spec-chips.md; the Writing Lead's groups and words, the chief of
+ * staff's order, 13 Nov). Which fish it holds is a rule, so a fish the engine adds joins without an edit here: a species is
+ * in where it matches every field given (each a list, any of whose values will do) or is named in `species`; a breed is in
+ * where what it is a form of, or for a cross its parents, is in, or where it is named in `breeds`.
+ */
+export const ChipSchema = z.object({
+  id: z.string().regex(/^[a-z0-9-]+$/),
+  /** Its word in each language whose keepers' word is settled (read by the editors); a language without one has no such chip. */
+  names: z.partialRecord(z.enum(LANGS), z.string().trim().min(1).max(30)),
+  match: z.object({
+    group: z.array(z.string()).optional(),
+    /** A place the species lives in (a continent, a country: `places`). */
+    places: z.array(z.string()).optional(),
+    family: z.array(z.string()).optional(),
+    genus: z.array(z.string()).optional(),
+    species: z.array(z.string()).optional(),
+    breeds: z.array(z.string()).optional(),
+    /** Species or breeds the rule would take that keepers don't count in the group, by id (Tép leaves out crayfish and
+     * marine shrimp: the Writing Lead, 14 Nov). A breed of a species left out is out too. */
+    except: z.array(z.string()).optional(),
+  }).refine(({ except: _, ...m }) => Object.values(m).some(v => v?.length), 'a chip holds some fish'),
+  /** Members whose photo is tried first for its picture, in order. */
+  cover: z.array(z.string()).optional(),
+  /**
+   * Guides by id, set by hand against the title rule (chipGuides): `add`, one about the group whose title misses its
+   * names (Ali's are titled "cichlid châu Phi"); `off`, one whose title holds a name and isn't about it ("cá ốc", the
+   * shell dwellers, under Ốc).
+   */
+  guides: z.object({ add: z.array(z.string()).optional(), off: z.array(z.string()).optional() }).optional(),
+})
+
 export const CurationSchema = z.object({
   version: z.literal(1),
   weeks: z.array(CurationWeekSchema),
@@ -135,12 +167,18 @@ export const CurationSchema = z.object({
    */
   searches: z.partialRecord(z.enum(LANGS), z.array(z.string().trim().min(1).max(40)).length(8)
     .refine(xs => new Set(xs.map(x => x.toLowerCase())).size === xs.length, 'a search listed twice')).default({}),
+  /**
+   * Khám phá's chips row, in its order, a plain list the owner may reorder or strike from (ChipSchema; the chief of staff,
+   * 14 Nov: an order computed from counts put groups of one fish with many breeds last).
+   */
+  chips: z.array(ChipSchema).default([]).refine(cs => new Set(cs.map(c => c.id)).size === cs.length, 'a chip listed twice'),
 })
 
 export type Curation = z.infer<typeof CurationSchema>
 export type CurationDay = z.infer<typeof CurationDaySchema>
 export type CurationWeek = z.infer<typeof CurationWeekSchema>
 export type Loop = z.infer<typeof LoopSchema>
+export type Chip = z.infer<typeof ChipSchema>
 export type CurationCopy = Partial<Record<Lang, string>>
 
 /** The owner's day, in Vietnam (UTC+7): the readers' four countries are UTC+7 or +8. */

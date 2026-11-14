@@ -1,3 +1,4 @@
+import { denied } from './piece-admission'
 import { expectControlledRejections } from './photo-privacy-assertions'
 import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
@@ -307,4 +308,27 @@ test('a photo judged before the subject was asked is asked once, ahead of photos
   expect(urls((await json(root, `content/guides/${id}/entity.json`)).photos)).toEqual(['lead', 'old'])
   expect((await screenGuidePhotos(root, d, { limit: 1 })).judged).toBe(0)
   expect(seen).toHaveLength(1)
+})
+
+test('item admission stops without model calls or content changes', async () => {
+  const root = await store({ guide: { photos: [photo('fish')] } })
+  const { d, seen } = model({})
+  await denied('guide-photos', root, async () => {
+    const r = await screenGuidePhotos(root, d, { limit: 10 })
+    expect(r.stopped).toBeTruthy()
+    expect(r.failed).toEqual([])
+    expect(seen).toEqual([])
+  })
+})
+
+test("a guide's photo with a person in it that is also a fish page's last photo leaves the guide but not the list, so the page keeps it for a second look", async () => {
+  // The chief of staff, 2026-11-14: a page's last photo doesn't come off on an automatic check's word alone (last-photo.ts).
+  const root = await store({ 'how-to-net': { photos: [photo('netted'), photo('tank')] } })
+  await mkdir(join(root, 'content/species/a'), { recursive: true })
+  await writeFile(join(root, 'content/species/a/entity.json'), JSON.stringify({ id: 'a', photos: [photo('netted')] }))
+  const out = await screenGuidePhotos(root, model({ netted: { person: true, note: 'a hand holds the net' } }).d, { limit: 10 })
+  expect(out.held).toEqual([`${url('netted')}: species/a`])
+  expect(urls((await json(root, 'content/guides/how-to-net/entity.json')).photos)).toEqual(['tank'])
+  expect(Object.keys(await json(root, 'engine-state/_photo-rejected.json').catch(() => ({})))).not.toContain(url('netted'))
+  expect((await json(root, 'engine-state/_photo-second-look.json'))[url('netted')]).toMatchObject({ step: 'the guide photo check', pages: ['species/a'] })
 })

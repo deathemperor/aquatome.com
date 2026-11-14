@@ -10,32 +10,54 @@
     "french-guiana",
     "approuague",
     "brazil",
-    "oyapock"
+    "oyapock",
+    "guyana"
   ],
   "range": {
     "native": {
       "countries": [
         "GF",
-        "BR"
+        "BR",
+        "GY"
       ],
       "regions": [
+        "Oyapock",
         "Approuague",
-        "Oyapock"
+        "Rio Oyapock",
+        "Rio Approuague"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Native to the Approuague and Oyapock river basins in French Guiana and northern Brazil.",
+          "quote": "Leopold's tetra, Astyanax leopoldi, is a characid native to the Approuague and Oyapock river basins in French Guiana and Brazil.",
           "countries": [
             "GF",
             "BR"
           ],
           "regions": [
-            "Approuague",
-            "Oyapock"
+            "Oyapock",
+            "Approuague"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Origin: Guyana, Rio Oyapock.",
+          "countries": [
+            "GY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Apart from Rio Oyapock, Astyanax leopoldi are also said to be found in Rio Approuague.",
+          "countries": [],
+          "regions": [
+            "Rio Oyapock",
+            "Rio Approuague"
           ]
         }
       ]
@@ -43,7 +65,7 @@
     "records": {
       "taxonKey": 5204254,
       "total": 147,
-      "fetched": "2026-11-06",
+      "fetched": "2026-11-14",
       "countries": [
         [
           "GF",
@@ -143,6 +165,12 @@
       "html": "<p>Native to the Approuague and Oyapock river basins in French Guiana and northern Brazil.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/astyanax_leopoldi_en/",
+      "html": "<p>Apart from Rio Oyapock, Astyanax leopoldi are also said to be found in Rio Approuague. Origin: Guyana, Rio Oyapock.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-leopoldi",
@@ -159,6 +187,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-leopoldi",
       "html": "<p>Quite adaptable. It will thrive in a stream-type setup with a gravel substrate, smooth stones and a good amount of water flow. It is equally happy in an Amazon-style arrangement or heavily-planted tank, though. Given its natural habitat, assume good oxygenation to be key for its long term survival.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/astyanax_leopoldi_en/",
+      "html": "<p>Especially when doing too generous water changes with raising the pH-value, fish of all ages occasionally respond with symptoms of a \"shock\" (body gets white), from which they sometimes do not recover.</p>"
     },
     {
       "key": "waterConditions",
@@ -179,6 +213,12 @@
       "html": "<p>Very peaceful and suitable for many community tanks. Don't keep it with anything very large or aggressive. Good tankmates include small characins, dwarf cichlids and peaceful catfishes from the families Callichthyidae and Loricariidae. It's a schooling species by nature, so buy a group of at least 8-10.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/astyanax_leopoldi_en/",
+      "html": "<p>Apart from that, these are very enduring, peaceful and \"grateful\" fish. Because of their rhomboid body form these animals remind one a little of African tetras of the species Phenacogrammus or Bathyaethiops.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-leopoldi",
@@ -191,10 +231,22 @@
       "html": "<p>Has apparently been bred in captivity but we've been unable to obtain any specifics thus far.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/astyanax_leopoldi_en/",
+      "html": "<p>Breeding was achieved fairly soon, even though this tetra was not always unproblematic.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-leopoldi",
       "html": "<p>Most Astyanax spp. are not popular in the aquarium hobby, though the genus is among the most speciose within the family Characidae. A. leopoldi is no exception in that you'll rarely see it offered for sale.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/astyanax_leopoldi_en/",
+      "html": "<p>They were named in honour of King Leopold III of Belgium, who attended an ichthyological expedition to Rio Oyapock in 1962. Although they are not really coloured newcomers, they surely earn a permanent position among aquarium hobbyists.</p>"
     }
   ],
   "photos": [],
@@ -228,5 +280,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-13"
 }

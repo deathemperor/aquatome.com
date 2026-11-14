@@ -1,0 +1,335 @@
+{
+  "id": "hypostomus-taphorni",
+  "scientificName": "Hypostomus taphorni",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hypostomus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "guyana",
+    "essequibo",
+    "venezuela",
+    "cuyuni",
+    "rupununi"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "GY",
+        "VE"
+      ],
+      "regions": [
+        "Essequibo",
+        "Cuyuni",
+        "Berbice",
+        "Corantijn"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Essequibo River basin, Guyana.",
+          "countries": [
+            "GY"
+          ],
+          "regions": [
+            "Essequibo"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Río Botanamo, Río Cuyuni drainage, near the bridge on the road to Bochinche, Bolívar State, Venezuela.",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Cuyuni"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "IUCN Red List: Hypostomus taphorni has a wide range in the Essequibo, Berbice, and Corantijn river basins, and the species appears to be tolerant of poor water quality.",
+          "countries": [],
+          "regions": [
+            "Berbice",
+            "Corantijn"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202251,
+      "total": 81,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "GY",
+          60
+        ],
+        [
+          "VE",
+          18
+        ],
+        [
+          "BR",
+          1
+        ],
+        [
+          "CO",
+          1
+        ],
+        [
+          "SR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -71.71875,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          7.03125,
+          4,
+          4
+        ],
+        [
+          -61.875,
+          5.625,
+          8,
+          8
+        ],
+        [
+          -61.875,
+          7.03125,
+          5,
+          5
+        ],
+        [
+          -60.46875,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          -60.46875,
+          2.8125,
+          29,
+          29
+        ],
+        [
+          -60.46875,
+          5.625,
+          4,
+          4
+        ],
+        [
+          -59.0625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          2.8125,
+          7,
+          7
+        ],
+        [
+          -59.0625,
+          4.21875,
+          14,
+          14
+        ],
+        [
+          -59.0625,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          4.21875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 23
+      },
+      {
+        "source": "scotcat",
+        "value": 23
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "scotcat",
+        "value": 120
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1331",
+      "html": "<p>Hypostomus taphorni (Lilyestrom, 1984). Synonym: Cochliodon taphorni. Maximum size 228 mm SL (9 inches).</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_taphorni.htm",
+      "html": "<p>Family: Loricariidae. Maximum size: 23 cm. Temperature: 24–27°C. pH: 6.0–7.5.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1331",
+      "html": "<p>South America: Essequibo River basin, Guyana. Type locality: Río Botanamo, Río Cuyuni drainage, near the bridge on the road to Bochinche, Bolívar State, Venezuela.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_taphorni.htm",
+      "html": "<p>South America: Cuyuni River basin, Essequibo drainage, Venezuela (Armbruster, 2003a), Rupununi River and Takutu River basins, Guyana (Armbruster &amp; de Souza, 2005).</p><p>Type locality: Río Botanamo, cerca del puente en la vía a Bochinche, Edo, Bolívar, Venezuela.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_taphorni.htm",
+      "html": "<p>Adults are rather intolerant towards other large Loricariid catfishes. It produces a lot of waste in the aquarium, so frequent water changes are a must. Fairly easy to keep in a larger tank over 4 ft (120 cm).</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1331",
+      "html": "<p>Being a member of the Hypostomus cochliodon group, it will eat wood.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_taphorni.htm",
+      "html": "<p>Grazes on wood, so it needs soft wood in the aquarium. Food tablets, pellets and vegetable foods are also taken, along with insect larvae.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_taphorni.htm",
+      "html": "<p>Males grow larger and have longer fins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1331",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1331",
+      "html": "<p>Previously placed in Cochliodon and now included in the larger genus Hypostomus as a member of the Hypostomus Cochliodon group. All these species have higher backs than other conspecifics and spoon-shaped teeth (like Panaque). Fishbase and CLOFFSCA disagree on size: 185 mm SL is listed in CLOFFSCA.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_taphorni.htm",
+      "html": "<p>Hypostomus taphorni can be distinguished from all other members of the H. cochliodon group by the combination of having a bicolored caudal fin (light above, dark below) and small spots on the abdomen. Some specimens tentatively identified as H. plecostomoides from northern Bolivar State, Venezuela, have a bicoloured caudal fin, but have medium to large spots on the abdomen.</p><p>It is placed in the Hypostomus cochliodon species group, which have a shorter body and are more high-backed than other members of Hypostomus. They have a small number of spatulate teeth with a single cusp, with the jaws arranged in a V shape.</p><p>Etymology: the specific name taphorni is in honour of American ichthyologist Donald C. Taphorn (b. 1951), colleague, friend, and student of Venezuelan fishes (he also helped collect the holotype).</p><p>Remarks: Redescribed and included in the Hypostomus cochliodon species group in Armbruster (2003a).</p><p>IUCN Red List: Hypostomus taphorni has a wide range in the Essequibo, Berbice, and Corantijn river basins, and the species appears to be tolerant of poor water quality. Therefore, it is considered Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1331",
+      "html": "<p>Rev. Unellez Cien. Tec. v. 2 43 Fig. 8-9</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_taphorni.htm",
+      "html": "<ul><li>Armbruster W. Jonathan; 2003. The species of the Hypostomus cochliodon group (Siluriformes: Loricariidae) Zootaxa 249: 1-60 (2003).</li><li>Armbruster, J.W. 2023. Hypostomus taphorni. The IUCN Red List of Threatened Species 2023.</li><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Froese, R. and D. Pauly. Editors. 2015. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 11/2017 ).</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li><li>Weber, C., 2003. Loricariidae - Hypostominae (Armored catfishes). p. 351-372. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/7a7155f7ed7b68b3.webp",
+      "thumb": "https://media.aquatome.com/scotcat/7a7155f7ed7b68b3-480.webp",
+      "width": 500,
+      "height": 332,
+      "licence": "dùng với sự cho phép",
+      "author": "Whit Bronaugh / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_taphorni.htm",
+      "caption": "Hypostomus taphorni",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/d611b521feab7319.webp",
+      "thumb": "https://media.aquatome.com/scotcat/d611b521feab7319-480.webp",
+      "width": 500,
+      "height": 332,
+      "licence": "dùng với sự cho phép",
+      "author": "Whit Bronaugh / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_taphorni.htm",
+      "caption": "Hypostomus taphorni",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "viên chìm cá lau kiếng"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

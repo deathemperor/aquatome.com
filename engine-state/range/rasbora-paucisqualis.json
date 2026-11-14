@@ -1,0 +1,72 @@
+{
+  "id": "rasbora-paucisqualis",
+  "native": {
+    "input": "2976c7daaca4db37",
+    "at": "2026-11-13T16:40:05.311Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described on the basis of a single specimen from the aquarium trade which was supposedly imported from the Malay Peninsula, and currently accepted to occur throughout much of Peninsular Malaysia with records existing from the states of Johor, Pahang, Selangor, Kelantan and Terengganu.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Malay Peninsula",
+        "source": "seriouslyfish",
+        "quote": "Described on the basis of a single specimen from the aquarium trade which was supposedly imported from the Malay Peninsula, and currently accepted to occur throughout much of Peninsular Malaysia with records existing from the states of Johor, Pahang, Selangor, Kelantan and Terengganu.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rasbora paucisqualis",
+    "status": "ACCEPTED",
+    "taxonKey": 2359583,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        15
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        15
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        7
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "MY"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T00:09:29.977Z"
+  }
+}

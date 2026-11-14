@@ -1,14 +1,14 @@
 {
   "id": "betta-mahachaiensis",
   "native": {
-    "input": "50a5c55f4dc5d716",
-    "at": "2026-11-06T18:08:44.169Z",
+    "input": "709c2132d36f1869",
+    "at": "2026-11-14T05:39:06.336Z",
     "claims": [
       {
         "code": "TH",
         "status": "native",
         "source": "bwaquatics",
-        "quote": "It is native to brackish coastal waters of Thailand's Samut Sakhon and Samut Songkhram provinces, particularly around Mahachai.",
+        "quote": "The wild type is the natural green form of Betta mahachaiensis, described in 2012 from Samut Sakhon province in Thailand.",
         "words": "Thailand",
         "ok": true
       },
@@ -21,7 +21,15 @@
         "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Gulf of Thailand",
+        "source": "bwaquatics",
+        "quote": "It is native to the coast of the Gulf of Thailand around Samut Sakhon.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {

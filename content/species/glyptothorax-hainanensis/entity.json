@@ -1,0 +1,129 @@
+{
+  "id": "glyptothorax-hainanensis",
+  "scientificName": "Glyptothorax hainanensis",
+  "order": "Siluriformes",
+  "family": "Sisoridae",
+  "genus": "Glyptothorax",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "china",
+    "hainan"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Hainan Island"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Nodoa, Hainan Island, China.",
+          "countries": [],
+          "regions": [
+            "Hainan Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341439,
+      "total": 3,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "CN",
+          2
+        ],
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          37.96875,
+          1,
+          1
+        ],
+        [
+          106.875,
+          15.46875,
+          1,
+          0
+        ],
+        [
+          109.6875,
+          19.6875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1373",
+      "html": "<p>Scientific name: Glyptothorax hainanensis (Nichols &amp; Pope, 1927).</p><p>Type locality: Nodoa, Hainan Island, China.</p><p>Maximum size: 8 cm SL.</p><p>IUCN Red List: Not Evaluated.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1373",
+      "html": "<p>Asia: China.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1373",
+      "html": "<p>Sisorid catfishes of the genus Glyptothorax are benthic inhabitants of torrential waters of rivers and streams in montane and submontane parts of tropical Asia. They attach themselves to rocks and boulders against strong currents by means of a thoracic adhesive apparatus comprising grooves and folded pleats of skin parallel or oblique to the longitudinal axis of the body. This species also occurs in brackish water.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1373",
+      "html": "<p>Unreported in the aquarium.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1373",
+      "html": "<p>Etymology: the generic name comes from the Greek glyptos, meaning carved, and thorax, meaning breastplate (or the part of the body covered by it), in reference to the folds of skin comprising the thoracic adhesive apparatus.</p><p>Identification: flat head, round snout. Small eyes located in the middle of the head. The maxillary barbel reaches the pectoral fin; the short nasal barbel reaches only the eye. Body naked without scales, lateral line straight. Yellowish on the pectoral area and belly. Three black spots on the body: one under the dorsal fin, one under the adipose fin, and one near the base of the caudal fin.</p><p>The genus has a wide distribution, from Turkey and Syria in the west to India and China in the east, and southeast to Indonesia. With 84 nominal species, Glyptothorax is the most speciose genus of catfishes in Asia; 67 species were treated as valid by Thomson &amp; Page (2006).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1373",
+      "html": "<p>Bulletin of the American Museum of Natural History v. 54 (art. 2), pp 333, Fig. 7.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-13"
+}

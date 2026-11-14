@@ -76,6 +76,10 @@
       {
         "source": "seriouslyfish",
         "value": 6.5
+      },
+      {
+        "source": "glaser",
+        "value": 6
       }
     ],
     "difficulty": [
@@ -93,16 +97,34 @@
       "html": "<p><em>Brochis amandajanea</em>, long known as <em>Corydoras amandajanea</em>, is an armoured catfish from the Rio Miuã system of streams off the upper Rio Negro in Brazil. It is rare in the aquarium trade and appears to be variable in colour pattern, some individuals having larger dark spots on the body. Little has been written about it since its description, and the congener <em>B. cryptica</em> was described from the same locality.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_amandajanea_en/",
+      "html": "<p>This beautiful species of Corydoras is only occasionally available. It has a comparably pointed snout and becomes around 6 cm long.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brochis-amandajanea",
       "html": "<p>Type locality is 'Rio Miuã system of streams, possibly the Uarinabe stream, 10-12 km from its confluence of the Upper Negro R., Brazil'.</p><p>This appears to correspond to an area close to the municipality of São Gabriel da Cachoeira, Amazonas state, but no additional information has been obtained to date.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_amandajanea_en/",
+      "html": "<p>Brazil.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brochis-amandajanea",
       "html": "<p>Little is known, but the congener <em>Brochis cryptica</em> was described from the same locality so presumably these two occur sympatrically.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_amandajanea_en/",
+      "html": "<p>In its natural habitat this species lives in dark water.</p>"
     },
     {
       "key": "maintenance",
@@ -141,10 +163,22 @@
       "html": "<p><em>Brochis amandajanea</em> is rare in the aquarium trade and appears to be variable in colour pattern to an extent, with some individuals possessing relatively larger dark spots on the body, for example.</p><p>Unfortunately diagnostic characters cannot be provided since the type description has not been obtained to date, and little has been written about this species since it was published.</p><p>Until 2024 this species was placed in <em>Corydoras</em>, then among the largest catfish genera with over 150 valid species. Dias et al. (2024) divided it into five genera and moved this species to <em>Brochis</em>.</p><p>It is included in the family Callichthyidae, of which members are often referred to collectively as 'armoured' or 'mailed' catfishes due to the presence of bony plates in place of scales on the body.</p><p>Their taxonomy can be confusing, and numerous undescribed species are also thought to exist. Fish of unconfirmed identification entering the aquarium hobby are therefore typically assigned a 'C' or 'CW' number for purposes of reference and organisation.</p><p>They are facultative air breathers and possess a modified, highly vascularised intestine which has evolved to facilitate uptake of atmospheric oxygen and aid survival in oxygen-deprived environments. In the aquarium they are occasionally seen rising to the surface to take in gulps of air.</p><p>The stiffened pectoral-fin spines are capable of piercing human skin and a 'sting' can be very painful indeed, so care should be exercised when handling them.</p><p>It is thought that secretions from the axillary glands at the base of each spine may even be mildly toxic or venomous.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_amandajanea_en/",
+      "html": "<p>Corydoras: from ancient Greek, means \"with helmet and spear\", referring to the strong armour and fin spines. amandajanea: dedication name for Amanda Jane Sands.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brochis-amandajanea",
       "html": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Sands, D. D. (1995). Four new Corydoras (Callichthyidae) species from Upper Negro River tributaries and a range extension, together with a discussion of C. bicolor Nijssen &amp; Isbrücker. Freshwater and Marine Aquarium 18(7), 8-12, 14, 16, 18</li></ul>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_amandajanea_en/",
+      "html": "<p>It has only very few markings on the light coloured body: the dark eyeband and a rectangular blotch right below the dorsal fin. Moreover a bright shining marking in the neck helps to find and recognize conspecifics. Besides this the body can be fine spotted or plain, this differs individually. When the light falls sideways in the tank, the flanks can show a very nice, bright green shine.</p>"
     }
   ],
   "photos": [],
@@ -203,5 +237,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-13"
 }

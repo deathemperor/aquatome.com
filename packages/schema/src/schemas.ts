@@ -3,7 +3,7 @@ import { isCountryCode } from './countries'
 import { WRITTEN_OTHER_LANGS, type WrittenOtherLang } from './langs'
 import { byCount, CELL_DEG } from './range'
 
-export const SOURCE_IDS = ['seriouslyfish', 'planetcatfish', 'loachesonline', 'glaser', 'bwaquatics', '2hraquarist', 'aquariumcoop', 'sprucepets', 'aquariumbreeder', 'tropica', 'scotcat', 'facebook-jim', 'panitvong', 'cryptspages', 'diendancacanh', 'youtube', 'aquatome', 'aquazonefish', 'aquahouse', 'chothuysinh', 'cacanhtailoc'] as const
+export const SOURCE_IDS = ['seriouslyfish', 'planetcatfish', 'loachesonline', 'glaser', 'bwaquatics', '2hraquarist', 'aquariumcoop', 'sprucepets', 'aquariumbreeder', 'tropica', 'scotcat', 'facebook-jim', 'panitvong', 'cryptspages', 'diendancacanh', 'youtube', 'aquatome', 'aquazonefish', 'aquahouse', 'chothuysinh', 'cacanhtailoc', 'practicalfishkeeping'] as const
 export { LANGS, WRITTEN_LANGS } from './langs'
 
 export const SECTION_ORDER = ['quickFacts', 'beforeYouBuy', 'distribution', 'habitat', 'aquariumSize', 'maintenance', 'waterConditions', 'equipment', 'diet', 'behaviour', 'dimorphism', 'reproduction', 'notes', 'references'] as const
@@ -227,7 +227,17 @@ export const SeriesSchema = z.object({
   vi: z.object({ slug: z.string(), name: z.string(), intro: z.string() }),
 })
 
-export const GlossarySchema = z.object({ id: z.string(), en: z.string(), latin: z.string().optional() })
+/**
+ * A glossary term. `refs`: the pages AquaTome's fuller entry was researched from (engine glossary-entry.ts), listed under
+ * it as a guide's are. `related`: other terms' ids, the ones a reader of this entry should see next. `photos`: as a
+ * species' (Curation's records), kept by the engine's rewrites of the entry.
+ */
+export const GlossarySchema = z.object({
+  id: z.string(), en: z.string(), latin: z.string().optional(),
+  refs: z.array(z.object({ url: WebUrl, title: z.string().min(1) })).optional(), related: z.array(z.string()).optional(),
+  /** Only where seeing it explains the term (driftwood, white spot): the first is shown under its meaning. */
+  photos: z.array(Photo).optional(),
+})
 export const PlaceSchema = z.object({
   id: z.string(), kind: z.enum(['continent', 'country', 'region', 'river']), parent: z.string().optional(),
   /** The countries (ISO codes) of the sentence that names a river or region only a species' range names, for whoever names it. A `parent` would list it on the country's page and link its name in guides. */
@@ -312,6 +322,22 @@ export const BreedSchema = z.object({
   /** Wikimedia Commons category for its photos, when there is one. */
   commons: z.string().optional(),
   sources: z.array(z.object({ url: WebUrl, title: z.string(), kind: z.enum(['breeder', 'shop', 'article', 'forum', 'video', 'paper', 'other']), at: z.string() })),
+  updatedAt: z.string(),
+})
+
+/** Hobby materials: our own cited writing, Vietnamese-only during the unlisted pilot. */
+export const MATERIAL_SECTION_ORDER = ['about', 'water', 'prepare', 'suits', 'mistakes', 'buy'] as const
+/**
+ * A hobby material's page (content/materials/<id>/): a driftwood kind, a substrate, a rock, a botanical (lá bàng, quả
+ * thông). `names`, and each language's `altNames`, hold only names a source writes, as it writes them (the engine keeps
+ * the evidence). A price, in `buy`, only from a Vietnamese shop's own page, dated beside it.
+ */
+export const MaterialSchema = z.object({
+  id: z.string(), kind: z.enum(['wood', 'substrate', 'rock', 'botanical', 'other']),
+  /** The general material page whose kinds include this one (for example, lua). */
+  parent: z.string().optional(),
+  names: z.array(z.string()), photos: z.array(Photo),
+  sources: z.array(z.object({ url: WebUrl, title: z.string(), kind: z.enum(['shop', 'article', 'forum', 'video', 'paper', 'other']), at: z.string() })),
   updatedAt: z.string(),
 })
 

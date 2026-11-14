@@ -1,8 +1,9 @@
-import { spawn, spawnSync } from 'node:child_process'
+import { execFileSync, spawn, spawnSync } from 'node:child_process'
 import { chmodSync, copyFileSync, existsSync, mkdirSync, mkdtempSync, readFileSync, realpathSync, utimesSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { slow } from '@aq/schema/test-time'
 import { expect, test } from 'vitest'
 
 // A cycle can't hang on GitHub, and one that hangs anyway is said loudly (the chief of staff, 13 Nov 2026). The Mac's
@@ -131,7 +132,8 @@ test('a Mac cycle whose opening fetch outlives a sleep ends, says the Mac slept,
   const t = Date.now()
   // The default limit, 600 s, and the Mac asleep for an hour once the fetch has begun.
   const r = m.cycle({ AQ_CLOCK: m.exe('clock', SLEEPS) })
-  expect((Date.now() - t) / 1000).toBeLessThan(20)
+  // 20 s, scaled for this run: a live run's second try gives its tests 6 times their limits.
+  expect((Date.now() - t) / 1000).toBeLessThan(slow(20_000) / 1000)
   expect(r.status).toBe(124)
   const stopped = 'git fetch -q origin: no answer from GitHub in 3600 s, stopped; the Mac slept 58 min of that, and a connection doesn\'t outlive a sleep'
   expect(r.stdout).toMatch(new RegExp(`Z ${stopped.replace(/[().]/g, '\\$&')}\\n.*Z the Mac slept 58 min during this cycle\\n?$`))
@@ -150,7 +152,7 @@ test('"previous cycle still running" says when that cycle\'s last line is hours 
     const iso = (hoursAgo: number) => new Date(Date.now() - hoursAgo * 3_600_000).toISOString().replace(/\.\d+Z$/, 'Z')
     const log = join(m.h, 'Library/Logs/aquatome-engine-photos.log')
     // Its own last line 3 h ago; the notices since don't count as its own.
-    writeFileSync(log, `${iso(3.1)} cycle start (photos)\nsome step's output\n${iso(1)} stuck: the photos cycle (pid ${previous.pid}) has run 2 h 6 min\n`)
+    writeFileSync(log, `${iso(3.1)} cycle start (photos)\nsome step's output\n${iso(2)} past its hours: the photos cycle (pid ${previous.pid}) has run 1 h 6 min\n${iso(1)} stuck: the photos cycle (pid ${previous.pid}) has run 2 h 6 min\n`)
     const hung = m.cycle()
     expect(hung.status).toBe(0)
     expect(hung.stdout.trim()).toMatch(new RegExp(`Z previous cycle \\(pid ${previous.pid}\\) still running, its last line 3 h [56] min ago: likely hung, and nothing here stops it$`))
@@ -163,28 +165,59 @@ test('"previous cycle still running" says when that cycle\'s last line is hours 
   }
 })
 
-test('a part\'s cycle running past its hours is said in its log every hour and on GitHub once a day, and not stopped', async () => {
+// A fake cycle for engine-stuck.sh: `body` run as a part's engine-cycle.sh, detached, its PID file written.
+function fakeCycle(h: string, clones: string, part: string, body: string) {
+  mkdirSync(join(h, 'fake', part), { recursive: true })
+  writeFileSync(join(h, 'fake', part, 'engine-cycle.sh'), `${body}\n`)
+  const cycle = spawn('/bin/bash', [join(h, 'fake', part, 'engine-cycle.sh'), part], { detached: true, stdio: 'ignore' })
+  writeFileSync(join(clones, `engine-${part}/.git/aquatome-engine.pid`), `${cycle.pid}\n`)
+  return cycle
+}
+function stuckHome() {
   const { h, env, gh } = home()
   mkdirSync(join(h, 'Library/Logs'), { recursive: true })
   const clones = join(h, 'clones')
   for (const part of ['pages', 'sf', 'photos']) mkdirSync(join(clones, `engine-${part}/.git`), { recursive: true })
+  const stuck = (hours: string) => spawnSync('/bin/bash', [join(SCRIPTS, 'engine-stuck.sh')], { cwd: h, encoding: 'utf8', env: { ...env, ENGINE_CLONES: clones, ENGINE_STUCK_HOURS: hours } })
+  const log = (part: string) => (existsSync(join(h, `Library/Logs/aquatome-engine-${part}.log`)) ? readFileSync(join(h, `Library/Logs/aquatome-engine-${part}.log`), 'utf8').trim().split('\n') : [])
+  return { h, clones, gh, stuck, log }
+}
+/** The command of process `parent`'s child as ps shows it, once it's `command`, waiting up to 10 s; else it throws, so a
+ * slow machine fails plainly instead of classifying a cycle before it's in place. Its pid. */
+// Up to 10 s by the clock, however long each ps takes; each ps stopped after 2 s, and one stopped is a try that saw
+// nothing, not the end of the wait: on a loaded Mac or runner ps is slow, and the engine isn't wrong. Both times the
+// test time scale (AQ_TEST_TIME_SCALE), as a second try runs.
+async function seen(parent: number | undefined, command: string) {
+  const until = Date.now() + slow(10_000)
+  while (Date.now() < until) {
+    let table = ''
+    try {
+      table = execFileSync('ps', ['-A', '-o', 'pid=,ppid=,command='], { encoding: 'utf8', timeout: slow(2_000) })
+    } catch (e) {
+      if ((e as { code?: string }).code !== 'ETIMEDOUT') throw e
+    }
+    const c = table.split('\n').map(l => l.trim().split(/\s+/)).find(([, ppid]) => ppid === String(parent))
+    if (c?.slice(2).join(' ') === command) return c[0]!
+    await new Promise(r => setTimeout(r, 100))
+  }
+  throw new Error(`the fake cycle never showed "${command}" in ${slow(10_000) / 1000} s`)
+}
+const pattern = (line: string) => new RegExp(`Z ${line.replace(/[().]/g, '\\$&').replace('HH:MM', '\\d\\d:\\d\\d')}$`)
+
+test('a part\'s cycle that has stopped moving past its hours is called stuck, by its step, in its log every hour and on GitHub once a day, and not stopped', async () => {
+  const { h, clones, gh, stuck, log } = stuckHome()
   // The photos cycle, in a fetch that won't end; the pages part's PID file left by a cycle long gone, its number now another program's.
-  mkdirSync(join(h, 'fake'))
-  writeFileSync(join(h, 'fake/engine-cycle.sh'), 'sleep 60\n')
-  const cycle = spawn('/bin/bash', [join(h, 'fake/engine-cycle.sh'), 'photos'], { detached: true, stdio: 'ignore' })
+  const cycle = fakeCycle(h, clones, 'photos', '(exec -a "git fetch -q origin" sleep 60)')
   try {
-    writeFileSync(join(clones, 'engine-photos/.git/aquatome-engine.pid'), `${cycle.pid}\n`)
     writeFileSync(join(clones, 'engine-pages/.git/aquatome-engine.pid'), `${process.pid}\n`)
-    await new Promise(r => setTimeout(r, 300))
-    const stuck = (hours: string) => spawnSync('/bin/bash', [join(SCRIPTS, 'engine-stuck.sh')], { cwd: h, encoding: 'utf8', env: { ...env, ENGINE_CLONES: clones, ENGINE_STUCK_HOURS: hours } })
-    const log = (part: string) => (existsSync(join(h, `Library/Logs/aquatome-engine-${part}.log`)) ? readFileSync(join(h, `Library/Logs/aquatome-engine-${part}.log`), 'utf8').trim().split('\n') : [])
-    // Under its hours: nothing.
+    await seen(cycle.pid, 'git fetch -q origin 60')
+    // Under its hours: nothing said, what it's doing noted.
     expect(stuck('6').status).toBe(0)
     expect(log('photos')).toEqual([])
     expect(stuck('0').status).toBe(0)
-    const line = `stuck: the photos cycle (pid ${cycle.pid}) has run 0 h 0 min, now in: sleep 60. launchd starts no photos run until it ends, and nothing stops it by itself`
-    expect(log('photos')).toEqual([expect.stringMatching(new RegExp(`Z ${line.replace(/[().]/g, '\\$&')}$`))])
-    expect(gh()).toEqual([`workflow run engine-mac.yml -R deathemperor/aquatome.com -f part=photos -f why=${line}`])
+    const line = `stuck: the photos cycle (pid ${cycle.pid}) has run 0 h 0 min and hasn't moved since the check at HH:MM: talking to GitHub, in git fetch -q origin 60. launchd starts no photos run until it ends, and nothing stops it by itself`
+    expect(log('photos')).toEqual([expect.stringMatching(pattern(line))])
+    expect(gh()).toEqual([expect.stringMatching(new RegExp(`^workflow run engine-mac.yml -R deathemperor/aquatome.com -f part=photos -f why=${pattern(line).source.slice(2)}`))])
     // The next hour: its log again, GitHub not again; the cycle still running; the other parts said nothing.
     stuck('0')
     expect(log('photos')).toHaveLength(2)
@@ -198,5 +231,84 @@ test('a part\'s cycle running past its hours is said in its log every hour and o
     expect(gh()).toHaveLength(2)
   } finally {
     process.kill(-cycle.pid!)
+  }
+})
+
+// What ps says of a process tree, for engine-stuck.sh: a line a process, "pid|ppid|elapsed|cpu|command", rewritten
+// between checks. Its only calls: one process's command, elapsed or cpu time, and every process's pid, parent and command
+// or cpu time.
+const PS = `T="$HOME/ps-table"
+if [ "$1" = -A ]; then
+  case "$3" in
+    pid=,ppid=,command=) awk -F'|' '{ print $1, $2, $5 }' "$T" ;;
+    pid=,ppid=,time=) awk -F'|' '{ print $1, $2, $4 }' "$T" ;;
+  esac
+  exit 0
+fi
+awk -F'|' -v p="$2" -v f="$4" '$1 == p { print (f == "command=" ? $5 : f == "etime=" ? $3 : $4); found = 1 } END { exit !found }' "$T"`
+
+// Sat 14 Nov, 00:40: a pages run in its 150 minutes of writing, its model calls live, was called stuck. Three cycles 7 h
+// 10 min in, as ps would show them over three checks: pages writing, one model call ending and the next beginning, then
+// still on that call; photos in its checks, using more CPU, then none more; sf waiting its turn in the checks queue
+// throughout. Stuck is the same processes using no more CPU since the last check; a wait for the queue never is.
+test('stuck is a cycle whose processes and CPU time stayed the same since the last check; one moving, or queued, is past its hours', () => {
+  const { h, env, gh, exe } = home()
+  exe('ps', PS)
+  mkdirSync(join(h, 'Library/Logs'), { recursive: true })
+  const clones = join(h, 'clones')
+  for (const [part, pid] of [['pages', 100], ['photos', 200], ['sf', 300]] as const) {
+    mkdirSync(join(clones, `engine-${part}/.git`), { recursive: true })
+    writeFileSync(join(clones, `engine-${part}/.git/aquatome-engine.pid`), `${pid}\n`)
+  }
+  const table = (call: number, cpu: string) => writeFileSync(join(h, 'ps-table'), [
+    '1|0|9-00:00:00|1:00.00|/sbin/launchd',
+    '100|1|07:10:00|00:01.00|/bin/bash /x/scripts/engine-cycle.sh pages',
+    '101|100|06:00:00|02:00.00|node /x/node_modules/.bin/engine run --max-minutes 150',
+    `${call}|101|00:01:00|00:02.00|claude -p write`,
+    '200|1|07:10:00|00:01.00|/bin/bash /x/scripts/engine-cycle.sh photos',
+    `201|200|00:20:00|${cpu}|node /x/node_modules/.bin/vitest run`,
+    '300|1|07:10:00|00:01.00|/bin/bash /x/scripts/engine-cycle.sh sf',
+    '301|300|01:00:00|00:00.01|lockf -k /x/checks.lock nice -n 10 bash -c pnpm test',
+  ].join('\n') + '\n')
+  const stuck = () => spawnSync('/bin/bash', [join(SCRIPTS, 'engine-stuck.sh')], { cwd: h, encoding: 'utf8', env: { ...env, ENGINE_CLONES: clones } })
+  const log = (part: string) => readFileSync(join(h, `Library/Logs/aquatome-engine-${part}.log`), 'utf8').trim().split('\n')
+  const end = (part: string) => `. launchd starts no ${part} run until it ends, and nothing stops it by itself`
+  table(102, '00:10.00')
+  stuck()
+  // No check has seen them yet: it can't tell.
+  expect(log('pages')[0]).toMatch(pattern(`past its hours: the pages cycle (pid 100) has run 7 h 10 min: writing, now in claude -p write; the next check says whether it moves${end('pages')}`))
+  expect(log('photos')[0]).toMatch(pattern(`past its hours: the photos cycle (pid 200) has run 7 h 10 min: its checks, now in node /x/node_modules/.bin/vitest run; the next check says whether it moves${end('photos')}`))
+  expect(log('sf')[0]).toMatch(pattern(`past its hours: the sf cycle (pid 300) has run 7 h 10 min: waiting its turn in the checks queue, now in lockf -k /x/checks.lock nice -n 10 bash -c pnpm test${end('sf')}`))
+  // An hour on: pages' call ended and the next began; photos used 15 s more CPU.
+  table(103, '00:25.00')
+  stuck()
+  expect(log('pages')[1]).toMatch(pattern(`past its hours: the pages cycle (pid 100) has run 7 h 10 min, still moving: writing, now in claude -p write${end('pages')}`))
+  expect(log('photos')[1]).toMatch(pattern(`past its hours: the photos cycle (pid 200) has run 7 h 10 min, still moving: its checks, now in node /x/node_modules/.bin/vitest run${end('photos')}`))
+  expect(log('sf')[1]!.replace(/^\S+ /, '')).toBe(log('sf')[0]!.replace(/^\S+ /, ''))
+  // Another hour, nothing changed: pages and photos are stuck, by their step; sf is still waiting its turn.
+  stuck()
+  expect(log('pages')[2]).toMatch(pattern(`stuck: the pages cycle (pid 100) has run 7 h 10 min and hasn't moved since the check at HH:MM: writing, in claude -p write${end('pages')}`))
+  expect(log('photos')[2]).toMatch(pattern(`stuck: the photos cycle (pid 200) has run 7 h 10 min and hasn't moved since the check at HH:MM: its checks, in node /x/node_modules/.bin/vitest run${end('photos')}`))
+  expect(log('sf')[2]).not.toContain('stuck')
+  // GitHub: each once past its hours, and pages and photos again when they stopped moving.
+  expect(gh().map(c => c.match(/part=(\w+) -f why=([a-z ]+):/)!.slice(1).join(' '))).toEqual(['pages past its hours', 'sf past its hours', 'photos past its hours', 'pages stuck', 'photos stuck'])
+})
+
+// The same with real processes, each step seen in place before it's classified, so a slow machine waits or fails
+// plainly rather than classifying too soon: one call of the pages cycle ends, and its next begins.
+test('a real cycle whose call ends and whose next begins is still moving, each seen in place first', async () => {
+  const { h, clones, gh, stuck, log } = stuckHome()
+  const calls = fakeCycle(h, clones, 'pages', 'sleep 60; sleep 61')
+  try {
+    const first = await seen(calls.pid, 'sleep 60')
+    expect(stuck('6').status).toBe(0) // under its hours: noted, nothing said
+    expect(log('pages')).toEqual([])
+    process.kill(Number(first))
+    await seen(calls.pid, 'sleep 61')
+    stuck('0')
+    expect(log('pages')).toEqual([expect.stringMatching(pattern(`past its hours: the pages cycle (pid ${calls.pid}) has run 0 h 0 min, still moving: waiting, now in sleep 61. launchd starts no pages run until it ends, and nothing stops it by itself`))])
+    expect(gh().filter(c => c.includes('why=stuck'))).toEqual([])
+  } finally {
+    process.kill(-calls.pid!)
   }
 })

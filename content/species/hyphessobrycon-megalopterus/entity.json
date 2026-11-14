@@ -23,7 +23,6 @@
         "Madeira",
         "Paraguai",
         "Guaporé",
-        "Mamoré",
         "Pantanal"
       ],
       "sources": [
@@ -39,23 +38,8 @@
             "BR"
           ],
           "regions": [
+            "Madeira",
             "Paraguai"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Native to the upper rio Madeira, a major branch of the western Amazon watershed in Bolivia and western Brazil, including its major tributaries the rios Beni and Mamoré, plus the upper rio Paraguai in Brazil.",
-          "countries": [],
-          "regions": [
-            "Madeira"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Most records are from the rio Guaporé (Río Iténez in Bolivia).",
-          "countries": [],
-          "regions": [
-            "Guaporé"
           ]
         },
         {
@@ -63,7 +47,7 @@
           "quote": "The majority of records pertain to the rio Guaporé (Río Iténez in Bolivia), the main affluent of the rio Mamoré, which drains the vast tropical wetland known as the Pantanal, and the upper rio Paraguai, which also has its headwaters in the Pantanal but flows in the opposite direction.",
           "countries": [],
           "regions": [
-            "Mamoré",
+            "Guaporé",
             "Pantanal"
           ]
         }
@@ -265,7 +249,7 @@
       "key": "quickFacts",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/megalamphodus_megalopterus_en/",
-      "html": "<p>The Black Phantom Tetra is one of the most common fish species in the aquarium trade. All fish in the hobby are captive-bred. It grows to around 4 cm long.</p>"
+      "html": "<ul><li>Origin: Mato Grosso, Brazil; all fish in the hobby are bred</li></ul>"
     },
     {
       "key": "distribution",
@@ -277,7 +261,7 @@
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/megalamphodus_megalopterus_en/",
-      "html": "<p>It originates from the Mato Grosso in Brazil, but all fish in the hobby are bred ones.</p>"
+      "html": "<p>It originates from the Mato Grosso in Brazil.</p>"
     },
     {
       "key": "habitat",
@@ -319,7 +303,7 @@
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/megalamphodus_megalopterus_en/",
-      "html": "<p>Black Phantom Tetra are ideal tankmates for cardinal tetras and other, very colourful species of fish, because the rather dull colours of the Black Phantom Tetra make the other fish shine brighter. It is also fascinating to observe the males displaying with all fins spread. It looks as if the fish were sailing around each other.</p>"
+      "html": "<p>Black Phantom Tetra are ideal tankmates for cardinal tetras and other very colourful species of fish, because the rather dull colours of the Black Phantom Tetra make the other fish shine brighter. It is also fascinating to observe the males displaying with all fins spread. It looks as if the fish were sailing around each other.</p>"
     },
     {
       "key": "dimorphism",
@@ -343,7 +327,7 @@
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/megalamphodus_megalopterus_en/",
-      "html": "<p>The Black Phantom Tetra is the type species of the genus Megalamphodus. That genus was for a while regarded as synonymous with Hyphessobrycon. Nowadays most specialists think that Megalamphodus is a valid genus. The fish can be found in literature under the names Megalamphodus megalopterus and Hyphessobrycon megalopterus. Both names stand for the same species.</p><p>Etymology: Megalamphodus means “with spacious ways”, referring to anatomical details. megalopterus means “with very large fins”. Hyphessobrycon means “small Brycon”. Brycon is another genus of tetra.</p>"
+      "html": "<p>The Black Phantom Tetra is the type species of the genus Megalamphodus. That genus was for a while regarded as synonymous with Hyphessobrycon. Nowadays most specialists think that Megalamphodus is a valid genus. The fish can be found in literature under the names Megalamphodus megalopterus and Hyphessobrycon megalopterus. Both names stand for the same species.</p><p>Etymology: Megalamphodus means \"with spacious ways\", referring to anatomical details. megalopterus means \"with very large fins\". Hyphessobrycon means \"small Brycon\"; Brycon is another genus of tetra.</p>"
     }
   ],
   "photos": [
@@ -428,5 +412,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-11"
+  "updatedAt": "2026-11-13"
 }

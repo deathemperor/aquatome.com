@@ -131,7 +131,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thùng carton cắt mặt trước và trên, xếp thử đá và lũa bên trong.",
-            "sharpness": 996.9
+            "sharpness": 996.9,
+            "person": false
           }
         ]
       },
@@ -139,20 +140,13 @@
         "heading": "Dán lũa đá cho chắc bằng giấy vệ sinh và keo 502",
         "moments": [
           {
-            "t": 250,
-            "url": "https://media.aquatome.com/video/xf_ylcdUQsQ/at250-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đang dán khúc lũa vào đá bằng keo ở khe giữa.",
-            "sharpness": 2019.5
-          },
-          {
             "t": 280,
             "url": "https://media.aquatome.com/video/xf_ylcdUQsQ/at280-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Khối lũa và đá đã được dán chắc trong bể.",
-            "sharpness": 2178.9
+            "sharpness": 2178.9,
+            "person": false
           }
         ],
         "photo": {
@@ -182,14 +176,6 @@
       {
         "heading": "Trồng cây cho bố cục",
         "moments": [
-          {
-            "t": 610,
-            "url": "https://media.aquatome.com/video/xf_ylcdUQsQ/at610-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây con trồng vào các khe đá và rễ lũa.",
-            "sharpness": 2416.1
-          },
           {
             "t": 730,
             "url": "https://media.aquatome.com/video/xf_ylcdUQsQ/at730-hd.webp",

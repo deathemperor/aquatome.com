@@ -1,0 +1,131 @@
+{
+  "id": "pogonopoma-parahybae",
+  "scientificName": "Pogonopoma parahybae",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Pogonopoma",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "paraiba-do-sul"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Paraíba do Sul"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio Parahyba [Paraíba do Sul], southeastern Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Paraíba do Sul River basin, Rio de Janeiro State rivers.",
+          "countries": [],
+          "regions": [
+            "Paraíba do Sul"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339861,
+      "total": 9,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "BR",
+          9
+        ]
+      ],
+      "cells": [
+        [
+          -46.40625,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          -46.40625,
+          -23.90625,
+          4,
+          4
+        ],
+        [
+          -45,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -22.5,
+          3,
+          3
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 26.3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1340",
+      "html": "<ul><li>Scientific name: Pogonopoma parahybae (Steindachner, 1877)</li><li>Synonyms: Pogonopomoides parahybae, Rhinelepis parahybae</li><li>Type locality: Rio Parahyba [Paraíba do Sul], southeastern Brazil.</li><li>IUCN Red List: Vulnerable (last assessed 2022).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1340",
+      "html": "<p>South America: Paraíba do Sul River basin, Rio de Janeiro State rivers.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1340",
+      "html": "<p>Found in areas of mid to strong water current usually associated with rocky substrate.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1340",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1340",
+      "html": "<p>Etymology: Genus: Greek, pogon = beard + Greek, poma = cover, operculum. Species: named after the type specimens' locality.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1340",
+      "html": "<p>Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften. Mathematisch-Naturwissenschaftliche Classe v. 76 (1. Abth.), pp 218 [2], Pl. 2.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-13"
+}

@@ -4,7 +4,6 @@
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/573f023ccc946edd.webp": "8c830b4bd85c5cf6",
   "https://media.aquatome.com/seriouslyfish/db9a29446fc463ab.webp": "76333f1e1d9ecfce",
-  "https://media.aquatome.com/seriouslyfish/8c34e4f810658f8f.webp": "8c2e51f31d4e3456",
   "https://media.aquatome.com/seriouslyfish/6b45654f1e455dd7.webp": "5f7c7b3b030d1816",
   "https://media.aquatome.com/aquariumbreeder/566f59857b654381.webp": "c97938bc73171f9e"
  },
@@ -20,5 +19,9 @@
  "gbif": {
   "key": 2360908,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-14"
 }

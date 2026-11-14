@@ -20,7 +20,8 @@
         "Ayeyarwaddy"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -106,12 +107,20 @@
       {
         "source": "seriouslyfish",
         "value": 3
+      },
+      {
+        "source": "glaser",
+        "value": 4
       }
     ],
     "tankCm": [
       {
         "source": "seriouslyfish",
         "value": 80
+      },
+      {
+        "source": "glaser",
+        "value": 60
       }
     ],
     "difficulty": [
@@ -129,6 +138,12 @@
       "html": "<ul><li>Max size: 30 mm SL (1.2 in)</li><li>Aquarium size: 80 × 30 cm (31 × 12 in)</li><li>Temperature: 16–26°C (61–79°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 1–12 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danio_choprai_en/",
+      "html": "<p>Danio choprai, the Glowlight Danio, reaches full growth at a length of 4 cm.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-choprae",
@@ -139,6 +154,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-choprae",
       "html": "<p>The type specimens were collected from 'small rocky streams' of the Mogaung Chaung river system close to the towns of 'Kamaing' (often referred to as Kar Maing) and Namma (Nanmati?) in Myitkyina District, Kachin State, northern Myanmar, and the species appears restricted to this tributary of the much larger Ayeyarwaddy drainage.</p><p>It's being bred on a commercial basis so you might find wild caught specimens hard to come by in the aquarium hobby, though.</p><p>Specimens from a population of similar-looking fish from the area around Thandwe in Rakhine State on Myanmar's western coast that were initially misidentified as D. choprae by Hora (1937) were collected in 1998 by Kullander and Britz and eventually described as D. aesculapii by Kullander and Fang (2009).</p><p>A third species from the mountainous region of Putao in the far north of Kachin was described as D. flagrans by Kullander (2012).</p><p>Myanmar can be considered a centre of diversity for the genus with over ten species, most of which are endemic to the country.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danio_choprai_en/",
+      "html": "<p>Danio choprai originates from rivers and brooks in Myanmar.</p>"
     },
     {
       "key": "habitat",
@@ -153,6 +174,12 @@
       "html": "<p>Base dimensions of 80 × 30 cm (31 × 12 in) or larger are required for this active species. Volume is about 72 litres (19 US gal).</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danio_choprai_en/",
+      "html": "<p>Due to their small size they can be kept in aquaria starting from 60 cm length.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-choprae",
@@ -165,16 +192,34 @@
       "html": "<ul><li>Temperature: 16–26°C (61–79°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 1–12 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danio_choprai_en/",
+      "html": "<p>Glowlight danios are easy to keep and also to breed in neutral, medium-hard water.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-choprae",
       "html": "<p>Almost certain to prey chiefly on insects and their larvae in nature. In the aquarium it's a largely unfussy feeder and will accept most foods.</p><p>A good quality dried product can be used as the staple diet but this should be supplemented with regular meals of small live and frozen fare such as bloodworm, Daphnia, Artemia, etc., for the best colouration and conditioning.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danio_choprai_en/",
+      "html": "<p>They have no special demands on nutrition. Commercial flake food supplies them sufficiently, but they should also be given a certain amount of variety.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-choprae",
       "html": "<p>Generally very peaceful making it an ideal resident of the well-furnished community tank.</p><p>Since it places no special demands in terms of water chemistry it can be combined with many of the most popular fish in the hobby including other small cyprinids as well as tetras, livebearers, rainbowfish, anabantoids, catfish and loaches.</p><p>A community based around stream-dwelling species from the Irrawaddy basin would also make an interesting project with possibilities including Badis kyar, Acanthocobitis botia, Botia histrionica, B. rostrata, Lepidocephalichthys berdmorei, Schistura vinciguerrae, Tariqilabeo latius, Danio albolineatus, Pethia didi, P. erythromycter, P. stoliczkanus, P. ticto, Devario apogon, 'Inlecypris' shanensis, and Rasbora daniconius among others.</p><p>It's a schooling species by nature and really should be kept in a group of at least 8-10 specimens which will develop a pecking order among themselves.</p><p>Maintaining it in decent numbers will therefore not only help make the fish less nervous but will allow sub-dominant fish of both sexes some respite from the alpha male(s) which can be quite aggressive at times.</p><p>It's not uncommon to see nipped fins in lesser individuals within a group though this behaviour does not normally extend to tankmates.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danio_choprai_en/",
+      "html": "<p>As with many shoaling fish, the effect on the observer grows with the size of the shoal; a group of 30 animals is always impressive. They can be kept with other fish without any problems and are a beautiful alternative to the Zebra Danio.</p>"
     },
     {
       "key": "dimorphism",
@@ -256,5 +301,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-13"
 }

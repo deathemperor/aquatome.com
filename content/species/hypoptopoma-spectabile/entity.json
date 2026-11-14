@@ -1,0 +1,265 @@
+{
+  "id": "hypoptopoma-spectabile",
+  "scientificName": "Hypoptopoma spectabile",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hypoptopoma",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "amazon",
+    "orinoco"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Amazon",
+        "Orinoco"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Quebrada Cramalote, 4°07'N, 73°36'W, Dpto. Meta, Villavicencio, Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Amazon and Orinoco River basins.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961533,
+      "total": 37,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "VE",
+          21
+        ],
+        [
+          "PE",
+          8
+        ],
+        [
+          "CO",
+          6
+        ],
+        [
+          "BR",
+          1
+        ],
+        [
+          "EC",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -78.75,
+          -4.21875,
+          4,
+          0
+        ],
+        [
+          -77.34375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          -74.53125,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -71.71875,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          7.03125,
+          7,
+          0
+        ],
+        [
+          -71.71875,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          7.03125,
+          3,
+          0
+        ],
+        [
+          -70.3125,
+          8.4375,
+          6,
+          0
+        ],
+        [
+          -67.5,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 25,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 2.9
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1335",
+      "html": "<p><strong>Scientific name:</strong> Hypoptopoma spectabile (Eigenmann, 1914)</p><p><strong>Size:</strong> 29 mm SL (standard length)</p><p><strong>Identification:</strong> Hypoptopoma are small(ish) loricariids with a stocky body, a wide, flattened head with the eyes on the side of the head and a concave profile, and a normal (not extremely thin) tail.</p><p><strong>Type locality:</strong> Quebrada Cramalote, 4°07'N, 73°36'W, Dpto. Meta, Villavicencio, Colombia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1335",
+      "html": "<p>South America: Amazon and Orinoco River basins.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1335",
+      "html": "<p>Temperature: 25–28°C.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1335",
+      "html": "<p>Has been spawned in the aquarium. A breeding group of 12 specimens was kept in a small aquarium decorated with fine sand, wood, rocks and Cryptocoryne, Anubias and Java fern. The fish were conditioned using dry and frozen foods with the occasional live food added. Spawning occurred on the glass of the aquarium and approximately 60 greenish eggs were produced. The male guards the eggs.</p><p>Hatching after 60–80 hours at 25°C, the fry have a huge yolk sac. After 100 hours the yolk sac is virtually gone and feeding can commence. In this reported spawn the fry were provided with finely ground flake food, live micro eels and newly hatched Artemia. Unfortunately, 1 week after becoming free swimming the fry started to die off, apparently through starvation, so it appears the above is not a suitable diet for them.</p><p>Water parameters of the breeding tank were 25°C, 3 dGH, 0–1 dKH, pH 6.0 and conductivity 150 µS/cm.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1335",
+      "html": "<p>Indiana University Studies v. 2 (no. 23), pp 229.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "8TZwLiZUuLs",
+      "title": "Nannoptopoma spectabile breeding",
+      "durationSec": 56,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 40 lít",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây anubias",
+        "dương xỉ java",
+        "cryptocoryne"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

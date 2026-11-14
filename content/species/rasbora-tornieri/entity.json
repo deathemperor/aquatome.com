@@ -16,6 +16,195 @@
     "brunei",
     "belait"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "KH",
+        "MY",
+        "BN"
+      ],
+      "regions": [
+        "Sumatra",
+        "Borneo",
+        "Mekong",
+        "Perak River",
+        "Musi",
+        "Siak River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Central Sumatra, Indonesia', with additional records existing from Cambodia (Mekong drainage), Peninsular Malaysia (Perak River), Sumatra (from the Siak River, Riau province to the Musi River, South Sumatra (Sumatera Selatan) province) and Borneo (south and westwards from the Belait river basin in Brunei Darussalam to the Sambas drainage in West Kalimantan (Kalimantan Barat) province, Indonesia and probably in Sarawak, Malaysia).",
+          "countries": [
+            "ID",
+            "KH",
+            "MY",
+            "BN"
+          ],
+          "regions": [
+            "Sumatra",
+            "Borneo",
+            "Mekong",
+            "Perak River",
+            "Siak River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In the Musi river, Sumatra, R. tornieri occurs sympatrically with the similar-looking congener R. dusonensis (see 'Notes').",
+          "countries": [],
+          "regions": [
+            "Musi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2359502,
+      "total": 36,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "KH",
+          14
+        ],
+        [
+          "ID",
+          13
+        ],
+        [
+          "BN",
+          3
+        ],
+        [
+          "VN",
+          3
+        ],
+        [
+          "MY",
+          2
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          0,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          11.25,
+          6,
+          6
+        ],
+        [
+          104.0625,
+          12.65625,
+          5,
+          5
+        ],
+        [
+          105.46875,
+          9.84375,
+          3,
+          0
+        ],
+        [
+          105.46875,
+          14.0625,
+          1,
+          0
+        ],
+        [
+          108.28125,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          109.6875,
+          0,
+          1,
+          1
+        ],
+        [
+          112.5,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          113.90625,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          0,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          113.90625,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          115.3125,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -9,7 +9,7 @@ import { METRIC_KINDS } from './metric'
 import { BOUNDS } from './process'
 import { dropEmptyBlocks, fishThaiLai, tidyHeadings, tidyHtml, unescapePlain, unescapeTwice, viWording, wordingSlips } from './sanitize'
 import { LANG_NAME, pageUrl, type Page, type PageKind } from './pages'
-import { SWAPPED } from './names'
+import { FISH_NAMES, oldNames, SWAPPED } from './names'
 import { PHRASES, phraseSlips } from './phrases'
 import { unfitCommons } from './photos'
 
@@ -528,13 +528,13 @@ export function captionFlaw(caption: string | undefined, breed = false): { kind:
 }
 /**
  * The photos of a fish's or a breed's page that come off as unwell: every one, its gallery's too, but the first of the
- * page's own where no other photo of its own would be left (`gone`: its own photos another rule takes off in the same run).
- * A page with no photo of its own keeps none back: its gallery's photo is on no page until the head step picks it,
- * and that step asks the caption too (curation.ts `cardWorthy`).
+ * page's own where no other photo of its own would be left (`gone`: the photos another rule takes off in the same run).
+ * A page left with no photo of its own shows its gallery, so there the gallery's first is kept the same way where no
+ * other would be left (last-photo.ts: a page's last photo doesn't come off on an automatic word alone).
  * A head a person picked is not taken off by a caption's words (the chief of staff, 2026-11-11): a pick is a person's
  * look at the photo, a caption word a guess. It stays, off every card, and is listed until a person says it goes.
  */
-export function unwellOff(p: Pick<Page, 'kind' | 'captions' | 'album' | 'own' | 'picked'>, gone: ReadonlySet<string> = new Set()): { off: { url: string; word: string }[]; kept?: { url: string; word: string }; picked?: { url: string; word: string } } {
+export function unwellOff(p: Pick<Page, 'kind' | 'captions' | 'album' | 'own' | 'gallery' | 'picked'>, gone: ReadonlySet<string> = new Set()): { off: { url: string; word: string }[]; kept?: { url: string; word: string }; picked?: { url: string; word: string } } {
   if (p.kind !== 'species' && p.kind !== 'breeds') return { off: [] }
   // Once a photo: one that is the page's own and in its gallery too (a head picked from the gallery keeps its copy
   // there) is one photo, kept or taken off as one.
@@ -547,9 +547,10 @@ export function unwellOff(p: Pick<Page, 'kind' | 'captions' | 'album' | 'own' | 
   })
   const bad = new Set(unwell.map(x => x.url))
   const own = (p.own ?? []).filter(u => !gone.has(u))
+  const shown = own.length ? own : [...new Set(p.gallery ?? [])].filter(u => !gone.has(u))
   // A pick another rule takes off in this run shields nothing: the page's other photo is then the one to keep.
   const picked = unwell.find(x => x.url === p.picked && !gone.has(x.url))
-  const kept = picked || own.some(u => !bad.has(u)) ? undefined : unwell.find(x => x.url === own.find(u => bad.has(u)))
+  const kept = picked || shown.some(u => !bad.has(u)) ? undefined : unwell.find(x => x.url === shown.find(u => bad.has(u)))
   return { off: unwell.filter(x => x !== kept && x !== picked), ...(kept ? { kept } : {}), ...(picked ? { picked } : {}) }
 }
 /** An ad video's title as a photo's caption ("video of: African Chop"): its poster, taken from an ad player in a source's article. */
@@ -720,8 +721,8 @@ export const RULES: Rule[] = [
   },
   {
     id: 'swapped-name', title: 'A fish called by the name it no longer has',
-    about: 'A sentence that gives a fish\'s old name beside its genus or its English name ("cá bút chì (Nannostomus)"). Since 2026-11-07 "cá bút chì" is the Siamese algae eater and the pencilfish "cá chì", the flat hillstream loaches "cá tỳ bà bướm", and Jordanella floridae has no "cá cờ" in its name. A sentence that also has the new name, or names the fish the old name is now ("cá bút chì (Crossocheilus)"), may be right and isn\'t listed. The sweep writes the name when the sentence says which fish it is (renameSwapped); what it leaves is listed, and the real-content test holds it at zero: the page is written again with the name in process.md\'s list.',
-    check: p => (p.lang !== 'vi' ? [] : [...new Set([p.title, ...prose(p).map(f => f.html.replace(/<[^>]+>/g, ' ')), ...p.lines.map(l => l.text)].flatMap(swappedNames))]),
+    about: 'A sentence that gives a fish\'s old name beside its genus or its English name ("cá bút chì (Nannostomus)"). Since 2026-11-07 "cá bút chì" is the Siamese algae eater and the pencilfish "cá chì", the flat hillstream loaches "cá tỳ bà bướm", and Jordanella floridae has no "cá cờ" in its name. Since 2026-11-13 the blue-eyes (Pseudomugil) are "cá mắt xanh", never the rainbowfish\'s "cầu vồng". Only where the old name stands as that fish\'s name: the nearest fish to it, with no clause\'s end between, and right beside it when the sentence also names a fish the old name is now ("cá bút chì (Crossocheilus)"); not said not to be it or likened to it ("không phải cá cầu vồng", "như cá cầu vồng"). A sentence that also has the new name may be right and isn\'t listed. The sweep writes the name when the sentence says which fish it is (renameSwapped); what it leaves is listed, and the real-content test holds it at zero: the page is written again with the name in process.md\'s list.',
+    check: p => (p.lang !== 'vi' ? [] : [...new Set([p.title, ...prose(p).map(f => f.html), ...p.lines.map(l => l.text)].flatMap(swappedNames))]),
   },
   {
     id: 'fish-words', title: 'A fish called "thài lài"',
@@ -836,38 +837,149 @@ export const gluedSyllables = (text: string) => [...new Set((text.normalize('NFC
 export { SWAPPED, type SwappedName } from './names'
 const word = (w: string) => `(?<!\\p{L})${w}(?!\\p{L})`
 const TAG = /<[^>]+>/g
-const SENTENCE_END = /(?<=[.!?])\s+|\n/
+// Not after a genus cut to its letter ("P. luminatus"); after a capital that ends a sentence ("vitamin A. Ngoài ra"), yes.
+const SENTENCE_END = /(?<=[.!?])(?!(?<=(?:^|[\s(])[A-Z]\.)\s+[a-z])\s+|\n/
 const SWAPS = SWAPPED.map(r => {
   const fish = `(?:${r.fish.join('|')})`
   // Tags may stand in the way: the sweep reads this in HTML, the rule in plain text.
   const inBrackets = r.brackets ? `(?=(?:[^.,;:()<]|<[^>]+>){0,24}\\((?:\\s|<[^>]+>)*${fish}\\b)` : ''
-  // The new name's last word after the old name goes with it: "cá bám đá bướm" is "cá tỳ bà bướm", not "… bướm bướm".
-  const again = `(?:\\s+${word(r.now.split(' ').at(-1)!)})?`
-  return { ...r, old: new RegExp(word(r.was) + again + inBrackets, 'giu'), named: new RegExp(fish, 'iu'), nowSaid: new RegExp(word(r.now), 'iu'), stays: r.stillFor && new RegExp(r.stillFor.join('|'), 'iu') }
+  // The new name's own words after the old name go with it: "cá bám đá bướm" is "cá tỳ bà bướm", not "… bướm bướm", and
+  // "cầu vồng mắt xanh" is "mắt xanh".
+  const tail = r.now.split(' ').filter((w, i) => i > 0 || w.toLowerCase() !== 'cá')
+  const again = `(?:${tail.map((_, i) => `\\s+${word(tail.slice(i).join('\\s+'))}`).join('|')})?`
+  return { ...r, old: new RegExp(word(r.was.replace(/ /g, '\\s+')) + again + inBrackets, 'giu'), named: new RegExp(fish, 'giu'), nowSaid: new RegExp(word(r.now.replace(/ /g, '\\s+')), 'iu'), stays: r.stillFor && new RegExp(r.stillFor.join('|'), 'giu') }
 })
-// A sentence that has the new name too, or names the fish the old name is now, may be right under the new names (the
-// Writing Lead, 2026-11-08: "a sentence that's right under the new names shouldn't stop a publish").
-const swapsIn = (sentence: string) => SWAPS.filter(r => sentence.search(r.old) >= 0 && r.named.test(sentence) && !r.nowSaid.test(sentence) && !r.stays?.test(sentence))
+/** How far, in the words a reader sees, the old name may stand from the fish it names; and right beside it. */
+const TIE = 40
+const BESIDE = /^[\s()]*(?:(?:là|chi|loài|giống)[\s()]*)?$/iu
+/**
+ * Words that set two fish apart, or one beside another: "không phải", "khác", "như", "họ hàng", "cùng", "và", "với",
+ * "hoặc", "hơn", "nhưng". Between a fish and the old name, the old name is another fish's.
+ */
+const APART = /(?<!\p{L})(?:không|chẳng|chả|khác|như|giống|họ\s+hàng|cùng|và|với|hoặc|hơn|lẫn|nhưng|trong\s+khi)(?!\p{L})/iu
+/** "cá cầu vồng khác": other fish of the kind. */
+const OTHERS_AFTER = /^\s*(?:khác|nói\s+chung)(?!\p{L})/iu
+const seen = (s: string) => s.replace(/\s+/g, ' ').length
+/**
+ * Where a row's old name stands in a sentence as the name of the row's fish. It is tied to a mention of the fish when
+ * they touch, or stand within TIE of the words a reader sees with no clause's end and nothing that sets two fish apart
+ * between (APART); and to an old name already tied, the same way ("cá bút chì gậy hockey hay cá bút chì đuôi cúp"). In a
+ * sentence that also names a fish the old name still belongs to, only right beside the row's fish ("cá cầu vồng chi
+ * Pseudomugil"). Never "cá cầu vồng khác". A sentence that has the new name too may be right under the new names (the
+ * Writing Lead, 2026-11-08), the new name read outside the old one: "cầu vồng mắt xanh" doesn't say "mắt xanh" apart
+ * from it. Each place apart: "P. luminatus là cá cầu vồng mắt xanh; cá cầu vồng khác…" names one.
+ */
+const placesIn = (r: (typeof SWAPS)[number], sentence: string) => {
+  const olds = [...sentence.matchAll(r.old)].filter(o => !OTHERS_AFTER.test(sentence.slice(o.index! + o[0].length)))
+  if (!olds.length || r.nowSaid.test(sentence.replace(r.old, ' '))) return []
+  const own = [...sentence.matchAll(r.named)]
+  if (!own.length) return []
+  const others = r.stays ? [...sentence.matchAll(r.stays)] : []
+  /** The words between two mentions, '' when they touch; undefined across a clause's end. */
+  const between = (o: RegExpMatchArray, m: RegExpMatchArray) => {
+    const [a, b] = m.index! >= o.index! + o[0].length ? [o.index! + o[0].length, m.index!] : [m.index! + m[0].length, o.index!]
+    if (b <= a) return ''
+    const s = sentence.slice(a, b)
+    return /[;:!?]/.test(s) ? undefined : s
+  }
+  const tied = (o: RegExpMatchArray, m: RegExpMatchArray) => {
+    const s = between(o, m)
+    return s !== undefined && (BESIDE.test(s) || (!others.length && seen(s) <= TIE && !APART.test(s)))
+  }
+  const found = new Set(olds.filter(o => own.some(m => tied(o, m))))
+  if (others.length) return [...found]
+  for (let more = true; more;) {
+    const next = olds.filter(o => !found.has(o) && [...found].some(f => tied(o, f)))
+    next.forEach(o => found.add(o))
+    more = next.length > 0
+  }
+  return olds.filter(o => found.has(o))
+}
+const swapsIn = (sentence: string) => SWAPS.filter(r => placesIn(r, sentence).length)
+// A fish page's old name (names.ts FISH_NAMES) is that fish's alone: written anywhere, it is the fish's name now, unless
+// another scientific name stands in brackets beside it ("Cá madtom đốm (Noturus nocturnus)"). A row that keeps its name
+// renames nothing.
+// A longer name it begins ("cá cầu vồng đỏ cá hồi", Salmon red rainbowfish translated) is another name, left as written.
+const RENAMES = FISH_NAMES.flatMap(r => oldNames(r).map(was => {
+  const rests = (r.longer ?? []).filter(n => n.toLowerCase().startsWith(`${was.toLowerCase()} `)).map(n => n.slice(was.length).trim().replace(/ /g, '\\s+'))
+  return { ...r, was, old: new RegExp(word(was.replace(/ /g, '\\s+')), 'giu'), longer: rests.length ? new RegExp(`^\\s+(?:${rests.join('|')})(?!\\p{L})`, 'iu') : undefined }
+}))
+/** An English name's last word, which no scientific name ends in: "Red rainbowfish", "Congo tetra". */
+const ENGLISH = /(?:fish|tetra|barb|danio|rasbora|molly|platy|guppy|cory|pleco|loach|gourami|cichlid|eyes?|killi|goby|shrimp|snail|crab|rainbow)$/
+/**
+ * The scientific names in a stretch of text: a capitalised word, or its first letter and a full stop ("G. incisus"), and a
+ * lowercase one, not an English name.
+ */
+const binomials = (s: string) => [...s.matchAll(/(?<![\p{L}])(?:([A-Z][a-z]+)\s+|([A-Z]\.)\s*)([a-z]+)(?![\p{L}])/gu)].filter(m => !ENGLISH.test(m[3]!)).map(m => `${m[1] ?? m[2]} ${m[3]}`)
+/** One species whichever ending its second word takes ("Glossolepis incisa" is G. incisus), its genus whole or as "G.". */
+const stem = (w: string) => w.toLowerCase().replace(/(?:us|a|um)$/, '')
+const sameSpecies = (a: string, sci: string) => {
+  const [g = '', e = ''] = a.split(' '), [G = '', E = ''] = sci.split(' ')
+  return (g === G || (g.endsWith('.') && G.startsWith(g.slice(0, -1)))) && stem(e) === stem(E)
+}
+/** In brackets right after the old name, or right before it with a bracket or a dash between. */
+const BRACKET_AFTER = /^\s*\(([^()]{0,80})\)/
+const BINOMIAL_BEFORE = /((?:[A-Z][a-z]+\s+|[A-Z]\.\s*)[a-z]+)\s*[(),:–-]\s*\(?\s*$/
+const renamesIn = (r: (typeof RENAMES)[number], text: string) => [...text.matchAll(r.old)].filter(m => {
+  const end = m.index! + m[0].length
+  if (r.longer?.test(text.slice(end))) return false
+  const named = [...binomials(BRACKET_AFTER.exec(text.slice(end, end + 90))?.[1] ?? ''), ...binomials(BINOMIAL_BEFORE.exec(text.slice(Math.max(0, m.index! - 60), m.index!))?.[1] ?? '')]
+  return !named.length || named.some(n => sameSpecies(n, r.sci))
+})
+/** Text with each fish page's old name (FISH_NAMES) written as its name, as renameSwapped does first: a photo's caption. */
+export const renameFishNames = (text: string) => {
+  const was = text.normalize('NFC')
+  const out = RENAMES.reduce((s, r) => splice(s, renamesIn(r, visibleText(s)).map(m => ({ index: m.index!, length: m[0].length, to: asWritten(m[0], r.name) }))), was)
+  return out === was ? text : out
+}
+const asWritten = (m: string, name: string) => (m[0] === m[0]!.toLowerCase() ? name[0]!.toLowerCase() + name.slice(1) : name)
+/**
+ * What a reader sees, at the same offsets: a tag between blocks (a paragraph's, a list item's, a heading's, a line break)
+ * ends a sentence, one inside a sentence (<em>) is a space. The rule reads HTML this way too.
+ */
+const BLOCK = /<\/?(?:p|li|ul|ol|h[1-6]|td|th|tr|table|br|div|blockquote|section|figure|figcaption|dt|dd)\b[^>]*>/gi
+export const visibleText = (html: string) => html.replace(BLOCK, t => `\n${' '.repeat(t.length - 1)}`).replace(TAG, t => ' '.repeat(t.length))
 /** Each sentence that gives a fish a name it no longer has, with the name it has now. */
-export const swappedNames = (text: string) => text.normalize('NFC').split(SENTENCE_END).flatMap(s =>
-  swapsIn(s).map(r => `should be "${r.now}": ${clip(s)}`))
+export const swappedNames = (text: string) => visibleText(text.normalize('NFC')).split(SENTENCE_END).flatMap(s => [
+  ...RENAMES.filter(r => renamesIn(r, s).length).map(r => `should be "${r.name}": ${clip(s)}`),
+  ...swapsIn(s).map(r => `should be "${r.now}": ${clip(s)}`)])
+
+/** The tags of a stretch of HTML that don't open and close inside it, in order: kept when its words are rewritten. */
+const OPENS = /^<([a-z][\w-]*)\b[^>]*>$/i
+const CLOSES = /^<\/([a-z][\w-]*)\s*>$/i
+const openTags = (span: string) => (span.match(TAG) ?? []).reduce<string[]>((out, t) => {
+  const c = CLOSES.exec(t)?.[1]?.toLowerCase()
+  const i = c ? out.findLastIndex(x => OPENS.exec(x)?.[1]?.toLowerCase() === c) : -1
+  return i >= 0 ? out.filter((_, j) => j !== i) : [...out, t]
+}, [])
+/** `raw` with each stretch replaced, its words by `to`, its tags that don't close inside it kept after them. */
+const splice = (raw: string, at: { index: number; length: number; to: string }[]) => [...at].sort((x, y) => y.index - x.index)
+  .reduce((out, a) => out.slice(0, a.index) + a.to + openTags(out.slice(a.index, a.index + a.length)).join('') + out.slice(a.index + a.length), raw)
 
 /**
- * Text (plain or HTML) with a fish's old name written as its name, in each sentence that says which fish it is. Left for
- * the swapped-name rule to list, when the sentence doesn't: one old name for two fish named, or a group.
+ * Text (plain or HTML) with a fish page's old name written as its name, wherever it is, then a fish's old name written as
+ * its name where it stands beside the fish (placesIn). The words are read as a reader sees them, across inline tags
+ * ("Cá cầu vồng neon đỏ <em>mắt xanh</em>"), and the tags are kept. Left for the swapped-name rule to list: one old name
+ * for two fish named, or a group. The page's old name first: the kind's word inside it would otherwise go alone ("Cá cầu
+ * vồng neon đỏ mắt xanh (Pseudomugil luminatus)" isn't "Cá mắt xanh neon đỏ mắt xanh").
  */
 export function renameSwapped(text: string) {
-  const nfc = text.normalize('NFC')
-  const inSentence = (raw: string) => {
-    const s = raw.replace(TAG, ' ')
-    const swaps = swapsIn(s).filter(r => !r.group)
-    return swaps.reduce((out, r) => (swaps.some(o => o !== r && o.was === r.was) ? out
-      : out.replace(r.old, m => (m[0] === m[0]!.toLowerCase() ? r.now : r.now[0]!.toUpperCase() + r.now.slice(1)))), raw)
+  const was = text.normalize('NFC')
+  const renamed = RENAMES.reduce((s, r) => splice(s, renamesIn(r, visibleText(s)).map(m => ({ index: m.index!, length: m[0].length, to: asWritten(m[0], r.name) }))), was)
+  const seenText = visibleText(renamed)
+  const at: { index: number; length: number; to: string }[] = []
+  let from = 0
+  for (const part of seenText.split(new RegExp(`(${SENTENCE_END.source})`))) {
+    const swaps = swapsIn(part).filter(r => !r.group)
+    for (const r of swaps) {
+      if (swaps.some(o => o !== r && o.was === r.was)) continue
+      for (const m of placesIn(r, part)) at.push({ index: from + m.index!, length: m[0].length, to: m[0][0] === m[0][0]!.toLowerCase() ? r.now : r.now[0]!.toUpperCase() + r.now.slice(1) })
+    }
+    from += part.length
   }
-  // Tags blanked, so the sentences end where the rule's do and at the same offsets as in the text.
-  let at = 0
-  const out = nfc.replace(TAG, tag => ' '.repeat(tag.length)).split(new RegExp(`(${SENTENCE_END.source})`)).map(part => inSentence(nfc.slice(at, at += part.length))).join('')
-  return out === nfc ? text : out
+  // A tag the name ran across, left with nothing in it.
+  const out = splice(renamed, at).replace(/<(em|strong|i|b|u|span)\b[^>]*>(\s*)<\/\1>/gi, '$2')
+  return out === was ? text : out
 }
 
 /** The same, on every string in a value. */

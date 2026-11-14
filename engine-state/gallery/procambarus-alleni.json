@@ -23,7 +23,10 @@
   "File:Female Blue Crayfish.jpg",
   "File:Male Blue Crayfish.jpg",
   "File:Blue Florida Crayfish.jpg",
-  "File:Procambarus alleni 6078066.jpg"
+  "File:Procambarus alleni 6078066.jpg",
+  "inat:6078066",
+  "inat:6078065",
+  "inat:151292261"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/030321d9e1e8c328.webp": "78bcb53f1b3b9335",
@@ -34,5 +37,13 @@
   "https://media.aquatome.com/commons/2ee4852620482413.webp": "1183a16057cfcea4",
   "https://media.aquatome.com/commons/2a5e79a33af7c3be.webp": "73a64fcbe7070000"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 110407,
+  "pass": "done",
+  "after": {
+   "research": 348705052,
+   "agree": 411358958
+  }
+ }
 }

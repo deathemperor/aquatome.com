@@ -40,7 +40,7 @@ const Cm = z.number().positive().max(1000)
 export const KNOWN = {
   substrate: ['soil', 'sand', 'gravel', 'lava', 'bare', 'other'],
   deviceKind: ['light', 'plug'],
-  brand: ['chihiros', 'tuya', 'ewelink'],
+  brand: ['chihiros', 'tuya', 'ewelink', 'weekaqua'],
   /** What a plug's outlet powers (docs/smart-plugs.md). */
   outletRole: ['light', 'co2', 'filter', 'heater', 'air', 'fan', 'other'],
   /** What an entry without a page is. */
@@ -116,6 +116,22 @@ export const Device = z.looseObject({
   /** When the light's clock was last set. */
   clockSyncedAt: Timestamp.optional(),
   /**
+   * Lights whose name others share (Week Aqua lights advertise `WEEKAQUA3.0`): the light's own address, from its
+   * manufacturer data, which it goes by instead of `bleName`. Writers put it in uppercase.
+   */
+  bleAddress: z.string().regex(/^[0-9A-F]{2}(:[0-9A-F]{2}){5}$/, 'Bluetooth address, uppercase AA:BB:CC:DD:EE:FF').optional(),
+  /**
+   * Week Aqua lights: what was last written that the fields above can't hold (docs/my-tanks-sync.md). `levels` as sent,
+   * 0–235 a channel (red, green, blue, UV): the schedule's percents round them. `timer` only when it can't be a schedule
+   * (it ends past midnight). The preset and brightness the levels came from, when they did.
+   */
+  lastSent: z.looseObject({
+    levels: z.array(z.number().int().min(0).max(235)).length(4),
+    timer: z.looseObject({ on: TimeOfDay, off: TimeOfDay }).optional(),
+    preset: z.string().min(1).max(40).optional(),
+    brightness: Level.optional(),
+  }).optional(),
+  /**
    * Lights: the outlet it is plugged into, as the reader picked it from the plugs on its tank: the plug's record `id` and
    * the outlet's `code`. The app reads that outlet's timers to warn of one that cuts the light's power (docs/smart-plugs.md).
    */
@@ -132,7 +148,7 @@ export const Device = z.looseObject({
   createdAt: Timestamp,
   updatedAt: Timestamp,
   deletedAt: z.never().optional(),
-})
+}).refine(d => d.bleAddress === undefined || d.kind === 'light', { message: 'only lights have a Bluetooth address', path: ['bleAddress'] })
 
 /**
  * What is left of a deleted record: enough to win the merge against older copies. Writers put nothing else in it;

@@ -200,6 +200,13 @@ export const Video = z.object({
   /** The badge when the video has Vietnamese subtitles (the site's "Phụ đề tiếng Việt"); none when it's in the page's language. */
   subtitles: z.string().optional(),
   chapters: z.array(z.object({ at: z.number().int().nonnegative(), title: z.string() })).optional(),
+  /**
+   * The picture the guide's head shows before the video plays: the same photo as its card in the app index (`img`), at
+   * full size, with where the fish is (`box`) where the photo has one, so a card and the page it opens show one picture
+   * (the Design Lead, 13 Nov). None where the card has no photo: the app draws the page's colour with the play button.
+   * An app that doesn't know it draws the head as before.
+   */
+  poster: Image.optional(),
 })
 
 export const PageDoc = z.object({
@@ -221,6 +228,12 @@ export const PageDoc = z.object({
    * counts then the playlist and channel it follows), linked as on the site.
    */
   credit: Text.optional(),
+  /**
+   * The page's photo: the same photo as its card in the app index (`img`), for every kind with one; a video guide's is its
+   * `video.poster` (the Design Lead's line, accepted by the chief of staff, 13 Nov: a card and the page it opens show one
+   * photo). Its `box` decides fill or whole by the frames rule (protocols/photo-crop-vectors.json); a photo no card's frame
+   * may fill comes with its whole area.
+   */
   lead: Image.optional(),
   video: Video.optional(),
   /**

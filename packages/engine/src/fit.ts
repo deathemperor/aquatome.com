@@ -93,8 +93,14 @@ const CARD_NOTE = `
 const CLIMATE_NOTE: Partial<Record<Lang, string>> = {
   vi: ' For this reader the North\'s winter is their own (December to February: rooms at 10–15 °C at night, a heater in the tank), and so is the South\'s rainy season: a cold room in winter, or heating the tank against it, doesn\'t count. A home warmed by a furnace, radiators or central heating, a basement, snow or a frozen pond still does.',
 }
-export const fitPrompt = (lang: Lang, kind?: PageKind) => TEMPLATE
+/**
+ * A guide written from the video above it (the chief of staff, 14 Nov 2026): the video's own build, given as a worked
+ * example that names its own size and figures, is the guide's, not the source talking. The Writing Lead's words.
+ */
+const VIDEO_NOTE = ` On a guide written from the video above it: the video's build written as an example that names its own size and figures ("Ví dụ, một bể dài 45 cm…", "Với bể 45 cm chẳng hạn, …"). Still a finding: a first-person story, a bare "bể này", "ở đây", "lần này" or "hôm đó", "bể mẫu", the channel's shop, news or stock, and anything for another country.`
+export const fitPrompt = (lang: Lang, kind?: PageKind, video = false) => TEMPLATE
   .replace('{{CARD_NOTE}}', kind === 'cards' ? CARD_NOTE : '')
+  .replace('{{VIDEO_NOTE}}', video && lang === 'vi' ? VIDEO_NOTE : '')
   .replace('{{CLIMATE_NOTE}}', CLIMATE_NOTE[lang] ?? '')
   .replaceAll('{{COUNTRY}}', COUNTRY[lang]).replaceAll('{{LANG}}', LANG_NAME[lang])
   .replace('{{SHOP_NOTE}}', lang === 'vi' ? '' : ' A Vietnamese chain (Pharmacity) counts too: this reader isn\'t in Vietnam.')
@@ -139,6 +145,74 @@ const SOURCE_NO = [
   re(`\\((?:sumber|nguồn|source|แหล่ง(?:ข้อมูล)?(?:ที่)?)\\s*\\d+(?:\\s*(?:,|dan|và|และ|and)\\s*\\d+)*\\)`),
   new RegExp('(?<![\\p{L}\\p{N}])(?:[Ss]umber|Nguồn|Source)\\s+\\d+(?=:|\\s+\\p{Ll})|แหล่ง(?:ข้อมูล)?ที่\\s*\\d+(?=\\s*[\\u0E00-\\u0E7F])', 'gu'),
 ]
+/**
+ * A dealer's own current batch or stock, in Vietnamese: news to no reader here, and the source check's (the chief of
+ * staff, 13 Nov 2026). On that day 245 Vietnamese pages had text from a dealer's bulletins (Glaser's most of it), and a
+ * hand check of 16 found half of it was the dealer's news ("lô cá này", "nay đã được nhập về", "đã có hàng trở lại", "mã
+ * 454900" for "khách hàng của chúng tôi") and half trade history a reader keeps ("các đợt nhập đầu tiên vào thập niên
+ * 1970", "thường được nhập về lẫn lộn", "lẫn vào lô cá khác"). So only what says now, this batch or our customers: a
+ * batch named as this one or just in, an arrival dated now, stock back, the shop's own stock, a catalogue code.
+ */
+const DEALER_VI = re([
+  WORD('khách hàng của chúng tôi|trong danh mục hàng(?: của chúng tôi)?|mã(?: số| hàng)? \\d{5,6}'),
+  // An arrival dated now: "gần đây có một lô", "cuối cùng cũng lại có một lô"; not "thỉnh thoảng mới có một đợt".
+  WORD('(?:gần đây|mới đây|vừa|cuối cùng(?: cũng)?)(?: lại)? có (?:thêm )?(?:một |vài )?(?:lô|đợt)'),
+  // This one batch: not "những lô này" (the mixed batches a fish comes in) or "hai lô mẫu" (a museum's), nor a bare
+  // "đợt này", which is as often a round of treatment or a migration.
+  `(?<!(?:những|các|hai|ba|mấy|vài|lô) )${WORD('lô(?: cá(?: hoang dã)?| hàng| nhập)? (?:này|lần này|(?:mới|vừa) (?:nhập|về)(?: về)?)')}`,
+  WORD('đợt (?:cá(?: hoang dã)?|hàng|nhập)(?: về)? (?:này|lần này|(?:mới|vừa) (?:nhập|về)(?: về)?)|đợt (?:này|lần này) về|(?:mới|vừa) về (?:trong )?(?:đợt|lô) này'),
+  // This brood just in: "lứa cá mới nhập này lại khá khỏe" (Astra's read); not a shop's "thả lứa mới về chung với đàn cũ".
+  WORD('lứa(?: cá(?: hoang dã)?)? (?:mới|vừa) (?:nhập|về)(?: về)? (?:này|lần này)'),
+  '(?<![\\p{L}\\p{N}])trong lô(?=[,:])',
+  WORD('(?:(?<!ngày )nay|hiện nay|hiện|bây giờ|giờ đây)(?: thì)? (?:đã |đang |cũng )?(?:được )?(?:nhập về|có hàng)'),
+  WORD('(?:đã |lại )?có hàng (?:trở )?lại'),
+  // Stock back: "Hiện nay lại có cá thể hoang dã mới trưởng thành"; not "hiện nay lại có ý kiến".
+  WORD('(?:hiện nay|hiện|bây giờ|giờ đây) lại có (?:thêm )?(?:cá thể|cá|hàng|con)'),
+  WORD('hiện (?:ngoài|tại|ở|trong) tiệm (?:đang )?(?:có bán|bán|có)'),
+].join('|'))
+/**
+ * A batch told with its year, or as where a species' type specimens came from, in the same sentence or the one before:
+ * trade history, not a notice ("Tháng 4/2002, nhà cung cấp nhận một lô… Cá trong lô này to hơn", "Bộ mẫu chuẩn… lấy từ
+ * một lô cá hoang dã… công ty nhập lô cá này").
+ */
+const HISTORY_VI = /(?<!\d)(?:1[89]|20)\d\d(?!\d)|mẫu chuẩn|mẫu định danh|holotype|type series/iu
+// Two cuts into sentences, each erring the safe way for its use (Astra's reads, 13 Nov):
+// - CUT, for the context a match is read in (history(), the plant check): a stop (an ellipsis among them, and any closing
+//   quote or bracket after it) ends a sentence only before a capital or a figure, and never after a lone initial ("ông
+//   A. Werner", "P. dolloi"). Unsure, it reads more, so a dated batch is less often taken for news.
+// - EVERY_STOP, for whether a part is wholly a notice (dealerNotice), which takes the part off the page: every stop,
+//   semicolon and comma ends a clause, and each must hold a notice. Unsure, a fact stands apart from the notice ("Lô này
+//   chỉ có 7 con. pH phù hợp là 6–7.", "…; loài này cần nước mềm", "…, chúng cần nước mềm và chua") and the part stays,
+//   to be rewritten (Astra's reads, 13 Nov).
+const CUT = /(?<=[.!?…]["'”’»)]*)(?<!(?:^|[^\p{L}])\p{L}\.["'”’»)]*)\s+(?=["'“‘(«]*[\p{Lu}\p{N}])|\n/u
+const EVERY_STOP = /(?<=[.!?…]["'”’»)]*)\s+|[;,]\s*|\n/gu
+const history = (text: string, at: number) => HISTORY_VI.test([...text.slice(0, at).split(CUT).slice(-2), text.slice(at).split(CUT)[0]].join(' '))
+/**
+ * A bare "lô này" in a sentence about plants is a keeper's own plants, not a dealer's batch: a video's "Cây ở lô này nằm
+ * ngoài nước khá lâu và được cất trong tủ lạnh trước khi trồng" (Astra's read).
+ */
+const BARE_LOT = /^lô (?:lần )?này$/iu
+const PLANTS = /(?<![\p{L}\p{N}])(?:cây|bó)(?![\p{L}\p{N}])/iu
+const notice = (text: string, m: RegExpMatchArray) => !history(text, m.index!) && !(BARE_LOT.test(m[0]) && PLANTS.test(text.slice(0, m.index).split(CUT).at(-1)! + text.slice(m.index).split(CUT)[0]))
+
+/**
+ * Whether a Vietnamese part is wholly a dealer's notice: every sentence of it names the dealer's own current batch or
+ * stock (DEALER_VI, history aside). Such a part isn't rewritten: it comes off the page when its heading has another
+ * source's text, and is listed for the chief of staff when it's that heading's only text (13 Nov 2026, sweep.ts). On
+ * 13 Nov four were: the ram's range ("Hiện ngoài tiệm có bán cá phượng hoàng bắt ngoài tự nhiên ở Venezuela") among them.
+ */
+export function dealerNotice(html: string): boolean {
+  const text = render(html)
+  const at = [...text.matchAll(DEALER_VI)].filter(m => notice(text, m)).map(m => m.index)
+  // Its sentences, as the history test cuts them: each must hold a notice.
+  const spans: [number, number][] = []
+  let from = 0
+  for (const m of text.matchAll(EVERY_STOP)) { spans.push([from, m.index]); from = m.index + m[0].length }
+  spans.push([from, text.length])
+  const said = spans.filter(([a, b]) => /[\p{L}\p{N}]/u.test(text.slice(a, b)))
+  return said.length > 0 && said.every(([a, b]) => at.some(i => i >= a && i < b))
+}
+
 const IMPERIAL = [
   re(WORD(`${AMOUNT}(?:gal|inch(?:es)?|inci|feet|ft|foot|pounds?|lbs?|ounces?|oz|độ F)`)),
   re(`${WORD('gallons?|galon|ga-?\\s?lông')}|แกลลอน|°\\s?F|\\d\\s*นิ้ว`),
@@ -387,6 +461,7 @@ export function fitRules(p: Page): FitFinding[] {
     for (const r of PRICE) each('price', r, 'a foreign price or shipping cost')
     if (p.lang !== 'vi') each('price', PRICE_OTHER, 'a price in Vietnamese đồng')
     each('source', SOURCE[p.lang], 'talks about the source or in its voice')
+    if (p.lang === 'vi') for (const m of text.matchAll(DEALER_VI)) if (notice(text, m)) say('source', id, m[0], 'a dealer\'s own batch or stock: news to no reader here')
     for (const r of SOURCE_NO) each('source', r, 'a source\'s number from the facts, which the reader never sees')
     for (const r of IMPERIAL) each('units', r, 'an imperial unit')
     for (const m of text.matchAll(CONVERTED)) if (!PER.test(text.slice(Math.max(0, m.index - 24), m.index))) say('units', id, m[0], 'a volume that shows it was converted from gallons')
@@ -467,7 +542,7 @@ export function keepCautions(found: { doseQuote: string; sourceQuote: string; an
 /** One model reads one page against the checklist; when the page has doses, against what the page was written from too. */
 export async function readFit(llm: Llm, p: Page, model: string | undefined, now: Date, source?: string): Promise<FitEntry> {
   const { text, hash } = fitText(p)
-  const r = await llm<{ findings: Found[]; products: string[]; doses?: FitDose[] }>({ system: fitPrompt(p.lang, p.kind), prompt: text, schema: SCHEMA, ...(model ? { model } : {}) })
+  const r = await llm<{ findings: Found[]; products: string[]; doses?: FitDose[] }>({ system: fitPrompt(p.lang, p.kind, p.kind === 'guides' && p.id.startsWith('youtube-')), prompt: text, schema: SCHEMA, ...(model ? { model } : {}) })
   const doses = keepDoses(r.doses ?? [], text)
   const entry: FitEntry = { at: now.toISOString().slice(0, 10), hash, model: model ?? 'default', checklist: CHECKLIST, findings: keepFit((r.findings ?? []).filter(f => f.check !== 'card' || p.kind === 'cards'), text, p.lang), products: [...new Set((r.products ?? []).map(x => x.trim()).filter(Boolean))], ...(doses.length ? { doses } : {}) }
   if (!doses.length) return entry

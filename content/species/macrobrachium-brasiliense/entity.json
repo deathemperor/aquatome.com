@@ -1,0 +1,392 @@
+{
+  "id": "macrobrachium-brasiliense",
+  "scientificName": "Macrobrachium brasiliense",
+  "order": "Decapoda",
+  "family": "Palaemonidae",
+  "genus": "Macrobrachium",
+  "group": "shrimp",
+  "places": [
+    "south-america",
+    "paraguay",
+    "peru"
+  ],
+  "range": {
+    "records": {
+      "taxonKey": 2224644,
+      "total": 150,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "BR",
+          77
+        ],
+        [
+          "VE",
+          23
+        ],
+        [
+          "EC",
+          21
+        ],
+        [
+          "BO",
+          11
+        ],
+        [
+          "GF",
+          8
+        ],
+        [
+          "SR",
+          4
+        ],
+        [
+          "CO",
+          2
+        ],
+        [
+          "PY",
+          2
+        ],
+        [
+          "FR",
+          1
+        ],
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -4.21875,
+          1
+        ],
+        [
+          -78.75,
+          -2.8125,
+          7
+        ],
+        [
+          -78.75,
+          -1.40625,
+          1
+        ],
+        [
+          -77.34375,
+          -2.8125,
+          10
+        ],
+        [
+          -77.34375,
+          -1.40625,
+          2
+        ],
+        [
+          -77.34375,
+          0,
+          1
+        ],
+        [
+          -73.125,
+          -4.21875,
+          1
+        ],
+        [
+          -73.125,
+          4.21875,
+          1
+        ],
+        [
+          -70.3125,
+          -12.65625,
+          5
+        ],
+        [
+          -68.90625,
+          -15.46875,
+          1
+        ],
+        [
+          -68.90625,
+          -12.65625,
+          5
+        ],
+        [
+          -66.09375,
+          2.8125,
+          1
+        ],
+        [
+          -66.09375,
+          5.625,
+          9
+        ],
+        [
+          -66.09375,
+          7.03125,
+          1
+        ],
+        [
+          -64.6875,
+          4.21875,
+          5
+        ],
+        [
+          -64.6875,
+          5.625,
+          7
+        ],
+        [
+          -59.0625,
+          -22.5,
+          1
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          1
+        ],
+        [
+          -57.65625,
+          -22.5,
+          1
+        ],
+        [
+          -57.65625,
+          -15.46875,
+          2
+        ],
+        [
+          -57.65625,
+          4.21875,
+          3
+        ],
+        [
+          -56.25,
+          -22.5,
+          19
+        ],
+        [
+          -56.25,
+          -16.875,
+          1
+        ],
+        [
+          -56.25,
+          -15.46875,
+          3
+        ],
+        [
+          -54.84375,
+          -12.65625,
+          3
+        ],
+        [
+          -54.84375,
+          4.21875,
+          1
+        ],
+        [
+          -53.4375,
+          -23.90625,
+          2
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          3
+        ],
+        [
+          -53.4375,
+          2.8125,
+          8
+        ],
+        [
+          -52.03125,
+          -22.5,
+          1
+        ],
+        [
+          -52.03125,
+          -1.40625,
+          3
+        ],
+        [
+          -50.625,
+          -23.90625,
+          8
+        ],
+        [
+          -50.625,
+          -22.5,
+          2
+        ],
+        [
+          -50.625,
+          -7.03125,
+          1
+        ],
+        [
+          -49.21875,
+          -26.71875,
+          1
+        ],
+        [
+          -49.21875,
+          -19.6875,
+          2
+        ],
+        [
+          -47.8125,
+          -23.90625,
+          2
+        ],
+        [
+          -47.8125,
+          -22.5,
+          7
+        ],
+        [
+          -46.40625,
+          -16.875,
+          1
+        ],
+        [
+          -46.40625,
+          -15.46875,
+          3
+        ],
+        [
+          -46.40625,
+          -8.4375,
+          1
+        ],
+        [
+          -45,
+          -16.875,
+          1
+        ],
+        [
+          -45,
+          -15.46875,
+          2
+        ],
+        [
+          -45,
+          -8.4375,
+          1
+        ],
+        [
+          -42.1875,
+          -21.09375,
+          1
+        ],
+        [
+          -40.78125,
+          -22.5,
+          1
+        ],
+        [
+          -39.375,
+          -15.46875,
+          4
+        ],
+        [
+          -37.96875,
+          -18.28125,
+          1
+        ],
+        [
+          1.40625,
+          46.40625,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_brasiliense_paraguay_en/",
+      "html": "<p>Imported for the first time from Paraguay. Most probably it represents a population of Macrobrachium brasiliense. The maximum length of the animals is around 5 cm.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_brasiliense_paraguay_en/",
+      "html": "<p>Compared with the Peruvian specimens, those from Paraguay have more slender arms, otherwise they look identical. Possibly the species will now become more widespread in aquaria than before.</p><p>Lexicon: Macrobrachium: ancient Greek, means \"with big arm\". brasiliense: means \"coming from Brazil\".</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_brasiliense_paraguay_en/",
+      "html": "<p>Paraguay. The species was also imported occasionally from Peru.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_brasiliense_paraguay_en/",
+      "html": "<p>Animals from the Paraguay system are not as demanding regarding water chemistry as those from the Amazon/Orinoco system and can be kept very well at a pH higher than 7.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_brasiliense_paraguay_en/",
+      "html": "<p>This species can be easily bred in freshwater.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "TJ9WP1wQAgw",
+      "title": "Macrobrachium brasiliense dd 9-2-2019",
+      "durationSec": 79,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "oVtV4E2TFhk",
+      "title": "Macrobrachium brasiliense",
+      "durationSec": 36,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bể tép",
+        "máy lọc nước hồ thủy sinh",
+        "lọc thùng nhỏ cho bể tôm",
+        "máy sục khí mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn tôm càng",
+        "thức ăn tép",
+        "thức ăn cho tôm",
+        "thức ăn viên chìm cho tôm"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể nuôi tôm 60cm",
+        "bể thủy sinh nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

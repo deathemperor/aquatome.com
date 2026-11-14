@@ -67,6 +67,49 @@
     "HBL-802 (in stock)": "HBL-802 (còn hàng)",
     "HBL-802 (out of stock)": "HBL-802 (hết hàng)"
   },
+  "reviews": {
+    "agree": [],
+    "differ": [],
+    "single": [
+      {
+        "text": "Một bài review thấy lọc kín ở mọi phía và không bị rỉ nước. Vỏ nhựa chắc, cầm khá nặng tay, cho cảm giác hàng tốt.",
+        "cites": [
+          {
+            "url": "https://www.youtube.com/watch?v=SYQOGEtuf5k",
+            "t": 261
+          }
+        ]
+      },
+      {
+        "text": "Một bài review lưu ý phải đổ đầy nước vào lọc trước khi cắm điện, vì để motor chạy khô có thể làm hỏng nó. Lọc chứa khoảng 1.5 lít nước.",
+        "cites": [
+          {
+            "url": "https://www.youtube.com/watch?v=SYQOGEtuf5k",
+            "t": 231
+          }
+        ]
+      },
+      {
+        "text": "Một bài review thấy lúc chỉnh dòng thì không khí lọt vào máy, nghe rõ tiếng ọc ọc như nước chảy xuống cống. Khi bọt khí đi hết thì tiếng này tự mất.",
+        "cites": [
+          {
+            "url": "https://www.youtube.com/watch?v=SYQOGEtuf5k",
+            "t": 291
+          }
+        ]
+      },
+      {
+        "text": "Một bài review chê miếng mút kèm theo khá mỏng, nhưng có thể thay bằng vật liệu lọc khác như sứ lọc. Khay vật liệu giao về để trống, còn sách hướng dẫn in tiếng Trung nên đọc cũng không giúp được gì.",
+        "cites": [
+          {
+            "url": "https://www.youtube.com/watch?v=SYQOGEtuf5k",
+            "t": 166
+          }
+        ]
+      }
+    ],
+    "measured": []
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

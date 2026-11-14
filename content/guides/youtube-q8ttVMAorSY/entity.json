@@ -74,20 +74,13 @@
         "heading": "Nền và thiết bị cần những gì",
         "moments": [
           {
-            "t": 35,
-            "url": "https://media.aquatome.com/video/q8ttVMAorSY/at35-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lớp phân nền trộn sỏi được rải trong bể, cạnh lũa và đá.",
-            "sharpness": 1777.9
-          },
-          {
             "t": 60,
             "url": "https://media.aquatome.com/video/q8ttVMAorSY/at60-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể đã đổ nền sỏi, có lọc nhỏ, đèn và cây trồng phía sau.",
-            "sharpness": 857.7
+            "sharpness": 857.7,
+            "person": false
           }
         ]
       },
@@ -100,7 +93,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bố cục lũa và cây thủy sinh mới trồng, bể vừa lắng trong.",
-            "sharpness": 631.7
+            "sharpness": 631.7,
+            "person": false
           },
           {
             "t": 150,
@@ -108,7 +102,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể mới setup, cây còn thưa, chờ lên xanh.",
-            "sharpness": 2016.9
+            "sharpness": 2016.9,
+            "person": false
           }
         ],
         "photo": {
@@ -131,7 +126,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh nhiều cây và lũa, nền cát sạch.",
-            "sharpness": 528.3
+            "sharpness": 528.3,
+            "person": false
           },
           {
             "t": 165,
@@ -139,7 +135,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Một con tép cherry đỏ bò trên nền sỏi trong bể có cây.",
-            "sharpness": 234.6
+            "sharpness": 234.6,
+            "person": false
           }
         ],
         "photo": {
@@ -206,7 +203,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây trong nền vươn lên mặt nước, lá to và xanh mướt.",
-            "sharpness": 1241.7
+            "sharpness": 1241.7,
+            "person": false
           },
           {
             "t": 320,
@@ -214,7 +212,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Túi tép Amano đang được thả làm quen nước trước khi cho vào bể.",
-            "sharpness": 739.1
+            "sharpness": 739.1,
+            "person": false
           }
         ],
         "photo": {
@@ -237,15 +236,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh cây rậm, cá bơi dưới lũa sau khi chăm.",
-            "sharpness": 601.7
-          },
-          {
-            "t": 445,
-            "url": "https://media.aquatome.com/video/q8ttVMAorSY/at445-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng cục lau kính chà mặt kính bể cho sạch.",
-            "sharpness": 1096.2
+            "sharpness": 601.7,
+            "person": false
           }
         ],
         "photo": {

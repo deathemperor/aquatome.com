@@ -72,38 +72,8 @@
     ],
     "figures": [
       {
-        "heading": "Làm nền có dinh dưỡng thế nào",
-        "moments": [
-          {
-            "t": 320,
-            "url": "https://media.aquatome.com/video/SRQp4aZJv1g/at320-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rắc đất ao lên lớp sỏi mỏng dưới đáy bể trống.",
-            "sharpness": 2485.7
-          }
-        ]
-      },
-      {
         "heading": "Xếp đá Seiryu cho tự nhiên",
-        "moments": [
-          {
-            "t": 580,
-            "url": "https://media.aquatome.com/video/SRQp4aZJv1g/at580-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai viên đá Seiryu đặt cạnh nhau trên nền cát trong bể nhỏ.",
-            "sharpness": 1220.4
-          },
-          {
-            "t": 630,
-            "url": "https://media.aquatome.com/video/SRQp4aZJv1g/at630-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chồng nhiều viên đá Seiryu lên nhau để tạo chỗ cao, chỗ thấp.",
-            "sharpness": 1613.1
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/SRQp4aZJv1g/p1-LWxlbm5hcnQuanBn.webp",
           "thumb": "https://media.aquatome.com/video/SRQp4aZJv1g/p1-LWxlbm5hcnQuanBn-480.webp",
@@ -124,38 +94,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Khúc lũa manzanita cắm chéo góc trong bể, đặt cạnh mấy hòn đá.",
-            "sharpness": 1605.5
-          },
-          {
-            "t": 780,
-            "url": "https://media.aquatome.com/video/SRQp4aZJv1g/at780-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thêm khúc lũa chéo ngược hướng, bể có chiều sâu và dáng khung đẹp.",
-            "sharpness": 1500.1
+            "sharpness": 1605.5,
+            "person": false
           }
         ]
       },
       {
         "heading": "Trồng cây theo thứ tự nào",
-        "moments": [
-          {
-            "t": 1040,
-            "url": "https://media.aquatome.com/video/SRQp4aZJv1g/at1040-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bụi ráy Anubias nana petite cầm trên tay, chuẩn bị tách ra.",
-            "sharpness": 759.3
-          },
-          {
-            "t": 1050,
-            "url": "https://media.aquatome.com/video/SRQp4aZJv1g/at1050-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Gắn ráy vào khe đá và lũa trong bể mới setup.",
-            "sharpness": 1680.6
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/SRQp4aZJv1g/p3-YV9QZXRpdGUuanBn.webp",
           "thumb": "https://media.aquatome.com/video/SRQp4aZJv1g/p3-YV9QZXRpdGUuanBn-480.webp",
@@ -176,7 +122,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể mới đổ nước bị đục vàng do manzanita nhả tannin.",
-            "sharpness": 1264
+            "sharpness": 1264,
+            "person": false
           },
           {
             "t": 1420,
@@ -184,7 +131,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đang rút bớt nước đục ra khỏi bể bằng ống siphon.",
-            "sharpness": 3281.7
+            "sharpness": 3281.7,
+            "person": false
           }
         ]
       },
@@ -197,7 +145,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lọc treo thành bể nhả nước nhẹ trên mặt bể nhiều cây.",
-            "sharpness": 598.4
+            "sharpness": 598.4,
+            "person": false
           },
           {
             "t": 1640,
@@ -205,7 +154,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lọc treo đặt ở góc sau bể thủy sinh, cây mọc um tùm phía dưới.",
-            "sharpness": 212.9
+            "sharpness": 212.9,
+            "person": false
           }
         ]
       },
@@ -232,7 +182,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đèn LED phía trên bể và các bụi cây thủy sinh bên dưới.",
-            "sharpness": 733.6
+            "sharpness": 733.6,
+            "person": false
           },
           {
             "t": 1940,
@@ -240,7 +191,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể thủy sinh nhỏ với lũa, đá và cây xanh.",
-            "sharpness": 1758.3
+            "sharpness": 1758.3,
+            "person": false
           }
         ]
       }

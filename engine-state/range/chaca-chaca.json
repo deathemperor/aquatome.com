@@ -1,8 +1,8 @@
 {
   "id": "chaca-chaca",
   "native": {
-    "input": "38d0bc03a8a2690c",
-    "at": "2026-11-07T02:19:57.912Z",
+    "input": "af1f8efafa0c9c90",
+    "at": "2026-11-14T05:39:06.336Z",
     "claims": [
       {
         "code": "IN",
@@ -35,9 +35,42 @@
         "quote": "The frogmouth catfish, Chaca chaca, is an ambush predator from still and slow-moving waters in India, Nepal, Bangladesh and Indonesia.",
         "words": "Indonesia",
         "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Indian waters, North Eastern India, Padma, Ganges; and Padma, Jamuna, Brahmaputra.",
+        "words": "India",
+        "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Ganges",
+        "source": "planetcatfish",
+        "quote": "Asia: Indian waters, North Eastern India, Padma, Ganges; and Padma, Jamuna, Brahmaputra.",
+        "ok": true
+      },
+      {
+        "name": "Brahmaputra",
+        "source": "planetcatfish",
+        "quote": "Asia: Indian waters, North Eastern India, Padma, Ganges; and Padma, Jamuna, Brahmaputra.",
+        "ok": true
+      },
+      {
+        "name": "Padma",
+        "source": "planetcatfish",
+        "quote": "Asia: Indian waters, North Eastern India, Padma, Ganges; and Padma, Jamuna, Brahmaputra.",
+        "ok": true
+      },
+      {
+        "name": "Jamuna",
+        "source": "planetcatfish",
+        "quote": "Asia: Indian waters, North Eastern India, Padma, Ganges; and Padma, Jamuna, Brahmaputra.",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {
