@@ -188,6 +188,52 @@ function placed<E extends { definition: string; body: string }>(e: E, text: stri
 }
 
 /**
+ * The figures a text gives, each as often as it gives it, with the numbers it can be read as (Grok's reads, 15 Nov 2026).
+ * Vietnamese writes thousands with dots and the decimal with a comma ("200.000", "1.234,5"), English the other way round
+ * ("2,000", "1,500.00"); any other mark is a decimal ("6.0" is 6, "7,3" 7.3). The facts keep no one way (an English fact
+ * quotes a shop's "200.000đ"), so a fact's figure reads both ways ("2,000" is 2 or 2000). The entry is Vietnamese and reads
+ * one way, so a figure the rewording changed ("200.000đ" to "200đ") is a figure it dropped. "20–30%" gives 20 and 30.
+ * Never a digit inside a word or a formula (CO2, NH4+, H3PO4), but "pH7,2" gives 7.2.
+ */
+type Figure = { text: string; reads: string[] }
+/** A figure's number when `thousands` marks thousands in it, and the other mark the decimal. */
+const written = (n: string, thousands: '.' | ',') => {
+  const decimal = thousands === '.' ? ',' : '.'
+  const grouped = new RegExp(`^[1-9]\\d{0,2}(?:\\${thousands}\\d{3})+(?:\\${decimal}\\d+)?$`).test(n)
+  return String(Number(grouped ? n.split(thousands).join('').replace(decimal, '.') : n.replace(/^(\d+)[.,](\d+).*$/, '$1.$2')))
+}
+const figures = (text: string, entry = false): Figure[] => [...text.replace(/pH(?=\d)/g, 'pH ').matchAll(/(?<![\p{L}\p{N}.,])\d+(?:[.,]\d+)*/gu)].map(m => (
+  { text: m[0], reads: [...new Set([written(m[0], '.'), ...(entry ? [] : [written(m[0], ',')])])] }
+))
+/** The figures `before` gives that `after` doesn't: each matched once to a figure after it that reads the same. */
+const lessOf = (before: Figure[], after: Figure[]) => {
+  const left = [...after]
+  return before.filter(f => { const i = left.findIndex(g => g.reads.some(r => f.reads.includes(r))); if (i < 0) return true; left.splice(i, 1); return false })
+}
+const has = (text: string, w: string) => new RegExp(`(?<![\\p{L}\\p{N}])${w}(?![\\p{L}\\p{N}])`, 'iu').test(text)
+const escapeRe = (n: string) => n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+/**
+ * The names a text holds: these (a page's name, a kind's) where they are two words or more, as whole words in any case,
+ * and any Latin name (a genus and its species) the facts write, in any case. A one-word name ("Mono", "Front") is an
+ * everyday word too.
+ */
+const namesIn = (text: string, names: string[], facts = '') => [
+  // The longest first, each taken out of the text once found, so "Cá rô" isn't found inside "Cá rô phi".
+  ...[...names].map(n => n.trim()).filter(n => /\S\s+\S/.test(n)).sort((a, b) => b.length - a.length).filter(n => {
+    const re = new RegExp(`(?<![\\p{L}\\p{N}])${escapeRe(n)}(?![\\p{L}\\p{N}])`, 'giu')
+    return re.test(text) && ((text = text.replace(re, ' ')), true)
+  }),
+  ...[...text.matchAll(/(?<![\p{L}\p{N}])[A-Za-z][a-z]+ [A-Za-z][a-z]{2,}(?![\p{L}\p{N}])/gu)].map(m => m[0]).filter(n => /^[A-Z]/.test(n) && facts.toLowerCase().includes(n.toLowerCase())),
+]
+/** The words of a caution in Vietnamese: a warning, a must, a never; read on a text without the phrases where they mean something else. */
+const CAUTIONS = ['không được', 'không nên', 'đừng', 'chớ', 'tránh', 'phải', 'cẩn thận', 'lưu ý', 'coi chừng', 'cảnh báo', 'nguy hiểm', 'độc', 'hại', 'chết']
+const NOT_CAUTIONS = /(?<![\p{L}\p{N}])(?:không phải|độc đáo|độc lập|độc quyền|độc nhất|độc giả|đơn độc|bên phải|tay phải|phía phải|phải không|có phải|phải chăng|lẽ phải|phải trái)(?![\p{L}\p{N}])/giu
+const cautionsIn = (text: string) => { const t = text.replace(NOT_CAUTIONS, ' '); return CAUTIONS.filter(w => has(t, w)) }
+
+/** The phrases a note quotes, "…" or “…”, of three characters or more. */
+const quotes = (note: string) => [...note.matchAll(/"([^"]+)"|“([^”]+)”/g)].map(m => (m[1] ?? m[2]!).trim()).filter(q => q.length >= 3)
+
+/**
  * The middle path for loose (the chief of staff, 14 Nov 2026): the sentences two reads call loose go back once to the
  * writer with the reasons, to be reworded to what the facts carry, with no remark that sources differ and no hedge (four of
  * twelve rewordings in the trial hedged). Only they change. Then the whole entry as it would be saved is read again, three
@@ -202,7 +248,7 @@ function placed<E extends { definition: string; body: string }>(e: E, text: stri
  * once in the entry, and its new wording only when that wording stood nowhere before and the entry then reads as it did
  * but for that one sentence, which stands once: the final read's verdict on it is its own, and going back finds it.
  */
-export async function rewordLoose<E extends { definition: string; body: string }>(llm: Llm, model: string, facts: object, e: E, loose: Flagged[]): Promise<{ entry: E; log: string[]; stops: Flagged[]; score?: number }> {
+export async function rewordLoose<E extends { definition: string; body: string }>(llm: Llm, model: string, facts: object, e: E, loose: Flagged[], keep: { rules?: (e: E) => Promise<string[]>; names?: string[] } = {}): Promise<{ entry: E; log: string[]; stops: Flagged[]; score?: number }> {
   const log: string[] = []
   const texts = sentences(e).map(s => s.text)
   const here = loose.filter(s => (occurrences(e, s.text) === 1 && texts.filter(t => t === s.text).length === 1 && placed(e, s.text)) || (log.push(`Loose, left as written (not placeable): "${s.text}"`), false))
@@ -210,26 +256,59 @@ export async function rewordLoose<E extends { definition: string; body: string }
   const listed = here.map((s, i) => `${i + 1}. CÂU: ${s.text}\n   ĐOẠN: ${s.block}\n   LÝ DO: ${[...new Set(s.why)].join(' / ')}`).join('\n')
   const r = await llm<{ sentences?: { n: number; text: string }[] }>({ system: 'You reword sentences of a Vietnamese aquarium glossary entry to what its facts carry. Reply only with JSON.', model, schema: REWORD_SCHEMA, prompt: `${REWORD}\n\n--- CÂU ---\n${listed}\n\n--- DỮ KIỆN ---\n${JSON.stringify(facts)}` })
   const now = here.map((s, i) => ({ s, to: (r.sentences ?? []).find(x => x.n === i + 1)?.text.replace(/\s+/g, ' ').trim() ?? '' }))
-  let entry = e
-  const changed: typeof now = []
-  for (const x of now) {
-    const was = sentences(entry).map(s => s.text)
-    const want = was.map(t => (t === x.s.text ? x.to : t))
-    const next = x.to && x.to !== x.s.text && occurrences(entry, x.to) === 0 ? placed(entry, x.s.text)?.(x.to) : undefined
-    // The same sentences in the same order but this one, which stands once: not two sentences, nor one run into the next.
-    if (next && JSON.stringify(sentences(next).map(s => s.text)) === JSON.stringify(want) && want.filter(t => t === x.to).length === 1) { entry = next; changed.push(x) }
-    else log.push(`Loose, not reworded: "${x.s.text}"`)
+  // Puts rewordings into the entry as written, in order, each where its sentence stands: the same sentences in the same
+  // order but this one, which stands once; not two sentences, nor one run into the next. Going back is the same: the
+  // rewordings that stay put in again from the entry as written, never a sentence put back by its words, which could
+  // land on another that now reads the same (Grok, 15 Nov 2026).
+  type Rewording = (typeof now)[number]
+  const place = (xs: Rewording[]) => {
+    let entry = e
+    const done: Rewording[] = []
+    for (const x of xs) {
+      const was = sentences(entry).map(s => s.text)
+      const want = was.map(t => (t === x.s.text ? x.to : t))
+      const next = x.to && x.to !== x.s.text && occurrences(entry, x.to) === 0 ? placed(entry, x.s.text)?.(x.to) : undefined
+      if (next && JSON.stringify(sentences(next).map(s => s.text)) === JSON.stringify(want) && want.filter(t => t === x.to).length === 1) { entry = next; done.push(x) }
+    }
+    return { entry, done }
   }
+  const first = place(now)
+  for (const x of now) if (!first.done.includes(x)) log.push(`Loose, not reworded: "${x.s.text}"`)
+  const changed = first.done
   if (!changed.length) return { entry: e, log, stops: [] }
-  const final = await checkSentences(llm, facts, entry)
+  const final = await checkSentences(llm, facts, first.entry)
   const verdictsOf = (text: string) => [...final.stops, ...final.loose].find(f => f.text === text)?.verdicts.join(', ') ?? 'supported'
+  const stopped = (x: Rewording) => final.stops.some(f => f.text === x.to)
+  const unstopped = place(changed.filter(x => !stopped(x)))
+  // The rewording reads only the facts, so the house rules and the term's notes are read again on what it kept: a rewording
+  // a rules note is about goes back to its old wording too (the chief of staff, 15 Nov 2026: chu trình nitơ's put a brand
+  // where a kind stood, and took out the fish deaths and "0 or near 0" its notes asked for). A note is about a rewording
+  // when it quotes words the rewording put in or took out, or a passage that holds its new sentence whole; never by words
+  // the sentence had either way, as a name a note on another sentence also quotes.
+  const ruled = keep.rules && unstopped.done.length ? await keep.rules(unstopped.entry) : []
+  const about = (n: string, x: Rewording) => quotes(n).some(q => x.to.includes(q) !== x.s.text.includes(q) || q.includes(x.to))
+  // Nor may it buy its fit by taking specifics out (the chief of staff, 15 Nov 2026: pH lost its weekly 20–30%, chu trình
+  // nitơ its fish deaths and its "0 or near 0", Lũa its "must soak"): a figure the facts carry, a named example (a page's
+  // name, a kind's, a Latin name) or a caution the old wording had and the new one hasn't keeps the old wording.
+  // The facts' own words, not their source numbers.
+  const said = ((facts as { facts?: { fact: string }[] }).facts ?? []).map(f => f.fact).join('\n'), carried = new Set(figures(said).flatMap(f => f.reads))
+  const dropped = (x: Rewording) => [
+    ...lessOf(figures(x.s.text, true), figures(x.to, true)).filter(f => f.reads.some(r => carried.has(r))).map(f => `the figure ${f.text}`),
+    ...namesIn(x.s.text, keep.names ?? [], said).filter(n => !namesIn(x.to, keep.names ?? [], said).includes(n)).map(n => `the name ${n}`),
+    ...cautionsIn(x.s.text).filter(w => !cautionsIn(x.to).includes(w)).map(w => `the caution "${w}"`),
+  ]
+  const broke = new Map(unstopped.done.map(x => [x, [...ruled.filter(n => about(n, x)), ...(dropped(x).length ? [`it drops ${dropped(x).join(', ')}`] : [])]]))
+  const staying = unstopped.done.filter(x => !broke.get(x)!.length)
+  const { entry, done } = staying.length === unstopped.done.length ? unstopped : place(staying)
   for (const x of changed) {
-    if (final.stops.some(f => f.text === x.to)) {
-      entry = placed(entry, x.to)?.(x.s.text) ?? entry
-      log.push(`Loose, rewording read as unsupported, old wording kept for the reader: "${x.s.text}" (not "${x.to}": ${verdictsOf(x.to)})`)
-    } else log.push(`${final.loose.some(f => f.text === x.to) ? 'Loose, reworded and still loose' : 'Loose, reworded'}: "${x.s.text}" → "${x.to}" (${verdictsOf(x.to)})`)
+    if (stopped(x)) log.push(`Loose, rewording read as unsupported, old wording kept for the reader: "${x.s.text}" (not "${x.to}": ${verdictsOf(x.to)})`)
+    else if (broke.get(x)?.length) log.push(`Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: "${x.s.text}" (not "${x.to}": ${broke.get(x)!.join(' / ')})`)
+    else if (!done.includes(x)) log.push(`Loose, rewording not placed once others went back, old wording kept for the reader: "${x.s.text}" (not "${x.to}")`)
+    else log.push(`${final.loose.some(f => f.text === x.to) ? 'Loose, reworded and still loose' : 'Loose, reworded'}: "${x.s.text}" → "${x.to}" (${verdictsOf(x.to)})`)
   }
-  const stops = final.stops.filter(f => !changed.some(x => x.to === f.text))
+  // The stops of the entry as returned: a sentence that read stops and still stands in it, wherever it stands.
+  const standing = new Set(sentences(entry).map(s => s.text))
+  const stops = final.stops.filter(f => standing.has(f.text))
   // The score of the entry as saved: a reworded sentence that stopped is back in its old wording, which read loose.
   return { entry, log, stops, score: scoreOf(final.claims, stops.filter(f => !f.unscored).length) }
 }
