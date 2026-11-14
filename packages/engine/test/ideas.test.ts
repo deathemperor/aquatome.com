@@ -128,12 +128,12 @@ test('writing: the most asked idea first, its shops\' posts as leads that say ne
     readAt: '2026-11-03T00:00:00Z',
     // The magazine's post saved in a shop's list too, and a marketplace's: research is given neither, told by the address.
     posts: {
-      aquazonefish: [{ url: `${AZ}nuoc-be-ca-bi-duc`, title: 'nuoc be ca bi duc' }, { url: `${PF}features/water-clarity/`, title: 'water clarity' }, { url: 'https://shopee.vn/thuoc-tri-nuoc-duc-i.1.2', title: 'thuoc tri nuoc duc' }],
+      aquazonefish: [{ url: `${AZ}nuoc-be-ca-bi-duc`, title: 'nuoc be ca bi duc' }, { url: `${PF}features/water-clarity/`, title: 'water clarity' }, { url: 'https://shopee.vn/thuoc-tri-nuoc-duc-i.1.2', title: 'thuoc tri nuoc duc' }, { url: 'https://www.tokopedia.com/toko/obat-air-keruh', title: 'obat air keruh' }],
       practicalfishkeeping: [{ url: `${PF}features/cloudy-water-explained/`, title: 'cloudy water explained' }],
     },
     ideas: [
       { topic: 'Cá bị tuột nhớt', kind: 'disease', posts: [], sites: 1 },
-      { topic: 'Nước bể cá bị đục trắng', kind: 'disease', posts: [`${AZ}nuoc-be-ca-bi-duc`, `${PF}features/cloudy-water-explained/`, `${PF}features/water-clarity/`, 'https://shopee.vn/thuoc-tri-nuoc-duc-i.1.2'], sites: 2 },
+      { topic: 'Nước bể cá bị đục trắng', kind: 'disease', posts: [`${AZ}nuoc-be-ca-bi-duc`, `${PF}features/cloudy-water-explained/`, `${PF}features/water-clarity/`, 'https://shopee.vn/thuoc-tri-nuoc-duc-i.1.2', 'https://www.tokopedia.com/toko/obat-air-keruh'], sites: 2 },
       { topic: 'Cá thiếu oxy', kind: 'care', posts: [], sites: 1 },
     ],
     written: { '2026-09-01': 3 },
@@ -153,6 +153,7 @@ test('writing: the most asked idea first, its shops\' posts as leads that say ne
   // too, whichever list one was saved in; nor a marketplace's.
   expect(asked[0]).not.toContain('practicalfishkeeping')
   expect(asked[0]).not.toContain('shopee')
+  expect(asked[0]).not.toContain('tokopedia')
   expect(asked[0]).not.toContain('British fishkeeping magazine')
   let s = await readIdeas(root)
   expect(s.ideas.map(i => i.guide ?? i.skipped ?? '')).toEqual(['aquatome-ca-bi-tuot-nhot', 'Nước bể cá bị đục trắng: nothing reliable found', ''])
@@ -245,6 +246,11 @@ test('a refusal is told by shape: a 403, a 429, or a 200 that is not the listing
   // The listing's own shape passes, with a stylesheet's instruction and a comment before it, its host with or without "www.".
   const styled = `\uFEFF<?xml version="1.0"?>\n<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>\n<!-- a comment -->\n${sitemap([[`https://www.aquazonefish.vn/blogs/kien-thuc/x`], [`${AZ}nuoc-be-ca-bi-duc`]]).replace(/^<\?xml[^>]*>/, '')}`
   expect((await listPosts(map, page(styled))).map(p => p.title)).toEqual(['nuoc be ca bi duc'])
+  // A body that fails on its way, after a 200's headers (a time-out), is a failure, never an empty listing.
+  const broken = new Response(new ReadableStream({ start(c) { c.enqueue(new TextEncoder().encode('<?xml version="1.0"?><urlset>')); c.error(new DOMException('The operation was aborted due to timeout', 'TimeoutError')) } }), { status: 200 })
+  const cut = await listingText(broken).catch((x: unknown) => x)
+  expect(cut).toBeInstanceOf(Error)
+  expect(cut).not.toBeInstanceOf(ListingRefused)
   // The category gone is the site's own answer: a failure, nothing refused.
   const gone = await listPosts(wp, web({ [`${AH}/wp-json/wp/v2/categories?slug=tin-tuc-aqua&_fields=id`]: '[]' }).get).catch((x: unknown) => x)
   expect(gone).not.toBeInstanceOf(ListingRefused)
@@ -456,4 +462,35 @@ test("a refresh keeps a waiting idea the model leaves out; a shop's idea's ties 
   const s = await readIdeas(root)
   expect(s.ideas.map(i => i.topic)).toEqual(['Một bài cửa hàng mới', 'Một bài cửa hàng cũ, hai bài tạp chí', 'Cá thiếu oxy', 'Tảo xanh'])
   expect(s.ideas[2]).toEqual(waiting)
+})
+
+// Codex's read of be5a1f9d7, 14 Nov 2026: a run that passes Vietnam's midnight kept counting the day it began, so the
+// ideas it finished after midnight counted toward neither day.
+test("a run that passes midnight counts the new day's guides from then on", async () => {
+  const root = await site({})
+  const shop = (n: number) => ({ topic: `Cửa hàng ${n}`, kind: 'care', posts: [`${AZ}nuoc-be-ca-bi-duc`], sites: 1 })
+  await writeFile(join(root, 'engine-state/_ideas.json'), JSON.stringify({ posts: {}, ideas: [1, 2, 3, 4, 5].map(shop) }))
+  // 23:50 in Vietnam; each guide's research takes 30 minutes.
+  let clock = Date.parse('2026-11-14T16:50:00Z')
+  const asked: string[] = []
+  const research: Llm = async <T>({ prompt }: { prompt: string }) => { asked.push(prompt); clock += 30 * 60_000; return { found: false, facts: [], species: [], sources: [] } as T }
+  await writeIdeas(root, { research, llm: research, now: () => new Date(clock) }, { perDay: 2 })
+  // The first finishes at 00:20 on the 15th and counts for it; the second too; then the 15th's two are spent.
+  expect(asked).toHaveLength(2)
+  expect((await readIdeas(root)).ideas.map(i => i.at ?? '')).toEqual(['2026-11-14T17:20:00.000Z', '2026-11-14T17:50:00.000Z', '', '', ''])
+})
+
+// Codex's read of be5a1f9d7: a waiting idea kept through refreshes outlives the saved posts it was made from, so its
+// magazine posts were taken for a shop's. A post is the magazine's by its host.
+test("a waiting idea kept through refreshes still tells its shops' posts from the magazine's", async () => {
+  const root = await site({})
+  const mixed = { topic: 'Một cửa hàng, hai bài tạp chí', kind: 'care', posts: [`${AZ}cach-xu-ly-tao`, `${PF}features/a/`, `${PF}features/b/`], sites: 2, latest: '2024-07-01' }
+  const two = { topic: 'Hai cửa hàng', kind: 'care', posts: [`${AZ}nuoc-be-ca-bi-duc`, `${TL}nuoc-be-ca-bi-duc-trang`], sites: 2, latest: '2026-06-02' }
+  // Neither idea's posts are among the saved titles any more: two refreshes have passed since they were made.
+  await writeFile(join(root, 'engine-state/_ideas.json'), JSON.stringify({ posts: {}, ideas: [mixed, two] }))
+  const none: Llm = async <T>() => ({ ideas: [] }) as T
+  await refreshIdeas(root, deps(web(PAGES).get, none, '2026-11-14T00:00:00Z').d)
+  expect((await readIdeas(root)).ideas.map(i => i.topic)).toEqual(['Hai cửa hàng', 'Một cửa hàng, hai bài tạp chí'])
+  await refreshIdeas(root, deps(web(PAGES).get, none, '2026-11-22T00:00:00Z').d)
+  expect((await readIdeas(root)).ideas.map(i => i.topic)).toEqual(['Hai cửa hàng', 'Một cửa hàng, hai bài tạp chí'])
 })

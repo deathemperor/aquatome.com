@@ -271,7 +271,9 @@ export async function recheckTopic(root: string, llm: Llm, id: string, lang: 'vi
   const entity = await read<GuideEntity>(join(dir, 'entity.json'))
   const t = await read<Translation>(join(dir, `${lang}.json`))
   const vi = lang === 'vi' ? t : await read<Translation>(join(dir, 'vi.json'))
-  const { facts, sources } = lang === 'vi' ? viFacts(researched) : localFacts(researched, entity)
+  // The facts its writer had: those on the guide's own references (a source refused when it was written is not among them).
+  const cited = entity.refs && new Set(entity.refs.map(r => r.url))
+  const { facts, sources } = lang !== 'vi' ? localFacts(researched, entity) : viFacts(cited ? { ...researched, sources: researched.sources.map(x => (cited.has(x.url) ? x : { ...x, url: '' })) } : researched)
   const r = await checkGuide(llm, lang === 'vi' ? 'Vietnamese' : TARGETS[lang].lang, { topic: vi.name, kind: entity.kind, sources, facts }, { name: t.name, summary: t.summary ?? [], body: t.body ?? '', faq: t.faq ?? [] })
   await writeFile(join(dir, `${lang}.json`), `${JSON.stringify({ ...t, quality: { ...t.quality, score: r.score, indexable: r.score >= QUALITY_THRESHOLD } }, null, 2)}\n`)
   return r

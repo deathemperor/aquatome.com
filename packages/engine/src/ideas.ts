@@ -4,7 +4,7 @@ import { slugify, type GuideEntity, type SourceId } from '@aq/schema'
 import { vnDay } from './ceiling'
 import { LlmError, type Llm } from './claude'
 import { cycleOnlyHosts, refused } from './cycle-only'
-import { IDEA_SOURCES, NEVER_RESEARCHED, type Drop, type Listing } from './idea-sources'
+import { IDEA_SOURCES, ideaHost, NEVER_RESEARCHED, type Drop, type Listing } from './idea-sources'
 import { isMarketplace } from './marketplaces'
 import { piece } from './pieces'
 import { setSourceBlock, sourceBlockedSince } from './state'
@@ -32,7 +32,8 @@ const KINDS: GuideKind[] = ['setup', 'care', 'breeding', 'disease', 'aquascaping
 export type Post = { url: string; title: string; date?: string }
 /**
  * `guide`: the guide written on it; `skipped`: why none was (research found nothing reliable). `fromMagazine`: every post
- * on it is the magazine's, none a shop's. `at`: when research was spent on it, what the day's cap counts (writeIdeas).
+ * on it is the magazine's, none a shop's. `latest`: the newest of its shops' posts (of all its posts, the magazine's own
+ * idea's). `at`: when research was spent on it, what the day's cap counts (writeIdeas).
  */
 export type Idea = { topic: string; kind: GuideKind; posts: string[]; sites: number; latest?: string; guide?: string; skipped?: string; fromMagazine?: true; at?: string }
 export type IdeasState = {
@@ -68,8 +69,9 @@ export class ListingRefused extends Error {}
  * throws before this) as an error, which keeps the site's titles and marks nothing.
  */
 export async function listingText(res: Response): Promise<string> {
-  const text = await res.text().catch(() => '')
-  if (res.ok) return text
+  // A body that fails on its way (a time-out after the headers) throws as it is: a failure, never an empty listing.
+  if (res.ok) return res.text()
+  await res.body?.cancel().catch(() => undefined)
   if (res.status === 403 || res.status === 429) throw new ListingRefused(`refused, HTTP ${res.status}`)
   throw new Error(`HTTP ${res.status}`)
 }
@@ -79,6 +81,9 @@ function json<T>(body: string, what: string): T {
   try { return JSON.parse(body) as T } catch { throw notA(what) }
 }
 const bareHost = (url: string) => { try { return new URL(url).hostname.toLowerCase().replace(/^www\./, '') } catch { return '' } }
+const MAGAZINE_HOSTS = new Set(IDEA_SOURCES.filter(s => s.magazine).map(ideaHost))
+/** A post is the magazine's by its host: a waiting idea keeps posts its site's later listings may no longer have. */
+const isMagazinePost = (url: string) => MAGAZINE_HOSTS.has(bareHost(url))
 /** The document's first element's name, after a byte-order mark, the XML declaration, comments, a stylesheet's instruction or a doctype. */
 const rootElement = (xml: string) => /^(?:\uFEFF)?(?:\s|<\?[\s\S]*?\?>|<!--[\s\S]*?-->|<!DOCTYPE[^>]*>)*<([A-Za-z][\w:.-]*)/.exec(xml)?.[1]
 
@@ -170,12 +175,6 @@ export async function refreshIdeas(root: string, d: IdeasDeps, o: { force?: bool
   if (!o.force && state.readAt && d.now().getTime() - Date.parse(state.readAt) < FRESH_DAYS * 86_400_000) return { ...report, fresh: true }
   let first = true
   const get = async (url: string) => { if (!first) await d.sleep(DELAY); first = false; return d.get(url) }
-  // Every post's site and date, the last titles' too: a waiting idea kept from before may stand on posts a site has since
-  // replaced.
-  const site = new Map<string, SourceId>()
-  const dated = new Map<string, string>()
-  const note = () => { for (const s of IDEA_SOURCES) for (const p of state.posts[s.id] ?? []) { site.set(p.url, s.id); if (p.date) dated.set(p.url, p.date) } }
-  note()
   for (const s of IDEA_SOURCES) {
     const since = await sourceBlockedSince(root, s.id)
     if (since && !o.retryBlocked) { report.blocked.push(s.id); continue }
@@ -197,16 +196,15 @@ export async function refreshIdeas(root: string, d: IdeasDeps, o: { force?: bool
     system: 'You plan an aquarium handbook\'s guides. Reply only with JSON.', schema: SCHEMA,
     prompt: `${PROMPT}\n\nPOSTS:\n${posts.map((p, i) => `${i + 1}. ${p.title}${MAGAZINES.has(p.site) ? ' (UK)' : ''}`).join('\n')}\n\nGUIDES:\n${guides.map(g => `- ${g}`).join('\n')}`,
   })
-  note()
   const done = new Map(state.ideas.filter(i => i.guide || i.skipped).map(i => [slugify(i.topic), i]))
   const made = new Map<string, Idea>()
-  const shops = (i: Idea) => i.posts.filter(u => !MAGAZINES.has(site.get(u)!))
+  const shops = (i: Idea) => i.posts.filter(u => !isMagazinePost(u))
   for (const x of r.ideas ?? []) {
     const topic = String(x.topic ?? '').trim().slice(0, 140)
     const mine = [...new Set((x.posts ?? []).map(n => posts[Math.round(n) - 1]).filter(p => p !== undefined))]
     if (!topic || !KINDS.includes(x.kind) || !mine.length || done.has(slugify(topic)) || made.has(slugify(topic))) continue
-    const latest = mine.map(p => p.date ?? '').sort().at(-1)
     const fromMagazine = mine.every(p => MAGAZINES.has(p.site))
+    const latest = (fromMagazine ? mine : mine.filter(p => !MAGAZINES.has(p.site))).map(p => p.date ?? '').sort().at(-1)
     made.set(slugify(topic), { topic, kind: x.kind, posts: mine.map(p => p.url), sites: new Set(mine.map(p => p.site)).size, ...(latest ? { latest } : {}), ...(fromMagazine ? { fromMagazine } : {}) })
   }
   const added = made.size
@@ -214,12 +212,11 @@ export async function refreshIdeas(root: string, d: IdeasDeps, o: { force?: bool
   for (const i of state.ideas) if (!i.guide && !i.skipped && !made.has(slugify(i.topic)) && !done.has(slugify(i.topic))) made.set(slugify(i.topic), i)
   // The magazine's ideas listed behind every shop's, and a shop's idea ranked by the shops alone, their posts and their
   // newest date (the chief of staff, 14 Nov 2026): its 1,365 titles never push the shops' ideas out, nor order them. It has
-  // a guide a day of its own (writeIdeas).
-  const shopSites = (i: Idea) => new Set(shops(i).map(u => site.get(u))).size
+  // a guide a day of its own (writeIdeas). A shop is told by its host, as the magazine is.
+  const shopSites = (i: Idea) => new Set(shops(i).map(bareHost)).size
   const counted = (i: Idea) => (i.fromMagazine ? i.posts : shops(i))
-  const newest = (i: Idea) => counted(i).map(u => dated.get(u) ?? '').sort().at(-1) ?? i.latest ?? ''
   state.ideas = [...[...made.values()].sort((a, b) => Number(!!a.fromMagazine) - Number(!!b.fromMagazine) || shopSites(b) - shopSites(a)
-    || counted(b).length - counted(a).length || newest(b).localeCompare(newest(a))), ...done.values()]
+    || counted(b).length - counted(a).length || (b.latest ?? '').localeCompare(a.latest ?? '')), ...done.values()]
   state.readAt = d.now().toISOString()
   await save(root, state)
   return { ...report, posts: posts.length, ideas: added }
@@ -252,11 +249,12 @@ export const MAGAZINE_PER_DAY = 1
  */
 export async function writeIdeas(root: string, d: { research: Llm; llm: Llm; now: () => Date }, o: { perDay: number; researchModel?: string }) {
   const state = await readIdeas(root)
-  const today = vnDay(d.now())
+  // Read again at each idea: a run that passes midnight counts the new day's.
+  const today = () => vnDay(d.now())
   const report = { written: [] as string[], skipped: [] as string[], failed: [] as string[], stopped: '', magazine: [] as string[] }
   // The day's count, and the magazine's: the ideas research was spent on today, and the count kept by day before that.
-  const spentToday = (magazine: boolean) => state.ideas.filter(i => i.at && vnDay(new Date(i.at)) === today && (!magazine || i.fromMagazine)).length
-    + ((magazine ? state.magazine : state.written)?.[today] ?? 0)
+  const spentToday = (magazine: boolean) => state.ideas.filter(i => i.at && vnDay(new Date(i.at)) === today() && (!magazine || i.fromMagazine)).length
+    + ((magazine ? state.magazine : state.written)?.[today()] ?? 0)
   // Research was spent on it: it counts, saved at once.
   const spent = async (idea: Idea) => {
     idea.at = d.now().toISOString()
@@ -289,8 +287,8 @@ export async function writeIdeas(root: string, d: { research: Llm; llm: Llm; now
   }
   // The counts kept by day before ideas kept their own time: today's alone, until it passes.
   for (const k of ['written', 'magazine'] as const) {
-    const n = state[k]?.[today]
-    if (n) state[k] = { [today]: n }
+    const n = state[k]?.[today()]
+    if (n) state[k] = { [today()]: n }
     else delete state[k]
   }
   await save(root, state)
