@@ -264,8 +264,9 @@ func nothingDropped() throws {
       headings[String(at.dropFirst(sectionPrefix.count)), default: []].formUnion(s.blocks.compactMap { if case .heading(_, _, let a?) = $0 { a } else { nil } })
     }
   }
-  // The four overviews: as usual, with nothing to do, with the readers' beacon down, and with the AI spend near its cap.
-  #expect(overviews == 4)
+  // The five overviews: as usual, with nothing to do, with the readers' beacon down, with the AI spend near its cap, and
+  // with the engine quiet.
+  #expect(overviews == 5)
   // Every anchor the overview names is a heading's of its section.
   #expect(anchors["nhan-dien-ca"] == ["key"] && anchors["noi-dung"] == ["engine"])
   for (k, a) in anchors { #expect(a.isSubset(of: headings[k] ?? []), "\(k): \(a)") }
