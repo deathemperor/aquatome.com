@@ -11,8 +11,8 @@ import { unescapePlain } from './sanitize'
  */
 
 export type Verdict = 'supported' | 'loose' | 'unsupported' | 'contradicts' | 'not a claim'
-/** One sentence of an entry, and the definition or paragraph or list item it stands in, as plain text. */
-export type Sentence = { text: string; block: string }
+/** One sentence of an entry, the definition or paragraph or list item it stands in, and the heading it stands under, as plain text. */
+export type Sentence = { text: string; block: string; heading?: string }
 type Read = { verdict: Verdict; why?: string }
 /** A sentence the reads call loose, unsupported or contradicted, with what they said. */
 export type Flagged = Sentence & { verdicts: Verdict[]; why: string[] }
@@ -27,25 +27,34 @@ export type FactCheck = {
 
 const plain = (html: string) => unescapePlain(html.replace(/<[^>]+>/g, '')).replace(/\s+/g, ' ').trim()
 
-/** The entry's sentences: the definition's, then each paragraph's and list item's, split where a sentence ends and a capital starts. */
+/**
+ * The entry's sentences: the definition's, then each paragraph's and list item's under the heading before it, split where a
+ * sentence ends and a capital starts. The heading goes with them: an item under "Sai lầm hay gặp" is a warning, not a
+ * fragment (Codex, 14 Nov 2026: one read called three such items "not a claim").
+ */
 export function sentences(e: { definition: string; body: string }): Sentence[] {
-  const blocks = [e.definition, ...[...e.body.matchAll(/<(p|li)\b[^>]*>([\s\S]*?)<\/\1>/g)].map(m => m[2]!)].map(plain)
-  return blocks.flatMap(block => block.split(/(?<=[.!?…])\s+(?=[\p{Lu}"“(])/u).map(text => ({ text: text.trim(), block })).filter(s => s.text.length > 1))
+  const blocks: { block: string; heading?: string }[] = [{ block: plain(e.definition) }]
+  let heading: string | undefined
+  for (const m of e.body.matchAll(/<(h[2-4]|p|li)\b[^>]*>([\s\S]*?)<\/\1>/g)) {
+    if (m[1]!.startsWith('h')) heading = plain(m[2]!) || undefined
+    else blocks.push({ block: plain(m[2]!), ...(heading ? { heading } : {}) })
+  }
+  return blocks.flatMap(b => b.block.split(/(?<=[.!?…])\s+(?=[\p{Lu}"“(])/u).map(text => ({ text: text.trim(), ...b })).filter(s => s.text.length > 1))
 }
+/** Numbered sentences for a read, each section's under its heading. */
+const numbered = (list: Sentence[], show: (s: Sentence) => string = s => s.text) =>
+  list.map((s, i) => `${s.heading !== list[i - 1]?.heading && s.heading ? `[${s.heading}]\n` : ''}${i + 1}. ${show(s)}`).join('\n')
 
 const VERDICTS = `- supported: every claim in it is in the facts (a figure converted to metric, sensibly rounded, is the same figure);
 - loose: supported, but generalised, or put a little more or less strongly than the facts, or joining what several sources say about the same thing, in a way a keeper would not act on differently;
-- unsupported: it has a claim, number, cause, name or advice the facts don't give, or gives one kind's, form's or case's trait to another;
+- unsupported: it has a claim, number, cause, name or advice the facts don't give, or gives one kind's, form's or case's trait to another, or drops a qualifier that limits a claim to some kinds, forms or cases (wild fish only, small pieces only), or joins what sources say about different things into one claim;
 - contradicts: the facts say otherwise;
-- not a claim: a picture, a transition or a heading, with nothing in it to check ("it gives the tank the look of a stream").
-For loose, unsupported and contradicts, say why in a few English words.`
-const ALL = `Below are FACTS gathered about a fishkeeping term (each with a source number; the sources list gives each number's kind) and the numbered SENTENCES of a Vietnamese glossary entry written from them. Give every sentence one verdict against the FACTS:
+- not a claim: a picture, a transition or a heading, with nothing in it to check ("it gives the tank the look of a stream"). An item under a heading of steps, mistakes or warnings is a claim: judge the advice or warning it gives.
+For every verdict but supported, say why in a few English words.`
+const ALL = `Below are FACTS gathered about a fishkeeping term (each with a source number; the sources list gives each number's kind) and the numbered SENTENCES of a Vietnamese glossary entry written from them, each section's under its [heading]. Give every sentence one verdict against the FACTS:
 ${VERDICTS}
 Reply {"verdicts": [{"n": 1, "verdict": "supported"}, {"n": 2, "verdict": "loose", "why": "..."}]}, one for every sentence, in order.`
-const IN_PARAGRAPHS = `Below are FACTS gathered about a fishkeeping term (each with a source number; the sources list gives each number's kind) and numbered SENTENCES of a Vietnamese glossary entry written from them, each in its PARAGRAPH. Give every sentence one verdict against the FACTS:
-${VERDICTS}
-Reply {"verdicts": [{"n": 1, "verdict": "supported"}, {"n": 2, "verdict": "loose", "why": "..."}]}, one for every sentence, in order.`
-const ONE = `Below are FACTS gathered about a fishkeeping term (each with a source number; the sources list gives each number's kind), and one SENTENCE of a Vietnamese glossary entry written from them, in its PARAGRAPH. Give the SENTENCE one verdict against the FACTS:
+const ONE = `Below are FACTS gathered about a fishkeeping term (each with a source number; the sources list gives each number's kind), and one SENTENCE of a Vietnamese glossary entry written from them, in its PARAGRAPH, under its HEADING. Give the SENTENCE one verdict against the FACTS:
 ${VERDICTS}
 Reply {"verdict": "...", "why": "..."}.`
 const SYSTEM = 'You check a guide against its facts, sentence by sentence. Reply only with JSON.'
@@ -54,17 +63,16 @@ const MANY = { type: 'object', required: ['verdicts'], properties: { verdicts: {
 const SINGLE = { type: 'object', required: ['verdict'], properties: { verdict: VERDICT, why: { type: 'string' } } }
 const KNOWN = new Set<string>(['supported', 'loose', 'unsupported', 'contradicts', 'not a claim'])
 const STOP = new Set<Verdict>(['unsupported', 'contradicts'])
-const CONTRADICTS = new Set<Verdict>(['contradicts'])
 const LOOSE = new Set<Verdict>(['loose'])
 const NOT_A_CLAIM = new Set<Verdict>(['not a claim'])
 /** A verdict a read left out, or one not on the list, counts as no verdict: it can't stop a sentence or clear one. */
 const asRead = (v: { verdict?: string; why?: string } | undefined): Read | null => (v && KNOWN.has(v.verdict ?? '') ? { verdict: v.verdict as Verdict, ...(v.why ? { why: v.why } : {}) } : null)
 
 /** Three reads of numbered sentences, one after another (the later ones read the facts from the cache), each sentence's verdicts in read order. */
-async function readAll(llm: Llm, facts: object, listed: string, n: number, prompt = ALL): Promise<(Read | null)[][]> {
+async function readAll(llm: Llm, facts: object, listed: string, n: number): Promise<(Read | null)[][]> {
   const out: (Read | null)[][] = Array.from({ length: n }, () => [])
   for (let k = 0; k < 3; k++) {
-    const r = await llm<{ verdicts?: { n: number; verdict?: string; why?: string }[] }>({ system: SYSTEM, schema: MANY, prompt: `${prompt}\n\nFACTS:\n${JSON.stringify(facts)}\n\nSENTENCES:\n${listed}` })
+    const r = await llm<{ verdicts?: { n: number; verdict?: string; why?: string }[] }>({ system: SYSTEM, schema: MANY, prompt: `${ALL}\n\nFACTS:\n${JSON.stringify(facts)}\n\nSENTENCES:\n${listed}` })
     const byN = new Map((r.verdicts ?? []).map(v => [v.n, v]))
     for (let i = 0; i < n; i++) out[i]!.push(asRead(byN.get(i + 1)))
   }
@@ -75,14 +83,14 @@ const flagged = (s: Sentence, rs: (Read | null)[]): Flagged => ({ ...s, verdicts
 
 /**
  * Every sentence read three times against the facts. A sentence two reads call unsupported or contradicted stops the save.
- * One that only one read calls contradicted is read three more times alone, in its paragraph, and two of those agreeing
- * stop it too: a contradiction weighs more than a gap. A sentence two reads call loose is advice (`loose`), never a stop.
- * "Not a claim" takes a sentence out of the score only; it never keeps a sentence two reads stop from stopping.
+ * One that only one read does is read three more times alone, in its paragraph and under its heading, and two of those
+ * that stop it stop it too: a lone stop is settled, not outvoted, whatever the other two said ("not a claim" among them).
+ * A sentence two reads call loose is advice (`loose`), never a stop. "Not a claim" takes a sentence out of the score only.
  */
 export async function checkSentences(llm: Llm, facts: object, e: { definition: string; body: string }): Promise<FactCheck> {
   const list = sentences(e)
   if (!list.length) return { score: 1, stops: [], loose: [] }
-  const reads = await readAll(llm, facts, list.map((s, i) => `${i + 1}. ${s.text}`).join('\n'), list.length)
+  const reads = await readAll(llm, facts, numbered(list), list.length)
   const stops: Flagged[] = []
   const loose: Flagged[] = []
   let [claims, stopped] = [0, 0]
@@ -91,10 +99,10 @@ export async function checkSentences(llm: Llm, facts: object, e: { definition: s
     const claim = count(rs, NOT_A_CLAIM) < 2
     if (claim) claims++
     let all = count(rs, STOP) >= 2 ? rs : null
-    if (!all && count(rs, CONTRADICTS) >= 1) {
+    if (!all && count(rs, STOP) === 1) {
       const again: (Read | null)[] = []
-      for (let k = 0; k < 3; k++) again.push(asRead(await llm<{ verdict?: string; why?: string }>({ system: SYSTEM, schema: SINGLE, prompt: `${ONE}\n\nFACTS:\n${JSON.stringify(facts)}\n\nPARAGRAPH:\n${s.block}\n\nSENTENCE:\n${s.text}` })))
-      if (count(again, CONTRADICTS) >= 2) all = [...rs, ...again]
+      for (let k = 0; k < 3; k++) again.push(asRead(await llm<{ verdict?: string; why?: string }>({ system: SYSTEM, schema: SINGLE, prompt: `${ONE}\n\nFACTS:\n${JSON.stringify(facts)}\n\nHEADING:\n${s.heading ?? '(the definition)'}\n\nPARAGRAPH:\n${s.block}\n\nSENTENCE:\n${s.text}` })))
+      if (count(again, STOP) >= 2) all = [...rs, ...again]
     }
     if (all) { stops.push(flagged(s, all)); if (claim) stopped++; continue }
     if (count(rs, LOOSE) >= 2) loose.push(flagged(s, rs))
@@ -117,32 +125,34 @@ function placed<E extends { definition: string; body: string }>(e: E, text: stri
   return null
 }
 
-export type Reworded = { from: string; to: string; verdicts: Verdict[]; kept: 'new' | 'old' }
 /**
  * The middle path for loose (the chief of staff, 14 Nov 2026): the sentences two reads call loose go back once to the
  * writer with the reasons, to be reworded to what the facts carry, with no remark that sources differ and no hedge (four of
- * twelve rewordings in the trial hedged). Only they change, and only they are read again, three times, each in its
- * paragraph as reworded. A new wording two reads stop is dropped and the old one stays; one still loose stays, logged. No
- * stop, no loop. A sentence written across tags (a bold kind's name, a link) can't be placed and is logged as it was.
+ * twelve rewordings in the trial hedged). Only they change. Then the whole entry as it would be saved is read again, three
+ * times, as the first check read it: a sentence's verdict moves with what stands around it (Codex, 14 Nov 2026), so the
+ * text that ships is the text judged. A new wording that read stops goes back to the old one, logged for the reader;
+ * one still loose stays, logged. Any other sentence that read stops is returned in `stops`, and the entry isn't saved. No
+ * loop. A sentence written across tags (a bold kind's name, a link) can't be placed and is logged as it was.
  */
-export async function rewordLoose<E extends { definition: string; body: string }>(llm: Llm, model: string, facts: object, e: E, loose: Flagged[]): Promise<{ entry: E; log: string[] }> {
+export async function rewordLoose<E extends { definition: string; body: string }>(llm: Llm, model: string, facts: object, e: E, loose: Flagged[]): Promise<{ entry: E; log: string[]; stops: Flagged[] }> {
   const log: string[] = []
-  const here = loose.flatMap(s => { const put = placed(e, s.text); return put ? [{ s, put }] : (log.push(`Loose, left as written (not placeable): "${s.text}"`), []) })
-  if (!here.length) return { entry: e, log }
-  const listed = here.map(({ s }, i) => `${i + 1}. CÂU: ${s.text}\n   ĐOẠN: ${s.block}\n   LÝ DO: ${[...new Set(s.why)].join(' / ')}`).join('\n')
+  const here = loose.filter(s => placed(e, s.text) || (log.push(`Loose, left as written (not placeable): "${s.text}"`), false))
+  if (!here.length) return { entry: e, log, stops: [] }
+  const listed = here.map((s, i) => `${i + 1}. CÂU: ${s.text}\n   ĐOẠN: ${s.block}\n   LÝ DO: ${[...new Set(s.why)].join(' / ')}`).join('\n')
   const r = await llm<{ sentences?: { n: number; text: string }[] }>({ system: 'You reword sentences of a Vietnamese aquarium glossary entry to what its facts carry. Reply only with JSON.', model, schema: REWORD_SCHEMA, prompt: `${REWORD}\n\n--- CÂU ---\n${listed}\n\n--- DỮ KIỆN ---\n${JSON.stringify(facts)}` })
-  const now = here.map(({ s }, i) => ({ s, to: (r.sentences ?? []).find(x => x.n === i + 1)?.text.replace(/\s+/g, ' ').trim() ?? '' }))
-  const changed = now.filter(x => x.to && x.to !== x.s.text)
+  const now = here.map((s, i) => ({ s, to: (r.sentences ?? []).find(x => x.n === i + 1)?.text.replace(/\s+/g, ' ').trim() ?? '' }))
+  // A new wording is placed only where it stays one sentence the split finds again, so the final read can judge it.
+  const changed = now.filter(x => x.to && x.to !== x.s.text && !/[.!?…]\s+[\p{Lu}"“(]/u.test(x.to))
   for (const x of now.filter(x => !changed.includes(x))) log.push(`Loose, not reworded: "${x.s.text}"`)
-  if (!changed.length) return { entry: e, log }
-  const reads = await readAll(llm, facts, changed.map((x, i) => `${i + 1}. ${x.to}\n   PARAGRAPH: ${x.s.block.replace(x.s.text, x.to)}`).join('\n'), changed.length, IN_PARAGRAPHS)
-  let entry = e
-  for (const [i, x] of changed.entries()) {
-    const rs = reads[i]!
-    const verdicts = rs.flatMap(v => (v ? [v.verdict] : []))
-    if (count(rs, STOP) >= 2) { log.push(`Loose, rewording read as unsupported, old wording kept: "${x.s.text}" (not "${x.to}": ${verdicts.join(', ')})`); continue }
-    entry = placed(entry, x.s.text)?.(x.to) ?? entry
-    log.push(count(rs, LOOSE) >= 2 ? `Loose, reworded and still loose: "${x.s.text}" → "${x.to}" (${verdicts.join(', ')})` : `Loose, reworded: "${x.s.text}" → "${x.to}" (${verdicts.join(', ')})`)
+  if (!changed.length) return { entry: e, log, stops: [] }
+  let entry = changed.reduce((acc, x) => placed(acc, x.s.text)?.(x.to) ?? acc, e)
+  const final = await checkSentences(llm, facts, entry)
+  const verdictsOf = (text: string) => [...final.stops, ...final.loose].find(f => f.text === text)?.verdicts.join(', ') ?? 'supported'
+  for (const x of changed) {
+    if (final.stops.some(f => f.text === x.to)) {
+      entry = placed(entry, x.to)?.(x.s.text) ?? entry
+      log.push(`Loose, rewording read as unsupported, old wording kept for the reader: "${x.s.text}" (not "${x.to}": ${verdictsOf(x.to)})`)
+    } else log.push(`${final.loose.some(f => f.text === x.to) ? 'Loose, reworded and still loose' : 'Loose, reworded'}: "${x.s.text}" → "${x.to}" (${verdictsOf(x.to)})`)
   }
-  return { entry, log }
+  return { entry, log, stops: final.stops.filter(f => !changed.some(x => x.to === f.text)) }
 }

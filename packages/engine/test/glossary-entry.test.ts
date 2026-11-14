@@ -473,7 +473,7 @@ test('an entry about to be saved has its loose sentences reworded once, and the 
     return written as never
   }
   const r = await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'lua', { kind: 'aquascaping', now: () => new Date('2026-11-14T00:00:00Z') })
-  expect(r).toMatchObject({ id: 'lua', score: 1, notes: ['Loose, reworded: "Ngâm lũa mới 1–2 tuần." → "Ngâm lũa mới khoảng 1–2 tuần." (supported, supported, supported)'] })
+  expect(r).toMatchObject({ id: 'lua', score: 1, notes: ['Loose, reworded: "Ngâm lũa mới 1–2 tuần." → "Ngâm lũa mới khoảng 1–2 tuần." (supported)'] })
   expect(prompts).toHaveLength(1)
   expect(prompts[0]).toContain('LÝ DO: one source says two weeks')
   expect(JSON.parse(await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8')).body).toBe('<h3>Nên làm gì</h3><p>Ngâm lũa mới khoảng 1–2 tuần.</p>')
@@ -507,4 +507,21 @@ test('a saved entry revised: one rewrite on its notes, from its research, saved 
   const advice: Llm = async ({ prompt }) => (prompt.startsWith('GLOSSARY RULES') ? { notes: ['Rule 12: link sa tùng to its own page'] } : isCheck(prompt) ? verdicts(prompt) : (w++, fixed)) as never
   expect(await makeGlossaryEntry(root, { research: async () => { throw new Error('no research') }, llm: advice }, 'lua', { kind: 'aquascaping', revise: true })).toMatchObject({ id: 'lua', score: 1 })
   expect(w).toBe(1)
+})
+
+test('a sentence the whole entry\'s final read stops after the rewording keeps it from being saved, kept for a reader', async () => {
+  const root = await site()
+  const before = await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8')
+  let k = 0
+  const llm: Llm = async ({ prompt, system }) => {
+    if (prompt.startsWith('GLOSSARY RULES')) return { notes: [] } as never
+    if (system.startsWith('You reword')) return { sentences: [{ n: 1, text: 'Ngâm lũa mới khoảng 1–2 tuần.' }] } as never
+    if (isCheck(prompt)) { const read = ++k; return verdicts(prompt, t => (t === 'Ngâm lũa mới 1–2 tuần.' ? 'loose: x' : read > 3 && read < 6 && t === written.definition ? 'unsupported: y' : undefined)) as never }
+    return written as never
+  }
+  const r = await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'lua', { kind: 'aquascaping' })
+  expect(r).toMatchObject({ id: 'lua', skipped: 'stopped by 1 note', draft: 'engine-state/glossary/lua.draft.json' })
+  expect((r as { notes: string[] }).notes[0]).toBe(`"${written.definition}": the facts don't carry it (unsupported, unsupported, supported): y`)
+  expect(await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8')).toBe(before)
+  expect(JSON.parse(await readFile(draftPath(root), 'utf8')).entry.body).toContain('Ngâm lũa mới khoảng 1–2 tuần.')
 })

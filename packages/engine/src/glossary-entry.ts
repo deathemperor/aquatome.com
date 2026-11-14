@@ -353,11 +353,13 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
       tries.push(r)
       if (better(r, review)) { w = again; review = r }
     }
-    // The middle path for loose, once, on the entry about to be saved; what it did is logged with the entry's notes.
+    // The middle path for loose, once, on the entry about to be saved; what it did is logged with the entry's notes. The
+    // whole entry is read again after it, and a sentence that read stops keeps it from being saved, kept for a reader.
     if (passes(review) && review.loose?.length) {
       const m = await rewordLoose(d.llm, o.writeModel ?? 'opus', forWriter, w, review.loose)
       w = m.entry
-      review.notes = [...m.log, ...review.notes]
+      review.notes = [...m.stops.map(stopNote), ...m.log, ...review.notes]
+      review.stops = stopping(review) + m.stops.length
     }
     // Kept for a reader to judge (the chief of staff, 14 Nov 2026): the draft that came closest, and why it wasn't saved.
     // A revision that came no closer leaves the draft it revised as it was.

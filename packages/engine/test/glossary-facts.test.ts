@@ -33,22 +33,29 @@ test('two reads of three that say the facts don\'t carry a sentence stop it; one
   const advice = 'Nên thả lá từ từ rồi đo pH.'
   const { llm, calls } = model([{ [advice]: 'unsupported: not in the facts', 'Lá bàng làm pH xuống.': 'loose: stronger' }, { [advice]: 'unsupported: advice not given' }, { 'Lá bàng làm pH xuống.': 'loose: stronger', 'Nó đi từ 0 tới 14.': 'unsupported: no range given' }])
   const r = await checkSentences(llm, facts, entry)
-  expect(calls).toHaveLength(3)
+  // The sentence one read stopped is read three times more, alone, under its heading; none of those stops it.
+  expect(calls).toHaveLength(6)
+  expect(calls[0]).toContain('SENTENCES:\n1. pH đo độ chua của nước.\n2. Nó đi từ 0 tới 14.\n[Trong bể]\n3. Lá bàng làm pH xuống.')
+  expect(calls[3]).toContain('HEADING:\n(the definition)\n\nPARAGRAPH:\npH đo độ chua của nước. Nó đi từ 0 tới 14.\n\nSENTENCE:\nNó đi từ 0 tới 14.')
   expect(r.stops.map(s => s.text)).toEqual([advice])
   expect(stopNote(r.stops[0]!)).toBe('"Nên thả lá từ từ rồi đo pH.": the facts don\'t carry it (unsupported, unsupported, supported): not in the facts / advice not given')
   expect(r.loose.map(s => s.text)).toEqual(['Lá bàng làm pH xuống.'])
   expect(r.score).toBe(0.8)
 })
 
-test('a sentence one read calls contradicted is read three times more alone, and stops when two of those agree', async () => {
+test('a sentence one read stops is read three times more alone, and stops when two of those do, whatever the other two reads said', async () => {
   const s = 'Lá bàng làm pH xuống.'
   const yes = model([{ [s]: 'contradicts: raises it' }, {}, {}], ['contradicts: raises it', 'supported', 'contradicts: raises it'])
   const r = await checkSentences(yes.llm, facts, entry)
   expect(yes.calls).toHaveLength(6)
-  expect(yes.calls[3]).toContain(`PARAGRAPH:\nLá bàng làm pH xuống. Nên thả lá từ từ rồi đo pH.\n\nSENTENCE:\n${s}`)
+  expect(yes.calls[3]).toContain(`HEADING:\nTrong bể\n\nPARAGRAPH:\nLá bàng làm pH xuống. Nên thả lá từ từ rồi đo pH.\n\nSENTENCE:\n${s}`)
   expect(r.stops.map(x => x.verdicts)).toEqual([['contradicts', 'supported', 'supported', 'contradicts', 'supported', 'contradicts']])
   const no = model([{ [s]: 'contradicts: raises it' }, {}, {}], ['supported', 'loose: x', 'contradicts: y'])
   expect((await checkSentences(no.llm, facts, entry)).stops).toEqual([])
+  // A mistakes-list item one read calls unsupported and two "not a claim" (chu trình nitơ's, 14 Nov 2026) is settled alone.
+  const item = 'Làm pH lên: san hô.'
+  const settled = model([{ [item]: 'unsupported: coral not named' }, { [item]: 'not a claim: a label' }, { [item]: 'not a claim: a label' }], ['unsupported: coral not named', 'unsupported: x', 'supported'])
+  expect((await checkSentences(settled.llm, facts, entry)).stops.map(x => x.text)).toEqual([item])
 })
 
 test('a read that leaves a sentence out, or gives a verdict not on the list, neither stops it nor clears it', async () => {
@@ -67,36 +74,43 @@ test('"not a claim" takes a sentence out of the score, and never keeps two stops
   expect(r).toMatchObject({ score: 1, stops: [], loose: [] })
 })
 
-// The middle path's trial on Lũa (14 Nov 2026): 4 of 12 rewordings hedged ("many sources say…, but one notes…"), and a
-// rewording can read worse than the line it replaced.
-test('the middle path rewords loose sentences once, no hedge; a rewording read as unsupported is dropped and the old one stays', async () => {
+// The middle path's trial on Lũa (14 Nov 2026): 4 of 12 rewordings hedged ("many sources say…, but one notes…"), a rewording
+// can read worse than the line it replaced, and a sentence's verdict moved with what stood around it (Codex).
+test('the middle path rewords loose sentences once, no hedge, then reads the whole entry again; a rewording that stops goes back', async () => {
   const loose = [
-    { text: 'Lá bàng làm pH xuống.', block: 'Lá bàng làm pH xuống. Nên thả lá từ từ rồi đo pH.', verdicts: ['loose' as const, 'loose' as const], why: ['stronger than the facts'] },
+    { text: 'Lá bàng làm pH xuống.', block: 'Lá bàng làm pH xuống. Nên thả lá từ từ rồi đo pH.', heading: 'Trong bể', verdicts: ['loose' as const, 'loose' as const], why: ['stronger than the facts'] },
     { text: 'pH đo độ chua của nước.', block: entry.definition, verdicts: ['loose' as const, 'loose' as const], why: ['also alkalinity'] },
     { text: 'Làm pH lên: san hô.', block: 'Làm pH lên: san hô.', verdicts: ['loose' as const, 'loose' as const], why: ['x'] },
   ]
-  const reword = { 'Lá bàng làm pH xuống.': 'Lá bàng làm pH xuống chút ít.', 'pH đo độ chua của nước.': 'pH đo độ chua hay kiềm của nước & nhiều hơn.' }
-  const { llm, calls } = model([{ 'pH đo độ chua hay kiềm của nước & nhiều hơn.': 'unsupported: added' }, { 'pH đo độ chua hay kiềm của nước & nhiều hơn.': 'unsupported: added' }, {}], [], reword)
+  const added = 'pH đo độ chua hay kiềm của nước & nhiều hơn.'
+  const reword = { 'Lá bàng làm pH xuống.': 'Lá bàng làm pH xuống chút ít.', 'pH đo độ chua của nước.': added }
+  const { llm, calls } = model([{ [added]: 'unsupported: added' }, { [added]: 'unsupported: added' }, {}], [], reword)
   const r = await rewordLoose(llm, 'opus', facts, entry, loose)
   expect(calls[0]).toContain('không rào đón ("có nguồn cho rằng", "nhiều nguồn", "có tiệm ghi")')
   expect(calls[0]).toContain('1. CÂU: Lá bàng làm pH xuống.\n   ĐOẠN: Lá bàng làm pH xuống. Nên thả lá từ từ rồi đo pH.\n   LÝ DO: stronger than the facts')
-  // Only the reworded sentences are read again, each in its paragraph as reworded.
-  expect(calls[1]).toContain('1. Lá bàng làm pH xuống chút ít.\n   PARAGRAPH: Lá bàng làm pH xuống chút ít. Nên thả lá từ từ rồi đo pH.')
+  // The whole entry as it would be saved, read three times as the first check read it.
   expect(calls).toHaveLength(4)
+  expect(calls[1]).toContain(`SENTENCES:\n1. ${added}\n2. Nó đi từ 0 tới 14.\n[Trong bể]\n3. Lá bàng làm pH xuống chút ít.\n4. Nên thả lá từ từ rồi đo pH.\n5. Làm pH lên: san hô.`)
   expect(r.entry.body).toBe('<h3>Trong bể</h3><p>Lá bàng làm pH xuống chút ít. Nên thả lá từ từ rồi đo pH.</p><ul><li><strong>Làm pH lên:</strong> san hô.</li></ul>')
   expect(r.entry.definition).toBe(entry.definition)
+  expect(r.stops).toEqual([])
   expect(r.log).toEqual([
     'Loose, left as written (not placeable): "Làm pH lên: san hô."',
-    'Loose, reworded: "Lá bàng làm pH xuống." → "Lá bàng làm pH xuống chút ít." (supported, supported, supported)',
-    'Loose, rewording read as unsupported, old wording kept: "pH đo độ chua của nước." (not "pH đo độ chua hay kiềm của nước & nhiều hơn.": unsupported, unsupported, supported)',
+    'Loose, reworded: "Lá bàng làm pH xuống." → "Lá bàng làm pH xuống chút ít." (supported)',
+    `Loose, rewording read as unsupported, old wording kept for the reader: "pH đo độ chua của nước." (not "${added}": unsupported, unsupported, supported)`,
   ])
+  // A sentence the rewording didn't touch, read as a stop in the whole entry: returned, so the entry isn't saved.
+  const other = model([{ 'Nên thả lá từ từ rồi đo pH.': 'unsupported: advice' }, { 'Nên thả lá từ từ rồi đo pH.': 'unsupported: advice' }, {}], [], reword)
+  expect((await rewordLoose(other.llm, 'opus', facts, entry, loose.slice(0, 1))).stops.map(x => x.text)).toEqual(['Nên thả lá từ từ rồi đo pH.'])
 })
 
-test('a reworded sentence in the body is written back escaped, and one still loose stays, logged', async () => {
+test('a reworded sentence in the body is written back escaped, and one still loose stays, logged; a rewording of two sentences isn\'t placed', async () => {
   const e = { definition: 'Một câu.', body: '<p>Đá &amp; san hô làm pH lên.</p>' }
   const loose = [{ text: 'Đá & san hô làm pH lên.', block: 'Đá & san hô làm pH lên.', verdicts: ['loose' as const, 'loose' as const], why: ['x'] }]
   const { llm } = model([{ 'Đá & vỏ ốc làm pH lên <nhẹ>.': 'loose: y' }, { 'Đá & vỏ ốc làm pH lên <nhẹ>.': 'loose: y' }, {}], [], { 'Đá & san hô làm pH lên.': 'Đá & vỏ ốc làm pH lên <nhẹ>.' })
   const r = await rewordLoose(llm, 'opus', facts, e, loose)
   expect(r.entry.body).toBe('<p>Đá &amp; vỏ ốc làm pH lên &lt;nhẹ&gt;.</p>')
   expect(r.log).toEqual(['Loose, reworded and still loose: "Đá & san hô làm pH lên." → "Đá & vỏ ốc làm pH lên <nhẹ>." (loose, loose, supported)'])
+  const two = model([], [], { 'Đá & san hô làm pH lên.': 'Đá làm pH lên. San hô cũng vậy.' })
+  expect(await rewordLoose(two.llm, 'opus', facts, e, loose)).toEqual({ entry: e, log: ['Loose, not reworded: "Đá & san hô làm pH lên."'], stops: [] })
 })
