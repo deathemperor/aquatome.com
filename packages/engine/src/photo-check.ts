@@ -15,6 +15,7 @@ import { holdForSecondLook, looks, readSecondLook } from './last-photo'
 import { contactSheet } from './video-images'
 import { keptOwnMark, LOGO_FOLDERS, stripPhotos, type WatermarkEntry } from './watermarks'
 import { CF, namedOn, namedOrder, passesHead, SPECIES } from './photo-named'
+import { priorityFish } from './priority-fish'
 
 type Photo = { url: string; caption?: string; author?: string; sourceUrl?: string; generated?: unknown }
 /**
@@ -195,9 +196,13 @@ async function subjects(content: string): Promise<Subject[]> {
   return out
 }
 
-/** Most-read first: breeds (the forms of the staples readers open), then the gallery plan's order (species and plants). */
+/**
+ * The owner's priority fish first, while their albums are short (priority-fish.ts); then most-read first: breeds (the
+ * forms of the staples readers open), then the gallery plan's order (species and plants).
+ */
 async function rank(root: string, all: Subject[]): Promise<Subject[]> {
-  const order = [...all.filter(s => s.kind === 'breeds').map(s => s.id), ...(await galleryPlan(root)).map(p => p.id)]
+  const first = (await priorityFish(root)).map(ref => ref.split('/')[1]!)
+  const order = [...first, ...all.filter(s => s.kind === 'breeds').map(s => s.id), ...(await galleryPlan(root)).map(p => p.id)]
   const at = (id: string) => { const i = order.indexOf(id); return i < 0 ? order.length : i }
   return [...all].sort((a, b) => at(a.id) - at(b.id) || a.id.localeCompare(b.id))
 }
