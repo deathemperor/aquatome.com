@@ -736,18 +736,36 @@ private struct ReportControl: View {
   }
 }
 
-/// One optional line saying what's wrong; the keyboard's return sends. Failed, it stays to send again.
+/// One optional line saying what's wrong; the keyboard's return sends. Failed, it stays to send again. Where the keyboard
+/// leaves too little room (the largest text), the sheet scrolls once it's up so "Gửi" sits whole above it.
 private struct ReportSheet: View {
   let send: (String) async -> ChatModel.ReportResult
   @Environment(\.dismiss) private var dismiss
   @Environment(\.dynamicTypeSize) private var size
   @Environment(\.colorScheme) private var scheme
+  @Environment(\.accessibilityReduceMotion) private var reduceMotion
   @State private var reason = ""
   @State private var sending = false
   @State private var failed = false
   @State private var height: CGFloat = 260
 
   var body: some View {
+    ScrollViewReader { proxy in
+      ScrollView {
+        content
+          .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { height = $0 + 24 }
+      }
+      .scrollBounceBehavior(.basedOnSize)
+      .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardDidShowNotification)) { _ in
+        withAnimation(reduceMotion ? nil : .default) { proxy.scrollTo("send", anchor: .bottom) }
+      }
+    }
+    .presentationDetents([.height(height)])
+    .presentationDragIndicator(.visible)
+    .presentationBackground(Color(uiColor: .systemGroupedBackground))
+  }
+
+  private var content: some View {
     VStack(spacing: 12) {
       ZStack {
         Text("Báo câu trả lời sai").font(.headline).multilineTextAlignment(.center).padding(.horizontal, 44).accessibilityAddTraits(.isHeader)
@@ -785,16 +803,12 @@ private struct ReportSheet: View {
       .buttonStyle(.plain)
       .disabled(sending)
       .accessibilityIdentifier("chat-report-send")
+      .id("send")
       if failed {
         Text("Chưa gửi được. Bấm Gửi lần nữa.").font(.footnote).foregroundStyle(.red).accessibilityIdentifier("chat-report-failed")
       }
     }
     .padding()
-    .fixedSize(horizontal: false, vertical: true)
-    .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { height = $0 + 24 }
-    .presentationDetents([.height(height)])
-    .presentationDragIndicator(.visible)
-    .presentationBackground(Color(uiColor: .systemGroupedBackground))
   }
 
   private func go() {

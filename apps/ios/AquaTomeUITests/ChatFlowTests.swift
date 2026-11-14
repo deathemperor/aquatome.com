@@ -150,6 +150,32 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(app.buttons["chat-report-send"].isHittable, "Gửi is off the sheet")
   }
 
+  /// At the largest text with the keyboard up, "Gửi" sits whole above the keyboard, its 44-point tap area too, and the
+  /// field doesn't move while the reason is typed (Design, 13 Nov). Before: the sheet held its height and the keyboard
+  /// covered "Gửi".
+  func testAtTheLargestTextGuiSitsAboveTheKeyboard() {
+    let app = launch("-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
+    openReportSheet(app)
+    let reason = element(app, "chat-report-reason")
+    XCTAssertTrue(reason.waitForExistence(timeout: 5), "no sheet")
+    reason.tap()
+    let keyboard = app.keyboards.firstMatch
+    XCTAssertTrue(keyboard.waitForExistence(timeout: 5), "no keyboard")
+    let send = app.buttons["chat-report-send"]
+    // Settled: the keyboard's glide and the sheet's move done.
+    RunLoop.current.run(until: Date().addingTimeInterval(1.5))
+    XCTAssertTrue(send.exists, "no Gửi")
+    XCTAssertLessThanOrEqual(send.frame.maxY, keyboard.frame.minY + 0.5, "Gửi under the keyboard: \(send.frame) and \(keyboard.frame)")
+    XCTAssertGreaterThanOrEqual(send.frame.height, 44, "Gửi's tap area cut: \(send.frame)")
+    XCTAssertTrue(send.isHittable, "Gửi can't be tapped")
+    let field = reason.frame
+    reason.typeText("Sai số lít ở câu thứ hai")
+    RunLoop.current.run(until: Date().addingTimeInterval(0.5))
+    XCTAssertEqual(reason.frame.minY, field.minY, accuracy: 1, "the field moved while typing")
+    send.tap()
+    XCTAssertTrue(element(app, "chat-reported").waitForExistence(timeout: 5), "not sent")
+  }
+
   /// A failure has no finished answer to report.
   func testAFailedAnswerHasNoReport() {
     let app = launch("-chat-failed")
