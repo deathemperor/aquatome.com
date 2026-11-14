@@ -132,6 +132,7 @@ The calendar's nine new weeks (`content/curation.json`). These aren't in the tal
 | 5 | Anthropic, xAI | 9, 9 | 9, 9 | 8, 8 | 9, 8 |
 | 6 | Anthropic, xAI | 9, 9 | 8, 8 | 9, 9 | 8, 8 |
 | 7 | Anthropic, xAI | 9, 9 | 9, 9 | 9, 9 | 9, 8 |
+| 8 | Anthropic, xAI | 9, 10 | 9, 9 | 9, 9 | 9, 8 |
 
 Round 1 had the xAI seat alone: Cursor refused OpenAI and Google (not in that week's usage), and no Claude helper ran
 before 14 Nov.
@@ -199,6 +200,13 @@ Round 7 (14 Nov): Vietnamese, Indonesian and Thai held 9 with both seats; Malay 
 shelf takes "ikan" before "angel", as the angelfish page's name does ("Ikan Angel"). Dropped: the Thai koi spelt one way
 (one seat, unsure which; each half is its page's own name), Vietnamese "Cá thả đầu tiên" (one seat; in no forum or video),
 Malay "musim hujan" for "musim tengkujuh" (split), Indonesian and Malay "ikan schooling" (one seat, unsure).
+
+Round 8 (14 Nov): Vietnamese, Indonesian and Thai held 9 with both seats; Malay 9 and 8. Held, both seats in some form: a
+bare "Ikan berkumpulan" reads off, so the Malay schooling labels say "yang hidup berkumpulan" (the site's Malay pages
+230.5 a million words). Dropped: Malay "berkelompok" (xAI; the site 13.6 against "berkumpulan" 589.8, the Indonesian
+word, as in round 4 of the short questions), Thai "บลัดพารอท" (the page says ปลาหมอนกแก้ว), Malay "kuning" for "emas"
+(Anthropic). Open, one seat: Indonesian and Malay "tahan air dingin/sejuk" read as waterproof (xAI); Indonesian and
+Malay cold themes naming "ikan" twice (Anthropic).
 
 ## Vietnamese
 
