@@ -133,7 +133,8 @@ const DONG = String.raw`đồng${END}(?!\s+thời${END}(?!\s+(?:điểm|gian|h�
 const MONEY = String.raw`(?:(?:₫|vnđ|vnd|đ)${END}|${DONG})`
 /** An amount after "giá": a sum, or a number or a range in digits or words with its "nghìn" or "triệu". */
 const AMOUNT = String.raw`(?:${SUM}|${N}(?:\s*(?:đến|tới|[-–~])\s*${N})?\s*${SCALE}|${WORDS}${SCALE})`
-const AROUND = String.raw`(?:\s+(?:chỉ|từ|khoảng|tầm|chừng|cỡ|dao\s+động|rơi\s+vào))*`
+/** Words of about-ness after "giá" or its colon, the first one right after a colon too ("Giá:từ vài trăm nghìn"). */
+const AROUND = String.raw`(?:(?:\s+|(?<=:))(?:chỉ|từ|khoảng|tầm|chừng|cỡ|dao\s+động|rơi\s+vào))*`
 /**
  * A price only by the marks that can't be anything else: a currency sign after a number ("150.000 ₫", "90 đ", "150.000đ
  * màu nâu"), "đồng" after a sum ("150.000 đồng"), "nghìn" or "triệu" with money's word after it ("200 nghìn đồng", "nửa

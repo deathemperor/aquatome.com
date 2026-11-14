@@ -86,7 +86,9 @@ test('a price by the marks that can\'t be a quantity, and never a quantity; any 
     // Astra's seventh read: a selling word, its colon, then "khoảng" or "từ".
     'Giá bán: khoảng 200 nghìn tùy kích thước', 'Giá bán: từ vài trăm nghìn',
     // Money again before a word of time.
-    'Một khúc 150.000 đồng thời điểm này', 'Khúc to 2 triệu đồng thời điểm cuối năm'])
+    'Một khúc 150.000 đồng thời điểm này', 'Khúc to 2 triệu đồng thời điểm cuối năm',
+    // Astra's eighth read: no space after the colon.
+    'Giá bán:khoảng 200 nghìn', 'Giá:từ vài trăm nghìn'])
     expect(formNotes(asSaved(page(p)), 1).filter(n => n.startsWith('a price')), p).toHaveLength(1)
   for (const q of ['Đá hình thành cách đây 2 triệu năm', 'Đèn 6500 K', 'Đèn 6500K', 'Ngâm 10 đến 14 ngày', 'Khúc nặng 5 kg', 'Giá thể 2 lớp', 'Giá trị pH 6,5',
     'Ngâm đến ngày 7, đồng thời thay nước hằng ngày', 'Giữ pH ở 6,5, đồng thời theo dõi KH', 'Đánh giá 2 khúc lũa qua độ cứng và mùi',
