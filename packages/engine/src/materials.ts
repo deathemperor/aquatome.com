@@ -122,25 +122,29 @@ const END = String.raw`(?![\p{L}\d])`
 /** A sum of money by its size alone: a thousands separator, or five digits and more ("150.000", "150000"; not a year). */
 const SUM = String.raw`(?<![\p{L}\d])(?:\d{1,3}(?:[.,]\d{3})+|\d{5,})`
 const SCALE = String.raw`(?:nghìn|ngàn|triệu|tỷ|tỉ)${END}`
-/** A sum in words: "vài trăm", "hai chục", "năm". */
-const WORDS = String.raw`(?:(?:vài|mấy|một|hai|ba|bốn|năm|lăm|sáu|bảy|tám|chín|mười|mươi|chục|trăm)\s+)+`
+/** A sum in words: "vài trăm", "hai chục", "nửa". */
+const WORDS = String.raw`(?:(?:vài|mấy|một|hai|ba|bốn|năm|lăm|sáu|bảy|tám|chín|mười|mươi|chục|trăm|nửa)\s+)+`
 const MONEY = String.raw`(?:₫|vnđ|vnd|đồng|đ)${END}`
+/** An amount after "giá": a sum, or a number or a range in digits or words with its "nghìn" or "triệu". */
+const AMOUNT = String.raw`(?:${SUM}|${N}(?:\s*(?:đến|tới|[-–~])\s*${N})?\s*${SCALE}|${WORDS}${SCALE})`
+const AROUND = String.raw`(?:\s+(?:chỉ|từ|khoảng|tầm|chừng|cỡ|dao\s+động|rơi\s+vào))*`
 /**
  * A price only by the marks that can't be anything else: a currency sign after a number ("150.000 ₫", "90 đ", "150.000đ
- * màu nâu"), "đồng" after a sum ("150.000 đồng"), "nghìn" or "triệu" with money's word or a price's place after it ("200
- * nghìn đồng", "vài trăm nghìn đồng", "1,5 triệu.", "120 nghìn/kg", "200 nghìn một khúc"), "k" ("150k", "150K/khúc"), and
- * "giá" with a word of buying, a colon or a sum ("giá từ 90", "giá bán: 150.000", "giá 150.000", "giá vài trăm nghìn").
- * Never a quantity: "2 triệu năm", "1 tỷ vi sinh", "6500 K", "10 đến 14 ngày", "giá thể 2 lớp", "đánh giá 2 khúc", "trên
- * giá 2 tầng", "ngày 7 đồng thời". A sum written any other way ("200 nghìn tùy khúc") is the grounded reader's to note
- * (GROUNDED): a mark that could be a quantity here would refuse good drafts unread.
+ * màu nâu"), "đồng" after a sum ("150.000 đồng"), "nghìn" or "triệu" with money's word after it ("200 nghìn đồng", "nửa
+ * triệu đồng", "vài trăm nghìn đồng"), "k" ("150k", "150K/khúc"), and "giá" before an amount ("giá 150.000", "giá từ 5
+ * triệu", "có giá vài trăm nghìn"), or after a word of selling or a colon before any number ("Giá bán: 99"). Never a
+ * quantity: "2 triệu năm", "lên tới vài triệu, tùy loại nền", "6500 K", "giá thể 2 lớp", "đánh giá 2 khúc", "trên giá
+ * khoảng 2 ngày", "ngày 7 đồng thời". A sum written any other way ("mỗi khúc 200 nghìn", "giá từ 90") is the grounded
+ * reader's to note (GROUNDED): what follows a "nghìn" can be a count as well as a price, and a mark that could be a
+ * quantity would refuse good drafts unread.
  */
 const PRICE = [
   new RegExp(String.raw`${N}\s*(?:₫|vnđ|vnd|đ)${END}|${SUM}\s*đồng${END}`, 'iu'),
-  new RegExp(String.raw`(?:${N}\s*|(?<![\p{L}])${WORDS})${SCALE}(?:\s+rưỡi)?(?=\s*(?:$|[.,;:!?)/\n]|${MONEY}|(?:một|mỗi)${END}))`, 'iu'),
+  new RegExp(String.raw`(?:${N}\s*|(?<![\p{L}])${WORDS})${SCALE}(?:\s+rưỡi)?\s*${MONEY}`, 'iu'),
   new RegExp(String.raw`${N}\s*k${END}`, 'u'),
   // A capital K after three digits at most: a lamp's 6500 K is a colour.
   new RegExp(String.raw`(?<![\p{L}\d.,])\d{1,3}\s*K${END}`, 'u'),
-  new RegExp(String.raw`(?<![\p{L}])(?<!đánh\s+)giá(?:(?:\s+(?:bán|chỉ|từ|khoảng|tầm|chừng|lẻ|sỉ|mua|niêm yết|tham khảo|dao động|rơi vào))+\s*:?\s*\d|\s*:\s*\d|\s+(?:\d{1,3}(?:[.,]\d{3})+|\d{4,})${END}|(?:\s+(?:từ|khoảng|chỉ|tầm|chừng|cỡ))*\s+${WORDS}${SCALE})`, 'iu'),
+  new RegExp(String.raw`(?<![\p{L}])(?<!đánh\s+)giá(?:(?:\s+(?:bán|lẻ|sỉ|mua|niêm\s+yết|tham\s+khảo))+${AROUND}\s*:?|\s*:${AROUND})\s*(?:${AMOUNT}|\d)|(?<![\p{L}])(?<!đánh\s+)giá${AROUND}\s+${AMOUNT}`, 'iu'),
 ]
 const chars = (s: string) => [...s.normalize('NFC')].length
 /** Every entity undone, named ones too ("&ndash;", "&deg;"), until none is left. */
@@ -154,13 +158,18 @@ const visible = (html: string) => decode(html.replace(/<[^>]*>/g, ' ')).replace(
  * A tag, its quoted values read whole, or a comment; not a comparison: "<" then a letter, "/" or "!" ("pH < 7" stays,
  * and so does nothing of `<em title="pH < 7">`). A block's edge leaves a space.
  */
-const TAG = new RegExp(String.raw`<!--[\s\S]*?-->|<\/?[a-z][^\s/>]*(?:\s+[^\s"'>/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s"'>]+))?)*\s*\/?>`, 'gi')
+const TAG = new RegExp(String.raw`<!--[\s\S]*?-->|<\/?[a-z][a-z0-9-]*(?:\s+[^\s"'<>/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s"'<>]+))?)*\s*\/?>`, 'gi')
 const untag = (s: string) => s.replace(TAG, t => (/^<\/?(?:p|br|div|li|ul|ol|h\d)\b/i.test(t) ? ' ' : ''))
 /**
- * A summary line or a question as the page shows it: plain text, entities undone, no markup and no source's mark. Tags
- * as written go first, their values still encoded (`title="&quot;lũa rễ&quot;"`), then tags that were written encoded.
+ * A summary line or a question as the page shows it: plain text, entities undone, no markup and no source's mark. One
+ * level of entities at a time, the tags out before and after each, so a tag's own encoded values stay until it's gone
+ * (`title="&quot;lũa rễ&quot;"`, and the same written encoded once more).
  */
-const plain = (s: string) => untag(decode(untag(s ?? ''))).replace(/\s*\[\d+\]/g, '').replace(/\s+/g, ' ').trim()
+const plain = (s: string) => {
+  let out = untag(s ?? '')
+  for (let prev = ''; prev !== out;) { prev = out; out = untag(new TextNode(out, null as never).text) }
+  return out.replace(/\s*\[\d+\]/g, '').replace(/\s+/g, ' ').trim()
+}
 
 /**
  * A draft as it will be saved, which is what is checked, read and saved: its summary and questions plain, each part

@@ -77,11 +77,11 @@ test('a draft is checked as it will be saved: a mark alone, an encoded mark, a c
 
 test('a price by the marks that can\'t be a quantity, and never a quantity; any other sum is the reader\'s (Astra\'s reads)', async () => {
   const page = (about: string) => ({ summary: ['Một.', 'Hai.'], sections: { about: `<p>${about} [1].</p>` }, faq: [] })
-  for (const p of ['Giá 150.000 ₫ một khúc', 'Giá <strong>150.000</strong> đồng', 'Khoảng 200 nghìn đồng', 'Tầm 150k', 'Giá từ 90 một khúc', '1,5 triệu đ',
-    'Mỗi khúc 200 nghìn', 'Mỗi khúc 200 ngàn', 'Mỗi khúc 1,5 triệu', 'Lũa 150K/khúc', 'Giá bán: 150.000', 'Mỗi khúc 200 nghìn một', 'Ngâm 7 ngày, khúc này 90 đ',
-    'Một khúc lũa 150.000đ màu nâu sẫm', 'Một khúc lũa 150.000₫ màu nâu sẫm', 'Một khúc lũa 150.000 VND màu nâu sẫm', 'Khúc to giá 1.200.000',
-    'Một khúc lũa 150.000 đồng màu nâu sẫm', 'Một khúc lũa 150000 đồng màu nâu sẫm', 'Khúc to 2 triệu đến 3 triệu đồng', 'Mua theo ký, khoảng 120 nghìn/kg',
-    'Một khúc lũa thường có giá vài trăm nghìn đồng', 'Lũa nhỏ chỉ vài chục nghìn đồng', 'Lũa có giá vài trăm nghìn', 'Khúc to 2 triệu rưỡi'])
+  for (const p of ['Giá 150.000 ₫ một khúc', 'Giá <strong>150.000</strong> đồng', 'Khoảng 200 nghìn đồng', 'Tầm 150k', '1,5 triệu đ', 'Lũa 150K/khúc',
+    'Giá bán: 150.000', 'Giá: 99', 'Ngâm 7 ngày, khúc này 90 đ', 'Một khúc lũa 150.000đ màu nâu sẫm', 'Một khúc lũa 150.000₫ màu nâu sẫm',
+    'Một khúc lũa 150.000 VND màu nâu sẫm', 'Khúc to giá 1.200.000', 'Một khúc lũa 150.000 đồng màu nâu sẫm', 'Một khúc lũa 150000 đồng màu nâu sẫm',
+    'Khúc to 2 triệu đến 3 triệu đồng', 'Một khúc lũa thường có giá vài trăm nghìn đồng', 'Lũa nhỏ chỉ vài chục nghìn đồng', 'Lũa có giá vài trăm nghìn',
+    'Lũa khủng giá từ 5 triệu trở lên', 'Khúc lớn nửa triệu đồng', 'Giá bán: vài trăm nghìn tùy kích thước', 'Giá dao động 100 đến 500 nghìn tùy khúc'])
     expect(formNotes(asSaved(page(p)), 1).filter(n => n.startsWith('a price')), p).toHaveLength(1)
   for (const q of ['Đá hình thành cách đây 2 triệu năm', 'Đèn 6500 K', 'Đèn 6500K', 'Ngâm 10 đến 14 ngày', 'Khúc nặng 5 kg', 'Giá thể 2 lớp', 'Giá trị pH 6,5',
     'Ngâm đến ngày 7, đồng thời thay nước hằng ngày', 'Giữ pH ở 6,5, đồng thời theo dõi KH', 'Đánh giá 2 khúc lũa qua độ cứng và mùi',
@@ -90,8 +90,11 @@ test('a price by the marks that can\'t be a quantity, and never a quantity; any 
     'Đá hình thành cách đây 2 triệu đến 3 triệu năm', 'Đá hình thành cách đây 2–3 triệu năm', 'Một gam đất nền có thể chứa 1 tỷ vi sinh vật',
     'Từ năm 2020 đồng thời có thêm lũa rễ', 'Mỗi gam nền có thể chứa 1 tỷ vi sinh có lợi', 'Đá này hình thành cách đây 2 triệu rưỡi năm',
     'Lũa đã nằm dưới bùn hàng nghìn năm', 'Mất vài trăm năm để gỗ thành lũa', 'Giá thể chứa hàng triệu vi sinh',
-    // A sum by no closed mark: the grounded reader's to note, never refused in code.
-    'Mỗi khúc 200 nghìn tùy kích thước', 'Lũa khoảng 100–200 nghìn tùy dáng', 'Một túi nền tốn 150 nghìn cho bể nhỏ'])
+    // Astra's sixth read
+    'Phơi lũa trên giá khoảng 2 ngày cho ráo nước', 'Số vi khuẩn trong một gam nền có thể lên tới vài triệu, tùy loại nền',
+    // A sum by no closed mark: what follows a "nghìn" can be a count as well as a price, so it's the grounded reader's to note.
+    'Mỗi khúc 200 nghìn', 'Mỗi khúc 1,5 triệu', 'Mua theo ký, khoảng 120 nghìn/kg', 'Khúc to 2 triệu rưỡi', 'Giá từ 90 một khúc',
+    'Mỗi khúc 200 nghìn tùy kích thước', 'Lũa khoảng 100–200 nghìn tùy dáng', 'Một túi nền tốn 150 nghìn cho bể nhỏ', 'Mỗi khúc 200 nghìn (đã xử lý)'])
     expect(formNotes(asSaved(page(q)), 1), q).toEqual([])
   // The reader is told: any sum of money on the page is a wrong claim.
   let asked = ''
@@ -118,6 +121,9 @@ test('plain text keeps a comparison and a space between blocks (Astra\'s second 
   const n = asSaved({ summary: ['Luộc ở 100&deg;C.', 'Hai.'], sections: { about: '<p>A [1].</p>' }, faq: [{ q: 'Ngâm bao lâu?', a: '<p>Ngâm lũa 1&ndash;2 tuần.</p>' }] })
   expect(n.summary[0]).toBe('Luộc ở 100°C.')
   expect(n.faq).toEqual([{ q: 'Ngâm bao lâu?', a: 'Ngâm lũa 1–2 tuần.' }])
+  // Astra's sixth read: a comparison with no spaces is no tag, and a tag written encoded twice, its value's quotes too, goes.
+  const s6 = asSaved({ summary: ['Giữ 6<pH<7 và KH>2 khi dùng nền này.', 'Ngâm &lt;em title=&quot;còn gọi là &amp;quot;lũa rễ&amp;quot;&quot;&gt;lũa&lt;/em&gt; trước khi dùng.'], sections: { about: '<p>A [1].</p>' }, faq: [] })
+  expect(s6.summary).toEqual(['Giữ 6<pH<7 và KH>2 khi dùng nền này.', 'Ngâm lũa trước khi dùng.'])
 })
 
 async function site() {
