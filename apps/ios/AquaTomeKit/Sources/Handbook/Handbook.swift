@@ -30,7 +30,8 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
   /// /vi/thiet-bi/<category>/. `taxon`, `origin`: a taxon page (/vi/phan-loai/…) or an origin page (/vi/nguon-goc/…),
   /// drawn as the app's shelf of the fish it lists. Never in the index: the app makes them from its fish
   /// (HandbookShelves.page(at:)).
-  public enum Kind: String, Codable, Sendable, CaseIterable { case fish, plant, guide, glossary, tool, video, equipment, taxon, origin }
+  /// `material`: what goes into a tank (driftwood, rocks), Vietnamese only for now, read on its web page (no shards).
+  public enum Kind: String, Codable, Sendable, CaseIterable { case fish, plant, guide, glossary, tool, video, equipment, material, taxon, origin }
 
   public struct Item: Codable, Sendable, Hashable, Identifiable {
     public let kind: Kind
