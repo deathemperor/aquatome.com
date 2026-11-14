@@ -84,7 +84,9 @@ test('a price by the marks that can\'t be a quantity, and never a quantity; any 
     'Khúc to 2 triệu đến 3 triệu đồng', 'Một khúc lũa thường có giá vài trăm nghìn đồng', 'Lũa nhỏ chỉ vài chục nghìn đồng', 'Lũa có giá vài trăm nghìn',
     'Lũa khủng giá từ 5 triệu trở lên', 'Khúc lớn nửa triệu đồng', 'Giá bán: vài trăm nghìn tùy kích thước', 'Giá dao động 100 đến 500 nghìn tùy khúc',
     // Astra's seventh read: a selling word, its colon, then "khoảng" or "từ".
-    'Giá bán: khoảng 200 nghìn tùy kích thước', 'Giá bán: từ vài trăm nghìn'])
+    'Giá bán: khoảng 200 nghìn tùy kích thước', 'Giá bán: từ vài trăm nghìn',
+    // Money again before a word of time.
+    'Một khúc 150.000 đồng thời điểm này', 'Khúc to 2 triệu đồng thời điểm cuối năm'])
     expect(formNotes(asSaved(page(p)), 1).filter(n => n.startsWith('a price')), p).toHaveLength(1)
   for (const q of ['Đá hình thành cách đây 2 triệu năm', 'Đèn 6500 K', 'Đèn 6500K', 'Ngâm 10 đến 14 ngày', 'Khúc nặng 5 kg', 'Giá thể 2 lớp', 'Giá trị pH 6,5',
     'Ngâm đến ngày 7, đồng thời thay nước hằng ngày', 'Giữ pH ở 6,5, đồng thời theo dõi KH', 'Đánh giá 2 khúc lũa qua độ cứng và mùi',
@@ -134,6 +136,9 @@ test('plain text keeps a comparison and a space between blocks (Astra\'s second 
   const s7 = asSaved({ summary: ['Chỉ dùng khi 6<pH và KH>2.', 'Chỉ dùng khi 6&lt;pH và KH&gt;2.'], sections: { about: '<p>A [1].</p>' }, faq: [{ q: 'Khi nào?', a: '<p>Khi 6<pH và KH>2 [1].</p><pre>Ngâm</pre> trước.' }] })
   expect(s7.summary).toEqual(['Chỉ dùng khi 6<pH và KH>2.', 'Chỉ dùng khi 6<pH và KH>2.'])
   expect(s7.faq).toEqual([{ q: 'Khi nào?', a: 'Khi 6<pH và KH>2. Ngâm trước.' }])
+  // And in a part, which the sanitizer would read as a tag: kept as text, escaped.
+  const p7 = asSaved({ summary: ['Một.', 'Hai.'], sections: { about: '<p>Chỉ dùng khi 6<pH và KH>2 [1].</p><p>Giữ 6<pH<7 [1].</p>' }, faq: [] })
+  expect(p7.sections.about).toBe('<p>Chỉ dùng khi 6&lt;pH và KH&gt;2 [1].</p><p>Giữ 6&lt;pH&lt;7 [1].</p>')
 })
 
 async function site() {

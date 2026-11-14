@@ -125,8 +125,11 @@ const SUM = String.raw`(?<![\p{L}\d])(?:\d{1,3}(?:[.,]\d{3})+|\d{5,})`
 const SCALE = String.raw`(?:nghìn|ngàn|triệu|tỷ|tỉ)${END}`
 /** A sum in words: "vài trăm", "hai chục", "nửa". */
 const WORDS = String.raw`(?:(?:vài|mấy|một|hai|ba|bốn|năm|lăm|sáu|bảy|tám|chín|mười|mươi|chục|trăm|nửa)\s+)+`
-/** "đồng" as money, not "đồng thời" ("at the same time"): "vài triệu đồng thời" is a count. */
-const DONG = String.raw`đồng${END}(?!\s+thời${END})`
+/**
+ * "đồng" as money, not "đồng thời" ("at the same time"): "vài triệu đồng thời" is a count. Money again before a word of
+ * time ("150.000 đồng thời điểm này").
+ */
+const DONG = String.raw`đồng${END}(?!\s+thời${END}(?!\s+(?:điểm|gian|hạn|kỳ)${END}))`
 const MONEY = String.raw`(?:(?:₫|vnđ|vnd|đ)${END}|${DONG})`
 /** An amount after "giá": a sum, or a number or a range in digits or words with its "nghìn" or "triệu". */
 const AMOUNT = String.raw`(?:${SUM}|${N}(?:\s*(?:đến|tới|[-–~])\s*${N})?\s*${SCALE}|${WORDS}${SCALE})`
@@ -163,6 +166,8 @@ const visible = (html: string) => decode(html.replace(/<[^>]*>/g, ' ')).replace(
  */
 const ELEMENTS = 'a|abbr|article|aside|audio|b|big|blockquote|body|br|button|canvas|caption|center|cite|code|col|colgroup|dd|del|details|dfn|div|dl|dt|em|embed|figcaption|figure|font|footer|form|h[1-6]|head|header|hr|html|i|iframe|img|input|ins|kbd|label|li|link|main|mark|math|meta|nav|nobr|noscript|object|ol|option|p|picture|pre|q|s|samp|script|section|select|small|source|span|strike|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|tt|u|ul|var|video|wbr'
 const TAG = new RegExp(String.raw`<!--[\s\S]*?-->|<\/?(?:${ELEMENTS})(?![a-z0-9-])(?:\s+[^\s"'<>/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s"'<>]+))?)*\s*\/?>`, 'gi')
+/** A "<" that opens no element ("6<pH và KH>2") is text: escaped before the sanitizer, which would read it as a tag. */
+const STRAY = new RegExp(String.raw`<(?!\/?(?:${ELEMENTS})(?![a-z0-9-])|!--)`, 'gi')
 const untag = (s: string) => s.replace(TAG, t => (/^<\/?(?:p|br|div|li|ul|ol|h\d)\b/i.test(t) ? ' ' : ''))
 /**
  * A summary line or a question as the page shows it: plain text, entities undone, no markup and no source's mark. One
@@ -184,7 +189,7 @@ export function asSaved(w: Written): Written {
   const faq = (w.faq ?? []).map(f => ({ q: plain(f.q), a: plain(f.a) })).filter(f => f.q && f.a)
   const sections: Record<string, string> = {}
   for (const [k, html] of Object.entries(w.sections ?? {})) {
-    const s = sanitizeHtml(html ?? '')
+    const s = sanitizeHtml((html ?? '').replace(STRAY, '&lt;'))
     if (visible(s).replace(/\[\d+\]/g, '').trim()) sections[k] = s
   }
   const m = metricPage({ summary, faq, sections }, 'vi')
