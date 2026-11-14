@@ -42,7 +42,9 @@ export function photoPrivacyViolations(file:string,data:unknown):{code:string;lo
   if(Object.hasOwn(v,'note')&&(typeof v.ok==='string'&&typeof v.typical==='boolean'||typeof v.dead==='boolean'||typeof v.mark==='boolean'&&typeof v.person==='boolean')){
    if(v.note!==photoReason(v)&&v.note!==previousOwnerNote)add('free photo verdict explanation',path)
    if(v.noteHash!==undefined&&(typeof v.noteHash!=='string'||!/^[a-f0-9]{64}$/.test(v.noteHash)))add('invalid observation fingerprint',path)
-   if(Object.keys(v).some(k=>!['ok','typical','person','logo','guide','file','mark','brand','poor','unwell','q','other','dead','frames','note','noteHash','hints'].includes(k)))add('uncontrolled verdict field',path)
+   if(Object.keys(v).some(k=>!['ok','typical','person','logo','guide','file','mark','brand','poor','unwell','q','on','other','dead','frames','note','noteHash','hints'].includes(k)))add('uncontrolled verdict field',path)
+   // The day the question was asked: a real calendar date, never words.
+   if(v.on!==undefined&&!realDay(v.on))add('invalid question day',path)
   }
   if(v.hints!==undefined&&(!v.hints||typeof v.hints.dead!=='boolean'||typeof v.hints.people!=='boolean'||(v.hints.artwork!==undefined&&typeof v.hints.artwork!=='boolean')||Object.keys(v.hints).some(k=>!['dead','people','artwork'].includes(k))))add('uncontrolled recheck hints',path)
   for(const[k,x]of Object.entries(v))walk(x,path+'/'+k)
@@ -62,14 +64,16 @@ export function photoPrivacyViolations(file:string,data:unknown):{code:string;lo
  if(name==='_video-rejected.json'&&data&&typeof data==='object')for(const[u,v]of Object.entries(data))if(typeof v==='string'&&/^(?:watermark|people|dead|logo):/.test(v)&&!rejectedPattern.test(v))add('free image/video rejection explanation',u)
  return out
 }
+const realDay=(x:unknown)=>typeof x==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(x)&&!Number.isNaN(Date.parse(`${x}T00:00:00Z`))&&new Date(`${x}T00:00:00Z`).toISOString().slice(0,10)===x
 const controlledOutcome=/^(?:subject (?:yes|other|none|habitat|unsure|dead|no)|guide photo|dead screen (?:dead|clear))(?:; (?:person|logo|mark|brand|poor|unwell))*$/
 export function reviewPrivacyViolations(text:string):number {
- const headers=new Set(['Page','Photo','Recorded outcome','Kind','Question','State','Result','Count','Quality','Poor','Unwell','q'])
+ const headers=new Set(['Page','Photo','Recorded outcome','Kind','Question','State','Result','Count','Quality','Poor','Unwell','q','Asked'])
  return text.split('\n').filter(l=>l.startsWith('| ')).filter(l=>{
   const cells=l.split('|').slice(1,-1).map(s=>s.trim())
   return cells.some(c=>!headers.has(c)&&!/^[: -]+$/.test(c)&&!controlledOutcome.test(c)
    && !/^(?:species|plants|breeds)\/[a-z0-9-]+(?: \(a guide photo\))?$/.test(c)
    && !/^\[photo\]\(https?:\/\/[^\s]+\)$/.test(c)
+   && !realDay(c)
    && !/^(?:true|false|yes|no|unsure|poor|unwell|[0-9]+(?:\.[0-9]+)?)$/.test(c))
  }).length
 }
@@ -77,10 +81,11 @@ export function reviewPrivacyViolations(text:string):number {
 export function compactPhotoReview(text:string,subjects:Record<string,Record<string,any>>):string {
  return text.split('\n').map(l=>{
   if(!l.startsWith('| ')||!l.includes('[photo]('))return l.replace('| What the model saw |','| Recorded outcome |').replace('| What it shows |','| Recorded outcome |')
-  const m=/^\| ((?:species|plants|breeds)\/([a-z0-9-]+)(?: \(a guide photo\))?) \| \[photo\]\((.+)\) \| .* \|$/.exec(l)
+  // A trial row starts with the day it was asked (photo-check.ts, the new answers' sheets).
+  const m=/^\| (?:(\d{4}-\d{2}-\d{2}|-) \| )?((?:species|plants|breeds)\/([a-z0-9-]+)(?: \(a guide photo\))?) \| \[photo\]\((.+)\) \| .* \|$/.exec(l)
   if(!m)throw new PhotoPrivacyValidationError('photo review row format unavailable')
-  const v=subjects[m[3]!]?.[m[2]!];if(!v)throw new PhotoPrivacyValidationError('photo review verdict unavailable')
-  return `| ${m[1]} | [photo](${m[3]}) | ${photoReason(v)} |`
+  const v=subjects[m[4]!]?.[m[3]!];if(!v)throw new PhotoPrivacyValidationError('photo review verdict unavailable')
+  return `| ${m[1]?`${m[1]} | `:''}${m[2]} | [photo](${m[4]}) | ${photoReason(v)} |`
  }).join('\n').replace('names what the photo shows instead','records a different subject')
 }
 

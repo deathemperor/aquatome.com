@@ -7,7 +7,7 @@ import { fitKey, type FitState } from './fit'
 import { gateChecks } from './gate'
 import { loadPages, type Page } from './pages'
 import { readPersonYes, type PersonYes } from './person-yes'
-import type { PhotoVerdict } from './photo-check'
+import { NEW_ANSWERS, type PhotoVerdict } from './photo-check'
 
 /**
  * The editorial calendar's planner. It fills Hôm nay's days and checks every pick against what a featured page needs:
@@ -117,6 +117,7 @@ export const readVerdicts = async (root: string): Promise<Verdicts> => {
 /**
  * Whether a photo may lead a card for this page: judged the right subject and typical, with no person or logo, and of a
  * fish its source's caption doesn't call unwell or blemished (content-rules.ts captionFlaw; a guide's photo is not asked).
+ * Once the check's "too poor to show" or "unwell" acts (photo-check.ts NEW_ANSWERS), a photo it gives that answer is none.
  */
 export function cardWorthy(photo: { url: string; caption?: string }, page: string, v: Verdicts, avoid: Record<string, string>, guide = false): boolean {
   const url = photo.url
@@ -127,9 +128,10 @@ export function cardWorthy(photo: { url: string; caption?: string }, page: strin
   // A guide's photo is judged against its caption when it names a fish; one with no verdict has passed the face and
   // watermark checks only, so a person looks at it before it leads (the planner lists it).
   if (guide) return !verdict || (!verdict.person && !verdict.logo && verdict.ok !== 'dead')
-  // A person's yes (PersonYes) stands for the check's over its own "can't tell" for this page, and nothing else.
+  // A person's yes (PersonYes) stands for the check's over its own "can't tell" for this page, and nothing else: an acting
+  // "too poor" or "unwell" still refuses the photo.
   const yes = !!own && !own.guide && own.ok === 'unsure' && !!v.personYes?.[url]?.[page]
-  return !!verdict && (verdict.ok === 'yes' || yes) && verdict.typical && !verdict.person && !verdict.logo
+  return !!verdict && (verdict.ok === 'yes' || yes) && verdict.typical && !verdict.person && !verdict.logo && !(NEW_ANSWERS.poor && verdict.poor) && !(NEW_ANSWERS.unwell && verdict.unwell)
 }
 
 /** Sites whose own mark on their photos the owner allows (the chief of staff, 2026-11-10: Aquarium Glaser's logo). */

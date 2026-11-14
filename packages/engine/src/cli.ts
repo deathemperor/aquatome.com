@@ -105,7 +105,7 @@ import { CLASSIFICATION_THREAD, FORUM_SECTIONS, readForum } from './forum'
 import { readIdeas, refreshIdeas, writeIdeas } from './ideas'
 import { backfillVideoItems } from './video-items'
 import { throttled, VIDEO_GAP_MS, videoGuides, ytApi, ytDlp, ytFinder, ytFrames, ytGrab } from './youtube'
-import { checkPagePhotos, EMPTY_CAP, PHOTO_CHECK_SCHEMA, recheckCandidates } from './photo-check'
+import { calendarPages, checkPagePhotos, EMPTY_CAP, NEW_ANSWERS, PHOTO_CHECK_SCHEMA, recheckCandidates } from './photo-check'
 import { DEAD_SCREEN_SCHEMA, screenDead } from './dead-screen'
 import { GUIDE_PHOTO_SCHEMA, screenGuidePhotos, type GuidePhotoDeps } from './guide-photos'
 import { screenWatermarks, visionText, WATERMARK_SCHEMA } from './watermarks'
@@ -387,16 +387,23 @@ if (cmd === 'photo-privacy') {
   // hand or a person, or whose verdict was the old "habitat" (recheckCandidates); a re-run finds none and calls no model.
   const recheck = cmd === 'recheck-photos' ? await recheckCandidates(ROOT) : undefined
   if (recheck) {
-    console.log(`recheck-photos: ${recheck.size} photos to judge again`)
-    for (const [u, note] of recheck) console.log(`candidate: ${u}: ${note}`)
+    // The heads asked again under the new question are counted, not listed: about a thousand at first.
+    const heads = [...recheck.values()].filter(n => n.startsWith('a head asked before')).length
+    console.log(`recheck-photos: ${recheck.size} photos to judge again (${heads} heads asked before "too poor" and "unwell", the calendar's first)`)
+    for (const [u, note] of recheck) if (!note.startsWith('a head asked before')) console.log(`candidate: ${u}: ${note}`)
   }
   if (values['empty-cap'] !== undefined && !/^\d+$/.test(values['empty-cap'])) { console.error(`--empty-cap takes a whole number of pages, not "${values['empty-cap']}"`); process.exit(2) }
   const r = recheck && !recheck.size ? undefined : await checkPagePhotos(ROOT, {
     get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
     look: (file, prompt) => claudeVision({ system: 'You identify aquarium fish and plants in photos. Reply only with JSON.', prompt, schema: PHOTO_CHECK_SCHEMA, file, model: process.env.PHOTO_CHECK_MODEL ?? 'opus' }),
-  }, { limit: values.limit ? Number(values.limit) : 40, ...(Number(values.fill) > 0 ? { fill: Number(values.fill) } : {}), parallel: values.parallel ? Number(values.parallel) : 1, ...(values.only ? { only: values.only } : {}), ...(recheck ? { recheck: new Set(recheck.keys()) } : {}), ...(values['empty-cap'] ? { emptyCap: Number(values['empty-cap']) } : {}) })
+  }, { limit: values.limit ? Number(values.limit) : 40, ...(Number(values.fill) > 0 ? { fill: Number(values.fill) } : {}), parallel: values.parallel ? Number(values.parallel) : 1, ...(values.only ? { only: values.only } : {}), ...(recheck ? { recheck: new Set(recheck.keys()), first: await calendarPages(ROOT) } : {}), ...(values['empty-cap'] ? { emptyCap: Number(values['empty-cap']) } : {}) })
   if (r) {
     console.log(`${cmd}: ${r.sheets} sheets, ${r.judged} photos judged (${r.photos} verdicts in all), ${r.removed.length} removed, ${r.rejected} newly rejected, ${r.unsure} can't tell, ${r.failed.length} failed; heads: ${r.heads.moved.length} moved, ${r.heads.emptied.length} removed (page left with no photo)${r.heads.held.length ? `, ${r.heads.held.length} held` : ''}${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+    // Never a silent removal (the chief of staff, 2026-11-12): what each new answer said and took off, every run.
+    const acts = (a: 'poor' | 'unwell') => (NEW_ANSWERS[a] ? `took off ${r.taken[a].length}` : 'held for the trial, takes nothing off')
+    console.log(`${cmd}: too poor to show: ${r.said.poor} said, ${acts('poor')}; unwell: ${r.said.unwell} said, ${acts('unwell')}; ${r.stayed.length} kept by a guard`)
+    for (const a of ['poor', 'unwell'] as const) for (const x of r.taken[a]) console.log(`${a === 'poor' ? 'too poor' : 'unwell'}: ${x}`)
+    for (const x of r.stayed) console.log(`stayed: ${x}`)
     if (r.heads.held.length) console.log(`${cmd}: ${r.heads.held.length} pages would be left with no photo, ${EMPTY_CAP ? `more than a run may with nobody looking (${EMPTY_CAP})` : 'which no run may with nobody looking'}: none taken off. Their photos wait for a second look (engine-state/_photo-second-look.json, last-photo.ts): a pull request writes each one's answer.`)
     for (const x of r.heads.held) console.log(`held: ${x}`)
     for (const x of r.heads.emptied) console.log(`head removed: ${x}`)
