@@ -5,13 +5,13 @@ import { COOKIE, createSession, type Client } from '../accounts/session'
 import { syncStore } from '../accounts/tanks'
 import { assetSource, callClaude, chat, chatWorstCost, type ChatDeps, type ChatEnv, type Conversation } from '../chat/api'
 import { chatPast } from '../chat/past'
-import { OPENING_SYSTEM } from '../chat/agent'
+import { NO_THINKING, OPENING_SYSTEM } from '../chat/agent'
 import { OFF_TOPIC } from '../chat/answer'
 import { handbookOf, sectionsOf } from '../chat/handbook'
 import { textOf } from '../chat/tools'
 import { chatAccount, conversationKey } from '../chat/store'
 import type { ChatRunRecord } from '../chat/transcript'
-import { clientFor, priceOf } from '../fishid/claude'
+import { clientFor, DEFAULT_MODEL, priceOf } from '../fishid/claude'
 import { classify, isApiError, type KeyEntry } from '../fishid/keys'
 import type { Source } from '../chat/handbook'
 import { handle } from '../index'
@@ -290,6 +290,16 @@ test('the chat\'s model in wrangler.jsonc is Haiku 5.5, with its own price; unse
   expect(model).toBe('claude-haiku-5-5')
   expect(priceOf(model!)).not.toBe(priceOf('claude-unknown'))
   expect(chatWorstCost(model!)).toBeLessThan(chatWorstCost('claude-opus-5-5'))
+})
+
+test('the chat\'s models each have a row naming the switch that turns their thinking off, or this fails: a switch a model refuses fails its first line unseen', () => {
+  // Changing the chat's model means asking the API which switch the new one takes (15 Nov: Haiku 5.5 `disabled`,
+  // Sonnet 5.5 `between_tools`, Opus 5.5 none, as it always thinks) and giving it its row in NO_THINKING.
+  const wrangler = readFileSync(new URL('../../wrangler.jsonc', import.meta.url).pathname, 'utf8')
+  const model = /"CHAT_MODEL": "([^"]+)"/.exec(wrangler)![1]!
+  for (const m of [model, DEFAULT_MODEL]) expect(NO_THINKING[m], `${m}: which thinking switch does the API take from it?`).toBeDefined()
+  expect(NO_THINKING[model]!.thinking).toEqual({ type: 'disabled' })
+  expect(NO_THINKING[DEFAULT_MODEL]).toEqual({ effort: 'low', room: 1_024 })
 })
 
 test('deleting an account deletes its conversations, their transcripts and retries\' answers, every page of them, and no one else\'s', async () => {

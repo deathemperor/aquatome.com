@@ -4,7 +4,7 @@ import type Anthropic from '@anthropic-ai/sdk'
 import type { PageDoc } from '@aq/schema/app-page'
 import { LANGS } from '@aq/schema/langs'
 import { expect, test, vi } from 'vitest'
-import { answerQuestion, CHAT_LIMITS, firstMessage, openedTank, HANDBOOK, HANDOVER_MS, LAST_TRY, LAST_WORD, MAX_TOKENS, OPENING_SYSTEM, SYSTEM, unaccented, type ChatOptions, type Start } from '../chat/agent'
+import { answerQuestion, CHAT_LIMITS, NO_THINKING, firstMessage, openedTank, HANDBOOK, HANDOVER_MS, LAST_TRY, LAST_WORD, MAX_TOKENS, OPENING_SYSTEM, SYSTEM, unaccented, type ChatOptions, type Start } from '../chat/agent'
 import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, OFF_TOPIC, picksReader, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search, searchTopics } from '../chat/search'
@@ -1046,6 +1046,32 @@ test('a call still silent as time runs out is given up for a short answer; once 
   expect(said.join('')).toContain('Cá neon')
   expect(tries).toBe(1)
   expect(cut.stopped).toBe('error')
+})
+
+test('the first line and the short last answer turn thinking off as each model accepts it: Sonnet with between_tools, Opus with none, low and room to think', async () => {
+  // Sent `disabled`, Sonnet 5.5 and Opus 5.5 refuse the call (400, 15 Nov), and the first line fails without a word.
+  const final = { offTopic: false, text: 'Cá neon xanh sống theo đàn, từ 6 con.', covered: true, blocks: [], suggestions: [] }
+  const h = await hb()
+  const sent = async (model: string) => {
+    let now = 0
+    const bodies: { call: number; body: Anthropic.MessageCreateParamsNonStreaming }[] = []
+    await answerQuestion({
+      model, lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: h, tanks: async () => [], opening: true, clock: () => now,
+      send: async (body, o) => {
+        bodies.push({ call: o.call, body })
+        if (o.call === 0) return message([{ type: 'text', text: 'Mình đang tra cẩm nang về cá neon xanh cho bạn.' }])
+        if (bodies.filter(b => b.call > 0).length === 1) { now += o.timeoutMs; throw new Error('Request timed out.') }
+        return message([{ type: 'text', text: JSON.stringify(final) }])
+      },
+    })
+    const line = bodies.find(b => b.call === 0)!.body, last = bodies.filter(b => b.call > 0)[1]!.body
+    return { line: [line.thinking, line.max_tokens, line.output_config?.effort], last: [last.thinking, last.max_tokens, last.output_config?.effort, last.tool_choice] }
+  }
+  expect(await sent('claude-sonnet-5-5')).toEqual({ line: [{ type: 'between_tools' }, 150, undefined], last: [{ type: 'between_tools' }, LAST_TRY.maxTokens, 'low', { type: 'none' }] })
+  expect(await sent('claude-opus-5-5')).toEqual({ line: [undefined, 150 + 1_024, 'low'], last: [undefined, LAST_TRY.maxTokens + 1_024, 'low', { type: 'none' }] })
+  // A model with no row of its own is sent what no model refuses: Opus's way.
+  expect(await sent('claude-next-6')).toEqual(await sent('claude-opus-5-5'))
+  expect(Object.keys(NO_THINKING)).toEqual(['claude-haiku-5-5', 'claude-sonnet-5-5', 'claude-opus-5-5'])
 })
 
 test('without onText a run is as before: no call is asked to stream, and a tool call after an answer\'s text still runs', async () => {

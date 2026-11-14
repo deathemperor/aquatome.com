@@ -12,7 +12,7 @@ import { turnsOf } from '../fishid/transcript'
 import { fileClashes } from './clash-store'
 import { handoverFor } from './handover'
 import { sectionSearch } from './section-search'
-import { answerQuestion, CHAT_LIMITS, CHAT_PRESENT, MAX_TOKENS, OPENING_TOKENS, type ChatRun, type Earlier, type Start } from './agent'
+import { answerQuestion, CHAT_LIMITS, CHAT_PRESENT, MAX_TOKENS, noThinking, OPENING_TOKENS, type ChatRun, type Earlier, type Start } from './agent'
 import type { ChatBlock } from './answer'
 import { handbookOf, type Handbook, type Lang, type Source } from './handbook'
 import { chatAccount, conversationKey, retryKey, secs, stopKey } from './store'
@@ -154,11 +154,12 @@ export const live = (env: ChatEnv): env is ChatEnv & Required<Pick<ChatEnv, 'ANT
 
 /**
  * The chat's most a question can cost, reserved at admission: every call's input past the trigger by half, all written to
- * cache, and every output in full; and the first line's call, whose input (the first message) is under the trigger.
+ * cache, and every output in full; and the first line's call, whose input (the first message) is under the trigger, and
+ * its output with the model's room to think.
  */
 export function chatWorstCost(model: string): number {
   const p = priceOf(model)
-  const line = CHAT_LIMITS.inputTokens * p.input + OPENING_TOKENS * p.output
+  const line = CHAT_LIMITS.inputTokens * p.input + (OPENING_TOKENS + noThinking(model).room) * p.output
   return (CHAT_LIMITS.inputTokens * 1.5 * Math.max(p.input, p.cacheWrite) + Math.max(CHAT_LIMITS.calls, CHAT_PRESENT.calls) * MAX_TOKENS * p.output + line) / 1e6
 }
 
