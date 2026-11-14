@@ -327,6 +327,12 @@ test('a rewrite\'s drop check: a part with one word left, a figure by its number
   // A definition cut to two words, its old sentence still in the body.
   const lead = 'Giữ pH ổn định quan trọng hơn con số chính xác.'
   expect(drop({ definition: lead, body: `<p>${lead}</p>` }, { definition: 'Độ chua.', body: `<p>${lead}</p>` })).toHaveLength(1)
+  // Grok's second read: half a part's words left is not enough, here "lấy" of "lấy nước".
+  const seeding = 'Châm thêm men vi sinh của hãng uy tín, hoặc lấy nước, bông lọc từ một bể đã ổn định; riêng vật liệu lọc thì chỉ lấy từ bể đã ổn định mà cá trong đó đều khỏe.'
+  expect(drop({ definition: one, body: `<p>${seeding}</p>` }, { definition: one, body: '<p>Châm thêm men vi sinh của hãng uy tín, hoặc lấy từ một bể đã ổn định; riêng thì chỉ lấy từ bể đã ổn định mà cá trong đó đều khỏe.</p>' })[0]).toContain('the advice "lấy nước"')
+  // A note holding a sentence whole frees it, though the sentence's own quotation marks split the note's quote.
+  const shop = 'Nhiều tiệm ghi lũa sa tùng là "không ra màu", còn tạp chí cá cảnh thì nói gỗ nào cũng tiết tanin.'
+  expect(drop({ definition: one, body: `<p>${shop}</p><p>Gỗ mềm.</p>` }, { definition: one, body: '<p>Gỗ mềm.</p>' }, [`Rules 4 and 12: "${shop}" must come out.`])).toEqual([])
   // A sentence moved from the body to the definition is kept.
   expect(drop({ definition: 'Lũa là gỗ khô.', body: '<p>Lũa làm nước ngả vàng.</p>' }, { definition: 'Lũa là gỗ khô. Lũa làm nước ngả vàng.', body: '' })).toEqual([])
 })

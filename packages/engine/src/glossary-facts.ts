@@ -248,13 +248,15 @@ const wordsOf = (text: string) => (text.toLowerCase().match(/\p{L}+/gu) ?? []).f
  * left out when fewer than half of its own words stand in the other text: chu trình nitơ's seeding sentence lost its water,
  * floss and media from an established tank that way ("…, hoặc lấy nước, bông lọc từ một bể đã ổn định; riêng vật liệu lọc
  * thì chỉ lấy từ bể đã ổn định…" → "Châm thêm men vi sinh nitrat hóa của hãng uy tín."). One word was too few (Grok's read,
- * 15 Nov 2026): "nước" kept "nước đã khử clo" once a merged sentence said "thay 20–30% nước".
+ * 15 Nov 2026): "nước" kept "nước đã khử clo" once a merged sentence said "thay 20–30% nước". `strict`: half its words
+ * standing isn't enough either ("lấy nước" kept by "lấy", Grok's second read), for a sentence no note asked to change.
  */
-const adviceLost = (before: string, after: string) => {
+const adviceLost = (before: string, after: string, strict = false) => {
   const kept = new Set(wordsOf(after))
-  return before.split(/[,;:]|\s(?:hoặc|rồi|và)\s/u).map(p => p.trim().replace(/[.!?…]+$/u, '')).filter(p => {
-    const own = [...new Set(wordsOf(p))]
-    return own.length > 0 && own.filter(w => kept.has(w)).length * 2 < own.length
+  // A comma between two digits is a decimal ("pH 4,0"), not a break between parts.
+  return before.split(/[;:]|,(?!\d)|(?<!\d),|\s(?:hoặc|rồi|và)\s/u).map(p => p.trim().replace(/[.!?…]+$/u, '')).filter(p => {
+    const own = [...new Set(wordsOf(p))], standing = own.filter(w => kept.has(w)).length * 2
+    return own.length > 0 && (strict ? standing <= own.length : standing < own.length)
   })
 }
 /** The facts' own words, not their source numbers. */
@@ -367,7 +369,8 @@ export function droppedInRewrite(before: { definition: string; body: string }, a
   const text = (k: string) => k.slice(2)
   const was = placed(before), is = placed(after)
   const quoted = notes.flatMap(quotes)
-  const whole = (t: string) => quoted.some(q => q.includes(t))
+  // A note holding the whole sentence quotes it whole, though its own quotation marks ("không ra màu") split the quote.
+  const whole = (t: string) => quoted.some(q => q.includes(t)) || notes.some(n => n.includes(t))
   const unquoted = (t: string) => quoted.filter(q => t.includes(q)).reduce((s, q) => s.split(q).join(' '), t)
   const now = new Set(is), then = new Set(was)
   const gone = was.filter(k => !now.has(k) && !whole(text(k))).map(k => ({ t: text(k), u: unquoted(text(k)) }))
@@ -387,7 +390,7 @@ export function droppedInRewrite(before: { definition: string; body: string }, a
       ...take(figs, f => !!as(f)).map(f => `the figure ${as(f)!.text}`),
       ...take(named, n => namesIn(u, names, said).includes(n)).map(n => `the name ${n}`),
       ...take(warned, w => cautionWords(u).includes(w)).map(w => `the caution "${w}"`),
-      ...adviceLost(u, fresh).map(p => `the advice "${p}"`),
+      ...adviceLost(u, fresh, true).map(p => `the advice "${p}"`),
     ]
     return lost.length ? [`${DROP}${t}" ${[...new Set(lost)].join(', ')}, and no note asks to change that sentence: keep it word for word.`] : []
   })

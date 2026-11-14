@@ -579,7 +579,7 @@ test('a saved entry revised: a rewrite that drops what no note asks for is not s
   const writes: string[] = []
   expect(await revise(root, revising(writes, [trimmed, whole], asked, 'Ngâm lũa mới 1–2 tuần.'))).toMatchObject({ id: 'lua', score: 1 })
   expect(writes).toHaveLength(2)
-  expect(writes[1]).toContain(`- The rewrite dropped from "${logLine}" the figure 4,0, the figure 5,0, and no note asks to change that sentence: keep it word for word.`)
+  expect(writes[1]).toContain(`- The rewrite dropped from "${logLine}" the figure 4,0, the figure 5,0, the advice "tức là pH 4,0 chua gấp 10 lần pH 5,0", and no note asks to change that sentence: keep it word for word.`)
   expect(await bodyOf(root)).toBe(whole)
   // A writer that drops it again: the saved entry stays as it was.
   const again = await savedWith(before)
