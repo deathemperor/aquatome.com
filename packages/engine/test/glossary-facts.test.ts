@@ -226,7 +226,7 @@ test('going back puts in again only the rewordings that stay; a note is about a 
 
 // The chief of staff, 15 Nov 2026: the rewording bought its fit by taking specifics out (pH's weekly 20–30%, chu trình
 // nitơ's fish deaths and "0 or near 0", Lũa's "must soak"). A rewording that drops one the facts carry keeps the old wording.
-const told = { ...facts, facts: [{ section: 'do', fact: 'Replace about 20–30% of the water weekly. Cardinal tetras (Paracheirodon axelrodi) live below pH 5.5. Below pH 7.3 more of it is ammonium (NH4+). Wait 2 weeks, then add CO2. Keep pH 6.0–6.5. About 2,000 ppm. Lights on 24/24. Keep pH 7.2 for 6 days.', source: 2 }] }
+const told = { ...facts, facts: [{ section: 'do', fact: 'Replace about 20–30% of the water weekly. Cardinal tetras (Paracheirodon axelrodi) live below pH 5.5. Below pH 7.3 more of it is ammonium (NH4+). Wait 2 weeks, then add CO2. Keep pH 6.0–6.5. About 2,000 ppm. Lights on 24/24. Keep pH 7.2 for 6 days. Dose 1.500 mg. Specific gravity about 1.020. Use 0.125 g.', source: 2 }] }
 async function reworded(before: string, after: string, names: string[] = []) {
   const e = { definition: 'Một câu.', body: `<p>${before}</p>` }
   const { llm } = model([{}, {}, {}], [], { [before]: after })
@@ -250,6 +250,11 @@ test('a rewording that drops a figure the facts carry keeps the old wording; a f
   expect((await reworded('Giữ pH 6.0 và đợi 6 ngày.', 'Giữ pH 6.0.')).entry.body).toBe('<p>Giữ pH 6.0 và đợi 6 ngày.</p>')
   expect((await reworded('Bật đèn 24/24.', 'Bật đèn 24 giờ.')).entry.body).toBe('<p>Bật đèn 24/24.</p>')
   expect((await reworded('Giữ pH7,2.', 'Giữ pH ổn định.')).entry.body).toBe('<p>Giữ pH7,2.</p>')
+  // Each text read in its own language's way: the facts' English "1.500" is 1.5 and "1.020" is 1.02, the entry's "1,020" too.
+  expect((await reworded('Liều 1,5 mg.', 'Liều nhỏ.')).entry.body).toBe('<p>Liều 1,5 mg.</p>')
+  expect((await reworded('Giữ tỷ trọng khoảng 1,02.', 'Giữ tỷ trọng phù hợp.')).entry.body).toBe('<p>Giữ tỷ trọng khoảng 1,02.</p>')
+  expect((await reworded('Giữ tỷ trọng khoảng 1,020.', 'Giữ tỷ trọng khoảng 1,02.')).entry.body).toBe('<p>Giữ tỷ trọng khoảng 1,02.</p>')
+  expect((await reworded('Dùng 0,125 g.', 'Dùng một ít.')).entry.body).toBe('<p>Dùng 0,125 g.</p>')
 })
 
 test('a rewording that drops a named example, a page\'s name or a Latin name the facts write, keeps the old wording', async () => {

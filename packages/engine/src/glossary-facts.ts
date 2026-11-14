@@ -188,14 +188,19 @@ function placed<E extends { definition: string; body: string }>(e: E, text: stri
 }
 
 /**
- * The figures a text gives, each as often as it gives it, as numbers: "20–30%" gives 20 and 30, "7,3" 7.3, "6.0" 6, and a
- * thousands group 2.000 or 2,000 two thousand (three digits after each mark, the first part not 0). Never a digit inside
- * a word or a formula (CO2, NH4+, H3PO4), but "pH7,2" gives 7.2. Grok's reads, 15 Nov 2026.
+ * The figures a text gives, each as often as it gives it, as numbers, read in its own language's way (Grok's reads, 15
+ * Nov 2026): the entry's Vietnamese groups thousands with a point and marks decimals with a comma ("2.000" is two
+ * thousand, "1,020" is 1.02); the facts' English the other way round ("2,000" is two thousand, "1.500" is 1.5). A mark
+ * followed by other than three digits is a decimal either way ("6.0" is 6, "7,3" is 7.3). "20–30%" gives 20 and 30. Never
+ * a digit inside a word or a formula (CO2, NH4+, H3PO4), but "pH7,2" gives 7.2.
  */
-const figures = (text: string) => [...text.replace(/pH(?=\d)/g, 'pH ').matchAll(/(?<![\p{L}\p{N}.,])\d+(?:[.,]\d+)*/gu)].map(m => {
-  const n = m[0], parts = n.split(/[.,]/)
-  const thousands = parts.length > 1 && parts[0] !== '0' && parts.slice(1).every(x => x.length === 3)
-  return String(Number(thousands ? parts.join('') : parts.length > 2 ? parts.slice(0, 2).join('.') : parts.join('.')))
+const figures = (text: string, lang: 'vi' | 'en' = 'vi') => [...text.replace(/pH(?=\d)/g, 'pH ').matchAll(/(?<![\p{L}\p{N}.,])\d+(?:[.,]\d+)*/gu)].map(m => {
+  const group = lang === 'vi' ? '.' : ','
+  let n = m[0]
+  // Thousands marks first: the language's own grouping mark before exactly three digits, after a whole part that isn't 0.
+  if (!n.startsWith(`0${group}`)) n = n.replace(new RegExp(`\\${group}(?=\\d{3}(?!\\d))`, 'g'), '')
+  const parts = n.split(/[.,]/)
+  return String(Number(parts.length > 1 ? `${parts[0]}.${parts[1]}` : parts[0]))
 })
 /** The figures `before` gives more often than `after`: each dropped once for each time it went. */
 const lessOf = (before: string[], after: string[]) => { const left = [...after]; return before.filter(f => { const i = left.indexOf(f); if (i < 0) return true; left.splice(i, 1); return false }) }
@@ -280,7 +285,7 @@ export async function rewordLoose<E extends { definition: string; body: string }
   // nitơ its fish deaths and its "0 or near 0", Lũa its "must soak"): a figure the facts carry, a named example (a page's
   // name, a kind's, a Latin name) or a caution the old wording had and the new one hasn't keeps the old wording.
   // The facts' own words, not their source numbers.
-  const said = ((facts as { facts?: { fact: string }[] }).facts ?? []).map(f => f.fact).join('\n'), carried = new Set(figures(said))
+  const said = ((facts as { facts?: { fact: string }[] }).facts ?? []).map(f => f.fact).join('\n'), carried = new Set(figures(said, 'en'))
   const dropped = (x: Rewording) => [
     ...lessOf(figures(x.s.text), figures(x.to)).filter(f => carried.has(f)).map(f => `the figure ${f}`),
     ...namesIn(x.s.text, keep.names ?? [], said).filter(n => !namesIn(x.to, keep.names ?? [], said).includes(n)).map(n => `the name ${n}`),
