@@ -167,6 +167,15 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   // Grok's read).
   const taken = less(figures([...new Set(findings.filter(f => f.check !== 'units').map(sentence))].join('\n')), figures(findings.filter(f => f.check === 'units').map(f => norm(f.quote)).join('\n')))
   if (more(has, had).length || more(less(had, taken), has).length) return false
+  // Every other sentence survives word for word: a mend takes out only a sentence a finding names, one with a non-units
+  // finding's quote in it (the chief of staff, 14 Nov 2026, the lane's rule). One that also tidies the same thing said
+  // another way elsewhere is refused, and the guide stays held: the gate counts these, to say whether a finding for a
+  // repeated mention is worth adding.
+  const quotes = findings.filter(f => f.check !== 'units').map(f => norm(f.quote))
+  // Line by line, as the text it mends is read: a heading or the title is its own sentence.
+  const kept = new Set(split([name, ...fixed.summary, ...render(sanitizeHtml(fixed.body)).split('\n'), ...fixed.faq.flatMap(f => [f.q, f.a])].map(norm).join('\n')))
+  const lost = split(paragraphs.join('\n')).filter(x => !kept.has(x) && !quotes.some(q => x.includes(q)) && !findings.some(f => f.check !== 'units' && split(sentence(f)).includes(x)))
+  if (lost.length) return { refused: `a sentence no finding names was changed or left out: "${lost[0]}"${lost.length > 1 ? ` and ${lost.length - 1} more` : ''}` }
 
   const review = await reviewDraft(d.llm, transcript, { ...fixed, viTitle: name }, { title: e.video.title, channel: e.video.channel, lang }, REVIEW_NOTE)
   const page = { id: `guides/${p.id}`, lang: 'vi' }

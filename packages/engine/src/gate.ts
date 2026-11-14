@@ -62,7 +62,7 @@ export const WAITS: readonly FitCheck[] = ['harm', 'kit', 'lethal', 'dose', 'dos
  * for a page it sends to no editor (not one it mends, no transcript): the file as it was. A run's `mends` count the pages
  * an editor was called for, so not the last.
  */
-export type Mend = (p: Page, findings: FitFinding[]) => Promise<boolean | undefined>
+export type Mend = (p: Page, findings: FitFinding[]) => Promise<boolean | undefined | { refused: string }>
 /**
  * A text the gate put back, as the page's file had it, with the checks it was worse on and what they quote.
  * `unread`: the page was not read (the accounts out), so there are no checks.
@@ -191,7 +191,7 @@ async function setHeld(root: string, file: string, held: Held | undefined) {
   await writeFile(path, `${JSON.stringify(held ? { ...t, held } : t, null, 2)}\n`)
 }
 
-export type GateReport = { pass: string[]; hold: string[]; release: string[]; revert: string[]; /** Mended, then decided on like any other page (among `pass`, usually), with the checks it was mended for. */ mended: string[]; unread: string[]; failed: string[]; reads: number; stopped?: string }
+export type GateReport = { pass: string[]; hold: string[]; release: string[]; revert: string[]; /** Mended, then decided on like any other page (among `pass`, usually), with the checks it was mended for. */ mended: string[]; /** A mend refused, the page as it was, and why (video-mend.ts). */ refused: string[]; unread: string[]; failed: string[]; reads: number; stopped?: string }
 
 /**
  * `mend`: what fixes a sentence instead of the whole text going back (cli.ts: the video guides', video-mend.ts); `mends`:
@@ -225,7 +225,7 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
   for (const f of held.keys()) changed.add(f)
   const files = [...changed].filter(f => byFile.has(f) && !byHand[`${byFile.get(f)!.kind}/${byFile.get(f)!.id}`])
   const head = await headPages(root, files)
-  const report: GateReport = { pass: [], hold: [...handHeld], release: [], revert: [], mended: [], unread: [], failed: [], reads: 0 }
+  const report: GateReport = { pass: [], hold: [...handHeld], release: [], revert: [], mended: [], refused: [], unread: [], failed: [], reads: 0 }
   let budget = d.limit ?? 150
   let mends = d.mend ? d.mends ?? 6 : 0
   let heldMends = d.mend ? d.heldMends ?? 0 : 0
@@ -296,7 +296,10 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
       const done = await d.mend(p, gateFindings(p, entry).filter(x => worse.includes(x.check)))
       // A page turned away with no editor called isn't one of the run's mends: to the video guides' mender, every fish page.
       if (done === undefined) { if (fromHeld) heldMends++; else mends++ }
-      if (!done) return await undo()
+      if (done !== true) {
+        if (done) report.refused.push(`${p.path}: ${done.refused}`)
+        return await undo()
+      }
     } catch (e) {
       if (accountsOut(e)) report.stopped = e.message.slice(0, 200)
       else report.failed.push(`${fitKey(p)}: mend: ${(e as Error).message.slice(0, 200)}`)

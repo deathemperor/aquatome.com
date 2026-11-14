@@ -759,9 +759,9 @@ if (cmd === 'photo-privacy') {
   })
   await writeFile(join(ROOT, 'docs/review/fit.md'), fitReport(pages, state))
   await writeFitSummary(ROOT, pages, state, { held })
-  for (const a of ['hold', 'release', 'revert', 'mended', 'unread'] as const) for (const x of r[a]) console.log(`  ${a}: ${x}`)
+  for (const a of ['hold', 'release', 'revert', 'mended', 'refused', 'unread'] as const) for (const x of r[a]) console.log(`  ${a}: ${x}`)
   for (const x of r.failed) console.log(`  failed: ${x}`)
-  console.log(`gate: ${r.pass.length} passed, ${r.hold.length} held, ${r.release.length} let out, ${r.revert.length} put back, ${r.mended.length} mended, ${r.unread.length} not read; ${r.reads} reads${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  console.log(`gate: ${r.pass.length} passed, ${r.hold.length} held, ${r.release.length} let out, ${r.revert.length} put back, ${r.mended.length} mended, ${r.refused.length} mends refused, ${r.unread.length} not read; ${r.reads} reads${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
 } else if (cmd === 'curate') {
   // The editorial calendar (curation.ts, content/curation.json): fill Hôm nay's next days and replace any pick that stopped
   // passing (reader fit, a checked photo big enough for its card). --check only lists what's wrong and exits 1 if anything is.
