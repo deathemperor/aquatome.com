@@ -8,7 +8,7 @@ import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
 import { SpeciesSchema } from '@aq/schema'
 import { rankGallery } from '../src/gallery'
-import { calendarPages, cantTellOn, captionSubject, checkPagePhotos, deadNote, NEW_ANSWERS, peopleNote, QUESTION, recheckCandidates, type PhotoCheckDeps, type PhotoVerdict } from '../src/photo-check'
+import { calendarPages, cantTellOn, captionSubject, checkPagePhotos, deadNote, NEW_ANSWERS, peopleNote, QUESTION, REASK_PAST_CALENDAR, recheckCandidates, type PhotoCheckDeps, type PhotoVerdict } from '../src/photo-check'
 import { cardWorthy } from '../src/curation'
 import { assertPhotoPrivacy } from '../src/photo-privacy'
 
@@ -912,16 +912,20 @@ test('the new answers count only photos that stay: one leaving for a person or o
 })
 
 test('in the re-check run the calendar\'s fish come first through every phase: a Commons head off the calendar waits behind them', async () => {
-  const r = await root([{ id: 'aaa-fish', sci: 'Aaa fish', photos: ['a1'] }, { id: 'zzz-fish', sci: 'Zzz fish', photos: ['z1'] }])
-  const a = await json(r, 'content/species/aaa-fish/entity.json')
-  a.photos[0].sourceUrl = 'https://commons.wikimedia.org/wiki/File:A1.jpg' // turn 0, ahead of the calendar's turn-1 head by phase alone
-  await writeFile(join(r, 'content/species/aaa-fish/entity.json'), JSON.stringify(a))
-  const old = { ok: 'yes', typical: true, note: 'x', person: false, logo: false }
-  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({ [url('a1')]: { 'aaa-fish': old }, [url('z1')]: { 'zzz-fish': old } }))
-  await writeFile(join(r, 'content/curation.json'), JSON.stringify({ days: [{ date: '2026-11-20', fish: 'species/zzz-fish' }] }))
-  const d = model({})
-  await checkPagePhotos(r, d, { limit: 1, recheck: new Set((await recheckCandidates(r)).keys()), first: await calendarPages(r) })
-  expect(d.seen.map(x => x.photos)).toEqual([['z1']])
+  // Past the calendar: the switch a later change turns on.
+  REASK_PAST_CALENDAR.on = true
+  try {
+    const r = await root([{ id: 'aaa-fish', sci: 'Aaa fish', photos: ['a1'] }, { id: 'zzz-fish', sci: 'Zzz fish', photos: ['z1'] }])
+    const a = await json(r, 'content/species/aaa-fish/entity.json')
+    a.photos[0].sourceUrl = 'https://commons.wikimedia.org/wiki/File:A1.jpg' // turn 0, ahead of the calendar's turn-1 head by phase alone
+    await writeFile(join(r, 'content/species/aaa-fish/entity.json'), JSON.stringify(a))
+    const old = { ok: 'yes', typical: true, note: 'x', person: false, logo: false }
+    await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({ [url('a1')]: { 'aaa-fish': old }, [url('z1')]: { 'zzz-fish': old } }))
+    await writeFile(join(r, 'content/curation.json'), JSON.stringify({ days: [{ date: '2026-11-20', fish: 'species/zzz-fish' }] }))
+    const d = model({})
+    await checkPagePhotos(r, d, { limit: 1, recheck: new Set((await recheckCandidates(r)).keys()), first: await calendarPages(r) })
+    expect(d.seen.map(x => x.photos)).toEqual([['z1']])
+  } finally { REASK_PAST_CALENDAR.on = false }
 })
 
 test('a photo the new answers name is never a card once each acts, and is while it is held', () => {
@@ -941,22 +945,26 @@ test('a photo the new answers name is never a card once each acts, and is while 
 })
 
 test('heads judged before the new question are asked again in the re-check run, the calendar\'s fish first, each sheet filled with its page\'s photos asked before; then none is left', async () => {
-  const r = await root([{ id: 'aaa-fish', sci: 'Aaa fish', photos: ['a1', 'a2'] }, { id: 'zzz-fish', sci: 'Zzz fish', photos: ['z1', 'z2', 'z3'], gallery: ['zg'] }])
-  const old = { ok: 'yes', typical: true, note: 'x', person: false, logo: false }
-  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify(Object.fromEntries([['a1', 'aaa-fish'], ['a2', 'aaa-fish'], ['z1', 'zzz-fish'], ['z2', 'zzz-fish'], ['zg', 'zzz-fish']].map(([n, p]) => [url(n!), { [p!]: old }]))))
-  await writeFile(join(r, 'content/curation.json'), JSON.stringify({ days: [{ date: '2026-11-20', fish: 'species/zzz-fish' }], weeks: [{ fish: ['species/qqq'] }] }))
-  expect([...await calendarPages(r)].sort()).toEqual(['qqq', 'zzz-fish'])
-  const candidates = await recheckCandidates(r)
-  expect([...candidates.keys()].map(name).sort()).toEqual(['a1', 'z1'])
-  const d = model({})
-  const first = await calendarPages(r)
-  await checkPagePhotos(r, d, { limit: 1, recheck: new Set(candidates.keys()), first })
-  // The calendar's fish first; its head's sheet takes its other photos asked before, and the one never judged (z3) waits
-  // for the check's own turn.
-  expect(d.seen.map(x => x.photos)).toEqual([['z1', 'z2', 'zg']])
-  await checkPagePhotos(r, d, { limit: 5, recheck: new Set((await recheckCandidates(r)).keys()), first })
-  expect(d.seen.map(x => x.photos)).toEqual([['z1', 'z2', 'zg'], ['a1', 'a2']])
-  expect((await recheckCandidates(r)).size).toBe(0)
+  // Past the calendar: the switch a later change turns on.
+  REASK_PAST_CALENDAR.on = true
+  try {
+    const r = await root([{ id: 'aaa-fish', sci: 'Aaa fish', photos: ['a1', 'a2'] }, { id: 'zzz-fish', sci: 'Zzz fish', photos: ['z1', 'z2', 'z3'], gallery: ['zg'] }])
+    const old = { ok: 'yes', typical: true, note: 'x', person: false, logo: false }
+    await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify(Object.fromEntries([['a1', 'aaa-fish'], ['a2', 'aaa-fish'], ['z1', 'zzz-fish'], ['z2', 'zzz-fish'], ['zg', 'zzz-fish']].map(([n, p]) => [url(n!), { [p!]: old }]))))
+    await writeFile(join(r, 'content/curation.json'), JSON.stringify({ days: [{ date: '2026-11-20', fish: 'species/zzz-fish' }], weeks: [{ fish: ['species/qqq'] }] }))
+    expect([...await calendarPages(r)].sort()).toEqual(['qqq', 'zzz-fish'])
+    const candidates = await recheckCandidates(r)
+    expect([...candidates.keys()].map(name).sort()).toEqual(['a1', 'z1'])
+    const d = model({})
+    const first = await calendarPages(r)
+    await checkPagePhotos(r, d, { limit: 1, recheck: new Set(candidates.keys()), first })
+    // The calendar's fish first; its head's sheet takes its other photos asked before, and the one never judged (z3) waits
+    // for the check's own turn.
+    expect(d.seen.map(x => x.photos)).toEqual([['z1', 'z2', 'zg']])
+    await checkPagePhotos(r, d, { limit: 5, recheck: new Set((await recheckCandidates(r)).keys()), first })
+    expect(d.seen.map(x => x.photos)).toEqual([['z1', 'z2', 'zg'], ['a1', 'a2']])
+    expect((await recheckCandidates(r)).size).toBe(0)
+  } finally { REASK_PAST_CALENDAR.on = false }
 })
 
 // The independent reader, 2026-11-13: a pick that lapses in this pass (person-yes.ts pickStands) guards nothing.
@@ -992,4 +1000,18 @@ test("once each acts, a dead photo and a poor one can't empty a page between the
   expect((await json(r, 'engine-state/_photo-second-look.json'))[url('z1')]).toMatchObject({ why: expect.stringMatching(/^too poor to show: withheld \[sha256:[a-f0-9]{64}\]$/), pages: ['species/c-fish'] })
   expect(out.taken.poor).toEqual([])
   expect(out.heads.emptied).toEqual([])
+})
+
+// The chief of staff, 14 Nov: the re-ask's first day is the calendar's pages and nothing else, until its list is read.
+test("the heads asked again are the calendar's pages' alone while the switch is off, as the code holds it", async () => {
+  const r = await root([{ id: 'aaa-fish', sci: 'Aaa fish', photos: ['a1'] }, { id: 'zzz-fish', sci: 'Zzz fish', photos: ['z1'] }])
+  const old = { ok: 'yes', typical: true, note: 'x', person: false, logo: false }
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({ [url('a1')]: { 'aaa-fish': old }, [url('z1')]: { 'zzz-fish': old } }))
+  await writeFile(join(r, 'content/curation.json'), JSON.stringify({ days: [{ date: '2026-11-20', fish: 'species/zzz-fish' }] }))
+  expect(REASK_PAST_CALENDAR.on).toBe(false)
+  expect([...(await recheckCandidates(r)).keys()].map(name)).toEqual(['z1'])
+  const d = model({})
+  await checkPagePhotos(r, d, { limit: 5, recheck: new Set((await recheckCandidates(r)).keys()), first: await calendarPages(r) })
+  expect(d.seen.map(x => x.photos)).toEqual([['z1']])
+  expect((await recheckCandidates(r)).size).toBe(0)
 })

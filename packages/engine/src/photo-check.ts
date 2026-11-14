@@ -44,6 +44,14 @@ export const QUESTION = 2
  * 2026-11-12). Turned on here, by a change of its own.
  */
 export const NEW_ANSWERS: { poor: boolean; unwell: boolean } = { poor: false, unwell: false }
+
+/**
+ * Whether the heads asked again under this question go past the calendar's pages. Off, the re-check asks only the heads of
+ * the calendar's pages (its days' fish and its weeks' lists): that first day's list goes to the chief of staff (every head
+ * it took off, old beside new, and every "too poor" or "unwell" it gave) before a change of its own turns this on. If more
+ * than two of the first twenty heads it took off were fine, it stays off (the chief of staff, 2026-11-14).
+ */
+export const REASK_PAST_CALENDAR = { on: false }
 export type PhotoCheckDeps = {
   get: (url: string) => Promise<Uint8Array>
   look: (sheet: string, prompt: string) => Promise<{ photos: ({ n: number } & PhotoVerdict)[] }>
@@ -312,8 +320,11 @@ export async function recheckCandidates(root: string): Promise<Map<string, strin
     if(dead||people)out.set(url,[dead?'possible dead subject':undefined,people?'possible person':undefined].filter(Boolean).join('; '))
     else if([legacy[url],...by].some(v=>v?.ok==='habitat'))out.set(url,'habitat needs recheck')
   }
-  // A head judged before the question asked whether a photo is too poor to show or the fish unwell (QUESTION).
+  // A head judged before the question asked whether a photo is too poor to show or the fish unwell (QUESTION): the
+  // calendar's pages' alone until REASK_PAST_CALENDAR is on.
+  const calendar = REASK_PAST_CALENDAR.on ? undefined : await calendarPages(root)
   for (const [page, url] of heads) {
+    if (calendar && !calendar.has(page)) continue
     const v = cache[url]?.[page] ?? (legacy[url]?.ok !== 'unsure' ? legacy[url] : undefined)
     if (v && !v.guide && !v.file && (v.q ?? 1) < QUESTION && !(url in rejected) && !out.has(url)) out.set(url, 'a head asked before "too poor" and "unwell"')
   }
