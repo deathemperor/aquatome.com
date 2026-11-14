@@ -329,6 +329,10 @@ test('the sentence right after one that went whole goes with it only when its wr
   // "không". A sentence answered twice isn't tried.
   const twice = await mendPart(llm([{ n: 1, vi: '' }, { n: 2, vi: '', why }, { n: 2, vi: 'Cá ăn tép.', why }], [{ sentence: 2, agree: true }]), '<p>Ảnh chụp cá ở Purus. Cá không ăn tép. Cá sống lâu.</p>', [{ check: 'source', quote: 'Ảnh chụp cá ở Purus', note: 'n' }])
   expect(twice).toBe('the writer answered sentence 2 twice')
+  // Astra's read of fa80ab004: a sentence a detail's cut leaves nothing of goes on the list too.
+  const price = await mendPart(llm([{ n: 1, vi: '' }]), '<p>Giá 10 USD. Cá ăn tép. Cá sống lâu.</p>', [{ check: 'price', quote: 'Giá 10 USD.', note: 'n' }])
+  if (typeof price === 'string') throw new Error(price)
+  expect([price.html, price.gone]).toEqual(['<p>Cá ăn tép. Cá sống lâu.</p>', ['sentence 1 went whole: "Giá 10 USD."']])
 })
 
 // Astra's reads of 14 Nov 2026: a writer's own conversion let a claim through, then "mỗi con", "2 inch" as "2 cm" and a

@@ -149,8 +149,8 @@ export type MendFinding = { check: FitCheck; quote: string; note: string; covers
 export type Dropped = { sentence: number; finding: number; text: string }
 /** `added`: each changed sentence that says what it didn't (addedWords): the part isn't kept with any. */
 /**
- * `whole`: what the whole-sentence rule refuses (`goesWhole`). `gone`: each sentence that went whole, and each that went
- * with the one before it, as the run lists them for the chief of staff.
+ * `whole`: what the whole-sentence rule refuses (`goesWhole`). `gone`: each sentence the part lost, whatever its finding,
+ * and each that went with the one before it, as the run lists them for the chief of staff.
  */
 export type Mended = { html: string; score: number; notes: string[]; lost: HedgePair[]; unasked: string[]; added: string[]; whole: string[]; gone: string[] }
 
@@ -294,7 +294,8 @@ export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { e
   })
   const lost = hedgesLost(r.hedges ?? [], shown.map(i => texts[i]).join('\n'), shown.map(i => changes.get(i)).join('\n'))
   const gone = [
-    ...fix.filter(wentWhole).map(n => `sentence ${n} went whole: "${plain(texts[n - 1]!)}"`),
+    // Every sentence the part lost, a detail's that came to nothing too (Astra's read of fa80ab004).
+    ...fix.filter(n => changes.get(n - 1) === '').map(n => `sentence ${n} went whole: "${plain(texts[n - 1]!)}"`),
     ...[...follows.keys()].map(n => `sentence ${n} went with the one before it ("${plain(texts[n - 2]!)}"): "${plain(texts[n - 1]!)}"`),
   ]
   return {
