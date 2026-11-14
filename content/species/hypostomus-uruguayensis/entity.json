@@ -17,6 +17,147 @@
     "bolivia",
     "pilcomayo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "AR",
+        "BO",
+        "UY"
+      ],
+      "regions": [
+        "Uruguay River",
+        "La Plata",
+        "Paraná"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio Uruguay at \"Rancho da Amizade,\" São Borja, Rio Grande do Sul, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Uruguay River basin (Argentina, Bolivia, Brazil and Uruguay).",
+          "countries": [
+            "AR",
+            "BO",
+            "UY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Uruguay River basin.",
+          "countries": [],
+          "regions": [
+            "Uruguay River"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Also recorded in the La Plata basin: Uruguay, Paraná (including Middle Paraná and Bermejo), Paraguay (including Pilcomayo, Upper Pilcomayo, and Upper Paraguay with the Cuiabá and Manso rivers).",
+          "countries": [],
+          "regions": [
+            "La Plata",
+            "Paraná"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202220,
+      "total": 54,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "BR",
+          54
+        ]
+      ],
+      "cells": [
+        [
+          -57.65625,
+          -29.53125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -30.9375,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -29.53125,
+          6,
+          6
+        ],
+        [
+          -56.25,
+          -28.125,
+          7,
+          7
+        ],
+        [
+          -56.25,
+          -16.875,
+          9,
+          9
+        ],
+        [
+          -56.25,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -30.9375,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -28.125,
+          6,
+          6
+        ],
+        [
+          -53.4375,
+          -28.125,
+          14,
+          14
+        ],
+        [
+          -52.03125,
+          -26.71875,
+          3,
+          3
+        ],
+        [
+          -45,
+          -21.09375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

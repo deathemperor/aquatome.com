@@ -1,8 +1,8 @@
 {
   "id": "chela-cachius",
   "native": {
-    "input": "1d87dd596c1a6f2f",
-    "at": "2026-11-07T06:20:08.160Z",
+    "input": "008937d33aaacb72",
+    "at": "2026-11-14T00:09:29.977Z",
     "claims": [
       {
         "code": "PK",
@@ -42,6 +42,14 @@
         "source": "seriouslyfish",
         "quote": "Occurrences in Myanmar, in particular, are possibly erroneous.",
         "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It originates from the north of India.",
+        "words": "India",
         "ok": true
       }
     ],

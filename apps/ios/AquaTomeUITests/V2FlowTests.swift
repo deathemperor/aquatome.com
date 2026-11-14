@@ -69,10 +69,34 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.tabBars.buttons["Bể của tôi"].isSelected, "the tank opened on another tab")
   }
 
-  /// The chat opens from v2's fish page: "Hỏi về cá …", directly under "Thêm vào bể", goes to a screen v2's own stack knows.
-  /// (Without the destination there, the tap does nothing.)
+  /// The chat opens from v2's fish page: "Hỏi về cá này", beside "Thêm vào bể" in one row, 10 pt after it, goes to a screen
+  /// v2's own stack knows. (Without the destination there, the tap does nothing.) VoiceOver hears the fish's name; the
+  /// page has no note under it (the chat says who answers as it opens).
   func testTheChatOpensFromAFishsPageInV2() {
+    let (app, add, entry) = openNeonsButtons()
+    XCTAssertEqual(entry.frame.minY, add.frame.minY, accuracy: 1, "Hỏi về isn't in Thêm vào bể's row: \(entry.frame) \(add.frame)")
+    XCTAssertEqual(entry.frame.minX - add.frame.maxX, 10, accuracy: 1, "Hỏi về isn't 10 pt after Thêm vào bể: \(entry.frame) \(add.frame)")
+    XCTAssertFalse(app.staticTexts["Trả lời dựa trên cẩm nang AquaTome"].exists, "the note under the ask")
+    repeatUntil(entry.isHittable, times: 6) {
+      app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.7))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.5)), withVelocity: .fast, thenHoldForDuration: 0.1)
+    }
+    XCTAssertTrue(entry.isHittable, "Hỏi về can't be tapped")
+    entry.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["chat"].firstMatch.waitForExistence(timeout: 5), "the entry opened nothing")
+  }
+
+  /// At the largest text the row doesn't fit: "Thêm vào bể" first, the ask under it, 10 pt apart.
+  func testAtTheLargestTextTheAskGoesUnderThemVaoBe() {
+    let (_, add, entry) = openNeonsButtons("-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
+    XCTAssertGreaterThan(entry.frame.minY, add.frame.maxY, "Hỏi về isn't under Thêm vào bể: \(entry.frame) \(add.frame)")
+    XCTAssertEqual(entry.frame.minY - add.frame.maxY, 10, accuracy: 1, "not 10 pt between them: \(entry.frame) \(add.frame)")
+  }
+
+  /// Cá neon's page from Khám phá, its "Thêm vào bể" and its ask (`chat-entry`), worded and named.
+  private func openNeonsButtons(_ more: String...) -> (XCUIApplication, XCUIElement, XCUIElement) {
     let app = launch("-fake-accounts", "on", "-reset-fake-server")
+    app.launchArguments += more
     app.launchForFlow()
     app.openTab("Khám phá")
     let fish = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon")).firstMatch
@@ -81,16 +105,8 @@ final class V2FlowTests: XCTestCase {
     let add = app.buttons["v2-add"], entry = app.descendants(matching: .any)["chat-entry"].firstMatch
     XCTAssertTrue(add.waitForExistence(timeout: 5), "no Thêm vào bể on the page")
     XCTAssertTrue(entry.waitForExistence(timeout: 5), "no Hỏi về on the fish's page")
-    XCTAssertTrue(entry.label.contains("Hỏi về cá neon"), entry.label)
-    XCTAssertGreaterThan(entry.frame.minY, add.frame.maxY, "Hỏi về isn't under Thêm vào bể")
-    XCTAssertLessThan(entry.frame.minY - add.frame.maxY, 24, "Hỏi về isn't directly under Thêm vào bể")
-    repeatUntil(entry.isHittable, times: 6) {
-      app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.7))
-        .press(forDuration: 0, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.5)), withVelocity: .fast, thenHoldForDuration: 0.1)
-    }
-    XCTAssertTrue(entry.isHittable, "Hỏi về can't be tapped")
-    entry.tap()
-    XCTAssertTrue(app.descendants(matching: .any)["chat"].firstMatch.waitForExistence(timeout: 5), "the entry opened nothing")
+    XCTAssertEqual(entry.label, "Hỏi về cá neon", "VoiceOver doesn't hear the fish's name")
+    return (app, add, entry)
   }
 
   func testSwitchingBackWithAWholePageOpenLeavesTimTheFishsPage() {
@@ -416,23 +432,22 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.staticTexts["Cá ngựa vằn"].waitForExistence(timeout: 5), "a link in a folded part's first lines doesn't work")
   }
 
-  /// The navigator's title on the brightest photo: its word and chevron stand on the shade at 3:1 at least, the chevron in
-  /// white, not the tint. And it has the room a section's name needs: cut with room to spare, it read "Nuôi chung với co…".
+  /// The navigator's title on the brightest photo: its word and chevron stand on its own dark capsule at 3:1 at least, the
+  /// chevron in white, not the tint. And it has the room a section's name needs: cut with room to spare, it read "Nuôi chung với co…".
   func testTheNavigatorsTitleReadsOnAWhitePhotoAndHasRoomForASectionsName() {
     let app = ownersNeon("-long-part", "-fixed-pictures", "-white-pictures")
     let title = app.descendants(matching: .any)["page-navigator-title"].firstMatch
     XCTAssertTrue(title.waitForExistence(timeout: 5), "no title")
-    XCTAssertTrue(app.buttons["save-for-later"].exists, "the title crowds the bookmark into iOS's own ⋯")
-    XCTAssertTrue(app.buttons["Chia sẻ"].exists, "the title crowds the share button into iOS's own ⋯")
+    XCTAssertTrue(app.buttons["page-more"].exists, "the title crowds the ⋯ into iOS's own")
     Thread.sleep(forTimeInterval: 1)
     func linear(_ c: Int) -> Double { let v = Double(c) / 255; return v <= 0.03928 ? v / 12.92 : pow((v + 0.055) / 1.055, 2.4) }
     func tinted(_ c: (Int, Int, Int)) -> Bool { max(c.0, c.1, c.2) - min(c.0, c.1, c.2) > 40 }
     let box = title.frame
     guard let top = pixels(app) else { return XCTFail("no pixels") }
-    // Past the word and the chevron, the bare ground under them; the lightest of it is the worst case.
+    // The capsule's ground before the word, over the white photo; the lightest of it is the worst case.
     var lightest = 0.0
-    for y in stride(from: box.minY, to: box.maxY, by: 1) {
-      let c = top(box.maxX - 16, y)
+    for y in stride(from: box.midY - 6, to: box.midY + 6, by: 1) {
+      let c = top(box.minX + 5, y)
       lightest = max(lightest, 0.2126 * linear(c.0) + 0.7152 * linear(c.1) + 0.0722 * linear(c.2))
     }
     let contrast = 1.05 / (lightest + 0.05)
@@ -457,7 +472,8 @@ final class V2FlowTests: XCTestCase {
       stride(from: end.minY, to: end.maxY, by: 1).contains { tinted(read(x, $0)) }
     }
     XCTAssertGreaterThanOrEqual((chevron ?? 0) - end.minX, ceil(needed) + 4 + 6, "the section's name is cut with room to spare")
-    XCTAssertTrue(app.buttons["Chia sẻ"].exists, "a section's name crowds the share button into iOS's own ⋯")
+    XCTAssertTrue(app.buttons["page-more"].exists, "a section's name crowds the ⋯ into iOS's own")
+    XCTAssertLessThanOrEqual(title.frame.maxX, app.buttons["page-more"].frame.minX, "the title runs under the ⋯")
   }
 
   /// The screen's colour at a point of the app's, each read from one screenshot.
@@ -525,6 +541,8 @@ final class V2FlowTests: XCTestCase {
       reveal(app, app.staticTexts["Cho ăn gì?"])
       let folded = folds(app).firstMatch
       reveal(app, folded)
+      // Up the screen, its last line clear of the fade over the tab bar: where a reveal stops, it can be in it.
+      bring(app, folded, to: 200)
       let look = dark ? "dark" : "light"
       XCTAssertFalse(folded.staticTexts.firstMatch.label.contains("…"), "a fold ends in '…', \(look)")
       guard let more = moreOnItsLastLine(app, folded) else { XCTFail("no thêm at the end of the last line, \(look)"); continue }
@@ -556,6 +574,7 @@ final class V2FlowTests: XCTestCase {
     let row = app.descendants(matching: .any)["v2-photos-row"].firstMatch
     reveal(app, row)
     row.buttons.firstMatch.tap()
+    app.showViewerWords()
     let counter = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", "2/3 · 3 ảnh")).firstMatch
     XCTAssertTrue(counter.waitForExistence(timeout: 5),
                   "the viewer doesn't count the gallery: \(app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", " ảnh")).firstMatch.label)")
@@ -606,7 +625,7 @@ final class V2FlowTests: XCTestCase {
     XCTAssertGreaterThan(title.frame.width, 100, "the title cut to nothing in the bar")
     XCTAssertLessThan(title.frame.minX - app.pageBack.frame.maxX, 24, "the title isn't beside the back button")
     XCTAssertFalse(app.buttons["page-actions"].exists, "a ⋯ to choose it")
-    XCTAssertTrue(app.buttons["save-for-later"].exists, "the title crowds the bookmark into iOS's own ⋯")
+    XCTAssertTrue(app.buttons["page-more"].exists, "the title crowds the ⋯ into iOS's own")
     XCTAssertFalse(app.descendants(matching: .any)["v2-jumps"].exists, "the chips for whoever has the navigator")
     let parts = app.buttons.matching(identifier: "page-navigator-part")
     title.tap()
@@ -648,8 +667,103 @@ final class V2FlowTests: XCTestCase {
     title.tap()
     parts.matching(NSPredicate(format: "label BEGINSWITH 'Các dòng và cá lai'")).firstMatch.tap()
     wait(for: [expectation(for: NSPredicate(format: "label CONTAINS 'Các dòng và cá lai'"), evaluatedWith: title)], timeout: 5)
-    XCTAssertTrue(app.buttons["save-for-later"].exists, "a long part's name crowds the bookmark into iOS's own ⋯")
-    XCTAssertTrue(app.buttons["Chia sẻ"].exists, "a long part's name crowds the share button into iOS's own ⋯")
+    XCTAssertTrue(app.buttons["page-more"].exists, "a long part's name crowds the ⋯ into iOS's own")
+    XCTAssertTrue(app.pageBack.exists, "a long part's name crowds the back button into iOS's own ⋯")
+  }
+
+  /// The bar holds back, Mục lục and one ⋯, at the top and scrolled (the owner, 11 Nov: "2B", and "Save and share: go with
+  /// your recommendation"): no save or share button of its own, and once scrolled, Mục lục on one line, the part being
+  /// read, the fish's name gone from over it. The ⋯ holds save, then share; a save from it lists the page under Tìm's
+  /// saved pages, and it says "Bỏ lưu" after. Before: both were the bar's buttons.
+  func testTheBarHoldsBackMucLucAndOneMoreAtTheTopAndScrolled() {
+    let app = ownersNeon(animated: true, "-long-part")
+    let title = app.descendants(matching: .any)["page-navigator-title"].firstMatch
+    XCTAssertTrue(title.waitForExistence(timeout: 5), "no title for the owner")
+    XCTAssertTrue(app.pageBack.exists && app.buttons["page-more"].exists, "not back and ⋯ at the top")
+    XCTAssertFalse(app.buttons["save-for-later"].exists, "a save button outside the ⋯ at the top")
+    XCTAssertFalse(app.buttons["Chia sẻ"].exists, "a share button outside the ⋯ at the top")
+    title.tap()
+    let part = app.buttons.matching(identifier: "page-navigator-part").matching(NSPredicate(format: "label == 'Cho ăn gì?'")).firstMatch
+    XCTAssertTrue(part.waitForExistence(timeout: 5), "no part for feeding")
+    part.tap()
+    wait(for: [expectation(for: NSPredicate(format: "label BEGINSWITH 'Mục lục, đang ở'"), evaluatedWith: title)], timeout: 5)
+    let more = app.buttons["page-more"]
+    XCTAssertTrue(app.pageBack.exists, "no back button")
+    XCTAssertTrue(more.exists, "no ⋯")
+    XCTAssertFalse(app.buttons["save-for-later"].exists, "a save button outside the ⋯")
+    XCTAssertFalse(app.buttons["Chia sẻ"].exists, "a share button outside the ⋯")
+    XCTAssertLessThanOrEqual(title.frame.maxX, more.frame.minX, "the title runs under the ⋯")
+    // One line of words in the title, not the name over the part: its ink no taller than a line of 15 points.
+    Thread.sleep(forTimeInterval: 0.5)
+    guard let shot = pixels(app) else { return XCTFail("no pixels") }
+    let f = title.frame, ground = shot(f.maxX - 4, f.midY)
+    func far(_ a: (Int, Int, Int), _ b: (Int, Int, Int)) -> Bool { abs(a.0 - b.0) + abs(a.1 - b.1) + abs(a.2 - b.2) > 150 }
+    let inked = stride(from: f.minY, to: f.maxY, by: 1).filter { y in stride(from: f.minX, to: f.minX + 120, by: 1).contains { far(shot($0, y), ground) } }
+    XCTAssertLessThan((inked.max() ?? 0) - (inked.min() ?? 0), 22, "the title is more than one line: the name over the part")
+    // The ⋯: save, then share.
+    more.tap()
+    let save = app.buttons["Lưu để đọc sau"], share = app.buttons["Chia sẻ"]
+    XCTAssertTrue(save.waitForExistence(timeout: 3), "no save in the ⋯")
+    XCTAssertTrue(share.exists, "no share in the ⋯")
+    XCTAssertLessThan(save.frame.minY, share.frame.minY, "share before save in the ⋯")
+    save.tap()
+    XCTAssertTrue(save.waitForNonExistence(timeout: 3), "the ⋯ stayed open")
+    more.tap()
+    let saved = app.buttons["Bỏ lưu"]
+    XCTAssertTrue(saved.waitForExistence(timeout: 3), "the ⋯ doesn't say it's saved")
+    app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.9)).tap()
+    XCTAssertTrue(saved.waitForNonExistence(timeout: 3), "the ⋯ didn't close")
+    app.tabBars.buttons["Tìm kiếm"].tap()
+    let list = app.descendants(matching: .any)["all-saved"].firstMatch
+    XCTAssertTrue(list.waitForExistence(timeout: 5) || app.scrolledDown(to: list).exists, "the page isn't listed as saved")
+    XCTAssertTrue(list.label.contains("1"), list.label)
+  }
+
+  /// The owner's trial of the tab bar as the App Store's (TabBarGlass, the owner, 11 Nov: "Try bottom bar glass effect like
+  /// Appstore's"): Khám phá's shelves run on under the bar, so what's under it and around it moves as the page scrolls,
+  /// where the fade leaves one still ground; the bar's own tap is still the bar's; and the switch in Tài khoản brings the
+  /// fade back at once.
+  func testForTheOwnerThePageShowsUnderTheTabBarAndItsSwitchBringsTheFadeBack() {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults", "-v2", "YES",
+                           "-fake-accounts", "on", "-reset-fake-server", "-fake-owner", "ui-apple"]
+    app.launch()
+    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 10), "no Hôm nay")
+    app.openAccount()
+    app.scrollToAndTap("apple-sign-in")
+    XCTAssertTrue(app.descendants(matching: .any)["owner-dashboard"].waitForExistence(timeout: 20), "not the owner")
+    app.closeAccount()
+    app.tabBars.buttons["Khám phá"].tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-browse"].waitForExistence(timeout: 5), "no Khám phá")
+    // The page dragged up a little, from its top, so it has more to show under the bar: the share of the bar's place,
+    // glass and all, that changed. The bar's own words stay where they are; only the page under it moves.
+    func moved() -> Double {
+      let bar = app.tabBars.firstMatch.frame
+      let before = Pixels(XCUIScreen.main.screenshot())
+      let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.6))
+      from.press(forDuration: 0.05, thenDragTo: from.withOffset(CGVector(dx: 0, dy: -60)), withVelocity: .slow, thenHoldForDuration: 0.5)
+      Thread.sleep(forTimeInterval: 0.5)
+      let after = Pixels(XCUIScreen.main.screenshot())
+      let spots = stride(from: 6.0, to: app.frame.width - 6, by: 6).flatMap { x in
+        // From just inside the bar's top: the fade, with the trial off, ends there.
+        stride(from: bar.minY + 4, to: app.frame.maxY - 2, by: 4).map { (x, $0) }
+      }
+      return Double(spots.filter { before.at($0.0, $0.1).distance(to: after.at($0.0, $0.1)) > 30 }.count) / Double(spots.count)
+    }
+    let on = moved()
+    app.tabBars.buttons["Hôm nay"].tap()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 5), "the bar's tap didn't open Hôm nay")
+    // Off in Tài khoản: the fade again, one ground under the bar.
+    app.openAccount()
+    let toggle = app.switches["tab-bar-glass-switch"]
+    XCTAssertTrue(app.scrolledDown(to: toggle).exists, "no switch for the trial")
+    toggle.switches.firstMatch.exists ? toggle.switches.firstMatch.tap() : toggle.tap()
+    app.closeAccount()
+    app.tabBars.buttons["Khám phá"].tap()
+    Thread.sleep(forTimeInterval: 1)
+    let off = moved()
+    XCTAssertGreaterThan(on, 0.01, "nothing of the page under the tab bar: \(on) of the bar's place moved, \(off) with the trial off")
+    XCTAssertLessThan(off, 0.002, "the page still under the tab bar with the trial off: \(off) of the bar's place moved, \(on) with it on")
   }
 
   /// A page's photos all open as their grid (PhotoGrid) three ways: the banner, "N ảnh" in its corner, tapped anywhere;
@@ -811,10 +925,10 @@ final class V2FlowTests: XCTestCase {
     let app = launch("-v2", "YES")
     app.launchForFlow()
     app.openTab("Đèn")
-    XCTAssertTrue(app.navigationBars["Đèn Chihiros"].waitForExistence(timeout: 5), "no Đèn")
+    XCTAssertTrue(app.navigationBars["Đèn"].waitForExistence(timeout: 5), "no Đèn")
     app.tabBars.buttons.element(boundBy: app.tabBars.buttons.count - 1).tap()
     XCTAssertTrue(app.descendants(matching: .any)["all-fish"].waitForExistence(timeout: 5), "the search tab didn't show its screen")
-    XCTAssertFalse(app.navigationBars["Đèn Chihiros"].exists, "Đèn stayed in front")
+    XCTAssertFalse(app.navigationBars["Đèn"].exists, "Đèn stayed in front")
   }
 
   /// The owner's report (10 Nov, iOS 27.2, dark): "Search page but search is hidden". The field waited behind a pull, and a grey
@@ -916,9 +1030,13 @@ final class V2FlowTests: XCTestCase {
       card.tap()
       XCTAssertTrue(close.waitForExistence(timeout: 8), "no ✕ on the post")
       XCTAssertFalse(app.pageBack.exists, "a back button on the post")
-      // At the bar's end, after the bookmark (Design's parity, 12 Nov: it sat before it).
-      let save = app.buttons["save-for-later"].firstMatch
-      XCTAssertGreaterThan(close.frame.minX, save.frame.maxX, "the ✕ isn't after the bookmark: \(close.frame) \(save.frame)")
+      // The bar's last item, right of every other, whatever they are (Design, 14 Nov: a fish's ⋯ now, a guide's soon; its
+      // parity of 12 Nov had it before the bookmark).
+      let others = app.navigationBars.containing(.button, identifier: "v2-close-post").firstMatch.buttons.allElementsBoundByIndex
+        .filter { $0.identifier != "v2-close-post" }
+      XCTAssertFalse(others.isEmpty, "the ✕ alone on the bar")
+      XCTAssertGreaterThan(close.frame.minX, others.map { $0.frame.maxX }.max() ?? .infinity,
+                           "the ✕ isn't the bar's last item: \(close.frame) \(others.map { $0.frame })")
       XCTAssertGreaterThan(close.frame.maxX, app.frame.width - 40, "the ✕ isn't at the bar's end: \(close.frame)")
       if fish { close.tap(); XCTAssertTrue(close.waitForNonExistence(timeout: 5), "the ✕ didn't close the post"); continue }
       // Inside the story's page, its link to the neon.
@@ -928,9 +1046,9 @@ final class V2FlowTests: XCTestCase {
       XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the link didn't open the fish inside the post")
       XCTAssertTrue(app.pageBack.waitForExistence(timeout: 5), "no back button on a page inside the post")
       XCTAssertTrue(close.exists, "no ✕ on a page inside the post")
-      // Past its colour, as the bar turns to glass, the ✕ keeps a circle of its own after the bookmark and share's capsule
-      // (Design's parity, 13 Nov: iOS drew the three in one capsule there). Just before the ✕: the capsule's end, the page
-      // and the circle's edge, not one glass all through. One glass all through: 253 at all 21 points on 27.2 (before the
+      // Past its colour, as the bar turns to glass, the ✕ keeps a circle of its own after the bar's other items (Design's
+      // parity, 13 Nov: iOS drew the bookmark, share and ✕ in one capsule there). Just before the ✕: the other items' edge,
+      // the page and the circle's edge, not one glass all through. One glass all through: 253 at all 21 points on 27.2 (before the
       // fix, 13 Nov), a spread of 0. On 26.5 in light the glass reads 247 to 248, a spread of 1, on the page's 255, so the
       // gap is a step of 8 there (GitHub's run on a21577eac, 13 Nov). More than 4 tells them apart on both.
       for _ in 0..<4 { app.swipeUp() }
@@ -1145,8 +1263,8 @@ final class V2FlowTests: XCTestCase {
   }
 
   /// What's on the bar reads, on the page's colour and after it, and the name, once it has left the page, stays in the bar's
-  /// middle as the colour goes. On the colour iOS 26's glass goes pale under white symbols, so it's the page's own round
-  /// buttons there; after it iOS can keep the dark scheme, white on the white band.
+  /// middle as the colour goes. On the colour the back and the ⋯ are in iOS's glass alike; after it iOS can keep the dark
+  /// scheme, white on the white band.
   func testAFishsPageBarReadsOnItsColourAndAfterIt() {
     let app = launch("-v2", "YES")
     app.launchForFlow()
@@ -1164,7 +1282,7 @@ final class V2FlowTests: XCTestCase {
     let name = app.scrollViews.staticTexts["Cá neon"].firstMatch
     repeatUntil(name.frame.maxY < back.frame.maxY, times: 6) { up() }
     XCTAssertLessThan(name.frame.maxY, back.frame.maxY, "the name didn't go under the bar")
-    // Beside its chevron, inside its circle.
+    // Beside its chevron, on the colour: no circle there (the owner, 11 Nov: "2B").
     let circle = Pixels(XCUIScreen.main.screenshot()).at(back.frame.minX + 7, back.frame.midY)
     func chevronReads() { XCTAssertGreaterThan(circle.contrastWithWhite, 3, "the back button's chevron doesn't read: \(circle)") }
     // The one exception, named and dated: an expected failure, so the test complains the day the arrow reads. On iOS 26 in
@@ -1176,13 +1294,20 @@ final class V2FlowTests: XCTestCase {
     } else {
       chevronReads()
     }
+    // The ⋯ in iOS's glass on the colour, as the back is (Design's parity, 13 Nov: bare dots beside the back in its glass).
+    // Under each symbol, inside its circle, the ground stands apart from the colour at the screen's edge on that line.
+    let more = app.buttons["page-more"], seen = Pixels(XCUIScreen.main.screenshot())
+    func glass(_ b: XCUIElement, edge: CGFloat) -> Double { seen.at(b.frame.midX, b.frame.midY + 15).distance(to: seen.at(edge, b.frame.midY + 15)) }
+    let backGlass = glass(back, edge: 2), moreGlass = glass(more, edge: app.frame.width - 2)
+    XCTAssertGreaterThan(backGlass, 4, "iOS's glass behind the back doesn't show on the colour")
+    XCTAssertGreaterThan(moreGlass, backGlass / 2, "the ⋯ bare on the colour, the back in its glass: \(moreGlass) against \(backGlass)")
     // The name in the bar from then on, the colour still under it, in the bar's middle.
     XCTAssertTrue(title.waitForExistence(timeout: 2), "no name in the bar once it has left the page")
     let onColour = title.frame
     XCTAssertEqual(onColour.midX, app.frame.midX, accuracy: 2, "the bar's name isn't in its middle")
     // Between the buttons, not under them.
     XCTAssertGreaterThanOrEqual(onColour.minX, back.frame.maxX, "the bar's name runs under the back button")
-    XCTAssertLessThanOrEqual(onColour.maxX, app.buttons["save-for-later"].frame.minX, "the bar's name runs under the save button")
+    XCTAssertLessThanOrEqual(onColour.maxX, app.buttons["page-more"].frame.minX, "the bar's name runs under the ⋯")
     func reads(_ what: String) {
       let shot = Pixels(XCUIScreen.main.screenshot()), f = title.frame, ground = shot.at(f.minX - 6, f.midY)
       let strongest = stride(from: f.minX, to: f.maxX, by: 1).flatMap { x in stride(from: f.minY, to: f.maxY, by: 1).map { shot.at(x, $0).distance(to: ground) } }.max()!
@@ -1376,12 +1501,12 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(e.exists && e.isHittable, "\(e) not found")
   }
 
-  /// The neon's page, signed in as the owner (the stand-in Apple's, `-fake-owner`).
-  private func ownersNeon(_ args: String...) -> XCUIApplication {
+  /// The neon's page, signed in as the owner (the stand-in Apple's, `-fake-owner`); `animated`, as a reader sees it.
+  private func ownersNeon(animated: Bool = false, _ args: String...) -> XCUIApplication {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults", "-v2", "YES",
                            "-fake-accounts", "on", "-reset-fake-server", "-fake-owner", "ui-apple"] + args
-    app.launchForFlow()
+    if animated { app.launch() } else { app.launchForFlow() }
     XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
     app.openAccount()
     app.scrollToAndTap("apple-sign-in")

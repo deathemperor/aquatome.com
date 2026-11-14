@@ -16,5 +16,5 @@ export function readHidden(file = process.env.HIDDEN_FILE ?? resolve(process.cwd
 export function dropHidden(c: Content, hidden: Set<string>, lang: Lang = 'vi'): Content {
   if (!hidden.size) return c
   const keep = (prefix: string) => (x: { t: { slug: string } }) => !hidden.has(localizePath(lang, `/vi/${prefix}/${x.t.slug}/`))
-  return { ...c, species: c.species.filter(keep('ca')), breeds: c.breeds.filter(keep('ca')), plants: c.plants.filter(keep('cay')), guides: c.guides.filter(keep('huong-dan')), glossary: c.glossary.filter(keep('thuat-ngu')) }
+  return { ...c, species: c.species.filter(keep('ca')), breeds: c.breeds.filter(keep('ca')), plants: c.plants.filter(keep('cay')), guides: c.guides.filter(keep('huong-dan')), glossary: c.glossary.filter(keep('thuat-ngu')), materials: c.materials.filter(keep('vat-lieu')) }
 }

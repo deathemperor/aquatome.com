@@ -1,0 +1,48 @@
+{
+  "id": "rhinogobius-chiengmaiensis",
+  "native": {
+    "input": "399cb0a5f45d6cc2",
+    "at": "2026-11-14T05:39:06.336Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the middle-and-upper Chao Phraya river system in central Thailand including its major tributaries the Ping and Nan rivers.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Known only from the middle-and-upper Chao Phraya river system in central Thailand including its major tributaries the Ping and Nan rivers.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rhinogobius chiengmaiensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2377591,
+    "datasets": [
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ]
+    ],
+    "native": [
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T05:39:06.336Z"
+  }
+}

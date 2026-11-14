@@ -1,14 +1,14 @@
 {
   "id": "mastacembelus-erythrotaenia",
   "native": {
-    "input": "c07ade1817191ba8",
-    "at": "2026-11-05T19:44:13.099Z",
+    "input": "6b8ad31124b67369",
+    "at": "2026-11-14T05:39:06.336Z",
     "claims": [
       {
         "code": "LA",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The fire eel, Mastacembelus erythrotaenia, is a spiny eel recorded from Laos, Vietnam, Cambodia, Thailand, Malaysia and Indonesia.",
+        "quote": "Recorded from Laos, Vietnam, Cambodia, Thailand, Malaysia and Indonesia.",
         "words": "Laos",
         "ok": true
       },
@@ -16,7 +16,7 @@
         "code": "VN",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The fire eel, Mastacembelus erythrotaenia, is a spiny eel recorded from Laos, Vietnam, Cambodia, Thailand, Malaysia and Indonesia.",
+        "quote": "Recorded from Laos, Vietnam, Cambodia, Thailand, Malaysia and Indonesia.",
         "words": "Vietnam",
         "ok": true
       },
@@ -24,7 +24,7 @@
         "code": "KH",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The fire eel, Mastacembelus erythrotaenia, is a spiny eel recorded from Laos, Vietnam, Cambodia, Thailand, Malaysia and Indonesia.",
+        "quote": "Recorded from Laos, Vietnam, Cambodia, Thailand, Malaysia and Indonesia.",
         "words": "Cambodia",
         "ok": true
       },
@@ -32,7 +32,7 @@
         "code": "TH",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The fire eel, Mastacembelus erythrotaenia, is a spiny eel recorded from Laos, Vietnam, Cambodia, Thailand, Malaysia and Indonesia.",
+        "quote": "Recorded from Laos, Vietnam, Cambodia, Thailand, Malaysia and Indonesia.",
         "words": "Thailand",
         "ok": true
       },
@@ -40,7 +40,7 @@
         "code": "MY",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The fire eel, Mastacembelus erythrotaenia, is a spiny eel recorded from Laos, Vietnam, Cambodia, Thailand, Malaysia and Indonesia.",
+        "quote": "Recorded from Laos, Vietnam, Cambodia, Thailand, Malaysia and Indonesia.",
         "words": "Malaysia",
         "ok": true
       },
@@ -48,55 +48,15 @@
         "code": "ID",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The fire eel, Mastacembelus erythrotaenia, is a spiny eel recorded from Laos, Vietnam, Cambodia, Thailand, Malaysia and Indonesia.",
+        "quote": "Recorded from Laos, Vietnam, Cambodia, Thailand, Malaysia and Indonesia.",
         "words": "Indonesia",
         "ok": true
       },
       {
-        "code": "LA",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Recorded from Laos, Vietnam, Cambodia, Thailand, Malaysia and Indonesia.",
-        "words": "Laos",
-        "ok": true
-      },
-      {
-        "code": "VN",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Recorded from Laos, Vietnam, Cambodia, Thailand, Malaysia and Indonesia.",
-        "words": "Vietnam",
-        "ok": true
-      },
-      {
-        "code": "KH",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Recorded from Laos, Vietnam, Cambodia, Thailand, Malaysia and Indonesia.",
-        "words": "Cambodia",
-        "ok": true
-      },
-      {
-        "code": "TH",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Recorded from Laos, Vietnam, Cambodia, Thailand, Malaysia and Indonesia.",
-        "words": "Thailand",
-        "ok": true
-      },
-      {
-        "code": "MY",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Recorded from Laos, Vietnam, Cambodia, Thailand, Malaysia and Indonesia.",
-        "words": "Malaysia",
-        "ok": true
-      },
-      {
         "code": "ID",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Recorded from Laos, Vietnam, Cambodia, Thailand, Malaysia and Indonesia.",
+        "source": "glaser",
+        "quote": "These spiny eels come from Indonesia.",
         "words": "Indonesia",
         "ok": true
       }

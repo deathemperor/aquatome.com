@@ -1,52 +1,42 @@
 {
   "id": "betta-hendra",
   "native": {
-    "input": "096d44479684c98d",
-    "at": "2026-11-06T18:08:44.169Z",
+    "input": "49375b8bdd525964",
+    "at": "2026-11-14T05:39:06.336Z",
     "claims": [
       {
         "code": "ID",
         "status": "native",
-        "source": "bwaquatics",
-        "quote": "Betta hendra is a rare member of the Betta coccina complex, native to the peat-swamp forests of Central Kalimantan, Borneo (Indonesia).",
-        "words": "Indonesia",
-        "ok": true
-      },
-      {
-        "code": "ID",
-        "status": "native",
         "source": "seriouslyfish",
-        "quote": "Type locality is given as 'Indonesia, Borneo, Kalimantan Tengah, about 3 km south-east of Palangkaraya in direction of Berengbengkel; 02° 16.5 S, 113° 56.6 E'.",
-        "words": "Indonesia",
+        "quote": "Palangkaraya is the capital city of Kalimantan Tengah (Central Kalimantan) province, Indonesian Borneo, and B. hendra is known only from the Sabangau peat swamp forest, home to the world's largest Orang Utan population and located to the immediate south and west of the city.",
+        "words": "Indonesian",
         "ok": true
       }
     ],
     "regions": [
       {
         "name": "Borneo",
-        "source": "bwaquatics",
-        "quote": "Betta hendra is a rare member of the Betta coccina complex, native to the peat-swamp forests of Central Kalimantan, Borneo (Indonesia).",
-        "country": "ID",
-        "ok": true
-      },
-      {
-        "name": "Central Kalimantan",
-        "source": "bwaquatics",
-        "quote": "Betta hendra is a rare member of the Betta coccina complex, native to the peat-swamp forests of Central Kalimantan, Borneo (Indonesia).",
-        "country": "ID",
-        "ok": true
-      },
-      {
-        "name": "Sabangau",
         "source": "seriouslyfish",
         "quote": "Palangkaraya is the capital city of Kalimantan Tengah (Central Kalimantan) province, Indonesian Borneo, and B. hendra is known only from the Sabangau peat swamp forest, home to the world's largest Orang Utan population and located to the immediate south and west of the city.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Sungai Sabangau",
+        "source": "seriouslyfish",
+        "quote": "The Sabangau peat swamp is drained by the Sungai Sabangau (River Sabangau) which is a typical blackwater system with thick marginal vegetation and dark brown water stained with humic substances and other chemicals released by decaying organic material.",
         "ok": true
       },
       {
         "name": "Borneo",
-        "source": "seriouslyfish",
-        "quote": "Type locality is given as 'Indonesia, Borneo, Kalimantan Tengah, about 3 km south-east of Palangkaraya in direction of Berengbengkel; 02° 16.5 S, 113° 56.6 E'.",
-        "country": "ID",
+        "source": "bwaquatics",
+        "quote": "Betta hendra was described in 2013 and is known only from the Sabangau peat swamp forest near Palangkaraya, Central Kalimantan, Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Sabangau",
+        "source": "bwaquatics",
+        "quote": "Shaded peat swamp pools and streams in the Sabangau basin.",
         "ok": true
       }
     ],

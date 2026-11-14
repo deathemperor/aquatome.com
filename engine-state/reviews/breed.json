@@ -555,6 +555,91 @@
       ]
     }
   ],
+  "ms/breeds/lionhead-goldfish": [
+    {
+      "at": "2026-11-14T00:04:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "\"Lionhead, ranchu dan lionchu ada persamaan, jadi periksa sendiri...\": the fact only says that in Vietnam 'lan thọ' is used for both lionhead and ranchu. It doesn't mention lionchu or the Vietnam context.",
+        "\"Kuarantin ikan baharu sebelum dimasukkan ke dalam tangki utama\": the fact only says to quarantine new fish. 'Main tank' is a small addition.",
+        "\"Oleh itu, ia memerlukan arus perlahan, hiasan yang licin dan pemakanan yang seimbang\": this links weak swimming and swim bladder problems to those care needs. The facts don't state the link, and 'balanced feeding' is a paraphrase."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.88,
+        0.9,
+        0.88
+      ]
+    },
+    {
+      "at": "2026-11-14T00:04:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "FAQ: \"Ranchu sebenarnya dikembangkan di Jepun daripada Lionhead\" is stated as flat fact. The facts only say Lionhead was the precursor of the Ranchu. The \"sebenarnya\" framing turns that into a correction, which is unsupported.",
+        "\"Kenapa sebahagian anak Lionhead ada sirip belakang?\" is answered correctly, but \"Mendapat 40 peratus anak tanpa sirip belakang sudah dikira sangat baik\" is acceptable. The question itself is fine.",
+        "\"Jangka hayat 10–15 tahun\" merges two sources (15 and 10–15). It is a small, acceptable generalisation.",
+        "\"Lionchu ... yang dihasilkan di Thailand\" is supported. \"Lionhead sering digelar padanan Cina bagi ranchu Jepun\" is supported.",
+        "\"Nama Lionhead dan ranchu kadangkala bercampur aduk dalam jualan\" is slightly generalised. The facts say 'lan thọ' is mixed up in Vietnam, so the page drops the Vietnam context and the 'lan thọ' name.",
+        "\"Ada juga penternak yang memelihara Lionhead dalam air cetek\" is attributed to breeders. The facts call it Vietnamese practice and do not say breeders.",
+        "\"Menurut satu sumber, ia berasal daripada Egg Fish\" is supported. \"Dari China\" in the intro is supported.",
+        "\"Ikan ini perenang lemah dan lebih mudah mendapat masalah pundi renang\" is supported. The facts say it is more prone than the ranchu, and the page omits that comparison in the intro.",
+        "\"Belakangnya licin tanpa bonjol, lekuk atau duri sirip belakang\" is slightly altered. The facts say no bumps, dips or dorsal spikes.",
+        "\"Pilih ikan yang jambulnya meliputi ketiga-tiga bahagian (atas kepala, muka dan penutup insang)\" is acceptable."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    }
+  ],
+  "ms/breeds/mickey-mouse-platy": [
+    {
+      "at": "2026-11-14T00:06:05Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "\"Glaser, sebuah syarikat pengimport dari Jerman\": the facts only call Glaser \"a German importer\". They don't say it is a company, so \"syarikat\" is a small unsupported detail."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.92,
+        0.88,
+        0.96
+      ]
+    },
+    {
+      "at": "2026-11-14T00:06:05Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [
+        "\"jadi tangki boleh penuh dengan anak dalam masa singkat\" is a mild extrapolation. The facts say they breed easily, but they don't say the tank fills up quickly.",
+        "\"(semua anaknya bertanda sama)\" is an added gloss on \"breed true\". The facts don't spell this out.",
+        "\"menghasilkan kira-kira 75 peratus anak bertanda\" is the page's own sum of 50% and 25%. It is consistent with the facts, but the source never states it."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.93,
+        0.93,
+        0.9
+      ]
+    }
+  ],
   "ms/breeds/oranda-goldfish": [
     {
       "at": "2026-11-12T20:57:13Z",
@@ -590,6 +675,76 @@
         0.7,
         0.7,
         0.7
+      ]
+    }
+  ],
+  "ms/breeds/pearlscale-goldfish": [
+    {
+      "at": "2026-11-14T05:33:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-14T05:33:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.72,
+      "notes": [
+        "\"seperti cacing darah dan artemia\": the facts only say live or frozen food now and then. Bloodworms and brine shrimp are not named.",
+        "\"Bahagian ini paling penting untuk ikan ini\": the facts do not rank feeding as the most important part of care.",
+        "\"Ia mempunyai satu atau dua bonjol seperti gelembung di kepala\": this mixes two facts. The Crown has one or two lumps, and the bubble-like domes are the two large domes of the head form.",
+        "\"Kedua-dua sumber ini menyatakan ... mungkin lebih sihat dan lebih panjang umur\": only one source says healthier and longer-lived. The other says only that single-tailed goldfish have fewer health problems.",
+        "\"Jika rumah anda panas, berikan perhatian kepada suhu air\": this is a generic recommendation not in the facts."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.72,
+        0.7,
+        0.72
+      ]
+    }
+  ],
+  "ms/breeds/pigeon-blood-discus": [
+    {
+      "at": "2026-11-14T05:35:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "FAQ: \"tekanan yang rendah\" is listed as reducing peppering. The facts say stress can bring peppering out, but they don't say low stress reduces it, so this is a mild extrapolation.",
+        "Intro: \"seperti discus lain, ia perlukan tangki besar, air yang sangat bersih\" generalises the Vietnamese keepers' advice into a general claim."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.9,
+        0.9,
+        0.93
+      ]
+    },
+    {
+      "at": "2026-11-14T05:35:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "\"jadi kuarantin ikan baharu amat berguna\": the facts never recommend quarantining new fish. This is an unsupported addition."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.9,
+        0.85,
+        0.85
       ]
     }
   ],

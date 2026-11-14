@@ -71,7 +71,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá cichlid bơi gần khúc lũa trong bể tối.",
-            "sharpness": 275.4
+            "sharpness": 275.4,
+            "person": false
           },
           {
             "t": 35,
@@ -110,7 +111,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Một con cá cichlid nhỏ bơi phía trên khúc lũa trong bể.",
-            "sharpness": 324
+            "sharpness": 324,
+            "person": false
           }
         ],
         "photo": {
@@ -125,27 +127,6 @@
         }
       },
       {
-        "heading": "Làm ống đảo trứng",
-        "moments": [
-          {
-            "t": 145,
-            "url": "https://media.aquatome.com/video/wOFTF6CYtFc/at145-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chọn ống nhựa trong bọc bóng đèn huỳnh quang ở tiệm đồ kim khí.",
-            "sharpness": 467.8
-          },
-          {
-            "t": 155,
-            "url": "https://media.aquatome.com/video/wOFTF6CYtFc/at155-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tháo hai nắp đầu ống và để riêng trên bàn.",
-            "sharpness": 947.6
-          }
-        ]
-      },
-      {
         "heading": "Lấy trứng khỏi miệng cá mẹ",
         "moments": [
           {
@@ -154,7 +135,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đổ nước lấy từ bể vào hộp nhựa trong để chuẩn bị.",
-            "sharpness": 259.6
+            "sharpness": 259.6,
+            "person": false
           },
           {
             "t": 230,
@@ -235,7 +217,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Trứng cá nằm ở đáy ống ấp, đang lăn nhẹ trong dòng sủi.",
-            "sharpness": 1233.3
+            "sharpness": 1233.3,
+            "person": false
           }
         ],
         "photo": {

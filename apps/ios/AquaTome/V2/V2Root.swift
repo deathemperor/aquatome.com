@@ -54,7 +54,8 @@ struct V2Root: View {
           .v2ClearUnderTabBar(on: Color(.systemGroupedBackground), fade: V2Fade.height)
       }
     }
-    // The owner's: no band behind the tab bar, and nothing through its glass (ClearUnderTabBar on each tab).
+    // The owner's: no band behind the tab bar, and nothing through its glass (ClearUnderTabBar on each tab), unless the
+    // owner is trying the page through it (TabBarGlass).
     .v2NoBottomEdge()
     // A link opening a tab or a page (AquaTomeApp.open): its tab here. A page pushed on the handbook's stack shows on
     // Khám phá, whichever tab was in front; one on the tanks' stack, on Bể của tôi.
@@ -171,8 +172,15 @@ private struct ClearOfTheFade: ViewModifier {
   func body(content: Content) -> some View { content.safeAreaPadding(.bottom, fade) }
 }
 
+/// The owner's trial of the tab bar as the App Store's (11 Nov: "Try bottom bar glass effect like Appstore's"): the page
+/// runs under the bar and shows through its glass, with no edge and no fade. Theirs alone, on from the build it came in;
+/// off in Tài khoản → Ứng dụng brings the fade back at once. Everyone else keeps the fade.
+enum TabBarGlass {
+  static let key = "tabBarGlassTrial"
+}
+
 /// A tab's screens fade out just above the tab bar, so nothing shows through its glass or around it (the owner: words
-/// through the bar). iOS's own edges can't do it: the soft one leaves the words legible in the glass, and the hard one cuts
+/// through the bar). For the owner trying it (TabBarGlass), the page passes under the bar instead, on its ground. iOS's own edges can't do it: the soft one leaves the words legible in the glass, and the hard one cuts
 /// them on a line with a band under it. A tab's own, not each page's: it holds for every page of the tab, v1's too.
 private struct ClearUnderTabBar: ViewModifier {
   let ground: Color
@@ -186,9 +194,16 @@ private struct ClearUnderTabBar: ViewModifier {
   @State private var footGround: FootGround?
   /// The bar's height with what's under it. Not the keyboard's: above that, nothing is under a bar.
   @State private var bar: CGFloat = 0
+  @AppStorage(TabBarGlass.key) private var trial = true
+  @Environment(AccountModel.self) private var account
 
   func body(content: Content) -> some View {
-    if #available(iOS 26, *) {
+    if #available(iOS 26, *), trial, account.owner.isOwner == true, account.user != nil {
+      // Through the glass: no mask and nothing over the bar's place, the ground still behind it all.
+      content
+        .environment(\.v2FootGround, $footGround)
+        .background { (footGround?.colour ?? ground).ignoresSafeArea().animation(.easeInOut(duration: 0.2), value: footGround) }
+    } else if #available(iOS 26, *) {
       content
         .environment(\.v2FootGround, $footGround)
         .background {

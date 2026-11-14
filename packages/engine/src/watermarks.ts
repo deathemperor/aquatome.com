@@ -11,6 +11,7 @@ import { IMAGE_SWITCHES, LOGO_FOLDERS, logoFolder, ocrHit } from '@aq/schema'
 import { rememberMarkedPhotos } from './marked-photos'
 import { compactScreen, summarizeOcr, PHOTO_MARK_KINDS, PHOTO_POSITIONS, photoFailure, photoModelStop, type CompactScreen } from './photo-observations'
 import { writePhotoState } from './photo-state'
+import { holdForSecondLook, lastPhotos, looks, pagesShowing, readSecondLook } from './last-photo'
 
 /** A line of text macOS Vision read on a photo: confidence 0–1, box 0–1 from the top left. */
 export type TextLine = { t: string; c: number; x: number; y: number; w: number; h: number }
@@ -144,7 +145,7 @@ export async function screenWatermarks(root: string, cacheFile: string, rejected
   const old=JSON.parse(await readFile(cacheFile, 'utf8').catch(() => '{}'))
   const cache: Record<string, WatermarkEntry> = Object.fromEntries(Object.entries(old).map(([u,v])=>[u,compactScreen(v)]))
   const rejected: Record<string, string> = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}'))
-  const report = { read: 0, hits: 0, judged: 0, confirmed: [] as string[], removed: [] as string[], kept: [] as string[], failed: [] as string[], stopped: '' }
+  const report = { read: 0, hits: 0, judged: 0, confirmed: [] as string[], removed: [] as string[], kept: [] as string[], held: [] as string[], failed: [] as string[], stopped: '' }
   const files = await contentFiles(join(root, 'content'))
   const urls = new Set<string>()
   for (const f of files) urlsIn(JSON.parse(await readFile(f, 'utf8')), urls)
@@ -188,8 +189,14 @@ export async function screenWatermarks(root: string, cacheFile: string, rejected
     await rm(dir, { recursive: true, force: true })
   }
 
-  // 3. Watermarked photos join the blocklist and leave every page.
-  const marked = (u: string) => cache[u]?.watermark === true && !retainedOwnMark(u, cache[u])
+  // 3. Watermarked photos join the blocklist and leave every page. One whose going would leave a species, plant or breed
+  // page with nothing stays where it is, held for a second look (last-photo.ts), and one the second look cleared stays.
+  const sl = looks(await readSecondLook(root))
+  const markedNow = (u: string) => cache[u]?.watermark === true && !retainedOwnMark(u, cache[u]) && sl.open(u)
+  const held = new Map([...lastPhotos(await pagesShowing(join(root, 'content')), u => markedNow(u) || u in rejected)].filter(([u]) => markedNow(u) && !(u in rejected)))
+  const marked = (u: string) => markedNow(u) && !held.has(u)
+  for (const [u, pages] of held) report.held.push(`${u}: ${pages.join(', ')}`)
+  await holdForSecondLook(root, new Map([...held].map(([u, pages]) => [u, { why: `watermark: ${cache[u]!.kind ?? 'unknown'}`, pages }])), 'the watermark screen')
   for (const u of urls) if (marked(u)) {
     report.confirmed.push(u)
     if (!(u in rejected)) rejected[u] = `watermark: ${cache[u]!.kind ?? 'unknown'}`

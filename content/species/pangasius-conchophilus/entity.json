@@ -68,7 +68,18 @@
       "html": "<p>Etymology: the name Pangasius comes from a local (Bengali) name of the fish (pungas). The name conchophilus, a combination of the Latin concho (shell) and philus (loving), refers to the pronounced molluscivory of this species. Described by Roberts &amp; Vidthayanon, 1991.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/panitvong/inat-724021567.webp",
+      "thumb": "https://media.aquatome.com/panitvong/inat-724021567-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "dùng với sự cho phép",
+      "author": "Nonn Panitvong",
+      "sourceUrl": "https://www.inaturalist.org/photos/724021567",
+      "source": "panitvong"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "rx4Q12z6jX4",
@@ -96,5 +107,165 @@
     }
   ],
   "productSlots": [],
-  "updatedAt": "2026-11-13"
+  "updatedAt": "2026-11-13",
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya",
+        "Bangpakong"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Thabo, Mekong River basin, Nongkhai Province, Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Mekong, Bangpakong and Chao Phraya basins.",
+          "countries": [],
+          "regions": [
+            "Mekong",
+            "Chao Phraya",
+            "Bangpakong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202481,
+      "total": 74,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "TH",
+          52
+        ],
+        [
+          "KH",
+          8
+        ],
+        [
+          "VN",
+          8
+        ],
+        [
+          "LA",
+          5
+        ],
+        [
+          "MY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          14.0625,
+          3,
+          3
+        ],
+        [
+          101.25,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          101.25,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          16.875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          11.25,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          9.84375,
+          4,
+          0
+        ],
+        [
+          104.0625,
+          11.25,
+          3,
+          0
+        ],
+        [
+          104.0625,
+          14.0625,
+          6,
+          6
+        ],
+        [
+          104.0625,
+          15.46875,
+          11,
+          11
+        ],
+        [
+          104.0625,
+          16.875,
+          7,
+          7
+        ],
+        [
+          105.46875,
+          9.84375,
+          4,
+          0
+        ],
+        [
+          105.46875,
+          12.65625,
+          4,
+          0
+        ],
+        [
+          105.46875,
+          14.0625,
+          25,
+          21
+        ],
+        [
+          106.875,
+          12.65625,
+          1,
+          0
+        ]
+      ]
+    }
+  }
 }

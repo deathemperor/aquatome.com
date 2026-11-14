@@ -18,7 +18,9 @@ Bể của tôi" onto that tank or a new one), a fish's facts under its name as 
 difficulty as the site's coloured word and its "6/8"; the sources behind each and whose text it is under them; its temperament and smallest school under its tank-mates) and a plant's care (difficulty, light, CO₂, growth, where it goes), from the index on the phone, so offline too, and the pages saved to read later and read last; **Bể của tôi** keeps the reader's tanks (name, inside size and litres,
 substrate, notes, the fish and plants on it, each opening its page; put on from a fish or plant page, or from the tank, a fish with how many, and swiped to change the number or take one off; one the handbook has no page for put on by name, marked "chưa có trang" until a page has its scientific name, and sent once, with no account, as a name readers want pages for; checked as the site's tank-mates tool checks them: whether they go together, and whether the tank is big and long enough; and the guides that name them, the video guides apart) on the phone with no account, in the same store the
 site uses, and shares a copy as JSON; **Đèn** controls the lights, and each light connected is kept on a tank with the
-schedules written to it (as the site does). The profile button at the top right of each tab opens **Tài khoản**, a sheet
+schedules written to it (as the site does). Week Aqua lights (model code 5746) have their own screen there: one or a
+group written together, their colour, daily timer and clock, and, since they report nothing, what AquaTome last sent
+them kept on their records, known by their address (`bleAddress`), as docs/my-tanks-sync.md describes. The profile button at the top right of each tab opens **Tài khoản**, a sheet
 (as the App Store's), laid out as iOS's settings: the aquatome.com account (below: who is signed in and since when, the
 sync's state with the one button that helps, a passkey), the owner's dashboard for the owner's account (with its to-dos
 counted), the app's icon and the pages kept to read offline (opening their shelf on Tìm), the anonymous statistics'
@@ -378,7 +380,8 @@ their workflows, on GitHub's Macs if the hook holds; read them first.
 | Module | What |
 | --- | --- |
 | `Chihiros` | Frames and replies (a port of the site's `apps/site/src/scripts/chihiros.ts`), the timeline's rules as the site's light page has them (`Plan.swift`: handles kept apart, ramps that fit, the day's curve, the day preview's pace; `Colour.swift`: the colour a mix shows, a tank lit by it, the looks), `LightSession` (the order and pace the light accepts, and going back to the schedule after levels set by hand), `FakeLight` (tests, simulator) |
-| `ChihirosBLE` | CoreBluetooth: scan for lights, connect, acknowledged writes |
+| `WeekAqua` | Week Aqua lights of model code 5746 (docs/research/aquarium-device-control.md): the frames, the light told by its manufacturer data and name (other codes listed, never written to), `WeekAquaSession` (one light or a group, in the order the lights take: clock, manual mode, levels, timer, manual mode, each frame to every light, half a second apart; the lights never answer), `FakeWeekAqua` (tests, simulator) |
+| `ChihirosBLE` | CoreBluetooth: scan for lights (Chihiros and Week Aqua), connect, acknowledged writes; a Week Aqua light's frames go to `fff2` only, without response, never to its firmware-update service |
 | `light-harness` | A Mac command line that drives a real light through the same code |
 | `Tanks` | "Bể của tôi": the site's tank and device records (`packages/schema/src/tanks.ts`), checked and merged as `docs/my-tanks-sync.md` says; a plug put on a tank and its outlets named (`PlugRecord`), the outlet a light is plugged into (`PowerOutlet`); the volume tool's formulas and its page's form (`Volume.swift`, `VolumeForm.swift`, ports of `apps/site/src/scripts/volume.ts` and its page's script) |
 | `Handbook` | The site's page index for the app (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`), with each fish's figures and behaviour under the tank-mates tool's names, each guide's subject and the fish and plants it names, a video guide's length, the video series, and each tool's own words for search, what it's browsed by (fish groups, plant care, the site's home picks and its words for them), the pages as blocks to draw natively (`PageDoc`, `/app/pages/`, read leniently: a block it can't read is "open on the web"; `PageCache` keeps their shards on the phone, read again once a run), and searching it: without accents, đ as d, any word order, a page named what was searched for first (by its name, scientific name or another name, as the site's search ranks it: "bảy màu" finds Cá bảy màu before Bảy màu Koi), a tool's own words after every name; where a link in a page goes (`PageRoute`, `AppScreen`, whose `page` case is a page the index lists, opened on the tab in front, or a taxon or origin page `HandbookShelves.page(at:)` draws from the fish's taxa and places; `ShopLink`, the site's /go/ links, which our own copies resolve under their mark before opening the shop; `AboutTheSite`, the site's about, contact and privacy pages, which open in the browser); the tank-mates tool's fish and tank from its link, as its page reads them (`TankMatesLink`); the script that shares the tanks with a page (`PageBridge`, tested in JavaScriptCore); the fish-ID tool's request and answers (`FishId`); the chat's (`Chat`, `protocols/chat.openapi.json`: the question, its stream's events by name, a turn's blocks with the index's figures and the page's blocks, when a question starts a new conversation), its stream read by `ServerEvents`, by the event-stream standard's rules and by any event's name; what's new on the site (`Latest`, `/app/latest/<lang>.json`, `apps/site/src/lib/app-latest.ts`: its /vi/moi-cap-nhat/ list, each entry a page the index lists; `LatestFile` keeps it on the phone) |
@@ -401,7 +404,7 @@ The tests read `protocols/chihiros-vectors.json`, `protocols/tanks-vectors.json`
 `protocols/filter-vectors.json`, `protocols/search-vectors.json`, `protocols/page-vectors.json`,
 `protocols/unlisted-vectors.json` and `protocols/volume-vectors.json`, the same vectors as the site's tests, and the
 chat's recorded answers (`protocols/chat-stream-*.sse`, `chat-rate.json`), which the site's tests check against the
-contract. A protocol or
+contract, and `protocols/weekaqua-vectors.json`, for the site to share when it drives Week Aqua lights. A protocol or
 schema change updates the vectors and both implementations together.
 
 ## Testing on a real light
@@ -419,3 +422,14 @@ swift run light-harness restore                      # always, at the end
 
 `restore` writes the owner's everyday schedule (12:00–20:00, 70% red/green/blue, 30-minute ramp) and checks the light
 reports it. Light names carry the device's address, so the harness doesn't print them; keep them out of the repository.
+
+Week Aqua lights (model code 5746 only; another code is listed, never connected to or written):
+
+```sh
+swift run light-harness weekaqua scan                                 # model codes, the end of each address
+swift run light-harness weekaqua write 54 114 57 117 02:50 02:40      # R G B UV (0–235), on, off: every 5746 light as one group
+swift run light-harness weekaqua write 0 0 235 0 02:50 02:40 --manual-bytes 2   # manual mode as FD F1 alone
+```
+
+They report nothing back, so check each write by eye. `weekaqua write 54 114 57 117 02:50 02:40` puts the owner's group back
+as WEEK AQUA leaves it.

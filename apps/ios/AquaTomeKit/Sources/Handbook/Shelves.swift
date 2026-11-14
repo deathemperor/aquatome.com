@@ -42,6 +42,8 @@ public struct HandbookShelves: Sendable {
     public static let plants = columns * 3
     public static let guides = columns
     public static let videos = columns
+    /// "Đã lưu để đọc sau": the first 21 saved, then "Xem tất cả" to them all.
+    public static let saved = columns * 3
   }
 
   /// A shelf of `list`: the first `count` of it not among `shown` (the pages on a shelf above). Never more than the list

@@ -9,7 +9,7 @@ import type { Lang } from '@aq/schema/langs'
 /** The first segment of every Vietnamese page's address (the folders of src/pages/). The Worker runs first on each (wrangler.jsonc). */
 export const VI_SECTIONS = [
   'ca', 'cay', 'chinh-sach-bao-mat', 'cong-cu', 'dang-nhap', 'gioi-thieu', 'huong-dan', 'kham-pha', 'lien-he', 'moi-cap-nhat',
-  'nguon-goc', 'nhom', 'phan-loai', 'san-pham', 'thiet-bi', 'thuat-ngu', 'tim-kiem', 'ung-dung', 'video',
+  'nguon-goc', 'nhom', 'phan-loai', 'san-pham', 'thiet-bi', 'thuat-ngu', 'tim-kiem', 'ung-dung', 'vat-lieu', 'video',
 ] as const
 
 /** "/vi/ca/x/?q=1" → "/ca/x/?q=1"; "/vi/" and "/vi" → "/". Any other path stays as it is. */

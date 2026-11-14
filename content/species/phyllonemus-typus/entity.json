@@ -10,6 +10,87 @@
     "tanzania",
     "lake-tanganyika"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The Spatula-barbeled Catfish, endemic to Lake Tanganyika, has a very special way of reproducing for a catfish: it is a biparental mouthbrooder.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2337415,
+      "total": 34,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "ZM",
+          23
+        ],
+        [
+          "BI",
+          7
+        ],
+        [
+          "CD",
+          3
+        ],
+        [
+          "TZ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          2
+        ],
+        [
+          28.125,
+          -4.21875,
+          6
+        ],
+        [
+          29.53125,
+          -9.84375,
+          2
+        ],
+        [
+          29.53125,
+          -8.4375,
+          1
+        ],
+        [
+          29.53125,
+          -7.03125,
+          1
+        ],
+        [
+          29.53125,
+          -5.625,
+          1
+        ],
+        [
+          30.9375,
+          -9.84375,
+          21
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

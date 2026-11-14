@@ -10,6 +10,44 @@
     "brazil",
     "paraguacu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Paraguaçu"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio Caldeirão, Rio Paraguaçu basin, Município de Lençóis, Estado da Bahia, Brazil, 12°39'33\"S, 41°22'13\"W, elevation about 340 metres.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Found in a single locality, the Rio Caldeirão, a tributary of the Rio São José, which is among the main tributaries of the upper Rio Paraguaçu River, Brazilian semiarid Caatinga, Bahia State.",
+          "countries": [],
+          "regions": [
+            "Rio Paraguaçu"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 11154055,
+      "total": 0,
+      "fetched": "2026-11-14",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

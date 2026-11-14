@@ -31,7 +31,8 @@ struct BrowseHome: View {
   var body: some View {
     let s = handbook.shelves
     let top = featuredItems(s)
-    let saved = savedShown.filter { !top.map(\.path).contains($0.path) }
+    // Its first 21, then "Xem tất cả": only those come off the shelves below.
+    let saved = Array(savedShown.filter { !top.map(\.path).contains($0.path) }.prefix(HandbookShelves.Shown.saved))
     let recent = recentShown.filter { r in !(top + saved).contains { $0.path == r.path } }
     // A page on one shelf only, the first it's on (its zoom starts there).
     let onTop = Set((top + saved + recent).map(\.path))
@@ -43,7 +44,7 @@ struct BrowseHome: View {
             StatusText().font(.footnote).padding(.horizontal, 20)
           }
           if !top.isEmpty { featured(top) }
-          if !saved.isEmpty { columns("Đã lưu để đọc sau", saved) }
+          if !saved.isEmpty { columns("Đã lưu để đọc sau", saved, more: Browse.saved) }
           if !recent.isEmpty { columns("Đọc gần đây", recent) }
           if !handbook.keptItems.isEmpty { chips([(String(localized: "Đã tải để đọc offline"), handbook.keptItems.count, Browse.kept)]) }
           if !s.groups.isEmpty {

@@ -1,8 +1,8 @@
 {
   "id": "hyphessobrycon-megalopterus",
   "native": {
-    "input": "25f58d1e1925c5de",
-    "at": "2026-11-12T13:29:05.219Z",
+    "input": "3bda9f091df634bc",
+    "at": "2026-11-14T00:09:29.977Z",
     "claims": [
       {
         "code": "BO",
@@ -24,7 +24,7 @@
         "code": "BR",
         "status": "native",
         "source": "glaser",
-        "quote": "It originates from the Mato Grosso in Brazil, but all fish in the hobby are bred ones.",
+        "quote": "Origin: Mato Grosso, Brazil; all fish in the hobby are bred",
         "words": "Brazil",
         "ok": true
       }
@@ -33,7 +33,7 @@
       {
         "name": "Madeira",
         "source": "seriouslyfish",
-        "quote": "Native to the upper rio Madeira, a major branch of the western Amazon watershed in Bolivia and western Brazil, including its major tributaries the rios Beni and Mamoré, plus the upper rio Paraguai in Brazil.",
+        "quote": "The black phantom tetra, Megalamphodus megalopterus, is a characid from the upper rio Madeira and upper rio Paraguai in Bolivia and Brazil.",
         "ok": true
       },
       {
@@ -44,12 +44,6 @@
       },
       {
         "name": "Guaporé",
-        "source": "seriouslyfish",
-        "quote": "Most records are from the rio Guaporé (Río Iténez in Bolivia).",
-        "ok": true
-      },
-      {
-        "name": "Mamoré",
         "source": "seriouslyfish",
         "quote": "The majority of records pertain to the rio Guaporé (Río Iténez in Bolivia), the main affluent of the rio Mamoré, which drains the vast tropical wetland known as the Pantanal, and the upper rio Paraguai, which also has its headwaters in the Pantanal but flows in the opposite direction.",
         "ok": true

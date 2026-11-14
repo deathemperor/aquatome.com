@@ -812,5 +812,151 @@
       "quickFacts:tropica": "379f74c2c226",
       "notes:tropica": "1eaca456496b"
     }
+  },
+  "cryptocoryne-usteriana": {
+    "at": "2026-11-13",
+    "from": "2026-10-30",
+    "name": "Cryptocoryne usteriana",
+    "confidence": "high",
+    "score": 0.75,
+    "notes": [
+      "\"di dalam tangki\": in Malaysian hobby usage \"akuarium\" is the more natural term than \"tangki\" (e.g. \"di dalam akuarium\").",
+      "\"permukaan yang timbul berbonggol\": awkward and redundant. Use \"permukaan berbonggol\" or \"permukaan beremboss\".",
+      "\"merah burgundy\": use \"merah anggur\" or \"merah marun\", which is more natural.",
+      "\"sangat tahan dengan air yang agak beralkali\": awkward. Use \"sangat tahan terhadap air yang agak beralkali\".",
+      "\"stolon (runner)\": the runner is technically a stolon, so this is acceptable. Check that \"Dengan cahaya dan baja yang mencukupi\" is not stronger than the source's \"good light and fertilization\". \"Baik\" would be closer to the source than \"mencukupi\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "9fc755524157",
+      "notes:tropica": "44256534917f"
+    }
+  },
+  "cryptocoryne-wendtii": {
+    "at": "2026-11-13",
+    "from": "2026-11-03",
+    "name": "Cryptocoryne wendtii 'Green'",
+    "confidence": "high",
+    "score": 0.92,
+    "notes": [
+      "Item 3: \"sangat terancam (critically endangered)\" would be more exact as \"terancam kritikal\", the standard IUCN term in Malay.",
+      "Item 8: \"dalam beberapa minggu\" for \"in a couple of weeks\" is looser than the source. \"dalam masa dua minggu\" or \"dua hingga tiga minggu\" is closer.",
+      "Items 2 and 12: \"gangsa\" for \"bronze\" and \"Tahap kesukaran\" are acceptable. Several English terms (runner, melt, emersed, submersed) are left in English without a consistent gloss. Use one consistent form, for example \"emersed (timbul)\" on first mention only."
+    ],
+    "parts": {
+      "quickFacts:tropica": "3cfb115edf5f",
+      "quickFacts:aquariumbreeder": "2364939a36dd",
+      "beforeYouBuy:aquariumbreeder": "52128ef3431d",
+      "distribution:aquariumbreeder": "6b3aad27840b",
+      "habitat:aquariumbreeder": "0e2a8a0e3460",
+      "aquariumSize:aquariumbreeder": "992584e81c94",
+      "maintenance:tropica": "1ab07d9e7883",
+      "maintenance:aquariumbreeder": "06ec2d6c523d",
+      "waterConditions:aquariumbreeder": "c4b693153ed8",
+      "equipment:aquariumbreeder": "7eacc092628c",
+      "notes:tropica": "fbea94c2e00c",
+      "notes:aquariumbreeder": "efe816d8192e",
+      "references:aquariumbreeder": "3cdd785f1064"
+    }
+  },
+  "cryptocoryne-x-willisii": {
+    "at": "2026-11-14",
+    "from": "2026-10-30",
+    "name": "Cryptocoryne willisii",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "\"tangki\" is acceptable, but \"akuarium\" is the more usual term for a fish tank in Malaysian hobby usage; consider \"di dalam akuarium\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "6731144edd11"
+    }
+  },
+  "cyperus-helferi": {
+    "at": "2026-11-14",
+    "from": "2026-10-30",
+    "name": "Cyperus helferi",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "\"tangki\" in item 1: Malaysian hobbyists normally say \"akuarium\" for the tank, so use \"di dalam akuarium\".",
+      "\"tumbuhan akuatik di bawah air\" is redundant. Use \"tumbuhan akuatik\" or \"tumbuhan dalam air\".",
+      "\"rosetnya selebar\": \"roset\" is acceptable but could be clearer, e.g. \"rumpun berbentuk roset selebar 15–25 cm\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "12f02b6b31df",
+      "notes:tropica": "37dd0c72e8bf"
+    }
+  },
+  "dracaena-sanderiana": {
+    "at": "2026-11-14",
+    "from": "2026-11-09",
+    "name": "Buluh Bertuah",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": [
+      "Item 2: \"Alam\" for Kingdom and \"Order\" are acceptable, but \"Order\" could be \"Order/Tertib\" for consistency. This is optional and minor.",
+      "Item 3: \"suhu yang panas\" is slightly strong for \"warm temperatures\". \"suhu yang hangat\" or \"suhu yang suam\" reads more naturally."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "bfbebc835091",
+      "distribution:aquariumbreeder": "cb16d2349644",
+      "habitat:aquariumbreeder": "c71490ead308",
+      "aquariumSize:aquariumbreeder": "25e10316b03b",
+      "maintenance:aquariumbreeder": "3996b4c110b0",
+      "maintenance:aquatome": "5b57b98f4902",
+      "waterConditions:aquariumbreeder": "7affaa59661b",
+      "waterConditions:aquatome": "05e2eb34442b",
+      "equipment:aquariumbreeder": "2fd192012cfe",
+      "notes:aquariumbreeder": "f03fb6a42b7e"
+    }
+  },
+  "echinodorus-angustifolia": {
+    "at": "2026-11-14",
+    "from": "2026-11-10",
+    "name": "Echinodorus Vesuvius",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Items 2, 3 and 4: \"kuntum bunga\" means an open flower. For \"flower buds\" use \"kudup bunga\"."
+    ],
+    "parts": {
+      "quickFacts:aquariumcoop": "5d3f7aabb66d",
+      "beforeYouBuy:aquariumcoop": "2e3bba12ff2e",
+      "maintenance:aquatome": "5503d19be45f",
+      "maintenance:aquariumcoop": "64c740b3ebdf",
+      "notes:aquariumcoop": "ed9c0800ac5b"
+    }
+  },
+  "echinodorus-aquartica": {
+    "at": "2026-11-14",
+    "from": "2026-10-30",
+    "name": "Echinodorus 'Aquartica'",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"Asal\" for Origin is slightly terse; \"Asal usul\" or \"Asalan\" would be more natural (minor).",
+      "\"tumbuhan kultivasi\" is slightly awkward; \"tumbuhan kultivar\" or \"tumbuhan ternak/kacukan\" is more natural (minor)."
+    ],
+    "parts": {
+      "quickFacts:tropica": "5b4adfc6e8ba",
+      "notes:tropica": "03f1a1db2c22"
+    }
+  },
+  "echinodorus-cordifolius": {
+    "at": "2026-11-14",
+    "from": "2026-10-30",
+    "name": "Echinodorus Cordifolius Fluitans",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"Mexico\" should be \"Mexico\" in Malay is acceptable; but \"Asal: Amerika Utara\" in item 1 is fine—no issue; minor: \"Roset\" is OK.",
+      "\"Echinodorus dari Mexico yang tumbuh agak cepat berbanding yang lain\" is slightly awkward; better \"Echinodorus dari Mexico yang agak cepat membesar\".",
+      "\"memang cantik sebagai hiasan\" is a little awkward; use \"sangat menarik sebagai hiasan\".",
+      "\"instead\" nuance is lost in the last sentence: add \"sebaliknya\" (\"sebaliknya ia akan mengeluarkan daun besar betul-betul di bawah permukaan air\")."
+    ],
+    "parts": {
+      "quickFacts:tropica": "d6eeaf890a3b",
+      "notes:tropica": "c88d4379280b"
+    }
   }
 }

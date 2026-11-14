@@ -907,7 +907,7 @@ private struct GalleryRow: View {
       Text(title).font(.pageHeading).accessibilityAddTraits(.isHeader)
       ScrollView(.horizontal, showsIndicators: false) {
         HStack(alignment: .top, spacing: 10) {
-          ForEach(strip, id: \.self) { i in
+          ForEach(PhotoRow.strip(strip), id: \.self) { i in
             let p = photos[i]
             let ratio = CGFloat(p.w) / CGFloat(p.h)
             VStack(alignment: .leading, spacing: 4) {
@@ -935,7 +935,7 @@ private struct GalleryRow: View {
     }
     // Full screen, on black (PhotoViewer).
     .fullScreenCover(isPresented: Binding(get: { shown != nil }, set: { if !$0 { shown = nil } })) {
-      GalleryViewer(title: title, note: note, photos: photos, readers: readers, index: shown ?? 0)
+      GalleryViewer(note: note, photos: photos, readers: readers, index: shown ?? 0)
     }
   }
 
@@ -992,7 +992,7 @@ struct ReadersPart: View {
           if photos?.isEmpty == true { Text("Chưa có ảnh nào. Bạn nuôi \(name)? Gửi một tấm ảnh cho mọi người cùng xem.").foregroundStyle(.secondary) }
         } else {
           GalleryRow(title: String(localized: "Ảnh bạn đọc"), note: "", photos: shownPhotos.map(PageDoc.Image.init(reader:)),
-                     strip: Array(shownPhotos.indices.prefix(10)), all: "readers-all", readers: shownPhotos.map(ReaderItem.init), grid: grid)
+                     strip: Array(shownPhotos.indices), all: "readers-all", readers: shownPhotos.map(ReaderItem.init), grid: grid)
         }
         if open { Button("Gửi ảnh \(name) của bạn") { posting = .photo }.buttonStyle(.bordered).accessibilityIdentifier("post-photo") }
       }

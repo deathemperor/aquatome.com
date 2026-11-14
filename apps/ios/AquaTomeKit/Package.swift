@@ -11,6 +11,7 @@ let package = Package(
   products: [
     .library(name: "Chihiros", targets: ["Chihiros"]),
     .library(name: "ChihirosBLE", targets: ["ChihirosBLE"]),
+    .library(name: "WeekAqua", targets: ["WeekAqua"]),
     .library(name: "Tanks", targets: ["Tanks"]),
     .library(name: "Handbook", targets: ["Handbook"]),
     .library(name: "AccountSync", targets: ["AccountSync"]),
@@ -22,11 +23,15 @@ let package = Package(
   targets: [
     // Chihiros lights: the frames and replies (pure), no Bluetooth.
     .target(name: "Chihiros", swiftSettings: small),
-    // The same over CoreBluetooth.
-    .target(name: "ChihirosBLE", dependencies: ["Chihiros"], swiftSettings: small),
+    // The same over CoreBluetooth, for Week Aqua lights too.
+    .target(name: "ChihirosBLE", dependencies: ["Chihiros", "WeekAqua"], swiftSettings: small),
     // A Mac command line that drives a real light through ChihirosBLE (the iOS simulator has no Bluetooth).
     .executableTarget(name: "light-harness", dependencies: ["Chihiros", "ChihirosBLE"]),
     .testTarget(name: "ChihirosTests", dependencies: ["Chihiros"]),
+    // Week Aqua lights of model code 5746: the frames, the order they're sent in, and a fake light (pure), no Bluetooth.
+    // Times of day are the Chihiros module's.
+    .target(name: "WeekAqua", dependencies: ["Chihiros"], swiftSettings: small),
+    .testTarget(name: "WeekAquaTests", dependencies: ["WeekAqua", "Chihiros"]),
     // "Bể của tôi": tanks and devices, the site's model and merge rules (docs/my-tanks-sync.md). Pure.
     .target(name: "Tanks", swiftSettings: small),
     .testTarget(name: "TanksTests", dependencies: ["Tanks"]),

@@ -22,9 +22,15 @@
         "BD",
         "ID"
       ],
-      "regions": [],
+      "regions": [
+        "Ganges",
+        "Brahmaputra",
+        "Padma",
+        "Jamuna"
+      ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "planetcatfish"
       ],
       "quotes": [
         {
@@ -37,6 +43,17 @@
             "ID"
           ],
           "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Indian waters, North Eastern India, Padma, Ganges; and Padma, Jamuna, Brahmaputra.",
+          "countries": [],
+          "regions": [
+            "Ganges",
+            "Brahmaputra",
+            "Padma",
+            "Jamuna"
+          ]
         }
       ]
     },

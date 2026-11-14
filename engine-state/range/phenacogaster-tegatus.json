@@ -1,8 +1,8 @@
 {
   "id": "phenacogaster-tegatus",
   "native": {
-    "input": "f886d0bba85dc992",
-    "at": "2026-11-12T21:02:28.514Z",
+    "input": "7ada5e638c44a360",
+    "at": "2026-11-14T00:09:29.977Z",
     "claims": [
       {
         "code": "BR",
@@ -27,20 +27,27 @@
         "quote": "Phenacogaster tegatus is a small characid from the upper rio Paraguay basin in Brazil and Paraguay and the Río Paraná in northeastern Argentina.",
         "words": "Argentina",
         "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Paraguay.",
+        "words": "Paraguay",
+        "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Paraguay",
+        "name": "Rio Paraguay",
         "source": "seriouslyfish",
-        "quote": "Recorded from the upper rio Paraguay basin in southwestern Brazil and Paraguay and the Río Paraná in Corrientes province, northeastern Argentina.",
-        "ok": false,
-        "why": "a country"
+        "quote": "Phenacogaster tegatus is a small characid from the upper rio Paraguay basin in Brazil and Paraguay and the Río Paraná in northeastern Argentina.",
+        "ok": true
       },
       {
         "name": "Río Paraná",
         "source": "seriouslyfish",
-        "quote": "Recorded from the upper rio Paraguay basin in southwestern Brazil and Paraguay and the Río Paraná in Corrientes province, northeastern Argentina.",
+        "quote": "Phenacogaster tegatus is a small characid from the upper rio Paraguay basin in Brazil and Paraguay and the Río Paraná in northeastern Argentina.",
         "country": "AR",
         "ok": true
       },

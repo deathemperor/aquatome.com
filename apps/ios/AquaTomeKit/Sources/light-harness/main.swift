@@ -9,9 +9,20 @@
 // `restore` writes the owner's everyday schedule back (12:00–20:00, 70% red/green/blue, 30-minute ramp) and checks
 // the light reports it. Run it after every hands-on test. Light names here carry the device's address: never paste
 // them into the repository.
+//
+// Week Aqua lights, model code 5746 only (any other code is listed, never connected to or written):
+//
+//   swift run light-harness weekaqua scan                              model codes and the end of each address
+//   swift run light-harness weekaqua write 54 114 57 117 02:50 02:40   red, green, blue, UV (0–235), on, off
+//   swift run light-harness weekaqua write … --manual-bytes 2          manual mode as `FD F1` alone, not 8 bytes
+//
+// `write` sends to every 5746 light found, as one group, in the order the lights take: clock, manual mode, levels,
+// timer, manual mode. They report nothing back: watch them. Put the owner's group back as WEEK AQUA leaves it with
+// `weekaqua write 54 114 57 117 02:50 02:40`.
 import Chihiros
 import ChihirosBLE
 import Foundation
+import WeekAqua
 
 let ownersSchedule = Schedule(on: TimeOfDay(hour: 12, minute: 0), off: TimeOfDay(hour: 20, minute: 0), ramp: 30, levels: [70, 70, 70])
 
@@ -57,11 +68,13 @@ func run(_ args: [String]) async throws {
     let stream = try await bt.scan()
     Task { try? await Task.sleep(for: .seconds(8)); bt.stopScan() }
     var seen = Set<UUID>()
-    for await l in stream where seen.insert(l.id).inserted { print(l.rssi, Model.of(name: l.name)?.name ?? "(not supported)") }
+    for await l in stream where l.weekAqua == nil && seen.insert(l.id).inserted { print(l.rssi, Model.of(name: l.name)?.name ?? "(not supported)") }
     return
   }
+  if cmd == "weekaqua" { return try await weekAqua(bt, Array(args.dropFirst())) }
   guard ["status", "clock", "clock-at", "restore", "write", "level"].contains(cmd) else {
     print("usage: light-harness scan | status | clock | clock-at HH:MM | restore | write ON OFF RAMP LEVEL… | level CHANNEL LEVEL")
+    print("       light-harness weekaqua scan | weekaqua write R G B UV ON OFF [--manual-bytes 2|8]")
     exit(2)
   }
   let light = try await connect(bt)
@@ -103,6 +116,58 @@ func run(_ args: [String]) async throws {
     print("restored: 12:00–20:00, 70%, 30-minute ramp")
   default: break
   }
+  try await Task.sleep(for: .milliseconds(300))
+}
+
+/// The end of a Week Aqua light's address ("…E5:F6"), enough to tell the owner's lights apart without printing it whole.
+func tail(_ l: FoundLight) -> String { l.weekAqua?.addressText.map { "…" + $0.suffix(5) } ?? "(no address)" }
+
+@MainActor
+func weekAqua(_ bt: Bluetooth, _ args: [String]) async throws {
+  let sub = args.first ?? ""
+  guard sub == "scan" || sub == "write" else { print("weekaqua scan | weekaqua write R G B UV ON OFF [--manual-bytes 2|8]"); exit(2) }
+  var setting: WeekAquaSetting?
+  var manual = WeekAquaSession.Manual.eightBytes
+  if sub == "write" {
+    var rest = Array(args.dropFirst())
+    if let i = rest.firstIndex(of: "--manual-bytes") {
+      guard i + 1 < rest.count, ["2", "8"].contains(rest[i + 1]) else { print("--manual-bytes 2 or 8"); exit(2) }
+      manual = rest[i + 1] == "2" ? .twoBytes : .eightBytes
+      rest.removeSubrange(i...(i + 1))
+    }
+    guard rest.count == 6, let levels = WeekAquaLevels(rest[0..<4].compactMap { Int($0) }), let on = TimeOfDay(rest[4]),
+          let off = TimeOfDay(rest[5]) else {
+      print("weekaqua write R G B UV ON OFF: four levels 0–235, then HH:MM twice"); exit(2)
+    }
+    if on == off { print("on equal to off (seventh byte 24) is untried on the lights: watch whether they stay on all day") }
+    setting = WeekAquaSetting(levels: levels, timer: DailyTimer(on: on, off: off))
+  }
+  let stream = try await bt.scan()
+  Task { try? await Task.sleep(for: .seconds(8)); bt.stopScan() }
+  var found: [FoundLight] = []
+  for await l in stream where l.weekAqua != nil && !found.contains(where: { $0.id == l.id }) { found.append(l) }
+  for l in found {
+    let a = l.weekAqua!
+    print(l.rssi, a.code ?? "(no code)", a.isSupported ? "supported" : "not supported: never written to", tail(l))
+  }
+  guard let setting else { return }
+  // Only 5746 lights; `connectWeekAqua` and the session refuse any other too.
+  let group = found.filter { $0.weekAqua?.isSupported == true }
+  guard !group.isEmpty else { print("no 5746 light found"); exit(1) }
+  var links: [WeekAquaBLELink] = []
+  defer { links.forEach { $0.disconnect() } }
+  for l in group {
+    // A light that was just let go sometimes drops the next connection at once: try twice.
+    do { links.append(try await bt.connectWeekAqua(l)) } catch BluetoothError.disconnected {
+      try await Task.sleep(for: .seconds(1))
+      links.append(try await bt.connectWeekAqua(l))
+    }
+    print("connected:", tail(l))
+  }
+  let session = try WeekAquaSession(lights: links, manual: manual)
+  session.trace = { i, f in print("  >", tail(group[i]), hex(f)) }
+  try await session.write(setting)
+  print("written to \(group.count) light(s), manual mode as \(manual == .twoBytes ? 2 : 8) bytes. They report nothing: check by eye.")
   try await Task.sleep(for: .milliseconds(300))
 }
 

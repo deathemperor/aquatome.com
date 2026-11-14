@@ -12,6 +12,7 @@ import { discover } from './discover'
 import { ChallengeError, type ChromeFetcher } from './fetch'
 import { gbifMatch, pageTaxon, type Taxon } from './gbif'
 import { GROUP_PAGES } from './page-folds'
+import { recordKindFallback } from './kind-words'
 import { ensurePlaces, guideId, mergePlant, mergeSpecies, writeGuide } from './merge'
 import { METRIC_KINDS } from './metric'
 import { htmlToOutline, isChallenge, type PageImage } from './outline'
@@ -292,6 +293,8 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       const known = new Set(await s.ids('places'))
       for (const p of ensurePlaces(page.places, known)) await s.write('places', PlaceSchema, p)
       await s.write('species', SpeciesSchema, item)
+      // A source's name that names another kind of animal: the page took its plain scientific form, listed for the Writing Lead.
+      if (item.fellBack) await recordKindFallback(root, `species/${item.entity.id}`, { ...item.fellBack, took: item.vi.name, at: now })
       await appendChangelog(contentRoot, [log('species', item.entity.id, !!existing.entity)])
       return [`species/${item.entity.id}`]
     }

@@ -1,0 +1,105 @@
+{
+  "id": "neoplecostomus-microps",
+  "native": {
+    "input": "94855d5c7d9f1bfd",
+    "at": "2026-11-14T00:09:29.977Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio de Janeiro (possibly Rio Parahyba), Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Paraíba do Sul",
+        "source": "planetcatfish",
+        "quote": "South America: Paraíba do Sul River basin.",
+        "ok": true
+      },
+      {
+        "name": "Macaé",
+        "source": "planetcatfish",
+        "quote": "Rio de Janeiro State rivers, Paraíba do Sul and Macaé.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Neoplecostomus microps",
+    "status": "ACCEPTED",
+    "taxonKey": 2339401,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        105
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        69
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        50
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        41
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        20
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        13
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        8
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        6
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        5
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        3
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T00:09:29.977Z"
+  }
+}

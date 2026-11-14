@@ -2,8 +2,10 @@ import { execFileSync, spawn } from 'node:child_process'
 import { appendFileSync, mkdtempSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { ceilingMessage, costLog, inPiece, stepName } from './ceiling'
 import { envFor, NotTheAccount, onAccounts, tokenHash } from './claude-accounts'
+import { cycleOnlyHosts } from './cycle-only'
 import { MARKETPLACE_DOMAINS } from './marketplaces'
 
 // Where a call that reads no files runs: a folder of its own, empty. At its start the CLI lists the files under where it
@@ -105,6 +107,18 @@ export const claudeCli: Llm = <T>({ system, prompt, schema, model }: { system: s
 export const claudeVision = <T>({ system, prompt, schema, file, model }: { system: string; prompt: string; schema: object; file: string; model?: string }) =>
   run<T>(system, `${prompt}\n\nNever transcribe lettering, signatures or personal names from a photo.\nThe photo: ${file} (open it with the Read tool).`, schema, { tools: 'Read', cwd: dirname(file), model, privateImage: true })
 
-/** Same, able to search and read the web (WebSearch, WebFetch; never marketplace pages): product research. Slower, so a longer timeout. */
-export const claudeResearch: Llm = <T>({ system, prompt, schema, model }: { system: string; prompt: string; schema: object; model?: string }) =>
-  run<T>(system, prompt, schema, { tools: 'WebSearch,WebFetch', deny: MARKETPLACE_DOMAINS.map(d => `WebFetch(domain:${d})`), cwd: noFiles(), model, timeoutMs: 25 * 60_000 })
+/** The pages research may not read: the marketplaces', and `hosts`' (cycle-only.ts). */
+export const researchDeny = (hosts: readonly string[] = []) => [...MARKETPLACE_DOMAINS, ...hosts].map(d => `WebFetch(domain:${d})`)
+/** This checkout, whose engine-state says which sources the engine has moved to the Archive or found blocked (as cli.ts's ROOT). */
+const ENGINE_ROOT = fileURLToPath(new URL('../../..', import.meta.url))
+
+/**
+ * Same, able to search and read the web (WebSearch, WebFetch), for `root`'s engine. Never a marketplace's page, nor one of a
+ * source the engine reads only at its own pace (cycle-only.ts: through the Archive, or waiting for a person to pass its
+ * browser check), read again from the engine's own record before every call, so a source marked since is off at once (the
+ * chief of staff, 14 Nov 2026, on the owner's rule that nothing goes round a challenge). Slower, so a longer timeout.
+ */
+export const researchFor = (root: string): Llm => async <T>({ system, prompt, schema, model }: { system: string; prompt: string; schema: object; model?: string }) =>
+  run<T>(system, prompt, schema, { tools: 'WebSearch,WebFetch', deny: researchDeny(await cycleOnlyHosts(root)), cwd: noFiles(), model, timeoutMs: 25 * 60_000 })
+/** Web research, the one every step uses. */
+export const claudeResearch: Llm = researchFor(ENGINE_ROOT)

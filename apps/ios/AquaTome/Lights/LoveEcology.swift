@@ -152,6 +152,9 @@ final class LoveEcologyModel {
 struct LoveEcologyCard: View {
   @Environment(AccountModel.self) private var account
   @Environment(\.dynamicTypeSize) private var size
+  @Environment(\.colorScheme) private var scheme
+  /// The colour dots grow with their names, up to about a large tap target.
+  @ScaledMetric(relativeTo: .caption) private var dot: CGFloat = 32
   @State private var lamp = LoveEcologyModel()
 
   var body: some View {
@@ -162,35 +165,53 @@ struct LoveEcologyCard: View {
           .font(.subheadline).foregroundStyle(.secondary)
         HStack(spacing: 12) {
           ForEach(["on", "off"].compactMap { id in LoveEcologyModel.commands.first { $0.id == id } }) { c in
-            Button { lamp.send(c) } label: { Text(Self.name(c.id)).frame(maxWidth: .infinity) }
-              .buttonStyle(.bordered).controlSize(.large)
-              .accessibilityIdentifier("lamp-\(c.id)")
+            Button { lamp.send(c) } label: {
+              // The word keeps its room while a spinner stands in for it, so the button doesn't change size.
+              Text(Self.name(c.id)).opacity(sending(c) ? 0 : 1).overlay { if sending(c) { ProgressView() } }.frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.bordered).controlSize(.large)
+            .disabled(othersWait(c))
+            .accessibilityLabel(Self.name(c.id))
+            .accessibilityIdentifier("lamp-\(c.id)")
           }
         }
         LazyVGrid(columns: [GridItem(.adaptive(minimum: size.isAccessibilitySize ? 150 : 72), alignment: .top)], spacing: 12) {
           ForEach(LoveEcologyModel.commands.filter { Self.looks[$0.id] != nil }) { c in
             Button { lamp.send(c) } label: {
               VStack(spacing: 4) {
-                Circle().fill(Self.looks[c.id] ?? .clear).frame(width: 32, height: 32)
-                  .overlay { Circle().strokeBorder(.secondary.opacity(0.4)) }
+                // A hairline ring in both looks: a deep blue dot is faint on the dark card without one.
+                Circle().fill(Self.looks[c.id] ?? .clear).frame(width: min(dot, 44), height: min(dot, 44))
+                  .overlay { Circle().strokeBorder(.primary.opacity(scheme == .dark ? 0.5 : 0.25)) }
                 Text(Self.name(c.id)).font(.caption).foregroundStyle(.primary).multilineTextAlignment(.center)
+                  .opacity(sending(c) ? 0 : 1).overlay { if sending(c) { ProgressView().controlSize(.small) } }
               }
               .frame(maxWidth: .infinity, minHeight: 44)
               .contentShape(Rectangle())
             }
             .buttonStyle(.plain)
+            .disabled(othersWait(c))
+            .opacity(othersWait(c) ? 0.4 : 1)
+            .accessibilityLabel(Self.name(c.id))
             .accessibilityIdentifier("lamp-\(c.id)")
           }
         }
-        if let line = statusLine {
-          Text(verbatim: line).font(.footnote).foregroundStyle(.secondary).accessibilityIdentifier("lamp-status")
+        // Always one line, so the first send doesn't push the cards below down. A problem reads as one.
+        Group {
+          if case .problem = lamp.status {
+            Label { Text(verbatim: statusLine) } icon: { Image(systemName: "exclamationmark.triangle.fill") }
+              .foregroundStyle(.primary)
+          } else {
+            Text(verbatim: statusLine).foregroundStyle(lamp.status == .ready ? HierarchicalShapeStyle.tertiary : .secondary)
+          }
         }
+        .font(.footnote)
+        .accessibilityIdentifier("lamp-status")
       }
       .padding()
       .frame(maxWidth: .infinity, alignment: .leading)
       .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 12))
       .onDisappear { lamp.stop() }
-      .onChange(of: lamp.status) { if let line = statusLine { AccessibilityNotification.Announcement(line).post() } }
+      .onChange(of: lamp.status) { if lamp.status != .ready { AccessibilityNotification.Announcement(statusLine).post() } }
       #if DEBUG
       .background {
         // The commands broadcast, for the UI tests to read (debug builds only).
@@ -200,11 +221,17 @@ struct LoveEcologyCard: View {
     }
   }
 
-  private var statusLine: String? {
+  private func sending(_ c: FishLamp.Command) -> Bool { lamp.status == .sending(c.id) }
+  /// While a command goes out, the other buttons wait.
+  private func othersWait(_ c: FishLamp.Command) -> Bool {
+    if case .sending(let id) = lamp.status { id != c.id } else { false }
+  }
+
+  private var statusLine: String {
     switch lamp.status {
-    case .ready: nil
+    case .ready: String(localized: "Chưa gửi lệnh nào")
     case .sending(let id): String(localized: "Đang gửi “\(Self.name(id))”…")
-    case .sent(let id, let at): String(localized: "Đã gửi “\(Self.name(id))” lúc \(at.formatted(date: .omitted, time: .shortened)).")
+    case .sent(let id, let at): String(localized: "Đã gửi “\(Self.name(id))” lúc \(Self.clock(at)).")
     case .problem(.off): String(localized: "Bật Bluetooth để gửi lệnh tới đèn.")
     case .problem(.refused): String(localized: "AquaTome chưa được dùng Bluetooth. Bật trong Cài đặt → AquaTome → Bluetooth.")
     case .problem(.unsupported): String(localized: "Máy này không có Bluetooth.")
@@ -219,6 +246,12 @@ struct LoveEcologyCard: View {
     "cyan": Color(hue: 180 / 360, saturation: 1, brightness: 1), "blue": Color(hue: 240 / 360, saturation: 1, brightness: 1),
     "magenta": Color(hue: 300 / 360, saturation: 1, brightness: 1),
   ]
+
+  /// "19:23", as the schedule beside it writes times, whatever the phone's 12- or 24-hour setting.
+  private static func clock(_ at: Date) -> String {
+    let t = Calendar.current.dateComponents([.hour, .minute], from: at)
+    return String(format: "%02d:%02d", t.hour ?? 0, t.minute ?? 0)
+  }
 
   private static func name(_ id: String) -> String {
     switch id {
