@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import { checks, prComment, sitemapPages, lateDeploy, goesLive, DEPLOY_PATHS, waitingCommits } from '../../../scripts/site-watch.mjs'
+import { checkedPage, checks, prComment, sitemapPages, lateDeploy, goesLive, DEPLOY_PATHS, waitingCommits } from '../../../scripts/site-watch.mjs'
 
 // One page's review in Playwright's JSON report, shaped as a real run writes it (ci.yml runs the phone project only).
 const LIMIT = "Claude usage limit: You've hit your weekly limit · resets Nov 5, 6am (UTC)"
@@ -111,4 +111,19 @@ test('a baseline that is not an ancestor of main falls through to the commit cou
 test('300 changed files or more fall through to the commit count', () => {
   const files = Array.from({ length: 300 }, (_, i) => ({ filename: `notes/${i}.txt` }))
   expect(waiting({ status: 'ahead', files })).toEqual([DATE])
+})
+
+// 14 Nov 2026: three issues for /ms/tumbuhan/cryptocoryne-spiralis-red/foto/ recorded their page as "checks" (from the test
+// "page checks /ms/…"), so the recheck never found it and they stayed open after the page was fixed.
+test("each check's page is read from its name, whatever words come before it in each spec's tests", () => {
+  expect(checkedPage('page checks /ms/tumbuhan/cryptocoryne-spiralis-red/foto/')).toBe('/ms/tumbuhan/cryptocoryne-spiralis-red/foto/')
+  expect(checkedPage('page /ms/tumbuhan/x/ @phone')).toBe('/ms/tumbuhan/x/')
+  expect(checkedPage('review /vi/ca/?q=neon')).toBe('/vi/ca/?q=neon')
+  expect(checkedPage('lighthouse /')).toBe('/')
+  expect(checkedPage('Site checks did not run')).toBeUndefined()
+  // Every test the live checks name after a page, in every spec, as the specs write their names.
+  const e2e = new URL('../e2e/', import.meta.url)
+  const named = ['invariants.spec.ts', 'review.spec.ts', 'lighthouse.spec.ts'].flatMap(f => [...readFileSync(new URL(f, e2e), 'utf8').matchAll(/test\(`([^`$]+) \$\{path\}`/g)].map(m => m[1]!))
+  expect(named.length).toBeGreaterThanOrEqual(4)
+  for (const words of named) expect(checkedPage(`${words} /th/fish/x/`), words).toBe('/th/fish/x/')
 })
