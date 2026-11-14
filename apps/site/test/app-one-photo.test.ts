@@ -12,9 +12,9 @@ import { guideImage } from '../src/lib/mentions'
 // never nothing (the Design Lead's line, accepted by the chief of staff, 13 Nov). On 13 Nov 41 fish pages led with a
 // dealer's shot cropped too near the fish, which the app's data left out of the page's `lead` and the index's `img`, so
 // the app showed no photo for them, or a later one on the card. Now `img` and `lead` are the page's first photo that
-// isn't generated, with where the fish is (`box`): its whole area where the cards' frames refuse the photo. Until the v2
-// Lab's build that draws the box is on TestFlight, a switch keeps such a photo off both, so today's build doesn't crop it
-// (APP_WHOLE_PHOTOS, the chief of staff, 13 Nov): each case holds both ways.
+// isn't generated, with where the fish is (`box`): its whole area where the cards' frames refuse the photo. A switch kept
+// such a photo off both until the v2 Lab's build that draws the box (375) was on TestFlight, 14 Nov, so a build before it
+// doesn't crop it (APP_WHOLE_PHOTOS, the chief of staff, 13 Nov): each case holds both ways.
 const WHOLE = { x: 0, y: 0, w: 1, h: 1 }
 async function withSwitch<T>(on: boolean, run: () => Promise<T>): Promise<T> {
   const was = APP_WHOLE_PHOTOS.on
