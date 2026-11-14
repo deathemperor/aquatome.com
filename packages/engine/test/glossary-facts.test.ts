@@ -226,7 +226,7 @@ test('going back puts in again only the rewordings that stay; a note is about a 
 
 // The chief of staff, 15 Nov 2026: the rewording bought its fit by taking specifics out (pH's weekly 20–30%, chu trình
 // nitơ's fish deaths and "0 or near 0", Lũa's "must soak"). A rewording that drops one the facts carry keeps the old wording.
-const told = { ...facts, facts: [{ section: 'do', fact: 'Replace about 20–30% of the water weekly. Cardinal tetras (Paracheirodon axelrodi) live below pH 5.5. Below pH 7.3 more of it is ammonium (NH4+). Wait 2 weeks, then add CO2. Keep pH 6.0–6.5.', source: 2 }] }
+const told = { ...facts, facts: [{ section: 'do', fact: 'Replace about 20–30% of the water weekly. Cardinal tetras (Paracheirodon axelrodi) live below pH 5.5. Below pH 7.3 more of it is ammonium (NH4+). Wait 2 weeks, then add CO2. Keep pH 6.0–6.5. About 2,000 ppm. Lights on 24/24. Keep pH 7.2 for 6 days.', source: 2 }] }
 async function reworded(before: string, after: string, names: string[] = []) {
   const e = { definition: 'Một câu.', body: `<p>${before}</p>` }
   const { llm } = model([{}, {}, {}], [], { [before]: after })
@@ -244,6 +244,12 @@ test('a rewording that drops a figure the facts carry keeps the old wording; a f
   expect((await reworded('Dưới pH 7,3 nó ở dạng NH4+.', 'Dưới pH 7,3 nó ở dạng amoni.')).entry.body).toBe('<p>Dưới pH 7,3 nó ở dạng amoni.</p>')
   expect((await reworded('Giữ pH 6.0–6.5.', 'Giữ pH 6–6,5.')).entry.body).toBe('<p>Giữ pH 6–6,5.</p>')
   expect((await reworded('Sau 2 tuần thì bơm CO2.', 'Sau đó thì bơm CO2.')).entry.body).toBe('<p>Sau 2 tuần thì bơm CO2.</p>')
+  // A thousands group is one number; a figure given twice goes when it goes once; a figure written after pH counts.
+  expect((await reworded('Cần khoảng 2.000 ppm.', 'Cần khoảng 2 ppm.')).entry.body).toBe('<p>Cần khoảng 2.000 ppm.</p>')
+  expect((await reworded('Có 1.651 loài.', 'Có 1651 loài.')).entry.body).toBe('<p>Có 1651 loài.</p>')
+  expect((await reworded('Giữ pH 6.0 và đợi 6 ngày.', 'Giữ pH 6.0.')).entry.body).toBe('<p>Giữ pH 6.0 và đợi 6 ngày.</p>')
+  expect((await reworded('Bật đèn 24/24.', 'Bật đèn 24 giờ.')).entry.body).toBe('<p>Bật đèn 24/24.</p>')
+  expect((await reworded('Giữ pH7,2.', 'Giữ pH ổn định.')).entry.body).toBe('<p>Giữ pH7,2.</p>')
 })
 
 test('a rewording that drops a named example, a page\'s name or a Latin name the facts write, keeps the old wording', async () => {
@@ -253,6 +259,9 @@ test('a rewording that drops a named example, a page\'s name or a Latin name the
   // Grok's read: a one-word name is an everyday word too; a Latin name counts in another case.
   expect((await reworded('Nuôi mono trong bể lợ.', 'Nuôi cá trong bể lợ.', ['Mono', 'Cá neon vua'])).entry.body).toBe('<p>Nuôi cá trong bể lợ.</p>')
   expect((await reworded('Paracheirodon Axelrodi sống ở pH dưới 5,5.', 'Có loài sống ở pH dưới 5,5.')).entry.body).toBe('<p>Paracheirodon Axelrodi sống ở pH dưới 5,5.</p>')
+  // A page's name swapped for a longer one is a drop: the longer is found first.
+  expect((await reworded('Cá rô ăn tạp.', 'Cá rô phi ăn tạp.', ['Cá rô', 'Cá rô phi'])).entry.body).toBe('<p>Cá rô ăn tạp.</p>')
+  expect((await reworded('Cá rô phi ăn tạp.', 'Cá rô phi ăn mọi thứ.', ['Cá rô', 'Cá rô phi'])).entry.body).toBe('<p>Cá rô phi ăn mọi thứ.</p>')
 })
 
 test('a rewording that drops a caution, a death or a must, keeps the old wording', async () => {
@@ -262,6 +271,7 @@ test('a rewording that drops a caution, a death or a must, keeps the old wording
   // Grok's read: the same words in a phrase that is no caution.
   expect((await reworded('Màu sắc độc đáo.', 'Màu sắc lạ.')).entry.body).toBe('<p>Màu sắc lạ.</p>')
   expect((await reworded('Có phải thay nước không?', 'Thay nước định kỳ.')).entry.body).toBe('<p>Thay nước định kỳ.</p>')
+  expect((await reworded('Đây không phải là muối.', 'Đây là loại khác.')).entry.body).toBe('<p>Đây là loại khác.</p>')
 })
 
 test('a reworded sentence in the body is written back escaped, and one still loose stays, logged; a rewording of two sentences isn\'t placed', async () => {

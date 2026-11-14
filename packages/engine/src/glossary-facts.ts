@@ -188,10 +188,17 @@ function placed<E extends { definition: string; body: string }>(e: E, text: stri
 }
 
 /**
- * The figures a text gives, as numbers: "20–30%" gives 20 and 30, "7,3" 7.3, "6.0" 6. Never a digit inside a word or a
- * formula (CO2, NH4+, H3PO4): Grok's read, 15 Nov 2026, found a formula's digit taken for a figure.
+ * The figures a text gives, each as often as it gives it, as numbers: "20–30%" gives 20 and 30, "7,3" 7.3, "6.0" 6, and a
+ * thousands group 2.000 or 2,000 two thousand (three digits after each mark, the first part not 0). Never a digit inside
+ * a word or a formula (CO2, NH4+, H3PO4), but "pH7,2" gives 7.2. Grok's reads, 15 Nov 2026.
  */
-const figures = (text: string) => [...text.matchAll(/(?<![\p{L}\p{N}.,])\d+(?:[.,]\d+)?/gu)].map(m => String(Number(m[0].replace(',', '.'))))
+const figures = (text: string) => [...text.replace(/pH(?=\d)/g, 'pH ').matchAll(/(?<![\p{L}\p{N}.,])\d+(?:[.,]\d+)*/gu)].map(m => {
+  const n = m[0], parts = n.split(/[.,]/)
+  const thousands = parts.length > 1 && parts[0] !== '0' && parts.slice(1).every(x => x.length === 3)
+  return String(Number(thousands ? parts.join('') : parts.length > 2 ? parts.slice(0, 2).join('.') : parts.join('.')))
+})
+/** The figures `before` gives more often than `after`: each dropped once for each time it went. */
+const lessOf = (before: string[], after: string[]) => { const left = [...after]; return before.filter(f => { const i = left.indexOf(f); if (i < 0) return true; left.splice(i, 1); return false }) }
 const has = (text: string, w: string) => new RegExp(`(?<![\\p{L}\\p{N}])${w}(?![\\p{L}\\p{N}])`, 'iu').test(text)
 const escapeRe = (n: string) => n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 /**
@@ -200,12 +207,16 @@ const escapeRe = (n: string) => n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
  * everyday word too.
  */
 const namesIn = (text: string, names: string[], facts = '') => [
-  ...names.filter(n => /\S\s+\S/.test(n.trim()) && has(text, escapeRe(n.trim()))),
+  // The longest first, each taken out of the text once found, so "Cá rô" isn't found inside "Cá rô phi".
+  ...[...names].map(n => n.trim()).filter(n => /\S\s+\S/.test(n)).sort((a, b) => b.length - a.length).filter(n => {
+    const re = new RegExp(`(?<![\\p{L}\\p{N}])${escapeRe(n)}(?![\\p{L}\\p{N}])`, 'giu')
+    return re.test(text) && ((text = text.replace(re, ' ')), true)
+  }),
   ...[...text.matchAll(/(?<![\p{L}\p{N}])[A-Za-z][a-z]+ [A-Za-z][a-z]{2,}(?![\p{L}\p{N}])/gu)].map(m => m[0]).filter(n => /^[A-Z]/.test(n) && facts.toLowerCase().includes(n.toLowerCase())),
 ]
 /** The words of a caution in Vietnamese: a warning, a must, a never; read on a text without the phrases where they mean something else. */
 const CAUTIONS = ['không được', 'không nên', 'đừng', 'chớ', 'tránh', 'phải', 'cẩn thận', 'lưu ý', 'coi chừng', 'cảnh báo', 'nguy hiểm', 'độc', 'hại', 'chết']
-const NOT_CAUTIONS = /(?<![\p{L}\p{N}])(?:độc đáo|độc lập|độc quyền|độc nhất|độc giả|đơn độc|bên phải|tay phải|phía phải|phải không|có phải|phải chăng|lẽ phải|phải trái)(?![\p{L}\p{N}])/giu
+const NOT_CAUTIONS = /(?<![\p{L}\p{N}])(?:không phải|độc đáo|độc lập|độc quyền|độc nhất|độc giả|đơn độc|bên phải|tay phải|phía phải|phải không|có phải|phải chăng|lẽ phải|phải trái)(?![\p{L}\p{N}])/giu
 const cautionsIn = (text: string) => { const t = text.replace(NOT_CAUTIONS, ' '); return CAUTIONS.filter(w => has(t, w)) }
 
 /** The phrases a note quotes, "…" or “…”, of three characters or more. */
@@ -271,8 +282,8 @@ export async function rewordLoose<E extends { definition: string; body: string }
   // The facts' own words, not their source numbers.
   const said = ((facts as { facts?: { fact: string }[] }).facts ?? []).map(f => f.fact).join('\n'), carried = new Set(figures(said))
   const dropped = (x: Rewording) => [
-    ...figures(x.s.text).filter(f => carried.has(f) && !figures(x.to).includes(f)).map(f => `the figure ${f}`),
-    ...namesIn(x.s.text, keep.names ?? [], said).filter(n => !has(x.to, escapeRe(n))).map(n => `the name ${n}`),
+    ...lessOf(figures(x.s.text), figures(x.to)).filter(f => carried.has(f)).map(f => `the figure ${f}`),
+    ...namesIn(x.s.text, keep.names ?? [], said).filter(n => !namesIn(x.to, keep.names ?? [], said).includes(n)).map(n => `the name ${n}`),
     ...cautionsIn(x.s.text).filter(w => !cautionsIn(x.to).includes(w)).map(w => `the caution "${w}"`),
   ]
   const broke = new Map(unstopped.done.map(x => [x, [...ruled.filter(n => about(n, x)), ...(dropped(x).length ? [`it drops ${dropped(x).join(', ')}`] : [])]]))
