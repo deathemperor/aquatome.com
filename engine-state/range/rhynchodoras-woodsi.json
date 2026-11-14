@@ -1,0 +1,84 @@
+{
+  "id": "rhynchodoras-woodsi",
+  "native": {
+    "input": "3c11e9f27a3616b8",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Appears to be endemic to the Rio Marañon basin, Ecuador.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The parrot doradid, Rhynchodoras woodsi, is a doradid catfish that appears to be endemic to the Rio Marañon basin, Ecuador.",
+        "words": "Ecuador",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Marañon",
+        "source": "seriouslyfish",
+        "quote": "Appears to be endemic to the Rio Marañon basin, Ecuador.",
+        "country": "EC",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rhynchodoras woodsi",
+    "status": "ACCEPTED",
+    "taxonKey": 2344054,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        26
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        5
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "EC"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

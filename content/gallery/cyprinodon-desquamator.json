@@ -14,18 +14,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/172053361.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/172053361-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY",
-      "author": "Tom Kennedy",
-      "sourceUrl": "https://www.inaturalist.org/photos/172053361",
-      "caption": "Cá pupfish ăn vảy, thân bạc có vằn sẫm, chụp nền đen",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/commons/a42c723612b0a8d1.webp",
       "thumb": "https://media.aquatome.com/commons/a42c723612b0a8d1-480.webp",
       "width": 800,
@@ -34,6 +22,18 @@
       "author": "Anthony Terceira",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cyprinodon_Desquamator.jpg",
       "caption": "Cá pupfish ăn vảy trong bể, thân ánh vàng xanh",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/172053361.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/172053361-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY",
+      "author": "Tom Kennedy",
+      "sourceUrl": "https://www.inaturalist.org/photos/172053361",
+      "caption": "Cá pupfish ăn vảy, thân bạc có vằn sẫm, chụp nền đen",
       "best": true,
       "kind": "other"
     }

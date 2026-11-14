@@ -1,0 +1,77 @@
+{
+  "id": "rhinogobius-mekongianus",
+  "native": {
+    "input": "046056c2d979fe89",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from various parts of the middle and upper Mekong river basins with records from the Nam Tha, Nam Ou, Nam Khan, Nam Lik, Nam Ngum and Nam Mang tributary systems in Laos, the Nam Noeua (a tributary of Nam Ou) in Vietnam, and the Mae Nam Kok in Thailand.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from various parts of the middle and upper Mekong river basins with records from the Nam Tha, Nam Ou, Nam Khan, Nam Lik, Nam Ngum and Nam Mang tributary systems in Laos, the Nam Noeua (a tributary of Nam Ou) in Vietnam, and the Mae Nam Kok in Thailand.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from various parts of the middle and upper Mekong river basins with records from the Nam Tha, Nam Ou, Nam Khan, Nam Lik, Nam Ngum and Nam Mang tributary systems in Laos, the Nam Noeua (a tributary of Nam Ou) in Vietnam, and the Mae Nam Kok in Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Known from various parts of the middle and upper Mekong river basins with records from the Nam Tha, Nam Ou, Nam Khan, Nam Lik, Nam Ngum and Nam Mang tributary systems in Laos, the Nam Noeua (a tributary of Nam Ou) in Vietnam, and the Mae Nam Kok in Thailand.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rhinogobius mekongianus",
+    "status": "ACCEPTED",
+    "taxonKey": 2377648,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        21
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ]
+    ],
+    "native": [
+      "LA",
+      "VN",
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

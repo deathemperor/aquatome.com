@@ -32,11 +32,11 @@ export type MaterialAsk = {
 export const MATERIALS: MaterialAsk[] = [
   {
     id: 'lua', kind: 'wood', slug: 'lua', name: 'Lũa', altNames: [], names: ['Driftwood'],
-    ask: 'driftwood for aquariums in general (Vietnamese "lũa"): what it is, the kinds Vietnamese aquarium shops sell, what it does to the water, how to prepare it before it goes in a tank, which tanks, fish, shrimp and plants it suits, common mistakes, and where Vietnamese keepers buy it',
+    ask: 'driftwood for aquariums in general (Vietnamese "lũa"): what it is, the kinds Vietnamese aquarium shops sell, what it does to the water, how to prepare it before it goes in a tank, which tanks, fish, shrimp and plants it suits, common mistakes, where Vietnamese keepers buy it and what to check when buying it',
   },
   {
     id: 'lua-sa-tung', kind: 'wood', parent: 'lua', slug: 'lua-sa-tung', name: 'Lũa sa tùng', altNames: ['Lũa kim sa tùng', 'Kim sa tùng'], names: [],
-    ask: 'the aquarium driftwood Vietnamese shops sell as "lũa kim sa tùng" or "lũa sa tùng": what it looks like, what it does to the water, how to prepare it, which tanks it suits, common mistakes, and what to check when buying it. What tree or wood it is only if a page says so',
+    ask: 'the aquarium driftwood Vietnamese shops sell as "lũa kim sa tùng" or "lũa sa tùng": what it looks like, what it does to the water, how to prepare it, which tanks it suits, common mistakes, where Vietnamese keepers buy it and what to check when buying it. What tree or wood it is only if a page says so',
     leads: ['zenaquarius.com/lua-kim-sa-tung', 'thuysinhtim.vn/lua-re-kim-sa-tung', 'thuysinhtim.vn/lua-sa-tung-1kg', 'aquamart.vn/lua-kim-sa-tung', 'bongvang.vn', 'becathuysinhmini.com', 'aquabest.vn'],
   },
 ]

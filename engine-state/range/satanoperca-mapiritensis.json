@@ -1,0 +1,114 @@
+{
+  "id": "satanoperca-mapiritensis",
+  "native": {
+    "input": "8e41050194bc534c",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the lower Río Orinoco basin in the states of Anzoátegui, Monagas, and Bolivar in northern Venezuela, including major affluents such as the ríos Caura and Caroní.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Similar-looking fish have been collected in rivers draining towards Guyana, e.g., the Río Cuyuni, but it is unclear whether they are conspecific or not.",
+        "words": "Guyana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Native to the lower Río Orinoco basin in the states of Anzoátegui, Monagas, and Bolivar in northern Venezuela, including major affluents such as the ríos Caura and Caroní.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Caura",
+        "source": "seriouslyfish",
+        "quote": "Native to the lower Río Orinoco basin in the states of Anzoátegui, Monagas, and Bolivar in northern Venezuela, including major affluents such as the ríos Caura and Caroní.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Caroní",
+        "source": "seriouslyfish",
+        "quote": "Native to the lower Río Orinoco basin in the states of Anzoátegui, Monagas, and Bolivar in northern Venezuela, including major affluents such as the ríos Caura and Caroní.",
+        "country": "VE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Satanoperca mapiritensis",
+    "status": "ACCEPTED",
+    "taxonKey": 5208454,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        64
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        10
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        9
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        7
+      ],
+      [
+        "2bee4a91-9d92-430e-a87e-ab32d3b1ce47",
+        3
+      ],
+      [
+        "f7739f2a-9d89-40c2-a262-813832add25d",
+        3
+      ],
+      [
+        "83c9289f-0d18-42ae-98b0-2ad3621f0dfa",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "VE"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

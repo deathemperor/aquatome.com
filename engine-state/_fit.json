@@ -16284,19 +16284,11 @@
     "products": []
   },
   "id/species/paracheirodon-simulans": {
-    "at": "2026-11-08",
-    "hash": "4a8845bbe4df8719",
+    "at": "2026-11-14",
+    "hash": "6576e97e56bb9d43",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "units",
-        "part": "P27",
-        "quote": "ditopang empat pipa PVC setinggi sekitar 7,5–10 cm",
-        "why": "A 7.5–10 cm height is a conversion of 3–4 inches, not a figure a local keeper would give.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "id/species/parakysis-notialis": {
@@ -26433,16 +26425,23 @@
     ]
   },
   "th/plants/nymphoides-aquatica": {
-    "at": "2026-11-08",
-    "hash": "0db747037cd1ef6d",
+    "at": "2026-11-14",
+    "hash": "0b1ec7385eabdd0a",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P3",
+        "quote": "ตู้นาโนขนาดประมาณ 19 ลิตร",
+        "why": "19 litres is a converted 5-gallon tank size, not one a keeper in Thailand would name.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P3",
         "quote": "ฝังลงไปในวัสดุปลูกเพียงประมาณ 0.6 ซม.",
-        "why": "0.6 cm is a converted quarter inch; no Thai keeper would give this figure.",
+        "why": "0.6 cm is a converted quarter inch, an unnatural metric figure.",
         "by": "model"
       }
     ],
@@ -28149,23 +28148,30 @@
     "products": []
   },
   "th/species/anatolichthys-transgrediens": {
-    "at": "2026-11-08",
-    "hash": "8c01edb0757028d3",
+    "at": "2026-11-14",
+    "hash": "3bf604cb38acc76a",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "elsewhere",
-        "part": "P6",
-        "quote": "ควรให้มี \"ช่วงฤดูหนาว\" นานหลายเดือนที่เลี้ยงในอุณหภูมิต่ำ",
-        "why": "Assumes the reader has a cold winter season; Thailand has none.",
+        "check": "units",
+        "part": "P4",
+        "quote": "ตู้ขนาดประมาณ 60 x 30 x 30 ซม. (57 ลิตร)",
+        "why": "57 litres is a converted 15-gallon tank, not the 54 litres those sides give.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "ตู้ขนาดตั้งแต่ 120 x 30 x 30 ซม. (113 ลิตร) ขึ้นไป",
+        "why": "113 litres is a converted 30-gallon tank, not the 108 litres those sides give.",
         "by": "model"
       },
       {
         "check": "elsewhere",
-        "part": "P7",
-        "quote": "ซึ่งสำคัญเป็นพิเศษในช่วงฤดูใบไม้ผลิและฤดูร้อน",
-        "why": "Feeding advice tied to temperate spring and summer seasons that a Thai keeper doesn't have.",
+        "part": "P6",
+        "quote": "ควรให้มี \"ช่วงฤดูหนาว\" นานหลายเดือนที่เลี้ยงในอุณหภูมิต่ำ",
+        "why": "Assumes a temperate climate with a cold winter, which a keeper in Thailand doesn't have.",
         "by": "model"
       }
     ],
@@ -29258,8 +29264,8 @@
     "products": []
   },
   "th/species/apistogramma-steindachneri": {
-    "at": "2026-11-08",
-    "hash": "96cfb4981644dd86",
+    "at": "2026-11-14",
+    "hash": "2eb195b1aeac95a1",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -29538,37 +29544,37 @@
     "sourceRead": true
   },
   "th/species/apteronotus-albifrons": {
-    "at": "2026-11-08",
-    "hash": "e9cfe2609b816283",
+    "at": "2026-11-14",
+    "hash": "025d3fa57d3d556e",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P6",
-        "quote": "ตู้ 208 ลิตรอาจพอใช้ได้ในปีแรก",
-        "why": "208 litres is a converted 55-gallon tank, not a size used in Thailand.",
+        "quote": "ตู้ 208 ลิตรอาจพอใช้ได้ในปีแรก แต่เล็กเกินไปสำหรับการเลี้ยงระยะยาว ขั้นต่อไปคือตู้ 284 ลิตร",
+        "why": "208 and 284 litres are converted US 55 and 75 gallon tanks, not sizes used in Thailand.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P6",
         "quote": "แนะนำให้ใช้ตู้ 454 หรือ 681 ลิตรสำหรับปลาแบล็คโกสต์ตัวเต็มวัย",
-        "why": "454 and 681 litres are converted 120 and 180 gallon tanks.",
+        "why": "454 and 681 litres are converted US 120 and 180 gallon tanks.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
         "quote": "จากประสบการณ์ที่ผ่านมา ปีแรกจะโตได้ถึง 20 ซม.",
-        "why": "The source writer's own experience, in their voice, which the reader does not know.",
+        "why": "The source writer's own first-hand experience is presented to a reader who doesn't know them.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P18",
         "quote": "แต่จากประสบการณ์ที่ผ่านมาไม่เป็นเช่นนั้น",
-        "why": "The source writer's own experience, in their voice.",
+        "why": "The source writer's personal experience is used as if the reader knew who is speaking.",
         "by": "model"
       }
     ],
@@ -31053,8 +31059,8 @@
     "products": []
   },
   "th/species/betadevario-ramachandrani": {
-    "at": "2026-11-08",
-    "hash": "059567fdd847e8e8",
+    "at": "2026-11-14",
+    "hash": "453b854ce1989182",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -31150,32 +31156,55 @@
     "products": []
   },
   "th/species/betta-breviobesus": {
-    "at": "2026-11-08",
-    "hash": "fdba87a4ad9e802d",
-    "model": "opus",
-    "checklist": 3,
-    "findings": [],
-    "products": []
-  },
-  "th/species/betta-brownorum": {
-    "at": "2026-11-08",
-    "hash": "56db18a2ba1c8307",
-    "model": "opus",
-    "checklist": 3,
-    "findings": [],
-    "products": []
-  },
-  "th/species/betta-burdigala": {
-    "at": "2026-11-08",
-    "hash": "4b63602eb289e542",
+    "at": "2026-11-14",
+    "hash": "1dfe5f7bc379dccc",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "source",
-        "part": "P1",
-        "quote": "Betta burdigala จับจากธรรมชาติบนเกาะบังกา",
-        "why": "Describes the source shop's own wild-caught stock as if it were on offer to the reader.",
+        "check": "units",
+        "part": "P4",
+        "quote": "แนะนำ 1 คู่ต่อตู้ขนาด 19 ลิตร",
+        "why": "19 litres is a converted 5-gallon tank, a size nobody in Thailand would give.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/betta-brownorum": {
+    "at": "2026-11-14",
+    "hash": "1080a972da953136",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P6",
+        "quote": "แนะนำให้เลี้ยง 1 คู่ต่อน้ำประมาณ 19 ลิตร",
+        "why": "19 litres is a converted 5-gallon figure nobody in Thailand would use.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/betta-burdigala": {
+    "at": "2026-11-14",
+    "hash": "5c02e75413295bdd",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P5",
+        "quote": "แนะนำให้เลี้ยง 1 คู่ ต่อน้ำประมาณ 19 ลิตร",
+        "why": "19 litres is a converted 5 US gallons, not a volume a Thai keeper would use.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P11",
+        "quote": "แนะนำ: 1 คู่ ต่อน้ำประมาณ 19 ลิตร",
+        "why": "19 litres is a converted 5 US gallons, not a volume a Thai keeper would use.",
         "by": "model"
       }
     ],
@@ -31378,16 +31407,16 @@
     "products": []
   },
   "th/species/betta-hipposideros": {
-    "at": "2026-11-08",
-    "hash": "82146b634d5e6f56",
+    "at": "2026-11-14",
+    "hash": "4440228b5c503214",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "elsewhere",
-        "part": "P6",
-        "quote": "หากหาขอนไม้รูปทรงที่ต้องการไม่ได้ สามารถใช้ไม้บีชหรือไม้โอ๊กทั่วไปแทนได้อย่างปลอดภัย",
-        "why": "Beech and oak wood are presented as common, easy-to-get substitutes, which is true in Europe, not in Thailand.",
+        "check": "units",
+        "part": "P11",
+        "quote": "แนะนำให้เลี้ยงหนึ่งคู่ต่อตู้ขนาด 19 ลิตร",
+        "why": "19 litres is a converted 5-gallon tank size, not a size keepers in Thailand use.",
         "by": "model"
       }
     ],
@@ -31473,16 +31502,16 @@
     "products": []
   },
   "th/species/betta-livida": {
-    "at": "2026-11-08",
-    "hash": "0c59c0b1a91e3e53",
+    "at": "2026-11-14",
+    "hash": "865bd41fb350f43f",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "source",
-        "part": "P1",
-        "quote": "Betta livida ที่จับจากธรรมชาติ มาจากอินโดนีเซีย",
-        "why": "Describes the source shop's own wild-caught stock as if the reader knew it, and contradicts the Malaysian range.",
+        "check": "units",
+        "part": "P6",
+        "quote": "1 คู่ต่อน้ำประมาณ 19 ลิตร",
+        "why": "19 litres is a converted 5-gallon figure, not a size anyone in Thailand would use.",
         "by": "model"
       }
     ],
@@ -31543,11 +31572,19 @@
     "products": []
   },
   "th/species/betta-miniopinna": {
-    "at": "2026-11-08",
-    "hash": "755912263d0892e7",
+    "at": "2026-11-14",
+    "hash": "74320b04c79fd9f2",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P11",
+        "quote": "แนะนำ 1 คู่ต่อน้ำประมาณ 19 ลิตร",
+        "why": "19 litres is a converted 5-gallon figure nobody in Thailand would use.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "th/species/betta-ocellata": {
@@ -32718,19 +32755,27 @@
     "products": []
   },
   "th/species/camposcia-retusa": {
-    "at": "2026-11-08",
-    "hash": "ab7446e4f38a77c8",
+    "at": "2026-11-14",
+    "hash": "aad21775a54a13d1",
     "model": "opus",
     "checklist": 3,
     "findings": [],
     "products": []
   },
   "th/species/carassius-auratus": {
-    "at": "2026-11-08",
-    "hash": "5b588d962d69739d",
+    "at": "2026-11-14",
+    "hash": "3acc3a65716c6494",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P2",
+        "quote": "ขนาดตู้ขั้นต่ำ: 76 ลิตร",
+        "why": "76 litres is a converted 20-gallon tank size, not one used in Thailand.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "th/species/caridina-dennerli": {
@@ -32742,11 +32787,19 @@
     "products": []
   },
   "th/species/caridina-multidentata": {
-    "at": "2026-11-09",
-    "hash": "164da162df7ab573",
+    "at": "2026-11-14",
+    "hash": "fa3771d2f4121509",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P2",
+        "quote": "ขนาดตู้ปลาขั้นต่ำ: 38 ลิตร",
+        "why": "38 litres is a converted 10-gallon tank size, not a size anyone in Thailand would give.",
+        "by": "model"
+      }
+    ],
     "products": [
       "Wonder Shell",
       "Seachem Equilibrium",
@@ -32785,37 +32838,30 @@
     "products": []
   },
   "th/species/carinotetraodon-travancoricus": {
-    "at": "2026-11-08",
-    "hash": "6f57f8d1de8b171e",
+    "at": "2026-11-14",
+    "hash": "0f07c08a83c0bb5d",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P14",
-        "quote": "น้ำ 19 ลิตรสำหรับตัวแรก และเพิ่ม 11 ลิตรต่อปลาแต่ละตัวที่เพิ่มขึ้น",
-        "why": "19 and 11 litres are 5 and 3 gallons converted; a Thai keeper would not size it this way.",
+        "quote": "หลายคนจึงเลี้ยงเพียงตัวเดียวในตู้ขนาดราว 19 ลิตร",
+        "why": "19 litres is a converted 5-gallon US tank size, not a size a keeper in Thailand would use.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P14",
-        "quote": "6–7 ตัวในตู้ 76 ลิตรได้",
-        "why": "76 litres is a converted 20-gallon tank size.",
+        "quote": "สามารถเลี้ยง 3 ตัวในตู้ 38 ลิตร และ 6–7 ตัวในตู้ 76 ลิตรได้",
+        "why": "38 and 76 litres are converted 10- and 20-gallon US tank sizes.",
         "by": "model"
       },
       {
-        "check": "units",
-        "part": "P14",
-        "quote": "รองรับปลาปักเป้า 3 ตัวในตู้ 38 ลิตรได้",
-        "why": "38 litres is a converted 10-gallon tank size.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
+        "check": "source",
         "part": "P6",
-        "quote": "(ส่วนใหญ่ไม่มีในร้านสัตว์เลี้ยงแบบเครือข่าย)",
-        "why": "Refers to US chain pet store habits as if they were the reader's shops.",
+        "quote": "ชุดยากักโรคสามตัวเคยถูกใช้ป้องกันโรคกับปลาปักเป้าแคระหลายพันตัวโดยไม่พบผลเสีย",
+        "why": "Refers to the source shop's own unnamed three-medicine quarantine set and its own stock, which the reader doesn't know.",
         "by": "model"
       }
     ],
@@ -33546,26 +33592,17 @@
     "products": []
   },
   "th/species/chromobotia-macracanthus": {
-    "at": "2026-11-11",
-    "hash": "71979a0bd92cef20",
+    "at": "2026-11-14",
+    "hash": "3063f3314c244550",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "words",
-        "part": "P14",
-        "quote": "พึงระลึกว่าปลาหมูก็เหมือนปลาแมว คือไวต่อยาบางชนิดมาก",
-        "why": "\"ปลาแมว\" is a literal calque of English \"catfish\"; Thai keepers don't use it.",
-        "by": "model",
-        "fix": "ปลาแคทฟิช / ปลาหนัง"
-      },
-      {
-        "check": "words",
-        "part": "P20",
-        "quote": "และปลาแมวอีกหลายชนิด",
-        "why": "\"ปลาแมว\" is a literal calque of English \"catfish\".",
-        "by": "model",
-        "fix": "ปลาแคทฟิช / ปลาหนัง"
+        "check": "units",
+        "part": "P3",
+        "quote": "ขนาดตู้ขั้นต่ำ: ประมาณ 380 ลิตร",
+        "why": "380 litres is a conversion of 100 US gallons, not a tank size used in Thailand.",
+        "by": "model"
       }
     ],
     "products": [
@@ -33934,25 +33971,17 @@
     "products": []
   },
   "th/species/colomesus-asellus": {
-    "at": "2026-11-10",
-    "hash": "ec8a0f19830b53ef",
+    "at": "2026-11-14",
+    "hash": "c2c85cbeadc7a9a3",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P10",
-        "quote": "หากเป็น 208 ลิตรจะยิ่งดี",
-        "why": "208 litres is a converted 55-gallon tank size, not one a Thai keeper would name.",
+        "quote": "ควรเลี้ยงในตู้ปลาขนาดอย่างน้อย 114 ลิตร หากเป็น 208 ลิตรจะยิ่งดี",
+        "why": "114 and 208 litres are converted 30 and 55 US gallon tank sizes, not how a keeper in Thailand sizes a tank.",
         "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P16",
-        "quote": "หอยเชอรี่จิ๋ว (bladder snail)",
-        "why": "หอยเชอรี่ is the apple snail; Thai keepers call bladder snails something else.",
-        "by": "model",
-        "fix": "หอยฟิสซ่า (หอยเล็ก)"
       }
     ],
     "products": [
@@ -34073,11 +34102,19 @@
     "products": []
   },
   "th/species/copadichromis-ilesi": {
-    "at": "2026-11-10",
-    "hash": "a5d664d1981a6ff5",
+    "at": "2026-11-14",
+    "hash": "47766460523850f7",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P10",
+        "quote": "ตู้ขนาด 122 ซม. เป็นขนาดที่เหมาะสำหรับการเพาะพันธุ์",
+        "why": "A 122 cm tank is a converted 4-foot tank, a size no keeper in Thailand would give.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "th/species/copadichromis-virginalis": {
@@ -36121,11 +36158,33 @@
     "products": []
   },
   "th/species/danio-rerio": {
-    "at": "2026-11-09",
-    "hash": "8b5411d55a552a9c",
+    "at": "2026-11-14",
+    "hash": "1bc7a0ef23d1e78b",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "ขนาดตู้ขั้นต่ำ: 38 ลิตร",
+        "why": "38 litres is a converted 10-gallon tank, not a size used in Thailand.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P17",
+        "quote": "ขนาดตู้ขั้นต่ำ: 38 ลิตร",
+        "why": "38 litres is a converted 10-gallon tank, not a size used in Thailand.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P40",
+        "quote": "ใช้ตาข่ายขึงบนกรอบสูงจากพื้น 2.5 ซม.",
+        "why": "2.5 cm is a converted 1 inch.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "th/species/danio-tinwini": {
@@ -36829,23 +36888,30 @@
     "products": []
   },
   "th/species/hyphessobrycon-amandae": {
-    "at": "2026-11-09",
-    "hash": "f3a56e6642c01425",
+    "at": "2026-11-14",
+    "hash": "16702d5e5f265f7e",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
+        "part": "P4",
+        "quote": "ขนาดตู้ปลาขั้นต่ำ: ประมาณ 38 ลิตร",
+        "why": "38 litres is a converted 10-gallon tank size, not a size used in Thailand.",
+        "by": "model"
+      },
+      {
+        "check": "units",
         "part": "P10",
         "quote": "ตู้นาโนขนาด 19 ลิตร",
-        "why": "19 litres is a converted 5-gallon tank size, not one used in Thailand.",
+        "why": "19 litres is a converted 5-gallon tank size.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P14",
         "quote": "แต่ดังที่กล่าวไว้ข้างต้น ฝูงนี้อาจเป็นปลาต่างชนิดที่มีขนาดใกล้เคียงกันผสมกันได้",
-        "why": "Refers back to an earlier passage of the source article that this page does not contain.",
+        "why": "Refers to an earlier passage of the source article that this page does not contain.",
         "by": "model"
       }
     ],
@@ -36869,23 +36935,30 @@
     "products": []
   },
   "th/species/hyphessobrycon-herbertaxelrodi": {
-    "at": "2026-11-08",
-    "hash": "ee1f1ad8cfa2bac0",
+    "at": "2026-11-14",
+    "hash": "5aee484d6d005fdd",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
+        "part": "P14",
+        "quote": "อย่างน้อยที่สุดควรเลี้ยง 6 ตัวในตู้ขนาด 38 ลิตร แต่ 10–15 ตัวในตู้ขนาด 75 ลิตรขึ้นไป",
+        "why": "38 and 75 litres are converted 10- and 20-gallon tank sizes, not tank sizes used in Thailand.",
+        "by": "model"
+      },
+      {
+        "check": "units",
         "part": "P17",
         "quote": "ใส่ใบหูกวางหลาย ๆ ใบลงในตู้ขนาด 38 ลิตรที่ไม่มีสัตว์อื่นอยู่",
-        "why": "38 litres is a converted 10-gallon tank size that no keeper in Thailand would quote.",
+        "why": "A 38-litre tank is a converted 10-gallon size.",
         "by": "model"
       },
       {
         "check": "elsewhere",
         "part": "P17",
         "quote": "หญ้าพลาสติกฝอยแบบที่ใช้รองตะกร้าอีสเตอร์",
-        "why": "Easter basket grass is a Western seasonal item that a reader in Thailand would not know or find easily.",
+        "why": "Easter basket grass is a Western household item, not something a Thai reader has on hand.",
         "by": "model"
       }
     ],
@@ -37518,16 +37591,16 @@
     "products": []
   },
   "th/species/melanotaenia-praecox": {
-    "at": "2026-11-08",
-    "hash": "d6ac2e4a0305c39a",
+    "at": "2026-11-14",
+    "hash": "8e4693e3426dc37f",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P7",
-        "quote": "หรืออย่างน้อยเป็นตู้ขนาดประมาณ 110 ลิตร",
-        "why": "110 litres is a converted 29-gallon tank size, not a size used in Thailand.",
+        "quote": "ตู้ยาวขนาดประมาณ 76 ลิตร หรืออย่างน้อยเป็นตู้ขนาดประมาณ 110 ลิตร",
+        "why": "76 and 110 litres are converted US 20- and 29-gallon tanks, not sizes used in Thailand.",
         "by": "model"
       },
       {
@@ -37541,7 +37614,7 @@
         "check": "words",
         "part": "P19",
         "quote": "มอสริคซีย์ชวา (java moss)",
-        "why": "Mistranslated name mixing riccia with java moss; Thai keepers call it มอสชวา.",
+        "why": "Mixes up Riccia with java moss; Thai keepers call java moss by another name.",
         "by": "model",
         "fix": "มอสชวา"
       }
@@ -37994,8 +38067,8 @@
     "products": []
   },
   "th/species/oryzias-sarasinorum": {
-    "at": "2026-11-08",
-    "hash": "563a159973df8eaa",
+    "at": "2026-11-14",
+    "hash": "ed78ec990fe31954",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -38145,8 +38218,8 @@
     "products": []
   },
   "th/species/pangio-oblonga": {
-    "at": "2026-11-08",
-    "hash": "b1e33f58f46d30ef",
+    "at": "2026-11-14",
+    "hash": "02a25234e9909c62",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -38193,11 +38266,19 @@
     ]
   },
   "th/species/paracheirodon-innesi": {
-    "at": "2026-11-08",
-    "hash": "b726f385a9e4411c",
+    "at": "2026-11-14",
+    "hash": "c936c34b86e43d6c",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P2",
+        "quote": "ขนาดตู้ขั้นต่ำ: ประมาณ 38 ลิตร",
+        "why": "38 litres is a converted 10-gallon tank, not a size a Thai keeper would give.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "th/species/paracheirodon-simulans": {
@@ -38443,30 +38524,44 @@
     "products": []
   },
   "th/species/phenacogrammus-interruptus": {
-    "at": "2026-11-08",
-    "hash": "4390a79726ebdf0f",
+    "at": "2026-11-14",
+    "hash": "444ff6c33ded4d80",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
+        "part": "P2",
+        "quote": "ขนาดตู้ขั้นต่ำ: ประมาณ 114 ลิตร",
+        "why": "114 litres is a converted 30-gallon US tank size.",
+        "by": "model"
+      },
+      {
+        "check": "units",
         "part": "P7",
-        "quote": "ตู้ปลาขนาดประมาณ 114 ลิตรจึงเป็นขนาดขั้นต่ำสำหรับปลาคองโกเตตร้า 6–8 ตัว",
-        "why": "114 litres is a converted 30-gallon tank, not a size used in Thailand.",
+        "quote": "ตู้ปลาขนาดประมาณ 114 ลิตรจึงเป็นขนาดขั้นต่ำ",
+        "why": "114 litres is a converted 30-gallon US tank size.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P7",
+        "quote": "ควรพิจารณาใช้ตู้ขนาดประมาณ 208 ลิตร",
+        "why": "208 litres is a converted 55-gallon US tank size.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P19",
         "quote": "ให้ใช้ตู้ทรงยาวขนาด 57–76 ลิตรสำหรับเพาะพันธุ์",
-        "why": "57–76 litres are converted 15–20 gallon tanks.",
+        "why": "57–76 litres are converted 15–20-gallon US tank sizes.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P19",
-        "quote": "ปูพื้นตู้แบบหลวม ๆ หนา 2.5 ซม. (ประมาณ 14 ลิตรสำหรับตู้ขนาด 80 ลิตร)",
-        "why": "A 2.5 cm layer and 14 litres for an 80-litre tank are converted from 1 inch and gallons.",
+        "quote": "ปูพื้นตู้แบบหลวม ๆ หนา 2.5 ซม.",
+        "why": "2.5 cm is a converted one-inch layer.",
         "by": "model"
       }
     ],
@@ -38580,11 +38675,26 @@
     "products": []
   },
   "th/species/poecilia-wingei": {
-    "at": "2026-11-08",
-    "hash": "26dc98fc7245d715",
+    "at": "2026-11-14",
+    "hash": "b14bdb27d1eb0ec2",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P7",
+        "quote": "ตู้ปลาขนาดเล็กสุดคือ 19–38 ลิตร",
+        "why": "19–38 litres are converted 5–10 US gallon tank sizes, not how Thai keepers size tanks.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P7",
+        "quote": "ส่วนตู้ 76 ลิตร ให้ซื้อ 6–9 ตัว",
+        "why": "76 litres is a converted 20-gallon tank size.",
+        "by": "model"
+      }
+    ],
     "products": [
       "Repashy"
     ]
@@ -38858,16 +38968,23 @@
     ]
   },
   "th/species/puntius-titteya": {
-    "at": "2026-11-08",
-    "hash": "13b40bbafb1c3451",
+    "at": "2026-11-14",
+    "hash": "ac404fbdb61adb16",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
+        "part": "P3",
+        "quote": "ขนาดตู้ขั้นต่ำ: ประมาณ 95 ลิตร",
+        "why": "95 litres is a converted 25-gallon tank, not a size used in Thailand.",
+        "by": "model"
+      },
+      {
+        "check": "units",
         "part": "P9",
         "quote": "ฝูงละหกตัวสามารถเลี้ยงในตู้ขนาด 38 ลิตรขึ้นไปได้",
-        "why": "38 litres is a converted 10-gallon tank size, not one a keeper in Thailand would name.",
+        "why": "38 litres is a converted 10-gallon tank, not a size used in Thailand.",
         "by": "model"
       }
     ],
@@ -38945,11 +39062,19 @@
     "products": []
   },
   "th/species/rasbora-elegans": {
-    "at": "2026-11-08",
-    "hash": "4fcd82502eb07ac3",
+    "at": "2026-11-14",
+    "hash": "0510c7adea81c84d",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P10",
+        "quote": "ขนาด 120 × 30 × 30 ซม. (113 ลิตร)",
+        "why": "113 L does not match 120×30×30 cm (≈108 L); it is a converted 30-gallon US tank figure.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "th/species/rasbora-kalochroma": {
@@ -38976,8 +39101,8 @@
     "products": []
   },
   "th/species/rasbora-lacrimula": {
-    "at": "2026-11-09",
-    "hash": "fd87d5f71b27a36c",
+    "at": "2026-11-14",
+    "hash": "70795d46a548f0bf",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -39355,11 +39480,19 @@
     "products": []
   },
   "th/species/symphysodon-discus": {
-    "at": "2026-11-08",
-    "hash": "3cce5eee64439318",
+    "at": "2026-11-14",
+    "hash": "0ff83842b0ac2488",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "หรือขนาดอย่างน้อยประมาณ 285 ลิตร",
+        "why": "285 litres is a converted 75-gallon tank size that nobody in Thailand would use as a tank size.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "th/species/syncrossus-hymenophysa": {
@@ -39515,32 +39648,46 @@
     "products": []
   },
   "th/species/trichogaster-lalius": {
-    "at": "2026-11-08",
-    "hash": "f4c5a39e7ee8ccb3",
+    "at": "2026-11-14",
+    "hash": "46eab2b55d514d46",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P3",
+        "quote": "ขนาดตู้ขั้นต่ำ: ประมาณ 19 ลิตร",
+        "why": "19 litres is a converted 5-gallon tank size nobody in Thailand would quote.",
+        "by": "model"
+      },
+      {
         "check": "elsewhere",
         "part": "P31",
-        "quote": "เพราะไม่สามารถหาปลาปลอดโรคจากผู้เพาะในตะวันออกไกล (ส่วนใหญ่คือสิงคโปร์) ได้",
-        "why": "Written for a Western reader whose shops import from 'the Far East'; for a Thai keeper these fish are bred in the region, not imported from afar.",
+        "quote": "ผู้เพาะในตะวันออกไกล (ส่วนใหญ่คือสิงคโปร์)",
+        "why": "Calling Singapore's breeders the 'Far East' is a Western reader's viewpoint, not a Thai keeper's.",
         "by": "model"
       }
     ],
     "products": []
   },
   "th/species/trichopodus-leerii": {
-    "at": "2026-11-08",
-    "hash": "9d3cc7a1e1eb48b6",
+    "at": "2026-11-14",
+    "hash": "d6214f970dbb3ef2",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P8",
-        "quote": "ตู้ขนาด 76 ลิตรเหมาะสำหรับปลากระดี่มุก 1 ตัว",
-        "why": "76 litres is a 20-gallon tank converted from US units, not a size anyone in Thailand would give.",
+        "quote": "ขนาดตู้ขั้นต่ำ: ประมาณ 76 ลิตร",
+        "why": "76 litres is a converted 20-gallon tank, not a size used in Thailand.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P8",
+        "quote": "ไม่แนะนำให้เลี้ยงปลากระดี่มุกในตู้ขนาดประมาณ 38 ลิตร",
+        "why": "38 litres is a converted 10-gallon tank, not a size used in Thailand.",
         "by": "model"
       }
     ],
@@ -39587,27 +39734,30 @@
     "products": []
   },
   "th/species/trigonostigma-heteromorpha": {
-    "at": "2026-11-08",
-    "hash": "1da65a49ba1f04ce",
+    "at": "2026-11-14",
+    "hash": "4177944d4144d9ba",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
-        "part": "P8",
-        "quote": "โดยทั่วไปสามารถเลี้ยงปลาซิวข้างขวานใหญ่ได้ถึง 10 ตัวในตู้ประมาณ 75 ลิตร",
-        "why": "A 75-litre tank is a converted 20-gallon tank, a size nobody in Thailand would give.",
+        "part": "P12",
+        "quote": "ขนาดตู้ขั้นต่ำ: 38 ลิตร",
+        "why": "38 litres is a converted 10-gallon tank size, not one a keeper in Thailand would use.",
         "by": "model"
       },
       {
         "check": "source",
-        "part": "P21",
-        "quote": "และในภาพประกอบระบุชื่อเป็น T. cf. heteromorpha",
-        "why": "It points to an illustration from the original source that this page doesn't have.",
+        "part": "P33",
+        "quote": "และในภาพประกอบระบุเป็น T. cf. heteromorpha",
+        "why": "Refers to an illustration from the source that this page does not have.",
         "by": "model"
       }
     ],
-    "products": []
+    "products": [
+      "ADA Amazonia aqua soil",
+      "Fluval Plant and Shrimp Stratum"
+    ]
   },
   "th/species/tropheus-duboisi": {
     "at": "2026-11-07",
@@ -41587,20 +41737,14 @@
     "products": []
   },
   "vi/guides/2hraquarist-blogs-beginners-planted-tank-101-10-best-low-tech-plants": {
-    "at": "2026-11-13",
-    "hash": "2eb5a2698596448d",
+    "at": "2026-11-14",
+    "hash": "867e322987806d88",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Bể tép không châm CO2 (low-tech) này dùng rêu fissidens.",
-        "why": "Refers to the source's own example tank, shown in a picture the page does not have.",
-        "by": "model"
-      }
-    ],
-    "products": []
+    "findings": [],
+    "products": [
+      "keo 502"
+    ]
   },
   "vi/guides/aquariumbreeder-10-questions-to-ask-when-buying-aquarium-crustaceans": {
     "at": "2026-11-13",
@@ -42671,8 +42815,8 @@
     "sourceRead": true
   },
   "vi/guides/aquariumbreeder-how-to-fix-a-leaking-aquarium-with-and-without-draining": {
-    "at": "2026-11-13",
-    "hash": "0ceab4841b461e1c",
+    "at": "2026-11-14",
+    "hash": "025e85793c096439",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -42680,21 +42824,14 @@
         "check": "units",
         "part": "P1",
         "quote": "Cạo bỏ khoảng 2,5–5 cm keo ở đoạn bị rò",
-        "why": "2.5–5 cm is a converted 1–2 inches, not a length a Vietnamese keeper would give.",
+        "why": "2.5–5 cm is a conversion of 1–2 inches.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P1",
-        "quote": "khi chỗ rò chỉ rỉ nhỏ, dài tối đa 2,5 cm",
-        "why": "2.5 cm is a converted 1 inch.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
-        "part": "P1",
-        "quote": "GE Silicone 1 Window and Door",
-        "why": "These sealant brands are mostly sold in the US, but the page lists them as what the reader should buy.",
+        "quote": "chỗ rò chỉ rỉ nhỏ, dài tối đa 2,5 cm",
+        "why": "2.5 cm is a conversion of 1 inch.",
         "by": "model"
       }
     ],
@@ -42943,8 +43080,8 @@
     "sourceRead": true
   },
   "vi/guides/aquariumbreeder-how-to-set-up-a-saltwater-aquarium": {
-    "at": "2026-11-13",
-    "hash": "66d88ec9f0b0a434",
+    "at": "2026-11-14",
+    "hash": "f18a3ebd60459173",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -42952,21 +43089,14 @@
         "check": "units",
         "part": "P1",
         "quote": "rải lớp cát dày khoảng 2,5–5 cm dưới đáy bể",
-        "why": "Converted from 1–2 inches of sand; not a figure a keeper in Vietnam would give.",
+        "why": "Converted from 1–2 inches of sand.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P1",
         "quote": "mỗi 2,5 cm chiều dài cá cần khoảng 4 lít nước",
-        "why": "The inch-per-gallon rule converted to metric.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
-        "part": "P1",
-        "quote": "đem bể ra ban công, tầng hầm, nhà xe hoặc sân sau",
-        "why": "A basement and backyard belong to a house abroad, not a typical home in Vietnam.",
+        "why": "The 'one inch of fish per gallon' rule converted from imperial units.",
         "by": "model"
       }
     ],
@@ -42976,7 +43106,8 @@
       "Carib Sea Natural Live Sand",
       "Carib Sea Crushed Coral",
       "Carib Sea Base Rock Bag",
-      "Instant Ocean & Reef Crystals Reef Salt",
+      "Instant Ocean",
+      "Reef Crystals Reef Salt",
       "Seachem Marine Reef Salt",
       "Kent Sea Salt",
       "Coralife Marine Salt",
@@ -53866,44 +53997,16 @@
     "products": []
   },
   "vi/guides/glaser-en-09-characoids-tetra-relationship-a-new-species-of-crenuchus-en": {
-    "at": "2026-11-13",
-    "hash": "1f43a137ac3b1e6f",
+    "at": "2026-11-14",
+    "hash": "cd2d12e3f725f5aa",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Loài Crenuchus này về từ Venezuela và rõ ràng là một loài chưa được mô tả.",
-        "why": "This is an importer's news that a new species has arrived in its stock, told as if the reader knew the shipment.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "C. spilurus cũng về chung lô với loài mới này.",
-        "why": "It refers to the source shop's own shipment.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Tiếc là lô hàng chỉ có rất ít con cái.",
-        "why": "It talks about the source shop's stock as if the reader knew it.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Hy vọng thời gian tới sẽ nhập được loài cá đẹp này với số lượng nhiều hơn.",
-        "why": "This is the importer speaking in its own voice about its plans to buy more stock.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Kích cỡ hiện có: 5–6 cm.",
-        "why": "This is a stock listing line about the sizes the source shop has for sale.",
+        "quote": "Những con trong lô dài khoảng 5 cm và đã phân biệt rõ đực cái.",
+        "why": "It talks about the source's own shipment of fish as if the reader knew about it.",
         "by": "model"
       }
     ],
@@ -61246,51 +61349,51 @@
     "products": []
   },
   "vi/guides/youtube-1TkcARfJKCQ": {
-    "at": "2026-11-08",
-    "hash": "f2d7ab204bea17ca",
+    "at": "2026-11-14",
+    "hash": "c7dc07539e3333d2",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "harm",
-        "part": "P1",
-        "quote": "mỗi lần trị là đổ nguyên một lọ của mỗi loại trong hai loại thuốc chuyên dụng, trộn chung trong bể",
-        "why": "Pouring in a whole bottle of each of two unnamed medicines and mixing them, without going by label dose or tank volume, risks overdosing and poisoning the fish.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Bài này gom lại kinh nghiệm thực tế từ một bể dài 2,25 m nuôi rất nhiều cá cầu vồng",
-        "why": "The page is built around the source author's own tank, which the reader has never seen.",
-        "by": "model"
-      },
-      {
         "check": "source",
         "part": "P1",
         "quote": "Ở đây trong nhà đặt được bể tối đa 2,5 m, nhưng thang hàng chỉ dài 2,3 m",
-        "why": "The source author's own home and building are described as if the reader knew them.",
+        "why": "A bare \"ở đây\" refers to the source creator's own home, which the reader doesn't know.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Người không có bể dưỡng như trường hợp này thì gần như chỉ còn cách đánh thuốc cả bể.",
-        "why": "Refers to the source keeper's own situation as a known case.",
+        "quote": "Bể này dán kính và hoàn thiện ngay tại nhà",
+        "why": "A bare \"bể này\" treats the source's tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Người không có bể dưỡng như trường hợp này",
+        "why": "Refers to the source keeper's own situation as if the reader knew it.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
         "quote": "Trước đây bể này chỉ cho ăn đồ khô, đúng một loại là Tetra Color.",
-        "why": "Tells the source tank's own history as if the reader knew the tank.",
+        "why": "Tells the source tank's own feeding history as if the reader knew it.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
         "quote": "Lúc mới làm, bể này trồng toàn dương xỉ",
-        "why": "Again tells the source tank's own story.",
+        "why": "Tells the source tank's own story with a bare \"bể này\".",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "L14",
+        "quote": "ở bể nuôi dày cá này thì dương xỉ không lên được",
+        "why": "Refers to the source's tank as \"this tank\".",
         "by": "model"
       }
     ],
@@ -61447,23 +61550,30 @@
     ]
   },
   "vi/guides/youtube-2AKSK5DHDUw": {
-    "at": "2026-11-08",
-    "hash": "906a170bdbce1a49",
+    "at": "2026-11-14",
+    "hash": "b19e9419ba33bb14",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "harm",
+        "part": "L12",
+        "quote": "châm dư carbon nước gốc glutaraldehyde, khoảng 8–10 lần bơm thay vì một lần như liều thường",
+        "why": "An 8–10× glutaraldehyde overdose can kill shrimp and snails and melt sensitive plants; the page gives no warning.",
+        "by": "model"
+      },
+      {
+        "check": "source",
         "part": "P1",
-        "quote": "Lần này châm tới khoảng 8–10 lần bơm.",
-        "why": "Overdosing glutaraldehyde at 8–10 times the normal dose can kill shrimp and fish and melt some plants.",
+        "quote": "Nhìn ảnh chụp mỗi ngày",
+        "why": "Refers to daily photos the page does not have.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
         "quote": "Bể có chi phí cao trong một thí nghiệm trước bị rêu bụi xanh rất nặng.",
-        "why": "Refers to the source creator's own earlier tank as if the reader knew it.",
+        "why": "Tells the writer's own earlier tank story as if the reader knew it.",
         "by": "model"
       }
     ],
@@ -61479,10 +61589,10 @@
         "perUnit": "",
         "use": "algae",
         "method": "wholeTank",
-        "quote": "Lần này châm tới khoảng 8–10 lần bơm."
+        "quote": "khoảng 8–10 lần bơm thay vì một lần như liều thường"
       }
     ],
-    "sourceRead": true
+    "sourceRead": false
   },
   "vi/guides/youtube-2beOiIgBvUM": {
     "at": "2026-11-08",
@@ -65379,74 +65489,93 @@
     "products": []
   },
   "vi/guides/youtube-A2xRRZ06T7I": {
-    "at": "2026-11-11",
-    "hash": "d5498070a04a93e3",
+    "at": "2026-11-14",
+    "hash": "b676298799a8cdca",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "price",
+        "check": "source",
         "part": "P1",
-        "quote": "Cát rất rẻ, khoảng 2 bảng Anh một bao 20 kg.",
-        "why": "Price given in British pounds.",
+        "quote": "Ở đây nền là kiểu tự trộn",
+        "why": "Bare 'ở đây' refers to the source video's own tank, which the reader has never seen.",
         "by": "model"
       },
       {
-        "check": "units",
+        "check": "source",
         "part": "P1",
-        "quote": "Lớp cát dày vài inch, phía trước lại càng dày.",
-        "why": "Imperial unit (inch) used as the reader's unit.",
+        "quote": "Bể này được đặt làm cao và sâu hơn bình thường.",
+        "why": "A bare 'bể này' refers to the source's tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Mẻ đất ở đây có mùi đất và màu nâu đậm.",
+        "why": "Describes the source's own batch of soil.",
         "by": "model"
       },
       {
         "check": "elsewhere",
         "part": "P1",
         "quote": "Ở Mỹ có thể khó tìm loại này, nó có thể mang tên khác như \"lily soil\".",
-        "why": "Addresses a reader shopping in the US.",
+        "why": "Shopping advice meant for a reader in the US.",
         "by": "model"
       },
       {
-        "check": "dose",
+        "check": "source",
         "part": "P1",
-        "quote": "Bể 1000 lít thì dùng hết cả gói, rải đều khắp mặt.",
-        "why": "Amount per volume of a named commercial substrate fertiliser.",
-        "by": "model",
-        "product": "Dennerle"
+        "quote": "Có lần một bể bị dinh dưỡng rỉ hết ra nước, thay nước rồi mà cây vẫn lên kém",
+        "why": "A first-person story from the source author's own tanks.",
+        "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
         "quote": "Một bể nhỏ hơn trước đây chỉ phủ cát chơi trẻ em, và lần đó nền dùng được lâu",
-        "why": "The writer's own past tank, told as if the reader knew it.",
+        "why": "Refers to the source author's earlier tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "Cát rất rẻ, khoảng 2 bảng Anh một bao 20 kg.",
+        "why": "The price is given in British pounds.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này đổ 4 bao cho chắc, dù 3 bao có lẽ cũng đủ.",
+        "why": "The source's own build, told as 'bể này'.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Lớp cát dày vài inch, phía trước lại càng dày.",
+        "why": "Uses inches as the reader's unit.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Lũa dùng ở đây là những khúc to nhất có được",
+        "why": "Bare 'ở đây' refers to the source's own hardscape.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
         "quote": "Một bể đèn mạnh trước đây làm theo cách này thì cây lên rất tốt.",
-        "why": "Refers to the writer's own earlier tank.",
+        "why": "Refers to the source author's past tank.",
         "by": "model"
       }
     ],
     "products": [
       "Dennerle",
       "Chihiros WRGB"
-    ],
-    "doses": [
-      {
-        "treatment": "dennerle",
-        "strength": "",
-        "amount": 1,
-        "amountMax": 0,
-        "unit": "packet",
-        "per": 1000,
-        "perUnit": "litre",
-        "use": "plants",
-        "method": "other",
-        "quote": "Bể 1000 lít thì dùng hết cả gói, rải đều khắp mặt."
-      }
-    ],
-    "sourceRead": true
+    ]
   },
   "vi/guides/youtube-a77kpNo-Mac": {
     "at": "2026-11-08",
@@ -67770,16 +67899,23 @@
     ]
   },
   "vi/guides/youtube-cPBLU4VMwWU": {
-    "at": "2026-11-09",
-    "hash": "b5dd161d352b5d29",
+    "at": "2026-11-14",
+    "hash": "15e313839b210cfb",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "harm",
+        "check": "source",
         "part": "P1",
-        "quote": "Một lựa chọn khác là thả một hai con cá thần tiên nhỏ.",
-        "why": "Angelfish grow large and tall, so keeping them in a tank of about 4–5 litres (20x15x15 cm) would badly stunt and stress them.",
+        "quote": "Bể này dùng phông đen.",
+        "why": "A bare \"bể này\" points at the source video's own tank, which the reader has never seen.",
+        "by": "model"
+      },
+      {
+        "check": "harm",
+        "part": "L14",
+        "quote": "thả hai ba con neon vua xanh hoặc một hai con cá thần tiên nhỏ",
+        "why": "Angelfish grow large and tall, so they would be badly stunted and stressed in a tank of about 4–5 litres.",
         "by": "model"
       }
     ],
@@ -72679,8 +72815,8 @@
     "sourceRead": false
   },
   "vi/guides/youtube-hVBN50ESOp4": {
-    "at": "2026-11-08",
-    "hash": "43ddcf79e0995922",
+    "at": "2026-11-14",
+    "hash": "d80b009eedc53bf4",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -72688,74 +72824,50 @@
         "check": "source",
         "part": "P1",
         "quote": "Bể ở đây là một bể 180 lít, nền aqua soil, có châm CO2",
-        "why": "It describes the source writer's own tank as if the reader knew it.",
+        "why": "A bare \"ở đây\" points at the source video's own tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Muốn có loại cỏ lá dài như bể mẫu ADA thì lựa chọn không nhiều.",
+        "why": "\"Bể mẫu\" refers to the source's reference tank, which the reader has not seen.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
         "quote": "Hy vọng là châm phân nhẹ tay sẽ giữ tốc độ mọc vừa phải để dễ tỉa.",
-        "why": "This is the original writer's personal hope about their own tank.",
+        "why": "This is the source writer's own hope about their own tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Với bể này, một diffuser CO2 đơn giản là đủ",
+        "why": "A bare \"bể này\" refers to the source's tank.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
         "quote": "Hy vọng là sau vài tiếng drop checker sẽ chuyển sang màu xanh lá.",
-        "why": "This is the writer's first-person running story of their own setup.",
+        "why": "This is the source writer's first-person voice about their own build.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "P1",
         "quote": "Bộ phụ kiện trong suốt của ADA (khoảng 10 euro)",
-        "why": "The price is in euros, a foreign currency.",
+        "why": "The price is given in euros, a foreign currency.",
         "by": "model"
-      },
-      {
-        "check": "dose",
-        "part": "P1",
-        "quote": "Liều khuyến cáo là 3 ml cho 100 lít mỗi ngày.",
-        "why": "A dose of a named commercial fertiliser.",
-        "by": "model",
-        "product": "APT Zero"
-      },
-      {
-        "check": "harm",
-        "part": "P1",
-        "quote": "Nước máy bơm thẳng vào bể và không qua khử clo.",
-        "why": "Putting chlorinated tap water in without dechlorinating at 50% daily changes harms the bacteria and later the fish and shrimp.",
-        "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P1",
-        "quote": "Lắp thêm bộ đếm bọt.",
-        "why": "A literal rendering of 'bubble counter'.",
-        "by": "model",
-        "fix": "bộ đếm giọt CO2"
       }
     ],
     "products": [
       "ADA",
       "Seachem Stability",
       "APT Zero"
-    ],
-    "doses": [
-      {
-        "treatment": "apt zero",
-        "strength": "",
-        "amount": 3,
-        "amountMax": 0,
-        "unit": "ml",
-        "per": 100,
-        "perUnit": "litre",
-        "use": "plants",
-        "method": "wholeTank",
-        "quote": "Liều khuyến cáo là 3 ml cho 100 lít mỗi ngày."
-      }
-    ],
-    "sourceRead": true
+    ]
   },
   "vi/guides/youtube-HwD_FoRC2Ig": {
     "at": "2026-11-09",
@@ -72983,26 +73095,33 @@
     "sourceRead": true
   },
   "vi/guides/youtube-i47RRyZxXGY": {
-    "at": "2026-11-11",
-    "hash": "77cdc7128d8eba28",
+    "at": "2026-11-14",
+    "hash": "5d4c21b7c7dde885",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "dose",
+        "check": "source",
         "part": "P1",
-        "quote": "Liều cho bể high energy: 5 ml cho mỗi 50 lít, mỗi ngày.",
-        "why": "Gives a dose per volume of a named commercial fertiliser, Aquascaper Complete.",
+        "quote": "Loại phân dùng ở đây là phân tổng hợp (all in one)",
+        "why": "A bare 'ở đây' points at the source's own setup, which the reader doesn't know.",
+        "by": "model"
+      },
+      {
+        "check": "dose",
+        "part": "L2",
+        "quote": "châm 5 ml cho mỗi 50 lít, tức 10 ml mỗi ngày",
+        "why": "A dose per volume of the named commercial fertiliser Aquascaper Complete.",
         "by": "model",
         "product": "Aquascaper Complete"
       },
       {
         "check": "words",
-        "part": "P1",
-        "quote": "Ví dụ dưới đây là liều ghi trên chai cho bể high energy.",
-        "why": "'High energy' is the English label's term, left untranslated; keepers in Vietnam call such a tank a high-tech tank.",
+        "part": "L2",
+        "quote": "Ví dụ bể high energy khoảng 100 lít",
+        "why": "'High energy' is the source's English term, not what keepers in Vietnam say.",
         "by": "model",
-        "fix": "bể high-tech (bể có CO2, đèn mạnh)"
+        "fix": "bể high-tech (đèn mạnh, có CO2)"
       }
     ],
     "products": [
@@ -73019,10 +73138,10 @@
         "perUnit": "litre",
         "use": "plants",
         "method": "wholeTank",
-        "quote": "Liều cho bể high energy: 5 ml cho mỗi 50 lít, mỗi ngày."
+        "quote": "châm 5 ml cho mỗi 50 lít, tức 10 ml mỗi ngày"
       }
     ],
-    "sourceRead": true
+    "sourceRead": false
   },
   "vi/guides/youtube-IAGN8lN997s": {
     "at": "2026-11-09",
@@ -73033,16 +73152,37 @@
     "products": []
   },
   "vi/guides/youtube-IB6lV6eF2MY": {
-    "at": "2026-11-08",
-    "hash": "83569b70216365b7",
+    "at": "2026-11-14",
+    "hash": "cf4dca97cc465e71",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "harm",
+        "check": "source",
         "part": "P1",
-        "quote": "Có thể thả tetra, một con betta, một hai con cá nhỏ, hoặc vài con ăn rêu như cá tỳ bà bướm.",
-        "why": "A roughly 2-litre unfiltered jar cannot keep schooling tetra or hillstream loaches, which need cool, flowing, oxygen-rich water and would likely die.",
+        "quote": "Bình ở đây dùng cốt nền Aqua Basic Plus.",
+        "why": "Bare 'ở đây' refers to the video's own jar as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bình này cho nước vào trước rồi mới trồng.",
+        "why": "Bare 'bình này' points at the source video's build.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Loại cỏ dùng ở đây rất dễ sống.",
+        "why": "Bare 'ở đây' refers to the video's build without naming the plant.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "L2",
+        "quote": "(ở đây là Aqua Basic Plus)",
+        "why": "Bare 'ở đây' refers to the source video's jar.",
         "by": "model"
       }
     ],
@@ -73243,8 +73383,8 @@
     "sourceRead": true
   },
   "vi/guides/youtube-IhNVrZCse48": {
-    "at": "2026-11-10",
-    "hash": "22e321fd910e4c25",
+    "at": "2026-11-14",
+    "hash": "5ee5960a95d8303e",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -73252,29 +73392,35 @@
         "check": "price",
         "part": "P1",
         "quote": "bỏ thêm khoảng 100 USD tiền cây",
-        "why": "A cost is given in US dollars rather than Vietnam's currency.",
+        "why": "The plant cost is given in US dollars, not Vietnamese dong.",
         "by": "model"
       },
       {
-        "check": "dose",
+        "check": "units",
         "part": "P1",
-        "quote": "có thể châm 5 ml Tropica Specialised Nutrition mỗi ngày",
-        "why": "A dose of a named commercial fertiliser, taken from the source's own tank.",
-        "by": "model",
-        "product": "Tropica Specialised Nutrition"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Bể lại không có nhiều cá dù được cho ăn 2–3 lần mỗi ngày.",
-        "why": "Describes the source's own tank as if the reader knew it.",
+        "quote": "khoảng 55–69 bar (800–1.000 psi)",
+        "why": "The bar figures were converted from psi, an imperial unit that is kept alongside them.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Cây cắt cắm mọc phía sau có lẽ giúp giữ ổn định, vì anubias lớn rất chậm.",
-        "why": "Refers to plants in the source's specific tank that the reader cannot see.",
+        "quote": "Một bể nano không thay nước khác cũng trải qua hết các đợt rêu và cây rữa",
+        "why": "This retells the source's own tanks as if the reader already knew them.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "có người đã châm CO2 hơn 20 năm mà chưa bị thương",
+        "why": "This is the original writer's personal experience, presented as an unnamed person's.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Một bể high-tech từng phủ đủ loại rêu, tưởng phải dỡ ra làm lại",
+        "why": "This is the source's story about its own tank.",
         "by": "model"
       }
     ],
@@ -73282,22 +73428,7 @@
       "Tropica Specialised Nutrition",
       "ADA Power Sand",
       "ADA"
-    ],
-    "doses": [
-      {
-        "treatment": "tropica specialised nutrition",
-        "strength": "",
-        "amount": 5,
-        "amountMax": 0,
-        "unit": "ml",
-        "per": 0,
-        "perUnit": "",
-        "use": "plants",
-        "method": "wholeTank",
-        "quote": "châm 5 ml Tropica Specialised Nutrition mỗi ngày"
-      }
-    ],
-    "sourceRead": true
+    ]
   },
   "vi/guides/youtube-Iinv7wWjhzA": {
     "at": "2026-11-09",
@@ -74205,8 +74336,8 @@
     ]
   },
   "vi/guides/youtube-jmOoiLzV0Z8": {
-    "at": "2026-11-08",
-    "hash": "3c467f8fb5e8e3a5",
+    "at": "2026-11-14",
+    "hash": "10c0c5b6af4db240",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -74214,28 +74345,21 @@
         "check": "price",
         "part": "P1",
         "quote": "Một chai một lít giá khoảng 5 đô la là đủ để thử đá gần như cả đời.",
-        "why": "The price is in US dollars, a foreign currency, not Vietnamese đồng.",
+        "why": "Price given in US dollars, which only makes sense abroad.",
         "by": "model"
       },
       {
         "check": "elsewhere",
         "part": "P1",
         "quote": "Mùa xuân, mùa hè là lúc nhiều người chơi cá ra ngoài đi nhặt đá về set bể.",
-        "why": "It assumes a four-season climate where rock collecting waits for spring and summer, which is not the reader's climate.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
-        "part": "P1",
-        "quote": "Người ta hay dùng nó để xử lý bề mặt sàn gara hay sàn xi măng.",
-        "why": "Treating garage floors with muriatic acid is a household habit from abroad (US), presented as familiar to the reader.",
+        "why": "A rock-collecting season tied to a temperate climate, not the reader's own.",
         "by": "model"
       },
       {
         "check": "harm",
-        "part": "P1",
-        "quote": "Thuốc tẩy sẽ bay hơi hết nên an toàn cho bể.",
-        "why": "Porous rock soaked in bleach can hold residue; putting it in the tank without rinsing well, soaking and dechlorinating can kill fish.",
+        "part": "L14",
+        "quote": "Thuốc tẩy sẽ bay hơi hết nên an toàn.",
+        "why": "Porous stone holds bleach, so skipping the rinse and dechlorinating soak this answer leaves out can poison fish.",
         "by": "model"
       }
     ],
@@ -74994,8 +75118,8 @@
     ]
   },
   "vi/guides/youtube-kbXHTTdSWQg": {
-    "at": "2026-11-11",
-    "hash": "606576df8bd0f4a7",
+    "at": "2026-11-14",
+    "hash": "7d9e173fffda576b",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -75003,39 +75127,22 @@
         "check": "source",
         "part": "P1",
         "quote": "Hai bể thủy sinh 75 lít và 115 lít ở đây cho thấy chuyện ngược lại.",
-        "why": "Introduces the original writer's own two tanks as if the reader knew them.",
+        "why": "Bare \"ở đây\" refers to the source video's own tanks as if the reader could see them.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "trong sáu tháng bể này chỉ phải tỉa 2–3 lần",
+        "why": "Bare \"bể này\" tells the source's own tank story as if the reader knew it.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
         "quote": "Một bể cá đĩa trồng cây hiện chỉ bật một bóng đèn mà cây vẫn lên tốt",
-        "why": "Mentions another of the writer's own tanks that the reader knows nothing about.",
+        "why": "Refers to another of the source's own tanks, which the reader does not know.",
         "by": "model"
-      },
-      {
-        "check": "dose",
-        "part": "P1",
-        "quote": "3 lần bơm/ngày",
-        "why": "Gives a daily amount of a named commercial fertiliser for a 75-litre tank.",
-        "by": "model",
-        "product": "Tropica Specialized Nutrition"
-      },
-      {
-        "check": "dose",
-        "part": "P1",
-        "quote": "4 lần bơm/ngày",
-        "why": "Gives a daily amount of a named commercial fertiliser for a 115-litre tank.",
-        "by": "model",
-        "product": "Tropica Specialized Nutrition"
-      },
-      {
-        "check": "words",
-        "part": "P1",
-        "quote": "cây ruby như Alternanthera",
-        "why": "A calque of the English 'ruby plants'; keepers in Vietnam just say red plants.",
-        "by": "model",
-        "fix": "cây màu đỏ"
       }
     ],
     "products": [
@@ -75381,37 +75488,51 @@
     "products": []
   },
   "vi/guides/youtube-kq-MchItRfo": {
-    "at": "2026-11-09",
-    "hash": "eff669481bc93d35",
+    "at": "2026-11-14",
+    "hash": "c9ee161c3a061000",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "harm",
-        "part": "P1",
-        "quote": "Rút cạn nước.",
-        "why": "Draining the tank fully before catching the fish and shrimp leaves them stranded out of water.",
-        "by": "model"
-      },
-      {
         "check": "source",
         "part": "P1",
-        "quote": "Bể cũ được set để đi thi, thi xong thì đến lúc đổi layout.",
-        "why": "Treats the source creator's own competition tank as if the reader knew it.",
+        "quote": "Bể cũ được set để đi thi, thi xong thì đến lúc đổi layout. Lần này mọi thứ đều được dỡ ra",
+        "why": "Retells the source creator's own tank history and 'this time' rebuild as if the reader knew it.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
         "quote": "đến lúc đó người làm đã mệt nhoài",
-        "why": "Refers to the source's own person doing the rescape, whom the reader doesn't know.",
+        "why": "Personal story of the source's builder.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ở đây viên đá cuối cùng phía sau được dời đi một chút trước khi trồng cây.",
+        "why": "Bare 'ở đây' points at the source video's tank.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
         "quote": "Hôm đó làm đến tối nên việc châm đầy nước để sang hôm sau.",
-        "why": "A first-hand story of the source creator's day.",
+        "why": "'Hôm đó' narrates the source creator's day.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "L12",
+        "quote": "Ở đây cá được thả lại ngay với nước cũ",
+        "why": "Bare 'ở đây' refers to the source's tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "L3",
+        "quote": "ở đây chỉ dùng 3 khúc lũa và 5 viên đá",
+        "why": "Bare 'ở đây' refers to the source's build.",
         "by": "model"
       }
     ],
@@ -76051,45 +76172,23 @@
     "products": []
   },
   "vi/guides/youtube-LdxHhMZxX_w": {
-    "at": "2026-11-11",
-    "hash": "a635915c25a99541",
+    "at": "2026-11-14",
+    "hash": "ca59b8bb841b5119",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P1",
-        "quote": "kèm số liệu cụ thể từ một bể dài 120 cm đang chạy ổn định",
-        "why": "Refers to the source writer's own tank as the basis of the page.",
+        "part": "P6",
+        "quote": "Bể 120 cm ở đây ban đầu chạy hai lọc, sau bớt còn một",
+        "why": "Refers to the source's own tank as 'here', as if the reader knew it.",
         "by": "model"
       },
       {
         "check": "source",
-        "part": "P6",
-        "quote": "Bể 120 cm ở đây ban đầu chạy hai lọc, sau bớt còn một",
-        "why": "Tells the source's own tank story as if the reader knew it.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
-        "part": "P2",
-        "quote": "Nếu nhà bạn lạnh thì nên tính tới điểm này.",
-        "why": "Assumes a cold-climate home where heating matters, written for readers abroad.",
-        "by": "model"
-      },
-      {
-        "check": "dose",
-        "part": "P8",
-        "quote": "Có thể dùng máy châm phân tự động, mỗi ngày bơm 20 ml vào bể.",
-        "why": "Gives an amount of a named commercial fertiliser.",
-        "by": "model",
-        "product": "Tropica Specialised Nutrition"
-      },
-      {
-        "check": "units",
-        "part": "P4",
-        "quote": "Kính càng dày thì càng thấy rõ khác biệt: với kính 12 mm",
-        "why": "Glass thickness likely converted from half an inch.",
+        "part": "P7",
+        "quote": "Bể 120 cm ở đây đang chạy khoảng 3 bọt mỗi giây.",
+        "why": "Refers to the source's own tank as 'here', as if the reader knew it.",
         "by": "model"
       }
     ],
@@ -76100,22 +76199,7 @@
       "ADA Aqua Soil Amazonia",
       "Oase BioMaster 600 Thermo",
       "Tropica Specialised Nutrition"
-    ],
-    "doses": [
-      {
-        "treatment": "tropica specialised nutrition",
-        "strength": "",
-        "amount": 20,
-        "amountMax": 0,
-        "unit": "ml",
-        "per": 0,
-        "perUnit": "",
-        "use": "plants",
-        "method": "wholeTank",
-        "quote": "mỗi ngày bơm 20 ml vào bể"
-      }
-    ],
-    "sourceRead": true
+    ]
   },
   "vi/guides/youtube-LEFJcwQdUvU": {
     "at": "2026-11-09",
@@ -78001,45 +78085,37 @@
     "products": []
   },
   "vi/guides/youtube-N3uNPHmKkjc": {
-    "at": "2026-11-09",
-    "hash": "b498a7e21a17ff71",
+    "at": "2026-11-14",
+    "hash": "20b444914f0ffc35",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
-        "part": "P1",
-        "quote": "Kính dày khoảng 9,5 mm dùng cho đa số các tấm",
-        "why": "9.5 mm is a converted 3/8 inch; glass in Vietnam isn't sold at that thickness.",
+        "part": "L1",
+        "quote": "bể trên khoảng 19 lít",
+        "why": "19 litres is a converted 5-gallon figure, and the body says 20 litres.",
         "by": "model"
       },
       {
         "check": "units",
-        "part": "L1",
-        "quote": "bể trên khoảng 19 lít tràn xuống khay lọc đầm lầy",
-        "why": "19 litres is a converted 5-gallon figure.",
+        "part": "P2",
+        "quote": "Kính dày khoảng 9,5 mm",
+        "why": "9.5 mm is 3/8 inch converted; glass in Vietnam is sold as 10 ly.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Ở lần sửa đầu, một tấm bên cắt thành công còn tấm kia hỏng, thế là phải tháo cả phần trên ra làm lại.",
-        "why": "The original builder's own story, told as if the reader knew it.",
+        "quote": "Thiết kế này vẫn mang tính thử nghiệm. Phải chạy thử đến lần thứ ba thì nước mới tràn như mong muốn",
+        "why": "The source builder's own test history, told as if the reader knew that build.",
         "by": "model"
       },
       {
-        "check": "words",
-        "part": "P1",
-        "quote": "Nước chạy lên bằng một bơm phun nhỏ.",
-        "why": "Looks like a translation of 'fountain pump'; Vietnamese keepers may call it a mini submersible pump.",
-        "by": "model",
-        "fix": "bơm chìm mini"
-      },
-      {
-        "check": "harm",
-        "part": "P1",
-        "quote": "Châm thêm vi sinh đóng chai vào hệ thống thì thả tép được ngay.",
-        "why": "Putting shrimp into a newly filled tank with new aqua soil and no cycling is likely to kill them.",
+        "check": "source",
+        "part": "P5",
+        "quote": "Ở lần sửa đầu, một tấm bên cắt thành công còn tấm kia hỏng, thế là phải tháo cả phần trên ra làm lại.",
+        "why": "A story from the source's own build, not advice for the reader.",
         "by": "model"
       }
     ],
@@ -78981,8 +79057,8 @@
     "products": []
   },
   "vi/guides/youtube-nsVEqrCSx1Y": {
-    "at": "2026-11-13",
-    "hash": "0c2d60230d76906f",
+    "at": "2026-11-14",
+    "hash": "acb23236df55f76a",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -78990,95 +79066,87 @@
         "check": "source",
         "part": "P1",
         "quote": "Bể dài 2,4 m, khoảng 1000 lít này mới set được 3 tháng thì cây đã lên kém",
-        "why": "Presents the source author's own tank as if the reader knew it.",
+        "why": "Talks about the source video's own tank as if the reader knew it.",
         "by": "model"
       },
       {
         "check": "source",
-        "part": "P1",
-        "quote": "Bố cục gồm ba cụm, nhưng lần này cố ý không đặt cách đều nhau",
-        "why": "Refers to the source's redo of its own tank ('this time').",
+        "part": "P5",
+        "quote": "nhưng lần này cố ý không đặt cách đều nhau",
+        "why": "\"Lần này\" refers to the source's own rebuild.",
         "by": "model"
       },
       {
         "check": "source",
-        "part": "P1",
+        "part": "P4",
         "quote": "Những lần dùng trước, pH không bị leo lên.",
-        "why": "First-person experience of the original author.",
+        "why": "The source keeper's own past experience, given as if the reader shared it.",
         "by": "model"
       },
       {
         "check": "source",
-        "part": "P1",
+        "part": "P6",
+        "quote": "Loại sỏi màu nâu ở đây lên đèn ngả vàng",
+        "why": "A bare \"ở đây\" points at the video's material.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P9",
         "quote": "Bể 1000 lít này chạy hai lọc thùng Fluval FX6 và không châm CO2.",
-        "why": "Describes the source's own tank setup.",
+        "why": "Describes the source's own tank and equipment.",
         "by": "model"
       },
       {
         "check": "source",
-        "part": "P1",
+        "part": "P9",
+        "quote": "ở đây khoảng một tiếng là trong",
+        "why": "A bare \"ở đây\" refers to the video's tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P11",
         "quote": "Sau hai tuần nuôi tạm, con cá Acara to trong đàn lộ ra một tật",
-        "why": "Tells the source's own fish story as if the reader knew these fish.",
+        "why": "Tells the story of the source keeper's own fish.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "L8",
+        "quote": "bể này sau vài tháng đã kín cây, gần như không có rêu hại",
+        "why": "Refers to the source's tank as if the reader knew it.",
         "by": "model"
       },
       {
         "check": "units",
-        "part": "P1",
+        "part": "P4",
         "quote": "cả lớp dinh dưỡng chưa tới 2,5 cm",
         "why": "2.5 cm is a converted 1 inch.",
         "by": "model"
       },
       {
         "check": "units",
-        "part": "P1",
-        "quote": "Kẹp viên phân bằng nhíp rồi ấn sâu khoảng 2,5 cm.",
-        "why": "2.5 cm is a converted 1 inch.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "L2",
-        "quote": "rắc thêm một lớp đất mỏng chưa tới 2,5 cm",
-        "why": "2.5 cm is a converted 1 inch.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "L5",
-        "quote": "Nhét viên phân gốc sâu khoảng 2,5 cm",
-        "why": "2.5 cm is a converted 1 inch.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "L10",
-        "quote": "Chưa tới 2,5 cm là đủ cho rễ.",
-        "why": "2.5 cm is a converted 1 inch.",
+        "part": "P7",
+        "quote": "Kẹp viên phân bằng nhíp rồi ấn sâu khoảng 2,5 cm",
+        "why": "A depth converted from 1 inch.",
         "by": "model"
       },
       {
         "check": "dose",
-        "part": "P1",
-        "quote": "Bẻ đôi từng viên, chia 10 nửa cho mỗi nửa bể.",
-        "why": "Amount of a named commercial fertiliser per tank.",
-        "by": "model",
-        "product": "API Root Tabs"
-      },
-      {
-        "check": "dose",
-        "part": "P1",
-        "quote": "Bể 1000 lít dùng 5 nắp, bể 60 cm chỉ cần vài ml, khoảng một phần tư nắp.",
-        "why": "Amount of a named commercial clarifier per volume.",
+        "part": "L12",
+        "quote": "liều 5 nắp cho 1000 lít, vài ml cho bể 60 cm",
+        "why": "A dose of a named commercial clarifier.",
         "by": "model",
         "product": "API Accu-Clear"
       },
       {
-        "check": "dose",
-        "part": "P1",
-        "quote": "Bể cỡ này dùng gần hết cả chai.",
-        "why": "Amount of a named commercial fertiliser for this tank.",
+        "check": "words",
+        "part": "P3",
+        "quote": "Cây ráy Cryptocoryne thường lên tốt",
+        "why": "In the Vietnamese hobby \"ráy\" means Anubias; Cryptocoryne is called crypto.",
         "by": "model",
-        "product": "API Leaf Zone"
+        "fix": "cây crypto"
       }
     ],
     "products": [
@@ -79090,18 +79158,6 @@
     ],
     "doses": [
       {
-        "treatment": "api root tabs",
-        "strength": "",
-        "amount": 10,
-        "amountMax": 0,
-        "unit": "half tablet",
-        "per": 1,
-        "perUnit": "half tank",
-        "use": "plants",
-        "method": "other",
-        "quote": "Bẻ đôi từng viên, chia 10 nửa cho mỗi nửa bể."
-      },
-      {
         "treatment": "api accu-clear",
         "strength": "",
         "amount": 5,
@@ -79111,10 +79167,10 @@
         "perUnit": "litre",
         "use": "water",
         "method": "wholeTank",
-        "quote": "Bể 1000 lít dùng 5 nắp, bể 60 cm chỉ cần vài ml, khoảng một phần tư nắp."
+        "quote": "liều 5 nắp cho 1000 lít"
       }
     ],
-    "sourceRead": true
+    "sourceRead": false
   },
   "vi/guides/youtube-NuqFo5_oJ2s": {
     "at": "2026-11-08",
@@ -79656,33 +79712,18 @@
     "products": []
   },
   "vi/guides/youtube-ogiCy6qvGUs": {
-    "at": "2026-11-11",
-    "hash": "ca904b5fac8c26e6",
+    "at": "2026-11-14",
+    "hash": "81f791031371c275",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "harm",
-        "part": "P1",
-        "quote": "Nối ống vào vòi bồn rửa trong bếp để cấp nước mới vào bể.",
-        "why": "Running chlorinated tap water straight into a shrimp tank in a long continuous change, with no dechlorinating, can hurt shrimp and fish.",
-        "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P1",
-        "quote": "Với khóm cây cắt cắm, có thể cắt vát để phần dưới dốc hơn.",
-        "why": "Calque of 'stem plants'; Vietnamese keepers do not say 'cây cắt cắm'.",
-        "by": "model",
-        "fix": "cây thân đứng"
-      },
-      {
         "check": "words",
         "part": "P1",
         "quote": "Trồng cây cắt cắm mới từ cốc nuôi cấy",
-        "why": "Calque of 'tissue culture cup'; local keepers say cây mô / cốc mô.",
+        "why": "Calque of 'tissue culture cup'; Vietnamese keepers call these cấy mô.",
         "by": "model",
-        "fix": "cây cốc mô"
+        "fix": "cây cấy mô / cốc cấy mô"
       }
     ],
     "products": [
@@ -81556,37 +81597,30 @@
     "products": []
   },
   "vi/guides/youtube-qL-OMw9pvJs": {
-    "at": "2026-11-09",
-    "hash": "9c6e2111ee02b671",
+    "at": "2026-11-14",
+    "hash": "bbb3bfb71fbef106",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "kit",
+        "check": "source",
         "part": "P1",
-        "quote": "Bộ kit làm hồ dùng ở đây có gần đủ mọi thứ",
-        "why": "The whole build follows one foreign pond kit (skimmer box, waterfall filter box, liner) rather than equipment a keeper in Vietnam would gather.",
+        "quote": "Hồ cỡ khoảng 1,8 x 2,4 m trong bài này làm mất khoảng năm ngày.",
+        "why": "Refers to the source article's own pond build as if the reader knew it.",
         "by": "model"
       },
       {
         "check": "source",
-        "part": "P1",
-        "quote": "trong bài này làm mất khoảng năm ngày",
-        "why": "Refers to the source writer's own pond project as if the reader knew it.",
+        "part": "P9",
+        "quote": "Sau đó vẫn còn vài việc lặt vặt: thêm lũa, che hộp lọc thác kỹ hơn, và đặt một hòn đá giả",
+        "why": "Narrates the original builder's follow-up work on their own pond.",
         "by": "model"
       },
       {
         "check": "units",
-        "part": "P1",
-        "quote": "Hồ cỡ khoảng 1,8 x 2,4 m",
-        "why": "Converted from 6 × 8 feet; not a size a builder in Vietnam would choose.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P1",
+        "part": "P10",
         "quote": "có thể chọn cỡ khoảng 2,4 x 3,4 m trở lên",
-        "why": "Converted from roughly 8 × 11 feet.",
+        "why": "Size converted from 8 x 11 feet; not a size a Vietnamese keeper would choose.",
         "by": "model"
       }
     ],
@@ -81775,23 +81809,16 @@
     "products": []
   },
   "vi/guides/youtube-qWK5E1c6qak": {
-    "at": "2026-11-08",
-    "hash": "c4f2d25c9d64bacb",
+    "at": "2026-11-14",
+    "hash": "c4630ba69fcb0ea8",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "source",
+        "check": "units",
         "part": "P1",
-        "quote": "Bể làm ví dụ cao khoảng 90 cm, dung tích khoảng 340 lít.",
-        "why": "Refers to the original writer's own example tank as if the reader knew it.",
-        "by": "model"
-      },
-      {
-        "check": "harm",
-        "part": "P1",
-        "quote": "Nước châm lại có thể lấy từ máy lọc RO/DI (lọc thẩm thấu ngược kèm khử ion).",
-        "why": "Refilling a freshwater tank with straight RO/DI water and no remineralising can sharply cut hardness and crash pH, stressing fish.",
+        "quote": "dung tích khoảng 340 lít",
+        "why": "340 litres is a converted 90-gallon tank, a size nobody in Vietnam would give.",
         "by": "model"
       }
     ],
@@ -82089,48 +82116,39 @@
     ]
   },
   "vi/guides/youtube-RgZyJiCQSNM": {
-    "at": "2026-11-13",
-    "hash": "465c3f32d95d71ee",
+    "at": "2026-11-14",
+    "hash": "14c203aa592b62fd",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "dose",
-        "part": "P1",
-        "quote": "châm thêm phân nước (API Leaf Zone) để cây hút được dinh dưỡng trong nước",
-        "why": "Gives an amount of a named commercial fertiliser (one capful for this tank).",
-        "by": "model",
-        "product": "API Leaf Zone"
-      },
-      {
-        "check": "dose",
-        "part": "P1",
-        "quote": "châm thêm vi sinh (API Quick Start), một nắp cho lượng nước này",
-        "why": "Gives an amount of a named commercial bacteria product for the tank's volume.",
-        "by": "model",
-        "product": "API Quick Start"
-      },
-      {
         "check": "source",
         "part": "P1",
-        "quote": "Lô Echinodorus này đã được trồng trên cạn sẵn nên chắc sẽ tiếp tục lên.",
-        "why": "Refers to the source creator's own batch of plants as if the reader knew it.",
+        "quote": "Bể dùng ở đây là bể thấp, trước đó không nuôi cá.",
+        "why": "Describes the source video's own tank with a bare \"ở đây\", as if the reader knew it.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
         "quote": "Lần này nhét cả 10 viên.",
-        "why": "Retells the source creator's own setup as a story the reader is assumed to share.",
+        "why": "A bare \"lần này\" points to the source creator's own build.",
         "by": "model"
       },
       {
-        "check": "words",
+        "check": "source",
         "part": "P1",
-        "quote": "rải vài trái thông alder (alder cone)",
-        "why": "Alder cones are not pine cones; this is a literal rendering of the English.",
+        "quote": "Lô Echinodorus này đã được trồng trên cạn sẵn nên chắc sẽ tiếp tục lên.",
+        "why": "Refers to the source creator's own batch of plants, which the reader doesn't have.",
+        "by": "model"
+      },
+      {
+        "check": "dose",
+        "part": "P1",
+        "quote": "châm thêm phân nước (API Leaf Zone)",
+        "why": "Gives a dose of a named commercial fertiliser (one cap for a tank this size).",
         "by": "model",
-        "fix": "trái alder"
+        "product": "API Leaf Zone"
       }
     ],
     "products": [
@@ -82151,10 +82169,10 @@
         "perUnit": "",
         "use": "plants",
         "method": "other",
-        "quote": "bình thường chỉ nhét nửa gói, tức 5 trong 10 viên. Lần này nhét cả 10 viên"
+        "quote": "bình thường chỉ nhét nửa gói, tức 5 trong 10 viên. Lần này nhét cả 10 viên."
       }
     ],
-    "sourceRead": true
+    "sourceRead": false
   },
   "vi/guides/youtube-rh8iBySuUpE": {
     "at": "2026-11-09",
@@ -84714,8 +84732,8 @@
     ]
   },
   "vi/guides/youtube-TwJC13KPcYM": {
-    "at": "2026-11-11",
-    "hash": "82595e2b5b95c8e0",
+    "at": "2026-11-14",
+    "hash": "9fe68575be9c8b83",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -84723,38 +84741,58 @@
         "check": "source",
         "part": "P1",
         "quote": "Đây cũng là cách bể được chăm trong mấy tuần cuối trước khi chụp ảnh gửi đi cuộc thi IAPLC.",
-        "why": "Tells the source's own contest-tank story as if the reader knew it.",
+        "why": "It tells the source's own story of its contest tank as if the reader knew it.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
         "quote": "Trước đây bể chạy hai lọc, khi thử bớt còn một thì vẫn chạy tốt với hệ này.",
-        "why": "History of the source's own tank, unknown to the reader.",
+        "why": "It recounts the history of the source's own tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ở bể này mức đó cho khoảng 30 ppm CO2.",
+        "why": "A bare 'bể này' points at the source's tank, which the reader has never seen.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Phần giữa phía trước vừa được gỡ bớt thảm và một ít phân nền, thay bằng cát trắng để trơn.",
+        "why": "It describes a recent change to the source's own tank as news.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
         "quote": "Trước buổi chụp ảnh dự thi, bể còn cần thay nước thêm vài lần nữa cho sẵn sàng.",
-        "why": "Refers to the source writer's own upcoming contest shoot.",
+        "why": "It is the source tank's own contest plan.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "L9",
+        "quote": "khoảng 5–6 giọt mỗi giây cho mức chừng 30 ppm ở bể này",
+        "why": "A bare 'bể này' refers to the source's tank.",
+        "by": "model"
+      },
+      {
+        "check": "shop",
+        "part": "P1",
+        "quote": "bình CO2 có van giảm áp hai cấp của Green Leaf Aquariums",
+        "why": "Green Leaf Aquariums is a US shop, named as the place this kit comes from.",
         "by": "model"
       },
       {
         "check": "dose",
-        "part": "P1",
-        "quote": "Mỗi ngày châm 25 ml Tropica Specialised Nutrition để nuôi cây qua lá.",
-        "why": "Amount of a named commercial fertiliser for the source's tank.",
+        "part": "L3",
+        "quote": "Châm 25 ml phân nước tổng hợp mỗi ngày bằng máy châm tự động",
+        "why": "A daily amount of the named product Tropica Specialised Nutrition, for the source's tank.",
         "by": "model",
         "product": "Tropica Specialised Nutrition"
-      },
-      {
-        "check": "dose",
-        "part": "P1",
-        "quote": "khử clo bằng Fritz Aquatics ACCR: chỉ cần cho một muỗng bột khô vào bể",
-        "why": "Amount of a named commercial conditioner for the tank.",
-        "by": "model",
-        "product": "Fritz Aquatics ACCR"
       }
     ],
     "products": [
@@ -84764,7 +84802,6 @@
       "CO2 Art",
       "Tropica Specialised Nutrition",
       "D-D P1",
-      "Fritz Aquatics ACCR",
       "Fritz Aquatics"
     ],
     "doses": [
@@ -84778,10 +84815,10 @@
         "perUnit": "",
         "use": "plants",
         "method": "wholeTank",
-        "quote": "Mỗi ngày châm 25 ml Tropica Specialised Nutrition"
+        "quote": "Châm 25 ml phân nước tổng hợp mỗi ngày bằng máy châm tự động, ngay trước giờ bật đèn."
       }
     ],
-    "sourceRead": true
+    "sourceRead": false
   },
   "vi/guides/youtube-U_2TYWQ_i3U": {
     "at": "2026-11-10",
@@ -85628,51 +85665,79 @@
     "products": []
   },
   "vi/guides/youtube-Vb_r4iSsDo8": {
-    "at": "2026-11-09",
-    "hash": "f303484265fffa21",
+    "at": "2026-11-14",
+    "hash": "f08be8e2a63d75ff",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "kit",
-        "part": "P1",
-        "quote": "Hồ ở đây dùng bộ kit 2,4 × 3,4 m",
-        "why": "The page is a build of one maker's ecosystem pond kit (skimmer, BioFalls), with the kit size converted from 8 × 11 ft.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "cả đội làm xong trong hơn bảy tiếng",
-        "why": "Refers to the original source's crew, whom the reader doesn't know.",
-        "by": "model"
-      },
-      {
         "check": "source",
         "part": "P1",
         "quote": "Hồ này được đặt ở sân trước thay vì sân sau.",
-        "why": "Tells the source's own project as if the reader knew it.",
+        "why": "Refers to the video's own pond as if the reader knew it.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Hy vọng là vài ngày tới nước sẽ trong hẳn.",
-        "why": "The original writer's first-person hope about their own pond.",
+        "quote": "Cách xử lý ở đây là đặt một ống đục lỗ gần mép hồ",
+        "why": "A bare 'ở đây' pointing at the source's own build site.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Đá ở đây là sa thạch lấy ngay trong vùng.",
+        "why": "Refers to the source's local area and build.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Hồ này có thêm rêu và lũa lấy ngay trong vùng.",
+        "why": "Refers to the source's own pond and locality.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "nước được bơm vào ngay trong lúc cả đội làm các chi tiết cuối",
+        "why": "Refers to the channel's own crew.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Làm xong, nước hồ này vẫn còn hơi đục, do mưa trong lúc làm. Hy vọng là vài ngày tới",
+        "why": "The source's own story and voice about its build.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "L14",
+        "quote": "Nước đục ở hồ này là do mưa trong lúc làm. Hy vọng là vài ngày tới nước sẽ trong hẳn.",
+        "why": "The source's own build story given as an answer.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P1",
-        "quote": "Ống vào cỡ 3,8 hoặc 5 cm tùy bơm",
-        "why": "Converted from 1.5 or 2 inch pipe sizes.",
+        "quote": "Ống vào cỡ 3,8 hoặc 5 cm tùy bơm.",
+        "why": "Pipe sizes converted from 1.5 and 2 inches.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P1",
         "quote": "bơm 11.350 lít/giờ",
-        "why": "Converted from a 3000 gallons per hour pump rating.",
+        "why": "Pump flow converted from 3,000 gallons per hour.",
+        "by": "model"
+      },
+      {
+        "check": "kit",
+        "part": "P1",
+        "quote": "BioFalls là lọc sinh học dòng chảy ngược lên (up flow).",
+        "why": "The page is a build guide around one foreign maker's pond kit (skimmer, BioFalls, faceplate).",
         "by": "model"
       }
     ],
@@ -86726,19 +86791,11 @@
     "products": []
   },
   "vi/guides/youtube-WVCXRvyshIA": {
-    "at": "2026-11-09",
-    "hash": "dfecb26ab66b98b3",
+    "at": "2026-11-14",
+    "hash": "037843f5715a2002",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "harm",
-        "part": "P1",
-        "quote": "Một cách khác là sơn đen mặt trong bể.",
-        "why": "Painting the inside of the tank puts paint in contact with the water, which can leach toxins; the background should be painted on the outside of the back glass.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/guides/youtube-WVpke0jbuGM": {
@@ -87640,22 +87697,14 @@
     ]
   },
   "vi/guides/youtube-xuc03DuJ9o4": {
-    "at": "2026-11-08",
-    "hash": "ec4c166a4af49448",
+    "at": "2026-11-14",
+    "hash": "8975316ca599dadf",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "harm",
-        "part": "P1",
-        "quote": "Về liều lượng, một cách là cứ bật sao cho cá không chết là được.",
-        "why": "Telling keepers to raise CO2 as high as possible short of killing the fish invites near-lethal CO2 levels, especially when it runs all day.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": [
-      "Xiaomi",
-      "Seachem"
+      "Seachem",
+      "Xiaomi"
     ]
   },
   "vi/guides/youtube-XULsOeB7Q0A": {
@@ -89434,67 +89483,29 @@
     ]
   },
   "vi/guides/youtube-zDZ2W-e1vRw": {
-    "at": "2026-11-10",
-    "hash": "0923ff6a4e3893e3",
+    "at": "2026-11-14",
+    "hash": "0ca508c099b9abc5",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "dose",
-        "part": "P1",
-        "quote": "Liều của APT Fix là 1 ml cho 10 lít nước",
-        "why": "Gives a per-volume dose of a named commercial algae product.",
-        "by": "model",
-        "product": "APT Fix"
-      },
-      {
         "check": "elsewhere",
-        "part": "P1",
+        "part": "P2",
         "quote": "sang thu ngày ngắn đi đáng kể và nhiệt độ cũng thấp hơn",
-        "why": "Assumes a temperate autumn with much shorter, cooler days, which is not the reader's climate in most of Vietnam.",
+        "why": "Autumn days shortening markedly is a high-latitude climate, not Vietnam's.",
         "by": "model"
       },
       {
         "check": "source",
-        "part": "P1",
+        "part": "P4",
         "quote": "Ánh sáng thừa từ giếng trời, có lẽ là vấn đề lớn nhất trong trường hợp này.",
-        "why": "Refers to the source's own tank as a case the reader is supposed to know.",
+        "why": "Refers to the source's own tank and its story as if the reader knew it.",
         "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Rêu nặng đến mức này thì có thể dùng hóa chất",
-        "why": "Points at the specific tank from the source as if the reader could see it.",
-        "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P1",
-        "quote": "những vệt nước cứng bám trên kính",
-        "why": "Calque of the English 'hard water stains'.",
-        "by": "model",
-        "fix": "vết ố canxi, cặn vôi bám trên kính"
       }
     ],
     "products": [
       "APT Fix"
-    ],
-    "doses": [
-      {
-        "treatment": "apt fix",
-        "strength": "",
-        "amount": 1,
-        "amountMax": 0,
-        "unit": "ml",
-        "per": 10,
-        "perUnit": "litre",
-        "use": "algae",
-        "method": "spot",
-        "quote": "Liều của APT Fix là 1 ml cho 10 lít nước"
-      }
-    ],
-    "sourceRead": true
+    ]
   },
   "vi/guides/youtube-zfTnqG22oS8": {
     "at": "2026-11-10",
@@ -90652,16 +90663,23 @@
     "products": []
   },
   "vi/plants/cryptocoryne-parva": {
-    "at": "2026-11-08",
-    "hash": "2559c58bf9986117",
+    "at": "2026-11-14",
+    "hash": "9f1deecd2c9b60ec",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P4",
+        "quote": "Bể tối thiểu cho loài này là khoảng 19 lít.",
+        "why": "19 litres is a converted 5-gallon tank, a size nobody in Vietnam uses.",
+        "by": "model"
+      },
+      {
         "check": "price",
         "part": "P10",
         "quote": "Một chậu cây giá chỉ vài đô la.",
-        "why": "Price given in US dollars, meaningful only to a reader abroad.",
+        "why": "The price is in US dollars, not the reader's currency.",
         "by": "model"
       }
     ],
@@ -91653,33 +91671,24 @@
     ]
   },
   "vi/plants/nymphoides-aquatica": {
-    "at": "2026-11-08",
-    "hash": "075290de1ebe1517",
+    "at": "2026-11-14",
+    "hash": "434510063305098c",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P3",
-        "quote": "trồng củ sâu khoảng 0,6 cm vào nền",
-        "why": "0.6 cm is a converted quarter inch; nobody in Vietnam would measure it like that.",
+        "quote": "thậm chí làm cây hậu cảnh trong bể nano 19 lít",
+        "why": "19 litres is a converted 5-gallon tank, not a size used in Vietnam.",
         "by": "model"
       },
       {
-        "check": "words",
-        "part": "P2",
-        "quote": "cây sẽ đón nhận phân nước tổng hợp tốt",
-        "why": "This is a calque of the English 'will appreciate'. Vietnamese keepers don't say it this way.",
-        "by": "model",
-        "fix": "cây sẽ lên tốt hơn nếu châm phân nước"
-      },
-      {
-        "check": "words",
-        "part": "P2",
-        "quote": "một viên phân gốc đặt ngay dưới cây",
-        "why": "'Phân gốc' is a translated term for 'root tab'. Vietnamese keepers call it 'phân nhét'.",
-        "by": "model",
-        "fix": "viên phân nhét"
+        "check": "units",
+        "part": "P3",
+        "quote": "trồng củ sâu khoảng 0,6 cm vào nền",
+        "why": "0.6 cm is a converted quarter inch.",
+        "by": "model"
       }
     ],
     "products": []
@@ -93515,8 +93524,8 @@
     ]
   },
   "vi/species/ambastaia-sidthimunki": {
-    "at": "2026-11-11",
-    "hash": "ac7507d4b1751256",
+    "at": "2026-11-14",
+    "hash": "e4b2ad86f7e9429e",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -93524,7 +93533,7 @@
         "check": "source",
         "part": "P6",
         "quote": "Cảm ơn Kamphol Udomritthiruj.",
-        "why": "Thanks a person from the source article whom the reader doesn't know.",
+        "why": "Thanks a person from the source article's own acknowledgements.",
         "by": "model"
       },
       {
@@ -93545,47 +93554,31 @@
         "check": "source",
         "part": "P24",
         "quote": "Báo cáo đầy đủ của Mark ghi lại thành công này có tại đây.",
-        "why": "Points to a link to a report that isn't on the page.",
+        "why": "Points to a link that isn't on the page.",
         "by": "model"
       },
       {
         "check": "units",
-        "part": "P9",
-        "quote": "Bạn nên nuôi chúng trong bể từ khoảng 75 lít trở lên.",
-        "why": "Tank volume converted from 20 US gallons.",
+        "part": "P24",
+        "quote": "cá được nuôi trong bể 284 lít",
+        "why": "284 litres is a converted 75-gallon tank.",
         "by": "model"
       },
       {
         "check": "words",
         "part": "P4",
-        "quote": "Cá chuột lùn sọc xích, Ambastaia sidthimunki, là một loài cá chuột họ Botiidae nhỏ bé",
-        "why": "In Vietnam 'cá chuột' means corydoras; botiid loaches are called 'cá heo'.",
+        "quote": "là một loài cá chuột họ Botiidae nhỏ bé",
+        "why": "'Cá chuột' translates 'loach'; Vietnamese keepers call Botia 'cá heo' and use 'cá chuột' for Corydoras.",
         "by": "model",
-        "fix": "cá heo lùn"
+        "fix": "cá heo"
       },
       {
         "check": "words",
         "part": "P11",
         "quote": "tuyệt đối không nên thả chúng vào bể chưa trưởng thành về mặt sinh học",
-        "why": "Literal rendering of 'biologically immature'; keepers speak of cycling.",
+        "why": "Calque of 'biologically immature tank'.",
         "by": "model",
-        "fix": "bể chưa chạy vi sinh / bể chưa ổn định"
-      },
-      {
-        "check": "words",
-        "part": "P18",
-        "quote": "ấu trùng muỗi lắc chironomid (trùn chỉ đỏ/trùn huyết)",
-        "why": "Dictionary term for bloodworms; keepers just say trùng huyết.",
-        "by": "model",
-        "fix": "trùng huyết"
-      },
-      {
-        "check": "words",
-        "part": "P18",
-        "quote": "rau chân vịt chần",
-        "why": "Dictionary word for spinach; keepers say cải bó xôi.",
-        "by": "model",
-        "fix": "cải bó xôi chần"
+        "fix": "bể mới chưa chạy vi sinh / chưa ổn định"
       }
     ],
     "products": [
@@ -93767,26 +93760,11 @@
     "products": []
   },
   "vi/species/amphilius-atesuensis": {
-    "at": "2026-11-13",
-    "hash": "ad75303a7d38ea8e",
+    "at": "2026-11-14",
+    "hash": "c26122b4d30f716b",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P2",
-        "quote": "Ảnh thu nhỏ có thể là loài này, cũng có thể là một loài gần nó",
-        "why": "Refers to thumbnail photos from the source site that this page does not have.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P8",
-        "quote": "hai ảnh thu nhỏ cuối cùng chụp ở Vườn quốc gia Tai",
-        "why": "Describes the source site's photo gallery, which is not on this page.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/species/amphilius-cryptobullatus": {
@@ -94027,23 +94005,23 @@
     "products": []
   },
   "vi/species/anatolichthys-transgrediens": {
-    "at": "2026-11-08",
-    "hash": "bab629d804dd09b3",
+    "at": "2026-11-14",
+    "hash": "a85f3798a20a8481",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "elsewhere",
-        "part": "P6",
-        "quote": "Bạn nên cho cá trải qua một 'mùa đông' kéo dài vài tháng ở nhiệt độ thấp.",
-        "why": "This assumes a temperate climate with a cold winter, which a keeper in Vietnam doesn't have without chilling the water.",
+        "check": "units",
+        "part": "P4",
+        "quote": "60 cm x 30 cm x 30 cm (57 lít)",
+        "why": "57 litres is a converted 15-gallon tank; the stated sides give about 54 litres.",
         "by": "model"
       },
       {
-        "check": "source",
-        "part": "P11",
-        "quote": "Ở đây các loài được liệt kê riêng để khỏi phải dùng tên phân loài.",
-        "why": "This is the source database talking about how it lists its own species.",
+        "check": "units",
+        "part": "P4",
+        "quote": "120 cm x 30 cm x 30 cm (113 lít)",
+        "why": "113 litres is a converted 30-gallon tank; the stated sides give about 108 litres.",
         "by": "model"
       }
     ],
@@ -95744,11 +95722,20 @@
     "products": []
   },
   "vi/species/apistogramma-steindachneri": {
-    "at": "2026-11-10",
-    "hash": "d4be29059fa1bd4a",
+    "at": "2026-11-14",
+    "hash": "1663ebf75f227041",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "words",
+        "part": "P8",
+        "quote": "như cá chì Nannostomus",
+        "why": "Pencilfish are called 'cá bút chì' by Vietnamese keepers; 'cá chì' means lead fish.",
+        "by": "model",
+        "fix": "cá bút chì"
+      }
+    ],
     "products": []
   },
   "vi/species/apistogramma-trifasciata": {
@@ -96306,8 +96293,8 @@
     "products": []
   },
   "vi/species/astacopsis-gouldi": {
-    "at": "2026-11-13",
-    "hash": "02bda9a8e9d9400a",
+    "at": "2026-11-14",
+    "hash": "02a76e300d1b7023",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -96353,8 +96340,8 @@
     "products": []
   },
   "vi/species/astronotus-ocellatus": {
-    "at": "2026-11-09",
-    "hash": "399098b6bec65d35",
+    "at": "2026-11-14",
+    "hash": "1fc3b5ed6cc34d5e",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -96362,28 +96349,43 @@
         "check": "elsewhere",
         "part": "P1",
         "quote": "Con trưởng thành dài cỡ quả bóng bầu dục Mỹ",
-        "why": "Compares size to an American football, a reference for a US reader.",
+        "why": "An American football is a size reference for a US reader, not a reader in Vietnam.",
         "by": "model"
       },
       {
-        "check": "units",
-        "part": "P12",
-        "quote": "nuôi ba con oscar trong bể 470 L",
-        "why": "470 L is a converted 125-gallon tank, not a size anyone in Vietnam names.",
-        "by": "model"
+        "check": "words",
+        "part": "P1",
+        "quote": "một trong những loài cá bán chạy nhất ở cửa hàng thú cưng",
+        "why": "A translation of 'pet store'; keepers in Vietnam buy fish at a fish shop.",
+        "by": "model",
+        "fix": "tiệm cá cảnh"
       },
       {
         "check": "source",
         "part": "P7",
         "quote": "Hiện trên thị trường có cá oscar hoang dã cỡ lớn, bắt từ Colombia về.",
-        "why": "The source wholesaler's own stock news presented to the reader.",
+        "why": "Stock news from the source shop.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P30",
         "quote": "Chúng tôi không tìm được dữ liệu xác nhận lý do chính xác",
-        "why": "The source writers' own 'we' voice.",
+        "why": "The source writers' own voice ('we').",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P12",
+        "quote": "một con oscar cần bể tối thiểu 210 L, nhưng 280 L thì tốt hơn",
+        "why": "Converted from 55 and 75 US gallons.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P31",
+        "quote": "dung tích từ khoảng 380 lít trở lên",
+        "why": "Converted from 100 US gallons.",
         "by": "model"
       }
     ],
@@ -97820,8 +97822,8 @@
     "products": []
   },
   "vi/species/betadevario-ramachandrani": {
-    "at": "2026-11-08",
-    "hash": "01d7f7d329389f46",
+    "at": "2026-11-14",
+    "hash": "eb78bae287bd75b6",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -97949,17 +97951,25 @@
     "products": []
   },
   "vi/species/betta-brownorum": {
-    "at": "2026-11-08",
-    "hash": "ab53d39aa57bcb3d",
+    "at": "2026-11-14",
+    "hash": "112358661403c547",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P11",
-        "quote": "Thức ăn đang dùng cho cá gồm giun đen sống, trùng huyết đông lạnh và thức ăn viên.",
-        "why": "Describes what the source shop currently feeds its own stock, as if the reader knew those fish.",
+        "part": "P3",
+        "quote": "Nguồn gốc cá: cá bắt ngoài tự nhiên (Sibu, Sarawak, Malaysia).",
+        "why": "Describes the source shop's own stock origin rather than advice for the reader.",
         "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P18",
+        "quote": "giun vi tế (microworm)",
+        "why": "Literal rendering of 'microworm'; Vietnamese keepers use a different term.",
+        "by": "model",
+        "fix": "trùn vi sinh"
       }
     ],
     "products": []
@@ -98193,17 +98203,32 @@
     "products": []
   },
   "vi/species/betta-hipposideros": {
-    "at": "2026-11-08",
-    "hash": "d2c98e489cf148fb",
+    "at": "2026-11-14",
+    "hash": "eaeaf4751252c528",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P11",
+        "quote": "Mỗi bể 19 lít nên nuôi một cặp.",
+        "why": "19 litres is a converted 5-gallon tank size nobody in Vietnam would use.",
+        "by": "model"
+      },
+      {
         "check": "elsewhere",
         "part": "P6",
         "quote": "bạn có thể dùng cành sồi beech hoặc sồi oak thông thường",
-        "why": "Beech and oak are common European trees, not something a keeper in Vietnam can easily collect.",
+        "why": "Beech and oak branches are 'ordinary' only for a European reader, not in Vietnam.",
         "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P15",
+        "quote": "giun vi tế (microworm)",
+        "why": "Not the term keepers in Vietnam use for microworms.",
+        "by": "model",
+        "fix": "trùn vi sinh"
       }
     ],
     "products": []
@@ -98311,25 +98336,32 @@
     "products": []
   },
   "vi/species/betta-livida": {
-    "at": "2026-11-08",
-    "hash": "da5b7bc295c05fbc",
+    "at": "2026-11-14",
+    "hash": "2b69c066610cde68",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Đây là cá Betta livida bắt từ tự nhiên ở Indonesia, thuộc nhóm Betta coccina.",
-        "why": "This is the source shop describing its own wild-caught stock as if the reader were looking at its listing, and it even contradicts the Malaysian range given elsewhere on the page.",
+        "quote": "Đây là cá Betta livida bắt từ tự nhiên ở Indonesia",
+        "why": "Describes the source shop's own wild-caught stock as if the reader were looking at it.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P6",
+        "quote": "Mỗi cặp nên có khoảng 19 lít nước.",
+        "why": "19 litres is a converted 5 US gallons, not a figure a Vietnamese keeper would use.",
         "by": "model"
       },
       {
         "check": "words",
         "part": "P17",
         "quote": "giun vi tế (microworm)",
-        "why": "'Giun vi tế' is a literal translation of 'microworm'; keepers in Vietnam don't call it that.",
+        "why": "Dictionary-style term; Vietnamese keepers call microworms by a different name.",
         "by": "model",
-        "fix": "giun vi sinh"
+        "fix": "trùn vi sinh"
       }
     ],
     "products": []
@@ -98432,16 +98464,16 @@
     "products": []
   },
   "vi/species/betta-miniopinna": {
-    "at": "2026-11-08",
+    "at": "2026-11-14",
     "hash": "98388a044a5ad098",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P11",
         "quote": "Khuyến nghị: 1 cặp cho mỗi 19 lít.",
-        "why": "19 litres is a converted 5 US gallons, not a volume a keeper in Vietnam would use.",
+        "why": "19 litres is a converted 5 US gallons, a volume no keeper in Vietnam would use.",
         "by": "model"
       }
     ],
@@ -98801,31 +98833,25 @@
     "products": []
   },
   "vi/species/betta-rutilans": {
-    "at": "2026-11-08",
-    "hash": "c6d9f3f4e7a7498c",
+    "at": "2026-11-14",
+    "hash": "fdf97b4689e830dc",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Được bán dưới dạng Betta rutilans Green đánh bắt ngoài tự nhiên.",
-        "why": "Describes how the source shop sells this fish as its own stock.",
+        "quote": "Đợt cá này được đặt về dưới tên rutilans \"Green\"",
+        "why": "Refers to the source shop's own imported batch of stock as if the reader knew it.",
         "by": "model"
       },
       {
-        "check": "source",
-        "part": "P8",
-        "quote": "Hiện được cho ăn giun đen sống, giun đỏ đông lạnh và thức ăn viên.",
-        "why": "Reports what the source shop is currently feeding its own fish.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P10",
-        "quote": "Khuyến nghị 1 cặp cho mỗi 19 lít.",
-        "why": "19 litres is a converted 5-gallon figure that no Vietnamese keeper would use.",
-        "by": "model"
+        "check": "words",
+        "part": "P15",
+        "quote": "Một số loài cá chép nhỏ (cyprinid)",
+        "why": "Calque of 'small cyprinids'; Vietnamese keepers say cá họ chép nhỏ.",
+        "by": "model",
+        "fix": "cá họ chép nhỏ"
       }
     ],
     "products": []
@@ -100306,18 +100332,17 @@
     "products": []
   },
   "vi/species/camposcia-retusa": {
-    "at": "2026-11-08",
-    "hash": "79299a6fc3142dd0",
+    "at": "2026-11-14",
+    "hash": "ccbfe745e798903a",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "words",
-        "part": "P7",
-        "quote": "Khoảng lý tưởng là 1,0264–1,0279 (35–37 ppm)",
-        "why": "Salinity of 35–37 is parts per thousand, not ppm; the unit is wrong.",
-        "by": "model",
-        "fix": "35–37 ppt (‰)"
+        "check": "harm",
+        "part": "P12",
+        "quote": "Sáng hôm trứng nở, người nuôi tắt sục khí trước, sau đó tắt đèn phòng",
+        "why": "Turning off aeration to gather larvae can starve them and the tank of oxygen, and the page gives no warning to keep the stop short.",
+        "by": "model"
       }
     ],
     "products": []
@@ -100380,18 +100405,17 @@
     "products": []
   },
   "vi/species/carassius-auratus": {
-    "at": "2026-11-08",
-    "hash": "59782d29ea473bda",
+    "at": "2026-11-14",
+    "hash": "11fa1ba42b6c9d2c",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "words",
-        "part": "P13",
-        "quote": "Với những con dễ bị rối loạn độ nổi, nên cho ăn thức ăn chìm.",
-        "why": "Calque of 'buoyancy disorder'; keepers in Vietnam call this swim bladder trouble 'mất thăng bằng'.",
-        "by": "model",
-        "fix": "bệnh mất thăng bằng"
+        "check": "units",
+        "part": "P2",
+        "quote": "Bể tối thiểu: 76 lít",
+        "why": "76 litres is a converted 20-gallon tank size, not a size a Vietnamese keeper would name.",
+        "by": "model"
       }
     ],
     "products": []
@@ -100421,11 +100445,19 @@
     "products": []
   },
   "vi/species/caridina-multidentata": {
-    "at": "2026-11-09",
-    "hash": "32503aadfa1a97ed",
+    "at": "2026-11-14",
+    "hash": "5b1b0f00f26faf9f",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Bể tối thiểu: 38 lít",
+        "why": "38 litres is a converted 10-gallon tank size, not a figure a Vietnamese keeper would use.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "vi/species/caridina-pareparensis-parvidentata": {
@@ -100489,32 +100521,54 @@
     "products": []
   },
   "vi/species/carinotetraodon-travancoricus": {
-    "at": "2026-11-08",
-    "hash": "d0b1195ff5250c81",
+    "at": "2026-11-14",
+    "hash": "dc25eeec234975fb",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "elsewhere",
-        "part": "P6",
-        "quote": "còn chuỗi cửa hàng thú cưng thì thường không có",
-        "why": "Refers to the source country's chain pet stores as the reader's shopping landscape.",
+        "check": "units",
+        "part": "P14",
+        "quote": "Bể 38 lít có thể nuôi ba con, bể 76 lít có thể nuôi sáu đến bảy con",
+        "why": "38 and 76 litres are 10 and 20 US gallon tanks converted.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P14",
+        "quote": "nhiều người chỉ nuôi một con trong bể khoảng 19 lít",
+        "why": "19 litres is a converted 5-gallon tank.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P6",
         "quote": "Bộ ba thuốc cách ly đã được dùng để phòng bệnh cho hàng nghìn con cá nóc đậu",
-        "why": "Refers to the source shop's own quarantine medication trio as if the reader knew it.",
+        "why": "Refers to the source shop's own quarantine medicine trio as if the reader knew it.",
         "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P6",
+        "quote": "còn chuỗi cửa hàng thú cưng thì thường không có",
+        "why": "Refers to US pet store chains as the reader's own shops.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P29",
+        "quote": "bể không có cá ăn rêu hay đội dọn bể",
+        "why": "Calque of English 'cleanup crew'.",
+        "by": "model",
+        "fix": "cá, ốc dọn bể"
       },
       {
         "check": "words",
         "part": "P36",
         "quote": "giun vi mô (microworm)",
-        "why": "Literal translation; Vietnamese keepers call it giun vi sinh.",
+        "why": "Dictionary rendering; keepers say giun vi sinh.",
         "by": "model",
-        "fix": "giun vi sinh (microworm)"
+        "fix": "giun vi sinh"
       }
     ],
     "products": [
@@ -100773,8 +100827,8 @@
     "products": []
   },
   "vi/species/chaetostoma-lineopunctatum": {
-    "at": "2026-11-13",
-    "hash": "fecc3179c3de2589",
+    "at": "2026-11-14",
+    "hash": "d076bbde3ceaca6b",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -100939,19 +100993,11 @@
     "products": []
   },
   "vi/species/channa-aurantimaculata": {
-    "at": "2026-11-07",
-    "hash": "d02fd420265eee4c",
+    "at": "2026-11-14",
+    "hash": "bb28f9b40b22188f",
     "model": "opus",
-    "findings": [
-      {
-        "check": "words",
-        "part": "P8",
-        "quote": "Đây là loài săn mồi bắt buộc.",
-        "why": "Literal calque of 'obligate predator'; not how Vietnamese keepers phrase it.",
-        "by": "model",
-        "fix": "cá chỉ ăn mồi tươi sống / cá ăn thịt hoàn toàn"
-      }
-    ],
+    "checklist": 3,
+    "findings": [],
     "products": []
   },
   "vi/species/channa-bankanensis": {
@@ -101468,11 +101514,27 @@
     "products": []
   },
   "vi/species/chromobotia-macracanthus": {
-    "at": "2026-11-10",
-    "hash": "effe9e21725f0d7b",
+    "at": "2026-11-14",
+    "hash": "d35c7a1e1b87d409",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P3",
+        "quote": "Bể tối thiểu: khoảng 380 lít",
+        "why": "380 litres is a converted 100 US gallons, not a tank size anyone in Vietnam would name.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P3",
+        "quote": "Tên thường gọi: Cá chuột hề (clown loach)",
+        "why": "A literal rendering of 'clown loach'; in Vietnam 'cá chuột' means Corydoras, and this fish is called cá heo hề.",
+        "by": "model",
+        "fix": "cá heo hề"
+      }
+    ],
     "products": [
       "Panacur"
     ]
@@ -101995,16 +102057,16 @@
     "products": []
   },
   "vi/species/colomesus-asellus": {
-    "at": "2026-11-08",
-    "hash": "4fe0ab471fb5db92",
+    "at": "2026-11-14",
+    "hash": "6a976d51c9127856",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "source",
-        "part": "P4",
-        "quote": "Bạn nên chủ động trị phòng bằng bộ ba thuốc cách ly để dọn sạch các bệnh",
-        "why": "\"The quarantine trio\" is a medicine set the source shop sells, and the page mentions it as if the reader already knew which three medicines it means.",
+        "check": "units",
+        "part": "P10",
+        "quote": "bể tối thiểu phải 114 lít. Nếu được 208 lít thì càng tốt",
+        "why": "30 and 55 US gallon tanks converted to litres; no Vietnamese keeper sizes tanks this way.",
         "by": "model"
       }
     ],
@@ -102174,17 +102236,25 @@
     "products": []
   },
   "vi/species/copadichromis-ilesi": {
-    "at": "2026-11-08",
-    "hash": "17f4cb1e28552ca7",
+    "at": "2026-11-14",
+    "hash": "4a470af262edd8d3",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "elsewhere",
+        "check": "units",
+        "part": "P10",
+        "quote": "Bể dài 122 cm là cỡ vừa đẹp để cho cá sinh sản",
+        "why": "122 cm is a converted 4-foot tank length that no keeper in Vietnam would use.",
+        "by": "model"
+      },
+      {
+        "check": "words",
         "part": "P11",
         "quote": "(đọc là \"ooh-taw-kuh\")",
-        "why": "A pronunciation guide spelled for English speakers, not for a Vietnamese reader.",
-        "by": "model"
+        "why": "An English-reader pronunciation guide; a Vietnamese reader would just read it as u-ta-ca.",
+        "by": "model",
+        "fix": "đọc là \"u-ta-ca\""
       }
     ],
     "products": []
@@ -103647,16 +103717,16 @@
     "products": []
   },
   "vi/species/corydoras-spectabilis": {
-    "at": "2026-11-13",
-    "hash": "e2d5b3392d3d0e96",
+    "at": "2026-11-14",
+    "hash": "67195035108c07e7",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
-        "part": "P10",
+        "part": "P11",
         "quote": "Mùa này trùng với mùa đông ở Anh.",
-        "why": "Explains the spawning season by the British winter, as if that were the reader's own frame of reference.",
+        "why": "Times breeding by the UK winter, which means nothing to a reader in Vietnam.",
         "by": "model"
       }
     ],
@@ -103922,8 +103992,8 @@
     "products": []
   },
   "vi/species/crenicichla-johanna": {
-    "at": "2026-11-08",
-    "hash": "6ccd5a4e31e1c18e",
+    "at": "2026-11-14",
+    "hash": "5b9e4adba4983b61",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -103938,8 +104008,8 @@
     "products": []
   },
   "vi/species/crenicichla-lugubris": {
-    "at": "2026-11-09",
-    "hash": "c98f398ad7beb69e",
+    "at": "2026-11-14",
+    "hash": "78e1ba8925f67386",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -104168,8 +104238,8 @@
     "products": []
   },
   "vi/species/ctenochromis-polli": {
-    "at": "2026-11-09",
-    "hash": "ad1918ea66bec5a6",
+    "at": "2026-11-14",
+    "hash": "5f46112ee71f7370",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -104788,16 +104858,30 @@
     "products": []
   },
   "vi/species/danio-rerio": {
-    "at": "2026-11-09",
-    "hash": "2b7f96eb474bd4ed",
+    "at": "2026-11-14",
+    "hash": "7f8af52eaa59d890",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
+        "part": "P4",
+        "quote": "Bể tối thiểu: khoảng 38 lít",
+        "why": "38 litres is a converted 10-gallon tank, a size nobody in Vietnam would give.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P17",
+        "quote": "Bể cho cá ngựa vằn nên có dung tích tối thiểu khoảng 38 lít.",
+        "why": "38 litres is a converted 10-gallon tank, a size nobody in Vietnam would give.",
+        "by": "model"
+      },
+      {
+        "check": "units",
         "part": "P40",
-        "quote": "Một số người nuôi căng lưới lên khung, đặt cách đáy 2,5 cm để làm đáy đôi che chắn cho trứng.",
-        "why": "2,5 cm is a straight conversion of 1 inch, a figure taken from an imperial-unit source.",
+        "quote": "đặt cách đáy 2,5 cm để làm đáy đôi che chắn cho trứng",
+        "why": "2.5 cm is a converted 1 inch.",
         "by": "model"
       }
     ],
@@ -105122,10 +105206,10 @@
     "products": []
   },
   "vi/species/dawkinsia-rohani": {
-    "at": "2026-11-08",
-    "hash": "49aa785b11cde7d6",
+    "at": "2026-11-14",
+    "hash": "4ec7b827a920e1a0",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -105347,8 +105431,8 @@
     "products": []
   },
   "vi/species/devario-acrostomus": {
-    "at": "2026-11-08",
-    "hash": "f1e1730a4afdfe67",
+    "at": "2026-11-14",
+    "hash": "7c85b77c6ec4ee5a",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -105933,16 +106017,30 @@
     "products": []
   },
   "vi/species/elacatinus-oceanops": {
-    "at": "2026-11-08",
-    "hash": "1594dc3728c38791",
+    "at": "2026-11-14",
+    "hash": "08669df2f747210c",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P1",
+        "quote": "Bể tối thiểu: 38 lít",
+        "why": "38 litres is a converted 10-gallon tank size nobody in Vietnam would use.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "Bể tối thiểu là 38 lít.",
+        "why": "38 litres is a converted 10-gallon tank size.",
+        "by": "model"
+      },
+      {
         "check": "words",
         "part": "P7",
         "quote": "tôm ăn thường ngày cắt nhỏ",
-        "why": "Calque of English 'table shrimp'; keepers in Vietnam don't phrase it this way.",
+        "why": "Calque of English 'table shrimp'; keepers say fresh shrimp.",
         "by": "model",
         "fix": "tôm tươi cắt nhỏ"
       }
@@ -106303,25 +106401,17 @@
     "products": []
   },
   "vi/species/epiplatys-annulatus": {
-    "at": "2026-11-09",
-    "hash": "a4cd675164307958",
+    "at": "2026-11-14",
+    "hash": "cc5164aa8e9e5567",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "source",
-        "part": "P7",
-        "quote": "Đây là cá bắt ngoài tự nhiên, thuộc dạng người chơi gọi là 'biến thể Conakry'.",
-        "why": "Describes the source shop's own stock as if the reader were buying it.",
+        "check": "units",
+        "part": "P14",
+        "quote": "bể nano 19 lít hoặc lớn hơn",
+        "why": "19 litres is a converted 5-gallon tank size, not one used in Vietnam.",
         "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P18",
-        "quote": "Nón cây alder cũng có tác dụng tương tự.",
-        "why": "Calque of 'alder cone'; keepers in Vietnam call them alder fruits.",
-        "by": "model",
-        "fix": "quả alder"
       }
     ],
     "products": [
@@ -106428,11 +106518,20 @@
     "products": []
   },
   "vi/species/eretmodus-cyanostictus": {
-    "at": "2026-11-08",
-    "hash": "e4f248f5f9266d2f",
+    "at": "2026-11-14",
+    "hash": "618862753487542d",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Bóng bơi của chúng gần như không còn tác dụng",
+        "why": "Literal calque of 'swim bladder'; Vietnamese keepers say 'bóng hơi' (as P4 does).",
+        "by": "model",
+        "fix": "bóng hơi"
+      }
+    ],
     "products": []
   },
   "vi/species/eriocheir-sinensis": {
@@ -106598,11 +106697,20 @@
     "products": []
   },
   "vi/species/etroplus-canarensis": {
-    "at": "2026-11-10",
-    "hash": "d4af2bfe3dc2e808",
+    "at": "2026-11-14",
+    "hash": "376c6ff585556008",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "words",
+        "part": "P7",
+        "quote": "bạn có thể cho cá ăn thức ăn chế biến loại tốt",
+        "why": "Calque of English 'prepared foods'; Vietnamese keepers speak of pellets/flakes.",
+        "by": "model",
+        "fix": "thức ăn viên/cám chất lượng tốt"
+      }
+    ],
     "products": []
   },
   "vi/species/etroplus-maculatus": {
@@ -106735,10 +106843,10 @@
     "products": []
   },
   "vi/species/farlowella-platorynchus": {
-    "at": "2026-11-08",
-    "hash": "953dc63710c8c2dc",
+    "at": "2026-11-14",
+    "hash": "d8742f41cf3f7de9",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -109959,25 +110067,47 @@
     "products": []
   },
   "vi/species/hyphessobrycon-amandae": {
-    "at": "2026-11-09",
-    "hash": "0b1ee7911ea81e13",
+    "at": "2026-11-14",
+    "hash": "c4dba143f74067ee",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P4",
+        "quote": "Bể tối thiểu: 38 lít",
+        "why": "38 litres is a converted 10-gallon tank, not a size used in Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P10",
+        "quote": "bể nano 19 lít",
+        "why": "19 litres is a converted 5-gallon tank.",
+        "by": "model"
+      },
+      {
         "check": "source",
         "part": "P14",
         "quote": "như đã nêu ở trên, đàn này có thể gồm nhiều loài cá có kích thước tương tự",
-        "why": "Refers to something said earlier in the original article that this page does not contain.",
+        "why": "Refers back to text from the original article that this page does not contain.",
         "by": "model"
       },
       {
         "check": "words",
-        "part": "P25",
-        "quote": "những loài sống ở tầng mặt điềm tĩnh như cá hatchetfish",
-        "why": "English name left untranslated; keepers in Vietnam call hatchetfish cá rìu.",
+        "part": "P14",
+        "quote": "Khi xây dựng môi trường sống lý tưởng cho cá tetra Ember",
+        "why": "Calque of 'building the ideal habitat'; keepers say they set up the tank.",
         "by": "model",
-        "fix": "cá rìu"
+        "fix": "Khi set bể cho cá tetra Ember"
+      },
+      {
+        "check": "words",
+        "part": "P30",
+        "quote": "lưới nhựa thủ công",
+        "why": "Literal translation of 'plastic craft mesh'; keepers just say plastic mesh.",
+        "by": "model",
+        "fix": "lưới nhựa"
       }
     ],
     "products": [
@@ -110159,7 +110289,7 @@
     "products": []
   },
   "vi/species/hyphessobrycon-haraldschultzi": {
-    "at": "2026-11-09",
+    "at": "2026-11-14",
     "hash": "1c6676f1f208a3e0",
     "model": "opus",
     "checklist": 3,
@@ -110408,9 +110538,10 @@
     "products": []
   },
   "vi/species/hyphessobrycon-vilmae": {
-    "at": "2026-11-07",
+    "at": "2026-11-14",
     "hash": "e1f2ea4f0f6fdc70",
     "model": "opus",
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -111433,8 +111564,8 @@
     "products": []
   },
   "vi/species/lasiancistrus-heteracanthus": {
-    "at": "2026-11-13",
-    "hash": "a9bd049cdc898a12",
+    "at": "2026-11-14",
+    "hash": "76f16c41a73bef22",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -111891,23 +112022,23 @@
     "products": []
   },
   "vi/species/leporellus-vittatus": {
-    "at": "2026-11-13",
-    "hash": "759a9474d5f0aba0",
+    "at": "2026-11-14",
+    "hash": "6c8aa5eafc457c6d",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P3",
-        "quote": "Những con đang có hiện dài 10–12 cm.",
-        "why": "Refers to the source shop's current stock, which the reader doesn't know.",
+        "part": "P5",
+        "quote": "Các con trong ảnh được bắt ở Río Casanare, Colombia",
+        "why": "Refers to a photo from the source article that this page does not have.",
         "by": "model"
       },
       {
-        "check": "source",
+        "check": "units",
         "part": "P6",
-        "quote": "Các con trong ảnh được bắt ở Río Casanare, Colombia",
-        "why": "Points at a photo the page doesn't have.",
+        "quote": "cần bể có đáy ít nhất 210 × 60 cm hoặc tương đương (khoảng 756 lít)",
+        "why": "Tank footprint and volume converted from 7 × 2 ft and 200 gallons; not sizes used in Vietnam.",
         "by": "model"
       }
     ],
@@ -111945,7 +112076,7 @@
     "products": []
   },
   "vi/species/leporinus-brunneus": {
-    "at": "2026-11-08",
+    "at": "2026-11-14",
     "hash": "bbd087ce21fc6fcc",
     "model": "opus",
     "checklist": 3,
@@ -112040,23 +112171,16 @@
     "products": []
   },
   "vi/species/leptobotia-elongata": {
-    "at": "2026-11-08",
-    "hash": "1a154dbc8856d1e2",
+    "at": "2026-11-14",
+    "hash": "c4da4c7f030fdc28",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Lần đầu tiên có được cá chạch hoàng đế (Leptobotia elongata) cỡ 14-18 cm.",
-        "why": "This is the source shop announcing its own new stock to its customers.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P14",
-        "quote": "Hệ thống mới và đơn giản hơn này là hệ thống đang được áp dụng ở đây.",
-        "why": "'Ở đây' means the source website, which the reader doesn't know.",
+        "quote": "Lần đầu tiên có được cá chạch hoàng đế (Leptobotia elongata) cỡ 14-18 cm",
+        "why": "This is the source shop's own news about stock it just received.",
         "by": "model"
       }
     ],
@@ -112345,8 +112469,8 @@
     "products": []
   },
   "vi/species/lithoxus-lithoides": {
-    "at": "2026-11-13",
-    "hash": "11bae0dee8545c6a",
+    "at": "2026-11-14",
+    "hash": "0f26909b62a3ab28",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -114699,8 +114823,8 @@
     "products": []
   },
   "vi/species/nanobagrus-stellatus": {
-    "at": "2026-11-13",
-    "hash": "20c71b673f1c0996",
+    "at": "2026-11-14",
+    "hash": "51baf53302a33562",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -116252,25 +116376,17 @@
     "products": []
   },
   "vi/species/osphronemus-exodon": {
-    "at": "2026-11-13",
-    "hash": "7f91730cece7a3d3",
+    "at": "2026-11-14",
+    "hash": "5e12646d8085793d",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
-        "part": "P12",
-        "quote": "Muốn xem tận mắt thì có thể ghé vườn thú Wilhelma ở Stuttgart, Đức.",
-        "why": "Suggests visiting a German zoo as if the reader lived in Germany.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
         "part": "P11",
         "quote": "hoặc có lẽ là một cái ao ở xứ nóng",
-        "why": "Treats a hot country as somewhere else, but the reader in Vietnam already lives in one.",
-        "by": "model",
-        "fix": "một cái ao ngoài trời"
+        "why": "Treats a hot climate as somewhere else, written for a reader in a cold country, while Vietnam is already hot.",
+        "by": "model"
       }
     ],
     "products": []
@@ -116436,10 +116552,10 @@
     "products": []
   },
   "vi/species/otothyris-travassosi": {
-    "at": "2026-11-08",
-    "hash": "01ae1ee3f93bf50f",
+    "at": "2026-11-14",
+    "hash": "39eaf26fd2b336b9",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -117547,11 +117663,20 @@
     "products": []
   },
   "vi/species/parosphromenus-bintan": {
-    "at": "2026-11-08",
-    "hash": "1098095b346d8163",
+    "at": "2026-11-14",
+    "hash": "8d32f671d943d7d7",
     "model": "opus",
-    "checklist": 2,
-    "findings": [],
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "TITLE",
+        "quote": "Cá thần tiên cam thảo Bintan",
+        "why": "\"Cá thần tiên\" is the angelfish; this fish is a licorice gourami, called \"cá sặc cam thảo\" elsewhere on the page.",
+        "by": "model",
+        "fix": "Cá sặc cam thảo Bintan"
+      }
+    ],
     "products": []
   },
   "vi/species/parosphromenus-deissneri": {
@@ -124064,19 +124189,11 @@
     "products": []
   },
   "vi/species/tetranematichthys-wallacei": {
-    "at": "2026-11-13",
-    "hash": "9b90b5a089a027d2",
+    "at": "2026-11-14",
+    "hash": "3d1f5fe34f2bef17",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P3",
-        "quote": "Đây là lần đầu tiên Tetranematichthys wallacei được nhập về, từ Venezuela. Lô này có ba con: một đực, hai cái.",
-        "why": "This is the source shop's own import news and stock, which the reader in Vietnam doesn't know about.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/species/tetraodon-lineatus": {
@@ -126125,5 +126242,1037 @@
     "checklist": 3,
     "findings": [],
     "products": []
+  },
+  "vi/guides/2hraquarist-blogs-beginners-planted-tank-101-101-growth-plllars": {
+    "at": "2026-11-14",
+    "hash": "c6cbc10280552853",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/2hraquarist-blogs-beginners-planted-tank-101-best-red-plants": {
+    "at": "2026-11-14",
+    "hash": "ec0e3386da720103",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Những cây Alternanthera reineckii nói tới ở đây được trồng trong bể châm CO2",
+        "why": "Refers to the source writer's own specific plants/tank (likely pictured originally) as if the reader knew them.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/aquariumbreeder-green-water-algae-profile-and-how-to-remove": {
+    "at": "2026-11-14",
+    "hash": "a0a4af091a297a4f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "gắn thêm thổi luồng hoặc thiết bị sục khí khác",
+        "why": "\"Thổi luồng\" is not what keepers in Vietnam call a powerhead.",
+        "by": "model",
+        "fix": "máy tạo sóng / bơm tạo luồng"
+      }
+    ],
+    "products": [
+      "Vortex Diatom",
+      "AlgaeFIX"
+    ]
+  },
+  "vi/species/acentrogobius-viridipunctatus": {
+    "at": "2026-11-14",
+    "hash": "080ce6780fb030c7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "giờ đã được nhập thành công từ Ấn Độ, và đây là lần đầu tiên nhập được với số lượng khá nhiều",
+        "why": "This is the source importer's own stock news, presented as if the reader knew about that shipment.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/austruca-annulipes": {
+    "at": "2026-11-14",
+    "hash": "f701c7c32bdbf27f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Uca annulipes là một trong những loài cua vĩ cầm đẹp nhất.",
+        "why": "\"Cua vĩ cầm\" is a literal calque of English \"fiddler crab\"; Vietnamese keepers call Uca crabs \"còng\" or \"cua kéo đàn\".",
+        "by": "model",
+        "fix": "còng (cua kéo đàn)"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/catalaphyllia-jardinei": {
+    "at": "2026-11-14",
+    "hash": "b8fdbd133899e81a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P10",
+        "quote": "tép skunk cleaner",
+        "why": "Marine shrimp are called \"tôm\" by Vietnamese reef keepers; the skunk cleaner is known locally as tôm bác sĩ.",
+        "by": "model",
+        "fix": "tôm bác sĩ"
+      },
+      {
+        "check": "words",
+        "part": "P10",
+        "quote": "tép blood",
+        "why": "A half-translated English name; Vietnamese reef keepers call the blood shrimp tôm lửa.",
+        "by": "model",
+        "fix": "tôm lửa"
+      },
+      {
+        "check": "words",
+        "part": "P10",
+        "quote": "cua ẩn chân xanh",
+        "why": "Hermit crabs are called ốc mượn hồn by keepers in Vietnam.",
+        "by": "model",
+        "fix": "ốc mượn hồn chân xanh"
+      }
+    ],
+    "products": [
+      "Reef Roids"
+    ]
+  },
+  "vi/species/cynopotamus-atratoensis": {
+    "at": "2026-11-14",
+    "hash": "51a7181a7d0ebed3",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/danionella-mirifica": {
+    "at": "2026-11-14",
+    "hash": "37241c5ac2186740",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/etheostoma-fusiforme": {
+    "at": "2026-11-14",
+    "hash": "a7083ae991a447f3",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P3",
+        "quote": "Mấy tháng mùa hè thì có thể thả loài này ra hồ ngoài vườn.",
+        "why": "Putting this cool-water North American fish in a garden pond only in summer assumes a temperate climate's seasons; a Vietnamese summer pond would be far too warm.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/fundulopanchax-cinnamomeus": {
+    "at": "2026-11-14",
+    "hash": "6f0673df6ba79490",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/goniopsis-pelii": {
+    "at": "2026-11-14",
+    "hash": "1a3e685f936c10ed",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/pterosturisoma-microps": {
+    "at": "2026-11-14",
+    "hash": "297408dfab0f0c88",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/skiffia-multipunctata": {
+    "at": "2026-11-14",
+    "hash": "d7631f0afbb95211",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/hypoptopoma-incognitum": {
+    "at": "2026-11-14",
+    "hash": "9e523329d1540f28",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/acrochordonichthys-falcifer": {
+    "at": "2026-11-14",
+    "hash": "e78e1b8d263e04d6",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/ammoglanis-multidentatus": {
+    "at": "2026-11-14",
+    "hash": "c1243b2b7f9e48c1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/amphilius-cryptobullatus": {
+    "at": "2026-11-14",
+    "hash": "2e3ba2fffa9dd1b5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/amphilius-frieli": {
+    "at": "2026-11-14",
+    "hash": "afb294144e8c1884",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/amphilius-kivuensis": {
+    "at": "2026-11-14",
+    "hash": "24e35ab44a2f9892",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/amphilius-longirostris": {
+    "at": "2026-11-14",
+    "hash": "bd2b4f7d3b7a510c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/anablepsoides-rubrolineatus": {
+    "at": "2026-11-14",
+    "hash": "7f83c25ca4ad6873",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/astacopsis-gouldi": {
+    "at": "2026-11-14",
+    "hash": "76eae5740ff3441c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/bagre-marinus": {
+    "at": "2026-11-14",
+    "hash": "023298354b90710e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/farlowella-vittata": {
+    "at": "2026-11-14",
+    "hash": "47ea35a1a8f18849",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P16",
+        "quote": "daun kering seperti daun ek",
+        "why": "Oak leaves are a temperate-country resource not readily available to keepers in Indonesia, who use dried ketapang leaves.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/garra-ceylonensis": {
+    "at": "2026-11-14",
+    "hash": "4c1ac6a2616558b1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/gasteropelecus-maculatus": {
+    "at": "2026-11-14",
+    "hash": "5e3eee6b7c94d57a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ukuran yang tersedia: 5-6 cm",
+        "why": "The 'available size' line is the source wholesaler's stock listing, and the reader can't buy from that stock.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/hyphessobrycon-bentosi": {
+    "at": "2026-11-14",
+    "hash": "74812ab0c9891a4a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/macrotocinclus-affinis": {
+    "at": "2026-11-14",
+    "hash": "5846eac2d2c233b1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/mesonauta-festivus": {
+    "at": "2026-11-14",
+    "hash": "92985fddec78c706",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/metynnis-lippincottianus": {
+    "at": "2026-11-14",
+    "hash": "c3f15d1b5c862c74",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P5",
+        "quote": "akuarium minimal 150 × 38 × 38 cm, sekitar 217 liter",
+        "why": "The 38 cm sides are a converted 15-inch measurement that a keeper in Indonesia would not use for a tank size.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/oryzias-dancena": {
+    "at": "2026-11-14",
+    "hash": "866b4d4d57c29ec8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/pangasius-macronema": {
+    "at": "2026-11-14",
+    "hash": "0d8a1fb7697eaf79",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P4",
+        "quote": "serangga chironomid (larva nyamuk tak menggigit)",
+        "why": "Dictionary rendering of non-biting midge larvae; Indonesian keepers call these bloodworms 'cacing darah'.",
+        "by": "model",
+        "fix": "larva chironomid (cacing darah)"
+      }
+    ],
+    "products": []
+  },
+  "id/species/pseudolais-micronemus": {
+    "at": "2026-11-14",
+    "hash": "0df3f6d3a866c1d7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/breeds/platinum-angelfish": {
+    "at": "2026-11-14",
+    "hash": "394cafb8d13bc188",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/breeds/super-red-arowana": {
+    "at": "2026-11-14",
+    "hash": "92d6b23445723b4e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "gunakan pemanas pada musim sejuk",
+        "why": "Malaysia has no winter; this advice was written for keepers in a cold-climate country.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "ms/plants/echinodorus-grisebachii": {
+    "at": "2026-11-14",
+    "hash": "156162fe027f03fe",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/plants/echinodorus-grisebachii-tropica": {
+    "at": "2026-11-14",
+    "hash": "9246d676d2ef45c2",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/plants/echinodorus-ozelot": {
+    "at": "2026-11-14",
+    "hash": "93458fe4f988feac",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/plants/echinodorus-ozelot-green": {
+    "at": "2026-11-14",
+    "hash": "71bc0d62a76e8b83",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/betta-pugnax": {
+    "at": "2026-11-14",
+    "hash": "05950945baca647c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/candidia-barbata": {
+    "at": "2026-11-14",
+    "hash": "6842c6153f8c1f64",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/gasteropelecus-maculatus": {
+    "at": "2026-11-14",
+    "hash": "47d9b27c80e92138",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/hyphessobrycon-bentosi": {
+    "at": "2026-11-14",
+    "hash": "6cffb2506a91211a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P8",
+        "quote": "akuarium komuniti yang dikaji dengan baik",
+        "why": "Literal calque of English 'well-researched community aquarium'; reads oddly in Malay.",
+        "by": "model",
+        "fix": "akuarium komuniti yang dirancang dengan baik"
+      }
+    ],
+    "products": []
+  },
+  "ms/species/kryptopterus-vitreolus": {
+    "at": "2026-11-14",
+    "hash": "8ad6835f976ff50d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/macrotocinclus-affinis": {
+    "at": "2026-11-14",
+    "hash": "04c829247ba6e96b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/mesonauta-festivus": {
+    "at": "2026-11-14",
+    "hash": "1f3ede5de7dbc007",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/metynnis-lippincottianus": {
+    "at": "2026-11-14",
+    "hash": "022d44eeaaab50b0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P5",
+        "quote": "tangki sekurang-kurangnya 150 × 38 × 38 cm, kira-kira 217 liter",
+        "why": "Tank size converted from an imperial tank (about 59 × 15 × 15 in, 57 gallons); not a size anyone in Malaysia would quote.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P8",
+        "quote": "kacang pea",
+        "why": "Half-translated English 'peas'; Malaysian keepers say kacang pis.",
+        "by": "model",
+        "fix": "kacang pis"
+      }
+    ],
+    "products": []
+  },
+  "ms/species/oryzias-dancena": {
+    "at": "2026-11-14",
+    "hash": "37ed70fbeb3f9813",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/oryzias-javanicus": {
+    "at": "2026-11-14",
+    "hash": "829cae881630a58f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [],
+    "doses": [
+      {
+        "treatment": "sea salt",
+        "strength": "",
+        "amount": 1,
+        "amountMax": 3,
+        "unit": "g",
+        "per": 1,
+        "perUnit": "litre",
+        "use": "water",
+        "method": "wholeTank",
+        "quote": "penambahan garam laut pada nisbah 1-3 g/L disyorkan"
+      }
+    ],
+    "sourceRead": true
+  },
+  "th/species/acrochordonichthys-falcifer": {
+    "at": "2026-11-14",
+    "hash": "6182db04ece17ce5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/ammoglanis-multidentatus": {
+    "at": "2026-11-14",
+    "hash": "52642e9adb2bf4d9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/amphilius-cryptobullatus": {
+    "at": "2026-11-14",
+    "hash": "3b7784dcc292c766",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/amphilius-frieli": {
+    "at": "2026-11-14",
+    "hash": "db34e19c65147506",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/amphilius-kivuensis": {
+    "at": "2026-11-14",
+    "hash": "59fa38fe34369427",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/amphilius-longirostris": {
+    "at": "2026-11-14",
+    "hash": "ca874e7a9a19604a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/anablepsoides-rubrolineatus": {
+    "at": "2026-11-14",
+    "hash": "e9dc30b5c795e2df",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/astacopsis-gouldi": {
+    "at": "2026-11-14",
+    "hash": "700a0bc21de55b3a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P7",
+        "quote": "สาหร่ายหางกระรอก (Hornwort)",
+        "why": "In Thai hobby usage หางกระรอก is Hydrilla; Hornwort is called something else.",
+        "by": "model",
+        "fix": "สาหร่ายพุงชะโด"
+      }
+    ],
+    "products": []
+  },
+  "th/species/bagre-marinus": {
+    "at": "2026-11-14",
+    "hash": "e99f90d2ddce4db3",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/cynotilapia-pulpican": {
+    "at": "2026-11-14",
+    "hash": "242c90ce3a7748a3",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/cyphotilapia-gibberosa": {
+    "at": "2026-11-14",
+    "hash": "fbc31e3bb2ab2877",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/cyprichromis-leptosoma": {
+    "at": "2026-11-14",
+    "hash": "91b2a2b5505f2db1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/farlowella-vittata": {
+    "at": "2026-11-14",
+    "hash": "64930db99bf34190",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P16",
+        "quote": "และ/หรือใบไม้แห้ง เช่น ใบโอ๊ก",
+        "why": "Oak leaves are a temperate-country staple; keepers in Thailand use Indian almond (ketapang) leaves.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P13",
+        "quote": "ตะไคร่ขนแปรง",
+        "why": "Calque of English 'brush algae'; Thai keepers call black brush algae ตะไคร่ขนดำ.",
+        "by": "model",
+        "fix": "ตะไคร่ขนดำ"
+      }
+    ],
+    "products": []
+  },
+  "th/species/garra-ceylonensis": {
+    "at": "2026-11-14",
+    "hash": "ad6b44dcc7dbbc68",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/gasteropelecus-maculatus": {
+    "at": "2026-11-14",
+    "hash": "7f2175c75487b782",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "ขนาดที่มีจำหน่าย: 5–6 ซม.",
+        "why": "This is the sizes the source supplier sells, given as if the reader were buying from its stock.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/hyphessobrycon-bentosi": {
+    "at": "2026-11-14",
+    "hash": "850c7893ad2bcc9f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/macrotocinclus-affinis": {
+    "at": "2026-11-14",
+    "hash": "fc9850bd34aaa751",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/mesonauta-festivus": {
+    "at": "2026-11-14",
+    "hash": "4cdd2430161e58c1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P11",
+        "quote": "ปลาแมวขนาดเล็ก",
+        "why": "Literal calque of 'small catfish'; ปลาแมว is a different fish in Thai and keepers don't use it for aquarium catfish.",
+        "by": "model",
+        "fix": "ปลาแคทฟิชขนาดเล็ก (เช่น ปลาแพะ)"
+      }
+    ],
+    "products": []
+  },
+  "th/species/metynnis-lippincottianus": {
+    "at": "2026-11-14",
+    "hash": "a03b3e47769e2962",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P5",
+        "quote": "ตู้ปลาขนาดอย่างน้อย 150 × 38 × 38 ซม. หรือประมาณ 217 ลิตร",
+        "why": "This tank size was converted from 60 × 15 × 15 inches (55 US gallons). No one in Thailand gives a tank size this way.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P9",
+        "quote": "ปลาแมวรักสงบตัวใหญ่",
+        "why": "'ปลาแมว' is a word-for-word copy of the English 'catfish'. In Thai, ปลาแมว is a different fish, an anchovy-like one.",
+        "by": "model",
+        "fix": "ปลาหนัง / ปลาแคทฟิช"
+      }
+    ],
+    "products": []
+  },
+  "th/species/oryzias-dancena": {
+    "at": "2026-11-14",
+    "hash": "bcc5f8f857cd0056",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-6BD1Nscv4Fc": {
+    "at": "2026-11-14",
+    "hash": "4b154380fa0a036c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Khung rừng bằng lũa được dựng trước, rồi mới đặt dinh dưỡng vào khe giữa các gốc.",
+        "why": "Describes the source's own tank build ('ở bể này') as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này phải nhuộm thêm hai lượt nữa mới đủ đậm.",
+        "why": "Refers to the original author's own tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "ở đây dùng Siamensis 53B và một loại Cryptocoryne khác",
+        "why": "Points to the source's own tank and plant choice.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ở bể này, pH đo được khoảng 6,6, thấp hơn mức 7 dự tính nhưng cá vẫn hợp.",
+        "why": "Reports the source's own tank readings and expectations as if known to the reader.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Accu-Clear",
+      "Quick Start"
+    ]
+  },
+  "vi/guides/youtube-jPF9kXcR3ZA": {
+    "at": "2026-11-14",
+    "hash": "36ddcbb3222719fd",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "tổng cộng dưới 2,5 cm",
+        "why": "2.5 cm is a converted 'under an inch', not a figure a Vietnamese keeper would use.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Theo kinh nghiệm riêng thì loại nền đất này có vẻ giữ được pH thấp",
+        "why": "The original writer's personal voice and experience, unknown to the reader.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Stress quá mức có thể khiến cá lên cơn đau tim.",
+        "why": "Calque of the English 'heart attack'; keepers talk about fish going into shock.",
+        "by": "model",
+        "fix": "cá bị sốc rồi chết"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-KhlxefF9aRg": {
+    "at": "2026-11-14",
+    "hash": "9bc2041f8dcfafa7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Denlay",
+      "API",
+      "Chihiros"
+    ]
+  },
+  "vi/guides/youtube-LiwcuuKgNIA": {
+    "at": "2026-11-14",
+    "hash": "59ad177ca5242182",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể dùng ở đây là loại nông: dài 80 cm, sâu 30 cm, cao 24 cm.",
+        "why": "Describes the original writer's own tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ở đây dùng lan ý tách từ bể khác, tỉa bớt rồi nhét rễ vào hốc sau lũa.",
+        "why": "Refers to the writer's other tank and own setup.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Đây chỉ là thử, vì cách này hầu như lần nào cũng thành công với các loại cây khác.",
+        "why": "The writer's first-person experiment, carried over from the source.",
+        "by": "model"
+      },
+      {
+        "check": "dose",
+        "part": "P1",
+        "quote": "Châm vi sinh ngay, ví dụ Quick Start, bể này dùng khoảng 4 nắp.",
+        "why": "Gives an amount of a named commercial bacteria product.",
+        "by": "model",
+        "product": "Quick Start"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Cách tương tự dùng được cho cây bờ như Cyperus zumula.",
+        "why": "'Cây bờ' is a calque of 'marginal plant'; keepers say 'cây bán cạn'.",
+        "by": "model",
+        "fix": "cây bán cạn"
+      }
+    ],
+    "products": [
+      "Lamini F20",
+      "Dennerle",
+      "Rio Xingu",
+      "keo 502",
+      "Quick Start"
+    ]
+  },
+  "vi/guides/youtube-uxEgm6qa0Ow": {
+    "at": "2026-11-14",
+    "hash": "da97573b44663f35",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này chạy hai lọc thùng Fluval FX6, mỗi bên một cái.",
+        "why": "Describes the source creator's own tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Những bụi ráy to trong bể đều lớn lên từ cây con trong cốc nhỏ.",
+        "why": "Refers to the original creator's tank and its history.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Ấn sâu xuống nền khoảng 2,5 cm.",
+        "why": "2.5 cm is a converted 1 inch, not a figure a Vietnamese keeper would give.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "dùng máy hút váng (surface skimmer)",
+        "why": "A literal translation of 'surface skimmer'; local keepers say lọc váng.",
+        "by": "model",
+        "fix": "lọc váng"
+      }
+    ],
+    "products": [
+      "Fluval FX6",
+      "Keo 502"
+    ],
+    "doses": [
+      {
+        "treatment": "water clarifier",
+        "strength": "",
+        "amount": 5,
+        "amountMax": 0,
+        "unit": "cap",
+        "per": 1000,
+        "perUnit": "litre",
+        "use": "water",
+        "method": "wholeTank",
+        "quote": "| 1000 lít\n| 5 nắp"
+      }
+    ],
+    "sourceRead": true
+  },
+  "vi/guides/youtube-XvXnPFqpa6E": {
+    "at": "2026-11-14",
+    "hash": "13fc08a6d710ad93",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Lọc dùng ở đây là loại cho bể 190–400 lít",
+        "why": "190 litres is a converted 50-gallon tank rating, not a figure a Vietnamese keeper would use.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ở đây cá cùng chung một hệ thống ở tiệm và bể mới coi như bể cách ly",
+        "why": "This describes the source shop's own fish system as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Cách này là chạy chu trình có cá (fish-in cycling)",
+        "why": "\"Chạy chu trình\" is a literal translation of \"cycling\". Keepers in Vietnam say they \"chạy vi sinh\" for a tank.",
+        "by": "model",
+        "fix": "chạy vi sinh có cá"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Ráy (Cryptocoryne spiralis)",
+        "why": "Vietnamese keepers use \"ráy\" for Anubias. They call Cryptocoryne \"crypt\".",
+        "by": "model",
+        "fix": "crypt spiralis"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-XwkkskyP-R0": {
+    "at": "2026-11-14",
+    "hash": "ff1bb83d27a703af",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Trong thời gian bể trống, lọc ở đây vẫn chạy trên bể đối diện",
+        "why": "Refers to the source writer's own other tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Cuối cùng ở đây dùng hết 11 viên.",
+        "why": "Reports the writer's own tank build as a first-person story.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ở bể này, lúc đổi chỗ xả nước sang góc sau",
+        "why": "Narrates an incident in the source's own tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "L12",
+        "quote": "Ở đây thay nước lúc rêu bùng sau khoảng hai tuần.",
+        "why": "Answers with the source writer's own tank story.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Dennerle"
+    ]
   }
 }

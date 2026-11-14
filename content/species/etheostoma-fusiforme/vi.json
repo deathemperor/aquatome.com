@@ -1,0 +1,27 @@
+{
+  "slug": "ca-darter-dam-lay",
+  "name": "Cá darter đầm lầy",
+  "altNames": [
+    "Cá darter",
+    "Swamp darter"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Nhóm cá rô này trông giống cá bống, còn có tên là darter, quê ở Bắc Mỹ. Vào mùa ve vãn, con đực lên màu rất đẹp.</p>",
+    "distribution:glaser": "<p>Miền đông nước Mỹ.</p>",
+    "notes:glaser": "<p>Mấy tháng mùa hè thì có thể thả loài này ra hồ ngoài vườn.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.8
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "elsewhere"
+    ],
+    "at": "2026-11-14"
+  }
+}

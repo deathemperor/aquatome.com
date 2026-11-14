@@ -10,6 +10,59 @@
     "india",
     "chalakudy"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Chalakudy",
+        "Periyar",
+        "Pamba",
+        "Achankovil",
+        "Western Ghats"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Dawkinsia chalakkudiensis is a cyprinid from Kerala, southern India, known from the Chalakudy, Periyar, Pamba and Achankovil rivers.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Initially considered endemic to the Chalakudy River system in Kerala state, southern India, but subsequently recorded from the Periyar, Pamba, and Achankovil rivers.",
+          "countries": [],
+          "regions": [
+            "Chalakudy",
+            "Periyar",
+            "Pamba",
+            "Achankovil"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is given as 'Chalakkudi River, Western Ghats, Trichur, Kerala, India'.",
+          "countries": [],
+          "regions": [
+            "Western Ghats"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7679433,
+      "total": 0,
+      "fetched": "2026-11-14",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

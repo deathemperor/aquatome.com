@@ -10,6 +10,116 @@
     "ecuador",
     "maranon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "EC"
+      ],
+      "regions": [
+        "Rio Marañon"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Appears to be endemic to the Rio Marañon basin, Ecuador.",
+          "countries": [
+            "EC"
+          ],
+          "regions": [
+            "Rio Marañon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344054,
+      "total": 39,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "BR",
+          34
+        ],
+        [
+          "EC",
+          2
+        ],
+        [
+          "PE",
+          2
+        ],
+        [
+          "GY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -77.34375,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          -4.21875,
+          3,
+          0
+        ],
+        [
+          -66.09375,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -4.21875,
+          9,
+          0
+        ],
+        [
+          -61.875,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          18,
+          0
+        ],
+        [
+          -59.0625,
+          4.21875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,0 +1,72 @@
+{
+  "id": "sandelia-bainsii",
+  "native": {
+    "input": "1bda94b0ddc7a40a",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "ZA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to a handful of river systems of the southeastern Cape, South Africa.",
+        "words": "South Africa",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sandelia bainsii",
+    "status": "ACCEPTED",
+    "taxonKey": 2391607,
+    "datasets": [
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        289
+      ],
+      [
+        "3ea542dc-885d-4c8a-91a3-64d0a5d78301",
+        13
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "1b18bab9-abdb-41b4-83c8-368ca2e6d391",
+        1
+      ],
+      [
+        "2ca312ee-40cf-49e0-b864-31531b7eba81",
+        1
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "ZA"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

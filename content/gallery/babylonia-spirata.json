@@ -2,54 +2,6 @@
   "id": "babylonia-spirata",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/335140264.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/335140264-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Subhadra Devi",
-      "sourceUrl": "https://www.inaturalist.org/photos/335140264",
-      "caption": "Ốc Babylon báo sống bò trên cát ướt ven biển",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/530209344.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/530209344-480.webp",
-      "width": 1024,
-      "height": 953,
-      "licence": "CC BY",
-      "author": "Doreen",
-      "sourceUrl": "https://www.inaturalist.org/photos/530209344",
-      "caption": "Ốc Babylon báo sống dưới nước giữa cỏ biển",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/458061328.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/458061328-480.webp",
-      "width": 1024,
-      "height": 877,
-      "licence": "CC BY",
-      "author": "Afsar Nayakkan",
-      "sourceUrl": "https://www.inaturalist.org/photos/458061328",
-      "caption": "Ốc Babylon báo sống trên cát, nhìn từ phía trên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/458061309.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/458061309-480.webp",
-      "width": 1024,
-      "height": 860,
-      "licence": "CC BY",
-      "author": "Afsar Nayakkan",
-      "sourceUrl": "https://www.inaturalist.org/photos/458061309",
-      "caption": "Ốc Babylon báo sống bò trên cát, vỏ nâu có vân",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/commons/b614cec711ba56da.webp",
       "thumb": "https://media.aquatome.com/commons/b614cec711ba56da-480.webp",
       "width": 1200,
@@ -58,30 +10,6 @@
       "author": "Kiran.thumma",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Babylonia_spirata.jpg",
       "caption": "Ốc Babylon báo đang bò trên bãi cát ướt ven biển",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/757433851.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/757433851-480.webp",
-      "width": 771,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Doreen",
-      "sourceUrl": "https://www.inaturalist.org/photos/757433851",
-      "caption": "Ốc Babylon báo sống bò trên bãi bùn ven biển",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/757433864.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/757433864-480.webp",
-      "width": 771,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Doreen",
-      "sourceUrl": "https://www.inaturalist.org/photos/757433864",
-      "caption": "Ốc Babylon báo vỏ đốm nâu rõ nét trên nền bùn cát",
       "best": true,
       "kind": "habitat"
     },
@@ -110,6 +38,18 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/335140264.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/335140264-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Subhadra Devi",
+      "sourceUrl": "https://www.inaturalist.org/photos/335140264",
+      "caption": "Ốc Babylon báo sống bò trên cát ướt ven biển",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/454175696.webp",
       "thumb": "https://media.aquatome.com/inaturalist/454175696-480.webp",
       "width": 768,
@@ -118,6 +58,42 @@
       "author": "Stephanie Tran",
       "sourceUrl": "https://www.inaturalist.org/photos/454175696",
       "caption": "Ốc Babylon báo đang bò trên cát ướt ven biển",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/458061309.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/458061309-480.webp",
+      "width": 1024,
+      "height": 860,
+      "licence": "CC BY",
+      "author": "Afsar Nayakkan",
+      "sourceUrl": "https://www.inaturalist.org/photos/458061309",
+      "caption": "Ốc Babylon báo sống bò trên cát, vỏ nâu có vân",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/458061328.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/458061328-480.webp",
+      "width": 1024,
+      "height": 877,
+      "licence": "CC BY",
+      "author": "Afsar Nayakkan",
+      "sourceUrl": "https://www.inaturalist.org/photos/458061328",
+      "caption": "Ốc Babylon báo sống trên cát, nhìn từ phía trên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/530209344.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/530209344-480.webp",
+      "width": 1024,
+      "height": 953,
+      "licence": "CC BY",
+      "author": "Doreen",
+      "sourceUrl": "https://www.inaturalist.org/photos/530209344",
+      "caption": "Ốc Babylon báo sống dưới nước giữa cỏ biển",
       "best": true,
       "kind": "habitat"
     },
@@ -134,6 +110,30 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/757433851.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/757433851-480.webp",
+      "width": 771,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Doreen",
+      "sourceUrl": "https://www.inaturalist.org/photos/757433851",
+      "caption": "Ốc Babylon báo sống bò trên bãi bùn ven biển",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/757433864.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/757433864-480.webp",
+      "width": 771,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Doreen",
+      "sourceUrl": "https://www.inaturalist.org/photos/757433864",
+      "caption": "Ốc Babylon báo vỏ đốm nâu rõ nét trên nền bùn cát",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/107436020.webp",
       "thumb": "https://media.aquatome.com/inaturalist/107436020-480.webp",
       "width": 1024,
@@ -144,6 +144,18 @@
       "caption": "Hai con ốc Babylon báo trong vùng nước nông ven biển",
       "best": false,
       "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/32202650.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/32202650-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Shaunak Modi",
+      "sourceUrl": "https://www.inaturalist.org/photos/32202650",
+      "caption": "Ốc Babylon báo phủ lớp bám đen bò trên bãi cát",
+      "best": false,
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/125085040.webp",
@@ -166,18 +178,6 @@
       "author": "Doreen",
       "sourceUrl": "https://www.inaturalist.org/photos/156820950",
       "caption": "Ốc Babylon báo vàng đốm bò trên nền cát",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/32202650.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/32202650-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Shaunak Modi",
-      "sourceUrl": "https://www.inaturalist.org/photos/32202650",
-      "caption": "Ốc Babylon báo phủ lớp bám đen bò trên bãi cát",
       "best": false,
       "kind": "habitat"
     },

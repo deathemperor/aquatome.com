@@ -1,0 +1,127 @@
+{
+  "id": "satanoperca-rhynchitis",
+  "native": {
+    "input": "0682cb6a382bae0a",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Oyapock/Oiapoque, Approuague, Kaw, Kourou, Comté, Iracoubo, and Sinnamary river systems in French Guiana.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "In addition, a red-lipped form similar to S. rhynchitis occurs to the immediate south of its range, in Amapá state, northeastern Brazil, but specimens from the rio Araguari in Amapá were not recovered as genetically distinct from S. jurupari in phylogenetic analyses, and in morphological terms they appear intermediate between S. jurupari and S. rhynchitis.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Oyapock",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Oyapock/Oiapoque, Approuague, Kaw, Kourou, Comté, Iracoubo, and Sinnamary river systems in French Guiana.",
+        "country": "GF",
+        "ok": true
+      },
+      {
+        "name": "Approuague",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Oyapock/Oiapoque, Approuague, Kaw, Kourou, Comté, Iracoubo, and Sinnamary river systems in French Guiana.",
+        "country": "GF",
+        "ok": true
+      },
+      {
+        "name": "Kourou",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Oyapock/Oiapoque, Approuague, Kaw, Kourou, Comté, Iracoubo, and Sinnamary river systems in French Guiana.",
+        "country": "GF",
+        "ok": true
+      },
+      {
+        "name": "Sinnamary",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Oyapock/Oiapoque, Approuague, Kaw, Kourou, Comté, Iracoubo, and Sinnamary river systems in French Guiana.",
+        "country": "GF",
+        "ok": true
+      },
+      {
+        "name": "Comté",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Oyapock/Oiapoque, Approuague, Kaw, Kourou, Comté, Iracoubo, and Sinnamary river systems in French Guiana.",
+        "country": "GF",
+        "ok": true
+      },
+      {
+        "name": "Iracoubo",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Oyapock/Oiapoque, Approuague, Kaw, Kourou, Comté, Iracoubo, and Sinnamary river systems in French Guiana.",
+        "country": "GF",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Satanoperca rhynchitis",
+    "status": "ACCEPTED",
+    "taxonKey": 7193185,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        9
+      ],
+      [
+        "5d1e5f0d-811c-4ab0-bb38-f141cc0174de",
+        8
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        4
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "cff7cefc-b0d5-4128-9fac-d26e8b5a7f81",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        1
+      ]
+    ],
+    "native": [
+      "GF"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

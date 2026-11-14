@@ -1,0 +1,87 @@
+{
+  "id": "cynopotamus-atratoensis",
+  "scientificName": "Cynopotamus atratoensis",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Cynopotamus",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "colombia",
+    "venezuela",
+    "rio-atrato"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 26,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 35
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/cynopotamus_atratoensis_en-2/",
+      "html": "<p>Cynopotamus atratoensis attains a total length of about 35 cm. Suggested common name: Doublespot Riverdog.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/cynopotamus_atratoensis_en-2/",
+      "html": "<p>Predatory tetras of the genus Cynopotamus are only very rarely imported, due to their sensitivity to stress and transportation. Eight specimens of 18-22 cm were imported from Venezuela and are very healthy.</p><p>Together with C. essequibensis, C. magdalenae and C. venezuelae it belongs to a group of externally very similar fish that can be distinguished only on the basis of scale counts, fin ray counts etc. C. atratoensis and C. venezuelae in particular can hardly be distinguished; C. venezuelae has slightly fewer rays in the anal fin, so the imported specimens probably belong to C. atratoensis.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/cynopotamus_atratoensis_en-2/",
+      "html": "<p>Hardness and pH of the water are of little importance, but the fish seem to prefer slightly higher temperatures than usual: 26-28°C.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/cynopotamus_atratoensis_en-2/",
+      "html": "<p>Cynopotamus are predatory tetras that feed on other, small fish.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/cynopotamus_atratoensis_en-2/",
+      "html": "<p>Cynopotamus: from ancient Greek, meaning \"river dog\". atratoensis: after the type locality, the Rio Atrato in Colombia. essequibensis: after the Essequibo river in Guyana. magdalenae: after the Rio Magdalena in Colombia. venezuelae: after Venezuela.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 400 lít",
+        "bể cá dài 150cm"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-14"
+}

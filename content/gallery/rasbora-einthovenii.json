@@ -2,6 +2,32 @@
   "id": "rasbora-einthovenii",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/250548778.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/250548778-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Zakqary Roy",
+      "sourceUrl": "https://www.inaturalist.org/photos/250548778",
+      "caption": "Cá rasbora ánh kim bơi gần kính trong bể thủy sinh",
+      "best": true,
+      "kind": "other",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/250549205.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/250549205-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Zakqary Roy",
+      "sourceUrl": "https://www.inaturalist.org/photos/250549205",
+      "caption": "Cá rasbora ánh kim với sọc dọc thân trong bể kính",
+      "best": true,
+      "kind": "other",
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/6e110e1ca31935e2.webp",
       "thumb": "https://media.aquatome.com/commons/6e110e1ca31935e2-480.webp",
       "width": 1200,
@@ -14,7 +40,7 @@
       "kind": "other"
     }
   ],
-  "seen": 1,
-  "updatedAt": "2026-11-09",
-  "builtAt": "2026-11-09"
+  "seen": 4,
+  "updatedAt": "2026-11-14",
+  "builtAt": "2026-11-14"
 }

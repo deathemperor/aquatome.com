@@ -5,7 +5,7 @@ import { MaterialSchema, TranslationSchema } from '@aq/schema'
 import { expect, test } from 'vitest'
 import { nameStep } from '../src/ceiling'
 import type { Llm } from '../src/claude'
-import { asSaved, checkMaterial, formNotes, keptFacts, makeMaterial, MATERIALS, type MaterialFacts } from '../src/materials'
+import { asSaved, checkMaterial, formNotes, keptFacts, makeMaterial, MATERIALS, researchPrompt, type MaterialFacts } from '../src/materials'
 
 const facts: MaterialFacts = {
   found: true,
@@ -154,6 +154,11 @@ async function site() {
 }
 
 const satung = MATERIALS.find(m => m.id === 'lua-sa-tung')!
+
+// The Site Lead, 14 Nov 2026: the buying part is "Mua ở đâu, chọn thế nào", where keepers buy it and what to check first.
+test('each page\'s research asks where keepers buy it and what to check when buying', () => {
+  for (const m of MATERIALS) expect(researchPrompt(m), m.id).toContain('where Vietnamese keepers buy it and what to check when buying it')
+})
 
 test('makeMaterial: the page written from its cited facts, written again on the form\'s notes; names, address and photos are not the writer\'s', async () => {
   const { root, photo } = await site()

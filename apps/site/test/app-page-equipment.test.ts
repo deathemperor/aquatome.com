@@ -74,7 +74,7 @@ function pageRows(dom: HTMLElement, users: string[], listed: Set<string>): unkno
   const headOf = (el: HTMLElement) => txt(heads.findLast(h => h.range[0] < el.range[0]))
   const plants = dom.querySelector('.plants')
   if (plants) {
-    out.push(['cards', headOf(plants), plants.querySelectorAll('.pc').map(pc => [href(pc.querySelector('a')!), txt(pc.querySelector('h3')), txt(pc.querySelector('.sci')), pc.querySelector('img')?.getAttribute('src')])])
+    out.push(['cards', headOf(plants), plants.querySelectorAll('.pc').map(pc => [href(pc.querySelector('a')!), txt(pc.querySelector('h3')), txt(pc.querySelector('.sci')) || undefined, pc.querySelector('img')?.getAttribute('src')])])
     const more = dom.querySelector('p.list')
     if (more) out.push(pRow(more))
   }

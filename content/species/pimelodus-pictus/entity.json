@@ -428,7 +428,12 @@
       "author": "Claire H.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pimelodus_pictus.jpg",
       "caption": "Pimelodus pictus",
-      "thumb": "https://media.aquatome.com/commons/cd94a7e56aaef88f-480.webp"
+      "thumb": "https://media.aquatome.com/commons/cd94a7e56aaef88f-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/cd94a7e56aaef88f-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/77eb587aad883feb.webp",

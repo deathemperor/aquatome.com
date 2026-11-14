@@ -98,6 +98,9 @@ const topicsIn = (t: Topics | null): Topics | null =>
 
 /** The index's pages kinds each have their own shards; a tool's page has no app copy. */
 const PAGE_KINDS = new Set<string>(['guide', 'fish', 'plant', 'glossary', 'video', 'equipment'])
+/** The kinds the chat knows. Another kind in the index (a Vietnamese material page, which the app opens on the web) has no
+ * copy to read, so the chat never finds or names it. */
+const CHAT_KINDS = new Set<string>([...PAGE_KINDS, 'tool'])
 
 export async function handbookOf(source: Source, lang: Lang): Promise<Handbook | null> {
   const [index, read] = await Promise.all([source.index(lang), source.topics ? source.topics(lang).catch(() => null) : null])
@@ -107,7 +110,7 @@ export async function handbookOf(source: Source, lang: Lang): Promise<Handbook |
   // read, shown or named in a step. A topics file with no list holds none; with no topics file to say which, every video
   // guide is held.
   const held = topics ? new Set(topics.held ?? []) : null
-  const items = index.items.filter(i => (held ? !held.has(i.path) : !(i.kind === 'guide' && i.video !== undefined)))
+  const items = index.items.filter(i => CHAT_KINDS.has(i.kind) && (held ? !held.has(i.path) : !(i.kind === 'guide' && i.video !== undefined)))
   const paths = new Map(items.map(i => [i.path, i]))
   const ids = new Map(items.flatMap(i => (i.id ? [[i.id, i] as const] : [])))
   return {

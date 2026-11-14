@@ -10,6 +10,110 @@
     "brazil",
     "amazon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Madeira"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Amazon River near Teffé, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Amazon River basin (Tefé, Middle Amazon (Solimões), Madeira).",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Madeira"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339127,
+      "total": 14,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "BR",
+          10
+        ],
+        [
+          "PE",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          -4.21875,
+          3,
+          0
+        ],
+        [
+          -66.09375,
+          -11.25,
+          3,
+          3
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -40.78125,
+          -9.84375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

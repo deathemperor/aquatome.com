@@ -14,7 +14,7 @@
       "/ca/*", "/cay/*", "/chinh-sach-bao-mat/*", "/cong-cu/*", "/dang-nhap/*", "/gioi-thieu/*", "/huong-dan/*", "/kham-pha/*", "/lien-he/*", "/moi-cap-nhat/*",
       "/nguon-goc/*", "/nhom/*", "/phan-loai/*", "/san-pham/*", "/thiet-bi/*", "/thuat-ngu/*", "/tim-kiem/*", "/ung-dung/*", "/vat-lieu/*", "/video/*", "/id/aplikasi/*", "/th/mobile-app/*", "/ms/aplikasi/*",
       // A small album's address would otherwise be the static 404 page, the Worker never asked.
-      "/id/ikan/*/foto/*", "/id/tanaman/*/foto/*", "/th/fish/*/photos/*", "/th/plants/*/photos/*",
+      "/id/ikan/*/foto/*", "/id/tanaman/*/foto/*", "/th/fish/*/photos/*", "/th/plants/*/photos/*", "/ms/ikan/*/foto/*", "/ms/tumbuhan/*/foto/*",
       "/_e", "/_ab", "/_ab/*", "/go/*", "/_aff/*", "/_c", "/_c/*", "/_p", "/_p/*", "/api/*",
       // The dashboard's own host (worker/dashboard-host.ts): its pages at /<key>/ (shell.ts WEB_PAGES; "/" and "/ung-dung/*"
       // are above), a page's JSON and its robots.txt. Without its line a page there is the site's 404 page, the Worker never

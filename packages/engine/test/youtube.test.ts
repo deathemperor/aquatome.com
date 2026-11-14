@@ -10,7 +10,7 @@ import { LlmError } from '../src/claude'
 import { fitRules } from '../src/fit'
 import type { Page } from '../src/pages'
 import { logReviews, readReviews } from '../src/review-log'
-import { chaptersFrom, crowdLines, lowVideoGuides, parseTranscript, recheckedGuides, retry403, reviewDraft, storyboardInterval, videoGuides, ytApi, type VideoMeta, type YouTube } from '../src/youtube'
+import { chaptersFrom, crowdLines, editDraft, lowVideoGuides, parseTranscript, recheckedGuides, retry403, reviewDraft, storyboardInterval, videoGuides, ytApi, type VideoMeta, type YouTube } from '../src/youtube'
 
 const ev = (s: number, text: string) => ({ tStartMs: s * 1000, segs: [{ utf8: text }] })
 
@@ -593,4 +593,16 @@ test('videos follow-up pictures stop on admission or usage, but can follow the w
   expect(videoBudgetStopped(r)).toBe(false)
   expect(videoBudgetStopped({ ...r, stopped: 'not started' })).toBe(true)
   expect(videoBudgetStopped({ ...r, errors: ["claude failed: the engine's daily limit reached for videos"] })).toBe(true)
+})
+
+// Astra's read of 14 Nov 2026: the editor a guide's slip goes to kept every idea, a story of the day too, which the writer,
+// its reviewer and the mender drop (the Writing Lead, 14 Nov 2026).
+test('the editor of a guide that names its video drops a story of the day, and writes the video\'s tank as an example', async () => {
+  const prompts: string[] = []
+  const llm = (async (a: { prompt: string }) => { prompts.push(a.prompt); return {} }) as never
+  const d = { relevant: true, kind: 'howto', title: 'T', summary: ['a'], body: '<p>Trong video, hôm đó làm đến tối.</p>', faq: [], chapters: [] }
+  await editDraft(llm, d as never)
+  expect(prompts[0]).toContain('câu chỉ kể chuyện hôm làm ("Hôm đó làm đến tối") thì bỏ')
+  expect(prompts[0]).toContain('viết thành một ví dụ tự nói rõ cỡ bể ("Ví dụ, một bể dài 45 cm…")')
+  expect(prompts[0]).not.toContain('thì viết lại thành lời nói thẳng')
 })

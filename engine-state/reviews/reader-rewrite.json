@@ -69,6 +69,21 @@
       "kept": true
     }
   ],
+  "vi/guides/aquariumbreeder-how-to-fix-a-leaking-aquarium-with-and-without-draining#body": [
+    {
+      "at": "2026-11-14T11:22:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "Minor: added \"Vì vậy\" makes the causal link explicit; BEFORE only implied it.",
+        "\"không nở ra, co lại theo nhiệt\" became \"không co giãn theo nhiệt\". The meaning is the same."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/aquariumbreeder-old-tank-syndrome#body": [
     {
       "at": "2026-11-10T21:53:32Z",
@@ -79,6 +94,23 @@
         "\"Những con mới thả\" became \"Cá, tép mới thả\": adds specific animals (fish, shrimp) not in BEFORE",
         "\"nơi nước tốt chuyển sang\" became \"vốn sống trong nước tốt\": the idea of moving from another place is weakened",
         "added \"mà chúng vừa được thả vào\": redundant addition"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/aquariumbreeder-phosphates-in-freshwater-tanks#body": [
+    {
+      "at": "2026-11-14T11:25:45Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"thủy trúc\" replaced by \"Hygrophila difformis (water wisteria)\": a different plant name, and the added Latin/English name is not in BEFORE.",
+        "\"Thay nước... Nhớ hút cặn luôn\" became \"Mỗi lần thay thì nhớ hút cặn luôn\": this adds a condition (do it at each water change) that BEFORE does not state.",
+        "\"để phosphat không tích lại\" became \"thì phosphat không tích lại trong bể\": the purpose is now stated as a certain result, which is slightly stronger.",
+        "\"cần cây ăn rễ\" became \"phải trồng cây ăn rễ\": a mild strengthening of the requirement."
       ],
       "attempt": "first",
       "kept": false
@@ -346,6 +378,21 @@
         "Said more surely than before: \"Cá golden dwarf barb nhìn thì nhỏ, nhưng có tiệm lại bán những con khá to, không hợp với bể nano.\" (was: \"Cá golden dwarf barb trông thì nhỏ, nhưng ở một tiệm có thể gặp những con khá to, không hợp bể nano.\")",
         "Added \"(Trichopsis pumila)\": species name not in BEFORE",
         "\"ở một tiệm có thể gặp những con khá to\" (may encounter) became \"có tiệm lại bán những con khá to\": hedge turned into a flat statement, and \"gặp\" became \"bán\""
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-LmUGilbUlzY#body": [
+    {
+      "at": "2026-11-14T11:26:59Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "Hedge strengthened: \"có thể hợp mắt hơn\" became \"thường hợp mắt hơn\", turning a possibility into a general tendency.",
+        "\"Cây có xu hướng vươn về phía ánh sáng\" became \"cũng hay vươn\", which is a minor shift to frequency wording."
       ],
       "attempt": "first",
       "kept": false

@@ -1,0 +1,75 @@
+{
+  "id": "rita-kuturnee",
+  "native": {
+    "input": "6682ab9ebec6df8f",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Deccan, India.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Deccan rita, Rita kuturnee, is a bagrid catfish from large river systems in India, growing to around 260 mm SL.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Krishna",
+        "source": "planetcatfish",
+        "quote": "Asia: Peninsular India from Deccan rivers up to the Krishna river system, including the Kaveri, Krishna and Tungabhadra, and the states of Andhra Pradesh and Karnataka.",
+        "ok": true
+      },
+      {
+        "name": "Kaveri",
+        "source": "planetcatfish",
+        "quote": "Asia: Peninsular India from Deccan rivers up to the Krishna river system, including the Kaveri, Krishna and Tungabhadra, and the states of Andhra Pradesh and Karnataka.",
+        "ok": true
+      },
+      {
+        "name": "Tungabhadra",
+        "source": "planetcatfish",
+        "quote": "Asia: Peninsular India from Deccan rivers up to the Krishna river system, including the Kaveri, Krishna and Tungabhadra, and the states of Andhra Pradesh and Karnataka.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rita kuturnee",
+    "status": "ACCEPTED",
+    "taxonKey": 2338103,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        15
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

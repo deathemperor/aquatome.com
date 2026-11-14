@@ -6,7 +6,8 @@ import GlossaryTip from '../../components/GlossaryTip.astro'
 import { getContent } from '../../lib/content'
 import { creditsFor } from '../../lib/credits'
 import { langOf } from '../../lib/i18n'
-import { materialSections } from '../../lib/materials'
+import { materialCrumbs, materialPath, materialSections } from '../../lib/materials'
+import { searchAliases } from '../../lib/search'
 
 // Deliberately absent from i18n PAGES: the pilot has no routes or address words in other languages.
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
@@ -16,14 +17,14 @@ export async function getStaticPaths({ routePattern }: { routePattern: string })
 }
 const { m } = Astro.props as { m: Localized<MaterialEntity> }
 const c = await getContent('vi')
-const href = (material: Localized<MaterialEntity>) => `/vi/vat-lieu/${material.t.slug}/`
+const href = materialPath
 const parent = c.materials.find(p => p.id === m.parent)
 const kinds = c.materials.filter(p => p.parent === m.id)
-const crumbs: [string, string][] = [['/vi/', 'Trang chủ'], ...(parent ? [[href(parent), parent.t.name] as [string, string]] : [])]
+const crumbs = materialCrumbs(m, c.materials)
 const sections = materialSections(m)
 ---
-<Browse title={m.t.name} heading={m.t.name} description={m.t.summary?.join(' ')} image={m.photos[0]?.url} crumbs={crumbs} noindex search={false} credits={creditsFor(m.photos.slice(0, 1))}>
-  <div class="material body">
+<Browse title={m.t.name} heading={m.t.name} description={m.t.summary?.join(' ')} image={m.photos[0]?.url} crumbs={crumbs} currentCrumb={m.t.name} noindex credits={creditsFor(m.photos.slice(0, 1))}>
+  <div class="material body" data-pagefind-meta="aka[data-aka]" data-aka={searchAliases(m.t, undefined, m.names)}>
     {(m.t.altNames.length > 0 || m.names.length > 0) && <p class="alt">Tên khác: {m.t.altNames.join(', ')}{m.t.altNames.length > 0 && m.names.length > 0 && ', '}{m.names.map((name, i) => <>{i > 0 && ', '}<span lang="en">{name}</span></>)}</p>}
     <div class="intro">{m.t.summary?.map(line => <p>{line}</p>)}</div>
     <PhotoGallery photos={m.photos} alt={m.t.name} />

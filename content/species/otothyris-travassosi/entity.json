@@ -8,7 +8,8 @@
   "places": [
     "south-america",
     "brazil",
-    "espirito-santo"
+    "espirito-santo",
+    "bahia"
   ],
   "range": {
     "native": {
@@ -101,6 +102,25 @@
       {
         "source": "planetcatfish",
         "value": 3.2
+      },
+      {
+        "source": "glaser",
+        "value": 3
+      }
+    ],
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 19,
+          "max": 25
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 6
       }
     ]
   },
@@ -112,16 +132,52 @@
       "html": "<p>Otothyris travassosi Garavello, Britski &amp; Schaefer, 1998 (family Loricariidae). Maximum size 32 mm SL. Etymology: from the Greek otis, ous = ear + thyra, thyris = a little door.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/otothyris_travassosi_en/",
+      "html": "<p>This rarely imported catfish species is one of the smallest Loricariids, with a total length of only 3 cm. Otothyris travassosi is not a fish for beginners. It makes great demands on water quality and hygiene.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1269",
       "html": "<p>South America: Atlantic coast of southeastern Brazil, in rivers of Espírito Santo State. Type locality: Barra Sêca River at Linhares to São Mateus road, Espírito Santo State, Brazil. IUCN Red List category: Least Concern (last assessed 2018).</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/otothyris_travassosi_en/",
+      "html": "<p>It originates from the federal states of Bahia and Espírito Santo on the coast of Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/otothyris_travassosi_en/",
+      "html": "<p>Its habitats are small, fast-running streams, where it mostly stays in areas thickly covered with vegetation. According to several authors it is found in both white water and clear water. At collection sites, pH values just under 7 and conductivities between 100 and 150 µS/cm have been measured.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/otothyris_travassosi_en/",
+      "html": "<p>The water temperature should not be too high (19–25°C).</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/otothyris_travassosi_en/",
+      "html": "<p>Provide good care with vegetable foods; fine live food is also accepted.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1269",
       "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/otothyris_travassosi_en/",
+      "html": "<p>Nothing is known about successful breeding.</p>"
     },
     {
       "key": "references",
@@ -155,5 +211,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-14"
 }

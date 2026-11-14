@@ -2,18 +2,6 @@
   "id": "barbonymus-altus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/5e143950e4115918.webp",
-      "thumb": "https://media.aquatome.com/commons/5e143950e4115918-480.webp",
-      "width": 1200,
-      "height": 862,
-      "licence": "CC BY-SA 3.0",
-      "author": "Rufus46",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brassenbarbe_Barbonymus_schwanenfeldii_Tierpark_Hellabrunn-1.jpg",
-      "caption": "Cá he vàng bơi trong bể kính, thân ánh xanh, vây cam",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/30204807.webp",
       "thumb": "https://media.aquatome.com/inaturalist/30204807-480.webp",
       "width": 1024,
@@ -24,6 +12,18 @@
       "caption": "Cá he vàng trong bể kính nền xanh",
       "best": true,
       "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/5e143950e4115918.webp",
+      "thumb": "https://media.aquatome.com/commons/5e143950e4115918-480.webp",
+      "width": 1200,
+      "height": 862,
+      "licence": "CC BY-SA 3.0",
+      "author": "Rufus46",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brassenbarbe_Barbonymus_schwanenfeldii_Tierpark_Hellabrunn-1.jpg",
+      "caption": "Cá he vàng bơi trong bể kính, thân ánh xanh, vây cam",
+      "best": true,
+      "kind": "other"
     }
   ],
   "seen": 16,

@@ -142,7 +142,7 @@ test('glossary: every term from its Vietnamese definition; Thai addressed by the
     return { terms: ids.map(i => ({ id: i, name: `คำ ${i}`, altNames: ['pasir', `คำ ${i}`, i!.toUpperCase().replaceAll('-', ''), 'WC', `two words ${i}`], definition: `ความหมาย ${i}` })) } as T
   }
   const r = await localizeGlossary(root, llm, 'th')
-  expect(r.done.sort()).toEqual(['ca-dan', 'chu-trinh-nito', 'ph'])
+  expect(r.done.sort()).toEqual(['ca-dan', 'chu-trinh-nito', 'lua', 'ph'])
   expect(r.failed).toEqual(['gh: left out'])
   expect(prompts[0]).toContain('Thang đo độ chua')
   expect(prompts[0]).toContain('General hardness')

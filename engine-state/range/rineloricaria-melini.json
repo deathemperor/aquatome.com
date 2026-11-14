@@ -1,0 +1,66 @@
+{
+  "id": "rineloricaria-melini",
+  "native": {
+    "input": "f4065b9d8cba4b35",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Brazil, Rio Negro.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Amazon River basin, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "glaser",
+        "quote": "Origin: Brazil, Rio Negro.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Amazon River basin, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Solimoes",
+        "source": "scotcat",
+        "quote": "The species is known from a single record, in its type locality, in the Solimões River, near Manacapuru, Amazonas, Brazil.",
+        "country": "BR",
+        "ok": false,
+        "why": "its name is not in the quote"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rineloricaria melini",
+    "status": "ACCEPTED",
+    "taxonKey": 2339079,
+    "datasets": [],
+    "native": [
+      "BR"
+    ],
+    "requests": 2,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "id": "salminus-brasiliensis",
+  "native": {
+    "input": "909a2354628cd39d",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Brazil, Bolivia.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Brazil, Bolivia.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The dorado, Salminus brasiliensis, is a large characid from Brazil, Bolivia, Paraguay, Uruguay and Argentina, growing to 100 cm SL.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The dorado, Salminus brasiliensis, is a large characid from Brazil, Bolivia, Paraguay, Uruguay and Argentina, growing to 100 cm SL.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The dorado, Salminus brasiliensis, is a large characid from Brazil, Bolivia, Paraguay, Uruguay and Argentina, growing to 100 cm SL.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "UY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The dorado, Salminus brasiliensis, is a large characid from Brazil, Bolivia, Paraguay, Uruguay and Argentina, growing to 100 cm SL.",
+        "words": "Uruguay",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The dorado, Salminus brasiliensis, is a large characid from Brazil, Bolivia, Paraguay, Uruguay and Argentina, growing to 100 cm SL.",
+        "words": "Argentina",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Salminus brasiliensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2354769,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        305
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        93
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        64
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        56
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        55
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        40
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        23
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        13
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        10
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        8
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        7
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        6
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        6
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        5
+      ],
+      [
+        "d4b3cce1-4594-47bb-b1e2-1ace65458a11",
+        5
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        4
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "bba95e72-e2df-420e-8de3-b7ca814037ae",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "BO",
+      "PY",
+      "UY",
+      "AR"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

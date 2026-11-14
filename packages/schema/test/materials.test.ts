@@ -33,8 +33,8 @@ test('materials have their own schema, with all four kinds and web sources', asy
 test('loads Vietnamese materials, their shared translations, parent and photos in public builds too', async () => {
   for (const publicBuild of [false, true]) {
     const c = await load(root, 'vi', publicBuild)
-    expect(c.materials.map(m => m.id)).toEqual(['lua', 'lua-sa-tung'])
-    const child = c.materials[1]!
+    expect(c.materials.map(m => m.id)).toEqual(['lua', 'lua-mopani', 'lua-sa-tung'])
+    const child = c.materials.find(m => m.id === 'lua-sa-tung')!
     expect(child.parent).toBe('lua')
     expect(child.photos).toHaveLength(1)
     expect(child.t).toEqual(schema.TranslationSchema.parse(await read('lua-sa-tung/vi.json')))
@@ -68,7 +68,7 @@ test("a parent that isn't another material stops a build, instead of the page dr
   // A held parent is still a material: its kinds stand alone, and the build goes on.
   const held = await changed('lua/vi.json', t => { t.held = { checks: ['fit'], at: '2026-11-13' } })
   const c = await schema.loadAll({ root: held, lang: 'vi', publicBuild: true, leaveOutHeld: true })
-  expect(c.materials.map(m => [m.id, m.parent])).toEqual([['lua-sa-tung', 'lua']])
+  expect(c.materials.map(m => [m.id, m.parent])).toEqual([['lua-mopani', 'lua'], ['lua-sa-tung', 'lua']])
 })
 
 // The owner's driftwood pages are a parent and its kinds: each page names the other's place in the family.
@@ -94,8 +94,8 @@ test('duplicate material slugs stop a build instead of replacing a page', async 
 
 test('held materials and unlicensed or unscreened photos obey the existing publication gates', async () => {
   const held = await changed('lua-sa-tung/vi.json', t => { t.held = { checks: ['review'], at: '2026-11-13' } })
-  expect((await schema.loadAll({ root: held, lang: 'vi', publicBuild: true, leaveOutHeld: true })).materials.map(m => m.id)).toEqual(['lua'])
+  expect((await schema.loadAll({ root: held, lang: 'vi', publicBuild: true, leaveOutHeld: true })).materials.map(m => m.id)).toEqual(['lua', 'lua-mopani'])
   const dir = await changed('lua-sa-tung/entity.json', e => { e.photos[0].licence = 'All rights reserved' })
-  expect((await load(dir)).materials[1]!.photos).toEqual([])
-  expect((await schema.loadAll({ root, lang: 'vi', publicBuild: true, photoScreen: {} })).materials[1]!.photos).toEqual([])
+  expect((await load(dir)).materials.find(m => m.id === 'lua-sa-tung')!.photos).toEqual([])
+  expect((await schema.loadAll({ root, lang: 'vi', publicBuild: true, photoScreen: {} })).materials.find(m => m.id === 'lua-sa-tung')!.photos).toEqual([])
 })

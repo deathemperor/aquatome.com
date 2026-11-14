@@ -1,4 +1,43 @@
 {
+  "vi/products/ada-amazonia": [
+    {
+      "at": "2026-11-14T04:53:33Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.82,
+      "notes": [
+        "\"giai đoạn này phải thay nước dày\" - the facts give a water-change schedule, but they don't say 2–6 weeks of heavy changes is required, which makes it slightly stronger than the facts.",
+        "\"Nếu nước máy nhà bạn cứng (KH cao)... nguy cơ cao hơn\" is supported. No problem there.",
+        "\"ít làm bẩn bể hơn\" for Controsoil - the facts say \"less messy\", so this is fine.",
+        "\"hay được khuyên cho người mới\" for Tropica - the facts say \"considered beginner-friendly\", so this is mild paraphrase.",
+        "\"Some hobbyists dark start... (chạy bể không bật đèn, chưa trồng cây)\" - the parenthetical definition of dark start is added and isn't in the facts. It is general knowledge.",
+        "\"giai đoạn đầu không khó quản lý\" - supported loosely by \"easy to manage early on\".",
+        "\"Loại này cũng giữ nước hơi chua\" is supported for PRO.",
+        "\"Đất mềm dần và bở ra\" is supported."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-14T04:53:33Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.8,
+      "notes": [
+        "\"Hai con số đều có trong bảng thông số phía trên\" – the page has no spec table above; the coverage figures are never actually given in the page.",
+        "\"Ver.2 loại thường (9L và 3L): hạt tiêu chuẩn, có kèm Amazonia Supplement\" – the facts only say Ver.2 comes with Supplement and the Powder 3L doesn't; the 3L normal bag including it is inferred, though plausible.",
+        "\"Bể mới có thể mất khoảng 2 đến 6 tuần mới thả được cá, tép, và trong thời gian đó phải thay nước dày\" – the heavy water change is derived from the schedule, but the 'must' framing is stronger than the facts.",
+        "\"Ai từng dùng đời cũ thì đừng chạy bể theo lịch cũ\" – an unsupported recommendation not in the facts.",
+        "\"Cứ đo nước rồi mới thả cá, đừng đếm ngày\" – general advice, only loosely supported by the facts.",
+        "\"Khi bể ổn thì thay mỗi tuần một lần\" – supported; but \"Amazonia PRO ... Loại này cũng giữ nước hơi chua\" is supported. \"ít làm bẩn bể hơn\" for Controsoil is a rephrasing of 'less messy' and is acceptable.",
+        "\"Chuyện pH quan trọng vì amoni đất nhả ra lúc đầu...\" – the facts say early ammonia is toxic above pH 7, but not explicitly that the soil's ammonia is the source; this is a mild inference."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/products/ada-aqua-soil": [
     {
       "at": "2026-11-10T22:45:03Z",

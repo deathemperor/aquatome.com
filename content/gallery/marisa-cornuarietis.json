@@ -2,18 +2,6 @@
   "id": "marisa-cornuarietis",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/119262021.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/119262021-480.webp",
-      "width": 1024,
-      "height": 770,
-      "licence": "CC BY",
-      "author": "Ben Machado",
-      "sourceUrl": "https://www.inaturalist.org/photos/119262021",
-      "caption": "Ốc sừng cừu Colombia sống dưới nước trong môi trường tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/509852390.webp",
       "thumb": "https://media.aquatome.com/inaturalist/509852390-480.webp",
       "width": 1024,
@@ -22,18 +10,6 @@
       "author": "David Garza",
       "sourceUrl": "https://www.inaturalist.org/photos/509852390",
       "caption": "Nhiều ốc sừng cừu Colombia dưới nước trong môi trường tự nhiên",
-      "best": true,
-      "kind": "group"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/409264584.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/409264584-480.webp",
-      "width": 1024,
-      "height": 766,
-      "licence": "CC BY",
-      "author": "Igor Balashov",
-      "sourceUrl": "https://www.inaturalist.org/photos/409264584",
-      "caption": "Nhóm ốc sừng cừu Colombia sống trong bể kính",
       "best": true,
       "kind": "group"
     },
@@ -50,6 +26,30 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/409264584.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/409264584-480.webp",
+      "width": 1024,
+      "height": 766,
+      "licence": "CC BY",
+      "author": "Igor Balashov",
+      "sourceUrl": "https://www.inaturalist.org/photos/409264584",
+      "caption": "Nhóm ốc sừng cừu Colombia sống trong bể kính",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/119262021.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/119262021-480.webp",
+      "width": 1024,
+      "height": 770,
+      "licence": "CC BY",
+      "author": "Ben Machado",
+      "sourceUrl": "https://www.inaturalist.org/photos/119262021",
+      "caption": "Ốc sừng cừu Colombia sống dưới nước trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/343871574.webp",
       "thumb": "https://media.aquatome.com/inaturalist/343871574-480.webp",
       "width": 1024,
@@ -62,18 +62,6 @@
       "kind": "group"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/137472778.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/137472778-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Eridan Xharahi",
-      "sourceUrl": "https://www.inaturalist.org/photos/137472778",
-      "caption": "Ốc sừng cừu Colombia vỏ nâu sọc, nhìn từ trên xuống",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/22949270.webp",
       "thumb": "https://media.aquatome.com/inaturalist/22949270-480.webp",
       "width": 768,
@@ -84,6 +72,18 @@
       "caption": "Ốc sừng cừu Colombia vỏ nâu sẫm bò trong vùng nước nông",
       "best": true,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/137472778.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/137472778-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Eridan Xharahi",
+      "sourceUrl": "https://www.inaturalist.org/photos/137472778",
+      "caption": "Ốc sừng cừu Colombia vỏ nâu sọc, nhìn từ trên xuống",
+      "best": true,
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/398884895.webp",

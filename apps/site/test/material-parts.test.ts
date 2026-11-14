@@ -22,11 +22,11 @@ test('material sections keep their reading order, skip absent text and turn mark
   expect(sections[1]!.html).not.toContain('dịch từ nguồn')
 })
 
-test('the material pilot changes neither the app index nor automatic guide link targets', async () => {
+test('materials enter the app index without changing automatic guide link targets', async () => {
   const c = await content()
-  expect(c.materials.length).toBe(2)
+  expect(c.materials.length).toBe(3)
   const without = { ...c, materials: [] }
-  expect(appIndex('vi', c)).toEqual(appIndex('vi', without))
+  expect(appIndex('vi', c).items.filter(i => i.kind !== 'material')).toEqual(appIndex('vi', without).items)
   expect(linkTargets(c)).toEqual(linkTargets(without))
 })
 
@@ -42,6 +42,6 @@ test('the owner can hide a material by its current or old Vietnamese address', a
   for (const path of ['/vat-lieu/lua/', '/vi/vat-lieu/lua/']) {
     // readHidden normalizes the old form before dropHidden, as it does for every other kind.
     const hidden = new Set([path.replace(/^\/vi\//, '/')])
-    expect(dropHidden(c, hidden).materials.map(m => m.id)).toEqual(['lua-sa-tung'])
+    expect(dropHidden(c, hidden).materials.map(m => m.id)).toEqual(['lua-mopani', 'lua-sa-tung'])
   }
 })

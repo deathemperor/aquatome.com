@@ -1,0 +1,127 @@
+{
+  "id": "satanoperca-lilith",
+  "native": {
+    "input": "1a9927807c24661a",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from Brazil, where it is widely distributed along the Solimões/Amazon main channel between the rio Japurá, upstream from Manaus, and the lower rio Tapajós at Santárem.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Known only from Brazil, where it is widely distributed along the Solimões/Amazon main channel between the rio Japurá, upstream from Manaus, and the lower rio Tapajós at Santárem.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "It tends to occur in the lower parts of tributaries but also ascends some of them, including the rios Negro (it has been recorded as far upstream as the rio Curucuriari near São Gabriel de Cachoeira), Branco, Madeira (including the Cãnuma and Aripuanã tributary systems), and Trombetas.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Rio Madeira",
+        "source": "seriouslyfish",
+        "quote": "It tends to occur in the lower parts of tributaries but also ascends some of them, including the rios Negro (it has been recorded as far upstream as the rio Curucuriari near São Gabriel de Cachoeira), Branco, Madeira (including the Cãnuma and Aripuanã tributary systems), and Trombetas.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Rio Tapajós",
+        "source": "seriouslyfish",
+        "quote": "Known only from Brazil, where it is widely distributed along the Solimões/Amazon main channel between the rio Japurá, upstream from Manaus, and the lower rio Tapajós at Santárem.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Branco",
+        "source": "seriouslyfish",
+        "quote": "It tends to occur in the lower parts of tributaries but also ascends some of them, including the rios Negro (it has been recorded as far upstream as the rio Curucuriari near São Gabriel de Cachoeira), Branco, Madeira (including the Cãnuma and Aripuanã tributary systems), and Trombetas.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Rio Trombetas",
+        "source": "seriouslyfish",
+        "quote": "It tends to occur in the lower parts of tributaries but also ascends some of them, including the rios Negro (it has been recorded as far upstream as the rio Curucuriari near São Gabriel de Cachoeira), Branco, Madeira (including the Cãnuma and Aripuanã tributary systems), and Trombetas.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Satanoperca lilith",
+    "status": "ACCEPTED",
+    "taxonKey": 5208458,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        47
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        36
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        26
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        7
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        3
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "id": "rhinogobius-maculafasciatus",
+  "native": {
+    "input": "833efaaa56c2f3d7",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "TW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from middle and lower parts of certain rivers in southern Taiwan, including the Tzengwen and Kaoping drainages.",
+        "words": "Taiwan",
+        "ok": true
+      },
+      {
+        "code": "TW",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species was described from Taiwan, and the specimens offered originate from Taiwan.",
+        "words": "Taiwan",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Tzengwen",
+        "source": "seriouslyfish",
+        "quote": "Known only from middle and lower parts of certain rivers in southern Taiwan, including the Tzengwen and Kaoping drainages.",
+        "country": "TW",
+        "ok": true
+      },
+      {
+        "name": "Kaoping",
+        "source": "seriouslyfish",
+        "quote": "Known only from middle and lower parts of certain rivers in southern Taiwan, including the Tzengwen and Kaoping drainages.",
+        "country": "TW",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rhinogobius maculafasciatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2377647,
+    "datasets": [
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        697
+      ],
+      [
+        "83cbdde7-998f-4354-95de-72d885cc5863",
+        258
+      ],
+      [
+        "b7dd8170-98a0-11de-b4d9-b8a03c50a862",
+        71
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        3
+      ],
+      [
+        "9b5577ee-34f9-4d09-9ce2-c70fd03ee6cd",
+        3
+      ],
+      [
+        "26ae0930-98a1-11de-b4da-b8a03c50a862",
+        1
+      ]
+    ],
+    "native": [
+      "TW"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

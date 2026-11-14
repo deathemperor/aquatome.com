@@ -1,0 +1,9 @@
+---
+url: https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_haraldschultzi_spec_araguaia__en/
+title: Hyphessobrycon haraldschultzi (= spec. „Araguaia“) - Aquarium Glaser GmbH
+fetchedAt: 2026-11-14T04:26:01.914Z
+hash: 17d5e3e0bbfcf5ccda5ae27f0eda49da71ae446eb93cea49812188ebd5d4f209
+---
+
+Red fish always attract interest amongst hobbyists, especially the intensively red coloured ones. Five years ago when we received the first animals of this tetra by the name of “Hyphessobrycon serpae – the real one” (wildcaught from Rio Araguaia), we were immediately enthusiastic, too. At first sight (still inside the transport bag) these tetras looked very similar to the bloodtetra, Hyphessobrycon eques, formerly known as Hy. callistus. They also reminded us of the Red Phantomtetra, Hyphessobrycon (formerly Megalamphodus) sweglesi, while they obviously had “short fins”. Soon it was clear, however, that they are neither. Until today a final definition was not provided yet, it could be Hyphessobrycon haraldschultzi or an undefined species. Breeding this tetra, which occurs – very seldom – on the market as wildcaught, is difficult, but quite possible with much patience. Both the wildcaughts of the “crystal red tetra” and later also the young animals turned out to be absolutely “sociable” among themselves and others, also small fish. The nutrition by all live and dry food is not causing any problems (plants are not getting bothered), while the young fish belong more to the slowly growing tetras. For a “sense of well-being”, resp. in order to show the intensive red to advantage, the aquarium should contain well-planted sectors with indirect beam of light. (Photo & Text P. & M. Hoffmann)
+Angaben zum Tier Herkunft Brasilien, Rio Araguaia Name Hyphessobrycon spec. „Araguaia“

@@ -10,6 +10,66 @@
     "taiwan",
     "lanyu-island"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TW"
+      ],
+      "regions": [
+        "Lanyu Island"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from Lanyu Island, better known as Orchid Island in the English language, located off the southeastern coast of Taiwan and considered part of the Taiwan archipelago itself.",
+          "countries": [
+            "TW"
+          ],
+          "regions": [
+            "Lanyu Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2377579,
+      "total": 27,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "TW",
+          25
+        ],
+        [
+          "CN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          37.96875,
+          2,
+          0
+        ],
+        [
+          120.9375,
+          21.09375,
+          23,
+          23
+        ],
+        [
+          120.9375,
+          22.5,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

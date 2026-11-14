@@ -8,6 +8,7 @@ import { categoryLabel, GROUP_LABELS, GUIDE_KIND_LABELS, PLANT_LABELS } from './
 import { easyPlants, featuredSpecies, groupTiles, leadGuides, listOrder } from './home'
 import { resizeOf, sameShape, smallSrc } from './img'
 import { appPath, served, translator, type Lang } from './i18n'
+import { termListing } from './glossary-page'
 import { guideImage, mentionIndex } from './mentions'
 import { toIndexItem } from './species-index'
 import { appRange, capitalized, countryNames, originPages, regionNames, type AppCountry, type AppRange } from './range'
@@ -17,12 +18,12 @@ import { seriesGuides } from './video'
 /**
  * The handbook's index for the native app (/app/<lang>.json): the pages of one language that the app can search and
  * list. Fish, plants, guides, glossary terms, video series and equipment are every one the site's own lists show (a page out of
- * search engines too). The app opens the page itself in a web view, so an item is only what a search result shows and
- * what the app browses it by. Fish come in the site's list order (the well-known ones first).
+ * search engines too). Vietnamese materials are searchable during their noindex pilot. An item holds what a search
+ * result shows and what the app browses it by. Fish come in the site's list order (the well-known ones first).
  */
 export type AppItem = {
-  /** `video`: a series of video guides (/vi/video/<slug>/). `equipment`: a kind of kit (/vi/thiet-bi/<category>/). */
-  kind: 'fish' | 'plant' | 'guide' | 'glossary' | 'tool' | 'video' | 'equipment'
+  /** `video`: a series of video guides (/vi/video/<slug>/). `equipment`: a kind of kit (/vi/thiet-bi/<category>/). `material`: a Vietnamese material page, opened on the web. */
+  kind: 'fish' | 'plant' | 'guide' | 'glossary' | 'tool' | 'video' | 'equipment' | 'material'
   /** The page's content id, the same in every language (fish, plants): what a saved tank lists them by. */
   id?: string
   name: string
@@ -73,6 +74,10 @@ export type AppItem = {
    * when no source states it; breeds have none.
    */
   lifeYears?: Range
+  /** A glossary term's meaning, plain text: its definition, as its card and page give it, whole (the app cuts it to two lines). */
+  def?: string
+  /** A glossary term: how many pages use it, the number its page gives under "Dùng trong". None when none does. */
+  uses?: number
   /** Where a species lives in the wild and its wild records (lib/range.ts, protocols/range-vectors.json); breeds have none. */
   range?: AppRange
   /**
@@ -411,7 +416,12 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   }
   if (served(lang, '/vi/thuat-ngu/x/')) {
     // A term's English name is among its other names: the chat's search and the app's read them from here.
-    for (const g of appGlossary(lang, c)) items.push(clean({ kind: 'glossary', name: g.t.name, aka: aka([g.t.name, ...g.t.altNames].includes(g.en) ? g.t.altNames : [...g.t.altNames, g.en]), path: at(`/vi/thuat-ngu/${g.t.slug}/`) }))
+    for (const g of appGlossary(lang, c)) items.push(clean({ kind: 'glossary', name: g.t.name, aka: aka([g.t.name, ...g.t.altNames].includes(g.en) ? g.t.altNames : [...g.t.altNames, g.en]), path: at(`/vi/thuat-ngu/${g.t.slug}/`), ...termListing(lang, c, g) }))
+  }
+  // Vietnamese pilot pages stay out of Google. No native page shards yet: an app opens them on the web once it knows the
+  // kind, and today's skips them, as it does any kind it doesn't know (AquaTomeKit's Handbook.swift).
+  if (lang === 'vi') for (const m of c.materials) {
+    items.push(clean({ kind: 'material', id: m.id, name: m.t.name, aka: aka([...m.t.altNames, ...m.names]), path: at(`/vi/vat-lieu/${m.t.slug}/`), img: m.photos[0] && smallSrc(m.photos[0]) }))
   }
   // A series as its page lists it; the same series the app gets pages of.
   for (const { s, guides } of appSeries(lang, c)) {

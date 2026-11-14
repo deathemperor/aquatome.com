@@ -40,6 +40,30 @@
       "unchecked": true
     },
     {
+      "url": "https://media.aquatome.com/commons/c3e90ef1669405c1.webp",
+      "thumb": "https://media.aquatome.com/commons/c3e90ef1669405c1-480.webp",
+      "width": 1200,
+      "height": 675,
+      "licence": "CC BY-SA 4.0",
+      "author": "MurkySeb",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Purple_Spotted_Gudgeon.png",
+      "caption": "Cá bống tím đốm bơi giữa rễ cây trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/35c93aa60231662a.webp",
+      "thumb": "https://media.aquatome.com/commons/35c93aa60231662a-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY-SA 4.0",
+      "author": "Ethmostigmus",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Southern_purple_spotted_gudgeon_(Mogurnda_adspersa)_at_Sea_Life_Melbourne_Aquarium.jpg",
+      "caption": "Cá bống tím đốm vằn nâu vàng nghỉ trên đá trong bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/98366470.webp",
       "thumb": "https://media.aquatome.com/inaturalist/98366470-480.webp",
       "width": 1024,
@@ -66,28 +90,17 @@
       "unchecked": true
     },
     {
-      "url": "https://media.aquatome.com/commons/c3e90ef1669405c1.webp",
-      "thumb": "https://media.aquatome.com/commons/c3e90ef1669405c1-480.webp",
-      "width": 1200,
-      "height": 675,
-      "licence": "CC BY-SA 4.0",
-      "author": "MurkySeb",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Purple_Spotted_Gudgeon.png",
-      "caption": "Cá bống tím đốm bơi giữa rễ cây trong môi trường tự nhiên",
+      "url": "https://media.aquatome.com/inaturalist/159527836.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/159527836-480.webp",
+      "width": 1000,
+      "height": 666,
+      "licence": "CC BY",
+      "author": "dhfischer",
+      "sourceUrl": "https://www.inaturalist.org/photos/159527836",
+      "caption": "Cá bống tím đốm nằm trên đáy bùn đất trong suối",
       "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/35c93aa60231662a.webp",
-      "thumb": "https://media.aquatome.com/commons/35c93aa60231662a-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY-SA 4.0",
-      "author": "Ethmostigmus",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Southern_purple_spotted_gudgeon_(Mogurnda_adspersa)_at_Sea_Life_Melbourne_Aquarium.jpg",
-      "caption": "Cá bống tím đốm vằn nâu vàng nghỉ trên đá trong bể",
-      "best": true,
-      "kind": "other"
+      "kind": "habitat",
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/321844402.webp",
@@ -98,6 +111,19 @@
       "author": "Matt B",
       "sourceUrl": "https://www.inaturalist.org/photos/321844402",
       "caption": "Cá bống tím đốm trong suối tự nhiên, đậu trên đá",
+      "best": true,
+      "kind": "habitat",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/489466402.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/489466402-480.webp",
+      "width": 471,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "James H",
+      "sourceUrl": "https://www.inaturalist.org/photos/489466402",
+      "caption": "Hai cá bống tím đốm bơi trên nền sỏi trong suối",
       "best": true,
       "kind": "habitat",
       "unchecked": true
@@ -129,32 +155,6 @@
       "unchecked": true
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/159527836.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/159527836-480.webp",
-      "width": 1000,
-      "height": 666,
-      "licence": "CC BY",
-      "author": "dhfischer",
-      "sourceUrl": "https://www.inaturalist.org/photos/159527836",
-      "caption": "Cá bống tím đốm nằm trên đáy bùn đất trong suối",
-      "best": true,
-      "kind": "habitat",
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/489466402.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/489466402-480.webp",
-      "width": 471,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "James H",
-      "sourceUrl": "https://www.inaturalist.org/photos/489466402",
-      "caption": "Hai cá bống tím đốm bơi trên nền sỏi trong suối",
-      "best": true,
-      "kind": "habitat",
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/719248849.webp",
       "thumb": "https://media.aquatome.com/inaturalist/719248849-480.webp",
       "width": 1024,
@@ -181,14 +181,14 @@
       "unchecked": true
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/98366430.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/98366430-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/88833599.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/88833599-480.webp",
       "width": 1024,
-      "height": 809,
+      "height": 662,
       "licence": "CC BY-SA",
       "author": "Greg Tasney",
-      "sourceUrl": "https://www.inaturalist.org/photos/98366430",
-      "caption": "Cá bống tím đốm màu nâu cam trong suối tự nhiên",
+      "sourceUrl": "https://www.inaturalist.org/photos/88833599",
+      "caption": "Cá bống tím đốm trong suối nước trong, đáy sỏi",
       "best": false,
       "kind": "habitat",
       "unchecked": true
@@ -206,14 +206,14 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/606986186.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/606986186-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/98366430.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/98366430-480.webp",
       "width": 1024,
-      "height": 683,
+      "height": 809,
       "licence": "CC BY-SA",
       "author": "Greg Tasney",
-      "sourceUrl": "https://www.inaturalist.org/photos/606986186",
-      "caption": "Cá bống tím đốm trên nền đá suối",
+      "sourceUrl": "https://www.inaturalist.org/photos/98366430",
+      "caption": "Cá bống tím đốm màu nâu cam trong suối tự nhiên",
       "best": false,
       "kind": "habitat",
       "unchecked": true
@@ -232,14 +232,14 @@
       "unchecked": true
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/88833599.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/88833599-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/162976982.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/162976982-480.webp",
       "width": 1024,
-      "height": 662,
-      "licence": "CC BY-SA",
-      "author": "Greg Tasney",
-      "sourceUrl": "https://www.inaturalist.org/photos/88833599",
-      "caption": "Cá bống tím đốm trong suối nước trong, đáy sỏi",
+      "height": 647,
+      "licence": "CC BY",
+      "author": "Rolf Lawrenz",
+      "sourceUrl": "https://www.inaturalist.org/photos/162976982",
+      "caption": "Cá bống tím đốm bơi gần đá và sỏi trong suối",
       "best": false,
       "kind": "habitat",
       "unchecked": true
@@ -258,14 +258,14 @@
       "unchecked": true
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/162976982.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/162976982-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/606986186.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/606986186-480.webp",
       "width": 1024,
-      "height": 647,
-      "licence": "CC BY",
-      "author": "Rolf Lawrenz",
-      "sourceUrl": "https://www.inaturalist.org/photos/162976982",
-      "caption": "Cá bống tím đốm bơi gần đá và sỏi trong suối",
+      "height": 683,
+      "licence": "CC BY-SA",
+      "author": "Greg Tasney",
+      "sourceUrl": "https://www.inaturalist.org/photos/606986186",
+      "caption": "Cá bống tím đốm trên nền đá suối",
       "best": false,
       "kind": "habitat",
       "unchecked": true

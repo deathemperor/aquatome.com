@@ -1,7 +1,9 @@
 import { expect, test, vi as vitest } from 'vitest'
 import { translator } from '../src/lib/i18n'
-import { errorText, genusHtml, guessHtml, hasGuesses, own, sure, verdictLine, type Answer, type Result } from '../src/scripts/fish-id-client'
+import { escapeHtml } from '../src/scripts/comments'
+import { errorText, genusHtml, guessHtml, hasGuesses, own, sciAfter, sure, verdictLine, type Answer, type Result } from '../src/scripts/fish-id-client'
 import { guessEntry } from '../src/scripts/life-photo'
+import { unlistedName } from '../src/scripts/life-edit'
 
 // The fish-ID tool's client, shared by its page and the "Bể của tôi" editor (src/scripts/fish-id-client.ts). Its modules
 // read the page's translations as they load (reader-photos.ts): here, a page with none.
@@ -69,4 +71,33 @@ test('a guess without a page fills in the "Thêm …" form: fish unless the phot
   expect(guessEntry(guess({ commonName: '', scientificName: ' Bucephalandra sp. ' }), 'plant')).toEqual({ kind: 'plant', name: 'Bucephalandra sp.', sci: 'Bucephalandra sp.' })
   const long = guessEntry(guess({ commonName: 'a'.repeat(100), scientificName: 'b'.repeat(130) }), 'fish')
   expect([long.name.length, long.sci.length]).toEqual([80, 120])
+})
+
+// The chief of staff, 13 November: printed together, a name and its scientific name say it once (lib/sci.ts). Here, a
+// guess's line under its name, and the genus's other pages after theirs.
+test("a photo's guess and its genus's other pages say the scientific name once", () => {
+  const guessOf = (r: Partial<Result>) => guess({ scientificName: 'Channa andrao', ...r })
+  // The handbook's name holds it (as a link), or there's no other name than it: no line, or the variety alone.
+  expect(guessHtml(vi, guessOf({}), '<a href="/ca/ca-loc-channa-andrao/">Cá lóc Channa andrao</a>', '')).not.toContain('class="sci"')
+  expect(guessHtml(vi, guessOf({}), 'Channa andrao', '')).not.toContain('class="sci"')
+  expect(guessHtml(vi, guessOf({ variety: 'Blue' }), 'Cá lóc Channa andrao', '')).toContain('<p class="sci">Blue</p>')
+  // A name that doesn't say it keeps it, and the variety after it.
+  expect(guessHtml(vi, guessOf({ variety: 'Blue' }), 'Cá lóc', '')).toContain('<p class="sci"><i>Channa andrao</i> · Blue</p>')
+  // A name with quote marks, escaped as the callers give it: the same name, so said once.
+  const mini = "Alternanthera reineckii 'Mini'"
+  expect(guessHtml(vi, guess({ scientificName: mini }), escapeHtml(mini), '')).not.toContain('class="sci"')
+  expect(guessHtml(vi, guess({ scientificName: mini }), `<a href="/cay/x/">${escapeHtml(`Rau dừa ${mini}`)}</a>`, '')).not.toContain('class="sci"')
+  expect(sciAfter({ id: 'a', name: 'Cá lóc Channa andrao', sci: 'Channa andrao' })).toBe('')
+  expect(sciAfter({ id: 'b', name: 'Cá lóc vảy rồng', sci: 'Channa asiatica' }, ' class="sci"')).toBe(' <i class="sci">Channa asiatica</i>')
+  expect(sciAfter({ id: 'c', name: 'Cá lóc' })).toBe('')
+})
+
+// Added to My tanks, a guess with no common name is named by its scientific name (life-photo.ts guessEntry): its row
+// says it once.
+test("an entry with no page names its scientific name beside its name only when the name doesn't say it", () => {
+  const e = guessEntry({ commonName: '', scientificName: 'Channa andrao' }, 'fish')
+  expect(unlistedName(e)).not.toContain('class="sci"')
+  expect(unlistedName({ name: 'Cá lóc Channa andrao', sci: 'Channa andrao' })).not.toContain('class="sci"')
+  expect(unlistedName({ name: 'Cá lóc', sci: 'Channa andrao' })).toContain('<i class="sci">Channa andrao</i>')
+  expect(unlistedName({ name: 'Cá lóc' })).not.toContain('class="sci"')
 })

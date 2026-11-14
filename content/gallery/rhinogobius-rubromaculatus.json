@@ -2,14 +2,14 @@
   "id": "rhinogobius-rubromaculatus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/626413706.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/626413706-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/56458689.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/56458689-480.webp",
       "width": 1024,
-      "height": 768,
+      "height": 684,
       "licence": "CC BY",
-      "author": "林正文",
-      "sourceUrl": "https://www.inaturalist.org/photos/626413706",
-      "caption": "Cá bống đốm đỏ nằm trên nền sỏi đá ngoài tự nhiên",
+      "author": "Cheng-Tao Lin",
+      "sourceUrl": "https://www.inaturalist.org/photos/56458689",
+      "caption": "Cá bống đốm đỏ bơi trên sỏi đá dưới suối",
       "best": true,
       "kind": "habitat",
       "unchecked": true
@@ -25,32 +25,6 @@
       "caption": "Cá bống đốm đỏ trong bể thủy sinh, nằm trên đá",
       "best": true,
       "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/56458689.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/56458689-480.webp",
-      "width": 1024,
-      "height": 684,
-      "licence": "CC BY",
-      "author": "Cheng-Tao Lin",
-      "sourceUrl": "https://www.inaturalist.org/photos/56458689",
-      "caption": "Cá bống đốm đỏ bơi trên sỏi đá dưới suối",
-      "best": true,
-      "kind": "habitat",
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/538827720.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/538827720-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Min-Hsuan NI",
-      "sourceUrl": "https://www.inaturalist.org/photos/538827720",
-      "caption": "Cá bống đốm đỏ thân nâu đốm đỏ trong hộp chụp ảnh",
-      "best": true,
-      "kind": "other",
-      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/56458731.webp",
@@ -87,6 +61,32 @@
       "author": "Cheng-Tao Lin",
       "sourceUrl": "https://www.inaturalist.org/photos/56458732",
       "caption": "Cá bống đốm đỏ nghỉ trên nền cát trong suối",
+      "best": true,
+      "kind": "habitat",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/538827720.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/538827720-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Min-Hsuan NI",
+      "sourceUrl": "https://www.inaturalist.org/photos/538827720",
+      "caption": "Cá bống đốm đỏ thân nâu đốm đỏ trong hộp chụp ảnh",
+      "best": true,
+      "kind": "other",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/626413706.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/626413706-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "林正文",
+      "sourceUrl": "https://www.inaturalist.org/photos/626413706",
+      "caption": "Cá bống đốm đỏ nằm trên nền sỏi đá ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
       "unchecked": true
@@ -131,19 +131,6 @@
       "unchecked": true
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/538827694.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/538827694-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Min-Hsuan NI",
-      "sourceUrl": "https://www.inaturalist.org/photos/538827694",
-      "caption": "Cá bống đốm đỏ thân đốm đỏ trong hộp trong suốt",
-      "best": false,
-      "kind": "other",
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/416106242.webp",
       "thumb": "https://media.aquatome.com/inaturalist/416106242-480.webp",
       "width": 1024,
@@ -152,6 +139,19 @@
       "author": "Yung-Lun Lin",
       "sourceUrl": "https://www.inaturalist.org/photos/416106242",
       "caption": "Cá bống đốm đỏ bơi trong hộp nhỏ, thân màu nâu vàng",
+      "best": false,
+      "kind": "other",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/538827694.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/538827694-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Min-Hsuan NI",
+      "sourceUrl": "https://www.inaturalist.org/photos/538827694",
+      "caption": "Cá bống đốm đỏ thân đốm đỏ trong hộp trong suốt",
       "best": false,
       "kind": "other",
       "unchecked": true

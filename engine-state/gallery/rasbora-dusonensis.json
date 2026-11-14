@@ -25,5 +25,13 @@
   "https://media.aquatome.com/inaturalist/296393944.webp": "a52dcc61e6e36163",
   "https://media.aquatome.com/inaturalist/313067033.webp": "5b5a300dcc4b93a7"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 613489,
+  "pass": "done",
+  "after": {
+   "research": 179787929,
+   "agree": 253605601
+  }
+ }
 }

@@ -1,0 +1,71 @@
+{
+  "id": "schistura-alticrista",
+  "native": {
+    "input": "3a694de43a25fe70",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Schistura alticrista is a nemacheilid loach from the Nam Mae Yuan basin in Mae Hong Son Province, northwest Thailand, part of the Salween drainage.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the Nam Mae Yuan river basin in Mae Hong Son Province, north west Thailand, a tributary within the Salween drainage.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It's also been recorded from the Salween itself, close to the point where the Nam Mae Yuan empties into it, and may therefore range into Myanmar to an extent.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Nam Mae Yuan",
+        "source": "seriouslyfish",
+        "quote": "Described from the Nam Mae Yuan river basin in Mae Hong Son Province, north west Thailand, a tributary within the Salween drainage.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "Described from the Nam Mae Yuan river basin in Mae Hong Son Province, north west Thailand, a tributary within the Salween drainage.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Schistura alticrista",
+    "status": "ACCEPTED",
+    "taxonKey": 5205010,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

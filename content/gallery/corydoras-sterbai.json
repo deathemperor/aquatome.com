@@ -2,18 +2,6 @@
   "id": "corydoras-sterbai",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/617423382.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/617423382-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Gabriel",
-      "sourceUrl": "https://www.inaturalist.org/photos/617423382",
-      "caption": "Đàn cá chuột Sterba kiếm ăn trên nền sỏi màu trong bể",
-      "best": true,
-      "kind": "group"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/339901810.webp",
       "thumb": "https://media.aquatome.com/inaturalist/339901810-480.webp",
       "width": 1024,
@@ -36,6 +24,16 @@
       "caption": "Cá chuột Sterba bơi cạnh lá cây thủy sinh trong bể",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/a96f10a210cb97aa.webp",
+      "thumb": "https://media.aquatome.com/commons/a96f10a210cb97aa-480.webp",
+      "width": 800,
+      "height": 570,
+      "licence": "CC BY 2.5",
+      "author": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_sterbai.jpg",
+      "caption": "Cá chuột Sterba bơi trên cát trắng trong bể cảnh"
     },
     {
       "url": "https://media.aquatome.com/commons/0fada46707e939af.webp",
@@ -68,31 +66,6 @@
       }
     },
     {
-      "url": "https://media.aquatome.com/commons/d19df063cf5eeaa1.webp",
-      "thumb": "https://media.aquatome.com/commons/d19df063cf5eeaa1-480.webp",
-      "width": 1200,
-      "height": 799,
-      "licence": "CC BY-SA 3.0",
-      "author": "Xocolatl",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Engelantennenwels_Gesicht.jpg",
-      "caption": "Cá chuột Sterba ánh xanh tím, đốm trắng rõ nét, cận cảnh",
-      "large": {
-        "url": "https://media.aquatome.com/commons/d19df063cf5eeaa1-large.webp",
-        "width": 1803,
-        "height": 1200
-      }
-    },
-    {
-      "url": "https://media.aquatome.com/commons/a96f10a210cb97aa.webp",
-      "thumb": "https://media.aquatome.com/commons/a96f10a210cb97aa-480.webp",
-      "width": 800,
-      "height": 570,
-      "licence": "CC BY 2.5",
-      "author": "Wikimedia Commons",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_sterbai.jpg",
-      "caption": "Cá chuột Sterba bơi trên cát trắng trong bể cảnh"
-    },
-    {
       "url": "https://media.aquatome.com/commons/c58ac5a7aedef920.webp",
       "thumb": "https://media.aquatome.com/commons/c58ac5a7aedef920-480.webp",
       "width": 1200,
@@ -104,6 +77,21 @@
       "large": {
         "url": "https://media.aquatome.com/commons/c58ac5a7aedef920-large.webp",
         "width": 1600,
+        "height": 1200
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/commons/d19df063cf5eeaa1.webp",
+      "thumb": "https://media.aquatome.com/commons/d19df063cf5eeaa1-480.webp",
+      "width": 1200,
+      "height": 799,
+      "licence": "CC BY-SA 3.0",
+      "author": "Xocolatl",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Engelantennenwels_Gesicht.jpg",
+      "caption": "Cá chuột Sterba ánh xanh tím, đốm trắng rõ nét, cận cảnh",
+      "large": {
+        "url": "https://media.aquatome.com/commons/d19df063cf5eeaa1-large.webp",
+        "width": 1803,
         "height": 1200
       }
     },
@@ -169,6 +157,18 @@
       "caption": "Cá chuột Sterba thân đốm sẫm bơi trong bể kính",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/617423382.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/617423382-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Gabriel",
+      "sourceUrl": "https://www.inaturalist.org/photos/617423382",
+      "caption": "Đàn cá chuột Sterba kiếm ăn trên nền sỏi màu trong bể",
+      "best": true,
+      "kind": "group"
     }
   ],
   "seen": 20,

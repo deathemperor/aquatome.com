@@ -1,0 +1,109 @@
+{
+  "id": "rineloricaria-platyura",
+  "native": {
+    "input": "7a7beab3dd69aa95",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rupununi River, Guyana.",
+        "words": "Guyana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rupununi River",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rupununi River, Guyana.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "South America: various coastal rivers from near the Amazon mouth to the Essequibo River, including the lower and middle Amazon, Madeira, Canumã, Acari, Orapu, Comté, Mana and Rupununi.",
+        "ok": true
+      },
+      {
+        "name": "Essequibo River",
+        "source": "planetcatfish",
+        "quote": "South America: various coastal rivers from near the Amazon mouth to the Essequibo River, including the lower and middle Amazon, Madeira, Canumã, Acari, Orapu, Comté, Mana and Rupununi.",
+        "ok": true
+      },
+      {
+        "name": "Madeira",
+        "source": "planetcatfish",
+        "quote": "South America: various coastal rivers from near the Amazon mouth to the Essequibo River, including the lower and middle Amazon, Madeira, Canumã, Acari, Orapu, Comté, Mana and Rupununi.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "GF",
+        "BR"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rineloricaria platyura",
+    "status": "ACCEPTED",
+    "taxonKey": 2339144,
+    "datasets": [
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        10
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        5
+      ],
+      [
+        "5d1e5f0d-811c-4ab0-bb38-f141cc0174de",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        3
+      ],
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "GY"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}
