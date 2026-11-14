@@ -270,9 +270,46 @@ test('a batch under two names on one commit loses its old name and is published 
   const refs = () => d.sh("git for-each-ref --format='%(refname:short) %(objectname)' refs/heads/")
   const before = refs()
   const split = d.cycle('publish_kept photos; echo "FAULT=${FAULT:-}"')
-  expect(split).toBe(`FAULT=photos/20261114T000000 is on ${t}, ${t}-out1, on different commits: none of them is touched`)
+  expect(split).toBe(`FAULT=photos/20261114T000000 is on ${t}, ${t}-out1, on different commits: none of them is touched (left by 1 run)`)
   expect(refs()).toBe(before)
   expect(d.onMain('content/d.json')).toBe('')
+}, slow(60_000))
+
+// The chief of staff, 14 Nov: a batch left under two names mustn't sit unnoticed. Its first run says so in FAULT, later
+// runs only once a day while it lasts; each run that leaves it is counted, and mac-status.py lists it.
+test('a batch under two names says so in FAULT on its first run and once a day after, counted, and mac-status lists it', () => {
+  const c = clone()
+  const t = 'kept/photos/20261114T000000'
+  const batch = 'photos/20261114T000000'
+  c.sh(`echo one > content/d.json && git add . && git commit -qm one && git branch ${t}-out1 HEAD && echo two > content/d.json && git commit -qam two && git branch ${t} HEAD && git reset -q --hard origin/main`)
+  const why = `${batch} is on ${t}, ${t}-out1, on different commits: none of them is touched`
+  const run = () => c.cycle('publish_kept photos; echo "FAULT=${FAULT:-}"')
+  const record = () => c.sh('cat "$(git rev-parse --absolute-git-dir)/aquatome-two-names" 2>/dev/null || true')
+  const listed = () => c.sh(`python3 -c 'import importlib.util as u; s = u.spec_from_file_location("m", "${join(ROOT, 'scripts/mac-status.py')}"); m = u.module_from_spec(s); s.loader.exec_module(m); print("\\n".join(m.two_names()))'`)
+  expect(run()).toContain(`FAULT=${why} (left by 1 run)`)
+  // The same day: counted and logged, no FAULT.
+  const second = run()
+  expect(second).toContain(`LOG ${why} (left by 2 runs; said in FAULT once a day)`)
+  expect(second.split('\n').at(-1)).toBe('FAULT=')
+  expect(record().split('\t').slice(0, 2)).toEqual([batch, '2'])
+  expect(listed()).toBe(`under two names, in engine-photos: ${batch}, left by 2 runs: ${why}`)
+  // A day on: FAULT again.
+  c.sh(`f="$(git rev-parse --absolute-git-dir)/aquatome-two-names"; awk -F'\t' -v OFS='\t' '{ $3 = $3 - 82800 } 1' "$f" > "$f.x" && mv "$f.x" "$f"`)
+  expect(run().split('\n').at(-1)).toBe(`FAULT=${why} (left by 3 runs)`)
+  // Put right by hand (one name dropped): published, and the record and the listing go.
+  c.sh(`git branch -q -D ${t}-out1`)
+  const after = run()
+  expect(after).toContain(`LOG published ${t}`)
+  expect(after.split('\n').at(-1)).toBe('FAULT=')
+  expect(record()).toBe('')
+  expect(listed()).toBe('')
+  // Same work under two names whose old name can't be dropped (a worktree has it): no longer only a log line.
+  const d = clone()
+  d.sh(`echo photos > content/b.json && git add . && git commit -qm "content: engine photos" && git branch ${t}-out1 HEAD && git branch ${t} HEAD && git reset -q --hard origin/main && git worktree add -q ../wt ${t}-out1`)
+  const stuck = d.cycle('publish_kept photos; echo "FAULT=${FAULT:-}"')
+  expect(stuck).toContain(`LOG ${t}-out1 is the same work as ${t} and couldn't be dropped: neither is processed this run`)
+  expect(stuck.split('\n').at(-1)).toBe(`FAULT=${batch} is on ${t}, ${t}-out1, the same work, and ${t}-out1 couldn't be dropped: none of them is processed (left by 1 run)`)
+  expect(d.onMain('content/b.json')).toBe('')
 }, slow(60_000))
 
 // The read of 299c718d5: a fault waits for the run's end, so a later batch still goes out.

@@ -349,6 +349,45 @@ drop_old_held() {
     if drop_branch "$branch"; then log "$branch was held $HELD_DAYS days: dropped"; else log "$branch is past $HELD_DAYS days and couldn't be dropped"; fi
   done
 }
+# A batch's names, `batch_names <job>/<when>`, one a line: kept/<job>/<when>[-…], held/<job>/<when>[-…].
+batch_names() { git for-each-ref --format='%(refname:short)' "refs/heads/kept/$1" "refs/heads/kept/$1-*" "refs/heads/held/$1" "refs/heads/held/$1-*"; }
+# A batch one_name leaves under two names is processed by no run until a person puts its names right, so it mustn't sit
+# unnoticed (the chief of staff, 14 Nov): the first run that leaves it says so in FAULT, which fails the run, and on the
+# Mac again once a day while it lasts, not every run. Each run that leaves it counts in the clone's record
+# (TWO_NAMES_FILE, a line a batch: "<job>/<when>\t<runs>\t<last FAULT, epoch seconds>\t<why>"), which
+# scripts/mac-status.py lists, and the record goes once the batch has one name or none (forget_two_names). A runner keeps
+# nothing past its run, so in the cloud each run that leaves it says so. `two_names <job>/<when> <why>`: once a run.
+TWO_NAMES_FILE=aquatome-two-names
+TWO_NAMES_EVERY=82800 # 23 h: a part's run near the same hour the next day says it again
+two_names() {
+  local file now runs last
+  [[ " ${SPLIT:-} " != *" $1 "* ]] || return 0
+  SPLIT="${SPLIT:-} $1"
+  engine_clone || { FAULT="${FAULT:+$FAULT; }$2"; return 0; }
+  file="$(git rev-parse --absolute-git-dir)/$TWO_NAMES_FILE"
+  now=$(date +%s)
+  read -r runs last < <(awk -F'\t' -v k="$1" '$1 == k { print $2, $3 }' "$file" 2>/dev/null) || true
+  runs=$((${runs:-0} + 1))
+  if [ $((now - ${last:-0})) -ge "$TWO_NAMES_EVERY" ]; then
+    FAULT="${FAULT:+$FAULT; }$2 (left by $runs run$([ "$runs" = 1 ] || echo s))"
+    last=$now
+  else
+    log "$2 (left by $runs runs; said in FAULT once a day)"
+  fi
+  { awk -F'\t' -v k="$1" '$1 != k' "$file" 2>/dev/null || true; printf '%s\t%s\t%s\t%s\n' "$1" "$runs" "$last" "$2"; } >"$file.new" && mv "$file.new" "$file" ||
+    log "$1's count of runs that left it couldn't be written: the next run says it in FAULT again"
+}
+# The record's lines for <job>'s batches that are no longer under two names, dropped. `forget_two_names <job>`.
+forget_two_names() {
+  local file line
+  engine_clone || return 0
+  file="$(git rev-parse --absolute-git-dir)/$TWO_NAMES_FILE"
+  [ -f "$file" ] || return 0
+  while IFS= read -r line; do
+    case "$line" in "$1"/*) [ "$(batch_names "${line%%$'\t'*}" | grep -c .)" -gt 1 ] || continue ;; esac
+    printf '%s\n' "$line"
+  done <"$file" >"$file.new" && mv "$file.new" "$file" || log "the record of batches under two names couldn't be tidied"
+}
 # One batch is one run's work, by its job and its time: kept/<job>/<when>[-out<n>], then held/<job>/<when>[-out<n>], then
 # held/<job>/<when>-tried. Under two names at once, a rename or a move half-worked (a run stopped between its two steps;
 # before 14 Nov, a forced one), and each name would be processed, the work published twice (the chief of staff, 14 Nov).
@@ -360,12 +399,12 @@ drop_old_held() {
 one_name() {
   local job=${1#*/} when=${1##*/} names b rank top=-1 newest=
   job=${job%/*} when=${when%%-*}
-  names=$(git for-each-ref --format='%(refname:short)' "refs/heads/kept/$job/$when" "refs/heads/kept/$job/$when-*" "refs/heads/held/$job/$when" "refs/heads/held/$job/$when-*")
+  names=$(batch_names "$job/$when")
   [ "$(wc -l <<<"$names")" -gt 1 ] || return 0
   # shellcheck disable=SC2086 # branch names have no spaces
   if [ "$(git rev-parse $names | sort -u | wc -l)" -gt 1 ]; then
     # shellcheck disable=SC2086
-    [[ " ${SPLIT:-} " == *" $job/$when "* ]] || { SPLIT="${SPLIT:-} $job/$when"; FAULT="${FAULT:+$FAULT; }$job/$when is on $(echo $names | sed 's/ /, /g'), on different commits: none of them is touched"; }
+    two_names "$job/$when" "$job/$when is on $(echo $names | sed 's/ /, /g'), on different commits: none of them is touched"
     return 1
   fi
   for b in $names; do
@@ -380,7 +419,12 @@ one_name() {
   done
   for b in $names; do
     [ "$b" != "$newest" ] || continue
-    drop_branch "$b" || { log "$b is the same work as $newest and couldn't be dropped: neither is processed this run"; return 1; }
+    if ! drop_branch "$b"; then
+      log "$b is the same work as $newest and couldn't be dropped: neither is processed this run"
+      # shellcheck disable=SC2086
+      two_names "$job/$when" "$job/$when is on $(echo $names | sed 's/ /, /g'), the same work, and $b couldn't be dropped: none of them is processed"
+      return 1
+    fi
     log "$b is the same work as $newest, left by a rename that half-worked: dropped"
   done
   [ "$1" = "$newest" ]
@@ -397,6 +441,7 @@ publish_kept() {
     net git fetch -q origin "+refs/heads/kept/$1/*:refs/heads/kept/$1/*" "+refs/heads/held/$1/*:refs/heads/held/$1/*" || log "the kept work on GitHub couldn't be fetched: left for the next run"
   fi
   drop_old_held "$1"
+  forget_two_names "$1"
   for branch in $(git for-each-ref --sort=refname --format='%(refname:short)' "refs/heads/kept/$1/"); do
     # Gone already, the old name of a batch under two (one_name).
     git show-ref -q --verify "refs/heads/$branch" || continue
