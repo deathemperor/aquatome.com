@@ -10063,6 +10063,24 @@
   ],
   "vi/guides/youtube-G4qC-5UEEWo": [
     {
+      "at": "2026-11-14T23:05:50Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.68,
+      "notes": [
+        "\"Làm xong thì chờ hồ ổn định rồi mới thả cá\", \"Cá thì để hồ ổn định rồi mới thả\" and the FAQ \"Làm hồ xong thả cá ngay được không?\" present a general rule for stocking a new pond. The video only says the creator will wait for the pond to become established before adding smaller fish such as darters, and his goldfish are already alive in a stock tank. Reword it as one person's plan for adding small…",
+        "\"Xịt bọt nở ở những chỗ cần thiết để nước chảy ra trên mặt đá, không luồn xuống dưới\": the video only says the foam was applied so the water flow goes out over the rocks. Remove the invented \"không luồn xuống dưới\" explanation.",
+        "\"Nước được bơm vào đáy bãi lọc rồi chảy ngược lên qua lớp đá và sỏi\" (FAQ): the \"bơm vào đáy\" detail and the rock-and-gravel path are not given as stated. Keep it to an upflow system where bacteria in the rocks and the plants treat the water.",
+        "\"Trồng cây ven hồ thì đừng làm hết một lần lúc còn đang thi công, để cây khỏi bị dập\" is written as a rule. It was the creator's own choice not to overdo planting yet so nothing got damaged. Hedge it as one way to do it (\"có thể\"), not an instruction.",
+        "\"Vi sinh trong đá phân hủy cặn\" in the FAQ and the filter bullet mixes up what does what. The video says the centipede-and-snorkel upflow setup breaks down sediments, and bacteria in the rocks process the water. Correct the attribution.",
+        "\"Có hồ cá vàng còn tự đẻ và sống qua được mùa đông\" turns the creator's own earlier pond, where his fish bred and overwintered, into a general claim. Hedge it or drop it.",
+        "\"Hồ sinh thái chạy theo một vòng: hố thu hút nước\" in the summary is awkward and unclear. Rephrase it, for example \"nước chảy về khoang thu nước\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
       "at": "2026-11-09T03:10:31Z",
       "model": "sonnet",
       "score": 0.5,

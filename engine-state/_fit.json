@@ -72126,31 +72126,26 @@
     ]
   },
   "vi/guides/youtube-G4qC-5UEEWo": {
-    "at": "2026-11-09",
-    "hash": "28af8be1ac1756bd",
+    "at": "2026-11-14",
+    "hash": "5ddd956b1c601876",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "source",
+        "check": "words",
         "part": "P1",
-        "quote": "Ở hồ này, thấy vậy nên phải sửa lại thiết kế giữa chừng.",
-        "why": "Refers to the source's own pond build as if the reader knew it.",
-        "by": "model"
+        "quote": "Kết hợp với một bơm hố thu (sump pump) để rút nước ngầm dưới hồ đi.",
+        "why": "Calque of 'sump pump'; keepers in Vietnam call it a submersible drainage pump.",
+        "by": "model",
+        "fix": "bơm chìm (hút nước)"
       },
       {
-        "check": "source",
+        "check": "words",
         "part": "P1",
-        "quote": "Chuyện này làm hỏng cả khoang thu nước lẫn hang cá, phải tháo ra làm lại.",
-        "why": "Recounts the original builder's own mishap with their pond.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
-        "part": "P1",
-        "quote": "một cách là nuôi cá vàng chung với cá nhỏ như cá darter",
-        "why": "Darters are North American native fish, a suggestion for a US pond keeper, not one in Vietnam.",
-        "by": "model"
+        "quote": "thác bản rộng (nước đổ thành một tấm rộng)",
+        "why": "Calque of 'sheet waterfall'; not the term Vietnamese pond keepers use.",
+        "by": "model",
+        "fix": "thác màn / thác dạng màn"
       }
     ],
     "products": [
