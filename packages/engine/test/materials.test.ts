@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { MaterialSchema, TranslationSchema } from '@aq/schema'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { formNotes, keptFacts, makeMaterial, MATERIALS, type MaterialFacts } from '../src/materials'
+import { asSaved, formNotes, keptFacts, makeMaterial, MATERIALS, type MaterialFacts } from '../src/materials'
 
 const facts: MaterialFacts = {
   found: true,
@@ -32,6 +32,10 @@ test('keptFacts: only web pages, never a marketplace or Facebook, each once, num
   const k = keptFacts(facts)
   expect(k.sources.map(s => s.url)).toEqual(['https://zenaquarius.com/lua-kim-sa-tung', 'https://example.org/driftwood', 'https://diendan.example.vn/t/1'])
   expect(k.facts.map(f => [f.section, f.source])).toEqual([['about', 1], ['water', 2], ['prepare', 3], ['about', 1]])
+  // Marketplaces' short links, Tokopedia, and an address that isn't one, go too (Astra's read).
+  const short = ['https://shope.ee/abc', 'https://shp.ee/abc', 'https://vn.shp.ee/x', 'https://lzd.co/abc', 'https://ti.ki/abc', 'https://www.tokopedia.com/x', 'https://tokopedia.link/x', 'https://fb.watch/x', 'https://m.facebook.com/x', 'https:// bad', 'https://example.org/ok']
+  const k2 = keptFacts({ found: true, facts: short.map((_, i) => ({ section: 'about' as const, fact: `f${i}`, source: i })), sources: short.map(url => ({ url, title: 't', kind: 'shop' as const })) })
+  expect(k2.sources.map(s => s.url)).toEqual(['https://example.org/ok'])
 })
 
 test('formNotes: what the loader and the card refuse, a part with no source, a heading or link, a price', () => {
@@ -55,9 +59,35 @@ test('formNotes: what the loader and the card refuse, a part with no source, a h
   expect(formNotes({ ...ok, sections: { water: '<p>Nước vàng [1].</p>' } }, 2)).toEqual(['sections: "about" is missing'])
 })
 
+test('a draft is checked as it will be saved: a mark alone, an encoded mark, a comment, markup in plain text, inches and gallons (Astra\'s read)', () => {
+  const w = asSaved({
+    summary: ['<strong>Lũa</strong> làm bố cục cho bể &amp; giữ nước mềm [1].', '[1]'],
+    sections: { about: '<p>Rễ [1]. Nước vàng &#91;9&#93;.</p>', water: '<!-- [1] -->', prepare: '<p> </p>' },
+    faq: [{ q: 'Có cần ngâm <em>không</em>?', a: 'Có [1].' }],
+  })
+  expect(w.summary).toEqual(['Lũa làm bố cục cho bể & giữ nước mềm.'])
+  expect(w.faq).toEqual([{ q: 'Có cần ngâm không?', a: 'Có.' }])
+  expect(Object.keys(w.sections)).toEqual(['about'])
+  expect(formNotes(w, 1)).toEqual(['summary: write 2–3 lines, not 1', 'about: [9] is not a source (1–1)'])
+  // A figure in inches or gallons is checked as the page will show it, in metric.
+  const long = asSaved({ summary: [`Lũa dài ${'x'.repeat(60)} hợp bể 20 gallon long thôi.`, 'Hai.'], sections: { about: '<p>A [1].</p>' }, faq: [] })
+  expect(long.summary[0]).not.toContain('gallon')
+  expect(formNotes(long, 1)[0]).toMatch(/^summary: the first line has \d+ characters, more than 90/)
+})
+
+test('a price, in what a reader sees, and not a quantity (Astra\'s read)', () => {
+  const page = (about: string) => ({ summary: ['Một.', 'Hai.'], sections: { about: `<p>${about} [1].</p>` }, faq: [] })
+  for (const p of ['Giá 150.000 ₫ một khúc', 'Giá <strong>150.000</strong> đồng', 'Khoảng 200 nghìn đồng', 'Tầm 150k', 'Giá từ 90 một khúc', '1,5 triệu đ'])
+    expect(formNotes(asSaved(page(p)), 1).filter(n => n.startsWith('a price')), p).toHaveLength(1)
+  for (const q of ['Đá hình thành cách đây 2 triệu năm', 'Đèn 6500 K', 'Ngâm 10 đến 14 ngày', 'Khúc nặng 5 kg', 'Giá thể 2 lớp', 'Giá trị pH 6,5'])
+    expect(formNotes(asSaved(page(q)), 1), q).toEqual([])
+})
+
 async function site() {
   const root = await mkdtemp(join(tmpdir(), 'aq-material-'))
   await mkdir(join(root, 'content/materials/lua-sa-tung'), { recursive: true })
+  await mkdir(join(root, 'content/materials/lua'), { recursive: true })
+  await writeFile(join(root, 'content/materials/lua/entity.json'), JSON.stringify({ id: 'lua', kind: 'wood', names: ['Driftwood'], photos: [], sources: [], updatedAt: '2026-11-13' }))
   const photo = { url: 'https://media.aquatome.com/x.webp', width: 1600, height: 900, licence: 'Unsplash', author: 'A', sourceUrl: 'https://unsplash.com/photos/x' }
   await writeFile(join(root, 'content/materials/lua-sa-tung/entity.json'), JSON.stringify({ id: 'lua-sa-tung', kind: 'wood', names: [], photos: [photo], sources: [], updatedAt: '2026-11-13' }))
   return { root, photo }
@@ -127,4 +157,41 @@ test('makeMaterial --redo with no research kept says so, and calls nothing', asy
   const { root } = await site()
   const none: Llm = async () => { throw new Error('called') }
   await expect(makeMaterial(root, { research: none, llm: none }, satung, { reuse: true })).rejects.toThrow('lua-sa-tung: no research kept')
+})
+
+test('a page whose parent has no page yet is refused before anything is asked (Astra\'s read)', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'aq-material-'))
+  const none: Llm = async () => { throw new Error('called') }
+  await expect(makeMaterial(root, { research: none, llm: none }, satung)).rejects.toThrow('lua-sa-tung: its parent "lua" has no page yet: write it first')
+})
+
+const good = { summary: ['Lũa sa tùng là lũa rễ mảnh.', 'Nước ngả vàng.'], sections: { about: '<p>Rễ mảnh [1].</p>' }, faq: [] }
+
+test('at an equal read, the rewrite that cleared its notes is kept (Astra\'s read)', async () => {
+  const { root } = await site()
+  let writes = 0
+  let reads = 0
+  const llm: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS')
+    ? (++reads === 1 ? { score: 0.97, notes: ['"rễ mảnh" is not in the facts'] } : { score: 0.97, notes: [] })
+    : { ...good, sections: { about: `<p>${++writes === 1 ? 'Rễ mảnh' : 'Rễ nhiều nhánh'} [1].</p>` } }) as never
+  await makeMaterial(root, { research: async () => facts as never, llm }, satung)
+  const vi = JSON.parse(await readFile(join(root, 'content/materials/lua-sa-tung/vi.json'), 'utf8'))
+  expect(vi.sections.about).toBe('<p>Rễ nhiều nhánh [1].</p>')
+  const log = JSON.parse(await readFile(join(root, 'engine-state/reviews/material.json'), 'utf8'))['vi/materials/lua-sa-tung']
+  expect(log.map((x: { attempt: string; kept: boolean }) => [x.attempt, x.kept])).toEqual([['rewrite', true], ['first', false]]) // newest first
+})
+
+test('a rewrite that fails keeps the reviews already made, none kept, and nothing saved (Astra\'s read)', async () => {
+  const { root } = await site()
+  let writes = 0
+  const llm: Llm = async ({ prompt }) => {
+    if (prompt.startsWith('Below are FACTS')) return { score: 0.5, notes: ['"x" is not in the facts'] } as never
+    if (++writes === 2) throw new Error('usage limit')
+    return good as never
+  }
+  await expect(makeMaterial(root, { research: async () => facts as never, llm }, satung)).rejects.toThrow('usage limit')
+  const log = JSON.parse(await readFile(join(root, 'engine-state/reviews/material.json'), 'utf8'))['vi/materials/lua-sa-tung']
+  expect(log).toHaveLength(1)
+  expect(log[0].kept).toBeFalsy()
+  await expect(readFile(join(root, 'content/materials/lua-sa-tung/vi.json'), 'utf8')).rejects.toThrow()
 })
