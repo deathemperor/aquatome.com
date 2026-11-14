@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { MaterialSchema, TranslationSchema } from '@aq/schema'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { asSaved, formNotes, keptFacts, makeMaterial, MATERIALS, type MaterialFacts } from '../src/materials'
+import { asSaved, checkMaterial, formNotes, keptFacts, makeMaterial, MATERIALS, type MaterialFacts } from '../src/materials'
 
 const facts: MaterialFacts = {
   found: true,
@@ -75,28 +75,29 @@ test('a draft is checked as it will be saved: a mark alone, an encoded mark, a c
   expect(formNotes(long, 1)[0]).toMatch(/^summary: the first line has \d+ characters, more than 90/)
 })
 
-test('a price, in what a reader sees, and not a quantity (Astra\'s read)', () => {
+test('a price by the marks that can\'t be a quantity, and never a quantity; any other sum is the reader\'s (Astra\'s reads)', async () => {
   const page = (about: string) => ({ summary: ['Một.', 'Hai.'], sections: { about: `<p>${about} [1].</p>` }, faq: [] })
   for (const p of ['Giá 150.000 ₫ một khúc', 'Giá <strong>150.000</strong> đồng', 'Khoảng 200 nghìn đồng', 'Tầm 150k', 'Giá từ 90 một khúc', '1,5 triệu đ',
-    // Astra's second read
     'Mỗi khúc 200 nghìn', 'Mỗi khúc 200 ngàn', 'Mỗi khúc 1,5 triệu', 'Lũa 150K/khúc', 'Giá bán: 150.000', 'Mỗi khúc 200 nghìn một', 'Ngâm 7 ngày, khúc này 90 đ',
-    // Astra's third read
-    'Một khúc lũa 150.000đ màu nâu sẫm', 'Một khúc lũa 150.000₫ màu nâu sẫm', 'Một khúc lũa 150.000 VND màu nâu sẫm', 'Mỗi khúc 200 nghìn tùy kích thước',
-    'Lũa khoảng 100–200 nghìn tùy dáng', 'Một túi nền tốn 150 nghìn cho bể nhỏ', 'Khúc to giá 1.200.000',
-    // Astra's fourth read
-    'Một khúc lũa 150.000 đồng màu nâu sẫm', 'Một khúc lũa 150000 đồng màu nâu sẫm', 'Khúc to 2 triệu đến 3 triệu đồng',
-    // Astra's fifth read
-    'Một khúc lũa thường có giá vài trăm nghìn đồng', 'Lũa nhỏ chỉ vài chục nghìn đồng', 'Một túi nền tốn vài trăm nghìn', 'Khúc to 2 triệu rưỡi'])
+    'Một khúc lũa 150.000đ màu nâu sẫm', 'Một khúc lũa 150.000₫ màu nâu sẫm', 'Một khúc lũa 150.000 VND màu nâu sẫm', 'Khúc to giá 1.200.000',
+    'Một khúc lũa 150.000 đồng màu nâu sẫm', 'Một khúc lũa 150000 đồng màu nâu sẫm', 'Khúc to 2 triệu đến 3 triệu đồng', 'Mua theo ký, khoảng 120 nghìn/kg',
+    'Một khúc lũa thường có giá vài trăm nghìn đồng', 'Lũa nhỏ chỉ vài chục nghìn đồng', 'Lũa có giá vài trăm nghìn', 'Khúc to 2 triệu rưỡi'])
     expect(formNotes(asSaved(page(p)), 1).filter(n => n.startsWith('a price')), p).toHaveLength(1)
   for (const q of ['Đá hình thành cách đây 2 triệu năm', 'Đèn 6500 K', 'Đèn 6500K', 'Ngâm 10 đến 14 ngày', 'Khúc nặng 5 kg', 'Giá thể 2 lớp', 'Giá trị pH 6,5',
     'Ngâm đến ngày 7, đồng thời thay nước hằng ngày', 'Giữ pH ở 6,5, đồng thời theo dõi KH', 'Đánh giá 2 khúc lũa qua độ cứng và mùi',
     'Ngâm 7 ngày đồng thời thay nước', 'Hai khúc 30 cm đồng màu', 'Bể 60 lít có 2 khúc', 'Nhiệt độ 25 độ',
     'Phơi lũa trên giá 2 tầng cho ráo nước', 'Có hơn 2 nghìn loài cá sống quanh rễ cây',
     'Đá hình thành cách đây 2 triệu đến 3 triệu năm', 'Đá hình thành cách đây 2–3 triệu năm', 'Một gam đất nền có thể chứa 1 tỷ vi sinh vật',
-    'Từ năm 2020 đồng thời có thêm lũa rễ',
-    'Mỗi gam nền có thể chứa 1 tỷ vi sinh có lợi', 'Đá này hình thành cách đây 2 triệu rưỡi năm', 'Lũa đã nằm dưới bùn hàng nghìn năm',
-    'Mất vài trăm năm để gỗ thành lũa', 'Giá thể chứa hàng triệu vi sinh'])
+    'Từ năm 2020 đồng thời có thêm lũa rễ', 'Mỗi gam nền có thể chứa 1 tỷ vi sinh có lợi', 'Đá này hình thành cách đây 2 triệu rưỡi năm',
+    'Lũa đã nằm dưới bùn hàng nghìn năm', 'Mất vài trăm năm để gỗ thành lũa', 'Giá thể chứa hàng triệu vi sinh',
+    // A sum by no closed mark: the grounded reader's to note, never refused in code.
+    'Mỗi khúc 200 nghìn tùy kích thước', 'Lũa khoảng 100–200 nghìn tùy dáng', 'Một túi nền tốn 150 nghìn cho bể nhỏ'])
     expect(formNotes(asSaved(page(q)), 1), q).toEqual([])
+  // The reader is told: any sum of money on the page is a wrong claim.
+  let asked = ''
+  const llm: Llm = async <T,>(a: { prompt: string }) => { asked = a.prompt; return { score: 0.97, notes: [] } as T }
+  await checkMaterial(llm, {}, page('Mỗi khúc 200 nghìn tùy kích thước'))
+  expect(asked).toContain('The page gives no price: any sum of money in it, in digits or in words, is a wrong claim')
 })
 
 test('plain text keeps a comparison and a space between blocks (Astra\'s second read)', () => {

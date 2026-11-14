@@ -122,29 +122,25 @@ const END = String.raw`(?![\p{L}\d])`
 /** A sum of money by its size alone: a thousands separator, or five digits and more ("150.000", "150000"; not a year). */
 const SUM = String.raw`(?<![\p{L}\d])(?:\d{1,3}(?:[.,]\d{3})+|\d{5,})`
 const SCALE = String.raw`(?:nghìn|ngàn|triệu|tỷ|tỉ)${END}`
-/** What a "nghìn" or "triệu" may count on a material's page, which makes it not money. */
-const COUNTED = String.raw`(?:năm|loài|con|cá\s+thể|người|lượt|lít|giờ|ngày|lần|hạt|tấn|km|mét|tế\s+bào|vi\s+khuẩn|vi\s+sinh(?:\s+vật)?|sinh\s+vật|phân\s+tử|cây)${END}`
 /** A sum in words: "vài trăm", "hai chục", "năm". */
 const WORDS = String.raw`(?:(?:vài|mấy|một|hai|ba|bốn|năm|lăm|sáu|bảy|tám|chín|mười|mươi|chục|trăm)\s+)+`
+const MONEY = String.raw`(?:₫|vnđ|vnd|đồng|đ)${END}`
 /**
- * A price in Vietnamese money, in the text a reader sees: "150.000 ₫", "150.000đ màu nâu", "150.000 đồng màu nâu", "200
- * nghìn đồng", "mỗi khúc 200 nghìn tùy kích thước", "1,5 triệu", "150k", "150K/khúc", "giá từ 90", "giá bán: 150.000",
- * "giá 150.000". Not a quantity or another word: "2 triệu năm", "2 triệu đến 3 triệu năm", "1 tỷ vi sinh vật", "6500 K",
- * "10 đến 14 ngày", "5 kg", "giá thể 2 lớp", "giá trị pH 6,5", "ngày 7, đồng thời", "năm 2020 đồng thời", "đánh giá 2
- * khúc", "trên giá 2 tầng". The pilot's pages give none.
+ * A price only by the marks that can't be anything else: a currency sign after a number ("150.000 ₫", "90 đ", "150.000đ
+ * màu nâu"), "đồng" after a sum ("150.000 đồng"), "nghìn" or "triệu" with money's word or a price's place after it ("200
+ * nghìn đồng", "vài trăm nghìn đồng", "1,5 triệu.", "120 nghìn/kg", "200 nghìn một khúc"), "k" ("150k", "150K/khúc"), and
+ * "giá" with a word of buying, a colon or a sum ("giá từ 90", "giá bán: 150.000", "giá 150.000", "giá vài trăm nghìn").
+ * Never a quantity: "2 triệu năm", "1 tỷ vi sinh", "6500 K", "10 đến 14 ngày", "giá thể 2 lớp", "đánh giá 2 khúc", "trên
+ * giá 2 tầng", "ngày 7 đồng thời". A sum written any other way ("200 nghìn tùy khúc") is the grounded reader's to note
+ * (GROUNDED): a mark that could be a quantity here would refuse good drafts unread.
  */
 const PRICE = [
-  // A sign is always money, and so is "đồng" after a sum; after a small number, not in a word of its own ("đồng thời").
-  new RegExp(String.raw`${N}\s*(?:₫|vnđ|vnd|đ)${END}|${SUM}\s*đồng${END}|${N}\s*đồng${END}(?!\s+(?:thời|nghĩa|đều|loạt|bộ|màu|dạng|nhất|hồ|ý|cỏ|ruộng|bằng)${END})`, 'iu'),
-  // "nghìn", "triệu" are money unless what's counted follows, after "rưỡi" and a range too ("2 triệu rưỡi năm").
-  new RegExp(String.raw`${N}\s*${SCALE}(?!(?:\s+rưỡi)?(?:\s*(?:đến|tới|hoặc|[-–~])\s*${N}\s*${SCALE}(?:\s+rưỡi)?)?\s+${COUNTED})`, 'iu'),
-  // A sum in words, with money's word after it or "giá", "tốn" before it: "vài trăm nghìn đồng", "giá vài chục nghìn".
-  new RegExp(String.raw`(?<![\p{L}])${WORDS}${SCALE}(?:\s+rưỡi)?\s*(?:₫|vnđ|vnd|đồng|đ)${END}|(?<![\p{L}])(?<!đánh\s+)(?:giá|tốn)\s+(?:(?:từ|khoảng|chỉ|tầm|chừng|cỡ)\s+)*${WORDS}${SCALE}`, 'iu'),
+  new RegExp(String.raw`${N}\s*(?:₫|vnđ|vnd|đ)${END}|${SUM}\s*đồng${END}`, 'iu'),
+  new RegExp(String.raw`(?:${N}\s*|(?<![\p{L}])${WORDS})${SCALE}(?:\s+rưỡi)?(?=\s*(?:$|[.,;:!?)/\n]|${MONEY}|(?:một|mỗi)${END}))`, 'iu'),
   new RegExp(String.raw`${N}\s*k${END}`, 'u'),
   // A capital K after three digits at most: a lamp's 6500 K is a colour.
   new RegExp(String.raw`(?<![\p{L}\d.,])\d{1,3}\s*K${END}`, 'u'),
-  // "giá" with a word of buying or a colon before any number; alone, before a sum of money ("giá 150.000", not "giá 2 tầng").
-  new RegExp(String.raw`(?<![\p{L}])(?<!đánh\s+)giá(?:(?:\s+(?:bán|chỉ|từ|khoảng|tầm|chừng|lẻ|sỉ|mua|niêm yết|tham khảo|dao động|rơi vào))+\s*:?\s*\d|\s*:\s*\d|\s+(?:\d{1,3}(?:[.,]\d{3})+|\d{4,})${END})`, 'iu'),
+  new RegExp(String.raw`(?<![\p{L}])(?<!đánh\s+)giá(?:(?:\s+(?:bán|chỉ|từ|khoảng|tầm|chừng|lẻ|sỉ|mua|niêm yết|tham khảo|dao động|rơi vào))+\s*:?\s*\d|\s*:\s*\d|\s+(?:\d{1,3}(?:[.,]\d{3})+|\d{4,})${END}|(?:\s+(?:từ|khoảng|chỉ|tầm|chừng|cỡ))*\s+${WORDS}${SCALE})`, 'iu'),
 ]
 const chars = (s: string) => [...s.normalize('NFC')].length
 /** Every entity undone, named ones too ("&ndash;", "&deg;"), until none is left. */
@@ -208,6 +204,7 @@ export function formNotes(w: Written, sourceCount: number): string[] {
 }
 
 const GROUNDED = `Below are FACTS gathered about an aquarium material and a Vietnamese PAGE written from them. Score 0–1 how well the PAGE sticks to the FACTS: 1.0 = every claim, number, time and recommendation is supported by the facts; 0.75 = small unsupported generalities; below 0.75 = an invented number, time, species, wood or claim, or a fact turned around.
+The page gives no price: any sum of money in it, in digits or in words, is a wrong claim, whatever the facts say.
 Each [n] after a sentence cites the facts' source n: a claim marked with a source whose facts don't give it is a wrong claim. A source called something other than its kind (shop: a shop; article: a guide or article; forum: a forum post; video: a keeper; paper: a study; other: a source) is a wrong claim.
 notes: up to 10 unsupported or wrong claims (in English), quoting the phrase. Empty if none.`
 
