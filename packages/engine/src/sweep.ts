@@ -37,6 +37,7 @@ import { orderAlbums } from './gallery'
 import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
 import { holdForSecondLook, listAgreed, looks, readSecondLook } from './last-photo'
 import { keptLast } from './own-mark'
+import { ageOf, grownFirst, grownHead } from './young-heads'
 import { namedOn, namedOrder, passesHead } from './photo-named'
 
 /**
@@ -703,7 +704,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // has the last word, so no step between them leaves such a head. A standing pick still leads (the loop below).
   {
     const verdicts = await readVerdicts(root)
-    const asHead = passesHead(verdicts), kept = (u: string) => !!verdicts.kept?.(u)
+    const asHead = passesHead(verdicts), grown = grownHead(verdicts), kept = (u: string) => !!verdicts.kept?.(u)
     const on = await namedOn(content)
     type Named = { kind: string; id: string; file: string; raw: string; e: { scientificName?: string; synonyms?: string[]; photos?: Photo[] } }
     const read = async (kind: string) => Promise.all((await readdir(join(content, kind)).catch(() => [] as string[])).sort().map(async (id): Promise<Named | null> => {
@@ -720,7 +721,13 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
       const at = pick && pickStands(ref, pick, subjects, yes) ? photos.findIndex(x => x.url === pick) : -1
       const rest = at >= 0 ? photos.filter((_, i) => i !== at) : photos
       // A kept-mark photo after every unmarked one, as the photo check orders it, on a page with no Latin name too.
-      const now = keptLast(p.e.scientificName ? namedOrder(rest, on(p.id), x => asHead(x, p.id)) : rest, kept)
+      let now = keptLast(p.e.scientificName ? namedOrder(rest, on(p.id), x => asHead(x, p.id)) : rest, kept)
+      // A photo the photo check calls young doesn't lead while one of the page's own it calls grown passes as the head,
+      // named no worse, as the check orders them; a page with a standing pick keeps it (young-heads.ts; the chief of staff, 15 Nov).
+      if (at < 0) {
+        const cls = (x: Photo) => (p.e.scientificName ? on(p.id)(x) : 0), lead = now.find(x => !x.generated)
+        now = grownFirst(now, x => ageOf(subjects[x.url]?.[p.id]) === true, x => grown(x, p.id) && !!lead && cls(x) <= cls(lead))
+      }
       if (at >= 0) now.splice(at, 0, photos[at]!)
       if (now.every((x, i) => x.url === photos[i]!.url)) continue
       if (now[0]!.url !== photos[0]!.url) report.named.push(`${ref}: ${photos[0]!.url} -> ${now[0]!.url}`)

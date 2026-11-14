@@ -42,7 +42,7 @@ export function photoPrivacyViolations(file:string,data:unknown):{code:string;lo
   if(Object.hasOwn(v,'note')&&(typeof v.ok==='string'&&typeof v.typical==='boolean'||typeof v.dead==='boolean'||typeof v.mark==='boolean'&&typeof v.person==='boolean')){
    if(v.note!==photoReason(v)&&v.note!==previousOwnerNote)add('free photo verdict explanation',path)
    if(v.noteHash!==undefined&&(typeof v.noteHash!=='string'||!/^[a-f0-9]{64}$/.test(v.noteHash)))add('invalid observation fingerprint',path)
-   if(Object.keys(v).some(k=>!['ok','typical','person','logo','guide','file','mark','brand','poor','unwell','q','other','dead','frames','note','noteHash','hints'].includes(k)))add('uncontrolled verdict field',path)
+   if(Object.keys(v).some(k=>!['ok','typical','young','person','logo','guide','file','mark','brand','poor','unwell','q','other','dead','frames','note','noteHash','hints'].includes(k)))add('uncontrolled verdict field',path)
   }
   if(v.hints!==undefined&&(!v.hints||typeof v.hints.dead!=='boolean'||typeof v.hints.people!=='boolean'||(v.hints.artwork!==undefined&&typeof v.hints.artwork!=='boolean')||Object.keys(v.hints).some(k=>!['dead','people','artwork'].includes(k))))add('uncontrolled recheck hints',path)
   for(const[k,x]of Object.entries(v))walk(x,path+'/'+k)
