@@ -196,6 +196,34 @@ test('a rewording a house rules note quotes goes back to its old wording; one no
   expect((await rewordLoose(two.llm, 'opus', facts, e, [flag('Dùng thuốc khử clo.'), flag('Thay nước mỗi tuần.')], passage)).entry.body).toBe(e.body)
 })
 
+// Grok's read, 15 Nov 2026: a sentence put back by its words landed on another that read the same, and the entry was saved
+// with a stop in it; a short quote reverted a good rewording; a note on words the rewording took out reverted nothing.
+test('going back puts in again only the rewordings that stay; a note is about a rewording by the words it put in or took out', async () => {
+  const flag = (text: string, block: string) => ({ text, block, verdicts: ['loose' as const, 'loose' as const], why: ['x'] })
+  // The definition's rewording stops and goes back; the body's had taken the definition's old words, so it can't stay.
+  const e = { definition: 'Dùng thuốc khử clo.', body: '<p>Rồi thả cá.</p>' }
+  const one = model([{ 'Khử clo trước.': 'unsupported: x' }, { 'Khử clo trước.': 'unsupported: x' }, {}], [], { 'Dùng thuốc khử clo.': 'Khử clo trước.', 'Rồi thả cá.': 'Dùng thuốc khử clo.' })
+  const quoting = async () => ['Rule 12: "Dùng thuốc khử clo." is not in THIS TERM.']
+  const r = await rewordLoose(one.llm, 'opus', facts, e, [flag('Dùng thuốc khử clo.', e.definition), flag('Rồi thả cá.', 'Rồi thả cá.')], quoting)
+  expect(r.entry).toEqual(e)
+  expect(r.stops).toEqual([])
+  expect(r.log[1]).toBe('Loose, rewording not placed once others went back, old wording kept for the reader: "Rồi thả cá." (not "Dùng thuốc khử clo.")')
+  // Two body sentences: the one put back holds the other's new words. Neither lands inside the other.
+  const b = { definition: 'Một câu.', body: '<p>Chu trình ổn khi TAN và nitrite về 0 hoặc gần 0. Nitrate tăng sau đó.</p>' }
+  const block = 'Chu trình ổn khi TAN và nitrite về 0 hoặc gần 0. Nitrate tăng sau đó.'
+  const two = model([{}, {}, {}], [], { 'Chu trình ổn khi TAN và nitrite về 0 hoặc gần 0.': 'Chu trình ổn khi TAN và nitrite giảm.', 'Nitrate tăng sau đó.': '0 hoặc gần 0.' })
+  const r2 = await rewordLoose(two.llm, 'opus', facts, b, [flag('Chu trình ổn khi TAN và nitrite về 0 hoặc gần 0.', block), flag('Nitrate tăng sau đó.', block)], async () => ['Rule 12: the line never gives "0 hoặc gần 0" when the filter is mature.'])
+  expect(r2.entry).toEqual(b)
+  // A name a note on another sentence quotes, which the rewording kept: not about it. Words it took out: about it.
+  const l = { definition: 'Một câu.', body: '<p>Lũa chìm khi ngâm.</p><p>Ngâm lũa mới.</p>' }
+  const three = model([{}, {}, {}], [], { 'Lũa chìm khi ngâm.': 'Lũa chìm sau khi ngâm lâu.' })
+  const kept = await rewordLoose(three.llm, 'opus', facts, l, [flag('Lũa chìm khi ngâm.', 'Lũa chìm khi ngâm.')], async () => ['Rule 6: "Lũa" in "Ngâm lũa mới." is not its page\'s name.'])
+  expect(kept.entry.body).toBe('<p>Lũa chìm sau khi ngâm lâu.</p><p>Ngâm lũa mới.</p>')
+  const four = model([{}, {}, {}], [], { 'Lũa chìm khi ngâm.': 'Lũa chìm sau khi ngâm lâu.' })
+  const back = await rewordLoose(four.llm, 'opus', facts, l, [flag('Lũa chìm khi ngâm.', 'Lũa chìm khi ngâm.')], async () => ['Rule 12: THIS TERM asks for "khi ngâm." as it was.'])
+  expect(back.entry).toEqual(l)
+})
+
 test('a reworded sentence in the body is written back escaped, and one still loose stays, logged; a rewording of two sentences isn\'t placed', async () => {
   const e = { definition: 'Một câu.', body: '<p>Đá &amp; san hô làm pH lên.</p>' }
   const loose = [{ text: 'Đá & san hô làm pH lên.', block: 'Đá & san hô làm pH lên.', verdicts: ['loose' as const, 'loose' as const], why: ['x'] }]

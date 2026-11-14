@@ -213,34 +213,49 @@ export async function rewordLoose<E extends { definition: string; body: string }
   const listed = here.map((s, i) => `${i + 1}. CÂU: ${s.text}\n   ĐOẠN: ${s.block}\n   LÝ DO: ${[...new Set(s.why)].join(' / ')}`).join('\n')
   const r = await llm<{ sentences?: { n: number; text: string }[] }>({ system: 'You reword sentences of a Vietnamese aquarium glossary entry to what its facts carry. Reply only with JSON.', model, schema: REWORD_SCHEMA, prompt: `${REWORD}\n\n--- CÂU ---\n${listed}\n\n--- DỮ KIỆN ---\n${JSON.stringify(facts)}` })
   const now = here.map((s, i) => ({ s, to: (r.sentences ?? []).find(x => x.n === i + 1)?.text.replace(/\s+/g, ' ').trim() ?? '' }))
-  let entry = e
-  const changed: typeof now = []
-  for (const x of now) {
-    const was = sentences(entry).map(s => s.text)
-    const want = was.map(t => (t === x.s.text ? x.to : t))
-    const next = x.to && x.to !== x.s.text && occurrences(entry, x.to) === 0 ? placed(entry, x.s.text)?.(x.to) : undefined
-    // The same sentences in the same order but this one, which stands once: not two sentences, nor one run into the next.
-    if (next && JSON.stringify(sentences(next).map(s => s.text)) === JSON.stringify(want) && want.filter(t => t === x.to).length === 1) { entry = next; changed.push(x) }
-    else log.push(`Loose, not reworded: "${x.s.text}"`)
+  // Puts rewordings into the entry as written, in order, each where its sentence stands: the same sentences in the same
+  // order but this one, which stands once; not two sentences, nor one run into the next. Going back is the same: the
+  // rewordings that stay put in again from the entry as written, never a sentence put back by its words, which could
+  // land on another that now reads the same (Grok, 15 Nov 2026).
+  type Rewording = (typeof now)[number]
+  const place = (xs: Rewording[]) => {
+    let entry = e
+    const done: Rewording[] = []
+    for (const x of xs) {
+      const was = sentences(entry).map(s => s.text)
+      const want = was.map(t => (t === x.s.text ? x.to : t))
+      const next = x.to && x.to !== x.s.text && occurrences(entry, x.to) === 0 ? placed(entry, x.s.text)?.(x.to) : undefined
+      if (next && JSON.stringify(sentences(next).map(s => s.text)) === JSON.stringify(want) && want.filter(t => t === x.to).length === 1) { entry = next; done.push(x) }
+    }
+    return { entry, done }
   }
+  const first = place(now)
+  for (const x of now) if (!first.done.includes(x)) log.push(`Loose, not reworded: "${x.s.text}"`)
+  const changed = first.done
   if (!changed.length) return { entry: e, log, stops: [] }
-  const final = await checkSentences(llm, facts, entry)
+  const final = await checkSentences(llm, facts, first.entry)
   const verdictsOf = (text: string) => [...final.stops, ...final.loose].find(f => f.text === text)?.verdicts.join(', ') ?? 'supported'
-  const stopped = (x: (typeof changed)[number]) => final.stops.some(f => f.text === x.to)
-  for (const x of changed.filter(stopped)) entry = placed(entry, x.to)?.(x.s.text) ?? entry
+  const stopped = (x: Rewording) => final.stops.some(f => f.text === x.to)
+  const unstopped = place(changed.filter(x => !stopped(x)))
   // The rewording reads only the facts, so the house rules and the term's notes are read again on what it kept: a rewording
-  // a rules note quotes goes back to its old wording too (the chief of staff, 15 Nov 2026: chu trình nitơ's put a brand
-  // where a kind stood, and took out the fish deaths and "0 or near 0" its notes asked for).
-  const ruled = rules && changed.some(x => !stopped(x)) ? await rules(entry) : []
+  // a rules note is about goes back to its old wording too (the chief of staff, 15 Nov 2026: chu trình nitơ's put a brand
+  // where a kind stood, and took out the fish deaths and "0 or near 0" its notes asked for). A note is about a rewording
+  // when it quotes words the rewording put in or took out, or a passage that holds its new sentence whole; never by words
+  // the sentence had either way, as a name a note on another sentence also quotes.
+  const ruled = rules && unstopped.done.length ? await rules(unstopped.entry) : []
+  const about = (n: string, x: Rewording) => quotes(n).some(q => x.to.includes(q) !== x.s.text.includes(q) || q.includes(x.to))
+  const broke = new Map(unstopped.done.map(x => [x, ruled.filter(n => about(n, x))]))
+  const staying = unstopped.done.filter(x => !broke.get(x)!.length)
+  const { entry, done } = staying.length === unstopped.done.length ? unstopped : place(staying)
   for (const x of changed) {
-    const broke = stopped(x) ? [] : ruled.filter(n => quotes(n).some(q => x.to.includes(q) || q.includes(x.to)))
     if (stopped(x)) log.push(`Loose, rewording read as unsupported, old wording kept for the reader: "${x.s.text}" (not "${x.to}": ${verdictsOf(x.to)})`)
-    else if (broke.length) {
-      entry = placed(entry, x.to)?.(x.s.text) ?? entry
-      log.push(`Loose, rewording broke a house rule, old wording kept for the reader: "${x.s.text}" (not "${x.to}": ${broke.join(' / ')})`)
-    } else log.push(`${final.loose.some(f => f.text === x.to) ? 'Loose, reworded and still loose' : 'Loose, reworded'}: "${x.s.text}" → "${x.to}" (${verdictsOf(x.to)})`)
+    else if (broke.get(x)?.length) log.push(`Loose, rewording broke a house rule, old wording kept for the reader: "${x.s.text}" (not "${x.to}": ${broke.get(x)!.join(' / ')})`)
+    else if (!done.includes(x)) log.push(`Loose, rewording not placed once others went back, old wording kept for the reader: "${x.s.text}" (not "${x.to}")`)
+    else log.push(`${final.loose.some(f => f.text === x.to) ? 'Loose, reworded and still loose' : 'Loose, reworded'}: "${x.s.text}" → "${x.to}" (${verdictsOf(x.to)})`)
   }
-  const stops = final.stops.filter(f => !changed.some(x => x.to === f.text))
+  // The stops of the entry as returned: a sentence that read stops and still stands in it, wherever it stands.
+  const standing = new Set(sentences(entry).map(s => s.text))
+  const stops = final.stops.filter(f => standing.has(f.text))
   // The score of the entry as saved: a reworded sentence that stopped is back in its old wording, which read loose.
   return { entry, log, stops, score: scoreOf(final.claims, stops.filter(f => !f.unscored).length) }
 }
