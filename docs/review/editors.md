@@ -128,6 +128,7 @@ The calendar's nine new weeks (`content/curation.json`). These aren't in the tal
 | 1 | xAI alone | 8 | 7 | 7 | 7 |
 | 2 | Anthropic, xAI | 8, 8 | 8, 9 | 8, 8 | 8, 8 |
 | 3 | Anthropic, xAI | 9, 9 | 8, 8 | 8, 8 | 9, 8 |
+| 4 | Anthropic, xAI | 9, 9 | 9, 9 | 8, 8 | 8, 9 |
 
 Round 1 had the xAI seat alone: Cursor refused OpenAI and Google (not in that week's usage), and no Claude helper ran
 before 14 Nov.
@@ -169,6 +170,14 @@ Feb the colours, with "berwarna" from the Indonesian pages, 174 uses of "berwarn
 the Indonesian and Malay cold-season themes; the Thai super red arowana by its page's name. Dropped: Malay "Kelisa" for
 the arowana shelf (it holds the silver arowana too); Thai "ปลาหมอสี" for the flowerhorn (the word for every cichlid);
 "ikan merah" as red snapper (raised as unsure).
+
+Round 4 (14 Nov): Vietnamese and Indonesian held 9 with both seats. Held: Thai "อะโรวาน่า" for the arowana shelf (both;
+the Thai pages 94 against ปลามังกร 3), Thai algae eaters without a heading and colon (both), Vietnamese "Cá koi và cá đỏ cỡ
+nhỏ" (both seats over two rounds, though the forum writes "những chú cá" at 61.3 a million words: a heading's padding,
+not a word keepers avoid). The Thai flowerhorn became "ฟลาวเวอร์ฮอร์น" on the Writing Lead's word (the Thai pages 16,
+against 3 and 2). Dropped: Malay "tangki" for "akuarium" (one seat; both read a bare "tangki" as a water tank in that
+morning's video titles), Malay "menyambut" for "sempena" (split again), Thai "บลัดพารอท" (the page says ปลาหมอนกแก้ว),
+Vietnamese "Cá thả trước" (one seat; "cá thả đầu tiên" is in no forum or video).
 
 ## Vietnamese
 
