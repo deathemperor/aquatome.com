@@ -127,6 +127,7 @@ The calendar's nine new weeks (`content/curation.json`). These aren't in the tal
 |---|---|---|---|---|---|
 | 1 | xAI alone | 8 | 7 | 7 | 7 |
 | 2 | Anthropic, xAI | 8, 8 | 8, 9 | 8, 8 | 8, 8 |
+| 3 | Anthropic, xAI | 9, 9 | 8, 8 | 8, 8 | 9, 8 |
 
 Round 1 had the xAI seat alone: Cursor refused OpenAI and Google (not in that week's usage), and no Claude helper ran
 before 14 Nov.
@@ -161,6 +162,13 @@ Round 2 (14 Nov): Anthropic and xAI. OpenAI and Google sat out again (not in Cur
   (Indonesian pages say "pemakan alga" 39.2, "pemakan lumut" 0; the Malay interface writes "alga perosak"),
   Indonesian "heater" (the site uses "pemanas" as much), Malay "berkelompok" (the site's "berkumpulan" 589.8 against
   13.6), and "sempena" and "menyambut" (the seats split).
+
+Round 3 (14 Nov): Vietnamese held 9 with both seats, no finding. Held: the Indonesian and Thai Tết themes, identical
+across the two weeks where the Vietnamese differs (both seats; 25–31 Jan now names the goldfish by its page's name, 1–7
+Feb the colours, with "berwarna" from the Indonesian pages, 174 uses of "berwarna merah"); one shape for both halves of
+the Indonesian and Malay cold-season themes; the Thai super red arowana by its page's name. Dropped: Malay "Kelisa" for
+the arowana shelf (it holds the silver arowana too); Thai "ปลาหมอสี" for the flowerhorn (the word for every cichlid);
+"ikan merah" as red snapper (raised as unsure).
 
 ## Vietnamese
 
