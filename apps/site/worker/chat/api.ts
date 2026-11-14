@@ -12,7 +12,7 @@ import { turnsOf } from '../fishid/transcript'
 import { fileClashes } from './clash-store'
 import { handoverFor } from './handover'
 import { sectionSearch } from './section-search'
-import { answerQuestion, CHAT_LIMITS, MAX_TOKENS, OPENING_TOKENS, type ChatRun, type Earlier, type Start } from './agent'
+import { answerQuestion, CHAT_LIMITS, CHAT_PRESENT, MAX_TOKENS, OPENING_TOKENS, type ChatRun, type Earlier, type Start } from './agent'
 import type { ChatBlock } from './answer'
 import { handbookOf, type Handbook, type Lang, type Source } from './handbook'
 import { chatAccount, conversationKey, retryKey, secs, stopKey } from './store'
@@ -90,6 +90,14 @@ const UNAVAILABLE_MS = 15 * 60_000
 /** A question marked as answering longer than this was cut off: the conversation takes another. */
 const RUNNING_MS = 2 * 60_000
 const PING_MS = 10_000
+/** While a run streams, a ping this often: each write that lands says the reader is still there (`seen`). */
+const PRESENT_MS = 2_000
+/**
+ * How long a streamed run's calls may go on after the reader's last sign: the platform keeps a run 30 s after their
+ * connection drops, and the blocks, the save and the settle take the last 4 s. Every call, an answer being written
+ * included, ends by then (loop.ts `until`).
+ */
+const GONE_RUN_MS = 26_000
 /** A retry waits this long for the first run's answer, checking every `pollMs`. */
 const WAIT_MS = 75_000
 const POLL_MS = 1000
@@ -151,7 +159,7 @@ export const live = (env: ChatEnv): env is ChatEnv & Required<Pick<ChatEnv, 'ANT
 export function chatWorstCost(model: string): number {
   const p = priceOf(model)
   const line = CHAT_LIMITS.inputTokens * p.input + OPENING_TOKENS * p.output
-  return (CHAT_LIMITS.inputTokens * 1.5 * Math.max(p.input, p.cacheWrite) + CHAT_LIMITS.calls * MAX_TOKENS * p.output + line) / 1e6
+  return (CHAT_LIMITS.inputTokens * 1.5 * Math.max(p.input, p.cacheWrite) + Math.max(CHAT_LIMITS.calls, CHAT_PRESENT.calls) * MAX_TOKENS * p.output + line) / 1e6
 }
 
 /** The contract's `Turn`. */
@@ -354,6 +362,8 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   let lastAt: number | undefined
   let answeredAt: number | undefined
   let doneAt: number | undefined
+  /** On a stream: when a write last reached the reader. */
+  let seen: number | undefined
   /** The run as the agent ran it, for its transcript: none when it never started (the handbook unread). */
   let trail: ChatRun | undefined
   // The reader's Stop (POST /api/chat/cancel) comes in another request, maybe to another Worker: the ledger says which came
@@ -388,7 +398,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   const tanks = () => (saved ??= tanksOf(env.DB, session.userId, now)).catch(e => { saved = undefined; console.error('chat tanks:', e); return null })
 
   /** The run, after admission: its turn, or the error it ends on (as the JSON answer's status). */
-  const work = async (onStep?: (s: Step) => void, onText?: (piece: string) => void, onBlock?: (b: ChatBlock) => void, onOpening?: (line: string) => void): Promise<{ status: number; body: Record<string, unknown> }> => {
+  const work = async (onStep?: (s: Step) => void, onText?: (piece: string) => void, onBlock?: (b: ChatBlock) => void, onOpening?: (line: string) => void, until?: () => number): Promise<{ status: number; body: Record<string, unknown> }> => {
     // Read inside the run, which outlives a dropped connection: read before it, a drop would leave the mark and the ledger open.
     const hb = await handbookOf(deps.source ?? assetSource(env, url.origin), q.lang).catch(e => { console.error('chat handbook:', e); return null })
     if (!hb) return { status: 503, body: { error: 'unavailable' } }
@@ -438,6 +448,8 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
         onStep, clock,
         ...(onText ? { onText: (piece: string) => { shown = true; onText(piece) }, ...(onBlock ? { onBlock } : {}) } : {}),
         ...(onOpening ? { opening: true, onOpening } : {}),
+        // A reader still there (on a stream) gets the longer turn, ending by their last sign plus the usual time.
+        ...(until ? { until, limits: CHAT_PRESENT } : {}),
       })
       trail = out
       // Handbook text only, on the owner's account only (clashes.ts). Never in the reader's way.
@@ -526,7 +538,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
       question: q.question, outcome: done.status === 200 ? 'ok' : String(done.body.error), ms: clock() - began,
       // From the question's arrival: to the run's start (the session, the conversation, the ledger); on a stream, to the
       // text's first piece and its last, the run's end, and `done` (the turn saved).
-      timing: { before: began - now.getTime(), words: since(wordsAt), last: since(lastAt), answered: since(answeredAt), done: since(doneAt) },
+      timing: { before: began - now.getTime(), words: since(wordsAt), last: since(lastAt), answered: since(answeredAt), done: since(doneAt), ...(seen === undefined ? {} : { seen: since(seen) }) },
       cost: costOf(model, s), tokens: { input: s.input + s.cacheRead + s.cacheWrite, output: s.output },
       agent: { calls: t.calls, tools: t.tools, stopped: t.stopped },
       ...(t.answer ? { answer: { text: t.answer.text, covered: t.answer.covered, ...(t.answer.offTopic ? { offTopic: true } : {}), blocks: t.blocks.length, dropped: t.dropped } } : {}),
@@ -551,8 +563,10 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   const { readable, writable } = new TransformStream<Uint8Array, Uint8Array>()
   const w = writable.getWriter()
   let open = true
-  const send = (s: string) => { if (open) w.write(enc.encode(s)).catch(() => { open = false }) }
-  const ping = setInterval(() => send(': ping\n\n'), PING_MS)
+  // A write lands once the reader's side takes it: one that doesn't, or fails, means they've gone (or can't keep up).
+  seen = clock()
+  const send = (s: string) => { if (open) w.write(enc.encode(s)).then(() => { seen = clock() }, () => { open = false }) }
+  const ping = setInterval(() => send(': ping\n\n'), PRESENT_MS)
   wait((async () => {
     let shown = false
     let sent = 0
@@ -571,6 +585,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
       piece => { if (!shown) wordsAt = clock(); shown = true; lastAt = clock(); gated(sse('text', { text: piece })) },
       block => { sent++; gated(sse('block', block)) },
       line => { if (!stop.signal.aborted) send(sse('opening', { text: line })) },
+      () => seen! + GONE_RUN_MS,
     ))
     answeredAt = clock()
     const t = done.status === 200 ? done.body as unknown as Turn : undefined

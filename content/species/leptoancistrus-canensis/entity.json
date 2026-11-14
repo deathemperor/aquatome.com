@@ -9,6 +9,93 @@
     "central-america",
     "panama"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PA"
+      ],
+      "regions": [
+        "Río Cana",
+        "Armila River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Río Cana, Cana, Darien, Panama.",
+          "countries": [
+            "PA"
+          ],
+          "regions": [
+            "Río Cana"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Central America: Pacific drainages of eastern Panama and Armila River on the Atlantic slope.",
+          "countries": [],
+          "regions": [
+            "Armila River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339306,
+      "total": 67,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "PA",
+          55
+        ],
+        [
+          "CO",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          -81.5625,
+          8.4375,
+          6,
+          6
+        ],
+        [
+          -80.15625,
+          8.4375,
+          11,
+          11
+        ],
+        [
+          -78.75,
+          7.03125,
+          33,
+          33
+        ],
+        [
+          -78.75,
+          8.4375,
+          5,
+          5
+        ],
+        [
+          -77.34375,
+          5.625,
+          6,
+          0
+        ],
+        [
+          -77.34375,
+          7.03125,
+          6,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

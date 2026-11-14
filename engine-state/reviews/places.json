@@ -346,6 +346,18 @@
       "kept": true
     }
   ],
+  "id/places/andaman": [
+    {
+      "at": "2026-11-13T23:33:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/andaman-and-nicobar-islands": [
     {
       "at": "2026-11-08T05:19:45Z",
@@ -1227,6 +1239,18 @@
     {
       "at": "2026-11-09T07:33:46Z",
       "model": "sonnet",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/bermuda": [
+    {
+      "at": "2026-11-13T23:33:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
       "score": 0.2,
       "notes": [],
       "attempt": "first",
@@ -3365,6 +3389,20 @@
       "kept": true
     }
   ],
+  "id/places/gbin-river": [
+    {
+      "at": "2026-11-13T23:33:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Gbin (Vietnamese, not Indonesian; should be Sungai Gbin)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/geogeum-island": [
     {
       "at": "2026-11-12T13:10:55Z",
@@ -5233,6 +5271,20 @@
       "kept": true
     }
   ],
+  "id/places/kruger-national-park": [
+    {
+      "at": "2026-11-13T23:33:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "vườn quốc gia Kruger (Vietnamese; Indonesian is Taman Nasional Kruger)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/kumai": [
     {
       "at": "2026-11-08T05:20:20Z",
@@ -5621,6 +5673,20 @@
       "score": 0.3,
       "notes": [
         "hồ Kinkony (Vietnamese, not Indonesian)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/lake-kivu": [
+    {
+      "at": "2026-11-13T23:33:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "hồ Kivu (Vietnamese; Indonesian is Danau Kivu)"
       ],
       "attempt": "first",
       "kept": true
@@ -6186,6 +6252,18 @@
       "kept": true
     }
   ],
+  "id/places/lobe": [
+    {
+      "at": "2026-11-13T23:33:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/lobi": [
     {
       "at": "2026-11-09T18:15:13Z",
@@ -6357,6 +6435,18 @@
       "kept": true
     }
   ],
+  "id/places/luapula": [
+    {
+      "at": "2026-11-13T23:33:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/luculla": [
     {
       "at": "2026-11-12T13:10:55Z",
@@ -6398,6 +6488,20 @@
       "score": 0.1,
       "notes": [
         "sông Luki"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/luongo-river": [
+    {
+      "at": "2026-11-13T23:33:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Luongo (Vietnamese; should be Sungai Luongo)"
       ],
       "attempt": "first",
       "kept": true
@@ -7618,6 +7722,18 @@
       "at": "2026-11-08T05:20:55Z",
       "model": "sonnet",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/mucuri": [
+    {
+      "at": "2026-11-13T23:33:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -8997,6 +9113,20 @@
       "kept": true
     }
   ],
+  "id/places/pra-river": [
+    {
+      "at": "2026-11-13T23:33:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Pra (Vietnamese; should be Sungai Pra)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/prah": [
     {
       "at": "2026-11-09T15:40:54Z",
@@ -9996,6 +10126,20 @@
         "Rio Ivinheima → \"Ivinheima\" (a river, so it should be \"Sungai Ivinheima\")"
       ],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/rio-jacui": [
+    {
+      "at": "2026-11-13T23:33:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Jacuí (Vietnamese; should be Sungai Jacuí)"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -13320,6 +13464,20 @@
       "kept": true
     }
   ],
+  "id/places/upper-congo": [
+    {
+      "at": "2026-11-13T23:33:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "thượng lưu sông Congo (Vietnamese; Kongo Hulu is the intended Indonesian)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/upper-parana": [
     {
       "at": "2026-11-06T12:35:53Z",
@@ -13995,6 +14153,20 @@
       "kept": true
     }
   ],
+  "id/places/zhujiang-river": [
+    {
+      "at": "2026-11-13T23:33:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Châu Giang (Vietnamese; Sungai Mutiara is the Indonesian)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/abanga": [
     {
       "at": "2026-11-08T12:43:55Z",
@@ -14524,6 +14696,18 @@
       "at": "2026-11-08T12:43:55Z",
       "model": "sonnet",
       "score": 0.55,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/andaman": [
+    {
+      "at": "2026-11-14T00:01:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.35,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -15816,6 +16000,18 @@
       "at": "2026-11-10T10:07:20Z",
       "model": "sonnet",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/bermuda": [
+    {
+      "at": "2026-11-14T00:01:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.35,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -17871,6 +18067,20 @@
       "model": "sonnet",
       "score": 0.4,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/gbin-river": [
+    {
+      "at": "2026-11-14T00:01:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.35,
+      "notes": [
+        "Gbin (river) is written \"Gbin\". It should be \"Sungai Gbin\"."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -20478,6 +20688,18 @@
       "kept": true
     }
   ],
+  "ms/places/kruger-national-park": [
+    {
+      "at": "2026-11-14T00:01:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.35,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/kumai": [
     {
       "at": "2026-11-08T12:45:09Z",
@@ -20823,6 +21045,18 @@
       "ran": "claude-sonnet-5-5",
       "cli": "2.1.322",
       "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/lake-kivu": [
+    {
+      "at": "2026-11-14T00:01:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.35,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -21314,6 +21548,18 @@
       "kept": true
     }
   ],
+  "ms/places/lobe": [
+    {
+      "at": "2026-11-14T00:01:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.35,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/lobi": [
     {
       "at": "2026-11-10T10:07:22Z",
@@ -21460,6 +21706,18 @@
       "kept": true
     }
   ],
+  "ms/places/luapula": [
+    {
+      "at": "2026-11-14T00:01:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.35,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/luculla": [
     {
       "at": "2026-11-12T13:20:24Z",
@@ -21490,6 +21748,20 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/luongo-river": [
+    {
+      "at": "2026-11-14T00:01:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.35,
+      "notes": [
+        "Luongo (river) is written \"Luongo\". It should be \"Sungai Luongo\"."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -22561,6 +22833,18 @@
       "at": "2026-11-08T12:45:11Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/mucuri": [
+    {
+      "at": "2026-11-14T00:01:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.35,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -24043,6 +24327,20 @@
       "kept": true
     }
   ],
+  "ms/places/pra-river": [
+    {
+      "at": "2026-11-14T00:01:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.35,
+      "notes": [
+        "Pra (river) is written \"Pra\". It should be \"Sungai Pra\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/prah": [
     {
       "at": "2026-11-10T10:08:06Z",
@@ -25286,6 +25584,20 @@
       "score": 0.93,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "ms/places/rio-jacui": [
+    {
+      "at": "2026-11-14T00:01:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.35,
+      "notes": [
+        "Jacuí (river) is written \"Jacuí\". It should be \"Sungai Jacuí\"."
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -28946,6 +29258,18 @@
       "kept": true
     }
   ],
+  "ms/places/upper-congo": [
+    {
+      "at": "2026-11-14T00:01:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.35,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/upper-parana": [
     {
       "at": "2026-11-08T03:37:14Z",
@@ -29847,6 +30171,18 @@
       "kept": true
     }
   ],
+  "ms/places/zhujiang-river": [
+    {
+      "at": "2026-11-14T00:01:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.35,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/zimbabwe": [
     {
       "at": "2026-11-08T03:37:14Z",
@@ -30197,6 +30533,23 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/andaman": [
+    {
+      "at": "2026-11-13T23:43:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.7,
+        0.7
+      ]
     }
   ],
   "th/places/andaman-and-nicobar-islands": [
@@ -31149,6 +31502,23 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/bermuda": [
+    {
+      "at": "2026-11-13T23:43:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.7,
+        0.7
+      ]
     }
   ],
   "th/places/betsiboka": [
@@ -33363,6 +33733,25 @@
       "kept": true
     }
   ],
+  "th/places/gbin-river": [
+    {
+      "at": "2026-11-13T23:43:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "กบิน (Gbin River): the Thai transliteration is doubtful, and it has no แม่น้ำ prefix"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  ],
   "th/places/geogeum-island": [
     {
       "at": "2026-11-12T13:12:16Z",
@@ -35326,6 +35715,23 @@
       "kept": true
     }
   ],
+  "th/places/kruger-national-park": [
+    {
+      "at": "2026-11-13T23:43:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  ],
   "th/places/kuala-lumpur": [
     {
       "at": "2026-11-06T12:36:17Z",
@@ -35755,6 +36161,23 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/lake-kivu": [
+    {
+      "at": "2026-11-13T23:43:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.7,
+        0.7
+      ]
     }
   ],
   "th/places/lake-kutubu": [
@@ -36330,6 +36753,23 @@
       "kept": true
     }
   ],
+  "th/places/lobe": [
+    {
+      "at": "2026-11-13T23:43:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  ],
   "th/places/lobi": [
     {
       "at": "2026-11-09T18:18:37Z",
@@ -36504,6 +36944,23 @@
       "kept": true
     }
   ],
+  "th/places/luapula": [
+    {
+      "at": "2026-11-13T23:43:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  ],
   "th/places/luculla": [
     {
       "at": "2026-11-12T13:12:16Z",
@@ -36546,6 +37003,25 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/luongo-river": [
+    {
+      "at": "2026-11-13T23:43:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "ลูองโก (Luongo River): it has no แม่น้ำ prefix. It should be แม่น้ำลูองโก"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.7,
+        0.7
+      ]
     }
   ],
   "th/places/lupar": [
@@ -37794,6 +38270,25 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/mucuri": [
+    {
+      "at": "2026-11-13T23:43:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "มูกูรี (Mucuri): the Portuguese spelling is usually rendered มูคูรี"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.7,
+        0.7
+      ]
     }
   ],
   "th/places/muhuri": [
@@ -39262,6 +39757,25 @@
       "kept": true
     }
   ],
+  "th/places/pra-river": [
+    {
+      "at": "2026-11-13T23:43:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "ประ (Pra River): too short and ambiguous, and it has no แม่น้ำ prefix. It should be แม่น้ำปรา"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  ],
   "th/places/prah": [
     {
       "at": "2026-11-09T15:46:42Z",
@@ -40308,6 +40822,25 @@
       ],
       "attempt": "recheck",
       "kept": true
+    }
+  ],
+  "th/places/rio-jacui": [
+    {
+      "at": "2026-11-13T23:43:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "ชากูอี (Jacuí River): it has no แม่น้ำ prefix. It should be แม่น้ำชากูอี"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.7,
+        0.7
+      ]
     }
   ],
   "th/places/rio-jau": [
@@ -43798,6 +44331,23 @@
       "kept": true
     }
   ],
+  "th/places/upper-congo": [
+    {
+      "at": "2026-11-13T23:43:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  ],
   "th/places/upper-parana": [
     {
       "at": "2026-11-06T12:36:17Z",
@@ -44473,6 +45023,23 @@
       "kept": true
     }
   ],
+  "th/places/zhujiang-river": [
+    {
+      "at": "2026-11-13T23:43:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  ],
   "vi/places/abanga": [
     {
       "at": "2026-11-07T20:32:22Z",
@@ -45029,6 +45596,20 @@
       "score": 0.93,
       "notes": [
         "No entry points to the wrong place. Every name is either a form Vietnamese readers use or the source spelling with its generic word in Vietnamese."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/andaman": [
+    {
+      "at": "2026-11-13T23:30:20Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "\"Andaman\" (andaman) is fine. Vietnamese readers often say \"quần đảo Andaman\", but keeping the bare source name is acceptable.",
+        "All the other names either keep the source spelling or have the generic word correctly put into Vietnamese (sông, hồ, vườn quốc gia)."
       ],
       "attempt": "first",
       "kept": true
@@ -48969,6 +49550,19 @@
       "kept": true
     }
   ],
+  "vi/places/gbin-river": [
+    {
+      "at": "2026-11-13T23:30:20Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All the other names either keep the source spelling or have the generic word correctly put into Vietnamese (sông, hồ, vườn quốc gia)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/geogeum-island": [
     {
       "at": "2026-11-12T13:10:35Z",
@@ -51564,6 +52158,19 @@
       "kept": true
     }
   ],
+  "vi/places/kruger-national-park": [
+    {
+      "at": "2026-11-13T23:30:20Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All the other names either keep the source spelling or have the generic word correctly put into Vietnamese (sông, hồ, vườn quốc gia)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/kuala-lumpur": [
     {
       "at": "2026-11-07T20:35:59Z",
@@ -52156,6 +52763,19 @@
       "model": "sonnet",
       "score": 0.9,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/lake-kivu": [
+    {
+      "at": "2026-11-13T23:30:20Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All the other names either keep the source spelling or have the generic word correctly put into Vietnamese (sông, hồ, vườn quốc gia)."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -52919,6 +53539,19 @@
       "kept": true
     }
   ],
+  "vi/places/lobe": [
+    {
+      "at": "2026-11-13T23:30:20Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All the other names either keep the source spelling or have the generic word correctly put into Vietnamese (sông, hồ, vườn quốc gia)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/lobi": [
     {
       "at": "2026-11-09T18:14:05Z",
@@ -53141,6 +53774,19 @@
       "kept": true
     }
   ],
+  "vi/places/luapula": [
+    {
+      "at": "2026-11-13T23:30:20Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All the other names either keep the source spelling or have the generic word correctly put into Vietnamese (sông, hồ, vườn quốc gia)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/luculla": [
     {
       "at": "2026-11-12T13:10:35Z",
@@ -53193,6 +53839,19 @@
       "notes": [
         "No wrong places found. All 99 names are either names Vietnamese readers already use, or the source's own name with the generic word put into Vietnamese.",
         "\"sông Tapi\" for Maenam Tapi is fine because 'Maenam' means river in Thai. \"sông Luo Suo\" is fine because 'Jiang' means river in Chinese."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/luongo-river": [
+    {
+      "at": "2026-11-13T23:30:20Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All the other names either keep the source spelling or have the generic word correctly put into Vietnamese (sông, hồ, vườn quốc gia)."
       ],
       "attempt": "first",
       "kept": true
@@ -54802,6 +55461,19 @@
       "model": "sonnet",
       "score": 0.72,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/mucuri": [
+    {
+      "at": "2026-11-13T23:30:21Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All the other names either keep the source spelling or have the generic word correctly put into Vietnamese (sông, hồ, vườn quốc gia)."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -56781,6 +57453,19 @@
       "kept": true
     }
   ],
+  "vi/places/pra-river": [
+    {
+      "at": "2026-11-13T23:30:21Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All the other names either keep the source spelling or have the generic word correctly put into Vietnamese (sông, hồ, vườn quốc gia)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/prah": [
     {
       "at": "2026-11-09T15:37:28Z",
@@ -58059,6 +58744,19 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-jacui": [
+    {
+      "at": "2026-11-13T23:30:21Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All the other names either keep the source spelling or have the generic word correctly put into Vietnamese (sông, hồ, vườn quốc gia)."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -62507,6 +63205,20 @@
       "kept": true
     }
   ],
+  "vi/places/upper-congo": [
+    {
+      "at": "2026-11-13T23:30:21Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "\"thượng lưu sông Congo\" (upper-congo) is the right place, but it describes the upper river rather than naming the region. If the source means the former Haut-Congo province, \"Thượng Congo\" would be closer. I'm leaving it unflagged.",
+        "All the other names either keep the source spelling or have the generic word correctly put into Vietnamese (sông, hồ, vườn quốc gia)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/upper-parana": [
     {
       "at": "2026-11-07T20:41:17Z",
@@ -63341,6 +64053,20 @@
       "notes": [
         "I found no wrong places. Every name is either the standard Vietnamese form or the source's name, sometimes with its generic word put into Vietnamese.",
         "'sông Trường Giang' (Changjiang), 'sông Tiền Đường' (Qiantang Jiang) and 'sông Châu Giang' (Zhujiang) are the usual Sino-Vietnamese names."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/zhujiang-river": [
+    {
+      "at": "2026-11-13T23:30:21Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "\"sông Châu Giang\" (zhujiang-river) is the usual Vietnamese name for the Pearl River (珠江), so it is correct.",
+        "All the other names either keep the source spelling or have the generic word correctly put into Vietnamese (sông, hồ, vườn quốc gia)."
       ],
       "attempt": "first",
       "kept": true

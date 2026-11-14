@@ -1,5 +1,6 @@
 import { dropCardRepeats, PLACE_ALIASES, SECTION_ORDER, nameKey, slugify, type GuideEntity, type PlaceEntity, type PlantEntity, type Section, type SourceId, type SpeciesEntity, type Translation } from '@aq/schema'
 import { cleanAltNames, tidyName } from './alt-names'
+import { kindWord, plainName } from './kind-words'
 import type { Taxon } from './gbif'
 import { fixFirst } from './guide-sections'
 import type { ProcessedPage } from './process'
@@ -9,6 +10,8 @@ import { cleanLRecord } from './l-numbers'
 // takenNames: other items' names as nameKey keys (two fish under one name can't be told apart, or picked by name in the tools).
 type Ctx = { source: SourceId; url: string; now: string; takenSlugs: Set<string>; takenNames?: Set<string>; quality?: Translation['quality'] }
 type Item<E> = { entity: E; vi: Translation }
+/** A source's name for a species that names another kind of animal (kind-words.ts), and the name the page took instead. */
+export type FellBack = { name: string; word: string }
 type PagePlace = ProcessedPage['places'][number]
 
 /** A place's id from its name; a country spelled another way ("USA", "DR Congo") gets the id it is kept under. */
@@ -77,23 +80,26 @@ function mergeSections(prev: Section[], prevVi: Record<string, string>, page: Pr
   return { sections, vi }
 }
 
-function translation(prev: Translation | undefined, page: ProcessedPage, ctx: Ctx, fallbackName: string, suffix: string, sections: Record<string, string>, kind: 'species' | 'plants'): Translation {
+function translation(prev: Translation | undefined, page: ProcessedPage, ctx: Ctx, fallbackName: string, suffix: string, sections: Record<string, string>, kind: 'species' | 'plants', wrongKind: (name: string) => boolean = () => false): Translation {
   // Seriously Fish names the species itself, so it may replace a name an earlier source gave; an owner-fixed name stays,
   // and so does a name the new one would make ambiguous (another fish's name: "Cá đĩa nâu" became "Cá đĩa", #228).
   // A new item never starts under another's name either: it takes the fallback (its scientific name), the source's
   // name staying findable as an alternative name. Each is written as hobbyists write it (tidyName), an owner-fixed name aside.
-  const clash = !!page.viName && !!ctx.takenNames?.has(nameKey(page.viName))
-  const picked = (prev ? (prev.nameFixed || clash || ctx.source !== 'seriouslyfish' ? prev.name : page.viName) : clash ? '' : page.viName) || prev?.name || fallbackName
+  // A name with a keepers' word for another kind of animal ("Cá trê" for a cichlid, "Tép" for a sea shrimp) is no name of
+  // its: never the page's, nor one of its other names (kind-words.ts).
+  const offered = page.viName && !wrongKind(page.viName) ? page.viName : ''
+  const clash = !!offered && !!ctx.takenNames?.has(nameKey(offered))
+  const picked = (prev ? (prev.nameFixed || clash || ctx.source !== 'seriouslyfish' ? prev.name : offered) : clash ? '' : offered) || prev?.name || fallbackName
   const name = prev?.nameFixed ? picked : tidyName(picked, kind)
   // A replaced name stays findable as an alternative name, unless a variety's (mergeSpecies, alt-names.ts).
-  const altNames = uniq([...(prev?.altNames ?? []), ...(prev?.name ? [prev.name] : []), ...(!prev && page.viName ? [page.viName] : []), ...page.viAltNames, ...page.enCommonNames].map(n => tidyName(n, kind))).filter(n => n !== name)
+  const altNames = uniq([...(prev?.altNames ?? []), ...(prev?.name ? [prev.name] : []), ...(!prev && offered ? [offered] : []), ...[...page.viAltNames, ...page.enCommonNames].filter(n => !wrongKind(n))].map(n => tidyName(n, kind))).filter(n => n !== name)
   return {
     slug: prev?.slug ?? pickSlug(name, suffix, ctx.takenSlugs), name, altNames, sections, quality: ctx.quality ?? prev?.quality ?? DEFAULT_QUALITY,
     ...(prev?.nameFixed ? { nameFixed: true } : {}), ...(prev?.redirectFrom ? { redirectFrom: prev.redirectFrom } : {}),
   }
 }
 
-export function mergeSpecies(existing: { entity?: SpeciesEntity; vi?: Translation }, page: ProcessedPage, ctx: Ctx & { taxon: Taxon }): Item<SpeciesEntity> {
+export function mergeSpecies(existing: { entity?: SpeciesEntity; vi?: Translation }, page: ProcessedPage, ctx: Ctx & { taxon: Taxon }): Item<SpeciesEntity> & { fellBack?: FellBack } {
   const { taxon } = ctx
   const prev = existing.entity
   const genus = taxon.genus ?? taxon.canonicalName.split(' ')[0] ?? ''
@@ -125,8 +131,12 @@ export function mergeSpecies(existing: { entity?: SpeciesEntity; vi?: Translatio
     ...(prev?.refs?.length ? { refs: prev.refs } : {}),
   }
   // Its other names are its own: a shop listing's variety ("Cá betta Green Alien") or one name twice never adds up.
-  const t = translation(existing.vi, page, ctx, `Cá ${taxon.canonicalName}`, genus, vi, 'species')
-  return { entity, vi: { ...t, altNames: cleanAltNames({ name: t.name, sci: taxon.canonicalName, altNames: t.altNames }).altNames } }
+  // With no name of its own that passes, its plain scientific form: "Cá …" for a fish, "Tép …", "Ốc …" for the rest.
+  const kin = { order: taxon.order, family: taxon.family, genus }
+  const word = page.viName ? kindWord(page.viName, kin) : undefined
+  const t = translation(existing.vi, page, ctx, plainName(taxon.canonicalName, kin), genus, vi, 'species', n => kindWord(n, kin)?.fits === false)
+  const fellBack = word && !word.fits ? { name: page.viName!, word: word.word } : undefined
+  return { entity, vi: { ...t, altNames: cleanAltNames({ name: t.name, sci: taxon.canonicalName, altNames: t.altNames }).altNames }, ...(fellBack ? { fellBack } : {}) }
 }
 
 export function mergePlant(existing: { entity?: PlantEntity; vi?: Translation }, page: ProcessedPage, ctx: Ctx): Item<PlantEntity> | null {

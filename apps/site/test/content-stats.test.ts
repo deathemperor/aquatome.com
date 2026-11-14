@@ -34,17 +34,17 @@ test('inventory: items per kind in content/, and how many have an Indonesian, a 
 })
 
 test('built pages: every index.html under /, /id/, /th/ and /ms/, by kind, each with its h1 and its item', () => {
-  // 176 pages, as markdown.ts counts them (every page under the four languages). Malay's tools are one fewer: no setup budget.
-  expect(stats.built!.total).toEqual({ vi: 104, id: 21, th: 21, ms: 30 })
+  // 178 pages, as markdown.ts counts them (every page under the four languages). Malay's tools are one fewer: no setup budget.
+  expect(stats.built!.total).toEqual({ vi: 106, id: 21, th: 21, ms: 30 })
   const n = (vi: number, id = 0, th = 0, ms = 0) => ({ vi, id, th, ms })
-  expect(stats.built!.byKind).toMatchObject({ fish: n(9, 0, 0, 1), breed: n(3, 0, 0, 1), plant: n(4, 0, 0, 1), guide: n(7, 0, 0, 1), videoGuide: n(2), glossary: n(4, 0, 0, 1), series: n(1), gallery: n(3, 0, 0, 1), tool: n(7, 7, 7, 6), other: n(6, 5, 5, 5) })
+  expect(stats.built!.byKind).toMatchObject({ fish: n(9, 0, 0, 1), breed: n(3, 0, 0, 1), plant: n(4, 0, 0, 1), guide: n(7, 0, 0, 1), videoGuide: n(2), glossary: n(4, 0, 0, 1), series: n(1), gallery: n(3, 0, 0, 1), tool: n(7, 7, 7, 6), other: n(8, 5, 5, 5) })
   expect(stats.pages!.fish).toContainEqual(['/ca/ca-neon-vua/', 'Cá neon vua', 'paracheirodon-axelrodi'])
   expect(stats.pages!.breed).toContainEqual(['/ca/ca-la-han/', 'Cá La Hán (Flowerhorn)', 'flowerhorn-cichlid'])
   expect(stats.pages!.videoGuide).toContainEqual(['/huong-dan/bon-phan-cho-cay-thuy-sinh/', 'Bón phân cho cây thủy sinh', 'youtube-r53ZQW0m8VM'])
   expect(stats.pages!.place).toContainEqual(['/nguon-goc/asia/china/', 'Trung Quốc', 'china'])
   expect(stats.pages!.list).toContainEqual(['/th/fish/', 'ทุกสายพันธุ์'])
-  // Only the about pages (the site's and its data card's), contact, privacy, sign-in and app pages are "other": every other page has its kind.
-  expect(stats.pages!.other!.map(r => r[0]).sort()).toEqual(['/chinh-sach-bao-mat/', '/dang-nhap/', '/gioi-thieu/', '/gioi-thieu/bang-du-lieu/', '/id/aplikasi/', '/id/kebijakan-privasi/', '/id/kontak/', '/id/tentang/', '/id/tentang/tabel-data/', '/lien-he/', '/ms/aplikasi/', '/ms/dasar-privasi/', '/ms/hubungi/', '/ms/tentang/', '/ms/tentang/jadual-data/', '/th/about/', '/th/about/data-table/', '/th/contact/', '/th/mobile-app/', '/th/privacy/', '/ung-dung/'])
+  // The unlisted material pilot and the about pages (the site's and its data card's), contact, privacy, sign-in and app pages are "other": every other page has its kind.
+  expect(stats.pages!.other!.map(r => r[0]).sort()).toEqual(['/chinh-sach-bao-mat/', '/dang-nhap/', '/gioi-thieu/', '/gioi-thieu/bang-du-lieu/', '/id/aplikasi/', '/id/kebijakan-privasi/', '/id/kontak/', '/id/tentang/', '/id/tentang/tabel-data/', '/lien-he/', '/ms/aplikasi/', '/ms/dasar-privasi/', '/ms/hubungi/', '/ms/tentang/', '/ms/tentang/jadual-data/', '/th/about/', '/th/about/data-table/', '/th/contact/', '/th/mobile-app/', '/th/privacy/', '/ung-dung/', '/vat-lieu/lua-sa-tung/', '/vat-lieu/lua/'])
   expect(Buffer.byteLength(JSON.stringify(stats.totals))).toBeLessThan(1024)
 })
 

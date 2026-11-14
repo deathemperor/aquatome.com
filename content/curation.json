@@ -475,6 +475,7 @@
    "img": "https://images.unsplash.com/photo-1754077366222-858cb109e2e2?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8OXx8Ymx1ZSUyMHZlbHZldCUyMHNocmltcHxlbnwxfHx8fDE3OTMzNzk0MTl8MA&ixlib=rb-4.1.0&w=1811&q=80&fm=jpg&fit=max",
    "guide": "guides/2hraquarist-blogs-algae-control-ccontrol-algae-excess-nutrients",
    "guideImg": "https://media.aquatome.com/2hraquarist/20af0b5ea6f239f1.webp",
+   "card": "cards/trivia-marimo-alga",
    "why": "no fish of this week's tags (nano) is left. Fish: Tép Blue Dream (Blue Velvet Shrimp), for a small tank. Guide: Dư dinh dưỡng có gây tảo trong bể thủy sinh không?, the best left with a big enough photo.",
    "fixed": true
   },
@@ -501,6 +502,7 @@
    "img": "https://media.aquatome.com/commons/bcc6a38465399681-large.webp",
    "guide": "guides/aquariumbreeder-profile-of-diving-beetles-monsters-in-shrimp-and-fish-tanks",
    "guideImg": "https://media.aquatome.com/aquariumbreeder/eb9f5d29655fb0c7.webp",
+   "card": "cards/new-species-nanosphronemus-gemma",
    "why": "Guide: Hồ sơ bọ cánh cứng lặn (Diving beetle): kẻ săn mồi trong bể tép và bể cá, the best left with a big enough photo.",
    "fixed": true
   },
@@ -754,7 +756,10 @@
   {
    "id": "ali",
    "names": {
-    "vi": "Ali"
+    "vi": "Ali",
+    "id": "Cichlid Afrika",
+    "th": "ปลาหมอสีแอฟริกา",
+    "ms": "Cichlid Afrika"
    },
    "match": {
     "group": [
@@ -788,7 +793,10 @@
   {
    "id": "cichlid-chau-my",
    "names": {
-    "vi": "Cichlid châu Mỹ"
+    "vi": "Cichlid châu Mỹ",
+    "id": "Cichlid Amerika",
+    "th": "ปลาหมอสีอเมริกา",
+    "ms": "Cichlid Amerika"
    },
    "match": {
     "group": [
@@ -812,7 +820,8 @@
    "names": {
     "vi": "Lau kiếng",
     "id": "Sapu-sapu",
-    "th": "ซัคเกอร์"
+    "th": "ซักเกอร์",
+    "ms": "Bandaraya"
    },
    "match": {
     "family": [
@@ -830,7 +839,8 @@
    "names": {
     "vi": "Tép",
     "id": "Udang hias",
-    "th": "กุ้ง"
+    "th": "กุ้ง",
+    "ms": "Udang hiasan"
    },
    "match": {
     "group": [
@@ -861,7 +871,9 @@
    "id": "dia",
    "names": {
     "vi": "Dĩa",
-    "id": "Discus"
+    "id": "Discus",
+    "th": "ปลาปอมปาดัวร์",
+    "ms": "Discus"
    },
    "match": {
     "genus": [
@@ -874,7 +886,8 @@
    "names": {
     "vi": "Ông tiên",
     "id": "Manfish",
-    "th": "ปลาเทวดา"
+    "th": "ปลาเทวดา",
+    "ms": "Angel"
    },
    "match": {
     "genus": [
@@ -886,7 +899,9 @@
    "id": "la-han",
    "names": {
     "vi": "La hán",
-    "id": "Louhan"
+    "id": "Louhan",
+    "th": "ฟลาวเวอร์ฮอร์น",
+    "ms": "Louhan"
    },
    "match": {
     "breeds": [
@@ -899,7 +914,8 @@
    "names": {
     "vi": "Betta",
     "id": "Cupang",
-    "th": "ปลากัด"
+    "th": "ปลากัด",
+    "ms": "Laga"
    },
    "match": {
     "genus": [
@@ -911,7 +927,9 @@
    "id": "ca-sac",
    "names": {
     "vi": "Cá sặc",
-    "th": "ปลากระดี่"
+    "id": "Gurami",
+    "th": "ปลากระดี่",
+    "ms": "Sepat"
    },
    "match": {
     "genus": [
@@ -933,7 +951,8 @@
    "names": {
     "vi": "Bảy màu",
     "id": "Guppy",
-    "th": "ปลาหางนกยูง"
+    "th": "ปลาหางนกยูง",
+    "ms": "Guppy"
    },
    "match": {
     "species": [
@@ -947,7 +966,8 @@
    "names": {
     "vi": "Cá vàng",
     "id": "Koki",
-    "th": "ปลาทอง"
+    "th": "ปลาทอง",
+    "ms": "Ikan emas"
    },
    "match": {
     "species": [
@@ -960,7 +980,8 @@
    "names": {
     "vi": "Cá rồng",
     "id": "Arwana",
-    "th": "อะโรวาน่า"
+    "th": "อะโรวาน่า",
+    "ms": "Arowana"
    },
    "match": {
     "family": [
@@ -972,7 +993,9 @@
    "id": "koi",
    "names": {
     "vi": "Koi",
-    "id": "Koi"
+    "id": "Koi",
+    "th": "ปลาคาร์ป",
+    "ms": "Koi"
    },
    "match": {
     "genus": [
@@ -988,7 +1011,8 @@
    "names": {
     "vi": "Tetra",
     "id": "Tetra",
-    "th": "เตตร้า"
+    "th": "เตตร้า",
+    "ms": "Tetra"
    },
    "match": {
     "group": [
@@ -1000,7 +1024,9 @@
    "id": "chach",
    "names": {
     "vi": "Chạch",
-    "th": "ปลาหมู"
+    "id": "Loach",
+    "th": "ปลาหมู",
+    "ms": "Loach"
    },
    "match": {
     "group": [
@@ -1013,7 +1039,8 @@
    "names": {
     "vi": "Cá chuột",
     "id": "Corydoras",
-    "th": "ปลาแพะ"
+    "th": "ปลาแพะ",
+    "ms": "Cory"
    },
    "match": {
     "family": [
@@ -1029,7 +1056,10 @@
   {
    "id": "killi",
    "names": {
-    "vi": "Killi"
+    "vi": "Killi",
+    "id": "Killifish",
+    "th": "ปลาคิลลี่",
+    "ms": "Killifish"
    },
    "match": {
     "group": [
@@ -1042,7 +1072,8 @@
    "names": {
     "vi": "Lòng tong",
     "id": "Rasbora",
-    "th": "ปลาซิว"
+    "th": "ปลาซิว",
+    "ms": "Rasbora"
    },
    "match": {
     "group": [
@@ -1054,7 +1085,9 @@
    "id": "oc",
    "names": {
     "vi": "Ốc",
-    "th": "หอย"
+    "id": "Keong",
+    "th": "หอย",
+    "ms": "Siput"
    },
    "match": {
     "group": [

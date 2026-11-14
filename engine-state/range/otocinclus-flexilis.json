@@ -1,0 +1,124 @@
+{
+  "id": "otocinclus-flexilis",
+  "native": {
+    "input": "dc0acf4581cad6cd",
+    "at": "2026-11-14T00:09:29.977Z",
+    "claims": [
+      {
+        "code": "UY",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: La Plata basin, including Uruguay, Paraná (Middle and Lower Paraná) and Paraguay.",
+        "words": "Uruguay",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: La Plata basin, including Uruguay, Paraná (Middle and Lower Paraná) and Paraguay.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio Jacuhy [Jacuí], Rio Grande do Sul, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "La Plata",
+        "source": "planetcatfish",
+        "quote": "South America: La Plata basin, including Uruguay, Paraná (Middle and Lower Paraná) and Paraguay.",
+        "ok": true
+      },
+      {
+        "name": "Paraná",
+        "source": "planetcatfish",
+        "quote": "South America: La Plata basin, including Uruguay, Paraná (Middle and Lower Paraná) and Paraguay.",
+        "ok": true
+      },
+      {
+        "name": "Rio Jacuhy",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio Jacuhy [Jacuí], Rio Grande do Sul, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "AR"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Otocinclus flexilis",
+    "status": "ACCEPTED",
+    "taxonKey": 2340461,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        16
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        11
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        9
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        7
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [
+      "UY",
+      "PY",
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T00:09:29.977Z"
+  }
+}

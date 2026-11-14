@@ -20,7 +20,8 @@
     "native": {
       "countries": [
         "TH",
-        "MY"
+        "MY",
+        "VN"
       ],
       "regions": [
         "Sumatra"
@@ -31,18 +32,13 @@
       ],
       "quotes": [
         {
-          "source": "seriouslyfish",
-          "quote": "The crescent betta, Betta imbellis, is a labyrinth fish thought to be native to southern Thailand, Peninsular Malaysia and northern Sumatra.",
+          "source": "bwaquatics",
+          "quote": "Found across Southeast Asia, including southern Thailand, Peninsular Malaysia, northern Sumatra and southern Vietnam.",
           "countries": [
             "TH",
-            "MY"
+            "MY",
+            "VN"
           ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Thought to occur naturally in southern (peninsular) Thailand, Peninsular Malaysia, and northern Sumatra, but has been introduced to other areas with feral populations now established in Singapore, for example.",
-          "countries": [],
           "regions": [
             "Sumatra"
           ]
@@ -52,7 +48,7 @@
     "records": {
       "taxonKey": 2394051,
       "total": 78,
-      "fetched": "2026-11-06",
+      "fetched": "2026-11-14",
       "countries": [
         [
           "TH",
@@ -160,7 +156,7 @@
           105.46875,
           19.6875,
           3,
-          0
+          3
         ]
       ]
     }

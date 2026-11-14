@@ -1,0 +1,57 @@
+{
+  "id": "lasiancistrus-heteracanthus",
+  "native": {
+    "input": "ab5e4bf80c63cc9f",
+    "at": "2026-11-14T00:09:29.977Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Peru.",
+        "words": "Peru",
+        "ok": false,
+        "why": "no sentence"
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Lasiancistrus heteracanthus",
+    "status": "ACCEPTED",
+    "taxonKey": 2339210,
+    "datasets": [
+      [
+        "baff6941-ea14-45d2-a55f-15d90e370df2",
+        3
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-14T00:09:29.977Z"
+  }
+}

@@ -1,15 +1,15 @@
 {
   "id": "betta-albimarginata",
   "native": {
-    "input": "bda11a70085d4dc6",
-    "at": "2026-11-06T15:17:52.851Z",
+    "input": "e918ef940bfc1ee9",
+    "at": "2026-11-14T00:09:29.977Z",
     "claims": [
       {
         "code": "ID",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Betta albimarginata is a small mouthbrooding labyrinth fish that appears endemic to the Sebuku River drainage in East Kalimantan, Indonesian Borneo.",
-        "words": "Indonesian",
+        "source": "bwaquatics",
+        "quote": "Described from the Sebuku River basin in northern Borneo, now North Kalimantan, Indonesia.",
+        "words": "Indonesia",
         "ok": true
       },
       {
@@ -37,9 +37,17 @@
         "ok": true
       },
       {
+        "name": "Sebuku River",
+        "source": "bwaquatics",
+        "quote": "Described from the Sebuku River basin in northern Borneo, now North Kalimantan, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
         "name": "Borneo",
         "source": "bwaquatics",
-        "quote": "Betta albimarginata from Sebuku is a rare mouthbrooding betta native to the forest streams of East Kalimantan, Borneo.",
+        "quote": "Described from the Sebuku River basin in northern Borneo, now North Kalimantan, Indonesia.",
+        "country": "ID",
         "ok": true
       }
     ],

@@ -10,6 +10,124 @@
     "democratic-republic-of-the-congo",
     "lake-kivu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD"
+      ],
+      "regions": [
+        "Lake Kivu",
+        "Ruzizi River",
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Etymology: The specific name kivuensis: –ensis, suffix denoting place: region of Kivu (west of Lake Kivu), Democratic Republic of the Congo, type locality.",
+          "countries": [
+            "CD"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Africa: Rivers to west of Lake Kivu; Ruzizi River and rivers entering Lake Tanganyika.",
+          "countries": [],
+          "regions": [
+            "Lake Kivu",
+            "Ruzizi River",
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340748,
+      "total": 57,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "CD",
+          31
+        ],
+        [
+          "BI",
+          14
+        ],
+        [
+          "UG",
+          6
+        ],
+        [
+          "RW",
+          4
+        ],
+        [
+          "ZM",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          26.71875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          26.71875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          28.125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          28.125,
+          -5.625,
+          4,
+          4
+        ],
+        [
+          28.125,
+          -4.21875,
+          20,
+          7
+        ],
+        [
+          28.125,
+          -2.8125,
+          20,
+          16
+        ],
+        [
+          29.53125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          29.53125,
+          -1.40625,
+          6,
+          0
+        ],
+        [
+          30.9375,
+          -9.84375,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

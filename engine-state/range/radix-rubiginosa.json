@@ -108,5 +108,46 @@
       "pagesOnly": [],
       "sourcesOnly": []
     }
+  },
+  "records": {
+    "matched": "Radix rubiginosa",
+    "status": "ACCEPTED",
+    "taxonKey": 7384449,
+    "datasets": [
+      [
+        "db9fe307-0dd1-48d8-b977-f025efb21a62",
+        16
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "a307e4d7-1de2-4adc-95d5-a0a8d5f57236",
+        4
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "44bcde48-ac71-46f2-bf73-24fc3c008b6c",
+        1
+      ],
+      [
+        "ca58433a-3ff8-492f-9d7b-6f6d289eb6d6",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "ID",
+      "VN"
+    ],
+    "requests": 14,
+    "at": "2026-11-14T00:09:29.977Z"
   }
 }

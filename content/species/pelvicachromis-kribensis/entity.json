@@ -10,6 +10,58 @@
     "cameroon",
     "lobe"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Currently, three species are distinguished within this narrower family complex, namely P. taeniatus (Nigeria), P. kribensis (Cameroon), and P. drachenfelsi (Cameroon, formerly P. taeniatus “Wouri”).",
+          "countries": [
+            "CM"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9365411,
+      "total": 7,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "CM",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          8.4375,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          9.84375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          9.84375,
+          2.8125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
