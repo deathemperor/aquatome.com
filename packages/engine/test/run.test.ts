@@ -335,6 +335,23 @@ test("a page whose credits are still to learn is read only on its own turn: not 
   for (const p of photos) expect(credits[p.url]).toMatchObject({ page: url, at: '2026-10-28' })
 })
 
+test("a credit read that fails is ours, not the page's: the page keeps its read and its turn, and its credits wait for the next one", async () => {
+  const root = await fresh()
+  await runEngine(deps(root, { urls: ['paracheirodon-axelrodi'] }).d, { sources: ['seriouslyfish'] })
+  const url = `${SF}paracheirodon-axelrodi`
+  await writeFile(join(root, 'engine-state/_credit-reads.json'), JSON.stringify({ [url]: { source: 'seriouslyfish', at: '2026-11-14', by: 'the chief of staff' } }))
+  await writeFile(join(root, 'engine-state/_photo-credits.json'), 'not json')
+  const due = deps(root, { urls: ['paracheirodon-axelrodi'] })
+  due.d.fetcher.text = async () => `<urlset><url><loc>${url}</loc><lastmod>2026-10-20</lastmod></url></urlset>`
+  const r = await runEngine(due.d, { sources: ['seriouslyfish'] })
+  expect(r.perSource.seriouslyfish).toMatchObject({ fetched: 1, errors: 0 })
+  expect(r.errors.some(e => e.startsWith(`${url}: credits not read`))).toBe(true)
+  const state = JSON.parse(await readFile(join(root, 'engine-state/seriouslyfish.json'), 'utf8'))
+  expect(state[url]).toMatchObject({ status: 'processed', lastmod: '2026-10-20' })
+  expect(state[url].error).toBeUndefined()
+  expect(Object.keys(JSON.parse(await readFile(join(root, 'engine-state/_credit-reads.json'), 'utf8')))).toEqual([url])
+})
+
 test('a poorer page from the same source does not replace a richer one', async () => {
   const root = await fresh()
   const rich = { ...species, sections: [...species.sections, { key: 'diet', en: '<p>Small.</p>', vi: '<p>Nhỏ.</p>' }] }

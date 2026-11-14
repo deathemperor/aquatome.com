@@ -195,7 +195,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   const report: RunReport = { perSource: {}, needsHuman: [], movedToArchive: [], changed: [], errors: [] }
   const today = () => deps.now().toISOString().slice(0, 10)
   // Source pages whose credits a read still has to learn (credit-reads.ts): read only on their own turn, like any page.
-  const creditWaiting = await creditPagesWaiting(root)
+  const creditWaiting = await soft('credit reads', () => creditPagesWaiting(root), new Set<string>())
   const creditRead = async (source: SourceId, url: string, images: PageImage[]) => {
     const credits = pageCredits(images, url, source, sourceNames[source]?.name ?? source, sourceNames[source]?.permission ?? {}, deps.media, today())
     await recordCredits(root, credits)
@@ -456,7 +456,8 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
         const hash = snapshotHash(o)
         if (hash !== prev?.hash || r.capturedAt) await writeSnapshot(root, id, url, o, deps.now(), r.capturedAt)
         // A page whose credits are still to learn, read now on its own turn: what this read shows decides (credit-reads.ts).
-        if (creditWaiting.has(url)) await creditRead(id, url, o.images)
+        // Its own try: a failure here is ours, not the page's, so the page keeps its read and its turn, and its credits wait for the next one.
+        if (creditWaiting.has(url)) await creditRead(id, url, o.images).catch((e: unknown) => { report.errors.push(`${url}: credits not read, the page waits for its next turn: ${(e as Error).message.slice(0, 200)}`) })
         if (prev?.processedHash === hash && !forced(url)) {
           counts.skipped++
           const { error: _stale, ...rest } = prev

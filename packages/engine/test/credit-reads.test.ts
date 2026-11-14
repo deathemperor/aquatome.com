@@ -66,8 +66,8 @@ test("a rights hold a person decided takes even a page's last photo off, kept wi
   expect((await json(join(r, 'content/guides/list/entity.json'))).photos).toEqual([first])
   expect((await json(join(r, 'content/curation.json'))).days).toEqual([{ date: '2026-11-27', guide: 'guides/list' }, { date: '2026-11-28', guideImg: 'https://media.test/other.webp' }])
   const holds = await json(join(r, CREDIT_HOLDS))
-  expect(holds[only.url]).toMatchObject({ page: PAGE, by: 'the chief of staff', places: [{ file: 'content/species/fish-a/entity.json', at: 0, photo: only }] })
-  expect(holds[second.url].calendar).toEqual(['content/curation.json: 2026-11-27'])
+  expect(holds[only.url]).toMatchObject({ page: PAGE, by: 'the chief of staff', places: [{ file: 'content/species/fish-a/entity.json', path: ['photos'], at: 0, photo: only }] })
+  expect(holds[second.url].calendar).toEqual([{ file: 'content/curation.json', date: '2026-11-27', guide: 'guides/list' }])
   const rejected = await json(join(r, 'engine-state/_photo-rejected.json'))
   expect(rejected[only.url]).toBe(HOLD_NOTE)
   // A credit read's verdict is the engine's: on a page's only photo it is held for a second look, not taken off.
@@ -94,4 +94,34 @@ test("the credit read releases a held photo of the site's own back to its place 
   // The record of what each read found keeps the kinds.
   await recordCredits(r, read)
   expect(Object.keys(await json(join(r, PHOTO_CREDITS))).sort()).toEqual([own.url, agency.url].sort())
+})
+
+test("released photos go back in the order they stood, nested lists and the calendar card too; one rejected for another reason while held stays off", async () => {
+  // Addresses that sort against their places (b's before a's), so a release in address order would misplace them.
+  const a = photo('za'), b = photo('yb'), c = photo('c'), deep = photo('deep'), other = photo('other')
+  const r = await root({
+    'content/guides/list/entity.json': { id: 'list', photos: [a, b, c], sections: [{ key: 'x', photos: [deep, c] }] },
+    'content/species/fish-c/entity.json': { id: 'fish-c', photos: [other, c] },
+    'content/curation.json': { days: [{ date: '2026-11-27', guide: 'guides/list', guideImg: b.url }] },
+  })
+  await holdForCreditRead(r, [a.url, b.url, deep.url, other.url], 'the chief of staff', '2026-11-14', 'credits unread')
+  expect(await json(join(r, 'content/guides/list/entity.json'))).toEqual({ id: 'list', photos: [c], sections: [{ key: 'x', photos: [c] }] })
+  // Meanwhile another check puts one on the never-again list for a reason of its own.
+  const rejected = await json(join(r, 'engine-state/_photo-rejected.json'))
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ ...rejected, [other.url]: `watermark: withheld [sha256:${'d'.repeat(64)}]` }))
+  const own = (u: string): PhotoCredit => ({ page: PAGE, kind: 'own', line: 'sha256:x', at: '2026-11-28' })
+  // Released in the order of their addresses (b before a), yet each list gets its order back.
+  expect(await releaseCreditHolds(r, { [b.url]: own(b.url), [a.url]: own(a.url), [deep.url]: own(deep.url), [other.url]: own(other.url) })).toEqual({ back: [deep.url, b.url, a.url], off: [other.url] })
+  expect(await json(join(r, 'content/guides/list/entity.json'))).toEqual({ id: 'list', photos: [a, b, c], sections: [{ key: 'x', photos: [deep, c] }] })
+  expect((await json(join(r, 'content/curation.json'))).days).toEqual([{ date: '2026-11-27', guide: 'guides/list', guideImg: b.url }])
+  expect((await json(join(r, 'content/species/fish-c/entity.json'))).photos).toEqual([c])
+  expect(Object.keys(await json(join(r, 'engine-state/_photo-rejected.json')))).toEqual([other.url])
+})
+
+test("a hold takes a photo only from where it can put it back: one shown in a figure stops the hold before anything is written", async () => {
+  const shown = photo('shown')
+  const files = { 'content/guides/fig/entity.json': { id: 'fig', figures: [{ photo: shown }] }, 'content/species/fish-d/entity.json': { id: 'fish-d', photos: [shown] } }
+  const r = await root(files)
+  await expect(holdForCreditRead(r, [shown.url], 'the chief of staff', '2026-11-14', 'credits unread')).rejects.toThrow(/content\/guides\/fig\/entity.json/)
+  expect(await json(join(r, 'content/species/fish-d/entity.json'))).toEqual(files['content/species/fish-d/entity.json'])
 })

@@ -27,10 +27,12 @@ export const CREDIT_HOLDS = 'engine-state/_credit-holds.json'
 export type CreditRead = { source: SourceId; at: string; by: string }
 export type CreditReadKind = 'own' | 'agency' | 'other' | 'none'
 export type PhotoCredit = { page: string; kind: CreditReadKind; line?: string; at: string }
-/** Where a held photo was: its file, its place in that file's `photos`, and the photo as it was there. */
-export type HeldPlace = { file: string; at: number; photo: Photo }
+/** Where a held photo was: its file, the way to the `photos` list it sat in, its place there, and the photo as it was. */
+export type HeldPlace = { file: string; path: string[]; at: number; photo: Photo }
+/** A calendar day whose guide card showed a held photo. */
+export type CalendarPlace = { file: string; date: string; guide?: string }
 /** A photo a person took off readers' pages until its source page's credit read: who, when, why, and where it was. */
-export type CreditHold = { page: string; by: string; on: string; why: string; places: HeldPlace[]; calendar?: string[] }
+export type CreditHold = { page: string; by: string; on: string; why: string; places: HeldPlace[]; calendar?: CalendarPlace[] }
 
 const REJECTED = 'engine-state/_photo-rejected.json'
 /** The never-again note a credit hold puts there, the same for every held photo: how a release knows its own. */
@@ -124,66 +126,99 @@ export async function applyCreditReads(root: string, step = 'the credit read'): 
 
 const contentFiles = async (content: string) => (await readdir(content, { recursive: true })).filter(f => f.endsWith('.json')).map(f => join(content, f))
 const writeJson = (f: string, raw: string, data: unknown) => writeFile(f, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
+type Node = Record<string, unknown>
+const isNode = (x: unknown): x is Node => !!x && typeof x === 'object' && !Array.isArray(x)
+
+/** Takes the wanted photos out of every `photos` list in a content file, at any depth, noting where each was. */
+function takeOut(x: unknown, want: Set<string>, file: string, path: string[], out: HeldPlace[]) {
+  if (Array.isArray(x)) { x.forEach((v, i) => takeOut(v, want, file, [...path, String(i)], out)); return }
+  if (!isNode(x)) return
+  if (Array.isArray(x.photos)) {
+    const list = x.photos as Photo[]
+    list.forEach((p, at) => { if (isNode(p) && want.has(p.url)) out.push({ file, path: [...path, 'photos'], at, photo: p }) })
+    x.photos = list.filter(p => !(isNode(p) && want.has(p.url)))
+  }
+  for (const [k, v] of Object.entries(x)) if (k !== 'photos') takeOut(v, want, file, [...path, k], out)
+}
+/** Whether a wanted photo is still shown somewhere a hold couldn't put it back (a figure, a video still, a hero). */
+function leftOver(x: unknown, want: Set<string>): boolean {
+  if (Array.isArray(x)) return x.some(v => leftOver(v, want))
+  if (!isNode(x)) return false
+  if (typeof x.url === 'string' && want.has(x.url)) return true
+  return Object.values(x).some(v => leftOver(v, want))
+}
+const at = (data: unknown, path: string[]) => path.reduce<unknown>((n, k) => (isNode(n) || Array.isArray(n) ? (n as Record<string, unknown>)[k] : undefined), data)
 
 /**
  * A rights hold (the chief of staff, 14 Nov 2026): photos a person takes off readers' pages until their source page's
  * credit read says whose they are. Each leaves every page, album and calendar card now, a page's last photo too: this is a
  * person's decision on rights, not an automatic check's verdict, so the last-photo guard (last-photo.ts), which stands
  * between a step's verdict and a page's last photo, has no say here. Nothing is deleted: each photo is kept in
- * `CREDIT_HOLDS` with every place it held, and goes on the never-again list (`HOLD_NOTE`), which every step respects, so no
- * rewrite, sweep or photo step brings it back. Only the credit read does (`releaseCreditHolds`).
+ * `CREDIT_HOLDS` with every place it held, and goes on the never-again list (`HOLD_NOTE`), which keeps it off through a
+ * rewrite, the sweep and the photo steps. Only the credit read puts it back (`releaseCreditHolds`). The hold takes a photo
+ * only from where it can put it back (`photos` lists, a calendar day's guide card): if one is shown anywhere else, it
+ * writes nothing and says where.
  */
 export async function holdForCreditRead(root: string, urls: readonly string[], by: string, on: string, why: string): Promise<{ held: string[]; places: number; calendar: number }> {
   const want = new Set(urls), content = join(root, 'content')
   const holds = await readMap<CreditHold>(join(root, CREDIT_HOLDS)), rejected = await readMap<string>(join(root, REJECTED))
-  const places = new Map<string, HeldPlace[]>(), calendar = new Map<string, string[]>()
+  const places: HeldPlace[] = [], calendar = new Map<string, CalendarPlace[]>(), edits: { f: string; raw: string; data: unknown }[] = []
   for (const f of await contentFiles(content)) {
     const raw = await readFile(f, 'utf8')
     if (![...want].some(u => raw.includes(u))) continue
-    const data = JSON.parse(raw) as { photos?: Photo[]; days?: { date: string; guideImg?: string }[] }
-    const file = relative(root, f)
-    if (Array.isArray(data.photos)) data.photos.forEach((p, at) => { if (want.has(p?.url)) places.set(p.url, [...(places.get(p.url) ?? []), { file, at, photo: p }]) })
-    // A calendar day's guide card names its picture: it shows nothing held either.
+    const data = JSON.parse(raw) as unknown, file = relative(root, f), before = places.length
+    takeOut(data, want, file, [], places)
     let cards = 0
-    for (const d of Array.isArray(data.days) ? data.days : []) if (d.guideImg && want.has(d.guideImg)) { calendar.set(d.guideImg, [...(calendar.get(d.guideImg) ?? []), `${file}: ${d.date}`]); delete d.guideImg; cards++ }
-    const removed: string[] = []
-    stripPhotos(data, u => want.has(u), removed, [])
-    if (removed.length || cards) await writeJson(f, raw, data)
+    const days = isNode(data) && Array.isArray(data.days) ? (data.days as { date: string; guide?: string; guideImg?: string }[]) : []
+    for (const d of days) if (d.guideImg && want.has(d.guideImg)) { calendar.set(d.guideImg, [...(calendar.get(d.guideImg) ?? []), { file, date: d.date, ...(d.guide ? { guide: d.guide } : {}) }]); delete d.guideImg; cards++ }
+    if (leftOver(data, want)) throw new Error(`a held photo is shown in ${file} where a hold can't put it back: nothing held`)
+    if (places.length > before || cards) edits.push({ f, raw, data })
   }
+  for (const e of edits) await writeJson(e.f, e.raw, e.data)
   for (const u of want) {
-    if (!places.has(u) && !calendar.has(u)) continue
-    const page = places.get(u)?.[0]?.photo.sourceUrl ?? ''
-    holds[u] = { page, by, on, why, places: places.get(u) ?? [], ...(calendar.has(u) ? { calendar: calendar.get(u) } : {}) }
+    const mine = places.filter(p => p.photo.url === u)
+    if (!mine.length && !calendar.has(u)) continue
+    holds[u] = { page: mine[0]?.photo.sourceUrl ?? '', by, on, why, places: mine, ...(calendar.has(u) ? { calendar: calendar.get(u) } : {}) }
     rejected[u] ??= HOLD_NOTE
   }
   await writeMap(join(root, CREDIT_HOLDS), holds)
   await writePhotoState(join(root, REJECTED), rejected)
-  return { held: [...want].filter(u => holds[u]), places: [...places.values()].reduce((n, p) => n + p.length, 0), calendar: [...calendar.values()].reduce((n, c) => n + c.length, 0) }
+  return { held: [...want].filter(u => holds[u]), places: places.length, calendar: [...calendar.values()].reduce((n, c) => n + c.length, 0) }
 }
 
 /**
- * A credit read's answer for held photos: the site's own photographer's or illustrator's go back to every place they
- * held (as near their old place as the list now allows) and leave the never-again list, if the hold put them there; the
- * rest stay off for good. A held photo the read didn't find stays held for the page's next turn.
+ * A credit read's answer for held photos. The site's own photographer's or illustrator's go back to every place they
+ * held, each file's in the order they first stood, and leave the never-again list. One that list now holds for another
+ * reason stays off, as does every other kind. A held photo the read didn't find stays held for the page's next turn.
  */
 export async function releaseCreditHolds(root: string, credits: Record<string, PhotoCredit>): Promise<{ back: string[]; off: string[] }> {
   const holds = await readMap<CreditHold>(join(root, CREDIT_HOLDS)), rejected = await readMap<string>(join(root, REJECTED))
-  const back: string[] = [], off: string[] = []
+  const back: string[] = [], off: string[] = [], places: HeldPlace[] = [], cards: { url: string; c: CalendarPlace }[] = []
   for (const [u, h] of Object.entries(holds)) {
     const c = credits[u]
     if (!c) continue
     delete holds[u]
-    if (c.kind !== 'own') { off.push(u); continue }
+    if (c.kind !== 'own' || (u in rejected && rejected[u] !== HOLD_NOTE)) { off.push(u); continue }
     back.push(u)
-    if (rejected[u] === HOLD_NOTE) delete rejected[u]
-    for (const p of h.places) {
-      const f = join(root, p.file), raw = await readFile(f, 'utf8').catch(() => undefined)
-      if (!raw) continue
-      const data = JSON.parse(raw) as { photos?: Photo[] }
-      if (!Array.isArray(data.photos) || data.photos.some(x => x.url === u)) continue
-      data.photos.splice(Math.min(p.at, data.photos.length), 0, p.photo)
-      await writeJson(f, raw, data)
+    delete rejected[u]
+    places.push(...h.places)
+    cards.push(...(h.calendar ?? []).map(c => ({ url: u, c })))
+  }
+  for (const file of new Set([...places.map(p => p.file), ...cards.map(x => x.c.file)])) {
+    const f = join(root, file), raw = await readFile(f, 'utf8').catch(() => undefined)
+    if (!raw) continue
+    const data = JSON.parse(raw) as unknown
+    // Each list's photos go back lowest place first, so a list that gets them all back is as it was.
+    for (const p of places.filter(p => p.file === file).sort((a, b) => a.at - b.at)) {
+      const list = at(data, p.path)
+      if (Array.isArray(list) && !list.some(x => isNode(x) && x.url === p.photo.url)) list.splice(Math.min(p.at, list.length), 0, p.photo)
     }
+    const days = isNode(data) && Array.isArray(data.days) ? (data.days as { date: string; guide?: string; guideImg?: string }[]) : []
+    for (const { url, c } of cards.filter(x => x.c.file === file)) {
+      const d = days.find(d => d.date === c.date && d.guide === c.guide)
+      if (d && !d.guideImg) d.guideImg = url
+    }
+    await writeJson(f, raw, data)
   }
   await writeMap(join(root, CREDIT_HOLDS), holds)
   await writePhotoState(join(root, REJECTED), rejected)
