@@ -216,9 +216,9 @@ its page does ("Koi angelfish"). Held, one seat over two rounds and the dictiona
 reads as waterproof, so the cold shelf says "tahan dingin" / "tahan sejuk". Open, one seat each: Thai "ปลาฝูง" as one
 school (xAI), the Thai flowerhorn label against its page (Anthropic; the Writing Lead's names change renames the page).
 
-Round 10 (14 Nov): both seats held 9 in all four languages. Raised by both and left for later: the Vietnamese
-corydoras-and-plecos shelf naming the otocinclus too, whose spelling the pages ("cá oto", 1.5 a million words) and the
-style guide and references ("cá otto": forum 2.0, shop blogs 47.1) don't agree on. Dropped: Malay "berkumpulan" without
+Round 10 (14 Nov): both seats held 9 in all four languages. Held, both seats: the Vietnamese corydoras-and-plecos
+shelf names the otocinclus too, "Cá chuột, cá otto và cá lau kiếng", in the style guide's spelling, which the Writing
+Lead settled (references: "cá otto" forum 2.0 a million words, shop blogs 47.1; "cá oto" 0 in both). Dropped: Malay "berkumpulan" without
 "hidup" (xAI, reversing round 8's change both seats asked for).
 
 ## Vietnamese
