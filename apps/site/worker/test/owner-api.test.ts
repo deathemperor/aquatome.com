@@ -441,6 +441,7 @@ test('what needs you is one card: each row its kind\'s icon (the triangle only f
   expect(page.querySelectorAll('ul.todo > li').map(li => [txt(li.querySelector('b')), li.getAttribute('class'), li.querySelector('.ic')!.getAttribute('data-i'), li.querySelector('.sub')?.text ?? ''])).toEqual([
     ['Fish ID and chat are down', 'bad', 'alert', 'Every key resting, the first until Wed 4 Nov, 16:30.'],
     ['2Hr Aquarist needs a browser check', 'bad', 'alert', '2Hr Aquarist since Wed 4 Nov, 5:00'],
+    ['No new video guides', 'bad', 'alert', 'Since Tue 27 Oct, 3:17'],
     ['5 comments held for review', 'wait', 'comment', 'Cá neon vua · Cá betta (cá xiêm)'],
     ['2 reader photos to approve', 'wait', 'photo', 'Cá betta (cá xiêm) · Betta halfmoon'],
   ])
@@ -554,13 +555,22 @@ test('the overview\'s version 2: the tiles add up to their parts, found an answe
   expect(ch.today).toBe(2) // Wednesday: Thursday to Sunday still to come
   expect(ch.series[0]!.values.slice(3)).toEqual([null, null, null, null])
   // Needs: faults first, then what waits on the owner; the tile counts the items.
-  expect(t.needs.map(x => [x.kind, x.tone, x.section])).toEqual([['key', 'bad', 'nhan-dien-ca'], ['engine', 'bad', 'noi-dung'], ['comments', 'wait', 'binh-luan'], ['photos', 'wait', 'anh-ban-doc']])
+  // The video guides added nothing since the first save while 200 videos wait: the engine's, a fault (admin/publishing.ts).
+  expect(t.needs.map(x => [x.kind, x.tone, x.section])).toEqual([['key', 'bad', 'nhan-dien-ca'], ['engine', 'bad', 'noi-dung'], ['engine', 'bad', 'noi-dung'], ['comments', 'wait', 'binh-luan'], ['photos', 'wait', 'anh-ban-doc']])
   expect(t.needs.find(x => x.kind === 'photos')!.photos).toEqual(S.WAITING.map(w => w.id))
-  expect(t.tiles[0]).toMatchObject({ value: '9', sub: '7 to review · 2 to fix', tone: 'bad' })
+  expect(t.tiles[0]).toMatchObject({ value: '10', sub: '7 to review · 3 to fix', tone: 'bad' })
   expect(t.needs.map(x => [x.text, x.sub])).toEqual([
     ['Fish ID and chat are down', 'Every key resting, the first until Wed 4 Nov, 16:30.'], ['2Hr Aquarist needs a browser check', '2Hr Aquarist since Wed 4 Nov, 5:00'],
-    ['5 comments held for review', 'Cá neon vua · Cá betta (cá xiêm)'], ['2 reader photos to approve', 'Cá betta (cá xiêm) · Betta halfmoon'],
+    ['No new video guides', 'Since Tue 27 Oct, 3:17'], ['5 comments held for review', 'Cá neon vua · Cá betta (cá xiêm)'], ['2 reader photos to approve', 'Cá betta (cá xiêm) · Betta halfmoon'],
   ])
+  // A part that didn't load is a fault before the engine's pages stopped.
+  expect(todayJson({ ...S.TODAY, beacon: F }).needs.map(x => x.text).slice(0, 4)).toEqual(['Fish ID and chat are down', '2Hr Aquarist needs a browser check', 'Readers’ beacon didn’t load', 'No new video guides'])
+  // Every kind still for 30 hours: the engine's one line, and no kind stalled on its own (admin/publishing.ts).
+  const quiet = todayJson(S.QUIET)
+  expect(quiet.needs).toEqual([{ kind: 'engine', text: 'Nothing new published', sub: 'Since Tue 3 Nov, 3:17', label: 'See engine', tone: 'bad', section: 'noi-dung', anchor: 'engine' }])
+  expect(quiet.publishing).toMatchObject({ quiet: { since: '2026-11-02T20:17:00.000Z', text: 'Nothing new since Tue 3 Nov, 3:17' } })
+  expect(quiet.publishing!.kinds.some(k => 'stalled' in k)).toBe(false)
+  expect(quiet.tiles[0]).toMatchObject({ value: '1', sub: '1 to fix', tone: 'bad' })
   // A day's AI spend near its cap waits on the owner: to review, not a fault.
   const spend = todayJson(S.SPENDING)
   expect(spend.needs).toEqual([{ kind: 'spend', text: 'AI spend at 85% of its cap', sub: 'Fish ID and chat: $1.70 of the $2 cap today.', label: 'See costs', tone: 'wait', section: 'nhan-dien-ca' }])
@@ -1200,7 +1210,7 @@ async function replies(): Promise<Reply[]> {
   const tz = { 'Time-Zone': S.TZ }
   const json = (x: unknown) => JSON.parse(JSON.stringify(x)) as unknown
   const out: Reply[] = [
-    ...([['dashboard', S.TODAY], ['dashboard: nothing needs you', S.CALM], ['dashboard: the readers\' beacon down', { ...S.TODAY, beacon: F }], ['dashboard: the AI spend near its cap', S.SPENDING]] as const).map(([name, t]) => (
+    ...([['dashboard', S.TODAY], ['dashboard: nothing needs you', S.CALM], ['dashboard: the readers\' beacon down', { ...S.TODAY, beacon: F }], ['dashboard: the AI spend near its cap', S.SPENDING], ['dashboard: the engine quiet', S.QUIET]] as const).map(([name, t]) => (
       { name, request: { method: 'GET', path: '/api/owner/dashboard', headers: tz }, status: 200, body: json({ tz: S.TZ, ...dashboardJson(t), sections: SECTIONS.map(({ key, name }) => ({ key, name })) }) })),
     ...KEYS.map(key => ({ name: `section ${key}`, request: { method: 'GET', path: `/api/owner/sections/${key}`, headers: tz }, status: 200, body: json({ tz: S.TZ, ...paged(VARIANTS[key]![0]![2]()) }) })),
     // The other two comment lists, from the section's filter: the comments the action replies show and hide are in them.
