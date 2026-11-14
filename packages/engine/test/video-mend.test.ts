@@ -201,13 +201,15 @@ test('a figure keeps its percent, a units quote keeps its figure beside another 
 })
 
 test('the video\'s own dose is one that names its tank and gives no rate; a rate per volume or per tank, a CO2 rate, or a bare "ở đây" waits (Grok\'s read)', () => {
-  for (const s of ['Châm phân nước mỗi ngày, ở bể 60 lít này là khoảng 3 ml.', 'Ở bể này châm phân nước khoảng 3 ml mỗi ngày.', 'Bể này dùng hai nắp.', 'Bể mẫu dùng vi sinh Multibio, châm 2 nắp.', 'Bể này châm 4 nắp, nitrat khoảng 20 mg/l.', 'Bể này dùng 2 sachet Quick Start.', 'Ở bể 1 mét này châm 3 ml.']) expect(ownTankDose(s), s).toBe(true)
+  for (const s of ['Châm phân nước mỗi ngày, ở bể 60 lít này là khoảng 3 ml.', 'Ở bể này châm phân nước khoảng 3 ml mỗi ngày.', 'Bể này dùng hai nắp.', 'Bể mẫu dùng vi sinh Multibio, châm 2 nắp.', 'Bể này dùng 2 sachet Quick Start.', 'Ở bể 1 mét này châm 3 ml.']) expect(ownTankDose(s), s).toBe(true)
   for (const s of ['Một cách xử lý là tăng phân nước, ở đây là 20 ml mỗi ngày cho bể 60 cm.', 'Bể này 100 lít thì châm 10 ml.', 'Bể này dùng 10 ml cho một lít.', 'Với sủi inline cho sương mịn, khoảng 5–6 giọt mỗi giây cho mức chừng 30 ppm ở bể này.', 'Châm 5 ml cho mỗi 50 lít.', 'Ở đây châm 3 ml.',
     // A rate however it's worded, a size beside the dose, a type of tank (Grok's second read).
-    'Bể này 60 cm thì châm 10 ml.', 'Bể này 20 gallon thì châm 5 ml.', 'Bể này 1,2 m thì châm 2 nắp.', 'Bể này châm 5 ml cho mỗi 10 gallons.', 'Bể này dùng 5 ml cho mỗi 10 galông.', 'Bể này châm 5 ml mỗi bể 60 lít.', 'Bể này châm 5 ml cho những bể 60 cm.', 'Bể này châm 5 ml cho bể từ 60 cm.', 'Bể mẫu dùng vi sinh Multibio, bể 1,2 m châm 2 nắp.', 'Loại bể này châm 4 nắp.']) expect(ownTankDose(s), s).toBe(false)
+    'Bể này 60 cm thì châm 10 ml.', 'Bể này 20 gallon thì châm 5 ml.', 'Bể này 1,2 m thì châm 2 nắp.', 'Bể này châm 5 ml cho mỗi 10 gallons.', 'Bể này dùng 5 ml cho mỗi 10 galông.', 'Bể này châm 5 ml mỗi bể 60 lít.', 'Bể này châm 5 ml cho những bể 60 cm.', 'Bể này châm 5 ml cho bể từ 60 cm.', 'Bể mẫu dùng vi sinh Multibio, bể 1,2 m châm 2 nắp.', 'Loại bể này châm 4 nắp.',
+    // Rates and sizes in other words, a class of tank a word away, a dose in mg/l, a reading beside one (Grok's third read).
+    'Bể này châm 5 ml theo lít.', 'Bể này dùng 5 ml per gallon.', 'Bể mẫu dùng vi sinh, bể 50 litre châm 2 nắp.', 'Bể này 4 feet châm 4 nắp.', 'Bể này châm 2 nắp, bể một mét.', 'Cỡ như bể này châm 4 nắp.', 'Những cái bể này châm 4 nắp.', 'Những bể như bể này châm 4 nắp.', 'Bể mẫu nào cũng châm 2 nắp.', 'Bể này châm phân, bể này dùng 20 mg/l.', 'Ở bể 60 lít này châm 20 mg/l.', 'Bể này châm 4 nắp, nitrat khoảng 20 mg/l.']) expect(ownTankDose(s), s).toBe(false)
 })
 
-test('the video\'s own dose stays only in a sentence carried over whole, in any dose unit; a reading in mg/l is not a dose (Grok\'s second read)', async () => {
+test('the video\'s own dose stays only in a sentence carried over whole, in any dose unit (Grok\'s second read)', async () => {
   const cases: [string, string, string, FitFinding[]][] = [
     ['the dose kept, another copy dropped', `${OWN}<p>Ngoài ra còn 4 nắp trong tủ.</p>`, `<p>Bể 10 gallon là đủ cho một đàn nhỏ.</p><p>Châm vi sinh ngay, khoảng 4 nắp, liều theo hướng dẫn trên bao bì.</p><p>Ngoài ra còn trong tủ.</p><p>${LONG}</p>`, [own, gallons, caps]],
     ['a sachet kept', `<p>Bể 10 gallon là đủ.</p><p>Châm vi sinh ngay, bể này dùng 2 sachet.</p><p>${LONG}</p>`, `<p>Bể 10 gallon là đủ.</p><p>Châm vi sinh ngay, 2 sachet, liều theo hướng dẫn trên bao bì.</p><p>${LONG}</p>`, [gallons, { ...caps, quote: 'bể này dùng 2 sachet' }]],
@@ -221,7 +223,4 @@ test('the video\'s own dose stays only in a sentence carried over whole, in any 
   // The other copy kept as it was, beside the dose gone: the mend stands.
   const two = await setup({ body: `${OWN}<p>Ngoài ra còn 4 nắp trong tủ.</p>`, faq: [] })
   expect(await deps(two.root, kept(`<p>Bể 10 gallon là đủ cho một đàn nhỏ.</p><p>Châm vi sinh ngay, liều theo hướng dẫn trên bao bì.</p><p>${LONG}</p><p>Ngoài ra còn 4 nắp trong tủ.</p>`)).mend(page(), [own, gallons, caps])).toBe(true)
-  // A nitrate reading kept beside the dose gone.
-  const mgl = await setup({ body: `<p>Bể 10 gallon là đủ.</p><p>Bể này châm 4 nắp, nitrat khoảng 20 mg/l.</p><p>${LONG}</p>`, faq: [] })
-  expect(await deps(mgl.root, kept(`<p>Bể 10 gallon là đủ.</p><p>Châm vi sinh, liều theo hướng dẫn trên bao bì, nitrat khoảng 20 mg/l.</p><p>${LONG}</p>`)).mend(page(), [gallons, { ...caps, quote: 'Bể này châm 4 nắp' }])).toBe(true)
 })
