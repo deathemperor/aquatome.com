@@ -260,6 +260,13 @@ test('a mend takes out only a sentence a finding names: one that drops or reword
     expect(prompts, name).toHaveLength(1) // the editor, and no review: refused before it
     expect(await readFile(file, 'utf8'), name).toBe(was)
   }
+  // A quote that ends its sentence takes only that sentence, not the next (Grok's read).
+  const stop = await setup({ body: `<p>Bể 10 gallon là đủ.</p><p>Bể này dùng khoảng 4 nắp. Cá ăn vào buổi sáng.</p><p>${LONG}</p>`, faq: [] })
+  expect(await deps(stop.root, kept(`<p>Bể 10 gallon là đủ.</p><p>Châm vi sinh, liều theo hướng dẫn trên bao bì.</p><p>${LONG}</p>`)).mend(page(), [gallons, { ...caps, quote: 'Bể này dùng khoảng 4 nắp.' }])).toEqual({ refused: 'a sentence no finding names was changed or left out: "cá ăn vào buổi sáng."' })
+  expect(await readFile(stop.file, 'utf8')).toBe(stop.was)
+  // A summary the editor returns escaped ("&amp;") is the same words, as it's written unescaped.
+  const amp = await setup({ summary: ['Cá & tép ăn sáng.'] })
+  expect(await deps(amp.root, { fixed: { summary: ['Cá &amp; tép ăn sáng.'] } }).mend(page(), [shop, price])).toBe(true)
   // Only the sentences with a finding's quote changed, every other word for word, the FAQ's repeat of the quote too: kept.
   const { root } = await setup({ body: before })
   expect(await deps(root, kept(`<p>Bể nhỏ dễ dựng. Cá ăn vào buổi sáng.</p><h3>Mua đồ</h3><p>Lọc mua ở tiệm cá cảnh. Bể 38 lít là vừa.</p><p>Lọc nên mua ở tiệm Petco cho rẻ.</p><p>${LONG}</p>`)).mend(page(), [shop, price])).toBe(true)

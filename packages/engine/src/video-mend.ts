@@ -17,14 +17,19 @@ import { fixDraft, reviewDraft, type Draft, type WriteOpts, type YouTube } from 
 /** What the mender's editor is told to do, said to its reviewer: a foreign price turned into the comparison it makes is a fact kept (the Writing Lead's ruling, 2026-11-11). */
 const REVIEW_NOTE = readFileSync(new URL('./prompts/video-mend-review.md', import.meta.url), 'utf8')
 
-/** The sentence a quote sits in, within its paragraph (both as `norm` gives them); the quote alone when no paragraph has it whole. */
+/**
+ * The sentence a quote sits in, within its paragraph (both as `norm` gives them); the quote alone when no paragraph has it
+ * whole. A quote that ends its sentence ("…4 nắp.", as the reader stores one) ends there, not at the next sentence's stop
+ * (Grok's read).
+ */
 function sentenceOf(paragraphs: string[], quote: string): string {
   for (const p of paragraphs) {
     const i = p.indexOf(quote)
     if (i < 0) continue
     const start = Math.max(p.lastIndexOf('. ', i), p.lastIndexOf('? ', i), p.lastIndexOf('! ', i)) + 1
-    const end = p.slice(i + quote.length).search(/[.?!](?:\s|$)/)
-    return p.slice(start, end < 0 ? p.length : i + quote.length + end + 1)
+    const from = i + Math.max(0, quote.length - 1)
+    const end = p.slice(from).search(/[.?!](?:\s|$)/)
+    return p.slice(start, end < 0 ? p.length : from + end + 1)
   }
   return quote
 }
@@ -173,7 +178,9 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   // repeated mention is worth adding.
   const quotes = findings.filter(f => f.check !== 'units').map(f => norm(f.quote))
   // Line by line, as the text it mends is read: a heading or the title is its own sentence.
-  const kept = new Set(split([name, ...fixed.summary, ...render(sanitizeHtml(fixed.body)).split('\n'), ...fixed.faq.flatMap(f => [f.q, f.a])].map(norm).join('\n')))
+  // The summary and FAQ as they're written: unescaped ("&amp;" is "&", Grok's read).
+  const plain = plainParts(fixed.summary, fixed.faq)
+  const kept = new Set(split([name, ...plain.summary, ...render(sanitizeHtml(fixed.body)).split('\n'), ...plain.faq.flatMap(f => [f.q, f.a])].map(norm).join('\n')))
   const lost = split(paragraphs.join('\n')).filter(x => !kept.has(x) && !quotes.some(q => x.includes(q)) && !findings.some(f => f.check !== 'units' && split(sentence(f)).includes(x)))
   if (lost.length) return { refused: `a sentence no finding names was changed or left out: "${lost[0]}"${lost.length > 1 ? ` and ${lost.length - 1} more` : ''}` }
 
