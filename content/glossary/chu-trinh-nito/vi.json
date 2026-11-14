@@ -4,12 +4,17 @@
   "altNames": [
     "chu trình nitrogen",
     "chạy bể",
-    "cycle bể"
+    "cycle bể",
+    "Chu trình Nito",
+    "chu kỳ Nitơ",
+    "Cycle nước",
+    "Nitrogen cycle"
   ],
   "sections": {},
-  "definition": "Quá trình vi khuẩn có lợi chuyển amoniac độc (từ phân cá và thức ăn thừa) thành nitrit, rồi thành nitrat ít độc hơn. Bể mới cần vài tuần để đàn vi khuẩn này phát triển trong lọc và nền trước khi thả cá; bỏ qua bước này là nguyên nhân phổ biến khiến cá chết hàng loạt ở bể mới.",
+  "body": "<h3>Trong bể của bạn</h3>\n<p>Cá thải amoniac qua mang. Vi khuẩn Nitrosomonas biến amoniac thành nitrit, sau đó một nhóm vi khuẩn khác biến nitrit thành nitrat. Cây hút nitrat làm phân, và mỗi lần thay nước cũng bỏ bớt đi một phần.</p>\n<p>Bộ test thường đo tổng amoniac (TAN), tức là gồm cả NH3 độc lẫn NH4+ ít độc hơn. pH và nhiệt độ càng cao thì NH3 chiếm càng nhiều. Cá nước ngọt thường chịu được TAN dưới 1 mg/L. Nitrit độc từ khoảng 0,1 mg/L NO2, và mức này chênh nhiều giữa các loài. Nitrat ít độc hơn, nên giữ dưới 20 mg/L.</p>\n<p>Cá ngộ độc amoniac thì lờ đờ, bỏ ăn, bơi xoay vòng hoặc giật cục và sẫm màu đi. Cá ngộ độc nitrit thì tụ lên mặt nước đớp khí. Lọc chín khi TAN và nitrit lên đỉnh rồi giảm xuống, sau đó nitrat tăng lên. Có tiệm nói chu trình xong sau 1–2 tuần, nhưng tài liệu thú y ghi rằng lọc mới thường mất khoảng 6 tuần mới ổn định hẳn. Đo TAN và nitrit bằng bộ test mỗi ngày cho đến khi lọc chín.</p>\n<h3>Nên làm gì</h3>\n<ol>\n<li>Set bể, chạy lọc 24/24 và sục khí.</li>\n<li>Khử clo cho nước máy bằng một trong ba cách: trữ 3–4 ngày, sục khí 24 giờ, hoặc dùng Seachem Prime.</li>\n<li>Trước khi thả cá, cho lọc \"ăn\" bằng một ít thức ăn cá hoặc amoni clorua. Châm thêm men vi sinh của hãng uy tín, hoặc lấy nước, bông lọc từ một bể đã ổn định; riêng vật liệu lọc thì chỉ lấy từ bể đã ổn định mà cá trong đó đều khỏe.</li>\n<li>Đo TAN và nitrit mỗi ngày, thay nước thường xuyên cho tới khi lọc chín.</li>\n<li>Thả cá từ từ, không nuôi quá dày, không cho ăn quá nhiều.</li>\n</ol>\n<p>Khi thấy amoniac cao, thay ngay ít nhất 50% nước, và giảm hoặc ngừng cho ăn cho tới khi số đo về lại bình thường.</p>\n<h3>Sai lầm hay gặp</h3>\n<ul>\n<li>Rửa vật liệu lọc dưới vòi nước máy. Clo trong nước sẽ giết vi khuẩn có lợi.</li>\n<li>Bật tắt lọc liên tục, hoặc thay hết nước một lần.</li>\n<li>Thả cá khi chu trình chưa ổn định. Cá thả vào giai đoạn amoniac rất dễ mắc bệnh.</li>\n</ul>",
+  "definition": "Chu trình nitơ là quá trình vi khuẩn có lợi trong lọc biến amoniac từ chất thải của cá thành nitrit rồi nitrat. Bể mới chưa có đàn vi khuẩn này, nên amoniac và nitrit dễ tăng vọt trong 2–3 tuần đầu.",
   "quality": {
-    "score": 0.9,
+    "score": 1,
     "indexable": true
   }
 }
