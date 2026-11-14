@@ -441,6 +441,7 @@ test('what needs you is one card: each row its kind\'s icon (the triangle only f
   expect(page.querySelectorAll('ul.todo > li').map(li => [txt(li.querySelector('b')), li.getAttribute('class'), li.querySelector('.ic')!.getAttribute('data-i'), li.querySelector('.sub')?.text ?? ''])).toEqual([
     ['Fish ID and chat are down', 'bad', 'alert', 'Every key resting, the first until Wed 4 Nov, 16:30.'],
     ['2Hr Aquarist needs a browser check', 'bad', 'alert', '2Hr Aquarist since Wed 4 Nov, 5:00'],
+    ['No new video guides', 'bad', 'alert', 'Since Tue 27 Oct, 3:17'],
     ['5 comments held for review', 'wait', 'comment', 'Cá neon vua · Cá betta (cá xiêm)'],
     ['2 reader photos to approve', 'wait', 'photo', 'Cá betta (cá xiêm) · Betta halfmoon'],
   ])
@@ -554,12 +555,13 @@ test('the overview\'s version 2: the tiles add up to their parts, found an answe
   expect(ch.today).toBe(2) // Wednesday: Thursday to Sunday still to come
   expect(ch.series[0]!.values.slice(3)).toEqual([null, null, null, null])
   // Needs: faults first, then what waits on the owner; the tile counts the items.
-  expect(t.needs.map(x => [x.kind, x.tone, x.section])).toEqual([['key', 'bad', 'nhan-dien-ca'], ['engine', 'bad', 'noi-dung'], ['comments', 'wait', 'binh-luan'], ['photos', 'wait', 'anh-ban-doc']])
+  // The video guides added nothing since the first save while 200 videos wait: the engine's, a fault (admin/publishing.ts).
+  expect(t.needs.map(x => [x.kind, x.tone, x.section])).toEqual([['key', 'bad', 'nhan-dien-ca'], ['engine', 'bad', 'noi-dung'], ['engine', 'bad', 'noi-dung'], ['comments', 'wait', 'binh-luan'], ['photos', 'wait', 'anh-ban-doc']])
   expect(t.needs.find(x => x.kind === 'photos')!.photos).toEqual(S.WAITING.map(w => w.id))
-  expect(t.tiles[0]).toMatchObject({ value: '9', sub: '7 to review · 2 to fix', tone: 'bad' })
+  expect(t.tiles[0]).toMatchObject({ value: '10', sub: '7 to review · 3 to fix', tone: 'bad' })
   expect(t.needs.map(x => [x.text, x.sub])).toEqual([
     ['Fish ID and chat are down', 'Every key resting, the first until Wed 4 Nov, 16:30.'], ['2Hr Aquarist needs a browser check', '2Hr Aquarist since Wed 4 Nov, 5:00'],
-    ['5 comments held for review', 'Cá neon vua · Cá betta (cá xiêm)'], ['2 reader photos to approve', 'Cá betta (cá xiêm) · Betta halfmoon'],
+    ['No new video guides', 'Since Tue 27 Oct, 3:17'], ['5 comments held for review', 'Cá neon vua · Cá betta (cá xiêm)'], ['2 reader photos to approve', 'Cá betta (cá xiêm) · Betta halfmoon'],
   ])
   // A day's AI spend near its cap waits on the owner: to review, not a fault.
   const spend = todayJson(S.SPENDING)

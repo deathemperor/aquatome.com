@@ -397,10 +397,13 @@ export const TODAY: Today = {
   lastReport: (REPORTS.xs as Exclude<ReportsData['xs'], { failed: string }>)[0]!, changes: CHANGES,
   acts: [{ kind: 'comment-hidden', at: '2026-11-03T06:00:00.000Z', ref: 'species:paracheirodon-axelrodi' }, { kind: 'comment-hidden', at: '2026-11-04T01:00:30.000Z', ref: 'id:species:paracheirodon-innesi' }],
 }
-/** Nothing needs the owner: every key working, nothing held or waiting, no source waiting on a browser check. */
+/**
+ * Nothing needs the owner: every key working, nothing held or waiting, no source waiting on a browser check, and no video
+ * waiting to be written (so the video guides, flat since the first save, haven't stalled).
+ */
 export const CALM: Today = {
   ...TODAY, keys: { ...FISH.keys, rows: FISH.keys.rows.map(({ until: _u, ...r }) => ({ ...r, state: 'ok' as const })) }, held: 0, waitingPhotos: [],
-  waiting: { comments: 0, photos: 0, oldest: null }, content: { ...NAMED, engine: STATS.engine && { ...STATS.engine, needsHuman: [] } }, crashes: 0,
+  waiting: { comments: 0, photos: 0, oldest: null }, content: { ...NAMED, engine: STATS.engine && { ...STATS.engine, needsHuman: [], videos: { ...STATS.engine.videos, waiting: 0 } } }, crashes: 0,
 }
 /** A day's AI spend near its cap: the cap set low ($2 a day), and a busy day of chat on top of fish ID. */
 export const SPENDING: Today = { ...CALM, keys: { ...CALM.keys!, cap: 2, spend: [{ day: '2026-11-04', usd: 1.7 }, ...FISH.keys.spend.slice(1)] } }
