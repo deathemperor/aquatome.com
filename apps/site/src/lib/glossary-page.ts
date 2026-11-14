@@ -1,5 +1,6 @@
 import { FIRST_PLANTS, linkTerms, plainText, POPULAR, slugify, STAPLE_SPECIES, type Content, type GlossaryEntity, type GuideEntity, type Localized } from '@aq/schema'
 import { translator, type Lang } from './i18n'
+import { materialPath } from './materials'
 import { mentionIndex } from './mentions'
 import { sectionParts } from './section-parts'
 import { foldNearEmpty } from './sections'
@@ -100,7 +101,8 @@ export function termTitle(g: Localized<GlossaryEntity>): string {
  * (engine glossary-entry.ts), under plain headings as a guide's, with the other terms, fish and plants they name linked
  * once each (never its own names); the terms to see next; the pages that link it, guides that explain the term first
  * (its name in their title, then the most uses of its names in their text, then the most recently updated) and fish and
- * plants as termUses ranks them; and the pages its entry was researched from.
+ * plants as termUses ranks them; and the pages its entry was researched from. On a Vietnamese page, the link to the
+ * material page of the same id (never localized into another language, where the material page isn't).
  */
 export function glossaryParts(lang: Lang, c: Content, g: Localized<GlossaryEntity>) {
   const key = `glossary:${g.id}`
@@ -123,5 +125,7 @@ export function glossaryParts(lang: Lang, c: Content, g: Localized<GlossaryEntit
   const { fish, plants } = uses
   // More of a kind than its list shows: the page searches for the rest.
   const more = guides.length > USED_IN_SHOWN.guides || fish.length > USED_IN_SHOWN.fish || plants.length > USED_IN_SHOWN.plants
-  return { otherNames, definition, photo: g.photos?.[0], body, related, refs: g.refs ?? [], guides, fish, plants, total: usedCount(uses), more }
+  const m = lang === 'vi' ? c.materials.find(m => m.id === g.id) : undefined
+  const material = m ? { href: materialPath(m), text: `Xem trang ${m.t.name}: cách chọn, xử lý${m.parent ? '' : ` và các loại ${m.t.name.toLocaleLowerCase('vi')}`} →` } : undefined
+  return { otherNames, definition, material, photo: g.photos?.[0], body, related, refs: g.refs ?? [], guides, fish, plants, total: usedCount(uses), more }
 }

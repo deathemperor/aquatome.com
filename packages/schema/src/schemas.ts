@@ -3,7 +3,7 @@ import { isCountryCode } from './countries'
 import { WRITTEN_OTHER_LANGS, type WrittenOtherLang } from './langs'
 import { byCount, CELL_DEG } from './range'
 
-export const SOURCE_IDS = ['seriouslyfish', 'planetcatfish', 'loachesonline', 'glaser', 'bwaquatics', '2hraquarist', 'aquariumcoop', 'sprucepets', 'aquariumbreeder', 'tropica', 'scotcat', 'facebook-jim', 'panitvong', 'cryptspages', 'diendancacanh', 'youtube', 'aquatome', 'aquazonefish', 'aquahouse', 'chothuysinh', 'cacanhtailoc'] as const
+export const SOURCE_IDS = ['seriouslyfish', 'planetcatfish', 'loachesonline', 'glaser', 'bwaquatics', '2hraquarist', 'aquariumcoop', 'sprucepets', 'aquariumbreeder', 'tropica', 'scotcat', 'facebook-jim', 'panitvong', 'cryptspages', 'diendancacanh', 'youtube', 'aquatome', 'aquazonefish', 'aquahouse', 'chothuysinh', 'cacanhtailoc', 'practicalfishkeeping'] as const
 export { LANGS, WRITTEN_LANGS } from './langs'
 
 export const SECTION_ORDER = ['quickFacts', 'beforeYouBuy', 'distribution', 'habitat', 'aquariumSize', 'maintenance', 'waterConditions', 'equipment', 'diet', 'behaviour', 'dimorphism', 'reproduction', 'notes', 'references'] as const
@@ -285,7 +285,8 @@ export const OneVoiceSchema = z.record(z.string(), z.partialRecord(z.enum(SECTIO
  * check had judged had been rejected, most as another fish; the check takes the mark off a photo it judges and leaves on.
  * A photo without it was added before, or has been judged.
  */
-const GalleryPhoto = Photo.extend({ best: z.boolean().optional(), kind: z.string().optional(), unchecked: z.boolean().optional() })
+/** `setup`: the album check's word that the fish sits in a photo tank, box, tray or cup, or beside a ruler or a printed board (engine gallery.ts setupLast). */
+const GalleryPhoto = Photo.extend({ best: z.boolean().optional(), kind: z.string().optional(), setup: z.boolean().optional(), unchecked: z.boolean().optional() })
 export const GallerySchema = z.object({ id: z.string(), photos: z.array(GalleryPhoto), seen: z.number(), updatedAt: z.string(), builtAt: z.string().optional() })
 
 const ProductSpec = z.object({ key: z.string(), value: z.string(), source: z.number().int().optional() })

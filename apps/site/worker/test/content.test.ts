@@ -53,7 +53,7 @@ test('the loader reads content.json through ASSETS; a build without it gives und
   await expect(loadContentStats(assets(JSON.stringify({ v: 2 })), 'https://x.test')).rejects.toThrow('content.json v2')
   // Every built page by path, each with its kind and, for an item's page, its item.
   const index = pageIndex(STATS)
-  expect(index.size).toBe(178)
+  expect(index.size).toBe(181)
   expect(index.get('/ca/ca-neon-vua/')).toEqual({ path: '/ca/ca-neon-vua/', title: 'Cá neon vua', kind: 'fish', id: 'paracheirodon-axelrodi' })
 })
 
@@ -82,7 +82,7 @@ test('reads: readers per page kind, the most-read pages with their titles, the p
     ['/huong-dan/thay-nuoc-dung-cach/', 'Thay nước đúng cách', 'guide', 1, 1],
     ['/cay/monte-carlo/', 'Monte Carlo', 'plant', 0, 1],
   ])
-  expect(r.unread.n).toBe(176)
+  expect(r.unread.n).toBe(179)
   expect(r.unread.byKind).toMatchObject({ fish: 9, guide: 7, plant: 5 })
   expect(r.unread.pages.map(p => p.path)).not.toContain('/ca/ca-neon-vua/')
   expect(r.unread.pages).toHaveLength(100)

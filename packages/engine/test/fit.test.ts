@@ -536,3 +536,26 @@ test('a dealer\'s own current batch or stock is the source check\'s; trade histo
   // Only Vietnamese, for now.
   expect(fitRules(page('<p>Bây giờ dạng thuần đã có hàng trở lại.</p>', { lang: 'id', path: '/id/panduan/g/' })).filter(f => f.why.startsWith('a dealer'))).toEqual([])
 })
+
+// The Writing Lead, 14 Nov 2026: the glowlight tetra's "Lá dẻ gai hay lá sồi đều dùng được" passed the read.
+test('the elsewhere check names leaves and wood keepers here don\'t buy or gather, and nothing to use instead', () => {
+  expect(fitPrompt('vi')).toMatch(/- elsewhere: [^\n]*Leaves, wood and other things for the tank that keepers in Vietnam don't buy or gather, such as beech or oak leaves and wood from European trees: an elsewhere finding\. Quote the words\. Not:/)
+  // Nothing to use instead: a writer given "lá bàng" would say what the source didn't (the Writing Lead).
+  expect(fitPrompt('vi')).not.toContain('lá bàng')
+  // It names Vietnam and what keepers there use: no other language's reader is judged by it (Astra's read).
+  for (const lang of ['id', 'th', 'ms'] as const) {
+    expect(fitPrompt(lang), lang).not.toContain('Leaves, wood and other things')
+    expect(fitPrompt(lang), lang).not.toContain('{{LEAVES_NOTE}}')
+  }
+})
+
+// The chief of staff, 14 Nov 2026: on a guide written from the video above it, the video's build told as a worked example
+// that names its own size and figures is the guide's own, not the source talking (the Writing Lead's words).
+test('a video guide\'s read takes the video\'s build told as a worked example; no other page\'s does', () => {
+  expect(fitPrompt('vi', 'guides', true)).toContain('On a guide written from the video above it: the video\'s build written as an example that names its own size and figures ("Ví dụ, một bể dài 45 cm…"')
+  expect(fitPrompt('vi', 'guides', true)).toContain('Still a finding: a first-person story, a bare "bể này", "ở đây", "lần này" or "hôm đó", "bể mẫu"')
+  for (const [lang, kind, video] of [['vi', 'guides', false], ['vi', 'species', false], ['th', 'guides', true]] as const) {
+    expect(fitPrompt(lang, kind, video)).not.toContain('On a guide written from the video')
+    expect(fitPrompt(lang, kind, video)).not.toContain('{{VIDEO_NOTE}}')
+  }
+})

@@ -30,6 +30,7 @@ const used = [
   {p.otherNames.length > 0 && <p class="aka">{t('Tên khác: {names}', { names: p.otherNames.join(', ') })}</p>}
   <p class="en">{t('Tiếng Anh:')} <span lang="en">{g.en}</span>{g.latin && <>, <span class="sci">{g.latin}</span></>}</p>
   {p.definition && <p class="def" set:html={p.definition} />}
+  {p.material && <p class="material-link"><a href={p.material.href}>{p.material.text}</a></p>}
   {p.photo && <Fragment set:html={figureHtml(lang, { photo: p.photo, label: p.photo.caption })} />}
   {p.body && <div class="body" set:html={p.body} />}
   {p.related.length > 0 && (

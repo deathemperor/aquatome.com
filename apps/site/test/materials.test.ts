@@ -5,7 +5,7 @@ import { expect, test } from 'vitest'
 import { allPages } from '../e2e/pages'
 import { DIST, page, sitemapText } from './dist'
 
-const slugs = ['lua', 'lua-sa-tung']
+const slugs = ['lua', 'lua-mopani', 'lua-sa-tung']
 const files = (dir: string): string[] => readdirSync(dir, { withFileTypes: true }).flatMap(e => e.isDirectory() ? files(join(dir, e.name)) : [join(dir, e.name)])
 
 test('the material page answers first, then shows its photo, six sections, FAQ, sources and parent', () => {
@@ -38,35 +38,85 @@ test('each numbered mark opens the source with that number in the source list', 
   expect(dom.querySelector('.material')!.text).not.toMatch(/\[\d+\]/)
 })
 
-test('general material lists its kinds, omits absent sections and has no fabricated section-index link', () => {
+test('general material lists its kinds, omits absent sections and links the hub', () => {
   const { dom } = page('/vat-lieu/lua/')
-  expect(dom.querySelector('.kinds a')!.getAttribute('href')).toBe('/vat-lieu/lua-sa-tung/')
+  expect(dom.querySelectorAll('.kinds a').map(a => a.getAttribute('href')).sort()).toEqual(['/vat-lieu/lua-mopani/', '/vat-lieu/lua-sa-tung/'])
   expect(dom.querySelectorAll('[data-section]').map(s => s.getAttribute('data-section'))).toEqual(['about'])
   expect(dom.querySelector('.faq')).toBeNull()
   expect(dom.querySelector('figure.gallery')).toBeNull()
-  expect(dom.querySelector('a[href="/vat-lieu/"]')).toBeNull()
-  expect(existsSync(join(DIST, 'vat-lieu/index.html'))).toBe(false)
+  expect(dom.querySelector('nav.crumb a[href="/vat-lieu/"]')!.text).toBe('Vật liệu')
+  expect(existsSync(join(DIST, 'vat-lieu/index.html'))).toBe(true)
 })
 
-test('pilot pages are Vietnamese-only, noindex and outside every discovery surface', () => {
-  for (const slug of slugs) {
-    const { dom } = page(`/vat-lieu/${slug}/`)
+test('pilot pages and hub are Vietnamese-only, noindex, outside Google and in the internal search index', () => {
+  for (const path of ['/vat-lieu/', ...slugs.map(s => `/vat-lieu/${s}/`)]) {
+    const { dom } = page(path)
     expect(dom.querySelector('html')!.getAttribute('lang')).toBe('vi')
     expect(dom.querySelector('meta[name="robots"]')!.getAttribute('content')).toContain('noindex')
-    expect(dom.querySelector('[data-pagefind-body]')).toBeNull()
+    expect(dom.querySelector('main[data-pagefind-body]')).not.toBeNull()
     expect(dom.querySelectorAll('link[hreflang]').map(l => l.getAttribute('hreflang'))).toEqual(['vi', 'x-default'])
   }
   expect(sitemapText()).not.toContain('/vat-lieu/')
   expect(readFileSync(join(DIST, 'llms.txt'), 'utf8')).not.toContain('/vat-lieu/')
   const fragments = files(join(DIST, 'pagefind/fragment')).map(f => gunzipSync(readFileSync(f)).toString('utf8'))
   expect(fragments.length).toBeGreaterThan(0)
-  expect(fragments.filter(f => f.includes('/vat-lieu/'))).toEqual([])
+  for (const path of ['/vat-lieu/', ...slugs.map(s => `/vat-lieu/${s}/`)]) expect(fragments.some(f => f.includes(path)), path).toBe(true)
   const appFiles = files(join(DIST, 'app')).filter(f => f.endsWith('.json'))
   expect(appFiles.length).toBeGreaterThan(0)
-  expect(appFiles.filter(f => /vat-lieu|lua-sa-tung/.test(readFileSync(f, 'utf8')))).toEqual([])
+  const vi = JSON.parse(readFileSync(join(DIST, 'app/vi.json'), 'utf8'))
+  expect(vi.items.filter((i: { kind: string }) => i.kind === 'material')).toHaveLength(3)
+  for (const file of appFiles.filter(f => /\/(id|th|ms)\.json$/.test(f))) expect(readFileSync(file, 'utf8')).not.toContain('vat-lieu')
   const pages = allPages(DIST)
-  expect(pages.filter(p => p.includes('/vat-lieu/')).sort()).toEqual(slugs.map(s => `/vat-lieu/${s}/`).sort())
-  for (const path of pages.filter(p => !p.startsWith('/vat-lieu/'))) {
+  expect(pages.filter(p => p.includes('/vat-lieu/')).sort()).toEqual(['/vat-lieu/', ...slugs.map(s => `/vat-lieu/${s}/`)].sort())
+  for (const path of pages.filter(p => !p.startsWith('/vat-lieu/') && p !== '/thuat-ngu/lua/')) {
     expect(page(path).dom.querySelector('a[href^="/vat-lieu/"]'), path).toBeNull()
+  }
+})
+
+test('the hub shows the title and intro, then each group, its wide card and fixed-width kind cards, with a word-only plate', () => {
+  const { dom } = page('/vat-lieu/')
+  expect(dom.querySelector('main h1')!.text).toBe('Vật liệu')
+  expect(dom.querySelector('main .intro')!.text).toBe('Lũa, đá, nền và lá khô cho bể thủy sinh: cách chọn và xử lý.')
+  expect(dom.querySelector('nav.crumb a')!.getAttribute('href')).toBe('/')
+  const groups = dom.querySelectorAll('.materials > section')
+  expect(groups.map(g => g.getAttribute('id'))).toEqual(['lua'])
+  const group = groups[0]!
+  expect(group.querySelector('h2')!.text).toBe('Lũa · 2')
+  expect(group.querySelector('a.wide')!.getAttribute('href')).toBe('/vat-lieu/lua/')
+  const cards = group.querySelectorAll('.grid > a')
+  expect(cards.map(a => a.getAttribute('href'))).toEqual(['/vat-lieu/lua-mopani/', '/vat-lieu/lua-sa-tung/'])
+  const plate = cards[0]!
+  expect(plate.classList.contains('no-photo')).toBe(true)
+  expect(plate.querySelector('img, svg')).toBeNull()
+  expect(plate.querySelector('h3')!.text).toBe('Lũa mopani')
+  expect(plate.querySelector('.summary')!.text).toBe('Lũa mopani dùng để tạo bố cục trong bể.')
+  expect(cards[1]!.querySelector('.aka')!.text).toBe('Gỗ sa tùng · Sa tùng')
+  expect(cards[1]!.querySelector('img')).not.toBeNull()
+  expect(dom.querySelector('footer')!.text).toContain('CC0')
+})
+
+test('material crumbs end with the current page, and their own element carries every search alias', () => {
+  for (const slug of slugs) {
+    const { dom } = page(`/vat-lieu/${slug}/`)
+    const crumb = dom.querySelector('nav.crumb')!
+    expect(crumb.querySelectorAll('a').map(a => [a.getAttribute('href'), a.text])).toEqual([
+      ['/', 'Trang chủ'], ['/vat-lieu/', 'Vật liệu'], ...(slug === 'lua' ? [] : [['/vat-lieu/lua/', 'Lũa']]),
+    ])
+    expect(crumb.querySelector('[aria-current="page"]')!.text).toBe(dom.querySelector('h1')!.text)
+    expect(dom.querySelector('.material')!.getAttribute('data-pagefind-meta')).toBe('aka[data-aka]')
+  }
+  const aka = page('/vat-lieu/lua-sa-tung/').dom.querySelector('[data-aka]')!.getAttribute('data-aka')!.split(', ')
+  for (const name of ['Sa tùng', 'Kim sa tùng', 'Lũa kim sa tùng', 'Gỗ sa tùng', 'Sa tung wood']) expect(aka).toContain(name)
+  expect(page('/vat-lieu/lua-mopani/').dom.querySelector('figure.gallery')).toBeNull()
+})
+
+test('the Vietnamese glossary links the matching material; other languages never link a material page', () => {
+  const { dom } = page('/thuat-ngu/lua/')
+  const a = dom.querySelector('.material-link a')!
+  expect(a.getAttribute('href')).toBe('/vat-lieu/lua/')
+  expect(a.text).toBe('Xem trang Lũa: cách chọn, xử lý và các loại lũa →')
+  expect(page('/thuat-ngu/ph/').dom.querySelector('.material-link')).toBeNull()
+  for (const path of allPages(DIST).filter(p => /^\/(id|th|ms)\//.test(p))) {
+    expect(page(path).dom.querySelector('a[href*="vat-lieu"]'), path).toBeNull()
   }
 })

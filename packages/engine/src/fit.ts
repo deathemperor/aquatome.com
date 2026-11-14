@@ -93,8 +93,21 @@ const CARD_NOTE = `
 const CLIMATE_NOTE: Partial<Record<Lang, string>> = {
   vi: ' For this reader the North\'s winter is their own (December to February: rooms at 10–15 °C at night, a heater in the tank), and so is the South\'s rainy season: a cold room in winter, or heating the tank against it, doesn\'t count. A home warmed by a furnace, radiators or central heating, a basement, snow or a frozen pond still does.',
 }
-export const fitPrompt = (lang: Lang, kind?: PageKind) => TEMPLATE
+/**
+ * A guide written from the video above it (the chief of staff, 14 Nov 2026): the video's own build, given as a worked
+ * example that names its own size and figures, is the guide's, not the source talking. The Writing Lead's words.
+ */
+const VIDEO_NOTE = ` On a guide written from the video above it: the video's build written as an example that names its own size and figures ("Ví dụ, một bể dài 45 cm…", "Với bể 45 cm chẳng hạn, …"). Still a finding: a first-person story, a bare "bể này", "ở đây", "lần này" or "hôm đó", "bể mẫu", the channel's shop, news or stock, and anything for another country.`
+/**
+ * Leaves and wood keepers in Vietnam don't buy or gather (the Writing Lead, 14 Nov 2026): Vietnamese pages only, as it
+ * names Vietnam (Astra's read). It names nothing to use instead: a writer that took "lá bàng" from the finding would say
+ * what the source didn't (the Writing Lead, 14 Nov 2026).
+ */
+const LEAVES_NOTE = ` Leaves, wood and other things for the tank that keepers in Vietnam don't buy or gather, such as beech or oak leaves and wood from European trees: an elsewhere finding. Quote the words.`
+export const fitPrompt = (lang: Lang, kind?: PageKind, video = false) => TEMPLATE
   .replace('{{CARD_NOTE}}', kind === 'cards' ? CARD_NOTE : '')
+  .replace('{{VIDEO_NOTE}}', video && lang === 'vi' ? VIDEO_NOTE : '')
+  .replace('{{LEAVES_NOTE}}', lang === 'vi' ? LEAVES_NOTE : '')
   .replace('{{CLIMATE_NOTE}}', CLIMATE_NOTE[lang] ?? '')
   .replaceAll('{{COUNTRY}}', COUNTRY[lang]).replaceAll('{{LANG}}', LANG_NAME[lang])
   .replace('{{SHOP_NOTE}}', lang === 'vi' ? '' : ' A Vietnamese chain (Pharmacity) counts too: this reader isn\'t in Vietnam.')
@@ -536,7 +549,7 @@ export function keepCautions(found: { doseQuote: string; sourceQuote: string; an
 /** One model reads one page against the checklist; when the page has doses, against what the page was written from too. */
 export async function readFit(llm: Llm, p: Page, model: string | undefined, now: Date, source?: string): Promise<FitEntry> {
   const { text, hash } = fitText(p)
-  const r = await llm<{ findings: Found[]; products: string[]; doses?: FitDose[] }>({ system: fitPrompt(p.lang, p.kind), prompt: text, schema: SCHEMA, ...(model ? { model } : {}) })
+  const r = await llm<{ findings: Found[]; products: string[]; doses?: FitDose[] }>({ system: fitPrompt(p.lang, p.kind, p.kind === 'guides' && p.id.startsWith('youtube-')), prompt: text, schema: SCHEMA, ...(model ? { model } : {}) })
   const doses = keepDoses(r.doses ?? [], text)
   const entry: FitEntry = { at: now.toISOString().slice(0, 10), hash, model: model ?? 'default', checklist: CHECKLIST, findings: keepFit((r.findings ?? []).filter(f => f.check !== 'card' || p.kind === 'cards'), text, p.lang), products: [...new Set((r.products ?? []).map(x => x.trim()).filter(Boolean))], ...(doses.length ? { doses } : {}) }
   if (!doses.length) return entry

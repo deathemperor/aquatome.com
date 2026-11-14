@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { localizeTopic, makeTopic, SOURCE_KINDS, usableFact, type TopicFacts } from '../src/topics'
+import { localizeTopic, makeTopic, recheckTopic, SOURCE_KINDS, usableFact, type TopicFacts } from '../src/topics'
 import { denied } from './piece-admission'
 
 const facts: TopicFacts = {
@@ -31,6 +31,9 @@ async function site() {
   await writeFile(join(r, 'content/breeds/oranda/vi.json'), JSON.stringify({ name: 'Cá vàng Oranda (Oranda)', altNames: [] }))
   await mkdir(join(r, 'content/guides/other'), { recursive: true })
   await writeFile(join(r, 'content/guides/other/vi.json'), JSON.stringify({ slug: 'ca-bi-loi-mat' })) // the address is taken
+  // The engine's record of its sources: what research, and a guide's citations, keep to (cycle-only.ts).
+  await mkdir(join(r, 'engine-state'), { recursive: true })
+  await writeFile(join(r, 'engine-state/_sources.json'), '{}')
   return r
 }
 
@@ -86,6 +89,39 @@ test('a rewrite from the kept research keeps a body fixed by hand', async () => 
   await writeFile(file, JSON.stringify({ ...JSON.parse(await readFile(file, 'utf8')), body: '<p>người sửa</p>', bodyFixed: true }))
   await makeTopic(root, { research: async () => { throw new Error('not asked') }, llm }, topic, { reuse: true })
   expect(JSON.parse(await readFile(file, 'utf8'))).toMatchObject({ body: '<p>người sửa</p>', bodyFixed: true })
+})
+
+// The chief of staff, 14 Nov 2026: research is denied a marketplace's pages and the hosts the engine reads only at its own
+// pace, but its answer can still cite one it found through search. Such a citation goes, and a fact resting on it alone.
+test("a guide never cites a page research may not read: a marketplace's, the magazine read for ideas, the Archive's, a shop that refused us", async () => {
+  const root = await site()
+  await writeFile(join(root, 'engine-state/_sources.json'), JSON.stringify({ aquazonefish: { blockedAt: '2026-11-14T00:00:00.000Z' } }))
+  const off = ['https://shopee.vn/thuoc-loi-mat-i.1.2', 'https://www.tokopedia.com/toko/obat-mata-ikan', 'https://www.practicalfishkeeping.co.uk/fishkeeping-answers/popeye/', 'https://web.archive.org/web/2020/https://x.org/popeye', 'https://aquazonefish.vn/blogs/kien-thuc/popeye']
+  const cited: TopicFacts = {
+    ...facts,
+    facts: [...facts.facts, ...off.map((_, i) => ({ section: 'treatment' as const, fact: `Only off-limits ${i}`, source: 4 + i })), { section: 'signs' as const, fact: 'Cloudy eyes too', source: 1 }],
+    sources: [...facts.sources, ...off.map((url, i) => ({ url, title: `Off ${i}`, kind: 'other' as const }))],
+  }
+  const prompts: string[] = []
+  const llm: Llm = async ({ prompt }) => { prompts.push(prompt); return (prompt.startsWith('Below are FACTS') ? { score: 0.95, notes: [] } : { name: 'Cá bị lồi mắt', summary: ['x'], body: '<p>x</p>', faq: [] }) as never }
+  const r = await makeTopic(root, { research: async () => cited as never, llm }, { topic: 'Cá bị lồi mắt (popeye)', kind: 'disease' }, { now: () => new Date('2026-11-14T00:00:00Z') })
+  expect(r).toMatchObject({ refs: 2 })
+  expect(prompts[0]).toContain('Cloudy eyes too')
+  for (const [i, url] of off.entries()) {
+    expect(prompts[0], url).not.toContain(`Only off-limits ${i}`)
+    expect(prompts[0], url).not.toContain(url)
+  }
+  const e = JSON.parse(await readFile(join(root, 'content/guides/aquatome-ca-bi-loi-mat-popeye/entity.json'), 'utf8'))
+  expect(e.refs.map((x: { url: string }) => x.url)).toEqual(['https://edis.ifas.ufl.edu/x', 'https://example.org/epsom'])
+  // Checked again later (review-backfill.ts), against the facts its writer had: the same facts, numbered the same, none of
+  // the refused pages' (Codex's read, 14 Nov 2026: the recheck read the research as saved, before the refusal).
+  const factsOf = (p: string) => { const f = JSON.parse(p.slice(p.indexOf('FACTS:\n') + 7, p.indexOf('\n\nGUIDE:'))); return { facts: f.facts, sources: f.sources } }
+  const written = factsOf(prompts.find(p => p.startsWith('Below are FACTS'))!)
+  const before = prompts.length
+  await recheckTopic(root, llm, 'aquatome-ca-bi-loi-mat-popeye', 'vi')
+  const rechecked = prompts.slice(before).find(p => p.startsWith('Below are FACTS'))!
+  expect(factsOf(rechecked)).toEqual(written)
+  for (const i of off.keys()) expect(rechecked).not.toContain(`Only off-limits ${i}`)
 })
 
 test('nothing reliable found: nothing written', async () => {
