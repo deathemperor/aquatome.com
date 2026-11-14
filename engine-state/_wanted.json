@@ -2322,14 +2322,6 @@
     ],
     "mentions": 2
   },
-  "leiocassis-micropogon": {
-    "name": "Leiocassis micropogon",
-    "mentionedIn": [
-      "species/akysis-hendricksoni",
-      "species/helostoma-temminckii"
-    ],
-    "mentions": 2
-  },
   "pseudogobiopsis-oligactis": {
     "name": "Pseudogobiopsis oligactis",
     "mentionedIn": [
@@ -3267,13 +3259,6 @@
     "name": "Geosesarma krathing",
     "mentionedIn": [
       "guides/aquariumbreeder-crabs-as-pets-pros-and-cons"
-    ],
-    "mentions": 1
-  },
-  "astacopsis-gouldi": {
-    "name": "Astacopsis gouldi",
-    "mentionedIn": [
-      "guides/aquariumbreeder-how-long-do-crayfish-live"
     ],
     "mentions": 1
   },
@@ -4728,13 +4713,6 @@
     ],
     "mentions": 1
   },
-  "pseudecheneis-sulcata": {
-    "name": "Pseudecheneis sulcata",
-    "mentionedIn": [
-      "species/aborichthys-elongatus"
-    ],
-    "mentions": 1
-  },
   "rasbora-myersi": {
     "name": "Rasbora myersi",
     "mentionedIn": [
@@ -4886,6 +4864,20 @@
     "name": "Papuligobius ocellatus",
     "mentionedIn": [
       "species/ambastaia-nigrolineata"
+    ],
+    "mentions": 1
+  },
+  "aspidoras-psammatides": {
+    "name": "Aspidoras psammatides",
+    "mentionedIn": [
+      "species/ammoglanis-multidentatus"
+    ],
+    "mentions": 1
+  },
+  "geophagus-diamantinensis": {
+    "name": "Geophagus diamantinensis",
+    "mentionedIn": [
+      "species/ammoglanis-multidentatus"
     ],
     "mentions": 1
   },
@@ -5041,6 +5033,20 @@
     "name": "Aspidoras velites",
     "mentionedIn": [
       "species/aspidoras-pauciradiatus"
+    ],
+    "mentions": 1
+  },
+  "astacopsis-franklinii": {
+    "name": "Astacopsis franklinii",
+    "mentionedIn": [
+      "species/astacopsis-gouldi"
+    ],
+    "mentions": 1
+  },
+  "astacopsis-tricornis": {
+    "name": "Astacopsis tricornis",
+    "mentionedIn": [
+      "species/astacopsis-gouldi"
     ],
     "mentions": 1
   },
@@ -6273,13 +6279,6 @@
     ],
     "mentions": 1
   },
-  "pseudolais-micronemus": {
-    "name": "Pseudolais micronemus",
-    "mentionedIn": [
-      "species/hampala-sabana"
-    ],
-    "mentions": 1
-  },
   "leporinus-granti": {
     "name": "Leporinus granti",
     "mentionedIn": [
@@ -7306,6 +7305,13 @@
     "name": "Puntius crescentus",
     "mentionedIn": [
       "species/puntius-vittatus"
+    ],
+    "mentions": 1
+  },
+  "pyrrhula-pyrrhula": {
+    "name": "Pyrrhula pyrrhula",
+    "mentionedIn": [
+      "species/pyrrhulina-brevis"
     ],
     "mentions": 1
   },
