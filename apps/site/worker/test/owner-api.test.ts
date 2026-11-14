@@ -563,6 +563,8 @@ test('the overview\'s version 2: the tiles add up to their parts, found an answe
     ['Fish ID and chat are down', 'Every key resting, the first until Wed 4 Nov, 16:30.'], ['2Hr Aquarist needs a browser check', '2Hr Aquarist since Wed 4 Nov, 5:00'],
     ['No new video guides', 'Since Tue 27 Oct, 3:17'], ['5 comments held for review', 'Cá neon vua · Cá betta (cá xiêm)'], ['2 reader photos to approve', 'Cá betta (cá xiêm) · Betta halfmoon'],
   ])
+  // A part that didn't load is a fault before the engine's pages stopped.
+  expect(todayJson({ ...S.TODAY, beacon: F }).needs.map(x => x.text).slice(0, 4)).toEqual(['Fish ID and chat are down', '2Hr Aquarist needs a browser check', 'Readers’ beacon didn’t load', 'No new video guides'])
   // Every kind still for 30 hours: the engine's one line, and no kind stalled on its own (admin/publishing.ts).
   const quiet = todayJson(S.QUIET)
   expect(quiet.needs).toEqual([{ kind: 'engine', text: 'Nothing new published', sub: 'Since Tue 3 Nov, 3:17', label: 'See engine', tone: 'bad', section: 'noi-dung', anchor: 'engine' }])

@@ -1101,7 +1101,7 @@
                   },
                   {
                     "title": "Not counted",
-                    "detail": "Mon 26 Oct · no count was kept that night"
+                    "detail": "Mon 26 Oct · the first count, with none before it"
                   },
                   {
                     "title": "Not counted",
@@ -1283,7 +1283,7 @@
                   },
                   {
                     "title": "Not counted",
-                    "detail": "Mon 26 Oct · no count was kept that night"
+                    "detail": "Mon 26 Oct · the first count, with none before it"
                   },
                   {
                     "title": "Not counted",
@@ -1465,7 +1465,7 @@
                   },
                   {
                     "title": "Not counted",
-                    "detail": "Mon 26 Oct · no count was kept that night"
+                    "detail": "Mon 26 Oct · the first count, with none before it"
                   },
                   {
                     "title": "Not counted",
@@ -1651,7 +1651,7 @@
                   },
                   {
                     "title": "Not counted",
-                    "detail": "Mon 26 Oct · no count was kept that night"
+                    "detail": "Mon 26 Oct · the first count, with none before it"
                   },
                   {
                     "title": "Not counted",
@@ -2793,7 +2793,7 @@
                   },
                   {
                     "title": "Not counted",
-                    "detail": "Mon 26 Oct · no count was kept that night"
+                    "detail": "Mon 26 Oct · the first count, with none before it"
                   },
                   {
                     "title": "Not counted",
@@ -2975,7 +2975,7 @@
                   },
                   {
                     "title": "Not counted",
-                    "detail": "Mon 26 Oct · no count was kept that night"
+                    "detail": "Mon 26 Oct · the first count, with none before it"
                   },
                   {
                     "title": "Not counted",
@@ -3157,7 +3157,7 @@
                   },
                   {
                     "title": "Not counted",
-                    "detail": "Mon 26 Oct · no count was kept that night"
+                    "detail": "Mon 26 Oct · the first count, with none before it"
                   },
                   {
                     "title": "Not counted",
@@ -3339,7 +3339,7 @@
                   },
                   {
                     "title": "Not counted",
-                    "detail": "Mon 26 Oct · no count was kept that night"
+                    "detail": "Mon 26 Oct · the first count, with none before it"
                   },
                   {
                     "title": "Not counted",
@@ -4003,6 +4003,14 @@
             "anchor": "engine"
           },
           {
+            "kind": "failed",
+            "text": "Readers’ beacon didn’t load",
+            "sub": "Its page has the error.",
+            "label": "Open",
+            "tone": "bad",
+            "section": "thanh-cong"
+          },
+          {
             "kind": "engine",
             "label": "See engine",
             "tone": "bad",
@@ -4010,14 +4018,6 @@
             "anchor": "engine",
             "text": "No new video guides",
             "sub": "Since Tue 27 Oct, 3:17"
-          },
-          {
-            "kind": "failed",
-            "text": "Readers’ beacon didn’t load",
-            "sub": "Its page has the error.",
-            "label": "Open",
-            "tone": "bad",
-            "section": "thanh-cong"
           },
           {
             "kind": "comments",
@@ -4403,7 +4403,7 @@
                   },
                   {
                     "title": "Not counted",
-                    "detail": "Mon 26 Oct · no count was kept that night"
+                    "detail": "Mon 26 Oct · the first count, with none before it"
                   },
                   {
                     "title": "Not counted",
@@ -4585,7 +4585,7 @@
                   },
                   {
                     "title": "Not counted",
-                    "detail": "Mon 26 Oct · no count was kept that night"
+                    "detail": "Mon 26 Oct · the first count, with none before it"
                   },
                   {
                     "title": "Not counted",
@@ -4767,7 +4767,7 @@
                   },
                   {
                     "title": "Not counted",
-                    "detail": "Mon 26 Oct · no count was kept that night"
+                    "detail": "Mon 26 Oct · the first count, with none before it"
                   },
                   {
                     "title": "Not counted",
@@ -4953,7 +4953,7 @@
                   },
                   {
                     "title": "Not counted",
-                    "detail": "Mon 26 Oct · no count was kept that night"
+                    "detail": "Mon 26 Oct · the first count, with none before it"
                   },
                   {
                     "title": "Not counted",
@@ -6113,7 +6113,7 @@
                   },
                   {
                     "title": "Not counted",
-                    "detail": "Mon 26 Oct · no count was kept that night"
+                    "detail": "Mon 26 Oct · the first count, with none before it"
                   },
                   {
                     "title": "Not counted",
@@ -6295,7 +6295,7 @@
                   },
                   {
                     "title": "Not counted",
-                    "detail": "Mon 26 Oct · no count was kept that night"
+                    "detail": "Mon 26 Oct · the first count, with none before it"
                   },
                   {
                     "title": "Not counted",
@@ -6477,7 +6477,7 @@
                   },
                   {
                     "title": "Not counted",
-                    "detail": "Mon 26 Oct · no count was kept that night"
+                    "detail": "Mon 26 Oct · the first count, with none before it"
                   },
                   {
                     "title": "Not counted",
@@ -6659,7 +6659,7 @@
                   },
                   {
                     "title": "Not counted",
-                    "detail": "Mon 26 Oct · no count was kept that night"
+                    "detail": "Mon 26 Oct · the first count, with none before it"
                   },
                   {
                     "title": "Not counted",
@@ -7811,7 +7811,7 @@
                   },
                   {
                     "title": "Not counted",
-                    "detail": "Mon 26 Oct · no count was kept that night"
+                    "detail": "Mon 26 Oct · the first count, with none before it"
                   },
                   {
                     "title": "Not counted",
@@ -7993,7 +7993,7 @@
                   },
                   {
                     "title": "Not counted",
-                    "detail": "Mon 26 Oct · no count was kept that night"
+                    "detail": "Mon 26 Oct · the first count, with none before it"
                   },
                   {
                     "title": "Not counted",
@@ -8175,7 +8175,7 @@
                   },
                   {
                     "title": "Not counted",
-                    "detail": "Mon 26 Oct · no count was kept that night"
+                    "detail": "Mon 26 Oct · the first count, with none before it"
                   },
                   {
                     "title": "Not counted",
@@ -8357,7 +8357,7 @@
                   },
                   {
                     "title": "Not counted",
-                    "detail": "Mon 26 Oct · no count was kept that night"
+                    "detail": "Mon 26 Oct · the first count, with none before it"
                   },
                   {
                     "title": "Not counted",

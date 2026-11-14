@@ -89,19 +89,19 @@ function fishWeek(t: Today): { calls: number; usd: number } | undefined {
 export const publishingOfToday = (t: Today) => (isFailed(t.content) || isFailed(t.snapshots) ? undefined : publishingOf(t.now, t.tz ?? HOME_TZ, t.content, t.snapshots))
 
 /**
- * What needs the owner, faults first: the overview's to-dos, the engine's pages stopped (all of them as one line, or a kind
- * with work waiting), then the comments held and the photos waiting. Each title one short line.
+ * What needs the owner, faults first: the overview's to-dos, the parts that didn't load, the engine's pages stopped (all of
+ * them as one line, or a kind with work waiting), then the comments held and the photos waiting. Each title one short line.
  */
 export function needsOf(t: Today): Need[] {
   const out: Need[] = todos(t).map(x => ({ kind: x.kind, text: x.title, sub: x.text, label: x.action, tone: x.kind === 'spend' ? 'wait' as const : 'bad' as const, ...placeOf(x.href) }))
+  for (const [what, part, section] of [['Readers’ beacon', t.beacon, 'thanh-cong'], ['Held comments', t.held, 'binh-luan'], ['Waiting photos', t.waitingPhotos, 'anh-ban-doc'], ['Kept photos', t.kept, 'anh-nhan-dien'], ['App crashes', t.crashes, 'ung-dung'], ['Daily reports', t.lastReport, 'bao-cao'], ['Changelog', t.changes, 'thay-doi']] as const) {
+    if (isFailed(part)) out.push({ kind: 'failed', text: didntLoad(what), sub: 'Its page has the error.', label: 'Open', tone: 'bad', section })
+  }
   const pub = publishingOfToday(t)
   const engine = { kind: 'engine' as const, label: 'See engine', tone: 'bad' as const, section: 'noi-dung', anchor: 'engine' }
   const since = (x: { since: string }) => `Since ${clock(x.since, t.tz ?? HOME_TZ, t.now)}`
   if (pub?.quiet) out.push({ ...engine, text: 'Nothing new published', sub: since(pub.quiet) })
   for (const k of pub?.kinds ?? []) if (k.stalled) out.push({ ...engine, text: `No new ${k.label.toLowerCase()}`, sub: since(k.stalled) })
-  for (const [what, part, section] of [['Readers’ beacon', t.beacon, 'thanh-cong'], ['Held comments', t.held, 'binh-luan'], ['Waiting photos', t.waitingPhotos, 'anh-ban-doc'], ['Kept photos', t.kept, 'anh-nhan-dien'], ['App crashes', t.crashes, 'ung-dung'], ['Daily reports', t.lastReport, 'bao-cao'], ['Changelog', t.changes, 'thay-doi']] as const) {
-    if (isFailed(part)) out.push({ kind: 'failed', text: didntLoad(what), sub: 'Its page has the error.', label: 'Open', tone: 'bad', section })
-  }
   const named = (refs: string[]) => pageNames(t, refs)
   if (!isFailed(t.held) && t.held) {
     const sub = t.heldPages && !isFailed(t.heldPages) ? named(t.heldPages) : ''

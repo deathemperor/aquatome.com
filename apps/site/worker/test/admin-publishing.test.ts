@@ -40,9 +40,22 @@ test('each kind: the night\'s count less the night before, today so far from the
   ])
   expect(p.kinds[3]!.bars.readouts.at(-1)).toEqual({ title: 'None added', detail: 'Sat 14 Nov so far' })
   expect(p.missing).toBe('No count was kept that night.')
-  // Days before the first save have no count either.
+  // Days before the first save have no count either; the first save's day was counted, with none before it to compare.
   expect(fish.values[0]).toBeNull()
+  expect(fish.readouts[fish.days.indexOf('2026-11-10')]).toEqual({ title: 'Not counted', detail: 'Tue 10 Nov · the first count, with none before it' })
+  expect(fish.readouts[fish.days.indexOf('2026-11-09')]).toEqual({ title: 'Not counted', detail: 'Mon 9 Nov · no count was kept that night' })
   expect(p).not.toHaveProperty('quiet')
+})
+
+test('a save every night from the first day shown: only that first day has no bar, and nothing says a night went uncounted', () => {
+  const first = Date.parse('2026-10-18T00:00:00Z')
+  const snaps = Array.from({ length: PUBLISHING_DAYS - 1 }, (_, i) => ({ day: new Date(first + i * 86_400_000).toISOString().slice(0, 10), totals: T(2000 + i, 500, 800, 180) }))
+  const p = publishingOf(NOW, TZ, stats(T(2030, 500, 800, 180)), snaps)!
+  const fish = p.kinds[0]!.bars
+  expect(fish.days[0]).toBe('2026-10-18')
+  expect(fish.values.map(v => v === null)).toEqual([true, ...Array(PUBLISHING_DAYS - 1).fill(false)])
+  expect(fish.readouts[0]).toEqual({ title: 'Not counted', detail: 'Sun 18 Oct · the first count, with none before it' })
+  expect(p).not.toHaveProperty('missing')
 })
 
 test('a kind that added nothing for 24 hours while it has work waiting has stalled, since it last grew; one with nothing waiting or no reading hasn\'t', () => {

@@ -67,13 +67,15 @@ export function publishingOf(now: Date, tz: string, s: ContentStats, snaps: { da
     const since = lastGrew(seen, vi(k))
     return since && now.getTime() - Date.parse(since) >= STALL_MS ? since : undefined
   }
+  // A day counted but with no count before it to compare (the first save): its bar is null too, though a count was kept.
+  const first = (day: string) => kept.some(x => x.day === day) && !kept.some(x => x.day < day)
   const quietSince = KINDS.map(([k]) => still(k))
   const allQuiet = quietSince.every(Boolean)
   const kinds = KINDS.map(([key, label, one], i) => {
     const raw = perDay(kept, days, vi(key))
     const readouts: Readout[] = raw.map((v, j) => {
       const when = `${dayName(days[j]!)}${j === days.length - 1 ? ' so far' : ''}`
-      if (v === null) return { title: 'Not counted', detail: `${when} · no count was kept that night` }
+      if (v === null) return { title: 'Not counted', detail: `${when} · ${first(days[j]!) ? 'the first count, with none before it' : 'no count was kept that night'}` }
       return { title: v > 0 ? `+${plural(v, one)}` : v < 0 ? `${fmt(-v)} fewer` : 'None added', detail: when }
     })
     const since = quietSince[i]
@@ -88,7 +90,7 @@ export function publishingOf(now: Date, tz: string, s: ContentStats, snaps: { da
   return {
     title: 'New pages',
     kinds,
-    ...(kinds.some(k => k.bars.values.includes(null)) ? { missing: 'No count was kept that night.' } : {}),
+    ...(days.some(d => !first(d) && !kept.some(x => x.day === d)) ? { missing: 'No count was kept that night.' } : {}),
     ...(allQuiet && newest ? { quiet: { since: new Date(newest).toISOString(), text: `Nothing new since ${clock(newest, tz, now)}` } } : {}),
   }
 }
