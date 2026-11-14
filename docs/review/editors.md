@@ -131,6 +131,7 @@ The calendar's nine new weeks (`content/curation.json`). These aren't in the tal
 | 4 | Anthropic, xAI | 9, 9 | 9, 9 | 8, 8 | 8, 9 |
 | 5 | Anthropic, xAI | 9, 9 | 9, 9 | 8, 8 | 9, 8 |
 | 6 | Anthropic, xAI | 9, 9 | 8, 8 | 9, 9 | 8, 8 |
+| 7 | Anthropic, xAI | 9, 9 | 9, 9 | 9, 9 | 9, 8 |
 
 Round 1 had the xAI seat alone: Cursor refused OpenAI and Google (not in that week's usage), and no Claude helper ran
 before 14 Nov.
@@ -193,6 +194,11 @@ Round 6 (14 Nov): Vietnamese and Thai held 9 with both seats. Held, both seats: 
 angelfish alone (no Malay koi betta page). Held, both in some form: the Vietnamese "Những con cá đầu tiên cho bể mới"
 shortened to "Cá đầu tiên cho bể mới" (neither form is in the forum or the videos; a heading's padding). Dropped: Malay
 "Kelisa" again (the arowana shelf doesn't show in Malay yet, and holds the silver arowana).
+
+Round 7 (14 Nov): Vietnamese, Indonesian and Thai held 9 with both seats; Malay 9 and 8. Held, both seats: the Malay koi
+shelf takes "ikan" before "angel", as the angelfish page's name does ("Ikan Angel"). Dropped: the Thai koi spelt one way
+(one seat, unsure which; each half is its page's own name), Vietnamese "Cá thả đầu tiên" (one seat; in no forum or video),
+Malay "musim hujan" for "musim tengkujuh" (split), Indonesian and Malay "ikan schooling" (one seat, unsure).
 
 ## Vietnamese
 
