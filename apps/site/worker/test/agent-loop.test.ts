@@ -172,6 +172,23 @@ test('27 s from the first call: no call gets past it, and with under 12 s left t
   expect(t).toMatchObject({ stopped: 'error', calls: 1, error: new Error('out of time') })
 })
 
+test('until: the run ends by the earlier of it and `ms`, asked before each call; a reader still there keeps the longer turn', async () => {
+  const limits = { ms: 45_000, calls: 10, tools: 16 }
+  const replies = [() => asks([{ name: 'echo', input: { q: 'x' } }]), () => asks([{ name: 'echo', input: { q: 'y' } }]), () => answers()]
+  // Last seen at 0: 27 s from then, though the run has 45.
+  const gone = { now: 0, per: [10_000, 6_000] }
+  const c = script(replies, gone)
+  const r = await runAgent(input(c.send, { clock: () => gone.now, limits, until: () => 27_000 }))
+  expect(c.calls.map(x => [x.timeoutMs, x.body.tool_choice!.type])).toEqual([[20_000, 'auto'], [17_000, 'auto'], [11_000, 'none']])
+  expect(r.stopped).toBe('time')
+  // Seen at every call: 27 s ahead each time, so the 45 s hold.
+  const there = { now: 0, per: [10_000, 6_000] }
+  const d = script(replies, there)
+  const s = await runAgent(input(d.send, { clock: () => there.now, limits, until: () => there.now + 27_000 }))
+  expect(d.calls.map(x => [x.timeoutMs, x.body.tool_choice!.type])).toEqual([[20_000, 'auto'], [20_000, 'auto'], [20_000, 'auto']])
+  expect(s.stopped).toBe('answer')
+})
+
 test('pace: a slow run keeps the answer\'s time from its own calls, so it answers sooner, at the quick effort, with all the time left', async () => {
   // Calls of 3.4 s: after two, a third reading call would leave 27 - 6.8 - 3.4 = 16.8 s, under 6.5 × 3.4 = 22.1 s, so the
   // third call is the answer; 20.2 s is left, under 7 × 3.4 = 23.8 s, so it is a quick one. Without pace it would read on.

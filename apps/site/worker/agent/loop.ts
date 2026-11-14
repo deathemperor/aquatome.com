@@ -16,7 +16,7 @@ import { definition, type Tool } from './tools'
  *   not a hard cap: the forced call itself still runs.
  * - Past the tool calls, a `tool_use` gets a "limit reached" `is_error` result; a tool that throws, or one Claude names
  *   that doesn't exist, gets an `is_error` result with a short message. Both count as tool calls.
- * - No call runs past `ms` from the first: each call's timeout is what is left (at most `callMs`). Once a call has begun
+ * - No call runs past `ms` from the first, nor past `until`: each call's timeout is what is left (at most `callMs`). Once a call has begun
  *   writing its text it may take all the time left (`writingMs`): stopping an answer on its way loses it, and a call
  *   that answers first thing (handed sections, handover.ts) is the only one that can be writing at `callMs`.
  * - With `pace`, the time kept for the last call follows the run's own speed, so a slow hour reads less and still
@@ -78,6 +78,12 @@ export type AgentInput<Step> = {
   thinking?: Anthropic.ThinkingConfigParam
   maxTokens: number
   limits?: Partial<Limits>
+  /**
+   * The latest the run may end, asked before each call: the earlier of it and `ms` from the first call is the run's end.
+   * The chat's stream gives the reader's last sign plus the time a run has once they've gone (chat/api.ts), so a reader
+   * still there keeps a longer turn, and one who left has that time from when they went.
+   */
+  until?: () => number
   onStep?: (step: Step) => void
   /**
    * Asked once a run, when Claude answers of its own accord with time for another call: more for it to read before the
@@ -123,6 +129,7 @@ export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step
   const lim = { ...LIMITS, ...a.limits }
   const clock = a.clock ?? Date.now
   const deadline = clock() + lim.ms
+  const end = () => Math.min(deadline, a.until?.() ?? Infinity)
   const byName = new Map(a.tools.map(t => [t.name, t]))
   const tools = a.tools.map(definition)
   const history: Anthropic.MessageParam[] = [a.first]
@@ -137,7 +144,7 @@ export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step
   /** The next call is `lastTry`'s. */
   let trying = false
   for (;;) {
-    const left = deadline - clock()
+    const left = end() - clock()
     const each = run.calls ? took / run.calls : 0
     const late = left < lim.lastCallMs || (a.pace !== undefined && left - each < (run.calls === 1 ? a.pace.first : a.pace.quick) * each)
     const forced: Stopped | undefined = trying ? 'time' : run.calls + 1 >= lim.calls ? 'calls' : run.tools >= lim.tools ? 'tools' : late ? 'time'
@@ -176,7 +183,7 @@ export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step
     // says. An answer Claude chose, with time left for a last call, may first be sent back once with more to read.
     if (r.stop_reason !== 'tool_use' || forced || !r.content.some(b => b.type === 'tool_use')) {
       if (held && r.stop_reason !== 'end_turn') return { ...run, message: held, stopped: forced ?? 'answer' }
-      const more = !forced && !run.rechecked && r.stop_reason === 'end_turn' && deadline - clock() >= lim.lastCallMs ? a.recheck?.(r) : undefined
+      const more = !forced && !run.rechecked && r.stop_reason === 'end_turn' && end() - clock() >= lim.lastCallMs ? a.recheck?.(r) : undefined
       if (!more?.length) return { ...run, message: r, stopped: forced ?? 'answer' }
       run.rechecked = true
       held = r
