@@ -130,3 +130,51 @@ test('a title a person picked stays, even when a check quotes it', async () => {
   expect(prompts).toEqual([])
   expect(JSON.parse(await readFile(file, 'utf8'))).toMatchObject({ name: 'Mua lọc ở Petco cho bể nhỏ', nameFixed: true })
 })
+
+// The chief of staff, 14 Nov 2026: the editor takes a source line and units together, figures as written for code to
+// convert; and a dose that is the video's own tank's, which it drops, figure and brand, for the label. A dose given as
+// advice waits for a person. Every figure in is every figure out, but those of the sentences a finding takes.
+const OWN = `<p>Bể dùng ở đây là loại nông: dài 80 cm, sâu 30 cm.</p><p>Bể 10 gallon là đủ cho một đàn nhỏ.</p><p>Châm vi sinh ngay, ví dụ Quick Start, bể này dùng khoảng 4 nắp.</p><p>${LONG}</p>`
+const own: FitFinding = { check: 'source', part: 'P1', quote: 'Bể dùng ở đây là loại nông', why: 'the video\'s own tank', by: 'model' }
+const gallons: FitFinding = { check: 'units', part: 'P2', quote: 'Bể 10 gallon', why: 'a US tank', by: 'rule' }
+const caps: FitFinding = { check: 'dose', part: 'P3', quote: 'bể này dùng khoảng 4 nắp', why: 'an amount of a named product', by: 'model' }
+const brand: FitFinding = { check: 'product', part: 'P3', quote: 'Quick Start', why: 'a US product', by: 'model' }
+const kept = (body: string) => ({ fixed: { body, faq: [{ q: 'Mua lọc ở đâu?', a: 'Ở tiệm cá cảnh.' }] } })
+test('the editor takes a source line, units and the video\'s own dose together, and writes no figure of its own', async () => {
+  const { root, file } = await setup({ body: OWN, faq: [] })
+  const { mend, prompts } = deps(root, kept(`<p>Bể 10 gallon là đủ cho một đàn nhỏ.</p><p>Châm vi sinh ngay, liều theo hướng dẫn trên bao bì.</p><p>${LONG}</p>`))
+  expect(await mend(page(), [own, gallons, caps, brand])).toBe(true)
+  const body = JSON.parse(await readFile(file, 'utf8')).body as string
+  // Code converts the units the editor left as they were; the dose and the brand are gone for the label.
+  expect(body).not.toMatch(/gallon|4 nắp|Quick Start|80 cm/)
+  expect(body).toMatch(/Bể \d+ lít là đủ cho một đàn nhỏ\./)
+  expect(body).toContain('Châm vi sinh ngay, liều theo hướng dẫn trên bao bì.')
+  expect(prompts[0]).toContain('"Bể 10 gallon": Imperial units, or a volume that shows it was converted (a US tank). Giữ nguyên mọi con số và đơn vị như đang viết: code đổi sang hệ mét sau.')
+  expect(prompts[0]).toContain('"bể này dùng khoảng 4 nắp": A dose tied to a foreign product (an amount of a named product). Đây là liều của chính bể trong video: bỏ con số liều và tên sản phẩm, giữ bước làm, viết "…, liều theo hướng dẫn trên bao bì."')
+  expect(prompts[0]).toContain('Chỉ khi ghi chú nói đó là liều của chính bể trong video thì bỏ con số liều và tên sản phẩm')
+})
+
+test('a figure the editor changes, drops or adds beside units or a dose leaves the file as it was; so does a dose figure in any mend', async () => {
+  const cases: [string, string, FitFinding[]][] = [
+    ['the units sentence\'s figure changed', `<p>Bể 40 lít là đủ cho một đàn nhỏ.</p><p>Châm vi sinh ngay, liều theo hướng dẫn trên bao bì.</p><p>${LONG}</p>`, [own, gallons, caps]],
+    ['the units sentence dropped', `<p>Châm vi sinh ngay, liều theo hướng dẫn trên bao bì.</p><p>${LONG}</p>`, [own, gallons, caps]],
+    ['a dose figure of its own', `<p>Bể 10 gallon là đủ cho một đàn nhỏ.</p><p>Châm vi sinh ngay, khoảng 5 ml, liều theo hướng dẫn trên bao bì.</p><p>${LONG}</p>`, [own, gallons, caps]],
+    ['the dose kept', `<p>Bể 10 gallon là đủ cho một đàn nhỏ.</p><p>Châm vi sinh ngay, bể này dùng khoảng 4 nắp.</p><p>${LONG}</p>`, [own, gallons, caps]],
+    ['a dose figure in a shop\'s mend', `<p>Bể nhỏ dễ dựng.</p><p>Lọc mua ở tiệm cá cảnh. Châm 5 ml vi sinh.</p><p>${LONG}</p>`, [shop, price]],
+  ]
+  for (const [name, body, findings] of cases) {
+    const { root, file, was } = await setup(findings.includes(shop) ? {} : { body: OWN, faq: [] })
+    expect(await deps(root, kept(body)).mend(page(), findings), name).toBe(false)
+    expect(await readFile(file, 'utf8'), name).toBe(was)
+  }
+})
+
+test('a dose given as advice, or with nothing naming the video\'s tank, waits for a person: no editor is called', async () => {
+  for (const line of ['Châm 5 ml vi sinh cho mỗi 50 lít nước.', 'Châm khoảng 4 nắp vi sinh.', 'Bể này châm 2 ml cho mỗi 10 lít.']) {
+    const { root, file, was } = await setup({ body: `<p>${line}</p><p>${LONG}</p>`, faq: [] })
+    const { mend, prompts } = deps(root)
+    expect(await mend(page(), [{ ...caps, quote: line.slice(0, -1) }]), line).toBeUndefined()
+    expect(prompts, line).toEqual([])
+    expect(await readFile(file, 'utf8'), line).toBe(was)
+  }
+})

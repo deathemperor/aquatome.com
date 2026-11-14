@@ -4,5 +4,5 @@ Các ghi chú dưới đây không phải lỗi so với video. Bài này viết
 - Chỗ khác trong bài (tiêu đề, tóm tắt, thân bài, FAQ) nói cùng điều được trích thì sửa hết.
 - Giá bằng tiền nước ngoài không xoá đi, cũng không giữ con số: viết lại thành điều mà cái giá ấy muốn nói, và chỉ vậy thôi. Ví dụ: "linh kiện mua ở tiệm kim khí, rẻ hơn nhiều so với một bộ làm sẵn", "cả bộ tự làm tốn ít hơn một bộ mua sẵn". Không so sánh mạnh hơn mức các giá trong video cho thấy. Không ghi con số hay đơn vị tiền nào, trừ khi video nêu giá bằng đồng Việt Nam, và không đổi giá sang tiền Việt.
 - Không thay bằng tiệm, giá, sản phẩm hay lời khuyên khác.
-- Liều lượng, số đo và mọi số liệu khác giữ nguyên. Không biến liều của một sản phẩm thành liều của hoạt chất. Câu nào cho liều của một sản phẩm thì giữ tên sản phẩm; không đổi thành loại.
+- Liều lượng, số đo và mọi số liệu khác giữ nguyên. Không biến liều của một sản phẩm thành liều của hoạt chất. Câu nào cho liều của một sản phẩm thì giữ tên sản phẩm; không đổi thành loại. Chỉ khi ghi chú nói đó là liều của chính bể trong video thì bỏ con số liều và tên sản phẩm, giữ bước làm, viết "…, liều theo hướng dẫn trên bao bì." Không viết thêm con số nào.
 - Bỏ một câu mà đoạn đó mất nghĩa thì bỏ cả ý đó, đừng viết thêm điều video không nói để lấp vào.
