@@ -1,0 +1,131 @@
+import Foundation
+import Testing
+@testable import Tanks
+
+// The command the master button's steps and the chat share (protocols/device-command.schema.json), and the master button's
+// own rules: what goes back at the end, and when.
+
+private struct Vectors: Decodable {
+  struct Case: Decodable {
+    let note: String
+    let value: JSON
+    let path: [String]?
+  }
+  let valid: [Case]
+  let invalid: [Case]
+  let results: [Case]
+
+  static let shared: Vectors = {
+    // Tests/TanksTests/DeviceCommandTests.swift → the repository root, six levels up.
+    var url = URL(fileURLWithPath: #filePath)
+    for _ in 0..<6 { url.deleteLastPathComponent() }
+    return try! JSONDecoder().decode(Vectors.self, from: Data(contentsOf: url.appendingPathComponent("protocols/device-command-vectors.json")))
+  }()
+}
+
+@Test("The schema's commands: each valid one read and written back as it was; each invalid one refused for its field")
+func deviceCommandVectors() throws {
+  let v = Vectors.shared
+  #expect(v.valid.count >= 5 && v.invalid.count >= 5)
+  for c in v.valid {
+    let data = try c.value.data()
+    let command = try JSONDecoder().decode(DeviceCommand.self, from: data)
+    #expect(command.problem == nil, "\(c.note)")
+    #expect(try JSON.parse(JSONEncoder().encode(command)) == c.value, "\(c.note)")
+  }
+  for c in v.invalid {
+    let command = try JSONDecoder().decode(DeviceCommand.self, from: c.value.data())
+    #expect(command.problem == c.path?.first, "\(c.note)")
+  }
+  let results = try v.results.map { try JSONDecoder().decode(SwitchResult.self, from: $0.value.data()) }
+  #expect(results == [.done, .failed("Không tới được ổ CO2: kiểm tra mạng rồi thử lại")])
+  #expect(try JSON.parse(JSONEncoder().encode(results[1])) == v.results[1].value)
+}
+
+private let m0 = Date(timeIntervalSince1970: 1_800_000_000)
+
+private func store() throws -> TankStore {
+  var s = TankStore()
+  let t = try s.addTank(name: "Bể 60", now: m0)
+  try s.addPlug(tankId: t.id, brand: "tuya", remoteId: "fake-strip-1", name: "Ổ cắm bể 60",
+                outlets: [("switch_1", "Đèn"), ("switch_2", "CO2"), ("switch_3", "Quạt"), ("switch_4", "Sưởi"), ("switch_5", nil)], now: m0)
+  let p = s.liveDevices[0]
+  try s.updateDevice(p.id, now: m0) { d in
+    var o = d.outlets
+    for (i, role) in ["light", "co2", "fan", "heater"].enumerated() { o[i].role = role }
+    d.outlets = o
+  }
+  return s
+}
+
+@Test("The chat may switch the lamp (where the app offers it), CO2 and fans: never a heater, a light's outlet or one with no role")
+func offerable() throws {
+  var s = try store()
+  let plug = s.liveDevices[0].id
+  #expect(DeviceCommand.offerable(s, lamp: true) == [DeviceTarget(device: plug, outlet: "switch_2"), DeviceTarget(device: plug, outlet: "switch_3")])
+  let lamp = try s.keepLoveEcology(tankName: "Bể của tôi", now: m0)
+  #expect(DeviceCommand.offerable(s, lamp: true).first == DeviceTarget(device: lamp.id, outlet: nil))
+  #expect(DeviceCommand.offerable(s, lamp: false).count == 2)
+}
+
+@Test("The Love Ecology lamp is kept once, on the first tank or a new one, as a light that isn't a Chihiros")
+func keepsTheLamp() throws {
+  var empty = TankStore()
+  let d = try empty.keepLoveEcology(tankName: "Bể của tôi", now: m0)
+  #expect(empty.liveTanks.map(\.name) == ["Bể của tôi"] && d.tankId == empty.liveTanks[0].id)
+  #expect(d.isLoveEcology && d.bleName == nil && d.brand == "loveecology")
+  #expect(try empty.keepLoveEcology(tankName: "Bể của tôi", now: m0).id == d.id && empty.liveDevices.count == 1)
+  var s = try store()
+  #expect(try s.keepLoveEcology(tankName: "Bể của tôi", now: m0).tankId == s.liveTanks[0].id && s.liveTanks.count == 1)
+  #expect(Known.brand.contains(loveEcologyBrand))
+}
+
+private let plug = "00000000-0000-4000-8000-000000000040"
+private let lampId = "00000000-0000-4000-8000-000000000041"
+private let co2On = DeviceCommand(device: plug, outlet: "switch_2", on: true)
+private let fanOff = DeviceCommand(device: plug, outlet: "switch_3", on: false)
+private let lightOn = DeviceCommand(device: plug, outlet: "switch_1", on: true)
+private let lampWhite = DeviceCommand(device: lampId, on: true, colour: "white")
+private let button = MasterButton(name: "Ngắm bể", steps: [lampWhite, co2On, fanOff, lightOn], minutes: 120)
+
+@Test("At the end each outlet goes back to how it was; one already as asked, nowhere; one not known, the other way")
+func whatGoesBack() {
+  let before: [String: Bool] = ["switch_2": false, "switch_3": true, "switch_1": true]
+  let run = MasterRun(button, at: m0, before: { before[$0.outlet ?? ""] }, lamp: DeviceCommand(device: "old", on: true, colour: "yellow"))
+  #expect(run.ends == m0.addingTimeInterval(7200) && run.isRunning)
+  #expect(run.back.map(\.command) == [
+    DeviceCommand(device: lampId, on: true, colour: "yellow"),
+    DeviceCommand(device: plug, outlet: "switch_2", on: false),
+    DeviceCommand(device: plug, outlet: "switch_3", on: true),
+  ])
+  // Not known: the other way.
+  #expect(MasterRun(button, at: m0, before: { _ in nil }, lamp: nil).back.map(\.command.on) == [false, false, true, false])
+}
+
+@Test("The lamp goes back to the last command this phone sent it, or the other way; nothing when that is what the button sends")
+func theLampGoesBack() {
+  func back(_ step: DeviceCommand, _ last: DeviceCommand?) -> DeviceCommand? {
+    MasterRun(MasterButton(name: "x", steps: [step], minutes: 60), at: m0, before: { _ in nil }, lamp: last).back.first?.command
+  }
+  #expect(back(lampWhite, nil) == DeviceCommand(device: lampId, on: false))
+  #expect(back(DeviceCommand(device: lampId, on: false), nil) == DeviceCommand(device: lampId, on: true))
+  #expect(back(lampWhite, DeviceCommand(device: lampId, on: false)) == DeviceCommand(device: lampId, on: false))
+  #expect(back(lampWhite, DeviceCommand(device: lampId, on: true, colour: "white")) == nil)
+  #expect(back(DeviceCommand(device: lampId, on: false), DeviceCommand(device: lampId, on: false, colour: "red")) == nil)
+}
+
+@Test("An outlet's countdown runs to the end; the phone leaves it to the plug until a minute after, unless ended early")
+func whenThingsGoBack() {
+  var run = MasterRun(button, at: m0, before: { _ in nil }, lamp: nil)
+  #expect(run.countdown(at: m0.addingTimeInterval(5)) == 7195)
+  #expect(run.countdown(at: m0.addingTimeInterval(7150)) == nil, "under a minute left: the phone puts it back")
+  #expect(MasterRun(MasterButton(name: "x", steps: [co2On], minutes: nil), at: m0, before: { _ in nil }, lamp: nil).countdown(at: m0) == nil)
+  run.back[1].counting = true
+  #expect(run.toSend(at: m0.addingTimeInterval(600)).count == 4, "ended early: everything, its countdown stopped first")
+  #expect(!run.isDue(at: m0.addingTimeInterval(7199)) && run.isDue(at: m0.addingTimeInterval(7200)))
+  #expect(run.toSend(at: m0.addingTimeInterval(7200)).map(\.command.outlet) == [nil, "switch_3", "switch_1"])
+  #expect(run.toSend(at: m0.addingTimeInterval(7260)).count == 4, "a minute after: the plug's too, if it hasn't put it back")
+  run.back[0].done = true
+  #expect(run.pending.count == 3 && run.left(at: m0.addingTimeInterval(9000)) == 0)
+  #expect(try JSONDecoder().decode(MasterRun.self, from: JSONEncoder().encode(run)) == run)
+}

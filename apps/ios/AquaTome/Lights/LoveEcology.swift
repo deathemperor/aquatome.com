@@ -115,7 +115,7 @@ final class LoveEcologyModel {
   private(set) var status = Status.ready
   /// The commands broadcast, by id, for the UI tests.
   private(set) var sent: [String] = []
-  @ObservationIgnored private lazy var air: LampAir = Self.makeAir()
+  private var air: LampAir { LampRadio.air }
   @ObservationIgnored private var ending: Task<Void, Never>?
 
   /// Broadcasts a command for three seconds. Another tap meanwhile replaces it.
@@ -126,6 +126,7 @@ final class LoveEcologyModel {
       guard let self, self.status == .sending(command.id) else { return }
       if let e { self.status = .problem(e); return }
       self.sent.append(command.id)
+      LampMemory.sent(command.id)
       self.ending = Task { [weak self] in
         try? await Task.sleep(for: LoveEcologyModel.seconds)
         guard !Task.isCancelled, let self else { return }
@@ -135,19 +136,13 @@ final class LoveEcologyModel {
     }
   }
 
-  /// Leaving the screen ends a broadcast at once.
+  /// Leaving the screen ends its broadcast at once (not the master button's: the two share the phone's).
   func stop() {
     ending?.cancel()
-    air.stop()
-    if case .sending = status { status = .ready }
-  }
-
-  private static func makeAir() -> LampAir {
-    #if DEBUG && targetEnvironment(simulator)
-    FakeLampAir()
-    #else
-    BluetoothLampAir()
-    #endif
+    if case .sending = status {
+      air.stop()
+      status = .ready
+    }
   }
 }
 

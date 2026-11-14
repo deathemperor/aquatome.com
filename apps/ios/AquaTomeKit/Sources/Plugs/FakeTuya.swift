@@ -68,6 +68,20 @@ public final class FakeTuya {
     self.devices = devices
   }
 
+  /// Every countdown running reaches 0: its outlet switches the other way, as Tuya's do (`onlyOff`: as a plug whose
+  /// countdown only switches off).
+  public func countdownsEnd(onlyOff: Bool = false) {
+    for i in devices.indices {
+      for (j, s) in devices[i].status.enumerated() where s.code.hasPrefix("countdown") {
+        guard let left = s.value.number, left > 0 else { continue }
+        devices[i].status[j].value = .number(0)
+        let sw = "switch" + s.code.dropFirst("countdown".count)
+        guard let k = devices[i].status.firstIndex(where: { $0.code == sw }), case .bool(let on) = devices[i].status[k].value else { continue }
+        devices[i].status[k].value = .bool(onlyOff ? false : !on)
+      }
+    }
+  }
+
   /// Ends every token, as Tuya does when one is revoked.
   public func revoke() { live = [] }
   public var commands: [JSON] { log.filter { $0.method == "POST" }.compactMap(\.body) }

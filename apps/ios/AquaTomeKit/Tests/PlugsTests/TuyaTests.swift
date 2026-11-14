@@ -73,12 +73,12 @@ func dataCenters() {
   ])
 }
 
-@MainActor @Test("The project's plugs: outlets only (not the indicator light or a countdown), their Smart Life names, other devices counted")
+@MainActor @Test("The project's plugs: outlets only (not the indicator light or a countdown), their Smart Life names, which has a countdown, other devices counted")
 func listsThePlugs() async throws {
   let c = Cloud([strip(), sensor])
   let l = try await c.source().list()
   #expect(l == PlugList(plugs: [LivePlug(provider: "tuya", id: "fake-strip-1", name: "Ổ cắm bể 60", online: true, outlets: [
-    LiveOutlet(code: "switch_1", name: "Đèn", on: true), LiveOutlet(code: "switch_2", name: "CO2", on: false), LiveOutlet(code: "switch_usb1", name: nil, on: true),
+    LiveOutlet(code: "switch_1", name: "Đèn", on: true, countdown: true), LiveOutlet(code: "switch_2", name: "CO2", on: false), LiveOutlet(code: "switch_usb1", name: nil, on: true),
   ])], others: 1))
   #expect(c.posts == 0, "listing switches nothing")
   // The list carries the status: no device is asked for it.
@@ -95,7 +95,7 @@ func listsEveryPage() async throws {
   let bare = Cloud([{ var d = strip(); d.names = nil; return d }()])
   bare.fake.listsStatus = false
   let l = try await bare.source().list()
-  #expect(l.plugs.first?.outlets == [LiveOutlet(code: "switch_1", name: nil, on: true), LiveOutlet(code: "switch_2", name: nil, on: false), LiveOutlet(code: "switch_usb1", name: nil, on: true)])
+  #expect(l.plugs.first?.outlets == [LiveOutlet(code: "switch_1", name: nil, on: true, countdown: true), LiveOutlet(code: "switch_2", name: nil, on: false), LiveOutlet(code: "switch_usb1", name: nil, on: true)])
   #expect(bare.reads == 1)
 }
 
@@ -253,6 +253,29 @@ func problems() async throws {
   await #expect(throws: PlugError.badReply) { try await c.source().list() }
   c.fake.offline = true
   await #expect(throws: PlugError.offline) { try await c.source().list() }
+}
+
+@MainActor @Test("An outlet's own countdown: one command to its countdown, read back once; 0 ends it; none for an outlet without one")
+func countdowns() async throws {
+  let c = Cloud()
+  let s = c.source()
+  _ = try await s.list()
+  #expect(try await s.countdown(provider: "tuya", device: "fake-strip-1", outlet: "switch_1", seconds: 7200))
+  #expect(c.fake.commands.last == JSON.object(["commands": .array([.object(["code": .string("countdown_1"), "value": .number(7200)])])]))
+  #expect(c.fake.device("fake-strip-1")?.status.first { $0.code == "switch_1" }?.value == .bool(true), "the outlet itself is left as it is")
+  // At 0 the plug switches the outlet the other way by itself.
+  c.fake.countdownsEnd()
+  #expect(c.fake.device("fake-strip-1")?.status.first { $0.code == "switch_1" }?.value == .bool(false))
+  #expect(try await s.countdown(provider: "tuya", device: "fake-strip-1", outlet: "switch_1", seconds: 0))
+  let posts = c.posts
+  await #expect(throws: PlugError.noSuchPlug) { try await s.countdown(provider: "tuya", device: "fake-strip-1", outlet: "switch_2", seconds: 60) }
+  #expect(c.posts == posts, "nothing sent for an outlet without a countdown")
+  // A plug that takes the command and doesn't run it: not reported.
+  let deaf = Cloud([{ var d = strip(); d.ignores = true; return d }()])
+  let t = deaf.source()
+  _ = try await t.list()
+  #expect(try await t.countdown(provider: "tuya", device: "fake-strip-1", outlet: "switch_1", seconds: 60) == false)
+  #expect(TuyaPlugs.countdownCode("switch_2") == "countdown_2" && TuyaPlugs.countdownCode("switch_usb1") == "countdown_usb1" && TuyaPlugs.countdownCode("switch") == "countdown")
 }
 
 @Test("Tuya's error codes as the app tells them apart (https://developer.tuya.com/en/docs/iot/error-code)")

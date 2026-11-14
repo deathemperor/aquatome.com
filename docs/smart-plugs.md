@@ -73,9 +73,9 @@ of that design, and as the shape a server route would take if a maker opens link
 
 A plug switches mains power to a CO2 solenoid, a heater or a filter. So:
 
-- **Only on a reader's tap.** Nothing switches on its own in this first version: no schedules, no rules. Clients send a
-  switch only while the reader taps it, online: never through the tanks' save-then-sync path, no outbox, no retry, nothing
-  queued while offline.
+- **Only on a reader's tap.** Nothing switches on its own: no schedules, no rules. Clients send a switch only while the
+  reader taps it, online: never through the tanks' save-then-sync path, no outbox, no retry, nothing queued while
+  offline. The one exception is the master button's end (below), which the reader's own press of it asked for.
 - **A switch sets a state; it never toggles.** `{on: true}` twice leaves the outlet on, so a double tap or a repeated
   request does no harm.
 - **What the plug reports, not what was asked.** After a command the outlet is read back every 600 ms until the plug
@@ -88,6 +88,31 @@ A plug switches mains power to a CO2 solenoid, a heater or a filter. So:
 - **The strips' own timers are left alone.** They keep running when AquaTome or the maker's cloud is down,
   which is the failure to want. AquaTome reads them (below) but never writes or changes one.
 - Offline plugs are shown as offline; a command to one is refused (Tuya's 2001, or listed offline), not queued.
+
+## The master button
+
+"Nút tổng" on the iOS app's Đèn tab (the owner's account; Design Lead's drawing of 14 Nov): one tap sets the devices the
+reader chose (the Love Ecology lamp, and any outlet of the Tuya plugs on their tanks: CO2 on, a fan off…), and what it
+changed goes back at the end, after 1 or 2 hours or when the reader taps Kết thúc. Kept on the phone, not synced.
+
+- **A press** reads the list once (how each outlet is now), then sends each step once, as a tap would: an outlet already
+  as asked has nothing to put back. A step that fails says why under the button; the others stay done.
+- **Its own countdown.** An outlet the press changed, on a plug that lists a countdown for it (Tuya's `countdown_1` for
+  `switch_1`), is given one to the end (`PlugSource.countdown`, read back once). At 0 the plug switches the outlet the
+  other way by itself, with or without the phone: the plugs go back from anywhere. The phone looks at it only a minute
+  after the end (the plug's clock and the phone's differ a little), and puts it back if the plug hasn't (a plug whose
+  countdown only switches off). Ended early, its countdown is stopped first, then it is switched back; if the countdown
+  can't be stopped, it is left to come back by itself at the end, and the card says when.
+- **The rest, from the phone:** outlets without a countdown, and the lamp, at the end while the app is open, or when it
+  next opens. The lamp hears the phone only close by and reports nothing: it goes back to the last command this phone
+  sent it (its card's or the button's), or the other way when there is none. Ended while the app was away, the lamp
+  waits for the reader's "Trả lại" near it.
+- **Turning off a filter, a heater or an air pump** asks a second time when the button is set up. CO2 set on warns that
+  outside the light's hours the plants don't use it.
+- Its steps are `DeviceCommand`s (protocols/device-command.schema.json), the shape the chat's commands will take: the
+  device record's id, the outlet's code, on, and for the lamp one of its recorded colours. `DeviceCommand.offerable`
+  is what the chat may switch: the lamp, and outlets whose role is CO2 or a fan, never a heater, filter or air pump.
+  The chat's commands are never undone at the button's end.
 
 ## Staying within the makers' limits
 
