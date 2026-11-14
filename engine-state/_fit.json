@@ -110538,9 +110538,10 @@
     "products": []
   },
   "vi/species/hyphessobrycon-vilmae": {
-    "at": "2026-11-07",
+    "at": "2026-11-14",
     "hash": "e1f2ea4f0f6fdc70",
     "model": "opus",
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -127004,5 +127005,274 @@
     "checklist": 3,
     "findings": [],
     "products": []
+  },
+  "vi/guides/youtube-6BD1Nscv4Fc": {
+    "at": "2026-11-14",
+    "hash": "4b154380fa0a036c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Khung rừng bằng lũa được dựng trước, rồi mới đặt dinh dưỡng vào khe giữa các gốc.",
+        "why": "Describes the source's own tank build ('ở bể này') as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này phải nhuộm thêm hai lượt nữa mới đủ đậm.",
+        "why": "Refers to the original author's own tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "ở đây dùng Siamensis 53B và một loại Cryptocoryne khác",
+        "why": "Points to the source's own tank and plant choice.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ở bể này, pH đo được khoảng 6,6, thấp hơn mức 7 dự tính nhưng cá vẫn hợp.",
+        "why": "Reports the source's own tank readings and expectations as if known to the reader.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Accu-Clear",
+      "Quick Start"
+    ]
+  },
+  "vi/guides/youtube-jPF9kXcR3ZA": {
+    "at": "2026-11-14",
+    "hash": "36ddcbb3222719fd",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "tổng cộng dưới 2,5 cm",
+        "why": "2.5 cm is a converted 'under an inch', not a figure a Vietnamese keeper would use.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Theo kinh nghiệm riêng thì loại nền đất này có vẻ giữ được pH thấp",
+        "why": "The original writer's personal voice and experience, unknown to the reader.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Stress quá mức có thể khiến cá lên cơn đau tim.",
+        "why": "Calque of the English 'heart attack'; keepers talk about fish going into shock.",
+        "by": "model",
+        "fix": "cá bị sốc rồi chết"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-KhlxefF9aRg": {
+    "at": "2026-11-14",
+    "hash": "9bc2041f8dcfafa7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Denlay",
+      "API",
+      "Chihiros"
+    ]
+  },
+  "vi/guides/youtube-LiwcuuKgNIA": {
+    "at": "2026-11-14",
+    "hash": "59ad177ca5242182",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể dùng ở đây là loại nông: dài 80 cm, sâu 30 cm, cao 24 cm.",
+        "why": "Describes the original writer's own tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ở đây dùng lan ý tách từ bể khác, tỉa bớt rồi nhét rễ vào hốc sau lũa.",
+        "why": "Refers to the writer's other tank and own setup.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Đây chỉ là thử, vì cách này hầu như lần nào cũng thành công với các loại cây khác.",
+        "why": "The writer's first-person experiment, carried over from the source.",
+        "by": "model"
+      },
+      {
+        "check": "dose",
+        "part": "P1",
+        "quote": "Châm vi sinh ngay, ví dụ Quick Start, bể này dùng khoảng 4 nắp.",
+        "why": "Gives an amount of a named commercial bacteria product.",
+        "by": "model",
+        "product": "Quick Start"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Cách tương tự dùng được cho cây bờ như Cyperus zumula.",
+        "why": "'Cây bờ' is a calque of 'marginal plant'; keepers say 'cây bán cạn'.",
+        "by": "model",
+        "fix": "cây bán cạn"
+      }
+    ],
+    "products": [
+      "Lamini F20",
+      "Dennerle",
+      "Rio Xingu",
+      "keo 502",
+      "Quick Start"
+    ]
+  },
+  "vi/guides/youtube-uxEgm6qa0Ow": {
+    "at": "2026-11-14",
+    "hash": "da97573b44663f35",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này chạy hai lọc thùng Fluval FX6, mỗi bên một cái.",
+        "why": "Describes the source creator's own tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Những bụi ráy to trong bể đều lớn lên từ cây con trong cốc nhỏ.",
+        "why": "Refers to the original creator's tank and its history.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Ấn sâu xuống nền khoảng 2,5 cm.",
+        "why": "2.5 cm is a converted 1 inch, not a figure a Vietnamese keeper would give.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "dùng máy hút váng (surface skimmer)",
+        "why": "A literal translation of 'surface skimmer'; local keepers say lọc váng.",
+        "by": "model",
+        "fix": "lọc váng"
+      }
+    ],
+    "products": [
+      "Fluval FX6",
+      "Keo 502"
+    ],
+    "doses": [
+      {
+        "treatment": "water clarifier",
+        "strength": "",
+        "amount": 5,
+        "amountMax": 0,
+        "unit": "cap",
+        "per": 1000,
+        "perUnit": "litre",
+        "use": "water",
+        "method": "wholeTank",
+        "quote": "| 1000 lít\n| 5 nắp"
+      }
+    ],
+    "sourceRead": true
+  },
+  "vi/guides/youtube-XvXnPFqpa6E": {
+    "at": "2026-11-14",
+    "hash": "13fc08a6d710ad93",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Lọc dùng ở đây là loại cho bể 190–400 lít",
+        "why": "190 litres is a converted 50-gallon tank rating, not a figure a Vietnamese keeper would use.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ở đây cá cùng chung một hệ thống ở tiệm và bể mới coi như bể cách ly",
+        "why": "This describes the source shop's own fish system as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Cách này là chạy chu trình có cá (fish-in cycling)",
+        "why": "\"Chạy chu trình\" is a literal translation of \"cycling\". Keepers in Vietnam say they \"chạy vi sinh\" for a tank.",
+        "by": "model",
+        "fix": "chạy vi sinh có cá"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Ráy (Cryptocoryne spiralis)",
+        "why": "Vietnamese keepers use \"ráy\" for Anubias. They call Cryptocoryne \"crypt\".",
+        "by": "model",
+        "fix": "crypt spiralis"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-XwkkskyP-R0": {
+    "at": "2026-11-14",
+    "hash": "ff1bb83d27a703af",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Trong thời gian bể trống, lọc ở đây vẫn chạy trên bể đối diện",
+        "why": "Refers to the source writer's own other tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Cuối cùng ở đây dùng hết 11 viên.",
+        "why": "Reports the writer's own tank build as a first-person story.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ở bể này, lúc đổi chỗ xả nước sang góc sau",
+        "why": "Narrates an incident in the source's own tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "L12",
+        "quote": "Ở đây thay nước lúc rêu bùng sau khoảng hai tuần.",
+        "why": "Answers with the source writer's own tank story.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Dennerle"
+    ]
   }
 }
