@@ -81,10 +81,9 @@ private struct BandImage: View {
   let height: CGFloat
   var corner: CGFloat = 0
   var body: some View {
-    Color.clear.frame(height: height).frame(maxWidth: .infinity).overlay {
-      GeometryReader { g in PageImage(src: src, ratio: max(g.size.width, 1) / height, corner: corner) }
-    }
-    .accessibilityHidden(true)
+    // As v2's photos are drawn everywhere (V2Photo): framed by the photo's box once the app has it, centred until then.
+    V2Photo(src: src).frame(maxWidth: .infinity).frame(height: height).clipShape(.rect(cornerRadius: corner))
+      .accessibilityHidden(true)
   }
 }
 
@@ -149,7 +148,8 @@ private struct SpeciesBlock: View {
       let header = own && large ? AnyLayout(VStackLayout(alignment: .leading, spacing: 12)) : AnyLayout(HStackLayout(spacing: 12))
       header {
         if own, let img = card.page.img {
-          PageImage(src: img.absoluteString, ratio: 4 / 3, corner: 10).frame(width: large ? 120 : 64, height: large ? 90 : 48).accessibilityHidden(true)
+          V2Photo(src: img.absoluteString).frame(width: large ? 120 : 64, height: large ? 90 : 48).clipShape(.rect(cornerRadius: 10))
+            .accessibilityHidden(true)
         }
         VStack(alignment: .leading, spacing: own ? 0 : 1) {
           Text(card.page.name).font(own ? .headline : .system(size: nameSize, weight: .semibold))
@@ -627,7 +627,10 @@ private struct SectionPart: View {
       }
     case let .figure(img, caption, _):
       VStack(alignment: .leading, spacing: 4) {
-        PageImage(src: img.src, ratio: img.h > 0 ? CGFloat(img.w) / CGFloat(img.h) : 1.5, alt: img.alt, corner: 8)
+        V2Photo(src: img.src, box: img.box).aspectRatio(img.h > 0 ? CGFloat(img.w) / CGFloat(img.h) : 1.5, contentMode: .fit)
+          .clipShape(.rect(cornerRadius: 8))
+          .accessibilityElement().accessibilityLabel(Text(verbatim: img.alt ?? "")).accessibilityAddTraits(.isImage)
+          .accessibilityHidden(img.alt == nil)
         if !caption.isEmpty { Text(styled(caption)).font(.footnote).foregroundStyle(.secondary) }
         if let credit = credit(img) { Text(credit).font(.caption2).foregroundStyle(.secondary).tint(Color.secondary) }
       }
