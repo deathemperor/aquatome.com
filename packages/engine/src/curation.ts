@@ -1,7 +1,7 @@
 import { isOwnerCrop } from '@aq/schema/image-policy'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { addDays, boxFractions, cardShownIn, CardSchema, CurationSchema, frameOf, LANGS, loadAll, resolveDataCard, STAPLE_SPECIES, POPULAR, POPULAR_BREEDS, type CardEntity, type Content, type Curation, type CurationDay, type CurationWeek, type Lang, type Photo, photoFitsCard } from '@aq/schema'
+import { addDays, boxFractions, cardShownIn, CardSchema, CurationSchema, frameOf, isAllowedLicence, LANGS, loadAll, resolveDataCard, STAPLE_SPECIES, POPULAR, POPULAR_BREEDS, type CardEntity, type Content, type Curation, type CurationDay, type CurationWeek, type Lang, type Photo, photoFitsCard } from '@aq/schema'
 import { captionFlaw } from './content-rules'
 import { fitKey, type FitState } from './fit'
 import { gateChecks } from './gate'
@@ -480,8 +480,10 @@ function offPages(cur: Curation, byRef: Map<string, Candidate>, from: string): R
 
 /** The app's short cards (content/cards) by how the calendar names them: the days each may show, and the served languages
  * it's written in that the gate doesn't hold back; or why its files don't parse, so one broken card is a problem the
- * check lists rather than a planner run that stops (Site Lead, 2026-11-08). */
-export type CardShow = { show: CardEntity['show']; langs: string[] } | { bad: string }
+ * check lists rather than a planner run that stops (Site Lead, 2026-11-08). `unshown`: why a public build leaves its
+ * photo off (the loader, load.ts): a photo used by its source's permission names that source, or it isn't shown (the
+ * marimo card's, 14 Nov, which named none, so its card had no photo while its page opened on the same one). */
+export type CardShow = { show: CardEntity['show']; langs: string[]; unshown?: string } | { bad: string }
 export async function cardsOf(root: string): Promise<Map<string, CardShow>> {
   const dir = join(root, 'content', 'cards')
   const out = new Map<string, CardShow>()
@@ -503,7 +505,9 @@ export async function cardsOf(root: string): Promise<Map<string, CardShow>> {
         const t = await json<{ held?: unknown } | null>(join(dir, id, `${lang}.json`), null)
         if (t && !t.held && cardShownIn(parsed.data, lang)) langs.push(lang)
       }
-      out.set(`cards/${id}`, { show: parsed.data.show, langs })
+      const ph = parsed.data.photo
+      const unshown = ph && !ph.source && !isAllowedLicence(ph.licence) ? `its photo names no source, and a build shows a photo under "${ph.licence}" only by its source's permission` : undefined
+      out.set(`cards/${id}`, { show: parsed.data.show, langs, ...(unshown ? { unshown } : {}) })
     } catch (err) {
       out.set(`cards/${id}`, { bad: err instanceof Error ? err.message : String(err) })
     }
@@ -543,7 +547,7 @@ export function checkCalendar(cur: Curation, cands: Candidate[], from: string, d
     if (d.card) {
       const c = cards.get(d.card)
       const p = !c ? 'no such card' : 'bad' in c ? `its files don't parse: ${c.bad}` : !c.langs.length ? 'held back or unwritten in every language'
-        : d.date < c.show.from || d.date > c.show.until ? `outside its days, ${c.show.from} to ${c.show.until}` : undefined
+        : d.date < c.show.from || d.date > c.show.until ? `outside its days, ${c.show.from} to ${c.show.until}` : c.unshown
       if (p) out.push(`${d.date} card ${d.card}: ${p}`)
     }
   }

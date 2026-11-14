@@ -170,6 +170,19 @@ test('a day\'s card is there to show: written in a language the gate lets out, w
   await writeFile(join(root, 'content', 'cards', 'fair', 'entity.json'), JSON.stringify({ ...e, id: 'fair', type: 'event', event: { start: '2026-11-10', end: '2026-11-11', place: 'Bangkok', country: 'TH', organiser: 'A club' } }))
   for (const lang of ['vi', 'th']) await writeFile(join(root, 'content', 'cards', 'fair', `${lang}.json`), JSON.stringify({ eyebrow: 'e', title: 't', body: '<p>b</p>' }))
   expect((await cardsOf(root)).get('cards/fair')).toMatchObject({ langs: ['th'] })
+  // A photo used by its source's permission names that source, or no build shows it (the marimo card, 14 Nov).
+  const photo = { url: 'https://media.aquatome.com/aquariumcoop/57f2673d7472a8f2.webp', width: 1000, height: 667, licence: 'dùng với sự cho phép', author: 'Aquarium Co-op', sourceUrl: 'https://www.aquariumcoop.com/x' }
+  for (const [id, ph] of [['unsourced', photo], ['sourced', { ...photo, source: 'aquariumcoop' }]] as const) {
+    await mkdir(join(root, 'content', 'cards', id), { recursive: true })
+    await writeFile(join(root, 'content', 'cards', id, 'entity.json'), JSON.stringify({ ...e, id, photo: ph }))
+    await writeFile(join(root, 'content', 'cards', id, 'vi.json'), JSON.stringify({ eyebrow: 'e', title: 't', body: '<p>b</p>' }))
+  }
+  const withPhotos = await cardsOf(root)
+  expect(withPhotos.get('cards/sourced')).toEqual({ show: e.show, langs: ['vi'] })
+  const photoDays = CurationSchema.parse({ version: 1, weeks: [], days: ['unsourced', 'sourced'].map(id => ({ date: '2026-11-10', fish: 'species/a', guide: 'guides/g', card: `cards/${id}` })) })
+  expect(checkCalendar(photoDays, [fish('a'), guide('g')], '2026-11-10', 0, withPhotos).filter(x => x.includes(' card '))).toEqual([
+    '2026-11-10 card cards/unsourced: its photo names no source, and a build shows a photo under "dùng với sự cho phép" only by its source\'s permission',
+  ])
   const cands = [fish('a'), guide('g')]
   const day = (date: string, card: string) => ({ date, fish: 'species/a', img: cands[0]!.photo.square!.url, guide: 'guides/g', card })
   const cur = CurationSchema.parse({ version: 1, weeks: [], days: [day('2026-11-10', 'cards/ok'), day('2026-11-12', 'cards/ok'), day('2026-11-13', 'cards/held'), day('2026-11-14', 'cards/none'), day('2026-11-15', 'cards/broken')] })
