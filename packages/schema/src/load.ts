@@ -135,14 +135,18 @@ async function materialParents(root: string): Promise<Map<string, string | undef
     if (m.id !== folder) throw new Error(`material ${folder}: its entity's id is "${m.id}"`)
     parents.set(m.id, m.parent)
   }
-  for (const [id, parent] of parents) {
-    if (parent === undefined) continue
-    if (parent === id || !parents.has(parent)) throw new Error(`material ${id}: parent "${parent}" is not another material`)
-    const seen = [id]
-    for (let p: string | undefined = parent; p !== undefined; p = parents.get(p)) {
-      if (seen.includes(p)) throw new Error(`material ${id}: its parents go round (${[...seen, p].join(' → ')})`)
-      seen.push(p)
+  for (const [id, parent] of parents)
+    if (parent !== undefined && (parent === id || !parents.has(parent))) throw new Error(`material ${id}: parent "${parent}" is not another material`)
+  // Each material walked once: a chain stops at one already known to end.
+  const ends = new Set<string>()
+  for (const id of parents.keys()) {
+    const chain = new Map<string, number>()
+    for (let p: string | undefined = id; p !== undefined && !ends.has(p); p = parents.get(p)) {
+      const at = chain.get(p)
+      if (at !== undefined) throw new Error(`material ${id}: its parents go round (${[...[...chain.keys()].slice(at), p].join(' → ')})`)
+      chain.set(p, chain.size)
     }
+    for (const p of chain.keys()) ends.add(p)
   }
   return parents
 }
