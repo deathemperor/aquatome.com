@@ -160,3 +160,21 @@ test('a kept-mark photo is never a card and never leads, whatever its verdict sa
   expect(ownMarkOnly(bw, ID, logo(bw.url), {})).toBe(false)
   expect(ownMarkOnly(gl, ID, logo(gl.url), {})).toBe(true)
 })
+
+test.each(SHOPS)('%s: a kept-mark photo among a page\'s own photos goes after the unmarked ones and gives up the head, whatever its verdict says of a logo', async shop => {
+  const marked = `https://media.aquatome.com/${shop}/marked.webp`
+  const r = await site({ url: marked, source: shop, sourceUrl: PAGE[shop] }, { source: shop, sourceUrl: PAGE[shop], owner: 'source' })
+  // A re-read of the shop's page put it first among the page's own photos; the check misses the credit.
+  await writeFile(join(r, 'content/species', ID, 'entity.json'), JSON.stringify({ id: ID, scientificName: 'Betta x', photos: [photo(marked, shop, PAGE[shop]), photo(OWN)] }))
+  let fetched: string[] = []
+  await checkPagePhotos(r, { get: async u => { fetched.push(u); return new Uint8Array(await jpeg) }, look: async () => {
+    const photos = fetched.map((_, i) => ({ n: i + 1, ok: 'yes', typical: true, note: 'x' }) as { n: number } & PhotoVerdict)
+    fetched = []
+    return { photos }
+  } }, { limit: 10, only: ID, emptyCap: 99 })
+  expect(((await json(r, `content/species/${ID}/entity.json`)).photos as { url: string }[]).map(p => p.url)).toEqual([OWN, marked])
+  // The lead step, given that page in the old order: the kept-mark head gives way to the photo that passes.
+  const v = { subjects: { [marked]: { [ID]: { ok: 'yes', typical: true, note: 'x' } }, [OWN]: { [ID]: { ok: 'yes', typical: true, note: 'x' } } }, legacy: {}, rejected: {}, faces: {}, kept: (u: string) => u === marked } as Verdicts
+  const head = photo(marked, shop, PAGE[shop]), other = photo(OWN)
+  expect(leadChoice([head, other], [], p => cardWorthy(p, ID, v, {}), {}, p => ownMarkOnly(p, ID, v, {}), () => 0, p => !!v.kept?.(p.url))).toEqual({ lead: other })
+})
