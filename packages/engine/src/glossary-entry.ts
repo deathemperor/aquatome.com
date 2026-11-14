@@ -305,6 +305,8 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     asks.foreign?.length ? `--- TÊN NƯỚC NGOÀI ---\n${asks.foreign.join('\n')}` : '',
     asks.asked?.length ? `--- NGƯỜI ĐỌC ĐÃ HỎI ---\n${asks.asked.join('\n')}` : '',
     asks.write?.length ? `--- CHO MỤC NÀY ---\n${asks.write.join('\n')}` : '',
+    // The term's own length, in place of the prompt's (Codex, 14 Nov 2026: the writer was never told pH's 600).
+    asks.length ? `--- ĐỘ DÀI ---\nKhoảng ${asks.length.words} chữ cả bài, thay cho độ dài nói ở trên.` : '',
   ].filter(Boolean).map(x => `\n\n${x}`).join('')
   // A rewrite edits the draft before it: only the sentences a note quotes or points to change, every other one stays word
   // for word (the chief of staff, 14 Nov 2026: Lũa's three whole rewrites each brought fresh notes and didn't converge).
@@ -365,7 +367,7 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
       const m = await rewordLoose(d.llm, o.writeModel ?? 'opus', forWriter, w, review.loose)
       w = m.entry
       // The reworded entry is the one saved, so its length is counted again: past the cap, it stops (Codex, 14 Nov 2026).
-      const long = lengthNotes(w.body, named)
+      const long = lengthNotes(w.body, named, asks.length?.words)
       const over = long.stop ? long.notes.slice(0, 1) : []
       review.notes = [...m.stops.map(stopNote), ...m.log, ...review.notes, ...over]
       review.stops = stopping(review) + m.stops.length + over.length
