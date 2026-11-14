@@ -61,7 +61,7 @@ test('the count is the album row\'s or under it: each picture once, nothing the 
   await mkdir(join(b, 'content/breeds/blue-fish'), { recursive: true })
   await writeFile(join(b, 'content/breeds/blue-fish/entity.json'), JSON.stringify({ id: 'blue-fish', kind: 'variety', photos: [photo('ai', { generated: { by: 'x', on: '2026-11-15' } }), ...checked(PRIORITY_UNTIL)], sources: [] }))
   expect(await priorityFish(b)).toEqual(['breeds/blue-fish'])
-  await writeFile(join(b, 'content/gallery/blue-fish.json'), JSON.stringify({ id: 'blue-fish', photos: checked(PRIORITY_UNTIL), seen: 0, updatedAt: '' }))
+  await writeFile(join(b, 'content/gallery/blue-fish.json'), JSON.stringify({ id: 'blue-fish', photos: checked(PRIORITY_UNTIL).map(p => photo(`g${p.url.slice(-6, -5)}`)), seen: 0, updatedAt: '' }))
   expect(await priorityFish(b)).toEqual([])
 })
 
@@ -84,6 +84,24 @@ test('a photo kept with a shop\'s mark doesn\'t count: the fish stays first unti
   await writeFile(join(r, 'content/gallery/zzz-liked.json'), JSON.stringify({ id: 'zzz-liked', photos: [...marked, ...clean(PRIORITY_UNTIL)].map(([p]) => p), seen: 0, updatedAt: '' }))
   await screen([...marked, ...clean(PRIORITY_UNTIL)])
   expect(await priorityFish(r)).toEqual([])
+})
+
+test('a picture with a copy anywhere on the page or in the album doesn\'t count: near copies chain, and the row may show another of them', async () => {
+  // A breed: the row shows its own photo O after the head, then the album. Six album photos each 4 bits from O, 8 from one
+  // another: the row shows O once and none of the six (Grok's second read). None counts.
+  const b = await root([], { 'breeds/blue-fish': '2026-11-14' })
+  await mkdir(join(b, 'content/breeds/blue-fish'), { recursive: true })
+  await writeFile(join(b, 'content/breeds/blue-fish/entity.json'), JSON.stringify({ id: 'blue-fish', kind: 'variety', photos: [photo('h'), photo('o')], sources: [] }))
+  const near = ['f', 'f0', 'f00', 'f000', 'f0000', 'f00000'].map(x => x.padStart(16, '0'))
+  await writeFile(join(b, 'content/gallery/blue-fish.json'), JSON.stringify({ id: 'blue-fish', photos: near.map((_, i) => photo(`n${i}`)), seen: 0, updatedAt: '' }))
+  await writeFile(join(b, 'content/picture-hashes.json'), JSON.stringify({ [url('h')]: 'ffffffffffffffff', [url('o')]: '0000000000000000', ...Object.fromEntries(near.map((h, i) => [url(`n${i}`), h])) }))
+  expect(await priorityFish(b)).toEqual(['breeds/blue-fish'])
+  // A Glaser photo the build shows at its original's address (an upscale it falls back from), banner and all, and a clean
+  // copy of that original: the copy doesn't count, and five clean photos are five.
+  const g = await root([photo('up', { source: 'glaser', altered: [{ method: 'lanczos3-upscale' }], original: { url: url('orig'), width: 600, height: 450 } }), photo('copy'), ...checked(PRIORITY_UNTIL - 1)])
+  await writeFile(join(g, 'content/sources.json'), JSON.stringify({ glaser: { publish: 'photos' } }))
+  await writeFile(join(g, 'content/picture-hashes.json'), JSON.stringify({ [url('orig')]: '00000000000000ff', [url('copy')]: '00000000000000fe' }))
+  expect(await priorityFish(g)).toEqual(['species/zzz-liked'])
 })
 
 test('a list that isn\'t JSON reads as no list: the album step and the photo check go on as before', async () => {

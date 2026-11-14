@@ -1,6 +1,6 @@
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { awaitsScreen, isAllowedLicence, isGenerated, isOwnerCrop, mayPublish, PHOTO_SCREEN_FILE, PictureSet, setsCookies, unmarked, type Photo, type PhotoScreenEntry } from '@aq/schema'
+import { awaitsScreen, hashDistance, isAllowedLicence, isGenerated, isOwnerCrop, mayPublish, PHOTO_SCREEN_FILE, pictureOf, SAME_PICTURE, setsCookies, unmarked, type Photo, type PhotoScreenEntry } from '@aq/schema'
 import { isRejected } from './photos'
 
 /**
@@ -28,31 +28,39 @@ export async function readPriorityFish(root: string): Promise<Record<string, str
 }
 
 /**
- * The pictures of a fish's album the site surely shows, each picture once as the row takes it (@aq/schema PictureSet: a
- * video's thumbnails are one picture, a photo and its thumb are one). Left out, beyond what the site leaves out: a photo
- * waiting for the photo check or the watermark screen, an AI picture, an altered photo or an owner's crop (the site shows
- * those only under its switches), a never-again photo, one a source may not show. And a marked photo, though the row shows
- * it: one the watermark screen found a mark on, which the album holds only under a kept-mark record (a cleared shop's own
- * mark), and one the site counts as marked (@aq/schema unmarked, Glaser's banner). A breed counts its album alone: its own
- * photos after its head show on the row too, but which photo the site leads with rests on the build's own steps (what it
- * leaves out, which photo fits a head), and counting from the wrong one would count the head. So this count can fall short
- * of the row's, never over it, and a fish never leaves the list before its row shows six photos with no mark.
+ * How many photos with no mark the fish's album row surely shows. A photo counts when the row shows it for sure: it's in
+ * the album's file (a breed's own photos show on its row too, after its head, but which one leads rests on the build's own
+ * steps), and none of these: waiting for the photo check or the watermark screen, an AI picture, an altered photo or an
+ * owner's crop (the site shows those only under its switches), a never-again photo, one a source may not show. It has no
+ * mark: neither one the site counts as marked (@aq/schema unmarked, Glaser's banner) nor one the watermark screen found
+ * (the album holds such a photo only under a kept-mark record, a cleared shop's own mark). And it has no copy anywhere on
+ * the page or in the album, shown or not, at any address the site may show either at (a photo's own, or its original's,
+ * which the build falls back to): the same address, a video's other thumbnail, a photo's thumb, a hash within SAME_PICTURE
+ * (@aq/schema pictureOf). The row takes each picture once, the first copy it shows, and near copies chain, so a picture
+ * with a copy may not be the one the row shows; one with none is. So each photo counted is one the row shows with no mark,
+ * the count can fall short of the row's, never over it, and a fish never leaves the list before its row shows six photos
+ * with no mark. A picture shown twice counts for neither copy: the fish stays first in line a little longer.
  */
-async function shownPictures(root: string, id: string): Promise<number> {
+async function shownPictures(root: string, kind: string, id: string): Promise<number> {
+  const page = await readJson<{ photos?: Photo[] }>(join(root, 'content', kind, id, 'entity.json'), {})
   const album = await readJson<{ photos?: (Photo & { unchecked?: boolean })[] }>(join(root, 'content/gallery', `${id}.json`), {})
   // No screen record, nothing waits, as in a build that has none (run.ts readKeeps).
   const screen = await readJson<Record<string, PhotoScreenEntry> | undefined>(join(root, 'engine-state', PHOTO_SCREEN_FILE), undefined)
   const rejected = isRejected(await readJson<Record<string, string>>(join(root, 'engine-state/_photo-rejected.json'), {}))
   const sources = await readJson<Record<string, { publish?: boolean | 'photos' }>>(join(root, 'content/sources.json'), {})
-  const pictures = new PictureSet(await readJson<Record<string, string>>(join(root, 'content/picture-hashes.json'), {}))
+  const hashes = await readJson<Record<string, string>>(join(root, 'content/picture-hashes.json'), {})
+  const at = (p: Photo) => [p.url, ...(p.original?.url ? [p.original.url] : [])].map(u => pictureOf(u, hashes))
+  const copies = (a: ReturnType<typeof at>, b: ReturnType<typeof at>) => a.some(x => b.some(y => x.key === y.key || (!!x.hash && !!y.hash && hashDistance(x.hash, y.hash) <= SAME_PICTURE)))
+  const own = page.photos ?? [], photos = album.photos ?? []
+  const all = [...own, ...photos].map(at)
   let clean = 0
-  for (const p of album.photos ?? []) {
+  for (const [i, p] of photos.entries()) {
     if (p.unchecked || isGenerated(p) || p.altered?.length || isOwnerCrop(p) || (!!screen && awaitsScreen(p.url, screen[p.url])) || rejected(p.url) || setsCookies(p.url)) continue
     if (p.source ? !mayPublish(sources[p.source], 'photos') : !isAllowedLicence(p.licence)) continue
-    // A marked photo takes its picture's place on the row too, so a clean copy after it isn't another picture.
-    if (pictures.has(p.url)) continue
-    pictures.add(p.url)
-    if (unmarked(p) && screen?.[p.url]?.watermark !== true) clean++
+    if (!unmarked(p) || screen?.[p.url]?.watermark === true) continue
+    const self = own.length + i
+    if (all.some((q, j) => j !== self && copies(all[self]!, q))) continue
+    clean++
   }
   return clean
 }
@@ -61,7 +69,8 @@ async function shownPictures(root: string, id: string): Promise<number> {
 export async function priorityFish(root: string): Promise<string[]> {
   const out: [string, string][] = []
   for (const [ref, day] of Object.entries(await readPriorityFish(root))) {
-    if ((await shownPictures(root, ref.split('/')[1]!)) < PRIORITY_UNTIL) out.push([ref, day])
+    const [kind, id] = ref.split('/') as [string, string]
+    if ((await shownPictures(root, kind, id)) < PRIORITY_UNTIL) out.push([ref, day])
   }
   return out.sort((a, b) => a[1].localeCompare(b[1]) || a[0].localeCompare(b[0])).map(([ref]) => ref)
 }
