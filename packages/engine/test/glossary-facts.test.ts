@@ -40,6 +40,17 @@ test('a kind\'s sentences are read under its name, as a section\'s are under its
   expect(calls[3]).toContain('HEADING:\nCác loại lũa › Lũa đỗ quyên\n\nPARAGRAPH:\nLũa đỗ quyên (spider wood): rễ cây. Lũa nhẹ. Thường dùng cho bể cá đĩa.\n\nSENTENCE:\nLũa nhẹ.')
 })
 
+// Codex, 14 Nov 2026: a paragraph inside a kind's item lost the kind's name, and could read as another wood's.
+test('a kind\'s name holds for everything inside its item: a paragraph or a list in it, under a name of its own too', () => {
+  const at = (body: string) => sentences({ definition: 'Lũa là gỗ.', body }).slice(1).map(s => `${s.item ?? '-'}: ${s.text}`)
+  expect(at('<ul><li><strong>Lũa đỗ quyên</strong><p>Chìm ngay.</p></li><li>Khác.</li></ul>')).toEqual(['Lũa đỗ quyên: Lũa đỗ quyên', 'Lũa đỗ quyên: Chìm ngay.', '-: Khác.'])
+  expect(at('<ul><li><strong>Lũa đỗ quyên:</strong> rễ.<ul><li>Chìm chậm.</li><li><strong>Lưu ý:</strong> dễ gãy.</li></ul>Nhẹ.</li></ul><p>Ngâm trước.</p>')).toEqual(['Lũa đỗ quyên: Lũa đỗ quyên: rễ.', 'Lũa đỗ quyên: Chìm chậm.', 'Lũa đỗ quyên › Lưu ý: Lưu ý: dễ gãy.', 'Lũa đỗ quyên: Nhẹ.', '-: Ngâm trước.'])
+  // An item left unclosed ends where the next begins.
+  expect(at('<ul><li><strong>Lũa sừng</strong> vàng.<li>Gỗ khác.</ul>')).toEqual(['Lũa sừng: Lũa sừng vàng.', '-: Gỗ khác.'])
+  // A paragraph that opens with a name, outside any list, stands under it alone.
+  expect(at('<p><strong>Mopani:</strong> nặng.</p><p>Sau đó.</p>')).toEqual(['Mopani: Mopani: nặng.', '-: Sau đó.'])
+})
+
 // Codex, 14 Nov 2026: a claim in a table cell, which the saved page keeps, was never read.
 test('every piece of the body\'s text is read, wherever it stands: a table\'s cells, a div, text outside any tag, any heading', () => {
   const e = {

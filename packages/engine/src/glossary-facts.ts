@@ -45,7 +45,9 @@ const BLOCK = /<\/?(?:p|ul|ol|li|table|thead|tbody|tfoot|tr|th|td|caption|div|se
  * The heading goes with what follows it: an item under "Sai lầm hay gặp" is a warning, not a fragment (Codex: one read
  * called three such items "not a claim"). So does a kind's name, for every sentence of its item: "Thường dùng nguyên khúc
  * cho bể nuôi cá đĩa" read supported three times, since another wood's fact covered it, though the item was about lũa đỗ
- * quyên (the measured run, 14 Nov 2026).
+ * quyên (the measured run, 14 Nov 2026). The name holds for everything inside its item, a paragraph or a list nested in it
+ * too (Codex, 14 Nov 2026: "<li><strong>Lũa đỗ quyên</strong><p>Chìm ngay.</p></li>" lost it); a list item inside a kind's
+ * item that opens with a name of its own stands under both.
  */
 export function sentences(e: { definition: string; body: string }): Sentence[] {
   const blocks: { block: string; heading?: string; item?: string }[] = [{ block: plain(e.definition) }]
@@ -53,11 +55,33 @@ export function sentences(e: { definition: string; body: string }): Sentence[] {
   for (const part of e.body.split(/(<h[1-6]\b[^>]*>[\s\S]*?<\/h[1-6]>)/i)) {
     const h = /^<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>$/i.exec(part)
     if (h) { heading = plain(h[1]!) || undefined; if (heading) blocks.push({ block: heading, heading }); continue }
-    for (const b of part.split(BLOCK)) {
+    // The open lists and list items, each item with the name it opens with, if any; a new item closes an unclosed one.
+    const open: ('list' | { name?: string; seen: boolean })[] = []
+    const text = (b: string) => {
       const block = plain(b)
-      const item = plain(/^\s*<strong\b[^>]*>([\s\S]*?)<\/strong>/i.exec(b)?.[1] ?? '').replace(/[\s:]+$/, '')
-      if (block) blocks.push({ block, ...(heading ? { heading } : {}), ...(item ? { item } : {}) })
+      if (!block) return
+      const lead = plain(/^\s*<strong\b[^>]*>([\s\S]*?)<\/strong>/i.exec(b)?.[1] ?? '').replace(/[\s:]+$/, '')
+      const li = open.at(-1)
+      if (li && li !== 'list' && !li.seen) { li.seen = true; if (lead) li.name = lead }
+      const names = open.flatMap(x => (x !== 'list' && x.name ? [x.name] : []))
+      const item = (names.length ? names : lead ? [lead] : []).join(' › ')
+      blocks.push({ block, ...(heading ? { heading } : {}), ...(item ? { item } : {}) })
     }
+    let at = 0
+    for (const m of part.matchAll(BLOCK)) {
+      text(part.slice(at, m.index))
+      at = m.index + m[0].length
+      const tag = /^<(\/?)([a-z]+)/i.exec(m[0])!
+      const [close, name] = [tag[1] === '/', tag[2]!.toLowerCase()]
+      if (name === 'ul' || name === 'ol') {
+        if (!close) open.push('list')
+        else while (open.length && open.pop() !== 'list');
+      } else if (name === 'li') {
+        if (open.length && open.at(-1) !== 'list') open.pop()
+        if (!close) open.push({ seen: false })
+      }
+    }
+    text(part.slice(at))
   }
   return blocks.flatMap(b => b.block.split(/(?<=[.!?…])\s+(?=[\p{Lu}"“(])/u).map(text => ({ text: text.trim(), ...b })).filter(s => s.text.length > 1))
 }
