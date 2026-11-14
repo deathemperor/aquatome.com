@@ -336,7 +336,7 @@ struct NativePage: View {
     // Its photo first, then its name and the lines under it: never a line above the name.
     if doc.video == nil, let lead = doc.lead { out.append(photo(lead, caption: [], href: nil, hero: true)) }
     out.append(.text(styled(doc.title, .pageTitle), look: .title))
-    if let sub = doc.sub { out.append(.text(styled(sub, .system(.title3, design: .serif).italic(), secondary: true), look: .line)) }
+    if let sub = HandbookIndex.Item.line(under: doc.title, doc.sub) { out.append(.text(styled(sub, .system(.title3, design: .serif).italic(), secondary: true), look: .line)) }
     if let meta = doc.meta { out.append(.text(styled(meta, .subheadline, secondary: true), look: .line)) }
     if !doc.where.isEmpty { out.append(.text(styled(doc.where, font: .subheadline), look: .line)) }
     if let aka = doc.aka { out.append(.text(styled(aka, .subheadline, secondary: true), look: .line)) }
@@ -765,9 +765,9 @@ struct CardsPart: View {
       HStack(spacing: 12) {
         let words = VStack(alignment: .leading, spacing: 0) {
           Text(c.name).font(.callout)
-          if let sub = c.sub { Text(sub).font(.footnote).foregroundStyle(.secondary) }
+          if let sub = HandbookIndex.Item.line(under: c.name, c.sub) { Text(sub).font(.footnote).foregroundStyle(.secondary) }
         }
-        let photo = c.img.map { PageImage(src: $0.thumb ?? $0.src, ratio: 4.0 / 3, corner: 5).frame(width: 44, height: 33) }
+        let photo = c.img.map { V2Photo(src: $0.thumb ?? $0.src, box: $0.box).frame(width: 44, height: 33).clipShape(.rect(cornerRadius: 5)) }
         if size.isAccessibilitySize {
           VStack(alignment: .leading, spacing: 8) {
             photo
@@ -794,14 +794,14 @@ struct CardsPart: View {
       HStack(spacing: 12) {
         if thumbs {
           if let img = c.img {
-            PageImage(src: img.thumb ?? img.src, ratio: 1).frame(width: thumb)
+            V2Photo(src: img.thumb ?? img.src, box: img.box).frame(width: thumb, height: thumb).clipShape(.rect(cornerRadius: 10))
           } else {
             RoundedRectangle(cornerRadius: 10).fill(.fill.tertiary).frame(width: thumb, height: thumb)
           }
         }
         VStack(alignment: .leading, spacing: 2) {
           Text(c.name).font(.body.weight(.semibold))
-          if let sub = c.sub { Text(sub).font(.subheadline).foregroundStyle(.secondary) }
+          if let sub = HandbookIndex.Item.line(under: c.name, c.sub) { Text(sub).font(.subheadline).foregroundStyle(.secondary) }
         }
         Spacer(minLength: 0)
         Image(systemName: "chevron.right").font(.footnote.weight(.semibold)).foregroundStyle(.tertiary)

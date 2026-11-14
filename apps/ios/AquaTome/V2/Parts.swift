@@ -353,7 +353,7 @@ struct Lockup: View {
   /// kit, under its own heading.
   static func line(_ item: HandbookIndex.Item) -> String? {
     if item.kind == .video, let n = item.parts { return String(localized: "\(n) video") }
-    return item.sub ?? (item.kind == .equipment ? nil : item.kind.title)
+    return item.subUnderName ?? (item.kind == .equipment ? nil : item.kind.title)
   }
 }
 

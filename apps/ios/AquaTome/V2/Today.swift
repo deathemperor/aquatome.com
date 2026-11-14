@@ -265,9 +265,9 @@ private struct FishOfTheDay: View {
       .buttonStyle(CardPress())
       .accessibilityIdentifier("v2-fish-of-the-day")
       // The band under it opens the same page: read here, one stop for VoiceOver (Lockup's `title`).
-      .accessibilityValue(Text(verbatim: [item.sub ?? item.kind.title, factsLine(item, handbook.lang)].compactMap { $0 }.joined(separator: ", ")))
+      .accessibilityValue(Text(verbatim: [item.subUnderName ?? item.kind.title, factsLine(item, handbook.lang)].compactMap { $0 }.joined(separator: ", ")))
       // The name is the card's title: under it, the fish's other name and figures, not the name and photo again.
-      Lockup(item: item, title: item.sub ?? item.kind.title, line: factsLine(item, handbook.lang), onDark: true, icon: false, post: true)
+      Lockup(item: item, title: item.subUnderName ?? item.kind.title, line: factsLine(item, handbook.lang), onDark: true, icon: false, post: true)
         .padding(.horizontal, 16).padding(.vertical, 10)
         .background(colour)
     }

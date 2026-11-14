@@ -47,6 +47,15 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     /// Where the fish is in `img` (PhotoBox): its card's frame keeps it by it. Packed in 8 bytes (`box`): every item is
     /// copied as a list scrolls.
     public var imgBox: PhotoBox? { PhotoBox(packed: box) }
+    /// Its scientific name as a list's second line: none where its name holds it already.
+    public var subUnderName: String? { Self.line(under: name, sub) }
+
+    /// `sub` under `name`, unless `name` holds it: "Cá bám đá Schistura spilota" over "Schistura spilota" said it twice
+    /// (the owner's report of 14 Nov, Khám phá's loach list).
+    public static func line(under name: String, _ sub: String?) -> String? {
+      guard let sub, !sub.isEmpty else { return nil }
+      return name.range(of: sub, options: [.caseInsensitive, .diacriticInsensitive]) == nil ? sub : nil
+    }
     private let box: UInt64
     /// A fish's figures and behaviour (none for other kinds, nor for a fish the site has none for).
     public let facts: Facts

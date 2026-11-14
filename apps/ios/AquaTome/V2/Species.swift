@@ -423,7 +423,7 @@ struct SpeciesPage: View {
         .onGeometryChange(for: Bool.self) { [barFoot] in $0.frame(in: .scrollView).maxY < barFoot } action: { gone in
           withAnimation(.easeInOut(duration: 0.2)) { nameGone = gone }
         }
-      if let sub = item.sub { LatinName(text: sub).font(.title3).italic().foregroundStyle(.white.opacity(0.75)) }
+      if let sub = item.subUnderName { LatinName(text: sub).font(.title3).italic().foregroundStyle(.white.opacity(0.75)) }
       // Its family and where it comes from, then its other names, as the site's page has them under its name.
       if let doc, !doc.where.isEmpty { Text(styled(doc.where)).foregroundStyle(.white.opacity(0.75)).tint(.white) }
       if let aka = doc?.aka { Text(verbatim: aka).foregroundStyle(.white.opacity(0.75)) }

@@ -161,8 +161,8 @@ private struct Chips: View {
         ForEach(chips, id: \.shelf.key) { t in
           NavigationLink(value: t.browse) {
             HStack(spacing: 8) {
-              if let img = t.shelf.img.flatMap(URL.init(string:)) {
-                AsyncImage(url: img) { $0.resizable().scaledToFill() } placeholder: { Color.secondary.opacity(0.15) }
+              if t.shelf.img != nil {
+                V2Photo(src: t.shelf.img, box: t.shelf.imgBox)
                   .frame(width: 36, height: 36)
                   .clipShape(Circle())
               }
@@ -222,7 +222,7 @@ private struct ShelfRow: View {
           Text(item.name).foregroundStyle(.primary)
           if item.kind == .video {
             if let n = item.parts { Text("\(n) video").font(.caption).foregroundStyle(.secondary) }
-          } else if let sub = item.sub {
+          } else if let sub = item.subUnderName {
             Text(sub).font(.caption).italic().foregroundStyle(.secondary)
           }
         }
@@ -241,7 +241,7 @@ struct Card: View {
     VStack(alignment: .leading, spacing: 4) {
       Photo(item: item)
       Text(item.name).font(.subheadline.weight(.semibold)).foregroundStyle(.primary).lineLimit(2)
-      if let sub = item.sub { Text(sub).font(.caption).italic().foregroundStyle(.secondary).lineLimit(1) }
+      if let sub = item.subUnderName { Text(sub).font(.caption).italic().foregroundStyle(.secondary).lineLimit(1) }
     }
     .accessibilityElement(children: .combine)
     .accessibilityIdentifier("item")
@@ -299,18 +299,15 @@ private struct SeriesCard: View {
   }
 }
 
-/// A card's photo, 4:3; the kind's symbol where there's none.
+/// A card's photo, 4:3, by the frame rule: the whole fish, on its blur where the frame would cut it (the owner's report
+/// of 14 Nov: the loaches' list showed a kuhli's middle); the kind's symbol where there's none.
 private struct Photo: View {
   let item: HandbookIndex.Item
 
   var body: some View {
-    Color.secondary.opacity(0.12)
+    V2Photo(src: item.img, box: item.imgBox)
       .aspectRatio(4 / 3, contentMode: .fit)
-      .overlay {
-        AsyncImage(url: item.img.flatMap(URL.init(string:))) { $0.resizable().scaledToFill() } placeholder: {
-          Image(systemName: item.kind.symbol).font(.title2).foregroundStyle(.secondary)
-        }
-      }
+      .overlay { if item.img == nil { Image(systemName: item.kind.symbol).font(.title2).foregroundStyle(.secondary) } }
       .clipShape(RoundedRectangle(cornerRadius: 10))
   }
 }
