@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest'
 import { getContent } from '../src/lib/content'
-import { guideImage, mentionIndex } from '../src/lib/mentions'
+import { guideImage, mentionIndex, titleFaults, titleNames, withVietnameseHeads } from '../src/lib/mentions'
 import awaiting from '../src/lib/guide-heads-awaiting.json' with { type: 'json' }
 import picks from '../src/lib/guide-heads-picks.json' with { type: 'json' }
 
@@ -113,3 +113,43 @@ test('a guide picked to borrow nothing borrows nothing, and one picked a page bo
   expect(guideImage(c2, named)?.url).toBe(other.photos[0]!.url)
 }, 120_000)
 
+
+// The chief of staff, 15 Nov 2026: a guide's head is chosen once, Curation's pick or else the page its Vietnamese title
+// names, and shows in every language, so the languages can't disagree: the Indonesian discus guide's "Ikan Discus" named
+// nothing, and the Thai text doesn't link the discus at all. A translated title that names another page is a translation
+// fault, listed for Writing (titleFaults).
+test('a guide borrows, in every language, the page its Vietnamese title names, whatever its own title names', async () => {
+  const vi = await getContent('vi')
+  const was = vi.guides.find(g => g.id === 'aquariumcoop-thay-nuoc')!
+  const [passing, subject] = [vi.species.find(s => s.id === 'paracheirodon-innesi')!, vi.species.find(s => s.id === 'boraras-brigittae')!]
+  const g = { ...was, photos: [], mentions: [], t: { ...was.t, name: `${subject.t.name} sắp đẻ`, body: '' } }
+  const viC = { ...vi, guides: vi.guides.map(x => (x.id === g.id ? g : x)) }
+  // A translation put together by hand, whose title names the neon instead.
+  const idG = { ...g, t: { ...g.t, name: `${passing.t.name} sắp đẻ` } }
+  const id = { ...viC, lang: 'id' as const, guides: viC.guides.map(x => (x.id === g.id ? idG : x)) }
+  expect(titleNames(id, idG).map(x => x.id)).toEqual([passing.id])
+  expect(guideImage(withVietnameseHeads({ ...id }, viC), idG)?.url).toBe(subject.photos[0]!.url)
+  expect(titleFaults(withVietnameseHeads({ ...id }, viC)).map(f => [f.id, f.own, f.vi])).toEqual([[g.id, [`species/${passing.id}`], [`species/${subject.id}`]]])
+  // A title naming fewer of the Vietnamese title's pages is no fault: Thai runs words together.
+  const both = { ...g, t: { ...g.t, name: `${subject.t.name} và ${passing.t.name} sắp đẻ` } }
+  const viBoth = { ...vi, guides: vi.guides.map(x => (x.id === g.id ? both : x)) }
+  expect(titleFaults(withVietnameseHeads({ ...id, guides: id.guides.map(x => (x.id === g.id ? { ...idG, t: { ...idG.t, name: `${subject.t.name} sắp đẻ` } } : x)) }, viBoth))).toEqual([])
+  // The page the Vietnamese names has none in this language: nothing, not the page its own title names.
+  expect(guideImage(withVietnameseHeads({ ...id, species: id.species.filter(s => s.id !== subject.id) }, viC), idG)).toBeUndefined()
+  // A guide the Vietnamese doesn't have (held there): its own title's. So is one on the waiting list, until the drops apply.
+  expect(guideImage(withVietnameseHeads({ ...id }, { ...viC, guides: viC.guides.filter(x => x.id !== g.id) }), idG)?.url).toBe(passing.photos[0]!.url)
+  const waits = (x: typeof g) => ({ ...x, id: awaiting[0]! })
+  expect(guideImage(withVietnameseHeads({ ...id, guides: [...id.guides, waits(idG)] }, { ...viC, guides: [...viC.guides, waits(g)] }), waits(idG))?.url).toBe(passing.photos[0]!.url)
+}, 120_000)
+
+test('an Indonesian or Malay title names a page by its name with the word for fish before it ("Ikan Discus")', async () => {
+  const vi = await getContent('vi')
+  const was = vi.guides.find(g => g.id === 'aquariumcoop-thay-nuoc')!
+  const subject = vi.species.find(s => s.id === 'boraras-brigittae')!
+  const g = { ...was, photos: [], mentions: [], t: { ...was.t, name: 'Ikan Zorbak bertelur: tanda dan cara', body: '' } }
+  const named = (lang: 'id' | 'ms' | 'vi') => titleNames({ ...vi, lang, species: vi.species.map(s => (s.id === subject.id ? { ...s, t: { ...s.t, name: 'Zorbak', altNames: [] } } : s)), guides: vi.guides.map(x => (x.id === g.id ? g : x)) }, g).map(x => x.id)
+  expect(named('id')).toEqual([subject.id])
+  expect(named('ms')).toEqual([subject.id])
+  // A one-word name alone still counts only for a fish the text names.
+  expect(named('vi')).toEqual([])
+}, 120_000)
