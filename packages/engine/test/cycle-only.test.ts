@@ -90,3 +90,13 @@ test('a page research names, fetched by the engine itself, is never one of those
   expect(await get('https://shop.example/old')).toBe('<p>150.000đ</p>')
   expect(asked.slice(1)).toEqual(['https://shop.example/old', 'https://shop.example/new'])
 })
+
+// Codex's read of 20b579b6f, 14 Nov 2026: the marketplaces were denied as their bare hosts alone, and a WebFetch domain rule
+// matches its host only ("*.host" those under it), so research could open www.tokopedia.com or www.shopee.vn.
+test("research's deny list holds every marketplace host: bare, its www., and the other countries' Shopee and Lazada", () => {
+  const rules = researchDeny().map(r => /^WebFetch\(domain:(.+)\)$/.exec(r)![1]!)
+  const denied = (host: string) => rules.some(r => (r.startsWith('*.') ? host.endsWith(r.slice(1)) : host === r))
+  for (const host of ['shopee.vn', 'www.shopee.vn', 'tokopedia.com', 'www.tokopedia.com', 'tokopedia.link', 'www.lazada.vn', 'tiki.vn', 'vn.shp.ee', 'shopee.co.id', 'www.lazada.co.th', 'shopee.com.my', 'www.lazada.com.my'])
+    expect(denied(host), host).toBe(true)
+  expect(denied('aquahouse.vn')).toBe(false)
+})
