@@ -5,7 +5,7 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 // @ts-expect-error a plain script
-import { archiveNamed, archiveWorktree, expireArchive, simVerdict, space, worktreeVerdict } from '../../../scripts/machine-sweep.mjs'
+import { archiveNamed, archiveWorktree, expireArchive, scratch, scratchVerdict, simVerdict, space, worktreeVerdict } from '../../../scripts/machine-sweep.mjs'
 import { slow } from '@aq/schema/test-time'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
@@ -221,4 +221,37 @@ test('free space under 30 GB reaches the chief of staff once a day, with where i
   expect(sent[1]!.message).toMatch(/^The Mac's upkeep \(machine-sweep\.mjs\), once a day while it lasts: 15 GB free on this Mac, under the 20 GB floor/)
   expect(sent[1]!.message).not.toContain('Under 20 GB no simulator')
   expect(lines.filter(l => l.startsWith('space: '))).toHaveLength(4)
+})
+
+// The chief of staff, 15 Nov 2026: tests had left 718,000 folders, about 78 GB, in the temp folder, and the hourly sweep
+// takes ours older than six hours, by the chief of staff's rules (~/.cache/aquatome/cos/space/temp-clean.py).
+test("the sweep takes our tests' scratch untouched for 6 h and open in no process, and nothing else in the temp folder", () => {
+  const temp = mkdtempSync(join(tmpdir(), 'aq-load-'))
+  const make = (name: string, kids: string[] = []) => { mkdirSync(join(temp, name)); for (const k of kids) mkdirSync(join(temp, name, k)) }
+  const litter = Array.from({ length: 20 }, (_, i) => `gate-Kq2a${String(i).padStart(2, '0')}`)
+  for (const n of litter) make(n, ['content', 'engine-state'])
+  make('aq-tests-a1B2c3') // a killed run's own folder
+  make('aq-open-k3Jd9s') // a run still working in it
+  make('gate-Zz9Yy8', ['notes']) // a gate- folder holding something else
+  make('lonely-a1B2c3', ['content']) // one of its kind: made by hand
+  make('com.apple.dock.launchpad') // not mkdtemp's name
+  const said: string[] = []
+  const pass = (now: number, dry = false) => scratch({ temp, open: () => new Set(['aq-open-k3Jd9s']), now, dry, say: (m: string) => said.push(m) })
+  // Everything here changed just now.
+  expect(pass(Date.now())).toBe(0)
+  expect(pass(Date.now() + 7 * 3_600_000, true)).toBe(21)
+  expect(readdirSync(temp)).toHaveLength(25)
+  expect(pass(Date.now() + 7 * 3_600_000)).toBe(21)
+  expect(readdirSync(temp).sort()).toEqual(['aq-open-k3Jd9s', 'com.apple.dock.launchpad', 'gate-Zz9Yy8', 'lonely-a1B2c3'])
+  expect(said.at(-1)).toMatch(/removed 21; left .*open in a process.*not test scratch by what it holds.*a kind too rare/)
+})
+
+test("a folder goes only when it's ours by name, owner and what it holds, and nothing in it changed within 6 h", () => {
+  const ours = { name: 'gate-Kq2a00', dir: true, mine: true, open: false, hours: 7, kids: ['content', '.git'], kidsHours: 7, kindCount: 35_000 }
+  expect(scratchVerdict(ours)).toBe('remove')
+  expect(scratchVerdict({ ...ours, kidsHours: 5 })).toBe('changed within 6 h')
+  expect(scratchVerdict({ ...ours, mine: false })).toBe('not our folder')
+  expect(scratchVerdict({ ...ours, name: 'gate-abcdef' })).toBe('not a scratch name')
+  expect(scratchVerdict({ ...ours, kids: ['content', 'Photos Library.photoslibrary'] })).toBe('not test scratch by what it holds')
+  expect(scratchVerdict({ ...ours, name: 'aq-tests-x1y2z3', kindCount: 1, kids: ['anything'] })).toBe('remove')
 })

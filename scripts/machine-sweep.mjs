@@ -8,13 +8,15 @@
 // - Worktrees, at 03:35 or with --worktrees: merged ones. One left alone for 7 days with no live thread is saved first
 //   (archiveWorktree: never pushed, kept 30 days), then removed. No --force without that copy.
 // - ~/.cache/aquatome is what the leads keep (AGENTS.md, This Mac): never touched, but for the archive's copies past 30 days.
+// - Scratch: our tests' leftover folders in the system temp folder, untouched for 6 h and open in no process (`scratch`;
+//   the chief of staff, 15 Nov 2026). Nothing else there: other projects', the system's, Xcode's, the browsers'.
 // - Free space: under mac-status.py's 30 GB, the chief of staff hears of it once a day while it lasts, in the thread the
-//   owner's reports go to (theirs). Who clears what is theirs to say; nothing here deletes for space.
+//   owner's reports go to (theirs). Who clears what is theirs to say; nothing here deletes for space but that scratch.
 // --dry-run says what it would do, and does none of it. --archive <path>...: save and remove those worktrees now, but
 // for one a process is working in, and one whose thread is live unless it's named again after --though-live.
 import { execFileSync, spawnSync } from 'node:child_process'
-import { closeSync, existsSync, mkdirSync, openSync, readdirSync, readFileSync, realpathSync, rmSync, statSync, writeFileSync } from 'node:fs'
-import { homedir } from 'node:os'
+import { closeSync, existsSync, lstatSync, mkdirSync, openSync, readdirSync, readFileSync, realpathSync, rmSync, statSync, writeFileSync } from 'node:fs'
+import { homedir, tmpdir } from 'node:os'
 import { basename, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { sendToThread } from './infinitus-send.mjs'
@@ -291,6 +293,73 @@ function worktrees() {
 }
 
 /**
+ * Our tests' scratch in the system temp folder (the chief of staff, 15 Nov 2026: 718,000 folders, about 78 GB, left by
+ * tests that never removed theirs, growing 1.5 GB an hour). A test run now keeps its scratch in one folder of its own that
+ * goes when the run ends (@aq/schema/test-scratch); what's left is a killed run's folder, and what an older checkout's
+ * tests make. The rules are the chief of staff's (~/.cache/aquatome/cos/space/temp-clean.py), at six hours, not a day.
+ */
+const SCRATCH_HOURS = 6
+/** A pass's time: what's left goes in the next hour's. */
+const SCRATCH_MINUTES = 20
+// mkdtemp's names: a kind, then 6 to 10 random letters or digits with a digit or a capital among them ("gate-x7Kq2a").
+const SCRATCH_NAME = /^(?<kind>[A-Za-z][A-Za-z0-9._-]*?)[-._](?<suffix>[A-Za-z0-9_]{6,10})$/
+/** What the engine's tests put in a scratch folder that isn't named aq-…: a copy of the repository's content and state. */
+const FIXTURE = new Set(['engine-state', 'content', 'sources', 'docs', '.git'])
+export const scratchKind = name => {
+  const m = SCRATCH_NAME.exec(name)
+  return m && /[0-9A-Z]/.test(m.groups.suffix) ? m.groups.kind : null
+}
+/**
+ * 'remove', or why a folder in the temp folder stays. It goes only when it is a folder of this user's with mkdtemp's name,
+ * open in no process, and neither it nor anything directly in it changed within SCRATCH_HOURS; and when it is a run's
+ * own (aq-tests-), or of a kind with at least 20 folders (test litter comes in thousands, a hand-made folder alone) named
+ * aq-… or holding only the engine's fixture folders.
+ */
+export function scratchVerdict({ name, dir, mine, open, hours, kids, kidsHours, kindCount }) {
+  if (!scratchKind(name)) return 'not a scratch name'
+  if (!dir || !mine) return 'not our folder'
+  if (open) return 'open in a process'
+  if (Math.min(hours, kidsHours) < SCRATCH_HOURS) return `changed within ${SCRATCH_HOURS} h`
+  if (name.startsWith('aq-tests-')) return 'remove'
+  if (kindCount < 20) return 'a kind too rare to be test scratch'
+  if (!name.startsWith('aq-') && !(kids.every(k => FIXTURE.has(k)) && kids.some(k => k === 'content' || k === 'engine-state'))) return 'not test scratch by what it holds'
+  return 'remove'
+}
+/** This user's temp folder, as launchd's jobs and a shell both see it. */
+const tempFolder = () => realpathSync((process.platform === 'darwin' && read('getconf', ['DARWIN_USER_TEMP_DIR'])?.trim()) || tmpdir())
+/** The temp folder's entries a running process of this user has a file open in, or works in; null when lsof can't say. */
+const openIn = temp => {
+  const out = read('lsof', ['-u', String(process.getuid()), '-Fn'])
+  return out == null ? null : new Set(out.split('\n').filter(l => l.startsWith(`n${temp}/`)).map(l => l.slice(temp.length + 2).split('/')[0]))
+}
+export function scratch({ temp = tempFolder(), open = openIn, now = Date.now(), clock = Date.now, minutes = SCRATCH_MINUTES, dry = DRY, say = log } = {}) {
+  const held = open(temp)
+  if (held == null) return say('scratch: lsof gave no answer, nothing removed')
+  const names = readdirSync(temp)
+  const kinds = new Map()
+  for (const n of names) { const k = scratchKind(n); if (k) kinds.set(k, (kinds.get(k) ?? 0) + 1) }
+  const hoursOf = st => (now - Math.max(st.mtimeMs, st.ctimeMs)) / 3_600_000
+  const until = clock() + minutes * 60_000
+  const kept = new Map()
+  let removed = 0
+  for (const name of names) {
+    const kind = scratchKind(name)
+    if (!kind) continue
+    if (clock() > until) { say(`scratch: ${minutes} min up, the rest next hour`); break }
+    const path = join(temp, name)
+    let st, kids = []
+    try { st = lstatSync(path); if (st.isDirectory()) kids = readdirSync(path) } catch { continue }
+    const ages = kids.slice(0, 40).flatMap(k => { try { return [hoursOf(lstatSync(join(path, k)))] } catch { return [] } })
+    const verdict = scratchVerdict({ name, dir: st.isDirectory(), mine: st.uid === process.getuid(), open: held.has(name), hours: hoursOf(st), kids, kidsHours: Math.min(Infinity, ...ages), kindCount: kinds.get(kind) })
+    if (verdict !== 'remove') { kept.set(verdict, (kept.get(verdict) ?? 0) + 1); continue }
+    if (!dry) rmSync(path, { recursive: true, force: true })
+    removed++
+  }
+  say(`scratch: ${dry ? 'would remove' : 'removed'} ${removed}; left ${[...kept].map(([why, n]) => `${n} (${why})`).join(', ') || 'none'}`)
+  return removed
+}
+
+/**
  * Free space against mac-status.py's floor: its `--space` says nothing at 30 GB or more, a warning under, and exits 3
  * under 20. Under 30, the chief of staff hears of it once a day (the day it was said is kept in `said`).
  */
@@ -313,7 +382,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url) && process.argv.includes(
   archiveNamed(process.argv, { cwds, live: liveWorktrees() })
 } else if (process.argv[1] === fileURLToPath(import.meta.url)) {
   // One pass failing leaves the others to run.
-  const passes = [simulators, agents, space, ...(process.argv.includes('--worktrees') || new Date().getHours() === 3 ? [worktrees] : [])]
+  const passes = [simulators, agents, space, ...(process.argv.includes('--worktrees') || new Date().getHours() === 3 ? [worktrees] : []), scratch]
   for (const pass of passes) {
     try {
       await pass()
