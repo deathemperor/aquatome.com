@@ -18,11 +18,11 @@ export type TextLine = { t: string; c: number; x: number; y: number; w: number; 
 export type WatermarkKind = 'credit' | 'logo' | 'url' | 'name' | 'caption' | 'stamp' | 'none'
 /** One photo's screen: the text read on it (`at`: where on the photo), then the model's verdict once it has looked. */
 export type WatermarkEntry = CompactScreen
-export const retainedOwnMark = (url: string, entry: WatermarkEntry | undefined) =>
-  url.startsWith('https://media.aquatome.com/glaser/') && entry?.retainedOwnMark?.source === 'glaser' && entry.retainedOwnMark.owner === 'source' && /^https?:\/\/(www\.)?aquariumglaser\.de\//.test(entry.retainedOwnMark.sourceUrl)
+import { retainedOwnMark } from './own-mark'
+export { retainedOwnMark }
 /**
- * A photo the never-again list (engine-state/_photo-rejected.json) holds that stays all the same: an Aquarium Glaser
- * photo with the shop's own mark, kept (retainedOwnMark), where the list holds it for that mark alone.
+ * A photo the never-again list (engine-state/_photo-rejected.json) holds that stays all the same: a cleared shop's photo
+ * with the shop's own mark, kept (own-mark.ts retainedOwnMark), where the list holds it for that mark alone.
  */
 export const keptOwnMark = (rejected: Record<string, string>, marks: Record<string, WatermarkEntry>) => (url: string) =>
   retainedOwnMark(url, marks[url]) && (!rejected[url] || rejected[url]!.startsWith('watermark:'))
