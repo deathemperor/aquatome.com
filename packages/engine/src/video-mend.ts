@@ -33,14 +33,17 @@ function sentenceOf(paragraphs: string[], quote: string): string {
  * A dose that is the video's own tank's, not advice ("bể này dùng khoảng 4 nắp", "ở bể 60 lít này là khoảng 3 ml"): the
  * editor drops its figure and its brand for the label. Only a sentence that names the tank and, besides that name and the
  * dose, has no figure, no size, no rate ("cho", "thì", "trên", "từ", "theo", "per", "/", "mỗi" but before a time), no
- * class of tank ("như", "những", "các", "mọi", "nào", "loại", "kiểu", "cỡ", "mấy") and no CO2 or ppm. Anything else is
- * advice, or may be, and waits for a person (the chief of staff, 14 Nov 2026; Grok's reads). Unsure, it waits.
+ * class or count of tanks ("như", "những", "các", "mọi", "nào", "loại", "kiểu", "cỡ", "mấy", "dạng", "tất cả", "bất kỳ",
+ * "không chỉ", "hai bể"), no other tank with a figure ("bể 500 ml") and no CO2 or ppm. Anything else is advice, or may be,
+ * and waits for a person (the chief of staff, 14 Nov 2026; Grok's reads). Unsure, it waits.
  */
-const SIZE_UNIT = '(?:lít|litre|liter|l|cm|m|mét|feet|ft|foot|inch|in|gallons?|gal|galông|galon)'
-const DOSE_WORDS = 'ml|mililít|mililit|cc|mg|kg|gam|gram|grams|gr|g|ppm|gói|viên|thìa|muỗng|giọt|nắp|cốc|chén|chai|sachets?|tablets?|butir'
-const NUMBER_WORDS = 'một|hai|ba|bốn|năm|sáu|bảy|bẩy|tám|chín|mười|nửa'
+const SIZE_UNIT = '(?:lít|litres?|liters?|l|cm|centimet|centimét|mm|m|mét|feet|ft|foot|inch(?:es)?|in|gallons?|gal|galông|galon)'
+const DOSE_WORDS = 'ml|mililít|mililit|cc|mg|kg|gam|gram|grams|gr|g|ppm|gói|viên|thìa|muỗng|giọt|nắp|cốc|chén|chai|sachets?|tablets?|butir|caps?|scoops?|drops?|teaspoons?|tablespoons?|tsp|tbsp|pumps?'
+const NUMBER_WORDS = 'một|mốt|hai|ba|bốn|tư|năm|lăm|sáu|bảy|bẩy|tám|chín|mười|mươi|trăm|linh|lẻ|nửa|rưỡi'
 const OWN_TANK = new RegExp(`(?<![\\p{L}])(?:bể(?:\\s+(?:dài\\s+)?\\d[\\d.,]*\\s*${SIZE_UNIT})?\\s+này|bể ở đây|bể mình|bể của mình|bể trong video|bể mẫu|lần này|hôm đó)(?![\\p{L}])`, 'iu')
-const NOT_OWN = /(?<![\p{L}])(?:cho|thì|trên|từ|theo|per|như|những|các|mọi|nào|loại|kiểu|cỡ|mấy|co2|ppm|mỗi(?!\s+(?:ngày|tuần|tháng|lần|sáng|tối|buổi|đêm|giờ)(?![\p{L}])))(?![\p{L}])|\//iu
+const NOT_OWN = new RegExp(`(?<![\\p{L}])(?:cho|thì|trên|từ|theo|per|như|những|các|mọi|nào|loại|kiểu|cỡ|mấy|dạng|tất cả|bất kỳ|bất cứ|không chỉ|co2|co₂|ppm|mỗi(?!\\s+(?:ngày|tuần|tháng|lần|sáng|tối|buổi|đêm|giờ)(?![\\p{L}]))|(?:\\d[\\d.,]*|${NUMBER_WORDS})\\s+bể)(?![\\p{L}])|\\/`, 'iu')
+/** Another tank with a figure, beside the one the sentence names ("bể 500 ml châm 2 nắp"). */
+const OTHER_TANK = new RegExp(`(?<![\\p{L}])bể\\s+(?:\\d|(?:${NUMBER_WORDS})(?![\\p{L}]))`, 'iu')
 const DOSE_AMOUNT = new RegExp(`(?<![\\p{L}\\p{N}])(?:\\d[\\d.,–-]*|${NUMBER_WORDS})\\s*(?:cái\\s+)?(?:${DOSE_WORDS})(?![\\p{L}])`, 'giu')
 const SIZE_WORD = new RegExp(`(?<![\\p{L}])${SIZE_UNIT}(?![\\p{L}])`, 'iu')
 const NUMBER_WORD = new RegExp(`^(?:${NUMBER_WORDS})$`, 'u')
@@ -49,24 +52,36 @@ const DOSE_UNIT = new RegExp(`^(?:${DOSE_WORDS})$`, 'u')
 const WORD_DOSE = (s: string) => words(s).some((w, i, all) => NUMBER_WORD.test(w) && DOSE_UNIT.test((all[i + 1] === 'cái' ? all[i + 2] : all[i + 1]) ?? ''))
 export const ownTankDose = (sentence: string) => {
   if (!(givesDose(sentence) || WORD_DOSE(sentence)) || !OWN_TANK.test(sentence) || NOT_OWN.test(sentence)) return false
-  const rest = sentence.replace(OWN_TANK, ' ').replace(DOSE_AMOUNT, ' ')
+  const named = sentence.replace(OWN_TANK, ' ')
+  if (OTHER_TANK.test(named)) return false
+  const rest = named.replace(DOSE_AMOUNT, ' ')
   return !/\d/.test(rest) && !SIZE_WORD.test(rest)
 }
 /** The label line a dropped dose leaves, in the words keepers write (the Writing Lead, 14 Nov 2026). */
 export const LABEL_DOSE = 'liều theo hướng dẫn trên bao bì'
-const isFigure = (w: string) => /^[.,-]?\d/.test(w)
+const isFigure = (w: string) => /^[.,-]?[\d½¼¾⅓⅔⅛]/u.test(w)
 /**
  * Each figure with the word after it, its unit, as often as the text has it. A percent is its figure's ("30%"), "60 x
- * 38" is "60 × 38", "4 cái nắp" is "4 nắp", and an amount in words counts in a dose's unit (Grok's reads).
+ * 38" is "60 × 38", "4 cái nắp" is "4 nắp", "½" is a figure, and an amount in words, one word or several ("hai mươi
+ * nắp"), counts in a dose's unit (Grok's reads).
  */
 function figures(text: string): Map<string, number> {
   const w = words(text.replace(/(\d)\s*%/gu, '$1 phầntrăm').replace(/(\d)\s*[×xX*]\s*(?=\d)/gu, '$1 '))
   const m = new Map<string, number>()
+  const add = (k: string) => m.set(k, (m.get(k) ?? 0) + 1)
+  const after = (j: number) => (w[j] === 'cái' ? w[j + 1] : w[j])
   w.forEach((x, i) => {
-    const next = w[i + 1] === 'cái' ? w[i + 2] : w[i + 1]
-    if (!isFigure(x) && !(NUMBER_WORD.test(x) && DOSE_UNIT.test(next ?? ''))) return
-    const k = `${x} ${next && !isFigure(next) ? next : ''}`.trim()
-    m.set(k, (m.get(k) ?? 0) + 1)
+    if (NUMBER_WORD.test(x)) {
+      if (NUMBER_WORD.test(w[i - 1] ?? '')) return
+      let j = i
+      while (NUMBER_WORD.test(w[j] ?? '')) j++
+      const u = after(j)
+      if (u && DOSE_UNIT.test(u)) add(`${w.slice(i, j).join(' ')} ${u}`)
+      return
+    }
+    if (!isFigure(x)) return
+    const next = after(i + 1)
+    add(`${x} ${next && !isFigure(next) ? next : ''}`.trim())
   })
   return m
 }

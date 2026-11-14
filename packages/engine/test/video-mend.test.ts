@@ -165,6 +165,10 @@ test('a figure the editor changes, drops or adds beside units or a dose leaves t
     ['the dose reworded and kept', `<p>Bể 10 gallon là đủ cho một đàn nhỏ.</p><p>Châm vi sinh ngay, khoảng 4 nắp, liều theo hướng dẫn trên bao bì.</p><p>${LONG}</p>`, [own, gallons, caps]],
     ['a dose in words', `<p>Bể 10 gallon là đủ cho một đàn nhỏ.</p><p>Châm vi sinh ngay, năm nắp, liều theo hướng dẫn trên bao bì.</p><p>${LONG}</p>`, [own, gallons, caps]],
     ['a dose in another unit', `<p>Bể 10 gallon là đủ cho một đàn nhỏ.</p><p>Châm vi sinh ngay, 4 cái nắp, liều theo hướng dẫn trên bao bì.</p><p>${LONG}</p>`, [own, gallons, caps]],
+    // A dose figure in several words, as a fraction sign, or in English caps (Grok's fourth read).
+    ['a dose in compound words', `<p>Bể 10 gallon là đủ cho một đàn nhỏ.</p><p>Châm vi sinh ngay, hai mươi nắp, liều theo hướng dẫn trên bao bì.</p><p>${LONG}</p>`, [own, gallons, caps]],
+    ['a dose as a fraction sign', `<p>Bể 10 gallon là đủ cho một đàn nhỏ.</p><p>Châm vi sinh ngay, ½ nắp, liều theo hướng dẫn trên bao bì.</p><p>${LONG}</p>`, [own, gallons, caps]],
+    ['caps in a shop\'s mend', `<p>Bể nhỏ dễ dựng.</p><p>Lọc mua ở tiệm cá cảnh. Châm 5 caps vi sinh.</p><p>${LONG}</p>`, [shop, price]],
   ]
   for (const [name, body, findings] of cases) {
     const { root, file, was } = await setup(findings.includes(shop) ? {} : { body: OWN, faq: [] })
@@ -201,12 +205,14 @@ test('a figure keeps its percent, a units quote keeps its figure beside another 
 })
 
 test('the video\'s own dose is one that names its tank and gives no rate; a rate per volume or per tank, a CO2 rate, or a bare "ở đây" waits (Grok\'s read)', () => {
-  for (const s of ['Châm phân nước mỗi ngày, ở bể 60 lít này là khoảng 3 ml.', 'Ở bể này châm phân nước khoảng 3 ml mỗi ngày.', 'Bể này dùng hai nắp.', 'Bể mẫu dùng vi sinh Multibio, châm 2 nắp.', 'Bể này dùng 2 sachet Quick Start.', 'Ở bể 1 mét này châm 3 ml.']) expect(ownTankDose(s), s).toBe(true)
+  for (const s of ['Châm phân nước mỗi ngày, ở bể 60 lít này là khoảng 3 ml.', 'Ở bể này châm phân nước khoảng 3 ml mỗi ngày.', 'Bể này dùng hai nắp.', 'Bể mẫu dùng vi sinh Multibio, châm 2 nắp.', 'Bể này dùng 2 sachet Quick Start.', 'Ở bể 1 mét này châm 3 ml.', 'Ở bể 50 litres này châm 3 ml.']) expect(ownTankDose(s), s).toBe(true)
   for (const s of ['Một cách xử lý là tăng phân nước, ở đây là 20 ml mỗi ngày cho bể 60 cm.', 'Bể này 100 lít thì châm 10 ml.', 'Bể này dùng 10 ml cho một lít.', 'Với sủi inline cho sương mịn, khoảng 5–6 giọt mỗi giây cho mức chừng 30 ppm ở bể này.', 'Châm 5 ml cho mỗi 50 lít.', 'Ở đây châm 3 ml.',
     // A rate however it's worded, a size beside the dose, a type of tank (Grok's second read).
     'Bể này 60 cm thì châm 10 ml.', 'Bể này 20 gallon thì châm 5 ml.', 'Bể này 1,2 m thì châm 2 nắp.', 'Bể này châm 5 ml cho mỗi 10 gallons.', 'Bể này dùng 5 ml cho mỗi 10 galông.', 'Bể này châm 5 ml mỗi bể 60 lít.', 'Bể này châm 5 ml cho những bể 60 cm.', 'Bể này châm 5 ml cho bể từ 60 cm.', 'Bể mẫu dùng vi sinh Multibio, bể 1,2 m châm 2 nắp.', 'Loại bể này châm 4 nắp.',
     // Rates and sizes in other words, a class of tank a word away, a dose in mg/l, a reading beside one (Grok's third read).
-    'Bể này châm 5 ml theo lít.', 'Bể này dùng 5 ml per gallon.', 'Bể mẫu dùng vi sinh, bể 50 litre châm 2 nắp.', 'Bể này 4 feet châm 4 nắp.', 'Bể này châm 2 nắp, bể một mét.', 'Cỡ như bể này châm 4 nắp.', 'Những cái bể này châm 4 nắp.', 'Những bể như bể này châm 4 nắp.', 'Bể mẫu nào cũng châm 2 nắp.', 'Bể này châm phân, bể này dùng 20 mg/l.', 'Ở bể 60 lít này châm 20 mg/l.', 'Bể này châm 4 nắp, nitrat khoảng 20 mg/l.']) expect(ownTankDose(s), s).toBe(false)
+    'Bể này châm 5 ml theo lít.', 'Bể này dùng 5 ml per gallon.', 'Bể mẫu dùng vi sinh, bể 50 litre châm 2 nắp.', 'Bể này 4 feet châm 4 nắp.', 'Bể này châm 2 nắp, bể một mét.', 'Cỡ như bể này châm 4 nắp.', 'Những cái bể này châm 4 nắp.', 'Những bể như bể này châm 4 nắp.', 'Bể mẫu nào cũng châm 2 nắp.', 'Bể này châm phân, bể này dùng 20 mg/l.', 'Ở bể 60 lít này châm 20 mg/l.', 'Bể này châm 4 nắp, nitrat khoảng 20 mg/l.',
+    // Another tank with a figure in a dose's unit or in words, a count or class of tanks, CO₂ (Grok's fourth read).
+    'Bể mẫu dùng vi sinh, bể 500 ml châm 2 nắp.', 'Bể này châm 2 nắp, bể 60 cc.', 'Bể này châm 2 nắp, bể mười litres.', 'Bể này châm 2 nắp, bể sáu mươi centimet.', 'Không chỉ bể này, châm 4 nắp.', 'Dạng bể này châm 4 nắp.', 'Tất cả bể này châm 4 nắp.', 'Hai bể này châm 4 nắp.', 'Bất kỳ bể này cũng châm 4 nắp.', 'Bể này châm 5 giọt CO₂.']) expect(ownTankDose(s), s).toBe(false)
 })
 
 test('the video\'s own dose stays only in a sentence carried over whole, in any dose unit (Grok\'s second read)', async () => {
