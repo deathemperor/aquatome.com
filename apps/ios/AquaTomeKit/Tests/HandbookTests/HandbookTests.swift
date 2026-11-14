@@ -44,6 +44,9 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   #expect(names(s.find("lua")) == ["Lũa"] && names(s.find("driftwood")) == ["Lũa"])
   #expect(s.findAndCount("lua").counts == [nil: 1, .material: 1])
   #expect(names(s.find("go lua", kind: .material)) == ["Lũa"] && s.find("lua", kind: .equipment).isEmpty)
+  // Its page at the root, where the site sends "/vi/vat-lieu/…", is the same page: its kept copy and a link to it find it.
+  #expect(PathForm.underVi.path("/vat-lieu/lua/") == "/vi/vat-lieu/lua/")
+  #expect(PathForm.atRoot.path("/vi/vat-lieu/lua/") == "/vat-lieu/lua/")
 }
 
 @Test func aKindANewerSiteAddsIsLeftOutNotTheWholeIndex() throws {
