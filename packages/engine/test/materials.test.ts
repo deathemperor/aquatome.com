@@ -82,12 +82,16 @@ test('a price, in what a reader sees, and not a quantity (Astra\'s read)', () =>
     'Mỗi khúc 200 nghìn', 'Mỗi khúc 200 ngàn', 'Mỗi khúc 1,5 triệu', 'Lũa 150K/khúc', 'Giá bán: 150.000', 'Mỗi khúc 200 nghìn một', 'Ngâm 7 ngày, khúc này 90 đ',
     // Astra's third read
     'Một khúc lũa 150.000đ màu nâu sẫm', 'Một khúc lũa 150.000₫ màu nâu sẫm', 'Một khúc lũa 150.000 VND màu nâu sẫm', 'Mỗi khúc 200 nghìn tùy kích thước',
-    'Lũa khoảng 100–200 nghìn tùy dáng', 'Một túi nền tốn 150 nghìn cho bể nhỏ', 'Khúc to giá 1.200.000'])
+    'Lũa khoảng 100–200 nghìn tùy dáng', 'Một túi nền tốn 150 nghìn cho bể nhỏ', 'Khúc to giá 1.200.000',
+    // Astra's fourth read
+    'Một khúc lũa 150.000 đồng màu nâu sẫm', 'Một khúc lũa 150000 đồng màu nâu sẫm', 'Khúc to 2 triệu đến 3 triệu đồng'])
     expect(formNotes(asSaved(page(p)), 1).filter(n => n.startsWith('a price')), p).toHaveLength(1)
   for (const q of ['Đá hình thành cách đây 2 triệu năm', 'Đèn 6500 K', 'Đèn 6500K', 'Ngâm 10 đến 14 ngày', 'Khúc nặng 5 kg', 'Giá thể 2 lớp', 'Giá trị pH 6,5',
     'Ngâm đến ngày 7, đồng thời thay nước hằng ngày', 'Giữ pH ở 6,5, đồng thời theo dõi KH', 'Đánh giá 2 khúc lũa qua độ cứng và mùi',
     'Ngâm 7 ngày đồng thời thay nước', 'Hai khúc 30 cm đồng màu', 'Bể 60 lít có 2 khúc', 'Nhiệt độ 25 độ',
-    'Phơi lũa trên giá 2 tầng cho ráo nước', 'Có hơn 2 nghìn loài cá sống quanh rễ cây'])
+    'Phơi lũa trên giá 2 tầng cho ráo nước', 'Có hơn 2 nghìn loài cá sống quanh rễ cây',
+    'Đá hình thành cách đây 2 triệu đến 3 triệu năm', 'Đá hình thành cách đây 2–3 triệu năm', 'Một gam đất nền có thể chứa 1 tỷ vi sinh vật',
+    'Từ năm 2020 đồng thời có thêm lũa rễ'])
     expect(formNotes(asSaved(page(q)), 1), q).toEqual([])
 })
 
@@ -102,6 +106,9 @@ test('plain text keeps a comparison and a space between blocks (Astra\'s second 
   // Astra's third read: a quoted value with "<" or ">" in it is part of its tag.
   const q = asSaved({ summary: ['Ngâm <em title="pH &lt; 7">lũa</em> trước khi dùng.', "Rửa <span title='a > b'>kỹ</span>, <b>pH < 7</b> và > 8."], sections: { about: '<p>A [1].</p>' }, faq: [] })
   expect(q.summary).toEqual(['Ngâm lũa trước khi dùng.', 'Rửa kỹ, pH < 7 và > 8.'])
+  // Astra's fourth read: an encoded quote inside a value, and a tag written encoded.
+  const e = asSaved({ summary: ['Ngâm <em title="còn gọi là &quot;lũa rễ&quot;">lũa</em> trước khi dùng.', '&lt;strong&gt;Lũa&lt;/strong&gt; rễ nhỏ.'], sections: { about: '<p>A [1].</p>' }, faq: [] })
+  expect(e.summary).toEqual(['Ngâm lũa trước khi dùng.', 'Lũa rễ nhỏ.'])
 })
 
 async function site() {

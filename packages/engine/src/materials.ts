@@ -118,17 +118,23 @@ const prompt = (a: MaterialAsk, parent?: string) => WRITE.replace('{{PARENT_LINE
 /** A number that starts and ends with a digit, so "ngày 7, đồng thời" is not "7, đồng". */
 const N = String.raw`(?<![\p{L}\d])\d(?:[\d.,]*\d)?`
 const END = String.raw`(?![\p{L}\d])`
+/** A sum of money by its size alone: a thousands separator, or five digits and more ("150.000", "150000"; not a year). */
+const SUM = String.raw`(?<![\p{L}\d])(?:\d{1,3}(?:[.,]\d{3})+|\d{5,})`
+const SCALE = String.raw`(?:nghìn|ngàn|triệu|tỷ|tỉ)${END}`
+/** What a "nghìn" or "triệu" may count on a material's page, which makes it not money. */
+const COUNTED = String.raw`(?:năm|loài|con|cá\s+thể|người|lượt|lít|giờ|ngày|lần|hạt|tấn|km|mét|tế\s+bào|vi\s+khuẩn|vi\s+sinh\s+vật|sinh\s+vật|phân\s+tử|cây)${END}`
 /**
- * A price in Vietnamese money, in the text a reader sees: "150.000 ₫", "150.000đ màu nâu", "150.000 đồng", "200 nghìn
- * đồng", "mỗi khúc 200 nghìn tùy kích thước", "1,5 triệu", "150k", "150K/khúc", "giá từ 90", "giá bán: 150.000", "giá
- * 150.000". Not a quantity or another word: "2 triệu năm", "6500 K", "10 đến 14 ngày", "5 kg", "giá thể 2 lớp", "giá trị
- * pH 6,5", "ngày 7, đồng thời", "đánh giá 2 khúc", "trên giá 2 tầng". The pilot's pages give none.
+ * A price in Vietnamese money, in the text a reader sees: "150.000 ₫", "150.000đ màu nâu", "150.000 đồng màu nâu", "200
+ * nghìn đồng", "mỗi khúc 200 nghìn tùy kích thước", "1,5 triệu", "150k", "150K/khúc", "giá từ 90", "giá bán: 150.000",
+ * "giá 150.000". Not a quantity or another word: "2 triệu năm", "2 triệu đến 3 triệu năm", "1 tỷ vi sinh vật", "6500 K",
+ * "10 đến 14 ngày", "5 kg", "giá thể 2 lớp", "giá trị pH 6,5", "ngày 7, đồng thời", "năm 2020 đồng thời", "đánh giá 2
+ * khúc", "trên giá 2 tầng". The pilot's pages give none.
  */
 const PRICE = [
-  // A sign is always money; "đồng" is, but in a word of its own ("đồng thời", "đồng màu").
-  new RegExp(String.raw`${N}\s*(?:(?:₫|vnđ|vnd|đ)${END}|đồng${END}(?!\s+(?:thời|nghĩa|đều|loạt|bộ|màu|dạng|nhất|hồ|ý|cỏ|ruộng|bằng)${END}))`, 'iu'),
-  // "nghìn", "triệu" are money unless what's counted follows ("2 triệu năm", "2 nghìn loài").
-  new RegExp(String.raw`${N}\s*(?:nghìn|ngàn|triệu|tỷ|tỉ)${END}(?!\s+(?:năm|loài|con|cá\s+thể|người|lượt|lít|giờ|ngày|lần|hạt|tấn|km|mét|tế\s+bào|vi\s+khuẩn|cây)${END})`, 'iu'),
+  // A sign is always money, and so is "đồng" after a sum; after a small number, not in a word of its own ("đồng thời").
+  new RegExp(String.raw`${N}\s*(?:₫|vnđ|vnd|đ)${END}|${SUM}\s*đồng${END}|${N}\s*đồng${END}(?!\s+(?:thời|nghĩa|đều|loạt|bộ|màu|dạng|nhất|hồ|ý|cỏ|ruộng|bằng)${END})`, 'iu'),
+  // "nghìn", "triệu" are money unless what's counted follows, after a range too ("2 triệu đến 3 triệu năm").
+  new RegExp(String.raw`${N}\s*${SCALE}(?!(?:\s*(?:đến|tới|hoặc|[-–~])\s*${N}\s*${SCALE})?\s+${COUNTED})`, 'iu'),
   new RegExp(String.raw`${N}\s*k${END}`, 'u'),
   // A capital K after three digits at most: a lamp's 6500 K is a colour.
   new RegExp(String.raw`(?<![\p{L}\d.,])\d{1,3}\s*K${END}`, 'u'),
@@ -143,8 +149,11 @@ const visible = (html: string) => unescapePlain(html.replace(/<[^>]*>/g, ' ')).r
  */
 const TAG = new RegExp(String.raw`<!--[\s\S]*?-->|<\/?[a-z][^\s/>]*(?:\s+[^\s"'>/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s"'>]+))?)*\s*\/?>`, 'gi')
 const untag = (s: string) => s.replace(TAG, t => (/^<\/?(?:p|br|div|li|ul|ol|h\d)\b/i.test(t) ? ' ' : ''))
-/** A summary line or a question as the page shows it: plain text, entities undone, no markup and no source's mark. */
-const plain = (s: string) => untag(unescapePlain(s ?? '')).replace(/\s*\[\d+\]/g, '').replace(/\s+/g, ' ').trim()
+/**
+ * A summary line or a question as the page shows it: plain text, entities undone, no markup and no source's mark. Tags
+ * as written go first, their values still encoded (`title="&quot;lũa rễ&quot;"`), then tags that were written encoded.
+ */
+const plain = (s: string) => untag(unescapePlain(untag(s ?? ''))).replace(/\s*\[\d+\]/g, '').replace(/\s+/g, ' ').trim()
 
 /**
  * A draft as it will be saved, which is what is checked, read and saved: its summary and questions plain, each part
