@@ -41,10 +41,16 @@ test("a link to a page another language doesn't have keeps its words, in every f
     ['<A HREF="/vi/vat-lieu/lua/">Lũa</A>', 'Lũa'],
     ['<a href = "//aquatome.com/vi/vat-lieu/lua/">Lũa</a>', 'Lũa'],
     ['<a class="x" href="/vi/vat-lieu/lua/?a=1#b">Lũa</a >', 'Lũa'],
-    // The three forms the second read found: no quotes; a quoted ">" before the href, which can't be unwrapped and keeps
-    // the Vietnamese address, which is there; a tag with hreflang in upper case, a link between languages left as it is.
+    // The three forms the second read found: no quotes; a quoted ">" before the href; a tag with hreflang in upper case,
+    // a link between languages, left as it is.
     ['<a href=/vi/vat-lieu/lua/>Lũa</a>', 'Lũa'],
-    ['<a title=">" href="/vi/vat-lieu/lua/">Lũa</a>', '<a title=">" href="/vat-lieu/lua/">Lũa</a>'],
+    ['<a title=">" href="/vi/vat-lieu/lua/">Lũa</a>', 'Lũa'],
+    // The third read's: a page's address without its trailing "/", and a quoted ">" after the href.
+    ['<a href="/vi/vat-lieu/lua">Lũa</a>', 'Lũa'],
+    ['<a href="https://aquatome.com/vi/vat-lieu/lua?x=1">Lũa</a>', 'Lũa'],
+    ['<a href="/vi/vat-lieu/lua/" title="a > b">Lũa</a>', 'Lũa'],
+    // An opening tag it can't read whole (an unclosed quote) keeps the Vietnamese address, which is there.
+    ['<a href="/vi/vat-lieu/lua/" title="a>Lũa</a>', '<a href="/vat-lieu/lua/" title="a>Lũa</a>'],
     ['<a href="/vi/vat-lieu/lua/" HREFLANG="vi">Lũa</a>', '<a href="/vi/vat-lieu/lua/" HREFLANG="vi">Lũa</a>'],
     // Structured data: the Vietnamese page for one Indonesian lacks, Indonesian for one it has.
     ['<script type="application/ld+json">{"item":"https://aquatome.com/vi/vat-lieu/lua/"},{"item":"https://aquatome.com/vi/ca/x/"}</script>',
@@ -59,6 +65,8 @@ test("a link to a page another language doesn't have keeps its words, in every f
   // A page the language has is still localized, in the forms the rewriting newly takes too; Vietnamese pages are at the root.
   expect(localizeLinks(`<a href='/vi/ca/x/'>x</a> <a href="//aquatome.com/vi/ca/x/">x</a>`, 'id', 'https://aquatome.com')).toBe(`<a href='/id/ikan/x/'>x</a> <a href="//aquatome.com/id/ikan/x/">x</a>`)
   expect(localizeLinks('<a href="https://aquatome.com/vi/vat-lieu/lua/">Lũa</a>', 'vi', 'https://aquatome.com')).toBe('<a href="https://aquatome.com/vat-lieu/lua/">Lũa</a>')
+  // A page Indonesian has, without its trailing "/", is localized as on main.
+  expect(localizeLinks('<a href="/vi/ca/x">x</a>', 'id', 'https://aquatome.com')).toBe('<a href="/id/ikan/x">x</a>')
 })
 
 test("a page's own text can't forge the marker: a made-up one unwraps nothing and is left for the page check", () => {

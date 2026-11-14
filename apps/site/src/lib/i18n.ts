@@ -100,11 +100,16 @@ export function localizeLinks(html: string, lang: Lang, origin: string | string[
   const mark = `${crypto.randomUUID()}`
   const out = html.replace(re, (m, o: string | undefined, path: string | undefined) => {
     if (path === undefined) return m
-    const page = /^\/vi\/(?:[^?#*.]*\/)?(?:[?#].*)?$/.test(path)
-    return page && !served(lang, path.replace(/&amp;/g, '&')) ? `${mark}${o ?? ''}${localizePath('vi', path)}` : (o ?? '') + localizePath(lang, path)
+    // A page's address, with its trailing "/" or without (/vi/vat-lieu/lua is the same page): no "." or "*" in it.
+    const page = /^\/vi\/[^?#*.]*(?:[?#].*)?$/.test(path)
+    const asPage = path.replace(/&amp;/g, '&').replace(/^([^?#]*?)\/?((?:[?#].*)?)$/, '$1/$2')
+    return page && !served(lang, asPage) ? `${mark}${o ?? ''}${localizePath('vi', path)}` : (o ?? '') + localizePath(lang, path)
   })
   if (!out.includes(mark)) return out
-  return out.replace(new RegExp(`<a\\b[^>]*${mark}[^>]*>([\\s\\S]*?)<\\/a\\s*>`, 'gi'), '$1').split(mark).join('')
+  // The whole opening tag, quoted values and all (a ">" inside title="a > b" is the title's): a link the matcher marked
+  // keeps its words. One it can't read whole keeps its Vietnamese address once the markers go.
+  return out.replace(/(<a\b(?:[^>"']|"[^"]*"|'[^']*')*>)([\s\S]*?)<\/a\s*>/gi, (m, open: string, inner: string) => (open.includes(mark) ? inner : m))
+    .split(mark).join('')
 }
 /** What localizeLinks's marker looks like: a page the build ships with one in it is the page check's "link-mark". */
 export const LINK_MARK = /[0-9a-f-]{36}/
