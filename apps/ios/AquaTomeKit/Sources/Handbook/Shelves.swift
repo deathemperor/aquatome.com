@@ -10,6 +10,8 @@ public struct HandbookShelves: Sendable {
     public let label: String
     public let count: Int
     public let img: String?
+    /// Where the fish is in `img`.
+    public var imgBox: PhotoBox?
     public var id: String { key }
   }
 
@@ -103,10 +105,10 @@ public struct HandbookShelves: Sendable {
     var keys = tiles.map(\.id).filter { $0 != Self.otherGroup }
     keys += groupCounts.keys.filter { !keys.contains($0) && $0 != Self.otherGroup }.sorted()
     keys.append(Self.otherGroup)
-    let img = Dictionary(tiles.map { ($0.id, $0.img) }, uniquingKeysWith: { a, _ in a })
+    let img = Dictionary(tiles.map { ($0.id, ($0.img, $0.imgBox)) }, uniquingKeysWith: { a, _ in a })
     groups = keys.compactMap { k in
       guard let n = groupCounts[k], n > 0 else { return nil }
-      return Shelf(key: k, label: words["group", k] ?? k, count: n, img: img[k] ?? nil)
+      return Shelf(key: k, label: words["group", k] ?? k, count: n, img: img[k]?.0, imgBox: img[k]?.1)
     }
 
     let placementCounts = plants.reduce(into: [String: Int]()) { n, p in for k in Set(p.plant?.placement ?? []) { n[k, default: 0] += 1 } }

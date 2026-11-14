@@ -44,3 +44,29 @@ public enum PhotoFrame: Equatable, Sendable {
     return (1 - min(aspect, ratio) / max(aspect, ratio)) / 2 < strip ? .mat : .blur
   }
 }
+
+extension PhotoBox {
+  /// This box if it lies in the photo with some width and height, else none: a box read from the index is used only so.
+  public var valid: PhotoBox? { x >= 0 && y >= 0 && w > 0 && h > 0 && x + w <= 1.0001 && y + h <= 1.0001 ? self : nil }
+
+  /// In 8 bytes, 16 bits a side in ten-thousandths of the photo, as the site rounds them; 0 for none (a box always has
+  /// width). For the index's items, which a list copies as it scrolls.
+  static func pack(_ b: PhotoBox?) -> UInt64 {
+    guard let b = b?.valid else { return 0 }
+    func q(_ v: Double) -> UInt64 { UInt64(min(max((v * 10_000).rounded(), 0), 10_000)) }
+    return q(b.x) << 48 | q(b.y) << 32 | q(b.w) << 16 | q(b.h)
+  }
+
+  init?(packed p: UInt64) {
+    guard p != 0 else { return nil }
+    func d(_ s: UInt64) -> Double { Double((p >> s) & 0xFFFF) / 10_000 }
+    self.init(x: d(48), y: d(32), w: d(16), h: d(0))
+  }
+}
+
+extension PhotoFrame {
+  /// The blurred copy behind a whole photo: scaled past its frame so the blur's edge never shows, and blurred by 12% of
+  /// the frame's height, at most 18 points (17 on a tile, 7 on a row's picture: frames.md).
+  public static let blurScale = 1.15
+  public static func blurRadius(height: Double) -> Double { min(18, 0.12 * height) }
+}

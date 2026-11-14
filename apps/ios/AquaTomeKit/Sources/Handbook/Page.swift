@@ -103,8 +103,8 @@ public struct PageDoc: Sendable {
     public let thumb: String?
     /// The photo's credit as the page shows it: the line ("Ảnh: Aquarium Breeder"), its licence, the photo's own page.
     public let credit: Credit?
-    /// Where the fish is in the photo (PhotoBox); the whole area where no frame may cut it. Read and kept here; no view
-    /// draws by it yet.
+    /// Where the fish is in the photo (PhotoBox); the whole area where no frame may cut it. Each frame keeps the fish by it
+    /// (PhotoFrame).
     public let box: PhotoBox?
 
     /// A photo the page doesn't carry (a reader's): `credit`, who took it.
@@ -193,12 +193,16 @@ public struct PageDoc: Sendable {
     /// The badge when the video has Vietnamese subtitles; none when it's in the page's language.
     public let subtitles: String?
     public let chapters: [(at: Int, title: String)]?
+    /// The guide's card photo, shown in the video's place until it plays, so its card and its page lead with one picture
+    /// (the Design Lead's line, 13 Nov): YouTube's own thumbnail never shows. None for a guide whose card has no photo.
+    public let poster: Image?
 
     init?(json v: Any?) {
       guard let o = v as? [String: Any], let id = o["youtubeId"] as? String, let title = o["title"] as? String,
             let channel = o["channel"] as? String, let d = o["durationSec"] as? Int else { return nil }
       youtubeId = id; self.title = title; self.channel = channel; durationSec = d
       subtitles = o["subtitles"] as? String
+      poster = Image(json: o["poster"])
       chapters = each(o["chapters"]) { c in
         guard let c = c as? [String: Any], let at = c["at"] as? Int, let t = c["title"] as? String else { return nil }
         return (at, t)

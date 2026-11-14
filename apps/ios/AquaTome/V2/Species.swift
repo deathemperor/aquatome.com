@@ -101,6 +101,8 @@ struct SpeciesPage: View {
 
   /// The page's own photo, at the top.
   private var hero: String? { item.img ?? doc?.lead?.src }
+  /// Where the fish is in `hero`: the index's for its photo, else the page's lead's. The card's photo is the head's.
+  private var heroBox: PhotoBox? { item.img != nil ? item.imgBox : doc?.lead?.box }
 
   /// The page's other photos, its galleries' in order: the one at the top isn't repeated under it.
   private var photos: [PageDoc.Image] {
@@ -304,7 +306,7 @@ struct SpeciesPage: View {
   private var top: some View {
     VStack(spacing: 0) {
       if let hero {
-        let banner = V2Photo(src: hero, ground: colour) { colour = $0 }
+        let banner = V2Photo(src: hero, box: heroBox, ground: colour) { colour = $0 }
           // Less on a small phone, so the name and figures still show under it; less again at the accessibility sizes, so
           // "Thêm vào bể" opens above the fade over the tab bar, white, not in it.
           .containerRelativeFrame(.vertical) { h, _ in min(420, h * (size.isAccessibilitySize ? 0.34 : 0.46)) }
@@ -975,7 +977,7 @@ struct SpeciesPage: View {
       ScrollView(.horizontal, showsIndicators: false) {
         HStack(alignment: .top, spacing: 14) {
           ForEach(whole.pieces[i].indices, id: \.self) { j in
-            if case let .video(id, title, caption) = whole.pieces[i][j] {
+            if case let .video(id, title, caption, _) = whole.pieces[i][j] {
               VideoSlot(id: id, title: title, caption: caption, captionUnder: true)
                 .containerRelativeFrame(.horizontal) { w, _ in min(w - 56, 320) }
             }
