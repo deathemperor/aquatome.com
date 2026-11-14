@@ -252,10 +252,30 @@ function mix(photos: GalleryPhoto[], at: ScreenedAt): GalleryPhoto[] {
 const SETUP_WORDS = /bể chụp|bể đo|trong hộp|hộp chụp|hộp quan sát|hộp đo|hộp nhựa|hộp acrylic|hộp nhỏ|hộp trong suốt|bể kính nhỏ|khay|thước đo|có thước|cạnh thước|bên thước|đo kích thước|lưới ô|trong cốc|cốc nhựa|trong xô|túi nước/i
 /** A planted or aquascaped tank, which "bể kính nhỏ" (a small glass tank) can be too: not a photo tank, whatever else the caption says (the independent reader, 14 Nov). */
 const PLANTED_WORDS = /thủy sinh|trồng cây|có cây|cây thủy/i
-/** A photo of the fish in a photo tank, box, tray or cup, or beside a ruler or a printed board: the album check's own word, else its caption's. */
-export const isSetup = (p: GalleryPhoto) => p.setup ?? (SETUP_WORDS.test(p.caption ?? '') && !PLANTED_WORDS.test(p.caption ?? ''))
+/**
+ * What the other steps saw in an album photo, by its address, for the album's order (albumLooks):
+ * - `typical`: the photo check's word on whether it shows the page's fish as it usually looks, where it was sure the
+ *   photo shows that fish;
+ * - `share`: how much of the frame the box step's box around the fish takes (engine-state/_photo-boxes.json);
+ * - `setup`, `whole`, `small`: the album ask's answers (album-ask.ts): a photo tank or a ruler; the whole fish inside the
+ *   frame; the fish filling only a small part of it.
+ */
+export type Look = { typical?: boolean; share?: number; setup?: boolean; whole?: boolean; small?: boolean }
+export type Looks = (url: string) => Look
+/** A photo of the fish in a photo tank, box, tray or cup, or beside a ruler or a printed board: the album ask's word, else the album check's, else its caption's. */
+export const isSetup = (p: GalleryPhoto, l: Look = {}) => l.setup ?? p.setup ?? (SETUP_WORDS.test(p.caption ?? '') && !PLANTED_WORDS.test(p.caption ?? ''))
 /** How many other photos an album shows before such a photo can be left behind them: a screen's worth (the strip). */
 export const SETUP_ROOM = 6
+/**
+ * A lone fish whose box takes under a twentieth of the frame (the chief of staff, 2026-11-14: by eye 18 of the 25 such in
+ * albums' first sixes were too small to make out; under a tenth, 10 of 24). Not a group's or a wild place's photo, where
+ * the box is one fish of many or the place is the subject.
+ */
+export const TINY = 0.05
+const MANY = new Set(['group', 'habitat'])
+/** A photo that goes behind the others wherever six others show: a photo tank or a ruler, the fish cut by the frame or filling a small part of it, or a lone fish under TINY. */
+export const isPoor = (p: GalleryPhoto, l: Look = {}) =>
+  isSetup(p, l) || l.whole === false || l.small === true || (l.share !== undefined && l.share < TINY && !MANY.has(p.kind ?? ''))
 
 /** The best picks mixed by kind, then photos screened before kinds were recorded, then the other kept photos mixed. */
 function byKind(photos: GalleryPhoto[], at: ScreenedAt): GalleryPhoto[] {
@@ -267,20 +287,52 @@ function byKind(photos: GalleryPhoto[], at: ScreenedAt): GalleryPhoto[] {
  * A gallery's order: the model's best picks first, mixed so the first screen shows the range (male, female, colour
  * forms, young, the wild fish; a plant under water, emersed, in flower), each kind in the order the check screened it
  * (`at`); then photos screened before kinds were recorded, in that order too; then the other kept photos, mixed the same
- * way. Photo-tank, ruler and printed-board photos (isSetup) stay in the album but come after all the others wherever six
- * others show (the chief of staff, 2026-11-14: a measuring board led the green swordtail's 60), ordered the same way among
- * themselves. Then, whatever their rank, the photos the photo check could not tell show the page's subject (`cantTell`:
- * photo-check.ts cantTellOn), so a later run keeps the place the check gave them; AI pictures last. Each part is ordered
- * on its own, so ordering an album twice changes nothing: the sweep orders every album so each cycle (orderAlbums).
+ * way. Where six photos the photo check called typical show, those come first, then the ones it hasn't judged, then the
+ * ones it called not typical (the chief of staff, 2026-11-14: 16 albums led with a photo it called not typical; with the
+ * typical ones first, 13 of 24 leads that changed were better by eye, 10 as good, 1 worse). Photo-tank and
+ * ruler photos, fish cut by the frame or filling a small part of it (isPoor) stay in the album but come after all of those
+ * wherever six others show (the chief of staff, 2026-11-14: a measuring board led the green swordtail's 60), ordered the
+ * same way among themselves. Then, whatever their rank, the photos the photo check could not tell show the page's subject
+ * (`cantTell`: photo-check.ts cantTellOn), so a later run keeps the place the check gave them; AI pictures last. Each part
+ * is ordered on its own, so ordering an album twice changes nothing: the sweep orders every album so each cycle
+ * (orderAlbums), with the same `looks` as the album step, so the two agree.
  */
-export function rankGallery(photos: GalleryPhoto[], cantTell: (url: string) => boolean = () => false, at: ScreenedAt = () => undefined): GalleryPhoto[] {
+export function rankGallery(photos: GalleryPhoto[], cantTell: (url: string) => boolean = () => false, at: ScreenedAt = () => undefined, looks: Looks = () => ({})): GalleryPhoto[] {
   const real = photos.filter(p => !isGenerated(p))
   const sure = real.filter(p => !cantTell(p.url)), unsure = real.filter(p => cantTell(p.url))
-  const others = sure.filter(p => !isSetup(p))
-  const room = others.filter(p => !p.unchecked).length >= SETUP_ROOM
-  const parts = room ? [others, sure.filter(isSetup), unsure] : [sure, unsure]
+  const poor = (p: GalleryPhoto) => isPoor(p, looks(p.url))
+  const back = sure.filter(p => !poor(p) && !p.unchecked).length >= SETUP_ROOM ? poor : () => false
+  // Where six typical show: typical, then not judged yet, then not typical.
+  const typed = sure.filter(p => !p.unchecked && looks(p.url).typical === true).length >= SETUP_ROOM
+  const step = (p: GalleryPhoto) => { const t = looks(p.url).typical; return !typed || t === true ? 0 : t === undefined ? 1 : 2 }
+  const front = sure.filter(p => !back(p))
+  const parts = [...[0, 1, 2].map(k => front.filter(p => step(p) === k)), sure.filter(back), unsure]
   return [...parts.flatMap(ps => byKind(ps, at)), ...photos.filter(isGenerated)]
 }
+
+/**
+ * What the photo check, the box step and the album ask saw in each album photo (Look), for one album's page: the same for
+ * the album step, the sweep and Tropica's photos, so none of them undoes another's order.
+ */
+export async function albumLooks(root: string, subjects?: Record<string, Record<string, PhotoVerdict>>): Promise<(page: string) => Looks> {
+  const read = async <T>(f: string) => JSON.parse(await readFile(join(root, 'engine-state', f), 'utf8').catch(() => '{}')) as T
+  const subs = subjects ?? await read<Record<string, Record<string, PhotoVerdict>>>('_photo-subjects.json')
+  const boxes = await read<Record<string, { w: number; h: number } | null>>('_photo-boxes.json')
+  const asked = await read<Record<string, AlbumAnswer>>(ALBUM_ASK_FILE)
+  return page => url => {
+    const v = subs[url]?.[page], b = boxes[url], a = asked[url]
+    return {
+      ...(v && !v.guide && v.ok === 'yes' && typeof v.typical === 'boolean' ? { typical: v.typical } : {}),
+      ...(b ? { share: b.w * b.h } : {}),
+      ...(a && typeof a.setup === 'boolean' ? { setup: a.setup } : {}),
+      ...(a && typeof a.whole === 'boolean' ? { whole: a.whole } : {}),
+      ...(a && typeof a.small === 'boolean' ? { small: a.small } : {}),
+    }
+  }
+}
+/** The album ask's answers by photo address (album-ask.ts); `tries` counts sheets that gave none, so a photo is asked at most twice. */
+export const ALBUM_ASK_FILE = '_album-ask.json'
+export type AlbumAnswer = { setup?: boolean; whole?: boolean; small?: boolean; tries?: number }
 
 /**
  * Where each source stands for one species, plant or breed (engine-state/gallery/<id>.json), so each run continues
@@ -393,6 +445,7 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
   const offBy = new Map<string, Record<string, string>>()
   for (const [url, pages] of Object.entries(subjects)) for (const [id, v] of Object.entries(pages)) if (OFF.has(v.ok)) (offBy.get(id) ?? offBy.set(id, {}).get(id)!)[url] = v.ok
   const gbifNames = JSON.parse(await readFile(join(root, 'engine-state/_gbif-names.json'), 'utf8').catch(() => '{}')) as Record<string, { canonicalName: string } | null>
+  const looksOn = await albumLooks(root, subjects)
   const left: SourceBudget & { sheets: number } = { inat: 150, gbif: 60, openverse: 20, ...o.budget, sheets: o.sheets }
   // Openverse is slow (20 s or more a query) and sometimes stalls: after 3 failures it rests until the next run.
   let openverseFailures = 0
@@ -556,7 +609,7 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
           st.hashes[k.photo.url] = k.hash
           report.added[sourceOfKey(k.key)] = (report.added[sourceOfKey(k.key)] ?? 0) + 1
         }
-        gallery = rankGallery([...gallery, ...kept.map(k => waiting({ ...k.photo, best: k.best, kind: k.kind ?? 'other', ...(k.setup !== undefined ? { setup: k.setup } : {}) }))], cantTellOn(subjects, t.id), screenedAt(st.judged))
+        gallery = rankGallery([...gallery, ...kept.map(k => waiting({ ...k.photo, best: k.best, kind: k.kind ?? 'other', ...(k.setup !== undefined ? { setup: k.setup } : {}) }))], cantTellOn(subjects, t.id), screenedAt(st.judged), looksOn(t.id))
         if (kept.length) {
           await mkdir(join(content, 'gallery'), { recursive: true })
           await writeFile(gfile, `${JSON.stringify(GallerySchema.parse({ id: t.id, photos: gallery, seen: seenCount, updatedAt: today, builtAt: today }), null, 2)}\n`)
@@ -586,13 +639,14 @@ export async function orderAlbums(root: string, subjects: Record<string, Record<
   const dir = join(root, 'content', 'gallery')
   const out = { files: [] as string[], leads: [] as string[] }
   const lead = (ps: GalleryPhoto[]) => ps.find(p => !p.unchecked && !isGenerated(p))?.url
+  const looksOn = await albumLooks(root, subjects)
   for (const f of (await readdir(dir).catch(() => [] as string[])).filter(f => f.endsWith('.json')).sort()) {
     const id = f.replace(/\.json$/, ''), file = join(dir, f)
     const raw = await readFile(file, 'utf8')
     const g = JSON.parse(raw) as { photos?: GalleryPhoto[] }
     if (!g.photos?.length) continue
     const st = JSON.parse(await readFile(join(root, 'engine-state', 'gallery', f), 'utf8').catch(() => '{}')) as Partial<GalleryState>
-    const ranked = rankGallery(g.photos, cantTellOn(subjects, id), screenedAt(st.judged ?? []))
+    const ranked = rankGallery(g.photos, cantTellOn(subjects, id), screenedAt(st.judged ?? []), looksOn(id))
     if (ranked.every((p, i) => p === g.photos![i])) continue
     if (lead(g.photos) !== lead(ranked)) out.leads.push(`${id}: ${lead(g.photos)} -> ${lead(ranked)}`)
     await writeFile(file, `${JSON.stringify({ ...g, photos: ranked }, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)

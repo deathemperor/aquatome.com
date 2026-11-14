@@ -220,6 +220,10 @@ if part photos; then
   # open licences, screened (right species or line, no faces). GALLERY_SHEETS model calls a cycle (about 480 a day on
   # the subscription); each page continues next cycle where this one stopped.
   pnpm engine gallery --sheets "${GALLERY_SHEETS:-60}" || log "gallery: failed"
+  # Each album photo asked once: a photo tank or a ruler, the whole fish in the frame, the fish filling a small part of it
+  # (album-ask.ts), which the album order reads. ALBUM_ASK_SHEETS model calls a cycle, under its own $2 a day: 513 sheets
+  # on 14 Nov, about five days.
+  pnpm engine album-ask --sheets "${ALBUM_ASK_SHEETS:-20}" || log "album-ask: failed"
   # Breed pages with no photo: a looser Commons search than the page step's (Unsplash below tries them too).
   pnpm engine breed-photos --limit 10 || log "breed-photos: failed"
   # Unsplash photos added to the galleries of the most-read fish (hot-linked and credited, per Unsplash's API terms). First

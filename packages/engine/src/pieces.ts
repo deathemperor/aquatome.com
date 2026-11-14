@@ -106,7 +106,7 @@ export const WRAPPED: Record<string, string> = {
   traits: 'traits.ts', range: 'range.ts', 'check-photos': 'photo-check.ts', 'guide-photos': 'guide-photos.ts', watermarks: 'watermarks.ts',
   'write-ideas': 'ideas.ts', summaries: 'summaries.ts', 'rewrite-vi': 'vi-backfill.ts', 'fit-rewrite': 'fit-rewrite.ts',
   localize: 'localize.ts', 'localize-guides': 'topics.ts', reader: 'reader.ts', run: 'run.ts', videos: 'youtube.ts',
-  gallery: 'gallery.ts', 'review-backfill': 'review-backfill.ts', 'review-backfill-97': 'review-backfill.ts', material: 'materials.ts',
+  gallery: 'gallery.ts', 'album-ask': 'album-ask.ts', 'review-backfill': 'review-backfill.ts', 'review-backfill-97': 'review-backfill.ts', material: 'materials.ts',
 }
 /** Steps with no engine items to check. */
 export const ONE_CALL: Record<string, string> = {
