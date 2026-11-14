@@ -224,6 +224,17 @@ test('makeMaterial --redo with no research kept says so, and calls nothing', asy
   await expect(makeMaterial(root, { research: none, llm: none }, satung, { reuse: true })).rejects.toThrow('lua-sa-tung: no research kept')
 })
 
+test('a page a person fixed (bodyFixed) is never written again, and nothing is asked', async () => {
+  const { root } = await site()
+  const file = join(root, 'content/materials/lua-sa-tung/vi.json')
+  const fixed = JSON.stringify({ slug: 'lua-sa-tung', name: 'Lũa sa tùng', altNames: [], sections: { about: '<p>Sửa tay [1].</p>' }, summary: ['Một.', 'Hai.'], bodyFixed: true })
+  await writeFile(file, fixed)
+  const none: Llm = async () => { throw new Error('called') }
+  await expect(makeMaterial(root, { research: none, llm: none }, satung)).rejects.toThrow('lua-sa-tung: a person fixed this page\'s text (bodyFixed)')
+  await expect(makeMaterial(root, { research: none, llm: none }, satung, { reuse: true })).rejects.toThrow('a person fixed this page\'s text')
+  expect(await readFile(file, 'utf8')).toBe(fixed)
+})
+
 test('a page whose parent has no page yet is refused before anything is asked (Astra\'s read)', async () => {
   const root = await mkdtemp(join(tmpdir(), 'aq-material-'))
   const none: Llm = async () => { throw new Error('called') }
