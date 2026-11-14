@@ -941,38 +941,88 @@ final class LightFlowTests: XCTestCase {
   }
 
   /// The owner's Love Ecology light (13 Nov: "I cant control love exology on app"): its card is the owner's account's
-  /// alone, and off, then a colour, are each broadcast as recorded (the simulator's stand-in keeps what it was given),
-  /// the card saying what was sent.
+  /// alone. Off goes as recorded; a swatch, then a drag of Độ sáng, each go once as a colour built at the slider's level
+  /// (the simulator's stand-in keeps what it was given), the line saying what was sent without moving what's under it.
   func testTheOwnersLoveEcologyLightTakesOffThenAColour() {
     let app = launch("-fake-accounts", "on", "-reset-fake-server", "-fake-owner", "ui-apple")
     XCTAssertFalse(element(app, "lamp-off").waitForExistence(timeout: 2), "the light's card before the owner signed in")
+    XCTAssertFalse(element(app, "lamp-level").exists, "the slider before the owner signed in")
     XCTAssertFalse(element(app, "lamp-trial-off").exists, "the trial row before the owner signed in")
     app.openAccount()
     app.signInWithStandInApple()
     app.openTab("Đèn")
-    // The line is there before the first send, so sending doesn't push the cards below down.
-    expect(app, "lamp-status", contains: "Chưa gửi lệnh nào")
+    expect(app, "lamp-status", contains: "Chưa gửi lệnh nào từ máy này")
+    // Nothing sent yet: the slider rests at 100%.
+    expect(app, "lamp-level", value: "100%")
+    // The line is two lines high from the first frame, so sending moves nothing under it (the trial row).
+    let under = gap(app, "lamp-level", "lamp-trial-off")
     tap(app, "lamp-off")
-    expect(app, "lamp-sent", contains: "off")
-    expect(app, "lamp-status", contains: "Đã gửi “Tắt”")
+    expect(app, "lamp-status", contains: "Đã gửi “Tắt” lúc")
     // The time as the schedule writes it, 24-hour whatever the phone's setting.
     XCTAssertNotNil(element(app, "lamp-status").label.range(of: #"lúc \d{2}:\d{2}\.$"#, options: .regularExpression), element(app, "lamp-status").label)
-    tap(app, "lamp-blue")
-    expect(app, "lamp-sent", contains: "off blue")
-    expect(app, "lamp-status", contains: "Đã gửi “Xanh dương”")
-    // The owner's trial of commands built anew (14 Nov): each broadcast as the recorded ones are, green last to put it back.
-    // The other buttons wait while one sends (3 s), so each is sent before the next tap.
-    let trials = [("trial-white-half", "Trắng 50% (tự tạo)"), ("trial-off", "Tắt (tự tạo 1)"), ("trial-on", "Bật (tự tạo 1)"),
-                  ("trial-off-recorded", "Tắt (tự tạo 2)"), ("trial-on-recorded", "Bật (tự tạo 2)"), ("trial-green", "Xanh lá (ghi sẵn)")]
+    XCTAssertEqual(gap(app, "lamp-level", "lamp-trial-off"), under, accuracy: 0.5, "the first send moved the trial row")
+    // A swatch, tapped within the light's gap after Tắt: it waits its turn, then goes at the slider's level.
+    tap(app, "lamp-cyan")
+    expect(app, "lamp-status", contains: "Đã gửi “Xanh lơ”, 100% lúc", timeout: 15)
+    // A drag sends nothing while it moves: once, when the finger lifts, the card's colour at the new level.
+    let level = dragSlider(app, "lamp-level", to: 0.5)
+    expect(app, "lamp-status", contains: "Đã gửi “Xanh lơ”, \(level) lúc", timeout: 15)
+    XCTAssertEqual(element(app, "lamp-sent").label, "off cyan@100 cyan@\(level.dropLast())")
+    // The owner's trial of on and off built anew (14 Nov), each broadcast as the recorded ones are, in turn.
+    let trials = [("trial-off", "Tắt (tự tạo 1)"), ("trial-on", "Bật (tự tạo 1)"), ("trial-off-recorded", "Tắt (tự tạo 2)"),
+                  ("trial-on-recorded", "Bật (tự tạo 2)")]
     for (id, name) in trials {
       tap(app, "lamp-" + id)
+      expect(app, "lamp-status", contains: "Đã gửi “\(name)” lúc", timeout: 15)
       expect(app, "lamp-sent", contains: id)
-      expect(app, "lamp-status", contains: "Đã gửi “\(name)”")
       expect(app, "lamp-status", contains: "Đợi 10 giây rồi bấm tiếp.")
     }
   }
 
+  /// What this phone last sent to the Love Ecology light comes back after a relaunch, with the slider where it was; and
+  /// leaving the app while a colour waits its turn cuts it off: back in the app the line says so, and "Gửi lại" sends it.
+  func testTheLoveEcologyCardKeepsWhatWasSentAndWhatLeavingCutOff() {
+    var app = launch("-fake-accounts", "on", "-reset-fake-server", "-fake-owner", "ui-apple")
+    app.openAccount()
+    app.signInWithStandInApple()
+    app.openTab("Đèn")
+    // Before any colour, the slider sends white.
+    let level = dragSlider(app, "lamp-level", to: 0.35)
+    expect(app, "lamp-status", contains: "Đã gửi “Trắng”, \(level) lúc", timeout: 15)
+    XCTAssertEqual(element(app, "lamp-sent").label, "white@\(level.dropLast())")
+    app.terminate()
+    app = launch("-fake-accounts", "on", "-fake-owner", "ui-apple", reset: false)
+    expect(app, "lamp-status", contains: "Lần cuối máy này gửi: “Trắng”, \(level) · ", timeout: 20)
+    expect(app, "lamp-level", value: level)
+    let under = gap(app, "lamp-level", "lamp-trial-off")
+    // Red goes at once; green waits for its end and the light's gap.
+    tap(app, "lamp-red")
+    tap(app, "lamp-green")
+    expect(app, "lamp-status", contains: "Đang gửi “Xanh lá”, \(level)…")
+    leaveAndComeBack(app)
+    expect(app, "lamp-status", contains: "Gửi “Xanh lá”, \(level) bị ngắt vì bạn rời ứng dụng.")
+    XCTAssertEqual(gap(app, "lamp-level", "lamp-trial-off"), under, accuracy: 0.5, "Gửi lại moved the trial row")
+    tap(app, "lamp-again")
+    expect(app, "lamp-status", contains: "Đã gửi “Xanh lá”, \(level) lúc", timeout: 15)
+    let sent = element(app, "lamp-sent").label
+    XCTAssertTrue(sent.hasPrefix("red@") && sent.hasSuffix("green@\(level.dropLast())"), sent)
+  }
+
   // MARK: Helpers
+
+  /// A slider's thumb dragged to about `position` (0 to 1) in one movement and let go at once, and the value it landed on.
+  private func dragSlider(_ app: XCUIApplication, _ id: String, to position: CGFloat) -> String {
+    let s = scrolledTo(app, id)
+    let row = s.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 0.5))
+    let x = 14 + s.normalizedSliderPosition * (s.frame.width - 28)
+    row.withOffset(CGVector(dx: x, dy: 0)).press(forDuration: 0.1, thenDragTo: row.withOffset(CGVector(dx: 14 + position * (s.frame.width - 28), dy: 0)))
+    return element(app, id).value as? String ?? ""
+  }
+
+  /// How far below the first element's top the second's is.
+  private func gap(_ app: XCUIApplication, _ above: String, _ below: String) -> CGFloat {
+    element(app, below).frame.minY - element(app, above).frame.minY
+  }
 
   /// The Week Aqua screen, its lights found (`-fake-weekaqua`).
   private func findWeekAqua(_ app: XCUIApplication) {
