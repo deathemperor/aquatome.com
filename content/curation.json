@@ -754,7 +754,10 @@
   {
    "id": "ali",
    "names": {
-    "vi": "Ali"
+    "vi": "Ali",
+    "id": "Cichlid Afrika",
+    "th": "ปลาหมอสีแอฟริกา",
+    "ms": "Cichlid Afrika"
    },
    "match": {
     "group": [
@@ -788,7 +791,10 @@
   {
    "id": "cichlid-chau-my",
    "names": {
-    "vi": "Cichlid châu Mỹ"
+    "vi": "Cichlid châu Mỹ",
+    "id": "Cichlid Amerika",
+    "th": "ปลาหมอสีอเมริกา",
+    "ms": "Cichlid Amerika"
    },
    "match": {
     "group": [
@@ -812,7 +818,8 @@
    "names": {
     "vi": "Lau kiếng",
     "id": "Sapu-sapu",
-    "th": "ซัคเกอร์"
+    "th": "ซักเกอร์",
+    "ms": "Bandaraya"
    },
    "match": {
     "family": [
@@ -830,7 +837,8 @@
    "names": {
     "vi": "Tép",
     "id": "Udang hias",
-    "th": "กุ้ง"
+    "th": "กุ้ง",
+    "ms": "Udang hiasan"
    },
    "match": {
     "group": [
@@ -861,7 +869,9 @@
    "id": "dia",
    "names": {
     "vi": "Dĩa",
-    "id": "Discus"
+    "id": "Discus",
+    "th": "ปลาปอมปาดัวร์",
+    "ms": "Discus"
    },
    "match": {
     "genus": [
@@ -874,7 +884,8 @@
    "names": {
     "vi": "Ông tiên",
     "id": "Manfish",
-    "th": "ปลาเทวดา"
+    "th": "ปลาเทวดา",
+    "ms": "Angel"
    },
    "match": {
     "genus": [
@@ -886,7 +897,9 @@
    "id": "la-han",
    "names": {
     "vi": "La hán",
-    "id": "Louhan"
+    "id": "Louhan",
+    "th": "ฟลาวเวอร์ฮอร์น",
+    "ms": "Louhan"
    },
    "match": {
     "breeds": [
@@ -899,7 +912,8 @@
    "names": {
     "vi": "Betta",
     "id": "Cupang",
-    "th": "ปลากัด"
+    "th": "ปลากัด",
+    "ms": "Laga"
    },
    "match": {
     "genus": [
@@ -911,7 +925,9 @@
    "id": "ca-sac",
    "names": {
     "vi": "Cá sặc",
-    "th": "ปลากระดี่"
+    "id": "Gurami",
+    "th": "ปลากระดี่",
+    "ms": "Sepat"
    },
    "match": {
     "genus": [
@@ -933,7 +949,8 @@
    "names": {
     "vi": "Bảy màu",
     "id": "Guppy",
-    "th": "ปลาหางนกยูง"
+    "th": "ปลาหางนกยูง",
+    "ms": "Guppy"
    },
    "match": {
     "species": [
@@ -947,7 +964,8 @@
    "names": {
     "vi": "Cá vàng",
     "id": "Koki",
-    "th": "ปลาทอง"
+    "th": "ปลาทอง",
+    "ms": "Ikan emas"
    },
    "match": {
     "species": [
@@ -960,7 +978,8 @@
    "names": {
     "vi": "Cá rồng",
     "id": "Arwana",
-    "th": "อะโรวาน่า"
+    "th": "อะโรวาน่า",
+    "ms": "Arowana"
    },
    "match": {
     "family": [
@@ -972,7 +991,9 @@
    "id": "koi",
    "names": {
     "vi": "Koi",
-    "id": "Koi"
+    "id": "Koi",
+    "th": "ปลาคาร์ป",
+    "ms": "Koi"
    },
    "match": {
     "genus": [
@@ -988,7 +1009,8 @@
    "names": {
     "vi": "Tetra",
     "id": "Tetra",
-    "th": "เตตร้า"
+    "th": "เตตร้า",
+    "ms": "Tetra"
    },
    "match": {
     "group": [
@@ -1000,7 +1022,9 @@
    "id": "chach",
    "names": {
     "vi": "Chạch",
-    "th": "ปลาหมู"
+    "id": "Loach",
+    "th": "ปลาหมู",
+    "ms": "Loach"
    },
    "match": {
     "group": [
@@ -1013,7 +1037,8 @@
    "names": {
     "vi": "Cá chuột",
     "id": "Corydoras",
-    "th": "ปลาแพะ"
+    "th": "ปลาแพะ",
+    "ms": "Cory"
    },
    "match": {
     "family": [
@@ -1029,7 +1054,10 @@
   {
    "id": "killi",
    "names": {
-    "vi": "Killi"
+    "vi": "Killi",
+    "id": "Killifish",
+    "th": "ปลาคิลลี่",
+    "ms": "Killifish"
    },
    "match": {
     "group": [
@@ -1042,7 +1070,8 @@
    "names": {
     "vi": "Lòng tong",
     "id": "Rasbora",
-    "th": "ปลาซิว"
+    "th": "ปลาซิว",
+    "ms": "Rasbora"
    },
    "match": {
     "group": [
@@ -1054,7 +1083,9 @@
    "id": "oc",
    "names": {
     "vi": "Ốc",
-    "th": "หอย"
+    "id": "Keong",
+    "th": "หอย",
+    "ms": "Siput"
    },
    "match": {
     "group": [
