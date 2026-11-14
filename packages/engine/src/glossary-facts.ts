@@ -35,8 +35,8 @@ export type FactCheck = {
 
 const plain = (html: string) => unescapePlain(html.replace(/<[^>]+>/g, '')).replace(/\s+/g, ' ').trim()
 
-/** A tag that starts or ends a block of text; any other (bold, a link) stands inside one. */
-const BLOCK = /<\/?(?:p|ul|ol|li|table|thead|tbody|tfoot|tr|th|td|caption|div|section|blockquote|dl|dt|dd|figure|figcaption|br|hr)\b[^>]*>/gi
+/** A heading, whole, or a tag that starts or ends a block of text; any other (bold, a link) stands inside one. */
+const TOKENS = /<h([1-6])\b[^>]*>([\s\S]*?)<\/h\1>|<\/?(?:p|ul|ol|li|table|thead|tbody|tfoot|tr|th|td|caption|div|section|blockquote|dl|dt|dd|figure|figcaption|br|hr)\b[^>]*>/gi
 
 /**
  * The entry's sentences: the definition's, then every piece of the body's text in order, each under the heading before it,
@@ -52,37 +52,36 @@ const BLOCK = /<\/?(?:p|ul|ol|li|table|thead|tbody|tfoot|tr|th|td|caption|div|se
 export function sentences(e: { definition: string; body: string }): Sentence[] {
   const blocks: { block: string; heading?: string; item?: string }[] = [{ block: plain(e.definition) }]
   let heading: string | undefined
-  for (const part of e.body.split(/(<h[1-6]\b[^>]*>[\s\S]*?<\/h[1-6]>)/i)) {
-    const h = /^<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>$/i.exec(part)
-    if (h) { heading = plain(h[1]!) || undefined; if (heading) blocks.push({ block: heading, heading }); continue }
-    // The open lists and list items, each item with the name it opens with, if any; a new item closes an unclosed one.
-    const open: ('list' | { name?: string; seen: boolean })[] = []
-    const text = (b: string) => {
-      const block = plain(b)
-      if (!block) return
-      const lead = plain(/^\s*<strong\b[^>]*>([\s\S]*?)<\/strong>/i.exec(b)?.[1] ?? '').replace(/[\s:]+$/, '')
-      const li = open.at(-1)
-      if (li && li !== 'list' && !li.seen) { li.seen = true; if (lead) li.name = lead }
-      const names = open.flatMap(x => (x !== 'list' && x.name ? [x.name] : []))
-      const item = (names.length ? names : lead ? [lead] : []).join(' › ')
-      blocks.push({ block, ...(heading ? { heading } : {}), ...(item ? { item } : {}) })
-    }
-    let at = 0
-    for (const m of part.matchAll(BLOCK)) {
-      text(part.slice(at, m.index))
-      at = m.index + m[0].length
-      const tag = /^<(\/?)([a-z]+)/i.exec(m[0])!
-      const [close, name] = [tag[1] === '/', tag[2]!.toLowerCase()]
-      if (name === 'ul' || name === 'ol') {
-        if (!close) open.push('list')
-        else while (open.length && open.pop() !== 'list');
-      } else if (name === 'li') {
-        if (open.length && open.at(-1) !== 'list') open.pop()
-        if (!close) open.push({ seen: false })
-      }
-    }
-    text(part.slice(at))
+  // The open lists and list items, each item with the name it opens with, if any; a new item closes an unclosed one. One
+  // pass over the whole body, so a heading inside a kind's item doesn't drop its name (Codex, 14 Nov 2026).
+  const open: ('list' | { name?: string; seen: boolean })[] = []
+  const names = () => open.flatMap(x => (x !== 'list' && x.name ? [x.name] : []))
+  const push = (block: string, item: string) => blocks.push({ block, ...(heading ? { heading } : {}), ...(item ? { item } : {}) })
+  const text = (b: string) => {
+    const block = plain(b)
+    if (!block) return
+    const lead = plain(/^\s*<strong\b[^>]*>([\s\S]*?)<\/strong>/i.exec(b)?.[1] ?? '').replace(/[\s:]+$/, '')
+    const li = open.at(-1)
+    if (li && li !== 'list' && !li.seen) { li.seen = true; if (lead) li.name = lead }
+    const n = names()
+    push(block, (n.length ? n : lead ? [lead] : []).join(' › '))
   }
+  let at = 0
+  for (const m of e.body.matchAll(TOKENS)) {
+    text(e.body.slice(at, m.index))
+    at = m.index + m[0].length
+    if (m[1] !== undefined) { heading = plain(m[2]!) || undefined; if (heading) push(heading, names().join(' › ')); continue }
+    const tag = /^<(\/?)([a-z]+)/i.exec(m[0])!
+    const [close, name] = [tag[1] === '/', tag[2]!.toLowerCase()]
+    if (name === 'ul' || name === 'ol') {
+      if (!close) open.push('list')
+      else while (open.length && open.pop() !== 'list');
+    } else if (name === 'li') {
+      if (open.length && open.at(-1) !== 'list') open.pop()
+      if (!close) open.push({ seen: false })
+    }
+  }
+  text(e.body.slice(at))
   return blocks.flatMap(b => b.block.split(/(?<=[.!?…])\s+(?=[\p{Lu}"“(])/u).map(text => ({ text: text.trim(), ...b })).filter(s => s.text.length > 1))
 }
 /** Where a sentence stands: its heading, and the kind its item is about. */

@@ -47,6 +47,9 @@ test('a kind\'s name holds for everything inside its item: a paragraph or a list
   expect(at('<ul><li><strong>Lũa đỗ quyên:</strong> rễ.<ul><li>Chìm chậm.</li><li><strong>Lưu ý:</strong> dễ gãy.</li></ul>Nhẹ.</li></ul><p>Ngâm trước.</p>')).toEqual(['Lũa đỗ quyên: Lũa đỗ quyên: rễ.', 'Lũa đỗ quyên: Chìm chậm.', 'Lũa đỗ quyên › Lưu ý: Lưu ý: dễ gãy.', 'Lũa đỗ quyên: Nhẹ.', '-: Ngâm trước.'])
   // An item left unclosed ends where the next begins.
   expect(at('<ul><li><strong>Lũa sừng</strong> vàng.<li>Gỗ khác.</ul>')).toEqual(['Lũa sừng: Lũa sừng vàng.', '-: Gỗ khác.'])
+  // A heading inside a kind's item keeps it (Codex, 14 Nov 2026).
+  expect(sentences({ definition: 'Lũa là gỗ.', body: '<ul><li><strong>Lũa đỗ quyên</strong><h3>Đặc tính</h3><p>Chìm ngay.</p></li></ul><h3>Sau</h3><p>Hết.</p>' }).slice(1).map(s => `${s.heading ?? '-'} | ${s.item ?? '-'}: ${s.text}`))
+    .toEqual(['- | Lũa đỗ quyên: Lũa đỗ quyên', 'Đặc tính | Lũa đỗ quyên: Đặc tính', 'Đặc tính | Lũa đỗ quyên: Chìm ngay.', 'Sau | -: Sau', 'Sau | -: Hết.'])
   // A paragraph that opens with a name, outside any list, stands under it alone.
   expect(at('<p><strong>Mopani:</strong> nặng.</p><p>Sau đó.</p>')).toEqual(['Mopani: Mopani: nặng.', '-: Sau đó.'])
 })
