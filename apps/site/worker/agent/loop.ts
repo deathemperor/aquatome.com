@@ -79,8 +79,9 @@ export type AgentInput<Step> = {
   maxTokens: number
   limits?: Partial<Limits>
   /**
-   * The latest the run may end, asked before each call: the earlier of it and `ms` from the first call is the run's end.
-   * The chat's stream gives the reader's last sign plus the time a run has once they've gone (chat/api.ts), so a reader
+   * The latest the run may end, asked before each call: the earlier of it and `ms` from the first call is the run's end,
+   * and no call goes past it, not even one writing its answer (`writingGraceMs` stops there). The chat's stream gives the
+   * reader's last sign plus the time a run has once they've gone, less the time to save it (chat/api.ts), so a reader
    * still there keeps a longer turn, and one who left has that time from when they went.
    */
   until?: () => number
@@ -156,8 +157,10 @@ export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step
     const grace = lim.writingGraceMs ?? 0
     // A call gets at least a second before it's given up: key rotation sends nothing with less (fishid/keys.ts `rotate`).
     const giveUp = a.lastTry && left - a.lastTry.ms >= 1000 ? left - a.lastTry.ms : left
+    /** How long a call that has begun writing may go: the grace past the run's end, but never past `until`. */
+    const room = Math.min(left + grace, (a.until?.() ?? Infinity) - clock())
     /** How long the call may go before it begins writing. */
-    const wait = trying ? left + grace : Math.min(forced && a.pace ? left : lim.callMs, giveUp)
+    const wait = trying ? room : Math.min(forced && a.pace ? left : lim.callMs, giveUp)
     let r: Anthropic.Message
     try {
       r = await a.send({
@@ -169,7 +172,7 @@ export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step
         ...(trying ? { thinking: { type: 'disabled' as const } } : a.thinking ? { thinking: a.thinking } : {}),
         output_config: { effort, format: { type: 'json_schema', schema: a.schema } },
         messages: trying ? withWord(history, a.lastTry!.word) : forced && a.lastWord ? withWord(history, a.lastWord) : [...history],
-      }, { timeoutMs: wait, writingMs: left + grace, call: run.calls })
+      }, { timeoutMs: wait, writingMs: room, call: run.calls })
     } catch (e) {
       if (!held && !trying && a.lastTry && !a.lastTry.begun() && clock() - began > wait - 1000) { trying = true; continue }
       return held ? { ...run, message: held, stopped: 'answer' } : { ...run, stopped: 'error', error: e }

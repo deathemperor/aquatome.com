@@ -92,6 +92,12 @@ const RUNNING_MS = 2 * 60_000
 const PING_MS = 10_000
 /** While a run streams, a ping this often: each write that lands says the reader is still there (`seen`). */
 const PRESENT_MS = 2_000
+/**
+ * How long a streamed run's calls may go on after the reader's last sign: the platform keeps a run 30 s after their
+ * connection drops, and the blocks, the save and the settle take the last 4 s. Every call, an answer being written
+ * included, ends by then (loop.ts `until`).
+ */
+const GONE_RUN_MS = 26_000
 /** A retry waits this long for the first run's answer, checking every `pollMs`. */
 const WAIT_MS = 75_000
 const POLL_MS = 1000
@@ -579,7 +585,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
       piece => { if (!shown) wordsAt = clock(); shown = true; lastAt = clock(); gated(sse('text', { text: piece })) },
       block => { sent++; gated(sse('block', block)) },
       line => { if (!stop.signal.aborted) send(sse('opening', { text: line })) },
-      () => seen! + CHAT_LIMITS.ms,
+      () => seen! + GONE_RUN_MS,
     ))
     answeredAt = clock()
     const t = done.status === 200 ? done.body as unknown as Turn : undefined

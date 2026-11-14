@@ -540,7 +540,7 @@ test('the stream: the text in pieces as Claude writes it, after every step and b
   expect(plain.bodies.map(b => b.stream)).toEqual([undefined, undefined])
 })
 
-test('the stream: a reader still there gets the longer turn\'s calls; one who leaves has 27 s from when they went, and their answer is kept; a JSON answer has the usual limits', async () => {
+test('the stream: a reader still there gets the longer turn\'s calls; one who leaves has 26 s from when they went, and their answer is kept; a JSON answer has the usual limits', async () => {
   const { e, db, store } = env()
   const me = await signIn(db)
   let offset = 0
@@ -568,7 +568,8 @@ test('the stream: a reader still there gets the longer turn\'s calls; one who le
   await read
   expect(recordOf(CONV).agent).toMatchObject({ calls: 10, stopped: 'calls' })
   expect(recordOf(CONV).timing!.seen).toBeGreaterThanOrEqual(recordOf(CONV).timing!.answered!)
-  // Gone at once: 27 s from then, the pace's rule forces the answer at the 5th call; the turn is kept for their return.
+  // Gone at once: 26 s from then (the platform's 30 less the save's 4), the pace's rule forces the answer at the 4th call;
+  // the turn is kept for their return.
   offset = 0
   const gone = slow()
   const id = '7a1c2a52-8d3e-4b7a-9c41-2e5d7f80b913'
@@ -577,7 +578,7 @@ test('the stream: a reader still there gets the longer turn\'s calls; one who le
   const res = await chat(req, new URL(req.url), e, new Date(), deps(gone.fetch, { clock }), p => { waits.push(p) })
   await res.body!.cancel()
   await Promise.all(waits)
-  expect(recordOf(id).agent).toMatchObject({ calls: 5, stopped: 'time' })
+  expect(recordOf(id).agent).toMatchObject({ calls: 4, stopped: 'time' })
   expect(recordOf(id).timing!.seen).toBeLessThan(recordOf(id).timing!.answered!)
   expect(store.read<Conversation>(conversationKey(await chatAccount('k', me.id), id))!.turns).toHaveLength(1)
   // The JSON answer has no reader to see: the usual 5 calls.

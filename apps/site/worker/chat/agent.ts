@@ -126,7 +126,7 @@ export const LAST_TRY = { ms: 4_000, maxTokens: 2_048, word: `${LAST_WORD} Time 
 export const CHAT_LIMITS: Limits = { calls: 5, tools: 8, photos: 0, inputTokens: 60_000, ms: 27_000, lastCallMs: 12_000, callMs: 20_000, writingGraceMs: 3_000 }
 /**
  * While the reader is there (the stream's writes still land, chat/api.ts), the turn reads for longer, and its end is also
- * `until`: their last sign plus CHAT_LIMITS.ms, so one who leaves gets today's time from when they went. At 27 s Claude
+ * `until`: their last sign plus 26 s, so one who leaves has the time a run has after they go, less its save. At 27 s Claude
  * chose when to answer in 11 of the tuning third's 93 questions, from 2.8 pages; at 45 s, with these calls and tool
  * calls, in 50, from 4.4 pages, the first words at 13 s typically (2026-11-13).
  */
