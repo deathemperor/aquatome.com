@@ -196,15 +196,16 @@ ran_out() { tail -c +"$(($1 + 1))" "$TEST_LOG" | sed -E "s/$(printf '\033')\[[0-
 # leaves alone, and that run publishes it before its own work (publish_kept). Until 2026-11-08 the next run dropped it:
 # that day a videos run and a photos run lost their work to load, redone from nothing. Only in the Mac's engine clones,
 # which a run resets as it starts, and in the cloud's cycle (engine_cloud); any other checkout is someone's own.
-# A run whose checks failed twice for another reason goes on held/<job>/<when>, which nothing publishes: the Machine Load
-# Lead looks at those, never the owner, and a run drops its job's after 14 days (drop_old_held).
+# A run whose checks failed twice for another reason goes on held/<job>/<when>, which nothing publishes as it is: it gets
+# one more try once main's code has changed since it was held (retry_held), the Machine Load Lead looks at those, never
+# the owner, and a run drops its job's after 14 days (drop_old_held).
 # `keep_unpublished <job>`, where a run gives up publishing.
 engine_clone() { [ -z "${GITHUB_ACTIONS:-}" ] && case "$PWD/" in "$HOME/.local/share/aquatome/"*) true ;; *) false ;; esac; }
 # The cloud's cycle (engine.yml) keeps its work the same way, but a runner keeps nothing past its run, so each of those
 # branches is on GitHub too, pushed over the key the cycle pushes main with: on 2026-11-12 a cloud cycle lost 682 model
 # calls ($39) to one failed test (the chief of staff, that day). One engine.yml run at a time (its concurrency group), and
-# only it makes, publishes and deletes its job's branches there, each by its exact name. A held one there gets one more
-# try once main's code has changed since it was held (retry_held). Not another workflow's checkout, as ci.yml's tests.
+# only it makes, publishes and deletes its job's branches there, each by its exact name. Not another workflow's checkout,
+# as ci.yml's tests.
 engine_cloud() { [ -n "${GITHUB_ACTIONS:-}" ] && case "${GITHUB_WORKFLOW_REF:-}" in */.github/workflows/engine.yml@*) true ;; *) false ;; esac; }
 keep_unpublished() {
   engine_clone || engine_cloud || return 0
@@ -286,7 +287,8 @@ publish_kept() {
     net git fetch -q origin || true
     git reset -q --hard origin/main
   done
-  if engine_cloud; then retry_held "$1"; fi
+  # On the Mac too since 14 Nov: until then a held batch there sat until someone renamed it by hand (13 Nov, three).
+  retry_held "$1"
   # Kept work's failed migration is that work's: the run's own goes on to its own (video-cycle.sh tests with no merge).
   MIGRATE_FAILED=
 }
@@ -303,8 +305,8 @@ fault_exit() {
   fi
   exit "$status"
 }
-# In the cloud, each held branch of <job> not yet tried again, once main's code (anything but the engine's output and the
-# docs) has changed since the main it was checked on: published as kept work is, or, failing its tests for real again,
+# Each held branch of <job> not yet tried again, once main's code (anything but the engine's output and the docs) has
+# changed since the main it was checked on: published as kept work is, or, failing its tests for real again,
 # moved to <branch>-tried, which nothing tries again. Out of time or not pushed, it stays held for the next run's try.
 retry_held() {
   local branch base
@@ -330,6 +332,21 @@ retry_held() {
     git reset -q --hard origin/main
   done
 }
+# Pages a later run put on main while this work was kept, and that this work wrote too: main's stay as main has them. They
+# are live under main's names: at 03:14 on 14 Nov a kept batch landing on four fish pages live since 02:49 gave them its
+# own names, and their first addresses answered 404. Each file both added since <branch> was cut goes back to main's, in
+# a commit of its own. `main_pages <branch>`, after the pull.
+main_pages() {
+  local base files
+  base=$(git merge-base "$1" origin/main) || return 0
+  files=$(comm -12 <(git diff --name-only --diff-filter=A "$base" "$1" -- content | sort) <(git diff --name-only --diff-filter=A "$base" origin/main -- content | sort))
+  [ -n "$files" ] || return 0
+  # shellcheck disable=SC2086 # content paths have no spaces
+  git checkout origin/main -- $files
+  git diff --cached --quiet && return 0
+  git commit -q -m "content: main's pages as main has them ($(wc -l <<<"$files" | tr -d ' ') files a later run published first)"
+  log "$1: $(wc -l <<<"$files" | tr -d ' ') files a later run published first stay as main has them"
+}
 # The checked-out kept work on top of main, swept and checked, pushed. As push() does, lines both changed give way to the
 # kept work's, a clash in the calendar plans it again, and after any merge it's swept and checked again. KEPT_FAILED
 # when its tests failed for real; KEPT_WHY says why it isn't published. `push_kept [<branch>]`: in the cloud, GitHub's
@@ -348,6 +365,7 @@ push_kept() {
       replan_merged "$clash"
       check=1
     fi
+    [ -z "${1:-}" ] || main_pages "$1"
     # A clean pull that brought main's commits in is swept and checked too, as swept_pull says why.
     [ "$(git rev-parse origin/main 2>/dev/null)" = "$main" ] || check=1
     if [ -n "$check" ]; then

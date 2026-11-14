@@ -126,13 +126,34 @@ test("kept work whose push doesn't land stays kept, and goes out with the next r
   expect(c.onMain('content/b.json')).toBe('photos')
 })
 
-test("kept work that clashes with main gets its own lines, as a run's push does, and is checked again", () => {
+test("kept work that clashes with main on a page main had gets its own lines, as a run's push does, and is checked again", () => {
   const c = clone()
-  c.timedOutRun()
-  c.elsewhere('content/b.json')
-  expect(c.onMain('content/b.json')).toBe('sf')
+  c.sh('echo photos > content/a.json && git add . && git commit -qm "content: engine photos"')
+  c.cycle("verify 'pnpm test' || keep_unpublished photos", { CHECK: 'Error: Test timed out in 30000ms.' })
+  c.sh('git fetch -q origin && git reset -q --hard origin/main')
+  c.elsewhere('content/a.json')
+  expect(c.onMain('content/a.json')).toBe('sf')
   const log = c.cycle('publish_kept photos')
   expect(log).toMatch(/LOG published kept\/photos\//)
+  expect(c.onMain('content/a.json')).toBe('photos')
+})
+
+// 14 Nov, 03:14: a kept batch landed on four fish pages a later run had published at 02:49, gave them its own names, and
+// their first addresses answered 404. A page main got from a later run while the work was kept stays as main has it;
+// the rest of the kept work goes out.
+test('a page a later run published while the work was kept stays as main has it; the rest of the kept work is published', () => {
+  const c = clone()
+  c.sh('mkdir -p content/species/x && echo kept-name > content/species/x/vi.json && echo kept-entity > content/species/x/entity.json && echo photos > content/b.json && git add . && git commit -qm "content: engine photos"')
+  c.cycle("verify 'pnpm test' || keep_unpublished photos", { CHECK: 'Error: Test timed out in 30000ms.' })
+  c.sh('git fetch -q origin && git reset -q --hard origin/main')
+  const [kept = ''] = c.branches()
+  c.elsewhere('content/species/x/vi.json', 'main-name')
+  const log = c.cycle('publish_kept photos')
+  expect(log).toContain(`LOG ${kept}: 1 files a later run published first stay as main has them`)
+  expect(log).toContain(`LOG published ${kept}`)
+  expect(c.onMain('content/species/x/vi.json')).toBe('main-name')
+  // What main didn't have goes out as the kept work wrote it.
+  expect(c.onMain('content/species/x/entity.json')).toBe('kept-entity')
   expect(c.onMain('content/b.json')).toBe('photos')
 })
 
@@ -171,6 +192,27 @@ test('a test that fails twice ends on a held branch with nothing published, and 
   expect(c.onMain('content/b.json')).toBe('')
   expect(c.branches()).toEqual([held])
   expect(c.sh(`git show ${held}:content/b.json`)).toBe('photos')
+})
+
+// 13 Nov: three held batches sat on the Mac until the chief of staff had them renamed by hand, as only GitHub's runner
+// tried a held batch again. On the Mac too, once main's code has changed since it was held, it gets one more try.
+test("a held batch on the Mac gets one more try once main's code has changed, and is published if it passes", () => {
+  const c = clone()
+  c.sh(work)
+  c.cycle(publishing, { CHECK: 'AssertionError: expected 1 to be 2' })
+  const [held = ''] = c.branches()
+  // Only pages landed since: not tried.
+  c.elsewhere('content/c.json', 'sf')
+  c.sh('git fetch -q origin && git reset -q --hard origin/main')
+  expect(c.cycle('publish_kept photos')).toBe('')
+  // A fix to the code lands: the next run tries it, and it passes and goes out.
+  c.elsewhere('packages/code.ts', '2')
+  c.sh('git fetch -q origin && git reset -q --hard origin/main')
+  const log = c.cycle('publish_kept photos')
+  expect(log).toContain(`LOG trying ${held} once more: main's code has changed since it was held`)
+  expect(log).toContain(`LOG published ${held}`)
+  expect(c.onMain('content/b.json')).toBe('photos')
+  expect(c.branches()).toEqual([])
 })
 
 test("a held branch is dropped after 14 days, by its own job's next run", () => {
