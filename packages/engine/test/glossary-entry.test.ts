@@ -559,16 +559,21 @@ test('a kind word the table allows before a scientific name doesn\'t stop a save
   await species('aulonocara-jacobfreibergi', 'Aulonocara jacobfreibergi', 'Cichlidae', 'Cichliformes')
   const run = async (body: string) => {
     const asked: string[] = []
+    const wrote: string[] = []
     const llm: Llm = async ({ prompt }) => {
       if (prompt.startsWith('GLOSSARY RULES')) { asked.push(prompt); return { notes: ['Rule 6: "tép Caridina" in "Tép Caridina thích lũa.": a Vietnamese name the writer made up for a genus'] } as never }
       if (isCheck(prompt)) return verdicts(prompt) as never
+      wrote.push(prompt)
       return { ...written, body } as never
     }
-    return { r: await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'lua', { kind: 'aquascaping' }), asked }
+    return { r: await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'lua', { kind: 'aquascaping' }), asked, wrote }
   }
   const fits = await run('<p>Tép Caridina thích lũa.</p>')
   expect(fits.r).toMatchObject({ id: 'lua', score: 1 })
   expect(fits.asked[0]).toContain('--- KIND WORDS ---\nTép Caridina\n')
+  // The chief of staff, 14 Nov 2026, of pH's draft: "như Cá neon vua" mid-sentence is lower case; the site links it either way.
+  expect(fits.asked[0]).toContain('Case doesn\'t count: mid-sentence a page\'s name starts in lower case like any common noun ("như cá neon vua").')
+  expect(fits.wrote[0]).toContain('giữa câu thì viết thường như mọi danh từ chung ("như cá neon vua")')
   const wrong = await run('<p>Tép Caridina thích lũa, cá trê Aulonocara thì không.</p>')
   expect(wrong.r).toMatchObject({ id: 'lua', skipped: 'stopped by 1 note' })
   expect((wrong.r as { notes: string[] }).notes).toContain('Rule 6: "cá trê Aulonocara": "trê" is the word for other animals, not for Cichlidae (the table of kind words).')
