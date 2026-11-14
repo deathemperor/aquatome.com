@@ -294,9 +294,9 @@ test("the magazine's word rules leave out posts about someone, not a topic, and 
   expect(report.listed.aquazonefish).toEqual({ kept: 2, dropped: {} })
 })
 
-// The chief of staff, 14 Nov 2026: the magazine's ideas go behind the work already pending, and at most one of a day's two
-// guides comes from them until the chief of staff has read the first three.
-test("the magazine's ideas queue behind the shops', a shop's idea ranks by the shops alone, and one a day at most is written", async () => {
+// The chief of staff, 14 Nov 2026: the magazine's ideas are listed behind the shops', so its 1,365 titles never push the
+// shops' 61 out; and it gets one of the day's two guides from the start, at most one, the shops keeping the other.
+test("the magazine's ideas are listed behind the shops', a shop's idea ranks by the shops alone, and the magazine has one of a day's two guides", async () => {
   const root = await site({})
   const llm: Llm = async <T>() => ({ ideas: [
     { topic: 'Ba bài của tạp chí', kind: 'care', posts: [6, 7, 8] }, // the magazine's only: last, whatever its count
@@ -307,17 +307,28 @@ test("the magazine's ideas queue behind the shops', a shop's idea ranks by the s
   const s = await readIdeas(root)
   expect(s.ideas.map(i => [i.topic, i.fromMagazine ?? false])).toEqual([['Hai cửa hàng', false], ['Một cửa hàng và tạp chí', false], ['Ba bài của tạp chí', true]])
   expect(MAGAZINE_PER_DAY).toBe(1)
-  await writeFile(join(root, 'engine-state/_ideas.json'), JSON.stringify({ ...s, ideas: [
+  const shop = (n: number) => ({ topic: `Cửa hàng ${n}`, kind: 'care', posts: [`${AZ}nuoc-be-ca-bi-duc`], sites: 1 })
+  await writeFile(join(root, 'engine-state/_ideas.json'), JSON.stringify({ ...s, ideas: [shop(1), shop(2), shop(3), shop(4),
     { topic: 'Tạp chí một', kind: 'care', posts: [`${PF}features/cloudy-water-explained/`], sites: 1, fromMagazine: true },
     { topic: 'Tạp chí hai', kind: 'care', posts: [`${PF}fishkeeping-answers/why-is-my-water-cloudy/`], sites: 1, fromMagazine: true },
-    { topic: 'Cửa hàng một', kind: 'care', posts: [`${AZ}nuoc-be-ca-bi-duc`], sites: 1 },
   ] }))
   const asked: string[] = []
   const research: Llm = async <T>({ prompt }: { prompt: string }) => { asked.push(prompt); return { found: false, facts: [], species: [], sources: [] } as T }
-  const day1 = await writeIdeas(root, { research, llm: research, now: () => new Date('2026-11-14T05:00:00Z') }, { perDay: 2 })
-  expect(day1.magazine).toEqual(['Tạp chí một'])
-  expect(asked.map(a => /"(Tạp chí một|Tạp chí hai|Cửa hàng một)"/.exec(a)?.[1])).toEqual(['Tạp chí một', 'Cửa hàng một'])
+  const day = async (d: string) => {
+    const from = asked.length
+    const r = await writeIdeas(root, { research, llm: research, now: () => new Date(`${d}T05:00:00Z`) }, { perDay: 2 })
+    return { r, topics: asked.slice(from).map(a => /"((?:Cửa hàng|Tạp chí) [^"]+)"/.exec(a)?.[1]) }
+  }
+  // The first day: the most asked shop idea and the magazine's first, though four shop ideas wait ahead of it.
+  const one = await day('2026-11-14')
+  expect(one.topics).toEqual(['Cửa hàng 1', 'Tạp chí một'])
+  expect(one.r.magazine).toEqual(['Tạp chí một'])
   expect((await readIdeas(root)).magazine).toEqual({ '2026-11-14': 1 })
-  const day2 = await writeIdeas(root, { research, llm: research, now: () => new Date('2026-11-15T05:00:00Z') }, { perDay: 2 })
-  expect(day2.magazine).toEqual(['Tạp chí hai'])
+  // A run later the same day: the day's two are written.
+  expect((await day('2026-11-14')).topics).toEqual([])
+  expect((await day('2026-11-15')).topics).toEqual(['Cửa hàng 2', 'Tạp chí hai'])
+  // None of the magazine's left: the shops have both.
+  const three = await day('2026-11-16')
+  expect(three.topics).toEqual(['Cửa hàng 3', 'Cửa hàng 4'])
+  expect(three.r.magazine).toEqual([])
 })

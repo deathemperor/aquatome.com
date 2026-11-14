@@ -184,8 +184,8 @@ export async function refreshIdeas(root: string, d: IdeasDeps, o: { force?: bool
     const fromMagazine = mine.every(p => MAGAZINES.has(p.site))
     made.set(slugify(topic), { topic, kind: x.kind, posts: mine.map(p => p.url), sites: new Set(mine.map(p => p.site)).size, ...(latest ? { latest } : {}), ...(fromMagazine ? { fromMagazine } : {}) })
   }
-  // The magazine's ideas behind every shop's, and a shop's idea ranked by the shops alone (the chief of staff, 14 Nov 2026):
-  // the magazine adds ideas to the work pending, never ahead of it.
+  // The magazine's ideas listed behind every shop's, and a shop's idea ranked by the shops alone (the chief of staff, 14 Nov
+  // 2026): its 1,365 titles never push the shops' ideas out. It has a guide a day of its own (writeIdeas).
   const shopSites = (i: Idea) => new Set(shops(i).map(u => site.get(u))).size
   state.ideas = [...[...made.values()].sort((a, b) => Number(!!a.fromMagazine) - Number(!!b.fromMagazine) || shopSites(b) - shopSites(a) || shops(b).length - shops(a).length
     || b.posts.length - a.posts.length || (b.latest ?? '').localeCompare(a.latest ?? '')), ...done.values()]
@@ -206,15 +206,16 @@ export function ideaLeads(idea: Idea, state: IdeasState): string {
 }
 
 /**
- * Guides on the magazine's ideas a day, at most: one of the day's two until the chief of staff has read its first three
- * (14 Nov 2026). Raising it is a change here.
+ * Guides on the magazine's ideas a day: one of the day's two from the start, at most one, and the shops' ideas keep the
+ * other, until the chief of staff has read its first three (14 Nov 2026). The owner asked for its topics by name. Changing
+ * it is a change here.
  */
 export const MAGAZINE_PER_DAY = 1
 
 /**
- * Guides on the most asked ideas, `perDay` at most a day (UTC), of them MAGAZINE_PER_DAY at most on the magazine's. A model
- * that stops (quota) stops it, the idea left for the next run; any other failure counts, and is kept as the idea's reason.
- * `magazine`: the ideas of the magazine's it wrote on, written or skipped.
+ * Guides on the most asked ideas, `perDay` at most a day (UTC): MAGAZINE_PER_DAY of them kept for the magazine's while it
+ * has one waiting, the rest the shops'. A model that stops (quota) stops it, the idea left for the next run; any other
+ * failure counts, and is kept as the idea's reason. `magazine`: the ideas of the magazine's it wrote on, written or skipped.
  */
 export async function writeIdeas(root: string, d: { research: Llm; llm: Llm; now: () => Date }, o: { perDay: number; researchModel?: string }) {
   const state = await readIdeas(root)
@@ -225,10 +226,12 @@ export async function writeIdeas(root: string, d: { research: Llm; llm: Llm; now
     state.written[today] = (state.written[today] ?? 0) + 1
     if (idea.fromMagazine) { state.magazine[today] = (state.magazine[today] ?? 0) + 1; report.magazine.push(idea.topic) }
   }
+  // The day's guides still kept for the magazine's: none once it has had its own, or with none of its ideas waiting.
+  const forMagazine = () => (state.ideas.some(i => i.fromMagazine && !i.guide && !i.skipped) ? Math.max(0, MAGAZINE_PER_DAY - (state.magazine[today] ?? 0)) : 0)
   for (const idea of state.ideas) {
     if ((state.written[today] ?? 0) >= o.perDay) break
     if (idea.guide || idea.skipped) continue
-    if (idea.fromMagazine && (state.magazine[today] ?? 0) >= MAGAZINE_PER_DAY) continue
+    if (idea.fromMagazine ? (state.magazine[today] ?? 0) >= MAGAZINE_PER_DAY : (state.written[today] ?? 0) + forMagazine() >= o.perDay) continue
     const id = topicId(idea.topic)
     // A guide of that name already (the ideas missed it): taken as written, never rewritten from here.
     if (await readFile(join(root, 'content/guides', id, 'vi.json'), 'utf8').then(() => true, () => false)) { idea.guide = id; continue }
