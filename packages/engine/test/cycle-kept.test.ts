@@ -409,6 +409,60 @@ test("a push's next try never sends a tree its checks didn't see, though main's 
   expect(c.onMain('content/b.json')).toBe('photos')
 }, slow(60_000))
 
+// The Site lead and the chief of staff, 15 Nov 2026: the held photos run passed its checks and lost its push three times,
+// each try a re-test of 30 to 50 minutes while main moved on. Once the work has passed, a commit on main that touches no
+// code and none of its files is swept in and the push goes again; anything else is checked again. Here main moves while
+// the first check runs, as on a busy day, so the first push is refused for real. `before` runs ahead of the kept run, and
+// what it leaves uncommitted goes into the kept work.
+type Clone = ReturnType<typeof clone>
+function raced(file: string, text: string, o: { before?: (c: Clone) => void; sweep?: string } = {}) {
+  const c = clone()
+  o.before?.(c)
+  c.timedOutRun()
+  const [kept = ''] = c.branches()
+  if (o.sweep) c.sh(`printf '#!/bin/sh\\n[ "$1 $2" = "engine sweep" ] && ${o.sweep}\\nexit 0\\n' > "$HOME/bin/pnpm"`)
+  const move = `rm -rf "$HOME/other" && git clone -q "$HOME/origin.git" "$HOME/other" 2>/dev/null && cd "$HOME/other" && git config user.email a@example.com && git config user.name a && mkdir -p "$(dirname ${file})" && printf '%b\\n' '${text}' > ${file} && git add . && git commit -qm other && git push -q 2>/dev/null`
+  const log = c.cycle(`checks() { echo run >> "$HOME/checked"; [ -f "$HOME/moved" ] || { touch "$HOME/moved"; ( ${move} ); }; }; publish_kept photos`)
+  return { c, kept, log, checks: c.sh('grep -c run "$HOME/checked"') }
+}
+const QUIET = "LOG main moved by content only, none of this work's files, and the sweep changed nothing: pushing again, not checked again"
+
+test("after a pass, a push lost to main moving by content only, none of the work's files, goes again after the sweep, not checked again", () => {
+  const { c, kept, log, checks } = raced('content/c.json', 'sf')
+  expect(log).toContain(QUIET)
+  expect(log).toContain(`LOG published ${kept}`)
+  expect(checks).toBe('1')
+  expect([c.onMain('content/b.json'), c.onMain('content/c.json')]).toEqual(['photos', 'sf'])
+  expect(c.branches()).toEqual([])
+}, slow(60_000))
+
+test("after a pass, a push lost to a change in code is checked again", () => {
+  const { c, kept, log, checks } = raced('packages/code.ts', '2')
+  expect(log).not.toContain(QUIET)
+  expect(log).toContain(`LOG published ${kept}`)
+  expect(checks).toBe('2')
+  expect(c.onMain('packages/code.ts')).toBe('2')
+}, slow(60_000))
+
+test("after a pass, a push lost to a change in one of the work's own files is checked again, though the two merge cleanly", () => {
+  // Main's line 5 and the work's line 1 of one file.
+  const { c, kept, log, checks } = raced('content/m.json', '1\\n2\\n3\\n4\\nfive', {
+    before: c => c.sh(`printf '1\\n2\\n3\\n4\\n5\\n' > content/m.json && git add . && git commit -qm m && git push -q 2>/dev/null && printf 'one\\n2\\n3\\n4\\n5\\n' > content/m.json`),
+  })
+  expect(log).not.toContain(QUIET)
+  expect(log).toContain(`LOG published ${kept}`)
+  expect(checks).toBe('2')
+  expect(c.onMain('content/m.json').split('\n')).toEqual(['one', '2', '3', '4', 'five'])
+}, slow(60_000))
+
+test('after a pass, a push lost to content only is checked again when the sweep on the merge changes something', () => {
+  const { c, kept, log, checks } = raced('content/c.json', 'sf', { sweep: '[ -f content/c.json ] && echo swept > content/s.json' })
+  expect(log).not.toContain(QUIET)
+  expect(log).toContain(`LOG published ${kept}`)
+  expect(checks).toBe('2')
+  expect(c.onMain('content/s.json')).toBe('swept')
+}, slow(60_000))
+
 // The chief of staff, 14 Nov 2026: git's rename detection read a page main moved into a path the kept work also wrote as
 // moved, not added, and the kept version won. Added means absent where the branch was cut.
 test('a page main moved to where the kept work wrote one stays as main has it', () => {
