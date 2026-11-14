@@ -418,6 +418,21 @@ final class HandbookModel {
       }
       // `-plan`: the editors have planned Hôm nay's days (`fixtureDays`).
       var home = f.home
+      // `-wide-pictures`: each fish and plant has a photo (a wide stand-in, `-fixed-pictures`) with its fish's box across
+      // nearly all of it, and each group one: a photo the frame rule shows whole wherever it goes (WholePhotoFlowTests).
+      if args.contains("-wide-pictures") {
+        let box = PhotoBox(x: 0.04, y: 0.1, w: 0.92, h: 0.8)
+        items = items.map { i in
+          guard i.kind == .fish || i.kind == .plant,
+                var o = (try? JSONSerialization.jsonObject(with: JSONEncoder().encode(i))) as? [String: Any] else { return i }
+          o["img"] = "https://aquatome.com/img/wide-\(i.contentId ?? i.name)-480.webp"
+          o["imgBox"] = ["x": box.x, "y": box.y, "w": box.w, "h": box.h]
+          return (try? JSONSerialization.data(withJSONObject: o)).flatMap { try? JSONDecoder().decode(HandbookIndex.Item.self, from: $0) } ?? i
+        }
+        if let groups = home?.groups {
+          home?.groups = groups.map { .init(id: $0.id, img: "https://aquatome.com/img/wide-\($0.id)-480.webp", imgBox: box) }
+        }
+      }
       // `-familiar N`: Khám phá's fish shelf runs long, N fish after the fixture's own, as the hobbyists' list does.
       if let n = args.firstIndex(of: "-familiar").flatMap({ $0 + 1 < args.count ? Int(args[$0 + 1]) : nil }), n > 0 {
         let more = (1...n).map { HandbookIndex.Item(kind: .fish, contentId: "quen-\($0)", name: "Cá quen \($0)", sub: "Genus familiaris", path: "/vi/ca/ca-quen-\($0)/", group: "tetras") }

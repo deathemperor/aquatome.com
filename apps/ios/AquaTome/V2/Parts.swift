@@ -94,15 +94,22 @@ struct V2Photo: View {
       Image(uiImage: image).resizable().scaledToFill()
         .offset(x: (0.5 - x) * (image.size.width * s - points.width), y: (0.5 - y) * (image.size.height * s - points.height))
     case .whole:
+      // Each sized to the frame here, not by its own fit or fill: the blur's fill, larger than the frame, laid the whole
+      // photo out at its own size, so it showed cut as a centred cover would (the owner's report of 14 Nov, Cá chạch's list).
+      let fit = min(points.width / max(image.size.width, 1), points.height / max(image.size.height, 1))
+      let fill = max(points.width / max(image.size.width, 1), points.height / max(image.size.height, 1))
       ZStack {
         switch onGround ? .mat : PhotoFrame.ground(aspect: aspect, ratio: ratio) {
         case .mat: if let ground { ground }
         case .blur:
-          Image(uiImage: image).resizable().scaledToFill().scaleEffect(PhotoFrame.blurScale)
+          Image(uiImage: image).resizable().frame(width: image.size.width * fill, height: image.size.height * fill)
+            .scaleEffect(PhotoFrame.blurScale)
             .blur(radius: PhotoFrame.blurRadius(height: points.height), opaque: true)
         }
-        Image(uiImage: image).resizable().scaledToFit()
+        Image(uiImage: image).resizable().frame(width: image.size.width * fit, height: image.size.height * fit)
       }
+      .frame(width: points.width, height: points.height)
+      .clipped()
     }
   }
 
