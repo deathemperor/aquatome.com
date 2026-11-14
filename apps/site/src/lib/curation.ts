@@ -65,9 +65,12 @@ const SHELF_MIN = 3
  * `photoWaits`, which asks the screen's record whatever this language's build loaded). The calendar names a picture by
  * its address, so one that waits is left off here, and the app shows the page's own. `boxAt`: where the fish is in a
  * picture, by its address (a day's fish, guide and story pictures and a pick's, beside each as its box), where the content
- * has a box for it.
+ * has a box for it. `guideLead`: the picture a guide's page opens on, by its ref, which a day's guide card shows where the
+ * calendar names none (the planner names only a head at least 1,140 px across, and never a section's picture, a video's
+ * poster or a fish the guide names, which its page can open on): a card and the page it opens show one picture (the
+ * owner, 10 and 13 Nov).
  */
-export function curationFor(cur: Curation, lang: Lang, today: string, pathOf: (ref: string) => string | undefined, cards: Card[] = [], waits: (address: string) => boolean = () => false, boxAt: (address: string) => Box | undefined = () => undefined): AppCuration {
+export function curationFor(cur: Curation, lang: Lang, today: string, pathOf: (ref: string) => string | undefined, cards: Card[] = [], waits: (address: string) => boolean = () => false, boxAt: (address: string) => Box | undefined = () => undefined, guideLead: (ref: string) => string | undefined = () => undefined): AppCuration {
   const word = (c?: CurationCopy) => c?.[lang]
   const shown = (img?: string) => (img && !waits(img) ? img : undefined)
   // A page the planner found failing reader fit (`off`) is left out, as one this language has no page for.
@@ -81,8 +84,8 @@ export function curationFor(cur: Curation, lang: Lang, today: string, pathOf: (r
     // A language's own fish brings its own photo, or none: the day's photo is of the day's fish.
     const img = shown(fish && (own?.fish ? own.img : (own?.img ?? d.img)))
     const guide = page(own?.guide ?? d.guide)
-    // Likewise the guide's photo is of the day's guide, or of the language's own.
-    const guideImg = shown(guide && (own?.guide ? own.guideImg : d.guideImg))
+    // Likewise the guide's photo is of the day's guide, or of the language's own; with none named, the one its page opens on.
+    const guideImg = shown(guide && ((own?.guide ? own.guideImg : d.guideImg) ?? guideLead((own?.guide ?? d.guide)!)))
     const sp = page(d.story?.page)
     const storyImg = sp && d.story ? shown(d.story.img) : undefined
     const story = sp && d.story ? clean({ path: sp, img: storyImg, imgBox: storyImg ? boxAt(storyImg) : undefined, eyebrow: word(d.story.eyebrow), title: word(d.story.title), dek: word(d.story.dek) }) : undefined

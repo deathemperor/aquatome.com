@@ -44,7 +44,8 @@ test('Hôm nay gets the days from yesterday on, each pick at its address in the 
   const vi = await index('vi')
   expect(vi.home.days?.map(d => d.date)).toEqual(['2026-11-09', '2026-11-10'])
   const [mon, tue] = vi.home.days!
-  expect(mon).toEqual({ date: '2026-11-09', fish: pathOf(vi, 'paracheirodon-axelrodi'), img: IMG, guide: expect.stringMatching(/^\/vi\/huong-dan\/.+\/$/) })
+  // Its guide names no photo: the card shows the picture the guide's page opens on.
+  expect(mon).toEqual({ date: '2026-11-09', fish: pathOf(vi, 'paracheirodon-axelrodi'), img: IMG, guide: expect.stringMatching(/^\/vi\/huong-dan\/.+\/$/), guideImg: expect.stringMatching(/^https:\/\/media\.aquatome\.com\/.+\.webp$/) })
   expect(tue!.fish).toBe(pathOf(vi, 'flowerhorn-cichlid'))
   expect(tue!.story).toEqual({ path: tue!.guide, eyebrow: 'Bể đầu tiên', title: 'Set bể từ đầu' })
 })
