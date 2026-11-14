@@ -136,7 +136,7 @@ test('a screen record keeps a cleared shop\'s kept mark and drops any other', ()
 
 test('an album puts kept-mark photos after every unmarked one, ordered the same way, and AI pictures last', () => {
   const p = (n: string, o: Partial<GalleryPhoto> = {}) => ({ ...photo(`https://media.example/${n}.webp`), ...o }) as GalleryPhoto
-  const shopBest = p('shop-best', { best: true }), shopB = p('shop-b'), a = p('a'), b = p('b'), ai = p('ai', { generated: { by: 'x', on: '2026-11-15' } } as Partial<GalleryPhoto>)
+  const shopBest = p('shop-best', { best: true }), shopB = p('shop-b'), a = p('a'), b = p('b'), ai = p('ai', { generated: { by: 'x', on: '2026-11-15' } } as unknown as Partial<GalleryPhoto>)
   const marked = new Set([shopBest.url, shopB.url])
   const ranked = rankGallery([shopBest, ai, a, shopB, b], undefined, undefined, undefined, undefined, u => marked.has(u))
   expect(ranked.map(x => x.url.split('/').pop())).toEqual(['a.webp', 'b.webp', 'shop-best.webp', 'shop-b.webp', 'ai.webp'])
@@ -175,6 +175,6 @@ test.each(SHOPS)('%s: a kept-mark photo among a page\'s own photos goes after th
   expect(((await json(r, `content/species/${ID}/entity.json`)).photos as { url: string }[]).map(p => p.url)).toEqual([OWN, marked])
   // The lead step, given that page in the old order: the kept-mark head gives way to the photo that passes.
   const v = { subjects: { [marked]: { [ID]: { ok: 'yes', typical: true, note: 'x' } }, [OWN]: { [ID]: { ok: 'yes', typical: true, note: 'x' } } }, legacy: {}, rejected: {}, faces: {}, kept: (u: string) => u === marked } as Verdicts
-  const head = photo(marked, shop, PAGE[shop]), other = photo(OWN)
+  const head = photo(marked, shop, PAGE[shop]) as GalleryPhoto, other = photo(OWN) as GalleryPhoto
   expect(leadChoice([head, other], [], p => cardWorthy(p, ID, v, {}), {}, p => ownMarkOnly(p, ID, v, {}), () => 0, p => !!v.kept?.(p.url))).toEqual({ lead: other })
 })
