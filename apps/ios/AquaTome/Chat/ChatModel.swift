@@ -26,7 +26,8 @@ struct ChatSubject: Hashable, Codable {
 /// The chat screen's route: where it starts, and what it's about.
 struct ChatRoute: Hashable {
   let start: Chat.Start
-  let subject: ChatSubject
+  /// What it's about; none from Tìm's "Hỏi AquaTome", which asks about anything.
+  let subject: ChatSubject?
 }
 
 extension ChatRoute {
@@ -36,6 +37,9 @@ extension ChatRoute {
     self.init(start: Chat.Start(from: .species, about: id),
               subject: ChatSubject(plant: item.kind == .plant, name: item.name, sci: item.sub, img: item.img.flatMap(URL.init(string:)), guesses: nil, second: nil))
   }
+
+  /// Tìm's "Hỏi AquaTome": the chat about nothing yet.
+  static let fromSearch = ChatRoute(start: Chat.Start(from: .search), subject: nil)
 }
 
 /// The chat as GET /api/chat last said, for the entries (a species page's "Hỏi về …", fish ID's row): asked when the app

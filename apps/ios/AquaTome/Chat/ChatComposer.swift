@@ -84,7 +84,7 @@ struct ChatComposer: View {
 
   /// At the largest text sizes, one that fits a line.
   private var placeholder: String {
-    let s = model.route.subject
+    guard let s = model.route.subject else { return String(localized: "Hỏi về cá, cây, bể…") }
     if size.isAccessibilitySize || s.fromPhoto {
       return s.plant ? String(localized: "Hỏi về cây này…") : String(localized: "Hỏi về cá này…")
     }
@@ -233,7 +233,7 @@ struct AskEntry: View {
       NavigationLink(value: route) {
         HStack(spacing: 8) {
           Image(systemName: "bubble.left.and.text.bubble.right.fill").accessibilityHidden(true)
-          Text("Hỏi về \(ChatNames.inSentence(route.subject.name))").multilineTextAlignment(.center)
+          Text("Hỏi về \(ChatNames.inSentence(route.subject?.name ?? ""))").multilineTextAlignment(.center)
         }
         .font(.body.weight(.semibold))
         .foregroundStyle(scheme == .dark ? Color(red: 0, green: 0x24 / 255, blue: 0x1B / 255) : Color.white)

@@ -1607,6 +1607,28 @@
         }
       }
     },
+    "Bạn muốn hỏi gì?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mau tanya apa?"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apa soalan anda?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อยากถามอะไร"
+          }
+        }
+      }
+    },
     "Bạn đã dùng hết %lld lượt nhận diện hôm nay. Quay lại ngày mai nhé.": {
       "localizations": {
         "id": {
@@ -2263,6 +2285,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ตู้ใหม่"
+          }
+        }
+      }
+    },
+    "Bể mới bao lâu thì thả cá được?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akuarium baru, berapa lama sampai ikan bisa dimasukkan?"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tangki baharu, berapa lama baru boleh masukkan ikan?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตู้ใหม่ต้องรอนานแค่ไหนถึงปล่อยปลาได้"
           }
         }
       }
@@ -4309,6 +4353,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "ปลาหางนกยูงสีฟ้าทะเล"
+          }
+        }
+      }
+    },
+    "Cá bệnh, nước đục, bể mới: hỏi bằng lời của bạn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikan sakit, air keruh, akuarium baru: tanya dengan kata-kata Anda sendiri"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikan sakit, air keruh, tangki baharu: tanya dengan kata-kata anda sendiri"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลาป่วย น้ำขุ่น ตู้ใหม่: ถามด้วยคำพูดของคุณเอง"
+          }
+        }
+      }
+    },
+    "Cá chết nổi đầu, vì sao?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikan mati mengapung, kenapa?"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikan mati terapung, kenapa?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลาตายลอยหัว เพราะอะไร"
           }
         }
       }
@@ -6993,6 +7081,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ฮาโลวีน"
+          }
+        }
+      }
+    },
+    "Hỏi về cá, cây, bể…": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tanya tentang ikan, tanaman, akuarium…"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tanya tentang ikan, tumbuhan, tangki…"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ถามเรื่องปลา ไม้น้ำ ตู้…"
           }
         }
       }
@@ -10403,6 +10513,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "น้ำ"
+          }
+        }
+      }
+    },
+    "Nước bể bị đục, làm sao cho trong?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Air akuarium keruh, bagaimana agar jernih?"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Air tangki keruh, bagaimana nak jernihkan?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "น้ำในตู้ขุ่น ทำอย่างไรให้ใส"
           }
         }
       }

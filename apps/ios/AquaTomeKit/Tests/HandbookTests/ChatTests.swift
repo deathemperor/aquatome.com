@@ -343,6 +343,11 @@ private func key(_ b: Chat.Block) -> String {
   let pageSent = try #require(page.httpBody)
   let p = try #require(JSONSerialization.jsonObject(with: pageSent) as? [String: Any])
   #expect(p["from"] as? String == "species" && p["about"] as? String == "betta-splendens" && p["identified"] == nil)
+  // From Tìm's "Hỏi AquaTome": where, and no page.
+  let search = Chat.ask("?", conversation: UUID(), lang: "vi", start: Chat.Start(from: .search), key: UUID(), site: site, token: "t", version: "1", ownCopy: nil)
+  let searchSent = try #require(search.httpBody)
+  let s = try #require(JSONSerialization.jsonObject(with: searchSent) as? [String: Any])
+  #expect(s["from"] as? String == "search" && s["about"] == nil && s["identified"] == nil)
 }
 
 // MARK: The conversation

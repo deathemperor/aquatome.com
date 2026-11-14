@@ -17,7 +17,7 @@ struct HandbookView: View {
     NavigationStack(path: $path) {
       List {
         if handbook.query.isEmpty {
-          HomeList()
+          HomeList { path.append(ChatRoute.fromSearch) }
         } else {
           Section {
             ForEach(handbook.results) { item in Row(item: item) }

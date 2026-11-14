@@ -86,7 +86,7 @@ private struct ChatThread: View {
       GeometryReader { geo in
         ScrollView {
           VStack(alignment: .leading, spacing: 0) {
-            if !startsAtTitle { ChatHeader(subject: model.route.subject) }
+            if !startsAtTitle, let s = model.route.subject { ChatHeader(subject: s) }
             if model.thread.isEmpty { empty }
             ForEach(model.thread) { a in
               let last = a.id == model.thread.last?.id
@@ -151,20 +151,24 @@ private struct ChatThread: View {
 
   // MARK: Empty
 
-  private var subjectName: String { ChatNames.inSentence(model.route.subject.name) }
   /// The largest text, empty: the title names the fish, so its card goes and the first starters clear the box. A
-  /// photo's card stays, since "Hỏi gì về con cá này?" names none.
-  private var startsAtTitle: Bool { size.isAccessibilitySize && model.thread.isEmpty && !model.route.subject.fromPhoto }
+  /// photo's card stays, since "Hỏi gì về con cá này?" names none. About nothing (from Tìm), there's no card.
+  private var startsAtTitle: Bool {
+    guard let s = model.route.subject else { return false }
+    return size.isAccessibilitySize && model.thread.isEmpty && !s.fromPhoto
+  }
 
   @ViewBuilder private var empty: some View {
     let s = model.route.subject
     VStack(alignment: .leading, spacing: 8) {
       Group {
-        if s.fromPhoto { Text(s.plant ? "Hỏi gì về cây này?" : "Hỏi gì về con cá này?") } else { Text("Hỏi gì về \(subjectName)?") }
+        if let s, s.fromPhoto { Text(s.plant ? "Hỏi gì về cây này?" : "Hỏi gì về con cá này?") }
+        else if let s { Text("Hỏi gì về \(ChatNames.inSentence(s.name))?") }
+        else { Text("Bạn muốn hỏi gì?") }
       }
       .font(.title2.weight(.bold))
       .accessibilityAddTraits(.isHeader)
-      WhoAnswers(fromPhoto: s.fromPhoto)
+      WhoAnswers(fromPhoto: s?.fromPhoto == true)
       // Signed out, none of them could be sent: the sign-in card instead. At the first letter typed the starters fade,
       // and come back when the box is empty: the title and the line about who answers are left, so the box has nothing
       // to cut as it grows.
@@ -175,13 +179,16 @@ private struct ChatThread: View {
       }
     }
     .animation(reduceMotion ? nil : .easeOut(duration: 0.2), value: model.draft.isEmpty)
-    .padding(.top, startsAtTitle ? 0 : 24)
+    .padding(.top, model.route.subject == nil ? 12 : startsAtTitle ? 0 : 24)
     .transition(.opacity)
   }
 
-  /// The app's own first questions, by what the chat is about.
+  /// The app's own first questions, by what the chat is about; about nothing, what keepers ask most.
   private var starters: [String] {
-    let s = model.route.subject
+    guard let s = model.route.subject else {
+      return [String(localized: "Cá chết nổi đầu, vì sao?"), String(localized: "Bể mới bao lâu thì thả cá được?"),
+              String(localized: "Nước bể bị đục, làm sao cho trong?")]
+    }
     if s.plant {
       return [String(localized: "Có cần CO₂ không?"), String(localized: "Trồng ở đâu trong bể?"), String(localized: "Có dễ trồng không?")]
     }

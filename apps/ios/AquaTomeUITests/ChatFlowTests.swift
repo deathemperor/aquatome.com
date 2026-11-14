@@ -223,9 +223,37 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(soon(second.isHittable), "not back at the end")
   }
 
-  /// Off on the server: no way into the chat from a fish's page.
+  /// Tìm before typing: "Hỏi AquaTome" under the search field, above the tools, opens the chat about nothing yet: no
+  /// card saying what it's about, "Bạn muốn hỏi gì?", three starters, and a box that asks about fish, plants and tanks.
+  func testTimsAskCardOpensTheChatAboutNothingYet() {
+    let app = launch()
+    XCTAssertTrue(searchField(app).waitForExistence(timeout: 5), "no search field")
+    let card = element(app, "ask-aquatome")
+    XCTAssertTrue(card.waitForExistence(timeout: 10), "no Hỏi AquaTome on Tìm")
+    XCTAssertTrue(card.label.contains("Hỏi AquaTome"), card.label)
+    let fishId = element(app, "tool-fish-id")
+    XCTAssertTrue(fishId.exists, "no fish ID")
+    XCTAssertLessThan(card.frame.maxY, fishId.frame.minY, "the card not above the tools")
+    card.tap()
+    XCTAssertTrue(element(app, "chat").waitForExistence(timeout: 5), "no chat screen")
+    XCTAssertFalse(element(app, "chat-about").exists, "a card saying what it's about, on a chat about nothing yet")
+    XCTAssertTrue(app.staticTexts["Bạn muốn hỏi gì?"].exists, "no empty screen's question")
+    signIn(app)
+    let starters = app.buttons.matching(identifier: "chat-chip")
+    XCTAssertEqual(starters.count, 3)
+    XCTAssertEqual(element(app, "chat-box").placeholderValue, "Hỏi về cá, cây, bể…")
+    let asked = starters.firstMatch.label
+    starters.firstMatch.tap()
+    XCTAssertTrue(app.staticTexts["chat-question"].waitForExistence(timeout: 5), "not asked")
+    XCTAssertEqual(app.staticTexts["chat-question"].label, "Bạn hỏi: \(asked)")
+  }
+
+  /// Off on the server: no way into the chat from Tìm or a fish's page.
   func testWhileChatIsOffNoEntryShows() {
     let app = launch("-chat-off")
+    XCTAssertTrue(searchField(app).waitForExistence(timeout: 5), "no search field")
+    XCTAssertTrue(element(app, "tool-fish-id").waitForExistence(timeout: 10), "no Tìm home")
+    XCTAssertFalse(element(app, "ask-aquatome").exists, "Hỏi AquaTome on Tìm while chat is off")
     open(app, "Ca neon")
     XCTAssertTrue(element(app, "v2-species").waitForExistence(timeout: 10), "no page")
     reveal(app, app.buttons["v2-add"])

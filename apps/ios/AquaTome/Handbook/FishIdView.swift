@@ -233,7 +233,7 @@ struct FishIdView: View {
       Section {
         NavigationLink(value: route) {
           Label {
-            if route.subject.plant { Text("Hỏi về cây này") } else { Text("Hỏi về con cá này") }
+            if route.subject?.plant == true { Text("Hỏi về cây này") } else { Text("Hỏi về con cá này") }
           } icon: {
             Image(systemName: "bubble.left.and.text.bubble.right.fill")
           }

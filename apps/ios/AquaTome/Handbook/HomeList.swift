@@ -6,13 +6,18 @@ import SwiftUI
 /// pattern (BrowseShelf); equipment as a grid; the glossary and what's new. Each way in leads to one shelf of pages
 /// (BrowseView), never to everything at once.
 struct HomeList: View {
+  /// Opens the chat about nothing yet ("Hỏi AquaTome").
+  let ask: () -> Void
   @Environment(HandbookModel.self) private var handbook
+  @Environment(ChatStore.self) private var chat
 
   var body: some View {
     // The kept copy in use, or none at all: said first. (Each shelf says how many pages it holds.)
     if handbook.status == .offline || handbook.status == .failed {
       Section { StatusText().font(.footnote) }
     }
+    // Where chat is on for the account: right under the search field, above the tools.
+    if chat.on { Section { AskCard(open: ask) } }
     Tools()
     ReadOn()
     // Nothing yet (loading, or no copy and no network): the status alone, not shelves of nothing.
@@ -476,6 +481,48 @@ private struct FishIdCard: View {
     .listRowBackground(Color.clear)
     .listRowSeparator(.hidden)
     .accessibilityIdentifier("tool-fish-id")
+  }
+}
+
+/// "Hỏi AquaTome": the chat about anything, as a card like the tools' tiles under it (fish ID's stays the one filled card),
+/// its bubble in an accent circle. A button, so the list adds no chevron of its own; at accessibility sizes its icon goes
+/// above its words, which then have the card's whole width, as fish ID's card does.
+private struct AskCard: View {
+  let open: () -> Void
+  @Environment(\.colorScheme) private var scheme
+  @Environment(\.dynamicTypeSize) private var size
+
+  var body: some View {
+    let stacked = size.isAccessibilitySize
+    let layout = stacked ? AnyLayout(VStackLayout(alignment: .leading, spacing: 8)) : AnyLayout(HStackLayout(spacing: 12))
+    Button(action: open) {
+      HStack(spacing: 12) {
+        layout {
+          Image(systemName: "bubble.left.and.text.bubble.right.fill")
+            .font(.body)
+            // The ink that reads on the accent, as on fish ID's card.
+            .foregroundStyle(scheme == .dark ? Color(white: 0.07) : Color.white)
+            .frame(width: 44, height: 44)
+            .background(Color("AccentColor"), in: Circle())
+            .accessibilityHidden(true)
+          VStack(alignment: .leading, spacing: 2) {
+            Text("Hỏi AquaTome").font(.body.weight(.semibold)).foregroundStyle(.primary)
+            Text("Cá bệnh, nước đục, bể mới: hỏi bằng lời của bạn").font(.subheadline).foregroundStyle(.secondary)
+          }
+          .multilineTextAlignment(.leading)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        if !stacked { Image(systemName: "chevron.right").font(.footnote.weight(.semibold)).foregroundStyle(.tertiary).accessibilityHidden(true) }
+      }
+      .padding(16)
+      .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+      .contentShape(.rect)
+    }
+    .buttonStyle(.plain)
+    .listRowInsets(EdgeInsets())
+    .listRowBackground(Color.clear)
+    .listRowSeparator(.hidden)
+    .accessibilityIdentifier("ask-aquatome")
   }
 }
 
