@@ -171,9 +171,12 @@ export const inPiece = new AsyncLocalStorage<string>()
  * Refuses unless a checkout's ceilings are main's: whatever yields to the engine reads the table in force, and that is
  * main's. On 15 Nov the board's checkout, 178 commits behind, read 13 Nov's table and took $34 that main had given the
  * engine. `dir` is the engine's folder in the checkout; main is fetched first, and a change not yet committed counts.
+ * Main out of reach is refused too: the copy fetched last may be days old.
  */
 export function ceilingsAsMain(dir: string): void {
-  spawnSync('git', ['fetch', '-q', 'origin', 'main'], { cwd: dir })
+  if (spawnSync('git', ['fetch', '-q', 'origin', 'main'], { cwd: dir }).status !== 0) {
+    throw new Error('can\'t reach main to compare the ceilings: try again once origin answers')
+  }
   if (spawnSync('git', ['diff', '--quiet', 'origin/main', '--', 'src/ceilings.json'], { cwd: dir }).status !== 0) {
     throw new Error('the ceilings here are not main\'s: rebase this checkout on main first')
   }

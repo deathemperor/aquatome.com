@@ -353,6 +353,11 @@ test('whatever yields to the engine runs only with main\'s ceilings: a checkout 
   expect(() => ceilingsAsMain(engine)).not.toThrow()
   await writeFile(join(engine, 'src/ceilings.json'), '{"tables":[{"from":"c"}]}')
   expect(() => ceilingsAsMain(engine)).toThrow('not main\'s')
+  // Main out of reach (offline, a lock, no sign-in): the last copy fetched may be old, so it is refused, not trusted.
+  await writeFile(join(engine, 'src/ceilings.json'), '{"tables":[{"from":"b"}]}')
+  expect(() => ceilingsAsMain(engine)).not.toThrow()
+  git(join(root, 'board'), 'remote', 'set-url', 'origin', join(root, 'gone'))
+  expect(() => ceilingsAsMain(engine)).toThrow('can\'t reach main')
   // The board asks before any step that calls a model.
   const board = readFileSync(new URL('../scripts/chat-board.ts', import.meta.url), 'utf8')
   expect(board).toContain("if (positionals[0] !== 'report') ceilingsAsMain(")
