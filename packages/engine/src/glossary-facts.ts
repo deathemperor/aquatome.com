@@ -188,21 +188,23 @@ function placed<E extends { definition: string; body: string }>(e: E, text: stri
 }
 
 /**
- * The figures a text gives, each as often as it gives it, with every number it can be read as (Grok's reads, 15 Nov 2026).
- * Neither the entry nor the facts keep one way of writing numbers: an English fact quotes a shop's "200.000đ", an entry
- * copies an English "2,000". So a mark before exactly three digits, after a whole part that isn't 0, reads both as a
- * thousands mark and as a decimal ("2.000" is 2000 or 2, "1,020" 1020 or 1.02); any other mark is a decimal ("6.0" is 6,
- * "7,3" is 7.3). "20–30%" gives 20 and 30. Never a digit inside a word or a formula (CO2, NH4+, H3PO4), but "pH7,2"
- * gives 7.2. A figure the rewording changed rather than dropped ("2.000" to "2") is the fact read's to judge.
+ * The figures a text gives, each as often as it gives it, with the numbers it can be read as (Grok's reads, 15 Nov 2026).
+ * The facts keep no one way of writing numbers (an English fact quotes a shop's "200.000đ"), so a fact's mark before
+ * exactly three digits, after a whole part that isn't 0, reads both as a thousands mark and as a decimal ("2,000" is 2000
+ * or 2, "1.020" 1.02 or 1020). The entry is Vietnamese and reads one way: dots before three-digit groups mark thousands
+ * ("200.000" is 200000, "1.234,5" 1234.5), any other mark is a decimal ("1,020" is 1.02, "7,3" 7.3, a copied "6.0" 6).
+ * So a figure the rewording changed ("200.000đ" to "200đ") is a figure it dropped. "20–30%" gives 20 and 30. Never a digit
+ * inside a word or a formula (CO2, NH4+, H3PO4), but "pH7,2" gives 7.2.
  */
 type Figure = { text: string; reads: string[] }
-const figures = (text: string): Figure[] => [...text.replace(/pH(?=\d)/g, 'pH ').matchAll(/(?<![\p{L}\p{N}.,])\d+(?:[.,]\d+)*/gu)].map(m => {
+const figures = (text: string, entry = false): Figure[] => [...text.replace(/pH(?=\d)/g, 'pH ').matchAll(/(?<![\p{L}\p{N}.,])\d+(?:[.,]\d+)*/gu)].map(m => {
+  if (entry) return { text: m[0], reads: [String(Number(/^[1-9]\d{0,2}(?:\.\d{3})+(?:,\d+)?$/.test(m[0]) ? m[0].replace(/\./g, '').replace(',', '.') : m[0].replace(/^(\d+)[.,](\d+).*$/, '$1.$2')))] }
   const parts = m[0].split(/[.,]/)
   const decimal = String(Number(parts.length > 1 ? `${parts[0]}.${parts[1]}` : parts[0]))
   const grouped = parts.length > 1 && parts[0] !== '0' && parts.slice(1).every(x => x.length === 3) ? String(Number(parts.join(''))) : undefined
   return { text: m[0], reads: [...new Set([decimal, ...(grouped ? [grouped] : [])])] }
 })
-/** The figures `before` gives that `after` doesn't: each matched once to a figure after it that can be read the same. */
+/** The figures `before` gives that `after` doesn't: each matched once to a figure after it that reads the same. */
 const lessOf = (before: Figure[], after: Figure[]) => {
   const left = [...after]
   return before.filter(f => { const i = left.findIndex(g => g.reads.some(r => f.reads.includes(r))); if (i < 0) return true; left.splice(i, 1); return false })
@@ -290,7 +292,7 @@ export async function rewordLoose<E extends { definition: string; body: string }
   // The facts' own words, not their source numbers.
   const said = ((facts as { facts?: { fact: string }[] }).facts ?? []).map(f => f.fact).join('\n'), carried = new Set(figures(said).flatMap(f => f.reads))
   const dropped = (x: Rewording) => [
-    ...lessOf(figures(x.s.text), figures(x.to)).filter(f => f.reads.some(r => carried.has(r))).map(f => `the figure ${f.text}`),
+    ...lessOf(figures(x.s.text, true), figures(x.to, true)).filter(f => f.reads.some(r => carried.has(r))).map(f => `the figure ${f.text}`),
     ...namesIn(x.s.text, keep.names ?? [], said).filter(n => !namesIn(x.to, keep.names ?? [], said).includes(n)).map(n => `the name ${n}`),
     ...cautionsIn(x.s.text).filter(w => !cautionsIn(x.to).includes(w)).map(w => `the caution "${w}"`),
   ]

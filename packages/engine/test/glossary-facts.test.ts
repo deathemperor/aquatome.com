@@ -257,6 +257,10 @@ test('a rewording that drops a figure the facts carry keeps the old wording; a f
   expect((await reworded('Giữ tỷ trọng khoảng 1,02.', 'Giữ tỷ trọng phù hợp.')).entry.body).toBe('<p>Giữ tỷ trọng khoảng 1,02.</p>')
   expect((await reworded('Giữ tỷ trọng khoảng 1,020.', 'Giữ tỷ trọng khoảng 1,02.')).entry.body).toBe('<p>Giữ tỷ trọng khoảng 1,02.</p>')
   expect((await reworded('Dùng 0,125 g.', 'Dùng một ít.')).entry.body).toBe('<p>Dùng 0,125 g.</p>')
+  // Grok's read: the entry's own figures read the Vietnamese way only, so a changed figure is a dropped one.
+  expect((await reworded('Giá 200.000đ một ký.', 'Giá 200đ một ký.')).entry.body).toBe('<p>Giá 200.000đ một ký.</p>')
+  expect((await reworded('Cần khoảng 2.000 ppm.', 'Cần khoảng 2,000 ppm.')).entry.body).toBe('<p>Cần khoảng 2.000 ppm.</p>')
+  expect((await reworded('Giữ pH 6,0–6,5.', 'Giữ pH 6–6.5.')).entry.body).toBe('<p>Giữ pH 6–6.5.</p>')
 })
 
 test('a rewording that drops a named example, a page\'s name or a Latin name the facts write, keeps the old wording', async () => {
