@@ -4,6 +4,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
+import { slow } from '@aq/schema/test-time'
 
 // The cloud's cycle keeps its work as the Mac's engine clones do (cycle-kept.test.ts), on GitHub's branches of the same
 // names, since a runner keeps nothing past its run (scripts/cycle-checks.sh, engine_cloud). The chief of staff,
@@ -113,7 +114,8 @@ test('a held one that fails its one more try is marked tried, and isn\'t tried a
   expect(g.nextRun({ CHECK: FAIL })).toBe('')
   expect(g.onGitHub()).toEqual([`${held}-tried`])
   expect(g.onMain('content/b.json')).toBe('')
-})
+  // Its own limit: three runs and two landings, 30.6 s under a whole suite's load on 14 Nov, past the 30 s default.
+}, slow(60_000))
 
 test('held branches on GitHub are dropped after 14 days, each by its own name; young ones and other jobs\' stay', () => {
   const g = github()
@@ -223,5 +225,27 @@ test('GitHub\'s branches are deleted only by their exact names', () => {
   const s = readFileSync(CHECKS, 'utf8')
   expect(s.match(/--delete [^\n]*/g)).toEqual(['--delete "refs/heads/$1"'])
   // A deleting refspec in a push names one variable's branch, never a pattern: publishing, moving and renaming.
-  expect([...s.matchAll(/(?:^|[\s"])(:refs\/heads\/[^"\s]*)/gm)].map(m => m[1])).toEqual([':refs/heads/$1', ':refs/heads/$1', ':refs/heads/$1'])
+  expect([...s.matchAll(/(?:^|[\s"])(:refs\/heads\/[^"\s]*)/gm)].map(m => m[1])).toEqual([':refs/heads/$1', ':refs/heads/$1', ':refs/heads/$BRANCH'])
 })
+
+// The chief of staff, 14 Nov 2026: a rename never forces over a branch that exists, and a count GitHub won't take leaves
+// the work kept under its present name, said in a FAULT line.
+test("a rename on GitHub never moves a branch already there; a count GitHub won't take leaves the work kept as it is, with a FAULT line", () => {
+  const g = github()
+  g.failedRun(TIMEOUT)
+  const [kept = ''] = g.onGitHub()
+  const out2 = kept.replace(/-out1$/, '-out2')
+  // A branch at the new name on GitHub only, on main's commit: a plain push would move it on to the kept work.
+  g.branchOnGitHub(out2)
+  const refs = () => g.cycle(g.runner(), "git ls-remote origin 'refs/heads/kept/*'")
+  const was = refs()
+  expect(was.split('\n')).toHaveLength(2)
+  expect(g.cycle(g.runner(), `git fetch -q origin "+refs/heads/${kept}:refs/heads/${kept}"; rename_branch ${kept} ${out2} 2>/dev/null || echo refused`)).toBe('refused')
+  expect(refs()).toBe(was)
+  // GitHub refusing deletes, so no rename lands: out of time again, the work stays kept as it is, and the run says so.
+  g.cycle(g.runner(), `git push -q origin --delete refs/heads/${out2}`)
+  g.refusingDeletes(true)
+  const log = g.cycle(g.runner(), 'publish_kept rewrite; echo "FAULT=${FAULT:-}"', { CHECK: TIMEOUT })
+  expect(log).toContain(`FAULT=${kept} ran out of time again and couldn't be renamed ${out2}: it stays as ${kept}, its count not moved on`)
+  expect(g.onGitHub()).toEqual([kept])
+}, slow(60_000))

@@ -240,44 +240,68 @@ drop_branch() {
 # `move_branch <from> <to>`, once its work failed its tests (push_kept): <to> is the work as it was last checked, on the
 # main it failed on, so its one more try waits for a main newer than that (retry_held). On the Mac too since 14 Nov: a
 # rename there kept the work's first main, so a branch just held was tried again in the same run. In the cloud, GitHub's
-# <to> made and <from> deleted in one push, both or neither, so no branch is ever in two places.
+# <to> made and <from> deleted in one push, both or neither, so no branch is ever in two places. Neither a move nor a
+# rename goes over a branch that exists (the chief of staff, 14 Nov): a forced one could overwrite another batch's work,
+# and on GitHub a plain push moves a branch on when it's behind. A <to> already there fails it, here and on GitHub
+# (the lease that it isn't there); a delete here that fails takes back the branch just made.
 move_branch() {
-  if engine_cloud; then net git push -q --atomic origin "HEAD:refs/heads/$2" ":refs/heads/$1" || return 1; fi
-  git branch -q -f "$2" HEAD && git branch -q -D "$1"
+  if engine_cloud; then net git push -q --atomic --force-with-lease="refs/heads/$2:" origin "HEAD:refs/heads/$2" ":refs/heads/$1" || return 1; fi
+  git branch -q "$2" HEAD || return 1
+  git branch -q -D "$1" || { git branch -q -D "$2"; return 1; }
 }
 # `rename_branch <from> <to>`: the same work under another name (its count, count_outs), and in the cloud GitHub's in one
-# push, both or neither.
+# push, both or neither; never over a branch that exists.
 rename_branch() {
-  if engine_cloud; then net git push -q --atomic origin "refs/heads/$1:refs/heads/$2" ":refs/heads/$1" || return 1; fi
-  git branch -q -M "$1" "$2"
+  if engine_cloud; then net git push -q --atomic --force-with-lease="refs/heads/$2:" origin "refs/heads/$1:refs/heads/$2" ":refs/heads/$1" || return 1; fi
+  git branch -q -m "$1" "$2"
 }
 # The same work out of time OUT_CYCLES cycles in a row is no longer put down to a busy Mac (the chief of staff, 14 Nov): it
 # fails as work whose tests failed does, its output kept and the run failed with a notice. A branch's count is in its name,
 # the one thing a cloud runner and the Mac's clone share: kept/<job>/<when>-out1 is work out of time in its own run, and
-# each next run whose check of it runs out of time again moves it on, -out2, then the bound. A check that passed (its push
-# didn't land) ends the row; one that didn't run (a clash with main, its photo records) leaves it as it is. A branch with
-# no count (kept for its photo records, held for a real failure, or kept before 14 Nov) is at 0.
+# each next run whose check of it runs out of time again moves it on, -out2, then the bound. A check that passed ends the
+# row at that moment, before any push is tried (ended_row); one that didn't run (a clash with main before any pass, its
+# photo records) leaves it as it is. A branch with no count (kept for its photo records, held for a real failure, or kept
+# before 14 Nov) is at 0. A count that can't be written (its rename refused) leaves the work under its present name, and
+# the run says so in a FAULT line: until 14 Nov it said so only in its log, and a rename refused every run would have kept
+# the work short of the bound for ever (the chief of staff, that day).
 OUT_CYCLES=3
 outs() { case "$1" in *-out[0-9]) echo "${1##*-out}" ;; *) echo 0 ;; esac; }
 uncounted() { echo "${1%-out[0-9]}"; }
-# After push_kept failed <branch>: BRANCH, its name now (moved on, or its row ended); or at the bound, OUT_FAILED, its
-# count, with KEPT_FAILED set, its output in the log and kept, and the notice in FAULT. Always 0, under set -e.
+# After push_kept failed <branch>: BRANCH, its name now (moved on); or at the bound, OUT_FAILED, its count, with
+# KEPT_FAILED set, its output in the log and kept, and the notice in FAULT. Always 0, under set -e.
 count_outs() {
-  local n
+  local n to
   BRANCH=$1 OUT_FAILED=
-  if [ "$KEPT_WHY" = "tests out of time again" ]; then
-    n=$(($(outs "$1") + 1))
-    if [ "$n" -ge "$OUT_CYCLES" ]; then
-      OUT_FAILED=$n KEPT_FAILED=1
-      out_of_time_output "$(uncounted "$1")" "$n"
-      return 0
-    fi
-    KEPT_WHY="tests out of time again: $n of $OUT_CYCLES cycles in a row"
-    if rename_branch "$1" "$(uncounted "$1")-out$n"; then BRANCH="$(uncounted "$1")-out$n"; else log "$1 couldn't be renamed $(uncounted "$1")-out$n: its count stays"; fi
-  elif [ "$KEPT_WHY" = "the push didn't land" ] && [ "$(outs "$1")" != 0 ]; then
-    if rename_branch "$1" "$(uncounted "$1")"; then BRANCH="$(uncounted "$1")"; else log "$1 couldn't be renamed $(uncounted "$1"): its count stays"; fi
+  [ "$KEPT_WHY" = "tests out of time again" ] || return 0
+  # A pass this run couldn't record (ended_row) left a count that's wrong: nothing is counted on it, nothing held on it.
+  [ -z "${PASS_UNRECORDED:-}" ] || return 0
+  n=$(($(outs "$1") + 1))
+  if [ "$n" -ge "$OUT_CYCLES" ]; then
+    OUT_FAILED=$n KEPT_FAILED=1
+    out_of_time_output "$(uncounted "$1")" "$n"
+    return 0
   fi
+  KEPT_WHY="tests out of time again: $n of $OUT_CYCLES cycles in a row"
+  to="$(uncounted "$1")-out$n"
+  if rename_branch "$1" "$to"; then BRANCH=$to; return 0; fi
+  FAULT="${FAULT:+$FAULT; }$1 ran out of time again and couldn't be renamed $to: it stays as $1, its count not moved on"
   return 0
+}
+# A check of kept or held work that passed ends its row of time-outs then, before any push is tried (the chief of staff,
+# 14 Nov): a batch at -out2 that passed, lost its push to another job's and ran out of time on main's newer commit was
+# held as three cycles in a row with a pass between them, and one whose pass a clash followed kept its count. BRANCH
+# loses its count. A rename refused leaves a count that's wrong: this run counts nothing on it and holds nothing on it
+# (PASS_UNRECORDED, count_outs), and says so in a FAULT line. A later run can't tell. On the Mac only a fault of the clone
+# itself (a lock left behind, a full disk) refuses a rename one_name has cleared the way for: a branch already at the name
+# is one batch under two names. In the cloud, GitHub's refusal is recorded nowhere but that line, so the name is put
+# right by hand before a later run counts on it.
+ended_row() {
+  local to
+  to=$(uncounted "$BRANCH")
+  [ "$to" != "$BRANCH" ] || return 0
+  if rename_branch "$BRANCH" "$to"; then BRANCH=$to; return 0; fi
+  PASS_UNRECORDED=1
+  FAULT="${FAULT:+$FAULT; }$BRANCH passed its checks and couldn't be renamed $to: it stays as $BRANCH, and its count is wrong until it is"
 }
 # The output of work failed at the bound, `out_of_time_output <branch> <cycles>`: its time-out lines and failed tests in the
 # log (a worker that never started names no test), on the Mac a copy of its whole test log in
@@ -303,6 +327,42 @@ drop_old_held() {
     if drop_branch "$branch"; then log "$branch was held $HELD_DAYS days: dropped"; else log "$branch is past $HELD_DAYS days and couldn't be dropped"; fi
   done
 }
+# One batch is one run's work, by its job and its time: kept/<job>/<when>[-out<n>], then held/<job>/<when>[-out<n>], then
+# held/<job>/<when>-tried. Under two names at once, a rename or a move half-worked (a run stopped between its two steps;
+# before 14 Nov, a forced one), and each name would be processed, the work published twice (the chief of staff, 14 Nov).
+# On one commit the old name goes, by its exact name: the newer is held over kept, tried over held, and within one of
+# those no count over a count (a pass's rename; were it a time-out's from no count, it costs one more cycle, where the
+# other way could hold work on a count with a pass in it), else the higher count. On different commits none of them is
+# touched, and the run says so in a FAULT line. `one_name <branch>`: true when <branch> is its batch's one name, now or
+# once the others are dropped; false, to leave it this run, otherwise.
+one_name() {
+  local job=${1#*/} when=${1##*/} names b rank top=-1 newest=
+  job=${job%/*} when=${when%%-*}
+  names=$(git for-each-ref --format='%(refname:short)' "refs/heads/kept/$job/$when" "refs/heads/kept/$job/$when-*" "refs/heads/held/$job/$when" "refs/heads/held/$job/$when-*")
+  [ "$(wc -l <<<"$names")" -gt 1 ] || return 0
+  # shellcheck disable=SC2086 # branch names have no spaces
+  if [ "$(git rev-parse $names | sort -u | wc -l)" -gt 1 ]; then
+    # shellcheck disable=SC2086
+    [[ " ${SPLIT:-} " == *" $job/$when "* ]] || { SPLIT="${SPLIT:-} $job/$when"; FAULT="${FAULT:+$FAULT; }$job/$when is on $(echo $names | sed 's/ /, /g'), on different commits: none of them is touched"; }
+    return 1
+  fi
+  for b in $names; do
+    case "$b" in
+      held/*-tried) rank=300 ;;
+      held/*-out[0-9]) rank=$((200 + $(outs "$b"))) ;;
+      held/*) rank=299 ;;
+      *-out[0-9]) rank=$((100 + $(outs "$b"))) ;;
+      *) rank=199 ;;
+    esac
+    [ "$rank" -le "$top" ] || { top=$rank; newest=$b; }
+  done
+  for b in $names; do
+    [ "$b" != "$newest" ] || continue
+    drop_branch "$b" || { log "$b is the same work as $newest and couldn't be dropped: neither is processed this run"; return 1; }
+    log "$b is the same work as $newest, left by a rename that half-worked: dropped"
+  done
+  [ "$1" = "$newest" ]
+}
 # The work earlier runs of <job> kept, oldest first: each on main as it is now, swept and checked as any run's commit is,
 # then pushed. Only tests that fail twice for real move it to held/<job>/<when>, never pushed, as the gate's crash keeps
 # its work (gate_or_keep); anything else (tests out of time again, a push that didn't land, a clash it couldn't settle)
@@ -316,23 +376,26 @@ publish_kept() {
   fi
   drop_old_held "$1"
   for branch in $(git for-each-ref --sort=refname --format='%(refname:short)' "refs/heads/kept/$1/"); do
+    # Gone already, the old name of a batch under two (one_name).
+    git show-ref -q --verify "refs/heads/$branch" || continue
+    one_name "$branch" || continue
     log "publishing $branch, kept by an earlier run"
     git reset -q --hard "$branch"
     if push_kept "$branch"; then
-      git branch -q -D "$branch"
+      git branch -q -D "$BRANCH"
       log "published $branch"
       net git fetch -q origin || true
       git reset -q --hard origin/main
       continue
     fi
-    count_outs "$branch"
+    count_outs "$BRANCH"
     if [ -n "$KEPT_FAILED" ]; then
       # Held at the bound keeps its count, so its one more try out of time again is its last (retry_held); a real
       # failure ends the row.
       held="held/$(uncounted "${branch#kept/}")${OUT_FAILED:+-out$OUT_FAILED}"
       why="failed its tests twice"
       [ -z "$OUT_FAILED" ] || why="ran out of time $OUT_FAILED cycles in a row"
-      if move_branch "$branch" "$held"; then
+      if move_branch "$BRANCH" "$held"; then
         log "$branch $why: on $held, not published"
       else
         log "$branch $why and couldn't be moved to $held: it stays kept for the next run"
@@ -374,23 +437,25 @@ retry_held() {
   local branch base tried why as
   for branch in $(git for-each-ref --sort=refname --format='%(refname:short)' "refs/heads/held/$1/"); do
     case "$branch" in *-tried) continue ;; esac
+    git show-ref -q --verify "refs/heads/$branch" || continue
+    one_name "$branch" || continue
     base=$(git merge-base "$branch" origin/main) || continue
     git diff --quiet "$base" origin/main -- . ':!content' ':!sources' ':!engine-state' ':!docs' ':!*.md' && continue
     log "trying $branch once more: main's code has changed since it was held"
     git reset -q --hard "$branch"
     if push_kept "$branch"; then
-      git branch -q -D "$branch"
+      git branch -q -D "$BRANCH"
       log "published $branch"
       net git fetch -q origin || true
       git reset -q --hard origin/main
       continue
     fi
-    count_outs "$branch"
+    count_outs "$BRANCH"
     if [ -n "$KEPT_FAILED" ]; then
       tried="$(uncounted "$branch")-tried"
       why="failed its tests again"
       [ -z "$OUT_FAILED" ] || why="ran out of time $OUT_FAILED cycles in a row"
-      if move_branch "$branch" "$tried"; then
+      if move_branch "$BRANCH" "$tried"; then
         log "$branch $why: on $tried, not tried again"
       else
         log "$branch $why and couldn't be moved to $tried: it stays held"
@@ -406,28 +471,38 @@ retry_held() {
 }
 # Pages a later run put on main while this work was kept, and that this work wrote too: main's stay as main has them. They
 # are live under main's names: at 03:14 on 14 Nov a kept batch landing on four fish pages live since 02:49 gave them its
-# own names, and their first addresses answered 404. Each file both added since <branch> was cut goes back to main's, in
-# a commit of its own. `main_pages <branch>`, after the pull.
+# own names, and their first addresses answered 404. A page is its folder (content/<kind>/<id>/): one main added, not
+# there when <branch> was cut, goes out as main has it, whole, and the kept work's files in it are dropped; the engine
+# translates main's page in a later cycle. Until 14 Nov it went file by file, and main's entity.json could go out beside
+# the kept work's translation of another draft, half one page and half another (the chief of staff, that day). Any other
+# file both added (one in a folder that was there, a page of one file such as content/gallery/<id>.json) goes back to
+# main's. Added is absent where <branch> was cut, renames not followed: git's rename detection read a page main moved to
+# a path the kept work also wrote as moved, not added, and the kept version won (that day too). All in a commit of its
+# own. `main_pages <branch>`, after the pull.
 main_pages() {
-  local base files
+  local base pages files
   base=$(git merge-base "$1" origin/main) || return 0
-  files=$(comm -12 <(git diff --name-only --diff-filter=A "$base" "$1" -- content | sort) <(git diff --name-only --diff-filter=A "$base" origin/main -- content | sort))
-  [ -n "$files" ] || return 0
+  pages=$(comm -12 <(added "$base" "$1" | sed -nE 's#^(content/[^/]+/[^/]+)/[^/]+$#\1#p' | sort -u) <(added "$base" origin/main | sed -nE 's#^(content/[^/]+/[^/]+)/[^/]+$#\1#p' | sort -u) |
+    while read -r page; do git cat-file -e "$base:$page" 2>/dev/null || echo "$page"; done)
+  files=$(comm -12 <(added "$base" "$1") <(added "$base" origin/main) | while read -r file; do grep -qxF "${file%/*}" <<<"$pages" || echo "$file"; done)
+  [ -n "$pages$files" ] || return 0
   # shellcheck disable=SC2086 # content paths have no spaces
-  git checkout origin/main -- $files
+  git checkout --no-overlay origin/main -- $pages $files
   git diff --cached --quiet && return 0
-  git commit -q -m "content: main's pages as main has them ($(wc -l <<<"$files" | tr -d ' ') files a later run published first)"
-  log "$1: $(wc -l <<<"$files" | tr -d ' ') files a later run published first stay as main has them"
+  git commit -q -m "content: main's pages as main has them ($(grep -c . <<<"$pages" || true) pages and $(grep -c . <<<"$files" || true) other files a later run published first)"
+  log "$1: $(grep -c . <<<"$pages" || true) pages and $(grep -c . <<<"$files" || true) other files a later run published first stay as main has them"
 }
+# The content files added between commits $1 and $2, renames not followed, sorted.
+added() { git diff --name-only --no-renames --diff-filter=A "$1" "$2" -- content | sort; }
 # The checked-out kept work on top of main, swept and checked, pushed. As push() does, lines both changed give way to the
 # kept work's, a clash in the calendar plans it again, and after any merge it's swept and checked again. KEPT_FAILED
-# when its tests failed for real; KEPT_WHY says why it isn't published. `push_kept [<branch>]`: in the cloud, GitHub's
-# branch of that exact name is deleted in the same push as main's, both or neither, so work published is never published
-# again from a branch left behind.
+# when its tests failed for real; KEPT_WHY says why it isn't published; BRANCH, the branch's name now (a check that
+# passed ends its row, ended_row). `push_kept [<branch>]`: in the cloud, GitHub's branch of that exact name is deleted in
+# the same push as main's, both or neither, so work published is never published again from a branch left behind.
 push_kept() {
   local check=1 clash main
   # Each branch's own: an earlier branch's failed migration says nothing of this one (Astra's read, 13 Nov).
-  KEPT_FAILED= KEPT_WHY= MIGRATE_FAILED=
+  KEPT_FAILED= KEPT_WHY= MIGRATE_FAILED= PASS_UNRECORDED= BRANCH=${1:-}
   for _ in 1 2 3; do
     main=$(git rev-parse origin/main 2>/dev/null || true)
     if ! net git pull -q --rebase origin main; then
@@ -437,7 +512,7 @@ push_kept() {
       replan_merged "$clash"
       check=1
     fi
-    [ -z "${1:-}" ] || main_pages "$1"
+    [ -z "$BRANCH" ] || main_pages "$BRANCH"
     # A clean pull that brought main's commits in is swept and checked too, as swept_pull says why.
     [ "$(git rev-parse origin/main 2>/dev/null)" = "$main" ] || check=1
     if [ -n "$check" ]; then
@@ -449,9 +524,10 @@ push_kept() {
         return 1
       fi
       check=
+      [ -z "$BRANCH" ] || [ -n "$PASS_UNRECORDED" ] || ended_row
     fi
-    if engine_cloud && [ -n "${1:-}" ]; then
-      net git push -q --atomic origin HEAD:main ":refs/heads/$1" && return 0
+    if engine_cloud && [ -n "$BRANCH" ]; then
+      net git push -q --atomic origin HEAD:main ":refs/heads/$BRANCH" && return 0
     else
       net git push -q origin HEAD:main && return 0
     fi
