@@ -325,6 +325,10 @@ test('the sentence right after one that went whole goes with it only when its wr
   const afterCut = await further([{ n: 2, vi: '' }, { n: 3, vi: '', why }], ram, [{ check: 'price', quote: 'Tuy vậy, một trong các mẫu cá trong ảnh được cho là bắt ở sông Purus, Brazil.', note: 'n' }])
   if (typeof afterCut === 'string') throw new Error(afterCut)
   expect(afterCut.whole).toEqual([stranded(3, 'Đây là một phụ lưu của Amazon, nằm khá xa lưu vực Orinoco.')])
+  // Astra's read of 1351f22f1: answered twice, empty and then "Cá ăn tép.", the line kept the pass of the first and lost its
+  // "không". A sentence answered twice isn't tried.
+  const twice = await mendPart(llm([{ n: 1, vi: '' }, { n: 2, vi: '', why }, { n: 2, vi: 'Cá ăn tép.', why }], [{ sentence: 2, agree: true }]), '<p>Ảnh chụp cá ở Purus. Cá không ăn tép. Cá sống lâu.</p>', [{ check: 'source', quote: 'Ảnh chụp cá ở Purus', note: 'n' }])
+  expect(twice).toBe('the writer answered sentence 2 twice')
 })
 
 // Astra's reads of 14 Nov 2026: a writer's own conversion let a claim through, then "mỗi con", "2 inch" as "2 cm" and a

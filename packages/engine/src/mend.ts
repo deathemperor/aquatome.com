@@ -206,6 +206,10 @@ export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { e
     `--- FIX ---\n${fix.map(n => `[${n}] ${named.filter(f => f.sentences.includes(n)).map(f => f.note).join(' ')}`).join('\n')}`,
   ].join('\n\n')
   const w = await llm<{ sentences: { n: number; vi: string; why?: string }[] }>({ system: 'You edit Vietnamese for an aquarium handbook. Reply only with JSON.', prompt, schema: WRITER_SCHEMA, ...(o.model ? { model: o.model } : {}) })
+  // A sentence answered twice is answered neither way: which answer counts is a guess, and the first can carry a pass the
+  // second doesn't earn (Astra's read: a line that went with the one before kept its pass once a second answer reworded it).
+  const twice = [...new Set(w.sentences.map(x => Number(x.n)).filter((n, i, a) => a.indexOf(n) !== i))]
+  if (twice.length) return `the writer answered sentence ${twice.join(', ')} twice`
   const changes = new Map<number, string>()
   // What the writer wrote, before any conversion: the words it lost are counted on this, not on the metric we add.
   const raw = new Map<number, string>()
