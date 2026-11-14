@@ -153,3 +153,16 @@ test('an Indonesian or Malay title names a page by its name with the word for fi
   // A one-word name alone still counts only for a fish the text names.
   expect(named('vi')).toEqual([])
 }, 120_000)
+
+// Grok's read of #1362: Malay's "Ikan Discus" page and the page "Discus" both held "ikan discus", so the hexamita guide's
+// title named neither. A page's own name wins over another page's name with "Ikan" put before it.
+test('"Ikan X" a page has as its own name stays that page, though another page is named "X"', async () => {
+  const vi = await getContent('vi')
+  const was = vi.guides.find(g => g.id === 'aquariumcoop-thay-nuoc')!
+  const [own, other] = [vi.species.find(s => s.id === 'boraras-brigittae')!, vi.species.find(s => s.id === 'paracheirodon-innesi')!]
+  const g = { ...was, photos: [], mentions: [], t: { ...was.t, name: 'Najis Putih Ikan Zorbak: Tanda dan Cara', body: '' } }
+  const as = (s: typeof own, name: string) => ({ ...s, t: { ...s.t, name, altNames: [] } })
+  const named = (lang: 'id' | 'ms') => titleNames({ ...vi, lang, species: vi.species.map(s => (s.id === own.id ? as(s, 'Ikan Zorbak') : s.id === other.id ? as(s, 'Zorbak') : s)), guides: vi.guides.map(x => (x.id === g.id ? g : x)) }, g).map(x => x.id)
+  expect(named('ms')).toEqual([own.id])
+  expect(named('id')).toEqual([own.id])
+}, 120_000)

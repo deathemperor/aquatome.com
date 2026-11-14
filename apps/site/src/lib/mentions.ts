@@ -147,15 +147,18 @@ function namesHeld(c: Content): Held {
   const hit = holders.get(c)
   if (hit) return hit
   const held = new Map<string, Set<Named>>(), full = new Map<string, Set<Named>>(), bareOnly = new Map<string, Set<Named>>()
+  const fished = new Map<string, Set<Named>>()
   const add = (m: Map<string, Set<Named>>, k: string, x: Named) => { if (k) m.set(k, (m.get(k) ?? new Set()).add(x)) }
   // Indonesian and Malay titles put the word for fish before a name without it: "Ikan Discus" is the page "Discus".
   const fish = c.lang === 'id' || c.lang === 'ms' ? 'ikan' : undefined
   for (const x of [...c.species, ...c.plants, ...c.breeds]) for (const n of ownNames(x).flatMap(n => [...new Set([n, unglossed(n)])])) {
     const k = words(n).trim(), b = words(bare(n)).trim()
     add(held, k, x); add(full, k, x)
-    if (fish && b === k) { const f = words(`${fish} ${n}`).trim(); add(held, f, x); add(full, f, x) }
+    if (fish && b === k) add(fished, words(`${fish} ${n}`).trim(), x)
     if (b !== k && b.length >= 4) add(held, b, x)
   }
+  // Unless a page has it as its own name: Malay's "Ikan Discus" stays that page, not also the page "Discus" (Grok's read).
+  for (const [k, xs] of fished) if (!held.has(k)) for (const x of xs) { add(held, k, x); add(full, k, x) }
   for (const [k, xs] of held) for (const x of xs) if (!full.get(k)?.has(x)) add(bareOnly, k, x)
   const out = { held, bareOnly }
   holders.set(c, out)
