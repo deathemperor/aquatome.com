@@ -10,9 +10,20 @@ const SCRIPT = join(ROOT, 'scripts/engine-due.sh')
 
 /** GitHub's record of engine.yml's runs, newest first: each run and its cycle job, as `gh run list` and the jobs API give them. */
 type Run = { id: number; created: number; cycle: 'ran' | 'running' | 'skipped' | 'queued'; jobStarted?: number; lasted?: number }
-const iso = (minutesAgo: number) => new Date(Date.now() - minutesAgo * 60_000).toISOString().replace(/\.\d+Z$/, 'Z')
+/**
+ * The tests' now, fixed: the runs are placed against it, and the scripts read it through a stand-in `date` (clock()). On
+ * a slow machine a minute can pass between placing a run and the script's reading, and "350 min ago" would read 351.
+ */
+const NOW = Math.floor(Date.now() / 1000)
+const iso = (minutesAgo: number) => new Date((NOW - minutesAgo * 60) * 1000).toISOString().replace(/\.\d+Z$/, 'Z')
+/** `date -u +%s`, the scripts' now (engine-last-cycle.sh), says NOW; any other `date` is the real one. */
+function clock(dir: string) {
+  writeFileSync(join(dir, 'date'), `#!/bin/sh\nif [ "$*" = "-u +%s" ]; then echo ${NOW}; else exec /bin/date "$@"; fi\n`)
+  chmodSync(join(dir, 'date'), 0o755)
+}
 const STEP = [{ name: 'Set up job' }]
 function github(dir: string, runs: Run[]) {
+  clock(dir)
   // As `gh run list --json` gives them: a check that found nothing due ends in under a minute unless it waited (`lasted`).
   writeFileSync(join(dir, 'runs.json'), JSON.stringify(runs.map(r => {
     const done = r.cycle === 'ran' || r.cycle === 'skipped'
