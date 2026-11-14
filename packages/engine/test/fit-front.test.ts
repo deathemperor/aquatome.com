@@ -108,3 +108,23 @@ test("the Khám phá shelves' four guides come after them: three for keeping the
   ])
   for (const k of list.front.slice(28)) expect(existsSync(join(ROOT, 'content/guides', k.split('/')[2]!, 'vi.json')), k).toBe(true)
 })
+
+// The chief of staff, 14 Nov 2026: the pages with a foreign product or medicine (the owner's complaint) go first, ahead of
+// every other page, sharing each run with the lane one for one; a front-list page among them waits while the list is held.
+test('the pages with a foreign product share the front with the lane, one for one, and are mended sentence by sentence', () => {
+  const l1 = page('species', 'l1'), l2 = page('guides', 'l2'), m1 = page('guides', 'm1'), m2 = page('plants', 'm2'), m3 = page('guides', 'm3'), live = page('species', 'live'), other = page('species', 'other')
+  const held = new Map([[key(l1), mark('2026-11-14')], [key(l2), mark('2026-11-13')]])
+  const product = (p: { id: string }) => p.id.startsWith('m') || p.id === 'live'
+  const ran = firstRun({ ...none, rewritten: ['vi/species/live body (0.9)'] }, '2026-11-13T02:00:00.000Z')!
+  const list = { ...front, lane: true, products: true, front: [key(live)] }
+  const ranked = [other, live, m1, l1, m2, l2, m3]
+  const shut = frontPlan(list, ran, ranked, held, product)
+  expect(shut.order.map(key)).toEqual([key(l1), key(m1), key(l2), key(m2), key(m3), key(other)])
+  expect([...shut.mend].sort()).toEqual([key(l1), key(l2), key(m1), key(m2), key(m3)].sort())
+  expect([...shut.lane].sort()).toEqual([key(l1), key(l2)].sort())
+  // Cleared: the front list's own product page joins them; the rest after.
+  const open = frontPlan({ ...list, cleared: ran.at }, ran, ranked, held, product)
+  expect(open.order.map(key)).toEqual([key(l1), key(live), key(l2), key(m1), key(m2), key(m3), key(other)])
+  // Off: as before.
+  expect(frontPlan({ ...list, products: false }, ran, ranked, held, product).order.map(key)).toEqual([key(l1), key(l2), key(other), key(m1), key(m2), key(m3)])
+})

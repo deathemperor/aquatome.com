@@ -7,7 +7,7 @@ import { LlmError, type Llm } from './claude'
 import { FIT_TITLE, fitDue, fitFindings, fitKey, fitText, type FitCheck, type FitFinding, type FitState } from './fit'
 import { rewriteForReader } from './for-reader'
 import { METRIC_KINDS } from './metric'
-import { goesWhole, mendPart, words as mendWords } from './mend'
+import { cutWhole, goesWhole, mendPart, words as mendWords } from './mend'
 import { fixedParts, loadPages, type Page } from './pages'
 import { piece } from './pieces'
 import { fieldOf as partOf, norm, type ReaderFinding } from './reader'
@@ -254,13 +254,22 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
             const said = figures.length ? `This is a breed page with no English source: its litres are our conversion of a source's US figure, and the editor was told to name these as keepers here say, from the source's own US figure, a minimum never more than a twentieth under it: ${figuresSaid(figures)}. Those changes are correct, not errors.` : undefined
             const r = await mendPart(d.llm, html, now.map(f => ({ check: f.check, quote: f.quote ?? '', note: noteOf(f, told.get(f)), covers: told.get(f)?.flatMap(x => figureRuns(x.from)), ...(f.check === 'words' && f.fix ? { adds: [f.fix] } : told.get(f)?.length ? { adds: told.get(f)!.map(x => x.to) } : {}) })), { en: p.en?.[field], source: source && names[source]?.name, model: 'opus', metric: METRIC_KINDS.includes(p.kind), ...(said ? { figures: said } : {}) })
             if (typeof r === 'string') { report.skipped.push(`${key} ${field}: ${r}`); continue }
-            const next = faq ? parse(r.html).text.trim() : r.html
+            let next = faq ? parse(r.html).text.trim() : r.html
             // Kept at the bar, leaving out only what a finding asks to go, saying nothing more surely than before (hedges.ts),
             // and a breed page's units with each figure.
             const off = mine.length ? keepsFigures(textOf(before), textOf(next), mine.map(f => f.quote ?? ''), figures) : undefined
-            if (r.score < QUALITY_THRESHOLD || r.lost.length || r.unasked.length || r.added.length || r.whole.length || off) { report.notKept.push(`${key} ${field} (${r.score.toFixed(2)}: ${[...(off ? [off] : []), ...r.notes].slice(0, 2).join('; ')})`); continue }
+            let cut = ''
+            if (r.score < QUALITY_THRESHOLD || r.lost.length || r.unasked.length || r.added.length || r.whole.length || off) {
+              const why = `${r.score.toFixed(2)}: ${[...(off ? [off] : []), ...r.notes].slice(0, 2).join('; ')}`
+              // The writer's cut refused: the sentences the findings flag cut whole by code instead, but in an FAQ answer or
+              // beside a conversion (the chief of staff, 14 Nov 2026: a flagged sentence "is deleted or its foreign detail is deleted").
+              const plain = !faq && !mine.length ? cutWhole(before, now) : undefined
+              if (!plain) { report.notKept.push(`${key} ${field} (${why})`); continue }
+              next = plain
+              cut = `cut whole by code; the writer's cut refused (${why})`
+            }
             if (next === before) { report.skipped.push(`${key} ${field}: the rewrite changed nothing`); continue }
-            report.gone.push(...r.gone.map(g => `${key} ${field} ${g}`))
+            report.gone.push(...(cut ? [] : r.gone).map(g => `${key} ${field} ${g}`))
             // A part a cut reduces to one line, or a shop's quick facts it had to mend, isn't a part (the chief of staff, 14 Nov
             // 2026: "A part reduced to one line from a dealer's stock list isn't a part", "is dropped, not kept"): off the page in
             // every language, as the sweep takes a dealer's notice off (sweep.ts). One reduced to one line goes with its heading
@@ -284,7 +293,7 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
                 delete t.sections![k]
                 await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)
                 changed++
-                report.rewritten.push(`${key} ${field} off the page (${thin ? 'one line left' : 'a shop\'s list'}${other ? '' : ', its heading with it: for the chief of staff'})`)
+                report.rewritten.push(`${key} ${field} off the page (${thin ? 'one line left' : 'a shop\'s list'}${other ? '' : ', its heading with it: for the chief of staff'}${cut ? `; ${cut}` : ''})`)
                 break
               }
             }
@@ -296,7 +305,7 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
             // (mendPart); nothing else on the page is touched (Astra's read: converting the page changed parts no one read).
             await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)
             changed++
-            report.rewritten.push(`${key} ${field}${passes.length > 1 && mine.length ? ' units' : ''} (${r.score.toFixed(2)})`)
+            report.rewritten.push(`${key} ${field}${passes.length > 1 && mine.length ? ' units' : ''} (${cut || r.score.toFixed(2)})`)
           }
         })
       }

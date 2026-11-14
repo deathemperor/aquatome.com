@@ -864,3 +864,22 @@ test('a guide in the lane is mended sentence by sentence, not written whole from
   expect(lane.calls).toEqual(['rewrite', 'review'])
   expect(JSON.parse(await readFile(file, 'utf8')).body).toBe('<p>Lọc bio (lọc vi sinh bằng mút) rẻ, an toàn cho tép con và đủ cho bể dưới 40 lít.</p>')
 })
+
+// The chief of staff, 14 Nov 2026: a flagged sentence "is deleted or its foreign detail is deleted". Where the writer's cut
+// is refused, a foreign product's sentence goes whole, by code; a part flagged only for advice elsewhere stays not kept
+// (the first test above).
+test('a refused cut of a foreign product falls back to the sentence cut whole by code', async () => {
+  const root = await content()
+  const file = join(root, 'content/species', ID, 'vi.json')
+  const vi = JSON.parse(await readFile(file, 'utf8'))
+  vi.sections['habitat:seriouslyfish'] = '<p>Ao cạn nhiều cỏ ở cao nguyên Shan, Myanmar. Trị nấm bằng Seachem Paraguard theo nhãn. Cá sống theo đàn.</p>'
+  await writeFile(file, JSON.stringify(vi, null, 2))
+  const p = await danio(root)
+  const med = { check: 'product' as const, part: part(p, 'sections.habitat:seriouslyfish'), quote: 'Seachem Paraguard', why: 'a US medicine' }
+  // The writer says it another way: refused, and cut whole instead.
+  const r = await fitRewrite(root, [p], reading(p, [med]), { llm: fakeLlm(v => v.replace('Trị nấm bằng Seachem Paraguard theo nhãn.', 'Trị nấm bằng thuốc bán ở tiệm.'), 0.9).llm, now: () => new Date() }, { limit: 5 })
+  expect(r.notKept).toEqual([])
+  expect(r.rewritten).toHaveLength(1)
+  expect(r.rewritten[0]).toMatch(/^vi\/species\/danio-margaritatus sections\.habitat:seriouslyfish \(cut whole by code; the writer's cut refused \(0\.90: .*Sentence 2 says what it didn't: "thuốc bán ở tiệm"/)
+  expect(JSON.parse(await readFile(file, 'utf8')).sections['habitat:seriouslyfish']).toBe('<p>Ao cạn nhiều cỏ ở cao nguyên Shan, Myanmar. Cá sống theo đàn.</p>')
+})

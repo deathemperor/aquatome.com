@@ -102,6 +102,24 @@ export function lostWords(before: string, after: string, covered: readonly strin
 }
 
 /**
+ * What may go whole by code: a foreign product or medicine, a shop or a price, the owner's complaint. Not a sentence a read
+ * calls advice for elsewhere or the source talking, which can be a fact misread (a fish's wild habitat): its writer cuts it.
+ */
+const CUTTABLE: readonly FitCheck[] = ['product', 'shop', 'price']
+/**
+ * The part with each sentence a `CUTTABLE` finding quotes cut whole, by code: no model and no new word (the chief of staff,
+ * 14 Nov 2026: a sentence a finding flags is deleted, or its foreign detail is). What a writer's cut the guard refused gets
+ * instead (fit-rewrite.ts). Nothing when no such sentence is in the part, or every sentence would go (the dealer check's).
+ */
+export function cutWhole(html: string, fs: readonly { check: FitCheck; quote?: string }[]): string | undefined {
+  const pieces = sentences(html)
+  const n = pieces.filter(p => p.sentence).length
+  const gone = new Set(fs.filter(f => CUTTABLE.includes(f.check) && f.quote).flatMap(f => quoted(pieces, f.quote!)))
+  if (!gone.size || gone.size >= n) return undefined
+  return splice(pieces, new Map([...gone].map(i => [i, ''])))
+}
+
+/**
  * What a sentence cut may put in to join what's left: only these, the six the writer is told (prompts/fit-mend.md), not a
  * pointer ("này", "đó") or "bạn", which say who or which, nor "hoặc", which can make "both" "either" (the chief of staff,
  * 14 Nov 2026: "The rewrite may mend the grammar round a deletion and nothing else").
