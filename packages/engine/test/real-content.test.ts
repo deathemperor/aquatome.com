@@ -12,7 +12,7 @@ import { altKey, NOT_ITS } from '../src/alt-names'
 import { GROUP_ORDERS, MISMATCHED } from '../src/gbif'
 import { productOf } from '../src/fit'
 import { loadPages } from '../src/pages'
-import { ENGLISH_PLACE_WORD } from '../src/place-names'
+import { ENGLISH_PLACE_WORD, kindTwice } from '../src/place-names'
 import { roundPage } from '../src/round'
 import { snapshotName } from '../src/snapshot'
 import { mendPart } from '../src/source-figures'
@@ -218,6 +218,13 @@ test('no Vietnamese place name keeps River, Island, Lake, Basin, Province, Mount
   const dir = fileURLToPath(new URL('../../../content/places', import.meta.url))
   const names = readdirSync(dir).map(id => (JSON.parse(readFileSync(`${dir}/${id}/vi.json`, 'utf8')) as { name: string }).name)
   expect(names.filter(n => ENGLISH_PLACE_WORD.test(n))).toEqual([])
+})
+
+// "dãy Cardamon range": the sweep keeps the Vietnamese kind word alone (the chief of staff, 14 Nov 2026).
+test('no Vietnamese place name says its kind in Vietnamese and again in English', () => {
+  const dir = fileURLToPath(new URL('../../../content/places', import.meta.url))
+  const names = readdirSync(dir).map(id => (JSON.parse(readFileSync(`${dir}/${id}/vi.json`, 'utf8')) as { name: string }).name)
+  expect(names.filter(n => kindTwice(n))).toEqual([])
 })
 
 // Alone, these read as a province or as nothing: "Bắc Giang" on a Chinese fish, "Mã" on a Vietnamese one.
