@@ -40,6 +40,19 @@ final class VideoFlowTests: XCTestCase {
     try app.performAccessibilityAudit(for: .sufficientElementDescription)
   }
 
+  /// A video guide opens on its card's photo, its poster, not on YouTube's thumbnail (often people) (the Design Lead's
+  /// frames, 14 Nov). `-fixed-pictures` gives each address its own colour (PageImages.fixedPicture): the poster's hue is
+  /// 0.49 and the thumbnail's 0.62, each going 0.05 further down its picture.
+  func testAVideoGuideOpensOnItsPosterNotYouTubesThumbnail() {
+    let app = openGuide("-fixed-pictures")
+    let play = app.buttons["Phát video: Hạn chế rêu hại"]
+    XCTAssertTrue(play.waitForExistence(timeout: 5), "no video")
+    wait(1)
+    let f = play.frame
+    let h = hue(XCUIScreen.main.screenshot(), in: CGRect(x: f.minX + f.width * 0.05, y: f.minY + f.height * 0.3, width: f.width * 0.2, height: f.height * 0.4))
+    XCTAssertLessThan(abs(h - 0.51), abs(h - 0.645), "the guide's video opens on YouTube's thumbnail, not its poster (hue \(h))")
+  }
+
   /// A chapter tapped before play: the player starts at its time.
   func testAChapterStartsThePlayerAtItsTime() {
     let app = openGuide()
@@ -226,6 +239,20 @@ final class VideoFlowTests: XCTestCase {
   /// A chapter of the guide's video, by its time and name.
   private func chapter(_ app: XCUIApplication, _ s: String) -> XCUIElement {
     app.links.matching(NSPredicate(format: "label CONTAINS %@", s)).firstMatch
+  }
+
+  /// The hue (0 to 1) of `area`'s mean colour, in points.
+  private func hue(_ shot: XCUIScreenshot, in area: CGRect) -> CGFloat {
+    let s = shot.image.scale, cg = shot.image.cgImage!.cropping(to: CGRect(x: area.minX * s, y: area.minY * s, width: area.width * s, height: area.height * s))!
+    let ctx = CGContext(data: nil, width: cg.width, height: cg.height, bitsPerComponent: 8, bytesPerRow: cg.width * 4, space: CGColorSpaceCreateDeviceRGB(),
+                        bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)!
+    ctx.draw(cg, in: CGRect(x: 0, y: 0, width: cg.width, height: cg.height))
+    let p = ctx.data!.assumingMemoryBound(to: UInt8.self), n = cg.width * cg.height
+    var sum = [0.0, 0.0, 0.0]
+    for i in 0..<n { for c in 0..<3 { sum[c] += Double(p[i * 4 + c]) } }
+    var h: CGFloat = 0
+    UIColor(red: sum[0] / Double(n) / 255, green: sum[1] / Double(n) / 255, blue: sum[2] / Double(n) / 255, alpha: 1).getHue(&h, saturation: nil, brightness: nil, alpha: nil)
+    return h
   }
 
   private func launch(_ more: [String] = []) -> XCUIApplication {

@@ -55,8 +55,8 @@ struct NativePage: View {
     /// above its name.
     case photo(src: String, ratio: CGFloat, alt: String?, caption: AttributedString, credit: AttributedString? = nil, href: URL?, play: Bool = false,
                hero: Bool = false)
-    /// A video, played in the page (VideoSlot); its caption's chapters seek it.
-    case video(id: String, title: String, caption: AttributedString)
+    /// A video, played in the page (VideoSlot); its caption's chapters seek it. `head`: the page's own (a video guide's).
+    case video(id: String, title: String, caption: AttributedString, head: PageDoc.Video? = nil)
     /// Other pages the index lists, each opening in the app.
     case pages(String, [String])
     /// Other pages as rows drawn from what they carry (tank-mates, breeds), each opening in the app, or else on the web;
@@ -208,8 +208,8 @@ struct NativePage: View {
         if !caption.characters.isEmpty { Text(caption).font(.footnote).foregroundStyle(.secondary) }
         if let credit { Text(credit).foregroundStyle(.secondary).tint(Color.secondary).padding(.horizontal, hero ? nil : 0) }
       }
-    case let .video(id, title, caption):
-      VideoSlot(id: id, title: title, caption: caption)
+    case let .video(id, title, caption, head):
+      VideoSlot(id: id, title: title, caption: caption, head: head)
     case let .pages(title, paths):
       PagesBlock(title: title, paths: paths)
     case let .cards(title, cards, good):
@@ -284,7 +284,7 @@ struct NativePage: View {
     case "page-video":
       // A chapter or a still: the page's player at its time; a video the page doesn't show, on YouTube.
       guard let (id, at) = PagePlayer.asked(url) else { return .handled }
-      if pieces.contains(where: { if case let .video(v, _, _) = $0 { v == id } else { false } }) {
+      if pieces.contains(where: { if case let .video(v, _, _, _) = $0 { v == id } else { false } }) {
         player.ask(id, at: at, lang: handbook.lang, site: handbook.site)
       } else {
         UIApplication.shared.open(youtube(id, at: at))
@@ -336,7 +336,7 @@ struct NativePage: View {
     // Its photo first, then its name and the lines under it: never a line above the name.
     if doc.video == nil, let lead = doc.lead { out.append(photo(lead, caption: [], href: nil, hero: true)) }
     out.append(.text(styled(doc.title, .pageTitle), look: .title))
-    if let sub = doc.sub { out.append(.text(styled(sub, .system(.title3, design: .serif).italic(), secondary: true), look: .line)) }
+    if let sub = HandbookIndex.Item.line(under: doc.title, doc.sub) { out.append(.text(styled(sub, .system(.title3, design: .serif).italic(), secondary: true), look: .line)) }
     if let meta = doc.meta { out.append(.text(styled(meta, .subheadline, secondary: true), look: .line)) }
     if !doc.where.isEmpty { out.append(.text(styled(doc.where, font: .subheadline), look: .line)) }
     if let aka = doc.aka { out.append(.text(styled(aka, .subheadline, secondary: true), look: .line)) }
@@ -353,7 +353,7 @@ struct NativePage: View {
         line.link = PagePlayer.link(v.youtubeId, at: ch.at)
         cap += AttributedString("\n") + line
       }
-      out.append(.video(id: v.youtubeId, title: v.title, caption: cap))
+      out.append(.video(id: v.youtubeId, title: v.title, caption: cap, head: v))
     }
     if species {
       // As the site's data card: the facts, the sources behind them, then whose text the page is.
@@ -765,9 +765,9 @@ struct CardsPart: View {
       HStack(spacing: 12) {
         let words = VStack(alignment: .leading, spacing: 0) {
           Text(c.name).font(.callout)
-          if let sub = c.sub { Text(sub).font(.footnote).foregroundStyle(.secondary) }
+          if let sub = HandbookIndex.Item.line(under: c.name, c.sub) { Text(sub).font(.footnote).foregroundStyle(.secondary) }
         }
-        let photo = c.img.map { PageImage(src: $0.thumb ?? $0.src, ratio: 4.0 / 3, corner: 5).frame(width: 44, height: 33) }
+        let photo = c.img.map { V2Photo(src: $0.thumb ?? $0.src, box: $0.box).frame(width: 44, height: 33).clipShape(.rect(cornerRadius: 5)) }
         if size.isAccessibilitySize {
           VStack(alignment: .leading, spacing: 8) {
             photo
@@ -794,14 +794,14 @@ struct CardsPart: View {
       HStack(spacing: 12) {
         if thumbs {
           if let img = c.img {
-            PageImage(src: img.thumb ?? img.src, ratio: 1).frame(width: thumb)
+            V2Photo(src: img.thumb ?? img.src, box: img.box).frame(width: thumb, height: thumb).clipShape(.rect(cornerRadius: 10))
           } else {
             RoundedRectangle(cornerRadius: 10).fill(.fill.tertiary).frame(width: thumb, height: thumb)
           }
         }
         VStack(alignment: .leading, spacing: 2) {
           Text(c.name).font(.body.weight(.semibold))
-          if let sub = c.sub { Text(sub).font(.subheadline).foregroundStyle(.secondary) }
+          if let sub = HandbookIndex.Item.line(under: c.name, c.sub) { Text(sub).font(.subheadline).foregroundStyle(.secondary) }
         }
         Spacer(minLength: 0)
         Image(systemName: "chevron.right").font(.footnote.weight(.semibold)).foregroundStyle(.tertiary)
