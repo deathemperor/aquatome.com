@@ -390,6 +390,25 @@ test('a page a later run published while the work was kept stays as main has it,
   expect(c.onMain('content/b.json')).toBe('photos')
 }, slow(60_000))
 
+// Grok's read of 19652e876: main_pages ran on every try of the push, and a try with main where it was skipped the checks,
+// so a push lost after the sweep had edited main's page went out next try with that page put back, unchecked.
+test("a push's next try never sends a tree its checks didn't see, though main's pages were put back over the sweep", () => {
+  const c = clone()
+  c.sh('mkdir -p content/species/x && echo kept-name > content/species/x/vi.json && echo photos > content/b.json && git add . && git commit -qm "content: engine photos"')
+  c.cycle("verify 'pnpm test' || keep_unpublished photos", { CHECK: 'Error: Test timed out in 30000ms.' })
+  c.sh('git fetch -q origin && git reset -q --hard origin/main')
+  const [kept = ''] = c.branches()
+  c.elsewhere('content/species/x/vi.json', 'main-name')
+  // The sweep edits main's page (a name cleaned up); GitHub refuses the first push only.
+  c.sh(`printf '#!/bin/sh\\n[ "$1 $2" = "engine sweep" ] && [ -f content/species/x/vi.json ] && echo swept-name > content/species/x/vi.json\\nexit 0\\n' > "$HOME/bin/pnpm"`)
+  c.sh(`printf '#!/bin/sh\\n[ -f "$HOME/refused-once" ] && exit 0\\ntouch "$HOME/refused-once"\\nexit 1\\n' > "$HOME/origin.git/hooks/pre-receive" && chmod 755 "$HOME/origin.git/hooks/pre-receive"`)
+  const log = c.cycle('checks() { cat content/species/x/vi.json >> "$HOME/checked"; }; publish_kept photos')
+  expect(log).toContain(`LOG published ${kept}`)
+  const checked = c.sh('cat "$HOME/checked"').split('\n')
+  expect(c.onMain('content/species/x/vi.json')).toBe(checked.at(-1))
+  expect(c.onMain('content/b.json')).toBe('photos')
+}, slow(60_000))
+
 // The chief of staff, 14 Nov 2026: git's rename detection read a page main moved into a path the kept work also wrote as
 // moved, not added, and the kept version won. Added means absent where the branch was cut.
 test('a page main moved to where the kept work wrote one stays as main has it', () => {
