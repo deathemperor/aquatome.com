@@ -109,7 +109,7 @@ struct PhotoGrid: View {
           opened = true
         }
         .fullScreenCover(item: $shown) { s in
-          GalleryViewer(title: s.readers ? String(localized: "Ảnh bạn đọc") : gallery.title, note: s.readers ? "" : gallery.note,
+          GalleryViewer(note: s.readers ? "" : gallery.note,
                         photos: s.readers ? readerImages : gallery.photos, readers: s.readers ? readers.map(ReaderItem.init) : nil, index: s.index) { i in
             // Behind the viewer, with no slide of its own; no scroll at all for a photo already on the screen.
             guard let row = PhotoRows.row(of: i, in: s.readers ? readerRows : photoRows) else { return }
