@@ -53,6 +53,14 @@ test('/sitemap.xml is the index of one sitemap per kind of page, and a page is i
   expect(sheet('guides')).toContain('/huong-dan/setup-be-thuy-sinh-dau-tien/</loc>')
 })
 
+// Live checks of 14 Nov: the sitemap listed a plant's photo page the build never made (test/photo-pages.test.ts). Every
+// address a sitemap gives search engines is a page the build wrote.
+test('every page a sitemap lists is a page the build wrote', () => {
+  const paths = [...sitemapText().matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => new URL(m[1]!).pathname)
+  expect(paths.length).toBeGreaterThan(30)
+  expect(paths.filter(p => !existsSync(join(DIST, p, 'index.html')))).toEqual([])
+})
+
 // The dates are the fixture's page-dates.json, all in the past: a page's own files, the latest of them.
 test('a page\'s last-changed date is the latest of its own files, never the build\'s; a page with no files of its own has none', () => {
   expect(dateIn(sheet('fish'), '/ca/ca-neon-vua/')?.[1], 'entity, vi and summary: the summary is the latest').toBe('2026-11-04')

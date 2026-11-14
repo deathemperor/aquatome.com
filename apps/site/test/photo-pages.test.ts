@@ -1,0 +1,54 @@
+import { fileURLToPath } from 'node:url'
+import { beforeAll, expect, test, vi } from 'vitest'
+import { loadAll, type Content } from '@aq/schema'
+import { hasPhotoPage } from '../src/lib/pictures'
+import { renamedPages } from '../src/lib/renamed'
+import { sitemapEntries } from '../src/lib/sitemap'
+
+// Live checks 43567146477, 43569272679 and 43570533645, 14 Nov 2026: the sitemap listed a plant's photo page in Malay
+// (/ms/tumbuhan/cryptocoryne-spiralis-red/foto/) that the build never made. Its gallery holds 6 files, two of them one
+// picture (perceptual hashes 5 bits apart), and the page is built from 6 distinct pictures (pages/cay/[slug]/anh.astro).
+let content: Content
+vi.mock('../src/lib/content', () => ({ getContent: async () => content }))
+
+let base: Content
+beforeAll(async () => {
+  base = await loadAll({ root: fileURLToPath(new URL('./fixture-content', import.meta.url)), lang: 'vi', publicBuild: false })
+})
+
+// Six pictures far apart, and the same six with the last a second file of the first (one bit off: the same picture).
+const FAR = ['0000000000000000', 'ffffffffffffffff', '00000000ffffffff', 'ffffffff00000000', '0000ffff0000ffff', 'ffff0000ffff0000']
+const ONE_SHORT = [...FAR.slice(0, 5), '0000000000000001']
+const PLANT = 'cryptocoryne-wendtii'
+
+/** The fixture with the plant's gallery as six photos whose pictures have these hashes. */
+function withGallery(hashes: string[]): Content {
+  const photos = base.galleries[PLANT]!.slice(0, 6)
+  expect(photos).toHaveLength(6)
+  return { ...base, galleries: { ...base.galleries, [PLANT]: photos }, pictureHashes: { ...base.pictureHashes, ...Object.fromEntries(photos.map((p, i) => [p.url, hashes[i]!])) } }
+}
+
+test('a gallery of six files is a photo page only when they are six pictures', () => {
+  const c = withGallery(ONE_SHORT)
+  expect(hasPhotoPage(c, c.galleries[PLANT]!)).toBe(false)
+  const d = withGallery(FAR)
+  expect(hasPhotoPage(d, d.galleries[PLANT]!)).toBe(true)
+})
+
+test("the sitemap lists a plant's photo page only when the build makes it", async () => {
+  const slug = base.plants.find(p => p.id === PLANT)!.t.slug
+  const listed = async () => (await sitemapEntries()).filter(e => e.kind === 'plant-photos' && e.path.includes(`/${slug}/`)).map(e => e.path)
+  content = withGallery(FAR)
+  expect(await listed()).toContain(`/cay/${slug}/anh/`)
+  content = withGallery(ONE_SHORT)
+  expect(await listed()).toEqual([])
+})
+
+test("a renamed plant's old photo address leads to its photo page only when it has one", () => {
+  const renamed = (c: Content): Content => ({ ...c, plants: c.plants.map(p => (p.id === PLANT ? { ...p, t: { ...p.t, redirectFrom: [{ slug: 'ten-cu', name: 'Tên cũ' }] } } : p)) })
+  const slug = base.plants.find(p => p.id === PLANT)!.t.slug
+  expect(renamedPages(renamed(withGallery(FAR)))['/cay/ten-cu/anh/']).toBe(`/cay/${slug}/anh/`)
+  const short = renamedPages(renamed(withGallery(ONE_SHORT)))
+  expect(short['/cay/ten-cu/']).toBe(`/cay/${slug}/?tu=ten-cu`)
+  expect(short['/cay/ten-cu/anh/']).toBeUndefined()
+})
