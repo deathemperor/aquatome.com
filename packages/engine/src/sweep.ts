@@ -850,7 +850,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     const byCheck = new Set(readable ? Object.keys(heldRaw as object).map(ref => ref.split('/')[1]!) : plan.map(x => x.id))
     const overCap = new Set(emptying.length > EMPTY_CAP ? emptying.map(x => x.id) : [])
     const held = new Set([...byCheck, ...overCap])
-    const heldWhy = (id: string) => (!readable ? 'engine-state/_photo-held.json unreadable: nothing taken off' : byCheck.has(id) ? 'held by the photo check' : `more than ${EMPTY_CAP} pages left with no photo`)
+    const heldWhy = (id: string) => (!readable ? 'engine-state/_photo-held.json unreadable: nothing taken off' : byCheck.has(id) ? 'held by the photo check' : EMPTY_CAP ? `more than ${EMPTY_CAP} pages left with no photo` : 'would be left with no photo: a person looks first')
     for (const id of [...new Set(plan.map(x => x.id))].filter(id => held.has(id))) report.refusedHeld.push(`${kindOf.get(id)}/${id} (${heldWhy(id)})`)
     for (const x of plan) {
       if (held.has(x.id)) continue
