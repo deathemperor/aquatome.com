@@ -27,6 +27,17 @@ function model(reads: Record<string, string>[], one: string[] = [], reword: Reco
 test('an entry is split into its sentences: the definition\'s, then each heading\'s, paragraph\'s and list item\'s, as plain text', () => {
   expect(sentences(entry).map(s => s.text)).toEqual(['pH đo độ chua của nước.', 'Nó đi từ 0 tới 14.', 'Trong bể', 'Lá bàng làm pH xuống.', 'Nên thả lá từ từ rồi đo pH.', 'Làm pH lên: san hô.'])
   expect(sentences(entry)[4]!).toEqual({ text: 'Nên thả lá từ từ rồi đo pH.', block: 'Lá bàng làm pH xuống. Nên thả lá từ từ rồi đo pH.', heading: 'Trong bể' })
+  expect(sentences(entry)[5]!).toEqual({ text: 'Làm pH lên: san hô.', block: 'Làm pH lên: san hô.', heading: 'Trong bể', item: 'Làm pH lên' })
+})
+
+// The measured run, 14 Nov 2026: "Thường dùng nguyên khúc cho bể nuôi Cá đĩa, Cá ông tiên" read supported three times, as
+// another wood's fact covered it, though its item was about lũa đỗ quyên, named three sentences before it.
+test('a kind\'s sentences are read under its name, as a section\'s are under its heading', async () => {
+  const e = { definition: 'Lũa là gỗ.', body: '<h3>Các loại lũa</h3><ul><li><strong>Lũa đỗ quyên</strong> (spider wood): rễ cây. Lũa nhẹ. Thường dùng cho bể cá đĩa.</li><li><strong>Lũa sừng:</strong> màu vàng.</li></ul><p>Ngâm lũa trước.</p>' }
+  const { llm, calls } = model([{ 'Lũa nhẹ.': 'unsupported: x' }, {}, {}], ['supported', 'supported', 'supported'])
+  await checkSentences(llm, facts, e)
+  expect(calls[0]).toContain('SENTENCES:\n1. Lũa là gỗ.\n[Các loại lũa]\n2. Các loại lũa\n[Các loại lũa › Lũa đỗ quyên]\n3. Lũa đỗ quyên (spider wood): rễ cây.\n4. Lũa nhẹ.\n5. Thường dùng cho bể cá đĩa.\n[Các loại lũa › Lũa sừng]\n6. Lũa sừng: màu vàng.\n[Các loại lũa]\n7. Ngâm lũa trước.')
+  expect(calls[3]).toContain('HEADING:\nCác loại lũa › Lũa đỗ quyên\n\nPARAGRAPH:\nLũa đỗ quyên (spider wood): rễ cây. Lũa nhẹ. Thường dùng cho bể cá đĩa.\n\nSENTENCE:\nLũa nhẹ.')
 })
 
 // Codex, 14 Nov 2026: a claim in a table cell, which the saved page keeps, was never read.
@@ -113,7 +124,7 @@ test('the middle path rewords loose sentences once, no hedge, then reads the who
   expect(calls[0]).toContain('1. CÂU: Lá bàng làm pH xuống.\n   ĐOẠN: Lá bàng làm pH xuống. Nên thả lá từ từ rồi đo pH.\n   LÝ DO: stronger than the facts')
   // The whole entry as it would be saved, read three times as the first check read it.
   expect(calls).toHaveLength(4)
-  expect(calls[1]).toContain(`SENTENCES:\n1. ${added}\n2. Nó đi từ 0 tới 14.\n[Trong bể]\n3. Trong bể\n4. Lá bàng làm pH xuống chút ít.\n5. Nên thả lá từ từ rồi đo pH.\n6. Làm pH lên: san hô.`)
+  expect(calls[1]).toContain(`SENTENCES:\n1. ${added}\n2. Nó đi từ 0 tới 14.\n[Trong bể]\n3. Trong bể\n4. Lá bàng làm pH xuống chút ít.\n5. Nên thả lá từ từ rồi đo pH.\n[Trong bể › Làm pH lên]\n6. Làm pH lên: san hô.`)
   expect(r.entry.body).toBe('<h3>Trong bể</h3><p>Lá bàng làm pH xuống chút ít. Nên thả lá từ từ rồi đo pH.</p><ul><li><strong>Làm pH lên:</strong> san hô.</li></ul>')
   expect(r.entry.definition).toBe(entry.definition)
   expect(r.stops).toEqual([])

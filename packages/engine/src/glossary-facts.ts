@@ -11,8 +11,11 @@ import { unescapePlain } from './sanitize'
  */
 
 export type Verdict = 'supported' | 'loose' | 'unsupported' | 'contradicts' | 'not a claim'
-/** One sentence of an entry, the definition or paragraph or list item it stands in, and the heading it stands under, as plain text. */
-export type Sentence = { text: string; block: string; heading?: string }
+/**
+ * One sentence of an entry, the definition or paragraph or list item it stands in, the heading it stands under, and the
+ * kind its block is about (the bold name it opens with, "Lũa đỗ quyên"), as plain text.
+ */
+export type Sentence = { text: string; block: string; heading?: string; item?: string }
 type Read = { verdict: Verdict; why?: string }
 /** A sentence the reads call loose, unsupported or contradicted, with what they said. */
 export type Flagged = Sentence & { verdicts: Verdict[]; why: string[]; unjudged?: true }
@@ -35,21 +38,29 @@ const BLOCK = /<\/?(?:p|ul|ol|li|table|thead|tbody|tfoot|tr|th|td|caption|div|se
  * split where a sentence ends and a capital starts. All the body's text is read wherever it stands, a heading's, a table
  * cell's or text outside any tag (Codex, 14 Nov 2026: a claim in a table cell, which the saved page keeps, was never read).
  * The heading goes with what follows it: an item under "Sai lầm hay gặp" is a warning, not a fragment (Codex: one read
- * called three such items "not a claim").
+ * called three such items "not a claim"). So does a kind's name, for every sentence of its item: "Thường dùng nguyên khúc
+ * cho bể nuôi cá đĩa" read supported three times, since another wood's fact covered it, though the item was about lũa đỗ
+ * quyên (the measured run, 14 Nov 2026).
  */
 export function sentences(e: { definition: string; body: string }): Sentence[] {
-  const blocks: { block: string; heading?: string }[] = [{ block: plain(e.definition) }]
+  const blocks: { block: string; heading?: string; item?: string }[] = [{ block: plain(e.definition) }]
   let heading: string | undefined
   for (const part of e.body.split(/(<h[1-6]\b[^>]*>[\s\S]*?<\/h[1-6]>)/i)) {
     const h = /^<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>$/i.exec(part)
     if (h) { heading = plain(h[1]!) || undefined; if (heading) blocks.push({ block: heading, heading }); continue }
-    for (const b of part.split(BLOCK)) { const block = plain(b); if (block) blocks.push({ block, ...(heading ? { heading } : {}) }) }
+    for (const b of part.split(BLOCK)) {
+      const block = plain(b)
+      const item = plain(/^\s*<strong\b[^>]*>([\s\S]*?)<\/strong>/i.exec(b)?.[1] ?? '').replace(/[\s:]+$/, '')
+      if (block) blocks.push({ block, ...(heading ? { heading } : {}), ...(item ? { item } : {}) })
+    }
   }
   return blocks.flatMap(b => b.block.split(/(?<=[.!?…])\s+(?=[\p{Lu}"“(])/u).map(text => ({ text: text.trim(), ...b })).filter(s => s.text.length > 1))
 }
-/** Numbered sentences for a read, each section's under its heading. */
+/** Where a sentence stands: its heading, and the kind its item is about. */
+const under = (s: Sentence) => [s.heading, s.item].filter(Boolean).join(' › ')
+/** Numbered sentences for a read, each section's under its heading, each kind's under its name too. */
 const numbered = (list: Sentence[], show: (s: Sentence) => string = s => s.text) =>
-  list.map((s, i) => `${s.heading !== list[i - 1]?.heading && s.heading ? `[${s.heading}]\n` : ''}${i + 1}. ${show(s)}`).join('\n')
+  list.map((s, i) => `${under(s) && under(s) !== (list[i - 1] ? under(list[i - 1]!) : '') ? `[${under(s)}]\n` : ''}${i + 1}. ${show(s)}`).join('\n')
 
 const VERDICTS = `- supported: every claim in it is in the facts (a figure converted to metric, sensibly rounded, is the same figure);
 - loose: supported, but generalised, or put a little more or less strongly than the facts, or joining what several sources say about the same thing, in a way a keeper would not act on differently;
@@ -57,7 +68,7 @@ const VERDICTS = `- supported: every claim in it is in the facts (a figure conve
 - contradicts: the facts say otherwise;
 - not a claim: a picture, a transition or a heading, with nothing in it to check ("it gives the tank the look of a stream"). An item under a heading of steps, mistakes or warnings is a claim: judge the advice or warning it gives.
 For every verdict but supported, say why in a few English words.`
-const ALL = `Below are FACTS gathered about a fishkeeping term (each with a source number; the sources list gives each number's kind) and the numbered SENTENCES of a Vietnamese glossary entry written from them, each section's under its [heading]. Give every sentence one verdict against the FACTS:
+const ALL = `Below are FACTS gathered about a fishkeeping term (each with a source number; the sources list gives each number's kind) and the numbered SENTENCES of a Vietnamese glossary entry written from them, each section's under its [heading], and each kind's under [heading › its name]: a sentence there is about that kind. Give every sentence one verdict against the FACTS:
 ${VERDICTS}
 Reply {"verdicts": [{"n": 1, "verdict": "supported"}, {"n": 2, "verdict": "loose", "why": "..."}]}, one for every sentence, in order.`
 const ONE = `Below are FACTS gathered about a fishkeeping term (each with a source number; the sources list gives each number's kind), and one SENTENCE of a Vietnamese glossary entry written from them, in its PARAGRAPH, under its HEADING. Give the SENTENCE one verdict against the FACTS:
@@ -109,7 +120,7 @@ export async function checkSentences(llm: Llm, facts: object, e: { definition: s
     let all = count(rs, STOP) >= 2 ? rs : null
     if (!all && count(rs, STOP) === 1) {
       const again: (Read | null)[] = []
-      for (let k = 0; k < 3; k++) again.push(asRead(await llm<{ verdict?: string; why?: string }>({ system: SYSTEM, schema: SINGLE, prompt: `${ONE}\n\nFACTS:\n${JSON.stringify(facts)}\n\nHEADING:\n${s.heading ?? '(the definition)'}\n\nPARAGRAPH:\n${s.block}\n\nSENTENCE:\n${s.text}` })))
+      for (let k = 0; k < 3; k++) again.push(asRead(await llm<{ verdict?: string; why?: string }>({ system: SYSTEM, schema: SINGLE, prompt: `${ONE}\n\nFACTS:\n${JSON.stringify(facts)}\n\nHEADING:\n${under(s) || '(the definition)'}\n\nPARAGRAPH:\n${s.block}\n\nSENTENCE:\n${s.text}` })))
       if (count(again, STOP) >= 2) all = [...rs, ...again]
     }
     if (all) { stops.push(flagged(s, all)); if (claim) stopped++; continue }
