@@ -9,6 +9,80 @@
     "asia",
     "taiwan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TW"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "It's widely distributed throughout much of northern and western Taiwan, from Taipei County at the island's northeastern tip to Yunlin County in the west, and has been recorded in numerous river drainages.",
+          "countries": [
+            "TW"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2377612,
+      "total": 6734,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "TW",
+          6733
+        ],
+        [
+          "CN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          37.96875,
+          1,
+          0
+        ],
+        [
+          119.53125,
+          21.09375,
+          16,
+          16
+        ],
+        [
+          119.53125,
+          22.5,
+          2037,
+          2037
+        ],
+        [
+          119.53125,
+          23.90625,
+          1184,
+          1184
+        ],
+        [
+          120.9375,
+          22.5,
+          1372,
+          1372
+        ],
+        [
+          120.9375,
+          23.90625,
+          2124,
+          2124
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

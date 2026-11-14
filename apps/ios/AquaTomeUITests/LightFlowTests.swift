@@ -285,6 +285,18 @@ final class LightFlowTests: XCTestCase {
     expect(app, "notice", contains: "Đã kết nối WRGB II Slim.")
   }
 
+  // At the largest text the row's button squeezed its words into a narrow column beside it (shot in v2's tabs, 8 Nov).
+  func testASavedLightsButtonGoesUnderItsWordsAtTheLargestText() {
+    let app = launch("-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
+    tap(app, "scan")
+    tap(app, "light")
+    expect(app, "notice", contains: "Đã kết nối")
+    tap(app, "disconnect")
+    let button = scrolledTo(app, "saved-light")
+    XCTAssertTrue(button.isHittable, "Kết nối not reached by scrolling")
+    XCTAssertGreaterThanOrEqual(button.frame.minY, element(app, "saved-meta").frame.maxY, "Kết nối beside the light's words")
+  }
+
   func testRenamesAndForgetsTheLight() {
     let app = launch()
     connect(app)
@@ -783,6 +795,151 @@ final class LightFlowTests: XCTestCase {
     expect(app, "outlet-warning", contains: "Ổ “Đèn” tự tắt lúc 00:00 mỗi ngày.")
   }
 
+  // MARK: Week Aqua
+
+  // The Week Aqua screen, on the simulator's three 5746 lights and one 5745 (`-fake-weekaqua`). These lights answer
+  // nothing: what the app shows is what it sent.
+
+  func testWeekAquaFindsItsLightsAndSendsNothingToAnotherCode() {
+    let app = launch("-fake-weekaqua")
+    findWeekAqua(app)
+    XCTAssertEqual(app.buttons.matching(identifier: "wa-light").count, 3)
+    expect(app, "wa-unsupported", contains: "Mã 5745: chưa hỗ trợ, AquaTome không gửi gì tới đèn này.")
+    XCTAssertFalse(text(app, "DYSL30").exists, "a Chihiros light listed with the Week Aqua ones")
+    expect(app, "wa-no-report", contains: "Đèn Week Aqua không báo lại gì")
+    // The 5745 light can't be chosen: nothing to connect to, nothing sent.
+    scrolledTo(app, "wa-unsupported").tap()
+    XCTAssertFalse(element(app, "wa-connect").isEnabled, "a light of another code chosen")
+    XCTAssertFalse(element(app, "wa-write").isEnabled)
+    let frames = element(app, "wa-frames")
+    XCTAssertTrue(!frames.exists || frames.label.isEmpty, "frames sent: \(frames.label)")
+    // The Chihiros screen still finds its own light only.
+    app.navigationBars.buttons.firstMatch.tap()
+    tap(app, "scan")
+    XCTAssertTrue(app.buttons["light"].firstMatch.waitForExistence(timeout: 5), "no Chihiros light found")
+    XCTAssertEqual(app.buttons.matching(identifier: "light").count, 1, "Week Aqua lights listed with the Chihiros one")
+  }
+
+  func testWeekAquaWritesAGroupInTheOrderTheLightsTakeThenSetsTheirClock() {
+    let app = launch("-fake-weekaqua")
+    connectWeekAquaGroup(app)
+    expect(app, "wa-title", contains: "3 đèn đang kết nối")
+    expect(app, "wa-last-sent", contains: "AquaTome chưa gửi gì tới các đèn này.")
+    XCTAssertFalse(element(app, "wa-clock").isEnabled, "the clock set with nothing sent yet")
+    // The owner's timer: on 02:50, off 02:40, past midnight.
+    pick(app, "wa-on-hour", "02")
+    pick(app, "wa-on-minute", "50")
+    pick(app, "wa-off-hour", "02")
+    pick(app, "wa-off-minute", "40")
+    expect(app, "wa-hours", contains: "Đèn sáng 23 tiếng 50 phút mỗi ngày.")
+    tap(app, "wa-preset-green")
+    tap(app, "wa-write")
+    let confirm = app.alerts.buttons["Ghi màu và giờ"]
+    XCTAssertTrue(confirm.waitForExistence(timeout: 5), "the first write didn't ask")
+    confirm.tap()
+    expect(app, "wa-notice", contains: "Đã ghi vào 3 đèn: bật 02:50, tắt 02:40.")
+    expectWeekAquaWrite(app, levels: "6c e3 73 eb", timer: "02 50 02 40 01")
+    expect(app, "wa-last-sent", contains: "Lần gửi cuối từ AquaTome: Green 100% · bật 02:50, tắt 02:40")
+
+    // The clock: the same order again, with what was sent last.
+    tap(app, "wa-clock")
+    expect(app, "wa-notice", contains: "Đã chỉnh giờ 3 đèn theo máy này")
+    expectWeekAquaWrite(app, levels: "6c e3 73 eb", timer: "02 50 02 40 01", writes: 2)
+    expect(app, "wa-clock-at", contains: "Chỉnh giờ lần cuối")
+  }
+
+  func testWeekAquaColourByHandAndItsBrightness() {
+    let app = launch("-fake-weekaqua")
+    connectWeekAquaGroup(app)
+    tap(app, "wa-preset-green")
+    slideToStart(app, "wa-uv")
+    expect(app, "wa-uv", value: "0%")
+    XCTAssertFalse(element(app, "wa-preset-green").isSelected, "still Green with its UV off")
+    let shown = slideLow(app, "wa-brightness")
+    let b = Int(shown?.dropLast() ?? "") ?? -1
+    XCTAssertTrue((1..<50).contains(b), "brightness \(shown ?? "none")")
+    // Green without its UV, scaled by the brightness, each level rounded.
+    let l = [108, 227, 115, 0].map { ($0 * b + 50) / 100 }
+    expect(app, "wa-levels", contains: "Sẽ gửi: đỏ \(l[0]), xanh lá \(l[1]), xanh dương \(l[2]), UV 0, trên thang 235.")
+    tap(app, "wa-write")
+    app.alerts.buttons["Ghi màu và giờ"].tap()
+    expect(app, "wa-notice", contains: "Đã ghi vào 3 đèn: bật 12:00, tắt 20:00.")
+    expectWeekAquaWrite(app, levels: l.prefix(3).map { String(format: "%02x", $0) }.joined(separator: " ") + " 00", timer: "12 00 20 00 01")
+    expect(app, "wa-last-sent", contains: "Màu riêng \(b)% · bật 12:00, tắt 20:00")
+  }
+
+  func testWeekAquaKeepsTheGroupOnATankAndConnectsItFromThere() {
+    let app = launch("-fake-weekaqua")
+    connectWeekAquaGroup(app)
+    tap(app, "wa-write")
+    app.alerts.buttons["Ghi màu và giờ"].tap()
+    expect(app, "wa-notice", contains: "Đã ghi vào 3 đèn: bật 12:00, tắt 20:00.")
+    tap(app, "wa-disconnect")
+    XCTAssertTrue(element(app, "wa-saved").waitForExistence(timeout: 5), "the group isn't listed as saved")
+    // Kept on one new tank, each light with what was sent.
+    app.openTab("Bể của tôi")
+    let row = app.buttons["tank"].firstMatch
+    XCTAssertTrue(row.waitForExistence(timeout: 5), "the lights weren't kept on a tank")
+    XCTAssertTrue(row.label.contains("Bể của tôi") && row.label.contains("3 đèn"), row.label)
+    row.tap()
+    let sent = app.staticTexts.matching(NSPredicate(format: "label == %@", "Green 100% · bật 12:00, tắt 20:00"))
+    XCTAssertTrue(sent.firstMatch.waitForExistence(timeout: 5), "what was sent isn't on the tank")
+    XCTAssertEqual(sent.count, 3)
+    // A light there opens the Week Aqua screen and connects the whole group.
+    app.buttons["tank-light"].firstMatch.tap()
+    expect(app, "wa-notice", contains: "Đã kết nối 3 đèn Week Aqua.", timeout: 20)
+    expect(app, "wa-last-sent", contains: "Green 100% · bật 12:00, tắt 20:00")
+    // The Chihiros screen doesn't list them among its saved lights.
+    app.navigationBars.buttons.firstMatch.tap()
+    expect(app, "card-title", contains: "Kết nối đèn của bạn")
+    XCTAssertFalse(element(app, "saved-light").exists, "a Week Aqua light among the Chihiros ones")
+  }
+
+  /// Two tanks: the group lands on the first, and its "Bể" moves all three to the tank they light (the owner, 13 Nov:
+  /// "my blackwater, weekaqua").
+  func testWeekAquaTheGroupMovesToTheTankItLights() {
+    let app = launch("-fake-weekaqua", "-seed-tanks", "two")
+    connectWeekAquaGroup(app)
+    tap(app, "wa-tank")
+    let other = app.buttons["Bể nước đen"].firstMatch
+    XCTAssertTrue(other.waitForExistence(timeout: 5), "no other tank in the group's Bể")
+    other.tap()
+    app.openTab("Bể của tôi")
+    let row = app.buttons.matching(identifier: "tank").matching(NSPredicate(format: "label CONTAINS %@", "Bể nước đen")).firstMatch
+    XCTAssertTrue(row.waitForExistence(timeout: 5), "no Bể nước đen in the list")
+    XCTAssertTrue(row.label.contains("3 đèn"), row.label)
+  }
+
+  func testWeekAquaALightLostWhileWritingLeavesTheOthersWrittenWholeAndTheRecordTrue() {
+    let app = launch("-fake-weekaqua", "-fake-weekaqua-drop")
+    connectWeekAquaGroup(app)
+    tap(app, "wa-write")
+    app.alerts.buttons["Ghi màu và giờ"].tap()
+    // The second light drops once it took the levels; the other two get the timer and manual mode after them.
+    expect(app, "wa-notice", contains: "Mất kết nối với WEEKAQUA3.0 · …E5:F7 khi đang ghi: các đèn còn lại đã nhận đủ.")
+    let clock = "ff [0-9]{2} [0-9]{2} [0-9]{2} 55 55 55 55", manual = "fd f1 55 55 55 55 55 55"
+    let each: [(frame: String, lights: Int)] = [(clock, 3), (manual, 3), ("fb f9 6c e3 73 eb 55 55", 3), ("fe f9 12 00 20 00 01 00", 2),
+                                                (manual, 2)]
+    let frames = each.map { Array(repeating: $0.frame, count: $0.lights).joined(separator: " \\| ") }.joined(separator: " \\| ")
+    wait(app, "wa-frames", NSPredicate(format: "label MATCHES %@", frames), "frames like /\(frames)/", file: #filePath, line: #line)
+    // The group let go whole, to be connected again together.
+    XCTAssertTrue(element(app, "wa-saved").waitForExistence(timeout: 5), "the group wasn't let go")
+    // On the tank: the two written with what they were sent, the lost one with nothing.
+    app.openTab("Bể của tôi")
+    let row = app.buttons["tank"].firstMatch
+    XCTAssertTrue(row.waitForExistence(timeout: 5), "the lights weren't kept on a tank")
+    row.tap()
+    let sent = app.staticTexts.matching(NSPredicate(format: "label == %@", "Green 100% · bật 12:00, tắt 20:00"))
+    XCTAssertTrue(sent.firstMatch.waitForExistence(timeout: 5), "what was sent isn't on the tank")
+    XCTAssertEqual(sent.count, 2)
+    XCTAssertEqual(app.staticTexts.matching(NSPredicate(format: "label == %@", "AquaTome chưa gửi gì tới đèn này.")).count, 1)
+    // Connected again, the group asks before writing: one of its lights has nothing from AquaTome yet.
+    app.buttons["tank-light"].firstMatch.tap()
+    expect(app, "wa-notice", contains: "Đã kết nối 3 đèn Week Aqua.", timeout: 20)
+    tap(app, "wa-write")
+    XCTAssertTrue(app.alerts.buttons["Ghi màu và giờ"].waitForExistence(timeout: 5), "the light never written to wasn't asked for")
+  }
+
   /// The owner's Love Ecology light (13 Nov: "I cant control love exology on app"): its card is the owner's account's
   /// alone, and off, then a colour, are each broadcast as recorded (the simulator's stand-in keeps what it was given),
   /// the card saying what was sent.
@@ -792,15 +949,76 @@ final class LightFlowTests: XCTestCase {
     app.openAccount()
     app.signInWithStandInApple()
     app.openTab("Đèn")
+    // The line is there before the first send, so sending doesn't push the cards below down.
+    expect(app, "lamp-status", contains: "Chưa gửi lệnh nào")
     tap(app, "lamp-off")
     expect(app, "lamp-sent", contains: "off")
     expect(app, "lamp-status", contains: "Đã gửi “Tắt”")
+    // The time as the schedule writes it, 24-hour whatever the phone's setting.
+    XCTAssertNotNil(element(app, "lamp-status").label.range(of: #"lúc \d{2}:\d{2}\.$"#, options: .regularExpression), element(app, "lamp-status").label)
     tap(app, "lamp-blue")
     expect(app, "lamp-sent", contains: "off blue")
     expect(app, "lamp-status", contains: "Đã gửi “Xanh dương”")
   }
 
   // MARK: Helpers
+
+  /// The Week Aqua screen, its lights found (`-fake-weekaqua`).
+  private func findWeekAqua(_ app: XCUIApplication) {
+    openWeekAqua(app, scrolledTo(app, "weekaqua"))
+    tap(app, "wa-scan")
+    XCTAssertTrue(app.buttons.matching(identifier: "wa-light").element(boundBy: 2).waitForExistence(timeout: 5), "the three 5746 lights weren't found")
+  }
+
+  /// Opens the Week Aqua screen from its row on Đèn, in moments: from the top of Đèn it once froze the app before the
+  /// screen opened (13 Nov), and a tap waits for the app to settle before any timeout starts.
+  private func openWeekAqua(_ app: XCUIApplication, _ row: XCUIElement, file: StaticString = #filePath, line: UInt = #line) {
+    XCTAssertTrue(row.isHittable, "the Week Aqua row isn't reachable", file: file, line: line)
+    let start = Date()
+    row.tap()
+    XCTAssertTrue(app.buttons["wa-scan"].waitForExistence(timeout: 5), "the Week Aqua screen didn't open", file: file, line: line)
+    let took = Date().timeIntervalSince(start)
+    XCTAssertLessThan(took, 8, "the Week Aqua screen took \(Int(took)) s to open", file: file, line: line)
+  }
+
+  /// The three 5746 lights chosen and connected as one group.
+  private func connectWeekAquaGroup(_ app: XCUIApplication) {
+    findWeekAqua(app)
+    for i in 0..<3 { scrolledTo(app, app.buttons.matching(identifier: "wa-light").element(boundBy: i)).tap() }
+    expect(app, "wa-connect", contains: "Kết nối 3 đèn")
+    tap(app, "wa-connect")
+    expect(app, "wa-notice", contains: "Đã kết nối 3 đèn Week Aqua.")
+  }
+
+  /// A menu picker set to `value` ("02").
+  private func pick(_ app: XCUIApplication, _ id: String, _ value: String) {
+    tap(app, id)
+    // The menu's item, not a picker already showing the same value.
+    let item = app.buttons.matching(NSPredicate(format: "label == %@ AND NOT (identifier BEGINSWITH 'wa-')", value)).firstMatch
+    XCTAssertTrue(item.waitForExistence(timeout: 5), "no \(value) in \(id)")
+    item.tap()
+  }
+
+  /// The last of `writes` writes in a row, each its five frames to the three lights, frame by frame: the clock, manual
+  /// mode, the levels, the timer, manual mode.
+  private func expectWeekAquaWrite(_ app: XCUIApplication, levels: String, timer: String, writes: Int = 1, file: StaticString = #filePath, line: UInt = #line) {
+    let clock = "ff [0-9]{2} [0-9]{2} [0-9]{2} 55 55 55 55", manual = "fd f1 55 55 55 55 55 55"
+    let one = [clock, manual, "fb f9 \(levels) 55 55", "fe f9 \(timer) 00", manual]
+      .map { Array(repeating: $0, count: 3).joined(separator: " \\| ") }.joined(separator: " \\| ")
+    let pattern = Array(repeating: one, count: writes).joined(separator: " \\| ")
+    wait(app, "wa-frames", NSPredicate(format: "label MATCHES %@", "(.* \\| )?" + pattern), "frames like /\(pattern)/", file: file, line: line)
+  }
+
+  /// A slider dragged to 0%: its thumb taken well past the start (as `slideToEnd`, the other way).
+  private func slideToStart(_ app: XCUIApplication, _ id: String) {
+    for _ in 0..<3 {
+      let s = scrolledTo(app, id)
+      let x = 14 + s.normalizedSliderPosition * (s.frame.width - 28)
+      s.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 0.5)).withOffset(CGVector(dx: x, dy: 0))
+        .press(forDuration: 0.1, thenDragTo: s.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 0.5)).withOffset(CGVector(dx: -80, dy: 0)))
+      if element(app, id).value as? String == "0%" { return }
+    }
+  }
 
   /// The app on its Đèn tab, in Vietnamese or in Indonesian (whose words run longer).
   /// `zone`: the phone's time zone, Vietnam's unless a flow says otherwise. GitHub's simulators run in UTC, the own
@@ -889,7 +1107,7 @@ final class LightFlowTests: XCTestCase {
   private func scrolledTo(_ app: XCUIApplication, _ id: String) -> XCUIElement {
     let e = element(app, id)
     // The bars pinned to the bottom: always in view.
-    if id.hasPrefix("notice") || id == "write" || id == "summary" { _ = e.waitForExistence(timeout: 2); return e }
+    if id.hasPrefix("notice") || id == "write" || id == "summary" || id == "wa-notice" || id == "wa-write" { _ = e.waitForExistence(timeout: 2); return e }
     return scrolledTo(app, e)
   }
 
@@ -899,7 +1117,7 @@ final class LightFlowTests: XCTestCase {
     // Read once (each query costs the test a moment): the bars don't move while the content scrolls. The navigation
     // bar is at its tallest here or taller than it will be, so the margin only grows.
     let window = app.windows.firstMatch.frame
-    let pinned = ["notice", "summary", "write"].map { element(app, $0) }.filter { $0.exists }.map { $0.frame.minY }.min() ?? .infinity
+    let pinned = ["notice", "summary", "write", "wa-notice", "wa-write"].map { element(app, $0) }.filter { $0.exists }.map { $0.frame.minY }.min() ?? .infinity
     let bar = app.navigationBars.firstMatch
     let top = bar.exists ? bar.frame.maxY + 8 : window.minY
     let bottom = min(window.maxY - window.height / 5, pinned - 16)
@@ -915,9 +1133,9 @@ final class LightFlowTests: XCTestCase {
       // band each time (the quick actions: 20 drags, up and down, then a tap where they happened to be). Not built yet
       // (off the screen): down the screen first, then back up.
       if let f {
-        drag(app, by: max(-third, min(third, ((top + bottom) / 2 - f.midY) / carry)))
+        drag(app, by: max(-third, min(third, ((top + bottom) / 2 - f.midY) / carry)), above: bottom / window.height)
       } else {
-        drag(app, by: downs < 8 ? -third : third)
+        drag(app, by: downs < 8 ? -third : third, above: bottom / window.height)
         downs += 1
       }
     }
@@ -925,9 +1143,10 @@ final class LightFlowTests: XCTestCase {
   }
 
   /// A drag of `dy` points (up when negative) at the screen's right edge, clear of sliders and handles, held before it
-  /// lets go so the content settles where the next read finds it.
-  private func drag(_ app: XCUIApplication, by dy: CGFloat) {
-    let a = app.coordinate(withNormalizedOffset: CGVector(dx: 0.97, dy: dy < 0 ? 0.65 : 0.3))
+  /// lets go so the content settles where the next read finds it. An upward drag starts above `above` (a fraction of the
+  /// window): at the largest text the notice bar reaches above 0.65, and a drag begun on it moves nothing.
+  private func drag(_ app: XCUIApplication, by dy: CGFloat, above: CGFloat) {
+    let a = app.coordinate(withNormalizedOffset: CGVector(dx: 0.97, dy: dy < 0 ? min(0.65, above) : 0.3))
     a.press(forDuration: 0.05, thenDragTo: a.withOffset(CGVector(dx: 0, dy: dy)), withVelocity: .default, thenHoldForDuration: 0.2)
   }
 

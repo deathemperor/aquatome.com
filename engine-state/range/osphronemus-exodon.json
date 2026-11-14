@@ -1,8 +1,8 @@
 {
   "id": "osphronemus-exodon",
   "native": {
-    "input": "b57f5b482850c103",
-    "at": "2026-11-11T02:57:45.598Z",
+    "input": "d8bafc20cd1c642f",
+    "at": "2026-11-14T05:39:06.336Z",
     "claims": [
       {
         "code": "TH",
@@ -29,28 +29,13 @@
         "ok": true
       },
       {
-        "code": "TH",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Thailand, Laos, Cambodia.",
-        "words": "Thailand",
-        "ok": true
-      },
-      {
-        "code": "LA",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Thailand, Laos, Cambodia.",
-        "words": "Laos",
-        "ok": true
-      },
-      {
         "code": "KH",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Thailand, Laos, Cambodia.",
+        "source": "glaser",
+        "quote": "Cambodia.",
         "words": "Cambodia",
-        "ok": true
+        "ok": false,
+        "why": "no sentence"
       }
     ],
     "regions": [],

@@ -13,7 +13,10 @@ import XCTest
 /// overview (light, dark, at the largest text, and with nothing to do), its bell's sheet, a section with charts and tables
 /// and Comments (each light, dark and at the largest text), and the daily report's settings; the tab bar over what scrolls
 /// under it, a fish's long text and Tìm's photos, light and dark, on the site's own pages; and v2's Hôm nay, its fish of the
-/// day's page and Khám phá, light, dark and at the largest text, and in Malay. Each checks only that its screen opened:
+/// day's page and Khám phá, light, dark and at the largest text, and in Malay. The lights tab top to
+/// bottom (its Week Aqua row on the first screen) and the Week Aqua screen with the simulator's group connected
+/// (`-fake-weekaqua`), in v2, light and dark.
+/// Each checks only that its screen opened:
 /// what it shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
@@ -28,6 +31,42 @@ final class PageShotsFlowTests: XCTestCase {
   func testASearchInTheDark() { shootSearch("search-dark", dark: true) }
   func testASearchInTheLargestText() { shootSearch("search-largest-light", size: largest) }
   func testASearchInTheLargestTextInTheDark() { shootSearch("search-largest-dark", dark: true, size: largest) }
+  // The lights in v2, the look the owner's app opens in.
+  func testTheLightsTab() { shootLights("lights-light") }
+  func testTheLightsTabInTheDark() { shootLights("lights-dark", dark: true) }
+  private func shootLights(_ name: String, dark: Bool = false) {
+    let app = launch(dark: dark, size: nil, look: .v2)
+    app.openTab("Đèn")
+    XCTAssertTrue(app.navigationBars["Đèn"].waitForExistence(timeout: 5), "the lights tab isn't titled Đèn")
+    let entry = app.descendants(matching: .any)["weekaqua"]
+    XCTAssertTrue(entry.waitForExistence(timeout: 5), "no Week Aqua row on the lights tab")
+    XCTAssertTrue(entry.isHittable, "the Week Aqua row isn't on the first screen")
+    capture(app, name, dark: dark, from: 0.6, x: 0.97)
+  }
+  func testTheWeekAquaScreen() { shootWeekAqua("weekaqua-light") }
+  func testTheWeekAquaScreenInTheDark() { shootWeekAqua("weekaqua-dark", dark: true) }
+  /// The Week Aqua screen with the simulator's group connected (`-fake-weekaqua`), top to bottom, in v2.
+  private func shootWeekAqua(_ name: String, dark: Bool = false) {
+    let app = launch(dark: dark, size: nil, ["-fake-weekaqua"], look: .v2)
+    app.openTab("Đèn")
+    let entry = app.descendants(matching: .any)["weekaqua"]
+    XCTAssertTrue(entry.waitForExistence(timeout: 5), "no Week Aqua row on the lights tab")
+    // In moments: from the top of Đèn it once froze the app (13 Nov), and a tap waits for the app to settle first.
+    let start = Date()
+    entry.tap()
+    let scan = app.buttons["wa-scan"]
+    XCTAssertTrue(scan.waitForExistence(timeout: 5), "the Week Aqua screen didn't open")
+    XCTAssertLessThan(Date().timeIntervalSince(start), 8, "the Week Aqua screen was slow to open")
+    scan.tap()
+    let lights = app.buttons.matching(identifier: "wa-light")
+    XCTAssertTrue(lights.element(boundBy: 2).waitForExistence(timeout: 5), "the three 5746 lights weren't found")
+    for i in 0..<3 { lights.element(boundBy: i).tap() }
+    app.buttons["wa-connect"].tap()
+    XCTAssertTrue(app.staticTexts["wa-title"].waitForExistence(timeout: 10), "the group didn't connect")
+    for _ in 0..<4 { app.swipeDown() }
+    capture(app, name, dark: dark, from: 0.6, x: 0.97)
+  }
+
   func testTheAppIcons() { shootIcons("icons-light") }
   func testTheAppIconsInTheDark() { shootIcons("icons-dark", dark: true) }
   func testALightsCardWarningOfItsOutletsTimer() { shootLightCard("light-outlet") }
@@ -387,8 +426,10 @@ final class PageShotsFlowTests: XCTestCase {
     capture(app, name, dark: dark, large: size != nil || bell, screens: screens ?? (bell ? 1 : size != nil ? 30 : 16))
   }
 
-  /// Each screen from where it is, scrolled most of a screen at a time without a fling, to its end.
-  private func capture(_ app: XCUIApplication, _ name: String, dark: Bool, large: Bool, screens: Int) {
+  /// Each screen from where it is, scrolled most of a screen at a time without a fling (from `from` of the height, above a
+  /// bar pinned to the bottom; at `x` of the width, the right edge to stay clear of sliders), to its end.
+  private func capture(_ app: XCUIApplication, _ name: String, dark: Bool, large: Bool = false, screens: Int = 12,
+                       from: CGFloat = 0.8, x: CGFloat = 0.5) {
     var seen: [[UInt8]] = []
     var ended = false
     for n in 1...screens {
@@ -405,9 +446,9 @@ final class PageShotsFlowTests: XCTestCase {
       a.name = String(format: "shot-%@-%02d", name, n)
       a.lifetime = .keepAlways
       add(a)
-      let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.8))
-      from.press(forDuration: 0.1, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.25)), withVelocity: .slow,
-                 thenHoldForDuration: 0.2)
+      let start = app.coordinate(withNormalizedOffset: CGVector(dx: x, dy: from))
+      start.press(forDuration: 0.1, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: x, dy: from - 0.55)), withVelocity: .slow,
+                  thenHoldForDuration: 0.2)
     }
     // A whole screen (not the large text's top screens) ends before the shots run out: else its end wasn't seen, and the
     // shots repeat it to the last.
@@ -457,13 +498,13 @@ final class PageShotsFlowTests: XCTestCase {
     add(a)
   }
 
-  private func launch(dark: Bool, size: String? = nil, _ more: [String] = []) -> XCUIApplication {
+  private func launch(dark: Bool, size: String? = nil, _ more: [String] = [], look: Look = .old) -> XCUIApplication {
     let app = XCUIApplication()
     // Dark by the app's own switch: the runner's appearance setting (XCUIDevice) left the shots light.
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures"]
       + (dark ? ["-dark"] : [])
       + (size.map { ["-UIPreferredContentSizeCategoryName", $0] } ?? []) + more
-    app.launchForFlow(.old)
+    app.launchForFlow(look)
     return app
   }
 

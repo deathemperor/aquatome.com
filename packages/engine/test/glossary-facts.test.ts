@@ -30,6 +30,18 @@ test('an entry is split into its sentences: the definition\'s, then each heading
   expect(sentences(entry)[5]!).toEqual({ text: 'Làm pH lên: san hô.', block: 'Làm pH lên: san hô.', heading: 'Trong bể', item: 'Làm pH lên' })
 })
 
+// The chief of staff, 14 Nov 2026: on Lũa's draft 7, Opus's reads stopped the boiling and rot lines in both runs, where
+// Sonnet's stopped them 2 times in 5 and 1 in 5, and neither model stopped a right sentence.
+test('every fact read runs on Opus: the three reads, a lone stop\'s re-reads and the read after rewording', async () => {
+  const { llm } = model([{ 'Lá bàng làm pH xuống.': 'unsupported: x', 'Nó đi từ 0 tới 14.': 'loose: y' }, { 'Nó đi từ 0 tới 14.': 'loose: y' }, {}], ['supported', 'supported', 'supported'], { 'Nó đi từ 0 tới 14.': 'Nó đi từ 0 đến 14.' })
+  const asked: (string | undefined)[] = []
+  const spy: Llm = args => { if (args.system.startsWith('You check')) asked.push(args.model); return llm(args) }
+  const check = await checkSentences(spy, facts, entry)
+  expect(check.loose.map(s => s.text)).toEqual(['Nó đi từ 0 tới 14.'])
+  await rewordLoose(spy, 'sonnet', facts, entry, check.loose)
+  expect(asked).toEqual(Array(9).fill('opus'))
+})
+
 // The measured run, 14 Nov 2026: "Thường dùng nguyên khúc cho bể nuôi Cá đĩa, Cá ông tiên" read supported three times, as
 // another wood's fact covered it, though its item was about lũa đỗ quyên, named three sentences before it.
 test('a kind\'s sentences are read under its name, as a section\'s are under its heading', async () => {

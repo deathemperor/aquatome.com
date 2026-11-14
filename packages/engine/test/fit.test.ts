@@ -541,3 +541,14 @@ test('a dealer\'s own current batch or stock is the source check\'s; trade histo
 test('the elsewhere check names leaves and wood keepers here don\'t buy or gather, and what they use instead', () => {
   expect(fitPrompt('vi')).toMatch(/- elsewhere: [^\n]*Leaves, wood and other things for the tank that keepers in Vietnam don't buy or gather, such as beech or oak leaves and wood from European trees: an elsewhere finding\. Quote the words, and name what keepers here use instead: lá bàng for leaves, lũa for wood\. Not:/)
 })
+
+// The chief of staff, 14 Nov 2026: on a guide written from the video above it, the video's build told as a worked example
+// that names its own size and figures is the guide's own, not the source talking (the Writing Lead's words).
+test('a video guide\'s read takes the video\'s build told as a worked example; no other page\'s does', () => {
+  expect(fitPrompt('vi', 'guides', true)).toContain('On a guide written from the video above it: the video\'s build written as an example that names its own size and figures ("Ví dụ, một bể dài 45 cm…"')
+  expect(fitPrompt('vi', 'guides', true)).toContain('Still a finding: a first-person story, a bare "bể này", "ở đây", "lần này" or "hôm đó", "bể mẫu"')
+  for (const [lang, kind, video] of [['vi', 'guides', false], ['vi', 'species', false], ['th', 'guides', true]] as const) {
+    expect(fitPrompt(lang, kind, video)).not.toContain('On a guide written from the video')
+    expect(fitPrompt(lang, kind, video)).not.toContain('{{VIDEO_NOTE}}')
+  }
+})

@@ -31,9 +31,19 @@ test('one index per language, every item a built page of that language', () => {
 test('the Vietnamese index has fish with scientific names, plants, guides, glossary and the tools', () => {
   const items = index('vi').items
   const kinds = new Set(items.map(i => i.kind))
-  for (const k of ['fish', 'plant', 'guide', 'glossary', 'tool'] as const) expect(kinds, k).toContain(k)
+  for (const k of ['fish', 'plant', 'guide', 'glossary', 'tool', 'material'] as const) expect(kinds, k).toContain(k)
   expect(items.filter(i => i.kind === 'fish').every(i => i.sub || i.path)).toBe(true)
   expect(items.find(i => i.path === '/vi/cong-cu/den-chihiros/')?.name).toBe('Đèn Chihiros')
+})
+
+test('material index items open web pages and add no native page shard kind', () => {
+  const vi = index('vi')
+  expect(vi.items.filter(i => i.kind === 'material').map(i => i.path).sort()).toEqual([
+    '/vi/vat-lieu/lua-mopani/', '/vi/vat-lieu/lua-sa-tung/', '/vi/vat-lieu/lua/',
+  ])
+  expect(vi.shards).not.toHaveProperty('material')
+  expect(vi.pages).not.toHaveProperty('material')
+  for (const lang of OTHER_LANGS) expect(index(lang).items.some(i => i.kind === 'material')).toBe(false)
 })
 
 test('other languages list their own names and addresses', () => {

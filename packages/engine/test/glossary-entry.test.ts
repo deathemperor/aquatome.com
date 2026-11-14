@@ -263,6 +263,27 @@ test('an entry\'s length: 900 and 60 a named kind, or 400; one trim note past it
   expect(lengthNotes(`<p>${'nước '.repeat(392)}</p>`)).toEqual({ notes: [], stop: false })
   expect(lengthNotes(`<p>${'nước '.repeat(450)}</p>`)).toEqual({ notes: ['The entry is 450 words: hold it to about 400, and leave what is left out to the pages that use the term.'], stop: false })
   expect(lengthNotes(`<p>${'nước '.repeat(478)}</p>`).stop).toBe(true)
+  // A term whose notes file sets its own length (the chief of staff, 14 Nov 2026: pH 600, a stop past 690).
+  expect(lengthNotes(`<p>${'nước '.repeat(650)}</p>`, 0, 600)).toEqual({ notes: ['The entry is 650 words: hold it to about 600, and leave what is left out to the pages that use the term.'], stop: false })
+  expect(lengthNotes(`<p>${'nước '.repeat(691)}</p>`, 0, 600).stop).toBe(true)
+})
+
+test('a term\'s notes file sets its length: pH\'s 648 words get a trim pass and save; a length past 600 names the chief of staff\'s word', async () => {
+  const root = await site()
+  const writes: string[] = []
+  const llm: Llm = async ({ prompt }) => {
+    if (prompt.startsWith('GLOSSARY RULES')) return { notes: [] } as never
+    if (isCheck(prompt)) return verdicts(prompt) as never
+    writes.push(prompt)
+    return { ...written, body: `<p>${'Nước có pH. '.repeat(216)}</p>` } as never
+  }
+  expect(await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'ph', { kind: 'setup' })).toMatchObject({ id: 'ph', score: 1 })
+  expect(writes.length).toBe(2)
+  // The writer is told the term's own length (Codex, 14 Nov 2026: it was told only the prompt's 200–300 words).
+  expect(writes[0]).toContain('--- ĐỘ DÀI ---\nKhoảng 600 chữ cả bài')
+  const asks = JSON.parse(await readFile(new URL('../src/glossary-asks.json', import.meta.url), 'utf8')) as Record<string, { length?: { words: number; why: string } }>
+  expect(asks.ph!.length!.words).toBe(600)
+  for (const [id, a] of Object.entries(asks)) if (a.length) expect(a.length.words <= 600 || /chief of staff/.test(a.length.why), id).toBe(true)
 })
 
 // Past Lũa's cap: its notes file names 17 kinds, so 1,920 words and a stop past 2,208.
@@ -528,6 +549,23 @@ test('a sentence the whole entry\'s final read stops after the rewording keeps i
   expect(JSON.parse(await readFile(draftPath(root), 'utf8')).score).toBe(0.67)
 })
 
+// Codex, 14 Nov 2026: the count after rewording held pH to 400 words, not its own 600, and stopped a right entry.
+test('the entry as reworded is counted against the term\'s own length', async () => {
+  const root = await site()
+  const body = `<p>pH đo độ chua. Nước ${'nước '.repeat(594)}</p>`
+  let rewordings = 0
+  const llm: Llm = async ({ prompt, system }) => {
+    if (prompt.startsWith('GLOSSARY RULES')) return { notes: [] } as never
+    if (system.startsWith('You reword')) { rewordings++; return { sentences: [{ n: 1, text: 'pH đo độ chua của nước.' }] } as never }
+    if (isCheck(prompt)) return verdicts(prompt, t => (t === 'pH đo độ chua.' ? 'loose: x' : undefined)) as never
+    return { ...written, body } as never
+  }
+  const r = await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'ph', { kind: 'setup' })
+  expect(rewordings).toBe(1)
+  expect(r).toMatchObject({ id: 'ph', score: 1 })
+  expect(JSON.parse(await readFile(join(root, 'content/glossary/ph/vi.json'), 'utf8')).body).toContain('pH đo độ chua của nước.')
+})
+
 // Codex, 14 Nov 2026: a rewording that ran the entry past its cap was saved, since its length wasn't counted again.
 test('the entry as reworded is counted again: a rewording that runs it past the cap keeps it from being saved', async () => {
   const root = await site()
@@ -546,4 +584,35 @@ test('the entry as reworded is counted again: a rewording that runs it past the 
   expect(r).toMatchObject({ id: 'tanin', skipped: 'stopped by 1 note' })
   expect((r as { notes: string[] }).notes).toContain('The entry is 466 words: hold it to about 400, and leave what is left out to the pages that use the term.')
   expect(await readFile(join(root, 'content/glossary/tanin/vi.json'), 'utf8')).toBe(before)
+})
+
+test('a kind word the table allows before a scientific name doesn\'t stop a save; one it doesn\'t allow does', async () => {
+  const root = await site()
+  const species = async (slug: string, scientific: string, family: string, order: string) => {
+    await mkdir(join(root, 'content/species', slug), { recursive: true })
+    await writeFile(join(root, 'content/species', slug, 'entity.json'), JSON.stringify({ id: slug, scientificName: scientific, genus: scientific.split(' ')[0], family, order }))
+    await writeFile(join(root, 'content/species', slug, 'vi.json'), JSON.stringify({ name: scientific }))
+  }
+  await species('caridina-dennerli', 'Caridina dennerli', 'Atyidae', 'Decapoda')
+  await species('aulonocara-jacobfreibergi', 'Aulonocara jacobfreibergi', 'Cichlidae', 'Cichliformes')
+  const run = async (body: string) => {
+    const asked: string[] = []
+    const wrote: string[] = []
+    const llm: Llm = async ({ prompt }) => {
+      if (prompt.startsWith('GLOSSARY RULES')) { asked.push(prompt); return { notes: ['Rule 6: "tép Caridina" in "Tép Caridina thích lũa.": a Vietnamese name the writer made up for a genus'] } as never }
+      if (isCheck(prompt)) return verdicts(prompt) as never
+      wrote.push(prompt)
+      return { ...written, body } as never
+    }
+    return { r: await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'lua', { kind: 'aquascaping' }), asked, wrote }
+  }
+  const fits = await run('<p>Tép Caridina thích lũa.</p>')
+  expect(fits.r).toMatchObject({ id: 'lua', score: 1 })
+  expect(fits.asked[0]).toContain('--- KIND WORDS ---\nTép Caridina\n')
+  // The chief of staff, 14 Nov 2026, of pH's draft: "như Cá neon vua" mid-sentence is lower case; the site links it either way.
+  expect(fits.asked[0]).toContain('Case doesn\'t count: mid-sentence a page\'s name starts in lower case like any common noun ("như cá neon vua").')
+  expect(fits.wrote[0]).toContain('giữa câu thì viết thường như mọi danh từ chung ("như cá neon vua")')
+  const wrong = await run('<p>Tép Caridina thích lũa, cá trê Aulonocara thì không.</p>')
+  expect(wrong.r).toMatchObject({ id: 'lua', skipped: 'stopped by 1 note' })
+  expect((wrong.r as { notes: string[] }).notes).toContain('Rule 6: "cá trê Aulonocara": "trê" is the word for other animals, not for Cichlidae (the table of kind words).')
 })

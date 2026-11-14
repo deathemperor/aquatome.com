@@ -132,11 +132,24 @@ checks() { if [ -n "${GITHUB_ACTIONS:-}" ]; then bash -c "$1"; else turn bash -c
 # The second try also starts SECOND_TRY_WORKERS of vitest's workers at a time, not one a core: vitest gives a worker
 # 60 s to start, a limit of its own that nothing raises, and that photos run's second try (16:25) lost 25 of the
 # schema's 28 test files to workers that hadn't started in time.
+# A busy Mac gets them too, heat or none: the first tries of the night of 2026-11-13 ran at a 5-minute load past one a
+# core with every core at work, at their own limits, and ran out of time.
 HOT_TIME_SCALE=6
 SECOND_TRY_WORKERS=2
-time_scale() { [ "$(cores_taken)" -gt 0 ] && echo "$HOT_TIME_SCALE" || echo 1; }
+# The 5-minute load and the cores, "load cores"; nothing where there's no reading (not a Mac).
+load5() { local l c; l=$(sysctl -n vm.loadavg 2>/dev/null) && c=$(sysctl -n hw.ncpu 2>/dev/null) || return 0; echo "$(awk '{print int($3)}' <<<"$l") $c"; }
+# Why a check's tests get more than their own time, or nothing: heat has taken cores, or (on the Mac, not on GitHub's
+# runners) the 5-minute load is at least one a core.
+slow_mac() {
+  local load cores
+  [ "$(cores_taken)" -gt 0 ] && { echo "cores taken away by heat"; return 0; }
+  [ -z "${GITHUB_ACTIONS:-}" ] || return 0
+  read -r load cores <<<"$(load5)"
+  [ -n "$cores" ] && [ "$load" -ge "$cores" ] && echo "a busy Mac, its 5-minute load $load on $cores cores"
+  return 0
+}
 verify() {
-  local step from first name names workers
+  local step from first name names workers why
   : >"$TEST_LOG"
   TIMED_OUT=
   if [ -n "${MIGRATE_FAILED:-}" ]; then log "photo records not migrated: not tested, not published"; return 1; fi
@@ -144,8 +157,9 @@ verify() {
   export AQ_TEST_TIME_SCALE
   for step in "$@"; do
     from=$(wc -c <"$TEST_LOG")
-    AQ_TEST_TIME_SCALE=$(time_scale)
-    [ "$AQ_TEST_TIME_SCALE" = 1 ] || log "cores taken away by heat: tests get $AQ_TEST_TIME_SCALE times their time"
+    why=$(slow_mac)
+    AQ_TEST_TIME_SCALE=1
+    [ -z "$why" ] || { AQ_TEST_TIME_SCALE=$HOT_TIME_SCALE; log "$why: tests get $AQ_TEST_TIME_SCALE times their time"; }
     checks "$step" >>"$TEST_LOG" 2>&1 && continue
     first=$from
     if ran_out "$first"; then log "tests ran out of time on a busy Mac: checking again once it is calmer"; else log "a check failed: running it once more once the Mac is calmer"; fi
@@ -167,10 +181,15 @@ verify() {
 }
 # The tests that failed in $TEST_LOG since byte $1, one a line: vitest's FAIL lines, with pnpm's prefix and the colours off.
 failed_tests() { tail -c +"$(($1 + 1))" "$TEST_LOG" | sed -E "s/$(printf '\033')\[[0-9;]*m//g" | sed -nE 's/^([^[:space:]]+ test:)?[[:space:]]*FAIL[[:space:]]+//p' | sort -u; }
-# Whether the tests' output since byte $1 of $TEST_LOG has one that ran out of time: a test, a hook (beforeAll and the
-# like), or a vitest worker that didn't start in time. grep reads it all (-c, not -q): under pipefail, tail cut off by
-# grep's early exit would make a match read as none.
-ran_out() { tail -c +"$(($1 + 1))" "$TEST_LOG" | grep -cE '(Test|Hook) timed out in|Timeout waiting for worker to respond|Timeout starting .* runner' >/dev/null; }
+# Whether the tests' output since byte $1 of $TEST_LOG has one that ran out of time: vitest's own line for a test, a hook
+# (beforeAll and the like) or a worker that didn't start in time, "Error: Test timed out in 30000ms.", at the start of a
+# line after pnpm's prefix, colours off. Only those: a failing test that quotes one, in its assertion, a diff, its title,
+# a stack line or its source, ran out of nothing (at 22:36 and 23:35 on 2026-11-13 one did, and its run's work was kept,
+# to be tried for ever, instead of held). Its limit: a test that itself prints vitest's line at the start of a line (a
+# console.log, a later line of a many-line message) still reads as out of time, which keeps the work and loses nothing;
+# a stricter pattern risks the other way, a real time-out held, its retries lost (the chief of staff, 14 Nov). grep reads
+# it all (-c, not -q): under pipefail, tail cut off by grep's early exit would make a match read as none.
+ran_out() { tail -c +"$(($1 + 1))" "$TEST_LOG" | sed -E "s/$(printf '\033')\[[0-9;]*m//g" | grep -cE '^([^[:space:]]+ test: )?Error: ((Test|Hook) timed out in [0-9]+ms\.|\[vitest-pool[^]]*\]: Timeout (waiting for worker to respond|starting [a-z]+ runner))' >/dev/null; }
 
 # A run whose tests ran out of time even on their second try (TIMED_OUT) ran on a Mac too busy for them, not on broken
 # work: its commit goes on a branch of its own, kept/<job>/<when>, which the next run's start from main (from_main)

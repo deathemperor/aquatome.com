@@ -1,0 +1,45 @@
+---
+import type { Localized, MaterialEntity } from '@aq/schema'
+import { smallSrc } from '../lib/img'
+import { materialPath } from '../lib/materials'
+interface Props { m: Localized<MaterialEntity>; wide?: boolean; eager?: boolean }
+const { m, wide = false, eager = false } = Astro.props
+const photo = m.photos[0]
+const aliases = m.t.altNames.slice(0, 2).join(' · ')
+---
+<a class:list={['mc', { wide, "no-photo": !photo }]} href={materialPath(m)}>
+  {photo && <div class="img"><img src={wide ? photo.url : smallSrc(photo)} width={photo.width} height={photo.height} alt="" loading={eager ? 'eager' : 'lazy'} /></div>}
+  <div class="words">
+    <h3><span>{m.t.name}</span></h3>
+    {!wide && aliases && <p class="aka">{aliases}</p>}
+    {m.t.summary?.[0] && <p class="summary">{m.t.summary[0]}</p>}
+  </div>
+</a>
+<style>
+  .mc { display: block; min-width: 0; color: inherit; text-decoration: none; }
+  .img, .no-photo { aspect-ratio: 4 / 3; background: var(--c-plate); border-radius: var(--radius-media); }
+  .img { position: relative; }
+  .img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
+  .words { min-width: 0; width: 100%; padding-top: var(--space-3); }
+  .no-photo { display: flex; align-items: center; }
+  .no-photo .words { padding: var(--space-4); }
+  h3 { font: 600 1rem/1.4 var(--f-body); }
+  h3 span { font-weight: 600; }
+  h3, .summary { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+  .aka { font-size: var(--step--1); color: var(--c-ink-faint); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: var(--space-1) 0 0; }
+  .summary { font-size: 0.9rem; color: var(--c-ink-soft); margin: var(--space-2) 0 0; line-height: 1.5; }
+  .mc:hover h3 { color: var(--c-moss); }
+  .mc:focus-visible { outline: 2px solid var(--c-focus); outline-offset: 4px; }
+  .wide { margin-bottom: var(--space-5); }
+  .wide .img, .wide.no-photo { aspect-ratio: 16 / 9; }
+  .wide h3 { font-size: var(--step-1); }
+  @media (min-width: 64em) {
+    .wide .img, .wide.no-photo { aspect-ratio: 21 / 9; }
+  }
+  /* Zoom and a larger default text size reduce the available ems: one column and uncapped words. */
+  @media (max-width: 22.49em) {
+    h3, .summary { display: block; overflow: visible; }
+    .aka { white-space: normal; }
+    .no-photo { min-height: 12rem; aspect-ratio: auto; }
+  }
+</style>

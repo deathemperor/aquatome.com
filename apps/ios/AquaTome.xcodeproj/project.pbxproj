@@ -16,6 +16,7 @@
 		C1A5E0D2B7F94A3E8D6C2B10 /* TankCheck in Frameworks */ = {isa = PBXBuildFile; productRef = C1A5E0D2B7F94A3E8D6C2B11 /* TankCheck */; };
 		D7E1A2B3C4D5E6F708192A3B /* Telemetry in Frameworks */ = {isa = PBXBuildFile; productRef = D7E1A2B3C4D5E6F708192A3C /* Telemetry */; };
 		E8F2A3B4C5D6E7F8091A2B3C /* FishLamp in Frameworks */ = {isa = PBXBuildFile; productRef = E8F2A3B4C5D6E7F8091A2B3D /* FishLamp */; };
+		7A3C5E9B1D2F4A6C8E0B2D4F /* WeekAqua in Frameworks */ = {isa = PBXBuildFile; productRef = 7A3C5E9B1D2F4A6C8E0B2D50 /* WeekAqua */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 				C1A5E0D2B7F94A3E8D6C2B10 /* TankCheck in Frameworks */,
 				D7E1A2B3C4D5E6F708192A3B /* Telemetry in Frameworks */,
 				E8F2A3B4C5D6E7F8091A2B3C /* FishLamp in Frameworks */,
+				7A3C5E9B1D2F4A6C8E0B2D4F /* WeekAqua in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +132,7 @@
 				C1A5E0D2B7F94A3E8D6C2B11 /* TankCheck */,
 				D7E1A2B3C4D5E6F708192A3C /* Telemetry */,
 				E8F2A3B4C5D6E7F8091A2B3D /* FishLamp */,
+				7A3C5E9B1D2F4A6C8E0B2D50 /* WeekAqua */,
 			);
 			productName = AquaTome;
 			productReference = 81918909E83595C8F4212CCC /* AquaTome.app */;
@@ -472,6 +475,10 @@
 		E8F2A3B4C5D6E7F8091A2B3D /* FishLamp */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FishLamp;
+		};
+		7A3C5E9B1D2F4A6C8E0B2D50 /* WeekAqua */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = WeekAqua;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -1,0 +1,31 @@
+{
+ "queue": [],
+ "judged": [
+  "inat:334492966",
+  "inat:360723593",
+  "inat:725610421",
+  "inat:725610470",
+  "File:Giant-Freshwater-Lobster-Burnie-20170125-001.jpg",
+  "File:Giant-Freshwater-Lobster-Burnie-20170125-002.jpg",
+  "File:Giant-Freshwater-Lobster-Burnie-20170125-003.jpg",
+  "File:Astacopsis gouldi.jpg",
+  "File:Astacopsis gouldi (cropped).jpg"
+ ],
+ "hashes": {
+  "https://media.aquatome.com/aquariumbreeder/50c9a6501bdad92d.webp": "74663c3850b063cd",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/360723593/large.jpeg": "3f73f978781a183d"
+ },
+ "inat": {
+  "taxon": 94729,
+  "pass": "done",
+  "after": {
+   "research": 395716691,
+   "agree": 409122279
+  }
+ },
+ "commons": "2026-11-14",
+ "gbif": {
+  "key": 5789955,
+  "next": null
+ }
+}

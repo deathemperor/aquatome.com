@@ -1,10 +1,13 @@
 {
   "slug": "north-andaman",
-  "name": "North Andaman",
-  "altNames": [],
+  "name": "Bắc Andaman",
+  "altNames": [
+    "North Andaman"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

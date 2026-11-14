@@ -13,6 +13,168 @@
     "cuyuni",
     "rupununi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GY",
+        "VE"
+      ],
+      "regions": [
+        "Essequibo",
+        "Cuyuni",
+        "Berbice",
+        "Corantijn"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Essequibo River basin, Guyana.",
+          "countries": [
+            "GY"
+          ],
+          "regions": [
+            "Essequibo"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Río Botanamo, Río Cuyuni drainage, near the bridge on the road to Bochinche, Bolívar State, Venezuela.",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Cuyuni"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "IUCN Red List: Hypostomus taphorni has a wide range in the Essequibo, Berbice, and Corantijn river basins, and the species appears to be tolerant of poor water quality.",
+          "countries": [],
+          "regions": [
+            "Berbice",
+            "Corantijn"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202251,
+      "total": 81,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "GY",
+          60
+        ],
+        [
+          "VE",
+          18
+        ],
+        [
+          "BR",
+          1
+        ],
+        [
+          "CO",
+          1
+        ],
+        [
+          "SR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -71.71875,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          7.03125,
+          4,
+          4
+        ],
+        [
+          -61.875,
+          5.625,
+          8,
+          8
+        ],
+        [
+          -61.875,
+          7.03125,
+          5,
+          5
+        ],
+        [
+          -60.46875,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          -60.46875,
+          2.8125,
+          29,
+          29
+        ],
+        [
+          -60.46875,
+          5.625,
+          4,
+          4
+        ],
+        [
+          -59.0625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          2.8125,
+          7,
+          7
+        ],
+        [
+          -59.0625,
+          4.21875,
+          14,
+          14
+        ],
+        [
+          -59.0625,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          4.21875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -169,155 +331,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13",
-  "range": {
-    "native": {
-      "countries": [
-        "GY",
-        "VE"
-      ],
-      "regions": [
-        "Essequibo",
-        "Río Cuyuni"
-      ],
-      "sources": [
-        "planetcatfish"
-      ],
-      "quotes": [
-        {
-          "source": "planetcatfish",
-          "quote": "South America: Essequibo River basin, Guyana.",
-          "countries": [
-            "GY"
-          ],
-          "regions": [
-            "Essequibo"
-          ]
-        },
-        {
-          "source": "planetcatfish",
-          "quote": "Type locality: Río Botanamo, Río Cuyuni drainage, near the bridge on the road to Bochinche, Bolívar State, Venezuela.",
-          "countries": [
-            "VE"
-          ],
-          "regions": [
-            "Río Cuyuni"
-          ]
-        }
-      ]
-    },
-    "records": {
-      "taxonKey": 5202251,
-      "total": 81,
-      "fetched": "2026-11-14",
-      "countries": [
-        [
-          "GY",
-          60
-        ],
-        [
-          "VE",
-          18
-        ],
-        [
-          "BR",
-          1
-        ],
-        [
-          "CO",
-          1
-        ],
-        [
-          "SR",
-          1
-        ]
-      ],
-      "cells": [
-        [
-          -71.71875,
-          5.625,
-          1,
-          0
-        ],
-        [
-          -64.6875,
-          8.4375,
-          1,
-          1
-        ],
-        [
-          -63.28125,
-          7.03125,
-          4,
-          4
-        ],
-        [
-          -61.875,
-          5.625,
-          8,
-          8
-        ],
-        [
-          -61.875,
-          7.03125,
-          5,
-          5
-        ],
-        [
-          -60.46875,
-          1.40625,
-          3,
-          3
-        ],
-        [
-          -60.46875,
-          2.8125,
-          29,
-          29
-        ],
-        [
-          -60.46875,
-          5.625,
-          4,
-          4
-        ],
-        [
-          -59.0625,
-          1.40625,
-          1,
-          1
-        ],
-        [
-          -59.0625,
-          2.8125,
-          7,
-          7
-        ],
-        [
-          -59.0625,
-          4.21875,
-          14,
-          14
-        ],
-        [
-          -59.0625,
-          5.625,
-          2,
-          2
-        ],
-        [
-          -57.65625,
-          -5.625,
-          1,
-          0
-        ],
-        [
-          -57.65625,
-          4.21875,
-          1,
-          0
-        ]
-      ]
-    }
-  }
+  "updatedAt": "2026-11-13"
 }

@@ -26,7 +26,7 @@ Quy tắc:
 - "LOẠI BÁN Ở VIỆT NAM" và "TÊN NƯỚC NGOÀI": mỗi loại dữ kiện có nói tới phải có li riêng, theo thứ tự trên. Tên tiếng Anh để trong ngoặc khi dữ kiện ghi, không có thì không ghi gì. Loại mà dữ kiện chỉ có một câu tiệm bán: viết đúng một dòng đó, không thêm. "NGƯỜI ĐỌC ĐÃ HỎI" là điều mục này phải trả lời được.
 - Không nêu tên hãng hay tên sản phẩm (ví dụ tên hãng đi kèm tên gỗ); chỉ nói có tiệm bán dưới tên loại đó.
 - Về độ an toàn: nói đúng điều nguồn nói về việc dùng nó trong bể. Không viết câu bỏ lửng khiến người đọc hiểu là "có thể độc" khi dữ kiện không nói vậy về việc dùng trong bể.
-- Cá, tép, ốc và cây dữ kiện nhắc tới: nếu có trong "TRANG CỦA AQUATOME", gọi bằng tên trang, tên đầu dòng, viết y nguyên (trang tự gắn liên kết). Không có trong danh sách, hoặc nói chung cả một nhóm (một chi, "plecos", "pencilfish"), thì viết tên khoa học đúng như dữ kiện ghi; dữ kiện không có tên khoa học thì không nhắc tới con đó. Không viết tên tiếng Anh, không tự đặt tên tiếng Việt.
+- Cá, tép, ốc và cây dữ kiện nhắc tới: nếu có trong "TRANG CỦA AQUATOME", gọi bằng tên trang, tên đầu dòng, viết y nguyên trừ chữ đầu: giữa câu thì viết thường như mọi danh từ chung ("như cá neon vua"), tên riêng trong đó giữ chữ hoa (trang vẫn tự gắn liên kết). Không có trong danh sách, hoặc nói chung cả một nhóm (một chi, "plecos", "pencilfish"), thì viết tên khoa học đúng như dữ kiện ghi; dữ kiện không có tên khoa học thì không nhắc tới con đó. Không viết tên tiếng Anh, không tự đặt tên tiếng Việt.
 - "CHO MỤC NÀY": yêu cầu riêng cho mục này, làm đúng từng dòng.
 - Không nhắc đến người viết, kênh, video hay "theo tác giả". Không viết giá cụ thể. Không giọng quảng cáo, không phán xét người nuôi.
 - HTML: chỉ p, ul, ol, li, strong, em, h3.

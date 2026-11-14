@@ -29,22 +29,22 @@ test('inventory: items per kind in content/, and how many have an Indonesian, a 
   expect(stats.inventory).toEqual({
     fish: { total: 9, id: 0, th: 0, ms: 1 }, breed: { total: 3, id: 0, th: 0, ms: 1 }, plant: { total: 4, id: 0, th: 0, ms: 1 },
     guide: { total: 7, id: 0, th: 0, ms: 1 }, videoGuide: { total: 2, id: 0, th: 0, ms: 0 }, series: { total: 2, id: 0, th: 0, ms: 0 },
-    glossary: { total: 4, id: 0, th: 0, ms: 1 }, equipment: { total: 1, id: 0, th: 0, ms: 1 }, place: { total: 12, id: 0, th: 0, ms: 1 }, product: { total: 6, id: 0, th: 0, ms: 0 },
+    glossary: { total: 5, id: 0, th: 0, ms: 1 }, equipment: { total: 1, id: 0, th: 0, ms: 1 }, place: { total: 12, id: 0, th: 0, ms: 1 }, product: { total: 6, id: 0, th: 0, ms: 0 },
   })
 })
 
 test('built pages: every index.html under /, /id/, /th/ and /ms/, by kind, each with its h1 and its item', () => {
-  // 178 pages, as markdown.ts counts them (every page under the four languages). Malay's tools are one fewer: no setup budget.
-  expect(stats.built!.total).toEqual({ vi: 106, id: 21, th: 21, ms: 30 })
+  // 181 pages, as markdown.ts counts them (every page under the four languages). Malay's tools are one fewer: no setup budget.
+  expect(stats.built!.total).toEqual({ vi: 109, id: 21, th: 21, ms: 30 })
   const n = (vi: number, id = 0, th = 0, ms = 0) => ({ vi, id, th, ms })
-  expect(stats.built!.byKind).toMatchObject({ fish: n(9, 0, 0, 1), breed: n(3, 0, 0, 1), plant: n(4, 0, 0, 1), guide: n(7, 0, 0, 1), videoGuide: n(2), glossary: n(4, 0, 0, 1), series: n(1), gallery: n(3, 0, 0, 1), tool: n(7, 7, 7, 6), other: n(8, 5, 5, 5) })
+  expect(stats.built!.byKind).toMatchObject({ fish: n(9, 0, 0, 1), breed: n(3, 0, 0, 1), plant: n(4, 0, 0, 1), guide: n(7, 0, 0, 1), videoGuide: n(2), glossary: n(5, 0, 0, 1), series: n(1), gallery: n(3, 0, 0, 1), tool: n(7, 7, 7, 6), other: n(10, 5, 5, 5) })
   expect(stats.pages!.fish).toContainEqual(['/ca/ca-neon-vua/', 'Cá neon vua', 'paracheirodon-axelrodi'])
   expect(stats.pages!.breed).toContainEqual(['/ca/ca-la-han/', 'Cá La Hán (Flowerhorn)', 'flowerhorn-cichlid'])
   expect(stats.pages!.videoGuide).toContainEqual(['/huong-dan/bon-phan-cho-cay-thuy-sinh/', 'Bón phân cho cây thủy sinh', 'youtube-r53ZQW0m8VM'])
   expect(stats.pages!.place).toContainEqual(['/nguon-goc/asia/china/', 'Trung Quốc', 'china'])
   expect(stats.pages!.list).toContainEqual(['/th/fish/', 'ทุกสายพันธุ์'])
   // The unlisted material pilot and the about pages (the site's and its data card's), contact, privacy, sign-in and app pages are "other": every other page has its kind.
-  expect(stats.pages!.other!.map(r => r[0]).sort()).toEqual(['/chinh-sach-bao-mat/', '/dang-nhap/', '/gioi-thieu/', '/gioi-thieu/bang-du-lieu/', '/id/aplikasi/', '/id/kebijakan-privasi/', '/id/kontak/', '/id/tentang/', '/id/tentang/tabel-data/', '/lien-he/', '/ms/aplikasi/', '/ms/dasar-privasi/', '/ms/hubungi/', '/ms/tentang/', '/ms/tentang/jadual-data/', '/th/about/', '/th/about/data-table/', '/th/contact/', '/th/mobile-app/', '/th/privacy/', '/ung-dung/', '/vat-lieu/lua-sa-tung/', '/vat-lieu/lua/'])
+  expect(stats.pages!.other!.map(r => r[0]).sort()).toEqual(['/chinh-sach-bao-mat/', '/dang-nhap/', '/gioi-thieu/', '/gioi-thieu/bang-du-lieu/', '/id/aplikasi/', '/id/kebijakan-privasi/', '/id/kontak/', '/id/tentang/', '/id/tentang/tabel-data/', '/lien-he/', '/ms/aplikasi/', '/ms/dasar-privasi/', '/ms/hubungi/', '/ms/tentang/', '/ms/tentang/jadual-data/', '/th/about/', '/th/about/data-table/', '/th/contact/', '/th/mobile-app/', '/th/privacy/', '/ung-dung/', '/vat-lieu/', '/vat-lieu/lua-mopani/', '/vat-lieu/lua-sa-tung/', '/vat-lieu/lua/'])
   expect(Buffer.byteLength(JSON.stringify(stats.totals))).toBeLessThan(1024)
 })
 
@@ -99,10 +99,10 @@ test('gaps on the fish, plant and breed pages, each with its count and the list 
   expect(g.plant!.noViName).toEqual({ n: 1, top: [['/cay/cryptocoryne-wendtii/', 'Cryptocoryne wendtii']] })
   expect(g.breed!.noPhoto).toEqual({ n: 2, top: [['/ca/ca-la-han/', 'Cá La Hán (Flowerhorn)'], ['/ca/ca-vang-oranda/', 'Cá vàng Oranda']] })
   expect(g.breed!.noKeyFacts!.by).toEqual({ tempC: 1, ph: 2, sizeCm: 1 })
-  expect([g.guide!.noId!.n, g.videoGuide!.noTh!.n, g.glossary!.noId!.n]).toEqual([7, 2, 4])
+  expect([g.guide!.noId!.n, g.videoGuide!.noTh!.n, g.glossary!.noId!.n]).toEqual([7, 2, 5])
   // Older Vietnamese: every page with text to rewrite, less Cá neon xanh (done) and the term pH (failed under this version).
   // The guide rewritten under version 1 with nothing kept is due again.
-  expect([g.fish!.oldVi!.n, g.plant!.oldVi!.n, g.guide!.oldVi!.n, g.glossary!.oldVi!.n]).toEqual([8, 4, 7, 3])
+  expect([g.fish!.oldVi!.n, g.plant!.oldVi!.n, g.guide!.oldVi!.n, g.glossary!.oldVi!.n]).toEqual([8, 4, 7, 4])
   expect(g.fish!.oldVi!.top.map(([p]) => p)).not.toContain('/ca/ca-neon-xanh/')
   // A page taken down from the dashboard leaves the lists.
   const hidden = computeContentStats({ contentRoot: CONTENT, publicBuild: false, hidden: new Set(['/ca/ca-ong-tien/']), now: NOW })
@@ -121,7 +121,7 @@ test('engine: each source\'s addresses by state, the blocked ones, the video que
   expect(e.videos).toMatchObject({ listed: 6, written: 1, skipped: 1, waiting: 3, failed: 1, playlists: { queued: 1, skipped: 1 }, singles: { queued: 2, skipped: 1 } })
   // When each guide was written, so the dashboard counts them by its viewer's days (both are within 32 days of the build).
   expect(e.videos.writtenAt).toEqual(['2026-11-01T04:00:00.000Z', '2026-11-02T08:00:00.000Z'])
-  expect(e.rewrite).toEqual({ done: 1, waiting: 8 + 4 + 7 + 3, failed: 1 })
+  expect(e.rewrite).toEqual({ done: 1, waiting: 8 + 4 + 7 + 4, failed: 1 })
   expect(e.lastRun).toEqual({ startedAt: '2026-11-02T18:00:00.000Z', finishedAt: '2026-11-02T20:30:00.000Z', needsHuman: ['2hraquarist'], errors: 1, changed: 2 })
 })
 

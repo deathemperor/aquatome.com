@@ -20,10 +20,13 @@
       ],
       "regions": [
         "Amazon",
-        "Tocantins"
+        "Tocantins",
+        "Orinoco",
+        "Madeira"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "planetcatfish"
       ],
       "quotes": [
         {
@@ -35,6 +38,15 @@
           "regions": [
             "Amazon",
             "Tocantins"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Amazon basin (Lower Amazon: Tocantins, Guamá and Nhamundá; Middle Amazon (Solimões): Madeira) and Upper Orinoco (Ventuari).",
+          "countries": [],
+          "regions": [
+            "Orinoco",
+            "Madeira"
           ]
         }
       ]

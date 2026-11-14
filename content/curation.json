@@ -145,7 +145,7 @@
       "vi": "Cá đàn nhỏ cho bể thủy sinh",
       "id": "Ikan kecil bergerombol untuk aquascape",
       "th": "ปลาฝูงตัวเล็กสำหรับตู้ไม้น้ำ",
-      "ms": "Ikan kecil berkumpulan untuk aquascape"
+      "ms": "Ikan kecil yang hidup berkumpulan untuk aquascape"
      },
      "pages": [
       "species/paracheirodon-axelrodi",
@@ -341,6 +341,762 @@
     }
    ],
    "why": "Fish from Africa: the group with the most pages that pass reader fit and have a large photo. Cichlids from Lakes Malawi and Tanganyika, and Africa's odd fish (bichirs, ropefish, elephantnose, upside-down catfish). No Malay theme or shelves: most of these fish have no Malay page yet."
+  },
+  {
+   "from": "2026-12-07",
+   "to": "2026-12-13",
+   "theme": {
+    "vi": "Cá dễ nuôi cho bể đầu tiên",
+    "id": "Ikan mudah dirawat untuk akuarium pertama",
+    "th": "ปลาเลี้ยงง่ายสำหรับตู้แรก",
+    "ms": "Ikan mudah dijaga untuk akuarium pertama"
+   },
+   "tags": [
+    "beginner"
+   ],
+   "fish": [
+    "species/corydoras-paleatus",
+    "species/poecilia-sphenops",
+    "species/poropanchax-normani",
+    "species/anostomus-anostomus",
+    "species/stigmatogobius-sadanundio",
+    "species/limia-melanogaster",
+    "species/herotilapia-multispinosa",
+    "species/laetacara-araguaiae",
+    "species/jordanella-floridae",
+    "species/marisa-cornuarietis"
+   ],
+   "guides": [],
+   "hero": [
+    {
+     "page": "species/corydoras-paleatus",
+     "img": "https://media.aquatome.com/commons/ca2a8705dff4e31e-large.webp"
+    },
+    {
+     "page": "species/poecilia-sphenops",
+     "img": "https://media.aquatome.com/commons/b3c484e83af5b774-large.webp"
+    },
+    {
+     "page": "species/boraras-brigittae",
+     "img": "https://media.aquatome.com/commons/bb991a4fdd2edcd5-large.webp"
+    },
+    {
+     "page": "species/hyphessobrycon-eques",
+     "img": "https://media.aquatome.com/commons/551d0bdb3f541228-large.webp"
+    },
+    {
+     "page": "species/poecilia-latipinna",
+     "img": "https://media.aquatome.com/commons/115a23b2b151bcce-large.webp"
+    }
+   ],
+   "shelves": [
+    {
+     "id": "de-nuoi-cho-nguoi-moi",
+     "title": {
+      "vi": "Cá dễ nuôi cho người mới",
+      "id": "Ikan mudah dipelihara untuk pemula",
+      "th": "ปลาเลี้ยงง่ายสำหรับมือใหม่",
+      "ms": "Ikan mudah dijaga untuk pemula"
+     },
+     "pages": [
+      "species/corydoras-paleatus",
+      "species/poecilia-sphenops",
+      "species/anostomus-anostomus",
+      "species/poropanchax-normani",
+      "species/stigmatogobius-sadanundio",
+      "species/paracheirodon-innesi",
+      "species/hyphessobrycon-eques",
+      "species/danio-tinwini"
+     ]
+    },
+    {
+     "id": "ca-de-con",
+     "title": {
+      "vi": "Cá đẻ con",
+      "id": "Ikan beranak",
+      "th": "ปลาออกลูกเป็นตัว",
+      "ms": "Ikan beranak"
+     },
+     "pages": [
+      "species/poecilia-sphenops",
+      "species/limia-melanogaster",
+      "species/phalloceros-caudimaculatus",
+      "species/phallichthys-tico",
+      "species/brachyrhaphis-roseni"
+     ]
+    }
+   ],
+   "why": "Fish a first tank can hold: hardy, peaceful, easy to feed (the beginner tag), with livebearers, which breed in a home tank on their own."
+  },
+  {
+   "from": "2026-12-14",
+   "to": "2026-12-20",
+   "theme": {
+    "vi": "Cá Nam Mỹ",
+    "id": "Ikan Amerika Selatan",
+    "th": "ปลาจากอเมริกาใต้",
+    "ms": "Ikan Amerika Selatan"
+   },
+   "tags": [],
+   "fish": [
+    "species/hyphessobrycon-bentosi",
+    "species/gasteropelecus-maculatus",
+    "species/mesonauta-festivus",
+    "species/metynnis-lippincottianus",
+    "species/acnodon-normani",
+    "species/macrotocinclus-affinis",
+    "species/farlowella-vittata",
+    "species/pyrrhulina-filamentosa",
+    "species/hyphessobrycon-agulha",
+    "species/piaractus-brachypomus",
+    "species/thalassophryne-amazonica"
+   ],
+   "guides": [],
+   "hero": [
+    {
+     "page": "species/hyphessobrycon-bentosi",
+     "img": "https://media.aquatome.com/commons/919ef27ae71477f1-large.webp"
+    },
+    {
+     "page": "species/gasteropelecus-maculatus",
+     "img": "https://media.aquatome.com/commons/02d844b0dd7c86df-large.webp"
+    },
+    {
+     "page": "species/mesonauta-festivus",
+     "img": "https://media.aquatome.com/commons/caf353eeb8b0331f-large.webp"
+    },
+    {
+     "page": "species/metynnis-lippincottianus",
+     "img": "https://media.aquatome.com/commons/add75edcdbd8f6bf-large.webp"
+    },
+    {
+     "page": "species/acnodon-normani",
+     "img": "https://media.aquatome.com/commons/38d8e400e9421e9a-large.webp"
+    }
+   ],
+   "shelves": [
+    {
+     "id": "ca-dan-nam-my",
+     "title": {
+      "vi": "Cá đàn Nam Mỹ",
+      "id": "Ikan bergerombol dari Amerika Selatan",
+      "th": "ปลาฝูงจากอเมริกาใต้",
+      "ms": "Ikan Amerika Selatan yang hidup berkumpulan"
+     },
+     "pages": [
+      "species/paracheirodon-axelrodi",
+      "species/paracheirodon-innesi",
+      "species/hyphessobrycon-eques",
+      "species/hyphessobrycon-bentosi",
+      "species/hyphessobrycon-agulha",
+      "species/gasteropelecus-maculatus",
+      "species/pyrrhulina-filamentosa"
+     ]
+    },
+    {
+     "id": "ca-chuot-lau-kieng",
+     "title": {
+      "vi": "Cá chuột, cá otto và cá lau kiếng",
+      "id": "Corydoras dan sapu-sapu",
+      "th": "ปลาแพะและปลาซักเกอร์",
+      "ms": "Corydoras dan ikan bandaraya"
+     },
+     "pages": [
+      "species/corydoras-paleatus",
+      "species/corydoras-zygatus",
+      "species/macrotocinclus-affinis",
+      "species/farlowella-vittata",
+      "species/hypostomus-gymnorhynchus"
+     ]
+    }
+   ],
+   "why": "South America: tetras that school, the hatchetfish, and the catfish of the bottom (corydoras, otos, plecos, the twig catfish)."
+  },
+  {
+   "from": "2026-12-21",
+   "to": "2026-12-27",
+   "theme": {
+    "vi": "Mùa lạnh: cá chịu lạnh, cá cần sưởi",
+    "id": "Musim hujan: ikan yang tahan dingin dan yang perlu pemanas",
+    "th": "หน้าหนาว: ปลาทนเย็นกับปลาที่ต้องใช้ฮีตเตอร์",
+    "ms": "Musim tengkujuh: ikan yang tahan sejuk dan yang perlukan pemanas"
+   },
+   "tags": [
+    "cold",
+    "heater"
+   ],
+   "fish": [
+    "species/jordanella-floridae",
+    "species/macropodus-ocellatus",
+    "species/micropercops-swinhonis",
+    "species/phalloceros-caudimaculatus",
+    "species/altolamprologus-calvus",
+    "species/altolamprologus-compressiceps",
+    "breeds/platinum-angelfish",
+    "species/synodontis-petricola",
+    "species/polypterus-delhezi",
+    "species/caridina-dennerli"
+   ],
+   "guides": [],
+   "hero": [
+    {
+     "page": "breeds/bubble-eye-goldfish",
+     "img": "https://media.aquatome.com/commons/3759a29c0b4578f7-large.webp"
+    },
+    {
+     "page": "breeds/plakat-betta",
+     "img": "https://media.aquatome.com/commons/2f06e503b293c8ae-large.webp"
+    },
+    {
+     "page": "breeds/blue-velvet-shrimp",
+     "img": "https://images.unsplash.com/photo-1754077366222-858cb109e2e2?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8OXx8Ymx1ZSUyMHZlbHZldCUyMHNocmltcHxlbnwxfHx8fDE3OTMzNzk0MTl8MA&ixlib=rb-4.1.0&w=1811&q=80&fm=jpg&fit=max"
+    },
+    {
+     "page": "species/anabas-testudineus",
+     "img": "https://media.aquatome.com/commons/771f9afef1d694dc-large.webp"
+    },
+    {
+     "page": "species/danio-tinwini",
+     "img": "https://media.aquatome.com/commons/647ba5aba1755f2b-large.webp"
+    }
+   ],
+   "shelves": [
+    {
+     "id": "chiu-nuoc-lanh",
+     "title": {
+      "vi": "Cá chịu được nước lạnh",
+      "id": "Ikan yang tahan dingin",
+      "th": "ปลาที่ทนน้ำเย็นได้",
+      "ms": "Ikan yang tahan sejuk"
+     },
+     "pages": [
+      "species/danio-tinwini",
+      "species/anabas-testudineus",
+      "species/barbodes-binotatus",
+      "species/jordanella-floridae",
+      "species/macropodus-ocellatus",
+      "species/micropercops-swinhonis",
+      "species/phalloceros-caudimaculatus"
+     ]
+    },
+    {
+     "id": "can-suoi",
+     "title": {
+      "vi": "Cá cần sưởi khi trời lạnh",
+      "id": "Ikan yang perlu pemanas saat musim hujan",
+      "th": "ปลาที่ต้องใช้ฮีตเตอร์ช่วงอากาศเย็น",
+      "ms": "Ikan yang perlukan pemanas pada musim tengkujuh"
+     },
+     "pages": [
+      "species/dichotomyctere-nigroviridis",
+      "species/labidochromis-caeruleus",
+      "species/maylandia-estherae",
+      "species/altolamprologus-calvus",
+      "species/altolamprologus-compressiceps",
+      "breeds/plakat-betta",
+      "breeds/platinum-angelfish",
+      "species/synodontis-petricola"
+     ]
+    }
+   ],
+   "why": "The north's coldest week: fish that take cool water, and those that need a heater (their pages' lowest temperature). In Indonesia and Malaysia, the rainy season's cool nights."
+  },
+  {
+   "from": "2026-12-28",
+   "to": "2027-01-03",
+   "theme": {
+    "vi": "Cá châu Á",
+    "id": "Ikan Asia",
+    "th": "ปลาจากเอเชีย",
+    "ms": "Ikan Asia"
+   },
+   "tags": [],
+   "fish": [
+    "species/epalzeorhynchos-bicolor",
+    "species/kryptopterus-vitreolus",
+    "species/betta-pugnax",
+    "species/candidia-barbata",
+    "species/catlocarpio-siamensis",
+    "species/macropodus-spechti",
+    "species/boraras-brigittae",
+    "species/channa-maculata",
+    "species/dichotomyctere-nigroviridis",
+    "species/atyopsis-moluccensis"
+   ],
+   "guides": [],
+   "hero": [
+    {
+     "page": "species/epalzeorhynchos-bicolor",
+     "img": "https://media.aquatome.com/commons/84146b0c9a1840e2-large.webp"
+    },
+    {
+     "page": "species/dichotomyctere-nigroviridis",
+     "img": "https://media.aquatome.com/commons/dc869ceba62259ce-large.webp"
+    },
+    {
+     "page": "species/kryptopterus-vitreolus",
+     "img": "https://media.aquatome.com/commons/fca62a828bf26357-large.webp"
+    },
+    {
+     "page": "species/betta-pugnax",
+     "img": "https://media.aquatome.com/commons/0bbdfae84bcca19b-large.webp"
+    },
+    {
+     "page": "species/candidia-barbata",
+     "img": "https://media.aquatome.com/commons/9599a86bdaa59fb3-large.webp"
+    }
+   ],
+   "shelves": [
+    {
+     "id": "ca-dong-nam-a",
+     "title": {
+      "vi": "Cá Đông Nam Á",
+      "id": "Ikan Asia Tenggara",
+      "th": "ปลาจากเอเชียตะวันออกเฉียงใต้",
+      "ms": "Ikan Asia Tenggara"
+     },
+     "pages": [
+      "species/epalzeorhynchos-bicolor",
+      "species/betta-pugnax",
+      "species/boraras-brigittae",
+      "species/barbodes-binotatus",
+      "species/betta-anabatoides",
+      "species/danio-tinwini",
+      "species/macropodus-spechti"
+     ]
+    },
+    {
+     "id": "ca-la-chau-a",
+     "title": {
+      "vi": "Cá lạ châu Á",
+      "id": "Ikan unik dari Asia",
+      "th": "ปลาแปลกจากเอเชีย",
+      "ms": "Ikan unik dari Asia"
+     },
+     "pages": [
+      "species/kryptopterus-vitreolus",
+      "species/dichotomyctere-nigroviridis",
+      "species/channa-maculata",
+      "species/catlocarpio-siamensis",
+      "species/anabas-testudineus"
+     ]
+    }
+   ],
+   "why": "Asia, our readers' own waters: Southeast Asia's rasboras, barbs and bettas, and its odd fish (the glass catfish, a puffer, a snakehead, the giant barb, the climbing perch)."
+  },
+  {
+   "from": "2027-01-04",
+   "to": "2027-01-10",
+   "theme": {
+    "vi": "Năm mới, bể mới",
+    "id": "Tahun baru, akuarium baru",
+    "th": "ปีใหม่ ตู้ใหม่",
+    "ms": "Tahun baru, akuarium baru"
+   },
+   "tags": [
+    "beginner"
+   ],
+   "fish": [
+    "species/danio-tinwini",
+    "species/poecilia-sphenops",
+    "species/corydoras-paleatus",
+    "species/barbodes-binotatus",
+    "species/hyphessobrycon-eques",
+    "species/paracheirodon-innesi",
+    "species/macropodus-spechti",
+    "species/oryzias-dancena"
+   ],
+   "guides": [
+    "guides/youtube-vyNU5afRdkU",
+    "guides/aquariumbreeder-new-tank-syndrome",
+    "guides/youtube-ULCBqSQYaOY",
+    "guides/youtube-iFDXqeBOxQk"
+   ],
+   "hero": [
+    {
+     "page": "species/poecilia-sphenops",
+     "img": "https://media.aquatome.com/commons/b3c484e83af5b774-large.webp"
+    },
+    {
+     "page": "species/corydoras-paleatus",
+     "img": "https://media.aquatome.com/commons/ca2a8705dff4e31e-large.webp"
+    },
+    {
+     "page": "species/paracheirodon-innesi",
+     "img": "https://media.aquatome.com/commons/038fd41622de2f10-large.webp"
+    },
+    {
+     "page": "species/hyphessobrycon-eques",
+     "img": "https://media.aquatome.com/commons/551d0bdb3f541228-large.webp"
+    },
+    {
+     "page": "species/paracheirodon-axelrodi",
+     "img": "https://media.aquatome.com/commons/9bd71e9d262fdea2-large.webp"
+    }
+   ],
+   "shelves": [
+    {
+     "id": "dung-be-dau-tien",
+     "title": {
+      "vi": "Set bể đầu tiên"
+     },
+     "pages": [
+      "guides/youtube-vyNU5afRdkU",
+      "guides/youtube-8ov1q3r56Kw",
+      "guides/aquariumbreeder-new-tank-syndrome",
+      "guides/youtube-ULCBqSQYaOY",
+      "guides/youtube-iFDXqeBOxQk",
+      "guides/youtube-QoLZvjObqYM"
+     ]
+    },
+    {
+     "id": "ca-dau-tien-be-moi",
+     "title": {
+      "vi": "Cá đầu tiên cho bể mới",
+      "id": "Ikan pertama untuk akuarium baru",
+      "th": "ปลาชุดแรกสำหรับตู้ใหม่",
+      "ms": "Ikan pertama untuk akuarium baru"
+     },
+     "pages": [
+      "species/poecilia-sphenops",
+      "species/corydoras-paleatus",
+      "species/danio-tinwini",
+      "species/barbodes-binotatus",
+      "species/hyphessobrycon-eques",
+      "species/paracheirodon-innesi",
+      "species/macropodus-spechti",
+      "species/limia-melanogaster"
+     ]
+    }
+   ],
+   "why": "A new tank for the new year: how to set one up and let it mature before the fish, and the first fish to put in it."
+  },
+  {
+   "from": "2027-01-11",
+   "to": "2027-01-17",
+   "theme": {
+    "vi": "Cá đàn nhỏ cho bể thủy sinh",
+    "id": "Ikan kecil bergerombol untuk aquascape",
+    "th": "ปลาฝูงตัวเล็กสำหรับตู้ไม้น้ำ",
+    "ms": "Ikan kecil yang hidup berkumpulan untuk aquascape"
+   },
+   "tags": [
+    "nano"
+   ],
+   "fish": [
+    "species/boraras-brigittae",
+    "species/danio-tinwini",
+    "species/paracheirodon-axelrodi",
+    "species/paracheirodon-innesi",
+    "species/oryzias-dancena"
+   ],
+   "guides": [],
+   "hero": [
+    {
+     "page": "species/boraras-brigittae",
+     "img": "https://media.aquatome.com/commons/bb991a4fdd2edcd5-large.webp"
+    },
+    {
+     "page": "species/axelrodia-riesei",
+     "img": "https://media.aquatome.com/aquariumbreeder/eb80c1e695ab26b1.webp"
+    },
+    {
+     "page": "species/hyphessobrycon-flammeus",
+     "img": "https://media.aquatome.com/commons/d3522b158c15b71e-large.webp"
+    },
+    {
+     "page": "species/oryzias-dancena",
+     "img": "https://media.aquatome.com/inaturalist/304682978-large.webp"
+    },
+    {
+     "page": "species/oryzias-javanicus",
+     "img": "https://media.aquatome.com/commons/b141c258130b27c5-large.webp"
+    }
+   ],
+   "shelves": [
+    {
+     "id": "dan-nho-thuy-sinh",
+     "title": {
+      "vi": "Cá đàn nhỏ cho bể thủy sinh",
+      "id": "Ikan kecil bergerombol untuk aquascape",
+      "th": "ปลาฝูงตัวเล็กสำหรับตู้ไม้น้ำ",
+      "ms": "Ikan kecil yang hidup berkumpulan untuk aquascape"
+     },
+     "pages": [
+      "species/boraras-brigittae",
+      "species/danio-tinwini",
+      "species/paracheirodon-axelrodi",
+      "species/paracheirodon-innesi",
+      "species/oryzias-dancena"
+     ]
+    },
+    {
+     "id": "tep-thuy-sinh",
+     "title": {
+      "vi": "Tép cảnh cho bể thủy sinh",
+      "id": "Udang hias untuk aquascape",
+      "th": "กุ้งแคระสำหรับตู้ไม้น้ำ",
+      "ms": "Udang hiasan untuk aquascape"
+     },
+     "pages": [
+      "breeds/blue-velvet-shrimp",
+      "species/caridina-dennerli",
+      "species/atyopsis-moluccensis"
+     ]
+    }
+   ],
+   "why": "Small schooling fish and shrimp for a planted tank, eight weeks after November's small-tank week."
+  },
+  {
+   "from": "2027-01-18",
+   "to": "2027-01-24",
+   "theme": {
+    "vi": "Dọn bể đón Tết",
+    "id": "Bersih-bersih akuarium jelang Imlek",
+    "th": "ทำความสะอาดตู้ก่อนตรุษจีน",
+    "ms": "Bersihkan akuarium sebelum Tahun Baru Cina"
+   },
+   "tags": [],
+   "fish": [
+    "species/macrotocinclus-affinis",
+    "species/garra-ceylonensis",
+    "species/farlowella-vittata",
+    "species/vittina-waigiensis",
+    "species/marisa-cornuarietis",
+    "species/caridina-dennerli",
+    "breeds/blue-velvet-shrimp",
+    "species/corydoras-paleatus"
+   ],
+   "guides": [
+    "guides/2hraquarist-blogs-algae-control-how-to-control-bba",
+    "guides/2hraquarist-blogs-algae-control-how-to-control-misc-green-algae",
+    "guides/2hraquarist-blogs-algae-control-how-to-control-diatoms"
+   ],
+   "hero": [
+    {
+     "page": "breeds/blue-velvet-shrimp",
+     "img": "https://images.unsplash.com/photo-1754077366222-858cb109e2e2?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8OXx8Ymx1ZSUyMHZlbHZldCUyMHNocmltcHxlbnwxfHx8fDE3OTMzNzk0MTl8MA&ixlib=rb-4.1.0&w=1811&q=80&fm=jpg&fit=max"
+    },
+    {
+     "page": "species/macrotocinclus-affinis",
+     "img": "https://media.aquatome.com/commons/0e2e8e770f67551a-large.webp"
+    },
+    {
+     "page": "species/garra-ceylonensis",
+     "img": "https://media.aquatome.com/inaturalist/198239493-large.webp"
+    },
+    {
+     "page": "species/farlowella-vittata",
+     "img": "https://media.aquatome.com/seriouslyfish/fd432a0df033d9e3.webp"
+    },
+    {
+     "page": "species/vittina-waigiensis",
+     "img": "https://media.aquatome.com/commons/4fe13d421da350f4-large.webp"
+    }
+   ],
+   "shelves": [
+    {
+     "id": "doi-don-be",
+     "title": {
+      "vi": "Cá, tép, ốc ăn rêu",
+      "id": "Ikan, udang, dan siput pemakan alga",
+      "th": "ปลา กุ้ง หอย กินตะไคร่",
+      "ms": "Ikan, udang dan siput pemakan alga"
+     },
+     "pages": [
+      "species/macrotocinclus-affinis",
+      "species/garra-ceylonensis",
+      "species/farlowella-vittata",
+      "breeds/blue-velvet-shrimp",
+      "species/caridina-dennerli",
+      "species/vittina-waigiensis",
+      "species/vittina-turrita",
+      "species/marisa-cornuarietis"
+     ]
+    },
+    {
+     "id": "tri-reu-tao",
+     "title": {
+      "vi": "Xử lý rêu hại trước Tết",
+      "id": "Mengatasi alga sebelum Imlek",
+      "th": "กำจัดตะไคร่ก่อนตรุษจีน",
+      "ms": "Atasi alga sebelum Tahun Baru Cina"
+     },
+     "pages": [
+      "guides/2hraquarist-blogs-algae-control-how-to-control-bba",
+      "guides/2hraquarist-blogs-algae-control-how-to-control-misc-green-algae",
+      "guides/2hraquarist-blogs-algae-control-how-to-control-diatoms",
+      "guides/2hraquarist-blogs-algae-control-how-to-control-cynobacteria",
+      "guides/2hraquarist-blogs-algae-control-how-to-get-rid-of-staghorn-algae",
+      "guides/2hraquarist-blogs-algae-control-how-to-control-cladophora"
+     ]
+    }
+   ],
+   "why": "Before Tết, the tank is cleaned with the house: the fish, shrimp and snails that eat algae, and how to clear each kind of algae."
+  },
+  {
+   "from": "2027-01-25",
+   "to": "2027-01-31",
+   "theme": {
+    "vi": "Cá đỏ, cá vàng đón Tết",
+    "id": "Ikan merah dan ikan mas koki menyambut Imlek",
+    "th": "ปลาสีแดงและปลาทองรับตรุษจีน",
+    "ms": "Ikan merah dan ikan emas sempena Tahun Baru Cina"
+   },
+   "tags": [],
+   "fish": [
+    "breeds/bubble-eye-goldfish",
+    "breeds/oranda-goldfish",
+    "breeds/pearlscale-goldfish",
+    "breeds/koi-angelfish",
+    "breeds/koi-betta",
+    "breeds/red-tailed-golden-arowana",
+    "breeds/super-red-arowana",
+    "species/scleropages-formosus",
+    "breeds/ranchu-goldfish",
+    "breeds/ryukin-goldfish"
+   ],
+   "guides": [
+    "guides/aquatome-di-vang-nhieu-ngay-cho-ca-an-va-cham-be-the-nao",
+    "guides/youtube-YNmy5T_dwC8"
+   ],
+   "hero": [
+    {
+     "page": "breeds/bubble-eye-goldfish",
+     "img": "https://media.aquatome.com/commons/3759a29c0b4578f7-large.webp"
+    },
+    {
+     "page": "breeds/koi-angelfish",
+     "img": "https://media.aquatome.com/commons/50679b905eef1e79-large.webp"
+    },
+    {
+     "page": "breeds/oranda-goldfish",
+     "img": "https://media.aquatome.com/commons/10e486e74625ccb7-large.webp"
+    },
+    {
+     "page": "breeds/pearlscale-goldfish",
+     "img": "https://media.aquatome.com/commons/918d6b4152c16255-large.webp"
+    },
+    {
+     "page": "breeds/koi-betta",
+     "img": "https://media.aquatome.com/commons/bd133e7dce547365-large.webp"
+    }
+   ],
+   "shelves": [
+    {
+     "id": "ca-vang",
+     "title": {
+      "vi": "Cá vàng",
+      "id": "Ikan mas koki",
+      "th": "ปลาทอง",
+      "ms": "Ikan emas"
+     },
+     "pages": [
+      "breeds/bubble-eye-goldfish",
+      "breeds/oranda-goldfish",
+      "breeds/pearlscale-goldfish",
+      "breeds/black-moor-goldfish"
+     ]
+    },
+    {
+     "id": "ca-rong",
+     "title": {
+      "vi": "Cá rồng",
+      "id": "Arwana",
+      "th": "อะโรวาน่า",
+      "ms": "Arowana"
+     },
+     "pages": [
+      "breeds/red-tailed-golden-arowana",
+      "breeds/super-red-arowana",
+      "species/scleropages-formosus",
+      "species/osteoglossum-bicirrhosum"
+     ]
+    }
+   ],
+   "why": "The two weeks before Tết (6 Feb 2027): red and gold fish, for luck, goldfish and arowana first. The same days are Imlek, ตรุษจีน and Tahun Baru Cina."
+  },
+  {
+   "from": "2027-02-01",
+   "to": "2027-02-07",
+   "theme": {
+    "vi": "Cá màu đỏ và vàng đón Tết",
+    "id": "Ikan berwarna merah dan emas menyambut Imlek",
+    "th": "ปลาสีแดงและสีทองรับตรุษจีน",
+    "ms": "Ikan berwarna merah dan emas sempena Tahun Baru Cina"
+   },
+   "tags": [],
+   "fish": [
+    "breeds/koi",
+    "breeds/butterfly-koi",
+    "breeds/koi-betta",
+    "breeds/koi-angelfish",
+    "species/xiphophorus-hellerii",
+    "species/xiphophorus-maculatus",
+    "breeds/flowerhorn-cichlid",
+    "breeds/blood-parrot-cichlid",
+    "breeds/super-red-arowana",
+    "species/labidochromis-caeruleus",
+    "species/maylandia-estherae",
+    "species/amatitlania-myrnae",
+    "species/epalzeorhynchos-bicolor"
+   ],
+   "guides": [],
+   "hero": [
+    {
+     "page": "species/xiphophorus-hellerii",
+     "img": "https://media.aquatome.com/commons/a5d2543179c2137b-large.webp"
+    },
+    {
+     "page": "species/labidochromis-caeruleus",
+     "img": "https://media.aquatome.com/commons/0eb6aa8510474bca-large.webp"
+    },
+    {
+     "page": "species/maylandia-estherae",
+     "img": "https://media.aquatome.com/commons/0bde0aea3f9c15e8-large.webp"
+    },
+    {
+     "page": "species/epalzeorhynchos-bicolor",
+     "img": "https://media.aquatome.com/commons/84146b0c9a1840e2-large.webp"
+    },
+    {
+     "page": "breeds/super-red-arowana",
+     "img": "https://media.aquatome.com/commons/18305902a53e52a5-large.webp"
+    }
+   ],
+   "shelves": [
+    {
+     "id": "ca-do-co-lon",
+     "title": {
+      "vi": "Cá đỏ cỡ lớn: la hán, hồng két, huyết long",
+      "id": "Ikan merah besar: louhan, blood parrot, arwana super red",
+      "th": "ปลาสีแดงตัวใหญ่: ฟลาวเวอร์ฮอร์น ปลาหมอนกแก้ว และอะโรวาน่าซุปเปอร์เรด",
+      "ms": "Ikan merah besar: louhan, blood parrot, arowana super red"
+     },
+     "pages": [
+      "breeds/flowerhorn-cichlid",
+      "breeds/blood-parrot-cichlid",
+      "breeds/super-red-arowana"
+     ]
+    },
+    {
+     "id": "koi-ca-do-nho",
+     "title": {
+      "vi": "Betta koi, thần tiên koi và cá đỏ cỡ nhỏ",
+      "id": "Cupang koi, manfish koi, dan ikan merah kecil",
+      "th": "ปลากัดคอย ปลาเทวดาโคอิ และปลาสีแดงตัวเล็ก",
+      "ms": "Koi angelfish dan ikan merah kecil"
+     },
+     "pages": [
+      "breeds/koi-betta",
+      "breeds/koi-angelfish",
+      "breeds/full-red-guppy",
+      "species/xiphophorus-hellerii",
+      "species/xiphophorus-maculatus"
+     ]
+    }
+   ],
+   "why": "Tết week (6 Feb 2027): koi and small red fish, and the flowerhorn and blood parrot (their days decided with the 21 Nov call on the box)."
   }
  ],
  "days": [
@@ -696,8 +1452,7 @@
  "off": {
   "breeds/ranchu-goldfish": "reader fit: source, units",
   "species/betta-splendens": "reader fit: elsewhere",
-  "species/boraras-maculatus": "reader fit: source",
-  "species/boraras-merah": "reader fit: source, elsewhere",
+  "species/boraras-merah": "reader fit: elsewhere",
   "species/channa-asiatica": "reader fit: source",
   "species/channa-gachua": "reader fit: source",
   "species/hemigrammus-erythrozonus": "reader fit: elsewhere",
@@ -705,7 +1460,6 @@
   "species/oryzias-latipes": "reader fit: elsewhere",
   "species/poecilia-reticulata": "reader fit: elsewhere",
   "species/pristella-maxillaris": "reader fit: elsewhere",
-  "species/pterophyllum-scalare": "reader fit: source",
   "species/symphysodon-aequifasciatus": "reader fit: source",
   "species/tanichthys-albonubes": "reader fit: source, elsewhere",
   "species/thayeria-boehlkei": "reader fit: elsewhere"

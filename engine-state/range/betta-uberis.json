@@ -1,8 +1,8 @@
 {
   "id": "betta-uberis",
   "native": {
-    "input": "cd4a644a675ce3bd",
-    "at": "2026-11-09T20:43:02.940Z",
+    "input": "5703d1fc0c30ccf0",
+    "at": "2026-11-14T05:39:06.336Z",
     "claims": [
       {
         "code": "ID",
@@ -39,6 +39,12 @@
         "name": "Sampit",
         "source": "seriouslyfish",
         "quote": "Additional collections have taken place in the Sampit river basin to the east, and several hundred kilometres further north in Sukadana district, Kalimantan Barat (West Kalimantan) province.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "bwaquatics",
+        "quote": "Betta uberis was described in 2006 from peat swamp forests in Central and West Kalimantan, Borneo.",
         "ok": true
       }
     ],

@@ -63,5 +63,33 @@
       "pagesOnly": [],
       "sourcesOnly": []
     }
+  },
+  "records": {
+    "matched": "Rhadinoloricaria rhami",
+    "status": "ACCEPTED",
+    "taxonKey": 9814073,
+    "datasets": [
+      [
+        "278b1d5c-d7a9-4f7a-9651-69cddbb5b94e",
+        2
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "4cb112e9-a4d9-4bff-8a2b-3104bf2db199",
+        1
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T05:39:06.336Z"
   }
 }

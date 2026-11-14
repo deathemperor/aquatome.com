@@ -14,7 +14,7 @@ test('material sections keep their reading order, skip absent text and turn mark
   const m = (await content()).materials.find(m => m.id === 'lua-sa-tung')!
   const sections = materialSections({ ...m, t: { ...m.t, sections: { buy: m.t.sections.buy!, about: m.t.sections.about!, water: '' } } })
   expect(sections.map(s => s.key)).toEqual(['about', 'buy'])
-  expect(sections.map(s => s.heading)).toEqual(['Là gì', 'Mua ở đâu, giá bao nhiêu'])
+  expect(sections.map(s => s.heading)).toEqual(['Là gì', 'Mua ở đâu, chọn thế nào'])
   expect(sections[0]!.html).toContain(`href="${m.sources[0]!.url}"`)
   expect(sections[1]!.html).toContain(`href="${m.sources[2]!.url}"`)
   expect(sections[1]!.html).toContain('class="cite"')
@@ -22,11 +22,11 @@ test('material sections keep their reading order, skip absent text and turn mark
   expect(sections[1]!.html).not.toContain('dịch từ nguồn')
 })
 
-test('the material pilot changes neither the app index nor automatic guide link targets', async () => {
+test('materials enter the app index without changing automatic guide link targets', async () => {
   const c = await content()
-  expect(c.materials.length).toBe(2)
+  expect(c.materials.length).toBe(3)
   const without = { ...c, materials: [] }
-  expect(appIndex('vi', c)).toEqual(appIndex('vi', without))
+  expect(appIndex('vi', c).items.filter(i => i.kind !== 'material')).toEqual(appIndex('vi', without).items)
   expect(linkTargets(c)).toEqual(linkTargets(without))
 })
 
@@ -42,6 +42,6 @@ test('the owner can hide a material by its current or old Vietnamese address', a
   for (const path of ['/vat-lieu/lua/', '/vi/vat-lieu/lua/']) {
     // readHidden normalizes the old form before dropHidden, as it does for every other kind.
     const hidden = new Set([path.replace(/^\/vi\//, '/')])
-    expect(dropHidden(c, hidden).materials.map(m => m.id)).toEqual(['lua-sa-tung'])
+    expect(dropHidden(c, hidden).materials.map(m => m.id)).toEqual(['lua-mopani', 'lua-sa-tung'])
   }
 })

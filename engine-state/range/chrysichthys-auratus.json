@@ -1,8 +1,8 @@
 {
   "id": "chrysichthys-auratus",
   "native": {
-    "input": "b0c5c651f1f60786",
-    "at": "2026-11-14T00:09:29.977Z",
+    "input": "ea7823c1c10c8313",
+    "at": "2026-11-14T05:39:06.336Z",
     "claims": [
       {
         "code": "MR",
@@ -35,13 +35,55 @@
         "quote": "Also reported from Nigeria and Cameroon.",
         "words": "Cameroon",
         "ok": true
+      },
+      {
+        "code": "LR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Africa: Nile, Niger, Volta and Senegal rivers, Lake Chad basin, and coastal rivers of western Africa, from Liberia to Angola.",
+        "words": "Liberia",
+        "ok": true
+      },
+      {
+        "code": "AO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Africa: Nile, Niger, Volta and Senegal rivers, Lake Chad basin, and coastal rivers of western Africa, from Liberia to Angola.",
+        "words": "Angola",
+        "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Nile River",
-        "source": "planetcatfish",
-        "quote": "Type locality: Nile River",
+        "name": "Nile",
+        "source": "scotcat",
+        "quote": "Africa: Nile, Niger, Volta and Senegal rivers, Lake Chad basin, and coastal rivers of western Africa, from Liberia to Angola.",
+        "ok": true
+      },
+      {
+        "name": "Niger",
+        "source": "scotcat",
+        "quote": "Africa: Nile, Niger, Volta and Senegal rivers, Lake Chad basin, and coastal rivers of western Africa, from Liberia to Angola.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Volta",
+        "source": "scotcat",
+        "quote": "Africa: Nile, Niger, Volta and Senegal rivers, Lake Chad basin, and coastal rivers of western Africa, from Liberia to Angola.",
+        "ok": true
+      },
+      {
+        "name": "Senegal",
+        "source": "scotcat",
+        "quote": "Africa: Nile, Niger, Volta and Senegal rivers, Lake Chad basin, and coastal rivers of western Africa, from Liberia to Angola.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Lake Chad",
+        "source": "scotcat",
+        "quote": "Africa: Nile, Niger, Volta and Senegal rivers, Lake Chad basin, and coastal rivers of western Africa, from Liberia to Angola.",
         "ok": true
       }
     ],
@@ -50,7 +92,10 @@
     "origin": {
       "pagesOnly": [
         "EG",
-        "KE"
+        "KE",
+        "NE",
+        "SN",
+        "TD"
       ],
       "sourcesOnly": []
     }
@@ -189,9 +234,11 @@
       "MR",
       "GH",
       "NG",
-      "CM"
+      "CM",
+      "LR",
+      "AO"
     ],
     "requests": 14,
-    "at": "2026-11-14T00:09:29.977Z"
+    "at": "2026-11-14T05:39:06.336Z"
   }
 }

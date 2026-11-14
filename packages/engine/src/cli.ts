@@ -9,7 +9,7 @@ import { parseArgs } from 'node:util'
 import { loadAll, PHOTO_BOXES_FILE, SOURCE_IDS, vnDate, type SourceId } from '@aq/schema'
 import { WRITTEN_LANGS, WRITTEN_OTHER_LANGS } from '@aq/schema/langs'
 import { nameStep } from './ceiling'
-import { LlmError, claudeCli, claudeResearch, claudeResearchWithout, claudeVision } from './claude'
+import { LlmError, claudeCli, claudeResearch, claudeVision } from './claude'
 import { accountReport, rejectedTokens } from './claude-accounts'
 import { makeProduct } from './products'
 import { productCandidates, productReviews } from './product-reviews'
@@ -35,8 +35,7 @@ import { fitRewrite } from './fit-rewrite'
 import { unitsMend } from './units-mend'
 import { recordSourceFigures, sourceFigures } from './source-figures'
 import fitFront from './fit-front.json'
-import { firstRun, frontEarly, frontHeld, orderFront, type FirstRun } from './fit-front'
-import { cycleOnlyHosts } from './cycle-only'
+import { firstRun, frontEarly, frontHeld, frontPlan, offLane, orderFront, type FirstRun, type HeldMark } from './fit-front'
 import { candidates, cardsOf, checkCalendar, demandByPath, plan, readCalendar, readVerdicts, writeCalendar } from './curation'
 import { phraseMatch } from './phrases'
 import { readerReport, readPages } from './reader'
@@ -100,12 +99,12 @@ import { addPlantSynonyms } from './plant-synonyms'
 import { fetchFishSynonyms, fishOlderNames } from './fish-synonyms'
 import { writePlanting } from './planting'
 import { localizeTopic, makeTopic } from './topics'
+import { makeMaterial, MATERIALS } from './materials'
 import { makeGlossaryEntry } from './glossary-entry'
 import { CLASSIFICATION_THREAD, FORUM_SECTIONS, readForum } from './forum'
 import { readIdeas, refreshIdeas, writeIdeas } from './ideas'
 import { backfillVideoItems } from './video-items'
 import { throttled, VIDEO_GAP_MS, videoGuides, ytApi, ytDlp, ytFinder, ytFrames, ytGrab } from './youtube'
-import { isMarketplace } from './marketplaces'
 import { checkPagePhotos, EMPTY_CAP, PHOTO_CHECK_SCHEMA, recheckCandidates } from './photo-check'
 import { DEAD_SCREEN_SCHEMA, screenDead } from './dead-screen'
 import { GUIDE_PHOTO_SCHEMA, screenGuidePhotos, type GuidePhotoDeps } from './guide-photos'
@@ -118,6 +117,7 @@ import { NO_TRACE_SCHEMA, NO_TRACE_MODEL } from './image-transforms'
 import { APPEARANCE_SCHEMA, GENERATED_CHECK_MODEL, GENERATED_CHECK_SCHEMA, REFERENCE_CHECK_SCHEMA } from './image-reference'
 import { MARK_INSPECTION_SCHEMA, markInspectionPrompt, REAL_IMAGE_MODEL, type MarkInspection } from './image-real-checks'
 import { ArchiveFetcher } from './archive'
+import { researchedPage } from './cycle-only'
 import { localizeCards } from './cards-intl'
 import { heroesWithout, localizeGlossary, localizePlaces, localizeSpecies, speciesOrder, TARGETS, type TargetLang } from './localize'
 import { addShopNames, makeShopList, popularFirst, type ShopLang } from './shops'
@@ -662,14 +662,18 @@ if (cmd === 'photo-privacy') {
   // The collection rewrite (fit-rewrite.ts): Vietnamese pages the reader-fit read found wrong for their reader, written
   // again and kept only when their reviewers pass them; the most-read fish and plants first, then breeds, then guides.
   // pnpm engine fit-rewrite [--limit N: pages] [--only vi/species/<id>,vi/guides/<id>: these, in this order, tried before or not] [--kind species,guides]
-  // [--front: that order, with the front list's pages first (fit-front.json). Nothing before the list's `first`. Its
-  // first run is written to engine-state/_fit-front.json, and holds the next until the list is cleared.]
-  const firstFile = join(ROOT, 'engine-state/_fit-front.json')
-  const first = values.front ? (JSON.parse(await readFile(firstFile, 'utf8').catch(() => 'null')) as FirstRun | null) ?? undefined : undefined
+  // [--front: the lane first (pages the gate held new, newest first, when fit-front.json's lane is on), then the front
+  // list's pages in its order, then the rest. Nothing before the list's `first`. A run that gets a front-list or other
+  // live page to an outcome is written to engine-state/_fit-front.json, and holds those pages in the next until cleared
+  // names its `at` (one-shot: fit-front.ts frontHeld); the lane goes on meanwhile.]
+  const lastFile = join(ROOT, 'engine-state/_fit-front.json')
+  const last = values.front ? (JSON.parse(await readFile(lastFile, 'utf8').catch(() => 'null')) as FirstRun | null) ?? undefined : undefined
+  const held = values.front && frontHeld(fitFront, last)
+  if (held) console.log(`fit-rewrite: front list held: the run of ${last!.at} is with the chief of staff (engine-state/_fit-front.json); to let one more run go, set cleared to "${last!.at}" in packages/engine/src/fit-front.json${fitFront.lane ? '. The lane and the pages off the list go on.' : ''}`)
   if (values.front && frontEarly(fitFront, new Date())) {
     console.log(`fit-rewrite: waits until ${fitFront.first}`)
-  } else if (values.front && frontHeld(fitFront, first)) {
-    console.log('fit-rewrite: held: the first run\'s pages are with the chief of staff (engine-state/_fit-front.json; packages/engine/src/fit-front.json, cleared)')
+  } else if (held && !fitFront.lane) {
+    // Held, and the lane shut: nothing to do.
   } else {
     const pages = (await loadPages(join(ROOT, 'content'), ['vi'])).filter(p => ['guides', 'species', 'plants', 'breeds'].includes(p.kind) && (!values.kind || values.kind.split(',').includes(p.kind)))
     const state = JSON.parse(await readFile(join(ROOT, 'engine-state/_fit.json'), 'utf8')) as FitState
@@ -677,12 +681,22 @@ if (cmd === 'photo-privacy') {
     const rank = (p: (typeof pages)[number]) => { const i = popular.indexOf(p.id); return p.kind === 'guides' ? 2 * popular.length : i >= 0 && p.kind !== 'breeds' ? i : popular.length }
     const only = values.only?.split(',')
     const ranked = only ? only.flatMap(k => pages.filter(p => fitKey(p) === k)) : [...pages].sort((a, b) => rank(a) - rank(b))
-    const order = values.front && !only ? orderFront(fitFront, ranked) : ranked
-    const r = await fitRewrite(ROOT, order, state, { llm: claudeCli, now: () => new Date() }, { limit: Number(values.limit ?? 10), retry: !!only })
-    for (const x of [...r.rewritten.map(x => `rewritten: ${x}`), ...r.notKept.map(x => `not kept: ${x}`), ...r.skipped.map(x => `skipped: ${x}`), ...r.failed.map(x => `failed: ${x}`)]) console.log(x)
+    // Each page's mark from the gate (gate.ts Held), for the lane.
+    const marks = new Map<string, HeldMark>()
+    if (values.front && !only && fitFront.lane) {
+      for (const p of ranked) {
+        const h = (JSON.parse(await readFile(join(ROOT, 'content', p.kind, p.id, 'vi.json'), 'utf8').catch(() => '{}')) as { held?: HeldMark }).held
+        if (h) marks.set(fitKey(p), h)
+      }
+    }
+    const plan = values.front && !only ? frontPlan(fitFront, last, ranked, marks) : { held: false, order: ranked, lane: new Set<string>() }
+    if (values.front && !only) console.log(`fit-rewrite: lane ${plan.lane.size} page${plan.lane.size === 1 ? '' : 's'} first${plan.held ? ', front list held' : ''}`)
+    const r = await fitRewrite(ROOT, plan.order, state, { llm: claudeCli, now: () => new Date() }, { limit: Number(values.limit ?? 10), retry: !!only, mend: plan.lane })
+    for (const x of [...r.rewritten.map(x => `rewritten: ${x}`), ...r.gone.map(x => `gone: ${x}`), ...r.notKept.map(x => `not kept: ${x}`), ...r.skipped.map(x => `skipped: ${x}`), ...r.failed.map(x => `failed: ${x}`)]) console.log(x)
     console.log(`fit-rewrite: ${r.rewritten.length} rewritten, ${r.notKept.length} not kept, ${r.skipped.length} skipped, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
-    const ran = values.front && !first ? firstRun(r, new Date().toISOString()) : undefined
-    if (ran) await writeFile(firstFile, `${JSON.stringify(ran, null, 1)}\n`)
+    // The run on file: the front list's and live pages' outcomes, never the lane's alone (fit-front.ts offLane).
+    const ran = values.front && !only && !plan.held ? firstRun(offLane(r, plan.lane), new Date().toISOString()) : undefined
+    if (ran) await writeFile(lastFile, `${JSON.stringify(ran, null, 1)}\n`)
   }
 } else if (cmd === 'units-mend') {
   // A page held for units alone gets a tank converted from US gallons as the size a keeper here names ("115 lít" → "120
@@ -731,10 +745,12 @@ if (cmd === 'photo-privacy') {
   // fails is held back, a live page that got worse gets its committed text back, a page no rewording fixes is held.
   // A video guide worse only for a sentence (a shop or a price abroad, talk about the video) has it fixed by the video's
   // editor and is read again instead (video-mend.ts), --mends pages a run; what does go back is kept (engine-state/put-back/).
-  // pnpm engine gate [--limit N: model reads at most] [--jobs N] [--mends N: pages sent to the mender's editor at most, 6; 0: none]
+  // A new video guide held only for such sentences goes to the editor first too, and so do GATE_HELD_MENDS (12) of the held
+  // ones a run (the chief of staff, 14 Nov 2026).
+  // pnpm engine gate [--limit N: model reads at most] [--jobs N] [--mends N: new and live pages sent to the mender's editor at most, 20; 0: none]
   const { report: r, state, pages, held } = await gate(ROOT, {
     llm: claudeCli, model: process.env.FIT_MODEL ?? 'opus', jobs: Number(values.jobs ?? 3), limit: Number(values.limit ?? 150),
-    mend: videoMend(ROOT, { llm: claudeCli, yt: youtube(), write: { style: true, model: process.env.VIDEO_MODEL ?? 'opus' } }), mends: Number(values.mends ?? process.env.GATE_MENDS ?? 6),
+    mend: videoMend(ROOT, { llm: claudeCli, yt: youtube(), write: { style: true, model: process.env.VIDEO_MODEL ?? 'opus' } }), mends: Number(values.mends ?? process.env.GATE_MENDS ?? 20), heldMends: Number(process.env.GATE_HELD_MENDS ?? 12),
   })
   await writeFile(join(ROOT, 'docs/review/fit.md'), fitReport(pages, state))
   await writeFitSummary(ROOT, pages, state, { held })
@@ -884,18 +900,8 @@ if (cmd === 'photo-privacy') {
   const kit = (await readKit(join(ROOT, 'content'))).find(k => k.category === values.category)
   if (!brand || !model || !kit) throw new Error('usage: pnpm engine product <brand> <model> --category <equipment id> [--type <type id>]')
   const type = kit.types.find(t => t.id === values.type)
-  // Redirects are followed one hop at a time, never to a marketplace.
-  const get = async (u: string) => {
-    for (let hop = 0, url = u; hop < 4; hop++) {
-      if (isMarketplace(url)) throw new Error(`marketplace: ${url}`)
-      const res = await fetch(url, { redirect: 'manual', headers: { 'user-agent': 'Mozilla/5.0 (compatible; AquaTome/1.0; +https://aquatome.com)' }, signal: AbortSignal.timeout(20_000) })
-      const next = res.headers.get('location')
-      if (res.status >= 300 && res.status < 400 && next) { url = new URL(next, url).href; continue }
-      if (!res.ok) throw new Error(`HTTP ${res.status}`)
-      return res.text()
-    }
-    throw new Error('too many redirects')
-  }
+  // Redirects are followed one hop at a time, never to a marketplace nor a source read only at the engine's pace.
+  const get = researchedPage(ROOT)
   const r = await makeProduct(join(ROOT, 'content'), { research: claudeResearch, llm: claudeCli, get, now: () => new Date() }, { brand, model, category: kit.category, ...(type ? { type: type.id } : {}), kind: type?.name ?? kit.name }, { researchModel: process.env.RESEARCH_MODEL ?? 'opus', factsDir: join(ROOT, 'engine-state/products'), reuse: values.redo })
   console.log(JSON.stringify(r, null, 1))
 } else if (cmd === 'product-candidates') {
@@ -904,17 +910,7 @@ if (cmd === 'photo-privacy') {
 } else if (cmd === 'product-reviews') {
   // What YouTube reviews found, on product pages: the next --limit products of the candidates (a page first when one has none).
   // --only id,id: these; --no-new-pages: no long research call now; --dry-run: print, write nothing.
-  const get = async (u: string) => {
-    for (let hop = 0, url = u; hop < 4; hop++) {
-      if (isMarketplace(url)) throw new Error(`marketplace: ${url}`)
-      const res = await fetch(url, { redirect: 'manual', headers: { 'user-agent': 'Mozilla/5.0 (compatible; AquaTome/1.0; +https://aquatome.com)' }, signal: AbortSignal.timeout(20_000) })
-      const next = res.headers.get('location')
-      if (res.status >= 300 && res.status < 400 && next) { url = new URL(next, url).href; continue }
-      if (!res.ok) throw new Error(`HTTP ${res.status}`)
-      return res.text()
-    }
-    throw new Error('too many redirects')
-  }
+  const get = researchedPage(ROOT)
   const r = await productReviews(ROOT, { find: ytFinder, yt: youtube(), llm: claudeCli, research: claudeResearch, get, sleep: ms => new Promise(res => setTimeout(res, ms)), now: () => new Date() }, {
     limit: Number(values.limit ?? 1), ...(values.only ? { only: values.only.split(',') } : {}), ...(values['no-new-pages'] ? { noNewPages: true } : {}), ...(values['dry-run'] ? { dryRun: true } : {}),
     researchModel: process.env.RESEARCH_MODEL ?? 'opus', ...(process.env.REVIEW_EXTRACT_MODEL ? { extractModel: process.env.REVIEW_EXTRACT_MODEL } : {}), ...(process.env.REVIEW_WRITE_MODEL ? { writeModel: process.env.REVIEW_WRITE_MODEL } : {}),
@@ -1075,6 +1071,14 @@ if (cmd === 'photo-privacy') {
   if (!topic || !kind || !kinds.includes(kind)) throw new Error(`usage: pnpm engine topic "<chủ đề>" --kind ${kinds.join('|')} [--redo]`)
   const r = await makeTopic(ROOT, { research: claudeResearch, llm: claudeCli }, { topic, kind }, { researchModel: process.env.RESEARCH_MODEL ?? 'opus', reuse: values.redo })
   console.log(JSON.stringify(r, null, 1))
+} else if (cmd === 'material') {
+  // A hobby material's page (lũa, đá, nền), written from web research and checked like a guide (materials.ts):
+  // pnpm engine material <id> [--redo]. Its id, address and names are in MATERIALS. --redo: write again from the research
+  // already kept (engine-state/materials), no new searching.
+  const a = MATERIALS.find(m => m.id === positionals[1])
+  if (!a) throw new Error(`usage: pnpm engine material ${MATERIALS.map(m => m.id).join('|')} [--redo]`)
+  const r = await makeMaterial(ROOT, { research: claudeResearch, llm: claudeCli }, a, { researchModel: process.env.RESEARCH_MODEL ?? 'opus', reuse: values.redo })
+  console.log(JSON.stringify(r, null, 1))
 } else if (cmd === 'glossary-entry') {
   // A glossary term's fuller entry, written from web research and checked like a guide (glossary-entry.ts):
   // pnpm engine glossary-entry <term id> --kind setup|care|breeding|disease|aquascaping|plantCare|discovery [--sf <Seriously Fish glossary slug>] [--redo | --fresh]
@@ -1089,7 +1093,7 @@ if (cmd === 'photo-privacy') {
   if (!id || !kind || !kinds.includes(kind)) throw new Error(`usage: pnpm engine glossary-entry <term id> --kind ${kinds.join('|')} [--sf <slug>] [--redo | --fresh | --from-draft | --revise | --accept "<who>"]`)
   if (values.accept !== undefined && !values.accept.trim()) throw new Error('--accept needs who accepts the draft')
   // Research never reads a source the engine reads only at its own pace (cycle-only.ts).
-  const r = await makeGlossaryEntry(ROOT, { research: claudeResearchWithout(await cycleOnlyHosts(ROOT)), llm: claudeCli }, id, { kind, sf: values.sf, reuse: values.redo, fresh: values.fresh, fromDraft: values['from-draft'], revise: values.revise, ...(values.accept ? { accept: values.accept.trim() } : {}), researchModel: process.env.RESEARCH_MODEL ?? 'opus' })
+  const r = await makeGlossaryEntry(ROOT, { research: claudeResearch, llm: claudeCli }, id, { kind, sf: values.sf, reuse: values.redo, fresh: values.fresh, fromDraft: values['from-draft'], revise: values.revise, ...(values.accept ? { accept: values.accept.trim() } : {}), researchModel: process.env.RESEARCH_MODEL ?? 'opus' })
   console.log(JSON.stringify(r, null, 1))
 } else if (cmd === 'covers') {
   // Vietnamese thumbnail labels: pnpm engine covers [--redo] [--limit N] (--redo rewrites the ones already there).

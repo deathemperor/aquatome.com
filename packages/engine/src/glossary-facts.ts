@@ -103,6 +103,13 @@ const ONE = `Below are FACTS gathered about a fishkeeping term (each with a sour
 ${VERDICTS}
 Reply {"verdict": "...", "why": "..."}.`
 const SYSTEM = 'You check a guide against its facts, sentence by sentence. Reply only with JSON.'
+/**
+ * Every fact read runs on Opus, whatever the engine's model (the chief of staff, 14 Nov 2026). On Lũa's draft 7, two whole
+ * checks each: Opus stopped the boiling and rot lines both times, Sonnet 2 times in 5 and 1 in 5, and neither stopped a
+ * right sentence. Opus gave the same answer twice, at about $0.47 a check against Sonnet's $0.35. Neither stops a trait
+ * carried from one kind to another (the discus and vân thép lines): the read-back carries those.
+ */
+const READ_MODEL = 'opus'
 const VERDICT = { type: 'string', enum: ['supported', 'loose', 'unsupported', 'contradicts', 'not a claim'] }
 const MANY = { type: 'object', required: ['verdicts'], properties: { verdicts: { type: 'array', items: { type: 'object', required: ['n', 'verdict'], properties: { n: { type: 'number' }, verdict: VERDICT, why: { type: 'string' } } } } } }
 const SINGLE = { type: 'object', required: ['verdict'], properties: { verdict: VERDICT, why: { type: 'string' } } }
@@ -117,7 +124,7 @@ const asRead = (v: { verdict?: string; why?: string } | undefined): Read | null 
 async function readAll(llm: Llm, facts: object, listed: string, n: number): Promise<(Read | null)[][]> {
   const out: (Read | null)[][] = Array.from({ length: n }, () => [])
   for (let k = 0; k < 3; k++) {
-    const r = await llm<{ verdicts?: { n: number; verdict?: string; why?: string }[] }>({ system: SYSTEM, schema: MANY, prompt: `${ALL}\n\nFACTS:\n${JSON.stringify(facts)}\n\nSENTENCES:\n${listed}` })
+    const r = await llm<{ verdicts?: { n: number; verdict?: string; why?: string }[] }>({ system: SYSTEM, model: READ_MODEL, schema: MANY, prompt: `${ALL}\n\nFACTS:\n${JSON.stringify(facts)}\n\nSENTENCES:\n${listed}` })
     const byN = new Map((r.verdicts ?? []).map(v => [v.n, v]))
     for (let i = 0; i < n; i++) out[i]!.push(asRead(byN.get(i + 1)))
   }
@@ -148,7 +155,7 @@ export async function checkSentences(llm: Llm, facts: object, e: { definition: s
     let all = count(rs, STOP) >= 2 ? rs : null
     if (!all && count(rs, STOP) === 1) {
       const again: (Read | null)[] = []
-      for (let k = 0; k < 3; k++) again.push(asRead(await llm<{ verdict?: string; why?: string }>({ system: SYSTEM, schema: SINGLE, prompt: `${ONE}\n\nFACTS:\n${JSON.stringify(facts)}\n\nHEADING:\n${under(s) || '(the definition)'}\n\nPARAGRAPH:\n${s.block}\n\nSENTENCE:\n${s.text}` })))
+      for (let k = 0; k < 3; k++) again.push(asRead(await llm<{ verdict?: string; why?: string }>({ system: SYSTEM, model: READ_MODEL, schema: SINGLE, prompt: `${ONE}\n\nFACTS:\n${JSON.stringify(facts)}\n\nHEADING:\n${under(s) || '(the definition)'}\n\nPARAGRAPH:\n${s.block}\n\nSENTENCE:\n${s.text}` })))
       // Re-reads too few of which give a verdict don't settle it: it stops, unjudged (Codex, 14 Nov 2026).
       if (again.filter(Boolean).length < 2) { stops.push({ ...flagged(s, [...rs, ...again]), unjudged: 6, ...(claim ? {} : { unscored: true as const }) }); if (claim) stopped++; continue }
       if (count(again, STOP) >= 2) all = [...rs, ...again]

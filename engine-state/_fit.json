@@ -1663,30 +1663,37 @@
     "sourceRead": true
   },
   "id/guides/aquatome-cham-soc-ca-canh-mua-he-va-mua-dong-mua-mua": {
-    "at": "2026-11-08",
-    "hash": "ae122aa4149553c8",
+    "at": "2026-11-14",
+    "hash": "4afe3af5224a151a",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
         "part": "P1",
-        "quote": "Saat cuaca dingin, suhu ruangan bisa turun ke 12–14 °C pada malam hari",
-        "why": "Rooms falling to 12–14 °C at night describe a cold-climate winter, not a home in Indonesia.",
+        "quote": "Kalau suhu ruangan turun ke 12–14 °C pada malam hari",
+        "why": "Rooms falling to 12–14 °C at night belong to a temperate climate, not most Indonesian homes.",
         "by": "model"
       },
       {
-        "check": "elsewhere",
+        "check": "units",
         "part": "P1",
-        "quote": "Penurunan sekitar 3 °C di bawah suhu musim panas masih bisa diterima ikan dan tanaman air.",
-        "why": "Summer and winter seasons belong to a temperate country, not Indonesia's wet and dry seasons.",
+        "quote": "ikan tropis dan ikan iklim sedang sering masih tahan di suhu 27–32 °C bagian atas atau 32–37 °C bagian bawah",
+        "why": "\"Upper/lower\" ranges are a literal conversion of Fahrenheit phrases like \"upper 80s or low 90s °F\".",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "masih tahan beberapa jam di suhu 16–21 °C bagian bawah, bahkan 10–15 °C bagian atas",
+        "why": "Converted from Fahrenheit \"low 60s / upper 50s\" ranges.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P1",
         "quote": "Kepadatannya sekitar 13 cm ikan per 3,8 liter.",
-        "why": "3.8 litres is one US gallon (and 13 cm about 5 inches), converted from an imperial stocking rule.",
+        "why": "3.8 litres and 13 cm are a converted US gallon and 5 inches.",
         "by": "model"
       }
     ],
@@ -1813,31 +1820,25 @@
     "products": []
   },
   "id/guides/aquatome-giu-be-ca-mat-trong-mua-nong": {
-    "at": "2026-11-08",
-    "hash": "f28a6714aabbdf5b",
+    "at": "2026-11-14",
+    "hash": "799887ebe05765b2",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "lubang pemanas ruangan di dekatnya",
+        "why": "Room heating vents belong to homes in cold countries, not Indonesia.",
+        "by": "model"
+      },
+      {
         "check": "units",
         "part": "P1",
-        "quote": "Turunkan permukaan air beberapa inci supaya ikan yang suka melompat tidak bisa keluar.",
-        "why": "Inches are an imperial unit that keepers in Indonesia don't use.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
-        "part": "P1",
-        "quote": "lubang ventilasi panas di dekat akuarium, dan alat yang mengeluarkan panas seperti oven, pengering pakaian",
-        "why": "Heating vents and clothes dryers belong to homes abroad, not the usual Indonesian house.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
-        "part": "P1",
-        "quote": "lampu menyala sekitar 6–8 jam sehari saat musim panas, bisa dibagi menjadi dua sesi",
-        "why": "Indonesia has no summer season; this assumes a temperate climate.",
-        "by": "model"
+        "quote": "turunkan permukaan air beberapa inci",
+        "why": "Inches are an imperial unit carried over from the source.",
+        "by": "model",
+        "fix": "beberapa cm"
       }
     ],
     "products": []
@@ -3320,16 +3321,23 @@
     "products": []
   },
   "id/plants/cryptocoryne-parva": {
-    "at": "2026-11-08",
-    "hash": "e95cbb84a2f8c38e",
+    "at": "2026-11-14",
+    "hash": "08a493358c9dea9c",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P4",
+        "quote": "Ukuran akuarium minimum untuk spesies ini adalah sekitar 19 liter.",
+        "why": "19 litres is a converted 5-gallon tank size, not one an Indonesian keeper would cite.",
+        "by": "model"
+      },
+      {
         "check": "price",
         "part": "P10",
         "quote": "Satu pot tanaman harganya beberapa dolar",
-        "why": "The price is given in dollars, a foreign currency for a reader in Indonesia.",
+        "why": "Price given in dollars, a foreign currency.",
         "by": "model"
       }
     ],
@@ -4237,16 +4245,23 @@
     ]
   },
   "id/plants/nymphoides-aquatica": {
-    "at": "2026-11-08",
-    "hash": "ffab989e38c00b45",
+    "at": "2026-11-14",
+    "hash": "f276637e3d2bcf0c",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P3",
-        "quote": "tanam sekitar 0,6 cm ke dalam substrat",
-        "why": "0.6 cm is a converted quarter inch that no keeper in Indonesia would give as a depth.",
+        "quote": "bahkan sebagai tanaman latar belakang di akuarium nano sekitar 19 liter",
+        "why": "19 litres is a converted 5-gallon tank, a size nobody in Indonesia would name.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P3",
+        "quote": "atau tanam sekitar 0,6 cm ke dalam substrat",
+        "why": "0.6 cm is a converted quarter inch, not a depth a local keeper would give.",
         "by": "model"
       }
     ],
@@ -5739,6 +5754,29 @@
     "findings": [],
     "products": []
   },
+  "id/species/amphilius-atesuensis": {
+    "at": "2026-11-14",
+    "hash": "d83cae60367c6c7f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "Gambar-gambar kecil (thumbnail) bisa jadi menampilkan spesies ini atau spesies yang berkerabat dekat",
+        "why": "Refers to thumbnail pictures from the source site that this page does not have.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P8",
+        "quote": "dua gambar kecil (thumbnail) terakhir dipotret di Taman Nasional Tai",
+        "why": "Points at the source's photos, which are not on this page.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
   "id/species/amphilophus-citrinellus": {
     "at": "2026-11-08",
     "hash": "ac21cb63d9f4df39",
@@ -5895,16 +5933,30 @@
     "products": []
   },
   "id/species/anatolichthys-transgrediens": {
-    "at": "2026-11-08",
-    "hash": "7cd14731505079e2",
+    "at": "2026-11-14",
+    "hash": "88075a22de160173",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P4",
+        "quote": "60 cm x 30 cm x 30 cm (57 liter)",
+        "why": "57 L is a converted 15-gallon tank; 60×30×30 cm is about 54 L.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "120 cm x 30 cm x 30 cm (113 liter)",
+        "why": "113 L is a converted 30-gallon tank; 120×30×30 cm is about 108 L.",
+        "by": "model"
+      },
+      {
         "check": "elsewhere",
         "part": "P7",
         "quote": "Ini terutama penting pada musim semi dan musim panas",
-        "why": "Assumes the reader lives with temperate spring and summer seasons, which Indonesia does not have.",
+        "why": "The feeding advice is tied to temperate seasons the reader in Indonesia does not have.",
         "by": "model"
       }
     ],
@@ -7100,8 +7152,8 @@
     "products": []
   },
   "id/species/apistogramma-steindachneri": {
-    "at": "2026-11-08",
-    "hash": "52dcb5815d745ce2",
+    "at": "2026-11-14",
+    "hash": "2ae5c5f383e6601c",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -7513,8 +7565,8 @@
     "products": []
   },
   "id/species/astronotus-ocellatus": {
-    "at": "2026-11-10",
-    "hash": "a414d1ea4700b0bb",
+    "at": "2026-11-14",
+    "hash": "e91b12d91c386e46",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -7522,14 +7574,21 @@
         "check": "elsewhere",
         "part": "P1",
         "quote": "Ikan dewasa bisa sepanjang bola American football",
-        "why": "Compares the fish's size to an American football, a US reference foreign to an Indonesian reader.",
+        "why": "It measures the fish against an American football, a size people in the US know but most Indonesian readers don't.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P10",
+        "quote": "akuarium 210 liter adalah ukuran minimum untuk satu ekor oscar, tetapi 280 liter lebih baik",
+        "why": "These volumes come from US 55- and 75-gallon tanks and aren't sizes anyone uses in Indonesia.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P10",
         "quote": "tiga ekor oscar pernah dipelihara dalam akuarium 470 liter",
-        "why": "470 litres is a converted 125-gallon tank size, not one anyone in Indonesia would name.",
+        "why": "This retells the source writer's own tank story as if the reader already knew about it.",
         "by": "model"
       }
     ],
@@ -7576,11 +7635,20 @@
     "products": []
   },
   "id/species/astyanax-leopoldi": {
-    "at": "2026-11-08",
-    "hash": "0cbb91dcb361b2ec",
+    "at": "2026-11-14",
+    "hash": "6d6b10eebe090bf4",
     "model": "opus",
-    "checklist": 2,
-    "findings": [],
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P10",
+        "quote": "ikan ini sangat tahan banting, damai, dan \"tahu berterima kasih\"",
+        "why": "Literal calque of the German hobby term 'dankbar' (rewarding to keep); Indonesian keepers don't describe fish this way.",
+        "by": "model",
+        "fix": "mudah dipelihara"
+      }
+    ],
     "products": []
   },
   "id/species/astyanax-mexicanus": {
@@ -8728,8 +8796,8 @@
     "products": []
   },
   "id/species/betadevario-ramachandrani": {
-    "at": "2026-11-08",
-    "hash": "542449c5ee199d5d",
+    "at": "2026-11-14",
+    "hash": "2285eafe66c7f618",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -8745,18 +8813,10 @@
   },
   "id/species/betta-albimarginata": {
     "at": "2026-11-14",
-    "hash": "9c198fa8476c4f9c",
+    "hash": "75fe6a6d27a3eadb",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Ikan ini berasal dari populasi Sebuku dan merupakan hasil tangkapan alam.",
-        "why": "Describes the source shop's own stock of fish as if the reader knew it.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "id/species/betta-anabatoides": {
@@ -8845,19 +8905,42 @@
     "products": []
   },
   "id/species/betta-brownorum": {
-    "at": "2026-11-08",
-    "hash": "0cf7ff90446bee3f",
+    "at": "2026-11-14",
+    "hash": "185cd89f83707111",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P6",
+        "quote": "Disarankan 1 pasang per sekitar 19 liter.",
+        "why": "19 litres is a converted 5-gallon tank size that no keeper in Indonesia would use.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "id/species/betta-burdigala": {
-    "at": "2026-11-08",
-    "hash": "8903fbab01b6f003",
+    "at": "2026-11-14",
+    "hash": "1b5d517c8358ebbd",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P5",
+        "quote": "Disarankan 1 pasang per sekitar 19 liter.",
+        "why": "19 litres is a converted 5-gallon tank size; nobody in Indonesia sizes a tank that way.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P11",
+        "quote": "Disarankan: 1 pasang per sekitar 19 liter.",
+        "why": "19 litres is a converted 5-gallon tank size; nobody in Indonesia sizes a tank that way.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "id/species/betta-channoides": {
@@ -9056,24 +9139,31 @@
     "products": []
   },
   "id/species/betta-hendra": {
-    "at": "2026-11-08",
-    "hash": "600427115711a366",
+    "at": "2026-11-14",
+    "hash": "6016bd568595f1c1",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
   "id/species/betta-hipposideros": {
-    "at": "2026-11-08",
-    "hash": "0ba58766924295cd",
+    "at": "2026-11-14",
+    "hash": "33912537fdab3ef4",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P11",
+        "quote": "Disarankan sepasang per akuarium 19 liter.",
+        "why": "19 litres is a converted 5-gallon tank, a size nobody in Indonesia would name.",
+        "by": "model"
+      },
+      {
         "check": "elsewhere",
         "part": "P6",
         "quote": "kayu beech atau oak biasa aman dipakai asalkan benar-benar kering dan kulit kayunya sudah dikupas",
-        "why": "Beech and oak wood you collect yourself is a European habit. These trees don't grow wild in Indonesia.",
+        "why": "Picking up beech or oak wood is a European keeper's habit; these trees don't grow in Indonesia.",
         "by": "model"
       }
     ],
@@ -9096,15 +9186,15 @@
   },
   "id/species/betta-imbellis": {
     "at": "2026-11-14",
-    "hash": "4560fe2c5de6e3a2",
+    "hash": "7631c4ac99d0804f",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Ikan-ikan ini tidak ditangkarkan secara line-breeding atau sengaja disilangkan seperti kebanyakan imbellis hasil farm",
-        "why": "Describes the source shop's own stock of fish as if the reader knew it.",
+        "quote": "Ini adalah Betta imbellis tangkapan alam, bukan hasil line-breeding atau persilangan yang disengaja",
+        "why": "Describes the source shop's own stock (a specific wild-caught batch) as if the reader were looking at it.",
         "by": "model"
       }
     ],
@@ -9165,11 +9255,19 @@
     "products": []
   },
   "id/species/betta-livida": {
-    "at": "2026-11-08",
-    "hash": "c4243a6405ce9355",
+    "at": "2026-11-14",
+    "hash": "c0fbdf8352f28e99",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P6",
+        "quote": "1 pasang per sekitar 19 liter",
+        "why": "19 litres is a converted 5-gallon tank size that nobody in Indonesia would use.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "id/species/betta-macrostoma": {
@@ -9204,15 +9302,15 @@
   },
   "id/species/betta-mahachaiensis": {
     "at": "2026-11-14",
-    "hash": "85bc9c74bfa30b92",
+    "hash": "33c2107fabfd982a",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P9",
-        "quote": "Mahachai bisa hidup di air payau, tetapi di sini tidak dipelihara dalam kondisi payau.",
-        "why": "\"Di sini\" refers to the source shop's own tanks, which the reader doesn't know.",
+        "quote": "dalam pemeliharaan ini tidak dipelihara di air payau",
+        "why": "Refers to the source keeper's own fish and keeping as if the reader knew them.",
         "by": "model"
       }
     ],
@@ -9234,11 +9332,19 @@
     "products": []
   },
   "id/species/betta-miniopinna": {
-    "at": "2026-11-08",
-    "hash": "a6969f092e01896a",
+    "at": "2026-11-14",
+    "hash": "e7c2d7834c15c7f5",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P11",
+        "quote": "Rekomendasi: 1 pasang per sekitar 19 liter.",
+        "why": "19 litres is a converted 5-gallon figure that no keeper in Indonesia would use.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "id/species/betta-ocellata": {
@@ -9364,23 +9470,23 @@
     "products": []
   },
   "id/species/betta-persephone": {
-    "at": "2026-11-08",
+    "at": "2026-11-14",
     "hash": "73d89d0c544b7d80",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P6",
         "quote": "Disarankan minimal 1 pasang per 19 liter.",
-        "why": "19 litres is a converted 5-gallon tank size nobody in Indonesia would use.",
+        "why": "19 litres is a converted 5-gallon figure; no keeper in Indonesia would size a tank that way.",
         "by": "model"
       },
       {
         "check": "elsewhere",
         "part": "P11",
-        "quote": "daun ketapang atau daun oak",
-        "why": "Oak leaves are a temperate-country leaf-litter option, not something an Indonesian keeper gathers or buys.",
+        "quote": "misalnya daun ketapang atau daun oak",
+        "why": "Oak leaves are what keepers in temperate countries use; oak trees don't grow locally in Indonesia.",
         "by": "model"
       }
     ],
@@ -9677,8 +9783,8 @@
     "products": []
   },
   "id/species/betta-uberis": {
-    "at": "2026-11-09",
-    "hash": "37ad6d5ef42da8f6",
+    "at": "2026-11-14",
+    "hash": "5fdbdba22bf0dafd",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -10381,24 +10487,31 @@
     "products": []
   },
   "id/species/camposcia-retusa": {
-    "at": "2026-11-08",
-    "hash": "a004cc29729a1faf",
+    "at": "2026-11-14",
+    "hash": "71e92ccf5750d302",
     "model": "opus",
     "checklist": 3,
     "findings": [],
     "products": []
   },
   "id/species/carassius-auratus": {
-    "at": "2026-11-08",
-    "hash": "3e95aea8899fba9b",
+    "at": "2026-11-14",
+    "hash": "0b4d6ca5e0514817",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P2",
+        "quote": "Ukuran akuarium minimum: 76 liter",
+        "why": "76 litres is a converted 20-gallon tank size, not one used in Indonesia.",
+        "by": "model"
+      },
+      {
         "check": "elsewhere",
         "part": "P19",
         "quote": "Siang hari yang lebih panjang di musim semi juga dapat merangsang pemijahan",
-        "why": "Assumes a temperate spring with lengthening days, which a keeper in Indonesia does not have.",
+        "why": "Indonesia has no spring with lengthening days; this assumes a temperate reader.",
         "by": "model"
       }
     ],
@@ -10421,11 +10534,19 @@
     "products": []
   },
   "id/species/caridina-multidentata": {
-    "at": "2026-11-09",
-    "hash": "2ce2b26ab87126a8",
+    "at": "2026-11-14",
+    "hash": "b662b46d40f6c3e3",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P2",
+        "quote": "Ukuran akuarium minimum: 38 liter",
+        "why": "38 litres is a converted 10-gallon tank size that no keeper in Indonesia would use.",
+        "by": "model"
+      }
+    ],
     "products": [
       "Wonder Shell",
       "Seachem Equilibrium",
@@ -10465,38 +10586,39 @@
     "products": []
   },
   "id/species/carinotetraodon-travancoricus": {
-    "at": "2026-11-08",
-    "hash": "3461f720cd35adc2",
+    "at": "2026-11-14",
+    "hash": "dcf743a8c11cdb97",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "source",
-        "part": "P6",
-        "quote": "Trio obat karantina sudah dipakai sebagai pengobatan pencegahan pada ribuan pea puffer tanpa efek berbahaya.",
-        "why": "Refers to the source shop's own quarantine medication trio, which the page never names or explains.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
-        "part": "P6",
-        "quote": "biasanya tidak tersedia di jaringan pet shop besar",
-        "why": "Describes the big pet store chains of the source's country, not Indonesian shops.",
+        "check": "units",
+        "part": "P14",
+        "quote": "banyak orang hanya memelihara satu ekor di akuarium sekitar 19 liter",
+        "why": "19 litres is a converted 5-gallon tank size nobody in Indonesia would use.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P14",
-        "quote": "20 liter air untuk buntal pertama dan 11 liter untuk setiap buntal tambahan",
-        "why": "11 litres is a converted 3-gallon figure that no keeper in Indonesia would use.",
+        "quote": "Tiga ekor bisa dipelihara di akuarium 38 liter dan enam sampai tujuh ekor di akuarium 76 liter",
+        "why": "38 and 76 litres are converted 10- and 20-gallon tank sizes.",
         "by": "model"
       },
       {
-        "check": "elsewhere",
+        "check": "source",
+        "part": "P6",
+        "quote": "Trio obat karantina sudah dipakai sebagai pengobatan pencegahan pada ribuan pea puffer",
+        "why": "Refers to the source shop's own quarantine medication set without saying what it is.",
+        "by": "model"
+      },
+      {
+        "check": "words",
         "part": "P37",
         "quote": "Telur bisa diambil dengan pipet besar, turkey baster, atau selang aerator.",
-        "why": "A turkey baster is an American kitchen tool most homes in Indonesia don't have.",
-        "by": "model"
+        "why": "A turkey baster is an American kitchen tool that keepers in Indonesia don't refer to.",
+        "by": "model",
+        "fix": "pipet besar / selang"
       }
     ],
     "products": [
@@ -10615,16 +10737,16 @@
     "products": []
   },
   "id/species/chaca-chaca": {
-    "at": "2026-11-08",
-    "hash": "5f59fa1441f3f5b4",
+    "at": "2026-11-14",
+    "hash": "9bb94f5007c1f18f",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
-        "part": "P5",
-        "quote": "Tambahan beberapa ranting beech serta daun oak atau beech kering",
-        "why": "Beech and oak are European trees whose leaves keepers there collect; a hobbyist in Indonesia would use local leaves such as ketapang.",
+        "part": "P7",
+        "quote": "Menambahkan beberapa ranting beech serta daun oak/ek dan beech kering",
+        "why": "Beech and oak are European trees whose dry leaves and twigs are easy to collect there, but not something a keeper in Indonesia has to hand (they use ketapang leaves).",
         "by": "model"
       }
     ],
@@ -11233,16 +11355,16 @@
     "products": []
   },
   "id/species/chromobotia-macracanthus": {
-    "at": "2026-11-11",
-    "hash": "adbe0b5690440fff",
+    "at": "2026-11-14",
+    "hash": "300fbebb1df0ad27",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "source",
-        "part": "P24",
-        "quote": "Satu-satunya pengamatan berarti di akuarium pribadi yang diketahui dilakukan oleh anggota forum Colin Dunlop",
-        "why": "Introduces a member of the source site's unnamed forum as if the reader knew it.",
+        "check": "units",
+        "part": "P3",
+        "quote": "Ukuran akuarium minimum: sekitar 380 liter",
+        "why": "380 litres is a converted 100 US gallons, a tank size nobody in Indonesia would quote.",
         "by": "model"
       }
     ],
@@ -11782,11 +11904,19 @@
     "products": []
   },
   "id/species/copadichromis-ilesi": {
-    "at": "2026-11-10",
-    "hash": "b24679df788e34ab",
+    "at": "2026-11-14",
+    "hash": "2555219a59ac064a",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P10",
+        "quote": "Akuarium 122 cm adalah ukuran yang pas untuk proyek pemijahan",
+        "why": "122 cm is a 4-foot tank converted from imperial; keepers in Indonesia would say 120 cm.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "id/species/copadichromis-virginalis": {
@@ -13561,6 +13691,14 @@
     "findings": [],
     "products": []
   },
+  "id/species/cryptarius-truncatus": {
+    "at": "2026-11-14",
+    "hash": "76c889dbe1081cdf",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
   "id/species/cryptoheros-cutteri": {
     "at": "2026-11-13",
     "hash": "9b8c2a211ea0e1ef",
@@ -13570,8 +13708,8 @@
     "products": []
   },
   "id/species/ctenochromis-polli": {
-    "at": "2026-11-13",
-    "hash": "ec599d1895e5f719",
+    "at": "2026-11-14",
+    "hash": "2b2bbccfbe1f8802",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -13979,10 +14117,10 @@
     "products": []
   },
   "id/species/danio-choprae": {
-    "at": "2026-11-08",
-    "hash": "01f5889b4b60de43",
+    "at": "2026-11-14",
+    "hash": "ba2371e02f1dd1f6",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -14023,16 +14161,23 @@
     "products": []
   },
   "id/species/danio-rerio": {
-    "at": "2026-11-09",
-    "hash": "6c0945386742f554",
+    "at": "2026-11-14",
+    "hash": "9c1cc5e4f0e40df0",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
-        "part": "P40",
-        "quote": "Sebagian peternak memakai jaring pada rangka 2,5 cm di atas dasar",
-        "why": "2.5 cm is a converted 1 inch, a figure a keeper in Indonesia would not give.",
+        "part": "P4",
+        "quote": "Ukuran akuarium minimum: 38 liter",
+        "why": "38 litres is a converted 10-gallon tank size no Indonesian keeper would use.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P17",
+        "quote": "Ukuran akuarium minimum: 38 liter.",
+        "why": "38 litres is a converted 10-gallon tank size no Indonesian keeper would use.",
         "by": "model"
       }
     ],
@@ -14056,10 +14201,18 @@
   },
   "id/species/datnioides-microlepis": {
     "at": "2026-11-14",
-    "hash": "9afdcfde681dfe2b",
+    "hash": "59a3dc185d74c6cc",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P7",
+        "quote": "Ikan ini tidak tahan perjalanan jauh dan bisa sulit distabilkan setelah diimpor.",
+        "why": "Assumes the reader gets this fish imported from abroad, while it is native to Sumatra and Kalimantan.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "id/species/datnioides-polota": {
@@ -14670,11 +14823,26 @@
     "products": []
   },
   "id/species/hyphessobrycon-amandae": {
-    "at": "2026-11-12",
-    "hash": "51eaec21e3a62cf8",
+    "at": "2026-11-14",
+    "hash": "308a12e39becad3c",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "Ukuran akuarium minimum: sekitar 38 liter",
+        "why": "38 litres is a converted 10-gallon tank size, not one used in Indonesia.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P10",
+        "quote": "bisa dipelihara di akuarium nano 19 liter",
+        "why": "19 litres is a converted 5-gallon tank size, not one used in Indonesia.",
+        "by": "model"
+      }
+    ],
     "products": [
       "Easy Fry and Small Fish Food"
     ]
@@ -14696,16 +14864,30 @@
     "products": []
   },
   "id/species/hyphessobrycon-herbertaxelrodi": {
-    "at": "2026-11-08",
-    "hash": "225e9d94a2668d18",
+    "at": "2026-11-14",
+    "hash": "8cc170d11a39aa47",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P14",
+        "quote": "Paling sedikit, pelihara 6 ekor di akuarium 38 liter. Namun, 10–15 ekor di akuarium 75 liter",
+        "why": "38 and 75 litres are converted 10 and 20 gallon tanks, sizes nobody in Indonesia uses.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P17",
+        "quote": "akuarium 38 liter yang tidak berisi hewan lain",
+        "why": "38 litres is a converted 10 gallon tank.",
+        "by": "model"
+      },
+      {
         "check": "elsewhere",
         "part": "P17",
         "quote": "rumput plastik hiasan (Easter basket grass)",
-        "why": "Easter basket grass is an American holiday item that a hobbyist in Indonesia wouldn't usually have.",
+        "why": "Easter basket grass is an American household item, not something readers in Indonesia have at home.",
         "by": "model"
       }
     ],
@@ -15263,9 +15445,10 @@
     "products": []
   },
   "id/species/mastacembelus-erythrotaenia": {
-    "at": "2026-11-07",
+    "at": "2026-11-14",
     "hash": "0859d0c0e75f40ce",
     "model": "opus",
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -15355,32 +15538,24 @@
     "products": []
   },
   "id/species/melanotaenia-praecox": {
-    "at": "2026-11-08",
-    "hash": "1d0891c19f10cda8",
+    "at": "2026-11-14",
+    "hash": "53c9bb55a58e3ec2",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P7",
-        "quote": "akuarium memanjang sekitar 80 liter atau minimal akuarium sekitar 110 liter",
-        "why": "Tank volumes converted from US 20-gallon long and 29-gallon tanks.",
+        "quote": "akuarium memanjang sekitar 76 liter atau minimal akuarium sekitar 110 liter",
+        "why": "76 and 110 litres are converted US 20-gallon long and 29-gallon tanks.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P19",
         "quote": "Akuarium pemijahan sebaiknya minimal sepanjang 46 cm",
-        "why": "46 cm is a converted 18-inch length, not a size used in Indonesia.",
+        "why": "46 cm is a converted 18-inch tank length.",
         "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P14",
-        "quote": "udang amano dan filter shrimp",
-        "why": "English hobby name; Indonesian keepers call Atyopsis 'udang bambu'.",
-        "by": "model",
-        "fix": "udang bambu"
       }
     ],
     "products": [
@@ -15895,8 +16070,8 @@
     "products": []
   },
   "id/species/oryzias-sarasinorum": {
-    "at": "2026-11-08",
-    "hash": "32a955c2b9f4a299",
+    "at": "2026-11-14",
+    "hash": "98f615580299ccf8",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -16036,8 +16211,8 @@
     "products": []
   },
   "id/species/pangio-oblonga": {
-    "at": "2026-11-08",
-    "hash": "070b84beac64a693",
+    "at": "2026-11-14",
+    "hash": "0424c2249af159a9",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -16086,11 +16261,26 @@
     ]
   },
   "id/species/paracheirodon-innesi": {
-    "at": "2026-11-08",
-    "hash": "3f5a113652df8a70",
+    "at": "2026-11-14",
+    "hash": "e70464abb616c744",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P2",
+        "quote": "Ukuran akuarium minimum: sekitar 38 liter",
+        "why": "38 litres is a converted 10-gallon tank size, not one used in Indonesia.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P3",
+        "quote": "sebagian besar berasal dari farm/budidaya ikan di Timur Jauh dan Eropa Timur",
+        "why": "\"Far East\" is a Western viewpoint; for an Indonesian reader these farms are in their own region (Southeast Asia).",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "id/species/paracheirodon-simulans": {
@@ -16173,11 +16363,19 @@
     "products": []
   },
   "id/species/parosphromenus-anjunganensis": {
-    "at": "2026-11-08",
-    "hash": "6881f90c876bf070",
+    "at": "2026-11-14",
+    "hash": "8cee3074865a35a6",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P5",
+        "quote": "akuarium sekitar 19–38 liter",
+        "why": "These volumes are converted from 5–10 US gallons; nobody in Indonesia sizes a tank this way.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "id/species/parosphromenus-bintan": {
@@ -16230,16 +16428,16 @@
     "products": []
   },
   "id/species/parosphromenus-ornaticauda": {
-    "at": "2026-11-08",
-    "hash": "f7c6e53352686bf8",
+    "at": "2026-11-14",
+    "hash": "77b7c68da3d56054",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "elsewhere",
-        "part": "P2",
-        "quote": "tidak mudah dipelihara dan sering rentan terserang penyakit setelah diimpor",
-        "why": "Frames the reader as buying this Indonesian native fish as an import, which only fits readers abroad.",
+        "check": "units",
+        "part": "P6",
+        "quote": "di akuarium sekitar 19 liter atau lebih besar",
+        "why": "19 litres is a converted 5-gallon tank size that no Indonesian keeper would use.",
         "by": "model"
       }
     ],
@@ -16262,11 +16460,19 @@
     "products": []
   },
   "id/species/parosphromenus-phoenicurus": {
-    "at": "2026-11-08",
-    "hash": "a38b6bb756f02c4a",
+    "at": "2026-11-14",
+    "hash": "d4afa746a958eb31",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "di akuarium 19 liter atau lebih besar",
+        "why": "19 litres is a converted 5-gallon tank size that no keeper in Indonesia would use.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "id/species/parosphromenus-quindecim": {
@@ -16347,23 +16553,44 @@
     "products": []
   },
   "id/species/phenacogrammus-interruptus": {
-    "at": "2026-11-08",
-    "hash": "4e37b6e83001dcb5",
+    "at": "2026-11-14",
+    "hash": "f5192fe0f0ac3a50",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
+        "part": "P2",
+        "quote": "Ukuran akuarium minimal: sekitar 114 liter",
+        "why": "114 litres is a converted 30-gallon tank size.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P7",
+        "quote": "akuarium sekitar 114 liter adalah ukuran minimal untuk enam sampai delapan ekor Congo tetra",
+        "why": "114 litres is a converted 30-gallon tank size.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P7",
+        "quote": "pertimbangkan akuarium sekitar 208 liter",
+        "why": "208 litres is a converted 55-gallon tank size.",
+        "by": "model"
+      },
+      {
+        "check": "units",
         "part": "P19",
         "quote": "substrat setebal sekitar 2,5 cm yang tidak dipadatkan",
-        "why": "Substrate depth converted from 1 inch, not a figure a local keeper would give.",
+        "why": "2.5 cm is a converted 1-inch depth.",
         "by": "model"
       },
       {
         "check": "words",
         "part": "P19",
         "quote": "Memindahkan burayak langsung ke air tawar tanpa gambut",
-        "why": "\"Air tawar\" is a literal rendering of English \"fresh water\" (new water), which reads as freshwater in Indonesian.",
+        "why": "Mistranslation of English 'fresh water' (new water); 'air tawar' means freshwater, not sea water.",
         "by": "model",
         "fix": "air baru"
       }
@@ -16463,11 +16690,33 @@
     "products": []
   },
   "id/species/poecilia-wingei": {
-    "at": "2026-11-08",
-    "hash": "fb8a47bc903aea5d",
+    "at": "2026-11-14",
+    "hash": "97d1afd3b193acce",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P7",
+        "quote": "Ukuran akuarium minimum adalah 19–38 liter",
+        "why": "19–38 litres is 5–10 US gallons converted, not a tank size anyone in Indonesia would give.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P7",
+        "quote": "Untuk akuarium 38 liter, mulailah dengan satu trio",
+        "why": "38 litres is a converted 10-gallon tank.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P7",
+        "quote": "Untuk akuarium 76 liter, beli enam sampai sembilan ekor.",
+        "why": "76 litres is a converted 20-gallon tank.",
+        "by": "model"
+      }
+    ],
     "products": [
       "Repashy"
     ]
@@ -16582,11 +16831,19 @@
     ]
   },
   "id/species/pseudomugil-gertrudae": {
-    "at": "2026-11-08",
-    "hash": "a0a7f4fce4ad9a3c",
+    "at": "2026-11-14",
+    "hash": "3e315b3e25b82da9",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P6",
+        "quote": "Ukuran akuarium: sekitar 38 liter atau lebih besar.",
+        "why": "38 litres is a converted 10-gallon tank size, not a size anyone in Indonesia would give.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "id/species/pseudomugil-luminatus": {
@@ -16754,16 +17011,23 @@
     ]
   },
   "id/species/puntius-titteya": {
-    "at": "2026-11-12",
-    "hash": "f556d3e5a4e4f38c",
+    "at": "2026-11-14",
+    "hash": "b4dc0a4cc08ce8a3",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
+        "part": "P3",
+        "quote": "Ukuran akuarium minimal: sekitar 95 liter",
+        "why": "95 litres is a converted 25-gallon tank size, not a size used in Indonesia.",
+        "by": "model"
+      },
+      {
+        "check": "units",
         "part": "P9",
-        "quote": "Kelompok berisi enam ekor bisa dipelihara di akuarium 38 liter atau lebih besar.",
-        "why": "38 litres is a converted 10-gallon tank size, not a size anyone in Indonesia would name.",
+        "quote": "bisa dipelihara di akuarium 38 liter atau lebih besar",
+        "why": "38 litres is a converted 10-gallon tank size.",
         "by": "model"
       }
     ],
@@ -16795,11 +17059,19 @@
     "products": []
   },
   "id/species/rasbora-caudimaculata": {
-    "at": "2026-11-08",
-    "hash": "4b64c839c64ce4af",
+    "at": "2026-11-14",
+    "hash": "44d7eff9f9026549",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P11",
+        "quote": "misalnya berukuran 120 × 30 × 30 cm (113 liter)",
+        "why": "113 litres is a converted US 30-gallon figure; the stated metric sides give about 108 litres.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "id/species/rasbora-cephalotaenia": {
@@ -16865,11 +17137,27 @@
     "products": []
   },
   "id/species/rasbora-elegans": {
-    "at": "2026-11-08",
-    "hash": "5e84e1765c132e88",
+    "at": "2026-11-14",
+    "hash": "ced9f388fcb3672a",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P10",
+        "quote": "misalnya 120 × 30 × 30 cm (113 liter)",
+        "why": "113 litres doesn't match 120 × 30 × 30 cm (108 L); it's a 30-gallon tank converted to metric.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P10",
+        "quote": "Filter internal bertenaga bisa dipasang di awal",
+        "why": "'Filter bertenaga' is a word-for-word calque of the English 'powered filter'; keepers in Indonesia don't say it.",
+        "by": "model",
+        "fix": "filter internal / filter celup"
+      }
+    ],
     "products": []
   },
   "id/species/rasbora-kalochroma": {
@@ -16904,20 +17192,11 @@
     "products": []
   },
   "id/species/rasbora-lacrimula": {
-    "at": "2026-11-09",
-    "hash": "50656e195ac2291e",
+    "at": "2026-11-14",
+    "hash": "448e25a09ed6cab9",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P10",
-        "quote": "Pada awalnya bisa ditambahkan filter listrik kecil",
-        "why": "Literal calque of English 'power filter'; Indonesian keepers say 'filter mesin'.",
-        "by": "model",
-        "fix": "filter mesin kecil"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "id/species/rasbora-patrickyapi": {
@@ -17010,18 +17289,10 @@
   },
   "id/species/sahyadria-denisonii": {
     "at": "2026-11-14",
-    "hash": "cd8a811e2d945f65",
+    "hash": "33a819c6066a1e6c",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P21",
-        "quote": "Ini adalah impor pertama S. denisonii dari daerah penangkapan baru di India.",
-        "why": "This is the source shop's own stock news about a shipment it received, which the reader doesn't know about.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "id/species/scatophagus-argus": {
@@ -17094,11 +17365,26 @@
     "products": []
   },
   "id/species/sewellia-lineolata": {
-    "at": "2026-11-08",
-    "hash": "d8303027d5405db8",
+    "at": "2026-11-14",
+    "hash": "466c96752656e733",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P8",
+        "quote": "akuarium 76 liter yang penuh tanaman",
+        "why": "76 litres is a converted 20-gallon tank size, not one used in Indonesia.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P13",
+        "quote": "di akuarium 76 liter yang penuh tanaman dengan filter busa berarus lembut",
+        "why": "76 litres is a converted 20-gallon tank size, not one used in Indonesia.",
+        "by": "model"
+      }
+    ],
     "products": [
       "Repashy"
     ]
@@ -17175,18 +17461,11 @@
     "products": []
   },
   "id/species/sphaerichthys-selatanensis": {
-    "at": "2026-11-07",
-    "hash": "c4882191facb128a",
+    "at": "2026-11-14",
+    "hash": "9e2692a27b8330cb",
     "model": "opus",
-    "findings": [
-      {
-        "check": "elsewhere",
-        "part": "P9",
-        "quote": "daun beech, oak, atau ketapang semuanya cocok",
-        "why": "Beech and oak leaves are temperate-country leaf litter offered as the reader's own options; a keeper in Indonesia uses ketapang and similar local leaves.",
-        "by": "model"
-      }
-    ],
+    "checklist": 3,
+    "findings": [],
     "products": []
   },
   "id/species/sphaerichthys-vaillanti": {
@@ -17348,11 +17627,19 @@
     "products": []
   },
   "id/species/symphysodon-discus": {
-    "at": "2026-11-08",
-    "hash": "32c930692fc69b37",
+    "at": "2026-11-14",
+    "hash": "ddedcd6d6aeb4969",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "atau minimal sekitar 285 liter",
+        "why": "285 litres is a converted 75-gallon US tank size that no keeper in Indonesia would use.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "id/species/syncrossus-hymenophysa": {
@@ -17498,27 +17785,56 @@
     "products": []
   },
   "id/species/trichogaster-lalius": {
-    "at": "2026-11-08",
-    "hash": "17d787936551ec2c",
+    "at": "2026-11-14",
+    "hash": "f6d3ccdf251556ea",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "source",
-        "part": "P11",
-        "quote": "sudah pas-pasan cukup untuk sepasang ikan, asalkan ditata dengan benar (lihat bagian di bawah).",
-        "why": "Points the reader to an unnamed section from the original article.",
+        "check": "units",
+        "part": "P3",
+        "quote": "Ukuran akuarium minimum: sekitar 19 liter",
+        "why": "19 litres is a converted 5-gallon tank size nobody in Indonesia would use.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P4",
+        "quote": "penyakit dari Asia",
+        "why": "Treats Asia as a distant disease source, written for a reader outside Asia.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P31",
+        "quote": "tidak bisa mendapatkan stok bebas penyakit dari peternak di Timur Jauh (terutama Singapura)",
+        "why": "Calls Singapore the 'Far East', a Western importer's view, not an Indonesian reader's.",
         "by": "model"
       }
     ],
     "products": []
   },
   "id/species/trichopodus-leerii": {
-    "at": "2026-11-08",
-    "hash": "56137c178a4901bc",
+    "at": "2026-11-14",
+    "hash": "6993019c2f06da7e",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P8",
+        "quote": "Ukuran akuarium minimum: sekitar 76 liter.",
+        "why": "76 litres is a converted 20-gallon tank, not a size keepers in Indonesia use.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P8",
+        "quote": "Memelihara sepat mutiara di akuarium sekitar 38 liter tidak disarankan.",
+        "why": "38 litres is a converted 10-gallon tank, not a size keepers in Indonesia use.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "id/species/trichopodus-trichopterus": {
@@ -17592,20 +17908,38 @@
     "products": []
   },
   "id/species/trigonostigma-heteromorpha": {
-    "at": "2026-11-08",
-    "hash": "37255c3ddedd79fc",
+    "at": "2026-11-14",
+    "hash": "76a66d3f3fea103e",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "source",
-        "part": "P21",
-        "quote": "diberi label T. cf. heteromorpha pada gambar",
-        "why": "Refers to a picture from the source article that this page does not have.",
+        "check": "units",
+        "part": "P12",
+        "quote": "Ukuran akuarium minimum: 38 liter.",
+        "why": "38 litres is a converted 10-gallon tank size, not a size used in Indonesia.",
         "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P33",
+        "quote": "diberi label T. cf. heteromorpha pada gambar",
+        "why": "Refers to a picture from the source that the page does not have.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P29",
+        "quote": "buah pinus (cone)",
+        "why": "Mistranslation of alder cones used for blackwater; keepers do not call them pine fruit.",
+        "by": "model",
+        "fix": "alder cone"
       }
     ],
-    "products": []
+    "products": [
+      "ADA Amazonia aqua soil",
+      "Fluval Plant and Shrimp Stratum"
+    ]
   },
   "id/species/tropheus-duboisi": {
     "at": "2026-11-07",
@@ -18001,6 +18335,38 @@
     "model": "opus",
     "checklist": 3,
     "findings": [],
+    "products": []
+  },
+  "ms/breeds/lionhead-goldfish": {
+    "at": "2026-11-14",
+    "hash": "b306bb99469fec0b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Bagi ikan di kolam, bawa masuk ke dalam rumah jika suhu kekal di bawah 7 °C untuk tempoh yang lama.",
+        "why": "Advice for cold winters; outdoor ponds in Malaysia never stay below 7 °C.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "ms/breeds/mickey-mouse-platy": {
+    "at": "2026-11-14",
+    "hash": "ccb86cd49af8645b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Air keras dan beralkali yang hampir sama dengan air paip biasa sudah memadai.",
+        "why": "Assumes ordinary tap water is hard and alkaline, as in the source's country; Malaysian tap water is generally soft.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "ms/breeds/oranda-goldfish": {
@@ -19586,11 +19952,19 @@
     "products": []
   },
   "ms/plants/cryptocoryne-parva": {
-    "at": "2026-11-13",
-    "hash": "a0f8d578801376f9",
+    "at": "2026-11-14",
+    "hash": "f61cfa4e76b6bab9",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "Saiz tangki minimum untuk spesies ini ialah 19 liter.",
+        "why": "19 litres is a converted 5-gallon tank size nobody in Malaysia would quote.",
+        "by": "model"
+      }
+    ],
     "products": [
       "Nutrition Capsules",
       "ADA Amazonia aqua soil",
@@ -19610,6 +19984,50 @@
   "ms/plants/cryptocoryne-undulata": {
     "at": "2026-11-13",
     "hash": "21f614071c7856f1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/plants/cryptocoryne-usteriana": {
+    "at": "2026-11-14",
+    "hash": "4710da2637d8da74",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/plants/cryptocoryne-wendtii": {
+    "at": "2026-11-14",
+    "hash": "9b4c46596b3cd4d5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P8",
+        "quote": "Tumbuhan akuarium daripada kultur tisu dalam cawan tertutup.",
+        "why": "Describes the source nursery's own product (its tissue-culture cup) as if the reader were buying from it.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "ADA Amazonia aqua soil",
+      "Caribsea Eco-Complete",
+      "Seachem Flourite Black Sand"
+    ]
+  },
+  "ms/plants/cryptocoryne-x-willisii": {
+    "at": "2026-11-14",
+    "hash": "56fc0b1b0ff2f015",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/plants/cyperus-helferi": {
+    "at": "2026-11-14",
+    "hash": "3c0eaad2785c334c",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -20062,6 +20480,78 @@
     "findings": [],
     "products": []
   },
+  "ms/species/aguarunichthys-tocantinsensis": {
+    "at": "2026-11-14",
+    "hash": "c75e8ab430fc0d53",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/aguarunichthys-torosus": {
+    "at": "2026-11-14",
+    "hash": "1cc491434bc68937",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/ailia-coila": {
+    "at": "2026-11-14",
+    "hash": "2967bd94e0ce77ba",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/ailiichthys-punctata": {
+    "at": "2026-11-14",
+    "hash": "45f40e58d8baad03",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/akysis-brachybarbatus": {
+    "at": "2026-11-14",
+    "hash": "b4370409f40daa1f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/akysis-ephippifer": {
+    "at": "2026-11-14",
+    "hash": "723a8f95ec9ddae1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/akysis-hendricksoni": {
+    "at": "2026-11-14",
+    "hash": "a9467d293ba195f7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P9",
+        "quote": "daun beech, oak atau ketapang kering semuanya sesuai",
+        "why": "Beech and oak leaves are what a European keeper has to hand; a keeper in Malaysia would use ketapang.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "ms/species/akysis-heterurus": {
+    "at": "2026-11-14",
+    "hash": "b53f3afbb1bfd912",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
   "ms/species/anabas-testudineus": {
     "at": "2026-11-12",
     "hash": "6692ad5eacedb251",
@@ -20101,8 +20591,8 @@
     "products": []
   },
   "ms/species/astronotus-ocellatus": {
-    "at": "2026-11-10",
-    "hash": "1d9a7c5c4cb00c1d",
+    "at": "2026-11-14",
+    "hash": "f2fe5013d09a6715",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -20110,14 +20600,21 @@
         "check": "elsewhere",
         "part": "P1",
         "quote": "Oscar dewasa membesar sepanjang sebiji bola sepak Amerika",
-        "why": "An American football is a size comparison made for a US reader, not one used in Malaysia.",
+        "why": "An American football is a size reference for US readers, not for a keeper in Malaysia.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P10",
-        "quote": "tiga ekor oscar pernah dipelihara dalam tangki 470 L",
-        "why": "470 L is a 125-gallon tank converted to litres, a size nobody in Malaysia would give.",
+        "quote": "Ada yang mengatakan tangki 210 L ialah saiz minimum untuk seekor oscar, tetapi 280 L lebih baik",
+        "why": "210 L and 280 L are 55 and 75 US gallons converted, which is not how tanks are sized in Malaysia.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P29",
+        "quote": "dalam tangki kira-kira 380 liter atau lebih besar",
+        "why": "380 litres is 100 US gallons converted.",
         "by": "model"
       }
     ],
@@ -20176,8 +20673,8 @@
     ]
   },
   "ms/species/carinotetraodon-travancoricus": {
-    "at": "2026-11-08",
-    "hash": "fe1c5f1836fc6137",
+    "at": "2026-11-14",
+    "hash": "09da6f28715783c2",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -20185,30 +20682,30 @@
         "check": "source",
         "part": "P6",
         "quote": "Satu set tiga ubat kuarantin telah digunakan sebagai rawatan pencegahan pada ribuan pea puffer tanpa kesan buruk.",
-        "why": "This is the source shop's own quarantine routine on its own stock, and the three medicines are never named on the page.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P4",
-        "quote": "Saiz tangki minimum: kira-kira 75 liter",
-        "why": "75 litres is a converted 20-gallon tank, not a size a Malaysian keeper would give.",
+        "why": "Refers to the source shop's own unnamed quarantine medicine set and its stock of fish.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P14",
-        "quote": "20 liter air untuk ikan buntal pertama dan 11 liter untuk setiap ekor tambahan",
-        "why": "11 litres is a converted 3 gallons, so the rule was written in gallons.",
+        "quote": "19 liter air untuk ikan buntal pertama dan 11 liter untuk setiap ekor tambahan",
+        "why": "Volumes converted from 5 and 3 gallons.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P14",
+        "quote": "Tiga ekor boleh dibela dalam tangki 38 liter dan enam hingga tujuh ekor dalam tangki 76 liter",
+        "why": "Tank sizes converted from 10 and 20 gallons.",
         "by": "model"
       },
       {
         "check": "words",
-        "part": "P29",
-        "quote": "tiada ikan pemakan alga atau kru pembersih",
-        "why": "'Kru pembersih' is a word-for-word copy of the English 'cleanup crew'.",
+        "part": "P37",
+        "quote": "turkey baster",
+        "why": "An American kitchen tool a Malaysian keeper would not name.",
         "by": "model",
-        "fix": "ikan pembersih / cleaner crew"
+        "fix": "picagari besar"
       }
     ],
     "products": [
@@ -20440,16 +20937,30 @@
     "products": []
   },
   "ms/species/danio-rerio": {
-    "at": "2026-11-10",
-    "hash": "80e205f6cdc1b787",
+    "at": "2026-11-14",
+    "hash": "3b045396c9da9741",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
+        "part": "P4",
+        "quote": "Saiz tangki minimum: 38 liter",
+        "why": "38 litres is a converted US 10-gallon tank, not a size used in Malaysia.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P17",
+        "quote": "Saiz tangki minimum: 38 liter.",
+        "why": "38 litres is a converted US 10-gallon tank, not a size used in Malaysia.",
+        "by": "model"
+      },
+      {
+        "check": "units",
         "part": "P40",
         "quote": "menggunakan jaring pada bingkai 2.5 cm di atas dasar",
-        "why": "2.5 cm is a converted 1 inch from an imperial source, not a figure a Malaysian keeper would give.",
+        "why": "2.5 cm is a converted 1 inch.",
         "by": "model"
       }
     ],
@@ -20581,16 +21092,44 @@
     "products": []
   },
   "ms/species/hyphessobrycon-herbertaxelrodi": {
-    "at": "2026-11-08",
-    "hash": "ed0a3c94ca1d8dbb",
+    "at": "2026-11-14",
+    "hash": "11c8451031f59816",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P14",
+        "quote": "Paling kurang, pelihara enam ekor dalam tangki 38 liter",
+        "why": "38 litres is a converted 10-gallon tank size, not one used in Malaysia.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P14",
+        "quote": "10–15 ekor dalam tangki 75 liter atau lebih besar",
+        "why": "75 litres is a converted 20-gallon tank size.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P17",
+        "quote": "akuarium 38 liter yang tidak ada haiwan lain",
+        "why": "38 litres is a converted 10-gallon tank size.",
+        "by": "model"
+      },
+      {
         "check": "elsewhere",
         "part": "P17",
         "quote": "rumput plastik hiasan (Easter basket grass)",
-        "why": "Easter basket grass is an American seasonal shop item, not something a Malaysian keeper would find or name.",
+        "why": "Easter basket grass is an American seasonal household item, not something a Malaysian keeper has to hand.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P17",
+        "quote": "sekeping jaring plastik kraf",
+        "why": "Plastic craft mesh is an American craft-store item, so it assumes another country's shops.",
         "by": "model"
       }
     ],
@@ -20771,11 +21310,19 @@
     ]
   },
   "ms/species/paracheirodon-innesi": {
-    "at": "2026-11-08",
-    "hash": "7c2ec44b19aa6f71",
+    "at": "2026-11-14",
+    "hash": "c44216224a7aa345",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P2",
+        "quote": "Saiz tangki minimum: kira-kira 38 liter",
+        "why": "38 litres is a converted 10-gallon tank size, not a size anyone in Malaysia would give.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "ms/species/pelvicachromis-pulcher": {
@@ -20837,16 +21384,37 @@
     "products": []
   },
   "ms/species/phenacogrammus-interruptus": {
-    "at": "2026-11-08",
-    "hash": "a69db982e5caecdd",
+    "at": "2026-11-14",
+    "hash": "c9fc4bca06ec867a",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
+        "part": "P2",
+        "quote": "Saiz tangki minimum: kira-kira 114 liter",
+        "why": "114 litres is a converted 30-gallon tank size, not a size used in Malaysia.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P7",
+        "quote": "akuarium kira-kira 114 liter ialah saiz minimum untuk enam hingga lapan ekor Congo tetra",
+        "why": "114 litres is a converted 30-gallon tank size.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P7",
+        "quote": "Dalam tangki 208 liter, anda mungkin boleh memelihara sehingga 12 ekor Congo tetra",
+        "why": "208 litres is a converted 55-gallon tank size.",
+        "by": "model"
+      },
+      {
+        "check": "units",
         "part": "P19",
         "quote": "lapisan substrat longgar setebal 2.5 cm",
-        "why": "A 2.5 cm substrate depth is a direct conversion of 1 inch.",
+        "why": "2.5 cm of substrate is a converted 1-inch layer.",
         "by": "model"
       }
     ],
@@ -20921,11 +21489,33 @@
     "products": []
   },
   "ms/species/poecilia-wingei": {
-    "at": "2026-11-08",
-    "hash": "26eb6d5b8dc9c591",
+    "at": "2026-11-14",
+    "hash": "04884488e914e649",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P6",
+        "quote": "Saiz tangki minimum ialah 19–38 liter",
+        "why": "19–38 litres is a converted 5–10 gallon range that no Malaysian keeper would use.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P6",
+        "quote": "Untuk akuarium 38 liter, mulakan dengan satu trio",
+        "why": "38 litres is a converted 10-gallon tank size.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P6",
+        "quote": "Untuk akuarium 76 liter, beli enam hingga sembilan ekor.",
+        "why": "76 litres is a converted 20-gallon tank size.",
+        "by": "model"
+      }
+    ],
     "products": [
       "Repashy"
     ]
@@ -21001,11 +21591,26 @@
     ]
   },
   "ms/species/puntius-titteya": {
-    "at": "2026-11-08",
-    "hash": "a539ab6c4a9f230b",
+    "at": "2026-11-14",
+    "hash": "3f05eacc4c657caa",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P3",
+        "quote": "Saiz tangki minimum: kira-kira 95 liter",
+        "why": "95 litres is a converted 25-gallon tank size, not one used in Malaysia.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P9",
+        "quote": "Sekumpulan enam ekor boleh dipelihara dalam akuarium 38 liter atau lebih besar.",
+        "why": "38 litres is a converted US 10-gallon tank.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "ms/species/rocio-octofasciata": {
@@ -21040,11 +21645,19 @@
     "products": []
   },
   "ms/species/symphysodon-discus": {
-    "at": "2026-11-08",
-    "hash": "1b011abc7e1e39e1",
+    "at": "2026-11-14",
+    "hash": "4fe99f5e79d5914d",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "atau sekurang-kurangnya kira-kira 285 liter",
+        "why": "285 litres is a conversion of 75 US gallons; no keeper in Malaysia would give a tank size that way.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "ms/species/thorichthys-meeki": {
@@ -21070,55 +21683,61 @@
     "products": []
   },
   "ms/species/trichogaster-lalius": {
-    "at": "2026-11-08",
-    "hash": "bf40987badbf3705",
+    "at": "2026-11-14",
+    "hash": "f0eb6f108954b432",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P3",
+        "quote": "Saiz tangki minimum: kira-kira 19 liter",
+        "why": "A 5-gallon tank converted to litres; nobody in Malaysia sizes a tank this way.",
+        "by": "model"
+      },
+      {
         "check": "elsewhere",
         "part": "P4",
         "quote": "penyakit dari Asia dan penjagaan yang lemah dalam pengeluaran besar-besaran",
-        "why": "Treats Asia as a distant place diseases come from, but the reader lives in Asia.",
+        "why": "Written for a reader outside Asia, but this reader lives in Asia.",
         "by": "model"
       },
       {
         "check": "elsewhere",
         "part": "P31",
-        "quote": "stok bebas penyakit daripada penternak di Timur Jauh (terutamanya Singapura)",
-        "why": "Calls Singapore the 'Far East', which is a Western view and not how a reader in Malaysia sees it.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P11",
-        "quote": "dengan syarat tangki disusun dengan betul (lihat bahagian di bawah)",
-        "why": "Points to a section of the source article.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P22",
-        "quote": "masalah kesihatan yang berkaitan dengannya (lihat nota di bawah)",
-        "why": "Points to the source article's notes.",
+        "quote": "daripada penternak di Timur Jauh (terutamanya Singapura)",
+        "why": "A Western reader's view of where stock comes from; for a Malaysian reader Singapore is a neighbour, not the Far East.",
         "by": "model"
       }
     ],
     "products": []
   },
   "ms/species/trichopodus-leerii": {
-    "at": "2026-11-08",
-    "hash": "c74883bd40199e15",
+    "at": "2026-11-14",
+    "hash": "2a405f5605e5750a",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "words",
-        "part": "P14",
-        "quote": "kacang pea yang dimasak",
-        "why": "Half-translated English; Malay speakers call peas 'kacang pis'.",
-        "by": "model",
-        "fix": "kacang pis yang dimasak"
+        "check": "units",
+        "part": "P8",
+        "quote": "Saiz tangki minimum: kira-kira 76 liter.",
+        "why": "76 litres is a converted 20 US gallons, not a size a Malaysian keeper would name.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P8",
+        "quote": "dalam akuarium kira-kira 38 liter tidak digalakkan",
+        "why": "38 litres is a converted 10 US gallons.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P8",
+        "quote": "tangki kira-kira 150 liter atau lebih besar disyorkan",
+        "why": "About 150 litres is a converted 40 US gallons.",
+        "by": "model"
       }
     ],
     "products": []
@@ -21131,16 +21750,30 @@
     "products": []
   },
   "ms/species/trigonostigma-heteromorpha": {
-    "at": "2026-11-09",
-    "hash": "f0ec75c32bf008fb",
+    "at": "2026-11-14",
+    "hash": "a3fffed13493ba75",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P12",
+        "quote": "Saiz tangki minimum: 38 liter.",
+        "why": "38 litres is a converted 10-gallon tank size, not one a Malaysian keeper would give.",
+        "by": "model"
+      },
+      {
         "check": "source",
         "part": "P33",
         "quote": "dilabel T. cf. heteromorpha dalam gambar",
-        "why": "Points the reader to a picture the page does not have.",
+        "why": "Refers to a picture from the source that the page does not have.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P14",
+        "quote": "Menambah daun kering (daun beech, oak atau ketapang semuanya sesuai)",
+        "why": "Beech and oak leaves are what temperate-country keepers have at hand, not a Malaysian reader.",
         "by": "model"
       }
     ],
@@ -24814,8 +25447,8 @@
     "products": []
   },
   "th/plants/cryptocoryne-parva": {
-    "at": "2026-11-08",
-    "hash": "2b14eee472be112a",
+    "at": "2026-11-14",
+    "hash": "562e35cb9dcc83d7",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -24824,6 +25457,13 @@
         "part": "P10",
         "quote": "ต้นในกระถางราคาเพียงไม่กี่ดอลลาร์",
         "why": "Price is given in US dollars, not baht.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "ขนาดตู้ขั้นต่ำสำหรับพันธุ์นี้คือประมาณ 19 ลิตร",
+        "why": "19 litres is a converted 5-gallon tank size.",
         "by": "model"
       }
     ],
@@ -27335,6 +27975,29 @@
     "model": "opus",
     "checklist": 2,
     "findings": [],
+    "products": []
+  },
+  "th/species/amphilius-atesuensis": {
+    "at": "2026-11-14",
+    "hash": "03137497d81b168d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "ภาพตัวอย่างอาจเป็นปลาชนิดนี้ หรือชนิดที่ใกล้เคียงกัน",
+        "why": "Refers to sample photos from the source page that this page does not have.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P8",
+        "quote": "ภาพตัวอย่างสองภาพสุดท้ายถ่ายที่อุทยานแห่งชาติไท (Tai National Park)",
+        "why": "Describes the source's own photos, which are not on this page.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "th/species/amphilophus-citrinellus": {
@@ -30707,10 +31370,10 @@
     "products": []
   },
   "th/species/betta-hendra": {
-    "at": "2026-11-08",
-    "hash": "3497f2dfc190c7dc",
+    "at": "2026-11-14",
+    "hash": "b6610668533d701a",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -30748,15 +31411,15 @@
   },
   "th/species/betta-imbellis": {
     "at": "2026-11-14",
-    "hash": "23d778a280167ab2",
+    "hash": "430cad503c25494b",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "ที่มา: ปลาจับจากธรรมชาติ (จังหวัดเหิ่วซาง ประเทศเวียดนาม)",
-        "why": "Describes the source shop's own wild-caught stock as if the reader knew that batch.",
+        "quote": "ปลาชุดนี้เป็น Betta imbellis ที่จับจากธรรมชาติ",
+        "why": "Describes the source shop's own batch of fish in stock, which the reader does not have.",
         "by": "model"
       }
     ],
@@ -30850,7 +31513,7 @@
   },
   "th/species/betta-mahachaiensis": {
     "at": "2026-11-14",
-    "hash": "a951208f124179d0",
+    "hash": "bd0d5c54610685c4",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -30858,7 +31521,7 @@
         "check": "elsewhere",
         "part": "P8",
         "quote": "ใบบีช ใบโอ๊ก หรือใบหูกวาง ใช้ได้ทั้งหมด",
-        "why": "Beech and oak leaves come from European trees that a keeper in Thailand doesn't have; Indian almond leaves are the local choice.",
+        "why": "Beech and oak leaves are European leaf litter used by keepers abroad; a keeper in Thailand uses Indian almond leaves.",
         "by": "model"
       }
     ],
@@ -31003,7 +31666,7 @@
     "products": []
   },
   "th/species/betta-persephone": {
-    "at": "2026-11-08",
+    "at": "2026-11-14",
     "hash": "17fc4fc5624926b5",
     "model": "opus",
     "checklist": 3,
@@ -31306,11 +31969,20 @@
     "products": []
   },
   "th/species/betta-uberis": {
-    "at": "2026-11-09",
-    "hash": "a129d9aab3a80f57",
+    "at": "2026-11-14",
+    "hash": "4448bc8df48c3ead",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "words",
+        "part": "P9",
+        "quote": "ไม่จำเป็นต้องใช้พีททรัพย์ธรรมชาติ",
+        "why": "Garbled literal rendering of 'natural peat'; Thai keepers just say peat moss.",
+        "by": "model",
+        "fix": "พีทมอส"
+      }
+    ],
     "products": []
   },
   "th/species/betta-unimaculata": {
@@ -32256,16 +32928,16 @@
     "products": []
   },
   "th/species/chaca-chaca": {
-    "at": "2026-11-08",
-    "hash": "005883fb09643ede",
+    "at": "2026-11-14",
+    "hash": "be92e116b29ab14a",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
-        "part": "P5",
-        "quote": "การใส่กิ่งบีชเล็ก ๆ และใบโอ๊กหรือใบบีชแห้งลงไปบ้าง",
-        "why": "Beech and oak are temperate trees whose leaves a keeper abroad collects; keepers in Thailand use Indian almond leaves instead.",
+        "part": "P7",
+        "quote": "การใส่กิ่งบีชและใบโอ๊กหรือใบบีชแห้งลงไปบ้าง",
+        "why": "Beech and oak branches and leaves are what European keepers collect; Thai keepers would use Indian almond leaves (ใบหูกวาง) or local wood.",
         "by": "model"
       }
     ],
@@ -35116,6 +35788,14 @@
     ],
     "products": []
   },
+  "th/species/cryptarius-truncatus": {
+    "at": "2026-11-14",
+    "hash": "2eae005d9f68d043",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
   "th/species/cryptoheros-cutteri": {
     "at": "2026-11-13",
     "hash": "20b47177f2a5ddaf",
@@ -35387,10 +36067,10 @@
     "products": []
   },
   "th/species/danio-choprae": {
-    "at": "2026-11-08",
-    "hash": "9c1008ec129e6709",
+    "at": "2026-11-14",
+    "hash": "c912de4e84963401",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -35466,7 +36146,7 @@
   },
   "th/species/datnioides-microlepis": {
     "at": "2026-11-14",
-    "hash": "0991c8a7e9e2e708",
+    "hash": "3e090df89fe25d3d",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -36755,10 +37435,10 @@
     "products": []
   },
   "th/species/mastacembelus-erythrotaenia": {
-    "at": "2026-11-08",
-    "hash": "2cfecaefe970fc44",
+    "at": "2026-11-14",
+    "hash": "75bf1df6d2e111ba",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -38369,18 +39049,10 @@
   },
   "th/species/sahyadria-denisonii": {
     "at": "2026-11-14",
-    "hash": "a3195ae479801f06",
+    "hash": "78139733a4724277",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P21",
-        "quote": "นี่เป็นการนำเข้า S. denisonii ครั้งแรกจากแหล่งจับใหม่ในอินเดีย",
-        "why": "This is the source supplier's own stock news about a shipment it just imported.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "th/species/scatophagus-argus": {
@@ -39551,6 +40223,14 @@
     "findings": [],
     "products": []
   },
+  "vi/cards/new-species-nanosphronemus-gemma": {
+    "at": "2026-11-14",
+    "hash": "72787066bf26bf60",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
   "vi/cards/trivia-climbing-perch-land": {
     "at": "2026-11-08",
     "hash": "db9e3a30a2573cf7",
@@ -39562,6 +40242,14 @@
   "vi/cards/trivia-glass-catfish-name": {
     "at": "2026-11-08",
     "hash": "5a9c36d336a49d2b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/cards/trivia-marimo-alga": {
+    "at": "2026-11-14",
+    "hash": "7cc89807d36b98c5",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -40707,19 +41395,11 @@
     "products": []
   },
   "vi/guides/2hraquarist-blogs-aquascaping-ideas-juan-puchades-rufino-2660": {
-    "at": "2026-11-13",
-    "hash": "73f4c1fa14451b19",
+    "at": "2026-11-14",
+    "hash": "3b9c8c14088eabf2",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "(để ý khoảng cách từ đường chân trời xuống tới chân bố cục)",
-        "why": "Asks the reader to look at a photo of the tank, but the page has no pictures.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/guides/2hraquarist-blogs-aquascaping-ideas-long-tranhoang-1": {
@@ -40731,8 +41411,8 @@
     "products": []
   },
   "vi/guides/2hraquarist-blogs-aquascaping-ideas-luca-galarraga-2018-soul": {
-    "at": "2026-11-13",
-    "hash": "9904a0e00b24ea43",
+    "at": "2026-11-14",
+    "hash": "284dd70564b1afe1",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -51496,6 +52176,50 @@
         "part": "P1",
         "quote": "một cuộc khảo sát không chính thức với 445 độc giả",
         "why": "Refers to the source publication's own readers' survey.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/aquatome-cach-chon-va-lap-may-loc-cho-be-ca-loc-thung-loc-treo-loc-tran-loc-day": {
+    "at": "2026-11-14",
+    "hash": "af7a898b5a91e541",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Ví dụ bể 200 lít cần khoảng 1.893 lít/giờ.",
+        "why": "1.893 L/h is 500 GPH converted (50 gal × 10), not 200 × 10; shows a gallon-based original.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Vậy bộ tràn 2.271 lít/giờ là vừa.",
+        "why": "2.271 L/h is 600 GPH converted; nobody in Vietnam rates an overflow this way.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Lưu lượng (GPH) tự nó quyết định lọc tốt hay kém.",
+        "why": "GPH (gallons per hour) is an imperial unit given as the reader's unit.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Lọc thùng 2.271 lít/giờ gánh được gấp đôi số cá so với lọc 1.136 lít/giờ.",
+        "why": "600 vs 300 GPH converted to odd litre figures.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "một lớp sỏi dày khoảng 2,5 cm không có lọc",
+        "why": "2,5 cm of gravel is a converted 1 inch.",
         "by": "model"
       }
     ],
@@ -81145,30 +81869,30 @@
     "products": []
   },
   "vi/guides/youtube-r0JLyJKhLcc": {
-    "at": "2026-11-13",
-    "hash": "f479dc92af7995f6",
+    "at": "2026-11-14",
+    "hash": "7d446f6707790c99",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P1",
+        "part": "P4",
         "quote": "Bể này có một đèn UV gắn trên đường ống của lọc thùng, và một đèn UV loại đặt trong bể",
-        "why": "Describes the source writer's own tank as if the reader knew it.",
+        "why": "Describes the source writer's own tank setup as if the reader knew it.",
         "by": "model"
       },
       {
         "check": "source",
-        "part": "P1",
-        "quote": "Từ khoảng 6 đến 8 con cá chuột ban đầu, lúc dỡ bể đếm được 19 con.",
-        "why": "A first-person story about the original author's own old tank and fish.",
+        "part": "P8",
+        "quote": "Hy vọng là bể mới nhiều chỗ trốn hơn thì mấy con yếu sẽ khá lên.",
+        "why": "The original writer's personal hope about their own fish.",
         "by": "model"
       },
       {
-        "check": "elsewhere",
-        "part": "P1",
-        "quote": "Lúc mới set, nước khoảng 22 °C trong khi cá dĩa cần khoảng 28 °C.",
-        "why": "An unheated indoor tank sitting at 22 °C reflects a cooler foreign home, not a typical Vietnamese room.",
+        "check": "source",
+        "part": "P9",
+        "quote": "Từ khoảng 6 đến 8 con cá chuột ban đầu, lúc dỡ bể đếm được 19 con.",
+        "why": "First-person story of the source's own tank.",
         "by": "model"
       }
     ],
@@ -86042,8 +86766,8 @@
     "products": []
   },
   "vi/guides/youtube-wXRpHS5A3G4": {
-    "at": "2026-11-13",
-    "hash": "b2588ec15175bdab",
+    "at": "2026-11-14",
+    "hash": "aa2972d9124b5206",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -86051,14 +86775,7 @@
         "check": "source",
         "part": "P1",
         "quote": "Đàn cá đĩa này đã sống chung hơn một năm và rất ổn định",
-        "why": "Refers to the source writer's own discus group as if the reader knew it.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Cá keyhole (Cleithracara maronii) bị tách khỏi cá đĩa là do nhiệt độ.",
-        "why": "Tells the source's own tank story, treating the writer's fish move as known to the reader.",
+        "why": "Talks about the original writer's own discus group as if the reader already knew it.",
         "by": "model"
       }
     ],
@@ -98428,7 +99145,7 @@
   },
   "vi/species/boraras-merah": {
     "at": "2026-11-14",
-    "hash": "e2989ebe4ce18224",
+    "hash": "88a2f5fa6c179e73",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -98436,16 +99153,15 @@
         "check": "elsewhere",
         "part": "P9",
         "quote": "dùng cành dẻ gai châu Âu hoặc sồi cũng an toàn, miễn là phơi thật khô và lột sạch vỏ",
-        "why": "Suggests collecting European beech or oak branches, trees a keeper in Vietnam doesn't have around them.",
+        "why": "European beech and oak branches are what a keeper in Europe can collect, not one in Vietnam.",
         "by": "model"
       },
       {
-        "check": "words",
-        "part": "P21",
-        "quote": "giun vi sinh (microworm)",
-        "why": "Keepers in Vietnam call microworms 'trùn vi sinh', not 'giun vi sinh'.",
-        "by": "model",
-        "fix": "trùn vi sinh"
+        "check": "source",
+        "part": "P18",
+        "quote": "Còn ở đợt cá mới nhập về thì có vẻ cả đực lẫn cái đều mang màu của B. merah.",
+        "why": "Refers to the source shop's own recent import batch as if the reader knew it.",
+        "by": "model"
       }
     ],
     "products": []
@@ -100785,8 +101501,8 @@
     "products": []
   },
   "vi/species/chrysichthys-auratus": {
-    "at": "2026-11-13",
-    "hash": "648251962c6fbf4e",
+    "at": "2026-11-14",
+    "hash": "ea7f57d1b6a8cd4a",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -103436,8 +104152,8 @@
     "products": []
   },
   "vi/species/cryptarius-truncatus": {
-    "at": "2026-11-13",
-    "hash": "4e9fb778601f966f",
+    "at": "2026-11-14",
+    "hash": "9ba20f824abd5d9f",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -108913,6 +109629,14 @@
     ],
     "products": []
   },
+  "vi/species/homaloptera-confuzona": {
+    "at": "2026-11-14",
+    "hash": "acd9acdd6e9d8f2e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
   "vi/species/homaloptera-parclitella": {
     "at": "2026-11-07",
     "hash": "4afb8b9ccad95283",
@@ -109082,6 +109806,30 @@
     "model": "opus",
     "checklist": 2,
     "findings": [],
+    "products": []
+  },
+  "vi/species/horabagrus-brachysoma": {
+    "at": "2026-11-14",
+    "hash": "04ae58d8018d4492",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P5",
+        "quote": "bó cành dẻ gai",
+        "why": "Beech branches are a European aquascaping material, not something a keeper in Vietnam has at hand.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P7",
+        "quote": "đồ đông lạnh nhiều thịt",
+        "why": "Calque of 'meaty frozen foods'; Vietnamese keepers don't phrase it this way.",
+        "by": "model",
+        "fix": "thức ăn đông lạnh giàu đạm"
+      }
+    ],
     "products": []
   },
   "vi/species/horadandia-atukorali": {
@@ -109537,6 +110285,23 @@
     "findings": [],
     "products": []
   },
+  "vi/species/hyphessobrycon-metae": {
+    "at": "2026-11-14",
+    "hash": "707c84ea49191ebb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P8",
+        "quote": "cá rìu, cá họ cá chì, cá chuột",
+        "why": "Pencilfish are not called 'cá họ cá chì' by Vietnamese keepers.",
+        "by": "model",
+        "fix": "cá bút chì"
+      }
+    ],
+    "products": []
+  },
   "vi/species/hyphessobrycon-pulchripinnis": {
     "at": "2026-11-07",
     "hash": "f0436a4598954faf",
@@ -109936,10 +110701,10 @@
     "products": []
   },
   "vi/species/ilyodon-furcidens": {
-    "at": "2026-11-08",
-    "hash": "7789f03fc3d1598b",
+    "at": "2026-11-14",
+    "hash": "234c0a97e14e36aa",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -123456,56 +124221,11 @@
     "products": []
   },
   "vi/species/thayeria-boehlkei": {
-    "at": "2026-11-13",
-    "hash": "28f21df35f1085e3",
+    "at": "2026-11-14",
+    "hash": "58dc0bb3c6cf9aed",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "units",
-        "part": "P1",
-        "quote": "Kích thước bể: 60 × 38 cm",
-        "why": "A 24 × 15 inch tank converted to centimetres; keepers in Vietnam would say 60 × 40 cm.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P4",
-        "quote": "Bể 60 × 38 × 30 cm, khoảng 68 lít",
-        "why": "Tank dimensions and volume converted from a US 24 × 15 × 12 inch tank.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
-        "part": "P5",
-        "quote": "gỗ dẻ gai vẫn dùng an toàn, miễn là phơi thật khô và bóc sạch vỏ",
-        "why": "Collecting beech wood is a European habit; beech does not grow in Vietnam.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
-        "part": "P5",
-        "quote": "Lá dẻ gai, lá sồi hay lá bàng đều dùng được, và trộn cả ba loại trông rất đẹp",
-        "why": "Beech and oak leaves are temperate-country leaf litter that keepers in Vietnam don't have to hand.",
-        "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P8",
-        "quote": "cá chì",
-        "why": "Pencilfish are called cá bút chì in Vietnam.",
-        "by": "model",
-        "fix": "cá bút chì"
-      },
-      {
-        "check": "words",
-        "part": "P10",
-        "quote": "búi sợi cho cá đẻ",
-        "why": "A literal rendering of 'spawning mop'; keepers say búi len.",
-        "by": "model",
-        "fix": "búi len"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/species/thayeria-ifati": {
@@ -123764,8 +124484,8 @@
     "products": []
   },
   "vi/species/trematocranus-placodon": {
-    "at": "2026-11-10",
-    "hash": "de90d6f65839bb23",
+    "at": "2026-11-14",
+    "hash": "04229f3f4636f241",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -124179,20 +124899,11 @@
     "products": []
   },
   "vi/species/tropheops-tropheops": {
-    "at": "2026-11-10",
-    "hash": "7f2bcd9b76eef87a",
+    "at": "2026-11-14",
+    "hash": "f30f041221b2bd5c",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P10",
-        "quote": "tách cá bột khỏi miệng mẹ nhân tạo",
-        "why": "Calque of 'artificially strip'; keepers call this stripping by its local term.",
-        "by": "model",
-        "fix": "tuốt trứng / tuốt cá bột"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/species/tropheus-brichardi": {
@@ -124412,8 +125123,8 @@
     "products": []
   },
   "vi/species/vieja-maculicauda": {
-    "at": "2026-11-08",
-    "hash": "b7ea5aee1f8adba9",
+    "at": "2026-11-14",
+    "hash": "085f9932f931658e",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -124421,14 +125132,7 @@
         "check": "units",
         "part": "P18",
         "quote": "thả 6 cá con vào một bể lớn (ít nhất 212 lít)",
-        "why": "212 litres is a converted 56-gallon figure that no keeper in Vietnam would use for a tank size.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P8",
-        "quote": "bể dài 120 cm x cao 45 cm x rộng 37,5 cm, tức 213 lít",
-        "why": "The odd 37.5 cm side and the 213 litre volume, which does not match those sides, come from an imperial-sized tank.",
+        "why": "212 litres is a converted 56-gallon tank size nobody in Vietnam would use.",
         "by": "model"
       }
     ],
@@ -124572,8 +125276,8 @@
     "products": []
   },
   "vi/species/xenomystus-nigri": {
-    "at": "2026-11-08",
-    "hash": "abbb91ea1b64adf5",
+    "at": "2026-11-14",
+    "hash": "0cf30bf64b2a3e98",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -124604,19 +125308,35 @@
     "products": []
   },
   "vi/species/xenotilapia-melanogenys": {
-    "at": "2026-11-10",
-    "hash": "e7682770b6133be1",
+    "at": "2026-11-14",
+    "hash": "40c1247e1b80be59",
     "model": "opus",
     "checklist": 3,
     "findings": [],
     "products": []
   },
   "vi/species/xenotilapia-sima": {
-    "at": "2026-11-10",
-    "hash": "b607c15a16a37581",
+    "at": "2026-11-14",
+    "hash": "31d91dce75c163fb",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "Đáy bể: 120 × 38 cm.",
+        "why": "A 38 cm depth is a converted 15-inch figure (48 × 15 in footprint) that no Vietnamese keeper would use.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P10",
+        "quote": "Con đực đào một hố cạn ở một trong các khoảng của nó để làm chỗ đẻ.",
+        "why": "\"khoảng\" for a fish's territory is a translation artefact; keepers say \"vùng\" or \"lãnh địa\".",
+        "by": "model",
+        "fix": "vùng / lãnh địa"
+      }
+    ],
     "products": []
   },
   "vi/species/xenotoca-eiseni": {
@@ -125011,320 +125731,396 @@
     "findings": [],
     "products": []
   },
-  "id/species/amphilius-atesuensis": {
+  "id/cards/new-species-nanosphronemus-gemma": {
     "at": "2026-11-14",
-    "hash": "d83cae60367c6c7f",
+    "hash": "2ed2da0e9e73c145",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/cards/trivia-marimo-alga": {
+    "at": "2026-11-14",
+    "hash": "fc1e7adf8d4f283e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/clarias-anfractus": {
+    "at": "2026-11-14",
+    "hash": "9dd208887f46ed87",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "source",
-        "part": "P2",
-        "quote": "Gambar-gambar kecil (thumbnail) bisa jadi menampilkan spesies ini atau spesies yang berkerabat dekat",
-        "why": "Refers to thumbnail pictures from the source site that this page does not have.",
+        "check": "words",
+        "part": "P6",
+        "quote": "Teman setangki yang disarankan",
+        "why": "Calque of English 'tankmate'; Indonesian keepers say akuarium, not tangki.",
+        "by": "model",
+        "fix": "teman satu akuarium"
+      }
+    ],
+    "products": []
+  },
+  "id/species/costasiella-kuroshimae": {
+    "at": "2026-11-14",
+    "hash": "cdfb19527a755a41",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/glyptothorax-major": {
+    "at": "2026-11-14",
+    "hash": "f5b5092dc1746491",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/leiocassis-micropogon": {
+    "at": "2026-11-14",
+    "hash": "a0739a4cd161a347",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/nanobagrus-stellatus": {
+    "at": "2026-11-14",
+    "hash": "1d52ad0f4b335281",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/breeds/pearlscale-goldfish": {
+    "at": "2026-11-14",
+    "hash": "2f6a9e9fd1cc1d02",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/breeds/pigeon-blood-discus": {
+    "at": "2026-11-14",
+    "hash": "e6d4fefb594cf228",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/cards/new-species-nanosphronemus-gemma": {
+    "at": "2026-11-14",
+    "hash": "dba1fda322aa2bd9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/cards/trivia-marimo-alga": {
+    "at": "2026-11-14",
+    "hash": "2000c042380417f2",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/plants/dracaena-sanderiana": {
+    "at": "2026-11-14",
+    "hash": "918c424fa1ca5a04",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P5",
+        "quote": "isi akuarium sehingga kira-kira 2.5 cm di bawah set daun yang paling bawah",
+        "why": "2.5 cm is a converted one inch, not a figure a local keeper would give.",
         "by": "model"
       },
       {
-        "check": "source",
-        "part": "P8",
-        "quote": "dua gambar kecil (thumbnail) terakhir dipotret di Taman Nasional Tai",
-        "why": "Points at the source's photos, which are not on this page.",
-        "by": "model"
-      }
-    ],
-    "products": []
-  },
-  "id/species/cryptarius-truncatus": {
-    "at": "2026-11-14",
-    "hash": "5b8fc60149235ab2",
-    "model": "opus",
-    "checklist": 3,
-    "findings": [],
-    "products": []
-  },
-  "ms/breeds/lionhead-goldfish": {
-    "at": "2026-11-14",
-    "hash": "b306bb99469fec0b",
-    "model": "opus",
-    "checklist": 3,
-    "findings": [
-      {
         "check": "elsewhere",
-        "part": "P1",
-        "quote": "Bagi ikan di kolam, bawa masuk ke dalam rumah jika suhu kekal di bawah 7 °C untuk tempoh yang lama.",
-        "why": "Advice for cold winters; outdoor ponds in Malaysia never stay below 7 °C.",
-        "by": "model"
-      }
-    ],
-    "products": []
-  },
-  "ms/breeds/mickey-mouse-platy": {
-    "at": "2026-11-14",
-    "hash": "ccb86cd49af8645b",
-    "model": "opus",
-    "checklist": 3,
-    "findings": [
-      {
-        "check": "elsewhere",
-        "part": "P1",
-        "quote": "Air keras dan beralkali yang hampir sama dengan air paip biasa sudah memadai.",
-        "why": "Assumes ordinary tap water is hard and alkaline, as in the source's country; Malaysian tap water is generally soft.",
-        "by": "model"
-      }
-    ],
-    "products": []
-  },
-  "ms/plants/cryptocoryne-usteriana": {
-    "at": "2026-11-14",
-    "hash": "4710da2637d8da74",
-    "model": "opus",
-    "checklist": 3,
-    "findings": [],
-    "products": []
-  },
-  "ms/plants/cryptocoryne-wendtii": {
-    "at": "2026-11-14",
-    "hash": "9b4c46596b3cd4d5",
-    "model": "opus",
-    "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P8",
-        "quote": "Tumbuhan akuarium daripada kultur tisu dalam cawan tertutup.",
-        "why": "Describes the source nursery's own product (its tissue-culture cup) as if the reader were buying from it.",
+        "part": "P7",
+        "quote": "16 – 27 °C adalah ideal; dalam kebanyakan kes, suhu bilik sudah sesuai.",
+        "why": "Assumes a cooler country's room temperature; rooms in Malaysia are often above 27 °C.",
         "by": "model"
       }
     ],
     "products": [
       "ADA Amazonia aqua soil",
-      "Caribsea Eco-Complete",
-      "Seachem Flourite Black Sand"
+      "Carib Sea Eco-Complete",
+      "Seachem Fluorite"
     ]
   },
-  "ms/plants/cryptocoryne-x-willisii": {
+  "ms/plants/echinodorus-angustifolia": {
     "at": "2026-11-14",
-    "hash": "56fc0b1b0ff2f015",
+    "hash": "0123ec46eaa17646",
     "model": "opus",
     "checklist": 3,
     "findings": [],
     "products": []
   },
-  "ms/plants/cyperus-helferi": {
+  "ms/plants/echinodorus-aquartica": {
     "at": "2026-11-14",
-    "hash": "3c0eaad2785c334c",
+    "hash": "4faa6b81199a33a7",
     "model": "opus",
     "checklist": 3,
     "findings": [],
     "products": []
   },
-  "ms/species/aguarunichthys-tocantinsensis": {
+  "ms/plants/echinodorus-cordifolius": {
     "at": "2026-11-14",
-    "hash": "c75e8ab430fc0d53",
+    "hash": "18973bd3ee14cb42",
     "model": "opus",
     "checklist": 3,
     "findings": [],
     "products": []
   },
-  "ms/species/aguarunichthys-torosus": {
+  "ms/species/akysis-longifilis": {
     "at": "2026-11-14",
-    "hash": "1cc491434bc68937",
+    "hash": "ae5af538abb3627a",
     "model": "opus",
     "checklist": 3,
     "findings": [],
     "products": []
   },
-  "ms/species/ailia-coila": {
+  "ms/species/akysis-maculipinnis": {
     "at": "2026-11-14",
-    "hash": "2967bd94e0ce77ba",
-    "model": "opus",
-    "checklist": 3,
-    "findings": [],
-    "products": []
-  },
-  "ms/species/ailiichthys-punctata": {
-    "at": "2026-11-14",
-    "hash": "45f40e58d8baad03",
-    "model": "opus",
-    "checklist": 3,
-    "findings": [],
-    "products": []
-  },
-  "ms/species/akysis-brachybarbatus": {
-    "at": "2026-11-14",
-    "hash": "b4370409f40daa1f",
-    "model": "opus",
-    "checklist": 3,
-    "findings": [],
-    "products": []
-  },
-  "ms/species/akysis-ephippifer": {
-    "at": "2026-11-14",
-    "hash": "723a8f95ec9ddae1",
-    "model": "opus",
-    "checklist": 3,
-    "findings": [],
-    "products": []
-  },
-  "ms/species/akysis-hendricksoni": {
-    "at": "2026-11-14",
-    "hash": "a9467d293ba195f7",
+    "hash": "7ad66d1472d04640",
     "model": "opus",
     "checklist": 3,
     "findings": [
+      {
+        "check": "source",
+        "part": "P15",
+        "quote": "Penghargaan kepada Frank Strozyk.",
+        "why": "A thanks line from the source article to a person the reader doesn't know.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P15",
+        "quote": "menggunakan air yang telah diperam",
+        "why": "'Diperam' is a literal rendering of 'aged water'. Malaysian keepers don't use it for water.",
+        "by": "model",
+        "fix": "air yang telah diendapkan"
+      }
+    ],
+    "products": []
+  },
+  "ms/species/akysis-portellus": {
+    "at": "2026-11-14",
+    "hash": "230a247191108be9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/akysis-prashadi": {
+    "at": "2026-11-14",
+    "hash": "18f27f25164efce6",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/akysis-pulvinatus": {
+    "at": "2026-11-14",
+    "hash": "ad3f1f0f1d7d5739",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/akysis-variegatus": {
+    "at": "2026-11-14",
+    "hash": "25fbf32001ca4eaa",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/akysis-varius": {
+    "at": "2026-11-14",
+    "hash": "845b1c088322eead",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P3",
+        "quote": "Spesimen pertama yang ditunjukkan dikumpul oleh penyumbang gambar di Wilayah Phitsanulok",
+        "why": "Refers to a shown specimen and a photo contributor from the source site; the page has no pictures.",
+        "by": "model"
+      },
       {
         "check": "elsewhere",
         "part": "P9",
-        "quote": "daun beech, oak atau ketapang kering semuanya sesuai",
-        "why": "Beech and oak leaves are what a European keeper has to hand; a keeper in Malaysia would use ketapang.",
+        "quote": "daun beech, oak atau ketapang yang dikeringkan semuanya sesuai",
+        "why": "Beech and oak leaves are what keepers in temperate countries collect; they aren't found locally in Malaysia.",
         "by": "model"
       }
     ],
     "products": []
   },
-  "ms/species/akysis-heterurus": {
+  "ms/species/akysis-vespa": {
     "at": "2026-11-14",
-    "hash": "b53f3afbb1bfd912",
+    "hash": "130ec4eec277bd6f",
     "model": "opus",
     "checklist": 3,
     "findings": [],
     "products": []
   },
-  "th/species/amphilius-atesuensis": {
+  "ms/species/akysis-vespertinus": {
     "at": "2026-11-14",
-    "hash": "03137497d81b168d",
-    "model": "opus",
-    "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P2",
-        "quote": "ภาพตัวอย่างอาจเป็นปลาชนิดนี้ หรือชนิดที่ใกล้เคียงกัน",
-        "why": "Refers to sample photos from the source page that this page does not have.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P8",
-        "quote": "ภาพตัวอย่างสองภาพสุดท้ายถ่ายที่อุทยานแห่งชาติไท (Tai National Park)",
-        "why": "Describes the source's own photos, which are not on this page.",
-        "by": "model"
-      }
-    ],
-    "products": []
-  },
-  "th/species/cryptarius-truncatus": {
-    "at": "2026-11-14",
-    "hash": "2eae005d9f68d043",
+    "hash": "8d0769128849caf6",
     "model": "opus",
     "checklist": 3,
     "findings": [],
     "products": []
   },
-  "vi/guides/aquatome-cach-chon-va-lap-may-loc-cho-be-ca-loc-thung-loc-treo-loc-tran-loc-day": {
+  "ms/species/alcolapia-alcalica": {
     "at": "2026-11-14",
-    "hash": "af7a898b5a91e541",
-    "model": "opus",
-    "checklist": 3,
-    "findings": [
-      {
-        "check": "units",
-        "part": "P1",
-        "quote": "Ví dụ bể 200 lít cần khoảng 1.893 lít/giờ.",
-        "why": "1.893 L/h is 500 GPH converted (50 gal × 10), not 200 × 10; shows a gallon-based original.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P1",
-        "quote": "Vậy bộ tràn 2.271 lít/giờ là vừa.",
-        "why": "2.271 L/h is 600 GPH converted; nobody in Vietnam rates an overflow this way.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P1",
-        "quote": "Lưu lượng (GPH) tự nó quyết định lọc tốt hay kém.",
-        "why": "GPH (gallons per hour) is an imperial unit given as the reader's unit.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P1",
-        "quote": "Lọc thùng 2.271 lít/giờ gánh được gấp đôi số cá so với lọc 1.136 lít/giờ.",
-        "why": "600 vs 300 GPH converted to odd litre figures.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P1",
-        "quote": "một lớp sỏi dày khoảng 2,5 cm không có lọc",
-        "why": "2,5 cm of gravel is a converted 1 inch.",
-        "by": "model"
-      }
-    ],
-    "products": []
-  },
-  "vi/species/homaloptera-confuzona": {
-    "at": "2026-11-14",
-    "hash": "acd9acdd6e9d8f2e",
+    "hash": "1fa6fefbb89e7f70",
     "model": "opus",
     "checklist": 3,
     "findings": [],
     "products": []
   },
-  "vi/species/horabagrus-brachysoma": {
+  "th/cards/new-species-nanosphronemus-gemma": {
     "at": "2026-11-14",
-    "hash": "04ae58d8018d4492",
+    "hash": "b58a36bb2e8d0de8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/cards/trivia-marimo-alga": {
+    "at": "2026-11-14",
+    "hash": "677082f153a64a4b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/clarias-anfractus": {
+    "at": "2026-11-14",
+    "hash": "8ae1c4caa381b5b2",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/costasiella-kuroshimae": {
+    "at": "2026-11-14",
+    "hash": "c8d1b4278e6cffc3",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/ctenops-nobilis": {
+    "at": "2026-11-14",
+    "hash": "c82e3e8b8d534fc4",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
-        "part": "P5",
-        "quote": "bó cành dẻ gai",
-        "why": "Beech branches are a European aquascaping material, not something a keeper in Vietnam has at hand.",
+        "part": "P6",
+        "quote": "ในหลายประเทศหรือในบ้านที่เก็บความร้อนได้ดีไม่จำเป็นต้องใช้ฮีตเตอร์",
+        "why": "Written for a cool-climate reader whose concern is heating; in Thailand room temperatures exceed the fish's 15–25 °C range and cooling is the issue.",
         "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P7",
-        "quote": "đồ đông lạnh nhiều thịt",
-        "why": "Calque of 'meaty frozen foods'; Vietnamese keepers don't phrase it this way.",
-        "by": "model",
-        "fix": "thức ăn đông lạnh giàu đạm"
       }
     ],
     "products": []
   },
-  "vi/species/hyphessobrycon-metae": {
+  "th/species/cualac-tessellatus": {
     "at": "2026-11-14",
-    "hash": "707c84ea49191ebb",
-    "model": "opus",
-    "checklist": 3,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P8",
-        "quote": "cá rìu, cá họ cá chì, cá chuột",
-        "why": "Pencilfish are not called 'cá họ cá chì' by Vietnamese keepers.",
-        "by": "model",
-        "fix": "cá bút chì"
-      }
-    ],
-    "products": []
-  },
-  "vi/cards/new-species-nanosphronemus-gemma": {
-    "at": "2026-11-14",
-    "hash": "72787066bf26bf60",
+    "hash": "80f7a3c3be052426",
     "model": "opus",
     "checklist": 3,
     "findings": [],
     "products": []
   },
-  "vi/cards/trivia-marimo-alga": {
+  "th/species/cyathopharynx-furcifer": {
     "at": "2026-11-14",
-    "hash": "7cc89807d36b98c5",
+    "hash": "05981ac68c3d6e0a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/cyclocheilichthys-lagleri": {
+    "at": "2026-11-14",
+    "hash": "805ad66d399dc000",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P11",
+        "quote": "วิธีที่ดีที่สุดในการหาปลาชนิดนี้อาจเป็นการคอยติดตามล็อตปลาป่าที่ส่งมาจากอินโดจีน",
+        "why": "Advises waiting for wild imports from Indochina, written for a buyer abroad, though this fish is native to Thailand.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/cynodon-gibbus": {
+    "at": "2026-11-14",
+    "hash": "cc4f10d2fe677b8e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/cynops-cyanurus": {
+    "at": "2026-11-14",
+    "hash": "fa5573f58f052c06",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "ผู้จำหน่ายระบุว่านิวท์กลุ่มนี้จับมาจากมณฑลหูเป่ย์ ประเทศจีน",
+        "why": "Refers to an unnamed seller and its own batch of newts, as if the reader knew them.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/cynops-orientalis": {
+    "at": "2026-11-14",
+    "hash": "956e42540ba37742",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P4",
+        "quote": "หากเลี้ยงในบ้านไม่จำเป็นต้องใช้ฮีตเตอร์",
+        "why": "Assumes a cool-climate house where room temperature stays below 25 °C; Thai rooms are usually around 30 °C, so this newt needs cooling, not just no heater.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/cynotilapia-afra": {
+    "at": "2026-11-14",
+    "hash": "551a100ae0712b75",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/iguanodectes-spilurus": {
+    "at": "2026-11-14",
+    "hash": "a58e3b2af974fa32",
     "model": "opus",
     "checklist": 3,
     "findings": [],
