@@ -9,7 +9,7 @@ import { parseArgs } from 'node:util'
 import { loadAll, PHOTO_BOXES_FILE, SOURCE_IDS, vnDate, type SourceId } from '@aq/schema'
 import { WRITTEN_LANGS, WRITTEN_OTHER_LANGS } from '@aq/schema/langs'
 import { nameStep } from './ceiling'
-import { LlmError, claudeCli, claudeResearch, claudeVision } from './claude'
+import { LlmError, claudeCli, claudeResearch, claudeResearchWithout, claudeVision } from './claude'
 import { accountReport, rejectedTokens } from './claude-accounts'
 import { makeProduct } from './products'
 import { productCandidates, productReviews } from './product-reviews'
@@ -36,6 +36,7 @@ import { unitsMend } from './units-mend'
 import { recordSourceFigures, sourceFigures } from './source-figures'
 import fitFront from './fit-front.json'
 import { firstRun, frontEarly, frontHeld, orderFront, type FirstRun } from './fit-front'
+import { cycleOnlyHosts } from './cycle-only'
 import { candidates, cardsOf, checkCalendar, demandByPath, plan, readCalendar, readVerdicts, writeCalendar } from './curation'
 import { phraseMatch } from './phrases'
 import { readerReport, readPages } from './reader'
@@ -1086,7 +1087,8 @@ if (cmd === 'photo-privacy') {
   const kind = values.kind as (typeof kinds)[number] | undefined
   if (!id || !kind || !kinds.includes(kind)) throw new Error(`usage: pnpm engine glossary-entry <term id> --kind ${kinds.join('|')} [--sf <slug>] [--redo | --fresh | --from-draft | --accept "<who>"]`)
   if (values.accept !== undefined && !values.accept.trim()) throw new Error('--accept needs who accepts the draft')
-  const r = await makeGlossaryEntry(ROOT, { research: claudeResearch, llm: claudeCli }, id, { kind, sf: values.sf, reuse: values.redo, fresh: values.fresh, fromDraft: values['from-draft'], ...(values.accept ? { accept: values.accept.trim() } : {}), researchModel: process.env.RESEARCH_MODEL ?? 'opus' })
+  // Research never reads a source the engine reads only at its own pace (cycle-only.ts).
+  const r = await makeGlossaryEntry(ROOT, { research: claudeResearchWithout(await cycleOnlyHosts(ROOT)), llm: claudeCli }, id, { kind, sf: values.sf, reuse: values.redo, fresh: values.fresh, fromDraft: values['from-draft'], ...(values.accept ? { accept: values.accept.trim() } : {}), researchModel: process.env.RESEARCH_MODEL ?? 'opus' })
   console.log(JSON.stringify(r, null, 1))
 } else if (cmd === 'covers') {
   // Vietnamese thumbnail labels: pnpm engine covers [--redo] [--limit N] (--redo rewrites the ones already there).

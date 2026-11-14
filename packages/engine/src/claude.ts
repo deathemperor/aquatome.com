@@ -108,3 +108,9 @@ export const claudeVision = <T>({ system, prompt, schema, file, model }: { syste
 /** Same, able to search and read the web (WebSearch, WebFetch; never marketplace pages): product research. Slower, so a longer timeout. */
 export const claudeResearch: Llm = <T>({ system, prompt, schema, model }: { system: string; prompt: string; schema: object; model?: string }) =>
   run<T>(system, prompt, schema, { tools: 'WebSearch,WebFetch', deny: MARKETPLACE_DOMAINS.map(d => `WebFetch(domain:${d})`), cwd: noFiles(), model, timeoutMs: 25 * 60_000 })
+
+/** The pages research may not read: the marketplaces', and `hosts`' (cycle-only.ts, for a step that keeps them off). */
+export const researchDeny = (hosts: readonly string[] = []) => [...MARKETPLACE_DOMAINS, ...hosts].map(d => `WebFetch(domain:${d})`)
+/** `claudeResearch` that also never reads `hosts`' pages. */
+export const claudeResearchWithout = (hosts: readonly string[]): Llm => <T>({ system, prompt, schema, model }: { system: string; prompt: string; schema: object; model?: string }) =>
+  run<T>(system, prompt, schema, { tools: 'WebSearch,WebFetch', deny: researchDeny(hosts), cwd: noFiles(), model, timeoutMs: 25 * 60_000 })
