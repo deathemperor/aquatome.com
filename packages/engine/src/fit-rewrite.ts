@@ -264,7 +264,9 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
               const why = `${r.score.toFixed(2)}: ${[...(off ? [off] : []), ...r.notes].slice(0, 2).join('; ')}`
               // The writer's cut refused: the sentences the findings flag cut whole by code instead, but in an FAQ answer or
               // beside a conversion (the chief of staff, 14 Nov 2026: a flagged sentence "is deleted or its foreign detail is deleted").
-              const plain = !faq && !mine.length ? cutWhole(before, now) : undefined
+              // Not where a sentence is to go whole for another finding (a dealer's, the source's), which code leaves to the
+              // writer, nor where the writer named a line that no longer reads: what code wrote would keep it (Astra's read).
+              const plain = !faq && !mine.length && !r.whole.length && !now.some(f => goesWhole(f.check)) ? cutWhole(before, now) : undefined
               if (!plain) { report.notKept.push(`${key} ${field} (${why})`); continue }
               next = plain.html
               gone = plain.gone

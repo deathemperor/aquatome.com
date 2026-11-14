@@ -885,3 +885,38 @@ test('a refused cut of a foreign product falls back to the sentence cut whole by
   // The run lists what code took, not what the refused writer had.
   expect(r.gone).toEqual(['vi/species/danio-margaritatus sections.habitat:seriouslyfish sentence 2 went whole: "Trị nấm bằng Seachem Paraguard theo nhãn."'])
 })
+
+// Astra's read of da83e53d1: code cut the product's sentence and kept the dealer's, which was to go whole.
+test('code doesn\'t cut a part where a sentence is to go whole for another finding, or where the writer named a line that no longer reads', async () => {
+  const setUp = async (html: string, fs: (p: Page) => Omit<FitFinding, 'by'>[]) => {
+    const root = await content()
+    const file = join(root, 'content/species', ID, 'vi.json')
+    const vi = JSON.parse(await readFile(file, 'utf8'))
+    vi.sections['habitat:seriouslyfish'] = html
+    await writeFile(file, JSON.stringify(vi, null, 2))
+    const p = await danio(root)
+    return { root, file, p, state: reading(p, fs(p)), before: await readFile(file, 'utf8') }
+  }
+  const writer = (sentences: { n: number; vi: string; why?: string }[]) => (async ({ schema }: { schema: object }) => ((schema as { required: string[] }).required.includes('sentences')
+    ? { sentences }
+    : { score: 0.9, notes: [], dropped: [], hedges: [], follows: [] })) as Llm
+  // The dealer's sentence kept by the writer, or gone while the product's is said another way: neither is cut by code.
+  const dealer = await setUp('<p>Chúng tôi bán cá tại Mỹ. Dùng phân ADA. Cá sống theo đàn.</p>', p => [
+    { check: 'source', part: part(p, 'sections.habitat:seriouslyfish'), quote: 'Chúng tôi bán cá tại Mỹ.', why: 'the shop\'s own' },
+    { check: 'product', part: part(p, 'sections.habitat:seriouslyfish'), quote: 'ADA', why: 'a brand sold abroad' },
+  ])
+  for (const said of [[{ n: 1, vi: 'Chúng tôi bán cá tại Mỹ.' }, { n: 2, vi: 'Dùng phân ADA.' }], [{ n: 1, vi: '' }, { n: 2, vi: 'Dùng phân bón.' }]]) {
+    const r = await fitRewrite(dealer.root, [dealer.p], dealer.state, { llm: writer(said), now: () => new Date() }, { limit: 5, retry: true })
+    expect([r.rewritten, r.gone], JSON.stringify(said)).toEqual([[], []])
+    expect(r.notKept, JSON.stringify(said)).toHaveLength(1)
+    expect(await readFile(dealer.file, 'utf8')).toBe(dealer.before)
+  }
+  // The product's sentence gone and the line after it, which the writer says no longer reads: code would keep that line.
+  const med = await setUp('<p>Trị nấm bằng Seachem Paraguard theo nhãn. Thuốc này rất mạnh. Cá sống theo đàn.</p>', p => [
+    { check: 'product', part: part(p, 'sections.habitat:seriouslyfish'), quote: 'Seachem Paraguard', why: 'a US medicine' },
+  ])
+  const r = await fitRewrite(med.root, [med.p], med.state, { llm: writer([{ n: 1, vi: '' }, { n: 2, vi: '', why: 'it names the medicine that went' }]), now: () => new Date() }, { limit: 5 })
+  expect([r.rewritten, r.gone]).toEqual([[], []])
+  expect(r.notKept.join(' ')).toContain('Sentence 2 no longer reads without what went')
+  expect(await readFile(med.file, 'utf8')).toBe(med.before)
+})
