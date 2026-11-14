@@ -244,7 +244,7 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
   // road's test had $1, and the backstop rose by the $34 and the test's room; on 16 Nov it has $37, and the backstop what
   // that line needs to be whole (the chief of staff, 15 Nov 2026).
   // The photo check: $22 on the Mac from 15 Nov 06:00 to the end of 17 Nov, with the backstop $10 higher, while the photo
-  // job runs 80 photos a run to judge the 621 page heads no check has seen; $12 again from 18 Nov (the chief of staff,
+  // job runs 80 sheets a run to judge the 621 page heads no check has seen; $12 again from 18 Nov (the chief of staff,
   // 15 Nov 2026).
   const periods = [
     { from: '2026-11-12T13:00:00+07:00', to: '2026-11-13T07:59:00+07:00', steps: 142, backstop: 150, small: 1, run: 30, localize: 25, second: 12, fit: 5, vi: 3, crops: 1, board: 1, photos: 6 },
