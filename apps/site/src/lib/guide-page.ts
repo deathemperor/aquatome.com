@@ -5,7 +5,7 @@ import { guideImage, guideImages, mentionIndex } from './mentions'
 import { gearRows } from './gear'
 import { placeFigures, type Figure, type HeadedFigure } from './figures'
 import { readingMinutes, withToc } from './toc'
-import { nextGuides } from './home'
+import { leadGuides, nextGuides } from './home'
 import { illustrate, seriesGuides, seriesOf, videoPhoto } from './video'
 import { pagePictures, photosOf, tilePhotos } from './pictures'
 import { PAGE } from '../scripts/filter-list'
@@ -118,7 +118,11 @@ export function guideParts(lang: Lang, c: Content, g: Localized<GuideEntity>) {
   const inSeries = series ? seriesGuides(c, series) : []
   const pos = inSeries.findIndex(x => x.id === g.id)
   // A series reads in the creator's order: the next parts first, then related guides.
-  const next = series ? [...inSeries.slice(pos + 1, pos + 4), ...nextGuides(c, g, 3).filter(x => !inSeries.some(y => y.id === x.id))].slice(0, 3) : nextGuides(c, g)
+  const nextOf = (from: Localized<GuideEntity>[]) => series ? [...inSeries.slice(pos + 1, pos + 4), ...nextGuides(c, g, 3, from).filter(x => !inSeries.some(y => y.id === x.id))].slice(0, 3) : nextGuides(c, g, 3, from)
+  const leads = leadGuides(c)
+  const next = nextOf(leads)
+  // The app draws no cover yet (the Design Lead's app half, 15 Nov 2026): its guides to read next are those with a picture.
+  const appNext = nextOf(leads.filter(x => guideImage(c, x)))
   // Below the text, in page order: the next guides' covers, then the fish and plant cards (a page of them, fish first: a
   // listicle names a hundred or more), each with a picture the page doesn't show yet, or none.
   const covers = next.map(x => shown.take(guideImages(c, x)) ?? null)
@@ -130,5 +134,5 @@ export function guideParts(lang: Lang, c: Content, g: Localized<GuideEntity>) {
   const refs = g.t.localNote ? [...(own ?? []), ...g.t.localNote.refs] : own
   /** Every photo the page shows, for its credits. */
   const credited = [ph, ...placed.map(f => f.photo), ...(g.video?.figures ?? []).map(f => f.photo), ...covers, ...speciesPhotos, ...plantPhotos].filter((p): p is Photo => !!p)
-  return { m, body, species, plants, ph, lead, gear, toc, prose, minutes, series, inSeries, pos, next, refs, covers, cardSpecies, cardPlants, speciesPhotos, plantPhotos, credited }
+  return { m, body, species, plants, ph, lead, gear, toc, prose, minutes, series, inSeries, pos, next, appNext, refs, covers, cardSpecies, cardPlants, speciesPhotos, plantPhotos, credited }
 }

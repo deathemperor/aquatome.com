@@ -75,6 +75,16 @@ for (const path of pages) {
       expect(hit?.replace(/\s+/g, ' '), 'Vietnamese on a non-Vietnamese page').toBeUndefined()
     }
 
+    // A guide card with no picture draws a cover in its picture's slot (GuideCard.astro): its kind's cloth and mark, never
+    // the empty box 98 cards of the guide list had (the chief of staff and the Design Lead, 15 Nov 2026).
+    const uncovered = await page.$$eval('.gc .img:not(:has(img))', els => els.filter(e => (e as HTMLElement).offsetParent !== null).flatMap(e => {
+      const s = getComputedStyle(e), mark = getComputedStyle(e, '::after')
+      const cloth = !/^(transparent|rgba\(0, 0, 0, 0\))$/.test(s.backgroundColor)
+      const masked = [mark.getPropertyValue('mask-image'), mark.getPropertyValue('-webkit-mask-image')].some(m => m && m !== 'none')
+      return e.classList.contains('cover') && cloth && masked && s.getPropertyValue('--x1') ? [] : [e.closest('a')?.getAttribute('href') ?? e.outerHTML.slice(0, 120)]
+    }))
+    expect(uncovered, 'a guide card with no picture and no cover').toEqual([])
+
     expect(errors, 'script errors').toEqual([])
 
     // A fish's photo column on a computer, pinned beside the facts, never drawn past the page's top onto what follows: the

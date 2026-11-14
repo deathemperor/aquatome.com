@@ -36,6 +36,10 @@
   --radius-media: 0;
   --measure: 60ch; /* ~75 characters of Vietnamese in Newsreader (68ch ran ~90) */
   --page: 1200px;
+  /* A guide's cover when it has no picture (GuideCard): its kind's cloth, the rings, the seal's edge and the kind's mark. */
+  --ring: rgb(243 238 227 / 0.11); --seal: rgb(243 238 227 / 0.38); --mark: #f3eee3;
+  --cloth-setup: #3c5566; --cloth-care: #1d5b60; --cloth-breeding: #6f532b; --cloth-disease: #7f3a2b;
+  --cloth-aquascaping: #505a2c; --cloth-plantCare: #2f6b4f; --cloth-discovery: #44456c;
 }
 
 /* Dark ("Đáy sâu": blackwater ground, mint links, coral kickers): chosen in the nav, or the system setting when none is chosen. */
@@ -57,6 +61,9 @@
   --c-on-dark: #e6efec;
   --c-on-dark-soft: #b2c6c1;
   --c-focus: #6fd6be;
+  --ring: rgb(230 239 236 / 0.075); --seal: rgb(230 239 236 / 0.22); --mark: rgb(230 239 236 / 0.88);
+  --cloth-setup: #243846; --cloth-care: #16424a; --cloth-breeding: #3f311b; --cloth-disease: #4a251d;
+  --cloth-aquascaping: #30361c; --cloth-plantCare: #1b4634; --cloth-discovery: #2c2d4b;
   color-scheme: dark;
 }
 @media (prefers-color-scheme: dark) {
@@ -78,6 +85,9 @@
     --c-on-dark: #e6efec;
     --c-on-dark-soft: #b2c6c1;
     --c-focus: #6fd6be;
+    --ring: rgb(230 239 236 / 0.075); --seal: rgb(230 239 236 / 0.22); --mark: rgb(230 239 236 / 0.88);
+    --cloth-setup: #243846; --cloth-care: #16424a; --cloth-breeding: #3f311b; --cloth-disease: #4a251d;
+    --cloth-aquascaping: #30361c; --cloth-plantCare: #1b4634; --cloth-discovery: #2c2d4b;
     color-scheme: dark;
   }
 }

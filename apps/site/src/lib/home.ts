@@ -1,6 +1,6 @@
 import { cleanPhoto, fitsCard, POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, type Content, type GuideEntity, type Localized, type Photo, type PictureSet, type PlantEntity, type SpeciesEntity } from '@aq/schema'
 import { GROUP_LABELS } from './format'
-import { guideImage, mentionIndex } from './mentions'
+import { mentionIndex } from './mentions'
 import { LANG, type Lang } from './i18n'
 
 
@@ -115,12 +115,15 @@ export function easyPlants(c: Content, n = 4): Localized<PlantEntity>[] {
   return [...staples, ...rest].slice(0, n)
 }
 
-/** Guides worth leading with: the beginner staples, then practical guides naming the most of our species and plants. */
+/**
+ * Guides worth leading with: the beginner staples, then practical guides naming the most of our species and plants. One
+ * with no picture keeps its place: its card draws a cover (GuideCard; the chief of staff and the Design Lead, 15 Nov 2026).
+ */
 export function leadGuides(c: Content): Localized<GuideEntity>[] {
   const mentions = (g: Localized<GuideEntity>) => mentionIndex(c).guides.get(g.id)?.keys.length ?? 0
   const practical = ['setup', 'care', 'aquascaping', 'plantCare', 'breeding', 'disease']
   // Video guides have their own section and reading order (their series).
-  const ok = c.guides.filter(g => !g.video && practical.includes(g.kind) && guideImage(c, g))
+  const ok = c.guides.filter(g => !g.video && practical.includes(g.kind))
   const staples = LEAD_GUIDES.flatMap(id => ok.filter(g => g.id === id))
   const rest = ok.filter(g => !staples.includes(g)).sort((a, b) => mentions(b) - mentions(a) || practical.indexOf(a.kind) - practical.indexOf(b.kind) || a.id.localeCompare(b.id))
   return [...staples, ...rest]
@@ -129,9 +132,11 @@ export function leadGuides(c: Content): Localized<GuideEntity>[] {
 /** Guides for the homepage's three first steps: cycle the tank, choose fish, change water. Missing ones are skipped. */
 export const STEP_GUIDES = { cycle: 'aquariumcoop-blogs-aquarium-fish-tank-cycling', water: 'aquariumcoop-blogs-aquarium-how-to-change-aquarium-water-correctly' }
 
-/** What to read after a guide: the next beginner staple if it is one, then guides sharing the most species and plants, same kind first. */
-export function nextGuides(c: Content, g: Localized<GuideEntity>, n = 3): Localized<GuideEntity>[] {
-  const lead = leadGuides(c)
+/**
+ * What to read after a guide: the next beginner staple if it is one, then guides sharing the most species and plants, same
+ * kind first. `lead`: the guides to choose from, in leadGuides' order (the app's, only those with a picture).
+ */
+export function nextGuides(c: Content, g: Localized<GuideEntity>, n = 3, lead = leadGuides(c)): Localized<GuideEntity>[] {
   const keys = (x: Localized<GuideEntity>) => (mentionIndex(c).guides.get(x.id)?.keys ?? []).filter(k => k.startsWith('species:') || k.startsWith('plant:'))
   const mine = new Set(keys(g))
   const i = lead.indexOf(g)

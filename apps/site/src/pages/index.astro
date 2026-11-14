@@ -12,7 +12,7 @@ import { smallSrc } from '../lib/img'
 import { homeVideos } from '../lib/video'
 import { easyPlants, featuredSpecies, groupTiles, leadGuides, nativeCards, nativeSpecies, STEP_GUIDES } from '../lib/home'
 import { i18n } from '../lib/i18n'
-import { pagePictures, photosOf, takeEach, tilePhotos } from '../lib/pictures'
+import { pagePictures, photosOf, takeEach, takeRow, tilePhotos } from '../lib/pictures'
 import { toolCards } from '../lib/tools'
 import { categoryRank, fmt } from '../lib/format'
 import { categoriesIn, shownTypes } from '../lib/equipment'
@@ -28,8 +28,6 @@ const steps = [
   { n: 2, title: t('Chọn cá hợp bể'), text: t('Nhập bể của bạn ở trên, hoặc bắt đầu từ những loài dễ nuôi.'), href: '/vi/ca/?difficultyMax=3' },
   water && { n: 3, title: t('Thay nước định kỳ'), text: t('Thay bao nhiêu, bao lâu một lần, và cách làm để cá không bị sốc.'), href: `/vi/huong-dan/${water.t.slug}/` },
 ].filter(x => !!x).map((x, i) => ({ ...x, n: i + 1 }))
-const guides = leadGuides(c).filter(g => g !== cycle && g !== water).slice(0, 4)
-const videos = homeVideos(c)
 const featured = featuredSpecies(lang, c)
 const plants = easyPlants(c)
 // The buying guides with a page in this language: one whose kind of gear no fish or guide here uses yet has none.
@@ -47,8 +45,9 @@ pics.add(HERO.url)
 const featuredPhotos = takeEach(pics, featured, s => tilePhotos(s.photos))
 const nativePhotos = native.place?.parent && nativeShown.length === 4 ? takeEach(pics, nativeShown, s => tilePhotos(s.photos)) : []
 const groups = groupTiles(lang, c, pics)
-const guidePhotos = takeEach(pics, guides, g => guideImages(c, g))
-const videoPhotos = takeEach(pics, videos, g => guideImages(c, g))
+// The guide and video rows: four each, at most one drawing a cover for want of a picture (takeRow).
+const { items: guides, photos: guidePhotos } = takeRow(pics, leadGuides(c).filter(g => g !== cycle && g !== water), g => guideImages(c, g))
+const { items: videos, photos: videoPhotos } = takeRow(pics, homeVideos(c), g => guideImages(c, g))
 const plantPhotos = takeEach(pics, plants, p => photosOf(p.photos))
 const credits = [HERO, ...creditsFor([...featuredPhotos, ...nativePhotos, ...groups.map(g => g.photo), ...guidePhotos, ...videoPhotos, ...plantPhotos].map(p => p ?? undefined))]
 ---
