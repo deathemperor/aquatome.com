@@ -31,6 +31,7 @@ import { readVerdicts } from './curation'
 import { carryTopicChecks } from './topic-check'
 import { breedsNamed } from './topics'
 import { schoolFromSeriouslyFish } from './traits'
+import { pageGroup } from './gbif'
 import { readVideoRejected } from './videos'
 import { orderAlbums } from './gallery'
 import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
@@ -118,6 +119,8 @@ import { namedOn, namedOrder, passesHead } from './photo-named'
 export type SweepReport = {
   /** Files changed, `kind/id/file`. */
   files: string[]
+  /** Species pages moved to the group their order allows (regroupPages). */
+  regrouped?: string[]
   /** Pages changed by each text fix: furniture, headings, repeated, labels, permission, name, fish-name, renamed (and tidy: the fixes made on write). */
   text: Record<string, string[]>
   photos: string[]
@@ -411,6 +414,27 @@ async function refusedByCredit(root: string, content: string): Promise<Map<strin
 /** Guides whose title is shared or only a name, written again at most a run (each a write and a review). */
 export const GUIDE_RETITLES = 10
 
+/**
+ * Species pages whose group their order doesn't allow, moved to the group it does (gbif.ts pageGroup), each one's id: a
+ * model filed a new spiny eel with the loaches on 14 Nov 2026, and the pages run's checks held its work. Here, before
+ * every run's checks, so work written before the rule (a kept or held batch, tried again) is put right too. Only the
+ * group's line changes, the file's layout kept.
+ */
+async function regroupPages(content: string): Promise<string[]> {
+  const moved: string[] = []
+  for (const id of (await readdir(join(content, 'species')).catch(() => [] as string[])).sort()) {
+    const file = join(content, 'species', id, 'entity.json')
+    const raw = await readFile(file, 'utf8').catch(() => null)
+    if (raw === null) continue
+    const e = JSON.parse(raw) as { group?: string; order?: string }
+    if (typeof e.group !== 'string') continue
+    const group = pageGroup(e.group, e.order)
+    if (group === e.group) continue
+    await writeFile(file, raw.replace(`"group": ${JSON.stringify(e.group)}`, `"group": ${JSON.stringify(group)}`))
+    moved.push(id)
+  }
+  return moved
+}
 export async function sweep(root: string, o: { llm?: Llm; titles?: number; retitles?: number; model?: string; photoCap?: number; today?: string } = {}): Promise<SweepReport> {
   // Before anything is written. Not a whole number ("1O" for 10 reads as none), every comparison with it is false and
   // the cap would be off (the independent reader, 2026-11-11).
@@ -424,6 +448,8 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // A species page filed under the wrong animal, joined to its fish's or moved to it (page-folds.ts): first, so the
   // school size and the text read the page as it is now (Astra, 2026-11-13).
   for (const f of report.folds = await foldPages(root)) changed(`species/${f.split(' → ')[1]}`)
+  // A group its order doesn't allow, before anything reads the group.
+  for (const id of report.regrouped = await regroupPages(content)) changed(`species/${id}/entity.json`)
   // A fish card's school size: Seriously Fish's, never below what another source on the page says (traits.ts), here so
   // every part of the cycle has it before its tests, whatever changed a page's sections.
   for (const id of report.schools = await schoolFromSeriouslyFish(content)) changed(`traits/${id}.json`)
