@@ -21,7 +21,7 @@ const stub = (path: string, body: string) => {
 }
 
 /** A Mac as this home stands it in: its load, cores at work of 16, the simulators up, and its free space in GB. */
-function mac({ load = '50', cores = 16 as number | null, up = [] as [string, string][], known = [] as [string, string][], free = 500 } = {}) {
+function mac({ load = '50', cores = 16 as number | null, up = [] as [string, string][], known = [] as [string, string][], free = 500 as number | 'fails' | 'nothing' | 'garbled' } = {}) {
   const home = mkdtempSync(join(tmpdir(), 'aq-quiet-'))
   const mask = cores === null ? '' : (2 ** cores - 1).toString()
   writeFileSync(join(home, 'load'), load)
@@ -31,7 +31,8 @@ function mac({ load = '50', cores = 16 as number | null, up = [] as [string, str
     kern.sched_recommended_cores) echo ${mask} ;;
   esac; exit 0`)
   stub(join(home, 'bin/xcrun'), 'cat "$HOME/devices.json"')
-  stub(join(home, 'bin/df'), `echo 'Filesystem 1024-blocks Used Available Capacity Mounted on'; echo "/dev/disk3s1s1 971350180 1 ${Math.round(free * 1e9 / 1024)} 1% /"`)
+  stub(join(home, 'bin/df'), free === 'fails' ? 'echo "df: no such disk" >&2; exit 1' : free === 'nothing' ? 'exit 0' : free === 'garbled' ? 'echo "Filesystem"; echo "/dev/x what"'
+    : `echo 'Filesystem 1024-blocks Used Available Capacity Mounted on'; echo "/dev/disk3s1s1 971350180 1 ${Math.round(free * 1e9 / 1024)} 1% /"`)
   // Where the disk is: the simulators' 40 GB, the build folders' 8 and the worktrees' 77, as on 14 Nov at 09:00.
   for (const dir of ['Library/Developer/CoreSimulator/Devices', 'Library/Developer/Xcode/DerivedData', '.infinitus/worktrees/aquatome.com/a', '.infinitus/worktrees/aquatome.com/b']) mkdirSync(join(home, dir), { recursive: true })
   stub(join(home, 'bin/du'), 'case "$2" in */Devices) echo "39062500 $2" ;; */DerivedData) echo "7812500 $2" ;; */aquatome.com) echo "75195313 $2" ;; esac')
@@ -63,7 +64,22 @@ test('free space under 30 GB is said; under 20 GB `--space` says no and a new si
   const low = mac({ free: 15, known: [['D', 'four']], up: [['A', 'one']] })
   expect(status(low, '--cap', 'D')).toMatchObject({ status: 2, stderr: expect.stringContaining('under the 20 GB floor') })
   expect(status(low, '--cap', 'A').status).toBe(0)
+  const hook = spawnSync('python3', [STATUS, '--hook'], { encoding: 'utf8', env: low.env, input: JSON.stringify({ tool_input: { deviceId: 'D', hostId: 'local' } }) })
+  expect(hook).toMatchObject({ status: 2, stderr: expect.stringContaining('under the 20 GB floor') })
   expect(status(mac({ free: 25, known: [['D', 'four']] }), '--cap', 'D').status).toBe(0)
+}, slow(60_000))
+
+// The chief of staff, 14 Nov: a broken reading must not stop the iOS lead's run. A df that fails, says nothing or says
+// something else never refuses a simulator, and `--space` lets the job go on.
+test("a disk reading that fails, says nothing or can't be read never refuses a simulator or a job", () => {
+  for (const free of ['fails', 'nothing', 'garbled'] as const) {
+    const m = mac({ free, known: [['D', 'four']] })
+    expect(status(m, '--cap', 'D'), free).toMatchObject({ status: 0, stderr: '' })
+    expect(status(m, '--space'), free).toMatchObject({ status: 0, stderr: '' })
+    expect(status(m).stdout, free).toContain('free space unknown')
+    const hook = spawnSync('python3', [STATUS, '--hook'], { encoding: 'utf8', env: m.env, input: JSON.stringify({ tool_input: { deviceId: 'D', hostId: 'local' } }) })
+    expect(hook, free).toMatchObject({ status: 0, stderr: '' })
+  }
 }, slow(60_000))
 
 // One mac-status.py per reading. Beside the rest of the suite, at default workers, these readings took 22 s
