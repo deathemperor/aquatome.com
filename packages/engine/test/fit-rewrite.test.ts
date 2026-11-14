@@ -882,4 +882,6 @@ test('a refused cut of a foreign product falls back to the sentence cut whole by
   expect(r.rewritten).toHaveLength(1)
   expect(r.rewritten[0]).toMatch(/^vi\/species\/danio-margaritatus sections\.habitat:seriouslyfish \(cut whole by code; the writer's cut refused \(0\.90: .*Sentence 2 says what it didn't: "thuốc bán ở tiệm"/)
   expect(JSON.parse(await readFile(file, 'utf8')).sections['habitat:seriouslyfish']).toBe('<p>Ao cạn nhiều cỏ ở cao nguyên Shan, Myanmar. Cá sống theo đàn.</p>')
+  // The run lists what code took, not what the refused writer had.
+  expect(r.gone).toEqual(['vi/species/danio-margaritatus sections.habitat:seriouslyfish sentence 2 went whole: "Trị nấm bằng Seachem Paraguard theo nhãn."'])
 })

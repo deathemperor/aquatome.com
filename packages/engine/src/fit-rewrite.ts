@@ -259,17 +259,19 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
             // and a breed page's units with each figure.
             const off = mine.length ? keepsFigures(textOf(before), textOf(next), mine.map(f => f.quote ?? ''), figures) : undefined
             let cut = ''
+            let gone = r.gone
             if (r.score < QUALITY_THRESHOLD || r.lost.length || r.unasked.length || r.added.length || r.whole.length || off) {
               const why = `${r.score.toFixed(2)}: ${[...(off ? [off] : []), ...r.notes].slice(0, 2).join('; ')}`
               // The writer's cut refused: the sentences the findings flag cut whole by code instead, but in an FAQ answer or
               // beside a conversion (the chief of staff, 14 Nov 2026: a flagged sentence "is deleted or its foreign detail is deleted").
               const plain = !faq && !mine.length ? cutWhole(before, now) : undefined
               if (!plain) { report.notKept.push(`${key} ${field} (${why})`); continue }
-              next = plain
+              next = plain.html
+              gone = plain.gone
               cut = `cut whole by code; the writer's cut refused (${why})`
             }
             if (next === before) { report.skipped.push(`${key} ${field}: the rewrite changed nothing`); continue }
-            report.gone.push(...(cut ? [] : r.gone).map(g => `${key} ${field} ${g}`))
+            report.gone.push(...gone.map(g => `${key} ${field} ${g}`))
             // A part a cut reduces to one line, or a shop's quick facts it had to mend, isn't a part (the chief of staff, 14 Nov
             // 2026: "A part reduced to one line from a dealer's stock list isn't a part", "is dropped, not kept"): off the page in
             // every language, as the sweep takes a dealer's notice off (sweep.ts). One reduced to one line goes with its heading
