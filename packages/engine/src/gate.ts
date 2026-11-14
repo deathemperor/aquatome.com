@@ -47,6 +47,13 @@ export const HOLD_ALWAYS: readonly FitCheck[] = ['kit', 'harm']
  * isn't a sentence, and units are rounded where the text is written (round.ts).
  */
 export const MENDABLE: readonly FitCheck[] = ['shop', 'price', 'source', 'elsewhere', 'product']
+/**
+ * Whether a page's checks are the video editor's to fix (the chief of staff, 14 Nov 2026): each one it mends, units beside
+ * one of them (never alone, which is units-mend's), and a dose, which video-mend.ts takes only when it is the source's own
+ * tank's and leaves a person otherwise. The editor writes, keeps or converts no figure: video-mend.ts holds them.
+ */
+export const editorMay = (checks: readonly FitCheck[]) =>
+  checks.some(c => c !== 'units') && checks.every(c => MENDABLE.includes(c) || c === 'units' || c === 'dose')
 /** What a page held for waits for a person, and no editor gets: harm, a kit, a dose and what a dose lacks. */
 export const WAITS: readonly FitCheck[] = ['harm', 'kit', 'lethal', 'dose', 'dose-caution', 'dose-purpose', 'dose-conflict']
 /**
@@ -275,8 +282,10 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
   const mended = async (f: string, p: Page, entry: FitEntry, worse: FitCheck[], old: Page | undefined, o: { isNew: boolean; wasHeld: boolean; oldChecks: FitCheck[] }): Promise<GateCall | undefined> => {
     // A page held already takes one of the run's `heldMends`; a new one, or a live one going back, one of its `mends`.
     const fromHeld = o.wasHeld && !o.isNew
-    if (!d.mend || (fromHeld ? heldMends : mends) <= 0 || !worse.length || !worse.every(c => MENDABLE.includes(c))) return undefined
-    if (o.wasHeld && waitsFor(f).length) return undefined
+    if (!d.mend || (fromHeld ? heldMends : mends) <= 0 || !editorMay(worse)) return undefined
+    // Held for what waits for a person: never to the editor. A dose is the editor's when it is the source's own tank's
+    // (video-mend.ts decides), so only while the read still finds it, to be sent.
+    if (o.wasHeld && waitsFor(f).some(c => c !== 'dose' || !worse.includes('dose'))) return undefined
     if (fromHeld) heldMends--
     else mends--
     // The text as it was, put back if the mended one can't be read and decided on: the file and the run's record of the
@@ -376,10 +385,12 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
         // New, or held already, and held only for what its editor fixes: to the editor, and decided on again. Held already
         // for what waits for a person: held for that still, and not sent.
         const waits = wasHeld ? waitsFor(f) : []
-        if (call.action === 'hold' && waits.length) call = { action: 'hold', checks: [...new Set([...call.checks, ...waits])].sort() }
+        const keep = (c: GateCall): GateCall => (c.action === 'hold' && waits.length ? { action: 'hold', checks: [...new Set([...c.checks, ...waits])].sort() } : c)
+        // A held dose goes to the editor only with the read finding it now (`mended`), and stays a reason until it's gone.
+        if (call.action === 'hold' && waits.some(c => c !== 'dose' || !call.checks.includes('dose'))) call = keep(call)
         else if (call.action === 'hold' && entry && (isNew || wasHeld)) {
           const fixed = await mended(f, p, entry, call.checks, old, { isNew, wasHeld, oldChecks: old && oldSaved ? [...gateChecks(old, oldSaved)] : [] })
-          if (fixed) call = fixed
+          call = fixed ?? keep(call)
         }
         // Put back now, so the texts the run ends with are known; the rest once harm beside them is.
         if (call.action === 'revert') await apply(f, call)
