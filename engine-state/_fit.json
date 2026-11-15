@@ -101189,21 +101189,14 @@
     "products": []
   },
   "vi/species/beaufortia-kweichowensis": {
-    "at": "2026-11-10",
-    "hash": "53a6128dd982ce6c",
+    "at": "2026-11-15",
+    "hash": "bd476fe1c2e112e0",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P7",
-        "quote": "đồ nhiều thịt như trùng huyết sống hoặc đông lạnh",
-        "why": "Calque of English 'meaty foods'; not how Vietnamese keepers phrase it.",
-        "by": "model",
-        "fix": "thức ăn giàu đạm / thức ăn tươi sống"
-      }
-    ],
-    "products": []
+    "findings": [],
+    "products": [
+      "Repashy Soilent Green"
+    ]
   },
   "vi/species/beaufortia-leveretti": {
     "at": "2026-11-15",
@@ -107687,7 +107680,7 @@
   },
   "vi/species/crossoloricaria-cephalaspis": {
     "at": "2026-11-15",
-    "hash": "b50ecd8c4ff8d13b",
+    "hash": "6beccf234f2eea50",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -113218,7 +113211,7 @@
   },
   "vi/species/hisonotus-notatus": {
     "at": "2026-11-15",
-    "hash": "02ff11d99a02edcd",
+    "hash": "6d41e664692884fe",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -115002,16 +114995,16 @@
     "products": []
   },
   "vi/species/lamprologus-signatus": {
-    "at": "2026-11-08",
-    "hash": "f977fc58b8683983",
+    "at": "2026-11-15",
+    "hash": "1e85578e6d267d04",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
-        "part": "P10",
-        "quote": "Vỏ ốc sên escargot là lựa chọn tốt, và phần lớn cửa hàng thực phẩm cao cấp tử tế đều có bán",
-        "why": "Buying escargot shells at gourmet food shops reflects Western shopping habits, not Vietnam's.",
+        "part": "P19",
+        "quote": "Vỏ ốc sên escargot là lựa chọn tốt, và phần lớn cửa hàng thực phẩm cao cấp tử tế đều có bán.",
+        "why": "Escargot shells sold in gourmet food shops are a Western shopping habit, not something keepers in Vietnam buy.",
         "by": "model"
       }
     ],
@@ -117650,22 +117643,15 @@
   },
   "vi/species/monocirrhus-polyacanthus": {
     "at": "2026-11-15",
-    "hash": "a91c95ab8bf11774",
+    "hash": "1c39c7515e56a2ca",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
-        "part": "P2",
+        "part": "P3",
         "quote": "Bể tối thiểu: khoảng 75-95 lít",
-        "why": "75–95 litres is a conversion of 20–25 gallons, not a tank size keepers in Vietnam would give.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P9",
-        "quote": "Bể tối thiểu khoảng 75-95 lít.",
-        "why": "Converted from 20–25 gallons; not a natural local tank size.",
+        "why": "The 75–95 litre range is a conversion of 20–25 US gallons, not a tank size keepers in Vietnam would give.",
         "by": "model"
       }
     ],
@@ -119882,9 +119868,10 @@
     "products": []
   },
   "vi/species/oryzias-woworae": {
-    "at": "2026-11-07",
-    "hash": "2fe91d4f04f83d2a",
+    "at": "2026-11-15",
+    "hash": "0bacf61ebf531280",
     "model": "opus",
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -120035,7 +120022,7 @@
   },
   "vi/species/otocinclus-vestitus": {
     "at": "2026-11-15",
-    "hash": "8d3ecf912a2ab175",
+    "hash": "3f759114ac463bba",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -121088,10 +121075,19 @@
   },
   "vi/species/parauchenoglanis-punctatus": {
     "at": "2026-11-15",
-    "hash": "9b172acecc269d6f",
+    "hash": "4ae3bd0a47032c9d",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "words",
+        "part": "P7",
+        "quote": "thức ăn dạng tablet",
+        "why": "Leaves the English word 'tablet' in place; keepers in Vietnam call these sinking pressed pellets.",
+        "by": "model",
+        "fix": "thức ăn viên nén chìm"
+      }
+    ],
     "products": []
   },
   "vi/species/paravandellia-oxyptera": {
@@ -123285,8 +123281,8 @@
     "products": []
   },
   "vi/species/pseudeutropius-brachypopterus": {
-    "at": "2026-11-09",
-    "hash": "3992a97055bb2198",
+    "at": "2026-11-15",
+    "hash": "81de566d171100fe",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -126678,8 +126674,8 @@
     "products": []
   },
   "vi/species/spectracanthicus-murinus": {
-    "at": "2026-11-14",
-    "hash": "1d515170e99a0379",
+    "at": "2026-11-15",
+    "hash": "a6f2e0688e1a1f99",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -129768,6 +129764,334 @@
   "th/species/devario-acuticephala": {
     "at": "2026-11-16",
     "hash": "d28316efedc1e22d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/aquariumbreeder-how-to-cure-brown-diatom-algae-in-saltwater-aquariums": {
+    "at": "2026-11-15",
+    "hash": "c166460827d208bc",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "SERA Silicate Clear",
+      "Seachem Phosguard",
+      "Vibrant Marine"
+    ]
+  },
+  "vi/guides/aquariumbreeder-how-to-grow-marine-macroalgae": {
+    "at": "2026-11-15",
+    "hash": "626e1c9f7cc2a9b1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Đây là hai loại AlgaeBarn, một trong những tên tuổi đầu ngành, khuyên dùng.",
+        "why": "AlgaeBarn is the foreign seaweed shop this article most likely came from, and the page uses it as the authority for its product picks.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "AI Prime Fuge",
+      "Chaetomax",
+      "Brightwell Aquatics Chaeto Gro"
+    ]
+  },
+  "vi/guides/aquariumbreeder-how-to-setup-an-easy-quarantine-tank": {
+    "at": "2026-11-15",
+    "hash": "53748f8045d6ff65",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Seachem Prime",
+      "Tetra Whisper",
+      "Tetra SafeStart Plus",
+      "ATM Colony Freshwater",
+      "API Quick Start Nitrifying Bacteria",
+      "Fritz Aquatics FritzZyme 7 Nitrifying Bacteria",
+      "DrTim's One and Only Live Nitrifying Bacteria",
+      "Hygger Mini Inline Quartz",
+      "Clorox"
+    ],
+    "doses": [
+      {
+        "treatment": "bleach",
+        "strength": "",
+        "amount": 1,
+        "amountMax": 0,
+        "unit": "cup",
+        "per": 10,
+        "perUnit": "cup of water",
+        "use": "disinfecting",
+        "method": "other",
+        "quote": "pha theo tỷ lệ 10 cốc nước với 1 cốc thuốc tẩy (10:1)"
+      },
+      {
+        "treatment": "bleach",
+        "strength": "",
+        "amount": 1,
+        "amountMax": 0,
+        "unit": "part",
+        "per": 15,
+        "perUnit": "part water",
+        "use": "disinfecting",
+        "method": "dip",
+        "quote": "pha thuốc tẩy loãng hơn (1:15)"
+      }
+    ],
+    "sourceRead": true
+  },
+  "vi/guides/glaser-en-10-catfishes-10c-catfishes-remaining-catfish-from-south-america-trachycorystes-sp-white-spots-en": {
+    "at": "2026-11-15",
+    "hash": "fcaddd173e9401db",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Gần đây có một con dài 25–30 cm từ Peru về",
+        "why": "This is the source shop's news about new stock, which the reader in Vietnam knows nothing about.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Lúc định chụp ảnh nó, người chụp dùng vợt lùa cho cá vào chỗ dễ chụp hơn.",
+        "why": "This tells the source's own story about its photographer as if the reader knew them.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/plants/echinodorus-tenellus": {
+    "at": "2026-11-15",
+    "hash": "4d19be5dac718939",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "ADA Amazonia aqua soil",
+      "CaribSea Eco-Complete",
+      "Seachem Fluorite"
+    ]
+  },
+  "vi/species/caquetaia-kraussii": {
+    "at": "2026-11-15",
+    "hash": "b6323c9503b444c5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/caquetaia-myersi": {
+    "at": "2026-11-15",
+    "hash": "be9c4e616a67887b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P4",
+        "quote": "cá lớn thì phải có cá smelt đông lạnh",
+        "why": "Frozen smelt is a feeder food sold abroad, not what keepers in Vietnam buy; they use frozen small fish or shrimp.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/centropomus-unionensis": {
+    "at": "2026-11-15",
+    "hash": "aaca18daf1b4cfcb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/cichlasoma-istlanum": {
+    "at": "2026-11-15",
+    "hash": "32e1eda42a5ece74",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "Cá đang bán là cá cho đẻ ở Đức.",
+        "why": "Refers to the source shop's own stock for sale, which the reader doesn't know.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/corydoras-gossei": {
+    "at": "2026-11-15",
+    "hash": "7644e7d5257efc8d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P12",
+        "quote": "thả một hai quả tống quán sủ (alder cone) vào để trứng không bị nấm",
+        "why": "Alder cones come from a European tree that keepers in Vietnam don't buy or gather.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/galeocharax-gulo": {
+    "at": "2026-11-15",
+    "hash": "d357c37a22ba667a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/gambusia-vittata": {
+    "at": "2026-11-15",
+    "hash": "a42cbce7788e597a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/laimosemion-rectocaudatus": {
+    "at": "2026-11-15",
+    "hash": "b71f99843bc1a9d3",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P4",
+        "quote": "Đàn cá nhập về hiện chưa dễ phân biệt trống mái.",
+        "why": "Refers to the source shop's current imported stock as if the reader knew it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/lepomis-megalotis": {
+    "at": "2026-11-15",
+    "hash": "42a456af6001d34f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/lucania-goodei": {
+    "at": "2026-11-15",
+    "hash": "636768813cfbc967",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P2",
+        "quote": "kể cả ở vùng trung Âu, từ cuối xuân đến đầu thu",
+        "why": "The outdoor-pond season advice is framed for a reader living in central Europe, not Vietnam.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/moema-ortegai": {
+    "at": "2026-11-15",
+    "hash": "aff08cec29594135",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "Lô Moema cf. ortegai nhập từ Peru về có con to đến bất ngờ",
+        "why": "Describes the source shop's own incoming stock and available sizes as if the reader knew it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/nothobranchius-cardinalis": {
+    "at": "2026-11-15",
+    "hash": "7037ff5549809cc6",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/parapteronotus-hasemani": {
+    "at": "2026-11-15",
+    "hash": "d202a318b4d5f025",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P4",
+        "quote": "nên hai con cá này phải nuôi tách riêng",
+        "why": "Refers to the source's own two fish as if the reader knew them.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/plagioscion-squamosissimus": {
+    "at": "2026-11-15",
+    "hash": "4403a1e94989d577",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "Giờ mới lần đầu có một loài thuộc chi Plagioscion từ Peru về.",
+        "why": "This is the source shop's stock news about a new import, given as if the reader knew that shop.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/potamotyphlus-kaupii": {
+    "at": "2026-11-15",
+    "hash": "503b60c2f6d71c14",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/schizolecis-guntheri": {
+    "at": "2026-11-15",
+    "hash": "a194920168fb8035",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/serrasalmus-spilopleura": {
+    "at": "2026-11-15",
+    "hash": "710924f0208f6720",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/taia-naticoides": {
+    "at": "2026-11-15",
+    "hash": "f6361fa52af9cc4c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/triportheus-albus": {
+    "at": "2026-11-15",
+    "hash": "10b23b26b708e4e5",
     "model": "opus",
     "checklist": 3,
     "findings": [],

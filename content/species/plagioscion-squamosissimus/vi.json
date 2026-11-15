@@ -1,0 +1,30 @@
+{
+  "slug": "ca-du-bac-nam-my",
+  "name": "Cá đù bạc Nam Mỹ",
+  "altNames": [
+    "Cá đù nước ngọt Nam Mỹ",
+    "South American silver croaker"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Họ cá đù (Sciaenidae), tiếng Anh gọi là croaker hoặc drum, có khoảng 290 loài. Chúng chủ yếu sống ở biển, nhưng có vài loài chỉ sống trong nước ngọt. Ở Nam Mỹ, người ta biết khoảng 20 loài thuộc 4 chi sống trong nước ngọt. Loài nhỏ nhất trong số này (Pachypops pigmaeus) chỉ dài 7 cm, còn lại thường dài 20-40 cm. Ngoài tự nhiên chúng khá nhiều và là cá thực phẩm quan trọng.</p>",
+    "beforeYouBuy:glaser": "<p>Nhưng đến nay chưa có loài nào trong số này về tới tiệm cá cảnh. Giờ mới lần đầu có một loài thuộc chi Plagioscion từ Peru về. Có lẽ đây là P. squamosissimus, nhưng cũng có thể là P. auratus, một loài họ hàng gần của nó. Cá về cỡ 8-10 cm.</p>",
+    "behaviour:glaser": "<p>Plagioscion là cá săn mồi. Đừng xem thường cái miệng rộng của chúng! Với cá cùng loài thì chúng hiền.</p>",
+    "aquariumSize:glaser": "<p>P. squamosissimus có thể dài tới khoảng 80 cm, còn P. auratus chỉ dài bằng một nửa.</p>",
+    "distribution:glaser": "<p>Peru.</p>",
+    "notes:glaser": "<p>Giải nghĩa tên: Plagioscion: tiếng Hy Lạp cổ, nghĩa là “scion xiên” (plagios = xiên, skiaina hay “scion” là tên thường gọi của cá phèn đỏ trong tiếng Hy Lạp thời Hellenistic). squamosissimus: tiếng Latin, dạng so sánh nhất của tính từ “có vảy”, nghĩa đại khái là “có rất, rất nhiều vảy”. auratus: tiếng Latin, nghĩa là “vàng óng”.</p><p>Tên thường gọi đề xuất: cá đù bạc Nam Mỹ (South American silver croaker).</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-16"
+  }
+}
