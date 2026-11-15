@@ -1132,3 +1132,14 @@ test('the guide on where to learn aquascaping names no private person in passing
   expect(t.body).toContain('Thủy Sinh AZ')
   for (const mark of ['bodyFixed', 'faqFixed', 'nameFixed']) expect(t[mark], mark).toBe(true)
 })
+
+// The chief of staff, 16 Nov 2026: a Loaches Online article on how a Botia's markings change as it grows printed its
+// author's email in each letter's header. The addresses go by hand and the author stays credited. The body is fixed,
+// since a redo translates the source page again, which still has them.
+test('the Botia markings guide prints no email address, still credits its author, and is fixed by hand', () => {
+  const t = JSON.parse(readFileSync(fileURLToPath(new URL('../../../content/guides/loachesonline-articles-botia-rostrata-development-of-markings-during-growth/vi.json', import.meta.url)), 'utf8')) as Translation & Record<string, unknown>
+  const all = [t.name, t.body, ...(t.summary ?? []), ...(t.faq ?? []).flatMap(f => [f.q, f.a])].join('\n')
+  expect(all).not.toMatch(/[\w.%+-]+@[\w-]+(?:\.[\w-]+)+/u)
+  expect(t.body).toContain('Janiczak')
+  expect(t.bodyFixed).toBe(true)
+})
