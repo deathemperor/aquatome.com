@@ -8,7 +8,7 @@ export type RetiredTo = { kind: 'species' | 'breeds' | 'plants'; id: string } | 
 
 const fish = (id: string): RetiredTo => ({ kind: 'species', id })
 
-/** The seller-site notices to go off (the 13 Nov sheet's "Off"), each to the first fish page the sheet names. */
+/** The seller-site notices to go off (the 13 Nov sheet's "Off" and "Forward"), each to the first fish page the sheet names. */
 export const RETIRED_GUIDES: Readonly<Record<string, RetiredTo>> = {
   'glaser-en-07-carp-like-fishes-1-loaches-a-new-ornate-hillstream-loach-en': fish('sewellia-lineolata'),
   'glaser-en-10-catfishes-10a-catfishes-corydoras-co-the-cory-season-has-started-en': fish('corydoras-aeneus'),
@@ -29,6 +29,15 @@ export const RETIRED_GUIDES: Readonly<Record<string, RetiredTo>> = {
   'glaser-en-25-perchlike-fishes-25g-perchlike-fishes-7-remaining-groups-sunfish-special-en': fish('enneacanthus-gloriosus'),
   'glaser-en-32-all-the-rest-drought-in-singapore-and-malaysia': 'guides',
   'glaser-en-32-all-the-rest-guinea-import-arrived-en': fish('ladigesia-roloffi'),
+  // The sheet's "forward": each one's lasting fact is on its fish's page now, under the dealer's name and the notice's
+  // address, fixed (the chief of staff, 14 Nov 2026). The eques, Sturisoma and Cichla hybrid notices stay on until a ruling
+  // on the lines no fish page has yet (C. armatus's name, the genus's name, which sex grows the Sturisoma nose, how the
+  // hybrids look and the genus grown from five species to 15).
+  'glaser-en-03-bony-tongues-scleropages-jardinii-and-s-leichardti-en': fish('scleropages-leichardti'),
+  'glaser-en-18-toothcarps-killis-and-livebearers-limia-special-en': fish('limia-perugiae'),
+  'glaser-en-fisharchive-hyphessobrycon-pyrrhonotus-juvenile': fish('hyphessobrycon-pyrrhonotus'),
+  'glaser-en-32-all-the-rest-congo-importation-arrived-en': fish('distichodus-sexfasciatus'),
+  'glaser-en-32-all-the-rest-finally-an-import-from-guinea-en': fish('pelvicachromis-rubrolabiatus'),
 }
 
 /** 2hraquarist's gallery posts of other people's tanks: every one, those written later too, off to the guides list. */

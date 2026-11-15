@@ -424,13 +424,50 @@ test('no guide calls a cichlid a tilapia in its title', () => {
 // The chief of staff, 14 Nov 2026: the gallery posts of other people's tanks (66 on 14 Nov) and the 13 Nov sheet's
 // seller-site notices go off for good, every address forwarding (@aq/schema retired.ts). Each named one is a guide the
 // content has, and each forwards to a page it has: a typo would leave a guide up, or forward to nothing.
+// The seller-site notices (the chief of staff, 14 Nov 2026): the lasting fact in each goes to its fish's page under the
+// dealer's name and the notice's address, in the notice's own sentences, cut and never added to (the Writing Lead's rule
+// for a part fixed by hand), and fixed, so no read of the source or rewrite takes it again. The notice then goes off.
+// [fish, part, the notice's address, its stored English in sources/glaser/]
+const FOLDS: [string, string, string, string][] = [
+  ['corydoras-adolfoi', 'notes', 'https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_eques_c_sp_aff_armatus_and_corydoras_duplicareus_en/', 'en-10-catfishes-10a-catfishes-corydoras-co-corydoras-eques-c-sp-aff-armatus-and-corydoras-duplicareus-en.md'],
+  ['corydoras-duplicareus', 'notes', 'https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_eques_c_sp_aff_armatus_and_corydoras_duplicareus_en/', 'en-10-catfishes-10a-catfishes-corydoras-co-corydoras-eques-c-sp-aff-armatus-and-corydoras-duplicareus-en.md'],
+  ['scleropages-leichardti', 'reproduction', 'https://www.aquariumglaser.de/en/03-bony-tongues/scleropages_jardinii_and_s_leichardti_en/', 'en-03-bony-tongues-scleropages-jardinii-and-s-leichardti-en.md'],
+  ['scleropages-leichardti', 'behaviour', 'https://www.aquariumglaser.de/en/03-bony-tongues/scleropages_jardinii_and_s_leichardti_en/', 'en-03-bony-tongues-scleropages-jardinii-and-s-leichardti-en.md'],
+  ['gasteropelecus-maculatus', 'notes', 'https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/thoracocharax-stellatus-gasteropelecus-maculatus-jumbo-carnegiella-myersi-carnegiella-strigata-2/', 'en-09-characoids-tetra-relationship-thoracocharax-stellatus-gasteropelecus-maculatus-jumbo-carnegiella-myersi-carnegiella-strigata-2.md'],
+  ['limia-perugiae', 'behaviour', 'https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/limia_special_en/', 'en-18-toothcarps-killis-and-livebearers-limia-special-en.md'],
+  ['limia-melanogaster', 'behaviour', 'https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/limia_special_en/', 'en-18-toothcarps-killis-and-livebearers-limia-special-en.md'],
+  ['limia-nigrofasciata', 'behaviour', 'https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/limia_special_en/', 'en-18-toothcarps-killis-and-livebearers-limia-special-en.md'],
+  ['limia-nigrofasciata', 'notes', 'https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/limia_special_en/', 'en-18-toothcarps-killis-and-livebearers-limia-special-en.md'],
+  ['hyphessobrycon-pyrrhonotus', 'notes', 'https://www.aquariumglaser.de/en/fisharchive/hyphessobrycon-pyrrhonotus-juvenile/', 'en-fisharchive-hyphessobrycon-pyrrhonotus-juvenile.md'],
+  ['cichla-ocellaris', 'notes', 'https://www.aquariumglaser.de/en/general/cichla-ocellaris-x-melaniae-hybrid-2/', 'en-general-cichla-ocellaris-x-melaniae-hybrid-2.md'],
+  ['protopterus-dolloi', 'behaviour', 'https://www.aquariumglaser.de/en/29-lungfishes/lungfishes-from-the-congo/', 'en-29-lungfishes-lungfishes-from-the-congo.md'],
+  ['distichodus-sexfasciatus', 'notes', 'https://www.aquariumglaser.de/en/32-all-the-rest/congo_importation_arrived__en/', 'en-32-all-the-rest-congo-importation-arrived-en.md'],
+  ['pelvicachromis-rubrolabiatus', 'dimorphism', 'https://www.aquariumglaser.de/en/32-all-the-rest/finally_an_import_from_guinea__en/', 'en-32-all-the-rest-finally-an-import-from-guinea-en.md'],
+]
+test('each seller notice\'s lasting fact is on its fish\'s page as the build shows it, cited to the notice, in its own sentences, and fixed', async () => {
+  const root = fileURLToPath(new URL('../../../content', import.meta.url))
+  const { species } = await loadAll({ root, lang: 'vi', publicBuild: true })
+  const words = (x: string) => x.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().toLowerCase()
+  for (const [fish, key, url, file] of FOLDS) {
+    const page = species.find(s => s.id === fish)
+    expect(page, fish).toBeDefined()
+    const part = page!.sections.find(s => s.key === key && s.source === 'glaser' && s.sourceUrl === url)
+    expect(part, `${fish} ${key}`).toBeDefined()
+    expect(part!.fixed, fish).toBe(true)
+    expect(page!.t.sections[`${key}:glaser`], fish).toMatch(/^<p>.+<\/p>$/)
+    // Every English sentence is the notice's own, word for word.
+    const said = words(readFileSync(join(root, '../sources/glaser', file), 'utf8'))
+    for (const sentence of words(part!.html).split(/(?<=[.!?])\s+/)) expect(said, `${fish}: "${sentence}"`).toContain(sentence.replace(/[.!?]$/, ''))
+  }
+}, slow(300_000)) // the real content loaded once, as the build does
+
 test('every guide taken off for good is one the content has, and forwards to a page it has', () => {
   const content = fileURLToPath(new URL('../../../content', import.meta.url))
   for (const [id, to] of Object.entries(RETIRED_GUIDES)) {
     expect(existsSync(join(content, 'guides', id, 'vi.json')), id).toBe(true)
     if (to !== 'guides') expect(existsSync(join(content, to.kind, to.id, 'vi.json')), `${id} → ${to.kind}/${to.id}`).toBe(true)
   }
-  expect(Object.keys(RETIRED_GUIDES)).toHaveLength(19)
+  expect(Object.keys(RETIRED_GUIDES)).toHaveLength(24)
   expect(readdirSync(join(content, 'guides')).filter(id => GALLERY_POST.test(id)).length).toBeGreaterThanOrEqual(66)
 })
 
