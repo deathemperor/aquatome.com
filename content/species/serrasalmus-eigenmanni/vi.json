@@ -1,0 +1,29 @@
+{
+  "slug": "ca-ho-eigenmann",
+  "name": "Cá hổ Eigenmann",
+  "altNames": [
+    "Cá piranha Eigenmann",
+    "Eigenmann's piranha"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<ul><li>Tên thường gọi: cá hổ Eigenmann</li><li>Cỡ lớn nhất từng gặp: khoảng 20 cm</li><li>Lô cá nhập này về từ: Peru</li><li>Từ nguyên: Serrasalmus là tiếng Latin, nghĩa là \"cá hồi có răng cưa\". Tên này chỉ hàng vảy xếp như răng cưa dọc theo gờ ngực. Còn eigenmanni là tên đặt để tặng một người.</li></ul>",
+    "distribution:glaser": "<p>Con cá hổ cỡ vừa và rất thú vị này về từ Peru. Chi tiết này đáng nói, vì đến nay người ta \"chỉ\" mới thấy S. eigenmanni ở Brazil, vùng Guiana và Venezuela.</p>",
+    "diet:glaser": "<p>Serrasalmus eigenmanni thuộc nhóm cá hổ sống đơn độc. Ngoài tự nhiên, chúng chủ yếu rỉa vây của cá khác. Nuôi trong bể thì cho ăn các loại thịt khác cũng không sao.</p>",
+    "behaviour:glaser": "<p>Dĩ nhiên là không nuôi chung S. eigenmanni với cá khác được.</p>",
+    "notes:glaser": "<p>Con cá này được định danh theo công trình của Jégu &amp; Santos (1988). Theo hai tác giả này, S. eigenmanni có mấy đặc điểm riêng: một đốm đen sau nắp mang, gốc vây đuôi sẫm màu, thân rất cao và mõm ngắn. Nhưng phân loại cá hổ vốn nổi tiếng rắc rối. Có thể một ngày nào đó người ta sẽ nhận ra con cá này thật ra thuộc loài khác.</p>"
+  },
+  "quality": {
+    "score": 0.92,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.92
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-15"
+  }
+}

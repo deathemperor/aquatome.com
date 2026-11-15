@@ -1067,6 +1067,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/claroteidae/phyllonemus_typus.htm": {
+    "entityIds": [
+      "species/phyllonemus-typus"
+    ],
+    "updatedAt": "2026-11-14T21:27:58.435Z",
+    "hash": "97834e64ad4152a99e86ba465325a11760ce7318ccdb237860affc4414649d05",
+    "processedHash": "97834e64ad4152a99e86ba465325a11760ce7318ccdb237860affc4414649d05",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/cranoglanididae/cranoglanis_henrici.htm": {
     "entityIds": [
       "species/cranoglanis-henrici"
@@ -1697,6 +1707,26 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/neoplecostomus_microps.htm": {
+    "entityIds": [
+      "species/neoplecostomus-microps"
+    ],
+    "updatedAt": "2026-11-14T21:18:55.024Z",
+    "hash": "357ca20cd473e9e78c077647ce1b2f1da6aaf3ae9851ca242061d24eec09d53b",
+    "processedHash": "357ca20cd473e9e78c077647ce1b2f1da6aaf3ae9851ca242061d24eec09d53b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/otocinclus_flexilis.htm": {
+    "entityIds": [
+      "species/otocinclus-flexilis"
+    ],
+    "updatedAt": "2026-11-14T21:20:35.889Z",
+    "hash": "93ec6a7764126cc136601bf32e01bd50b0e68f68a6469a02e4f970d10558f73b",
+    "processedHash": "93ec6a7764126cc136601bf32e01bd50b0e68f68a6469a02e4f970d10558f73b",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/otocinclus_huaorani.htm": {
     "entityIds": [
       "species/otocinclus-huaorani"
@@ -1995,6 +2025,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/pangasiidae/pangasius_larnaudii.htm": {
+    "entityIds": [
+      "species/pangasius-larnaudii"
+    ],
+    "updatedAt": "2026-11-14T21:23:34.978Z",
+    "hash": "c58c6f176b430e5ac6773b30e6df6a9de4d47d3d58e720501e518aed4cf3ec74",
+    "processedHash": "c58c6f176b430e5ac6773b30e6df6a9de4d47d3d58e720501e518aed4cf3ec74",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/pimelodidae/aguarunichthys_tocantinsensis.htm": {
     "entityIds": [
       "species/aguarunichthys-tocantinsensis"
@@ -2082,6 +2122,16 @@
     "updatedAt": "2026-11-11T02:50:04.960Z",
     "hash": "e8c4168fc6db3c44c482867a061515ebb09ca87cfb48d618e5a94708046c623a",
     "processedHash": "e8c4168fc6db3c44c482867a061515ebb09ca87cfb48d618e5a94708046c623a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/plotosidae/plotosus_canius.htm": {
+    "entityIds": [
+      "species/plotosus-canius"
+    ],
+    "updatedAt": "2026-11-14T21:32:00.012Z",
+    "hash": "77b3362cc7d79f5d3bfbe3b7cb7e0df8d4325ad85803e9116149052823e13423",
+    "processedHash": "77b3362cc7d79f5d3bfbe3b7cb7e0df8d4325ad85803e9116149052823e13423",
     "status": "processed",
     "attempts": 0
   },

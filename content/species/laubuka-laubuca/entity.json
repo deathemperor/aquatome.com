@@ -343,6 +343,10 @@
       {
         "source": "seriouslyfish",
         "value": 6
+      },
+      {
+        "source": "glaser",
+        "value": 6
       }
     ],
     "tankCm": [
@@ -366,6 +370,12 @@
       "html": "<ul><li>Max size: 60 mm SL (2.4 in)</li><li>Aquarium size: 120 × 30 cm (48 × 12 in)</li><li>Temperature: 18–24°C (64–75°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 2–12 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/chela_laubuca_en/",
+      "html": "<p>A beautiful surface dwelling fish for community tanks for fishes from Asia. The absolutely peaceful species attains a total length of around 6 (rarely 8) cm.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/laubuka-laubuca",
@@ -378,10 +388,22 @@
       "html": "<p>Probably endemic to northern India, Bangladesh, and Nepal. Records from Sri Lanka, southern India, Myanmar, Thailand, Laos, Cambodia, Vietnam, Malaysia, and Indonesia appear to represent other species (see 'Notes').</p><p>Type locality is 'ponds of the northern parts of Bengal'.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/chela_laubuca_en/",
+      "html": "<p>Origin: India.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/laubuka-laubuca",
       "html": "<p>Inhabits small tributary streams, freshwater pools, canals, rice paddies and other quiet water bodies. It is invariably observed swimming in groups at or just below the water surface.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/chela_laubuca_en/",
+      "html": "<p>In nature it shares the same habitats as the zebrafish (Danio rerio).</p>"
     },
     {
       "key": "aquariumSize",
@@ -426,6 +448,12 @@
       "html": "<p>Typical egg-scatterer and does not exhibit parental care. Eggs are apparently deposited in batches of around 30 with the fish tending to spawn at dawn or dusk. Incubation is approximately 24 hours.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/chela_laubuca_en/",
+      "html": "<p>Keeping and breeding is comparable to that of the zebrafish (Danio rerio).</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/laubuka-laubuca",
@@ -467,7 +495,26 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "_qsCZxFZF3s",
+      "title": "Laubuka laubuca(Indian glass barb) with denison barbs and rummynose tetra",
+      "durationSec": 30,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "IfF7tVQFkJA",
+      "title": "Ikan Chela Laubuca || Ikan Hias Kecil Cocok Untuk Menambah Peliharaan Baru Di Akuarium Rumahmu",
+      "durationSec": 135,
+      "lang": "id"
+    },
+    {
+      "youtubeId": "GPzvtp_Efd0",
+      "title": "Laubuca laubuca aquarium fish",
+      "durationSec": 40,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -490,5 +537,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-14"
 }
