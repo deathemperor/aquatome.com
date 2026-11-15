@@ -38,6 +38,13 @@ export const RETIRED_GUIDES: Readonly<Record<string, RetiredTo>> = {
   'glaser-en-fisharchive-hyphessobrycon-pyrrhonotus-juvenile': fish('hyphessobrycon-pyrrhonotus'),
   'glaser-en-32-all-the-rest-congo-importation-arrived-en': fish('distichodus-sexfasciatus'),
   'glaser-en-32-all-the-rest-finally-an-import-from-guinea-en': fish('pelvicachromis-rubrolabiatus'),
+  // The Writing Lead's rulings of 15 Nov 2026 on the four held back: the hatchetfish imports' size and C. myersi's males,
+  // A. adonis's 1 m as "is said to" and the lungfish's wool method under the dealer's name are on their pages; the
+  // C. narcissus forms and sizes, tied to the dealer's stock, go with the notice.
+  'glaser-en-09-characoids-tetra-relationship-thoracocharax-stellatus-gasteropelecus-maculatus-jumbo-carnegiella-myersi-carnegiella-strigata-2': fish('thoracocharax-stellatus'),
+  'glaser-en-10-catfishes-10a-catfishes-corydoras-co-show-corydoras-arrived-en': fish('corydoras-narcissus'),
+  'glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-huge-acanthicus-adonis-arrived-en': fish('acanthicus-adonis'),
+  'glaser-en-29-lungfishes-lungfishes-from-the-congo': fish('protopterus-dolloi'),
 }
 
 /** 2hraquarist's gallery posts of other people's tanks: every one, those written later too, off to the guides list. */
