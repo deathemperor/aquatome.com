@@ -1003,6 +1003,35 @@ test('no live guide title promises a number its own text disagrees with', async 
   expect(wrong).toEqual([])
 })
 
+// The chief of staff, 16 Nov 2026: 13 guides whose text gives a count got it back in their title, by hand, with Writing
+// reading each wording, and the brackish plants guide says "Hơn 30 loại" over its table of 31, as its address does. Each
+// title is fixed, so the sweep leaves it; what each text says of the count, or its table, is held too.
+test('fourteen guide titles say the count their own text gives, fixed by hand', () => {
+  const rows = (html: string) => (html.match(/<tr[\s>][\s\S]*?<\/tr>/g) ?? []).filter(r => r.includes('<td')).length
+  for (const [id, name, said] of [
+    ['youtube-0MzfLrSqfXY', '10 loài cá hợp nuôi trong bể 40 lít', '10 loài'],
+    ['youtube-mGmIvhtIM9k', '10 loài cá dễ nuôi cho người mới chơi bể cá nước ngọt', '10 loài'],
+    ['youtube-vl1Lx9iWDYU', '28 mẹo phòng và giảm rêu hại cho bể thủy sinh', '28 mẹo'],
+    ['aquariumcoop-blogs-aquarium-plants-for-african-cichlids', '10 loại cây dễ nuôi trong bể cá cichlid châu Phi', '10 loại cây'],
+    ['youtube-OSR9EPaO78Q', '6 loại rêu hại hay gặp trong bể thủy sinh và cách xử lý', 'sáu loại'],
+    ['aquariumbreeder-50-underwater-red-plants-for-your-tank', 'Hơn 50 loại cây thủy sinh đỏ cho bể cá', 'Hơn 50 loại'],
+    ['aquariumbreeder-brackish-water-plants', 'Hơn 30 loại cây thủy sinh chịu được nước lợ', 31],
+    ['youtube-4tfp4V1usjA', '10 loài cá dễ nuôi, ít bệnh nên chọn khi mua ở chuỗi tiệm thú cưng lớn', '10 loài'],
+    ['youtube-LRTzeSTeN-8', '10 loài cá heo, cá chạch dễ nuôi cho bể cá cảnh', '10 loài'],
+    ['youtube-Z3jAT8oNNAo', '10 loài cá nuôi chung đẹp, dễ nuôi mà ít người để ý', '10 loài'],
+    ['youtube-aN80dX_RktA', '10 loài cá nhỏ hợp bể nano nước ngọt và cách nuôi từng loài', '10 loài'],
+    ['youtube-iVpF5Ya3lIw', '10 loài cá tầng mặt cho bể thủy sinh và cách nuôi từng loài', '10 loài'],
+    ['youtube-z_AdgDUSZkw', '10 loài cá chuột (Corydoras) đáng nuôi và cách chọn', 'mười loài'],
+    ['youtube-ldbE9N7RUTQ', 'Cá vàng nuôi chung với cá gì: 10 loài hợp và cách chọn', '10 loài'],
+  ] as const) {
+    const t = JSON.parse(readFileSync(fileURLToPath(new URL(`../../../content/guides/${id}/vi.json`, import.meta.url)), 'utf8')) as Translation & { nameFixed?: boolean }
+    expect(t.name, id).toBe(name)
+    expect(t.nameFixed, id).toBe(true)
+    if (typeof said === 'number') expect(rows(t.body!), id).toBe(said)
+    else expect(t.body!.replace(/<[^>]+>/g, ' '), id).toContain(said)
+  }
+})
+
 // The chief of staff, 16 Nov 2026: the popeye guide said fish clinics exist in Hà Nội, TP.HCM and Đà Nẵng, and to get help
 // after 3–5 days of home treatment. Its one source for both, a shop's page, names no clinic and reads as machine-written.
 // The clinic sentences and the day count go by hand, every language's body is fixed so the topic writers keep it, and the
