@@ -65,11 +65,22 @@ test("videos: an email address an uploader wrote into a title is never stored, n
   expect(videoTitle("Betta o'brien@example.com, a&b@example.org")).toBe('Betta')
   expect(videoTitle('Betta, fishroom@example.com.')).toBe('Betta.')
   expect(videoTitle('Betta -- fishroom@example.com -- Fish')).toBe('Betta -- Fish')
-  // Nothing away from the address changes, an accent written as a letter and a mark included, and a file name with an
-  // "@" is no address.
+  // An address with a word of another script or a digit right after it, a sign inside its name, a "mailto:" and its query.
+  expect(videoTitle('Betta fishroom@example.com野生')).toBe('Betta 野生')
+  expect(videoTitle('fishroom@example.comปลากัด')).toBe('ปลากัด')
+  expect(videoTitle('Betta fishroom@example.com2024')).toBe('Betta 2024')
+  expect(videoTitle('Betta fish!room@example.com')).toBe('Betta')
+  expect(videoTitle('Betta mailto:fishroom@example.com?subject=x')).toBe('Betta')
+  // Nothing away from the address changes: an accent written as a letter and a mark, a quote, an apostrophe, an arrow
+  // or a stop not right against it; and a file name with an "@" is no address.
   expect(videoTitle('Temp: -2°C :-) -- Hello ! fishroom@example.com')).toBe('Temp: -2°C :-) -- Hello !')
   expect(videoTitle('Ca\u0301 betta fishroom@example.com')).toBe('Ca\u0301 betta')
-  for (const t of ['Discus 4K@60fps.mp4', 'Rescape 1080p@60fps.mov HD', 'Clip@60fps.webp HD', 'Clip@60fps.ts HD', 'Koi@2.5kg', 'fish @ home w/@Some.Channel']) expect(videoTitle(t)).toBe(t)
+  expect(videoTitle('Betta fishroom@example.com "wild" form')).toBe('Betta "wild" form')
+  expect(videoTitle('Betta "wild" fishroom@example.com "tame"')).toBe('Betta "wild" "tame"')
+  expect(videoTitle("Bettas' fishroom@example.com tank")).toBe("Bettas' tank")
+  expect(videoTitle('Part 2 > fishroom@example.com > next')).toBe('Part 2 > next')
+  expect(videoTitle('Betta <3 fishroom@example.com :)')).toBe('Betta <3 :)')
+  for (const t of ['Discus 4K@60fps.mp4', 'Rescape 1080p@60fps.mov HD', 'Clip@60fps.webp HD', 'Clip@60fps.ts HD', 'Discus 4K@60fps.HDR', 'Clip@60fps.flac', 'Koi@2.5kg', 'fish @ home w/@Some.Channel']) expect(videoTitle(t)).toBe(t)
   // Thai and Chinese run their words together: the words beside an address stay.
   expect(videoTitle('ปลากัดป่าfishroom@example.com')).toBe('ปลากัดป่า')
   expect(videoTitle('野生斗鱼fishroom@example.com')).toBe('野生斗鱼')
