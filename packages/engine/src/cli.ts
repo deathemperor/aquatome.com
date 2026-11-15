@@ -300,7 +300,7 @@ if (cmd === 'photo-privacy') {
     console.log(`approved: ${done.length}${done.length ? ` (${done.join(', ')})` : ''}`)
   } else {
     const r = await draftSummaries(contentRoot, claudeCli, { top: Number(values.top ?? 30), jobs: Number(values.jobs ?? 1), only: values.only?.split(',').map(x => x.trim()).filter(Boolean), now: () => new Date() })
-    console.log(`summaries: ${r.approved.length} approved, ${r.pending.length} left pending, ${r.failed.length} failed${r.stopped ? `, stopped (${r.stopped})` : ''}`)
+    console.log(`summaries: ${r.approved.length} approved, ${r.pending.length} left pending, ${r.failed.length} failed${r.left ? `, ${r.left} more to write` : ''}${r.stopped ? `, stopped (${r.stopped})` : ''}`)
     for (const p of r.pending) console.log(`pending: ${p.id}: ${p.problems.join(' | ')}`)
     if (r.failed.length) console.log(`failed: ${r.failed.join(', ')}`)
   }
