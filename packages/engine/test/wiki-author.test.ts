@@ -54,8 +54,14 @@ test('a Commons credit holds no email address: the name before it stays, and a f
   expect(tidyAuthor(`A. Photographer, ${address}`)).toBe('A. Photographer')
   expect(tidyAuthor(`A. Photographer ${address}`)).toBe('A. Photographer')
   expect(tidyAuthor(address)).toBe('Wikimedia Commons')
-  // No address: the field as it was.
+  expect(tidyAuthor(`A. Photographer ${address}.`)).toBe('A. Photographer')
+  // As the field comes, HTML: the brackets escaped, or the "@" itself (a reader's catch, 16 Nov 2026).
+  expect(authorText(`A. Photographer &lt;${address}&gt;`)).toBe('A. Photographer')
+  expect(authorText(`A. Photographer &lt;${address.replace('@', '&#64;')}&gt;`)).toBe('A. Photographer')
+  expect(authorText(`A. Photographer (${address.replace('@', '&#x40;')})`)).toBe('A. Photographer')
+  // No address: the field as it was, escaped brackets and all.
   expect(tidyAuthor('Photograph by A. Photographer (www.example.org).')).toBe('Photograph by A. Photographer (www.example.org).')
+  expect(tidyAuthor('A. Photographer &lt;Studio&gt;')).toBe('A. Photographer &lt;Studio&gt;')
 })
 
 test('a stored Commons credit with an email address keeps only the name, in place; the next run finds nothing', async () => {

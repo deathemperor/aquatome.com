@@ -22,13 +22,17 @@ const RENAMED = /~[a-z_]*wiki\b/gi
 const EMAIL = /[\w.%+-]+@[\w-]+(?:\.[\w-]+)+/g
 /** Where the name ends in such a field: its first bracket, comma, semicolon or dash. */
 const AFTER_NAME = /\s*[(<[,;]|\s+[-–—]\s/
+/** The field is HTML: an address may come in escaped brackets ("Name &lt;…&gt;") or with its "@" escaped ("&#64;"). */
+const unescape = (s: string) => s.replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+  .replace(/&#(\d+);/g, (_, n: string) => String.fromCodePoint(Number(n))).replace(/&#x([0-9a-f]+);/gi, (_, n: string) => String.fromCodePoint(Number.parseInt(n, 16)))
 /** The user Commons names, as people know them: "RuthJM", not its placeholder sentence or its rename suffix. */
 export const tidyAuthor = (s: string) => {
   const t = s.replace(ASSUMED, '$1').replace(RENAMED, '').trim()
-  if (!t.match(EMAIL)) return t
+  const plain = unescape(t)
+  if (!plain.match(EMAIL)) return t
   // Only the name before the rest, with no address left in it; a field with no name but the address is credited as the
   // import credits a file with no author.
-  return t.split(AFTER_NAME)[0]!.replace(EMAIL, '').replace(/\s+/g, ' ').trim() || 'Wikimedia Commons'
+  return plain.split(AFTER_NAME)[0]!.replace(EMAIL, '').replace(/\s+/g, ' ').replace(/\s+[.,;:]+$/, '').trim() || 'Wikimedia Commons'
 }
 
 /**
