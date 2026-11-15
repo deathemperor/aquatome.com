@@ -388,11 +388,11 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
         of, card: Object.keys(card).length ? card : undefined, ...(of ? {} : { tempC, ph, gh, sizeCm, tankCm, difficulty }),
       }))
     }
-    home.groups = groupTiles(lang, c).map(g => {
+    home.groups = groupTiles(lang, c, undefined, cur?.calendar.avoid).map(g => {
       const box = g.photo && resizeOf(g.photo, smallSrc(g.photo)) ? photoBox(g.photo) : undefined
       return g.photo ? { id: g.group, img: smallSrc(g.photo), ...(box ? { imgBox: box } : {}) } : { id: g.group }
     })
-    home.fish = featuredSpecies(lang, c, 30).map(s => at(`/vi/ca/${s.t.slug}/`))
+    home.fish = featuredSpecies(lang, c, 30, cur?.calendar.avoid).map(s => at(`/vi/ca/${s.t.slug}/`))
   }
   if (served(lang, '/vi/cay/x/')) {
     for (const p of appPlants(lang, c)) {
