@@ -107,11 +107,14 @@ const marked = (lang: Lang, t: Translation): Translation => lang === 'vi' ? t : 
 /** A guide's note for this language's readers goes first in its text, wherever the text is read (schemas.ts localNote). */
 export const withLocalNote = (t: Translation): Translation => t.localNote ? { ...t, body: `${t.localNote.html}${t.body ?? ''}` } : t
 
-/** A heading whose sources can't both be true shows only the source content/one-voice.json names, once this language has its text. */
+/**
+ * A heading whose sources can't both be true shows only the source content/one-voice.json names, once this language has
+ * its text; one it names no source for (`false`) isn't shown at all.
+ */
 export function oneVoice<S extends { sections: Section[]; t: Translation }>(x: S, keep: z.infer<typeof OneVoiceSchema>[string] | undefined): S {
   if (!keep) return x
   const written = (key: Section['key'], source: SourceId) => x.sections.some(s => s.key === key && s.source === source) && !!x.t.sections[`${key}:${source}`]
-  return { ...x, sections: x.sections.filter(s => { const k = keep[s.key]; return !k || s.source === k || !written(s.key, k) }) }
+  return { ...x, sections: x.sections.filter(s => { const k = keep[s.key]; return k === undefined || (k !== false && (s.source === k || !written(s.key, k))) }) }
 }
 
 /**

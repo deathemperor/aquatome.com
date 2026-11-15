@@ -344,11 +344,30 @@ test('the Altum page speaks with one voice about water, its own figures first', 
 
 test('a heading whose sources could not both be true speaks with one voice', async () => {
   const root = fileURLToPath(new URL('../../../content', import.meta.url))
-  const voices = JSON.parse(readFileSync(join(root, 'one-voice.json'), 'utf8')) as Record<string, Record<string, string>>
+  const voices = JSON.parse(readFileSync(join(root, 'one-voice.json'), 'utf8')) as Record<string, Record<string, string | false>>
   expect(Object.keys(voices)).toContain('pterophyllum-altum')
   const { species } = await loadAll({ root, lang: 'vi', publicBuild: true })
   const heard = (id: string, key: string) => species.find(s => s.id === id)?.sections.filter(x => x.key === key).map(x => x.source)
-  for (const [id, keep] of Object.entries(voices)) for (const [key, source] of Object.entries(keep)) expect(heard(id, key), `${id} ${key}`).toEqual([source])
+  for (const [id, keep] of Object.entries(voices)) for (const [key, source] of Object.entries(keep)) expect(heard(id, key), `${id} ${key}`).toEqual(source === false ? [] : [source])
+}, slow(120_000))
+
+// The chief of staff, 15 Nov 2026: Seriously Fish gives the African snakehead, a 40 cm predator, a 38 × 38 cm base and 55
+// litres. Neither that figure nor the page's rounding of it is fit to read, so no source speaks under its tank heading
+// (one-voice.json), and its quick facts lose their tank line, fixed so no read or translation brings it back. It stays so
+// until a second source we may use gives a size that fits the fish.
+test('the African snakehead shows no tank size, in any language, and the engine keeps it so', async () => {
+  const root = fileURLToPath(new URL('../../../content', import.meta.url))
+  const dir = join(root, 'species/parachanna-obscura')
+  const facts = (JSON.parse(readFileSync(join(dir, 'entity.json'), 'utf8')) as { sections: { key: string; html: string; fixed?: boolean }[] }).sections.find(s => s.key === 'quickFacts')!
+  expect(facts.fixed).toBe(true)
+  const tank = /38\s*[×x]\s*38|40\s*[×x]\s*40|55\s*(?:lít|liter|litre|ลิตร)|aquarium size|kích thước bể|ukuran akuarium|ขนาดตู้|saiz akuarium/iu
+  expect(facts.html).not.toMatch(tank)
+  for (const lang of ['vi', 'id', 'th', 'ms'] as const) {
+    if (!existsSync(join(dir, `${lang}.json`))) continue
+    const fish = (await loadAll({ root, lang, publicBuild: true })).species.find(s => s.id === 'parachanna-obscura')!
+    expect(fish.sections.filter(s => s.key === 'aquariumSize'), lang).toEqual([])
+    expect(fish.sections.map(s => fish.t.sections[`${s.key}:${s.source}`] ?? '').join(' '), lang).not.toMatch(tank)
+  }
 }, slow(120_000))
 
 // The neon tetra's blue stripe: The Spruce Pets said it starts at the tip of the nose, photos start it at the eye, and no
