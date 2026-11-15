@@ -29,11 +29,18 @@ const AFTER_NAME = /\s*[(<[,;]|\s+[-–—]\s/
 const character = (code: string, n: number) => (n <= 0x10ffff ? String.fromCodePoint(n) : code)
 const unescape = (s: string) => s.replace(/&lt;/g, '<').replace(/&gt;/g, '>')
   .replace(/&#(\d+);/g, (code, n: string) => character(code, Number(n))).replace(/&#x([0-9a-f]+);/gi, (code, n: string) => character(code, Number.parseInt(n, 16)))
+/**
+ * Where the photo was taken, which Commons adds after the name in some Artist fields ("Name Depicted place: <a place,
+ * sometimes a street address> (<coordinates>)"): not a credit, and a street address may be someone's home (the chief
+ * of staff, 16 Nov 2026). The credit ends where it starts.
+ */
+const PLACE = /\s*Depicted place:[\s\S]*$/i
 /** The user Commons names, as people know them: "RuthJM", not its placeholder sentence or its rename suffix. */
 export const tidyAuthor = (s: string) => {
-  const t = s.replace(ASSUMED, '$1').replace(RENAMED, '').trim()
+  const t = s.replace(PLACE, '').replace(ASSUMED, '$1').replace(RENAMED, '').trim()
   const plain = unescape(t)
-  if (!plain.match(EMAIL)) return t
+  // A field that was only the place is credited as the import credits a file with no author.
+  if (!plain.match(EMAIL)) return t || (PLACE.test(s) ? 'Wikimedia Commons' : t)
   // Only the name before the rest, with no address left in it; a field with no name but the address is credited as the
   // import credits a file with no author.
   return plain.split(AFTER_NAME)[0]!.replace(EMAIL, '').replace(/\s+/g, ' ').replace(/\s+[.,;:]+$/, '').trim() || 'Wikimedia Commons'
