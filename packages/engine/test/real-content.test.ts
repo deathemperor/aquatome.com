@@ -530,10 +530,10 @@ test('no page keeps another fish\'s name a person found on it', () => {
 test('the fire-bellied toad guide is held by hand in every language it has', () => {
   const id = 'youtube-UkkP80wMn_s'
   const byHand = JSON.parse(readFileSync(fileURLToPath(new URL('../../../engine-state/held-by-hand.json', import.meta.url)), 'utf8')) as Record<string, { checks: string[]; at: string }>
-  const hold = byHand[`guides/${id}`]
-  expect(hold).toMatchObject({ checks: ['source'], at: '2026-11-15' })
+  const hold = { checks: ['source'], at: '2026-11-15' }
+  expect(byHand[`guides/${id}`]).toMatchObject(hold)
   const dir = fileURLToPath(new URL(`../../../content/guides/${id}`, import.meta.url))
   const langs = readdirSync(dir).filter(f => f !== 'entity.json' && f.endsWith('.json'))
   expect(langs).toContain('vi.json')
-  for (const f of langs) expect((JSON.parse(readFileSync(join(dir, f), 'utf8')) as Translation).held, f).toEqual({ checks: hold.checks, at: hold.at })
+  for (const f of langs) expect((JSON.parse(readFileSync(join(dir, f), 'utf8')) as Translation).held, f).toEqual(hold)
 })
