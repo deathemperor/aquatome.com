@@ -46,7 +46,7 @@ struct BrowseHome: View {
           if !top.isEmpty { featured(top) }
           if !saved.isEmpty { columns("Đã lưu để đọc sau", saved, more: Browse.saved) }
           if !recent.isEmpty { columns("Đọc gần đây", recent) }
-          if !handbook.keptItems.isEmpty { chips([(String(localized: "Đã tải để đọc offline"), handbook.keptItems.count, Browse.kept)]) }
+          if !handbook.keptItems.isEmpty { chips([(String(localized: "Đã tải để đọc offline", bundle: .app), handbook.keptItems.count, Browse.kept)]) }
           if handbook.keptElsewhere || handbook.savedElsewhere { ElsewhereNote().padding(.horizontal, 20) }
           if !s.groups.isEmpty {
             VStack(alignment: .leading, spacing: 12) {

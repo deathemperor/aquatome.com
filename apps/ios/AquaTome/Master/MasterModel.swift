@@ -53,7 +53,7 @@ final class MasterModel {
   }
 
   /// The reader's own name for it, or the drawing's.
-  static var defaultName: String { String(localized: "Ngắm bể") }
+  static var defaultName: String { String(localized: "Ngắm bể", bundle: .app) }
 
   func save(_ b: MasterButton) {
     button = b
@@ -132,7 +132,7 @@ final class MasterModel {
       await switcher.plugs.refresh()
       for s in r.steps { if let key = switcher.outlet(s)?.key, let on = switcher.plugs.board.on(key) { after[s.target] = on } }
     }
-    let refusals = refused.map { MasterRun.Failed(target: $0.target, line: String(localized: "Nút không bật tắt ổ \(switcher.name($0)) được trong bản này.")) }
+    let refusals = refused.map { MasterRun.Failed(target: $0.target, line: String(localized: "Nút không bật tắt ổ \(switcher.name($0)) được trong bản này.", bundle: .app)) }
     // A lamp step that failed after one of its recordings went out ("on", then not its colour) changed the lamp.
     let halfSent = switcher.lamp.sent.count > lampSent ? Set(lampSteps.map(\.target)) : []
     r.settle(refusals + failed, now: { after[$0.target] }, keeping: Set(owed.map(\.command.target)).union(halfSent), at: now())
@@ -190,11 +190,11 @@ final class MasterModel {
       }
       if c.isLamp {
         if away && !byReader {
-          r.back[i].problem = String(localized: "Đèn chưa về như cũ: đứng gần đèn rồi bấm Trả lại.")
+          r.back[i].problem = String(localized: "Đèn chưa về như cũ: đứng gần đèn rồi bấm Trả lại.", bundle: .app)
           continue
         }
       } else if let key = switcher.outlet(c)?.key {
-        let changed = String(localized: "Ổ \(name) đã đổi trong lúc chạy nên AquaTome để nguyên.")
+        let changed = String(localized: "Ổ \(name) đã đổi trong lúc chạy nên AquaTome để nguyên.", bundle: .app)
         if board.on(key) == c.on {
           r.back[i].done = true
           r.back[i].problem = nil
@@ -204,7 +204,7 @@ final class MasterModel {
         if c.on && (b.held == true || role(c) == "co2") {
           r.back[i].done = true
           r.back[i].problem = nil
-          tell(String(localized: "AquaTome không tự bật lại CO2. Cần thì bật ổ CO2 trong Bể của tôi."))
+          tell(String(localized: "AquaTome không tự bật lại CO2. Cần thì bật ổ CO2 trong Bể của tôi.", bundle: .app))
           continue
         }
         // Made a heater during the run: never switched by the button.
@@ -277,7 +277,7 @@ enum EndNotice {
     guard await center.notificationSettings().authorizationStatus == .authorized else { return }
     let c = UNMutableNotificationContent()
     c.title = title
-    c.body = String(localized: "Đã hết giờ. Mở AquaTome cạnh bể để trả đèn và ổ cắm về như cũ.")
+    c.body = String(localized: "Đã hết giờ. Mở AquaTome cạnh bể để trả đèn và ổ cắm về như cũ.", bundle: .app)
     c.sound = .default
     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: max(1, ends.timeIntervalSinceNow), repeats: false)
     try? await center.add(UNNotificationRequest(identifier: id, content: c, trigger: trigger))

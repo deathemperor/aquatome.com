@@ -154,7 +154,7 @@ final class TanksModel {
 
   /// The tank a light met for the first time goes on, when there is none yet.
   /// In the app's language as a light first connects: a name kept once written, as the reader's own.
-  static var newTankName: String { String(localized: "Bể của tôi") }
+  static var newTankName: String { String(localized: "Bể của tôi", bundle: .app) }
 
   /// A Chihiros light just connected: its saved record, or a new one on the first tank.
   func metLight(bleName: String, model: String) {
@@ -341,19 +341,19 @@ struct TankFields: Equatable {
 func litresText(_ l: Double, digits: Int? = nil) -> String {
   let style = FloatingPointFormatStyle<Double>.number.locale(.app).rounded(rule: .toNearestOrAwayFromZero)
     .precision(.fractionLength(0...(digits ?? (l < 100 ? 1 : 0))))
-  return String(localized: "\(l.formatted(style)) lít")
+  return String(localized: "\(l.formatted(style)) lít", bundle: .app)
 }
 
 /// Substrates the site lists (Known.substrate), with its labels. A value from a newer client is shown as it is.
 enum Substrate {
   static func label(_ value: String) -> String {
     switch value {
-    case "soil": String(localized: "Phân nền (aqua soil)")
-    case "sand": String(localized: "Cát")
-    case "gravel": String(localized: "Sỏi")
-    case "lava": String(localized: "Đá nham thạch")
-    case "bare": String(localized: "Không trải nền")
-    case "other": String(localized: "Nền khác")
+    case "soil": String(localized: "Phân nền (aqua soil)", bundle: .app)
+    case "sand": String(localized: "Cát", bundle: .app)
+    case "gravel": String(localized: "Sỏi", bundle: .app)
+    case "lava": String(localized: "Đá nham thạch", bundle: .app)
+    case "bare": String(localized: "Không trải nền", bundle: .app)
+    case "other": String(localized: "Nền khác", bundle: .app)
     default: value
     }
   }

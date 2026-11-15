@@ -236,7 +236,7 @@ private struct WeekAquaColour: View {
           GridRow { ForEach(WeekAquaPreset.all[row..<min(row + 3, WeekAquaPreset.all.count)]) { p in PresetButton(preset: p) } }
         }
       }
-      ChannelSlider(id: "wa-brightness", title: String(localized: "Độ sáng"), swatch: nil, value: wa.brightness) { wa.brightness = $0 }
+      ChannelSlider(id: "wa-brightness", title: String(localized: "Độ sáng", bundle: .app), swatch: nil, value: wa.brightness) { wa.brightness = $0 }
       Text("Từng màu, ở độ sáng hết cỡ").font(.subheadline).foregroundStyle(.secondary)
       ForEach(Array(Self.channels.enumerated()), id: \.offset) { i, c in
         ChannelSlider(id: "wa-\(c.id)", title: c.title, swatch: c.swatch, value: wa.percent(i)) { wa.setChannel(i, percent: $0) }
@@ -248,8 +248,8 @@ private struct WeekAquaColour: View {
   }
 
   private static let channels: [(id: String, title: String, swatch: Color)] = [
-    ("red", String(localized: "Đỏ"), Channel.red.swatch), ("green", String(localized: "Xanh lá"), Channel.green.swatch),
-    ("blue", String(localized: "Xanh dương"), Channel.blue.swatch), ("uv", "UV", Color(red: 0x7b / 255, green: 0x4f / 255, blue: 0xc9 / 255)),
+    ("red", String(localized: "Đỏ", bundle: .app), Channel.red.swatch), ("green", String(localized: "Xanh lá", bundle: .app), Channel.green.swatch),
+    ("blue", String(localized: "Xanh dương", bundle: .app), Channel.blue.swatch), ("uv", "UV", Color(red: 0x7b / 255, green: 0x4f / 255, blue: 0xc9 / 255)),
   ]
 }
 

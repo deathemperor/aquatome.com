@@ -203,9 +203,9 @@ private struct PrivacySection: View {
     } header: {
       Text("Quyền riêng tư").font(.subheadline.weight(.semibold))
     } footer: {
-      Text.linked(String(localized: "Thống kê không gồm tài khoản, tên bể, nội dung tìm kiếm hay ảnh."),
-                  String(localized: "Chính sách bảo mật"),
-                  URL(string: String(localized: "https://aquatome.com/vi/chinh-sach-bao-mat/#thong-ke-ung-dung"))!)
+      Text.linked(String(localized: "Thống kê không gồm tài khoản, tên bể, nội dung tìm kiếm hay ảnh.", bundle: .app),
+                  String(localized: "Chính sách bảo mật", bundle: .app),
+                  URL(string: String(localized: "https://aquatome.com/vi/chinh-sach-bao-mat/#thong-ke-ung-dung", bundle: .app))!)
     }
   }
 }
@@ -215,9 +215,9 @@ private struct PrivacySection: View {
 private struct AboutSection: View {
   var body: some View {
     Section {
-      out("Giới thiệu", URL(string: String(localized: "https://aquatome.com/gioi-thieu/"))!, id: "about")
-      out("Liên hệ", URL(string: String(localized: "https://aquatome.com/lien-he/"))!, id: "about-contact")
-      out("Chính sách bảo mật", URL(string: String(localized: "https://aquatome.com/chinh-sach-bao-mat/"))!, id: "about-privacy")
+      out("Giới thiệu", URL(string: String(localized: "https://aquatome.com/gioi-thieu/", bundle: .app))!, id: "about")
+      out("Liên hệ", URL(string: String(localized: "https://aquatome.com/lien-he/", bundle: .app))!, id: "about-contact")
+      out("Chính sách bảo mật", URL(string: String(localized: "https://aquatome.com/chinh-sach-bao-mat/", bundle: .app))!, id: "about-privacy")
     } header: {
       Text("Về AquaTome").font(.subheadline.weight(.semibold))
     }

@@ -256,16 +256,16 @@ struct LoveEcologyCard: View {
 
   private var statusLine: String {
     switch lamp.status {
-    case .ready: String(localized: "Chưa gửi lệnh nào")
-    case .sending(let id): String(localized: "Đang gửi “\(Self.name(id))”…")
+    case .ready: String(localized: "Chưa gửi lệnh nào", bundle: .app)
+    case .sending(let id): String(localized: "Đang gửi “\(Self.name(id))”…", bundle: .app)
     case .sent(let id, let at):
       // A trial's line asks for ten seconds before the next tap, so the owner's eyes judge one command at a time: on 14 Nov
       // the light didn't answer a colour the phone began 8.5 s after starting one the light took, 0.9 s after that one ended.
-      String(localized: "Đã gửi “\(Self.name(id))” lúc \(Self.clock(at)).") + (id.hasPrefix("trial-") ? " Đợi 10 giây rồi bấm tiếp." : "")
-    case .problem(.off): String(localized: "Bật Bluetooth để gửi lệnh tới đèn.")
-    case .problem(.refused): String(localized: "AquaTome chưa được dùng Bluetooth. Bật trong Cài đặt → AquaTome → Bluetooth.")
-    case .problem(.unsupported): String(localized: "Máy này không có Bluetooth.")
-    case .problem(.failed): String(localized: "Không gửi được lệnh tới đèn. Thử lại.")
+      String(localized: "Đã gửi “\(Self.name(id))” lúc \(Self.clock(at)).", bundle: .app) + (id.hasPrefix("trial-") ? " Đợi 10 giây rồi bấm tiếp." : "")
+    case .problem(.off): String(localized: "Bật Bluetooth để gửi lệnh tới đèn.", bundle: .app)
+    case .problem(.refused): String(localized: "AquaTome chưa được dùng Bluetooth. Bật trong Cài đặt → AquaTome → Bluetooth.", bundle: .app)
+    case .problem(.unsupported): String(localized: "Máy này không có Bluetooth.", bundle: .app)
+    case .problem(.failed): String(localized: "Không gửi được lệnh tới đèn. Thử lại.", bundle: .app)
     }
   }
 
@@ -285,16 +285,16 @@ struct LoveEcologyCard: View {
 
   private static func name(_ id: String) -> String {
     switch id {
-    case "on": String(localized: "Bật")
-    case "off": String(localized: "Tắt")
-    case "white": String(localized: "Trắng")
-    case "red": String(localized: "Đỏ")
-    case "orange": String(localized: "Cam")
-    case "yellow": String(localized: "Vàng")
-    case "green": String(localized: "Xanh lá")
-    case "cyan": String(localized: "Xanh lơ")
-    case "blue": String(localized: "Xanh dương")
-    case "magenta": String(localized: "Hồng tím")
+    case "on": String(localized: "Bật", bundle: .app)
+    case "off": String(localized: "Tắt", bundle: .app)
+    case "white": String(localized: "Trắng", bundle: .app)
+    case "red": String(localized: "Đỏ", bundle: .app)
+    case "orange": String(localized: "Cam", bundle: .app)
+    case "yellow": String(localized: "Vàng", bundle: .app)
+    case "green": String(localized: "Xanh lá", bundle: .app)
+    case "cyan": String(localized: "Xanh lơ", bundle: .app)
+    case "blue": String(localized: "Xanh dương", bundle: .app)
+    case "magenta": String(localized: "Hồng tím", bundle: .app)
     // The owner's trial row, not translated.
     case "trial-white-half": "Trắng 50% (tự tạo)"
     case "trial-off": "Tắt (tự tạo 1)"

@@ -213,7 +213,7 @@ struct PageView: View {
     ToolbarItem(placement: .topBarTrailing) {
       Menu {
         let saved = handbook.isSaved(item)
-        Button(saved ? String(localized: "Bỏ lưu") : String(localized: "Lưu để đọc sau"), systemImage: saved ? "bookmark.fill" : "bookmark") {
+        Button(saved ? String(localized: "Bỏ lưu", bundle: .app) : String(localized: "Lưu để đọc sau", bundle: .app), systemImage: saved ? "bookmark.fill" : "bookmark") {
           handbook.toggleSaved(item)
           savedFromMore += 1
         }

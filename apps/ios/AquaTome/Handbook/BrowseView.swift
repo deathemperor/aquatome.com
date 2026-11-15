@@ -38,16 +38,16 @@ struct BrowseView: View {
     case .fish(let group):
       FishShelf(items: group.map { s.fish(group: $0, handbook.labels) } ?? s.all(.fish))
         .modifier(ClearUnderTopBar(shown: true))
-        .navigationTitle(group.map { handbook.labels["group", $0] ?? $0 } ?? String(localized: "Tất cả loài"))
+        .navigationTitle(group.map { handbook.labels["group", $0] ?? $0 } ?? String(localized: "Tất cả loài", bundle: .app))
     case .plants(let placement):
       PlantShelf(items: placement.map { s.plants(placement: $0) } ?? s.all(.plant))
         .modifier(ClearUnderTopBar(shown: true))
-        .navigationTitle(placement.map { handbook.labels["placement", $0] ?? $0 } ?? String(localized: "Cây thủy sinh"))
+        .navigationTitle(placement.map { handbook.labels["placement", $0] ?? $0 } ?? String(localized: "Cây thủy sinh", bundle: .app))
     case .guides(let section):
       let guides = section.map { s.guides(section: $0) } ?? s.all(.guide)
       List(guides) { Row(item: $0) }
         .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
-        .navigationTitle(section.map { handbook.labels["section", $0] ?? $0 } ?? String(localized: "Tất cả hướng dẫn"))
+        .navigationTitle(section.map { handbook.labels["section", $0] ?? $0 } ?? String(localized: "Tất cả hướng dẫn", bundle: .app))
         .toolbar { KeepOffline(items: guides) }
         #if DEBUG
         .background {
@@ -154,7 +154,7 @@ private struct LatestList: View {
 
   /// "28/10/2026 · Cập nhật · Seriously Fish", as the site's list says it; an action this app doesn't know, no word.
   static func change(_ e: Latest.Entry) -> String {
-    let word = e.isNew ? String(localized: "Mới") : e.isUpdate ? String(localized: "Cập nhật") : nil
+    let word = e.isNew ? String(localized: "Mới", bundle: .app) : e.isUpdate ? String(localized: "Cập nhật", bundle: .app) : nil
     return [e.shown, word, e.source].compactMap { $0 }.joined(separator: " · ")
   }
 }

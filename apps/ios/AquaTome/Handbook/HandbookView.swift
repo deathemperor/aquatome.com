@@ -86,7 +86,7 @@ private struct KindChips: View {
       ScrollView(.horizontal, showsIndicators: false) {
         HStack(spacing: 8) {
           ForEach(kinds, id: \.self) { k in
-            KindChip(title: k?.title ?? String(localized: "Tất cả"), count: counts[k, default: 0], picked: handbook.kind == k) { handbook.kind = k }
+            KindChip(title: k?.title ?? String(localized: "Tất cả", bundle: .app), count: counts[k, default: 0], picked: handbook.kind == k) { handbook.kind = k }
               .id(k)
               .accessibilityIdentifier("kind-\(k?.rawValue ?? "all")")
           }
@@ -265,15 +265,15 @@ struct ItemRow: View {
 extension HandbookIndex.Kind {
   var title: String {
     switch self {
-    case .fish: String(localized: "Loài cá")
-    case .plant: String(localized: "Cây")
-    case .guide: String(localized: "Hướng dẫn")
-    case .glossary: String(localized: "Thuật ngữ")
-    case .tool: String(localized: "Công cụ")
-    case .video: String(localized: "Video")
-    case .equipment: String(localized: "Thiết bị")
-    case .taxon: String(localized: "Phân loại")
-    case .origin: String(localized: "Nguồn gốc")
+    case .fish: String(localized: "Loài cá", bundle: .app)
+    case .plant: String(localized: "Cây", bundle: .app)
+    case .guide: String(localized: "Hướng dẫn", bundle: .app)
+    case .glossary: String(localized: "Thuật ngữ", bundle: .app)
+    case .tool: String(localized: "Công cụ", bundle: .app)
+    case .video: String(localized: "Video", bundle: .app)
+    case .equipment: String(localized: "Thiết bị", bundle: .app)
+    case .taxon: String(localized: "Phân loại", bundle: .app)
+    case .origin: String(localized: "Nguồn gốc", bundle: .app)
     }
   }
   var symbol: String {

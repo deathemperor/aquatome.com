@@ -43,9 +43,9 @@ final class LightsModel {
 
   var connectingText: String? {
     switch connecting {
-    case .looking(let name): String(localized: "Đang tìm \(name)…")
-    case .connecting: String(localized: "Đang kết nối…")
-    case .again: String(localized: "Đang kết nối lại…")
+    case .looking(let name): String(localized: "Đang tìm \(name)…", bundle: .app)
+    case .connecting: String(localized: "Đang kết nối…", bundle: .app)
+    case .again: String(localized: "Đang kết nối lại…", bundle: .app)
     case nil: nil
     }
   }
@@ -250,7 +250,7 @@ final class LightsModel {
       guard mine == attempt else { return }
       guard let hit else {
         connecting = nil
-        notice = Notice(text: String(localized: "Không thấy \(Self.title(d)) quanh đây. Bật đèn, lại gần rồi thử lại."), isError: true)
+        notice = Notice(text: String(localized: "Không thấy \(Self.title(d)) quanh đây. Bật đèn, lại gần rồi thử lại.", bundle: .app), isError: true)
         telemetry?.record(.action(.lightConnect, ok: false, kind: .notNearby))
         return
       }
@@ -276,7 +276,7 @@ final class LightsModel {
   @discardableResult
   func connect(_ l: FoundLight, again: Bool = false) async -> Bool {
     guard let m = Model.of(name: l.name) else {
-      notice = Notice(text: String(localized: "Đèn \(l.name) chưa được hỗ trợ."), isError: true)
+      notice = Notice(text: String(localized: "Đèn \(l.name) chưa được hỗ trợ.", bundle: .app), isError: true)
       telemetry?.record(.action(.lightConnect, ok: false, kind: .unsupportedModel))
       return true
     }
@@ -339,8 +339,8 @@ final class LightsModel {
       today = loadToday(l.name)
       let name = device?.nickname ?? m.name
       notice = Notice(text: !new.canWriteSchedule
-        ? String(localized: "Đã kết nối \(m.name), firmware \(snap.firmware): bản này chưa hẹn giờ được từ ứng dụng, cập nhật firmware bằng ứng dụng My Chihiros.")
-        : known ? String(localized: "Đã kết nối \(name).") : String(localized: "Đã kết nối \(m.name). Đèn mới: làm theo các bước trong khung này."))
+        ? String(localized: "Đã kết nối \(m.name), firmware \(snap.firmware): bản này chưa hẹn giờ được từ ứng dụng, cập nhật firmware bằng ứng dụng My Chihiros.", bundle: .app)
+        : known ? String(localized: "Đã kết nối \(name).", bundle: .app) : String(localized: "Đã kết nối \(m.name). Đèn mới: làm theo các bước trong khung này.", bundle: .app))
       if let unended { notice = Notice(text: Self.describe(unended), isError: true) }
       telemetry?.record(.action(.lightConnect, ok: true))
       return false
@@ -384,7 +384,7 @@ final class LightsModel {
   func forget(_ d: Device) {
     if isLost, lastLight?.name == d.bleName { isLost = false; lastLight = nil }
     tanks?.forgetLight(d.id)
-    notice = Notice(text: String(localized: "Đã quên đèn trên máy này."))
+    notice = Notice(text: String(localized: "Đã quên đèn trên máy này.", bundle: .app))
   }
 
   /// Back from the Settings app, maybe with Bluetooth allowed now.
@@ -402,7 +402,7 @@ final class LightsModel {
     reset()
     isLost = true
     lastLight = l
-    notice = Notice(text: String(localized: "Mất kết nối với đèn. Lại gần đèn rồi bấm “Kết nối lại”."), isError: true, action: .reconnect)
+    notice = Notice(text: String(localized: "Mất kết nối với đèn. Lại gần đèn rồi bấm “Kết nối lại”.", bundle: .app), isError: true, action: .reconnect)
   }
 
   private func reset() {
@@ -450,7 +450,7 @@ final class LightsModel {
     planName = s.name
     edited = true
     keepDraft()
-    notice = Notice(text: String(localized: "Đã mở lịch \(label(s)). Bấm “Ghi lịch vào đèn” để dùng."))
+    notice = Notice(text: String(localized: "Đã mở lịch \(label(s)). Bấm “Ghi lịch vào đèn” để dùng.", bundle: .app))
   }
 
   /// The preset the form is: its hours and its brightness (as the site marks the pressed one).
@@ -474,7 +474,7 @@ final class LightsModel {
     let new = name.isEmpty ? nil : name
     // Unchanged: the same name, or none given (or the model's) where there was none.
     guard let d = device, new != d.nickname, !(d.nickname == nil && (new == nil || new == model?.name)) else { return }
-    if changeLight({ $0.nickname = new }) { notice = Notice(text: String(localized: "Đã đổi tên đèn.")) }
+    if changeLight({ $0.nickname = new }) { notice = Notice(text: String(localized: "Đã đổi tên đèn.", bundle: .app)) }
   }
 
   /// Writes the form's schedule, then offers to put back the one written before it.
@@ -521,7 +521,7 @@ final class LightsModel {
           $0.manual = nil
           $0.clockSyncedAt = Timestamp.string(Date())
         }
-        self.notice = Notice(text: String(localized: "Đèn chưa báo lại lịch mới. Kiểm tra lại sau ít phút."), isError: true)
+        self.notice = Notice(text: String(localized: "Đèn chưa báo lại lịch mới. Kiểm tra lại sau ít phút.", bundle: .app), isError: true)
         self.telemetry?.record(.action(.lightWrite, ok: false, kind: .notReadBack))
         return
       }
@@ -530,7 +530,7 @@ final class LightsModel {
       self.undo = undoing ? nil : before.flatMap { b in
         TimeOfDay(b.on).flatMap { on in TimeOfDay(b.off).map { (Schedule(on: on, off: $0, ramp: b.ramp, levels: b.levels), b.name) } }
       }
-      self.notice = Notice(text: String(localized: "Đã ghi: bật \(s.on.description), tắt \(s.off.description). Đèn chạy theo lịch từ bây giờ."),
+      self.notice = Notice(text: String(localized: "Đã ghi: bật \(s.on.description), tắt \(s.off.description). Đèn chạy theo lịch từ bây giờ.", bundle: .app),
                            action: self.undo == nil ? nil : .undo)
     }
   }
@@ -543,7 +543,7 @@ final class LightsModel {
       self.show(snap)
       self.synced = true
       self.changeLight { $0.clockSyncedAt = Timestamp.string(Date()) }
-      self.notice = Notice(text: String(localized: "Đã chỉnh giờ đèn: \(Date().formatted(Date.FormatStyle(date: .omitted, time: .shortened, locale: .app)))."))
+      self.notice = Notice(text: String(localized: "Đã chỉnh giờ đèn: \(Date().formatted(Date.FormatStyle(date: .omitted, time: .shortened, locale: .app))).", bundle: .app))
     }
   }
 
@@ -565,8 +565,8 @@ final class LightsModel {
       self.held = true
       self.changeLight { $0.manual = (levels, Timestamp.string(Date())) }
       self.notice = Notice(text: off
-        ? String(localized: "Đã tắt đèn. Đèn bỏ qua lịch cho tới khi bấm “Theo lịch”.")
-        : String(localized: "Đèn sáng hết. Đèn bỏ qua lịch cho tới khi bấm “Theo lịch”."))
+        ? String(localized: "Đã tắt đèn. Đèn bỏ qua lịch cho tới khi bấm “Theo lịch”.", bundle: .app)
+        : String(localized: "Đèn sáng hết. Đèn bỏ qua lịch cho tới khi bấm “Theo lịch”.", bundle: .app))
     }
   }
 
@@ -590,7 +590,7 @@ final class LightsModel {
       self.isManual = false
       self.held = false
       self.changeLight { $0.manual = nil }
-      self.notice = Notice(text: done ? String(localized: "Xong. Đèn chạy lại theo lịch.") : String(localized: "Đèn chạy lại theo lịch."))
+      self.notice = Notice(text: done ? String(localized: "Xong. Đèn chạy lại theo lịch.", bundle: .app) : String(localized: "Đèn chạy lại theo lịch.", bundle: .app))
     }
   }
 
@@ -603,7 +603,7 @@ final class LightsModel {
     supersedeHeld()
     trying = true
     send(form.levels)
-    notice = Notice(text: String(localized: "Đèn đang hiện màu thử."))
+    notice = Notice(text: String(localized: "Đèn đang hiện màu thử.", bundle: .app))
   }
 
   // MARK: "Bật với màu của lịch"
@@ -624,8 +624,8 @@ final class LightsModel {
   /// "Bật với màu của lịch" until `end`, planned at `time` (now); or why it can't be done then, in the reader's words.
   /// Always from the schedule written to the light (`active`), never the form, which may hold edits not written.
   func plan(_ end: TodayEnd, at time: Date? = nil) -> Result<TodayPlan, Refusal> {
-    guard isConnected, let light else { return .failure(Refusal(reason: String(localized: "Chưa kết nối đèn."))) }
-    guard let known else { return .failure(Refusal(reason: String(localized: "Chưa ghi lịch nào từ AquaTome."))) }
+    guard isConnected, let light else { return .failure(Refusal(reason: String(localized: "Chưa kết nối đèn.", bundle: .app))) }
+    guard let known else { return .failure(Refusal(reason: String(localized: "Chưa ghi lịch nào từ AquaTome.", bundle: .app))) }
     do { return .success(try known.today(end, at: time ?? now, light: light.name)) } catch {
       return .failure(Refusal(reason: Self.describe(error)))
     }
@@ -636,7 +636,7 @@ final class LightsModel {
     switch a {
     case .onWithScheduleColours(let end):
       switch plan(end) {
-      case .success(let p): String(localized: "Bật ngay với màu của lịch tới \(p.ends.description), rồi chạy lại theo lịch.")
+      case .success(let p): String(localized: "Bật ngay với màu của lịch tới \(p.ends.description), rồi chạy lại theo lịch.", bundle: .app)
       case .failure(let r): r.reason
       }
     }
@@ -680,7 +680,7 @@ final class LightsModel {
         $0.manual = nil
         $0.clockSyncedAt = Timestamp.string(Date())
       }
-      self.notice = Notice(text: String(localized: "Đèn sáng với màu của lịch tới \(p.ends.description), rồi tự chạy lại theo lịch."))
+      self.notice = Notice(text: String(localized: "Đèn sáng với màu của lịch tới \(p.ends.description), rồi tự chạy lại theo lịch.", bundle: .app))
     }
     guard self.session === session else { return .cancelled }
     return failure.map { .failed($0) } ?? .done
@@ -813,7 +813,7 @@ final class LightsModel {
         guard self.session === session else { return }
         isManual = false
         changeLight { $0.manual = nil }
-        notice = Notice(text: String(localized: "Đèn chạy lại theo lịch."))
+        notice = Notice(text: String(localized: "Đèn chạy lại theo lịch.", bundle: .app))
       } catch {
         guard self.session === session else { return }
         notice = Notice(text: Self.describe(error), isError: true)
@@ -944,29 +944,29 @@ final class LightsModel {
   static func describe(_ error: Error) -> String {
     switch error {
     case BluetoothError.unauthorized:
-      String(localized: "AquaTome chưa được dùng Bluetooth. Bật trong Cài đặt → AquaTome → Bluetooth.")
+      String(localized: "AquaTome chưa được dùng Bluetooth. Bật trong Cài đặt → AquaTome → Bluetooth.", bundle: .app)
     case BluetoothError.poweredOff:
-      String(localized: "Bluetooth đang tắt. Bật Bluetooth rồi thử lại.")
+      String(localized: "Bluetooth đang tắt. Bật Bluetooth rồi thử lại.", bundle: .app)
     case BluetoothError.unsupported:
-      String(localized: "Máy này không có Bluetooth.")
+      String(localized: "Máy này không có Bluetooth.", bundle: .app)
     case BluetoothError.notFound, BluetoothError.timeout, BluetoothError.noUART, BluetoothError.failed:
-      String(localized: "Không kết nối được. Lại gần đèn, đóng ứng dụng My Chihiros trên các máy khác rồi thử lại.")
+      String(localized: "Không kết nối được. Lại gần đèn, đóng ứng dụng My Chihiros trên các máy khác rồi thử lại.", bundle: .app)
     case SessionError.noStatus:
-      String(localized: "Đèn không trả lời. Ngắt kết nối rồi kết nối lại.")
+      String(localized: "Đèn không trả lời. Ngắt kết nối rồi kết nối lại.", bundle: .app)
     case SessionError.firmwareTooOld:
-      String(localized: "Firmware của đèn chưa hẹn giờ được từ ứng dụng. Cập nhật firmware bằng ứng dụng My Chihiros.")
+      String(localized: "Firmware của đèn chưa hẹn giờ được từ ứng dụng. Cập nhật firmware bằng ứng dụng My Chihiros.", bundle: .app)
     case TodayProblem.noWeekdayPeriods:
-      String(localized: "Đèn này chỉ giữ một lịch cho mọi ngày, nên không bật riêng hôm nay được.")
+      String(localized: "Đèn này chỉ giữ một lịch cho mọi ngày, nên không bật riêng hôm nay được.", bundle: .app)
     case TodayProblem.lit:
-      String(localized: "Đèn đang sáng theo lịch rồi.")
+      String(localized: "Đèn đang sáng theo lịch rồi.", bundle: .app)
     case TodayProblem.onlyUntilItsOff:
-      String(localized: "Trước giờ bật của lịch, đèn chỉ bật được tới giờ tắt của lịch.")
+      String(localized: "Trước giờ bật của lịch, đèn chỉ bật được tới giờ tắt của lịch.", bundle: .app)
     case TodayProblem.onlyAnHourOrTwo:
-      String(localized: "Sau giờ tắt của lịch, đèn chỉ bật thêm 1 hoặc 2 giờ: để đèn sáng qua đêm dễ sinh rêu.")
+      String(localized: "Sau giờ tắt của lịch, đèn chỉ bật thêm 1 hoặc 2 giờ: để đèn sáng qua đêm dễ sinh rêu.", bundle: .app)
     case TodayProblem.tooLate:
-      String(localized: "Đã 23:59: hôm nay không còn giờ để bật thêm.")
+      String(localized: "Đã 23:59: hôm nay không còn giờ để bật thêm.", bundle: .app)
     default:
-      String(localized: "Không gửi được lệnh tới đèn. Lại gần đèn rồi thử lại.")
+      String(localized: "Không gửi được lệnh tới đèn. Lại gần đèn rồi thử lại.", bundle: .app)
     }
   }
 }

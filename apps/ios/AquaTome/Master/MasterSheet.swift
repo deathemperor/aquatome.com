@@ -47,7 +47,7 @@ struct MasterSheet: View {
           ForEach([60, 120, nil] as [Int?], id: \.self) { m in
             Button { draft.minutes = m } label: {
               HStack {
-                Text(verbatim: m.map { String(localized: "Sau \($0 / 60) giờ") } ?? String(localized: "Khi tôi bấm Kết thúc")).foregroundStyle(.primary)
+                Text(verbatim: m.map { String(localized: "Sau \($0 / 60) giờ", bundle: .app) } ?? String(localized: "Khi tôi bấm Kết thúc", bundle: .app)).foregroundStyle(.primary)
                 Spacer()
                 if draft.minutes == m { Image(systemName: "checkmark").foregroundStyle(Color.accentColor).accessibilityHidden(true) }
               }
@@ -64,7 +64,7 @@ struct MasterSheet: View {
           Section {
             Button(role: .destructive) { confirmingDelete = true } label: { Text("Xóa nút").frame(maxWidth: .infinity) }
               .accessibilityIdentifier("master-delete")
-              .confirmationDialog(String(localized: "Xóa nút “\(draft.name)”?"), isPresented: $confirmingDelete, titleVisibility: .visible) {
+              .confirmationDialog(String(localized: "Xóa nút “\(draft.name)”?", bundle: .app), isPresented: $confirmingDelete, titleVisibility: .visible) {
                 Button("Xóa nút", role: .destructive) {
                   master.delete()
                   dismiss()
@@ -119,8 +119,8 @@ private struct StepRow: View {
 
   /// "Bật · Trắng", "Tắt"; "Ổ cắm · Bật".
   static func does(_ s: DeviceCommand) -> String {
-    let state = s.on ? String(localized: "Bật") : String(localized: "Tắt")
-    if !s.isLamp { return String(localized: "Ổ cắm") + " · " + state }
+    let state = s.on ? String(localized: "Bật", bundle: .app) : String(localized: "Tắt", bundle: .app)
+    if !s.isLamp { return String(localized: "Ổ cắm", bundle: .app) + " · " + state }
     return [state, s.colour.map(LampColour.name)].compactMap { $0 }.joined(separator: " · ")
   }
 }
@@ -150,14 +150,14 @@ private struct StepChoice: View {
       Form {
         Section {
           if s.isLamp {
-            row(String(localized: "Bật"), chosen: s.on && s.colour == nil) { set(on: true, colour: nil) }
-            row(String(localized: "Tắt"), chosen: !s.on) { set(on: false, colour: nil) }
+            row(String(localized: "Bật", bundle: .app), chosen: s.on && s.colour == nil) { set(on: true, colour: nil) }
+            row(String(localized: "Tắt", bundle: .app), chosen: !s.on) { set(on: false, colour: nil) }
           } else {
             // CO2 off only (MasterButton.allows): on comes after the owner's test of a plug's countdown.
             if MasterButton.allows(DeviceCommand(device: s.device, outlet: s.outlet, on: true), role: master.role(s)) {
-              row(String(localized: "Bật"), chosen: s.on) { set(on: true, colour: nil) }
+              row(String(localized: "Bật", bundle: .app), chosen: s.on) { set(on: true, colour: nil) }
             }
-            row(String(localized: "Tắt"), chosen: !s.on) {
+            row(String(localized: "Tắt", bundle: .app), chosen: !s.on) {
               if MasterModel.asksAgain.contains(master.role(s) ?? "") { asking = true } else { set(on: false, colour: nil) }
             }
           }
@@ -176,7 +176,7 @@ private struct StepChoice: View {
           }
         }
       }
-      .navigationTitle(s.isLamp ? String(localized: "Đèn") : String(localized: "Ổ cắm"))
+      .navigationTitle(s.isLamp ? String(localized: "Đèn", bundle: .app) : String(localized: "Ổ cắm", bundle: .app))
       .navigationBarTitleDisplayMode(.inline)
       .confirmationDialog(MasterModel.secondAsk(master.role(s)).title, isPresented: $asking, titleVisibility: .visible) {
         Button(MasterModel.secondAsk(master.role(s)).yes, role: .destructive) { set(on: false, colour: nil) }
@@ -268,14 +268,14 @@ private struct AddDevice: View {
 enum LampColour {
   static func name(_ id: String) -> String {
     switch id {
-    case "white": String(localized: "Trắng")
-    case "red": String(localized: "Đỏ")
-    case "orange": String(localized: "Cam")
-    case "yellow": String(localized: "Vàng")
-    case "green": String(localized: "Xanh lá")
-    case "cyan": String(localized: "Xanh lơ")
-    case "blue": String(localized: "Xanh dương")
-    case "magenta": String(localized: "Hồng tím")
+    case "white": String(localized: "Trắng", bundle: .app)
+    case "red": String(localized: "Đỏ", bundle: .app)
+    case "orange": String(localized: "Cam", bundle: .app)
+    case "yellow": String(localized: "Vàng", bundle: .app)
+    case "green": String(localized: "Xanh lá", bundle: .app)
+    case "cyan": String(localized: "Xanh lơ", bundle: .app)
+    case "blue": String(localized: "Xanh dương", bundle: .app)
+    case "magenta": String(localized: "Hồng tím", bundle: .app)
     default: id
     }
   }
@@ -299,12 +299,12 @@ extension MasterModel {
 
   static func secondAsk(_ role: String?) -> (title: String, why: String, yes: String) {
     switch role {
-    case "air": (String(localized: "Tắt sủi khí trong lúc chạy nút?"),
-                 String(localized: "Nước có thể thiếu khí, nhất là ban đêm. Nút sẽ bật lại sủi khí khi kết thúc."),
-                 String(localized: "Vẫn tắt sủi khí"))
-    default: (String(localized: "Tắt lọc trong lúc chạy nút?"),
-              String(localized: "Lọc ngừng lâu, nước thiếu khí và vi sinh trong lọc yếu đi. Nút sẽ bật lại lọc khi kết thúc."),
-              String(localized: "Vẫn tắt lọc"))
+    case "air": (String(localized: "Tắt sủi khí trong lúc chạy nút?", bundle: .app),
+                 String(localized: "Nước có thể thiếu khí, nhất là ban đêm. Nút sẽ bật lại sủi khí khi kết thúc.", bundle: .app),
+                 String(localized: "Vẫn tắt sủi khí", bundle: .app))
+    default: (String(localized: "Tắt lọc trong lúc chạy nút?", bundle: .app),
+              String(localized: "Lọc ngừng lâu, nước thiếu khí và vi sinh trong lọc yếu đi. Nút sẽ bật lại lọc khi kết thúc.", bundle: .app),
+              String(localized: "Vẫn tắt lọc", bundle: .app))
     }
   }
 

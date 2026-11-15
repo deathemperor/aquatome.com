@@ -348,7 +348,7 @@ struct VideoSlot: View {
     VStack(alignment: .leading, spacing: 6) {
       ZStack {
         if let web {
-          PlayerHost(web: web, holds: !player.full, label: String(localized: "Video: \(title)"), name: "video-player",
+          PlayerHost(web: web, holds: !player.full, label: String(localized: "Video: \(title)", bundle: .app), name: "video-player",
                      gone: { [player, weak web] in if let web { player.gone(web) } })
         }
         if web == nil || !player.playing {
@@ -426,7 +426,7 @@ private struct FullVideo: View {
   var body: some View {
     ZStack(alignment: .topLeading) {
       Color.black.ignoresSafeArea()
-      PlayerHost(web: web, holds: player.full, label: String(localized: "Video: \(title)"), name: "video-full-screen") { y, done in
+      PlayerHost(web: web, holds: player.full, label: String(localized: "Video: \(title)", bundle: .app), name: "video-full-screen") { y, done in
         if !done { drop = max(0, y) } else if y > 120 { player.full = false } else { withAnimation(.spring(duration: 0.25)) { drop = 0 } }
       }
       .ignoresSafeArea()
