@@ -139,9 +139,9 @@ test('a problem\'s steps each carry a figure, with no cap of five, and the answe
 })
 
 test('the instructions keep to the pages where the board found the answers going wrong (16 Nov, sick fish and stocking)', () => {
-  // Precise figures read as made up; odds no page gives; a pair planned against the page's one male to three females;
-  // specks called harmless past the page's hydra; a tank's water turnover scaled up to a pond.
-  expect(SYSTEM).toContain('A precise figure (304 litres, 60 cm a pair, 1,900 litres) comes with what it rests on')
+  // Odds no page gives; a pair planned against the page's one male to three females; specks called harmless past the
+  // page's hydra; a tank's water turnover scaled up to a pond. (A rule that a precise figure says what it rests on helped
+  // none on the board's re-run, 16 Nov, and brought out an overstated size: left out.)
   expect(SYSTEM).toContain('Never put odds or shares on a cause')
   expect(SYSTEM).toContain('A page\'s grouping (how many females to a male, the smallest school, one to a tank) is the plan, over the reader\'s word for it')
   expect(SYSTEM).toContain('name the harmful look-alike the page lists beside it')
