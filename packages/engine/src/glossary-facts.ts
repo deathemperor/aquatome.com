@@ -229,9 +229,63 @@ const namesIn = (text: string, names: string[], facts = '') => [
 const CAUTIONS = ['không được', 'không nên', 'đừng', 'chớ', 'tránh', 'phải', 'cẩn thận', 'lưu ý', 'coi chừng', 'cảnh báo', 'nguy hiểm', 'độc', 'hại', 'chết']
 const NOT_CAUTIONS = /(?<![\p{L}\p{N}])(?:không phải|độc đáo|độc lập|độc quyền|độc nhất|độc giả|đơn độc|bên phải|tay phải|phía phải|phải không|có phải|phải chăng|lẽ phải|phải trái)(?![\p{L}\p{N}])/giu
 const cautionsIn = (text: string) => { const t = text.replace(NOT_CAUTIONS, ' '); return CAUTIONS.filter(w => has(t, w)) }
+/** Each caution word as often as the text says it. */
+const cautionWords = (text: string) => {
+  const t = text.replace(NOT_CAUTIONS, ' ')
+  return CAUTIONS.flatMap(w => Array.from({ length: (t.match(new RegExp(`(?<![\\p{L}\\p{N}])${w}(?![\\p{L}\\p{N}])`, 'giu')) ?? []).length }, () => w))
+}
+/** What `before` has that `after` hasn't, each matched once. */
+const less = <T>(before: T[], after: T[]) => {
+  const left = [...after]
+  return before.filter(x => { const i = left.indexOf(x); if (i < 0) return true; left.splice(i, 1); return false })
+}
+/** Words too common to tell one part of a sentence from another. */
+const FUNCTION_WORDS = new Set(['của', 'và', 'hoặc', 'thì', 'là', 'có', 'một', 'các', 'những', 'cho', 'với', 'từ', 'trong', 'khi', 'đã', 'sẽ', 'được', 'bị', 'này', 'đó', 'mà', 'nên', 'rồi', 'cũng', 'để', 'ra', 'vào', 'lại', 'nó', 'như', 'hay', 'đến', 'tới', 'ở', 'rất', 'càng', 'thường', 'thể'])
+const wordsOf = (text: string) => (text.toLowerCase().match(/\p{L}+/gu) ?? []).filter(w => !FUNCTION_WORDS.has(w))
+/**
+ * A sentence's pieces of advice (the chief of staff, 15 Nov 2026: a dropped piece of advice counts): its parts between
+ * commas, semicolons and colons, and either side of "hoặc", "rồi" and "và", each an option, a step or a reason. A part is
+ * left out when fewer than half of its own words stand in the other text: chu trình nitơ's seeding sentence lost its water,
+ * floss and media from an established tank that way ("…, hoặc lấy nước, bông lọc từ một bể đã ổn định; riêng vật liệu lọc
+ * thì chỉ lấy từ bể đã ổn định…" → "Châm thêm men vi sinh nitrat hóa của hãng uy tín."). One word was too few (Grok's read,
+ * 15 Nov 2026): "nước" kept "nước đã khử clo" once a merged sentence said "thay 20–30% nước". `strict`: half its words
+ * standing isn't enough either ("lấy nước" kept by "lấy", Grok's second read), for a sentence no note asked to change.
+ */
+const adviceLost = (before: string, after: string, strict = false) => {
+  const kept = new Set(wordsOf(after))
+  // A comma between two digits is a decimal ("pH 4,0"), not a break between parts.
+  return before.split(/[;:]|,(?!\d)|(?<!\d),|\s(?:hoặc|rồi|và)\s/u).map(p => p.trim().replace(/[.!?…]+$/u, '')).filter(p => {
+    const own = [...new Set(wordsOf(p))], standing = own.filter(w => kept.has(w)).length * 2
+    return own.length > 0 && (strict ? standing <= own.length : standing < own.length)
+  })
+}
+/** The facts' own words, not their source numbers. */
+const factText = (facts: object) => ((facts as { facts?: { fact: string }[] }).facts ?? []).map(f => f.fact).join('\n')
 
-/** The phrases a note quotes, "…" or “…”, of three characters or more. */
-const quotes = (note: string) => [...note.matchAll(/"([^"]+)"|“([^”]+)”/g)].map(m => (m[1] ?? m[2]!).trim()).filter(q => q.length >= 3)
+/**
+ * The phrases a note quotes, "…" or “…”, of three characters or more: its own quotes only, read as pairs that nest, so a
+ * quoted sentence keeps its own quotation marks whole ("Nhiều tiệm ghi "không ra màu", còn…"; Grok's reads, 15 Nov 2026:
+ * paired left to right, the words after an inner quote became a quote of their own). A straight mark at the start, or after
+ * a space or an opening bracket and before a character, opens; any other closes the last one open. One written \" (a saved
+ * review's "là \"không ra màu\", còn…") is a mark inside the quote, never its end. A note whose marks don't pair up gives no
+ * quote at all (Grok's fifth and sixth reads: the splitter can cut a sentence inside a quotation, and a note on such a piece,
+ * "Ngâm 2 tuần." Rồi thôi.", read as quoting the separate step "Ngâm 2 tuần." and freed it): such a piece stays held, on the
+ * safe side.
+ */
+const quotes = (note: string) => {
+  const found: string[] = [], open: number[] = []
+  for (let i = 0; i < note.length; i++) {
+    const c = note[i]
+    if (note[i - 1] === '\\') continue
+    if (c === '“' || (c === '"' && (i === 0 || /[\s([]/.test(note[i - 1]!)) && /\S/.test(note[i + 1] ?? ''))) open.push(i + 1)
+    else if (c === '"' || c === '”') {
+      if (!open.length) return []
+      const at = open.pop()!
+      if (!open.length) found.push(note.slice(at, i))
+    }
+  }
+  return open.length ? [] : found.map(q => q.replace(/\\"/g, '"').trim()).filter(q => q.length >= 3)
+}
 
 /**
  * The middle path for loose (the chief of staff, 14 Nov 2026): the sentences two reads call loose go back once to the
@@ -291,11 +345,13 @@ export async function rewordLoose<E extends { definition: string; body: string }
   // nitơ its fish deaths and its "0 or near 0", Lũa its "must soak"): a figure the facts carry, a named example (a page's
   // name, a kind's, a Latin name) or a caution the old wording had and the new one hasn't keeps the old wording.
   // The facts' own words, not their source numbers.
-  const said = ((facts as { facts?: { fact: string }[] }).facts ?? []).map(f => f.fact).join('\n'), carried = new Set(figures(said).flatMap(f => f.reads))
+  // A piece of advice counts too, an option, step or reason the old wording gave (the chief of staff, 15 Nov 2026).
+  const said = factText(facts), carried = new Set(figures(said).flatMap(f => f.reads))
   const dropped = (x: Rewording) => [
     ...lessOf(figures(x.s.text, true), figures(x.to, true)).filter(f => f.reads.some(r => carried.has(r))).map(f => `the figure ${f.text}`),
     ...namesIn(x.s.text, keep.names ?? [], said).filter(n => !namesIn(x.to, keep.names ?? [], said).includes(n)).map(n => `the name ${n}`),
     ...cautionsIn(x.s.text).filter(w => !cautionsIn(x.to).includes(w)).map(w => `the caution "${w}"`),
+    ...adviceLost(x.s.text, x.to).map(p => `the advice "${p}"`),
   ]
   const broke = new Map(unstopped.done.map(x => [x, [...ruled.filter(n => about(n, x)), ...(dropped(x).length ? [`it drops ${dropped(x).join(', ')}`] : [])]]))
   const staying = unstopped.done.filter(x => !broke.get(x)!.length)
@@ -311,4 +367,65 @@ export async function rewordLoose<E extends { definition: string; body: string }
   const stops = final.stops.filter(f => standing.has(f.text))
   // The score of the entry as saved: a reworded sentence that stopped is back in its old wording, which read loose.
   return { entry, log, stops, score: scoreOf(final.claims, stops.filter(f => !f.unscored).length) }
+}
+
+const DROP = 'The rewrite dropped from "'
+/**
+ * What a rewrite on notes took out that nothing let go (the chief of staff, 15 Nov 2026: pH's trim for length dropped
+ * "pH đổi đột ngột có thể làm cá chết." and the log scale's worked example, and nothing checked the rewrite). Two things
+ * let a sentence go, and nothing else: a stop on it, a sentence the fact check stopped (the facts don't carry it, or the
+ * reads left it unjudged) where it stood, under its heading and in its kind's item (the eighth read, 15 Nov 2026: Lũa's
+ * "Chưa thấy tiệm Việt Nam bán dưới tên tiếng Việt." stands under two kinds, and a stop on one copy let both go); and
+ * the term's own `free` list in its notes file (glossary-asks.json), which the chief of staff reads: a sentence it lists
+ * whole, or one of a passage's sentences, may go wherever it stands; a phrase it lists may go from its sentence. A
+ * review note never does, whatever it quotes: a note quotes a sentence to keep it, to place an addition beside it or to
+ * say where a thing already stands as often as to change it (the seventh read, 15 Nov 2026: with their real notes,
+ * pH's rewrites could cut "Nếu nước nguồn dưới 8…", the definition's "Điều cần tránh là pH đổi đột ngột." and "Muốn
+ * đổi pH…", and nitrogen's the 50% emergency change, each because a note quoted it). Any other sentence that is gone
+ * from where it stood, the definition, the body under its heading or a kind's item, must leave nothing behind: its
+ * figures the facts carry, its names and its cautions, counted over the whole entry so what moved is kept (the 0,5 pace
+ * moved from the mistakes to the steps); and each piece of its advice, which stands in one of the new or moved
+ * sentences: a repeat taken out goes by the free list too (GH's notes line: what GH measures is said once, in the
+ * definition). A kind's sentence keeps its advice in its kind's item, while that item stands. One note for each such
+ * sentence, naming what it lost, for the writer to write it as it was.
+ */
+export function droppedInRewrite(before: { definition: string; body: string }, after: { definition: string; body: string }, facts: object, stops: Pick<Sentence, 'text' | 'heading' | 'item'>[], names: string[] = [], free: string[] = []): string[] {
+  const placed = (e: { definition: string; body: string }) => [
+    ...sentences({ definition: e.definition, body: '' }).map(s => ({ ...s, key: `d ${s.text}` })),
+    ...sentences({ definition: '', body: e.body }).map(s => ({ ...s, key: `b ${s.heading ?? ''}\n${s.item ?? ''}\n${s.text}` })),
+  ]
+  const was = placed(before), is = placed(after)
+  const stopped = (s: Sentence) => stops.some(x => x.text === s.text && (x.heading ?? '') === (s.heading ?? '') && (x.item ?? '') === (s.item ?? ''))
+  // A listed passage frees each of its own sentences, never one that is only words inside another sentence (Grok's third
+  // read: a shop's sentence quoting the step "Ngâm 2 tuần." freed the step).
+  const whole = (s: Sentence) => stopped(s) || free.some(q => q === s.text || (q.includes(s.text) && sentences({ definition: q, body: '' }).some(x => x.text === s.text)))
+  const unfreed = (t: string) => free.filter(q => t.includes(q)).reduce((s, q) => s.split(q).join(' '), t)
+  const now = new Set(is.map(s => s.key)), then = new Set(was.map(s => s.key))
+  const gone = was.filter(s => !now.has(s.key) && !whole(s)).map(s => ({ ...s, u: unfreed(s.text) }))
+  if (!gone.length) return []
+  const said = factText(facts), carried = new Set(figures(said).flatMap(f => f.reads))
+  const rest = was.filter(s => !whole(s)).map(s => unfreed(s.text)).join(' ')
+  const all = is.map(s => s.text).join(' ')
+  const figs = lessOf(figures(rest, true), figures(all, true)).filter(f => f.reads.some(r => carried.has(r)))
+  const named = less(namesIn(rest, names, said), namesIn(all, names, said))
+  const warned = less(cautionWords(rest), cautionWords(all))
+  // Where a gone sentence's advice must stand anew: its kind's item, if the rewrite kept that item; else the whole entry.
+  const items = new Set(is.flatMap(s => (s.item ? [s.item] : [])))
+  const within = (item?: string) => is.filter(s => !item || !items.has(item) || s.item === item)
+  // Each thing lost goes to the first gone sentence that had it. A figure goes by its number, named as that sentence wrote
+  // it (Grok: "pH 4,0" cut, with "4 tuần" still standing, left a 4 no sentence wrote as "4" to take it).
+  const take = <T>(pool: T[], has: (x: T) => boolean) => { const mine = pool.filter(has); pool.splice(0, pool.length, ...pool.filter(x => !mine.includes(x))); return mine }
+  return gone.flatMap(({ text: t, u, item }) => {
+    const own = figures(u, true), as = (f: Figure) => own.find(g => g.reads.some(r => f.reads.includes(r)))
+    // Each piece stands in one new or moved sentence, not in their words pooled (the eighth read's Sonnet reviewer: "Cá cần
+    // nước sạch." cut read as kept, its words scattered through a longer sentence added beside it).
+    const fresh = within(item).filter(s => !then.has(s.key)).map(s => s.text)
+    const lost = [
+      ...take(figs, f => !!as(f)).map(f => `the figure ${as(f)!.text}`),
+      ...take(named, n => namesIn(u, names, said).includes(n)).map(n => `the name ${n}`),
+      ...take(warned, w => cautionWords(u).includes(w)).map(w => `the caution "${w}"`),
+      ...adviceLost(u, '', true).filter(p => fresh.every(f => adviceLost(p, f, true).length)).map(p => `the advice "${p}"${item && items.has(item) ? ` under ${item}` : ''}`),
+    ]
+    return lost.length ? [`${DROP}${t}" ${[...new Set(lost)].join(', ')}, and nothing lets that sentence go: write it as it was, word for word.`] : []
+  })
 }
