@@ -1,0 +1,41 @@
+/**
+ * Guides taken off the site for good, each address forwarding (the chief of staff, 14 Nov 2026): the gallery posts of
+ * other people's tanks, whose photos we can't show, and the seller-site notices the 13 Nov sheet found nothing lasting in.
+ * Their files stay, held by hand in every language (the engine's gate), so nothing writes them back; each language's
+ * address forwards to its fish's page in that language, or to the guides list where there is none, or it's held there.
+ */
+export type RetiredTo = { kind: 'species' | 'breeds' | 'plants'; id: string } | 'guides'
+
+const fish = (id: string): RetiredTo => ({ kind: 'species', id })
+
+/** The seller-site notices to go off (the 13 Nov sheet's "Off"), each to the first fish page the sheet names. */
+export const RETIRED_GUIDES: Readonly<Record<string, RetiredTo>> = {
+  'glaser-en-07-carp-like-fishes-1-loaches-a-new-ornate-hillstream-loach-en': fish('sewellia-lineolata'),
+  'glaser-en-10-catfishes-10a-catfishes-corydoras-co-the-cory-season-has-started-en': fish('corydoras-aeneus'),
+  'glaser-en-08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc-small-goldfish-ranchu-mixed-colours': { kind: 'breeds', id: 'ranchu-goldfish' },
+  'glaser-en-09-characoids-tetra-relationship-myleus-sp-second-take-en': 'guides',
+  'glaser-en-10-catfishes-10a-catfishes-corydoras-co-new-rare-corys-en': fish('corydoras-burgessi'),
+  'glaser-en-10-catfishes-10a-catfishes-corydoras-co-once-more-four-corydoras-from-peru-en': fish('corydoras-leucomelas'),
+  'glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-three-new-chaetostoma-from-peru-en': 'guides',
+  'glaser-en-18-toothcarps-killis-and-livebearers-dwarf-lampeyes-fluviphylax-from-venezuela-en': 'guides',
+  'glaser-en-fisharchive-black-winged-dwarf-hatchets-carnegiella-marthae-and-c-schereri': fish('carnegiella-marthae'),
+  'glaser-en-01-rays-stingray-babies': 'guides',
+  'glaser-en-09-characoids-tetra-relationship-distichodus-noboli-and-d-affinis-en': fish('distichodus-affinis'),
+  'glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-hemiloricaria-bycatches': fish('rineloricaria-platyura'),
+  'glaser-en-25-perchlike-fishes-25a-perchlike-fishes-1-labyrinth-fishes-anabas-en': fish('anabas-testudineus'),
+  'glaser-en-25-perchlike-fishes-25d-perchlike-fishes-4-south-american-dwarf-cichlids-biotoecus-special-en': fish('biotoecus-opercularis'),
+  'glaser-en-25-perchlike-fishes-25d-perchlike-fishes-4-south-american-dwarf-cichlids-many-fantastic-apistogramma-arrived-en': fish('apistogramma-diplotaenia'),
+  'glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-brown-red-discus-madeira-nova-olinda-do-norte-en': fish('symphysodon-aequifasciatus'),
+  'glaser-en-25-perchlike-fishes-25g-perchlike-fishes-7-remaining-groups-sunfish-special-en': fish('enneacanthus-gloriosus'),
+  'glaser-en-32-all-the-rest-drought-in-singapore-and-malaysia': 'guides',
+  'glaser-en-32-all-the-rest-guinea-import-arrived-en': fish('ladigesia-roloffi'),
+}
+
+/** 2hraquarist's gallery posts of other people's tanks: every one, those written later too, off to the guides list. */
+export const GALLERY_POST = /^2hraquarist-blogs-aquascaping-ideas-/
+
+/** Where a retired guide's addresses forward, or undefined for a guide that stays. */
+export const retiredTo = (id: string): RetiredTo | undefined => RETIRED_GUIDES[id] ?? (GALLERY_POST.test(id) ? 'guides' : undefined)
+
+/** The hold a retired guide carries in every language (the engine's gate), the same each run. */
+export const RETIRED_HOLD = { checks: ['off'], at: '2026-11-15' } as const

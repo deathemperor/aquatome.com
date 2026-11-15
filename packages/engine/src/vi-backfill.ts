@@ -1,7 +1,7 @@
 import { piece } from './pieces'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
-import { QUALITY_THRESHOLD, judgeQuality, metricPage } from '@aq/schema'
+import { QUALITY_THRESHOLD, judgeQuality, metricPage, retiredTo } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import { reviewRewrite, reviewTranslation, steadyRead } from './quality'
 import { lastKept, logReviews, TEXT_KINDS, type PageRef, type Review } from './review-log'
@@ -81,7 +81,9 @@ export async function rewriteExisting(contentRoot: string, stateFile: string, d:
   // Pages named first go first, then pages out of search for their score, each group in the kinds' and folders' order
   // (the sort is stable).
   const rank = (j: Job) => { const i = o.first?.indexOf(j.id) ?? -1; return i >= 0 ? i - o.first!.length - 1 : -Number(j.low) }
-  for (const job of (await jobs(contentRoot, o.kinds ?? REWRITE_KINDS, o.match)).filter(j => o.match || due(state[j.id])).sort((a, b) => rank(a) - rank(b))) {
+  // A guide off the site for good (@aq/schema retired.ts) is never rewritten: no reader sees it.
+  const off = (j: Job) => j.kind === 'guides' && !!retiredTo(j.slug)
+  for (const job of (await jobs(contentRoot, o.kinds ?? REWRITE_KINDS, o.match)).filter(j => !off(j) && (o.match || due(state[j.id]))).sort((a, b) => rank(a) - rank(b))) {
     if (report.done.length + report.kept.length + report.failed.length >= o.limit) break
     if (o.dry) { report.done.push(`${job.id} (${job.groups.length} part${job.groups.length > 1 ? 's' : ''})`); continue }
     const file = join(contentRoot, job.kind, job.slug, 'vi.json')

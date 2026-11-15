@@ -3,7 +3,7 @@ import { existsSync } from 'node:fs'
 import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { LANGS, type Lang } from '@aq/schema'
+import { LANGS, RETIRED_HOLD, retiredTo, type Lang } from '@aq/schema'
 import { vnDay } from './ceiling'
 import { LlmError, type Llm } from './claude'
 import { doseGroups, FIT_KINDS, FIT_LABEL_VI, fitFindings, productOf, fitKey, fitOrder, fitSource, fitText, readFit, type FitCheck, type FitEntry, type FitFinding, type FitState } from './fit'
@@ -210,7 +210,11 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
   const byFile = new Map(all.map(p => [fileOf(p), p]))
   const held = await heldNow(root, all)
   // A page held by hand is held in every language it has, whatever wrote it since, and is no more of the gate's business.
-  const byHand = (await json<Record<string, HandHold>>(join(root, HELD_BY_HAND))) ?? {}
+  // A retired guide (@aq/schema retired.ts: off the site for good, its addresses forwarding) is held the same way.
+  const byHand: Record<string, HandHold> = {
+    ...Object.fromEntries(all.filter(p => p.kind === 'guides' && retiredTo(p.id)).map(p => [`guides/${p.id}`, { checks: [...RETIRED_HOLD.checks], why: 'off the site for good, its addresses forwarding', at: RETIRED_HOLD.at }])),
+    ...(await json<Record<string, HandHold>>(join(root, HELD_BY_HAND))) ?? {},
+  }
   const handHeld: string[] = []
   for (const p of all) {
     const h = byHand[`${p.kind}/${p.id}`], f = fileOf(p)

@@ -1,6 +1,6 @@
 import { execFileSync } from 'node:child_process'
 import { existsSync } from 'node:fs'
-import { cp, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { cp, mkdir, mkdtemp, readdir, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
@@ -330,6 +330,29 @@ test('a page held by hand is held in every language it has, with no read, whatev
   await gate(root, { llm: reader(calls), now })
   expect(calls.length).toBeGreaterThan(0)
   for (const f of [VI, MS]) expect((await readJson(root, f)).held, f).toBeUndefined()
+})
+
+// The chief of staff, 14 Nov 2026: the gallery posts of other people's tanks and the seller-site notices go off for good,
+// every address forwarding (@aq/schema retired.ts). Each is held in every language, unread, whatever writes it.
+test('a guide off the site for good is held in every language, with no read, whatever writes it', async () => {
+  const root = await repo()
+  const id = '2hraquarist-blogs-aquascaping-ideas-a-tank-of-someone-else'
+  const dir = `content/guides/${id}`
+  await cp(join(root, 'content/guides/youtube-r53ZQW0m8VM'), join(root, dir), { recursive: true })
+  await edit(root, `${dir}/entity.json`, e => { e.id = id })
+  await edit(root, `${dir}/vi.json`, t => { t.slug = 'mot-be-cua-nguoi-khac'; delete t.held })
+  const langs = (await readdir(join(root, dir))).filter(f => /^[a-z]{2}\.json$/.test(f))
+  const calls: string[] = []
+  await gate(root, { llm: reader(calls), now })
+  expect(calls).toHaveLength(0)
+  for (const f of langs) expect((await readJson(root, `${dir}/${f}`)).held, f).toEqual({ checks: ['off'], at: '2026-11-15' })
+  save(root, 'retired')
+
+  // A writer that drops the hold: held again, still unread.
+  await edit(root, `${dir}/vi.json`, t => { delete t.held; t.body = '<p>Viết lại.</p>' })
+  await gate(root, { llm: reader(calls), now })
+  expect(calls).toHaveLength(0)
+  expect((await readJson(root, `${dir}/vi.json`)).held).toEqual({ checks: ['off'], at: '2026-11-15' })
 })
 
 test('with the accounts out, a new page waits held and a live one keeps its committed text; over the limit too', async () => {
