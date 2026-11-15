@@ -609,6 +609,16 @@ test('a saved entry revised: a rewrite that drops what no note asks for is not s
   expect(await bodyOf(fourth)).toBe(cutBody)
 })
 
+// The Sonnet reviewer's read, 15 Nov 2026: a revision held to a kept draft in place of the saved entry would let the drop
+// check pass what the saved entry lost.
+test('a revision starts from the saved entry, never with a kept draft', async () => {
+  const root = await savedWith(soak)
+  const none: Llm = async () => { throw new Error('no model call') }
+  for (const o of [{ fromDraft: true }, { accept: 'the chief of staff' }]) {
+    expect(await makeGlossaryEntry(root, { research: none, llm: none }, 'lua', { kind: 'aquascaping', revise: true, ...o })).toEqual({ id: 'lua', refused: ['--revise starts from the saved entry, not with --from-draft or --accept'] })
+  }
+})
+
 test('a saved entry revised: an unmet line of the term\'s notes outranks a length still under its stop', async () => {
   // pH's notes file sets its own length: a rewrite that meets the notes line 40 words past it, still under its stop, is saved.
   const own = (JSON.parse(await readFile(new URL('../src/glossary-asks.json', import.meta.url), 'utf8')) as Record<string, { length: { words: number } }>).ph!.length.words

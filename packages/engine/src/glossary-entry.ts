@@ -260,6 +260,9 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     : o.revise && vi.body ? { score: vi.quality.score, broken: 0, notes: [], entry: { definition: vi.definition ?? '', altNames: [], body: vi.body, related: entity.related ?? [] } } satisfies Draft
       : null
   if ((o.fromDraft || o.accept) && (!draft || !saved)) return { id, refused: [`no kept draft${saved ? '' : ' or research'} to ${o.accept ? 'accept' : 'revise'}`] }
+  // A revision starts from the saved entry, which the drop check holds it to: never from a kept draft (the eighth read's
+  // Sonnet reviewer: with --from-draft as well, the draft stood in for the saved text).
+  if (o.revise && (o.fromDraft || o.accept)) return { id, refused: ['--revise starts from the saved entry, not with --from-draft or --accept'] }
   if (o.revise && (!draft || !saved)) return { id, refused: [`no saved entry${saved ? '' : ' or research'} to revise`] }
   if (draftText !== null) {
     const traces = (await readReviews(root, 'glossary'))[`vi/glossary/${id}`] ?? []

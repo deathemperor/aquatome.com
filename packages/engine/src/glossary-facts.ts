@@ -382,17 +382,17 @@ const DROP = 'The rewrite dropped from "'
  * say where a thing already stands as often as to change it (the seventh read, 15 Nov 2026: with their real notes,
  * pH's rewrites could cut "Nếu nước nguồn dưới 8…", the definition's "Điều cần tránh là pH đổi đột ngột." and "Muốn
  * đổi pH…", and nitrogen's the 50% emergency change, each because a note quoted it). Any other sentence that is gone
- * from where it stood, the definition, the body or a kind's item, must leave nothing behind: its figures the facts
- * carry, its names and its cautions, counted over the whole entry so what moved is kept (the 0,5 pace moved from the
- * mistakes to the steps); and each piece of its advice, which stands in the new or moved sentences: a repeat taken out
- * goes by the free list too (GH's notes line: what GH measures is said once, in the definition). A kind's sentence
- * keeps its advice in its kind's item, while that item stands. One note for each such sentence, naming what it lost,
- * for the writer to write it as it was.
+ * from where it stood, the definition, the body under its heading or a kind's item, must leave nothing behind: its
+ * figures the facts carry, its names and its cautions, counted over the whole entry so what moved is kept (the 0,5 pace
+ * moved from the mistakes to the steps); and each piece of its advice, which stands in one of the new or moved
+ * sentences: a repeat taken out goes by the free list too (GH's notes line: what GH measures is said once, in the
+ * definition). A kind's sentence keeps its advice in its kind's item, while that item stands. One note for each such
+ * sentence, naming what it lost, for the writer to write it as it was.
  */
 export function droppedInRewrite(before: { definition: string; body: string }, after: { definition: string; body: string }, facts: object, stops: Pick<Sentence, 'text' | 'heading' | 'item'>[], names: string[] = [], free: string[] = []): string[] {
   const placed = (e: { definition: string; body: string }) => [
     ...sentences({ definition: e.definition, body: '' }).map(s => ({ ...s, key: `d ${s.text}` })),
-    ...sentences({ definition: '', body: e.body }).map(s => ({ ...s, key: `b ${s.item ?? ''}\n${s.text}` })),
+    ...sentences({ definition: '', body: e.body }).map(s => ({ ...s, key: `b ${s.heading ?? ''}\n${s.item ?? ''}\n${s.text}` })),
   ]
   const was = placed(before), is = placed(after)
   const stopped = (s: Sentence) => stops.some(x => x.text === s.text && (x.heading ?? '') === (s.heading ?? '') && (x.item ?? '') === (s.item ?? ''))
@@ -417,12 +417,14 @@ export function droppedInRewrite(before: { definition: string; body: string }, a
   const take = <T>(pool: T[], has: (x: T) => boolean) => { const mine = pool.filter(has); pool.splice(0, pool.length, ...pool.filter(x => !mine.includes(x))); return mine }
   return gone.flatMap(({ text: t, u, item }) => {
     const own = figures(u, true), as = (f: Figure) => own.find(g => g.reads.some(r => f.reads.includes(r)))
-    const fresh = within(item).filter(s => !then.has(s.key)).map(s => s.text).join(' ')
+    // Each piece stands in one new or moved sentence, not in their words pooled (the eighth read's Sonnet reviewer: "Cá cần
+    // nước sạch." cut read as kept, its words scattered through a longer sentence added beside it).
+    const fresh = within(item).filter(s => !then.has(s.key)).map(s => s.text)
     const lost = [
       ...take(figs, f => !!as(f)).map(f => `the figure ${as(f)!.text}`),
       ...take(named, n => namesIn(u, names, said).includes(n)).map(n => `the name ${n}`),
       ...take(warned, w => cautionWords(u).includes(w)).map(w => `the caution "${w}"`),
-      ...adviceLost(u, fresh, true).map(p => `the advice "${p}"${item && items.has(item) ? ` under ${item}` : ''}`),
+      ...adviceLost(u, '', true).filter(p => fresh.every(f => adviceLost(p, f, true).length)).map(p => `the advice "${p}"${item && items.has(item) ? ` under ${item}` : ''}`),
     ]
     return lost.length ? [`${DROP}${t}" ${[...new Set(lost)].join(', ')}, and nothing lets that sentence go: write it as it was, word for word.`] : []
   })

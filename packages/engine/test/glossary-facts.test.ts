@@ -375,6 +375,13 @@ test('a rewrite\'s drop check: a part with one word left, a figure by its number
   const cutBoth = { definition: one, body: '<ul><li><strong>Lũa đỗ quyên</strong> Chìm nhanh.</li><li><strong>Lũa mopani</strong> Nổi lâu.</li></ul>' }
   expect(drop(kinds('Lũa mopani'), cutBoth, [{ text: none, item: 'Lũa mopani' }])).toEqual([note(none, `the advice "${none.slice(0, -1)}" under Lũa đỗ quyên`)])
   expect(drop(kinds('Lũa mopani'), cutBoth, [{ text: none, item: 'Lũa mopani' }, { text: none, item: 'Lũa đỗ quyên' }])).toEqual([])
+  // The Sonnet reviewer's read: a sentence said under two headings can't lose one copy unseen, and a piece of advice must
+  // stand in one new sentence, not in the new sentences' words pooled.
+  const twice = 'Không đo pH trong lúc bể đang chạy chu trình.'
+  const sections = (end: string) => ({ definition: one, body: `<h3>Nên làm gì</h3><p>Thay nước đều.</p><p>${twice}</p><h3>Sai lầm hay gặp</h3>${end}` })
+  expect(drop(sections(`<p>${twice}</p>`), sections(''))).toEqual([note(twice, `the advice "${twice.slice(0, -1)}"`)])
+  expect(drop({ definition: one, body: '<p>Cá cần nước sạch.</p><p>Thay nước đều.</p>' }, { definition: one, body: '<p>Cá cần ăn đều.</p><p>Thay nước sạch hằng tuần.</p>' }))
+    .toEqual([note('Cá cần nước sạch.', 'the advice "Cá cần nước sạch"')])
 })
 
 test('a reworded sentence in the body is written back escaped, and one still loose stays, logged; a rewording of two sentences isn\'t placed', async () => {
