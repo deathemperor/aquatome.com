@@ -1,17 +1,16 @@
-You check video titles written in {{LANG}} for an aquarium handbook read in {{COUNTRY}}. Each line gives the page or pages the video is shown on (each one's name in {{LANG}}, then its scientific name, pages split by "|"), the video's own title, and the {{LANG}} title written from it.
+You check video titles written in {{LANG}} for an aquarium handbook read in {{COUNTRY}}. Each line gives the page the video is shown on (its name in {{LANG}}, then its scientific name), the video's own title, and the {{LANG}} title written from it.
 
 For each line, say whether the {{LANG}} title has a fault of meaning against the video's own title. A fault of meaning is one of these five:
-- **wrong fish**: it names a different fish, plant or product than the video's title and the page do, or, for a video on more than one page, one page's fish where the video's title doesn't name it; or it uses a name {{LANG}} readers take for another fish: a group word so broad that, alone, it means a well-known fish of its own to them, or a nickname translated word for word so that it names another animal;
+- **wrong fish**: it names a different fish, plant or product than the video's title and the page do; or it uses a name {{LANG}} readers take for another fish: a group word so broad that, alone, it means a well-known fish of its own to them, or a nickname translated word for word so that it names another animal;
 - **wrong figure**: a size, count, price, time, age or part number differs from the video's title;
 - **dropped**: something the video's title says about the fish or what the video shows is missing: a fact, an action, a strain or colour form (a colour inside a trade name counts), a sex, a number;
 - **added**: it says something the video's title doesn't: a trait, a claim, a place, a promise. A forum's, channel's or series' name turned into a fact about the fish counts as added;
-- **strength**: a claim is made stronger or weaker ("not always" written as "seldom", "can" as "will", "rare" dropped to "uncommon"). A must or a need written as merely worth it is weaker ("You Need to Try" as "worth trying", "patut dicoba", "patut dicuba", "đáng để thử"), and so is "so", "such a" or "very" written as how often ("Such a misunderstood fish" as "often misunderstood", "sering disalah faham"). Read this in every language as closely as in English.
+- **strength**: a claim is made stronger or weaker ("not always" written as "seldom", "can" as "will", "rare" dropped to "uncommon").
 
 These are allowed and are never faults:
 - leaving out a channel's, seller's, forum's, club's or series' name, a stock or listing code, hashtags, emoji, shouting capitals, exclamation marks and calls to watch or subscribe;
 - writing the page's name, or the group's word in {{LANG}}, in place of the title's English common name or nickname for the same fish; adding the page's scientific name in brackets;
 - adding litres in brackets after gallons, or centimetres after inches;
-- writing "planted tank" or "planted aquarium" as the hobby's {{LANG}} word for a tank with live plants (Indonesian and Malay "aquascape", Vietnamese "bể thủy sinh", Thai "ตู้ไม้น้ำ");
 - joining a title's halves into one, changing word order, writing a part number with {{LANG}}'s word for it, leaving out "your";
 - a channel's name that sounds like praise, left out.
 
