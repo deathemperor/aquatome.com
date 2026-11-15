@@ -452,7 +452,12 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     lang, species, plants, guides, changelog, equipment, series, galleries, products, breeds, materials, cards,
     ...(screen ? { photoWaits } : {}),
     // A term's photos follow the same rules as a page's (publish gates, the watermark screen).
-    glossary: (await loadKind(root, 'glossary', GlossarySchema, lang)).map(g => (g.photos ? { ...g, photos: cleanPhotos(g.photos, g.id) } : g)),
+    // A kind's photo passes the same screen as the term's; a kind whose photo doesn't is shown without one.
+    glossary: (await loadKind(root, 'glossary', GlossarySchema, lang)).map(g => ({
+      ...g,
+      ...(g.photos ? { photos: cleanPhotos(g.photos, g.id) } : {}),
+      ...(g.kinds ? { kinds: g.kinds.flatMap(k => cleanPhotos([k.photo], g.id).map(photo => ({ ...k, photo }))) } : {}),
+    })),
     // Another language's species pages are still being made: it has the places one of its fish comes from, so no origin
     // page is empty and no link points at one it lacks. Vietnamese has every place.
     places: allPlaces.filter(p => lang === 'vi' || species.some(s => s.places.includes(p.id))),

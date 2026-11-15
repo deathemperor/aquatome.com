@@ -230,14 +230,20 @@ export const SeriesSchema = z.object({
 
 /**
  * A glossary term. `refs`: the pages AquaTome's fuller entry was researched from (engine glossary-entry.ts), listed under
- * it as a guide's are. `related`: other terms' ids, the ones a reader of this entry should see next. `photos`: as a
- * species' (Curation's records), kept by the engine's rewrites of the entry.
+ * it as a guide's are. `related`: other terms' ids, the ones a reader of this entry should see next. `photos` and
+ * `kinds`: Curation's records, kept by the engine's rewrites of the entry.
  */
 export const GlossarySchema = z.object({
   id: z.string(), en: z.string(), latin: z.string().optional(),
   refs: z.array(z.object({ url: WebUrl, title: z.string().min(1) })).optional(), related: z.array(z.string()).optional(),
   /** Only where seeing it explains the term (driftwood, white spot): the first is shown under its meaning. */
   photos: z.array(Photo).optional(),
+  /**
+   * Each kind's own picture, by the kind's id as the entry writes it (glossaryKinds: "lua-do-quyen"), shown beside that
+   * kind's name (the owner, 15 Nov 2026: "what does each look like?"). One photo a kind; a kind with none has no record.
+   */
+  kinds: z.array(z.object({ id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/), photo: Photo }))
+    .refine(ks => new Set(ks.map(k => k.id)).size === ks.length, { message: 'a kind is listed twice' }).optional(),
 })
 export const PlaceSchema = z.object({
   id: z.string(), kind: z.enum(['continent', 'country', 'region', 'river']), parent: z.string().optional(),
