@@ -69,6 +69,7 @@ struct MasterSheet: View {
                   master.delete()
                   dismiss()
                 }
+                .accessibilityIdentifier("master-delete-yes")
               }
           }
         }

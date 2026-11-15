@@ -20,17 +20,20 @@ final class MasterFlowTests: XCTestCase {
     expect(app, "master-log", contains: "lamp on+white", timeout: 40)
     expect(app, "master-log", contains: "switch_2 off | switch_3 off | switch_1 off")
     expect(app, "master-log", lacks: "countdown")
-    expect(app, "master-left", contains: "1:00")
+    // "1:00" on the card; VoiceOver's words.
+    expect(app, "master-left", contains: "còn 1 giờ")
     expect(app, "master-summary", contains: "· kết thúc lúc ")
     XCTAssertTrue(element(app, "master-end").waitForExistence(timeout: 20), "not running")
     // Kept: it runs on after a relaunch.
     let again = launch(signIn: false, reset: false)
     XCTAssertTrue(element(again, "master-left").waitForExistence(timeout: 10), "not running after a relaunch")
     tap(again, "master-end")
-    // What it changed put back by the phone: the light's outlet, and the lamp the other way (nothing was sent to it
-    // before). CO2 and the fan were off already: nothing to put back.
-    expect(again, "master-log", contains: "switch_1 back on", timeout: 40)
-    expect(again, "master-log", contains: "lamp back off")
+    // The lamp put back the other way (nothing was sent to it before). The stand-in cloud starts afresh at a launch,
+    // its light's outlet on again: to the phone it changed during the run, so it's left as it is, and the card says so.
+    // CO2 and the fan were off already: nothing to put back.
+    expect(again, "master-log", contains: "lamp back off", timeout: 40)
+    expect(again, "master-notes", contains: "Ổ Đèn đã đổi trong lúc chạy nên AquaTome để nguyên.")
+    expect(again, "master-log", lacks: "switch_1 back")
     expect(again, "master-log", lacks: "switch_2 back")
     XCTAssertTrue(element(again, "master-start").waitForExistence(timeout: 40), "not ready again")
     XCTAssertFalse(element(again, "master-problems").exists, element(again, "master-problems").label)
@@ -112,10 +115,12 @@ final class MasterFlowTests: XCTestCase {
     app.terminate()
     RunLoop.current.run(until: Date().addingTimeInterval(20))
     let again = launch(args, signIn: false, reset: false)
-    // The light's outlet back from the phone; the lamp waits, near it, for Trả lại.
-    expect(again, "master-log", contains: "switch_1 back on", timeout: 40)
-    expect(again, "master-problems", contains: "Đèn chưa về như cũ: đứng gần đèn rồi bấm Trả lại.", timeout: 20)
-    expect(again, "master-log", lacks: "lamp back")
+    // The lamp waits, near it, for Trả lại. (The stand-in cloud starts afresh at a launch, its light's outlet on again:
+    // left as it is, and said so.)
+    expect(again, "master-problems", contains: "Đèn chưa về như cũ: đứng gần đèn rồi bấm Trả lại.", timeout: 40)
+    expect(again, "master-notes", contains: "Ổ Đèn đã đổi trong lúc chạy nên AquaTome để nguyên.")
+    let log = element(again, "master-log")
+    XCTAssertFalse(log.exists && log.label.contains("lamp back"), log.label)
     shoot("not-given-back")
     tap(again, "master-put-back")
     expect(again, "master-log", contains: "lamp back off", timeout: 40)
@@ -150,7 +155,8 @@ final class MasterFlowTests: XCTestCase {
     expect(app, "master-summary", contains: "Lọc tắt · 2 giờ")
     tap(app, "master-edit")
     tap(app, "master-delete")
-    let delete = app.buttons["Xóa nút"].firstMatch
+    // The ask's own button: "Xóa nút" alone also finds the row that opened it.
+    let delete = app.buttons["master-delete-yes"].firstMatch
     XCTAssertTrue(delete.waitForExistence(timeout: 5), "deleting doesn't ask")
     delete.tap()
     XCTAssertTrue(element(app, "master-create").waitForExistence(timeout: 10), "not deleted")
@@ -245,17 +251,27 @@ final class MasterFlowTests: XCTestCase {
   /// under them lands on them), then tapped once it is enabled: "Kết thúc" waits while a start's steps go out.
   private func tap(_ app: XCUIApplication, _ id: String, file: StaticString = #filePath, line: UInt = #line) {
     let e = element(app, id)
-    XCTAssertTrue(e.waitForExistence(timeout: 10), "\(id) missing", file: file, line: line)
     let window = app.windows.firstMatch.frame
+    // A list builds its rows only near the screen: at the largest text the sheet's Kết thúc rows are made when scrolled to.
+    if !e.waitForExistence(timeout: 5) {
+      repeatUntil(e.exists, times: 10) {
+        let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.97, dy: 0.65))
+        from.press(forDuration: 0.05, thenDragTo: from.withOffset(CGVector(dx: 0, dy: -window.height / 3)), withVelocity: .default, thenHoldForDuration: 0.2)
+      }
+    }
+    XCTAssertTrue(e.waitForExistence(timeout: 5), "\(id) missing", file: file, line: line)
     let pinned = ["notice", "write"].map { element(app, $0) }.filter { $0.exists }.map { $0.frame.minY }.min() ?? .infinity
     let bar = app.navigationBars.firstMatch
     let top = bar.exists ? bar.frame.maxY + 8 : window.minY
     let bottom = min(window.maxY - window.height / 5, pinned - 16)
     let third = window.height / 3
+    var last: CGRect?
     for _ in 0..<12 {
       let f = e.frame
-      // Clear of the bars at the bottom (one in a navigation bar, Xong, is above the band, and fine).
-      if e.isHittable, f.maxY < bottom { break }
+      // Clear of the bars at the bottom (one in a navigation bar, Xong, is above the band, and fine), or as far as the
+      // list goes (a sheet's last row: a drag no longer moves it).
+      if e.isHittable, f.maxY < bottom || f == last { break }
+      last = f
       // Up only, toward the band's middle (the content moves about half again as far as the finger): a drag down on a
       // sheet closes it, as one did on Xong on 15 Nov.
       let dy = min(-40, max(-third, ((top + bottom) / 2 - f.midY) / 1.5))
