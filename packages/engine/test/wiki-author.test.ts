@@ -42,3 +42,45 @@ test('stored Wikimedia credits are tidied in place on pages and galleries; other
   // Run again: nothing left to do.
   expect(await tidyCredits(root)).toEqual({ files: 0, authors: 0 })
 })
+
+// A made-up address on a reserved domain: a test never holds a real person's (the chief of staff, 16 Nov 2026).
+const address = 'someone@example.org'
+
+test('a Commons credit holds no email address: the name before it stays, and a field with only the address credits Commons', () => {
+  // As an Artist field reads when its photographer asks to be mailed (the koi's, 16 Nov 2026), with a made-up name.
+  const artist = `<a href="//commons.wikimedia.org/wiki/User:Photographer">Photographer</a> (<a href="//commons.wikimedia.org/wiki/User_talk:Photographer">Photographer</a>) I'd appreciate if you could mail me (${address}) if you want to use this picture out of the Wikimedia project scope. This file is licensed under the Creative Commons Attribution-Share Alike 4.0 International license.`
+  expect(authorText(artist)).toBe('Photographer')
+  expect(tidyAuthor(`A. Photographer <${address}>`)).toBe('A. Photographer')
+  expect(tidyAuthor(`A. Photographer, ${address}`)).toBe('A. Photographer')
+  expect(tidyAuthor(`A. Photographer ${address}`)).toBe('A. Photographer')
+  expect(tidyAuthor(address)).toBe('Wikimedia Commons')
+  expect(tidyAuthor(`A. Photographer ${address}.`)).toBe('A. Photographer')
+  // As the field comes, HTML: the brackets escaped, or the "@" itself (a reader's catch, 16 Nov 2026).
+  expect(authorText(`A. Photographer &lt;${address}&gt;`)).toBe('A. Photographer')
+  expect(authorText(`A. Photographer &lt;${address.replace('@', '&#64;')}&gt;`)).toBe('A. Photographer')
+  expect(authorText(`A. Photographer (${address.replace('@', '&#x40;')})`)).toBe('A. Photographer')
+  // No address: the field as it was, escaped brackets and all.
+  expect(tidyAuthor('Photograph by A. Photographer (www.example.org).')).toBe('Photograph by A. Photographer (www.example.org).')
+  expect(tidyAuthor('A. Photographer &lt;Studio&gt;')).toBe('A. Photographer &lt;Studio&gt;')
+  // A code past the last character there is doesn't stop the import.
+  expect(tidyAuthor('A. Photographer &#99999999; &#xFFFFFFFF;')).toBe('A. Photographer &#99999999; &#xFFFFFFFF;')
+  expect(authorText(`A. Photographer &#99999999; ${address}`)).not.toContain('@')
+})
+
+test('a stored Commons credit with an email address keeps only the name, in place; the next run finds nothing', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'cr-'))
+  await mkdir(join(root, 'gallery'), { recursive: true })
+  const credit = `Photographer (Photographer) I'd appreciate if you could mail me (${address}) if you want to use this picture out of the Wikimedia project scope.`
+  const gallery = { id: 'koi', photos: [
+    { author: credit, sourceUrl: 'https://commons.wikimedia.org/wiki/File:K.jpg' },
+    { author: 'B. Other', sourceUrl: 'https://commons.wikimedia.org/wiki/File:L.jpg' },
+  ] }
+  const raw = `${JSON.stringify(gallery, null, 2)}\n`
+  await writeFile(join(root, 'gallery', 'koi.json'), raw)
+
+  expect(await tidyCredits(root)).toEqual({ files: 1, authors: 1 })
+  const after = await readFile(join(root, 'gallery', 'koi.json'), 'utf8')
+  expect(after).toBe(raw.replace(JSON.stringify(credit), '"Photographer"'))
+  expect(after).not.toContain('@')
+  expect(await tidyCredits(root)).toEqual({ files: 0, authors: 0 })
+})
