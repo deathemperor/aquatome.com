@@ -117,4 +117,8 @@ test("in code, every run: 'about' before the litres a gallon size becomes, litre
   // A title written in English-style capitals throughout keeps them: one lower-case word in it would read worse.
   expect(tidyTitle('Cara Menyediakan Tangki Udang Pertama Anda', 'ms')).toBe('Cara Menyediakan Tangki Udang Pertama Anda')
   expect(tidyTitle('Saya dapat cory istimewa! Ikan baharu untuk akuarium discus', 'ms')).toBe('Saya dapat cory istimewa! Ikan baharu untuk akuarium discus')
+  // A short title whose page name has two capitals is not a title-case title (the editors, round 7).
+  expect(tidyTitle('Pemijahan Ikan Zebra (Danio rerio)', 'id')).toBe('Pemijahan ikan Zebra (Danio rerio)')
+  expect(tidyTitle('Unboxing Ikan Hidup: Gertrudae (Pseudomugil gertrudae)', 'id')).toBe('Unboxing Ikan Hidup: Gertrudae (Pseudomugil gertrudae)')
+  expect(tidyTitle('Profil Ikan Dokter: Semua tentang Garra rufa dan Penggunaannya di Spa', 'id')).toBe('Profil Ikan Dokter: Semua tentang Garra rufa dan Penggunaannya di Spa')
 })

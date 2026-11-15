@@ -41,8 +41,9 @@ export function tidyTitle(title: string, lang?: Lang): string {
       return `${unit} (${before && ABOUT.test(before.trim()) ? before : `${w.about} `}${num} ${w.litres})`
     })
     t = t.replace(new RegExp(`,\\s*(${w.part}) (\\d+)$`), ' $1 $2')
-    const words = t.split(/\s+/).slice(1).filter(x => /^\p{L}/u.test(x))
-    const titleCase = words.length > 2 && words.filter(x => /^\p{Lu}/u.test(x)).length / words.length >= 0.6
+    // English-style capitals throughout: most words after the first, outside brackets and other than the fish word, capitalised.
+    const words = t.replace(/\([^()]*\)/g, ' ').split(/\s+/).slice(1).filter(x => /^\p{L}/u.test(x) && !w.fish.includes(x))
+    const titleCase = words.length >= 2 && words.filter(x => /^\p{Lu}/u.test(x)).length / words.length >= 0.5
     if (w.fish.length && !titleCase) t = t.replace(new RegExp(`(?<=[^\\s.!?|:] )(${w.fish.join('|')})(?= )`, 'g'), s => s.toLowerCase())
   }
   return (ABBREVIATION.test(t) ? t : t.replace(/\.$/, '')).slice(0, 140)
