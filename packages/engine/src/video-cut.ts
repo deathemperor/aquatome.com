@@ -9,56 +9,79 @@ import { blockOf, plain, quoted, sentences, splice, type Piece } from './sentenc
 
 /**
  * The held video guides' cut (the chief of staff, 15 Nov 2026: "cut now", ahead of the sentence-only mend of Tue 17): a
- * video guide the gate holds for sentences its read names as the source talking, advice for a reader elsewhere, a foreign
- * shop, a price or a product has each of those sentences cut whole, by code, with no model; each "words" finding's own
+ * video guide the gate holds for sentences its read names as the source talking, a foreign shop, a price or a product has
+ * each of those sentences cut whole, by code, with no model; each "words" finding's own
  * fix goes in where its words stand. The gate, last in the run, reads the guide again and lets it out if it passes; one
  * that fails stays held for the mend.
  * - Nothing is lost for good: each sentence it cuts is kept in VIDEO_CUT_FILE (the guide, its part, the sentence before
  *   it, the sentence, its finding and the read's hash), added to and never rewritten, for the mend to write the true ones
  *   back in.
- * - Left as it is, and listed: a guide held by hand, or fixed by hand (bodyFixed, faqFixed); one with a finding a person
- *   waits on (harm, a kit, a dose: never touched) or another the cut can't take; one whose saved read isn't of its text as
- *   it stands; a quote not in its text, or across two sentences; a dose in the paragraph of a sentence it would cut; a
- *   sentence kept right after a cut one that reads on from it ("Vì vậy …", "các bể này"), or right before one, ending in
- *   a colon; a sentence it would cut that runs on into the next where a unit or an initial ends it ("50 W. Nó…"); a
- *   sentence a read calls advice for elsewhere that ties keeping to a climate, whose condition the mend keeps as
- *   warmth or a temperature; a body every sentence of which would go.
+ * - Left as it is, and listed:
+ *   - a guide held by hand, fixed by hand (bodyFixed, faqFixed), or cut once already (what a reread finds after is the
+ *     mend's); one with a finding a person waits on (harm, a kit, a dose: never touched) or another the cut doesn't take,
+ *     advice for elsewhere among them; one whose saved read isn't of its text as it stands;
+ *   - a quote not in its text, or across two sentences; a sentence that runs on into the next where a unit or an initial
+ *     ends it ("50 W. Nó…");
+ *   - a sentence to cut that is a table's cell, names its item ("<strong>X</strong>: …") or opens what follows (a colon),
+ *     or gives a step or a caution anywhere in it; a dose (an amount, or "một nắp") in its paragraph or
+ *     the sentence kept after it;
+ *   - a sentence kept after a cut one that reads on from it (a connective, a pronoun, "này/đó" anywhere in it, "thứ hai"),
+ *     gives a figure right after a cut one with figures, or speaks of money after a price that goes; a sentence kept
+ *     before one that opens it (a colon) or announces a count ("nhờ hai điều");
+ *   - a body every sentence of which would go, or a cut of more than a tenth of its words.
  * - A units finding stays: units-mend.ts takes a guide held for units alone, the run after the gate has read the cut.
  * - What a cut empties goes with it: a summary point, a question and its answer, a list, a heading with nothing under it.
  */
 export const VIDEO_CUT_FILE = 'engine-state/_video-cut.json'
-/** What the cut takes whole. */
-export const CUT: readonly FitCheck[] = ['source', 'elsewhere', 'shop', 'price', 'product']
+/**
+ * What the cut takes whole. Not advice for a reader elsewhere: those lines most often carry a care fact under a condition
+ * (cured oak is safe in a tank; the dechlorinator after the mixer tap), and wait for the mend (the chief of staff, 15 Nov 2026).
+ */
+export const CUT: readonly FitCheck[] = ['source', 'shop', 'price', 'product']
 /** The first run's dozen (the chief of staff, 15 Nov 2026: three of them read before the rest go). */
 export const VIDEO_CUT_LIMIT = 12
 /** The most of a guide's words a cut takes; a guide that would lose more waits for the mend (the 15 Nov ruling was on cuts of a tenth at most). */
 export const VIDEO_CUT_SHARE = 0.1
 
 /** A kept sentence that reads on from the one before it: a connective or a pointer back, which a cut leaves pointing at nothing. */
-const LEANS = /^[\s"“‘'(«]*(?:vì vậy|vì thế|bởi vậy|do đó|do vậy|cho nên|thế nên|vậy nên|nên|như vậy|nhờ vậy|nhờ đó|nhờ thế|thế là|kết quả là|từ đó|sau đó|lúc đó|khi đó|lúc này|khi này|điều này|điều đó|việc này|việc đó|cách này|cách đó|chuyện này|chuyện đó|ngoài ra|bên cạnh đó|thêm vào đó|cũng vậy|tương tự|còn|nhưng|tuy vậy|tuy nhiên|dù vậy|mặt khác)(?![\p{L}])/iu
+const LEANS = /^[\s"“‘'(«]*(?:vì vậy|vì thế|bởi vậy|do đó|do vậy|cho nên|thế nên|vậy nên|nên|như vậy|nhờ vậy|nhờ đó|nhờ thế|thế là|kết quả là|từ đó|sau đó|lúc đó|khi đó|lúc này|khi này|điều này|điều đó|việc này|việc đó|cách này|cách đó|chuyện này|chuyện đó|ngoài ra|bên cạnh đó|thêm vào đó|cũng vậy|tương tự|còn|nhưng|tuy vậy|tuy nhiên|dù vậy|mặt khác|đổi lại|ngược lại|thay vào đó|dù|dẫu|mà|và|hoặc)(?![\p{L}])/iu
 const POINTS = /(?<![\p{L}])(?:(?:các|những|cái|hai|ba|mấy)\s+(?:bể|con|cây|cá|loại|thứ|bước|cách)\s+(?:này|đó|kia|ấy|trên)|như trên|kể trên|nói trên|vừa nói|ở trên)(?![\p{L}])/iu
 /** A sentence that announces what follows it ("nhờ hai điều", "như sau", "dưới đây"): a cut after it leaves it promising what isn't there. */
 const FORETELLS = /(?<![\p{L}])(?:(?:hai|ba|bốn|năm|sáu|vài|mấy|một số|các|những)\s+(?:điều|cách|lý do|bước|việc|thứ|điểm|mẹo|loại|lựa chọn|yếu tố)(?:\s+(?:sau|chính|quan trọng))?\s*[.:!]?\s*$|sau đây|như sau|dưới đây)(?![\p{L}])/iu
 /**
- * A pointer back in a kept sentence's first words: a pronoun ("Nó chỉ chạy…", "Chúng thích…", "Ở đó…", "làm vậy"), or a
- * thing named with "này", "đó" or "ấy" that the cut sentence names too ("Tủ này dài 120 cm" after a cut that named the
- * cabinet). "Bài này" is the guide; "thế nào" asks and "gì đó" names nothing.
+ * A pointer back anywhere in a kept sentence: a pronoun ("Nó chỉ chạy…", "Đây là…", "của nó"), a thing named with "này",
+ * "đó", "ấy" or "kia" ("Tủ này dài 120 cm", "đến đó", "Chỗ này"), "vậy" or "thế", or a word that counts on what came
+ * before ("thứ hai", "còn lại", "con số", "lâu hơn", "sẽ đỡ hơn", "Bể khác", "Lúc làm lại"). "Bài này" is the guide; "thế nào" asks and "gì đó" names nothing.
+ * Two readers found these after the first six words on 15 Nov 2026, so the whole sentence is read.
  */
-const PRONOUN = /(?<![\p{L}])(?:nó|chúng|họ|ở đó|tại đó|chỗ đó|vậy|thế)(?![\p{L}])/iu
-const NAMED = /(\p{L}+)\s+(?:này|đó|ấy|kia)(?![\p{L}])/giu
+const PRONOUN = /(?<![\p{L}])(?:nó|chúng|họ|đây|vậy|thế|con số|thứ hai|thứ ba|thứ tư|còn lại|lâu hơn|nhiều hơn|ít hơn|hơn nữa|đỡ hơn|tốt hơn|hay hơn|khá hơn|kém hơn|khác|làm lại|lần sau|lần trước|lần này)(?![\p{L}])/iu
+const DEMONSTRATIVE = /(?<![\p{L}])\p{L}+\s+(?:này|đó|ấy|kia)(?![\p{L}])/iu
 const NOT_POINTER = /(?<![\p{L}])(?:bài này|video này|(?:như )?thế nào|thay thế|thế giới|thế hệ|(?:gì|nào|đâu|ai) đó|thuộc họ|họ hàng|họ cá)(?![\p{L}])/giu
-export function leans(sentence: string, cut = ''): boolean {
+export function leans(sentence: string): boolean {
   if (LEANS.test(sentence) || POINTS.test(sentence)) return true
-  const head = sentence.split(/\s+/).slice(0, 6).join(' ').replace(NOT_POINTER, ' ')
-  if (PRONOUN.test(head)) return true
-  return [...head.matchAll(NAMED)].some(m => new RegExp(`(?<![\\p{L}])${m[1]}(?![\\p{L}])`, 'iu').test(cut))
+  const s = sentence.replace(NOT_POINTER, ' ')
+  return PRONOUN.test(s) || DEMONSTRATIVE.test(s)
 }
 /**
- * A sentence that ties keeping to a climate (a season, frost, the tropics): its condition is kept
- * as warmth or a temperature by the mend, never dropped by a cut (the chief of staff, 15 Nov 2026).
+ * A step or a caution: what a sentence cut whole may not take with it. A remark may wait on the list
+ * ("bù lại chúng sống lâu", "ít nơi bán"); a step or a caution may not (the chief of staff, 15 Nov 2026).
  */
-const CLIMATE = /(?<![\p{L}])(?:mùa (?:đông|hè|hạ|thu|xuân|lạnh|nóng|mưa|khô)|đóng băng|băng giá|tuyết(?! tùng)|sương giá|trời (?:lạnh|nóng|rét)|rét|xứ (?:lạnh|nóng)|nhiệt đới|ôn đới|qua đông|ngủ đông)(?![\p{L}])/iu
-export const climate = (sentence: string) => CLIMATE.test(sentence)
+// "nên" after a comma is "so" ("…, nên mọi thứ đều tính theo…"), not "should".
+const STEP = /(?<![\p{L}])(?:(?<!,\s*)nên|cần|phải|hãy|đừng|tránh|cẩn thận|coi chừng|chú ý|lưu ý|nguy hiểm|độc|chết|bệnh|hại|thêm|dùng|cho vào|đặt|thay|châm|rửa|cắt|tắt|bật|chỉnh|kiểm tra|đo|giữ|trộn|ngâm|cách ly|cho ăn|chuyển|thả|mua|khoan|buộc|tìm)(?![\p{L}])/iu
+/** A dose said by its measure ("chỉ cần một nắp", "hai giọt"), which givesDose, reading amounts and units, doesn't see. */
+const MEASURE = /(?<![\p{L}])(?:nắp|muỗng|thìa|giọt|viên)(?![\p{L}])/iu
+/** A kept sentence on money right after a price that goes ("nên tổng tiền cá cũng không đáng là bao"). */
+const MONEY = /(?<![\p{L}])(?:tiền|giá|rẻ|đắt|chi phí|đáng là bao|tốn kém)(?![\p{L}])/iu
+/** Which sentences sit in a table's cell: a cut there leaves the cell empty and its row or column unnamed. */
+const cells = (pieces: Piece[]) => {
+  let cell = false
+  const out: boolean[] = []
+  for (const p of pieces) {
+    if (p.sentence) { out.push(cell); continue }
+    for (const m of p.html.matchAll(/<(\/?)(td|th|table)\b/gi)) cell = !m[1] && m[2]!.toLowerCase() !== 'table'
+  }
+  return out
+}
 /** Which sentences open a heading: one starts a new section, so it never reads on from the sentence before it. */
 const headings = (pieces: Piece[]) => pieces.flatMap((p, i) => (p.sentence ? [/<h[1-6][\s>][^<]*$/i.test(pieces[i - 1]?.html ?? '')] : []))
 /**
@@ -69,6 +92,8 @@ const headings = (pieces: Piece[]) => pieces.flatMap((p, i) => (p.sentence ? [/<
 export function swapOf(quote: string, fix: string): string | undefined {
   const n = (x: string) => x.split(/\s+/).filter(Boolean).length
   if (/["“”‘’'«»,;:()/]|(?<![\p{L}])(?:hoặc|or|nói|viết|dùng từ)(?![\p{L}])/iu.test(fix) || n(quote) > 4 || n(fix) > 4 || !fix.trim()) return undefined
+  // "rêu cây (moss)" → "moss" leaves the English: a fix with no Vietnamese letter for a quote with one is the writer's.
+  if (/[^\x00-\x7f]/.test(quote) && !/[^\x00-\x7f]/.test(fix)) return undefined
   const f = fix.trim()
   return /^\p{Lu}/u.test(quote) ? f[0]!.toLocaleUpperCase('vi') + f.slice(1) : f
 }
@@ -87,7 +112,8 @@ export type VideoCut = {
   emptied: string[]
 }
 export type VideoCutReport = { cut: VideoCut[]; left: string[] }
-type Kept = Record<string, { at: string; read: string; cuts: CutLine[]; swaps: VideoCut['swaps']; emptied: string[] }[]>
+/** The list, an entry for each guide and run ("<guide> <time>"): two clones' runs add different keys, which the JSON-map merge keeps both of. */
+type Kept = Record<string, { key: string; at: string; read: string; cuts: CutLine[]; swaps: VideoCut['swaps']; emptied: string[] }>
 type Lang = Record<string, unknown> & { held?: Held; body?: string; bodyFixed?: boolean; faqFixed?: boolean; summary?: string[]; faq?: { q: string; a: string }[] }
 
 /** A body without lists, and headings, that a cut left with nothing under them: what went, for the report. */
@@ -147,16 +173,35 @@ export function cutGuide(p: Page, t: Lang, e: FitEntry | undefined): Omit<VideoC
     const said = ps.filter(x => x.sentence).map(x => x.html)
     const block = blockOf(ps)
     const heading = headings(ps)
+    const cell = cells(ps)
     for (const [i, f] of m) {
       // A unit or an initial before a full stop ("50 W. Nó…", "25 °C. Cá…") keeps two sentences as one: the cut would take both.
-      if (/[.!?…]\s+["“‘(«]*\p{Lu}/u.test(plain(said[i]!))) return { left: `a sentence it would cut runs on into the next, in ${field}: "${plain(said[i]!)}"` }
-      if (f.check === 'elsewhere' && climate(plain(said[i]!))) return { left: `a climate condition the mend keeps as warmth or a temperature, in ${field}: "${plain(said[i]!)}"` }
+      if (/[.!?…]\s+["“‘(«]*[\p{Lu}\d]/u.test(plain(said[i]!))) return { left: `a sentence it would cut runs on into the next, in ${field}: "${plain(said[i]!)}"` }
+      const was = plain(said[i]!)
+      if (cell[i]) return { left: `a sentence it would cut is a table's cell, in ${field}: "${was}"` }
+      // A label ("<strong>Anubias 'Needle Leaf'</strong>: …") names what its item is about, and a lead-in ending in a colon
+      // opens what follows: either cut leaves the rest about nothing.
+      if (/<(?:strong|b)\b/i.test(said[i]!) || /^[^.:!?]{1,60}:\s/u.test(was) || /[:：]\s*$/.test(was)) return { left: `a sentence it would cut names or opens what follows it, in ${field}: "${was}"` }
+      // A finding on part of a sentence: the rest can be a true step ("Mở vòi đã chỉnh sẵn nhiệt độ rồi châm thuốc khử clo"
+      // for the mixer tap alone), which a whole-sentence cut would take.
+      // Read whole: a read that quotes all of "Có thể thêm cây thủy sinh nổi, nhất là ở khu ao nông bên trái" for the source's
+      // pond still takes a step with it.
+      if (STEP.test(was)) return { left: `a sentence it would cut gives a step or a caution, in ${field}: "${was}"` }
       // A dose in the paragraph of a sentence it cuts: a person reads the paragraph whole.
-      if (givesDose(plain(said.filter((_, j) => block[j] === block[i]).join(' ')))) return { left: `a dose in the paragraph of a sentence it would cut, in ${field}` }
+      let after = i + 1
+      while (m.has(after)) after++
+      const near = plain([...said.filter((_, j) => block[j] === block[i]), said[after] ?? ''].join(' '))
+      if (givesDose(near) || MEASURE.test(near)) return { left: `a dose in the paragraph of a sentence it would cut, in ${field}` }
       // The sentence kept after it, in the same part, that reads on from it.
       let j = i + 1
       while (m.has(j)) j++
-      if (j < said.length && !heading[j] && leans(plain(said[j]!), plain(said[i]!))) return { left: `a sentence kept after a cut one reads on from it, in ${field}: "${plain(said[j]!)}"` }
+      if (j < said.length && !heading[j]) {
+        const next = plain(said[j]!)
+        if (leans(next)) return { left: `a sentence kept after a cut one reads on from it, in ${field}: "${next}"` }
+        // A figure kept right after a cut one that set its terms ("Một cây sưởi khoảng 25 W…" after the tank and the room).
+        if (block[j] === block[i] && /\d/.test(was) && /\d/.test(next)) return { left: `a figure kept after a cut one with figures, in ${field}: "${next}"` }
+        if (f.check === 'price' && MONEY.test(next)) return { left: `a sentence on money kept after a price that goes, in ${field}: "${next}"` }
+      }
       // The sentence kept before it, if it opens what was cut ("Có thể thử các loại sau:").
       let k = i - 1
       while (m.has(k)) k--
@@ -177,7 +222,7 @@ export function cutGuide(p: Page, t: Lang, e: FitEntry | undefined): Omit<VideoC
     const field = fieldOf(f)
     const was = field === undefined ? undefined : now.get(field) ?? texts.find(x => x.field === field)?.text
     const fix = swapOf(f.quote!, f.fix!)
-    if (field === undefined || !was || !fix || !was.includes(f.quote!)) { out.unswapped.push(`${field ?? '?'}: "${f.quote}" (${f.fix})`); continue }
+    if (field === undefined || !was || !fix || was.split(f.quote!).length !== 2) { out.unswapped.push(`${field ?? '?'}: "${f.quote}" (${f.fix})`); continue }
     now.set(field, was.replace(f.quote!, fix))
     out.swaps.push({ field, quote: f.quote!, fix })
   }
@@ -235,14 +280,17 @@ export async function videoCut(root: string, o: { limit?: number; first?: readon
   for (const { p, file, t } of held) {
     if (report.cut.length >= (o.limit ?? VIDEO_CUT_LIMIT)) break
     const key = fitKey(p)
+    // One cut a guide: what a reread finds after it is the mend's, and losses never add up past the tenth.
+    if (Object.values(kept).some(x => x.key === key)) { report.left.push(`${key}: cut once already`); continue }
     const r = cutGuide(p, t, state[key])
     if ('left' in r) { if (r.left !== 'nothing to cut') report.left.push(`${key}: ${r.left}`); continue }
     if (r.changes.some(c => (get(t, path(c.field)) as string | undefined)?.trim() !== c.old.trim())) { report.left.push(`${key}: its file isn't the text its read was of`); continue }
     report.cut.push({ key, file, ...r })
     if (o.dryRun) continue
-    ;(kept[key] ??= []).push({ at, read: state[key]!.hash, cuts: r.cuts, swaps: r.swaps, emptied: r.emptied })
+    kept[`${key} ${at}`] = { key, at, read: state[key]!.hash, cuts: r.cuts, swaps: r.swaps, emptied: r.emptied }
+    // The list first, so a run stopped between the two never leaves a cut that isn't on it.
+    await writeFile(keptFile, `${JSON.stringify(Object.fromEntries(Object.entries(kept).sort(([a], [b]) => a.localeCompare(b))), null, 2)}\n`)
     await writeFile(join(root, file), `${JSON.stringify(applyCut(t, r), null, 2)}\n`)
   }
-  if (!o.dryRun && report.cut.length) await writeFile(keptFile, `${JSON.stringify(Object.fromEntries(Object.entries(kept).sort(([a], [b]) => a.localeCompare(b))), null, 2)}\n`)
   return report
 }
