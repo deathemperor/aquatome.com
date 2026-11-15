@@ -1135,7 +1135,7 @@ test('the guide on where to learn aquascaping names no private person in passing
     'Trang này tìm trên Google là dễ gặp.',
     'Kho bài còn có một topic dài 40 trang về bể nổi tiếng của một người chơi từng dự thi và đạt nhiều giải quốc tế.',
     'Thủy Sinh AZ',
-  ]) expect(t.body.includes(said), said).toBe(true)
+  ]) expect((t.body ?? '').includes(said), said).toBe(true)
   for (const mark of ['bodyFixed', 'faqFixed', 'nameFixed']) expect(t[mark], mark).toBe(true)
 })
 
@@ -1147,6 +1147,6 @@ test('the Botia markings guide prints no email address, still credits its author
   const t = JSON.parse(readFileSync(fileURLToPath(new URL('../../../content/guides/loachesonline-articles-botia-rostrata-development-of-markings-during-growth/vi.json', import.meta.url)), 'utf8')) as Translation & Record<string, unknown>
   const all = [t.name, t.body, ...(t.summary ?? []), ...(t.faq ?? []).flatMap(f => [f.q, f.a])].join('\n')
   expect(all.includes('@'), 'an "@", an address or any of it').toBe(false)
-  expect(t.body.match(/<strong>Từ:<\/strong> \p{Lu}\p{L}+ (?:\p{Lu}\. )?\p{Lu}\p{L}+/gu)?.length, 'letters whose header names their sender').toBe(2)
+  expect((t.body ?? '').match(/<strong>Từ:<\/strong> \p{Lu}\p{L}+ (?:\p{Lu}\. )?\p{Lu}\p{L}+/gu)?.length, 'letters whose header names their sender').toBe(2)
   expect(t.bodyFixed).toBe(true)
 })
