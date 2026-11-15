@@ -10,7 +10,7 @@ const PROMPT = readFileSync(new URL('./prompts/video-titles.md', import.meta.url
 const SCHEMA = { type: 'object', required: ['titles'], properties: { titles: { type: 'array', items: { type: 'object', required: ['n', 'title'], properties: { n: { type: 'number' }, title: { type: 'string' } } } } } }
 const BATCH = 40
 const THAI = /[฀-๿]/
-const VI = { lang: 'Vietnamese', country: 'Vietnam', style: 'Style: plain written Vietnamese, as aquarium hobbyists in Vietnam write it: "bể", "cá", "thay nước", "cây thủy sinh". No phrasing that reads as translated from English.' }
+const VI = { lang: 'Vietnamese', country: 'Vietnam', style: 'Style: plain written Vietnamese, as aquarium hobbyists in Vietnam write it: "bể", "cá", "thay nước", "cây thủy sinh". No phrasing that reads as translated from English. Say it as a keeper would, not as a book or the news.' }
 
 type Video = { youtubeId: string; title: string; lang: string }
 type Page = { t?: { name?: string }; name?: string }
