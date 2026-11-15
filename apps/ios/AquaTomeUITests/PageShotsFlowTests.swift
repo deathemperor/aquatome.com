@@ -94,8 +94,8 @@ final class PageShotsFlowTests: XCTestCase {
   func testTheChat() { shootChat("chat-light") }
   func testTheChatInTheDark() { shootChat("chat-dark", dark: true) }
   func testTheChatInTheLargestText() { shootChat("chat-largest-light", size: largest) }
-  /// For Design's parity (15 Nov): a long section opened, its "Thu gọn" in view and measured; then a species card's page,
-  /// and iOS's back to the chat, where it was left. v2, light.
+  /// For Design's parity (15 Nov): a species card's page and iOS's back to the chat, where it was left; then a long section
+  /// opened, its "Thu gọn" in view and measured. v2, light.
   func testTheChatsOpenSectionAndBackFromACardsPage() {
     let app = launch(dark: false, size: nil, ["-fake-accounts", "on", "-reset-fake-server", "-chat-blocks"], look: .v2)
     let tabs = app.tabBars.buttons
@@ -118,24 +118,40 @@ final class PageShotsFlowTests: XCTestCase {
       a.lifetime = .keepAlways
       add(a)
     }
-    let section = app.scrolledDown(to: app.descendants(matching: .any)["chat-section"].firstMatch)
+    // As ChatFlowTests' `reveal`: fast drags until it's on screen and clear of the box. A slow scroll stopped short of the
+    // section, which sits under the species cards and the comparison (15 Nov 12:32).
+    let box = app.descendants(matching: .any)["chat-box"].firstMatch
+    func reveal(_ e: XCUIElement) {
+      func clear() -> Bool { e.exists && e.isHittable && (!box.exists || e.frame.midY < box.frame.minY - 16) }
+      repeatUntil(clear(), times: 12) {
+        app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.7))
+          .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.4)), withVelocity: .fast,
+                 thenHoldForDuration: 0.1)
+      }
+      XCTAssertTrue(clear(), "\(e) not found, or behind the box")
+    }
+    // The species card comes first in the answer: its page, and back to the chat.
+    let page = app.buttons.matching(identifier: "chat-card-open").firstMatch
+    reveal(page)
+    shot("01-before-the-page")
+    page.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 10), "the card's page didn't open")
+    app.leavePage()
+    XCTAssertTrue(page.waitForExistence(timeout: 5), "not back in the chat")
+    shot("02-back-in-the-chat")
+    // Then the long section, below the comparison: opened, with its "Thu gọn" in view and measured.
+    let section = app.descendants(matching: .any)["chat-section"].firstMatch
+    reveal(section)
     section.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
     let close = app.buttons["Thu gọn"]
     XCTAssertTrue(close.waitForExistence(timeout: 5), "the section didn't open")
-    _ = app.scrolledDown(to: close)
-    shot("01-section-open")
+    reveal(close)
+    shot("03-section-open")
     let size = XCTAttachment(string: "Thu gọn: \(close.frame.width) × \(close.frame.height) pt at \(close.frame.minX), \(close.frame.minY)")
     size.name = "chat-parity-thu-gon-frame"
     size.lifetime = .keepAlways
     add(size)
     XCTAssertGreaterThanOrEqual(close.frame.height, 44, "Thu gọn under 44 pt")
-    let page = app.scrolledDown(to: app.buttons.matching(identifier: "chat-card-open").firstMatch)
-    shot("02-before-the-page")
-    page.tap()
-    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 10), "the card's page didn't open")
-    app.leavePage()
-    XCTAssertTrue(page.waitForExistence(timeout: 5), "not back in the chat")
-    shot("03-back-in-the-chat")
   }
   func testFishId() { shootFishId("fish-id-light") }
   func testFishIdInTheDark() { shootFishId("fish-id-dark", dark: true) }
