@@ -17,14 +17,19 @@ export const speaksPageLang = (v: { lang: string }, lang: Lang) => baseLang(v.la
  * `on: false`, a language whose titles aren't turned on yet (content/video-titles/on.json; the chief of staff, 15 Nov):
  * only the titles in `kept` (content/video-titles/kept.json, the ones the editors passed) show translated; every other
  * foreign video keeps its own title, marked `ownTitle`, and none is left out for want of one.
+ *
+ * `refused` (content/video-titles/<lang>.refused.json, YouTube id → why): titles the meaning check refused. Such a video
+ * keeps its own title, marked `ownTitle`, even with its language on, and is never left out for it; a kept title wins over
+ * a refusal (the chief of staff, 16 Nov).
  */
-export function videosForPage<V extends Video>(videos: V[], lang: Lang, titles: Record<string, string>, generated: Record<string, string>, o: { order?: boolean; requireTitle?: boolean; on?: boolean; kept?: Record<string, string> } = {}): V[] {
+export function videosForPage<V extends Video>(videos: V[], lang: Lang, titles: Record<string, string>, generated: Record<string, string>, o: { order?: boolean; requireTitle?: boolean; on?: boolean; kept?: Record<string, string>; refused?: Record<string, string> } = {}): V[] {
   const on = o.on ?? true
   const out = videos.flatMap(v => {
     const mark = generated[v.youtubeId] ? { generated: true as const } : {}
     if (speaksPageLang(v, lang)) return [{ ...v, ...mark }]
-    const title = on || v.youtubeId in (o.kept ?? {}) ? titles[v.youtubeId] : undefined
-    if (!title) return !on ? [{ ...v, ...mark, ownTitle: true as const }] : o.requireTitle ? [] : [{ ...v, ...mark }]
+    const kept = v.youtubeId in (o.kept ?? {}), refused = !kept && v.youtubeId in (o.refused ?? {})
+    const title = (on && !refused) || kept ? titles[v.youtubeId] : undefined
+    if (!title) return !on || refused ? [{ ...v, ...mark, ownTitle: true as const }] : o.requireTitle ? [] : [{ ...v, ...mark }]
     return [{ ...v, ...mark, title, originalTitle: v.title }]
   })
   return o.order === false ? out : [...out.filter(v => speaksPageLang(v, lang)), ...out.filter(v => !speaksPageLang(v, lang))]

@@ -63,4 +63,20 @@ describe('a language not yet turned on for translated titles (content/video-titl
       ['other', 'Hướng dẫn nuôi cá đĩa', false],
     ])
   })
+  test('turned on, a title the meaning check refused shows the video\'s own title, marked, and is not hidden; a kept title wins over a refusal (the chief of staff, 16 Nov)', () => {
+    const refused = { other: 'added: a forum name made a fact', kept1: 'never applies to a kept title' }
+    const out = videosForPage(vids, 'vi', titles, {}, { requireTitle: true, on: true, kept, refused })
+    expect(out.map(v => [v.youtubeId, v.title, v.ownTitle ?? false, v.originalTitle])).toEqual([
+      ['vivi1', 'Nuôi cá đĩa', false, undefined],
+      ['kept1', 'Tham quan bể cá đĩa Heckel', false, 'Heckel tank tour'],
+      ['other', 'Discus care guide', true, undefined],
+    ])
+    // A product's reviews, which keep their order and every video: the same mark.
+    const reviews = videosForPage(vids, 'vi', titles, {}, { order: false, on: true, kept, refused })
+    expect(reviews.find(v => v.youtubeId === 'other')).toMatchObject({ title: 'Discus care guide', ownTitle: true })
+  })
+  test('off, a refusal changes nothing: every foreign video but the kept already keeps its own title', () => {
+    const out = videosForPage(vids, 'vi', titles, {}, { requireTitle: true, on: false, kept, refused: { other: 'x' } })
+    expect(out.map(v => [v.youtubeId, v.ownTitle ?? false])).toEqual([['vivi1', false], ['kept1', false], ['other', true], ['none1', true]])
+  })
 })

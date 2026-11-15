@@ -96,7 +96,7 @@ import { speciesVideos } from './species-videos'
 import { findVideos, readVideoRejected } from './videos'
 import { localizeCaptions } from './captions'
 import { translateVideoTitles } from './video-titles'
-import { checkVideoTitles } from './video-title-check'
+import { checkVideoTitles, recordRefusals } from './video-title-check'
 import { localizeEquipment } from './equipment-intl'
 import { addWikidataNames } from './wikidata'
 import { addPlantSynonyms } from './plant-synonyms'
@@ -1285,14 +1285,21 @@ if (cmd === 'photo-privacy') {
   for (const x of [...r.rejected, ...r.failed].slice(0, 30)) console.log(`  ${x}`)
 } else if (cmd === 'video-titles-check') {
   // Each written title read again against the video's own title for a fault of meaning (video-title-check.ts). The titles
-  // come from --titles <file> (YouTube id → title), or the language's stored ones; the verdicts go to --out <file>.
+  // come from --titles <file> (YouTube id → title), or the language's stored ones; the kept ones, which the editors passed,
+  // aren't read. The verdicts go to --out <file>; --write also records each refusal and its reason in
+  // content/video-titles/<lang>.refused.json, where the site shows that video's own title, and clears a title that now passes.
   const lang = values.lang as Lang
-  if (!LANGS.includes(lang) || !values.out) throw new Error(`usage: pnpm engine video-titles-check --lang ${LANGS.join('|')} --out <file> [--titles <file>] [--only youtubeId,youtubeId]`)
-  const titles = JSON.parse(await readFile(values.titles ? String(values.titles) : join(ROOT, 'content/video-titles', `${lang}.json`), 'utf8')) as Record<string, string>
+  if (!LANGS.includes(lang) || !(values.out || values.write)) throw new Error(`usage: pnpm engine video-titles-check --lang ${LANGS.join('|')} (--out <file> | --write) [--titles <file>] [--only youtubeId,youtubeId]`)
+  const dir = join(ROOT, 'content/video-titles')
+  const kept = JSON.parse(await readFile(join(dir, 'kept.json'), 'utf8').catch(() => '{}')) as Record<string, string>
+  const titles = Object.fromEntries(Object.entries(JSON.parse(await readFile(values.titles ? String(values.titles) : join(dir, `${lang}.json`), 'utf8')) as Record<string, string>).filter(([id]) => !(id in kept)))
   const r = await checkVideoTitles(ROOT, claudeCli, lang, titles, { only: values.only ? String(values.only).split(',') : undefined })
-  await writeFile(String(values.out), `${JSON.stringify(r.checks, null, 2)}\n`)
-  const refused = Object.values(r.checks).filter(c => !c.ok).length
-  console.log(`video-titles-check ${lang}: ${Object.keys(r.checks).length} checked, ${refused} refused, ${r.failed.length} failed${r.stopped ? `, stopped (${r.stopped})` : ''}`)
+  if (values.out) await writeFile(String(values.out), `${JSON.stringify(r.checks, null, 2)}\n`)
+  if (values.write) await recordRefusals(ROOT, lang, r.checks)
+  const checked = Object.keys(r.checks).length, refused = Object.values(r.checks).filter(c => !c.ok).length
+  console.log(`video-titles-check ${lang}: ${checked} checked, ${refused} refused, ${r.failed.length} failed${r.stopped ? `, stopped (${r.stopped})` : ''}`)
+  // More than one title in ten refused: the language isn't turned on until the chief of staff has heard (16 Nov).
+  if (checked && refused * 10 > checked) console.log(`  over one in ten refused (${refused} of ${checked}): stop, and tell the chief of staff before ${lang} is turned on`)
 } else if (cmd === 'wikidata-names') {
   // The names Wikidata gives each species in another language, added to its page's other names where no other page uses them.
   const lang = values.lang as TargetLang

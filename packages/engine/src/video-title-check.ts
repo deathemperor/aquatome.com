@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs'
-import { readdir, readFile } from 'node:fs/promises'
+import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { speaksPageLang, type Lang } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
@@ -52,4 +52,15 @@ export async function checkVideoTitles(root: string, llm: Llm, lang: Lang, title
     }
   }
   return report
+}
+
+/**
+ * Each refusal and its reason into content/video-titles/<lang>.refused.json (YouTube id → why), where the site shows that
+ * video's own title, marked; a title that now passes comes off it. Sorted, as the title files are.
+ */
+export async function recordRefusals(root: string, lang: Lang, checks: Record<string, TitleCheck>) {
+  const file = join(root, 'content/video-titles', `${lang}.refused.json`)
+  const refused = JSON.parse(await readFile(file, 'utf8').catch(() => '{}')) as Record<string, string>
+  for (const [id, c] of Object.entries(checks)) if (c.ok) delete refused[id]; else refused[id] = `${c.kind ?? 'unsure'}: ${c.why ?? ''}`.trim()
+  await writeFile(file, `${JSON.stringify(Object.fromEntries(Object.entries(refused).sort(([a], [b]) => a.localeCompare(b))), null, 2)}\n`)
 }
