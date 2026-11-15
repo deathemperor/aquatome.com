@@ -17,7 +17,8 @@
     "./thumb": "./src/thumb.ts",
     "./staples": "./src/staples.ts",
     "./image-policy": "./src/image-policy.ts",
-    "./test-time": "./src/test-time.ts"
+    "./test-time": "./src/test-time.ts",
+    "./test-scratch": "./src/test-scratch.ts"
   },
   "scripts": {
     "test": "vitest run",

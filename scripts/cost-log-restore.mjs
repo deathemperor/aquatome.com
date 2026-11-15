@@ -15,7 +15,7 @@
 // $GITHUB_STEP_SUMMARY with a warning when a day's spend can't be counted.
 
 import { execFileSync } from 'node:child_process'
-import { appendFileSync, existsSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs'
+import { appendFileSync, existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -171,13 +171,15 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const now = new Date()
   const cached = existsSync(log) ? readFileSync(log, 'utf8') : undefined
   const count = t => (t ? t.split('\n').filter(Boolean).length : 0)
+  // The artifacts' zips, downloaded for this run alone, and removed after it: 1,118 were left in this Mac's /tmp (15 Nov 2026).
+  let dir
   try {
     const repo = process.env.GITHUB_REPOSITORY
     if (!repo) throw new Error('GITHUB_REPOSITORY is not set')
     const repoId = Number(process.env.GITHUB_REPOSITORY_ID) || json([`repos/${repo}`]).id
     const runs = allRuns(n => json([`repos/${repo}/actions/workflows/engine.yml/runs?branch=main&per_page=100&page=${n}`]).workflow_runs, now)
     const list = (path, key) => pagesOf(n => json([`${path}${path.includes('?') ? '&' : '?'}per_page=100&page=${n}`])[key])
-    const dir = mkdtempSync(join(tmpdir(), 'aq-cost-log-'))
+    dir = mkdtempSync(join(tmpdir(), 'aq-cost-log-'))
     const logsOf = run => keptLogs(list(`repos/${repo}/actions/runs/${run.id}/artifacts`, 'artifacts'), repoId).map(a => {
       const zip = join(dir, `${a.id}.zip`)
       writeFileSync(zip, gh(['api', `repos/${repo}/actions/artifacts/${a.id}/zip`]))
@@ -203,5 +205,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     // The earlier runs can't be asked about, so neither can the day: the careful reading.
     appendFileSync(log, unloggedLine(now, `the earlier runs' cost logs couldn't be fetched: ${String(e.message).slice(0, 200)}`))
     loud(`The earlier runs' cost logs couldn't be fetched (${String(e.message).slice(0, 200)}): every step with a ceiling stops until the day ends in Vietnam. The gate and moderation go on.`)
+  } finally {
+    if (dir) rmSync(dir, { recursive: true, force: true })
   }
 }
