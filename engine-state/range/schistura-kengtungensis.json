@@ -1,0 +1,103 @@
+{
+  "id": "schistura-kengtungensis",
+  "native": {
+    "input": "3c98db6b6eb65294",
+    "at": "2026-11-14T17:19:02.525Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Schistura kengtungensis is a nemacheilid loach from the middle Mekong basin in Thailand, Myanmar, Laos and Yunnan Province, southern China.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Schistura kengtungensis is a nemacheilid loach from the middle Mekong basin in Thailand, Myanmar, Laos and Yunnan Province, southern China.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Schistura kengtungensis is a nemacheilid loach from the middle Mekong basin in Thailand, Myanmar, Laos and Yunnan Province, southern China.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Schistura kengtungensis is a nemacheilid loach from the middle Mekong basin in Thailand, Myanmar, Laos and Yunnan Province, southern China.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "This species is distributed in the middle Mekong River basin in north and northeastern Thailand, Myanmar and Xishuangbanna Dai Autonomous Prefecture, Yunnan province, southern China, and is also known from the Nam Beng, Nam Tha and Nam Yuoan drainages in Laos.",
+        "ok": true
+      },
+      {
+        "name": "Nam Beng",
+        "source": "seriouslyfish",
+        "quote": "This species is distributed in the middle Mekong River basin in north and northeastern Thailand, Myanmar and Xishuangbanna Dai Autonomous Prefecture, Yunnan province, southern China, and is also known from the Nam Beng, Nam Tha and Nam Yuoan drainages in Laos.",
+        "country": "LA",
+        "ok": true
+      },
+      {
+        "name": "Nam Tha",
+        "source": "seriouslyfish",
+        "quote": "This species is distributed in the middle Mekong River basin in north and northeastern Thailand, Myanmar and Xishuangbanna Dai Autonomous Prefecture, Yunnan province, southern China, and is also known from the Nam Beng, Nam Tha and Nam Yuoan drainages in Laos.",
+        "country": "LA",
+        "ok": true
+      },
+      {
+        "name": "Nam Yuoan",
+        "source": "seriouslyfish",
+        "quote": "This species is distributed in the middle Mekong River basin in north and northeastern Thailand, Myanmar and Xishuangbanna Dai Autonomous Prefecture, Yunnan province, southern China, and is also known from the Nam Beng, Nam Tha and Nam Yuoan drainages in Laos.",
+        "country": "LA",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Schistura kengtungensis",
+    "status": "ACCEPTED",
+    "taxonKey": 5205083,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "MM",
+      "LA",
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T17:19:02.525Z"
+  }
+}

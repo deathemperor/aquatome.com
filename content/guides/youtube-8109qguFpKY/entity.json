@@ -93,20 +93,13 @@
         "heading": "Lũa nhện mọc nấm trắng có đáng lo không",
         "moments": [
           {
-            "t": 130,
-            "url": "https://media.aquatome.com/video/8109qguFpKY/at130-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khúc lũa nhện khô dựng cạnh bể trước khi cho vào nước.",
-            "sharpness": 606.4
-          },
-          {
             "t": 2030,
             "url": "https://media.aquatome.com/video/8109qguFpKY/at2030-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Khúc lũa nhện lớn đặt trong bể thủy sinh, nước vẫn sạch.",
-            "sharpness": 1391
+            "sharpness": 1391,
+            "person": false
           }
         ]
       },
@@ -119,15 +112,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các túi phân nền và vật liệu nền xếp sẵn trên bàn.",
-            "sharpness": 342.4
-          },
-          {
-            "t": 450,
-            "url": "https://media.aquatome.com/video/8109qguFpKY/at450-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay trộn đều sỏi với đất compost trong chiếc xô.",
-            "sharpness": 207.4
+            "sharpness": 342.4,
+            "person": false
           }
         ]
       },
@@ -140,49 +126,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cát đã phủ mỏng trong bể, có một cục đá đặt làm chân đỡ.",
-            "sharpness": 488.8
-          },
-          {
-            "t": 910,
-            "url": "https://media.aquatome.com/video/8109qguFpKY/at910-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lũa lớn đặt lên trên các cục đá chân đỡ trên nền cát.",
-            "sharpness": 2166.7
-          }
-        ]
-      },
-      {
-        "heading": "Dán lũa khô cho khỏi nổi",
-        "moments": [
-          {
-            "t": 1290,
-            "url": "https://media.aquatome.com/video/8109qguFpKY/at1290-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh khúc lũa áp vào cục đá, chỗ khe để dán keo.",
-            "sharpness": 742.6
-          }
-        ]
-      },
-      {
-        "heading": "Trồng cây bám trước khi đổ nước",
-        "moments": [
-          {
-            "t": 1650,
-            "url": "https://media.aquatome.com/video/8109qguFpKY/at1650-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Gắn dương xỉ lên đá trong lúc bể còn khô.",
-            "sharpness": 925.7
-          },
-          {
-            "t": 1660,
-            "url": "https://media.aquatome.com/video/8109qguFpKY/at1660-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể khô với lũa, đá và các cụm dương xỉ đã gắn sẵn.",
-            "sharpness": 2374.6
+            "sharpness": 488.8,
+            "person": false
           }
         ]
       },
@@ -195,7 +140,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tiền cảnh toàn cát trơn, sát đó là đá và cây mọc thấp.",
-            "sharpness": 972.4
+            "sharpness": 972.4,
+            "person": false
           },
           {
             "t": 2040,
@@ -203,28 +149,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể hiện đại với nền cát sạch và cây nhỏ làm ranh giới.",
-            "sharpness": 1672.1
-          }
-        ]
-      },
-      {
-        "heading": "Trồng cây cắt cắm sau khi có nước",
-        "moments": [
-          {
-            "t": 2120,
-            "url": "https://media.aquatome.com/video/8109qguFpKY/at2120-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh đã đầy nước với cây hậu cảnh và thảm cỏ phía trước.",
-            "sharpness": 2426.5
-          },
-          {
-            "t": 2190,
-            "url": "https://media.aquatome.com/video/8109qguFpKY/at2190-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay cắm ngọn cây có thân vào hậu cảnh bể đã có nước.",
-            "sharpness": 799.4
+            "sharpness": 1672.1,
+            "person": false
           }
         ]
       },
@@ -237,15 +163,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể có lũa lớn phía trên, ống nước của lọc gắn ở góc bể.",
-            "sharpness": 1040.2
-          },
-          {
-            "t": 3200,
-            "url": "https://media.aquatome.com/video/8109qguFpKY/at3200-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh đặt lũa trên mặt nước, nước trong và cây xanh mướt.",
-            "sharpness": 1267.5
+            "sharpness": 1040.2,
+            "person": false
           }
         ],
         "photo": {
@@ -263,20 +182,13 @@
         "heading": "Khi nào thả cá",
         "moments": [
           {
-            "t": 4060,
-            "url": "https://media.aquatome.com/video/8109qguFpKY/at4060-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thả cá thử vào bể bằng túi nhựa, bể có cát và cây thủy sinh.",
-            "sharpness": 551
-          },
-          {
             "t": 4260,
             "url": "https://media.aquatome.com/video/8109qguFpKY/at4260-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh nền cát, lũa và cây xanh tốt, sẵn sàng thả cá.",
-            "sharpness": 1034.8
+            "sharpness": 1034.8,
+            "person": false
           }
         ],
         "photo": {

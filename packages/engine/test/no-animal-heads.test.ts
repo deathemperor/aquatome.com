@@ -69,7 +69,7 @@ test('a head the check calls "none" comes off; the photo after it leads; the run
   const r = await root([{ id: 'aaa', photos: ['a-river', 'a-fish'] }], { 'a-river': null })
   const out = await checkPagePhotos(r, model({ 'a-river': none }), { limit: 10 })
   expect(await photosOf(r, 'aaa')).toEqual(['a-fish'])
-  expect(out.heads).toEqual({ moved: [`species/aaa: ${url('a-river')} -> ${url('a-fish')}`], emptied: [], held: [] })
+  expect(out.heads).toEqual({ moved: [`species/aaa: ${url('a-river')} -> ${url('a-fish')}`], emptied: [], held: [], named: [] })
   expect(Object.keys(await json(r, 'engine-state/_photo-rejected.json'))).toEqual([url('a-river')])
 })
 

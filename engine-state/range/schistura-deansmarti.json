@@ -1,0 +1,48 @@
+{
+  "id": "schistura-deansmarti",
+  "native": {
+    "input": "8bee3e4298342ab2",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Schistura deansmarti is a troglomorphic nemacheilid loach endemic to the Tham Phra Sai Ngam cave system in Phitsanulok Province, Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Tham [=cave] Phra Sai Ngam, about 200 meters from entrance, Thung Salaeng Luang National Park, Phitsanulok Province, Thailand, 16°37'22\"N, 100°39'47\"E', and this species is endemic to the Tham Phra Sai Ngam cave system.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Schistura deansmarti",
+    "status": "ACCEPTED",
+    "taxonKey": 5204953,
+    "datasets": [
+      [
+        "9343010e-8261-4bd9-9314-bf2faf34f4e7",
+        1
+      ]
+    ],
+    "native": [
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

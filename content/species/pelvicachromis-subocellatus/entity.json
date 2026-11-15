@@ -240,7 +240,12 @@
       "author": "Udo12345",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pelvicachromis_subocellatus_Moulondo_female.jpg",
       "caption": "Female of Pelvicachromis subocellatus Moulondo",
-      "thumb": "https://media.aquatome.com/commons/f575406d2ca5a2ed-480.webp"
+      "thumb": "https://media.aquatome.com/commons/f575406d2ca5a2ed-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/f575406d2ca5a2ed-large.webp",
+        "width": 2133,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

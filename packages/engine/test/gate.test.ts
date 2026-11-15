@@ -174,6 +174,11 @@ test('a text put back is kept, with its checks and their quotes: the text before
   await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Đặt hàng ở Petco.</p>` })
   expect((await gate(root, { llm: reader(), now, mend: async () => false })).report.revert).toHaveLength(1)
   expect((await readJson(root, PUT_BACK)).text.body).toContain('Đặt hàng ở Petco')
+  // A mend refused with why: put back the same, and the run lists the page and the reason (the chief of staff, 14 Nov 2026).
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Đặt hàng ở Petco nữa.</p>` })
+  const refused = await gate(root, { llm: reader(), now, mend: async () => ({ refused: 'a sentence no finding names was changed or left out: "x"' }) })
+  expect(refused.report.revert).toHaveLength(1)
+  expect(refused.report.refused).toEqual([expect.stringMatching(/^\/vi\/huong-dan\/.+\/: a sentence no finding names was changed or left out: "x"$/)])
 })
 
 test('advice that would hurt is never the mender\'s to reword, and it mends so many pages a run', async () => {
@@ -981,4 +986,49 @@ test('a mended text that can\'t be read again is put back, so the file and the r
   const t = await readJson(root, 'content/guides/youtube-new-shop/vi.json')
   expect(t.body).toBe(body)
   expect(t.held).toEqual({ checks: ['shop'], at: '2026-11-09' })
+})
+
+// The chief of staff, 14 Nov 2026: three of the night's seven new video guides were held for the source talking and units
+// together, which no editor took; one also for the video's own dose. The editor takes source and units together, never
+// units alone, and a dose it may take (video-mend.ts decides); a held dose goes to it only while the read still finds it.
+const dosed = (calls: string[] = []): Llm => (async (a: { prompt: string }) => {
+  const r = await reader(calls)(a as Parameters<Llm>[0]) as { findings: object[] }
+  return { ...r, findings: [...r.findings, ...(a.prompt.includes('4 nắp') ? [{ check: 'dose', part: 'P1', quote: 'bể này dùng khoảng 4 nắp', why: 'an amount', fix: '', product: '' }] : [])] }
+}) as Llm
+const dropper = (root: string, sent: string[]) => async (p: Page, fs: FitFinding[]) => {
+  sent.push(`${p.id}: ${[...new Set(fs.map(f => f.check))].sort().join(', ')}`)
+  await edit(root, `content/guides/${p.id}/vi.json`, t => { t.body = (t.body as string).replace(/<p>[^<]*(?:Petco|4 nắp)[^<]*<\/p>/g, '') })
+  return true
+}
+test('a new video guide held for a source line and units goes to its editor; units alone doesn\'t', async () => {
+  const root = await repo()
+  const dir = 'content/guides/youtube-r53ZQW0m8VM'
+  for (const id of ['youtube-new-both', 'youtube-new-units']) {
+    await cp(join(root, dir), join(root, `content/guides/${id}`), { recursive: true })
+    await edit(root, `content/guides/${id}/entity.json`, e => { e.id = id })
+  }
+  await edit(root, 'content/guides/youtube-new-both/vi.json', t => { t.slug = 'new-both'; t.body = '<p>Mua lọc ở Petco.</p><p>Bể 10 gallon là đủ.</p>' })
+  await edit(root, 'content/guides/youtube-new-units/vi.json', t => { t.slug = 'new-units'; t.body = '<p>Bể 10 gallon là đủ.</p>' })
+  const sent: string[] = []
+  await gate(root, { llm: reader(), now, mend: dropper(root, sent), jobs: 1 })
+  expect(sent).toEqual(['youtube-new-both: shop, units'])
+})
+
+test('a guide held for the video\'s own dose goes to its editor while the read finds it, and stays held for it when the read doesn\'t', async () => {
+  const root = await repo()
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Châm vi sinh ngay, bể này dùng khoảng 4 nắp.</p>`; t.held = { checks: ['dose'], at: '2026-11-08' } })
+  save(root, 'held')
+  const sent: string[] = []
+  const r = await gate(root, { llm: dosed(), now, mend: dropper(root, sent), heldMends: 1 })
+  expect(sent).toEqual(['youtube-r53ZQW0m8VM: dose'])
+  expect(r.report.release).toHaveLength(1)
+  expect((await readJson(root, GUIDE)).body).not.toContain('4 nắp')
+  // Held for a dose the read no longer finds, beside a shop: not sent, and held for the dose still.
+  const again = await repo()
+  await edit(again, GUIDE, t => { t.body = `${t.body as string}<p>Mua ở Petco.</p>`; t.held = { checks: ['dose'], at: '2026-11-08' } })
+  save(again, 'held')
+  const none: string[] = []
+  await gate(again, { llm: dosed(), now, mend: dropper(again, none), heldMends: 1 })
+  expect(none).toEqual([])
+  expect((await readJson(again, GUIDE)).held).toEqual({ checks: ['dose', 'shop'], at: '2026-11-09' })
 })

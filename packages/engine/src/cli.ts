@@ -102,11 +102,12 @@ import { localizeTopic, makeTopic } from './topics'
 import { makeMaterial, MATERIALS } from './materials'
 import { makeGlossaryEntry } from './glossary-entry'
 import { CLASSIFICATION_THREAD, FORUM_SECTIONS, readForum } from './forum'
-import { readIdeas, refreshIdeas, writeIdeas } from './ideas'
+import { listingText, readIdeas, refreshIdeas, writeIdeas } from './ideas'
 import { backfillVideoItems } from './video-items'
 import { throttled, VIDEO_GAP_MS, videoGuides, ytApi, ytDlp, ytFinder, ytFrames, ytGrab } from './youtube'
 import { checkPagePhotos, EMPTY_CAP, PHOTO_CHECK_SCHEMA, recheckCandidates } from './photo-check'
 import { DEAD_SCREEN_SCHEMA, screenDead } from './dead-screen'
+import { askAlbums, askSchema, type AskTile } from './album-ask'
 import { GUIDE_PHOTO_SCHEMA, screenGuidePhotos, type GuidePhotoDeps } from './guide-photos'
 import { screenWatermarks, visionText, WATERMARK_SCHEMA } from './watermarks'
 import { imageSteps } from './image-steps'
@@ -120,6 +121,7 @@ import { ArchiveFetcher } from './archive'
 import { researchedPage } from './cycle-only'
 import { localizeCards } from './cards-intl'
 import { heroesWithout, localizeGlossary, localizePlaces, localizeSpecies, speciesOrder, TARGETS, type TargetLang } from './localize'
+import { judgePlaces } from './place-judge'
 import { addShopNames, makeShopList, popularFirst, type ShopLang } from './shops'
 import { abNamespace, listReaderWants } from './readers-wanted'
 
@@ -402,6 +404,8 @@ if (cmd === 'photo-privacy') {
     for (const x of r.heads.emptied) console.log(`head removed: ${x}`)
     for (const x of r.heads.moved) console.log(`head moved: ${x}`)
     for (const x of r.picked) console.log(`picked head: ${x}`)
+    // For the chief of staff: a page led by a photo its source names only with "cf.", to its genus or as another fish (photo-named.ts).
+    for (const x of r.heads.named) console.log(`head its source doesn't name to the species: ${x}`)
     for (const x of r.blocked) console.log(`rejected: ${x}`)
     for (const x of r.removed) console.log(`removed: ${x}`)
     for (const x of r.failed.slice(0, 30)) console.log(`failed: ${x}`)
@@ -569,15 +573,17 @@ if (cmd === 'photo-privacy') {
   // past it none leave, each is listed, and a person looks before running it again with the cap raised.
   const photoCap = values['photo-cap'] ? { photoCap: Number(values['photo-cap']) } : {}
   const r = await sweep(ROOT, { ...(titles > 0 ? { llm: claudeCli, titles, model: process.env.READER_MODEL ?? 'opus' } : {}), ...photoCap })
-  console.log(`sweep: ${r.files.length} files; ${Object.entries(r.text).map(([k, v]) => `${k} ${v.length}`).join(', ') || 'no text fixes'}; ${r.photos.length} photos off (${r.rejected} off every page); ${r.again.length} never-again photos off; ${r.heads.length} heads picked; ${r.videos.length} videos off; ${r.card.length} cards (${r.summaries.length} summaries to write again); ${r.tanks.length} tank searches; ${r.shop.length} shop texts; ${r.dealer.length} dealer notices off; ${r.varieties.length} variety pages; ${r.titles.length} titles; ${r.names.length} other names off; ${r.mentions.length} breeds off guides; ${r.links.length} breed links${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  console.log(`sweep: ${r.files.length} files; ${Object.entries(r.text).map(([k, v]) => `${k} ${v.length}`).join(', ') || 'no text fixes'}; ${r.photos.length} photos off (${r.rejected} off every page); ${r.again.length} never-again photos off; ${r.heads.length} heads picked; ${r.named.length} heads behind one named to the species; ${r.videos.length} videos off; ${r.card.length} cards (${r.summaries.length} summaries to write again); ${r.tanks.length} tank searches; ${r.shop.length} shop texts; ${r.dealer.length} dealer notices off; ${r.varieties.length} variety pages; ${r.titles.length} titles; ${r.names.length} other names off; ${r.mentions.length} breeds off guides; ${r.links.length} breed links${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   if (r.noAnimal.length) console.log(`sweep: ${r.noAnimal.length} heads with no animal in them and no "yes" from the photo check (engine-state/_photo-no-animal-heads.json)`)
   for (const x of r.noAnimal) console.log(`no animal: ${x}`)
+  for (const x of r.named) console.log(`head behind one named to the species: ${x}`)
   for (const x of [...r.dealer.map(x => `dealer notice off: ${x}`), ...r.dealerOnly.map(x => `dealer notice, its heading's only text (for the chief of staff): ${x}`)]) console.log(x)
+  if (r.albums.length) console.log(`sweep: ${r.albums.length} albums with a new lead photo (gallery.ts orderAlbums)`)
   if (r.refused.length || r.refusedHeld.length || r.refusedPicked.length) console.log(`sweep: ${r.refused.length} refused photos kept off; ${r.refusedHeld.length} pages held; ${r.refusedPicked.length} picked heads the check calls "none" (photo-check.ts refusedOn)`)
   for (const x of [...r.refusedHeld.map(x => `refused held: ${x}`), ...r.refusedPicked.map(x => `picked head the check calls none: ${x}`), ...r.refused.map(x => `refused off: ${x}`)]) console.log(x)
   for (const x of [...r.secondLook.map(x => `held for a second look: ${x}`), ...r.agreed.map(x => `second look agreed, now never-again: ${x}`)]) console.log(x)
   if (r.held.length) console.log(`sweep: ${r.held.length} photos would leave every page for good, more than a run may with nobody looking: none taken off. Look at them, then run: pnpm engine sweep --titles 0 --photo-cap ${r.held.length}`)
-  for (const x of [...r.held.map(x => `photo held: ${x}`), ...r.unwell.map(x => `photo of an unwell fish kept: ${x}`), ...Object.entries(r.text).flatMap(([k, v]) => v.map(p => `${k}: ${p}`)), ...r.photos.map(x => `photo off: ${x}`), ...r.again.map(x => `never-again off: ${x}`), ...r.videos.map(x => `video off: ${x}`), ...r.card.map(x => `card: ${x}`), ...r.summaries.map(x => `summary again: ${x}`), ...r.tanks.map(x => `tank search: ${x}`), ...r.shop.map(x => `shop text off: ${x}`), ...r.varieties.map(x => `variety page off: ${x}`), ...r.titles.map(x => `title: ${x}`), ...r.schools.map(x => `school size: ${x}`), ...r.names.map(x => `name off: ${x}`), ...r.mentions.map(x => `mention off: ${x}`), ...r.links.map(x => `link: ${x}`), ...r.unmatched.map(x => `not linked: ${x}`), ...r.unplaced.map(x => `photo under no heading: ${x}`), ...r.folds.map(x => `page folded: ${x}`)]) console.log(x)
+  for (const x of [...r.held.map(x => `photo held: ${x}`), ...r.unwell.map(x => `photo of an unwell fish kept: ${x}`), ...Object.entries(r.text).flatMap(([k, v]) => v.map(p => `${k}: ${p}`)), ...r.photos.map(x => `photo off: ${x}`), ...r.again.map(x => `never-again off: ${x}`), ...r.videos.map(x => `video off: ${x}`), ...r.card.map(x => `card: ${x}`), ...r.summaries.map(x => `summary again: ${x}`), ...r.tanks.map(x => `tank search: ${x}`), ...r.shop.map(x => `shop text off: ${x}`), ...r.varieties.map(x => `variety page off: ${x}`), ...r.titles.map(x => `title: ${x}`), ...r.schools.map(x => `school size: ${x}`), ...r.names.map(x => `name off: ${x}`), ...r.mentions.map(x => `mention off: ${x}`), ...r.links.map(x => `link: ${x}`), ...r.unmatched.map(x => `not linked: ${x}`), ...r.unplaced.map(x => `photo under no heading: ${x}`), ...r.folds.map(x => `page folded: ${x}`), ...r.albums.map(x => `album lead: ${x}`)]) console.log(x)
   // After the sweep's own fixes, so a fix a reader sees dates its page (page-dates.ts).
   const dated = await updatePageDates(join(ROOT, 'content'))
   console.log(`page dates: ${dated.files} files, ${dated.changed} changed`)
@@ -756,9 +762,9 @@ if (cmd === 'photo-privacy') {
   })
   await writeFile(join(ROOT, 'docs/review/fit.md'), fitReport(pages, state))
   await writeFitSummary(ROOT, pages, state, { held })
-  for (const a of ['hold', 'release', 'revert', 'mended', 'unread'] as const) for (const x of r[a]) console.log(`  ${a}: ${x}`)
+  for (const a of ['hold', 'release', 'revert', 'mended', 'refused', 'unread'] as const) for (const x of r[a]) console.log(`  ${a}: ${x}`)
   for (const x of r.failed) console.log(`  failed: ${x}`)
-  console.log(`gate: ${r.pass.length} passed, ${r.hold.length} held, ${r.release.length} let out, ${r.revert.length} put back, ${r.mended.length} mended, ${r.unread.length} not read; ${r.reads} reads${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  console.log(`gate: ${r.pass.length} passed, ${r.hold.length} held, ${r.release.length} let out, ${r.revert.length} put back, ${r.mended.length} mended, ${r.refused.length} mends refused, ${r.unread.length} not read; ${r.reads} reads${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
 } else if (cmd === 'curate') {
   // The editorial calendar (curation.ts, content/curation.json): fill Hôm nay's next days and replace any pick that stopped
   // passing (reader fit, a checked photo big enough for its card). --check only lists what's wrong and exits 1 if anything is.
@@ -950,6 +956,12 @@ if (cmd === 'photo-privacy') {
   const r = await galleries(ROOT, { ...galleryDeps(), openverse: await openverseApi() }, { sheets: values.sheets ? Number(values.sheets) : 40, ...(values.only ? { only: values.only } : {}), ...(values.shard ? { shard: values.shard.split('/').map(Number) as [number, number] } : {}), budget })
   console.log(`gallery: ${r.done.length} pages, ${r.sheets} sheets, added ${JSON.stringify(r.added)}, ${r.short.length} short of target, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of [...r.done, ...r.failed]) console.log(x)
+} else if (cmd === 'album-ask') {
+  // Each album photo asked once whether it shows a photo tank or a ruler, the whole fish, a fish filling a small part of
+  // it (album-ask.ts); its own line in ceilings.json. pnpm engine album-ask [--sheets N (model calls, default 20)]
+  const a = await askAlbums(ROOT, { get: galleryDeps().get, ask: (file, prompt, plant) => claudeVision<{ tiles: AskTile[] }>({ system: 'You look at photos for the photo albums of an aquarium handbook. Reply only with JSON.', prompt, schema: askSchema(plant), file, model: process.env.ALBUM_ASK_MODEL }) }, { sheets: values.sheets ? Number(values.sheets) : 20 })
+  console.log(`album-ask: ${a.sheets} sheets, ${a.answered} photos answered (${a.setup} photo tank or ruler, ${a.cut} cut by the frame, ${a.small} filling a small part of it), ${a.left} left, ${a.failed.length} failed${a.stopped ? ` (stopped: ${a.stopped})` : ''}`)
+  for (const x of a.failed) console.log(x)
 } else if (cmd === 'breed-photos') {
   // Photos for breed pages that have none (a word search on Commons): pnpm engine breed-photos [--limit N]
   const r = await breedPhotos(ROOT, galleryDeps(), { limit: values.limit ? Number(values.limit) : 10 })
@@ -1055,15 +1067,26 @@ if (cmd === 'photo-privacy') {
 } else if (cmd === 'ideas') {
   // Vietnamese shops' blogs, read for ideas (their posts' titles, never their text), a week apart unless --force: the
   // topics the handbook has no guide on, most asked first, in engine-state/_ideas.json. pnpm engine ideas [--force]
-  const get = async (u: string) => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return res.text() }
-  const r = await refreshIdeas(ROOT, { get, llm: claudeCli, sleep: ms => new Promise(res => setTimeout(res, ms)), now: () => new Date() }, { force: values.force })
+  // [--retry-blocked]: a site that refused us its listing is fetched again only with --retry-blocked.
+  const get = async (u: string) => listingText(await fetch(u, { headers: { 'user-agent': UA }, signal: AbortSignal.timeout(60_000) }))
+  const r = await refreshIdeas(ROOT, { get, llm: claudeCli, sleep: ms => new Promise(res => setTimeout(res, ms)), now: () => new Date() }, { force: values.force, retryBlocked: values['retry-blocked'] })
   const s = await readIdeas(ROOT)
   console.log(r.fresh ? `ideas: read ${s.readAt}, still fresh` : `ideas: ${r.posts} posts, ${r.ideas} new ideas${r.failed.length ? `; failed: ${r.failed.join('; ')}` : ''}`)
+  // Each rule's count and the posts kept: the owner's figure for the magazine; and each title a rule left out (the chief of
+  // staff, 14 Nov 2026).
+  for (const [id, l] of Object.entries(r.listed)) {
+    if (!Object.keys(l.dropped).length) continue
+    console.log(`ideas: ${id}: ${l.kept} posts kept; left out: ${Object.entries(l.dropped).map(([rule, n]) => `${rule} ${n}`).join(', ')}`)
+    for (const [rule, titles] of Object.entries(l.titles)) for (const t of titles) console.log(`ideas: ${id}: left out (${rule}): ${t}`)
+  }
+  const refused = [...r.needsHuman, ...r.blocked]
+  if (refused.length) console.log(`ideas: needs-human: ${refused.join(', ')} refused us its listing (a 403 or a 429, or an answer that isn't its listing); its last titles stand and it isn't fetched again. Once the owner has looked: pnpm engine ideas --force --retry-blocked`)
   for (const i of s.ideas.filter(x => !x.guide && !x.skipped).slice(0, 15)) console.log(`${i.sites} sites, ${i.posts.length} posts: ${i.topic} (${i.kind})`)
 } else if (cmd === 'write-ideas') {
-  // AquaTome's own guides on the most asked ideas (engine ideas), researched as pnpm engine topic is: --limit a day (UTC).
+  // AquaTome's own guides on the most asked ideas (engine ideas), researched as pnpm engine topic is: --limit a day (Vietnam's).
   const r = await writeIdeas(ROOT, { research: claudeResearch, llm: claudeCli, now: () => new Date() }, { perDay: Number(values.limit ?? 2), researchModel: process.env.RESEARCH_MODEL ?? 'opus' })
   console.log(`write-ideas: ${r.written.length} written, ${r.skipped.length} skipped, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}\n${[...r.written, ...r.skipped, ...r.failed].join('\n')}`)
+  if (r.magazine.length) console.log(`write-ideas: on the magazine's ideas: ${r.magazine.join('; ')}`)
 } else if (cmd === 'topic') {
   // A guide AquaTome writes itself from web research: pnpm engine topic "<chủ đề tiếng Việt>" --kind disease|care|setup|plantCare|breeding|aquascaping|discovery [--redo]
   // --redo: rewrite the guide from the research already kept (engine-state/topics), no new searching.
@@ -1213,6 +1236,14 @@ if (cmd === 'photo-privacy') {
   if (!(lang in TARGETS)) throw new Error(`usage: pnpm engine localize-places --lang ${WRITTEN_OTHER_LANGS.join('|')} [--redo]`)
   const r = await localizePlaces(ROOT, claudeCli, lang, { redo: values.redo, model: 'opus' })
   console.log(`localize-places ${lang}: ${r.done.length} done, ${r.failed.length} failed${r.stopped ? `, stopped (${r.stopped})` : ''}\n${[...r.reviews, ...r.failed].join('\n')}`)
+} else if (cmd === 'judge-places') {
+  // Each Indonesian, Thai and Malay place name judged alone against its source's sentence (place-judge.ts): the unjudged
+  // first, the lowest batch score first; one that fails shows the source's name on the site until a name passes.
+  // pnpm engine judge-places [--limit N: names, 300] [--jobs N: at a time, 3] [--only id/hue-river,…: these, failed or not]
+  const only = values.only?.split(',').map(s => s.trim()).filter(Boolean)
+  const r = await judgePlaces(ROOT, claudeCli, { limit: Number(values.limit ?? 300), jobs: Number(values.jobs ?? 3), ...(only ? { only } : {}) })
+  for (const x of [...r.renamed.map(x => `renamed: ${x}`), ...r.failed.map(x => `failed: ${x}`), ...r.records.map(x => `record: ${x}`), ...r.errors.map(x => `error: ${x}`)]) console.log(x)
+  console.log(`judge-places: ${r.judged} judged (${r.passed.length} passed, ${r.renamed.length} renamed, ${r.failed.length} failed), ${r.left} left${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
 } else if (cmd === 'localize-captions') {
   // Vietnamese photo captions (galleries, breed photos) in another language, for the pages that language has.
   const lang = values.lang as TargetLang
@@ -1265,6 +1296,6 @@ if (cmd === 'photo-privacy') {
   const t = await thinSpecies(join(ROOT, 'content'), popularityOrder(await popularFirst(ROOT)))
   printDepth(depthReport(t.pages, t.thin))
 } else {
-  console.log(`usage: pnpm engine run [--sources a,b | --except a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] [--jobs N] [--only id,id] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] [--only id,id] | pnpm engine range [--limit N] [--records N] [--only id,id] | pnpm engine water [--limit N] [--only id,id] | pnpm engine topic-check [--limit N] [--only id,id] | pnpm engine source-kinds [--only id,id] [--dry-run] | pnpm engine review-backfill [--kind ${BACKFILL_KINDS.join(',')}] [--limit N] [--only id,id | --reviewed-before <ISO time>] [--parallel N] | pnpm engine video-hold --class ${HOLD_CLASSES.join('|')} [--clear] | pnpm engine reviews | pnpm engine videos [--playlist ID,ID] [--limit N] [--max-minutes M] [--redo [--rechecked-since <ISO time> [--parallel N]]] [--only videoId,videoId] | pnpm engine discover-videos [--channels a,b | --lang vi] [--limit N] [--force] | pnpm engine youtube-add <url>... | pnpm engine product <brand> <model> --category C [--type T] | pnpm engine product-candidates [--limit N] | pnpm engine product-reviews [--limit N] [--only id,id] [--no-new-pages] [--dry-run] | pnpm engine video-items [--limit N] | pnpm engine gallery [--sheets N] [--only id] [--shard i/n] | pnpm engine facebook [--limit N] [--max-minutes M] [--retry-blocked] [--backfill] | pnpm engine unsplash [--limit N] | pnpm engine breed-photos [--limit N] | pnpm engine breed-care [--only id,id] [--limit N] | pnpm engine breed "<name>" [--kind K] [--based-on id] [--redo] | pnpm engine topic "<chủ đề>" --kind K [--redo] | pnpm engine species "<Genus species>" [--video id,id] [--redo] | pnpm engine species-videos [--only id,id] [--limit N] [--channels a,b] | pnpm engine ideas [--force] | pnpm engine write-ideas [--limit N a day] | pnpm engine covers [--redo] [--limit N] | pnpm engine rewrite-vi [--limit N] [--only kinds] | pnpm engine thumbs | pnpm engine picture-hashes [--limit N] [--jobs N] | pnpm engine photos [--limit N] [--kind species,plants,guides] [--only id,id] | pnpm engine mirror-photos [--limit N] [--dry-run] | pnpm engine fishbase-photos | pnpm engine crypts-photos | pnpm engine tropica-photos [--limit N] | pnpm engine own-photos <list.json> | pnpm engine faces | pnpm engine photo-boxes [--limit N] | pnpm engine watermarks [--limit N] [--parallel N] | pnpm engine check-photos [--limit N] [--fill N] [--parallel N] [--only id] | pnpm engine guide-photos [--limit N] [--parallel N] | pnpm engine audit [--fix] | pnpm engine reader [--limit N] [--rewrites N] [--only lang/kind/id,…] | pnpm engine fit [--limit N] [--jobs N] [--kind guides,species] [--lang id,th] [--only vi/species/<id>,…] [--front] | pnpm engine fit-rewrite [--limit N] [--only vi/species/<id>,…] [--kind species,guides] [--front] | pnpm engine units-mend [--limit N] [--first lang/kind/id,…] [--dry-run] | pnpm engine source-figures [--limit N] [--first lang/kind/id,…] [--dry-run] | pnpm engine source-figures --record | pnpm engine metric | pnpm engine ungarble [--limit N] | pnpm engine redo-unread | pnpm engine localize --lang ${WRITTEN_OTHER_LANGS.join('|')} [--kind plants] [--only ids | --top N] [--limit N] [--redo] | pnpm engine localize-guides --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--limit N] [--redo] | pnpm engine localize-breeds --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--limit N] [--redo] | pnpm engine localize-glossary --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--redo] | pnpm engine localize-places --lang ${WRITTEN_OTHER_LANGS.join('|')} [--redo] | pnpm engine localize-captions --lang ${WRITTEN_OTHER_LANGS.join('|')} [--limit N] | pnpm engine wikidata-names --lang ${WRITTEN_OTHER_LANGS.join('|')} | pnpm engine localize-equipment --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only cats] [--redo] | pnpm engine status`)
+  console.log(`usage: pnpm engine run [--sources a,b | --except a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] [--jobs N] [--only id,id] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] [--only id,id] | pnpm engine range [--limit N] [--records N] [--only id,id] | pnpm engine water [--limit N] [--only id,id] | pnpm engine topic-check [--limit N] [--only id,id] | pnpm engine source-kinds [--only id,id] [--dry-run] | pnpm engine review-backfill [--kind ${BACKFILL_KINDS.join(',')}] [--limit N] [--only id,id | --reviewed-before <ISO time>] [--parallel N] | pnpm engine video-hold --class ${HOLD_CLASSES.join('|')} [--clear] | pnpm engine reviews | pnpm engine videos [--playlist ID,ID] [--limit N] [--max-minutes M] [--redo [--rechecked-since <ISO time> [--parallel N]]] [--only videoId,videoId] | pnpm engine discover-videos [--channels a,b | --lang vi] [--limit N] [--force] | pnpm engine youtube-add <url>... | pnpm engine product <brand> <model> --category C [--type T] | pnpm engine product-candidates [--limit N] | pnpm engine product-reviews [--limit N] [--only id,id] [--no-new-pages] [--dry-run] | pnpm engine video-items [--limit N] | pnpm engine gallery [--sheets N] [--only id] [--shard i/n] | pnpm engine facebook [--limit N] [--max-minutes M] [--retry-blocked] [--backfill] | pnpm engine unsplash [--limit N] | pnpm engine breed-photos [--limit N] | pnpm engine breed-care [--only id,id] [--limit N] | pnpm engine breed "<name>" [--kind K] [--based-on id] [--redo] | pnpm engine topic "<chủ đề>" --kind K [--redo] | pnpm engine species "<Genus species>" [--video id,id] [--redo] | pnpm engine species-videos [--only id,id] [--limit N] [--channels a,b] | pnpm engine ideas [--force] [--retry-blocked] | pnpm engine write-ideas [--limit N a day] | pnpm engine covers [--redo] [--limit N] | pnpm engine rewrite-vi [--limit N] [--only kinds] | pnpm engine thumbs | pnpm engine picture-hashes [--limit N] [--jobs N] | pnpm engine photos [--limit N] [--kind species,plants,guides] [--only id,id] | pnpm engine mirror-photos [--limit N] [--dry-run] | pnpm engine fishbase-photos | pnpm engine crypts-photos | pnpm engine tropica-photos [--limit N] | pnpm engine own-photos <list.json> | pnpm engine faces | pnpm engine photo-boxes [--limit N] | pnpm engine watermarks [--limit N] [--parallel N] | pnpm engine check-photos [--limit N] [--fill N] [--parallel N] [--only id] | pnpm engine guide-photos [--limit N] [--parallel N] | pnpm engine audit [--fix] | pnpm engine reader [--limit N] [--rewrites N] [--only lang/kind/id,…] | pnpm engine fit [--limit N] [--jobs N] [--kind guides,species] [--lang id,th] [--only vi/species/<id>,…] [--front] | pnpm engine fit-rewrite [--limit N] [--only vi/species/<id>,…] [--kind species,guides] [--front] | pnpm engine units-mend [--limit N] [--first lang/kind/id,…] [--dry-run] | pnpm engine source-figures [--limit N] [--first lang/kind/id,…] [--dry-run] | pnpm engine source-figures --record | pnpm engine metric | pnpm engine ungarble [--limit N] | pnpm engine redo-unread | pnpm engine localize --lang ${WRITTEN_OTHER_LANGS.join('|')} [--kind plants] [--only ids | --top N] [--limit N] [--redo] | pnpm engine localize-guides --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--limit N] [--redo] | pnpm engine localize-breeds --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--limit N] [--redo] | pnpm engine localize-glossary --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--redo] | pnpm engine localize-places --lang ${WRITTEN_OTHER_LANGS.join('|')} [--redo] | pnpm engine judge-places [--limit N] [--jobs N] [--only lang/id,…] | pnpm engine localize-captions --lang ${WRITTEN_OTHER_LANGS.join('|')} [--limit N] | pnpm engine wikidata-names --lang ${WRITTEN_OTHER_LANGS.join('|')} | pnpm engine localize-equipment --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only cats] [--redo] | pnpm engine status`)
   process.exitCode = 1
 }

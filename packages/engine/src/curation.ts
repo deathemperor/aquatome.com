@@ -1,8 +1,9 @@
 import { isOwnerCrop } from '@aq/schema/image-policy'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { addDays, boxFractions, cardShownIn, CardSchema, CurationSchema, frameOf, LANGS, loadAll, resolveDataCard, STAPLE_SPECIES, POPULAR, POPULAR_BREEDS, type CardEntity, type Content, type Curation, type CurationDay, type CurationWeek, type Lang, type Photo, photoFitsCard } from '@aq/schema'
+import { addDays, boxFractions, cardShownIn, CardSchema, CurationSchema, frameOf, isAllowedLicence, LANGS, loadAll, resolveDataCard, STAPLE_SPECIES, POPULAR, POPULAR_BREEDS, type CardEntity, type Content, type Curation, type CurationDay, type CurationWeek, type Lang, type Photo, photoFitsCard } from '@aq/schema'
 import { captionFlaw } from './content-rules'
+import { keptMarks, OWN_MARK_SHOPS } from './own-mark'
 import { fitKey, type FitState } from './fit'
 import { gateChecks } from './gate'
 import { loadPages, type Page } from './pages'
@@ -100,7 +101,7 @@ export type Candidate = {
 /** Goldfish and koi lines: cold-water fish whatever their pages' figures say. */
 const COLDWATER_OF = ['carassius-auratus', 'cyprinus-rubrofuscus', 'cyprinus-carpio']
 
-export type Verdicts = { subjects: Record<string, Record<string, PhotoVerdict>>; legacy: Record<string, PhotoVerdict>; rejected: Record<string, string>; faces: Record<string, number>; personYes?: Record<string, Record<string, PersonYes>> }
+export type Verdicts = { subjects: Record<string, Record<string, PhotoVerdict>>; legacy: Record<string, PhotoVerdict>; rejected: Record<string, string>; faces: Record<string, number>; personYes?: Record<string, Record<string, PersonYes>>; kept?: (url: string) => boolean }
 
 /** The photo checks' verdicts (engine-state), as cardWorthy reads them. */
 export const readVerdicts = async (root: string): Promise<Verdicts> => {
@@ -111,6 +112,7 @@ export const readVerdicts = async (root: string): Promise<Verdicts> => {
     rejected: await json(join(state, '_photo-rejected.json'), {}),
     faces: await json(join(state, '_photo-faces.json'), {}),
     personYes: (await readPersonYes(root)).counted,
+    kept: await keptMarks(root),
   }
 }
 
@@ -120,7 +122,8 @@ export const readVerdicts = async (root: string): Promise<Verdicts> => {
  */
 export function cardWorthy(photo: { url: string; caption?: string }, page: string, v: Verdicts, avoid: Record<string, string>, guide = false): boolean {
   const url = photo.url
-  if (url in v.rejected || url in avoid || (v.faces[url] ?? 0) > 0) return false
+  // A photo with a shop's own mark, kept (own-mark.ts), whatever its verdict says of a logo: never a card.
+  if (url in v.rejected || url in avoid || (v.faces[url] ?? 0) > 0 || v.kept?.(url)) return false
   if (!guide && captionFlaw(photo.caption)) return false
   const own = v.subjects[url]?.[page]
   const verdict = own && !own.guide ? own : v.legacy[url]?.ok !== 'unsure' ? v.legacy[url] : undefined
@@ -132,8 +135,13 @@ export function cardWorthy(photo: { url: string; caption?: string }, page: strin
   return !!verdict && (verdict.ok === 'yes' || yes) && verdict.typical && !verdict.person && !verdict.logo
 }
 
-/** Sites whose own mark on their photos the owner allows (the chief of staff, 2026-11-10: Aquarium Glaser's logo). */
-const OWN_MARK = /^https?:\/\/(www\.)?aquariumglaser\.de\//
+/**
+ * Sites whose own mark on their photos may lead a page where nothing else passes (the chief of staff, 2026-11-10: Aquarium
+ * Glaser's logo). Glaser's alone of the cleared shops (own-mark.ts): the site's cards know only Glaser's banner (@aq/schema
+ * `unmarked`), so another shop's marked photo leading would reach a card. Another shop's is kept in an album only, after
+ * the unmarked photos (the chief of staff, 15 Nov: never head or card).
+ */
+const OWN_MARK = OWN_MARK_SHOPS.glaser
 
 /**
  * A photo that passes in every way but for a mark its own source may keep. It ranks below every unmarked photo, leads a page
@@ -480,8 +488,10 @@ function offPages(cur: Curation, byRef: Map<string, Candidate>, from: string): R
 
 /** The app's short cards (content/cards) by how the calendar names them: the days each may show, and the served languages
  * it's written in that the gate doesn't hold back; or why its files don't parse, so one broken card is a problem the
- * check lists rather than a planner run that stops (Site Lead, 2026-11-08). */
-export type CardShow = { show: CardEntity['show']; langs: string[] } | { bad: string }
+ * check lists rather than a planner run that stops (Site Lead, 2026-11-08). `unshown`: why a public build leaves its
+ * photo off (the loader, load.ts): a photo used by its source's permission names that source, or it isn't shown (the
+ * marimo card's, 14 Nov, which named none, so its card had no photo while its page opened on the same one). */
+export type CardShow = { show: CardEntity['show']; langs: string[]; unshown?: string } | { bad: string }
 export async function cardsOf(root: string): Promise<Map<string, CardShow>> {
   const dir = join(root, 'content', 'cards')
   const out = new Map<string, CardShow>()
@@ -503,7 +513,9 @@ export async function cardsOf(root: string): Promise<Map<string, CardShow>> {
         const t = await json<{ held?: unknown } | null>(join(dir, id, `${lang}.json`), null)
         if (t && !t.held && cardShownIn(parsed.data, lang)) langs.push(lang)
       }
-      out.set(`cards/${id}`, { show: parsed.data.show, langs })
+      const ph = parsed.data.photo
+      const unshown = ph && !ph.source && !isAllowedLicence(ph.licence) ? `its photo names no source, and a build shows a photo under "${ph.licence}" only by its source's permission` : undefined
+      out.set(`cards/${id}`, { show: parsed.data.show, langs, ...(unshown ? { unshown } : {}) })
     } catch (err) {
       out.set(`cards/${id}`, { bad: err instanceof Error ? err.message : String(err) })
     }
@@ -543,7 +555,7 @@ export function checkCalendar(cur: Curation, cands: Candidate[], from: string, d
     if (d.card) {
       const c = cards.get(d.card)
       const p = !c ? 'no such card' : 'bad' in c ? `its files don't parse: ${c.bad}` : !c.langs.length ? 'held back or unwritten in every language'
-        : d.date < c.show.from || d.date > c.show.until ? `outside its days, ${c.show.from} to ${c.show.until}` : undefined
+        : d.date < c.show.from || d.date > c.show.until ? `outside its days, ${c.show.from} to ${c.show.until}` : c.unshown
       if (p) out.push(`${d.date} card ${d.card}: ${p}`)
     }
   }

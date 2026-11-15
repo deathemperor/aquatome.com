@@ -3,9 +3,10 @@ import FishLamp
 import SwiftUI
 
 /// The owner's Love Ecology light ("Aquarium Light III" in the Fish lamp app). It takes commands by broadcast, as Fish lamp
-/// sends them, never over a connection: there's nothing to find or connect, and the light says nothing back. It ignores
-/// commands built anew, so the phone plays back the owner's own recordings (`FishLamp.loveEcology`) for three seconds each,
-/// as the Mac's replays did that the owner watched work (31 Oct, 6 Nov; docs/research/aquarium-device-control.md). iOS
+/// sends them, never over a connection: there's nothing to find or connect, and the light says nothing back. The phone
+/// plays back the owner's own recordings (`FishLamp.loveEcology`) for three seconds each,
+/// as the Mac's replays did that the owner watched work (31 Oct, 6 Nov; docs/research/aquarium-device-control.md); a
+/// built colour was taken from the Mac on 14 Nov, and the owner's trial row tries built ones from the phone. iOS
 /// broadcasts only while the app is in front. The owner's account alone sees it: whether the recordings work on anyone
 /// else's light is untested.
 @MainActor
@@ -107,6 +108,8 @@ final class LoveEcologyModel {
 
   /// Off, on, then the colours, as recorded.
   static let commands = FishLamp.loveEcology
+  /// The owner's trial of commands built anew, then the recorded green that puts the light back.
+  static let trials = FishLamp.trials + FishLamp.loveEcology.filter { $0.id == "green" }.map { FishLamp.Command(id: "trial-green", sent: $0.sent) }
   static let seconds: Duration = .seconds(3)
 
   private(set) var status = Status.ready
@@ -195,6 +198,22 @@ struct LoveEcologyCard: View {
             .accessibilityIdentifier("lamp-\(c.id)")
           }
         }
+        // The owner's trial of commands built anew (14 Nov), the light's answer seen by eye: it says nothing back. Taken
+        // out, or turned into a brightness slider and a free colour, once it has been tried. Not translated: the owner's.
+        VStack(alignment: .leading, spacing: 8) {
+          Text(verbatim: "Thử lệnh tự tạo").font(.subheadline.weight(.semibold))
+          LazyVGrid(columns: [GridItem(.adaptive(minimum: size.isAccessibilitySize ? 220 : 140), alignment: .top)], spacing: 8) {
+            ForEach(LoveEcologyModel.trials) { c in
+              Button { lamp.send(c) } label: {
+                Text(verbatim: Self.name(c.id)).opacity(sending(c) ? 0 : 1).overlay { if sending(c) { ProgressView() } }
+                  .frame(maxWidth: .infinity)
+              }
+              .buttonStyle(.bordered)
+              .disabled(othersWait(c))
+              .accessibilityIdentifier("lamp-\(c.id)")
+            }
+          }
+        }
         // Always one line, so the first send doesn't push the cards below down. A problem reads as one.
         Group {
           if case .problem = lamp.status {
@@ -231,7 +250,10 @@ struct LoveEcologyCard: View {
     switch lamp.status {
     case .ready: String(localized: "Chưa gửi lệnh nào")
     case .sending(let id): String(localized: "Đang gửi “\(Self.name(id))”…")
-    case .sent(let id, let at): String(localized: "Đã gửi “\(Self.name(id))” lúc \(Self.clock(at)).")
+    case .sent(let id, let at):
+      // A trial's line asks for ten seconds before the next tap, so the owner's eyes judge one command at a time: on 14 Nov
+      // the light didn't answer a colour the phone began 8.5 s after starting one the light took, 0.9 s after that one ended.
+      String(localized: "Đã gửi “\(Self.name(id))” lúc \(Self.clock(at)).") + (id.hasPrefix("trial-") ? " Đợi 10 giây rồi bấm tiếp." : "")
     case .problem(.off): String(localized: "Bật Bluetooth để gửi lệnh tới đèn.")
     case .problem(.refused): String(localized: "AquaTome chưa được dùng Bluetooth. Bật trong Cài đặt → AquaTome → Bluetooth.")
     case .problem(.unsupported): String(localized: "Máy này không có Bluetooth.")
@@ -265,6 +287,13 @@ struct LoveEcologyCard: View {
     case "cyan": String(localized: "Xanh lơ")
     case "blue": String(localized: "Xanh dương")
     case "magenta": String(localized: "Hồng tím")
+    // The owner's trial row, not translated.
+    case "trial-white-half": "Trắng 50% (tự tạo)"
+    case "trial-off": "Tắt (tự tạo 1)"
+    case "trial-on": "Bật (tự tạo 1)"
+    case "trial-off-recorded": "Tắt (tự tạo 2)"
+    case "trial-on-recorded": "Bật (tự tạo 2)"
+    case "trial-green": "Xanh lá (ghi sẵn)"
     default: id
     }
   }

@@ -1,0 +1,158 @@
+{
+  "id": "rineloricaria-parva",
+  "native": {
+    "input": "289c36edf5611e7e",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rineloricaria parva is a whiptail catfish from Brazil, Paraguay and Argentina, found among leaf litter over sandy substrates.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rineloricaria parva is a whiptail catfish from Brazil, Paraguay and Argentina, found among leaf litter over sandy substrates.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rineloricaria parva is a whiptail catfish from Brazil, Paraguay and Argentina, found among leaf litter over sandy substrates.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Brazil, Paraguay and Argentina.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Brazil, Paraguay and Argentina.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Brazil, Paraguay and Argentina.",
+        "words": "Argentina",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rineloricaria parva",
+    "status": "ACCEPTED",
+    "taxonKey": 2339130,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        36
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        34
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        28
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        24
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        19
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        16
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        13
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        12
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        11
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        7
+      ],
+      [
+        "d4b3cce1-4594-47bb-b1e2-1ace65458a11",
+        7
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        4
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ],
+      [
+        "527885fc-bae8-48fd-8e13-349bb6dae9b8",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ],
+      [
+        "f8ba5386-8b91-4976-95bd-692e5d105eae",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "PY",
+      "AR"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

@@ -14,6 +14,102 @@
     "china",
     "salween"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM",
+        "IN"
+      ],
+      "regions": [
+        "Irrawaddy",
+        "Salween",
+        "Chindwin"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Schistura vinciguerrae is a nemacheilid loach from the Irrawaddy, Salween and Chindwin river basins in Myanmar and northeastern India.",
+          "countries": [
+            "MM",
+            "IN"
+          ],
+          "regions": [
+            "Irrawaddy",
+            "Salween",
+            "Chindwin"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205021,
+      "total": 39,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "CN",
+          34
+        ],
+        [
+          "MM",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          92.8125,
+          22.5,
+          2,
+          2
+        ],
+        [
+          95.625,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          23.90625,
+          1,
+          0
+        ],
+        [
+          97.03125,
+          25.3125,
+          2,
+          0
+        ],
+        [
+          97.03125,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          23.90625,
+          22,
+          0
+        ],
+        [
+          98.4375,
+          25.3125,
+          9,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

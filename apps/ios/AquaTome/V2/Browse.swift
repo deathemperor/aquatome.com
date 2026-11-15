@@ -158,7 +158,7 @@ struct BrowseHome: View {
         ForEach(groups.prefix(5)) { g in
           NavigationLink(value: Browse.fish(g.key)) {
             HStack(spacing: 12) {
-              V2Photo(src: g.img).frame(width: 88, height: 88).clipShape(.rect(cornerRadius: 20, style: .continuous))
+              V2Photo(src: g.img, box: g.imgBox).frame(width: 88, height: 88).clipShape(.rect(cornerRadius: 20, style: .continuous))
                 // No photo: the kind's mark, as a row's.
                 .overlay { if g.img == nil { Image(systemName: HandbookIndex.Kind.fish.symbol).font(.title3).foregroundStyle(.secondary).accessibilityHidden(true) } }
               VStack(alignment: .leading, spacing: 2) {
@@ -272,7 +272,7 @@ struct BrowseHome: View {
           ForEach(items) { item in
             NavigationLink(value: item) {
               VStack(alignment: .leading, spacing: 8) {
-                V2Photo(src: item.img)
+                V2Photo(src: item.img, box: item.imgBox)
                   .aspectRatio(1.8, contentMode: .fit)
                   .overlay { if item.img == nil { Image(systemName: item.kind.symbol).font(.title2).foregroundStyle(.secondary).accessibilityHidden(true) } }
                   .clipShape(.rect(cornerRadius: 16, style: .continuous))
@@ -407,7 +407,7 @@ private struct GroupTile: View {
   }
 
   var body: some View {
-    V2Photo(src: group.img, ground: colour) { colour = $0 }
+    V2Photo(src: group.img, box: group.imgBox, ground: colour) { colour = $0 }
       // No photo: the kind's mark on the colour, as a row's, not an empty block.
       .overlay { if group.img == nil { Image(systemName: HandbookIndex.Kind.fish.symbol).font(.title2).foregroundStyle(.white.opacity(0.4)).accessibilityHidden(true) } }
       // No fade with no photo to fade: it dimmed the mark under a name on two lines.
@@ -442,11 +442,11 @@ private struct FeaturedCard: View {
       // At the accessibility sizes the words would cover the photo: they go under it, on its colour.
       if size.isAccessibilitySize {
         VStack(spacing: 0) {
-          V2Photo(src: item.img, ground: colour) { colour = $0 }.frame(height: 200)
+          V2Photo(src: item.img, box: item.imgBox, ground: colour) { colour = $0 }.frame(height: 200)
           words.frame(maxWidth: .infinity, alignment: .leading).background(colour)
         }
       } else {
-        V2Photo(src: item.img, ground: colour) { colour = $0 }
+        V2Photo(src: item.img, box: item.imgBox, ground: colour) { colour = $0 }
           .modifier(WordsOnPhoto(colour: colour, edge: .bottom, height: height, fade: 44) { words })
       }
     }

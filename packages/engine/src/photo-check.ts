@@ -13,7 +13,10 @@ import { galleryPlan } from './gallery-plan'
 import { pickStands, readPersonYes } from './person-yes'
 import { holdForSecondLook, looks, readSecondLook } from './last-photo'
 import { contactSheet } from './video-images'
-import { keptOwnMark, LOGO_FOLDERS, stripPhotos, type WatermarkEntry } from './watermarks'
+import { keptOwnMark, LOGO_FOLDERS, retainedOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
+import { keptLast } from './own-mark'
+import { CF, namedOn, namedOrder, passesHead, SPECIES } from './photo-named'
+import { priorityFish } from './priority-fish'
 
 type Photo = { url: string; caption?: string; author?: string; sourceUrl?: string; generated?: unknown }
 /**
@@ -194,9 +197,13 @@ async function subjects(content: string): Promise<Subject[]> {
   return out
 }
 
-/** Most-read first: breeds (the forms of the staples readers open), then the gallery plan's order (species and plants). */
+/**
+ * The owner's priority fish first, while their albums are short (priority-fish.ts); then most-read first: breeds (the
+ * forms of the staples readers open), then the gallery plan's order (species and plants).
+ */
 async function rank(root: string, all: Subject[]): Promise<Subject[]> {
-  const order = [...all.filter(s => s.kind === 'breeds').map(s => s.id), ...(await galleryPlan(root)).map(p => p.id)]
+  const first = (await priorityFish(root)).map(ref => ref.split('/')[1]!)
+  const order = [...first, ...all.filter(s => s.kind === 'breeds').map(s => s.id), ...(await galleryPlan(root)).map(p => p.id)]
   const at = (id: string) => { const i = order.indexOf(id); return i < 0 ? order.length : i }
   return [...all].sort((a, b) => at(a.id) - at(b.id) || a.id.localeCompare(b.id))
 }
@@ -365,6 +372,9 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const sl = looks(await readSecondLook(root))
   const marks = (await readJson<Record<string, WatermarkEntry>>(join(root, 'engine-state/_photo-watermarks.json'))) ?? {}
   const keepLogo = keptOwnMark(rejected, marks)
+  // A photo with a shop's own mark, kept (own-mark.ts): it stays, after every unmarked photo on its page, and never leads
+  // as a head while one passes (the chief of staff, 15 Nov: never head or card).
+  const kept = (url: string) => retainedOwnMark(url, marks[url])
   // A head a person picked (engine-state/_photo-head-picks.json, page → photo): it stays first on its page, while it
   // counts (person-yes.ts pickStands).
   const headPicks = (await readJson<Record<string, string>>(join(root, 'engine-state/_photo-head-picks.json'))) ?? {}
@@ -372,7 +382,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const report = {
     photos: 0, sheets: 0, judged: 0, removed: [] as string[], rejected: 0, blocked: [] as string[], unsure: 0, failed: [] as string[], stopped: '',
     /** A page's head that changed, `kind/id: old -> new`; a page left with no photo of its own, `kind/id: old`; one held by EMPTY_CAP. */
-    heads: { moved: [] as string[], emptied: [] as string[], held: [] as string[] },
+    heads: { moved: [] as string[], emptied: [] as string[], held: [] as string[], named: [] as string[] },
     /** A head a person picked that the check calls "none": it stays, listed for a person each run. */
     picked: [] as string[],
   }
@@ -381,6 +391,10 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
 
   const all = await rank(root, await subjects(content))
   const byId = new Map(all.map(s => [s.id, s]))
+  // What each photo's source calls its subject on each page (photo-named.ts), and the head's test.
+  const namedHere = await namedOn(content)
+  const faces = (await readJson<Record<string, number>>(join(root, 'engine-state/_photo-faces.json'))) ?? {}
+  const asHead = passesHead({ subjects: cache, legacy, rejected, faces, personYes: yes.counted, kept })
   const shown: Shown[] = []
   for (const s of all) {
     let bare = false
@@ -636,7 +650,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       // Any other head can move, a card's fish too: the cycle's planner then points the day's card at the new head
       // (curation.ts), and no cycle runs `curate --check`, which would name a card and a head that differ.
       // A head a person picked stays first, as the sweep puts it each cycle.
-      const r = (x: Photo) => { if (x.generated) return 3; if (picked(s.id, x.url)) return -1; const v = verdict(x.url, s.id); return v?.ok === 'yes' && v.typical && !flawed(x) ? 0 : v?.ok === 'habitat' ? 2 : 1 }
+      const r = (x: Photo) => { if (x.generated) return 4; if (picked(s.id, x.url)) return -1; if (kept(x.url)) return 3; const v = verdict(x.url, s.id); return v?.ok === 'yes' && v.typical && !flawed(x) ? 0 : v?.ok === 'habitat' ? 2 : 1 }
       data.photos = data.photos.map((x, i) => ({ x, i })).sort((a, b) => r(a.x) - r(b.x) || a.i - b.i).map(({ x }) => x)
     }
     // A photo the check can't tell doesn't lead a page that has one it passed (the owner, 2026-11-11): the first passed
@@ -645,7 +659,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     if (s && file.endsWith('entity.json') && data.photos) {
       const lead = data.photos.findIndex(x => !x.generated)
       if (lead >= 0 && cantTellOn(cache, s.id)(data.photos[lead]!.url)) {
-        const passed = (typical: boolean) => data.photos!.findIndex(x => { const v = x.generated ? undefined : verdict(x.url, s.id); return v?.ok === 'yes' && (!typical || (v.typical && !flawed(x))) })
+        const passed = (typical: boolean) => data.photos!.findIndex(x => { const v = x.generated || kept(x.url) ? undefined : verdict(x.url, s.id); return v?.ok === 'yes' && (!typical || (v.typical && !flawed(x))) })
         const i = passed(true) >= 0 ? passed(true) : passed(false)
         if (i > lead) data.photos.splice(lead, 0, ...data.photos.splice(i, 1))
       }
@@ -654,9 +668,20 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       // person's yes for a card rests on it (person-yes.ts): its photo is the check's "can't tell" that the order above
       // would move behind a passed one (the stated exception to the owner's rule of 2026-11-11). A pick that rests on a
       // yes lapses with it, by this pass's verdicts: once the check says anything but "can't tell", the order above holds.
+      // A photo its source names only to the genus, as another fish, or with "cf." goes behind those named to the species,
+      // and never leads while one of those passes as a head (photo-named.ts; the chief of staff, 2026-11-14). The lead step
+      // and the sweep rank the same way, so none undoes another.
+      const cls = namedHere(s.id)
+      data.photos = namedOrder(data.photos, cls, x => asHead(x, s.id))
+      // A photo with a cleared shop's own mark kept goes after every unmarked one, on a breed's page too (own-mark.ts).
+      data.photos = keptLast(data.photos, kept)
       const ref = `${s.kind}/${s.id}`, pick = headPicks[ref]
       const at = data.photos.findIndex(x => x.url === pick)
       if (at > 0 && pickStands(ref, pick!, cache, yes)) data.photos.unshift(...data.photos.splice(at, 1))
+      // One still leads where nothing better passes, or a person picked it: listed for the chief of staff each run.
+      const first = data.photos.find(x => !x.generated)
+      const c = first ? cls(first) : SPECIES
+      if (first && c !== SPECIES) report.heads.named.push(`${ref}: ${first.url} (${c === CF ? 'cf.' : 'genus only or another fish'}${picked(s.id, first.url) ? ', picked' : ''})`)
     }
     // In an album it comes after the photos the check passed or has not reached. The album step ranks the same way, but
     // only an album it adds to, so every album gets its order here, each run.

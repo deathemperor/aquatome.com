@@ -844,6 +844,37 @@ test('a part a cut reduces to one line goes off the page in every language, its 
   expect(JSON.parse(await readFile(oneFile, 'utf8')).sections['habitat:seriouslyfish']).toBe('<p>Ao cạn nhiều cỏ ở cao nguyên Shan.</p>')
 })
 
+// The chief of staff, 14 Nov 2026: four pages were held for good on one-line parts that were all the source's, which no
+// dealer check takes. A part of three sentences or fewer whose every sentence goes whole comes off the page.
+test('a short part whose every sentence goes whole comes off the page, with its heading when it was the only text; a longer one stays held', async () => {
+  const root = await content()
+  const file = join(root, 'content/species', ID, 'vi.json')
+  const vi = JSON.parse(await readFile(file, 'utf8'))
+  vi.sections['habitat:seriouslyfish'] = '<p>Nơi sống có ảnh chụp: sông Rio Parana, bang Corrientes, Argentina.</p>'
+  await writeFile(file, JSON.stringify(vi, null, 2))
+  const p = await danio(root)
+  const photo = { check: 'source' as const, part: part(p, 'sections.habitat:seriouslyfish'), quote: 'Nơi sống có ảnh chụp', why: 'the source\'s photo' }
+  const r = await fitRewrite(root, [p], reading(p, [photo]), { llm: fakeLlm(() => '', 0.9).llm, now: () => new Date() }, { limit: 5 })
+  expect(r.rewritten).toEqual(['vi/species/danio-margaritatus sections.habitat:seriouslyfish off the page (every line went, its heading with it: for the chief of staff)'])
+  expect(r.gone).toEqual(['vi/species/danio-margaritatus sections.habitat:seriouslyfish sentence 1 went whole: "Nơi sống có ảnh chụp: sông Rio Parana, bang Corrientes, Argentina."'])
+  expect(Object.keys(JSON.parse(await readFile(file, 'utf8')).sections)).not.toContain('habitat:seriouslyfish')
+  const entity = JSON.parse(await readFile(join(root, 'content/species', ID, 'entity.json'), 'utf8'))
+  expect(entity.sections.map((x: { key: string }) => x.key)).not.toContain('habitat')
+  // A longer part: held, with its sentences in the run's report.
+  const long = await content()
+  const longFile = join(long, 'content/species', ID, 'vi.json')
+  const lv = JSON.parse(await readFile(longFile, 'utf8'))
+  lv.sections['habitat:seriouslyfish'] = '<p>Hiện có cá bắt ngoài tự nhiên. Con nào cũng đã lớn. Lô này về từ Venezuela. Cá khỏe.</p>'
+  await writeFile(longFile, JSON.stringify(lv, null, 2))
+  const q = await danio(long)
+  const before = await readFile(longFile, 'utf8')
+  const stock = { check: 'source' as const, part: part(q, 'sections.habitat:seriouslyfish'), quote: 'Hiện có cá bắt ngoài tự nhiên. Con nào cũng đã lớn. Lô này về từ Venezuela. Cá khỏe.', why: 'a dealer\'s stock' }
+  const held = await fitRewrite(long, [q], reading(q, [stock]), { llm: fakeLlm(() => '', 0.9).llm, now: () => new Date() }, { limit: 5 })
+  expect([held.rewritten, held.gone]).toEqual([[], []])
+  expect(held.skipped.join(' ')).toContain('every sentence would go, and the part has 4: held for the chief of staff (sentence 1: "Hiện có cá bắt ngoài tự nhiên."')
+  expect(await readFile(longFile, 'utf8')).toBe(before)
+})
+
 // The lane's guides (fit-front.ts): no reader has read them, so they're cut sentence by sentence, not written whole.
 test('a guide in the lane is mended sentence by sentence, not written whole from its facts', async () => {
   const root = await content()

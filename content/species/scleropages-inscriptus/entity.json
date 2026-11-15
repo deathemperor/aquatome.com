@@ -10,6 +10,38 @@
     "myanmar",
     "tenasserim"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Tenasserim"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "This species' distribution is unclear although individuals from the aquarium trade are said to have been collected in the Tenasserim river basin in Tanintharyi Region, southern Myanmar.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Tenasserim"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7193482,
+      "total": 0,
+      "fetched": "2026-11-14",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -2,13 +2,17 @@ import { spawn as nodeSpawn, spawnSync as nodeSpawnSync, type ChildProcess, type
 import { readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
+import { slow } from '@aq/schema/test-time'
 
 // sim-run.py's quiet() lowers every simulator analysis daemon it can see. sim-run.test.ts and
 // quiet-recording.test.ts both start it, and a scan from one was setting the other's stand-in from nice 0
 // to 20 (2026-11-11). One turn, in the system temp folder: the other file waits until this file's scan has
 // finished. Several scans in this same process share the turn; it only keeps the other file out.
 const DEFAULT_LOCK = join(tmpdir(), 'aquatome-sim-run-tests.lock')
-const WAIT_MS = 25_000
+// A holder keeps the turn for a test's length at most, and those lengths stretch with the test time scale
+// (AQ_TEST_TIME_SCALE), so the wait does too: a fixed 25 s ran out in an engine run's checks on 14 Nov, at a load of 27
+// to 114, where the tests had 6 times their time.
+const WAIT_MS = slow(25_000)
 let depth = 0
 let heldLock = DEFAULT_LOCK
 
@@ -35,7 +39,7 @@ function acquire(lock: string) {
         try { rmSync(lock, { force: true }) } catch { /* the other waiter took it */ }
         continue
       }
-      if (Date.now() - start > WAIT_MS) throw new Error('the other sim-run test file still holds the turn after 25 s')
+      if (Date.now() - start > WAIT_MS) throw new Error(`the other sim-run test file still holds the turn after ${WAIT_MS / 1000} s`)
       Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 20)
     }
   }

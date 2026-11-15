@@ -90,12 +90,15 @@ HANDBOOK_SCREENS = HANDBOOK_FLOWS + HANDBOOK_SHOTS
 # (AppScreen).
 # Also the anonymous statistics, which wait for the index's flag.
 HANDBOOK_MODEL = HANDBOOK_SCREENS + ['TankCheckFlowTests', 'TanksFlowTests/testListsATanksFishAndPlantsAndOpensTheirPages',
-                                     'TankVolumeFlowTests', 'TankMatesFlowTests', 'TelemetryFlowTests']
-# A page open (PageView), or drawn by the app (NativePage): the flows that open one.
+                                     'TankVolumeFlowTests', 'TankMatesFlowTests', 'TelemetryFlowTests', 'GuideTopFlowTests']
+# A page open (PageView), or drawn by the app (NativePage): the flows that open one. In v2, a guide's top
+# (GuideTopFlowTests) and the flows that open a guide on Hôm nay and go back from it.
 PAGES = ['NativePageFlowTests', 'FactsCardFlowTests', 'ReaderPostFlowTests', 'ReadingFlowTests',
          'PhotoGridFlowTests', 'TankLifeFlowTests', 'HandbookFlowTests/testAPageOpensInTheApp',
          'TanksFlowTests/testListsATanksFishAndPlantsAndOpensTheirPages', 'VideoFlowTests',
-         'TelemetryFlowTests', 'ChatFlowTests'] + shots('pages', 'video', 'viewer', 'home', 'tab-bar')
+         'TelemetryFlowTests', 'ChatFlowTests', 'GuideTopFlowTests',
+         'V2FlowTests/testAGuideOpensOnItsPhotoAndNameWhileItsPageIsRead', 'GuideEdgeSwipeFlowTests',
+         'V2FlowTests/testNoPageOffersTheWholePageWhereverItsOpenedFrom'] + shots('pages', 'video', 'viewer', 'home', 'tab-bar')
 # The app's icon picker: its flows, and its shots.
 ICONS = ['AppIconFlowTests'] + shots('icons')
 # The light flows of the outlet a light is plugged into, on the stand-in Tuya cloud: its timers read, the pick taken
@@ -163,8 +166,8 @@ REACH = {
     APP + 'Handbook/PagePlayer.swift': HANDBOOK_FLOWS + shots('video'),
     APP + 'Handbook/FishIdView.swift': HANDBOOK_FLOWS + shots('fish-id'),
     APP + 'Handbook/PageView.swift': PAGES,
-    # The way round v2's fish page, the owner's alone for now.
-    APP + 'Handbook/PageNavigator.swift': ['V2FlowTests'],
+    # The way round v2's fish page and a guide, the owner's alone for now.
+    APP + 'Handbook/PageNavigator.swift': ['V2FlowTests', 'GuideTopFlowTests'],
     # Its pictures are kept for offline too (PageImages).
     APP + 'Handbook/NativePage.swift': PAGES + ['OfflineFlowTests'],
     APP + 'Handbook/FactsCard.swift': ['FactsCardFlowTests', 'NativePageFlowTests'] + shots('pages'),

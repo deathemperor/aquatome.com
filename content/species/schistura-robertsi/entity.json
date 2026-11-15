@@ -11,6 +11,100 @@
     "malaysia",
     "myanmar"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MY",
+        "MM"
+      ],
+      "regions": [
+        "Malay Peninsula",
+        "Phuket",
+        "Langkawi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Schistura robertsi is a small nemacheilid loach from the western slope of the Malay Peninsula in southern Thailand and Malaysia.",
+          "countries": [
+            "TH",
+            "MY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is known from the western slope of the Malay Peninsula with distribution extending south from Tennasserim province, Myanmar to Trang province southern (peninsular) Thailand.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Malay Peninsula"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's also been recorded on the islands of Phuket Thailand and Langkawi (Malaysia).",
+          "countries": [],
+          "regions": [
+            "Phuket",
+            "Langkawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205071,
+      "total": 7,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "TH",
+          6
+        ],
+        [
+          "KH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          8.4375,
+          3,
+          3
+        ],
+        [
+          98.4375,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          12.65625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

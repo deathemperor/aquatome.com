@@ -19,6 +19,8 @@
 // `write` sends to every 5746 light found, as one group, in the order the lights take: clock, manual mode, levels,
 // timer, manual mode. They report nothing back: watch them. Put the owner's group back as WEEK AQUA leaves it with
 // `weekaqua write 54 114 57 117 02:50 02:40`.
+//
+// The owner's Love Ecology light, by broadcast: `swift run light-harness fishlamp …` (FishLampAir.swift).
 import Chihiros
 import ChihirosBLE
 import Foundation
@@ -62,8 +64,9 @@ func connect(_ bt: Bluetooth) async throws -> LightSession {
 
 @MainActor
 func run(_ args: [String]) async throws {
-  let bt = Bluetooth()
   let cmd = args.first ?? ""
+  if cmd == "fishlamp" { return try await fishLamp(Array(args.dropFirst())) }
+  let bt = Bluetooth()
   if cmd == "scan" {
     let stream = try await bt.scan()
     Task { try? await Task.sleep(for: .seconds(8)); bt.stopScan() }
@@ -75,6 +78,7 @@ func run(_ args: [String]) async throws {
   guard ["status", "clock", "clock-at", "restore", "write", "level"].contains(cmd) else {
     print("usage: light-harness scan | status | clock | clock-at HH:MM | restore | write ON OFF RAMP LEVEL… | level CHANNEL LEVEL")
     print("       light-harness weekaqua scan | weekaqua write R G B UV ON OFF [--manual-bytes 2|8]")
+    print("       light-harness fishlamp --log FILE STEP… | fishlamp --dry STEP…")
     exit(2)
   }
   let light = try await connect(bt)

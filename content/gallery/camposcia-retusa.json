@@ -2,14 +2,14 @@
   "id": "camposcia-retusa",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/420018218.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/420018218-480.webp",
-      "width": 1024,
-      "height": 974,
-      "licence": "CC0",
-      "author": "Jean-Paul Boerekamps",
-      "sourceUrl": "https://www.inaturalist.org/photos/420018218",
-      "caption": "Cua trang trí ngụy trang bằng bọt biển trên nền cát",
+      "url": "https://media.aquatome.com/inaturalist/100388368.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/100388368-480.webp",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC BY-SA",
+      "author": "B. P. White",
+      "sourceUrl": "https://www.inaturalist.org/photos/100388368",
+      "caption": "Cua trang trí mang bọt biển cam vàng trên rạn san hô",
       "best": true,
       "kind": "habitat"
     },
@@ -38,18 +38,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/691510735.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/691510735-480.webp",
-      "width": 1024,
-      "height": 819,
-      "licence": "CC BY",
-      "author": "Roger Rittmaster",
-      "sourceUrl": "https://www.inaturalist.org/photos/691510735",
-      "caption": "Cua trang trí phủ bọt biển màu kem trên rạn đá",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/361923228.webp",
       "thumb": "https://media.aquatome.com/inaturalist/361923228-480.webp",
       "width": 1024,
@@ -58,6 +46,18 @@
       "author": "portioid",
       "sourceUrl": "https://www.inaturalist.org/photos/361923228",
       "caption": "Cua trang trí màu vàng nâu trên nền cát đen",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/420018218.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/420018218-480.webp",
+      "width": 1024,
+      "height": 974,
+      "licence": "CC0",
+      "author": "Jean-Paul Boerekamps",
+      "sourceUrl": "https://www.inaturalist.org/photos/420018218",
+      "caption": "Cua trang trí ngụy trang bằng bọt biển trên nền cát",
       "best": true,
       "kind": "habitat"
     },
@@ -110,39 +110,15 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/100388368.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/100388368-480.webp",
-      "width": 576,
-      "height": 1024,
-      "licence": "CC BY-SA",
-      "author": "B. P. White",
-      "sourceUrl": "https://www.inaturalist.org/photos/100388368",
-      "caption": "Cua trang trí mang bọt biển cam vàng trên rạn san hô",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/691510746.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/691510746-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/691510735.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/691510735-480.webp",
       "width": 1024,
       "height": 819,
       "licence": "CC BY",
       "author": "Roger Rittmaster",
-      "sourceUrl": "https://www.inaturalist.org/photos/691510746",
-      "caption": "Cua trang trí ngụy trang nhiều màu giữa rong biển ngoài tự nhiên",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/452748427.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/452748427-480.webp",
-      "width": 1024,
-      "height": 816,
-      "licence": "CC BY",
-      "author": "Jim Moore (Maryland)",
-      "sourceUrl": "https://www.inaturalist.org/photos/452748427",
-      "caption": "Cua trang trí ngụy trang giữa đá và tảo ngoài tự nhiên",
-      "best": false,
+      "sourceUrl": "https://www.inaturalist.org/photos/691510735",
+      "caption": "Cua trang trí phủ bọt biển màu kem trên rạn đá",
+      "best": true,
       "kind": "habitat"
     },
     {
@@ -194,6 +170,18 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/452748427.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/452748427-480.webp",
+      "width": 1024,
+      "height": 816,
+      "licence": "CC BY",
+      "author": "Jim Moore (Maryland)",
+      "sourceUrl": "https://www.inaturalist.org/photos/452748427",
+      "caption": "Cua trang trí ngụy trang giữa đá và tảo ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/575352894.webp",
       "thumb": "https://media.aquatome.com/inaturalist/575352894-480.webp",
       "width": 1024,
@@ -214,6 +202,18 @@
       "author": "Ben Jobson",
       "sourceUrl": "https://www.inaturalist.org/photos/596710863",
       "caption": "Cua trang trí ngụy trang tảo đỏ sẫm trên đáy cát",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/691510746.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/691510746-480.webp",
+      "width": 1024,
+      "height": 819,
+      "licence": "CC BY",
+      "author": "Roger Rittmaster",
+      "sourceUrl": "https://www.inaturalist.org/photos/691510746",
+      "caption": "Cua trang trí ngụy trang nhiều màu giữa rong biển ngoài tự nhiên",
       "best": false,
       "kind": "habitat"
     },

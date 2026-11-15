@@ -189,6 +189,9 @@ struct PageNavigatorTitle: View {
   /// Over the photo itself, before the band comes: on its capsule.
   var onPhoto = false
   let navigator: PageNavigator
+  /// A guide's: once scrolled, its name small over the part being read, each on one line (the guide navigator's spec, 11
+  /// Nov); a fish page's has the part alone.
+  var name: String?
   @Environment(\.dynamicTypeSize) private var type
   @Environment(\.colorScheme) private var scheme
   @Environment(\.accessibilityReduceTransparency) private var opaque
@@ -197,10 +200,15 @@ struct PageNavigatorTitle: View {
     let part = navigator.current?.name, big = type.isAccessibilitySize
     Button { navigator.listOpen = true } label: {
       HStack(spacing: 4) {
-        Text(verbatim: nameInView ? "Mục lục" : part ?? "Mục lục")
-          .font(.system(size: big ? 22 : 15, weight: .semibold))
-          .foregroundStyle(onColour ? Color.white : Color.primary)
-          .lineLimit(1)
+        VStack(alignment: .leading, spacing: 0) {
+          if let name, !nameInView, part != nil, !big {
+            Text(verbatim: name).font(.system(size: 12)).foregroundStyle(onColour ? Color.white.opacity(0.8) : Color.secondary).lineLimit(1)
+          }
+          Text(verbatim: nameInView ? "Mục lục" : part ?? "Mục lục")
+            .font(.system(size: big ? 22 : 15, weight: .semibold))
+            .foregroundStyle(onColour ? Color.white : Color.primary)
+            .lineLimit(1)
+        }
         // The asset by name: `.accentColor` drew black in the light bar. Past the colour, the tint.
         Image(systemName: "chevron.down").font(.system(size: big ? 14 : 10, weight: .semibold))
           .foregroundStyle(onColour ? Color.white : Color("AccentColor"))
@@ -307,6 +315,8 @@ struct PageNavigatorList: View {
       .font(.body)
       .padding(.leading, 30)
       .padding(.trailing, 16)
+      // Room of its own above and below, so wrapped rows don't run together at the larger sizes; one line at size L is 44.
+      .padding(.vertical, 11)
       .frame(minHeight: 44)
       .contentShape(.rect)
     }

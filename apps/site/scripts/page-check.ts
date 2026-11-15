@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url'
 import { HTMLElement, parse } from 'node-html-parser'
 import { headingSubject, loadAll, PictureSet, pictureOf, type LinkTarget, type PictureHashes } from '@aq/schema'
 import { LANGS, langOf, LINK_MARK, localizePath, type Lang } from '../src/lib/i18n'
-import { sciWords } from '../src/lib/meta'
+import { saysSci, sciWords } from '../src/lib/sci'
 import { linkTargets } from '../src/lib/mentions'
 
 export const CHECKS = {
@@ -20,7 +20,7 @@ export const CHECKS = {
   toc: 'contents that disagree with the headings, or numbers out of order',
   'empty-section': 'a heading with nothing under it',
   'link-mark': 'a marker localizeLinks left in the page, which no page may ship with',
-  'name-twice': "a fish's or plant's title or description saying its scientific name twice",
+  'name-twice': "a scientific name said twice: a fish's or plant's title, description, photo text or structured data, or a name with the scientific name printed beside it that the name says already",
 } as const
 export type Check = keyof typeof CHECKS
 export type Problem = { check: Check; detail: string }
@@ -63,6 +63,8 @@ export async function loadFacts(root: string): Promise<Facts> {
 }
 
 const text = (el: HTMLElement) => el.textContent.replace(/\s+/g, ' ').trim()
+/** The text of what `el` sits in, without `el`'s own. */
+const around = (el: HTMLElement) => el.parentNode ? el.parentNode.childNodes.filter(n => n !== el).map(n => n.textContent).join('').replace(/\s+/g, ' ').trim() : ''
 const BRACKETED = /^\s*\(\s*([A-Z][a-z]+ [a-z]{3,}(?: [a-z]{3,})?)\s*\)/
 const NUMBERED = /^(\d{1,2})[.)]\s/
 const level = (el: HTMLElement) => /^H([2-6])$/.exec(el.tagName)?.[1]
@@ -94,6 +96,30 @@ export function checkPage(path: string, html: string, facts: Facts): Problem[] {
     for (const [what, said] of [['title', root.querySelector('title')?.text], ['description', root.querySelector('meta[name="description"]')?.getAttribute('content')]] as const) {
       if (said && (said.match(sciWords(sci, 'giu'))?.length ?? 0) > 1) out.push({ check: 'name-twice', detail: `${what}: ${said}` })
     }
+    // Its head photo's text, and its structured data's headline beside its scientific name.
+    for (const img of root.querySelectorAll('img[alt]')) {
+      const alt = img.getAttribute('alt')!
+      if ((alt.match(sciWords(sci, 'giu'))?.length ?? 0) > 1) out.push({ check: 'name-twice', detail: `photo text: ${alt}` })
+    }
+    for (const ld of root.querySelectorAll('script[type="application/ld+json"]')) {
+      for (const data of [JSON.parse(ld.rawText) as { headline?: string; alternativeHeadline?: string }].flat()) {
+        if (data.headline && data.alternativeHeadline && saysSci(data.headline, data.alternativeHeadline)) out.push({ check: 'name-twice', detail: `structured data: ${data.headline} / ${data.alternativeHeadline}` })
+      }
+    }
+  }
+  // On any page (a fish's or plant's own, a list's cards, a guide's): a scientific name printed under a name that says it
+  // already ("Cá lóc Channa andrao" over "Channa andrao"). The chief of staff, 13 November: 820 Vietnamese names hold theirs.
+  // Not in a <template>: a card's template keeps its .sci for the cards made from it (SpeciesCard's `template`), and
+  // shows nothing.
+  for (const el of root.querySelectorAll('.sci').filter(e => !e.closest('template'))) {
+    let named = el.previousElementSibling
+    while (named && !/^H[1-6]$/.test(named.tagName)) named = named.previousElementSibling
+    // Or, with no heading before it, what it sits in says the name: a link with the scientific name in brackets (a
+    // hybrid's parents), a picker's option (the name in the span before it), a photo page's lead (its link back to the
+    // fish's page).
+    const name = named ? text(named) : around(el)
+    const sci = text(el).replace(/^\((.*)\)$/, '$1')
+    if (name && sci && saysSci(name, sci)) out.push({ check: 'name-twice', detail: `"${name}" over "${sci}"` })
   }
 
   // The same picture twice, whatever its file. A picture hidden from screen readers is a backdrop (a whole tile's blurred

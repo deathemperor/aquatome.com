@@ -1,0 +1,91 @@
+{
+  "id": "youtube-LiwcuuKgNIA",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=LiwcuuKgNIA",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "tanichthys-albonubes",
+    "neocaridina-davidi",
+    "anentome-helena",
+    "hydrocotyle-tripartita",
+    "vesicularia-montagnei",
+    "riccardia-chamedryfolia",
+    "microsorum-pteropus"
+  ],
+  "updatedAt": "2026-11-14",
+  "video": {
+    "youtubeId": "LiwcuuKgNIA",
+    "title": "Making A Realistic Stream Aquarium For Extinct Fish",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 1807,
+    "publishedAt": "2025-07-10",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWvIM5TufKaTkbfXyaw3dd8K",
+      "position": 60
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/LiwcuuKgNIA/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Tanichthys albonubes",
+      "Neocaridina davidi",
+      "Anentome helena",
+      "Planorbella sp.",
+      "Deparia sp.",
+      "Cyperus sp.",
+      "Hydrocotyle tripartita",
+      "Vesicularia montagnei",
+      "Riccardia chamedryfolia",
+      "Microsorum pteropus",
+      "Spathiphyllum sp.",
+      "Pistia stratiotes",
+      "Eleocharis sp."
+    ],
+    "gear": [
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "brand": "Lamini",
+        "model": "F20",
+        "t": 92
+      },
+      {
+        "category": "loc",
+        "type": "thung",
+        "t": 877
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 193
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 173
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 510
+      },
+      {
+        "category": "khac",
+        "brand": "API",
+        "model": "Quick Start",
+        "t": 1590
+      },
+      {
+        "category": "khac",
+        "brand": "Aquarian",
+        "t": 0
+      }
+    ]
+  }
+}

@@ -84,48 +84,6 @@
         }
       },
       {
-        "heading": "Làm nền ba lớp cho bể tép",
-        "moments": [
-          {
-            "t": 620,
-            "url": "https://media.aquatome.com/video/QUYlIbcAJYM/at620-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rải lớp sỏi trộn soil dưới đáy bể kính trống.",
-            "sharpness": 3310.2
-          },
-          {
-            "t": 710,
-            "url": "https://media.aquatome.com/video/QUYlIbcAJYM/at710-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đổ vật liệu nền lên lớp sỏi ở đáy bể.",
-            "sharpness": 1156.4
-          }
-        ]
-      },
-      {
-        "heading": "Bố cục đơn giản bằng sỏi tròn",
-        "moments": [
-          {
-            "t": 740,
-            "url": "https://media.aquatome.com/video/QUYlIbcAJYM/at740-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chọn những viên sỏi tròn to mua ở cửa hàng vật liệu xây dựng.",
-            "sharpness": 239
-          },
-          {
-            "t": 790,
-            "url": "https://media.aquatome.com/video/QUYlIbcAJYM/at790-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Vài viên sỏi tròn to đặt cách nhau, rải sỏi nhỏ quanh chân.",
-            "sharpness": 645.8
-          }
-        ]
-      },
-      {
         "heading": "Trồng cây gì để có cảm giác thảm cỏ",
         "moments": [
           {
@@ -134,15 +92,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thảm dwarf sag xanh mượt phủ kín đáy bể, có cá nhỏ bơi.",
-            "sharpness": 1591.6
-          },
-          {
-            "t": 930,
-            "url": "https://media.aquatome.com/video/QUYlIbcAJYM/at930-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khay đầy dwarf sag lấy từ bể khác, cây dài ngắn lẫn lộn.",
-            "sharpness": 1418.4
+            "sharpness": 1591.6,
+            "person": false
           }
         ],
         "photo": {
@@ -160,20 +111,13 @@
         "heading": "Đổ nước và xử lý nước đục",
         "moments": [
           {
-            "t": 1050,
-            "url": "https://media.aquatome.com/video/QUYlIbcAJYM/at1050-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nước đục ngầu khi đổ nước vào bể có cát chưa rửa.",
-            "sharpness": 1045
-          },
-          {
             "t": 1080,
             "url": "https://media.aquatome.com/video/QUYlIbcAJYM/at1080-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể sau khi nước đã trong, cây và đá lên rất đẹp.",
-            "sharpness": 1735.3
+            "sharpness": 1735.3,
+            "person": false
           }
         ],
         "photo": {
@@ -196,7 +140,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tép trong chậu nhỏ đặt cạnh bể, đang được làm quen nước.",
-            "sharpness": 363.5
+            "sharpness": 363.5,
+            "person": false
           },
           {
             "t": 1300,
@@ -204,7 +149,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đáy bể mới phủ rêu xanh, sỏi và đá rải rác.",
-            "sharpness": 320.5
+            "sharpness": 320.5,
+            "person": false
           }
         ]
       },
@@ -217,7 +163,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ốc và tép xanh bò trên lớp nền sỏi sát kính bể.",
-            "sharpness": 181.2
+            "sharpness": 181.2,
+            "person": false
           },
           {
             "t": 1460,
@@ -225,7 +172,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Một con ốc nhỏ bám trên lá cây thủy sinh trong bể.",
-            "sharpness": 164.9
+            "sharpness": 164.9,
+            "person": false
           }
         ]
       },
@@ -238,7 +186,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tép xanh nhỏ nhìn rõ trên nền sỏi và đá.",
-            "sharpness": 297.6
+            "sharpness": 297.6,
+            "person": false
           },
           {
             "t": 1500,
@@ -246,7 +195,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể tép bày đơn giản với vài viên đá và cỏ xanh.",
-            "sharpness": 2707.8
+            "sharpness": 2707.8,
+            "person": false
           }
         ],
         "photo": {

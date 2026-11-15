@@ -107,8 +107,12 @@ export const claudeCli: Llm = <T>({ system, prompt, schema, model }: { system: s
 export const claudeVision = <T>({ system, prompt, schema, file, model }: { system: string; prompt: string; schema: object; file: string; model?: string }) =>
   run<T>(system, `${prompt}\n\nNever transcribe lettering, signatures or personal names from a photo.\nThe photo: ${file} (open it with the Read tool).`, schema, { tools: 'Read', cwd: dirname(file), model, privateImage: true })
 
-/** The pages research may not read: the marketplaces', and `hosts`' (cycle-only.ts). */
-export const researchDeny = (hosts: readonly string[] = []) => [...MARKETPLACE_DOMAINS, ...hosts].map(d => `WebFetch(domain:${d})`)
+/**
+ * The pages research may not read: the marketplaces', each as its host and every host under it ("www.", a country's), as
+ * a WebFetch domain rule matches its host only and "*.host" those under it; and `hosts`' (cycle-only.ts, both forms
+ * already).
+ */
+export const researchDeny = (hosts: readonly string[] = []) => [...MARKETPLACE_DOMAINS.flatMap(d => [d, `*.${d}`]), ...hosts].map(d => `WebFetch(domain:${d})`)
 /** This checkout, whose engine-state says which sources the engine has moved to the Archive or found blocked (as cli.ts's ROOT). */
 const ENGINE_ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 

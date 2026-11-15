@@ -26,6 +26,19 @@
       "kind": "other"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/383886206.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/383886206-480.webp",
+      "width": 1024,
+      "height": 732,
+      "licence": "CC BY",
+      "author": "lunarjade",
+      "sourceUrl": "https://www.inaturalist.org/photos/383886206",
+      "caption": "Cá rasbora elegans bơi trên nền cát trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/388416014.webp",
       "thumb": "https://media.aquatome.com/inaturalist/388416014-480.webp",
       "width": 1200,
@@ -50,7 +63,7 @@
       "kind": "habitat"
     }
   ],
-  "seen": 15,
-  "updatedAt": "2026-11-09",
-  "builtAt": "2026-11-09"
+  "seen": 17,
+  "updatedAt": "2026-11-14",
+  "builtAt": "2026-11-14"
 }

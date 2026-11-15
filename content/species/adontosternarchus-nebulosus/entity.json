@@ -86,7 +86,71 @@
       "html": "<p>Specimens available in the trade originate from Peru.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/dadb1ba69fd5cce836c87fc766a6dfd0.webp",
+      "thumb": "https://media.aquatome.com/processed/dadb1ba69fd5cce836c87fc766a6dfd0-480.webp",
+      "width": 850,
+      "height": 362,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/adontosternarchus_nebulosus_en/",
+      "source": "glaser",
+      "ownerCrop": {
+        "id": "owner-crop-20261114-adontosternarchus-nebulosus-glaser-1",
+        "pixelHash": "38fd8dd9b016d6511d84b23cb2485fb6470f735fc2c0690dd2d5c711aa240a16"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-14T02:57:14.485Z",
+          "originalHash": "759686001d00f4cb9c162fe0c2180272f301e726876e6913b90ff3cd8ec4df45",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 850,
+            "originalHeight": 495,
+            "window": {
+              "x0": 0,
+              "y0": 133,
+              "x1": 850,
+              "y1": 495
+            },
+            "subject": {
+              "x0": 23,
+              "y0": 237,
+              "x1": 829,
+              "y1": 413
+            },
+            "margin": 13
+          },
+          "excludedMarks": [
+            {
+              "x0": 18,
+              "y0": 17,
+              "x1": 824,
+              "y1": 128
+            }
+          ],
+          "checks": {
+            "species": [
+              "bc29a4dcbd9f3755d93c63cfbfccd735bb29afbdd44ff3da2149da76d6a4a12e",
+              "59527325f7239abea5caded0d2a54705f5692ecb3404c4aed33b177715e9b125"
+            ],
+            "ownership": [
+              "6283791c5f01e2c1f16a06c18b90df47076d42ca02a737e489d2d6f741bd919d",
+              "aedbd1b6e0f494100b1d163f8dc6de5d158a1c23d1fdcc97ff58ec45acd8c51b"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/glaser/96d480f324799661.webp",
+        "width": 850,
+        "height": 495
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

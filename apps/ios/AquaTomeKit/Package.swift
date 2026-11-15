@@ -25,8 +25,9 @@ let package = Package(
     .target(name: "Chihiros", swiftSettings: small),
     // The same over CoreBluetooth, for Week Aqua lights too.
     .target(name: "ChihirosBLE", dependencies: ["Chihiros", "WeekAqua"], swiftSettings: small),
-    // A Mac command line that drives a real light through ChihirosBLE (the iOS simulator has no Bluetooth).
-    .executableTarget(name: "light-harness", dependencies: ["Chihiros", "ChihirosBLE"]),
+    // A Mac command line that drives a real light through ChihirosBLE, and broadcasts to the Love Ecology light (the iOS
+    // simulator has no Bluetooth).
+    .executableTarget(name: "light-harness", dependencies: ["Chihiros", "ChihirosBLE", "FishLamp"]),
     .testTarget(name: "ChihirosTests", dependencies: ["Chihiros"]),
     // Week Aqua lights of model code 5746: the frames, the order they're sent in, and a fake light (pure), no Bluetooth.
     // Times of day are the Chihiros module's.

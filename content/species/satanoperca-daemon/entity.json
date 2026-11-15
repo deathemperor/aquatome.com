@@ -13,6 +13,267 @@
     "orinoco",
     "colombia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "VE",
+        "CO"
+      ],
+      "regions": [
+        "Rio Negro",
+        "Amazon basin",
+        "Casiquiare",
+        "Orinoco",
+        "Río Cinaruco"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the rio Negro watershed in the western Amazon basin of Amazonas state, Brazil, plus the Casiquiare and upper Orinoco systems in Venezuela and Colombia, including the ríos Uaupés, Pasiba, Atabapo, Guaviare, Inírida, Vichada, Sipapo, Tomo, Autana, Tuparro, Ventuari, Parguaza, and Cinaruco.",
+          "countries": [
+            "BR",
+            "VE",
+            "CO"
+          ],
+          "regions": [
+            "Rio Negro",
+            "Amazon basin",
+            "Casiquiare",
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "A typical example is the Río Cinaruco, a low nutrient tributary of the Orinoco in southwestern Venezuela comprising a meandering river channel with numerous lagoons and floodplain lakes which become connected during the annual wet season, when water levels can rise by several metres.",
+          "countries": [],
+          "regions": [
+            "Río Cinaruco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208460,
+      "total": 371,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "VE",
+          293
+        ],
+        [
+          "BR",
+          56
+        ],
+        [
+          "CO",
+          20
+        ],
+        [
+          "PE",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -71.71875,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          -14.0625,
+          2,
+          0
+        ],
+        [
+          -70.3125,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          5.625,
+          6,
+          6
+        ],
+        [
+          -70.3125,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -68.90625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          2.8125,
+          9,
+          9
+        ],
+        [
+          -68.90625,
+          4.21875,
+          10,
+          10
+        ],
+        [
+          -68.90625,
+          5.625,
+          73,
+          73
+        ],
+        [
+          -68.90625,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          1.40625,
+          29,
+          29
+        ],
+        [
+          -67.5,
+          2.8125,
+          30,
+          30
+        ],
+        [
+          -67.5,
+          4.21875,
+          7,
+          7
+        ],
+        [
+          -67.5,
+          5.625,
+          112,
+          112
+        ],
+        [
+          -67.5,
+          7.03125,
+          16,
+          16
+        ],
+        [
+          -67.5,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          -64.6875,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          7,
+          7
+        ],
+        [
+          -61.875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          24,
+          24
+        ],
+        [
+          -56.25,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -56.25,
+          -2.8125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

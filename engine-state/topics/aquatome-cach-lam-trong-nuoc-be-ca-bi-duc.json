@@ -1,0 +1,478 @@
+{
+  "found": true,
+  "species": [
+    "Carassius auratus"
+  ],
+  "sources": [
+    {
+      "url": "https://www.aquariadise.com/cloudy-aquarium-water-causes-solutions-prevention/",
+      "title": "Cloudy aquarium water | Causes, solutions & prevention",
+      "kind": "magazine"
+    },
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/cloudy-fish-tank",
+      "title": "How to Clear Up a Cloudy Fish Tank",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aqueon.com/articles/fix-cloudy-water-in-a-new-and-existing-tank",
+      "title": "How to Fix Cloudy Water in a New & Existing Tank",
+      "kind": "maker"
+    },
+    {
+      "url": "https://www.aquasabi.de/aquascaping-wiki-en_algae_bacterial-bloom",
+      "title": "Bacterial Bloom",
+      "kind": "shop"
+    },
+    {
+      "url": "https://cacanhtailoc.com/blogs/tin-tuc/nuoc-be-ca-bi-duc",
+      "title": "Nước Bể Cá Bị Đục: Nguyên Nhân Và Cách Khắc Phục Hiệu Quả Nhất",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/power-outage",
+      "title": "How to Care for Your Aquarium Fish During a Power Outage",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.chewy.com/education/fish/general/why-is-my-fish-tank-cloudy",
+      "title": "Why Is My Fish Tank Cloudy?",
+      "kind": "shop"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Cloudy aquarium water usually has one of a few causes: suspended particles, a bacterial bloom (milky white), free-floating algae (green), or tannins (brown).",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "A bacterial bloom in a new tank is usually not as alarming as it sounds.",
+      "source": 6
+    },
+    {
+      "section": "what",
+      "fact": "Cloudy water in an established tank usually won't clear on its own, unlike in a new tank.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "A bacterial bloom in an established tank with fish is urgent: test all water parameters.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Low oxygen is the biggest danger to fish during a bacterial bloom.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "To diagnose, pour some tank water into a white cup and look at it closely.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Visible specks in the cup point to suspended particles. Milky water with few or no visible particles, like diluted milk, points to a bacterial bloom.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "In a bacterial bloom the water turns milky within a few days, with no particles visible to the naked eye.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Green or pea-soup-coloured water is free-floating algae, not bacteria.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "A bacterial bloom can turn green when an algal bloom develops on top of it.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Brown-tinted water comes from tannins released by driftwood, catappa leaves and other botanicals.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Yellow or brown water can also mean decaying organic matter (sometimes with foam) or high ammonia or nitrite, which is the dangerous case.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "If the water in the cup is clear but the tank still looks hazy, the glass or acrylic is dirty, not the water.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "If water turns opaque overnight, the filter may have failed or algae may be blocking its intake or outlet.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Signs of ammonia toxicity include lethargy, sitting on the bottom, discoloured gills, red streaks on fins or body, refusing food, and gasping at the surface.",
+      "source": 6
+    },
+    {
+      "section": "causes",
+      "fact": "A bacterial bloom happens when there are excess nutrients but too few beneficial bacteria.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Common triggers of a bacterial bloom are cycling a new tank, adding many fish at once, excessive water changes, over-cleaning the filter, and certain medications.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "In established tanks, white or gray cloudiness is overgrowth of heterotrophic bacteria, often from dead fish or plants or from excess food.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Antibiotics can kill the beneficial bacteria in a tank.",
+      "source": 6
+    },
+    {
+      "section": "causes",
+      "fact": "Overstocking produces excess ammonia. Goldfish are singled out as especially heavy waste producers.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Unrinsed new substrate, new plants and rearranged decor can cloud the water with dust or silt.",
+      "source": 0,
+      "also": [
+        1
+      ]
+    },
+    {
+      "section": "causes",
+      "fact": "Green water is caused by too much light plus too many nutrients from food, waste or fertilizers.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Tap water can contain phosphates that feed algae.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Warm water can drive bacterial overgrowth.",
+      "source": 6
+    },
+    {
+      "section": "firstAid",
+      "fact": "When cloudiness starts, test ammonia and nitrite. Ammonia should be zero.",
+      "source": 2,
+      "also": [
+        6
+      ]
+    },
+    {
+      "section": "firstAid",
+      "fact": "Increase aeration until a bacterial bloom is fixed.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "If ammonia or nitrite is high, change about 50% of the water and retest.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "Partial water changes of 10–50% with dechlorinated water at the correct temperature are recommended.",
+      "source": 6
+    },
+    {
+      "section": "firstAid",
+      "fact": "If fish look sick, contact a veterinarian promptly.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "New-tank bacterial bloom: do nothing and wait 1 to 2 weeks for bacteria to stabilize.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "If a new tank is cloudy but ammonia and nitrite aren't rising, waiting is usually the best option.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "New tank: seed it with a few handfuls of gravel or filter media from a healthy established tank, or use a biological starter product.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Nitrifying bacteria products can be dosed to speed recovery. Follow the product's directions.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Live plants compete with bloom organisms and algae for nutrients and produce oxygen.",
+      "source": 2,
+      "also": [
+        0
+      ]
+    },
+    {
+      "section": "treatment",
+      "fact": "One maker suggests activated carbon in the filter for a new-tank bloom, to absorb nutrients that feed it.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Aquasabi suggests running a UVC clarifier temporarily on a separate slow-flow pump, then doing the largest possible water change to remove dead bacteria, and removing the UVC once the water is clear.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Established tank with white or gray water: do a partial water change, vacuum the gravel and clean the filter. If it stays cloudy, try a water clarifier.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Particles from substrate usually settle within a few days. If they persist after a week, do several large water changes or rinse the substrate thoroughly.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "For lasting fine particles, add mechanical filtration, such as a coarse sponge plus a fine poly pad, and a powerhead to remove dead spots.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Microfiber filter floss can remove very fine floating particles.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Use a water clarifier only as a last resort. It can make the water look worse at first because it clumps particles before the filter catches them.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Green water: a UV sterilizer stops algae from reproducing, and a small unit is enough.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "A UV sterilizer can clear green water in a few days and is safe for fish and plants.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Green water blackout: cover the tank completely for 7 to 10 days, then do a large water change to remove dead algae.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "A blackout can harm plants. The tank must be totally dark, because green water survives on very little light.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Dead algae after a blackout can cause an ammonia spike that harms fish or starts another bloom.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Fine filter floss and large water changes alone won't remove green water.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Do not use chemical algae removers with shrimp, lobsters or crabs. Use them only as a last resort for green water.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Tannins: do gradual water changes, or use activated carbon, carbon pads or Seachem Purigen in the filter.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Used activated carbon must be thrown away. Seachem Purigen can be reused after recharging with bleach.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Tannins are harmless to fish and can lower pH.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Activated carbon can interfere with some medications, so check before using both.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Water-based antibiotics are typically unlicensed over-the-counter products that can harm fish. A vet can give injected or oral medicine instead.",
+      "source": 6
+    },
+    {
+      "section": "steps",
+      "fact": "Step 1: Check a cup of tank water against white to tell particles, milky bloom, green algae, brown tannins or a dirty glass apart.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Step 2: Test ammonia and nitrite.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Step 3: Reduce feeding. Feed only what fish finish in about two minutes, once or twice a day.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Step 4: Treat by type: wait out a new-tank bloom, change water and clean in an established tank, use UV or a blackout for green water, use carbon for tannins.",
+      "source": 1,
+      "also": [
+        2
+      ]
+    },
+    {
+      "section": "prevention",
+      "fact": "Rinse new substrate in a bucket several times before adding it.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Do partial water changes weekly or every two weeks and siphon the substrate.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Change about 25% of the water monthly, or less if you change water weekly.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Clean the filter monthly. The water may stay cloudy for a couple of hours afterwards.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Feed cleaner foods. Low-binder foods break apart into dust.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Start stocking at about one inch of adult fish per net gallon, and less with lots of decor or territorial fish.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Use a light timer: planted tanks may need 8 to 12 hours a day, unplanted tanks six hours or less.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep the tank out of direct sunlight.",
+      "source": 0,
+      "also": [
+        6
+      ]
+    },
+    {
+      "section": "prevention",
+      "fact": "Test ammonia and nitrite weekly and aim for near zero.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Soak driftwood in hot water for at least a few hours before adding it. Tannins can only be reduced, not fully removed.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "New tanks can take 4–6 weeks to grow enough beneficial bacteria.",
+      "source": 6
+    },
+    {
+      "section": "mistakes",
+      "fact": "Doing lots of water changes during a new-tank bloom prolongs it.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Water changes in a new cloudy tank add nutrients and often bring the cloudiness back, sometimes worse.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Aquarium Co-Op advises against adding a UV sterilizer for a bacterial bloom, saying it prolongs it. Aquasabi recommends temporary UVC for blooms.",
+      "source": 1,
+      "also": [
+        3
+      ]
+    },
+    {
+      "section": "mistakes",
+      "fact": "Don't clean or replace the filter in the first 30 days of a new tank, and don't add more fish while it is cloudy.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Never change 100% of the water or deep-clean the tank and accessories, because over-cleaning can encourage bacterial overgrowth.",
+      "source": 6
+    },
+    {
+      "section": "mistakes",
+      "fact": "Replacing all filter media at once, or not rinsing carbon before reuse, are common mistakes.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Don't dose vinegar or carbon in an established tank with a bloom, and check that medications won't disrupt the cycle.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Running a UVC unit through the external filter's fast flow reduces how well it works.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "In long-running tanks, sudden bacterial blooms can be linked to hot months or long daylight exposure, which is relevant to Vietnam's hot season.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "During power cuts, filter compartments run short of oxygen and beneficial bacteria can suffer. The tank may turn a bit cloudy if waste builds up or bacteria die.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "After a power cut, clean hang-on-back and canister filters before restarting them, so dead bacteria and waste aren't flushed into the tank.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "After a power cut, test ammonia and nitrite and do water changes if either is above 0 ppm. Don't feed for 24 hours after power returns.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "During outages of 8+ hours, run air for 1 hour every 8 hours, or every 4 hours in heavily stocked tanks.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese shops use the terms 'nước bể cá bị đục' (cloudy tank water), 'vi sinh' or 'chế phẩm sinh học' (bacteria products) and 'vật liệu lọc sinh học' (biological filter media).",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese aquarium shops sell bacteria products under the category 'Thuốc & Vi sinh'.",
+      "source": 4
+    }
+  ]
+}

@@ -37,6 +37,7 @@ public struct OwnerReportPlace: Sendable, Equatable {
   /// What each section of the site's pages holds, by its folder.
   private static let kinds = [
     "ca": "fish", "cay": "plant", "huong-dan": "guide", "thuat-ngu": "glossary", "video": "video", "thiet-bi": "equipment",
+    "vat-lieu": "material",
     "ikan": "fish", "fish": "fish", "tanaman": "plant", "plant": "plant",
   ]
 

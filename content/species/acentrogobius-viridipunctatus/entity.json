@@ -1,0 +1,582 @@
+{
+  "id": "acentrogobius-viridipunctatus",
+  "scientificName": "Acentrogobius viridipunctatus",
+  "order": "Perciformes",
+  "family": "Gobiidae",
+  "genus": "Acentrogobius",
+  "group": "gobies",
+  "places": [
+    "asia",
+    "india"
+  ],
+  "range": {
+    "records": {
+      "taxonKey": 2376422,
+      "total": 232,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "AU",
+          112
+        ],
+        [
+          "TW",
+          28
+        ],
+        [
+          "TH",
+          19
+        ],
+        [
+          "BD",
+          12
+        ],
+        [
+          "IN",
+          12
+        ],
+        [
+          "ID",
+          11
+        ],
+        [
+          "MY",
+          8
+        ],
+        [
+          "PH",
+          7
+        ],
+        [
+          "VN",
+          7
+        ],
+        [
+          "SG",
+          5
+        ],
+        [
+          "PG",
+          3
+        ],
+        [
+          "PK",
+          3
+        ],
+        [
+          "CN",
+          2
+        ],
+        [
+          "BN",
+          1
+        ],
+        [
+          "HK",
+          1
+        ],
+        [
+          "TZ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          37.96875,
+          -7.03125,
+          1
+        ],
+        [
+          66.09375,
+          23.90625,
+          3
+        ],
+        [
+          71.71875,
+          18.28125,
+          3
+        ],
+        [
+          78.75,
+          8.4375,
+          1
+        ],
+        [
+          78.75,
+          11.25,
+          1
+        ],
+        [
+          80.15625,
+          12.65625,
+          1
+        ],
+        [
+          82.96875,
+          16.875,
+          1
+        ],
+        [
+          84.375,
+          18.28125,
+          2
+        ],
+        [
+          88.59375,
+          21.09375,
+          12
+        ],
+        [
+          91.40625,
+          11.25,
+          1
+        ],
+        [
+          91.40625,
+          21.09375,
+          2
+        ],
+        [
+          97.03125,
+          7.03125,
+          5
+        ],
+        [
+          98.4375,
+          7.03125,
+          1
+        ],
+        [
+          98.4375,
+          9.84375,
+          1
+        ],
+        [
+          98.4375,
+          11.25,
+          3
+        ],
+        [
+          99.84375,
+          2.8125,
+          1
+        ],
+        [
+          99.84375,
+          5.625,
+          2
+        ],
+        [
+          99.84375,
+          12.65625,
+          1
+        ],
+        [
+          101.25,
+          -4.21875,
+          1
+        ],
+        [
+          101.25,
+          1.40625,
+          1
+        ],
+        [
+          101.25,
+          2.8125,
+          1
+        ],
+        [
+          101.25,
+          11.25,
+          8
+        ],
+        [
+          102.65625,
+          0,
+          1
+        ],
+        [
+          102.65625,
+          1.40625,
+          4
+        ],
+        [
+          102.65625,
+          2.8125,
+          1
+        ],
+        [
+          104.0625,
+          -2.8125,
+          1
+        ],
+        [
+          104.0625,
+          8.4375,
+          1
+        ],
+        [
+          104.0625,
+          9.84375,
+          1
+        ],
+        [
+          106.875,
+          19.6875,
+          2
+        ],
+        [
+          108.28125,
+          11.25,
+          1
+        ],
+        [
+          109.6875,
+          18.28125,
+          1
+        ],
+        [
+          109.6875,
+          19.6875,
+          1
+        ],
+        [
+          112.5,
+          11.25,
+          2
+        ],
+        [
+          113.90625,
+          -22.5,
+          1
+        ],
+        [
+          113.90625,
+          -9.84375,
+          2
+        ],
+        [
+          113.90625,
+          4.21875,
+          1
+        ],
+        [
+          113.90625,
+          21.09375,
+          1
+        ],
+        [
+          115.3125,
+          -9.84375,
+          1
+        ],
+        [
+          116.71875,
+          -18.28125,
+          1
+        ],
+        [
+          116.71875,
+          -1.40625,
+          1
+        ],
+        [
+          116.71875,
+          5.625,
+          1
+        ],
+        [
+          118.125,
+          -21.09375,
+          2
+        ],
+        [
+          118.125,
+          5.625,
+          1
+        ],
+        [
+          119.53125,
+          -9.84375,
+          1
+        ],
+        [
+          119.53125,
+          11.25,
+          1
+        ],
+        [
+          119.53125,
+          15.46875,
+          1
+        ],
+        [
+          119.53125,
+          22.5,
+          19
+        ],
+        [
+          119.53125,
+          23.90625,
+          1
+        ],
+        [
+          120.9375,
+          -18.28125,
+          2
+        ],
+        [
+          120.9375,
+          11.25,
+          2
+        ],
+        [
+          120.9375,
+          12.65625,
+          1
+        ],
+        [
+          120.9375,
+          23.90625,
+          8
+        ],
+        [
+          122.34375,
+          -11.25,
+          2
+        ],
+        [
+          122.34375,
+          -4.21875,
+          1
+        ],
+        [
+          122.34375,
+          8.4375,
+          1
+        ],
+        [
+          123.75,
+          9.84375,
+          1
+        ],
+        [
+          127.96875,
+          -15.46875,
+          1
+        ],
+        [
+          129.375,
+          -12.65625,
+          2
+        ],
+        [
+          130.78125,
+          -14.0625,
+          1
+        ],
+        [
+          130.78125,
+          -12.65625,
+          49
+        ],
+        [
+          132.1875,
+          -12.65625,
+          16
+        ],
+        [
+          132.1875,
+          -11.25,
+          1
+        ],
+        [
+          132.1875,
+          -2.8125,
+          1
+        ],
+        [
+          133.59375,
+          -12.65625,
+          2
+        ],
+        [
+          135,
+          -16.875,
+          1
+        ],
+        [
+          135,
+          -15.46875,
+          4
+        ],
+        [
+          140.625,
+          -14.0625,
+          5
+        ],
+        [
+          140.625,
+          -12.65625,
+          3
+        ],
+        [
+          142.03125,
+          -11.25,
+          1
+        ],
+        [
+          143.4375,
+          -9.84375,
+          1
+        ],
+        [
+          144.84375,
+          -16.875,
+          1
+        ],
+        [
+          144.84375,
+          -15.46875,
+          2
+        ],
+        [
+          144.84375,
+          -5.625,
+          1
+        ],
+        [
+          146.25,
+          -19.6875,
+          9
+        ],
+        [
+          147.65625,
+          -21.09375,
+          1
+        ],
+        [
+          149.0625,
+          -22.5,
+          3
+        ],
+        [
+          150.46875,
+          -25.3125,
+          1
+        ],
+        [
+          150.46875,
+          -23.90625,
+          1
+        ],
+        [
+          150.46875,
+          -11.25,
+          1
+        ],
+        [
+          151.875,
+          -26.71875,
+          1
+        ],
+        [
+          151.875,
+          -25.3125,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 15
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/acentrogobius_viridipunctatus_en/",
+      "html": "<p>The species attains a maximum length of 15 cm.</p>",
+      "fixed": true
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/acentrogobius_viridipunctatus_en/",
+      "html": "<p>India.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/acentrogobius_viridipunctatus_en/",
+      "html": "<p>In nature, this fish lives in the lower parts of rivers and therefore likes some salt addition.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/acentrogobius_viridipunctatus_en/",
+      "html": "<p>If the water is hard enough (from 10° dGH upwards), they also stay in perfect health in pure fresh water.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/acentrogobius_viridipunctatus_en/",
+      "html": "<p>It feeds on all usual types of frozen and live food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/acentrogobius_viridipunctatus_en/",
+      "html": "<p>This goby is very peaceful, but breeding habits will be defended against intruders.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/acentrogobius_viridipunctatus_en/",
+      "html": "<p>Fully grown males have a very thick skull.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/acentrogobius_viridipunctatus_en/",
+      "html": "<p>In breeding mood, the fish become completely black in base colour, on which the emerald spots contrast – an outstanding beautiful look that led to the popular name \"midnight goby\". Additionally, the bright band in the caudal fin becomes deep orange.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/7ea8fcd7e12ba322.webp",
+      "width": 960,
+      "height": 416,
+      "licence": "CC BY-SA 4.0",
+      "author": "Priyankar Chakraborty",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Acentrogobius_viridipunctatus.JPG",
+      "caption": "Spotted Green Goby",
+      "thumb": "https://media.aquatome.com/commons/7ea8fcd7e12ba322-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá",
+        "trùng huyết đông lạnh",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100 cm",
+        "bể cá nước lợ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-14"
+}

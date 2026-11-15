@@ -501,6 +501,22 @@ test('an entry about to be saved has its loose sentences reworded once, and the 
   expect(JSON.parse(await readFile(join(root, 'engine-state/reviews/glossary.json'), 'utf8'))['vi/glossary/lua'][0]).toMatchObject({ kept: true, notes: (r as { notes: string[] }).notes })
 })
 
+// The chief of staff, 15 Nov 2026: chu trình nitơ's rewording undid three things its notes asked for, read by nothing after.
+test('the house rules are read again after the rewording, and a rewording they note goes back before the entry is saved', async () => {
+  const root = await site()
+  let reads = 0
+  const llm: Llm = async ({ prompt, system }) => {
+    if (prompt.startsWith('GLOSSARY RULES')) { reads++; return { notes: prompt.split('--- ENTRY ---')[1]!.includes('khoảng 1–2 tuần') ? ['Rule 12: "Ngâm lũa mới khoảng 1–2 tuần." drops what THIS TERM asks for'] : [] } as never }
+    if (system.startsWith('You reword')) return { sentences: [{ n: 1, text: 'Ngâm lũa mới khoảng 1–2 tuần.' }] } as never
+    if (isCheck(prompt)) return verdicts(prompt, t => (t === 'Ngâm lũa mới 1–2 tuần.' ? 'loose: one source says two weeks' : undefined)) as never
+    return written as never
+  }
+  const r = await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'lua', { kind: 'aquascaping' })
+  expect(r).toMatchObject({ id: 'lua', score: 1, notes: ['Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: "Ngâm lũa mới 1–2 tuần." (not "Ngâm lũa mới khoảng 1–2 tuần.": Rule 12: "Ngâm lũa mới khoảng 1–2 tuần." drops what THIS TERM asks for)'] })
+  expect(reads).toBe(2)
+  expect(JSON.parse(await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8')).body).toBe('<h3>Nên làm gì</h3><p>Ngâm lũa mới 1–2 tuần.</p>')
+})
+
 // Chu trình nitơ's saved entry (14 Nov 2026) has a sentence the sentence check stops, advice the old say-once rule pushed the
 // writer to add; Lũa's next save rewrites its saved entry with its kinds' own pages. `revise` rewrites the saved entry once on
 // its notes, from its research, and saves only what passes.

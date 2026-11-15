@@ -29,7 +29,8 @@ const SLEEPS = 'n=$(cat "$HOME/clock.n" 2>/dev/null || echo 0); echo $((n + 1)) 
 const net = (h: string, env: NodeJS.ProcessEnv, call: string) => {
   const t = Date.now()
   const r = spawnSync('/bin/bash', ['-c', `log() { echo "LOG $*"; }; source "${SCRIPTS}/cycle-checks.sh"; net ${call}; echo "status $?"`], { cwd: h, encoding: 'utf8', env })
-  return { out: r.stdout.trim().split('\n'), seconds: (Date.now() - t) / 1000 }
+  const end = Date.now()
+  return { out: r.stdout.trim().split('\n'), seconds: (end - t) / 1000, end: end / 1000 }
 }
 
 // A stop is said up to 4 s past its limit: the supervisor reads the clock each second, and on this Mac at a load of 60
@@ -45,10 +46,17 @@ test('a call to GitHub with no answer is stopped at its limit and says so; one t
   const noTemp = net(h, { ...env, GIT_NET_SECONDS: '1', TMPDIR: '/dev/null/aq-net' }, 'sleep 30')
   expect(noTemp.out).toEqual([expect.stringMatching(/^LOG sleep 30: no answer from GitHub in [1-5] s, stopped$/), 'status 124'])
   expect(noTemp.seconds).toBeLessThan(10)
-  const quick = net(h, env, 'true')
+  // A call that answers isn't held back by its watchdog: one that looked each second added a second to every call. Timed
+  // is that hold alone, from the call's last act, its own reading of the clock, to net's return. Timed whole, the call
+  // was mostly the starts of bash and two perls, which a loaded Mac stretches: 0.801 s against a 0.8 s bound in an engine
+  // run's checks on 14 Nov, at a load of 27 to 114. So the bound isn't scaled (AQ_TEST_TIME_SCALE): the second it guards
+  // against isn't. Perl is slow to start here, as on that Mac; the call's own perl isn't, since a call that took most of
+  // a second would hide most of that second.
+  mkdirSync(join(h, 'perl5'))
+  writeFileSync(join(h, 'perl5', 'Slow.pm'), 'package Slow; select undef, undef, undef, 0.4; 1;\n')
+  const quick = net(h, { ...env, PERL5LIB: join(h, 'perl5'), PERL5OPT: '-MSlow' }, `sh -c 'PERL5OPT= exec perl -MTime::HiRes=time -e "printf q(%.6f), time" > ended'`)
   expect(quick.out).toEqual(['status 0'])
-  // A call that answers isn't held back by its watchdog: one that looked each second added a second to every call.
-  expect(quick.seconds).toBeLessThan(0.8)
+  expect(quick.end - Number(readFileSync(join(h, 'ended'), 'utf8'))).toBeLessThan(0.5)
 })
 
 test('the stop reaches what the call started too, one that ignores TERM included', () => {
@@ -202,7 +210,8 @@ async function seen(parent: number | undefined, command: string) {
   }
   throw new Error(`the fake cycle never showed "${command}" in ${slow(10_000) / 1000} s`)
 }
-const pattern = (line: string) => new RegExp(`Z ${line.replace(/[().]/g, '\\$&').replace('HH:MM', '\\d\\d:\\d\\d')}$`)
+// HH:MM is a clock time; "N min", a real run's minutes, which a slow machine makes more than none.
+const pattern = (line: string) => new RegExp(`Z ${line.replace(/[().]/g, '\\$&').replace('HH:MM', '\\d\\d:\\d\\d').replace(' N min', ' \\d+ min')}$`)
 
 test('a part\'s cycle that has stopped moving past its hours is called stuck, by its step, in its log every hour and on GitHub once a day, and not stopped', async () => {
   const { h, clones, gh, stuck, log } = stuckHome()
@@ -215,7 +224,7 @@ test('a part\'s cycle that has stopped moving past its hours is called stuck, by
     expect(stuck('6').status).toBe(0)
     expect(log('photos')).toEqual([])
     expect(stuck('0').status).toBe(0)
-    const line = `stuck: the photos cycle (pid ${cycle.pid}) has run 0 h 0 min and hasn't moved since the check at HH:MM: talking to GitHub, in git fetch -q origin 60. launchd starts no photos run until it ends, and nothing stops it by itself`
+    const line = `stuck: the photos cycle (pid ${cycle.pid}) has run 0 h N min and hasn't moved since the check at HH:MM: talking to GitHub, in git fetch -q origin 60. launchd starts no photos run until it ends, and nothing stops it by itself`
     expect(log('photos')).toEqual([expect.stringMatching(pattern(line))])
     expect(gh()).toEqual([expect.stringMatching(new RegExp(`^workflow run engine-mac.yml -R deathemperor/aquatome.com -f part=photos -f why=${pattern(line).source.slice(2)}`))])
     // The next hour: its log again, GitHub not again; the cycle still running; the other parts said nothing.
@@ -306,7 +315,7 @@ test('a real cycle whose call ends and whose next begins is still moving, each s
     process.kill(Number(first))
     await seen(calls.pid, 'sleep 61')
     stuck('0')
-    expect(log('pages')).toEqual([expect.stringMatching(pattern(`past its hours: the pages cycle (pid ${calls.pid}) has run 0 h 0 min, still moving: waiting, now in sleep 61. launchd starts no pages run until it ends, and nothing stops it by itself`))])
+    expect(log('pages')).toEqual([expect.stringMatching(pattern(`past its hours: the pages cycle (pid ${calls.pid}) has run 0 h N min, still moving: waiting, now in sleep 61. launchd starts no pages run until it ends, and nothing stops it by itself`))])
     expect(gh().filter(c => c.includes('why=stuck'))).toEqual([])
   } finally {
     process.kill(-calls.pid!)

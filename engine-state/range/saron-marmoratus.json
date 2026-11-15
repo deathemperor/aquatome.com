@@ -1,0 +1,232 @@
+{
+  "id": "saron-marmoratus",
+  "native": {
+    "input": "8b1bf3709bf8d2ec",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Saron marmoratus is widely distributed across the Indo-West Pacific, from Hawaii, the Marquesas and Tahiti southward to Australia, and westward to the Malay Archipelago and across the tropical Indian Ocean to the Red Sea and the east coast of Africa.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It has also been reported from Agatti Island (Lakshadweep, India), eastern Australia, Iran and the Red Sea.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IR",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It has also been reported from Agatti Island (Lakshadweep, India), eastern Australia, Iran and the Red Sea.",
+        "words": "Iran",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Malay Archipelago",
+        "source": "aquariumbreeder",
+        "quote": "Saron marmoratus is widely distributed across the Indo-West Pacific, from Hawaii, the Marquesas and Tahiti southward to Australia, and westward to the Malay Archipelago and across the tropical Indian Ocean to the Red Sea and the east coast of Africa.",
+        "ok": true
+      },
+      {
+        "name": "Hawaii",
+        "source": "aquariumbreeder",
+        "quote": "Saron marmoratus is widely distributed across the Indo-West Pacific, from Hawaii, the Marquesas and Tahiti southward to Australia, and westward to the Malay Archipelago and across the tropical Indian Ocean to the Red Sea and the east coast of Africa.",
+        "ok": true
+      },
+      {
+        "name": "Marquesas",
+        "source": "aquariumbreeder",
+        "quote": "Saron marmoratus is widely distributed across the Indo-West Pacific, from Hawaii, the Marquesas and Tahiti southward to Australia, and westward to the Malay Archipelago and across the tropical Indian Ocean to the Red Sea and the east coast of Africa.",
+        "ok": true
+      },
+      {
+        "name": "Tahiti",
+        "source": "aquariumbreeder",
+        "quote": "Saron marmoratus is widely distributed across the Indo-West Pacific, from Hawaii, the Marquesas and Tahiti southward to Australia, and westward to the Malay Archipelago and across the tropical Indian Ocean to the Red Sea and the east coast of Africa.",
+        "ok": true
+      },
+      {
+        "name": "Agatti Island",
+        "source": "aquariumbreeder",
+        "quote": "It has also been reported from Agatti Island (Lakshadweep, India), eastern Australia, Iran and the Red Sea.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Lakshadweep",
+        "source": "aquariumbreeder",
+        "quote": "It has also been reported from Agatti Island (Lakshadweep, India), eastern Australia, Iran and the Red Sea.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "US",
+        "PF"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Saron marmoratus",
+    "status": "ACCEPTED",
+    "taxonKey": 2226385,
+    "datasets": [
+      [
+        "da6a07ed-9eee-460d-9448-910f542c1a7b",
+        75
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        66
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        63
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        29
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        28
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        24
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        16
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        13
+      ],
+      [
+        "8b8c78fb-53d7-434c-b800-61f38b30d0c9",
+        13
+      ],
+      [
+        "50743314-a455-4f64-b5d5-8a4e816aeec6",
+        10
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        10
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        9
+      ],
+      [
+        "968dfa3e-3614-4bab-a3b5-e9209bdd6078",
+        7
+      ],
+      [
+        "39905320-6c8a-11de-8226-b8a03c50a862",
+        4
+      ],
+      [
+        "8e9974a4-12e2-475f-9aec-5abdf24a1f50",
+        4
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        4
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        4
+      ],
+      [
+        "25e3e8f1-86ee-440c-adfc-8e63759a6505",
+        3
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        3
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        3
+      ],
+      [
+        "7b84c0a2-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "9668b676-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "da27a3b0-5b28-4e4a-9742-dfc77a1e539f",
+        3
+      ],
+      [
+        "44bcde48-ac71-46f2-bf73-24fc3c008b6c",
+        2
+      ],
+      [
+        "d3ef9f19-0b22-4949-b7f5-0a8c030f8525",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "0b1150c9-dfa8-4904-8bc5-b79b4e1930e6",
+        1
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "be00c56f-ab20-4418-9d3e-b55793638d09",
+        1
+      ],
+      [
+        "c6ca96bc-7cf5-4fe7-ac44-d01e06394ef3",
+        1
+      ],
+      [
+        "e2980e63-d152-4219-8c1e-0ffdef3ea6aa",
+        1
+      ],
+      [
+        "e5d47a25-9e51-40db-9b5c-3f766be5c7b5",
+        1
+      ],
+      [
+        "eed49c61-2085-46c4-8d4f-d2cda50fd404",
+        1
+      ],
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        1
+      ]
+    ],
+    "native": [
+      "AU",
+      "IN",
+      "IR"
+    ],
+    "requests": 16,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

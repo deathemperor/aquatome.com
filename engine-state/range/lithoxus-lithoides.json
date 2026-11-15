@@ -1,8 +1,8 @@
 {
   "id": "lithoxus-lithoides",
   "native": {
-    "input": "95a2aa2377da5308",
-    "at": "2026-11-14T00:09:29.977Z",
+    "input": "1ba69cdaeeb947e3",
+    "at": "2026-11-14T17:19:02.525Z",
     "claims": [
       {
         "code": "GY",
@@ -27,6 +27,22 @@
         "quote": "South America: Essequibo and upper Corantijn (Correntyne) River basins, Guyana and Suriname.",
         "words": "Suriname",
         "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Essequibo River, Guyana and upper Corantijn River basin, Suriname.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Essequibo River, Guyana and upper Corantijn River basin, Suriname.",
+        "words": "Suriname",
+        "ok": true
       }
     ],
     "regions": [
@@ -40,6 +56,18 @@
         "name": "Corantijn",
         "source": "planetcatfish",
         "quote": "South America: Essequibo and upper Corantijn (Correntyne) River basins, Guyana and Suriname.",
+        "ok": true
+      },
+      {
+        "name": "Essequibo",
+        "source": "scotcat",
+        "quote": "South America: Essequibo River, Guyana and upper Corantijn River basin, Suriname.",
+        "ok": true
+      },
+      {
+        "name": "Corantijn",
+        "source": "scotcat",
+        "quote": "South America: Essequibo River, Guyana and upper Corantijn River basin, Suriname.",
         "ok": true
       }
     ],

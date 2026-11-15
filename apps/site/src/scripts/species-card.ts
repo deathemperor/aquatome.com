@@ -2,6 +2,7 @@ import type { SpeciesListItem } from '../lib/list-data'
 import { difficultyLevel, fmt } from '../lib/format'
 import { langOf } from '../lib/i18n'
 import { barStyle } from '../lib/range-bar'
+import { sciBeside } from '../lib/sci'
 import { cpath, ct } from './ct'
 import { creditPhoto } from './photo-credits'
 
@@ -30,7 +31,9 @@ export function buildCard(template: HTMLTemplateElement, i: SpeciesListItem): HT
     creditPhoto(i.photo)
   } else whole.remove()
   $('h3').textContent = i.name
-  $('.sci').textContent = i.scientificName
+  const sci = sciBeside(i.name, i.scientificName)
+  if (sci) $('.sci').textContent = sci
+  else $('.sci').remove()
   if (i.water) $('.water').textContent = i.water === 'marine' ? ct('Nước mặn') : ct('Nước lợ')
   else $('.water').remove()
 

@@ -44,6 +44,22 @@ test('research never reads a source the engine reads only through the Archive, o
   expect(researchDeny(now)).toEqual(expect.arrayContaining(['WebFetch(domain:shopee.vn)', 'WebFetch(domain:thesprucepets.com)', 'WebFetch(domain:*.thesprucepets.com)', 'WebFetch(domain:*.archive.org)', 'WebFetch(domain:*.aquariumcoop.com)']))
 })
 
+// The chief of staff, 14 Nov 2026: research doesn't open the magazine read for ideas at all, since nothing records what it
+// opens; and a site read for ideas that refused us its listing is kept off as the cycle's are (ideas.ts).
+test('research never opens the magazine read for ideas, nor a site read for ideas that refused us its listing', async () => {
+  const bare = await cycleOnlyHosts(await checkout('{}'))
+  for (const u of ['https://www.practicalfishkeeping.co.uk/features/x/', 'https://practicalfishkeeping.co.uk/x', 'https://PRACTICALFISHKEEPING.co.uk./x'])
+    expect(refused(bare, u), u).toBe(true)
+  expect(researchDeny(bare)).toEqual(expect.arrayContaining(['WebFetch(domain:practicalfishkeeping.co.uk)', 'WebFetch(domain:*.practicalfishkeeping.co.uk)']))
+  // The shops read for ideas stay open to research, which may cite one for a Vietnamese name, until one refuses its listing.
+  for (const u of ['https://aquazonefish.vn/blogs/kien-thuc/x', 'https://aquahouse.vn/x', 'https://cacanhtailoc.com/blogs/tin-tuc/x'])
+    expect(refused(bare, u), u).toBe(false)
+  const marked = await cycleOnlyHosts(await checkout(JSON.stringify({ aquazonefish: { blockedAt: '2026-11-14T01:00:00.000Z' } })))
+  expect(refused(marked, 'https://aquazonefish.vn/blogs/kien-thuc/x')).toBe(true)
+  expect(refused(marked, 'https://www.aquazonefish.vn/x')).toBe(true)
+  expect(refused(marked, 'https://aquahouse.vn/x')).toBe(false)
+})
+
 test('with no record of the sources, or one not of its shape, there is no list to keep to, and research has none (Astra\'s read)', async () => {
   const missing = await mkdtemp(join(tmpdir(), 'aq-cycle-only-'))
   await expect(cycleOnlyHosts(missing)).rejects.toThrow()
@@ -73,4 +89,14 @@ test('a page research names, fetched by the engine itself, is never one of those
   // A shop's page, moved or not, is read as before.
   expect(await get('https://shop.example/old')).toBe('<p>150.000đ</p>')
   expect(asked.slice(1)).toEqual(['https://shop.example/old', 'https://shop.example/new'])
+})
+
+// Codex's read of 20b579b6f, 14 Nov 2026: the marketplaces were denied as their bare hosts alone, and a WebFetch domain rule
+// matches its host only ("*.host" those under it), so research could open www.tokopedia.com or www.shopee.vn.
+test("research's deny list holds every marketplace host: bare, its www., and the other countries' Shopee and Lazada", () => {
+  const rules = researchDeny().map(r => /^WebFetch\(domain:(.+)\)$/.exec(r)![1]!)
+  const denied = (host: string) => rules.some(r => (r.startsWith('*.') ? host.endsWith(r.slice(1)) : host === r))
+  for (const host of ['shopee.vn', 'www.shopee.vn', 'tokopedia.com', 'www.tokopedia.com', 'tokopedia.link', 'www.lazada.vn', 'tiki.vn', 'vn.shp.ee', 'shopee.co.id', 'www.lazada.co.th', 'shopee.com.my', 'www.lazada.com.my'])
+    expect(denied(host), host).toBe(true)
+  expect(denied('aquahouse.vn')).toBe(false)
 })

@@ -2,23 +2,6 @@
   "id": "chalceus-erythrurus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/38a115b2433c65a4.webp",
-      "thumb": "https://media.aquatome.com/commons/38a115b2433c65a4-480.webp",
-      "width": 1200,
-      "height": 803,
-      "licence": "CC BY 3.0",
-      "author": "Boonchai C",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bueng_chawag_Aquarium_-_panoramio.jpg",
-      "caption": "Cá tucan đuôi đỏ bơi giữa cây thủy sinh trong bể",
-      "best": true,
-      "kind": "other",
-      "large": {
-        "url": "https://media.aquatome.com/commons/38a115b2433c65a4-large.webp",
-        "width": 1792,
-        "height": 1200
-      }
-    },
-    {
       "url": "https://media.aquatome.com/commons/6f329b9c297739d0.webp",
       "thumb": "https://media.aquatome.com/commons/6f329b9c297739d0-480.webp",
       "width": 1200,
@@ -32,6 +15,23 @@
       "large": {
         "url": "https://media.aquatome.com/commons/6f329b9c297739d0-large.webp",
         "width": 1812,
+        "height": 1200
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/commons/38a115b2433c65a4.webp",
+      "thumb": "https://media.aquatome.com/commons/38a115b2433c65a4-480.webp",
+      "width": 1200,
+      "height": 803,
+      "licence": "CC BY 3.0",
+      "author": "Boonchai C",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bueng_chawag_Aquarium_-_panoramio.jpg",
+      "caption": "Cá tucan đuôi đỏ bơi giữa cây thủy sinh trong bể",
+      "best": true,
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/commons/38a115b2433c65a4-large.webp",
+        "width": 1792,
         "height": 1200
       }
     }

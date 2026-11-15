@@ -303,3 +303,16 @@ test('a source read again keeps the page\'s refs, so its own parts still cite th
   expect(() => SpeciesSchema.parse(fishAgain.entity)).not.toThrow()
   expect(fishAgain.entity.refs).toEqual(fishRefs)
 })
+
+// 14 Nov 2026: a new spiny eel filed with the loaches held the pages run's work. A new page takes the group its order
+// allows (gbif.ts pageGroup); a page already on file keeps its own.
+test("a new species page's group fits its order; a page on file keeps the group it has", () => {
+  const eel = { canonicalName: 'Macrognathus caudiocellatus', order: 'Synbranchiformes', family: 'Mastacembelidae', genus: 'Macrognathus', matchType: 'EXACT' }
+  const fresh = mergeSpecies({}, page({ scientificName: 'Macrognathus caudiocellatus', group: 'loaches' }), { ...ctx('seriouslyfish'), taxon: eel })
+  expect(fresh.entity.group).toBe('other')
+  const catfish = { ...taxon, canonicalName: 'Corydoras paleatus', order: 'Siluriformes', family: 'Callichthyidae', genus: 'Corydoras' }
+  expect(mergeSpecies({}, page({ scientificName: 'Corydoras paleatus', group: 'loaches' }), { ...ctx('seriouslyfish'), taxon: catfish }).entity.group).toBe('catfish')
+  expect(mergeSpecies({}, page(), ctx('seriouslyfish')).entity.group).toBe('tetras')
+  const onFile = { ...fresh.entity, group: 'loaches' }
+  expect(mergeSpecies({ entity: onFile, vi: fresh.vi }, page({ scientificName: 'Macrognathus caudiocellatus', group: 'other' }), { ...ctx('glaser'), taxon: eel }).entity.group).toBe('loaches')
+})

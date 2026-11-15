@@ -2,18 +2,6 @@
   "id": "boulengerella-maculata",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/661489443.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/661489443-480.webp",
-      "width": 1024,
-      "height": 686,
-      "licence": "CC0",
-      "author": "Whaldener Endo",
-      "sourceUrl": "https://www.inaturalist.org/photos/661489443",
-      "caption": "Cá giáo đốm bơi trên nền cát có cành cây dưới nước",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/73724565.webp",
       "thumb": "https://media.aquatome.com/inaturalist/73724565-480.webp",
       "width": 1024,
@@ -22,6 +10,18 @@
       "author": "Fábio Olmos",
       "sourceUrl": "https://www.inaturalist.org/photos/73724565",
       "caption": "Cá giáo đốm bơi gần mặt nước đục ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/661489443.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/661489443-480.webp",
+      "width": 1024,
+      "height": 686,
+      "licence": "CC0",
+      "author": "Whaldener Endo",
+      "sourceUrl": "https://www.inaturalist.org/photos/661489443",
+      "caption": "Cá giáo đốm bơi trên nền cát có cành cây dưới nước",
       "best": true,
       "kind": "habitat"
     },

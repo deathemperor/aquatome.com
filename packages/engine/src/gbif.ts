@@ -57,6 +57,34 @@ const GROUP_CLASSES: Record<string, { fish: boolean; classes: string[] }> = {
 }
 
 /**
+ * The orders a fish or shrimp page's group can be, one table for the engine and its test (real-content.test.ts); "other"
+ * and "snails", too many orders to name, are held by their classes alone (GROUP_CLASSES). A page's group comes from a
+ * model (prompts/process.md, species research), and on 14 Nov 2026 one filed a new spiny eel (Synbranchiformes) with the
+ * loaches, where the order's other pages but one are "other".
+ */
+export const GROUP_ORDERS: Record<string, string[]> = {
+  catfish: ['Siluriformes'],
+  tetras: ['Characiformes'], characins: ['Characiformes'], characoids: ['Characiformes'],
+  barbs: ['Cypriniformes'], danios: ['Cypriniformes'], rasboras: ['Cypriniformes'], cyprinid: ['Cypriniformes'],
+  loaches: ['Cypriniformes'],
+  cichlids: ['Perciformes', 'Cichliformes'], labyrinth: ['Perciformes', 'Anabantiformes'], gobies: ['Perciformes', 'Gobiiformes'],
+  killifish: ['Cyprinodontiformes', 'Beloniformes'], livebearers: ['Cyprinodontiformes', 'Beloniformes'],
+  rainbowfish: ['Atheriniformes'], shrimp: ['Decapoda'],
+}
+/**
+ * A page's group as its order allows (the chief of staff, 14 Nov 2026): the group given when its orders include the page's,
+ * else the one group that has that order, else "other", which is for an order no single group has. An order shared by
+ * several groups (Cypriniformes: barbs, danios, rasboras, loaches) can't place a fish by itself, and a guess would list a
+ * loach with the barbs. An order GBIF doesn't give can't be judged, so the group stands.
+ */
+export function pageGroup(group: string, order: string | undefined): string {
+  const orders = GROUP_ORDERS[group]
+  if (!order || !orders || orders.includes(order)) return group
+  const holders = Object.keys(GROUP_ORDERS).filter(g => GROUP_ORDERS[g]!.includes(order))
+  return holders.length === 1 ? holders[0]! : 'other'
+}
+
+/**
  * The species a page is about, from its scientific name and the synonyms it gives: an exact match on any of them (a
  * synonym resolving to its accepted name included) first, else a fuzzy one that is an animal the page's group can be,
  * else none. An exact match of a class the group can't be is none too. A fuzzy match can be another animal: "Brochis

@@ -11,6 +11,48 @@
     "rio-negro",
     "amazon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Negro",
+        "Amazon"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Brazil, Rio Negro.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Negro"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Amazon River basin, Brazil.",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339079,
+      "total": 0,
+      "fetched": "2026-11-14",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

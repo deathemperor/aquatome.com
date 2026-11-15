@@ -1,5 +1,6 @@
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
+import { IDEA_SOURCES, ideaHost, NEVER_RESEARCHED } from './idea-sources'
 import { isMarketplace } from './marketplaces'
 import { SOURCES, type SourceConfig } from './sources'
 
@@ -45,16 +46,18 @@ async function sourceRecord(root: string): Promise<Record<string, Entry>> {
  * read only the way the engine's cycle reads it, at its pace, and nothing goes round that). These are the sources the engine
  * reads only through the Internet Archive, by their config or moved there by the engine itself, and those with a browser
  * check's block on record (`blockedAt`, cleared by the next good run, so a source the owner has cleared comes back), all
- * from the engine's own list, so a new one is covered. Each host is given bare and as "*.host" (its "www.", its forum and
- * any other host under it), plus the hosts that hold other copies of any page.
+ * from the engine's own list, so a new one is covered; and the sites read for ideas whose listing refused us (ideas.ts),
+ * and the magazine read for ideas, always (idea-sources.ts NEVER_RESEARCHED). Each host is given bare and as "*.host" (its
+ * "www.", its forum and any other host under it), plus the hosts that hold other copies of any page.
  */
 export async function cycleOnlyHosts(root: string): Promise<string[]> {
   const record = await sourceRecord(root)
-  const out = new Set<string>(COPY_HOSTS)
+  const out = new Set<string>([...COPY_HOSTS, ...NEVER_RESEARCHED])
   for (const s of SOURCES) {
     if (s.via !== 'archive' && !record[s.id]?.archive && !record[s.id]?.blockedAt) continue
     for (const h of hostsOf(s)) { out.add(h); out.add(`*.${h}`) }
   }
+  for (const s of IDEA_SOURCES) if (record[s.id]?.blockedAt) { out.add(ideaHost(s)); out.add(`*.${ideaHost(s)}`) }
   return [...out].sort()
 }
 

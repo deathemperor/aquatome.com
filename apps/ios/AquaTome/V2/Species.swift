@@ -79,6 +79,8 @@ struct SpeciesPage: View {
   @State private var width: CGFloat = 0
   /// The screen's height the page scrolls in, from its top under the status bar.
   @State private var viewport: CGFloat = 0
+  /// The page has moved from its top: over a whole head, the band comes now, as the photo goes under the bar.
+  @State private var moved = false
   @State private var origin = CGPoint.zero
   @State private var barMid: CGFloat = 0
   /// Where the bar's buttons on the right begin.
@@ -104,6 +106,24 @@ struct SpeciesPage: View {
 
   /// The page's own photo, at the top.
   private var hero: String? { item.img ?? doc?.lead?.src }
+  /// Where the fish is in `hero`: the index's for its photo, else the page's lead's. The card's photo is the head's.
+  private var heroBox: PhotoBox? { item.img != nil ? item.imgBox : doc?.lead?.box }
+  /// `hero`'s own shape (width over height): the photo's, once it's there, else the page's lead's (the same photo).
+  @State private var heroShape: CGFloat?
+  private var shape: CGFloat? { heroShape ?? doc?.lead.flatMap { $0.h > 0 ? CGFloat($0.w) / CGFloat($0.h) : nil } }
+  /// The taller banner's height (`top`'s, in the scroll view): less on a small phone, so the name and figures still show
+  /// under it; less again at the accessibility sizes, so "Thêm vào bể" opens above the fade over the tab bar, white, not in it.
+  private var bannerHeight: CGFloat { min(420, viewport * (size.isAccessibilitySize ? 0.34 : 0.46)) }
+  /// The photo's size where the banner would cut it (the frame rule says whole): the whole photo, its own shape, at the
+  /// screen's width from the bar's foot, the bar and it 420 points at most, else smaller and centred; the credit and the
+  /// name straight under it (Design's mock of 11 Nov, approved by the owner; the rulings of 14 Nov). None for a photo the
+  /// banner holds.
+  private var wholeHead: CGSize? {
+    guard hero != nil, let a = shape, a > 0, width > 0, viewport > 0,
+          PhotoFrame.of(aspect: a, box: heroBox, ratio: width / bannerHeight) == .whole else { return nil }
+    let h = min(width / a, 420 - barFoot)
+    return CGSize(width: h * a, height: h)
+  }
 
   /// The page's other photos, its galleries' in order: the one at the top isn't repeated under it.
   private var photos: [PageDoc.Image] {
@@ -130,7 +150,7 @@ struct SpeciesPage: View {
           .accessibilityLabel(Text("Đóng"))
           .accessibilityIdentifier("v2-close-post")
       }
-      .v2Glass(!overPhoto)
+      .v2Glass(inGlass)
     }
     // Over the photo and its colour, the bar and status bar in white. The page's own after them, never nil: iOS can keep the
     // dark one after nil, white words on the white band.
@@ -139,7 +159,7 @@ struct SpeciesPage: View {
       // The owner's navigator on a long page: its title beside the back button, plain, in the bar so it takes a tap.
       if trying?.long == true, let trying {
         ToolbarItem(placement: .topBarLeading) {
-          PageNavigatorTitle(nameInView: !nameGone, onColour: colourAt.top, onPhoto: hero != nil && !scrolled, navigator: trying)
+          PageNavigatorTitle(nameInView: !nameGone, onColour: colourAt.top, onPhoto: overPhoto, navigator: trying)
             // A width of its own: offered "up to", the bar gave it next to none, "…" alone. Drawn a little wider than the bar
             // is told, into the room it keeps before the bookmark, for a section's name whole.
             .frame(width: titleWidth + 20, alignment: .leading)
@@ -170,7 +190,7 @@ struct SpeciesPage: View {
           .accessibilityLabel(Text("Thêm"))
           .accessibilityIdentifier("page-more")
       }
-      .v2Glass(!overPhoto)
+      .v2Glass(inGlass)
     }
     // The bookmark isn't in the bar to fill: a save from the ⋯ is felt.
     .sensoryFeedback(.success, trigger: savedFromMore)
@@ -208,7 +228,7 @@ struct SpeciesPage: View {
     // photo with no circle of ours, so it holds through the bar for them (Design, 12 Nov: iOS's back on a white photo from
     // 2.4:1 to 3.5:1; `PageTop`). Under Reduce Motion it goes at once.
     .overlay(alignment: .top) {
-      if hero != nil {
+      if hero != nil, wholeHead == nil {
         LinearGradient(stops: [.init(color: .black.opacity(PageTop.shadeOpacity), location: 0),
                                .init(color: .black.opacity(PageTop.shadeHeldOpacity), location: PageTop.shadeHeld),
                                .init(color: .clear, location: 1)], startPoint: .top, endPoint: .bottom)
@@ -227,7 +247,9 @@ struct SpeciesPage: View {
       .frame(width: 0, height: 0)
     }
     // The band in the page's colour while that's under it, so white doesn't cut the colour; then the screen's.
-    .modifier(ClearUnderTopBar(shown: scrolled, ground: colourAt.top ? colour : Color(.systemBackground)))
+    // Over a whole head, as soon as the page moves: the photo goes up under it. Not before, when its fade would lie on the
+    // photo's top.
+    .modifier(ClearUnderTopBar(shown: scrolled || (wholeHead != nil && moved), ground: colourAt.top ? colour : Color(.systemBackground)))
     // The name in the bar once it has left the page, on the colour too, in the bar's middle. The page's own, not iOS's
     // title: with the bar's buttons on no glass, on the colour, iOS set its title beside the back button, and moved it to
     // the middle as the glass came. Placed as iOS's is (`barName`); a name wider than the room is cut short. At the bar's
@@ -289,6 +311,7 @@ struct SpeciesPage: View {
     }
     .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { width = $0 }
     .onScrollGeometryChange(for: CGFloat.self) { $0.containerSize.height } action: { _, h in viewport = h }
+    .onScrollGeometryChange(for: Bool.self) { $0.contentOffset.y + $0.contentInsets.top > 0.5 } action: { _, m in moved = m }
     .onGeometryChange(for: CGPoint.self) { $0.frame(in: .global).origin } action: { origin = $0 }
     .onChange(of: colourAt.foot) { if front { standOnColour() } }
     .onChange(of: colour) { if front { standOnColour() } }
@@ -353,16 +376,22 @@ struct SpeciesPage: View {
   private var top: some View {
     VStack(spacing: 0) {
       if let hero {
-        let banner = V2Photo(src: hero, ground: colour) { colour = $0 }
-          // Less on a small phone, so the name and figures still show under it; less again at the accessibility sizes, so
-          // "Thêm vào bể" opens above the fade over the tab bar, white, not in it.
-          .containerRelativeFrame(.vertical) { h, _ in min(420, h * (size.isAccessibilitySize ? 0.34 : 0.46)) }
+        let whole = wholeHead
+        // A whole head starts at the bar's foot, the colour behind the status bar and the bar.
+        if whole != nil { Color.clear.frame(height: barFoot) }
+        // The taller banner, fading into the colour; or the whole photo under the bar, with a straight edge (`wholeHead`).
+        // One photo either way, so it isn't drawn again when its shape comes.
+        let banner = V2Photo(src: hero, box: heroBox, ground: colour, onGround: true, colour: { colour = $0 }, shape: { heroShape = $0 })
+          .frame(width: whole?.width, height: whole?.height)
+          .frame(maxWidth: .infinity)
+          .containerRelativeFrame(.vertical) { h, _ in whole?.height ?? min(420, h * (size.isAccessibilitySize ? 0.34 : 0.46)) }
           .overlay(alignment: .bottom) {
-            LinearGradient(colors: [colour.opacity(0), colour], startPoint: .top, endPoint: .bottom).frame(height: 140)
+            if whole == nil { LinearGradient(colors: [colour.opacity(0), colour], startPoint: .top, endPoint: .bottom).frame(height: 140) }
           }
         if let n = galleryCount {
-          // With a gallery, it carries how many photos the page has, and the whole of it opens them all.
-          Button { allPhotos() } label: { banner.overlay(alignment: .bottomTrailing) { PhotosBadge(count: n).padding(12) } }
+          // With a gallery, it carries how many photos the page has, and the whole of it opens them all. A whole head's
+          // count is on the colour under it, as the fish goes edge to edge (`header`).
+          Button { allPhotos() } label: { banner.overlay(alignment: .bottomTrailing) { if whole == nil { PhotosBadge(count: n).padding(12) } } }
             .buttonStyle(.plain)
             .accessibilityLabel(Text(verbatim: (doc?.lead?.alt ?? item.name) + ", ") + Text("Xem tất cả \(n) ảnh"))
             .accessibilityIdentifier("v2-lead-photo-grid")
@@ -454,7 +483,10 @@ struct SpeciesPage: View {
   /// Whether the bar's buttons stand over the photo: there on dark circles of our own; once the band comes, on the page's
   /// colour and past it, in iOS's glass, as iOS's back button is (Design's parity, 13 Nov: on the colour the ⋯ was bare
   /// dots beside the back in its tinted glass).
-  private var overPhoto: Bool { hero != nil && !scrolled }
+  private var overPhoto: Bool { hero != nil && !scrolled && wholeHead == nil }
+  /// Whether the bar's buttons are in iOS's glass: once the band comes, and on a page with no photo. Not over a photo, nor
+  /// on the colour above a whole head, where they're white with no circle and no glass (Design's mock of 11 Nov).
+  private var inGlass: Bool { hero == nil || scrolled }
 
   /// White on a dark circle over the photo, in a 44-point tap area; once the band comes, in iOS's glass (`v2Glass`).
   private func round(_ symbol: String) -> some View {
@@ -474,14 +506,31 @@ struct SpeciesPage: View {
 
   private var header: some View {
     VStack(alignment: .leading, spacing: 6) {
-      if hero != nil { leadCredit }
+      if hero != nil {
+        // Under a whole head, its gallery's count on the credit's line, at the left (Design, 14 Nov).
+        if wholeHead != nil, let n = galleryCount {
+          HStack(alignment: .firstTextBaseline, spacing: 12) {
+            Button { allPhotos() } label: {
+              Label { Text("\(n) ảnh") } icon: { Image(systemName: "photo.on.rectangle") }
+                .font(.footnote.weight(.semibold)).foregroundStyle(.white.opacity(0.75))
+                .dynamicTypeSize(...DynamicTypeSize.xxLarge)
+            }
+            .buttonStyle(.plain)
+            .accessibilityLabel(Text("Xem tất cả \(n) ảnh"))
+            .accessibilityIdentifier("v2-lead-photo-count")
+            leadCredit
+          }
+        } else {
+          leadCredit
+        }
+      }
       Text(verbatim: item.name).font(.largeTitle.weight(.bold)).foregroundStyle(.white)
         .fixedSize(horizontal: false, vertical: true)
         .accessibilityAddTraits(.isHeader)
         .onGeometryChange(for: Bool.self) { [barFoot] in $0.frame(in: .scrollView).maxY < barFoot } action: { gone in
           withAnimation(.easeInOut(duration: 0.2)) { nameGone = gone }
         }
-      if let sub = item.sub { LatinName(text: sub).font(.title3).italic().foregroundStyle(.white.opacity(0.75)) }
+      if let sub = item.subUnderName { LatinName(text: sub).font(.title3).italic().foregroundStyle(.white.opacity(0.75)) }
       // Its family and where it comes from, then its other names, as the site's page has them under its name.
       if let doc, !doc.where.isEmpty { Text(styled(doc.where)).foregroundStyle(.white.opacity(0.75)).tint(.white) }
       if let aka = doc?.aka { Text(verbatim: aka).foregroundStyle(.white.opacity(0.75)) }
@@ -551,7 +600,7 @@ struct SpeciesPage: View {
         ForEach(rowPhotos, id: \.p.src) { i, p in
           VStack(alignment: .leading, spacing: 4) {
             Button { viewing = viewerPhotos.firstIndex { V2Photo.full($0.src) == V2Photo.full(p.src) } ?? i } label: {
-              V2Photo(src: p.thumb ?? p.src, ground: colour)
+              V2Photo(src: p.thumb ?? p.src, box: p.box, ground: colour)
                 .aspectRatio(1.6, contentMode: .fit)
                 .clipShape(.rect(cornerRadius: 16, style: .continuous))
                 // Its edge on a dark page, as a row's photo has, for a photo on black.
@@ -1015,7 +1064,7 @@ struct SpeciesPage: View {
       ScrollView(.horizontal, showsIndicators: false) {
         HStack(alignment: .top, spacing: 14) {
           ForEach(whole.pieces[i].indices, id: \.self) { j in
-            if case let .video(id, title, caption) = whole.pieces[i][j] {
+            if case let .video(id, title, caption, _) = whole.pieces[i][j] {
               VideoSlot(id: id, title: title, caption: caption, captionUnder: true)
                 .containerRelativeFrame(.horizontal) { w, _ in min(w - 56, 320) }
             }

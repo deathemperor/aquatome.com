@@ -38,6 +38,18 @@
       "kind": "group"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/154193620.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/154193620-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "José Francisco Colorado-Dapa",
+      "sourceUrl": "https://www.inaturalist.org/photos/154193620",
+      "caption": "Cá rô phi Mexico trên đá rêu trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/6ac591361d759904.webp",
       "thumb": "https://media.aquatome.com/commons/6ac591361d759904-480.webp",
       "width": 1200,
@@ -48,6 +60,18 @@
       "caption": "Cá rô phi Mexico trưởng thành màu xanh vàng, nền đen",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/154193742.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/154193742-480.webp",
+      "width": 1024,
+      "height": 767,
+      "licence": "CC BY",
+      "author": "José Francisco Colorado-Dapa",
+      "sourceUrl": "https://www.inaturalist.org/photos/154193742",
+      "caption": "Cá rô phi Mexico có sọc đậm giữa các tảng đá",
+      "best": true,
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/commons/06a71da132d914cf.webp",
@@ -62,18 +86,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/154193620.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/154193620-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "José Francisco Colorado-Dapa",
-      "sourceUrl": "https://www.inaturalist.org/photos/154193620",
-      "caption": "Cá rô phi Mexico trên đá rêu trong môi trường tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/154195475.webp",
       "thumb": "https://media.aquatome.com/inaturalist/154195475-480.webp",
       "width": 1024,
@@ -82,18 +94,6 @@
       "author": "José Francisco Colorado-Dapa",
       "sourceUrl": "https://www.inaturalist.org/photos/154195475",
       "caption": "Cá rô phi Mexico bơi trên đá trong suối tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/154193742.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/154193742-480.webp",
-      "width": 1024,
-      "height": 767,
-      "licence": "CC BY",
-      "author": "José Francisco Colorado-Dapa",
-      "sourceUrl": "https://www.inaturalist.org/photos/154193742",
-      "caption": "Cá rô phi Mexico có sọc đậm giữa các tảng đá",
       "best": true,
       "kind": "habitat"
     },
@@ -144,18 +144,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/commons/de2f5b168a96f863.webp",
-      "thumb": "https://media.aquatome.com/commons/de2f5b168a96f863-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY-SA 4.0",
-      "author": "Гурьева Светлана",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichlasoma_sp.jpg",
-      "caption": "Cá rô phi Mexico màu nhạt trong bể có đá",
-      "best": false,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/142834469.webp",
       "thumb": "https://media.aquatome.com/inaturalist/142834469-480.webp",
       "width": 1024,
@@ -188,6 +176,18 @@
       "author": "Cangadoba",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carpinte_IMG_0101.jpg",
       "caption": "Cá rô phi Mexico thân xanh đốm sáng trong bể tối",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/de2f5b168a96f863.webp",
+      "thumb": "https://media.aquatome.com/commons/de2f5b168a96f863-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY-SA 4.0",
+      "author": "Гурьева Светлана",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichlasoma_sp.jpg",
+      "caption": "Cá rô phi Mexico màu nhạt trong bể có đá",
       "best": false,
       "kind": "other"
     },

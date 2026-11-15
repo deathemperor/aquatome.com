@@ -89,20 +89,13 @@
         "heading": "Chuyển acara ra bể tạm thế nào cho an toàn",
         "moments": [
           {
-            "t": 230,
-            "url": "https://media.aquatome.com/video/0EqLihKj8os/at230-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng vợt bắt cá trong bể đã rút bớt nước.",
-            "sharpness": 690.5
-          },
-          {
             "t": 290,
             "url": "https://media.aquatome.com/video/0EqLihKj8os/at290-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Acara bơi gần đáy bể, bên cạnh lũa và cây thủy sinh.",
-            "sharpness": 646.1
+            "sharpness": 646.1,
+            "person": false
           }
         ]
       },
@@ -115,7 +108,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá acara bơi trên nền cát trơn trong bể có cây thủy sinh.",
-            "sharpness": 1832.6
+            "sharpness": 1832.6,
+            "person": false
           },
           {
             "t": 1000,
@@ -123,7 +117,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nền cát trơn rải thêm đá trang trí và lũa trong bể.",
-            "sharpness": 1269.4
+            "sharpness": 1269.4,
+            "person": false
           }
         ],
         "photo": {
@@ -146,7 +141,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bố cục lũa nhiều rễ đâm chéo, chèn đá quanh gốc cho vững.",
-            "sharpness": 1198.7
+            "sharpness": 1198.7,
+            "person": false
           },
           {
             "t": 930,
@@ -154,7 +150,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khúc lũa lớn làm thân chính, rễ chéo góc và đá chèn giữ chỗ.",
-            "sharpness": 1916.8
+            "sharpness": 1916.8,
+            "person": false
           }
         ]
       },
@@ -167,15 +164,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đá lớn xếp chồng bên cạnh lũa, cát lấp kín khe ở phía sau bể.",
-            "sharpness": 418.6
-          },
-          {
-            "t": 1410,
-            "url": "https://media.aquatome.com/video/0EqLihKj8os/at1410-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rải thêm lá khô và đá nhỏ lên nền cát cho giống cát sông.",
-            "sharpness": 1291.4
+            "sharpness": 418.6,
+            "person": false
           }
         ],
         "photo": {
@@ -198,15 +188,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể cá lớn có lũa, nước hơi đục sau khi châm nước.",
-            "sharpness": 562.4
-          },
-          {
-            "t": 1190,
-            "url": "https://media.aquatome.com/video/0EqLihKj8os/at1190-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Túi bông lọc trắng và hộp chất liệu lọc đặt trên nắp thùng.",
-            "sharpness": 1409.2
+            "sharpness": 562.4,
+            "person": false
           }
         ],
         "photo": {
@@ -229,7 +212,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể tự nhiên với lũa, cây thủy sinh, ánh sáng rọi xuống ở giữa, hai bên tối hơn.",
-            "sharpness": 3005.9
+            "sharpness": 3005.9,
+            "person": false
           }
         ]
       },
@@ -242,15 +226,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây lan ý đã rửa sạch đất, chỉ còn búi rễ.",
-            "sharpness": 2397.8
-          },
-          {
-            "t": 1550,
-            "url": "https://media.aquatome.com/video/0EqLihKj8os/at1550-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây lan ý đặt trên mặt bể, rễ thả xuống nước gần khung lũa.",
-            "sharpness": 2107.9
+            "sharpness": 2397.8,
+            "person": false
           }
         ],
         "photo": {
@@ -281,7 +258,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá chuột bò trên nền cát sỏi để đảo lớp cát.",
-            "sharpness": 481.7
+            "sharpness": 481.7,
+            "person": false
           }
         ],
         "photo": {
