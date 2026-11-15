@@ -66,8 +66,10 @@ export function titleFits(text: string, original: string, lang: Lang): boolean {
  * language's pages that have videos, each video not spoken in that language, once: content/video-titles/<lang>.json,
  * YouTube id → title. The loader shows them (videosForPage). `limit`: model calls this run, 40 titles each. `only`: just
  * these videos, made again even where a title is kept (a page's titles redone after the prompt changes, the Heckel's first).
+ * `redo`: every title made again (a full re-translation after the prompt changes). Neither touches a title in
+ * content/video-titles/kept.json, YouTube id → why: those the editors passed, kept as they are.
  */
-export async function translateVideoTitles(root: string, llm: Llm, lang: Lang, o: { limit?: number; parallel?: number; model?: string; only?: string[] } = {}) {
+export async function translateVideoTitles(root: string, llm: Llm, lang: Lang, o: { limit?: number; parallel?: number; model?: string; only?: string[]; redo?: boolean } = {}) {
   const file = join(root, 'content/video-titles', `${lang}.json`)
   const done = VideoTitlesSchema.parse(JSON.parse(await readFile(file, 'utf8').catch(() => '{}')))
   const save = async () => {
@@ -75,6 +77,8 @@ export async function translateVideoTitles(root: string, llm: Llm, lang: Lang, o
     await writeFile(file, `${JSON.stringify(Object.fromEntries(Object.entries(done).sort(([a], [b]) => a.localeCompare(b))), null, 2)}\n`)
   }
   const read = async <T>(path: string) => JSON.parse(await readFile(path, 'utf8').catch(() => 'null')) as T | null
+  // Titles the editors read and passed, kept as they are in every language: no run makes them again (the chief of staff, 15 Nov).
+  const kept = (await read<Record<string, string>>(join(root, 'content/video-titles/kept.json'))) ?? {}
   const todo = new Map<string, Todo>()
   for (const kind of ['species', 'products']) {
     for (const id of (await readdir(join(root, 'content', kind)).catch(() => [] as string[])).sort()) {
@@ -83,7 +87,7 @@ export async function translateVideoTitles(root: string, llm: Llm, lang: Lang, o
       const e = await read<{ scientificName?: string; name?: string; videos?: Video[]; reviews?: { videos: Video[] } }>(join(root, 'content', kind, id, 'entity.json'))
       const name = t.t?.name ?? t.name ?? e?.name ?? id
       for (const v of e?.videos ?? e?.reviews?.videos ?? []) {
-        if (speaksPageLang(v, lang) || todo.has(v.youtubeId) || (o.only ? !o.only.includes(v.youtubeId) : v.youtubeId in done)) continue
+        if (speaksPageLang(v, lang) || todo.has(v.youtubeId) || v.youtubeId in kept || (o.only ? !o.only.includes(v.youtubeId) : !o.redo && v.youtubeId in done)) continue
         todo.set(v.youtubeId, { ...v, about: e?.scientificName ? `${name}, ${e.scientificName}` : name })
       }
     }

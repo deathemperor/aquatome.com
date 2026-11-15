@@ -122,3 +122,18 @@ test("in code, every run: 'about' before the litres a gallon size becomes, litre
   expect(tidyTitle('Unboxing Ikan Hidup: Gertrudae (Pseudomugil gertrudae)', 'id')).toBe('Unboxing Ikan Hidup: Gertrudae (Pseudomugil gertrudae)')
   expect(tidyTitle('Profil Ikan Dokter: Semua tentang Garra rufa dan Penggunaannya di Spa', 'id')).toBe('Profil Ikan Dokter: Semua tentang Garra rufa dan Penggunaannya di Spa')
 })
+
+test("a title the editors passed and kept (content/video-titles/kept.json) is never made again, not by --only and not by --redo, which makes every other title again", async () => {
+  const root = await store()
+  await translateVideoTitles(root, model(), 'vi')
+  const before = await titles(root, 'vi')
+  await writeFile(join(root, 'content/video-titles/kept.json'), JSON.stringify({ 'en-a': 'passed at 9 (the editors, 15 Nov)' }))
+  const seen: string[] = []
+  expect(await translateVideoTitles(root, model({ seen, answer: t => `mới: ${t}` }), 'vi', { only: ['en-a', 'en-d'] })).toMatchObject({ titles: 1 })
+  expect(seen).toEqual(['Đèn D|Lamp D after 6 months'])
+  const all = await translateVideoTitles(root, model({ answer: t => `lại: ${t}` }), 'vi', { redo: true })
+  expect(all).toMatchObject({ titles: 3, left: 0 })
+  const after = await titles(root, 'vi')
+  expect(after['en-a']).toBe(before['en-a'])
+  expect(after['en-d']).toBe('lại: Lamp D after 6 months')
+})

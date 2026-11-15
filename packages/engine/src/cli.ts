@@ -1276,8 +1276,8 @@ if (cmd === 'photo-privacy') {
 } else if (cmd === 'video-titles') {
   // A video's title in the language of the pages that show it, once each (video-titles.ts); --limit model calls, 40 titles each.
   const lang = values.lang as Lang
-  if (!LANGS.includes(lang)) throw new Error(`usage: pnpm engine video-titles --lang ${LANGS.join('|')} [--limit N] [--parallel N] [--only youtubeId,youtubeId]`)
-  const r = await translateVideoTitles(ROOT, claudeCli, lang, { limit: values.limit ? Number(values.limit) : undefined, parallel: values.parallel ? Number(values.parallel) : 1, only: values.only ? String(values.only).split(',') : undefined })
+  if (!LANGS.includes(lang)) throw new Error(`usage: pnpm engine video-titles --lang ${LANGS.join('|')} [--limit N] [--parallel N] [--only youtubeId,youtubeId] [--redo]`)
+  const r = await translateVideoTitles(ROOT, claudeCli, lang, { limit: values.limit ? Number(values.limit) : undefined, parallel: values.parallel ? Number(values.parallel) : 1, only: values.only ? String(values.only).split(',') : undefined, redo: values.redo })
   console.log(`video-titles ${lang}: ${r.titles} written, ${r.left} left, ${r.rejected.length} not kept, ${r.failed.length} failed${r.stopped ? `, stopped (${r.stopped})` : ''}`)
   for (const x of [...r.rejected, ...r.failed].slice(0, 30)) console.log(`  ${x}`)
 } else if (cmd === 'wikidata-names') {
