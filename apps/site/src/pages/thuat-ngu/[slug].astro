@@ -29,11 +29,11 @@ type Row = { href: string; name: string; photo?: Photo; sci?: string; kind?: str
 const rows = usedRows(p)
 // No picture twice on the page: the term's photo, then each row the first of its pictures not shown yet, else none.
 const pics = usedPictures(c, [p.photo], rows, x => guideImages(c, x))
-const photo = (x: Photo | null) => (x ? { photo: x } : {})
+const photo = (x: Photo | null | undefined) => (x ? { photo: x } : {})
 const used: { label: string; all: number; rows: Row[] }[] = [
-  { label: t('Hướng dẫn'), all: p.guides.length, rows: rows.guides.map((x, i) => ({ href: `/vi/huong-dan/${x.t.slug}/`, name: x.t.name, ...photo(pics.guides[i]!), kind: x.video ? t('Video hướng dẫn') : t('Hướng dẫn') })) },
-  { label: t('Loài cá'), all: p.fish.length, rows: rows.fish.map(({ photo: _, ...x }, i) => ({ ...x, ...photo(pics.fish[i]!), fish: true })) },
-  { label: t('Cây thủy sinh'), all: p.plants.length, rows: rows.plants.map(({ photo: _, ...x }, i) => ({ ...x, ...photo(pics.plants[i]!) })) },
+  { label: t('Hướng dẫn'), all: p.guides.length, rows: rows.guides.map((x, i) => ({ href: `/vi/huong-dan/${x.t.slug}/`, name: x.t.name, ...photo(pics.guides[i]), kind: x.video ? t('Video hướng dẫn') : t('Hướng dẫn') })) },
+  { label: t('Loài cá'), all: p.fish.length, rows: rows.fish.map(({ photo: _, ...x }, i) => ({ ...x, ...photo(pics.fish[i]), fish: true })) },
+  { label: t('Cây thủy sinh'), all: p.plants.length, rows: rows.plants.map(({ photo: _, ...x }, i) => ({ ...x, ...photo(pics.plants[i]) })) },
 ].filter(x => x.all > 0)
 // A fish's picture framed on the fish (its tile's rule at 3:2); a guide's or a plant's cropped to the middle.
 const frame = (r: Row) => (r.photo && r.fish ? tileFrame(r.photo, 3 / 2) : {})
