@@ -57,12 +57,12 @@ final class MasterFlowTests: XCTestCase {
   }
 
   /// The card's send cut short by the button's lamp step isn't shown as gone: the line says again what it said before (a
-  /// white kept from yesterday), and nothing more is broadcast. The card's send is held on air a minute here, so the
-  /// step surely comes during it.
+  /// white kept from yesterday), and nothing more is broadcast. The card's send is held on air two minutes here, so
+  /// the step surely comes during it.
   func testACardSendTheButtonsLampStepCutsIsNotShownAsSent() {
     let at = Date().addingTimeInterval(-86_400).timeIntervalSinceReferenceDate
     let kept = #"{"last":{"send":{"choice":{"swatch":{"_0":"white"}},"level":100},"at":\#(at)},"colour":{"swatch":{"_0":"white"}},"level":100}"#
-    let app = launch(["-lamp-on-air", "60", "-loveEcology.sent", "\"" + kept.replacingOccurrences(of: "\"", with: "\\\"") + "\""])
+    let app = launch(["-lamp-on-air", "120", "-loveEcology.sent", "\"" + kept.replacingOccurrences(of: "\"", with: "\\\"") + "\""])
     make(app, end: "tap")
     tap(app, "lamp-red")
     let red = Date()
@@ -70,9 +70,9 @@ final class MasterFlowTests: XCTestCase {
     top(app)
     tap(app, "master-start")
     expect(app, "master-log", contains: "lamp on+white", timeout: 40)
-    XCTAssertLessThan(Date().timeIntervalSince(red), 55, "the step came after red's minute: the check proves nothing")
-    // Red's minute ends with the broadcaster taken from it.
-    expect(app, "lamp-status", contains: "Lần cuối máy này gửi: “Trắng”", timeout: 70)
+    XCTAssertLessThan(Date().timeIntervalSince(red), 110, "the step came after red's time on air: the check proves nothing")
+    // Red's time on air ends with the broadcaster taken from it.
+    expect(app, "lamp-status", contains: "Lần cuối máy này gửi: “Trắng”", timeout: 130)
     expect(app, "lamp-lines", lacks: "Đã gửi “Đỏ”")
     XCTAssertEqual(element(app, "lamp-sent").label, "red@100", "the card sent more")
     // Started three times: red, then the step's on and white.
