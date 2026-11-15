@@ -107,6 +107,8 @@ test('a guide is left as it is, and listed, where a cut could break it, take a s
     ['a lead-in it would cut', held(`<p>Hồ ở đây chạy hai bơm:</p><ul><li>Bơm lớn cho thác.</li></ul>${LONG}`, src('Hồ ở đây chạy hai bơm')), 'names or opens what follows'],
     ['a step in the sentence', held(`<p>Ở đây có thể thêm cây nổi ở khu ao bên trái.</p>${LONG}`, src('Ở đây có thể thêm cây nổi ở khu ao bên trái')), 'a step or a caution'],
     ['a step by a verb Fable listed', held(`<p>Ở đây vớt cá kia ra.</p>${LONG}`, src('Ở đây vớt cá kia ra')), 'a step or a caution'],
+    ['a step by a verb of Fable\'s second list', held(`<p>Ở đây gắn đèn sát kính.</p>${LONG}`, src('Ở đây gắn đèn sát kính')), 'a step or a caution'],
+    ['a short name in capitals the guide uses again', held(`<p>Ở đây nước có TDS (tổng chất rắn hòa tan) khoảng 400.</p>${LONG}`, src('Ở đây nước có TDS (tổng chất rắn hòa tan) khoảng 400'), { summary: ['Tép chịu được TDS khoảng 400.'] }), 'which the guide speaks of again'],
     ['a heading', held(`<h2>Bể ở đây chạy ba năm</h2>${LONG}`, src('Bể ở đây chạy ba năm')), 'a heading or a question'],
     ['a question', held(LONG, [{ check: 'source', quote: 'Bể ở đây chạy bao lâu', field: 'faq.0.q' }], { faq: [{ q: 'Bể ở đây chạy bao lâu?', a: 'Rửa bông lọc bằng nước bể, không rửa bằng nước máy.' }] }), 'a heading or a question'],
     ['an answer it would empty', held(LONG, [{ check: 'source', quote: 'Bể ở đây chạy ba năm', field: 'faq.0.a' }], { faq: [{ q: 'Chạy bao lâu?', a: 'Bể ở đây chạy ba năm.' }] }), 'every sentence of faq.0.a would go'],

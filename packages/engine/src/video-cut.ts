@@ -68,11 +68,18 @@ export function leans(sentence: string): boolean {
  * ("bù lại chúng sống lâu", "ít nơi bán"); a step or a caution may not (the chief of staff, 15 Nov 2026).
  */
 // "nên" after a comma is "so" ("…, nên mọi thứ đều tính theo…"), not "should".
-const STEP = /(?<![\p{L}])(?:(?<!,\s*)nên|cần|phải|hãy|đừng|tránh|cẩn thận|coi chừng|chú ý|lưu ý|nguy hiểm|độc|chết|bệnh|hại|thêm|dùng|cho vào|đặt|thay|châm|rửa|cắt|tắt|bật|chỉnh|kiểm tra|đo|giữ|trộn|ngâm|cách ly|cho ăn|chuyển|thả|mua|khoan|buộc|tìm|luộc|đậy|hạ|xếp|lắp|hút|vớt|trồng|xả)(?![\p{L}])/iu
+const STEP = /(?<![\p{L}])(?:(?<!,\s*)nên|cần|phải|hãy|đừng|tránh|cẩn thận|coi chừng|chú ý|lưu ý|nguy hiểm|độc|chết|bệnh|hại|thêm|dùng|cho vào|đặt|thay|châm|rửa|cắt|tắt|bật|chỉnh|kiểm tra|đo|giữ|trộn|ngâm|cách ly|cho ăn|chuyển|thả|mua|khoan|buộc|tìm|luộc|đậy|hạ|xếp|lắp|hút|vớt|trồng|xả|vợt|rải|dán|gắn|đổ|bơm|lau|tỉa|phủ|lót|treo|gỡ)(?![\p{L}])/iu
 /** A sentence that says what comes later in the guide. */
 const ANNOUNCES = /(?<![\p{L}])(?:dưới đây|sau đây|bên dưới|như sau|bài này|cuối bài|phần dưới|phần sau|lát nữa)(?![\p{L}])/iu
-/** The names in a sentence: a word past its first that starts with a capital, of four letters or more ("BioMaster", "Twin"). */
-export const names = (sentence: string) => (sentence.split(/\s+/).slice(1).join(' ').match(/(?<![\p{L}\p{N}])\p{Lu}[\p{L}\p{N}-]{3,}/gu) ?? [])
+/**
+ * The names in a sentence: a word past its first that starts with a capital, of four letters or more ("BioMaster", "Twin"),
+ * and anywhere in it a short one in capitals ("TDS", "CO2", "USD"): a cut of "TDS (tổng chất rắn hòa tan) khoảng 400" took
+ * the page's only gloss of a term its summary still used (Fable's read of 15 Nov 2026).
+ */
+export const names = (sentence: string) => [
+  ...(sentence.split(/\s+/).slice(1).join(' ').match(/(?<![\p{L}\p{N}])\p{Lu}[\p{L}\p{N}-]{3,}/gu) ?? []),
+  ...(sentence.match(/(?<![\p{L}\p{N}])\p{Lu}[\p{Lu}\p{N}]+(?![\p{L}\p{N}])/gu) ?? []),
+]
 /** A dose said by its measure ("chỉ cần một nắp", "hai giọt"), which givesDose, reading amounts and units, doesn't see. */
 const MEASURE = /(?<![\p{L}])(?:nắp|muỗng|thìa|giọt|viên)(?![\p{L}])/iu
 /** A kept sentence on money right after a price that goes ("nên tổng tiền cá cũng không đáng là bao"). */
