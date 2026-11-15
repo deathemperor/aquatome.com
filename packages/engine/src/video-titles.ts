@@ -64,9 +64,9 @@ export function titleFits(text: string, original: string, lang: Lang): boolean {
  * Video titles in a page's language (the owner's report, 2026-11-10: a Vietnamese page listing English titles). For every
  * language's pages that have videos, each video not spoken in that language, once: content/video-titles/<lang>.json,
  * YouTube id → title. The loader shows them (videosForPage). `limit`: model calls this run, 40 titles each. `only`: just
- * these videos, made again even where a title is kept (a page's titles redone after the prompt changes, the Heckel's first).
- * `redo`: every title made again (a full re-translation after the prompt changes). Neither touches a title in
- * content/video-titles/kept.json, YouTube id → why: those the editors passed, kept as they are.
+ * these videos, made again even where a title is already stored (a page's titles redone after the prompt changes). `redo`:
+ * every title made again (a full re-translation after the prompt changes). No run, with either or neither, touches a
+ * title in content/video-titles/kept.json, YouTube id → why: those the editors passed, kept as they are.
  */
 export async function translateVideoTitles(root: string, llm: Llm, lang: Lang, o: { limit?: number; parallel?: number; model?: string; only?: string[]; redo?: boolean } = {}) {
   const file = join(root, 'content/video-titles', `${lang}.json`)

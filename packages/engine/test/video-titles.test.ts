@@ -75,7 +75,7 @@ test('--limit is calls; a usage limit stops with what was finished kept', async 
   expect(await translateVideoTitles(root, model(), 'vi', { limit: 0 })).toMatchObject({ titles: 0, left: 4 })
 })
 
-test('--only makes just those titles again, kept ones included, and leaves every other title as it was', async () => {
+test('--only makes just those titles again, already stored ones included, and leaves every other title as it was', async () => {
   const root = await store()
   await translateVideoTitles(root, model(), 'vi')
   const before = await titles(root, 'vi')
@@ -136,6 +136,17 @@ test("a title the editors passed and kept (content/video-titles/kept.json) is ne
   const after = await titles(root, 'vi')
   expect(after['en-a']).toBe(before['en-a'])
   expect(after['en-d']).toBe('lại: Lamp D after 6 months')
+})
+
+test('a kept video with no title stored is skipped by a plain run too, not only by --only and --redo (the reviewer, 15 Nov)', async () => {
+  const root = await store()
+  await mkdir(join(root, 'content/video-titles'), { recursive: true })
+  await writeFile(join(root, 'content/video-titles/kept.json'), JSON.stringify({ 'en-a': 'passed at 9 (the editors, 15 Nov)' }))
+  const seen: string[] = []
+  await translateVideoTitles(root, model({ seen }), 'vi')
+  expect(seen.join('\n')).not.toContain('Keeping Aus')
+  expect(seen.length).toBeGreaterThan(0)
+  expect(await titles(root, 'vi')).not.toHaveProperty('en-a')
 })
 
 test("tidyTitle changes no meaning: a word before the litres stays ('more than' is not 'about'), an abbreviation or an ellipsis keeps its dots, and a short bracket isn't taken for a repeated name (the reviewer, 15 Nov)", () => {
