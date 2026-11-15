@@ -625,6 +625,8 @@ test('a title a person fixed keeps its count, whatever the count rule makes of t
   const r = await sweep(root, { llm: async () => { throw new Error('not asked') } })
   expect((await json(root, 'content/guides/a/vi.json')).name).toBe('10 cách xử lý rêu hại nhanh')
   expect(r.titles.find(x => x.includes('/guides/a'))).toBeUndefined()
+  // and the check the real-content test holds at zero leaves it too, or that test fails every cycle on a page the sweep won't touch
+  expect(checkPages(await loadPages(join(root, 'content')), RULES.filter(x => x.id === 'title-count')).findings.filter(f => f.page.kind === 'guides')).toEqual([])
 })
 
 test('a title rewritten by the model is kept when the reviewer passes it, and the number dropped when not', async () => {
