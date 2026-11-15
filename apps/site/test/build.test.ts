@@ -246,7 +246,8 @@ describe("a species page's videos in the reader's language (the owner's report, 
     expect(rows[1]!.getAttribute('data-title-from')).toBe('German blue ram care guide')
     expect(rows[0]!.getAttribute('data-title-from')).toBeUndefined()
   })
-  test('a title the meaning check refused (video-titles/vi.refused.json) shows the video\'s own title, marked, with Vietnamese on (the chief of staff, 16 Nov)', () => {
+  // The refused row also has a pass in its stored words (vi.passed.json), as two runs' files merged could leave: the refusal wins.
+  test('a title the meaning check refused (video-titles/vi.refused.json) shows the video\'s own title, marked, with Vietnamese on, a pass beside it notwithstanding (the chief of staff, 16 Nov)', () => {
     expect(rows[2]!.hasAttribute('data-own-title')).toBe(true)
     expect(html).not.toContain('Đàn phượng hoàng xanh trong bể thủy sinh')
     expect(rows[1]!.hasAttribute('data-own-title')).toBe(false)

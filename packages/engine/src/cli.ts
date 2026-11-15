@@ -96,7 +96,7 @@ import { speciesVideos } from './species-videos'
 import { findVideos, readVideoRejected } from './videos'
 import { localizeCaptions } from './captions'
 import { titlesRunOptions, translateVideoTitles } from './video-titles'
-import { checkOutcome, checkUsage, checkVideoTitles, recordVerdicts } from './video-title-check'
+import { checkOutcome, checkUsage, runTitleCheck } from './video-title-check'
 import { localizeEquipment } from './equipment-intl'
 import { addWikidataNames } from './wikidata'
 import { addPlantSynonyms } from './plant-synonyms'
@@ -1292,13 +1292,7 @@ if (cmd === 'photo-privacy') {
   // batch, a row the model left out) ends it with an error.
   const lang = values.lang as Lang
   if (!LANGS.includes(lang) || !checkUsage(values)) throw new Error(`usage: pnpm engine video-titles-check --lang ${LANGS.join('|')} (--out <file> [--titles <file>] | --write) [--only youtubeId,youtubeId]`)
-  const dir = join(ROOT, 'content/video-titles')
-  const kept = JSON.parse(await readFile(join(dir, 'kept.json'), 'utf8').catch(() => '{}')) as Record<string, string>
-  const titles = Object.fromEntries(Object.entries(JSON.parse(await readFile(values.titles ? String(values.titles) : join(dir, `${lang}.json`), 'utf8')) as Record<string, string>).filter(([id]) => !(id in kept)))
-  // With --write, a title already refused, or passed in its present words, isn't read again and counts toward the stop line.
-  const map = async (file: string) => JSON.parse(await readFile(join(dir, file), 'utf8').catch(() => '{}')) as Record<string, string>
-  const verdicts = values.write ? { refused: await map(`${lang}.refused.json`), passed: await map(`${lang}.passed.json`) } : undefined
-  const r = await checkVideoTitles(ROOT, claudeCli, lang, titles, { only: values.only ? String(values.only).split(',') : undefined, record: values.write ? checks => recordVerdicts(ROOT, lang, checks, titles) : undefined, verdicts })
+  const r = await runTitleCheck(ROOT, claudeCli, lang, { titlesFile: values.titles ? String(values.titles) : undefined, write: values.write, only: values.only ? String(values.only).split(',') : undefined })
   if (values.out) await writeFile(String(values.out), `${JSON.stringify(r.checks, null, 2)}\n`)
   // Unread titles, or more than one in ten refused over every title read in these words: an error, and the language isn't
   // turned on until the chief of staff has heard (16 Nov). The check itself stops at a mark of 200 over it (MARK).

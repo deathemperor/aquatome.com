@@ -104,6 +104,18 @@ export async function checkVideoTitles(root: string, llm: Llm, lang: Lang, title
   return report
 }
 
+/**
+ * The command (`video-titles-check`): the titles from `titlesFile`, or the language's stored ones, the kept ones left out
+ * (the editors passed them). With `write`, the verdicts on file count toward the stop line and each batch's are recorded.
+ */
+export async function runTitleCheck(root: string, llm: Llm, lang: Lang, o: { titlesFile?: string; write?: boolean; only?: string[] } = {}) {
+  const dir = join(root, 'content/video-titles')
+  const kept = await readMap(join(dir, 'kept.json'))
+  const titles = Object.fromEntries(Object.entries(JSON.parse(await readFile(o.titlesFile ?? join(dir, `${lang}.json`), 'utf8')) as Record<string, string>).filter(([id]) => !(id in kept)))
+  const verdicts = o.write ? { refused: await readMap(join(dir, `${lang}.refused.json`)), passed: await readMap(join(dir, `${lang}.passed.json`)) } : undefined
+  return checkVideoTitles(root, llm, lang, titles, { only: o.only, verdicts, record: o.write ? checks => recordVerdicts(root, lang, checks, titles) : undefined })
+}
+
 /** The command's usage: --out, or --write; --write reads and records the stored titles only, so never with --titles. */
 export const checkUsage = (v: { out?: string; write?: boolean; titles?: string }) => Boolean(v.out || v.write) && !(v.write && v.titles)
 

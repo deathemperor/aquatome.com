@@ -1,9 +1,10 @@
+import { existsSync } from 'node:fs'
 import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { checkOutcome, checkUsage, checkVideoTitles, forgetVerdicts, recordVerdicts } from '../src/video-title-check'
+import { checkOutcome, checkUsage, checkVideoTitles, forgetVerdicts, recordVerdicts, runTitleCheck } from '../src/video-title-check'
 
 async function store() {
   const root = await mkdtemp(join(tmpdir(), 'video-title-check-'))
@@ -190,6 +191,44 @@ test('a mark is judged on the titles up to it, though the batch that reaches it 
   }
   const r = await checkVideoTitles(root, llm, 'vi', titles, { verdicts: { refused, passed } })
   expect([calls, Object.keys(r.checks).length, r.stopped]).toEqual([1, 40, 'over one in ten refused at 200 titles: 21 of 200'])
+})
+
+test('a row the model leaves out moves no mark: each is judged on the first 200, 400… titles read (the reviewers of the check, 16 Nov)', async () => {
+  const { root, ids, titles } = await many(500)
+  const read = ids.filter(id => id !== 'v050')
+  const run = async (bad: Set<string>) => {
+    let calls = 0
+    const llm: Llm = async <T>({ prompt }: { prompt: string }) => {
+      calls++
+      const rows = rowsOf(prompt).map(l => /Aus (v\d+)/.exec(l)![1]!)
+      return { checks: rows.flatMap((id, j) => (id === 'v050' ? [] : [bad.has(id) ? { n: j + 1, ok: false, kind: 'dropped', why: 'x' } : { n: j + 1, ok: true }])) } as T
+    }
+    const r = await checkVideoTitles(root, llm, 'vi', titles)
+    return { calls, checked: Object.keys(r.checks).length, stopped: r.stopped }
+  }
+  // 23 of the first 200 read: the batch that reaches 200 ends at 239, and the line is still judged at 200.
+  expect(await run(new Set(read.slice(0, 23)))).toEqual({ calls: 6, checked: 239, stopped: 'over one in ten refused at 200 titles: 23 of 200' })
+  // 20 of the first 200 and 4 just after: on, though 24 of the 239 read when the batch ends is over.
+  expect(await run(new Set([...read.slice(0, 20), ...read.slice(200, 204)]))).toEqual({ calls: 13, checked: 499, stopped: '' })
+})
+
+test('the command reads the stored titles but the kept ones; with --write it counts the verdicts on file and records each batch, without it it records nothing', async () => {
+  const root = await store()
+  const dir = join(root, 'content/video-titles')
+  await writeFile(join(dir, 'vi.json'), JSON.stringify({ 'en-a': 'Cá A săn mồi hiếm', 'en-b': 'Tham quan bể cá A' }))
+  await writeFile(join(dir, 'kept.json'), JSON.stringify({ 'en-a': 'Cá A săn mồi hiếm' }))
+  const sent: string[] = []
+  const llm: Llm = async <T>({ prompt }: { prompt: string }) => {
+    const rows = rowsOf(prompt)
+    sent.push(...rows)
+    return { checks: rows.map((_, j) => ({ n: j + 1, ok: false, kind: 'dropped', why: 'x' })) } as T
+  }
+  const dry = await runTitleCheck(root, llm, 'vi')
+  expect([Object.keys(dry.checks), sent.length, existsSync(join(dir, 'vi.refused.json'))]).toEqual([['en-b'], 1, false])
+  await runTitleCheck(root, llm, 'vi', { write: true })
+  expect(JSON.parse(await readFile(join(dir, 'vi.refused.json'), 'utf8'))).toEqual({ 'en-b': 'dropped: x' })
+  const again = await runTitleCheck(root, llm, 'vi', { write: true })
+  expect([again.given, again.prior, sent.length]).toEqual([0, { checked: 1, refused: 1 }, 2])
 })
 
 test("the run's end: unread titles, or more than one in ten refused over all read in these words, even under the first mark of 200, end it with an error (the chief of staff, 16 Nov; the reviewers of the check)", () => {

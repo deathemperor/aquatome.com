@@ -118,7 +118,7 @@ export async function translateVideoTitles(root: string, llm: Llm, lang: Lang, o
   // Such a video keeps its own title, recorded with the reason where the site reads refusals (video-title-check.ts).
   const shared = [...about].filter(([, fish]) => fish.size > 1)
   for (const [id] of shared) todo.delete(id)
-  // A title stored for one before is taken out: the meaning check reads the stored titles, and a pass would clear the refusal.
+  // A title stored for one before is taken out, so nothing stored names one page's fish for the other.
   if (shared.some(([id]) => id in done)) { for (const [id] of shared) delete done[id]; await save() }
   if (shared.length) await recordVerdicts(root, lang, Object.fromEntries(shared.map(([id, fish]) => [id, { ok: false, kind: 'wrong fish' as const, why: `on the pages of ${fish.size} fish (${[...fish].join(', ')}): one title would name one page's fish on the other` }])))
   const rows = [...todo.values()]
