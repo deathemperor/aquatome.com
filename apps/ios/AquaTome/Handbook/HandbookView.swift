@@ -43,6 +43,7 @@ struct HandbookView: View {
       // Placed, not left to iOS: iOS 27 keeps a search tab's field out of sight until the page is pulled down.
       .searchable(text: $handbook.query, placement: .navigationBarDrawer(displayMode: .always), prompt: Text("Tìm loài cá, cây, hướng dẫn"))
       .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
+      .background(OpensAtTop())
       .navigationTitle("Tìm")
       .profileButton()
       .navigationDestination(for: HandbookIndex.Item.self) { item in
@@ -70,6 +71,42 @@ struct HandbookView: View {
       #endif
       .task { await handbook.appear() }
       .refreshable { await handbook.load() }
+    }
+  }
+}
+
+/// Tìm opens with its title big at the left, as the other tabs (Design's spec-titles.md, 12 Nov). 27.2 shows the search
+/// tab's list first a little scrolled, past where iOS draws the big title, with its field always shown; pulled down and back
+/// it draws it big (10 Nov). So the first time the list is shown, it's set at its very top and the bar measures itself
+/// again, which is when it draws its title big; setting the list's place alone left it small (15 Nov). Nothing else is
+/// touched.
+private struct OpensAtTop: UIViewControllerRepresentable {
+  func makeUIViewController(context: Context) -> Holder { Holder() }
+  func updateUIViewController(_ holder: Holder, context: Context) {}
+
+  final class Holder: UIViewController {
+    private var done = false
+
+    override func viewDidAppear(_ animated: Bool) {
+      super.viewDidAppear(animated)
+      guard !done else { return }
+      done = true
+      top()
+      // Again once iOS has laid the bar out after its own appearance.
+      DispatchQueue.main.async { [weak self] in self?.top() }
+    }
+
+    private func top() {
+      guard let bar = navigationController?.navigationBar, let screen = navigationController?.topViewController?.view,
+            let list = Self.firstScroll(in: screen) else { return }
+      list.setContentOffset(CGPoint(x: list.contentOffset.x, y: -list.adjustedContentInset.top), animated: false)
+      bar.sizeToFit()
+    }
+
+    private static func firstScroll(in v: UIView) -> UIScrollView? {
+      if let s = v as? UIScrollView, s.alwaysBounceVertical || s.contentSize.height > s.bounds.height { return s }
+      for sub in v.subviews { if let s = firstScroll(in: sub) { return s } }
+      return nil
     }
   }
 }
