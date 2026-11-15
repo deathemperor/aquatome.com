@@ -510,8 +510,9 @@ private struct SectionBlock: View {
       }
       if opened || !rest.isEmpty {
         HStack {
-          // 44 pt to tap, as a card's foot.
-          if opened { Button("Thu gọn") { close() }.frame(minHeight: 44) }
+          // 44 pt to tap, as a card's foot: on the label, which is what takes the tap. A frame around the button only made
+          // room; its tap stayed the text's 20 pt (measured 15 Nov).
+          if opened { Button { close() } label: { Text("Thu gọn").frame(minHeight: 44).contentShape(.rect) } }
           Spacer(minLength: 8)
           if !rest.isEmpty { Text(Self.rest(rest)).font(.footnote).foregroundStyle(.secondary) }
         }
