@@ -64,6 +64,8 @@ enum FishChip: String, CaseIterable, Hashable {
 @available(iOS 18, *)
 struct FishChips: View {
   @Environment(HandbookModel.self) private var handbook
+  /// The chips' pictures as drawn icons, not photos, while the two are tried (`-v2-chip-art`).
+  static let art = ProcessInfo.processInfo.arguments.contains("-v2-chip-art")
 
   var body: some View {
     let s = handbook.shelves
@@ -78,10 +80,16 @@ struct FishChips: View {
           let face = items.first { $0.img != nil && featured.contains($0.path) } ?? items.first { $0.img != nil }
           link(chip) {
             HStack(spacing: 8) {
-              V2Photo(src: face?.img)
+              Group {
+                if Self.art {
+                  Image("chip-\(chip.rawValue)").resizable().scaledToFill()
+                } else {
+                  V2Photo(src: face?.img)
+                    .overlay { if face == nil { Image(systemName: chip == .plants ? "leaf" : "fish").font(.caption).foregroundStyle(.secondary) } }
+                }
+              }
                 .frame(width: 30, height: 30)
                 .clipShape(Circle())
-                .overlay { if face == nil { Image(systemName: chip == .plants ? "leaf" : "fish").font(.caption).foregroundStyle(.secondary) } }
                 .accessibilityHidden(true)
               Text(verbatim: chip.title(handbook.labels)).font(.subheadline.weight(.semibold)).lineLimit(1)
             }

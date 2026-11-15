@@ -456,8 +456,16 @@ private struct GroupTile: View {
     _colour = State(initialValue: PhotoColour.cached(group.img) ?? PhotoColour.fallback)
   }
 
+  /// A painted picture in place of the group's photo, while the two are tried (`-v2-tile-art`): cichlids, catfish, shrimp.
+  private var art: Image? {
+    guard ProcessInfo.processInfo.arguments.contains("-v2-tile-art"), ["cichlids", "catfish", "shrimp"].contains(group.key) else { return nil }
+    return Image("tile-\(group.key)")
+  }
+
   var body: some View {
-    V2Photo(src: group.img, ground: colour) { colour = $0 }
+    Group {
+      if let art { art.resizable().scaledToFill() } else { V2Photo(src: group.img, ground: colour) { colour = $0 } }
+    }
       .v2Drift(drift && group.img != nil, delay: delay)
       .v2Parallax(parallax && group.img != nil)
       // No photo: the kind's mark on the colour, as a row's, not an empty block.
