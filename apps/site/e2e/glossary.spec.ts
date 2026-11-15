@@ -156,3 +156,26 @@ test('the list\'s search keeps only the terms that match, and says when none do;
   await expect(page.locator(`h2[id="${target.slice(1)}"]`)).toBeInViewport()
   expect(errors).toEqual([])
 })
+
+// The Design Lead, 15 Nov 2026: the row's end chip, "Dùng trong N", is marked as the other chips are while its part is
+// read, and lets go in a part above. Read from the page, so it holds on aquatome.com too.
+test('a term\'s jump row marks "Dùng trong" at its end while the reader is in that part', async ({ page, errors }, info) => {
+  await page.goto('/thuat-ngu/')
+  let found = false
+  for (const href of (await page.locator('[data-find] dt a').evaluateAll(as => as.map(a => a.getAttribute('href')!))).slice(0, 30)) {
+    await page.goto(href)
+    if (await page.locator('nav.jump a.end').count()) { found = true; break }
+  }
+  test.skip(!found, 'no term with a jump row and pages that use it in this build')
+  const press = (l: ReturnType<typeof page.locator>) => (info.project.name === 'phone' ? l.tap() : l.click())
+  const end = page.locator('nav.jump a.end')
+  await press(end)
+  await expect(page.locator('#dung-trong')).toBeInViewport()
+  await expect(end).toHaveAttribute('aria-current', 'true')
+  await expect(page.locator('nav.jump a[aria-current]')).toHaveCount(1)
+  const first = page.locator('nav.jump ul a').first()
+  await press(first)
+  await expect(first).toHaveAttribute('aria-current', 'true')
+  await expect(end).not.toHaveAttribute('aria-current')
+  expect(errors).toEqual([])
+})
