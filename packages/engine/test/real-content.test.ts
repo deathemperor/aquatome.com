@@ -987,6 +987,42 @@ test('five held video guides say their one sentence plainly, in the Writing Lead
   }
 })
 
+// The chief of staff, 16 Nov 2026: the chat answers sick-fish questions from the ich and parasite guides, and both sent a
+// keeper here to US medicines by name (Ich-X and four more), at each maker's dose turned into litres, with the makers'
+// "safe for every fish, shrimp and snail". In the Writing Lead's words: each medicine by its active ingredients, the
+// label's dose, cautions from the University of Florida's ich circular and the labels in place of the safety claims, and
+// the circular's salt figure with its conditions. Both bodies are fixed by hand; the two US medicine boxes in the parasite
+// guide's photos leave it and every page, on the never-again list. The two sources the new lines rest on are listed on both.
+test('the ich and parasite guides name no US medicine, give the label\'s dose, and show no medicine box', () => {
+  const root = fileURLToPath(new URL('../../../', import.meta.url))
+  const read = (id: string) => JSON.parse(readFileSync(join(root, `content/guides/${id}/vi.json`), 'utf8')) as Translation & { bodyFixed?: boolean }
+  const ich = read('aquariumcoop-blogs-aquarium-how-to-treat-ich-on-freshwater-fish'), parasites = read('aquariumcoop-blogs-aquarium-fish-parasites')
+  for (const t of [ich, parasites]) {
+    expect(t.bodyFixed, t.slug).toBe(true)
+    for (const gone of ['Ich-X', 'Ich X', 'Hikari', 'Aquarium Solutions', 'Pond Solutions', 'Fritz', 'ParaCleanse', 'PraziPro', 'CyroPro', 'Expel-P', 'Maracyn', 'Repashy', 'Purigen', 'Aquarium Co-Op', 'muỗng cà phê', 'cho mỗi 38 lít', 'an toàn với', 'Vorticella'])
+      expect(t.body, `${t.slug}: ${gone}`).not.toContain(gone)
+    expect(t.body, t.slug).toContain('đủ liều ghi trên nhãn')
+    expect(t.body, t.slug).toContain('4–5 g muối mỗi lít trong 7–10 ngày')
+  }
+  for (const kept of ['malachite green và formalin', 'soi mẫu da hoặc mang dưới kính hiển vi', 'ít nhất 3–5 lần', 'thay ngay nước sạch, nhiều oxy']) expect(ich.body, kept).toContain(kept)
+  // The fresh read's hold: never "stop after the minimum treatments" beside "don't stop while fish die"; the old 5 days
+  // stays for the "maybe not ich" stop, and a label's own schedule wins over the page's.
+  expect(ich.body).toContain('Đó là số lần tối thiểu: cá còn chết vì ich thì chưa ngừng thuốc. Trong nước ấm, trị 5 ngày mà đốm vẫn không giảm')
+  expect(ich.body).not.toContain('Trị đủ số lần như vậy')
+  expect(ich.body).toContain('Nhãn ghi lịch châm khác thì theo nhãn.')
+  expect(parasites.body?.match(/nhãn ghi (?:lịch châm )?khác thì theo nhãn/g)?.length).toBe(4)
+  expect(parasites.body).toContain('Cá da trơn và cá chạch có thể nhạy hơn với thay đổi độ mặn')
+  for (const kept of ['Thuốc có praziquantel và metronidazole', 'Scutariella japonica', 'Thuốc có cyromazine', 'Thuốc có levamisole']) expect(parasites.body, kept).toContain(kept)
+  for (const t of [ich, parasites]) expect((t as Translation & { refs?: { url: string }[] }).refs?.map(r => r.url), t.slug).toEqual(['https://ask.ifas.ufl.edu/publication/FA006/pdf', 'https://rainbowfish.angfa.org.au/disease_prevention_and_control/chemical_treatments.html'])
+  const boxes = ['b300caaf93b370a4', '623edd3a383cea26'].map(h => `https://media.aquatome.com/aquariumcoop/${h}.webp`)
+  const rejected = JSON.parse(readFileSync(join(root, 'engine-state/_photo-rejected.json'), 'utf8')) as Record<string, string>
+  for (const u of boxes) expect(rejected[u], u).toMatch(/^subject: withheld/)
+  const e = JSON.parse(readFileSync(join(root, 'content/guides/aquariumcoop-blogs-aquarium-fish-parasites/entity.json'), 'utf8')) as { photos: { url: string; section?: { vi: string } }[] }
+  expect(e.photos.map(p => p.url).filter(u => boxes.includes(u))).toEqual([])
+  // Each photo still sits under a heading the text has.
+  for (const p of e.photos) if (p.section) expect(parasites.body, p.url).toContain(`>${p.section.vi}</h3>`)
+})
+
 // The chief of staff, 16 Nov 2026: "a live title whose number disagrees with its own text fails." Every guide on the site,
 // in every language, a title fixed by hand too (the sweep leaves those, so only this sees them): its number stands on what
 // the text says, a run, a list, a table, its chapters, its bold leads or its headings, and no larger count the text has.
