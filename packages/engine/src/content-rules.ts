@@ -512,6 +512,23 @@ export const thanksLines = (html: string) => (/cảm ơn|cám ơn|terima kasih|p
 export const dropThanks = (html: string) => (/cảm ơn|cám ơn|terima kasih|penghargaan|ขอบคุณ|thank/iu.test(html) ? cutBlocks(html, isThanks) : html)
 
 /**
+ * An email address. The repository is public and an address belongs to a person, so no page prints one (the chief of
+ * staff, 16 Nov 2026): a source's letters had printed their author's in each header ("Từ: <name> (<address>)"). A file
+ * name with a scale mark ("ảnh@2x.png") isn't an address.
+ */
+const EMAIL = String.raw`[\p{L}\p{N}._%+-]+@[\p{L}\p{N}-]+(?:\.[\p{L}\p{N}-]+)*\.(?!(?:png|jpe?g|gif|webp|avif|svg|mp4|webm|pdf)(?![\p{L}\p{N}]))\p{L}{2,}(?![\p{L}\p{N}])`
+export const hasEmail = (text: string) => new RegExp(EMAIL, 'u').test(text)
+/**
+ * The text without its email addresses: a link to one keeps its words, and an address goes with the brackets round it and
+ * the space before it. Only the text between tags is read, so a photo's file name in a tag stays as it is.
+ */
+export const dropEmails = (html: string) => (!hasEmail(html) ? html : html
+  .replace(/<a\b[^>]*\bhref\s*=\s*["']mailto:[^"']*["'][^>]*>([\s\S]*?)<\/a>/giu, '$1')
+  .replace(/(<[^>]*>)|[^<]+/gu, (text, tag?: string) => tag ?? text
+    .replace(new RegExp(String.raw`\s*(?:\(|\[|&lt;)\s*${EMAIL}\s*(?:\)|\]|&gt;)`, 'gu'), '')
+    .replace(new RegExp(String.raw`\s*${EMAIL}`, 'gu'), '')))
+
+/**
  * "© <name>" in a fish page's references, after a work's title ("The ETYFish Project Fish Name Etymology Database ©
  * <name>."): its compiler's name, which a page doesn't print. The "©" and the name go; the work's title, its link and the
  * stop after stay. Only one name ending its citation (a stop, a comma, the end): a "©" with a year, two names, or more of

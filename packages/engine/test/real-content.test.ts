@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { GALLERY_POST, LANGS, loadAll, mayPublish, RETIRED_GUIDES, resolveDataCard, slugify, tankKeywordFits, WRITTEN_LANGS, type Translation } from '@aq/schema'
-import { checkPages, countMismatch, photoCaptions, RATCHETED, ratcheted, refCredits, RULES, SWEPT_KINDS, thanksLines } from '../src/content-rules'
+import { checkPages, countMismatch, hasEmail, photoCaptions, RATCHETED, ratcheted, refCredits, RULES, SWEPT_KINDS, thanksLines } from '../src/content-rules'
 import { englishOf } from '../src/english'
 import { tilapiaUnnamed } from '../src/kind-words'
 import { droppedName, FISH_NAMES, KIND_PASSAGES, oldNames } from '../src/names'
@@ -1171,3 +1171,25 @@ test('the Botia markings guide prints no email address, still credits its author
   expect((t.body ?? '').match(/<strong>Từ:<\/strong> \p{Lu}\p{L}+ (?:\p{Lu}\. )?\p{Lu}\p{L}+/gu)?.length, 'letters whose header names their sender').toBe(2)
   expect(t.bodyFixed).toBe(true)
 })
+
+// The chief of staff, 16 Nov 2026: no email address in any file under content/, in any field, a page's text or a video's
+// title or a photo's credit. The repository is public, and an address belongs to a person. No list of allowed addresses: a
+// list would print them here. A failure names the file and the field, never the address. The sweep cuts one from a page's
+// text each cycle (content-rules.ts dropEmails); every other field's writer keeps none. sources/ and engine-state/ join
+// this once their copies are cleaned.
+test('no email address in any file under content/', async () => {
+  const root = fileURLToPath(new URL('../../../content/', import.meta.url))
+  const found: string[] = []
+  const walk = (x: unknown, at: string, file: string): void => {
+    if (typeof x === 'string') { if (hasEmail(x)) found.push(`${file} ${at || '(text)'}`) }
+    else if (Array.isArray(x)) x.forEach((v, i) => walk(v, `${at}[${i}]`, file))
+    else if (x && typeof x === 'object') for (const [k, v] of Object.entries(x)) walk(v, at ? `${at}.${k}` : k, file)
+  }
+  for (const f of (await readdir(root, { recursive: true })).filter(f => /\.(json|md|txt)$/.test(f)).sort()) {
+    const raw = await readFile(join(root, f), 'utf8')
+    if (!raw.includes('@') || !hasEmail(raw)) continue
+    if (f.endsWith('.json')) walk(JSON.parse(raw), '', f)
+    else found.push(`${f} (text)`)
+  }
+  expect(found).toEqual([])
+}, slow(120_000))

@@ -12,7 +12,7 @@ import { droppedName, FISH_NAMES, KIND_PASSAGES, ownWords, type FishName, type K
 import { withLNumber } from './l-numbers'
 import { pickStands, readPersonYes } from './person-yes'
 import { EMPTY_CAP, refusedOn, type PhotoVerdict } from './photo-check'
-import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, fixTranslation, isAdPoster, notAlive, isMap, unwellOff, NAMED_KINDS, renameFishNames, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
+import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmails, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, fixTranslation, isAdPoster, notAlive, isMap, unwellOff, NAMED_KINDS, renameFishNames, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields, type PageKind } from './pages'
 import { foldPages } from './page-folds'
 import { sweepPlaceNames } from './place-names'
@@ -52,6 +52,8 @@ import { namedOn, namedOrder, passesHead } from './photo-named'
  *   "… © <name>"), and a source's thanks to the people or shops who helped it ("Cảm ơn <name>.", "Terima kasih kepada
  *   <name>."): the block cut (dropPhotoCaptions, dropThanks); a caption that says something more than what its photo
  *   shows keeps its words, its label and credits cut (dropPhotoCaptions)
+ * - an email address, in any part of a page, its references too: cut with the brackets round it, a link to one keeping its
+ *   words (dropEmails). The repository is public; the real-content test fails on one in any file under content/
  * - "© <name>" after a work's title in a fish page's references: the "©" and the name cut, the title and link kept (dropRefCredits)
  * - a photo whose caption names another fish the site has, or is a map, or a Wikimedia Commons photo whose own words say
  *   it is a paper's plate, a microscope picture, a drawing or a dish: off that page (its file and its gallery). A map or
@@ -228,6 +230,12 @@ export function sweepTranslation<T extends Stored>(t: T, kind?: PageKind): { t: 
       return { ...f, html }
     })
     out = step('thanks', out, dropThanks)
+    // Every part, the references too: no page prints an address.
+    out = out.map(f => {
+      const html = dropEmails(f.html)
+      if (html !== f.html) mark('emails')
+      return { ...f, html }
+    })
     // The sources' references: only the "© <name>" after a work's title.
     out = out.map(f => {
       if (prose(f.field)) return f

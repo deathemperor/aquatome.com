@@ -3,8 +3,8 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import {
-  blocks, cardSlips, checkPages, gluedSyllables, claimsControl, countEvidence, countMismatch, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, emptySections, englishSentences, fixStored, fixTranslation, furniture,
-  imperialUnits, isPermissionNote, isPhotoCaption, isThanks, labelSlips, leftoverMarkup, longFurniture, namesSource, numberSlips, otherFish, photoCaptions, plainEntities, ratcheted, refCredits, renumberLabels, RULES, rulesReport, sfScoreFixed, sourcePagePhrases, stripCount,
+  blocks, cardSlips, checkPages, gluedSyllables, claimsControl, countEvidence, countMismatch, cutFurniture, dropEmails, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, emptySections, englishSentences, fixStored, fixTranslation, furniture,
+  hasEmail, imperialUnits, isPermissionNote, isPhotoCaption, isThanks, labelSlips, leftoverMarkup, longFurniture, namesSource, numberSlips, otherFish, photoCaptions, plainEntities, ratcheted, refCredits, renumberLabels, RULES, rulesReport, sfScoreFixed, sourcePagePhrases, stripCount,
   renameStored, renameFishNames, renameSwapped, swappedNames, thanksLines, titleCount, unwellOff, vietnameseLeft, wrongFish, captionFlaw, type Ctx,
 } from '../src/content-rules'
 import { pagePath, pageUrl, type Page } from '../src/pages'
@@ -535,6 +535,21 @@ test('a source\'s thanks to a named person or shop, as a block of its own: cut, 
     expect(isThanks(near), near).toBe(false)
     expect(dropThanks(`<p>${near}</p>`)).toBe(`<p>${near}</p>`)
   }
+})
+
+// The chief of staff, 16 Nov 2026: a translated article printed its author's email address in each letter's header. The
+// repository is public. Addresses here are the reserved example domains.
+test('an email address goes from a page\'s text with its brackets, a link to one keeps its words, a file name stays', () => {
+  expect(dropEmails('<p>Từ: Tác Giả (someone@example.org) Ngày: 5 tháng 8 năm 2002</p>')).toBe('<p>Từ: Tác Giả Ngày: 5 tháng 8 năm 2002</p>')
+  expect(dropEmails('<p>Viết cho tôi: <a href="mailto:someone@example.com">gửi thư</a>.</p>')).toBe('<p>Viết cho tôi: gửi thư.</p>')
+  expect(dropEmails('<p>Hỏi tại &lt;first.last+tag@mail.example.co.uk&gt; hoặc [x_y@example.net].</p>')).toBe('<p>Hỏi tại hoặc.</p>')
+  expect(dropEmails('<p>Liên hệ someone@example.org</p>')).toBe('<p>Liên hệ</p>')
+  // Not addresses: a photo's file name in a tag or in text, a social handle, an "@" in prose.
+  for (const keep of ['<p><img src="/img/ca@2x.png" alt="cá"> ảnh@2x.jpg</p>', '<p>Tweet tới @seriouslyfish!</p>', '<p>Giá 50k @ tiệm</p>']) {
+    expect(dropEmails(keep), keep).toBe(keep)
+    expect(hasEmail(keep), keep).toBe(false)
+  }
+  expect(hasEmail('someone@example.org')).toBe(true)
 })
 
 // Page Recovery, 2026-11-12: about 130 fish pages' references named a database's compiler after "©". The name is invented.
