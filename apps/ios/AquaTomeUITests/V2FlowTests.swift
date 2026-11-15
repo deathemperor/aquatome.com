@@ -1437,7 +1437,11 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(newest.exists, "the last read isn't first")
     // The row, paged to its end a column at a time: its 30th is the 6th read, and the 5th isn't in it. Its three rows of
     // cards, by height, from the first; the shelves below hold the fish the row doesn't.
-    let y = newest.frame.midY, top = newest.frame.minY - 4, bottom = newest.frame.minY + 3 * (newest.frame.height + 12)
+    // The row's pitch from its first two, as the cards' own frames are shorter than a row.
+    let second = fish("Cá quen 34", in: app.buttons)
+    XCTAssertTrue(second.exists, "no second read in the row")
+    let y = newest.frame.midY, pitch = abs(second.frame.midY - y)
+    let top = y - pitch / 2, bottom = y + 2.5 * pitch
     func inRow(_ e: XCUIElement) -> Bool { e.exists && e.frame.midY > top && e.frame.midY < bottom }
     let thirtieth = fish("Cá quen 6", in: app.buttons)
     let shown = { inRow(thirtieth) && app.frame.contains(thirtieth.frame) }
@@ -1457,8 +1461,13 @@ final class V2FlowTests: XCTestCase {
     let rows = list.descendants(matching: .any).matching(identifier: "item")
     XCTAssertTrue(rows.firstMatch.waitForExistence(timeout: 5), "an empty list")
     // Newest first, from the top.
-    let firstThree = rows.allElementsBoundByIndex.filter { app.frame.contains($0.frame) }.sorted { $0.frame.minY < $1.frame.minY }
-      .prefix(3).map { $0.label.components(separatedBy: ",")[0] }
+    // A row can answer twice to `item` (its link and its words): each name once, in order from the top.
+    var names: [String] = []
+    for e in rows.allElementsBoundByIndex.filter({ app.frame.contains($0.frame) }).sorted(by: { $0.frame.minY < $1.frame.minY }) {
+      let name = e.label.components(separatedBy: ",")[0]
+      if names.last != name { names.append(name) }
+    }
+    let firstThree = Array(names.prefix(3))
     XCTAssertEqual(firstThree, ["Cá quen 35", "Cá quen 34", "Cá quen 33"], "the list isn't newest first")
     // Past the row's 30: the first one read, the 35th from the newest.
     let first = fish("Cá quen 1", in: rows)
