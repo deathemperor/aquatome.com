@@ -387,6 +387,7 @@ test('no guide calls a cichlid a tilapia in its title', () => {
 // [fish, part, the notice's address, its stored English in sources/glaser/]
 const FOLDS: [string, string, string, string][] = [
   ['corydoras-adolfoi', 'notes', 'https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_eques_c_sp_aff_armatus_and_corydoras_duplicareus_en/', 'en-10-catfishes-10a-catfishes-corydoras-co-corydoras-eques-c-sp-aff-armatus-and-corydoras-duplicareus-en.md'],
+  ['corydoras-duplicareus', 'notes', 'https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_eques_c_sp_aff_armatus_and_corydoras_duplicareus_en/', 'en-10-catfishes-10a-catfishes-corydoras-co-corydoras-eques-c-sp-aff-armatus-and-corydoras-duplicareus-en.md'],
   ['scleropages-leichardti', 'reproduction', 'https://www.aquariumglaser.de/en/03-bony-tongues/scleropages_jardinii_and_s_leichardti_en/', 'en-03-bony-tongues-scleropages-jardinii-and-s-leichardti-en.md'],
   ['scleropages-leichardti', 'behaviour', 'https://www.aquariumglaser.de/en/03-bony-tongues/scleropages_jardinii_and_s_leichardti_en/', 'en-03-bony-tongues-scleropages-jardinii-and-s-leichardti-en.md'],
   ['gasteropelecus-maculatus', 'notes', 'https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/thoracocharax-stellatus-gasteropelecus-maculatus-jumbo-carnegiella-myersi-carnegiella-strigata-2/', 'en-09-characoids-tetra-relationship-thoracocharax-stellatus-gasteropelecus-maculatus-jumbo-carnegiella-myersi-carnegiella-strigata-2.md'],
