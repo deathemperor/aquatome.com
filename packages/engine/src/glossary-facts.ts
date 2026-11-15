@@ -167,10 +167,11 @@ export async function checkSentences(llm: Llm, facts: object, e: { definition: s
 }
 const scoreOf = (claims: number, stopped: number) => (claims ? Math.round(((claims - stopped) / claims) * 100) / 100 : 1)
 
+const [UNJUDGED, UNBORNE] = ['the reads left it unjudged', "the facts don't carry it"]
 /** A stop as a note for the rewrite and the log: the sentence, how the reads judged it, and why. */
 export const stopNote = (s: Flagged) => s.unjudged
-  ? `"${s.text}": the reads left it unjudged (${s.verdicts.length} of ${s.unjudged} gave a verdict)`
-  : `"${s.text}": the facts don't carry it (${s.verdicts.join(', ')}): ${[...new Set(s.why)].join(' / ') || 'no reason given'}`
+  ? `"${s.text}": ${UNJUDGED} (${s.verdicts.length} of ${s.unjudged} gave a verdict)`
+  : `"${s.text}": ${UNBORNE} (${s.verdicts.join(', ')}): ${[...new Set(s.why)].join(' / ') || 'no reason given'}`
 
 const REWORD = `Dưới đây là DỮ KIỆN (JSON) đã thu thập về một thuật ngữ cá cảnh, và vài CÂU trong mục thuật ngữ tiếng Việt viết từ đó, mỗi câu trong đoạn của nó, kèm lý do người kiểm tra cho là câu ấy nói rộng hơn, mạnh hơn hoặc gộp hơn dữ kiện. Viết lại từng câu cho đúng điều dữ kiện ghi: giữ ý và giọng văn, vừa với đoạn, chỉ nói điều dữ kiện chịu được. Không thêm ý mới. Không thêm câu hay vế nói các nguồn khác nhau, và không rào đón ("có nguồn cho rằng", "nhiều nguồn", "có tiệm ghi"): nói thẳng điều dữ kiện chịu được, hẹp lại nếu cần. Trả lời {"sentences": [{"n": 1, "text": "..."}]}, mỗi câu một mục, theo thứ tự.`
 const REWORD_SCHEMA = { type: 'object', required: ['sentences'], properties: { sentences: { type: 'array', items: { type: 'object', required: ['n', 'text'], properties: { n: { type: 'number' }, text: { type: 'string' } } } } } }
@@ -373,51 +374,58 @@ const DROP = 'The rewrite dropped from "'
 /** A note the drop check wrote, never one that asks for a change. */
 export const isDrop = (note: string) => note.startsWith(DROP)
 /**
- * What a rewrite on notes took out that no note asked for (the chief of staff, 15 Nov 2026: pH's trim for length dropped
- * "pH đổi đột ngột có thể làm cá chết." and the log scale's worked example, and nothing checked the rewrite). A sentence a
- * note quotes whole, or within a passage it quotes, may change as the note asks, even to going (Lũa's 2,000 ppm). A note
- * that quotes a phrase frees that phrase only (Grok's read, 15 Nov 2026: a note on "10 lần" freed the whole worked
- * example, and one on "neon" every sentence naming the fish). Any other sentence that is gone from where it stood, the
- * definition or the body (Grok: a definition cut to two words read as kept while its old sentence stood in the body too),
- * must leave nothing behind: its figures the facts carry, its names and its cautions, counted over the whole entry so what
- * moved is kept (the 0,5 pace moved from the mistakes to the steps); and each piece of its advice, which must stand in the
- * new or moved sentences. One note for each such sentence, naming what it lost, for the writer to put it back word for word.
+ * What a rewrite on notes took out that nothing let go (the chief of staff, 15 Nov 2026: pH's trim for length dropped
+ * "pH đổi đột ngột có thể làm cá chết." and the log scale's worked example, and nothing checked the rewrite). Two things
+ * let a sentence go, and nothing else: a stop note on it (stopNote: the facts don't carry it, or the reads left it
+ * unjudged), and the term's own `free` list in its notes file (glossary-asks.json), which the chief of staff reads: a
+ * sentence it lists whole, or one of a passage's sentences, may go; a phrase it lists may go from its sentence. A review
+ * note never does, whatever it quotes: a note quotes a sentence to keep it, to place an addition beside it or to say
+ * where a thing already stands as often as to change it (the seventh read, 15 Nov 2026: with their real notes, pH's
+ * rewrites could cut "Nếu nước nguồn dưới 8…", the definition's "Điều cần tránh là pH đổi đột ngột." and "Muốn đổi
+ * pH…", and nitrogen's the 50% emergency change, each because a note quoted it). Any other sentence that is gone from
+ * where it stood, the definition, the body or a kind's item (Lũa's "Chưa thấy tiệm Việt Nam bán dưới tên tiếng Việt."
+ * stands under two kinds), must leave nothing behind: its figures the facts carry, its names and its cautions, counted
+ * over the whole entry so what moved is kept (the 0,5 pace moved from the mistakes to the steps); and each piece of its
+ * advice, which stands in the new or moved sentences: a repeat taken out goes by the free list too (GH's notes line:
+ * what GH measures is said once, in the definition). A kind's sentence keeps its advice in its kind's item, while that
+ * item stands. One note for each such sentence, naming
+ * what it lost, for the writer to write it as it was.
  */
-export function droppedInRewrite(before: { definition: string; body: string }, after: { definition: string; body: string }, facts: object, notes: string[], names: string[] = []): string[] {
+export function droppedInRewrite(before: { definition: string; body: string }, after: { definition: string; body: string }, facts: object, notes: string[], names: string[] = [], free: string[] = []): string[] {
   const placed = (e: { definition: string; body: string }) => [
-    ...sentences({ definition: e.definition, body: '' }).map(s => `d ${s.text}`),
-    ...sentences({ definition: '', body: e.body }).map(s => `b ${s.text}`),
+    ...sentences({ definition: e.definition, body: '' }).map(s => ({ key: `d ${s.text}`, text: s.text, item: undefined as string | undefined })),
+    ...sentences({ definition: '', body: e.body }).map(s => ({ key: `b ${s.item ?? ''}\n${s.text}`, text: s.text, item: s.item })),
   ]
-  const text = (k: string) => k.slice(2)
   const was = placed(before), is = placed(after)
-  // A stop note the check wrote (stopNote) is about the one sentence it opens with, whatever quotation marks that sentence
-  // holds: it frees that sentence and nothing else.
-  const stopped = new Set(notes.flatMap(n => was.map(text).filter(t => n.startsWith(`"${t}": `))))
-  const quoted = notes.filter(n => !was.some(k => n.startsWith(`"${text(k)}": `))).flatMap(quotes)
-  // A quote frees a sentence it is, or one of a passage's sentences: never one that is only words inside another sentence
-  // (Grok's third read: a shop's sentence quoting the step "Ngâm 2 tuần." freed the step).
-  const whole = (t: string) => stopped.has(t) || quoted.some(q => q === t || (q.includes(t) && sentences({ definition: q, body: '' }).some(s => s.text === t)))
-  const unquoted = (t: string) => quoted.filter(q => t.includes(q)).reduce((s, q) => s.split(q).join(' '), t)
-  const now = new Set(is), then = new Set(was)
-  const gone = was.filter(k => !now.has(k) && !whole(text(k))).map(k => ({ t: text(k), u: unquoted(text(k)) }))
+  const stopped = new Set(notes.flatMap(n => was.map(s => s.text).filter(t => n.startsWith(`"${t}": ${UNBORNE}`) || n.startsWith(`"${t}": ${UNJUDGED}`))))
+  // A listed passage frees each of its own sentences, never one that is only words inside another sentence (Grok's third
+  // read: a shop's sentence quoting the step "Ngâm 2 tuần." freed the step).
+  const whole = (t: string) => stopped.has(t) || free.some(q => q === t || (q.includes(t) && sentences({ definition: q, body: '' }).some(s => s.text === t)))
+  const unfreed = (t: string) => free.filter(q => t.includes(q)).reduce((s, q) => s.split(q).join(' '), t)
+  const now = new Set(is.map(s => s.key)), then = new Set(was.map(s => s.key))
+  const gone = was.filter(s => !now.has(s.key) && !whole(s.text)).map(s => ({ ...s, u: unfreed(s.text) }))
   if (!gone.length) return []
   const said = factText(facts), carried = new Set(figures(said).flatMap(f => f.reads))
-  const rest = was.filter(k => !whole(text(k))).map(k => unquoted(text(k))).join(' ')
-  const all = is.map(text).join(' '), fresh = is.filter(k => !then.has(k)).map(text).join(' ')
+  const rest = was.filter(s => !whole(s.text)).map(s => unfreed(s.text)).join(' ')
+  const all = is.map(s => s.text).join(' ')
   const figs = lessOf(figures(rest, true), figures(all, true)).filter(f => f.reads.some(r => carried.has(r)))
   const named = less(namesIn(rest, names, said), namesIn(all, names, said))
   const warned = less(cautionWords(rest), cautionWords(all))
+  // Where a gone sentence's advice must stand anew: its kind's item, if the rewrite kept that item; else the whole entry.
+  const items = new Set(is.flatMap(s => (s.item ? [s.item] : [])))
+  const within = (item?: string) => is.filter(s => !item || !items.has(item) || s.item === item)
   // Each thing lost goes to the first gone sentence that had it. A figure goes by its number, named as that sentence wrote
   // it (Grok: "pH 4,0" cut, with "4 tuần" still standing, left a 4 no sentence wrote as "4" to take it).
   const take = <T>(pool: T[], has: (x: T) => boolean) => { const mine = pool.filter(has); pool.splice(0, pool.length, ...pool.filter(x => !mine.includes(x))); return mine }
-  return gone.flatMap(({ t, u }) => {
+  return gone.flatMap(({ text: t, u, item }) => {
     const own = figures(u, true), as = (f: Figure) => own.find(g => g.reads.some(r => f.reads.includes(r)))
+    const fresh = within(item).filter(s => !then.has(s.key)).map(s => s.text).join(' ')
     const lost = [
       ...take(figs, f => !!as(f)).map(f => `the figure ${as(f)!.text}`),
       ...take(named, n => namesIn(u, names, said).includes(n)).map(n => `the name ${n}`),
       ...take(warned, w => cautionWords(u).includes(w)).map(w => `the caution "${w}"`),
-      ...adviceLost(u, fresh, true).map(p => `the advice "${p}"`),
+      ...adviceLost(u, fresh, true).map(p => `the advice "${p}"${item && items.has(item) ? ` under ${item}` : ''}`),
     ]
-    return lost.length ? [`${DROP}${t}" ${[...new Set(lost)].join(', ')}, and no note asks to change that sentence: keep it word for word.`] : []
+    return lost.length ? [`${DROP}${t}" ${[...new Set(lost)].join(', ')}, and nothing lets that sentence go: write it as it was, word for word.`] : []
   })
 }

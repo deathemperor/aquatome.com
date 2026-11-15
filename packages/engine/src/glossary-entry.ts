@@ -41,6 +41,12 @@ type Asks = {
    * 600 is the chief of staff's word.
    */
   length?: { words: number; why: string }
+  /**
+   * What a rewrite of the saved entry may take out (droppedInRewrite): sentences, a passage's or a phrase, each exactly as
+   * the entry writes it, read by the chief of staff before the run. A review note never frees a sentence (the seventh read,
+   * 15 Nov 2026).
+   */
+  free?: string[]
 }
 const ASKS = JSON.parse(readFileSync(new URL('./glossary-asks.json', import.meta.url), 'utf8')) as Record<string, Asks>
 const ENTRY_SCHEMA = {
@@ -365,19 +371,19 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     // A rewrite on the notes, and a second while the best still isn't saved (the chief of staff, 14 Nov 2026: Lũa's fifth
     // left six rule breaks after its one rewrite).
     // A fresh draft or a revised entry gets one rewrite on any notes, a kept draft one past its length (its trim pass).
-    // A rewrite of a saved entry may take out only what a note asks (the chief of staff, 15 Nov 2026: each of pH's and chu
-    // trình nitơ's revisions fixed what was asked and dropped something already read). What it took out of a sentence no note
-    // quotes stops it from being saved, and goes back to the writer once more, against the text the rewrites started from. A
-    // fresh draft, which no one has read, is trimmed as it must be.
+    // A rewrite of a saved entry may take out only what a stop note or the term's `free` list lets go (the chief of staff,
+    // 15 Nov 2026: each of pH's and chu trình nitơ's revisions fixed what was asked and dropped something already read). What
+    // it took out of any other sentence stops it from being saved, and goes back to the writer once more, against the text
+    // the rewrites started from. A fresh draft, which no one has read, is trimmed as it must be.
     const start = w
     const asked: string[] = []
     let dropped: string[] = []
     for (let i = 0; i < 2 && (!passes(review) || (i === 0 && (!draft || o.revise || review.notes.some(isLength)) && review.notes.length) || dropped.length); i++) {
       const notes = [...review.notes, ...dropped]
-      // Only a real note frees a sentence to change: a drop's own note quotes the sentence it says to keep.
+      // A stop note frees its sentence; a drop's own note never does.
       asked.push(...review.notes.filter(n => !isDrop(n)))
       const again = await write(notes, w)
-      dropped = o.revise ? droppedInRewrite(start, again, forWriter, asked, [...pages.flatMap(l => l.split(' | ').slice(0, 2)), ...kindNames(start, taxa).fit.map(k => k.name)]) : []
+      dropped = o.revise ? droppedInRewrite(start, again, forWriter, asked, [...pages.flatMap(l => l.split(' | ').slice(0, 2)), ...kindNames(start, taxa).fit.map(k => k.name)], asks.free) : []
       const r = await check(again)
       if (dropped.length) { r.notes = [...dropped, ...r.notes]; r.stops = stopping(r) + dropped.length; r.broken += dropped.length }
       tries.push(r)

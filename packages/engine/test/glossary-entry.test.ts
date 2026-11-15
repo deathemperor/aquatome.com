@@ -579,7 +579,7 @@ test('a saved entry revised: a rewrite that drops what no note asks for is not s
   const writes: string[] = []
   expect(await revise(root, revising(writes, [trimmed, whole], asked, 'Ngâm lũa mới 1–2 tuần.'))).toMatchObject({ id: 'lua', score: 1 })
   expect(writes).toHaveLength(2)
-  expect(writes[1]).toContain(`- The rewrite dropped from "${logLine}" the figure 4,0, the figure 5,0, the advice "tức là pH 4,0 chua gấp 10 lần pH 5,0", and no note asks to change that sentence: keep it word for word.`)
+  expect(writes[1]).toContain(`- The rewrite dropped from "${logLine}" the figure 4,0, the figure 5,0, the advice "tức là pH 4,0 chua gấp 10 lần pH 5,0", and nothing lets that sentence go: write it as it was, word for word.`)
   expect(await bodyOf(root)).toBe(whole)
   // A writer that drops it again: the saved entry stays as it was.
   const again = await savedWith(before)
@@ -587,13 +587,26 @@ test('a saved entry revised: a rewrite that drops what no note asks for is not s
   await revise(again, revising(twice, [trimmed], asked, 'Ngâm lũa mới 1–2 tuần.'))
   expect(twice).toHaveLength(2)
   expect(await bodyOf(again)).toBe(before)
-  // A sentence a note quotes may go as the note asks.
+  // A review note asking for it to go doesn't let it go (the seventh read, 15 Nov 2026: notes quote sentences to keep
+  // them as often as to change them); a sentence the facts don't carry, stopped, may go.
+  const cutBody = `${soak}<p>Thang pH là thang logarit.</p>`
   const third = await savedWith(before)
+  const asks: string[] = []
+  await revise(third, revising(asks, [cutBody], [`Rule 12: "${logLine}" says the scale twice: leave it out`], logLine))
+  expect(asks).toHaveLength(2)
+  expect(asks[1]).toContain(`- The rewrite dropped from "${logLine}"`)
+  expect(await bodyOf(third)).toBe(before)
+  const fourth = await savedWith(before)
   const once: string[] = []
-  const leaveOut = [`Rule 12: "${logLine}" says the scale twice: leave it out`]
-  expect(await revise(third, revising(once, [`${soak}<p>Thang pH là thang logarit.</p>`], leaveOut, logLine))).toMatchObject({ id: 'lua', score: 1 })
+  const unborne: Llm = async ({ prompt }) => {
+    if (prompt.startsWith('GLOSSARY RULES')) return { notes: [] } as never
+    if (isCheck(prompt)) return verdicts(prompt, t => (t === logLine ? 'unsupported: not in the facts' : undefined)) as never
+    once.push(prompt)
+    return { ...written, body: cutBody } as never
+  }
+  expect(await revise(fourth, unborne)).toMatchObject({ id: 'lua', score: 1 })
   expect(once).toHaveLength(1)
-  expect(await bodyOf(third)).toBe(`${soak}<p>Thang pH là thang logarit.</p>`)
+  expect(await bodyOf(fourth)).toBe(cutBody)
 })
 
 test('a saved entry revised: an unmet line of the term\'s notes outranks a length still under its stop', async () => {
