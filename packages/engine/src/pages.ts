@@ -35,7 +35,7 @@ export type Page = {
   album?: { url: string; caption: string }[]
   /** The head a person picked for the page, if one (engine-state/_photo-head-picks.json, beside the content root). */
   picked?: string
-  /** Species, plants and breeds: a person chose the name (`nameFixed`), and the engine leaves it as it is. */
+  /** Species, plants, breeds and guides: a person chose the name (`nameFixed`), and the engine leaves it as it is. */
   nameFixed?: boolean
   /** Species and plants: the Latin name, and the other Latin names the page goes by. */
   sci?: string
@@ -126,7 +126,7 @@ export function pagesOf(lang: Lang, c: Content): Page[] {
       captions: captionsOf([...p.photos, ...(c.galleries[p.id] ?? [])]), sci: p.scientificName, latinNames: latin(p.t.altNames), card: [],
       en: Object.fromEntries(p.sections.map(x => [`sections.${x.key}:${x.source}`, x.html])),
     })),
-    ...c.guides.map(g => ({ ...base('guides', g.id, g.t.slug, g.t.name), ...textOf(g.t), captions: captionsOf(g.photos), latinNames: [], card: [], origin: { source: g.source, url: g.sourceUrl }, ...(g.video ? { credited: [g.video.channel] } : {}) })),
+    ...c.guides.map(g => ({ ...base('guides', g.id, g.t.slug, g.t.name), ...textOf(g.t), ...(g.t.nameFixed ? { nameFixed: true } : {}), captions: captionsOf(g.photos), latinNames: [], card: [], origin: { source: g.source, url: g.sourceUrl }, ...(g.video ? { credited: [g.video.channel] } : {}) })),
     ...c.breeds.map(b => ({
       ...base('breeds', b.id, b.t.slug, b.t.name), ...textOf(b.t), ...(b.t.nameFixed ? { nameFixed: true } : {}), captions: captionsOf(b.photos), album: captionsOf(c.galleries[b.id] ?? []).map(({ url, caption }) => ({ url, caption })), own: b.photos.map(x => x.url), gallery: (c.galleries[b.id] ?? []).map(x => x.url), latinNames: [],
       card: Object.entries(b.care).flatMap(([field, vs]) => (vs ?? []).map(v => ({ field: field as DataCardField, source: `source ${v.source + 1}`, value: v.value }))),

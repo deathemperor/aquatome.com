@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { GALLERY_POST, LANGS, loadAll, mayPublish, RETIRED_GUIDES, resolveDataCard, slugify, tankKeywordFits, WRITTEN_LANGS, type Translation } from '@aq/schema'
-import { checkPages, photoCaptions, RATCHETED, ratcheted, refCredits, RULES, SWEPT_KINDS, thanksLines } from '../src/content-rules'
+import { checkPages, countMismatch, photoCaptions, RATCHETED, ratcheted, refCredits, RULES, SWEPT_KINDS, thanksLines } from '../src/content-rules'
 import { englishOf } from '../src/english'
 import { tilapiaUnnamed } from '../src/kind-words'
 import { droppedName, FISH_NAMES, KIND_PASSAGES, oldNames } from '../src/names'
@@ -936,11 +936,11 @@ test('the care facts the lane would cut whole are on hand-fixed text: a temperat
   }
 })
 
-// Page Recovery, 16 Nov 2026 (the chief of staff): the leak-repair guide's one finding was "2,5–5 cm" of sealant, a length
-// keepers write, which the lengths line now lets out. But it sends a keeper here to American silicones and super glues by
-// name, and none is in the market table, so no check of the gate sees them. It stays held by hand until Writing's plain
-// words for those lists are in.
-test('the leak-repair guide, whose one finding the lengths line lets out, stays held by hand for the American products it names', () => {
+// Page Recovery, 16 Nov 2026 (the chief of staff): the leak-repair guide's two findings were lengths keepers write
+// ("2,5–5 cm" of sealant, "tối đa 2,5 cm"), which the lengths line now lets out. But it sends a keeper here to American
+// silicones and super glues by name, and none is in the market table, so no check of the gate sees them. It stays held
+// by hand until Writing's plain words for those lists are in.
+test('the leak-repair guide, whose findings the lengths line lets out, stays held by hand for the American products it names', () => {
   const root = fileURLToPath(new URL('../../../', import.meta.url))
   const id = 'aquariumbreeder-how-to-fix-a-leaking-aquarium-with-and-without-draining'
   const byHand = JSON.parse(readFileSync(join(root, 'engine-state/held-by-hand.json'), 'utf8')) as Record<string, { checks: string[] }>
@@ -949,6 +949,23 @@ test('the leak-repair guide, whose one finding the lengths line lets out, stays 
   if (named.length) {
     expect(named.filter(n => productOf(n, 'vi')), 'a product the table knows: the gate can see it').toEqual([])
     expect(byHand[`guides/${id}`]?.checks).toEqual(['product'])
+  }
+})
+
+// The chief of staff, 16 Nov 2026: two titles say their true count again, fixed by hand so the sweep's count rule, which
+// counts headings and not a summary table's rows or the text's own "ten", doesn't take it off again. The algae guide's
+// read "8 lý do" while its text gave ten; the hard-water one had lost its 10 when it was written.
+test('two guide titles say the count their own text gives, and are fixed by hand so the count rule leaves them', () => {
+  for (const [id, name, said] of [
+    ['youtube-DkuoQLxF7u8', '10 loài cá cảnh nuôi chung hợp với nước cứng', '10 loài'],
+    ['youtube-Ejng2T-a2Gk', '10 lý do bể thủy sinh vẫn còn rêu hại và cách khắc phục', 'Lý do cuối cùng'],
+  ] as const) {
+    const t = JSON.parse(readFileSync(fileURLToPath(new URL(`../../../content/guides/${id}/vi.json`, import.meta.url)), 'utf8')) as Translation & { nameFixed?: boolean }
+    expect(t.name, id).toBe(name)
+    expect(t.nameFixed, id).toBe(true)
+    expect(t.body, id).toContain(said)
+    // what the rule would do without the hand fix
+    expect(countMismatch(t.name, t.body!), id).toBeTruthy()
   }
 })
 
