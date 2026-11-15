@@ -137,7 +137,10 @@ export function textOf(blocks: Block[]): string {
 const cut = (s: string, max: number) => (s.length <= max ? s : `${s.slice(0, max - 1)}…`)
 /** A guide written from one video is one keeper's method (the Writing Lead's ruling, 2026-11-07): Claude is told so. */
 const oneVideo = (i: Item) => (i.kind === 'guide' && i.video ? { oneVideo: true } : {})
-const listed = (i: Item) => ({ path: i.path, kind: i.kind, name: i.name, ...(i.id ? { id: i.id } : {}), ...(i.sub ? { sub: i.sub } : {}), ...(i.of ? { of: i.of } : {}), ...oneVideo(i) })
+/** A fish's or plant's id, the one a tank names it by. Other kinds carry an id too, unique within a kind only ("co2" is a
+ *  term and a kind of kit): one handed to the model could only name nothing (byId) or the wrong page. */
+const tankId = (i: Item) => (i.id && (i.kind === 'fish' || i.kind === 'plant') ? { id: i.id } : {})
+const listed = (i: Item) => ({ path: i.path, kind: i.kind, name: i.name, ...tankId(i), ...(i.sub ? { sub: i.sub } : {}), ...(i.of ? { of: i.of } : {}), ...oneVideo(i) })
 const strict = (properties: Record<string, unknown>) => ({ type: 'object' as const, properties, required: Object.keys(properties), additionalProperties: false })
 
 export function chatTools(d: ToolDeps): Tool<Step>[] {
@@ -196,7 +199,7 @@ export function chatTools(d: ToolDeps): Tool<Step>[] {
         const shown = figures && Object.keys('facts' in figures ? figures.facts : figures.plant).length ? figures : {}
         return JSON.stringify({
           path, kind: item.kind, title: doc.title, ...oneVideo(item),
-          ...(item.id ? { id: item.id } : {}), ...(item.sub ? { sub: item.sub } : {}), ...(item.aka?.length ? { aka: item.aka } : {}),
+          ...tankId(item), ...(item.sub ? { sub: item.sub } : {}), ...(item.aka?.length ? { aka: item.aka } : {}),
           ...shown,
           sections: sections.map(s => ({ heading: s.heading?.text ?? null, id: s.heading?.id ?? null, text: cut(textOf(s.blocks), PREVIEW_CHARS) })),
         })
