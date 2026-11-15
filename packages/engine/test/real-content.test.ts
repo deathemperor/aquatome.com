@@ -489,8 +489,10 @@ test('a source\'s part fixed by hand says only what the source says: the porthol
 
 // The chief of staff, 15 Nov 2026: the rewrite of 14 Nov took two care facts whole for a half its read flagged ("but these
 // fish are quite peaceful so far", the source's own batch; "in a hot country", written for a reader in a cold one). Each
-// is back with its general half only, fixed by hand so no rewrite, read of its source or translation takes it again.
-test('two care facts a rewrite took whole are back with their general half, fixed: Leporinus fight their own kind, Osphronemus breed in a huge tank or a pond', () => {
+// is back with its general half only, fixed by hand so no rewrite, read of its source or translation takes it again. The
+// source's "tropical pond" is about the water, and the north of Vietnam has cold winters: the pond keeps its warmth, said of
+// the water, naming no country (the chief of staff, 15 Nov 2026: a climate condition is kept as warmth, never dropped).
+test('two care facts a rewrite took whole are back with their general half, fixed: Leporinus fight their own kind, Osphronemus breed in a huge tank or a pond warm all year', () => {
   const root = fileURLToPath(new URL('../../../content', import.meta.url))
   const read = <T>(path: string) => JSON.parse(readFileSync(join(root, path), 'utf8')) as T
   const part = (id: string, key: string, source: string) => {
@@ -503,8 +505,8 @@ test('two care facts a rewrite took whole are back with their general half, fixe
   expect(leporinus.vi).toBe('<p>Cá Leporinus đôi khi hay gây gổ với cá cùng loài.</p>')
   const osphronemus = part('osphronemus-exodon', 'reproduction', 'seriouslyfish')
   expect(osphronemus.en?.fixed).toBe(true)
-  expect(osphronemus.en?.html).toMatch(/Obviously an enormous aquarium, or perhaps a pond, would be required for any serious breeding attempt\.<\/p>$/)
-  expect(osphronemus.vi).toMatch(/Muốn cho đẻ nghiêm túc thì dĩ nhiên phải có bể cực lớn, hoặc có lẽ là một cái ao\.<\/p>$/)
+  expect(osphronemus.en?.html).toMatch(/Obviously an enormous aquarium, or perhaps a tropical pond, would be required for any serious breeding attempt\.<\/p>$/)
+  expect(osphronemus.vi).toMatch(/Muốn cho đẻ nghiêm túc thì dĩ nhiên phải có bể cực lớn, hoặc có lẽ là một cái ao nước ấm quanh năm\.<\/p>$/)
   expect(osphronemus.vi).not.toMatch(/xứ nóng/)
 })
 
