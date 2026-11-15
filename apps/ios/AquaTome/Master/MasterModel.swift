@@ -49,27 +49,45 @@ final class MasterModel {
     UserDefaults.standard.set(try? JSONEncoder().encode(b), forKey: Self.buttonKey)
   }
 
+  /// What a press still owes stays, with its "Trả lại", on the card without a button.
   func delete() {
     button = nil
     UserDefaults.standard.removeObject(forKey: Self.buttonKey)
+    if run.map({ !$0.isRunning && $0.pending.isEmpty }) == true {
+      run = nil
+      keep()
+    }
+  }
+
+  /// A press running, going out or still owing something: the owner's countdown test waits, since each would read the
+  /// other's switching as a hand's.
+  var busy: Bool { sending || run?.isRunning == true || run?.pending.isEmpty == false }
+
+  /// The owner's countdown test, never beside a press.
+  func tryCountdown(_ target: DeviceTarget) async {
+    guard !busy else { return }
+    await trial.run(target)
   }
 
   /// "Bắt đầu": the list of plugs read once (how each outlet is now), then each step once, the lamp's beside the plugs'
   /// (its two recordings take about eight seconds). No countdown is written to a plug (the chief, 15 Nov: not before the
   /// owner's own test of one).
   func start() async {
-    guard var button, !sending, run?.isRunning != true else { return }
+    guard var button, !sending, run?.isRunning != true, trial.state == .idle else { return }
     sending = true
     defer { sending = false; watch() }
     notes = []
     // Never CO2 on, never a heater (MasterButton.allows): the sheet offers neither; a step that does is not sent.
     let refused = button.steps.filter { !MasterButton.allows($0, role: role($0)) }
     button.steps.removeAll { refused.contains($0) }
+    // What the last press hasn't put back yet (an end while the app was away, a plug not reached) stays owed.
+    let owed = run?.pending.map(\.command) ?? []
     await switcher.plugs.refresh()
-    let board = switcher.plugs.board
     var states: [DeviceTarget: Bool] = [:]
-    for s in button.steps { if let key = switcher.outlet(s)?.key, let on = board.on(key) { states[s.target] = on } }
-    var r = MasterRun(button, at: now(), before: { states[$0.target] }, lamp: LampMemory.last)
+    for s in button.steps { if let key = switcher.outlet(s)?.key, let on = switcher.plugs.board.on(key) { states[s.target] = on } }
+    var r = MasterRun(button, at: now(), before: { states[$0.target] }, lamp: LampMemory.last, owed: owed)
+    // CO2 switched off stays off at the end, whatever its role reads by then.
+    for i in r.back.indices where r.back[i].command.on && role(r.back[i].command) == "co2" { r.back[i].held = true }
     #if DEBUG
     if let endsIn { r.ends = r.started.addingTimeInterval(endsIn) }
     #endif
@@ -86,12 +104,14 @@ final class MasterModel {
       }
     }
     failed += await lampFailed
-    r.failed = refused.map { .init(target: $0.target, line: String(localized: "Nút không bật tắt ổ \(switcher.name($0)) được trong bản này.")) } + failed
-    // Nothing went: nothing to put back.
-    if failed.count == r.steps.count {
-      r.ended = now()
-      r.back = []
+    // A plug that didn't answer may still have switched: read again, and only what changed goes back.
+    var after: [DeviceTarget: Bool] = [:]
+    if !failed.isEmpty {
+      await switcher.plugs.refresh()
+      for s in r.steps { if let key = switcher.outlet(s)?.key, let on = switcher.plugs.board.on(key) { after[s.target] = on } }
     }
+    let refusals = refused.map { MasterRun.Failed(target: $0.target, line: String(localized: "Nút không bật tắt ổ \(switcher.name($0)) được trong bản này.")) }
+    r.settle(refusals + failed, now: { after[$0.target] }, owed: Set(owed.map(\.target)), at: now())
     run = r
     keep()
     if r.isRunning, let ends = r.ends { await EndNotice.schedule(at: ends, title: button.name) }
@@ -117,7 +137,9 @@ final class MasterModel {
     let t = now()
     let away = r.ended == nil && r.ends.map { t.timeIntervalSince($0) > 120 } == true
     if r.ended == nil { r.ended = t }
-    let wentOut = Set(r.steps.map(\.target)).subtracting(r.failed.map(\.target))
+    // How each step that went left its outlet: one found back at the end was changed during the run.
+    let missed = Set(r.failed.map(\.target))
+    let left = Dictionary(r.steps.filter { !missed.contains($0.target) }.map { ($0.target, $0.on) }, uniquingKeysWith: { _, last in last })
     r.failed = []
     EndNotice.cancel()
     await switcher.plugs.refresh()
@@ -132,16 +154,24 @@ final class MasterModel {
           continue
         }
       } else if let key = switcher.outlet(c)?.key {
+        let changed = String(localized: "Ổ \(name) đã đổi trong lúc chạy nên AquaTome để nguyên.")
         if board.on(key) == c.on {
           r.back[i].done = true
           r.back[i].problem = nil
-          if wentOut.contains(c.target) { notes.append(String(localized: "Ổ \(name) đã đổi trong lúc chạy nên AquaTome để nguyên.")) }
+          if let l = left[c.target], l != c.on { tell(changed) }
           continue
         }
-        if c.on && role(c) == "co2" {
+        if c.on && (b.held == true || role(c) == "co2") {
           r.back[i].done = true
           r.back[i].problem = nil
-          notes.append(String(localized: "AquaTome không tự bật lại CO2. Cần thì bật ổ CO2 trong Bể của tôi."))
+          tell(String(localized: "AquaTome không tự bật lại CO2. Cần thì bật ổ CO2 trong Bể của tôi."))
+          continue
+        }
+        // Made a heater during the run: never switched by the button.
+        if role(c) == "heater" {
+          r.back[i].done = true
+          r.back[i].problem = nil
+          tell(changed)
           continue
         }
       }
@@ -181,6 +211,7 @@ final class MasterModel {
   }
 
   private func note(_ s: String) { log.append(s) }
+  private func tell(_ s: String) { if !notes.contains(s) { notes.append(s) } }
 }
 
 /// The notification at a press's end time, for a phone left closed: only where AquaTome's notifications are allowed

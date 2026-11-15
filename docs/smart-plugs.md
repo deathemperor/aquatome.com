@@ -103,7 +103,10 @@ synced.
   second line, no Smart Life timer changes that outlet before the end, and the owner has asked for it in their own words.
 
 - **A press** reads the list once (how each outlet is now), then sends each step once, as a tap would: an outlet already
-  as asked has nothing to put back. A step that fails says why under the button; the others stay done.
+  as asked has nothing to put back. A step that fails says why under the button; the others stay done. A plug that
+  didn't answer may still have switched, so after a failure the list is read again and only what changed goes back.
+  What an earlier press still owes (the lamp after an end while the app was closed, a plug not reached) stays owed
+  through the next press, and through deleting the button, until it is back.
 - **The end is the phone's**, while the app is open, or when it next opens: iOS runs nothing for the app at the end time
   otherwise. Where AquaTome's notifications are already allowed, one comes at the end time to say so; it never asks for
   them. The lamp hears the phone only close by and reports nothing: it goes back to the last command this phone sent it
@@ -111,13 +114,15 @@ synced.
   the reader's "Trả lại" near it.
 - **Put back only what is still as the button left it.** An outlet its schedule or a hand switched during the run is
   left as it is, and the card says so. CO2 is never switched on by the phone at the end: its schedule may mean it off by
-  then, and CO2 with the lights out can kill fish; the card says to turn it on by hand if wanted.
+  then, and CO2 with the lights out can kill fish; the card says to turn it on by hand if wanted. That holds by the
+  outlet's role when the button was pressed, and an outlet made a heater during the run is left as it is too.
 - **No countdown is written to a plug by the button** (the chief, 15 Nov). A Tuya countdown switches the outlet the
   other way at 0 whatever it is then, and some plugs' only switch off. First the owner tries one, both ways, on an outlet
   they pick that is on (never CO2 or a heater), with the app open: an owner-only row on the card switches it off with a
   one-minute countdown (does it come back on at 0?), then on with another (does it switch off at 0, the way CO2 will
   need?), then leaves it on as it was found, and keeps what each did (`PlugSource.countdown`, read back once; the outlet
-  read 10 seconds after each end). The strips' Smart Life timers, which the app can read, will then rule out an outlet a
+  read 10 seconds after each end). It runs only while no press is running or owes anything, and a press waits for
+  it: each would read the other's switching as a hand's. The strips' Smart Life timers, which the app can read, will then rule out an outlet a
   timer switches before the run ends.
 - **Turning off a filter or an air pump** asks a second time when the button is set up.
 - Its steps are `DeviceCommand`s (protocols/device-command.schema.json), the shape the chat's commands will take: the

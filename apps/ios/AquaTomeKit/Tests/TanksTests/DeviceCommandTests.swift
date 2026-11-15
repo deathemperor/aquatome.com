@@ -123,6 +123,38 @@ func theLampGoesBack() {
   #expect(back(DeviceCommand(device: lampId, on: false), DeviceCommand(device: lampId, on: false, colour: "red")) == nil)
 }
 
+@Test("What an earlier press still owes stays owed, and for a device this press sets too it is what goes back")
+func whatIsOwed() {
+  // Owed from an end while the app was away: the lamp back off, the fan back on.
+  let owed = [DeviceCommand(device: lampId, on: false), DeviceCommand(device: plug, outlet: "switch_3", on: true)]
+  let b = MasterButton(name: "x", steps: [lampWhite, DeviceCommand(device: plug, outlet: "switch_1", on: false)], minutes: 60)
+  // The phone last sent the lamp the earlier press's white: off still goes back. The light's outlet was on.
+  let run = MasterRun(b, at: m0, before: { _ in true }, lamp: lampWhite, owed: owed)
+  #expect(run.back.map(\.command) == owed + [DeviceCommand(device: plug, outlet: "switch_1", on: true)])
+}
+
+@Test("A failed step that reads as it was has nothing to put back, nor a lamp step that failed; nothing left, it ends")
+func whatFailed() {
+  let b = MasterButton(name: "x", steps: [lampWhite, fanOff], minutes: 60)
+  let all = [MasterRun.Failed(target: lampWhite.target, line: "a"), .init(target: fanOff.target, line: "b")]
+  // The fan's plug didn't answer but switched: it goes back. The lamp sent nothing.
+  var reached = MasterRun(b, at: m0, before: { _ in true }, lamp: nil)
+  reached.settle(all, now: { _ in false }, owed: [], at: m0)
+  #expect(reached.back.map(\.command) == [DeviceCommand(device: plug, outlet: "switch_3", on: true)] && reached.isRunning)
+  // Nothing changed: it ends with nothing to put back, the lines kept.
+  var none = MasterRun(b, at: m0, before: { _ in true }, lamp: nil)
+  none.settle(all, now: { _ in true }, owed: [], at: m0)
+  #expect(none.back.isEmpty && !none.isRunning && none.failed == all)
+  // Owed by an earlier press: kept, and it runs on.
+  var owing = MasterRun(b, at: m0, before: { _ in true }, lamp: nil, owed: [DeviceCommand(device: lampId, on: false)])
+  owing.settle(all, now: { _ in true }, owed: [lampWhite.target], at: m0)
+  #expect(owing.back.map(\.command) == [DeviceCommand(device: lampId, on: false)] && owing.isRunning)
+  // Only the lamp failed: the fan goes back.
+  var some = MasterRun(b, at: m0, before: { _ in true }, lamp: nil)
+  some.settle([all[0]], now: { _ in false }, owed: [], at: m0)
+  #expect(some.back.map(\.command) == [DeviceCommand(device: plug, outlet: "switch_3", on: true)] && some.isRunning)
+}
+
 @Test("It's due at its end, not before; one ended on a tap never is; what's back leaves what's pending; kept as it is")
 func whenItEnds() throws {
   var run = MasterRun(button, at: m0, before: { _ in nil }, lamp: nil)
@@ -131,6 +163,7 @@ func whenItEnds() throws {
   let onTap = MasterRun(MasterButton(name: "x", steps: [co2On], minutes: nil), at: m0, before: { _ in nil }, lamp: nil)
   #expect(onTap.ends == nil && onTap.left(at: m0) == nil && !onTap.isDue(at: m0.addingTimeInterval(86_400)))
   run.back[0].done = true
+  run.back[1].held = true
   #expect(run.pending.count == 3)
   run.ended = m0.addingTimeInterval(7200)
   #expect(!run.isRunning && !run.isDue(at: m0.addingTimeInterval(9000)))

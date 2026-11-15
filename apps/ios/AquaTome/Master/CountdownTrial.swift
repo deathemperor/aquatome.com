@@ -49,7 +49,8 @@ final class CountdownTrial {
   /// Both ways on the one outlet: off, then a countdown (does it come back on at 0?); on, then a countdown (does it switch
   /// off at 0, as CO2 will need?); then on, as it was found.
   func run(_ target: DeviceTarget) async {
-    guard state == .idle else { return }
+    // As offered now: a role changed since it was picked (CO2, a heater) or an outlet gone off isn't tried.
+    guard state == .idle, outlets().contains(where: { $0.target == target }) else { return }
     let off = DeviceCommand(device: target.device, outlet: target.outlet, on: false)
     let on = DeviceCommand(device: target.device, outlet: target.outlet, on: true)
     guard let o = switcher.outlet(off) else { return }
@@ -107,6 +108,7 @@ struct CountdownTrialRow: View {
   var body: some View {
     let trial = master.trial
     let outlets = trial.outlets()
+    let chosen = outlets.first { $0.target == picked }
     VStack(alignment: .leading, spacing: 8) {
       Divider()
       Text(verbatim: "Thử đếm ngược của ổ cắm").font(.subheadline.weight(.semibold))
@@ -123,14 +125,15 @@ struct CountdownTrialRow: View {
         Menu {
           ForEach(outlets, id: \.target) { o in Button(o.name) { picked = o.target } }
         } label: {
-          Text(verbatim: outlets.first { $0.target == picked }?.name ?? "Chọn ổ")
+          Text(verbatim: chosen?.name ?? "Chọn ổ")
         }
         .accessibilityIdentifier("trial-pick")
-        Button { if let picked { Task { await trial.run(picked) } } } label: {
+        Button { if let chosen { Task { await master.tryCountdown(chosen.target) } } } label: {
           Text(verbatim: "Thử đếm ngược 1 phút").frame(maxWidth: .infinity)
         }
         .buttonStyle(.bordered)
-        .disabled(picked == nil || master.sending)
+        // Not beside a press: each would read the other's switching as a hand's.
+        .disabled(chosen == nil || master.busy)
         .accessibilityIdentifier("trial-run")
       }
       if let r = trial.result { Text(verbatim: r).font(.footnote).accessibilityIdentifier("trial-result") }

@@ -38,6 +38,9 @@ struct MasterCard: View {
         Button { editing = true } label: { Text("Tạo nút tổng").frame(maxWidth: .infinity) }
           .buttonStyle(.bordered).controlSize(.large)
           .accessibilityIdentifier("master-create")
+        // A button deleted while its press still owed something: that stays.
+        problems
+        putBack
         CountdownTrialRow()
       }
       .modifier(Panel())
@@ -57,14 +60,10 @@ struct MasterCard: View {
         sendingOr(Text("Bắt đầu")).frame(maxWidth: .infinity)
       }
       .buttonStyle(.borderedProminent).controlSize(.large)
-      .disabled(master.sending || b.steps.isEmpty)
+      .disabled(master.sending || b.steps.isEmpty || master.trial.state != .idle)
       .accessibilityIdentifier("master-start")
       problems
-      if master.run?.pending.contains(where: { $0.problem != nil }) == true {
-        Button { Task { await master.finish(byReader: true) } } label: { Text("Trả lại").frame(maxWidth: .infinity) }
-          .buttonStyle(.bordered).controlSize(.large).disabled(master.sending)
-          .accessibilityIdentifier("master-put-back")
-      }
+      putBack
       // What the last end left as it was: nothing failed, so not in the warning's style.
       if !master.notes.isEmpty {
         VStack(alignment: .leading, spacing: 4) { ForEach(master.notes, id: \.self) { Text(verbatim: $0) } }
@@ -122,6 +121,15 @@ struct MasterCard: View {
       .padding()
       .frame(maxWidth: .infinity, alignment: .leading)
       .background(Color.accentColor, in: RoundedRectangle(cornerRadius: 12))
+    }
+  }
+
+  /// "Trả lại", while something didn't come back.
+  @ViewBuilder private var putBack: some View {
+    if master.run?.pending.contains(where: { $0.problem != nil }) == true {
+      Button { Task { await master.finish(byReader: true) } } label: { Text("Trả lại").frame(maxWidth: .infinity) }
+        .buttonStyle(.bordered).controlSize(.large).disabled(master.sending)
+        .accessibilityIdentifier("master-put-back")
     }
   }
 

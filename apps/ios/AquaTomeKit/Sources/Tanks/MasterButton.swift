@@ -33,6 +33,9 @@ public struct MasterRun: Sendable, Equatable, Codable {
     public var done = false
     /// Why the last try to put it back didn't (shown as it is).
     public var problem: String?
+    /// Never sent by the phone, by the outlet's role when pressed: CO2 back on (the chief, 15 Nov). nil in runs kept
+    /// before it.
+    public var held: Bool?
 
     public init(command: DeviceCommand) { self.command = command }
   }
@@ -61,11 +64,14 @@ public struct MasterRun: Sendable, Equatable, Codable {
   /// A press at `now`: what each step puts back at the end. An outlet goes back to the state it had before (`before`;
   /// one already as asked has nothing to put back, and one whose state isn't known goes back the other way). The lamp
   /// reports nothing: it goes back to the last command this phone sent it (`lamp`), or the other way when there is none.
-  public init(_ button: MasterButton, at now: Date, before: (DeviceCommand) -> Bool?, lamp: DeviceCommand?) {
+  /// What an earlier press still owes (`owed`: an end while the app was away, a plug not reached) stays owed, and for a
+  /// device this press sets too it is what goes back: the state from before both.
+  public init(_ button: MasterButton, at now: Date, before: (DeviceCommand) -> Bool?, lamp: DeviceCommand?, owed: [DeviceCommand] = []) {
     started = now
     ends = button.minutes.map { now.addingTimeInterval(TimeInterval($0 * 60)) }
     steps = button.steps
-    back = button.steps.compactMap { step in
+    let owedTargets = Set(owed.map(\.target))
+    back = owed.map { Back(command: $0) } + button.steps.filter { !owedTargets.contains($0.target) }.compactMap { step in
       if step.isLamp {
         let last = lamp.map { DeviceCommand(device: step.device, on: $0.on, colour: $0.on ? $0.colour : nil) }
         if let last, last.on == step.on, last.colour == step.colour { return nil }
@@ -74,6 +80,19 @@ public struct MasterRun: Sendable, Equatable, Codable {
       if before(step) == step.on { return nil }
       return Back(command: DeviceCommand(device: step.device, outlet: step.outlet, on: !step.on))
     }
+  }
+
+  /// The steps that didn't go (`failed`), with the outlets as read after them (`now`): a plug that didn't answer may
+  /// still have switched. One that reads as it was has nothing to put back, nor a lamp step that failed (it sent
+  /// nothing), unless an earlier press owes it (`owed`). When every step failed and nothing is left, it ends at `t`.
+  public mutating func settle(_ failed: [Failed], now: (DeviceCommand) -> Bool?, owed: Set<DeviceTarget>, at t: Date) {
+    self.failed = failed
+    let missed = Set(failed.map(\.target))
+    back.removeAll { b in
+      guard missed.contains(b.command.target), !owed.contains(b.command.target) else { return false }
+      return b.command.isLamp || now(b.command) == b.command.on
+    }
+    if missed.isSuperset(of: steps.map(\.target)), back.isEmpty { ended = t }
   }
 
   public var isRunning: Bool { ended == nil }

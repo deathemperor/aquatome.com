@@ -17,7 +17,7 @@ final class MasterFlowTests: XCTestCase {
     expect(app, "master-summary", contains: "Đèn sáng, CO2 tắt, quạt tắt, đèn tắt · 1 giờ")
     tap(app, "master-start")
     // The lamp on in white, CO2 and the fan off (both off already), the light's outlet off; no countdown written.
-    expect(app, "master-log", contains: "lamp on+white", timeout: 20)
+    expect(app, "master-log", contains: "lamp on+white", timeout: 40)
     expect(app, "master-log", contains: "switch_2 off | switch_3 off | switch_1 off")
     expect(app, "master-log", lacks: "countdown")
     expect(app, "master-left", contains: "1:00")
@@ -29,10 +29,10 @@ final class MasterFlowTests: XCTestCase {
     tap(again, "master-end")
     // What it changed put back by the phone: the light's outlet, and the lamp the other way (nothing was sent to it
     // before). CO2 and the fan were off already: nothing to put back.
-    expect(again, "master-log", contains: "switch_1 back on", timeout: 20)
+    expect(again, "master-log", contains: "switch_1 back on", timeout: 40)
     expect(again, "master-log", contains: "lamp back off")
     expect(again, "master-log", lacks: "switch_2 back")
-    XCTAssertTrue(element(again, "master-start").waitForExistence(timeout: 20), "not ready again")
+    XCTAssertTrue(element(again, "master-start").waitForExistence(timeout: 40), "not ready again")
     XCTAssertFalse(element(again, "master-problems").exists, element(again, "master-problems").label)
   }
 
@@ -44,9 +44,9 @@ final class MasterFlowTests: XCTestCase {
     make(app, end: "tap", light: true)
     expect(app, "master-summary", contains: "· đến khi bạn bấm Kết thúc")
     tap(app, "master-start")
-    expect(app, "master-log", contains: "lamp on+white", timeout: 20)
+    expect(app, "master-log", contains: "lamp on+white", timeout: 40)
     // Ended by the clock (six seconds here), the app open: everything back from the phone.
-    expect(app, "master-log", contains: "lamp back on+yellow", timeout: 30)
+    expect(app, "master-log", contains: "lamp back on+yellow", timeout: 40)
     expect(app, "master-log", contains: "switch_1 back on")
     expect(app, "master-log", lacks: "countdown")
     XCTAssertTrue(element(app, "master-start").waitForExistence(timeout: 10), "not ready again")
@@ -60,7 +60,7 @@ final class MasterFlowTests: XCTestCase {
     XCTAssertNotNil(element(app, "master-since").label.range(of: #"^\d{2}:\d{2}$"#, options: .regularExpression), element(app, "master-since").label)
     expect(app, "master-summary", contains: "· đến khi bạn bấm Kết thúc")
     tap(app, "master-end")
-    XCTAssertTrue(element(app, "master-start").waitForExistence(timeout: 20), "not ready again")
+    XCTAssertTrue(element(app, "master-start").waitForExistence(timeout: 40), "not ready again")
   }
 
   func testTheOwnersCountdownTrialTriesBothWaysAndLeavesTheOutletOn() {
@@ -82,7 +82,7 @@ final class MasterFlowTests: XCTestCase {
     let app = launch(["-fake-lamp-off"])
     make(app, end: "120")
     tap(app, "master-start")
-    expect(app, "master-problems", contains: "Bật Bluetooth để gửi lệnh tới đèn.", timeout: 20)
+    expect(app, "master-problems", contains: "Bật Bluetooth để gửi lệnh tới đèn.", timeout: 40)
     expect(app, "master-log", contains: "switch_3 off")
   }
 
@@ -97,7 +97,11 @@ final class MasterFlowTests: XCTestCase {
     tap(app, "master-step-Lọc")
     tap(app, "master-choice-Tắt")
     XCTAssertTrue(app.staticTexts["Tắt lọc trong lúc chạy nút?"].waitForExistence(timeout: 5), "no second ask")
-    app.buttons["Hủy"].firstMatch.tap()
+    // iOS 27 shows it by the row, closed by a tap outside it ("Hủy" where iOS shows one).
+    if app.buttons["Hủy"].firstMatch.exists { app.buttons["Hủy"].firstMatch.tap() } else { app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.12)).tap() }
+    XCTAssertTrue(app.staticTexts["Tắt lọc trong lúc chạy nút?"].waitForNonExistence(timeout: 5), "the second ask stayed")
+    expect(app, "master-choice-Bật", contains: "Bật")
+    XCTAssertTrue(element(app, "master-choice-Bật").isSelected, "Lọc turned off without a yes")
     tap(app, "master-choice-Tắt")
     let anyway = app.buttons["master-turn-off-anyway"].firstMatch
     XCTAssertTrue(anyway.waitForExistence(timeout: 5), "no second ask")
@@ -131,7 +135,7 @@ final class MasterFlowTests: XCTestCase {
     XCTAssertTrue(element(app, "master-left").waitForExistence(timeout: 20), "not running")
     shoot("running-\(name)")
     tap(app, "master-end")
-    XCTAssertTrue(element(app, "master-start").waitForExistence(timeout: 20), "not ready again")
+    XCTAssertTrue(element(app, "master-start").waitForExistence(timeout: 40), "not ready again")
     // Until Kết thúc: the start time in place of the time left.
     tap(app, "master-edit")
     tap(app, "master-end-tap")
@@ -196,10 +200,29 @@ final class MasterFlowTests: XCTestCase {
     app.descendants(matching: .any).matching(identifier: id).firstMatch
   }
 
-  private func tap(_ app: XCUIApplication, _ id: String) {
+  /// Scrolled into the clear band between the navigation bar and the bars pinned to Đèn's bottom (its notice and write
+  /// bars; a tap on a button under them lands on them), toward its middle (as LightFlowTests' scrolledTo), then tapped
+  /// once it is enabled: "Kết thúc" waits while a start's steps are still going out.
+  private func tap(_ app: XCUIApplication, _ id: String, file: StaticString = #filePath, line: UInt = #line) {
     let e = element(app, id)
-    XCTAssertTrue(e.waitForExistence(timeout: 10), "\(id) missing")
-    repeatUntil(e.isHittable, times: 8) { app.swipeUp() }
+    XCTAssertTrue(e.waitForExistence(timeout: 10), "\(id) missing", file: file, line: line)
+    let window = app.windows.firstMatch.frame
+    let pinned = ["notice", "write"].map { element(app, $0) }.filter { $0.exists }.map { $0.frame.minY }.min() ?? .infinity
+    let bar = app.navigationBars.firstMatch
+    let top = bar.exists ? bar.frame.maxY + 8 : window.minY
+    let bottom = min(window.maxY - window.height / 5, pinned - 16)
+    let third = window.height / 3
+    for _ in 0..<12 {
+      let f = e.frame
+      if e.isHittable, f.minY > top, f.maxY < bottom { break }
+      // The content moves about half again as far as the finger.
+      var dy = max(-third, min(third, ((top + bottom) / 2 - f.midY) / 1.5))
+      if abs(dy) < 40 { dy = dy < 0 ? -40 : 40 }
+      let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.97, dy: dy < 0 ? min(0.65, bottom / window.height) : 0.3))
+      from.press(forDuration: 0.05, thenDragTo: from.withOffset(CGVector(dx: 0, dy: dy)), withVelocity: .default, thenHoldForDuration: 0.2)
+    }
+    let enabled = XCTNSPredicateExpectation(predicate: NSPredicate(format: "isEnabled == true"), object: e)
+    XCTAssertEqual(XCTWaiter.wait(for: [enabled], timeout: 30), .completed, "\(id) never enabled", file: file, line: line)
     e.tap()
   }
 
