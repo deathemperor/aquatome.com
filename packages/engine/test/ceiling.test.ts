@@ -257,7 +257,7 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
     { from: '2026-11-15T00:00:00+07:00', to: '2026-11-15T05:59:00+07:00', steps: 470, backstop: 497, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 34, quota: 1, glossary: 40, material: 8, ask: 0, ideas: 4, photos: 12 },
     { from: '2026-11-15T06:00:00+07:00', to: '2026-11-15T23:59:00+07:00', steps: 480, backstop: 507, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 34, quota: 1, glossary: 40, material: 8, ask: 0, ideas: 4, photos: 22 },
     { from: '2026-11-16T00:00:00+07:00', to: '2026-11-16T23:59:00+07:00', steps: 498, backstop: 508, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 37, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 22 },
-    { from: '2026-11-17T00:00:00+07:00', to: '2026-11-17T23:59:00+07:00', steps: 461, backstop: 463, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 22 },
+    { from: '2026-11-17T00:00:00+07:00', to: '2026-11-17T23:59:00+07:00', steps: 498, backstop: 500, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 22, titles: 22, titlesCheck: 15 },
     { from: '2026-11-18T00:00:00+07:00', to: '2026-11-19T23:59:00+07:00', steps: 451, backstop: 453, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 12 },
     { from: '2026-11-20T00:00:00+07:00', to: '2026-12-31T00:00:00+07:00', steps: 437, backstop: 453, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 8, ask: 2, ideas: 4, photos: 12 },
   ]
@@ -298,6 +298,11 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
     // staff, 15 Nov 2026).
     expect(cap(when, 'github', 'judge-places')).toBe(p.judge ?? p.small)
     expect(cap(when, 'mac', 'judge-places')).toBe(p.small)
+    // The video titles' full run and its per-title check: $22 and $15 on the Mac on 17 Nov alone, with the backstop $37
+    // higher. The video cycle's own titles stay on the default line under their own step (the chief of staff, 16 Nov 2026).
+    expect(cap(when, 'mac', 'video-titles-redo')).toBe(p.titles ?? p.small)
+    expect(cap(when, 'mac', 'video-titles-check')).toBe(p.titlesCheck ?? p.small)
+    expect(cap(when, 'mac', 'video-titles')).toBe(p.small)
     // The ideas step: on 12 Nov its $1 line stopped it part way through its first guide, which costs about $1.30 (9
     // calls), and it wrote nothing. Now a guide starts only when its line covers one (pieces.ts), and the line is $3, two
     // guides, in the cloud, where the step runs; the Mac's is $0 (the chief of staff, 12 Nov 2026). A guide came to $1.51 on
