@@ -39,6 +39,7 @@ import { firstRun, frontEarly, frontHeld, frontPlan, offLane, orderFront, type F
 import { candidates, cardsOf, checkCalendar, demandByPath, plan, readCalendar, readVerdicts, writeCalendar } from './curation'
 import { phraseMatch } from './phrases'
 import { readerReport, readPages } from './reader'
+import { checkContent } from './content-check'
 import { updatePageDates } from './page-dates'
 import { sweep } from './sweep'
 import { dropFacePhotos, visionFaces } from './faces'
@@ -587,6 +588,10 @@ if (cmd === 'photo-privacy') {
   // After the sweep's own fixes, so a fix a reader sees dates its page (page-dates.ts).
   const dated = await updatePageDates(join(ROOT, 'content'))
   console.log(`page dates: ${dated.files} files, ${dated.changed} changed`)
+} else if (cmd === 'check-content') {
+  // The content loads in every language, its pages' dates in their format, or a failure: a push takes a sweep that
+  // changed only the dates without the tests once it loads (content-check.ts, swept_clean in cycle-checks.sh).
+  console.log(`content: loads in every language; page dates: ${await checkContent(join(ROOT, 'content'))} files`)
 } else if (cmd === 'audit') {
   // Pictures per page → docs/review/content-audit.md; every published page against the content rules, in each language →
   // docs/review/content-rules.md (reports only; nothing is hidden). --fix: first the rules' safe fixes on the stored text,
