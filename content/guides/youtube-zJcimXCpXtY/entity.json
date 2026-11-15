@@ -92,7 +92,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh nền sỏi mịn, rêu và dương xỉ bám lũa, cây lên đẹp.",
-            "sharpness": 909.9
+            "sharpness": 909.9,
+            "person": false
           }
         ]
       },
@@ -113,14 +114,6 @@
         "heading": "Lọc lại nền cũ thành cát sạch và sỏi thô",
         "moments": [
           {
-            "t": 760,
-            "url": "https://media.aquatome.com/video/zJcimXCpXtY/at760-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rây lưới giữ lại sỏi thô và vụn đen trong xô nước.",
-            "sharpness": 287.4
-          },
-          {
             "t": 820,
             "url": "https://media.aquatome.com/video/zJcimXCpXtY/at820-hd.webp",
             "width": 1200,
@@ -131,46 +124,8 @@
         ]
       },
       {
-        "heading": "Trải nền: sỏi thô lót dưới, cát phủ mỏng",
-        "moments": [
-          {
-            "t": 940,
-            "url": "https://media.aquatome.com/video/zJcimXCpXtY/at940-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay vun cát và sỏi thành lớp nền dày trong hồ.",
-            "sharpness": 944.9
-          },
-          {
-            "t": 950,
-            "url": "https://media.aquatome.com/video/zJcimXCpXtY/at950-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lớp nền sỏi thô lẫn cát đã trải đều dưới đáy hồ.",
-            "sharpness": 944.5
-          }
-        ]
-      },
-      {
         "heading": "Xếp đá cuội và lũa cho đúng kiểu tối giản",
-        "moments": [
-          {
-            "t": 1100,
-            "url": "https://media.aquatome.com/video/zJcimXCpXtY/at1100-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhúng đá cuội vào thau nước để xem màu đá khi ướt.",
-            "sharpness": 297.2
-          },
-          {
-            "t": 1180,
-            "url": "https://media.aquatome.com/video/zJcimXCpXtY/at1180-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đá cuội đặt trên nền cát trong bể, kích cỡ chuyển dần từ to đến nhỏ.",
-            "sharpness": 981.7
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/zJcimXCpXtY/p4-fUG9tcGVpaS5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/zJcimXCpXtY/p4-fUG9tcGVpaS5qcGc-480.webp",
@@ -185,14 +140,6 @@
       {
         "heading": "Chọn cây và trồng thế nào",
         "moments": [
-          {
-            "t": 1380,
-            "url": "https://media.aquatome.com/video/zJcimXCpXtY/at1380-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể cây rậm với cây mảnh, cao cắm giữa các nhánh lũa.",
-            "sharpness": 614.2
-          },
           {
             "t": 1390,
             "url": "https://media.aquatome.com/video/zJcimXCpXtY/at1390-hd.webp",
@@ -222,7 +169,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đầu ra và đầu vào của lọc bằng inox gắn trên thành bể.",
-            "sharpness": 241.8
+            "sharpness": 241.8,
+            "person": false
           },
           {
             "t": 1950,
@@ -230,7 +178,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ống lọc và máy hút váng inox treo ở thành bể, cạnh cây thủy sinh.",
-            "sharpness": 269.7
+            "sharpness": 269.7,
+            "person": false
           }
         ]
       },
@@ -251,7 +200,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Túi cá đang được thả vào bể tối giản.",
-            "sharpness": 1215.1
+            "sharpness": 1215.1,
+            "person": false
           }
         ],
         "photo": {

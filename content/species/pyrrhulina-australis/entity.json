@@ -645,7 +645,12 @@
       "author": "Aspostbus",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pyrrhulina_australis.jpg",
       "caption": "Pyrrhulina australis",
-      "thumb": "https://media.aquatome.com/commons/cfeef6eac35b1b07-480.webp"
+      "thumb": "https://media.aquatome.com/commons/cfeef6eac35b1b07-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/cfeef6eac35b1b07-large.webp",
+        "width": 2180,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/9a6d8a331b0af031.webp",
