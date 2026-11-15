@@ -48,6 +48,10 @@ import {
   tankFacts, TOPICS, unbrand, type Condition, type Criterion, type HardQuestion, type Judged, type PairOutcome, type Verdict,
 } from './chat-vs-plain-lib'
 import { pool, retry } from './eval-lib'
+import { unbilled } from '../src/billed'
+
+// Its calls on the chat's keys aren't held to the billed line yet (billed.ts).
+unbilled('chat-vs-plain.ts')
 
 const ROOT = join(import.meta.dirname, '../../..')
 type Send = ChatOptions['send']

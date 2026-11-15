@@ -37,6 +37,10 @@ import { clientFor, costOf } from '../../../apps/site/worker/fishid/claude'
 import { healthyKeys, loadKeys, memoryHealth, rotate, type HealthStore, type KeyEntry } from '../../../apps/site/worker/fishid/keys'
 import { claudeCli } from '../src/claude'
 import { pool, retry } from './eval-lib'
+import { unbilled } from '../src/billed'
+
+// Its calls on the chat's keys aren't held to the billed line yet (billed.ts).
+unbilled('chat-offtopic.ts')
 
 const ROOT = join(import.meta.dirname, '../../..')
 type Send = ChatOptions['send']
