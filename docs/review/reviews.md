@@ -8,38 +8,38 @@ under `<lang>/<path>`.
 
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
-| video-guide | 883 | 639 (vi 639) | 639 |
-| translation | 1593 | 252 (vi 252) | 252 |
+| video-guide | 890 | 639 (vi 639) | 639 |
+| translation | 1612 | 253 (vi 253) | 253 |
 | vi-rewrite | 318 | 18 (vi 18) | 18 |
-| reader-rewrite | 26 | 0 | 0 |
+| reader-rewrite | 29 | 0 | 0 |
 | title | 25 | 0 | 0 |
-| breed | 22 | 3 (ms 3) | 3 |
-| topic | 86 | 5 (ms 1, th 4) | 5 |
-| product | 14 | 1 (vi 1) | 1 |
-| product-reviews | 14 | 0 | 0 |
-| summary | 1916 | 91 (vi 91) | 91 |
-| localize | 1873 | 784 (id 354, ms 43, th 387) | 784 |
+| breed | 26 | 3 (ms 3) | 3 |
+| topic | 89 | 5 (ms 1, th 4) | 5 |
+| product | 15 | 1 (vi 1) | 1 |
+| product-reviews | 15 | 0 | 0 |
+| summary | 1990 | 92 (vi 92) | 92 |
+| localize | 1986 | 823 (id 371, ms 47, th 405) | 823 |
 | glossary | 1 | 0 | 0 |
-| places | 6135 | 3686 (id 1251, ms 1248, th 1088, vi 99) | 858 |
+| places | 6321 | 3827 (id 1298, ms 1295, th 1135, vi 99) | 926 |
 | equipment | 5 | 0 | 0 |
 | planting | 31 | 0 | 0 |
 | species | 11 | 0 | 0 |
 
 ## video-guide: Vietnamese guides written from YouTube videos, against the transcript
 
-639 of 883 pages under the bar.
+639 of 890 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 563 | 1475 |
-| States as certain what the source hedges, or what garbled captions only hint at | 553 | 1684 |
-| Says what the source doesn't (invented, added) | 485 | 1196 |
-| Wording: unnatural, literal, stiff or chatty | 266 | 368 |
-| A number, unit, dose or price | 218 | 322 |
-| Repeats itself (intro, summary, steps and FAQ) | 129 | 151 |
+| Other | 562 | 1475 |
+| States as certain what the source hedges, or what garbled captions only hint at | 551 | 1675 |
+| Says what the source doesn't (invented, added) | 484 | 1190 |
+| Wording: unnatural, literal, stiff or chatty | 264 | 369 |
+| A number, unit, dose or price | 221 | 326 |
+| Repeats itself (intro, summary, steps and FAQ) | 126 | 148 |
 | Meaning changed or wrong | 111 | 126 |
 | Leaves out what the source says | 46 | 48 |
-| Hobby terms and names | 43 | 43 |
+| Hobby terms and names | 42 | 42 |
 | Names or points to the video, channel, creator or source | 32 | 34 |
 | Off the title's topic | 23 | 23 |
 | Copied from the transcript or source | 22 | 24 |
@@ -125,20 +125,20 @@ under `<lang>/<path>`.
 
 ## translation: source pages translated into Vietnamese, against the English
 
-252 of 1593 pages under the bar.
+253 of 1612 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 243 | 754 |
-| Says what the source doesn't (invented, added) | 206 | 403 |
-| Wording: unnatural, literal, stiff or chatty | 196 | 377 |
-| Meaning changed or wrong | 159 | 252 |
-| Hobby terms and names | 123 | 164 |
-| Text left in another language | 88 | 109 |
+| Other | 244 | 756 |
+| Says what the source doesn't (invented, added) | 207 | 405 |
+| Wording: unnatural, literal, stiff or chatty | 197 | 379 |
+| Meaning changed or wrong | 160 | 254 |
+| Hobby terms and names | 124 | 165 |
+| Text left in another language | 89 | 110 |
 | Leaves out what the source says | 82 | 113 |
-| States as certain what the source hedges, or what garbled captions only hint at | 72 | 84 |
+| States as certain what the source hedges, or what garbled captions only hint at | 73 | 85 |
 | A number, unit, dose or price | 67 | 87 |
-| Repeats itself (intro, summary, steps and FAQ) | 56 | 67 |
+| Repeats itself (intro, summary, steps and FAQ) | 57 | 68 |
 | Names or points to the video, channel, creator or source | 10 | 11 |
 | Copied from the transcript or source | 3 | 3 |
 
@@ -298,7 +298,7 @@ under `<lang>/<path>`.
 
 ## reader-rewrite: parts the reader step rewrote with its findings
 
-0 of 26 pages under the bar.
+0 of 29 pages under the bar.
 
 ## title: titles rewritten to promise only what the text has
 
@@ -306,7 +306,7 @@ under `<lang>/<path>`.
 
 ## breed: breed pages, against their research
 
-3 of 22 pages under the bar.
+3 of 26 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -333,7 +333,7 @@ under `<lang>/<path>`.
 
 ## topic: AquaTome's own guides, against their research
 
-5 of 86 pages under the bar.
+5 of 89 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -359,7 +359,7 @@ under `<lang>/<path>`.
 
 ## product: product pages, against their research
 
-1 of 14 pages under the bar.
+1 of 15 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -386,19 +386,19 @@ under `<lang>/<path>`.
 
 ## product-reviews: product pages' review summaries (the code's checks: 1 pass, 0 fail)
 
-0 of 14 pages under the bar.
+0 of 15 pages under the bar.
 
 ## summary: species' quick summaries (the numbers and claims check: 1 pass, 0 fail)
 
-91 of 1916 pages under the bar.
+92 of 1990 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
 | Says what the source doesn't (invented, added) | 50 | 54 |
-| States as certain what the source hedges, or what garbled captions only hint at | 30 | 34 |
+| States as certain what the source hedges, or what garbled captions only hint at | 32 | 37 |
 | Other | 26 | 30 |
 | A number, unit, dose or price | 11 | 11 |
-| Leaves out what the source says | 9 | 10 |
+| Leaves out what the source says | 10 | 11 |
 | Meaning changed or wrong | 8 | 8 |
 | Wording: unnatural, literal, stiff or chatty | 2 | 2 |
 | Off the title's topic | 1 | 1 |
@@ -455,20 +455,20 @@ under `<lang>/<path>`.
 
 ## localize: species and plant pages in Indonesian and Thai, against the English
 
-784 of 1873 pages under the bar.
+823 of 1986 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 731 | 2100 |
-| Wording: unnatural, literal, stiff or chatty | 684 | 1456 |
-| Says what the source doesn't (invented, added) | 475 | 689 |
-| Hobby terms and names | 441 | 584 |
-| Meaning changed or wrong | 428 | 670 |
-| A number, unit, dose or price | 402 | 513 |
-| Text left in another language | 289 | 373 |
-| Leaves out what the source says | 253 | 294 |
-| Repeats itself (intro, summary, steps and FAQ) | 228 | 255 |
-| States as certain what the source hedges, or what garbled captions only hint at | 167 | 185 |
+| Other | 766 | 2200 |
+| Wording: unnatural, literal, stiff or chatty | 712 | 1511 |
+| Says what the source doesn't (invented, added) | 491 | 710 |
+| Hobby terms and names | 457 | 607 |
+| Meaning changed or wrong | 450 | 698 |
+| A number, unit, dose or price | 424 | 535 |
+| Text left in another language | 300 | 386 |
+| Leaves out what the source says | 261 | 302 |
+| Repeats itself (intro, summary, steps and FAQ) | 238 | 267 |
+| States as certain what the source hedges, or what garbled captions only hint at | 179 | 199 |
 | Copied from the transcript or source | 26 | 26 |
 | Off the title's topic | 1 | 1 |
 
@@ -529,8 +529,8 @@ under `<lang>/<path>`.
 ### States as certain what the source hedges, or what garbled captions only hint at
 
 - Item 21: 'weakly red to orange colour patches in the fins' is rendered as 'แต้มสีแดงอ่อนถึงส้มในครีบที่ไม่เด่นเท่า'. It is unclear that this refers to the males' fin patterns. Reword it as 'แต้มสีแดงจางถึงส้มบนครีบซึ่งเด่นน้อยกว่าตัวผู้'. … — th/species/danio-margaritatus, 0.40
+- #1: 'เกือบทุกชนิดโตเกิน 20 ซม.' — English says 'most species', so use 'ส่วนใหญ่' instead of 'เกือบทุกชนิด' (overstates). The sentence 'ส่วนใหญ่มักโตได้ค่อนข้างใหญ่' then repeats it. — th/species/metynnis-lippincottianus, 0.40
 - Item 11: 'ปลาชนิดต่าง ๆ ในเขตทะเลสาบ ... เป็นหมันในระดับต่าง ๆ เมื่อผสมกับปลาจากเขตทะเลสาบ' adds a detail ('when crossed with lake fishes') framed differently from the English; 'differing degrees of sterility' unclear in Thai. — th/species/anatolichthys-anatoliae, 0.50
-- Item 23: "อยู่ร่วมกับปลาตู้รวมขนาดใกล้เคียงกันที่ไม่ใหญ่พอจะกินมันได้ดี" is garbled. "ปลาตู้รวม" is an odd phrase, and "มัน" is awkward. Rewrite it. — th/species/boraras-brigittae, 0.50
 
 ### Copied from the transcript or source
 
@@ -548,24 +548,24 @@ under `<lang>/<path>`.
 
 ## places: place names in Indonesian and Thai (reviewed in batches)
 
-3686 of 6135 pages under the bar.
+3827 of 6321 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 753 | 819 |
-| Meaning changed or wrong | 60 | 60 |
-| Leaves out what the source says | 43 | 43 |
-| Wording: unnatural, literal, stiff or chatty | 20 | 20 |
+| Other | 816 | 887 |
+| Meaning changed or wrong | 62 | 62 |
+| Leaves out what the source says | 44 | 44 |
+| Wording: unnatural, literal, stiff or chatty | 23 | 23 |
 | States as certain what the source hedges, or what garbled captions only hint at | 9 | 9 |
 | Hobby terms and names | 8 | 8 |
-| Text left in another language | 6 | 6 |
+| Text left in another language | 7 | 7 |
 | Repeats itself (intro, summary, steps and FAQ) | 4 | 4 |
 
 ### Other
 
-- sông Bandama (Vietnamese, not Indonesian; should be Sungai Bandama) — id/places/bandama-river, 0.10
-- hồ Barapani (Vietnamese source name; the Malay answer is given but the original is Vietnamese) — ms/places/barapani-lake, 0.10
-- sông Bensbach (Vietnamese, not Indonesian; should be Sungai Bensbach) — id/places/bensbach-river, 0.10
+- sông Arthur → Arthur (Vietnamese 'sông', should be Sungai Arthur) — id/places/arthur-river, 0.05
+- sông Cam → Cam (Vietnamese; should be Sungai Cam) — id/places/cam-river, 0.05
+- kênh Casiquiare → Casiquiare (Vietnamese 'kênh'; should be Kanal/Sungai Casiquiare) — id/places/canal-casiquiare, 0.05
 
 ### Meaning changed or wrong
 
@@ -583,7 +583,7 @@ under `<lang>/<path>`.
 
 - "Perbukitan Kardamom" for Cardamom Hills in India: the usual Indonesian form is 'Bukit Kardamom' or 'Perbukitan Cardamom'. The spelling is doubtful. — id/places/cardamom-hills, 0.30
 - 'กาเวรี' for 'Chauvery': the standard Thai form is 'กาเวรี' (Kaveri), but 'Chauvery' is an odd spelling, so I'm uncertain it matches. — th/places/chauvery, 0.30
-- 'เฌาอูรู' for 'Jauru': the Thai 'เฌา' is not a natural Thai transcription; 'เจาอูรู' would be expected. — th/places/rio-jauru, 0.30
+- Tamshuei → Tamsui (acceptable spelling but differs from source) — id/places/ling, 0.30
 
 ### States as certain what the source hedges, or what garbled captions only hint at
 
@@ -599,9 +599,9 @@ under `<lang>/<path>`.
 
 ### Text left in another language
 
+- Red: this is an English word left untranslated. It is not a Malay name, and it is probably a fragment of a longer name such as "Sungai Merah". — ms/places/red, 0.45
 - Hoa Creek → Hoa Creek (the English "Creek" is left untranslated, so it should be Malay, e.g. "Sungai Hoa") — ms/places/hoa-creek, 0.70
 - "Mogaung Chaung" and "Nan Hto Chaung": 'Chaung' is the Burmese word for stream or river, left untranslated. I did not mark these wrong because the source names are kept as written, but 'sông Mogaung' and 'sông Nan Hto' would read better to… — vi/places/mogaung-chaung, 0.72
-- "Mogaung Chaung" and "Nan Hto Chaung": 'Chaung' is the Burmese word for stream or river, left untranslated. I did not mark these wrong because the source names are kept as written, but 'sông Mogaung' and 'sông Nan Hto' would read better to… — vi/places/nam-leuk, 0.72
 
 ### Repeats itself (intro, summary, steps and FAQ)
 

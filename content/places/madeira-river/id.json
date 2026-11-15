@@ -1,8 +1,13 @@
 {
   "slug": "madeira-river",
-  "name": "Madeira",
+  "name": "Sungai Madeira",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-15T05:30:28.461Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

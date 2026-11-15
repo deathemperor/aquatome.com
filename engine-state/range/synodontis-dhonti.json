@@ -1,0 +1,42 @@
+{
+  "id": "synodontis-dhonti",
+  "native": {
+    "input": "7914cd25a61e5dc3",
+    "at": "2026-11-15T05:39:34.625Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Lake Tanganyika",
+        "source": "seriouslyfish",
+        "quote": "This species is endemic to Lake Tanganyika.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CD"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Synodontis dhonti",
+    "status": "ACCEPTED",
+    "taxonKey": 2344443,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        17
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        11
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-15T05:39:34.625Z"
+  }
+}

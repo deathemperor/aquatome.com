@@ -444,4 +444,9 @@ test('a heading with one voice shows that source alone, and only once this langu
   expect(shown({ 'waterConditions:glaser': 'a', 'waterConditions:seriouslyfish': 'b', 'diet:glaser': 'c' })).toEqual(['waterConditions:seriouslyfish', 'diet:glaser'])
   expect(shown({ 'waterConditions:glaser': 'a', 'diet:glaser': 'c' })).toEqual(['waterConditions:glaser', 'waterConditions:seriouslyfish', 'diet:glaser'])
   expect(oneVoice({ sections, t: { sections: {} } as unknown as Translation }, undefined).sections).toEqual(sections)
+  // No voice: the heading is off, whichever sources wrote under it, and the others stay.
+  const none = oneVoice({ sections, t: { sections: { 'waterConditions:glaser': 'a', 'waterConditions:seriouslyfish': 'b', 'diet:glaser': 'c' } } as unknown as Translation }, { waterConditions: false })
+  expect(none.sections.map(s => `${s.key}:${s.source}`)).toEqual(['diet:glaser'])
+  // Its text goes too, so nothing that reads the page's text (the gate's checks, the summary) reads what readers don't see.
+  expect(Object.keys(none.t.sections)).toEqual(['diet:glaser'])
 })

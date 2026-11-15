@@ -10,6 +10,43 @@
     "tanzania",
     "somalia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TZ",
+        "SO"
+      ],
+      "regions": [],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Ruvu (or Rufu) River, near or at Korogwe, Tanzania",
+          "countries": [
+            "TZ"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Africa: coastal rivers, Tanzania, Somalia.",
+          "countries": [
+            "SO"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344295,
+      "total": 0,
+      "fetched": "2026-11-15",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

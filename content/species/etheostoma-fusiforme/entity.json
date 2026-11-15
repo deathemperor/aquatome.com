@@ -523,7 +523,12 @@
       "author": "Smithsonian Environmental Research Center",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Etheostoma_fusiforme_Manokin_10-16-17_0634_(37506816060).jpg",
       "caption": "Swamp Darter, Etheostoma fusiforme.Loretto Branch, Manokin River, Somerset County, MD - 10/16/17. Photo by Robert Aguilar, Smithsonian Environmental Research Center.",
-      "thumb": "https://media.aquatome.com/commons/21c44e29bf469c10-480.webp"
+      "thumb": "https://media.aquatome.com/commons/21c44e29bf469c10-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/21c44e29bf469c10-large.webp",
+        "width": 2400,
+        "height": 728
+      }
     }
   ],
   "videos": [],

@@ -1,8 +1,13 @@
 {
   "slug": "muar-river",
-  "name": "Muar",
+  "name": "Sungai Muar",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-15T05:31:53.680Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

@@ -3,7 +3,7 @@ import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
-import { GALLERY_POST, loadAll, mayPublish, RETIRED_GUIDES, resolveDataCard, slugify, WRITTEN_LANGS, type Translation } from '@aq/schema'
+import { GALLERY_POST, LANGS, loadAll, mayPublish, RETIRED_GUIDES, resolveDataCard, slugify, WRITTEN_LANGS, type Translation } from '@aq/schema'
 import { checkPages, photoCaptions, RATCHETED, ratcheted, refCredits, RULES, SWEPT_KINDS, thanksLines } from '../src/content-rules'
 import { englishOf } from '../src/english'
 import { tilapiaUnnamed } from '../src/kind-words'
@@ -206,6 +206,62 @@ const SOURCE_FIGURES = [
   ['vi', 'cichla-monoculus', 'aquariumSize:seriouslyfish', ['305 x 91 x 122 cm']],
   ['id', 'cichla-monoculus', 'quickFacts:seriouslyfish', ['305 x 91 x 122 cm']],
 ] as const
+// The chief of staff's rulings of 15 Nov on the pages the source-figure pass left: a figure the source itself gives in
+// metric stays as the source has it (the glass tetra's 60 × 38 cm, 68 litres, which add up, as 60 × 40 × 30 doesn't);
+// litres we converted from US gallons are rounded, with "about" (the black ghost's 200, 300, 450 and 700); and the
+// decorator crab's breeding line keeps the source's words, our labelled note beside it, and the page is out. Each part
+// fixed, so no read of the source, translation or mender changes it, and the English says the same, as a language not yet
+// written is translated from it. Whether the crab stays out is the gate's: its hold isn't held here.
+test("the chief of staff's rulings on the source figures stay, each part fixed", () => {
+  const root = fileURLToPath(new URL('../../../content/species', import.meta.url))
+  const read = (id: string, file: string) => JSON.parse(readFileSync(join(root, id, file), 'utf8'))
+  const parts = (id: string) => read(id, 'entity.json').sections as { key: string; source: string; html: string; fixed?: boolean }[]
+  const fixed = (id: string, key: string, source: string) => parts(id).find(s => s.key === key && s.source === source)?.fixed
+  const english = (id: string, key: string, source: string) => parts(id).find(s => s.key === key && s.source === source)!.html
+  const tetra = read('moenkhausia-oligolepis', 'vi.json').sections['aquariumSize:seriouslyfish']
+  expect(tetra).toContain('Đáy bể 60 × 38 cm. Thể tích khoảng 68 lít.')
+  expect(tetra).toContain('Một bể 60 × 38 × 30 cm, tức khoảng 68 lít')
+  expect(tetra).not.toMatch(/60 × 40/)
+  expect(fixed('moenkhausia-oligolepis', 'aquariumSize', 'seriouslyfish')).toBe(true)
+  const about = { vi: 'khoảng', id: 'sekitar', th: 'ประมาณ' } as const
+  for (const [lang, word] of Object.entries(about)) {
+    const ghost = read('apteronotus-albifrons', `${lang}.json`).sections['aquariumSize:aquariumcoop'] as string
+    for (const n of ['200', '300', '450']) expect(ghost, `${lang} ${n}`).toMatch(new RegExp(`${word}\\s*${n}`))
+    expect(ghost, lang).toMatch(/700/)
+    expect(ghost, lang).not.toMatch(/208|284|454|681/)
+  }
+  expect(fixed('apteronotus-albifrons', 'aquariumSize', 'aquariumcoop')).toBe(true)
+  expect(english('apteronotus-albifrons', 'aquariumSize', 'aquariumcoop')).toMatch(/about 200 litres.*about 300 litres.*about 450 or 700 litres/)
+  expect(english('apteronotus-albifrons', 'aquariumSize', 'aquariumcoop')).not.toMatch(/208|284|454|681|gallon/)
+  const note = {
+    vi: '<p><strong>Ghi chú của AquaTome:</strong> Chỉ tắt sục khí trong lúc gom ấu trùng, rồi bật lại ngay.</p>',
+    id: '<p><strong>Catatan AquaTome:</strong> Hentikan aerasi hanya selama mengumpulkan larva, lalu segera nyalakan kembali.</p>',
+    th: '<p><strong>หมายเหตุจาก AquaTome:</strong> หยุดให้อากาศเฉพาะระหว่างรวบรวมลูกปูวัยอ่อนเท่านั้น แล้วกลับมาให้อากาศทันที</p>',
+  } as const
+  for (const [lang, said] of Object.entries(note)) {
+    const t = read('camposcia-retusa', `${lang}.json`) as Translation
+    expect(t.sections!['reproduction:aquatome'], lang).toBe(said)
+    expect(t.sections!['reproduction:aquariumbreeder'], lang).toMatch(/26[.,]7–28[.,]9/)
+  }
+  expect(english('camposcia-retusa', 'reproduction', 'aquatome')).toBe("<p><strong>AquaTome's note:</strong> Turn the aeration off only while gathering the larvae, then back on straight away.</p>")
+  const breeding = parts('camposcia-retusa').map(s => `${s.key}:${s.source}`)
+  expect(breeding.indexOf('reproduction:aquatome')).toBe(breeding.indexOf('reproduction:aquariumbreeder') + 1)
+  expect(fixed('camposcia-retusa', 'reproduction', 'aquatome')).toBe(true)
+  expect(fixed('camposcia-retusa', 'reproduction', 'aquariumbreeder')).toBe(true)
+  // The engine's figure steps find nothing to change in any of them: the mender (which doesn't read `fixed`) and the rounding.
+  const ruled = [['moenkhausia-oligolepis', 'aquariumSize:seriouslyfish', ['vi']], ['apteronotus-albifrons', 'aquariumSize:aquariumcoop', ['vi', 'id', 'th']],
+    ['camposcia-retusa', 'reproduction:aquariumbreeder', ['vi', 'id', 'th']]] as const
+  for (const [id, part, langs] of ruled) {
+    const en = englishOf(read(id, 'entity.json').sections)
+    for (const lang of langs) {
+      const text = (read(id, `${lang}.json`) as Translation).sections![part]!
+      const m = mendPart(text, en.sections[part]!, lang)
+      expect(m && 'text' in m ? m.text : text, `${lang} ${id} mender`).toBe(text)
+      expect(roundPage({ sections: { [part]: text } }, lang, en).sections![part], `${lang} ${id} rounding`).toBe(text)
+    }
+  }
+})
+
 test.each(SOURCE_FIGURES)("the source's own figures: %s %s keeps the English's tank", async (lang, id, part, want) => {
   const dir = fileURLToPath(new URL(`../../../content/species/${id}/`, import.meta.url))
   const en = englishOf(JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8')).sections)
@@ -344,11 +400,34 @@ test('the Altum page speaks with one voice about water, its own figures first', 
 
 test('a heading whose sources could not both be true speaks with one voice', async () => {
   const root = fileURLToPath(new URL('../../../content', import.meta.url))
-  const voices = JSON.parse(readFileSync(join(root, 'one-voice.json'), 'utf8')) as Record<string, Record<string, string>>
+  const voices = JSON.parse(readFileSync(join(root, 'one-voice.json'), 'utf8')) as Record<string, Record<string, string | false>>
   expect(Object.keys(voices)).toContain('pterophyllum-altum')
   const { species } = await loadAll({ root, lang: 'vi', publicBuild: true })
   const heard = (id: string, key: string) => species.find(s => s.id === id)?.sections.filter(x => x.key === key).map(x => x.source)
-  for (const [id, keep] of Object.entries(voices)) for (const [key, source] of Object.entries(keep)) expect(heard(id, key), `${id} ${key}`).toEqual([source])
+  for (const [id, keep] of Object.entries(voices)) for (const [key, source] of Object.entries(keep)) expect(heard(id, key), `${id} ${key}`).toEqual(source === false ? [] : [source])
+}, slow(120_000))
+
+// The chief of staff, 15 Nov 2026: Seriously Fish gives the African snakehead, a 40 cm predator, a 38 × 38 cm base and 55
+// litres. Neither that figure nor the page's rounding of it is fit to read, so no source speaks under its tank heading
+// (one-voice.json), and its quick facts lose their tank line, fixed so no read or translation brings it back. It stays so
+// until a second source we may use gives a size that fits the fish.
+test('the African snakehead shows no tank size, in any language, and the engine keeps it so', async () => {
+  const root = fileURLToPath(new URL('../../../content', import.meta.url))
+  const dir = join(root, 'species/parachanna-obscura')
+  const facts = (JSON.parse(readFileSync(join(dir, 'entity.json'), 'utf8')) as { sections: { key: string; html: string; fixed?: boolean }[] }).sections.find(s => s.key === 'quickFacts')!
+  expect(facts.fixed).toBe(true)
+  const tank = /38\s*[×x]\s*38|40\s*[×x]\s*40|55\s*(?:lít|liter|litre|ลิตร)|aquarium size|kích thước bể|ukuran akuarium|ขนาดตู้|saiz akuarium/iu
+  expect(facts.html).not.toMatch(tank)
+  for (const lang of LANGS) {
+    if (!existsSync(join(dir, `${lang}.json`))) continue
+    const fish = (await loadAll({ root, lang, publicBuild: true })).species.find(s => s.id === 'parachanna-obscura')!
+    expect(fish.sections.filter(s => s.key === 'aquariumSize'), lang).toEqual([])
+    // Nor its text, which the gate's checks and the summary's writer read.
+    expect(Object.keys(fish.t.sections).filter(k => k.startsWith('aquariumSize:')), lang).toEqual([])
+    expect(Object.values(fish.t.sections).join(' '), lang).not.toMatch(tank)
+  }
+  const summary = JSON.parse(readFileSync(join(root, 'summaries/parachanna-obscura.json'), 'utf8')) as { summary: string; mistakes: string[] }
+  expect([summary.summary, ...summary.mistakes].join(' ')).not.toMatch(/lít|\d\s*[×x]\s*\d/u)
 }, slow(120_000))
 
 // The neon tetra's blue stripe: The Spruce Pets said it starts at the tip of the nose, photos start it at the eye, and no
@@ -532,8 +611,10 @@ test('a source\'s part fixed by hand says only what the source says: the porthol
 
 // The chief of staff, 15 Nov 2026: the rewrite of 14 Nov took two care facts whole for a half its read flagged ("but these
 // fish are quite peaceful so far", the source's own batch; "in a hot country", written for a reader in a cold one). Each
-// is back with its general half only, fixed by hand so no rewrite, read of its source or translation takes it again.
-test('two care facts a rewrite took whole are back with their general half, fixed: Leporinus fight their own kind, Osphronemus breed in a huge tank or a pond', () => {
+// is back with its general half only, fixed by hand so no rewrite, read of its source or translation takes it again. The
+// source's "tropical pond" is about the water, and the north of Vietnam has cold winters: the pond keeps its warmth, said of
+// the water, naming no country (the chief of staff, 15 Nov 2026: a climate condition is kept as warmth, never dropped).
+test('two care facts a rewrite took whole are back with their general half, fixed: Leporinus fight their own kind, Osphronemus breed in a huge tank or a pond warm all year', () => {
   const root = fileURLToPath(new URL('../../../content', import.meta.url))
   const read = <T>(path: string) => JSON.parse(readFileSync(join(root, path), 'utf8')) as T
   const part = (id: string, key: string, source: string) => {
@@ -546,9 +627,43 @@ test('two care facts a rewrite took whole are back with their general half, fixe
   expect(leporinus.vi).toBe('<p>Cá Leporinus đôi khi hay gây gổ với cá cùng loài.</p>')
   const osphronemus = part('osphronemus-exodon', 'reproduction', 'seriouslyfish')
   expect(osphronemus.en?.fixed).toBe(true)
-  expect(osphronemus.en?.html).toMatch(/Obviously an enormous aquarium, or perhaps a pond, would be required for any serious breeding attempt\.<\/p>$/)
-  expect(osphronemus.vi).toMatch(/Muốn cho đẻ nghiêm túc thì dĩ nhiên phải có bể cực lớn, hoặc có lẽ là một cái ao\.<\/p>$/)
+  expect(osphronemus.en?.html).toMatch(/Obviously an enormous aquarium, or perhaps a tropical pond, would be required for any serious breeding attempt\.<\/p>$/)
+  expect(osphronemus.vi).toMatch(/Muốn cho đẻ nghiêm túc thì dĩ nhiên phải có bể cực lớn, hoặc có lẽ là một cái ao nước ấm quanh năm\.<\/p>$/)
   expect(osphronemus.vi).not.toMatch(/xứ nóng/)
+})
+
+test('the care facts a product\'s sentence carried are back without the product, each in a part a person fixed', () => {
+  // 15 Nov 2026: the products-first cut took these sentences whole for naming a product; their care fact goes back in
+  // general words the same day (the chief of staff), fixed so the writer and the translator leave it.
+  const root = fileURLToPath(new URL('../../../content', import.meta.url))
+  const read = <T>(path: string) => JSON.parse(readFileSync(join(root, path), 'utf8')) as T
+  const part = (id: string, key: string, source: string) => {
+    const s = read<{ sections: { key: string; source: string; fixed?: boolean }[] }>(`species/${id}/entity.json`).sections.find(x => x.key === key && x.source === source)
+    return { fixed: s?.fixed, vi: read<{ sections: Record<string, string> }>(`species/${id}/vi.json`).sections[`${key}:${source}`] ?? '' }
+  }
+  const species: [string, string, RegExp][] = [
+    ['neocaridina-davidi', 'waterConditions', /San hô vụn giúp tăng KH\. Còn muốn tăng GH thì dùng khoáng bổ sung\./],
+    ['melanotaenia-praecox', 'waterConditions', /Muốn tăng GH thì dùng thêm khoáng bổ sung\./],
+    ['colomesus-asellus', 'beforeYouBuy', /rồi chờ hai tuần\. Sau đó, cho cá dùng một đợt thuốc tẩy giun theo hướng dẫn trên hộp, rồi chờ một tháng\. Cuối cùng/],
+  ]
+  for (const [id, key, said] of species) {
+    const x = part(id, key, 'aquariumcoop')
+    expect(x.fixed, id).toBe(true)
+    expect(x.vi, id).toMatch(said)
+  }
+  const guides: [string, RegExp][] = [
+    ['aquariumbreeder-how-to-remove-brown-algae-diatoms-in-freshwater-tanks', /Bạn có hai cách chính để tăng CO2:<\/p><ul><li>Châm CO2 bằng bình khí nén\.<\/li><li>Dùng cacbon nước\.<\/li><\/ul>/],
+    ['aquariumcoop-blogs-aquarium-55-gallon-fish', /Nếu GH thấp, hãy bổ sung khoáng để cá và cây luôn khỏe\./],
+    ['aquariumcoop-blogs-aquarium-algae-removal', /<li>Nếu nitrat dưới 20 ppm, bạn châm phân nước tổng hợp \(all-in-one\) cho đến khi nitrat trong nước lên 20 ppm\.<\/li>/],
+  ]
+  for (const [id, said] of guides) {
+    const t = read<{ body: string; bodyFixed?: boolean }>(`guides/${id}/vi.json`)
+    expect(t.bodyFixed, id).toBe(true)
+    expect(t.body, id).toMatch(said)
+  }
+  // None names the products the cut took them off for.
+  const all = [...species.map(([id, key]) => part(id, key, 'aquariumcoop').vi), ...guides.map(([id]) => read<{ body: string }>(`guides/${id}/vi.json`).body)].join(' ')
+  expect(all).not.toMatch(/Wonder Shell|Equilibrium|ParaCleanse|Flourish Excel|Easy Carbo|Easy Green/)
 })
 
 test('the tap-water fixes hold: Seachem Prime named at its dose, our note on water for lucky bamboo beside its source\'s, our chloramine note, artemia salt in grams', () => {

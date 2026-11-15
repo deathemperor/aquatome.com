@@ -67,6 +67,8 @@ export type FitEntry = {
   sourceRead?: boolean
   /** The checklist it was read with (CHECKLIST); absent: the first. */
   checklist?: number
+  /** The day a held page's mend of this text didn't let it out (gate.ts `MEND_AGAIN_DAYS`). */
+  mendTried?: string
 }
 /**
  * 2: `kit` added, a check guides read before it lack, so they're read again. 3: `harm` added, after a video guide told

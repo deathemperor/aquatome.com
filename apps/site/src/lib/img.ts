@@ -44,13 +44,14 @@ export function fishFrame(p: Photo, ratio: number): { pos?: string; whole?: true
 export const BLUR_STRIP = 0.08
 
 /**
- * A fish's 4:3 tile (SpeciesCard, and the cards the fish list's script builds): framed only on a copy that is the same
- * picture. `mat`: the photo whole on the tile's mat, its strips too thin for the blur (BLUR_STRIP). A photo the large
- * cards refuse (photoFitsCard: a dealer's mark cropped off too near the fish) is whole: never cut.
+ * A fish's 4:3 tile (SpeciesCard, and the cards the fish list's script builds), or a frame of another `ratio` (a term
+ * page's 3:2 rows): framed only on a copy that is the same picture. `mat`: the photo whole on the tile's mat, its strips
+ * too thin for the blur (BLUR_STRIP). A photo the large cards refuse (photoFitsCard: a dealer's mark cropped off too near
+ * the fish) is whole: never cut.
  */
-export function tileFrame(p: Photo): { pos?: string; whole?: true; mat?: true } {
-  const f = !photoFitsCard(p) ? { whole: true as const } : resizeOf(p, smallSrc(p)) ? fishFrame(p, 4 / 3) : {}
-  return f.whole && wholeGround(p.width, p.height, 4 / 3) === 'mat' ? { ...f, mat: true } : f
+export function tileFrame(p: Photo, ratio = 4 / 3): { pos?: string; whole?: true; mat?: true } {
+  const f = !photoFitsCard(p) ? { whole: true as const } : resizeOf(p, smallSrc(p)) ? fishFrame(p, ratio) : {}
+  return f.whole && wholeGround(p.width, p.height, ratio) === 'mat' ? { ...f, mat: true } : f
 }
 
 /**

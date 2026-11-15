@@ -235,7 +235,7 @@
       "Item 3: \"ia suka sedikit garam ditambah\" is awkward; better \"menyukai penambahan sedikit garam\"."
     ],
     "parts": {
-      "quickFacts:glaser": "384dea2e6b25",
+      "quickFacts:glaser": "7a06f175dc45",
       "distribution:glaser": "c65ca9a9ef69",
       "habitat:glaser": "20f7c1968740",
       "waterConditions:glaser": "9760a6ce1b66",
@@ -1721,6 +1721,232 @@
       "dimorphism:seriouslyfish": "0b4da2b5ac2b",
       "reproduction:seriouslyfish": "d92abd5a4895",
       "notes:seriouslyfish": "f1d404ac81c1"
+    }
+  },
+  "amatitlania-sajica": {
+    "at": "2026-11-15",
+    "from": "2026-11-02",
+    "name": "T-bar cichlid",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"Pasifik\" with \"bahagian Pasifik Costa Rica\": more natural as \"pantai Pasifik Costa Rica\" (Pacific side/slope).",
+      "\"ia agak tidak merosakkan tumbuhan\": awkward; use \"kerana ia tidak begitu merosakkan tumbuhan\" or \"agak lembut terhadap tumbuhan\".",
+      "\"ikan yang berkarakter\": awkward; use \"ikan yang berperwatakan unik\".",
+      "\"menunjukkan tingkah laku menarik seperti saudara mereka\": ambiguous; clarify as \"menunjukkan tingkah laku menarik yang sama seperti saudara mereka\".",
+      "\"membuatkan penggemar tangki komuniti beralih menjadi penternak\": slightly stiff; \"bertukar menjadi penternak\" is more natural.",
+      "\"Ia pembiak terbuka\": add the hobby term \"open breeder\" (pembiak terbuka / bertelur di permukaan terbuka) for clarity, and \"ikan-ikan ini\" instead of \"Ia\"."
+    ],
+    "parts": {
+      "quickFacts:glaser": "eef1ad7284b7",
+      "distribution:glaser": "42948bc9b3b5",
+      "behaviour:glaser": "912f85828153",
+      "reproduction:glaser": "a7a0e21d3cef"
+    }
+  },
+  "ambastaia-nigrolineata": {
+    "at": "2026-11-15",
+    "from": "2026-11-10",
+    "name": "Black Lined Loach",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 16: \"dan dalam kedua-duanya Botia nampaknya merupakan keturunan paling asas\" says Botia is basal in both tribes. Botia is listed only in Botiini, and the English says \"within which\". Reword it neutrally, for example \"Botia nampaknya merupakan keturunan paling asas\"."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "120d5f48a122",
+      "quickFacts:glaser": "38259cffb9b2",
+      "beforeYouBuy:seriouslyfish": "0c6e672ff052",
+      "distribution:seriouslyfish": "f58bd0cae464",
+      "distribution:glaser": "0a69506e58df",
+      "habitat:seriouslyfish": "6c8553b8c75c",
+      "aquariumSize:seriouslyfish": "94f0ace060d3",
+      "maintenance:seriouslyfish": "2056ca6279de",
+      "waterConditions:seriouslyfish": "2ef056507e22",
+      "waterConditions:glaser": "6685b743360a",
+      "diet:seriouslyfish": "4c53745668ef",
+      "behaviour:seriouslyfish": "e675527959b4",
+      "behaviour:glaser": "f53f1e7a7001",
+      "dimorphism:seriouslyfish": "41aa23fdd7cd",
+      "reproduction:seriouslyfish": "632ef5bb4654",
+      "notes:seriouslyfish": "5b8d5e060bc9",
+      "references:seriouslyfish": "775a6b3a30f3"
+    }
+  },
+  "ambastaia-sidthimunki": {
+    "at": "2026-11-15",
+    "from": "2026-11-11",
+    "name": "Dwarf Chain Loach",
+    "confidence": "medium",
+    "score": 0.92,
+    "notes": [
+      "Item 25: \"Taksa Ambastaia diwujudkan\" – use \"Genus Ambastaia diwujudkan\" (taxon here means genus).",
+      "Item 23: \"boleh didapati di sini\" refers to a link that is absent; reword or drop it."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "17ae6fb4d9a3",
+      "quickFacts:aquariumcoop": "568bfce6dc16",
+      "beforeYouBuy:seriouslyfish": "285a9072074a",
+      "beforeYouBuy:aquariumcoop": "98f34f64e4bb",
+      "distribution:seriouslyfish": "d5e1b53f5136",
+      "distribution:aquariumcoop": "e77e421fa1a7",
+      "habitat:seriouslyfish": "c134fae0f50c",
+      "habitat:aquariumcoop": "bed4e08c866e",
+      "aquariumSize:seriouslyfish": "17a10b7f15dc",
+      "aquariumSize:aquariumcoop": "5649c81002f6",
+      "maintenance:seriouslyfish": "de2b781a384a",
+      "waterConditions:seriouslyfish": "d42b39b49324",
+      "waterConditions:aquariumcoop": "f5755a31d339",
+      "waterConditions:aquatome": "82c77bf2d7a6",
+      "equipment:aquariumcoop": "8d7dd9213184",
+      "diet:seriouslyfish": "bfca6c3e6d69",
+      "diet:aquariumcoop": "f7dddf0ddd38",
+      "diet:aquatome": "f9d7edbe4db8",
+      "behaviour:seriouslyfish": "2df2c57d3836",
+      "behaviour:aquariumcoop": "392fdfd317a2",
+      "behaviour:aquatome": "35b935361710",
+      "dimorphism:seriouslyfish": "41aa23fdd7cd",
+      "reproduction:seriouslyfish": "6534c0a1535c",
+      "reproduction:aquariumcoop": "ec61fc136053",
+      "notes:seriouslyfish": "9897e0f9ddfb",
+      "notes:aquariumcoop": "cf3f496e9fb7",
+      "notes:aquatome": "d921fdd4e7c6",
+      "references:seriouslyfish": "a19e2d70215b"
+    }
+  },
+  "amblyceps-arunachalense": {
+    "at": "2026-11-15",
+    "from": "2026-10-31",
+    "name": "Amblyceps arunachalense",
+    "confidence": "low",
+    "score": 0.88,
+    "notes": [
+      "Item 1: \"13.0 cm\" fine, but check \"Saiz\" – prefer \"Saiz\" is acceptable; no real error.",
+      "Item 4: \"Tepi berisi lubang hidung belakang\" is awkward/unclear for \"Fleshy rim of posterior naris\"; use \"Tepi berdaging lubang hidung belakang\".",
+      "Item 4: \"Sesungut rahang atas\" for \"Maxillary\" (barbel) is acceptable but \"sesungut maksila\" is more standard; \"dirapatkan\" for \"adpressed\" could be \"dilipat ke belakang\".",
+      "Item 4: \"hujung dorsal kepala\" is awkward; use \"hujung belakang kepala\" or \"bahagian atas kepala\"."
+    ],
+    "parts": {
+      "quickFacts:scotcat": "aa98ca42f8df",
+      "distribution:scotcat": "3a5e09c788f0",
+      "habitat:scotcat": "5ed643448e11",
+      "notes:scotcat": "e7435da5a6c5",
+      "references:scotcat": "0f0600587e7b"
+    }
+  },
+  "amblyceps-caecutiens": {
+    "at": "2026-11-15",
+    "from": "2026-10-31",
+    "name": "Amblyceps caecutiens",
+    "confidence": "medium",
+    "score": 0.97,
+    "notes": [],
+    "parts": {
+      "quickFacts:scotcat": "e37b6c264f68",
+      "distribution:scotcat": "92ae52dfc891",
+      "habitat:scotcat": "c70a21e5bdfe",
+      "notes:scotcat": "b9b3fde56928",
+      "references:scotcat": "eeb2faf5347b"
+    }
+  },
+  "amblyceps-cerinum": {
+    "at": "2026-11-15",
+    "from": "2026-10-31",
+    "name": "Amblyceps cerinum",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "Item 4: 'jejari procurrent dorsal sirip ekor' leaves 'procurrent' in English; use a Malay term, e.g. 'jejari procurrent' with explanation or 'jejari pendek sirip ekor bahagian dorsal'.",
+      "Item 4: 'pasca-Weber' is awkward; use 'vertebra pasca-Weberian'.",
+      "Item 4: 'berlekuk dalam' for 'strongly emarginate' is unclear; use 'berlekuk jelas/dalam pada hujung'.",
+      "Item 4: 'rata hujungnya' for 'truncate' is slightly awkward; 'terpotong' or 'hujung rata' is more usual.",
+      "Item 2: 'Lokaliti jenis' is stiff; 'lokaliti jenis (type locality)' or 'lokasi spesimen jenis' reads more naturally."
+    ],
+    "parts": {
+      "quickFacts:scotcat": "feba4137652b",
+      "distribution:scotcat": "46a0dfd75cd5",
+      "habitat:scotcat": "8cc053746cfc",
+      "notes:scotcat": "c4ec87f45a8a",
+      "references:scotcat": "e7e9b79ff33c"
+    }
+  },
+  "amblyceps-foratum": {
+    "at": "2026-11-15",
+    "from": "2026-10-31",
+    "name": "Torrent catfish",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 5: \"menikam\" for 'to pierce' is slightly off; \"menusuk\" or \"menebuk\" is closer to the meaning.",
+      "Item 5: \"terletak di bahagian atas sisi kepala\" adds \"kepala\" (head), which the English does not say. \"terletak secara dorsolateral\" would be more faithful."
+    ],
+    "parts": {
+      "quickFacts:scotcat": "6d4b262603ba",
+      "distribution:scotcat": "6d154976bbec",
+      "habitat:scotcat": "717df7e11103",
+      "behaviour:scotcat": "184f06972500",
+      "notes:scotcat": "60f28cddef20",
+      "references:scotcat": "11201119181e"
+    }
+  },
+  "amblyceps-laticeps": {
+    "at": "2026-11-15",
+    "from": "2026-10-31",
+    "name": "Amblyceps laticeps",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "\"Lokasi tipe\" is a calque; use \"Lokaliti tipe\" (type locality) as in Malay taxonomic usage.",
+      "\"Bukit Khasi\" and \"pergunungan Kasyah\" are inconsistent renderings of the same place; keep \"Bukit Khasi\" and \"Banjaran Kasyah\" or keep the original names.",
+      "Decimal separators: Malay text conventionally uses a comma or keeps the point; \"40,000 km²\" and \"9.5–11.1\" are acceptable but use one consistently (e.g. \"40 000 km²\").",
+      "\"Saiz\" is fine, but \"deskripsinya\" is better written \"penerangan/pemerian asalnya\" for natural Malay.",
+      "\"menganggap spesies ini terancam\" should be \"terancam (endangered)\" with the IUCN category made explicit, to separate it from the general word \"threatened\"."
+    ],
+    "parts": {
+      "quickFacts:scotcat": "9ffdf98dd811",
+      "distribution:scotcat": "5ae23f278487",
+      "habitat:scotcat": "9c1b8aaebe38",
+      "notes:scotcat": "c7702fa4fd66",
+      "references:scotcat": "bb4e6e651d65"
+    }
+  },
+  "amblyceps-mangois": {
+    "at": "2026-11-15",
+    "from": "2026-10-31",
+    "name": "Indian Torrent Catfish",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 7: 'sirip ekor yang rata hujungnya' is slightly awkward; 'sirip ekor bertruncat/berhujung rata' would be more standard.",
+      "Item 3: 'dasar berbatu kerikil' is slightly awkward; 'dasar berkerikil' would be more natural."
+    ],
+    "parts": {
+      "quickFacts:scotcat": "293946c127c6",
+      "distribution:scotcat": "c89aab4a28e0",
+      "habitat:scotcat": "3b448f7ef490",
+      "diet:scotcat": "7cdf0a53afa8",
+      "behaviour:scotcat": "6bb541e2129b",
+      "dimorphism:scotcat": "cfad10cc82f5",
+      "notes:scotcat": "59e5754ba19a",
+      "references:scotcat": "7546af526916"
+    }
+  },
+  "amblyceps-serratum": {
+    "at": "2026-11-15",
+    "from": "2026-10-31",
+    "name": "Amblyceps serratum",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "\"Pernah dikutip\": 'Collected' has no 'pernah' (ever) in the English; minor addition, use \"Dikutip\".",
+      "\"di dasar batu kelikir\": 'among a gravel bed' is clearer as \"di celah dasar kelikir\"; 'batu kelikir' is awkward.",
+      "\"Lokaliti jenis\": prefer the more standard \"Lokaliti tipe\" (type locality)."
+    ],
+    "parts": {
+      "quickFacts:scotcat": "f3e34a562ec2",
+      "distribution:scotcat": "6df4ac24a6cb",
+      "habitat:scotcat": "253a7ad1790d",
+      "references:scotcat": "52fb67c6f297"
     }
   },
   "anabas-testudineus": {

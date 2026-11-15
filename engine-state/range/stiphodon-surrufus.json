@@ -1,0 +1,86 @@
+{
+  "id": "stiphodon-surrufus",
+  "native": {
+    "input": "6bf6baf0955d90b4",
+    "at": "2026-11-15T05:39:34.625Z",
+    "claims": [
+      {
+        "code": "PH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Lagu Lagu creek, southern margin of Visayan State Coll. of Agric., about 7 kilometers north of Baybay, about 2 kilometers from sea, Leyte, Philippines', and initially the species was known only from that location.",
+        "words": "Philippines",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "More recent records suggest it to be more well-distributed, having been reported on the Japanese islands of Okinawa (Ryukyu Islands) and Yaku (aka Yakushima) much further north.",
+        "words": "Japanese",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Okinawa",
+        "source": "seriouslyfish",
+        "quote": "More recent records suggest it to be more well-distributed, having been reported on the Japanese islands of Okinawa (Ryukyu Islands) and Yaku (aka Yakushima) much further north.",
+        "country": "JP",
+        "ok": true
+      },
+      {
+        "name": "Yaku",
+        "source": "seriouslyfish",
+        "quote": "More recent records suggest it to be more well-distributed, having been reported on the Japanese islands of Okinawa (Ryukyu Islands) and Yaku (aka Yakushima) much further north.",
+        "country": "JP",
+        "ok": true
+      },
+      {
+        "name": "Ryukyu Islands",
+        "source": "seriouslyfish",
+        "quote": "More recent records suggest it to be more well-distributed, having been reported on the Japanese islands of Okinawa (Ryukyu Islands) and Yaku (aka Yakushima) much further north.",
+        "country": "JP",
+        "ok": true
+      },
+      {
+        "name": "Leyte",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Lagu Lagu creek, southern margin of Visayan State Coll. of Agric., about 7 kilometers north of Baybay, about 2 kilometers from sea, Leyte, Philippines', and initially the species was known only from that location.",
+        "country": "PH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Stiphodon surrufus",
+    "status": "ACCEPTED",
+    "taxonKey": 2376112,
+    "datasets": [
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        13
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        1
+      ]
+    ],
+    "native": [
+      "PH",
+      "JP"
+    ],
+    "requests": 11,
+    "at": "2026-11-15T05:39:34.625Z"
+  }
+}

@@ -1,5 +1,5 @@
 import { MATERIAL_SECTION_ORDER, type Localized, type MaterialEntity } from '@aq/schema'
-import { citeMark } from './cite'
+import { citeGroup, citeMark } from './cite'
 
 type Material = Localized<MaterialEntity>
 export const materialPath = (m: Material) => `/vi/vat-lieu/${m.t.slug}/`
@@ -33,10 +33,11 @@ export function materialSections(m: Localized<MaterialEntity>) {
   return MATERIAL_SECTION_ORDER.flatMap(key => {
     const text = m.t.sections[key]
     if (!text?.trim()) return []
-    const html = text.replace(/\[(\d+)\]/g, (_, number: string) => {
+    // Marks written together ("[1][2]") are one group, side by side (citeGroup).
+    const html = text.replace(/(?:\[\d+\])+/g, run => citeGroup([...run.matchAll(/\[(\d+)\]/g)].map(([, number]) => {
       const source = m.sources[Number(number) - 1]!
       return citeMark('vi', Number(number), source.title, source.url, { tip: 'AquaTome tổng hợp và tự viết', more: 'Mở bài gốc ↗' })
-    })
+    })))
     return [{ key, heading: MATERIAL_HEADINGS[key], html }]
   })
 }

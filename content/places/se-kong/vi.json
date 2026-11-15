@@ -1,10 +1,13 @@
 {
   "slug": "se-kong",
-  "name": "Se Kong",
-  "altNames": [],
+  "name": "sông Sê Kông",
+  "altNames": [
+    "Se Kong"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

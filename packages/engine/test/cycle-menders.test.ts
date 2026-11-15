@@ -3,6 +3,7 @@ import { mkdtempSync, readFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
+import { heldMendsOf } from '../src/gate'
 
 const script = readFileSync(new URL('../../../scripts/engine-cycle.sh', import.meta.url), 'utf8')
 
@@ -22,13 +23,30 @@ function stepsRun(part: string, github: boolean) {
   return readFileSync(join(dir, 'ran'), 'utf8').trim().split('\n')
 }
 
-test('the units mender and the source figures run in the Mac\'s photos part alone: another part or a cloud cycle beside it would mend the same pages and read them twice', () => {
+test('the units mender, the held video guides\' cut and the source figures run in the Mac\'s photos part alone: another part or a cloud cycle beside it would mend the same pages and read them twice', () => {
   // The chief of staff, 2026-11-12: the menders on the Mac only. The Mac's parts overlap, so one part of them.
   expect(stepsRun('photos', false)).toEqual(expect.arrayContaining(['source-figures', 'units-mend']))
   for (const [part, github] of [['pages', false], ['sf', false], ['rewrite', true]] as const) {
     expect(stepsRun(part, github), part).not.toContain('units-mend')
     expect(stepsRun(part, github), part).not.toContain('source-figures')
   }
+  // The held video guides' cut goes first, so the units mend takes a guide it left held for units alone (15 Nov 2026).
+  const photos = stepsRun('photos', false)
+  expect(photos.indexOf('video-cut')).toBeGreaterThan(-1)
+  expect(photos.indexOf('video-cut')).toBeLessThan(photos.indexOf('units-mend'))
+  for (const [part, github] of [['pages', false], ['sf', false], ['rewrite', true]] as const) expect(stepsRun(part, github), part).not.toContain('video-cut')
   // The steps around it run in every part.
   for (const part of ['photos', 'pages', 'rewrite']) expect(stepsRun(part, part === 'rewrite')).toEqual(expect.arrayContaining(['metric', 'sweep']))
+})
+
+test('the held video guides go to their editor in the Mac\'s videos part alone, 24 a run: five parts sent the same ones', () => {
+  // The chief of staff, 15 Nov 2026: two rounds' 83 held mends from five parts went to 27 guides.
+  const read = (f: string) => readFileSync(new URL(`../../../scripts/${f}`, import.meta.url), 'utf8')
+  const videos = read('video-cycle.sh')
+  const at = videos.indexOf('export GATE_HELD_MENDS="${GATE_HELD_MENDS:-24}"')
+  expect(at).toBeGreaterThan(-1)
+  expect(at).toBeLessThan(videos.indexOf('gate_or_keep "content: videos"'))
+  for (const f of ['engine-cycle.sh', 'video-recheck.sh', 'cycle-checks.sh']) expect(read(f), f).not.toMatch(/GATE_HELD_MENDS/)
+  expect(heldMendsOf({})).toBe(0)
+  expect(heldMendsOf({ GATE_HELD_MENDS: '24' })).toBe(24)
 })

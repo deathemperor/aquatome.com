@@ -1,10 +1,13 @@
 {
   "slug": "venezuelan-llanos",
-  "name": "Venezuelan Llanos",
-  "altNames": [],
+  "name": "vùng Llanos Venezuela",
+  "altNames": [
+    "Venezuelan Llanos"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }
