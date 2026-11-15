@@ -72,6 +72,8 @@ export async function loadFacts(root: string): Promise<Facts> {
  * a source link is one, so a kind of page added later is covered without a line here. Our own drawings (their source is
  * our own site's page) are no one else's to credit. */
 const OURS = /^https:\/\/(www\.)?aquatome\.com\//
+/** Where a page credits a photo: the footer's list, a figure's © (lib/cite.ts photoMark), an album's thumb (GalleryPage). */
+const CREDIT_LINKS = '#photo-credits a[href], a.cite.pic[href], .pic-by[data-src], .pic-by a[href], a[data-src][data-author]'
 function addCredits(credits: Facts['credits'], content: unknown) {
   const seen = new Set<object>()
   const walk = (x: unknown): void => {
@@ -79,7 +81,7 @@ function addCredits(credits: Facts['credits'], content: unknown) {
     seen.add(x)
     if (Array.isArray(x)) { for (const v of x) walk(v); return }
     const o = x as Record<string, unknown>
-    if (typeof o.url === 'string' && typeof o.sourceUrl === 'string' && o.sourceUrl && !o.generated && !OURS.test(o.sourceUrl)) {
+    if (typeof o.url === 'string' && typeof o.sourceUrl === 'string' && o.sourceUrl && !o.generated && !(OURS.test(o.sourceUrl) && o.author === 'AquaTome')) {
       const p = o as unknown as Photo
       for (const src of new Set([p.url, p.thumb, smallSrc(p)])) {
         if (!src) continue
@@ -162,10 +164,12 @@ export function checkPage(path: string, html: string, facts: Facts): Problem[] {
     seen.add(src)
   }
 
-  // Every photo shown has its credit on the page: the footer's list, its figure's ©, a caption's line, each a link to (or
-  // the data-src of) the source its record names. CC BY and BY-SA ask for it wherever a photo shows, a 32 px one too: on
-  // 15 November a term's rows, a fish's tank mates and the guide cards under fish, plants and products had none.
-  const links = new Set(root.querySelectorAll('[href], [data-src]').flatMap(el => [el.getAttribute('href'), el.getAttribute('data-src')]).filter(Boolean))
+  // Every photo shown has its credit on the page: in the footer's list, its figure's ©, a caption's line or an album's
+  // thumb (which the viewer credits), a link to (or the data-src of) the source its record names. A link elsewhere doesn't
+  // count: a text source's link can be the article a photo came from. CC BY and BY-SA ask for a credit wherever a photo
+  // shows, a 32 px one too: on 15 November a term's rows, a fish's tank mates and the guide cards under fish, plants and
+  // products had none.
+  const links = new Set(root.querySelectorAll(CREDIT_LINKS).flatMap(el => [el.getAttribute('href'), el.getAttribute('data-src')]).filter(Boolean))
   for (const src of new Set(pictures.map(i => i.getAttribute('src')!))) {
     const from = facts.credits.get(pictureOf(src, {}).key)
     if (from && ![...from].some(u => links.has(u))) out.push({ check: 'uncredited', detail: src })

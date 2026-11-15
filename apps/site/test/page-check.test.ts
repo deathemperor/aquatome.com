@@ -65,11 +65,13 @@ describe('each check, on a page made to fail it', () => {
   })
   // 15 November: a term's rows, a fish's tank mates and the guide cards under fish, plants and products showed photos the
   // page's credits left out. A credit is a link to (or the data-src of) the source a record of that photo names.
-  test('a photo shown without its credit: the footer\'s list, a figure\'s ©, a caption\'s line; the photo\'s small copy too', () => {
+  test('a photo shown without its credit: the footer\'s list, a figure\'s ©, a caption\'s line, an album\'s thumb; the photo\'s small copy too', () => {
     const credited = (html: string) => `<img src="https://m/c1-480.webp"><img src="https://m/c2.webp">${html}`
     expect(checks(credited(''))).toEqual(['uncredited', 'uncredited'])
     expect(checks(credited('<div id="photo-credits"><a href="https://src/c1">A</a></div><a class="cite pic" href="https://src/c2-again">©</a>'))).toEqual([])
     expect(checks(credited('<span class="pic-by" data-src="https://src/c1"></span><a href="https://src/c2/more">B</a>'))).toEqual(['uncredited'])
+    // A text source's link to the article a photo came from is no credit: no author, no licence.
+    expect(checks(credited('<p>Theo <a href="https://src/c1">bài gốc</a></p><a data-src="https://src/c2" data-author="B" href="https://m/c2.webp"></a>'))).toEqual(['uncredited'])
     expect(checks('<template><img src="https://m/c1.webp"></template><img src="https://m/x.webp">')).toEqual([])
   })
   test('a whole tile\'s blurred ground is a backdrop, not the picture twice', () => {
