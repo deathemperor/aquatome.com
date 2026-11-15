@@ -223,7 +223,6 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(soon(second.isHittable), "not back at the end")
   }
 
-  /// Off on the server: no way into the chat from a fish's page.
   /// A crab among the fish pages (the owner's report of 15 Nov: the fiddler crab's page said "Hỏi về cá này"): nothing the
   /// app writes on its page or in its chat says "cá này", and at the largest text the chat's box asks about "loài này".
   func testACrabsPageAndItsChatSayLoaiNotCaNay() {
@@ -237,10 +236,11 @@ final class ChatFlowTests: XCTestCase {
     entry.tap()
     let box = element(app, "chat-box")
     XCTAssertTrue(box.waitForExistence(timeout: 5), "no chat")
-    XCTAssertEqual(box.placeholderValue, "Hỏi về loài này…")
+    XCTAssertEqual(box.placeholderValue ?? box.value as? String, "Hỏi về loài này…")
     XCTAssertEqual(saying().count, 0, "the crab's chat says: \(saying().allElementsBoundByIndex.map(\.label))")
   }
 
+  /// Off on the server: no way into the chat from a fish's page.
   func testWhileChatIsOffNoEntryShows() {
     let app = launch("-chat-off")
     open(app, "Ca neon")

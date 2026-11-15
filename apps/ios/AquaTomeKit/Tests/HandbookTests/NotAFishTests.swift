@@ -16,7 +16,7 @@ private func page(_ name: String, group: String? = nil, tax: [String]?) -> Handb
   #expect(!page("dia-chau-a", group: "other", tax: ["Euhirudinea", "Hirudinidae", "Hirudinaria"]).isFish)
   // The shrimp and snail groups, whatever their order says, or with none (a bred form).
   #expect(!page("tep-blue-dream", group: "shrimp", tax: nil).isFish)
-  #expect(!page("oc-tai", group: "snails", tax: [""]).isFish)
+  #expect(!page("oc-tai", group: "snails", tax: nil).isFish)
 }
 
 @Test func aFishIsAFish() {
@@ -24,7 +24,7 @@ private func page(_ name: String, group: String? = nil, tax: [String]?) -> Handb
   #expect(page("ca-dia", group: "cichlids", tax: ["Cichliformes", "Cichlidae", "Symphysodon"]).isFish)
   #expect(page("ca-duoi", group: "other", tax: ["Myliobatiformes", "Potamotrygonidae", "Potamotrygon"]).isFish)
   // A bred form, with no order of its own: its group's, a fish's.
-  #expect(page("ca-la-han", group: "cichlids", tax: [""]).isFish && page("ca-koi", group: "other", tax: nil).isFish)
+  #expect(page("ca-la-han", group: "cichlids", tax: nil).isFish && page("ca-koi", group: "other", tax: nil).isFish)
   // A plant or a guide is no fish either.
   #expect(!HandbookIndex.Item(kind: .plant, name: "Rotala đỏ", path: "/vi/cay/rotala-do/").isFish)
 }

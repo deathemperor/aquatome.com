@@ -456,7 +456,7 @@ private struct FeaturedCard: View {
 
   private var words: some View {
     VStack(alignment: .leading, spacing: 3) {
-      Text(verbatim: item.kind.title).font(.caption.weight(.bold)).textCase(.uppercase).opacity(0.8)
+      Text(verbatim: item.kindTitle).font(.caption.weight(.bold)).textCase(.uppercase).opacity(0.8)
       Text(verbatim: item.name).font(.title3.weight(.heavy)).lineLimit(size.isAccessibilitySize ? nil : 2).multilineTextAlignment(.leading)
     }
     .foregroundStyle(.white)

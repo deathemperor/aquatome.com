@@ -9549,6 +9549,28 @@
         }
       }
     },
+    "Loài": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Spesies"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Spesies"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สายพันธุ์"
+          }
+        }
+      }
+    },
     "Loài cá": {
       "localizations": {
         "id": {

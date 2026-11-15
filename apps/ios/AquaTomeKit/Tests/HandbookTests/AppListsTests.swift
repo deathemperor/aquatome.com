@@ -67,6 +67,8 @@ private func found(_ pattern: String, in code: [(file: String, lines: [Substring
   let lines = try found(#""[^"]*cá này[^"]*""#, in: try appCode())
   #expect(lines.count >= 4, "fewer than the four places that say it: the check reads nothing")
   #expect(lines.filter { !$0.contains("loài này") } == [])
+  // Nor "Loài cá" under a crab's name, where a line under a name says what it is: by the item's `kindTitle`.
+  #expect(try found(#"item\.kind\.title"#, in: try appCode()) == [])
 }
 
 @Test func noListPrintsAScientificNameItsNameHolds() throws {
