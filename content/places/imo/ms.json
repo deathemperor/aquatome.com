@@ -3,6 +3,12 @@
   "name": "Imo",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.68,
+    "at": "2026-11-15T17:16:29.961Z",
+    "why": "\"Imo\" keeps the proper name correctly but omits the kind word: the source sentence refers to the Imo drainage (the Imo River), which Malay would write as \"Sungai Imo\", and for the state it would be \"Negeri Imo\"."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

@@ -11,10 +11,33 @@
     "lake-patzcuaro"
   ],
   "range": {
+    "native": {
+      "countries": [
+        "MX"
+      ],
+      "regions": [
+        "Lake Pátzcuaro"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Lake Pátzcuaro in Mexico.",
+          "countries": [
+            "MX"
+          ],
+          "regions": [
+            "Lake Pátzcuaro"
+          ]
+        }
+      ]
+    },
     "records": {
       "taxonKey": 2227438,
       "total": 28,
-      "fetched": "2026-11-07",
+      "fetched": "2026-11-15",
       "countries": [
         [
           "MX",
@@ -29,32 +52,38 @@
         [
           -104.0625,
           19.6875,
+          1,
           1
         ],
         [
           -102.65625,
           18.28125,
+          20,
           20
         ],
         [
           -102.65625,
           19.6875,
+          2,
           2
         ],
         [
           -101.25,
           18.28125,
+          1,
           1
         ],
         [
           -101.25,
           19.6875,
+          3,
           3
         ],
         [
           -99.84375,
           28.125,
-          1
+          1,
+          0
         ]
       ]
     }

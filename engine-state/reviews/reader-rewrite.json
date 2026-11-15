@@ -84,6 +84,22 @@
       "kept": true
     }
   ],
+  "vi/guides/aquariumbreeder-how-to-set-up-a-freshwater-crab-tank#body": [
+    {
+      "at": "2026-11-15T17:39:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.72,
+      "notes": [
+        "\"hay dùng để lau rửa và sát khuẩn\" (often used for cleaning) became \"nhà nào cũng hay có sẵn\" (every household often has it). The frequency now attaches to owning it, and \"nhà nào cũng\" is a new generalisation.",
+        "\"Sơn nền\" became \"Sơn mặt sau bể\". This adds a specific interpretation (the back of the tank) that BEFORE does not state.",
+        "\"nền tối\" became \"phông nền tối\". This is a minor shift that follows from the same reinterpretation."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/aquariumbreeder-old-tank-syndrome#body": [
     {
       "at": "2026-11-10T21:53:32Z",

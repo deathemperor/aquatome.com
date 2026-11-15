@@ -18,23 +18,31 @@
   "range": {
     "native": {
       "countries": [
+        "VN",
         "TH",
-        "KH",
-        "VN"
+        "KH"
       ],
       "regions": [],
       "sources": [
         "bwaquatics",
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "bwaquatics",
-          "quote": "Native to slow-moving, shallow waters in eastern Thailand (Chachoengsao, Sa Kaeo, Prachin Buri, Chon Buri provinces), western Cambodia, and parts of Vietnam.",
+          "quote": "Wild-caught fish from Long An, Vietnam.",
+          "countries": [
+            "VN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta siamorientalis is a small bubble-nesting labyrinth fish from eastern Thailand, western Cambodia and Vietnam.",
           "countries": [
             "TH",
-            "KH",
-            "VN"
+            "KH"
           ],
           "regions": []
         }

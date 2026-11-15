@@ -1,0 +1,391 @@
+{
+  "found": true,
+  "species": [],
+  "sources": [
+    {
+      "url": "https://rainbowfish.angfa.org.au/keeping_and_caring/aeration_and_circulation.html",
+      "title": "Aeration and Circulation",
+      "kind": "society"
+    },
+    {
+      "url": "https://www.sera.de/en/service/info/fresh-air-in-the-aquarium-air-pumps/",
+      "title": "Fresh air in the aquarium: Air pumps",
+      "kind": "maker"
+    },
+    {
+      "url": "https://aquariumscience.org/index.php/9-1-aeration-in-depth",
+      "title": "9.1. Aeration in Depth",
+      "kind": "keeper"
+    },
+    {
+      "url": "https://www.jbl.de/pl/blog/detail/419/oxygen-supply-for-your-fish-in-exceptional-situations?country=pl",
+      "title": "Oxygen supply for your fish in exceptional situations",
+      "kind": "maker"
+    },
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/power-outage-preparation",
+      "title": "How to Care for Your Aquarium Fish During a Power Outage",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/aquarium-airline-accessories",
+      "title": "How to Use Airline Accessories with an Aquarium Air Pump",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.aquariadise.com/aquarium-aeration/",
+      "title": "Aquarium Aeration: What It Is & Why It's Important",
+      "kind": "magazine"
+    },
+    {
+      "url": "https://www.merckvetmanual.com/exotic-and-laboratory-animals/aquatic-systems/environmental-diseases-in-aquatic-systems",
+      "title": "Environmental Diseases in Aquatic Systems",
+      "kind": "vet"
+    },
+    {
+      "url": "https://cacanhtailoc.com/blogs/tin-tuc/may-sui-oxy-cho-be-ca",
+      "title": "Máy sủi oxy cho bể cá: Cách sử dụng đúng và bảo dưỡng bền lâu",
+      "kind": "shop"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Fish and the biofilter bacteria both use dissolved oxygen, so aeration and water circulation are essential.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Dissolved oxygen should be kept above 5.0 mg/L throughout the system.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Above 5 mg/L dissolved oxygen is best for most finfish, and fish become stressed below 5 mg/L.",
+      "source": 7
+    },
+    {
+      "section": "what",
+      "fact": "Low dissolved oxygen and high ammonia are the two water problems most likely to kill fish directly.",
+      "source": 7
+    },
+    {
+      "section": "what",
+      "fact": "Circulation lets excess carbon dioxide and nitrogen gas escape to the air.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Circulation mixes the water from top to bottom, so oxygen and temperature stay even through the tank.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "A membrane (diaphragm) air pump uses an electromagnet to move a membrane up and down. Air is drawn through a felt filter and pushed out through an airstone as small bubbles.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Aeration means making a water–air contact surface where oxygen and CO2 are exchanged. A choppy, turbulent surface aerates well.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "A smooth, glassy water surface gives only about 5% of the aeration of a choppy surface of the same size.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Many rising bubbles also create turbulence and aerate well, so surface agitation or bubbles can do the job.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Air-driven devices such as sponge filters, air stones and bubblers increase surface agitation and oxygen in the tank.",
+      "source": 5
+    },
+    {
+      "section": "what",
+      "fact": "Finer bubbles transfer oxygen and mix the water better. Cutting bubble size from 5 mm to 2 mm can greatly improve efficiency.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "An air stone is a small weighted bubbler that makes fine bubbles. This improves oxygenation and cuts bubbling noise.",
+      "source": 5
+    },
+    {
+      "section": "what",
+      "fact": "Fully air-saturated water at 78°F holds about 8.25 ppm (mg/L) of oxygen.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Warm water holds less oxygen than cold water.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Air pumps help when fish need oxygen-rich water, during medication, when several water care products are used, and in summer heat, when oxygen can fall dangerously low.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Active aeration with an air pump is advised during medication or anti-algae treatment, with heavy stocking, in tanks without plants, and at night in heavily planted tanks.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Most freshwater tanks can get enough aeration from proper filtration, mainly through surface agitation.",
+      "source": 6
+    },
+    {
+      "section": "signs",
+      "fact": "Fish short of oxygen often gather at the surface and gulp air. This is called 'piping'.",
+      "source": 7
+    },
+    {
+      "section": "signs",
+      "fact": "Piping can also be caused by high nitrite or gill disease, so gasping at the surface alone does not prove low oxygen.",
+      "source": 7
+    },
+    {
+      "section": "signs",
+      "fact": "A fish kill from low oxygen is usually sudden, usually noticed early in the morning, and often hits large fish harder than small ones.",
+      "source": 7
+    },
+    {
+      "section": "signs",
+      "fact": "Low surface movement can let a film (scum) form on the water surface.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Fish oxygen use depends on fish size, feeding rate, activity and temperature. Biofilter bacteria use oxygen roughly in proportion to the ammonia reaching the filter.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "In heavily planted tanks, oxygen often falls to its lowest at night or in the early morning, which can be dangerous for fish.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Oxygen need rises faster than fish length: a 2-inch fish needs about eight times the aeration of a 1-inch fish.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Some medications can reduce helpful bacteria and increase oxygen use.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "During a power cut, a battery-powered air pump can keep the water aerated. If no pump is available, a water change helps.",
+      "source": 3
+    },
+    {
+      "section": "firstAid",
+      "fact": "In the first 1–2 hours of a power outage, leave the tank alone: don't feed, turn off automatic feeders, and don't change water.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "In an outage lasting 8 hours or more, run an air stone or sponge filter for 1 hour, then repeat every 8 hours. Overstocked tanks, or tanks with fish gasping at the surface, may need aeration every 4 hours.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "Unplug hang-on-back and canister filters during a long outage. When power returns, clean them before restarting so decayed material is not flushed into the tank.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "After power returns, don't feed for 24 hours. Test ammonia and nitrite, and change water if either reads above 0 ppm.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "In a hot-weather outage, move the tank to a cooler, shaded place and cool it with a battery fan. Don't float frozen bottles, because sudden temperature swings stress fish.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "Fish that survive a sudden low-oxygen event are more likely to get opportunistic bacterial infections, so watch them afterwards.",
+      "source": 7
+    },
+    {
+      "section": "steps",
+      "fact": "Connect the pump to an air stone or sponge filter with airline tubing, then plug it in.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Fit a check valve between the pump and the device, with the flapper side facing the pump. If it is put in backwards, no air flows.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Place the check valve outside the tank near the rim, not next to the pump.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "To control airflow, fit an air valve near the tank rim. Tighten it for less air and loosen it for more.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "To run two devices from one outlet, use a T splitter, with an air valve on each line to balance the flow. A gang valve with its own switch on each outlet can feed several lines.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Cut airline tubing straight and cleanly, without tears.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Hanging the pump up keeps its vibration from passing into the cabinet.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Choosing size, Sera example: the sera air 110 plus suits tanks up to 100 L, the 275 R plus up to 300 L, and the 550 R plus tanks over 300 L and ponds (with weather protection).",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Sera air pumps give at least 100–140 mbar, about 1.0–1.4 m of water column, so an airstone still bubbles at that depth. Joining outlets with a Y-piece raises it to about 160–170 mbar. Power draw is 3, 4 or 8 W.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Airstones aerate well only if the pump can make hundreds of bubbles per second. Small pumps sold in kits or stores do little.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "A check valve stops water siphoning back out of the tank when the pump stops, for example in a power cut.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "A check valve is not needed if the air pump sits higher than the tank rim.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "Water leaking back can damage the pump, flood the floor and, in extreme cases, cause an electrical fire.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "Check airline tubing now and then for hardening or drying, which loosens connections and can cause drips during a power cut.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "Sera supplies a non-return (check) valve with each pump to stop water being drawn back into it.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Sera pumps' dust-collecting filter felt can be swapped, and the membrane block can be replaced as a spare part.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Clean diffusers periodically, since algae, food and waste clog their pores.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Very hard water (alkalinity over 400 mg/L as CaCO3) can clog solid stone diffusers with carbonate. Flexible membrane diffusers resist this better.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Aquarium Co-Op's battery air pump charges while plugged in, starts by itself when power fails, and runs about 20 hours, or about 40 hours or more in Power Save mode.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "USB air pumps can run from a USB power bank or a laptop.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Heavy aeration drives CO2 down to about 2–3 ppm, while plants do best above 10 ppm, so it removes injected CO2 in planted tanks.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Vigorously aerating submerged filter beds can dislodge the beneficial bacteria.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Airstones carry moisture out of the tank and can cause significant evaporation. Choppy surface agitation is preferred in dry climates.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Even fully tightened, an air valve lets a little air escape. This stops back pressure from damaging the pump.",
+      "source": 5
+    },
+    {
+      "section": "mistakes",
+      "fact": "Each extra outlet on a gang valve weakens the output, so more outlets need more adjustment.",
+      "source": 5
+    },
+    {
+      "section": "mistakes",
+      "fact": "Check valves slightly cut the airflow a pump delivers.",
+      "source": 5
+    },
+    {
+      "section": "myths",
+      "fact": "Aquarium Science calls the rule of 12 square inches of surface per inch of fish common but false.",
+      "source": 2
+    },
+    {
+      "section": "myths",
+      "fact": "Aquarium Science says using the ratio of surface area to depth to judge aeration is meaningless.",
+      "source": 2
+    },
+    {
+      "section": "myths",
+      "fact": "Aquarium Science rejects the claim that diffusion alone is enough. It says moderately stocked tanks need aeration.",
+      "source": 2
+    },
+    {
+      "section": "myths",
+      "fact": "JBL stopped making oxygen tablets (JBL OxyTabs) because people wrongly used them in place of aeration. JBL prefers air pumps.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese names: máy sủi oxy, máy sủi khí or máy sục khí (air pump); đá sủi or thanh sủi (air stone or bar); máy sủi tích điện, or sủi AC/DC, for battery-backup pumps.",
+      "source": 8
+    },
+    {
+      "section": "vietnam",
+      "fact": "Brands sold in Vietnam include Gex, Periha and Atman. Battery-backup pumps are suggested for power cuts and for valuable fish such as cá Rồng (arowana) and cá Koi.",
+      "source": 8
+    },
+    {
+      "section": "vietnam",
+      "fact": "Hot weather lowers dissolved oxygen, so watch the air pump more closely in the hot season.",
+      "source": 8,
+      "also": [
+        1
+      ]
+    },
+    {
+      "section": "other",
+      "fact": "Air stones are generally avoided in saltwater tanks because they can irritate corals and cause foam and salt creep.",
+      "source": 6
+    }
+  ]
+}

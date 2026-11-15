@@ -1,8 +1,13 @@
 {
   "slug": "rio-san-miguel",
-  "name": "San Miguel",
+  "name": "Sungai San Miguel",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-15T17:19:03.267Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

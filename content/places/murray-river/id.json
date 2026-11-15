@@ -1,8 +1,13 @@
 {
   "slug": "murray-river",
-  "name": "Murray",
+  "name": "Sungai Murray",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.97,
+    "at": "2026-11-15T17:22:50.984Z"
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

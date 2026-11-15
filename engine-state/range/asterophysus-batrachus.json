@@ -1,14 +1,14 @@
 {
   "id": "asterophysus-batrachus",
   "native": {
-    "input": "889bc3eb2e8828df",
-    "at": "2026-11-10T04:57:39.069Z",
+    "input": "96e221899f097a5f",
+    "at": "2026-11-15T17:26:01.251Z",
     "claims": [
       {
         "code": "BR",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Has been recorded throughout the rio Negro system in Brazil and Orinoco drainage in Venezuela.",
+        "quote": "The gulper catfish, Asterophysus batrachus, is a predatory auchenipterid catfish from the rio Negro in Brazil and the Orinoco in Venezuela.",
         "words": "Brazil",
         "ok": true
       },
@@ -16,7 +16,7 @@
         "code": "VE",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Has been recorded throughout the rio Negro system in Brazil and Orinoco drainage in Venezuela.",
+        "quote": "The gulper catfish, Asterophysus batrachus, is a predatory auchenipterid catfish from the rio Negro in Brazil and the Orinoco in Venezuela.",
         "words": "Venezuela",
         "ok": true
       },
@@ -33,19 +33,25 @@
       {
         "name": "Rio Negro",
         "source": "seriouslyfish",
-        "quote": "Has been recorded throughout the rio Negro system in Brazil and Orinoco drainage in Venezuela.",
+        "quote": "The gulper catfish, Asterophysus batrachus, is a predatory auchenipterid catfish from the rio Negro in Brazil and the Orinoco in Venezuela.",
         "country": "BR",
         "ok": true
       },
       {
         "name": "Orinoco",
         "source": "seriouslyfish",
-        "quote": "Has been recorded throughout the rio Negro system in Brazil and Orinoco drainage in Venezuela.",
+        "quote": "The gulper catfish, Asterophysus batrachus, is a predatory auchenipterid catfish from the rio Negro in Brazil and the Orinoco in Venezuela.",
         "country": "VE",
         "ok": true
       },
       {
-        "name": "Atabapo",
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "According to the Check List of the Freshwater fishes of South and Central America, Asterophysus batrachus is distributed not only in the Orinoco basin (to which the Atabapo belongs), but also in the upper Rio Negro.",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
         "source": "glaser",
         "quote": "According to the Check List of the Freshwater fishes of South and Central America, Asterophysus batrachus is distributed not only in the Orinoco basin (to which the Atabapo belongs), but also in the upper Rio Negro.",
         "ok": true

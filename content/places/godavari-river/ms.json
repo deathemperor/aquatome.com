@@ -1,8 +1,13 @@
 {
   "slug": "godavari-river",
-  "name": "Godavari",
+  "name": "Sungai Godavari",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-15T17:15:49.022Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

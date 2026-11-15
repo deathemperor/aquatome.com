@@ -1,0 +1,62 @@
+{
+  "id": "hemirhamphodon-tengah",
+  "native": {
+    "input": "ba3cd59fd5e67ad0",
+    "at": "2026-11-15T17:26:01.251Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "glaser",
+        "quote": "The species originates from Borneo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemirhamphodon tengah",
+    "status": "ACCEPTED",
+    "taxonKey": 2368758,
+    "datasets": [
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        21
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        5
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "7d8ed137-1d30-42f1-8b78-12a4957e4690",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-15T17:26:01.251Z"
+  }
+}

@@ -1,8 +1,13 @@
 {
   "slug": "quang-tri",
-  "name": "Quang Tri",
+  "name": "Provinsi Quảng Trị",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-15T17:23:04.585Z"
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

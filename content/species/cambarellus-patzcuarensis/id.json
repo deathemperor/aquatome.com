@@ -1,18 +1,22 @@
 {
   "slug": "lobster-mini-meksiko",
-  "name": "Lobster Mini Meksiko",
+  "name": "Lobster Kerdil Meksiko",
   "altNames": [
     "Mexican Dwarf Crayfish",
-    "Lobster Kerdil Meksiko",
-    "Lobster Mini",
-    "Dwarf Crayfish"
+    "Dwarf Mexican Crayfish",
+    "Lobster Mini Meksiko",
+    "Lobster Patzcuaro"
   ],
-  "sections": {},
+  "sections": {
+    "quickFacts:glaser": "<p>Lobster kerdil oranye, <em>Cambarellus patzcuarensis</em>, hanya tumbuh sampai 3–4 cm.</p>",
+    "distribution:glaser": "<p>Asal: Danau Pátzcuaro di Meksiko.</p>",
+    "behaviour:glaser": "<p>Lobster kerdil ini agak agresif terhadap sesamanya.</p>"
+  },
   "quality": {
-    "score": 0.9,
+    "score": 0.95,
     "indexable": true,
     "bySource": {
-      "bwaquatics": 0.9
+      "glaser": 0.95
     }
   }
 }

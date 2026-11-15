@@ -9,6 +9,88 @@
     "south-america",
     "colombia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This species originates from the north of Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340243,
+      "total": 114,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "CO",
+          114
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -75.9375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          7.03125,
+          67,
+          67
+        ],
+        [
+          -75.9375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          7.03125,
+          7,
+          7
+        ],
+        [
+          -74.53125,
+          8.4375,
+          32,
+          32
+        ],
+        [
+          -73.125,
+          9.84375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

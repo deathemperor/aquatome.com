@@ -3,6 +3,12 @@
   "name": "เมกัง",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.03,
+    "at": "2026-11-15T17:22:38.100Z",
+    "why": "The name is written in Thai script (เมกัง), not in Indonesian Latin script, so it is not an Indonesian atlas form."
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

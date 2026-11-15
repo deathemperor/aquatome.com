@@ -3,6 +3,12 @@
   "name": "Kananmae Chaung",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.45,
+    "at": "2026-11-15T17:17:35.384Z",
+    "why": "\"Chaung\" is Burmese for stream/creek, so keeping it bare leaves the kind word untranslated; a Malay atlas would write \"Sungai Kananmae\" (or \"Kananmae Chaung\" with \"Sungai\" prefixed), not the bare source form."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

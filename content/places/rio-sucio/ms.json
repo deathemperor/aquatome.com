@@ -3,6 +3,12 @@
   "name": "Sucio",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-15T17:19:05.794Z",
+    "why": "\"Sucio\" drops the river kind word; Malay atlases write \"Sungai Sucio\" (or \"Sungai Rio Sucio\"), so the bare name is cut short."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

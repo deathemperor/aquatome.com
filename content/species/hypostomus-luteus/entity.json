@@ -18,11 +18,12 @@
     "native": {
       "countries": [
         "BR",
-        "PY"
+        "AR"
       ],
       "regions": [
         "Uruguay River",
-        "Rio Pelotas"
+        "La Plata",
+        "Pelotas"
       ],
       "sources": [
         "planetcatfish",
@@ -36,15 +37,13 @@
           "countries": [
             "BR"
           ],
-          "regions": [
-            "Rio Pelotas"
-          ]
+          "regions": []
         },
         {
           "source": "glaser",
-          "quote": "Origin: Paraguay.",
+          "quote": "Origin: Brazil, Argentina. Latin name: Hypostomus luteus.",
           "countries": [
-            "PY"
+            "AR"
           ],
           "regions": []
         },
@@ -53,7 +52,16 @@
           "quote": "South America: upper Uruguay River basin (La Plata, Uruguay, Upper Uruguay, Pelotas).",
           "countries": [],
           "regions": [
-            "Uruguay River"
+            "Uruguay River",
+            "La Plata"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Hypostomus luteus is endemic to Brazil, occurring in the Uruguay, Canoas, Pelotas, Forquilha, Passo Fundo, Ijuí and Jaguari rivers, in the upper Uruguay River basin.",
+          "countries": [],
+          "regions": [
+            "Pelotas"
           ]
         }
       ]
@@ -61,7 +69,7 @@
     "records": {
       "taxonKey": 5202268,
       "total": 68,
-      "fetched": "2026-11-11",
+      "fetched": "2026-11-15",
       "countries": [
         [
           "BR",

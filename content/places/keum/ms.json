@@ -3,6 +3,12 @@
   "name": "Keum",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-15T17:17:47.630Z",
+    "why": "\"Keum\" is a Vietnamese-style romanisation of a Korean name with no known Malay form, and it is unclear which region or place it means, so it cannot be confirmed as the name an atlas in Malaysia writes."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

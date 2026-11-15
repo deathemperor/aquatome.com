@@ -3,6 +3,12 @@
   "name": "Koh Yao Yai",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.45,
+    "at": "2026-11-15T17:18:08.585Z",
+    "why": "Malaysian atlases write this island as \"Pulau Yao Yai\" (or \"Ko Yao Yai\"), using \"Pulau\" for island, so bare \"Koh Yao Yai\" is the Thai romanisation without the Malay kind word."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

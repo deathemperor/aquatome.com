@@ -1,8 +1,8 @@
 {
   "id": "ctenopoma-acutirostre",
   "native": {
-    "input": "7b2888e80753698d",
-    "at": "2026-11-11T08:59:40.517Z",
+    "input": "6202ce4081dc29cc",
+    "at": "2026-11-15T17:26:01.251Z",
     "claims": [
       {
         "code": "CG",
@@ -27,6 +27,14 @@
         "quote": "Widely distributed throughout the middle Congo River basin in Republic of the Congo, Democratic Republic of the Congo, and Central African Republic, from Malebo (Stanley) Pool upstream to Boyoma (Stanley) Falls.",
         "words": "Central African Republic",
         "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Common name: Leopard bushfish. Origin: D.R. Congo. Name meaning: Ctenopoma is ancient Greek for \"comb cover\", referring to the spines along the operculum; acutirostre is Latin for \"with a pointed snout\".",
+        "words": "D.R. Congo",
+        "ok": true
       }
     ],
     "regions": [
@@ -44,6 +52,24 @@
       },
       {
         "name": "Ubangi",
+        "source": "seriouslyfish",
+        "quote": "It occurs in several major tributary systems, including the Kasai, Lefini, Ubangi, Tshuapa, and Lomami.",
+        "ok": true
+      },
+      {
+        "name": "Lefini",
+        "source": "seriouslyfish",
+        "quote": "It occurs in several major tributary systems, including the Kasai, Lefini, Ubangi, Tshuapa, and Lomami.",
+        "ok": true
+      },
+      {
+        "name": "Tshuapa",
+        "source": "seriouslyfish",
+        "quote": "It occurs in several major tributary systems, including the Kasai, Lefini, Ubangi, Tshuapa, and Lomami.",
+        "ok": true
+      },
+      {
+        "name": "Lomami",
         "source": "seriouslyfish",
         "quote": "It occurs in several major tributary systems, including the Kasai, Lefini, Ubangi, Tshuapa, and Lomami.",
         "ok": true

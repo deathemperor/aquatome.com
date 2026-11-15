@@ -16,20 +16,36 @@
         "ID"
       ],
       "regions": [
-        "Bangka"
+        "Bangka",
+        "Bangka Island"
       ],
       "sources": [
+        "bwaquatics",
         "seriouslyfish"
       ],
       "quotes": [
         {
-          "source": "seriouslyfish",
-          "quote": "Betta burdigala is a small bubble-nesting labyrinth fish endemic to the island of Bangka, off the east coast of Sumatra, Indonesia.",
+          "source": "bwaquatics",
+          "quote": "Origin: wild caught (Bangka Island, Indonesia).",
           "countries": [
             "ID"
           ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta burdigala is a small bubble-nesting labyrinth fish endemic to the island of Bangka, off the east coast of Sumatra, Indonesia.",
+          "countries": [],
           "regions": [
             "Bangka"
+          ]
+        },
+        {
+          "source": "bwaquatics",
+          "quote": "Betta burdigala is endemic to the peat swamps of Bangka Island, off the east coast of Sumatra, Indonesia.",
+          "countries": [],
+          "regions": [
+            "Bangka Island"
           ]
         }
       ]

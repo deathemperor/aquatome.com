@@ -3,6 +3,12 @@
   "name": "Ingei",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-15T17:21:51.178Z",
+    "why": "The source says \"Ingei rivers\", so the place is probably the Ingei River (Sungai Ingei) in Brunei, not a region; the bare \"Ingei\" leaves out the Indonesian kind word \"Sungai\"."
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

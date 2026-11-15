@@ -3,6 +3,12 @@
   "name": "Batang Gadis",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-15T17:21:11.656Z",
+    "why": "Batang Gadis is a river and national park in Indonesia, and Indonesian atlases write it as \"Sungai Batang Gadis\" or \"Taman Nasional Batang Gadis\", so the bare name leaves out the kind word."
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

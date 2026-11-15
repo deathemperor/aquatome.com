@@ -3,6 +3,12 @@
   "name": "Embley",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-15T17:15:35.012Z",
+    "why": "The source sentence refers to the Embley river system, so a Malay atlas would write \"Sungai Embley\" with the kind word, and bare \"Embley\" leaves it out."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

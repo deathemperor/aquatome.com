@@ -1,8 +1,8 @@
 {
   "id": "anabas-testudineus",
   "native": {
-    "input": "0ea7d96194459bad",
-    "at": "2026-11-09T23:57:44.132Z",
+    "input": "1e60b19fed8ef7d5",
+    "at": "2026-11-15T17:26:01.251Z",
     "claims": [
       {
         "code": "JP",
@@ -46,7 +46,7 @@
       },
       {
         "code": "BT",
-        "status": "doubtful",
+        "status": "native",
         "source": "seriouslyfish",
         "quote": "It is however widely distributed in Pakistan, India, Bangladesh, Nepal, Bhutan (probable), Sri Lanka, Myanmar, Thailand, Cambodia, Laos, Vietnam, southern China, Malaysia, Indonesia, Brunei Darussalam and Singapore.",
         "words": "Bhutan",
@@ -169,9 +169,7 @@
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [
-        "BT"
-      ],
+      "pagesOnly": [],
       "sourcesOnly": []
     }
   },
@@ -186,7 +184,7 @@
       ],
       [
         "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
-        104
+        105
       ],
       [
         "d8cd16ba-bb74-4420-821e-083f2bac17c2",
@@ -362,6 +360,7 @@
       "IN",
       "BD",
       "NP",
+      "BT",
       "LK",
       "MM",
       "TH",
@@ -375,6 +374,6 @@
       "SG"
     ],
     "requests": 13,
-    "at": "2026-11-09T23:57:44.132Z"
+    "at": "2026-11-15T17:26:01.251Z"
   }
 }

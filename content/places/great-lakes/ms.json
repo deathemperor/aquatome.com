@@ -3,6 +3,12 @@
   "name": "Tasik-Tasik Besar",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-15T17:15:53.811Z",
+    "why": "Malaysian atlases write the Great Lakes as \"Tasik-Tasik Besar\" only loosely; the standard form is \"Great Lakes\" or \"Tasik Great\" and the common Malay rendering is \"Tasik Besar\" (e.g., Wikipedia ms: \"Tasik Besar\"), so the hyphenated reduplicated plural is a word-by-word translation of a proper name."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

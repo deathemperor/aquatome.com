@@ -1,8 +1,13 @@
 {
   "slug": "ituri-river",
-  "name": "Ituri",
+  "name": "Sungai Ituri",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-15T17:16:49.016Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

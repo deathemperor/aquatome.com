@@ -1,8 +1,13 @@
 {
   "slug": "kapuas-river",
-  "name": "Kapuas",
+  "name": "Sungai Kapuas",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.97,
+    "at": "2026-11-15T17:17:41.003Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

@@ -1,8 +1,8 @@
 {
   "id": "altolamprologus-compressiceps",
   "native": {
-    "input": "259474f52006c300",
-    "at": "2026-11-06T01:44:56.709Z",
+    "input": "904f6500fa662fc9",
+    "at": "2026-11-15T17:26:01.251Z",
     "claims": [
       {
         "code": "ZM",
@@ -10,22 +10,6 @@
         "source": "seriouslyfish",
         "quote": "Type locality is the town of Kinyamkolo, now known as Mpulungu, located in Zambia at the southern tip of Lake Tanganyika.",
         "words": "Zambia",
-        "ok": true
-      },
-      {
-        "code": "BI",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "\"Burundi red fin\", collected at the north-eastern extremity of the lake in Burundi.",
-        "words": "Burundi",
-        "ok": true
-      },
-      {
-        "code": "TZ",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "\"black cheek\" from Cape Kagobo, Tanzania.",
-        "words": "Tanzania",
         "ok": true
       },
       {
@@ -41,14 +25,24 @@
       {
         "name": "Lake Tanganyika",
         "source": "seriouslyfish",
-        "quote": "The compressed cichlid, Altolamprologus compressiceps, is a substrate-spawning cichlid endemic to Lake Tanganyika, where it lives among rocky rubble.",
+        "quote": "The species is endemic to the lake but quite widely-distributed with other localities including Katoto, Kabemba, Cape Chaitika, Cape Nangu, Nkamba Bay, Lufubu, Kasenga, Kiku, Kanoni, Pemba, Bujumbura, Magara, Kigoma, Cape Kagobo, Mabilibili, Lyamembe, Kekese, Ikola, Cape Mpimbwe, Nkondwe, Kerenge, Kipili, Kirando, Ulwile, Mtosi, Namansi, Malesa Island, Muzi, Kasanga, Kambwimba, Kantalamba, Kalambo, Isanga, Mwela, Chituta, Kasakalawe, Mbete Island and Mutondwe (also known as \"Crocodile\") Island.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Lake Tanganyika",
+        "source": "glaser",
+        "quote": "Altolamprologus compressiceps originates from the shores of Lake Tanganyika.",
         "ok": true
       }
     ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "BI",
+        "TZ"
+      ],
       "sourcesOnly": []
     }
   },
@@ -96,11 +90,9 @@
     ],
     "native": [
       "ZM",
-      "BI",
-      "TZ",
       "CD"
     ],
     "requests": 12,
-    "at": "2026-11-06T01:44:56.709Z"
+    "at": "2026-11-15T17:26:01.251Z"
   }
 }

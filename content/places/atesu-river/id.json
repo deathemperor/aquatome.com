@@ -1,8 +1,13 @@
 {
   "slug": "atesu-river",
-  "name": "Atesu",
+  "name": "Sungai Atesu",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-15T17:21:09.328Z"
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

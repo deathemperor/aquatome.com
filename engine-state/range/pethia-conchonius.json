@@ -1,8 +1,8 @@
 {
   "id": "pethia-conchonius",
   "native": {
-    "input": "8a2b34df8aa42b5e",
-    "at": "2026-11-06T06:16:32.822Z",
+    "input": "c40e193fb5e039ec",
+    "at": "2026-11-15T17:26:01.251Z",
     "claims": [
       {
         "code": "IN",
@@ -10,6 +10,38 @@
         "source": "glaser",
         "quote": "Origin: India",
         "words": "India",
+        "ok": true
+      },
+      {
+        "code": "PK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The rosy barb, Pethia conchonius, is a small cyprinid found from Pakistan throughout India, Nepal and Bangladesh.",
+        "words": "Pakistan",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The rosy barb, Pethia conchonius, is a small cyprinid found from Pakistan throughout India, Nepal and Bangladesh.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The rosy barb, Pethia conchonius, is a small cyprinid found from Pakistan throughout India, Nepal and Bangladesh.",
+        "words": "Nepal",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The rosy barb, Pethia conchonius, is a small cyprinid found from Pakistan throughout India, Nepal and Bangladesh.",
+        "words": "Bangladesh",
         "ok": true
       },
       {
@@ -61,19 +93,19 @@
         "ok": true
       },
       {
-        "code": "PK",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Described from 'Ponds of northeastern Bengal; Kosi and Ami rivers, India' but according to current knowledge is extensively distributed from Pakistan throughout India, Nepal, and Bangladesh.",
-        "words": "Pakistan",
-        "ok": true
-      },
-      {
         "code": "IN",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Described from 'Ponds of northeastern Bengal; Kosi and Ami rivers, India' but according to current knowledge is extensively distributed from Pakistan throughout India, Nepal, and Bangladesh.",
         "words": "India",
+        "ok": true
+      },
+      {
+        "code": "PK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Ponds of northeastern Bengal; Kosi and Ami rivers, India' but according to current knowledge is extensively distributed from Pakistan throughout India, Nepal, and Bangladesh.",
+        "words": "Pakistan",
         "ok": true
       },
       {

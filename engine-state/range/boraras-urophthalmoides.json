@@ -1,8 +1,8 @@
 {
   "id": "boraras-urophthalmoides",
   "native": {
-    "input": "4163c8de6d25a176",
-    "at": "2026-11-05T19:44:13.099Z",
+    "input": "fafc10b5f503fc65",
+    "at": "2026-11-15T17:26:01.251Z",
     "claims": [
       {
         "code": "VN",
@@ -26,14 +26,6 @@
         "source": "glaser",
         "quote": "It is known from Thailand, Cambodia, and Vietnam.",
         "words": "Cambodia",
-        "ok": true
-      },
-      {
-        "code": "VN",
-        "status": "native",
-        "source": "glaser",
-        "quote": "It is known from Thailand, Cambodia, and Vietnam.",
-        "words": "Vietnam",
         "ok": true
       },
       {
@@ -71,13 +63,13 @@
     ],
     "regions": [
       {
-        "name": "Chao Phraya",
+        "name": "Mae Klong",
         "source": "seriouslyfish",
         "quote": "Additional records are not extensive but it seemingly occurs throughout the Mae Klong and Chao Phraya river basins and has been recorded in both Vietnam and Cambodia where one notable population inhabits the moats and ponds of the Angkor Wat temple complex near Siem Reap.",
         "ok": true
       },
       {
-        "name": "Mae Klong",
+        "name": "Chao Phraya",
         "source": "seriouslyfish",
         "quote": "Additional records are not extensive but it seemingly occurs throughout the Mae Klong and Chao Phraya river basins and has been recorded in both Vietnam and Cambodia where one notable population inhabits the moats and ponds of the Angkor Wat temple complex near Siem Reap.",
         "ok": true

@@ -1224,5 +1224,76 @@
       "quickFacts:tropica": "a3dcf5a5253e",
       "notes:tropica": "040700e237ad"
     }
+  },
+  "glossostigma-elatinoides": {
+    "at": "2026-11-15",
+    "from": "2026-11-14",
+    "name": "Glossostigma",
+    "confidence": "high",
+    "score": 0.92,
+    "notes": [
+      "Item 6: \"tumbuh tinggi melidi\" / \"Pertumbuhan tinggi melidi\" for \"leggy growth\" is a little awkward. Consider \"tumbuh kurus memanjang (leggy)\".",
+      "Item 6: \"penapis halus\" for \"sieve\" is slightly odd, because \"penapis\" suggests an aquarium filter. Consider \"penyaring halus\" or \"penapis jaring\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "df2d730f4a3c",
+      "quickFacts:aquariumbreeder": "5fdf59697245",
+      "distribution:aquariumbreeder": "ff51df00aaf4",
+      "habitat:aquariumbreeder": "47f628bc0309",
+      "maintenance:tropica": "a05a85abd59f",
+      "maintenance:aquariumbreeder": "d7d6768a820d",
+      "notes:tropica": "1561001f69cd",
+      "notes:aquariumbreeder": "89c3e687f6b8"
+    }
+  },
+  "gratiola-viscidula": {
+    "at": "2026-11-15",
+    "from": "2026-10-30",
+    "name": "Gratiola viscidula",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"Tumbuhan batang\" for \"stem plant\" is acceptable, but \"tumbuhan berbatang\" is the more common hobby term (optional).",
+      "\"tumbuhan kusyen\" is a literal rendering of \"cushion-plant\"; consider \"tumbuhan bentuk kusyen (cushion)\" for clarity."
+    ],
+    "parts": {
+      "quickFacts:tropica": "3f73edfeb797",
+      "notes:tropica": "83a460f672ea"
+    }
+  },
+  "helanthium-bolivianum": {
+    "at": "2026-11-15",
+    "from": "2026-10-30",
+    "name": "Echinodorus Quadricostatus",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 2: \"Very light leaves\" rendered as \"Daun yang terlalu pucat\" - adds \"terlalu\" (too) and shifts meaning; better \"Daun yang sangat cerah/hijau pucat\".",
+      "Item 2: \"runner\" left in English; use \"stolon\" or \"sulur\" (runner) for natural Malay.",
+      "Item 2: \"di atas dasar tangki\" - \"tangki\" is okay but \"dasar akuarium\" is more natural for the aquarium context.",
+      "Item 2: Last sentence \"Previously known as Echinodorus 'Quadricostatus'\" repeats the same name as the source; faithful but check source, likely intended as a different name.",
+      "Item 1: \"Roset\" for Rosulate is acceptable, but \"Asal\" should be \"Asal usul\" or \"Asalan\"; \"Asal\" alone is awkward."
+    ],
+    "parts": {
+      "quickFacts:tropica": "247c05791b7f",
+      "notes:tropica": "95fdf5e8ad81"
+    }
+  },
+  "helanthium-tenellum": {
+    "at": "2026-11-15",
+    "from": "2026-10-30",
+    "name": "Helanthium tenellum 'Green'",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 1: \"tangki\" is acceptable but \"akuarium\" is the more natural hobby term for \"in the tank\"; consider \"dalam akuarium\".",
+      "Item 2: \"agak tidak cerewet\" is slightly awkward for \"quite undemanding\"; consider \"agak mudah dijaga\" or \"tidak terlalu cerewet\".",
+      "Item 2: \"bottom layer nutritious\" is rendered as \"lapisan dasar\"; \"substrat\" is the term hobbyists use, so consider \"substrat yang kaya nutrien\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "76457b006b81",
+      "maintenance:tropica": "0ab12626cdd7",
+      "notes:tropica": "81835eaf6307"
+    }
   }
 }

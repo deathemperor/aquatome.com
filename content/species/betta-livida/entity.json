@@ -14,8 +14,7 @@
   "range": {
     "native": {
       "countries": [
-        "MY",
-        "ID"
+        "MY"
       ],
       "regions": [],
       "sources": [
@@ -30,21 +29,13 @@
             "MY"
           ],
           "regions": []
-        },
-        {
-          "source": "bwaquatics",
-          "quote": "Wild-caught Betta livida from Indonesia, belonging to the Betta coccina complex.",
-          "countries": [
-            "ID"
-          ],
-          "regions": []
         }
       ]
     },
     "records": {
       "taxonKey": 2394039,
       "total": 3,
-      "fetched": "2026-11-06",
+      "fetched": "2026-11-15",
       "countries": [
         [
           "MY",

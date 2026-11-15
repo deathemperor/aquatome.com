@@ -1,8 +1,13 @@
 {
   "slug": "marah-river",
-  "name": "Marah",
+  "name": "Sungai Marah",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-15T17:22:32.191Z"
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

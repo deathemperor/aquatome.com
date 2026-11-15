@@ -1,9 +1,17 @@
 {
   "id": "ctenops-nobilis",
   "native": {
-    "input": "5327be998d870d21",
-    "at": "2026-11-07T13:20:47.766Z",
+    "input": "624f198b71b47c07",
+    "at": "2026-11-15T17:26:01.251Z",
     "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The only species in Ctenops is nobilis, the Noble gourami from India.",
+        "words": "India",
+        "ok": true
+      },
       {
         "code": "IN",
         "status": "native",

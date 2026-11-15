@@ -1,8 +1,13 @@
 {
   "slug": "iril",
-  "name": "Iril",
+  "name": "Sungai Iril",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.85,
+    "at": "2026-11-15T17:16:40.220Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

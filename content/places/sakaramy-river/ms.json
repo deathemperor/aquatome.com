@@ -1,8 +1,13 @@
 {
   "slug": "sakaramy-river",
-  "name": "Sakaramy",
+  "name": "Sungai Sakaramy",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-15T17:19:29.205Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

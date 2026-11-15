@@ -1,8 +1,13 @@
 {
   "slug": "luongo-river",
-  "name": "Luongo",
+  "name": "Sungai Luongo",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-15T17:22:23.809Z"
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

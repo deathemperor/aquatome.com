@@ -3,6 +3,12 @@
   "name": "Chao Phraya",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.45,
+    "at": "2026-11-15T17:14:42.532Z",
+    "why": "Malay atlases write the river as \"Sungai Chao Phraya\" with the kind word \"Sungai\", so the bare \"Chao Phraya\" drops the river word and is cut short."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

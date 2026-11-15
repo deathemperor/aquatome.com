@@ -1,8 +1,13 @@
 {
   "slug": "araca",
-  "name": "Aracá",
+  "name": "Sungai Aracá",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-15T17:20:56.685Z"
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

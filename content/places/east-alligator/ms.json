@@ -1,8 +1,13 @@
 {
   "slug": "east-alligator",
-  "name": "East Alligator",
+  "name": "Sungai East Alligator",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-15T17:15:28.787Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

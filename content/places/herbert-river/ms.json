@@ -1,8 +1,13 @@
 {
   "slug": "herbert-river",
-  "name": "Herbert",
+  "name": "Sungai Herbert",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-15T17:16:18.872Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

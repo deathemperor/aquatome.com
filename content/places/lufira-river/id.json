@@ -1,8 +1,13 @@
 {
   "slug": "lufira-river",
-  "name": "Lufira",
+  "name": "Sungai Lufira",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-15T17:22:22.372Z"
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

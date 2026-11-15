@@ -1,8 +1,13 @@
 {
   "slug": "rio-tigre",
-  "name": "Tigre",
+  "name": "Sungai Tigre",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-15T17:19:10.256Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

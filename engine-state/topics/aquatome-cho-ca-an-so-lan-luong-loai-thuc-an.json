@@ -1,0 +1,335 @@
+{
+  "found": true,
+  "species": [
+    "Betta splendens",
+    "Carassius auratus",
+    "Cyprinus carpio",
+    "Corydoras",
+    "Pangio kuhlii"
+  ],
+  "sources": [
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/feeding-fish",
+      "title": "How Often Do You Feed Fish (and How Much)?",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.merckvetmanual.com/exotic-and-laboratory-animals/aquarium-fishes/nutritional-diseases-of-fish",
+      "title": "Nutritional Diseases of Fish",
+      "kind": "vet"
+    },
+    {
+      "url": "https://aqueon.com/articles/how-to-properly-feed-your-fish",
+      "title": "How to Properly Feed Your Fish",
+      "kind": "maker"
+    },
+    {
+      "url": "https://www.jbl.de/en/blog/detail/794/do-you-know-the-connection-between-oxygen-consumption-and-feeding?country=dz",
+      "title": "Do you know the connection between oxygen consumption and feeding?",
+      "kind": "maker"
+    },
+    {
+      "url": "https://hikariusa.com/wp/?p=20516",
+      "title": "Summer Feeding Tips: How to Keep Your Fish Healthy in Warmer Water",
+      "kind": "maker"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/cac-loai-thuc-an-cua-ca-la-han.208/",
+      "title": "Các loại thức ăn của cá La Hán",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/gioi-trang-loai-thuc-an-moi.486932/",
+      "title": "Giòi trắng - loại thức ăn mới?",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/lieu-luong-va-cac-loai-thuc-an-de-nuoi-ca-betta.191516/",
+      "title": "Liều lượng và các loại thức ăn để nuôi cá betta",
+      "kind": "forum"
+    },
+    {
+      "url": "https://aquahouse.vn/cho-ca-an-ngay-may-lan/",
+      "title": "Cho cá ăn ngày mấy lần là đủ? Hướng dẫn cho cá ăn chi tiết",
+      "kind": "shop"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Poor nutrition in fish can cause poor growth, deformities, weaker immunity, fatty liver (hepatic lipidosis) and impaired metabolism.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Choose a food to suit the fish: whether it is a carnivore, herbivore or omnivore, where in the tank it feeds, and how big its mouth is.",
+      "source": 0,
+      "also": [
+        2
+      ]
+    },
+    {
+      "section": "what",
+      "fact": "Bettas need a high-protein, carnivorous diet, while goldfish are omnivores.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Most freshwater aquarium fish can be fed once or twice a day.",
+      "source": 2,
+      "also": [
+        0
+      ]
+    },
+    {
+      "section": "steps",
+      "fact": "Most aquarium fish should be fed at least once a day. Carnivores that eat large meals can be fed once or twice a week.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Adult fish need about 3% of their body weight in food per day to maintain themselves. Fry and fingerlings can eat up to 5% of body weight per day.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Flakes and pellets differ a lot in weight, so measure portions by weight, not by volume.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Aqueon advises giving only as much as fish eat in 2 to 3 minutes and removing leftovers after five minutes with a siphon or net.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Aquarium Co-Op judges portions by body shape rather than a timed window: look at the fish from above and from the side, and stop when the belly looks slightly full.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Feed day-active fish 10 to 15 minutes after the lights come on. Feed nocturnal fish such as kuhli loaches and plecos after lights-out.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Give floating food to surface feeders and fast-sinking food to bottom feeders. Match the particle size to the fish's mouth.",
+      "source": 1,
+      "also": [
+        2
+      ]
+    },
+    {
+      "section": "steps",
+      "fact": "In mixed tanks, feed bottom dwellers such as loricariids and Corydoras directly instead of leaving them to live on leftovers.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Herbivores do better with small meals more often, while carnivores eat less often.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Fry, nano fish and small active fish such as danios need more frequent meals, especially in warm water.",
+      "source": 2,
+      "also": [
+        0
+      ]
+    },
+    {
+      "section": "steps",
+      "fact": "Fry and slow grazers may need several tiny meals a day or a slow-dissolving gel food.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Feed a varied diet that mixes live and commercial foods. This covers nutritional needs and stops fish fixating on one food.",
+      "source": 1,
+      "also": [
+        0
+      ]
+    },
+    {
+      "section": "steps",
+      "fact": "In a tank with mixed species, alternate meaty and plant-based foods.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "To feed frozen food a little at a time, release small amounts with a turkey baster or syringe.",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "Some hobbyists skip feeding for one or two days a week.",
+      "source": 2,
+      "also": [
+        0
+      ]
+    },
+    {
+      "section": "other",
+      "fact": "Adult fish can often go about a week without food, depending on size, metabolism and water temperature. Fry usually need an automatic feeder or someone to feed them.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Signs of overfeeding include food left uneaten after five minutes, cloudy or foul-smelling water, surface foam, filter media clogging within days, more algae, and rising ammonia or nitrite.",
+      "source": 2,
+      "also": [
+        0
+      ]
+    },
+    {
+      "section": "signs",
+      "fact": "Overfeeding can also show as swollen bellies, a lot of waste and a sudden boom in snails.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "In extreme cases of overfeeding, fuzzy white fungus may grow on uneaten food.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Signs of underfeeding are thin bodies, sunken bellies, pale colour and fish dying off gradually. The same signs can come from internal parasites, so deworming may be needed if fish stay thin despite regular feeding.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "If you see signs of overfeeding, siphon out leftover food, lightly vacuum the substrate and cut each feeding by 50%.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Fish often act hungry even soon after a meal, so begging alone is not a reason to feed.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Feeding flakes to large fish that cannot eat enough of them leaves a messy tank.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Large pellets do not suit small fish, and large predators ignore small flakes.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Aqueon says it is better to underfeed than overfeed, especially in a new tank.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Fatty liver (hepatic lipidosis) is common in captive fish. Causes include starvation, diets high in carbohydrate or fat, and rancid feed.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Fish must get vitamin C from their food, so most feeds should contain a stabilized form. A lack of it can cause 'broken back' (severe scoliosis).",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "A lack of iodine can cause thyroid hyperplasia in fish.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Store dry food in a pest-proof container somewhere cool and dry. Heat and humidity speed up spoilage, mould and rancidity.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Merck recommends throwing out opened room-temperature feed after 2 months and frozen commercial feed after 6 months.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Merck recommends throwing out frozen foods such as brine shrimp, bloodworms, mysids and glassworms after 1 year. Do not refreeze food once it has thawed.",
+      "source": 1
+    },
+    {
+      "section": "other",
+      "fact": "Feeding raises a fish's oxygen use sharply. JBL attributes this to movement while eating and to digestion.",
+      "source": 3
+    },
+    {
+      "section": "other",
+      "fact": "Well-balanced, high-quality food with a suitable protein-to-fat ratio is easier to digest and puts less strain on oxygen levels.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "Warm water holds less oxygen. JBL gives a maximum of about 9 mg/l at 20 °C and about 7.5 mg/l at 30 °C, which matters in Vietnam's hot season.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "For ponds, JBL advises switching to a summer food once water goes above 25 °C and feeding it sparingly.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "Hikari says fish metabolism slows above 82°F (28°C) and recommends switching to easily digested feeds, such as wheat-germ formulas.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "In warm weather, Hikari advises feeding only what fish eat in about 3–5 minutes, removing leftovers at once and adding aeration.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Hikari says fish are most active at 68–78°F (20–26°C) and can then be fed 2–4 small meals a day.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese forum keeper (vnreddevil) feeds flowerhorns live foods such as wild small fish (cá lia thia, cá trâm), freshwater shrimp (tép), feeder carp, fry (cá ròng ròng), tubifex (trùn chỉ) and mosquito larvae (lăng quăng).",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "The same keeper reports that feeder carp often carry white spot disease (Ichthyophthirius multifiliis). He rinses them and ideally quarantines them for several days with a little salt before feeding.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "The same keeper soaks tubifex worms under strong aeration for a day, or freezes them, before feeding, and feeds only as many as get eaten because leftovers foul the water.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "The same keeper freezes apple snails before feeding because they can carry parasitic worms. He notes that homemade blended foods foul the water quickly.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "The same keeper finds pellets convenient and hygienic but reports that good brands are expensive and fakes are sold.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "The same keeper says small freshwater shrimp for feeding are seasonal, available roughly from June until after Tết.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "A forum keeper reports that white maggots (giòi trắng) appeared in a jar of infusoria culture (trùng cỏ). He believes they came from banana-stalk flies (Telostylinus lineolatus), and his fish ate them readily.",
+      "source": 6
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese names for betta foods: sâu máu or trùn máu (bloodworms), ấu trùng tôm nước mặn or Artemia (brine shrimp), trùn chỉ (tubifex), con mẻ (microworms), thực phẩm đông lạnh (frozen food), thức ăn viên (pellets).",
+      "source": 7
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese shops sell koi pellets (cám cá Koi), dried artemia (artemia sấy khô), commercial pellets (cám công nghiệp) and automatic fish feeders (máy cho cá ăn tự động).",
+      "source": 8
+    }
+  ]
+}

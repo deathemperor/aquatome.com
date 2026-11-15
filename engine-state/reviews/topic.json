@@ -2019,6 +2019,48 @@
   ],
   "ms/guides/aquatome-ca-ngoi-len-mat-nuoc-tho-gap-nguyen-nhan-va-cach-xu-ly": [
     {
+      "at": "2026-11-15T17:12:28Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "\"tangki aquascape\" is a slight embellishment: the facts only say a planted tank with a faulty CO2 unit.",
+        "\"Ujian menunjukkan ada nitrit atau oksigen mungkin sudah habis\" is listed as a worry trigger. The facts give no such threshold; this is a small generalisation."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.92,
+        0.93
+      ]
+    },
+    {
+      "at": "2026-11-15T17:12:28Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.72,
+      "notes": [
+        "Source mislabelled: the 'doktor haiwan' attributions are right for Merck, but 'kedai ikan hiasan yang pakar' is a slight alteration of 'specialist dealer'. Minor.",
+        "\"Ikan laga ... boleh menghirup udara apabila perlu\" - acceptable for facultative. Fine.",
+        "\"Kebanyakan ikan boleh bertahan kira-kira seminggu tanpa makanan, jadi selamat untuk tidak memberi makan\" - this comes from a shop source that is not flagged as contradicted, but it is generalised; it conflicts with 'jangan beri makan 24 jam' only mildly. Weak support.",
+        "\"Tumbuhan akuatik ... Kekurangan oksigen sering berlaku pada awal pagi\" is supported. But 'Perhatikan juga tanda lain seperti lesu, insang berubah warna atau ikan tidak mahu makan' in the betta FAQ is an invented recommendation: the facts give these signs for gill disease or hypoxia, not as extra checks for bettas.",
+        "\"Ikan kekal di permukaan siang dan malam, lembap\" - 'lembap' is a mistranslation of sluggish (lembap means damp), minor.",
+        "\"Insang terbuka luas\" for 'flared gills' is fine. \"Jika disyaki penyakit insang ... doktor haiwan yang berpengalaman dengan ikan\" is supported.",
+        "\"Jika nitrit dikesan atau oksigen mungkin habis ... ikan boleh mati dalam beberapa jam\" is supported only for nitrite poisoning or zero oxygen; stating it for any detected nitrite is a slight overgeneralisation.",
+        "\"Hujan lebat atau cuaca mendung ... selepas beberapa hari cuaca mendung\" is a mild extension of 'after overcast days'."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.72,
+        0.72,
+        0.72
+      ]
+    },
+    {
       "at": "2026-11-08T15:50:25Z",
       "model": "sonnet",
       "score": 0.85,
@@ -2230,6 +2272,21 @@
     }
   ],
   "ms/guides/aquatome-cach-tao-vi-sinh-va-dung-men-vi-sinh-cho-ho-ca": [
+    {
+      "at": "2026-11-15T17:13:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.93,
+        0.95,
+        0.95
+      ]
+    },
     {
       "at": "2026-11-10T10:14:41Z",
       "model": "sonnet",
@@ -4205,6 +4262,36 @@
       "kept": true
     }
   ],
+  "vi/guides/aquatome-cho-ca-an-so-lan-luong-loai-thuc-an": [
+    {
+      "at": "2026-11-15T17:57:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-15T17:57:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [
+        "\"Mùa nóng ở mình nước dễ lên mức đó\" is a small generalisation. The facts only say warm water holds less oxygen, which matters in Vietnam's hot season. They do not say water reaches 30 °C.",
+        "\"Cá bơi theo tay xin ăn\" and \"vì nó bơi giành mồi\" add small details. The facts only say fish act hungry after a meal, and that JBL attributes the oxygen use to movement while eating and to digestion."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.93,
+        0.93,
+        0.93
+      ]
+    }
+  ],
   "vi/guides/aquatome-cho-ca-sinh-san-giao-phoi-va-cham-ca-con": [
     {
       "at": "2026-11-10T01:54:03Z",
@@ -4346,6 +4433,55 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/guides/aquatome-may-sui-oxy-suc-khi-cho-be-ca-cong-dung-va-cach-chon": [
+    {
+      "at": "2026-11-15T18:04:07Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.62,
+      "notes": [
+        "\"con cá dài gấp đôi cần lượng sục khí gấp khoảng tám lần\" – the fact says a 2-inch fish vs a 1-inch fish; roughly consistent, fine. But \"Nuôi loài cá cần nước nhiều oxy\" is listed under manufacturers' advice – OK.",
+        "\"Các nhà sản xuất khuyên chạy thêm máy sủi\" attributes all cases (heavy stocking, no plants, night in planted tanks) to makers; source 3 is a maker but the 'tank without plants' etc. fine; however 'Một hướng dẫn nuôi cá' for battery pump is fine.",
+        "\"Một hội người nuôi cá xem sục khí...\" fine; but \"Bác sĩ thú y cũng nói\" fine.",
+        "\"Cần, nếu máy đặt thấp hơn miệng bể\" – facts say not needed if pump is higher than rim; saying needed if lower is an inference, a mild generalisation.",
+        "\"Một nhà sản xuất cho rằng thay nước cũng đỡ được phần nào\" and the added note that it contradicts step 1 – the contradiction is the guide's own commentary; fact doesn't state it.",
+        "\"Có thể làm muối bám leo lên thành bể\" – fact says salt creep; acceptable.",
+        "\"Thế là CO2 châm vào bị hao đi phí\" and \"Hơi xáo mạnh có thể làm bong vi sinh\" – slight embellishment.",
+        "\"Ba cỡ máy tốn điện 3, 4 và 8 W\" – the facts say power draw is 3, 4 or 8 W but do not map them to the three sizes in that order; unsupported mapping.",
+        "\"Sủi tích điện... bằng máy tích điện\" for the 8-hour outage guideline – fact does not say the stone/sponge should be run by a battery pump; added detail.",
+        "\"Có thể làm đá sủi cứng nghẹt vì cặn vôi\" – the fact says carbonate; minor."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.6,
+        0.72,
+        0.62
+      ]
+    },
+    {
+      "at": "2026-11-15T18:04:07Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.86,
+      "notes": [
+        "\"Máy sủi bán ngoài tiệm thường là loại màng\": the facts only describe how a membrane pump works. They don't say these are the usual type sold in shops.",
+        "\"Đá sủi tạo bọt mịn, lại bớt tiếng ồn hơn để ống dây sủi trơn\": the facts say a fine-bubble air stone cuts noise. The clause about a smooth airline tube is invented and garbled.",
+        "\"CO2 châm vào bị đẩy ra ngoài hết\": this overstates the facts, which say heavy aeration lowers CO2 to about 2–3 ppm.",
+        "\"Đá sủi gồm loại cục và loại thanh\": the facts only give the names đá sủi and thanh sủi. They don't describe block and bar types.",
+        "\"Nên có sẵn một máy sủi tích điện cho mùa mất điện\": the facts suggest battery pumps for power cuts, but not a \"power-cut season\"."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.92,
+        0.86,
+        0.86
+      ]
     }
   ],
   "vi/guides/aquatome-nuoc-be-ca-bi-xanh-do-tao-xanh-va-cach-xu-ly": [

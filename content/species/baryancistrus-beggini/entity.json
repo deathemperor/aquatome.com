@@ -21,11 +21,12 @@
       ],
       "regions": [
         "Orinoco",
-        "Río Guaviare",
-        "Río Ventuari"
+        "Guaviare",
+        "Ventuari"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -36,8 +37,7 @@
             "CO"
           ],
           "regions": [
-            "Orinoco",
-            "Río Guaviare"
+            "Orinoco"
           ]
         },
         {
@@ -45,7 +45,8 @@
           "quote": "Known only from the area around the confluence of the río Ventuari with the río Orinoco in Amazonas state, Venezuela, plus the lower río Guaviare, Colombia, which flows into the Orinoco a little further south.",
           "countries": [],
           "regions": [
-            "Río Ventuari"
+            "Guaviare",
+            "Ventuari"
           ]
         }
       ]

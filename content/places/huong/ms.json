@@ -3,6 +3,12 @@
   "name": "Huong",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-15T17:16:22.769Z",
+    "why": "\"Huong\" drops the kind word \"Sungai\" for this river, which Malay atlases write as \"Sungai Huong\" (or \"Sungai Hương\" keeping the Vietnamese spelling), so the bare name is incomplete."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

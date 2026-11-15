@@ -3,6 +3,12 @@
   "name": "Lagoa dos Patos",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-15T17:18:18.987Z",
+    "why": "\"Lagoa\" is the Portuguese word for lagoon and is left untranslated, so a Malay atlas would use \"Lagun\" in its place, as in \"Lagun Patos\"."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

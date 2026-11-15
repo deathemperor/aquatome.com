@@ -1,8 +1,8 @@
 {
   "id": "geophagus-crassilabris",
   "native": {
-    "input": "2970ea2ffa5e12d8",
-    "at": "2026-11-08T10:57:49.558Z",
+    "input": "89f7582fd6f0b121",
+    "at": "2026-11-15T17:26:01.251Z",
     "claims": [
       {
         "code": "PA",
@@ -11,9 +11,24 @@
         "quote": "Type locality is 'Isthmus of Panama near Candelaria' and this species is endemic to the Pacific and Atlantic slopes of central and eastern Panama.",
         "words": "Panama",
         "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Colombia, Rio Chacu.",
+        "words": "Colombia",
+        "ok": true
       }
     ],
     "regions": [
+      {
+        "name": "Rio Chacu",
+        "source": "glaser",
+        "quote": "Colombia, Rio Chacu.",
+        "country": "CO",
+        "ok": true
+      },
       {
         "name": "Chagres",
         "source": "seriouslyfish",
@@ -129,9 +144,10 @@
       ]
     ],
     "native": [
-      "PA"
+      "PA",
+      "CO"
     ],
     "requests": 11,
-    "at": "2026-11-08T10:57:49.558Z"
+    "at": "2026-11-15T17:26:01.251Z"
   }
 }

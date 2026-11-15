@@ -1,8 +1,13 @@
 {
   "slug": "puyango",
-  "name": "Puyango",
+  "name": "Sungai Puyango",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-15T17:23:03.965Z"
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

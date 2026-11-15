@@ -3,6 +3,12 @@
   "name": "Pombo Rocks",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.35,
+    "at": "2026-11-15T17:18:35.070Z",
+    "why": "\"Pombo Rocks\" leaves the English kind word \"Rocks\" untranslated, whereas Malay would use \"Batu\" or \"Batu Karang\" with the name Pombo."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

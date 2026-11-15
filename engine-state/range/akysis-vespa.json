@@ -1,8 +1,8 @@
 {
   "id": "akysis-vespa",
   "native": {
-    "input": "e9a481b7e129d4ce",
-    "at": "2026-11-09T23:57:44.132Z",
+    "input": "ae2ab49faa8f8c84",
+    "at": "2026-11-15T17:26:01.251Z",
     "claims": [
       {
         "code": "MM",
@@ -40,7 +40,7 @@
         "code": "MM",
         "status": "native",
         "source": "glaser",
-        "quote": "Akysis vespa originates from Burma.",
+        "quote": "Origin: Burma (Myanmar)",
         "words": "Burma",
         "ok": true
       }
@@ -56,14 +56,6 @@
         "name": "Ataran",
         "source": "seriouslyfish",
         "quote": "Appears endemic to headwaters of the Salween River basin around the border between Myanmar and Thailand, specifically the Megathat Chaung (Megathat stream) in the upper Ataran (known as the Kasat in Thai) drainage in Kayin/Karen State, Myanmar, and Hanthayaw River (Suriya in Thai), Tak Province, Thailand.",
-        "country": "MM",
-        "ok": true
-      },
-      {
-        "name": "Hanthayaw",
-        "source": "seriouslyfish",
-        "quote": "Appears endemic to headwaters of the Salween River basin around the border between Myanmar and Thailand, specifically the Megathat Chaung (Megathat stream) in the upper Ataran (known as the Kasat in Thai) drainage in Kayin/Karen State, Myanmar, and Hanthayaw River (Suriya in Thai), Tak Province, Thailand.",
-        "country": "TH",
         "ok": true
       },
       {
@@ -83,7 +75,7 @@
       {
         "name": "Ataran",
         "source": "glaser",
-        "quote": "It is known so far only from the upper reaches of the Ataran river in the northern part of Burma.",
+        "quote": "Akysis vespa originates from Burma. It is known so far only from the upper reaches of the Ataran river in the northern part of Burma. The Ataran rises in Thailand and empties into the Andaman Sea.",
         "ok": true
       }
     ],

@@ -1,8 +1,13 @@
 {
   "slug": "duc-my",
-  "name": "Duc My",
+  "name": "Sungai Đức Mỹ",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.82,
+    "at": "2026-11-15T17:21:30.528Z"
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

@@ -1,8 +1,13 @@
 {
   "slug": "moyar-river",
-  "name": "Moyar",
+  "name": "Sungai Moyar",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-15T17:18:31.919Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

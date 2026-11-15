@@ -1,14 +1,14 @@
 {
   "id": "amblydoras-nauticus",
   "native": {
-    "input": "2069fc09c2c3940a",
-    "at": "2026-11-06T12:17:30.771Z",
+    "input": "d58a32d6d7ac47c9",
+    "at": "2026-11-15T17:26:01.251Z",
     "claims": [
       {
         "code": "PE",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Occurs in Peru: Amazon, Marañón, Tigre and Ucayali.",
+        "quote": "The marbled talking catfish, Amblydoras nauticus, is a small doradid catfish from Peru, described from Nauta in the Peruvian Amazon.",
         "words": "Peru",
         "ok": true
       },
@@ -45,14 +45,14 @@
         "ok": true
       },
       {
-        "name": "Ucayali",
+        "name": "Tigre",
         "source": "seriouslyfish",
         "quote": "Occurs in Peru: Amazon, Marañón, Tigre and Ucayali.",
         "country": "PE",
         "ok": true
       },
       {
-        "name": "Tigre",
+        "name": "Ucayali",
         "source": "seriouslyfish",
         "quote": "Occurs in Peru: Amazon, Marañón, Tigre and Ucayali.",
         "country": "PE",
@@ -62,12 +62,6 @@
         "name": "Amazon",
         "source": "planetcatfish",
         "quote": "South America: Upper Amazon River basin.",
-        "ok": true
-      },
-      {
-        "name": "Amazonia",
-        "source": "glaser",
-        "quote": "One of the most common species of Doradidae in Amazonia.",
         "ok": true
       }
     ],

@@ -1,8 +1,13 @@
 {
   "slug": "batang-kayan",
-  "name": "Kayan",
+  "name": "Batang Kayan",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.8,
+    "at": "2026-11-15T17:21:14.298Z"
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

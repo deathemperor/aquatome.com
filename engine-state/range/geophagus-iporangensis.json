@@ -1,8 +1,8 @@
 {
   "id": "geophagus-iporangensis",
   "native": {
-    "input": "6d8d97de2442737e",
-    "at": "2026-11-08T10:57:49.558Z",
+    "input": "9a89d6c1c0deecda",
+    "at": "2026-11-15T17:26:01.251Z",
     "claims": [
       {
         "code": "BR",
@@ -11,19 +11,11 @@
         "quote": "Known only from the rio Ribeira de Iguapé drainage basin which lies within the Vale do Ribeira, a coastal valley formed by the river straddling the border region between the states of São Paulo and Paraná, southern Brazil.",
         "words": "Brazil",
         "ok": true
-      },
-      {
-        "code": "BR",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Type locality is given as 'Mountain streams of Rio Ribeira de Iguapé, Iporanga, Brazil'.",
-        "words": "Brazil",
-        "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Rio Ribeira de Iguapé",
+        "name": "Ribeira de Iguapé",
         "source": "seriouslyfish",
         "quote": "Known only from the rio Ribeira de Iguapé drainage basin which lies within the Vale do Ribeira, a coastal valley formed by the river straddling the border region between the states of São Paulo and Paraná, southern Brazil.",
         "country": "BR",

@@ -1,8 +1,13 @@
 {
   "slug": "demeni",
-  "name": "Demeni",
+  "name": "Sungai Demeni",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-15T17:21:29.211Z"
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

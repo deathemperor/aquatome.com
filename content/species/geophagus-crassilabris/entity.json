@@ -16,16 +16,19 @@
   "range": {
     "native": {
       "countries": [
-        "PA"
+        "PA",
+        "CO"
       ],
       "regions": [
+        "Rio Chacu",
         "Chagres",
         "Bayano",
         "Tuira",
         "Sambú"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -35,6 +38,16 @@
             "PA"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Colombia, Rio Chacu.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Rio Chacu"
+          ]
         },
         {
           "source": "seriouslyfish",
@@ -52,7 +65,7 @@
     "records": {
       "taxonKey": 5208427,
       "total": 106,
-      "fetched": "2026-11-08",
+      "fetched": "2026-11-15",
       "countries": [
         [
           "PA",
@@ -98,13 +111,13 @@
           -77.34375,
           4.21875,
           6,
-          0
+          6
         ],
         [
           -77.34375,
           5.625,
           1,
-          0
+          1
         ]
       ]
     }

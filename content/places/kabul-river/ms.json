@@ -1,8 +1,13 @@
 {
   "slug": "kabul-river",
-  "name": "Kabul",
+  "name": "Sungai Kabul",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-15T17:17:12.737Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

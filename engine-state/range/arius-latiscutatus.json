@@ -1,0 +1,145 @@
+{
+  "id": "arius-latiscutatus",
+  "native": {
+    "input": "cdd5660eb5c41575",
+    "at": "2026-11-15T17:26:01.251Z",
+    "claims": [
+      {
+        "code": "GQ",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Fernando Póo Island [Bioco Island], Equatorial Guinea, Gulf of Guinea.",
+        "words": "Equatorial Guinea",
+        "ok": true
+      },
+      {
+        "code": "SN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Eastern Atlantic: Dakar, Senegal to Angola; one record from Fernando Poo.",
+        "words": "Senegal",
+        "ok": true
+      },
+      {
+        "code": "AO",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Eastern Atlantic: Dakar, Senegal to Angola; one record from Fernando Poo.",
+        "words": "Angola",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Fernando Póo Island",
+        "source": "planetcatfish",
+        "quote": "Type locality: Fernando Póo Island [Bioco Island], Equatorial Guinea, Gulf of Guinea.",
+        "country": "GQ",
+        "ok": true
+      },
+      {
+        "name": "Niger",
+        "source": "planetcatfish",
+        "quote": "Reported from Gambia and the lower Niger basin.",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "GM",
+        "NG",
+        "NE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Arius latiscutatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2345301,
+    "datasets": [
+      [
+        "91adb050-a7ca-4de1-85c5-e8d117f9f8a5",
+        63
+      ],
+      [
+        "5e1d2d54-f5db-43ac-87c5-55a9f79ac718",
+        18
+      ],
+      [
+        "6f1d3840-55dc-49d5-a4be-263e6299cc79",
+        18
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        16
+      ],
+      [
+        "8e912d78-6259-44e3-8f58-debb3081a15f",
+        5
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        4
+      ],
+      [
+        "999e2b4b-5dae-475a-bd2d-beae8fd6c8c9",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "2ba30ed2-6f82-480c-a892-4c8749508324",
+        1
+      ],
+      [
+        "40a262b4-6627-4011-afbe-159c00ec97e7",
+        1
+      ],
+      [
+        "47f75ea9-ad74-47ab-919a-b8c8d4f1fce3",
+        1
+      ],
+      [
+        "59f5ba07-1c5f-43dc-bbd5-6e4a7ced0f30",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "b650244f-317c-497a-99a7-c703b6b95713",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "de55d6c3-248a-4f08-ba75-66dcff510f13",
+        1
+      ]
+    ],
+    "native": [
+      "GQ",
+      "SN",
+      "AO"
+    ],
+    "requests": 13,
+    "at": "2026-11-15T17:26:01.251Z"
+  }
+}

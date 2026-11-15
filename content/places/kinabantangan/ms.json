@@ -3,6 +3,12 @@
   "name": "Kinabatangan",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.2,
+    "at": "2026-11-15T17:17:59.975Z",
+    "why": "The Malay name is \"Kinabatangan\" (Sungai Kinabatangan for the river); the given \"Kinabatangan\" is actually the standard spelling, but the entry is a region while the source describes the river, so scoring is moderated."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

@@ -3,6 +3,12 @@
   "name": "Aek Sibundung",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-15T17:20:45.243Z",
+    "why": "\"Aek\" is the local Batak word for \"river\" and is part of the proper name, but Indonesian atlases normally write such rivers as \"Sungai Aek Sibundung\" or \"Aek Sibundung\" with the kind word; the bare name omits the Indonesian kind word \"Sungai\"."
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

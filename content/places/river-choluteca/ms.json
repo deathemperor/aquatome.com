@@ -1,8 +1,13 @@
 {
   "slug": "river-choluteca",
-  "name": "Choluteca",
+  "name": "Sungai Choluteca",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-15T17:19:17.773Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

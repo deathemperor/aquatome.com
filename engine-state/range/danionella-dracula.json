@@ -1,8 +1,8 @@
 {
   "id": "danionella-dracula",
   "native": {
-    "input": "ff17906a63f6bfd3",
-    "at": "2026-11-07T16:21:07.852Z",
+    "input": "0b12ee9dc9392c85",
+    "at": "2026-11-15T17:26:01.251Z",
     "claims": [
       {
         "code": "MM",
@@ -10,6 +10,14 @@
         "source": "seriouslyfish",
         "quote": "Known only from the Mogaung Chaung (Mogaung stream), Myitkyina District, Kachin State, northern Myanmar.",
         "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Burma.",
+        "words": "Burma",
         "ok": true
       }
     ],

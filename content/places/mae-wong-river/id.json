@@ -1,8 +1,13 @@
 {
   "slug": "mae-wong-river",
-  "name": "แม่วงก์",
+  "name": "Sungai Mae Wong",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-15T17:22:27.159Z"
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

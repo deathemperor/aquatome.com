@@ -3888,12 +3888,17 @@
     "products": []
   },
   "id/plants/lilaeopsis-brasiliensis": {
-    "at": "2026-11-08",
-    "hash": "fdd1ef8cb2cacabb",
+    "at": "2026-11-15",
+    "hash": "64d3cabbef786f5d",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
-    "products": []
+    "products": [
+      "Seachem Flourish Excel",
+      "ADA Amazonia aqua soil",
+      "Carib Sea Eco-Complete",
+      "Seachem Fluorite"
+    ]
   },
   "id/plants/limnobium-laevigatum": {
     "at": "2026-11-09",
@@ -5506,9 +5511,10 @@
     "products": []
   },
   "id/species/altolamprologus-compressiceps": {
-    "at": "2026-11-07",
-    "hash": "1619d66c443ac837",
+    "at": "2026-11-15",
+    "hash": "4df2eb25369304ab",
     "model": "opus",
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -8672,9 +8678,10 @@
     "products": []
   },
   "id/species/baryancistrus-beggini": {
-    "at": "2026-11-07",
-    "hash": "97c9eea5bf1c3e04",
+    "at": "2026-11-15",
+    "hash": "32c0c6f7cf76cd39",
     "model": "opus",
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -9020,7 +9027,7 @@
   },
   "id/species/betta-burdigala": {
     "at": "2026-11-15",
-    "hash": "8903fbab01b6f003",
+    "hash": "f483402b674a8990",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -9339,7 +9346,7 @@
   },
   "id/species/betta-livida": {
     "at": "2026-11-15",
-    "hash": "c4243a6405ce9355",
+    "hash": "14c8586408ed03cb",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -9718,16 +9725,16 @@
     "products": []
   },
   "id/species/betta-siamorientalis": {
-    "at": "2026-11-09",
-    "hash": "e0242f76ddd12903",
+    "at": "2026-11-15",
+    "hash": "631519a95f29fef2",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P5",
-        "quote": "Ikan yang ditawarkan di sini adalah tangkapan alam dari lokasi tipe di Long An, Vietnam.",
-        "why": "Refers to the source shop's own stock on offer.",
+        "part": "P2",
+        "quote": "Ukuran yang tersedia: 3-4 cm.",
+        "why": "Describes the sizes the source shop has in stock, which the reader can't buy.",
         "by": "model"
       }
     ],
@@ -9804,10 +9811,10 @@
     "products": []
   },
   "id/species/betta-stiktos": {
-    "at": "2026-11-08",
-    "hash": "c80f2ede74ed6162",
+    "at": "2026-11-15",
+    "hash": "60eb6a0824800771",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -11524,19 +11531,11 @@
     "products": []
   },
   "id/species/cichla-ocellaris": {
-    "at": "2026-11-09",
-    "hash": "fab915661b6e6fb0",
+    "at": "2026-11-15",
+    "hash": "fe645b634ef4b5c5",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "elsewhere",
-        "part": "P7",
-        "quote": "ikan lancefish (sand eel)",
-        "why": "Lancefish is a frozen food sold in UK aquarium shops and isn't something keepers in Indonesia can buy.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "id/species/cichla-orinocensis": {
@@ -12131,26 +12130,11 @@
     "products": []
   },
   "id/species/corydoras-adolfoi": {
-    "at": "2026-11-10",
-    "hash": "a50e5de0f8fed200",
+    "at": "2026-11-15",
+    "hash": "27a586f34f3ea7a1",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P6",
-        "quote": "Saat ini dipelihara pada pH 6–7",
-        "why": "The shop is describing its own fish in stock, which the reader has never seen.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P8",
-        "quote": "Saat ini diberi pakan blackworm, cacing darah beku, dan pelet.",
-        "why": "The shop is describing how it currently feeds its own stock.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "id/species/corydoras-aeneus": {
@@ -12218,16 +12202,16 @@
     "products": []
   },
   "id/species/corydoras-armatus": {
-    "at": "2026-11-10",
-    "hash": "0e638ed8e4f37c9d",
+    "at": "2026-11-15",
+    "hash": "0f8c8d82774cc35a",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P10",
-        "quote": "Ikan dari Venezuela baru saja diimpor sebagai spesimen yang sehat dan besar.",
-        "why": "This is the source shop's stock news about a recent import, which the reader knows nothing about.",
+        "part": "P3",
+        "quote": "April 2005: Ikan ini diimpor dari Kolombia.",
+        "why": "This is the source exporter's own import news, which the reader in Indonesia doesn't know about.",
         "by": "model"
       }
     ],
@@ -12402,8 +12386,8 @@
     "products": []
   },
   "id/species/corydoras-duplicareus": {
-    "at": "2026-11-10",
-    "hash": "23e6efa9bb8fcfb5",
+    "at": "2026-11-15",
+    "hash": "64b358a42d70e3b0",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -13101,22 +13085,22 @@
   },
   "id/species/corydoras-robustus": {
     "at": "2026-11-15",
-    "hash": "f3d978f1912ae3b1",
+    "hash": "5bfac2e162d86cf4",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
-        "part": "P14",
+        "part": "P15",
         "quote": "Musim ini jatuh pada waktu yang sama dengan musim dingin di Inggris",
-        "why": "The spawning-season advice uses British winter and summer, which don't exist for a reader in tropical Indonesia.",
+        "why": "Times breeding attempts by British seasons, which don't apply to a keeper in Indonesia.",
         "by": "model"
       },
       {
         "check": "elsewhere",
         "part": "P8",
         "quote": "kayu beech biasa aman dipakai asalkan sudah benar-benar kering dan dikupas kulitnya",
-        "why": "It suggests beech wood and beech or oak leaves, which a European reader can gather but which don't grow in Indonesia.",
+        "why": "Suggests beech wood and beech or oak leaves, European trees that readers in Indonesia can't easily get; local alternatives such as ketapang leaves are used instead.",
         "by": "model"
       }
     ],
@@ -13666,7 +13650,7 @@
     "products": []
   },
   "id/species/crenicichla-regani": {
-    "at": "2026-11-13",
+    "at": "2026-11-15",
     "hash": "fe023a1bf5bc6176",
     "model": "opus",
     "checklist": 3,
@@ -13855,23 +13839,16 @@
     "products": []
   },
   "id/species/ctenopoma-acutirostre": {
-    "at": "2026-11-13",
-    "hash": "d36f9040a6d6bef0",
+    "at": "2026-11-15",
+    "hash": "8bdcf02e3892bbad",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P10",
-        "quote": "Kiriman impor terbaru dari R. D. Kongo juga berisi beberapa leopard bushfish tangkapan alam.",
-        "why": "This is the source shop's news about its own import shipment, which the reader doesn't know about.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P10",
-        "quote": "Hanya tersedia dalam jumlah terbatas.",
-        "why": "This is about the source shop's stock, not something the reader can buy.",
+        "part": "P12",
+        "quote": "Begitu tiba, ikan-ikan ini memiliki warna yang luar biasa kuat.",
+        "why": "This is the supplier's own news about its import arriving, told as if the reader knew that shipment.",
         "by": "model"
       }
     ],
@@ -13910,16 +13887,16 @@
     "products": []
   },
   "id/species/ctenops-nobilis": {
-    "at": "2026-11-13",
-    "hash": "1309ad1af268f20c",
+    "at": "2026-11-15",
+    "hash": "7285d3f72f5eac70",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
-        "part": "P6",
+        "part": "P10",
         "quote": "Di banyak negara atau rumah yang terinsulasi baik, pemanas buatan tidak diperlukan",
-        "why": "Assumes a cool climate and insulated houses; in Indonesia room temperature is usually above this fish's 15–25 °C range, so cooling is the issue, not heating.",
+        "why": "It assumes a cool-climate home where heating is the question, but Indonesian room temperatures are above this fish's 15–25 °C range, so the real problem is keeping the water cool.",
         "by": "model"
       }
     ],
@@ -14256,8 +14233,8 @@
     "products": []
   },
   "id/species/danio-aesculapii": {
-    "at": "2026-11-14",
-    "hash": "67a6884b21739e02",
+    "at": "2026-11-15",
+    "hash": "00658af1ac1f6eec",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -14635,7 +14612,7 @@
   },
   "id/species/gasteropelecus-maculatus": {
     "at": "2026-11-15",
-    "hash": "837a319830b9477c",
+    "hash": "8689f2aa755731aa",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -17895,19 +17872,11 @@
     "products": []
   },
   "id/species/symphysodon-aequifasciatus": {
-    "at": "2026-11-10",
-    "hash": "b731130a519422e1",
+    "at": "2026-11-15",
+    "hash": "3afea6244b5b0263",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P9",
-        "quote": "Varian \"Red Inferno\" dari Rio Moju saat ini datang dengan kualitas yang luar biasa bagus.",
-        "why": "This is the source importer's stock news about current arrivals, not something the reader can relate to.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "id/species/symphysodon-discus": {
@@ -19637,19 +19606,11 @@
     "sourceRead": true
   },
   "ms/guides/aquatome-cach-tao-vi-sinh-va-dung-men-vi-sinh-cho-ho-ca": {
-    "at": "2026-11-10",
-    "hash": "0b44420d223e3a4d",
+    "at": "2026-11-15",
+    "hash": "85313b8402ab05d1",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "elsewhere",
-        "part": "P1",
-        "quote": "Hidupkan aliran air dan panaskan air ke 24–26 °C sebelum memasukkan bakteria.",
-        "why": "This assumes water colder than 24–26 °C that needs heating, which is normal in a cold climate, but tap and tank water in Malaysia are usually warmer than that already.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": [],
     "doses": [
       {
@@ -19662,7 +19623,19 @@
         "perUnit": "",
         "use": "other",
         "method": "wholeTank",
-        "quote": "tambah ammonium klorida sehingga ammonia kira-kira 2.0 ppm"
+        "quote": "masukkan sebotol penuh bakteria dan ammonium klorida sehingga ammonia mencapai kira-kira 2.0 ppm"
+      },
+      {
+        "treatment": "bottled bacteria",
+        "strength": "",
+        "amount": 1,
+        "amountMax": 0,
+        "unit": "bottle",
+        "per": 0,
+        "perUnit": "",
+        "use": "other",
+        "method": "wholeTank",
+        "quote": "Hari 1: masukkan sebotol penuh bakteria"
       }
     ],
     "sourceRead": true
@@ -20742,8 +20715,8 @@
     "products": []
   },
   "ms/species/acnodon-normani": {
-    "at": "2026-11-13",
-    "hash": "05c5a32698f12c4b",
+    "at": "2026-11-15",
+    "hash": "f7d4f05b8c85c17b",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -21198,11 +21171,19 @@
     "products": []
   },
   "ms/species/anabas-testudineus": {
-    "at": "2026-11-12",
-    "hash": "6692ad5eacedb251",
+    "at": "2026-11-15",
+    "hash": "fb0c1401fcd46ef1",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "source",
+        "part": "P5",
+        "quote": "Ikan yang diterangkan di sini diimport dari Thailand.",
+        "why": "Refers to the source's own imported stock as if the reader knew it; puyu is native to Malaysia.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "ms/species/ancistrus-dolichopterus": {
@@ -21689,8 +21670,8 @@
     "products": []
   },
   "ms/species/gasteropelecus-maculatus": {
-    "at": "2026-11-14",
-    "hash": "47d9b27c80e92138",
+    "at": "2026-11-15",
+    "hash": "b7fce9a2bbb7e49a",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -22418,19 +22399,11 @@
     "products": []
   },
   "ms/species/symphysodon-aequifasciatus": {
-    "at": "2026-11-10",
-    "hash": "033ef733e515e3a0",
+    "at": "2026-11-15",
+    "hash": "e41f39858af48fd7",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P9",
-        "quote": "Varian \"Red Inferno\" dari Rio Moju kini sampai dalam kualiti yang luar biasa baik.",
-        "why": "This is the exporter's stock news about fish that have just arrived, written as if the reader knew that shop.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "ms/species/symphysodon-discus": {
@@ -27742,10 +27715,10 @@
     "products": []
   },
   "th/species/acanthicus-adonis": {
-    "at": "2026-11-08",
-    "hash": "22c9a0e73b607520",
+    "at": "2026-11-15",
+    "hash": "b5d33f445d278ecb",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -28542,10 +28515,10 @@
     "products": []
   },
   "th/species/altolamprologus-compressiceps": {
-    "at": "2026-11-08",
-    "hash": "6dd889fbc7195581",
+    "at": "2026-11-15",
+    "hash": "e3e1c19611165153",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -31702,9 +31675,10 @@
     "products": []
   },
   "th/species/baryancistrus-beggini": {
-    "at": "2026-11-07",
+    "at": "2026-11-15",
     "hash": "ee6ff1cc6c3fcffc",
     "model": "opus",
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -32077,7 +32051,7 @@
   },
   "th/species/betta-burdigala": {
     "at": "2026-11-15",
-    "hash": "4b63602eb289e542",
+    "hash": "80986b5545a3619a",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -32376,19 +32350,10 @@
   },
   "th/species/betta-livida": {
     "at": "2026-11-15",
-    "hash": "0c59c0b1a91e3e53",
+    "hash": "6b243189862db1bb",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P11",
-        "quote": "สามารถให้แบล็กเวิร์ม (blackworm) แบบเป็น",
-        "why": "Transliterated English 'live blackworm'; Thai keepers name live worms differently and say 'แบบมีชีวิต'/'อาหารสด'.",
-        "by": "model",
-        "fix": "ไส้เดือนน้ำแบบมีชีวิต"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "th/species/betta-macrostoma": {
@@ -32722,23 +32687,16 @@
     "products": []
   },
   "th/species/betta-siamorientalis": {
-    "at": "2026-11-09",
-    "hash": "1ac96f2f438dc8cf",
+    "at": "2026-11-15",
+    "hash": "ce601e37716cd304",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P2",
-        "quote": "ขนาดที่มีจำหน่าย: 3–4 ซม.",
-        "why": "Gives the size the source shop sells these fish at, which is that shop's stock.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P5",
-        "quote": "ปลาในรายการนี้เป็นปลาที่จับจากธรรมชาติในแหล่งต้นแบบ (type locality) ที่ลองอาน ประเทศเวียดนาม",
-        "why": "Talks about the fish in the source shop's own sales listing as if the reader knew it.",
+        "quote": "ขนาดที่มีจำหน่าย: 3-4 ซม.",
+        "why": "This is the source shop's own stock size, which the reader would take as something they can buy.",
         "by": "model"
       }
     ],
@@ -32777,11 +32735,20 @@
     "products": []
   },
   "th/species/betta-smaragdina": {
-    "at": "2026-11-14",
-    "hash": "7b4aa3dcef82fa10",
+    "at": "2026-11-15",
+    "hash": "7fa752263f42782c",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "words",
+        "part": "P11",
+        "quote": "กินแบล็กเวิร์มมีชีวิต",
+        "why": "Transliteration of English 'blackworm'; Thai keepers call these live worms ไส้เดือนน้ำ.",
+        "by": "model",
+        "fix": "ไส้เดือนน้ำ"
+      }
+    ],
     "products": []
   },
   "th/species/betta-spilotogena": {
@@ -32840,10 +32807,10 @@
     "products": []
   },
   "th/species/betta-stiktos": {
-    "at": "2026-11-08",
-    "hash": "944adbf1381de46b",
+    "at": "2026-11-15",
+    "hash": "341de4244cb00803",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -34550,19 +34517,11 @@
     "products": []
   },
   "th/species/cichla-ocellaris": {
-    "at": "2026-11-09",
-    "hash": "8d785edbaada5585",
+    "at": "2026-11-15",
+    "hash": "45ecd48ed372c7b6",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "elsewhere",
-        "part": "P7",
-        "quote": "ปลาแลนซ์ (lancefish)",
-        "why": "Lancefish is a frozen food sold in UK shops. Keepers in Thailand don't know it and can't easily buy it.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "th/species/cichla-orinocensis": {
@@ -35141,23 +35100,23 @@
     "products": []
   },
   "th/species/corydoras-adolfoi": {
-    "at": "2026-11-10",
-    "hash": "067e8a5d56df31c9",
+    "at": "2026-11-15",
+    "hash": "4e1057d43fbfb4e3",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P6",
-        "quote": "ปัจจุบันเลี้ยงไว้ที่ค่า pH 6–7",
-        "why": "The source shop speaks about how it currently keeps its own stock.",
+        "quote": "ปัจจุบันเลี้ยงไว้ที่ค่า pH 6-7",
+        "why": "Describes the source shop's own fish as currently kept, a voice the reader doesn't know.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P8",
-        "quote": "ปัจจุบันให้กินแบล็กเวิร์ม (blackworm) หนอนแดงแช่แข็ง และอาหารเม็ด",
-        "why": "The source shop describes what it currently feeds its own fish.",
+        "quote": "ปัจจุบันให้กินแบล็กเวิร์ม หนอนแดงแช่แข็ง และอาหารเม็ด",
+        "why": "Reports how the source shop currently feeds its own stock.",
         "by": "model"
       }
     ],
@@ -35220,11 +35179,19 @@
     "products": []
   },
   "th/species/corydoras-armatus": {
-    "at": "2026-11-10",
-    "hash": "579f7ab5f9d2520f",
+    "at": "2026-11-15",
+    "hash": "d235be9aed6bb6a9",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "source",
+        "part": "P3",
+        "quote": "เมษายน 2005: ปลาชุดนี้นำเข้ามาจากโคลอมเบีย",
+        "why": "Refers to the source shop's own imported batch as stock news the reader doesn't know.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "th/species/corydoras-atropersonatus": {
@@ -35404,8 +35371,8 @@
     "products": []
   },
   "th/species/corydoras-duplicareus": {
-    "at": "2026-11-10",
-    "hash": "e55166032d6d665a",
+    "at": "2026-11-15",
+    "hash": "fd9cc1b29d1f7e83",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -35436,16 +35403,16 @@
     "products": []
   },
   "th/species/corydoras-ephippifer": {
-    "at": "2026-11-10",
-    "hash": "09544e857fdd37b0",
+    "at": "2026-11-15",
+    "hash": "9b90506eda5a6b95",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P8",
-        "quote": "ขณะนี้ยังไม่สามารถให้ลักษณะเฉพาะสำหรับจำแนกชนิดที่ละเอียดกว่านี้ได้ เนื่องจากไม่สามารถหาคำบรรยายต้นแบบของชนิดมาได้",
-        "why": "This is the source writer saying what they could not obtain, a voice the reader doesn't know.",
+        "part": "P15",
+        "quote": "ขณะนี้ยังให้ลักษณะสำหรับจำแนกชนิดที่แม่นยำกว่านี้ไม่ได้ เนื่องจากไม่สามารถหาเอกสารบรรยายลักษณะต้นแบบมาได้",
+        "why": "The source writer's own voice about what they could not get, which the reader does not know.",
         "by": "model"
       }
     ],
@@ -36098,31 +36065,23 @@
   },
   "th/species/corydoras-robustus": {
     "at": "2026-11-15",
-    "hash": "2f522fa41ae8c317",
+    "hash": "67a784d193b8c509",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
-        "part": "P14",
-        "quote": "ซึ่งตรงกับช่วงเวลาเดียวกับฤดูหนาวของสหราชอาณาจักร ดังนั้นหากพยายามเพาะในฤดูร้อนแล้วไม่สำเร็จ",
-        "why": "Uses UK seasons as the reader's own calendar for spawning attempts.",
+        "part": "P15",
+        "quote": "ซึ่งตรงกับช่วงเวลาเดียวกับฤดูหนาวของสหราชอาณาจักร ดังนั้นหากพยายามเพาะในฤดูร้อนแล้วไม่สำเร็จ อาจลองรอจนถึงฤดูหนาว",
+        "why": "Breeding timing is framed around UK seasons as if they were the reader's own.",
         "by": "model"
       },
       {
         "check": "elsewhere",
         "part": "P8",
         "quote": "สามารถใช้ไม้บีช (common beech) ได้อย่างปลอดภัยหากตากแห้งสนิทและลอกเปลือกออกแล้ว",
-        "why": "Suggests European beech wood and leaves as local substitutes, which a keeper in Thailand cannot easily collect.",
+        "why": "Beech wood and oak leaves are European materials that the page treats as easy for the reader to get.",
         "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P2",
-        "quote": "เป็นปลาแมวหุ้มเกราะ",
-        "why": "\"ปลาแมว\" is a literal calque of \"catfish\"; Thai keepers say ปลาหนัง or แคทฟิช.",
-        "by": "model",
-        "fix": "ปลาหนังหุ้มเกราะ"
       }
     ],
     "products": []
@@ -36603,7 +36562,7 @@
     "products": []
   },
   "th/species/crenicichla-regani": {
-    "at": "2026-11-13",
+    "at": "2026-11-15",
     "hash": "245f0b4f275ba66a",
     "model": "opus",
     "checklist": 3,
@@ -36779,16 +36738,16 @@
     "products": []
   },
   "th/species/ctenopoma-acutirostre": {
-    "at": "2026-11-13",
-    "hash": "a400ceba60a80c7d",
+    "at": "2026-11-15",
+    "hash": "bb8f71bbaed9c535",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P10",
-        "quote": "ในล็อตนำเข้าล่าสุดจากสาธารณรัฐประชาธิปไตยคองโก มีลีโอพาร์ดบุชฟิชที่จับจากธรรมชาติมาด้วยจำนวนหนึ่ง",
-        "why": "This is the source supplier's own stock news about a recent import, which the reader knows nothing about.",
+        "part": "P12",
+        "quote": "ทันทีที่ปลามาถึงมีสีเข้มสดจนแทบไม่น่าเชื่อ",
+        "why": "Reports the source shop's own import arrival as stock news the reader doesn't know.",
         "by": "model"
       }
     ],
@@ -37619,7 +37578,7 @@
   },
   "th/species/gasteropelecus-maculatus": {
     "at": "2026-11-15",
-    "hash": "e7fed8396b4e575b",
+    "hash": "8d96a9ac4430b8d3",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -59290,39 +59249,39 @@
     "products": []
   },
   "vi/guides/seriouslyfish-articles-heating-the-aquarium": {
-    "at": "2026-11-08",
-    "hash": "594a220dc86f2c06",
+    "at": "2026-11-15",
+    "hash": "953ffab79bc9b466",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
         "part": "P1",
-        "quote": "Ngay cả trong một ngôi nhà hiện đại có sưởi trung tâm, nhiệt độ ở nhiều quốc gia vẫn thường xuyên xuống dưới mức tối thiểu này",
-        "why": "Assumes a cold-climate home with central heating where rooms fall below 20°C, which is not the Vietnamese reader's home.",
+        "quote": "Ngay cả trong một ngôi nhà hiện đại có sưởi trung tâm",
+        "why": "Assumes a centrally heated home, which is not a Vietnamese reader's home.",
         "by": "model"
       },
       {
         "check": "elsewhere",
         "part": "P1",
         "quote": "Các vật liệu như Kingspan, polystyrene cấp công nghiệp, tấm cavity và vật liệu cách nhiệt Airtech đều là lựa chọn tốt.",
-        "why": "Recommends UK building insulation products and heating a fish room or shed, written for a cold-country reader.",
+        "why": "British building insulation products and practice for heated rooms or sheds.",
         "by": "model"
       },
       {
-        "check": "source",
+        "check": "elsewhere",
         "part": "P1",
-        "quote": "Xin cảm ơn Jeroen Wijnands đã góp ý và bổ sung, và Steven Gielis đã đưa ra gợi ý.",
-        "why": "Thanks people from the original article whom the reader doesn't know.",
+        "quote": "Cũng nên cân nhắc che các cửa sổ trong phòng hoặc nhà kho, dù kính hai lớp sẽ giúp giảm bớt vấn đề này.",
+        "why": "Double glazing and a heated fish shed reflect a cold-climate home abroad.",
         "by": "model"
       },
       {
         "check": "words",
         "part": "P1",
-        "quote": "Heaterstat, như thường được gọi, là thiết bị tự động đo nhiệt độ của bể",
-        "why": "'Heaterstat' is an English hobby term that Vietnamese keepers don't use.",
+        "quote": "Heaterstat, như thường được gọi, là thiết bị tự động đo nhiệt độ",
+        "why": "English hobby term that keepers in Vietnam do not use.",
         "by": "model",
-        "fix": "cây sưởi / sưởi có điều nhiệt"
+        "fix": "cây sưởi"
       }
     ],
     "products": [
@@ -117706,26 +117665,10 @@
   },
   "vi/species/otocinclus-cocama": {
     "at": "2026-11-15",
-    "hash": "ac81cb358ec904d5",
+    "hash": "67165569431400f8",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P17",
-        "quote": "nâng tổng số loài hợp lệ của giống lên 18 vào thời điểm viết bài",
-        "why": "Refers to the time the original source article was written, a writer the reader doesn't know.",
-        "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P15",
-        "quote": "các loại đồ xanh khác",
-        "why": "Calque of English 'greenstuff'; Vietnamese keepers don't say 'đồ xanh'.",
-        "by": "model",
-        "fix": "rau xanh, thức ăn xanh"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/species/otocinclus-flexilis": {
@@ -127624,7 +127567,7 @@
   },
   "ms/species/altolamprologus-compressiceps": {
     "at": "2026-11-15",
-    "hash": "bee08b2142990b1c",
+    "hash": "5a6910cb9595449d",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -127939,18 +127882,10 @@
   },
   "vi/species/corydoras-bicolor": {
     "at": "2026-11-15",
-    "hash": "e7abcf52b91a9bab",
+    "hash": "3754e76896d67fc8",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Dù đúng hay không, con cá chuột mới này vẫn rất bắt mắt.",
-        "why": "It answers a claim the page never states and calls the fish a 'new' arrival, as the source article did for its own readers.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/species/eigenmannia-trilineata": {
@@ -127987,18 +127922,10 @@
   },
   "vi/species/leporinus-steyermarki": {
     "at": "2026-11-15",
-    "hash": "fee0c5cc5d5027c3",
+    "hash": "bc3e2781c541b448",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P3",
-        "quote": "Những con đang dài 4–6 cm sống với nhau rất hiền.",
-        "why": "Describes the source shop's current stock as if the reader knew those fish.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/species/macrognathus-caudiocellatus": {
@@ -128050,31 +127977,23 @@
   },
   "vi/species/oziotelphusa-ceylonensis": {
     "at": "2026-11-15",
-    "hash": "59f95d4834d63c50",
+    "hash": "9765bb76b32edbe4",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P4",
-        "quote": "Loài này mới được nhập về gần đây.",
-        "why": "Reports the source's own news of a recent import, which means nothing to this reader now.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/species/pimephales-promelas": {
     "at": "2026-11-15",
-    "hash": "d66d574785646f26",
+    "hash": "c2fe1b857ab4c417",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
         "part": "P4",
-        "quote": "Ở nơi mùa đông xuống dưới 0 °C, phải cho cá qua đông trong xô hoặc bể đặt ở chỗ mát, tối nhưng không bị đóng băng.",
-        "why": "Winters below freezing and ponds that freeze over are a colder country's climate, not Vietnam's.",
+        "quote": "Hồ lớn đủ sâu, mùa đông không đóng băng tới đáy thì loài cá khỏe này có thể qua đông ngay trong hồ.",
+        "why": "Assumes ponds that freeze over in winter, which a Vietnamese keeper's outdoor pond does not.",
         "by": "model"
       }
     ],
@@ -128872,7 +128791,7 @@
   },
   "id/species/cambarellus-patzcuarensis": {
     "at": "2026-11-15",
-    "hash": "39b1ffa0e7e60cab",
+    "hash": "bb67d2fc1dba591b",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -128880,7 +128799,7 @@
   },
   "th/species/cambarellus-patzcuarensis": {
     "at": "2026-11-15",
-    "hash": "25122bc405d2ffbe",
+    "hash": "1620af0c87cd0fd8",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -128888,22 +128807,15 @@
   },
   "vi/guides/aquariumbreeder-holtodrilus-truncates-parasites-in-shrimp-keeping-hobby": {
     "at": "2026-11-15",
-    "hash": "5598afd40208f106",
+    "hash": "a6c29d043d787091",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "source",
-        "part": "P1",
-        "quote": "Bài này nằm trong loạt bài về bệnh và ký sinh trùng ở tép cảnh.",
-        "why": "Points at the source site's series of articles, which this page does not have.",
-        "by": "model"
-      },
-      {
         "check": "elsewhere",
         "part": "P1",
-        "quote": "Lần này là một vấn đề khá mới, theo tép từ các ao nuôi ở châu Á sang",
-        "why": "Written for a reader outside Asia who gets shrimp brought in from Asian farms, but Vietnam is in Asia.",
+        "quote": "Phải cách ly mọi con tép trước khi thả vào bể, nhất là khi biết tép đến từ các ao nuôi châu Á.",
+        "why": "Treats Asian shrimp farms as a foreign import source, written for a reader outside Asia.",
         "by": "model"
       }
     ],
@@ -128944,7 +128856,7 @@
         "amountMax": 56,
         "unit": "g",
         "per": 800,
-        "perUnit": "gram water",
+        "perUnit": "gram",
         "use": "parasites",
         "method": "bath",
         "quote": "Cho 50–56 gram muối hột vào 800 gram nước bể trong hộp thứ nhất"
@@ -128971,18 +128883,10 @@
   },
   "vi/guides/aquariumbreeder-live-plants-and-fake-plants-pros-and-cons": {
     "at": "2026-11-15",
-    "hash": "9a3cf192a81a2699",
+    "hash": "df4463bc6cc72fc5",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "nên tìm hiểu kỹ về CO2 trong bể thủy sinh, CO2 trong bể tép, tác hại của đồng với tép cảnh",
-        "why": "Points the reader to unnamed other articles (originally links in the source) that this page doesn't have.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/guides/aquariumbreeder-medusa-worm-in-a-reef-tank-stay-or-go": {
@@ -129594,23 +129498,38 @@
   },
   "vi/guides/youtube-l-PVtRWJwNw": {
     "at": "2026-11-15",
-    "hash": "e32df87648f0ec63",
+    "hash": "b6c137722dc22f64",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Cá chuyển sang trước đó từng nhiễm giun Camallanus và đã được trị nhiều lần.",
-        "why": "Refers to the video maker's own fish history as if the reader knew it.",
+        "quote": "Lúc thả vào chúng cùng cỡ, giờ thì con to con nhỏ khác nhau, do di truyền.",
+        "why": "Tells the source's own fish history as if the reader knew those fish.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Vết của mấy con này có vẻ lành nhanh, mới sau 24 giờ đã đỡ hẳn.",
-        "why": "Narrates the source's own injured fish as if the reader had seen them.",
+        "quote": "Cặp ali bố mẹ hôn môi nhau nhưng chưa đẻ khi ở bể riêng.",
+        "why": "Refers to the video maker's own breeding pair as if known to the reader.",
         "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Cá chuyển sang trước đó từng nhiễm giun Camallanus và đã được trị nhiều lần.",
+        "why": "The source's own fish and treatment history, unknown to the reader.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "cá ali xanh (electric blue acara)",
+        "why": "Vietnamese keepers use 'ali' for African mbuna, not for the electric blue acara.",
+        "by": "model",
+        "fix": "cá acara xanh (EBA)"
       }
     ],
     "products": [
@@ -129731,7 +129650,7 @@
   },
   "vi/guides/youtube-mSA2Qe9dv44": {
     "at": "2026-11-15",
-    "hash": "9f7e5d13f96b0beb",
+    "hash": "5dc076d586b05909",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -129893,5 +129812,139 @@
     "products": [
       "Lominie Asta 120"
     ]
+  },
+  "id/species/carnegiella-myersi": {
+    "at": "2026-11-15",
+    "hash": "7692ca018a6d79ca",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/guides/aquatome-ca-ngoi-len-mat-nuoc-tho-gap-nguyen-nhan-va-cach-xu-ly": {
+    "at": "2026-11-15",
+    "hash": "1d7fe0beb981b40f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/plants/glossostigma-elatinoides": {
+    "at": "2026-11-15",
+    "hash": "ef63b99c560bcd69",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P5",
+        "quote": "Jarakkan anak pokok 2.5 cm antara satu sama lain",
+        "why": "Spacing converted from 1 inch; a local keeper would give a round metric figure.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "ADA Amazonia aqua soil",
+      "CaribSea Eco-Complete",
+      "Seachem Fluorite"
+    ]
+  },
+  "ms/plants/gratiola-viscidula": {
+    "at": "2026-11-15",
+    "hash": "c5c39df27b4d1946",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/plants/helanthium-bolivianum": {
+    "at": "2026-11-15",
+    "hash": "103ce262320fcf2f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P2",
+        "quote": "mengeluarkan runner yang merebak di atas dasar tangki",
+        "why": "\"Tangki\" is a dictionary rendering of \"tank\"; Malaysian hobbyists say \"tank\" or \"akuarium\".",
+        "by": "model",
+        "fix": "dasar tank / dasar akuarium"
+      }
+    ],
+    "products": []
+  },
+  "ms/plants/helanthium-tenellum": {
+    "at": "2026-11-15",
+    "hash": "34a499e26e633e36",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "purata selepas dua bulan dalam tangki",
+        "why": "\"Tangki\" is a dictionary rendering of English \"tank\"; Malaysian keepers say \"akuarium\" for an aquarium.",
+        "by": "model",
+        "fix": "akuarium"
+      }
+    ],
+    "products": []
+  },
+  "ms/species/acanthicus-adonis": {
+    "at": "2026-11-15",
+    "hash": "f4e05f2679bbdea6",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/amblyceps-tenuispinis": {
+    "at": "2026-11-15",
+    "hash": "9c430bd3a9bb34c3",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/amblyceps-yunnanense": {
+    "at": "2026-11-15",
+    "hash": "846576f570ef0be3",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/amblydoras-nauticus": {
+    "at": "2026-11-15",
+    "hash": "a184f7c62a802beb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/carnegiella-myersi": {
+    "at": "2026-11-15",
+    "hash": "1bc5a1243fdb8c24",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/aquatome-cho-ca-an-so-lan-luong-loai-thuc-an": {
+    "at": "2026-11-15",
+    "hash": "c38e3d18f81fe7fa",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/aquatome-may-sui-oxy-suc-khi-cho-be-ca-cong-dung-va-cach-chon": {
+    "at": "2026-11-15",
+    "hash": "5df8b485018c6f51",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
   }
 }

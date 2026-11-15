@@ -1,8 +1,8 @@
 {
   "id": "enteromius-hulstaerti",
   "native": {
-    "input": "26f3a6caff93cddc",
-    "at": "2026-11-08T03:17:10.020Z",
+    "input": "d50c836dd23f7e41",
+    "at": "2026-11-15T17:26:01.251Z",
     "claims": [
       {
         "code": "CD",
@@ -16,8 +16,8 @@
         "code": "CD",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The African butterfly barb, Enteromius hulstaerti, is a cyprinid endemic to DR Congo, in rainforest south and east of the main Congo River channel.",
-        "words": "DR Congo",
+        "quote": "Endemic to the Democratic Republic of Congo in central Africa where it has been recorded from central parts of the Congo River drainage within the great area of equatorial rainforest situated south and east of the main river channel.",
+        "words": "Democratic Republic of Congo",
         "ok": true
       },
       {
@@ -31,7 +31,7 @@
     ],
     "regions": [
       {
-        "name": "Congo River",
+        "name": "Congo",
         "source": "seriouslyfish",
         "quote": "Endemic to the Democratic Republic of Congo in central Africa where it has been recorded from central parts of the Congo River drainage within the great area of equatorial rainforest situated south and east of the main river channel.",
         "country": "CD",

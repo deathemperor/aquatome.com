@@ -10,6 +10,129 @@
     "brazil",
     "rio-de-janeiro"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Guandu"
+      ],
+      "sources": [
+        "planetcatfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio de Janeiro State, Santa Cruz, rio Guandu, Santa Cruz farm - Emperor Pedro II's farm, Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Guandu"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339258,
+      "total": 81,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "BR",
+          81
+        ]
+      ],
+      "cells": [
+        [
+          -52.03125,
+          -26.71875,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -28.125,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -26.71875,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -26.71875,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          -46.40625,
+          -23.90625,
+          2,
+          2
+        ],
+        [
+          -45,
+          -23.90625,
+          7,
+          7
+        ],
+        [
+          -45,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -23.90625,
+          21,
+          21
+        ],
+        [
+          -43.59375,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -22.5,
+          28,
+          28
+        ],
+        [
+          -42.1875,
+          -21.09375,
+          11,
+          11
+        ],
+        [
+          -40.78125,
+          -21.09375,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

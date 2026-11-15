@@ -3,6 +3,12 @@
   "name": "Papaloapan",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-15T17:23:45.646Z",
+    "why": "Nama sungai ini tanpa kata jenis \"Sungai\" dan ejaannya \"Papaloapan\" berbeda dari sumber \"Papaloapam\"; atlas Indonesia menulis \"Sungai Papaloapan\" (ejaan standar), sehingga tanpa kata \"Sungai\" nama ini kurang lengkap."
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

@@ -1,8 +1,13 @@
 {
   "slug": "coppename",
-  "name": "Coppename",
+  "name": "Sungai Coppename",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-15T17:14:50.397Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false
