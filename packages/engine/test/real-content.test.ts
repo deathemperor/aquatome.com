@@ -579,16 +579,16 @@ test('the fire-bellied toad guide is held by hand in every language it has', () 
 // The Writing Lead's answer of 15 Nov 2026 on 60 findings in 17 held video guides (the source talking, units, prices),
 // fixed by hand: each guide is bodyFixed, and the pond guide's FAQ faqFixed, so no run takes a fix back. Each line is in
 // test/fixtures/held-video-fixes.json: what went, and what stands in its place.
-test('the hand fixes to the 17 held video guides hold: each cut line is gone, each rewrite is there', () => {
+test('the hand fixes to the 17 held video guides hold: each cut line is gone, each rewrite or care fact put back is there', () => {
   const root = fileURLToPath(new URL('../../../content/guides', import.meta.url))
-  const fixes = JSON.parse(readFileSync(fileURLToPath(new URL('./fixtures/held-video-fixes.json', import.meta.url)), 'utf8')) as Record<string, { in: 'body' | 'summary' | 'faq'; gone: string; now?: string }[]>
+  const fixes = JSON.parse(readFileSync(fileURLToPath(new URL('./fixtures/held-video-fixes.json', import.meta.url)), 'utf8')) as Record<string, { in: 'body' | 'summary' | 'faq'; gone?: string; now?: string }[]>
   for (const [id, edits] of Object.entries(fixes)) {
     const t = JSON.parse(readFileSync(join(root, `youtube-${id}`, 'vi.json'), 'utf8')) as { body: string; bodyFixed?: boolean; summary?: string[]; faq?: { q: string; a: string }[]; faqFixed?: boolean }
     expect(t.bodyFixed, id).toBe(true)
     const text = { body: t.body, summary: (t.summary ?? []).join('\n'), faq: (t.faq ?? []).map(q => q.a).join('\n') }
     for (const e of edits) {
       if (e.in === 'faq') expect(t.faqFixed, id).toBe(true)
-      expect(text[e.in], `${id}: ${e.gone}`).not.toContain(e.gone)
+      if (e.gone) expect(text[e.in], `${id}: ${e.gone}`).not.toContain(e.gone)
       if (e.now) expect(text[e.in], `${id}: ${e.now}`).toContain(e.now)
     }
   }
