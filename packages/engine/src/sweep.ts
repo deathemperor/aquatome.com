@@ -12,8 +12,8 @@ import { droppedName, FISH_NAMES, KIND_PASSAGES, ownWords, type FishName, type K
 import { withLNumber } from './l-numbers'
 import { pickStands, readPersonYes } from './person-yes'
 import { EMPTY_CAP, refusedOn, type PhotoVerdict } from './photo-check'
-import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, fixTranslation, isAdPoster, notAlive, isMap, unwellOff, NAMED_KINDS, renameFishNames, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
-import { loadPages, sectionFields } from './pages'
+import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, fixTranslation, isAdPoster, notAlive, isMap, unwellOff, NAMED_KINDS, renameFishNames, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
+import { loadPages, sectionFields, type PageKind } from './pages'
 import { foldPages } from './page-folds'
 import { sweepPlaceNames } from './place-names'
 import { sfDifficulty } from './process'
@@ -48,6 +48,11 @@ import { namedOn, namedOrder, passesHead } from './photo-named'
  * - empty headings and blocks: dropped; a repeated paragraph: the later copy dropped; labels out of order: renumbered
  * - a sentence that only says the text is translated, adapted or used with permission (the source's note under an
  *   article it reprints): dropped, its paragraph too when it is all there is (dropPermissionNotes)
+ * - a source's photo caption or credit left as a block of its own in a guide's text, its photo not with it ("Ảnh: <name>",
+ *   "… © <name>"), and a source's thanks to the people or shops who helped it ("Cảm ơn <name>.", "Terima kasih kepada
+ *   <name>."): the block cut (dropPhotoCaptions, dropThanks); a caption that says something more than what its photo
+ *   shows keeps its words, its label and credits cut (dropPhotoCaptions)
+ * - "© <name>" after a work's title in a fish page's references: the "©" and the name cut, the title and link kept (dropRefCredits)
  * - a photo whose caption names another fish the site has, or is a map, or a Wikimedia Commons photo whose own words say
  *   it is a paper's plate, a microscope picture, a drawing or a dish: off that page (its file and its gallery). A map or
  *   a plate leaves every page (engine-state/_photo-rejected.json); a photo of another fish may still join that fish's page, so
@@ -123,7 +128,7 @@ export type SweepReport = {
   files: string[]
   /** Species pages moved to the group their order allows (regroupPages). */
   regrouped?: string[]
-  /** Pages changed by each text fix: furniture, headings, repeated, labels, permission, name, fish-name, renamed (and tidy: the fixes made on write). */
+  /** Pages changed by each text fix: furniture, headings, repeated, labels, permission, captions, thanks, ref-credits, name, fish-name, renamed (and tidy: the fixes made on write). */
   text: Record<string, string[]>
   photos: string[]
   rejected: number
@@ -196,7 +201,7 @@ const write = async (file: string, raw: string, data: unknown) => writeFile(file
  * they can be cut; labels renumbered make a heading the tidy folds), and the real-content test holds what one pass would
  * leave.
  */
-export function sweepTranslation<T extends Stored>(t: T): { t: T; fixed: string[] } {
+export function sweepTranslation<T extends Stored>(t: T, kind?: PageKind): { t: T; fixed: string[] } {
   const fixed: string[] = []
   const mark = (name: string) => { if (!fixed.includes(name)) fixed.push(name) }
   const prose = (field: string) => !field.startsWith('sections.references')
@@ -216,6 +221,20 @@ export function sweepTranslation<T extends Stored>(t: T): { t: T; fixed: string[
     out = step('headings', repeats, dropEmptyHeadings)
     out = step('labels', out, renumberLabels)
     out = step('permission', out, dropPermissionNotes)
+    // A photo caption left in a guide's text: the site sets a guide's photos under its headings, each with its own caption.
+    out = out.map(f => {
+      const html = kind === 'guides' && f.field === 'body' ? dropPhotoCaptions(f.html) : f.html
+      if (html !== f.html) mark('captions')
+      return { ...f, html }
+    })
+    out = step('thanks', out, dropThanks)
+    // The sources' references: only the "© <name>" after a work's title.
+    out = out.map(f => {
+      if (prose(f.field)) return f
+      const html = dropRefCredits(f.html)
+      if (html !== f.html) mark('ref-credits')
+      return { ...f, html }
+    })
     const html = (field: string) => out.find(f => f.field === field)!.html
     const next = {
       ...tidy,
@@ -486,7 +505,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
         const raw = await readFile(file, 'utf8').catch(() => null)
         if (!raw) continue
         const before = JSON.parse(raw) as Stored
-        const swept = sweepTranslation(before)
+        const swept = sweepTranslation(before, kind)
         // A name as hobbyists write it (alt-names.ts tidyName): Vietnamese, on the pages named for what they are.
         const named = lang === 'vi' && NAMED_KINDS.includes(kind) && swept.t.name !== undefined && swept.t.altNames ? tidyNames(swept.t as Stored & { name: string; altNames: string[] }, kind) : swept.t
         const renamed = lang === 'vi' ? renameStored(named) : named

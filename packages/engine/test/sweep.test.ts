@@ -616,6 +616,22 @@ test('a title rewritten by the model is kept when the reviewer passes it, and th
   expect(sweepTranslation(adapted.t).fixed).toEqual([])
 })
 
+// Page Recovery, 2026-11-12: a source's photo captions in a guide's text, its thanks, and the "© <name>" in a fish page's
+// references, cut each cycle, as the other text fixes are: a part a person fixed too (bodyFixed), since none of them adds a
+// word. The names are invented.
+test('the sweep cuts a guide\'s stray photo captions, a source\'s thanks and the names after "©" in the references', () => {
+  const care = '<p>Thay 20% nước mỗi tuần.</p>'
+  const guide = { body: `${care}<p>Ảnh: Nguyễn Văn A</p><p>Lá mục là thức ăn cho cá bột © Jane Example</p><p>Cảm ơn Jane Example đã góp ý.</p>`, bodyFixed: true }
+  expect(sweepTranslation(guide, 'guides')).toEqual({ t: { body: care, bodyFixed: true }, fixed: ['captions', 'thanks'] })
+  // A caption is a guide's: a fish page's part or a breed's text keeps a line of that shape.
+  expect(sweepTranslation({ body: `${care}<p>Ảnh: Nguyễn Văn A</p>` }, 'breeds').fixed).toEqual([])
+  const work = 'The ETYFish Project Fish Name Etymology Database'
+  const fish = { sections: { 'notes:x': `${care}<p>Terima kasih kepada Toko Contoh.</p>`, 'references:x': `<p>${work} © Jane Example.</p>` } }
+  expect(sweepTranslation(fish, 'species')).toEqual({ t: { sections: { 'notes:x': care, 'references:x': `<p>${work}.</p>` } }, fixed: ['thanks', 'ref-credits'] })
+  // Once is enough: a second pass changes nothing.
+  expect(sweepTranslation(sweepTranslation(fish, 'species').t, 'species').fixed).toEqual([])
+})
+
 test("a language the site doesn't serve yet is swept too: its text fixed, its names its own", async () => {
   const root = await store()
   const c = join(root, 'content')
