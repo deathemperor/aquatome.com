@@ -161,6 +161,8 @@ test('kept work out of time three cycles in a row fails as broken work, with its
 
 // A stand-in for the checks: the first passes while another job lands on main (`landing`, run in a clone of its own), so
 // the push after it is refused; every check after that runs out of time, or with `later` set, does that.
+// Main's commit during the race changes code, so the work is checked again after it (quiet_pull).
+const CODE_LANDS = 'mkdir -p packages && echo 2 > packages/code.ts && git add .'
 const racing = (landing: string, later = "echo 'Error: Test timed out in 30000ms.'; return 1") => `checks() {
   if [ ! -f "$HOME/passed" ]; then touch "$HOME/passed"; (cd "$HOME" && rm -rf other && git clone -q origin.git other 2>/dev/null && cd other && git config user.email a@example.com && git config user.name a && ${landing} && git commit -qm sf && git push -q 2>/dev/null); return 0; fi
   ${later}
@@ -182,7 +184,8 @@ function atOut2(c: ReturnType<typeof clone>, work = 'echo photos > content/b.jso
 test('a check that passed ends the row before any push: a push lost to a race, then out of time, counts from there', () => {
   const c = clone()
   const base = atOut2(c)
-  const log = c.cycle(`${racing('echo sf > content/c.json && git add .')}; publish_kept photos`)
+  // A race with code in it, which is checked again (quiet_pull): one with content only now goes out after the sweep.
+  const log = c.cycle(`${racing(CODE_LANDS)}; publish_kept photos`)
   expect(log).toContain(`LOG ${base}-out2 isn't published yet (tests out of time again: 1 of 3 cycles in a row): it stays kept for the next run, as ${base}-out1`)
   expect(c.branches()).toEqual([`${base}-out1`])
   expect(c.onMain('content/b.json')).toBe('')
@@ -241,7 +244,7 @@ test("a count that can't be written leaves the work kept under its present name,
 test('a pass whose rename fails is never held on the count it leaves', () => {
   const c = clone()
   const base = atOut2(c)
-  const log = c.cycle(`${racing('echo sf > content/c.json && git add .')}; rename_branch() { return 1; }; publish_kept photos; echo "FAULT=\${FAULT:-}"`)
+  const log = c.cycle(`${racing(CODE_LANDS)}; rename_branch() { return 1; }; publish_kept photos; echo "FAULT=\${FAULT:-}"`)
   expect(log).toContain(`LOG ${base}-out2 isn't published yet (tests out of time again): it stays kept for the next run`)
   expect(log).toContain(`FAULT=${base}-out2 passed its checks and couldn't be renamed ${base}: it stays as ${base}-out2, and its count is wrong until it is`)
   // Codex's read of 6d2aea2bd: the next run knew nothing of the pass, and out of time it held the work at -out3. The
