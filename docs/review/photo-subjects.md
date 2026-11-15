@@ -1043,8 +1043,8 @@ Written by `pnpm engine check-photos` (2026-11-15), most-read pages first. Rules
 | species/vandellia-cirrhosa | [photo](https://media.aquatome.com/scotcat/e5b0706621867372.webp) | subject unsure |
 | species/vandellia-sanguinea | [photo](https://media.aquatome.com/scotcat/b234596074d64639.webp) | subject unsure |
 | species/vieja-maculicauda | [photo](https://media.aquatome.com/inaturalist/391759866.webp) | subject unsure |
-| species/wallago-attu (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/48f09c0951615426.webp) | subject unsure |
-| species/xenentodon-canciloides | [photo](https://media.aquatome.com/commons/40c3821ba9e18917.webp) | subject unsure |
+| species/wallago-attu (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/48f09c0951615426.webp) | subject other |
+| species/xenentodon-canciloides | [photo](https://media.aquatome.com/commons/40c3821ba9e18917.webp) | subject yes |
 | species/xenentodon-canciloides | [photo](https://media.aquatome.com/inaturalist/545364515.webp) | subject unsure |
 | species/xenentodon-canciloides | [photo](https://media.aquatome.com/inaturalist/663713250.webp) | subject unsure |
 | species/xenentodon-canciloides | [photo](https://media.aquatome.com/seriouslyfish/2c31d2e337c721de.webp) | subject unsure |
@@ -1053,8 +1053,8 @@ Written by `pnpm engine check-photos` (2026-11-15), most-read pages first. Rules
 | species/yunnanilus-brevis | [photo](https://media.aquatome.com/seriouslyfish/2252ecd5e0bcd9f6.webp) | subject unsure |
 | species/yunnanilus-cruciatus | [photo](https://media.aquatome.com/seriouslyfish/4923f13007ca5582.webp) | subject unsure |
 | species/yunnanilus-cruciatus | [photo](https://media.aquatome.com/seriouslyfish/b0b8660a152302ca.webp) | subject unsure |
-| plants/azolla | [photo](https://media.aquatome.com/commons/3b23c8ac24ec1c2a.webp) | subject unsure |
-| plants/echinodorus-angustifolia | [photo](https://media.aquatome.com/aquariumcoop/027738e965b502a6.webp) | subject unsure |
+| plants/azolla | [photo](https://media.aquatome.com/commons/3b23c8ac24ec1c2a.webp) | subject none |
+| plants/echinodorus-angustifolia | [photo](https://media.aquatome.com/aquariumcoop/027738e965b502a6.webp) | subject yes |
 | plants/echinodorus-angustifolia | [photo](https://media.aquatome.com/aquariumcoop/902627d212341abe.webp) | subject unsure |
 | plants/eleocharis-pusilla | [photo](https://media.aquatome.com/commons/ce4f65a789a3e328.webp) | subject unsure |
 | plants/eleocharis-pusilla | [photo](https://media.aquatome.com/inaturalist/625854750.webp) | subject unsure |
@@ -2272,7 +2272,7 @@ Written by `pnpm engine check-photos` (2026-11-15), most-read pages first. Rules
 | species/xiphophorus-variatus | [photo](https://media.aquatome.com/commons/d2b5899a8a870087.webp) | subject dead |
 | species/yunnanilus-brevis | [photo](https://media.aquatome.com/seriouslyfish/65599e4303a8f14d.webp) | subject none; person |
 | species/yunnanilus-cruciatus | [photo](https://media.aquatome.com/commons/7d934571843366bd.webp) | subject unsure; logo |
-| species/zungaro-zungaro | [photo](https://media.aquatome.com/scotcat/369d9e469c536649.webp) | subject unsure; person |
+| species/zungaro-zungaro | [photo](https://media.aquatome.com/scotcat/369d9e469c536649.webp) | subject dead; person |
 | plants/bucephalandra-sp-dark-skeleton-king | [photo](https://media.aquatome.com/bwaquatics/ee179947618f9e1b.webp) | subject yes; person |
 | plants/eriocaulon-cinereum | [photo](https://media.aquatome.com/commons/5f98dc8ae9a9150c.webp) | subject dead |
 | plants/ludwigia-brevipes | [photo](https://media.aquatome.com/inaturalist/567120389.webp) | subject other |
