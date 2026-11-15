@@ -65,10 +65,19 @@ private func vectors(_ name: String) throws -> [String: Any] {
 }
 
 @Test func aFishTooLongToClearBothEdgesShowsWhole() {
-  // 0.49 of the photo, in a window of 0.5 that needs 0.01 a side: the lists move onto it and cut a fin; a card can't.
+  // 0.49 of the photo, in a window of 0.5 that needs 0.01 a side: the lists take it, moved onto it with 0.005 to spare
+  // at each end; a card can't.
   let fish = PhotoBox(x: 0.2, y: 0.3, w: 0.49, h: 0.4)
   #expect(PhotoFrame.of(aspect: 2, box: fish, ratio: 1) != .whole)
   #expect(PhotoFrame.clear(aspect: 2, box: fish, width: 400, height: 400) == .whole)
+}
+
+@Test func aFishThePhotoCutsOnASideTheFrameDoesntKeepsTheListsFrame() {
+  // The same fish, reaching the photo's top: the photo cuts it already, so showing it whole would only put that cut in a
+  // mat. It keeps the lists' frame, though the frame cuts across.
+  let fish = PhotoBox(x: 0.2, y: 0, w: 0.49, h: 0.6)
+  #expect(PhotoFrame.clear(aspect: 2, box: fish, width: 400, height: 400) == PhotoFrame.of(aspect: 2, box: fish, ratio: 1))
+  #expect(PhotoFrame.clear(aspect: 2, box: fish, width: 400, height: 400) != .whole)
 }
 
 @Test func aSmallFrameKeepsFourPointsNotTwoPercent() {

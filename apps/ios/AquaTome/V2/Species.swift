@@ -38,6 +38,7 @@ struct SpeciesPage: View {
   @Environment(\.scenePhase) private var phase
   @Environment(\.colorScheme) private var scheme
   @Environment(\.accessibilityReduceMotion) private var reduceMotion
+  @Environment(\.accessibilityReduceTransparency) private var opaque
   @Environment(\.v2FootGround) private var footGround
   @Environment(AccountModel.self) private var account
   @Environment(ChatStore.self) private var chat
@@ -221,8 +222,7 @@ struct SpeciesPage: View {
     .navigationBarTitleDisplayMode(.inline)
     // The band behind the bar is the page's own (`ClearUnderTopBar`), on iOS 18 too.
     .toolbarBackground(.hidden, for: .navigationBar)
-    // The page's own buttons, in the same places all the way down: on the photo and its colour, dark circles, as iOS 26's glass
-    // goes light on them, under white symbols (2.4:1); glass after the colour.
+    // The page's own buttons, in the same places all the way down, in iOS's glass as its back button is (`round`).
     // A shade behind the status bar and the bar until the band comes: iOS's back button and the owner's Mục lục stand on the
     // photo with no circle of ours, so it holds through the bar for them (Design, 12 Nov: iOS's back on a white photo from
     // 2.4:1 to 3.5:1; `PageTop`). Under Reduce Motion it goes at once.
@@ -483,7 +483,8 @@ struct SpeciesPage: View {
   private var overPhoto: Bool { hero != nil && !scrolled && wholeHead == nil }
   /// The bar's own buttons, in iOS's glass at rest too, over the photo and on the colour, as iOS's back button is beside
   /// them (Design's parity of 14 Nov: the ⋯ was a dark circle of ours, or bare on a whole head's colour, beside the back's
-  /// glass). In a 44-point tap area.
+  /// glass). Before iOS 26, which has no glass, the dark circle of ours stays over the photo: white on a white photo
+  /// reads 8.6:1 on it, 3.5:1 on the shade alone. In a 44-point tap area.
   private func round(_ symbol: String) -> some View {
     Image(systemName: symbol)
       .font(.body.weight(.semibold))
@@ -491,6 +492,12 @@ struct SpeciesPage: View {
       .dynamicTypeSize(...DynamicTypeSize.xLarge)
       .foregroundStyle(colourAt.top ? Color.white : Color.primary)
       .frame(width: 44, height: 44)
+      .background {
+        if #unavailable(iOS 26) {
+          Circle().fill(.black.opacity(overPhoto ? PageTop.ground(reduceTransparency: opaque) : 0))
+            .frame(width: PageTop.disc, height: PageTop.disc)
+        }
+      }
       .contentShape(Circle())
   }
 
