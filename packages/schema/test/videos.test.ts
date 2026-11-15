@@ -1,5 +1,6 @@
 import { describe, expect, test } from 'vitest'
 import { languageWord, videosForPage } from '../src/videos'
+import type { Video } from '../src/types'
 
 const v = (youtubeId: string, title: string, lang: string) => ({ youtubeId, title, durationSec: 60, lang })
 const en = v('en1', 'Neon tetra care', 'en-US')
@@ -37,7 +38,7 @@ test("a video's language as a word in the page's language; none where the tag na
 })
 
 describe('a language not yet turned on for translated titles (content/video-titles/on.json; the chief of staff, 15 Nov)', () => {
-  const vids = [
+  const vids: Video[] = [
     { youtubeId: 'kept1', title: 'Heckel tank tour', durationSec: 60, lang: 'en' },
     { youtubeId: 'other', title: 'Discus care guide', durationSec: 60, lang: 'en' },
     { youtubeId: 'none1', title: 'Discus breeding', durationSec: 60, lang: 'en' },
