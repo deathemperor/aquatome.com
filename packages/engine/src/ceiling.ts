@@ -174,7 +174,8 @@ export const inPiece = new AsyncLocalStorage<string>()
  * Main out of reach is refused too: the copy fetched last may be days old.
  */
 export function ceilingsAsMain(dir: string): void {
-  if (spawnSync('git', ['fetch', '-q', 'origin', 'main'], { cwd: dir }).status !== 0) {
+  // Never a prompt for a sign-in, and never longer than a minute: either is main out of reach.
+  if (spawnSync('git', ['fetch', '-q', 'origin', 'main'], { cwd: dir, timeout: 60_000, env: { ...process.env, GIT_TERMINAL_PROMPT: '0' } }).status !== 0) {
     throw new Error('can\'t reach main to compare the ceilings: try again once origin answers')
   }
   if (spawnSync('git', ['diff', '--quiet', 'origin/main', '--', 'src/ceilings.json'], { cwd: dir }).status !== 0) {

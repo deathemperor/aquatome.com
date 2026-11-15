@@ -125,10 +125,21 @@ export const claudeCli: Llm = <T>({ system, prompt, schema, model }: { system: s
 /**
  * Same, with the tools of MCP servers (a config file) and those alone (`allow`, by their mcp__<server>__<tool> names), streamed:
  * the chat's prompt and tools run on the owner's subscription (chat-board.ts `cli`). `onEvent` sees each event as it comes;
- * `onResult` the command's report.
+ * `onResult` the command's report. A server the CLI's start says failed, or none listed at all, fails the call: the
+ * model would answer with no tools, and its answer would pass as one that chose to read nothing.
  */
-export const claudeTools = <T>({ system, prompt, schema, model, mcp, allow, effort, onEvent, onResult }: { system: string; prompt: string; schema: object; model?: string; mcp: string; allow: string; effort?: 'low' | 'medium' | 'high'; onEvent: (event: Record<string, unknown>, ms: number) => void; onResult?: (result: Record<string, unknown>) => void }) =>
-  run<T>(system, prompt, schema, { tools: '', allow, mcp, ...(effort ? { effort } : {}), onEvent, ...(onResult ? { onResult } : {}), cwd: noFiles(), model })
+export const claudeTools = <T>({ system, prompt, schema, model, mcp, allow, effort, onEvent, onResult }: { system: string; prompt: string; schema: object; model?: string; mcp: string; allow: string; effort?: 'low' | 'medium' | 'high'; onEvent: (event: Record<string, unknown>, ms: number) => void; onResult?: (result: Record<string, unknown>) => void }) => {
+  let servers: { name?: string; status?: string }[] | undefined
+  const seen = (e: Record<string, unknown>, ms: number) => {
+    if (e.type === 'system' && e.subtype === 'init') servers = Array.isArray(e.mcp_servers) ? (e.mcp_servers as { name?: string; status?: string }[]) : []
+    onEvent(e, ms)
+  }
+  return run<T>(system, prompt, schema, { tools: '', allow, mcp, ...(effort ? { effort } : {}), onEvent: seen, ...(onResult ? { onResult } : {}), cwd: noFiles(), model }).then(r => {
+    const down = (servers ?? []).filter(s => s.status === 'failed').map(s => s.name ?? '?')
+    if (!servers?.length || down.length) throw new LlmError(`claude failed: the tools' server didn't start (${down.length ? down.join(', ') : 'none listed'})`)
+    return r
+  })
+}
 
 /** Same, but able to look at one image: only the Read tool, run from the image's folder. */
 export const claudeVision = <T>({ system, prompt, schema, file, model }: { system: string; prompt: string; schema: object; file: string; model?: string }) =>

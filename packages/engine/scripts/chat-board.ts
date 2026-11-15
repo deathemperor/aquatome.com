@@ -237,7 +237,7 @@ async function cli() {
   const work = join(args.dir!, '..', 'cli-work', args.arm)
   const { done, jobs } = await todo(args.arm)
   console.log(`${args.arm}: ${jobs.length} to answer, ${done.size} kept`)
-  let n = 0
+  let n = 0, yielded = false
   await pool(jobs.map(({ p, f, id }) => async () => {
     const began = Date.now()
     const dir = join(work, id)
@@ -254,12 +254,14 @@ async function cli() {
     const handed = tanks.length ? await handoverFor({ question, start: {}, tanks, hb, lang: 'vi', search: async () => found ?? [] }) : undefined
     const prompt = [...first.content.map(b => b.text ?? ''), ...(handed ? [handed.text] : [])].filter(Boolean).join('\n\n')
     // The first piece of each message as it streams; the last message's is when the answer's first words would show.
-    let piece: number | undefined, wordsAt: number | undefined, report: Record<string, unknown> | undefined
+    let piece: number | undefined, wordsAt: number | undefined, report: Record<string, unknown> | undefined, tools: string | undefined
+    if (yielded) return
     try {
       mayCall()
       const a = await claudeTools<{ text: string; suggestions?: string[] }>({
         system: SYSTEM, prompt, schema: ANSWER_SCHEMA, model: args.model, mcp, allow, effort: 'medium',
         onEvent: (e, ms) => {
+          if (e.type === 'system' && e.subtype === 'init') tools = (e.mcp_servers as { name?: string; status?: string }[] | undefined)?.find(s => s.name === 'chat')?.status
           const ev = e.type === 'stream_event' ? (e.event as { type?: string; delta?: { type?: string } }) : undefined
           if (ev?.type === 'message_start') piece = undefined
           else if (ev?.type === 'content_block_delta' && (ev.delta?.type === 'text_delta' || ev.delta?.type === 'input_json_delta') && piece === undefined) wordsAt = piece = ms
@@ -267,13 +269,16 @@ async function cli() {
         onResult: r => { report = r },
       })
       const calls = (await readFile(log, 'utf8')).split('\n').filter(Boolean).map(l => JSON.parse(l) as { name: string; input: unknown })
+      // No tool called and the server not known to be up: the answer may have had no tools, so it isn't one to judge.
+      if (!calls.length && tools !== 'connected') throw new Error(`the chat's tools weren't confirmed (${tools ?? 'not listed'}) and none was called`)
       done.set(id, { id, post: p.id, topic: p.topic, form: f, text: a.text, suggestions: a.suggestions ?? [], blocks: [], calls: Number(report?.num_turns ?? 0), asked: calls.map(c => `${c.name} ${JSON.stringify(c.input)}`), ...(wordsAt !== undefined ? { wordsAt } : {}), ms: Date.now() - began, usd: Number(report?.total_cost_usd ?? 0) })
     } catch (e: any) {
+      // Given way to the engine: no new answer starts, and those in the air finish and are kept.
+      if (e instanceof Yielded) { if (!yielded) console.log(e.message); yielded = true; return }
       done.set(id, { id, post: p.id, topic: p.topic, form: f, ms: Date.now() - began, usd: 0, failed: String(e?.message ?? e).slice(0, 160) })
-      if (e instanceof Yielded) throw e
     }
     if (++n % 10 === 0) await writeTurns(args.arm!, done)
-  }), Number(args.concurrency)).catch(e => console.log(String(e?.message ?? e)))
+  }), Number(args.concurrency))
   await writeTurns(args.arm, done)
   summary(args.arm, done)
 }
@@ -372,8 +377,14 @@ function middle(rows: Row[]) {
   const byPost = new Map<string, number[]>()
   for (const x of d) byPost.set(x.post, [...(byPost.get(x.post) ?? []), x.v])
   const ks = [...byPost.keys()]
+  // mulberry32: the earlier `seed * 1103515245` passed 2^53 and fell into a cycle of about 10,000 draws (15 Nov).
   let seed = 7
-  const rand = () => ((seed = (seed * 1103515245 + 12345) % 2 ** 31) / 2 ** 31)
+  const rand = () => {
+    seed = (seed + 0x6d2b79f5) | 0
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed)
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296
+  }
   const B: number[] = []
   for (let i = 0; i < 20000; i++) {
     const s = Array.from({ length: ks.length }, () => byPost.get(ks[Math.floor(rand() * ks.length)]!)!).flat()
