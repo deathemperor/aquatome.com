@@ -1,8 +1,8 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import type { Photo, SourceId } from '@aq/schema'
+import { PHOTO_SCREEN_FILE, type Photo, type PhotoScreenEntry, type SourceId } from '@aq/schema'
 import { htmlToOutline, isChallenge } from './outline'
-import { mergePhotos } from './run'
+import { mergePhotos, readKeeps } from './run'
 import { SOURCES, sourceById } from './sources'
 import { sourcesOnArchive } from './state'
 import { linkedPhotos, mayTake, pickSourcePhotos, storeSourcePhotos, type CreditTerms, type Media } from './source-photos'
@@ -39,7 +39,11 @@ export function scotcatUrl(scientificName?: string, family?: string): string | u
  * A guide keeps every photo of its source, each in the section it sat under
  * (a list of fish has one per fish): guides read before that are read once more. `kinds`: only those.
  */
-export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limit?: number; kinds?: string[] } = {}): Promise<{ pages: number; added: number; errors: string[] }> {
+/**
+ * `only`: these pages alone (ids), each read now whenever it was last read: pages a person put first in line, as the
+ * chief of staff did on 2026-11-14 for fish left with no photo once photos we hold no permission for came off.
+ */
+export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limit?: number; kinds?: string[]; only?: string[] } = {}): Promise<{ pages: number; added: number; errors: string[] }> {
   const moved = await sourcesOnArchive(root)
   const triedFile = join(root, 'engine-state/_photo-backfill.json')
   const tried: Record<string, string> = JSON.parse(await readFile(triedFile, 'utf8').catch(() => '{}'))
@@ -47,8 +51,9 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
   // within this step's existing limit. Ordinary failed monthly reads remain due by the existing rules.
   const intakeFile = join(root, 'engine-state/_photo-intake-retry.json')
   const intake: Record<string, string> = JSON.parse(await readFile(intakeFile, 'utf8').catch(() => '{}'))
-  const names: Record<string, { name?: string; permission?: CreditTerms }> = JSON.parse(await readFile(join(root, 'content/sources.json'), 'utf8').catch(() => '{}'))
+  const names: Record<string, { name?: string; publish?: boolean | 'photos'; permission?: CreditTerms & { markRemoval?: { allowed?: boolean } } }> = JSON.parse(await readFile(join(root, 'content/sources.json'), 'utf8').catch(() => '{}'))
   const blocked: Record<string, string> = JSON.parse(await readFile(join(root, 'engine-state/_photo-rejected.json'), 'utf8').catch(() => '{}'))
+  const screen: Record<string, PhotoScreenEntry> | undefined = JSON.parse(await readFile(join(root, 'engine-state', PHOTO_SCREEN_FILE), 'utf8').catch(() => 'null')) ?? undefined
   const last = new Map<SourceId, number>()
   // Every request to a source (its page, photo pages, images) at the engine's pace for it.
   const polite = <A extends unknown[], R>(source: SourceId, f: (...a: A) => Promise<R>) => async (...a: A) => {
@@ -61,6 +66,7 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
   for (const kind of (['species', 'plants', 'guides'] as const).filter(k => !opts.kinds || opts.kinds.includes(k))) {
     for (const id of (await readdir(join(root, 'content', kind)).catch(() => [] as string[])).sort()) {
       if (opts.limit !== undefined && pages >= opts.limit) break
+      if (opts.only && !opts.only.includes(id)) continue
       const file = join(root, 'content', kind, id, 'entity.json')
       const e = JSON.parse(await readFile(file, 'utf8')) as Entity
       const unsectioned = kind === 'guides' && !e.photos.some(p => p.section)
@@ -72,7 +78,7 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
       // Only sources the engine reads (not our own guides, Facebook or video), and not those read through the Internet
       // Archive: the archive keeps no usable copies of their photos. Nor one whose photos a step of its own takes (Tropica).
       const retryIntake = (u: string, s: SourceId) => s === 'glaser' && !e.photos.length && !!tried[u] && !intake[u]
-      const due = (u: string, s: SourceId) => retryIntake(u, s) || !tried[u] || d.now().getTime() - Date.parse(tried[u]!) > RETRY_MS || (unsectioned && tried[u]! < SECTIONS_SINCE)
+      const due = (u: string, s: SourceId) => !!opts.only || retryIntake(u, s) || !tried[u] || d.now().getTime() - Date.parse(tried[u]!) > RETRY_MS || (unsectioned && tried[u]! < SECTIONS_SINCE)
       const urls = [...new Map(refs.map(r => [r.sourceUrl, r.source])).entries()].filter(([u, s]) => SOURCES.some(x => x.id === s) && sourceById(s).via !== 'archive' && !sourceById(s).photoStep && !moved.has(s) && due(u, s))
       if (!urls.length) continue
       pages++
@@ -98,7 +104,7 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
           if (stored.length && kind === 'guides') {
             const body = async (l: string) => (JSON.parse(await readFile(join(root, 'content', kind, id, `${l}.json`), 'utf8').catch(() => '{}')) as { body?: string }).body
             e.photos = [...withSections(stored, { vi: (await body('vi')) ?? '', ...Object.fromEntries(await Promise.all(WRITTEN_OTHER_LANGS.map(async l => [l, await body(l)]))) }), ...e.photos.filter(p => p.sourceUrl !== url)]
-          } else if (stored.length) e.photos = mergePhotos(e.photos, source, url, stored.map(({ heading: _, ...p }) => p))
+          } else if (stored.length) e.photos = mergePhotos(e.photos, source, url, stored.map(({ heading: _, ...p }) => p), readKeeps(`${kind}/${id}`, e.scientificName ?? '', blocked, names, screen))
           tried[url] = d.now().toISOString()
         } catch (err) {
           errors.push(`${kind}/${id} ${url}: ${(err as Error).message.slice(0, 120)}`)

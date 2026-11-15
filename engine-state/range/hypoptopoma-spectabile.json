@@ -1,0 +1,87 @@
+{
+  "id": "hypoptopoma-spectabile",
+  "native": {
+    "input": "df87d5b3dd0e3304",
+    "at": "2026-11-14T00:09:29.977Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Quebrada Cramalote, 4°07'N, 73°36'W, Dpto. Meta, Villavicencio, Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon and Orinoco River basins.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon and Orinoco River basins.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": [
+        "CO"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Hypoptopoma spectabile",
+    "status": "ACCEPTED",
+    "taxonKey": 5961533,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        13
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        7
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        5
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        4
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "f7739f2a-9d89-40c2-a262-813832add25d",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T00:09:29.977Z"
+  }
+}

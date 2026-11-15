@@ -14,18 +14,6 @@
       "kind": "male"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/654138595.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/654138595-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Tom Ferguson",
-      "sourceUrl": "https://www.inaturalist.org/photos/654138595",
-      "caption": "Hai cá bống đế vương màu vàng đầu đỏ trong bể",
-      "best": true,
-      "kind": "group"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/659010245.webp",
       "thumb": "https://media.aquatome.com/inaturalist/659010245-480.webp",
       "width": 1024,
@@ -34,42 +22,6 @@
       "author": "Tom Ferguson",
       "sourceUrl": "https://www.inaturalist.org/photos/659010245",
       "caption": "Cá bống đế vương màu vàng trong bể nhỏ",
-      "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/17558994.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/17558994-480.webp",
-      "width": 1024,
-      "height": 682,
-      "licence": "CC BY",
-      "author": "coenobita",
-      "sourceUrl": "https://www.inaturalist.org/photos/17558994",
-      "caption": "Cá bống đế vương đực màu đỏ nâu ngoài tự nhiên",
-      "best": true,
-      "kind": "male"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/462700271.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/462700271-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "prossington",
-      "sourceUrl": "https://www.inaturalist.org/photos/462700271",
-      "caption": "Cá bống đế vương với sọc đen dọc thân, trên nền đá cuội",
-      "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/246634308.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/246634308-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Jesse de Vries",
-      "sourceUrl": "https://www.inaturalist.org/photos/246634308",
-      "caption": "Cá bống đế vương vàng bơi giữa cỏ nước",
       "best": true,
       "kind": "other"
     },
@@ -107,6 +59,42 @@
       "sourceUrl": "https://www.inaturalist.org/photos/246634267",
       "caption": "Cá bống đế vương nhìn nghiêng trong bể chụp ảnh",
       "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/654138595.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/654138595-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Tom Ferguson",
+      "sourceUrl": "https://www.inaturalist.org/photos/654138595",
+      "caption": "Hai cá bống đế vương màu vàng đầu đỏ trong bể",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/246634308.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/246634308-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Jesse de Vries",
+      "sourceUrl": "https://www.inaturalist.org/photos/246634308",
+      "caption": "Cá bống đế vương vàng bơi giữa cỏ nước",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/462700271.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/462700271-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "prossington",
+      "sourceUrl": "https://www.inaturalist.org/photos/462700271",
+      "caption": "Cá bống đế vương với sọc đen dọc thân, trên nền đá cuội",
+      "best": true,
       "kind": "other"
     }
   ],

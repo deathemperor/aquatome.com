@@ -1,6 +1,54 @@
 {
+  "astronotus-ocellatus": {
+    "aquariumSize": "seriouslyfish"
+  },
+  "barboides-gracilis": {
+    "aquariumSize": "seriouslyfish"
+  },
+  "betta-albimarginata": {
+    "aquariumSize": "seriouslyfish"
+  },
+  "betta-brownorum": {
+    "aquariumSize": "seriouslyfish"
+  },
+  "betta-burdigala": {
+    "aquariumSize": "seriouslyfish"
+  },
+  "betta-channoides": {
+    "aquariumSize": "seriouslyfish"
+  },
+  "betta-hendra": {
+    "aquariumSize": "seriouslyfish"
+  },
+  "betta-livida": {
+    "aquariumSize": "seriouslyfish"
+  },
   "betta-mahachaiensis": {
     "waterConditions": "seriouslyfish"
+  },
+  "betta-miniopinna": {
+    "aquariumSize": "seriouslyfish"
+  },
+  "betta-persephone": {
+    "aquariumSize": "seriouslyfish"
+  },
+  "betta-rutilans": {
+    "aquariumSize": "seriouslyfish"
+  },
+  "betta-splendens": {
+    "aquariumSize": "seriouslyfish"
+  },
+  "betta-uberis": {
+    "aquariumSize": "seriouslyfish"
+  },
+  "boraras-brigittae": {
+    "aquariumSize": "seriouslyfish"
+  },
+  "carinotetraodon-travancoricus": {
+    "aquariumSize": "seriouslyfish"
+  },
+  "chromobotia-macracanthus": {
+    "aquariumSize": "seriouslyfish"
   },
   "corydoras-loxozonus": {
     "waterConditions": "seriouslyfish"
@@ -8,8 +56,17 @@
   "danio-erythromicron": {
     "waterConditions": "seriouslyfish"
   },
+  "danio-rerio": {
+    "aquariumSize": "seriouslyfish"
+  },
   "devario-sondhii": {
     "waterConditions": "seriouslyfish"
+  },
+  "epiplatys-annulatus": {
+    "aquariumSize": "seriouslyfish"
+  },
+  "macropodus-opercularis": {
+    "aquariumSize": "seriouslyfish"
   },
   "microsynodontis-polli": {
     "waterConditions": "seriouslyfish"
@@ -23,10 +80,20 @@
   "nannostomus-anduzei": {
     "waterConditions": "seriouslyfish"
   },
+  "parachanna-obscura": {
+    "aquariumSize": false
+  },
+  "parosphromenus-ornaticauda": {
+    "aquariumSize": "seriouslyfish"
+  },
   "pseudomugil-furcatus": {
+    "aquariumSize": "seriouslyfish",
     "waterConditions": "seriouslyfish"
   },
   "pterophyllum-altum": {
     "waterConditions": "aquatome"
+  },
+  "xiphophorus-hellerii": {
+    "aquariumSize": "seriouslyfish"
   }
 }

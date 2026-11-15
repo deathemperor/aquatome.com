@@ -10,6 +10,104 @@
     "zambia",
     "luongo-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ZM"
+      ],
+      "regions": [
+        "Luongo River",
+        "Congo River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Africa: Luongo River, upper Congo River basin, Zambia.",
+          "countries": [
+            "ZM"
+          ],
+          "regions": [
+            "Luongo River",
+            "Congo River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340750,
+      "total": 66,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "ZM",
+          63
+        ],
+        [
+          "CD",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          26.71875,
+          -9.84375,
+          3,
+          0
+        ],
+        [
+          28.125,
+          -12.65625,
+          4,
+          4
+        ],
+        [
+          28.125,
+          -11.25,
+          30,
+          30
+        ],
+        [
+          28.125,
+          -9.84375,
+          8,
+          8
+        ],
+        [
+          29.53125,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          29.53125,
+          -11.25,
+          6,
+          6
+        ],
+        [
+          29.53125,
+          -9.84375,
+          6,
+          6
+        ],
+        [
+          30.9375,
+          -11.25,
+          5,
+          5
+        ],
+        [
+          30.9375,
+          -9.84375,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

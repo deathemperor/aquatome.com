@@ -30,7 +30,7 @@
       "guides/youtube-0i9qSwTrXIc",
       "guides/youtube-6MVlcgTchtE"
     ],
-    "mentions": 27
+    "mentions": 28
   },
   "lemna-minor": {
     "name": "Lemna minor",
@@ -152,7 +152,7 @@
       "guides/youtube-GIeCugnkfCQ",
       "guides/youtube-KmxHHPPTIgk"
     ],
-    "mentions": 13
+    "mentions": 15
   },
   "physella-acuta": {
     "name": "Physella acuta",
@@ -737,6 +737,17 @@
     ],
     "mentions": 5
   },
+  "planorbarius-corneus": {
+    "name": "Planorbarius corneus",
+    "mentionedIn": [
+      "guides/youtube-KhlxefF9aRg",
+      "guides/youtube-Zl5gW-39XRE",
+      "guides/youtube-gB277jXfVTM",
+      "species/marisa-cornuarietis",
+      "species/planorbella-duryi"
+    ],
+    "mentions": 5
+  },
   "acanthocobitis-longipinnis": {
     "name": "Acanthocobitis longipinnis",
     "mentionedIn": [
@@ -980,16 +991,6 @@
       "guides/youtube-gCY0m94RgAU",
       "species/akysis-hendricksoni",
       "species/homaloptera-parclitella"
-    ],
-    "mentions": 4
-  },
-  "planorbarius-corneus": {
-    "name": "Planorbarius corneus",
-    "mentionedIn": [
-      "guides/youtube-Zl5gW-39XRE",
-      "guides/youtube-gB277jXfVTM",
-      "species/marisa-cornuarietis",
-      "species/planorbella-duryi"
     ],
     "mentions": 4
   },
@@ -1406,6 +1407,15 @@
       "guides/youtube-5GfRTHTv5ZM",
       "guides/youtube-Pug-xKyFd0k",
       "guides/youtube-kAel-iw_N0c"
+    ],
+    "mentions": 3
+  },
+  "hydrocleys-nymphoides": {
+    "name": "Hydrocleys nymphoides",
+    "mentionedIn": [
+      "guides/youtube-6BD1Nscv4Fc",
+      "guides/youtube-AzntHqOzRXg",
+      "guides/youtube-I_KBOUM1RXM"
     ],
     "mentions": 3
   },
@@ -2105,14 +2115,6 @@
     ],
     "mentions": 2
   },
-  "hydrocleys-nymphoides": {
-    "name": "Hydrocleys nymphoides",
-    "mentionedIn": [
-      "guides/youtube-AzntHqOzRXg",
-      "guides/youtube-I_KBOUM1RXM"
-    ],
-    "mentions": 2
-  },
   "bolbitis-difformis": {
     "name": "Bolbitis difformis",
     "mentionedIn": [
@@ -2134,6 +2136,14 @@
     "mentionedIn": [
       "guides/youtube-HUa1u8usS5w",
       "guides/youtube-fV5MucIp1M8"
+    ],
+    "mentions": 2
+  },
+  "amphiprion-percula": {
+    "name": "Amphiprion percula",
+    "mentionedIn": [
+      "guides/youtube-J4e7xzevT5E",
+      "species/catalaphyllia-jardinei"
     ],
     "mentions": 2
   },
@@ -4219,13 +4229,6 @@
     "name": "Cryptanthus acaulis",
     "mentionedIn": [
       "guides/youtube-HUa1u8usS5w"
-    ],
-    "mentions": 1
-  },
-  "amphiprion-percula": {
-    "name": "Amphiprion percula",
-    "mentionedIn": [
-      "guides/youtube-J4e7xzevT5E"
     ],
     "mentions": 1
   },

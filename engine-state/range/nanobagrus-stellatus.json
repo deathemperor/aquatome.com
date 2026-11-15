@@ -1,0 +1,89 @@
+{
+  "id": "nanobagrus-stellatus",
+  "native": {
+    "input": "66289591b6925c76",
+    "at": "2026-11-14T17:19:02.525Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Sumatra, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Sumatra, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "planetcatfish",
+        "quote": "Asia: Sumatra, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "scotcat",
+        "quote": "Asia: Sumatra, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Batang Hari",
+        "source": "scotcat",
+        "quote": "This species is known from the Batang Hari drainage in Sumatra, and the Pahang and Endau river drainages in the Malay Peninsula.",
+        "ok": true
+      },
+      {
+        "name": "Pahang",
+        "source": "scotcat",
+        "quote": "This species is known from the Batang Hari drainage in Sumatra, and the Pahang and Endau river drainages in the Malay Peninsula.",
+        "ok": true
+      },
+      {
+        "name": "Endau",
+        "source": "scotcat",
+        "quote": "This species is known from the Batang Hari drainage in Sumatra, and the Pahang and Endau river drainages in the Malay Peninsula.",
+        "ok": true
+      },
+      {
+        "name": "Malay Peninsula",
+        "source": "scotcat",
+        "quote": "This species is known from the Batang Hari drainage in Sumatra, and the Pahang and Endau river drainages in the Malay Peninsula.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Nanobagrus stellatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2338163,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T05:39:06.336Z"
+  }
+}

@@ -1,5 +1,5 @@
 import { spawnSync } from 'node:child_process'
-import { mkdtempSync } from 'node:fs'
+import { mkdtempSync, readFileSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -7,19 +7,20 @@ import { expect, test } from 'vitest'
 
 const CHECKS = join(fileURLToPath(new URL('../../..', import.meta.url)), 'scripts/cycle-checks.sh')
 
-// verify with `checks`, `calm` and the cores heat has taken stood in for (as in cycle-kept.test.ts): each run records the
-// time scale its tests got and the vitest workers it was allowed, and passes when the next of `runs` is "ok".
-function scales(taken: number, runs: string[], github = false) {
+// verify with `checks`, `calm`, the cores heat has taken and the 5-minute load stood in for (as in cycle-kept.test.ts):
+// each run records the time scale its tests got and the vitest workers it was allowed, and passes when the next of `runs`
+// is "ok". `load`: "<5-minute load> <cores>", or "" where there's no reading.
+function scales(taken: number, runs: string[], github = false, load = '0 16') {
   const dir = mkdtempSync(join(tmpdir(), 'aq-time-scale-'))
   const r = spawnSync('bash', ['-c', `
     set -euo pipefail
     log() { echo "LOG $*"; }; TEST_LOG="${dir}/test.log"; source "${CHECKS}"; calm() { :; }; settled() { :; }
-    cores_taken() { echo ${taken}; }
+    cores_taken() { echo ${taken}; }; load5() { echo '${load}'; }
     n=0; runs=(${runs.map(r => `'${r}'`).join(' ')})
     checks() { local r="\${runs[$n]}"; n=$((n + 1)); echo "scale=\${AQ_TEST_TIME_SCALE:-unset}" >&3; bash -c 'echo "workers=\${VITEST_MAX_WORKERS:-unset}"' >&3; echo "$r"; [ "$r" = ok ]; }
     verify 'pnpm test' 3>&1 || true; echo "TIMED_OUT=$TIMED_OUT"`], { encoding: 'utf8', env: { ...process.env, GITHUB_ACTIONS: github ? 'true' : '' } })
   const lines = r.stdout.trim().split('\n')
-  return { scales: lines.filter(l => /^scale=|^LOG cores/.test(l)), workers: lines.filter(l => l.startsWith('workers=')), timedOut: lines.includes('TIMED_OUT=1') }
+  return { scales: lines.filter(l => /^scale=|^LOG (cores|a busy)/.test(l)), workers: lines.filter(l => l.startsWith('workers=')), timedOut: lines.includes('TIMED_OUT=1') }
 }
 
 // The chief of staff, 13 November: with heat taking 4 of the Mac's 12 cores, three engine cycles in a day lost their
@@ -28,6 +29,18 @@ function scales(taken: number, runs: string[], github = false) {
 test("tests get their usual limits on a Mac at full strength, 6 times those while heat has taken cores away", () => {
   expect(scales(0, ['ok']).scales).toEqual(['scale=1'])
   expect(scales(4, ['ok']).scales).toEqual(['LOG cores taken away by heat: tests get 6 times their time', 'scale=6'])
+})
+
+// The night of 13 November: the first tries ran on a Mac with every core at work and a 5-minute load past one a core,
+// at their own limits, and ran out of time. A load of one a core or more gives them 6 times their limits too; GitHub's
+// runners are machines of their own, whose load is their own steps'.
+test('tests get 6 times their limits on a busy Mac too, its 5-minute load at one a core or more, heat or none', () => {
+  expect(scales(0, ['ok'], false, '16 16').scales).toEqual(['LOG a busy Mac, its 5-minute load 16 on 16 cores: tests get 6 times their time', 'scale=6'])
+  expect(scales(0, ['ok'], false, '15 16').scales).toEqual(['scale=1'])
+  expect(scales(0, ['ok'], false, '').scales).toEqual(['scale=1'])
+  expect(scales(0, ['ok'], true, '40 16').scales).toEqual(['scale=1'])
+  // Heat is said first: it's the cause the owner can see on the Mac's status.
+  expect(scales(4, ['ok'], false, '40 16').scales).toEqual(['LOG cores taken away by heat: tests get 6 times their time', 'scale=6'])
 })
 
 test("a check's second try on the Mac gives its tests 6 times their limits, cool Mac or not; GitHub's keeps its own", () => {
@@ -52,4 +65,51 @@ test('a hook out of time, or a worker that did not start in time, counts as out 
     expect(scales(0, [out, out]).timedOut, out).toBe(true)
   }
   expect(scales(0, ['AssertionError: expected 1 to be 2', 'AssertionError: expected 1 to be 2']).timedOut).toBe(false)
+})
+
+// ran_out over a check's output: whether verify reads it as tests out of time.
+function ranOut(output: string) {
+  const dir = mkdtempSync(join(tmpdir(), 'aq-ran-out-'))
+  writeFileSync(join(dir, 'test.log'), output)
+  return spawnSync('bash', ['-c', `set -euo pipefail; log() { :; }; TEST_LOG="${dir}/test.log"; source "${CHECKS}"; ran_out 0`]).status === 0
+}
+
+// 13 November, 22:36 and 23:35: a test that failed on its own quoted "Test timed out in" in its source, which vitest
+// prints under the failure, and the run's work was kept for ever as out of time instead of held. Only vitest's own line
+// counts, at the start of a line after pnpm's prefix, colours off: never a quote of one in an assertion, a diff, a test's
+// title, a stack line or the source.
+test("only vitest's own time-out line is a time-out: a failing test that quotes one, anywhere, isn't", () => {
+  const grey = (x: string) => `\u001b[90m${x}\u001b[39m`
+  const red = (x: string) => `\u001b[31m${x}\u001b[39m`
+  const quoted = [
+    'packages/engine test:  FAIL  test/cycle-timeouts.test.ts > Error: Test timed out in 30000ms. runs once more',
+    'packages/engine test:    × test/cycle-timeouts.test.ts > Error: Hook timed out in 120000ms. is a time-out 12ms',
+    "packages/engine test: AssertionError: expected 'Error: Test timed out in 30000ms.' to equal 'ok'",
+    'packages/engine test: - Error: Test timed out in 30000ms.',
+    'packages/engine test: + Error: [vitest-pool]: Timeout starting forks runner.',
+    'packages/engine test:   Error: Test timed out in 30000ms.',
+    'packages/engine test:     at Object.<anonymous> (Error: Test timed out in 30000ms.)',
+    `packages/engine test:     ${grey('40|')}   const again = verify(['Error: Test timed out in 30000ms.', 'ok'])`,
+    `packages/engine test:       ${grey('|')}                 ^`,
+    `    42|   expect(verify(['Error: Hook timed out in 120000ms.'])).toBe(1)`,
+    "Error: expected 'Error: Test timed out in 30000ms.' to be 'ok'",
+  ]
+  for (const line of quoted) expect(ranOut(line), line).toBe(false)
+  expect(ranOut(quoted.join('\n'))).toBe(false)
+  // vitest's own, as the Mac's logs have them, alone or after a failure that quotes one.
+  for (const line of ['packages/engine test: Error: Test timed out in 30000ms.', `packages/engine test: ${red('Error')}: Hook timed out in 120000ms.`,
+    'Error: Test timed out in 30000ms.', 'Error: [vitest-pool-runner]: Timeout waiting for worker to respond', 'Error: [vitest-pool]: Timeout starting forks runner.']) {
+    expect(ranOut(line), line).toBe(true)
+    expect(ranOut(`${quoted.join('\n')}\n${line}`), line).toBe(true)
+  }
+  // vitest's whole output, colours and all, from the version the engine pins (5.0.5, 14 Nov), written to a file as the
+  // cycle's log is: a test out of time and a hook out of time, each run alone (`pnpm exec vitest run <file>`, the engine's)
+  // and through pnpm's recursive run (`pnpm -r --stream`, the schema's), whose "<package> test: " prefix is the one the
+  // cycle's `pnpm test` gives when packages run side by side (fixtures/vitest-timeouts/; the checkout's folder is <repo>).
+  for (const name of ['test-bare', 'hook-bare', 'test-recursive', 'hook-recursive']) {
+    const out = readFileSync(fileURLToPath(new URL(`fixtures/vitest-timeouts/${name}.log`, import.meta.url)), 'utf8')
+    expect(out, name).toMatch(/(Test|Hook) timed out in 100ms\./)
+    expect(ranOut(out), name).toBe(true)
+    expect(ranOut(`${quoted.join('\n')}\n${out}`), name).toBe(true)
+  }
 })

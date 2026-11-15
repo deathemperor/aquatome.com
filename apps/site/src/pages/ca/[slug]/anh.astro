@@ -3,16 +3,14 @@ import type { BreedEntity, Localized, Photo, SpeciesEntity } from '@aq/schema'
 import GalleryPage from '../../../components/GalleryPage.astro'
 import ReaderPhotos from '../../../components/ReaderPhotos.astro'
 import { getContent } from '../../../lib/content'
-import { GALLERY_MIN } from '../../../lib/gallery'
-import { breedGallery } from '../../../lib/breeds'
-import { distinctPhotos } from '../../../lib/pictures'
+import { albumOf, hasPhotoPage } from '../../../lib/photo-page'
 import { i18n, langOf, localizePath, toVi, type Lang } from '../../../lib/i18n'
 import { alternatesOf } from '../../../lib/alternates'
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
   // Species and man-made fish (breeds) alike; a breed has no scientific name.
-  return [...c.species.map(s => ({ s, photos: distinctPhotos(c, c.galleries[s.id] ?? []) })), ...c.breeds.map(s => ({ s, photos: distinctPhotos(c, breedGallery(c, s)) }))]
-    .filter(x => x.photos.length >= GALLERY_MIN).map(({ s, photos }) => ({ params: { slug: s.t.slug }, props: { s, photos } }))
+  return [...c.species.map(s => ({ s, photos: albumOf(c, 'species', s) })), ...c.breeds.map(s => ({ s, photos: albumOf(c, 'breeds', s) }))]
+    .filter(x => hasPhotoPage(x.photos)).map(({ s, photos }) => ({ params: { slug: s.t.slug }, props: { s, photos } }))
 }
 const { s, photos } = Astro.props as { s: Localized<SpeciesEntity> | Localized<BreedEntity>; photos: Photo[] }
 const { t } = i18n(Astro.url)

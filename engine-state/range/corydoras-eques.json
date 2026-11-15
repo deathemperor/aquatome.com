@@ -1,8 +1,8 @@
 {
   "id": "corydoras-eques",
   "native": {
-    "input": "d1fc1aa89215133c",
-    "at": "2026-11-07T09:20:22.982Z",
+    "input": "03bce68715e7f365",
+    "at": "2026-11-14T00:09:29.977Z",
     "claims": [
       {
         "code": "BR",
@@ -13,20 +13,35 @@
         "ok": true
       },
       {
+        "code": "PE",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Its extended range is unclear although similar-looking fish have been exported from Peru on occasion.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
         "code": "BR",
         "status": "native",
         "source": "glaser",
         "quote": "From the Brazilian state of Amazonas, a species of Corydoras that has long been known to science but is almost unknown in the hobby: Corydoras eques.",
         "words": "Brazilian",
         "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon River basin. Type locality: Amazon River at Codajás, Amazonas, Brazil.",
+        "words": "Brazil",
+        "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Amazon River",
-        "source": "seriouslyfish",
-        "quote": "Type locality is 'Amazon River at Codajás, Amazonas, Brazil', which is located approximately midway between Tefé and Manaus on the rio Solimões (Amazon) main channel, western Brazil.",
-        "country": "BR",
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon River basin. Type locality: Amazon River at Codajás, Amazonas, Brazil.",
         "ok": true
       },
       {

@@ -8,14 +8,18 @@
     "habitat:planetcatfish": "<p>Chi cá nheo Nanobagrus (họ Bagridae) có mặt khắp vùng Sunda của Đông Nam Á. Các loài trong chi thường sống ở những con suối nhỏ chảy qua rừng, nước chảy vừa.</p>",
     "notes:planetcatfish": "<p>Các loài trong chi này khác những loài cá nheo họ Bagridae khác ở mấy điểm: cá lớn vẫn rất nhỏ (tối đa dưới khoảng 45 mm SL), mấu trên xương chẩm tiêu giảm, phần trước của tấm gáy tiêu giảm, còn thóp sọ phía sau thì lớn và nổi rõ.</p><p>Thân cá màu nâu, có ba hàng đốm màu kem: một hàng trên đường bên, một hàng dọc theo đường bên và một hàng dưới đường bên.</p><p>Nguồn gốc tên: ghép từ chữ Latin nanus nghĩa là lùn với bagrus, tên một chi cá nheo hay được dùng để đặt tên chi.</p>",
     "reproduction:planetcatfish": "<p>Chưa có tài liệu nào. Đến nay chưa có báo cáo nào về chuyện loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Journal of Natural History v. 34 (no. 2), pp 278, Fig. 5a.</p>"
+    "references:planetcatfish": "<p>Journal of Natural History v. 34 (no. 2), pp 278, Fig. 5a.</p>",
+    "quickFacts:scotcat": "<p>Mô tả: Vây lưng có tổng cộng 1 gai và 7–8 tia mềm. Vây hậu môn không có gai, chỉ có 13–15 tia mềm. Cột sống có 34–36 đốt. Thân cá thon, chiều cao thân đo ở hậu môn bằng 14,1–15,9% SL. Gốc vây mỡ ngắn, dài 12,8–16,4% SL. Mắt to, đường kính mắt bằng 12,3–16,1% HL.</p><p>Màu sắc: Thân màu nâu, có ba hàng đốm màu kem. Một hàng nằm trên đường bên, một hàng chạy dọc đường bên và một hàng nằm dưới đường bên.</p>",
+    "distribution:scotcat": "<p>Châu Á: Sumatra, Indonesia. Loài này có ở lưu vực sông Batang Hari trên đảo Sumatra, và ở lưu vực hai sông Pahang, Endau trên bán đảo Mã Lai.</p>",
+    "notes:scotcat": "<p>Từ nguyên: Tên giống Nanobagrus ghép từ chữ Latin nannus (nhỏ) và chữ Mozarab bagre. Chữ này bắt nguồn từ chữ Hy Lạp pagros, tên một loài cá thuộc giống Dentex (Dentex sp.). Tên loài stellatus trong tiếng Latin nghĩa là có hình sao hoặc có đốm, ý chỉ các đốm màu kem trên thân cá.</p><p>Danh sách đỏ IUCN: Môi trường sống của loài này có thể bị xuống cấp khi rừng bị chặt lấy gỗ và đất bị chuyển sang làm đồn điền. Tuy nhiên, hiện chưa rõ các mối đe dọa này ảnh hưởng trực tiếp ra sao tới vùng sống và số lượng cá. Loài này phân bố rộng, nên số địa điểm có nó khó mà ít hơn năm. IUCN đánh giá các mối đe dọa trên diện rộng khó đẩy loài này tới mức cực kỳ nguy cấp hay tuyệt chủng trong vòng 1–2 thế hệ. Vì vậy, Nanobagrus stellatus được xếp vào nhóm Ít quan tâm (IUCN 2020).</p>",
+    "references:scotcat": "<p>Froese, R. and D. Pauly. Editors. 2024. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 02/2024 ). Ng, H.H. 2020. Nanobagrus stellatus. The IUCN Red List of Threatened Species 2020. Romero, P., 2002. An etymological dictionary of taxonomy. Madrid, unpublished. Tan, H.H. and H.H. Ng 2000 The catfishes (Teleostei: Siluriformes) of central Sumatra. J. Nat. Hist. 34:267-303.</p>"
   },
   "quality": {
     "score": 0.88,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.88
-    },
-    "reason": "thin"
+      "planetcatfish": 0.88,
+      "scotcat": 0.9
+    }
   }
 }

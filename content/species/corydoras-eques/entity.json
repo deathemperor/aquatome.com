@@ -20,11 +20,12 @@
         "BR"
       ],
       "regions": [
-        "Amazon River",
+        "Amazon",
         "Rio Solimões"
       ],
       "sources": [
         "seriouslyfish",
+        "planetcatfish",
         "glaser"
       ],
       "quotes": [
@@ -35,8 +36,15 @@
             "BR"
           ],
           "regions": [
-            "Amazon River",
             "Rio Solimões"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Amazon River basin. Type locality: Amazon River at Codajás, Amazonas, Brazil.",
+          "countries": [],
+          "regions": [
+            "Amazon"
           ]
         }
       ]

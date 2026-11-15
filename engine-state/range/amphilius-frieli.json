@@ -1,0 +1,76 @@
+{
+  "id": "amphilius-frieli",
+  "native": {
+    "input": "6a467d9e3b88f02b",
+    "at": "2026-11-14T00:09:29.977Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Africa: Upper Congo River basin upstream of Kabalo in Democratic Republic of Congo and Zambia, including the Lufira River drainage and Luapula River drainage.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "ZM",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Africa: Upper Congo River basin upstream of Kabalo in Democratic Republic of Congo and Zambia, including the Lufira River drainage and Luapula River drainage.",
+        "words": "Zambia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Congo River",
+        "source": "scotcat",
+        "quote": "Africa: Upper Congo River basin upstream of Kabalo in Democratic Republic of Congo and Zambia, including the Lufira River drainage and Luapula River drainage.",
+        "ok": true
+      },
+      {
+        "name": "Lufira River",
+        "source": "scotcat",
+        "quote": "Africa: Upper Congo River basin upstream of Kabalo in Democratic Republic of Congo and Zambia, including the Lufira River drainage and Luapula River drainage.",
+        "ok": true
+      },
+      {
+        "name": "Luapula River",
+        "source": "scotcat",
+        "quote": "Africa: Upper Congo River basin upstream of Kabalo in Democratic Republic of Congo and Zambia, including the Lufira River drainage and Luapula River drainage.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Amphilius frieli",
+    "status": "ACCEPTED",
+    "taxonKey": 8617296,
+    "datasets": [
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        9
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        6
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "CD",
+      "ZM"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T00:09:29.977Z"
+  }
+}

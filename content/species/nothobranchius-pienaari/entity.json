@@ -10,6 +10,68 @@
     "south-africa",
     "kruger-national-park"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ZA"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The Black Rachovii originates from the Kruger National Park in South Africa, where it was initially collected by Pienaard in 1968.",
+          "countries": [
+            "ZA"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5852164,
+      "total": 18,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "MZ",
+          16
+        ],
+        [
+          "ZA",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          30.9375,
+          -25.3125,
+          2,
+          2
+        ],
+        [
+          32.34375,
+          -25.3125,
+          10,
+          0
+        ],
+        [
+          33.75,
+          -21.09375,
+          3,
+          0
+        ],
+        [
+          33.75,
+          -19.6875,
+          3,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

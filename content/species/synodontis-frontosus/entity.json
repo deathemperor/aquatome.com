@@ -18,6 +18,116 @@
     "somalia",
     "shebelle"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "SD"
+      ],
+      "regions": [
+        "Nile",
+        "Chad basin"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Synodontis frontosus Vaillant, 1895. Type locality: White Nile River, Sudan. Maximum size: 342 mm (13.5\") SL. IUCN Red List: Least Concern (last assessed 2019).",
+          "countries": [
+            "SD"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Africa: Nile basin, Lakes Rudolf, Albert, Edward and Kyoga; Chad basin; and Uebi Giuba (Uebi Shebeli).",
+          "countries": [],
+          "regions": [
+            "Nile",
+            "Chad basin"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344411,
+      "total": 38,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "UG",
+          18
+        ],
+        [
+          "EG",
+          12
+        ],
+        [
+          "SD",
+          4
+        ],
+        [
+          "CD",
+          3
+        ],
+        [
+          "KE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          29.53125,
+          1.40625,
+          3,
+          0
+        ],
+        [
+          30.9375,
+          1.40625,
+          17,
+          0
+        ],
+        [
+          30.9375,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          30.9375,
+          21.09375,
+          10,
+          0
+        ],
+        [
+          32.34375,
+          15.46875,
+          3,
+          3
+        ],
+        [
+          32.34375,
+          23.90625,
+          2,
+          0
+        ],
+        [
+          33.75,
+          16.875,
+          1,
+          1
+        ],
+        [
+          36.5625,
+          2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

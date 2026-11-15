@@ -1,0 +1,179 @@
+{
+  "id": "rhinodoras-dorbignyi",
+  "native": {
+    "input": "5f5aedd4f913dec1",
+    "at": "2026-11-14T05:39:06.336Z",
+    "claims": [
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rhinodoras dorbignyi is a talking catfish from the Rio Paraná basin in Bolivia, Paraguay, Uruguay, Argentina and Brazil.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rhinodoras dorbignyi is a talking catfish from the Rio Paraná basin in Bolivia, Paraguay, Uruguay, Argentina and Brazil.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "UY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rhinodoras dorbignyi is a talking catfish from the Rio Paraná basin in Bolivia, Paraguay, Uruguay, Argentina and Brazil.",
+        "words": "Uruguay",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rhinodoras dorbignyi is a talking catfish from the Rio Paraná basin in Bolivia, Paraguay, Uruguay, Argentina and Brazil.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rhinodoras dorbignyi is a talking catfish from the Rio Paraná basin in Bolivia, Paraguay, Uruguay, Argentina and Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found throughout the enormous Rio Paraná basin in Bolivia, Paraguay, Uruguay, Argentina and Brazil.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found throughout the enormous Rio Paraná basin in Bolivia, Paraguay, Uruguay, Argentina and Brazil.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "UY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found throughout the enormous Rio Paraná basin in Bolivia, Paraguay, Uruguay, Argentina and Brazil.",
+        "words": "Uruguay",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found throughout the enormous Rio Paraná basin in Bolivia, Paraguay, Uruguay, Argentina and Brazil.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found throughout the enormous Rio Paraná basin in Bolivia, Paraguay, Uruguay, Argentina and Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Paraná",
+        "source": "seriouslyfish",
+        "quote": "Found throughout the enormous Rio Paraná basin in Bolivia, Paraguay, Uruguay, Argentina and Brazil.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rhinodoras dorbignyi",
+    "status": "ACCEPTED",
+    "taxonKey": 2344031,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        37
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        22
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        19
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        17
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        16
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        16
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        14
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        7
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        5
+      ],
+      [
+        "d4b3cce1-4594-47bb-b1e2-1ace65458a11",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "BO",
+      "PY",
+      "UY",
+      "AR",
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T05:39:06.336Z"
+  }
+}

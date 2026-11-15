@@ -10,6 +10,50 @@
     "cameroon",
     "lake-barombi-mbo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM"
+      ],
+      "regions": [
+        "Lake Barombi Mbo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Stomatepia pindu is a cichlid endemic to Lake Barombi Mbo, a small volcanic crater lake in Cameroon.",
+          "countries": [
+            "CM"
+          ],
+          "regions": [
+            "Lake Barombi Mbo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370020,
+      "total": 12,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "CM",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          8.4375,
+          4.21875,
+          12,
+          12
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -137,16 +181,6 @@
       "thumb": "https://media.aquatome.com/commons/74776a689e2a82dd-480.webp"
     },
     {
-      "url": "https://media.aquatome.com/commons/77ef111efb6def05.webp",
-      "width": 960,
-      "height": 541,
-      "licence": "CC BY-SA 4.0",
-      "author": "Cedricguppy - Loury Cédric",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stomatepia_pindu_-_Lac_Barombi_Mbo_-_Aqua_porte_dor%C3%A9e_Paris_03.JPG",
-      "caption": "Stomatepia pindu - Adulte - Lac Barombi Mbo - Aquarium de la Porte Dorée Paris, ile France, France - 11/2014",
-      "thumb": "https://media.aquatome.com/commons/77ef111efb6def05-480.webp"
-    },
-    {
       "url": "https://media.aquatome.com/commons/0b222f1341521359.webp",
       "width": 960,
       "height": 541,
@@ -155,6 +189,16 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stomatepia_pindu_-_Lac_Barombi_Mbo_-_Aqua_porte_dor%C3%A9e_Paris_14.JPG",
       "caption": "Stomatepia pindu - Adulte - Lac Barombi Mbo - Aquarium de la Porte Dorée Paris, ile France, France - 11/2014",
       "thumb": "https://media.aquatome.com/commons/0b222f1341521359-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/77ef111efb6def05.webp",
+      "width": 960,
+      "height": 541,
+      "licence": "CC BY-SA 4.0",
+      "author": "Cedricguppy - Loury Cédric",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stomatepia_pindu_-_Lac_Barombi_Mbo_-_Aqua_porte_dor%C3%A9e_Paris_03.JPG",
+      "caption": "Stomatepia pindu - Adulte - Lac Barombi Mbo - Aquarium de la Porte Dorée Paris, ile France, France - 11/2014",
+      "thumb": "https://media.aquatome.com/commons/77ef111efb6def05-480.webp"
     },
     {
       "url": "https://media.aquatome.com/commons/417a45c8958d0164.webp",

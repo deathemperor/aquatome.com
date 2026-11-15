@@ -1,0 +1,127 @@
+{
+  "id": "schistura-robertsi",
+  "native": {
+    "input": "9c28afe8ee153bfb",
+    "at": "2026-11-14T17:19:02.525Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Schistura robertsi is a small nemacheilid loach from the western slope of the Malay Peninsula in southern Thailand and Malaysia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Schistura robertsi is a small nemacheilid loach from the western slope of the Malay Peninsula in southern Thailand and Malaysia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is known from the western slope of the Malay Peninsula with distribution extending south from Tennasserim province, Myanmar to Trang province southern (peninsular) Thailand.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is known from the western slope of the Malay Peninsula with distribution extending south from Tennasserim province, Myanmar to Trang province southern (peninsular) Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's also been recorded on the islands of Phuket Thailand and Langkawi (Malaysia).",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Tributary of Khlong Khao Thalu at Ban Bang Kan, 8°33'N, 98°28'E, road from Phangnga to Kapong, Phangnga Province, Thailand'.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "At the type locality of Schistura udomritthiruji in Ranong Province, southern Thailand S. robertsi was collected from a stream with wider, slow-moving stretches broken up by narrower, fast-flowing riffles.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Malay Peninsula",
+        "source": "seriouslyfish",
+        "quote": "This species is known from the western slope of the Malay Peninsula with distribution extending south from Tennasserim province, Myanmar to Trang province southern (peninsular) Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Phuket",
+        "source": "seriouslyfish",
+        "quote": "It's also been recorded on the islands of Phuket Thailand and Langkawi (Malaysia).",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Langkawi",
+        "source": "seriouslyfish",
+        "quote": "It's also been recorded on the islands of Phuket Thailand and Langkawi (Malaysia).",
+        "country": "MY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Schistura robertsi",
+    "status": "ACCEPTED",
+    "taxonKey": 5205071,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        3
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "MY",
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T17:19:02.525Z"
+  }
+}

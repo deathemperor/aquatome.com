@@ -2,18 +2,6 @@
   "id": "poecilia-reticulata",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/340813812.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/340813812-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC0",
-      "author": "Rafael S. Marcondes",
-      "sourceUrl": "https://www.inaturalist.org/photos/340813812",
-      "caption": "Cá bảy màu đực bơi trong bể nuôi",
-      "best": true,
-      "kind": "male"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/27484738.webp",
       "thumb": "https://media.aquatome.com/inaturalist/27484738-480.webp",
       "width": 1024,
@@ -65,23 +53,6 @@
       }
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/296283368.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/296283368-480.webp",
-      "width": 1024,
-      "height": 684,
-      "licence": "CC BY",
-      "author": "Yung-Lun Lin",
-      "sourceUrl": "https://www.inaturalist.org/photos/296283368",
-      "caption": "Cá bảy màu đực sặc sỡ hồng xanh bơi trong hộp",
-      "best": true,
-      "kind": "male",
-      "large": {
-        "url": "https://media.aquatome.com/inaturalist/296283368-large.webp",
-        "width": 1798,
-        "height": 1200
-      }
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/251261522.webp",
       "thumb": "https://media.aquatome.com/inaturalist/251261522-480.webp",
       "width": 1024,
@@ -116,30 +87,6 @@
       }
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/232474483.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/232474483-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Aryan K",
-      "sourceUrl": "https://www.inaturalist.org/photos/232474483",
-      "caption": "Đàn cá bảy màu non bơi trong nước, môi trường tự nhiên",
-      "best": true,
-      "kind": "group"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/92648499.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/92648499-480.webp",
-      "width": 1024,
-      "height": 771,
-      "licence": "CC BY",
-      "author": "Bill Levine",
-      "sourceUrl": "https://www.inaturalist.org/photos/92648499",
-      "caption": "Cá bảy màu sống trong vùng nước nông ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/355435593.webp",
       "thumb": "https://media.aquatome.com/inaturalist/355435593-480.webp",
       "width": 1024,
@@ -150,54 +97,6 @@
       "caption": "Cá bảy màu đực đuôi sẫm bơi trong ao có rêu ngoài tự nhiên",
       "best": true,
       "kind": "male"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/340813824.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/340813824-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC0",
-      "author": "Rafael S. Marcondes",
-      "sourceUrl": "https://www.inaturalist.org/photos/340813824",
-      "caption": "Cá bảy màu bơi cùng nhau trong bể nuôi",
-      "best": true,
-      "kind": "group"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/179011837.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/179011837-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Jacek Pietruszewski",
-      "sourceUrl": "https://www.inaturalist.org/photos/179011837",
-      "caption": "Cá bảy màu cái ở vùng nước nông, đáy cát",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/232474459.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/232474459-480.webp",
-      "width": 767,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Aryan K",
-      "sourceUrl": "https://www.inaturalist.org/photos/232474459",
-      "caption": "Nhóm cá bảy màu nhỏ bơi trong nước giữa rong",
-      "best": true,
-      "kind": "group"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/176372782.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/176372782-480.webp",
-      "width": 1024,
-      "height": 689,
-      "licence": "CC BY",
-      "author": "Rodrigo Paiva Lázaro",
-      "sourceUrl": "https://www.inaturalist.org/photos/176372782",
-      "caption": "Cá bảy màu đực đuôi đỏ trong suối nước nông",
-      "best": true,
-      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/178149617.webp",
@@ -224,6 +123,42 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/232474483.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/232474483-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Aryan K",
+      "sourceUrl": "https://www.inaturalist.org/photos/232474483",
+      "caption": "Đàn cá bảy màu non bơi trong nước, môi trường tự nhiên",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/92648499.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/92648499-480.webp",
+      "width": 1024,
+      "height": 771,
+      "licence": "CC BY",
+      "author": "Bill Levine",
+      "sourceUrl": "https://www.inaturalist.org/photos/92648499",
+      "caption": "Cá bảy màu sống trong vùng nước nông ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/232474459.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/232474459-480.webp",
+      "width": 767,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Aryan K",
+      "sourceUrl": "https://www.inaturalist.org/photos/232474459",
+      "caption": "Nhóm cá bảy màu nhỏ bơi trong nước giữa rong",
+      "best": true,
+      "kind": "group"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/156617507.webp",
       "thumb": "https://media.aquatome.com/inaturalist/156617507-480.webp",
       "width": 892,
@@ -232,6 +167,42 @@
       "author": "Toby Y",
       "sourceUrl": "https://www.inaturalist.org/photos/156617507",
       "caption": "Hai cá bảy màu bơi trong suối tự nhiên gần lá cây",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/340813824.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/340813824-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Rafael S. Marcondes",
+      "sourceUrl": "https://www.inaturalist.org/photos/340813824",
+      "caption": "Cá bảy màu bơi cùng nhau trong bể nuôi",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/176372782.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/176372782-480.webp",
+      "width": 1024,
+      "height": 689,
+      "licence": "CC BY",
+      "author": "Rodrigo Paiva Lázaro",
+      "sourceUrl": "https://www.inaturalist.org/photos/176372782",
+      "caption": "Cá bảy màu đực đuôi đỏ trong suối nước nông",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/179011837.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/179011837-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Jacek Pietruszewski",
+      "sourceUrl": "https://www.inaturalist.org/photos/179011837",
+      "caption": "Cá bảy màu cái ở vùng nước nông, đáy cát",
       "best": true,
       "kind": "habitat"
     },
@@ -418,16 +389,6 @@
       "caption": "Cá bảy màu đực nhỏ có đuôi vàng trong bể kính"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/565687400.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/565687400-480.webp",
-      "width": 1024,
-      "height": 682,
-      "licence": "CC BY",
-      "author": "Yung-Lun Lin",
-      "sourceUrl": "https://www.inaturalist.org/photos/565687400",
-      "caption": "Cá bảy màu đực đuôi trong suốt trong bể kính có thước đo"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/216350307.webp",
       "thumb": "https://media.aquatome.com/inaturalist/216350307-480.webp",
       "width": 1024,
@@ -488,16 +449,6 @@
       "caption": "Cá bảy màu cái bơi trong bể có nền sỏi"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/753140672.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/753140672-480.webp",
-      "width": 576,
-      "height": 1024,
-      "licence": "CC0",
-      "author": "蝗莺",
-      "sourceUrl": "https://www.inaturalist.org/photos/753140672",
-      "caption": "Cá bảy màu đực đuôi đỏ cam bơi trong bể"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/467440997.webp",
       "thumb": "https://media.aquatome.com/inaturalist/467440997-480.webp",
       "width": 1024,
@@ -556,16 +507,6 @@
       "author": "Alejandro Alfredo Aguirre",
       "sourceUrl": "https://www.inaturalist.org/photos/89987657",
       "caption": "Cá bảy màu đực đuôi đỏ cam thân xám trong bể có cây thủy sinh"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/89987720.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/89987720-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Alejandro Alfredo Aguirre",
-      "sourceUrl": "https://www.inaturalist.org/photos/89987720",
-      "caption": "Cá bảy màu đực đuôi đỏ cam bơi trong bể thủy sinh"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/464500981.webp",
@@ -858,37 +799,6 @@
       "caption": "Cá bảy màu ngoài tự nhiên bơi gần đáy đá"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/455762959.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/455762959-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Kristof Zyskowski",
-      "sourceUrl": "https://www.inaturalist.org/photos/455762959",
-      "caption": "Hai cá bảy màu, một đực đuôi cam, bơi gần mặt nước"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/416105837.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/416105837-480.webp",
-      "width": 1024,
-      "height": 684,
-      "licence": "CC BY",
-      "author": "Yung-Lun Lin",
-      "sourceUrl": "https://www.inaturalist.org/photos/416105837",
-      "caption": "Cá bảy màu đực đuôi cam đen cạnh thước đo"
-    },
-    {
-      "url": "https://images.unsplash.com/photo-1706479980807-d4f353e0f0b1?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8M3x8R3VwcHl8ZW58MXx8fHwxNzkzMzc5ODYyfDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max",
-      "thumb": "https://images.unsplash.com/photo-1706479980807-d4f353e0f0b1?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8M3x8R3VwcHl8ZW58MXx8fHwxNzkzMzc5ODYyfDA&ixlib=rb-4.1.0&w=480&q=80&fm=jpg&fit=max",
-      "width": 1280,
-      "height": 1810,
-      "licence": "Unsplash License",
-      "author": "Ilias Triantos",
-      "authorUrl": "https://unsplash.com/@onloadtriggered?utm_source=aquatome&utm_medium=referral",
-      "sourceUrl": "https://unsplash.com/photos/a-fish-that-is-swimming-in-some-water-1hjesiNcY8Y?utm_source=aquatome&utm_medium=referral",
-      "caption": "Cá bảy màu đực đuôi cam trên nền cát trắng"
-    },
-    {
       "url": "https://images.unsplash.com/photo-1711826954148-6f6dc4feccb6?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MTB8fEd1cHB5fGVufDF8fHx8MTc5MzM3OTg2Mnww&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max",
       "thumb": "https://images.unsplash.com/photo-1711826954148-6f6dc4feccb6?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MTB8fEd1cHB5fGVufDF8fHx8MTc5MzM3OTg2Mnww&ixlib=rb-4.1.0&w=480&q=80&fm=jpg&fit=max",
       "width": 1280,
@@ -911,17 +821,6 @@
       "caption": "Cá bảy màu đực thân trắng đuôi đốm xanh tím"
     },
     {
-      "url": "https://images.unsplash.com/photo-1641649569890-7e073b7cf061?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MjZ8fEd1cHB5fGVufDF8fHx8MTc5MzM3OTg2Mnww&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max",
-      "thumb": "https://images.unsplash.com/photo-1641649569890-7e073b7cf061?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MjZ8fEd1cHB5fGVufDF8fHx8MTc5MzM3OTg2Mnww&ixlib=rb-4.1.0&w=480&q=80&fm=jpg&fit=max",
-      "width": 1280,
-      "height": 960,
-      "licence": "Unsplash License",
-      "author": "𝓖𝓸𝓴𝓾𝓵",
-      "authorUrl": "https://unsplash.com/@gokuljr19?utm_source=aquatome&utm_medium=referral",
-      "sourceUrl": "https://unsplash.com/photos/a-couple-of-fish-that-are-in-the-water-ekLlfRHy9cc?utm_source=aquatome&utm_medium=referral",
-      "caption": "Cá bảy màu đực đuôi hoa văn hồng và cá cái trong bể"
-    },
-    {
       "url": "https://images.unsplash.com/photo-1778957600722-37bf2bbabe95?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8Mjh8fEd1cHB5fGVufDF8fHx8MTc5MzM3OTg2Mnww&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max",
       "thumb": "https://images.unsplash.com/photo-1778957600722-37bf2bbabe95?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8Mjh8fEd1cHB5fGVufDF8fHx8MTc5MzM3OTg2Mnww&ixlib=rb-4.1.0&w=480&q=80&fm=jpg&fit=max",
       "width": 1280,
@@ -931,6 +830,183 @@
       "authorUrl": "https://unsplash.com/@aftermyeffect?utm_source=aquatome&utm_medium=referral",
       "sourceUrl": "https://unsplash.com/photos/two-small-guppy-fish-swimming-in-dark-water-aMXgJzbdCuE?utm_source=aquatome&utm_medium=referral",
       "caption": "Hai cá bảy màu cái bơi trong bể thủy sinh tối"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/340813846.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/340813846-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Rafael S. Marcondes",
+      "sourceUrl": "https://www.inaturalist.org/photos/340813846",
+      "caption": "Nhóm cá bảy màu trong bể nuôi",
+      "best": false,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/156617491.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/156617491-480.webp",
+      "width": 860,
+      "height": 645,
+      "licence": "CC BY",
+      "author": "Toby Y",
+      "sourceUrl": "https://www.inaturalist.org/photos/156617491",
+      "caption": "Cá bảy màu trong tự nhiên bên cạnh thân cây thủy sinh",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/330429036.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/330429036-480.webp",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY",
+      "author": "Diego Gómez Hoyos",
+      "sourceUrl": "https://www.inaturalist.org/photos/330429036",
+      "caption": "Cá bảy màu trên nền trắng, thân vàng sọc nâu",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/168718415.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/168718415-480.webp",
+      "width": 1024,
+      "height": 720,
+      "licence": "CC BY",
+      "author": "Rodrigo Paiva Lázaro",
+      "sourceUrl": "https://www.inaturalist.org/photos/168718415",
+      "caption": "Đàn cá bảy màu nhỏ trong nước nông tự nhiên",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/177556671.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/177556671-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "João D'Andretta",
+      "sourceUrl": "https://www.inaturalist.org/photos/177556671",
+      "caption": "Cá bảy màu trong nước tối cạnh tảng đá",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/179011812.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/179011812-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Jacek Pietruszewski",
+      "sourceUrl": "https://www.inaturalist.org/photos/179011812",
+      "caption": "Ba cá bảy màu trong nước nông đáy cát",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/300379278.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/300379278-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Andrew Allen",
+      "sourceUrl": "https://www.inaturalist.org/photos/300379278",
+      "caption": "Cá bảy màu đực ngoài tự nhiên với đuôi đỏ",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/300379393.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/300379393-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Andrew Allen",
+      "sourceUrl": "https://www.inaturalist.org/photos/300379393",
+      "caption": "Cá bảy màu ngoài tự nhiên bơi gần mặt nước",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/340813812.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/340813812-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Rafael S. Marcondes",
+      "sourceUrl": "https://www.inaturalist.org/photos/340813812",
+      "caption": "Cá bảy màu đực bơi trong bể nuôi",
+      "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/296283368.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/296283368-480.webp",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY",
+      "author": "Yung-Lun Lin",
+      "sourceUrl": "https://www.inaturalist.org/photos/296283368",
+      "caption": "Cá bảy màu đực sặc sỡ hồng xanh bơi trong hộp",
+      "best": true,
+      "kind": "male",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/296283368-large.webp",
+        "width": 1798,
+        "height": 1200
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/753140672.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/753140672-480.webp",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "蝗莺",
+      "sourceUrl": "https://www.inaturalist.org/photos/753140672",
+      "caption": "Cá bảy màu đực đuôi đỏ cam bơi trong bể"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/89987720.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/89987720-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Alejandro Alfredo Aguirre",
+      "sourceUrl": "https://www.inaturalist.org/photos/89987720",
+      "caption": "Cá bảy màu đực đuôi đỏ cam bơi trong bể thủy sinh"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/455762959.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/455762959-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Kristof Zyskowski",
+      "sourceUrl": "https://www.inaturalist.org/photos/455762959",
+      "caption": "Hai cá bảy màu, một đực đuôi cam, bơi gần mặt nước"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1706479980807-d4f353e0f0b1?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8M3x8R3VwcHl8ZW58MXx8fHwxNzkzMzc5ODYyfDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max",
+      "thumb": "https://images.unsplash.com/photo-1706479980807-d4f353e0f0b1?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8M3x8R3VwcHl8ZW58MXx8fHwxNzkzMzc5ODYyfDA&ixlib=rb-4.1.0&w=480&q=80&fm=jpg&fit=max",
+      "width": 1280,
+      "height": 1810,
+      "licence": "Unsplash License",
+      "author": "Ilias Triantos",
+      "authorUrl": "https://unsplash.com/@onloadtriggered?utm_source=aquatome&utm_medium=referral",
+      "sourceUrl": "https://unsplash.com/photos/a-fish-that-is-swimming-in-some-water-1hjesiNcY8Y?utm_source=aquatome&utm_medium=referral",
+      "caption": "Cá bảy màu đực đuôi cam trên nền cát trắng"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1641649569890-7e073b7cf061?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MjZ8fEd1cHB5fGVufDF8fHx8MTc5MzM3OTg2Mnww&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max",
+      "thumb": "https://images.unsplash.com/photo-1641649569890-7e073b7cf061?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MjZ8fEd1cHB5fGVufDF8fHx8MTc5MzM3OTg2Mnww&ixlib=rb-4.1.0&w=480&q=80&fm=jpg&fit=max",
+      "width": 1280,
+      "height": 960,
+      "licence": "Unsplash License",
+      "author": "𝓖𝓸𝓴𝓾𝓵",
+      "authorUrl": "https://unsplash.com/@gokuljr19?utm_source=aquatome&utm_medium=referral",
+      "sourceUrl": "https://unsplash.com/photos/a-couple-of-fish-that-are-in-the-water-ekLlfRHy9cc?utm_source=aquatome&utm_medium=referral",
+      "caption": "Cá bảy màu đực đuôi hoa văn hồng và cá cái trong bể"
     },
     {
       "url": "https://images.unsplash.com/photo-1706479980962-23942d2f4d56?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MXx8R3VwcHl8ZW58MXx8fHwxNzkzMzc5ODYyfDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max",
@@ -966,6 +1042,26 @@
       "caption": "Cá bảy màu đực đuôi đỏ bơi giữa cây thủy sinh"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/565687400.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/565687400-480.webp",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY",
+      "author": "Yung-Lun Lin",
+      "sourceUrl": "https://www.inaturalist.org/photos/565687400",
+      "caption": "Cá bảy màu đực đuôi trong suốt trong bể kính có thước đo"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/416105837.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/416105837-480.webp",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY",
+      "author": "Yung-Lun Lin",
+      "sourceUrl": "https://www.inaturalist.org/photos/416105837",
+      "caption": "Cá bảy màu đực đuôi cam đen cạnh thước đo"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/296283525.webp",
       "thumb": "https://media.aquatome.com/inaturalist/296283525-480.webp",
       "width": 1024,
@@ -988,42 +1084,6 @@
       "caption": "Cá bảy màu cái màu ánh vàng trong hộp chụp",
       "best": false,
       "kind": "female"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/340813846.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/340813846-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC0",
-      "author": "Rafael S. Marcondes",
-      "sourceUrl": "https://www.inaturalist.org/photos/340813846",
-      "caption": "Nhóm cá bảy màu trong bể nuôi",
-      "best": false,
-      "kind": "group"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/179011812.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/179011812-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Jacek Pietruszewski",
-      "sourceUrl": "https://www.inaturalist.org/photos/179011812",
-      "caption": "Ba cá bảy màu trong nước nông đáy cát",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/330429036.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/330429036-480.webp",
-      "width": 1024,
-      "height": 682,
-      "licence": "CC BY",
-      "author": "Diego Gómez Hoyos",
-      "sourceUrl": "https://www.inaturalist.org/photos/330429036",
-      "caption": "Cá bảy màu trên nền trắng, thân vàng sọc nâu",
-      "best": false,
-      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/296283535.webp",
@@ -1050,18 +1110,6 @@
       "kind": "female"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/168718415.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/168718415-480.webp",
-      "width": 1024,
-      "height": 720,
-      "licence": "CC BY",
-      "author": "Rodrigo Paiva Lázaro",
-      "sourceUrl": "https://www.inaturalist.org/photos/168718415",
-      "caption": "Đàn cá bảy màu nhỏ trong nước nông tự nhiên",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/296283300.webp",
       "thumb": "https://media.aquatome.com/inaturalist/296283300-480.webp",
       "width": 1024,
@@ -1072,54 +1120,6 @@
       "caption": "Cá bảy màu đực nhiều màu hồng xanh trong hộp chụp",
       "best": false,
       "kind": "male"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/300379278.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/300379278-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Andrew Allen",
-      "sourceUrl": "https://www.inaturalist.org/photos/300379278",
-      "caption": "Cá bảy màu đực ngoài tự nhiên với đuôi đỏ",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/300379393.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/300379393-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Andrew Allen",
-      "sourceUrl": "https://www.inaturalist.org/photos/300379393",
-      "caption": "Cá bảy màu ngoài tự nhiên bơi gần mặt nước",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/177556671.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/177556671-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY",
-      "author": "João D'Andretta",
-      "sourceUrl": "https://www.inaturalist.org/photos/177556671",
-      "caption": "Cá bảy màu trong nước tối cạnh tảng đá",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/156617491.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/156617491-480.webp",
-      "width": 860,
-      "height": 645,
-      "licence": "CC BY",
-      "author": "Toby Y",
-      "sourceUrl": "https://www.inaturalist.org/photos/156617491",
-      "caption": "Cá bảy màu trong tự nhiên bên cạnh thân cây thủy sinh",
-      "best": false,
-      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/131701420.webp",

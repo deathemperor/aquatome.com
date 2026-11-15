@@ -1,0 +1,149 @@
+{
+  "id": "catalaphyllia-jardinei",
+  "native": {
+    "input": "5c2d41294858a2e0",
+    "at": "2026-11-14T17:19:02.525Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Its range also extends to Indonesia, Japan, Australia, Micronesia, Mozambique and Vanuatu.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Its range also extends to Indonesia, Japan, Australia, Micronesia, Mozambique and Vanuatu.",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Its range also extends to Indonesia, Japan, Australia, Micronesia, Mozambique and Vanuatu.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "FM",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Its range also extends to Indonesia, Japan, Australia, Micronesia, Mozambique and Vanuatu.",
+        "words": "Micronesia",
+        "ok": true
+      },
+      {
+        "code": "MZ",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Its range also extends to Indonesia, Japan, Australia, Micronesia, Mozambique and Vanuatu.",
+        "words": "Mozambique",
+        "ok": true
+      },
+      {
+        "code": "VU",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Its range also extends to Indonesia, Japan, Australia, Micronesia, Mozambique and Vanuatu.",
+        "words": "Vanuatu",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Catalaphyllia jardinei",
+    "status": "ACCEPTED",
+    "taxonKey": 2259226,
+    "datasets": [
+      [
+        "adb92d68-aaff-47ba-b197-d3d26f72f728",
+        27
+      ],
+      [
+        "be62fffc-d0e7-45f2-9404-d4bc4322bc57",
+        25
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        23
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        15
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        14
+      ],
+      [
+        "e5d47a25-9e51-40db-9b5c-3f766be5c7b5",
+        11
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        9
+      ],
+      [
+        "7898cf5f-11e4-404c-87d2-1d5e3b3e0a18",
+        2
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "73a6c4b3-f013-43f7-bcc9-93cf07f98a5d",
+        1
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        1
+      ],
+      [
+        "7a1cf27b-c197-4003-a6f0-547d8237e56b",
+        1
+      ],
+      [
+        "7bafc0d6-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "c6ca96bc-7cf5-4fe7-ac44-d01e06394ef3",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "ID",
+      "JP",
+      "AU",
+      "FM",
+      "MZ",
+      "VU"
+    ],
+    "requests": 14,
+    "at": "2026-11-14T17:19:02.525Z"
+  }
+}

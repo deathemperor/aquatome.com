@@ -1,8 +1,13 @@
 {
   "slug": "perak-river",
-  "name": "Perak",
+  "name": "Sungai Perak",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-15T05:33:35.038Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

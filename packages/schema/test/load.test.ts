@@ -1,4 +1,4 @@
-import { copyFile, cp, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { copyFile, cp, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -152,6 +152,32 @@ test('another language has only the places one of its fish comes from; Vietnames
   // A place with no page in a language still has its name there: a fish's range names rivers no fish lists (a Thai
   // page named four Vietnamese rivers in Vietnamese while their Thai names went unread, 2026-11-08).
   expect(id.placeNames).toEqual({ asia: 'asia', europe: 'europe' })
+})
+
+// The chief of staff, 14 Nov 2026: a place's name that fails when judged alone shows the source's name until it passes;
+// one a batch scored low but no one judged alone shows as it is (no blanket step back: most of them are right). "Hue"
+// for the Hue River on an Indonesian fish page is the case.
+test("a place name judged alone and failed is no name in that language; one a batch scored low and no one judged alone stays", async () => {
+  const { cp, mkdir, readFile, writeFile } = await import('node:fs/promises')
+  const dir = await mkdtemp(join(tmpdir(), 'aq-place-judged-'))
+  await cp(root, dir, { recursive: true })
+  const alpha = JSON.parse(await readFile(join(dir, 'species/alpha/entity.json'), 'utf8'))
+  await writeFile(join(dir, 'species/alpha/entity.json'), JSON.stringify({ ...alpha, places: ['hue-river', 'kayan-river', 'borneo'] }))
+  await writeFile(join(dir, 'species/alpha/id.json'), await readFile(join(dir, 'species/alpha/vi.json'), 'utf8'))
+  const names: Record<string, [string, object]> = {
+    'hue-river': ['Hue', { nameCheck: { ok: false, score: 0.1, at: '2026-11-16T05:00:00Z', why: 'a river cut to its city' } }],
+    'kayan-river': ['Kayan', {}],
+    borneo: ['Kalimantan', { nameCheck: { ok: true, score: 0.95, at: '2026-11-16T05:00:00Z' } }],
+  }
+  for (const [id, [name, more]] of Object.entries(names)) {
+    await mkdir(join(dir, 'places', id), { recursive: true })
+    await writeFile(join(dir, 'places', id, 'entity.json'), JSON.stringify({ id, kind: id === 'borneo' ? 'region' : 'river' }))
+    await writeFile(join(dir, 'places', id, 'vi.json'), JSON.stringify({ slug: id, name: id, altNames: [], sections: {}, quality: { score: 1, indexable: true } }))
+    await writeFile(join(dir, 'places', id, 'id.json'), JSON.stringify({ slug: id, name, altNames: [], sections: {}, quality: { score: 0.05, indexable: false }, ...more }))
+  }
+  const id = await loadAll({ root: dir, lang: 'id', publicBuild: false })
+  expect(id.placeNames).toEqual({ 'kayan-river': 'Kayan', borneo: 'Kalimantan' })
+  expect(id.places.map(p => p.id).sort()).toEqual(['borneo', 'kayan-river'])
 })
 
 test('a page the reader-fit gate holds back in a language is no page there where the site asks, and the engine still reads it', async () => {
@@ -418,4 +444,28 @@ test('a heading with one voice shows that source alone, and only once this langu
   expect(shown({ 'waterConditions:glaser': 'a', 'waterConditions:seriouslyfish': 'b', 'diet:glaser': 'c' })).toEqual(['waterConditions:seriouslyfish', 'diet:glaser'])
   expect(shown({ 'waterConditions:glaser': 'a', 'diet:glaser': 'c' })).toEqual(['waterConditions:glaser', 'waterConditions:seriouslyfish', 'diet:glaser'])
   expect(oneVoice({ sections, t: { sections: {} } as unknown as Translation }, undefined).sections).toEqual(sections)
+  // No voice: the heading is off, whichever sources wrote under it, and the others stay.
+  const none = oneVoice({ sections, t: { sections: { 'waterConditions:glaser': 'a', 'waterConditions:seriouslyfish': 'b', 'diet:glaser': 'c' } } as unknown as Translation }, { waterConditions: false })
+  expect(none.sections.map(s => `${s.key}:${s.source}`)).toEqual(['diet:glaser'])
+  // Its text goes too, so nothing that reads the page's text (the gate's checks, the summary) reads what readers don't see.
+  expect(Object.keys(none.t.sections)).toEqual(['diet:glaser'])
+})
+
+// The owner, 15 Nov 2026: "what does each look like?". A kind's photo passes the screen the term's own photos pass: one
+// the build may not show leaves its kind without a photo, never a photo it may not show.
+test('a glossary kind\'s photo passes the same screen as the term\'s photos', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'aq-glossary-kinds-'))
+  await cp(root, dir, { recursive: true })
+  const photos = JSON.parse(await readFile(join(dir, 'species/alpha/entity.json'), 'utf8')).photos as { url: string }[]
+  const ids = ['ok', 'nc', 'seriouslyfish', 'glaser']
+  await mkdir(join(dir, 'glossary/lua'), { recursive: true })
+  await writeFile(join(dir, 'glossary/lua/entity.json'), JSON.stringify({ id: 'lua', en: 'Driftwood', photos, kinds: photos.map((photo, i) => ({ id: ids[i], photo })) }))
+  await writeFile(join(dir, 'glossary/lua/vi.json'), JSON.stringify({ slug: 'lua', name: 'Lũa', altNames: [], sections: {}, definition: 'Gỗ.', quality: { score: 0.9, indexable: true } }))
+  const kinds = async (publicBuild: boolean) => {
+    const g = (await loadAll({ root: dir, lang: 'vi', publicBuild })).glossary.find(x => x.id === 'lua')!
+    for (const k of g.kinds!) expect(k.photo.url).toBe(photos[ids.indexOf(k.id)]!.url)
+    return g.kinds!.map(k => k.id)
+  }
+  expect(await kinds(false)).toEqual(['ok', 'seriouslyfish', 'glaser'])
+  expect(await kinds(true)).toEqual(['ok', 'seriouslyfish'])
 })

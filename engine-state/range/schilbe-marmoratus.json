@@ -1,0 +1,98 @@
+{
+  "id": "schilbe-marmoratus",
+  "native": {
+    "input": "af81d00d05312a66",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Sankuru River at Kondu [Kondue], Kasai, Democratic Republic of Congo.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Congo",
+        "source": "planetcatfish",
+        "quote": "Known from the Shiloango and Congo River drainages.",
+        "ok": true
+      },
+      {
+        "name": "Shiloango",
+        "source": "planetcatfish",
+        "quote": "Known from the Shiloango and Congo River drainages.",
+        "ok": true
+      },
+      {
+        "name": "Sankuru River",
+        "source": "planetcatfish",
+        "quote": "Type locality: Sankuru River at Kondu [Kondue], Kasai, Democratic Republic of Congo.",
+        "country": "CD",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "AO"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Schilbe marmoratus",
+    "status": "ACCEPTED",
+    "taxonKey": 2341779,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        142
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        25
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        22
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        15
+      ],
+      [
+        "cca0058d-d593-4c7e-844c-dcc0b8feae86",
+        14
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        8
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        4
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "CD"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

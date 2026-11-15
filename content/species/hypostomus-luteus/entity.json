@@ -11,7 +11,8 @@
     "rio-pelotas",
     "uruguay",
     "uruguay-river",
-    "paraguay"
+    "paraguay",
+    "argentina"
   ],
   "range": {
     "native": {
@@ -144,6 +145,10 @@
       {
         "source": "scotcat",
         "value": 35
+      },
+      {
+        "source": "glaser",
+        "value": 30
       }
     ],
     "ph": [
@@ -178,8 +183,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_luteus_en-2/",
-      "html": "<p>Hypostomus luteus is considered the most beautiful of all plecos. Only fully grown specimens display the reddish-yellow coloration, whereas young fish are black with light spots.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_luteus_en/",
+      "html": "<p>Origin: Brazil, Argentina. Latin name: Hypostomus luteus.</p>"
     },
     {
       "key": "distribution",
@@ -196,14 +201,20 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_luteus_en-2/",
-      "html": "<p>Origin: Paraguay.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_luteus_en/",
+      "html": "<p>From southern Brazil and northern Argentina.</p>"
     },
     {
       "key": "aquariumSize",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_luteus.htm",
       "html": "<p>Will need a good-sized aquarium of 150 cm or over due to their final adult size.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_luteus_en/",
+      "html": "<p>Since a size of more than 30 cm can be reached, a tank of appropriate size should be available.</p>"
     },
     {
       "key": "maintenance",
@@ -218,16 +229,16 @@
       "html": "<p>Temperature: 23.0-24.0°C (73.4-75.2°F).</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_luteus_en/",
+      "html": "<p>Their southern area of origin suggests a tolerance in relation to low temperatures. They can be maintained in the unheated room aquarium.</p>"
+    },
+    {
       "key": "diet",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_luteus.htm",
       "html": "<p>Will eat all manner of foods in the aquarium: vegetables, tablet and pellet foods and good-quality flake.</p>"
-    },
-    {
-      "key": "dimorphism",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_luteus_en-2/",
-      "html": "<p>Young fish are black with light spots; fully grown fish are reddish-yellow.</p>"
     },
     {
       "key": "reproduction",
@@ -240,6 +251,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_luteus.htm",
       "html": "<p>A very variable species in colour; as they get older they can change colour into adulthood, especially the yellowing in the fins.</p><p>Etymology: the specific name luteus is Latin for yellow, referring to its yellow-orange colour in life.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_luteus_en/",
+      "html": "<p>Probably the most beautiful representative of the genus Hypostomus. Contrary to many other loricariids they become more beautiful with increasing age, since the portion of the yellow body parts constantly increases.</p>"
     },
     {
       "key": "references",
@@ -347,5 +364,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-11"
+  "updatedAt": "2026-11-14"
 }

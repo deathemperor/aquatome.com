@@ -10,6 +10,88 @@
     "democratic-republic-of-the-congo",
     "lake-tanganyika"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is endemic to Lake Tanganyika.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344443,
+      "total": 28,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "CD",
+          14
+        ],
+        [
+          "ZM",
+          13
+        ],
+        [
+          "TZ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          1
+        ],
+        [
+          28.125,
+          -5.625,
+          1
+        ],
+        [
+          28.125,
+          -4.21875,
+          11
+        ],
+        [
+          29.53125,
+          -9.84375,
+          4
+        ],
+        [
+          29.53125,
+          -8.4375,
+          1
+        ],
+        [
+          29.53125,
+          -7.03125,
+          1
+        ],
+        [
+          29.53125,
+          -5.625,
+          1
+        ],
+        [
+          30.9375,
+          -9.84375,
+          8
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

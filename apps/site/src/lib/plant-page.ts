@@ -1,8 +1,9 @@
 import type { Content, Localized, PlantEntity } from '@aq/schema'
-import { GALLERY_MIN, GALLERY_STRIP } from './gallery'
+import { GALLERY_STRIP } from './gallery'
+import { albumOf, hasPhotoPage } from './photo-page'
 import { served, type Lang } from './i18n'
 import { guideImages, guidesMentioning } from './mentions'
-import { distinctPhotos, pagePictures, takeEach } from './pictures'
+import { pagePictures, takeEach } from './pictures'
 
 /**
  * What a plant's page shows, put together once for the page (pages/cay/[slug].astro) and for the app's copy of it
@@ -14,9 +15,9 @@ export function plantParts(lang: Lang, c: Content, p: Localized<PlantEntity>) {
   const pics = pagePictures(c)
   pics.add(p.photos[0]?.url)
   // Its gallery's first photos, linking the gallery page, once there are enough for one.
-  const gallery = distinctPhotos(c, c.galleries[p.id] ?? [])
+  const gallery = albumOf(c, 'plants', p)
   const galleryPath = `/vi/cay/${p.t.slug}/anh/`
-  const strip = gallery.length >= GALLERY_MIN && served(lang, galleryPath) ? gallery.slice(0, GALLERY_STRIP).map(x => pics.take([x]) ?? null) : []
+  const strip = hasPhotoPage(gallery) && served(lang, galleryPath) ? gallery.slice(0, GALLERY_STRIP).map(x => pics.take([x]) ?? null) : []
   const figures = p.photos.slice(1).filter(x => pics.take([x]))
   const mentioning = guidesMentioning(c, `plant:${p.id}`)
   const videoGuides = mentioning.filter(g => g.video)

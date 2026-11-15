@@ -408,6 +408,8 @@ final class HandbookModel {
       let latest = args.contains("-whats-new") ? "/app/latest/vi.json" : nil
       // `-breeds`: the site lists a breed of the discus too, as it lists breeds.
       var items = (args.contains("-breeds") ? f.items + HandbookIndex.fixtureBreeds : f.items) + (kit ? HandbookIndex.fixtureKit : [])
+      // `-crab`: a crab among the fish pages, as the site lists about 90 that aren't fish (`fixtureCrab`).
+      if args.contains("-crab") { items.append(HandbookIndex.fixtureCrab) }
       // `-series N`: N video series, the fixture's own first (0: none, as the Indonesian and Thai sites have).
       if let n = args.firstIndex(of: "-series").flatMap({ $0 + 1 < args.count ? Int(args[$0 + 1]) : nil }) {
         let own = items.filter { $0.kind == .video }
@@ -418,6 +420,21 @@ final class HandbookModel {
       }
       // `-plan`: the editors have planned Hôm nay's days (`fixtureDays`).
       var home = f.home
+      // `-wide-pictures`: each fish and plant has a photo (a wide stand-in, `-fixed-pictures`) with its fish's box across
+      // nearly all of it, and each group one: a photo the frame rule shows whole wherever it goes (WholePhotoFlowTests).
+      if args.contains("-wide-pictures") {
+        let box = PhotoBox(x: 0.04, y: 0.1, w: 0.92, h: 0.8)
+        items = items.map { i in
+          guard i.kind == .fish || i.kind == .plant,
+                var o = (try? JSONSerialization.jsonObject(with: JSONEncoder().encode(i))) as? [String: Any] else { return i }
+          o["img"] = "https://aquatome.com/img/wide-\(i.contentId ?? i.name)-480.webp"
+          o["imgBox"] = ["x": box.x, "y": box.y, "w": box.w, "h": box.h]
+          return (try? JSONSerialization.data(withJSONObject: o)).flatMap { try? JSONDecoder().decode(HandbookIndex.Item.self, from: $0) } ?? i
+        }
+        if let groups = home?.groups {
+          home?.groups = groups.map { .init(id: $0.id, img: "https://aquatome.com/img/wide-\($0.id)-480.webp", imgBox: box) }
+        }
+      }
       // `-familiar N`: Khám phá's fish shelf runs long, N fish after the fixture's own, as the hobbyists' list does.
       if let n = args.firstIndex(of: "-familiar").flatMap({ $0 + 1 < args.count ? Int(args[$0 + 1]) : nil }), n > 0 {
         let more = (1...n).map { HandbookIndex.Item(kind: .fish, contentId: "quen-\($0)", name: "Cá quen \($0)", sub: "Genus familiaris", path: "/vi/ca/ca-quen-\($0)/", group: "tetras") }
@@ -448,7 +465,9 @@ final class HandbookModel {
         : launch.contains("-newer-part") ? HandbookIndex.fixturePagesWithANewerPart
         : launch.contains("-long-page") ? HandbookIndex.fixturePagesLong
         : launch.contains("-long-part") ? HandbookIndex.fixturePagesWithLongParts
-        : launch.contains("-lead-in-gallery") ? HandbookIndex.fixturePagesLeadInGallery : HandbookIndex.fixturePages
+        : launch.contains("-long-guide") ? HandbookIndex.fixturePagesWithALongGuide
+        : launch.contains("-lead-in-gallery") ? HandbookIndex.fixturePagesLeadInGallery
+        : launch.contains("-crab") ? HandbookIndex.fixturePagesWithACrab : HandbookIndex.fixturePages
       // `-slow-pages`: a page that takes its time to be read.
       let slow = launch.contains("-slow-pages")
       return PageCache(dir: dir, site: site, fetch: { _ in
@@ -574,6 +593,20 @@ extension HandbookIndex {
           card: .init(tempC: .init(min: 28, max: 30), ph: .init(min: 5.5, max: 7), sizeCm: 15, tankCm: 120, difficulty: 7)),
   ]
 
+  /// UI tests' crab among the fish pages (`-crab`; the owner's report of 15 Nov, the fiddler crab's page): its order a
+  /// crab's, and the neon's page under its address and name (`fixturePagesWithACrab`).
+  static let fixtureCrab = Item(kind: .fish, contentId: "austruca-annulipes", name: "Cua đồng hồ", sub: "Austruca annulipes",
+                                path: "/vi/ca/cua-dong-ho/", group: "other", tax: ["Decapoda", "Ocypodidae", "Austruca"])
+  static let fixturePagesWithACrab: Data = {
+    guard var o = try? JSONSerialization.jsonObject(with: fixturePages) as? [String: Any], var pages = o["pages"] as? [String: Any],
+          var page = pages["/vi/ca/ca-neon/"] as? [String: Any] else { return fixturePages }
+    page["path"] = fixtureCrab.path
+    page["title"] = fixtureCrab.name
+    pages[fixtureCrab.path] = page
+    o["pages"] = pages
+    return (try? JSONSerialization.data(withJSONObject: o)) ?? fixturePages
+  }()
+
   /// UI tests' page of a kind of kit (`-equipment`), as the site writes it.
   static let fixtureKitPages = Data(#"""
   {"v":1,"pages":{"/vi/thiet-bi/loc/":{"v":1,"kind":"equipment","path":"/vi/thiet-bi/loc/","title":"Lọc","meta":"40 loài cá cần · 2 loại · 1 bài viết","lead":{"src":"https://media.aquatome.com/a/loc.webp","w":1000,"h":667,"alt":"Lọc","credit":{"text":"Ảnh: Aquarium Co-op","licence":"dùng với sự cho phép","url":"https://example.org/photo/loc"}},"blocks":[{"t":"p","c":["Bộ lọc giữ nước trong và nuôi vi sinh xử lý chất thải của cá."]},{"t":"p","c":["Lọc làm ba việc: giữ cặn, nuôi vi sinh, tạo dòng chảy."]},{"t":"h","text":"Các loại lọc"},{"t":"h","text":"Lọc thùng","id":"loc-thung"},{"t":"figure","img":{"src":"https://media.aquatome.com/a/loc-thung.webp","w":960,"h":720,"alt":"Lọc thùng","credit":{"text":"Ảnh: Tác giả 6","licence":"CC BY 4.0","url":"https://example.org/photo/loc-thung"}}},{"t":"p","c":["Đặt ngoài bể, khỏe và êm, hợp bể từ 60 cm."]},{"t":"p","c":[{"text":"Chọn thế nào:","b":true}," Lưu lượng gấp 4 lần thể tích bể mỗi giờ."]},{"t":"p","c":["Đã tìm hiểu kỹ: ",{"text":"Oase BioMaster 350","href":"/vi/san-pham/oase-biomaster-350/"}]},{"t":"p","c":[{"text":"Mua lọc thùng trên Shopee","href":"/go/shopee/?k=l%E1%BB%8Dc+th%C3%B9ng&c=loc&e=equipment%3Aloc"}]},{"t":"p","c":["Hay tìm: ",{"text":"lọc thùng mini","href":"/go/shopee/?k=l%E1%BB%8Dc+th%C3%B9ng+mini&c=loc&e=equipment%3Aloc"}]},{"t":"cards","title":"Loài dùng lọc thùng","items":[{"path":"/vi/ca/ca-neon/","name":"Cá neon"},{"path":"/vi/ca/ca-dia/","name":"Cá đĩa"}]},{"t":"p","c":["+38 loài"]},{"t":"h","text":"Lọc bọt biển","id":"loc-bot-bien"},{"t":"p","c":["Rẻ và hiền, hợp bể nhỏ và bể tép."]},{"t":"p","c":[{"text":"Chọn thế nào:","b":true}," Một miếng cho bể đến 40 lít."]},{"t":"h","text":"Cách chọn"},{"t":"list","items":[[{"t":"p","c":["Chọn theo cỡ bể và cá nuôi."]}]]},{"t":"h","text":"Sai lầm thường gặp"},{"t":"list","items":[[{"t":"p","c":["Rửa vật liệu lọc bằng nước máy."]}]]},{"t":"pages","title":"Loài cá cần lọc","paths":["/vi/ca/ca-thu-1/","/vi/ca/ca-thu-2/","/vi/ca/ca-thu-3/","/vi/ca/ca-thu-4/","/vi/ca/ca-thu-5/","/vi/ca/ca-thu-6/","/vi/ca/ca-thu-7/","/vi/ca/ca-thu-8/","/vi/ca/ca-thu-9/","/vi/ca/ca-thu-10/","/vi/ca/ca-thu-11/","/vi/ca/ca-thu-12/","/vi/ca/ca-thu-13/","/vi/ca/ca-thu-14/","/vi/ca/ca-thu-15/","/vi/ca/ca-thu-16/","/vi/ca/ca-thu-17/","/vi/ca/ca-thu-18/","/vi/ca/ca-thu-19/","/vi/ca/ca-thu-20/","/vi/ca/ca-thu-21/","/vi/ca/ca-thu-22/","/vi/ca/ca-thu-23/","/vi/ca/ca-thu-24/","/vi/ca/ca-thu-25/","/vi/ca/ca-thu-26/","/vi/ca/ca-thu-27/","/vi/ca/ca-thu-28/","/vi/ca/ca-thu-29/","/vi/ca/ca-thu-30/","/vi/ca/ca-thu-31/","/vi/ca/ca-thu-32/","/vi/ca/ca-thu-33/","/vi/ca/ca-thu-34/","/vi/ca/ca-thu-35/","/vi/ca/ca-thu-36/","/vi/ca/ca-thu-37/","/vi/ca/ca-thu-38/","/vi/ca/ca-thu-39/","/vi/ca/ca-thu-40/"]},{"t":"faq","title":"Hỏi đáp","items":[{"q":"Bao lâu rửa lọc một lần?","a":"Khoảng mỗi tháng, bằng nước bể."}]},{"t":"pages","title":"Bài viết liên quan","paths":["/vi/huong-dan/nuoi-ca-neon/"]},{"t":"h","text":"Gợi ý mua hay gặp (1)"},{"t":"list","items":[[{"t":"p","c":[{"text":"lọc thùng mini","href":"/go/shopee/?k=l%E1%BB%8Dc+th%C3%B9ng+mini&c=loc&e=equipment%3Aloc"}]}]]},{"t":"p","c":["Liên kết tiếp thị — trang có thể nhận hoa hồng khi bạn mua qua liên kết."]}]}}}
@@ -584,7 +617,7 @@ extension HandbookIndex {
   /// video guide with its chapters; a fish with three videos (the last one YouTube refuses), a plant, a term and a video
   /// series, each as the site writes it.
   static let fixturePages = Data(#"""
-  {"v":1,"pages":{"/vi/huong-dan/cach-han-che-reu-hai/":{"v":1,"kind":"guide","path":"/vi/huong-dan/cach-han-che-reu-hai/","title":"Cách hạn chế rêu hại","credit":["AquaTome tổng hợp từ ",{"text":"1 nguồn","href":"#nguon"}," rồi tự viết"],"video":{"youtubeId":"abc123XYZ_-","title":"Hạn chế rêu hại","channel":"MJ Aquascaping","durationSec":1755,"chapters":[{"at":0,"title":"Vì sao rêu mọc"},{"at":95,"title":"Ánh sáng và CO₂"}]},"blocks":[{"t":"p","c":["Ánh sáng vừa đủ, CO₂ đều, thay nước đúng lịch."]},{"t":"refs","title":"Nguồn tham khảo","id":"nguon","items":[{"title":"Video gốc: Hạn chế rêu hại, kênh MJ Aquascaping · 29:15","url":"https://www.youtube.com/watch?v=abc123XYZ_-"}]}]},
+  {"v":1,"pages":{"/vi/huong-dan/cach-han-che-reu-hai/":{"v":1,"kind":"guide","path":"/vi/huong-dan/cach-han-che-reu-hai/","title":"Cách hạn chế rêu hại","credit":["AquaTome tổng hợp từ ",{"text":"1 nguồn","href":"#nguon"}," rồi tự viết"],"video":{"youtubeId":"abc123XYZ_-","title":"Hạn chế rêu hại","channel":"MJ Aquascaping","durationSec":1755,"poster":{"src":"https://media.aquatome.com/a/reu-hai-480.webp","w":1200,"h":800,"alt":"Rêu hại trên lá cây"},"chapters":[{"at":0,"title":"Vì sao rêu mọc"},{"at":95,"title":"Ánh sáng và CO₂"}]},"blocks":[{"t":"p","c":["Ánh sáng vừa đủ, CO₂ đều, thay nước đúng lịch."]},{"t":"refs","title":"Nguồn tham khảo","id":"nguon","items":[{"title":"Video gốc: Hạn chế rêu hại, kênh MJ Aquascaping · 29:15","url":"https://www.youtube.com/watch?v=abc123XYZ_-"}]}]},
   "/vi/video/reu-hai-tu-a-den-z/":{"v":1,"kind":"video","path":"/vi/video/reu-hai-tu-a-den-z/","title":"Rêu hại từ A đến Z","credit":["1 bài · 29 phút video · theo playlist “",{"text":"ALGAE! Everything you need to know!","href":"https://www.youtube.com/playlist?list=PLtest"},"” của kênh ",{"text":"MJ Aquascaping","href":"https://www.youtube.com/@MJAquascaping"}],"blocks":[{"t":"p","c":["Từng loại rêu hại: vì sao mọc và cách hạn chế."]},{"t":"cards","title":"Video","items":[{"path":"/vi/huong-dan/reu-toc/","name":"Rêu tóc","sub":"Chăm cây · 12:40","img":{"src":"https://i.ytimg.com/vi/fixtureV001/hqdefault.jpg","w":1280,"h":720,"credit":{"text":"Ảnh: Tác giả 8","licence":"YouTube","url":"https://www.youtube.com/watch?v=fixtureV001"}}},{"path":"/vi/huong-dan/cach-han-che-reu-hai/","name":"Cách hạn chế rêu hại","sub":"Chăm cây · 29:15","img":{"src":"https://i.ytimg.com/vi/abc123XYZ_-/hqdefault.jpg","w":1280,"h":720,"credit":{"text":"Ảnh: MJ Aquascaping","licence":"YouTube","url":"https://www.youtube.com/watch?v=abc123XYZ_-"}}},{"path":"/vi/huong-dan/reu-nau/","name":"Rêu nâu","sub":"Chăm cây · 9:05","img":{"src":"https://i.ytimg.com/vi/fixtureV002/hqdefault.jpg","w":1280,"h":720,"credit":{"text":"Ảnh: Tác giả 8","licence":"YouTube","url":"https://www.youtube.com/watch?v=fixtureV002"}}},{"path":"/vi/huong-dan/reu-xanh-lam/","name":"Rêu xanh lam","sub":"Chăm cây · 15:20","img":{"src":"https://i.ytimg.com/vi/fixtureV003/hqdefault.jpg","w":1280,"h":720,"credit":{"text":"Ảnh: Tác giả 8","licence":"YouTube","url":"https://www.youtube.com/watch?v=fixtureV003"}}}]}]},
   "/vi/huong-dan/nuoi-ca-neon/":{"v":1,"kind":"guide","path":"/vi/huong-dan/nuoi-ca-neon/","title":"Nuôi cá neon trong bể nhỏ",
    "meta":"Chăm sóc · đọc khoảng 4 phút","credit":["AquaTome tổng hợp từ ",{"text":"2 nguồn","href":"#nguon"}," rồi tự viết"],
@@ -634,14 +667,34 @@ extension HandbookIndex {
   static let fixturePagesLeadInGallery = Data(String(decoding: fixturePages, as: UTF8.self)
     .replacingOccurrences(of: #""lead":{"src":"https://media.aquatome.com/a/neon.webp""#, with: #""lead":{"src":"https://media.aquatome.com/g/n1.webp""#).utf8)
   /// UI tests (`-long-part`): the fixture's pages, the neon's feeding six paragraphs long and its breeding one long
-  /// paragraph with a link: parts that fold.
+  /// paragraph with a link: parts that fold. The breeding paragraph folds on the owner's 13 Pro Max too: at its wider column
+  /// ten lines showed whole, under the fold's eleven (14 Nov).
   static let fixturePagesWithLongParts = Data(String(decoding: fixturePages, as: UTF8.self)
     .replacingOccurrences(of: #"{"t":"h","text":"Sinh sản ra sao?","id":"muc-reproduction"}"#,
                           with: #"{"t":"h","text":"Cần thiết bị gì?","id":"muc-equipment"},{"t":"p","c":["Bể nhỏ cho cá neon không cần nhiều thứ đắt tiền, nhưng mấy món cơ bản thì nên có ngay từ đầu để nước ổn định. Nước trong bể mới chưa có vi sinh, nên cần chạy lọc vài tuần rồi mới thả cá. Cá neon nhỏ và nhạy, nên dòng chảy phải êm, đèn đừng quá gắt, và nhiệt độ cần giữ đều suốt ngày đêm thì cá mới lên màu đẹp."]},{"t":"p","c":["Một bể neon nhỏ chỉ cần vài thứ, gồm:"]},{"t":"list","items":[[{"t":"p","c":["Lọc thác hoặc lọc bông, chảy êm, đủ cho thể tích bể."]}],[{"t":"p","c":["Sưởi có điều nhiệt nếu phòng xuống dưới 22°C vào mùa lạnh."]}],[{"t":"p","c":["Đèn vừa phải, bật chừng tám tiếng mỗi ngày là đủ."]}],[{"t":"p","c":["Nền cát mịn hoặc nền trồng cây, rửa sạch trước khi đổ vào."]}],[{"t":"p","c":["Vài bụi cây và một khúc lũa cho cá có chỗ núp."]}],[{"t":"p","c":["Bộ test pH và nitrit để biết bể đã chạy xong chưa."]}]]},{"t":"h","text":"Nuôi chung với con gì?","id":"muc-behaviour"},{"t":"p","c":["Hợp với các loài cá nhỏ hiền."]},{"t":"h","text":"Sinh sản ra sao?","id":"muc-reproduction"}"#)
     .replacingOccurrences(of: #"{"t":"p","c":["Thức ăn viên nhỏ, thêm trùn chỉ vài lần một tuần."]}"#,
                           with: #"{"t":"p","c":["Thức ăn viên nhỏ, thêm trùn chỉ vài lần một tuần."]}"# + #",{"t":"p","c":["Cá con mới mua về thường nhát ăn vài ngày đầu: cho ít, quan sát xem cá có lên ăn không rồi mới tăng dần lượng thức ăn."]},{"t":"p","c":["Thức ăn đông lạnh như trùn chỉ hay artemia nên rã đông trong một ít nước bể trước khi thả, để cá không ăn phải miếng còn cứng lạnh."]},{"t":"p","c":["Mỗi tuần nên có một ngày không cho ăn: hệ tiêu hóa của cá được nghỉ, nước bể cũng sạch hơn vì ít thức ăn thừa."]},{"t":"p","c":["Thức ăn thừa chìm xuống đáy sau vài phút cần hút bỏ, vì nó làm nước đục và tăng amoniac rất nhanh trong bể nhỏ."]},{"t":"p","c":["Đoạn cuối về cho ăn: khi đi vắng vài ngày, cá khỏe chịu nhịn được, không cần thả viên thức ăn tan chậm."]}"#)
     .replacingOccurrences(of: #"{"t":"p","c":["Khó cho đẻ trong bể nuôi chung: cần bể đẻ riêng, nước rất mềm."]}"#,
-                          with: #"{"t":"p","c":["Muốn cho đẻ, nuôi riêng một cặp như ",{"text":"cá ngựa vằn","href":"/vi/ca/ca-ngua-van/"}," vẫn làm: bể đẻ nhỏ, nước rất mềm và hơi chua, ánh sáng yếu, đáy có lưới hoặc rêu để trứng rơi xuống mà cá bố mẹ không ăn được; sau khi đẻ thì vớt cá bố mẹ ra ngay, che tối bể vì trứng sợ sáng, giữ nhiệt độ ổn định, đến khi cá bột bơi được thì cho ăn infusoria rồi chuyển dần sang artemia mới nở, thay một ít nước mỗi ngày bằng nước cùng nhiệt độ và độ cứng, và kiên nhẫn vì tỉ lệ sống của cá bột neon trong bể nuôi ở nhà thường thấp."]}"#).utf8)
+                          with: #"{"t":"p","c":["Muốn cho đẻ, nuôi riêng một cặp như ",{"text":"cá ngựa vằn","href":"/vi/ca/ca-ngua-van/"}," vẫn làm: bể đẻ nhỏ, nước rất mềm và hơi chua, ánh sáng yếu, đáy có lưới hoặc rêu để trứng rơi xuống mà cá bố mẹ không ăn được; sau khi đẻ thì vớt cá bố mẹ ra ngay, che tối bể vì trứng sợ sáng, giữ nhiệt độ ổn định, đến khi cá bột bơi được thì cho ăn infusoria rồi chuyển dần sang artemia mới nở, thay một ít nước mỗi ngày bằng nước cùng nhiệt độ và độ cứng, và kiên nhẫn vì tỉ lệ sống của cá bột neon trong bể nuôi ở nhà thường thấp. Cá bột rất nhỏ, nên vài ngày đầu chỉ để lọc bông thật nhẹ hoặc tắt lọc, kẻo cá bị hút vào; đợi cá lớn bằng hạt cát rồi mới chuyển sang bể to hơn, và đừng thả chung với cá trưởng thành cho tới khi cá đủ lớn để không bị ăn."]}"#).utf8)
+  /// UI tests (`-long-guide`): the fixture's pages, the neon guide's parts each eight paragraphs long, past three screens,
+  /// and its readers' comments: a guide long enough for the owner's navigator.
+  static let fixturePagesWithALongGuide: Data = {
+    var all = try! JSONSerialization.jsonObject(with: fixturePages) as! [String: Any]
+    var pages = all["pages"] as! [String: Any]
+    var guide = pages["/vi/huong-dan/nuoi-ca-neon/"] as! [String: Any]
+    let more: [String: Any] = ["t": "p", "c": ["Một đoạn dài cho phần này: cá neon nhỏ và nhạy, nên mọi thay đổi trong bể cần làm từ từ, "
+      + "theo dõi cá vài ngày rồi mới làm bước tiếp theo, và ghi lại những gì đã làm để biết điều gì giúp cá khỏe hơn."]]
+    var blocks: [Any] = []
+    for b in guide["blocks"] as! [[String: Any]] {
+      blocks.append(b)
+      if b["t"] as? String == "h" { blocks += Array(repeating: more, count: 8) }
+    }
+    guide["blocks"] = blocks
+    guide["talk"] = ["comments": "guide:nuoi-ca-neon"]
+    pages["/vi/huong-dan/nuoi-ca-neon/"] = guide
+    all["pages"] = pages
+    return try! JSONSerialization.data(withJSONObject: all)
+  }()
   /// Performance tests (`-long-page`): the fixture's pages, the neon's with its text twelve times over, a long page.
   static let fixturePagesLong: Data = {
     var all = try! JSONSerialization.jsonObject(with: fixturePages) as! [String: Any]
@@ -673,6 +726,13 @@ extension HandbookIndex {
      "sitekey":"k","verification":"none"}
     """#.utf8),
     "https://aquatome.com/_c?e=plant:rotala-rotundifolia": Data(#"{"comments":[],"sitekey":"k","verification":"none"}"#.utf8),
+    // The long neon guide's (`-long-guide`).
+    "https://aquatome.com/_c?e=guide:nuoi-ca-neon": Data(#"""
+    {"comments":[{"id":"g1","name":"Lan","body":"Bể 40 lít nuôi 8 con vẫn ổn.","helpful":false,"createdAt":"2026-11-02T08:00:00.000Z","author":"a1a1a1a1a1a1a1a1"},
+                 {"id":"g2","name":"Minh","body":"Thay nước mỗi tuần, cá lên màu đẹp.","helpful":false,"createdAt":"2026-11-03T08:00:00.000Z","author":"b2b2b2b2b2b2b2b2"},
+                 {"id":"g3","name":"Hà","body":"Cho ăn ít thôi là đúng.","helpful":false,"createdAt":"2026-11-04T08:00:00.000Z","author":"c3c3c3c3c3c3c3c3"}],
+     "sitekey":"k","verification":"none"}
+    """#.utf8),
   ]
 
   /// Performance tests' index: the fixture plus 800 fish (the site lists about 700), named and shaped like real ones,

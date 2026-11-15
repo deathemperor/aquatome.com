@@ -6,19 +6,23 @@
   "genus": "Nothobranchius",
   "group": "killifish",
   "places": [],
+  "range": {
+    "records": {
+      "taxonKey": 2348659,
+      "total": 0,
+      "fetched": "2026-11-14",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {},
   "sections": [
     {
       "key": "quickFacts",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius-ruudwildekampi-2/",
-      "html": "<p>A new species of Nothobranchius, scientifically described in 2009 as Nothobranchius ruudwildekampi. Origin of the stock: captive bred.</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius-ruudwildekampi-2/",
-      "html": "<p>A very limited number of this species has been received from a German breeder.</p>"
+      "html": "<p>A new species of Nothobranchius, scientifically described in 2009 as Nothobranchius ruudwildekampi.</p>",
+      "fixed": true
     }
   ],
   "photos": [],

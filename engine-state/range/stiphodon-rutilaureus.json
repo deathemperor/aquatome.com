@@ -1,0 +1,119 @@
+{
+  "id": "stiphodon-rutilaureus",
+  "native": {
+    "input": "7fe547d498f52383",
+    "at": "2026-11-15T05:39:34.625Z",
+    "claims": [
+      {
+        "code": "PG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is well-distributed with a recorded range extending southeastwards from northern Papua New Guinea throughout the Bismarck Archipelago and Solomon Islands as far as Vanuatu, New Caledonia and Fiji.",
+        "words": "Papua New Guinea",
+        "ok": true
+      },
+      {
+        "code": "VU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is well-distributed with a recorded range extending southeastwards from northern Papua New Guinea throughout the Bismarck Archipelago and Solomon Islands as far as Vanuatu, New Caledonia and Fiji.",
+        "words": "Vanuatu",
+        "ok": true
+      },
+      {
+        "code": "NC",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is well-distributed with a recorded range extending southeastwards from northern Papua New Guinea throughout the Bismarck Archipelago and Solomon Islands as far as Vanuatu, New Caledonia and Fiji.",
+        "words": "New Caledonia",
+        "ok": true
+      },
+      {
+        "code": "FJ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is well-distributed with a recorded range extending southeastwards from northern Papua New Guinea throughout the Bismarck Archipelago and Solomon Islands as far as Vanuatu, New Caledonia and Fiji.",
+        "words": "Fiji",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It may also occur in northern Australia though records are somewhat vague.",
+        "words": "Australia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Bismarck Archipelago",
+        "source": "seriouslyfish",
+        "quote": "This species is well-distributed with a recorded range extending southeastwards from northern Papua New Guinea throughout the Bismarck Archipelago and Solomon Islands as far as Vanuatu, New Caledonia and Fiji.",
+        "ok": true
+      },
+      {
+        "name": "Solomon Islands",
+        "source": "seriouslyfish",
+        "quote": "This species is well-distributed with a recorded range extending southeastwards from northern Papua New Guinea throughout the Bismarck Archipelago and Solomon Islands as far as Vanuatu, New Caledonia and Fiji.",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "SB"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Stiphodon rutilaureus",
+    "status": "ACCEPTED",
+    "taxonKey": 2376127,
+    "datasets": [
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        15
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        14
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        7
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "038b9c13-f1ad-49e0-aeea-4458e0b6dcbe",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        1
+      ]
+    ],
+    "native": [
+      "PG",
+      "VU",
+      "NC",
+      "FJ"
+    ],
+    "requests": 11,
+    "at": "2026-11-15T05:39:34.625Z"
+  }
+}

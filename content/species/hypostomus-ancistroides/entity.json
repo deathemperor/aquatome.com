@@ -14,14 +14,16 @@
   "range": {
     "native": {
       "countries": [
-        "BR"
+        "BR",
+        "PY"
       ],
       "regions": [
         "Tietê",
         "Ribeira de Iguape"
       ],
       "sources": [
-        "scotcat"
+        "scotcat",
+        "glaser"
       ],
       "quotes": [
         {
@@ -34,13 +36,21 @@
             "Tietê",
             "Ribeira de Iguape"
           ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Origin: Paraguay.",
+          "countries": [
+            "PY"
+          ],
+          "regions": []
         }
       ]
     },
     "records": {
       "taxonKey": 5202249,
       "total": 1395,
-      "fetched": "2026-11-09",
+      "fetched": "2026-11-14",
       "countries": [
         [
           "BR",

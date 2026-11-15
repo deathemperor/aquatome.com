@@ -796,7 +796,8 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/parachanna-obscura",
-      "html": "<p>The African snakehead, Parachanna obscura, is widespread in West Africa from Senegal to Cameroon and ranges inland across the continent to Sudan. The most commonly seen African Parachanna, it is hard to tell apart from the rarely imported P. insignis. It will eat any fish less than two thirds its size and is best kept alone. Both parents guard the eggs among surface vegetation, and the female is said to feed the fry with infertile eggs.</p><ul><li>Aquarium size: 38 × 38 cm base</li></ul>"
+      "html": "<p>The African snakehead, Parachanna obscura, is widespread in West Africa from Senegal to Cameroon and ranges inland across the continent to Sudan. The most commonly seen African Parachanna, it is hard to tell apart from the rarely imported P. insignis. It will eat any fish less than two thirds its size and is best kept alone. Both parents guard the eggs among surface vegetation, and the female is said to feed the fry with infertile eggs.</p>",
+      "fixed": true
     },
     {
       "key": "distribution",
@@ -868,7 +869,12 @@
       "author": "Cedricguppy - Loury Cédric",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parachanna_obscura_-_Aqua_Porte_Dor%C3%A9e_03.JPG",
       "caption": "Parachanna obscura - Aquarium Tropicale du palais de la Porte Dorée, Paris, Ile de France, France - 12/2014",
-      "thumb": "https://media.aquatome.com/commons/4ed3ea90d7613464-480.webp"
+      "thumb": "https://media.aquatome.com/commons/4ed3ea90d7613464-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/4ed3ea90d7613464-large.webp",
+        "width": 2129,
+        "height": 1200
+      }
     }
   ],
   "videos": [],
@@ -876,7 +882,6 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 55 lít",
         "bể cá lớn nuôi cá săn mồi"
       ]
     },

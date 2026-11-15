@@ -1,12 +1,17 @@
 {
   "id": "neoplecostomus-microps",
-  "summary": "Cá lau kiếng Neoplecostomus microps cỡ nhỏ, trưởng thành 10,2 cm. Hợp với người có bể nước chảy, nhiều đá, giàu oxy, giống sông suối ở Rio de Janeiro. Hồ sơ không nêu bể tối thiểu, pH hay độ cứng. Điểm khó nhất là tái tạo môi trường nước xiết, và chưa có báo cáo nào cho loài này đẻ trong bể.",
+  "summary": "Cá lau kiếng Neoplecostomus microps LDA34 hợp với người muốn nuôi loài nhỏ, trưởng thành 10,2 cm, và giữ được nước mát 20–25 °C, pH 6–7,2. Ngoài tự nhiên cá sống ở đoạn sông nước xiết nhiều đá, nên bể nên có đá và khe giữa các hòn đá. Điểm khó nhất là hồ sơ không nêu bể tối thiểu hay cách nuôi trong bể, và chưa có báo cáo nào về việc cho đẻ trong bể.",
   "mistakes": [
-    "Nuôi như cá bể nước tĩnh: ngoài tự nhiên cá sống ở đoạn nước xiết chảy qua đá, nên tạo dòng chảy và giữ nước nhiều oxy.",
-    "Thả cá con vào chỗ dòng mạnh: ngoài tự nhiên cá con hầu như chỉ ở mép suối có cây mọc, nơi nước chảy chậm hơn, nên chừa góc yên và có cây cho cá nhỏ.",
-    "Mua cá với hy vọng cho đẻ trong bể: chưa có báo cáo nào về việc này, nên nuôi để ngắm và đừng tính chuyện nhân giống."
+    "Đừng để nước ấm lên quá mức; ngoài tự nhiên cá sống ở nước mát, nên giữ nhiệt độ 20–25 °C.",
+    "Đừng để bể trống đá; cá lớn ở trong khe giữa các tảng đá và hòn đá, nên xếp đá để có khe cho cá núp.",
+    "Đừng nuôi trong nước tĩnh hoàn toàn; cá lớn sống ở đoạn nước xiết chảy qua đá, nên tạo dòng chảy trong bể."
   ],
-  "speciesUpdatedAt": "2026-11-13",
-  "generatedAt": "2026-11-13T19:22:18.277Z",
-  "review": "approved"
+  "speciesUpdatedAt": "2026-11-14",
+  "generatedAt": "2026-11-14T23:34:18.981Z",
+  "review": "pending",
+  "problems": [
+    "\"nên tạo dòng chảy trong bể\" and \"Đừng nuôi trong nước tĩnh hoàn toàn\": the page only says adults live in fast water in the wild. It gives no aquarium advice about water flow, and this is not clearly implied.",
+    "\"nên xếp đá để có khe cho cá núp\" and \"bể nên có đá và khe giữa các hòn đá\": the page describes the wild habitat only and gives no tank-setup advice. This also contradicts the summary's own statement that the page says nothing about keeping the fish in a tank.",
+    "\"Đừng để nước ấm lên quá mức\": the page never lists warm water as a mistake. The card gives only the 20–25 °C range, so presenting this as a common mistake with a fix is an unsupported addition."
+  ]
 }

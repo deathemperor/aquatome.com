@@ -37,5 +37,33 @@
       ],
       "sourcesOnly": []
     }
+  },
+  "records": {
+    "matched": "Rhadinoloricaria macromystax",
+    "status": "ACCEPTED",
+    "taxonKey": 2339525,
+    "datasets": [
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        5
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "51a00f4c-b78d-4728-bc1c-0646bae1ac42",
+        1
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T05:39:06.336Z"
   }
 }

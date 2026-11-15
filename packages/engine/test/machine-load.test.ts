@@ -1,11 +1,11 @@
-import { spawnSync } from 'node:child_process'
+import { execFileSync, spawnSync } from 'node:child_process'
 import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, realpathSync, writeFileSync } from 'node:fs'
 import { homedir, tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 // @ts-expect-error a plain script
-import { archiveNamed, archiveWorktree, expireArchive, simVerdict, worktreeVerdict } from '../../../scripts/machine-sweep.mjs'
+import { archiveNamed, archiveWorktree, expireArchive, scratch, scratchFolders, scratchKind, scratchVerdict, simVerdict, space, worktreeVerdict } from '../../../scripts/machine-sweep.mjs'
 import { slow } from '@aq/schema/test-time'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
@@ -193,4 +193,74 @@ test("main's flow jobs on this Mac test on its one simulator, with no copies", (
   expect(own).toContain('runner=["self-hosted","macOS","aquatome"]')
   expect(own).toContain("parallel=-parallel-testing-enabled NO'")
   expect(own).not.toContain('worker-count')
+})
+
+// 13 November, 23:45: a TestFlight upload stopped at 12 GB free, and nobody was watching. The sweep reads mac-status.py's
+// floor each hour: under 30 GB the chief of staff hears of it in their thread, once a day, with where the disk is.
+test('free space under 30 GB reaches the chief of staff once a day, with where it is; at 30 or more, or in a dry run, nothing goes', async () => {
+  const dir = mkdtempSync(join(tmpdir(), 'aq-space-'))
+  const chief = join(dir, 'thread')
+  writeFileSync(chief, 'the-chief\n')
+  const said = join(dir, 'said')
+  const sent: { threadId: string; message: string }[] = []
+  const lines: string[] = []
+  const where = '  simulators: 40 GB, 39 of them, 1 up\n  worktrees: 77 GB in 105 folders (the sweep takes merged ones at 03:35)'
+  const at = (stderr: string, { status = 0, today = '2026-11-14', dry = false } = {}) =>
+    space({ status: () => ({ status, stderr }), send: async (m: { threadId: string; message: string }) => { sent.push(m) }, chief, said, today, dry, say: (l: string) => lines.push(l) })
+  await at('')
+  expect(sent).toEqual([])
+  await at(`25 GB free on this Mac, under 30 GB: the sweep tells the chief of staff\n${where}`, { dry: true })
+  expect(sent).toEqual([])
+  await at(`25 GB free on this Mac, under 30 GB: the sweep tells the chief of staff\n${where}`)
+  expect(sent).toEqual([{ threadId: 'the-chief', message: `The Mac's upkeep (machine-sweep.mjs), once a day while it lasts: 25 GB free on this Mac, under 30 GB: the sweep tells the chief of staff Under 20 GB no simulator or upload starts.\nWhere it is:\n${where}\n\`scripts/mac-status.py\` shows who is up.` }])
+  // The same day: said in the log, not sent again. The next day, under the floor: sent again.
+  await at(`22 GB free on this Mac, under 30 GB: the sweep tells the chief of staff\n${where}`)
+  expect(sent).toHaveLength(1)
+  await at(`15 GB free on this Mac, under the 20 GB floor (AGENTS.md, This Mac): nothing big starts until there's more.\n${where}`, { status: 3, today: '2026-11-15' })
+  expect(sent).toHaveLength(2)
+  expect(sent[1]!.message).toMatch(/^The Mac's upkeep \(machine-sweep\.mjs\), once a day while it lasts: 15 GB free on this Mac, under the 20 GB floor/)
+  expect(sent[1]!.message).not.toContain('Under 20 GB no simulator')
+  expect(lines.filter(l => l.startsWith('space: '))).toHaveLength(4)
+})
+
+// The chief of staff, 15 Nov 2026: tests had left 718,000 folders, about 78 GB, in the temp folder, and the hourly sweep
+// takes ours older than six hours, by the chief of staff's rules (~/.cache/aquatome/cos/space/temp-clean.py).
+test("the sweep takes our tests' scratch untouched for 6 h and open in no process, and nothing else in the temp folder", () => {
+  const temp = mkdtempSync(join(tmpdir(), 'aq-load-'))
+  const make = (name: string, kids: string[] = []) => { mkdirSync(join(temp, name)); for (const k of kids) mkdirSync(join(temp, name, k)) }
+  const litter = Array.from({ length: 21 }, (_, i) => `gate-Kq2a${String(i).padStart(2, '0')}`)
+  for (const n of litter) make(n, ['content', 'engine-state'])
+  make('aq-tests-a1B2c3') // a killed run's own folder
+  make('aq-open-k3Jd9s') // a run still working in it
+  make('gate-Zz9Yy8', ['notes']) // a gate- folder holding something else
+  make('lonely-a1B2c3', ['content']) // one of its kind: made by hand
+  make('com.apple.dock.launchpad') // not mkdtemp's name
+  const said: string[] = []
+  // One of them holds a lead's worktree (Grok's read): never taken.
+  const pass = (now: number, dry = false) => scratch({ temps: [temp], open: () => new Set(['aq-open-k3Jd9s']), worktrees: () => new Set(['gate-Kq2a20']), now, dry, say: (m: string) => said.push(m) })
+  // Everything here changed just now.
+  expect(pass(Date.now())).toBe(0)
+  expect(pass(Date.now() + 7 * 3_600_000, true)).toBe(21)
+  expect(readdirSync(temp)).toHaveLength(26)
+  expect(pass(Date.now() + 7 * 3_600_000)).toBe(21)
+  expect(readdirSync(temp).sort()).toEqual(['aq-open-k3Jd9s', 'com.apple.dock.launchpad', 'gate-Kq2a20', 'gate-Zz9Yy8', 'lonely-a1B2c3'])
+  expect(said.at(-1)).toMatch(/removed 21; left .*open in a process.*holds a worktree.*not test scratch by what it holds.*a kind too rare/)
+})
+
+test("a folder goes only when it's ours by name, owner and what it holds, and nothing in it changed within 6 h", () => {
+  const ours = { name: 'gate-Kq2a00', dir: true, mine: true, open: false, hours: 7, kids: ['content', '.git'], kidsHours: 7, kindCount: 35_000 }
+  expect(scratchVerdict(ours)).toBe('remove')
+  expect(scratchVerdict({ ...ours, kidsHours: 5 })).toBe('changed within 6 h')
+  expect(scratchVerdict({ ...ours, mine: false })).toBe('not our folder')
+  expect(scratchVerdict({ ...ours, name: 'gate-abcdef' })).toBe('not a scratch name')
+  expect(scratchVerdict({ ...ours, kids: ['content', 'Photos Library.photoslibrary'] })).toBe('not test scratch by what it holds')
+  expect(scratchVerdict({ ...ours, name: 'aq-tests-x1y2z3', kindCount: 1, kids: ['anything'] })).toBe('remove')
+  // A run's own folder whose suffix came out all lower case (about 1 in 180), and one holding a worktree (Grok's read).
+  expect([scratchKind('aq-tests-abcdef'), scratchVerdict({ ...ours, name: 'aq-tests-abcdef', kindCount: 1 })]).toEqual(['aq-tests', 'remove'])
+  expect(scratchVerdict({ ...ours, worktree: true })).toBe('holds a worktree')
+})
+
+test("the sweep looks in /tmp as well as this user's temp folder: launchd's jobs have no TMPDIR, so Node writes there", () => {
+  expect(scratchFolders()).toContain(realpathSync('/tmp'))
+  expect(scratchFolders()).toContain(realpathSync(process.platform === 'darwin' ? execFileSync('getconf', ['DARWIN_USER_TEMP_DIR'], { encoding: 'utf8' }).trim() : tmpdir()))
 })

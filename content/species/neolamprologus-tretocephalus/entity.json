@@ -224,7 +224,12 @@
       "author": "Chrumps",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neolamprologus_tretocephalus.jpg",
       "caption": "Szczelinowiec pięciopręgi",
-      "thumb": "https://media.aquatome.com/commons/c748f50dc7316fa0-480.webp"
+      "thumb": "https://media.aquatome.com/commons/c748f50dc7316fa0-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/c748f50dc7316fa0-large.webp",
+        "width": 1500,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

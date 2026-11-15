@@ -1,10 +1,29 @@
 {
+ "id/plants/cryptocoryne-parva": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "20 liter → 19 liter"
+  ]
+ },
+ "id/plants/nymphoides-aquatica": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "20 liter → 19 liter"
+  ]
+ },
  "id/species/altolamprologus-calvus": {
   "at": "2026-11-12T13:46:05.337Z",
   "figures": [
    "90 × 45 cm → 91 × 46 cm",
    "90 × 45 × 40 cm → 91 × 46 × 41 cm",
    "300 liter → 285 liter"
+  ]
+ },
+ "id/species/anatolichthys-transgrediens": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "60 liter → 57 liter",
+   "120 liter → 113 liter"
   ]
  },
  "id/species/ancistrus-ranunculus": {
@@ -18,6 +37,54 @@
   "figures": [
    "45 × 40 cm → 45 × 38 cm",
    "45 × 40 × 30 cm → 45 × 38 × 30 cm"
+  ]
+ },
+ "id/species/apistogramma-steindachneri": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "26 °C → 25,6 °C"
+  ]
+ },
+ "id/species/astronotus-ocellatus": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "200 liter → 210 liter"
+  ]
+ },
+ "id/species/betadevario-ramachandrani": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "19 °C → 18,9 °C"
+  ]
+ },
+ "id/species/betta-brownorum": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "20 liter → 19 liter"
+  ]
+ },
+ "id/species/betta-burdigala": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "20 liter → 19 liter"
+  ]
+ },
+ "id/species/betta-hipposideros": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "20 liter → 19 liter"
+  ]
+ },
+ "id/species/betta-livida": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "20 liter → 19 liter"
+  ]
+ },
+ "id/species/betta-miniopinna": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "20 liter → 19 liter"
   ]
  },
  "id/species/brochis-multiradiatus": {
@@ -46,11 +113,43 @@
    "180 × 45 cm → 183 × 46 cm"
   ]
  },
+ "id/species/camposcia-retusa": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "27–29 °C → 26,7–28,9 °C"
+  ]
+ },
+ "id/species/carassius-auratus": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "80 liter → 76 liter"
+  ]
+ },
+ "id/species/caridina-multidentata": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "40 liter → 38 liter"
+  ]
+ },
+ "id/species/carinotetraodon-travancoricus": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "20 liter → 19 liter",
+   "40 liter → 38 liter",
+   "80 liter → 76 liter"
+  ]
+ },
  "id/species/catoprion-mento": {
   "at": "2026-11-12T13:46:05.337Z",
   "figures": [
    "120 × 40 cm → 120 × 38 cm",
    "120 × 40 × 30 cm → 120 × 38 × 30 cm"
+  ]
+ },
+ "id/species/chromobotia-macracanthus": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "400 liter → 380 liter"
   ]
  },
  "id/species/cichla-monoculus": {
@@ -77,6 +176,12 @@
    "45 × 45 × 45 cm → 46 × 46 × 46 cm"
   ]
  },
+ "id/species/copadichromis-ilesi": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "120 cm → 122 cm"
+  ]
+ },
  "id/species/corydoras-leopardus": {
   "at": "2026-11-12T13:46:05.337Z",
   "figures": [
@@ -90,10 +195,22 @@
    "60 × 40 × 30 cm → 61 × 38 × 30 cm"
   ]
  },
+ "id/species/ctenochromis-polli": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "28 °C → 28,3 °C"
+  ]
+ },
  "id/species/cyrtocara-moorii": {
   "at": "2026-11-12T13:46:05.337Z",
   "figures": [
    "150 × 40 × 45 cm → 150 × 38 × 45 cm"
+  ]
+ },
+ "id/species/danio-rerio": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "40 liter → 38 liter"
   ]
  },
  "id/species/dermogenys-pusilla": {
@@ -125,6 +242,19 @@
    "120 × 40 cm → 120 × 38 cm"
   ]
  },
+ "id/species/hyphessobrycon-amandae": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "40 liter → 38 liter",
+   "20 liter → 19 liter"
+  ]
+ },
+ "id/species/hyphessobrycon-herbertaxelrodi": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "40 liter → 38 liter"
+  ]
+ },
  "id/species/inpaichthys-kerri": {
   "at": "2026-11-12T13:46:05.337Z",
   "figures": [
@@ -152,10 +282,22 @@
    "120 × 40 × 30 cm → 120 × 38 × 30 cm"
   ]
  },
+ "id/species/melanotaenia-praecox": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "80 liter → 76 liter"
+  ]
+ },
  "id/species/moenkhausia-sanctaefilomenae": {
   "at": "2026-11-12T13:46:05.337Z",
   "figures": [
    "90 × 40 × 30 cm → 90 × 38 × 30 cm"
+  ]
+ },
+ "id/species/oryzias-sarasinorum": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "26–32 °C → 26,1–32,2 °C"
   ]
  },
  "id/species/osphronemus-goramy": {
@@ -165,10 +307,48 @@
    "700 liter → 681 liter"
   ]
  },
+ "id/species/pangio-oblonga": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "26–27 °C → 25,6–26,7 °C"
+  ]
+ },
+ "id/species/paracheirodon-innesi": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "40 liter → 38 liter"
+  ]
+ },
  "id/species/parambassis-ranga": {
   "at": "2026-11-12T13:46:05.337Z",
   "figures": [
    "75 × 30 × 30 cm → 76 × 30 × 30 cm"
+  ]
+ },
+ "id/species/parosphromenus-anjunganensis": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "20–40 liter → 19–38 liter"
+  ]
+ },
+ "id/species/parosphromenus-ornaticauda": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "20 liter → 19 liter"
+  ]
+ },
+ "id/species/parosphromenus-phoenicurus": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "20 liter → 19 liter"
+  ]
+ },
+ "id/species/phenacogrammus-interruptus": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "120 liter → 114 liter",
+   "23–28 °C → 22,8–27,8 °C",
+   "200 liter → 208 liter"
   ]
  },
  "id/species/poecilia-latipinna": {
@@ -178,11 +358,49 @@
    "75 × 40 × 30 cm → 76 × 38 × 30 cm"
   ]
  },
+ "id/species/poecilia-wingei": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "20–40 liter → 19–38 liter",
+   "40 liter → 38 liter",
+   "80 liter → 76 liter"
+  ]
+ },
  "id/species/prionobrama-filigera": {
   "at": "2026-11-13T14:52:17.633Z",
   "figures": [
    "60 × 40 cm → 60 × 38 cm",
    "60 × 40 × 30 cm → 60 × 38 × 30 cm"
+  ]
+ },
+ "id/species/pseudomugil-gertrudae": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "40 liter → 38 liter"
+  ]
+ },
+ "id/species/puntius-titteya": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "100 liter → 95 liter"
+  ]
+ },
+ "id/species/rasbora-caudimaculata": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "120 liter → 113 liter"
+  ]
+ },
+ "id/species/rasbora-elegans": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "120 liter → 113 liter"
+  ]
+ },
+ "id/species/rasbora-lacrimula": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "22–26 °C → 22,2–25,6 °C"
   ]
  },
  "id/species/rasbora-sarawakensis": {
@@ -197,11 +415,63 @@
    "60 × 40 × 30 cm → 60 × 38 × 30 cm"
   ]
  },
+ "id/species/sewellia-lineolata": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "80 liter → 76 liter"
+  ]
+ },
+ "id/species/symphysodon-discus": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "300 liter → 285 liter"
+  ]
+ },
  "id/species/thayeria-boehlkei": {
   "at": "2026-11-13T14:52:17.633Z",
   "figures": [
    "60 × 40 cm → 60 × 38 cm",
    "60 × 40 × 30 cm → 60 × 38 × 30 cm"
+  ]
+ },
+ "id/species/trichogaster-lalius": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "20 liter → 19 liter"
+  ]
+ },
+ "id/species/trichopodus-leerii": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "80 liter → 76 liter",
+   "40 liter → 38 liter"
+  ]
+ },
+ "id/species/trigonostigma-heteromorpha": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "40 liter → 38 liter"
+  ]
+ },
+ "ms/plants/cryptocoryne-parva": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "20 liter → 19 liter"
+  ]
+ },
+ "ms/species/astronotus-ocellatus": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "200 L → 210 L",
+   "400 liter → 380 liter"
+  ]
+ },
+ "ms/species/carinotetraodon-travancoricus": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "20 liter → 19 liter",
+   "40 liter → 38 liter",
+   "80 liter → 76 liter"
   ]
  },
  "ms/species/corydoras-paleatus": {
@@ -211,6 +481,12 @@
    "60 × 40 × 30 cm → 61 × 38 × 30 cm"
   ]
  },
+ "ms/species/danio-rerio": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "40 liter → 38 liter"
+  ]
+ },
  "ms/species/hemigrammus-erythrozonus": {
   "at": "2026-11-13T14:52:17.633Z",
   "figures": [
@@ -218,10 +494,30 @@
    "60 × 40 × 30 cm → 60 × 38 × 30 cm"
   ]
  },
+ "ms/species/hyphessobrycon-herbertaxelrodi": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "40 liter → 38 liter"
+  ]
+ },
  "ms/species/labidochromis-caeruleus": {
   "at": "2026-11-13T14:52:17.633Z",
   "figures": [
    "90 × 45 × 40 cm → 90 × 45 × 38 cm"
+  ]
+ },
+ "ms/species/paracheirodon-innesi": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "40 liter → 38 liter"
+  ]
+ },
+ "ms/species/phenacogrammus-interruptus": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "120 liter → 114 liter",
+   "23–28 °C → 22.8–27.8 °C",
+   "200 liter → 208 liter"
   ]
  },
  "ms/species/poecilia-latipinna": {
@@ -231,11 +527,70 @@
    "75 × 40 × 30 cm → 76 × 38 × 30 cm"
   ]
  },
+ "ms/species/poecilia-wingei": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "20–40 liter → 19–38 liter",
+   "40 liter → 38 liter",
+   "80 liter → 76 liter"
+  ]
+ },
+ "ms/species/puntius-titteya": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "100 liter → 95 liter",
+   "40 liter → 38 liter"
+  ]
+ },
+ "ms/species/symphysodon-discus": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "300 liter → 285 liter"
+  ]
+ },
+ "ms/species/trichogaster-lalius": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "20 liter → 19 liter"
+  ]
+ },
+ "ms/species/trichopodus-leerii": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "80 liter → 76 liter",
+   "40 liter → 38 liter"
+  ]
+ },
+ "ms/species/trigonostigma-heteromorpha": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "40 liter → 38 liter"
+  ]
+ },
+ "th/plants/cryptocoryne-parva": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "20 ลิตร → 19 ลิตร"
+  ]
+ },
+ "th/plants/nymphoides-aquatica": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "20 ลิตร → 19 ลิตร"
+  ]
+ },
  "th/species/altolamprologus-calvus": {
   "at": "2026-11-13T14:52:17.633Z",
   "figures": [
    "90 × 45 ซม. → 91 × 46 ซม.",
    "90 × 45 × 40 ซม. → 91 × 46 × 41 ซม."
+  ]
+ },
+ "th/species/anatolichthys-transgrediens": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "60 ลิตร → 57 ลิตร",
+   "120 ลิตร → 113 ลิตร"
   ]
  },
  "th/species/ancistrus-ranunculus": {
@@ -249,6 +604,60 @@
   "figures": [
    "45 × 40 ซม. → 45 × 38 ซม.",
    "45 × 40 × 30 ซม. → 45 × 38 × 30 ซม."
+  ]
+ },
+ "th/species/apistogramma-steindachneri": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "26 °C → 25.6 °C"
+  ]
+ },
+ "th/species/apteronotus-albifrons": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "300 ลิตร → 284 ลิตร"
+  ]
+ },
+ "th/species/betadevario-ramachandrani": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "19 °C → 18.9 °C"
+  ]
+ },
+ "th/species/betta-breviobesus": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "20 ลิตร → 19 ลิตร"
+  ]
+ },
+ "th/species/betta-brownorum": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "20 ลิตร → 19 ลิตร"
+  ]
+ },
+ "th/species/betta-burdigala": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "20 ลิตร → 19 ลิตร"
+  ]
+ },
+ "th/species/betta-hipposideros": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "20 ลิตร → 19 ลิตร"
+  ]
+ },
+ "th/species/betta-livida": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "20 ลิตร → 19 ลิตร"
+  ]
+ },
+ "th/species/betta-miniopinna": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "20 ลิตร → 19 ลิตร"
   ]
  },
  "th/species/brochis-multiradiatus": {
@@ -277,11 +686,43 @@
    "180 × 45 ซม. → 183 × 46 ซม."
   ]
  },
+ "th/species/camposcia-retusa": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "27–29 °C → 26.7–28.9 °C"
+  ]
+ },
+ "th/species/carassius-auratus": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "80 ลิตร → 76 ลิตร"
+  ]
+ },
+ "th/species/caridina-multidentata": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "40 ลิตร → 38 ลิตร"
+  ]
+ },
+ "th/species/carinotetraodon-travancoricus": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "20 ลิตร → 19 ลิตร",
+   "40 ลิตร → 38 ลิตร",
+   "80 ลิตร → 76 ลิตร"
+  ]
+ },
  "th/species/catoprion-mento": {
   "at": "2026-11-13T14:52:17.633Z",
   "figures": [
    "120 × 40 ซม. → 120 × 38 ซม.",
    "120 × 40 × 30 ซม. → 120 × 38 × 30 ซม."
+  ]
+ },
+ "th/species/chromobotia-macracanthus": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "400 ลิตร → 380 ลิตร"
   ]
  },
  "th/species/cichlasoma-trimaculatum": {
@@ -290,10 +731,22 @@
    "120 × 40 ซม. → 122 × 38 ซม."
   ]
  },
+ "th/species/colomesus-asellus": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "120 ลิตร → 114 ลิตร"
+  ]
+ },
  "th/species/copadichromis-chrysonotus": {
   "at": "2026-11-13T14:52:17.633Z",
   "figures": [
    "45 × 45 × 45 ซม. → 46 × 46 × 46 ซม."
+  ]
+ },
+ "th/species/copadichromis-ilesi": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "120 ซม. → 122 ซม."
   ]
  },
  "th/species/corydoras-leopardus": {
@@ -329,6 +782,12 @@
    "150 × 40 × 45 ซม. → 150 × 38 × 45 ซม."
   ]
  },
+ "th/species/danio-rerio": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "40 ลิตร → 38 ลิตร"
+  ]
+ },
  "th/species/dermogenys-pusilla": {
   "at": "2026-11-13T14:52:17.633Z",
   "figures": [
@@ -355,6 +814,18 @@
   "at": "2026-11-13T14:52:17.633Z",
   "figures": [
    "120 × 40 ซม. → 120 × 38 ซม."
+  ]
+ },
+ "th/species/hyphessobrycon-amandae": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "40 ลิตร → 38 ลิตร"
+  ]
+ },
+ "th/species/hyphessobrycon-herbertaxelrodi": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "40 ลิตร → 38 ลิตร"
   ]
  },
  "th/species/inpaichthys-kerri": {
@@ -384,6 +855,18 @@
    "120 × 40 × 30 ซม. → 120 × 38 × 30 ซม."
   ]
  },
+ "th/species/melanotaenia-praecox": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "80 ลิตร → 76 ลิตร"
+  ]
+ },
+ "th/species/oryzias-sarasinorum": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "26–32 °C → 26.1–32.2 °C"
+  ]
+ },
  "th/species/osphronemus-goramy": {
   "at": "2026-11-13T14:52:17.633Z",
   "figures": [
@@ -391,10 +874,30 @@
    "700 ลิตร → 681 ลิตร"
   ]
  },
+ "th/species/pangio-oblonga": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "26–27 °C → 25.6–26.7 °C"
+  ]
+ },
+ "th/species/paracheirodon-innesi": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "40 ลิตร → 38 ลิตร"
+  ]
+ },
  "th/species/parambassis-ranga": {
   "at": "2026-11-13T14:52:17.633Z",
   "figures": [
    "75 × 30 × 30 ซม. → 76 × 30 × 30 ซม."
+  ]
+ },
+ "th/species/phenacogrammus-interruptus": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "120 ลิตร → 114 ลิตร",
+   "23–28 °C → 22.8–27.8 °C",
+   "200 ลิตร → 208 ลิตร"
   ]
  },
  "th/species/poecilia-latipinna": {
@@ -404,11 +907,37 @@
    "75 × 40 × 30 ซม. → 76 × 38 × 30 ซม."
   ]
  },
+ "th/species/poecilia-wingei": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "20–40 ลิตร → 19–38 ลิตร",
+   "40 ลิตร → 38 ลิตร",
+   "80 ลิตร → 76 ลิตร"
+  ]
+ },
  "th/species/prionobrama-filigera": {
   "at": "2026-11-13T14:52:17.633Z",
   "figures": [
    "60 × 40 ซม. → 60 × 38 ซม.",
    "60 × 40 × 30 ซม. → 60 × 38 × 30 ซม."
+  ]
+ },
+ "th/species/puntius-titteya": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "100 ลิตร → 95 ลิตร"
+  ]
+ },
+ "th/species/rasbora-elegans": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "120 ลิตร → 113 ลิตร"
+  ]
+ },
+ "th/species/rasbora-lacrimula": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "22–26 °C → 22.2–25.6 °C"
   ]
  },
  "th/species/rasbora-sarawakensis": {
@@ -423,11 +952,48 @@
    "60 × 40 × 30 ซม. → 60 × 38 × 30 ซม."
   ]
  },
+ "th/species/symphysodon-discus": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "300 ลิตร → 285 ลิตร"
+  ]
+ },
  "th/species/thayeria-boehlkei": {
   "at": "2026-11-13T14:52:17.633Z",
   "figures": [
    "60 × 40 ซม. → 60 × 38 ซม.",
    "60 × 40 × 30 ซม. → 60 × 38 × 30 ซม."
+  ]
+ },
+ "th/species/trichogaster-lalius": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "20 ลิตร → 19 ลิตร"
+  ]
+ },
+ "th/species/trichopodus-leerii": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "80 ลิตร → 76 ลิตร",
+   "40 ลิตร → 38 ลิตร"
+  ]
+ },
+ "th/species/trigonostigma-heteromorpha": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "40 ลิตร → 38 ลิตร"
+  ]
+ },
+ "vi/plants/cryptocoryne-parva": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "20 lít → 19 lít"
+  ]
+ },
+ "vi/plants/nymphoides-aquatica": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "20 lít → 19 lít"
   ]
  },
  "vi/species/altolamprologus-calvus": {
@@ -436,6 +1002,19 @@
    "90 × 45 cm → 91 × 46 cm",
    "90 × 45 × 40 cm → 91 × 46 × 41 cm",
    "300 lít → 285 lít"
+  ]
+ },
+ "vi/species/ambastaia-sidthimunki": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "300 lít → 284 lít"
+  ]
+ },
+ "vi/species/anatolichthys-transgrediens": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "60 lít → 57 lít",
+   "120 lít → 113 lít"
   ]
  },
  "vi/species/ancistrus-ranunculus": {
@@ -449,6 +1028,43 @@
   "figures": [
    "45 × 40 cm → 45 × 38 cm",
    "45 × 40 × 30 cm → 45 × 38 × 30 cm"
+  ]
+ },
+ "vi/species/apistogramma-steindachneri": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "26 °C → 25,6 °C"
+  ]
+ },
+ "vi/species/astronotus-ocellatus": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "400 lít → 380 lít",
+   "200 L → 210 L"
+  ]
+ },
+ "vi/species/betadevario-ramachandrani": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "19°C → 18,9°C"
+  ]
+ },
+ "vi/species/betta-brownorum": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "20 lít → 19 lít"
+  ]
+ },
+ "vi/species/betta-hipposideros": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "20 lít → 19 lít"
+  ]
+ },
+ "vi/species/betta-livida": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "20 lít → 19 lít"
   ]
  },
  "vi/species/brochis-multiradiatus": {
@@ -477,6 +1093,32 @@
    "180 × 45 cm → 183 × 46 cm"
   ]
  },
+ "vi/species/camposcia-retusa": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "27–29°C → 26,7–28,9°C"
+  ]
+ },
+ "vi/species/carassius-auratus": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "80 lít → 76 lít"
+  ]
+ },
+ "vi/species/caridina-multidentata": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "40 lít → 38 lít"
+  ]
+ },
+ "vi/species/carinotetraodon-travancoricus": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "20 lít → 19 lít",
+   "40 lít → 38 lít",
+   "80 lít → 76 lít"
+  ]
+ },
  "vi/species/catoprion-mento": {
   "at": "2026-11-13T14:52:17.633Z",
   "figures": [
@@ -488,6 +1130,12 @@
   "at": "2026-11-13T14:52:17.633Z",
   "figures": [
    "60 × 40 × 30 cm → 60 × 38 × 30 cm"
+  ]
+ },
+ "vi/species/chromobotia-macracanthus": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "400 lít → 380 lít"
   ]
  },
  "vi/species/cichla-monoculus": {
@@ -508,10 +1156,23 @@
    "120 × 40 cm → 122 × 38 cm"
   ]
  },
+ "vi/species/colomesus-asellus": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "120 lít → 114 lít",
+   "200 lít → 208 lít"
+  ]
+ },
  "vi/species/copadichromis-chrysonotus": {
   "at": "2026-11-13T14:52:17.633Z",
   "figures": [
    "45 × 45 × 45 cm → 46 × 46 × 46 cm"
+  ]
+ },
+ "vi/species/copadichromis-ilesi": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "120 cm → 122 cm"
   ]
  },
  "vi/species/corydoras-geryi": {
@@ -666,10 +1327,22 @@
    "120 × 40 × 30 cm → 120 × 38 × 30 cm"
   ]
  },
+ "vi/species/ctenochromis-polli": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "28°C → 28,3°C"
+  ]
+ },
  "vi/species/cyrtocara-moorii": {
   "at": "2026-11-13T20:20:35.552Z",
   "figures": [
    "150 × 40 × 45 cm → 150 × 38 × 45 cm"
+  ]
+ },
+ "vi/species/danio-rerio": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "40 lít → 38 lít"
   ]
  },
  "vi/species/dermogenys-pusilla": {
@@ -677,6 +1350,13 @@
   "figures": [
    "60 × 40 cm → 60 × 38 cm",
    "60 × 40 × 30 cm → 60 × 38 × 30 cm"
+  ]
+ },
+ "vi/species/devario-acrostomus": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "17°C → 17,2°C",
+   "34°C → 33,9°C"
   ]
  },
  "vi/species/dianema-longibarbis": {
@@ -704,6 +1384,24 @@
   "figures": [
    "150 × 40 cm → 150 × 38 cm",
    "150 × 40 × 45 cm → 150 × 38 × 45 cm"
+  ]
+ },
+ "vi/species/elacatinus-oceanops": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "40 lít → 38 lít"
+  ]
+ },
+ "vi/species/epiplatys-annulatus": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "20 lít → 19 lít"
+  ]
+ },
+ "vi/species/etroplus-canarensis": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "27 °C → 26,7 °C"
   ]
  },
  "vi/species/fundulopanchax-sjostedti": {
@@ -850,6 +1548,19 @@
    "90 × 40 × 30 cm → 90 × 38 × 30 cm"
   ]
  },
+ "vi/species/hyphessobrycon-amandae": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "40 lít → 38 lít",
+   "20 lít → 19 lít"
+  ]
+ },
+ "vi/species/hypoptopoma-incognitum": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "24–28°C → 23,9–27,8°C"
+  ]
+ },
  "vi/species/inpaichthys-kerri": {
   "at": "2026-11-13T20:20:35.552Z",
   "figures": [
@@ -879,6 +1590,12 @@
   "at": "2026-11-13T20:20:35.552Z",
   "figures": [
    "120 × 45 × 40 cm → 120 × 45 × 38 cm"
+  ]
+ },
+ "vi/species/leptobotia-elongata": {
+  "at": "2026-11-14T08:33:09.903Z",
+  "figures": [
+   "4–29°C → 4,4–28,9°C"
   ]
  },
  "vi/species/marosatherina-ladigesi": {
@@ -945,6 +1662,12 @@
    "90 × 45 × 40 cm → 90 × 45 × 38 cm"
   ]
  },
+ "vi/species/melanotaenia-praecox": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "80 lít → 76 lít"
+  ]
+ },
  "vi/species/mesonauta-festivus": {
   "at": "2026-11-13T20:20:35.552Z",
   "figures": [
@@ -957,6 +1680,13 @@
   "figures": [
    "120 × 40 cm → 120 × 38 cm",
    "120 × 40 × 30 cm → 120 × 38 × 30 cm"
+  ]
+ },
+ "vi/species/mesonoemacheilus-herrei": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "40 lít → 38 lít",
+   "24°C → 24,4°C"
   ]
  },
  "vi/species/metynnis-argenteus": {
@@ -985,6 +1715,13 @@
    "60 × 40 × 30 cm → 60 × 38 × 30 cm"
   ]
  },
+ "vi/species/misgurnus-anguillicaudatus": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "90 cm → 91 cm",
+   "120 cm → 122 cm"
+  ]
+ },
  "vi/species/moenkhausia-oligolepis": {
   "at": "2026-11-13T20:20:35.552Z",
   "figures": [
@@ -1003,6 +1740,12 @@
   "at": "2026-11-13T23:11:12.584Z",
   "figures": [
    "90 × 40 × 30 cm → 90 × 38 × 30 cm"
+  ]
+ },
+ "vi/species/monocirrhus-polyacanthus": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "100 lít → 95 lít"
   ]
  },
  "vi/species/myloplus-rubripinnis": {
@@ -1030,6 +1773,26 @@
   "figures": [
    "60 × 40 cm → 60 × 38 cm",
    "60 × 40 × 30 cm → 60 × 38 × 30 cm"
+  ]
+ },
+ "vi/species/nannostomus-eques": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "24 °C → 24,4 °C"
+  ]
+ },
+ "vi/species/nemacheilus-guentheri": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "40 lít → 38 lít",
+   "24°C → 24,4°C"
+  ]
+ },
+ "vi/species/nemacheilus-triangularis": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "40 lít → 38 lít",
+   "24 °C → 24,4 °C"
   ]
  },
  "vi/species/neolamprologus-buescheri": {
@@ -1063,6 +1826,18 @@
    "120 × 45 × 40 cm → 120 × 45 × 38 cm"
   ]
  },
+ "vi/species/nothobranchius-eggersi": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "21°C → 21,1°C"
+  ]
+ },
+ "vi/species/nothobranchius-rachovii": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "60 lít → 57 lít"
+  ]
+ },
  "vi/species/ophthalmotilapia-boops": {
   "at": "2026-11-13T23:11:12.584Z",
   "figures": [
@@ -1074,6 +1849,12 @@
   "at": "2026-11-12T13:46:05.337Z",
   "figures": [
    "140 × 45 × 40 cm → 135 × 45 × 38 cm"
+  ]
+ },
+ "vi/species/oryzias-sarasinorum": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "26–32°C → 26,1–32,2°C"
   ]
  },
  "vi/species/osphronemus-goramy": {
@@ -1089,6 +1870,18 @@
    "90 × 45 × 40 cm → 90 × 45 × 38 cm"
   ]
  },
+ "vi/species/pacifastacus-leniusculus": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "31°C → 31,1°C"
+  ]
+ },
+ "vi/species/pangio-oblonga": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "26 – 27 °C → 25,6 – 26,7 °C"
+  ]
+ },
  "vi/species/pantodon-buchholzi": {
   "at": "2026-11-13T23:11:12.584Z",
   "figures": [
@@ -1099,6 +1892,12 @@
   "at": "2026-11-13T23:11:12.584Z",
   "figures": [
    "40 × 40 cm → 38 × 38 cm"
+  ]
+ },
+ "vi/species/paracheirodon-innesi": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "40 lít → 38 lít"
   ]
  },
  "vi/species/parachromis-managuensis": {
@@ -1137,10 +1936,36 @@
    "120 × 45 × 40 cm → 120 × 45 × 38 cm"
   ]
  },
+ "vi/species/parosphromenus-anjunganensis": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "20-40 lít → 19-38 lít"
+  ]
+ },
+ "vi/species/parosphromenus-ornaticauda": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "20 lít → 19 lít"
+  ]
+ },
+ "vi/species/parosphromenus-phoenicurus": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "20 lít → 19 lít"
+  ]
+ },
  "vi/species/petitella-georgiae": {
   "at": "2026-11-13T23:11:12.584Z",
   "figures": [
    "45 x 25 x 25 cm → 46 x 25 x 25 cm"
+  ]
+ },
+ "vi/species/phenacogrammus-interruptus": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "120 lít → 114 lít",
+   "23 đến 28 °C → 22,8 đến 27,8 °C",
+   "200 lít → 208 lít"
   ]
  },
  "vi/species/placidochromis-electra": {
@@ -1169,6 +1994,14 @@
   "figures": [
    "90 × 40 cm → 91 × 38 cm",
    "90 × 40 × 30 cm → 91 × 38 × 30 cm"
+  ]
+ },
+ "vi/species/poecilia-wingei": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "20-40 lít → 19-38 lít",
+   "40 lít → 38 lít",
+   "80 lít → 76 lít"
   ]
  },
  "vi/species/polycentropsis-abbreviata": {
@@ -1203,6 +2036,12 @@
    "60 × 40 × 30 cm → 60 × 38 × 30 cm"
   ]
  },
+ "vi/species/procambarus-clarkii": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "16 °C → 15,6 °C"
+  ]
+ },
  "vi/species/protomelas-fenestratus": {
   "at": "2026-11-13T23:11:12.584Z",
   "figures": [
@@ -1221,6 +2060,18 @@
   "figures": [
    "120 × 45 × 40 cm → 120 × 45 × 38 cm",
    "120 × 40 cm → 120 × 38 cm"
+  ]
+ },
+ "vi/species/pseudogastromyzon-myersi": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "19–24°C → 18,9–23,9°C"
+  ]
+ },
+ "vi/species/pseudomugil-gertrudae": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "40 lít → 38 lít"
   ]
  },
  "vi/species/pseudotropheus-cyaneorhabdos": {
@@ -1267,10 +2118,47 @@
    "90 × 45 × 40 cm → 90 × 45 × 38 cm"
   ]
  },
+ "vi/species/puntius-titteya": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "100 lít → 95 lít",
+   "40 lít → 38 lít"
+  ]
+ },
  "vi/species/rasbora-borapetensis": {
   "at": "2026-11-13T23:11:12.584Z",
   "figures": [
    "60 × 40 × 30 cm → 60 × 38 × 30 cm"
+  ]
+ },
+ "vi/species/rasbora-caudimaculata": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "120 lít → 113 lít"
+  ]
+ },
+ "vi/species/rasbora-elegans": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "120 lít → 113 lít"
+  ]
+ },
+ "vi/species/rasbora-lacrimula": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "22–26 °C → 22,2–25,6 °C"
+  ]
+ },
+ "vi/species/rasbora-paucisqualis": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "22–26°C → 22,2–25,6°C"
+  ]
+ },
+ "vi/species/rasbora-paviana": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "120 lít → 113 lít"
   ]
  },
  "vi/species/rasbora-sarawakensis": {
@@ -1305,11 +2193,47 @@
    "120 × 40 × 30 cm → 120 × 38 × 30 cm"
   ]
  },
+ "vi/species/serrasalmus-maculatus": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "21 °C → 21,1 °C"
+  ]
+ },
  "vi/species/serrasalmus-marginatus": {
   "at": "2026-11-13T23:11:12.584Z",
   "figures": [
    "120 × 40 cm → 120 × 38 cm",
    "120 × 40 × 40 cm → 120 × 38 × 38 cm"
+  ]
+ },
+ "vi/species/serrasalmus-rhombeus": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "22–28°C → 22,2–27,8°C"
+  ]
+ },
+ "vi/species/sewellia-lineolata": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "80 lít → 76 lít"
+  ]
+ },
+ "vi/species/silurus-glanis": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "4 °C → 3,9 °C"
+  ]
+ },
+ "vi/species/sorubim-lima": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "23 °C → 23,3 °C"
+  ]
+ },
+ "vi/species/symphysodon-discus": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "300 lít → 285 lít"
   ]
  },
  "vi/species/synodontis-angelicus": {
@@ -1383,6 +2307,65 @@
   "figures": [
    "120 × 40 cm → 120 × 38 cm",
    "120 × 40 × 40 cm → 120 × 38 × 38 cm"
+  ]
+ },
+ "vi/species/trematocranus-placodon": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "150 × 40 cm → 150 × 38 cm",
+   "150 × 40 × 45 cm → 150 × 38 × 45 cm"
+  ]
+ },
+ "vi/species/trichogaster-lalius": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "20 lít → 19 lít"
+  ]
+ },
+ "vi/species/trichopodus-leerii": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "80 lít → 76 lít",
+   "40 lít → 38 lít"
+  ]
+ },
+ "vi/species/trigonostigma-heteromorpha": {
+  "at": "2026-11-14T23:50:14.572Z",
+  "figures": [
+   "40 lít → 38 lít"
+  ]
+ },
+ "vi/species/tropheops-tropheops": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "120 × 40 cm → 120 × 38 cm",
+   "120 × 40 × 30 cm → 120 × 38 × 30 cm"
+  ]
+ },
+ "vi/species/vieja-maculicauda": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "120 × 40 cm → 120 × 38 cm"
+  ]
+ },
+ "vi/species/xenomystus-nigri": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "120 × 45 × 40 cm → 120 × 45 × 38 cm"
+  ]
+ },
+ "vi/species/xenotilapia-melanogenys": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "120 × 40 cm → 120 × 38 cm",
+   "120 × 40 × 30 cm → 120 × 38 × 30 cm"
+  ]
+ },
+ "vi/species/xenotilapia-sima": {
+  "at": "2026-11-14T03:26:17.385Z",
+  "figures": [
+   "120 × 40 cm → 120 × 38 cm",
+   "120 × 40 × 30 cm → 120 × 38 × 30 cm"
   ]
  }
 }

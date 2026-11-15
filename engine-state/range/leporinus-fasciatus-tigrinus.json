@@ -1,0 +1,121 @@
+{
+  "id": "leporinus-fasciatus-tigrinus",
+  "native": {
+    "input": "fab58b772fc4c1e3",
+    "at": "2026-11-14T00:09:29.977Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "A striped Leporinus from the Ventuari river in Venezuela, possibly a still undescribed species.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This Leporinus originates from the Ventuari river in Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Leporinus with a similar coloration are known so far only from the Rio Tapajos and Rio Xingu in Brazil; these were described in 1929 as Leporinus fasciatus tigrinus.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ventuari",
+        "source": "glaser",
+        "quote": "This Leporinus originates from the Ventuari river in Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Rio Tapajos",
+        "source": "glaser",
+        "quote": "Leporinus with a similar coloration are known so far only from the Rio Tapajos and Rio Xingu in Brazil; these were described in 1929 as Leporinus fasciatus tigrinus.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Xingu",
+        "source": "glaser",
+        "quote": "Leporinus with a similar coloration are known so far only from the Rio Tapajos and Rio Xingu in Brazil; these were described in 1929 as Leporinus fasciatus tigrinus.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": [
+        "BR"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Leporinus tigrinus",
+    "status": "SYNONYM",
+    "taxonKey": 2355391,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        72
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        23
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        14
+      ],
+      [
+        "d8dbe12e-72b6-4606-9d30-c71cb2a33bdc",
+        9
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        8
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        6
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ]
+    ],
+    "native": [
+      "VE",
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T00:09:29.977Z"
+  }
+}

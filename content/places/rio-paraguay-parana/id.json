@@ -1,8 +1,13 @@
 {
   "slug": "rio-paraguay-parana",
-  "name": "Paraguay-Paraná",
+  "name": "Sungai Paraguay-Paraná",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-15T05:35:27.040Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

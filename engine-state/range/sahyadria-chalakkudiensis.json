@@ -1,0 +1,79 @@
+{
+  "id": "sahyadria-chalakkudiensis",
+  "native": {
+    "input": "c329f0b1146574f9",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Dawkinsia chalakkudiensis is a cyprinid from Kerala, southern India, known from the Chalakudy, Periyar, Pamba and Achankovil rivers.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Initially considered endemic to the Chalakudy River system in Kerala state, southern India, but subsequently recorded from the Periyar, Pamba, and Achankovil rivers.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Chalakudy",
+        "source": "seriouslyfish",
+        "quote": "Initially considered endemic to the Chalakudy River system in Kerala state, southern India, but subsequently recorded from the Periyar, Pamba, and Achankovil rivers.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Periyar",
+        "source": "seriouslyfish",
+        "quote": "Initially considered endemic to the Chalakudy River system in Kerala state, southern India, but subsequently recorded from the Periyar, Pamba, and Achankovil rivers.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Pamba",
+        "source": "seriouslyfish",
+        "quote": "Initially considered endemic to the Chalakudy River system in Kerala state, southern India, but subsequently recorded from the Periyar, Pamba, and Achankovil rivers.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Achankovil",
+        "source": "seriouslyfish",
+        "quote": "Initially considered endemic to the Chalakudy River system in Kerala state, southern India, but subsequently recorded from the Periyar, Pamba, and Achankovil rivers.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Western Ghats",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Chalakkudi River, Western Ghats, Trichur, Kerala, India'.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sahyadria chalakkudiensis",
+    "status": "ACCEPTED",
+    "taxonKey": 7679433,
+    "datasets": [],
+    "native": [
+      "IN"
+    ],
+    "requests": 2,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

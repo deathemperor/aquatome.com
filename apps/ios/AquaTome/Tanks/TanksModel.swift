@@ -171,6 +171,31 @@ final class TanksModel {
     return (try? commit(s)) != nil
   }
 
+  /// Week Aqua lights just connected together: their saved records, or new ones, the group on one tank.
+  func metWeekAqua(_ lights: [(address: String, bleName: String)]) {
+    var s = store
+    guard (try? s.metWeekAqua(lights, model: Self.weekAquaModel, tankName: Self.newTankName)) != nil else { return }
+    try? commit(s)
+  }
+
+  /// A change to a connected Week Aqua light's record, as the store has it now (met again if its tank went).
+  func changeWeekAqua(address: String, bleName: String, _ change: (inout Device) -> Void) {
+    var s = store
+    guard let d = try? s.metWeekAqua([(address, bleName)], model: Self.weekAquaModel, tankName: Self.newTankName).first,
+          (try? s.updateDevice(d.id) { change(&$0) }) != nil else { return }
+    try? commit(s)
+  }
+
+  /// Lights moved to another of the reader's tanks, the one they light (the Week Aqua screen's "Bể").
+  func moveDevices(_ ids: [String], to tankId: String) {
+    var s = store
+    for id in ids { guard (try? s.updateDevice(id, { $0.tankId = tankId })) != nil else { return } }
+    try? commit(s)
+  }
+
+  /// The model a Week Aqua light's record names: the only code this app drives.
+  static let weekAquaModel = "Week Aqua 5746"
+
   /// "Quên đèn này" on the lights screen: a tombstone, so a copy elsewhere doesn't bring it back when they sync.
   func forgetLight(_ id: String) {
     var s = store
@@ -215,7 +240,7 @@ final class TanksModel {
     if args.contains("-reset-defaults") { try? fm.removeItem(at: dir) }
     guard let i = args.firstIndex(of: "-seed-tanks"), i + 1 < args.count else { return }
     switch args[i + 1] {
-    case "newer", "unreadable", "litres", "life", "many", "clash", "plug", "breed":
+    case "newer", "unreadable", "litres", "life", "many", "clash", "plug", "breed", "two":
       let many = (["paracheirodon-innesi"] + (1...19).map { "loai-thu-\($0)" }).map { #"{"id":"\#($0)","count":2}"# }.joined(separator: ",")
       let store = [
         "newer": #"{"v":2,"tanks":[],"devices":[]}"#,
@@ -226,6 +251,7 @@ final class TanksModel {
         "clash": #"{"v":1,"tanks":[{"id":"00000000-0000-4000-8000-000000000003","name":"Bể 60","dims":{"l":60,"w":30,"h":36},"species":[{"id":"symphysodon-aequifasciatus","count":2},{"id":"paracheirodon-innesi","count":12}],"plants":[],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}],"devices":[]}"#,
         "plug": #"{"v":1,"tanks":[{"id":"00000000-0000-4000-8000-000000000005","name":"Bể 60","species":[],"plants":[],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}],"devices":[{"id":"00000000-0000-4000-8000-000000000040","tankId":"00000000-0000-4000-8000-000000000005","kind":"plug","brand":"tuya","remoteId":"fake-strip-1","nickname":"Ổ cắm bể 60","outlets":[{"code":"switch_1","label":"Đèn"},{"code":"switch_2","label":"CO2"},{"code":"switch_3"}],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}]}"#,
         "breed": #"{"v":1,"tanks":[{"id":"00000000-0000-4000-8000-000000000006","name":"Bể đĩa","dims":{"l":120,"w":50,"h":50},"species":[{"id":"symphysodon-aequifasciatus","count":2},{"id":"pigeon-blood-discus","count":3}],"plants":[],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}],"devices":[]}"#,
+        "two": #"{"v":1,"tanks":[{"id":"00000000-0000-4000-8000-000000000007","name":"Bể 60","species":[],"plants":[],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"},{"id":"00000000-0000-4000-8000-000000000008","name":"Bể nước đen","species":[],"plants":[],"createdAt":"2026-10-02T08:00:00.000Z","updatedAt":"2026-10-02T08:00:00.000Z"}],"devices":[]}"#,
       ][args[i + 1]]!
       try? fm.createDirectory(at: dir, withIntermediateDirectories: true)
       try? Data(store.utf8).write(to: file)

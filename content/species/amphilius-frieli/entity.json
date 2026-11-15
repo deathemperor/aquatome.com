@@ -12,6 +12,84 @@
     "zambia",
     "luapula"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD",
+        "ZM"
+      ],
+      "regions": [
+        "Congo River",
+        "Lufira River",
+        "Luapula River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Africa: Upper Congo River basin upstream of Kabalo in Democratic Republic of Congo and Zambia, including the Lufira River drainage and Luapula River drainage.",
+          "countries": [
+            "CD",
+            "ZM"
+          ],
+          "regions": [
+            "Congo River",
+            "Lufira River",
+            "Luapula River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8617296,
+      "total": 16,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "ZM",
+          11
+        ],
+        [
+          "CD",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          26.71875,
+          -12.65625,
+          4,
+          4
+        ],
+        [
+          26.71875,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          28.125,
+          -12.65625,
+          6,
+          6
+        ],
+        [
+          28.125,
+          -11.25,
+          4,
+          4
+        ],
+        [
+          30.9375,
+          -12.65625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

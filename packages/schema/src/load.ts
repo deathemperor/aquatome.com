@@ -12,9 +12,9 @@ import { markOutsideCrop, photoFitsCard, photoFitsHead, photoFitsWholeHead, SUBJ
 import { judgeQuality, speciesDepth } from './depth'
 import { isAllowedLicence } from './licence'
 import { isVietnamese, markVietnameseNames } from './text'
-import { BreedSchema, CaptionsSchema, OneVoiceSchema, PageDatesSchema, PictureHashesSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MarketSchema, mayPublish, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
+import { BreedSchema, CaptionsSchema, OneVoiceSchema, PageDatesSchema, PictureHashesSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MATERIAL_SECTION_ORDER, MaterialSchema, MarketSchema, mayPublish, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
 import type { PictureHashes } from './pictures'
-import type { BreedEntity, ChangelogEntry, EquipmentGuide, GlossaryEntity, GuideEntity, Lang, Market, Photo, PlaceEntity, PlantEntity, ProductEntity, Section, Series, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
+import type { BreedEntity, ChangelogEntry, EquipmentGuide, GlossaryEntity, GuideEntity, Lang, Market, MaterialEntity, Photo, PlaceEntity, PlantEntity, ProductEntity, Section, Series, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
 
 export const QUALITY_THRESHOLD = 0.75
 /** The market (prices, shops) each site language serves. */
@@ -63,6 +63,8 @@ export type Content = {
   products: (Localized<ProductEntity> & { market?: Market })[]
   /** Man-made fish (hybrids, lines, colour forms): pages beside the species, at /<lang>/ca/<slug>/. */
   breeds: Localized<BreedEntity>[]
+  /** Unlisted Vietnamese hobby materials. No other language or catalogue consumes the pilot. */
+  materials: Localized<MaterialEntity>[]
   /** YouTube playlists turned into guide series (content/series/*.json); only those with a published guide. */
   series: Series[]
   sources: Partial<Record<SourceId, SourceInfo>>
@@ -105,12 +107,27 @@ const marked = (lang: Lang, t: Translation): Translation => lang === 'vi' ? t : 
 /** A guide's note for this language's readers goes first in its text, wherever the text is read (schemas.ts localNote). */
 export const withLocalNote = (t: Translation): Translation => t.localNote ? { ...t, body: `${t.localNote.html}${t.body ?? ''}` } : t
 
-/** A heading whose sources can't both be true shows only the source content/one-voice.json names, once this language has its text. */
+/**
+ * A heading whose sources can't both be true shows only the source content/one-voice.json names, once this language has
+ * its text; one it names no source for (`false`) isn't shown at all, and its text is left out too, so nothing that reads
+ * the page's text (the gate's checks, the summary's writer) reads what readers don't see.
+ */
 export function oneVoice<S extends { sections: Section[]; t: Translation }>(x: S, keep: z.infer<typeof OneVoiceSchema>[string] | undefined): S {
   if (!keep) return x
   const written = (key: Section['key'], source: SourceId) => x.sections.some(s => s.key === key && s.source === source) && !!x.t.sections[`${key}:${source}`]
-  return { ...x, sections: x.sections.filter(s => { const k = keep[s.key]; return !k || s.source === k || !written(s.key, k) }) }
+  const off = (key: string) => keep[key as Section['key']] === false
+  const t = { ...x.t, sections: Object.fromEntries(Object.entries(x.t.sections).filter(([k]) => !off(k.split(':')[0]!))) }
+  return { ...x, t, sections: x.sections.filter(s => { const k = keep[s.key]; return k === undefined || (k !== false && (s.source === k || !written(s.key, k))) }) }
 }
+
+/**
+ * Whether a place's name is this language's: not one judged alone and failed (the engine's place-judge.ts). A failed one
+ * leaves the place with no name here, as before it was translated, so the site shows what the source wrote: a river's
+ * or a region's name as the fish's range gives it (the site's range.ts regionNames), a country's own name in this
+ * language (countryNames), until a name passes. A name only a batch scored, low or not, shows as it is (the chief of
+ * staff, 14 Nov 2026: no blanket step back, as most of them are right).
+ */
+export const placeNamed = (t: Translation) => t.nameCheck?.ok !== false
 
 async function loadKind<S extends z.ZodType>(root: string, dir: string, schema: S, lang: Lang, leaveOutHeld = false): Promise<Localized<z.infer<S>>[]> {
   const base = join(root, dir)
@@ -126,6 +143,36 @@ async function loadKind<S extends z.ZodType>(root: string, dir: string, schema: 
     out.push({ ...(entity as object), t } as Localized<z.infer<S>>)
   }
   return out
+}
+
+/**
+ * Every material's parent, by id, whatever its translations say (held, missing): each folder's entity read and checked,
+ * its folder and its id the same. A parent is a material that is really there, never a folder name alone, and a chain
+ * of parents ends: lua's parent lua-sa-tung, whose parent is lua, would make each page the other's parent and child.
+ */
+async function materialParents(root: string): Promise<Map<string, string | undefined>> {
+  const parents = new Map<string, string | undefined>()
+  for (const folder of await readdir(join(root, 'materials')).catch(() => [] as string[])) {
+    const file = join(root, 'materials', folder, 'entity.json')
+    if (!(await exists(file))) continue
+    const m = await readJson(file, MaterialSchema)
+    if (m.id !== folder) throw new Error(`material ${folder}: its entity's id is "${m.id}"`)
+    parents.set(m.id, m.parent)
+  }
+  for (const [id, parent] of parents)
+    if (parent !== undefined && (parent === id || !parents.has(parent))) throw new Error(`material ${id}: parent "${parent}" is not another material`)
+  // Each material walked once: a chain stops at one already known to end.
+  const ends = new Set<string>()
+  for (const id of parents.keys()) {
+    const chain = new Map<string, number>()
+    for (let p: string | undefined = id; p !== undefined && !ends.has(p); p = parents.get(p)) {
+      const at = chain.get(p)
+      if (at !== undefined) throw new Error(`material ${id}: its parents go round (${[...[...chain.keys()].slice(at), p].join(' → ')})`)
+      chain.set(p, chain.size)
+    }
+    for (const p of chain.keys()) ends.add(p)
+  }
+  return parents
 }
 
 /** The watermark screen's record, in the engine's state beside the content root. */
@@ -378,12 +425,39 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     cards.push({ ...card, ...(shown ? { photo: shown } : {}), t })
   }
 
-  const allPlaces = await loadKind(root, 'places', PlaceSchema, lang)
+  // Pilot content stays Vietnamese-only even if another language file arrives before its routes and address words.
+  const materials = lang === 'vi' ? (await loadKind(root, 'materials', MaterialSchema, lang, leaveOutHeld)).map(m => {
+    if (!m.t.summary || m.t.summary.length < 2 || m.t.summary.length > 4 || m.t.summary.some(s => !s.trim())) throw new Error(`material ${m.id}: summary needs 2–4 non-empty lines`)
+    for (const key of Object.keys(m.t.sections)) if (!(MATERIAL_SECTION_ORDER as readonly string[]).includes(key)) throw new Error(`material ${m.id}: unknown section ${key}`)
+    // A translation's citations are 1-based positions in this entity's source list, never an uncited fallback.
+    for (const text of Object.values(m.t.sections)) {
+      for (const mark of text.matchAll(/\[(\d+)\]/g)) {
+        const n = Number(mark[1])
+        if (n < 1 || n > m.sources.length) throw new Error(`material ${m.id}: source ${mark[0]} is outside sources (1–${m.sources.length})`)
+      }
+    }
+    return { ...m, photos: cleanPhotos(m.photos) }
+  }) : []
+  const materialSlugs = new Set<string>()
+  // A parent is another material, held back or not (a held parent leaves its kinds standing alone): never a typo that
+  // the page would drop without a word, and never a chain that comes back round (materialParents).
+  if (lang === 'vi') await materialParents(root)
+  for (const m of materials) {
+    if (materialSlugs.has(m.t.slug)) throw new Error(`material ${m.id}: duplicate slug "${m.t.slug}"`)
+    materialSlugs.add(m.t.slug)
+  }
+
+  const allPlaces = (await loadKind(root, 'places', PlaceSchema, lang)).filter(p => placeNamed(p.t))
   return {
-    lang, species, plants, guides, changelog, equipment, series, galleries, products, breeds, cards,
+    lang, species, plants, guides, changelog, equipment, series, galleries, products, breeds, materials, cards,
     ...(screen ? { photoWaits } : {}),
     // A term's photos follow the same rules as a page's (publish gates, the watermark screen).
-    glossary: (await loadKind(root, 'glossary', GlossarySchema, lang)).map(g => (g.photos ? { ...g, photos: cleanPhotos(g.photos, g.id) } : g)),
+    // A kind's photo passes the same screen as the term's; a kind whose photo doesn't is shown without one.
+    glossary: (await loadKind(root, 'glossary', GlossarySchema, lang)).map(g => ({
+      ...g,
+      ...(g.photos ? { photos: cleanPhotos(g.photos, g.id) } : {}),
+      ...(g.kinds ? { kinds: g.kinds.flatMap(k => cleanPhotos([k.photo], g.id).map(photo => ({ ...k, photo }))) } : {}),
+    })),
     // Another language's species pages are still being made: it has the places one of its fish comes from, so no origin
     // page is empty and no link points at one it lacks. Vietnamese has every place.
     places: allPlaces.filter(p => lang === 'vi' || species.some(s => s.places.includes(p.id))),

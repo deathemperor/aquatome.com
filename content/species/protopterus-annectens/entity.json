@@ -609,6 +609,13 @@
       "html": "<p>Best kept singly and alone. Some hobbyists do keep lungfish with other large species but this is very risky. Lungfish are unpredictable and can bite chunks out of other fish at will. Specimens that have been kept in a community situation for some time have been known to suddenly turn on their tankmates. It is also completely intolerant of congeners.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/29-lungfishes/lungfishes-from-the-congo/",
+      "html": "<p>In P. aethiopicus and P. annectens it often seems that the biting is a result of an error, because the fish simply try if the opposite is food.</p>",
+      "fixed": true
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/protopterus-annectens",
@@ -649,16 +656,6 @@
       "thumb": "https://media.aquatome.com/commons/c843e38add5d33a3-480.webp"
     },
     {
-      "url": "https://media.aquatome.com/commons/e29fa29d34c1844b.webp",
-      "width": 960,
-      "height": 541,
-      "licence": "CC BY-SA 4.0",
-      "author": "Cedricguppy - Loury Cédric",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Protopterus_annectens_-_dipneuste_africain_-_Aqua_Porte_Dor%C3%A9e_01.JPG",
-      "caption": "Protopterus annectens - dipneuste africain - Aquarium Tropical du Palais de la Porte Dorée Paris, Ile de France, France - 12/2014",
-      "thumb": "https://media.aquatome.com/commons/e29fa29d34c1844b-480.webp"
-    },
-    {
       "url": "https://media.aquatome.com/commons/37992e3e0090b119.webp",
       "width": 960,
       "height": 638,
@@ -667,6 +664,16 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Annectens.jpg",
       "caption": "Protopterus annectens",
       "thumb": "https://media.aquatome.com/commons/37992e3e0090b119-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/e29fa29d34c1844b.webp",
+      "width": 960,
+      "height": 541,
+      "licence": "CC BY-SA 4.0",
+      "author": "Cedricguppy - Loury Cédric",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Protopterus_annectens_-_dipneuste_africain_-_Aqua_Porte_Dor%C3%A9e_01.JPG",
+      "caption": "Protopterus annectens - dipneuste africain - Aquarium Tropical du Palais de la Porte Dorée Paris, Ile de France, France - 12/2014",
+      "thumb": "https://media.aquatome.com/commons/e29fa29d34c1844b-480.webp"
     }
   ],
   "videos": [],

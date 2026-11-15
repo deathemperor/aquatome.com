@@ -92,7 +92,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh lá cây xanh vàng rậm rạp trong bể.",
-            "sharpness": 403.6
+            "sharpness": 403.6,
+            "person": false
           },
           {
             "t": 60,
@@ -100,7 +101,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây mọc um tùm vượt khỏi nóc bể paludarium.",
-            "sharpness": 3523.4
+            "sharpness": 3523.4,
+            "person": false
           }
         ],
         "photo": {
@@ -123,7 +125,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Một con cá đang bơi sát nền giữa các khúc gỗ và đá trong bể.",
-            "sharpness": 931
+            "sharpness": 931,
+            "person": false
           }
         ],
         "photo": {
@@ -146,7 +149,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lớp lá khô dưới đáy bể, nơi cá chuột con có thể nấp.",
-            "sharpness": 373.8
+            "sharpness": 373.8,
+            "person": false
           },
           {
             "t": 350,
@@ -154,7 +158,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đáy bể phủ lá khô và đá, chỗ trú cho cá con.",
-            "sharpness": 1432.8
+            "sharpness": 1432.8,
+            "person": false
           }
         ],
         "photo": {
@@ -195,20 +200,13 @@
         "heading": "Thay nước và vệ sinh bể có sump theo thứ tự nào",
         "moments": [
           {
-            "t": 550,
-            "url": "https://media.aquatome.com/video/uzhJRcM1tx4/at550-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tán cây xanh rậm sát đèn, cần tỉa bớt và xịt rửa lá.",
-            "sharpness": 3133
-          },
-          {
             "t": 570,
             "url": "https://media.aquatome.com/video/uzhJRcM1tx4/at570-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể đã hạ mực nước, bơm bảo trì đang rút nước ra.",
-            "sharpness": 1984.7
+            "sharpness": 1984.7,
+            "person": false
           }
         ]
       },
@@ -221,15 +219,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Rệp sáp trắng bám dày dọc gân lá cây.",
-            "sharpness": 177.4
-          },
-          {
-            "t": 690,
-            "url": "https://media.aquatome.com/video/uzhJRcM1tx4/at690-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây rậm rạp phía trên bể cá, dưới đèn chiếu sáng.",
-            "sharpness": 3041.7
+            "sharpness": 177.4,
+            "person": false
           }
         ],
         "photo": {

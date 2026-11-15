@@ -13,6 +13,125 @@
     "amazon",
     "paraguay"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "BO"
+      ],
+      "regions": [
+        "Amazon",
+        "Paraná",
+        "Rio Ivinheima"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio Ivinheima, 70 kilometers upstream from its confluence with Rio Paraná, Mato Grosso State, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Ivinheima"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Amazon and Paraguay/Paraná River basins: Bolivia and Brazil.",
+          "countries": [
+            "BO"
+          ],
+          "regions": [
+            "Amazon",
+            "Paraná"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2343822,
+      "total": 38,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "BR",
+          38
+        ]
+      ],
+      "cells": [
+        [
+          -59.0625,
+          -16.875,
+          3,
+          3
+        ],
+        [
+          -57.65625,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -19.6875,
+          3,
+          3
+        ],
+        [
+          -57.65625,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -16.875,
+          9,
+          9
+        ],
+        [
+          -56.25,
+          -19.6875,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -18.28125,
+          4,
+          4
+        ],
+        [
+          -56.25,
+          -16.875,
+          3,
+          3
+        ],
+        [
+          -54.84375,
+          -23.90625,
+          10,
+          10
+        ],
+        [
+          -54.84375,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -22.5,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -10,11 +10,114 @@
     "tanzania",
     "lake-tanganyika"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The Spatula-barbeled Catfish, endemic to Lake Tanganyika, has a very special way of reproducing for a catfish: it is a biparental mouthbrooder.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2337415,
+      "total": 34,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "ZM",
+          23
+        ],
+        [
+          "BI",
+          7
+        ],
+        [
+          "CD",
+          3
+        ],
+        [
+          "TZ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          2
+        ],
+        [
+          28.125,
+          -4.21875,
+          6
+        ],
+        [
+          29.53125,
+          -9.84375,
+          2
+        ],
+        [
+          29.53125,
+          -8.4375,
+          1
+        ],
+        [
+          29.53125,
+          -7.03125,
+          1
+        ],
+        [
+          29.53125,
+          -5.625,
+          1
+        ],
+        [
+          30.9375,
+          -9.84375,
+          21
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 9
+      },
+      {
+        "source": "scotcat",
+        "value": 10
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7.5,
+          "max": 8
+        }
       }
     ]
   },
@@ -26,10 +129,34 @@
       "html": "<p>The Spatula-barbeled Catfish, endemic to Lake Tanganyika, has a very special way of reproducing for a catfish: it is a biparental mouthbrooder. This small catfish is the only representative of its genus and can be easily distinguished by the long barbels on both sides of the upper jaw, which end in a spatula shape. The total length of the fish is approximately 9 cm.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/phyllonemus_typus.htm",
+      "html": "<ul><li>Common name: Spatula-barbeled catfish</li><li>Synonyms: none</li><li>IUCN Red List: widely distributed within the littoral zones of Lake Tanganyika, with no widespread threats; assessed as Least Concern (IUCN 2020).</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/phyllonemus_typus_en/",
       "html": "<p>Lake Tanganyika.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/phyllonemus_typus.htm",
+      "html": "<p>Africa: Lake Tanganyika.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/phyllonemus_typus.htm",
+      "html": "<p>Inhabit inshore waters to 20 m deep, and restricted to the rocky littoral zone. Rests on the bottom with the modified maxillary barbels. Nocturnally active meanwhile resting beneath rocks and within interstices in the rock or rubble substrata during the day.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/phyllonemus_typus.htm",
+      "html": "<p>Tank capacity: 60 L.</p>"
     },
     {
       "key": "maintenance",
@@ -38,20 +165,126 @@
       "html": "<p>Keeping these fish in the aquarium should not be too difficult. They are nocturnal animals, although they will come out during the daytime for feeding. Mostly, however, they rest during the light phase in dark places or caves, which have to be available in the tank.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/phyllonemus_typus.htm",
+      "html": "<p>pH 7.6; hardness of water 12; temperature tolerance 25°C.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/phyllonemus_typus.htm",
+      "html": "<p>Aquarium lighting should be as dark as possible as long as fishes are visible; it prefers a set-up with rocks, plants, and driftwood in an aquarium.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/phyllonemus_typus.htm",
+      "html": "<p>Stomach contents examined consist of shrimps, occasionally debris from larval insects, and fish remains which apparently are clupeids possibly Limnothrissa. In its native habitat they feed on larval insects and crustaceans and in the aquarium they will eat most foods given such as frozen bloodworm, catfish tablets, white worm (sparingly) prawns and shrimp.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/phyllonemus_typus_en/",
       "html": "<p>These are peaceful fish, although any fish small enough to fit in their mouth, and therefore seen as food, might be eaten.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/phyllonemus_typus.htm",
+      "html": "<p>A peaceful, bottom-swimming fish. This species is best kept in a group as it does like company of its own kind and will feel more secure as it is quite a shy catfish and can get bullied in a tank with larger aggressive species. As with all Bagrid type fish it will be attracted to smaller fish at night and may predate on fry, but all in all a good addition to a mixed Rift Valley tank set-up.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/phyllonemus_typus_en/",
       "html": "<p>The species is a biparental mouthbrooder.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/phyllonemus_typus.htm",
+      "html": "<p>Oviparous. First report of bi-parental mouthbrooding among catfishes.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/phyllonemus_typus.htm",
+      "html": "<p>Etymology: The specific name typus: Serving as type of the genus.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/4d926fe5d498781d.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4d926fe5d498781d-480.webp",
+      "width": 500,
+      "height": 294,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/phyllonemus_typus.htm",
+      "caption": "Phyllonemus typus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/4a32520f422f933d.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4a32520f422f933d-480.webp",
+      "width": 500,
+      "height": 335,
+      "licence": "dùng với sự cho phép",
+      "author": "Yann Fulliquet / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/phyllonemus_typus.htm",
+      "caption": "Phyllonemus typus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/844b8e0460849d61.webp",
+      "thumb": "https://media.aquatome.com/scotcat/844b8e0460849d61-480.webp",
+      "width": 500,
+      "height": 324,
+      "licence": "dùng với sự cho phép",
+      "author": "Yann Fulliquet / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/phyllonemus_typus.htm",
+      "caption": "Phyllonemus typus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/130ee2e2cce48ef2.webp",
+      "thumb": "https://media.aquatome.com/scotcat/130ee2e2cce48ef2-480.webp",
+      "width": 500,
+      "height": 350,
+      "licence": "dùng với sự cho phép",
+      "author": "Yann Fulliquet / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/phyllonemus_typus.htm",
+      "caption": "Phyllonemus typus",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "c1SNrHIBQPo",
+      "title": "Phyllonemus typus holding eggs caught on tape Predatory Catfish Forum",
+      "durationSec": 57,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "QE_Q48k21FQ",
+      "title": "Tanganyikan Community Tank",
+      "durationSec": 234,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "If-_tyfrBwk",
+      "title": "babies phyllonemus typus",
+      "durationSec": 74,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "gpdtjJ9o27Y",
+      "title": "Phyllonemus Typus Wildfang auf Futtersuche",
+      "durationSec": 24,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -74,5 +307,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13"
+  "updatedAt": "2026-11-14"
 }

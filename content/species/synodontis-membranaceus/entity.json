@@ -22,6 +22,290 @@
     "mali",
     "mauritania"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "EG",
+        "NG",
+        "GM",
+        "CM",
+        "SN",
+        "TD",
+        "MW",
+        "GH",
+        "NE",
+        "SD"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "A widespread species occurring in Egypt, Nigeria, Gambia, Cameroon, Senegal, Chad, Malawi, Ghana, Niger and Sudan.",
+          "countries": [
+            "EG",
+            "NG",
+            "GM",
+            "CM",
+            "SN",
+            "TD",
+            "MW",
+            "GH",
+            "NE",
+            "SD"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344413,
+      "total": 103,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "BJ",
+          31
+        ],
+        [
+          "GM",
+          16
+        ],
+        [
+          "GH",
+          14
+        ],
+        [
+          "NE",
+          9
+        ],
+        [
+          "NG",
+          9
+        ],
+        [
+          "BF",
+          7
+        ],
+        [
+          "CM",
+          4
+        ],
+        [
+          "ML",
+          4
+        ],
+        [
+          "SN",
+          4
+        ],
+        [
+          "EG",
+          1
+        ],
+        [
+          "MR",
+          1
+        ],
+        [
+          "SD",
+          1
+        ],
+        [
+          "TD",
+          1
+        ],
+        [
+          "TG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -16.875,
+          15.46875,
+          3,
+          3
+        ],
+        [
+          -15.46875,
+          12.65625,
+          16,
+          16
+        ],
+        [
+          -15.46875,
+          16.875,
+          1,
+          0
+        ],
+        [
+          -14.0625,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          -8.4375,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          -5.625,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          -5.625,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          -4.21875,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          -4.21875,
+          14.0625,
+          3,
+          0
+        ],
+        [
+          -2.8125,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -2.8125,
+          11.25,
+          1,
+          0
+        ],
+        [
+          -1.40625,
+          7.03125,
+          4,
+          4
+        ],
+        [
+          -1.40625,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -1.40625,
+          11.25,
+          3,
+          0
+        ],
+        [
+          0,
+          5.625,
+          7,
+          7
+        ],
+        [
+          0,
+          9.84375,
+          8,
+          0
+        ],
+        [
+          0,
+          11.25,
+          5,
+          0
+        ],
+        [
+          1.40625,
+          5.625,
+          8,
+          0
+        ],
+        [
+          1.40625,
+          11.25,
+          7,
+          0
+        ],
+        [
+          1.40625,
+          12.65625,
+          8,
+          8
+        ],
+        [
+          2.8125,
+          5.625,
+          1,
+          1
+        ],
+        [
+          2.8125,
+          11.25,
+          5,
+          1
+        ],
+        [
+          4.21875,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          5.625,
+          4.21875,
+          6,
+          6
+        ],
+        [
+          5.625,
+          5.625,
+          1,
+          1
+        ],
+        [
+          12.65625,
+          8.4375,
+          3,
+          3
+        ],
+        [
+          14.0625,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          14.0625,
+          11.25,
+          1,
+          1
+        ],
+        [
+          30.9375,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          32.34375,
+          12.65625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -138,16 +422,6 @@
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/commons/988685911ca3f262.webp",
-      "width": 960,
-      "height": 1110,
-      "licence": "CC BY 4.0",
-      "author": "Natural History Museum",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Synodontis_membranaceus_(Geoffroy_Saint-Hilaire,_1809)_1057557567.jpg",
-      "caption": "Synodontis membranaceus (Geoffroy Saint-Hilaire, 1809) 1057557567",
-      "thumb": "https://media.aquatome.com/commons/988685911ca3f262-480.webp"
-    },
     {
       "url": "https://media.aquatome.com/commons/0eeacdb5c3d03190.webp",
       "width": 960,

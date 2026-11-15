@@ -10,6 +10,40 @@
     "indonesia",
     "maluku"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Halmahera",
+        "Maluku Islands"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the island of Halmahera in the Maluku Islands (also referred to as the Moluccan or Spice Islands) archipelago, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Halmahera",
+            "Maluku Islands"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208966,
+      "total": 0,
+      "fetched": "2026-11-15",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

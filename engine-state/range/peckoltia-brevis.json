@@ -1,0 +1,104 @@
+{
+  "id": "peckoltia-brevis",
+  "native": {
+    "input": "b7b0759f1f36e474",
+    "at": "2026-11-14T00:09:29.977Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: near Sena Madureira, near the mouth of the River Macaua, a tributary of the Rio Iaco, itself a tributary of the Rio Purus, Amazonas, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Purus River basin, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Purus",
+        "source": "planetcatfish",
+        "quote": "Type locality: near Sena Madureira, near the mouth of the River Macaua, a tributary of the Rio Iaco, itself a tributary of the Rio Purus, Amazonas, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Peckoltia brevis",
+    "status": "ACCEPTED",
+    "taxonKey": 5202101,
+    "datasets": [
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        5
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        5
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        5
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        3
+      ],
+      [
+        "278b1d5c-d7a9-4f7a-9651-69cddbb5b94e",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T00:09:29.977Z"
+  }
+}

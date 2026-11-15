@@ -1,4 +1,5 @@
 import { AsyncLocalStorage } from 'node:async_hooks'
+import { spawnSync } from 'node:child_process'
 import { appendFileSync, readdirSync, readFileSync } from 'node:fs'
 import { homedir, tmpdir } from 'node:os'
 import { basename, dirname, join, resolve } from 'node:path'
@@ -165,6 +166,22 @@ export function leftYielding(step: string, log: string, spare: number, ceilings:
 
 /** The piece a call is made for (pieces.ts): its cost line carries it, so a piece's cost is its own calls' alone. */
 export const inPiece = new AsyncLocalStorage<string>()
+
+/**
+ * Refuses unless a checkout's ceilings are main's: whatever yields to the engine reads the table in force, and that is
+ * main's. On 15 Nov the board's checkout, 178 commits behind, read 13 Nov's table and took $34 that main had given the
+ * engine. `dir` is the engine's folder in the checkout; main is fetched first, and a change not yet committed counts.
+ * Main out of reach is refused too: the copy fetched last may be days old.
+ */
+export function ceilingsAsMain(dir: string): void {
+  // Never a prompt for a sign-in, and never longer than a minute: either is main out of reach.
+  if (spawnSync('git', ['fetch', '-q', 'origin', 'main'], { cwd: dir, timeout: 60_000, env: { ...process.env, GIT_TERMINAL_PROMPT: '0' } }).status !== 0) {
+    throw new Error('can\'t reach main to compare the ceilings: try again once origin answers')
+  }
+  if (spawnSync('git', ['diff', '--quiet', 'origin/main', '--', 'src/ceilings.json'], { cwd: dir }).status !== 0) {
+    throw new Error('the ceilings here are not main\'s: rebase this checkout on main first')
+  }
+}
 
 /**
  * Nothing when the call may go; else the failure's message. It starts "claude failed" and says "limit reached" or

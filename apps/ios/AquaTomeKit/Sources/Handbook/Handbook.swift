@@ -30,7 +30,8 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
   /// /vi/thiet-bi/<category>/. `taxon`, `origin`: a taxon page (/vi/phan-loai/…) or an origin page (/vi/nguon-goc/…),
   /// drawn as the app's shelf of the fish it lists. Never in the index: the app makes them from its fish
   /// (HandbookShelves.page(at:)).
-  public enum Kind: String, Codable, Sendable, CaseIterable { case fish, plant, guide, glossary, tool, video, equipment, taxon, origin }
+  /// `material`: what goes into a tank (driftwood, rocks), Vietnamese only for now, read on its web page (no shards).
+  public enum Kind: String, Codable, Sendable, CaseIterable { case fish, plant, guide, glossary, tool, video, equipment, material, taxon, origin }
 
   public struct Item: Codable, Sendable, Hashable, Identifiable {
     public let kind: Kind
@@ -44,6 +45,28 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     /// The page: "/id/ikan/<slug>/".
     public let path: String
     public let img: String?
+    /// Where the fish is in `img` (PhotoBox): its card's frame keeps it by it. Packed in 8 bytes (`box`): every item is
+    /// copied as a list scrolls.
+    public var imgBox: PhotoBox? { PhotoBox(packed: box) }
+    /// Its scientific name as a list's second line: none where its name holds it already.
+    public var subUnderName: String? { Self.line(under: name, sub) }
+    /// A fish, not one of the crabs, shrimps, snails, frogs, newts or corals the fish pages also hold (about 90 in the
+    /// Vietnamese index of 15 Nov; the owner's report of the fiddler crab's page, 15 Nov): the app's own words call those
+    /// "loài", never "cá". Not a fish: the shrimp and snail groups, and a page whose order (`tax`'s first) isn't a fish's,
+    /// as every fish order's name ends in "-iformes" and no other's does. A page with no order (a breed) is a fish.
+    public var isFish: Bool {
+      guard kind == .fish, group != "shrimp", group != "snails" else { return false }
+      guard let order = tax?.first, !order.isEmpty else { return true }
+      return order.hasSuffix("iformes")
+    }
+
+    /// `sub` under `name`, unless `name` holds it: "Cá bám đá Schistura spilota" over "Schistura spilota" said it twice
+    /// (the owner's report of 14 Nov, Khám phá's loach list).
+    public static func line(under name: String, _ sub: String?) -> String? {
+      guard let sub, !sub.isEmpty else { return nil }
+      return name.range(of: sub, options: [.caseInsensitive, .diacriticInsensitive]) == nil ? sub : nil
+    }
+    private let box: UInt64
     /// A fish's figures and behaviour (none for other kinds, nor for a fish the site has none for).
     public let facts: Facts
     /// A guide's subject, as the site's guide list groups them: "setup", "care", "plantCare", "aquascaping",
@@ -83,14 +106,14 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     /// Of `kind`, as a search narrowed to it or a list of it takes it: a video guide is a guide, and a video too.
     public func `is`(_ kind: Kind) -> Bool { self.kind == kind || (kind == .video && video != nil) }
 
-    enum CodingKeys: String, CodingKey { case kind, contentId = "id", name, sub, aka, path, img, section, about, group, plant, video, parts, words, tax, from, of, card, short }
+    enum CodingKeys: String, CodingKey { case kind, contentId = "id", name, sub, aka, path, img, imgBox, section, about, group, plant, video, parts, words, tax, from, of, card, short }
 
     public init(kind: Kind, contentId: String? = nil, name: String, sub: String? = nil, aka: [String]? = nil, path: String, img: String? = nil,
-                facts: Facts = Facts(), section: String? = nil, about: [String] = [], group: String? = nil, plant: Plant? = nil,
+                imgBox: PhotoBox? = nil, facts: Facts = Facts(), section: String? = nil, about: [String] = [], group: String? = nil, plant: Plant? = nil,
                 video: Int? = nil, parts: Int? = nil, words: [String] = [], tax: [String]? = nil, from: [String] = [],
                 of: String? = nil, card: Facts? = nil, short: String? = nil) {
       self.kind = kind; self.contentId = contentId; self.name = name; self.sub = sub; self.aka = aka; self.path = path; self.img = img
-      self.facts = facts; self.section = section; self.about = about; self.group = group; self.plant = plant
+      box = PhotoBox.pack(imgBox); self.facts = facts; self.section = section; self.about = about; self.group = group; self.plant = plant
       self.video = video; self.parts = parts; self.words = words; self.tax = tax; self.from = from
       self.rare = Rare(of: of, card: card, short: short)
     }
@@ -104,6 +127,7 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
       aka = try c.decodeIfPresent([String].self, forKey: .aka)
       path = try c.decode(String.self, forKey: .path)
       img = try c.decodeIfPresent(String.self, forKey: .img)
+      box = PhotoBox.pack((try? c.decodeIfPresent(PhotoBox.self, forKey: .imgBox)) ?? nil)
       facts = try Facts(from: decoder)
       // Read leniently, as the facts are: a value this app can't read is left out, never the item.
       section = (try? c.decodeIfPresent(String.self, forKey: .section)) ?? nil
@@ -130,6 +154,7 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
       try c.encodeIfPresent(aka, forKey: .aka)
       try c.encode(path, forKey: .path)
       try c.encodeIfPresent(img, forKey: .img)
+      try c.encodeIfPresent(imgBox, forKey: .imgBox)
       try c.encodeIfPresent(section, forKey: .section)
       if !about.isEmpty { try c.encode(about, forKey: .about) }
       try c.encodeIfPresent(group, forKey: .group)
@@ -193,7 +218,16 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     public struct Group: Codable, Sendable, Hashable {
       public let id: String
       public let img: String?
-      public init(id: String, img: String? = nil) { self.id = id; self.img = img }
+      /// Where the fish is in `img`.
+      public let imgBox: PhotoBox?
+      public init(id: String, img: String? = nil, imgBox: PhotoBox? = nil) { self.id = id; self.img = img; self.imgBox = imgBox }
+      enum CodingKeys: String, CodingKey { case id, img, imgBox }
+      public init(from decoder: any Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        id = try c.decode(String.self, forKey: .id)
+        img = (try? c.decodeIfPresent(String.self, forKey: .img)) ?? nil
+        imgBox = ((try? c.decodeIfPresent(PhotoBox.self, forKey: .imgBox)) ?? nil)?.valid
+      }
     }
 
     /// A day of the editors' calendar, from yesterday on (`apps/site/src/lib/curation.ts`): its fish and the fish card's
@@ -204,18 +238,21 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
       public struct Story: Codable, Sendable, Equatable {
         public let path: String
         public var img: String?
+        /// Where the fish is in `img`.
+        public var imgBox: PhotoBox?
         public var eyebrow: String?
         public var title: String?
         public var dek: String?
         public init(path: String, img: String? = nil, eyebrow: String? = nil, title: String? = nil, dek: String? = nil) {
           self.path = path; self.img = img; self.eyebrow = eyebrow; self.title = title; self.dek = dek
         }
-        enum CodingKeys: String, CodingKey { case path, img, eyebrow, title, dek }
+        enum CodingKeys: String, CodingKey { case path, img, imgBox, eyebrow, title, dek }
         public init(from decoder: any Decoder) throws {
           let c = try decoder.container(keyedBy: CodingKeys.self)
           func read(_ k: CodingKeys) -> String? { (try? c.decodeIfPresent(String.self, forKey: k)) ?? nil }
           path = try c.decode(String.self, forKey: .path)
           img = read(.img); eyebrow = read(.eyebrow); title = read(.title); dek = read(.dek)
+          imgBox = ((try? c.decodeIfPresent(PhotoBox.self, forKey: .imgBox)) ?? nil)?.valid
         }
       }
       /// "2026-11-13", the reader's own date (`key(_:)`).
@@ -223,22 +260,27 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
       public var fish: String?
       /// The fish card's photo, big enough for it: the card shows this one, or none.
       public var img: String?
+      /// Where the fish is in `img`.
+      public var imgBox: PhotoBox?
       public var guide: String?
       /// The guide card's photo, likewise.
       public var guideImg: String?
+      /// Where the fish is in `guideImg`.
+      public var guideImgBox: PhotoBox?
       public var story: Story?
 
       public init(date: String, fish: String? = nil, img: String? = nil, guide: String? = nil, guideImg: String? = nil, story: Story? = nil) {
         self.date = date; self.fish = fish; self.img = img; self.guide = guide; self.guideImg = guideImg; self.story = story
       }
 
-      enum CodingKeys: String, CodingKey { case date, fish, img, guide, guideImg, story }
+      enum CodingKeys: String, CodingKey { case date, fish, img, imgBox, guide, guideImg, guideImgBox, story }
 
       public init(from decoder: any Decoder) throws {
         let c = try decoder.container(keyedBy: CodingKeys.self)
         func read<T: Decodable>(_ k: CodingKeys) -> T? { (try? c.decodeIfPresent(T.self, forKey: k)) ?? nil }
         date = try c.decode(String.self, forKey: .date)
         fish = read(.fish); img = read(.img); guide = read(.guide); guideImg = read(.guideImg); story = read(.story)
+        imgBox = (read(.imgBox) as PhotoBox?)?.valid; guideImgBox = (read(.guideImgBox) as PhotoBox?)?.valid
       }
 
       /// A date as the calendar names it, on the reader's clock: always the Gregorian year, as a Thai phone's own
@@ -576,7 +618,9 @@ public enum ShopLink {
   }
 }
 
-/// Searching the index the way readers type: without accents ("ca dia" finds "Cá đĩa"), any case, words in any order.
+/// Searching the index the way readers type: without accents ("ca dia" finds "Cá đĩa"), any case, words in any order. A
+/// word typed with its marks finds that word, not every word with its letters: "lọc" finds filters, not "cá lóc" or "phát
+/// lộc" (`Marked`); with none written so, the marks are let go.
 public struct HandbookSearch: Sendable {
   private struct Entry: Sendable {
     let item: HandbookIndex.Item
@@ -643,12 +687,23 @@ public struct HandbookSearch: Sendable {
   /// count would nearly double it.
   public func findAndCount(_ query: String, kind: HandbookIndex.Kind? = nil, limit: Int = 200)
     -> (items: [HandbookIndex.Item], counts: [HandbookIndex.Kind?: Int]) {
+    let marked = query.split(separator: " ").compactMap(Marked.typed)
+    if !marked.isEmpty {
+      let found = findAndCount(query, kind: kind, limit: limit, marked: marked)
+      if found.counts[nil, default: 0] > 0 { return found }
+    }
+    return findAndCount(query, kind: kind, limit: limit, marked: [])
+  }
+
+  private func findAndCount(_ query: String, kind: HandbookIndex.Kind?, limit: Int, marked: [Marked])
+    -> (items: [HandbookIndex.Item], counts: [HandbookIndex.Kind?: Int]) {
     let q = Self.fold(query).trimmingCharacters(in: .whitespaces)
     let words = q.split(separator: " ")
     let key = Self.nameKey(query)
     var counts: [HandbookIndex.Kind?: Int] = [:]
     var ranked: [(rank: Int, entry: Entry)] = []
-    for e in entries where Self.matches(e, words) {
+    // The marks only once the letters match: a few pages' words split and marked per keystroke, not every page's.
+    for e in entries where Self.matches(e, words) && (marked.isEmpty || Self.matches(e.item, marked)) {
       counts[nil, default: 0] += 1
       for k in HandbookIndex.Kind.allCases where e.item.is(k) { counts[k, default: 0] += 1 }
       if kind.map(e.item.is) ?? true { ranked.append((q.isEmpty ? 0 : Self.rank(e, q, words, key), e)) }
@@ -672,5 +727,45 @@ public struct HandbookSearch: Sendable {
   /// Every word of a search somewhere in the page's names or a tool page's own words.
   private static func matches(_ e: Entry, _ words: [Substring]) -> Bool {
     words.allSatisfy { e.name.contains($0) || e.other.contains($0) || e.more.contains($0) }
+  }
+
+  /// Every word typed with marks starts a word of the page's names or a tool page's own words, written with those marks.
+  private static func matches(_ item: HandbookIndex.Item, _ marked: [Marked]) -> Bool {
+    let written = ([item.name, item.sub ?? ""] + (item.aka ?? []) + item.words)
+      .flatMap { $0.split(whereSeparator: { !$0.isLetter && !$0.isNumber }) }.map(Marked.init)
+    return marked.allSatisfy { m in written.contains { $0.starts(with: m) } }
+  }
+
+  /// A Vietnamese word as written, its tone apart from its letters: "thủy" and "thuỷ" (the tone on either vowel) are one
+  /// word, "lọc", "lóc" and "lộc" three. Its letters keep their other marks (â ă ê ô ơ ư, and đ).
+  struct Marked: Equatable {
+    let letters: String
+    /// Sắc, huyền, hỏi, ngã or nặng, as its combining mark; none for a level tone.
+    let tone: Unicode.Scalar?
+
+    private static let tones: Set<Unicode.Scalar> = ["\u{301}", "\u{300}", "\u{309}", "\u{303}", "\u{323}"]
+    /// Vietnamese marks, tones and the others: a Thai word's own marks don't count, and keep its search as it was.
+    private static let marks = tones.union(["\u{302}", "\u{306}", "\u{31B}"])
+
+    init(_ word: Substring) {
+      var letters = String.UnicodeScalarView(), tone: Unicode.Scalar?
+      for c in word.lowercased().decomposedStringWithCanonicalMapping.unicodeScalars {
+        if Self.tones.contains(c) { tone = c } else { letters.append(c) }
+      }
+      self.letters = String(letters).precomposedStringWithCanonicalMapping
+      self.tone = tone
+    }
+
+    /// A search's word typed with a Vietnamese mark (or đ); nil for one with none, which any marks match.
+    static func typed(_ word: Substring) -> Marked? {
+      let lower = word.lowercased()
+      guard lower.contains("đ") || lower.decomposedStringWithCanonicalMapping.unicodeScalars.contains(where: marks.contains) else { return nil }
+      return Marked(word)
+    }
+
+    /// This word begins with `typed`: its letters, and its tone where one was typed ("lô" finds "lộc", "lọ" finds "lọc").
+    func starts(with typed: Marked) -> Bool {
+      letters.hasPrefix(typed.letters) && (typed.tone == nil || typed.tone == tone)
+    }
   }
 }

@@ -1,0 +1,93 @@
+{
+  "id": "hypostomus-oculeus",
+  "native": {
+    "input": "09889f50471efb3b",
+    "at": "2026-11-14T00:09:29.977Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Río Orteguasa, Florencia, Caquetá, Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Japurá River",
+        "source": "planetcatfish",
+        "quote": "South America: upper Japurá River basin.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BR"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hypostomus oculeus",
+    "status": "ACCEPTED",
+    "taxonKey": 5202270,
+    "datasets": [
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        6
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        6
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        4
+      ],
+      [
+        "278b1d5c-d7a9-4f7a-9651-69cddbb5b94e",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        3
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        3
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T00:09:29.977Z"
+  }
+}

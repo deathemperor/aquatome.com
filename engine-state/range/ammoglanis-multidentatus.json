@@ -1,0 +1,51 @@
+{
+  "id": "ammoglanis-multidentatus",
+  "native": {
+    "input": "19ee7c53f7c03b85",
+    "at": "2026-11-14T05:39:06.336Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio Caldeirão, Rio Paraguaçu basin, Município de Lençóis, Estado da Bahia, Brazil, 12°39'33\"S, 41°22'13\"W, elevation about 340 metres.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Found in a single locality, the Rio Caldeirão, a tributary of the Rio São José, which is among the main tributaries of the upper Rio Paraguaçu River, Brazilian semiarid Caatinga, Bahia State.",
+        "words": "Brazilian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Paraguaçu",
+        "source": "planetcatfish",
+        "quote": "Found in a single locality, the Rio Caldeirão, a tributary of the Rio São José, which is among the main tributaries of the upper Rio Paraguaçu River, Brazilian semiarid Caatinga, Bahia State.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Ammoglanis multidentatus",
+    "status": "ACCEPTED",
+    "taxonKey": 11154055,
+    "datasets": [],
+    "native": [
+      "BR"
+    ],
+    "requests": 2,
+    "at": "2026-11-14T05:39:06.336Z"
+  }
+}

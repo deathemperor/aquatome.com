@@ -11,6 +11,66 @@
     "majinga",
     "cameroon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GA"
+      ],
+      "regions": [
+        "Majinga"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The mustard synodontis, Synodontis albolineatus, is a small squeaker catfish endemic to the Majinga river system in Gabon.",
+          "countries": [
+            "GA"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Gabon, specifically the Majinga river system.",
+          "countries": [],
+          "regions": [
+            "Majinga"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344471,
+      "total": 10,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "CM",
+          6
+        ],
+        [
+          "GA",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          11.25,
+          1.40625,
+          6,
+          0
+        ],
+        [
+          12.65625,
+          0,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

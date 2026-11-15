@@ -1,0 +1,100 @@
+{
+  "id": "stiphodon-pelewensis",
+  "native": {
+    "input": "1eff51bc38d533ad",
+    "at": "2026-11-15T05:39:34.625Z",
+    "claims": [
+      {
+        "code": "PW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the island nation of Palau, eastern Micronesia, but also thought to occur throughout the Mariana Islands further north and eastwards as far as Pohnpei.",
+        "words": "Palau",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mariana Islands",
+        "source": "seriouslyfish",
+        "quote": "Described from the island nation of Palau, eastern Micronesia, but also thought to occur throughout the Mariana Islands further north and eastwards as far as Pohnpei.",
+        "ok": true
+      },
+      {
+        "name": "Pohnpei",
+        "source": "seriouslyfish",
+        "quote": "Described from the island nation of Palau, eastern Micronesia, but also thought to occur throughout the Mariana Islands further north and eastwards as far as Pohnpei.",
+        "ok": true
+      },
+      {
+        "name": "Micronesia",
+        "source": "seriouslyfish",
+        "quote": "Described from the island nation of Palau, eastern Micronesia, but also thought to occur throughout the Mariana Islands further north and eastwards as far as Pohnpei.",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Stiphodon pelewensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2376111,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        26
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        21
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        18
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        7
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        7
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        6
+      ],
+      [
+        "831234b2-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        2
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "PW"
+    ],
+    "requests": 12,
+    "at": "2026-11-15T05:39:34.625Z"
+  }
+}

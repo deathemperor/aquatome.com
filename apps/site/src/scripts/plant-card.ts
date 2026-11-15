@@ -1,4 +1,5 @@
 import type { PlantListItem } from '../lib/list-data'
+import { sciBeside } from '../lib/sci'
 import { cpath } from './ct'
 import { creditPhoto } from './photo-credits'
 
@@ -18,7 +19,9 @@ export function buildPlantCard(template: HTMLTemplateElement, i: PlantListItem):
     creditPhoto(i.photo)
   } else $('img').remove()
   $('h3').textContent = i.name
-  $('.sci').textContent = i.scientificName
+  const sci = sciBeside(i.name, i.scientificName)
+  if (sci) $('.sci').textContent = sci
+  else $('.sci').remove()
   $('.meta').textContent = i.meta
   return card
 }

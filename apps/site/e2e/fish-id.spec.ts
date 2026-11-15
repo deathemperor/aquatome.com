@@ -88,7 +88,7 @@ test('fish ID: a photo goes out shrunk as JPEG with the Turnstile token; guesses
   expect(errors).toEqual([])
 })
 
-test('fish ID: "not this one?" under a matched guess lists the genus\'s other pages, each a link with its scientific name', async ({ page, errors }) => {
+test('fish ID: "not this one?" under a matched guess lists the genus\'s other pages, each a link with its scientific name unless its name says it', async ({ page, errors }) => {
   await fakeTurnstile(page)
   await mockApi(page, { status: 200, body: { on: true, sitekey: 'k', resting: false, perIp: 10 } }, [
     { status: 200, body: { verdict: 'fish', model: 'm', results: [
@@ -110,8 +110,8 @@ test('fish ID: "not this one?" under a matched guess lists the genus\'s other pa
   await genus.locator('summary').click()
   await expect(genus.getByRole('link', { name: 'Cá betta Brunei' })).toHaveAttribute('href', '/ca/ca-betta-macrostoma/')
   await expect(genus.locator('li').first()).toContainText('Betta macrostoma')
-  // A page this language doesn't have: its name, no link.
-  await expect(genus.locator('li').nth(1)).toHaveText('Cá betta imbellis Betta imbellis')
+  // A page this language doesn't have: its name, no link; its name says its scientific name, so that once (lib/sci.ts).
+  await expect(genus.locator('li').nth(1)).toHaveText('Cá betta imbellis')
   await expect(genus.locator('li').nth(1).locator('a')).toHaveCount(0)
   expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(0)
   expect(errors).toEqual([])

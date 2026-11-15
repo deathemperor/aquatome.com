@@ -3,6 +3,12 @@
   "name": "Huong",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-15T05:29:42.568Z",
+    "why": "\"Huong\" drops the kind word for the river; Indonesian atlases write \"Sungai Huong\" (or \"Sungai Hương\"), so the bare name is incomplete."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

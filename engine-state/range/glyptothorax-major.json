@@ -1,0 +1,98 @@
+{
+  "id": "glyptothorax-major",
+  "native": {
+    "input": "d3322d97eea0357f",
+    "at": "2026-11-14T05:39:06.336Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Mekong basin; also from Malaysia and Borneo.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "planetcatfish",
+        "quote": "Asia: Mekong basin; also from Malaysia and Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "planetcatfish",
+        "quote": "Asia: Mekong basin; also from Malaysia and Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Baram River",
+        "source": "planetcatfish",
+        "quote": "Type locality: Senah River, Tagora River and Baram River, Sarawak state, Borneo, East Malaysia.",
+        "country": "MY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Glyptothorax major",
+    "status": "ACCEPTED",
+    "taxonKey": 2341296,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        19
+      ],
+      [
+        "03a7cb89-747a-411a-855c-f46ad7df47b8",
+        15
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        8
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        4
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "ca58433a-3ff8-492f-9d7b-6f6d289eb6d6",
+        1
+      ]
+    ],
+    "native": [
+      "MY"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T05:39:06.336Z"
+  }
+}

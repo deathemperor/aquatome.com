@@ -13,6 +13,124 @@
     "brazil",
     "rio-pelotas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Miriñay",
+        "La Plata"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio Pelotas at road from Esmeralda to Anita Garibaldi, Rio Grande do Sul, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Recorded from the Uruguay, Miriñay and Upper Uruguay (Pelotas) areas.",
+          "countries": [],
+          "regions": [
+            "Miriñay"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: La Plata system: Uruguay basin. Recorded from the Uruguay, Miriñay and Upper Uruguay (Pelotas) areas.",
+          "countries": [],
+          "regions": [
+            "La Plata"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202132,
+      "total": 55,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "BR",
+          54
+        ],
+        [
+          "AR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -57.65625,
+          -30.9375,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          -29.53125,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -30.9375,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -29.53125,
+          3,
+          3
+        ],
+        [
+          -56.25,
+          -28.125,
+          16,
+          16
+        ],
+        [
+          -54.84375,
+          -32.34375,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -29.53125,
+          5,
+          5
+        ],
+        [
+          -54.84375,
+          -28.125,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -28.125,
+          15,
+          15
+        ],
+        [
+          -52.03125,
+          -28.125,
+          10,
+          10
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -67,12 +185,6 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_roseopunctatus.htm",
       "html": "<p>South America: La Plata system: Uruguay basin. Type locality: Rio Pelotas on the road from Esmeralda to Anita Garibaldi, Rio Grande do Sul, Brazil.</p>"
-    },
-    {
-      "key": "habitat",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1337",
-      "html": "<p>Photographed habitat: Rio Parana, Corrientes State, Argentina.</p>"
     },
     {
       "key": "aquariumSize",
@@ -139,39 +251,6 @@
       "author": "Ian Fuller / ScotCat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_roseopunctatus.htm",
       "caption": "Hypostomus roseopunctatus",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/6020c669a7589de7.webp",
-      "thumb": "https://media.aquatome.com/scotcat/6020c669a7589de7-480.webp",
-      "width": 500,
-      "height": 332,
-      "licence": "dùng với sự cho phép",
-      "author": "Peter Petersen / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_roseopunctatus.htm",
-      "caption": "Hypostomus spiniger",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/d3fed97f64a6d960.webp",
-      "thumb": "https://media.aquatome.com/scotcat/d3fed97f64a6d960-480.webp",
-      "width": 500,
-      "height": 555,
-      "licence": "dùng với sự cho phép",
-      "author": "aleduarte / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_roseopunctatus.htm",
-      "caption": "Hypostomus roseopunctatus: Dorsal view-Sección 11, Durazno, Uruguay",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/d263b22dab40e2e9.webp",
-      "thumb": "https://media.aquatome.com/scotcat/d263b22dab40e2e9-480.webp",
-      "width": 500,
-      "height": 597,
-      "licence": "dùng với sự cho phép",
-      "author": "aleduarte / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_roseopunctatus.htm",
-      "caption": "Hypostomus roseopunctatus: Ventral view-Sección 11, Durazno, Uruguay",
       "source": "scotcat"
     }
   ],

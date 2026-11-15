@@ -159,6 +159,13 @@
       "html": "<p>Can be kept in a community tank provided the water is not too soft and acidic. It combines well with other genera of livebearers, hardy tetras, Loricariids and Corydoras.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/limia_special_en/",
+      "html": "<p>All species of Limia are very peaceful fish that fit perfectly for community tanks. If one is interested in breeding the fish only one species per tank should be kept, for all Limia very easily cross. The hybrids are not attractive. There should be always several males in the tank, for their combats are wonderful to look at. These combats are completely harmless. Limia develop the greatest and most beautiful coloration when the keeper allows some algae to grow on the side glasses of the tank. Limia like to graze these algae and obviously this food contains nutrients that are very healthy for the fish.</p>",
+      "fixed": true
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/limia-nigrofasciata",
@@ -175,6 +182,13 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/limia-nigrofasciata",
       "html": "<p>The hump that develops along the spine of adult males is caused by deposition of fatty tissue.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/limia_special_en/",
+      "html": "<p>Initially it is found on Haiti, but is has been kept and bred in aquaria since 1912 already.</p>",
+      "fixed": true
     }
   ],
   "photos": [
@@ -219,5 +233,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-15"
 }

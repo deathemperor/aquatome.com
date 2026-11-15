@@ -103,6 +103,13 @@ private let words = HandbookIndex.Labels([
 @Test func khamPhasShelvesStopAtSevenColumns() {
   #expect(HandbookShelves.Shown.fish == 21 && HandbookShelves.Shown.plants == 21)
   #expect(HandbookShelves.Shown.guides == 7 && HandbookShelves.Shown.videos == 7)
+  #expect(HandbookShelves.Shown.saved == 21)
+}
+
+// A page's photo rows the same: six photos, then the tile to them all; a shorter strip whole.
+@Test func aPagesPhotoRowShowsSixThenItsTile() {
+  #expect(PhotoRow.strip(Array(0..<10)) == Array(0..<6))
+  #expect(PhotoRow.strip([3, 4]) == [3, 4])
 }
 
 @Test func aShelfShows21AfterADropOf3AndWhatsLeftWhenTheDropIsBiggerThanItsSpare() {

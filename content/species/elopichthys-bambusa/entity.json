@@ -24,11 +24,13 @@
         "CN"
       ],
       "regions": [
-        "Amur River",
-        "Lam"
+        "Amur",
+        "Lam",
+        "Siberia"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -38,7 +40,10 @@
             "RU",
             "VN"
           ],
-          "regions": []
+          "regions": [
+            "Amur",
+            "Lam"
+          ]
         },
         {
           "source": "seriouslyfish",
@@ -46,9 +51,14 @@
           "countries": [
             "CN"
           ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Elopichthys bambusa occurs in China and Siberia.",
+          "countries": [],
           "regions": [
-            "Amur River",
-            "Lam"
+            "Siberia"
           ]
         }
       ]

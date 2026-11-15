@@ -10,6 +10,71 @@
     "taiwan",
     "kaoping"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TW"
+      ],
+      "regions": [
+        "Tzengwen",
+        "Kaoping"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from middle and lower parts of certain rivers in southern Taiwan, including the Tzengwen and Kaoping drainages.",
+          "countries": [
+            "TW"
+          ],
+          "regions": [
+            "Tzengwen",
+            "Kaoping"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2377647,
+      "total": 1033,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "TW",
+          1033
+        ]
+      ],
+      "cells": [
+        [
+          119.53125,
+          21.09375,
+          88,
+          88
+        ],
+        [
+          119.53125,
+          22.5,
+          728,
+          728
+        ],
+        [
+          119.53125,
+          23.90625,
+          36,
+          36
+        ],
+        [
+          120.9375,
+          23.90625,
+          181,
+          181
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

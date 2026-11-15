@@ -19,20 +19,32 @@
         "CD"
       ],
       "regions": [
+        "Congo",
+        "Lake Tanganyka",
         "Tanganyika"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The giant tigerfish, Hydrocynus goliath, is a huge predatory alestid from large rivers and lakes of Tanzania and the Democratic Republic of Congo.",
+          "quote": "Tanzania and the Democratic Republic of Congo.",
           "countries": [
             "TZ",
             "CD"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "The species is native in the Congo basin and Lake Tanganyka.",
+          "countries": [],
+          "regions": [
+            "Congo",
+            "Lake Tanganyka"
+          ]
         },
         {
           "source": "seriouslyfish",

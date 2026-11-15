@@ -23,7 +23,6 @@
         "Madeira",
         "Paraguai",
         "Guaporé",
-        "Mamoré",
         "Pantanal"
       ],
       "sources": [
@@ -39,23 +38,8 @@
             "BR"
           ],
           "regions": [
+            "Madeira",
             "Paraguai"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Native to the upper rio Madeira, a major branch of the western Amazon watershed in Bolivia and western Brazil, including its major tributaries the rios Beni and Mamoré, plus the upper rio Paraguai in Brazil.",
-          "countries": [],
-          "regions": [
-            "Madeira"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Most records are from the rio Guaporé (Río Iténez in Bolivia).",
-          "countries": [],
-          "regions": [
-            "Guaporé"
           ]
         },
         {
@@ -63,7 +47,7 @@
           "quote": "The majority of records pertain to the rio Guaporé (Río Iténez in Bolivia), the main affluent of the rio Mamoré, which drains the vast tropical wetland known as the Pantanal, and the upper rio Paraguai, which also has its headwaters in the Pantanal but flows in the opposite direction.",
           "countries": [],
           "regions": [
-            "Mamoré",
+            "Guaporé",
             "Pantanal"
           ]
         }

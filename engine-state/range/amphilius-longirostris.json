@@ -1,0 +1,76 @@
+{
+  "id": "amphilius-longirostris",
+  "native": {
+    "input": "3148d7ea031a6acd",
+    "at": "2026-11-14T00:09:29.977Z",
+    "claims": [
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western-central Africa: Cameroon and Equatorial Guinea, also tributaries of the Ngoko, Congo River system, in Cameroon.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "GQ",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western-central Africa: Cameroon and Equatorial Guinea, also tributaries of the Ngoko, Congo River system, in Cameroon.",
+        "words": "Equatorial Guinea",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ngoko",
+        "source": "scotcat",
+        "quote": "Western-central Africa: Cameroon and Equatorial Guinea, also tributaries of the Ngoko, Congo River system, in Cameroon.",
+        "country": "CM",
+        "ok": true
+      },
+      {
+        "name": "Congo",
+        "source": "scotcat",
+        "quote": "Western-central Africa: Cameroon and Equatorial Guinea, also tributaries of the Ngoko, Congo River system, in Cameroon.",
+        "country": "CM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Amphilius longirostris",
+    "status": "ACCEPTED",
+    "taxonKey": 2340725,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        40
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        11
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        3
+      ]
+    ],
+    "native": [
+      "CM",
+      "GQ"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T00:09:29.977Z"
+  }
+}

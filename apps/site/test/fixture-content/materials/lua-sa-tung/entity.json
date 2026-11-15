@@ -1,0 +1,39 @@
+{
+  "id": "lua-sa-tung",
+  "kind": "wood",
+  "parent": "lua",
+  "names": [
+    "Sa tung wood"
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/test/lua-sa-tung.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC0",
+      "author": "AquaTome",
+      "sourceUrl": "https://example.org/photos/lua-sa-tung"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://example.org/materials/1",
+      "title": "Lũa trong bể thủy sinh",
+      "kind": "article",
+      "at": "2026-11-13"
+    },
+    {
+      "url": "https://example.org/materials/2",
+      "title": "Chuẩn bị lũa",
+      "kind": "forum",
+      "at": "2026-11-13"
+    },
+    {
+      "url": "https://example.org/materials/3",
+      "title": "Chọn lũa theo kích thước bể",
+      "kind": "shop",
+      "at": "2026-11-13"
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

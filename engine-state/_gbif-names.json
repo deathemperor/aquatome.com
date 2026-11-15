@@ -181,6 +181,14 @@
     "matchType": "EXACT"
   },
   "Aceilognathus macropterus": null,
+  "Acentrogobius viridipunctatus": {
+    "canonicalName": "Acentrogobius viridipunctatus",
+    "phylum": "Chordata",
+    "order": "Perciformes",
+    "family": "Gobiidae",
+    "genus": "Acentrogobius",
+    "matchType": "EXACT"
+  },
   "Acentronichthys leptos": {
     "canonicalName": "Acentronichthys leptos",
     "order": "Siluriformes",
@@ -2003,6 +2011,7 @@
     "genus": "Aphyosemion",
     "matchType": "EXACT"
   },
+  "Aphyosemion relatives": null,
   "Aphyosemion sjoestedti": {
     "canonicalName": "Fundulopanchax sjostedti",
     "order": "Cyprinodontiformes",
@@ -5706,6 +5715,24 @@
     "genus": "Cassiopea",
     "matchType": "EXACT"
   },
+  "Catalaphyllia jardinei": {
+    "canonicalName": "Catalaphyllia jardinei",
+    "phylum": "Cnidaria",
+    "class": "Anthozoa",
+    "order": "Scleractinia",
+    "family": "Merulinidae",
+    "genus": "Catalaphyllia",
+    "matchType": "EXACT"
+  },
+  "Catalaphyllia plicata": {
+    "canonicalName": "Catalaphyllia jardinei",
+    "phylum": "Cnidaria",
+    "class": "Anthozoa",
+    "order": "Scleractinia",
+    "family": "Merulinidae",
+    "genus": "Catalaphyllia",
+    "matchType": "EXACT"
+  },
   "Catarina states": null,
   "Catathyridium jenynsii": {
     "canonicalName": "Catathyridium jenynsii",
@@ -6651,6 +6678,7 @@
     "matchType": "EXACT"
   },
   "Chu thu": null,
+  "Chung quy": null,
   "Cichla hoang": null,
   "Cichla kelberi": {
     "canonicalName": "Cichla kelberi",
@@ -8983,6 +9011,14 @@
     "order": "Cyprinodontiformes",
     "family": "Rivulidae",
     "genus": "Austrolebias",
+    "matchType": "EXACT"
+  },
+  "Cynopotamus atratoensis": {
+    "canonicalName": "Cynopotamus atratoensis",
+    "phylum": "Chordata",
+    "order": "Characiformes",
+    "family": "Characidae",
+    "genus": "Cynopotamus",
     "matchType": "EXACT"
   },
   "Cynops orientalis": {
@@ -12004,6 +12040,15 @@
   "Gom nhi": null,
   "Gom xong": null,
   "Gondwanan vicariance": null,
+  "Goniopsis pelii": {
+    "canonicalName": "Goniopsis pelii",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Grapsidae",
+    "genus": "Goniopsis",
+    "matchType": "EXACT"
+  },
   "Gracile rasbora": null,
   "Grahami has": null,
   "Grande microbasin": null,
@@ -14749,6 +14794,7 @@
     "genus": "Nannacara",
     "matchType": "EXACT"
   },
+  "Iwagumi chu": null,
   "Iwagumi thanh": null,
   "Iwagumi trong": null,
   "Iwagumi truy": null,
@@ -21971,6 +22017,15 @@
     "genus": "Pectenocypris",
     "matchType": "EXACT"
   },
+  "Pectinia jardinei": {
+    "canonicalName": "Catalaphyllia jardinei",
+    "phylum": "Cnidaria",
+    "class": "Anthozoa",
+    "order": "Scleractinia",
+    "family": "Merulinidae",
+    "genus": "Catalaphyllia",
+    "matchType": "EXACT"
+  },
   "Pegu yomas": null,
   "Pellaea rotundifolia": {
     "canonicalName": "Pellaea rotundifolia",
@@ -26583,6 +26638,7 @@
     "matchType": "EXACT"
   },
   "Schmerlen der": null,
+  "Schultz thu": null,
   "Schwetzochromis stormsi": {
     "canonicalName": "Orthochromis stormsi",
     "order": "Perciformes",

@@ -1,8 +1,8 @@
 {
   "id": "paracheirodon-axelrodi",
   "native": {
-    "input": "9630717d4278b00c",
-    "at": "2026-11-09T05:57:45.266Z",
+    "input": "0849d7b22b37c945",
+    "at": "2026-11-14T11:07:07.888Z",
     "claims": [
       {
         "code": "BR",
@@ -29,6 +29,22 @@
         "ok": true
       },
       {
+        "code": "CO",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Originating in South America, this species is found from the Orinoco River to the Rio Negro tributary of the Amazon River, as far west as western Colombia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "introduced",
+        "source": "sprucepets",
+        "quote": "Manaus, in northern Brazil, is one such location.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
         "code": "BR",
         "status": "native",
         "source": "aquariumcoop",
@@ -50,22 +66,6 @@
         "source": "aquariumcoop",
         "quote": "This species comes from the northern rivers of South America in countries like Brazil, Venezuela and Colombia.",
         "words": "Colombia",
-        "ok": true
-      },
-      {
-        "code": "CO",
-        "status": "native",
-        "source": "sprucepets",
-        "quote": "Originating in South America, this species is found from the Orinoco River to the Rio Negro tributary of the Amazon River, as far west as western Colombia.",
-        "words": "Colombia",
-        "ok": true
-      },
-      {
-        "code": "BR",
-        "status": "introduced",
-        "source": "sprucepets",
-        "quote": "Manaus, in northern Brazil, is one such location.",
-        "words": "Brazil",
         "ok": true
       }
     ],
@@ -90,7 +90,7 @@
         "ok": true
       },
       {
-        "name": "Orinoco River",
+        "name": "Orinoco",
         "source": "sprucepets",
         "quote": "Originating in South America, this species is found from the Orinoco River to the Rio Negro tributary of the Amazon River, as far west as western Colombia.",
         "ok": true

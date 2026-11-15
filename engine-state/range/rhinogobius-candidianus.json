@@ -1,0 +1,100 @@
+{
+  "id": "rhinogobius-candidianus",
+  "native": {
+    "input": "aaa24befe738e1f7",
+    "at": "2026-11-14T05:39:06.336Z",
+    "claims": [
+      {
+        "code": "TW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's widely distributed throughout much of northern and western Taiwan, from Taipei County at the island's northeastern tip to Yunlin County in the west, and has been recorded in numerous river drainages.",
+        "words": "Taiwan",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rhinogobius candidianus",
+    "status": "ACCEPTED",
+    "taxonKey": 2377612,
+    "datasets": [
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        3918
+      ],
+      [
+        "83cbdde7-998f-4354-95de-72d885cc5863",
+        2658
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        52
+      ],
+      [
+        "96ae8a00-c4f6-48e6-a99a-09e9bad57ae0",
+        31
+      ],
+      [
+        "58c0f622-f643-48f5-af09-4dd2f8d2900f",
+        23
+      ],
+      [
+        "9b5577ee-34f9-4d09-9ce2-c70fd03ee6cd",
+        19
+      ],
+      [
+        "cf5e37a6-e657-4ee2-91c0-b1da03251a62",
+        11
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "85bc2470-98a1-11de-b4da-b8a03c50a862",
+        5
+      ],
+      [
+        "b7dd8170-98a0-11de-b4d9-b8a03c50a862",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "7bff8305-a1e3-4e5b-bbc3-4afe04006b88",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "26ae0930-98a1-11de-b4da-b8a03c50a862",
+        1
+      ],
+      [
+        "3a3aae4c-5895-4ba5-b3ba-d5f7d924478d",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "TW"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T05:39:06.336Z"
+  }
+}

@@ -50,7 +50,7 @@ push() {
     net git push -q && return 0
     sleep 30
   done
-  log "push failed three times"; return 1
+  log "push failed three times"; keep_lost_push "$PART"; return 1
 }
 
 # One job at a time in a clone (video-cycle.sh shares engine-repo's): a PID file, so a crashed or killed cycle doesn't
@@ -62,7 +62,7 @@ PIDFILE="$(git rev-parse --absolute-git-dir)/aquatome-engine.pid"
 # working: on 12 Nov 2026 a fetch begun as the Mac fell asleep never ended.
 quiet_for() {
   local line at
-  line=$(grep -E '^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z ' "$HOME/Library/Logs/aquatome-engine-$PART.log" 2>/dev/null | grep -v -E '^[^ ]+ (stuck:|previous cycle)' | tail -1)
+  line=$(grep -E '^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z ' "$HOME/Library/Logs/aquatome-engine-$PART.log" 2>/dev/null | grep -v -E '^[^ ]+ (stuck:|past its hours:|previous cycle)' | tail -1)
   [ -n "$line" ] || return 0
   at=$(date -j -u -f %Y-%m-%dT%H:%M:%SZ "${line%% *}" +%s 2>/dev/null || date -u -d "${line%% *}" +%s 2>/dev/null) || return 0
   echo $(( $(date +%s) - at ))
@@ -109,8 +109,8 @@ export ENGINE_COST_LOG="${ENGINE_COST_LOG:-$COST_DIR/aquatome-cost-$PART.jsonl}"
 log "cycle start ($PART)"
 if [ -n "${GITHUB_ACTIONS:-}" ] || [[ "$REPO" == "$HOME/.local/share/aquatome/"* ]]; then
   # A runner or one of the Mac's engine clones: start from GitHub's main, as a fresh runner does. What an earlier failed
-  # cycle left here (content that failed its tests, a commit whose push failed) is dropped, and that work redone, but
-  # for the work of a cycle whose tests ran out of time, kept on a branch and published first (publish_kept).
+  # cycle left here (content that failed its tests) is dropped, and that work redone, but for the work of a cycle whose
+  # tests ran out of time or whose push lost three times, kept on a branch and published first (publish_kept).
   [ -z "$(git status --porcelain -- content sources)" ] || log "dropping uncommitted content from an earlier failed cycle"
   from_main "$@"
   git clean -fdq -- content sources engine-state docs/review apps/site/src/i18n
@@ -119,7 +119,6 @@ else
   if [ -n "$(git status --porcelain -- content sources)" ]; then log "uncommitted content in this checkout: commit or drop it first"; exit 1; fi
   git checkout -q main && net git pull -q --ff-only
 fi
-cool
 # content/changelog.json gets entries from here and from the Mac's video job (video-cycle.sh): merge, don't conflict.
 git config merge.changelog.driver 'node scripts/merge-changelog.mjs %O %A %B'
 # The parts all add to the photo caches and the run records in engine-state.
@@ -182,6 +181,11 @@ if part photos; then
   # yet: 60 pages a cycle at five seconds a request, so its 152 pages take three cycles.
   pnpm engine tropica-photos --limit 60 || log "tropica-photos: failed"
 fi
+# The wait for a cooler Mac (cool) comes here, after the writing, not at the start (the chief of staff, 14 Nov). Before it:
+# kept and held work published (a build, the tests and a push, no writing) and the steps that write, whose model calls and
+# fetches are the network's, not this Mac's. After it: the Mac's own work on photos, the gate and the checks. On 13 Nov
+# the 18:10 run sat in the wait until 20:16 before it did anything.
+cool
 if part pages sf photos; then
   # No people in photos: drop any with a human face (before thumbs, so none are made for dropped photos).
   pnpm engine faces || log "faces: failed (unscreened photos may publish)"
@@ -220,6 +224,10 @@ if part photos; then
   # open licences, screened (right species or line, no faces). GALLERY_SHEETS model calls a cycle (about 480 a day on
   # the subscription); each page continues next cycle where this one stopped.
   pnpm engine gallery --sheets "${GALLERY_SHEETS:-60}" || log "gallery: failed"
+  # Each album photo asked once: a photo tank or a ruler, the whole fish in the frame, the fish filling a small part of it
+  # (album-ask.ts), which the album order reads. ALBUM_ASK_SHEETS model calls a cycle, under its own $2 a day: 513 sheets
+  # on 14 Nov, about five days.
+  pnpm engine album-ask --sheets "${ALBUM_ASK_SHEETS:-20}" || log "album-ask: failed"
   # Breed pages with no photo: a looser Commons search than the page step's (Unsplash below tries them too).
   pnpm engine breed-photos --limit 10 || log "breed-photos: failed"
   # Unsplash photos added to the galleries of the most-read fish (hot-linked and credited, per Unsplash's API terms). First
@@ -312,6 +320,11 @@ if part rewrite; then
     ahead pnpm engine localize-equipment --lang "$lang" --limit "${LOCALIZE_EQUIPMENT_AHEAD_LIMIT:-2}"
     ahead pnpm engine localize-cards --lang "$lang"
   done
+  # Indonesian, Thai and Malay place names, each judged alone against its source's sentence (place-judge.ts), after every
+  # translation, Malay's too (the rewrites and translations spend first, cycle-languages.test.ts): the
+  # unjudged first, the lowest batch score first, JUDGE_PLACES_LIMIT a cycle (the chief of staff, 15 Nov 2026: at most
+  # 300). One that fails shows the source's name on the site until a name passes.
+  pnpm engine judge-places --limit "${JUDGE_PLACES_LIMIT:-300}" || log "judge-places: failed"
   # Diễn Đàn Cá Cảnh's guide sections, read for orientation (notes on each thread, never its text), 5 s between requests:
   # leads for breed and guide research (forum.ts).
   pnpm engine forum --limit "${FORUM_LIMIT:-10}" --pages 3 || log "forum: failed"
@@ -351,8 +364,10 @@ if part rewrite; then
     # take them.
     pnpm engine fit --front --limit "${FIT_FRONT_LIMIT:-6}" || log "fit: failed"
     # The reader-fit rewrite (fit-rewrite.ts): pages on the site that fail reader fit, the front list first, then the
-    # most read. Held after its first run until its pages have been looked at (fit-front.json, cleared).
-    pnpm engine fit-rewrite --front --limit "${FIT_REWRITE_LIMIT:-12}" || log "fit-rewrite: failed"
+    # most read; pages the gate held new before them (fit-front.json, lane). A run's front-list pages hold the next run's
+    # until the chief of staff has read them (fit-front.json, cleared, one run at a time). The pages with a foreign product
+    # share the lane's place (products). 24 a run from 15 Nov, after the chief of staff read the lane's first clean run.
+    pnpm engine fit-rewrite --front --limit "${FIT_REWRITE_LIMIT:-24}" || log "fit-rewrite: failed"
   else
     log "fit-rewrite: skipped, the cycle has run $(( SECONDS / 60 )) min"
   fi
@@ -382,6 +397,15 @@ fi
 # fish or a map taken off their page, card figures out of bounds hidden, titles promising a count their text lacks
 # rewritten (reviewer-gated) or their number dropped.
 pnpm engine sweep || log "sweep: failed"
+# A held video guide whose read names only sentences that go whole (the source talking, a foreign shop, a price, a
+# product; advice for a reader elsewhere waits for the mend) has them cut by code with no model, twelve guides a run, each cut sentence kept in
+# engine-state/_video-cut.json for the sentence-only mend to write the true ones back. A guide a cut could break, or one a
+# person waits on (harm, a kit, a dose), stays as it is (the chief of staff, 15 Nov 2026; video-cut.ts). The gate reads
+# each next. Before the units mend, which then takes a guide held for units alone, and in the Mac's photos part alone, as
+# the units mend is.
+if part photos; then
+  pnpm engine video-cut || log "video-cut: failed"
+fi
 # A page held for units alone: a tank converted from US gallons some other way ("115 lít") becomes the size a keeper here
 # names ("120 lít"), by code with no model, six pages a run; the gate reads each next and lets it out if it passes. It
 # starts on 13 Nov 2026 08:00, the easy-fish guide first (the chief of staff, 2026-11-11; units-mend.ts). In the Mac's

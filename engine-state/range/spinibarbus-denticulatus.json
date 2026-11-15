@@ -1,0 +1,65 @@
+{
+  "id": "spinibarbus-denticulatus",
+  "native": {
+    "input": "96c0d23fbd3f5b65",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This large barb originates from the south of China and the north of Vietnam.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This large barb originates from the south of China and the north of Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Spinibarbus denticulatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2365468,
+    "datasets": [
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        20
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "CN",
+      "VN"
+    ],
+    "requests": 11,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

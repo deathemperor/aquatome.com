@@ -1,16 +1,16 @@
 # Photo galleries
 
-Written by `pnpm engine gallery` (2026-11-13). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
+Written by `pnpm engine gallery` (2026-11-14). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
 
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 599 | 30 | 9 | 20 | 618 |
-| rest | 20 | 1711 | 74 | 0 | 58 | 1727 |
+| covered | 30 | 623 | 30 | 9 | 21 | 641 |
+| rest | 20 | 1727 | 74 | 0 | 66 | 1735 |
 
-## Short of target: every source read (329)
+## Short of target: every source read (365)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -236,7 +236,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/macropodus-opercularis | popular | 20 | 40 |
 | species/pelvicachromis-pulcher | popular | 9 | 40 |
 | species/thorichthys-meeki | popular | 14 | 40 |
-| species/heros-severus | popular | 14 | 40 |
+| species/heros-severus | popular | 12 | 40 |
 | species/rocio-octofasciata | popular | 37 | 40 |
 | species/channa-barca | popular | 0 | 40 |
 | species/channa-bleheri | popular | 1 | 40 |
@@ -277,8 +277,10 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/corydoras-septentrionalis | covered | 0 | 30 |
 | species/corydoras-splendens | covered | 1 | 30 |
 | species/denticetopsis-seducta | covered | 0 | 30 |
+| species/farlowella-platorynchus | covered | 0 | 30 |
 | species/hypancistrus-inspector | covered | 0 | 30 |
 | species/hypancistrus-zebra | covered | 0 | 30 |
+| species/hyphessobrycon-vilmae | covered | 2 | 30 |
 | species/hypostomus-luteus | covered | 0 | 30 |
 | species/kryptopterus-geminus | covered | 0 | 30 |
 | species/lepthoplosternum-pectorale | covered | 0 | 30 |
@@ -290,6 +292,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/nothobranchius-rachovii | covered | 4 | 30 |
 | species/pterophyllum-altum | covered | 13 | 30 |
 | species/sphaerichthys-osphromenoides | covered | 1 | 30 |
+| species/sphaerichthys-selatanensis | covered | 0 | 30 |
 | species/sphaerichthys-vaillanti | covered | 3 | 30 |
 | species/stiphodon-atropurpureus | covered | 3 | 30 |
 | species/stiphodon-ornatus | covered | 0 | 30 |
@@ -332,9 +335,11 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/apistogramma-panduro | covered | 3 | 30 |
 | species/apistogramma-paulmuelleri | covered | 0 | 30 |
 | species/apistogramma-trifasciata | covered | 3 | 30 |
+| species/ariopsis-felis | covered | 26 | 30 |
 | species/aspidoras-pauciradiatus | covered | 4 | 30 |
 | species/aspidoras-taurus | covered | 3 | 30 |
 | species/asterophysus-batrachus | covered | 1 | 30 |
+| species/astyanax-leopoldi | covered | 0 | 30 |
 | species/atractosteus-tristoechus | covered | 2 | 30 |
 | species/auchenipterus-nigripinnis | covered | 0 | 30 |
 | species/auchenoglanis-occidentalis | covered | 5 | 30 |
@@ -344,4 +349,35 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/bagrichthys-obscurus | covered | 0 | 30 |
 | species/bangana-behri | covered | 0 | 30 |
 | species/barbodes-semifasciolatus | covered | 29 | 30 |
+| species/barboides-gracilis | covered | 0 | 30 |
+| species/barilius-ardens | covered | 0 | 30 |
+| species/barilius-bakeri | covered | 1 | 30 |
+| species/baryancistrus-demantoides | covered | 1 | 30 |
+| species/baryancistrus-xanthellus | covered | 3 | 30 |
+| species/batasio-fasciolatus | covered | 0 | 30 |
+| species/batrochoglanis-raninus | covered | 0 | 30 |
+| species/batrochoglanis-villosus | covered | 0 | 30 |
+| species/betta-albimarginata | covered | 4 | 30 |
+| species/betta-antoni | covered | 0 | 30 |
+| species/betta-balunga | covered | 0 | 30 |
+| species/betta-bellica | covered | 0 | 30 |
+| species/betta-brownorum | covered | 0 | 30 |
+| species/betta-burdigala | covered | 0 | 30 |
+| species/betta-channoides | covered | 0 | 30 |
+| species/betta-dennisyongi | covered | 0 | 30 |
+| species/betta-dimidiata | covered | 0 | 30 |
+| species/betta-edithae | covered | 11 | 30 |
+| species/betta-falx | covered | 0 | 30 |
+| species/betta-foerschi | covered | 0 | 30 |
+| species/betta-hendra | covered | 0 | 30 |
+| species/betta-hipposideros | covered | 2 | 30 |
+| species/betta-ideii | covered | 0 | 30 |
+| species/betta-kuehnei | covered | 0 | 30 |
+| species/betta-livida | covered | 0 | 30 |
 | species/betta-macrostoma | covered | 0 | 30 |
+| species/betta-mahachaiensis | covered | 7 | 30 |
+| species/betta-mandor | covered | 0 | 30 |
+| species/betta-miniopinna | covered | 1 | 30 |
+| species/betta-ocellata | covered | 0 | 30 |
+| species/betta-pallifina | covered | 0 | 30 |
+| species/betta-patoti | covered | 0 | 30 |

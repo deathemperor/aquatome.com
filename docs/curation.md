@@ -76,6 +76,11 @@ copy goes through the editors (`.claude/skills/editors`) before it ships.
 | May–Oct | rainy season in the south; many fish spawn at its start | rainy season | |
 | any | betta shows, aquascaping contests, fairs (see Events) | | |
 
+Tết is a date a person writes in from a published calendar, never one the code works out: 6 Feb 2027 (Saturday), 26 Jan
+2028. JavaScript's Chinese calendar (`Intl`, `ca-chinese`) gives 7 Feb for 2027, a day late; nothing in the site, the
+Worker, the app or the engine reads it (checked 13 Nov 2026). A Tết week's shelf on leaving the tank runs the week before
+Tết and Tết's own week, since people leave from about 2 Feb.
+
 ## Cadence
 
 - **Daily**: the planner fills and repairs the next 21 days. The engine's photos part runs it every cycle, after its

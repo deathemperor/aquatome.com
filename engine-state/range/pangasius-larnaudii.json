@@ -1,0 +1,111 @@
+{
+  "id": "pangasius-larnaudii",
+  "native": {
+    "input": "58cda42f7d650c57",
+    "at": "2026-11-14T00:09:29.977Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Northern Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "planetcatfish",
+        "quote": "Asia: Mekong and Chao Phraya basins.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "planetcatfish",
+        "quote": "Asia: Mekong and Chao Phraya basins.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "LA"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pangasius larnaudii",
+    "status": "ACCEPTED",
+    "taxonKey": 5202460,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        13
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        8
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        4
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        2
+      ],
+      [
+        "2a79f202-3f3a-4d54-88fa-09aa8de1ac73",
+        1
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ],
+      [
+        "ed820bdb-4345-4143-a280-4fbffaacd31d",
+        1
+      ]
+    ],
+    "native": [
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T00:09:29.977Z"
+  }
+}

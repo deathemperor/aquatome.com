@@ -1,0 +1,75 @@
+{
+  "id": "duncanopsammia-axifuga",
+  "native": {
+    "input": "ff62fff09b2a8e9c",
+    "at": "2026-11-14T00:09:29.977Z",
+    "claims": [
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Duncan coral is indigenous to Australia.",
+        "words": "Australia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "South China Sea",
+        "source": "aquariumbreeder",
+        "quote": "It lives on sandy and rocky seabeds in Australia and the South China Sea.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Duncanopsammia axifuga",
+    "status": "ACCEPTED",
+    "taxonKey": 2259554,
+    "datasets": [
+      [
+        "be62fffc-d0e7-45f2-9404-d4bc4322bc57",
+        17
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        15
+      ],
+      [
+        "adb92d68-aaff-47ba-b197-d3d26f72f728",
+        14
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        9
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        6
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        5
+      ],
+      [
+        "7b361b5a-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "AU"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T00:09:29.977Z"
+  }
+}

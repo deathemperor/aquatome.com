@@ -1,0 +1,60 @@
+{
+  "id": "rhinogobius-lanyuensis",
+  "native": {
+    "input": "40c9512763331f23",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "TW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from Lanyu Island, better known as Orchid Island in the English language, located off the southeastern coast of Taiwan and considered part of the Taiwan archipelago itself.",
+        "words": "Taiwan",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lanyu Island",
+        "source": "seriouslyfish",
+        "quote": "Known only from Lanyu Island, better known as Orchid Island in the English language, located off the southeastern coast of Taiwan and considered part of the Taiwan archipelago itself.",
+        "country": "TW",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rhinogobius lanyuensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2377579,
+    "datasets": [
+      [
+        "b7dd8170-98a0-11de-b4d9-b8a03c50a862",
+        12
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        7
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        5
+      ],
+      [
+        "9b5577ee-34f9-4d09-9ce2-c70fd03ee6cd",
+        3
+      ]
+    ],
+    "native": [
+      "TW"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

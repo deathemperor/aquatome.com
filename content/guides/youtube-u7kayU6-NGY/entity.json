@@ -69,20 +69,13 @@
         "heading": "Bể, nắp và đèn",
         "moments": [
           {
-            "t": 0,
-            "url": "https://media.aquatome.com/video/u7kayU6-NGY/at0-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Toàn cảnh bể mica dài trên kệ, có cá rồng và cá đuối bên trong.",
-            "sharpness": 635.2
-          },
-          {
             "t": 70,
             "url": "https://media.aquatome.com/video/u7kayU6-NGY/at70-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Tấm ngăn mica trong bể, cá đuối motoro được tách sang một bên.",
-            "sharpness": 236.8
+            "sharpness": 236.8,
+            "person": false
           }
         ],
         "photo": {
@@ -190,7 +183,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khung chân bể bằng gỗ sẫm màu với các thanh đỡ chéo.",
-            "sharpness": 339
+            "sharpness": 339,
+            "person": false
           },
           {
             "t": 315,
@@ -218,7 +212,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đáy sump nơi từng có cổng xuyên vách, cạnh ống nhựa trắng.",
-            "sharpness": 328.3
+            "sharpness": 328.3,
+            "person": false
           }
         ]
       },
@@ -231,7 +226,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Rồng Panda Gold bơi trên cặp cá đuối motoro dưới đáy bể.",
-            "sharpness": 469
+            "sharpness": 469,
+            "person": false
           },
           {
             "t": 60,

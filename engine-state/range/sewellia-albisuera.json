@@ -1,0 +1,52 @@
+{
+  "id": "sewellia-albisuera",
+  "native": {
+    "input": "508c36c2f8f3511f",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from a handful of localities within the Thu Bon river system in Quang Nam province, central Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Thu Bon",
+        "source": "seriouslyfish",
+        "quote": "Known only from a handful of localities within the Thu Bon river system in Quang Nam province, central Vietnam.",
+        "country": "VN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sewellia albisuera",
+    "status": "ACCEPTED",
+    "taxonKey": 5205385,
+    "datasets": [
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        2
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [
+      "VN"
+    ],
+    "requests": 11,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

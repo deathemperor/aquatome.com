@@ -1,0 +1,104 @@
+{
+  "id": "sandelia-capensis",
+  "native": {
+    "input": "9e6cac3bdb8ae11d",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "ZA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Cape Province, South Africa.",
+        "words": "South Africa",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sandelia capensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2391600,
+    "datasets": [
+      [
+        "3ea542dc-885d-4c8a-91a3-64d0a5d78301",
+        847
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        749
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        112
+      ],
+      [
+        "1b18bab9-abdb-41b4-83c8-368ca2e6d391",
+        33
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        29
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        8
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        5
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        3
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "2ca312ee-40cf-49e0-b864-31531b7eba81",
+        1
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "cd6fe3a0-eee9-4066-8420-e36313ed833d",
+        1
+      ]
+    ],
+    "native": [
+      "ZA"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

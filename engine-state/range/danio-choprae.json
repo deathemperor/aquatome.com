@@ -1,14 +1,22 @@
 {
   "id": "danio-choprae",
   "native": {
-    "input": "159905786b37995b",
-    "at": "2026-11-05T19:44:13.099Z",
+    "input": "9a292cdf33ee017e",
+    "at": "2026-11-14T05:39:06.336Z",
     "claims": [
       {
         "code": "MM",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "The type specimens were collected from 'small rocky streams' of the Mogaung Chaung river system close to the towns of 'Kamaing' (often referred to as Kar Maing) and Namma (Nanmati?) in Myitkyina District, Kachin State, northern Myanmar, and the species appears restricted to this tributary of the much larger Ayeyarwaddy drainage.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Danio choprai originates from rivers and brooks in Myanmar.",
         "words": "Myanmar",
         "ok": true
       }

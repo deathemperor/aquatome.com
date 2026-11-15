@@ -3,7 +3,7 @@ import { isCountryCode } from './countries'
 import { WRITTEN_OTHER_LANGS, type WrittenOtherLang } from './langs'
 import { byCount, CELL_DEG } from './range'
 
-export const SOURCE_IDS = ['seriouslyfish', 'planetcatfish', 'loachesonline', 'glaser', 'bwaquatics', '2hraquarist', 'aquariumcoop', 'sprucepets', 'aquariumbreeder', 'tropica', 'scotcat', 'facebook-jim', 'panitvong', 'cryptspages', 'diendancacanh', 'youtube', 'aquatome', 'aquazonefish', 'aquahouse', 'chothuysinh', 'cacanhtailoc'] as const
+export const SOURCE_IDS = ['seriouslyfish', 'planetcatfish', 'loachesonline', 'glaser', 'bwaquatics', '2hraquarist', 'aquariumcoop', 'sprucepets', 'aquariumbreeder', 'tropica', 'scotcat', 'facebook-jim', 'panitvong', 'cryptspages', 'diendancacanh', 'youtube', 'aquatome', 'aquazonefish', 'aquahouse', 'chothuysinh', 'cacanhtailoc', 'practicalfishkeeping'] as const
 export { LANGS, WRITTEN_LANGS } from './langs'
 
 export const SECTION_ORDER = ['quickFacts', 'beforeYouBuy', 'distribution', 'habitat', 'aquariumSize', 'maintenance', 'waterConditions', 'equipment', 'diet', 'behaviour', 'dimorphism', 'reproduction', 'notes', 'references'] as const
@@ -55,7 +55,8 @@ const Alteration = z.object({
   checks:z.object({species:HashPair,ownership:HashPair,noTrace:HashPair.optional(),preservation:HashPair.optional()}).optional(),
 })
 const OriginalPicture = z.object({ url: z.string(), width: z.number(), height: z.number(), thumb: z.string().optional(), large: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional() })
-const Photo = z.object({ url: z.string(), thumb: z.string().optional(), width: z.number(), height: z.number(), large: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional(), licence: z.string(), author: z.string(), authorUrl: z.string().optional(), sourceUrl: z.string(), caption: z.string().optional(), source: SourceId.optional(), ownerCrop: z.object({ id: z.string(), pixelHash: Hash }).optional(), headFit: z.literal("contain").optional(), generated: Generated.optional(), altered: z.array(Alteration).optional(), original: OriginalPicture.optional(), subject: PixelBox.optional() })
+/** `sourceCaption`: the source's own description of the photo, kept where our caption replaces it (the album step), for the engine's genus rule; no page shows it. */
+const Photo = z.object({ url: z.string(), thumb: z.string().optional(), width: z.number(), height: z.number(), large: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional(), licence: z.string(), author: z.string(), authorUrl: z.string().optional(), sourceUrl: z.string(), caption: z.string().optional(), sourceCaption: z.string().optional(), source: SourceId.optional(), ownerCrop: z.object({ id: z.string(), pixelHash: Hash }).optional(), headFit: z.literal("contain").optional(), generated: Generated.optional(), altered: z.array(Alteration).optional(), original: OriginalPicture.optional(), subject: PixelBox.optional() })
 export const PhotoSchema = Photo
 const Video = z.object({ youtubeId: z.string(), title: z.string(), durationSec: z.number(), lang: z.string() })
 const ProductSlot = z.object({ category: z.string(), keywords: z.array(z.string()) })
@@ -229,14 +230,20 @@ export const SeriesSchema = z.object({
 
 /**
  * A glossary term. `refs`: the pages AquaTome's fuller entry was researched from (engine glossary-entry.ts), listed under
- * it as a guide's are. `related`: other terms' ids, the ones a reader of this entry should see next. `photos`: as a
- * species' (Curation's records), kept by the engine's rewrites of the entry.
+ * it as a guide's are. `related`: other terms' ids, the ones a reader of this entry should see next. `photos` and
+ * `kinds`: Curation's records, kept by the engine's rewrites of the entry.
  */
 export const GlossarySchema = z.object({
   id: z.string(), en: z.string(), latin: z.string().optional(),
   refs: z.array(z.object({ url: WebUrl, title: z.string().min(1) })).optional(), related: z.array(z.string()).optional(),
   /** Only where seeing it explains the term (driftwood, white spot): the first is shown under its meaning. */
   photos: z.array(Photo).optional(),
+  /**
+   * Each kind's own picture, by the kind's id as the entry writes it (glossaryKinds: "lua-do-quyen"), shown beside that
+   * kind's name (the owner, 15 Nov 2026: "what does each look like?"). One photo a kind; a kind with none has no record.
+   */
+  kinds: z.array(z.object({ id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/), photo: Photo }))
+    .refine(ks => new Set(ks.map(k => k.id)).size === ks.length, { message: 'a kind is listed twice' }).optional(),
 })
 export const PlaceSchema = z.object({
   id: z.string(), kind: z.enum(['continent', 'country', 'region', 'river']), parent: z.string().optional(),
@@ -270,9 +277,11 @@ export const PageDatesSchema = z.record(z.string(), z.string().regex(/^\d{4}-\d{
 
 /**
  * content/one-voice.json: a species' id, then a heading (section key), then the one source that speaks under it. Where the
- * sources under a heading can't both be true, the page shows that source's text alone (load.ts).
+ * sources under a heading can't both be true, the page shows that source's text alone (load.ts). `false`: no source does,
+ * as none says what's fit to read there (the African snakehead's tank, the chief of staff, 15 Nov 2026), and the heading
+ * is off the page in every language, whatever a run writes under it.
  */
-export const OneVoiceSchema = z.record(z.string(), z.partialRecord(z.enum(SECTION_ORDER), SourceId))
+export const OneVoiceSchema = z.record(z.string(), z.partialRecord(z.enum(SECTION_ORDER), z.union([SourceId, z.literal(false)])))
 
 /**
  * A gallery photo can carry what the screening model said of it, so a top-up re-ranks the whole gallery: `best`, one of
@@ -285,7 +294,8 @@ export const OneVoiceSchema = z.record(z.string(), z.partialRecord(z.enum(SECTIO
  * check had judged had been rejected, most as another fish; the check takes the mark off a photo it judges and leaves on.
  * A photo without it was added before, or has been judged.
  */
-const GalleryPhoto = Photo.extend({ best: z.boolean().optional(), kind: z.string().optional(), unchecked: z.boolean().optional() })
+/** `setup`: the album check's word that the fish sits in a photo tank, box, tray or cup, or beside a ruler or a printed board (engine gallery.ts setupLast). */
+const GalleryPhoto = Photo.extend({ best: z.boolean().optional(), kind: z.string().optional(), setup: z.boolean().optional(), unchecked: z.boolean().optional() })
 export const GallerySchema = z.object({ id: z.string(), photos: z.array(GalleryPhoto), seen: z.number(), updatedAt: z.string(), builtAt: z.string().optional() })
 
 const ProductSpec = z.object({ key: z.string(), value: z.string(), source: z.number().int().optional() })
@@ -322,6 +332,22 @@ export const BreedSchema = z.object({
   /** Wikimedia Commons category for its photos, when there is one. */
   commons: z.string().optional(),
   sources: z.array(z.object({ url: WebUrl, title: z.string(), kind: z.enum(['breeder', 'shop', 'article', 'forum', 'video', 'paper', 'other']), at: z.string() })),
+  updatedAt: z.string(),
+})
+
+/** Hobby materials: our own cited writing, Vietnamese-only during the unlisted pilot. */
+export const MATERIAL_SECTION_ORDER = ['about', 'water', 'prepare', 'suits', 'mistakes', 'buy'] as const
+/**
+ * A hobby material's page (content/materials/<id>/): a driftwood kind, a substrate, a rock, a botanical (lá bàng, quả
+ * thông). `names`, and each language's `altNames`, hold only names a source writes, as it writes them (the engine keeps
+ * the evidence). A price, in `buy`, only from a Vietnamese shop's own page, dated beside it.
+ */
+export const MaterialSchema = z.object({
+  id: z.string(), kind: z.enum(['wood', 'substrate', 'rock', 'botanical', 'other']),
+  /** The general material page whose kinds include this one (for example, lua). */
+  parent: z.string().optional(),
+  names: z.array(z.string()), photos: z.array(Photo),
+  sources: z.array(z.object({ url: WebUrl, title: z.string(), kind: z.enum(['shop', 'article', 'forum', 'video', 'paper', 'other']), at: z.string() })),
   updatedAt: z.string(),
 })
 
@@ -364,7 +390,12 @@ export const TranslationSchema = z.object({
   tested: z.array(CitedText).optional(),
   /** Owner-chosen main name, or a place's from the Vietnamese place-names step: the engine never replaces it. */
   nameFixed: z.boolean().optional(),
-  /** Owner-fixed text: the engine never replaces this guide's body (nameFixed's kin, for a fix made by hand). */
+  /**
+   * A place's name in another language judged alone against its source's sentence (the engine's place-judge.ts): `ok`
+   * false, and the place has no name in that language until a name passes (load.ts placeNamed).
+   */
+  nameCheck: z.object({ ok: z.boolean(), score: z.number(), at: z.string(), why: z.string().optional() }).optional(),
+  /** Owner-fixed text: the engine never replaces this guide's body, or a material page's text (nameFixed's kin, for a fix made by hand). */
   bodyFixed: z.boolean().optional(),
   /** Owner-fixed questions, set with bodyFixed on a video guide: written again, it keeps this FAQ (its other writers leave a video guide with a fixed body alone; a topic guide's and a translated guide's writers don't read this mark). */
   faqFixed: z.boolean().optional(),
@@ -422,6 +453,8 @@ export const SummarySchema = z.object({
   summary: z.string(), mistakes: z.array(z.string()).max(3),
   speciesUpdatedAt: z.string(), generatedAt: z.string(),
   problems: z.array(z.string()).optional(),
+  /** The page's text it was written from, as a hash (engine summaries.ts textHash): written again when the page's differs. */
+  writtenFrom: z.string().optional(),
 })
 
 /**

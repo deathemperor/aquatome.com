@@ -1,0 +1,122 @@
+{
+  "id": "scoloplax-empousa",
+  "native": {
+    "input": "03c391d8fd2930e2",
+    "at": "2026-11-14T17:19:02.525Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio Ivinheima, 70 kilometers upstream from its confluence with Rio Paraná, Mato Grosso State, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Amazon and Paraguay/Paraná River basins: Bolivia and Brazil.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Amazon and Paraguay/Paraná River basins: Bolivia and Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Amazon and Paraguay/Paraná River basins: Bolivia and Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Paraguay",
+        "source": "scotcat",
+        "quote": "South America: Amazon and Paraguay/Paraná River basins: Bolivia and Brazil.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Paraná",
+        "source": "scotcat",
+        "quote": "South America: Amazon and Paraguay/Paraná River basins: Bolivia and Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Rio Ivinheima",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio Ivinheima, 70 kilometers upstream from its confluence with Rio Paraná, Mato Grosso State, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Scoloplax empousa",
+    "status": "ACCEPTED",
+    "taxonKey": 2343822,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        10
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        9
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        5
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        4
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        4
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "BO"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T17:19:02.525Z"
+  }
+}

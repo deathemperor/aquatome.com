@@ -1,0 +1,95 @@
+{
+  "id": "pogonopoma-wertheimeri",
+  "native": {
+    "input": "abf61c069454c3e9",
+    "at": "2026-11-14T05:39:06.336Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio Mucuri District, Santa Clara, Bahia State, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Currently known from three coastal river drainages in southeastern Brazil: the Mucuri River in Bahia State and the São Mateus River in Espirito Santo State.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mucuri River",
+        "source": "planetcatfish",
+        "quote": "Currently known from three coastal river drainages in southeastern Brazil: the Mucuri River in Bahia State and the São Mateus River in Espirito Santo State.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "São Mateus River",
+        "source": "planetcatfish",
+        "quote": "Currently known from three coastal river drainages in southeastern Brazil: the Mucuri River in Bahia State and the São Mateus River in Espirito Santo State.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pogonopoma wertheimeri",
+    "status": "ACCEPTED",
+    "taxonKey": 2339864,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        19
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        9
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        9
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        8
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        8
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        6
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        4
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        4
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T05:39:06.336Z"
+  }
+}

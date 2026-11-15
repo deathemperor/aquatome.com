@@ -1,0 +1,26 @@
+{
+  "slug": "denticetopsis-macilenta",
+  "name": "Whale Catfish",
+  "altNames": [
+    "เวลแคทฟิช"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li><strong>ชื่อวิทยาศาสตร์:</strong> Denticetopsis macilenta (Eigenmann, 1912)</li><li><strong>แหล่งที่พบตัวอย่างต้นแบบ:</strong> ลำห้วยใต้ท่า Potaro Landing (5°23'N, 59°08'W) ประเทศกายอานา</li><li><strong>ชื่อพ้อง:</strong> Hemicetopsis macilentus, Pseudocetopsis macilentus</li><li><strong>สถานภาพใน IUCN Red List:</strong> กังวลน้อยที่สุด (Least Concern) ประเมินล่าสุดเมื่อปี 2020</li></ul>",
+    "quickFacts:scotcat": "<ul><li>IUCN Red List: กังวลน้อยที่สุด (Least Concern) แม้จะมีข้อมูลอยู่น้อย แต่ชนิดนี้ไม่น่าจะเผชิญภัยคุกคามร้ายแรง และมีพื้นที่กระจายพันธุ์กว้าง (IUCN 2023)</li></ul>",
+    "distribution:planetcatfish": "<p>อเมริกาใต้: ลุ่มแม่น้ำเอสเซกวิโบ (Essequibo) ในประเทศกายอานา</p>",
+    "distribution:scotcat": "<p>อเมริกาใต้: แม่น้ำโปตาโร (Potaro) ในลุ่มแม่น้ำเอสเซกวิโบ (กายอานาและเวเนซุเอลา) และเปรู แหล่งที่พบตัวอย่างต้นแบบ: ลำห้วยใต้ท่า Potaro Landing บริติชกิอานา</p>",
+    "habitat:scotcat": "<p>ปลาชนิดนี้พบได้เป็นหลักในแม่น้ำโปตาโร ทั่วลุ่มแม่น้ำเอสเซกวิโบ ประเทศกายอานา โดยมีการเก็บตัวอย่างครั้งแรกจากลำห้วยใต้ท่า Potaro Landing ประเทศกายอานา (Fricke et al. 2020) ข้อมูลเฉพาะเกี่ยวกับถิ่นอาศัยและนิเวศวิทยาของปลาชนิดนี้ยังมีอยู่จำกัด</p>",
+    "reproduction:planetcatfish": "<p>การเพาะพันธุ์: ยังไม่มีรายงาน ไม่พบรายงานการเพาะพันธุ์</p>",
+    "notes:scotcat": "<p>ที่มาของชื่อ: ชื่อชนิด macilenta เป็นภาษาละติน แปลว่า ผอมหรือบาง หมายถึง \"ด้านข้างลำตัวที่มีเซลล์เม็ดสี (chromatophore) จำนวนมาก ซึ่งแตกแขนงออกไปทั้งด้านหน้าและด้านหลังจากใจกลางเซลล์ ทำให้ดูเป็นริ้วขน และดูคล้ายมัดกิ่งไม้เล็ก ๆ ที่ผูกไว้ตรงกลาง จึงเป็นที่มาของชื่อ\" (สันนิษฐานว่า \"กิ่งไม้\" นั้นผอมหรือบาง)</p>",
+    "references:planetcatfish": "<p>Memoirs of the Carnegie Museum v. 5 (no. 1), pp 211, Pl. 23 (fig. 1).</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Frederico, R.G. 2023. Denticetopsis macilenta. The IUCN Red List of Threatened Species 2023. Froese, R. and D. Pauly. Editors. 2026. FishBase. www.fishbase.org. The ETYFish Project Fish Name Etymology Database. Vari, R.P., C.J. Ferraris, Jr. and M.C.C. de Pinna 2005 The neotropical whale catfishes (Siluriformes: Cetopsidae: Cetopsinae), a revisionary study. Neotrop. Ichthyol. 3(2):127-238.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": true,
+    "bySource": {
+      "planetcatfish": 0.8,
+      "scotcat": 0.8
+    }
+  }
+}

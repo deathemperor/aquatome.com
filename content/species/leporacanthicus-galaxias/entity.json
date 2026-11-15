@@ -20,10 +20,13 @@
       ],
       "regions": [
         "Amazon",
-        "Tocantins"
+        "Tocantins",
+        "Orinoco",
+        "Madeira"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "planetcatfish"
       ],
       "quotes": [
         {
@@ -35,6 +38,15 @@
           "regions": [
             "Amazon",
             "Tocantins"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Amazon basin (Lower Amazon: Tocantins, Guamá and Nhamundá; Middle Amazon (Solimões): Madeira) and Upper Orinoco (Ventuari).",
+          "countries": [],
+          "regions": [
+            "Orinoco",
+            "Madeira"
           ]
         }
       ]
@@ -336,17 +348,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/scotcat/b9b09213a48c8600.webp",
-      "thumb": "https://media.aquatome.com/scotcat/b9b09213a48c8600-480.webp",
-      "width": 500,
-      "height": 253,
-      "licence": "dùng với sự cho phép",
-      "author": "Allan James / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/leporacanthicus_galaxias.htm",
-      "caption": "Leporacanthicus galaxias: juvenile L 007",
-      "source": "scotcat"
-    },
-    {
       "url": "https://media.aquatome.com/scotcat/3ceab3c47d683c4e.webp",
       "thumb": "https://media.aquatome.com/scotcat/3ceab3c47d683c4e-480.webp",
       "width": 500,
@@ -358,14 +359,14 @@
       "source": "scotcat"
     },
     {
-      "url": "https://media.aquatome.com/scotcat/f4a304caff3eb9f3.webp",
-      "thumb": "https://media.aquatome.com/scotcat/f4a304caff3eb9f3-480.webp",
+      "url": "https://media.aquatome.com/scotcat/b9b09213a48c8600.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b9b09213a48c8600-480.webp",
       "width": 500,
-      "height": 296,
+      "height": 253,
       "licence": "dùng với sự cho phép",
-      "author": "Danny Blundell / ScotCat",
+      "author": "Allan James / ScotCat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/leporacanthicus_galaxias.htm",
-      "caption": "Leporacanthicus galaxias",
+      "caption": "Leporacanthicus galaxias: juvenile L 007",
       "source": "scotcat"
     }
   ],

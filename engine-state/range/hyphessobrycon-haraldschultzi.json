@@ -1,8 +1,8 @@
 {
   "id": "hyphessobrycon-haraldschultzi",
   "native": {
-    "input": "a67e1790573734c2",
-    "at": "2026-11-09T05:57:45.266Z",
+    "input": "2008b1e72c4a092a",
+    "at": "2026-11-14T17:19:02.525Z",
     "claims": [
       {
         "code": "BR",
@@ -15,8 +15,8 @@
       {
         "code": "BR",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Endemic to the rio Araguaia system, the major tributary of the rio Tocantins in central and western Brazil, although the full range of H. haraldschultzi within the drainage is unclear.",
+        "source": "glaser",
+        "quote": "Origin: Brazil, Rio Araguaia.",
         "words": "Brazil",
         "ok": true
       }
@@ -25,7 +25,7 @@
       {
         "name": "Araguaia",
         "source": "seriouslyfish",
-        "quote": "Endemic to the rio Araguaia system, the major tributary of the rio Tocantins in central and western Brazil, although the full range of H. haraldschultzi within the drainage is unclear.",
+        "quote": "The crystal red tetra, Megalamphodus haraldschultzi, is a small characid endemic to the rio Araguaia system in Brazil.",
         "country": "BR",
         "ok": true
       },
@@ -47,6 +47,13 @@
         "name": "Javaés",
         "source": "seriouslyfish",
         "quote": "Post-bifurcation, the eastern arm of the river is often referred to as the rio Javaés and it is probable that the type series was collected there since the Javaés runs through a portion of Goiás state.",
+        "ok": true
+      },
+      {
+        "name": "Araguaia",
+        "source": "glaser",
+        "quote": "Origin: Brazil, Rio Araguaia.",
+        "country": "BR",
         "ok": true
       }
     ],

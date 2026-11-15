@@ -1,8 +1,8 @@
 {
   "id": "dario-dario",
   "native": {
-    "input": "d1a1f75197b659e7",
-    "at": "2026-11-06T06:16:32.822Z",
+    "input": "70b121b7b08d7f05",
+    "at": "2026-11-14T05:39:06.336Z",
     "claims": [
       {
         "code": "IN",
@@ -26,6 +26,14 @@
         "source": "seriouslyfish",
         "quote": "Appears to be restricted to tributary systems draining into the Brahamaputra River in parts of West Bengal and Assam states, India although it may also range into Bhutan.",
         "words": "Bhutan",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: India.",
+        "words": "India",
         "ok": true
       }
     ],

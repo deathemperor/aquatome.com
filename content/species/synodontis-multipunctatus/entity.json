@@ -13,6 +13,110 @@
     "tanzania",
     "zambia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BI",
+        "CD",
+        "TZ",
+        "ZM"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is endemic to Lake Tanganyika (Burundi, DR Congo, Tanzania and Zambia).",
+          "countries": [
+            "BI",
+            "CD",
+            "TZ",
+            "ZM"
+          ],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344375,
+      "total": 96,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "CD",
+          32
+        ],
+        [
+          "ZM",
+          28
+        ],
+        [
+          "TZ",
+          26
+        ],
+        [
+          "BI",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          12,
+          12
+        ],
+        [
+          28.125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          28.125,
+          -4.21875,
+          21,
+          21
+        ],
+        [
+          29.53125,
+          -9.84375,
+          7,
+          7
+        ],
+        [
+          29.53125,
+          -8.4375,
+          10,
+          10
+        ],
+        [
+          29.53125,
+          -7.03125,
+          9,
+          9
+        ],
+        [
+          29.53125,
+          -5.625,
+          16,
+          16
+        ],
+        [
+          30.9375,
+          -9.84375,
+          20,
+          20
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -140,16 +244,6 @@
       "thumb": "https://media.aquatome.com/commons/a523573da8a717cf-480.webp"
     },
     {
-      "url": "https://media.aquatome.com/commons/39eea7aa83036409.webp",
-      "width": 960,
-      "height": 640,
-      "licence": "CC BY-SA 4.0",
-      "author": "Tylwyth Eldar",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_de_la_Porte_Dor%C3%A9e_-_Poisson_89.jpg",
-      "caption": "Poisson chat coucou (Synodontis multipunctata) Poisson à l'Aquarium du palais de la Porte Dorée.",
-      "thumb": "https://media.aquatome.com/commons/39eea7aa83036409-480.webp"
-    },
-    {
       "url": "https://media.aquatome.com/commons/ef5fe0be4526b5b9.webp",
       "width": 960,
       "height": 640,
@@ -158,6 +252,16 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_de_la_Porte_Dor%C3%A9e_-_Poisson_91.jpg",
       "caption": "Poisson chat coucou (Synodontis multipunctata) à l'Aquarium du palais de la Porte Dorée.",
       "thumb": "https://media.aquatome.com/commons/ef5fe0be4526b5b9-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/39eea7aa83036409.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 4.0",
+      "author": "Tylwyth Eldar",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_de_la_Porte_Dor%C3%A9e_-_Poisson_89.jpg",
+      "caption": "Poisson chat coucou (Synodontis multipunctata) Poisson à l'Aquarium du palais de la Porte Dorée.",
+      "thumb": "https://media.aquatome.com/commons/39eea7aa83036409-480.webp"
     }
   ],
   "videos": [

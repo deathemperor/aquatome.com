@@ -10,6 +10,62 @@
     "democratic-republic-of-the-congo",
     "congo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD"
+      ],
+      "regions": [
+        "Malebo Pool",
+        "Congo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Steatocranus tinanti is a rheophilic cichlid from around Malebo Pool in the River Congo, Democratic Republic of Congo.",
+          "countries": [
+            "CD"
+          ],
+          "regions": [
+            "Malebo Pool",
+            "Congo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371078,
+      "total": 23,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "CD",
+          19
+        ],
+        [
+          "CG",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          14.0625,
+          -5.625,
+          22,
+          19
+        ],
+        [
+          15.46875,
+          -5.625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -276,6 +276,7 @@ final class NativePageFlowTests: XCTestCase {
     XCTAssertTrue(app.links["Ảnh: Tác giả 1 · CC BY 2.0"].exists, "a photo in the row without its credit")
     app.buttons["Đàn cá neon trong bể"].firstMatch.tap()
     XCTAssertTrue(app.descendants(matching: .any)["gallery"].waitForExistence(timeout: 5), "no gallery")
+    app.showViewerWords()
     // Its words once: under the photo, not as the photo's label too (the row's button for it, under the sheet, aside).
     let words = app.descendants(matching: .any).matching(NSPredicate(format: "label == %@ AND elementType != %lu", "Đàn cá neon trong bể",
                                                                      XCUIElement.ElementType.button.rawValue))

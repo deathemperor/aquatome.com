@@ -1,10 +1,13 @@
 {
   "slug": "kruger-national-park",
-  "name": "Kruger National Park",
-  "altNames": [],
+  "name": "vườn quốc gia Kruger",
+  "altNames": [
+    "Kruger National Park"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

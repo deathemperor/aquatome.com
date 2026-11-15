@@ -1,0 +1,50 @@
+{
+  "id": "sicyopus-cebuensis",
+  "native": {
+    "input": "3d662798fa494704",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "PH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species appears to be rare in nature with the type series, which consisted of just a single adult pair, originating from the Uling brook within the upper Naga River basin on the island of Cebu, Cebu province, the Philippines.",
+        "words": "Philippines",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Naga River",
+        "source": "seriouslyfish",
+        "quote": "This species appears to be rare in nature with the type series, which consisted of just a single adult pair, originating from the Uling brook within the upper Naga River basin on the island of Cebu, Cebu province, the Philippines.",
+        "country": "PH",
+        "ok": true
+      },
+      {
+        "name": "Cebu",
+        "source": "seriouslyfish",
+        "quote": "This species appears to be rare in nature with the type series, which consisted of just a single adult pair, originating from the Uling brook within the upper Naga River basin on the island of Cebu, Cebu province, the Philippines.",
+        "country": "PH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sicyopus cebuensis",
+    "status": "ACCEPTED",
+    "taxonKey": 5208959,
+    "datasets": [],
+    "native": [
+      "PH"
+    ],
+    "requests": 2,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "id": "stiphodon-semoni",
+  "native": {
+    "input": "c8a91f6abf1fc793",
+    "at": "2026-11-15T05:39:34.625Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from Ambon Island, South Molucca Islands, a group within the Maluku Islands chain in central Indonesia, but currently considered to range eastwards from western Sumatra across much of Indonesia, northern Papua New Guinea and the Bismarck Archipelago as far as the Solomon Islands.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "PG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from Ambon Island, South Molucca Islands, a group within the Maluku Islands chain in central Indonesia, but currently considered to range eastwards from western Sumatra across much of Indonesia, northern Papua New Guinea and the Bismarck Archipelago as far as the Solomon Islands.",
+        "words": "Papua New Guinea",
+        "ok": true
+      },
+      {
+        "code": "SB",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from Ambon Island, South Molucca Islands, a group within the Maluku Islands chain in central Indonesia, but currently considered to range eastwards from western Sumatra across much of Indonesia, northern Papua New Guinea and the Bismarck Archipelago as far as the Solomon Islands.",
+        "words": "Solomon Islands",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ambon Island",
+        "source": "seriouslyfish",
+        "quote": "Described from Ambon Island, South Molucca Islands, a group within the Maluku Islands chain in central Indonesia, but currently considered to range eastwards from western Sumatra across much of Indonesia, northern Papua New Guinea and the Bismarck Archipelago as far as the Solomon Islands.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Maluku Islands",
+        "source": "seriouslyfish",
+        "quote": "Described from Ambon Island, South Molucca Islands, a group within the Maluku Islands chain in central Indonesia, but currently considered to range eastwards from western Sumatra across much of Indonesia, northern Papua New Guinea and the Bismarck Archipelago as far as the Solomon Islands.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Described from Ambon Island, South Molucca Islands, a group within the Maluku Islands chain in central Indonesia, but currently considered to range eastwards from western Sumatra across much of Indonesia, northern Papua New Guinea and the Bismarck Archipelago as far as the Solomon Islands.",
+        "ok": true
+      },
+      {
+        "name": "Bismarck Archipelago",
+        "source": "seriouslyfish",
+        "quote": "Described from Ambon Island, South Molucca Islands, a group within the Maluku Islands chain in central Indonesia, but currently considered to range eastwards from western Sumatra across much of Indonesia, northern Papua New Guinea and the Bismarck Archipelago as far as the Solomon Islands.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PH",
+        "NC"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Stiphodon semoni",
+    "status": "ACCEPTED",
+    "taxonKey": 2376126,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        123
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        104
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        25
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        7
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        6
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        5
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        1
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ]
+    ],
+    "native": [
+      "ID",
+      "PG",
+      "SB"
+    ],
+    "requests": 12,
+    "at": "2026-11-15T05:39:34.625Z"
+  }
+}

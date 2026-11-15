@@ -1,0 +1,100 @@
+{
+  "id": "rineloricaria-eigenmanni",
+  "native": {
+    "input": "52168228971fa588",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Sarare, Venezuela",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Colombia and Venezuela.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Colombia and Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "planetcatfish",
+        "quote": "South America: Orinoco drainage basin.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rineloricaria eigenmanni",
+    "status": "ACCEPTED",
+    "taxonKey": 2339053,
+    "datasets": [
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        24
+      ],
+      [
+        "f7739f2a-9d89-40c2-a262-813832add25d",
+        7
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "bb1f4643-8a9a-4d72-b631-88a41c0528bc",
+        2
+      ],
+      [
+        "3b8f8089-0261-4ec1-829c-1f17828fbd96",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6424b95e-eee2-41fc-9450-bac5d6767525",
+        1
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        1
+      ]
+    ],
+    "native": [
+      "VE",
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

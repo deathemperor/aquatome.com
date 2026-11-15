@@ -10,6 +10,44 @@
     "nigeria",
     "niger"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "NG"
+      ],
+      "regions": [
+        "Cross"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is found only in Nigeria.",
+          "countries": [
+            "NG"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Naturally occurs in the Lower Niger and Cross rivers.",
+          "countries": [],
+          "regions": [
+            "Cross"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344335,
+      "total": 0,
+      "fetched": "2026-11-15",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

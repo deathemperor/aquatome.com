@@ -60,6 +60,8 @@ final class LightsModel {
   private(set) var trying = false
   /// "Xem thử cả ngày": the minute of the day shown, while the day plays.
   private(set) var playMinute: Double?
+  /// A schedule handle is being dragged sideways: the page holds still under the finger until it lets go.
+  var draggingHandle = false
   private var playTask: Task<Void, Never>?
   /// The light the preview plays on (none: on screen only).
   private var playingOn: LightSession?
@@ -103,6 +105,8 @@ final class LightsModel {
   /// Touched since the app opened: a known light's schedule doesn't replace the reader's edits.
   private(set) var edited = false
 
+  /// The Week Aqua screen, on the same tab and the same Bluetooth.
+  let weekAqua: WeekAquaModel
   private let radio: Radio
   private let store: UserDefaults
   /// "Bể của tôi": each light connected, the schedules written to it and when its clock was set, as on the site.
@@ -123,6 +127,7 @@ final class LightsModel {
     self.radio = radio
     self.store = store
     self.tanks = tanks
+    weekAqua = WeekAquaModel(radio: radio, tanks: tanks)
     if radio.isRefused { refused = .unauthorized }
     #if DEBUG
     if store.double(forKey: "preview-seconds") > 0 { previewSeconds = store.double(forKey: "preview-seconds") }
@@ -142,9 +147,9 @@ final class LightsModel {
   }
   var form: Schedule { Schedule(on: on, off: off, ramp: ramp, levels: Array(levels.prefix(channels.count))) }
 
-  /// The lights kept on the reader's tanks, the one changed last first.
+  /// The Chihiros lights kept on the reader's tanks, the one changed last first (Week Aqua ones are on their own screen).
   var savedLights: [Device] {
-    (tanks?.store.liveDevices ?? []).filter { $0.kind == "light" }
+    (tanks?.store.liveDevices ?? []).filter { $0.kind == "light" && !$0.isWeekAqua }
       .sorted { Array($1.updatedAt.utf16).lexicographicallyPrecedes(Array($0.updatedAt.utf16)) }
   }
   /// The record of the light connected (or the one that dropped).

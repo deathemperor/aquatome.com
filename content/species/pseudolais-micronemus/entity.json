@@ -72,18 +72,7 @@
       "html": "<p>Verhandelingen van het Bataviaasch Genootschap van Kunsten en Wetenschappen. v. 21 (art. 7), pp 8.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/commons/5d22e4a643f7cd1f.webp",
-      "width": 960,
-      "height": 1121,
-      "licence": "CC BY 4.0",
-      "author": "Natural History Museum",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudolais_micronemus_(Bleeker,_1846)_1055649002.jpg",
-      "caption": "Pseudolais micronemus (Bleeker, 1846) 1055649002",
-      "thumb": "https://media.aquatome.com/commons/5d22e4a643f7cd1f-480.webp"
-    }
-  ],
+  "photos": [],
   "videos": [
     {
       "youtubeId": "2LzBgwyEkNg",
@@ -132,5 +121,173 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13"
+  "updatedAt": "2026-11-13",
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Mekong",
+        "Hue River",
+        "Malay Peninsula",
+        "Borneo",
+        "Sumatra",
+        "Java"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Java, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Mekong basin, Hue River, the Malay Peninsula and Indonesia, including Sumatra, Java and Borneo.",
+          "countries": [],
+          "regions": [
+            "Mekong",
+            "Hue River",
+            "Malay Peninsula",
+            "Borneo",
+            "Sumatra",
+            "Java"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340703,
+      "total": 77,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "MY",
+          40
+        ],
+        [
+          "ID",
+          33
+        ],
+        [
+          "TH",
+          2
+        ],
+        [
+          "VN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          4.21875,
+          8,
+          0
+        ],
+        [
+          101.25,
+          0,
+          2,
+          2
+        ],
+        [
+          101.25,
+          2.8125,
+          6,
+          0
+        ],
+        [
+          102.65625,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          2.8125,
+          2,
+          0
+        ],
+        [
+          104.0625,
+          16.875,
+          1,
+          0
+        ],
+        [
+          105.46875,
+          9.84375,
+          2,
+          0
+        ],
+        [
+          105.46875,
+          14.0625,
+          1,
+          0
+        ],
+        [
+          111.09375,
+          -8.4375,
+          26,
+          26
+        ],
+        [
+          111.09375,
+          0,
+          2,
+          2
+        ],
+        [
+          111.09375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          112.5,
+          1.40625,
+          2,
+          0
+        ],
+        [
+          113.90625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          2.8125,
+          11,
+          0
+        ],
+        [
+          116.71875,
+          4.21875,
+          7,
+          0
+        ],
+        [
+          118.125,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          118.125,
+          5.625,
+          1,
+          0
+        ]
+      ]
+    }
+  }
 }

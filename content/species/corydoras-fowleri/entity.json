@@ -20,16 +20,17 @@
       ],
       "regions": [
         "Amazon",
-        "río Ampiyacu",
+        "Ampiyacu",
         "Napo",
         "Nanay",
         "Itaya",
-        "Río Amazonus"
+        "Amazon River"
       ],
       "sources": [
         "glaser",
         "seriouslyfish",
-        "scotcat"
+        "scotcat",
+        "planetcatfish"
       ],
       "quotes": [
         {
@@ -46,18 +47,18 @@
           "countries": [],
           "regions": [
             "Amazon",
-            "río Ampiyacu",
+            "Ampiyacu",
             "Napo",
             "Nanay",
             "Itaya"
           ]
         },
         {
-          "source": "scotcat",
-          "quote": "South America: Peru; Loreto, Caño del Chancho near Pebas (03º10'S, 71º46'W), Río Amazonus system.",
+          "source": "planetcatfish",
+          "quote": "South America: western Amazon River basin.",
           "countries": [],
           "regions": [
-            "Río Amazonus"
+            "Amazon River"
           ]
         }
       ]

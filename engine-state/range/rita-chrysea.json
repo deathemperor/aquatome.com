@@ -1,0 +1,52 @@
+{
+  "id": "rita-chrysea",
+  "native": {
+    "input": "17c66c25e568d6e3",
+    "at": "2026-11-14T11:07:07.888Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Mahanadi river system in Orissa and Madhya Pradesh, India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mahanadi",
+        "source": "planetcatfish",
+        "quote": "Asia: Mahanadi river system in Orissa and Madhya Pradesh, India.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rita chrysea",
+    "status": "ACCEPTED",
+    "taxonKey": 2338116,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        7
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T11:07:07.888Z"
+  }
+}

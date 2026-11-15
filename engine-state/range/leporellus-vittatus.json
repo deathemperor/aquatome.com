@@ -1,8 +1,8 @@
 {
   "id": "leporellus-vittatus",
   "native": {
-    "input": "eb9eaf7e23ee76a2",
-    "at": "2026-11-10T07:58:31.896Z",
+    "input": "d1a413de1c08e082",
+    "at": "2026-11-15T05:39:34.625Z",
     "claims": [
       {
         "code": "BR",
@@ -29,25 +29,34 @@
         "ok": true
       },
       {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in the Orinoco system where it's also known from the Río Apure in Venezuela, and the Río Samaná Sur, a tributary of the Río Magdalena, Colombia.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
         "code": "CO",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Specimens in the images were collected from the Río Casanare in Colombia, a tributary of the Río Meta, meaning it also occurs in the Orinoco system where it's also known from the Río Apure in Venezuela, and the Río Samaná Sur, a tributary of the Río Magdalena, Colombia.",
+        "quote": "It also occurs in the Orinoco system where it's also known from the Río Apure in Venezuela, and the Río Samaná Sur, a tributary of the Río Magdalena, Colombia.",
         "words": "Colombia",
         "ok": true
       },
       {
-        "code": "VE",
+        "code": "BR",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Specimens in the images were collected from the Río Casanare in Colombia, a tributary of the Río Meta, meaning it also occurs in the Orinoco system where it's also known from the Río Apure in Venezuela, and the Río Samaná Sur, a tributary of the Río Magdalena, Colombia.",
-        "words": "Venezuela",
-        "ok": true
+        "source": "glaser",
+        "quote": "Brazil.",
+        "words": "Brazil",
+        "ok": false,
+        "why": "no sentence"
       }
     ],
     "regions": [
       {
-        "name": "Amazon River",
+        "name": "Amazon",
         "source": "seriouslyfish",
         "quote": "Type locality is given simply as 'Amazon River, Brazil' and according to current thinking this species has a huge natural range encompassing the Amazon River system in Brazil and Peru plus the Paraná-Paraguay drainage in southern Brazil and Paraguay and rio São Francisco basin in southern Brazil.",
         "country": "BR",
@@ -69,13 +78,13 @@
       {
         "name": "Orinoco",
         "source": "seriouslyfish",
-        "quote": "Specimens in the images were collected from the Río Casanare in Colombia, a tributary of the Río Meta, meaning it also occurs in the Orinoco system where it's also known from the Río Apure in Venezuela, and the Río Samaná Sur, a tributary of the Río Magdalena, Colombia.",
+        "quote": "It also occurs in the Orinoco system where it's also known from the Río Apure in Venezuela, and the Río Samaná Sur, a tributary of the Río Magdalena, Colombia.",
         "ok": true
       },
       {
         "name": "Río Magdalena",
         "source": "seriouslyfish",
-        "quote": "Specimens in the images were collected from the Río Casanare in Colombia, a tributary of the Río Meta, meaning it also occurs in the Orinoco system where it's also known from the Río Apure in Venezuela, and the Río Samaná Sur, a tributary of the Río Magdalena, Colombia.",
+        "quote": "It also occurs in the Orinoco system where it's also known from the Río Apure in Venezuela, and the Río Samaná Sur, a tributary of the Río Magdalena, Colombia.",
         "country": "CO",
         "ok": true
       }

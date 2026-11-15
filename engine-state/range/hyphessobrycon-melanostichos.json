@@ -1,8 +1,8 @@
 {
   "id": "hyphessobrycon-melanostichos",
   "native": {
-    "input": "3617c3b725bd9511",
-    "at": "2026-11-09T05:57:45.266Z",
+    "input": "79d4fb9db20ba10f",
+    "at": "2026-11-14T00:09:29.977Z",
     "claims": [
       {
         "code": "BR",
@@ -34,6 +34,12 @@
         "source": "seriouslyfish",
         "quote": "Endemic to the Rio Doze de Outubro of the upper Rio Tapajos basin of Brazil.",
         "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Tapajos",
+        "source": "glaser",
+        "quote": "Until now the fish is known only from the upper reaches of the Rio Tapajos, namely a small river called Rio Doze de Outubro.",
         "ok": true
       }
     ],

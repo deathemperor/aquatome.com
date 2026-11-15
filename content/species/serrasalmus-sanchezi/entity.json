@@ -10,6 +10,72 @@
     "peru",
     "ucayali"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Ucayali",
+        "Itayi",
+        "Pacaya"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Sanchez's piranha, Serrasalmus sanchezi, is a small piranha endemic to Peru, collected from rivers including the Ucayali, Itayi and Pacaya.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Peru where it's been collected from several rivers including the Rio Ucayali, Rio Itayi and Rio Pacaya.",
+          "countries": [],
+          "regions": [
+            "Ucayali",
+            "Itayi",
+            "Pacaya"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354163,
+      "total": 5,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "PE",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -135,26 +201,6 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:SP_A0154.jpg",
       "caption": "Serrasalmus sanchezi in the home aquaria",
       "thumb": "https://media.aquatome.com/commons/9318756cebde7e6a-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/0346d40a89c8aa80.webp",
-      "width": 960,
-      "height": 1471,
-      "licence": "CC BY 4.0",
-      "author": "Laura Gaudette",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Serrasalmus_sanchezi_566615006.jpg",
-      "caption": "Sharp-snouted Piranha (Serrasalmus sanchezi) in Peru",
-      "thumb": "https://media.aquatome.com/commons/0346d40a89c8aa80-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/99a3eb0c4c07980d.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY 4.0",
-      "author": "Michael Bakker Paiva",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Serrasalmus_sanchezi_9275843.jpg",
-      "caption": "Sharp-snouted Piranha (Serrasalmus sanchezi) in Peru",
-      "thumb": "https://media.aquatome.com/commons/99a3eb0c4c07980d-480.webp"
     }
   ],
   "videos": [],

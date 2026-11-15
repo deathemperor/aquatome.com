@@ -1,0 +1,56 @@
+{
+  "id": "glyptothorax-pallozonus",
+  "native": {
+    "input": "85b322e3ad06d426",
+    "at": "2026-11-14T05:39:06.336Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Loh-Fau Shan, Poh-Lo district, Kwangtung, China.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Zhujiang (Pearl River) drainage in southeastern China.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Zhujiang",
+        "source": "planetcatfish",
+        "quote": "Zhujiang (Pearl River) drainage in southeastern China.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Glyptothorax pallozonus",
+    "status": "ACCEPTED",
+    "taxonKey": 2341308,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ]
+    ],
+    "native": [
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T05:39:06.336Z"
+  }
+}

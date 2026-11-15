@@ -1,0 +1,137 @@
+{
+  "id": "hypostomus-taphorni",
+  "native": {
+    "input": "d123950c8d22fb54",
+    "at": "2026-11-14T05:39:06.336Z",
+    "claims": [
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Essequibo River basin, Guyana.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Río Botanamo, Río Cuyuni drainage, near the bridge on the road to Bochinche, Bolívar State, Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Cuyuni River basin, Essequibo drainage, Venezuela (Armbruster, 2003a), Rupununi River and Takutu River basins, Guyana (Armbruster & de Souza, 2005).",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Cuyuni River basin, Essequibo drainage, Venezuela (Armbruster, 2003a), Rupununi River and Takutu River basins, Guyana (Armbruster & de Souza, 2005).",
+        "words": "Guyana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Essequibo",
+        "source": "planetcatfish",
+        "quote": "South America: Essequibo River basin, Guyana.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Cuyuni",
+        "source": "planetcatfish",
+        "quote": "Type locality: Río Botanamo, Río Cuyuni drainage, near the bridge on the road to Bochinche, Bolívar State, Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Cuyuni",
+        "source": "scotcat",
+        "quote": "South America: Cuyuni River basin, Essequibo drainage, Venezuela (Armbruster, 2003a), Rupununi River and Takutu River basins, Guyana (Armbruster & de Souza, 2005).",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Essequibo",
+        "source": "scotcat",
+        "quote": "IUCN Red List: Hypostomus taphorni has a wide range in the Essequibo, Berbice, and Corantijn river basins, and the species appears to be tolerant of poor water quality.",
+        "ok": true
+      },
+      {
+        "name": "Berbice",
+        "source": "scotcat",
+        "quote": "IUCN Red List: Hypostomus taphorni has a wide range in the Essequibo, Berbice, and Corantijn river basins, and the species appears to be tolerant of poor water quality.",
+        "ok": true
+      },
+      {
+        "name": "Corantijn",
+        "source": "scotcat",
+        "quote": "IUCN Red List: Hypostomus taphorni has a wide range in the Essequibo, Berbice, and Corantijn river basins, and the species appears to be tolerant of poor water quality.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hypostomus taphorni",
+    "status": "ACCEPTED",
+    "taxonKey": 5202251,
+    "datasets": [
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        27
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        20
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        13
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        7
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        6
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        4
+      ],
+      [
+        "b8ed9b7c-5b73-4e6d-a6e1-b0911a09f947",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "GY",
+      "VE"
+    ],
+    "requests": 12,
+    "at": "2026-11-14T00:09:29.977Z"
+  }
+}

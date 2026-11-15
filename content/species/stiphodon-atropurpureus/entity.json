@@ -16,6 +16,182 @@
     "malaysia",
     "tioman-island"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PH",
+        "JP",
+        "CN",
+        "MY"
+      ],
+      "regions": [
+        "Luzon",
+        "Mindanao",
+        "Leyte",
+        "Tioman Island"
+      ],
+      "sources": [
+        "bwaquatics",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "Native to clear, fast-flowing mountain and coastal streams across Southeast Asia, including the Philippines, Taiwan, Japan, and southern China.",
+          "countries": [
+            "PH",
+            "JP",
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It has since been recorded across much of the Philippine Sea/South China Sea region and as currently recognised occurs throughout the islands of southern Japan, Taiwan, parts of the southern Chinese coastline (including Hong Kong), the Philippines, and southern Malaysia (Tioman Island, just off the southeastern coast of Peninsular Malaysia).",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Tioman Island"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The type specimens were collected from Rizal Province, Luzon Island, and Lanao del Norte Province, Mindanao Island, the Philippines.",
+          "countries": [],
+          "regions": [
+            "Luzon",
+            "Mindanao"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The entire series was destroyed during World War II, however, leading Watson and Kottelat (1995) to designate a neotype from Leyte Island, part of the Visayas central region of the Philippines.",
+          "countries": [],
+          "regions": [
+            "Leyte"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2376130,
+      "total": 105,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "ID",
+          85
+        ],
+        [
+          "PH",
+          17
+        ],
+        [
+          "TW",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          -5.625,
+          11,
+          0
+        ],
+        [
+          105.46875,
+          -7.03125,
+          2,
+          0
+        ],
+        [
+          111.09375,
+          -8.4375,
+          4,
+          0
+        ],
+        [
+          113.90625,
+          -8.4375,
+          48,
+          0
+        ],
+        [
+          115.3125,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          115.3125,
+          -8.4375,
+          17,
+          0
+        ],
+        [
+          119.53125,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          119.53125,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          120.9375,
+          5.625,
+          2,
+          2
+        ],
+        [
+          120.9375,
+          23.90625,
+          2,
+          0
+        ],
+        [
+          122.34375,
+          -1.40625,
+          2,
+          0
+        ],
+        [
+          122.34375,
+          8.4375,
+          10,
+          10
+        ],
+        [
+          123.75,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          123.75,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          125.15625,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          125.15625,
+          9.84375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

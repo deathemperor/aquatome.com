@@ -13,6 +13,90 @@
     "china",
     "red-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VN",
+        "LA",
+        "CN"
+      ],
+      "regions": [
+        "Mã River",
+        "Red River",
+        "Mengyejiang River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from northern Vietnam, Laos and southern China.",
+          "countries": [
+            "VN",
+            "LA",
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Schistura caudofurca is a nemacheilid loach from northern Vietnam, Laos and southern China, described from the Mã River in Vietnam.",
+          "countries": [],
+          "regions": [
+            "Mã River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Red River is known as Yuanjiang in China and flows from Yunnan into northern Vietnam, where it's known as Sông Cái.",
+          "countries": [],
+          "regions": [
+            "Red River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "At one locality in the Mengyejiang River, S. caudofurca was collected from a 40 m wide riffle section flowing over rocks and pebbles.",
+          "countries": [],
+          "regions": [
+            "Mengyejiang River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5204999,
+      "total": 4,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "LA",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          101.25,
+          19.6875,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          18.28125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

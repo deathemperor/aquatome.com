@@ -1,4 +1,4 @@
-import { readFile, writeFile } from 'node:fs/promises'
+import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { QUALITY_THRESHOLD } from '@aq/schema'
 import { HTMLElement, parse } from 'node-html-parser'
@@ -7,11 +7,13 @@ import { LlmError, type Llm } from './claude'
 import { FIT_TITLE, fitDue, fitFindings, fitKey, fitText, type FitCheck, type FitFinding, type FitState } from './fit'
 import { rewriteForReader } from './for-reader'
 import { METRIC_KINDS } from './metric'
-import { mendPart } from './mend'
+import { batchHalf, cutWhole, goesWhole, mendPart, words as mendWords } from './mend'
 import { fixedParts, loadPages, type Page } from './pages'
 import { piece } from './pieces'
 import { fieldOf as partOf, norm, type ReaderFinding } from './reader'
 import { metricFigures, TANK_RULE, US_UNITS } from './round'
+import { sentences } from './sentences'
+import { isShop } from './species-sources'
 
 /**
  * The collection rewrite: Vietnamese pages the reader-fit read (fit.ts) found wrong for their reader, written again.
@@ -61,11 +63,12 @@ export type Rewritten = Record<string, { at: string; hash: string }>
  */
 export type Tried = Record<string, { at: string; hash: string; n?: number; rule?: number }>
 /**
- * How a fish, plant or breed page's parts are mended. 2: only the sentences a finding quotes (mend.ts, 13 Nov 2026). A
- * page tried under an earlier rule is tried once more on the same text, within MAX_TRIES: the front list's first run
- * left 13 parts unkept under rule 1, and the chief of staff clears the list to see what rule 2 keeps of them.
+ * How a fish, plant or breed page's parts are mended. 2: only the sentences a finding quotes (mend.ts, 13 Nov 2026). 3: a
+ * part of three sentences or fewer that would lose every one comes off the page (14 Nov 2026). A page tried under an
+ * earlier rule is tried once more on the same text, within MAX_TRIES: the front list's first run left 13 parts unkept
+ * under rule 1, and the lane's first left 4 pages held on parts rule 3 takes off.
  */
-export const MEND_RULE = 2
+export const MEND_RULE = 3
 /**
  * A page is tried at most this often, on any of its texts, unless named: a part its reviewers pass that the next read
  * still faults would make the page due again on its new text, a cycle at a time, with only the step's ceiling to stop it.
@@ -108,12 +111,22 @@ export const rewriteDue = (p: Page, state: FitState) =>
 
 /** A breed page's units: its litres are our conversion of a source's US figure, named as keepers here say. */
 const BREED_UNITS = `This page has no English beside it: its litres are our conversion of a source's US figure, and are named as keepers here say, worked out from the source's own US figure (${TANK_RULE.en}; another size the nearest round figure keepers say, a minimum never more than a twentieth under it). A tank or water per fish, or per cm of a fish, is an allowance, not a dose: it is named so too. A dose's amount and the water it goes into stay exact`
-const asNote = (f: FitFinding, figures?: BreedFigure[]): ReaderFinding => ({
+const asNote = (f: FitFinding, figures?: BreedFigure[], half?: boolean): ReaderFinding => ({
   kind: 'language', severity: 'high', part: f.part, quote: f.quote,
   problem: f.check === 'words' ? `A word keepers here don't use${f.fix ? `: write "${f.fix}"` : ''}.`
     : f.check === 'units' && figures ? `${FIT_TITLE.units}: ${f.why}. ${BREED_UNITS}.${figures.length ? ` Write exactly these figures: ${figuresSaid(figures)}. Change no other figure.` : ''} Give no US figure.`
-    : f.check === 'units' ? `${FIT_TITLE.units}: ${f.why}. Convert the English's US units as the writing rules say (${TANK_RULE.en}; inches to cm), and give no US figure. Never round a dose's amount or the water it goes into: convert those exactly.`
-    : `${FIT_TITLE[f.check]}: ${f.why}. Write it for a keeper in Vietnam; drop what only holds abroad.`,
+    // Its measures as they are: code converts them (mend.ts `metric`), as no writer's figure can be held to its place
+    // (Astra's reads of 14 Nov 2026).
+    : f.check === 'units' ? `${FIT_TITLE.units}: ${f.why}. Leave each figure and its unit exactly as written: code converts the US units to metric after you, as the writing rules say. Write no figure of your own.`
+    // On where a statement applies (a dealer's batch, the source's own photo or tank), or a check code can't tell: the
+    // sentence goes whole, as what's left of it could say of every fish what was said of one (the chief of staff, 14 Nov
+    // 2026; mend.ts `goesWhole`).
+    // A source finding on the second clause of "X, nhưng Y": that clause goes, unless what's left can't stand for every
+    // such fish (mend.ts batchHalf; the chief of staff, 15 Nov 2026: "the writer cuts only the batch half").
+    : half ? `${FIT_TITLE[f.check]}: ${f.why}. Only the quoted clause goes, with its joining word ("nhưng", "song"): the rest of the sentence stays word for word and ends with a full stop. If what's left isn't a whole sentence true of every such fish (it still speaks of these fish, the source's own tank or work, or the present, or it waits for the clause that went), the whole sentence goes: return it empty.`
+    : goesWhole(f.check) ? `${FIT_TITLE[f.check]}: ${f.why}. The whole sentence goes: return it empty.`
+    // A detail inside it is cut, never said another way (the chief of staff, 14 Nov 2026; mend.ts addedWords holds it).
+    : `${FIT_TITLE[f.check]}: ${f.why}. Cut the quoted words, or the whole sentence if nothing true is left without them: never say it another way, and put in nothing it didn't say.`,
   ...(f.fix ? { fix: f.fix } : {}),
 })
 
@@ -125,24 +138,26 @@ const asNote = (f: FitFinding, figures?: BreedFigure[]): ReaderFinding => ({
 const UNIT_WORDS = new Set(['lít', 'l', 'cm', 'mm', 'm', 'mỗi', 'cho', 'trên', 'từng', 'gallon', 'gal', 'inch'])
 const figureRuns = (from: string) => {
   const runs: string[][] = [[]]
-  for (const w of from.normalize('NFC').toLowerCase().match(/[\p{L}\p{N}]+/gu) ?? []) {
-    if (/^\d/.test(w) || UNIT_WORDS.has(w)) runs.at(-1)!.push(w)
+  // A figure whole, with its marks, as mend.ts reads words ("2,5").
+  for (const w of mendWords(from)) {
+    if (/^[.,-]?\d/.test(w) || UNIT_WORDS.has(w)) runs.at(-1)!.push(w)
     else if (runs.at(-1)!.length) runs.push([])
   }
   return runs.filter(r => r.length).map(r => r.join(' '))
 }
 /** A finding as the writer's note on the sentences it quotes (a breed page's units with the figures to write). */
-const noteOf = (f: FitFinding, figures?: BreedFigure[]) => { const n = asNote(f, figures); return `${n.problem}${n.fix ? ` Nên viết: "${n.fix}"` : ''}` }
+const noteOf = (f: FitFinding, figures?: BreedFigure[], half?: boolean) => { const n = asNote(f, figures, half); return `${n.problem}${n.fix ? ` Nên viết: "${n.fix}"` : ''}` }
 
-export type RewriteReport = { rewritten: string[]; notKept: string[]; skipped: string[]; failed: string[]; stopped: string }
+/** `gone`: each sentence a kept part lost whole, and each that went with it, for the chief of staff (mend.ts `Mended`). */
+export type RewriteReport = { rewritten: string[]; notKept: string[]; skipped: string[]; failed: string[]; stopped: string; gone: string[] }
 
 /**
  * Rewrites up to `limit` pages, in `pages`' order (the caller ranks them), each due (rewriteDue) and not tried on this text
  * unless `retry`; stops on a model failure (usage limit) with what it has written. Writes the content files, each part as it
  * is kept, engine-state/rewritten.json and engine-state/_fit-rewrite.json.
  */
-export async function fitRewrite(root: string, pages: Page[], state: FitState, d: { llm: Llm; now: () => Date }, o: { limit: number; retry?: boolean }): Promise<RewriteReport> {
-  const report: RewriteReport = { rewritten: [], notKept: [], skipped: [], failed: [], stopped: '' }
+export async function fitRewrite(root: string, pages: Page[], state: FitState, d: { llm: Llm; now: () => Date }, o: { limit: number; retry?: boolean; mend?: ReadonlySet<string> }): Promise<RewriteReport> {
+  const report: RewriteReport = { rewritten: [], notKept: [], skipped: [], failed: [], stopped: '', gone: [] }
   const names = JSON.parse(await readFile(join(root, 'content', 'sources.json'), 'utf8').catch(() => '{}')) as Record<string, { name: string }>
   const triedFile = join(root, 'engine-state', '_fit-rewrite.json')
   const tried = JSON.parse(await readFile(triedFile, 'utf8').catch(() => '{}')) as Tried
@@ -162,8 +177,11 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
     tried[key] = { at, hash: fitText(p).hash, n: triesOf(key) + (o.retry ? 0 : 1), rule: MEND_RULE }
     let changed = 0
     try {
-      if (p.kind === 'guides') {
-        const r = await piece(key, () => rewriteForReader(root, p.id, { llm: d.llm }))
+      // A guide is written whole from its facts, but one in `mend` (the lane's: no reader has read it, fit-front.ts) is mended
+      // sentence by sentence, cut only, as a fish page is (the chief of staff, 14 Nov 2026).
+      if (p.kind === 'guides' && !o.mend?.has(key)) {
+        // A figure the guide had stays, but where a finding's quote asks it to go or change (for-reader.ts figuresLost).
+        const r = await piece(key, () => rewriteForReader(root, p.id, { llm: d.llm }, { gone: fitFindings(p, state[key]).map(f => f.quote ?? '') }))
         if ('skipped' in r) report.skipped.push(`${key}: ${r.skipped}`)
         else if (r.kept) { report.rewritten.push(`${key} (${r.score.toFixed(2)})`); done.push(p) }
         else report.notKept.push(`${key} (${r.score.toFixed(2)}: ${r.notes.slice(0, 2).join('; ')})`)
@@ -238,14 +256,59 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
               return fs.filter(x => !seen.has(`${block}|${x.at}`) && !!seen.add(`${block}|${x.at}`)).map(x => ({ ...x, block }))
             })
             const said = figures.length ? `This is a breed page with no English source: its litres are our conversion of a source's US figure, and the editor was told to name these as keepers here say, from the source's own US figure, a minimum never more than a twentieth under it: ${figuresSaid(figures)}. Those changes are correct, not errors.` : undefined
-            const r = await mendPart(d.llm, html, now.map(f => ({ check: f.check, quote: f.quote ?? '', note: noteOf(f, told.get(f)), covers: told.get(f)?.flatMap(x => figureRuns(x.from)) })), { en: p.en?.[field], source: source && names[source]?.name, model: 'opus', metric: METRIC_KINDS.includes(p.kind), ...(said ? { figures: said } : {}) })
+            const r = await mendPart(d.llm, html, now.map(f => { const half = batchHalf(html, f); return { check: f.check, quote: f.quote ?? '', note: noteOf(f, told.get(f), half), covers: told.get(f)?.flatMap(x => figureRuns(x.from)), ...(f.check === 'words' && f.fix ? { adds: [f.fix] } : told.get(f)?.length ? { adds: told.get(f)!.map(x => x.to) } : {}), ...(half ? { whole: false as const } : {}) } }), { en: p.en?.[field], source: source && names[source]?.name, model: 'opus', metric: METRIC_KINDS.includes(p.kind), ...(said ? { figures: said } : {}) })
             if (typeof r === 'string') { report.skipped.push(`${key} ${field}: ${r}`); continue }
-            const next = faq ? parse(r.html).text.trim() : r.html
+            let next = faq ? parse(r.html).text.trim() : r.html
             // Kept at the bar, leaving out only what a finding asks to go, saying nothing more surely than before (hedges.ts),
             // and a breed page's units with each figure.
             const off = mine.length ? keepsFigures(textOf(before), textOf(next), mine.map(f => f.quote ?? ''), figures) : undefined
-            if (r.score < QUALITY_THRESHOLD || r.lost.length || r.unasked.length || off) { report.notKept.push(`${key} ${field} (${r.score.toFixed(2)}: ${[...(off ? [off] : []), ...r.notes].slice(0, 2).join('; ')})`); continue }
+            let cut = ''
+            let gone = r.gone
+            if (r.score < QUALITY_THRESHOLD || r.lost.length || r.unasked.length || r.added.length || r.whole.length || off) {
+              const why = `${r.score.toFixed(2)}: ${[...(off ? [off] : []), ...r.notes].slice(0, 2).join('; ')}`
+              // The writer's cut refused: the sentences the findings flag cut whole by code instead, but in an FAQ answer or
+              // beside a conversion (the chief of staff, 14 Nov 2026: a flagged sentence "is deleted or its foreign detail is deleted").
+              // Not where a sentence is to go whole for another finding (a dealer's, the source's), which code leaves to the
+              // writer, nor where the writer named a line that no longer reads: what code wrote would keep it (Astra's read).
+              const plain = !faq && !mine.length && !r.whole.length && !now.some(f => goesWhole(f.check)) ? cutWhole(before, now) : undefined
+              if (!plain) { report.notKept.push(`${key} ${field} (${why})`); continue }
+              next = plain.html
+              gone = plain.gone
+              cut = `cut whole by code; the writer's cut refused (${why})`
+            }
             if (next === before) { report.skipped.push(`${key} ${field}: the rewrite changed nothing`); continue }
+            const [sk, ss] = field.startsWith('sections.') ? field.slice('sections.'.length).split(':') : []
+            const lines = (h: string) => sentences(h).filter(x => x.sentence).length
+            // Every line gone (mendPart, three or fewer): only a source's part can come off the page; a body, an answer or a
+            // definition stays held, its sentences for the chief of staff.
+            const emptied = !lines(next)
+            if (emptied && !(sk && ss)) { report.skipped.push(`${key} ${field}: every sentence would go, and it isn't a part that can come off: held for the chief of staff (${gone.join('; ')})`); continue }
+            report.gone.push(...gone.map(g => `${key} ${field} ${g}`))
+            // A part a cut reduces to one line, or a shop's quick facts it had to mend, isn't a part (the chief of staff, 14 Nov
+            // 2026: "A part reduced to one line from a dealer's stock list isn't a part", "is dropped, not kept"): off the page in
+            // every language, as the sweep takes a dealer's notice off (sweep.ts). One reduced to one line goes with its heading
+            // when it's the heading's only text, listed for the chief; a shop's list with more left stays when it is.
+            const thin = lines(next) <= 1 && lines(before) > 1
+            if (sk && ss && (thin || emptied || (isShop(ss) && sk === 'quickFacts'))) {
+              const dir = join(root, 'content', p.kind, p.id)
+              const entityFile = join(dir, 'entity.json')
+              const raw = await readFile(entityFile, 'utf8')
+              const e = JSON.parse(raw) as { sections: { key: string; source: string; html: string }[] }
+              const other = e.sections.some(s => s.key === sk && s.source !== ss && s.html.trim() && t.sections?.[`${sk}:${s.source}`]?.trim())
+              if (other || thin || emptied) {
+                const k = `${sk}:${ss}`
+                await writeFile(entityFile, `${JSON.stringify({ ...e, sections: e.sections.filter(s => !(s.key === sk && s.source === ss)) }, null, 2)}\n`)
+                for (const f of (await readdir(dir)).filter(f => /^[a-z]{2}\.json$/.test(f) && f !== 'vi.json')) {
+                  const l = JSON.parse(await readFile(join(dir, f), 'utf8')) as { sections?: Record<string, string> }
+                  if (l.sections && k in l.sections) { delete l.sections[k]; await writeFile(join(dir, f), `${JSON.stringify(l, null, 2)}\n`) }
+                }
+                delete t.sections![k]
+                await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)
+                changed++
+                report.rewritten.push(`${key} ${field} off the page (${emptied ? 'every line went' : thin ? 'one line left' : 'a shop\'s list'}${other ? '' : ', its heading with it: for the chief of staff'}${cut ? `; ${cut}` : ''})`)
+                break
+              }
+            }
             if (faq) t.faq![Number(faq[1])]!.a = next
             else if (field === 'body') t.body = next
             else if (field === 'definition') t.definition = next
@@ -254,7 +317,7 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
             // (mendPart); nothing else on the page is touched (Astra's read: converting the page changed parts no one read).
             await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)
             changed++
-            report.rewritten.push(`${key} ${field}${passes.length > 1 && mine.length ? ' units' : ''} (${r.score.toFixed(2)})`)
+            report.rewritten.push(`${key} ${field}${passes.length > 1 && mine.length ? ' units' : ''} (${cut || r.score.toFixed(2)})`)
           }
         })
       }

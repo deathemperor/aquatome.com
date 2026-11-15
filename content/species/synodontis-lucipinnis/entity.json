@@ -10,6 +10,67 @@
     "zambia",
     "lake-tanganyika"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ZM"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "planetcatfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Musende Rocks, Zambia, Lake Tanganyika, 8°46'00''S, 31°07'00''E.",
+          "countries": [
+            "ZM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Synodontis lucipinnis is an endemic species of Lake Tanganyika.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344475,
+      "total": 6,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "ZM",
+          5
+        ],
+        [
+          "CD",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          29.53125,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          30.9375,
+          -9.84375,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

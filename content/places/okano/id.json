@@ -3,6 +3,12 @@
   "name": "Okano",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-15T05:32:51.812Z",
+    "why": "The source sentence refers to the Okano as a river/drainage in Gabon, and Indonesian atlases would write \"Sungai Okano\" with the kind word, so bare \"Okano\" omits it."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

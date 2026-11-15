@@ -1,0 +1,23 @@
+{
+  "slug": "cryptarius-truncatus",
+  "name": "Cryptarius truncatus",
+  "altNames": [
+    "ปลากดทะเล",
+    "ปลากด",
+    "Truncated sea catfish",
+    "ปลากดหลาว"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>ชื่อวิทยาศาสตร์: Cryptarius truncatus (Valenciennes, 1840)</li><li>สถานที่พบตัวอย่างต้นแบบ: เกาะชวา ประเทศอินโดนีเซีย</li><li>ขนาด: 420 มม. SL</li><li>สถานภาพในบัญชีแดงของ IUCN: ยังไม่ได้รับการประเมิน (Not Evaluated)</li></ul>",
+    "distribution:planetcatfish": "<p>มหาสมุทรแปซิฟิกตะวันตกตอนกลาง: พบในบริเวณปากแม่น้ำและแม่น้ำช่วงล่าง ตั้งแต่แม่น้ำเจ้าพระยาลงไปถึงเกาะสุมาตราและเกาะชวา รวมถึงแม่น้ำโขงตอนล่าง</p>",
+    "reproduction:planetcatfish": "<p>ยังไม่มีข้อมูล ไม่มีรายงานการเพาะพันธุ์</p>",
+    "references:planetcatfish": "<p>Histoire naturelle des poissons v. 15, pp 64.</p>"
+  },
+  "quality": {
+    "score": 0.6,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.6
+    }
+  }
+}

@@ -18,7 +18,8 @@
     "amapa",
     "peru",
     "suriname",
-    "bolivia"
+    "bolivia",
+    "nam-my"
   ],
   "range": {
     "native": {
@@ -37,11 +38,12 @@
         "Essequibo",
         "Oyapock",
         "Approuague",
-        "Amazon",
-        "Rio Amapá"
+        "Amapá",
+        "Amazon"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -55,7 +57,11 @@
             "BR"
           ],
           "regions": [
-            "Rio Amapá"
+            "Orinoco",
+            "Essequibo",
+            "Oyapock",
+            "Approuague",
+            "Amapá"
           ]
         },
         {
@@ -67,17 +73,6 @@
             "BO"
           ],
           "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "It is known from the Orinoco, Essequibo, Oyapock and Approuague basins among others, mostly in faster moving rivers and streams, and a number of colour forms have developed across its range.",
-          "countries": [],
-          "regions": [
-            "Orinoco",
-            "Essequibo",
-            "Oyapock",
-            "Approuague"
-          ]
         },
         {
           "source": "seriouslyfish",
@@ -622,6 +617,12 @@
       "html": "<p>Wide-ranging over much of northern South America. It's known from various river basins, including the Rio Orinoco in Colombia and Venezuela, Rio Essequibo in Guyana, Rio Oyapock and Rio Approuague in French Guiana and Rio Amapá in Brazil. Populations also exist in parts of Peru, Suriname and Bolivia.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_johanna_puerto_inirida_en/",
+      "html": "<p>Origin: Venezuela (Puerto Inírida).</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-johanna",
@@ -705,5 +706,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-14"
 }

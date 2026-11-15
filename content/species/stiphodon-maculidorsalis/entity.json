@@ -9,6 +9,56 @@
     "asia",
     "indonesia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Sumatra"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from western Sumatra, Indonesia, where it's been collected from Bengkulu, West Sumatra, and Aceh Provinces.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Sumatra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7500175,
+      "total": 12,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "ID",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          -1.40625,
+          11,
+          11
+        ],
+        [
+          105.46875,
+          -7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

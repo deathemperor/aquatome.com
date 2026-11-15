@@ -1949,15 +1949,31 @@
     ]
   },
   "riccia-fluitans": {
-    "at": "2026-11-06",
-    "from": "2026-10-31",
+    "at": "2026-11-13",
+    "from": "2026-11-13",
     "name": "Riccia",
     "confidence": "high",
     "score": 0.9,
-    "notes": [
-      "Item 2: \"cup tertutup\" in item 3 is fine, but \"Tanaman air\" for \"Aquarium plant\" could be \"Tanaman akuarium\" to match the source.",
-      "Item 3: \"Riccia memberikan\" replaces the pronoun \"it\" with the name; acceptable, but \"Tanaman ini\" would be closer."
-    ]
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "e06a3a7b771e",
+      "maintenance:tropica": "7101bcab8cdc",
+      "notes:tropica": "d021ce008122"
+    },
+    "failed": {
+      "at": "2026-11-13T23:30:24.633Z",
+      "parts": {
+        "quickFacts:aquariumbreeder": "ec0d038e5db9",
+        "beforeYouBuy:aquariumbreeder": "3603ce7f9742",
+        "distribution:aquariumbreeder": "d41142d175a2",
+        "habitat:aquariumbreeder": "533f6ad90bb5",
+        "aquariumSize:aquariumbreeder": "fc0afd57b405",
+        "maintenance:aquariumbreeder": "ec07f6d22630",
+        "waterConditions:aquariumbreeder": "4c924e786b5c",
+        "equipment:aquariumbreeder": "229a7977c638",
+        "notes:aquariumbreeder": "a825ccc8c3f4"
+      }
+    }
   },
   "rotala-indica": {
     "at": "2026-11-10",

@@ -1,0 +1,76 @@
+{
+  "id": "scleromystax-prionotos",
+  "native": {
+    "input": "82dfb6ca24253a10",
+    "at": "2026-11-14T17:19:02.525Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Scleromystax prionotos is an armoured catfish known only from coastal rivers in Minas Gerais, Espírito Santo, Rio de Janeiro and São Paulo, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Doce",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Linhares, 19°22'S, 40°04'W, Lagoa Juparaná, Rio Doce system, Espírito Santo State, Brazil'.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Scleromystax prionotos",
+    "status": "ACCEPTED",
+    "taxonKey": 2342585,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        30
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        24
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        11
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        10
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T17:19:02.525Z"
+  }
+}

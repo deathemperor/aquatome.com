@@ -14,23 +14,6 @@
       "kind": "group"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/427013941.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/427013941-480.webp",
-      "width": 1024,
-      "height": 819,
-      "licence": "CC BY",
-      "author": "Reid Hardin",
-      "sourceUrl": "https://www.inaturalist.org/photos/427013941",
-      "caption": "Cá zebra đỏ bơi gần đá trong môi trường tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "large": {
-        "url": "https://media.aquatome.com/inaturalist/427013941-large.webp",
-        "width": 1170,
-        "height": 936
-      }
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/427013951.webp",
       "thumb": "https://media.aquatome.com/inaturalist/427013951-480.webp",
       "width": 1024,
@@ -108,16 +91,6 @@
       }
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/242649073.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/242649073-480.webp",
-      "width": 1024,
-      "height": 594,
-      "licence": "CC BY",
-      "author": "scohlendorf",
-      "sourceUrl": "https://www.inaturalist.org/photos/242649073",
-      "caption": "Cá zebra đỏ dạng cam đốm đen trong bể"
-    },
-    {
       "url": "https://media.aquatome.com/commons/0ac66df5e8248912.webp",
       "thumb": "https://media.aquatome.com/commons/0ac66df5e8248912-480.webp",
       "width": 1200,
@@ -188,6 +161,16 @@
       "caption": "Cá đực màu xanh lam nhạt bơi giữa đá trong bể"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/242649073.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/242649073-480.webp",
+      "width": 1024,
+      "height": 594,
+      "licence": "CC BY",
+      "author": "scohlendorf",
+      "sourceUrl": "https://www.inaturalist.org/photos/242649073",
+      "caption": "Cá zebra đỏ dạng cam đốm đen trong bể"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/319902985.webp",
       "thumb": "https://media.aquatome.com/inaturalist/319902985-480.webp",
       "width": 1024,
@@ -238,6 +221,23 @@
       "caption": "Đàn cá zebra đỏ bơi quanh lũa trong bể cá",
       "best": false,
       "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/427013941.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/427013941-480.webp",
+      "width": 1024,
+      "height": 819,
+      "licence": "CC BY",
+      "author": "Reid Hardin",
+      "sourceUrl": "https://www.inaturalist.org/photos/427013941",
+      "caption": "Cá zebra đỏ bơi gần đá trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/427013941-large.webp",
+        "width": 1170,
+        "height": 936
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/258281751.webp",

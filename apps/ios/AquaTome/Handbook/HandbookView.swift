@@ -232,9 +232,9 @@ struct ItemRow: View {
         Text(item.name).foregroundStyle(.primary)
         // A scientific name in italics; a video series' channel; else what it is (a video guide: a video, and its length
         // when there's no picture to show it on).
-        if let sub = item.sub { Text(sub).font(.caption).italic(item.kind != .video).foregroundStyle(.secondary) }
+        if let sub = item.subUnderName { Text(sub).font(.caption).italic(item.kind != .video).foregroundStyle(.secondary) }
         else if lengthInLine, let s = item.video { Text(verbatim: "\(HandbookIndex.Kind.video.title) · \(clock(s))").font(.caption).foregroundStyle(.secondary) }
-        else { Text(item.video != nil ? HandbookIndex.Kind.video.title : item.kind.title).font(.caption).foregroundStyle(.secondary) }
+        else { Text(item.video != nil ? HandbookIndex.Kind.video.title : item.kindTitle).font(.caption).foregroundStyle(.secondary) }
       }
     }
     .accessibilityElement(children: .combine)
@@ -243,15 +243,10 @@ struct ItemRow: View {
   }
 
   private var picture: some View {
-    AsyncImage(url: item.img.flatMap(URL.init(string:))) { image in
-      image.resizable().scaledToFill()
-    } placeholder: {
-      // No photo, or not yet: the kind's glyph in the square a photo fills, so the names beside them line up.
-      ZStack {
-        Color(.tertiarySystemFill)
-        Image(systemName: item.kind.symbol).font(.system(size: 22)).foregroundStyle(.secondary)
-      }
-    }
+    // By the frame rule, the whole fish in the square. No photo: the kind's glyph in the square a photo fills, so the names
+    // beside them line up.
+    V2Photo(src: item.img, box: item.imgBox)
+      .overlay { if item.img == nil { Image(systemName: item.kind.symbol).font(.system(size: 22)).foregroundStyle(.secondary) } }
     .frame(width: 56, height: 56)
     .clipShape(RoundedRectangle(cornerRadius: 8))
     // A video guide's length on its picture, as the site's cards show it (read after the name, as the row's value).
@@ -267,6 +262,12 @@ struct ItemRow: View {
   }
 }
 
+extension HandbookIndex.Item {
+  /// What it is, where a line under its name says so: its kind's word, but "Loài" for a crab's, a shrimp's or a snail's
+  /// fish page (`isFish`; the owner's report of 15 Nov), never "Loài cá".
+  var kindTitle: String { kind == .fish && !isFish ? String(localized: "Loài") : kind.title }
+}
+
 extension HandbookIndex.Kind {
   var title: String {
     switch self {
@@ -277,6 +278,7 @@ extension HandbookIndex.Kind {
     case .tool: String(localized: "Công cụ")
     case .video: String(localized: "Video")
     case .equipment: String(localized: "Thiết bị")
+    case .material: String(localized: "Vật liệu")
     case .taxon: String(localized: "Phân loại")
     case .origin: String(localized: "Nguồn gốc")
     }
@@ -290,6 +292,7 @@ extension HandbookIndex.Kind {
     case .tool: "wrench.and.screwdriver"
     case .video: "play.rectangle"
     case .equipment: "gearshape"
+    case .material: "mountain.2"
     case .taxon: "list.bullet.indent"
     case .origin: "globe.asia.australia"
     }

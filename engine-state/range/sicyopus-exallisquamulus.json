@@ -1,0 +1,50 @@
+{
+  "id": "sicyopus-exallisquamulus",
+  "native": {
+    "input": "b3d62427f059d319",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the island of Halmahera in the Maluku Islands (also referred to as the Moluccan or Spice Islands) archipelago, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Halmahera",
+        "source": "seriouslyfish",
+        "quote": "Described from the island of Halmahera in the Maluku Islands (also referred to as the Moluccan or Spice Islands) archipelago, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Maluku Islands",
+        "source": "seriouslyfish",
+        "quote": "Described from the island of Halmahera in the Maluku Islands (also referred to as the Moluccan or Spice Islands) archipelago, Indonesia.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sicyopus exallisquamulus",
+    "status": "ACCEPTED",
+    "taxonKey": 5208966,
+    "datasets": [],
+    "native": [
+      "ID"
+    ],
+    "requests": 2,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

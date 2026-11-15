@@ -5,13 +5,13 @@ import { COOKIE, createSession, type Client } from '../accounts/session'
 import { syncStore } from '../accounts/tanks'
 import { assetSource, callClaude, chat, chatWorstCost, type ChatDeps, type ChatEnv, type Conversation } from '../chat/api'
 import { chatPast } from '../chat/past'
-import { OPENING_SYSTEM } from '../chat/agent'
+import { NO_THINKING, OPENING_SYSTEM } from '../chat/agent'
 import { OFF_TOPIC } from '../chat/answer'
 import { handbookOf, sectionsOf } from '../chat/handbook'
 import { textOf } from '../chat/tools'
 import { chatAccount, conversationKey } from '../chat/store'
 import type { ChatRunRecord } from '../chat/transcript'
-import { clientFor, priceOf } from '../fishid/claude'
+import { clientFor, DEFAULT_MODEL, priceOf } from '../fishid/claude'
 import { classify, isApiError, type KeyEntry } from '../fishid/keys'
 import type { Source } from '../chat/handbook'
 import { handle } from '../index'
@@ -292,6 +292,16 @@ test('the chat\'s model in wrangler.jsonc is Haiku 5.5, with its own price; unse
   expect(chatWorstCost(model!)).toBeLessThan(chatWorstCost('claude-opus-5-5'))
 })
 
+test('the chat\'s models each have a row naming the switch that turns their thinking off, or this fails: a switch a model refuses fails its first line unseen', () => {
+  // Changing the chat's model means asking the API which switch the new one takes (15 Nov: Haiku 5.5 `disabled`,
+  // Sonnet 5.5 `between_tools`, Opus 5.5 none, as it always thinks) and giving it its row in NO_THINKING.
+  const wrangler = readFileSync(new URL('../../wrangler.jsonc', import.meta.url).pathname, 'utf8')
+  const model = /"CHAT_MODEL": "([^"]+)"/.exec(wrangler)![1]!
+  for (const m of [model, DEFAULT_MODEL]) expect(NO_THINKING[m], `${m}: which thinking switch does the API take from it?`).toBeDefined()
+  expect(NO_THINKING[model]!.thinking).toEqual({ type: 'disabled' })
+  expect(NO_THINKING[DEFAULT_MODEL]).toEqual({ effort: 'low', room: 1_024 })
+})
+
 test('deleting an account deletes its conversations, their transcripts and retries\' answers, every page of them, and no one else\'s', async () => {
   // Listed a key at a time: deletion follows the list's cursor to its end.
   const { e, db, store } = env({}, 1)
@@ -538,6 +548,59 @@ test('the stream: the text in pieces as Claude writes it, after every step and b
   const plain = claude(NEON)
   await run(ask(bearer(me.token), { conversation: '9f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913' }), e, deps(plain.fetch))
   expect(plain.bodies.map(b => b.stream)).toEqual([undefined, undefined])
+})
+
+test('the stream: a reader still there gets the longer turn\'s calls; one who leaves has 26 s from when they went, and their answer is kept; a JSON answer has the usual limits', async () => {
+  const { e, db, store } = env()
+  const me = await signIn(db)
+  let offset = 0
+  // The test's own clock, which only the calls move. Read off the wall as well, it counted each call's real time against
+  // the run's limits, and on 14 Nov a loaded machine stopped the JSON answer on 'time' at its fourth call.
+  const at = Date.now()
+  const clock = () => at + offset
+  /** A Claude that searches until it may only answer, each call 2.5 s: every search a step sent, as a reader there sees it. */
+  const slow = (ms = 0) => {
+    const bodies: Record<string, unknown>[] = []
+    const fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
+      const b = await new Request(input, init).json() as Record<string, unknown>
+      bodies.push(b)
+      offset += 2_500
+      if (ms) await new Promise(r => setTimeout(r, ms))
+      const r = (b.tool_choice as { type: string }).type === 'none' ? answers({})
+        : msg([{ type: 'thinking', thinking: '', signature: `s${seq}` }, { type: 'tool_use', id: `t${seq}`, name: 'search_handbook', input: { query: `neon ${bodies.length}`, kind: null } }], 'tool_use')
+      return b.stream ? streamOf(r) : r
+    }) as typeof globalThis.fetch
+    return { fetch, bodies }
+  }
+  const recordOf = (conversation: string) => [...store.m.keys()].filter(k => k.startsWith('chat-run/')).map(k => store.read<ChatRunRecord>(k)!).find(r => r.conversation === conversation)!
+  // There all along: every step it is sent lands, so the turn's 10 calls are what end it, not the time.
+  const there = slow()
+  const thereWaits: Promise<unknown>[] = []
+  const thereReq = ask(bearer(me.token), {}, { accept: 'text/event-stream' })
+  const read = (await chat(thereReq, new URL(thereReq.url), e, new Date(), deps(there.fetch, { clock }), p => { thereWaits.push(p) })).text()
+  await Promise.all(thereWaits)
+  await read
+  expect(recordOf(CONV).agent).toMatchObject({ calls: 10, stopped: 'calls' })
+  expect(recordOf(CONV).timing!.seen).toBeGreaterThanOrEqual(recordOf(CONV).timing!.answered!)
+  // Gone at once: 26 s from then (the platform's 30 less the save's 4), the pace's rule forces the answer at the 4th call;
+  // the turn is kept for their return.
+  offset = 0
+  const gone = slow()
+  const id = '7a1c2a52-8d3e-4b7a-9c41-2e5d7f80b913'
+  const waits: Promise<unknown>[] = []
+  const req = ask(bearer(me.token), { conversation: id }, { accept: 'text/event-stream' })
+  const res = await chat(req, new URL(req.url), e, new Date(), deps(gone.fetch, { clock }), p => { waits.push(p) })
+  await res.body!.cancel()
+  await Promise.all(waits)
+  expect(recordOf(id).agent).toMatchObject({ calls: 4, stopped: 'time' })
+  expect(recordOf(id).timing!.seen).toBeLessThan(recordOf(id).timing!.answered!)
+  expect(store.read<Conversation>(conversationKey(await chatAccount('k', me.id), id))!.turns).toHaveLength(1)
+  // The JSON answer has no reader to see: the usual 5 calls. Each call takes 100 ms of real time too, as on a loaded machine.
+  offset = 0
+  const plain = slow(100)
+  const other = '8b1c2a52-8d3e-4b7a-9c41-2e5d7f80b913'
+  await run(ask(bearer(me.token), { conversation: other }), e, deps(plain.fetch, { clock }))
+  expect(recordOf(other).agent).toMatchObject({ calls: 5, stopped: 'calls' })
 })
 
 test('the stream opens with the first line, before the first step; done and the transcript hold it, an off-topic answer takes it back; a JSON answer asks for none', async () => {

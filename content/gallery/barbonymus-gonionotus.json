@@ -2,30 +2,6 @@
   "id": "barbonymus-gonionotus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/390e8bc6206b01a5.webp",
-      "thumb": "https://media.aquatome.com/commons/390e8bc6206b01a5-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY 4.0",
-      "author": "Yung-Lun Lin",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barbonymus_gonionotus_-_Yung-Lun_Lin_-_586218900.jpeg",
-      "caption": "Cá mè vinh trưởng thành bơi trong bể chụp ảnh nhỏ",
-      "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/9e40373e7c83ba5a.webp",
-      "thumb": "https://media.aquatome.com/commons/9e40373e7c83ba5a-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY 4.0",
-      "author": "Yung-Lun Lin",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barbonymus_gonionotus_-_Yung-Lun_Lin_-_586219398.jpeg",
-      "caption": "Cá mè vinh ánh bạc nhìn nghiêng trong bể chụp ảnh",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/28650649.webp",
       "thumb": "https://media.aquatome.com/inaturalist/28650649-480.webp",
       "width": 1024,
@@ -38,14 +14,14 @@
       "kind": "group"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/447364349.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/447364349-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "chiuluan",
-      "sourceUrl": "https://www.inaturalist.org/photos/447364349",
-      "caption": "Cá mè vinh bơi trong nước xanh đục, nhìn rõ vảy",
+      "url": "https://media.aquatome.com/commons/390e8bc6206b01a5.webp",
+      "thumb": "https://media.aquatome.com/commons/390e8bc6206b01a5-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY 4.0",
+      "author": "Yung-Lun Lin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barbonymus_gonionotus_-_Yung-Lun_Lin_-_586218900.jpeg",
+      "caption": "Cá mè vinh trưởng thành bơi trong bể chụp ảnh nhỏ",
       "best": true,
       "kind": "other"
     },
@@ -62,6 +38,30 @@
       "kind": "group"
     },
     {
+      "url": "https://media.aquatome.com/commons/9e40373e7c83ba5a.webp",
+      "thumb": "https://media.aquatome.com/commons/9e40373e7c83ba5a-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY 4.0",
+      "author": "Yung-Lun Lin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barbonymus_gonionotus_-_Yung-Lun_Lin_-_586219398.jpeg",
+      "caption": "Cá mè vinh ánh bạc nhìn nghiêng trong bể chụp ảnh",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/447364349.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/447364349-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "chiuluan",
+      "sourceUrl": "https://www.inaturalist.org/photos/447364349",
+      "caption": "Cá mè vinh bơi trong nước xanh đục, nhìn rõ vảy",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/188272507.webp",
       "thumb": "https://media.aquatome.com/inaturalist/188272507-480.webp",
       "width": 1024,
@@ -72,6 +72,18 @@
       "caption": "Đàn cá mè vinh bơi trong bể kính lớn",
       "best": true,
       "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/253784334.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/253784334-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Lee Ismail",
+      "sourceUrl": "https://www.inaturalist.org/photos/253784334",
+      "caption": "Cá mè vinh bơi trong nước đục ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/188272533.webp",
@@ -94,18 +106,6 @@
       "author": "Andreas Christian Yudhistira",
       "sourceUrl": "https://www.inaturalist.org/photos/255766487",
       "caption": "Cá mè vinh nổi lên mặt nước xanh đục",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/253784334.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/253784334-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Lee Ismail",
-      "sourceUrl": "https://www.inaturalist.org/photos/253784334",
-      "caption": "Cá mè vinh bơi trong nước đục ngoài tự nhiên",
       "best": true,
       "kind": "habitat"
     }

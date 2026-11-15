@@ -13,6 +13,408 @@
     "guyana",
     "brazil"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "EC",
+        "PE",
+        "CO",
+        "GY",
+        "BR"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The flagtail prochilodus, Semaprochilodus insignis, is a large shoaling characin from Ecuador, Peru, Colombia, Guyana and Brazil.",
+          "countries": [
+            "EC",
+            "PE",
+            "CO",
+            "GY",
+            "BR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2352126,
+      "total": 395,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "BR",
+          340
+        ],
+        [
+          "PE",
+          34
+        ],
+        [
+          "BO",
+          9
+        ],
+        [
+          "CO",
+          7
+        ],
+        [
+          "GY",
+          2
+        ],
+        [
+          "VE",
+          2
+        ],
+        [
+          "EC",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -5.625,
+          5,
+          5
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          14,
+          14
+        ],
+        [
+          -73.125,
+          -4.21875,
+          13,
+          13
+        ],
+        [
+          -73.125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          0,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -68.90625,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -68.90625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -11.25,
+          2,
+          1
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -14.0625,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          -12.65625,
+          6,
+          1
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -14.0625,
+          2,
+          0
+        ],
+        [
+          -63.28125,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          22,
+          22
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          -63.28125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -4.21875,
+          17,
+          17
+        ],
+        [
+          -63.28125,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -8.4375,
+          4,
+          4
+        ],
+        [
+          -61.875,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -61.875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          -60.46875,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          200,
+          200
+        ],
+        [
+          -60.46875,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          8,
+          8
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -56.25,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -56.25,
+          -2.8125,
+          13,
+          13
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          20,
+          20
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -140,6 +542,16 @@
       "thumb": "https://media.aquatome.com/commons/6901d1bb9159c261-480.webp"
     },
     {
+      "url": "https://media.aquatome.com/commons/4717e5d8c15db3c6.webp",
+      "width": 960,
+      "height": 564,
+      "licence": "CC BY-SA 3.0 de",
+      "author": "Jutta234",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Prochilodus_insignis_-_Zoo_Frankfurt_1.jpg",
+      "caption": "Night characid",
+      "thumb": "https://media.aquatome.com/commons/4717e5d8c15db3c6-480.webp"
+    },
+    {
       "url": "https://media.aquatome.com/commons/2b50e431436937a9.webp",
       "width": 960,
       "height": 1280,
@@ -158,16 +570,6 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flagtail_Characin_from_the_Smithsonian%27s_National_Zoo.jpg",
       "caption": "Flagtail Characin from the Smithsonian's National Zoo and Conservation Biology Institute",
       "thumb": "https://media.aquatome.com/commons/b14a24f00b040199-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/4717e5d8c15db3c6.webp",
-      "width": 960,
-      "height": 564,
-      "licence": "CC BY-SA 3.0 de",
-      "author": "Jutta234",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Prochilodus_insignis_-_Zoo_Frankfurt_1.jpg",
-      "caption": "Night characid",
-      "thumb": "https://media.aquatome.com/commons/4717e5d8c15db3c6-480.webp"
     }
   ],
   "videos": [
