@@ -971,13 +971,20 @@ test('five held video guides say their one sentence plainly, in the Writing Lead
   }
 })
 
-// The chief of staff, 16 Nov 2026: the popeye guide said fish clinics exist in Hà Nội, TP.HCM and Đà Nẵng. Its one source
-// for that, a shop's page, names no clinic. The sentence goes by hand, the body is fixed so the topic writer keeps it, and
-// the page still says whom to ask when home treatment fails.
-test('the popeye guide names no clinic in a place, still says whom to ask, and is fixed by hand', () => {
-  const t = JSON.parse(readFileSync(fileURLToPath(new URL('../../../content/guides/aquatome-ca-bi-loi-mat-popeye-nguyen-nhan-cach-chua-va-phong/vi.json', import.meta.url)), 'utf8')) as Translation & Record<string, unknown>
-  const all = [t.name, t.body, ...(t.summary ?? []), ...(t.faq ?? []).flatMap(f => [f.q, f.a])].join('\n')
-  for (const s of ['phòng khám', 'Hà Nội', 'TP.HCM', 'Đà Nẵng', 'kính hiển vi']) expect(all, s).not.toContain(s)
-  expect(all).toContain('Bạn nên nhờ bác sĩ thú y có chữa cá, hoặc tiệm cá cảnh có người rành bệnh cá, xem giúp nếu gặp một trong các trường hợp sau:')
-  expect(t.bodyFixed).toBe(true)
+// The chief of staff, 16 Nov 2026: the popeye guide said fish clinics exist in Hà Nội, TP.HCM and Đà Nẵng, and to get help
+// after 3–5 days of home treatment. Its one source for both, a shop's page, names no clinic and reads as machine-written.
+// The clinic sentences and the day count go by hand, every language's body is fixed so the topic writers keep it, and the
+// page still says whom to ask and when.
+test('the popeye guide names no clinic in a place and no day count, still says whom to ask, and is fixed by hand', () => {
+  const read = (lang: string) => JSON.parse(readFileSync(fileURLToPath(new URL(`../../../content/guides/aquatome-ca-bi-loi-mat-popeye-nguyen-nhan-cach-chua-va-phong/${lang}.json`, import.meta.url)), 'utf8')) as Translation & Record<string, unknown>
+  for (const lang of ['vi', 'id', 'th', 'ms']) {
+    const t = read(lang)
+    const all = [t.name, t.body, ...(t.summary ?? []), ...(t.faq ?? []).flatMap(f => [f.q, f.a])].join('\n')
+    for (const s of ['phòng khám', 'Hà Nội', 'TP.HCM', 'Đà Nẵng', 'kính hiển vi']) expect(all, `${lang}: ${s}`).not.toContain(s)
+    expect(all, `${lang}: a day count`).not.toMatch(/3\s*[–-]\s*5\s*(?:ngày|hari|วัน)/u)
+    expect(t.bodyFixed, `${lang}: bodyFixed`).toBe(true)
+  }
+  const vi = read('vi').body ?? ''
+  expect(vi).toContain('Bạn nên nhờ bác sĩ thú y có chữa cá, hoặc tiệm cá cảnh có người rành bệnh cá, xem giúp nếu gặp một trong các trường hợp sau:')
+  expect(vi).toContain('<li>Chữa ở nhà mà cá không đỡ.</li>')
 })
