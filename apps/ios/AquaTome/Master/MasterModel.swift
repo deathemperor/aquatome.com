@@ -31,6 +31,15 @@ final class MasterModel {
   @ObservationIgnored private let endsIn = ProcessInfo.processInfo.arguments.firstIndex(of: "-master-ends-in")
     .flatMap { i in ProcessInfo.processInfo.arguments.dropFirst(i + 1).first.flatMap(TimeInterval.init) }
   #endif
+  /// How late the end may be noticed and still count as the app open at the end (the lamp sent back by itself): two
+  /// minutes; `-master-late-after <seconds>` in a flow.
+  @ObservationIgnored private let lateAfter: TimeInterval = {
+    #if DEBUG
+    let args = ProcessInfo.processInfo.arguments
+    if let i = args.firstIndex(of: "-master-late-after"), i + 1 < args.count, let s = TimeInterval(args[i + 1]) { return s }
+    #endif
+    return 120
+  }()
 
   private static let buttonKey = "master.button", runKey = "master.run"
 
@@ -147,7 +156,7 @@ final class MasterModel {
     sending = true
     defer { sending = false; watch() }
     let t = now()
-    let away = r.ended == nil && r.ends.map { t.timeIntervalSince($0) > 120 } == true
+    let away = r.ended == nil && r.ends.map { t.timeIntervalSince($0) > lateAfter } == true
     let endedBefore = r.ended
     if r.ended == nil { r.ended = t }
     // How each step that went left its outlet: one found back at the end was changed during the run.

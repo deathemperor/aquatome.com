@@ -100,6 +100,29 @@ final class MasterFlowTests: XCTestCase {
     XCTAssertTrue(element(app, "master-start").exists, "not ready")
   }
 
+  func testAnEndWhileTheAppWasClosedPutsThePlugsBackAndTheLampWaitsForTraLai() {
+    // Ends 15 s after the press; noticed more than 5 s late counts as the app away at the end (two minutes in the app).
+    let args = ["-master-ends-in", "15", "-master-late-after", "5"]
+    let app = launch(args)
+    make(app, end: "60", light: true)
+    tap(app, "master-start")
+    expect(app, "master-log", contains: "lamp on+white", timeout: 40)
+    XCTAssertTrue(element(app, "master-end").waitForExistence(timeout: 10), "not running")
+    // Closed before the end, opened well after it.
+    app.terminate()
+    RunLoop.current.run(until: Date().addingTimeInterval(20))
+    let again = launch(args, signIn: false, reset: false)
+    // The light's outlet back from the phone; the lamp waits, near it, for Trả lại.
+    expect(again, "master-log", contains: "switch_1 back on", timeout: 40)
+    expect(again, "master-problems", contains: "Đèn chưa về như cũ: đứng gần đèn rồi bấm Trả lại.", timeout: 20)
+    expect(again, "master-log", lacks: "lamp back")
+    shoot("not-given-back")
+    tap(again, "master-put-back")
+    expect(again, "master-log", contains: "lamp back off", timeout: 40)
+    XCTAssertTrue(element(again, "master-put-back").waitForNonExistence(timeout: 10), "Trả lại stayed")
+    XCTAssertFalse(element(again, "master-problems").exists, element(again, "master-problems").label)
+  }
+
   func testTurningOffAFilterAsksAgainNoHeaterAndDeletingTheButtonAsksOnce() {
     let app = launch()
     tap(app, "master-create")
@@ -111,6 +134,7 @@ final class MasterFlowTests: XCTestCase {
     tap(app, "master-step-Lọc")
     tap(app, "master-choice-Tắt")
     XCTAssertTrue(app.staticTexts["Tắt lọc trong lúc chạy nút?"].waitForExistence(timeout: 5), "no second ask")
+    shoot("second-ask")
     // iOS 27 shows it by the row, closed by a tap outside it ("Hủy" where iOS shows one).
     if app.buttons["Hủy"].firstMatch.exists { app.buttons["Hủy"].firstMatch.tap() } else { app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.12)).tap() }
     XCTAssertTrue(app.staticTexts["Tắt lọc trong lúc chạy nút?"].waitForNonExistence(timeout: 5), "the second ask stayed")
@@ -146,7 +170,10 @@ final class MasterFlowTests: XCTestCase {
     make(app, end: "120", shots: name)
     shoot("ready-\(name)")
     tap(app, "master-start")
+    // Its steps going out: "Đang gửi…" in Kết thúc's place (the lamp's two recordings take about eight seconds).
+    shoot("sending-\(name)")
     XCTAssertTrue(element(app, "master-left").waitForExistence(timeout: 20), "not running")
+    expect(app, "master-end", contains: "Kết thúc", timeout: 40)
     shoot("running-\(name)")
     tap(app, "master-end")
     XCTAssertTrue(element(app, "master-start").waitForExistence(timeout: 40), "not ready again")
@@ -214,9 +241,8 @@ final class MasterFlowTests: XCTestCase {
     app.descendants(matching: .any).matching(identifier: id).firstMatch
   }
 
-  /// Scrolled into the clear band between the navigation bar and the bars pinned to Đèn's bottom (its notice and write
-  /// bars; a tap on a button under them lands on them), toward its middle (as LightFlowTests' scrolledTo), then tapped
-  /// once it is enabled: "Kết thúc" waits while a start's steps are still going out.
+  /// Scrolled up, clear of the bars pinned to Đèn's bottom (its notice and write bars, the tab bar: a tap on a button
+  /// under them lands on them), then tapped once it is enabled: "Kết thúc" waits while a start's steps go out.
   private func tap(_ app: XCUIApplication, _ id: String, file: StaticString = #filePath, line: UInt = #line) {
     let e = element(app, id)
     XCTAssertTrue(e.waitForExistence(timeout: 10), "\(id) missing", file: file, line: line)
@@ -228,11 +254,12 @@ final class MasterFlowTests: XCTestCase {
     let third = window.height / 3
     for _ in 0..<12 {
       let f = e.frame
-      if e.isHittable, f.minY > top, f.maxY < bottom { break }
-      // The content moves about half again as far as the finger.
-      var dy = max(-third, min(third, ((top + bottom) / 2 - f.midY) / 1.5))
-      if abs(dy) < 40 { dy = dy < 0 ? -40 : 40 }
-      let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.97, dy: dy < 0 ? min(0.65, bottom / window.height) : 0.3))
+      // Clear of the bars at the bottom (one in a navigation bar, Xong, is above the band, and fine).
+      if e.isHittable, f.maxY < bottom { break }
+      // Up only, toward the band's middle (the content moves about half again as far as the finger): a drag down on a
+      // sheet closes it, as one did on Xong on 15 Nov.
+      let dy = min(-40, max(-third, ((top + bottom) / 2 - f.midY) / 1.5))
+      let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.97, dy: min(0.65, bottom / window.height)))
       from.press(forDuration: 0.05, thenDragTo: from.withOffset(CGVector(dx: 0, dy: dy)), withVelocity: .default, thenHoldForDuration: 0.2)
     }
     let enabled = XCTNSPredicateExpectation(predicate: NSPredicate(format: "isEnabled == true"), object: e)
