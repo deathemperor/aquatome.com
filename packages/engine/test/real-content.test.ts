@@ -510,6 +510,40 @@ test('two care facts a rewrite took whole are back with their general half, fixe
   expect(osphronemus.vi).not.toMatch(/xứ nóng/)
 })
 
+test('the care facts a product\'s sentence carried are back without the product, each in a part a person fixed', () => {
+  // 15 Nov 2026: the products-first cut took these sentences whole for naming a product; their care fact goes back in
+  // general words the same day (the chief of staff), fixed so the writer and the translator leave it.
+  const root = fileURLToPath(new URL('../../../content', import.meta.url))
+  const read = <T>(path: string) => JSON.parse(readFileSync(join(root, path), 'utf8')) as T
+  const part = (id: string, key: string, source: string) => {
+    const s = read<{ sections: { key: string; source: string; fixed?: boolean }[] }>(`species/${id}/entity.json`).sections.find(x => x.key === key && x.source === source)
+    return { fixed: s?.fixed, vi: read<{ sections: Record<string, string> }>(`species/${id}/vi.json`).sections[`${key}:${source}`] ?? '' }
+  }
+  const species: [string, string, RegExp][] = [
+    ['neocaridina-davidi', 'waterConditions', /San hô vụn giúp tăng KH\. Còn muốn tăng GH thì dùng khoáng bổ sung\./],
+    ['melanotaenia-praecox', 'waterConditions', /Muốn tăng GH thì dùng thêm khoáng bổ sung\./],
+    ['colomesus-asellus', 'beforeYouBuy', /rồi chờ hai tuần\. Sau đó, cho cá dùng một đợt thuốc tẩy giun theo hướng dẫn trên hộp, rồi chờ một tháng\. Cuối cùng/],
+  ]
+  for (const [id, key, said] of species) {
+    const x = part(id, key, 'aquariumcoop')
+    expect(x.fixed, id).toBe(true)
+    expect(x.vi, id).toMatch(said)
+  }
+  const guides: [string, RegExp][] = [
+    ['aquariumbreeder-how-to-remove-brown-algae-diatoms-in-freshwater-tanks', /Bạn có hai cách chính để tăng CO2:<\/p><ul><li>Châm CO2 bằng bình khí nén\.<\/li><li>Dùng cacbon nước\.<\/li><\/ul>/],
+    ['aquariumcoop-blogs-aquarium-55-gallon-fish', /Nếu GH thấp, hãy bổ sung khoáng để cá và cây luôn khỏe\./],
+    ['aquariumcoop-blogs-aquarium-algae-removal', /<li>Nếu nitrat dưới 20 ppm, bạn châm phân nước tổng hợp \(all-in-one\) cho đến khi nitrat trong nước lên 20 ppm\.<\/li>/],
+  ]
+  for (const [id, said] of guides) {
+    const t = read<{ body: string; bodyFixed?: boolean }>(`guides/${id}/vi.json`)
+    expect(t.bodyFixed, id).toBe(true)
+    expect(t.body, id).toMatch(said)
+  }
+  // None names the products the cut took them off for.
+  const all = [...species.map(([id, key]) => part(id, key, 'aquariumcoop').vi), ...guides.map(([id]) => read<{ body: string }>(`guides/${id}/vi.json`).body)].join(' ')
+  expect(all).not.toMatch(/Wonder Shell|Equilibrium|ParaCleanse|Flourish Excel|Easy Carbo|Easy Green/)
+})
+
 test('the tap-water fixes hold: Seachem Prime named at its dose, our note on water for lucky bamboo beside its source\'s, our chloramine note, artemia salt in grams', () => {
   const root = fileURLToPath(new URL('../../../content', import.meta.url))
   const read = <T>(path: string) => JSON.parse(readFileSync(join(root, path), 'utf8')) as T
