@@ -79,6 +79,26 @@ test('no page, fish summary or caption calls a fish "thài lài"', async () => {
   expect([...findings.map(f => `${f.page.path}: ${f.detail}`), ...left]).toEqual([])
 }, slow(300_000))
 
+// The owner, 2026-11-15, on a fiddler crab's page headed "Cá Austruca annulipes": an animal that isn't a fish is never
+// named as one. Not a fish: a shrimp or a snail, or an order that isn't a fish's (kind-words.ts isFish; the app's rule
+// too, agreed with the iOS Content Lead). A new page takes its kind's word (kind-words.ts plainName, since 14 Nov); a
+// page's name is kept once written, so one named before that keeps "Cá" until a person renames it (names.ts FISH_NAMES).
+// Indonesian and Malay "Ikan", Thai "ปลา", but for Thai's own names of a starfish (ปลาดาว) and a squid (ปลาหมึก).
+const FISH_WORD: Partial<Record<string, RegExp>> = { vi: /^cá(?![\p{L}\p{M}])/iu, id: /^ikan(?!\p{L})/iu, ms: /^ikan(?!\p{L})/iu, th: /^ปลา(?!ดาว|หมึก)/u }
+test('no page for an animal that isn\'t a fish names it a fish, in any language', () => {
+  const species = fileURLToPath(new URL('../../../content/species', import.meta.url))
+  const named = readdirSync(species).flatMap(id => {
+    const e = JSON.parse(readFileSync(join(species, id, 'entity.json'), 'utf8')) as { order?: string; group?: string }
+    if (!['shrimp', 'snails'].includes(e.group ?? '') && !(e.order && !/iformes$/.test(e.order))) return []
+    return Object.entries(FISH_WORD).flatMap(([lang, word]) => {
+      const file = join(species, id, `${lang}.json`)
+      const name = existsSync(file) ? (JSON.parse(readFileSync(file, 'utf8')) as Translation).name : undefined
+      return name && word!.test(name.normalize('NFC').trim()) ? [`${id} (${e.order ?? e.group}) ${lang}: ${name}`] : []
+    })
+  })
+  expect(named).toEqual([])
+})
+
 // The owner's names of 2026-11-11, each guarded (nameFixed) so a later source read keeps it: the eartheaters the trade
 // calls Hải Hồ (Geophagus, Satanoperca, Acarichthys heckelii; not Biotodoma or Gymnogeophagus, which no source calls so),
 // and the four fish once headed "thài lài".

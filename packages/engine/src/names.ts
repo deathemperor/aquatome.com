@@ -86,6 +86,10 @@ export const FISH_NAMES: readonly FishName[] = [
   // none for Asellus, which has no Vietnamese name in use: its scientific name, and the text's "rận nước" stays theirs.
   // Its own page says "Asellus", so a search for "rận nước" doesn't find it by its text (Astra, 13 Nov).
   { id: 'asellus-aquaticus', sci: 'Asellus aquaticus', was: 'Rận nước', name: 'Asellus aquaticus', slug: 'asellus-aquaticus', elsewhere: ['Rận nước'], own: 'Asellus' },
+  // The owner, 2026-11-15: a fiddler crab headed "Cá Austruca annulipes", a fish's word made before the kind words (14 Nov).
+  // "Cua vĩ cầm" is every fiddler crab and Gelasimus vocans' page: this one is the kind's name and its own, as keepers
+  // write a cory ("cá chuột sterbai"). The page's "Cua vĩ cầm" and "Cua càng vĩ cầm" stay among its other names.
+  { id: 'austruca-annulipes', sci: 'Austruca annulipes', was: 'Cá Austruca annulipes', name: 'Cua vĩ cầm annulipes', slug: 'cua-vi-cam-annulipes', drop: ['Cá Austruca annulipes'] },
 ]
 
 /** A row's names a page may not keep: those it drops or that are another's, in any form (the scientific name in brackets too). */
