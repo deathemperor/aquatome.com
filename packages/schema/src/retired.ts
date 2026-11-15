@@ -30,10 +30,9 @@ export const RETIRED_GUIDES: Readonly<Record<string, RetiredTo>> = {
   'glaser-en-32-all-the-rest-drought-in-singapore-and-malaysia': 'guides',
   'glaser-en-32-all-the-rest-guinea-import-arrived-en': fish('ladigesia-roloffi'),
   // The sheet's "forward": each one's lasting fact is on its fish's page now, under the dealer's name and the notice's
-  // address, fixed (the chief of staff, 14 Nov 2026), or was there already (Sturisoma's nose).
-  'glaser-en-10-catfishes-10a-catfishes-corydoras-co-corydoras-eques-c-sp-aff-armatus-and-corydoras-duplicareus-en': fish('corydoras-eques'),
+  // address, fixed (the chief of staff, 14 Nov 2026). The eques and Sturisoma notices stay on until a ruling on the lines
+  // no fish page has yet (C. armatus's name, the genus's name, which sex grows the Sturisoma nose).
   'glaser-en-03-bony-tongues-scleropages-jardinii-and-s-leichardti-en': fish('scleropages-leichardti'),
-  'glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-sturisoma-arrived-en': fish('sturisoma-nigrirostrum'),
   'glaser-en-18-toothcarps-killis-and-livebearers-limia-special-en': fish('limia-perugiae'),
   'glaser-en-fisharchive-hyphessobrycon-pyrrhonotus-juvenile': fish('hyphessobrycon-pyrrhonotus'),
   'glaser-en-general-cichla-ocellaris-x-melaniae-hybrid-2': fish('cichla-ocellaris'),
