@@ -300,6 +300,7 @@ private struct Destinations: ViewModifier {
         PageView(item: $0.item, url: handbook.url($0.item), at: $0.at).v2ClearOfTheFade().modifier(ClosesPost(posts: posts, always: false, own: true))
       }
       .navigationDestination(for: Browse.self) { BrowseView(browse: $0).v2ClearOfTheFade().modifier(ClosesPost(posts: posts, always: false)) }
+      .navigationDestination(for: ChipRoute.self) { ChipPage(shelf: $0.shelf).v2ClearOfTheFade().modifier(ClosesPost(posts: posts, always: false)) }
       .navigationDestination(for: VolumeTool.self) { TankVolumeView(query: $0.query).v2ClearOfTheFade().modifier(ClosesPost(posts: posts, always: false)) }
       .navigationDestination(for: FishIdRoute.self) { _ in FishIdView().v2ClearOfTheFade().modifier(ClosesPost(posts: posts, always: false)) }
       // Not clear of the fade: the chat hides the tab bar, and its box sits at the foot of the screen.

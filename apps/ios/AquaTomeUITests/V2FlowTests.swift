@@ -1411,6 +1411,26 @@ final class V2FlowTests: XCTestCase {
     }
   }
 
+  /// Every tab's title big at the left at rest (spec-titles.md), its left edge within 20 points of the screen's: Tìm first,
+  /// opened after a launch with animations on, where iOS drew it small and centred (10 Nov), its field shown at rest too.
+  func testEveryTabsTitleIsBigAtTheLeftAtRest() {
+    let app = launch("-v2", "YES")
+    app.launch()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    app.openTab("Tìm kiếm")
+    let tim = app.navigationBars.staticTexts["Tìm"].firstMatch
+    XCTAssertTrue(tim.waitForExistence(timeout: 5), "no title on Tìm")
+    XCTAssertLessThanOrEqual(tim.frame.minX, 20.5, "Tìm's title isn't big at the left: \(tim.frame)")
+    XCTAssertTrue(app.searchFields.firstMatch.isHittable, "no search field on Tìm at rest")
+    for tab in ["Hôm nay", "Khám phá", "Bể của tôi", "Đèn"] {
+      app.openTab(tab)
+      // Hôm nay's and Khám phá's in the page; the others iOS's, in the bar.
+      let title = tab == "Hôm nay" || tab == "Khám phá" ? app.scrollViews.staticTexts[tab].firstMatch : app.navigationBars.staticTexts[tab].firstMatch
+      XCTAssertTrue(title.waitForExistence(timeout: 5), "no title on \(tab)")
+      XCTAssertLessThanOrEqual(title.frame.minX, 20.5, "\(tab)'s title isn't at the left: \(title.frame)")
+    }
+  }
+
   /// A page pushed from Khám phá has iOS's bar, its back button named "Khám phá"; back by the edge swipe, Khám phá has no
   /// bar and is where it was (spec-titles.md: no bar flashing on the way back).
   func testBackFromAPageKhamPhaHasNoBarAndIsWhereItWas() {
@@ -1460,19 +1480,64 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(fish.isHittable, "a tap under the bar opened what's behind it")
   }
 
-  /// A group's tile says what its number counts ("474 loài"), not a bare number; so does its row at the largest text.
-  func testAGroupsTileSaysWhatItCounts() {
+  /// Khám phá's chips (Design's spec-chips.md): a row under the title, from its left edge, two or more whole at size L; the
+  /// Cá section's group tiles gone; scrolled 600 points, no chip left. At the largest text the row is there too.
+  func testKhamPhasChipsAreUnderItsTitleAndScrollAwayWithIt() {
     for size in [[], ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]] {
       let app = XCUIApplication()
       app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults", "-v2", "YES"] + size
       app.launchForFlow()
       app.openTab("Khám phá")
-      let tile = app.buttons.matching(NSPredicate(format: "label MATCHES %@", ".*[0-9]+ loài")).firstMatch
-      repeatUntil(tile.exists, times: 6) { app.swipeUp() }
-      XCTAssertTrue(tile.exists, "no group's tile with what it counts \(size)")
+      let title = app.scrollViews.staticTexts["Khám phá"].firstMatch, chips = app.buttons.matching(identifier: "v2-chip")
+      XCTAssertTrue(chips.firstMatch.waitForExistence(timeout: 5), "no chips on Khám phá \(size)")
+      let first = chips.firstMatch.frame
+      XCTAssertGreaterThan(first.minY, title.frame.maxY, "the chips aren't under the title \(size)")
+      XCTAssertEqual(first.minX, title.frame.minX, accuracy: 2, "the chips don't start at the title's left edge \(size)")
+      if size.isEmpty {
+        let whole = chips.allElementsBoundByIndex.filter { $0.frame.minX >= 0 && $0.frame.maxX <= app.frame.width }
+        XCTAssertGreaterThanOrEqual(whole.count, 2, "fewer than two whole chips on the screen")
+      }
+      XCTAssertFalse(app.buttons.matching(NSPredicate(format: "label MATCHES %@", ".*[0-9]+ loài")).firstMatch.exists, "a group's tile is still on Khám phá \(size)")
+      for _ in 0..<3 {
+        app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.8))
+          .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.57)), withVelocity: .slow, thenHoldForDuration: 0.3)
+      }
+      XCTAssertFalse(chips.allElementsBoundByIndex.contains { $0.isHittable }, "a chip stayed once scrolled \(size)")
       app.terminate()
     }
   }
+
+  /// What a chip opens (spec-chips.md): a group of one page and no guide, that page; one with a guide, a pushed page under
+  /// the chip's name with iOS's back button, a wide card (not the grid), then its guides and video guides; from six pages,
+  /// the grid.
+  func testAChipOpensItsGroupAsItsSizeSays() {
+    let app = launch("-v2", "YES", "-equipment")
+    app.launchForFlow()
+    app.openTab("Khám phá")
+    func chip(_ name: String) -> XCUIElement { app.buttons.matching(identifier: "v2-chip").matching(NSPredicate(format: "label BEGINSWITH %@", name)).firstMatch }
+    XCTAssertTrue(chip("Dĩa").waitForExistence(timeout: 5), "no Dĩa chip")
+    chip("Dĩa").tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "a group of one page didn't open it")
+    app.leavePage()
+    chip("Tetra").tap()
+    let page = app.descendants(matching: .any)["v2-chip-page"]
+    XCTAssertTrue(page.waitForExistence(timeout: 5), "the chip's page didn't open")
+    XCTAssertTrue(app.navigationBars["Tetra"].exists, "the chip's page isn't under its name")
+    XCTAssertTrue(app.pageBack.exists, "no back button on the chip's page")
+    XCTAssertTrue(app.staticTexts["1 trang · 1 bài viết"].exists, "the chip's page doesn't say what it holds")
+    XCTAssertFalse(app.descendants(matching: .any)["shelf-pages"].exists, "a group of one page in the grid")
+    XCTAssertTrue(app.staticTexts["Bài viết"].exists && app.staticTexts["Video"].exists, "no guides or video guides under the group")
+    app.leavePage()
+    // Along the row, at its own height, till the last chip is whole.
+    let many = chip("Cá thử"), y = many.frame.midY / app.frame.height
+    repeatUntil(many.frame.maxX <= app.frame.width, times: 4) {
+      app.coordinate(withNormalizedOffset: CGVector(dx: 0.8, dy: y))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.3, dy: y)), withVelocity: .slow, thenHoldForDuration: 0.2)
+    }
+    many.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["shelf-pages"].waitForExistence(timeout: 5), "a group of eight pages not in the grid")
+  }
+
 
   func testAPageReadIsOnOneShelfOfKhamPha() {
     let app = launch("-v2", "YES")
