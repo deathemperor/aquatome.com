@@ -1311,19 +1311,36 @@ test("an email address goes from a page's text, and from every field of every fi
     id: 'a-fish',
     sections: [{ key: 'notes', html: '<p>Write to the author (someone@example.org).</p>' }],
     videos: [{ youtubeId: 'x', title: 'Wild bettas (fishroom@example.com)' }, { youtubeId: 'y', title: 'Bettas 1080p@60fps.MOV' }],
-    photos: [{ url: 'https://user@example.net/ca@2x.PNG', caption: 'Ảnh của someone@example.org' }],
+    photos: [{ url: 'https://user@example.net/ca@2x.PNG', caption: 'Ảnh của someone@example.org' }, { url: 'https://example.net/b.webp', author: 'someone@example.org' }],
   }, 4)
-  await put('captions/id.json', { 'Ảnh của someone@example.org': 'Foto' })
+  await put('captions/id.json', { 'Ảnh của someone@example.org': 'Foto', 'Ảnh của x@example.net': 'Foto 2' })
   await put('places/a/vi.json', { name: 'Nơi', note: 'Giá 50k @ tiệm, theo @seriouslyfish' })
   const untouched = await readFile(join(c, 'places/a/vi.json'), 'utf8')
-  expect(await dropEmailsEverywhere(c)).toEqual(['captions/id.json', 'species/a-fish/entity.json'])
+  // A field the cut leaves empty, and two keys it makes one, are listed for a person, an address's key by its place.
+  expect(await dropEmailsEverywhere(c)).toEqual({
+    files: ['captions/id.json', 'species/a-fish/entity.json'],
+    emptied: ['captions/id.json (top) (two keys made one)', 'species/a-fish/entity.json photos[1].author'],
+  })
   const raw = await readFile(join(c, 'species/a-fish/entity.json'), 'utf8')
   expect(raw.startsWith('{\n    "id"'), 'its indentation').toBe(true)
   const e = JSON.parse(raw)
   expect(e.sections[0].html).toBe('<p>Write to the author.</p>')
   expect(e.videos.map((v: { title: string }) => v.title)).toEqual(['Wild bettas', 'Bettas 1080p@60fps.MOV'])
-  expect(e.photos[0]).toEqual({ url: 'https://user@example.net/ca@2x.PNG', caption: 'Ảnh của' })
-  expect(JSON.parse(await readFile(join(c, 'captions/id.json'), 'utf8'))).toEqual({ 'Ảnh của': 'Foto' })
+  expect(e.photos).toEqual([{ url: 'https://user@example.net/ca@2x.PNG', caption: 'Ảnh của' }, { url: 'https://example.net/b.webp', author: '' }])
+  expect(JSON.parse(await readFile(join(c, 'captions/id.json'), 'utf8'))).toEqual({ 'Ảnh của': 'Foto 2' })
   expect(await readFile(join(c, 'places/a/vi.json'), 'utf8')).toBe(untouched)
-  expect(await dropEmailsEverywhere(c)).toEqual([])
+  expect(await dropEmailsEverywhere(c)).toEqual({ files: [], emptied: [] })
+})
+
+// The sweep runs the cut last, over what every other step wrote (the second reader of #1476: no test held the call).
+test('the sweep itself cuts an address from a file no other step writes, lists it, and leaves it the second time', async () => {
+  const root = await store()
+  const file = join(root, 'content/species/corydoras-sterbai/entity.json')
+  const e = JSON.parse(await readFile(file, 'utf8'))
+  await writeFile(file, `${JSON.stringify({ ...e, videos: [{ youtubeId: 'v', title: 'Corys at home (someone@example.org)', durationSec: 60, lang: 'en' }] }, null, 2)}\n`)
+  const r = await sweep(root)
+  expect(r.text['emails']).toContain('species/corydoras-sterbai/entity')
+  expect(r.files).toContain('species/corydoras-sterbai/entity.json')
+  expect((await json(root, 'content/species/corydoras-sterbai/entity.json')).videos[0].title).toBe('Corys at home')
+  expect((await sweep(root)).text['emails']).toBeUndefined()
 })

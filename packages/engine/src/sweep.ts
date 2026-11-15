@@ -366,10 +366,22 @@ export async function renameCaptions(content: string, rows: readonly FishName[] 
 /**
  * An email address anywhere under content/, in any file and field the steps above don't write (a fish page's source text, a
  * photo's caption or credit, a video's title, a place, a name or a question): cut (dropEmailsDeep), so every hit the
- * real-content test can have is one the cycle mends. A file with no "@" is not parsed. The files changed.
+ * real-content test can have is one the cycle mends. A file with no "@" is not parsed. The files changed, and where a cut
+ * left a field empty or made two keys one (`file field`, an address's key by its place), for a person to read.
  */
-export async function dropEmailsEverywhere(content: string): Promise<string[]> {
-  const changed: string[] = []
+export async function dropEmailsEverywhere(content: string): Promise<{ files: string[]; emptied: string[] }> {
+  const changed: string[] = [], emptied: string[] = []
+  const lost = (a: unknown, b: unknown, at: string, file: string): void => {
+    if (typeof a === 'string') { if (a.trim() && typeof b === 'string' && !b.trim()) emptied.push(`${file} ${at || '(text)'}`); return }
+    if (Array.isArray(a) && Array.isArray(b)) { a.forEach((v, i) => lost(v, b[i], `${at}[${i}]`, file)); return }
+    if (!a || typeof a !== 'object' || !b || typeof b !== 'object') return
+    const keys = Object.keys(a)
+    if (Object.keys(b).length < keys.length) emptied.push(`${file} ${at || '(top)'} (two keys made one)`)
+    keys.forEach((k, i) => {
+      const name = hasEmail(k) ? `(key ${i + 1})` : k
+      lost((a as Record<string, unknown>)[k], (b as Record<string, unknown>)[dropEmails(k)], at ? `${at}.${name}` : name, file)
+    })
+  }
   const files = (await readdir(content, { recursive: true })).filter(f => f.endsWith('.json')).sort()
   // About 29,000 files: read 64 at a time, as a file read one after another costs a minute on a busy machine.
   const hits: { f: string; raw: string }[] = []
@@ -383,10 +395,11 @@ export async function dropEmailsEverywhere(content: string): Promise<string[]> {
     const data = JSON.parse(raw) as unknown
     const out = dropEmailsDeep(data)
     if (JSON.stringify(out) === JSON.stringify(data)) continue
+    lost(data, out, '', f)
     await write(join(content, f), raw, out)
     changed.push(f)
   }
-  return changed
+  return { files: changed, emptied }
 }
 
 /** A page's Vietnamese text a reader reads, each string through `fn`, never its names, address or sources: whether it changed. */
@@ -1282,10 +1295,12 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   report.albums = albums.leads
   report.noAnimal = await noAnimalHeads(root, o.today ?? vnDate(new Date()))
   // Last, after every step that writes a file: an email address left in any of them.
-  for (const f of await dropEmailsEverywhere(content)) {
+  const emails = await dropEmailsEverywhere(content)
+  for (const f of emails.files) {
     changed(f)
     ;(report.text['emails'] ??= []).push(f.replace(/\.json$/, ''))
   }
+  if (emails.emptied.length) report.text['emails-emptied'] = emails.emptied
   return report
 }
 

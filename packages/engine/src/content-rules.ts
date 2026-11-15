@@ -518,14 +518,16 @@ export const dropThanks = (html: string) => (/cảm ơn|cám ơn|terima kasih|pe
  * file's extension, any case, is no address's end. Before the "@", Latin letters with their accents, digits and "._%+-",
  * as videos.ts reads a video's title: Thai and Chinese run their words together, and a wider class would take the words
  * beside an address with it. An address ends where no letter, digit or further part follows ("logo@2x.min.js" is a
- * file), and a link's user ("https://user@host") is no person's address.
+ * file), and a link's user ("https://user@host", "https://user:pass@host") is no person's address. Each part is held to an
+ * address's own limits (64 letters before the "@", 63 a part), and a match starts only where an address can, so no
+ * string, however long, makes it slow: the sweep reads every file each cycle.
  */
-const LETTER = String.raw`\p{Script=Latin}\p{Nd}̀-ͯ`
-const FILE = 'asf|avi|avif|bmp|css|dng|flv|gif|heic|ico|jpe?g|js|m4a|mkv|mov|mp3|mp4|mpe?g|mts|mxf|ogg|ogv|pdf|png|raw|rmvb|svg|tiff?|ts|vob|wav|webm|webp|wmv|zip'
-const EMAIL = String.raw`(?<![${LETTER}._%+-]|\/\/)(?:mailto:)?[${LETTER}._%+-]+(?:['’&=][${LETTER}._%+-]+)*@[${LETTER}-]+(?:\.[${LETTER}-]+)*\.(?!(?:${FILE})(?![\p{L}\p{N}\p{M}]))\p{Script=Latin}{2,}(?![\p{Script=Latin}\p{N}\p{M}]|\.[${LETTER}])`
+const LETTER = String.raw`\p{Script=Latin}\p{Nd}\u0300-\u036f`
+const FILE = '3gp|asf|avi|avif|bmp|css|dng|flv|gif|heic|heif|ico|jfif|jpe?g|js|m2ts|m4a|m4v|mkv|mov|mp3|mp4|mpe?g|mts|mxf|ogg|ogv|pdf|png|raw|rmvb|svg|tiff?|ts|vob|wav|webm|webp|wmv|zip'
+const EMAIL = String.raw`(?<![${LETTER}._%+-])(?<!\/\/[^\s/@]{0,64})(?:mailto:)?[${LETTER}._%+-]{1,64}(?:['’&=][${LETTER}._%+-]{1,64}){0,3}@[${LETTER}-]{1,63}(?:\.[${LETTER}-]{1,63}){0,8}\.(?!(?:${FILE})(?![\p{L}\p{N}\p{M}]))\p{Script=Latin}{2,24}(?![\p{Script=Latin}\p{N}\p{M}]|\.[${LETTER}])`
 const ANY_EMAIL = new RegExp(EMAIL, 'iu')
-const BRACKETED_EMAIL = new RegExp(String.raw`\s*(?:\(|\[|&lt;|<)\s*${EMAIL}\s*(?:\)|\]|&gt;|>)`, 'giu')
-const BARE_EMAIL = new RegExp(String.raw`\s*${EMAIL}`, 'giu')
+const BRACKETED_EMAIL = new RegExp(String.raw`(?<!\s)\s*(?:\(|\[|&lt;|<)\s*${EMAIL}\s*(?:\)|\]|&gt;|>)`, 'giu')
+const BARE_EMAIL = new RegExp(String.raw`(?<!\s)\s*${EMAIL}`, 'giu')
 const MAILTO_LINK = /<a\b[^>]*\bhref\s*=\s*["']mailto:[^"']*["'][^>]*>([\s\S]*?)<\/a>/giu
 export const hasEmail = (text: string) => text.includes('@') && ANY_EMAIL.test(text)
 /**

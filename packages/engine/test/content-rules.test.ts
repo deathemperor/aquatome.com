@@ -561,11 +561,16 @@ test('an email address goes from a page\'s text with its brackets, a link to one
     expect(hasEmail(text), text).toBe(true)
     expect(hasEmail(dropEmails(text)), text).toBe(false)
   }
-  // A file with no "@" is read in no time: the sweep reads every file each cycle.
-  const long = 'a'.repeat(1_000_000)
-  const t0 = performance.now()
-  expect(hasEmail(long)).toBe(false)
-  expect(performance.now() - t0).toBeLessThan(50)
+  // No string makes it slow: the sweep reads every file each cycle. Each of these took seconds before its parts were
+  // bounded (the second reader of #1476): a long word, separators in a row, a long run of spaces beside an address.
+  for (const slow of ['a'.repeat(1_000_000), `${'a='.repeat(80_000)}@`, `${'a'.repeat(100_000)}@example.org`, `x${' '.repeat(100_000)}y someone@example.org`, `${'a.'.repeat(50_000)}@b`]) {
+    const t0 = performance.now()
+    dropEmails(slow)
+    expect(performance.now() - t0, `${slow.slice(0, 6)}… (${slow.length})`).toBeLessThan(500)
+  }
+  // A link's user and password, and a "@" after an address's own limit, are no address.
+  for (const keep of ['https://u:p@example.com/x', `${'a'.repeat(65)}@example.org`]) expect(hasEmail(keep), keep.slice(0, 30)).toBe(false)
+  for (const keep of ['pic@2x.heif', 'clip@1x.M4V', 'cam@2x.jfif']) expect(dropEmails(keep), keep).toBe(keep)
 })
 
 test('every string of a stored file loses its addresses, its keys too; its shape stays', () => {
