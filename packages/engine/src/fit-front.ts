@@ -60,15 +60,22 @@ export function laneFirst<P extends { lang: string; kind: string; id: string }>(
 /**
  * What a `--front` rewrite runs (the chief of staff, 14 Nov 2026: "The hold covers the front list's pages only"): with the
  * lane open, its pages first, then the front list's in their order unless it's held, then the rest; with it shut, as before
- * the lane, nothing while held. `lane`: the lane's keys, whose outcomes never make a run the one on file.
+ * the lane, nothing while held. With `products` on, the pages `product` names (a foreign product or medicine on them, the
+ * owner's complaint) share the front with the lane, one for one, ahead of every other page (the chief of staff, 14 Nov
+ * 2026). `lane`: the lane's keys, whose outcomes never make a run the one on file; `mend`: the pages mended sentence by
+ * sentence, a guide too (fit-rewrite.ts): the lane's and those.
  */
-export function frontPlan<P extends { lang: string; kind: string; id: string }>(list: { cleared: boolean | string; lane: boolean; front: readonly string[] }, last: FirstRun | undefined, ranked: readonly P[], held: ReadonlyMap<string, HeldMark>) {
+export function frontPlan<P extends { lang: string; kind: string; id: string }>(list: { cleared: boolean | string; lane: boolean; products?: boolean; front: readonly string[] }, last: FirstRun | undefined, ranked: readonly P[], held: ReadonlyMap<string, HeldMark>, product: (p: P) => boolean = () => false) {
   const isHeld = frontHeld(list, last)
   const lane = list.lane ? laneFirst(ranked, held) : []
   const inLane = new Set(lane.map(keyOf))
   const front = new Set(list.front)
-  const rest = isHeld && !list.lane ? [] : orderFront(list, ranked).filter(p => !inLane.has(keyOf(p)) && !(isHeld && front.has(keyOf(p))))
-  return { held: isHeld, order: [...lane, ...rest], lane: inLane }
+  const waits = (p: P) => isHeld && front.has(keyOf(p))
+  const products = list.lane && list.products ? ranked.filter(p => product(p) && !inLane.has(keyOf(p)) && !waits(p)) : []
+  const first = new Set([...inLane, ...products.map(keyOf)])
+  const shared = Array.from({ length: Math.max(lane.length, products.length) }, (_, i) => [lane[i], products[i]]).flat().filter((p): p is P => !!p)
+  const rest = isHeld && !list.lane ? [] : orderFront(list, ranked).filter(p => !first.has(keyOf(p)) && !waits(p))
+  return { held: isHeld, order: [...shared, ...rest], lane: inLane, mend: first }
 }
 
 /** The run's outcomes without the lane's pages: what goes on file as the run the hold waits on. */
