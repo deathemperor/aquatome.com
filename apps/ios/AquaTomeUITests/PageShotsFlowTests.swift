@@ -17,7 +17,7 @@ import XCTest
 /// day's page and Khám phá, light, dark and at the largest text, and in Malay. The lights tab top to
 /// bottom (its Week Aqua row on the first screen) and the Week Aqua screen with the simulator's group connected
 /// (`-fake-weekaqua`), in v2, light and dark.
-/// Each checks only that its screen opened:
+/// Each checks only that its screen opened (the chat's parity shot also measures "Thu gọn", as its section flow does):
 /// what it shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
@@ -137,6 +137,7 @@ final class PageShotsFlowTests: XCTestCase {
     page.tap()
     XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 10), "the card's page didn't open")
     app.leavePage()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForNonExistence(timeout: 5), "the card's page stayed")
     XCTAssertTrue(page.waitForExistence(timeout: 5), "not back in the chat")
     shot("02-back-in-the-chat")
     // Then the long section, below the comparison: opened, with its "Thu gọn" in view and measured.

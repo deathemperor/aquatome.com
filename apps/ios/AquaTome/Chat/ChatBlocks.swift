@@ -161,7 +161,9 @@ private struct SpeciesBlock: View {
       let header = own && large ? AnyLayout(VStackLayout(alignment: .leading, spacing: 12)) : AnyLayout(HStackLayout(spacing: 12))
       header {
         if own, let img = card.page.img {
+          // Touched only inside its frame, as the band's photo (BandImage).
           V2Photo(src: img.absoluteString, box: handbook.box(of: card.page)).frame(width: large ? 120 : 64, height: large ? 90 : 48).clipShape(.rect(cornerRadius: 10))
+            .contentShape(.rect(cornerRadius: 10))
             .accessibilityHidden(true)
         }
         VStack(alignment: .leading, spacing: own ? 0 : 1) {

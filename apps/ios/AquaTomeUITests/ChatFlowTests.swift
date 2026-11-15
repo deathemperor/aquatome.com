@@ -639,6 +639,7 @@ final class ChatFlowTests: XCTestCase {
     section.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
     let close = app.buttons["Thu gọn"]
     XCTAssertTrue(close.waitForExistence(timeout: 5), "didn't open")
+    XCTAssertGreaterThanOrEqual(close.frame.height, 44, "Thu gọn under 44 pt to tap")
     XCTAssertEqual(section.frame.minY, top, accuracy: 2, "the view moved as the section opened")
     XCTAssertTrue(drawn(firstLine), "opened, and its text never reached the screen")
     let left = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH 'còn tiếp:'")).firstMatch
