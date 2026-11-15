@@ -125,93 +125,81 @@
   ],
   "vi/glossary/ph": [
     {
-      "at": "2026-11-14T21:49:51Z",
+      "at": "2026-11-15T03:09:26Z",
       "model": "sonnet",
       "cli": "2.1.323",
       "score": 1,
       "notes": [
         "Loose, left as written (not placeable): \"Làm pH lên: san hô, đá vôi, vỏ ốc, sỏi ba màu trộn vỏ ốc, cát muối tiêu, đá trắng như đá tai mèo, sục khí mạnh, baking soda.\"",
-        "Loose, reworded: \"Bể đã ổn định thì giữ pH đều quan trọng hơn chạy theo một con số chính xác.\" → \"Bể đã ổn định thì không cần quá bận tâm đến con số pH chính xác.\" (supported)",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Trước khi set bể, đo pH nước máy hoặc nước giếng xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\" (not \"Trước khi set bể, đo pH nước máy xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\": Rule 12: \"Trước khi set bể, đo pH…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Nước nguồn pH 8 thì mới đáng chỉnh.\" (not \"Nếu nước nguồn pH 8 thì dùng axit có thể giúp được.\": Rule 12: \"Nếu nước nguồn pH 8 thì dùng axit có thể giúp được.\" Under THIS TERM, the entry must not mention acid anywhere, and this line should read \"Nước nguồn pH 8 thì mới đáng chỉnh.\" as it was. The word \"ax…"
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Trước khi set bể, đo pH nước máy hoặc nước giếng xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\" (not \"Trước khi set bể, đo pH nước máy xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\": Rule 12: \"đo pH nước máy xem có h…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,5 đơn vị, rồi đo lại.\" (not \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,2 đơn vị.\": Rule 12: \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,2 đơn vị.\" gives the wrong pace. THIS TERM says to raise pH gradually, no more th…"
       ],
       "attempt": "rewrite",
       "kept": true
     },
     {
-      "at": "2026-11-14T21:49:51Z",
+      "at": "2026-11-15T03:09:26Z",
       "model": "sonnet",
       "cli": "2.1.323",
-      "score": 1,
+      "score": 0.98,
       "notes": [
-        "Rule 12: \"Nước nguồn pH 8 thì dùng axit có thể giúp được.\" brings in acid. The term line says no acid anywhere in the entry and asks for the sentence as it was: \"Nước nguồn pH 8 thì mới đáng chỉnh.\"",
-        "Rule 12: \"axit humic\" in \"Làm pH xuống: than bùn (peat), axit humic, CO2, ...\" names an acid as a way to lower pH, but the term line says no acid anywhere in this entry.",
-        "Rule 12: the definition never says that keeping pH steady matters more than the exact number. The term line asks for this in the meaning.",
-        "Rule 12: \"Có loài cá cần pH khá đúng khoảng, có loài chịu được khoảng rộng\" uses the banned \"có loài… có loài…\" pattern. It should give the examples from the facts: cá neon vua (cardinal tetra) lives in water below pH 5.5, and the Rift Lake cichlids prefer pH 8.0–9.0.",
-        "Rule 12: \"đo pH nước máy xem có hợp với loài định nuôi không\" names only tap water. The term line asks for \"nước máy hoặc nước giếng\".",
-        "Rule 12: \"Thay nước một phần đều đặn để bổ sung khoáng đệm pH\" is less specific than the facts. The term line asks for about 20–30% of the water changed weekly with treated, tested water.",
-        "Rule 12: \"Dưới 7,3 thì phần nhiều hơn của nó ở dạng amoni NH4+ ít hại hơn\" uses the banned \"phần nhiều hơn của nó\". It should read \"Dưới 7,3 thì dạng amoni NH4+ ít hại hơn chiếm nhiều hơn\".",
-        "Rule 1: \"thêm baking soda, đá vôi, san hô vụn hoặc vỏ sò\" advises coral, but the same item then warns \"San hô làm tăng cả GH và TDS, sau này khó kiểm soát\", which the facts list as a mistake. The two statements contradict each other."
+        "\"Cá neon vua sống ở nước dưới pH 5,5, còn cichlid hồ châu Phi ưa pH 8,0–9,0.\": the facts don't carry it (unsupported, supported, supported, unsupported, unsupported, unsupported): drops 'from the Rio Negro' qualifier on cardinal tetras / Drops the 'from the Rio Negro' qualifier, so a claim about wild cardinals in their native water reads as true of all cardinal tetras. / Drops 'from the Rio Negro…",
+        "Rule 12: The log-scale line \"Thang pH là thang logarit, mỗi nấc cách nhau 10 lần.\" is missing the worked example that THIS TERM requires. It should read \"Mỗi nấc cách nhau 10 lần, tức là pH 4,0 chua gấp 10 lần pH 5,0 và gấp 100 lần pH 6,0.\" A trim for length must never take this example out."
       ],
       "attempt": "rewrite",
       "kept": false
     },
     {
-      "at": "2026-11-14T18:52:20Z",
+      "at": "2026-11-14T22:29:58Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Trước khi set bể, đo pH nước máy hoặc nước giếng xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\" (not \"Khi set bể, trước hết đo pH nước máy xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\": Rule 12: \"Khi set bể, trước h…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,5 đơn vị, rồi đo lại.\" (not \"Dùng thứ nào thì cũng nâng pH từ từ, tránh thay đổi đột ngột.\": Rules 4 and 12: \"Dùng thứ nào thì cũng nâng pH từ từ, tránh thay đổi đột ngột.\" The phrase \"tránh thay đổi đột ngột\" repeats the warning about sudden chang…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-14T22:29:58Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Rule 12: The mistakes list has \"Chỉnh pH quá nhanh. Muốn đổi pH thì đổi chậm để cá và cây không bị sốc, và luôn giữ pH trong khoảng loài đó chịu được.\" but leaves out the fish-care page's caution \"pH đổi đột ngột có thể làm cá chết.\" THIS TERM says that line must stay with \"Chỉnh pH quá nhanh.\"",
+        "The entry is 606 words: hold it to about 600, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-14T22:20:46Z",
       "model": "sonnet",
       "cli": "2.1.323",
       "score": 1,
       "notes": [
         "Loose, left as written (not placeable): \"Làm pH lên: san hô, đá vôi, vỏ ốc, sỏi ba màu trộn vỏ ốc, cát muối tiêu, đá trắng như đá tai mèo, sục khí mạnh, baking soda.\"",
-        "Loose, reworded: \"Mỗi loài cá hợp một khoảng pH riêng, và pH còn quyết định amoniac trong bể độc đến đâu, nên cần đo định kỳ.\" → \"Có loài cá cần pH khá đúng khoảng, có loài chịu được khoảng rộng, và pH còn ảnh hưởng đến mức độc của amoniac trong bể.\" (supported)",
-        "Loose, reworded: \"Dưới 7,3 thì nó chủ yếu ở dạng amoni NH4+ ít hại hơn.\" → \"Dưới 7,3 thì phần nhiều hơn của nó ở dạng amoni NH4+ ít hại hơn.\" (supported)",
-        "Loose, reworded: \"Trước khi set bể, đo pH nước máy hoặc nước giếng xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\" → \"Trước khi set bể, đo pH nước máy xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\" (supported)",
-        "Loose, reworded: \"Thay nước một phần đều đặn để bổ sung khoáng đệm, chẳng hạn 20–30% mỗi tuần bằng nước đã xử lý và đã đo.\" → \"Thay nước một phần đều đặn để bổ sung khoáng đệm pH.\" (supported)",
-        "Loose, reworded: \"Nước nguồn pH 8 thì mới đáng chỉnh.\" → \"Nước nguồn pH 8 thì dùng axit có thể giúp được.\" (supported)",
-        "Loose, reworded: \"Nếu pH thấp, thay nước, dọn chất hữu cơ, rồi thêm một trong những thứ làm pH lên kể ở trên.\" → \"Nếu pH thấp, thay nước, dọn chất hữu cơ, rồi thêm baking soda, đá vôi, san hô vụn hoặc vỏ sò.\" (supported)",
-        "Loose, reworded: \"Bể bị hội chứng bể cũ (pH dưới 6,0, KH gần 0, amoniac và nitrat cao) thì đừng thay hết nước.\" → \"Bể bị hội chứng bể cũ (pH dưới 6,0, KH dưới 50 mg/L và thường bằng 0, amoniac và nitrat cao) thì đừng thay hết nước.\" (supported)"
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Trước khi set bể, đo pH nước máy hoặc nước giếng xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\" (not \"Trước khi set bể, đo nước máy xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\": Rule 12: \"Trước khi set bể, đo nước …",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,5 đơn vị, rồi đo lại.\" (not \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,5 đơn vị.\": Rule 12: \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,5 đơn vị.\": THIS TERM asks for a test after raising pH, and the step has none. It…",
+        "The entry is 606 words: hold it to about 600, and leave what is left out to the pages that use the term."
       ],
       "attempt": "rewrite",
       "kept": true
     },
     {
-      "at": "2026-11-14T18:52:20Z",
+      "at": "2026-11-14T22:20:46Z",
       "model": "sonnet",
       "cli": "2.1.323",
-      "score": 0.98,
+      "score": 1,
       "notes": [
-        "\"Bể cũ thì đừng thay hết nước.\": the facts don't carry it (unsupported, loose, unsupported): advice is for old tank syndrome, not any old tank / The fact is about old tank syndrome, not any old tank. / advice is for old tank syndrome only, not every old tank",
-        "The entry is 693 words: hold it to about 600, and leave what is left out to the pages that use the term."
+        "Rule 12: \"Nước nguồn đã ở pH 8 thì chỉnh pH có thể có ích.\" This brings back the line about source water at pH 8, which THIS TERM forbids. Without the acid the shop spoke of, the fact check reads it as unsupported. Remove it.",
+        "Rule 12: \"và chỉnh xong thì sau vài giờ đến một ngày pH lại lên\" says that corrections wear off after a few hours to a day. The source says this only of acid, and THIS TERM rules out any such line. Keep only \"Nếu nước nguồn dưới 8 mà bể cao hơn, nguyên nhân nằm trong bể\".",
+        "Rule 4: \"Chỉnh pH quá nhanh. pH đổi đột ngột có thể làm cá chết.\" This repeats the warning already in the definition (\"Điều cần tránh là pH đổi đột ngột\"). THIS TERM allows the mistakes line only because it says how to change pH, but here it gives no pace and just restates the warning on sudden change. It should say how instead of repeating the warning.",
+        "The entry is 627 words: hold it to about 600, and leave what is left out to the pages that use the term."
       ],
       "attempt": "rewrite",
       "kept": false
-    },
-    {
-      "at": "2026-11-14T18:52:20Z",
-      "model": "sonnet",
-      "cli": "2.1.323",
-      "score": 0.98,
-      "notes": [
-        "\"Nên thả lá từ từ rồi đo pH.\": the facts don't carry it (unsupported, unsupported, unsupported): Advice to add leaves gradually is not in the facts / advice to add leaves gradually and test isn't in the facts / advice to add leaves gradually and test is not in facts",
-        "Rule 12: \"Khi cá ngộ độc amoniac, hạ pH xuống khoảng 6,0–6,5 nếu cá chịu được, kèm thay 25–50% nước.\" THIS TERM says to leave out lowering pH to 6.0–6.5 during ammonia poisoning. Only the 25–50% water change should stay.",
-        "Rule 4: \"Mức hạ của lá bàng thì các trang hướng dẫn nuôi cá ghi khác nhau: nơi nói 1–2 đơn vị, nơi nói chỉ hạ nhẹ và chậm. Nên thả lá từ từ rồi đo pH.\" The FACTS say nothing about what to do about this disagreement. The advice \"Nên thả lá từ từ rồi đo pH\" isn't in the FACTS, so the disagreement should be stated once and left there.",
-        "The entry is 916 words: hold it to about 600, and leave what is left out to the pages that use the term."
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-14T01:18:36Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.323",
-      "score": 0.93,
-      "notes": [
-        "Rule 6: \"tép Caridina ưa pH thấp hơn đa số con khác trong bể\" names a genus with an added Vietnamese word (\"tép\"). It should use the scientific name as the FACTS write it, \"Caridina\", without the made-up Vietnamese label."
-      ],
-      "attempt": "rewrite",
-      "kept": false,
-      "draft": "881b7dd4615bbdbace30e780201e4d9f92225ee59ed2de3ad64a81a5ab3d8841"
     }
   ]
 }
