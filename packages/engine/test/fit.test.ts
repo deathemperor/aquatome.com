@@ -479,6 +479,13 @@ test('units: a length a keeper writes isn\'t counted, under 10 cm a whole or hal
     // a pipe's size (keepers buy pipe by its mm size); another figure beside the length; a length per something (a
     // source's per inch); a tank's sides; 10 cm and up
     ['Lắp uniseal và ống PVC 2,5 cm.', 'lắp uniseal và ống PVC 2,5 cm', 'vi'],
+    // an imperial word with no figure of its own; Indonesian and Thai per-length words
+    ['Mỗi inch (2,5 cm) chiều dài cá cần thêm nước.', 'inch (2,5 cm)', 'vi'],
+    ['Nền dày 2,5 cm (một inch).', '2,5 cm (một inch)', 'vi'],
+    ['Sediakan 40 liter, tiap 2,5 cm panjang ikan.', 'tiap 2,5 cm panjang ikan', 'id'],
+    ['ทุก 2.5 ซม. ของปลา', 'ทุก 2.5 ซม. ของปลา', 'th'],
+    // a quote that starts at the figure: the page's words before it say it's a pipe
+    ['Lắp ống PVC 2,5 cm vào lỗ thoát.', '2,5 cm', 'vi'],
     ['Lấy ống PVC đường kính 2,5–5 cm.', 'Lấy ống PVC đường kính 2,5–5 cm', 'vi'],
     ['Bể 38 lít, nền dày 2,5 cm.', 'Bể 38 lít, nền dày 2,5 cm', 'vi'],
     ['Kira-kira 40 liter air bagi setiap 2.5 cm panjang ikan.', 'bagi setiap 2.5 cm panjang ikan', 'ms'],
