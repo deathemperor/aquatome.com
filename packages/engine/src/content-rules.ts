@@ -95,6 +95,8 @@ export function numberSlips(hs: string[]): string[] {
 const COUNT_NOUN = 'loại|loài|cách|mẹo|bước|lý do|sai lầm|dấu hiệu|cây|cá|điều|thứ|ý tưởng|câu hỏi|nguyên nhân|lưu ý|bí quyết|jenis|cara|tips?|langkah|alasan|kesalahan|tanda|ikan|tanaman|hal|sebab|punca|kesilapan|petua|tumbuhan|perkara|ชนิด|วิธี|ข้อ|เคล็ดลับ|สัญญาณ|สายพันธุ์|ขั้นตอน|ways|types|species|signs|reasons|mistakes|steps'
 const COUNT = new RegExp(`(?<![\\d.,])(\\d{1,2})\\s*(?=(?:${COUNT_NOUN})(?![\\p{L}]))`, 'iu')
 const TOP = /\btop\s?(\d{1,2})\b/i
+/** "Hơn 50 loại…", "lebih dari 30 jenis": a title promising more than its count, the word right before the count's own number and noun ("Bể trên 100 lít: 5 loài…" isn't one). */
+const MORE_THAN = new RegExp(`(?:hơn|trên|over|more than|lebih dari(?:pada)?)\\s+(?=\\d{1,2}\\s*(?:${COUNT_NOUN})(?![\\p{L}]))`, 'iu')
 /** "10 loại cây…", "Top 7…", "7 Jenis…", "ไม้น้ำ 10 ชนิด": the number of things a title promises, if it promises one. */
 export function titleCount(title: string): number | undefined {
   const m = title.match(COUNT) ?? title.match(TOP)
@@ -110,6 +112,7 @@ export function titleCount(title: string): number | undefined {
 export function stripCount(title: string): string {
   let t = title
   for (let i = 0; i < 3 && titleCount(t); i++) {
+    t = t.replace(MORE_THAN, '')
     const atStart = /^\s*(?:top\s?)?\d/i.test(t)
     t = t.replace(/\s*\d{1,2}\s*(?:ชนิด|สายพันธุ์|ข้อ)(?=\s|$)/u, '').replace(TOP, '').replace(COUNT, '').replace(/\s*:\s*:/, ':').replace(/^\s*:\s*/, '').replace(/\s{2,}/g, ' ').trim()
     if (atStart) t = t.charAt(0).toLocaleUpperCase() + t.slice(1)
@@ -164,22 +167,72 @@ export function renumberLabels(html: string): string {
   return root.toString()
 }
 
-/** A title promises N things; does the text have N, as a run of numbered headings or labels, a list, N bold leads, or enough headings? */
-export function countMismatch(title: string, html: string): string | undefined {
+/** Vietnamese numbers in words, two to ninety-nine: "sáu", "mười", "mười hai", "hai mươi tám", "ba mươi mốt". */
+const VI_DIGIT: Record<string, number> = { một: 1, mốt: 1, hai: 2, ba: 3, bốn: 4, tư: 4, năm: 5, lăm: 5, sáu: 6, bảy: 7, tám: 8, chín: 9 }
+const VI_NUMBER = '(?:(?:hai|ba|bốn|năm|sáu|bảy|tám|chín)\\s+mươi(?:\\s+(?:mốt|một|hai|ba|bốn|tư|lăm|năm|sáu|bảy|tám|chín))?|mười(?:\\s+(?:một|hai|ba|bốn|lăm|năm|sáu|bảy|tám|chín))?|hai|ba|bốn|năm|sáu|bảy|tám|chín)'
+function viNumber(words: string): number {
+  const w = words.toLowerCase().split(/\s+/)
+  if (w[0] === 'mười') return 10 + (w[1] ? VI_DIGIT[w[1]]! : 0)
+  if (w[1] === 'mươi') return VI_DIGIT[w[0]!]! * 10 + (w[2] ? VI_DIGIT[w[2]]! : 0)
+  return VI_DIGIT[w[0]!]!
+}
+/** The noun a title counts ("10 loài cá…" → "loài"), if it names one. */
+const titleNoun = (title: string) => title.match(new RegExp(`(?<![\\d.,])\\d{1,2}\\s*(${COUNT_NOUN})(?![\\p{L}])`, 'iu'))?.[1]?.toLowerCase()
+/** The numbers a text gives with a noun, in digits or Vietnamese words: "10 loài", "mười loài", "hơn 50 loại", "sáu loại". */
+function statedCounts(text: string, noun: string): number[] {
+  const re = new RegExp(`(?<![\\p{L}\\d.,])(?:(\\d{1,2})|(${VI_NUMBER}))\\s+${noun.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}])`, 'giu')
+  return [...text.matchAll(re)].map(m => (m[1] ? Number(m[1]) : viNumber(m[2]!)))
+}
+/** A video guide's opening and closing chapters, as a whole chapter's title ("Mục lục", "Mở đầu", "Kết", "Lời cuối"): not items. */
+const CHAPTER_FRAME = /^(?:mục lục|mở đầu|mở bài|lời mở đầu|giới thiệu|tổng quan|kết|kết luận|kết thúc|kết bài|lời kết|lời cuối|lời cảm ơn|tổng kết|nhận xét cuối|intro(?:duction)?|outro|pendahuluan|pengenalan|kesimpulan|penutup|บทนำ|สรุป)\s*[.:]?$/iu
+/** Each table's rows of data (a row with a cell that isn't a heading). */
+const tableRows = (root: HTMLElement) => root.querySelectorAll('table').map(t => t.querySelectorAll('tr').filter(r => r.querySelector('td')).length)
+
+/**
+ * A title promises N things; does the text have N? It does when the text says so with the title's own noun ("10 loài",
+ * "mười loài"), or has a run of numbered headings or labels, a list, a table or a chapters list of N, N bold leads, or
+ * enough headings. It doesn't when the text says a larger number of the same thing, has that many, and never says N ("8
+ * lý do" over a text that says "10 lý do" and has ten chapters: the chief of staff, 16 Nov 2026). "Hơn 50 loại…" wants
+ * more than 50 of any of them.
+ */
+export function countMismatch(title: string, html: string, chapters: readonly string[] = []): string | undefined {
   const want = titleCount(title)
   if (!want) return undefined
+  const more = MORE_THAN.test(title)
+  const root = parse(html)
+  const noun = titleNoun(title)
+  const said = noun ? statedCounts(root.text.replace(/\s+/g, ' '), noun) : []
+  if (said.includes(want)) return undefined
   const hs = headings(html).map(h => h.text.trim())
   const runs = numberedRuns(hs)
-  const root = parse(html)
   const lists = root.querySelectorAll('ul, ol').map(l => l.childNodes.filter(n => n instanceof HTMLElement && n.rawTagName === 'li').length)
-  if (runs.includes(want) || lists.includes(want)) return undefined
-  // "Mẹo 1: …" to "Mẹo 13: …" as bold leads ("13 mẹo…"); or exactly as many bold leads as the title promises.
-  if (labelRuns(labelsOf(root)).some(r => Math.max(...r.map(l => l.n)) === want)) return undefined
+  const labels = labelRuns(labelsOf(root)).map(r => Math.max(...r.map(l => l.n)))
   const leads = root.querySelectorAll('p, li').filter(el => { const f = el.childNodes.find(n => n.text.trim()); return f instanceof HTMLElement && f.rawTagName === 'strong' }).length
-  if (leads === want) return undefined
+  const tables = tableRows(root)
+  const marks = chapters.filter(c => !CHAPTER_FRAME.test(c.trim())).length
+  const counts = [...runs, ...lists, ...labels, leads, ...tables, ...(chapters.length ? [marks] : [])]
+  // A larger number of the same thing the text both says and has: the title undersells it ("8 lý do" over ten). One it
+  // only mentions ("20 loài" Otocinclus in a guide to 5 catfish) doesn't count against the title.
+  const larger = Math.max(0, ...said.filter(n => n > want && counts.includes(n)))
+  if (larger && !more) return `title promises ${want}; the text says ${larger} ${noun} and has that many`
+  if (more ? counts.some(n => n > want) || said.some(n => n > want) : counts.includes(want)) return undefined
   if (!runs.length && hs.length >= want) return undefined // unnumbered headings, enough of them to hold the items
   const sizes = [...new Set(lists)].sort((a, b) => a - b)
-  return `title promises ${want}; ${runs.length ? `numbered headings run to ${runs.join(' and ')}` : `${hs.length} headings, none numbered`}${sizes.length ? `, lists of ${sizes.join(', ')}` : ''}`
+  return `title promises ${more ? 'more than ' : ''}${want}; ${runs.length ? `numbered headings run to ${runs.join(' and ')}` : `${hs.length} headings, none numbered`}${sizes.length ? `, lists of ${sizes.join(', ')}` : ''}${tables.length ? `, tables of ${tables.join(', ')}` : ''}${chapters.length ? `, ${marks} chapters` : ''}`
+}
+
+/** What the text says of its count, for a model writing the title again: the rule's own evidence (countMismatch). */
+export function countEvidence(title: string, html: string, chapters: readonly string[] = []): string {
+  const root = parse(html)
+  const noun = titleNoun(title)
+  const said = noun ? [...new Set(statedCounts(root.text.replace(/\s+/g, ' '), noun))] : []
+  const tables = tableRows(root)
+  const marks = chapters.filter(c => !CHAPTER_FRAME.test(c.trim()))
+  return [
+    ...(said.length ? [`The text says: ${said.map(n => `${n} ${noun}`).join(', ')}`] : []),
+    ...(tables.length ? [`Its tables have ${tables.join(', ')} rows`] : []),
+    ...(marks.length ? [`Its chapters (${marks.length}): ${marks.join('; ')}`] : []),
+  ].join('\n')
 }
 
 /**
@@ -796,8 +849,8 @@ export const RULES: Rule[] = [
   },
   {
     id: 'title-count', title: 'Title promises a count the text doesn\'t have',
-    about: 'A title with a number ("10 loại cây…", "Top 5…") whose text has no run of numbered headings or labels, no list or bold leads of that many, and not enough headings for that many items. The sweep has the title rewritten (reviewer-gated), else drops the number from it; the address stays. A title a person fixed is left.',
-    check: p => p.nameFixed ? [] : p.fields.filter(f => f.field === 'body').flatMap(f => countMismatch(p.title, f.html) ?? []),
+    about: 'A title with a number ("10 loại cây…", "Top 5…") whose text doesn\'t say that number with the title\'s noun and has no run of numbered headings or labels, no list, table, chapters list or bold leads of that many, and not enough headings for that many items; or a smaller number than the text both says and has ("8 lý do" over ten). The sweep has the title rewritten (reviewer-gated), else drops the number from it; the address stays. A title a person fixed is left.',
+    check: p => p.nameFixed ? [] : p.fields.filter(f => f.field === 'body').flatMap(f => countMismatch(p.title, f.html, p.chapters) ?? []),
   },
   {
     id: 'guide-title', title: 'Two guides with one title, or a title that is only a name',

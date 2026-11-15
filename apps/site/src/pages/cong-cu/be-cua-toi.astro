@@ -144,7 +144,8 @@ const { t } = i18n(Astro.url)
   let reading: Promise<ReturnType<typeof handbook> | undefined> | undefined
   function readBook() {
     return (reading ??= fetch(`/app/${lang.slice(0, 2)}.json`).then(r => r.json()).then((idx: { items: IndexItem[] }) => {
-      names = new Map(idx.items.flatMap(i => (i.id ? [[i.id, { name: i.name, path: i.path }] as const] : [])))
+      // Fish and plants only: other kinds carry an id too, unique within a kind only ("co2" is a term and a kind of kit).
+      names = new Map(idx.items.flatMap(i => (i.id && (i.kind === 'fish' || i.kind === 'plant') ? [[i.id, { name: i.name, path: i.path }] as const] : [])))
       return (book = handbook(idx.items))
     }).catch(() => { reading = undefined; return undefined })) // names stay ids, entries without a page their names; tried again next time
   }

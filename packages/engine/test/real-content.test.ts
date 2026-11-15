@@ -936,20 +936,20 @@ test('the care facts the lane would cut whole are on hand-fixed text: a temperat
   }
 })
 
-// Page Recovery, 16 Nov 2026 (the chief of staff): the leak-repair guide's two findings were lengths keepers write
-// ("2,5–5 cm" of sealant, "tối đa 2,5 cm"), which the lengths line now lets out. But it sends a keeper here to American
-// silicones and super glues by name, and none is in the market table, so no check of the gate sees them. It stays held
-// by hand until Writing's plain words for those lists are in.
-test('the leak-repair guide, whose findings the lengths line lets out, stays held by hand for the American products it names', () => {
+// Page Recovery, 16 Nov 2026 (the chief of staff): the leak-repair guide sent a keeper here to seven American silicones and
+// super glues by name, none in the market table, so no check of the gate saw them; it was held by hand. The Writing
+// Lead's plain words replace the three lists (what to look for on the tube, a small tube, thin super glue), the body is
+// fixed by hand, and the hold is let go.
+test('the leak-repair guide says what to buy in plain words, no brands, and is out', () => {
   const root = fileURLToPath(new URL('../../../', import.meta.url))
   const id = 'aquariumbreeder-how-to-fix-a-leaking-aquarium-with-and-without-draining'
-  const byHand = JSON.parse(readFileSync(join(root, 'engine-state/held-by-hand.json'), 'utf8')) as Record<string, { checks: string[] }>
-  const body = (JSON.parse(readFileSync(join(root, `content/guides/${id}/vi.json`), 'utf8')) as Translation).body ?? ''
-  const named = ['Aqueon Fish Tank Silicone Sealant', 'ASI Aquarium Sealant', 'Insta-Cure 57 g Super Thin'].filter(n => body.includes(n))
-  if (named.length) {
-    expect(named.filter(n => productOf(n, 'vi')), 'a product the table knows: the gate can see it').toEqual([])
-    expect(byHand[`guides/${id}`]?.checks).toEqual(['product'])
-  }
+  const byHand = JSON.parse(readFileSync(join(root, 'engine-state/held-by-hand.json'), 'utf8')) as Record<string, unknown>
+  const t = JSON.parse(readFileSync(join(root, `content/guides/${id}/vi.json`), 'utf8')) as Translation & { bodyFixed?: boolean; held?: unknown }
+  for (const gone of ['GE Silicone', 'ASI Aquarium', 'Aqueon', 'Tub Clear', 'Ultra Gel', 'Insta-Cure', '57 g']) expect(t.body, gone).not.toContain(gone)
+  for (const kept of ['Khi mua keo silicone, chọn tuýp:', 'ghi rõ dùng được cho bể cá, hoặc là silicone 100%', 'không có chất chống nấm mốc', 'một tuýp nhỏ loại như trên là đủ', 'Keo 502 loại thật loãng, chảy gần như nước.']) expect(t.body, kept).toContain(kept)
+  expect(t.bodyFixed).toBe(true)
+  expect(t.held).toBeUndefined()
+  expect(byHand[`guides/${id}`]).toBeUndefined()
 })
 
 // The chief of staff, 16 Nov 2026: two titles say their true count again, fixed by hand so the sweep's count rule, which
@@ -964,8 +964,8 @@ test('two guide titles say the count their own text gives, and are fixed by hand
     expect(t.name, id).toBe(name)
     expect(t.nameFixed, id).toBe(true)
     expect(t.body, id).toContain(said)
-    // what the rule would do without the hand fix
-    expect(countMismatch(t.name, t.body!), id).toBeTruthy()
+    // The rule now reads the text's own count, its table and its chapters, and keeps both counts too.
+    expect(countMismatch(t.name, t.body!, t.chapters), id).toBeUndefined()
   }
 })
 
@@ -1014,4 +1014,70 @@ test('the ich and parasite guides name no US medicine, give the label\'s dose, a
   expect(e.photos.map(p => p.url).filter(u => boxes.includes(u))).toEqual([])
   // Each photo still sits under a heading the text has.
   for (const p of e.photos) if (p.section) expect(parasites.body, p.url).toContain(`>${p.section.vi}</h3>`)
+})
+
+// The chief of staff, 16 Nov 2026: "a live title whose number disagrees with its own text fails." Every guide on the site,
+// in every language, a title fixed by hand too (the sweep leaves those, so only this sees them): its number stands on what
+// the text says, a run, a list, a table, its chapters, its bold leads or its headings, and no larger count the text has.
+// What fails names the page and the reason, which the title and its numbers make.
+test('no live guide title promises a number its own text disagrees with', async () => {
+  const dir = fileURLToPath(new URL('../../../content/guides', import.meta.url))
+  const wrong: string[] = []
+  for (const id of (await readdir(dir)).sort()) for (const f of (await readdir(join(dir, id))).filter(f => f !== 'entity.json' && f.endsWith('.json'))) {
+    const t = JSON.parse(await readFile(join(dir, id, f), 'utf8')) as Translation & { held?: unknown }
+    if (t.held || !t.name || !t.body) continue
+    const why = countMismatch(t.name, t.body, t.chapters)
+    if (why) wrong.push(`${f.replace('.json', '')}/guides/${id}: "${t.name}": ${why}`)
+  }
+  expect(wrong).toEqual([])
+})
+
+// The chief of staff, 16 Nov 2026: 13 guides whose text gives a count got it back in their title, by hand, with Writing
+// reading each wording, and the brackish plants guide says "Hơn 30 loại" over its table of 31, as its address does. Each
+// title is fixed, so the sweep leaves it; what each text says of the count, or its table, is held too.
+test('fourteen guide titles say the count their own text gives, fixed by hand', () => {
+  const rows = (html: string) => (html.match(/<tr[\s>][\s\S]*?<\/tr>/g) ?? []).filter(r => r.includes('<td')).length
+  for (const [id, name, said] of [
+    ['youtube-0MzfLrSqfXY', '10 loài cá hợp nuôi trong bể 40 lít', '10 loài'],
+    ['youtube-mGmIvhtIM9k', '10 loài cá dễ nuôi cho người mới chơi bể cá nước ngọt', '10 loài'],
+    ['youtube-vl1Lx9iWDYU', '28 mẹo phòng và giảm rêu hại cho bể thủy sinh', '28 mẹo'],
+    ['aquariumcoop-blogs-aquarium-plants-for-african-cichlids', '10 loại cây dễ nuôi trong bể cá cichlid châu Phi', '10 loại cây'],
+    ['youtube-OSR9EPaO78Q', '6 loại rêu hại hay gặp trong bể thủy sinh và cách xử lý', 'sáu loại'],
+    ['aquariumbreeder-50-underwater-red-plants-for-your-tank', 'Hơn 50 loại cây thủy sinh đỏ cho bể cá', 'Hơn 50 loại'],
+    ['aquariumbreeder-brackish-water-plants', 'Hơn 30 loại cây thủy sinh chịu được nước lợ', 31],
+    ['youtube-4tfp4V1usjA', '10 loài cá dễ nuôi, ít bệnh nên chọn khi mua ở chuỗi tiệm thú cưng lớn', '10 loài'],
+    ['youtube-LRTzeSTeN-8', '10 loài cá heo, cá chạch dễ nuôi cho bể cá cảnh', '10 loài'],
+    ['youtube-Z3jAT8oNNAo', '10 loài cá nuôi chung đẹp, dễ nuôi mà ít người để ý', '10 loài'],
+    ['youtube-aN80dX_RktA', '10 loài cá nhỏ hợp bể nano nước ngọt và cách nuôi từng loài', '10 loài'],
+    ['youtube-iVpF5Ya3lIw', '10 loài cá tầng mặt cho bể thủy sinh và cách nuôi từng loài', '10 loài'],
+    ['youtube-z_AdgDUSZkw', '10 loài cá chuột (Corydoras) đáng nuôi và cách chọn', 'mười loài'],
+    ['youtube-ldbE9N7RUTQ', 'Cá vàng nuôi chung với cá gì: 10 loài hợp và cách chọn', '10 loài'],
+  ] as const) {
+    const t = JSON.parse(readFileSync(fileURLToPath(new URL(`../../../content/guides/${id}/vi.json`, import.meta.url)), 'utf8')) as Translation & { nameFixed?: boolean }
+    expect(t.name, id).toBe(name)
+    expect(t.nameFixed, id).toBe(true)
+    if (typeof said === 'number') expect(rows(t.body!), id).toBe(said)
+    else expect(t.body!.replace(/<[^>]+>/g, ' '), id).toContain(said)
+  }
+})
+
+// The chief of staff, 16 Nov 2026: the popeye guide said fish clinics exist in Hà Nội, TP.HCM and Đà Nẵng, and to get help
+// after 3–5 days of home treatment. Its one source for both, a shop's page, names no clinic and reads as machine-written.
+// The clinic sentences and the day count go by hand, every language's body is fixed so the topic writers keep it, and the
+// page still says whom to ask and when.
+test('the popeye guide names no clinic in a place and no day count, still says whom to ask, and is fixed by hand', () => {
+  const read = (lang: string) => JSON.parse(readFileSync(fileURLToPath(new URL(`../../../content/guides/aquatome-ca-bi-loi-mat-popeye-nguyen-nhan-cach-chua-va-phong/${lang}.json`, import.meta.url)), 'utf8')) as Translation & Record<string, unknown>
+  for (const lang of ['vi', 'id', 'th', 'ms']) {
+    const t = read(lang)
+    const all = [t.name, t.body, ...(t.summary ?? []), ...(t.faq ?? []).flatMap(f => [f.q, f.a])].join('\n')
+    for (const s of ['phòng khám', 'Hà Nội', 'TP.HCM', 'Đà Nẵng', 'kính hiển vi']) expect(all, `${lang}: ${s}`).not.toContain(s)
+    expect(all, `${lang}: a day count`).not.toMatch(/3\s*(?:[–-]|đến|sampai|hingga|ถึง)\s*5\s*(?:ngày|hari|วัน)/u)
+    expect(t.bodyFixed, `${lang}: bodyFixed`).toBe(true)
+  }
+  const vi = read('vi').body ?? ''
+  expect(vi).toContain('Bạn nên nhờ bác sĩ thú y có chữa cá, hoặc tiệm cá cảnh có người rành bệnh cá, xem giúp nếu gặp một trong các trường hợp sau:')
+  expect(vi).toContain('<li>Chữa ở nhà mà cá không đỡ.</li>')
+  // The saved facts lose both too, so a redo of the summary, the FAQ or another language can't bring them back.
+  const facts = readFileSync(fileURLToPath(new URL('../../../engine-state/topics/aquatome-ca-bi-loi-mat-popeye-nguyen-nhan-cach-chua-va-phong.json', import.meta.url)), 'utf8')
+  for (const s of ['3–5 days', 'Hà Nội', 'TP.HCM', 'Đà Nẵng', 'clinics']) expect(facts, `facts: ${s}`).not.toContain(s)
 })

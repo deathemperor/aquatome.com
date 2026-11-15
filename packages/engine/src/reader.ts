@@ -7,7 +7,7 @@ import { HTMLElement, parse } from 'node-html-parser'
 import { LANGS, metricPage, QUALITY_THRESHOLD, type Lang, type WrittenLang } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import { logReviews } from './review-log'
-import { blocks, countMismatch, sourcePagePhrases } from './content-rules'
+import { blocks, countEvidence, countMismatch, sourcePagePhrases } from './content-rules'
 import { METRIC_KINDS } from './metric'
 import { fixedParts, LANG_NAME, pageUrl, type Page } from './pages'
 import type { HedgePair } from './hedges'
@@ -191,16 +191,18 @@ const outline = (html: string) => {
  * the text lacks, and a second call scores it (same subject, natural, promises only what the text has). The caller keeps
  * it at QUALITY_THRESHOLD or more. Never the page's address.
  */
-export async function rewriteTitle(llm: Llm, title: string, html: string, lang: WrittenLang, model?: string): Promise<{ title: string; score: number; notes: string[] }> {
-  const why = countMismatch(title, html) ?? ''
-  const items = outline(html)
+export async function rewriteTitle(llm: Llm, title: string, html: string, lang: WrittenLang, model?: string, chapters: readonly string[] = []): Promise<{ title: string; score: number; notes: string[] }> {
+  const why = countMismatch(title, html, chapters) ?? ''
+  // What the rule sees, the model sees: the text's own count, its tables' rows and its chapters, besides its headings.
+  const evidence = countEvidence(title, html, chapters)
+  const items = `${outline(html)}${evidence ? `\n\nWHAT THE TEXT SAYS OF ITS COUNT:\n${evidence}` : ''}`
   const m = model ? { model } : {}
   const r = await llm<{ title: string }>({
     system: 'You edit titles for an aquarium handbook. Reply only with JSON.', ...m, schema: TITLE,
     prompt: `A ${LANG_NAME[lang]} page's title promises a number of items its text doesn't have (${why}).\nWrite the title again in ${LANG_NAME[lang]}: change the number to the number of items the text really has, or drop the number. Keep the rest of the title's words as they are.\n\nTITLE: ${title}\n\nTHE TEXT'S HEADINGS AND BOLD LEADS:\n${items}`,
   })
   const next = (r.title ?? '').replace(/\s+/g, ' ').trim()
-  if (!next || next === title || countMismatch(next, html)) return { title: next, score: 0, notes: [next ? `still promises a count the text lacks: ${countMismatch(next, html) ?? 'unchanged'}` : 'empty'] }
+  if (!next || next === title || countMismatch(next, html, chapters)) return { title: next, score: 0, notes: [next ? `still promises a count the text lacks: ${countMismatch(next, html, chapters) ?? 'unchanged'}` : 'empty'] }
   const v = await llm<{ score: number; notes: string[] }>({
     system: 'You are a strict editor checking a title change. Reply only with JSON.', ...m, schema: SCORE,
     prompt: `An aquarium handbook page in ${LANG_NAME[lang]}. Its OLD title promised more items than the text has; NEW is the replacement.\nScore 0–1: 1.0 = NEW keeps OLD's subject and wording apart from the count, reads naturally in ${LANG_NAME[lang]}, and promises only what the text has; below 0.75 = the subject changed, something was added, it reads badly, or the count still doesn't fit the text.\nnotes: up to 5 short problems in English. Empty if none.\n\nOLD: ${title}\nNEW: ${next}\n\nTHE TEXT'S HEADINGS AND BOLD LEADS:\n${items}`,
