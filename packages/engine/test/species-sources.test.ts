@@ -66,7 +66,7 @@ test('a dealer\'s sentence true wherever the fish is bought is no stock talk, al
   ]) expect(stockOnly(`<p>${s}</p>`), s).toBe(false)
 })
 
-// The delta read of 15 Nov: a fact beside a stock word, alone in its part, went whole while a list of facts to spare
+// The delta reads of 15 Nov: a fact beside a stock word, alone in its part, went whole while a list of facts to spare
 // decided. Now a sentence is stock talk only when nothing else is left in it.
 test('a fact beside a stock word keeps a one-sentence part, whatever the fact', () => {
   for (const s of [
@@ -79,12 +79,19 @@ test('a fact beside a stock word keeps a one-sentence part, whatever the fact', 
     'The specimens offered are venomous and must be handled with care.',
     'Available size: 4-5 cm, up to 30 cm when mature.',
     'Fish from Malaysia are currently available.',
+    'The venomous specimens are currently available.',
+    'They bite, but are currently available.',
+    'This nocturnal fish is currently available.',
+    'The Sarawak population is currently available.',
+    'Specimens of Malaysian origin are currently available.',
+    // A full name can't be told from a fact by its shape, so a sentence naming its fish in full stays.
+    'Umbra pygmaea is available as German bred.',
   ]) {
     expect(stockTalk(s), s).toBe(false)
     expect(withoutShopTalk(`<p>${s}</p>`, { vi: '<p>a</p>' }).en, s).toBe(`<p>${s}</p>`)
   }
-  // The eight parts the cut takes still go: their every word is the dealer's shelf.
-  for (const s of ['Wild-caught specimens of A. atahualpa are currently available.', 'Two specimens were received, currently 20-25 cm long.', 'Umbra pygmaea is available as German bred.']) expect(stockTalk(s), s).toBe(true)
+  // The parts the cut takes still go: their every word is the dealer's shelf.
+  for (const s of ['Wild-caught specimens of A. atahualpa are currently available.', 'Two specimens were received, currently 20-25 cm long.']) expect(stockTalk(s), s).toBe(true)
 })
 
 test('a dealer\'s list line of the size it sells goes; the same words inside a paragraph wait for the sentence mend', () => {

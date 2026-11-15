@@ -68,7 +68,7 @@ const ANYWHERE = [
   /\b(?:tanks?|aquari\w*|communit\w*|water|feed\w*|food|keep\w*|kept|peaceful|hardy|temperature|pH)\b/i,
 ]
 /**
- * The only words a stock-talk sentence is made of, once the size on offer and a binomial are taken out. A list of facts to
+ * The only words a stock-talk sentence is made of, once the size on offer and a short name are taken out. A list of facts to
  * spare can't be closed (the delta read of 15 Nov 2026: "Origin of the fish offered: wild caught (Sibu, Sarawak)", "The
  * specimens offered are venomous", "Available size: 4-5 cm, up to 30 cm when mature" all went), so a sentence is stock
  * talk only when nothing else is left: any other word, a place, a look, a caution, a figure, keeps it.
@@ -78,9 +78,13 @@ const STOCK_WORDS = new Set(('a an the this these it they both and but or of fro
   'breeding breeder ones specimens specimen animals fish individuals wild caught collected captive two three few several received ' +
   'obtained beautiful livebearer photos taken').split(' '))
 const SIZE_SAID = /\bavailable sizes?\s*:\s*(?:ca\.?|approx\.?)?\s*[\d.,]+\s*(?:[-–]\s*[\d.,]+\s*)?cm\b|\bcurrently\s+[\d.,]+\s*(?:[-–]\s*[\d.,]+\s*)?cm(?:\s+long)?\b/gi
-const BINOMIAL = /\b(?:\p{Lu}\.|\p{Lu}\p{Ll}+)\s+(\p{Ll}{3,})\b/gu
+/**
+ * A name as an abbreviated genus ("A. atahualpa"), the only form told from a fact by its shape: a full binomial reads like
+ * "The venomous" or "Sarawak population" (the second delta read, 15 Nov 2026), so a sentence naming its fish in full stays.
+ */
+const SHORT_NAME = /\b\p{Lu}\.\s+\p{Ll}{3,}\b/gu
 const nothingElse = (sentence: string) =>
-  (sentence.replace(SIZE_SAID, ' ').replace(BINOMIAL, (name, epithet: string) => (STOCK_WORDS.has(epithet) ? name : ' ')).toLowerCase().match(/[\p{L}\p{N}]+/gu) ?? [])
+  (sentence.replace(SIZE_SAID, ' ').replace(SHORT_NAME, ' ').toLowerCase().match(/[\p{L}\p{N}]+/gu) ?? [])
     .every(w => STOCK_WORDS.has(w))
 /** Whether an English sentence of a dealer's is stock talk, by the line above, with nothing else in it. */
 export const stockTalk = (sentence: string) => STOCK.some(r => r.test(sentence)) && !ANYWHERE.some(r => r.test(sentence)) && nothingElse(sentence)
