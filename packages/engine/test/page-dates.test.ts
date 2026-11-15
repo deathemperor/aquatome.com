@@ -2,7 +2,7 @@ import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { expect, test } from 'vitest'
-import { isPageFile, updatePageDates, visibleHash } from '../src/page-dates'
+import { checkPageDates, isPageFile, updatePageDates, visibleHash } from '../src/page-dates'
 
 const content = async (files: Record<string, unknown>) => {
   const dir = await mkdtemp(join(tmpdir(), 'page-dates-'))
@@ -70,4 +70,17 @@ test('a file gone from content leaves the record; keys are sorted, a run with no
 test('every kind of page\'s files is dated, and nothing else in content', () => {
   for (const f of ['species/x/entity.json', 'species/x/th.json', 'breeds/x/vi.json', 'plants/x/id.json', 'guides/x/vi.json', 'glossary/x/vi.json', 'products/x/vi.json', 'materials/lua/entity.json', 'materials/lua/vi.json', 'gallery/x.json', 'summaries/x.json', 'equipment/den.json', 'equipment/th/den.json']) expect(isPageFile(f), f).toBe(true)
   for (const f of ['page-dates.json', 'picture-hashes.json', 'changelog.json', 'sources.json', 'captions/th.json', 'series/x.json', 'species/x/notes.txt']) expect(isPageFile(f), f).toBe(false)
+})
+
+// A push takes a sweep that changed only this file without the tests once it parses as the site reads it (swept_clean).
+test("the pages' dates check passes the dates the sweep writes, and fails a file the site's loader would refuse", async () => {
+  const dir = await content({ 'species/x/vi.json': VI, 'gallery/x.json': { photos: [] } })
+  await updatePageDates(dir, '2026-11-15')
+  expect(await checkPageDates(dir)).toBe(2)
+  for (const bad of ['{"species/x/vi.json": "2026-11-15"}', '{"species/x/vi.json": 1}', '{', '[]']) {
+    await writeFile(join(dir, 'page-dates.json'), bad)
+    await expect(checkPageDates(dir), bad).rejects.toThrow()
+  }
+  await rm(join(dir, 'page-dates.json'))
+  await expect(checkPageDates(dir)).rejects.toThrow()
 })

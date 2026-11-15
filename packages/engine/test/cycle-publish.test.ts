@@ -40,14 +40,16 @@ test("a clean pull that brings main's commits in is swept before the push, and t
   expect(script('engine-cycle.sh')).toMatch(/elif ! swept_pull "\$main"; then\n\s*verify_cycle \|\|/)
   for (const f of ['video-cycle.sh', 'video-recheck.sh']) expect(script(f)).toMatch(/elif ! swept_pull "\$main"; then\n\s*verify 'pnpm test' \|\|/)
   // Kept work: after a pull that brought main's commits in, checked in full until it has passed; then swept, and checked
-  // again only if the sweep changed something or the migration failed, as a run's own push does, on that one sweep.
-  expect(script('cycle-checks.sh')).toMatch(/if \[ "\$\(git rev-parse origin\/main 2>\/dev\/null\)" != "\$main" \] && \[ -z "\$check" \]; then\n\s*head=\$\(git rev-parse HEAD\)\n\s*sweep_merged\n\s*swept=1\n\s*if \[ -z "\$\{MIGRATE_FAILED:-\}" \] && \[ "\$\(git rev-parse HEAD\)" = "\$head" \]; then/)
+  // again only if the sweep changed more than the pages' dates or the migration failed, as a run's own push does, on that
+  // one sweep.
+  expect(script('cycle-checks.sh')).toMatch(/if \[ "\$\(git rev-parse origin\/main 2>\/dev\/null\)" != "\$main" \] && \[ -z "\$check" \]; then\n\s*head=\$\(git rev-parse HEAD\)\n\s*sweep_merged\n\s*swept=1\n\s*if swept_clean "\$head"; then/)
   expect(script('cycle-checks.sh')).toMatch(/\n\s*fi\n\s*if \[ -n "\$check" \]; then\n\s*\[ -n "\$swept" \] \|\| sweep_merged/)
 
   const dir = mkdtempSync(join(tmpdir(), 'aq-pulled-'))
   mkdirSync(join(dir, 'bin'))
   // The sweep alone: the photo records' migration before it (sweep_merged) has nothing to do here.
-  writeFileSync(join(dir, 'bin/pnpm'), '#!/bin/sh\n[ "$2" = sweep ] || exit 0\necho swept >> ../swept.log\n[ -z "$FIXES" ] || echo fixed > content/b.json\n')
+  // The pages' dates' check passes unless BAD is set.
+  writeFileSync(join(dir, 'bin/pnpm'), '#!/bin/sh\n[ "$2" = check-page-dates ] && { echo dates >> ../dates.log; [ -z "$BAD" ]; exit; }\n[ "$2" = sweep ] || exit 0\necho swept >> ../swept.log\n[ -z "$FIXES" ] || echo "$FIXES" > content/b.json\n[ -z "$DATES" ] || echo "$DATES" > content/page-dates.json\n')
   chmodSync(join(dir, 'bin/pnpm'), 0o755)
   const sh = (command: string, cwd = dir, env = {}) => execSync(command, { cwd, shell: '/bin/bash', encoding: 'utf8', env: { ...process.env, ...env, PATH: `${dir}/bin:${process.env.PATH}` } })
   const repo = join(dir, 'repo'), other = join(dir, 'other')
@@ -70,6 +72,21 @@ test("a clean pull that brings main's commits in is swept before the push, and t
   expect(swept()).toBe(2)
   expect(sh('git log --format=%s', repo).trim().split('\n')).toEqual(['content: sweep on main as it is now', 'run', 'm2.json', 'm1.json', 'main'])
   expect(sh('git status --porcelain', repo).trim()).toBe('')
+  // The chief of staff, 15 Nov 2026: a sweep that changed only the pages' dates has them checked, not the tests.
+  const dated = () => { try { return readFileSync(join(dir, 'dates.log'), 'utf8').trim().split('\n').length } catch { return 0 } }
+  onMain('m3.json')
+  expect(pull({ DATES: 'd1' })).toBe('push')
+  expect([swept(), dated()]).toEqual([3, 1])
+  expect(sh('git show --name-only --format= HEAD', repo).trim()).toBe('content/page-dates.json')
+  onMain('m4.json')
+  expect(pull({ DATES: 'd2', BAD: '1' })).toBe('test') // the dates don't parse
+  expect([swept(), dated()]).toEqual([4, 2])
+  onMain('m5.json')
+  expect(pull({ DATES: 'd3', FIXES: '2' })).toBe('test') // the dates and more
+  expect([swept(), dated()]).toEqual([5, 2])
+  onMain('m6.json')
+  expect(pull({ DATES: 'd3' })).toBe('push') // the dates as they were: nothing to commit
+  expect([swept(), dated()]).toEqual([6, 2])
 })
 
 // The photos part of 2026-11-08: its calendar clashed with an editor's re-plan, and the line-by-line merge named one guide

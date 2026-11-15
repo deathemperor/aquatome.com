@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
+import { PageDatesSchema } from '@aq/schema'
 
 /**
  * Fields a reader never sees: scores, stamps, and notes to the engine itself. The engine rewrites them on runs that
@@ -40,4 +41,12 @@ export async function updatePageDates(contentRoot: string, day = new Date().toIS
   changed += Object.keys(old).filter(rel => !(rel in dates)).length
   if (changed) await writeFile(file, `${JSON.stringify(dates, null, 2)}\n`)
   return { files: Object.keys(dates).length, changed }
+}
+
+/**
+ * The pages' dates as the site's loader reads them (load.ts, PageDatesSchema): the number of files dated, or it throws. A
+ * push takes a sweep that changed only this file without the tests once it reads (swept_clean, cycle-checks.sh).
+ */
+export async function checkPageDates(contentRoot: string) {
+  return Object.keys(PageDatesSchema.parse(JSON.parse(await readFile(join(contentRoot, 'page-dates.json'), 'utf8')))).length
 }
