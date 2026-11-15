@@ -8,9 +8,9 @@ import XCTest
 final class LanguageFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
-  /// The words a `String(localized:)` looks up (the sheet's privacy line): they follow once each lookup is given the
-  /// language picked (`bundle: .app`), a change of its own. Until then they stay in the language the app opened in.
-  private static let lookupsFollow = false
+  /// The words a `String(localized:)` looks up (the sheet's privacy line) follow too: each lookup is given the language
+  /// picked (`bundle: .app`, which check-strings.py holds every one to).
+  private static let lookupsFollow = true
 
   private struct Words {
     let fish, sheet, done, privacy: String

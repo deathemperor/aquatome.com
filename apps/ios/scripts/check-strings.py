@@ -5,12 +5,22 @@ Usage: check-strings.py DERIVED_DATA. Reads the keys the compiler extracted from
 written by SWIFT_EMIT_LOC_STRINGS during a build) and checks them against AquaTome/Localizable.xcstrings. Vietnamese is
 the source language. Fails on a key with no translation, a translation whose placeholders differ from the key's, or a
 catalog entry no code uses any more.
+
+Also fails, naming its file:line, a `String(localized:)` or `AttributedString(localized:)` in the app's sources without
+`bundle:` (localized_calls.py): it would show the language the app opened in after the reader picked another, so a
+screen added later can't quietly stay in the old one. Its self-test runs first, and fails the check if it no longer
+catches a bad line.
 """
 import glob, json, os, re, sys
 
 LANGS = ('id', 'ms', 'th')
 here = os.path.dirname(os.path.abspath(__file__))
 catalog = json.load(open(os.path.join(here, '..', 'AquaTome', 'Localizable.xcstrings')))['strings']
+
+sys.path.insert(0, here)
+import localized_calls
+localized_calls.self_test()
+lookups = [f'{f}:{line}: {why}' for f, line, why in localized_calls.missing()]
 
 keys = set()
 for f in glob.glob(os.path.join(sys.argv[1], '**', 'AquaTome.build', '**', '*.stringsdata'), recursive=True):
@@ -25,7 +35,7 @@ def placeholders(s):
     found = re.findall(r'%(?:(\d+)\$)?[-+#0]*\d*(?:\.\d+)?((?:hh|h|ll|l|q|L|z|t|j)?[@dDiuUxXoOfFeEgGaAcCsSp])', s.replace('%%', ''))
     return sorted((int(n) if n else i + 1, t) for i, (n, t) in enumerate(found))
 
-problems = []
+problems = list(lookups)
 for k in sorted(keys):
     entry = catalog.get(k)
     if entry is None:

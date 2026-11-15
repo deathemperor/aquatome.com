@@ -149,7 +149,9 @@ Config/Base.xcconfig # includes Local.xcconfig (git-ignored) for signing
   public project never holds the team ID.
 
 A new string in the code: add its Indonesian, Malay and Thai to `Localizable.xcstrings` (Xcode adds the key when it
-builds); `check-strings.py` fails CI otherwise. Reuse the site's translation when the Vietnamese is the same
+builds); `check-strings.py` fails CI otherwise. A `String(localized:)` or `AttributedString(localized:)` passes
+`bundle: .app`, the language the reader picked while the app runs (without it, the lookup stays in the language the app
+opened in); `check-strings.py` fails one without it, naming its file and line (`scripts/localized_calls.py`). Reuse the site's translation when the Vietnamese is the same
 (`apps/site/src/i18n/{id,ms,th}.json`). `pnpm --filter @aq/engine exec tsx scripts/translate-app.ts ms` fills a
 language's missing strings in both catalogs: the site's first, then Opus.
 
