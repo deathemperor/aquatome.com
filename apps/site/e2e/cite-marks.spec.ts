@@ -22,14 +22,20 @@ async function pageOf(request: APIRequestContext, kind: string, lang?: 'th'): Pr
  * mark ends the line: a word, a mark, a few words and a mark, so only words stand between the marks, as on the driftwood
  * pages (an element between them would keep `.cite + .cite` from matching at all); and a line ending in a group of two
  * and of three, a researched block's "2 3", whose last mark reached 30 px past it, 418 px on a 412 px phone (Fable's read,
- * 15 Nov 2026). For each: its marks on one line, the last one's gap to the line's end, the marks a tap at each one's
- * centre lands on, and for a group the mark a tap 15 px past its last one lands on (Design, 15 Nov 2026: the area, not
- * only the centre; a single mark's centred 44 px reaches only 15 px past it).
+ * 15 Nov 2026); and a group written with no space between its marks, as the product page writes them, where the last
+ * mark's area reaches over the one before and only that one's place above it (`z-index`) keeps its tap. The lines go
+ * beside a paragraph that reaches the page's gutter, so a mark at the line's end is at the screen's edge. For each: its
+ * marks on one line, the last one's gap to the line's end and the line's to the screen's edge, the marks a tap at each
+ * one's centre lands on, and for a group the mark a tap 15 px past its last one lands on (Design, 15 Nov 2026). A
+ * single mark's centred 44 px reaches 15 px past it too, so that tap keeps a group's last area from shrinking; the
+ * sideways check is what keeps it from reaching past the edge.
  */
 const worstCase = (page: Page) => page.evaluate(() => {
-  const near = document.querySelector('main a.cite')?.closest('p, li') ?? document.querySelector('main p')!
+  const atGutter = (el: Element) => innerWidth - el.getBoundingClientRect().right <= 25
+  const first = document.querySelector('main a.cite')?.closest('p, li')
+  const near = (first && atGutter(first) ? first : [...document.querySelectorAll('main p')].find(atGutter)) ?? first ?? document.querySelector('main p')!
   const mark = (n: number) => `<a class="cite" href="#">${n}</a>`
-  const lines = [`Lũa ${mark(1)} ngâm kỹ ${mark(2)}`, `Lũa ngâm kỹ<span class="marks">${mark(2)} ${mark(3)}</span>`, `Lũa ngâm kỹ<span class="marks">${mark(1)} ${mark(2)} ${mark(3)}</span>`]
+  const lines = [`Lũa ${mark(1)} ngâm kỹ ${mark(2)}`, `Lũa ngâm kỹ<span class="marks">${mark(2)} ${mark(3)}</span>`, `Lũa ngâm kỹ<span class="marks">${mark(1)} ${mark(2)} ${mark(3)}</span>`, `Lũa ngâm kỹ<span class="marks">${mark(1)}${mark(2)}</span>`]
   const ps = lines.map(html => {
     const p = document.createElement('p')
     p.innerHTML = html
@@ -44,7 +50,7 @@ const worstCase = (page: Page) => page.evaluate(() => {
     const at = (x: number, b: DOMRect) => marks.indexOf(document.elementFromPoint(x, b.y + b.height / 2)?.closest<HTMLElement>('.cite') as HTMLElement)
     const last = boxes.at(-1)!
     return {
-      gap: p.getBoundingClientRect().right - last.right, sameLine: boxes.every(b => Math.abs(b.top - boxes[0]!.top) < 2),
+      gap: p.getBoundingClientRect().right - last.right, edge: innerWidth - p.getBoundingClientRect().right, sameLine: boxes.every(b => Math.abs(b.top - boxes[0]!.top) < 2),
       hit: boxes.map(b => at(b.x + b.width / 2, b)), past: p.querySelector('.marks') ? at(last.right + 15, last) : undefined,
     }
   })
@@ -62,6 +68,7 @@ for (const [width, lang] of [[412, undefined], [320, 'th']] as const) for (const
     for (const [i, at] of (await worstCase(page)).entries()) {
       expect(at.sameLine, `line ${i + 1}: its marks on one line`).toBe(true)
       expect(at.gap, `line ${i + 1}: its last mark ends the line`).toBeLessThan(3)
+      expect(at.edge, `line ${i + 1}: the line reaches the page's gutter`).toBeLessThanOrEqual(25)
       expect(at.hit, `line ${i + 1}: a tap on each mark opens that mark`).toEqual(at.hit.map((_, j) => j))
       if (at.past !== undefined) expect(at.past, `line ${i + 1}: a tap 15 px past its last mark opens that mark`).toBe(at.hit.length - 1)
     }
