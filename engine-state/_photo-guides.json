@@ -1214,6 +1214,20 @@
       "artwork": true
     }
   },
+  "https://media.aquatome.com/aquariumbreeder/772c514b24ed0246.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "other": {
+      "shrimp": false
+    },
+    "note": "guide photo",
+    "noteHash": "69bf78eb17bef5f1c602ed60c7371f8c9eecf98f870a7e60c1707d9481a0f2e4",
+    "hints": {
+      "dead": false,
+      "people": false
+    }
+  },
   "https://media.aquatome.com/aquariumbreeder/7826e76a75dd6978.webp": {
     "person": true,
     "mark": false,
@@ -1656,6 +1670,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "cichlid": false
+    },
     "note": "guide photo",
     "noteHash": "f8aa727a93db0f555febd2e73c51a545f1fe96a1d426c6bc67cc3366fa6776a7",
     "hints": {
@@ -1725,6 +1742,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "puffer": false
+    },
     "note": "guide photo",
     "noteHash": "a93e5c506afcf7d96949e42d84c3ae24ce1495dca1477cc238983304f1aa5a04",
     "hints": {
@@ -1838,6 +1858,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "puffer": false
+    },
     "note": "guide photo",
     "noteHash": "ca74d53bc9de8891f3f0a04fd061e4b52eb82f915d5a73867c0ad7575ff9be97",
     "hints": {
@@ -1924,6 +1947,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "gourami": false
+    },
     "note": "guide photo",
     "noteHash": "c83229bca761ca0c2a773b3540fd8262de0ca40d88859e7d8028bc31e212c8aa",
     "hints": {
@@ -1993,6 +2019,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "killifish": false
+    },
     "note": "guide photo",
     "noteHash": "0357e5ef93324c90280499da6deaa0cbc9e165f5b681c778489e95006aaa5ac7",
     "hints": {
@@ -2087,6 +2116,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "barb": false
+    },
     "note": "guide photo",
     "noteHash": "b242fe5b39cc9d433e942241d3c3b97560248030cef3bc60c13d93b1254260d2",
     "hints": {
@@ -2219,6 +2251,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "tetra": false
+    },
     "note": "guide photo",
     "noteHash": "8fa3434d7f76efa2f1ad53318104fc79d856bba0f82a09fd49bc8eafb693c137",
     "hints": {
@@ -2263,6 +2298,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "rainbowfish": false
+    },
     "note": "guide photo",
     "noteHash": "81487b98492b32ddd5352cdffe39b59aaa59880abc6f73887bc77499a44534ba",
     "hints": {
@@ -2351,6 +2389,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "shrimp": false
+    },
     "note": "guide photo",
     "noteHash": "34935a943f848d4cf1cc8dd9006c6763b09b93840b5a5ec234494a50cde486b1",
     "hints": {
@@ -2417,6 +2458,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "puffer": false
+    },
     "note": "guide photo",
     "noteHash": "96619ca04c38b2242e1f304f8c55955e433a39d6f93b49106e3144dab95166d7",
     "hints": {
@@ -2450,6 +2494,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "rainbowfish": false
+    },
     "note": "guide photo",
     "noteHash": "6ad0bc18a2b34d3e32921dfd16cde8a0d0c3989abe2b8c85100a0ff7e3401aa1",
     "hints": {
@@ -2461,6 +2508,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "barb": false
+    },
     "note": "guide photo",
     "noteHash": "0add0eab1cf635f5a9119b8e626e438dff44f17cfb23ffd960205321c9e0a1e8",
     "hints": {
@@ -2472,6 +2522,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "corydoras": false
+    },
     "note": "guide photo",
     "noteHash": "78d801507f947e10000b2987560e94e5e9079a84f210f92d70d6e7718258925e",
     "hints": {
@@ -2604,6 +2657,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "rainbowfish": false
+    },
     "note": "guide photo",
     "noteHash": "9729e26beded82c0c2b994c74fb2ae331e49fd8582236469358e4e2c9eb51265",
     "hints": {
@@ -2965,6 +3021,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "snail": false
+    },
     "note": "guide photo",
     "noteHash": "82c7187b33985389319a723d1aa1215b9a93484b2ada7366c8ae7144d264c129",
     "hints": {
@@ -3421,6 +3480,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "cichlid": false
+    },
     "note": "guide photo",
     "noteHash": "f2f68854b0813307642ac1817a560f4e5b70441fde0cb6e5d88729b410d06bc6",
     "hints": {
@@ -3432,6 +3494,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "rainbowfish": false
+    },
     "note": "guide photo",
     "noteHash": "6c6727fbef02987695a5e48e98c7d18581679af39f67a8c4d7d29fec5a9e3538",
     "hints": {
@@ -3672,6 +3737,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "barb": false
+    },
     "note": "guide photo",
     "noteHash": "1c402fae5291272555c5a16b6a5e6bfe5f2df23bfa72d8129bbddd79061207f8",
     "hints": {
@@ -3683,6 +3751,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "tetra": false
+    },
     "note": "guide photo",
     "noteHash": "23c24d7f7ba3af25ba5d2e3f594a21dc3b47ec512db5cf425d08cb2ed33ba2a6",
     "hints": {
@@ -3890,6 +3961,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "cryptocoryne": false
+    },
     "note": "guide photo",
     "noteHash": "e023cf3e59f9dd27010cb06c0d179b71ef48758fc159f0c7d755bd18013e7065",
     "hints": {
@@ -4053,6 +4127,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "killifish": false
+    },
     "note": "guide photo",
     "noteHash": "a92fd9121cdf0e7234bd5f0871c705719612ac8ca20dbebba81acb60da6bb684",
     "hints": {
@@ -4199,6 +4276,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "puffer": false
+    },
     "note": "guide photo",
     "noteHash": "9083eb5368a6f19a4e09ab71e7b3bbbd42585e1facc7068280e5bff84818f305",
     "hints": {
@@ -4232,6 +4312,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "killifish": false
+    },
     "note": "guide photo",
     "noteHash": "1aa4f5b8f73e1707d0be86a5183d4e87dcf094ef13beb423144d4cdb744a3af0",
     "hints": {
@@ -4298,6 +4381,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "barb": false
+    },
     "note": "guide photo",
     "noteHash": "fdcb2deceec363317eaf91a893c2f440b5849eeccf40b8493f1f174c50513f79",
     "hints": {
@@ -4485,6 +4571,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "barb": false
+    },
     "note": "guide photo",
     "noteHash": "457b0e94dc2a7ec1f2ae43c44476e92109fa05b87f498d7a1621f3f5798283aa",
     "hints": {
@@ -4774,6 +4863,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "corydoras": false
+    },
     "note": "guide photo",
     "noteHash": "fa16b8d9eea8ca04af91e89e7b6146f0645cbe7e22db19599052cb91dfedd35e",
     "hints": {
@@ -4807,6 +4899,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "gourami": false
+    },
     "note": "guide photo",
     "noteHash": "a2c12fb73361477d89f26ac71eb6608b21eb3cad5610cdbeff2c53c52dcc7c23",
     "hints": {
@@ -4854,6 +4949,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "cichlid": false
+    },
     "note": "guide photo",
     "noteHash": "962ca65f17b644b02d1f89046cb9ad1807a1f644be7902fbf5a5d4d24b17232b",
     "hints": {
@@ -4956,6 +5054,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "cryptocoryne": false
+    },
     "note": "guide photo",
     "noteHash": "87de41bd2600f59edb2fff7d38b86811702660acca986ef600926c2a9bba5fc1",
     "hints": {
@@ -5011,6 +5112,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "pleco": false
+    },
     "note": "guide photo",
     "noteHash": "0d37be0b0dbc03f0f1fcfbaac27c8cffc8c24d106310fd0e60f91287dbe32fca",
     "hints": {
@@ -5022,6 +5126,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "tetra": false
+    },
     "note": "guide photo",
     "noteHash": "64a0dad5877becf8fe7263635fd83c0c2e13fca8c30ecce6d2f0d4bb0effb3b5",
     "hints": {
@@ -5102,6 +5209,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "cichlid": false
+    },
     "note": "guide photo",
     "noteHash": "dfe5f1be0fc8a192ac78ae3ddfa89a254c03f882ddced80bb91cd9e7770960bb",
     "hints": {
@@ -5124,6 +5234,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "barb": false
+    },
     "note": "guide photo",
     "noteHash": "6a823a992d493a730ea96d8011c28b3c3c80bfda3048f0c7d324ac7e1e228cf3",
     "hints": {
@@ -5459,6 +5572,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "rainbowfish": false
+    },
     "note": "guide photo",
     "noteHash": "d8f317e6f113a892a3a9ac38ffdbf950cf46029fe816b01835ea751c41215813",
     "hints": {
@@ -5676,6 +5792,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "rainbowfish": false
+    },
     "note": "guide photo",
     "noteHash": "cce60beb4ea019a3cfc03fab77d3a6f5902cd6ae58e0716f58f20b83a22d1f29",
     "hints": {
@@ -5687,6 +5806,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "cichlid": false
+    },
     "note": "guide photo",
     "noteHash": "d0c4baada92b4b21f4ee4c5802e9b0bff5a296082377fa3bdfd3771c84ea6704",
     "hints": {
@@ -5720,6 +5842,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "cichlid": false
+    },
     "note": "guide photo",
     "noteHash": "a02da790adfefe48df0f1f5c2de50417842bf3c86e042596432af65148fd51e6",
     "hints": {
@@ -5764,6 +5889,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "rainbowfish": false
+    },
     "note": "guide photo",
     "noteHash": "ba1693fe86130293710654b3b0a05133a2e8fa9f31d0f6dbf0b4ed0058c92eb1",
     "hints": {
@@ -5808,6 +5936,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "snail": false
+    },
     "note": "guide photo",
     "noteHash": "ecdf53327779152576ec83c6bbfd9edff8ef72a74dac4ed327b05cb63e5cbbea",
     "hints": {
@@ -5877,6 +6008,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "barb": false
+    },
     "note": "guide photo",
     "noteHash": "01ee3e4adb30264f883898706df0b1cb533bafccf48d97dd62875fbcdc930a64",
     "hints": {
@@ -5888,6 +6022,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "rasbora": false
+    },
     "note": "guide photo",
     "noteHash": "606be3ce72dfdc82449862f1f557b564aeab010fb178afdebfc16cce71e0ef2f",
     "hints": {
@@ -6078,6 +6215,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "puffer": false
+    },
     "note": "guide photo",
     "noteHash": "9621a2426d72d0ee490448d56c203cd502eccb35a9cae0e27466ad8543582875",
     "hints": {
@@ -6133,6 +6273,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "cryptocoryne": false
+    },
     "note": "guide photo",
     "noteHash": "3297abb17b65d16f735c82d59a5956501322d735f6d505348d4d39592ed68fa1",
     "hints": {
@@ -6397,6 +6540,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "corydoras": false
+    },
     "note": "guide photo",
     "noteHash": "807054b0a21353926e63c5af086a34f1002347343851bdbfdaebb25502ce86f5",
     "hints": {
@@ -6726,6 +6872,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "snail": false
+    },
     "note": "guide photo",
     "noteHash": "1a6823944ced99733b936a8e91148d12a335228b6c65547e68981a40bb85116c",
     "hints": {
@@ -6803,6 +6952,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "cichlid": false
+    },
     "note": "guide photo",
     "noteHash": "f0812867f66a488f17611a67157789db55b6519f3059d49e272b86d713c35ba6",
     "hints": {
@@ -7116,6 +7268,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "shrimp": false
+    },
     "note": "guide photo",
     "noteHash": "ed0e88d7aa77e83acc3513a6cb98566bc6d15cc6ca19afd36f31ad049c9e77b1",
     "hints": {
@@ -7167,6 +7322,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "gourami": false
+    },
     "note": "guide photo",
     "noteHash": "1e4860d0dbf5b3efe547fd3a9b4773ccca6b976e5073a9270ac62c016c709f31",
     "hints": {
@@ -7255,6 +7413,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "tetra": false
+    },
     "note": "guide photo",
     "noteHash": "b7e750470b7071a8ddd915a30f0179e274026b96bace1aa1c3273e3378a78939",
     "hints": {
@@ -7288,6 +7449,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "cichlid": false
+    },
     "note": "guide photo",
     "noteHash": "76f28b46e3f815cb3812e3e0294ff3939c4f210134d99bda65c91b015f4f5009",
     "hints": {
@@ -7467,6 +7631,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "cichlid": false
+    },
     "note": "guide photo",
     "noteHash": "f5dd69e0cf246bdb868776e858c32a2e21cde24e824cc6567039974fc93a4c1f",
     "hints": {
@@ -7586,6 +7753,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "puffer": false
+    },
     "note": "guide photo",
     "noteHash": "af28d6aeebb7a57def9cbc0fe78f7116bfbd55b54b015e0cddefbbee1d8f485f",
     "hints": {
@@ -7663,6 +7833,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "rasbora": false
+    },
     "note": "guide photo",
     "noteHash": "533df010d431a7c975bf8e5027cd9cbd6a67924d3e78dd50b3589855e18a5773",
     "hints": {
@@ -7776,6 +7949,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "snail": false
+    },
     "note": "guide photo",
     "noteHash": "a00c7a86c354fd964d5c48602a693d8329c7b69a32c198a95e52789694b19878",
     "hints": {
@@ -7875,6 +8051,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "rasbora": false
+    },
     "note": "guide photo",
     "noteHash": "27d57815784a6da19923373fd0c5aa7b4d76fa8668fc89f922fda403fe3ee4b2",
     "hints": {
@@ -7941,6 +8120,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "puffer": false
+    },
     "note": "guide photo",
     "noteHash": "a15eec16dd3761464d15327f533c5f58ed25ab15ecd0e9a42a5576640555f1cf",
     "hints": {
@@ -8007,6 +8189,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "cichlid": false
+    },
     "note": "guide photo",
     "noteHash": "bb3127803f8d90b09c06bfa17c881bd5214b37b08621882540732dcb3d8f07d6",
     "hints": {
@@ -8087,6 +8272,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "cichlid": false
+    },
     "note": "guide photo",
     "noteHash": "3403e4038acffbd9720c774bbf397087732a03cd67e1785d6f23230cfa092079",
     "hints": {
@@ -8175,6 +8363,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "corydoras": false
+    },
     "note": "guide photo",
     "noteHash": "820d78dcc970dc522c6e6c941738837fd469cff179abf97ea6b317e7e9977705",
     "hints": {
@@ -8197,6 +8388,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "tetra": false
+    },
     "note": "guide photo",
     "noteHash": "1a41e56729958e0457791636e12c135296725f58ba82226945efbc0e435eb13c",
     "hints": {
@@ -8313,6 +8507,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "corydoras": false
+    },
     "note": "guide photo",
     "noteHash": "f0d41df26365677598e311addb1c071b2c70495de0ad02b874a9d372c68384d5",
     "hints": {
@@ -8482,6 +8679,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "barb": false
+    },
     "note": "guide photo",
     "noteHash": "6c7b37adb009377fbf64fd287e028fae5e7c747489fad6759b7383d4e466bcb1",
     "hints": {
@@ -8540,6 +8740,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "rasbora": false
+    },
     "note": "guide photo",
     "noteHash": "4b3ace4b3036ed3fce546ccc6d9e564dfdc77abbabee9b6f6d72b547dbf0b5f2",
     "hints": {
@@ -8631,6 +8834,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "shrimp": false
+    },
     "note": "guide photo",
     "noteHash": "4e38e4cae6ab25f7f9f80354b28d4d93fb84cfa08b312e239cc4f71a8987876f",
     "hints": {
@@ -8841,6 +9047,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "rasbora": false
+    },
     "note": "guide photo",
     "noteHash": "21e7a846bcd29158d3dc69e548579081330c634a1264212c46d3f3d52f687d06",
     "hints": {
@@ -8852,6 +9061,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "tetra": false
+    },
     "note": "guide photo",
     "noteHash": "eff45f2d291b7ed95166ae6eed827092a194e4aa0b5b045e29fdd1cc617235db",
     "hints": {
@@ -8885,6 +9097,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "rasbora": false
+    },
     "note": "guide photo",
     "noteHash": "4712e65e421016068bf51d82e68b2e8405352e6dce037025dc94503766ecea9a",
     "hints": {
@@ -8929,6 +9144,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "gourami": false
+    },
     "note": "guide photo",
     "noteHash": "b51920f8ca696b3ece6e11156448188c307142fc1de197bb974ec7747e76ffdb",
     "hints": {
@@ -9072,6 +9290,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "rainbowfish": false
+    },
     "note": "guide photo",
     "noteHash": "4c1eaf35cb09a5e9434588290af42901e2982851aa36012a1c3b4b24808b9a4a",
     "hints": {
@@ -9215,6 +9436,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "rasbora": false
+    },
     "note": "guide photo",
     "noteHash": "3a0934312099c6c77f23f3255343f85ac9eccbf62d23874cd4d5f50df8686aa1",
     "hints": {
@@ -9325,6 +9549,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "rainbowfish": false
+    },
     "note": "guide photo",
     "noteHash": "21d45982c6f99045e6e7e4dc1914d5d1d703e1fcb10e7e679f80eb8b3ce3b82c",
     "hints": {
@@ -9402,6 +9629,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "rasbora": false
+    },
     "note": "guide photo",
     "noteHash": "a99572bddd71b8598a4c0d6c8a5925b1b3ce55b1c2c7499d247652d72abb1339",
     "hints": {
@@ -9556,6 +9786,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "rainbowfish": false
+    },
     "note": "guide photo",
     "noteHash": "9aeee0c50a9f643303d16216f00a8c1b54e57ea6115faa464e199b54a17e356c",
     "hints": {
@@ -9805,6 +10038,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "shrimp": false
+    },
     "note": "guide photo",
     "noteHash": "fca11bf83628ce2e943e1e0b73481c76b36c28e2409e2fc18bfcd4559261442c",
     "hints": {
@@ -9940,6 +10176,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "cichlid": false
+    },
     "note": "guide photo",
     "noteHash": "40cf2c284c247a299c22beed40cdfd03e607b0b56c65f37c410d129dd2d5e753",
     "hints": {
@@ -10006,6 +10245,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "shrimp": false
+    },
     "note": "guide photo",
     "noteHash": "647fcec0f63946e432f1aa567b77baa8200e193b03609ad5879fe0e9e216875b",
     "hints": {
@@ -10050,6 +10292,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "barb": false
+    },
     "note": "guide photo",
     "noteHash": "889202724dd5d353af436a107893d31848265ffa9bac06ef648d439046d0f473",
     "hints": {
@@ -10213,6 +10458,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "pleco": false
+    },
     "note": "guide photo",
     "noteHash": "ae77dc80d52c5f5e4c172d2ae893cae79f801f1ba5f9e9acb70101167e866cea",
     "hints": {
@@ -10348,8 +10596,11 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "tetra": true
+    },
     "note": "guide photo",
-    "noteHash": "cbcc517cd7aa790e0683e08e04432db2184b6c46a50820c1441ff115d241277b",
+    "noteHash": "010a9ecd83f07b10319435303043a4f457823cbbf89002de504a9124a508b19e",
     "hints": {
       "dead": false,
       "people": false
@@ -10450,6 +10701,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "rasbora": false
+    },
     "note": "guide photo",
     "noteHash": "8fb91e3c34e88ea7812328b840d75ed5795ef8579bc60698bd719a4e94086ec5",
     "hints": {
@@ -10938,6 +11192,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "puffer": false
+    },
     "note": "guide photo",
     "noteHash": "be570ea91427f081594e42a3e2152713a962603296171dfbe6359b5a7c1e01e1",
     "hints": {
@@ -11484,6 +11741,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "rasbora": false
+    },
     "note": "guide photo",
     "noteHash": "a92994b5189d78eab72bea1f2e137f9f3aab1a28d0a6b57a64a2a03f93c8e2e8",
     "hints": {
@@ -11539,6 +11799,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "snail": false
+    },
     "note": "guide photo",
     "noteHash": "b05786d6b6b62bc9fe1c8148028a4e7cc199e74c16e16543d6858d3e8039f125",
     "hints": {
@@ -11696,6 +11959,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "barb": false
+    },
     "note": "guide photo",
     "noteHash": "a0c6c81c509878bd44f8873bff84829b2b524730f2c4ee7b87add90c5d209f6b",
     "hints": {
@@ -11914,6 +12180,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "tetra": false
+    },
     "note": "guide photo",
     "noteHash": "8031e7b95c3a5fc8fb0c520ea6bb6e2f015dd3da8a07810f92dd4b1de3b3e9f1",
     "hints": {
@@ -11947,6 +12216,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "gourami": false
+    },
     "note": "guide photo",
     "noteHash": "2575a530cfb2fa73a5390d7e0501a1608a7b4d3266d2f16b563dcbb93c5965c4",
     "hints": {
@@ -12060,6 +12332,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "puffer": false
+    },
     "note": "guide photo",
     "noteHash": "7a301591b35f3b6cff69dc5f6d4b72e4a6c217c164dffcf7e33f68a93a5a9634",
     "hints": {
@@ -12286,6 +12561,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "killifish": false
+    },
     "note": "guide photo",
     "noteHash": "c9bf86c43dab02a19faa73bb085fcfc756c2f93f4d68d0d04dd437750b05174f",
     "hints": {
@@ -12366,6 +12644,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "corydoras": false
+    },
     "note": "guide photo",
     "noteHash": "009832e8730c9bcead84a08f2dfa071c32a64bb35b68b95fc84aa01a94389189",
     "hints": {
@@ -12421,6 +12702,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "gourami": false
+    },
     "note": "guide photo",
     "noteHash": "b0f4536a9cd0b43aa432b52b6887deddce864a0a6f83c9f9d6aeec18d7bb4a79",
     "hints": {
@@ -12719,6 +13003,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "corydoras": false
+    },
     "note": "guide photo",
     "noteHash": "ad9ad4e5dab33a45bac79c49f96471ef6acc73d44ad9b0431644b87b4bc0a913",
     "hints": {
@@ -12763,6 +13050,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "cichlid": false
+    },
     "note": "guide photo",
     "noteHash": "56288ac587b0c981383c34026ad057810ef0600fcbd8b599541644995d0c181a",
     "hints": {
@@ -12857,6 +13147,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "killifish": false
+    },
     "note": "guide photo",
     "noteHash": "a0e2eb58700843dcec0ae0dab4087aba3b83e3d4f4291e16589474d721a15028",
     "hints": {
@@ -12868,6 +13161,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "tetra": false
+    },
     "note": "guide photo",
     "noteHash": "cd5aa836b054d198954c4afd87332ddedf6b7c33dd56be3b1255ecd7b87b0ebe",
     "hints": {
@@ -12923,6 +13219,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "corydoras": false
+    },
     "note": "guide photo",
     "noteHash": "636956be4c6004dc0e015018e07053180b328fd9ef1c4f953eefa17d75b44116",
     "hints": {
@@ -13055,6 +13354,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "corydoras": false
+    },
     "note": "guide photo",
     "noteHash": "2b7547ccfc7c0ce5fa6f7dca69c064bfc423319db4364368f4ec8581dc40c20a",
     "hints": {
@@ -13099,6 +13401,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "shrimp": false
+    },
     "note": "guide photo",
     "noteHash": "83a2cf1a5f363b89a0484641ac9f1e7db8a0763d0094a9f33acc05cb3f46fd01",
     "hints": {
@@ -13196,6 +13501,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "cichlid": false
+    },
     "note": "guide photo",
     "noteHash": "a073e35f73d21000254c905c981f81ef0e5efb7a65ef361d3cbba895145a543a",
     "hints": {
@@ -13265,6 +13573,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "puffer": false
+    },
     "note": "guide photo",
     "noteHash": "fd394d8619f3c0c4fc2d2d292720a741a95fc2f6f7c4b3ea255b9f08c53cc467",
     "hints": {
@@ -13397,6 +13708,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "corydoras": false
+    },
     "note": "guide photo",
     "noteHash": "6af7a1dcee391ddcbfe24ddb08d41f9831ceab6d2a4401570f096e68002129f6",
     "hints": {
@@ -13474,6 +13788,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "discus": false
+    },
     "note": "guide photo",
     "noteHash": "54be2acadf87a4186397f9dbcfa14213fdc704d1aee6fd434f16da03b90c7636",
     "hints": {
@@ -13486,6 +13803,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "discus": false
+    },
     "note": "guide photo",
     "noteHash": "18fbb42c3ad6c83980954e5231569ca374ad19242a1f368791813fd8eee96a92",
     "hints": {
@@ -13510,6 +13830,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "discus": false
+    },
     "note": "guide photo",
     "noteHash": "f0548f017eac045497ee6d218a4a1c5e7d3c44f36f2075889930a4c26a312d82",
     "hints": {
@@ -13521,6 +13844,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "discus": false
+    },
     "note": "guide photo",
     "noteHash": "fc02eeb005029faf06ac4aad8c7a01a871c93dd6aaf4a590abf6c0bbec716ed6",
     "hints": {
@@ -13557,6 +13883,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "discus": false
+    },
     "note": "guide photo",
     "noteHash": "35552b22d39d9611deb0c92e8b9971dc916a8e4e6d8065d5f46a1264b067e5e9",
     "hints": {
@@ -13568,6 +13897,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "discus": false
+    },
     "note": "guide photo",
     "noteHash": "379b509fb8f58a5ba70df48b143d69d50fe4c94bdfb546e04e8499dc588f60e0",
     "hints": {
@@ -13579,6 +13911,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "discus": false
+    },
     "note": "guide photo",
     "noteHash": "fa733c34c4eef19aa12361a7829656e356bf97675dd7ae153db1d6d157403e3a",
     "hints": {
@@ -13590,6 +13925,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "discus": false
+    },
     "note": "guide photo",
     "noteHash": "f5be1878c889a8134d26b190b52dba8aebcd03936d60824cc9ce124634249cde",
     "hints": {
@@ -13601,6 +13939,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "discus": false
+    },
     "note": "guide photo",
     "noteHash": "69a863d8d7e899f3a6239bbfd560a2c4700c5bd8d822d95dcf7d44419e8f920b",
     "hints": {
@@ -13612,6 +13953,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "discus": false
+    },
     "note": "guide photo",
     "noteHash": "e7cb76082af18db615aa639d3f34a2ec4ccc04782ce1d124165a4e2b8435b588",
     "hints": {
@@ -13780,6 +14124,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "killifish": false
+    },
     "note": "guide photo",
     "noteHash": "58086b44090e00daee69fccb184d366f0af08c8e216dc0f5b73a08decb99c159",
     "hints": {
@@ -14028,6 +14375,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "killifish": false
+    },
     "note": "guide photo",
     "noteHash": "941dcba3320187440348f8f16227d27a4c5066def241e8c57ccd61aa7255221d",
     "hints": {
@@ -14039,6 +14389,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "cichlid": false
+    },
     "note": "guide photo",
     "noteHash": "7fb23b286c0f2ddce547e1322de29439c1578144413ad519327b1dad071d0c95",
     "hints": {
@@ -14086,6 +14439,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "loach": false
+    },
     "note": "guide photo",
     "noteHash": "971bdaae2872d98600370c358e14cb71080f5d613207cd07b9ec9a8e4e3fa564",
     "hints": {
@@ -14097,6 +14453,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "loach": false
+    },
     "note": "guide photo",
     "noteHash": "f9684b1872164ac2e9ed0464dd8170359773bbd698d4382080617129d151d579",
     "hints": {
@@ -14188,6 +14547,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "loach": false
+    },
     "note": "guide photo",
     "noteHash": "109685b1c7b88e5a399ac2ed95b3e384922b0074f74dfb2306543d39ed76f067",
     "hints": {
@@ -14243,6 +14605,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "loach": false
+    },
     "note": "guide photo",
     "noteHash": "35bad8798bfc6395155be876bce367d7ea610488ea724d52e927e25746e03f4c",
     "hints": {
@@ -14579,6 +14944,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "cichlid": false
+    },
     "note": "guide photo",
     "noteHash": "cdb9c7fbc3642410d87891e8991e5edd811d336e5ab6b31bddd40408250bdbcf",
     "hints": {
@@ -14941,6 +15309,9 @@
     "person": false,
     "mark": false,
     "brand": false,
+    "other": {
+      "loach": false
+    },
     "note": "guide photo",
     "noteHash": "af10b33c17ee90322074d4df2a3b8573ae3159fe38d775f2633f3041dc41e39b",
     "hints": {

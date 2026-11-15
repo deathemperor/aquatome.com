@@ -147,7 +147,12 @@
       "author": "Tylwyth Eldar",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_de_la_Porte_Dor%C3%A9e_-_Poisson_85.jpg",
       "caption": "Tilapia (Sarotherodon melanotheron) à l'Aquarium du palais de la Porte Dorée.",
-      "thumb": "https://media.aquatome.com/commons/f4974ca6ed3ac4fc-480.webp"
+      "thumb": "https://media.aquatome.com/commons/f4974ca6ed3ac4fc-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/f4974ca6ed3ac4fc-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/b96d8edebb5d13af.webp",

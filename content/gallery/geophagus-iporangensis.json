@@ -2,18 +2,6 @@
   "id": "geophagus-iporangensis",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/55011346.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/55011346-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "B. Phalan",
-      "sourceUrl": "https://www.inaturalist.org/photos/55011346",
-      "caption": "Cá Geophagus iporangensis trên nền cát ở suối tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/597396753.webp",
       "thumb": "https://media.aquatome.com/inaturalist/597396753-480.webp",
       "width": 1024,
@@ -22,6 +10,18 @@
       "author": "Dean Hester",
       "sourceUrl": "https://www.inaturalist.org/photos/597396753",
       "caption": "Cá Geophagus iporangensis kiếm ăn trên đáy có rong ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/55011346.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/55011346-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "B. Phalan",
+      "sourceUrl": "https://www.inaturalist.org/photos/55011346",
+      "caption": "Cá Geophagus iporangensis trên nền cát ở suối tự nhiên",
       "best": true,
       "kind": "habitat"
     },
