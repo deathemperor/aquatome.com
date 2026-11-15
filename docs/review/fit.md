@@ -5,12 +5,12 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 4315 | 3681 | 1559 | 60 | 47 | 201 | 36 | 1069 | 391 | 2599 | 484 | 8 | 8 | 0 | 3 | 4 | 3 | 0 |
+| Vietnamese | 4339 | 3703 | 1573 | 60 | 47 | 205 | 41 | 1080 | 394 | 2618 | 485 | 8 | 9 | 0 | 3 | 4 | 3 | 0 |
 | Indonesian | 1449 | 1275 | 360 | 21 | 8 | 4 | 5 | 174 | 33 | 60 | 177 | 0 | 1 | 0 | 3 | 2 | 0 | 0 |
 | Thai | 1433 | 1239 | 337 | 18 | 4 | 5 | 4 | 154 | 40 | 83 | 163 | 0 | 0 | 0 | 1 | 2 | 0 | 0 |
 | Malay | 329 | 283 | 83 | 6 | 2 | 0 | 0 | 38 | 16 | 17 | 34 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
-Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 10 of 139, Indonesian 2 of 55, Thai 2 of 54, Malay 1 of 18.
+Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 10 of 143, Indonesian 2 of 55, Thai 2 of 54, Malay 1 of 18.
 
 ## Doses on more than one page
 
@@ -39,6 +39,7 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - easy dechlorinator: water, unsaid: 0.026 ml/l, 0.025 ml/l, 0.526 drop/l (1 pages); water, other: 0.025 ml/l (1 pages)
 - flourish excel: plants, wholeTank: 0.125 ml/l, 0.025 ml/l (2 pages)
 - methylene blue 2,303%: fungus, wholeTank: 0.132 ml/l, 0.043 ml/l (1 pages); parasites, wholeTank: 0.132 ml/l (1 pages); other, wholeTank: 0.132 ml/l (1 pages)
+- api accu-clear: water, wholeTank: 0.053 ml/l, 0.005 cap/l (3 pages)
 - erythromycin: cyanobacteria, wholeTank: 5 mg/l, 5.263 mg/l (1 pages); algae, wholeTank: 5 mg/l (1 pages)
 - levamisole: parasites, wholeTank: 0.026 packet/l (1 pages); parasites, bath: 50 mg/l (2 pages)
 - seachem excel: algae, wholeTank: 0.125 ml/l (1 pages); algae, other: 1 cap/l (1 pages); algae, spot: 0.025 cap/l (1 pages)
@@ -74,24 +75,24 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 ## Products the market table has no row for, Vietnamese pages
 
 - repashy: 48
+- keo 502: 35
 - panacur: 34
-- keo 502: 31
 - ada: 24
 - tropica: 18
 - ada amazonia: 17
 - ada amazonia aqua soil: 17
 - fluval stratum: 17
+- dennerle: 15
 - hikari first bites: 14
 - hikari shrimp cuisine: 13
 - seachem fluorite: 13
-- dennerle: 12
 - easy fry and small fish food: 12
+- eheim: 12
+- fluval fx6: 12
 - hikari vibra bites: 12
 - apt fix: 11
 - aquario neo soil: 11
-- eheim: 11
 - carib sea eco-complete: 10
-- fluval fx6: 10
 - ge silicone 1: 10
 - twinstar: 10
 - 1-2-grow: 9
@@ -108,8 +109,8 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - seachem flourite: 7
 - seachem flourite dark: 7
 - tetramin: 7
+- api accu-clear: 6
 - chihiros a2: 6
 - chihiros wrgb ii slim: 6
 - eco-complete: 6
 - fluval bug bites: 6
-- fluval plant and shrimp stratum: 6

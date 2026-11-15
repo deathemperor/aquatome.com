@@ -67478,7 +67478,7 @@
   },
   "vi/guides/youtube-Asi_tzpiHxM": {
     "at": "2026-11-15",
-    "hash": "b9533210f087cf75",
+    "hash": "84f3cf6831da37be",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -67486,24 +67486,24 @@
         "check": "units",
         "part": "P1",
         "quote": "dùng bồn khoảng 1.135 lít cho rùa ở",
-        "why": "1,135 litres is a straight conversion of a 300-gallon stock tank, not a size anyone in Vietnam would name.",
+        "why": "1,135 litres is a converted 300-gallon US stock tank size nobody in Vietnam would name.",
         "by": "model"
       },
       {
         "check": "words",
         "part": "P1",
-        "quote": "Rùa hung dữ lớn lên thì hầu như không có bể kính bán sẵn nào",
-        "why": "'Rùa hung dữ' is a word-for-word rendering of 'snapping turtle'; keepers in Vietnam call these rùa cá sấu.",
+        "quote": "Bồn stock tank",
+        "why": "Untranslated English term; keepers in Vietnam call this a large plastic tub.",
         "by": "model",
-        "fix": "rùa cá sấu"
+        "fix": "bồn nhựa lớn"
       },
       {
         "check": "words",
         "part": "P1",
-        "quote": "Bồn stock tank, loại bồn lớn vốn dùng cho gia súc uống nước",
-        "why": "'Stock tank' is left in English; keepers in Vietnam call this a large plastic tub or tank.",
+        "quote": "Treo một đèn xưởng đơn giản phía trên",
+        "why": "Calque of English 'shop light'.",
         "by": "model",
-        "fix": "bồn nhựa lớn"
+        "fix": "bóng đèn LED thường"
       }
     ],
     "products": []
@@ -68567,52 +68567,30 @@
   },
   "vi/guides/youtube-C4oUkABhXDA": {
     "at": "2026-11-15",
-    "hash": "37094ec7b1c3adc1",
+    "hash": "2b814719c533f15f",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P1",
-        "quote": "một bể nano khoảng 9,5 lít trồng toàn rêu cạn",
-        "why": "9.5 litres is a converted 2.5-gallon tank size that nobody in Vietnam would use.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
-        "part": "P4",
-        "quote": "vài cành lũa manzanita để dùng khi đổi ý",
-        "why": "Manzanita is North American wood that keepers in Vietnam don't buy or gather.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
-        "part": "P4",
-        "quote": "thạch anh hồng, loại đá hay dùng rải sân vườn",
-        "why": "Rose quartz sold as garden landscaping rock is an American store habit, not the reader's own.",
+        "quote": "bể nano khoảng 9,5 lít",
+        "why": "9.5 litres is a converted 2.5-gallon tank size, not one used in Vietnam.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P7",
         "quote": "Bộ đèn này đã trồng rêu tốt trong nhiều năm.",
-        "why": "This is the original author's own experience with their light, written as if the reader knew it.",
+        "why": "The original writer's personal experience with their own light, given in their voice.",
         "by": "model"
       },
       {
-        "check": "source",
-        "part": "P8",
-        "quote": "Trong danh sách trên, ít nhất một nửa đã từng trồng ngập thành công.",
-        "why": "This refers to the source author's own past results, which the reader doesn't know.",
+        "check": "elsewhere",
+        "part": "P4",
+        "quote": "giữ thêm vài cành lũa manzanita để dùng khi đổi ý",
+        "why": "Manzanita is an American wood that keepers in Vietnam don't usually buy or gather.",
         "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P3",
-        "quote": "tấm egg crate, tức tấm lưới nhựa khuếch tán đèn",
-        "why": "Keepers in Vietnam don't use the English term 'egg crate' for this.",
-        "by": "model",
-        "fix": "tấm lưới nhựa ô vuông (lưới tản sáng đèn)"
       }
     ],
     "products": [
