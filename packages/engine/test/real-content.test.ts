@@ -1036,3 +1036,15 @@ test('the popeye guide names no clinic in a place and no day count, still says w
   const facts = readFileSync(fileURLToPath(new URL('../../../engine-state/topics/aquatome-ca-bi-loi-mat-popeye-nguyen-nhan-cach-chua-va-phong.json', import.meta.url)), 'utf8')
   for (const s of ['3–5 days', 'Hà Nội', 'TP.HCM', 'Đà Nẵng', 'clinics']) expect(facts, `facts: ${s}`).not.toContain(s)
 })
+
+// The Writing Lead, 16 Nov 2026, after the leak-repair guide's fresh read: the super glue step gets its caution (it bonds
+// skin and eyes in seconds and heats as it sets; gloves, air, soak a stuck finger), acetone its fire and fumes line, the
+// no-drain steps their "Cách làm:" lead-in, and coral leaves a freshwater guide. The two safety sheets are its sources.
+test('the leak-repair guide warns about super glue and acetone, and cites the safety sheets it does so from', () => {
+  const root = fileURLToPath(new URL('../../../', import.meta.url))
+  const t = JSON.parse(readFileSync(join(root, 'content/guides/aquariumbreeder-how-to-fix-a-leaking-aquarium-with-and-without-draining/vi.json'), 'utf8')) as Translation & { bodyFixed?: boolean; refs?: { url: string }[] }
+  for (const kept of ['Keo 502 dính da và mắt chỉ trong vài giây, và tỏa nhiệt khi đông cứng.', 'ngâm tay vào nước xà phòng ấm rồi gỡ từ từ.', '<p>Cách làm:</p><ul><li>Rắc baking soda lên chỗ rò.', 'Acetone rất dễ cháy', 'chuyển cá, tép sang bể tạm']) expect(t.body, kept).toContain(kept)
+  expect(t.body).not.toContain('san hô')
+  expect(t.bodyFixed).toBe(true)
+  expect(t.refs?.map(r => r.url)).toEqual(['https://files.canon-europe.com/files/webcontent/safety-data-sheets/EU_Service-Materials/lo0045405_-_loctite_454_superglue_5g_pdf.pdf', 'https://www.cdc.gov/niosh/npg/npgd0004.html'])
+})
