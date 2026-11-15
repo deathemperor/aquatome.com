@@ -591,6 +591,8 @@ test('C. robustus\'s dealer sexing part is the notice\'s ventral-fins line, and 
   expect(parts.find(s => s.key === 'quickFacts')!.html).toContain('Females become somewhat bigger than males.')
   expect(read<Translation>('vi.json').sections!['dimorphism:glaser']).toBe('<p>Ở C. robustus, cả cá đực lẫn cá cái đều có vây lưng dài. Cách phân biệt đực cái tốt nhất là nhìn hình dạng vây bụng.</p>')
   for (const l of ['id', 'th']) expect(read<Translation>(`${l}.json`).sections!['dimorphism:glaser'], l).toBeUndefined()
+  // The notice itself forwards to C. narcissus, the fish it's mostly about; nothing of narcissus moves (ruling b).
+  expect(RETIRED_GUIDES['glaser-en-10-catfishes-10a-catfishes-corydoras-co-show-corydoras-arrived-en']).toEqual({ kind: 'species', id: 'corydoras-narcissus' })
 })
 
 // Two more lasting lines (the Writing Lead, 15 Nov 2026), each under its notice's address so its link goes to a page that

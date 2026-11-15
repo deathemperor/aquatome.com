@@ -50,11 +50,13 @@ export const RETIRED_GUIDES: Readonly<Record<string, RetiredTo>> = {
   // annectens's (the site has no P. aethiopicus page). The C. narcissus notice's C. robustus lines (both sexes grow the
   // long dorsal fin; the sexes are best told apart by the ventral fins) are C. robustus's dealer sexing part, under the
   // notice's address (the Writing Lead, 15 Nov 2026). Nothing of C. narcissus moves to its page (ruling b): the forms I
-  // and II are the dealer's, and "almost 10 cm" would be a second size beside the page's 7.5 cm.
+  // and II are the dealer's, and "almost 10 cm" would be a second size beside the page's 7.5 cm. The notice forwards to
+  // C. narcissus's page, the fish it's mostly about, as the eques and Sturisoma notices forward to theirs (the Writing
+  // Lead, 15 Nov 2026, with the page in view).
   'glaser-en-09-characoids-tetra-relationship-thoracocharax-stellatus-gasteropelecus-maculatus-jumbo-carnegiella-myersi-carnegiella-strigata-2': fish('thoracocharax-stellatus'),
   'glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-huge-acanthicus-adonis-arrived-en': fish('acanthicus-adonis'),
   'glaser-en-29-lungfishes-lungfishes-from-the-congo': fish('protopterus-dolloi'),
-  'glaser-en-10-catfishes-10a-catfishes-corydoras-co-show-corydoras-arrived-en': fish('corydoras-robustus'),
+  'glaser-en-10-catfishes-10a-catfishes-corydoras-co-show-corydoras-arrived-en': fish('corydoras-narcissus'),
 }
 
 /** 2hraquarist's gallery posts of other people's tanks: every one, those written later too, off to the guides list. */
