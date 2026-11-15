@@ -394,6 +394,27 @@ test('a source\'s part fixed by hand says only what the source says: the porthol
   expect(vi['reproduction:seriouslyfish']).toBe('<p>Hiện có rất ít thông tin về chuyện loài này sinh sản trong bể nuôi.</p>')
 })
 
+// The chief of staff, 15 Nov 2026: the rewrite of 14 Nov took two care facts whole for a half its read flagged ("but these
+// fish are quite peaceful so far", the source's own batch; "in a hot country", written for a reader in a cold one). Each
+// is back with its general half only, fixed by hand so no rewrite, read of its source or translation takes it again.
+test('two care facts a rewrite took whole are back with their general half, fixed: Leporinus fight their own kind, Osphronemus breed in a huge tank or a pond', () => {
+  const root = fileURLToPath(new URL('../../../content', import.meta.url))
+  const read = <T>(path: string) => JSON.parse(readFileSync(join(root, path), 'utf8')) as T
+  const part = (id: string, key: string, source: string) => {
+    const s = read<{ sections: { key: string; source: string; html: string; fixed?: boolean }[] }>(`species/${id}/entity.json`).sections.find(x => x.key === key && x.source === source)
+    return { en: s, vi: read<{ sections: Record<string, string> }>(`species/${id}/vi.json`).sections[`${key}:${source}`] }
+  }
+  const leporinus = part('leporinus-fasciatus-tigrinus', 'behaviour', 'glaser')
+  expect(leporinus.en?.fixed).toBe(true)
+  expect(leporinus.en?.html).toBe('<p>Leporinus are known to be sometimes quarrelsome against their own kind.</p>')
+  expect(leporinus.vi).toBe('<p>Cá Leporinus đôi khi hay gây gổ với cá cùng loài.</p>')
+  const osphronemus = part('osphronemus-exodon', 'reproduction', 'seriouslyfish')
+  expect(osphronemus.en?.fixed).toBe(true)
+  expect(osphronemus.en?.html).toMatch(/Obviously an enormous aquarium, or perhaps a pond, would be required for any serious breeding attempt\.<\/p>$/)
+  expect(osphronemus.vi).toMatch(/Muốn cho đẻ nghiêm túc thì dĩ nhiên phải có bể cực lớn, hoặc có lẽ là một cái ao\.<\/p>$/)
+  expect(osphronemus.vi).not.toMatch(/xứ nóng/)
+})
+
 test('the tap-water fixes hold: Seachem Prime named at its dose, our note on water for lucky bamboo beside its source\'s, our chloramine note, artemia salt in grams', () => {
   const root = fileURLToPath(new URL('../../../content', import.meta.url))
   const read = <T>(path: string) => JSON.parse(readFileSync(join(root, path), 'utf8')) as T
