@@ -4,6 +4,7 @@ import { getContent } from '../../lib/content'
 import { categoriesIn, shownTypes, speciesUsing } from '../../lib/equipment'
 import { categoryLabel } from '../../lib/format'
 import { smallSrc } from '../../lib/img'
+import { creditsFor } from '../../lib/credits'
 import { i18n } from '../../lib/i18n'
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
@@ -12,7 +13,7 @@ const cats = categoriesIn(lang, c)
   .map(u => ({ u, g: c.equipment.find(x => x.category === u.category), n: speciesUsing(lang, c, u.category).length }))
   .sort((a, b) => Number(!!b.g) - Number(!!a.g))
 ---
-<Browse title={t('Thiết bị bể cá: chọn lọc, đèn, sưởi, nền, thức ăn')} heading={t('Thiết bị')} intro={t('Mỗi loại thiết bị: các kiểu nên mua, cách chọn theo cỡ bể và loài cá, lỗi người mới hay mắc, và những loài cần đến nó.')}>
+<Browse title={t('Thiết bị bể cá: chọn lọc, đèn, sưởi, nền, thức ăn')} heading={t('Thiết bị')} intro={t('Mỗi loại thiết bị: các kiểu nên mua, cách chọn theo cỡ bể và loài cá, lỗi người mới hay mắc, và những loài cần đến nó.')} credits={creditsFor(cats.map(x => x.g?.hero))}>
   <div class="cats">
     {cats.map(({ u, g, n }) => (
       <a class="cat" href={`/vi/thiet-bi/${u.category}/`}>

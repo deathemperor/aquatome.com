@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { GlossarySchema, metricPage, QUALITY_THRESHOLD, TranslationSchema, type GlossaryEntity, type GuideEntity, type Translation } from '@aq/schema'
+import { glossaryKinds, GlossarySchema, metricPage, QUALITY_THRESHOLD, TranslationSchema, type GlossaryEntity, type GuideEntity, type Translation } from '@aq/schema'
 import type { Llm } from './claude'
 import { VI_STYLE as STYLE } from './phrases'
 import { isMarketplace } from './marketplaces'
@@ -133,13 +133,15 @@ const words = (html: string) => unescapePlain(html.replace(/<[^>]+>/g, ' ')).spl
  * read off the draft, so a writer can't raise its own length by splitting items, and a list of bold labels ("Làm pH lên:")
  * isn't kinds (pH's first fuller draft ran to 916 words that way). A term with three kinds or more: about 900 words besides
  * its kinds (Lũa's sixth had 914) and about 60 for each, the kinds' depth left to their own pages, an item past 90 words
- * noted. Any other term: about 400 (chu trình nitơ's 392, with its 8 sources), or `own`, its notes file's own length. Past the target, a note, so the draft gets one
+ * noted. Any other term: about 400 (chu trình nitơ's 392, with its 8 sources). `own`, the term's notes file's own length,
+ * wins over both, a term with kinds too: once each kind's picture shows how it looks, its item needs a line or two (the
+ * owner, 15 Nov 2026, of Lũa's 2,900 words: "what does each look like?"). Past the target, a note, so the draft gets one
  * trim pass; `stop`: more than 15 percent past it (the chief of staff's line).
  */
-export function lengthNotes(body: string, kinds = 0, own = 400): { notes: string[]; stop: boolean } {
-  const target = kinds >= 3 ? 900 + 60 * kinds : own
+export function lengthNotes(body: string, kinds = 0, own?: number): { notes: string[]; stop: boolean } {
+  const target = own ?? (kinds >= 3 ? 900 + 60 * kinds : 400)
   const n = words(body)
-  const out = n > target ? [`The entry is ${n} words: hold it to about ${target}${kinds >= 3 ? ', about 60 a kind' : ''}, and leave what is left out to the pages that use the term.`] : []
+  const out = n > target ? [`The entry is ${n} words: hold it to about ${target}${kinds >= 3 && own === undefined ? ', about 60 a kind' : ''}, and leave what is left out to the pages that use the term.`] : []
   if (kinds >= 3) {
     // Each item's own words: a list inside an item is its own items, not the outer one's.
     const items: string[] = []
@@ -250,13 +252,32 @@ export function addResearch(a: TopicFacts, b: TopicFacts): TopicFacts {
  * translated (the Writing Lead, 13 Nov 2026, after the owner found a fern under a translated name). And only when the
  * site can link them safely, as the translations' (localize.ts): several words or an abbreviation, and no other term's.
  */
-export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: Llm }, id: string, o: { kind: GuideEntity['kind']; sf?: string; reuse?: boolean; fresh?: boolean; fromDraft?: boolean; revise?: boolean; accept?: string; researchModel?: string; writeModel?: string; now?: () => Date }) {
+export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: Llm }, id: string, o: { kind: GuideEntity['kind']; sf?: string; reuse?: boolean; fresh?: boolean; fromDraft?: boolean; revise?: boolean; accept?: string; topUp?: boolean; researchModel?: string; writeModel?: string; now?: () => Date }) {
   const dir = join(root, 'content/glossary')
   const read = async <T>(f: string) => JSON.parse(await readFile(f, 'utf8')) as T
   const entity = GlossarySchema.parse(await read(join(dir, id, 'entity.json')))
   const vi = TranslationSchema.parse(await read(join(dir, id, 'vi.json')))
   const factsFile = join(root, 'engine-state/glossary', `${id}.json`)
   const saved = await read<TopicFacts>(factsFile).catch(() => null)
+  // A top-up only researches: what the term's notes ask (`also`) and the pages they name (`read`), added to the kept
+  // research, and nothing written, so the next revise writes from facts that are there (the chief of staff, 15 Nov 2026:
+  // what Artemia is, and Vĩnh Châu's eggs, each a fact before an entry says it, never on the checker's mercy).
+  if (o.topUp) {
+    if (o.fresh || o.reuse || o.revise || o.fromDraft || o.accept) return { id, refused: ['--top-up only researches: not with --fresh, --redo, --revise, --from-draft or --accept'] }
+    if (!saved) return { id, refused: ['no kept research to top up'] }
+    const asks = ASKS[id] ?? {}
+    if (!asks.also?.length && !asks.read?.length) return { id, refused: ['nothing to top up: the notes file gives this term no also or read'] }
+    const ask = [
+      asks.also?.length ? `Find only these, each from a page that says it; where no page you may use says one, add nothing for it: ${asks.also.join('; ')}.` : '',
+      asks.read?.length ? `Read these pages and keep what they say: ${asks.read.join(', ')}.` : '',
+    ].filter(Boolean).join(' ')
+    const found = await d.research<TopicFacts>({ system: 'You research fishkeeping topics carefully and cite every fact. Reply only with JSON.', prompt: `${researchPrompt({ topic: `${vi.name} (${entity.en}): only what is asked below; research already kept covers the rest`, kind: o.kind })}\n\n${ask}`, schema: FACTS_SCHEMA, model: o.researchModel ?? 'opus' })
+    const researched = addResearch(saved, found)
+    await writeFile(factsFile, `${JSON.stringify(researched, null, 2)}\n`)
+    const key = (f: TopicFacts['facts'][number]) => `${f.section}|${f.fact.trim().toLowerCase()}`
+    const had = new Set(saved.facts.map(key))
+    return { id, toppedUp: researched.facts.filter(f => !had.has(key(f))).map(f => `${f.fact} (${researched.sources[f.source]?.url ?? ''})`) }
+  }
   const draftFile = join(root, 'engine-state/glossary', `${id}.draft.json`)
   // A kept draft, revised or accepted, goes with the research it was written from, and only as the step kept it: a file
   // whose SHA-256 the review log has for a draft of this term (Codex's read, 14 Nov 2026), or one kept before the log had
@@ -323,8 +344,10 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     asks.asked?.length ? `--- NGƯỜI ĐỌC ĐÃ HỎI ---\n${asks.asked.join('\n')}` : '',
     asks.write?.length ? `--- CHO MỤC NÀY ---\n${asks.write.join('\n')}` : '',
     // The term's own length, in place of the prompt's (Codex, 14 Nov 2026: the writer was never told pH's 600). As in
-    // lengthNotes, a term with three kinds or more keeps 900 and 60 a kind.
-    asks.length && named < 3 ? `--- ĐỘ DÀI ---\nKhoảng ${asks.length.words} chữ cả bài, thay cho độ dài nói ở trên.` : '',
+    // lengthNotes, it wins over the 900 and 60 a kind of a term with three kinds or more.
+    // A term with kinds and its own length: each kind a line or two, as its picture shows how it looks (the Sonnet
+    // reviewer, 15 Nov 2026: the prompt's 60 words a kind would still pull the entry long).
+    asks.length ? `--- ĐỘ DÀI ---\nKhoảng ${asks.length.words} chữ cả bài, thay cho độ dài nói ở trên.${named >= 3 ? ' Mỗi loại một hai câu, vì ảnh của nó cho thấy nó trông thế nào.' : ''}` : '',
   ].filter(Boolean).map(x => `\n\n${x}`).join('')
   // A rewrite edits the draft before it: only the sentences a note quotes or points to change, every other one stays word
   // for word (the chief of staff, 14 Nov 2026: Lũa's three whole rewrites each brought fresh notes and didn't converge).
@@ -452,9 +475,13 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     ...vi, altNames, definition: unescapePlain(w.definition).replace(/<[^>]+>/g, '').trim(), body: sanitizeHtml(w.body),
     quality: { score: review.score, indexable: true },
   }, 'vi'))
+  // Each kind's photo stays with the term (the spread above keeps it). One whose kind the new text no longer lists is named,
+  // never dropped: Curation files it again, or the next run writes the kind back (the chief of staff, 15 Nov 2026).
+  const listed = new Set(glossaryKinds(t.body ?? '').map(k => k.id))
+  const unplaced = (next.kinds ?? []).map(k => k.id).filter(k => !listed.has(k))
   await writeFile(join(dir, id, 'entity.json'), `${JSON.stringify(next, null, 2)}\n`)
   await writeFile(join(dir, id, 'vi.json'), `${JSON.stringify(t, null, 2)}\n`)
   // A kept draft is the entry's now, or older than it.
   await rm(draftFile, { force: true })
-  return { id, score: review.score, notes: review.notes, ...(o.accept ? { acceptedBy: o.accept } : {}), refs: refs.length, altNames: altNames.length - vi.altNames.length, related: next.related ?? [] }
+  return { id, score: review.score, notes: review.notes, ...(o.accept ? { acceptedBy: o.accept } : {}), refs: refs.length, altNames: altNames.length - vi.altNames.length, related: next.related ?? [], ...(unplaced.length ? { kindPhotosUnplaced: unplaced } : {}) }
 }

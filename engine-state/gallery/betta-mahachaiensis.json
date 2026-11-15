@@ -4,7 +4,14 @@
  "hashes": {
   "https://media.aquatome.com/commons/78302919749a9d91.webp": "3ad78f87c6a51231",
   "https://media.aquatome.com/bwaquatics/c512f4b1ddb74dde.webp": "0f8fcbc37819bdef",
-  "https://media.aquatome.com/bwaquatics/42858a152e8ce84c.webp": "3b391d3936273775"
+  "https://media.aquatome.com/bwaquatics/42858a152e8ce84c.webp": "3b391d3936273775",
+  "https://media.aquatome.com/aquariumcoop/2e1f6d1197d08d5f.webp": "9dcb0931e1e14f03",
+  "https://media.aquatome.com/glaser/73955b0c3790e96a.webp": "7773472703071333",
+  "https://media.aquatome.com/bwaquatics/bcc1088b655adf74.webp": "60c2e2d8f0616210",
+  "https://media.aquatome.com/bwaquatics/0c7692ed3a4e0a29.webp": "810707c5c6818182",
+  "https://media.aquatome.com/bwaquatics/1215b602deaf1c2e.webp": "5f38213133140c8c",
+  "https://media.aquatome.com/bwaquatics/ce8b310f050f3baf.webp": "787c64e0f9efb8be",
+  "https://media.aquatome.com/bwaquatics/4aa3c06bfd71a23b.webp": "19054e6628c116b0"
  },
  "inat": {
   "taxon": 618868,
@@ -18,5 +25,9 @@
  "gbif": {
   "key": 7193203,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-15"
 }

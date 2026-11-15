@@ -21,6 +21,10 @@
       {
         "source": "scotcat",
         "value": 12
+      },
+      {
+        "source": "glaser",
+        "value": 6
       }
     ],
     "tempC": [
@@ -62,6 +66,18 @@
       "html": "<p>Tatia strigata is the only species of the genus with a completely striped colour pattern, bearing whitish elongate longitudinal irregular stripes along the lateral sides of the body.</p><p>Etymology: the specific epithet strigata means striped.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/tatia_strigata_en/",
+      "html": "<p>Tatia strigata is a small species; the maximum reported length is around 6 cm. It was discovered and described as late as 1995. The unique colour pattern, which differs slightly between individuals, makes the species unmistakable.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/tatia_strigata_en/",
+      "html": "<p>A species new for the hobby that has been imported. Available size: 4–6 cm.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1095",
@@ -72,6 +88,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_strigata.htm",
       "html": "<p>South America: Amazon River basin and upper reaches of the Orinoco River. Type locality: Brazil, Amazonas, Municipio de Maués, Igarapé Limãozinho.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/tatia_strigata_en/",
+      "html": "<p>Origin: Brazil.</p>"
     },
     {
       "key": "habitat",
@@ -98,10 +120,22 @@
       "html": "<p>In its native habitat they feed on small invertebrates and crustaceans and in the aquarium they will eat anything given such as frozen bloodworm inserted into their hideaway, catfish tablets, white worm (sparingly) and prawns and shrimp. They like their food and can be seen shooting out of their hideouts and swimming in a frenzied manner to try and take all for themselves, especially when fed their favourite food, frozen bloodworm.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/tatia_strigata_en/",
+      "html": "<p>Can be fed with any conventional fish food.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_strigata.htm",
       "html": "<p>As with most members of this family they are very secretive and will stay hidden for most of the day. Dim lighting will see them come out for food, which they eat with gusto. Will have no problem with most co-habitants but will eat small fish/fry in the aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/tatia_strigata_en/",
+      "html": "<p>Tatia are very peaceful, night-active animals.</p>"
     },
     {
       "key": "dimorphism",
@@ -116,10 +150,22 @@
       "html": "<p>A unique arrangement of the adult male modified anal fin is present, with the second unbranched anal-fin ray with anterior enlarged segments and a notch formed by the reduction of the second and third branched rays (Soares-Porto, 1995). It is also distinguished from all congeners by a combination of characteristics: four branched pectoral-fin rays; 7 ribs; 29-30 vertebrae; and mature males with the upper caudal-fin lobe slightly elongated, same length in females.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/tatia_strigata_en/",
+      "html": "<p>As in all Tatia, males can be easily recognized by the modified anal fin that is used for internal fertilization.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1095",
       "html": "<p>Has been bred a few times in the aquarium. Eggs are scattered individually across the tank as opposed to laid in a clump like some congeners. The species isn't difficult to spawn, however, the eggs are hard to develop and the fry are hard to raise. The eggs only develop in very soft acidic water; without this they \"melt\". The fry are quite small, with a high mortality rate. They can only be weaned on liquid foods for the first couple of weeks, after that they are quite easy to rear.</p><p>There is a single breeding report.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/tatia_strigata_en/",
+      "html": "<p>Females of Tatia spawn in the absence of males. Breeding of many species of Tatia has already been successful in aquaria.</p>"
     },
     {
       "key": "notes",
@@ -132,6 +178,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_strigata.htm",
       "html": "<p>IUCN Red List: the species is widely distributed and faces no direct threats. Therefore, it is assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/tatia_strigata_en/",
+      "html": "<p>Lexicon: Tatia is dedicated to Charles Tate Regan, who was an ichthyologist at the British Museum. strigata is Latin and means \"striped\".</p>"
     },
     {
       "key": "references",
@@ -159,6 +211,17 @@
       "source": "scotcat"
     },
     {
+      "url": "https://media.aquatome.com/scotcat/677ea2d480019cc0.webp",
+      "thumb": "https://media.aquatome.com/scotcat/677ea2d480019cc0-480.webp",
+      "width": 500,
+      "height": 352,
+      "licence": "dùng với sự cho phép",
+      "author": "Ivor Hilton / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_strigata.htm",
+      "caption": "Tatia strigata",
+      "source": "scotcat"
+    },
+    {
       "url": "https://media.aquatome.com/scotcat/4ade6c5bf738a7d7.webp",
       "thumb": "https://media.aquatome.com/scotcat/4ade6c5bf738a7d7-480.webp",
       "width": 500,
@@ -179,27 +242,6 @@
       "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_strigata.htm",
       "caption": "Tatia strigata",
       "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/677ea2d480019cc0.webp",
-      "thumb": "https://media.aquatome.com/scotcat/677ea2d480019cc0-480.webp",
-      "width": 500,
-      "height": 352,
-      "licence": "dùng với sự cho phép",
-      "author": "Ivor Hilton / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_strigata.htm",
-      "caption": "Tatia strigata",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/408a1da19062732e.webp",
-      "thumb": "https://media.aquatome.com/commons/408a1da19062732e-480.webp",
-      "width": 960,
-      "height": 685,
-      "licence": "CC BY 2.0",
-      "author": "Clinton & Charles Robertson",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tatia_strigata.jpg",
-      "caption": "Tatia strigata"
     }
   ],
   "videos": [
@@ -249,5 +291,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-10"
+  "updatedAt": "2026-11-15"
 }

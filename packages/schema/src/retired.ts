@@ -30,14 +30,33 @@ export const RETIRED_GUIDES: Readonly<Record<string, RetiredTo>> = {
   'glaser-en-32-all-the-rest-drought-in-singapore-and-malaysia': 'guides',
   'glaser-en-32-all-the-rest-guinea-import-arrived-en': fish('ladigesia-roloffi'),
   // The sheet's "forward": each one's lasting fact is on its fish's page now, under the dealer's name and the notice's
-  // address, fixed (the chief of staff, 14 Nov 2026). The eques, Sturisoma and Cichla hybrid notices stay on until a ruling
-  // on the lines no fish page has yet (C. armatus's name, the genus's name, which sex grows the Sturisoma nose, how the
-  // hybrids look and the genus grown from five species to 15).
+  // address, fixed (the chief of staff, 14 Nov 2026), or was there already (Sturisoma's nose). On the Writing Lead's
+  // rulings of 15 Nov 2026: the eques notice puts only C. duplicareus's look-alike line on its page, after its name's
+  // meaning in the same part, and the Sturisoma notice nothing (the genus's and C. armatus's name meanings are shaky as
+  // the notice gives them, the gold spot is the batch's fish, and the page's later article names no sex for the
+  // Sturisoma nose); the Cichla hybrid notice puts the genus grown from five species to 15 on C. ocellaris, and not the
+  // looks (the dealer's own hybrids) or the genus's record size.
+  'glaser-en-10-catfishes-10a-catfishes-corydoras-co-corydoras-eques-c-sp-aff-armatus-and-corydoras-duplicareus-en': fish('corydoras-eques'),
   'glaser-en-03-bony-tongues-scleropages-jardinii-and-s-leichardti-en': fish('scleropages-leichardti'),
+  'glaser-en-general-cichla-ocellaris-x-melaniae-hybrid-2': fish('cichla-ocellaris'),
+  'glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-sturisoma-arrived-en': fish('sturisoma-nigrirostrum'),
   'glaser-en-18-toothcarps-killis-and-livebearers-limia-special-en': fish('limia-perugiae'),
   'glaser-en-fisharchive-hyphessobrycon-pyrrhonotus-juvenile': fish('hyphessobrycon-pyrrhonotus'),
   'glaser-en-32-all-the-rest-congo-importation-arrived-en': fish('distichodus-sexfasciatus'),
   'glaser-en-32-all-the-rest-finally-an-import-from-guinea-en': fish('pelvicachromis-rubrolabiatus'),
+  // The Writing Lead's rulings of 15 Nov 2026 on the four held back: the hatchetfish imports' size and C. myersi's
+  // males, A. adonis's 1 m as "is said to" are on their pages. The lungfish notice's daily watch, wool method and
+  // "predators, for experienced keepers only" are on P. dolloi's page, and its bites often a mistake for food on P.
+  // annectens's (the site has no P. aethiopicus page). The C. narcissus notice's C. robustus lines (both sexes grow the
+  // long dorsal fin; the sexes are best told apart by the ventral fins) are C. robustus's dealer sexing part, under the
+  // notice's address (the Writing Lead, 15 Nov 2026). Nothing of C. narcissus moves to its page (ruling b): the forms I
+  // and II are the dealer's, and "almost 10 cm" would be a second size beside the page's 7.5 cm. The notice forwards to
+  // C. narcissus's page, the fish it's mostly about, as the eques and Sturisoma notices forward to theirs (the Writing
+  // Lead, 15 Nov 2026, with the page in view).
+  'glaser-en-09-characoids-tetra-relationship-thoracocharax-stellatus-gasteropelecus-maculatus-jumbo-carnegiella-myersi-carnegiella-strigata-2': fish('thoracocharax-stellatus'),
+  'glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-huge-acanthicus-adonis-arrived-en': fish('acanthicus-adonis'),
+  'glaser-en-29-lungfishes-lungfishes-from-the-congo': fish('protopterus-dolloi'),
+  'glaser-en-10-catfishes-10a-catfishes-corydoras-co-show-corydoras-arrived-en': fish('corydoras-narcissus'),
 }
 
 /** 2hraquarist's gallery posts of other people's tanks: every one, those written later too, off to the guides list. */

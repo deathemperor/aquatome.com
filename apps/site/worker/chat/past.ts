@@ -3,7 +3,7 @@ import { DEFAULT_MODEL } from '../fishid/claude'
 import { ledgerClient } from '../fishid/ledger'
 import type { Start } from './agent'
 import { linkedOf } from './answer'
-import { askable, assetSource, charsOf, CONVERSATION_MS, json, limit, live, MAX_TURNS, UUID, type ChatDeps, type ChatEnv, type Conversation, type Kept, type KeptTurn, type Turn } from './api'
+import { askable, assetSource, charsOf, CONVERSATION_MS, json, limit, live, MAX_TURNS, roleOf, UUID, type ChatDeps, type ChatEnv, type Conversation, type Kept, type KeptTurn, type Turn } from './api'
 import { handbookOf, type Handbook, type Lang } from './handbook'
 import { chatAccount, conversationKey, importedKey, listAll, reportKey, retryKey, secs, stopKey } from './store'
 
@@ -32,7 +32,9 @@ export async function chatPast(req: Request, url: URL, env: ChatEnv, now: Date, 
   const bearer = req.headers.has('authorization')
   if (req.method === 'POST' && !bearer && tokenOf(req)?.via === 'cookie' && !sameSiteOk(req, true)) return json({ error: 'cross-origin' }, 403)
   const session = await sessionOf(req, env.DB, now)
-  if (!askable(env, session?.userId)) return json({ error: 'unavailable' }, 503)
+  // Who asks, looked up only where it counts: the gate while chat is the owner's, and a report.
+  const role = env.CHAT === 'owner' ? await roleOf(env, session?.userId) : undefined
+  if (role && !askable(env, role)) return json({ error: 'unavailable' }, 503)
   if (!session || (bearer && session.via !== 'bearer')) return json({ error: 'session' }, 401)
   const account = await chatAccount(env.ACCOUNT_HMAC_KEY, session.userId)
   const db = env.DB
@@ -118,7 +120,7 @@ export async function chatPast(req: Request, url: URL, env: ChatEnv, now: Date, 
     if (charsOf(reason) > REASON_CHARS) return json({ error: 'too long' }, 400)
     const t = (await held(id))?.conv.turns.find(x => x.n === n)
     if (!t) return json({ error: 'unknown' }, 404)
-    const put = await bucket.put(reportKey(account, id, n), JSON.stringify({ at: secs(clock()), conversation: id, turn: n, question: t.question, text: t.text, ...(reason ? { reason } : {}) }), { onlyIf: { etagDoesNotMatch: '*' } })
+    const put = await bucket.put(reportKey(account, id, n), JSON.stringify({ at: secs(clock()), conversation: id, turn: n, role: role ?? await roleOf(env, session.userId), question: t.question, text: t.text, ...(reason ? { reason } : {}) }), { onlyIf: { etagDoesNotMatch: '*' } })
     return json({ result: put ? 'saved' : 'already' })
   }
 

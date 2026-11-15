@@ -112,6 +112,20 @@ test('a rewrite keeps the photos put on the term', async () => {
   expect(JSON.parse(await readFile(join(root, 'content/glossary/lua/entity.json'), 'utf8')).photos).toEqual([photo])
 })
 
+// The owner, 15 Nov 2026: "what does each look like?". Each kind's photo is Curation's: a rewrite keeps every one, and one
+// whose kind the new text no longer lists is named in the run's result, not dropped.
+test('a rewrite keeps each kind\'s photo, and names one whose kind the new text no longer lists', async () => {
+  const root = await site()
+  const photo = (n: string) => ({ url: `https://media.aquatome.com/x/${n}.webp`, width: 1000, height: 667, licence: 'dùng với sự cho phép', author: 'A shop', sourceUrl: `https://example.org/${n}` })
+  const kinds = [{ id: 'lua-do-quyen', photo: photo('a') }, { id: 'mopani', photo: photo('b') }]
+  await writeFile(join(root, 'content/glossary/lua/entity.json'), JSON.stringify({ id: 'lua', en: 'Driftwood', kinds }))
+  const body = '<h3>Các loại lũa</h3><ul><li><strong>Lũa đỗ quyên</strong> (spider wood): rễ cây đỗ quyên.</li></ul>'
+  const llm: Llm = async ({ prompt }) => (prompt.startsWith('GLOSSARY RULES') ? { notes: [] } : isCheck(prompt) ? verdicts(prompt) : { ...written, body }) as never
+  const r = await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'lua', { kind: 'aquascaping' })
+  expect(JSON.parse(await readFile(join(root, 'content/glossary/lua/entity.json'), 'utf8')).kinds).toEqual(kinds)
+  expect(r).toMatchObject({ id: 'lua', kindPhotosUnplaced: ['mopani'] })
+})
+
 // A shop's listing on a marketplace, or a post on a social network, found by research through search: never a source, and
 // nothing it alone says reaches the writer (the owner's rule; the Site Lead, 13 Nov 2026).
 test('a marketplace\'s or a social network\'s page is never a source, nor are the facts that cite it', async () => {
@@ -240,6 +254,42 @@ test('new research adds to what was kept, a fact both give once; --fresh starts 
   expect(JSON.parse(await readFile(join(root, 'engine-state/glossary/lua.json'), 'utf8'))).toEqual(more)
 })
 
+// The chief of staff, 15 Nov 2026: what Artemia is, and the Vĩnh Châu eggs keepers here buy, each a fact before a revise
+// writes it. A top-up researches only what the term's notes ask, adds it to the kept research, and writes nothing.
+test('--top-up researches only what the notes ask, adds it to the kept research and writes nothing', async () => {
+  const root = await site()
+  const files = ['content/glossary/lua/entity.json', 'content/glossary/lua/vi.json']
+  const before = await Promise.all(files.map(f => readFile(join(root, f), 'utf8')))
+  const never: Llm = async () => { throw new Error('nothing is written in a top-up') }
+  expect(await makeGlossaryEntry(root, { research: never, llm: never }, 'lua', { kind: 'aquascaping', topUp: true })).toEqual({ id: 'lua', refused: ['no kept research to top up'] })
+  await mkdir(join(root, 'engine-state/glossary'), { recursive: true })
+  await writeFile(join(root, 'engine-state/glossary/lua.json'), JSON.stringify(facts))
+  await writeFile(join(root, 'engine-state/glossary/ph.json'), JSON.stringify(facts))
+  expect(await makeGlossaryEntry(root, { research: never, llm: never }, 'ph', { kind: 'setup', topUp: true })).toEqual({ id: 'ph', refused: ['nothing to top up: the notes file gives this term no also or read'] })
+  for (const with_ of [{ fresh: true }, { reuse: true }, { revise: true }, { fromDraft: true }, { accept: 'the chief of staff' }])
+    expect(await makeGlossaryEntry(root, { research: never, llm: never }, 'lua', { kind: 'aquascaping', topUp: true, ...with_ })).toMatchObject({ refused: [expect.stringMatching(/^--top-up only researches/)] })
+  const more: TopicFacts = {
+    found: true,
+    facts: [
+      { section: 'what', fact: 'Lũa sa tùng is the root of a pine', source: 0 },
+      { section: 'steps', fact: 'Soak new driftwood for one to two weeks, changing the water, before it goes in a tank', source: 1 },
+    ],
+    species: [],
+    sources: [{ url: 'https://example.org/sa-tung', title: 'Lũa sa tùng', kind: 'shop' }, facts.sources[1]!],
+  }
+  let asked = ''
+  const r = await makeGlossaryEntry(root, { research: async ({ prompt }) => { asked = prompt; return more as never }, llm: never }, 'lua', { kind: 'aquascaping', topUp: true })
+  expect(r).toEqual({ id: 'lua', toppedUp: ['Lũa sa tùng is the root of a pine (https://example.org/sa-tung)'] })
+  // The ask is the notes' own, not the whole topic again.
+  const ASKS = JSON.parse(await readFile(new URL('../src/glossary-asks.json', import.meta.url), 'utf8')) as Record<string, { also?: string[]; read?: string[] }>
+  expect(asked).toContain(`Find only these, each from a page that says it; where no page you may use says one, add nothing for it: ${ASKS.lua!.also!.join('; ')}.`)
+  expect(asked).toContain(`Read these pages and keep what they say: ${ASKS.lua!.read!.join(', ')}.`)
+  expect(asked).not.toContain('what it does in a tank')
+  const kept = JSON.parse(await readFile(join(root, 'engine-state/glossary/lua.json'), 'utf8')) as TopicFacts
+  expect(kept.facts).toEqual([...facts.facts, { section: 'what', fact: 'Lũa sa tùng is the root of a pine', source: 3 }])
+  expect(await Promise.all(files.map(f => readFile(join(root, f), 'utf8')))).toEqual(before)
+})
+
 // Lũa's fifth (14 Nov 2026, 03:13) ran to 2,917 words, twice the first's 1,527. A term with kinds holds to about 900
 // words and 60 for each kind its notes file names: past it, a note for one trim pass; more than 15 percent past, a stop (the
 // chief of staff, 14 Nov 2026). A term without kinds holds to about 400, the same way. The kinds are counted from the notes
@@ -256,6 +306,12 @@ test('an entry\'s length: 900 and 60 a named kind, or 400; one trim note past it
   expect(lengthNotes(`<p>${'nước '.repeat(1300)}</p>${kinds(16, 58)}`, 16)).toEqual({ notes: ['The entry is 2263 words: hold it to about 1860, about 60 a kind, and leave what is left out to the pages that use the term.'], stop: true })
   // A list inside an item counts as its own items (Codex, 14 Nov 2026).
   expect(lengthNotes(`<ul><li>Hai loại ${'gỗ '.repeat(50)}<ul><li>${'đá '.repeat(50)}</li><li>${'cát '.repeat(95)}</li></ul></li></ul>`, 3).notes).toEqual([expect.stringMatching(/^An item is 95 words, at most about 60: "cát cát/)])
+  // A term with kinds and its own length in the notes file is held to its own (the owner, 15 Nov 2026: "what does each
+  // look like?"; a kind's picture carries its look, so its item needs a line or two): 600 words of 500 is a note, past
+  // 575 a stop, where the kinds' rule would let 1,860 pass.
+  expect(lengthNotes(`<p>${'nước '.repeat(600)}</p>`, 16, 500)).toEqual({ notes: ['The entry is 600 words: hold it to about 500, and leave what is left out to the pages that use the term.'], stop: true })
+  expect(lengthNotes(`<p>${'nước '.repeat(520)}</p>`, 16, 500)).toEqual({ notes: ['The entry is 520 words: hold it to about 500, and leave what is left out to the pages that use the term.'], stop: false })
+  expect(lengthNotes(`<p>${'nước '.repeat(600)}</p>`, 16)).toEqual({ notes: [], stop: false })
   // A term whose notes file names no kinds holds to about 400, however its lists look: pH's four bold labels are not kinds
   // (its draft ran to 916 words; this one, 917).
   const ph = `<ul>${['Làm pH lên:', 'Làm pH xuống:', 'Lá bàng và lũa:', 'Không đáng lo:'].map(k => `<li><strong>${k}</strong> ${'đá '.repeat(226)}</li>`).join('')}</ul>`
@@ -285,6 +341,25 @@ test('a term\'s notes file sets its length: pH\'s 648 words get a trim pass and 
   // The chief of staff's 620, 15 Nov 2026, once every read sentence was kept.
   expect(asks.ph!.length!.words).toBe(620)
   for (const [id, a] of Object.entries(asks)) if (a.length) expect(a.length.words <= 600 || /chief of staff/.test(a.length.why), id).toBe(true)
+})
+
+// The owner, 15 Nov 2026: "what does each look like?". Nền bể names its kinds and sets its own length, 500: the writer is
+// told the 500, and that each kind takes a line or two, as its picture shows how it looks.
+test('a term with kinds and its own length tells the writer the length, and a line or two a kind', async () => {
+  const root = await site()
+  await mkdir(join(root, 'content/glossary/nen-be'), { recursive: true })
+  await writeFile(join(root, 'content/glossary/nen-be/entity.json'), JSON.stringify({ id: 'nen-be', en: 'Substrate' }))
+  await writeFile(join(root, 'content/glossary/nen-be/vi.json'), JSON.stringify({ slug: 'nen-be', name: 'Nền bể', altNames: [], sections: {}, definition: 'Lớp vật liệu phủ đáy bể.', quality: { score: 0.9, indexable: true } }))
+  const writes: string[] = []
+  const llm: Llm = async ({ prompt }) => {
+    if (prompt.startsWith('GLOSSARY RULES')) return { notes: [] } as never
+    if (isCheck(prompt)) return verdicts(prompt) as never
+    writes.push(prompt)
+    return written as never
+  }
+  await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'nen-be', { kind: 'setup' })
+  expect(writes[0]).toContain('--- ĐỘ DÀI ---\nKhoảng 500 chữ cả bài, thay cho độ dài nói ở trên. Mỗi loại một hai câu, vì ảnh của nó cho thấy nó trông thế nào.')
+  expect(writes[0]).toContain('--- LOẠI BÁN Ở VIỆT NAM ---\nđất nền (aqua soil)')
 })
 
 // Past Lũa's cap: its notes file names 17 kinds, so 1,920 words and a stop past 2,208.

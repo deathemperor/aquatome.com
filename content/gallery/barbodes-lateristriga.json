@@ -26,18 +26,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/112111527.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/112111527-480.webp",
-      "width": 1024,
-      "height": 521,
-      "licence": "CC0",
-      "author": "Jean-Paul Boerekamps",
-      "sourceUrl": "https://www.inaturalist.org/photos/112111527",
-      "caption": "Cá barb T cận cảnh trong suối cát sỏi",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/224499566.webp",
       "thumb": "https://media.aquatome.com/inaturalist/224499566-480.webp",
       "width": 1024,
@@ -251,6 +239,18 @@
       "sourceUrl": "https://www.inaturalist.org/photos/597640593",
       "caption": "Cá barb T bơi gần mặt nước trong suối tự nhiên",
       "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/112111527.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/112111527-480.webp",
+      "width": 1024,
+      "height": 521,
+      "licence": "CC0",
+      "author": "Jean-Paul Boerekamps",
+      "sourceUrl": "https://www.inaturalist.org/photos/112111527",
+      "caption": "Cá barb T cận cảnh trong suối cát sỏi",
+      "best": true,
       "kind": "habitat"
     }
   ],

@@ -1,7 +1,7 @@
 import { POPULAR, slugify, STAPLE_SPECIES, type Content, type Localized, type SpeciesEntity } from '@aq/schema'
 import type { SpeciesIndexItem } from '../scripts/filter'
 import { checkTankmates } from '../scripts/tankmates'
-import { richest } from './home'
+import { cleanPhoto, richest } from './home'
 import type { Lang, T } from './i18n'
 import { toIndexItem } from './species-index'
 import { getTraits } from './traits'
@@ -104,3 +104,6 @@ export async function companionsOf(lang: Lang, c: Content, id: string) {
   const self = all.find(x => x.s.id === id)!.item
   return { self, ...pickCompanions(self, all) }
 }
+
+/** The photo a tank mate shows beside its name (Companions.astro), which the fish's page credits. */
+export const matePhoto = (s: Localized<SpeciesEntity>) => cleanPhoto(s.photos)

@@ -40,7 +40,12 @@
       "author": "Fumikas Sagisavas",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Freshippo_yellow_catfish.jpg",
       "caption": "Freshippo yellow catfish",
-      "thumb": "https://media.aquatome.com/commons/e82c80197a54a588-480.webp"
+      "thumb": "https://media.aquatome.com/commons/e82c80197a54a588-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/e82c80197a54a588-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

@@ -50,6 +50,15 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     public var imgBox: PhotoBox? { PhotoBox(packed: box) }
     /// Its scientific name as a list's second line: none where its name holds it already.
     public var subUnderName: String? { Self.line(under: name, sub) }
+    /// A fish, not one of the crabs, shrimps, snails, frogs, newts or corals the fish pages also hold (about 90 in the
+    /// Vietnamese index of 15 Nov; the owner's report of the fiddler crab's page, 15 Nov): the app's own words call those
+    /// "loài", never "cá". Not a fish: the shrimp and snail groups, and a page whose order (`tax`'s first) isn't a fish's,
+    /// as every fish order's name ends in "-iformes" and no other's does. A page with no order (a breed) is a fish.
+    public var isFish: Bool {
+      guard kind == .fish, group != "shrimp", group != "snails" else { return false }
+      guard let order = tax?.first, !order.isEmpty else { return true }
+      return order.hasSuffix("iformes")
+    }
 
     /// `sub` under `name`, unless `name` holds it: "Cá bám đá Schistura spilota" over "Schistura spilota" said it twice
     /// (the owner's report of 14 Nov, Khám phá's loach list).

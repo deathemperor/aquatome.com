@@ -24,7 +24,12 @@ import { seriesGuides } from './video'
 export type AppItem = {
   /** `video`: a series of video guides (/vi/video/<slug>/). `equipment`: a kind of kit (/vi/thiet-bi/<category>/). `material`: a Vietnamese material page, opened on the web. */
   kind: 'fish' | 'plant' | 'guide' | 'glossary' | 'tool' | 'video' | 'equipment' | 'material'
-  /** The page's content id, the same in every language (fish, plants): what a saved tank lists them by. */
+  /**
+   * The page's content id, the same in every language: a fish's, plant's, guide's, glossary term's or material's folder, a
+   * video series' playlist, an equipment category. A saved tank lists fish and plants by it, and the app finds an open
+   * page's copy in another language by it. Unique within a kind only: a glossary term and a material are both "lua", and
+   * a term and an equipment category both "co2".
+   */
   id?: string
   name: string
   /** Scientific name (fish, plants); a video series' channel. */
@@ -388,11 +393,11 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
         of, card: Object.keys(card).length ? card : undefined, ...(of ? {} : { tempC, ph, gh, sizeCm, tankCm, difficulty }),
       }))
     }
-    home.groups = groupTiles(lang, c).map(g => {
+    home.groups = groupTiles(lang, c, undefined, cur?.calendar.avoid).map(g => {
       const box = g.photo && resizeOf(g.photo, smallSrc(g.photo)) ? photoBox(g.photo) : undefined
       return g.photo ? { id: g.group, img: smallSrc(g.photo), ...(box ? { imgBox: box } : {}) } : { id: g.group }
     })
-    home.fish = featuredSpecies(lang, c, 30).map(s => at(`/vi/ca/${s.t.slug}/`))
+    home.fish = featuredSpecies(lang, c, 30, cur?.calendar.avoid).map(s => at(`/vi/ca/${s.t.slug}/`))
   }
   if (served(lang, '/vi/cay/x/')) {
     for (const p of appPlants(lang, c)) {
@@ -413,13 +418,13 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
       guideAt.set(g.id, path)
       // The picture its page opens on (guide-page.ts, app-page.ts), by its large copy as a day's card loads a head.
       if (ph) guideLead.set(`guides/${g.id}`, (ph.large ?? ph).url)
-      items.push(clean({ kind: 'guide', name: g.t.name, aka: aka(g.t.altNames), path, img: ph && cardSrc(ph), imgBox: boxOf(ph), section: g.kind, about: about.length ? about : undefined, video: g.video?.durationSec }))
+      items.push(clean({ kind: 'guide', id: g.id, name: g.t.name, aka: aka(g.t.altNames), path, img: ph && cardSrc(ph), imgBox: boxOf(ph), section: g.kind, about: about.length ? about : undefined, video: g.video?.durationSec }))
     }
     home.guides = leadGuides(c).map(g => at(`/vi/huong-dan/${g.t.slug}/`))
   }
   if (served(lang, '/vi/thuat-ngu/x/')) {
     // A term's English name is among its other names: the chat's search and the app's read them from here.
-    for (const g of appGlossary(lang, c)) items.push(clean({ kind: 'glossary', name: g.t.name, aka: aka([g.t.name, ...g.t.altNames].includes(g.en) ? g.t.altNames : [...g.t.altNames, g.en]), path: at(`/vi/thuat-ngu/${g.t.slug}/`), ...termListing(lang, c, g) }))
+    for (const g of appGlossary(lang, c)) items.push(clean({ kind: 'glossary', id: g.id, name: g.t.name, aka: aka([g.t.name, ...g.t.altNames].includes(g.en) ? g.t.altNames : [...g.t.altNames, g.en]), path: at(`/vi/thuat-ngu/${g.t.slug}/`), ...termListing(lang, c, g) }))
   }
   // Vietnamese pilot pages stay out of Google. No native page shards yet: an app opens them on the web once it knows the
   // kind, and today's skips them, as it does any kind it doesn't know (AquaTomeKit's Handbook.swift).
@@ -429,12 +434,12 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   // A series as its page lists it; the same series the app gets pages of.
   for (const { s, guides } of appSeries(lang, c)) {
     const ph = guideImage(c, guides[0]!)
-    items.push(clean({ kind: 'video', name: s.vi.name, sub: s.channel, path: at(`/vi/video/${s.vi.slug}/`), img: ph && cardSrc(ph), imgBox: boxOf(ph), parts: guides.length }))
+    items.push(clean({ kind: 'video', id: s.id, name: s.vi.name, sub: s.channel, path: at(`/vi/video/${s.vi.slug}/`), img: ph && cardSrc(ph), imgBox: boxOf(ph), parts: guides.length }))
   }
   // An equipment category as its page names it; the same categories the app gets pages of.
   for (const u of appEquipment(lang, c)) {
     const g = c.equipment.find(e => e.category === u.category)
-    items.push(clean({ kind: 'equipment', name: g?.name ?? t(categoryLabel(u.category)), path: at(`/vi/thiet-bi/${u.category}/`), img: g && cardSrc(g.hero), imgBox: boxOf(g?.hero) }))
+    items.push(clean({ kind: 'equipment', id: u.category, name: g?.name ?? t(categoryLabel(u.category)), path: at(`/vi/thiet-bi/${u.category}/`), img: g && cardSrc(g.hero), imgBox: boxOf(g?.hero) }))
   }
   for (const [vi, name, own, short] of TOOLS) {
     if (served(lang, vi)) items.push(clean({ kind: 'tool', name: t(name), path: at(vi), words: own.map(w => t(w)), short: short && t(short) }))

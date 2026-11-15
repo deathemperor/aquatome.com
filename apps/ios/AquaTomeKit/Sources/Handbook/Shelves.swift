@@ -56,6 +56,9 @@ public struct HandbookShelves: Sendable {
     public static let videos = columns
     /// "Đã lưu để đọc sau": the first 21 saved, then "Xem tất cả" to them all.
     public static let saved = columns * 3
+    /// "Đọc gần đây": the 30 pages read last, ten columns, then "Xem tất cả" to all that are kept. The owner's word for this
+    /// row alone (15 Nov: "Increase display of recently view to 30"), past the seven columns the others keep.
+    public static let recent = 30
   }
 
   /// A shelf of `list`: the first `count` of it not among `shown` (the pages on a shelf above). Never more than the list

@@ -33,9 +33,15 @@ export type Counts = {
   /** Chat questions that weren't about fishkeeping. */
   offTopic: number
 }
+/** Who asked a chat question (chat/api.ts `roleOf`): an owner's account, the test account or a reader. */
+export type Role = 'owner' | 'tester' | 'reader'
+/** A role's chat questions admitted today, and what their calls cost (USD, at list price). */
+export type RoleDay = { asked: number; usd: number }
 /** An open run: its reader key, what it reserved and spent (USD), when it was admitted (ms). */
 export type Run = {
   reader: string; reserved: number; spent: number; at: number
+  /** A chat question's asker, as a role. Missing on runs stored before it was. */
+  role?: Role
   /** A chat question's key (the account's, then its Idempotency-Key), which a stop names it by. */
   key?: string
   /** Its text began, or it ended: a stop comes too late. */
@@ -50,6 +56,12 @@ export type LedgerDay = {
   calls: number
   /** Chat questions admitted (chat/api.ts): chat's own day, under the same dollar cap. Missing before any. */
   chat?: number
+  /**
+   * Chat's day by who asked: questions admitted and their calls' cost as each lands. A run's reservation isn't in it, nor
+   * a call's cost that lands after its run is settled, so the roles' dollars add up to less than `usd`, which holds fish
+   * ID's too. Missing before any.
+   */
+  chatBy?: Partial<Record<Role, RoleDay>>
   /** Calls to Claude per key hash, and the answers among them. */
   keys: Record<string, number>
   ok: Record<string, number>
@@ -73,7 +85,7 @@ export type LedgerDay = {
 /** Stops of questions that haven't come, kept a day. */
 export const MAX_EARLY_STOPS = 200
 
-export type AdmitInput = { day: string; reader: string; perReader: number; perDay: number; usdCap: number; reserve: number; healthy: boolean; kind?: 'chat'; key?: string }
+export type AdmitInput = { day: string; reader: string; perReader: number; perDay: number; usdCap: number; reserve: number; healthy: boolean; kind?: 'chat'; role?: Role; key?: string }
 export type Admitted = { ok: true; run: string } | { ok: false; error: 'rate'; limit: number } | { ok: false; error: 'busy' | 'resting' } | { ok: false; error: 'cancelled'; counted: boolean; freeLeft?: number }
 /** `offTopic`: a chat question that wasn't about fishkeeping, and how many of those a reader's day gives the count back for. */
 export type SettleInput = { day: string; run: string; refund: boolean; offTopic?: number; keys: Record<string, number>; ok?: string; counts?: Partial<Counts> }
@@ -133,8 +145,12 @@ export class Ledger {
     day.readers[a.reader] = used + 1
     if (a.kind === 'chat') day.chat = counted + 1
     else day.calls++
+    if (a.role) {
+      const by = day.chatBy?.[a.role] ?? { asked: 0, usd: 0 }
+      day.chatBy = { ...day.chatBy, [a.role]: { ...by, asked: by.asked + 1 } }
+    }
     day.usd += a.reserve
-    day.runs[run] = { reader: a.reader, reserved: a.reserve, spent: 0, at: now, ...(a.key ? { key: a.key } : {}) }
+    day.runs[run] = { reader: a.reader, reserved: a.reserve, spent: 0, at: now, ...(a.role ? { role: a.role } : {}), ...(a.key ? { key: a.key } : {}) }
     await this.save(a.day, day)
     return { ok: true, run }
   }
@@ -150,6 +166,8 @@ export class Ledger {
     if (!r) { day.usd += usd; return this.save(d, day) }
     r.spent += usd
     if (r.spent > r.reserved) { day.usd += r.spent - r.reserved; r.reserved = r.spent }
+    const by = r.role && day.chatBy?.[r.role]
+    if (by) by.usd += usd
     await this.save(d, day)
   }
 
@@ -234,10 +252,10 @@ export class Ledger {
   /** The day as the dashboard reads it: no reader keys, no runs; the biggest number of refunds one reader had. */
   async read(d: string): Promise<DayView> {
     const day = await this.day(d)
-    return { calls: day.calls, chat: day.chat ?? 0, keys: { ...day.keys }, ok: { ...day.ok }, usd: day.usd, open: Object.keys(day.runs).length, counts: { ...day.counts }, mostRefunds: Math.max(0, ...Object.values(day.refunds)) }
+    return { calls: day.calls, chat: day.chat ?? 0, chatBy: structuredClone(day.chatBy ?? {}), keys: { ...day.keys }, ok: { ...day.ok }, usd: day.usd, open: Object.keys(day.runs).length, counts: { ...day.counts }, mostRefunds: Math.max(0, ...Object.values(day.refunds)) }
   }
 }
-export type DayView = { calls: number; chat: number; keys: Record<string, number>; ok: Record<string, number>; usd: number; open: number; counts: Counts; mostRefunds: number }
+export type DayView = { calls: number; chat: number; chatBy: Partial<Record<Role, RoleDay>>; keys: Record<string, number>; ok: Record<string, number>; usd: number; open: number; counts: Counts; mostRefunds: number }
 
 /** `d` (YYYY-MM-DD) moved by `n` days. */
 function shift(d: string, n: number): string {

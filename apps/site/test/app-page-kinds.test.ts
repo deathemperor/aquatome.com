@@ -298,6 +298,19 @@ test('each breed\'s copy reads as its built page: header, parents, card sources,
   for (const t of ['p', 'trust', 'gallery', 'summary', 'faq', 'refs']) expect(seen.has(t), t).toBe(true)
 })
 
+test('a breed\'s sections open by their headings\' ids, the web page\'s and the copy\'s the same', async () => {
+  // The board, 16 Nov: no heading on a breed's page had an id, so the chat couldn't open a ranchu's care section.
+  const c = await getContent('vi')
+  const d = breedDoc('vi', c, c.breeds.find(b => b.id === 'pigeon-blood-discus')!, listedPaths('vi', c))
+  const heads = all(d, 'h')
+  expect(heads.map(h => h.text)).toContain('Nguồn gốc')
+  const { dom } = appPage(d.path)
+  for (const h of heads) {
+    expect(h.id, h.text).toMatch(/^[a-z0-9-]+$/)
+    expect(txt(dom.querySelector(`[id="${h.id}"]`)), h.text).toBe(h.text)
+  }
+})
+
 test('a breed\'s lines are its copy\'s cards, each a form of it; a line\'s copy says what it is a form of, linked', async () => {
   const c = await getContent('vi')
   const pigeon = c.breeds.find(b => b.id === 'pigeon-blood-discus')!
@@ -427,16 +440,20 @@ test('each glossary term\'s copy reads as its built page; one in Indonesian has 
     expect(PageDoc.safeParse(d).error, d.path).toBeUndefined()
     const { dom } = appPage(d.path)
     expect(d.title).toBe(txt(dom.querySelector('h1')))
-    // Its other names, its English name, its definition (with the page's links), the link to its material page, in the
-    // page's order.
-    expect(all(d, 'p').map(b => text(b.c))).toEqual([...['.aka', '.en', '.def', '.material-link'].flatMap(sel => (dom.querySelector(sel) ? [txt(dom.querySelector(sel))] : [])), ...dom.querySelectorAll('.body > p').map(txt)])
+    // Its other names, its English name, its definition (with the page's links), the link to its material page, the link
+    // to the guide that treats it, in the page's order.
+    expect(all(d, 'p').map(b => text(b.c))).toEqual([...['.aka', '.en', '.def', '.material-link', '.treat'].flatMap(sel => (dom.querySelector(sel) ? [txt(dom.querySelector(sel))] : [])), ...dom.querySelectorAll('.body > p, .body > section > p').map(txt)])
     expect(all(d, 'p').flatMap(b => b.c.flatMap(r => (typeof r === 'string' || !r.href ? [] : [r.href]))), d.path).toEqual(
-      dom.querySelectorAll('.def a, .material-link a, .body > p a').map(a => appHref(a.getAttribute('href')!)),
+      dom.querySelectorAll('.def a, .material-link a, .treat a, .body > p a, .body > section > p a').map(a => appHref(a.getAttribute('href')!)),
     )
+    // (A term in parts holds each part's heading and text in a section of its own, for the jump row.)
     // Its photo, then the fuller entry's headings, then the pages that use it: the heading with the count, then each
     // kind's first pages, those the app index lists. Last, its sources.
-    expect(all(d, 'figure').length, d.path).toBe(dom.querySelectorAll('main figure').length)
-    expect(all(d, 'h').map(b => b.text), d.path).toEqual(dom.querySelectorAll('.body > h2, .used h2').map(txt))
+    // One difference, by name: the page's row of a term's other photos and its kinds' (.album) isn't in the app's copy yet.
+    // The owner's phone has only drawn one photo on a term, so the app gets the row once the iOS Content Lead has drawn and
+    // shot it (the chief of staff, 15 Nov 2026).
+    expect(all(d, 'figure').length, d.path).toBe(dom.querySelectorAll('main figure').filter(f => !f.closest('.album')).length)
+    expect(all(d, 'h').map(b => b.text), d.path).toEqual(dom.querySelectorAll('.body > h2, .body > section > h2, .used h2').map(txt))
     expect(one(d, 'refs')?.items.map(r => r.url) ?? [], d.path).toEqual(dom.querySelectorAll('.refs a').map(a => a.getAttribute('href')))
     const kinds = dom.querySelectorAll('.used h3').map(h3 => ({
       t: 'pages', title: txt(h3), paths: (h3.nextElementSibling?.querySelectorAll('a') ?? []).map(a => appHref(a.getAttribute('href')!)).filter(x => listed.has(x)),
@@ -449,6 +466,13 @@ test('each glossary term\'s copy reads as its built page; one in Indonesian has 
   }
   const ph = glossaryDoc('vi', c, c.glossary.find(x => x.id === 'ph')!, listed)
   expect(ph).toMatchObject({ kind: 'glossary', path: '/vi/thuat-ngu/ph/', title: 'pH' })
+  // A disease term's copy links the guide that treats it, as its page does, before its text (Grok's read, 15 Nov 2026).
+  const g = c.glossary.find(x => x.id === 'ph')!
+  const sick = { ...c, species: [], plants: [], guides: [{ ...c.guides[0]!, id: 'tri-ph', kind: 'disease' as const, updatedAt: '2026-11-01', t: { ...c.guides[0]!.t, name: 'Trị bệnh do pH thấp', slug: 'tri-ph', body: '<p><a href="/vi/thuat-ngu/ph/" class="gl">pH</a></p>' } }] } as Content
+  const treated = glossaryDoc('vi', sick, g, listedPaths('vi', sick))
+  const link = all(treated, 'p').find(b => b.c.some(r => typeof r !== 'string' && r.href === appPath('vi', '/vi/huong-dan/tri-ph/')))
+  expect(link && text(link.c)).toBe('Trị thế nào: đọc hướng dẫn trị ph →')
+  expect(treated.blocks.indexOf(link!)).toBeLessThan(treated.blocks.findIndex(b => b.t === 'h'))
   // The fixture has no Indonesian terms: its Vietnamese one, made as the Indonesian page is.
   const id = glossaryDoc('id', c, c.glossary.find(x => x.id === 'ph')!, listed)
   expect(id.path).toBe('/id/istilah/ph/')

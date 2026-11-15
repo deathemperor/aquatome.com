@@ -1,6 +1,18 @@
 {
  "queue": [],
  "judged": [],
- "hashes": {},
- "commons": "2026-11-09"
+ "hashes": {
+  "https://media.aquatome.com/glaser/ba2b3b7b41506895.webp": "9f87c787071f3f3f",
+  "https://media.aquatome.com/glaser/868540adbbdd6629.webp": "af170b634671f310",
+  "https://media.aquatome.com/glaser/247b68a8de005586.webp": "4581039103791d3f"
+ },
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 619562,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ }
 }

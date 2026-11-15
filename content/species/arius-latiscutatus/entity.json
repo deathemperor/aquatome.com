@@ -1,0 +1,68 @@
+{
+  "id": "arius-latiscutatus",
+  "scientificName": "Arius latiscutatus",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Arius",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "senegal",
+    "angola",
+    "equatorial-guinea",
+    "fernando-poo",
+    "gambia",
+    "nigeria",
+    "niger"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 70
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=139",
+      "html": "<ul><li><strong>Scientific name:</strong> Carlarius latiscutatus (Günther, 1864)</li><li><strong>Common names:</strong> Gambian Sea Catfish, Rough-head Sea Catfish, Ruhovedet Havmalle (Denmark)</li><li><strong>Type locality:</strong> Fernando Póo Island [Bioco Island], Equatorial Guinea, Gulf of Guinea.</li><li><strong>Synonyms:</strong> Arius lagoensis, Arius latiscutatus, Tachysurus lagoensis</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=139",
+      "html": "<p>Eastern Atlantic: Dakar, Senegal to Angola; one record from Fernando Poo. Reported from Gambia and the lower Niger basin.</p><p>IUCN Red List category: Least Concern. Last assessed 2019.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=139",
+      "html": "<p>Mainly marine but frequently found in brackish estuaries, sometimes enters freshwater.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=139",
+      "html": "<p>Feeds on fish, benthic invertebrates, zooplankton and detritus.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=139",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=139",
+      "html": "<p>Catalogue of the fishes in the British Museum v. 5, pp 151, Fig.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-15"
+}

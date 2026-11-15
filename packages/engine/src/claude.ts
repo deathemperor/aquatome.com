@@ -44,7 +44,15 @@ export const answeredBy = (usage: unknown): string | undefined =>
   Object.entries((usage ?? {}) as Record<string, { outputTokens?: number }>).sort(([, a], [, b]) => (b.outputTokens ?? 0) - (a.outputTokens ?? 0))[0]?.[0]
 export type Llm = <T>(args: { system: string; prompt: string; schema: object; model?: string }) => Promise<T>
 
-type RunOpts = { tools: string; deny?: string[]; cwd: string; model?: string; timeoutMs?: number; privateImage?: boolean }
+type RunOpts = {
+  tools: string; deny?: string[]; cwd: string; model?: string; timeoutMs?: number; privateImage?: boolean
+  /** MCP servers the call may use (a config file), and the tools it is allowed, by name (`--allowedTools`; `tools` otherwise). */
+  mcp?: string; allow?: string; effort?: 'low' | 'medium' | 'high'
+  /** Streamed (`stream-json`, partial messages): each event as it comes, with the ms since the call began. */
+  onEvent?: (event: Record<string, unknown>, ms: number) => void
+  /** The command's whole report (its tokens, turns and cost), after the call. */
+  onResult?: (result: Record<string, unknown>) => void
+}
 
 /**
  * One call on the owner's Claude accounts, the next one when an account is out of its limit or rejected (claude-accounts.ts).
@@ -59,7 +67,9 @@ const run = <T>(system: string, prompt: string, schema: object, opts: RunOpts): 
 
 function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, token?: string): Promise<T> {
   return new Promise<T>((resolve, reject) => {
-    const args = ['-p', '--model', modelOf(opts.model), '--output-format', 'json', '--tools', opts.tools, ...(opts.tools ? ['--allowedTools', opts.tools] : []), ...(opts.deny?.length ? ['--disallowedTools', opts.deny.join(',')] : []),
+    const allow = opts.allow ?? opts.tools
+    const args = ['-p', '--model', modelOf(opts.model), ...(opts.onEvent ? ['--output-format', 'stream-json', '--verbose', '--include-partial-messages'] : ['--output-format', 'json']),
+      '--tools', opts.tools, ...(allow ? ['--allowedTools', allow] : []), ...(opts.mcp ? ['--mcp-config', opts.mcp] : []), ...(opts.effort ? ['--effort', opts.effort] : []), ...(opts.deny?.length ? ['--disallowedTools', opts.deny.join(',')] : []),
       '--setting-sources', '', '--strict-mcp-config', ...(opts.privateImage ? ['--no-session-persistence'] : []), '--system-prompt', system, '--json-schema', JSON.stringify(schema)]
     const started = Date.now()
     const child = spawn('claude', args, { cwd: opts.cwd, stdio: ['pipe', 'pipe', 'pipe'], env: envFor(token) })
@@ -70,13 +80,22 @@ function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, 
     // in two into U+FFFD (a Thai letter is three bytes: 38 Thai pages had one, 2026-11-10).
     child.stdout.setEncoding('utf8')
     child.stderr.setEncoding('utf8')
-    child.stdout.on('data', d => (out += d))
+    // Streamed, each whole line is an event; the last, `result`, is what `json` would have printed.
+    let pending = ''
+    child.stdout.on('data', d => {
+      out += d
+      if (!opts.onEvent) return
+      const lines = (pending + d).split('\n')
+      pending = lines.pop() ?? ''
+      for (const l of lines) if (l.trim()) { try { opts.onEvent(JSON.parse(l), Date.now() - started) } catch { /* not an event */ } }
+    })
     child.stderr.on('data', d => (err += d))
     child.on('error', e => reject(new LlmError(e.message)))
     child.on('close', code => {
       clearTimeout(timer)
       try {
-        const r = JSON.parse(out)
+        const r = opts.onEvent ? JSON.parse(out.trim().split('\n').reverse().find(l => l.includes('"type":"result"')) ?? '') : JSON.parse(out)
+        opts.onResult?.(r)
         const ran = answeredBy(r.modelUsage)
         if (ran) ranOn.set(modelOf(opts.model), ran)
         // ENGINE_COST_LOG: one line a call (what the CLI reports it would cost on the API, its tokens, the wall time, the CLI
@@ -102,6 +121,25 @@ function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, 
 
 /** Headless Claude Code on the owner's subscription, lean context (no tools, settings, MCP or default system prompt). */
 export const claudeCli: Llm = <T>({ system, prompt, schema, model }: { system: string; prompt: string; schema: object; model?: string }) => run<T>(system, prompt, schema, { tools: '', cwd: noFiles(), model })
+
+/**
+ * Same, with the tools of MCP servers (a config file) and those alone (`allow`, by their mcp__<server>__<tool> names), streamed:
+ * the chat's prompt and tools run on the owner's subscription (chat-board.ts `cli`). `onEvent` sees each event as it comes;
+ * `onResult` the command's report. A server the CLI's start says failed, or none listed at all, fails the call: the
+ * model would answer with no tools, and its answer would pass as one that chose to read nothing.
+ */
+export const claudeTools = <T>({ system, prompt, schema, model, mcp, allow, effort, onEvent, onResult }: { system: string; prompt: string; schema: object; model?: string; mcp: string; allow: string; effort?: 'low' | 'medium' | 'high'; onEvent: (event: Record<string, unknown>, ms: number) => void; onResult?: (result: Record<string, unknown>) => void }) => {
+  let servers: { name?: string; status?: string }[] | undefined
+  const seen = (e: Record<string, unknown>, ms: number) => {
+    if (e.type === 'system' && e.subtype === 'init') servers = Array.isArray(e.mcp_servers) ? (e.mcp_servers as { name?: string; status?: string }[]) : []
+    onEvent(e, ms)
+  }
+  return run<T>(system, prompt, schema, { tools: '', allow, mcp, ...(effort ? { effort } : {}), onEvent: seen, ...(onResult ? { onResult } : {}), cwd: noFiles(), model }).then(r => {
+    const down = (servers ?? []).filter(s => s.status === 'failed').map(s => s.name ?? '?')
+    if (!servers?.length || down.length) throw new LlmError(`claude failed: the tools' server didn't start (${down.length ? down.join(', ') : 'none listed'})`)
+    return r
+  })
+}
 
 /** Same, but able to look at one image: only the Read tool, run from the image's folder. */
 export const claudeVision = <T>({ system, prompt, schema, file, model }: { system: string; prompt: string; schema: object; file: string; model?: string }) =>
