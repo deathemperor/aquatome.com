@@ -98,6 +98,9 @@ private func hex(_ b: ArraySlice<UInt8>) -> String { b.map { String(format: "%02
 @Test func aColoursBrightnessAndSaturationAreOnFishLampsScales() throws {
   let white = try #require(FishLamp.trials.first { $0.id == "trial-white-half" })
   #expect(try #require(FishLamp.colour(hue: 0, saturation: 0, brightness: 0.5, sequence: 0x48)).sent == white.sent)
+  // White from anywhere on the wheel is that white: hue 00 00 at saturation 0, as the light took it.
+  #expect(try #require(FishLamp.colour(hue: 187.5, saturation: 0, brightness: 0.5, sequence: 0x48)).sent == white.sent)
+  #expect(try #require(FishLamp.colour(hue: 300, saturation: -0.2, brightness: 0.5, sequence: 0x48)).sent == white.sent)
   let pale = try #require(FishLamp.colour(hue: 0, saturation: Double(0xa952) / 65535, brightness: 168.0 / 255, sequence: 1))
   #expect(hex(pale.plain[12...15]) == "a9 52 a8 a8")
   #expect(hex(try #require(FishLamp.colour(hue: 420, saturation: 2, brightness: -1, sequence: 1)).plain[10...15]) == "2a ab ff ff 00 00")

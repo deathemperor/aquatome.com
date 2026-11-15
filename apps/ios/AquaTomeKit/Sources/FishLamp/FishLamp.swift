@@ -72,11 +72,12 @@ public enum FishLamp {
   /// A colour built anew, as Fish lamp's colour command (`02 07`): hue in degrees, going round; saturation and brightness
   /// from 0 to 1. On Fish lamp's scales: hue × 65535 / 360 rounded half up, saturation in 16 bits, brightness one byte
   /// doubled (its sliders send `a8 a8` for 168). Bytes 1–7 as the recorded `on` has them; `sequence` is byte 0
-  /// (`sequence(after:)`). A built white at half was taken on 14 Nov; other colours built so are untried.
+  /// (`sequence(after:)`). A built white at half was taken on 14 Nov; other colours built so are untried. White is hue
+  /// `00 00` whatever hue it was asked at, as that white was.
   public static func colour(hue: Double, saturation: Double, brightness: Double, sequence: UInt8) -> Command? {
-    let degrees = hue.truncatingRemainder(dividingBy: 360)
-    let h = UInt16(((degrees < 0 ? degrees + 360 : degrees) * 65535 / 360).rounded())
+    let degrees = hue.isFinite ? hue.truncatingRemainder(dividingBy: 360) : 0
     let s = UInt16((min(max(saturation, 0), 1) * 65535).rounded())
+    let h = s == 0 ? 0 : UInt16(((degrees < 0 ? degrees + 360 : degrees) * 65535 / 360).rounded())
     return colour(h, s, brightness: brightness, sequence: sequence)
   }
 
