@@ -109,12 +109,15 @@ export const withLocalNote = (t: Translation): Translation => t.localNote ? { ..
 
 /**
  * A heading whose sources can't both be true shows only the source content/one-voice.json names, once this language has
- * its text; one it names no source for (`false`) isn't shown at all.
+ * its text; one it names no source for (`false`) isn't shown at all, and its text is left out too, so nothing that reads
+ * the page's text (the gate's checks, the summary's writer) reads what readers don't see.
  */
 export function oneVoice<S extends { sections: Section[]; t: Translation }>(x: S, keep: z.infer<typeof OneVoiceSchema>[string] | undefined): S {
   if (!keep) return x
   const written = (key: Section['key'], source: SourceId) => x.sections.some(s => s.key === key && s.source === source) && !!x.t.sections[`${key}:${source}`]
-  return { ...x, sections: x.sections.filter(s => { const k = keep[s.key]; return k === undefined || (k !== false && (s.source === k || !written(s.key, k))) }) }
+  const off = (key: string) => keep[key as Section['key']] === false
+  const t = { ...x.t, sections: Object.fromEntries(Object.entries(x.t.sections).filter(([k]) => !off(k.split(':')[0]!))) }
+  return { ...x, t, sections: x.sections.filter(s => { const k = keep[s.key]; return k === undefined || (k !== false && (s.source === k || !written(s.key, k))) }) }
 }
 
 /**

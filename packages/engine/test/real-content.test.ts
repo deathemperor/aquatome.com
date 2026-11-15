@@ -3,7 +3,7 @@ import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
-import { GALLERY_POST, loadAll, mayPublish, RETIRED_GUIDES, resolveDataCard, WRITTEN_LANGS, type Translation } from '@aq/schema'
+import { GALLERY_POST, LANGS, loadAll, mayPublish, RETIRED_GUIDES, resolveDataCard, WRITTEN_LANGS, type Translation } from '@aq/schema'
 import { checkPages, photoCaptions, RATCHETED, ratcheted, refCredits, RULES, SWEPT_KINDS, thanksLines } from '../src/content-rules'
 import { englishOf } from '../src/english'
 import { tilapiaUnnamed } from '../src/kind-words'
@@ -362,12 +362,16 @@ test('the African snakehead shows no tank size, in any language, and the engine 
   expect(facts.fixed).toBe(true)
   const tank = /38\s*[×x]\s*38|40\s*[×x]\s*40|55\s*(?:lít|liter|litre|ลิตร)|aquarium size|kích thước bể|ukuran akuarium|ขนาดตู้|saiz akuarium/iu
   expect(facts.html).not.toMatch(tank)
-  for (const lang of ['vi', 'id', 'th', 'ms'] as const) {
+  for (const lang of LANGS) {
     if (!existsSync(join(dir, `${lang}.json`))) continue
     const fish = (await loadAll({ root, lang, publicBuild: true })).species.find(s => s.id === 'parachanna-obscura')!
     expect(fish.sections.filter(s => s.key === 'aquariumSize'), lang).toEqual([])
-    expect(fish.sections.map(s => fish.t.sections[`${s.key}:${s.source}`] ?? '').join(' '), lang).not.toMatch(tank)
+    // Nor its text, which the gate's checks and the summary's writer read.
+    expect(Object.keys(fish.t.sections).filter(k => k.startsWith('aquariumSize:')), lang).toEqual([])
+    expect(Object.values(fish.t.sections).join(' '), lang).not.toMatch(tank)
   }
+  const summary = JSON.parse(readFileSync(join(root, 'summaries/parachanna-obscura.json'), 'utf8')) as { summary: string; mistakes: string[] }
+  expect([summary.summary, ...summary.mistakes].join(' ')).not.toMatch(/lít|\d\s*[×x]\s*\d/u)
 }, slow(120_000))
 
 // The neon tetra's blue stripe: The Spruce Pets said it starts at the tip of the nose, photos start it at the eye, and no
