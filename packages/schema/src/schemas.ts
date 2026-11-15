@@ -445,6 +445,8 @@ export const SummarySchema = z.object({
   summary: z.string(), mistakes: z.array(z.string()).max(3),
   speciesUpdatedAt: z.string(), generatedAt: z.string(),
   problems: z.array(z.string()).optional(),
+  /** The page's text it was written from, as a hash (engine summaries.ts textHash): written again when the page's differs. */
+  writtenFrom: z.string().optional(),
 })
 
 /**

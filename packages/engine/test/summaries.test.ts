@@ -1,6 +1,7 @@
+import { execSync } from 'node:child_process'
 import { cp, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
-import { join } from 'node:path'
+import { dirname, join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
 import { loadAll } from '@aq/schema'
@@ -162,6 +163,59 @@ test('a pending draft from before the check is checked; a changed page is done a
   await writeFile(file, JSON.stringify({ ...s, review: 'pending' }))
   await writeFile(join(root, 'summaries', 'paracheirodon-axelrodi.json'), JSON.stringify({ ...s, id: 'paracheirodon-axelrodi', speciesUpdatedAt: '2026-01-01' }))
   expect((await draftSummaries(root, llm, { top: 100, now, publicBuild: false })).approved.slice(0, 2)).toEqual(['paracheirodon-innesi', 'paracheirodon-axelrodi'])
+})
+
+// 15 Nov 2026, the chief of staff: the killifish's summary kept the importer's stock remark the rewrite had taken out of its
+// page, and "bred in tanks" a hand fix had. Neither moved the page's date, which was all this step read.
+const AXEL = (root: string) => join(root, 'species', 'paracheirodon-axelrodi', 'vi.json')
+async function dropLastSection(root: string) {
+  const page = JSON.parse(await readFile(AXEL(root), 'utf8'))
+  const keys = Object.keys(page.sections)
+  await writeFile(AXEL(root), JSON.stringify({ ...page, sections: Object.fromEntries(keys.slice(0, -1).map(k => [k, page.sections[k]])) }))
+}
+const asBefore = async (root: string) => {
+  for (const { writtenFrom: _, ...s } of await readSummaries(root)) await writeFile(join(root, 'summaries', `${s.id}.json`), JSON.stringify(s))
+}
+
+test('a page whose text changed is summarised again, though its date didn\'t move; a change outside its text is not', async () => {
+  const root = await content()
+  const { llm } = fake(() => OK)
+  await draftSummaries(root, llm, { top: 100, now, publicBuild: false })
+  expect((await readSummaries(root)).every(s => s.writtenFrom)).toBe(true)
+  const page = JSON.parse(await readFile(AXEL(root), 'utf8'))
+  await writeFile(AXEL(root), JSON.stringify({ ...page, quality: { ...page.quality, score: 0.5 } }, null, 1)) // a score, and the file's layout
+  expect((await draftSummaries(root, llm, { top: 100, now, publicBuild: false })).approved).toEqual([])
+  await dropLastSection(root)
+  expect((await draftSummaries(root, llm, { top: 100, now, publicBuild: false })).approved).toEqual(['paracheirodon-axelrodi'])
+  expect((await draftSummaries(root, llm, { top: 100, now, publicBuild: false })).approved).toEqual([])
+})
+
+test('a summary from before it kept its page\'s text: git says whether the page changed since; one unchanged is stamped, not written again', async () => {
+  const root = await content()
+  const { llm, calls } = fake(() => OK)
+  await draftSummaries(root, llm, { top: 100, now, publicBuild: false })
+  await asBefore(root)
+  execSync('git init -q && git add -A && git -c user.email=t@example.com -c user.name=t -c commit.gpgsign=false commit -qm summaries', { cwd: dirname(root) })
+  const before = new Map((await readSummaries(root)).map(s => [s.id, s.generatedAt]))
+  await dropLastSection(root)
+  calls.length = 0
+  const later = () => new Date('2026-11-15T00:00:00Z')
+  expect((await draftSummaries(root, llm, { top: 100, now: later, publicBuild: false })).approved).toEqual(['paracheirodon-axelrodi'])
+  const after = await readSummaries(root)
+  expect(after.every(s => s.writtenFrom)).toBe(true)
+  expect(after.filter(s => s.generatedAt !== before.get(s.id)).map(s => s.id)).toEqual(['paracheirodon-axelrodi'])
+  // Stamped: the field added, the rest of the file as it was.
+  expect(JSON.parse(await readFile(join(root, 'summaries', 'paracheirodon-innesi.json'), 'utf8'))).toEqual({ ...(await readSummaries(root)).find(s => s.id === 'paracheirodon-innesi') })
+  expect(calls.length).toBe(2) // one draft and its check
+}, 30_000)
+
+test('without git, a summary from before it kept its page\'s text goes by the page\'s date, as before', async () => {
+  const root = await content()
+  const { llm } = fake(() => OK)
+  await draftSummaries(root, llm, { top: 100, now, publicBuild: false })
+  await asBefore(root)
+  await dropLastSection(root)
+  expect((await draftSummaries(root, llm, { top: 100, now, publicBuild: false })).approved).toEqual([])
 })
 
 test('--only redoes the given species, whatever their state', async () => {

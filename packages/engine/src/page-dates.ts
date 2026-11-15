@@ -7,7 +7,7 @@ import { join } from 'node:path'
  * change nothing on the page (a merge moves `updatedAt`, a re-score moves `quality`), so they can't date a page.
  * A change to this list changes every file's hash, and the next sweep then dates every page that day.
  */
-const BOOKKEEPING = new Set(['updatedAt', 'quality', 'held', 'nameFixed', 'bodyFixed', 'redirectFrom', 'generatedAt', 'builtAt', 'seen', 'speciesUpdatedAt', 'fetched', 'at'])
+const BOOKKEEPING = new Set(['updatedAt', 'quality', 'held', 'nameFixed', 'bodyFixed', 'redirectFrom', 'generatedAt', 'builtAt', 'seen', 'speciesUpdatedAt', 'writtenFrom', 'fetched', 'at'])
 
 const canonical = (v: unknown): unknown => {
   if (Array.isArray(v)) return v.map(canonical) // the order of a list is content: the first photo is the page's head
