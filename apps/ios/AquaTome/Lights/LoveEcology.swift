@@ -419,7 +419,8 @@ extension LoveEcologyModel {
     case .recording: return nil
     case .wheel(let w): return w.colour
     case .swatch(let id):
-      guard let p = commands.first(where: { $0.id == id })?.plain, p.count >= 14 else { return nil }
+      // A colour command (`02 07`): on and off aren't swatches.
+      guard let p = commands.first(where: { $0.id == id })?.plain, p.count >= 14, p[8] == 0x02, p[9] == 0x07 else { return nil }
       let hue = Double(UInt16(p[10]) << 8 | UInt16(p[11])) / 65535, saturation = Double(UInt16(p[12]) << 8 | UInt16(p[13])) / 65535
       return Color(hue: hue, saturation: saturation, brightness: 1)
     }

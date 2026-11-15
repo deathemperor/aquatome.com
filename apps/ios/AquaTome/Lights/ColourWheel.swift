@@ -31,7 +31,16 @@ struct ColourWheelSheet: View {
       .scrollBounceBehavior(.basedOnSize)
       .navigationTitle("Màu khác")
       .navigationBarTitleDisplayMode(.inline)
-      .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Xong") { dismiss() }.accessibilityIdentifier("wheel-done") } }
+      .toolbar {
+        // Prominent, as Design drew it: closing is all there is to do here.
+        ToolbarItem(placement: .confirmationAction) {
+          if #available(iOS 26, *) {
+            Button("Xong", role: .confirm) { dismiss() }.accessibilityIdentifier("wheel-done")
+          } else {
+            Button("Xong") { dismiss() }.accessibilityIdentifier("wheel-done")
+          }
+        }
+      }
     }
     .presentationDetents(large ? [.large] : [.medium])
   }
@@ -71,8 +80,10 @@ struct ColourWheel: View {
     .gesture(DragGesture(minimumDistance: 0).onChanged { pick($0.location) }.onEnded { _ in onLift() })
     .accessibilityElement(children: .ignore)
     .accessibilityChildren {
+      // VoiceOver's two values, each over half the wheel.
       VStack(spacing: 0) {
         Rectangle()
+          .frame(width: side, height: side / 2)
           .accessibilityLabel("Sắc màu")
           .accessibilityValue(Self.name(at.hue))
           .accessibilityAdjustableAction { d in
@@ -81,6 +92,7 @@ struct ColourWheel: View {
           }
           .accessibilityIdentifier("wheel-hue")
         Rectangle()
+          .frame(width: side, height: side / 2)
           .accessibilityLabel("Độ đậm")
           .accessibilityValue(Text(verbatim: "\(Int((at.saturation * 100).rounded()))%"))
           .accessibilityAdjustableAction { d in

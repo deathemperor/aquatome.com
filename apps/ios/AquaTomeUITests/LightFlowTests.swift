@@ -952,6 +952,9 @@ final class LightFlowTests: XCTestCase {
     app.signInWithStandInApple()
     app.openTab("Đèn")
     expect(app, "lamp-status", contains: "Chưa gửi lệnh nào từ máy này")
+    // Bật and Tắt are buttons, not swatches too: the eight colours and Khác.
+    XCTAssertEqual(app.buttons.matching(NSPredicate(format: "identifier IN %@", ["lamp-on", "lamp-off"])).count, 2)
+    XCTAssertTrue(element(app, "lamp-other").exists, "no Khác")
     // Nothing sent yet: the slider rests at 100%.
     expect(app, "lamp-level", value: "100%")
     // The line is two lines high from the first frame, so sending moves nothing under it (the trial row).
