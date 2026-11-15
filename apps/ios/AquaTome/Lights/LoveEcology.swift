@@ -2,6 +2,7 @@
 import FishLamp
 import SwiftUI
 import Tanks
+import UIKit
 
 /// The owner's Love Ecology light ("Aquarium Light III" in the Fish lamp app). It takes commands by broadcast, as Fish lamp
 /// sends them, never over a connection: there's nothing to find or connect, and the light says nothing back. Each command
@@ -93,11 +94,20 @@ extension BluetoothLampAir: @preconcurrency CBPeripheralManagerDelegate {
 
 // Debug builds only: the UI tests' stand-in, kept out of the App Store build.
 #if DEBUG
-/// The simulator has no Bluetooth to broadcast with. `-fake-lamp-off`: Bluetooth is off.
+/// The simulator has no Bluetooth to broadcast with. `-fake-lamp-off`: Bluetooth is off. `-fake-lamp-late-first
+/// <seconds>`: the first start answers that late, as one waiting on Bluetooth might.
 @MainActor
 final class FakeLampAir: LampAir {
+  private var starts = 0
+
   func start(_ uuids: [String], done: @escaping @MainActor (LampAirError?) -> Void) {
-    done(ProcessInfo.processInfo.arguments.contains("-fake-lamp-off") ? .off : nil)
+    let args = ProcessInfo.processInfo.arguments
+    starts += 1
+    if starts == 1, let i = args.firstIndex(of: "-fake-lamp-late-first"), i + 1 < args.count, let late = Double(args[i + 1]) {
+      Task { try? await Task.sleep(for: .seconds(late)); done(nil) }
+      return
+    }
+    done(args.contains("-fake-lamp-off") ? .off : nil)
   }
   func stop() {}
 }
@@ -114,11 +124,24 @@ final class LoveEcologyModel {
     case wheel(Wheel)
   }
 
-  /// A colour from the wheel: hue in degrees, saturation from 0 (white) to 1.
+  /// A colour from the wheel: hue in degrees, from 0 to under 360; saturation from 0 (white) to 1. Any hue is taken round
+  /// into that range, a kept one too. A saturation that reads 0% is white, which the light is sent as hue 00 00.
   struct Wheel: Equatable, Codable {
-    var hue: Double
-    var saturation: Double
+    let hue: Double
+    let saturation: Double
     var colour: Color { Color(hue: hue / 360, saturation: saturation, brightness: 1) }
+
+    init(hue: Double, saturation: Double) {
+      let h = hue.isFinite ? hue.truncatingRemainder(dividingBy: 360) : 0
+      self.hue = h < 0 ? h + 360 : h
+      let s = saturation.isFinite ? min(max(saturation, 0), 1) : 0
+      self.saturation = (s * 100).rounded() == 0 ? 0 : s
+    }
+
+    init(from decoder: any Decoder) throws {
+      let c = try decoder.container(keyedBy: CodingKeys.self)
+      self.init(hue: try c.decode(Double.self, forKey: .hue), saturation: try c.decode(Double.self, forKey: .saturation))
+    }
   }
 
   /// A choice at a level, 1–100% (a recording's level isn't used).
@@ -126,6 +149,18 @@ final class LoveEcologyModel {
     var choice: Choice
     var level: Int
     var isRecording: Bool { if case .recording = choice { true } else { false } }
+
+    init(choice: Choice, level: Int) {
+      self.choice = choice
+      self.level = level
+    }
+
+    /// A recording kept without its level reads as at 100%.
+    init(from decoder: any Decoder) throws {
+      let c = try decoder.container(keyedBy: CodingKeys.self)
+      choice = try c.decode(Choice.self, forKey: .choice)
+      level = min(max(try c.decodeIfPresent(Int.self, forKey: .level) ?? 100, 1), 100)
+    }
   }
 
   struct Sent: Equatable, Codable {
@@ -161,6 +196,18 @@ final class LoveEcologyModel {
     var level = 100
     /// Byte 0 of the last colour built, so a relaunch goes on from it.
     var byte0: UInt8?
+
+    init() {}
+
+    /// Each part read if it's there: a record kept without its level keeps the rest, the slider at 100%.
+    init(from decoder: any Decoder) throws {
+      let c = try decoder.container(keyedBy: CodingKeys.self)
+      last = try c.decodeIfPresent(Sent.self, forKey: .last)
+      colour = try c.decodeIfPresent(Choice.self, forKey: .colour)
+      wheel = try c.decodeIfPresent(Wheel.self, forKey: .wheel)
+      level = min(max(try c.decodeIfPresent(Int.self, forKey: .level) ?? 100, 1), 100)
+      byte0 = try c.decodeIfPresent(UInt8.self, forKey: .byte0)
+    }
   }
 
   /// Off, on, then the colours, as recorded.
@@ -171,9 +218,26 @@ final class LoveEcologyModel {
   /// take an orange begun 0.9 s after a yellow it took had ended. A drag sends once the finger pauses this long, or lifts.
   static let seconds: Duration = .seconds(3)
   static let pacer = FishLamp.Pacer(pause: .milliseconds(500), gap: .seconds(2))
+  /// How long a start's answer may take: Bluetooth says within a moment whether a broadcast started, or never.
+  static let answer: Duration = .seconds(5)
   private static let key = "loveEcology.sent"
 
-  private(set) var line: Line
+  private(set) var line: Line {
+    didSet {
+      switch line {
+      case .moving, .going: break
+      default: settled = line
+      }
+      #if DEBUG
+      shown = Array((shown + [words]).suffix(40))
+      #endif
+    }
+  }
+  #if DEBUG
+  /// The words the line has shown, for the UI tests: a drag's ("Ngừng kéo để gửi…") are gone before a test can read the
+  /// screen, since its finger lifts first. Read with the line, which it changes with.
+  @ObservationIgnored private(set) var shown: [String] = []
+  #endif
   /// The slider's place.
   private(set) var level: Int
   /// The wheel's newest colour: where its thumb is when the sheet opens again.
@@ -197,9 +261,16 @@ final class LoveEcologyModel {
   @ObservationIgnored private var pause: Task<Void, Never>?
   @ObservationIgnored private var gap: Task<Void, Never>?
   @ObservationIgnored private var ending: Task<Void, Never>?
-  /// Which broadcast is the latest: the answer to one before it (replaced, or stopped) is ignored, so a repeat tap on the
-  /// same command keeps its send.
+  /// Gives up on a start whose answer hasn't come; nil once it has.
+  @ObservationIgnored private var watchdog: Task<Void, Never>?
+  /// Which broadcast is the latest: the answer to one before it (replaced, stopped or given up on) is ignored, so a repeat
+  /// tap on the same command keeps its send and a late answer credits nothing.
   @ObservationIgnored private var latest = 0
+  /// The line once nothing is moving or going: what it says again when what waits is dropped.
+  @ObservationIgnored private var settled: Line
+  /// The master button's steps are going out: nothing of the card's starts meanwhile.
+  @ObservationIgnored private var held = false
+  @ObservationIgnored private var listening: (any NSObjectProtocol)?
 
   init() {
     let kept = UserDefaults.standard.string(forKey: Self.key).flatMap { try? JSONDecoder().decode(Kept.self, from: Data($0.utf8)) } ?? Kept()
@@ -207,7 +278,9 @@ final class LoveEcologyModel {
     level = kept.level
     wheel = kept.wheel
     colour = kept.colour ?? .swatch("white")
-    line = kept.last.map { .last($0) } ?? .never
+    let line: Line = kept.last.map { .last($0) } ?? .never
+    self.line = line
+    settled = line
   }
 
   /// Bật, Tắt, a trial or a swatch: goes at once unless one is on air or just ended.
@@ -243,26 +316,80 @@ final class LoveEcologyModel {
     queue(s, tap: false)
   }
 
-  /// The app went to the background, where iOS stops the broadcast: it stops here too, nothing waiting goes, and the line
-  /// says which was cut off. A line that said "Đã gửi" reads as the last sent when the app is back.
+  /// The app went to the background, where iOS stops the broadcast: the card's own stops here too (never the master
+  /// button's), nothing waiting goes, and the line says which was cut off. A line that said "Đã gửi" reads as the last
+  /// sent when the app is back. Heard by the model, whatever screen is showing.
   func leave() {
     let cut = dragging ?? waiting?.send ?? onAir?.send
     stopDragging()
     gap?.cancel()
     waiting = nil
-    if onAir != nil {
-      ending?.cancel()
-      // Its answer, if it hasn't come, is ignored: the phone's broadcaster answers a stopped start at once.
-      latest += 1
-      onAir = nil
-      lastEnded = .now
-      LampRadio.stop(by: self)
-    }
+    stopOnAir()
     named = nil
     if let cut { line = .cut(cut) } else if case .sent(let s) = line { line = .last(s) }
   }
 
+  /// The card left the screen (another tab, or a screen opened from Đèn): the one on air finishes its three seconds, and
+  /// nothing waiting goes.
+  func leftScreen() { drop() }
+
+  /// Signed out, or the account is no longer the owner's: the card's own broadcast stops, on air or still starting, and
+  /// nothing waiting goes.
+  func stop() {
+    stopOnAir()
+    drop()
+  }
+
+  /// While the master button's steps go out (`on`), nothing of the card's starts: the press is the newer choice, so what
+  /// waits is dropped, and one still starting stops; a choice made meanwhile waits for the steps to end.
+  func hold(_ on: Bool) {
+    guard on != held else { return }
+    held = on
+    if on {
+      if watchdog != nil { stopOnAir() }
+      drop()
+    } else {
+      next()
+    }
+  }
+
+  /// What waits doesn't go, nor a drag not yet sent: the line names the one on air, or says again what it said before.
+  private func drop() {
+    stopDragging()
+    gap?.cancel()
+    waiting = nil
+    if let q = onAir {
+      named = q.n
+      line = .going(q.send, tap: q.tap)
+    } else {
+      named = nil
+      line = settled
+    }
+  }
+
+  /// Ends the card's own broadcast, on air or still starting; the broadcaster ignores it once the master button holds it.
+  /// The start's answer, if it hasn't come, is ignored: the phone's broadcaster answers a stopped start at once.
+  private func stopOnAir() {
+    guard onAir != nil else { return }
+    ending?.cancel()
+    watchdog?.cancel()
+    watchdog = nil
+    latest += 1
+    onAir = nil
+    lastEnded = .now
+    LampRadio.stop(by: self)
+  }
+
+  /// The background is heard from the first choice on: a card that has sent nothing has nothing to stop.
+  private func listen() {
+    guard listening == nil else { return }
+    listening = NotificationCenter.default.addObserver(forName: UIApplication.didEnterBackgroundNotification, object: nil, queue: .main) { [weak self] _ in
+      MainActor.assumeIsolated { self?.leave() }
+    }
+  }
+
   private func move(_ s: Send) {
+    listen()
     dragging = s
     // A newer choice: the one waiting doesn't go.
     gap?.cancel()
@@ -284,6 +411,7 @@ final class LoveEcologyModel {
 
   /// In line after the one on air, replacing any waiting.
   private func queue(_ s: Send, tap: Bool) {
+    listen()
     count += 1
     waiting = Queued(n: count, send: s, tap: tap)
     named = count
@@ -291,10 +419,11 @@ final class LoveEcologyModel {
     next()
   }
 
-  /// The one waiting goes once nothing is on air and the gap after the last has passed.
+  /// The one waiting goes once nothing is on air, the gap after the last has passed and the master button's steps aren't
+  /// going out.
   private func next() {
     gap?.cancel()
-    guard onAir == nil, let q = waiting else { return }
+    guard !held, onAir == nil, let q = waiting else { return }
     let due = Self.pacer.due(moved: .now, lifted: true, lastEnded: lastEnded)
     if due <= .now { return broadcast(q) }
     gap = Task { [weak self] in
@@ -313,20 +442,32 @@ final class LoveEcologyModel {
     onAir = q
     latest += 1
     let mine = latest
+    // Armed first: the simulator's stand-in answers within `start`.
+    watchdog = Task { [weak self] in
+      try? await Task.sleep(for: Self.answer)
+      guard !Task.isCancelled, let self, self.latest == mine else { return }
+      let named = self.named == q.n
+      self.stopOnAir()
+      if named { self.line = .problem(.failed) }
+      self.next()
+    }
     // The phone's one broadcaster, shared with the master button.
     LampRadio.start(command.uuids, by: self) { [weak self] e in
       guard let self, self.latest == mine, self.onAir?.n == q.n else { return }
+      self.watchdog?.cancel()
+      self.watchdog = nil
       if let e {
         self.onAir = nil
         if self.named == q.n { self.line = .problem(e) }
         self.next()
         return
       }
-      self.sent.append(Self.entry(q.send))
+      self.sent.append(Self.entry(q.send, command))
       Self.remember(q.send)
-      self.ending = Task { [weak self] in
+      // Held to its end whatever the screen does: a broadcast left going would go on until the app left the front.
+      self.ending = Task {
         try? await Task.sleep(for: Self.seconds)
-        guard !Task.isCancelled, let self else { return }
+        guard !Task.isCancelled else { return }
         LampRadio.stop(by: self)
         self.onAir = nil
         self.lastEnded = .now
@@ -365,11 +506,14 @@ final class LoveEcologyModel {
     return b
   }
 
-  private static func entry(_ s: Send) -> String {
+  /// A wheel colour with the hue and saturation it went as (`wheel:0000:0000@35`, white).
+  private static func entry(_ s: Send, _ c: FishLamp.Command) -> String {
     switch s.choice {
-    case .recording(let id): id
-    case .swatch(let id): "\(id)@\(s.level)"
-    case .wheel: "wheel@\(s.level)"
+    case .recording(let id): return id
+    case .swatch(let id): return "\(id)@\(s.level)"
+    case .wheel:
+      let p = c.plain, hex = { (i: Int) in String(format: "%02x%02x", p[i], p[i + 1]) }
+      return p.count >= 14 ? "wheel:\(hex(10)):\(hex(12))@\(s.level)" : "wheel@\(s.level)"
     }
   }
 
@@ -495,7 +639,6 @@ struct LoveEcologyCard: View {
   @Environment(MasterModel.self) private var master
   @Environment(\.dynamicTypeSize) private var size
   @Environment(\.colorScheme) private var scheme
-  @Environment(\.scenePhase) private var phase
   /// The colour dots grow with their names, up to about a large tap target.
   @ScaledMetric(relativeTo: .caption) private var dot: CGFloat = 32
   /// Five swatches a row at the default size and four from XL, so no name wraps below the accessibility sizes.
@@ -503,8 +646,11 @@ struct LoveEcologyCard: View {
   @State private var lamp = LoveEcologyModel()
   @State private var wheel = false
 
+  /// The owner's account alone.
+  private var shown: Bool { account.owner.isOwner == true && account.user != nil && !LoveEcologyModel.commands.isEmpty }
+
   var body: some View {
-    if account.owner.isOwner == true, account.user != nil, !LoveEcologyModel.commands.isEmpty {
+    if shown {
       VStack(alignment: .leading, spacing: 12) {
         Text("Đèn Love Ecology").font(.title3.weight(.semibold))
         Text("Đứng gần đèn, giữ ứng dụng mở khi gửi. Đèn không báo lại, nên AquaTome chỉ biết những gì máy này đã gửi. Hẹn giờ vẫn đặt trong ứng dụng Fish lamp.")
@@ -575,8 +721,12 @@ struct LoveEcologyCard: View {
       .frame(maxWidth: .infinity, alignment: .leading)
       .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 12))
       .sheet(isPresented: $wheel) { ColourWheelSheet(lamp: lamp) }
-      // The background, not a pulled-down Control Center or a banner, which leave iOS's broadcast going.
-      .onChange(of: phase) { if phase == .background { lamp.leave() } }
+      // Gone because the account signed out or isn't the owner's: the card's broadcast stops. Gone from the screen: the
+      // one on air finishes, nothing waiting goes. (The background is the model's: LoveEcologyModel.leave.)
+      .onDisappear { if shown { lamp.leftScreen() } else { lamp.stop() } }
+      // The two share the phone's one broadcast.
+      .onAppear { lamp.hold(master.sending) }
+      .onChange(of: master.sending) { lamp.hold(master.sending) }
       .onChange(of: lamp.line) {
         switch lamp.line {
         case .never, .moving: break
@@ -587,6 +737,8 @@ struct LoveEcologyCard: View {
       .background {
         // The commands broadcast, for the UI tests to read (debug builds only).
         Text(verbatim: lamp.sent.joined(separator: " ")).font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("lamp-sent")
+        // And the words the line has shown.
+        Text(verbatim: lamp.shown.joined(separator: " | ")).font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("lamp-lines")
       }
       #endif
     }
