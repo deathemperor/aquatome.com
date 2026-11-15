@@ -17,13 +17,16 @@ struct ChipsRow: View {
         ForEach(chips) { c in
           link(c) {
             HStack(spacing: 8) {
-              V2Photo(src: c.photoOf == nil ? nil : c.chip.img, box: c.chip.imgBox)
-                .frame(width: picture * 1.5, height: picture)
-                .clipShape(.rect(cornerRadius: 6, style: .continuous))
-                .accessibilityHidden(true)
+              // Its fish's picture only where the chip's page can name that fish; else the name alone (Design, 16 Nov).
+              if c.photoOf != nil {
+                V2Photo(src: c.chip.img, box: c.chip.imgBox)
+                  .frame(width: picture * 1.5, height: picture)
+                  .clipShape(.rect(cornerRadius: 6, style: .continuous))
+                  .accessibilityHidden(true)
+              }
               Text(verbatim: c.chip.name).font(.body.weight(.semibold)).lineLimit(1)
             }
-            .padding(.leading, 8)
+            .padding(.leading, c.photoOf == nil ? 14 : 8)
             .padding(.trailing, 14)
             .frame(minHeight: height)
             .background(.fill.tertiary, in: Capsule())
