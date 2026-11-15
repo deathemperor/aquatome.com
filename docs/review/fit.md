@@ -5,12 +5,12 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 4339 | 3703 | 1573 | 60 | 47 | 205 | 41 | 1080 | 394 | 2618 | 485 | 8 | 9 | 0 | 3 | 4 | 3 | 0 |
-| Indonesian | 1449 | 1275 | 360 | 21 | 8 | 4 | 5 | 174 | 33 | 60 | 177 | 0 | 1 | 0 | 3 | 2 | 0 | 0 |
-| Thai | 1433 | 1239 | 337 | 18 | 4 | 5 | 4 | 154 | 40 | 83 | 163 | 0 | 0 | 0 | 1 | 2 | 0 | 0 |
-| Malay | 329 | 283 | 83 | 6 | 2 | 0 | 0 | 38 | 16 | 17 | 34 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Vietnamese | 4339 | 3691 | 1547 | 57 | 46 | 203 | 39 | 1069 | 344 | 2608 | 479 | 8 | 9 | 0 | 2 | 4 | 3 | 0 |
+| Indonesian | 1449 | 1274 | 358 | 21 | 8 | 4 | 5 | 173 | 32 | 60 | 177 | 0 | 1 | 0 | 2 | 2 | 0 | 0 |
+| Thai | 1433 | 1238 | 337 | 18 | 4 | 5 | 4 | 154 | 38 | 83 | 163 | 0 | 0 | 0 | 1 | 2 | 0 | 0 |
+| Malay | 329 | 282 | 83 | 6 | 2 | 0 | 0 | 38 | 16 | 17 | 34 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
-Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 10 of 143, Indonesian 2 of 55, Thai 2 of 54, Malay 1 of 18.
+Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 10 of 140, Indonesian 2 of 54, Thai 2 of 53, Malay 1 of 17.
 
 ## Doses on more than one page
 
@@ -75,7 +75,7 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 ## Products the market table has no row for, Vietnamese pages
 
 - repashy: 48
-- keo 502: 35
+- keo 502: 36
 - panacur: 34
 - ada: 24
 - tropica: 18
