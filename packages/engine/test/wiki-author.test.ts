@@ -62,6 +62,9 @@ test('a Commons credit holds no email address: the name before it stays, and a f
   // No address: the field as it was, escaped brackets and all.
   expect(tidyAuthor('Photograph by A. Photographer (www.example.org).')).toBe('Photograph by A. Photographer (www.example.org).')
   expect(tidyAuthor('A. Photographer &lt;Studio&gt;')).toBe('A. Photographer &lt;Studio&gt;')
+  // A code past the last character there is doesn't stop the import.
+  expect(tidyAuthor('A. Photographer &#99999999; &#xFFFFFFFF;')).toBe('A. Photographer &#99999999; &#xFFFFFFFF;')
+  expect(authorText(`A. Photographer &#99999999; ${address}`)).not.toContain('@')
 })
 
 test('a stored Commons credit with an email address keeps only the name, in place; the next run finds nothing', async () => {

@@ -22,9 +22,13 @@ const RENAMED = /~[a-z_]*wiki\b/gi
 const EMAIL = /[\w.%+-]+@[\w-]+(?:\.[\w-]+)+/g
 /** Where the name ends in such a field: its first bracket, comma, semicolon or dash. */
 const AFTER_NAME = /\s*[(<[,;]|\s+[-–—]\s/
-/** The field is HTML: an address may come in escaped brackets ("Name &lt;…&gt;") or with its "@" escaped ("&#64;"). */
+/**
+ * The field is HTML: an address may come in escaped brackets ("Name &lt;…&gt;") or with its "@" escaped ("&#64;"). A
+ * code past the last character there is ("&#99999999;") stays as it is written.
+ */
+const character = (code: string, n: number) => (n <= 0x10ffff ? String.fromCodePoint(n) : code)
 const unescape = (s: string) => s.replace(/&lt;/g, '<').replace(/&gt;/g, '>')
-  .replace(/&#(\d+);/g, (_, n: string) => String.fromCodePoint(Number(n))).replace(/&#x([0-9a-f]+);/gi, (_, n: string) => String.fromCodePoint(Number.parseInt(n, 16)))
+  .replace(/&#(\d+);/g, (code, n: string) => character(code, Number(n))).replace(/&#x([0-9a-f]+);/gi, (code, n: string) => character(code, Number.parseInt(n, 16)))
 /** The user Commons names, as people know them: "RuthJM", not its placeholder sentence or its rename suffix. */
 export const tidyAuthor = (s: string) => {
   const t = s.replace(ASSUMED, '$1').replace(RENAMED, '').trim()
