@@ -342,6 +342,15 @@ test('a rewrite\'s drop check: a part with one word left, a figure by its number
   expect(stepGone[0]).toContain('the advice "Ngâm 2 tuần"')
   expect(drop({ definition: one, body: '<p>Đừng sốc cá.</p><p>Thả từ từ.</p>' }, { definition: one, body: '<p>Thả từ từ.</p>' }, ['Rule 9: Đừng sốc cá. is clear, but "thả ngay" is reckless.'])[0]).toContain('the caution "đừng"')
   expect(drop({ definition: one, body: '<p>Lũa nổi. Đừng luộc lũa.</p><p>Thả từ từ.</p>' }, { definition: one, body: '<p>Thả từ từ.</p>' }, ['Rule 4: "Lũa nổi. Đừng luộc lũa." repeats the soaking part'])).toEqual([])
+  // Grok's fourth read: the words after an inner quote are no quote of the note's own, and a passage the note quotes frees
+  // each sentence in it, one with quotation marks of its own too, in straight quotes or curly.
+  const told = 'Sách nói "xong." Ngâm 2 tuần.'
+  expect(droppedInRewrite({ definition: one, body: `<p>Ngâm 2 tuần.</p><p>${told}</p>` }, { definition: one, body: `<p>${told}</p>` }, step, [`"${told}": the facts don't carry it`])[0]).toContain('the advice "Ngâm 2 tuần"')
+  const passage = 'Lũa nổi. Nhiều tiệm ghi "không ra màu", còn tạp chí thì nói khác.'
+  expect(drop({ definition: one, body: `<p>${passage}</p><p>Gỗ mềm.</p>` }, { definition: one, body: '<p>Gỗ mềm.</p>' }, [`Rule 4: "${passage}" repeats`])).toEqual([])
+  expect(drop({ definition: one, body: `<p>${passage}</p><p>Gỗ mềm.</p>` }, { definition: one, body: '<p>Gỗ mềm.</p>' }, [`Rule 4: “${passage}” repeats`])).toEqual([])
+  // A saved review writes the inner marks as \": still the one quote.
+  expect(drop({ definition: one, body: `<p>${passage}</p><p>Gỗ mềm.</p>` }, { definition: one, body: '<p>Gỗ mềm.</p>' }, ['Rule 4: "Lũa nổi. Nhiều tiệm ghi \\"không ra màu\\", còn tạp chí thì nói khác." repeats'])).toEqual([])
   // A sentence moved from the body to the definition is kept.
   expect(drop({ definition: 'Lũa là gỗ khô.', body: '<p>Lũa làm nước ngả vàng.</p>' }, { definition: 'Lũa là gỗ khô. Lũa làm nước ngả vàng.', body: '' })).toEqual([])
 })

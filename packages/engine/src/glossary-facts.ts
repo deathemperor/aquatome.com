@@ -262,8 +262,23 @@ const adviceLost = (before: string, after: string, strict = false) => {
 /** The facts' own words, not their source numbers. */
 const factText = (facts: object) => ((facts as { facts?: { fact: string }[] }).facts ?? []).map(f => f.fact).join('\n')
 
-/** The phrases a note quotes, "…" or “…”, of three characters or more. */
-const quotes = (note: string) => [...note.matchAll(/"([^"]+)"|“([^”]+)”/g)].map(m => (m[1] ?? m[2]!).trim()).filter(q => q.length >= 3)
+/**
+ * The phrases a note quotes, "…" or “…”, of three characters or more: its own quotes only, read as pairs that nest, so a
+ * quoted sentence keeps its own quotation marks whole ("Nhiều tiệm ghi "không ra màu", còn…"; Grok's reads, 15 Nov 2026:
+ * paired left to right, the words after an inner quote became a quote of their own). A straight mark at the start, or after
+ * a space or an opening bracket and before a character, opens; any other closes the last one open. One written \" (a saved
+ * review's "là \"không ra màu\", còn…") is a mark inside the quote, never its end.
+ */
+const quotes = (note: string) => {
+  const found: string[] = [], open: number[] = []
+  for (let i = 0; i < note.length; i++) {
+    const c = note[i]
+    if (note[i - 1] === '\\') continue
+    if (c === '“' || (c === '"' && (i === 0 || /[\s([]/.test(note[i - 1]!)) && /\S/.test(note[i + 1] ?? ''))) open.push(i + 1)
+    else if ((c === '"' || c === '”') && open.length) { const at = open.pop()!; if (!open.length) found.push(note.slice(at, i)) }
+  }
+  return found.map(q => q.replace(/\\"/g, '"').trim()).filter(q => q.length >= 3)
+}
 
 /**
  * The middle path for loose (the chief of staff, 14 Nov 2026): the sentences two reads call loose go back once to the
@@ -370,10 +385,8 @@ export function droppedInRewrite(before: { definition: string; body: string }, a
   const was = placed(before), is = placed(after)
   const quoted = notes.flatMap(quotes)
   // A quote frees a sentence it is, or one of a passage's sentences: never one that is only words inside another sentence
-  // (Grok's third read: a shop's sentence quoting the step "Ngâm 2 tuần." freed the step). A sentence with its own
-  // quotation marks ("không ra màu") splits a note's quote of it, so the note's quote marks around it whole count too.
+  // (Grok's third read: a shop's sentence quoting the step "Ngâm 2 tuần." freed the step).
   const whole = (t: string) => quoted.some(q => q === t || (q.includes(t) && sentences({ definition: q, body: '' }).some(s => s.text === t)))
-    || (/["“”]/.test(t) && notes.some(n => n.includes(`"${t}"`) || n.includes(`“${t}”`)))
   const unquoted = (t: string) => quoted.filter(q => t.includes(q)).reduce((s, q) => s.split(q).join(' '), t)
   const now = new Set(is), then = new Set(was)
   const gone = was.filter(k => !now.has(k) && !whole(text(k))).map(k => ({ t: text(k), u: unquoted(text(k)) }))
