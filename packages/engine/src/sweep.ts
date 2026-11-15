@@ -12,7 +12,7 @@ import { droppedName, FISH_NAMES, KIND_PASSAGES, ownWords, type FishName, type K
 import { withLNumber } from './l-numbers'
 import { pickStands, readPersonYes } from './person-yes'
 import { EMPTY_CAP, refusedOn, type PhotoVerdict } from './photo-check'
-import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmails, dropEmailsDeep, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, fixTranslation, hasEmail, isAdPoster, isMediaFile, notAlive, isMap, unwellOff, NAMED_KINDS, renameFishNames, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
+import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmails, dropEmailsDeep, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, fixTranslation, hasEmail, isAdPoster, isMediaFile, mayHoldEmail, notAlive, isMap, unwellOff, NAMED_KINDS, renameFishNames, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields, type PageKind } from './pages'
 import { foldPages } from './page-folds'
 import { sweepPlaceNames } from './place-names'
@@ -366,7 +366,7 @@ export async function renameCaptions(content: string, rows: readonly FishName[] 
 /**
  * An email address anywhere under content/, in any file and field the steps above don't write (a fish page's source text, a
  * photo's caption or credit, a video's title, a place, a name or a question): cut (dropEmailsDeep), so every hit the
- * real-content test can have is one the cycle mends. A file with no "@" is not parsed. The files changed, and where a cut
+ * real-content test can have is one the cycle mends. A file with no sign of one (mayHoldEmail) is not parsed. The files changed, and where a cut
  * left a field empty or made two keys one (`file field`, an address's key by its place), for a person to read.
  */
 export async function dropEmailsEverywhere(content: string): Promise<{ files: string[]; emptied: string[] }> {
@@ -386,12 +386,13 @@ export async function dropEmailsEverywhere(content: string): Promise<{ files: st
   const files = (await readdir(content, { recursive: true, withFileTypes: true }))
     .filter(d => d.isFile() && !isMediaFile(d.name)).map(d => relative(content, join(d.parentPath, d.name))).sort()
   // About 29,000 files: read 64 at a time, as a file read one after another costs a minute on a busy machine. A file is
-  // judged by its strings, never its raw text: an escape's letter before an "@" ("\n@…") is no address.
+  // judged by its strings, never its raw text: an escape's letter before an "@" ("\n@…") is no address. A file is read
+  // further only when it may hold one, an "@" or an address written out (mayHoldEmail).
   const hits: { f: string; raw: string }[] = []
   for (let i = 0; i < files.length; i += 64) {
     for (const h of await Promise.all(files.slice(i, i + 64).map(async f => {
       const raw = await readFile(join(content, f), 'utf8')
-      return raw.includes('@') ? { f, raw } : null
+      return mayHoldEmail(raw) ? { f, raw } : null
     }))) if (h) hits.push(h)
   }
   for (const { f, raw } of hits) {

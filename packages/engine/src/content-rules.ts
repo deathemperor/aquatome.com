@@ -525,11 +525,26 @@ export const dropThanks = (html: string) => (/cảm ơn|cám ơn|terima kasih|pe
 const LETTER = String.raw`\p{Script=Latin}\p{Nd}\u0300-\u036f`
 const FILE = '3gp|aac|asf|ass|avi|avif|bmp|css|dng|flac|flv|gif|hdr|heic|heif|ico|jfif|jpe?g|js|m2ts|m4a|m4v|mkv|mov|mp3|mp4|mpe?g|mts|mxf|ogg|ogv|opus|pdf|png|raw|rmvb|srt|svg|tiff?|ts|vob|vtt|wav|webm|webp|wmv|zip'
 const EMAIL = String.raw`(?<![${LETTER}._%+-])(?<!\/\/[^\s/@]{0,64})(?:mailto:)?[${LETTER}._%+-]{1,64}(?:['’&=][${LETTER}._%+-]{1,64}){0,3}@[${LETTER}-]{1,63}(?:\.[${LETTER}-]{1,63}){0,8}\.(?!(?:${FILE})(?![\p{Script=Latin}\p{N}\p{M}]))\p{Script=Latin}{2,24}(?![\p{Script=Latin}\p{N}\p{M}]|\.(?:${FILE})(?![\p{Script=Latin}\p{N}\p{M}]))`
+/**
+ * An address written out so a program won't read it, which video titles and letters do ("someone [at] example [dot] org",
+ * "someone at example dot com", a full-width "＠", "&#64;"): its to catch too (the chief of staff, 16 Nov). The word "at"
+ * counts only with the dots written out as well and the address closing its phrase, so "available at example.com" and
+ * "look at this dot com bubble" are sentences, and the last part is a known ending, so "(at) home (dot) X" isn't one.
+ */
+const AT_MARK = String.raw`\s*(?:[\[({<]\s*at\s*[\])}>]|＠|&#0*64;|&#x0*40;)\s*`
+const DOT_MARK = String.raw`\s*[\[({<]\s*dot\s*[\])}>]\s*`
+const ENDING = 'com|org|net|edu|gov|mil|info|biz|io|co|me|vn|uk|de|fr|nl|be|ch|at|it|es|pt|pl|cz|ru|ua|se|no|dk|fi|ie|jp|kr|cn|tw|hk|sg|my|id|th|ph|in|au|nz|ca|us|mx|br|ar|za'
+const PART = String.raw`[${LETTER}-]{1,63}`
+const SPELLED_END = String.raw`(?![\p{Script=Latin}\p{N}\p{M}]|${DOT_MARK}${PART}|\s+dot\s+${PART}|\.[${LETTER}])`
+const SPELLED = String.raw`(?<![${LETTER}._%+-])[${LETTER}._%+-]{1,64}(?:${AT_MARK}${PART}(?:(?:${DOT_MARK}|\s+dot\s+|\.)${PART}){0,4}(?:${DOT_MARK}|\s+dot\s+|\.)(?:${ENDING})${SPELLED_END}|\s+at\s+${PART}(?:(?:${DOT_MARK}|\s+dot\s+)${PART}){0,4}(?:${DOT_MARK}|\s+dot\s+)(?:${ENDING})${SPELLED_END}(?=\s*(?:$|[.,;:!?)\]}»"”'’<])))`
+/** Something in a text that may be an address, either way: the check and the cut read a file only when it has one. */
+export const mayHoldEmail = (text: string) => /@|＠|&#0*64;|&#x0*40;|[\[({<]\s*at\s*[\])}>]|\sdot\s|[\[({<]\s*dot\s*[\])}>]/iu.test(text)
 const ANY_EMAIL = new RegExp(EMAIL, 'iu')
-const BRACKETED_EMAIL = new RegExp(String.raw`(?<!\s)\s*(?:\(|\[|&lt;|<)\s*${EMAIL}\s*(?:\)|\]|&gt;|>)`, 'giu')
-const BARE_EMAIL = new RegExp(String.raw`(?<!\s)\s*${EMAIL}`, 'giu')
+const ANY_SPELLED = new RegExp(SPELLED, 'iu')
+const BRACKETED_EMAIL = new RegExp(String.raw`(?<!\s)\s*(?:\(|\[|&lt;|<)\s*(?:${EMAIL}|${SPELLED})\s*(?:\)|\]|&gt;|>)`, 'giu')
+const BARE_EMAIL = new RegExp(String.raw`(?<!\s)\s*(?:${EMAIL}|${SPELLED})`, 'giu')
 const MAILTO_LINK = /<a\b[^>]*\bhref\s*=\s*["']mailto:[^"']*["'][^>]*>([\s\S]*?)<\/a>/giu
-export const hasEmail = (text: string) => text.includes('@') && ANY_EMAIL.test(text)
+export const hasEmail = (text: string) => (text.includes('@') && ANY_EMAIL.test(text)) || (mayHoldEmail(text) && ANY_SPELLED.test(text))
 /**
  * The text without its email addresses: a link to one keeps its words, and an address goes with the brackets round it and
  * the space before it. What hasEmail finds, this cuts, so the sweep mends every hit the real-content test can have.

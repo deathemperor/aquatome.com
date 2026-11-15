@@ -4,7 +4,7 @@ import { join, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { GALLERY_POST, LANGS, loadAll, mayPublish, RETIRED_GUIDES, resolveDataCard, slugify, tankKeywordFits, WRITTEN_LANGS, type Translation } from '@aq/schema'
-import { checkPages, countMismatch, hasEmail, isLink, isMediaFile, photoCaptions, RATCHETED, ratcheted, refCredits, RULES, SWEPT_KINDS, thanksLines } from '../src/content-rules'
+import { checkPages, countMismatch, hasEmail, isLink, isMediaFile, mayHoldEmail, photoCaptions, RATCHETED, ratcheted, refCredits, RULES, SWEPT_KINDS, thanksLines } from '../src/content-rules'
 import { englishOf } from '../src/english'
 import { tilapiaUnnamed } from '../src/kind-words'
 import { droppedName, FISH_NAMES, KIND_PASSAGES, oldNames } from '../src/names'
@@ -1194,7 +1194,7 @@ test('no email address in any file under content/', async () => {
   }
   for (const f of (await readdir(root, { recursive: true, withFileTypes: true })).filter(d => d.isFile() && !isMediaFile(d.name)).map(d => relative(root, join(d.parentPath, d.name))).sort()) {
     const raw = await readFile(join(root, f), 'utf8')
-    if (!raw.includes('@')) continue
+    if (!mayHoldEmail(raw)) continue
     if (!f.endsWith('.json')) { if (hasEmail(raw)) found.push(`${f} (text)`); continue }
     let data: unknown
     try { data = JSON.parse(raw) } catch { found.push(`${f} (not JSON)`); continue }

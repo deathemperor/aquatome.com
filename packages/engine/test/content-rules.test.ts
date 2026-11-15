@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import {
   blocks, cardSlips, checkPages, gluedSyllables, claimsControl, countEvidence, countMismatch, cutFurniture, dropEmails, dropEmailsDeep, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, emptySections, englishSentences, fixStored, fixTranslation, furniture,
-  hasEmail, imperialUnits, isPermissionNote, isPhotoCaption, isThanks, labelSlips, leftoverMarkup, longFurniture, namesSource, numberSlips, otherFish, photoCaptions, plainEntities, ratcheted, refCredits, renumberLabels, RULES, rulesReport, sfScoreFixed, sourcePagePhrases, stripCount,
+  hasEmail, mayHoldEmail, imperialUnits, isPermissionNote, isPhotoCaption, isThanks, labelSlips, leftoverMarkup, longFurniture, namesSource, numberSlips, otherFish, photoCaptions, plainEntities, ratcheted, refCredits, renumberLabels, RULES, rulesReport, sfScoreFixed, sourcePagePhrases, stripCount,
   renameStored, renameFishNames, renameSwapped, swappedNames, thanksLines, titleCount, unwellOff, vietnameseLeft, wrongFish, captionFlaw, type Ctx,
 } from '../src/content-rules'
 import { pagePath, pageUrl, type Page } from '../src/pages'
@@ -571,6 +571,27 @@ test('an email address goes from a page\'s text with its brackets, a link to one
   // A link's user and password, and a "@" after an address's own limit, are no address.
   for (const keep of ['https://u:p@example.com/x', `${'a'.repeat(65)}@example.org`]) expect(hasEmail(keep), keep.slice(0, 30)).toBe(false)
   for (const keep of ['pic@2x.heif', 'clip@1x.M4V', 'cam@2x.jfif', 'x@96k.flac', 'subs@en.srt', '1080p@60fps.movไทย']) expect(dropEmails(keep), keep).toBe(keep)
+})
+
+// The chief of staff, 16 Nov 2026: an address written out so a program won't read it is the check's to catch too.
+test('an address written out in words or marks is found and cut; "at" in a sentence is not one', () => {
+  for (const [text, cut] of [
+    ['Liên hệ someone [at] example [dot] org', 'Liên hệ'],
+    ['Wild bettas (someone (at) example.org)', 'Wild bettas'],
+    ['Write to someone at mail dot example dot com', 'Write to'],
+    ['Hỏi someone＠example.org nhé', 'Hỏi nhé'],
+    ['<p>Thư: someone&#64;example.net</p>', '<p>Thư:</p>'],
+    ['Gửi a.keeper {at} example {dot} co {dot} uk.', 'Gửi.'],
+  ] as [string, string][]) {
+    expect(hasEmail(text), text).toBe(true)
+    expect(dropEmails(text), text).toBe(cut)
+  }
+  for (const keep of [
+    'Available at example.com and at the shop.', 'Sold at aquatome.com', 'Feed at night, a dot of food', 'Polka dot plants grow at home',
+    'Meet (at) home (dot) X', 'Cá nhỏ, giá 50k at shop dot', 'look at this dot com bubble',
+  ]) expect(hasEmail(keep), keep).toBe(false)
+  expect(mayHoldEmail('Liên hệ someone [at] example [dot] org')).toBe(true)
+  expect(mayHoldEmail('Cá chuột sống theo đàn.')).toBe(false)
 })
 
 test('every string of a stored file loses its addresses, its keys too; its shape stays', () => {
