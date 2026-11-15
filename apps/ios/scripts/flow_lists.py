@@ -72,7 +72,7 @@ SHOTS = {
               'testTheOwnersCommentsInTheDark', 'testTheOwnersCommentsInTheLargestText', 'testTheDailyReportsSettings'],
     'v2': ['testV2', 'testV2InTheDark', 'testV2InTheLargestText', 'testV2InMalayInTheDarkAtTheLargestText'],
     # The chat screen: an answer with its cards, from the stand-in's recordings.
-    'chat': ['testTheChat', 'testTheChatInTheDark', 'testTheChatInTheLargestText'],
+    'chat': ['testTheChat', 'testTheChatInTheDark', 'testTheChatInTheLargestText', 'testTheChatsOpenSectionAndBackFromACardsPage'],
 }
 
 
