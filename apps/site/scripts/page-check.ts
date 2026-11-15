@@ -7,10 +7,11 @@ import { readdirSync, readFileSync, statSync } from 'node:fs'
 import { join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { HTMLElement, parse } from 'node-html-parser'
-import { headingSubject, loadAll, PictureSet, pictureOf, type LinkTarget, type PictureHashes } from '@aq/schema'
+import { headingSubject, loadAll, PictureSet, pictureOf, type LinkTarget, type Photo, type PictureHashes } from '@aq/schema'
 import { LANGS, langOf, LINK_MARK, localizePath, type Lang } from '../src/lib/i18n'
 import { saysSci, sciWords } from '../src/lib/sci'
 import { linkTargets } from '../src/lib/mentions'
+import { smallSrc } from '../src/lib/img'
 
 export const CHECKS = {
   repeat: 'the same picture twice',
@@ -21,6 +22,7 @@ export const CHECKS = {
   'empty-section': 'a heading with nothing under it',
   'link-mark': 'a marker localizeLinks left in the page, which no page may ship with',
   'name-twice': "a scientific name said twice: a fish's or plant's title, description, photo text or structured data, or a name with the scientific name printed beside it that the name says already",
+  uncredited: 'a photo shown without its credit anywhere on the page',
 } as const
 export type Check = keyof typeof CHECKS
 export type Problem = { check: Check; detail: string }
@@ -38,11 +40,14 @@ export type Facts = {
   targets: Record<Lang, LinkTarget[]>
   /** Genera the site has: a capitalised pair in brackets starting with one is a scientific name ("German blue ram" is not). */
   genera: Set<string>
+  /** Every photo the content holds, by its picture (its address, a small copy's too) → the links its records credit it
+   * to: one photo in two guides' records can carry two. An AI picture is labelled, not credited, so it isn't here. */
+  credits: Map<string, Set<string>>
 }
 
 /** The site's facts from the content a build was made from. */
 export async function loadFacts(root: string): Promise<Facts> {
-  const facts: Facts = { hashes: {}, byPath: new Map(), living: new Map(), owner: new Map(), targets: {} as Record<Lang, LinkTarget[]>, genera: new Set() }
+  const facts: Facts = { hashes: {}, byPath: new Map(), living: new Map(), owner: new Map(), targets: {} as Record<Lang, LinkTarget[]>, genera: new Set(), credits: new Map() }
   for (const lang of LANGS) {
     const c = await loadAll({ root, lang, publicBuild: false })
     facts.hashes = c.pictureHashes
@@ -58,8 +63,33 @@ export async function loadFacts(root: string): Promise<Facts> {
     for (const s of c.species) add(`species:${s.id}`, `/vi/ca/${s.t.slug}/`, [s.scientificName, s.t.name, ...s.t.altNames], s.photos, s.scientificName)
     for (const p of c.plants) add(`plant:${p.id}`, `/vi/cay/${p.t.slug}/`, [p.scientificName, ...(p.synonyms ?? []), p.t.name, ...p.t.altNames], p.photos, p.scientificName)
     for (const b of c.breeds) add(`breed:${b.id}`, `/vi/ca/${b.t.slug}/`, [b.t.name, ...b.t.altNames], b.photos)
+    addCredits(facts.credits, c)
   }
   return facts
+}
+
+/** Every photo record anywhere in the content (a fish's, a guide's, a term's, a product's…): whatever has an address and
+ * a source link is one, so a kind of page added later is covered without a line here. Our own drawings (their source is
+ * our own site's page) are no one else's to credit. */
+const OURS = /^https:\/\/(www\.)?aquatome\.com\//
+function addCredits(credits: Facts['credits'], content: unknown) {
+  const seen = new Set<object>()
+  const walk = (x: unknown): void => {
+    if (!x || typeof x !== 'object' || seen.has(x)) return
+    seen.add(x)
+    if (Array.isArray(x)) { for (const v of x) walk(v); return }
+    const o = x as Record<string, unknown>
+    if (typeof o.url === 'string' && typeof o.sourceUrl === 'string' && o.sourceUrl && !o.generated && !OURS.test(o.sourceUrl)) {
+      const p = o as unknown as Photo
+      for (const src of new Set([p.url, p.thumb, smallSrc(p)])) {
+        if (!src) continue
+        const key = pictureOf(src, {}).key
+        ;(credits.get(key) ?? credits.set(key, new Set()).get(key)!).add(p.sourceUrl)
+      }
+    }
+    for (const v of Object.values(o)) walk(v)
+  }
+  walk(content)
 }
 
 const text = (el: HTMLElement) => el.textContent.replace(/\s+/g, ' ').trim()
@@ -125,10 +155,20 @@ export function checkPage(path: string, html: string, facts: Facts): Problem[] {
   // The same picture twice, whatever its file. A picture hidden from screen readers is a backdrop (a whole tile's blurred
   // ground: SpeciesCard.astro), not a picture shown.
   const seen = new PictureSet(facts.hashes)
-  for (const img of root.querySelectorAll('img').filter(i => shown(i) && i.getAttribute('aria-hidden') !== 'true')) {
+  const pictures = root.querySelectorAll('img').filter(i => shown(i) && i.getAttribute('aria-hidden') !== 'true')
+  for (const img of pictures) {
     const src = img.getAttribute('src')!
     if (seen.has(src)) out.push({ check: 'repeat', detail: src })
     seen.add(src)
+  }
+
+  // Every photo shown has its credit on the page: the footer's list, its figure's ©, a caption's line, each a link to (or
+  // the data-src of) the source its record names. CC BY and BY-SA ask for it wherever a photo shows, a 32 px one too: on
+  // 15 November a term's rows, a fish's tank mates and the guide cards under fish, plants and products had none.
+  const links = new Set(root.querySelectorAll('[href], [data-src]').flatMap(el => [el.getAttribute('href'), el.getAttribute('data-src')]).filter(Boolean))
+  for (const src of new Set(pictures.map(i => i.getAttribute('src')!))) {
+    const from = facts.credits.get(pictureOf(src, {}).key)
+    if (from && ![...from].some(u => links.has(u))) out.push({ check: 'uncredited', detail: src })
   }
 
   const scientific = (name: string) => facts.genera.has(name.split(' ')[0]!)
