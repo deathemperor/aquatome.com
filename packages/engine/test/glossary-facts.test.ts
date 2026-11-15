@@ -354,6 +354,14 @@ test('a rewrite\'s drop check: a part with one word left, a figure by its number
   // Grok's fifth read: a piece the splitter cut inside a quotation ends on a mark, so its stop note reads ""; that isn't a
   // quote of the separate step.
   expect(droppedInRewrite({ definition: one, body: '<p>Ngâm 2 tuần.</p><p>Sách nói "Xong. Ngâm 2 tuần."</p>' }, { definition: one, body: '<p>Sách nói "Xong. Ngâm 2 tuần."</p>' }, step, ['"Ngâm 2 tuần."": the facts don\'t carry it'])[0]).toContain('the advice "Ngâm 2 tuần"')
+  // Grok's sixth read: a cut piece that goes on after its own closing mark, or keeps the stop outside it. Its stop note frees
+  // that piece only, and a rules note whose marks don't pair up frees nothing.
+  for (const shop of ['Sách nói "Xong. Ngâm 2 tuần." Rồi thôi.', 'Sách nói "Xong. Ngâm 2 tuần".']) {
+    const piece = sentences({ definition: '', body: `<p>${shop}</p>` }).at(-1)!.text
+    expect(droppedInRewrite({ definition: one, body: `<p>Ngâm 2 tuần.</p><p>${shop}</p>` }, { definition: one, body: `<p>${shop}</p>` }, step, [`"${piece}": the facts don't carry it`])[0]).toContain('the advice "Ngâm 2 tuần"')
+    expect(droppedInRewrite({ definition: one, body: `<p>Ngâm 2 tuần.</p><p>${shop}</p>` }, { definition: one, body: '<p>Ngâm 2 tuần.</p>' }, step, [`"${shop.split(' Ngâm')[0]}": the facts don't carry it`, `"${piece}": the facts don't carry it`])).toEqual([])
+    expect(droppedInRewrite({ definition: one, body: `<p>Ngâm 2 tuần.</p><p>${shop}</p>` }, { definition: one, body: `<p>${shop}</p>` }, step, [`Rule 4: "${piece}" repeats`])[0]).toContain('the advice "Ngâm 2 tuần"')
+  }
   // A sentence moved from the body to the definition is kept.
   expect(drop({ definition: 'Lũa là gỗ khô.', body: '<p>Lũa làm nước ngả vàng.</p>' }, { definition: 'Lũa là gỗ khô. Lũa làm nước ngả vàng.', body: '' })).toEqual([])
 })

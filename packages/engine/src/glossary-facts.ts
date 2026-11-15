@@ -267,9 +267,10 @@ const factText = (facts: object) => ((facts as { facts?: { fact: string }[] }).f
  * quoted sentence keeps its own quotation marks whole ("Nhiều tiệm ghi "không ra màu", còn…"; Grok's reads, 15 Nov 2026:
  * paired left to right, the words after an inner quote became a quote of their own). A straight mark at the start, or after
  * a space or an opening bracket and before a character, opens; any other closes the last one open. One written \" (a saved
- * review's "là \"không ra màu\", còn…") is a mark inside the quote, never its end. A quote with another mark right outside it
- * is no quote (Grok's fifth read: a stop note on a piece the splitter cut inside a quotation, "Ngâm 2 tuần."", read as the
- * separate step "Ngâm 2 tuần." and freed it): such a piece stays held, on the safe side.
+ * review's "là \"không ra màu\", còn…") is a mark inside the quote, never its end. A note whose marks don't pair up gives no
+ * quote at all (Grok's fifth and sixth reads: the splitter can cut a sentence inside a quotation, and a note on such a piece,
+ * "Ngâm 2 tuần." Rồi thôi.", read as quoting the separate step "Ngâm 2 tuần." and freed it): such a piece stays held, on the
+ * safe side.
  */
 const quotes = (note: string) => {
   const found: string[] = [], open: number[] = []
@@ -277,12 +278,13 @@ const quotes = (note: string) => {
     const c = note[i]
     if (note[i - 1] === '\\') continue
     if (c === '“' || (c === '"' && (i === 0 || /[\s([]/.test(note[i - 1]!)) && /\S/.test(note[i + 1] ?? ''))) open.push(i + 1)
-    else if ((c === '"' || c === '”') && open.length) {
+    else if (c === '"' || c === '”') {
+      if (!open.length) return []
       const at = open.pop()!
-      if (!open.length && !/["“”]/.test(note[i + 1] ?? '') && !/["“”]/.test(note[at - 2] ?? '')) found.push(note.slice(at, i))
+      if (!open.length) found.push(note.slice(at, i))
     }
   }
-  return found.map(q => q.replace(/\\"/g, '"').trim()).filter(q => q.length >= 3)
+  return open.length ? [] : found.map(q => q.replace(/\\"/g, '"').trim()).filter(q => q.length >= 3)
 }
 
 /**
@@ -388,10 +390,13 @@ export function droppedInRewrite(before: { definition: string; body: string }, a
   ]
   const text = (k: string) => k.slice(2)
   const was = placed(before), is = placed(after)
-  const quoted = notes.flatMap(quotes)
+  // A stop note the check wrote (stopNote) is about the one sentence it opens with, whatever quotation marks that sentence
+  // holds: it frees that sentence and nothing else.
+  const stopped = new Set(notes.flatMap(n => was.map(text).filter(t => n.startsWith(`"${t}": `))))
+  const quoted = notes.filter(n => !was.some(k => n.startsWith(`"${text(k)}": `))).flatMap(quotes)
   // A quote frees a sentence it is, or one of a passage's sentences: never one that is only words inside another sentence
   // (Grok's third read: a shop's sentence quoting the step "Ngâm 2 tuần." freed the step).
-  const whole = (t: string) => quoted.some(q => q === t || (q.includes(t) && sentences({ definition: q, body: '' }).some(s => s.text === t)))
+  const whole = (t: string) => stopped.has(t) || quoted.some(q => q === t || (q.includes(t) && sentences({ definition: q, body: '' }).some(s => s.text === t)))
   const unquoted = (t: string) => quoted.filter(q => t.includes(q)).reduce((s, q) => s.split(q).join(' '), t)
   const now = new Set(is), then = new Set(was)
   const gone = was.filter(k => !now.has(k) && !whole(text(k))).map(k => ({ t: text(k), u: unquoted(text(k)) }))
