@@ -169,6 +169,29 @@ test('a run cut short past a mark is judged again on all it read: 30 refused of 
   expect([calls, r.prior, r.stopped]).toEqual([0, { checked: 240, refused: 30 }, 'over one in ten refused at 200 titles: 30 of 240'])
 })
 
+test('--only never takes a language past its stop: the titles read before are counted whatever it picks (the reviewers of the check, 16 Nov)', async () => {
+  const { root, ids, titles } = await many(400)
+  const refused = Object.fromEntries(ids.slice(0, 30).map(id => [id, 'dropped: x']))
+  const passed = Object.fromEntries(ids.slice(30, 200).map(id => [id, titles[id]!]))
+  let calls = 0
+  const llm: Llm = async <T>({ prompt }: { prompt: string }) => { calls++; return { checks: rowsOf(prompt).map((_, j) => ({ n: j + 1, ok: true })) } as T }
+  const r = await checkVideoTitles(root, llm, 'vi', titles, { only: ids.slice(200), verdicts: { refused, passed } })
+  expect([calls, r.given, r.prior, r.stopped]).toEqual([0, 200, { checked: 200, refused: 30 }, 'over one in ten refused at 200 titles: 30 of 200'])
+})
+
+test('a mark is judged on the titles up to it, though the batch that reaches it runs past: 19 of 193 read before and 2 of the next 7 stop at 200 (the reviewers of the check, 16 Nov)', async () => {
+  const { root, ids, titles } = await many(600)
+  const refused = Object.fromEntries(ids.slice(0, 19).map(id => [id, 'dropped: x']))
+  const passed = Object.fromEntries(ids.slice(19, 193).map(id => [id, titles[id]!]))
+  let calls = 0
+  const llm: Llm = async <T>({ prompt }: { prompt: string }) => {
+    calls++
+    return { checks: rowsOf(prompt).map((l, j) => (['v193', 'v194'].includes(/Aus (v\d+)/.exec(l)![1]!) ? { n: j + 1, ok: false, kind: 'dropped', why: 'x' } : { n: j + 1, ok: true })) } as T
+  }
+  const r = await checkVideoTitles(root, llm, 'vi', titles, { verdicts: { refused, passed } })
+  expect([calls, Object.keys(r.checks).length, r.stopped]).toEqual([1, 40, 'over one in ten refused at 200 titles: 21 of 200'])
+})
+
 test("the run's end: unread titles, or more than one in ten refused over all read in these words, even under the first mark of 200, end it with an error (the chief of staff, 16 Nov; the reviewers of the check)", () => {
   const run = (checked: number, refused: number, o: { given?: number; prior?: { checked: number; refused: number }; stopped?: string } = {}) => ({
     checks: Object.fromEntries(Array.from({ length: checked }, (_, i) => [`v${i}`, i < refused ? { ok: false as const, kind: 'dropped' as const, why: 'x' } : { ok: true as const }])),

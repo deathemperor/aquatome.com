@@ -14,7 +14,6 @@ export const MARK = 200
 
 export type TitleCheck = { ok: boolean; kind?: (typeof KINDS)[number]; why?: string }
 
-/** What a page is about, for the rule that a video on the pages of more than one fish gets no title: its scientific name, or a product's page. */
 /**
  * A second read of each written title against the video's own title and the page's name for the fish: a fault of meaning
  * (a wrong fish, a wrong figure, something dropped or added, a claim made stronger or weaker) and the title isn't shown,
@@ -24,7 +23,7 @@ export type TitleCheck = { ok: boolean; kind?: (typeof KINDS)[number]; why?: str
  * writer gives it no title and records why, and no pass may undo that (`shared`). `unanswered`: titles sent whose row
  * the model left out; with those past a stop or in a failed batch, they stay unread, and the site shows their own title.
  * `verdicts`, the ones on file (--write): a title refused, or passed in its present words, isn't read again, and counts
- * toward the stop line (`prior`), so a run after a stop stops again before it reads anything.
+ * toward the stop line (`prior`), whatever `only` picks, so a run after a stop stops again before it reads anything.
  */
 export async function checkVideoTitles(root: string, llm: Llm, lang: Lang, titles: Record<string, string>, o: { only?: string[]; model?: string; record?: (checks: Record<string, TitleCheck>) => Promise<void>; verdicts?: { refused: Record<string, string>; passed: Record<string, string> } } = {}) {
   type Row = { youtubeId: string; title: string; written: string; about: string }
@@ -41,7 +40,7 @@ export async function checkVideoTitles(root: string, llm: Llm, lang: Lang, title
         if (speaksPageLang(v, lang)) continue
         about.set(v.youtubeId, (about.get(v.youtubeId) ?? new Set()).add(pageFish(kind, id, e)))
         const written = titles[v.youtubeId]
-        if (!written || rows.has(v.youtubeId) || (o.only && !o.only.includes(v.youtubeId))) continue
+        if (!written || rows.has(v.youtubeId)) continue
         rows.set(v.youtubeId, { youtubeId: v.youtubeId, title: v.title, written, about: e?.scientificName ? `${name}, ${e.scientificName}` : name })
       }
     }
@@ -53,19 +52,32 @@ export async function checkVideoTitles(root: string, llm: Llm, lang: Lang, title
     const refused = id in o.verdicts!.refused
     if (refused || o.verdicts!.passed[id] === row.written) { rows.delete(id); prior.checked++; if (refused) prior.refused++ }
   }
-  const list = [...rows.values()]
+  // `only` picks what this run reads, after the titles read before are counted: it never takes a language past its stop.
+  const list = [...rows.values()].filter(r => !o.only || o.only.includes(r.youtubeId))
   const report = { checks: {} as Record<string, TitleCheck>, failed: [] as string[], stopped: '', given: list.length, shared, unanswered: [] as string[], prior }
   const target = lang === 'vi' ? { lang: 'Vietnamese', country: 'Vietnam' } : TARGETS[lang as TargetLang]
-  // At the first MARK titles checked and every MARK after, counted on all checked so far, those read before this run
-  // included: over one in ten refused stops the language, what was checked kept as checked, and the chief of staff is
-  // told before it is turned on.
+  // At the first MARK titles checked and every MARK after: over one in ten refused among the first `mark` stops the
+  // language, what was checked kept as checked, and the chief of staff is told before it is turned on. A batch may run
+  // past a mark; the mark is still judged on the titles up to it, in the order read (`seq`), after those read before
+  // this run. Marks those already pass are judged on all of them, as their order isn't known (the safe way).
+  const seq: boolean[] = []
   let marked = 0
   const stopLine = () => {
-    const done = Object.values(report.checks), checked = prior.checked + done.length, mark = Math.floor(checked / MARK) * MARK
-    if (mark <= marked) return
-    marked = mark
-    const refused = prior.refused + done.filter(c => !c.ok).length
-    if (refused * 10 > checked) report.stopped = `over one in ten refused at ${mark} titles: ${refused} of ${checked}`
+    if (marked === 0 && prior.checked >= MARK) {
+      marked = Math.floor(prior.checked / MARK) * MARK
+      if (prior.refused * 10 > prior.checked) {
+        report.stopped = `over one in ten refused at ${marked} titles: ${prior.refused} of ${prior.checked}`
+        return
+      }
+    }
+    for (let mark = marked + MARK; mark <= prior.checked + seq.length; mark += MARK) {
+      marked = mark
+      const refused = prior.refused + seq.slice(0, mark - prior.checked).filter(ok => !ok).length
+      if (refused * 10 > mark) {
+        report.stopped = `over one in ten refused at ${mark} titles: ${refused} of ${mark}`
+        return
+      }
+    }
   }
   stopLine()
   for (let i = 0; i < list.length && !report.stopped; i += BATCH) {
@@ -81,6 +93,7 @@ export async function checkVideoTitles(root: string, llm: Llm, lang: Lang, title
       }
       report.unanswered.push(...batch.filter(row => !(row.youtubeId in answered)).map(row => row.youtubeId))
       Object.assign(report.checks, answered)
+      for (const row of batch) if (row.youtubeId in answered) seq.push(answered[row.youtubeId]!.ok)
       if (o.record) await o.record(answered)
       stopLine()
     } catch (err) {
