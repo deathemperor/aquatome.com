@@ -252,13 +252,32 @@ export function addResearch(a: TopicFacts, b: TopicFacts): TopicFacts {
  * translated (the Writing Lead, 13 Nov 2026, after the owner found a fern under a translated name). And only when the
  * site can link them safely, as the translations' (localize.ts): several words or an abbreviation, and no other term's.
  */
-export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: Llm }, id: string, o: { kind: GuideEntity['kind']; sf?: string; reuse?: boolean; fresh?: boolean; fromDraft?: boolean; revise?: boolean; accept?: string; researchModel?: string; writeModel?: string; now?: () => Date }) {
+export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: Llm }, id: string, o: { kind: GuideEntity['kind']; sf?: string; reuse?: boolean; fresh?: boolean; fromDraft?: boolean; revise?: boolean; accept?: string; topUp?: boolean; researchModel?: string; writeModel?: string; now?: () => Date }) {
   const dir = join(root, 'content/glossary')
   const read = async <T>(f: string) => JSON.parse(await readFile(f, 'utf8')) as T
   const entity = GlossarySchema.parse(await read(join(dir, id, 'entity.json')))
   const vi = TranslationSchema.parse(await read(join(dir, id, 'vi.json')))
   const factsFile = join(root, 'engine-state/glossary', `${id}.json`)
   const saved = await read<TopicFacts>(factsFile).catch(() => null)
+  // A top-up only researches: what the term's notes ask (`also`) and the pages they name (`read`), added to the kept
+  // research, and nothing written, so the next revise writes from facts that are there (the chief of staff, 15 Nov 2026:
+  // what Artemia is, and Vĩnh Châu's eggs, each a fact before an entry says it, never on the checker's mercy).
+  if (o.topUp) {
+    if (o.fresh || o.reuse || o.revise || o.fromDraft || o.accept) return { id, refused: ['--top-up only researches: not with --fresh, --redo, --revise, --from-draft or --accept'] }
+    if (!saved) return { id, refused: ['no kept research to top up'] }
+    const asks = ASKS[id] ?? {}
+    if (!asks.also?.length && !asks.read?.length) return { id, refused: ['nothing to top up: the notes file gives this term no also or read'] }
+    const ask = [
+      asks.also?.length ? `Find only these, each from a page that says it; where no page you may use says one, add nothing for it: ${asks.also.join('; ')}.` : '',
+      asks.read?.length ? `Read these pages and keep what they say: ${asks.read.join(', ')}.` : '',
+    ].filter(Boolean).join(' ')
+    const found = await d.research<TopicFacts>({ system: 'You research fishkeeping topics carefully and cite every fact. Reply only with JSON.', prompt: `${researchPrompt({ topic: `${vi.name} (${entity.en}): only what is asked below; research already kept covers the rest`, kind: o.kind })}\n\n${ask}`, schema: FACTS_SCHEMA, model: o.researchModel ?? 'opus' })
+    const researched = addResearch(saved, found)
+    await writeFile(factsFile, `${JSON.stringify(researched, null, 2)}\n`)
+    const key = (f: TopicFacts['facts'][number]) => `${f.section}|${f.fact.trim().toLowerCase()}`
+    const had = new Set(saved.facts.map(key))
+    return { id, toppedUp: researched.facts.filter(f => !had.has(key(f))).map(f => `${f.fact} (${researched.sources[f.source]?.url ?? ''})`) }
+  }
   const draftFile = join(root, 'engine-state/glossary', `${id}.draft.json`)
   // A kept draft, revised or accepted, goes with the research it was written from, and only as the step kept it: a file
   // whose SHA-256 the review log has for a draft of this term (Codex's read, 14 Nov 2026), or one kept before the log had

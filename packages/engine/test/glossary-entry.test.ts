@@ -254,6 +254,42 @@ test('new research adds to what was kept, a fact both give once; --fresh starts 
   expect(JSON.parse(await readFile(join(root, 'engine-state/glossary/lua.json'), 'utf8'))).toEqual(more)
 })
 
+// The chief of staff, 15 Nov 2026: what Artemia is, and the Vĩnh Châu eggs keepers here buy, each a fact before a revise
+// writes it. A top-up researches only what the term's notes ask, adds it to the kept research, and writes nothing.
+test('--top-up researches only what the notes ask, adds it to the kept research and writes nothing', async () => {
+  const root = await site()
+  const files = ['content/glossary/lua/entity.json', 'content/glossary/lua/vi.json']
+  const before = await Promise.all(files.map(f => readFile(join(root, f), 'utf8')))
+  const never: Llm = async () => { throw new Error('nothing is written in a top-up') }
+  expect(await makeGlossaryEntry(root, { research: never, llm: never }, 'lua', { kind: 'aquascaping', topUp: true })).toEqual({ id: 'lua', refused: ['no kept research to top up'] })
+  await mkdir(join(root, 'engine-state/glossary'), { recursive: true })
+  await writeFile(join(root, 'engine-state/glossary/lua.json'), JSON.stringify(facts))
+  await writeFile(join(root, 'engine-state/glossary/ph.json'), JSON.stringify(facts))
+  expect(await makeGlossaryEntry(root, { research: never, llm: never }, 'ph', { kind: 'setup', topUp: true })).toEqual({ id: 'ph', refused: ['nothing to top up: the notes file gives this term no also or read'] })
+  for (const with_ of [{ fresh: true }, { reuse: true }, { revise: true }, { fromDraft: true }, { accept: 'the chief of staff' }])
+    expect(await makeGlossaryEntry(root, { research: never, llm: never }, 'lua', { kind: 'aquascaping', topUp: true, ...with_ })).toMatchObject({ refused: [expect.stringMatching(/^--top-up only researches/)] })
+  const more: TopicFacts = {
+    found: true,
+    facts: [
+      { section: 'what', fact: 'Lũa sa tùng is the root of a pine', source: 0 },
+      { section: 'steps', fact: 'Soak new driftwood for one to two weeks, changing the water, before it goes in a tank', source: 1 },
+    ],
+    species: [],
+    sources: [{ url: 'https://example.org/sa-tung', title: 'Lũa sa tùng', kind: 'shop' }, facts.sources[1]!],
+  }
+  let asked = ''
+  const r = await makeGlossaryEntry(root, { research: async ({ prompt }) => { asked = prompt; return more as never }, llm: never }, 'lua', { kind: 'aquascaping', topUp: true })
+  expect(r).toEqual({ id: 'lua', toppedUp: ['Lũa sa tùng is the root of a pine (https://example.org/sa-tung)'] })
+  // The ask is the notes' own, not the whole topic again.
+  const ASKS = JSON.parse(await readFile(new URL('../src/glossary-asks.json', import.meta.url), 'utf8')) as Record<string, { also?: string[]; read?: string[] }>
+  expect(asked).toContain(`Find only these, each from a page that says it; where no page you may use says one, add nothing for it: ${ASKS.lua!.also!.join('; ')}.`)
+  expect(asked).toContain(`Read these pages and keep what they say: ${ASKS.lua!.read!.join(', ')}.`)
+  expect(asked).not.toContain('what it does in a tank')
+  const kept = JSON.parse(await readFile(join(root, 'engine-state/glossary/lua.json'), 'utf8')) as TopicFacts
+  expect(kept.facts).toEqual([...facts.facts, { section: 'what', fact: 'Lũa sa tùng is the root of a pine', source: 3 }])
+  expect(await Promise.all(files.map(f => readFile(join(root, f), 'utf8')))).toEqual(before)
+})
+
 // Lũa's fifth (14 Nov 2026, 03:13) ran to 2,917 words, twice the first's 1,527. A term with kinds holds to about 900
 // words and 60 for each kind its notes file names: past it, a note for one trim pass; more than 15 percent past, a stop (the
 // chief of staff, 14 Nov 2026). A term without kinds holds to about 400, the same way. The kinds are counted from the notes
