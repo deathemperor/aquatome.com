@@ -1280,6 +1280,23 @@ final class V2FlowTests: XCTestCase {
     }
     let back = app.pageBack
     XCTAssertTrue(back.exists, "iOS's glass on the page's colour")
+    // The ⋯ in iOS's glass on the colour, as the back is (Design's parity, 13 Nov: bare dots beside the back in its glass;
+    // 14 Nov: at rest too, over the whole head's colour). Under each symbol, inside its circle, the ground stands apart
+    // from the colour at the screen's edge on that line.
+    let more = app.buttons["page-more"]
+    func inGlass(_ when: String) {
+      let seen = Pixels(XCUIScreen.main.screenshot())
+      func glass(_ b: XCUIElement, edge: CGFloat) -> Double { seen.at(b.frame.midX, b.frame.midY + 15).distance(to: seen.at(edge, b.frame.midY + 15)) }
+      let backGlass = glass(back, edge: 2), moreGlass = glass(more, edge: app.frame.width - 2)
+      XCTAssertGreaterThan(backGlass, 4, "iOS's glass behind the back doesn't show on the colour \(when)")
+      XCTAssertGreaterThan(moreGlass, backGlass / 2, "the ⋯ bare on the colour \(when), the back in its glass: \(moreGlass) against \(backGlass)")
+    }
+    // Once the head's colour has come: the screen's edge on that line no longer the screen's own ground.
+    let plain = XCUIDevice.shared.appearance == .dark ? Pixels.RGB(r: 0, g: 0, b: 0) : Pixels.RGB(r: 255, g: 255, b: 255)
+    func edge() -> Pixels.RGB { Pixels(XCUIScreen.main.screenshot()).at(2, back.frame.midY + 15) }
+    repeatUntil(edge().distance(to: plain) > 8, times: 10) { Thread.sleep(forTimeInterval: 0.5) }
+    XCTAssertGreaterThan(edge().distance(to: plain), 8, "the head's colour never came under the bar")
+    inGlass("at rest")
     // The page's name under the bar, the bar still on the colour.
     let name = app.scrollViews.staticTexts["Cá neon"].firstMatch
     repeatUntil(name.frame.maxY < back.frame.maxY, times: 6) { up() }
@@ -1296,13 +1313,7 @@ final class V2FlowTests: XCTestCase {
     } else {
       chevronReads()
     }
-    // The ⋯ in iOS's glass on the colour, as the back is (Design's parity, 13 Nov: bare dots beside the back in its glass).
-    // Under each symbol, inside its circle, the ground stands apart from the colour at the screen's edge on that line.
-    let more = app.buttons["page-more"], seen = Pixels(XCUIScreen.main.screenshot())
-    func glass(_ b: XCUIElement, edge: CGFloat) -> Double { seen.at(b.frame.midX, b.frame.midY + 15).distance(to: seen.at(edge, b.frame.midY + 15)) }
-    let backGlass = glass(back, edge: 2), moreGlass = glass(more, edge: app.frame.width - 2)
-    XCTAssertGreaterThan(backGlass, 4, "iOS's glass behind the back doesn't show on the colour")
-    XCTAssertGreaterThan(moreGlass, backGlass / 2, "the ⋯ bare on the colour, the back in its glass: \(moreGlass) against \(backGlass)")
+    inGlass("once the name has gone under the bar")
     // The name in the bar from then on, the colour still under it, in the bar's middle.
     XCTAssertTrue(title.waitForExistence(timeout: 2), "no name in the bar once it has left the page")
     let onColour = title.frame
