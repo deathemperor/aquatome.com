@@ -13,6 +13,7 @@ import { plantsWithoutPlanting } from '../src/planting'
 import { lastKept, logReviews, readReviews } from '../src/review-log'
 import { needsFetch, type UrlState } from '../src/state'
 import { rewriteExisting } from '../src/vi-backfill'
+import { gateMend } from '../src/video-mend'
 import { VI_WRITE } from '../src/vi-rewrite'
 
 const FIXTURE = new URL('../../../apps/site/test/fixture-content', import.meta.url).pathname
@@ -947,6 +948,24 @@ test('a video guide held already goes to its editor only within the run\'s held 
   expect(r.report.release).toHaveLength(1)
   expect((await readJson(root, GUIDE)).held).toBeUndefined()
   expect((await readJson(root, GUIDE)).body).not.toContain('Petco')
+})
+
+// The chief of staff, 15 Nov 2026: the cloud's gate sent 12 held video guides a cycle to their editor, and each failed on its
+// transcript (GitHub's runners have no yt-dlp) before any model call: a run's mend and a log line each, for nothing.
+test('the gate on GitHub\'s runners has no video mender: a held guide is sent nowhere and logs no failure; the Mac\'s gate sends it', async () => {
+  const root = await repo()
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Mua ở Petco.</p>`; t.held = { checks: ['shop'], at: '2026-11-08' } })
+  save(root, 'held')
+  const asked: string[] = []
+  const fetch = async (id: string): Promise<string | null> => { asked.push(id); throw new Error('yt-dlp: command not found') }
+  const yt = { transcript: fetch, transcribe: fetch }
+  const cloud = await gate(root, { llm: reader(), now, mend: gateMend(root, { llm: reader(), yt }, 'github'), heldMends: 1 })
+  expect(asked).toEqual([])
+  expect(cloud.report.failed).toEqual([])
+  expect((await readJson(root, GUIDE)).held).toEqual({ checks: ['shop'], at: '2026-11-08' })
+  const mac = await gate(root, { llm: reader(), now, mend: gateMend(root, { llm: reader(), yt }, 'mac'), heldMends: 1 })
+  expect(asked).toEqual(['r53ZQW0m8VM'])
+  expect(mac.report.failed).toEqual([expect.stringContaining('mend: yt-dlp: command not found')])
 })
 
 // Astra's read of 14 Nov 2026: a guide held for harm, read now with a shop only, went to its editor and out.
