@@ -967,8 +967,10 @@ final class LightFlowTests: XCTestCase {
     // A swatch, tapped within the light's gap after Tắt: it waits its turn, then goes at the slider's level.
     tap(app, "lamp-cyan")
     expect(app, "lamp-status", contains: "Đã gửi “Xanh lơ”, 100% lúc", timeout: 15)
-    // A drag sends nothing while it moves: once, when the finger lifts, the card's colour at the new level.
-    let level = dragSlider(app, "lamp-level", to: 0.5)
+    // A drag sends nothing while it moves: once, when the finger lifts, the card's colour at the new level. Aimed at 35%
+    // (1–100%), where Design drew its words while the finger is down, which the line kept for the tests holds.
+    let level = dragSlider(app, "lamp-level", to: 34.0 / 99)
+    expect(app, "lamp-lines", contains: "Ngừng kéo để gửi “Xanh lơ”, \(level)")
     expect(app, "lamp-status", contains: "Đã gửi “Xanh lơ”, \(level) lúc", timeout: 15)
     XCTAssertEqual(element(app, "lamp-sent").label, "off cyan@100 cyan@\(level.dropLast())")
     // The owner's trial of on and off built anew (14 Nov), each broadcast as the recorded ones are, in turn.
@@ -1011,7 +1013,116 @@ final class LightFlowTests: XCTestCase {
     XCTAssertTrue(sent.hasPrefix("red@") && sent.hasSuffix("green@\(level.dropLast())"), sent)
   }
 
+  /// Khác's wheel: a drag on it sends once, when the finger lifts, its colour at the slider's level. VoiceOver reads it as
+  /// two values: the hue by its name, one name every 15° (Design's blues at 195°, 210° and 225°), and the saturation in
+  /// percent. White from its centre goes as the light took it, hue 00 00. (XCUITest can't step VoiceOver's adjustable
+  /// values on iOS: the steps themselves aren't driven here.)
+  func testKhacsWheelSendsOncePerDragAndIsTwoValuesToAdjust() {
+    let app = signedIn()
+    tap(app, "lamp-other")
+    let wheel = element(app, "lamp-wheel")
+    XCTAssertTrue(wheel.waitForExistence(timeout: 5), "no wheel")
+    let centre = wheel.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
+    // From the centre right (yellow-green), then down (cyan), each to 80%.
+    centre.press(forDuration: 0.1, thenDragTo: wheel.coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: 0.5)))
+    expect(app, "lamp-status", contains: "Đã gửi màu tự chọn, 100% lúc", timeout: 15)
+    centre.press(forDuration: 0.1, thenDragTo: wheel.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.9)))
+    expect(app, "lamp-status", contains: "Đang gửi màu tự chọn, 100%…")
+    expect(app, "lamp-status", contains: "Đã gửi màu tự chọn, 100% lúc", timeout: 15)
+    element(app, "wheel-done").tap()
+    wait(app, "lamp-sent", NSPredicate(format: "label MATCHES %@", "wheel:[0-9a-f]{4}:[0-9a-f]{4}@100 wheel:[0-9a-f]{4}:[0-9a-f]{4}@100"),
+         "one send a drag", file: #filePath, line: #line)
+    tap(app, "lamp-other")
+    let hue = element(app, "wheel-hue"), saturation = element(app, "wheel-saturation")
+    XCTAssertTrue(hue.waitForExistence(timeout: 5), "no hue to adjust")
+    XCTAssertEqual(hue.label, "Sắc màu")
+    XCTAssertEqual(saturation.label, "Độ đậm")
+    XCTAssertEqual(hue.value as? String, "xanh lơ")
+    XCTAssertEqual(saturation.value as? String, "80%")
+    // Round the blues near the edge, 15° apart: each its own name.
+    for (degrees, name) in [(195.0, "xanh da trời"), (210, "xanh biển"), (225, "xanh coban"), (240, "xanh dương")] {
+      let a = degrees * .pi / 180
+      wheel.coordinate(withNormalizedOffset: CGVector(dx: 0.5 + 0.45 * sin(a), dy: 0.5 - 0.45 * cos(a))).tap()
+      expect(app, "wheel-hue", value: name)
+    }
+    centre.tap()
+    expect(app, "wheel-saturation", value: "0%")
+    element(app, "wheel-done").tap()
+    wait(app, "lamp-sent", NSPredicate(format: "label ENDSWITH %@", "wheel:0000:0000@100"), "white sent as hue 00 00", timeout: 25,
+         file: #filePath, line: #line)
+  }
+
+  /// A record kept by an earlier build reads as far as it goes: one without a level still says what was last sent, the
+  /// slider at 100%; and a kept wheel colour with a hue below 0 is taken round (−30° is 330°, "hồng"), never a crash.
+  func testAKeptRecordWithoutALevelOrWithAHueBelowZeroStillReads() {
+    let kept = #"{"last":{"send":{"choice":{"recording":{"_0":"off"}}},"at":785000000},"wheel":{"hue":-30,"saturation":0.5}}"#
+    let app = signedIn("-loveEcology.sent", "\"" + kept.replacingOccurrences(of: "\"", with: "\\\"") + "\"")
+    expect(app, "lamp-status", contains: "Lần cuối máy này gửi: “Tắt” · ")
+    expect(app, "lamp-level", value: "100%")
+    tap(app, "lamp-other")
+    expect(app, "wheel-hue", value: "hồng")
+    expect(app, "wheel-saturation", value: "50%")
+  }
+
+  /// Leaving Đèn while one colour is on air and another waits its turn: the one on air finishes, the one waiting never
+  /// goes, and back on Đèn the line says what was sent.
+  func testLeavingTheLightsScreenDropsWhatWaits() {
+    let app = signedIn()
+    tap(app, "lamp-red")
+    tap(app, "lamp-green")
+    expect(app, "lamp-status", contains: "Đang gửi “Xanh lá”, 100%…")
+    app.openTab("Bể của tôi")
+    // Past when green would have gone: red's three seconds and the light's gap.
+    _ = XCTWaiter.wait(for: [XCTestExpectation(description: "green's turn passes")], timeout: 7)
+    app.openTab("Đèn")
+    expect(app, "lamp-status", contains: "Đã gửi “Đỏ”, 100% lúc")
+    XCTAssertEqual(element(app, "lamp-sent").label, "red@100")
+  }
+
+  /// A start whose answer doesn't come (the stand-in's first, eight seconds late): after about five seconds the line says
+  /// it didn't go and the card takes the next tap; the late answer, when it comes, credits nothing.
+  func testAStartThatDoesntAnswerGivesUpAndItsLateAnswerCreditsNothing() {
+    let app = signedIn("-fake-lamp-late-first", "8")
+    tap(app, "lamp-red")
+    expect(app, "lamp-status", contains: "Đang gửi “Đỏ”, 100%…")
+    expect(app, "lamp-status", contains: "Không gửi được lệnh tới đèn. Thử lại.", timeout: 10)
+    tap(app, "lamp-green")
+    // On air from about seven seconds to ten, past red's late answer at eight.
+    expect(app, "lamp-status", contains: "Đã gửi “Xanh lá”, 100% lúc", timeout: 15)
+    XCTAssertEqual(element(app, "lamp-sent").label, "green@100")
+  }
+
+  /// Signing out while a colour waits its turn (the stand-in's first start four seconds late, so the turn is nine seconds
+  /// off): the card goes, and the one waiting never goes, even once the owner signs in again.
+  func testSigningOutDropsWhatWaits() {
+    let app = signedIn("-fake-lamp-late-first", "4")
+    let start = Date()
+    tap(app, "lamp-red")
+    tap(app, "lamp-green")
+    app.openAccount()
+    let out = app.descendants(matching: .any)["sign-out"].firstMatch
+    repeatUntil(out.exists && out.isHittable, times: 10) { app.swipeUp() }
+    out.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["apple-sign-in"].firstMatch.waitForExistence(timeout: 10), "not signed out")
+    XCTAssertLessThan(Date().timeIntervalSince(start), 9, "signed out after green's turn: the check proves nothing")
+    _ = XCTWaiter.wait(for: [XCTestExpectation(description: "green's turn passes")], timeout: max(0, 12 - Date().timeIntervalSince(start)))
+    app.signInWithStandInApple()
+    app.openTab("Đèn")
+    XCTAssertTrue(element(app, "lamp-status").waitForExistence(timeout: 10), "no card")
+    let sent = element(app, "lamp-sent")
+    XCTAssertFalse(sent.exists && sent.label.contains("green"), sent.label)
+  }
+
   // MARK: Helpers
+
+  /// The owner signed in on the stand-in server, on Đèn.
+  private func signedIn(_ args: String...) -> XCUIApplication {
+    let app = launch(["-fake-accounts", "on", "-reset-fake-server", "-fake-owner", "ui-apple"] + args)
+    app.openAccount()
+    app.signInWithStandInApple()
+    app.openTab("Đèn")
+    return app
+  }
 
   /// A slider's thumb dragged to about `position` (0 to 1) in one movement and let go at once, and the value it landed on.
   private func dragSlider(_ app: XCUIApplication, _ id: String, to position: CGFloat) -> String {
@@ -1089,6 +1200,10 @@ final class LightFlowTests: XCTestCase {
   /// Mac's in Vietnam time; the stand-in plug keeps Vietnam's, and a time shown in a zone not the phone's says whose.
   private func launch(_ args: String..., reset: Bool = true, indonesian: Bool = false,
                       zone: String = "Asia/Ho_Chi_Minh") -> XCUIApplication {
+    launch(args, reset: reset, indonesian: indonesian, zone: zone)
+  }
+
+  private func launch(_ args: [String], reset: Bool = true, indonesian: Bool = false, zone: String = "Asia/Ho_Chi_Minh") -> XCUIApplication {
     let app = XCUIApplication()
     app.launchEnvironment["TZ"] = zone
     let (language, locale, tab) = indonesian ? ("id", "id_ID", "Lampu") : ("vi", "vi_VN", "Đèn")
