@@ -964,8 +964,8 @@ test('two guide titles say the count their own text gives, and are fixed by hand
     expect(t.name, id).toBe(name)
     expect(t.nameFixed, id).toBe(true)
     expect(t.body, id).toContain(said)
-    // what the rule would do without the hand fix
-    expect(countMismatch(t.name, t.body!), id).toBeTruthy()
+    // The rule now reads the text's own count, its table and its chapters, and keeps both counts too.
+    expect(countMismatch(t.name, t.body!, t.chapters), id).toBeUndefined()
   }
 })
 
@@ -985,6 +985,22 @@ test('five held video guides say their one sentence plainly, in the Writing Lead
     for (const s of gone) expect(all, `${id}: ${s}`).not.toContain(s)
     for (const f of flags) expect(t[f], `${id}: ${f}`).toBe(true)
   }
+})
+
+// The chief of staff, 16 Nov 2026: "a live title whose number disagrees with its own text fails." Every guide on the site,
+// in every language, a title fixed by hand too (the sweep leaves those, so only this sees them): its number stands on what
+// the text says, a run, a list, a table, its chapters, its bold leads or its headings, and no larger count the text has.
+// What fails names the page and the reason, which the title and its numbers make.
+test('no live guide title promises a number its own text disagrees with', async () => {
+  const dir = fileURLToPath(new URL('../../../content/guides', import.meta.url))
+  const wrong: string[] = []
+  for (const id of (await readdir(dir)).sort()) for (const f of (await readdir(join(dir, id))).filter(f => f !== 'entity.json' && f.endsWith('.json'))) {
+    const t = JSON.parse(await readFile(join(dir, id, f), 'utf8')) as Translation & { held?: unknown }
+    if (t.held || !t.name || !t.body) continue
+    const why = countMismatch(t.name, t.body, t.chapters)
+    if (why) wrong.push(`${f.replace('.json', '')}/guides/${id}: "${t.name}": ${why}`)
+  }
+  expect(wrong).toEqual([])
 })
 
 // The chief of staff, 16 Nov 2026: 13 guides whose text gives a count got it back in their title, by hand, with Writing
@@ -1047,4 +1063,22 @@ test('the leak-repair guide warns about super glue and acetone, and cites the sa
   expect(t.body).not.toContain('san hô')
   expect(t.bodyFixed).toBe(true)
   expect(t.refs?.map(r => r.url)).toEqual(['https://files.canon-europe.com/files/webcontent/safety-data-sheets/EU_Service-Materials/lo0045405_-_loctite_454_superglue_5g_pdf.pdf', 'https://www.cdc.gov/niosh/npg/npgd0004.html'])
+})
+
+// The chief of staff, 16 Nov 2026: the algae guide, held in Vietnamese since 11 Nov for a liquid carbon's dose and its
+// makers' products, was live in Thai with the same doses word for word (and in Indonesian, which says "the label's dose").
+// The gate reads no dose or product outside Vietnamese, so the page is held by hand in every language, which a hand hold
+// does. This test goes with the hold: when the Thai text no longer carries the dose, the hold's line is lifted with it.
+test('the algae guide is held by hand in every language while its Thai text carries the Vietnamese one\'s product doses', () => {
+  const root = fileURLToPath(new URL('../../../', import.meta.url))
+  const id = 'aquatome-reu-hai-trong-be-thuy-sinh-nguyen-nhan-va-cach-loai-bo'
+  const byHand = JSON.parse(readFileSync(join(root, 'engine-state/held-by-hand.json'), 'utf8')) as Record<string, { checks: string[]; at: string }>
+  const hold = byHand[`guides/${id}`]
+  expect(hold?.checks).toEqual(['dose', 'product'])
+  for (const lang of ['vi', 'id', 'th']) {
+    const t = JSON.parse(readFileSync(join(root, `content/guides/${id}/${lang}.json`), 'utf8')) as Translation & { held?: unknown }
+    expect(t.held, lang).toEqual({ checks: hold!.checks, at: hold!.at })
+  }
+  const th = JSON.parse(readFileSync(join(root, `content/guides/${id}/th.json`), 'utf8')) as Translation
+  for (const dose of ['Easy Carbo', '1 มล. ต่อ 50 ลิตร', 'Flourish Excel', '5 มล. ต่อ 40 ลิตร']) expect(th.body, dose).toContain(dose)
 })
