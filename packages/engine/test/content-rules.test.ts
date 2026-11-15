@@ -400,16 +400,11 @@ test('a source\'s photo caption or credit left as a block of its own: cut, in ea
     'Ảnh: Nguyễn Văn A',
     'Hình: Staurogyne repens.',
     'Hình ảnh: Ảnh đầu tiên: Nguyễn Văn A. Các ảnh khác: Trần Thị B.',
-    'Chú thích ảnh: Một con suối được phục hồi. © Jane Example',
-    'Lá mục cũng là thức ăn cho cá bột của một số loài © Jane Example',
-    `${'Hội thảo có người nuôi cá từ nhiều nơi trong vùng. '.repeat(8)}© Example Group`,
     'Y. splendida © Jane Example © J. Example',
     'Maskaheros argenteus ©Example.dk',
     'Ảnh: Jane Example / Wikimedia Commons / CC BY 3.0',
-    'Hình 1. Phức hợp này chia thành ba nhóm. © Jane Example',
     '(Ảnh: Nguyễn Văn A)',
     'Foto: Jane Example',
-    'Gambar: ikan jantan di sebelah kiri.',
     'ภาพ: Jane Example',
     'ภาพถ่าย: ปลาตัวผู้',
     'Photo: Jane Example',
@@ -417,6 +412,26 @@ test('a source\'s photo caption or credit left as a block of its own: cut, in ea
     expect(isPhotoCaption(caption), caption).toBe(true)
     expect(dropPhotoCaptions(`${care}<p>${caption}</p>${care}`), caption).toBe(`${care}${care}`)
   }
+  // A caption that says something keeps what it says, its label, credits and markup aside; one only of what its photo
+  // shows goes whole (two stand-in reads, 15 Nov 2026: a dozen captions carried a fact found nowhere else on the page).
+  for (const [caption, kept] of [
+    ['Chú thích ảnh: Một con suối được phục hồi. © Jane Example', 'Một con suối được phục hồi.'],
+    ['Lá mục cũng là thức ăn cho cá bột của một số loài © Jane Example', 'Lá mục cũng là thức ăn cho cá bột của một số loài'],
+    [`${'Hội thảo có người nuôi cá từ nhiều nơi trong vùng. '.repeat(8)}© Example Group`, 'Hội thảo có người nuôi cá từ nhiều nơi trong vùng. '.repeat(8).trim()],
+    ['Hình 1. Phức hợp này chia thành ba nhóm. © Jane Example', 'Phức hợp này chia thành ba nhóm.'],
+    ['Gambar: ikan jantan di sebelah kiri.', 'ikan jantan di sebelah kiri.'],
+    ['P. partipentazona khá dễ nhận ra. © Jane Example © J. Example', 'P. partipentazona khá dễ nhận ra.'],
+    ['Jane Example mô tả loài này năm 1989 © J. Example', 'Jane Example mô tả loài này năm 1989'],
+    ['Hồ Malawi có hơn 400 loài cichlid đã được mô tả. Ảnh © Jane Example', 'Hồ Malawi có hơn 400 loài cichlid đã được mô tả.'],
+    ['Nhiều loài cá trong hồ này hiếm khi được chụp lại trong ảnh © Jane Example', 'Nhiều loài cá trong hồ này hiếm khi được chụp lại trong ảnh'],
+    ['(Ảnh: Cá đực có vây lưng dài hơn hẳn cá cái ở loài này.)', 'Cá đực có vây lưng dài hơn hẳn cá cái ở loài này.'],
+  ] as [string, string][]) {
+    expect(isPhotoCaption(caption), caption).toBe(true)
+    expect(dropPhotoCaptions(`${care}<p>${caption}</p>${care}`), caption).toBe(`${care}<p>${kept}</p>${care}`)
+  }
+  expect(dropPhotoCaptions('<p>Hình: <em>Cyrtocara moorii</em> là một trong hơn 400 loài cichlid được mô tả từ hồ Malawi. © Jane Example</p>')).toBe('<p><em>Cyrtocara moorii</em> là một trong hơn 400 loài cichlid được mô tả từ hồ Malawi.</p>')
+  for (const bare of ['Dạng vây đỏ của Y. modesta © Jane Example', 'Cá trong ảnh © Jane Example', 'Rêu java. © Jane Example'])
+    expect(dropPhotoCaptions(`${care}<p>${bare}</p>`), bare).toBe(care)
   // In a list item, a div, or set in italics.
   expect(dropPhotoCaptions(`${care}<ul><li>Ảnh: Nguyễn Văn A</li></ul><div>© Jane Example</div><p><em>Ảnh: Trần Thị B</em></p>`)).toBe(care)
   expect(photoCaptions(`${care}<p><em>Ảnh: Trần Thị B</em></p>`)).toEqual(['Ảnh: Trần Thị B'])

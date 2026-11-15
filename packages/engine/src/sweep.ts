@@ -50,7 +50,8 @@ import { namedOn, namedOrder, passesHead } from './photo-named'
  *   article it reprints): dropped, its paragraph too when it is all there is (dropPermissionNotes)
  * - a source's photo caption or credit left as a block of its own in a guide's text, its photo not with it ("Ảnh: <name>",
  *   "… © <name>"), and a source's thanks to the people or shops who helped it ("Cảm ơn <name>.", "Terima kasih kepada
- *   <name>."): the block cut (dropPhotoCaptions, dropThanks)
+ *   <name>."): the block cut (dropPhotoCaptions, dropThanks); a caption that says something more than what its photo
+ *   shows keeps its words, its label and credits cut (dropPhotoCaptions)
  * - "© <name>" after a work's title in a fish page's references: the "©" and the name cut, the title and link kept (dropRefCredits)
  * - a photo whose caption names another fish the site has, or is a map, or a Wikimedia Commons photo whose own words say
  *   it is a paper's plate, a microscope picture, a drawing or a dish: off that page (its file and its gallery). A map or

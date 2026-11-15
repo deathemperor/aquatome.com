@@ -992,6 +992,8 @@ The layers above still check the result.
       121 caption lines in 21 guides, 17 pages of thanks, about 130 fish pages' references). Only whole blocks of that
       shape: a label word that starts another word ("Ảnh hưởng:", "ภาพรวม:"), a thanks inside care advice, a thanks to no
       one named or with another sentence beside it, a caption in a `<figure>` and a "©" with a year or two names stay.
+      A caption that says something more than what its photo shows (more than eight words, a year, or a sentence of four
+      words or more: many carry a fact found nowhere else on the page) keeps its words, and only its label and credits go.
       Like the cuts above, it cleans a part a person fixed too, since it adds no word. No audit rule lists them (their
       words are people's names, and the report is public): a real-content test sweeps every stored page in memory and
       holds them at zero

@@ -353,8 +353,66 @@ export const isPhotoCaption = (text: string) => {
 }
 /** The orphan photo captions in a text (isPhotoCaption). */
 export const photoCaptions = (html: string) => (/©|:|\d[.:]/.test(html) ? foundBlocks(html, isPhotoCaption) : [])
-/** The text without them. */
-export const dropPhotoCaptions = (html: string) => (/©|:|\d[.:]/.test(html) ? cutBlocks(html, isPhotoCaption) : html)
+
+/**
+ * What a caption says once its label and its credits are off. Many of a source's captions carry a fact or advice found
+ * nowhere else on the page ("Dù một số người có nói gì đi nữa, không nên thả cá sống vào cho đến khi bể đã hoàn tất chu
+ * trình.", "P. partipentazona khá dễ nhận ra."), and those stay, without the label and the credits (two stand-in reads,
+ * 15 Nov 2026): more than eight words, a year, or a sentence of four words or more. A caption only of what the photo
+ * shows (a fish's or plant's name: "Staurogyne repens.", "Dạng vây đỏ của Y. modesta") or a list of credits goes whole.
+ */
+// A credit's own lead word only after a stop or a bracket ("… hồ Malawi. Ảnh ©"), never a sentence's last word ("Cá trong ảnh ©").
+const CREDIT_LEAD = /(?:(?<=(?:^|[.!?(\[–—|/])\s*)(?:ảnh|hình|nguồn|photo|foto|credit)\s*:?)?[\s(\[–—|/-]*$/iu
+const CREDIT_LABELS = /(?:ảnh|hình|photos?|foto|gambar|ภาพ)[^.:;]{0,30}:/giu
+const CAPTION_YEAR = /(?<!\d)(?:1[89]|20)\d\d(?!\d)/
+const letterWords = (s: string) => s.split(/\s+/).filter(w => /\p{L}/u.test(w)).length
+/** Where a caption's trailing credits start ("… © A", "… © A © B"): its length when it has none. */
+const creditStart = (text: string) => {
+  let end = text.length
+  for (let at = text.lastIndexOf('©'); at >= 0; at = end > 0 ? text.lastIndexOf('©', end - 1) : -1) {
+    const after = text.slice(at + 1, end).trim()
+    if (after.length > 60 || wordCount(after) > 8 || /[.!?]\s+\p{Ll}/u.test(after)) break
+    end = at
+  }
+  return end
+}
+const captionSays = (text: string) => {
+  const label = CAPTION_LABEL.exec(text)?.[0].length ?? 0
+  return text.slice(label, Math.max(label, creditStart(text))).replace(CREDIT_LEAD, '').replace(/^\s*[)\]]?\s*/u, '').trim()
+}
+const saysSomething = (text: string) => {
+  if ((text.match(CREDIT_LABELS) ?? []).length >= 2) return false
+  const said = captionSays(text), n = letterWords(said)
+  return n > 8 || CAPTION_YEAR.test(said) || (n >= 4 && /[.!?…]["'”’)]*$/u.test(said))
+}
+/** The block's own words without the caption's label and credit: only words change, never a tag. */
+function keepSaid(el: HTMLElement) {
+  const nodes = textNodes(el)
+  const text = nodes.map(t => t.rawText).join('')
+  const lead = /^\s*/.exec(text)![0].length
+  const label = CAPTION_LABEL.exec(text.slice(lead))?.[0].length ?? 0
+  const end = text.slice(0, creditStart(text)).replace(CREDIT_LEAD, '').trimEnd().length
+  // The label's opening bracket closes at the end: "(Ảnh: …)" keeps neither.
+  const open = /^\(/.test(text.slice(lead)) && /\)\s*$/.test(text.slice(0, end)) ? 1 : 0
+  let from = lead + label
+  while (/\s/.test(text[from] ?? '')) from++
+  const to = end - open
+  let pos = 0
+  for (const t of nodes) {
+    const a = pos, b = pos + t.rawText.length
+    pos = b
+    t.rawText = t.rawText.slice(Math.max(0, Math.min(from, b) - a), Math.max(0, Math.min(to, b) - a))
+  }
+}
+/** The text without its orphan captions: one only of what its photo shows goes, one that says something keeps that. */
+export function dropPhotoCaptions(html: string): string {
+  if (!/©|:|\d[.:]/.test(html)) return html
+  const root = parse(html)
+  const found = leafBlocks(root).filter(el => isPhotoCaption(textOf(el)))
+  if (!found.length) return html
+  for (const el of found) if (saysSomething(textOf(el))) keepSaid(el); else el.remove()
+  return dropEmptyBlocks(root.toString()).trim()
+}
 
 /**
  * A source's thanks to the people or shops who helped it, as a block of its own: "Cảm ơn <name>.", "Xin cảm ơn <name> đã
