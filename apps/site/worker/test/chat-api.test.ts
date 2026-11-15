@@ -206,6 +206,9 @@ test('on for the owner only (CHAT "owner") lets in the test account too: a sign-
   const get = async (token: string) => (await run(new Request('https://x.test/api/chat', { headers: bearer(token) }), e, {})).body
   expect(await get(tester.token)).toEqual({ on: true, resting: false, perAccount: 30, maxTurns: 20, maxChars: 1500 })
   expect(await get(other.token)).toEqual({ on: false })
+  // The site's session as much as the app's.
+  const web = await createSession(db, tester.id, 'web', new Date())
+  expect((await run(new Request('https://x.test/api/chat', { headers: { cookie: `${COOKIE}=${web}` } }), e, {})).body).toMatchObject({ on: true })
   const c = claude(NEON)
   expect((await run(ask(bearer(other.token)), e, deps(c.fetch))).body).toEqual({ error: 'chat_off' })
   expect([c.bodies.length, ledger.day()]).toEqual([0, undefined])
@@ -241,6 +244,18 @@ test('every question is counted and kept with who asked, the owner, the test acc
     return store.read<ChatRunRecord>(key)!.role
   }
   expect([await roleOf(owner), await roleOf(tester), await roleOf(reader)]).toEqual(['owner', 'tester', 'reader'])
+})
+
+test('a lookup of the tester that fails reads as a reader\'s: open chat still answers, tagged reader; chat on for the owner is off for the tester until it works', async () => {
+  const { e, db, store } = env()
+  const tester = await signInAs(db, TESTER_ADDRESS!)
+  const failing = { ...db, prepare: (sql: string) => (sql.includes('FROM credentials') ? { bind: () => ({ first: async () => { throw new Error('D1 down') } }) } : db.prepare(sql)) } as unknown as D1Database
+  const open = { ...e, DB: failing }
+  expect((await run(ask(bearer(tester.token)), open, deps(claude(NEON).fetch))).body).toMatchObject({ n: 1 })
+  const key = [...store.m.keys()].find(k => k.startsWith('chat-run/'))!
+  expect(store.read<ChatRunRecord>(key)!.role).toBe('reader')
+  expect((await run(new Request('https://x.test/api/chat', { headers: bearer(tester.token) }), { ...open, CHAT: 'owner' }, {})).body).toEqual({ on: false })
+  expect((await run(new Request('https://x.test/api/chat', { headers: bearer(tester.token) }), { ...e, CHAT: 'owner' }, {})).body).toMatchObject({ on: true })
 })
 
 test('who may ask: an app session as a bearer, or a site session from the site\'s own pages; nothing else, and nothing malformed', async () => {

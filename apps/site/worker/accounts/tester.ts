@@ -5,6 +5,8 @@
  * dashboard and the owner's reports keep to OWNER_ACCOUNTS.
  *
  * Safe in a public repository: an account gets this address only by proving it, by a code to it or by Apple or Google
- * vouching for it, and this domain is ours. Taking the tester off is `undefined` here, and a deploy.
+ * vouching for it, and this domain is ours. Never add this address to a real account as another way to sign in: a sign-in
+ * with it lands in the account that first held it (accounts/users.ts `signInWith`), so on the owner's it would open the
+ * dashboard. Taking the tester off is `undefined` here, and a deploy.
  */
 export const TESTER_ADDRESS: string | undefined = 'chat-tester@aquatome.com'

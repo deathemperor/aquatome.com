@@ -178,6 +178,18 @@ test('a report is kept once a turn, the first reason standing; a reason is one l
   expect((await report(e, me.token, id, { turn: 1, reason: 'Sai nhiệt độ' })).body).toEqual(recorded('chat-report-saved.json').body)
   expect((await report(e, me.token, id, { turn: 1, reason: 'Lý do khác' })).body).toEqual(recorded('chat-report-already.json').body)
   expect(JSON.parse(store.m.get(reportKey(me.account, id, 1))!)).toMatchObject({ conversation: id, turn: 1, role: 'reader', question: 'Hỏi', text: 'Đáp sai', reason: 'Sai nhiệt độ' })
+  // The test account's report says so, on open chat and on the owner's alike.
+  const hash = await emailHash('k', TESTER_ADDRESS!)
+  const tester = await signInWith(db, { kind: 'email', subject: hash, emailHash: hash }, NOW)
+  const testerToken = await createSession(db, tester, 'app', NOW)
+  const testerAccount = await chatAccount('k', tester)
+  for (const [mode, turn] of [['1', 1], ['owner', 2]] as const) {
+    const tid = crypto.randomUUID()
+    await row(db, testerAccount, { id: tid, question: 'Hỏi', started: '2026-11-07T10:00:00Z', last: '2026-11-07T10:00:00Z', n: 1 })
+    store.m.set(conversationKey(testerAccount, tid), JSON.stringify({ created: 1, turns: [{ n: 1, question: 'Hỏi', text: 'Đáp', blocks: [], at: 1 }] }))
+    expect((await report({ ...e, CHAT: mode }, testerToken, tid, { turn: 1 })).status, `${mode} ${turn}`).toBe(200)
+    expect(JSON.parse(store.m.get(reportKey(testerAccount, tid, 1))!)).toMatchObject({ role: 'tester' })
+  }
   expect((await report(e, me.token, id, { turn: 2 })).status).toBe(404)
   expect((await report(e, me.token, id, {})).body).toEqual({ error: 'bad request' })
   expect((await report(e, me.token, id, { turn: 1, reason: 'a\nb' })).body).toEqual({ error: 'bad request' })

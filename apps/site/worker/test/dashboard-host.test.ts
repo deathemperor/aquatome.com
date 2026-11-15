@@ -366,7 +366,7 @@ test('configured: what isn\'t a browser asking for a page stays on the site, unc
 })
 
 test('the chat\'s test account is a reader to the dashboard: its sessions open no page, no owner action and no owner API', async () => {
-  const { db, reader } = await accounts()
+  const { db, reader, app: ownerApp } = await accounts()
   const hash = await emailHash('k', TESTER_ADDRESS!)
   const tester = await signInWith(db, { kind: 'email', subject: hash, emailHash: hash }, new Date())
   const web = `__Host-aq_session=${await createSession(db, tester, 'web', new Date())}`
@@ -378,6 +378,7 @@ test('the chat\'s test account is a reader to the dashboard: its sessions open n
   expect((await site('/_ab/', e, { ...browser, cookie: web })).status).toBe((await site('/_ab/', e, { ...browser, cookie: reader })).status)
   expect((await form(web)).status).toBe(404)
   const ownerApi = async (token: string) => (await site('/api/owner/dashboard', e, { authorization: `Bearer ${token}` })).status
+  expect(await ownerApi(ownerApp)).toBe(200)
   expect(await ownerApi(app)).toBe(await ownerApi(readerApp))
   expect(await ownerApi(app)).not.toBe(200)
 })
