@@ -278,7 +278,7 @@ export const CaptionsSchema = z.record(z.string(), z.string())
 export const VideoTitlesSchema = z.record(z.string(), z.string())
 /** The languages whose translated video titles all show (content/video-titles/on.json): one line each, added with the chief of staff's yes. */
 export const VideoTitlesOnSchema = z.array(z.enum(['vi', 'id', 'th', 'ms']))
-/** Videos made by generation (content/video-generated.json): YouTube id → what we saw. Each shows an AI label, and none feeds a guide, a loop or a still. */
+/** Videos made by generation (content/video-generated.json): YouTube id → what we saw. None carries a label on the page (the owner's call, 14 Nov), and none feeds a guide, a loop or a still. */
 export const VideoGeneratedSchema = z.record(z.string(), z.string())
 /** content/picture-hashes.json: each photo's 64-bit difference hash (hex) by its address (pictures.ts). */
 export const PictureHashesSchema = z.record(z.string(), z.string().regex(/^[0-9a-f]{16}$/))

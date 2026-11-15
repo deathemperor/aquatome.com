@@ -20,7 +20,7 @@ export const readVideoRejected = async (root: string) =>
 
 /**
  * Videos made by generation, `youtubeId → what we saw` (content/video-generated.json, by hand after a look): they stay on
- * their species page with an AI label, and none feeds a guide (nor so a still). The owner, 2026-11-10.
+ * their species page, with no label on it (the owner's call, 14 Nov), and none feeds a guide (nor so a still). The owner, 2026-11-10.
  */
 export const readVideoGenerated = async (root: string) =>
   JSON.parse(await readFile(join(root, 'content/video-generated.json'), 'utf8').catch(() => '{}')) as Record<string, string>

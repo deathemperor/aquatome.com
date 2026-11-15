@@ -137,7 +137,7 @@ test('every writer and reviewer converting a tank gets the one table: no prompt 
     for (const l of loads) expect(l, f).toContain('withTanks(')
   }
   // The video guide's writer had no rule at all, and wrote "115 lít" for 30 gallons (8 to 11 Nov 2026).
-  expect(withTable).toEqual(expect.arrayContaining(['video-guide.md', 'video-review.md', 'vi-rewrite.md', 'localize.md', 'localize-review.md', 'review.md', 'process.md', 'guide-write.md', 'breed.md', 'breed-intl.md', 'species.md', 'species-video.md', 'topic.md']))
+  expect(withTable).toEqual(expect.arrayContaining(['video-guide.md', 'video-review.md', 'vi-rewrite.md', 'localize.md', 'localize-review.md', 'review.md', 'process.md', 'guide-write.md', 'breed.md', 'breed-intl.md', 'species.md', 'species-video.md', 'topic.md', 'video-titles.md']))
   // Every prompt with a rule on units has the table, but those that write no tank of their own: the checkers (the video
   // editor's reviewer, told units are left for code), the fact finder, and the writers told to keep each figure as their
   // record gives it.

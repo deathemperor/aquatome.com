@@ -147,3 +147,14 @@ test("tidyTitle changes no meaning: a word before the litres stays ('more than' 
   expect(tidyTitle('Phần 1 (1)', 'vi')).toBe('Phần 1 (1)')
   expect(tidyTitle('Cá Champsochromis spilorhynchus (Champsochromis spilorhynchus)', 'vi')).toBe('Cá Champsochromis spilorhynchus')
 })
+
+test("tidyTitle, the second reviewer's cases: a figure already written with a separator is left as written, a Thai word ending in ม isn't an abbreviation while a unit after a number is, a bracket that is only part of a word isn't a repeat, and Jr. keeps its dot", () => {
+  expect(tidyTitle('Akuarium 1 gelen (3.785 liter)', 'ms')).toBe('Akuarium 1 gelen (kira-kira 3.785 liter)')
+  expect(tidyTitle('ตู้ 10 แกลลอน (37.854 ลิตร)', 'th')).toBe('ตู้ 10 แกลลอน (ประมาณ 37.854 ลิตร)')
+  expect(tidyTitle('Bể 2,5 gallon (9,464 lít)', 'vi')).toBe('Bể 2,5 gallon (khoảng 9,464 lít)')
+  expect(tidyTitle('ตู้ไม้น้ำปลาสวยงาม.', 'th')).toBe('ตู้ไม้น้ำปลาสวยงาม')
+  expect(tidyTitle('ใส่ปุ๋ย 5 มล.', 'th')).toBe('ใส่ปุ๋ย 5 มล.')
+  expect(tidyTitle('ตู้ 20 ล.', 'th')).toBe('ตู้ 20 ล.')
+  expect(tidyTitle('Ikan Paracheirodon (Cheirodon) axelrodi', 'id')).toBe('Ikan Paracheirodon (Cheirodon) axelrodi')
+  expect(tidyTitle('Lọc thùng Eheim 2217 Jr.', 'vi')).toBe('Lọc thùng Eheim 2217 Jr.')
+})

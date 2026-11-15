@@ -12,7 +12,7 @@ const SCHEMA = { type: 'object', required: ['titles'], properties: { titles: { t
 const BATCH = 40
 const THAI = /[฀-๿]/
 /** A dot that ends an abbreviation, kept when a title's full stop comes off: Thai's cm and mm, a scientific name's spp. or cf. */
-const ABBREVIATION = /(?:\b(?:spp?|ssp|var|cf|aff|dll|dsb|dst|dkk|v\.v)|ซม|มม|กก|ม)\.$/
+const ABBREVIATION = /(?:\b(?:spp?|ssp|var|cf|aff|dll|dsb|dst|dkk|v\.v|Jr|jr)|\d\s?(?:ซม|มม|กก|มล|ม|ล))\.$/
 const VI = { lang: 'Vietnamese', country: 'Vietnam', style: 'Style: plain written Vietnamese, as aquarium hobbyists in Vietnam write it: "bể", "cá", "thay nước", "cây thủy sinh". No phrasing that reads as translated from English. Say it as a keeper would, not as a book or the news. Numbers: 1.136 lít, 1,5 cm, a space before a unit. A fish\'s young take one "cá": "Cá con hồng ngọc hai chấm", "Cá L354 con". Keepers\' words: "cá nuôi chung" (tank mates), "đẻ" (spawn), "mình" (my, I).' }
 
 /** Per language: the word for "about", the litres word, the thousands mark, the word for "part", and a page name's leading "fish" words. */
@@ -31,12 +31,12 @@ const TIDY: Record<Lang, { about: string; litres: string; thousands: string; par
  * word ("Ikan", "Cá") is lower case after the title's first word.
  */
 export function tidyTitle(title: string, lang?: Lang): string {
-  let t = title.trim().replace(/\s*\(([^()]+)\)/g, (m, inner: string, at: number, all: string) => /\p{L}.*\p{L}.*\p{L}/u.test(inner) && all.slice(0, at).trim().toLowerCase().endsWith(inner.trim().toLowerCase()) ? '' : m)
+  let t = title.trim().replace(/\s*\(([^()]+)\)/g, (m, inner: string, at: number, all: string) => /\p{L}.*\p{L}.*\p{L}/u.test(inner) && new RegExp(`(^|\\s)${inner.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`, 'iu').test(all.slice(0, at).trim()) ? '' : m)
   const w = lang && TIDY[lang]
   if (w) {
     t = t.replace(new RegExp(`(gallons?|galon|gelen|แกลลอน) \\((\\S+ )?(\\d[\\d.,]*) ${w.litres}\\)`, 'g'), (m, unit: string, before: string | undefined, n: string) => {
-      const digits = n.replace(/[.,]/g, '')
-      const num = /^\d{4,}$/.test(digits) && !/[.,]\d{1,2}$/.test(n) ? digits.replace(/\B(?=(\d{3})+$)/g, w.thousands) : n
+      // Only a bare figure gets the thousands mark: one already written with a separator may be a decimal (Malay 3.785).
+      const num = /^\d{4,}$/.test(n) ? n.replace(/\B(?=(\d{3})+$)/g, w.thousands) : n
       return `${unit} (${before ?? `${w.about} `}${num} ${w.litres})`
     })
     t = t.replace(new RegExp(`,\\s*(${w.part}) (\\d+)$`), ' $1 $2')
