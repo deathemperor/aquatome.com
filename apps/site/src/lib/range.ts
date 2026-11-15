@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto'
 import { CELL_DEG, countryName, markVietnameseNames, PLACE_ALIASES, placeCountry, recordsInside, recordsOutside, slugify, type Content, type SourceId, type SpeciesRange } from '@aq/schema'
+import { citeGroup } from './cite'
 import { fmt } from './format'
 import { served, translator, type Lang } from './i18n'
 import { mapSvg, rangeMap, type RangeMap, type SquareKind } from './range-map'
@@ -141,7 +142,7 @@ export function rangeParts(lang: Lang, c: Content, s: { id: string; name: string
   const quotes = native?.quotes?.filter(q => mark(q.source))
   // A line's marks: the sources of its sentences, else (a range read before quotes) every source the range names.
   const marks = (has: (q: NonNullable<typeof quotes>[number]) => boolean) =>
-    [...new Set(quotes && native?.quotes ? quotes.filter(has).map(q => q.source) : native?.sources ?? [])].map(mark).join('')
+    citeGroup([...new Set(quotes && native?.quotes ? quotes.filter(has).map(q => q.source) : native?.sources ?? [])].map(mark).filter(Boolean))
   const words = [
     native?.countries.length ? `<p><strong>${esc(t('Sống tự nhiên ở:'))}</strong> ${native.countries.map(country).join(', ')}${marks(q => q.countries.length > 0)}</p>` : '',
     native?.regions.length ? `<p><strong>${esc(t('Sông, hồ, vùng:'))}</strong> ${native.regions.map(r => esc(regionName(r))).join(', ')}${marks(q => q.regions.length > 0)}</p>` : '',
