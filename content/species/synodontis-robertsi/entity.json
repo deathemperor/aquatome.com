@@ -10,6 +10,52 @@
     "democratic-republic-of-the-congo",
     "lukenie"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD"
+      ],
+      "regions": [
+        "Lukenie",
+        "Congo"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "As far as is known, it lives exclusively in the river Lukenie, a tributary of the central Congo river, in D. R. Congo.",
+          "countries": [
+            "CD"
+          ],
+          "regions": [
+            "Lukenie",
+            "Congo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344319,
+      "total": 1,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "CD",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          16.875,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

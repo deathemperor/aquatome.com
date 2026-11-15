@@ -12,6 +12,89 @@
     "malaysia",
     "sarawak"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "MY"
+      ],
+      "regions": [
+        "Borneo",
+        "Sumatra",
+        "Riau Archipelago",
+        "Bangka Island"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Numerous records also exist from the Indonesian provinces of West Kalimantan (Kalimantan Barat), Central Kalimantan (Kalimantan Tengah) and South Kalimantan (Kalimantan Selatan), but the species appears not to occur in the north of the island.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It exists in several colour forms depending on locality; fish from the south and east of Sarawak state in Malaysian Borneo are green/blue in colour while those found in the west are red/orange, for example.",
+          "countries": [
+            "MY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Supposedly native to the Greater Sunda Islands of Borneo and Sumatra as well as the Riau Archipelago and Bangka Island off the east coast of Sumatra, but the only collection/locality details available refer to Bornean populations.",
+          "countries": [],
+          "regions": [
+            "Borneo",
+            "Sumatra",
+            "Riau Archipelago",
+            "Bangka Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2360276,
+      "total": 8,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "ID",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          0,
+          2,
+          2
+        ],
+        [
+          108.28125,
+          0,
+          3,
+          3
+        ],
+        [
+          111.09375,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

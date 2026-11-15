@@ -1,23 +1,16 @@
 {
   "id": "cynops-cyanurus",
   "native": {
-    "input": "6a50ca70aae0a55e",
-    "at": "2026-11-10T20:57:55.515Z",
-    "claims": [
-      {
-        "code": "CN",
-        "status": "native",
-        "source": "glaser",
-        "quote": "According to the supplier, these newts were collected in the Chinese province of Hubei.",
-        "words": "Chinese",
-        "ok": true
-      }
-    ],
+    "input": "d1e643ccaf690b06",
+    "at": "2026-11-15T05:39:34.625Z",
+    "claims": [],
     "regions": [],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "CN"
+      ],
       "sourcesOnly": []
     }
   },
@@ -47,10 +40,8 @@
         1
       ]
     ],
-    "native": [
-      "CN"
-    ],
-    "requests": 11,
-    "at": "2026-11-10T20:57:55.515Z"
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-15T05:39:34.625Z"
   }
 }

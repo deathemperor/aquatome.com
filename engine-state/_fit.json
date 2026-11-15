@@ -44165,8 +44165,8 @@
     "sourceRead": true
   },
   "vi/guides/aquariumbreeder-how-to-remove-brown-algae-diatoms-in-freshwater-tanks": {
-    "at": "2026-11-08",
-    "hash": "105cffe7fef157a7",
+    "at": "2026-11-15",
+    "hash": "ebb2e9ae445bc169",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -44174,16 +44174,14 @@
         "check": "words",
         "part": "P1",
         "quote": "Cá ăn tảo Siamese",
-        "why": "Half-translated calque of 'Siamese algae eater'; Vietnamese keepers use a local name.",
+        "why": "Literal calque of 'Siamese algae eater'; Vietnamese keepers use a local name.",
         "by": "model",
         "fix": "cá bút chì"
       }
     ],
     "products": [
       "Seachem Phosguard",
-      "Seachem PhosBond",
-      "Seachem Flourish Excel",
-      "Easy Carbo"
+      "Seachem PhosBond"
     ]
   },
   "vi/guides/aquariumbreeder-how-to-remove-green-dust-algae-in-aquariums": {
@@ -45941,30 +45939,27 @@
     "products": []
   },
   "vi/guides/aquariumcoop-blogs-aquarium-55-gallon-fish": {
-    "at": "2026-11-08",
-    "hash": "1858622a955fcff0",
+    "at": "2026-11-15",
+    "hash": "e593cc32588e821b",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "TITLE",
-        "quote": "208 lít (55 gallon)",
-        "why": "A US 55-gallon tank given in gallons and in converted litres that nobody in Vietnam would use.",
+        "quote": "bể nước ngọt 208 lít (55 gallon)",
+        "why": "Tank size converted from a US 55-gallon tank, with the gallon figure kept.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P1",
         "quote": "dài 122 cm, rộng 33 cm, cao 53 cm",
-        "why": "These are the 48 × 13 × 21 inch sides of a US 55-gallon tank, converted to centimetres.",
+        "why": "Size converted from the US 48 × 13 × 21 inch tank, which no one in Vietnam would describe this way.",
         "by": "model"
       }
     ],
-    "products": [
-      "Wonder Shell",
-      "Seachem Equilibrium"
-    ]
+    "products": []
   },
   "vi/guides/aquariumcoop-blogs-aquarium-7-best-fish-tank-ideas-for-10-gallon-aquarium": {
     "at": "2026-11-08",
@@ -46136,14 +46131,13 @@
     ]
   },
   "vi/guides/aquariumcoop-blogs-aquarium-algae-removal": {
-    "at": "2026-11-08",
-    "hash": "47eacba0ba2af392",
+    "at": "2026-11-15",
+    "hash": "94e384b5bae2062a",
     "model": "opus",
     "checklist": 3,
     "findings": [],
     "products": [
-      "Mag-Float",
-      "Easy Green"
+      "Mag-Float"
     ]
   },
   "vi/guides/aquariumcoop-blogs-aquarium-angelfish-care-guide": {
@@ -92192,8 +92186,8 @@
     "products": []
   },
   "vi/plants/cryptocoryne-parva": {
-    "at": "2026-11-14",
-    "hash": "9f1deecd2c9b60ec",
+    "at": "2026-11-15",
+    "hash": "44a8955caa46a15a",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -92201,14 +92195,7 @@
         "check": "units",
         "part": "P4",
         "quote": "Bể tối thiểu cho loài này là khoảng 19 lít.",
-        "why": "19 litres is a converted 5-gallon tank, a size nobody in Vietnam uses.",
-        "by": "model"
-      },
-      {
-        "check": "price",
-        "part": "P10",
-        "quote": "Một chậu cây giá chỉ vài đô la.",
-        "why": "The price is in US dollars, not the reader's currency.",
+        "why": "19 litres is a converted 5-gallon tank size that keepers in Vietnam would not use.",
         "by": "model"
       }
     ],
@@ -92216,8 +92203,7 @@
       "Nutrition Capsules",
       "ADA Amazonia aqua soil",
       "CaribSea Eco-Complete",
-      "Seachem Flourite Black Sand",
-      "Easy Green"
+      "Seachem Flourite Black Sand"
     ]
   },
   "vi/plants/cryptocoryne-spiralis": {
@@ -93201,15 +93187,36 @@
     "products": []
   },
   "vi/plants/nymphaea-zenkeri": {
-    "at": "2026-11-10",
-    "hash": "968b51a0dd469296",
+    "at": "2026-11-15",
+    "hash": "25b883b262b4d3d3",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
-    "products": [
-      "Easy Green",
-      "Easy Root Tabs"
-    ]
+    "findings": [
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "củ được giao trong chậu nhựa phủ bông đá",
+        "why": "Describes how the source shop ships its own stock, as if the reader had ordered from it.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P2",
+        "quote": "bón phân tổng hợp và viên phân gốc",
+        "why": "\"viên phân gốc\" is a calque of \"root tabs\"; keepers in Vietnam say \"phân nhét\".",
+        "by": "model",
+        "fix": "phân nhét"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Sen hổ (Nymphaea zenkeri)",
+        "why": "Translated common name; keepers in Vietnam call this plant \"sen tiger\", as the page title does.",
+        "by": "model",
+        "fix": "sen tiger"
+      }
+    ],
+    "products": []
   },
   "vi/plants/nymphoides-aquatica": {
     "at": "2026-11-14",
@@ -103615,21 +103622,20 @@
     "products": []
   },
   "vi/species/colomesus-asellus": {
-    "at": "2026-11-14",
-    "hash": "6a976d51c9127856",
+    "at": "2026-11-15",
+    "hash": "0bae07de9ffa764c",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P10",
-        "quote": "bể tối thiểu phải 114 lít. Nếu được 208 lít thì càng tốt",
-        "why": "30 and 55 US gallon tanks converted to litres; no Vietnamese keeper sizes tanks this way.",
+        "quote": "nên bể tối thiểu phải 114 lít. Nếu được 208 lít thì càng tốt.",
+        "why": "114 and 208 litres are converted 30 and 55 US gallon tank sizes.",
         "by": "model"
       }
     ],
     "products": [
-      "Fritz ParaCleanse",
       "PraziPro",
       "Repashy"
     ],
@@ -112686,19 +112692,11 @@
     "products": []
   },
   "vi/species/labeo-coubie": {
-    "at": "2026-11-11",
-    "hash": "f12ca460de4a075e",
+    "at": "2026-11-15",
+    "hash": "00ed9964768dd419",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P3",
-        "quote": "Số cá này được nhập về từ Nigeria.",
-        "why": "Refers to the source shop's own imported stock as if the reader knew those fish.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/species/labeo-cyclorhynchus": {
@@ -112898,19 +112896,11 @@
     "products": []
   },
   "vi/species/laimosemion-tecminae": {
-    "at": "2026-11-11",
-    "hash": "3e695e5ff8ff9468",
+    "at": "2026-11-15",
+    "hash": "8a4e23331abfe430",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "những con đang bán đều có nguồn gốc từ Venezuela",
-        "why": "Refers to the source shop's own stock on sale as if the reader knew it.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/species/lamontichthys-filamentosus": {
@@ -113463,15 +113453,14 @@
     "products": []
   },
   "vi/species/lepidothelphusa-padawan": {
-    "at": "2026-11-08",
-    "hash": "b9abbad64ede268b",
+    "at": "2026-11-15",
+    "hash": "02d85ecac87088be",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": [
       "Seachem Prime",
-      "Hikari Shrimp Cuisine",
-      "wonder shell"
+      "Hikari Shrimp Cuisine"
     ]
   },
   "vi/species/lepisosteus-oculatus": {
@@ -113555,24 +113544,24 @@
     "products": []
   },
   "vi/species/leporinus-arcus": {
-    "at": "2026-11-07",
-    "hash": "d4ea2a8a6d603187",
+    "at": "2026-11-15",
+    "hash": "f4bedd114e831e14",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
-        "check": "source",
-        "part": "P2",
-        "quote": "Hiện chưa có lô cá nào được nhập về từ vùng phân bố tự nhiên của nó, nên thị trường chắc chắn đang cần loài này",
-        "why": "This is the source's own import and stock news, which the reader doesn't know about.",
+        "check": "units",
+        "part": "P5",
+        "quote": "khoảng 756 lít",
+        "why": "756 litres is a straight conversion of a 200-gallon tank, not a figure a Vietnamese keeper would give.",
         "by": "model"
       }
     ],
     "products": []
   },
   "vi/species/leporinus-brunneus": {
-    "at": "2026-11-14",
-    "hash": "bbd087ce21fc6fcc",
+    "at": "2026-11-15",
+    "hash": "e76b2259622b534d",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -113694,8 +113683,8 @@
     ]
   },
   "vi/species/leptobotia-microphthalma": {
-    "at": "2026-11-08",
-    "hash": "0c0fcfd6c30b669d",
+    "at": "2026-11-15",
+    "hash": "c8e149a8547fdb78",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -113703,9 +113692,9 @@
         "check": "words",
         "part": "P7",
         "quote": "thịt hải sản có vỏ",
-        "why": "Calque of English 'shellfish meat'; keepers name the actual foods.",
+        "why": "Calque of English 'shellfish meat'; Vietnamese keepers name the actual food.",
         "by": "model",
-        "fix": "thịt tôm, nghêu, sò"
+        "fix": "thịt nghêu, sò hoặc tôm"
       }
     ],
     "products": [
@@ -113743,15 +113732,16 @@
     ]
   },
   "vi/species/leptodoras-cataniai": {
-    "at": "2026-11-07",
-    "hash": "9fded923cfeedf75",
+    "at": "2026-11-15",
+    "hash": "b0e0d759046aeb00",
     "model": "opus",
+    "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P7",
-        "quote": "Ba ảnh thu nhỏ đầu tiên là một loài trông rất giống",
-        "why": "Refers to the source site's thumbnail images, which this page does not have.",
+        "quote": "Ba ảnh nhỏ đầu tiên chụp một loài trông rất giống",
+        "why": "Refers to photos from the source site that this page does not have.",
         "by": "model"
       }
     ],
@@ -113821,19 +113811,11 @@
     "products": []
   },
   "vi/species/liniparhomaloptera-disparis": {
-    "at": "2026-11-08",
-    "hash": "e2ef57dcf6b0c42c",
+    "at": "2026-11-15",
+    "hash": "5853d6e9e26b1c6b",
     "model": "opus",
-    "checklist": 2,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P4",
-        "quote": "Tại điểm khảo sát ở Thâm Quyến trong ảnh",
-        "why": "It refers to a photo from the original article, and this page has no pictures.",
-        "by": "model"
-      }
-    ],
+    "checklist": 3,
+    "findings": [],
     "products": []
   },
   "vi/species/liobagrus-anguillicauda": {
@@ -113852,8 +113834,8 @@
     "products": []
   },
   "vi/species/liobagrus-formosanus": {
-    "at": "2026-11-13",
-    "hash": "96cc9cc6bb6f6652",
+    "at": "2026-11-15",
+    "hash": "35eae0b3344081c0",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -114064,8 +114046,8 @@
     "products": []
   },
   "vi/species/luciosoma-pellegrinii": {
-    "at": "2026-11-08",
-    "hash": "72ce41b5e1198742",
+    "at": "2026-11-15",
+    "hash": "57267a0488b1ff1f",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -114073,7 +114055,7 @@
         "check": "source",
         "part": "P5",
         "quote": "Ảnh của nó xem ở trang về L. setigerum.",
-        "why": "Points the reader to a photo on another page of the source site, which this page does not have.",
+        "why": "Points the reader to a photo on another page of the source site that this page does not have.",
         "by": "model"
       }
     ],
@@ -114137,19 +114119,11 @@
     ]
   },
   "vi/species/maccullochella-peelii": {
-    "at": "2026-11-10",
-    "hash": "6ac6971f96b4b817",
+    "at": "2026-11-15",
+    "hash": "396b01fcb1abe511",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P2",
-        "quote": "Hiện đã có bốn con non nhập về, dài 18–22 cm.",
-        "why": "This is the source shop's stock news, and the reader has no idea which shop it means.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/species/macrobrachium-brasiliense": {
@@ -114764,19 +114738,11 @@
     "products": []
   },
   "vi/species/megalops-atlanticus": {
-    "at": "2026-11-10",
-    "hash": "b309eb304b1212db",
+    "at": "2026-11-15",
+    "hash": "c0d6747037d695d1",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P3",
-        "quote": "Đợt cá nhập về gần đây có nguồn gốc từ Nigeria.",
-        "why": "This is the source importer's news about its own stock, presented as though the reader knows about it.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/species/mekongina-erythrospila": {
@@ -114844,37 +114810,20 @@
     "products": []
   },
   "vi/species/melanotaenia-boesemani": {
-    "at": "2026-11-08",
-    "hash": "0d1cd773cc875961",
+    "at": "2026-11-15",
+    "hash": "cb5ba3165e1cddc1",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P20",
         "quote": "Bể đẻ nên dài ít nhất 76 cm",
-        "why": "76 cm is a converted 30-inch tank length, not a size used in Vietnam.",
+        "why": "76 cm is a converted 30-inch tank length nobody in Vietnam would use.",
         "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P15",
-        "quote": "cá thờ ơ",
-        "why": "Apparent mistranslation of 'gouramis'; Vietnamese keepers call these cá sặc.",
-        "by": "model",
-        "fix": "cá sặc"
-      },
-      {
-        "check": "words",
-        "part": "P19",
-        "quote": "lươn giấm",
-        "why": "Literal calque of 'vinegar eels'; Vietnamese keepers say giun giấm.",
-        "by": "model",
-        "fix": "giun giấm"
       }
     ],
     "products": [
-      "Wonder Shell",
       "Seachem Equilibrium",
       "Vibra Bites"
     ]
@@ -114993,8 +114942,8 @@
     "products": []
   },
   "vi/species/melanotaenia-praecox": {
-    "at": "2026-11-08",
-    "hash": "a5781010d23279d2",
+    "at": "2026-11-15",
+    "hash": "385713685a4bd3dd",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -115002,14 +114951,11 @@
         "check": "units",
         "part": "P7",
         "quote": "hoặc một bể khoảng 110 lít",
-        "why": "110 litres is a converted 29-gallon US tank size, not one a keeper in Vietnam would name.",
+        "why": "110 litres is a converted 29-gallon US tank size, not a size keepers in Vietnam use.",
         "by": "model"
       }
     ],
-    "products": [
-      "Wonder Shell",
-      "Seachem Equilibrium"
-    ]
+    "products": []
   },
   "vi/species/melanotaenia-pygmaea": {
     "at": "2026-11-08",
@@ -115099,37 +115045,16 @@
     "products": []
   },
   "vi/species/mesoheros-ornatus": {
-    "at": "2026-11-11",
-    "hash": "5b794c717e43d8fa",
+    "at": "2026-11-15",
+    "hash": "b7e9a6e59ae4b68c",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Những con cá đang có trên thị trường dài 6–10 cm, và chắc cũng gần đủ lớn để đẻ.",
-        "why": "Describes the source shop's current stock as if the reader could see it.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P2",
         "quote": "Gần đây có một ít cá bắt ngoài tự nhiên ở Colombia được nhập về.",
-        "why": "This is the source wholesaler's import news, not something happening in Vietnam.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P3",
-        "quote": "Ngay cả khi để trong bể chụp ảnh nhỏ, cặp cá vẫn hiền lành với nhau.",
-        "why": "Refers to the source's own photo tank and its fish as if the reader knew them.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P5",
-        "quote": "Tên thường gọi đề xuất: Miracle Cichlid.",
-        "why": "This is the source writer's own suggested trade name, given in their voice.",
+        "why": "This is the source exporter's news about its own stock arriving, which the reader in Vietnam knows nothing about.",
         "by": "model"
       }
     ],
@@ -116671,13 +116596,12 @@
     "products": []
   },
   "vi/species/neocaridina-davidi": {
-    "at": "2026-11-07",
-    "hash": "5d6360e68c97fdbe",
+    "at": "2026-11-15",
+    "hash": "22f950a6cff66bbc",
     "model": "opus",
+    "checklist": 3,
     "findings": [],
     "products": [
-      "Wonder Shell",
-      "Seachem Equilibrium",
       "Hikari Shrimp Cuisine",
       "Xtreme Shrimpee Sinking Sticks",
       "Repashy",
@@ -117447,16 +117371,16 @@
     "products": []
   },
   "vi/species/omobranchus-zebra": {
-    "at": "2026-11-11",
-    "hash": "2f48dfd52ff836b6",
+    "at": "2026-11-15",
+    "hash": "7e915ebb0ac7ad54",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P4",
-        "quote": "mấy con được đem chụp ảnh đã sống khoảng mười ngày trong bể chụp với nước ngọt hoàn toàn",
-        "why": "This refers to the source's own photo fish and photo tank as though the reader knew about them.",
+        "quote": "Đến nay, những con cá này tỏ ra rất lanh lợi và khỏe, kể cả khi không pha muối.",
+        "why": "This talks about the source shop's own stock fish as if the reader knew them.",
         "by": "model"
       }
     ],
@@ -117487,16 +117411,16 @@
     "products": []
   },
   "vi/species/ophichthus-apicalis": {
-    "at": "2026-11-10",
-    "hash": "26a38cb717b90a90",
+    "at": "2026-11-15",
+    "hash": "d28d3ff0f306dccb",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P2",
-        "quote": "Cỡ đang có: 35-45 cm.",
-        "why": "Lists the source shop's current stock sizes, which the reader cannot see or buy.",
+        "quote": "Số cá nhập về đều có nguồn gốc từ Việt Nam.",
+        "why": "This means the source importer's own stock. To a reader in Vietnam, fish 'brought in' from Vietnam makes no sense.",
         "by": "model"
       }
     ],
@@ -128228,6 +128152,690 @@
         "by": "model"
       }
     ],
+    "products": []
+  },
+  "id/species/datnioides-undecimradiatus": {
+    "at": "2026-11-15",
+    "hash": "cbeb054d61dcfc88",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/dawkinsia-arulius": {
+    "at": "2026-11-15",
+    "hash": "7ceb8e0c45dacb8a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/dawkinsia-assimilis": {
+    "at": "2026-11-15",
+    "hash": "43c31131ea5a091a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P12",
+        "quote": "Ada \"mascara barb\" baru yang masuk, dinamai begitu karena pita gelap di matanya.",
+        "why": "This is the source shop's news about stock it just got in, which this reader doesn't know.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/dawkinsia-exclamatio": {
+    "at": "2026-11-15",
+    "hash": "deadba7c2a957f38",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P11",
+        "quote": "Satu lagi barb besar yang memukau diimpor dari India.",
+        "why": "This is the source exporter's stock announcement, written as if the reader knew about its imports.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P11",
+        "quote": "Saat ini panjang ikannya 8-9 cm dan sudah dalam kondisi siap memijah.",
+        "why": "It describes the source's own fish in stock right now, which the reader has never seen.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P11",
+        "quote": "hanya menampilkan warna yang jauh lebih pudar di akuarium foto yang kecil",
+        "why": "It mentions the source's photo tank and pictures, which are not on this page.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/dawkinsia-filamentosa": {
+    "at": "2026-11-15",
+    "hash": "5bf27849151e83bb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/dawkinsia-rohani": {
+    "at": "2026-11-15",
+    "hash": "d136f731502db81e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Barb India yang cantik ini baru dideskripsikan secara ilmiah tahun lalu.",
+        "why": "'Last year' is the original article's own time; the species was described well over a decade ago.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/dawkinsia-rubrotinctus": {
+    "at": "2026-11-15",
+    "hash": "4a88e6889693619b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/dawkinsia-tambraparniei": {
+    "at": "2026-11-15",
+    "hash": "9f2db2dba5ec1e10",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/dekeyseria-picta": {
+    "at": "2026-11-15",
+    "hash": "0d8f6202cffe7c45",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/dekeyseria-pulchra": {
+    "at": "2026-11-15",
+    "hash": "a6e9ce7b07bc271b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "L168 hasil penangkaran yang sangat cantik sempat didatangkan dari seorang breeder yang sudah terbukti andal",
+        "why": "This is the source shop's own stock news about fish it brought in, which the reader can't know or buy.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/dekeyseria-scaphirhyncha": {
+    "at": "2026-11-15",
+    "hash": "6fe98e44d80437b1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/denticetopsis-macilenta": {
+    "at": "2026-11-15",
+    "hash": "966e32ea6bb18001",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/denticetopsis-praecox": {
+    "at": "2026-11-15",
+    "hash": "1c3ceb2c527008e9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/denticetopsis-seducta": {
+    "at": "2026-11-15",
+    "hash": "3b2dbc11db16c7af",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/dermogenys-siamensis": {
+    "at": "2026-11-15",
+    "hash": "d2d79b3ad466764e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "Kini telah masuk Dermogenys pusilla yang indah, dalam arti yang paling luas dan paling lama.",
+        "why": "Announces the source shop's newly arrived stock, which the reader doesn't know.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/desmocaris-trispinosa": {
+    "at": "2026-11-15",
+    "hash": "bc38e22a166ffc26",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/desmopuntius-pentazona": {
+    "at": "2026-11-15",
+    "hash": "de9fe54a780752a7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P4",
+        "quote": "spesimen liar yang tampak pada beberapa foto rupanya dikumpulkan di sekitar Mersing",
+        "why": "Refers to photos from the original source that this page does not have.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/devario-acrostomus": {
+    "at": "2026-11-15",
+    "hash": "509e0a44929351a5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/devario-acuticephala": {
+    "at": "2026-11-15",
+    "hash": "76eeea78b3d961ee",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P6",
+        "quote": "di banyak negara spesies ini bisa dipelihara di akuarium tanpa pemanas",
+        "why": "Assumes a temperate climate with seasons; in Indonesia water stays well above 16–22 °C, so this fish needs cooling, not just no heater.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P5",
+        "quote": "mungkin beberapa batu besar berukuran kecil",
+        "why": "Calque of English 'small boulders'; contradictory phrasing an Indonesian keeper wouldn't use.",
+        "by": "model",
+        "fix": "beberapa batu yang agak besar"
+      }
+    ],
+    "products": []
+  },
+  "id/species/devario-aequipinnatus": {
+    "at": "2026-11-15",
+    "hash": "edd7bb206a325d50",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/plants/eleocharis-pusilla": {
+    "at": "2026-11-15",
+    "hash": "3b77a5ba540090cd",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/plants/eriocaulon-cinereum": {
+    "at": "2026-11-15",
+    "hash": "5eb6773e268d6eb5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P9",
+        "quote": "tanam akar ke dalam substrat pada kedalaman kira-kira 2.5–5 cm",
+        "why": "A planting depth converted from 1–2 inches, a range nobody in Malaysia would give.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P9",
+        "quote": "lapisan substrat setebal 2.5 cm",
+        "why": "A substrate layer converted from 1 inch.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "ms/plants/eriocaulon-sp-vietnam": {
+    "at": "2026-11-15",
+    "hash": "fd1963af8432cfac",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/plants/fissidens-fontanus": {
+    "at": "2026-11-15",
+    "hash": "8d53a9b2d5888c34",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/amatitlania-sajica": {
+    "at": "2026-11-15",
+    "hash": "28dc348cb97678f4",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/ambastaia-nigrolineata": {
+    "at": "2026-11-15",
+    "hash": "eaff3c5eef9722f0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P9",
+        "quote": "Paling baik dipelihara pada suhu bilik. Jadi, inilah ikan yang sesuai untuk sesiapa yang mahu menjimatkan tenaga!",
+        "why": "Assumes a cool room as in Europe; a room in Malaysia (28–30 °C) is above this species' 20–25 °C range.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Panacur"
+    ]
+  },
+  "ms/species/ambastaia-sidthimunki": {
+    "at": "2026-11-15",
+    "hash": "4670782365b0560c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P6",
+        "quote": "Terima kasih kepada Kamphol Udomritthiruj.",
+        "why": "Thanks a person from the source article whom the reader does not know.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P24",
+        "quote": "ikan ditempatkan dalam akuarium 284 liter",
+        "why": "284 litres is a converted 75-gallon tank, not a size used in Malaysia.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P24",
+        "quote": "Laporan penuh daripada Mark yang mendokumentasikan kejayaan ini boleh didapati di sini.",
+        "why": "Points to a link the page does not have.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Repashy"
+    ]
+  },
+  "ms/species/amblyceps-arunachalense": {
+    "at": "2026-11-15",
+    "hash": "04124d83237d7dda",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/amblyceps-caecutiens": {
+    "at": "2026-11-15",
+    "hash": "87f5ba432807192e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/amblyceps-cerinum": {
+    "at": "2026-11-15",
+    "hash": "089a7c819df7e22c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/amblyceps-foratum": {
+    "at": "2026-11-15",
+    "hash": "9a7212ac89e1966a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P5",
+        "quote": "spesimen dalam gambar kecil pertama dikumpul oleh penyumbang gambar, Zhou Hang",
+        "why": "Points to a thumbnail picture and photo contributor from the source site that this page doesn't have.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "ms/species/amblyceps-laticeps": {
+    "at": "2026-11-15",
+    "hash": "cb67b75a070c771d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/amblyceps-mangois": {
+    "at": "2026-11-15",
+    "hash": "d778c208595ff895",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/amblyceps-serratum": {
+    "at": "2026-11-15",
+    "hash": "487cfd0df72cf8f8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/dario-hysginon": {
+    "at": "2026-11-15",
+    "hash": "f138a6f07a68572f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P9",
+        "quote": "เลี้ยงในตู้ปลาที่ไม่ใช้ฮีตเตอร์ได้ (หากตั้งตู้ไว้ในห้องนั่งเล่น) อุณหภูมิที่ดีที่สุดอยู่ในช่วง 16–25 °C",
+        "why": "Assumes a cool temperate living room; a Thai room is usually warmer than this fish's range.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P10",
+        "quote": "หากต้องการเพาะพันธุ์นอกช่วงฤดูใบไม้ผลิและฤดูร้อน จะต้องใช้ฮีตเตอร์",
+        "why": "Uses temperate seasons and heating needs that don't apply in Thailand.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/dario-kajal": {
+    "at": "2026-11-15",
+    "hash": "72e95d481be2cad1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/dario-tigris": {
+    "at": "2026-11-15",
+    "hash": "54d432cac187acbd",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P6",
+        "quote": "ดังนั้นในหลายประเทศหรือในบ้านที่เก็บความร้อนได้ดี จึงเลี้ยงได้ตลอดปีโดยไม่ต้องใช้ฮีตเตอร์",
+        "why": "Written for a cool-climate home where heating is the worry; in Thailand a 15–25 °C fish needs cooling, not heating.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P6",
+        "quote": "หากต้องการเพาะพันธุ์นอกช่วงฤดูใบไม้ผลิและฤดูร้อนจึงต้องใช้ฮีตเตอร์",
+        "why": "Spring and summer seasons and needing a heater outside them come from a temperate climate, not Thailand's.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/dario-urops": {
+    "at": "2026-11-15",
+    "hash": "53b0db939e3c76f5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P4",
+        "quote": "(ดูหัวข้อ 'พฤติกรรมและการเลี้ยงร่วม')",
+        "why": "Refers to a 'Behaviour and tankmates' section that this page does not have; carried over from the source article.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/datnioides-undecimradiatus": {
+    "at": "2026-11-15",
+    "hash": "c94a067c37c71ab8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/dawkinsia-arulius": {
+    "at": "2026-11-15",
+    "hash": "12e42640f2d7fb85",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/dawkinsia-assimilis": {
+    "at": "2026-11-15",
+    "hash": "081e1d515a7363cc",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P12",
+        "quote": "มีการนำเข้า \"มาสคาร่าบาร์บ\" แบบใหม่",
+        "why": "Reports the source dealer's own new import and stock as news the reader would know.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P12",
+        "quote": "ปลาที่ได้มามีตัวโตเต็มวัยไม่กี่ตัวและปลาวัยอ่อนจำนวนมาก",
+        "why": "Describes the source's own shipment of fish as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P13",
+        "quote": "ขอขอบคุณ J. D. Marcus Knight",
+        "why": "The source writer's thanks to a contact the reader does not know.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/dawkinsia-exclamatio": {
+    "at": "2026-11-15",
+    "hash": "5b43945a8cbcfef4",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P11",
+        "quote": "ขณะนี้ปลามีความยาว 8-9 ซม. และอยู่ในสภาพพร้อมผสมพันธุ์",
+        "why": "This is the source shop's news about fish it has just imported and has in stock, not something the reader can know.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/dawkinsia-filamentosa": {
+    "at": "2026-11-15",
+    "hash": "7c48d7db776e40eb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/dawkinsia-rohani": {
+    "at": "2026-11-15",
+    "hash": "6589252a9e3e6c7c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "เพิ่งได้รับการบรรยายทางวิทยาศาสตร์เมื่อปีที่แล้ว",
+        "why": "'Last year' is relative to when the source article was written, not to the reader's present.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P13",
+        "quote": "ไหมเพาะพันธุ์",
+        "why": "Literal rendering of 'spawning mop'; Thai keepers call it a yarn mop.",
+        "by": "model",
+        "fix": "ไหมพรม"
+      }
+    ],
+    "products": []
+  },
+  "th/species/dawkinsia-rubrotinctus": {
+    "at": "2026-11-15",
+    "hash": "e49c066183bda2a6",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/dawkinsia-tambraparniei": {
+    "at": "2026-11-15",
+    "hash": "9ce9e1207bd08386",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P8",
+        "quote": "รวมถึงปลาค้อในวงศ์ Botiidae, Nemacheilidae และ Balitoridae",
+        "why": "Thai keepers call Botiidae loaches ปลาหมู, not ปลาค้อ; 'loaches' was translated as one word.",
+        "by": "model",
+        "fix": "ปลาหมู (Botiidae) และปลาค้อ (Nemacheilidae, Balitoridae)"
+      }
+    ],
+    "products": []
+  },
+  "th/species/dekeyseria-picta": {
+    "at": "2026-11-15",
+    "hash": "73a6c4be7961cd41",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/dekeyseria-pulchra": {
+    "at": "2026-11-15",
+    "hash": "e72c364008bfb3f3",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "ได้รับ L168 ที่เป็นปลาเพาะพันธุ์ สวยมาก จากผู้เพาะพันธุ์ที่มีผลงานเป็นที่ยอมรับ",
+        "why": "This is the source shop's stock news about fish it received, which the reader knows nothing about.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/dekeyseria-scaphirhyncha": {
+    "at": "2026-11-15",
+    "hash": "3b2f65fa9bd59933",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/denticetopsis-macilenta": {
+    "at": "2026-11-15",
+    "hash": "0729187248a8d788",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/denticetopsis-praecox": {
+    "at": "2026-11-15",
+    "hash": "5f43a04e5a8d7fba",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/denticetopsis-seducta": {
+    "at": "2026-11-15",
+    "hash": "dbe5e370ae9dd25b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P11",
+        "quote": "เพราะในกลุ่มปลาที่นำเข้ามานั้นมีตัวผู้ที่ดูออกได้อย่างชัดเจนปะปนอยู่ด้วย",
+        "why": "Refers to the source shop's own imported batch as if the reader knew it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/dermogenys-siamensis": {
+    "at": "2026-11-15",
+    "hash": "3a91be80cc176875",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "ปลาที่เข้ามาล่าสุดเป็น Dermogenys pusilla ในความหมายแบบกว้างตามการจัดแบบเดิม",
+        "why": "Refers to the source shop's latest import/stock as if the reader knew it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/desmocaris-trispinosa": {
+    "at": "2026-11-15",
+    "hash": "1f32b2eebc5ca1f0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
     "products": []
   }
 }

@@ -1,0 +1,60 @@
+{
+  "id": "synodontis-aterrimus",
+  "native": {
+    "input": "a1370b6caea62540",
+    "at": "2026-11-15T05:39:34.625Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Synodontis aterrimus is a peaceful Synodontis catfish found only in the Democratic Republic of Congo.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Is found only in the Democratic Republic of Congo.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs in different biotopes around a number of areas in the middle of the Democratic Republic of Congo.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Synodontis aterrimus",
+    "status": "ACCEPTED",
+    "taxonKey": 2344419,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        10
+      ],
+      [
+        "cca0058d-d593-4c7e-844c-dcc0b8feae86",
+        7
+      ]
+    ],
+    "native": [
+      "CD"
+    ],
+    "requests": 12,
+    "at": "2026-11-15T05:39:34.625Z"
+  }
+}

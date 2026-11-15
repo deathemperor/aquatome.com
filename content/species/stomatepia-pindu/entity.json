@@ -10,6 +10,50 @@
     "cameroon",
     "lake-barombi-mbo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM"
+      ],
+      "regions": [
+        "Lake Barombi Mbo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Stomatepia pindu is a cichlid endemic to Lake Barombi Mbo, a small volcanic crater lake in Cameroon.",
+          "countries": [
+            "CM"
+          ],
+          "regions": [
+            "Lake Barombi Mbo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370020,
+      "total": 12,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "CM",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          8.4375,
+          4.21875,
+          12,
+          12
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -10,6 +10,77 @@
     "burkina-faso",
     "volta"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Volta",
+        "Black Volta"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Africa: Volta basin.",
+          "countries": [],
+          "regions": [
+            "Volta"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Kou R., tributary of the Black Volta R., 30 km north of Bobo-Dioulasso, West Africa.",
+          "countries": [],
+          "regions": [
+            "Black Volta"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344490,
+      "total": 9,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "BJ",
+          6
+        ],
+        [
+          "BF",
+          2
+        ],
+        [
+          "GH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -5.625,
+          9.84375,
+          2
+        ],
+        [
+          0,
+          5.625,
+          1
+        ],
+        [
+          0,
+          11.25,
+          5
+        ],
+        [
+          1.40625,
+          11.25,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -3,6 +3,12 @@
   "name": "Li",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-15T05:30:06.633Z",
+    "why": "\"Li\" alone truncates the river name Li Jiang (Sungai Li Jiang), dropping the kind word \"Jiang\" (river), so it is cut short and does not give the full name an Indonesian atlas would use."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

@@ -11,29 +11,10 @@
     "hubei"
   ],
   "range": {
-    "native": {
-      "countries": [
-        "CN"
-      ],
-      "regions": [],
-      "sources": [
-        "glaser"
-      ],
-      "quotes": [
-        {
-          "source": "glaser",
-          "quote": "According to the supplier, these newts were collected in the Chinese province of Hubei.",
-          "countries": [
-            "CN"
-          ],
-          "regions": []
-        }
-      ]
-    },
     "records": {
       "taxonKey": 2431865,
       "total": 296,
-      "fetched": "2026-11-10",
+      "fetched": "2026-11-15",
       "countries": [
         [
           "CN",
@@ -44,25 +25,21 @@
         [
           101.25,
           23.90625,
-          43,
           43
         ],
         [
           102.65625,
           23.90625,
-          219,
           219
         ],
         [
           104.0625,
           25.3125,
-          33,
           33
         ],
         [
           104.0625,
           37.96875,
-          1,
           1
         ]
       ]

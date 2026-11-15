@@ -10,6 +10,115 @@
     "colombia",
     "magdalena"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Magdalena",
+        "San Jorge",
+        "Cesar"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Sturisomatichthys aureus (Steindachner, 1900). Common name: Giant Whiptail. Type locality: Sororia Creek at Jagua de Ibiricó, lower Magdalena basin, Cesar Department, Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Colombia: Magdalena, San Jorge and Cesar River basins.",
+          "countries": [],
+          "regions": [
+            "Magdalena",
+            "San Jorge",
+            "Cesar"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9441586,
+      "total": 58,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "CO",
+          58
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          5.625,
+          5,
+          5
+        ],
+        [
+          -75.9375,
+          7.03125,
+          28,
+          28
+        ],
+        [
+          -75.9375,
+          8.4375,
+          7,
+          7
+        ],
+        [
+          -74.53125,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          8.4375,
+          7,
+          7
+        ],
+        [
+          -74.53125,
+          9.84375,
+          3,
+          3
+        ],
+        [
+          -73.125,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

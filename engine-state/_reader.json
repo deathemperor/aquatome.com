@@ -2061,6 +2061,12 @@
     ],
     "ruled": "e685599a0e443b00"
   },
+  "vi/guides/aquariumbreeder-how-long-do-crayfish-live": {
+    "at": "2026-11-15",
+    "hash": "b94a8dea909c0833",
+    "findings": [],
+    "ruled": "b94a8dea909c0833"
+  },
   "vi/guides/aquariumbreeder-how-to-anchor-aquarium-plants-pros-and-cons-of-different-methods": {
     "at": "2026-11-09",
     "hash": "fc0df664ec88f0e8",
@@ -4799,6 +4805,22 @@
     ],
     "ruled": "873714cae865d5a3"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-cheap-aquarium-fish": {
+    "at": "2026-11-15",
+    "hash": "d4dd436a5d9cfa30",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Top 5 Aquarium Fish with Crazy Good Value for Beginners - Aquarium Co-Op",
+        "problem": "This caption is the source article's title, not a description of what the photo shows.",
+        "rule": "A caption that matches the source page's title plus the site name.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "d4dd436a5d9cfa30"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-cherry-shrimp-tankmates": {
     "at": "2026-11-04",
     "hash": "42d7601e06c9e1c5",
@@ -6835,6 +6857,37 @@
     ],
     "ruled": "e744490dd094177a"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-top-10-livebearers": {
+    "at": "2026-11-15",
+    "hash": "935a284fcd5cb7b3",
+    "findings": [],
+    "ruled": "935a284fcd5cb7b3"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-top-10-pufferfish": {
+    "at": "2026-11-15",
+    "hash": "388edebdb2a0dbae",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Cá nóc đậu (cá nóc lùn Ấn Độ) – Dichotomyctere ocellatus hoặc Tetraodon biocellatus",
+        "problem": "The pea puffer heading gives the same scientific name as the figure-eight puffer further down. The pea puffer is actually Carinotetraodon travancoricus.",
+        "fix": "Cá nóc đậu (cá nóc lùn Ấn Độ) – Carinotetraodon travancoricus",
+        "rule": "The same scientific name appears in two different species headings on one page.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Có thể trị phòng bằng bộ ba thuốc cách ly để dọn sạch những bệnh cá đang mang sẵn.",
+        "problem": "This points to the source's own 'quarantine medication trio' without saying which medicines it means, so a reader can't act on the advice.",
+        "field": "body"
+      }
+    ],
+    "ruled": "388edebdb2a0dbae"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-top-10-rainbowfish": {
     "at": "2026-11-07",
     "hash": "7ec24ea648c59bbd",
@@ -7131,6 +7184,12 @@
     "hash": "b0c28ad57e446446",
     "findings": [],
     "ruled": "b0c28ad57e446446"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-warm-water-fish": {
+    "at": "2026-11-15",
+    "hash": "d8b9aed4758ca9f2",
+    "findings": [],
+    "ruled": "d8b9aed4758ca9f2"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-water-circulation": {
     "at": "2026-11-03",
@@ -13793,6 +13852,41 @@
     ],
     "ruled": "9f8e0565de04ef20"
   },
+  "vi/guides/youtube-2cQKwuP8G8I": {
+    "at": "2026-11-15",
+    "hash": "ab7a970e0c459ffb",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Gỡ tay càng nhiều càng tốt.",
+        "problem": "\"Gỡ tay\" is a clipped, unnatural phrase. A hobbyist would say \"gỡ bằng tay\" or describe scrubbing and siphoning.",
+        "fix": "Gỡ bằng tay được bao nhiêu thì gỡ.",
+        "rule": "Flag the phrase \"gỡ tay\" not followed by \"bằng\".",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Dư sắt nước trong bể cũng có thể là thủ phạm.",
+        "problem": "\"Dư sắt nước\" is a word-for-word rendering of \"excess liquid iron\" and is hard to read; it means too much liquid iron fertiliser.",
+        "fix": "Châm phân sắt nước quá tay cũng có thể làm rêu bùng lên.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Theo cách nhìn này, giữ lượng dinh dưỡng ít hơn một chút thì tốt hơn là để dư.",
+        "problem": "\"Theo cách nhìn này\" points back to a source's viewpoint and reads as translated.",
+        "fix": "Thà để dinh dưỡng hơi thiếu một chút còn hơn để dư.",
+        "field": "body"
+      }
+    ],
+    "ruled": "ab7a970e0c459ffb"
+  },
   "vi/guides/youtube-2EvDsbrS9Dg": {
     "at": "2026-11-09",
     "hash": "0775c65521b6fcee",
@@ -16578,6 +16672,12 @@
     "findings": [],
     "ruled": "1b53e76708f04931"
   },
+  "vi/guides/youtube-e_GFYgSzWXI": {
+    "at": "2026-11-15",
+    "hash": "59b3adcbfcc2d15f",
+    "findings": [],
+    "ruled": "59b3adcbfcc2d15f"
+  },
   "vi/guides/youtube-e0oyJw7PaL4": {
     "at": "2026-11-05",
     "hash": "14bd9fb771f4bdad",
@@ -16755,6 +16855,59 @@
     "hash": "e940c3063cea54ee",
     "findings": [],
     "ruled": "e940c3063cea54ee"
+  },
+  "vi/guides/youtube-EO2WPrekSF8": {
+    "at": "2026-11-15",
+    "hash": "88824f93ed598337",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "nếu pha 5 ml cho 76 lít thay vì 40 lít",
+        "problem": "The full dose is given as 5 ml per 38 litres in the protocol and summary, but here it becomes 40 litres.",
+        "fix": "nếu pha 5 ml cho 76 lít thay vì 38 lít",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Lặp lại bước 2 đến 4 mỗi ngày cho tới khi không còn thấy đốm.",
+        "problem": "This step points to steps 2 to 4 by number, but the list uses bullets, so readers can't see which steps are meant.",
+        "fix": "Lặp lại việc đợi 24 giờ, thay nước và châm lại thuốc mỗi ngày cho tới khi không còn thấy đốm.",
+        "rule": "A list item that refers to 'bước N' inside an unnumbered bullet list.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "vẫn châm tiếp ngày thứ 4 để diệt lứa bào nang còn dưới nền",
+        "problem": "The page says earlier that the medicine cannot touch cysts on the substrate and only kills parasites once they hatch, but this line says the extra day kills the cysts.",
+        "fix": "vẫn châm tiếp ngày thứ 4 để diệt lứa ký sinh trùng nở ra từ bào nang còn dưới nền",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L5",
+        "quote": "nhưng có thể làm cá yếu hoặc không chịu muối chết theo",
+        "problem": "The sentence is garbled: two ideas are run together, so it reads as if the fish are 'weak or don't tolerate salt die along'.",
+        "fix": "nhưng nhiệt cao có thể làm cá yếu đi, còn muối có thể giết luôn những loài không chịu được muối.",
+        "field": "summary.4"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "thì thủ phạm nhiều khả năng là thông số nước",
+        "problem": "This uses the stilted, translated-sounding phrases 'thủ phạm' and 'nhiều khả năng'.",
+        "fix": "thì chắc là do thông số nước",
+        "field": "body"
+      }
+    ],
+    "ruled": "88824f93ed598337"
   },
   "vi/guides/youtube-EOoIy3lGrxY": {
     "at": "2026-11-15",
@@ -17282,6 +17435,22 @@
       }
     ],
     "ruled": "0a8c46bba8e7a41f"
+  },
+  "vi/guides/youtube-GIeCugnkfCQ": {
+    "at": "2026-11-15",
+    "hash": "89c9ae01641a7b82",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L1",
+        "quote": "các loại thuốc làm trong nước đã thử đều không có tác dụng",
+        "problem": "The summary says none of the products worked, but the body says Masterline Purity removed almost all the tannin. Only the cloudiness stayed.",
+        "fix": "các sản phẩm làm trong nước đã thử đều không làm hết đục",
+        "field": "summary.0"
+      }
+    ],
+    "ruled": "89c9ae01641a7b82"
   },
   "vi/guides/youtube-gJuWCudImSc": {
     "at": "2026-11-09",
@@ -17862,6 +18031,12 @@
     "hash": "7f72237640161b62",
     "findings": [],
     "ruled": "7f72237640161b62"
+  },
+  "vi/guides/youtube-hVBN50ESOp4": {
+    "at": "2026-11-15",
+    "hash": "114da62f66bccd44",
+    "findings": [],
+    "ruled": "114da62f66bccd44"
   },
   "vi/guides/youtube-hX-kRoS7d8A": {
     "at": "2026-11-09",
@@ -18450,6 +18625,12 @@
       }
     ],
     "ruled": "42c9172a88246ae6"
+  },
+  "vi/guides/youtube-jhSeTo1Tdp0": {
+    "at": "2026-11-15",
+    "hash": "43a07bfea1b8915d",
+    "findings": [],
+    "ruled": "43a07bfea1b8915d"
   },
   "vi/guides/youtube-JiuUJE4ky1Y": {
     "at": "2026-11-08",
@@ -20108,6 +20289,23 @@
     ],
     "ruled": "595a2c592bb3ea53"
   },
+  "vi/guides/youtube-N6OtIWIEQs4": {
+    "at": "2026-11-15",
+    "hash": "a28ac314dc8b4893",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "rêu râu đen (black brush algae, hay BBA)",
+        "problem": "The site's own term for BBA is \"rêu chùm đen\", but the page calls it \"rêu râu đen\" here, in the title and elsewhere.",
+        "fix": "rêu chùm đen (BBA)",
+        "rule": "Flag \"rêu râu đen\" on any page, because the site's term for BBA is \"rêu chùm đen\".",
+        "field": "body"
+      }
+    ],
+    "ruled": "a28ac314dc8b4893"
+  },
   "vi/guides/youtube-naWrFEnwALY": {
     "at": "2026-11-07",
     "hash": "3b0bb10ec3ee409e",
@@ -20123,6 +20321,42 @@
       }
     ],
     "ruled": "3b0bb10ec3ee409e"
+  },
+  "vi/guides/youtube-Nbl2XlDFhY4": {
+    "at": "2026-11-15",
+    "hash": "08cec008b0169d12",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đây là lần đầu nó được dùng làm cây tiền cảnh trong một bố cục như thế này",
+        "problem": "With the author removed, this sentence reads as if the plant had never been used as a foreground plant before, when it means it is the writer's own first try.",
+        "fix": "Elatine hydropiper còn ít người dùng làm cây tiền cảnh trong kiểu bố cục này, nên vẫn mang tính thử nghiệm.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nhiều khả năng sẽ lên tốt trong bể",
+        "problem": "\"nhiều khả năng\" is on the site's list of phrases to avoid and reads as translated.",
+        "fix": "Nó không phải loại dễ trồng nhất, nhưng chắc là sẽ lên tốt trong bể.",
+        "rule": "Flag the phrase \"nhiều khả năng\".",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đây là loại cỏ tiền cảnh rất phổ biến, phần lớn người chơi đã biết.",
+        "problem": "\"phần lớn\" is on the site's list of phrases to avoid and makes the sentence sound translated.",
+        "fix": "Đây là loại cỏ tiền cảnh rất phổ biến, người chơi thủy sinh ai cũng biết.",
+        "rule": "Flag the phrase \"phần lớn\".",
+        "field": "body"
+      }
+    ],
+    "ruled": "08cec008b0169d12"
   },
   "vi/guides/youtube-NBR8ZLYW0dQ": {
     "at": "2026-11-10",
@@ -20412,6 +20646,29 @@
     ],
     "ruled": "5c054c27d211383d"
   },
+  "vi/guides/youtube-nSfYE7PXUmY": {
+    "at": "2026-11-15",
+    "hash": "fab97224ba742c55",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "high",
+        "part": "P1",
+        "quote": "Nhiệt độ hợp cho bể thủy sinh là 24–26 °C.",
+        "problem": "The page gives 24–26 °C as the right temperature for a planted tank, but the 5-day care table sets the tank at 28–29 °C, so the reader can't tell which to aim for.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Phần trung cảnh gần như đã bị đá chiếm hết, nên cây còn lại dồn ra tiền cảnh.",
+        "problem": "The section says rocks fill the midground so the remaining plants go to the foreground. Yet it plants ngưu mao chiên in the midground, and the section before already put vảy ốc xanh bò there.",
+        "field": "body"
+      }
+    ],
+    "ruled": "fab97224ba742c55"
+  },
   "vi/guides/youtube-nsVEqrCSx1Y": {
     "at": "2026-11-14",
     "hash": "0f69f56662e0d1f8",
@@ -20595,6 +20852,12 @@
       }
     ],
     "ruled": "9110916651f6b398"
+  },
+  "vi/guides/youtube-ohxFuNlRd2c": {
+    "at": "2026-11-15",
+    "hash": "4bd107a3134a6191",
+    "findings": [],
+    "ruled": "4bd107a3134a6191"
   },
   "vi/guides/youtube-OJ0X5fuRvAA": {
     "at": "2026-11-07",
@@ -21045,6 +21308,31 @@
       }
     ],
     "ruled": "b9812a47dd59d85d"
+  },
+  "vi/guides/youtube-PnLf3RxViMg": {
+    "at": "2026-11-15",
+    "hash": "d3529c122641a094",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L1",
+        "quote": "chỉ cần nhét vào kẽ lũa là dính, không phải dán keo",
+        "problem": "The summary says any driftwood works without glue, but the text says this only works with branchy wood like spiderwood.",
+        "fix": "Trồng dương xỉ trước vì chúng cho nhiều mảng xanh mà giá rẻ. Với lũa nhiều nhánh như spiderwood, chỉ cần nhét gốc vào kẽ nhánh, không phải dán keo.",
+        "field": "summary.0"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L3",
+        "quote": "Tách một cốc Glossostigma ra thành nhiều nhúm nhỏ là đủ phủ cả tiền cảnh",
+        "problem": "The text only says one cup covers a wide area, and it plants Eleocharis alongside Glossostigma and buys more cups later, so 'enough for the whole foreground' overstates it.",
+        "fix": "Tách một cốc Glossostigma ra thành nhiều nhúm nhỏ thì phủ được một khoảng khá rộng, vì cây sẽ bò ra nối lại thành thảm.",
+        "field": "summary.2"
+      }
+    ],
+    "ruled": "d3529c122641a094"
   },
   "vi/guides/youtube-PnwEzP5x8eU": {
     "at": "2026-11-02",
@@ -22599,6 +22887,12 @@
     "findings": [],
     "ruled": "01d9656aae2b48a5"
   },
+  "vi/guides/youtube-TMSoZv8XrL8": {
+    "at": "2026-11-15",
+    "hash": "669ac448cf8cdbe4",
+    "findings": [],
+    "ruled": "669ac448cf8cdbe4"
+  },
   "vi/guides/youtube-tPF5788brsw": {
     "at": "2026-11-15",
     "hash": "bffc8ffe8ca6f04c",
@@ -22947,6 +23241,12 @@
       }
     ],
     "ruled": "dc91773415757e91"
+  },
+  "vi/guides/youtube-UUEH_Ewta2U": {
+    "at": "2026-11-15",
+    "hash": "2aea17e891c4d1b7",
+    "findings": [],
+    "ruled": "2aea17e891c4d1b7"
   },
   "vi/guides/youtube-uxEgm6qa0Ow": {
     "at": "2026-11-15",
@@ -24309,6 +24609,22 @@
     "findings": [],
     "ruled": "202fa125bdb8b2a2"
   },
+  "vi/guides/youtube-ZbUcP1amgZ8": {
+    "at": "2026-11-15",
+    "hash": "61270d26a0d5cf6c",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Riêng APT Complete thì có lẽ khác một chút, vì loại này thiên về châm ít và dành cho bể có phân nền.",
+        "problem": "The paragraph first says APT Complete can be dosed the EI way, then says APT Complete is a lean-dosing product for soil tanks; that lean-dosing product is APT Zero, so the product name is wrong here.",
+        "fix": "Riêng APT Zero thì có lẽ khác một chút, vì loại này thiên về châm ít và dành cho bể có phân nền.",
+        "field": "body"
+      }
+    ],
+    "ruled": "61270d26a0d5cf6c"
+  },
   "vi/guides/youtube-zdJPct8nY0g": {
     "at": "2026-11-06",
     "hash": "6123dd763ee5ef0f",
@@ -24324,6 +24640,12 @@
       }
     ],
     "ruled": "6123dd763ee5ef0f"
+  },
+  "vi/guides/youtube-zDZ2W-e1vRw": {
+    "at": "2026-11-15",
+    "hash": "2b3447516cda07d1",
+    "findings": [],
+    "ruled": "2b3447516cda07d1"
   },
   "vi/guides/youtube-zfTnqG22oS8": {
     "at": "2026-11-03",

@@ -1,0 +1,60 @@
+{
+  "id": "synodontis-pardalis",
+  "native": {
+    "input": "e17972a93cc61e6c",
+    "at": "2026-11-15T05:39:34.625Z",
+    "claims": [
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species is known only from the river Dja and its affluent Libi in Cameroon.",
+        "words": "Cameroon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Dja",
+        "source": "glaser",
+        "quote": "The species is known only from the river Dja and its affluent Libi in Cameroon.",
+        "country": "CM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Synodontis pardalis",
+    "status": "ACCEPTED",
+    "taxonKey": 2344323,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        15
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        7
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        5
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ]
+    ],
+    "native": [
+      "CM"
+    ],
+    "requests": 11,
+    "at": "2026-11-15T05:39:34.625Z"
+  }
+}

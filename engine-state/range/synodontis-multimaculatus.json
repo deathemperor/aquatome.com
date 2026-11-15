@@ -1,0 +1,53 @@
+{
+  "id": "synodontis-multimaculatus",
+  "native": {
+    "input": "03501067344ac4fd",
+    "at": "2026-11-15T05:39:34.625Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Ubangi River at Banzyville, Democratic Republic of Congo, about 4°18'N, 21°11'E.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Congo",
+        "source": "planetcatfish",
+        "quote": "Africa: Ubangi, Congo basin.",
+        "ok": true
+      },
+      {
+        "name": "Ubangi",
+        "source": "planetcatfish",
+        "quote": "Africa: Ubangi, Congo basin.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Synodontis multimaculatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2344305,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        1
+      ]
+    ],
+    "native": [
+      "CD"
+    ],
+    "requests": 11,
+    "at": "2026-11-15T05:39:34.625Z"
+  }
+}

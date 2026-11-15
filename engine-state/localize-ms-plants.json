@@ -1152,5 +1152,77 @@
       "maintenance:aquatome": "9cf71fa25614",
       "notes:tropica": "6e99fb634de7"
     }
+  },
+  "eleocharis-pusilla": {
+    "at": "2026-11-15",
+    "from": "2026-11-08",
+    "name": "Eleocharis pusilla 'Mini'",
+    "confidence": "medium",
+    "score": 0.3,
+    "notes": [
+      "Item 2: the English source is actually Vietnamese, not English, so the source text is unusual; the Malay translation is faithful to it but cannot be checked against a true English original.",
+      "Item 4: 'was given to Tropica by Thomas Barr' is changed to 'diperoleh daripada Thomas Barr'. The Tropica link is dropped, so a fact is omitted. Say it was given to Tropica by Thomas Barr from the USA.",
+      "Item 4: 'has even lower growth' is rendered 'tumbuh lebih rendah lagi'. This is acceptable, but 'closed cup' becoming 'cawan tertutup' is fine; ensure Tropica is retained.",
+      "Item 2: 'tangki' is used for the tank. Prefer 'akuarium' in a Malaysian hobby handbook, although 'tangki' is understood.",
+      "Item 3: the 'Needs light ... however' sentence is slightly awkward. Consider 'Memerlukan cahaya yang baik untuk prestasi optimum, namun ...'."
+    ],
+    "parts": {
+      "quickFacts:tropica": "dc58dbef200d",
+      "maintenance:aquatome": "14bc99023e9e",
+      "maintenance:tropica": "cff1c847d775",
+      "notes:tropica": "692a973dc1cc"
+    }
+  },
+  "eriocaulon-cinereum": {
+    "at": "2026-11-15",
+    "from": "2026-10-31",
+    "name": "Eriocaulon cinereum",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": [
+      "Item 10: \"mendebunga\" is non-standard; use \"mendebungakan\" or \"proses pendebungaan\".",
+      "Item 3: \"dua keturunan\" for \"lineages\" could be clearer as \"dua salasilah (lineage)\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "b9a30bec6bdd",
+      "quickFacts:aquariumbreeder": "8f5584b8b753",
+      "distribution:aquariumbreeder": "347964996b05",
+      "habitat:aquariumbreeder": "97e4099fcb6c",
+      "aquariumSize:aquariumbreeder": "c4a383b72ea4",
+      "maintenance:aquariumbreeder": "64802b81c8da",
+      "waterConditions:aquariumbreeder": "e40dc0c05b60",
+      "equipment:aquariumbreeder": "e1869d76b871",
+      "notes:tropica": "e5cf31a4b37b",
+      "notes:aquariumbreeder": "bdf6e6782fe7",
+      "references:aquariumbreeder": "60954cf124f2"
+    }
+  },
+  "eriocaulon-sp-vietnam": {
+    "at": "2026-11-15",
+    "from": "2026-10-30",
+    "name": "Eriocaulon Vietnam",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "f28ce378e1c2",
+      "maintenance:tropica": "f1378f544681"
+    }
+  },
+  "fissidens-fontanus": {
+    "at": "2026-11-15",
+    "from": "2026-10-30",
+    "name": "Phoenix Moss",
+    "confidence": "high",
+    "score": 0.75,
+    "notes": [
+      "\"daun halus\" for \"down\": \"tight deep green down\" means fine feathery/downy growth; \"daun halus\" is acceptable but \"tersusun rapat\" adds a leaf-arrangement claim. Consider \"bulu halus hijau tua yang padat\".",
+      "\"berbentuk seperti bulu pelepah\" is awkward; use \"berbentuk seperti bulu burung\" or \"bak bulu pelepah\" for \"featherlike\".",
+      "\"diikat pada kayu\": \"attaching\" is fine, but \"kayu\" should be \"kayu apung/driftwood\" if wood pieces are meant; \"Keperluan cahaya\" is acceptable."
+    ],
+    "parts": {
+      "quickFacts:tropica": "a3dcf5a5253e",
+      "notes:tropica": "040700e237ad"
+    }
   }
 }

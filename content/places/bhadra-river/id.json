@@ -1,8 +1,13 @@
 {
   "slug": "bhadra-river",
-  "name": "Bhadra",
+  "name": "Sungai Bhadra",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-15T05:29:10.775Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

@@ -3,6 +3,12 @@
   "name": "Mendawai",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-15T05:31:29.870Z",
+    "why": "The source describes the Mendawai river basin in Central Kalimantan, so an Indonesian atlas would write \"Sungai Mendawai\" or \"DAS Mendawai\", and the bare \"Mendawai\" drops the kind word."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

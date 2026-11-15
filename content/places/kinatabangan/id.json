@@ -3,6 +3,12 @@
   "name": "Kinabatangan",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-15T05:28:41.336Z",
+    "why": "The real name is Kinabatangan (the river and district in Sabah), but the place given is \"Kinatabangan\", and the Indonesian \"Kinabatangan\" is the correct spelling for the river; a region would normally be written \"Daerah Kinabatangan\" or \"Sungai Kinabatangan\" in an atlas."
+  },
   "quality": {
     "score": 0.05,
     "indexable": false
