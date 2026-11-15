@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
 import type { FitCheck } from '../src/fit'
-import { addedWords, asked, cutWhole, mendPart, type Dropped } from '../src/mend'
+import { addedWords, asked, batchHalf, cutWhole, mendPart, type Dropped } from '../src/mend'
 import { sentences } from '../src/sentences'
 
 /**
@@ -295,6 +295,73 @@ test('a sentence a finding on where it applies names goes whole: a cut of it is 
     if (typeof r === 'string') throw new Error(r)
     expect([r.whole, r.added, r.unasked], check).toEqual([[], [], []])
   }
+})
+
+// The chief of staff, 15 Nov 2026: "Cá Leporinus đôi khi hay gây gổ với cá cùng loài" went whole with its batch half,
+// "nhưng những con này tới giờ vẫn khá hiền". A source finding on the second clause of "X, nhưng Y" is the writer's to cut
+// to X, and its reviewer reads what's left as any cut. (Three stand-in reads found a cut by code alone, with nothing to
+// read it, could leave half a sentence or one the next sentence leaned on.)
+test('a source finding on the "nhưng" clause of its sentence lets the writer cut only that clause; any other cut is read as before', async () => {
+  const LEP = '<p>Cá Leporinus đôi khi hay gây gổ với cá cùng loài, nhưng những con này tới giờ vẫn khá hiền.</p>'
+  const src = (quote: string) => ({ check: 'source' as FitCheck, quote })
+  for (const q of ['nhưng những con này tới giờ vẫn khá hiền', 'những con này tới giờ vẫn khá hiền.']) expect(batchHalf(LEP, src(q)), q).toBe(true)
+  // Not the clause: part of it, another check, "còn", a clause before the last.
+  expect(batchHalf(LEP, src('những con này tới giờ'))).toBe(false)
+  expect(batchHalf(LEP, { check: 'shop', quote: 'nhưng những con này tới giờ vẫn khá hiền' })).toBe(false)
+  expect(batchHalf('<p>Loài này ăn tạp, còn lô này thì rất nhát.</p>', src('còn lô này thì rất nhát'))).toBe(false)
+  expect(batchHalf('<p>Loài này hiền, nhưng lô này nhát, song vẫn ăn tốt.</p>', src('nhưng lô này nhát'))).toBe(false)
+  const half = [{ ...src('nhưng những con này tới giờ vẫn khá hiền'), note: 'n', whole: false as const }]
+  const kept = await mendPart(said(1, 'Cá Leporinus đôi khi hay gây gổ với cá cùng loài.'), LEP, half)
+  if (typeof kept === 'string') throw new Error(kept)
+  expect([kept.whole, kept.added, kept.unasked]).toEqual([[], [], []])
+  expect(kept.html).toBe('<p>Cá Leporinus đôi khi hay gây gổ với cá cùng loài.</p>')
+  // The writer may take it whole, when what's left isn't true of every such fish.
+  const gone = await mendPart(said(1, ''), LEP, half)
+  if (typeof gone === 'string') throw new Error(gone)
+  expect([gone.whole, gone.unasked]).toEqual([[], []])
+  // A word of the first half lost, or the clause said another way, is caught as any cut is.
+  const more = await mendPart(said(1, 'Cá Leporinus hay gây gổ với cá cùng loài.'), LEP, half)
+  if (typeof more === 'string') throw new Error(more)
+  expect(more.unasked.length).toBeGreaterThan(0)
+  const other = await mendPart(said(1, 'Cá Leporinus đôi khi hay gây gổ với cá cùng loài, nhưng thường khá hiền.'), LEP, half)
+  if (typeof other === 'string') throw new Error(other)
+  expect(other.added.length).toBeGreaterThan(0)
+  // Without the flag, the same cut is refused: a source finding takes its sentence whole.
+  const plainSource = await mendPart(said(1, 'Cá Leporinus đôi khi hay gây gổ với cá cùng loài.'), LEP, [{ ...src('nhưng những con này tới giờ vẫn khá hiền'), note: 'n' }])
+  if (typeof plainSource === 'string') throw new Error(plainSource)
+  expect(plainSource.whole.length).toBe(1)
+})
+
+// A stand-in read of 15 Nov 2026: a batch half's sentence kept with part of its clause ("…, nhưng khá hiền") passed every
+// check, saying of every Leporinus what was said of one batch; and a sentence after the cut, which may lean on the half
+// that went, was never shown to the reviewer.
+test('a batch half\'s sentence kept holds nothing of its clause, and the cut is offered only in a part\'s last sentence', async () => {
+  const LEP = '<p>Cá Leporinus đôi khi hay gây gổ với cá cùng loài, nhưng những con này tới giờ vẫn khá hiền.</p>'
+  const src = (quote: string) => ({ check: 'source' as FitCheck, quote })
+  const half = [{ ...src('nhưng những con này tới giờ vẫn khá hiền'), note: 'n', whole: false as const }]
+  for (const vi of [
+    'Cá Leporinus đôi khi hay gây gổ với cá cùng loài, nhưng tới giờ vẫn khá hiền.',
+    'Cá Leporinus đôi khi hay gây gổ với cá cùng loài, nhưng khá hiền.',
+    'Cá Leporinus đôi khi hay gây gổ với cá cùng loài và khá hiền.',
+    'Cá Leporinus đôi khi hay gây gổ với cá cùng loài, nhưng những con này tới giờ vẫn khá hiền.',
+  ]) {
+    const r = await mendPart(said(1, vi), LEP, half)
+    if (typeof r === 'string') throw new Error(r)
+    expect(r.whole, vi).toHaveLength(1)
+  }
+  // A quote without its joining word: the clause goes with it, and the cut is kept.
+  const bare = await mendPart(said(1, 'Cá Leporinus đôi khi hay gây gổ với cá cùng loài.'), LEP, [{ ...src('những con này tới giờ vẫn khá hiền.'), note: 'n', whole: false }])
+  if (typeof bare === 'string') throw new Error(bare)
+  expect([bare.whole, bare.unasked, bare.added]).toEqual([[], [], []])
+  // A sentence after it, in its paragraph or the next: not a batch half. One before it is.
+  const q = src('nhưng những con này tới giờ vẫn khá hiền')
+  expect(batchHalf(LEP.replace('</p>', ' Vì vậy có thể nuôi chung vài con.</p>'), q)).toBe(false)
+  expect(batchHalf(`${LEP}<p>Vì vậy có thể nuôi chung vài con.</p>`, q)).toBe(false)
+  expect(batchHalf(LEP.replace('<p>', '<p>Loài này sống ở suối. '), q)).toBe(true)
+  // After "Mặc dù" or "Tuy" what comes before the clause is half a sentence; after "Tuy nhiên" it is whole.
+  expect(batchHalf('<p>Mặc dù loài này ăn tạp, nhưng lô này kén ăn.</p>', src('nhưng lô này kén ăn'))).toBe(false)
+  expect(batchHalf('<p>Tuy loài này ăn tạp, nhưng lô này kén ăn.</p>', src('nhưng lô này kén ăn'))).toBe(false)
+  expect(batchHalf('<p>Tuy nhiên loài này ăn tạp, nhưng lô này kén ăn.</p>', src('nhưng lô này kén ăn'))).toBe(true)
 })
 
 // The chief of staff, 14 Nov 2026: a sentence left pointing at one that went whole may go with it, when it is the one
