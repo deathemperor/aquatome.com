@@ -17,12 +17,18 @@ Chúng tôi đặt một dòng chữ tiếng Việt lớn đè lên thumbnail: c
 - Văn nói, gọn, gây tò mò hoặc hứa một kết quả cụ thể. Được dùng câu hỏi, "bạn", con số, so sánh, từ dân chơi (set bể, rêu bám, châm phân).
 - Tránh giọng tiêu đề báo hay máy dịch: "Lỗi này gây…", "Cách để…", "Những điều cần biết", "Hướng dẫn…" khô khan, "Việc…", từ Hán Việt cứng khi có từ nói thường.
 - Rêu gây hại gọi là "rêu hại", hoặc tên dân chơi dùng (rêu tóc, BBA, rêu chấm xanh).
+- Không nêu tên người, tên kênh hay tên cửa hàng.
 - 2–7 chữ, tối đa 30 ký tự. Không dấu hai chấm, dấu phẩy, ngoặc kép hay dấu chấm câu ở cuối (dấu hỏi ở giữa thì được). Chỉ viết hoa chữ đầu câu và tên riêng.
 
 candidates: 5 phương án thật khác nhau. cover: phương án tự nhiên và hút mắt nhất mà vẫn đúng nội dung video.`
 
 const clean = (s: string) => s.replace(/^["“”']+|["“”'.!?]+$/g, '').trim()
-const usableCover = (s: string) => !!s && s.length <= 36 && !/[:;,]/.test(s)
+/**
+ * A label that names someone: "của" before a capital (a person's tank, "Bể cầu vồng của …"), or the channel's own name.
+ * The content rule names no author or channel (the Writing Lead, 15 Nov 2026, on the rainbowfish guide's label).
+ */
+export const namesSomeone = (s: string, channel = '') => /(?:^|\s)của\s+\p{Lu}/u.test(s) || (channel.trim().length >= 3 && s.toLowerCase().includes(channel.trim().toLowerCase()))
+const usableCover = (s: string, channel?: string) => !!s && s.length <= 36 && !/[:;,]/.test(s) && !namesSomeone(s, channel)
 
 /**
  * Gives each video guide without one a Vietnamese cover label, from a look at its thumbnail. Each guide is a piece
@@ -47,8 +53,8 @@ export async function videoCovers(contentRoot: string, d: CoverDeps, opts: { lim
           const file = join(dir, `${video.youtubeId}.jpg`)
           await writeFile(file, await d.get(video.thumb?.url ?? `https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg`))
           const r = await d.look(file, coverPrompt(video.title, vi.name, video.channel))
-          // The pick, or the first usable candidate when the pick breaks the length/punctuation rules.
-          const cover = [r.cover, ...(r.candidates ?? [])].map(clean).find(usableCover)
+          // The pick, or the first usable candidate when the pick breaks the length/punctuation rules or names someone.
+          const cover = [r.cover, ...(r.candidates ?? [])].map(clean).find(c => usableCover(c, video.channel))
           if (!cover) throw new Error(`unusable cover "${r.cover}"`)
           await writeFile(viFile, `${JSON.stringify(TranslationSchema.parse({ ...vi, cover }), null, 2)}\n`)
           done.push(`${id}: ${cover}`)

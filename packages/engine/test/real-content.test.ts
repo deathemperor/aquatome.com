@@ -20,6 +20,7 @@ import { fishThaiLai, wordingSlips } from '../src/sanitize'
 import { cardOf, cardProblems, readSummaries } from '../src/summaries'
 import { cardSchool, readTraits } from '../src/traits'
 import { sweepTranslation } from '../src/sweep'
+import { namesSomeone } from '../src/video-covers'
 import { slow } from '@aq/schema/test-time'
 
 // The real content/, not the test store, as a public build shows it. Each class of defect here has a fix the engine
@@ -893,4 +894,16 @@ test('the hand fixes to the 17 held video guides hold: each cut line is gone, ea
       if (e.now) expect(text[e.in], `${id}: ${e.now}`).toContain(e.now)
     }
   }
+})
+
+// The Writing Lead, 15 Nov 2026, on the rainbowfish guide's label ("Bể cầu vồng của …"): no video guide's label, the
+// words over its thumbnail, names the person in the video or the channel.
+test('no video guide\'s label names a person or the channel', () => {
+  const dir = fileURLToPath(new URL('../../../content/guides', import.meta.url))
+  const named = readdirSync(dir).filter(id => id.startsWith('youtube-') && existsSync(join(dir, id, 'vi.json'))).flatMap(id => {
+    const { cover } = JSON.parse(readFileSync(join(dir, id, 'vi.json'), 'utf8')) as Translation
+    const { video } = JSON.parse(readFileSync(join(dir, id, 'entity.json'), 'utf8')) as { video?: { channel?: string } }
+    return cover && namesSomeone(cover, video?.channel) ? [id] : []
+  })
+  expect(named).toEqual([])
 })
