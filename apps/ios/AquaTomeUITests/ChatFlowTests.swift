@@ -560,7 +560,7 @@ final class ChatFlowTests: XCTestCase {
     let page = element(app, "v2-species")
     XCTAssertTrue(page.waitForExistence(timeout: 10), "no page")
     XCTAssertTrue(page.descendants(matching: .any).matching(NSPredicate(format: "label BEGINSWITH 'Cá neon'")).firstMatch.exists, "not the card's page")
-    app.buttons["v2-back"].tap()
+    app.leavePage()
     let put = app.buttons.matching(identifier: "chat-card-put").element(boundBy: 1)
     reveal(app, put)
     XCTAssertGreaterThan(cards.element(boundBy: 1).frame.height - cards.element(boundBy: 0).frame.height, 100, "the page's own fish has its whole photo again")
@@ -582,7 +582,7 @@ final class ChatFlowTests: XCTestCase {
     let page = element(app, "v2-species")
     XCTAssertTrue(page.waitForExistence(timeout: 10), "no page")
     XCTAssertTrue(page.descendants(matching: .any).matching(NSPredicate(format: "label BEGINSWITH 'Cá neon'")).firstMatch.exists, "not the card's page")
-    app.buttons["v2-back"].tap()
+    app.leavePage()
     let section = app.descendants(matching: .any).matching(identifier: "chat-section").firstMatch
     reveal(app, section)
     section.press(forDuration: 1)
@@ -668,7 +668,7 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(element(app, "v2-species").waitForExistence(timeout: 10), "no page")
     let heading = app.staticTexts["Sinh sản ra sao?"]
     XCTAssertTrue(soon(heading.exists && heading.isHittable, timeout: 5), "not at its part")
-    XCTAssertGreaterThan(heading.frame.minY, app.buttons["v2-back"].frame.maxY, "the part's heading behind the bar")
+    XCTAssertGreaterThan(heading.frame.minY, app.pageBack.frame.maxY, "the part's heading behind the bar")
   }
 
   /// A short section has nothing to open; it draws a summary, its links work, and what it can't draw is counted. A tool whose
@@ -687,7 +687,7 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertFalse(app.buttons["Thu gọn"].waitForExistence(timeout: 2), "nothing to open, and yet it opened")
     linked.tap()
     XCTAssertTrue(element(app, "v2-species").waitForExistence(timeout: 10), "the link in its text did nothing")
-    app.buttons["v2-back"].tap()
+    app.leavePage()
     let gone = app.buttons.matching(identifier: "chat-tool").element(boundBy: 1)
     reveal(app, gone)
     gone.tap()
@@ -758,7 +758,7 @@ final class ChatFlowTests: XCTestCase {
     reveal(app, fish, times: 10)
     fish.tap()
     XCTAssertTrue(element(app, "v2-species").waitForExistence(timeout: 10), "a fish's line didn't open its page")
-    app.buttons["v2-back"].tap()
+    app.leavePage()
     let heading = app.descendants(matching: .any).matching(identifier: "chat-section").firstMatch.descendants(matching: .any).matching(NSPredicate(format: "label CONTAINS 'Cho ăn'")).firstMatch
     reveal(app, heading, times: 40)
     // Its text, which is what opens it: a point partway down a card this tall can be behind the box.
