@@ -71,24 +71,7 @@
     "figures": [
       {
         "heading": "Chọn sỏi để trộn với đất nền",
-        "moments": [
-          {
-            "t": 350,
-            "url": "https://media.aquatome.com/video/gsJFcg0G_yE/at350-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Những bao sỏi tròn xếp chồng ở cửa hàng, bán số lượng lớn giá rẻ.",
-            "sharpness": 502
-          },
-          {
-            "t": 410,
-            "url": "https://media.aquatome.com/video/gsJFcg0G_yE/at410-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các khay sỏi tròn nhiều cỡ ở cửa hàng vật liệu sân vườn.",
-            "sharpness": 498.7
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/gsJFcg0G_yE/p0-sX0dyZWVjZS5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/gsJFcg0G_yE/p0-sX0dyZWVjZS5qcGc-480.webp",
@@ -122,7 +105,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đổ hỗn hợp sỏi và đất xuống đáy bể tạo lớp nền.",
-            "sharpness": 363.9
+            "sharpness": 363.9,
+            "person": false
           }
         ]
       },
@@ -135,7 +119,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cát phủ được rải thành lớp dày trên nền bể.",
-            "sharpness": 672.8
+            "sharpness": 672.8,
+            "person": false
           },
           {
             "t": 1090,
@@ -143,7 +128,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh lớp cát phủ hạt vừa, bề mặt đã san phẳng.",
-            "sharpness": 2224.4
+            "sharpness": 2224.4,
+            "person": false
           }
         ],
         "photo": {
@@ -166,7 +152,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cụm lũa dáng dài, nhiều nhánh đặt trên nền cát trong bể lớn.",
-            "sharpness": 922.3
+            "sharpness": 922.3,
+            "person": false
           }
         ],
         "photo": {
@@ -203,15 +190,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Mảng sỏi nhỏ được rải trên nền cát cạnh đá và lũa.",
-            "sharpness": 1472.4
-          },
-          {
-            "t": 1840,
-            "url": "https://media.aquatome.com/video/gsJFcg0G_yE/at1840-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay rải sỏi thành mảng nhỏ trên nền gần gốc lũa.",
-            "sharpness": 1223
+            "sharpness": 1472.4,
+            "person": false
           }
         ],
         "photo": {
@@ -234,7 +214,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh đã trồng cây, thảm cây trải nền xanh mướt phủ kín.",
-            "sharpness": 2257.9
+            "sharpness": 2257.9,
+            "person": false
           }
         ]
       }

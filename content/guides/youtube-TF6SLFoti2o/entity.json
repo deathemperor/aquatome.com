@@ -75,7 +75,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh mới lên cây khá dày ở tiền cảnh và hậu cảnh.",
-            "sharpness": 2083.5
+            "sharpness": 2083.5,
+            "person": false
           },
           {
             "t": 30,
@@ -98,46 +99,8 @@
         }
       },
       {
-        "heading": "Lau kính bằng nam châm sao cho không xước",
-        "moments": [
-          {
-            "t": 150,
-            "url": "https://media.aquatome.com/video/TF6SLFoti2o/at150-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay chùi mặt kính bể bằng nam châm, phía sau là cây tiền cảnh.",
-            "sharpness": 699
-          },
-          {
-            "t": 160,
-            "url": "https://media.aquatome.com/video/TF6SLFoti2o/at160-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nam châm lau kính đặt sát mặt kính, cạnh đám cây thủy sinh.",
-            "sharpness": 768.1
-          }
-        ]
-      },
-      {
         "heading": "Lá trôi thì vớt, ngọn trôi thì cắm lại",
-        "moments": [
-          {
-            "t": 230,
-            "url": "https://media.aquatome.com/video/TF6SLFoti2o/at230-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh nhiều cây xanh, người chơi cầm vợt để vớt lá.",
-            "sharpness": 771
-          },
-          {
-            "t": 240,
-            "url": "https://media.aquatome.com/video/TF6SLFoti2o/at240-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh thảm cây thủy sinh trong bể, tay đang chăm sóc cây.",
-            "sharpness": 183.7
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/TF6SLFoti2o/p2-BN2VsaV8wMS5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/TF6SLFoti2o/p2-BN2VsaV8wMS5qcGc-480.webp",
@@ -151,24 +114,7 @@
       },
       {
         "heading": "Gỡ rêu tóc bằng que thông ống",
-        "moments": [
-          {
-            "t": 250,
-            "url": "https://media.aquatome.com/video/TF6SLFoti2o/at250-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh bề mặt có các sợi rêu mảnh bám trên đó.",
-            "sharpness": 265.3
-          },
-          {
-            "t": 270,
-            "url": "https://media.aquatome.com/video/TF6SLFoti2o/at270-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh bể thủy sinh với cây và lũa, dùng để quan sát rêu hại.",
-            "sharpness": 1824.8
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/TF6SLFoti2o/p3-fUGFjaWZpYy5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/TF6SLFoti2o/p3-fUGFjaWZpYy5qcGc-480.webp",
@@ -182,24 +128,7 @@
       },
       {
         "heading": "Đọc tình trạng cây ở mốc hai tuần",
-        "moments": [
-          {
-            "t": 360,
-            "url": "https://media.aquatome.com/video/TF6SLFoti2o/at360-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây tiền cảnh trồng thưa trên nền cát, vài cụm còn nhỏ và chưa phủ kín.",
-            "sharpness": 457.6
-          },
-          {
-            "t": 420,
-            "url": "https://media.aquatome.com/video/TF6SLFoti2o/at420-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thảm tiền cảnh cạnh hòn đá, có chỗ lên chồi xanh, có chỗ còn thưa.",
-            "sharpness": 309.1
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/TF6SLFoti2o/p4-FNyU4RiVBMC5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/TF6SLFoti2o/p4-FNyU4RiVBMC5qcGc-480.webp",
@@ -228,7 +157,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh dài với lũa và cây xanh, nước hơi đục sau khi thay.",
-            "sharpness": 1294.7
+            "sharpness": 1294.7,
+            "person": false
           }
         ]
       },
@@ -241,7 +171,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá nhỏ được thả vào ca trước khi cho xuống bể.",
-            "sharpness": 506.2
+            "sharpness": 506.2,
+            "person": false
           },
           {
             "t": 1010,
@@ -249,7 +180,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây thủy sinh đang lên xanh trên lũa, bể chưa thả cá lớn.",
-            "sharpness": 2267
+            "sharpness": 2267,
+            "person": false
           }
         ],
         "photo": {

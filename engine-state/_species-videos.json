@@ -1673,10 +1673,12 @@
     "reason": "general topic"
   },
   "eOEM2zoSlBs": {
-    "at": "2026-11-07",
+    "at": "2026-11-15",
     "title": "Quick Dip into The Long fin Serpae Tetra - Hyphessobrycon eques",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "failed",
+    "reason": "whisper: ValueError: Unsupported language: zxx"
   },
   "ERczrRBecRg": {
     "at": "2026-11-07",
@@ -1687,10 +1689,15 @@
     "reason": "fossil news"
   },
   "ETOaNDemwVM": {
-    "at": "2026-11-07",
+    "at": "2026-11-15",
     "title": "New Platy Variation - Blue Butterfly Mickey Mouse",
     "channel": "CHRIS LUKHAUP",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Xiphophorus maculatus",
+    "page": "species/xiphophorus-maculatus",
+    "done": "low",
+    "score": 0.74,
+    "reason": "reproduction: \"cá cái của mình cứ 3–4 tuần lại đẻ… khoảng 30 con\" – the video states this as a general fact about platies. It does not say these are the speaker's own females.; reproduction: \"hai lứa cũng gần nhau hơn mức thường gặp\" – the video doesn't compare against the page's 17–65 day range. 3–4 weeks falls inside that range, so the comparison is an unsupported stretch."
   },
   "EtZdxvC5mrE": {
     "at": "2026-11-07",
@@ -1701,10 +1708,14 @@
     "reason": "Product review"
   },
   "EU7xKjw8VZI": {
-    "at": "2026-11-07",
+    "at": "2026-11-15",
     "title": "Discover the Starlight Bristlenose Pleco - Ancistrus dolichopterus - L183",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Ancistrus dolichopterus",
+    "page": "species/ancistrus-dolichopterus",
+    "done": "added",
+    "score": 0.8
   },
   "ew0jLEh0vgg": {
     "at": "2026-11-07",

@@ -62097,7 +62097,8 @@
         "quote": "cho một muỗng cà phê gạt ngang vào xô đang hứng nước máy, lượng này đủ cho khoảng 150 lít"
       }
     ],
-    "sourceRead": true
+    "sourceRead": true,
+    "mendTried": "2026-11-15"
   },
   "vi/guides/youtube-0qI2Y-DHzQs": {
     "at": "2026-11-08",
@@ -62247,7 +62248,8 @@
     ],
     "products": [
       "AquaClear 70"
-    ]
+    ],
+    "mendTried": "2026-11-15"
   },
   "vi/guides/youtube-0SQjE8svImY": {
     "at": "2026-11-08",
@@ -62898,7 +62900,8 @@
         "by": "model"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-15"
   },
   "vi/guides/youtube-2cJXsJUdOfk": {
     "at": "2026-11-09",
@@ -63396,7 +63399,8 @@
         "by": "model"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-15"
   },
   "vi/guides/youtube-3OYP0CMIcf0": {
     "at": "2026-11-10",
@@ -63768,7 +63772,8 @@
         "by": "model"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-15"
   },
   "vi/guides/youtube-4LpldhD2JHU": {
     "at": "2026-11-14",
@@ -64056,7 +64061,8 @@
       "Twinstar Nano Plus",
       "Green Leaf Aquariums",
       "Tropica Specialised"
-    ]
+    ],
+    "mendTried": "2026-11-15"
   },
   "vi/guides/youtube-4y9vcjJmCi4": {
     "at": "2026-11-09",
@@ -64910,7 +64916,8 @@
     "products": [
       "Accu-Clear",
       "Quick Start"
-    ]
+    ],
+    "mendTried": "2026-11-15"
   },
   "vi/guides/youtube-6d_crutxHts": {
     "at": "2026-11-15",
@@ -65482,7 +65489,8 @@
     ],
     "products": [
       "Matala mat"
-    ]
+    ],
+    "mendTried": "2026-11-15"
   },
   "vi/guides/youtube-7l1Ja0NL_UQ": {
     "at": "2026-11-09",
@@ -65805,7 +65813,8 @@
     "products": [
       "Dennerle",
       "keo 502"
-    ]
+    ],
+    "mendTried": "2026-11-15"
   },
   "vi/guides/youtube-820T-yYBDrA": {
     "at": "2026-11-08",
@@ -67069,7 +67078,8 @@
         "by": "model"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-15"
   },
   "vi/guides/youtube-ahKKqSGy0Mw": {
     "at": "2026-11-10",
@@ -67829,20 +67839,28 @@
     ]
   },
   "vi/guides/youtube-B8fj1mf64yE": {
-    "at": "2026-11-09",
-    "hash": "c059190943a06d7e",
+    "at": "2026-11-15",
+    "hash": "a04524c1e79a968b",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Điều còn tiếc ở bể này có lẽ là phía sau các cụm đá quý chưa có thêm đèn.",
-        "why": "The original maker is judging their own finished tank, as if the reader already knew it.",
+        "quote": "có lẽ không phải lựa chọn hay cho bể này. Ở đây các cụm đá quý giả được ghép từ mảnh thủy tinh.",
+        "why": "A bare 'bể này' and 'Ở đây' refer to the source video's own tank, which the reader has never seen.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Những mảnh thủy tinh dùng ở đây không hề sắc",
+        "why": "'Ở đây' again points to the source's own build, not to anything the reader has.",
         "by": "model"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-15"
   },
   "vi/guides/youtube-b8TXICWpT2g": {
     "at": "2026-11-08",
@@ -68449,7 +68467,8 @@
       "Seachem Flourite Dark",
       "Fluval Stratum",
       "Current USA"
-    ]
+    ],
+    "mendTried": "2026-11-15"
   },
   "vi/guides/youtube-C1nL0JhS3oo": {
     "at": "2026-11-09",
@@ -71633,7 +71652,8 @@
         "by": "model"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-15"
   },
   "vi/guides/youtube-FlHv3rgDj6g": {
     "at": "2026-11-08",
@@ -72877,7 +72897,8 @@
         "by": "model"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-15"
   },
   "vi/guides/youtube-GZPSghtqMKk": {
     "at": "2026-11-09",
@@ -74574,7 +74595,8 @@
         "quote": "Châm phân nước mỗi ngày, ở bể 60 lít này là khoảng 3 ml."
       }
     ],
-    "sourceRead": true
+    "sourceRead": true,
+    "mendTried": "2026-11-15"
   },
   "vi/guides/youtube-IhNVrZCse48": {
     "at": "2026-11-15",
@@ -75467,7 +75489,8 @@
         "fix": "thả cá, tép, ốc dọn bể"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-15"
   },
   "vi/guides/youtube-JlH-zeUbQB0": {
     "at": "2026-11-08",
@@ -77753,7 +77776,8 @@
         "by": "model"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-15"
   },
   "vi/guides/youtube-lnOoJm-b5vs": {
     "at": "2026-11-08",
@@ -82935,7 +82959,8 @@
         "fix": "đất trồng sen"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-15"
   },
   "vi/guides/youtube-qWK5E1c6qak": {
     "at": "2026-11-15",
@@ -84571,7 +84596,8 @@
     ],
     "products": [
       "keo 502"
-    ]
+    ],
+    "mendTried": "2026-11-15"
   },
   "vi/guides/youtube-SrFsRxoWTww": {
     "at": "2026-11-09",
@@ -90960,7 +90986,8 @@
       "Biomaster 250",
       "Asta 120",
       "keo 502"
-    ]
+    ],
+    "mendTried": "2026-11-15"
   },
   "vi/guides/youtube-Zl5gW-39XRE": {
     "at": "2026-11-13",
@@ -95459,31 +95486,33 @@
     "products": []
   },
   "vi/species/ancistrus-dolichopterus": {
-    "at": "2026-11-07",
-    "hash": "a1d3081e19c5b33d",
+    "at": "2026-11-15",
+    "hash": "82c3514e6ef5fb99",
     "model": "opus",
+    "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P5",
+        "part": "P6",
         "quote": "chúng tôi đặc biệt khuyên nên nuôi trong bể mô phỏng một dòng suối rừng rậm",
-        "why": "The source website's staff speak in their own voice.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P12",
-        "quote": "Cảm ơn L-Welse.com.",
-        "why": "Thanks a source site the reader doesn't know.",
+        "why": "The source site's writers speak as \"we\", a voice the reader doesn't know.",
         "by": "model"
       },
       {
         "check": "words",
-        "part": "P5",
-        "quote": "không bao giờ nên thả chúng vào bể chưa trưởng thành về mặt sinh học",
-        "why": "Word-for-word translation of 'biologically immature tank'.",
+        "part": "P1",
+        "quote": "là một loài cá da trơn bristlenose",
+        "why": "Half-translated English name; keepers in Vietnam call these cá lau kiếng.",
         "by": "model",
-        "fix": "bể mới chưa chạy vi sinh"
+        "fix": "cá lau kiếng"
+      },
+      {
+        "check": "words",
+        "part": "P6",
+        "quote": "không bao giờ nên thả chúng vào bể chưa trưởng thành về mặt sinh học",
+        "why": "Calque of 'biologically immature tank'; keepers say the tank hasn't cycled yet.",
+        "by": "model",
+        "fix": "bể chưa chạy vi sinh / bể chưa ổn định"
       }
     ],
     "products": []
@@ -129106,7 +129135,8 @@
     ],
     "products": [
       "Fluval FX6"
-    ]
+    ],
+    "mendTried": "2026-11-15"
   },
   "vi/guides/youtube-BCdWPvNrAl4": {
     "at": "2026-11-15",
@@ -129533,7 +129563,8 @@
     ],
     "products": [
       "Accu-Clear"
-    ]
+    ],
+    "mendTried": "2026-11-15"
   },
   "vi/guides/youtube-JqrcSxgUXi0": {
     "at": "2026-11-15",
@@ -129736,7 +129767,8 @@
     ],
     "products": [
       "Dennerle"
-    ]
+    ],
+    "mendTried": "2026-11-15"
   },
   "vi/guides/youtube-rl1RME5uMTQ": {
     "at": "2026-11-15",

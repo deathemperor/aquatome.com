@@ -71,20 +71,13 @@
         "heading": "Chạy thử bơm thác nước thế nào",
         "moments": [
           {
-            "t": 230,
-            "url": "https://media.aquatome.com/video/iyb7sXZnJDg/at230-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bơm nhỏ nối ống mềm đang chạy thử trong xô nước.",
-            "sharpness": 312.9
-          },
-          {
             "t": 260,
             "url": "https://media.aquatome.com/video/iyb7sXZnJDg/at260-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Máng chứa nước phía trên đỉnh tường đá của thác nước.",
-            "sharpness": 488.1
+            "sharpness": 488.1,
+            "person": false
           }
         ]
       },
@@ -97,7 +90,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tường cây thủy sinh với rêu, dương xỉ và lũa bám trên tấm nền.",
-            "sharpness": 787.4
+            "sharpness": 787.4,
+            "person": false
           },
           {
             "t": 1750,
@@ -105,30 +99,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh tường rêu và dương xỉ phủ kín tấm nền, nước rỉ đều.",
-            "sharpness": 1151.6
+            "sharpness": 1151.6,
+            "person": false
           }
         ]
       },
       {
         "heading": "Làm nền và bố cục phần nước",
-        "moments": [
-          {
-            "t": 800,
-            "url": "https://media.aquatome.com/video/iyb7sXZnJDg/at800-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lũa và đá đặt trong bể, chừa nền cát sạch phía dưới.",
-            "sharpness": 1571.6
-          },
-          {
-            "t": 1110,
-            "url": "https://media.aquatome.com/video/iyb7sXZnJDg/at1110-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bố cục lũa và đá thưa dần xuống đáy, nền thoáng.",
-            "sharpness": 1182.9
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/iyb7sXZnJDg/p2-YXJkc2NhcGUuanBn.webp",
           "thumb": "https://media.aquatome.com/video/iyb7sXZnJDg/p2-YXJkc2NhcGUuanBn-480.webp",
@@ -142,24 +120,7 @@
       },
       {
         "heading": "Trồng cây trên lũa và dùng nhánh lá khô",
-        "moments": [
-          {
-            "t": 1290,
-            "url": "https://media.aquatome.com/video/iyb7sXZnJDg/at1290-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đặt cây lên lũa trong bể thủy sinh.",
-            "sharpness": 1041.9
-          },
-          {
-            "t": 1420,
-            "url": "https://media.aquatome.com/video/iyb7sXZnJDg/at1420-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dương xỉ Java đã được gắn lên lũa trong bể.",
-            "sharpness": 1573
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/iyb7sXZnJDg/p3-NfUGxhbnRzLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/iyb7sXZnJDg/p3-NfUGxhbnRzLmpwZw-480.webp",
@@ -175,20 +136,13 @@
         "heading": "Đặt bơm và hẹn giờ để an toàn",
         "moments": [
           {
-            "t": 1640,
-            "url": "https://media.aquatome.com/video/iyb7sXZnJDg/at1640-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể có mực nước thấp, cây dương xỉ và gỗ phía dưới, tường cây phía sau.",
-            "sharpness": 913.2
-          },
-          {
             "t": 1810,
             "url": "https://media.aquatome.com/video/iyb7sXZnJDg/at1810-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Tường cây phủ rêu và dương xỉ, phần lá cần có lúc khô.",
-            "sharpness": 1167.9
+            "sharpness": 1167.9,
+            "person": false
           }
         ]
       },
@@ -201,7 +155,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Máy tạo sương với bình chứa nước đặt cạnh bể.",
-            "sharpness": 171.5
+            "sharpness": 171.5,
+            "person": false
           }
         ]
       },
@@ -214,15 +169,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tường rêu và lũa phủ cây thủy sinh, nguồn nhả tannin và dinh dưỡng.",
-            "sharpness": 1855.4
-          },
-          {
-            "t": 2680,
-            "url": "https://media.aquatome.com/video/iyb7sXZnJDg/at2680-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh có lũa và cây, nước trong để chuẩn bị thả cá.",
-            "sharpness": 285.7
+            "sharpness": 1855.4,
+            "person": false
           }
         ],
         "photo": {
@@ -245,15 +193,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh có lũa, đá và cây, vài con cá nhỏ bơi giữa bố cục.",
-            "sharpness": 1568.2
-          },
-          {
-            "t": 2810,
-            "url": "https://media.aquatome.com/video/iyb7sXZnJDg/at2810-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đàn cá nhỏ bơi quanh lũa và cây trong bể đã ổn định.",
-            "sharpness": 1287
+            "sharpness": 1568.2,
+            "person": false
           }
         ],
         "photo": {

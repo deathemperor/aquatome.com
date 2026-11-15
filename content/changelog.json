@@ -2,6 +2,13 @@
   {
     "date": "2026-11-15",
     "kind": "species",
+    "id": "ancistrus-dolichopterus",
+    "source": "aquatome",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-15",
+    "kind": "species",
     "id": "hisonotus-notatus",
     "source": "glaser",
     "action": "updated"
@@ -3489,13 +3496,6 @@
     "date": "2026-11-11",
     "kind": "guide",
     "id": "youtube-i47RRyZxXGY",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-11",
-    "kind": "guide",
-    "id": "youtube-sWWz9DVKGXE",
     "source": "youtube",
     "action": "new"
   }
