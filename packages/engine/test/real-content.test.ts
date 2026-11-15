@@ -924,9 +924,9 @@ test('the care facts the lane would cut whole are on hand-fixed text: a temperat
     expect(read<Translation>(`species/${fish}/vi.json`).sections![`${key}:glaser`], fish).toContain(vi)
   }
   for (const [guide, kept, gone] of [
-    ['aquariumcoop-blogs-aquarium-clown-loach', ['Thân cá mập, cao 13–15 cm.', 'trùn vi sinh', 'thuốc trị đốm trắng hoặc muối'], ['bóng bầu dục', 'đúc kết từ hơn 10 năm', 'Ich-X', 'Repashy', 'giun micro']],
+    ['aquariumcoop-blogs-aquarium-clown-loach', ['Thân cá mập, cao 13–15 cm.', 'giun vi sinh', 'thuốc trị đốm trắng hoặc muối'], ['bóng bầu dục', 'đúc kết từ hơn 10 năm', 'Ich-X', 'Repashy', 'giun micro', 'trùn vi sinh']],
     ['aquariumcoop-blogs-aquarium-hatchetfish', ['điều trị phòng ngừa luôn trong thời gian cách ly', 'thuốc trị đốm trắng', 'thuốc tẩy giun'], ['bộ ba thuốc', 'Ich-X', 'ParaCleanse']],
-    ['aquariumcoop-blogs-aquarium-hard-water-fish', ['miễn là châm thêm khoáng cho bể.', 'trùng huyết và artemia'], ['Wonder Shell', 'Equilibrium', 'Vibra Bites']],
+    ['aquariumcoop-blogs-aquarium-hard-water-fish', ['miễn là châm thêm khoáng cho bể.', 'trùng huyết và artemia', 'các dòng cá biến đổi gen phát huỳnh quang'], ['Wonder Shell', 'Equilibrium', 'Vibra Bites', 'GloFish']],
     ['aquariumcoop-blogs-aquarium-aquarium-plants-for-profit', ['bán cây sống qua các trang thương mại điện tử.', 'châm phân nước tổng hợp vào bể.', 'phí vận chuyển'], ['AquaBid', 'Easy Green']],
   ] as const) {
     const t = read<Translation & { bodyFixed?: boolean }>(`guides/${guide}/vi.json`)
