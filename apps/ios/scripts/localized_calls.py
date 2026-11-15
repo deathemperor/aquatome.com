@@ -20,6 +20,10 @@ APP = os.path.join(HERE, '..', 'AquaTome')
 CALL = re.compile(r'\b(Attributed)?String\(localized:')
 # Labels after the key, in the order the initializers take them.
 ORDER = ('defaultValue', 'options', 'table', 'bundle', 'locale', 'comment', 'including')
+# Files the edit and the check leave alone, each with why. Take a line out when its file is ready: --apply then edits it.
+LEFT = {
+    'AquaTome/Lights/LoveEcology.swift': "the Love Ecology light's own part, which the iOS lead makes next",
+}
 
 
 def skip_string(src, i):
@@ -146,7 +150,8 @@ def calls_in(src):
 def swift_files(ref=None):
     cmd = ['git', 'ls-tree', '-r', '--name-only', ref, '--', '.'] if ref else ['git', 'ls-files']
     out = subprocess.run(cmd, cwd=APP, capture_output=True, text=True, check=True).stdout
-    return [os.path.normpath(os.path.join(APP, f)) for f in out.split() if f.endswith('.swift')]
+    paths = [os.path.normpath(os.path.join(APP, f)) for f in out.split() if f.endswith('.swift')]
+    return [p for p in paths if rel(p) not in LEFT]
 
 
 def rel(path):
@@ -235,6 +240,8 @@ def count(ref=None):
             print(f'    {rel(f)}:{c["line"]}')
     print(f'  in AquaTomeKit (its own bundle, not the app\'s): {sum(int(x.split(":")[1]) for x in kit) if kit else 0}')
     print(f'  to edit (string literal, no bundle:): {s(lambda c: c["literal"] and "bundle" not in c["labels"])}')
+    for f, why in LEFT.items():
+        print(f'  left out: {f}, {len(list(calls(os.path.join(HERE, "..", f), ref)))} calls ({why})')
 
 
 def apply():
