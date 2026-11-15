@@ -1139,3 +1139,35 @@ test('the algae guide gives the label\'s dose for liquid carbon in every languag
     for (const s of [w.label, ...w.kept]) expect(t.body, `${lang}: ${s}`).toContain(s)
   }
 })
+
+// The chief of staff, 16 Nov 2026: the video guide on where to learn aquascaping named three private hobbyists in passing
+// (a group's admin, a website's owner, the keeper of a well-known tank). The names go by hand, each said by role; the group
+// and the site stay named. The body, the questions and the title are fixed, since a redo writes from the video's
+// transcript, which still says them. The check reads a peer's form of address before a capitalised name, so the test
+// needn't repeat the names, and every check is a yes or no, so a failure prints no page text.
+test('the guide on where to learn aquascaping names no private person in passing, and is fixed by hand', () => {
+  const t = JSON.parse(readFileSync(fileURLToPath(new URL('../../../content/guides/youtube-qzPVpr89Ugo/vi.json', import.meta.url)), 'utf8')) as Translation & Record<string, unknown>
+  const all = [t.name, t.body, ...(t.summary ?? []), ...(t.faq ?? []).flatMap(f => [f.q, f.a])].join('\n')
+  // A form of address before a capitalised name, a space, a no-break space or an inline tag between; not "anh em" nor
+  // "tiếng Anh", and never across a block's tags ("Ghi chú</th>").
+  expect(/(?<!\p{L})(?:(?<!tiếng\s)[Aa]nh|[Cc]hị|(?<![Aa]nh\s)[Ee]m|[Bb]ác|[Cc]hú|[Cc]ô)(?:[ \t\u00a0]|&nbsp;|<(?:strong|b|em|i|a)\b[^>]*>)+\p{Lu}/u.test(all), 'a form of address before a name').toBe(false)
+  for (const said of [
+    'Admin nhóm đã đăng nhiều bài hữu ích trong mục thông báo.',
+    'Trang này tìm trên Google là dễ gặp.',
+    'Kho bài còn có một topic dài 40 trang về bể nổi tiếng của một người chơi từng dự thi và đạt nhiều giải quốc tế.',
+    'Thủy Sinh AZ',
+  ]) expect((t.body ?? '').includes(said), said).toBe(true)
+  for (const mark of ['bodyFixed', 'faqFixed', 'nameFixed']) expect(t[mark], mark).toBe(true)
+})
+
+// The chief of staff, 16 Nov 2026: a Loaches Online article on how a Botia's markings change as it grows printed its
+// author's email in each letter's header. The addresses go by hand and the author stays credited. The body is fixed,
+// since a redo translates the source page again, which still has them. Every check is a yes or no, so a failure prints
+// no page text, and the author is checked by the letters' headers, so the test needn't write the name.
+test('the Botia markings guide prints no email address, still credits its author, and is fixed by hand', () => {
+  const t = JSON.parse(readFileSync(fileURLToPath(new URL('../../../content/guides/loachesonline-articles-botia-rostrata-development-of-markings-during-growth/vi.json', import.meta.url)), 'utf8')) as Translation & Record<string, unknown>
+  const all = [t.name, t.body, ...(t.summary ?? []), ...(t.faq ?? []).flatMap(f => [f.q, f.a])].join('\n')
+  expect(all.includes('@'), 'an "@", an address or any of it').toBe(false)
+  expect((t.body ?? '').match(/<strong>Từ:<\/strong> \p{Lu}\p{L}+ (?:\p{Lu}\. )?\p{Lu}\p{L}+/gu)?.length, 'letters whose header names their sender').toBe(2)
+  expect(t.bodyFixed).toBe(true)
+})
