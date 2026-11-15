@@ -56,6 +56,7 @@ const lit = (l: TankLight) => {
  * A tank as Claude reads it: its id, size and fish named as the handbook names them (one without a page by the reader's),
  * then what else the reader saved. The notes are marked as the reader's own words.
  */
+const NOT_GIVEN = 'not given'
 const told = (t: Tank, hb: Handbook) => {
   const plants = [...(t.plants ?? []).map(id => hb.byId(id)?.name ?? id), ...t.unlisted.filter(u => u.kind === 'plant').map(u => u.name)]
   return {
@@ -63,9 +64,10 @@ const told = (t: Tank, hb: Handbook) => {
     name: t.name,
     ...(t.dims ? { dims: t.dims } : {}),
     ...(t.litres ? { litres: t.litres } : {}),
+    // A count the reader didn't save says so: read as 1, a school was taken for one fish (16 Nov).
     fish: [
-      ...t.species.map(s => ({ name: hb.byId(s.id)?.name ?? s.id, ...(hb.byId(s.id) ? { id: s.id } : {}), count: s.count ?? 1 })),
-      ...t.unlisted.filter(u => u.kind !== 'plant').map(u => ({ name: u.name, count: u.count ?? 1 })),
+      ...t.species.map(s => ({ name: hb.byId(s.id)?.name ?? s.id, ...(hb.byId(s.id) ? { id: s.id } : {}), count: s.count ?? NOT_GIVEN })),
+      ...t.unlisted.filter(u => u.kind !== 'plant').map(u => ({ name: u.name, count: u.count ?? NOT_GIVEN })),
     ],
     ...(plants.length ? { plants } : {}),
     ...(t.substrate ? { substrate: t.substrate } : {}),
@@ -238,7 +240,7 @@ export function chatTools(d: ToolDeps): Tool<Step>[] {
     },
     {
       name: 'read_tanks',
-      description: 'Read the reader\'s saved tanks ("Bể của tôi"): each one\'s name, size, fish with how many, plants, substrate, how many days since it was saved in the app (not since the tank was set up: a tank may be saved years in), the schedule each light runs (hours lit, ramp, levels) or its levels set by hand, what its smart plugs power (CO₂, filter, heater, air, fan, light), and the reader\'s own notes. Use it when the reader talks about their tank or fish they keep.',
+      description: 'Read the reader\'s saved tanks ("Bể của tôi"): each one\'s name, size, fish with how many ("not given" when the reader didn\'t say), plants, substrate, how many days since it was saved in the app (not since the tank was set up: a tank may be saved years in), the schedule each light runs (hours lit, ramp, levels) or its levels set by hand, what its smart plugs power (CO₂, filter, heater, air, fan, light), and the reader\'s own notes. Use it when the reader talks about their tank or fish they keep.',
       input_schema: strict({}),
       step: () => ({ kind: 'tanks' }),
       run: async () => {

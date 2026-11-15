@@ -10,7 +10,7 @@ import { handbookOf, type Handbook, type Item, type Source } from '../chat/handb
 import { fold, search, searchTopics } from '../chat/search'
 import { heldOf, topicsOf, type Topics } from '../chat/topics'
 import { checkMates, drawnOf, type MatesCheck } from '../chat/mates'
-import { chatTools, NOTES_CHARS, SECTION_CHARS, type Step, type Tank } from '../chat/tools'
+import { chatTools, handedTanks, NOTES_CHARS, SECTION_CHARS, type Step, type Tank } from '../chat/tools'
 import { tankCheck, type TankFish } from '../../src/scripts/tank-check'
 import { factsOf } from '../chat/handbook'
 import { contract } from './contract'
@@ -297,6 +297,32 @@ test('check_tank_mates checks fish as the tank-mates tool does, in the reader\'s
   // A block naming something that isn't a fish isn't shown: its one fish left would go out unchecked.
   const plant = await fill(answer([mates([{ id: 'paracheirodon-innesi', count: 8 }, { id: 'anubias-barteri-nana', count: 1 }])]), h)
   expect(plant).toEqual({ blocks: [], dropped: ['tool: tank-mates with ["anubias-barteri-nana"], not fish'] })
+})
+
+test('check_tank_mates counts every breed of a species: two breeds of one species are as many fish as both, not the first breed\'s alone', async () => {
+  // The board, 16 Nov: 1 ranchu and 1 pearlscale were checked as one goldfish, and the answer called it the safe number.
+  const h = await hb()
+  const tool = chatTools({ handbook: h, tanks: async () => [] }).find(t => t.name === 'check_tank_mates')!
+  const out = JSON.parse(await tool.run({ fish: [{ id: 'paracheirodon-innesi', count: 10 }, { id: 'pigeon-blood-discus', count: 2 }, { id: 'symphysodon-aequifasciatus', count: 3 }], tank: { l: 60, w: 30, h: 36 } }, { photosLeft: 0 }) as string) as MatesCheck
+  expect(out.fish.map(f => [f.id, f.count])).toEqual([['paracheirodon-innesi', 10], ['symphysodon-aequifasciatus', 5]])
+  // How full the tank would be, as the five discus and ten neons the reader asked about, not two discus.
+  expect(out.stocking).toEqual(checkMates([{ id: 'paracheirodon-innesi', count: 10 }, { id: 'symphysodon-aequifasciatus', count: 5 }], { l: 60, w: 30, h: 36 }, h).stocking)
+  // The block's link names the species with the count checked.
+  const { blocks } = await fill(answer([pick({ t: 'tool', tool: 'tank-mates', fish: [{ id: 'paracheirodon-innesi', count: 10 }, { id: 'pigeon-blood-discus', count: 2 }, { id: 'symphysodon-aequifasciatus', count: 3 }], tank: { l: 60, w: 30, h: 36 } })]), h, [out])
+  expect(blocks[0]).toMatchObject({ url: '/vi/cong-cu/nuoi-chung/?ca=ca-neon-xanh:10,ca-dia:5&l=60&w=30&h=36' })
+  // Added up, still at most 200 of one.
+  expect(checkMates([{ id: 'pigeon-blood-discus', count: 150 }, { id: 'symphysodon-aequifasciatus', count: 150 }, { id: 'paracheirodon-innesi', count: 1 }], null, h).fish.find(f => f.id === 'symphysodon-aequifasciatus')!.count).toBe(200)
+})
+
+test('a fish the reader saved without a count reads "not given", never 1: read_tanks, and the tank that goes with every question', async () => {
+  // The board, 16 Nov: a saved school with no count was handed over as one fish, and the answer said one fish needs no quarantine.
+  const h = await hb()
+  const tank: Tank = { id: 't1', name: 'Bể 60', species: [{ id: 'paracheirodon-innesi' }, { id: 'symphysodon-aequifasciatus', count: 2 }], unlisted: [{ name: 'Cá lạ', kind: 'fish' }] }
+  const want = [{ name: 'Cá neon xanh', id: 'paracheirodon-innesi', count: 'not given' }, { name: h.byId('symphysodon-aequifasciatus')!.name, id: 'symphysodon-aequifasciatus', count: 2 }, { name: 'Cá lạ', count: 'not given' }]
+  const read = chatTools({ handbook: h, tanks: async () => [tank] }).find(t => t.name === 'read_tanks')!
+  expect(JSON.parse(await read.run({}, { photosLeft: 0 }) as string)[0].fish).toEqual(want)
+  expect(JSON.parse(handedTanks([tank], h))[0].fish).toEqual(want)
+  expect(read.description).toContain('"not given"')
 })
 
 test('check_tank_mates in the reader\'s tank checks it as the tank page does, with the fish added; its block names the tank, and links every kind up to six', async () => {
