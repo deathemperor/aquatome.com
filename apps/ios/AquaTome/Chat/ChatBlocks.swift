@@ -92,7 +92,10 @@ private struct BandImage: View {
   var corner: CGFloat = 0
   var body: some View {
     // As v2's photos are drawn everywhere (V2Photo): framed by the photo's box once the app has it, centred until then.
+    // Touched only inside its band: a photo filling it overflows, clipped from sight but not from touch, and a 3:2 photo
+    // in a card's 150 pt band reached 57 pt over the card above, whose "Xem trang" then did nothing (15 Nov).
     V2Photo(src: src, box: box).frame(maxWidth: .infinity).frame(height: height).clipShape(.rect(cornerRadius: corner))
+      .contentShape(.rect(cornerRadius: corner))
       .accessibilityHidden(true)
   }
 }

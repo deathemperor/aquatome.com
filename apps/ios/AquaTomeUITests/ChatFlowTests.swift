@@ -549,7 +549,8 @@ final class ChatFlowTests: XCTestCase {
   /// A species' card: "Xem trang" opens its page, "Thêm vào bể" puts it on a tank. The chat's own fish has a thumbnail where
   /// another has its whole photo.
   func testASpeciesCardOpensItsPageAndPutsItOnATank() {
-    let app = launch("-chat-blocks", "-seed-tanks", "litres")
+    // With the cards' photos: a photo filling its band overflowed it, unseen, and took the tap off the card above's foot.
+    let app = launch("-chat-blocks", "-seed-tanks", "litres", "-fixed-pictures")
     answerWithEveryBlock(app)
     let cards = app.descendants(matching: .any).matching(identifier: "chat-card")
     XCTAssertTrue(cards.firstMatch.waitForExistence(timeout: 5), "no card")
