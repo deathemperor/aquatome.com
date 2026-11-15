@@ -8,7 +8,8 @@
   "places": [
     "south-america",
     "guyana",
-    "mazaruni"
+    "mazaruni",
+    "mazaruni-river"
   ],
   "range": {
     "native": {
@@ -117,6 +118,13 @@
           "min": 4,
           "max": 6.5
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 5.5,
+          "max": 7
+        }
       }
     ],
     "gh": [
@@ -132,6 +140,10 @@
       {
         "source": "seriouslyfish",
         "value": 3
+      },
+      {
+        "source": "glaser",
+        "value": 4
       }
     ],
     "tankCm": [
@@ -155,10 +167,22 @@
       "html": "<p>The barred pencilfish, Nannostomus espei, is a lebiasinid considered endemic to the Mazaruni River system in Guyana. The only member of the genus to show a vertically-barred pattern permanently, it has five dark bar-like markings on each flank where congeners have horizontal stripes. It inhabits sluggish blackwater habitats where pH can be as low as 4.0, and its small size and timid nature suit a tank of its own or diminutive tankmates.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomous_espei_en/",
+      "html": "<p>Full-grown fish reach a total length of approx. 40 mm.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-espei",
       "html": "<p>The original description contained no type locality but this species is currently considered endemic to the Mazaruni River system in Guyana, including many of its tributaries such as the Kurupung (where the species was first discovered in 1953), Eping, and Tabuba.</p><p>The upper and lower limits of its distribution within the Mazaruni basin appear to be the Peaima and Tiboku waterfalls, respectively.</p><p>There also exist reported occurrences from the Casiquiare Canal and Río Ventuari, Venezuela (Río Orinoco drainage) but these apparently require confirmation.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomous_espei_en/",
+      "html": "<p>Up to now this ornamental tetra is only known from western Guyana, South America, in the lower course of the Mazaruni River.</p>"
     },
     {
       "key": "habitat",
@@ -185,6 +209,12 @@
       "html": "<ul><li>Temperature: 22–28°C</li><li>pH: 4.0–6.5</li><li>Hardness: 1–5 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomous_espei_en/",
+      "html": "<p>For keeping, please do not use too hard water: 10°dGH maximum, pH 5.5–7 and a temperature around 24°C.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-espei",
@@ -197,16 +227,34 @@
       "html": "<p>Very peaceful but does not make an ideal community fish due to its small size and rather timid nature.</p><p>Ideally it should be maintained alone or at most with diminutive, non-aggressive characids and smaller callichthyid or loricariid catfishes.</p><p>It also makes an ideal dither fish for Apistogramma spp. and other dwarf cichlids since it tends to inhabit the middle-to-upper regions of the tank, and does not actively predate fry.</p><p>Though gregarious by nature it's a shoaling rather than schooling species with rival males sparring on a regular basis during daylight hours.</p><p>It's not uncommon to see nipped fins within a group though this behaviour does not normally extend to tankmates.</p><p>Buy as many as possible, ideally 10 or more, as when kept in larger groups any aggression is spread between individuals plus the fish are bolder and exhibit more natural behaviour.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomous_espei_en/",
+      "html": "<p>Peaceful fish, which mostly stand in the upper water area among the plants. Keeping is advantageous in well-planted tanks only with other peaceful fish.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-espei",
       "html": "<p>Adult males are more intensely-patterned, possess more colour in the fins, and are usually slimmer than females.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomous_espei_en/",
+      "html": "<p>When putting on spawn the females become much plumper. During pairing the males lose the banded markings except for small black spots.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-espei",
       "html": "<p>Has been achieved in aquaria, albeit rarely, and in a densely-planted, mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to increase the yield of fry a slightly more controlled approach is required.</p><p>The adult group can still be conditioned together but one or more smaller containers should also be set up and filled with aged water.</p><p>Unlike the majority of congeners this species deposits its eggs in single batches on the underside of plant leaves, so a clump or two of broad-leaved aquatic plants such as Anubias, Microsorum, or Echinodorus should also be added.</p><p>When the adult fish are well-conditioned a single pair or group comprising one or two males and several females can then be introduced to each container, though it's worth noting that the more individuals involved the greater the risk of egg predation, and this species will eat any eggs it finds.</p><p>This species is also highly selective in terms of choosing partners and you may need to try numerous combinations of adult fish before a viable pair forms, despite the bond being short-lived, i.e., the duration of a single reproductive event.</p><p>Once eggs are seen the adults or plant itself should be removed, with a separate hatching tank required using the latter approach.</p><p>The first fry should be visible after around 24-36 hours with the majority free-swimming by the 5th or 6th day.</p><p>Initial food should be Paramecium or a proprietary dry food of sufficiently small (5-50 micron) grade, introducing Artemia nauplii, microworm, etc., once the fry are large enough to accept them.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomous_espei_en/",
+      "html": "<p>Using their dish-shaped anal fin, the males fix the eggs to a substrate (e.g. the underside of a plant leaf). Breeding is possible in 10 litre tanks with a spawning substrate (Java moss); the number of eggs is not very big.</p>"
     },
     {
       "key": "notes",
@@ -232,20 +280,34 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-espei",
       "caption": "This is the only member of the genus in which the dark, vertical body markings are retained permanently.",
       "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/0b0f24e4d31d9e71.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/0b0f24e4d31d9e71-480.webp",
-      "width": 806,
-      "height": 538,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-espei",
-      "caption": "This species is native to the Mazaruni River, Guyana.",
-      "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "c5sgSjqkalo",
+      "title": "Nannostomus espei",
+      "durationSec": 17,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "G1zTk6B77v0",
+      "title": "ナノストムス・エスペイ1",
+      "durationSec": 8,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "f-zfptlvAjM",
+      "title": "nannostomus espei 에스페이 펜슬피쉬 어항",
+      "durationSec": 55,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "8kvtgRHk04E",
+      "title": "Nannostomus espei et Nannostomus eques",
+      "durationSec": 31,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -276,5 +338,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-15"
 }

@@ -448,7 +448,7 @@ test('units: a figure the page\'s English gives in metric itself isn\'t counted;
   expect(units(fish('<p>ลึกประมาณ 2.5–4 ซม.</p>', '<p>About 2.5–4 cm deep.</p>', { lang: 'th' }), [{ part: 'P1', quote: 'ลึกประมาณ 2.5–4 ซม.' }])).toEqual([])
   // Converted by the writer: the English has gallons or inches only, or one of the quote's figures isn't the English's.
   expect(units(fish('<p>Bể 38 lít là đủ.</p>', '<p>A 10-gallon tank is enough.</p>'))).toEqual(['38 lít'])
-  expect(units(fish('<p>Nền dày 2,5–5 cm.</p>', '<p>A substrate 1–2 inches (2.5 cm) deep.</p>'), [{ part: 'P1', quote: 'Nền dày 2,5–5 cm' }])).toEqual(['Nền dày 2,5–5 cm'])
+  expect(units(fish('<p>Nền dày 2,54–5,08 cm.</p>', '<p>A substrate 1–2 inches (2.5 cm) deep.</p>'), [{ part: 'P1', quote: 'Nền dày 2,54–5,08 cm' }])).toEqual(['Nền dày 2,54–5,08 cm'])
   // A US unit left on the page counts, whatever the English gives beside it.
   expect(units(fish('<p>Bể 10 gallon (38 lít).</p>', '<p>A 10-gallon (38 litre) tank.</p>'))).toEqual(['gallon'])
   // A section AquaTome wrote from many sources' facts has no English of its own: its figures still count.
@@ -460,6 +460,38 @@ test('units: a figure the page\'s English gives in metric itself isn\'t counted;
   expect(units(fish('<p>Bể 38 lít là đủ.</p>', '<p>Kept in 38 litres.</p>'), [{ part: '', quote: 'Bể 38 lít là đủ' }, { part: 'P9', quote: 'bể 40 lít' }])).toEqual(['bể 40 lít'])
   // A guide keeps its source elsewhere: still counted.
   expect(units(page('<p>Bể 38 lít là đủ.</p>'))).toEqual(['38 lít'])
+})
+
+// The chief of staff's lengths ruling (16 Nov 2026): under 10 cm a whole or half centimetre is a keeper's figure and
+// stays; a converted oddity still fails. The plants guide (youtube-pLRJzD035Co) was held on its first line below.
+test('units: a length a keeper writes isn\'t counted, under 10 cm a whole or half centimetre; a converted oddity is', () => {
+  const units = (html: string, quote: string, o: Partial<Page> = {}) => fitFindings(page(`<p>${html}</p>`, o), { at: '2026-11-16', hash: 'h', model: 'm', products: [], findings: [{ check: 'units', part: 'P1', quote, why: 'converted', by: 'model' }] }).filter(f => f.check === 'units').map(f => f.quote)
+  for (const [html, quote, lang] of [
+    ['Không châm thêm nước thì sau một tuần mực nước có thể tụt gần 2,5 cm.', 'sau một tuần mực nước có thể tụt gần 2,5 cm', 'vi'],
+    ['Rải lớp sỏi dày khoảng 2,5 – 5 cm dưới đáy bể.', 'rải lớp sỏi dày khoảng 2,5 – 5 cm', 'vi'],
+    ['Cá dài 4 cm.', 'dài 4 cm', 'vi'],
+    ['ลึกประมาณ 2.5–4 ซม.', 'ลึกประมาณ 2.5–4 ซม.', 'th'],
+  ] as const) expect(units(html, quote, { lang }), quote).toEqual([])
+  for (const [html, quote, lang] of [
+    ['Lớp nền dày 2,54 cm.', 'dày 2,54 cm', 'vi'],
+    ['Lớp sỏi dày 3,8 cm.', 'lớp sỏi dày 3,8 cm', 'vi'],
+    ['Lót tấm neoprene dày khoảng 1,3 cm.', 'dày khoảng 1,3 cm', 'vi'],
+    // a pipe's size (keepers buy pipe by its mm size); another figure beside the length; a length per something (a
+    // source's per inch); a tank's sides; 10 cm and up
+    ['Lắp uniseal và ống PVC 2,5 cm.', 'lắp uniseal và ống PVC 2,5 cm', 'vi'],
+    // an imperial word with no figure of its own; Indonesian and Thai per-length words
+    ['Mỗi inch (2,5 cm) chiều dài cá cần thêm nước.', 'inch (2,5 cm)', 'vi'],
+    ['Nền dày 2,5 cm (một inch).', '2,5 cm (một inch)', 'vi'],
+    ['Sediakan 40 liter, tiap 2,5 cm panjang ikan.', 'tiap 2,5 cm panjang ikan', 'id'],
+    ['ทุก 2.5 ซม. ของปลา', 'ทุก 2.5 ซม. ของปลา', 'th'],
+    // a quote that starts at the figure: the page's words before it say it's a pipe
+    ['Lắp ống PVC 2,5 cm vào lỗ thoát.', '2,5 cm', 'vi'],
+    ['Lấy ống PVC đường kính 2,5–5 cm.', 'Lấy ống PVC đường kính 2,5–5 cm', 'vi'],
+    ['Bể 38 lít, nền dày 2,5 cm.', 'Bể 38 lít, nền dày 2,5 cm', 'vi'],
+    ['Kira-kira 40 liter air bagi setiap 2.5 cm panjang ikan.', 'bagi setiap 2.5 cm panjang ikan', 'ms'],
+    ['Bể 91 × 38 × 30 cm.', 'Bể 91 × 38 × 30 cm', 'vi'],
+    ['Bể dài 91 cm.', 'Bể dài 91 cm', 'vi'],
+  ] as const) expect(units(html, quote, { lang }), quote).toContain(quote)
 })
 
 // The 16 Vietnamese matches the chief of staff's count was checked by hand on (13 Nov 2026), as the site had them: half a

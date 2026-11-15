@@ -56,6 +56,7 @@ const lit = (l: TankLight) => {
  * A tank as Claude reads it: its id, size and fish named as the handbook names them (one without a page by the reader's),
  * then what else the reader saved. The notes are marked as the reader's own words.
  */
+const NOT_GIVEN = 'not given'
 const told = (t: Tank, hb: Handbook) => {
   const plants = [...(t.plants ?? []).map(id => hb.byId(id)?.name ?? id), ...t.unlisted.filter(u => u.kind === 'plant').map(u => u.name)]
   return {
@@ -63,9 +64,10 @@ const told = (t: Tank, hb: Handbook) => {
     name: t.name,
     ...(t.dims ? { dims: t.dims } : {}),
     ...(t.litres ? { litres: t.litres } : {}),
+    // A count the reader didn't save says so: read as 1, a school was taken for one fish (16 Nov).
     fish: [
-      ...t.species.map(s => ({ name: hb.byId(s.id)?.name ?? s.id, ...(hb.byId(s.id) ? { id: s.id } : {}), count: s.count ?? 1 })),
-      ...t.unlisted.filter(u => u.kind !== 'plant').map(u => ({ name: u.name, count: u.count ?? 1 })),
+      ...t.species.map(s => ({ name: hb.byId(s.id)?.name ?? s.id, ...(hb.byId(s.id) ? { id: s.id } : {}), count: s.count ?? NOT_GIVEN })),
+      ...t.unlisted.filter(u => u.kind !== 'plant').map(u => ({ name: u.name, count: u.count ?? NOT_GIVEN })),
     ],
     ...(plants.length ? { plants } : {}),
     ...(t.substrate ? { substrate: t.substrate } : {}),
@@ -137,7 +139,10 @@ export function textOf(blocks: Block[]): string {
 const cut = (s: string, max: number) => (s.length <= max ? s : `${s.slice(0, max - 1)}…`)
 /** A guide written from one video is one keeper's method (the Writing Lead's ruling, 2026-11-07): Claude is told so. */
 const oneVideo = (i: Item) => (i.kind === 'guide' && i.video ? { oneVideo: true } : {})
-const listed = (i: Item) => ({ path: i.path, kind: i.kind, name: i.name, ...(i.id ? { id: i.id } : {}), ...(i.sub ? { sub: i.sub } : {}), ...(i.of ? { of: i.of } : {}), ...oneVideo(i) })
+/** A fish's or plant's id, the one a tank names it by. Other kinds carry an id too, unique within a kind only ("co2" is a
+ *  term and a kind of kit): one handed to the model could only name nothing (byId) or the wrong page. */
+const tankId = (i: Item) => (i.id && (i.kind === 'fish' || i.kind === 'plant') ? { id: i.id } : {})
+const listed = (i: Item) => ({ path: i.path, kind: i.kind, name: i.name, ...tankId(i), ...(i.sub ? { sub: i.sub } : {}), ...(i.of ? { of: i.of } : {}), ...oneVideo(i) })
 const strict = (properties: Record<string, unknown>) => ({ type: 'object' as const, properties, required: Object.keys(properties), additionalProperties: false })
 
 export function chatTools(d: ToolDeps): Tool<Step>[] {
@@ -196,7 +201,7 @@ export function chatTools(d: ToolDeps): Tool<Step>[] {
         const shown = figures && Object.keys('facts' in figures ? figures.facts : figures.plant).length ? figures : {}
         return JSON.stringify({
           path, kind: item.kind, title: doc.title, ...oneVideo(item),
-          ...(item.id ? { id: item.id } : {}), ...(item.sub ? { sub: item.sub } : {}), ...(item.aka?.length ? { aka: item.aka } : {}),
+          ...tankId(item), ...(item.sub ? { sub: item.sub } : {}), ...(item.aka?.length ? { aka: item.aka } : {}),
           ...shown,
           sections: sections.map(s => ({ heading: s.heading?.text ?? null, id: s.heading?.id ?? null, text: cut(textOf(s.blocks), PREVIEW_CHARS) })),
         })
@@ -238,7 +243,7 @@ export function chatTools(d: ToolDeps): Tool<Step>[] {
     },
     {
       name: 'read_tanks',
-      description: 'Read the reader\'s saved tanks ("Bể của tôi"): each one\'s name, size, fish with how many, plants, substrate, how many days since it was saved in the app (not since the tank was set up: a tank may be saved years in), the schedule each light runs (hours lit, ramp, levels) or its levels set by hand, what its smart plugs power (CO₂, filter, heater, air, fan, light), and the reader\'s own notes. Use it when the reader talks about their tank or fish they keep.',
+      description: 'Read the reader\'s saved tanks ("Bể của tôi"): each one\'s name, size, fish with how many ("not given" when the reader didn\'t say), plants, substrate, how many days since it was saved in the app (not since the tank was set up: a tank may be saved years in), the schedule each light runs (hours lit, ramp, levels) or its levels set by hand, what its smart plugs power (CO₂, filter, heater, air, fan, light), and the reader\'s own notes. Use it when the reader talks about their tank or fish they keep.',
       input_schema: strict({}),
       step: () => ({ kind: 'tanks' }),
       run: async () => {

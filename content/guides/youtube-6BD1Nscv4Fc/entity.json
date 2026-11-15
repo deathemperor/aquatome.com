@@ -130,6 +130,126 @@
         "model": "Algae Wafers",
         "t": 2800
       }
+    ],
+    "figures": [
+      {
+        "heading": "Túi dinh dưỡng chỉ đặt chỗ sẽ trồng cây",
+        "moments": [
+          {
+            "t": 660,
+            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at660-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Một túi nền nhỏ đặt giữa các thanh lũa trên đáy bể trống.",
+            "sharpness": 676.3,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Rải cát và sỏi cho lớp mặt",
+        "moments": [
+          {
+            "t": 810,
+            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at810-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lớp cát mặt đã rải xong, phủ đều quanh lũa và đá.",
+            "sharpness": 1245.2,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/p3-RvbV9zYW5kLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/6BD1Nscv4Fc/p3-RvbV9zYW5kLmpwZw-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 2.0",
+          "author": "kerinin",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diatom_sand.jpg",
+          "caption": "Lớp cát mịn trải dưới đáy bể, cạnh khối đá lũa."
+        }
+      },
+      {
+        "heading": "Nhuộm nước đen bằng trà rooibos",
+        "moments": [
+          {
+            "t": 1480,
+            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at1480-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể vừa đổ nước trà, màu nâu đỏ bắt đầu tản ra.",
+            "sharpness": 1748.9,
+            "person": false
+          },
+          {
+            "t": 1560,
+            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at1560-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể nước đã nhuộm nâu đỏ đậm, lũa và đá hiện rõ.",
+            "sharpness": 1147.5,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/p5-9Sb29pYm9zLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/6BD1Nscv4Fc/p5-9Sb29pYm9zLmpwZw-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 3.0",
+          "author": "soultea.de/André Helbig",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Frisch_aufgebr%C3%BChter_Rooibos.jpg",
+          "caption": "Nước trà rooibos nâu đỏ đậm trong tách và bình thủy tinh."
+        }
+      },
+      {
+        "heading": "Chọn và trồng cây cho bể nước đen",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/p6-ydS1JbmRpYS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/6BD1Nscv4Fc/p6-ydS1JbmRpYS5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 4.0",
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cryptocoryne_lucens-2-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Cụm Cryptocoryne lá xanh mọc gọn trên lớp nền tối trong bể."
+        }
+      },
+      {
+        "heading": "Thả cá vào bể mới",
+        "moments": [
+          {
+            "t": 2370,
+            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at2370-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá ông tiên bơi quanh các khúc lũa trong bể.",
+            "sharpness": 272.1,
+            "person": false
+          },
+          {
+            "t": 2380,
+            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at2380-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá ông tiên bơi giữa lũa trong bể nước trà.",
+            "sharpness": 269.7,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/p7-FsYXJlXzAzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/6BD1Nscv4Fc/p7-FsYXJlXzAzLmpwZw-480.webp",
+          "width": 960,
+          "height": 986,
+          "licence": "CC BY 4.0",
+          "author": "Versions111",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pterophyllum_scalare_03.jpg",
+          "caption": "Cá ông tiên vàng bơi giữa đám cây thủy sinh trong bể."
+        }
+      }
     ]
   }
 }

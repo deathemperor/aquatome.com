@@ -5,12 +5,12 @@ import { mkdir, mkdtemp, readdir, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { expect, test } from 'vitest'
+import { expect, test, vi } from 'vitest'
 import { LlmError } from '../src/claude'
 import { fitRules } from '../src/fit'
 import type { Page } from '../src/pages'
 import { logReviews, readReviews } from '../src/review-log'
-import { chaptersFrom, crowdLines, editDraft, lowVideoGuides, parseTranscript, recheckedGuides, retry403, reviewDraft, storyboardInterval, videoGuides, ytApi, type VideoMeta, type YouTube } from '../src/youtube'
+import { chaptersFrom, crowdLines, editDraft, flatEntries, lowVideoGuides, parseTranscript, recheckedGuides, retry403, reviewDraft, storyboardInterval, videoGuides, ytApi, ytDlp, type VideoMeta, type YouTube } from '../src/youtube'
 
 const ev = (s: number, text: string) => ({ tStartMs: s * 1000, segs: [{ utf8: text }] })
 
@@ -578,6 +578,40 @@ test('ytApi: playlist pages and video details from the Data API, with the key; p
   expect(m).toMatchObject({ durationSec: 845, publishedAt: '2023-02-11', lang: 'en', embeddable: true, chapters: [{ start: 0, title: 'Intro' }, { start: 65, title: 'Why algae' }, { start: 750, title: 'Fixes' }], thumb: { width: 480 } })
   expect(m.captions).toBeUndefined()
   expect(asked).toHaveLength(4)
+})
+
+test("ytApi: an email address in a playlist's or a video's title is taken out before anything stores it (the chief of staff, 16 Nov)", async () => {
+  const get = async (u: string) => {
+    if (u.includes('/playlists?')) return { items: [{ snippet: { title: 'Bettas fishroom@example.com', channelTitle: 'C', channelId: 'UC1' } }] }
+    if (u.includes('/playlistItems?')) return { items: [{ snippet: { title: 'Part 1 (fishroom@example.com)', resourceId: { videoId: 'a1' } } }] }
+    return { items: [{ snippet: { title: 'Part 1 (fishroom@example.com)', channelTitle: 'C', channelId: 'UC1', description: '', thumbnails: {} }, contentDetails: { duration: 'PT1M' }, status: { embeddable: true, privacyStatus: 'public' } }] }
+  }
+  const yt = ytApi('K', get)
+  expect(await yt.playlist('PL1')).toMatchObject({ title: 'Bettas', videos: [{ id: 'a1', title: 'Part 1' }] })
+  expect((await yt.video('a1')).title).toBe('Part 1')
+})
+
+test("yt-dlp's reader, used with no API key: an email address in a playlist's, its videos' or a video's title is taken out before anything stores it (the chief of staff, 16 Nov)", async () => {
+  // A stand-in yt-dlp first on the path, answering the playlist and the video calls; nothing reaches YouTube.
+  const bin = await mkdtemp(join(tmpdir(), 'aq-yt-dlp-'))
+  await writeFile(join(bin, 'playlist.json'), JSON.stringify({ title: 'Bettas fishroom@example.com', entries: [{ id: 'a1', title: 'Part 1 (fishroom@example.com)' }] }))
+  await writeFile(join(bin, 'video.json'), JSON.stringify({ title: 'Part 1 (fishroom@example.com)', duration: 60, availability: 'public', language: 'en' }))
+  await writeFile(join(bin, 'yt-dlp'), `#!/bin/sh\ncase "$*" in *--flat-playlist*) cat "${bin}/playlist.json" ;; *) cat "${bin}/video.json" ;; esac\n`, { mode: 0o755 })
+  const path = process.env.PATH
+  process.env.PATH = `${bin}:${path}`
+  vi.stubGlobal('fetch', async () => ({ ok: true }))
+  try {
+    expect(await ytDlp.playlist('PL1')).toMatchObject({ title: 'Bettas', videos: [{ id: 'a1', title: 'Part 1' }] })
+    expect((await ytDlp.video('a1')).title).toBe('Part 1')
+  } finally {
+    process.env.PATH = path
+    vi.unstubAllGlobals()
+  }
+})
+
+test("yt-dlp's searches and a channel's playlists: an email address in a found title is taken out before anything stores it (the chief of staff, 16 Nov)", () => {
+  expect(flatEntries({ channel: 'C', entries: [{ id: 'a1', title: 'Wild bettas | fishroom@example.com' }, { id: 'a2', title: 'Discus care' }, { title: 'no id' }] }))
+    .toEqual([{ id: 'a1', title: 'Wild bettas', channel: 'C' }, { id: 'a2', title: 'Discus care', channel: 'C' }])
 })
 
 test('chapters: only when the description lists at least three, from 0:00, in order', () => {

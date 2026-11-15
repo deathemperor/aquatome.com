@@ -166,6 +166,24 @@ test('localizeTopic: from the same facts, minus Vietnam-only ones; cites only th
   expect(await localizeTopic(root, llm, r0.id, 'th')).toMatchObject({ skipped: 'done' })
 })
 
+// The chief of staff, 16 Nov 2026: a copy's body a person fixed is theirs, as the Vietnamese one is, so a redo (a copy the
+// fit read flags is written again by itself) can't bring back what the hand fix took out.
+test('localizeTopic: a redo keeps a body a person fixed, and its mark', async () => {
+  const root = await site()
+  const llm0: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : { name: 'Cá bị lồi mắt', summary: ['x'], body: '<p>x</p>', faq: [] }) as never
+  const r0 = await makeTopic(root, { research: async () => facts as never, llm: llm0 }, { topic: 'Cá bị lồi mắt (popeye)', kind: 'disease' })
+  const llm: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : { name: 'Mata ikan menonjol', slug: 'x', summary: ['baru'], body: '<p>tulisan baru, 3–5 hari</p>', faq: [] }) as never
+  await localizeTopic(root, llm, r0.id, 'id')
+  const file = join(root, 'content/guides', r0.id, 'id.json')
+  const t = JSON.parse(await readFile(file, 'utf8'))
+  await writeFile(file, JSON.stringify({ ...t, body: '<p>diperbaiki dengan tangan</p>', bodyFixed: true }))
+  await localizeTopic(root, llm, r0.id, 'id', { redo: true })
+  const again = JSON.parse(await readFile(file, 'utf8'))
+  expect(again.body).toBe('<p>diperbaiki dengan tangan</p>')
+  expect(again.bodyFixed).toBe(true)
+  expect(again.summary).toEqual(['baru'])
+})
+
 test('localizeTopic in Malay: addressed by its name, and a name another guide has takes its word for "guide"', async () => {
   const root = await site()
   const llm0: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : { name: 'Cá bị lồi mắt', summary: ['x'], body: '<p>x</p>', faq: [] }) as never

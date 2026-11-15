@@ -97,7 +97,7 @@ test('what it can\'t mend exactly stays held, as it is, and is listed; before 13
   const cases: [string, string, string][] = [
     ['<p>Bể cho chúng từ 75–110 lít trở lên.</p>', 'từ 75–110 lít', 'a range'],
     ['<p>Hai cái chạy trong bể khoảng 470 lít.</p>', 'khoảng 470 lít', 'no US tank size'],
-    ['<p>Phủ khoảng 2,5 cm cát.</p>', 'khoảng 2,5 cm cát', 'a length or a temperature'],
+    ['<p>Phủ khoảng 3,8 cm cát.</p>', 'khoảng 3,8 cm cát', 'a length or a temperature'],
     ['<p>Bể 80 lít là khoảng 75 lít.</p>', 'khoảng 75 lít', 'name one volume twice'],
     ['<p>Dùng 5 ml cho mỗi 38 lít nước.</p>', 'cho mỗi 38 lít', 'a dose'],
   ]

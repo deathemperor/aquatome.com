@@ -2,7 +2,9 @@
   "slug": "ca-nheo-biet-hot-orinocodoras-eigenmanni",
   "name": "Cá nheo biết hót Orinocodoras eigenmanni",
   "altNames": [
-    "Donauwelle talking cat"
+    "Donauwelle talking cat",
+    "Cá Raphael mũi dài",
+    "Long-nosed Raphael Catfish"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Họ cá nheo biết nói (Doradidae) thú vị ở nhiều điểm. Nhiều loài trong họ có hoa văn mảng sẫm, mảng sáng tương phản mạnh. Chúng còn phát ra được tiếng kêu, nghe như tiếng càu nhàu hay gầm gừ. Lớp giáp bằng các tấm xương của chúng thường trông kỳ dị đến mức người ta dễ tưởng chúng được vẽ ra trên bàn của một nhà làm phim giả tưởng chứ không phải do tự nhiên sinh ra.</p><p>Orinocodoras eigenmanni dài tối đa khoảng 20 cm.</p>",
@@ -10,14 +12,21 @@
     "distribution:glaser": "<p>Nguồn gốc: Colombia.</p>",
     "behaviour:glaser": "<p>Orinocodoras eigenmanni là loài hiền, thích ở gần đồng loại trong bể. Cá thật nhỏ thì đương nhiên có thể bị nó ăn, nhưng thả chung với cá cỡ vừa thì nó hợp vô cùng. Loài này vốn hoạt động về đêm, nhưng đến giờ cho ăn thì ban ngày nó cũng bơi rất hăng.</p>",
     "diet:glaser": "<p>Thức ăn cá thông thường loại nào nó cũng ăn ngay.</p>",
-    "notes:glaser": "<p>Orinocodoras nghĩa là \"Doras từ sông Orinoco\". Doras là một chi cá nheo biết nói khác. Tên eigenmanni đặt để vinh danh nhà ngư học Carl H. Eigenmann (1863 – 1927). Platydoras bắt nguồn từ tiếng Hy Lạp cổ, nghĩa là \"Doras bản rộng\".</p><p>Tên thường gọi được đề xuất: Donauwelle talking cat. Donauwelle nghĩa là \"sóng sông Danube\", tên một loại bánh phủ sô-cô-la có lớp kem vani. Tên này lấy từ hoa văn tương phản của con cá.</p>"
+    "notes:glaser": "<p>Orinocodoras nghĩa là \"Doras từ sông Orinoco\". Doras là một chi cá nheo biết nói khác. Tên eigenmanni đặt để vinh danh nhà ngư học Carl H. Eigenmann (1863 – 1927). Platydoras bắt nguồn từ tiếng Hy Lạp cổ, nghĩa là \"Doras bản rộng\".</p><p>Tên thường gọi được đề xuất: Donauwelle talking cat. Donauwelle nghĩa là \"sóng sông Danube\", tên một loại bánh phủ sô-cô-la có lớp kem vani. Tên này lấy từ hoa văn tương phản của con cá.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: Long-nosed Raphael Catfish (cá Raphael mũi dài)</li><li>Tên đồng nghĩa: không có</li></ul>",
+    "beforeYouBuy:scotcat": "<p>Loài này có lẽ được nhập lẫn với Platydoras armulatus. Nhìn vào bể Platydoras armulatus ở tiệm nào cũng thường thấy lẫn một hai con O. eigenmanni. Quen mắt rồi thì nhận ra khá dễ. Đúng như tên gọi, O. eigenmanni có mõm dài hơn. Hàng vảy xương dọc hai bên thân của nó cũng nhỏ hơn, và màu thường sẫm hơn P. armulatus một chút.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông Orinoco, Venezuela. Nơi thu mẫu chuẩn: Venezuela, Caño de Quiribana gần Caicara.</p>",
+    "maintenance:scotcat": "<p>Đây là loài cá da trơn sống về đêm hẳn hoi. Cho nó thật nhiều chỗ trốn như ống hay hốc đá, và thỉnh thoảng bạn còn có dịp thấy nó ló ra.</p>",
+    "diet:scotcat": "<p>Loài này ăn gì cũng được, nên thân mới tròn trịa như vậy. Có thể thả thêm thức ăn viên lúc tắt đèn để chắc nó được ăn đủ phần. Cứ cho cả bể ăn như thường lệ thì những lần hiếm hoi nhìn thấy nó, bạn thường sẽ gặp một con O. eigenmanni to béo.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên loài: tên eigenmanni đặt để vinh danh nhà ngư học người Mỹ gốc Đức Carl H. Eigenmann (1863–1927), người \"gần đây [1925] đã đặt nền móng vững chắc cho cách phân loại họ Doradidae\".</p><p>Danh sách Đỏ IUCN: loài này xếp hạng Ít quan tâm (Least Concern) vì phân bố rộng và quần thể có lẽ ổn định (IUCN 2022).</p>",
+    "references:scotcat": "<p>DoNascimiento, CD, Herrera-Collazos, E.E., Mojica, J.I., Rodríguez-Olarte, D., Taphorn, D.C. &amp; Usma, S. 2022. Orinocodoras eigenmanni. The IUCN Red List of Threatened Species 2022. ScotCat Factsheet no. 17. Nov. 1997. The ETYFish Project Fish Name Etymology Database.</p>"
   },
   "quality": {
     "score": 0.75,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.75
-    },
-    "reason": "thin"
+      "glaser": 0.75,
+      "scotcat": 0.9
+    }
   }
 }

@@ -112,7 +112,10 @@ export async function handbookOf(source: Source, lang: Lang): Promise<Handbook |
   const held = topics ? new Set(topics.held ?? []) : null
   const items = index.items.filter(i => CHAT_KINDS.has(i.kind) && (held ? !held.has(i.path) : !(i.kind === 'guide' && i.video !== undefined)))
   const paths = new Map(items.map(i => [i.path, i]))
-  const ids = new Map(items.flatMap(i => (i.id ? [[i.id, i] as const] : [])))
+  // Fish and plants by their id: a tank, the page a chat starts from and the tools name only those. Guides, terms, series
+  // and kinds of kit carry an id too (the app's language switch), unique within a kind only: a term and a kind of kit
+  // are both "co2".
+  const ids = new Map(items.flatMap(i => (i.id && (i.kind === 'fish' || i.kind === 'plant') ? [[i.id, i] as const] : [])))
   return {
     lang,
     items,

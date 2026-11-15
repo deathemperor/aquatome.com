@@ -1,0 +1,29 @@
+{
+  "slug": "ca-otocinclus-den",
+  "name": "Cá otocinclus đen",
+  "altNames": [
+    "Black Otocinclus"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Hisonotus notatus Eigenmann &amp; Eigenmann, 1889</li><li>Tên thường gọi: cá otto đen (Black Otocinclus)</li><li>Sách Đỏ IUCN: Ít quan tâm (đánh giá lần cuối năm 2018)</li></ul>",
+    "distribution:planetcatfish": "<p>Nam Mỹ: Brazil. Loài này sống ở các con sông thuộc bang Rio de Janeiro (có cả sông Macaé), bang Minas Gerais, bang Espirito Santo và bang Sao Paulo.</p><p>Nơi thu mẫu chuẩn: bang Rio de Janeiro, Santa Cruz, sông Guandu, trang trại Santa Cruz (trang trại của Hoàng đế Pedro II), Brazil.</p>",
+    "waterConditions:planetcatfish": "<ul><li>pH: 6,5–7,5</li><li>Nhiệt độ: 22–24 °C</li><li>Thông số khác: dH 20</li></ul>",
+    "reproduction:planetcatfish": "<p>Chưa có tài liệu về cách sinh sản của loài này. Hiện mới có đúng một báo cáo cho đẻ.</p>",
+    "references:planetcatfish": "<p>Proceedings of the California Academy of Sciences (Series 2) v. 2, pp 41.</p>",
+    "quickFacts:glaser": "<p>Xuất xứ: Đông Nam Brazil. Loài này nuôi giống như cá otto, và rất bền.</p>",
+    "distribution:glaser": "<p>Thỉnh thoảng có vài con hiếm được nhập về từ Đông Nam Brazil. Chúng là họ hàng của cá otto, loài quen thuộc với nhiều người nuôi.</p>",
+    "habitat:glaser": "<p>Ngoài tự nhiên, Hisonotus ornatus sống ở những vùng nước có cỏ mọc dày.</p>",
+    "waterConditions:glaser": "<p>Đừng để nước quá ấm. Mức cao nhất có lẽ chỉ nên tới 24°C.</p>",
+    "maintenance:glaser": "<p>Cách nuôi không khác gì cá otto. Muốn chúng khỏe thì phải có lọc tốt và thay nước thường xuyên.</p>",
+    "diet:glaser": "<p>Thức ăn chủ yếu là rau và tảo.</p>"
+  },
+  "quality": {
+    "score": 0.6,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.9,
+      "glaser": 0.6
+    },
+    "reason": "thin"
+  }
+}

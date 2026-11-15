@@ -2,18 +2,6 @@
   "id": "atractosteus-tropicus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/111138560.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/111138560-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC0",
-      "author": "Adam Kranz",
-      "sourceUrl": "https://www.inaturalist.org/photos/111138560",
-      "caption": "Hai cá sấu hỏa tiễn nhiệt đới bơi cạnh nhau trong bể",
-      "best": true,
-      "kind": "pair"
-    },
-    {
       "url": "https://media.aquatome.com/commons/f7ffbcdc67597d8f.webp",
       "thumb": "https://media.aquatome.com/commons/f7ffbcdc67597d8f-480.webp",
       "width": 1200,
@@ -24,6 +12,18 @@
       "caption": "Hai cá sấu hỏa tiễn nhiệt đới bơi sát đáy trong nước trong",
       "best": true,
       "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/111138560.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/111138560-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC0",
+      "author": "Adam Kranz",
+      "sourceUrl": "https://www.inaturalist.org/photos/111138560",
+      "caption": "Hai cá sấu hỏa tiễn nhiệt đới bơi cạnh nhau trong bể",
+      "best": true,
+      "kind": "pair"
     },
     {
       "url": "https://media.aquatome.com/commons/acf5b68bdcbdbe9b.webp",
