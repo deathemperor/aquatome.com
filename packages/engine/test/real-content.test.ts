@@ -3,7 +3,7 @@ import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
-import { loadAll, mayPublish, resolveDataCard, type Translation } from '@aq/schema'
+import { GALLERY_POST, loadAll, mayPublish, RETIRED_GUIDES, resolveDataCard, type Translation } from '@aq/schema'
 import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
 import { englishOf } from '../src/english'
 import { tilapiaUnnamed } from '../src/kind-words'
@@ -376,6 +376,19 @@ test('no guide calls a cichlid a tilapia in its title', () => {
     expect([t.name, t.nameFixed, t.altNames.filter(n => /rô phi/i.test(n)), t.redirectFrom], id).toEqual([r.name, true, [], [{ slug: r.was, name: '' }]])
     expect(t.slug, id).not.toMatch(/ro-phi/)
   }
+})
+
+// The chief of staff, 14 Nov 2026: the gallery posts of other people's tanks (66 on 14 Nov) and the 13 Nov sheet's
+// seller-site notices go off for good, every address forwarding (@aq/schema retired.ts). Each named one is a guide the
+// content has, and each forwards to a page it has: a typo would leave a guide up, or forward to nothing.
+test('every guide taken off for good is one the content has, and forwards to a page it has', () => {
+  const content = fileURLToPath(new URL('../../../content', import.meta.url))
+  for (const [id, to] of Object.entries(RETIRED_GUIDES)) {
+    expect(existsSync(join(content, 'guides', id, 'vi.json')), id).toBe(true)
+    if (to !== 'guides') expect(existsSync(join(content, to.kind, to.id, 'vi.json')), `${id} → ${to.kind}/${to.id}`).toBe(true)
+  }
+  expect(Object.keys(RETIRED_GUIDES)).toHaveLength(19)
+  expect(readdirSync(join(content, 'guides')).filter(id => GALLERY_POST.test(id)).length).toBeGreaterThanOrEqual(66)
 })
 
 // The chief of staff's rulings of 2026-11-12 on the tap-water report. Each is a hand fix the engine keeps: a guide's body
