@@ -435,12 +435,15 @@ export async function localizeTopic(root: string, llm: Llm, id: string, lang: Ta
       const t = JSON.parse(await readFile(join(root, 'content/guides', g, `${lang}.json`), 'utf8').catch(() => '{}')) as { slug?: string }
       if (t.slug) taken.add(t.slug)
     }
-    const prev = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as { slug: string } | null
+    const prev = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as Translation | null
     const name = unescapePlain(w.name).trim()
     const slug = prev?.slug ?? pickSlug(lang === 'th' || !slugify(name) ? w.slug : name.replace(/:.*$/, ''), T.slugWords.guide, taken)
+    // A body a person fixed (bodyFixed) is theirs, as in Vietnamese above: a redo keeps it and its mark (the chief of
+    // staff, 16 Nov 2026: the popeye guide's day count went by hand in every language, and its facts still hold it).
     const t = TranslationSchema.parse(metricPage({
-      slug, name, altNames: [], sections: {}, body: sanitizeHtml(w.body), ...plainParts(w.summary, w.faq),
+      slug, name, altNames: [], sections: {}, body: prev?.bodyFixed ? prev.body : sanitizeHtml(w.body), ...plainParts(w.summary, w.faq),
       refs, quality: { score: review.score, indexable: review.score >= QUALITY_THRESHOLD },
+      ...(prev?.bodyFixed ? { bodyFixed: true } : {}),
     }, lang))
     await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)
     await logReviews(root, 'topic', { id: `guides/${id}`, lang }, tries, review)

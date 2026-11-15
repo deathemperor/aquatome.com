@@ -936,6 +936,22 @@ test('the care facts the lane would cut whole are on hand-fixed text: a temperat
   }
 })
 
+// Page Recovery, 16 Nov 2026 (the chief of staff): the leak-repair guide sent a keeper here to seven American silicones and
+// super glues by name, none in the market table, so no check of the gate saw them; it was held by hand. The Writing
+// Lead's plain words replace the three lists (what to look for on the tube, a small tube, thin super glue), the body is
+// fixed by hand, and the hold is let go.
+test('the leak-repair guide says what to buy in plain words, no brands, and is out', () => {
+  const root = fileURLToPath(new URL('../../../', import.meta.url))
+  const id = 'aquariumbreeder-how-to-fix-a-leaking-aquarium-with-and-without-draining'
+  const byHand = JSON.parse(readFileSync(join(root, 'engine-state/held-by-hand.json'), 'utf8')) as Record<string, unknown>
+  const t = JSON.parse(readFileSync(join(root, `content/guides/${id}/vi.json`), 'utf8')) as Translation & { bodyFixed?: boolean; held?: unknown }
+  for (const gone of ['GE Silicone', 'ASI Aquarium', 'Aqueon', 'Tub Clear', 'Ultra Gel', 'Insta-Cure', '57 g']) expect(t.body, gone).not.toContain(gone)
+  for (const kept of ['Khi mua keo silicone, chọn tuýp:', 'ghi rõ dùng được cho bể cá, hoặc là silicone 100%', 'không có chất chống nấm mốc', 'một tuýp nhỏ loại như trên là đủ', 'Keo 502 loại thật loãng, chảy gần như nước.']) expect(t.body, kept).toContain(kept)
+  expect(t.bodyFixed).toBe(true)
+  expect(t.held).toBeUndefined()
+  expect(byHand[`guides/${id}`]).toBeUndefined()
+})
+
 // The chief of staff, 16 Nov 2026: two titles say their true count again, fixed by hand so the sweep's count rule, which
 // counts headings and not a summary table's rows or the text's own "ten", doesn't take it off again. The algae guide's
 // read "8 lý do" while its text gave ten; the hard-water one had lost its 10 when it was written.
@@ -957,7 +973,7 @@ test('two guide titles say the count their own text gives, and are fixed by hand
 // hand (the video maker's own fish, rack or tank; a tank converted from gallons), each body fixed so no mend undoes it.
 test('five held video guides say their one sentence plainly, in the Writing Lead\'s words, and are fixed by hand', () => {
   for (const [id, kept, gone, flags] of [
-    ['youtube-gJuWCudImSc', ['Cá con sinh ra ngay trong hồ thường quen người từ nhỏ.', 'khi chuyển ra hồ có thể trở nên nhát như cá hoang', 'Cây không chịu lạnh thì đợi trời ấm hẳn, hết rét rồi mới đem ra hồ trồng.'], ['còn cá lớn từng nuôi trong nhà, chuyển ra hồ'], ['bodyFixed']],
+    ['youtube-gJuWCudImSc', ['Đám cá con này quen người từ nhỏ. Còn cá lớn từng nuôi trong bể trong nhà', 'khi chuyển ra hồ có thể trở nên nhát như cá hoang', 'Cây không chịu lạnh thì đợi trời ấm hẳn, hết rét rồi mới đem ra hồ trồng.'], ['còn cá lớn từng nuôi trong nhà, chuyển ra hồ', 'Cá con sinh ra ngay trong hồ thường quen người'], ['bodyFixed']],
     ['youtube-3jqe5KGD9lI', ['nhưng nếu kệ đủ chắc và bể có viền thì không thật sự cần', 'Nếu kệ đủ chắc và bể có viền thì không thật sự cần.'], ['kệ kiểu này'], ['bodyFixed', 'faqFixed']],
     ['youtube-hTqxIrD_Vho', ['phần nước hơi nhỏ, kể cả với cá tí hon như Phoenix rasbora', 'Phần nước của một bể ốc đảo mini như vậy hơi nhỏ'], ['của bể này', 'mini này'], ['bodyFixed', 'faqFixed']],
     ['youtube-Iinv7wWjhzA', ['40–120 lít', 'bể 40, 80 hay 100 lít', 'từ khoảng 120 lít trở xuống', 'Trong bể 100–120 lít', 'từ 80 lít trở lên'], ['38', '75 lít', '110 lít'], ['nameFixed', 'bodyFixed', 'faqFixed']],
@@ -985,4 +1001,25 @@ test('no live guide title promises a number its own text disagrees with', async 
     if (why) wrong.push(`${f.replace('.json', '')}/guides/${id}: "${t.name}": ${why}`)
   }
   expect(wrong).toEqual([])
+})
+
+// The chief of staff, 16 Nov 2026: the popeye guide said fish clinics exist in Hà Nội, TP.HCM and Đà Nẵng, and to get help
+// after 3–5 days of home treatment. Its one source for both, a shop's page, names no clinic and reads as machine-written.
+// The clinic sentences and the day count go by hand, every language's body is fixed so the topic writers keep it, and the
+// page still says whom to ask and when.
+test('the popeye guide names no clinic in a place and no day count, still says whom to ask, and is fixed by hand', () => {
+  const read = (lang: string) => JSON.parse(readFileSync(fileURLToPath(new URL(`../../../content/guides/aquatome-ca-bi-loi-mat-popeye-nguyen-nhan-cach-chua-va-phong/${lang}.json`, import.meta.url)), 'utf8')) as Translation & Record<string, unknown>
+  for (const lang of ['vi', 'id', 'th', 'ms']) {
+    const t = read(lang)
+    const all = [t.name, t.body, ...(t.summary ?? []), ...(t.faq ?? []).flatMap(f => [f.q, f.a])].join('\n')
+    for (const s of ['phòng khám', 'Hà Nội', 'TP.HCM', 'Đà Nẵng', 'kính hiển vi']) expect(all, `${lang}: ${s}`).not.toContain(s)
+    expect(all, `${lang}: a day count`).not.toMatch(/3\s*(?:[–-]|đến|sampai|hingga|ถึง)\s*5\s*(?:ngày|hari|วัน)/u)
+    expect(t.bodyFixed, `${lang}: bodyFixed`).toBe(true)
+  }
+  const vi = read('vi').body ?? ''
+  expect(vi).toContain('Bạn nên nhờ bác sĩ thú y có chữa cá, hoặc tiệm cá cảnh có người rành bệnh cá, xem giúp nếu gặp một trong các trường hợp sau:')
+  expect(vi).toContain('<li>Chữa ở nhà mà cá không đỡ.</li>')
+  // The saved facts lose both too, so a redo of the summary, the FAQ or another language can't bring them back.
+  const facts = readFileSync(fileURLToPath(new URL('../../../engine-state/topics/aquatome-ca-bi-loi-mat-popeye-nguyen-nhan-cach-chua-va-phong.json', import.meta.url)), 'utf8')
+  for (const s of ['3–5 days', 'Hà Nội', 'TP.HCM', 'Đà Nẵng', 'clinics']) expect(facts, `facts: ${s}`).not.toContain(s)
 })

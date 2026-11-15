@@ -3,7 +3,7 @@ import { expect, test } from 'vitest'
 import { CurationSchema, FIRST_GUIDES, FIRST_PLANTS, POPULAR, slugify, STAPLE_SPECIES, type Content } from '@aq/schema'
 import { pageShard, PageShard } from '@aq/schema/app-page'
 import { isVietnamese } from '@aq/schema/text'
-import { appBreeds, appIndex, appPlants, appSpecies, breedGroup, type AppIndex, type AppItem } from '../src/lib/app-index'
+import { appBreeds, appEquipment, appGlossary, appGuides, appIndex, appPlants, appSeries, appSpecies, breedGroup, type AppIndex, type AppItem } from '../src/lib/app-index'
 import { glossaryParts } from '../src/lib/glossary-page'
 import { easyPlants, groupTiles, leadGuides } from '../src/lib/home'
 import { getContent } from '../src/lib/content'
@@ -62,6 +62,29 @@ test('fish and plants carry their content id (the page folder), so a saved tank 
   expect(index('vi').items.some(i => i.kind === 'plant')).toBe(true)
   for (const [lang, path] of [['vi', '/vi/cong-cu/be-cua-toi/'], ['id', '/id/alat/akuarium-saya/'], ['th', '/th/tools/my-tanks/']]) {
     expect(index(lang!).items.some(i => i.path === path), path).toBe(true)
+  }
+})
+
+// The app's language switch finds an open page's copy in the new language by its id (the iOS lead, 16 Nov 2026).
+test('guides, glossary terms, video series and kinds of kit carry their content id, the same in every language', async () => {
+  const kinds = ['guide', 'glossary', 'video', 'equipment'] as const
+  const of: Record<string, Record<string, (string | undefined)[]>> = {}
+  for (const lang of LANGS) {
+    const c = await getContent(lang)
+    const items = appIndex(lang, c).items
+    const ids = (kind: AppItem['kind']) => items.filter(i => i.kind === kind).map(i => i.id)
+    expect(ids('guide'), lang).toEqual(appGuides(lang, c).map(g => g.id))
+    expect(ids('glossary'), lang).toEqual(appGlossary(lang, c).map(g => g.id))
+    expect(ids('video'), lang).toEqual(appSeries(lang, c).map(x => x.s.id))
+    expect(ids('equipment'), lang).toEqual(appEquipment(lang, c).map(u => u.category))
+    of[lang] = Object.fromEntries(kinds.map(k => [k, ids(k)]))
+  }
+  for (const kind of kinds) {
+    // The fixture has each kind in Vietnamese, so the checks aren't empty, and every item has its id.
+    expect(of.vi![kind]!.length, kind).toBeGreaterThan(0)
+    expect(of.vi![kind]!.every(Boolean), kind).toBe(true)
+    // Another language's page has its Vietnamese copy's id: the same content, so the switch finds it.
+    for (const lang of OTHER_LANGS) for (const id of of[lang]![kind]!) expect(of.vi![kind], `${lang} ${kind} ${id}`).toContain(id)
   }
 })
 
